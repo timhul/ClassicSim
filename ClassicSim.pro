@@ -14,9 +14,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    Event/Event.cpp \
+    Engine/Engine.cpp \
+    Event/Events/EncounterEnd.cpp \
+    Event/Events/EncounterStart.cpp \
+    Queue/Queue.cpp
 
 HEADERS += \
-    Engine/engine.h
+    Queue/Queue.h \
+    Event/Event.h \
+    Engine/Engine.h \
+    Event/Events/EncounterEnd.h \
+    Event/Events/EncounterStart.h
 
-INCLUDEPATH = C:\C++\ClassicSim\Engine
+INCLUDEPATH = C:\C++\ClassicSim\Engine C:\C++\ClassicSim\Event C:\C++\ClassicSim\Event\Events C:\C++\ClassicSim\Queue

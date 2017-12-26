@@ -6,7 +6,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    std::cout << "Hello, world!";
+    Engine engine;
+    engine.test_queue();
 
     return a.exec();
 }
