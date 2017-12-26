@@ -9,5 +9,5 @@ EncounterStart::EncounterStart(Character* pchar) {
 
 void EncounterStart::act(void) {
     std::cout << "EncounterStart\n";
-    pchar->let_player_act();
+    pchar->rotation();
 }

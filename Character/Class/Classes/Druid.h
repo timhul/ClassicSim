@@ -5,7 +5,7 @@
 
 class Druid: public Class {
 public:
-    Druid(Engine* engine) : Class(engine) {}
+    Druid(Race* race, Engine* engine) : Class(race, engine) {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

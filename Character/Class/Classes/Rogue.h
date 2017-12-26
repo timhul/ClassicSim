@@ -5,7 +5,7 @@
 
 class Rogue: public Class {
 public:
-    Rogue(Engine* engine) : Class(engine) {}
+    Rogue(Race* race, Engine* engine) : Class(race, engine) {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

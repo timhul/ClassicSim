@@ -5,7 +5,7 @@
 
 class Hunter: public Class {
 public:
-    Hunter(Engine* engine) : Class(engine) {}
+    Hunter(Race* race, Engine* engine) : Class(race, engine) {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

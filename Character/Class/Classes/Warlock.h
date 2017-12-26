@@ -5,7 +5,7 @@
 
 class Warlock: public Class {
 public:
-    Warlock(Engine* engine) : Class(engine) {}
+    Warlock(Race* race, Engine* engine) : Class(race, engine) {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

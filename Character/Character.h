@@ -2,19 +2,16 @@
 #define CHARACTER_H
 
 #include "Race.h"
-#include "Class.h"
 
 class Character {
 public:
-    Character(Race* _race, Class* _class): race(_race), pclass(_class) {}
+    Character(Race* _race): race(_race) {}
     Race* get_race(void);
-    Class* get_class(void);
-    void let_player_act(void);
+    virtual void rotation(void) const = 0;
 
 protected:
 private:
     Race* race;
-    Class* pclass;
 };
 
 #endif // CHARACTER_H
