@@ -36,7 +36,8 @@ SOURCES += main.cpp \
     Character/Class/Classes/Hunter.cpp \
     Character/Class/Classes/Warlock.cpp \
     Character/Class/Classes/Shaman.cpp \
-    Character/Class/Classes/Paladin.cpp
+    Character/Class/Classes/Paladin.cpp \
+    Character/Character.cpp
 
 HEADERS += \
     Queue/Queue.h \

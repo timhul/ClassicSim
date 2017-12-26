@@ -21,6 +21,8 @@
 #include "Shaman.h"
 #include "Paladin.h"
 
+#include "Character.h"
+
 #include <iostream>
 
 void Engine::run(void) {
@@ -47,6 +49,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     race = new Dwarf();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -55,6 +58,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     race = new NightElf();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -63,6 +67,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     race = new Gnome();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -71,6 +76,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     race = new Orc();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -79,6 +85,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     race = new Undead();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -87,6 +94,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     race = new Tauren();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -95,6 +103,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     race = new Troll();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -103,6 +112,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+    delete race;
 
     Class* pclass = new Warrior();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -111,6 +121,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Priest();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -119,6 +130,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Rogue();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -127,6 +139,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Mage();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -135,6 +148,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Druid();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -143,6 +157,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Hunter();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -151,6 +166,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Warlock();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -159,6 +175,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Shaman();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -167,6 +184,7 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
 
     pclass = new Paladin();
     std::cout << "Name: " << pclass->get_name() << "\n";
@@ -175,4 +193,15 @@ void Engine::test_character_creation(void) {
     std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
     std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+    delete pclass;
+
+    race = new Orc();
+    pclass = new Warrior();
+    Character* pchar = new Character(race, pclass);
+    std::cout << "Character " << pchar->get_race()->get_name() << \
+                 " " << pchar->get_class()->get_name();
+    delete pchar;
+    delete race;
+    delete pclass;
+
 }
