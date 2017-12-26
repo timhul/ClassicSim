@@ -20,7 +20,14 @@ SOURCES += main.cpp \
     Event/Events/EncounterEnd.cpp \
     Event/Events/EncounterStart.cpp \
     Queue/Queue.cpp \
-    Character/Race/Races/Human.cpp
+    Character/Race/Races/Human.cpp \
+    Character/Race/Races/Dwarf.cpp \
+    Character/Race/Races/NightElf.cpp \
+    Character/Race/Races/Gnome.cpp \
+    Character/Race/Races/Orc.cpp \
+    Character/Race/Races/Undead.cpp \
+    Character/Race/Races/Tauren.cpp \
+    Character/Race/Races/Troll.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -30,7 +37,14 @@ HEADERS += \
     Event/Events/EncounterStart.h \
     Character/Character.h \
     Character/Race/Race.h \
-    Character/Race/Races/Human.h
+    Character/Race/Races/Human.h \
+    Character/Race/Races/Dwarf.h \
+    Character/Race/Races/NightElf.h \
+    Character/Race/Races/Gnome.h \
+    Character/Race/Races/Orc.h \
+    Character/Race/Races/Undead.h \
+    Character/Race/Races/Tauren.h \
+    Character/Race/Races/Troll.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
