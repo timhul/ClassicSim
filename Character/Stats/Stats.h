@@ -3,6 +3,8 @@
 
 #include "Race.h"
 
+class Class;
+
 class Stats {
 public:
     Stats(Race* race);
@@ -12,9 +14,12 @@ public:
     int get_stamina();
     int get_intellect();
     int get_spirit();
+
+    void add_class(Class*);
 protected:
 private:
     Race* race;
+    Class* pclass;
     int STR;
     int AGI;
     int STAM;

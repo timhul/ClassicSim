@@ -29,3 +29,7 @@ int Stats::get_intellect(void) {
 int Stats::get_spirit(void) {
     return int(float(SPI) * race->get_spirit_multiplier());
 }
+
+void Stats::add_class(Class* pclass) {
+    this->pclass = pclass;
+}
