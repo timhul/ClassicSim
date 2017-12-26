@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 
     Engine engine;
     engine.test_queue();
+    engine.test_character_creation();
 
     return a.exec();
 }

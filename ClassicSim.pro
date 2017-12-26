@@ -19,13 +19,23 @@ SOURCES += main.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
     Event/Events/EncounterStart.cpp \
-    Queue/Queue.cpp
+    Queue/Queue.cpp \
+    Character/Race/Races/Human.cpp
 
 HEADERS += \
     Queue/Queue.h \
     Event/Event.h \
     Engine/Engine.h \
     Event/Events/EncounterEnd.h \
-    Event/Events/EncounterStart.h
+    Event/Events/EncounterStart.h \
+    Character/Character.h \
+    Character/Race/Race.h \
+    Character/Race/Races/Human.h
 
-INCLUDEPATH = C:\C++\ClassicSim\Engine C:\C++\ClassicSim\Event C:\C++\ClassicSim\Event\Events C:\C++\ClassicSim\Queue
+INCLUDEPATH = C:\C++\ClassicSim\Engine \
+    C:\C++\ClassicSim\Event \
+    C:\C++\ClassicSim\Event\Events \
+    C:\C++\ClassicSim\Queue \
+    C:\C++\ClassicSim\Character \
+    C:\C++\ClassicSim\Character\Race \
+    C:\C++\ClassicSim\Character\Race\Races
