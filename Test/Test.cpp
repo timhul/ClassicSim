@@ -29,13 +29,19 @@
 void Test::test_queue(void) {
     Engine* engine = new Engine();
     Race* race = new Orc();
-    Class* pclass = new Warrior(race, engine);
+    Stats* stats = new Stats(race);
+    Class* pclass = new Warrior(race, stats, engine);
     EncounterStart* start_event = new EncounterStart(pclass);
     EncounterEnd* end_event = new EncounterEnd(engine);
 
     engine->add_event(end_event);
     engine->add_event(start_event);
     engine->run();
+
+    delete pclass;
+    delete stats;
+    delete race;
+    delete engine;
 }
 
 
@@ -114,7 +120,8 @@ void Test::test_character_creation(void) {
     std::cout << "SPI " << race->get_base_spirit() << "\n";
 
 
-    Class* pclass = new Warrior(race, engine);
+    Stats* stats = new Stats(race);
+    Class* pclass = new Warrior(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -123,7 +130,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Priest(race, engine);
+    pclass = new Priest(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -132,7 +139,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Rogue(race, engine);
+    pclass = new Rogue(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -141,7 +148,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Mage(race, engine);
+    pclass = new Mage(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -150,7 +157,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Druid(race, engine);
+    pclass = new Druid(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -159,7 +166,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Hunter(race, engine);
+    pclass = new Hunter(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -168,7 +175,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Warlock(race, engine);
+    pclass = new Warlock(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -177,7 +184,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Shaman(race, engine);
+    pclass = new Shaman(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -186,7 +193,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Paladin(race, engine);
+    pclass = new Paladin(race, stats, engine);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -196,10 +203,11 @@ void Test::test_character_creation(void) {
     delete pclass;
 
     race = new Orc();
-    pclass = new Warrior(race, engine);
+    pclass = new Warrior(race, stats, engine);
     std::cout << "Character " << pclass->get_race()->get_name() << \
                  " " << pclass->get_name() << "\n";
     delete race;
+    delete stats;
     delete pclass;
     delete engine;
 }

@@ -5,7 +5,7 @@
 
 class Mage: public Class {
 public:
-    Mage(Race* race, Engine* engine) : Class(race, engine) {}
+    Mage(Race* race, Stats* stats, Engine* engine) : Class(race, stats, engine) {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

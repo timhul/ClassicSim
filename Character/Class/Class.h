@@ -4,14 +4,13 @@
 #include <string>
 #include "Engine.h"
 #include "Character.h"
-#include "Race.h"
 
 class Class : public Character {
 public:
     virtual ~Class() {}
 
-    Class(Race* _race, Engine* _engine):
-          Character(_race), engine(_engine) {}
+    Class(Race* _race, Stats* _stats, Engine* _engine):
+          Character(_race, _stats), engine(_engine) {}
 
     virtual std::string get_name() const = 0;
     virtual int get_strength_modifier() const = 0;
