@@ -24,3 +24,11 @@ int Dwarf::get_base_intellect(void) const {
 int Dwarf::get_base_spirit(void) const {
     return 19;
 }
+
+float Dwarf::get_int_multiplier() const {
+    return 1.0;
+}
+
+float Dwarf::get_spirit_multiplier() const {
+    return 1.0;
+}

@@ -24,3 +24,11 @@ int Orc::get_base_intellect(void) const {
 int Orc::get_base_spirit(void) const {
     return 23;
 }
+
+float Orc::get_int_multiplier() const {
+    return 1.0;
+}
+
+float Orc::get_spirit_multiplier() const {
+    return 1.0;
+}

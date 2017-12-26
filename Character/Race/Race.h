@@ -13,6 +13,8 @@ public:
     virtual int get_base_stamina() const = 0;
     virtual int get_base_intellect() const = 0;
     virtual int get_base_spirit() const = 0;
+    virtual float get_int_multiplier() const = 0;
+    virtual float get_spirit_multiplier() const = 0;
 
 protected:
     std::map<std::string, int> stats;
