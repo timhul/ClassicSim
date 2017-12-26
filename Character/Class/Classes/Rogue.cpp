@@ -28,3 +28,7 @@ int Rogue::get_spirit_modifier(void) const {
 void Rogue::rotation() const {
     return;
 }
+
+float Rogue::global_cooldown() const {
+    return 1.0;
+}

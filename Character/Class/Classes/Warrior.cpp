@@ -1,5 +1,6 @@
 
 #include "Warrior.h"
+#include "PlayerAction.h"
 
 #include <iostream>
 
@@ -29,4 +30,10 @@ int Warrior::get_spirit_modifier(void) const {
 
 void Warrior::rotation() const {
     std::cout << "Warrior acting\n";
+    PlayerAction* new_event = new PlayerAction(this);
+    this->get_engine()->add_event(new_event);
+}
+
+float Warrior::global_cooldown() const {
+    return 1.5;
 }

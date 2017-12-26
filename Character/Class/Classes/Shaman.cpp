@@ -28,3 +28,7 @@ int Shaman::get_spirit_modifier(void) const {
 void Shaman::rotation() const {
     return;
 }
+
+float Shaman::global_cooldown() const {
+    return 1.5;
+}

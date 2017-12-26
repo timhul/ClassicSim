@@ -10,8 +10,8 @@ public:
 
     virtual ~Event() {}
     virtual void act(void) = 0;
-protected:
     float get_priority(void) const;
+protected:
     float priority;
 private:
 };

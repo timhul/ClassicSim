@@ -28,3 +28,7 @@ int Warlock::get_spirit_modifier(void) const {
 void Warlock::rotation() const {
     return;
 }
+
+float Warlock::global_cooldown() const {
+    return 1.5;
+}

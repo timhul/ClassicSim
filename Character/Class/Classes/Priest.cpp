@@ -28,3 +28,7 @@ int Priest::get_spirit_modifier(void) const {
 void Priest::rotation() const {
     return;
 }
+
+float Priest::global_cooldown() const {
+    return 1.5;
+}

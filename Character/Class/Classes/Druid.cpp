@@ -28,3 +28,8 @@ int Druid::get_spirit_modifier(void) const {
 void Druid::rotation() const {
     return;
 }
+
+float Druid::global_cooldown() const {
+    // Incomplete implementation, is stance specific.
+    return 1.5;
+}

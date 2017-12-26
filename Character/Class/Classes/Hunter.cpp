@@ -28,3 +28,7 @@ int Hunter::get_spirit_modifier(void) const {
 void Hunter::rotation() const {
     return;
 }
+
+float Hunter::global_cooldown() const {
+    return 1.5;
+}

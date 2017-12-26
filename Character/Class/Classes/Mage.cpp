@@ -28,3 +28,7 @@ int Mage::get_spirit_modifier(void) const {
 void Mage::rotation() const {
     return;
 }
+
+float Mage::global_cooldown() const {
+    return 1.5;
+}

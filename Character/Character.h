@@ -10,6 +10,7 @@ public:
     Race* get_race(void);
     Class* get_class(void);
     void let_player_act(void);
+
 protected:
 private:
     Race* race;

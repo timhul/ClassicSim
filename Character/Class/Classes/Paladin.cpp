@@ -28,3 +28,7 @@ int Paladin::get_spirit_modifier(void) const {
 void Paladin::rotation() const {
     return;
 }
+
+float Paladin::global_cooldown() const {
+    return 1.5;
+}
