@@ -27,7 +27,16 @@ SOURCES += main.cpp \
     Character/Race/Races/Orc.cpp \
     Character/Race/Races/Undead.cpp \
     Character/Race/Races/Tauren.cpp \
-    Character/Race/Races/Troll.cpp
+    Character/Race/Races/Troll.cpp \
+    Character/Class/Classes/Warrior.cpp \
+    Character/Class/Classes/Priest.cpp \
+    Character/Class/Classes/Rogue.cpp \
+    Character/Class/Classes/Mage.cpp \
+    Character/Class/Classes/Druid.cpp \
+    Character/Class/Classes/Hunter.cpp \
+    Character/Class/Classes/Warlock.cpp \
+    Character/Class/Classes/Shaman.cpp \
+    Character/Class/Classes/Paladin.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -44,7 +53,17 @@ HEADERS += \
     Character/Race/Races/Orc.h \
     Character/Race/Races/Undead.h \
     Character/Race/Races/Tauren.h \
-    Character/Race/Races/Troll.h
+    Character/Race/Races/Troll.h \
+    Character/Class/Class.h \
+    Character/Class/Classes/Warrior.h \
+    Character/Class/Classes/Priest.h \
+    Character/Class/Classes/Rogue.h \
+    Character/Class/Classes/Mage.h \
+    Character/Class/Classes/Druid.h \
+    Character/Class/Classes/Hunter.h \
+    Character/Class/Classes/Warlock.h \
+    Character/Class/Classes/Shaman.h \
+    Character/Class/Classes/Paladin.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -52,4 +71,6 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Queue \
     C:\C++\ClassicSim\Character \
     C:\C++\ClassicSim\Character\Race \
-    C:\C++\ClassicSim\Character\Race\Races
+    C:\C++\ClassicSim\Character\Race\Races \
+    C:\C++\ClassicSim\Character\Class \
+    C:\C++\ClassicSim\Character\Class\Classes

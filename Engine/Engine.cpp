@@ -11,6 +11,16 @@
 #include "Tauren.h"
 #include "Troll.h"
 
+#include "Warrior.h"
+#include "Priest.h"
+#include "Rogue.h"
+#include "Mage.h"
+#include "Druid.h"
+#include "Hunter.h"
+#include "Warlock.h"
+#include "Shaman.h"
+#include "Paladin.h"
+
 #include <iostream>
 
 void Engine::run(void) {
@@ -93,4 +103,76 @@ void Engine::test_character_creation(void) {
     std::cout << "STA " << race->get_base_stamina() << "\n";
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
+
+    Class* pclass = new Warrior();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Priest();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Rogue();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Mage();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Druid();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Hunter();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Warlock();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Shaman();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
+
+    pclass = new Paladin();
+    std::cout << "Name: " << pclass->get_name() << "\n";
+    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
 }
