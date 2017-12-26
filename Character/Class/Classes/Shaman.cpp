@@ -24,3 +24,7 @@ int Shaman::get_intellect_modifier(void) const {
 int Shaman::get_spirit_modifier(void) const {
     return 2;
 }
+
+void Shaman::rotation() const {
+    return;
+}

@@ -11,6 +11,7 @@ public:
     int get_stamina_modifier() const override;
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
+    void rotation() const override;
 
 protected:
 private:

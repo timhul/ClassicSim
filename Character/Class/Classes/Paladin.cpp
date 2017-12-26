@@ -24,3 +24,7 @@ int Paladin::get_intellect_modifier(void) const {
 int Paladin::get_spirit_modifier(void) const {
     return 1;
 }
+
+void Paladin::rotation() const {
+    return;
+}

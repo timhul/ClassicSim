@@ -24,3 +24,7 @@ int Warlock::get_intellect_modifier(void) const {
 int Warlock::get_spirit_modifier(void) const {
     return 2;
 }
+
+void Warlock::rotation() const {
+    return;
+}

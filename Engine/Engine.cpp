@@ -33,9 +33,17 @@ void Engine::run(void) {
     }
 }
 
+void Engine::end_combat(void) {
+    std::cout << "Engine: Ending combat.\n";
+    queue.clear();
+}
+
 void Engine::test_queue(void) {
-    EncounterStart* start_event = new EncounterStart();
-    EncounterEnd* end_event = new EncounterEnd();
+    Race* race = new Orc();
+    Class* pclass = new Warrior();
+    Character* pchar = new Character(race, pclass);
+    EncounterStart* start_event = new EncounterStart(pchar);
+    EncounterEnd* end_event = new EncounterEnd(this);
     this->queue.push(end_event);
     this->queue.push(start_event);
     run();
@@ -199,7 +207,7 @@ void Engine::test_character_creation(void) {
     pclass = new Warrior();
     Character* pchar = new Character(race, pclass);
     std::cout << "Character " << pchar->get_race()->get_name() << \
-                 " " << pchar->get_class()->get_name();
+                 " " << pchar->get_class()->get_name() << "\n";
     delete pchar;
     delete race;
     delete pclass;

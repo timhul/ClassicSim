@@ -1,7 +1,6 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-
 class Event {
 public:
     friend bool operator<(const Event&, const Event&);

@@ -13,6 +13,7 @@ public:
     virtual int get_stamina_modifier() const = 0;
     virtual int get_intellect_modifier() const = 0;
     virtual int get_spirit_modifier() const = 0;
+    virtual void rotation() const = 0;
 
 protected:
 private:

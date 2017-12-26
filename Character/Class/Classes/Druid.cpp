@@ -24,3 +24,7 @@ int Druid::get_intellect_modifier(void) const {
 int Druid::get_spirit_modifier(void) const {
     return 2;
 }
+
+void Druid::rotation() const {
+    return;
+}

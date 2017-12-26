@@ -24,3 +24,7 @@ int Mage::get_intellect_modifier(void) const {
 int Mage::get_spirit_modifier(void) const {
     return 2;
 }
+
+void Mage::rotation() const {
+    return;
+}

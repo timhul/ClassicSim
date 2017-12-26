@@ -10,6 +10,7 @@ public:
     void push(Event*);
     bool empty(void);
     void pop(void);
+    void clear(void);
 
     std::priority_queue<Event*, std::vector<Event*>, Compare> queue;
 

@@ -14,3 +14,10 @@ void Queue::push(Event* event) {
 bool Queue::empty(void) {
     return this->queue.empty();
 }
+
+void Queue::clear(void) {
+    while (!this->queue.empty()) {
+        Event* top = get_next();
+        delete top;
+    }
+}

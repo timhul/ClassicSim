@@ -24,3 +24,7 @@ int Priest::get_intellect_modifier(void) const {
 int Priest::get_spirit_modifier(void) const {
     return 3;
 }
+
+void Priest::rotation() const {
+    return;
+}
