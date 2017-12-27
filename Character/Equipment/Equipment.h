@@ -2,11 +2,12 @@
 #define EQUIPMENT_H
 
 #include "Item.h"
+#include "MeleeWeapon.h"
 
 class Equipment {
 public:
-    Item* get_mainhand(void);
-    Item* get_offhand(void);
+    MeleeWeapon* get_mainhand(void);
+    MeleeWeapon* get_offhand(void);
     Item* get_ranged(void);
     Item* get_head(void);
     Item* get_neck(void);
@@ -23,8 +24,8 @@ public:
     Item* get_trinket1(void);
     Item* get_trinket2(void);
 
-    void set_mainhand(Item*);
-    void set_offhand(Item*);
+    void set_mainhand(MeleeWeapon*);
+    void set_offhand(MeleeWeapon*);
     void set_ranged(Item*);
     void set_head(Item*);
     void set_neck(Item*);
@@ -43,8 +44,8 @@ public:
 
 protected:
 private:
-    Item* mainhand;
-    Item* offhand;
+    MeleeWeapon* mainhand;
+    MeleeWeapon* offhand;
     Item* ranged;
     Item* head;
     Item* neck;

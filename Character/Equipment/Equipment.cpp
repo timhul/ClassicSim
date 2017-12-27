@@ -2,11 +2,11 @@
 #include "Equipment.h"
 #include <assert.h>
 
-Item* Equipment::get_mainhand(void) {
+MeleeWeapon* Equipment::get_mainhand(void) {
     return mainhand;
 }
 
-Item* Equipment::get_offhand(void) {
+MeleeWeapon* Equipment::get_offhand(void) {
     return offhand;
 }
 
@@ -70,12 +70,12 @@ Item* Equipment::get_trinket2(void) {
     return trinket2;
 }
 
-void Equipment::set_mainhand(Item* item) {
+void Equipment::set_mainhand(MeleeWeapon* item) {
     assert(item->get_item_type() == ItemTypes::MAINHAND);
     this->mainhand = item;
 }
 
-void Equipment::set_offhand(Item* item) {
+void Equipment::set_offhand(MeleeWeapon* item) {
     assert(item->get_item_type() == ItemTypes::OFFHAND);
     this->offhand = item;
 }

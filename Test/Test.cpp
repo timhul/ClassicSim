@@ -57,8 +57,8 @@ void Test::test_equipment_creation(void) {
     assert(mainhand->get_weapon_proc_rate() == 0.0);
 
     equipment->set_mainhand(mainhand);
+    MeleeWeapon* mh = equipment->get_mainhand();
 
-    MeleeWeapon* mh = dynamic_cast<MeleeWeapon*>(equipment->get_mainhand());
     assert(mh->get_name() == "Frostbite");
     assert(mh->get_weapon_type() == 0);
     assert(mh->get_min_dmg() == 80);
