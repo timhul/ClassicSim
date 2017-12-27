@@ -202,6 +202,11 @@ void Test::test_character_creation(void) {
     pclass = new Warrior(race, engine);
     std::cout << "Character " << pclass->get_race()->get_name() << \
                  " " << pclass->get_name() << "\n";
+    std::cout << "STR After mod " << pclass->get_strength() << "\n";
+    std::cout << "AGI After mod " << pclass->get_agility() << "\n";
+    std::cout << "STA After mod " << pclass->get_stamina() << "\n";
+    std::cout << "INT After mod " << pclass->get_intellect() << "\n";
+    std::cout << "SPI After mod " << pclass->get_spirit()<< "\n";
     delete race;
     delete pclass;
     delete engine;

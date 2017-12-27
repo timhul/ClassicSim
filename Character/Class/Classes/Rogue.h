@@ -5,7 +5,13 @@
 
 class Rogue: public Class {
 public:
-    Rogue(Race* race, Engine* engine) : Class(race, engine) {}
+    Rogue(Race* race, Engine* engine) : Class(race, engine) {
+        this->STR += get_strength_modifier();
+        this->AGI += get_agility_modifier();
+        this->STAM += get_stamina_modifier();
+        this->INT += get_intellect_modifier();
+        this->SPI += get_spirit_modifier();
+    }
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

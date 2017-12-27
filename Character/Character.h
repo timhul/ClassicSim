@@ -5,10 +5,15 @@
 
 class Character {
 public:
-    Character(Race* _race): race(_race) {}
+    Character(Race*);
     Race* get_race(void);
     virtual void rotation(void) const = 0;
 
+    virtual int get_strength_modifier() const = 0;
+    virtual int get_agility_modifier() const = 0;
+    virtual int get_stamina_modifier() const = 0;
+    virtual int get_intellect_modifier() const = 0;
+    virtual int get_spirit_modifier() const = 0;
     int get_strength();
     int get_agility();
     int get_stamina();
@@ -16,7 +21,6 @@ public:
     int get_spirit();
 
 protected:
-private:
     Race* race;
     int STR;
     int AGI;
@@ -27,6 +31,7 @@ private:
     int ranged_ap;
     float percent_hit;
     float percent_crit;
+private:
 };
 
 #endif // CHARACTER_H

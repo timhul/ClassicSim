@@ -1,6 +1,15 @@
 
 #include "Character.h"
 
+Character::Character(Race* race) {
+    this->race = race;
+    this->STR = race->get_base_strength();
+    this->AGI = race->get_base_agility();
+    this->STAM = race->get_base_stamina();
+    this->INT = race->get_base_intellect();
+    this->SPI = race->get_base_spirit();
+}
+
 Race* Character::get_race(void) {
     return this->race;
 }
