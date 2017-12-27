@@ -30,6 +30,13 @@ int Warrior::get_spirit_modifier(void) const {
 
 void Warrior::rotation() const {
     std::cout << "Warrior acting\n";
+    // Remember to add PlayerAction event with current priority for any melee hit event
+    // This is to use resources as soon as they become available.
+    // if (this->get_engine()->on_gcd() or not enough resource for ability usage)  { return }
+    // The checks above at the minimum are required to handle this.
+    // Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
+    // Fury warriors need this for overpower modelling.
+
     PlayerAction* new_event = new PlayerAction(this);
     this->get_engine()->add_event(new_event);
 }

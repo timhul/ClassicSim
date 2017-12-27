@@ -5,7 +5,7 @@
 
 class Warrior: public Class {
 public:
-    Warrior(Race* race, Stats* stats, Engine* engine) : Class(race, stats, engine) {}
+    Warrior(Race* race, Engine* engine) : Class(race, engine) {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

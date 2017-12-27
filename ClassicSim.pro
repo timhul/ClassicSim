@@ -39,8 +39,7 @@ SOURCES += main.cpp \
     Character/Class/Classes/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
-    Test/Test.cpp \
-    Character/Stats/Stats.cpp
+    Test/Test.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -69,8 +68,7 @@ HEADERS += \
     Character/Class/Classes/Shaman.h \
     Character/Class/Classes/Paladin.h \
     Event/Events/PlayerAction.h \
-    Test/Test.h \
-    Character/Stats/Stats.h
+    Test/Test.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -81,5 +79,4 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Race\Races \
     C:\C++\ClassicSim\Character\Class \
     C:\C++\ClassicSim\Character\Class\Classes \
-    C:\C++\ClassicSim\Character\Stats \
     C:\C++\ClassicSim\Test
