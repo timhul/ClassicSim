@@ -28,15 +28,15 @@ SOURCES += main.cpp \
     Character/Race/Races/Undead.cpp \
     Character/Race/Races/Tauren.cpp \
     Character/Race/Races/Troll.cpp \
-    Character/Class/Classes/Warrior.cpp \
-    Character/Class/Classes/Priest.cpp \
-    Character/Class/Classes/Rogue.cpp \
-    Character/Class/Classes/Mage.cpp \
-    Character/Class/Classes/Druid.cpp \
-    Character/Class/Classes/Hunter.cpp \
-    Character/Class/Classes/Warlock.cpp \
-    Character/Class/Classes/Shaman.cpp \
-    Character/Class/Classes/Paladin.cpp \
+    Character/Class/Warrior/Warrior.cpp \
+    Character/Class/Priest/Priest.cpp \
+    Character/Class/Rogue/Rogue.cpp \
+    Character/Class/Mage/Mage.cpp \
+    Character/Class/Druid/Druid.cpp \
+    Character/Class/Hunter/Hunter.cpp \
+    Character/Class/Warlock/Warlock.cpp \
+    Character/Class/Shaman/Shaman.cpp \
+    Character/Class/Paladin/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Test.cpp
@@ -58,15 +58,15 @@ HEADERS += \
     Character/Race/Races/Tauren.h \
     Character/Race/Races/Troll.h \
     Character/Class/Class.h \
-    Character/Class/Classes/Warrior.h \
-    Character/Class/Classes/Priest.h \
-    Character/Class/Classes/Rogue.h \
-    Character/Class/Classes/Mage.h \
-    Character/Class/Classes/Druid.h \
-    Character/Class/Classes/Hunter.h \
-    Character/Class/Classes/Warlock.h \
-    Character/Class/Classes/Shaman.h \
-    Character/Class/Classes/Paladin.h \
+    Character/Class/Warrior/Warrior.h \
+    Character/Class/Priest/Priest.h \
+    Character/Class/Rogue/Rogue.h \
+    Character/Class/Mage/Mage.h \
+    Character/Class/Druid/Druid.h \
+    Character/Class/Hunter/Hunter.h \
+    Character/Class/Warlock/Warlock.h \
+    Character/Class/Shaman/Shaman.h \
+    Character/Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
     Test/Test.h
 
@@ -78,5 +78,13 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Race \
     C:\C++\ClassicSim\Character\Race\Races \
     C:\C++\ClassicSim\Character\Class \
-    C:\C++\ClassicSim\Character\Class\Classes \
+    C:\C++\ClassicSim\Character\Class\Warrior \
+    C:\C++\ClassicSim\Character\Class\Priest \
+    C:\C++\ClassicSim\Character\Class\Rogue \
+    C:\C++\ClassicSim\Character\Class\Mage \
+    C:\C++\ClassicSim\Character\Class\Druid \
+    C:\C++\ClassicSim\Character\Class\Hunter \
+    C:\C++\ClassicSim\Character\Class\Warlock \
+    C:\C++\ClassicSim\Character\Class\Shaman \
+    C:\C++\ClassicSim\Character\Class\Paladin \
     C:\C++\ClassicSim\Test
