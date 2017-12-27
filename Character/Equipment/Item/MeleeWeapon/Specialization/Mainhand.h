@@ -1,9 +1,9 @@
 #ifndef MAINHAND_H
 #define MAINHAND_H
 
-#include "Item.h"
+#include "MeleeWeapon.h"
 
-class Mainhand: public Item {
+class Mainhand: public MeleeWeapon {
 public:
     int get_item_type() const override;
 protected:

@@ -3,7 +3,6 @@
 
 class Item {
 public:
-    Item();
     virtual int get_item_type(void) const = 0;
 
     static const int MAINHAND = 0;

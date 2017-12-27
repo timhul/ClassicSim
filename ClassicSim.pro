@@ -41,9 +41,10 @@ SOURCES += main.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Test.cpp \
     Event/Events/MeleeHit.cpp \
-    Character/Equipment/Item/MeleeWeapon/Mainhand.cpp \
-    Character/Equipment/Item/MeleeWeapon/Offhand.cpp \
-    Character/Equipment/Item/MeleeWeapon/TwoHander.cpp
+    Character/Equipment/Item/MeleeWeapon/MeleeWeapon.cpp \
+    Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
+    Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
+    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -76,9 +77,10 @@ HEADERS += \
     Event/Events/MeleeHit.h \
     Character/Equipment/Equipment.h \
     Character/Equipment/Item/Item.h \
-    Character/Equipment/Item/MeleeWeapon/Mainhand.h \
-    Character/Equipment/Item/MeleeWeapon/Offhand.h \
-    Character/Equipment/Item/MeleeWeapon/TwoHander.h
+    Character/Equipment/Item/MeleeWeapon/MeleeWeapon.h \
+    Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.h \
+    Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.h \
+    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
