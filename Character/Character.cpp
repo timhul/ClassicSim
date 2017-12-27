@@ -8,6 +8,7 @@ Character::Character(Race* race) {
     this->STAM = race->get_base_stamina();
     this->INT = race->get_base_intellect();
     this->SPI = race->get_base_spirit();
+    this->clvl = 1;
 }
 
 Race* Character::get_race(void) {
@@ -32,4 +33,12 @@ int Character::get_intellect(void) {
 
 int Character::get_spirit(void) {
     return int(float(SPI) * race->get_spirit_multiplier());
+}
+
+int Character::get_clvl(void) const {
+    return this->clvl;
+}
+
+void Character::set_clvl(const int& clvl) {
+    this->clvl = clvl;
 }

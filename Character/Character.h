@@ -19,6 +19,8 @@ public:
     int get_stamina();
     int get_intellect();
     int get_spirit();
+    int get_clvl(void) const;
+    void set_clvl(const int&);
 
 protected:
     Race* race;
@@ -31,6 +33,7 @@ protected:
     int ranged_ap;
     float percent_hit;
     float percent_crit;
+    int clvl;
 private:
 };
 

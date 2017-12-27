@@ -25,6 +25,7 @@
 #include "Character.h"
 
 #include <iostream>
+#include <assert.h>
 
 void Test::test_queue(void) {
     Engine* engine = new Engine();
@@ -207,6 +208,9 @@ void Test::test_character_creation(void) {
     std::cout << "STA After mod " << pclass->get_stamina() << "\n";
     std::cout << "INT After mod " << pclass->get_intellect() << "\n";
     std::cout << "SPI After mod " << pclass->get_spirit()<< "\n";
+
+    pclass->set_clvl(60);
+    assert(pclass->get_clvl() == 60);
     delete race;
     delete pclass;
     delete engine;
