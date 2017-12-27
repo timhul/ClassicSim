@@ -1,8 +1,9 @@
 
 #include "Character.h"
 
-Character::Character(Race* race) {
+Character::Character(Race* race, Engine* engine) {
     this->race = race;
+    this->engine = engine;
     this->STR = race->get_base_strength();
     this->AGI = race->get_base_agility();
     this->STAM = race->get_base_stamina();

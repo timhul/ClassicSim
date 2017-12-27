@@ -2,10 +2,11 @@
 #define CHARACTER_H
 
 #include "Race.h"
+#include "Engine.h"
 
 class Character {
 public:
-    Character(Race*);
+    Character(Race*, Engine*);
     Race* get_race(void);
     virtual void rotation(void) const = 0;
 
@@ -21,9 +22,11 @@ public:
     int get_spirit();
     int get_clvl(void) const;
     void set_clvl(const int&);
+    Engine* get_engine(void) const { return this->engine; }
 
 protected:
     Race* race;
+    Engine* engine;
     int STR;
     int AGI;
     int STAM;
