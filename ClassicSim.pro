@@ -44,7 +44,8 @@ SOURCES += main.cpp \
     Character/Equipment/Item/MeleeWeapon/MeleeWeapon.cpp \
     Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
     Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
-    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp
+    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp \
+    Character/Equipment/Equipment.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -101,4 +102,6 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\Paladin \
     C:\C++\ClassicSim\Character\Equipment \
     C:\C++\ClassicSim\Character\Equipment\Item \
+    C:\C++\ClassicSim\Character\Equipment\Item\MeleeWeapon \
+    C:\C++\ClassicSim\Character\Equipment\Item\MeleeWeapon\Specialization \
     C:\C++\ClassicSim\Test

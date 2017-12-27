@@ -7,6 +7,7 @@
 class Test {
 public:
     void test_character_creation();
+    void test_equipment_creation();
     void test_queue();
 private:
 protected:

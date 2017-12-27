@@ -3,11 +3,7 @@
 
 #include <string>
 
-class Item {
-public:
-    Item(std::string _name): name(_name) {}
-    virtual int get_item_type(void) const = 0;
-
+namespace ItemTypes {
     static const int MAINHAND = 0;
     static const int OFFHAND = 1;
     static const int RANGED = 2;
@@ -21,10 +17,15 @@ public:
     static const int BELT = 10;
     static const int LEGS = 11;
     static const int BOOTS = 12;
-    static const int RING1 = 13;
-    static const int RING2 = 14;
-    static const int TRINKET1 = 15;
-    static const int TRINKET2 = 16;
+    static const int RING = 13;
+    static const int TRINKET = 14;
+}
+
+class Item {
+public:
+    virtual ~Item() {}
+    Item(std::string _name): name(_name) {}
+    virtual int get_item_type(void) const = 0;
 
     std::string get_name(void) const { return name; }
 

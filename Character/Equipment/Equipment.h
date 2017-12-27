@@ -5,23 +5,42 @@
 
 class Equipment {
 public:
-    Item* get_mainhand(void) { return mainhand; }
-    Item* get_offhand(void) { return offhand; }
-    Item* get_ranged(void) { return ranged; }
-    Item* get_head(void) { return head; }
-    Item* get_neck(void) {  return neck; }
-    Item* get_shoulders(void) { return shoulders; }
-    Item* get_back(void) { return back; }
-    Item* get_chest(void) { return chest; }
-    Item* get_wrist(void) { return wrist; }
-    Item* get_gloves(void) { return gloves; }
-    Item* get_belt(void) { return belt; }
-    Item* get_legs(void) { return legs; }
-    Item* get_boots(void) { return boots; }
-    Item* get_ring1(void) { return ring1; }
-    Item* get_ring2(void) { return ring2; }
-    Item* get_trinket1(void) { return trinket1; }
-    Item* get_trinket2(void) { return trinket2; }
+    Item* get_mainhand(void);
+    Item* get_offhand(void);
+    Item* get_ranged(void);
+    Item* get_head(void);
+    Item* get_neck(void);
+    Item* get_shoulders(void);
+    Item* get_back(void);
+    Item* get_chest(void);
+    Item* get_wrist(void);
+    Item* get_gloves(void);
+    Item* get_belt(void);
+    Item* get_legs(void);
+    Item* get_boots(void);
+    Item* get_ring1(void);
+    Item* get_ring2(void);
+    Item* get_trinket1(void);
+    Item* get_trinket2(void);
+
+    void set_mainhand(Item*);
+    void set_offhand(Item*);
+    void set_ranged(Item*);
+    void set_head(Item*);
+    void set_neck(Item*);
+    void set_shoulders(Item*);
+    void set_back(Item*);
+    void set_chest(Item*);
+    void set_wrist(Item*);
+    void set_gloves(Item*);
+    void set_belt(Item*);
+    void set_legs(Item*);
+    void set_boots(Item*);
+    void set_ring1(Item*);
+    void set_ring2(Item*);
+    void set_trinket1(Item*);
+    void set_trinket2(Item*);
+
 protected:
 private:
     Item* mainhand;

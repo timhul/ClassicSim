@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     Test test;
     test.test_character_creation();
     test.test_queue();
+    test.test_equipment_creation();
 
     return a.exec();
 }

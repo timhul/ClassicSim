@@ -23,6 +23,8 @@
 #include "Paladin.h"
 
 #include "Character.h"
+#include "Equipment.h"
+#include "Mainhand.h"
 
 #include <iostream>
 #include <assert.h>
@@ -41,6 +43,31 @@ void Test::test_queue(void) {
     delete pclass;
     delete race;
     delete engine;
+}
+
+void Test::test_equipment_creation(void) {
+    Equipment* equipment = new Equipment();
+
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    assert(mainhand->get_name() == "Frostbite");
+    assert(mainhand->get_weapon_type() == 0);
+    assert(mainhand->get_min_dmg() == 80);
+    assert(mainhand->get_max_dmg() == 150);
+    assert(mainhand->get_base_weapon_speed() - 2.7 < 0.01);
+    assert(mainhand->get_weapon_proc_rate() == 0.0);
+
+    equipment->set_mainhand(mainhand);
+
+    MeleeWeapon* mh = dynamic_cast<MeleeWeapon*>(equipment->get_mainhand());
+    assert(mh->get_name() == "Frostbite");
+    assert(mh->get_weapon_type() == 0);
+    assert(mh->get_min_dmg() == 80);
+    assert(mh->get_max_dmg() == 150);
+    assert(mh->get_base_weapon_speed() - 2.7 < 0.01);
+    assert(mh->get_weapon_proc_rate() == 0.0);
+
+    delete mainhand;
+    delete equipment;
 }
 
 
