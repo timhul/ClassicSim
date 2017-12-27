@@ -70,7 +70,9 @@ HEADERS += \
     Character/Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
     Test/Test.h \
-    Event/Events/MeleeHit.h
+    Event/Events/MeleeHit.h \
+    Character/Equipment/Equipment.h \
+    Character/Equipment/Item/Item.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -89,4 +91,6 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\Warlock \
     C:\C++\ClassicSim\Character\Class\Shaman \
     C:\C++\ClassicSim\Character\Class\Paladin \
+    C:\C++\ClassicSim\Character\Equipment \
+    C:\C++\ClassicSim\Character\Equipment\Item \
     C:\C++\ClassicSim\Test
