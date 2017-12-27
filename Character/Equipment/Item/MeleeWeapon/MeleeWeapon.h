@@ -5,7 +5,14 @@
 
 class MeleeWeapon: public Item {
 public:
-    MeleeWeapon(int, int, int, float, float);
+    MeleeWeapon(std::string name, int type, int min, int max, float speed, float proc_rate):
+        Item(name) {
+        this->weapon_type = type;
+        this->min_dmg = min;
+        this->max_dmg = max;
+        this->weapon_speed = speed;
+        this->proc_rate = proc_rate;
+    }
     int get_weapon_type() const;
     int get_min_dmg() const;
     int get_max_dmg() const;

@@ -1,14 +1,6 @@
 
 #include "MeleeWeapon.h"
 
-MeleeWeapon::MeleeWeapon(int type, int min, int max, float speed, float proc_rate) {
-    this->weapon_type = type;
-    this->min_dmg = min;
-    this->max_dmg = max;
-    this->weapon_speed = speed;
-    this->proc_rate = proc_rate;
-}
-
 int MeleeWeapon::get_weapon_type() const {
     return weapon_type;
 }

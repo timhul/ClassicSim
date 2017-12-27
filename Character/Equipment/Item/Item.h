@@ -1,8 +1,11 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <string>
+
 class Item {
 public:
+    Item(std::string _name): name(_name) {}
     virtual int get_item_type(void) const = 0;
 
     static const int MAINHAND = 0;
@@ -23,7 +26,11 @@ public:
     static const int TRINKET1 = 15;
     static const int TRINKET2 = 16;
 
+    std::string get_name(void) const { return name; }
+
 protected:
+    std::string name;
+
 private:
 };
 
