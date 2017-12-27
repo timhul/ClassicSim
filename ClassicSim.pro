@@ -40,7 +40,10 @@ SOURCES += main.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Test.cpp \
-    Event/Events/MeleeHit.cpp
+    Event/Events/MeleeHit.cpp \
+    Character/Equipment/Item/MeleeWeapon/Mainhand.cpp \
+    Character/Equipment/Item/MeleeWeapon/Offhand.cpp \
+    Character/Equipment/Item/MeleeWeapon/TwoHander.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -72,7 +75,10 @@ HEADERS += \
     Test/Test.h \
     Event/Events/MeleeHit.h \
     Character/Equipment/Equipment.h \
-    Character/Equipment/Item/Item.h
+    Character/Equipment/Item/Item.h \
+    Character/Equipment/Item/MeleeWeapon/Mainhand.h \
+    Character/Equipment/Item/MeleeWeapon/Offhand.h \
+    Character/Equipment/Item/MeleeWeapon/TwoHander.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
