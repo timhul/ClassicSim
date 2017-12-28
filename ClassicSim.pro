@@ -45,7 +45,10 @@ SOURCES += main.cpp \
     Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
     Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
     Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp \
-    Character/Equipment/Equipment.cpp
+    Character/Equipment/Equipment.cpp \
+    CombatRoll/AttackResult.cpp \
+    CombatRoll/CombatRoll.cpp \
+    CombatRoll/AttackTables/WhiteHitTable.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -81,7 +84,13 @@ HEADERS += \
     Character/Equipment/Item/MeleeWeapon/MeleeWeapon.h \
     Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.h \
     Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.h \
-    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.h
+    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.h \
+    Target/Target.h \
+    CombatRoll/AttackResult.h \
+    CombatRoll/AttackTable.h \
+    CombatRoll/CombatRoll.h \
+    CombatRoll/AttackTables/WhiteHitTable.h \
+    CombatRoll/Random.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -104,4 +113,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Equipment\Item \
     C:\C++\ClassicSim\Character\Equipment\Item\MeleeWeapon \
     C:\C++\ClassicSim\Character\Equipment\Item\MeleeWeapon\Specialization \
+    C:\C++\ClassicSim\CombatRoll \
+    C:\C++\ClassicSim\CombatRoll\AttackTables \
+    C:\C++\ClassicSim\Target \
     C:\C++\ClassicSim\Test

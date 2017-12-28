@@ -20,9 +20,12 @@ public:
     int get_stamina();
     int get_intellect();
     int get_spirit();
+    float get_hit_chance(void) const;
+    float get_crit_chance(void) const;
     int get_clvl(void) const;
     void set_clvl(const int&);
     Engine* get_engine(void) const { return this->engine; }
+    virtual bool is_dual_wielding(void) { return false; }
 
 protected:
     Race* race;

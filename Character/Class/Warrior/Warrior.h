@@ -24,6 +24,8 @@ public:
     void rotation() const override;
     float global_cooldown() const override;
 
+    bool is_dual_wielding(void) override;
+
 protected:
 private:
 };

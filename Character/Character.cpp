@@ -36,6 +36,14 @@ int Character::get_spirit(void) {
     return int(float(SPI) * race->get_spirit_multiplier());
 }
 
+float Character::get_hit_chance(void) const {
+    return percent_hit;
+}
+
+float Character::get_crit_chance(void) const {
+    return percent_crit;
+}
+
 int Character::get_clvl(void) const {
     return this->clvl;
 }

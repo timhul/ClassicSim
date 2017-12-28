@@ -25,9 +25,27 @@
 #include "Character.h"
 #include "Equipment.h"
 #include "Mainhand.h"
+#include "WhiteHitTable.h"
+#include "CombatRoll.h"
+#include "AttackResult.h"
+#include "Random.h"
 
 #include <iostream>
 #include <assert.h>
+
+
+void Test::test_all(void) {
+    test_queue();
+    test_character_creation();
+    test_equipment_creation();
+    test_white_hit_table();
+    test_combat_roll_glancing();
+    test_combat_roll_white_miss();
+    test_combat_roll_dodge();
+    test_combat_roll_creation();
+    test_random();
+    test_combat_roll_melee_hit_result();
+}
 
 void Test::test_queue(void) {
     Engine* engine = new Engine();
@@ -43,6 +61,172 @@ void Test::test_queue(void) {
     delete pclass;
     delete race;
     delete engine;
+}
+
+void Test::test_random(void) {
+    Random* random = new Random();
+
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "Random rolling " << random->get_roll() << "\n";
+    }
+
+    delete random;
+}
+
+void Test::test_combat_roll_melee_hit_result(void) {
+    Target* target = new Target(63);
+    Engine* engine = new Engine();
+    Race* race = new Orc();
+    Class* pclass = new Warrior(race, engine);
+    Random* random = new Random();
+    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+
+    AttackResult* result = combat->get_melee_hit_result(300);
+
+    for(int i = 0; i < 30; ++i) {
+        delete result;
+        result = combat->get_melee_hit_result(300);
+    }
+    delete result;
+
+    delete random;
+    delete target;
+    delete engine;
+    delete race;
+    delete pclass;
+    delete combat;
+}
+
+void Test::test_combat_roll_creation(void) {
+    Target* target = new Target(63);
+    Engine* engine = new Engine();
+    Race* race = new Orc();
+    Class* pclass = new Warrior(race, engine);
+    Random* random = new Random();
+    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+
+    combat->get_white_hit_table(300);
+    combat->get_white_hit_table(300);
+    combat->get_white_hit_table(315);
+    combat->get_white_hit_table(315);
+    combat->get_white_hit_table(300);
+
+    delete target;
+    delete engine;
+    delete race;
+    delete pclass;
+    delete combat;
+}
+
+void Test::test_combat_roll_dodge(void) {
+    Target* target = new Target(63);
+    Engine* engine = new Engine();
+    Race* race = new Orc();
+    Class* pclass = new Warrior(race, engine);
+    Random* random = new Random();
+    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+
+    assert(fabs(0.05 - combat->get_dodge_chance(300)) < 0.001);
+    assert(fabs(0.05 - combat->get_dodge_chance(315)) < 0.001);
+
+    delete target;
+    target = new Target(60);
+    combat->set_target(target);
+    assert(fabs(0.044 - combat->get_dodge_chance(315)) < 0.001);
+
+    delete target;
+    delete engine;
+    delete race;
+    delete pclass;
+    delete combat;
+}
+
+void Test::test_combat_roll_glancing(void) {
+    Target* target = new Target(63);
+    Engine* engine = new Engine();
+    Race* race = new Orc();
+    Class* pclass = new Warrior(race, engine);
+    Random* random = new Random();
+    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+
+    pclass->set_clvl(1);
+    assert(fabs(6.3 - combat->get_glancing_blow_chance()) < 0.001);
+
+    pclass->set_clvl(60);
+    assert(fabs(0.4 - combat->get_glancing_blow_chance()) < 0.001);
+
+    delete target;
+    target = new Target(62);
+    assert(fabs(0.3 - combat->get_glancing_blow_chance()) < 0.001);
+
+    delete target;
+    target = new Target(61);
+    assert(fabs(0.2 - combat->get_glancing_blow_chance()) < 0.001);
+
+    delete target;
+    target = new Target(60);
+    assert(fabs(0.1 - combat->get_glancing_blow_chance()) < 0.001);
+
+    delete target;
+    target = new Target(59);
+    assert(fabs(0.0 - combat->get_glancing_blow_chance()) < 0.001);
+
+    delete target;
+    delete engine;
+    delete race;
+    delete pclass;
+    delete combat;
+}
+
+void Test::test_combat_roll_white_miss(void) {
+    Target* target = new Target(63);
+    Engine* engine = new Engine();
+    Race* race = new Orc();
+    Class* pclass = new Warrior(race, engine);
+    Random* random = new Random();
+    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+
+    assert(fabs(0.28 - combat->get_white_miss_chance(300)) < 0.001);
+    assert(fabs(0.24 - combat->get_white_miss_chance(315)) < 0.001);
+    delete target;
+
+    target = new Target(62);
+    combat->set_target(target);
+    assert(fabs(0.25 - combat->get_white_miss_chance(300)) < 0.001);
+    delete target;
+
+    target = new Target(61);
+    combat->set_target(target);
+    assert(fabs(0.245 - combat->get_white_miss_chance(300)) < 0.001);
+    delete target;
+
+    target = new Target(60);
+    combat->set_target(target);
+    assert(fabs(0.24 - combat->get_white_miss_chance(300)) < 0.001);
+    delete target;
+
+    delete engine;
+    delete race;
+    delete pclass;
+    delete combat;
+}
+
+void Test::test_white_hit_table(void) {
+   WhiteHitTable* table = new WhiteHitTable(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0);
+   assert(table->get_outcome(0) == Outcome::HIT);
+   assert(table->get_outcome(9999) == Outcome::HIT);
+   delete table;
+
+   table = new WhiteHitTable(0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0);
+   assert(table->get_outcome(0) == Outcome::MISS);
+   assert(table->get_outcome(1) == Outcome::DODGE);
+   assert(table->get_outcome(2) == Outcome::PARRY);
+   assert(table->get_outcome(3) == Outcome::GLANCING);
+   assert(table->get_outcome(4) == Outcome::BLOCK);
+   assert(table->get_outcome(5) == Outcome::CRITICAL);
+   assert(table->get_outcome(6) == Outcome::HIT);
+   assert(table->get_outcome(9999) == Outcome::HIT);
+   delete table;
 }
 
 void Test::test_equipment_creation(void) {
