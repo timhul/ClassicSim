@@ -10,5 +10,7 @@ int Execute::spell_effect(const int resource_level) const {
     std::cout << engine->get_current_priority() <<
                  ": Casting Execute at " << resource_level << " rage.\n";
 
+    add_gcd_event();
+
     return resource_level;
 }

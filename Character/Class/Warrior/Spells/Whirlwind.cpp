@@ -10,9 +10,8 @@ int Whirlwind::spell_effect(const int resource_level) const {
     std::cout << engine->get_current_priority() <<
                  ": Casting Whirlwind at " << resource_level << " rage.\n";
 
-    float cooldown_ready = engine->get_current_priority() + cooldown;
-    CooldownReady* new_event = new CooldownReady(pchar, cooldown_ready);
-    engine->add_event(new_event);
+    add_gcd_event();
+    add_spell_cd_event();
 
     return resource_cost;
 }

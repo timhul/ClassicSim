@@ -4,6 +4,7 @@
 #include <string>
 #include "Engine.h"
 #include "Character.h"
+#include "CooldownReady.h"
 #include "assert.h"
 
 class Spell {
@@ -30,6 +31,8 @@ public:
     bool is_available(const int) const;
     bool cooldown_less_than(const float) const;
     bool cooldown_greater_than(const float) const;
+    void add_spell_cd_event(void) const;
+    void add_gcd_event(void) const;
 
     int perform(const int);
 
