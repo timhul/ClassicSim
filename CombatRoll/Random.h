@@ -2,11 +2,12 @@
 #define RANDOM_H
 
 #include <random>
+#include <ctime>
 
 class Random {
 public:
     Random() {
-        gen = new std::mt19937(std::random_device()());
+        gen = new std::mt19937(std::time(0));
         distr = new std::uniform_int_distribution<>(0, 9999);
     }
 
