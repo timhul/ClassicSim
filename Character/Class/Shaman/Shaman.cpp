@@ -29,6 +29,10 @@ void Shaman::rotation() {
     return;
 }
 
+void Shaman::auto_attack() {
+    return;
+}
+
 float Shaman::global_cooldown() const {
     return 1.5;
 }

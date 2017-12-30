@@ -29,6 +29,10 @@ void Priest::rotation() {
     return;
 }
 
+void Priest::auto_attack() {
+    return;
+}
+
 float Priest::global_cooldown() const {
     return 1.5;
 }

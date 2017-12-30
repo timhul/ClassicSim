@@ -29,6 +29,10 @@ void Mage::rotation() {
     return;
 }
 
+void Mage::auto_attack() {
+    return;
+}
+
 float Mage::global_cooldown() const {
     return 1.5;
 }

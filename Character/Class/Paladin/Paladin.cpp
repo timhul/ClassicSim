@@ -29,6 +29,10 @@ void Paladin::rotation() {
     return;
 }
 
+void Paladin::auto_attack() {
+    return;
+}
+
 float Paladin::global_cooldown() const {
     return 1.5;
 }

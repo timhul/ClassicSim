@@ -29,6 +29,10 @@ void Rogue::rotation() {
     return;
 }
 
+void Rogue::auto_attack() {
+    return;
+}
+
 float Rogue::global_cooldown() const {
     return 1.0;
 }

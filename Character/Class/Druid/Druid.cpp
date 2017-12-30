@@ -29,6 +29,10 @@ void Druid::rotation() {
     return;
 }
 
+void Druid::auto_attack() {
+    return;
+}
+
 float Druid::global_cooldown() const {
     // Incomplete implementation, is stance specific.
     return 1.5;

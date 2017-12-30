@@ -20,6 +20,7 @@ public:
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
     void rotation() override;
+    void auto_attack() override;
     float global_cooldown() const override;
 
 protected:

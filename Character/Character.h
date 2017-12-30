@@ -9,6 +9,7 @@ public:
     Character(Race*, Engine*);
     Race* get_race(void);
     virtual void rotation(void) = 0;
+    virtual void auto_attack(void) = 0;
 
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;

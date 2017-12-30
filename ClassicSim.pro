@@ -50,7 +50,8 @@ SOURCES += main.cpp \
     CombatRoll/CombatRoll.cpp \
     CombatRoll/AttackTables/WhiteHitTable.cpp \
     Character/Class/Spell.cpp \
-    Character/Class/Warrior/Spells/Bloodthirst.cpp
+    Character/Class/Warrior/Spells/Bloodthirst.cpp \
+    Character/Class/Warrior/Spells/MainhandAttack.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -94,7 +95,9 @@ HEADERS += \
     CombatRoll/AttackTables/WhiteHitTable.h \
     CombatRoll/Random.h \
     Character/Class/Spell.h \
-    Character/Class/Warrior/Spells/Bloodthirst.h
+    Character/Class/Warrior/Spells/Bloodthirst.h \
+    Character/Class/AutoAttack.h \
+    Character/Class/Warrior/Spells/MainhandAttack.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

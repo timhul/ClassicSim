@@ -2,7 +2,9 @@
 #define WARRIOR_H
 
 #include "Class.h"
+#include "PlayerAction.h"
 #include "Bloodthirst.h"
+#include "MainhandAttack.h"
 
 class Warrior: public Class {
 public:
@@ -29,6 +31,7 @@ public:
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
     void rotation() override;
+    void auto_attack() override;
     float global_cooldown() const override;
 
     int get_curr_rage() const;

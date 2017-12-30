@@ -1,6 +1,5 @@
 
 #include "MeleeHit.h"
-#include <iostream>
 
 MeleeHit::MeleeHit(Character* pchar) {
     this->pchar = pchar;
@@ -8,5 +7,6 @@ MeleeHit::MeleeHit(Character* pchar) {
 }
 
 void MeleeHit::act(void) {
-    std::cout << "MeleeHit\n";
+    pchar->auto_attack();
+    // TODO: Add next auto attack based on weapon speed.
 }

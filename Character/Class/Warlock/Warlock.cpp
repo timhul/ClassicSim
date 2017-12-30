@@ -29,6 +29,10 @@ void Warlock::rotation() {
     return;
 }
 
+void Warlock::auto_attack() {
+    return;
+}
+
 float Warlock::global_cooldown() const {
     return 1.5;
 }

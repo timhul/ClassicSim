@@ -1,6 +1,5 @@
 
 #include "Warrior.h"
-#include "PlayerAction.h"
 
 #include <iostream>
 
@@ -47,6 +46,16 @@ void Warrior::rotation() {
 
     PlayerAction* new_event = new PlayerAction(this);
     this->get_engine()->add_event(new_event);
+}
+
+void Warrior::auto_attack() {
+    std::cout << "Warrior auto attack!\n";
+
+    MainhandAttack* mh_attack = new MainhandAttack(get_engine(), dynamic_cast<Character*>(this));
+
+    rage += mh_attack->perform(rage);
+
+    delete mh_attack;
 }
 
 float Warrior::global_cooldown() const {

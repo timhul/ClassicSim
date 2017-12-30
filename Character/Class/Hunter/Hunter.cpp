@@ -29,6 +29,10 @@ void Hunter::rotation() {
     return;
 }
 
+void Hunter::auto_attack() {
+    return;
+}
+
 float Hunter::global_cooldown() const {
     return 1.5;
 }
