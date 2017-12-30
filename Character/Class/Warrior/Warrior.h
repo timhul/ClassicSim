@@ -42,6 +42,8 @@ public:
     void oh_auto_attack() override;
     float global_cooldown() const override;
     int get_curr_rage() const;
+    void gain_rage(const int);
+    void lose_rage(const int);
 
     bool bt_available(void) const;
 

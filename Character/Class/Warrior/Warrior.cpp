@@ -27,8 +27,22 @@ int Warrior::get_spirit_modifier(void) const {
     return 0;
 }
 
+void Warrior::gain_rage(const int gained_rage) {
+    assert(gained_rage > 0);
+    this->rage += gained_rage;
+
+    // TODO: Add statistics for rage lost due to overcapping.
+    if (this->rage > 100)
+        rage = 100;
+}
+
+void Warrior::lose_rage(const int lost_rage) {
+    assert(lost_rage > 0);
+    this->rage -= lost_rage;
+    assert(this->rage >= 0);
+}
+
 void Warrior::rotation() {
-    std::cout << "Warrior acting\n";
     // TODO: Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
     // Fury warriors need this for overpower modelling.
 
@@ -44,7 +58,7 @@ void Warrior::rotation() {
     // TODO: Check if execute is available. Requires target health.
 
     if (bt->is_available(rage)) {
-        rage -= bt->perform(rage);
+        lose_rage(bt->perform(rage));
         add_next_action_event();
     }
 }
@@ -75,7 +89,7 @@ void Warrior::start_oh_attack(void) {
 }
 
 void Warrior::mh_auto_attack() {
-    rage += mh_attack->perform(rage);
+    gain_rage(mh_attack->perform(rage));
 
     if (action_ready()) {
         PlayerAction* new_event = new PlayerAction(this, 0.1);
@@ -86,7 +100,7 @@ void Warrior::mh_auto_attack() {
 }
 
 void Warrior::oh_auto_attack() {
-    rage += oh_attack->perform(rage);
+    gain_rage(oh_attack->perform(rage));
 
     if (action_ready()) {
         PlayerAction* new_event = new PlayerAction(this, 0.1);
