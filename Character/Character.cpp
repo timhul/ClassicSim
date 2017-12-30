@@ -129,5 +129,6 @@ int Character::get_oh_dmg() {
 
 int Character::rage_gained_from_dd(const int damage_dealt) const {
     // Using the 307 damage dealt = 10 rage formula.
+    // TODO: add max(1, round(damage_dealt/30.7))
     return int(ceil(damage_dealt/30.7));
 }

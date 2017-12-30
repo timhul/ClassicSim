@@ -2,6 +2,7 @@
 #define SPELL_H
 
 #include <string>
+#include <algorithm>
 #include "Engine.h"
 #include "Character.h"
 #include "CombatRoll.h"

@@ -15,11 +15,15 @@ int MainhandAttack::spell_effect(const int) const {
         return 0;
     if (result->is_parry())
         return 0;
+
+    const int damage_dealt = std::max(1, pchar->get_mh_dmg());
+
     // TODO: Apply Flurry
     if (result->is_critical())
-        return 30;
+        return pchar->rage_gained_from_dd(damage_dealt * 2);
     if (result->is_glancing())
-        return 10;
+        // TODO: Get glancing blow damage penalty (based on weapon skill delta).
+        return pchar->rage_gained_from_dd(round(damage_dealt * 0.6));
 
-    return 15;
+    return pchar->rage_gained_from_dd(damage_dealt);
 }
