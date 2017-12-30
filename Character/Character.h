@@ -3,11 +3,11 @@
 
 #include "Race.h"
 #include "Engine.h"
-
+#include "Equipment.h"
 
 class Character {
 public:
-    Character(Race*, Engine*);
+    Character(Race*, Engine*, Equipment*);
     Race* get_race(void);
     virtual void rotation(void) = 0;
     virtual void auto_attack(void) = 0;
@@ -27,6 +27,7 @@ public:
     int get_clvl(void) const;
     void set_clvl(const int&);
     Engine* get_engine(void) const;
+    Equipment* get_equipment(void) const;
     virtual bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
     void start_attack(void);
@@ -37,6 +38,7 @@ public:
 protected:
     Race* race;
     Engine* engine;
+    Equipment* equipment;
     int STR;
     int AGI;
     int STAM;

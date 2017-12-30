@@ -8,8 +8,8 @@ class Class : public Character {
 public:
     virtual ~Class() {}
 
-    Class(Race* _race, Engine* _engine):
-          Character(_race, _engine) {}
+    Class(Race* _race, Engine* _engine, Equipment* _eq):
+          Character(_race, _engine, _eq) {}
 
     virtual std::string get_name() const = 0;
 

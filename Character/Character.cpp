@@ -1,9 +1,10 @@
 
 #include "Character.h"
 
-Character::Character(Race* race, Engine* engine) {
+Character::Character(Race* race, Engine* engine, Equipment* equipment) {
     this->race = race;
     this->engine = engine;
+    this->equipment = equipment;
     this->STR = race->get_base_strength();
     this->AGI = race->get_base_agility();
     this->STAM = race->get_base_stamina();
@@ -64,6 +65,10 @@ bool Character::is_melee_attacking(void) const {
 
 Engine* Character::get_engine(void) const {
     return this->engine;
+}
+
+Equipment* Character::get_equipment(void) const {
+    return this->equipment;
 }
 
 void Character::start_attack(void) {

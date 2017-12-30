@@ -8,7 +8,7 @@
 
 class Warrior: public Class {
 public:
-    Warrior(Race* race, Engine* engine) : Class(race, engine) {
+    Warrior(Race* race, Engine* engine, Equipment* _eq) : Class(race, engine, _eq) {
         // Constants added as a hack, these are the gains from 1-60.
         // This essentially forces a clvl of 60 for stats to be accurate for warrior.
         this->STR += get_strength_modifier() + 97;

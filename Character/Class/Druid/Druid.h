@@ -5,7 +5,7 @@
 
 class Druid: public Class {
 public:
-    Druid(Race* race, Engine* engine) : Class(race, engine) {
+    Druid(Race* race, Engine* engine, Equipment* _eq) : Class(race, engine, _eq) {
         this->STR += get_strength_modifier();
         this->AGI += get_agility_modifier();
         this->STAM += get_stamina_modifier();
