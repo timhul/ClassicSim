@@ -6,7 +6,7 @@
 class OffhandAttack: public Spell {
 public:
     OffhandAttack(Engine* engine, Character* pchar) :
-        Spell("Offhand Attack", engine, pchar, -10.0, 0) {}
+        Spell("Offhand Attack", engine, pchar, 10.0, 0) {}
 
 protected:
 private:
