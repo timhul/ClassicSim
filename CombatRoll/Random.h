@@ -6,9 +6,9 @@
 
 class Random {
 public:
-    Random() {
+    Random(const int min_range, const int max_range) {
         gen = new std::mt19937(std::time(0));
-        distr = new std::uniform_int_distribution<>(0, 9999);
+        distr = new std::uniform_int_distribution<>(min_range, max_range);
     }
 
     ~Random() {

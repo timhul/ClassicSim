@@ -61,13 +61,15 @@ void Test::test_all(void) {
 void Test::test_queue(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Random* mh_dmg_range = new Random(80, 150);
+    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
     equipment->set_mainhand(mainhand);
-    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Random* oh_dmg_range = new Random(80, 150);
+    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
     Race* race = new Orc();
     Target* target = new Target(63);
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
     Class* pclass = new Warrior(race, engine, equipment, combat);
     combat->set_character(dynamic_cast<Character*>(pclass));
@@ -87,7 +89,7 @@ void Test::test_queue(void) {
 }
 
 void Test::test_random(void) {
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
 
     for (int i = 0; i < 10; ++i) {
         std::cout << "Random rolling " << random->get_roll() << "\n";
@@ -101,7 +103,7 @@ void Test::test_combat_roll_melee_hit_result(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
     Class* pclass = new Warrior(race, engine, equipment, combat);
     combat->set_character(dynamic_cast<Character*>(pclass));
@@ -128,7 +130,7 @@ void Test::test_combat_roll_creation(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
     Class* pclass = new Warrior(race, engine, equipment, combat);
     combat->set_character(dynamic_cast<Character*>(pclass));
@@ -153,7 +155,7 @@ void Test::test_combat_roll_dodge(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
     Class* pclass = new Warrior(race, engine, equipment, combat);
     combat->set_character(dynamic_cast<Character*>(pclass));
@@ -180,7 +182,7 @@ void Test::test_combat_roll_glancing(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
     Class* pclass = new Warrior(race, engine, equipment, combat);
     combat->set_character(dynamic_cast<Character*>(pclass));
@@ -220,10 +222,11 @@ void Test::test_combat_roll_white_miss(void) {
     Target* target = new Target(63);
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
-    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Random* oh_dmg_range = new Random(80, 150);
+    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
     Race* race = new Orc();
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
     Class* pclass = new Warrior(race, engine, equipment, combat);
     combat->set_character(dynamic_cast<Character*>(pclass));
@@ -276,7 +279,8 @@ void Test::test_white_hit_table(void) {
 void Test::test_equipment_creation(void) {
     Equipment* equipment = new Equipment();
 
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Random* mh_dmg_range = new Random(80, 150);
+    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
     assert(mainhand->get_name() == "Frostbite");
     assert(mainhand->get_weapon_type() == 0);
     assert(mainhand->get_min_dmg() == 80);
@@ -302,7 +306,7 @@ void Test::test_character_creation(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Target* target = new Target(63);
-    Random* random = new Random();
+    Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
 
     Race* race = new Human();

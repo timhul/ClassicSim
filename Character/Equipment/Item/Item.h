@@ -2,6 +2,7 @@
 #define ITEM_H
 
 #include <string>
+#include <assert.h>
 
 namespace ItemTypes {
     static const int MAINHAND = 0;
