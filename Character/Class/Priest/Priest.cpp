@@ -25,6 +25,10 @@ int Priest::get_spirit_modifier(void) const {
     return 3;
 }
 
+int Priest::get_melee_ap(void) {
+    return get_strength();
+}
+
 void Priest::rotation() {
     return;
 }

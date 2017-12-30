@@ -25,6 +25,10 @@ int Shaman::get_spirit_modifier(void) const {
     return 2;
 }
 
+int Shaman::get_melee_ap(void) {
+    return get_strength() * 2;
+}
+
 void Shaman::rotation() {
     return;
 }

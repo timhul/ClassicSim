@@ -27,6 +27,8 @@ public:
     void oh_auto_attack() override;
     float global_cooldown() const override;
 
+    int get_melee_ap() override;
+
 protected:
 private:
     CombatRoll* roll;

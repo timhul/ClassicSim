@@ -50,6 +50,8 @@ public:
 
     bool bt_available(void) const;
 
+    int get_melee_ap() override;
+
 protected:
 private:
     int rage;

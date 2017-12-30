@@ -25,6 +25,10 @@ int Druid::get_spirit_modifier(void) const {
     return 2;
 }
 
+int Druid::get_melee_ap(void) {
+    return get_strength();
+}
+
 void Druid::rotation() {
     return;
 }

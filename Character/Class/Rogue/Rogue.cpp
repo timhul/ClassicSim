@@ -25,6 +25,10 @@ int Rogue::get_spirit_modifier(void) const {
     return 0;
 }
 
+int Rogue::get_melee_ap(void) {
+    return get_strength() + get_agility();
+}
+
 void Rogue::rotation() {
     return;
 }

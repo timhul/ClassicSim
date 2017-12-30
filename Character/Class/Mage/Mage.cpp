@@ -25,6 +25,10 @@ int Mage::get_spirit_modifier(void) const {
     return 2;
 }
 
+int Mage::get_melee_ap(void) {
+    return get_strength();
+}
+
 void Mage::rotation() {
     return;
 }

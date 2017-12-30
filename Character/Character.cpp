@@ -104,3 +104,43 @@ bool Character::action_ready() const {
     float delta = last_action + global_cooldown() - engine->get_current_priority();
     return delta < 0.0001;
 }
+
+int Character::get_melee_ap() {
+    return 0;
+}
+
+int Character::get_mh_min_dmg() {
+    // TODO: Check if base weapon speed should be used, or hasted.
+    MeleeWeapon* mh = equipment->get_mainhand();
+    float normalized_min = mh->get_min_dmg() / mh->get_base_weapon_speed();
+    float normalized_ap = get_melee_ap() / 14;
+
+    return (normalized_min + normalized_ap) * mh->get_base_weapon_speed();
+}
+
+int Character::get_mh_max_dmg() {
+    // TODO: Check if base weapon speed should be used, or hasted.
+    MeleeWeapon* mh = equipment->get_mainhand();
+    float normalized_max = mh->get_max_dmg() / mh->get_base_weapon_speed();
+    float normalized_ap = get_melee_ap() / 14;
+
+    return (normalized_max + normalized_ap) * mh->get_base_weapon_speed();
+}
+
+int Character::get_oh_min_dmg() {
+    // TODO: Check if base weapon speed should be used, or hasted.
+    MeleeWeapon* oh = equipment->get_offhand();
+    float normalized_min = oh->get_min_dmg() / oh->get_base_weapon_speed();
+    float normalized_ap = get_melee_ap() / 14;
+
+    return (normalized_min + normalized_ap) * oh->get_base_weapon_speed();
+}
+
+int Character::get_oh_max_dmg() {
+    // TODO: Check if base weapon speed should be used, or hasted.
+    MeleeWeapon* oh = equipment->get_offhand();
+    float normalized_max = oh->get_max_dmg() / oh->get_base_weapon_speed();
+    float normalized_ap = get_melee_ap() / 14;
+
+    return (normalized_max + normalized_ap) * oh->get_base_weapon_speed();
+}

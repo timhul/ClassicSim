@@ -27,6 +27,11 @@ int Warrior::get_spirit_modifier(void) const {
     return 0;
 }
 
+int Warrior::get_melee_ap(void) {
+    // TODO: Include AP from buffs (Crusader, Might Rage Potion, world buffs, etc.)
+    return get_strength() * 2;
+}
+
 void Warrior::gain_rage(const int gained_rage) {
     assert(gained_rage >= 0);
     this->rage += gained_rage;

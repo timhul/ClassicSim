@@ -36,6 +36,13 @@ public:
     bool action_ready(void) const;
     virtual float global_cooldown() const;
 
+    int get_mh_min_dmg();
+    int get_mh_max_dmg();
+    int get_oh_min_dmg();
+    int get_oh_max_dmg();
+
+    virtual int get_melee_ap();
+
 protected:
     Race* race;
     Engine* engine;
