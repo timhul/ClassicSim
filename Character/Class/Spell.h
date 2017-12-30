@@ -31,7 +31,7 @@ public:
     bool cooldown_less_than(const float) const;
     bool cooldown_greater_than(const float) const;
 
-    int perform(const int) const;
+    int perform(const int);
 
 protected:
     virtual int spell_effect(const int) const = 0;

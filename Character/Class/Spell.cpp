@@ -37,7 +37,8 @@ bool Spell::cooldown_greater_than(const float value) const {
     return !cooldown_less_than(value);
 }
 
-int Spell::perform(const int resource_level) const {
+int Spell::perform(const int resource_level) {
     assert(resource_level >= resource_cost);
+    last_used = engine->get_current_priority();
     return this->spell_effect(resource_level);
 }

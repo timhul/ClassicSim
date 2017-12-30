@@ -29,7 +29,11 @@ void Hunter::rotation() {
     return;
 }
 
-void Hunter::auto_attack() {
+void Hunter::mh_auto_attack() {
+    return;
+}
+
+void Hunter::oh_auto_attack() {
     return;
 }
 

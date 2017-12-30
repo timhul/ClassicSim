@@ -10,7 +10,8 @@ public:
     Character(Race*, Engine*, Equipment*);
     Race* get_race(void);
     virtual void rotation(void) = 0;
-    virtual void auto_attack(void) = 0;
+    virtual void mh_auto_attack(void) = 0;
+    virtual void oh_auto_attack(void) = 0;
 
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;
@@ -51,6 +52,9 @@ protected:
     int clvl;
     bool melee_attacking;
     float last_action;
+
+    virtual void start_mh_attack(void);
+    virtual void start_oh_attack(void);
 private:
 };
 

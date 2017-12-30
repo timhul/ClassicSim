@@ -30,14 +30,6 @@ void Engine::set_current_priority(Event* event) {
     this->current_prio = event->get_priority();
 }
 
-void Engine::add_action_event(Event* event) {
-    this->queue.push(event);
-}
-
-void Engine::add_mh_event(Event* event) {
-    this->queue.push(event);
-}
-
-void Engine::add_oh_event(Event* event) {
+void Engine::add_event(Event* event) {
     this->queue.push(event);
 }

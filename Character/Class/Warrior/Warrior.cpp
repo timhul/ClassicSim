@@ -29,11 +29,7 @@ int Warrior::get_spirit_modifier(void) const {
 
 void Warrior::rotation() {
     std::cout << "Warrior acting\n";
-    // Remember to add PlayerAction event with current priority for any melee hit event
-    // This is to use resources as soon as they become available.
-    // if (this->get_engine()->on_gcd() or not enough resource for ability usage)  { return }
-    // The checks above at the minimum are required to handle this.
-    // Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
+    // TODO: Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
     // Fury warriors need this for overpower modelling.
 
     if (!is_melee_attacking())
@@ -41,7 +37,7 @@ void Warrior::rotation() {
 
     if (!action_ready()) {
         PlayerAction* new_event = new PlayerAction(this, 0.1);
-        this->get_engine()->add_action_event(new_event);
+        this->get_engine()->add_event(new_event);
         return;
     }
 
@@ -53,19 +49,51 @@ void Warrior::rotation() {
     }
 }
 
-void Warrior::auto_attack() {
-    std::cout << "Warrior auto attack!\n";
+void Warrior::start_mh_attack(void) {
+    // TODO: Apply Flurry buffs, etc to base weapon speed.
+    float wpn_speed = equipment->get_mainhand()->get_base_weapon_speed();
+    float next_timestamp = mh_attack->get_last_used() + wpn_speed;
 
-    MainhandAttack* mh_attack = new MainhandAttack(get_engine(), dynamic_cast<Character*>(this));
+    if (next_timestamp < engine->get_current_priority())
+        next_timestamp = engine->get_current_priority();
 
+    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, next_timestamp);
+    this->get_engine()->add_event(new_event);
+}
+
+void Warrior::start_oh_attack(void) {
+    // TODO: Apply Flurry buffs, etc to base weapon speed.
+    // TODO: Check if Heroic Strike "buff" up
+    float wpn_speed = equipment->get_offhand()->get_base_weapon_speed();
+    float next_timestamp = oh_attack->get_last_used() + wpn_speed;
+
+    if (next_timestamp < engine->get_current_priority())
+        next_timestamp = engine->get_current_priority();
+
+    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, next_timestamp);
+    this->get_engine()->add_event(new_event);
+}
+
+void Warrior::mh_auto_attack() {
     rage += mh_attack->perform(rage);
 
     if (action_ready()) {
         PlayerAction* new_event = new PlayerAction(this, 0.1);
-        this->get_engine()->add_action_event(new_event);
+        this->get_engine()->add_event(new_event);
     }
 
-    delete mh_attack;
+    start_mh_attack();
+}
+
+void Warrior::oh_auto_attack() {
+    rage += oh_attack->perform(rage);
+
+    if (action_ready()) {
+        PlayerAction* new_event = new PlayerAction(this, 0.1);
+        this->get_engine()->add_event(new_event);
+    }
+
+    start_oh_attack();
 }
 
 float Warrior::global_cooldown() const {
@@ -79,5 +107,5 @@ int Warrior::get_curr_rage() const {
 void Warrior::add_next_action_event() {
     // TODO: Resolve circular dependencies and move this up the class hierarchy.
     PlayerAction* new_event = new PlayerAction(this, global_cooldown());
-    this->get_engine()->add_action_event(new_event);
+    this->get_engine()->add_event(new_event);
 }

@@ -12,9 +12,7 @@ public:
     void end_combat(void);
     float get_current_priority(void) const;
     void set_current_priority(Event*);
-    void add_action_event(Event*);
-    void add_mh_event(Event*);
-    void add_oh_event(Event*);
+    void add_event(Event*);
 
 protected:
 

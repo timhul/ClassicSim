@@ -29,7 +29,11 @@ void Mage::rotation() {
     return;
 }
 
-void Mage::auto_attack() {
+void Mage::mh_auto_attack() {
+    return;
+}
+
+void Mage::oh_auto_attack() {
     return;
 }
 

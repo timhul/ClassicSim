@@ -29,7 +29,11 @@ void Priest::rotation() {
     return;
 }
 
-void Priest::auto_attack() {
+void Priest::mh_auto_attack() {
+    return;
+}
+
+void Priest::oh_auto_attack() {
     return;
 }
 

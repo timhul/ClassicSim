@@ -1,6 +1,7 @@
 
 #include "Character.h"
 
+
 Character::Character(Race* race, Engine* engine, Equipment* equipment) {
     this->race = race;
     this->engine = engine;
@@ -71,15 +72,21 @@ Equipment* Character::get_equipment(void) const {
     return this->equipment;
 }
 
+void Character::start_mh_attack(void) {
+    return;
+}
+
+void Character::start_oh_attack(void) {
+    return;
+}
+
 void Character::start_attack(void) {
     this->melee_attacking = true;
 
-    MeleeWeapon* mh = equipment->get_mainhand();
-    // Start an attack.
+    start_mh_attack();
 
     if (is_dual_wielding()) {
-        MeleeWeapon* oh = equipment->get_offhand();
-        // Start an attack.
+        start_oh_attack();
     }
 }
 

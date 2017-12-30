@@ -8,6 +8,6 @@ EncounterEnd::EncounterEnd(Engine* engine) {
 }
 
 void EncounterEnd::act(void) {
-    std::cout << "EncounterEnd\n";
+    std::cout << this->priority << ": EncounterEnd\n";
     engine->end_combat();
 }

@@ -15,10 +15,7 @@ public:
 protected:
 
 private:
-     std::priority_queue<Event*, std::vector<Event*>, Compare> action_queue;
-     std::priority_queue<Event*, std::vector<Event*>, Compare> mh_queue;
-     std::priority_queue<Event*, std::vector<Event*>, Compare> oh_queue;
-
+     std::priority_queue<Event*, std::vector<Event*>, Compare> queue;
 };
 
 #endif // QUEUE_H

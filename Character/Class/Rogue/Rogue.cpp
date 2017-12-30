@@ -29,7 +29,11 @@ void Rogue::rotation() {
     return;
 }
 
-void Rogue::auto_attack() {
+void Rogue::mh_auto_attack() {
+    return;
+}
+
+void Rogue::oh_auto_attack() {
     return;
 }
 

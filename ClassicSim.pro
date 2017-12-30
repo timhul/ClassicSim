@@ -40,7 +40,6 @@ SOURCES += main.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Test.cpp \
-    Event/Events/MeleeHit.cpp \
     Character/Equipment/Item/MeleeWeapon/MeleeWeapon.cpp \
     Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
     Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
@@ -51,7 +50,10 @@ SOURCES += main.cpp \
     CombatRoll/AttackTables/WhiteHitTable.cpp \
     Character/Class/Spell.cpp \
     Character/Class/Warrior/Spells/Bloodthirst.cpp \
-    Character/Class/Warrior/Spells/MainhandAttack.cpp
+    Character/Class/Warrior/Spells/MainhandAttack.cpp \
+    Event/Events/OffhandMeleeHit.cpp \
+    Event/Events/MainhandMeleeHit.cpp \
+    Character/Class/Warrior/Spells/OffhandAttack.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -81,7 +83,6 @@ HEADERS += \
     Character/Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
     Test/Test.h \
-    Event/Events/MeleeHit.h \
     Character/Equipment/Equipment.h \
     Character/Equipment/Item/Item.h \
     Character/Equipment/Item/MeleeWeapon/MeleeWeapon.h \
@@ -97,7 +98,10 @@ HEADERS += \
     Character/Class/Spell.h \
     Character/Class/Warrior/Spells/Bloodthirst.h \
     Character/Class/AutoAttack.h \
-    Character/Class/Warrior/Spells/MainhandAttack.h
+    Character/Class/Warrior/Spells/MainhandAttack.h \
+    Event/Events/OffhandMeleeHit.h \
+    Event/Events/MainhandMeleeHit.h \
+    Character/Class/Warrior/Spells/OffhandAttack.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

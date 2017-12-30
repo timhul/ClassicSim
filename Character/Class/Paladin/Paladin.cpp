@@ -29,7 +29,11 @@ void Paladin::rotation() {
     return;
 }
 
-void Paladin::auto_attack() {
+void Paladin::mh_auto_attack() {
+    return;
+}
+
+void Paladin::oh_auto_attack() {
     return;
 }
 

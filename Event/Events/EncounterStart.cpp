@@ -8,6 +8,6 @@ EncounterStart::EncounterStart(Character* pchar) {
 }
 
 void EncounterStart::act(void) {
-    std::cout << "EncounterStart\n";
+    std::cout << this->priority << ": EncounterStart\n";
     pchar->rotation();
 }

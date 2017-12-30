@@ -29,7 +29,11 @@ void Druid::rotation() {
     return;
 }
 
-void Druid::auto_attack() {
+void Druid::mh_auto_attack() {
+    return;
+}
+
+void Druid::oh_auto_attack() {
     return;
 }
 

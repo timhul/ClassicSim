@@ -29,7 +29,11 @@ void Shaman::rotation() {
     return;
 }
 
-void Shaman::auto_attack() {
+void Shaman::mh_auto_attack() {
+    return;
+}
+
+void Shaman::oh_auto_attack() {
     return;
 }
 

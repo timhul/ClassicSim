@@ -5,6 +5,9 @@
 #include "PlayerAction.h"
 #include "Bloodthirst.h"
 #include "MainhandAttack.h"
+#include "OffhandAttack.h"
+#include "MainhandMeleeHit.h"
+#include "OffhandMeleeHit.h"
 
 class Warrior: public Class {
 public:
@@ -18,10 +21,14 @@ public:
         this->SPI += get_spirit_modifier() + 25;
         this->rage = 0;
         this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this));
+        this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this));
+        this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this));
     }
 
     ~Warrior() {
         delete bt;
+        delete mh_attack;
+        delete oh_attack;
     }
 
     std::string get_name() const override;
@@ -31,7 +38,8 @@ public:
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
     void rotation() override;
-    void auto_attack() override;
+    void mh_auto_attack() override;
+    void oh_auto_attack() override;
     float global_cooldown() const override;
     int get_curr_rage() const;
 
@@ -43,6 +51,11 @@ protected:
 private:
     int rage;
     Bloodthirst* bt;
+    MainhandAttack* mh_attack;
+    OffhandAttack* oh_attack;
+
+    void start_mh_attack(void) override;
+    void start_oh_attack(void) override;
 };
 
 #endif // WARRIOR_H

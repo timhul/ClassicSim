@@ -36,8 +36,6 @@
 
 
 void Test::test_all(void) {
-    std::cout << "test_queue\n";
-    test_queue();
     std::cout << "test_character_creation\n";
     test_character_creation();
     std::cout << "test_equipment_creation\n";
@@ -56,18 +54,24 @@ void Test::test_all(void) {
     test_random();
     std::cout << "test_combat_roll_melee_hit_result\n";
     test_combat_roll_melee_hit_result();
+    std::cout << "test_queue\n";
+    test_queue();
 }
 
 void Test::test_queue(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    equipment->set_mainhand(mainhand);
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    equipment->set_offhand(offhand);
     Race* race = new Orc();
     Class* pclass = new Warrior(race, engine, equipment);
     EncounterStart* start_event = new EncounterStart(pclass);
     EncounterEnd* end_event = new EncounterEnd(engine);
 
-    engine->add_action_event(end_event);
-    engine->add_action_event(start_event);
+    engine->add_event(end_event);
+    engine->add_event(start_event);
     engine->run();
 
     delete equipment;

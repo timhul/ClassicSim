@@ -29,7 +29,11 @@ void Warlock::rotation() {
     return;
 }
 
-void Warlock::auto_attack() {
+void Warlock::mh_auto_attack() {
+    return;
+}
+
+void Warlock::oh_auto_attack() {
     return;
 }
 
