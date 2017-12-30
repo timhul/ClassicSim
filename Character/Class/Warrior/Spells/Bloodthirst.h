@@ -2,6 +2,7 @@
 #define BLOODTHIRST_H
 
 #include "Spell.h"
+#include "CooldownReady.h"
 
 class Bloodthirst: public Spell {
 public:

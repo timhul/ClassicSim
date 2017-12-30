@@ -47,8 +47,6 @@ public:
 
     bool bt_available(void) const;
 
-    void add_next_action_event(void);
-
 protected:
 private:
     int rage;

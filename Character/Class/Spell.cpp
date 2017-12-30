@@ -29,6 +29,10 @@ bool Spell::cooldown_less_than(const float value) const {
     const float curr = engine->get_current_priority();
     float target_timestamp = curr + value;
 
+    float delta = get_next_use() - target_timestamp;
+    if (delta < 0.0001)
+        return true;
+
     return target_timestamp >= get_next_use();
 }
 

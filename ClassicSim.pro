@@ -53,7 +53,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/MainhandAttack.cpp \
     Event/Events/OffhandMeleeHit.cpp \
     Event/Events/MainhandMeleeHit.cpp \
-    Character/Class/Warrior/Spells/OffhandAttack.cpp
+    Character/Class/Warrior/Spells/OffhandAttack.cpp \
+    Event/Events/CooldownReady.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -101,7 +102,8 @@ HEADERS += \
     Character/Class/Warrior/Spells/MainhandAttack.h \
     Event/Events/OffhandMeleeHit.h \
     Event/Events/MainhandMeleeHit.h \
-    Character/Class/Warrior/Spells/OffhandAttack.h
+    Character/Class/Warrior/Spells/OffhandAttack.h \
+    Event/Events/CooldownReady.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

@@ -50,17 +50,13 @@ void Warrior::rotation() {
         start_attack();
 
     if (!action_ready()) {
-        PlayerAction* new_event = new PlayerAction(this, 0.1);
-        this->get_engine()->add_event(new_event);
         return;
     }
 
     // TODO: Check if execute is available. Requires target health.
 
-    if (bt->is_available(rage)) {
+    if (bt->is_available(rage))
         lose_rage(bt->perform(rage));
-        add_next_action_event();
-    }
 }
 
 void Warrior::start_mh_attack(void) {
@@ -116,10 +112,4 @@ float Warrior::global_cooldown() const {
 
 int Warrior::get_curr_rage() const {
     return this->rage;
-}
-
-void Warrior::add_next_action_event() {
-    // TODO: Resolve circular dependencies and move this up the class hierarchy.
-    PlayerAction* new_event = new PlayerAction(this, global_cooldown());
-    this->get_engine()->add_event(new_event);
 }
