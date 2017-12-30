@@ -85,6 +85,7 @@ void Warrior::start_oh_attack(void) {
 }
 
 void Warrior::mh_auto_attack() {
+    // TODO: Check for invalid attacks before performing.
     gain_rage(mh_attack->perform(rage));
 
     if (action_ready()) {
@@ -96,6 +97,7 @@ void Warrior::mh_auto_attack() {
 }
 
 void Warrior::oh_auto_attack() {
+    // TODO: Check for invalid attacks before performing.
     gain_rage(oh_attack->perform(rage));
 
     if (action_ready()) {

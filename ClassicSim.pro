@@ -54,7 +54,13 @@ SOURCES += main.cpp \
     Event/Events/OffhandMeleeHit.cpp \
     Event/Events/MainhandMeleeHit.cpp \
     Character/Class/Warrior/Spells/OffhandAttack.cpp \
-    Event/Events/CooldownReady.cpp
+    Event/Events/CooldownReady.cpp \
+    Character/Class/Warrior/Spells/Whirlwind.cpp \
+    Character/Class/Warrior/Spells/Execute.cpp \
+    Character/Class/Warrior/Spells/HeroicStrike.cpp \
+    Character/Class/Warrior/Spells/Overpower.cpp \
+    Character/Class/Warrior/Spells/Hamstring.cpp \
+    Character/Class/Warrior/Spells/Recklessness.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -103,7 +109,13 @@ HEADERS += \
     Event/Events/OffhandMeleeHit.h \
     Event/Events/MainhandMeleeHit.h \
     Character/Class/Warrior/Spells/OffhandAttack.h \
-    Event/Events/CooldownReady.h
+    Event/Events/CooldownReady.h \
+    Character/Class/Warrior/Spells/Whirlwind.h \
+    Character/Class/Warrior/Spells/Execute.h \
+    Character/Class/Warrior/Spells/HeroicStrike.h \
+    Character/Class/Warrior/Spells/Overpower.h \
+    Character/Class/Warrior/Spells/Hamstring.h \
+    Character/Class/Warrior/Spells/Recklessness.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
