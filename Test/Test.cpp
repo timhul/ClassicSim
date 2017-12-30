@@ -66,7 +66,11 @@ void Test::test_queue(void) {
     Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
     Race* race = new Orc();
-    Class* pclass = new Warrior(race, engine, equipment);
+    Target* target = new Target(63);
+    Random* random = new Random();
+    CombatRoll* combat = new CombatRoll(target, random);
+    Class* pclass = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pclass));
     EncounterStart* start_event = new EncounterStart(pclass);
     EncounterEnd* end_event = new EncounterEnd(engine);
 
@@ -74,6 +78,8 @@ void Test::test_queue(void) {
     engine->add_event(start_event);
     engine->run();
 
+    delete target;
+    delete random;
     delete equipment;
     delete pclass;
     delete race;
@@ -95,9 +101,10 @@ void Test::test_combat_roll_melee_hit_result(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Class* pclass = new Warrior(race, engine, equipment);
     Random* random = new Random();
-    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+    CombatRoll* combat = new CombatRoll(target, random);
+    Class* pclass = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pclass));
 
     AttackResult* result = combat->get_melee_hit_result(300);
 
@@ -121,9 +128,10 @@ void Test::test_combat_roll_creation(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Class* pclass = new Warrior(race, engine, equipment);
     Random* random = new Random();
-    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+    CombatRoll* combat = new CombatRoll(target, random);
+    Class* pclass = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pclass));
 
     combat->get_white_hit_table(300);
     combat->get_white_hit_table(300);
@@ -145,9 +153,10 @@ void Test::test_combat_roll_dodge(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Class* pclass = new Warrior(race, engine, equipment);
     Random* random = new Random();
-    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+    CombatRoll* combat = new CombatRoll(target, random);
+    Class* pclass = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pclass));
 
     assert(fabs(0.05 - combat->get_dodge_chance(300)) < 0.001);
     assert(fabs(0.05 - combat->get_dodge_chance(315)) < 0.001);
@@ -171,9 +180,10 @@ void Test::test_combat_roll_glancing(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Class* pclass = new Warrior(race, engine, equipment);
     Random* random = new Random();
-    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+    CombatRoll* combat = new CombatRoll(target, random);
+    Class* pclass = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pclass));
 
     pclass->set_clvl(1);
     assert(fabs(6.3 - combat->get_glancing_blow_chance()) < 0.001);
@@ -213,9 +223,10 @@ void Test::test_combat_roll_white_miss(void) {
     Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
     Race* race = new Orc();
-    Class* pclass = new Warrior(race, engine, equipment);
     Random* random = new Random();
-    CombatRoll* combat = new CombatRoll(dynamic_cast<Character*>(pclass), target, random);
+    CombatRoll* combat = new CombatRoll(target, random);
+    Class* pclass = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pclass));
 
     assert(fabs(0.28 - combat->get_white_miss_chance(300)) < 0.001);
     assert(fabs(0.24 - combat->get_white_miss_chance(315)) < 0.001);
@@ -290,6 +301,9 @@ void Test::test_equipment_creation(void) {
 void Test::test_character_creation(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
+    Target* target = new Target(63);
+    Random* random = new Random();
+    CombatRoll* combat = new CombatRoll(target, random);
 
     Race* race = new Human();
     std::cout << "Name: " << race->get_name() << "\n";
@@ -362,7 +376,7 @@ void Test::test_character_creation(void) {
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
 
-    Class* pclass = new Warrior(race, engine, equipment);
+    Class* pclass = new Warrior(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -371,7 +385,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Priest(race, engine, equipment);
+    pclass = new Priest(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -380,7 +394,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Rogue(race, engine, equipment);
+    pclass = new Rogue(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -389,7 +403,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Mage(race, engine, equipment);
+    pclass = new Mage(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -398,7 +412,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Druid(race, engine, equipment);
+    pclass = new Druid(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -407,7 +421,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Hunter(race, engine, equipment);
+    pclass = new Hunter(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -416,7 +430,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Warlock(race, engine, equipment);
+    pclass = new Warlock(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -425,7 +439,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Shaman(race, engine, equipment);
+    pclass = new Shaman(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -434,7 +448,7 @@ void Test::test_character_creation(void) {
     std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
     delete pclass;
 
-    pclass = new Paladin(race, engine, equipment);
+    pclass = new Paladin(race, engine, equipment, combat);
     std::cout << "Name: " << pclass->get_name() << "\n";
     std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
     std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
@@ -444,7 +458,7 @@ void Test::test_character_creation(void) {
     delete pclass;
 
     race = new Orc();
-    pclass = new Warrior(race, engine, equipment);
+    pclass = new Warrior(race, engine, equipment, combat);
     std::cout << "Character " << pclass->get_race()->get_name() << \
                  " " << pclass->get_name() << "\n";
     std::cout << "STR After mod " << pclass->get_strength() << "\n";
@@ -455,6 +469,9 @@ void Test::test_character_creation(void) {
 
     pclass->set_clvl(60);
     assert(pclass->get_clvl() == 60);
+    delete target;
+    delete random;
+    delete combat;
     delete race;
     delete pclass;
     delete engine;

@@ -6,8 +6,8 @@
 
 class Whirlwind: public Spell {
 public:
-    Whirlwind(Engine* engine, Character* pchar) :
-        Spell("Whirlwind", engine, pchar, 10.0, 25) {}
+    Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
+        Spell("Whirlwind", engine, pchar, roll, 10.0, 25) {}
 
     int spell_effect(const int) const override;
 protected:

@@ -2,15 +2,18 @@
 #define WARLOCK_H
 
 #include "Class.h"
+#include "CombatRoll.h"
 
 class Warlock: public Class {
 public:
-    Warlock(Race* race, Engine* engine, Equipment* _eq) : Class(race, engine, _eq) {
+    Warlock(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
+        Class(race, engine, _eq) {
         this->STR += get_strength_modifier();
         this->AGI += get_agility_modifier();
         this->STAM += get_stamina_modifier();
         this->INT += get_intellect_modifier();
         this->SPI += get_spirit_modifier();
+        this->roll = _roll;
     }
 
     std::string get_name() const override;
@@ -26,6 +29,7 @@ public:
 
 protected:
 private:
+    CombatRoll* roll;
 };
 
 #endif // WARLOCK_H

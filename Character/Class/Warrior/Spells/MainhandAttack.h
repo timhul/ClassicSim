@@ -5,8 +5,8 @@
 
 class MainhandAttack: public Spell {
 public:
-    MainhandAttack(Engine* engine, Character* pchar) :
-        Spell("Mainhand Attack", engine, pchar, 10.0, 0) {}
+    MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
+        Spell("Mainhand Attack", engine, pchar, roll, 10.0, 0) {}
 
 protected:
 private:

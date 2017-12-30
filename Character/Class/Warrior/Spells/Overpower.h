@@ -6,8 +6,8 @@
 
 class Overpower: public Spell {
 public:
-    Overpower(Engine* engine, Character* pchar) :
-        Spell("Overpower", engine, pchar, 5.0, 5) {}
+    Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
+        Spell("Overpower", engine, pchar, roll, 5.0, 5) {}
 
     int spell_effect(const int) const override;
 protected:

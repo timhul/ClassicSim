@@ -8,10 +8,12 @@
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
+#include "CombatRoll.h"
 
 class Warrior: public Class {
 public:
-    Warrior(Race* race, Engine* engine, Equipment* _eq) : Class(race, engine, _eq) {
+    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
+        Class(race, engine, _eq) {
         // Constants added as a hack, these are the gains from 1-60.
         // This essentially forces a clvl of 60 for stats to be accurate for warrior.
         this->STR += get_strength_modifier() + 97;
@@ -20,9 +22,10 @@ public:
         this->INT += get_intellect_modifier() + 10;
         this->SPI += get_spirit_modifier() + 25;
         this->rage = 0;
-        this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this));
-        this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this));
-        this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this));
+        this->roll = _roll;
+        this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this), roll);
+        this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this), roll);
+        this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
     }
 
     ~Warrior() {
@@ -50,6 +53,7 @@ public:
 protected:
 private:
     int rage;
+    CombatRoll* roll;
     Bloodthirst* bt;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;

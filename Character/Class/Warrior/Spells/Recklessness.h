@@ -6,8 +6,8 @@
 
 class Recklessness: public Spell {
 public:
-    Recklessness(Engine* engine, Character* pchar) :
-        Spell("Recklessness", engine, pchar, 1800.0, 0) {}
+    Recklessness(Engine* engine, Character* pchar, CombatRoll* roll) :
+        Spell("Recklessness", engine, pchar, roll, 1800.0, 0) {}
 
     int spell_effect(const int) const override;
 protected:

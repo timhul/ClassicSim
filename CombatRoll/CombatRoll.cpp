@@ -34,6 +34,10 @@ void CombatRoll::set_target(Target* target) {
     // TODO: Update attack tables (in order to detect target level change)
 }
 
+void CombatRoll::set_character(Character* pchar) {
+    this->pchar = pchar;
+}
+
 WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     std::map<int, AttackTable*>::iterator it;
     it = attack_tables.find(wpn_skill);

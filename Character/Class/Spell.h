@@ -4,6 +4,7 @@
 #include <string>
 #include "Engine.h"
 #include "Character.h"
+#include "CombatRoll.h"
 #include "CooldownReady.h"
 #include "assert.h"
 
@@ -12,11 +13,13 @@ public:
     Spell(std::string _name,
           Engine* _eng,
           Character* _pchar,
+          CombatRoll* _roll,
           float _cd,
           int _cost) :
         name(_name),
         engine(_eng),
         pchar(_pchar),
+        roll(_roll),
         cooldown(_cd),
         last_used(0 - _cd),
         resource_cost(_cost) {}
@@ -41,6 +44,7 @@ protected:
     const std::string name;
     Engine* engine;
     Character* pchar;
+    CombatRoll* roll;
     float cooldown;
     float last_used;
     int resource_cost;

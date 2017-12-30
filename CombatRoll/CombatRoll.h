@@ -14,13 +14,12 @@
 
 class CombatRoll {
 public:
-    CombatRoll(Character* _pchar, Target* _tar, Random* _rand):
-        pchar(_pchar), target(_tar), random(_rand) {}
+    CombatRoll(Target* _tar, Random* _rand):
+        target(_tar), random(_rand) {}
 
     ~CombatRoll() {
         attack_tables.clear();
-    }
-
+    }  
     AttackResult* get_melee_hit_result(const int);
     AttackResult* get_melee_ability_result(const int);
     AttackResult* get_ranged_hit_result(const int);
@@ -29,6 +28,7 @@ public:
 
     WhiteHitTable* get_white_hit_table(const int);
     void set_target(Target*);
+    void set_character(Character*);
 
     float get_white_miss_chance(const int) const;
     float get_white_miss_chance_defense_diff_low(const int) const;
