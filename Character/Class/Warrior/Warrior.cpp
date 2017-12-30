@@ -28,7 +28,7 @@ int Warrior::get_spirit_modifier(void) const {
 }
 
 void Warrior::gain_rage(const int gained_rage) {
-    assert(gained_rage > 0);
+    assert(gained_rage >= 0);
     this->rage += gained_rage;
 
     // TODO: Add statistics for rage lost due to overcapping.
