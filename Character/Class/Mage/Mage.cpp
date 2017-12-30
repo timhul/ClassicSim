@@ -25,7 +25,7 @@ int Mage::get_spirit_modifier(void) const {
     return 2;
 }
 
-void Mage::rotation() const {
+void Mage::rotation() {
     return;
 }
 

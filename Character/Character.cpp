@@ -10,6 +10,7 @@ Character::Character(Race* race, Engine* engine) {
     this->INT = race->get_base_intellect();
     this->SPI = race->get_base_spirit();
     this->clvl = 1;
+    this->melee_attacking = false;
 }
 
 Race* Character::get_race(void) {
@@ -50,4 +51,25 @@ int Character::get_clvl(void) const {
 
 void Character::set_clvl(const int& clvl) {
     this->clvl = clvl;
+}
+
+bool Character::is_dual_wielding(void) {
+    return false;
+}
+
+bool Character::is_melee_attacking(void) const {
+    return melee_attacking;
+}
+
+Engine* Character::get_engine(void) const {
+    return this->engine;
+}
+
+void Character::start_attack(void) {
+    this->melee_attacking = true;
+}
+
+void Character::stop_attack(void) {
+    // TODO: Also need to clear melee hit event queues to stop next attacks landing.
+    this->melee_attacking = false;
 }

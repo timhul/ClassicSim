@@ -8,7 +8,7 @@ class Character {
 public:
     Character(Race*, Engine*);
     Race* get_race(void);
-    virtual void rotation(void) const = 0;
+    virtual void rotation(void) = 0;
 
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;
@@ -24,8 +24,11 @@ public:
     float get_crit_chance(void) const;
     int get_clvl(void) const;
     void set_clvl(const int&);
-    Engine* get_engine(void) const { return this->engine; }
-    virtual bool is_dual_wielding(void) { return false; }
+    Engine* get_engine(void) const;
+    virtual bool is_dual_wielding(void);
+    bool is_melee_attacking(void) const;
+    void start_attack(void);
+    void stop_attack(void);
 
 protected:
     Race* race;
@@ -40,6 +43,7 @@ protected:
     float percent_hit;
     float percent_crit;
     int clvl;
+    bool melee_attacking;
 private:
 };
 

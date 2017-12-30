@@ -2,6 +2,7 @@
 #define WARRIOR_H
 
 #include "Class.h"
+#include "Bloodthirst.h"
 
 class Warrior: public Class {
 public:
@@ -13,6 +14,12 @@ public:
         this->STAM += get_stamina_modifier() + 88;
         this->INT += get_intellect_modifier() + 10;
         this->SPI += get_spirit_modifier() + 25;
+        this->rage = 0;
+        this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this));
+    }
+
+    ~Warrior() {
+        delete bt;
     }
 
     std::string get_name() const override;
@@ -21,13 +28,18 @@ public:
     int get_stamina_modifier() const override;
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
-    void rotation() const override;
+    void rotation() override;
     float global_cooldown() const override;
 
+    int get_curr_rage() const;
     bool is_dual_wielding(void) override;
+
+    bool bt_available(void) const;
 
 protected:
 private:
+    int rage;
+    Bloodthirst* bt;
 };
 
 #endif // WARRIOR_H

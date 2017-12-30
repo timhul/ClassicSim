@@ -2,7 +2,7 @@
 #include "PlayerAction.h"
 #include <iostream>
 
-PlayerAction::PlayerAction(const Class* pclass) {
+PlayerAction::PlayerAction(Class* pclass) {
     this->pclass = pclass;
     this->priority = pclass->get_engine()->get_current_priority() + pclass->global_cooldown();
 }

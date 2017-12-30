@@ -12,7 +12,6 @@ public:
           Character(_race, _engine) {}
 
     virtual std::string get_name() const = 0;
-    virtual void rotation() const = 0;
     virtual float global_cooldown() const = 0;
 
 protected:

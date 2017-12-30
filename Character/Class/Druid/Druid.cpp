@@ -25,7 +25,7 @@ int Druid::get_spirit_modifier(void) const {
     return 2;
 }
 
-void Druid::rotation() const {
+void Druid::rotation() {
     return;
 }
 

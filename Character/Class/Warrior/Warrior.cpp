@@ -28,7 +28,7 @@ int Warrior::get_spirit_modifier(void) const {
     return 0;
 }
 
-void Warrior::rotation() const {
+void Warrior::rotation() {
     std::cout << "Warrior acting\n";
     // Remember to add PlayerAction event with current priority for any melee hit event
     // This is to use resources as soon as they become available.
@@ -36,6 +36,14 @@ void Warrior::rotation() const {
     // The checks above at the minimum are required to handle this.
     // Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
     // Fury warriors need this for overpower modelling.
+
+    if (!is_melee_attacking())
+        start_attack();
+
+    // TODO: Check if execute is available. Requires target health.
+
+    if (bt->is_available(rage))
+        rage -= bt->perform(rage);
 
     PlayerAction* new_event = new PlayerAction(this);
     this->get_engine()->add_event(new_event);
@@ -48,4 +56,8 @@ float Warrior::global_cooldown() const {
 bool Warrior::is_dual_wielding(void) {
     // TODO: Check if one-handed weapons equipped in both weapon slots.
     return true;
+}
+
+int Warrior::get_curr_rage() const {
+    return this->rage;
 }

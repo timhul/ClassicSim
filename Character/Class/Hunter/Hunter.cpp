@@ -25,7 +25,7 @@ int Hunter::get_spirit_modifier(void) const {
     return 1;
 }
 
-void Hunter::rotation() const {
+void Hunter::rotation() {
     return;
 }
 

@@ -25,7 +25,7 @@ int Paladin::get_spirit_modifier(void) const {
     return 1;
 }
 
-void Paladin::rotation() const {
+void Paladin::rotation() {
     return;
 }
 

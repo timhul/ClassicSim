@@ -25,7 +25,7 @@ int Shaman::get_spirit_modifier(void) const {
     return 2;
 }
 
-void Shaman::rotation() const {
+void Shaman::rotation() {
     return;
 }
 

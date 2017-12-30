@@ -25,7 +25,7 @@ int Warlock::get_spirit_modifier(void) const {
     return 2;
 }
 
-void Warlock::rotation() const {
+void Warlock::rotation() {
     return;
 }
 

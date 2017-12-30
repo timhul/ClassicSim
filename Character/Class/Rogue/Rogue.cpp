@@ -25,7 +25,7 @@ int Rogue::get_spirit_modifier(void) const {
     return 0;
 }
 
-void Rogue::rotation() const {
+void Rogue::rotation() {
     return;
 }
 

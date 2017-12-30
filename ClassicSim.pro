@@ -48,7 +48,9 @@ SOURCES += main.cpp \
     Character/Equipment/Equipment.cpp \
     CombatRoll/AttackResult.cpp \
     CombatRoll/CombatRoll.cpp \
-    CombatRoll/AttackTables/WhiteHitTable.cpp
+    CombatRoll/AttackTables/WhiteHitTable.cpp \
+    Character/Class/Spell.cpp \
+    Character/Class/Warrior/Spells/Bloodthirst.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -90,7 +92,9 @@ HEADERS += \
     CombatRoll/AttackTable.h \
     CombatRoll/CombatRoll.h \
     CombatRoll/AttackTables/WhiteHitTable.h \
-    CombatRoll/Random.h
+    CombatRoll/Random.h \
+    Character/Class/Spell.h \
+    Character/Class/Warrior/Spells/Bloodthirst.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -101,6 +105,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Race\Races \
     C:\C++\ClassicSim\Character\Class \
     C:\C++\ClassicSim\Character\Class\Warrior \
+    C:\C++\ClassicSim\Character\Class\Warrior\Spells \
     C:\C++\ClassicSim\Character\Class\Priest \
     C:\C++\ClassicSim\Character\Class\Rogue \
     C:\C++\ClassicSim\Character\Class\Mage \

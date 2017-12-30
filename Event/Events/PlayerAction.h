@@ -6,12 +6,12 @@
 
 class PlayerAction: public Event {
 public:
-    PlayerAction(const Class*);
+    PlayerAction(Class*);
 
     virtual void act(void) override;
 protected:
 private:
-    const Class* pclass;
+    Class* pclass;
 };
 
 #endif // PLAYERACTION_H
