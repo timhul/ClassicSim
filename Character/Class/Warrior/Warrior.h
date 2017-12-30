@@ -33,9 +33,7 @@ public:
     void rotation() override;
     void auto_attack() override;
     float global_cooldown() const override;
-
     int get_curr_rage() const;
-    bool is_dual_wielding(void) override;
 
     bool bt_available(void) const;
 

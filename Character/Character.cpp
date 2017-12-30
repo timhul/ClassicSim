@@ -56,7 +56,7 @@ void Character::set_clvl(const int& clvl) {
 }
 
 bool Character::is_dual_wielding(void) {
-    return false;
+    return equipment->is_dual_wielding();
 }
 
 bool Character::is_melee_attacking(void) const {

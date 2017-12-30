@@ -72,11 +72,6 @@ float Warrior::global_cooldown() const {
     return 1.5;
 }
 
-bool Warrior::is_dual_wielding(void) {
-    // TODO: Check if one-handed weapons equipped in both weapon slots.
-    return true;
-}
-
 int Warrior::get_curr_rage() const {
     return this->rage;
 }

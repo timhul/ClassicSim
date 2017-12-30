@@ -25,6 +25,7 @@
 #include "Character.h"
 #include "Equipment.h"
 #include "Mainhand.h"
+#include "Offhand.h"
 #include "WhiteHitTable.h"
 #include "CombatRoll.h"
 #include "AttackResult.h"
@@ -195,6 +196,8 @@ void Test::test_combat_roll_white_miss(void) {
     Target* target = new Target(63);
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    equipment->set_offhand(offhand);
     Race* race = new Orc();
     Class* pclass = new Warrior(race, engine, equipment);
     Random* random = new Random();
@@ -219,7 +222,7 @@ void Test::test_combat_roll_white_miss(void) {
     assert(fabs(0.24 - combat->get_white_miss_chance(300)) < 0.001);
     delete target;
 
-    delete target;
+    delete offhand;
     delete engine;
     delete equipment;
     delete race;

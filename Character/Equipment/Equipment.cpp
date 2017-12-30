@@ -2,6 +2,30 @@
 #include "Equipment.h"
 #include <assert.h>
 
+Equipment::Equipment() {
+    mainhand = nullptr;
+    offhand = nullptr;
+    ranged = nullptr;
+    head = nullptr;
+    neck = nullptr;
+    shoulders = nullptr;
+    back = nullptr;
+    chest = nullptr;
+    wrist = nullptr;
+    gloves = nullptr;
+    belt = nullptr;
+    legs = nullptr;
+    boots = nullptr;
+    ring1 = nullptr;
+    ring2 = nullptr;
+    trinket1 = nullptr;
+    trinket2 = nullptr;
+}
+
+bool Equipment::is_dual_wielding(void) {
+    return offhand != nullptr;
+}
+
 MeleeWeapon* Equipment::get_mainhand(void) {
     return mainhand;
 }

@@ -6,6 +6,10 @@
 
 class Equipment {
 public:
+    Equipment();
+
+    bool is_dual_wielding(void);
+
     MeleeWeapon* get_mainhand(void);
     MeleeWeapon* get_offhand(void);
     Item* get_ranged(void);

@@ -28,7 +28,7 @@ public:
     void set_clvl(const int&);
     Engine* get_engine(void) const;
     Equipment* get_equipment(void) const;
-    virtual bool is_dual_wielding(void);
+    bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
     void start_attack(void);
     void stop_attack(void);
