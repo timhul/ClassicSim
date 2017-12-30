@@ -41,7 +41,7 @@ void Warrior::rotation() {
 
     if (!action_ready()) {
         PlayerAction* new_event = new PlayerAction(this, 0.1);
-        this->get_engine()->add_event(new_event);
+        this->get_engine()->add_action_event(new_event);
         return;
     }
 
@@ -62,7 +62,7 @@ void Warrior::auto_attack() {
 
     if (action_ready()) {
         PlayerAction* new_event = new PlayerAction(this, 0.1);
-        this->get_engine()->add_event(new_event);
+        this->get_engine()->add_action_event(new_event);
     }
 
     delete mh_attack;
@@ -79,5 +79,5 @@ int Warrior::get_curr_rage() const {
 void Warrior::add_next_action_event() {
     // TODO: Resolve circular dependencies and move this up the class hierarchy.
     PlayerAction* new_event = new PlayerAction(this, global_cooldown());
-    this->get_engine()->add_event(new_event);
+    this->get_engine()->add_action_event(new_event);
 }

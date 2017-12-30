@@ -12,13 +12,12 @@ public:
     void pop(void);
     void clear(void);
 
-    std::priority_queue<Event*, std::vector<Event*>, Compare> queue;
-
 protected:
 
 private:
-     // std::priority_queue<Event*, std::vector<Event*>, Compare> queue;
-
+     std::priority_queue<Event*, std::vector<Event*>, Compare> action_queue;
+     std::priority_queue<Event*, std::vector<Event*>, Compare> mh_queue;
+     std::priority_queue<Event*, std::vector<Event*>, Compare> oh_queue;
 
 };
 

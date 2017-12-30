@@ -8,6 +8,28 @@ class Equipment {
 public:
     Equipment();
 
+    ~Equipment() {
+        delete mainhand;
+        delete offhand;
+        delete ranged;
+        delete head;
+        delete neck;
+        delete shoulders;
+        delete back;
+        delete chest;
+        delete wrist;
+        delete gloves;
+        delete belt;
+        delete legs;
+        delete boots;
+        delete ring1;
+        delete ring2;
+        delete trinket1;
+        delete trinket2;
+        delete caster_offhand;
+        delete relic;
+    }
+
     bool is_dual_wielding(void);
 
     MeleeWeapon* get_mainhand(void);

@@ -73,6 +73,14 @@ Equipment* Character::get_equipment(void) const {
 
 void Character::start_attack(void) {
     this->melee_attacking = true;
+
+    MeleeWeapon* mh = equipment->get_mainhand();
+    // Start an attack.
+
+    if (is_dual_wielding()) {
+        MeleeWeapon* oh = equipment->get_offhand();
+        // Start an attack.
+    }
 }
 
 void Character::stop_attack(void) {

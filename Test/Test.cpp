@@ -36,15 +36,25 @@
 
 
 void Test::test_all(void) {
+    std::cout << "test_queue\n";
     test_queue();
+    std::cout << "test_character_creation\n";
     test_character_creation();
+    std::cout << "test_equipment_creation\n";
     test_equipment_creation();
+    std::cout << "test_white_hit_table\n";
     test_white_hit_table();
+    std::cout << "test_combat_roll_glancing\n";
     test_combat_roll_glancing();
+    std::cout << "test_combat_roll_white_miss\n";
     test_combat_roll_white_miss();
+    std::cout << "test_combat_roll_dodge\n";
     test_combat_roll_dodge();
+    std::cout << "test_combat_roll_creation\n";
     test_combat_roll_creation();
+    std::cout << "test_random\n";
     test_random();
+    std::cout << "test_combat_roll_melee_hit_result\n";
     test_combat_roll_melee_hit_result();
 }
 
@@ -56,8 +66,8 @@ void Test::test_queue(void) {
     EncounterStart* start_event = new EncounterStart(pclass);
     EncounterEnd* end_event = new EncounterEnd(engine);
 
-    engine->add_event(end_event);
-    engine->add_event(start_event);
+    engine->add_action_event(end_event);
+    engine->add_action_event(start_event);
     engine->run();
 
     delete equipment;
@@ -222,7 +232,6 @@ void Test::test_combat_roll_white_miss(void) {
     assert(fabs(0.24 - combat->get_white_miss_chance(300)) < 0.001);
     delete target;
 
-    delete offhand;
     delete engine;
     delete equipment;
     delete race;
@@ -270,7 +279,6 @@ void Test::test_equipment_creation(void) {
     assert(mh->get_base_weapon_speed() - 2.7 < 0.01);
     assert(mh->get_weapon_proc_rate() == 0.0);
 
-    delete mainhand;
     delete equipment;
 }
 
