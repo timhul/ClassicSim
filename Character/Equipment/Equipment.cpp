@@ -20,6 +20,8 @@ Equipment::Equipment() {
     ring2 = nullptr;
     trinket1 = nullptr;
     trinket2 = nullptr;
+    caster_offhand = nullptr;
+    relic = nullptr;
 }
 
 bool Equipment::is_dual_wielding(void) {
@@ -94,6 +96,14 @@ Item* Equipment::get_trinket2(void) {
     return trinket2;
 }
 
+Item* Equipment::get_caster_offhand(void) {
+    return caster_offhand;
+}
+
+Item* Equipment::get_relic(void) {
+    return relic;
+}
+
 void Equipment::set_mainhand(MeleeWeapon* item) {
     assert(item->get_item_type() == ItemTypes::MAINHAND);
     this->mainhand = item;
@@ -101,11 +111,13 @@ void Equipment::set_mainhand(MeleeWeapon* item) {
 
 void Equipment::set_offhand(MeleeWeapon* item) {
     assert(item->get_item_type() == ItemTypes::OFFHAND);
+    assert(get_caster_offhand() == nullptr);
     this->offhand = item;
 }
 
 void Equipment::set_ranged(Item* item) {
     assert(item->get_item_type() == ItemTypes::RANGED);
+    assert(get_relic() == nullptr);
     this->ranged = item;
 }
 
@@ -177,4 +189,16 @@ void Equipment::set_trinket1(Item* item) {
 void Equipment::set_trinket2(Item* item) {
     assert(item->get_item_type() == ItemTypes::TRINKET);
     this->trinket2 = item;
+}
+
+void Equipment::set_caster_offhand(Item* item) {
+    assert(item->get_item_type() == ItemTypes::CASTER_OFFHAND);
+    assert(get_offhand() == nullptr);
+    this->caster_offhand = item;
+}
+
+void Equipment::set_relic(Item* item) {
+    assert(item->get_item_type() == ItemTypes::RELIC);
+    assert(get_ranged() == nullptr);
+    this->relic = item;
 }

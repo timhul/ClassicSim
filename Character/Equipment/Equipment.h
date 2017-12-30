@@ -27,6 +27,8 @@ public:
     Item* get_ring2(void);
     Item* get_trinket1(void);
     Item* get_trinket2(void);
+    Item* get_caster_offhand(void);
+    Item* get_relic(void);
 
     void set_mainhand(MeleeWeapon*);
     void set_offhand(MeleeWeapon*);
@@ -45,6 +47,9 @@ public:
     void set_ring2(Item*);
     void set_trinket1(Item*);
     void set_trinket2(Item*);
+    void set_caster_offhand(Item*);
+    void set_relic(Item*);
+
 
 protected:
 private:
@@ -65,6 +70,8 @@ private:
     Item* ring2;
     Item* trinket1;
     Item* trinket2;
+    Item* caster_offhand;
+    Item* relic;
 };
 
 #endif // EQUIPMENT_H

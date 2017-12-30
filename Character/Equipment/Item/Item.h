@@ -19,6 +19,8 @@ namespace ItemTypes {
     static const int BOOTS = 12;
     static const int RING = 13;
     static const int TRINKET = 14;
+    static const int CASTER_OFFHAND = 15;
+    static const int RELIC = 16;
 }
 
 class Item {
