@@ -11,6 +11,7 @@ Character::Character(Race* race, Engine* engine) {
     this->SPI = race->get_base_spirit();
     this->clvl = 1;
     this->melee_attacking = false;
+    this->last_action = 0 - this->global_cooldown();
 }
 
 Race* Character::get_race(void) {
@@ -72,4 +73,14 @@ void Character::start_attack(void) {
 void Character::stop_attack(void) {
     // TODO: Also need to clear melee hit event queues to stop next attacks landing.
     this->melee_attacking = false;
+}
+
+float Character::global_cooldown() const {
+    return 1.5;
+}
+
+bool Character::action_ready() const {
+    // Allow some rounding errors (this could effectively speed up gcd by 1/10000ths of a second).
+    float delta = last_action + global_cooldown() - engine->get_current_priority();
+    return delta < 0.0001;
 }

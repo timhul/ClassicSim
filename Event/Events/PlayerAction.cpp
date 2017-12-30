@@ -1,17 +1,11 @@
 
 #include "PlayerAction.h"
-#include <iostream>
 
-PlayerAction::PlayerAction(Class* pclass) {
+PlayerAction::PlayerAction(Class* pclass, const float delay) {
     this->pclass = pclass;
-    this->priority = pclass->get_engine()->get_current_priority() + pclass->global_cooldown();
+    this->priority = pclass->get_engine()->get_current_priority() + delay;
 }
 
 void PlayerAction::act(void) {
-    std::cout << "PlayerAction\n";
-    if (!this->pclass) {
-        std::cerr << "Null pointer for pclass for PlayerAction";
-        exit(-1);
-    }
     pclass->rotation();
 }

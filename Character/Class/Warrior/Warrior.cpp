@@ -39,13 +39,18 @@ void Warrior::rotation() {
     if (!is_melee_attacking())
         start_attack();
 
+    if (!action_ready()) {
+        PlayerAction* new_event = new PlayerAction(this, 0.1);
+        this->get_engine()->add_event(new_event);
+        return;
+    }
+
     // TODO: Check if execute is available. Requires target health.
 
-    if (bt->is_available(rage))
+    if (bt->is_available(rage)) {
         rage -= bt->perform(rage);
-
-    PlayerAction* new_event = new PlayerAction(this);
-    this->get_engine()->add_event(new_event);
+        add_next_action_event();
+    }
 }
 
 void Warrior::auto_attack() {
@@ -54,6 +59,11 @@ void Warrior::auto_attack() {
     MainhandAttack* mh_attack = new MainhandAttack(get_engine(), dynamic_cast<Character*>(this));
 
     rage += mh_attack->perform(rage);
+
+    if (action_ready()) {
+        PlayerAction* new_event = new PlayerAction(this, 0.1);
+        this->get_engine()->add_event(new_event);
+    }
 
     delete mh_attack;
 }
@@ -69,4 +79,10 @@ bool Warrior::is_dual_wielding(void) {
 
 int Warrior::get_curr_rage() const {
     return this->rage;
+}
+
+void Warrior::add_next_action_event() {
+    // TODO: Resolve circular dependencies and move this up the class hierarchy.
+    PlayerAction* new_event = new PlayerAction(this, global_cooldown());
+    this->get_engine()->add_event(new_event);
 }

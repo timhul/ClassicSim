@@ -4,6 +4,7 @@
 #include "Race.h"
 #include "Engine.h"
 
+
 class Character {
 public:
     Character(Race*, Engine*);
@@ -30,6 +31,8 @@ public:
     bool is_melee_attacking(void) const;
     void start_attack(void);
     void stop_attack(void);
+    bool action_ready(void) const;
+    virtual float global_cooldown() const;
 
 protected:
     Race* race;
@@ -45,6 +48,7 @@ protected:
     float percent_crit;
     int clvl;
     bool melee_attacking;
+    float last_action;
 private:
 };
 

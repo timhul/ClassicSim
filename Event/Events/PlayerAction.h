@@ -6,7 +6,7 @@
 
 class PlayerAction: public Event {
 public:
-    PlayerAction(Class*);
+    PlayerAction(Class*, const float);
 
     virtual void act(void) override;
 protected:
