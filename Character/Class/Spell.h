@@ -50,6 +50,8 @@ protected:
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;
     void add_fail_stats(std::string) const;
+    void add_success_stats(std::string, const int damage_dealt) const;
+    void add_success_stats(std::string, const int, const int) const;
 private:
 };
 

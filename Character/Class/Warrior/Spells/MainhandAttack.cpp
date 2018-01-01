@@ -44,12 +44,3 @@ int MainhandAttack::spell_effect(const int) const {
     add_success_stats("Hit", damage_dealt, rage_gained);
     return rage_gained;
 }
-
-void MainhandAttack::add_success_stats(std::string outcome,
-                                       const int damage_dealt,
-                                       const int rage_gained) const {
-    engine->get_statistics()->increment(get_name() + outcome);
-    engine->get_statistics()->add("Total Damage", damage_dealt);
-    engine->get_statistics()->add(get_name() + outcome + " Damage", damage_dealt);
-    engine->get_statistics()->add(get_name() + outcome + " Rage Gain", rage_gained);
-}

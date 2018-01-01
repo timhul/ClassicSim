@@ -10,7 +10,6 @@ public:
         Spell("Bloodthirst", engine, pchar, roll, 6.0, 30) {}
 
     int spell_effect(const int) const override;
-    void add_success_stats(std::string, const int) const;
 protected:
 private:
 };

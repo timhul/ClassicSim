@@ -63,3 +63,19 @@ void Spell::add_gcd_event(void) const {
 void Spell::add_fail_stats(std::string outcome) const {
     engine->get_statistics()->increment(get_name() + outcome);
 }
+
+void Spell::add_success_stats(std::string outcome,
+                                    const int damage_dealt) const {
+    engine->get_statistics()->increment(get_name() + outcome);
+    engine->get_statistics()->add("Total Damage", damage_dealt);
+    engine->get_statistics()->add(get_name() + outcome + " Damage", damage_dealt);
+}
+
+void Spell::add_success_stats(std::string outcome,
+                                       const int damage_dealt,
+                                       const int rage_gained) const {
+    engine->get_statistics()->increment(get_name() + outcome);
+    engine->get_statistics()->add("Total Damage", damage_dealt);
+    engine->get_statistics()->add(get_name() + outcome + " Damage", damage_dealt);
+    engine->get_statistics()->add(get_name() + outcome + " Rage Gain", rage_gained);
+}

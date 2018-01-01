@@ -3,12 +3,25 @@
 
 #include <iostream>
 
-int Overpower::spell_effect(const int resource_level) const {
-    // TODO: Roll special hit attack table and deal damage based on outcome.
-    // TODO: DODGE/BLOCK/PARRY is not possible for Overpower (only MISS).
-    // TODO: Apply Flurry buff if critical.
-    std::cout << engine->get_current_priority() <<
-                 ": Casting Overpower at " << resource_level << " rage.\n";
+int Overpower::spell_effect(const int) const {
+    // TODO: Find weapon skill for mainhand.
+    // TODO: Use special hit table where dodge and parry are not possible.
+    AttackResult* result = roll->get_melee_ability_result(300);
+
+    if (result->is_miss()) {
+        add_fail_stats("Miss");
+    }
+
+    int damage_dealt = pchar->get_mh_dmg() + 35;
+
+    // TODO: Apply Flurry
+    if (result->is_critical()) {
+        // TODO: Remove hardcoding of 2/2 Impale.
+        damage_dealt *= 2.2;
+        add_success_stats("Critical", damage_dealt);
+    }
+    else if (result->is_hit())
+        add_success_stats("Hit", damage_dealt);
 
     add_gcd_event();
     add_spell_cd_event();
