@@ -9,6 +9,7 @@
 #include "AttackResult.h"
 #include "AttackTable.h"
 #include "WhiteHitTable.h"
+#include "MeleeSpecialTable.h"
 #include "Target.h"
 #include "Random.h"
 
@@ -18,7 +19,8 @@ public:
         target(_tar), random(_rand) {}
 
     ~CombatRoll() {
-        attack_tables.clear();
+        auto_attack_tables.clear();
+        melee_special_tables.clear();
     }  
     AttackResult* get_melee_hit_result(const int);
     AttackResult* get_melee_ability_result(const int);
@@ -27,9 +29,11 @@ public:
     AttackResult* get_spell_ability_result(void);
 
     WhiteHitTable* get_white_hit_table(const int);
+    MeleeSpecialTable* get_melee_special_table(const int);
     void set_target(Target*);
     void set_character(Character*);
 
+    float get_yellow_miss_chance(const int) const;
     float get_white_miss_chance(const int) const;
     float get_white_miss_chance_defense_diff_low(const int) const;
     float get_white_miss_chance_defense_diff_high(const int) const;
@@ -45,7 +49,8 @@ private:
     Target* target;
     Random* random;
 
-    std::map<int, AttackTable*> attack_tables;
+    std::map<int, WhiteHitTable*> auto_attack_tables;
+    std::map<int, MeleeSpecialTable*> melee_special_tables;
 };
 
 

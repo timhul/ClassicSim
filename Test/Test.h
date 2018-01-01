@@ -9,6 +9,7 @@ public:
     void test_all();
 protected:
 private:
+    void test_special_hit_table();
     void test_white_hit_table();
     void test_character_creation();
     void test_equipment_creation();

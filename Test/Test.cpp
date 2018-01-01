@@ -27,6 +27,7 @@
 #include "Mainhand.h"
 #include "Offhand.h"
 #include "WhiteHitTable.h"
+#include "MeleeSpecialTable.h"
 #include "CombatRoll.h"
 #include "AttackResult.h"
 #include "Random.h"
@@ -42,6 +43,8 @@ void Test::test_all(void) {
     test_equipment_creation();
     std::cout << "test_white_hit_table\n";
     test_white_hit_table();
+    std::cout << "test_special_hit_table\n";
+    test_special_hit_table();
     std::cout << "test_combat_roll_glancing\n";
     test_combat_roll_glancing();
     std::cout << "test_combat_roll_white_miss\n";
@@ -275,6 +278,23 @@ void Test::test_white_hit_table(void) {
    assert(table->get_outcome(6) == Outcome::HIT);
    assert(table->get_outcome(9999) == Outcome::HIT);
    delete table;
+}
+
+void Test::test_special_hit_table(void) {
+    Random* random = new Random(0, 9999);
+    MeleeSpecialTable* table = new MeleeSpecialTable(random, 0.0, 0.0, 0.0, 0.0, 0.0, 0);
+    assert(table->get_outcome(0) == Outcome::HIT);
+    delete table;
+
+    table = new MeleeSpecialTable(random, 0.0001, 0.0001, 0.0001, 0.0001, 1.0, 0);
+    assert(table->get_outcome(0) == Outcome::MISS);
+    assert(table->get_outcome(1) == Outcome::DODGE);
+    assert(table->get_outcome(2) == Outcome::PARRY);
+    assert(table->get_outcome(3) == Outcome::BLOCK_CRITICAL);
+    assert(table->get_outcome(4) == Outcome::CRITICAL);
+    assert(table->get_outcome(9999) == Outcome::CRITICAL);
+    delete table;
+    delete random;
 }
 
 void Test::test_equipment_creation(void) {

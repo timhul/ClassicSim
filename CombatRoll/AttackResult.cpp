@@ -2,7 +2,7 @@
 #include "AttackResult.h"
 
 bool AttackResult::is_critical(void) const {
-    return (this->outcome == Outcome::CRITICAL);
+    return (this->outcome == Outcome::CRITICAL || this->outcome == Outcome::BLOCK_CRITICAL);
 }
 
 bool AttackResult::is_hit(void) const {

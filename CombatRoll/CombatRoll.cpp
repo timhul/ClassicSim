@@ -11,8 +11,13 @@ AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill) {
     return result;
 }
 
-AttackResult* CombatRoll::get_melee_ability_result(const int) {
-    return new AttackResult(Outcome::CRITICAL);
+AttackResult* CombatRoll::get_melee_ability_result(const int wpn_skill) {
+    const int roll = random->get_roll();
+
+    MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill);
+    AttackResult* result = new AttackResult(attack_table->get_outcome(roll));
+
+    return result;
 }
 
 AttackResult* CombatRoll::get_ranged_hit_result(const int){
@@ -37,10 +42,10 @@ void CombatRoll::set_character(Character* pchar) {
 }
 
 WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
-    std::map<int, AttackTable*>::iterator it;
-    it = attack_tables.find(wpn_skill);
-    if (it != attack_tables.end())
-        return dynamic_cast<WhiteHitTable*>(it->second);
+    std::map<int, WhiteHitTable*>::iterator it;
+    it = auto_attack_tables.find(wpn_skill);
+    if (it != auto_attack_tables.end())
+        return it->second;
 
     WhiteHitTable* table = new WhiteHitTable(get_white_miss_chance(wpn_skill),
                                              get_dodge_chance(wpn_skill),
@@ -49,13 +54,41 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
                                              get_block_chance(),
                                              pchar->get_crit_chance(),
                                              wpn_skill);
-    attack_tables.insert(std::pair<int, AttackTable*>(
-                             wpn_skill,
-                             dynamic_cast<AttackTable*>(table)));
+    auto_attack_tables.insert(std::pair<int, WhiteHitTable*>(wpn_skill, table));
 
-    it = attack_tables.find(wpn_skill);
-    assert(it != attack_tables.end());
+    it = auto_attack_tables.find(wpn_skill);
+    assert(it != auto_attack_tables.end());
     return table;
+}
+
+MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
+    std::map<int, MeleeSpecialTable*>::iterator it;
+    it = melee_special_tables.find(wpn_skill);
+    if (it != melee_special_tables.end())
+        return it->second;
+
+    MeleeSpecialTable* table = new MeleeSpecialTable(this->random,
+                                                     get_white_miss_chance(wpn_skill),
+                                                     get_dodge_chance(wpn_skill),
+                                                     get_parry_chance(wpn_skill),
+                                                     get_block_chance(),
+                                                     pchar->get_crit_chance(),
+                                                     wpn_skill);
+    melee_special_tables.insert(std::pair<int, MeleeSpecialTable*>(wpn_skill, table));
+
+    it = melee_special_tables.find(wpn_skill);
+    assert(it != melee_special_tables.end());
+    return table;
+}
+
+float CombatRoll::get_yellow_miss_chance(const int wpn_skill) const {
+    // Note that it assumes defense diff is positive.
+    // Formula currently not correct when diff is negative (player wpn skill > target defense)
+    int defense_diff = this->target->get_defense() - wpn_skill;
+
+    if (defense_diff > 10)
+        return 0.07 + (defense_diff - 10) * 0.004;
+    return 0.05 + defense_diff * 0.001 - pchar->get_hit_chance();
 }
 
 float CombatRoll::get_white_miss_chance(const int wpn_skill) const {

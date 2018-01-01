@@ -61,7 +61,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Overpower.cpp \
     Character/Class/Warrior/Spells/Hamstring.cpp \
     Character/Class/Warrior/Spells/Recklessness.cpp \
-    Statistics/Statistics.cpp
+    Statistics/Statistics.cpp \
+    CombatRoll/AttackTables/MeleeSpecialTable.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -117,7 +118,8 @@ HEADERS += \
     Character/Class/Warrior/Spells/Overpower.h \
     Character/Class/Warrior/Spells/Hamstring.h \
     Character/Class/Warrior/Spells/Recklessness.h \
-    Statistics/Statistics.h
+    Statistics/Statistics.h \
+    CombatRoll/AttackTables/MeleeSpecialTable.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
