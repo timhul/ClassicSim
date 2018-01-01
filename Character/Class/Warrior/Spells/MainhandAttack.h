@@ -11,6 +11,7 @@ public:
 protected:
 private:
     int spell_effect(const int) const override;
+    void add_success_stats(std::string, const int, const int) const;
 };
 
 #endif // MAINHANDATTACK_H

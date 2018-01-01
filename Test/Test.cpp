@@ -72,6 +72,7 @@ void Test::test_queue(void) {
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
     Class* pclass = new Warrior(race, engine, equipment, combat);
+    pclass->set_clvl(60);
     combat->set_character(dynamic_cast<Character*>(pclass));
     EncounterStart* start_event = new EncounterStart(pclass);
     EncounterEnd* end_event = new EncounterEnd(engine);

@@ -12,6 +12,8 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment) {
     this->INT = race->get_base_intellect();
     this->SPI = race->get_base_spirit();
     this->clvl = 1;
+    this->percent_hit = 0.0;
+    this->percent_crit = 0.0;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
 }

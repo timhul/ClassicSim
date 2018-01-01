@@ -5,8 +5,6 @@
 AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill) {
     const int roll = random->get_roll();
 
-    std::cout << "CombatRoll: rolled " << roll << "\n";
-
     WhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
     AttackResult* result = new AttackResult(attack_table->get_outcome(roll));
 

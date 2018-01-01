@@ -59,3 +59,7 @@ void Spell::add_gcd_event(void) const {
     CooldownReady* new_event = new CooldownReady(pchar, gcd_ready);
     engine->add_event(new_event);
 }
+
+void Spell::add_fail_stats(std::string outcome) const {
+    engine->get_statistics()->increment(get_name() + outcome);
+}

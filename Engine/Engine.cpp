@@ -4,17 +4,18 @@
 #include <iostream>
 
 void Engine::run(void) {
-    while(!queue.empty()) {
-        Event* event = queue.get_next();
+    while(!queue->empty()) {
+        Event* event = queue->get_next();
         set_current_priority(event);
         event->act();
         delete event;
     }
+    statistics->dump();
 }
 
 void Engine::end_combat(void) {
     std::cout << "Engine: Ending combat.\n";
-    queue.clear();
+    queue->clear();
 }
 
 float Engine::get_current_priority(void) const {
@@ -31,5 +32,9 @@ void Engine::set_current_priority(Event* event) {
 }
 
 void Engine::add_event(Event* event) {
-    this->queue.push(event);
+    this->queue->push(event);
+}
+
+Statistics* Engine::get_statistics(void) {
+    return this->statistics;
 }

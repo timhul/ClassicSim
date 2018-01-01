@@ -60,7 +60,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/HeroicStrike.cpp \
     Character/Class/Warrior/Spells/Overpower.cpp \
     Character/Class/Warrior/Spells/Hamstring.cpp \
-    Character/Class/Warrior/Spells/Recklessness.cpp
+    Character/Class/Warrior/Spells/Recklessness.cpp \
+    Statistics/Statistics.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -115,7 +116,8 @@ HEADERS += \
     Character/Class/Warrior/Spells/HeroicStrike.h \
     Character/Class/Warrior/Spells/Overpower.h \
     Character/Class/Warrior/Spells/Hamstring.h \
-    Character/Class/Warrior/Spells/Recklessness.h
+    Character/Class/Warrior/Spells/Recklessness.h \
+    Statistics/Statistics.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -142,4 +144,5 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\CombatRoll \
     C:\C++\ClassicSim\CombatRoll\AttackTables \
     C:\C++\ClassicSim\Target \
+    C:\C++\ClassicSim\Statistics \
     C:\C++\ClassicSim\Test
