@@ -32,3 +32,27 @@ float Tauren::get_int_multiplier() const {
 float Tauren::get_spirit_multiplier() const {
     return 1.0;
 }
+
+int Tauren::get_axe_bonus() const {
+    return 0;
+}
+
+int Tauren::get_sword_bonus() const {
+    return 0;
+}
+
+int Tauren::get_mace_bonus() const {
+    return 0;
+}
+
+int Tauren::get_bow_bonus() const {
+    return 0;
+}
+
+int Tauren::get_gun_bonus() const {
+    return 0;
+}
+
+int Tauren::get_thrown_bonus() const {
+    return 0;
+}

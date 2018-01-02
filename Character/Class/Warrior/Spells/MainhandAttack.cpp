@@ -6,8 +6,7 @@ int MainhandAttack::spell_effect(const int) const {
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 
-    // TODO: Find weapon skill for mainhand.
-    AttackResult* result = roll->get_melee_hit_result(300);
+    AttackResult* result = roll->get_melee_hit_result(pchar->get_mh_wpn_skill());
 
     if (result->is_miss()) {
         add_fail_stats("Miss");

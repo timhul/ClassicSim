@@ -16,6 +16,13 @@ public:
     virtual float get_int_multiplier() const = 0;
     virtual float get_spirit_multiplier() const = 0;
 
+    virtual int get_axe_bonus() const = 0;
+    virtual int get_sword_bonus() const = 0;
+    virtual int get_mace_bonus() const = 0;
+    virtual int get_bow_bonus() const = 0;
+    virtual int get_gun_bonus() const = 0;
+    virtual int get_thrown_bonus() const = 0;
+
 protected:
     std::map<std::string, int> stats;
 private:

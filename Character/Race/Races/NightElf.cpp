@@ -32,3 +32,27 @@ float NightElf::get_int_multiplier() const {
 float NightElf::get_spirit_multiplier() const {
     return 1.0;
 }
+
+int NightElf::get_axe_bonus() const {
+    return 0;
+}
+
+int NightElf::get_sword_bonus() const {
+    return 0;
+}
+
+int NightElf::get_mace_bonus() const {
+    return 0;
+}
+
+int NightElf::get_bow_bonus() const {
+    return 0;
+}
+
+int NightElf::get_gun_bonus() const {
+    return 0;
+}
+
+int NightElf::get_thrown_bonus() const {
+    return 0;
+}

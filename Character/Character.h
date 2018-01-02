@@ -39,6 +39,10 @@ public:
     int get_mh_dmg();
     int get_oh_dmg();
 
+    int get_mh_wpn_skill();
+    int get_oh_wpn_skill();
+    int get_ranged_wpn_skill();
+
     virtual int get_melee_ap();
 
     int rage_gained_from_dd(const int) const;

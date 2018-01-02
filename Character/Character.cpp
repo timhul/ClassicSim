@@ -134,3 +134,35 @@ int Character::rage_gained_from_dd(const int damage_dealt) const {
     // TODO: add max(1, round(damage_dealt/30.7))
     return int(ceil(damage_dealt/30.7));
 }
+
+int Character::get_mh_wpn_skill() {
+    int racial_bonus = 0;
+    switch (equipment->get_mainhand()->get_weapon_type()) {
+    case WeaponTypes::AXE:
+        racial_bonus += race->get_axe_bonus();
+        break;
+    case WeaponTypes::SWORD:
+        racial_bonus += race->get_sword_bonus();
+        break;
+    case WeaponTypes::MACE:
+        racial_bonus += race->get_mace_bonus();
+        break;
+    }
+    return get_clvl() * 5 + racial_bonus;
+}
+
+int Character::get_oh_wpn_skill() {
+    int racial_bonus = 0;
+    switch (equipment->get_offhand()->get_weapon_type()) {
+    case WeaponTypes::AXE:
+        racial_bonus += race->get_axe_bonus();
+        break;
+    case WeaponTypes::SWORD:
+        racial_bonus += race->get_sword_bonus();
+        break;
+    case WeaponTypes::MACE:
+        racial_bonus += race->get_mace_bonus();
+        break;
+    }
+    return get_clvl() * 5 + racial_bonus;
+}

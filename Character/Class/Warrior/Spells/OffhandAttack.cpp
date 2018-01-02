@@ -8,8 +8,7 @@ int OffhandAttack::spell_effect(const int) const {
     // TODO: Take dual-wield specialization into account.
     engine->get_statistics()->increment("OH White Total Attempts");
 
-    // TODO: Find weapon skill for offhand.
-    AttackResult* result = roll->get_melee_hit_result(300);
+    AttackResult* result = roll->get_melee_hit_result(pchar->get_oh_wpn_skill());
 
     if (result->is_miss()) {
         add_fail_stats("Miss");

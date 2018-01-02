@@ -32,3 +32,27 @@ float Dwarf::get_int_multiplier() const {
 float Dwarf::get_spirit_multiplier() const {
     return 1.0;
 }
+
+int Dwarf::get_axe_bonus() const {
+    return 0;
+}
+
+int Dwarf::get_sword_bonus() const {
+    return 0;
+}
+
+int Dwarf::get_mace_bonus() const {
+    return 0;
+}
+
+int Dwarf::get_bow_bonus() const {
+    return 0;
+}
+
+int Dwarf::get_gun_bonus() const {
+    return 5;
+}
+
+int Dwarf::get_thrown_bonus() const {
+    return 0;
+}

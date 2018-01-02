@@ -4,9 +4,8 @@
 #include <iostream>
 
 int Overpower::spell_effect(const int) const {
-    // TODO: Find weapon skill for mainhand.
     // TODO: Use special hit table where dodge and parry are not possible.
-    AttackResult* result = roll->get_melee_ability_result(300);
+    AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     if (result->is_miss()) {
         add_fail_stats("Miss");

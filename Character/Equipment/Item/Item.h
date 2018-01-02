@@ -24,6 +24,22 @@ namespace ItemTypes {
     static const int RELIC = 16;
 }
 
+namespace WeaponTypes {
+    static const int AXE = 0;
+    static const int DAGGER = 1;
+    static const int FIST = 2;
+    static const int MACE = 3;
+    static const int POLEARM = 4;
+    static const int STAFF = 5;
+    static const int SWORD = 6;
+    static const int BOW = 7;
+    static const int CROSSBOW = 8;
+    static const int GUN = 9;
+    static const int THROWN = 10;
+    static const int WAND = 11;
+}
+
+
 class Item {
 public:
     virtual ~Item() {}
