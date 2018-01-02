@@ -37,6 +37,7 @@ public:
 
     float get_white_miss_chance(const int);
     float get_glancing_blow_chance();
+    float get_glancing_blow_dmg_penalty(const int);
 
 protected:
 private:

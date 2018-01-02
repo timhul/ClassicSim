@@ -8,7 +8,8 @@ int OffhandAttack::spell_effect(const int) const {
     // TODO: Take dual-wield specialization into account.
     engine->get_statistics()->increment("OH White Total Attempts");
 
-    AttackResult* result = roll->get_melee_hit_result(pchar->get_oh_wpn_skill());
+    const int oh_wpn_skill = pchar->get_oh_wpn_skill();
+    AttackResult* result = roll->get_melee_hit_result(oh_wpn_skill);
 
     if (result->is_miss()) {
         add_fail_stats("Miss");
@@ -35,8 +36,7 @@ int OffhandAttack::spell_effect(const int) const {
         return rage_gained;
     }
     if (result->is_glancing()) {
-        // TODO: Get glancing blow damage penalty (based on weapon skill delta).
-        damage_dealt *= 0.6;
+        damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         add_success_stats("Glancing", damage_dealt, rage_gained);
         return rage_gained;

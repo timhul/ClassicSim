@@ -194,12 +194,12 @@ void Test::test_mechanics_glancing_rate(void) {
 void Test::test_mechanics_glancing_dmg_penalty(void) {
     Mechanics* mechanics = new Mechanics(63, 0);
 
-    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(1, 5)) < 0.001);
+    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(5)) < 0.001);
 
-    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(60, 300)) < 0.001);
-    assert(fabs(0.85 - mechanics->get_glancing_blow_dmg_penalty(60, 305)) < 0.001);
-    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(60, 310)) < 0.001);
-    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(100, 10000)) < 0.001);
+    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(300)) < 0.001);
+    assert(fabs(0.85 - mechanics->get_glancing_blow_dmg_penalty(305)) < 0.001);
+    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(310)) < 0.001);
+    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(10000)) < 0.001);
 
     delete mechanics;
 }

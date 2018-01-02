@@ -6,7 +6,8 @@ int MainhandAttack::spell_effect(const int) const {
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 
-    AttackResult* result = roll->get_melee_hit_result(pchar->get_mh_wpn_skill());
+    const int mh_wpn_skill = pchar->get_mh_wpn_skill();
+    AttackResult* result = roll->get_melee_hit_result(mh_wpn_skill);
 
     if (result->is_miss()) {
         add_fail_stats("Miss");
@@ -32,8 +33,7 @@ int MainhandAttack::spell_effect(const int) const {
         return rage_gained;
     }
     if (result->is_glancing()) {
-        // TODO: Get glancing blow damage penalty (based on weapon skill delta).
-        damage_dealt *= 0.6;
+        damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         add_success_stats("Glancing", damage_dealt, rage_gained);
         return rage_gained;

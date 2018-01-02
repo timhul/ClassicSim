@@ -62,10 +62,6 @@ void Mechanics::set_tlvl(const int tlvl) {
     this->tdefense = tlvl * 5;
 }
 
-float Mechanics::get_glancing_blow_dmg_penalty(const int clvl, const int wpn_skill) const {
-    int level_diff = tlvl - clvl;
-    if (level_diff < 0)
-        return 1.0;
-
+float Mechanics::get_glancing_blow_dmg_penalty(const int wpn_skill) const {
     return std::max(0.7, std::min(1.0, 1.0 - (tdefense - wpn_skill - 5) * 0.03));
 }

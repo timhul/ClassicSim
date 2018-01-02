@@ -18,7 +18,7 @@ public:
     float get_parry_chance(const int) const;
     float get_block_chance(void) const;
 
-    float get_glancing_blow_dmg_penalty(const int, const int) const;
+    float get_glancing_blow_dmg_penalty(const int) const;
 
     void set_tlvl(const int);
 protected:

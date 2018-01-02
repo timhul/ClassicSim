@@ -99,3 +99,7 @@ float CombatRoll::get_white_miss_chance(const int wpn_skill) {
 float CombatRoll::get_glancing_blow_chance() {
     return mechanics->get_glancing_blow_chance(pchar->get_clvl());
 }
+
+float CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
+    return mechanics->get_glancing_blow_dmg_penalty(wpn_skill);
+}
