@@ -14,7 +14,8 @@ private:
     void test_character_creation();
     void test_equipment_creation();
     void test_queue();
-    void test_mechanics_glancing();
+    void test_mechanics_glancing_rate();
+    void test_mechanics_glancing_dmg_penalty();
     void test_mechanics_dw_white_miss();
     void test_mechanics_dodge();
     void test_combat_roll_creation();

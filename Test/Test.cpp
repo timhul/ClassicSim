@@ -46,8 +46,10 @@ void Test::test_all(void) {
     test_white_hit_table();
     std::cout << "test_special_hit_table\n";
     test_special_hit_table();
-    std::cout << "test_mechanics_glancing\n";
-    test_mechanics_glancing();
+    std::cout << "test_mechanics_glancing_rate\n";
+    test_mechanics_glancing_rate();
+    std::cout << "test_mechanics_glancing_dmg_penalty\n";
+    test_mechanics_glancing_dmg_penalty();
     std::cout << "test_mechanics_dw_white_miss\n";
     test_mechanics_dw_white_miss();
     std::cout << "test_mechanics_dodge\n";
@@ -167,7 +169,7 @@ void Test::test_mechanics_dodge(void) {
     delete mechanics;
 }
 
-void Test::test_mechanics_glancing(void) {
+void Test::test_mechanics_glancing_rate(void) {
     Mechanics* mechanics = new Mechanics(63, 0);
 
     assert(fabs(6.3 - mechanics->get_glancing_blow_chance(1)) < 0.001);
@@ -185,6 +187,19 @@ void Test::test_mechanics_glancing(void) {
 
     mechanics->set_tlvl(59);
     assert(fabs(0.0 - mechanics->get_glancing_blow_chance(60)) < 0.001);
+
+    delete mechanics;
+}
+
+void Test::test_mechanics_glancing_dmg_penalty(void) {
+    Mechanics* mechanics = new Mechanics(63, 0);
+
+    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(1, 5)) < 0.001);
+
+    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(60, 300)) < 0.001);
+    assert(fabs(0.85 - mechanics->get_glancing_blow_dmg_penalty(60, 305)) < 0.001);
+    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(60, 310)) < 0.001);
+    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(100, 10000)) < 0.001);
 
     delete mechanics;
 }
