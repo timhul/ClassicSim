@@ -4,6 +4,7 @@
 #include "Race.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "Mechanics.h"
 
 class Character {
 public:

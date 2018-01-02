@@ -31,6 +31,7 @@
 #include "CombatRoll.h"
 #include "AttackResult.h"
 #include "Random.h"
+#include "Mechanics.h"
 
 #include <iostream>
 #include <assert.h>
@@ -45,12 +46,12 @@ void Test::test_all(void) {
     test_white_hit_table();
     std::cout << "test_special_hit_table\n";
     test_special_hit_table();
-    std::cout << "test_combat_roll_glancing\n";
-    test_combat_roll_glancing();
-    std::cout << "test_combat_roll_white_miss\n";
-    test_combat_roll_white_miss();
-    std::cout << "test_combat_roll_dodge\n";
-    test_combat_roll_dodge();
+    std::cout << "test_mechanics_glancing\n";
+    test_mechanics_glancing();
+    std::cout << "test_mechanics_dw_white_miss\n";
+    test_mechanics_dw_white_miss();
+    std::cout << "test_mechanics_dodge\n";
+    test_mechanics_dodge();
     std::cout << "test_combat_roll_creation\n";
     test_combat_roll_creation();
     std::cout << "test_random\n";
@@ -154,112 +155,56 @@ void Test::test_combat_roll_creation(void) {
     delete combat;
 }
 
-void Test::test_combat_roll_dodge(void) {
-    Target* target = new Target(63);
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
-    Race* race = new Orc();
-    Random* random = new Random(0, 9999);
-    CombatRoll* combat = new CombatRoll(target, random);
-    Class* pclass = new Warrior(race, engine, equipment, combat);
-    combat->set_character(dynamic_cast<Character*>(pclass));
+void Test::test_mechanics_dodge(void) {
+    Mechanics* mechanics = new Mechanics(63, 0);
 
-    assert(fabs(0.05 - combat->get_dodge_chance(300)) < 0.001);
-    assert(fabs(0.05 - combat->get_dodge_chance(315)) < 0.001);
+    assert(fabs(0.05 - mechanics->get_dodge_chance(300)) < 0.001);
+    assert(fabs(0.05 - mechanics->get_dodge_chance(315)) < 0.001);
 
-    delete target;
-    target = new Target(60);
-    combat->set_target(target);
-    assert(fabs(0.044 - combat->get_dodge_chance(315)) < 0.001);
+    mechanics->set_tlvl(60);
+    assert(fabs(0.044 - mechanics->get_dodge_chance(315)) < 0.001);
 
-    delete target;
-    delete engine;
-    delete equipment;
-    delete race;
-    delete pclass;
-    delete random;
-    delete combat;
+    delete mechanics;
 }
 
-void Test::test_combat_roll_glancing(void) {
-    Target* target = new Target(63);
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
-    Race* race = new Orc();
-    Random* random = new Random(0, 9999);
-    CombatRoll* combat = new CombatRoll(target, random);
-    Class* pclass = new Warrior(race, engine, equipment, combat);
-    combat->set_character(dynamic_cast<Character*>(pclass));
+void Test::test_mechanics_glancing(void) {
+    Mechanics* mechanics = new Mechanics(63, 0);
 
-    pclass->set_clvl(1);
-    assert(fabs(6.3 - combat->get_glancing_blow_chance()) < 0.001);
+    assert(fabs(6.3 - mechanics->get_glancing_blow_chance(1)) < 0.001);
 
-    pclass->set_clvl(60);
-    assert(fabs(0.4 - combat->get_glancing_blow_chance()) < 0.001);
+    assert(fabs(0.4 -  mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    delete target;
-    target = new Target(62);
-    assert(fabs(0.3 - combat->get_glancing_blow_chance()) < 0.001);
+    mechanics->set_tlvl(62);
+    assert(fabs(0.3 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    delete target;
-    target = new Target(61);
-    assert(fabs(0.2 - combat->get_glancing_blow_chance()) < 0.001);
+    mechanics->set_tlvl(61);
+    assert(fabs(0.2 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    delete target;
-    target = new Target(60);
-    assert(fabs(0.1 - combat->get_glancing_blow_chance()) < 0.001);
+    mechanics->set_tlvl(60);
+    assert(fabs(0.1 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    delete target;
-    target = new Target(59);
-    assert(fabs(0.0 - combat->get_glancing_blow_chance()) < 0.001);
+    mechanics->set_tlvl(59);
+    assert(fabs(0.0 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    delete target;
-    delete engine;
-    delete equipment;
-    delete race;
-    delete pclass;
-    delete random;
-    delete combat;
+    delete mechanics;
 }
 
-void Test::test_combat_roll_white_miss(void) {
-    Target* target = new Target(63);
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
-    Random* oh_dmg_range = new Random(80, 150);
-    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
-    equipment->set_offhand(offhand);
-    Race* race = new Orc();
-    Random* random = new Random(0, 9999);
-    CombatRoll* combat = new CombatRoll(target, random);
-    Class* pclass = new Warrior(race, engine, equipment, combat);
-    combat->set_character(dynamic_cast<Character*>(pclass));
+void Test::test_mechanics_dw_white_miss(void) {
+    Mechanics* mechanics = new Mechanics(63, 0);
 
-    assert(fabs(0.28 - combat->get_white_miss_chance(300)) < 0.001);
-    assert(fabs(0.24 - combat->get_white_miss_chance(315)) < 0.001);
-    delete target;
+    assert(fabs(0.28 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
+    assert(fabs(0.24 - mechanics->get_dw_white_miss_chance(315)) < 0.001);
 
-    target = new Target(62);
-    combat->set_target(target);
-    assert(fabs(0.25 - combat->get_white_miss_chance(300)) < 0.001);
-    delete target;
+    mechanics->set_tlvl(62);
+    assert(fabs(0.25 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
 
-    target = new Target(61);
-    combat->set_target(target);
-    assert(fabs(0.245 - combat->get_white_miss_chance(300)) < 0.001);
-    delete target;
+    mechanics->set_tlvl(61);
+    assert(fabs(0.245 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
 
-    target = new Target(60);
-    combat->set_target(target);
-    assert(fabs(0.24 - combat->get_white_miss_chance(300)) < 0.001);
-    delete target;
+    mechanics->set_tlvl(60);
+    assert(fabs(0.24 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
 
-    delete engine;
-    delete equipment;
-    delete race;
-    delete pclass;
-    delete random;
-    delete combat;
+    delete mechanics;
 }
 
 void Test::test_white_hit_table(void) {
