@@ -2,7 +2,8 @@
 #define OFFHANDMELEEHIT_H
 
 #include "Event.h"
-#include "Character.h"
+
+class Character;
 
 class OffhandMeleeHit: public Event {
 public:

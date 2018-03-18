@@ -6,13 +6,14 @@
 #include <map>
 
 #include "Mechanics.h"
-#include "Character.h"
 #include "AttackResult.h"
 #include "AttackTable.h"
 #include "WhiteHitTable.h"
 #include "MeleeSpecialTable.h"
 #include "Target.h"
 #include "Random.h"
+
+class Character;
 
 class CombatRoll {
 public:

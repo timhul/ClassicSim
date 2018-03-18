@@ -4,10 +4,11 @@
 #include <string>
 #include <algorithm>
 #include "Engine.h"
-#include "Character.h"
 #include "CombatRoll.h"
 #include "CooldownReady.h"
 #include "assert.h"
+
+class Character;
 
 class Spell {
 public:

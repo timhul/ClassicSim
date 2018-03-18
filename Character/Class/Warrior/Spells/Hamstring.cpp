@@ -1,7 +1,14 @@
 
 #include "Hamstring.h"
+#include "Warrior.h"
 
 #include <iostream>
+
+Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
+    Spell("Hamstring", engine, pchar, roll, 0, 10)
+{
+    this->pchar = dynamic_cast<Warrior*>(pchar);
+}
 
 int Hamstring::spell_effect(const int) const {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());

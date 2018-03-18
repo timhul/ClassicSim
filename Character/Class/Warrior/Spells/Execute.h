@@ -3,14 +3,16 @@
 
 #include "Spell.h"
 
+class Warrior;
+
 class Execute: public Spell {
 public:
-    Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
-        Spell("Execute", engine, pchar, roll, 0, 10) {}
+    Execute(Engine* engine, Character* pchar, CombatRoll* roll);
 
     int spell_effect(const int) const override;
 protected:
 private:
+    Warrior* pchar;
 };
 
 #endif // EXECUTE_H

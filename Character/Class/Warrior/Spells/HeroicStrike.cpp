@@ -1,7 +1,14 @@
 
 #include "HeroicStrike.h"
+#include "Warrior.h"
 
 #include <iostream>
+
+HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
+    Spell("Heroic Strike", engine, pchar, roll, 0, 13)
+{
+    this->pchar = dynamic_cast<Warrior*>(pchar);
+}
 
 int HeroicStrike::spell_effect(const int) const {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());

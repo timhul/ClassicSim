@@ -1,5 +1,6 @@
 
 #include "CooldownReady.h"
+#include "Character.h"
 
 #include <iostream>
 

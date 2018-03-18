@@ -1,6 +1,7 @@
 
 #include "Spell.h"
 #include "AttackResult.h"
+#include "Character.h"
 
 std::string Spell::get_name() const {
     return this->name;

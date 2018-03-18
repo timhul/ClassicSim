@@ -1,7 +1,15 @@
 
 #include "Overpower.h"
+#include "Warrior.h"
+#include "CooldownReady.h"
 
 #include <iostream>
+
+Overpower::Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
+    Spell("Overpower", engine, pchar, roll, 5.0, 5)
+{
+    this->pchar = dynamic_cast<Warrior*>(pchar);
+}
 
 int Overpower::spell_effect(const int) const {
     // TODO: Use special hit table where dodge and parry are not possible.

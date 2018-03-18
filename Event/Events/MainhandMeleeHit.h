@@ -2,7 +2,8 @@
 #define MAINHANDMELEEHIT_H
 
 #include "Event.h"
-#include "Character.h"
+
+class Character;
 
 class MainhandMeleeHit: public Event {
 public:

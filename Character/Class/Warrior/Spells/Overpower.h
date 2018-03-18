@@ -2,16 +2,17 @@
 #define OVERPOWER_H
 
 #include "Spell.h"
-#include "CooldownReady.h"
+
+class Warrior;
 
 class Overpower: public Spell {
 public:
-    Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
-        Spell("Overpower", engine, pchar, roll, 5.0, 5) {}
+    Overpower(Engine* engine, Character* pchar, CombatRoll* roll);
 
     int spell_effect(const int) const override;
 protected:
 private:
+    Warrior* pchar;
 };
 
 #endif // OVERPOWER_H

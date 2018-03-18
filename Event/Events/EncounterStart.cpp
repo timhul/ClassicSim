@@ -1,5 +1,6 @@
 
 #include "EncounterStart.h"
+#include "Character.h"
 #include <iostream>
 
 EncounterStart::EncounterStart(Character* pchar) {

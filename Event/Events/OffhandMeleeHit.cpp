@@ -1,5 +1,6 @@
 
 #include "OffhandMeleeHit.h"
+#include "Character.h"
 
 #include <iostream>
 

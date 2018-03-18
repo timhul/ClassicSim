@@ -1,7 +1,13 @@
 
 #include "Whirlwind.h"
+#include "CooldownReady.h"
+#include "Warrior.h"
 
-#include <iostream>
+Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
+    Spell("Whirlwind", engine, pchar, roll, 10.0, 25)
+{
+    this->pchar = dynamic_cast<Warrior*>(pchar);
+}
 
 int Whirlwind::spell_effect(const int) const {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());

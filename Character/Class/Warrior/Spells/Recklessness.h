@@ -2,7 +2,6 @@
 #define RECKLESSNESS_H
 
 #include "Spell.h"
-#include "CooldownReady.h"
 
 class Recklessness: public Spell {
 public:

@@ -1,7 +1,14 @@
 
 #include "Execute.h"
+#include "Warrior.h"
 
 #include <iostream>
+
+Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
+    Spell("Execute", engine, pchar, roll, 0, 10)
+{
+    this->pchar = dynamic_cast<Warrior*>(pchar);
+}
 
 int Execute::spell_effect(const int resource_level) const {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());

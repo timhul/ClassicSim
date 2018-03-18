@@ -1,5 +1,6 @@
 
 #include "CombatRoll.h"
+#include "Character.h"
 
 AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill) {
     const int roll = random->get_roll();

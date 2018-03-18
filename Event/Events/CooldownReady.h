@@ -2,7 +2,8 @@
 #define COOLDOWNREADY_H
 
 #include "Event.h"
-#include "Character.h"
+
+class Character;
 
 class CooldownReady: public Event {
 public:

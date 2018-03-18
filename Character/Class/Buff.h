@@ -3,7 +3,8 @@
 
 #include <string>
 #include <assert.h>
-#include "Character.h"
+
+class Character;
 
 class Buff {
 public:

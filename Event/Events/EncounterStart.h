@@ -2,7 +2,8 @@
 #define ENCOUNTERSTART_H
 
 #include "Event.h"
-#include "Character.h"
+
+class Character;
 
 class EncounterStart: public Event {
 public:
