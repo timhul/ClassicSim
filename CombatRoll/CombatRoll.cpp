@@ -2,6 +2,27 @@
 #include "CombatRoll.h"
 #include "Character.h"
 
+CombatRoll::~CombatRoll() {
+
+    std::map<int, WhiteHitTable*>::iterator it_auto;
+    for (it_auto = auto_attack_tables.begin(); it_auto != auto_attack_tables.end(); ++it_auto) {
+        delete it_auto->second;
+    }
+
+    std::map<int, MeleeSpecialTable*>::iterator it_special;
+    for (it_special = melee_special_tables.begin(); it_special != melee_special_tables.end(); ++it_special) {
+        delete it_special->second;
+    }
+
+    auto_attack_tables.clear();
+    melee_special_tables.clear();
+
+    if (mechanics != nullptr) {
+        delete mechanics;
+    }
+}
+
+
 AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill) {
     const int roll = random->get_roll();
 

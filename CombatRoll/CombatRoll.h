@@ -20,10 +20,7 @@ public:
     CombatRoll(Target* _tar, Random* _rand):
         target(_tar), random(_rand), mechanics(nullptr) {}
 
-    ~CombatRoll() {
-        auto_attack_tables.clear();
-        melee_special_tables.clear();
-    }  
+    ~CombatRoll();
 
     AttackResult* get_melee_hit_result(const int);
     AttackResult* get_melee_ability_result(const int);
