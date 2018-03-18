@@ -65,7 +65,9 @@ SOURCES += main.cpp \
     CombatRoll/AttackTables/MeleeSpecialTable.cpp \
     Mechanics/Mechanics.cpp \
     Character/Class/Buff.cpp \
-    Character/Class/Warrior/Buffs/Flurry.cpp
+    Character/Class/Warrior/Buffs/Flurry.cpp \
+    Event/Events/BuffApplication.cpp \
+    Event/Events/BuffRemoval.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -124,7 +126,9 @@ HEADERS += \
     CombatRoll/AttackTables/MeleeSpecialTable.h \
     Mechanics/Mechanics.h \
     Character/Class/Buff.h \
-    Character/Class/Warrior/Buffs/Flurry.h
+    Character/Class/Warrior/Buffs/Flurry.h \
+    Event/Events/BuffApplication.h \
+    Event/Events/BuffRemoval.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
