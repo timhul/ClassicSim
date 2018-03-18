@@ -32,7 +32,7 @@ int Bloodthirst::spell_effect(const int) const {
         damage_dealt *= 2.2;
         add_success_stats("Critical", damage_dealt);
 
-        pchar->get_flurry()->buff_effect(pchar);
+        pchar->get_flurry()->apply_buff();
 
     }
     else if (result->is_hit())

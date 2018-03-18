@@ -26,7 +26,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) 
     this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this), roll);
     this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this), roll);
     this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
-    this->flurry = new Flurry();
+    this->flurry = new Flurry(dynamic_cast<Character*>(this));
 }
 
 Warrior::~Warrior() {

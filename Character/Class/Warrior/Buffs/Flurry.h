@@ -5,11 +5,13 @@
 
 class Flurry: public Buff {
 public:
-    Flurry(): Buff("Flurry", 15.0) {}
+    Flurry(Character* pchar): Buff(pchar, "Flurry", 15.0) {}
 
-    void buff_effect(Character*) override;
+    void buff_effect_when_applied() override;
+    void buff_effect_when_removed() override;
 protected:
 private:
+
 };
 
 

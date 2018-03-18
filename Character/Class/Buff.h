@@ -8,28 +8,28 @@ class Character;
 
 class Buff {
 public:
-    Buff(const std::string _name, const int _dur):
-        name(_name), duration(_dur),
-        applied(_dur - 1), refreshed(_dur - 1), expired(_dur - 1), charges(0), active(false) {}
+    Buff(Character*, const std::string, const int);
 
     std::string get_name() const;
-    void apply_buff(const float, const int);
-    void remove_buff(const float);
-    void use_charge(const float);
+    void apply_buff();
+    void remove_buff();
+    void use_charge();
     bool is_active() const;
-    float time_left(const float) const;
-
-    virtual void buff_effect(Character*) = 0;
+    float time_left() const;
 
 protected:
+    Character* pchar;
     const std::string name;
     const int duration;
     float applied;
     float refreshed;
     float expired;
-    int charges;
+    const int base_charges;
+    int current_charges;
     bool active;
 private:
+    virtual void buff_effect_when_applied() = 0;
+    virtual void buff_effect_when_removed() = 0;
 };
 
 #endif // BUFF_H
