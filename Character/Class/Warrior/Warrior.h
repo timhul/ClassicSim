@@ -7,6 +7,7 @@ class CombatRoll;
 class Bloodthirst;
 class MainhandAttack;
 class OffhandAttack;
+class Flurry;
 
 class Warrior: public Character {
 public:
@@ -32,6 +33,8 @@ public:
 
     int get_melee_ap() override;
 
+    Flurry* get_flurry() const;
+
 protected:
 private:
     int rage;
@@ -39,6 +42,7 @@ private:
     Bloodthirst* bt;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
+    Flurry* flurry;
 
     void start_mh_attack(void) override;
     void start_oh_attack(void) override;

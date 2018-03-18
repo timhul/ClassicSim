@@ -2,6 +2,7 @@
 #include "Bloodthirst.h"
 #include "Warrior.h"
 #include "CooldownReady.h"
+#include "Flurry.h"
 
 Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Bloodthirst", engine, pchar, roll, 6.0, 30)
@@ -30,6 +31,9 @@ int Bloodthirst::spell_effect(const int) const {
         // TODO: Remove hardcoding of 2/2 Impale.
         damage_dealt *= 2.2;
         add_success_stats("Critical", damage_dealt);
+
+        pchar->get_flurry()->buff_effect(pchar);
+
     }
     else if (result->is_hit())
         add_success_stats("Hit", damage_dealt);

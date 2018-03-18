@@ -6,6 +6,7 @@
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
+#include "Flurry.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
 
@@ -25,6 +26,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) 
     this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this), roll);
     this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this), roll);
     this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
+    this->flurry = new Flurry();
 }
 
 Warrior::~Warrior() {
@@ -155,4 +157,8 @@ float Warrior::global_cooldown() const {
 
 int Warrior::get_curr_rage() const {
     return this->rage;
+}
+
+Flurry* Warrior::get_flurry() const {
+    return this->flurry;
 }
