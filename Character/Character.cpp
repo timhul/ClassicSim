@@ -163,3 +163,27 @@ int Character::get_oh_wpn_skill() {
     }
     return get_clvl() * 5 + racial_bonus;
 }
+
+void Character::increase_hit(int increase) {
+    percent_hit += increase;
+}
+
+void Character::increase_crit(int increase) {
+    percent_crit += increase;
+}
+
+void Character::increase_ias(int increase) {
+    percent_ias += increase;
+}
+
+void Character::decrease_hit(int decrease) {
+    percent_hit -= decrease;
+}
+
+void Character::decrease_crit(int decrease) {
+    percent_crit -= decrease;
+}
+
+void Character::decrease_ias(int decrease) {
+    percent_ias -= decrease;
+}
