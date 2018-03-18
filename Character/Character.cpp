@@ -1,5 +1,9 @@
 
 #include "Character.h"
+#include "Race.h"
+#include "Engine.h"
+#include "Equipment.h"
+#include "Mechanics.h"
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment) {
     this->race = race;

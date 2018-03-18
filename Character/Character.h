@@ -1,15 +1,16 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include "Race.h"
-#include "Engine.h"
-#include "Equipment.h"
-#include "Mechanics.h"
+#include <string>
+
+class Race;
+class Engine;
+class Equipment;
 
 class Character {
 public:
     Character(Race*, Engine*, Equipment*);
-    //virtual ~Character() {}
+
     Race* get_race(void);
     virtual std::string get_name() const = 0;
 

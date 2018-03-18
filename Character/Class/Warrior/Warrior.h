@@ -2,37 +2,16 @@
 #define WARRIOR_H
 
 #include "Character.h"
-#include "PlayerAction.h"
-#include "Bloodthirst.h"
-#include "MainhandAttack.h"
-#include "OffhandAttack.h"
-#include "MainhandMeleeHit.h"
-#include "OffhandMeleeHit.h"
-#include "CombatRoll.h"
+
+class CombatRoll;
+class Bloodthirst;
+class MainhandAttack;
+class OffhandAttack;
 
 class Warrior: public Character {
 public:
-    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
-        Character(race, engine, _eq) {
-        // Constants added as a hack, these are the gains from 1-60.
-        // This essentially forces a clvl of 60 for stats to be accurate for warrior.
-        this->STR += get_strength_modifier() + 97;
-        this->AGI += get_agility_modifier() + 60;
-        this->STAM += get_stamina_modifier() + 88;
-        this->INT += get_intellect_modifier() + 10;
-        this->SPI += get_spirit_modifier() + 25;
-        this->rage = 0;
-        this->roll = _roll;
-        this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this), roll);
-        this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this), roll);
-        this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
-    }
-
-    virtual ~Warrior() {
-        delete bt;
-        delete mh_attack;
-        delete oh_attack;
-    }
+    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll);
+    virtual ~Warrior();
 
     std::string get_name() const override;
     int get_strength_modifier() const override;
