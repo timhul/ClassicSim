@@ -61,6 +61,7 @@ protected:
     int ranged_ap;
     float percent_hit;
     float percent_crit;
+    float percent_ias;
     int clvl;
     bool melee_attacking;
     float last_action;

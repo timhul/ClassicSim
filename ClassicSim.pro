@@ -63,7 +63,9 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Recklessness.cpp \
     Statistics/Statistics.cpp \
     CombatRoll/AttackTables/MeleeSpecialTable.cpp \
-    Mechanics/Mechanics.cpp
+    Mechanics/Mechanics.cpp \
+    Character/Class/Buff.cpp \
+    Character/Class/Warrior/Buffs/Flurry.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -121,7 +123,9 @@ HEADERS += \
     Character/Class/Warrior/Spells/Recklessness.h \
     Statistics/Statistics.h \
     CombatRoll/AttackTables/MeleeSpecialTable.h \
-    Mechanics/Mechanics.h
+    Mechanics/Mechanics.h \
+    Character/Class/Buff.h \
+    Character/Class/Warrior/Buffs/Flurry.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -133,6 +137,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class \
     C:\C++\ClassicSim\Character\Class\Warrior \
     C:\C++\ClassicSim\Character\Class\Warrior\Spells \
+    C:\C++\ClassicSim\Character\Class\Warrior\Buffs \
     C:\C++\ClassicSim\Character\Class\Priest \
     C:\C++\ClassicSim\Character\Class\Rogue \
     C:\C++\ClassicSim\Character\Class\Mage \
