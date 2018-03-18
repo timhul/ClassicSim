@@ -30,6 +30,7 @@ public:
     bool is_parry(void) const;
     bool is_resist(void) const;
     bool is_partial_resist(void) const;
+    void dump() const;
 
 protected:
 private:
