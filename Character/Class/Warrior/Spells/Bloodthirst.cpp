@@ -26,14 +26,11 @@ int Bloodthirst::spell_effect(const int) const {
 
     int damage_dealt = std::max(1, int(round(pchar->get_melee_ap() * 0.45)));
 
-    // TODO: Apply Flurry
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.
         damage_dealt *= 2.2;
-        add_success_stats("Critical", damage_dealt);
-
         pchar->get_flurry()->apply_buff();
-
+        add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())
         add_success_stats("Hit", damage_dealt);

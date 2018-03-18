@@ -1,7 +1,7 @@
 
 #include "Execute.h"
 #include "Warrior.h"
-
+#include "Flurry.h"
 #include <iostream>
 
 Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -26,10 +26,10 @@ int Execute::spell_effect(const int resource_level) const {
 
     int damage_dealt = 600 + 15 * resource_level;
 
-    // TODO: Apply Flurry
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.
         damage_dealt *= 2.2;
+        pchar->get_flurry()->apply_buff();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())

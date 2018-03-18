@@ -1,6 +1,7 @@
 
 #include "MainhandAttack.h"
 #include "Warrior.h"
+#include "Flurry.h"
 
 MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Mainhand Attack", engine, pchar, roll, 10.0, 0)
@@ -32,10 +33,10 @@ int MainhandAttack::spell_effect(const int) const {
 
     int damage_dealt = std::max(1, pchar->get_mh_dmg());
 
-    // TODO: Apply Flurry
     if (result->is_critical()) {
         damage_dealt *= 2;
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
+        pchar->get_flurry()->apply_buff();
         add_success_stats("Critical", damage_dealt, rage_gained);
         return rage_gained;
     }

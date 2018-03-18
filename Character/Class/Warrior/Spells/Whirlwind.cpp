@@ -2,6 +2,7 @@
 #include "Whirlwind.h"
 #include "CooldownReady.h"
 #include "Warrior.h"
+#include "Flurry.h"
 
 Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Whirlwind", engine, pchar, roll, 10.0, 25)
@@ -25,10 +26,10 @@ int Whirlwind::spell_effect(const int) const {
 
     int damage_dealt = std::max(1, pchar->get_mh_dmg());
 
-    // TODO: Apply Flurry
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.
         damage_dealt *= 2.2;
+        pchar->get_flurry()->apply_buff();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())

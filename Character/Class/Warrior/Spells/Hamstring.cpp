@@ -1,7 +1,7 @@
 
 #include "Hamstring.h"
 #include "Warrior.h"
-
+#include "Flurry.h"
 #include <iostream>
 
 Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -26,10 +26,10 @@ int Hamstring::spell_effect(const int) const {
 
     int damage_dealt = 45;
 
-    // TODO: Apply Flurry
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.
         damage_dealt *= 2.2;
+        pchar->get_flurry()->apply_buff();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())

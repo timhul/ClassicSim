@@ -1,6 +1,7 @@
 
 #include "OffhandAttack.h"
 #include "Warrior.h"
+#include "Flurry.h"
 
 OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Offhand Attack", engine, pchar, roll, 10.0, 0)
@@ -35,10 +36,10 @@ int OffhandAttack::spell_effect(const int) const {
     // TODO: Remove hardcoded 5/5 Dual-wield specialization.
     int damage_dealt = std::max(1, int(round(pchar->get_oh_dmg() * 0.625)));
 
-    // TODO: Apply Flurry
     if (result->is_critical()) {
         damage_dealt *= 2;
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
+        pchar->get_flurry()->apply_buff();
         add_success_stats("Critical", damage_dealt, rage_gained);
         return rage_gained;
     }
