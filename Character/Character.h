@@ -46,8 +46,6 @@ public:
 
     virtual int get_melee_ap();
 
-    int rage_gained_from_dd(const int) const;
-
 protected:
     Race* race;
     Engine* engine;

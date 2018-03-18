@@ -47,6 +47,7 @@ public:
     int get_curr_rage() const;
     void gain_rage(const int);
     void lose_rage(const int);
+    int rage_gained_from_dd(const int) const;
 
     bool bt_available(void) const;
 

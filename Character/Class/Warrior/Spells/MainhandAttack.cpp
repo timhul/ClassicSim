@@ -1,5 +1,12 @@
 
 #include "MainhandAttack.h"
+#include "Warrior.h"
+
+MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
+    Spell("Mainhand Attack", engine, pchar, roll, 10.0, 0)
+{
+    this->pchar = dynamic_cast<Warrior*>(pchar);
+}
 
 int MainhandAttack::spell_effect(const int) const {
     // TODO: Roll white hit table and damage in order to determine resource generation.

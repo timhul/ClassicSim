@@ -129,12 +129,6 @@ int Character::get_oh_dmg() {
     return (normalized_dmg + normalized_ap) * oh->get_base_weapon_speed();
 }
 
-int Character::rage_gained_from_dd(const int damage_dealt) const {
-    // Using the 307 damage dealt = 10 rage formula.
-    // TODO: add max(1, round(damage_dealt/30.7))
-    return int(ceil(damage_dealt/30.7));
-}
-
 int Character::get_mh_wpn_skill() {
     int racial_bonus = 0;
     switch (equipment->get_mainhand()->get_weapon_type()) {

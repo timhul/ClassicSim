@@ -1,5 +1,12 @@
 
 #include "OffhandAttack.h"
+#include "Warrior.h"
+
+OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
+    Spell("Offhand Attack", engine, pchar, roll, 10.0, 0)
+{
+    this->pchar = dynamic_cast<Warrior*>(pchar);
+}
 
 int OffhandAttack::spell_effect(const int) const {
     // TODO: Roll white hit table and damage in order to determine resource generation.
