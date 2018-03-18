@@ -1,13 +1,13 @@
 #ifndef PRIEST_H
 #define PRIEST_H
 
-#include "Class.h"
 #include "CombatRoll.h"
+#include "Character.h"
 
-class Priest: public Class {
+class Priest: public Character {
 public:
     Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
-        Class(race, engine, _eq) {
+        Character(race, engine, _eq) {
         this->STR += get_strength_modifier();
         this->AGI += get_agility_modifier();
         this->STAM += get_stamina_modifier();
@@ -15,6 +15,8 @@ public:
         this->SPI += get_spirit_modifier();
         this->roll = _roll;
     }
+
+    virtual ~Priest() {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

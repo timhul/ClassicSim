@@ -77,10 +77,10 @@ void Test::test_queue(void) {
     Target* target = new Target(63);
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
-    Class* pclass = new Warrior(race, engine, equipment, combat);
-    pclass->set_clvl(60);
-    combat->set_character(dynamic_cast<Character*>(pclass));
-    EncounterStart* start_event = new EncounterStart(pclass);
+    Warrior* pchar = new Warrior(race, engine, equipment, combat);
+    pchar->set_clvl(60);
+    combat->set_character(pchar);
+    EncounterStart* start_event = new EncounterStart(pchar);
     EncounterEnd* end_event = new EncounterEnd(engine);
 
     engine->add_event(end_event);
@@ -90,7 +90,7 @@ void Test::test_queue(void) {
     delete target;
     delete random;
     delete equipment;
-    delete pclass;
+    delete pchar;
     delete race;
     delete engine;
 }
@@ -112,8 +112,8 @@ void Test::test_combat_roll_melee_hit_result(void) {
     Race* race = new Orc();
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
-    Class* pclass = new Warrior(race, engine, equipment, combat);
-    combat->set_character(dynamic_cast<Character*>(pclass));
+    Warrior* pchar = new Warrior(race, engine, equipment, combat);
+    combat->set_character(pchar);
 
     AttackResult* result = combat->get_melee_hit_result(300);
 
@@ -127,7 +127,7 @@ void Test::test_combat_roll_melee_hit_result(void) {
     delete engine;
     delete equipment;
     delete race;
-    delete pclass;
+    delete pchar;
     delete random;
     delete combat;
 }
@@ -139,8 +139,8 @@ void Test::test_combat_roll_creation(void) {
     Race* race = new Orc();
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
-    Class* pclass = new Warrior(race, engine, equipment, combat);
-    combat->set_character(dynamic_cast<Character*>(pclass));
+    Warrior* pchar = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pchar));
 
     combat->get_white_hit_table(300);
     combat->get_white_hit_table(300);
@@ -152,7 +152,7 @@ void Test::test_combat_roll_creation(void) {
     delete engine;
     delete equipment;
     delete race;
-    delete pclass;
+    delete pchar;
     delete random;
     delete combat;
 }
@@ -361,104 +361,104 @@ void Test::test_character_creation(void) {
     std::cout << "INT " << race->get_base_intellect() << "\n";
     std::cout << "SPI " << race->get_base_spirit() << "\n";
 
-    Class* pclass = new Warrior(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Warrior* warr = new Warrior(race, engine, equipment, combat);
+    std::cout << "Name: " << warr->get_name() << "\n";
+    std::cout << "STR Mod " << warr->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << warr->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << warr->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << warr->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << warr->get_spirit_modifier()<< "\n";
+    delete warr;
 
-    pclass = new Priest(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Priest* priest = new Priest(race, engine, equipment, combat);
+    std::cout << "Name: " << priest->get_name() << "\n";
+    std::cout << "STR Mod " << priest->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << priest->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << priest->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << priest->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << priest->get_spirit_modifier()<< "\n";
+    delete priest;
 
-    pclass = new Rogue(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Rogue* rogue = new Rogue(race, engine, equipment, combat);
+    std::cout << "Name: " << rogue->get_name() << "\n";
+    std::cout << "STR Mod " << rogue->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << rogue->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << rogue->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << rogue->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << rogue->get_spirit_modifier()<< "\n";
+    delete rogue;
 
-    pclass = new Mage(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Mage* mage = new Mage(race, engine, equipment, combat);
+    std::cout << "Name: " << mage->get_name() << "\n";
+    std::cout << "STR Mod " << mage->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << mage->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << mage->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << mage->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << mage->get_spirit_modifier()<< "\n";
+    delete mage;
 
-    pclass = new Druid(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Druid* druid = new Druid(race, engine, equipment, combat);
+    std::cout << "Name: " << druid->get_name() << "\n";
+    std::cout << "STR Mod " << druid->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << druid->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << druid->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << druid->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << druid->get_spirit_modifier()<< "\n";
+    delete druid;
 
-    pclass = new Hunter(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Hunter* hunter = new Hunter(race, engine, equipment, combat);
+    std::cout << "Name: " << hunter->get_name() << "\n";
+    std::cout << "STR Mod " << hunter->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << hunter->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << hunter->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << hunter->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << hunter->get_spirit_modifier()<< "\n";
+    delete hunter;
 
-    pclass = new Warlock(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Warlock* warlock = new Warlock(race, engine, equipment, combat);
+    std::cout << "Name: " << warlock->get_name() << "\n";
+    std::cout << "STR Mod " << warlock->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << warlock->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << warlock->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << warlock->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << warlock->get_spirit_modifier()<< "\n";
+    delete warlock;
 
-    pclass = new Shaman(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Shaman* shaman = new Shaman(race, engine, equipment, combat);
+    std::cout << "Name: " << shaman->get_name() << "\n";
+    std::cout << "STR Mod " << shaman->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << shaman->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << shaman->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << shaman->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << shaman->get_spirit_modifier()<< "\n";
+    delete shaman;
 
-    pclass = new Paladin(race, engine, equipment, combat);
-    std::cout << "Name: " << pclass->get_name() << "\n";
-    std::cout << "STR Mod " << pclass->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << pclass->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << pclass->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << pclass->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << pclass->get_spirit_modifier()<< "\n";
-    delete pclass;
+    Paladin* paladin = new Paladin(race, engine, equipment, combat);
+    std::cout << "Name: " << paladin->get_name() << "\n";
+    std::cout << "STR Mod " << paladin->get_strength_modifier() << "\n";
+    std::cout << "AGI Mod " << paladin->get_agility_modifier() << "\n";
+    std::cout << "STA Mod " << paladin->get_stamina_modifier() << "\n";
+    std::cout << "INT Mod " << paladin->get_intellect_modifier() << "\n";
+    std::cout << "SPI Mod " << paladin->get_spirit_modifier()<< "\n";
+    delete paladin;
 
     race = new Orc();
-    pclass = new Warrior(race, engine, equipment, combat);
-    std::cout << "Character " << pclass->get_race()->get_name() << \
-                 " " << pclass->get_name() << "\n";
-    std::cout << "STR After mod " << pclass->get_strength() << "\n";
-    std::cout << "AGI After mod " << pclass->get_agility() << "\n";
-    std::cout << "STA After mod " << pclass->get_stamina() << "\n";
-    std::cout << "INT After mod " << pclass->get_intellect() << "\n";
-    std::cout << "SPI After mod " << pclass->get_spirit()<< "\n";
+    warr = new Warrior(race, engine, equipment, combat);
+    std::cout << "Character " << warr->get_race()->get_name() << \
+                 " " << warr->get_name() << "\n";
+    std::cout << "STR After mod " << warr->get_strength() << "\n";
+    std::cout << "AGI After mod " << warr->get_agility() << "\n";
+    std::cout << "STA After mod " << warr->get_stamina() << "\n";
+    std::cout << "INT After mod " << warr->get_intellect() << "\n";
+    std::cout << "SPI After mod " << warr->get_spirit()<< "\n";
 
-    pclass->set_clvl(60);
-    assert(pclass->get_clvl() == 60);
+    warr->set_clvl(60);
+    assert(warr->get_clvl() == 60);
     delete target;
     delete random;
     delete combat;
     delete race;
-    delete pclass;
+    delete warr;
     delete engine;
     delete equipment;
 }

@@ -1,13 +1,13 @@
 #ifndef ROGUE_H
 #define ROGUE_H
 
-#include "Class.h"
+#include "Character.h"
 #include "CombatRoll.h"
 
-class Rogue: public Class {
+class Rogue: public Character {
 public:
     Rogue(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
-        Class(race, engine, _eq) {
+        Character(race, engine, _eq) {
         this->STR += get_strength_modifier();
         this->AGI += get_agility_modifier();
         this->STAM += get_stamina_modifier();
@@ -15,6 +15,8 @@ public:
         this->SPI += get_spirit_modifier();
         this->roll = _roll;
     }
+
+    virtual ~Rogue() {}
 
     std::string get_name() const override;
     int get_strength_modifier() const override;

@@ -1,7 +1,7 @@
 #ifndef WARRIOR_H
 #define WARRIOR_H
 
-#include "Class.h"
+#include "Character.h"
 #include "PlayerAction.h"
 #include "Bloodthirst.h"
 #include "MainhandAttack.h"
@@ -10,10 +10,10 @@
 #include "OffhandMeleeHit.h"
 #include "CombatRoll.h"
 
-class Warrior: public Class {
+class Warrior: public Character {
 public:
     Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
-        Class(race, engine, _eq) {
+        Character(race, engine, _eq) {
         // Constants added as a hack, these are the gains from 1-60.
         // This essentially forces a clvl of 60 for stats to be accurate for warrior.
         this->STR += get_strength_modifier() + 97;
@@ -28,7 +28,7 @@ public:
         this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
     }
 
-    ~Warrior() {
+    virtual ~Warrior() {
         delete bt;
         delete mh_attack;
         delete oh_attack;

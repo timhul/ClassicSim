@@ -83,7 +83,6 @@ HEADERS += \
     Character/Race/Races/Undead.h \
     Character/Race/Races/Tauren.h \
     Character/Race/Races/Troll.h \
-    Character/Class/Class.h \
     Character/Class/Warrior/Warrior.h \
     Character/Class/Priest/Priest.h \
     Character/Class/Rogue/Rogue.h \

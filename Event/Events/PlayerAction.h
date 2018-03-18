@@ -2,16 +2,17 @@
 #define PLAYERACTION_H
 
 #include "Event.h"
-#include "Class.h"
+
+class Character;
 
 class PlayerAction: public Event {
 public:
-    PlayerAction(Class*, const float);
+    PlayerAction(Character*, const float);
 
     virtual void act(void) override;
 protected:
 private:
-    Class* pclass;
+    Character* pchar;
 };
 
 #endif // PLAYERACTION_H

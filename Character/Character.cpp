@@ -1,7 +1,6 @@
 
 #include "Character.h"
 
-
 Character::Character(Race* race, Engine* engine, Equipment* equipment) {
     this->race = race;
     this->engine = engine;

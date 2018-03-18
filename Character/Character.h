@@ -9,7 +9,10 @@
 class Character {
 public:
     Character(Race*, Engine*, Equipment*);
+    //virtual ~Character() {}
     Race* get_race(void);
+    virtual std::string get_name() const = 0;
+
     virtual void rotation(void) = 0;
     virtual void mh_auto_attack(void) = 0;
     virtual void oh_auto_attack(void) = 0;
