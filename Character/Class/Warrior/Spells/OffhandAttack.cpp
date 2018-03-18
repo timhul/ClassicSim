@@ -46,11 +46,13 @@ int OffhandAttack::spell_effect(const int) const {
     if (result->is_glancing()) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
+        pchar->get_flurry()->use_charge();
         add_success_stats("Glancing", damage_dealt, rage_gained);
         return rage_gained;
     }
 
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
+    pchar->get_flurry()->use_charge();
     add_success_stats("Hit", damage_dealt, rage_gained);
     return rage_gained;
 }

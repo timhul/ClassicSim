@@ -4,15 +4,15 @@
 #include "Engine.h"
 #include "BuffRemoval.h"
 
-Buff::Buff(Character* _pchar, const std::string _name, const int _dur):
+Buff::Buff(Character* _pchar, const std::string _name, const int _dur, const int _base_charges):
     pchar(_pchar),
     name(_name),
     duration(_dur),
+    base_charges(_base_charges),
+    current_charges(_base_charges),
     applied(_dur - 1),
     refreshed(_dur - 1),
     expired(_dur - 1),
-    base_charges(0),
-    current_charges(base_charges),
     active(false)
 {}
 
@@ -39,16 +39,23 @@ void Buff::remove_buff() {
     if (time_left() > 0.001 || !is_active())
         return;
 
+    force_remove_buff();
+}
+
+void Buff::force_remove_buff() {
     this->expired = pchar->get_engine()->get_current_priority();
     this->active = false;
     this->buff_effect_when_removed();
 }
 
 void Buff::use_charge() {
+    if (!is_active())
+        return;
+
     assert(this->current_charges > 0);
 
     if (--this->current_charges == 0)
-        remove_buff();
+        force_remove_buff();
 }
 
 bool Buff::is_active() const {
