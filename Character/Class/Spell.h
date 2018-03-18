@@ -6,6 +6,7 @@
 #include "Engine.h"
 #include "CombatRoll.h"
 #include "CooldownReady.h"
+#include "AttackResult.h"
 #include "assert.h"
 
 class Character;

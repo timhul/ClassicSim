@@ -32,6 +32,7 @@
 #include "AttackResult.h"
 #include "Random.h"
 #include "Mechanics.h"
+#include "Target.h"
 
 #include <iostream>
 #include <assert.h>

@@ -5,21 +5,17 @@
 #include <math.h>
 #include <map>
 
-#include "Mechanics.h"
-#include "AttackResult.h"
-#include "AttackTable.h"
-#include "WhiteHitTable.h"
-#include "MeleeSpecialTable.h"
-#include "Target.h"
-#include "Random.h"
-
+class AttackResult;
 class Character;
+class Target;
+class Random;
+class WhiteHitTable;
+class MeleeSpecialTable;
+class Mechanics;
 
 class CombatRoll {
 public:
-    CombatRoll(Target* _tar, Random* _rand):
-        target(_tar), random(_rand), mechanics(nullptr) {}
-
+    CombatRoll(Target* _tar, Random* _rand);
     ~CombatRoll();
 
     AttackResult* get_melee_hit_result(const int);

@@ -1,6 +1,16 @@
 
 #include "CombatRoll.h"
 #include "Character.h"
+#include "Mechanics.h"
+#include "AttackResult.h"
+#include "AttackTable.h"
+#include "WhiteHitTable.h"
+#include "MeleeSpecialTable.h"
+#include "Target.h"
+#include "Random.h"
+
+CombatRoll::CombatRoll(Target* _tar, Random* _rand):
+    target(_tar), random(_rand), mechanics(nullptr) {}
 
 CombatRoll::~CombatRoll() {
 
