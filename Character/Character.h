@@ -50,13 +50,13 @@ public:
 
     virtual int get_melee_ap();
 
-    void increase_hit(int);
-    void increase_crit(int);
-    void increase_ias(int);
+    void increase_hit(float);
+    void increase_crit(float);
+    void increase_ias(float);
 
-    void decrease_hit(int);
-    void decrease_crit(int);
-    void decrease_ias(int);
+    void decrease_hit(float);
+    void decrease_crit(float);
+    void decrease_ias(float);
 
 protected:
     Race* race;
@@ -69,9 +69,9 @@ protected:
     int SPI;
     int melee_ap;
     int ranged_ap;
-    int percent_hit;
-    int percent_crit;
-    int percent_ias;
+    float percent_hit;
+    float percent_crit;
+    float percent_ias;
     int clvl;
     bool melee_attacking;
     float last_action;

@@ -17,6 +17,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment) {
     this->clvl = 1;
     this->percent_hit = 0.0;
     this->percent_crit = 0.0;
+    this->percent_ias = 0.0;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
 }
@@ -164,26 +165,26 @@ int Character::get_oh_wpn_skill() {
     return get_clvl() * 5 + racial_bonus;
 }
 
-void Character::increase_hit(int increase) {
+void Character::increase_hit(float increase) {
     percent_hit += increase;
 }
 
-void Character::increase_crit(int increase) {
+void Character::increase_crit(float increase) {
     percent_crit += increase;
 }
 
-void Character::increase_ias(int increase) {
+void Character::increase_ias(float increase) {
     percent_ias += increase;
 }
 
-void Character::decrease_hit(int decrease) {
+void Character::decrease_hit(float decrease) {
     percent_hit -= decrease;
 }
 
-void Character::decrease_crit(int decrease) {
+void Character::decrease_crit(float decrease) {
     percent_crit -= decrease;
 }
 
-void Character::decrease_ias(int decrease) {
+void Character::decrease_ias(float decrease) {
     percent_ias -= decrease;
 }
