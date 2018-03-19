@@ -55,10 +55,11 @@ void Statistics::dump(void) {
     for (auto it = int_stats.begin(); it != int_stats.end(); ++it) {
         std::cout << it->first << " => " << it->second << "\n";
     }
+
     for (auto it = float_stats.begin(); it != float_stats.end(); ++it) {
         std::cout << it->first << " => " << it->second << "\n";
     }
 
-    std::cout << "Total DPS: " << std::fixed << std::setprecision(1) <<
-                 float(int_stats.at("Total Damage")) / 300 << "\n";
+    if (int_stats.find("Total Damage") != int_stats.end())
+        std::cout << "Total DPS: " << std::fixed << std::setprecision(1) << float(int_stats.at("Total Damage")) / 300 << "\n";
 }
