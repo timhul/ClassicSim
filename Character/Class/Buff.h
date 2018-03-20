@@ -12,7 +12,7 @@ public:
 
     std::string get_name() const;
     void apply_buff();
-    void remove_buff();
+    void remove_buff(const int);
     void use_charge();
     bool is_active() const;
     float time_left() const;
@@ -23,6 +23,7 @@ protected:
     const int duration;
     const int base_charges;
     int current_charges;
+    int iteration;
     float applied;
     float refreshed;
     float expired;

@@ -10,6 +10,7 @@ Buff::Buff(Character* _pchar, const std::string _name, const int _dur, const int
     duration(_dur),
     base_charges(_base_charges),
     current_charges(_base_charges),
+    iteration(0),
     applied(_dur - 1),
     refreshed(_dur - 1),
     expired(_dur - 1),
@@ -31,12 +32,12 @@ void Buff::apply_buff() {
     this->refreshed = pchar->get_engine()->get_current_priority();
     this->active = true;
     // TODO: Decide if we should use BuffApplication event as well.
-    BuffRemoval* new_event = new BuffRemoval(this, pchar->get_engine()->get_current_priority());
+    BuffRemoval* new_event = new BuffRemoval(this, pchar->get_engine()->get_current_priority() + duration, ++iteration);
     pchar->get_engine()->add_event(new_event);
 }
 
-void Buff::remove_buff() {
-    if (time_left() > 0.001 || !is_active())
+void Buff::remove_buff(const int iteration) {
+    if (iteration != this->iteration)
         return;
 
     force_remove_buff();
