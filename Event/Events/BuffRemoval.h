@@ -7,12 +7,13 @@ class Buff;
 
 class BuffRemoval: public Event {
 public:
-    BuffRemoval(Buff*, const float);
+    BuffRemoval(Buff*, const float, const int);
 
     virtual void act(void) override;
 protected:
 private:
     Buff* buff;
+    int iteration;
 };
 
 

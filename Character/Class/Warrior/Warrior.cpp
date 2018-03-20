@@ -102,33 +102,25 @@ void Warrior::rotation() {
         lose_rage(bt->perform(rage));
 }
 
-void Warrior::start_mh_attack(void) {
-    // TODO: Apply Flurry buffs, etc to base weapon speed.
-    float wpn_speed = equipment->get_mainhand()->get_base_weapon_speed();
-    float next_timestamp = mh_attack->get_last_used() + wpn_speed;
-
-    if (next_timestamp < engine->get_current_priority())
-        next_timestamp = engine->get_current_priority();
-
-    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, next_timestamp);
+void Warrior::add_next_mh_attack(void) {
+    // TODO: Check if Heroic Strike "buff" up
+    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use());
     this->get_engine()->add_event(new_event);
 }
 
-void Warrior::start_oh_attack(void) {
-    // TODO: Apply Flurry buffs, etc to base weapon speed.
-    // TODO: Check if Heroic Strike "buff" up
-    float wpn_speed = equipment->get_offhand()->get_base_weapon_speed();
-    float next_timestamp = oh_attack->get_last_used() + wpn_speed;
-
-    if (next_timestamp < engine->get_current_priority())
-        next_timestamp = engine->get_current_priority();
-
-    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, next_timestamp);
+void Warrior::add_next_oh_attack(void) {
+    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use());
     this->get_engine()->add_event(new_event);
 }
 
 void Warrior::mh_auto_attack() {
-    // TODO: Check for invalid attacks before performing.
+    if (abs(get_engine()->get_current_priority() - mh_attack->get_next_expected_use()) > 0.001) {
+        std::cout << "mh diff too high: "  << get_engine()->get_current_priority() - mh_attack->get_next_expected_use() << std::endl;
+        std::cout << "timestamp: " << get_engine()->get_current_priority() << std::endl;
+        std::cout << "next expected use: " << mh_attack->get_next_expected_use() << std::endl;
+        return;
+    }
+
     gain_rage(mh_attack->perform(rage));
 
     if (action_ready()) {
@@ -136,11 +128,18 @@ void Warrior::mh_auto_attack() {
         this->get_engine()->add_event(new_event);
     }
 
-    start_mh_attack();
+    mh_attack->update_next_expected_use(0.0);
+    add_next_mh_attack();
 }
 
 void Warrior::oh_auto_attack() {
-    // TODO: Check for invalid attacks before performing.
+    if (abs(get_engine()->get_current_priority() - oh_attack->get_next_expected_use()) > 0.001) {
+        std::cout << "oh diff too high: "  << get_engine()->get_current_priority() - oh_attack->get_next_expected_use() << std::endl;
+        std::cout << "timestamp: " << get_engine()->get_current_priority() << std::endl;
+        std::cout << "next expected use: " << oh_attack->get_next_expected_use() << std::endl;
+        return;
+    }
+
     gain_rage(oh_attack->perform(rage));
 
     if (action_ready()) {
@@ -148,7 +147,8 @@ void Warrior::oh_auto_attack() {
         this->get_engine()->add_event(new_event);
     }
 
-    start_oh_attack();
+    oh_attack->update_next_expected_use(0.0);
+    add_next_oh_attack();
 }
 
 float Warrior::global_cooldown() const {
@@ -161,4 +161,44 @@ int Warrior::get_curr_rage() const {
 
 Flurry* Warrior::get_flurry() const {
     return this->flurry;
+}
+
+void Warrior::increase_hit(float increase) {
+    percent_hit += increase;
+}
+
+void Warrior::increase_crit(float increase) {
+    percent_crit += increase;
+}
+
+void Warrior::increase_ias(float increase) {
+    std::cout << engine->get_current_priority() << ": IAS increased by " << increase * 100 << "%" << std::endl;
+    percent_ias += increase;
+
+    mh_attack->update_next_expected_use(increase);
+    add_next_mh_attack();
+
+    if (equipment->is_dual_wielding()) {
+        oh_attack->update_next_expected_use(increase);
+        add_next_oh_attack();
+    }
+}
+
+void Warrior::decrease_hit(float decrease) {
+    percent_hit -= decrease;
+}
+
+void Warrior::decrease_crit(float decrease) {
+    percent_crit -= decrease;
+}
+
+void Warrior::decrease_ias(float decrease) {
+    std::cout << engine->get_current_priority() << ": IAS decreased by " << decrease * 100 << "%" << std::endl;
+    percent_ias -= decrease;
+
+    add_next_mh_attack();
+
+    if (equipment->is_dual_wielding()) {
+        add_next_oh_attack();
+    }
 }

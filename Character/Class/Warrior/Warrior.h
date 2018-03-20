@@ -35,6 +35,14 @@ public:
 
     Flurry* get_flurry() const;
 
+    void increase_hit(float) override;
+    void increase_crit(float) override;
+    void increase_ias(float) override;
+
+    void decrease_hit(float) override;
+    void decrease_crit(float) override;
+    void decrease_ias(float) override;
+
 protected:
 private:
     int rage;
@@ -44,8 +52,8 @@ private:
     OffhandAttack* oh_attack;
     Flurry* flurry;
 
-    void start_mh_attack(void) override;
-    void start_oh_attack(void) override;
+    void add_next_mh_attack(void) override;
+    void add_next_oh_attack(void) override;
 };
 
 #endif // WARRIOR_H

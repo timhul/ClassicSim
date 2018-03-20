@@ -26,3 +26,7 @@ bool operator>=(const Event& l, const Event& r) {
 float Event::get_priority(void) const {
     return this->priority;
 }
+
+std::string Event::get_name(void) const {
+    return this->name;
+}

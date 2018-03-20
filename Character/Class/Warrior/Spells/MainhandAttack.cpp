@@ -2,11 +2,19 @@
 #include "MainhandAttack.h"
 #include "Warrior.h"
 #include "Flurry.h"
+#include "Equipment.h"
 
 MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Mainhand Attack", engine, pchar, roll, 10.0, 0)
+    Spell("Mainhand Attack",
+          engine,
+          pchar,
+          roll,
+          (pchar->get_equipment()->get_mainhand() != nullptr) ? pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() :
+                                                                10000,
+          0)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
+    next_expected_use = get_cooldown();
 }
 
 int MainhandAttack::spell_effect(const int) const {
@@ -51,4 +59,19 @@ int MainhandAttack::spell_effect(const int) const {
     pchar->get_flurry()->use_charge();
     add_success_stats("Hit", damage_dealt, rage_gained);
     return rage_gained;
+}
+
+float MainhandAttack::get_next_expected_use() const {
+    return next_expected_use;
+}
+
+void MainhandAttack::update_next_expected_use(const float haste_change) {
+    if (haste_change > 0.01 || haste_change < -0.01) {
+        float curr_time = pchar->get_engine()->get_current_priority();
+        float remainder_after_haste_change = (next_expected_use - curr_time) / (1 + haste_change);
+        next_expected_use = curr_time + remainder_after_haste_change;
+    }
+    else {
+        next_expected_use = last_used + pchar->get_mh_wpn_speed();
+    }
 }
