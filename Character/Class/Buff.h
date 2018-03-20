@@ -1,16 +1,16 @@
 #ifndef BUFF_H
 #define BUFF_H
 
-#include <string>
+#include <QString>
 #include <assert.h>
 
 class Character;
 
 class Buff {
 public:
-    Buff(Character*, const std::string, const int, const int);
+    Buff(Character*, const QString, const int, const int);
 
-    std::string get_name() const;
+    QString get_name() const;
     void apply_buff();
     void remove_buff(const int);
     void use_charge();
@@ -19,7 +19,7 @@ public:
 
 protected:
     Character* pchar;
-    const std::string name;
+    const QString name;
     const int duration;
     const int base_charges;
     int current_charges;

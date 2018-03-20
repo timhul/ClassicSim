@@ -2,12 +2,13 @@
 #define RACE_H
 
 #include <map>
+#include <QString>
 
 class Race {
 public:
     virtual ~Race() {}
 
-    virtual std::string get_name() const = 0;
+    virtual QString get_name() const = 0;
     virtual int get_base_strength() const = 0;
     virtual int get_base_agility() const = 0;
     virtual int get_base_stamina() const = 0;
@@ -24,7 +25,7 @@ public:
     virtual int get_thrown_bonus() const = 0;
 
 protected:
-    std::map<std::string, int> stats;
+    std::map<QString, int> stats;
 private:
 };
 

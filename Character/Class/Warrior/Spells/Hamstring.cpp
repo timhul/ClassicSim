@@ -2,7 +2,6 @@
 #include "Hamstring.h"
 #include "Warrior.h"
 #include "Flurry.h"
-#include <iostream>
 
 Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Hamstring", engine, pchar, roll, 0, 10)

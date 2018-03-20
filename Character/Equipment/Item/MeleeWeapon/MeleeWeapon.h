@@ -6,7 +6,7 @@
 
 class MeleeWeapon: public Item {
 public:
-    MeleeWeapon(std::string name, Random* random,
+    MeleeWeapon(QString name, Random* random,
                 int type, int min, int max, float speed, float proc_rate):
         Item(name) {
         this->random = random;

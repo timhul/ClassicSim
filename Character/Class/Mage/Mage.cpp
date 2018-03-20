@@ -1,7 +1,7 @@
 
 #include "Mage.h"
 
-std::string Mage::get_name(void) const {
+QString Mage::get_name(void) const {
     return "Mage";
 }
 

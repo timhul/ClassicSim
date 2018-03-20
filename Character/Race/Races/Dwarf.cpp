@@ -1,7 +1,7 @@
 
 #include "Dwarf.h"
 
-std::string Dwarf::get_name(void) const {
+QString Dwarf::get_name(void) const {
     return "Dwarf";
 }
 

@@ -1,7 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include <string>
+#include <QString>
 #include <assert.h>
 
 namespace ItemTypes {
@@ -43,13 +43,13 @@ namespace WeaponTypes {
 class Item {
 public:
     virtual ~Item() {}
-    Item(std::string _name): name(_name) {}
+    Item(QString _name): name(_name) {}
     virtual int get_item_type(void) const = 0;
 
-    std::string get_name(void) const { return name; }
+    QString get_name(void) const { return name; }
 
 protected:
-    std::string name;
+    QString name;
 
 private:
 };

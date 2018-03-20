@@ -4,7 +4,7 @@
 #include "Engine.h"
 #include "BuffRemoval.h"
 
-Buff::Buff(Character* _pchar, const std::string _name, const int _dur, const int _base_charges):
+Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _base_charges):
     pchar(_pchar),
     name(_name),
     duration(_dur),
@@ -17,7 +17,7 @@ Buff::Buff(Character* _pchar, const std::string _name, const int _dur, const int
     active(false)
 {}
 
-std::string Buff::get_name() const {
+QString Buff::get_name() const {
     return this->name;
 }
 

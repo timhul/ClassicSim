@@ -1,6 +1,6 @@
 
 #include "MeleeSpecialTable.h"
-#include <iostream>
+#include <QDebug>
 
 void MeleeSpecialTable::set_attack_table(void) {
     assert(miss >= 0);
@@ -38,11 +38,11 @@ int MeleeSpecialTable::get_outcome(const int roll) {
 }
 
 void MeleeSpecialTable::dump_table(void) {
-    std::cout << "------------\n";
-    std::cout << "MISS RANGE " << miss_range << " (" << miss * 100 << "%)" <<"\n";
-    std::cout << "DODGE RANGE " << dodge_range << " (" << dodge * 100 << "%)" <<"\n";
-    std::cout << "PARRY RANGE " << parry_range << " (" << parry * 100 << "%)" <<"\n";
-    std::cout << "BLOCK RANGE " << block_range << " (" << block * 100 << "%)" <<"\n";
-    std::cout << "CRITICAL RANGE " << critical_range << " (" << critical* 100 << "%)" <<"\n";
+    qDebug() << "------------";
+    qDebug() << "MISS RANGE " << miss_range << " (" << miss * 100 << "%)";
+    qDebug() << "DODGE RANGE " << dodge_range << " (" << dodge * 100 << "%)";
+    qDebug() << "PARRY RANGE " << parry_range << " (" << parry * 100 << "%)";
+    qDebug() << "BLOCK RANGE " << block_range << " (" << block * 100 << "%)";
+    qDebug() << "CRITICAL RANGE " << critical_range << " (" << critical* 100 << "%)";
 }
 

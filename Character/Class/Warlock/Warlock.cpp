@@ -1,7 +1,7 @@
 
 #include "Warlock.h"
 
-std::string Warlock::get_name(void) const {
+QString Warlock::get_name(void) const {
     return "Warlock";
 }
 

@@ -9,8 +9,7 @@
 #include "Flurry.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
-
-#include <iostream>
+#include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
     Character(race, engine, _eq) {
@@ -35,7 +34,7 @@ Warrior::~Warrior() {
     delete oh_attack;
 }
 
-std::string Warrior::get_name(void) const {
+QString Warrior::get_name(void) const {
     return "Warrior";
 }
 
@@ -115,9 +114,9 @@ void Warrior::add_next_oh_attack(void) {
 
 void Warrior::mh_auto_attack() {
     if (abs(get_engine()->get_current_priority() - mh_attack->get_next_expected_use()) > 0.001) {
-        std::cout << "mh diff too high: "  << get_engine()->get_current_priority() - mh_attack->get_next_expected_use() << std::endl;
-        std::cout << "timestamp: " << get_engine()->get_current_priority() << std::endl;
-        std::cout << "next expected use: " << mh_attack->get_next_expected_use() << std::endl;
+        qDebug() << "mh diff too high: "  << get_engine()->get_current_priority() - mh_attack->get_next_expected_use();
+        qDebug() << "timestamp: " << get_engine()->get_current_priority();
+        qDebug() << "next expected use: " << mh_attack->get_next_expected_use();
         return;
     }
 
@@ -134,9 +133,9 @@ void Warrior::mh_auto_attack() {
 
 void Warrior::oh_auto_attack() {
     if (abs(get_engine()->get_current_priority() - oh_attack->get_next_expected_use()) > 0.001) {
-        std::cout << "oh diff too high: "  << get_engine()->get_current_priority() - oh_attack->get_next_expected_use() << std::endl;
-        std::cout << "timestamp: " << get_engine()->get_current_priority() << std::endl;
-        std::cout << "next expected use: " << oh_attack->get_next_expected_use() << std::endl;
+        qDebug() << "oh diff too high: "  << get_engine()->get_current_priority() - oh_attack->get_next_expected_use();
+        qDebug() << "timestamp: " << get_engine()->get_current_priority();
+        qDebug() << "next expected use: " << oh_attack->get_next_expected_use();
         return;
     }
 
@@ -172,7 +171,7 @@ void Warrior::increase_crit(float increase) {
 }
 
 void Warrior::increase_ias(float increase) {
-    std::cout << engine->get_current_priority() << ": IAS increased by " << increase * 100 << "%" << std::endl;
+    qDebug() << engine->get_current_priority() << ": IAS increased by " << increase * 100 << "%";
     percent_ias += increase;
 
     mh_attack->update_next_expected_use(increase);
@@ -193,7 +192,7 @@ void Warrior::decrease_crit(float decrease) {
 }
 
 void Warrior::decrease_ias(float decrease) {
-    std::cout << engine->get_current_priority() << ": IAS decreased by " << decrease * 100 << "%" << std::endl;
+    qDebug() << engine->get_current_priority() << ": IAS decreased by " << decrease * 100 << "%";
     percent_ias -= decrease;
 
     add_next_mh_attack();

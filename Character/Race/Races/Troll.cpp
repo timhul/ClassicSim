@@ -1,7 +1,7 @@
 
 #include "Troll.h"
 
-std::string Troll::get_name(void) const {
+QString Troll::get_name(void) const {
     return "Troll";
 }
 

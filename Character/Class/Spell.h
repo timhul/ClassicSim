@@ -1,7 +1,7 @@
 #ifndef SPELL_H
 #define SPELL_H
 
-#include <string>
+#include <QString>
 #include <algorithm>
 #include "Engine.h"
 #include "CombatRoll.h"
@@ -13,7 +13,7 @@ class Character;
 
 class Spell {
 public:
-    Spell(std::string _name,
+    Spell(QString _name,
           Engine* _eng,
           Character* _pchar,
           CombatRoll* _roll,
@@ -29,7 +29,7 @@ public:
 
     virtual ~Spell() {}
 
-    std::string get_name() const;
+    QString get_name() const;
     float get_cooldown();
     float get_last_used();
     float get_next_use() const;
@@ -42,7 +42,7 @@ public:
 
 protected:
     virtual int spell_effect(const int) const = 0;
-    const std::string name;
+    const QString name;
     Engine* engine;
     Character* pchar;
     CombatRoll* roll;
@@ -51,9 +51,9 @@ protected:
     int resource_cost;
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;
-    void add_fail_stats(std::string) const;
-    void add_success_stats(std::string, const int damage_dealt) const;
-    void add_success_stats(std::string, const int, const int) const;
+    void add_fail_stats(QString) const;
+    void add_success_stats(QString, const int damage_dealt) const;
+    void add_success_stats(QString, const int, const int) const;
 private:
 };
 

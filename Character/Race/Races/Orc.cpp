@@ -1,7 +1,7 @@
 
 #include "Orc.h"
 
-std::string Orc::get_name(void) const {
+QString Orc::get_name(void) const {
     return "Orc";
 }
 

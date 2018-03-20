@@ -2,7 +2,6 @@
 #include "Execute.h"
 #include "Warrior.h"
 #include "Flurry.h"
-#include <iostream>
 
 Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Execute", engine, pchar, roll, 0, 10)

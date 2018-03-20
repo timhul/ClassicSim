@@ -1,7 +1,7 @@
 
 #include "Priest.h"
 
-std::string Priest::get_name(void) const {
+QString Priest::get_name(void) const {
     return "Priest";
 }
 

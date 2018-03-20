@@ -1,7 +1,7 @@
 
 #include "Druid.h"
 
-std::string Druid::get_name(void) const {
+QString Druid::get_name(void) const {
     return "Druid";
 }
 

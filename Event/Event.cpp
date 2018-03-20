@@ -1,7 +1,5 @@
 
 #include "Event.h"
-#include <iostream>
-
 
 bool Compare::operator() (Event*& l, Event*& r) {
     return *l > *r;
@@ -27,6 +25,6 @@ float Event::get_priority(void) const {
     return this->priority;
 }
 
-std::string Event::get_name(void) const {
+QString Event::get_name(void) const {
     return this->name;
 }

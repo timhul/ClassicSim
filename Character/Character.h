@@ -1,7 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include <string>
+#include <QString>
 
 class Race;
 class Engine;
@@ -12,7 +12,7 @@ public:
     Character(Race*, Engine*, Equipment*);
 
     Race* get_race(void);
-    virtual std::string get_name() const = 0;
+    virtual QString get_name() const = 0;
 
     virtual void rotation(void) = 0;
     virtual void mh_auto_attack(void) = 0;

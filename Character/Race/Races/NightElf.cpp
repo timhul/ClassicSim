@@ -1,7 +1,7 @@
 
 #include "NightElf.h"
 
-std::string NightElf::get_name(void) const {
+QString NightElf::get_name(void) const {
     return "Night Elf";
 }
 

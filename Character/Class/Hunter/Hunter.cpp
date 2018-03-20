@@ -1,7 +1,7 @@
 
 #include "Hunter.h"
 
-std::string Hunter::get_name(void) const {
+QString Hunter::get_name(void) const {
     return "Hunter";
 }
 

@@ -1,7 +1,7 @@
 
 #include "Tauren.h"
 
-std::string Tauren::get_name(void) const {
+QString Tauren::get_name(void) const {
     return "Tauren";
 }
 

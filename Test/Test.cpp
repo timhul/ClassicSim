@@ -34,34 +34,34 @@
 #include "Mechanics.h"
 #include "Target.h"
 
-#include <iostream>
 #include <assert.h>
+#include <QDebug>
 
 
 void Test::test_all(void) {
-    std::cout << "test_character_creation\n";
+    qDebug() << "test_character_creation";
     test_character_creation();
-    std::cout << "test_equipment_creation\n";
+    qDebug() << "test_equipment_creation";
     test_equipment_creation();
-    std::cout << "test_white_hit_table\n";
+    qDebug() << "test_white_hit_table";
     test_white_hit_table();
-    std::cout << "test_special_hit_table\n";
+    qDebug() << "test_special_hit_table";
     test_special_hit_table();
-    std::cout << "test_mechanics_glancing_rate\n";
+    qDebug() << "test_mechanics_glancing_rate";
     test_mechanics_glancing_rate();
-    std::cout << "test_mechanics_glancing_dmg_penalty\n";
+    qDebug() << "test_mechanics_glancing_dmg_penalty";
     test_mechanics_glancing_dmg_penalty();
-    std::cout << "test_mechanics_dw_white_miss\n";
+    qDebug() << "test_mechanics_dw_white_miss";
     test_mechanics_dw_white_miss();
-    std::cout << "test_mechanics_dodge\n";
+    qDebug() << "test_mechanics_dodge";
     test_mechanics_dodge();
-    std::cout << "test_combat_roll_creation\n";
+    qDebug() << "test_combat_roll_creation";
     test_combat_roll_creation();
-    std::cout << "test_random\n";
+    qDebug() << "test_random";
     test_random();
-    std::cout << "test_combat_roll_melee_hit_result\n";
+    qDebug() << "test_combat_roll_melee_hit_result";
     test_combat_roll_melee_hit_result();
-    std::cout << "test_queue\n";
+    qDebug() << "test_queue";
     test_queue();
 }
 
@@ -100,7 +100,7 @@ void Test::test_random(void) {
     Random* random = new Random(0, 9999);
 
     for (int i = 0; i < 10; ++i) {
-        std::cout << "Random rolling " << random->get_roll() << "\n";
+        qDebug() << "Random rolling " << random->get_roll();
     }
 
     delete random;
@@ -292,166 +292,166 @@ void Test::test_character_creation(void) {
     CombatRoll* combat = new CombatRoll(target, random);
 
     Race* race = new Human();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
     delete race;
 
     race = new Dwarf();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
     delete race;
 
     race = new NightElf();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
     delete race;
 
     race = new Gnome();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
     delete race;
 
     race = new Orc();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
     delete race;
 
     race = new Undead();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
     delete race;
 
     race = new Tauren();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
     delete race;
 
     race = new Troll();
-    std::cout << "Name: " << race->get_name() << "\n";
-    std::cout << "STR " << race->get_base_strength() << "\n";
-    std::cout << "AGI " << race->get_base_agility() << "\n";
-    std::cout << "STA " << race->get_base_stamina() << "\n";
-    std::cout << "INT " << race->get_base_intellect() << "\n";
-    std::cout << "SPI " << race->get_base_spirit() << "\n";
+    qDebug() << "Name: " << race->get_name();
+    qDebug() << "STR " << race->get_base_strength();
+    qDebug() << "AGI " << race->get_base_agility();
+    qDebug() << "STA " << race->get_base_stamina();
+    qDebug() << "INT " << race->get_base_intellect();
+    qDebug() << "SPI " << race->get_base_spirit();
 
     Warrior* warr = new Warrior(race, engine, equipment, combat);
-    std::cout << "Name: " << warr->get_name() << "\n";
-    std::cout << "STR Mod " << warr->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << warr->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << warr->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << warr->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << warr->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << warr->get_name();
+    qDebug() << "STR Mod " << warr->get_strength_modifier();
+    qDebug() << "AGI Mod " << warr->get_agility_modifier();
+    qDebug() << "STA Mod " << warr->get_stamina_modifier();
+    qDebug() << "INT Mod " << warr->get_intellect_modifier();
+    qDebug() << "SPI Mod " << warr->get_spirit_modifier();
     delete warr;
 
     Priest* priest = new Priest(race, engine, equipment, combat);
-    std::cout << "Name: " << priest->get_name() << "\n";
-    std::cout << "STR Mod " << priest->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << priest->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << priest->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << priest->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << priest->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << priest->get_name();
+    qDebug() << "STR Mod " << priest->get_strength_modifier();
+    qDebug() << "AGI Mod " << priest->get_agility_modifier();
+    qDebug() << "STA Mod " << priest->get_stamina_modifier();
+    qDebug() << "INT Mod " << priest->get_intellect_modifier();
+    qDebug() << "SPI Mod " << priest->get_spirit_modifier();
     delete priest;
 
     Rogue* rogue = new Rogue(race, engine, equipment, combat);
-    std::cout << "Name: " << rogue->get_name() << "\n";
-    std::cout << "STR Mod " << rogue->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << rogue->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << rogue->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << rogue->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << rogue->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << rogue->get_name();
+    qDebug() << "STR Mod " << rogue->get_strength_modifier();
+    qDebug() << "AGI Mod " << rogue->get_agility_modifier();
+    qDebug() << "STA Mod " << rogue->get_stamina_modifier();
+    qDebug() << "INT Mod " << rogue->get_intellect_modifier();
+    qDebug() << "SPI Mod " << rogue->get_spirit_modifier();
     delete rogue;
 
     Mage* mage = new Mage(race, engine, equipment, combat);
-    std::cout << "Name: " << mage->get_name() << "\n";
-    std::cout << "STR Mod " << mage->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << mage->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << mage->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << mage->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << mage->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << mage->get_name();
+    qDebug() << "STR Mod " << mage->get_strength_modifier();
+    qDebug() << "AGI Mod " << mage->get_agility_modifier();
+    qDebug() << "STA Mod " << mage->get_stamina_modifier();
+    qDebug() << "INT Mod " << mage->get_intellect_modifier();
+    qDebug() << "SPI Mod " << mage->get_spirit_modifier();
     delete mage;
 
     Druid* druid = new Druid(race, engine, equipment, combat);
-    std::cout << "Name: " << druid->get_name() << "\n";
-    std::cout << "STR Mod " << druid->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << druid->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << druid->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << druid->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << druid->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << druid->get_name();
+    qDebug() << "STR Mod " << druid->get_strength_modifier();
+    qDebug() << "AGI Mod " << druid->get_agility_modifier();
+    qDebug() << "STA Mod " << druid->get_stamina_modifier();
+    qDebug() << "INT Mod " << druid->get_intellect_modifier();
+    qDebug() << "SPI Mod " << druid->get_spirit_modifier();
     delete druid;
 
     Hunter* hunter = new Hunter(race, engine, equipment, combat);
-    std::cout << "Name: " << hunter->get_name() << "\n";
-    std::cout << "STR Mod " << hunter->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << hunter->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << hunter->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << hunter->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << hunter->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << hunter->get_name();
+    qDebug() << "STR Mod " << hunter->get_strength_modifier();
+    qDebug() << "AGI Mod " << hunter->get_agility_modifier();
+    qDebug() << "STA Mod " << hunter->get_stamina_modifier();
+    qDebug() << "INT Mod " << hunter->get_intellect_modifier();
+    qDebug() << "SPI Mod " << hunter->get_spirit_modifier();
     delete hunter;
 
     Warlock* warlock = new Warlock(race, engine, equipment, combat);
-    std::cout << "Name: " << warlock->get_name() << "\n";
-    std::cout << "STR Mod " << warlock->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << warlock->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << warlock->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << warlock->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << warlock->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << warlock->get_name();
+    qDebug() << "STR Mod " << warlock->get_strength_modifier();
+    qDebug() << "AGI Mod " << warlock->get_agility_modifier();
+    qDebug() << "STA Mod " << warlock->get_stamina_modifier();
+    qDebug() << "INT Mod " << warlock->get_intellect_modifier();
+    qDebug() << "SPI Mod " << warlock->get_spirit_modifier();
     delete warlock;
 
     Shaman* shaman = new Shaman(race, engine, equipment, combat);
-    std::cout << "Name: " << shaman->get_name() << "\n";
-    std::cout << "STR Mod " << shaman->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << shaman->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << shaman->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << shaman->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << shaman->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << shaman->get_name();
+    qDebug() << "STR Mod " << shaman->get_strength_modifier();
+    qDebug() << "AGI Mod " << shaman->get_agility_modifier();
+    qDebug() << "STA Mod " << shaman->get_stamina_modifier();
+    qDebug() << "INT Mod " << shaman->get_intellect_modifier();
+    qDebug() << "SPI Mod " << shaman->get_spirit_modifier();
     delete shaman;
 
     Paladin* paladin = new Paladin(race, engine, equipment, combat);
-    std::cout << "Name: " << paladin->get_name() << "\n";
-    std::cout << "STR Mod " << paladin->get_strength_modifier() << "\n";
-    std::cout << "AGI Mod " << paladin->get_agility_modifier() << "\n";
-    std::cout << "STA Mod " << paladin->get_stamina_modifier() << "\n";
-    std::cout << "INT Mod " << paladin->get_intellect_modifier() << "\n";
-    std::cout << "SPI Mod " << paladin->get_spirit_modifier()<< "\n";
+    qDebug() << "Name: " << paladin->get_name();
+    qDebug() << "STR Mod " << paladin->get_strength_modifier();
+    qDebug() << "AGI Mod " << paladin->get_agility_modifier();
+    qDebug() << "STA Mod " << paladin->get_stamina_modifier();
+    qDebug() << "INT Mod " << paladin->get_intellect_modifier();
+    qDebug() << "SPI Mod " << paladin->get_spirit_modifier();
     delete paladin;
 
     race = new Orc();
     warr = new Warrior(race, engine, equipment, combat);
-    std::cout << "Character " << warr->get_race()->get_name() << \
-                 " " << warr->get_name() << "\n";
-    std::cout << "STR After mod " << warr->get_strength() << "\n";
-    std::cout << "AGI After mod " << warr->get_agility() << "\n";
-    std::cout << "STA After mod " << warr->get_stamina() << "\n";
-    std::cout << "INT After mod " << warr->get_intellect() << "\n";
-    std::cout << "SPI After mod " << warr->get_spirit()<< "\n";
+    qDebug() << "Character " << warr->get_race()->get_name() << \
+                 " " << warr->get_name();
+    qDebug() << "STR After mod " << warr->get_strength();
+    qDebug() << "AGI After mod " << warr->get_agility();
+    qDebug() << "STA After mod " << warr->get_stamina();
+    qDebug() << "INT After mod " << warr->get_intellect();
+    qDebug() << "SPI After mod " << warr->get_spirit();
 
     warr->set_clvl(60);
     assert(warr->get_clvl() == 60);

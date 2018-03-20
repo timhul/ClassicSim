@@ -1,7 +1,6 @@
 
 #include "EncounterStart.h"
 #include "Character.h"
-#include <iostream>
 
 EncounterStart::EncounterStart(Character* pchar) {
     this->pchar = pchar;
@@ -10,6 +9,5 @@ EncounterStart::EncounterStart(Character* pchar) {
 }
 
 void EncounterStart::act(void) {
-    std::cout << this->priority << ": EncounterStart\n";
     pchar->rotation();
 }

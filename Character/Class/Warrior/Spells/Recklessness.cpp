@@ -1,8 +1,6 @@
 
 #include "Recklessness.h"
 
-#include <iostream>
-
 int Recklessness::spell_effect(const int) const {
     // TODO: Apply Recklessness buff.
     // TODO: Recklessness buff should make all glancing hits to crits.

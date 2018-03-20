@@ -1,7 +1,7 @@
 
 #include "Human.h"
 
-std::string Human::get_name(void) const {
+QString Human::get_name(void) const {
     return "Human";
 }
 

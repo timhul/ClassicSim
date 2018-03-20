@@ -1,12 +1,11 @@
 
 #include "Engine.h"
-
-#include <iostream>
+#include <QDebug>
 
 void Engine::run(void) {
     while(!queue->empty()) {
         Event* event = queue->get_next();
-        std::cout << event->get_priority() << ": Running " << event->get_name() << std::endl;
+        qDebug() << event->get_priority() << ": Running " << event->get_name();
         set_current_priority(event);
         event->act();
         delete event;
@@ -15,7 +14,7 @@ void Engine::run(void) {
 }
 
 void Engine::end_combat(void) {
-    std::cout << "Engine: Ending combat.\n";
+    qDebug() << "Engine: Ending combat.";
     queue->clear();
 }
 
@@ -25,15 +24,15 @@ float Engine::get_current_priority(void) const {
 
 void Engine::set_current_priority(Event* event) {
     if (event->get_priority() < this->current_prio) {
-        std::cerr << "Engine: Next event lower priority than current prio! " \
-                  << event->get_priority() << " < " << this->current_prio << "\n";
+        qDebug() << "Engine: Next event lower priority than current prio! " \
+                 << event->get_priority() << " < " << this->current_prio;
         exit(-1);
     }
     this->current_prio = event->get_priority();
 }
 
 void Engine::add_event(Event* event) {
-    std::cout << current_prio << ": " << event->get_name() << " event added with priority " << event->get_priority() << std::endl;
+    qDebug() << current_prio << ": " << event->get_name() << " event added with priority " << event->get_priority();
     this->queue->push(event);
 }
 

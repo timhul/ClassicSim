@@ -1,7 +1,7 @@
 
 #include "Gnome.h"
 
-std::string Gnome::get_name(void) const {
+QString Gnome::get_name(void) const {
     return "Gnome";
 }
 

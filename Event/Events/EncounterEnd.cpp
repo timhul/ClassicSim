@@ -1,6 +1,5 @@
 
 #include "EncounterEnd.h"
-#include <iostream>
 
 EncounterEnd::EncounterEnd(Engine* engine) {
     this->engine = engine;
@@ -9,6 +8,5 @@ EncounterEnd::EncounterEnd(Engine* engine) {
 }
 
 void EncounterEnd::act(void) {
-    std::cout << this->priority << ": EncounterEnd\n";
     engine->end_combat();
 }

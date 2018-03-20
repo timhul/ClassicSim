@@ -2,7 +2,7 @@
 #include "Spell.h"
 #include "Character.h"
 
-std::string Spell::get_name() const {
+QString Spell::get_name() const {
     return this->name;
 }
 
@@ -60,18 +60,18 @@ void Spell::add_gcd_event(void) const {
     engine->add_event(new_event);
 }
 
-void Spell::add_fail_stats(std::string outcome) const {
+void Spell::add_fail_stats(QString outcome) const {
     engine->get_statistics()->increment(get_name() + outcome);
 }
 
-void Spell::add_success_stats(std::string outcome,
+void Spell::add_success_stats(QString outcome,
                                     const int damage_dealt) const {
     engine->get_statistics()->increment(get_name() + outcome);
     engine->get_statistics()->add("Total Damage", damage_dealt);
     engine->get_statistics()->add(get_name() + outcome + " Damage", damage_dealt);
 }
 
-void Spell::add_success_stats(std::string outcome,
+void Spell::add_success_stats(QString outcome,
                                        const int damage_dealt,
                                        const int rage_gained) const {
     engine->get_statistics()->increment(get_name() + outcome);

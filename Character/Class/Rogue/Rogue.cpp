@@ -1,7 +1,7 @@
 
 #include "Rogue.h"
 
-std::string Rogue::get_name(void) const {
+QString Rogue::get_name(void) const {
     return "Rogue";
 }
 

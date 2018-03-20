@@ -4,8 +4,6 @@
 #include "CooldownReady.h"
 #include "Flurry.h"
 
-#include <iostream>
-
 Overpower::Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Overpower", engine, pchar, roll, 5.0, 5)
 {

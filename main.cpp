@@ -1,5 +1,4 @@
 #include <QCoreApplication>
-#include <iostream>
 #include "Engine.h"
 #include "Test.h"
 

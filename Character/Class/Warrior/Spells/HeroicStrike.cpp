@@ -2,7 +2,6 @@
 #include "HeroicStrike.h"
 #include "Warrior.h"
 #include "Flurry.h"
-#include <iostream>
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Heroic Strike", engine, pchar, roll, 0, 13)

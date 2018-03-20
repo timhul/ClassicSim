@@ -1,7 +1,7 @@
 
 #include "Paladin.h"
 
-std::string Paladin::get_name(void) const {
+QString Paladin::get_name(void) const {
     return "Paladin";
 }
 

@@ -1,7 +1,7 @@
 
 #include "Undead.h"
 
-std::string Undead::get_name(void) const {
+QString Undead::get_name(void) const {
     return "Undead";
 }
 

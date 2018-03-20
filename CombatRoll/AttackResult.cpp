@@ -1,7 +1,6 @@
 
 #include "AttackResult.h"
-
-#include <iostream>
+#include <QDebug>
 
 bool AttackResult::is_critical(void) const {
     return (this->outcome == Outcome::CRITICAL || this->outcome == Outcome::BLOCK_CRITICAL);
@@ -38,25 +37,24 @@ bool AttackResult::is_resist(void) const {
 void AttackResult::dump() const {
     switch (this->outcome) {
     case Outcome::CRITICAL:
-        std::cout << "Outcome::CRITICAL";
+        qDebug() << "Outcome::CRITICAL";
         break;
     case Outcome::HIT:
-        std::cout << "Outcome::HIT";
+        qDebug() << "Outcome::HIT";
         break;
     case Outcome::GLANCING:
-        std::cout << "Outcome::GLANCING";
+        qDebug() << "Outcome::GLANCING";
         break;
     case Outcome::MISS:
-        std::cout << "Outcome::MISS";
+        qDebug() << "Outcome::MISS";
         break;
     case Outcome::DODGE:
-        std::cout << "Outcome::DODGE";
+        qDebug() << "Outcome::DODGE";
         break;
     case Outcome::PARRY:
-        std::cout << "Outcome::PARRY";
+        qDebug() << "Outcome::PARRY";
         break;
     default:
         assert(false);
     }
-    std::cout << std::endl;
 }
