@@ -78,21 +78,21 @@ Equipment* Character::get_equipment(void) const {
     return this->equipment;
 }
 
-void Character::start_mh_attack(void) {
+void Character::add_next_mh_attack(void) {
     return;
 }
 
-void Character::start_oh_attack(void) {
+void Character::add_next_oh_attack(void) {
     return;
 }
 
 void Character::start_attack(void) {
     this->melee_attacking = true;
 
-    start_mh_attack();
+    add_next_mh_attack();
 
     if (is_dual_wielding()) {
-        start_oh_attack();
+        add_next_oh_attack();
     }
 }
 
@@ -187,4 +187,16 @@ void Character::decrease_crit(float decrease) {
 
 void Character::decrease_ias(float decrease) {
     percent_ias -= decrease;
+}
+
+float Character::get_mh_wpn_speed() {
+    float wpn_speed = equipment->get_mainhand()->get_base_weapon_speed();
+    wpn_speed /= 1 + percent_ias;
+    return wpn_speed;
+}
+
+float Character::get_oh_wpn_speed() {
+    float wpn_speed = equipment->get_offhand()->get_base_weapon_speed();
+    wpn_speed /= 1 + percent_ias;
+    return wpn_speed;
 }

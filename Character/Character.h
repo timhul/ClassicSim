@@ -50,13 +50,16 @@ public:
 
     virtual int get_melee_ap();
 
-    void increase_hit(float);
-    void increase_crit(float);
-    void increase_ias(float);
+    virtual void increase_hit(float);
+    virtual void increase_crit(float);
+    virtual void increase_ias(float);
 
-    void decrease_hit(float);
-    void decrease_crit(float);
-    void decrease_ias(float);
+    virtual void decrease_hit(float);
+    virtual void decrease_crit(float);
+    virtual void decrease_ias(float);
+
+    float get_mh_wpn_speed();
+    float get_oh_wpn_speed();
 
 protected:
     Race* race;
@@ -76,8 +79,8 @@ protected:
     bool melee_attacking;
     float last_action;
 
-    virtual void start_mh_attack(void);
-    virtual void start_oh_attack(void);
+    virtual void add_next_mh_attack(void);
+    virtual void add_next_oh_attack(void);
 private:
 };
 
