@@ -3,14 +3,20 @@
 #include <QDebug>
 
 void Engine::run(void) {
+    timer->start();
     while(!queue->empty()) {
+        ++processed_events;
         Event* event = queue->get_next();
         qDebug() << event->get_priority() << ": Running " << event->get_name();
         set_current_priority(event);
         event->act();
         delete event;
     }
+    const float elapsed = (float)timer->elapsed() / 1000;
     statistics->dump();
+
+    qDebug() << "Processed" << processed_events << "events in " << elapsed << "s";
+    qDebug() << processed_events / elapsed << " events per second";
 }
 
 void Engine::end_combat(void) {

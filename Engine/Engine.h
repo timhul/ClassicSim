@@ -3,17 +3,23 @@
 
 #include "Queue.h"
 #include "Statistics.h"
+#include <QTime>
 
 class Engine {
 public:
-    Engine(): current_prio(-1) {
+    Engine():
+        current_prio(-1),
+        processed_events(0)
+    {
         queue = new Queue();
         statistics = new Statistics();
+        timer = new QTime();
     }
 
     ~Engine() {
         delete queue;
         delete statistics;
+        delete timer;
     }
 
     void run(void);
@@ -30,6 +36,9 @@ private:
     Queue* queue;
     Statistics* statistics;
     float current_prio;
+
+    unsigned processed_events;
+    QTime *timer;
 };
 
 
