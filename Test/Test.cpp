@@ -292,166 +292,77 @@ void Test::test_character_creation(void) {
     CombatRoll* combat = new CombatRoll(target, random);
 
     Race* race = new Human();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
     delete race;
 
     race = new Dwarf();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
     delete race;
 
     race = new NightElf();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
     delete race;
 
     race = new Gnome();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
     delete race;
 
     race = new Orc();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
     delete race;
 
     race = new Undead();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
     delete race;
 
     race = new Tauren();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
     delete race;
 
     race = new Troll();
-    qDebug() << "Name: " << race->get_name();
-    qDebug() << "STR " << race->get_base_strength();
-    qDebug() << "AGI " << race->get_base_agility();
-    qDebug() << "STA " << race->get_base_stamina();
-    qDebug() << "INT " << race->get_base_intellect();
-    qDebug() << "SPI " << race->get_base_spirit();
+    // TODO: Add assertions
 
     Warrior* warr = new Warrior(race, engine, equipment, combat);
-    qDebug() << "Name: " << warr->get_name();
-    qDebug() << "STR Mod " << warr->get_strength_modifier();
-    qDebug() << "AGI Mod " << warr->get_agility_modifier();
-    qDebug() << "STA Mod " << warr->get_stamina_modifier();
-    qDebug() << "INT Mod " << warr->get_intellect_modifier();
-    qDebug() << "SPI Mod " << warr->get_spirit_modifier();
+    // TODO: Add assertions
     delete warr;
 
     Priest* priest = new Priest(race, engine, equipment, combat);
-    qDebug() << "Name: " << priest->get_name();
-    qDebug() << "STR Mod " << priest->get_strength_modifier();
-    qDebug() << "AGI Mod " << priest->get_agility_modifier();
-    qDebug() << "STA Mod " << priest->get_stamina_modifier();
-    qDebug() << "INT Mod " << priest->get_intellect_modifier();
-    qDebug() << "SPI Mod " << priest->get_spirit_modifier();
+    // TODO: Add assertions
     delete priest;
 
     Rogue* rogue = new Rogue(race, engine, equipment, combat);
-    qDebug() << "Name: " << rogue->get_name();
-    qDebug() << "STR Mod " << rogue->get_strength_modifier();
-    qDebug() << "AGI Mod " << rogue->get_agility_modifier();
-    qDebug() << "STA Mod " << rogue->get_stamina_modifier();
-    qDebug() << "INT Mod " << rogue->get_intellect_modifier();
-    qDebug() << "SPI Mod " << rogue->get_spirit_modifier();
+    // TODO: Add assertions
     delete rogue;
 
     Mage* mage = new Mage(race, engine, equipment, combat);
-    qDebug() << "Name: " << mage->get_name();
-    qDebug() << "STR Mod " << mage->get_strength_modifier();
-    qDebug() << "AGI Mod " << mage->get_agility_modifier();
-    qDebug() << "STA Mod " << mage->get_stamina_modifier();
-    qDebug() << "INT Mod " << mage->get_intellect_modifier();
-    qDebug() << "SPI Mod " << mage->get_spirit_modifier();
+    // TODO: Add assertions
     delete mage;
 
     Druid* druid = new Druid(race, engine, equipment, combat);
-    qDebug() << "Name: " << druid->get_name();
-    qDebug() << "STR Mod " << druid->get_strength_modifier();
-    qDebug() << "AGI Mod " << druid->get_agility_modifier();
-    qDebug() << "STA Mod " << druid->get_stamina_modifier();
-    qDebug() << "INT Mod " << druid->get_intellect_modifier();
-    qDebug() << "SPI Mod " << druid->get_spirit_modifier();
+    // TODO: Add assertions
     delete druid;
 
     Hunter* hunter = new Hunter(race, engine, equipment, combat);
-    qDebug() << "Name: " << hunter->get_name();
-    qDebug() << "STR Mod " << hunter->get_strength_modifier();
-    qDebug() << "AGI Mod " << hunter->get_agility_modifier();
-    qDebug() << "STA Mod " << hunter->get_stamina_modifier();
-    qDebug() << "INT Mod " << hunter->get_intellect_modifier();
-    qDebug() << "SPI Mod " << hunter->get_spirit_modifier();
+    // TODO: Add assertions
     delete hunter;
 
     Warlock* warlock = new Warlock(race, engine, equipment, combat);
-    qDebug() << "Name: " << warlock->get_name();
-    qDebug() << "STR Mod " << warlock->get_strength_modifier();
-    qDebug() << "AGI Mod " << warlock->get_agility_modifier();
-    qDebug() << "STA Mod " << warlock->get_stamina_modifier();
-    qDebug() << "INT Mod " << warlock->get_intellect_modifier();
-    qDebug() << "SPI Mod " << warlock->get_spirit_modifier();
+    // TODO: Add assertions
     delete warlock;
 
     Shaman* shaman = new Shaman(race, engine, equipment, combat);
-    qDebug() << "Name: " << shaman->get_name();
-    qDebug() << "STR Mod " << shaman->get_strength_modifier();
-    qDebug() << "AGI Mod " << shaman->get_agility_modifier();
-    qDebug() << "STA Mod " << shaman->get_stamina_modifier();
-    qDebug() << "INT Mod " << shaman->get_intellect_modifier();
-    qDebug() << "SPI Mod " << shaman->get_spirit_modifier();
+    // TODO: Add assertions
     delete shaman;
 
     Paladin* paladin = new Paladin(race, engine, equipment, combat);
-    qDebug() << "Name: " << paladin->get_name();
-    qDebug() << "STR Mod " << paladin->get_strength_modifier();
-    qDebug() << "AGI Mod " << paladin->get_agility_modifier();
-    qDebug() << "STA Mod " << paladin->get_stamina_modifier();
-    qDebug() << "INT Mod " << paladin->get_intellect_modifier();
-    qDebug() << "SPI Mod " << paladin->get_spirit_modifier();
+    // TODO: Add assertions
     delete paladin;
 
     race = new Orc();
     warr = new Warrior(race, engine, equipment, combat);
-    qDebug() << "Character " << warr->get_race()->get_name() << \
-                 " " << warr->get_name();
-    qDebug() << "STR After mod " << warr->get_strength();
-    qDebug() << "AGI After mod " << warr->get_agility();
-    qDebug() << "STA After mod " << warr->get_stamina();
-    qDebug() << "INT After mod " << warr->get_intellect();
-    qDebug() << "SPI After mod " << warr->get_spirit();
+    assert(warr->get_name() == "Warrior");
+    assert(warr->get_race()->get_name() == "Orc");
+    // TODO: Assert stats
 
     warr->set_clvl(60);
     assert(warr->get_clvl() == 60);
