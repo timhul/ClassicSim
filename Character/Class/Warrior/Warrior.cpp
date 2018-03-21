@@ -187,9 +187,11 @@ void Warrior::decrease_attack_speed(float decrease) {
     qDebug() << engine->get_current_priority() << ": Attack speed decreased by " << decrease * 100 << "%";
     percent_attack_speed -= decrease;
 
+    mh_attack->update_next_expected_use(decrease);
     add_next_mh_attack();
 
     if (equipment->is_dual_wielding()) {
+        oh_attack->update_next_expected_use(decrease);
         add_next_oh_attack();
     }
 }
