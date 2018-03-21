@@ -33,11 +33,11 @@ void Shaman::rotation() {
     return;
 }
 
-void Shaman::mh_auto_attack() {
+void Shaman::mh_auto_attack(const int) {
     return;
 }
 
-void Shaman::oh_auto_attack() {
+void Shaman::oh_auto_attack(const int) {
     return;
 }
 

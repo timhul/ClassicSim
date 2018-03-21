@@ -33,11 +33,11 @@ void Warlock::rotation() {
     return;
 }
 
-void Warlock::mh_auto_attack() {
+void Warlock::mh_auto_attack(const int) {
     return;
 }
 
-void Warlock::oh_auto_attack() {
+void Warlock::oh_auto_attack(const int) {
     return;
 }
 

@@ -17,7 +17,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment) {
     this->clvl = 1;
     this->percent_hit = 0.0;
     this->percent_crit = 0.0;
-    this->percent_ias = 0.0;
+    this->percent_attack_speed = 0.0;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
 }
@@ -173,8 +173,8 @@ void Character::increase_crit(float increase) {
     percent_crit += increase;
 }
 
-void Character::increase_ias(float increase) {
-    percent_ias += increase;
+void Character::increase_attack_speed(float increase) {
+    percent_attack_speed += increase;
 }
 
 void Character::decrease_hit(float decrease) {
@@ -185,18 +185,18 @@ void Character::decrease_crit(float decrease) {
     percent_crit -= decrease;
 }
 
-void Character::decrease_ias(float decrease) {
-    percent_ias -= decrease;
+void Character::decrease_attack_speed(float decrease) {
+    percent_attack_speed -= decrease;
 }
 
 float Character::get_mh_wpn_speed() {
     float wpn_speed = equipment->get_mainhand()->get_base_weapon_speed();
-    wpn_speed /= 1 + percent_ias;
+    wpn_speed /= 1 + percent_attack_speed;
     return wpn_speed;
 }
 
 float Character::get_oh_wpn_speed() {
     float wpn_speed = equipment->get_offhand()->get_base_weapon_speed();
-    wpn_speed /= 1 + percent_ias;
+    wpn_speed /= 1 + percent_attack_speed;
     return wpn_speed;
 }

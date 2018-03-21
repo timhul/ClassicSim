@@ -21,8 +21,8 @@ public:
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
     void rotation() override;
-    void mh_auto_attack() override;
-    void oh_auto_attack() override;
+    void mh_auto_attack(const int) override;
+    void oh_auto_attack(const int) override;
     float global_cooldown() const override;
     int get_curr_rage() const;
     void gain_rage(const int);
@@ -37,11 +37,11 @@ public:
 
     void increase_hit(float) override;
     void increase_crit(float) override;
-    void increase_ias(float) override;
+    void increase_attack_speed(float) override;
 
     void decrease_hit(float) override;
     void decrease_crit(float) override;
-    void decrease_ias(float) override;
+    void decrease_attack_speed(float) override;
 
 protected:
 private:

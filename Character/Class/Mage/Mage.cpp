@@ -33,11 +33,11 @@ void Mage::rotation() {
     return;
 }
 
-void Mage::mh_auto_attack() {
+void Mage::mh_auto_attack(const int) {
     return;
 }
 
-void Mage::oh_auto_attack() {
+void Mage::oh_auto_attack(const int) {
     return;
 }
 

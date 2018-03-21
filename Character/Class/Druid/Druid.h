@@ -25,8 +25,8 @@ public:
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
     void rotation() override;
-    void mh_auto_attack() override;
-    void oh_auto_attack() override;
+    void mh_auto_attack(const int) override;
+    void oh_auto_attack(const int) override;
     float global_cooldown() const override;
 
     int get_melee_ap() override;

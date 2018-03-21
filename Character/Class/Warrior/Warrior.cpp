@@ -103,22 +103,18 @@ void Warrior::rotation() {
 
 void Warrior::add_next_mh_attack(void) {
     // TODO: Check if Heroic Strike "buff" up
-    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use());
+    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
     this->get_engine()->add_event(new_event);
 }
 
 void Warrior::add_next_oh_attack(void) {
-    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use());
+    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
     this->get_engine()->add_event(new_event);
 }
 
-void Warrior::mh_auto_attack() {
-    if (abs(get_engine()->get_current_priority() - mh_attack->get_next_expected_use()) > 0.001) {
-        qDebug() << "mh diff too high: "  << get_engine()->get_current_priority() - mh_attack->get_next_expected_use();
-        qDebug() << "timestamp: " << get_engine()->get_current_priority();
-        qDebug() << "next expected use: " << mh_attack->get_next_expected_use();
+void Warrior::mh_auto_attack(const int iteration) {
+    if (!mh_attack->attack_is_valid(iteration))
         return;
-    }
 
     gain_rage(mh_attack->perform(rage));
 
@@ -131,13 +127,9 @@ void Warrior::mh_auto_attack() {
     add_next_mh_attack();
 }
 
-void Warrior::oh_auto_attack() {
-    if (abs(get_engine()->get_current_priority() - oh_attack->get_next_expected_use()) > 0.001) {
-        qDebug() << "oh diff too high: "  << get_engine()->get_current_priority() - oh_attack->get_next_expected_use();
-        qDebug() << "timestamp: " << get_engine()->get_current_priority();
-        qDebug() << "next expected use: " << oh_attack->get_next_expected_use();
+void Warrior::oh_auto_attack(const int iteration) {
+    if (!oh_attack->attack_is_valid(iteration))
         return;
-    }
 
     gain_rage(oh_attack->perform(rage));
 
@@ -170,9 +162,9 @@ void Warrior::increase_crit(float increase) {
     percent_crit += increase;
 }
 
-void Warrior::increase_ias(float increase) {
-    qDebug() << engine->get_current_priority() << ": IAS increased by " << increase * 100 << "%";
-    percent_ias += increase;
+void Warrior::increase_attack_speed(float increase) {
+    qDebug() << engine->get_current_priority() << ": Attack speed increased by " << increase * 100 << "%";
+    percent_attack_speed += increase;
 
     mh_attack->update_next_expected_use(increase);
     add_next_mh_attack();
@@ -191,9 +183,9 @@ void Warrior::decrease_crit(float decrease) {
     percent_crit -= decrease;
 }
 
-void Warrior::decrease_ias(float decrease) {
-    qDebug() << engine->get_current_priority() << ": IAS decreased by " << decrease * 100 << "%";
-    percent_ias -= decrease;
+void Warrior::decrease_attack_speed(float decrease) {
+    qDebug() << engine->get_current_priority() << ": Attack speed decreased by " << decrease * 100 << "%";
+    percent_attack_speed -= decrease;
 
     add_next_mh_attack();
 

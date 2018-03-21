@@ -15,6 +15,7 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     next_expected_use = get_cooldown();
+    iteration = 0;
 }
 
 int OffhandAttack::spell_effect(const int) const {
@@ -77,4 +78,12 @@ void OffhandAttack::update_next_expected_use(const float haste_change) {
     else {
         next_expected_use = last_used + pchar->get_oh_wpn_speed();
     }
+}
+
+bool OffhandAttack::attack_is_valid(const int iteration) const {
+    return this->iteration == iteration;
+}
+
+int OffhandAttack::get_next_iteration() {
+    return ++iteration;
 }

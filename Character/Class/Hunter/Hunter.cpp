@@ -33,11 +33,11 @@ void Hunter::rotation() {
     return;
 }
 
-void Hunter::mh_auto_attack() {
+void Hunter::mh_auto_attack(const int) {
     return;
 }
 
-void Hunter::oh_auto_attack() {
+void Hunter::oh_auto_attack(const int) {
     return;
 }
 

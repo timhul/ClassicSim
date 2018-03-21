@@ -33,11 +33,11 @@ void Rogue::rotation() {
     return;
 }
 
-void Rogue::mh_auto_attack() {
+void Rogue::mh_auto_attack(const int) {
     return;
 }
 
-void Rogue::oh_auto_attack() {
+void Rogue::oh_auto_attack(const int) {
     return;
 }
 

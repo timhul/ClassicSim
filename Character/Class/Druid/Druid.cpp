@@ -33,11 +33,11 @@ void Druid::rotation() {
     return;
 }
 
-void Druid::mh_auto_attack() {
+void Druid::mh_auto_attack(const int) {
     return;
 }
 
-void Druid::oh_auto_attack() {
+void Druid::oh_auto_attack(const int) {
     return;
 }
 

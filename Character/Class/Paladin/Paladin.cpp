@@ -33,11 +33,11 @@ void Paladin::rotation() {
     return;
 }
 
-void Paladin::mh_auto_attack() {
+void Paladin::mh_auto_attack(const int) {
     return;
 }
 
-void Paladin::oh_auto_attack() {
+void Paladin::oh_auto_attack(const int) {
     return;
 }
 

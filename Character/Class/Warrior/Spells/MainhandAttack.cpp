@@ -15,6 +15,7 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     next_expected_use = get_cooldown();
+    iteration = 0;
 }
 
 int MainhandAttack::spell_effect(const int) const {
@@ -74,4 +75,12 @@ void MainhandAttack::update_next_expected_use(const float haste_change) {
     else {
         next_expected_use = last_used + pchar->get_mh_wpn_speed();
     }
+}
+
+bool MainhandAttack::attack_is_valid(const int iteration) const {
+    return this->iteration == iteration;
+}
+
+int MainhandAttack::get_next_iteration() {
+    return ++iteration;
 }

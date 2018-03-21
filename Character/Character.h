@@ -15,8 +15,8 @@ public:
     virtual QString get_name() const = 0;
 
     virtual void rotation(void) = 0;
-    virtual void mh_auto_attack(void) = 0;
-    virtual void oh_auto_attack(void) = 0;
+    virtual void mh_auto_attack(const int) = 0;
+    virtual void oh_auto_attack(const int) = 0;
 
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;
@@ -52,11 +52,11 @@ public:
 
     virtual void increase_hit(float);
     virtual void increase_crit(float);
-    virtual void increase_ias(float);
+    virtual void increase_attack_speed(float);
 
     virtual void decrease_hit(float);
     virtual void decrease_crit(float);
-    virtual void decrease_ias(float);
+    virtual void decrease_attack_speed(float);
 
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
@@ -74,7 +74,7 @@ protected:
     int ranged_ap;
     float percent_hit;
     float percent_crit;
-    float percent_ias;
+    float percent_attack_speed;
     int clvl;
     bool melee_attacking;
     float last_action;
