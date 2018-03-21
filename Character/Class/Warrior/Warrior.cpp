@@ -102,7 +102,6 @@ void Warrior::rotation() {
 }
 
 void Warrior::add_next_mh_attack(void) {
-    // TODO: Check if Heroic Strike "buff" up
     MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
     this->get_engine()->add_event(new_event);
 }
@@ -115,6 +114,8 @@ void Warrior::add_next_oh_attack(void) {
 void Warrior::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;
+    // TODO: Check if Heroic Strike "buff" up
+    // Then do not perform mh_attack.
 
     gain_rage(mh_attack->perform(rage));
 
