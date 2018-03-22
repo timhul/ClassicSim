@@ -5,13 +5,15 @@ Rectangle {
 
     property int choiceHeight: 70
     property color choiceBackgroundColor
+    property color choiceSelectedBackgroundColor
     property string fontFamily: "Cambria Math"
     property string fontSize: "16"
     property color fontColor
 
     width: 150
 
-    color: "white"
+    state: "TALENTS"
+    color: "transparent"
 
     RectangleBorders {
         id: chooseTalentsRect
@@ -21,7 +23,7 @@ Rectangle {
             right: parent.right
         }
 
-        rectColor: choiceBackgroundColor
+        rectColor: parent.state == "TALENTS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
 
         height: choiceHeight
 
@@ -40,7 +42,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: console.log("Clicked talent choice from RectangleBorders")
+        onRectangleClicked: parent.state = "TALENTS"
     }
 
 
@@ -52,7 +54,7 @@ Rectangle {
             right: parent.right
         }
 
-        rectColor: choiceBackgroundColor
+        rectColor: parent.state == "EQUIPMENT" ? choiceSelectedBackgroundColor : choiceBackgroundColor
 
         height: choiceHeight
 
@@ -71,7 +73,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: console.log("Clicked equipment choice from RectangleBorders")
+        onRectangleClicked: parent.state = "EQUIPMENT"
     }
 
     RectangleBorders {
@@ -82,7 +84,7 @@ Rectangle {
             right: parent.right
         }
 
-        rectColor: choiceBackgroundColor
+        rectColor: parent.state == "BUFFS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
 
         height: choiceHeight
 
@@ -101,7 +103,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: console.log("Clicked buffs choice from RectangleBorders")
+        onRectangleClicked: parent.state = "BUFFS"
     }
 
     RectangleBorders {
@@ -112,7 +114,7 @@ Rectangle {
             right: parent.right
         }
 
-        rectColor: choiceBackgroundColor
+        rectColor: parent.state == "SETTINGS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
 
         height: choiceHeight
 
@@ -131,6 +133,20 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: console.log("Clicked settings choice from RectangleBorders")
+        onRectangleClicked: parent.state = "SETTINGS"
     }
+
+    states: [
+        State {
+            name: "TALENTS"
+        },
+        State {
+            name: "EQUIPMENT"
+        },
+        State {
+            name: "BUFFS"
+        },
+        State {
+            name: "SETTINGS"
+        }]
 }

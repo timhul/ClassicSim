@@ -2,6 +2,7 @@ import QtQuick 2.10
 import QtQuick.Window 2.10
 
 Window {
+    id: root
     visible: true
     width: 1000
     height: 800
@@ -10,10 +11,12 @@ Window {
     property color darkGray: "#302f2e"
     property color darkBrown: "#3a2d1f"
     property color gold: "#ceac00"
+    property color darkDarkGray: "#070707"
+    property color gray: "#727171"
 
     color: darkGray
 
-    Rectangle {
+    RectangleBorders {
         id: continuousDpsUpdateRect
         anchors {
             right: parent.right
@@ -23,7 +26,7 @@ Window {
         width: 250
         height: 150
 
-        color: darkBrown
+        rectColor: darkDarkGray
 
         Text {
             id: continuousDpsUpdateText
@@ -52,7 +55,8 @@ Window {
             right: parent.right
         }
 
-        choiceBackgroundColor: darkBrown
+        choiceBackgroundColor: darkGray
+        choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
     }
 }

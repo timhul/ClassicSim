@@ -1,15 +1,15 @@
 import QtQuick 2.0
 
 Rectangle {
-    property string outerBorderColor: "black"
-    property string innerBorderColor: "gray"
+    property string outerBorderColor: root.gray
+    property string innerBorderColor: "black"
     property color rectColor
     property int paddingInner: 1
     property string text: "Missing"
 
     signal rectangleClicked()
 
-    color: "black"//outerBorderColor
+    color: "black"
 
     Rectangle {
         anchors {
@@ -17,8 +17,7 @@ Rectangle {
             margins: paddingInner
         }
 
-        color: innerBorderColor
-
+        color: outerBorderColor
 
         Rectangle {
             anchors {
@@ -26,7 +25,7 @@ Rectangle {
                 margins: paddingInner
             }
 
-            color: outerBorderColor
+            color: innerBorderColor
 
             Rectangle {
                 anchors {
