@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
 
-    Test test;
-    test.test_all();
+//    Test test;
+//    test.test_all();
 
     return app.exec();
 }
