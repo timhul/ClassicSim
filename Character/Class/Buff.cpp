@@ -17,6 +17,9 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
     active(false)
 {}
 
+Buff::~Buff() {
+}
+
 QString Buff::get_name() const {
     return this->name;
 }

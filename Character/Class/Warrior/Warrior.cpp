@@ -32,6 +32,7 @@ Warrior::~Warrior() {
     delete bt;
     delete mh_attack;
     delete oh_attack;
+    delete flurry;
 }
 
 QString Warrior::get_name(void) const {

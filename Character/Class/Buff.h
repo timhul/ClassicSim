@@ -9,6 +9,7 @@ class Character;
 class Buff {
 public:
     Buff(Character*, const QString, const int, const int);
+    virtual ~Buff();
 
     QString get_name() const;
     void apply_buff();
