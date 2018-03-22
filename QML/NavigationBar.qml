@@ -10,6 +10,11 @@ Rectangle {
     property string fontSize: "16"
     property color fontColor
 
+    signal talentsClicked();
+    signal equipmentClicked();
+    signal buffsClicked();
+    signal settingsClicked();
+
     width: 150
 
     state: "TALENTS"
@@ -42,7 +47,12 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: parent.state = "TALENTS"
+        onRectangleClicked: {
+            if (parent.state !== "TALENTS") {
+                parent.state = "TALENTS"
+                talentsClicked()
+            }
+        }
     }
 
 
@@ -73,7 +83,12 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: parent.state = "EQUIPMENT"
+        onRectangleClicked: {
+            if (parent.state !== "EQUIPMENT") {
+                parent.state = "EQUIPMENT"
+                equipmentClicked()
+            }
+        }
     }
 
     RectangleBorders {
@@ -103,7 +118,12 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: parent.state = "BUFFS"
+        onRectangleClicked: {
+            if (parent.state !== "BUFFS") {
+                parent.state = "BUFFS"
+                buffsClicked()
+            }
+        }
     }
 
     RectangleBorders {
@@ -133,7 +153,12 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        onRectangleClicked: parent.state = "SETTINGS"
+        onRectangleClicked: {
+            if (parent.state !== "SETTINGS") {
+                parent.state = "SETTINGS"
+                settingsClicked()
+            }
+        }
     }
 
     states: [

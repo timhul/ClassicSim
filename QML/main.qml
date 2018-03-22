@@ -58,5 +58,10 @@ Window {
         choiceBackgroundColor: darkGray
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
+
+        onTalentsClicked: console.log("main: talents clicked")
+        onEquipmentClicked: console.log("main: equipment clicked")
+        onBuffsClicked: console.log("main: buffs clicked")
+        onSettingsClicked: console.log("main: settings clicked")
     }
 }
