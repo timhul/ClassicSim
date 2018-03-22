@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>QML/main.qml</file>
         <file>QML/NavigationBar.qml</file>
+        <file>QML/RectangleBorders.qml</file>
     </qresource>
 </RCC>

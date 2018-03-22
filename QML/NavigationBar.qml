@@ -4,64 +4,32 @@ Rectangle {
     id: rightNavBar
 
     property int choiceHeight: 70
+    property color choiceBackgroundColor
     property string fontFamily: "Cambria Math"
-    property string fontSize: "20"
+    property string fontSize: "16"
+    property color fontColor
 
     width: 150
 
     color: "white"
 
-    // TODO: The choices should be made into a separate QML object in order to support clicks etc.
-    Rectangle {
-        id: chooseClassRect
+    RectangleBorders {
+        id: chooseTalentsRect
         anchors {
             top: parent.top
             left: parent.left
             right: parent.right
         }
 
-        height: choiceHeight
-
-        color: "yellow"
-
-        Text {
-            anchors.fill: parent
-
-            text: "Class"
-
-            font {
-                family: fontFamily
-                pointSize: fontSize
-            }
-
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        MouseArea {
-            anchors.fill: parent
-
-            onClicked: console.log("Clicked class choice")
-        }
-    }
-
-    // TODO: The choices should be made into a separate QML object in order to support clicks etc.
-    Rectangle {
-        id: chooseTalentsRect
-        anchors {
-            top: chooseClassRect.bottom
-            left: parent.left
-            right: parent.right
-        }
+        rectColor: choiceBackgroundColor
 
         height: choiceHeight
-
-        color: "blue"
 
         Text {
             anchors.fill: parent
 
             text: "Talents"
+            color: fontColor
 
             font {
                 family: fontFamily
@@ -72,30 +40,27 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        MouseArea {
-            anchors.fill: parent
-
-            onClicked: console.log("Clicked talent choice")
-        }
+        onRectangleClicked: console.log("Clicked talent choice from RectangleBorders")
     }
 
-    // TODO: The choices should be made into a separate QML object in order to support clicks etc.
-    Rectangle {
-        id: chooseBuffsRect
+
+    RectangleBorders {
+        id: chooseGearRect
         anchors {
             top: chooseTalentsRect.bottom
             left: parent.left
             right: parent.right
         }
 
-        height: choiceHeight
+        rectColor: choiceBackgroundColor
 
-        color: "green"
+        height: choiceHeight
 
         Text {
             anchors.fill: parent
 
-            text: "Buffs"
+            text: "Equipment"
+            color: fontColor
 
             font {
                 family: fontFamily
@@ -106,15 +71,40 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        MouseArea {
-            anchors.fill: parent
-
-            onClicked: console.log("Clicked buff choice")
-        }
+        onRectangleClicked: console.log("Clicked equipment choice from RectangleBorders")
     }
 
-    // TODO: The choices should be made into a separate QML object in order to support clicks etc.
-    Rectangle {
+    RectangleBorders {
+        id: chooseBuffsRect
+        anchors {
+            top: chooseGearRect.bottom
+            left: parent.left
+            right: parent.right
+        }
+
+        rectColor: choiceBackgroundColor
+
+        height: choiceHeight
+
+        Text {
+            anchors.fill: parent
+
+            text: "Buffs"
+            color: fontColor
+
+            font {
+                family: fontFamily
+                pointSize: fontSize
+            }
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+        onRectangleClicked: console.log("Clicked buffs choice from RectangleBorders")
+    }
+
+    RectangleBorders {
         id: chooseFullSimSettingsRect
         anchors {
             top: chooseBuffsRect.bottom
@@ -122,14 +112,15 @@ Rectangle {
             right: parent.right
         }
 
-        height: choiceHeight
+        rectColor: choiceBackgroundColor
 
-        color: "red"
+        height: choiceHeight
 
         Text {
             anchors.fill: parent
 
             text: "Settings"
+            color: fontColor
 
             font {
                 family: fontFamily
@@ -140,10 +131,6 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
 
-        MouseArea {
-            anchors.fill: parent
-
-            onClicked: console.log("Clicked full sim settings choice")
-        }
+        onRectangleClicked: console.log("Clicked settings choice from RectangleBorders")
     }
 }
