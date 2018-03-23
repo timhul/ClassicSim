@@ -33,8 +33,8 @@ Window {
             top: parent.top
         }
 
-        width: 250
-        height: 150
+        width: 220
+        height: 120
 
         rectColor: darkDarkGray
 
@@ -73,5 +73,26 @@ Window {
         onEquipmentClicked: console.log("main: equipment clicked")
         onBuffsClicked: console.log("main: buffs clicked")
         onSettingsClicked: console.log("main: settings clicked")
+    }
+
+    Rectangle {
+        id: mainView
+
+        state: rightNavBar.state
+
+        anchors {
+            right: rightNavBar.left
+            top: continuousDpsUpdateRect.bottom
+            left: parent.left
+            bottom: parent.bottom
+        }
+
+        color: darkDarkGray
+
+        TalentCalculator {
+            width: parent.width * 0.90
+            x: parent.width / 2 - width / 2
+            y: 20
+        }
     }
 }

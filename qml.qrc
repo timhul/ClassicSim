@@ -3,5 +3,10 @@
         <file>QML/main.qml</file>
         <file>QML/NavigationBar.qml</file>
         <file>QML/RectangleBorders.qml</file>
+        <file>QML/Assets/warrior/warrior_fury.jpg</file>
+        <file>QML/TalentCalculator.qml</file>
+        <file>QML/Assets/warrior/warrior_arms.jpg</file>
+        <file>QML/Assets/warrior/warrior_protection.jpg</file>
+        <file>QML/TalentTree.qml</file>
     </qresource>
 </RCC>
