@@ -9,7 +9,7 @@ Rectangle {
 
     signal rectangleClicked()
 
-    color: "black"
+    color: "transparent"
 
     Rectangle {
         anchors {
@@ -17,7 +17,11 @@ Rectangle {
             margins: paddingInner
         }
 
-        color: outerBorderColor
+        color: "transparent"
+        border {
+            width: paddingInner
+            color: outerBorderColor
+        }
 
         Rectangle {
             anchors {
@@ -25,7 +29,11 @@ Rectangle {
                 margins: paddingInner
             }
 
-            color: innerBorderColor
+            color: "transparent"
+            border {
+                width: paddingInner
+                color: innerBorderColor
+            }
 
             Rectangle {
                 anchors {
