@@ -14,6 +14,16 @@ Window {
     property color darkDarkGray: "#070707"
     property color gray: "#727171"
 
+    property color colorDruid: "#FF7D0A"
+    property color colorHunter: "#ABD473"
+    property color colorMage: "#69CCF0"
+    property color colorPaladin: "#F58CBA"
+    property color colorPriest: "#FFFFFF"
+    property color colorRogue: "#FFF569"
+    property color colorShaman: "#0070DE"
+    property color colorWarlock: "#9482C9"
+    property color colorWarrior: "#C79C6E"
+
     color: darkGray
 
     RectangleBorders {
