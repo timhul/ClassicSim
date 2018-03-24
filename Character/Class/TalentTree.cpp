@@ -31,3 +31,10 @@ void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
         talents.insert(it.first, it.second);
     }
 }
+
+QString TalentTree::getIcon(const QString position) {
+    if (!talents.contains(position))
+        return "";
+
+    return talents[position]->get_icon();
+}

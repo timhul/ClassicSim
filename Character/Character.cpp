@@ -4,6 +4,9 @@
 #include "Engine.h"
 #include "Equipment.h"
 #include "Mechanics.h"
+#include "TalentTree.h"
+
+#include <QDebug>
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* parent) :
     QObject(parent)
@@ -201,4 +204,13 @@ float Character::get_oh_wpn_speed() {
     float wpn_speed = equipment->get_offhand()->get_base_weapon_speed();
     wpn_speed /= 1 + percent_attack_speed;
     return wpn_speed;
+}
+
+QString Character::getIcon(const QString tree_position, const QString talent_position) {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::getIcon could not find tree position" << tree_position;
+        return "";
+    }
+
+    return talent_trees[tree_position]->getIcon(talent_position);
 }

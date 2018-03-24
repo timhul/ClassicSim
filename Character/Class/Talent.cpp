@@ -1,8 +1,9 @@
 
 #include "Talent.h"
 
-Talent::Talent(const QString &name_, const int max_points_) :
+Talent::Talent(const QString &name_, const QString &icon_, const int max_points_) :
     name(name_),
+    icon(icon_),
     max_points(max_points_),
     curr_points(0)
 {
@@ -14,6 +15,10 @@ Talent::~Talent() {
 
 QString Talent::get_name() const {
     return name;
+}
+
+QString Talent::get_icon() const {
+    return icon;
 }
 
 int Talent::get_current_rank() const {

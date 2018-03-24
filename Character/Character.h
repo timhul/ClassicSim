@@ -19,6 +19,8 @@ public:
     Race* get_race(void);
     virtual QString get_name() const = 0;
 
+    Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position);
+
     virtual void rotation(void) = 0;
     virtual void mh_auto_attack(const int) = 0;
     virtual void oh_auto_attack(const int) = 0;
@@ -28,6 +30,7 @@ public:
     virtual int get_stamina_modifier() const = 0;
     virtual int get_intellect_modifier() const = 0;
     virtual int get_spirit_modifier() const = 0;
+
     int get_strength();
     int get_agility();
     int get_stamina();

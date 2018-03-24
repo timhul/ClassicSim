@@ -15,6 +15,7 @@ public:
     virtual ~TalentTree() = 0;
 
     QString get_name() const;
+    Q_INVOKABLE QString getIcon(const QString position);
     Q_INVOKABLE void leftClickedPosition(const int tier, const QString position);
 
 protected:
