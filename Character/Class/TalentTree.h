@@ -27,6 +27,8 @@ public:
     bool is_maxed(const QString &position) const;
     bool is_available(const QString &position) const;
 
+    int get_total_points() const;
+
 protected:
     const QString name;
     int total_spent_points;

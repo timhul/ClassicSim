@@ -23,6 +23,7 @@ Rectangle {
 //    }
 
     Column {
+        id: column
         anchors {
             top: parent.top
             bottom: parent.bottom

@@ -162,3 +162,7 @@ int TalentTree::get_points_spent_up_to_and_including_rank(const QString &rank) c
 
     return invested_at_rank_and_below;
 }
+
+int TalentTree::get_total_points() const {
+    return total_spent_points;
+}
