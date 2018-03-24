@@ -60,5 +60,6 @@
         <file>QML/Assets/warrior/protection/tier5/Ability_warrior_shieldwall.png</file>
         <file>QML/Assets/warrior/protection/tier6/Inv_sword_20.png</file>
         <file>QML/Assets/warrior/protection/tier7/Inv_shield_05.png</file>
+        <file>QML/TalentBox.qml</file>
     </qresource>
 </RCC>

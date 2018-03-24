@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Rectangle {
     property url talentTreeImage
-    property string position
+    property string treePosition
 
     id: talentTreeRect
 
@@ -15,8 +15,24 @@ Rectangle {
         width: parent.width
     }
 
+//    Component.onCompleted: updateIcons()
+
+//    function updateIcons() {
+//        console.log("Position", position)
+//        tier1LL.source = warrior.getIcon(treePosition, state)
+//    }
+
     Column {
-        anchors.fill: parent
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            topMargin: 5
+            bottomMargin: 15
+            leftMargin: 5
+            rightMargin: 5
+        }
 
         // tier 1
         Rectangle {
@@ -27,25 +43,29 @@ Rectangle {
             Row {
                 anchors.fill: parent
 
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "1LL"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "1ML"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "1MR"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "1RR"
                 }
             }
         }
@@ -58,25 +78,29 @@ Rectangle {
             Row {
                 anchors.fill: parent
 
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "2LL"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "2ML"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "2MR"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "2RR"
                 }
             }
         }
@@ -89,25 +113,29 @@ Rectangle {
             Row {
                 anchors.fill: parent
 
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "3LL"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "3ML"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "3MR"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "3RR"
                 }
             }
         }
@@ -120,25 +148,29 @@ Rectangle {
             Row {
                 anchors.fill: parent
 
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "4LL"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "4ML"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "4MR"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "4RR"
                 }
             }
         }
@@ -151,25 +183,29 @@ Rectangle {
             Row {
                 anchors.fill: parent
 
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "5LL"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "5ML"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "5MR"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "5RR"
                 }
             }
         }
@@ -182,25 +218,29 @@ Rectangle {
             Row {
                 anchors.fill: parent
 
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "6LL"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "6ML"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "6MR"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "6RR"
                 }
             }
         }
@@ -213,25 +253,29 @@ Rectangle {
             Row {
                 anchors.fill: parent
 
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "7LL"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "7ML"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "7MR"
                 }
-                RectangleBorders {
+                TalentBox {
                     height: parent.height
                     width: parent.width / 4
-                    rectColor: "transparent"
+                    treePos: treePosition
+                    talentPos: "7RR"
                 }
             }
         }
