@@ -44,3 +44,7 @@ void Shaman::oh_auto_attack(const int) {
 float Shaman::global_cooldown() const {
     return 1.5;
 }
+
+void Shaman::initialize_talents() {
+
+}

@@ -34,6 +34,8 @@ public:
 protected:
 private:
     CombatRoll* roll;
+
+    void initialize_talents() override;
 };
 
 #endif // MAGE_H

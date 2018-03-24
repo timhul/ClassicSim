@@ -44,3 +44,7 @@ void Rogue::oh_auto_attack(const int) {
 float Rogue::global_cooldown() const {
     return 1.0;
 }
+
+void Rogue::initialize_talents() {
+
+}

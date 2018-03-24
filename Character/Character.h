@@ -2,10 +2,12 @@
 #define CHARACTER_H
 
 #include <QString>
+#include <QMap>
 
 class Race;
 class Engine;
 class Equipment;
+class TalentTree;
 
 class Character {
 public:
@@ -78,9 +80,12 @@ protected:
     int clvl;
     bool melee_attacking;
     float last_action;
+    QMap<QString, TalentTree*> talent_trees;
 
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);
+
+    virtual void initialize_talents() = 0;
 private:
 };
 

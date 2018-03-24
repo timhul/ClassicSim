@@ -44,3 +44,7 @@ void Warlock::oh_auto_attack(const int) {
 float Warlock::global_cooldown() const {
     return 1.5;
 }
+
+void Warlock::initialize_talents() {
+
+}

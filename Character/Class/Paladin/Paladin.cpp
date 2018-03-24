@@ -44,3 +44,7 @@ void Paladin::oh_auto_attack(const int) {
 float Paladin::global_cooldown() const {
     return 1.5;
 }
+
+void Paladin::initialize_talents() {
+
+}

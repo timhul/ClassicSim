@@ -44,3 +44,7 @@ void Hunter::oh_auto_attack(const int) {
 float Hunter::global_cooldown() const {
     return 1.5;
 }
+
+void Hunter::initialize_talents() {
+
+}

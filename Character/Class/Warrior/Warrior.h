@@ -54,6 +54,8 @@ private:
 
     void add_next_mh_attack(void) override;
     void add_next_oh_attack(void) override;
+
+    void initialize_talents() override;
 };
 
 #endif // WARRIOR_H

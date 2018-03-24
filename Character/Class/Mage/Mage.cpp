@@ -44,3 +44,7 @@ void Mage::oh_auto_attack(const int) {
 float Mage::global_cooldown() const {
     return 1.5;
 }
+
+void Mage::initialize_talents() {
+
+}

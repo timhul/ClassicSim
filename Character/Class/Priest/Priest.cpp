@@ -44,3 +44,7 @@ void Priest::oh_auto_attack(const int) {
 float Priest::global_cooldown() const {
     return 1.5;
 }
+
+void Priest::initialize_talents() {
+
+}

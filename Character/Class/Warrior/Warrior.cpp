@@ -9,6 +9,7 @@
 #include "Flurry.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
+#include "TalentTree.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
@@ -26,6 +27,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) 
     this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this), roll);
     this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
     this->flurry = new Flurry(dynamic_cast<Character*>(this));
+    initialize_talents();
 }
 
 Warrior::~Warrior() {
@@ -33,6 +35,10 @@ Warrior::~Warrior() {
     delete mh_attack;
     delete oh_attack;
     delete flurry;
+
+    for (auto it : talent_trees.keys()) {
+        delete talent_trees.value(it);
+    }
 }
 
 QString Warrior::get_name(void) const {
@@ -196,4 +202,10 @@ void Warrior::decrease_attack_speed(float decrease) {
         oh_attack->update_next_expected_use(decrease);
         add_next_oh_attack();
     }
+}
+
+void Warrior::initialize_talents() {
+    talent_trees["LEFT"] = new TalentTree("Arms");
+    talent_trees["MID"] = new TalentTree("Fury");
+    talent_trees["RIGHT"] = new TalentTree("Protection");
 }

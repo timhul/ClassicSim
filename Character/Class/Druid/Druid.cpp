@@ -45,3 +45,7 @@ float Druid::global_cooldown() const {
     // Incomplete implementation, is stance specific.
     return 1.5;
 }
+
+void Druid::initialize_talents() {
+
+}
