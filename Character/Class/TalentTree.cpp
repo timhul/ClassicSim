@@ -3,19 +3,18 @@
 #include "Talent.h"
 #include <QDebug>
 
-TalentTree::TalentTree(const QString &name_) :
+TalentTree::TalentTree(const QString &name_, QObject *parent) :
+    QObject(parent),
     name(name_),
-    matrix(QVector<QVector<Talent*>>())
+    talents(QMap<QString, Talent*>())
 {}
 
 TalentTree::~TalentTree() {
-    for (int i = 0; i < matrix.size(); ++i) {
-        for (int j = 0; j < matrix[i].size(); ++j) {
-            if (matrix[i][j] != nullptr) {
-                delete matrix[i][j];
-            }
-        }
+    for (auto it : talents.keys()) {
+        delete talents.value(it);
     }
+
+    talents.clear();
 }
 
 QString TalentTree::get_name() const {
@@ -24,4 +23,11 @@ QString TalentTree::get_name() const {
 
 void TalentTree::leftClickedPosition(const int tier, const QString position) {
     qDebug() << "Clicked tier" << tier << "position" << position;
+}
+
+void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
+    for (auto it : new_talents.toStdMap()) {
+        assert(!talents.contains(it.first));
+        talents.insert(it.first, it.second);
+    }
 }
