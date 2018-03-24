@@ -12,7 +12,8 @@ public:
     virtual ~Talent();
 
     QString get_name() const;
-    virtual void effect() = 0;
+    // TODO: Mark as abstract class when talents are fully implemented.
+    virtual void effect() {} //= 0;
     int get_current_rank() const;
     int get_max_rank() const;
     bool increment_rank();
