@@ -9,7 +9,9 @@
 #include "Flurry.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
-#include "TalentTree.h"
+#include "Arms.h"
+#include "Fury.h"
+#include "Protection.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -205,7 +207,7 @@ void Warrior::decrease_attack_speed(float decrease) {
 }
 
 void Warrior::initialize_talents() {
-    talent_trees["LEFT"] = new TalentTree("Arms");
-    talent_trees["MID"] = new TalentTree("Fury");
-    talent_trees["RIGHT"] = new TalentTree("Protection");
+    talent_trees["LEFT"] = dynamic_cast<TalentTree*>(new Arms());
+    talent_trees["MID"] = dynamic_cast<TalentTree*>(new Fury());
+    talent_trees["RIGHT"] = dynamic_cast<TalentTree*>(new Protection());
 }

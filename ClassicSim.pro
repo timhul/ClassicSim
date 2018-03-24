@@ -68,7 +68,10 @@ SOURCES += main.cpp \
     Event/Events/BuffRemoval.cpp \
     CombatLog/CombatLog.cpp \
     Character/Class/TalentTree.cpp \
-    Character/Class/Talent.cpp
+    Character/Class/Talent.cpp \
+    Character/Class/Warrior/TalentTrees/Arms.cpp \
+    Character/Class/Warrior/TalentTrees/Fury.cpp \
+    Character/Class/Warrior/TalentTrees/Protection.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -132,7 +135,10 @@ HEADERS += \
     Event/Events/BuffRemoval.h \
     CombatLog/CombatLog.h \
     Character/Class/TalentTree.h \
-    Character/Class/Talent.h
+    Character/Class/Talent.h \
+    Character/Class/Warrior/TalentTrees/Arms.h \
+    Character/Class/Warrior/TalentTrees/Fury.h \
+    Character/Class/Warrior/TalentTrees/Protection.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -145,6 +151,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\Warrior \
     C:\C++\ClassicSim\Character\Class\Warrior\Spells \
     C:\C++\ClassicSim\Character\Class\Warrior\Buffs \
+    C:\C++\ClassicSim\Character\Class\Warrior\TalentTrees \
     C:\C++\ClassicSim\Character\Class\Priest \
     C:\C++\ClassicSim\Character\Class\Rogue \
     C:\C++\ClassicSim\Character\Class\Mage \

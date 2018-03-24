@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Rectangle {
     property url talentTreeImage
+    property string position
 
     id: talentTreeRect
 
