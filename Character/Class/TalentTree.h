@@ -29,11 +29,16 @@ public:
 
 protected:
     const QString name;
-    int spent_points;
+    int total_spent_points;
 
     QMap<QString, Talent*> talents;
+    QMap<QString, int> spent_points;
 
     void add_talents(const QMap<QString, Talent *> &new_talents);
+
+    QString get_highest_invested_rank() const;
+    int get_investment_requirement_for_rank(const QString &rank) const;
+    int get_points_spent_up_to_and_including_rank(const QString &rank) const;
 
 private:
 };

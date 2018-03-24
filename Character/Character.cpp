@@ -263,3 +263,29 @@ void Character::incrementRank(const QString tree_position, const QString talent_
         Q_EMIT talentsUpdated();
     }
 }
+
+void Character::decrementRank(const QString tree_position, const QString talent_position) {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::incrementRank could not find tree position" << tree_position;
+        return;
+    }
+
+    assert(max_talent_points >= 0);
+
+    if (max_talent_points == 51)
+        return;
+
+    if (talent_trees[tree_position]->decrement_rank(talent_position)) {
+        ++max_talent_points;
+        Q_EMIT talentsUpdated();
+    }
+}
+
+int Character::getTreePoints(const QString tree_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::getTreePoints could not find tree position" << tree_position;
+        return 0;
+    }
+
+    return talent_trees[tree_position]->get_total_points();
+}

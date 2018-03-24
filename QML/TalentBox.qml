@@ -21,10 +21,10 @@ Rectangle {
         rank.text = warrior.getRank(treePos, talentPos)
         rank.color = warrior.isMaxed(treePos, talentPos) ? talentMaxed :
                                                            talentAvailable
+        unavailable.visible = icon.visible && !warrior.isAvailable(treePos, talentPos)
         border.color = unavailable.visible ? root.gray :
                                              warrior.isMaxed(treePos, talentPos) ? talentMaxed :
-                                                                                   talentAvailable
-        unavailable.visible = icon.visible && !warrior.isAvailable(treePos, talentPos)
+                                                                                  talentAvailable
     }
 
     Rectangle {
@@ -114,7 +114,7 @@ Rectangle {
                 if (mouse.modifiers & Qt.ShiftModifier)
                     console.log("Remove as many talent points as possible")
                 else
-                    console.log("Remove single talent point if possible")
+                    warrior.decrementRank(treePos, talentPos)
             }
             else {
                 if (mouse.modifiers & Qt.ShiftModifier)

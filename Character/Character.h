@@ -25,6 +25,7 @@ public:
     Q_INVOKABLE bool isMaxed(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE QString getRank(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
+    Q_INVOKABLE void decrementRank(const QString tree_position, const QString talent_position);
 
     virtual void rotation(void) = 0;
     virtual void mh_auto_attack(const int) = 0;
