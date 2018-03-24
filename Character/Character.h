@@ -19,7 +19,12 @@ public:
     Race* get_race(void);
     virtual QString get_name() const = 0;
 
-    Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position);
+    Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool isAvailable(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool isMaxed(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE QString getRank(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
 
     virtual void rotation(void) = 0;
     virtual void mh_auto_attack(const int) = 0;
@@ -69,6 +74,9 @@ public:
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
 
+Q_SIGNALS:
+    void talentsUpdated();
+
 protected:
     Race* race;
     Engine* engine;
@@ -87,6 +95,8 @@ protected:
     bool melee_attacking;
     float last_action;
     QMap<QString, TalentTree*> talent_trees;
+
+    int max_talent_points;
 
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);

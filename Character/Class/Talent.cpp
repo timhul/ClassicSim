@@ -1,5 +1,6 @@
 
 #include "Talent.h"
+#include <QDebug>
 
 Talent::Talent(const QString &name_, const QString &icon_, const int max_points_) :
     name(name_),
@@ -30,6 +31,7 @@ int Talent::get_max_rank() const {
 }
 
 bool Talent::increment_rank() {
+    qDebug() << "increment_rank" << curr_points;
     if (curr_points == max_points)
         return false;
 
@@ -38,6 +40,7 @@ bool Talent::increment_rank() {
     }
 
     curr_points++;
+    qDebug() << "incrementing";
     return true;
 }
 

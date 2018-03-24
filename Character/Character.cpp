@@ -25,6 +25,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* 
     this->percent_attack_speed = 0.0;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
+    this->max_talent_points = 51;
 }
 
 Race* Character::get_race(void) {
@@ -206,11 +207,59 @@ float Character::get_oh_wpn_speed() {
     return wpn_speed;
 }
 
-QString Character::getIcon(const QString tree_position, const QString talent_position) {
+QString Character::getIcon(const QString tree_position, const QString talent_position) const {
     if (!talent_trees.contains(tree_position)) {
         qDebug() << "Character::getIcon could not find tree position" << tree_position;
         return "";
     }
 
-    return talent_trees[tree_position]->getIcon(talent_position);
+    return talent_trees[tree_position]->get_icon(talent_position);
+}
+
+bool Character::showPosition(const QString tree_position, const QString talent_position) const {
+    return getIcon(tree_position, talent_position) != "";
+}
+
+bool Character::isAvailable(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::isAvailable could not find tree position" << tree_position;
+        return false;
+    }
+
+    return talent_trees[tree_position]->is_active(talent_position);
+}
+
+bool Character::isMaxed(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::isMaxed could not find tree position" << tree_position;
+        return false;
+    }
+
+    return talent_trees[tree_position]->is_maxed(talent_position);
+}
+
+QString Character::getRank(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::getRank could not find tree position" << tree_position;
+        return "0";
+    }
+
+    return QString::number(talent_trees[tree_position]->get_current_rank(talent_position));
+}
+
+void Character::incrementRank(const QString tree_position, const QString talent_position) {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::incrementRank could not find tree position" << tree_position;
+        return;
+    }
+
+    assert(max_talent_points >= 0);
+
+    if (max_talent_points == 0)
+        return;
+
+    if (talent_trees[tree_position]->increment_rank(talent_position)) {
+        --max_talent_points;
+        Q_EMIT talentsUpdated();
+    }
 }
