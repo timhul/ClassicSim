@@ -5,7 +5,9 @@
 #include "Equipment.h"
 #include "Mechanics.h"
 
-Character::Character(Race* race, Engine* engine, Equipment* equipment) {
+Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* parent) :
+    QObject(parent)
+{
     this->race = race;
     this->engine = engine;
     this->equipment = equipment;

@@ -5,9 +5,10 @@
 #include "Character.h"
 
 class Priest: public Character {
+    Q_OBJECT
 public:
-    Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
-        Character(race, engine, _eq) {
+    Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
+        Character(race, engine, _eq, parent) {
         this->STR += get_strength_modifier();
         this->AGI += get_agility_modifier();
         this->STAM += get_stamina_modifier();

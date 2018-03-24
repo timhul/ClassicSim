@@ -10,8 +10,9 @@ class OffhandAttack;
 class Flurry;
 
 class Warrior: public Character {
+    Q_OBJECT
 public:
-    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll);
+    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0);
     virtual ~Warrior();
 
     QString get_name() const override;

@@ -3,15 +3,18 @@
 
 #include <QString>
 #include <QMap>
+#include <QObject>
 
 class Race;
 class Engine;
 class Equipment;
 class TalentTree;
 
-class Character {
+class Character: public QObject {
+    Q_OBJECT
+
 public:
-    Character(Race*, Engine*, Equipment*);
+    Character(Race*, Engine*, Equipment*, QObject* parent = 0);
 
     Race* get_race(void);
     virtual QString get_name() const = 0;

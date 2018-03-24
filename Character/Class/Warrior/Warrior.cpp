@@ -12,8 +12,8 @@
 #include "TalentTree.h"
 #include <QDebug>
 
-Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll) :
-    Character(race, engine, _eq) {
+Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
+    Character(race, engine, _eq, parent) {
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
     this->STR += get_strength_modifier() + 97;
