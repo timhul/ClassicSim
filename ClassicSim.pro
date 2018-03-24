@@ -66,7 +66,9 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Buffs/Flurry.cpp \
     Event/Events/BuffApplication.cpp \
     Event/Events/BuffRemoval.cpp \
-    CombatLog/CombatLog.cpp
+    CombatLog/CombatLog.cpp \
+    Character/Class/TalentTree.cpp \
+    Character/Class/Talent.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -128,7 +130,9 @@ HEADERS += \
     Character/Class/Warrior/Buffs/Flurry.h \
     Event/Events/BuffApplication.h \
     Event/Events/BuffRemoval.h \
-    CombatLog/CombatLog.h
+    CombatLog/CombatLog.h \
+    Character/Class/TalentTree.h \
+    Character/Class/Talent.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
