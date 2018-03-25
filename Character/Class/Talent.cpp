@@ -159,3 +159,11 @@ Talent* Talent::get_bottom_child() const {
 Talent* Talent::get_right_child() const {
     return right_child;
 }
+
+void Talent::initialize_rank_descriptions(const QString &base_str, const int base_val, const int increase) {
+    for (int i = 0; i < max_points; ++i) {
+        rank_descriptions.insert(i + +1, base_str.arg(base_val + i * increase));
+    }
+
+    rank_descriptions[0] = rank_descriptions[1];
+}

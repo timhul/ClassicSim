@@ -1,6 +1,7 @@
 
 #include "Fury.h"
 #include "Talent.h"
+#include "Cruelty.h"
 #include <QDebug>
 
 Fury::Fury(QObject* parent) :
@@ -9,7 +10,7 @@ Fury::Fury(QObject* parent) :
     QString base_url = "Assets/warrior/fury/";
 
     QMap<QString, Talent*> tier1 {{"1ML", new Talent("Booming Voice", "1ML", base_url + "tier1/Spell_nature_purge.png", 5)},
-                                  {"1MR", new Talent("Cruelty", "1MR", base_url + "tier1/Ability_rogue_eviscerate.png", 5)}};
+                                  {"1MR", new Cruelty()}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2ML", new Talent("Improved Demoralizing Shout", "2ML", base_url + "tier2/Ability_warrior_warcry.png", 5)},
