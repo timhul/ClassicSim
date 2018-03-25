@@ -295,3 +295,35 @@ int Character::getTreePoints(const QString tree_position) const {
 
     return talent_trees[tree_position]->get_total_points();
 }
+
+void Character::maxRank(const QString tree_position, const QString talent_position) {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::maxRank could not find tree position" << tree_position;
+        return;
+    }
+
+    while (max_talent_points > 0 && !talent_trees[tree_position]->is_maxed(talent_position)) {
+        if (talent_trees[tree_position]->increment_rank(talent_position))
+            --max_talent_points;
+        else
+            break;
+    }
+
+    Q_EMIT talentsUpdated();
+}
+
+void Character::minRank(const QString tree_position, const QString talent_position) {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::minRank could not find tree position" << tree_position;
+        return;
+    }
+
+    while (max_talent_points < 51 && talent_trees[tree_position]->is_active(talent_position)) {
+        if (talent_trees[tree_position]->decrement_rank(talent_position))
+            ++max_talent_points;
+        else
+            break;
+    }
+
+    Q_EMIT talentsUpdated();
+}

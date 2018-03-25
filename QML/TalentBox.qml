@@ -112,13 +112,13 @@ Rectangle {
         onClicked: {
             if (mouse.button === Qt.RightButton) {
                 if (mouse.modifiers & Qt.ShiftModifier)
-                    console.log("Remove as many talent points as possible")
+                    warrior.minRank(treePos, talentPos)
                 else
                     warrior.decrementRank(treePos, talentPos)
             }
             else {
                 if (mouse.modifiers & Qt.ShiftModifier)
-                    console.log ("Add as many talent points as possible")
+                    warrior.maxRank(treePos, talentPos)
                 else
                     warrior.incrementRank(treePos, talentPos)
             }
@@ -126,9 +126,9 @@ Rectangle {
 
         onPressAndHold: {
             if (mouse.button === Qt.RightButton)
-                console.log("Remove as many talent points as possible")
+                warrior.minRank(treePos, talentPos)
             else
-                console.log("Add as many talent points as possible")
+                warrior.maxRank(treePos, talentPos)
         }
 
         onEntered: highlight.visible = icon.visible
