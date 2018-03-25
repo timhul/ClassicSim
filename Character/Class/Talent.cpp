@@ -30,6 +30,24 @@ QString Talent::get_position() const {
     return position;
 }
 
+QString Talent::get_requirement_string() const {
+    return "Missing override for " + get_name();
+}
+
+QString Talent::get_current_rank_description() const {
+    if (!rank_descriptions.contains(curr_points))
+        return "Missing description for " + get_name() + " rank " + QString::number(curr_points);
+
+    return rank_descriptions[curr_points];
+}
+
+QString Talent::get_next_rank_description() const {
+    if (!rank_descriptions.contains(curr_points + 1))
+        return "Missing description for " + get_name() + " rank " + QString::number(curr_points + 1);
+
+    return rank_descriptions[curr_points + 1];
+}
+
 QString Talent::get_right_arrow_image() const {
     QString arrow = get_arrow_identifier(right_child->get_position());
     if (arrow == "RIGHT" || arrow == "HOOK") {

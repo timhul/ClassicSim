@@ -350,6 +350,33 @@ void Character::decrementRank(const QString tree_position, const QString talent_
     }
 }
 
+QString Character::getRequirements(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::incrementRank could not find tree position" << tree_position;
+        return "Missing tree!";
+    }
+
+    return talent_trees[tree_position]->get_requirement_string(talent_position);
+}
+
+QString Character::getCurrentRankDescription(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::incrementRank could not find tree position" << tree_position;
+        return "Missing tree!";
+    }
+
+    return talent_trees[tree_position]->get_current_rank_description(talent_position);
+}
+
+QString Character::getNextRankDescription(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::incrementRank could not find tree position" << tree_position;
+        return "Missing tree!";
+    }
+
+    return talent_trees[tree_position]->get_next_rank_description(talent_position);
+}
+
 int Character::getTreePoints(const QString tree_position) const {
     if (!talent_trees.contains(tree_position)) {
         qDebug() << "Character::getTreePoints could not find tree position" << tree_position;
@@ -357,6 +384,24 @@ int Character::getTreePoints(const QString tree_position) const {
     }
 
     return talent_trees[tree_position]->get_total_points();
+}
+
+QString Character::getTreeName(const QString tree_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::getTreeName could not find tree position" << tree_position;
+        return "Missing tree!";
+    }
+
+    return talent_trees[tree_position]->get_name();
+}
+
+QString Character::getTalentName(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::getTalentName could not find tree position" << tree_position;
+        return "Missing tree!";
+    }
+
+    return talent_trees[tree_position]->get_talent_name(talent_position);
 }
 
 void Character::maxRank(const QString tree_position, const QString talent_position) {

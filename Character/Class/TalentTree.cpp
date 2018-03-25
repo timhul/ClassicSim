@@ -24,6 +24,34 @@ QString TalentTree::get_name() const {
     return name;
 }
 
+QString TalentTree::get_talent_name(const QString &position) const {
+    if (!talents.contains(position))
+        return "Missing talent!";
+
+    return talents[position]->get_name();
+}
+
+QString TalentTree::get_requirement_string(const QString &position) const {
+    if (!talents.contains(position))
+        return "Missing talent!";
+
+    return talents[position]->get_requirement_string();
+}
+
+QString TalentTree::get_current_rank_description(const QString &position) const {
+    if (!talents.contains(position))
+        return "Missing talent!";
+
+    return talents[position]->get_current_rank_description();
+}
+
+QString TalentTree::get_next_rank_description(const QString &position) const {
+    if (!talents.contains(position))
+        return "Missing talent!";
+
+    return talents[position]->get_next_rank_description();
+}
+
 void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
     for (auto it : new_talents.toStdMap()) {
         assert(!talents.contains(it.first));

@@ -36,7 +36,12 @@ public:
     Q_INVOKABLE QString getMaxRank(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
     Q_INVOKABLE void decrementRank(const QString tree_position, const QString talent_position);
+    Q_INVOKABLE QString getRequirements(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE QString getCurrentRankDescription(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE QString getNextRankDescription(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE int getTreePoints(const QString tree_position) const;
+    Q_INVOKABLE QString getTreeName(const QString tree_position) const;
+    Q_INVOKABLE QString getTalentName(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE void maxRank(const QString tree_position, const QString talent_position);
     Q_INVOKABLE void minRank(const QString tree_position, const QString talent_position);
 

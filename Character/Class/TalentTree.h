@@ -27,6 +27,11 @@ public:
     bool increment_rank(const QString &position);
     bool decrement_rank(const QString &position);
 
+    QString get_talent_name(const QString &position) const;
+    QString get_requirement_string(const QString &position) const;
+    QString get_current_rank_description(const QString &position) const;
+    QString get_next_rank_description(const QString &position) const;
+
     bool is_active(const QString &position) const;
     bool is_maxed(const QString &position) const;
     bool is_available(const QString &position) const;

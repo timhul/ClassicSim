@@ -27,11 +27,14 @@ Rectangle {
                                              warrior.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                                   talentAvailable
         ttRank.text = "Rank " + warrior.getRank(treePos, talentPos) + "/" + warrior.getMaxRank(treePos, talentPos)
+        ttDescription.text = warrior.getCurrentRankDescription(treePos, talentPos)
+
         ttRequirements.visible = ttRect.visible && !warrior.isAvailable(treePos, talentPos)
-        ttRequirements.text = !ttRequirements.visible ? "" : "Requires 3 points in Improved Rend\nRequires 10 points in Arms Talents"
+        ttRequirements.text = !ttRequirements.visible ? "" : warrior.getRequirements(treePos, talentPos)
 
         ttNextRank.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
         ttNextRankDescription.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+        ttNextRankDescription.text = ttNextRankDescription.visible ? warrior.getNextRankDescription(treePos,  talentPos) : ""
 
         ttRect.height = getTooltipHeight()
     }
@@ -187,7 +190,7 @@ Rectangle {
 
     Text {
         id: ttTitle
-        text: "Improved Heroic Strike"
+        text: warrior.getTalentName(treePos, talentPos)
 
         visible: ttRect.visible
 
@@ -235,7 +238,7 @@ Rectangle {
 
     Text {
         id: ttRequirements
-        text: !ttRequirements.visible ? "" : "Requires 3 points in Improved Rend\nRequires 10 points in Arms Talents"
+        text: !ttRequirements.visible ? "" : warrior.getRequirements(treePos, talentPos)
 
         visible: ttRect.visible && !warrior.isAvailable(treePos, talentPos)
 
@@ -262,7 +265,7 @@ Rectangle {
 
     Text {
         id: ttDescription
-        text: "Reduces the cost of your Heroic Strike ability by 1 rage point."
+        text: warrior.getCurrentRankDescription(treePos, talentPos)
 
         visible: ttRect.visible
 
@@ -313,7 +316,7 @@ Rectangle {
 
     Text {
         id: ttNextRankDescription
-        text: "Reduces the cost of your Heroic Strike ability by 2 rage points."
+        text: warrior.getNextRankDescription(treePos,  talentPos)
 
         visible: ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
 

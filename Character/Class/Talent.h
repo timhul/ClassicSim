@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QString>
-#include <QVector>
+#include <QMap>
 #include <assert.h>
 
 class Talent: public QObject {
@@ -20,6 +20,9 @@ public:
 
     // TODO: Mark as abstract class when talents are fully implemented.
     virtual void effect() {} //= 0;
+    virtual QString get_requirement_string() const;
+    QString get_current_rank_description() const;
+    QString get_next_rank_description() const;
     int get_current_rank() const;
     int get_max_rank() const;
     bool increment_rank();
@@ -43,6 +46,8 @@ protected:
     Talent* parent;
     Talent* right_child;
     Talent* bottom_child;
+
+    QMap<int, QString> rank_descriptions;
 
     bool any_child_active() const;
     QString get_arrow_identifier(const QString target_position) const;
