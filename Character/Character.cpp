@@ -226,7 +226,10 @@ bool Character::isAvailable(const QString tree_position, const QString talent_po
         return false;
     }
 
-    return talent_trees[tree_position]->is_active(talent_position);
+    if (max_talent_points == 0 && !talent_trees[tree_position]->is_active(talent_position))
+        return false;
+
+    return talent_trees[tree_position]->is_available(talent_position);
 }
 
 bool Character::isMaxed(const QString tree_position, const QString talent_position) const {
@@ -234,6 +237,9 @@ bool Character::isMaxed(const QString tree_position, const QString talent_positi
         qDebug() << "Character::isMaxed could not find tree position" << tree_position;
         return false;
     }
+
+    if (max_talent_points == 0 && talent_trees[tree_position]->is_active(talent_position))
+        return true;
 
     return talent_trees[tree_position]->is_maxed(talent_position);
 }

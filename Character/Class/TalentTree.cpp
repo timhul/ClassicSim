@@ -99,10 +99,7 @@ bool TalentTree::is_active(const QString &position) const {
     if (!talents.contains(position))
         return false;
 
-    if (talents[position]->is_active())
-        return true;
-
-    return total_spent_points >= (QString(position[0]).toInt() - 1) * 5;
+    return talents[position]->is_active();
 }
 
 bool TalentTree::is_maxed(const QString &position) const {
