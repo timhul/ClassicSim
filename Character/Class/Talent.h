@@ -36,6 +36,10 @@ public:
     Talent* get_bottom_child() const;
     Talent* get_right_child() const;
 
+    void set_parent(Talent*);
+    void set_bottom_child(Talent*);
+    void set_right_child(Talent*);
+
 protected:
     const QString name;
     const QString position;

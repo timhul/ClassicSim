@@ -1,6 +1,8 @@
 
 #include "Arms.h"
 #include "Talent.h"
+#include "ImprovedRend.h"
+#include "DeepWounds.h"
 #include <QDebug>
 
 Arms::Arms(QObject* parent) :
@@ -10,7 +12,7 @@ Arms::Arms(QObject* parent) :
 
     QMap<QString, Talent*> tier1 {{"1LL", new Talent("Improved Heroic Strike", "1LL", base_url + "tier1/Ability_rogue_ambush.png", 3)},
                                   {"1ML", new Talent("Deflection", "1ML", base_url + "tier1/Ability_parry.png", 5)},
-                                  {"1MR", new Talent("Improved Rend", "1MR", base_url + "tier1/Ability_gouge.png", 3)}};
+                                  {"1MR", new ImprovedRend()}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent("Improved Charge", "2LL", base_url + "tier2/Ability_warrior_charge.png", 2)},
@@ -20,7 +22,7 @@ Arms::Arms(QObject* parent) :
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent("Improved Overpower", "3LL", base_url + "tier3/Inv_sword_05.png", 2)},
                                   {"3ML", new Talent("Anger Management", "3ML", base_url + "tier3/anger_management.png", 1)},
-                                  {"3MR", new Talent("Deep Wounds", "3MR", base_url + "tier3/Ability_backstab.png", 3)}};
+                                  {"3MR", new DeepWounds()}};
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new Talent("Two-Handed Weapon Specialization", "4ML", base_url + "tier4/Inv_axe_09.png", 5)},
@@ -39,6 +41,9 @@ Arms::Arms(QObject* parent) :
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent("Mortal Strike", "7ML", base_url + "tier7/Ability_warrior_savageblow.png", 1)}};
     add_talents(tier7);
+
+    talents["1MR"]->set_bottom_child(talents["3MR"]);
+    talents["3MR"]->set_parent(talents["1MR"]);
 }
 
 Arms::~Arms()

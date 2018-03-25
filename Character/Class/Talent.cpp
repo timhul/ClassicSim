@@ -167,3 +167,15 @@ void Talent::initialize_rank_descriptions(const QString &base_str, const int bas
 
     rank_descriptions[0] = rank_descriptions[1];
 }
+
+void Talent::set_parent(Talent* parent) {
+    this->parent = parent;
+}
+
+void Talent::set_bottom_child(Talent* bottom_child) {
+    this->bottom_child = bottom_child;
+}
+
+void Talent::set_right_child(Talent* right_child) {
+    this->right_child = right_child;
+}
