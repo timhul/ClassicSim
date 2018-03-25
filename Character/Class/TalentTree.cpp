@@ -72,11 +72,18 @@ bool TalentTree::decrement_rank(const QString &position) {
     if (!talents.contains(position))
         return false;
 
-    int attempted_decrement = get_points_spent_up_to_and_including_rank(QString(position[0])) - 1;
-    int minimum_requirement = get_investment_requirement_for_rank(get_highest_invested_rank());
-    if (attempted_decrement < minimum_requirement) {
-        if (QString(position[0]).toInt() < get_highest_invested_rank())
+    int investigated_rank = get_highest_invested_rank().toInt();
+    int decremented_rank = QString(position[0]).toInt();
+
+    while (investigated_rank > decremented_rank) {
+        int attempted_decrement = get_points_spent_up_to_rank(investigated_rank) - 1;
+        int minimum_requirement = get_investment_requirement_for_rank(investigated_rank);
+
+        if (attempted_decrement < minimum_requirement) {
             return false;
+        }
+
+        --investigated_rank;
     }
 
     if (talents[position]->decrement_rank()) {
@@ -132,32 +139,30 @@ QString TalentTree::get_highest_invested_rank() const {
     return "1";
 }
 
-int TalentTree::get_investment_requirement_for_rank(const QString &rank) const {
-    return (QString(rank).toInt() - 1) * 5;
+int TalentTree::get_investment_requirement_for_rank(const int rank) const {
+    return (rank - 1) * 5;
 }
 
-int TalentTree::get_points_spent_up_to_and_including_rank(const QString &rank) const {
-    int invested_at_rank_and_below = 0;
+int TalentTree::get_points_spent_up_to_rank(const int rank) const {
+    int invested_below_rank = 0;
 
     // Breaks are purposefully omitted.
-    switch (rank.toInt()) {
+    switch (rank) {
     case 7:
-        invested_at_rank_and_below += spent_points["7"];
+        invested_below_rank += spent_points["6"];
     case 6:
-        invested_at_rank_and_below += spent_points["6"];
+        invested_below_rank += spent_points["5"];
     case 5:
-        invested_at_rank_and_below += spent_points["5"];
+        invested_below_rank += spent_points["4"];
     case 4:
-        invested_at_rank_and_below += spent_points["4"];
+        invested_below_rank += spent_points["3"];
     case 3:
-        invested_at_rank_and_below += spent_points["3"];
+        invested_below_rank += spent_points["2"];
     case 2:
-        invested_at_rank_and_below += spent_points["2"];
-    case 1:
-        invested_at_rank_and_below += spent_points["1"];
+        invested_below_rank += spent_points["1"];
     }
 
-    return invested_at_rank_and_below;
+    return invested_below_rank;
 }
 
 int TalentTree::get_total_points() const {
