@@ -22,6 +22,7 @@ Rectangle {
         rank.color = warrior.isMaxed(treePos, talentPos) ? talentMaxed :
                                                            talentAvailable
         unavailable.visible = icon.visible && !warrior.isAvailable(treePos, talentPos)
+        bottomArrowDark.visible = bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || !warrior.hasTalentPointsRemaining())
         border.color = unavailable.visible ? root.gray :
                                              warrior.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                                   talentAvailable
@@ -335,5 +336,28 @@ Rectangle {
 
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
+    }
+
+    Image {
+        id: bottomArrow
+        source: "Assets/talents/arrow-vertical-1.png"
+        height: parent.height * 1.20
+
+        visible: warrior.showBottomArrow(treePos, talentPos)
+
+        anchors {
+            top: border.bottom
+        }
+        x: parent.width / 2 - width / 2
+    }
+
+    Colorize {
+        id: bottomArrowDark
+        visible: bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || !warrior.hasTalentPointsRemaining())
+        anchors.fill: bottomArrow
+        source: bottomArrow
+        hue: 0.0
+        saturation: 0.0
+        lightness: 0.0
     }
 }

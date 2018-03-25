@@ -220,9 +220,53 @@ bool Character::showPosition(const QString tree_position, const QString talent_p
     return getIcon(tree_position, talent_position) != "";
 }
 
+bool Character::showBottomArrow(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::showBottomArrow could not find tree position" << tree_position;
+        return "";
+    }
+
+    return talent_trees[tree_position]->has_bottom_child(talent_position);
+}
+
+bool Character::showRightArrow(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::showRightArrow could not find tree position" << tree_position;
+        return "";
+    }
+
+    return talent_trees[tree_position]->has_right_child(talent_position);
+}
+
+QString Character::getBottomArrow(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::getBottomArrow could not find tree position" << tree_position;
+        return "";
+    }
+
+    return talent_trees[tree_position]->get_bottom_arrow(talent_position);
+}
+
+QString Character::getRightArrow(const QString tree_position, const QString talent_position) const {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Character::getRightArrow could not find tree position" << tree_position;
+        return "";
+    }
+
+    return talent_trees[tree_position]->get_right_arrow(talent_position);
+}
+
+bool Character::bottomChildAvailable(const QString tree_position, const QString talent_position) const {
+    return talent_trees[tree_position]->bottom_child_is_available(talent_position);
+}
+
+bool Character::rightChildAvailable(const QString tree_position, const QString talent_position) const {
+    return talent_trees[tree_position]->right_child_is_available(talent_position);
+}
+
 bool Character::isActive(const QString tree_position, const QString talent_position) const {
     if (!talent_trees.contains(tree_position)) {
-        qDebug() << "Character::isAvailable could not find tree position" << tree_position;
+        qDebug() << "Character::isActive could not find tree position" << tree_position;
         return false;
     }
 
@@ -248,6 +292,10 @@ bool Character::isMaxed(const QString tree_position, const QString talent_positi
     }
 
     return talent_trees[tree_position]->is_maxed(talent_position);
+}
+
+bool Character::hasTalentPointsRemaining() const {
+    return max_talent_points > 0;
 }
 
 QString Character::getRank(const QString tree_position, const QString talent_position) const {

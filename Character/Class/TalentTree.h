@@ -16,16 +16,22 @@ public:
 
     QString get_name() const;
     QString get_icon(const QString &position);
+    QString get_right_arrow(const QString &position);
+    QString get_bottom_arrow(const QString &position);
+
+    bool bottom_child_is_available(const QString &position) const;
+    bool right_child_is_available(const QString &position) const;
 
     int get_current_rank(const QString &position) const;
     int get_max_rank(const QString &position) const;
     bool increment_rank(const QString &position);
     bool decrement_rank(const QString &position);
-    void set_rank(const QString &position, const int);
 
     bool is_active(const QString &position) const;
     bool is_maxed(const QString &position) const;
     bool is_available(const QString &position) const;
+    bool has_right_child(const QString &position) const;
+    bool has_bottom_child(const QString &position) const;
 
     int get_total_points() const;
 

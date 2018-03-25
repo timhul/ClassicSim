@@ -61,5 +61,10 @@
         <file>QML/Assets/warrior/protection/tier6/Inv_sword_20.png</file>
         <file>QML/Assets/warrior/protection/tier7/Inv_shield_05.png</file>
         <file>QML/TalentBox.qml</file>
+        <file>QML/Assets/talents/arrow-hook.png</file>
+        <file>QML/Assets/talents/arrow-horizontal-0.png</file>
+        <file>QML/Assets/talents/arrow-vertical-0.png</file>
+        <file>QML/Assets/talents/arrow-vertical-1.png</file>
+        <file>QML/Assets/talents/arrow-vertical-2.png</file>
     </qresource>
 </RCC>

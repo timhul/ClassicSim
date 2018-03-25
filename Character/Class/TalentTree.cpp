@@ -38,6 +38,39 @@ QString TalentTree::get_icon(const QString &position) {
     return talents[position]->get_icon();
 }
 
+QString TalentTree::get_right_arrow(const QString &position) {
+    if (!talents.contains(position))
+        return "";
+
+    return talents[position]->get_right_arrow_image();
+}
+
+QString TalentTree::get_bottom_arrow(const QString &position) {
+    if (!talents.contains(position))
+        return "";
+
+    return talents[position]->get_bottom_arrow_image();
+}
+
+bool TalentTree::bottom_child_is_available(const QString &position) const {
+    if (!talents.contains(position) || !talents[position]->has_bottom_child()) {
+        return false;
+    }
+
+    QString child_pos = talents[position]->get_bottom_child()->get_position();
+
+    return total_spent_points >= (QString(child_pos[0]).toInt() - 1) * 5;
+}
+
+bool TalentTree::right_child_is_available(const QString &position) const {
+    if (!talents.contains(position) || !talents[position]->has_right_child())
+        return false;
+
+    QString child_pos = talents[position]->get_right_child()->get_position();
+
+    return total_spent_points >= (QString(child_pos[0]).toInt() - 1) * 5;
+}
+
 int TalentTree::get_current_rank(const QString &position) const {
     if (!talents.contains(position))
         return -1;
@@ -95,13 +128,6 @@ bool TalentTree::decrement_rank(const QString &position) {
     return false;
 }
 
-void TalentTree::set_rank(const QString &position, const int new_rank) {
-    if (!talents.contains(position))
-        return;
-
-    talents[position]->set_rank(new_rank);
-}
-
 bool TalentTree::is_active(const QString &position) const {
     if (!talents.contains(position))
         return false;
@@ -121,6 +147,20 @@ bool TalentTree::is_available(const QString &position) const {
         return false;
 
     return total_spent_points >= (QString(position[0]).toInt() - 1) * 5;
+}
+
+bool TalentTree::has_right_child(const QString &position) const {
+    if (!talents.contains(position))
+        return false;
+
+    return talents[position]->has_right_child();
+}
+
+bool TalentTree::has_bottom_child(const QString &position) const {
+    if (!talents.contains(position))
+        return false;
+
+    return talents[position]->has_bottom_child();
 }
 
 QString TalentTree::get_highest_invested_rank() const {

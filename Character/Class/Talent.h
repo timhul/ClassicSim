@@ -9,37 +9,43 @@
 class Talent: public QObject {
     Q_OBJECT
 public:
-    Talent(const QString& name_, const QString &icon_, const int max_points_);
+    Talent(const QString& name_, const QString & position_, const QString &icon_, const int max_points_);
     virtual ~Talent();
-
-    Q_PROPERTY(QString icon READ get_icon NOTIFY iconChanged)
 
     QString get_name() const;
     QString get_icon() const;
+    QString get_position() const;
+    QString get_right_arrow_image() const;
+    QString get_bottom_arrow_image() const;
+
     // TODO: Mark as abstract class when talents are fully implemented.
     virtual void effect() {} //= 0;
     int get_current_rank() const;
     int get_max_rank() const;
     bool increment_rank();
     bool decrement_rank();
-    void set_rank(const int);
 
     bool is_active() const;
     bool is_maxed() const;
 
-Q_SIGNALS:
-    void iconChanged();
+    bool has_right_child() const;
+    bool has_bottom_child() const;
+    Talent* get_bottom_child() const;
+    Talent* get_right_child() const;
 
 protected:
     const QString name;
-    const QString icon; // do greyscale with Colorize or apply greyscale in Photoshop?
+    const QString position;
+    const QString icon;
     const int max_points;
     int curr_points;
 
     Talent* parent;
-    QVector<Talent*> children;
+    Talent* right_child;
+    Talent* bottom_child;
 
-    bool children_active() const;
+    bool any_child_active() const;
+    QString get_arrow_identifier(const QString target_position) const;
 
 private:
 

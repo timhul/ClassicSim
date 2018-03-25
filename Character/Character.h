@@ -21,9 +21,17 @@ public:
 
     Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool showBottomArrow(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool showRightArrow(const QString tree_position, const QString talent_position) const;
+
+    Q_INVOKABLE QString getBottomArrow(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE QString getRightArrow(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool bottomChildAvailable(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool rightChildAvailable(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool isActive(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool isAvailable(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool isMaxed(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool hasTalentPointsRemaining() const;
     Q_INVOKABLE QString getRank(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE QString getMaxRank(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
