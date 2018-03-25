@@ -23,6 +23,8 @@ Window {
     property color colorShaman: "#0070DE"
     property color colorWarlock: "#9482C9"
     property color colorWarrior: "#C79C6E"
+    property string fontNumbers: "Cambria Math"
+    property string fontText: "Arial"
 
     color: darkGray
 
@@ -45,7 +47,7 @@ Window {
             text: "70.4"
 
             font {
-                family: "Cambria Math"
+                family: fontNumbers
                 bold: true
                 pointSize: 36
             }

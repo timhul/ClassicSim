@@ -15,13 +15,6 @@ Rectangle {
         width: parent.width
     }
 
-//    Component.onCompleted: updateIcons()
-
-//    function updateIcons() {
-//        console.log("Position", position)
-//        tier1LL.source = warrior.getIcon(treePosition, state)
-//    }
-
     Column {
         id: column
         anchors {

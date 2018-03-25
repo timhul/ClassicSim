@@ -21,9 +21,11 @@ public:
 
     Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE bool isActive(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool isAvailable(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool isMaxed(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE QString getRank(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE QString getMaxRank(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
     Q_INVOKABLE void decrementRank(const QString tree_position, const QString talent_position);
     Q_INVOKABLE int getTreePoints(const QString tree_position) const;

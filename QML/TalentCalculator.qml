@@ -25,22 +25,23 @@ Rectangle {
             talentTreeImage: "Assets/warrior/warrior_arms.jpg"
             treePosition: "LEFT"
             y: 1
+            z: 2
             height: parent.height - 2
             width: parent.width / 3 - 1
         }
-
         TalentTree {
             talentTreeImage: "Assets/warrior/warrior_fury.jpg"
             treePosition: "MID"
             y: 1
+            z: 1
             height: parent.height - 2
             width: parent.width / 3 - 1
         }
-
         TalentTree {
             talentTreeImage: "Assets/warrior/warrior_protection.jpg"
             treePosition: "RIGHT"
             y: 1
+            z: 0
             height: parent.height - 2
             width: parent.width / 3 - 1
         }
@@ -69,7 +70,7 @@ Rectangle {
                 color: root.gold
 
                 font {
-                    family: fontFamily
+                    family: root.fontNumbers
                     pointSize: 28
                 }
 
@@ -87,7 +88,7 @@ Rectangle {
                 color: root.gold
 
                 font {
-                    family: fontFamily
+                    family: root.fontNumbers
                     pointSize: 28
                 }
 
@@ -105,7 +106,7 @@ Rectangle {
                 color: root.gold
 
                 font {
-                    family: fontFamily
+                    family: root.fontNumbers
                     pointSize: 28
                 }
 

@@ -25,6 +25,32 @@ Rectangle {
         border.color = unavailable.visible ? root.gray :
                                              warrior.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                                   talentAvailable
+        ttRank.text = "Rank " + warrior.getRank(treePos, talentPos) + "/" + warrior.getMaxRank(treePos, talentPos)
+        ttRequirements.visible = ttRect.visible && !warrior.isAvailable(treePos, talentPos)
+        ttRequirements.text = !ttRequirements.visible ? "" : "Requires 3 points in Improved Rend\nRequires 10 points in Arms Talents"
+
+        ttNextRank.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+        ttNextRankDescription.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+
+        ttRect.height = getTooltipHeight()
+    }
+
+    function updateVisibility() {
+        ttNextRank.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+        ttNextRankDescription.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+        ttRect.height = getTooltipHeight()
+    }
+
+    function getTooltipHeight() {
+        var height = 0
+        height += ttTitle.height + ttTitle.anchors.topMargin
+        height += ttRank.height + ttRank.anchors.topMargin
+        height += ttRequirements.visible ?  ttRequirements.height + ttRequirements.anchors.topMargin : 0
+        height += ttDescription.height + ttDescription.anchors.topMargin
+        height += ttNextRank.visible ? ttNextRank.height + ttNextRank.anchors.topMargin : 0
+        height += ttNextRankDescription.visible ? ttNextRankDescription.height + ttNextRankDescription.anchors.topMargin : 0
+        height += 10 // bottom margin
+        return height
     }
 
     Rectangle {
@@ -131,7 +157,183 @@ Rectangle {
                 warrior.maxRank(treePos, talentPos)
         }
 
-        onEntered: highlight.visible = icon.visible
-        onExited: highlight.visible = false
+        onEntered: {
+            highlight.visible = icon.visible
+            updateVisibility()
+        }
+        onExited: {
+            highlight.visible = false
+            updateVisibility()
+        }
+    }
+
+    RectangleBorders {
+        id: ttRect
+        anchors {
+            left: parent.right
+            bottom: parent.top
+        }
+
+        width: parent.width * 4
+        height: getTooltipHeight()
+
+        rectColor: root.darkDarkGray
+        opacity: 0.8
+        setRadius: 4
+
+        visible: highlight.visible
+    }
+
+    Text {
+        id: ttTitle
+        text: "Improved Heroic Strike"
+
+        visible: ttRect.visible
+
+        anchors {
+            top: ttRect.top
+            left: ttRect.left
+            topMargin: 10
+            leftMargin: 10
+        }
+        height : 20
+        font {
+            family: "Arial"
+            pointSize: 10
+        }
+
+        color: "white"
+
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttRank
+        text: "Rank " + warrior.getRank(treePos, talentPos) + "/" + warrior.getMaxRank(treePos, talentPos)
+
+        visible: ttRect.visible
+
+        anchors {
+            top: ttTitle.bottom
+            left: ttRect.left
+            topMargin: 3
+            leftMargin: 10
+        }
+        height : 10
+        font {
+            family: "Arial"
+            pointSize: 8
+        }
+
+        color: "white"
+
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttRequirements
+        text: !ttRequirements.visible ? "" : "Requires 3 points in Improved Rend\nRequires 10 points in Arms Talents"
+
+        visible: ttRect.visible && !warrior.isAvailable(treePos, talentPos)
+
+        anchors {
+            top: ttRank.bottom
+            left: ttRect.left
+            topMargin: 5
+            leftMargin: 10
+        }
+
+        width: ttRect.width - 20
+
+        font {
+            family: "Arial"
+            pointSize: 8
+        }
+
+        color: "red"
+        wrapMode: Text.WordWrap
+
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttDescription
+        text: "Reduces the cost of your Heroic Strike ability by 1 rage point."
+
+        visible: ttRect.visible
+
+        anchors {
+            top: ttRequirements.visible ? ttRequirements.bottom : ttRank.bottom
+            left: ttRect.left
+            topMargin: 3
+            leftMargin: 10
+        }
+
+        width: ttRect.width - 20
+
+        font {
+            family: "Arial"
+            pointSize: 8
+        }
+
+        color: root.gold
+        wrapMode: Text.WordWrap
+
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttNextRank
+        text: "Next rank:"
+
+        visible: ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+
+        anchors {
+            top: ttDescription.bottom
+            left: ttRect.left
+            topMargin: 15
+            leftMargin: 10
+        }
+
+        font {
+            family: "Arial"
+            pointSize: 8
+        }
+
+        color: "white"
+
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttNextRankDescription
+        text: "Reduces the cost of your Heroic Strike ability by 2 rage points."
+
+        visible: ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+
+        anchors {
+            top: ttNextRank.bottom
+            left: ttRect.left
+            topMargin: 5
+            leftMargin: 10
+        }
+
+        width: ttRect.width - 20
+
+        font {
+            family: "Arial"
+            pointSize: 8
+        }
+
+        color: root.gold
+        wrapMode: Text.WordWrap
+
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
     }
 }

@@ -6,10 +6,12 @@ Rectangle {
     property color rectColor
     property int paddingInner: 1
     property string text: "Missing"
+    property int setRadius: 0
 
     signal rectangleClicked()
 
     color: "transparent"
+    radius: setRadius
 
     Rectangle {
         anchors {
@@ -18,6 +20,7 @@ Rectangle {
         }
 
         color: "transparent"
+        radius: setRadius
         border {
             width: paddingInner
             color: outerBorderColor
@@ -30,6 +33,7 @@ Rectangle {
             }
 
             color: "transparent"
+            radius: setRadius
             border {
                 width: paddingInner
                 color: innerBorderColor
@@ -42,6 +46,7 @@ Rectangle {
                 }
 
                 color: rectColor
+                radius: setRadius
 
                 MouseArea {
                     anchors.fill: parent
