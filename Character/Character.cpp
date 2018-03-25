@@ -264,6 +264,14 @@ bool Character::rightChildAvailable(const QString tree_position, const QString t
     return talent_trees[tree_position]->right_child_is_available(talent_position);
 }
 
+bool Character::bottomChildActive(const QString tree_position, const QString talent_position) const {
+    return talent_trees[tree_position]->bottom_child_is_active(talent_position);
+}
+
+bool Character::rightChildActive(const QString tree_position, const QString talent_position) const {
+    return talent_trees[tree_position]->right_child_is_active(talent_position);
+}
+
 bool Character::isActive(const QString tree_position, const QString talent_position) const {
     if (!talent_trees.contains(tree_position)) {
         qDebug() << "Character::isActive could not find tree position" << tree_position;

@@ -3,6 +3,7 @@
 #include "Talent.h"
 #include "ImprovedRend.h"
 #include "DeepWounds.h"
+#include "Impale.h"
 #include <QDebug>
 
 Arms::Arms(QObject* parent) :
@@ -26,7 +27,7 @@ Arms::Arms(QObject* parent) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new Talent("Two-Handed Weapon Specialization", "4ML", base_url + "tier4/Inv_axe_09.png", 5)},
-                                  {"4MR", new Talent("Impale", "4MR", base_url + "tier4/Ability_searingarrow.png", 2)}};
+                                  {"4MR", new Impale()}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new Talent("Axe Specialization", "5LL", base_url + "tier5/Inv_axe_06.png", 5)},
@@ -44,6 +45,9 @@ Arms::Arms(QObject* parent) :
 
     talents["1MR"]->set_bottom_child(talents["3MR"]);
     talents["3MR"]->set_parent(talents["1MR"]);
+
+    talents["3MR"]->set_bottom_child(talents["4MR"]);
+    talents["4MR"]->set_parent(talents["3MR"]);
 }
 
 Arms::~Arms()

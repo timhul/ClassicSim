@@ -20,7 +20,9 @@ public:
     QString get_bottom_arrow(const QString &position);
 
     bool bottom_child_is_available(const QString &position) const;
+    bool bottom_child_is_active(const QString &position) const;
     bool right_child_is_available(const QString &position) const;
+    bool right_child_is_active(const QString &position) const;
 
     int get_current_rank(const QString &position) const;
     int get_max_rank(const QString &position) const;

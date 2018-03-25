@@ -49,23 +49,17 @@ QString Talent::get_next_rank_description() const {
 }
 
 QString Talent::get_right_arrow_image() const {
-    QString arrow = get_arrow_identifier(right_child->get_position());
-    if (arrow == "RIGHT" || arrow == "HOOK") {
-        return (arrow == "RIGHT") ? "Assets/talents/arrow-horizontal-0.png" :
-                                    "Assets/talents/arrow-hook.png";
-    }
+    if (!has_right_child())
+        return "";
 
-    return "";
+    return get_arrow_identifier(right_child->get_position());
 }
 
 QString Talent::get_bottom_arrow_image() const {
-    QString arrow = get_arrow_identifier(right_child->get_position());
-    if (arrow == "RIGHT" || arrow == "HOOK") {
-        return (arrow == "RIGHT") ? "Assets/talents/arrow-horizontal-0.png" :
-                                    "Assets/talents/arrow-hook.png";
-    }
+    if (!has_bottom_child())
+        return "";
 
-    return "";
+    return get_arrow_identifier(bottom_child->get_position());
 }
 
 QString Talent::get_arrow_identifier(const QString target_position) const {
@@ -79,8 +73,10 @@ QString Talent::get_arrow_identifier(const QString target_position) const {
     if (own_column == target_column) {
         switch(delta) {
         case 1:
-            return "VERTICAL1";
+            return "VERTICAL0";
         case 2:
+            return "VERTICAL1";
+        case 3:
             return "VERTICAL2";
         default:
             qDebug() << "Talent::get_arrow_identifier unexpected delta" << delta;

@@ -22,7 +22,7 @@ Rectangle {
         rank.color = warrior.isMaxed(treePos, talentPos) ? talentMaxed :
                                                            talentAvailable
         unavailable.visible = icon.visible && !warrior.isAvailable(treePos, talentPos)
-        bottomArrowDark.visible = bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || !warrior.hasTalentPointsRemaining())
+        bottomArrowDark.visible = bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || (!warrior.hasTalentPointsRemaining() && !warrior.bottomChildActive(treePos, talentPos)))
         border.color = unavailable.visible ? root.gray :
                                              warrior.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                                   talentAvailable
@@ -55,6 +55,23 @@ Rectangle {
         height += ttNextRankDescription.visible ? ttNextRankDescription.height + ttNextRankDescription.anchors.topMargin : 0
         height += 10 // bottom margin
         return height
+    }
+
+    function getArrowIcon(arrowIdentifier) {
+        switch (arrowIdentifier) {
+        case "VERTICAL0":
+            return "Assets/talents/arrow-vertical-0.png"
+        case "VERTICAL1":
+            return "Assets/talents/arrow-vertical-1.png"
+        case "VERTICAL2":
+            return "Assets/talents/arrow-vertical-2.png"
+        case "RIGHT":
+            return "Assets/talents/arrow-horizontal-0.png"
+        case "HOOK":
+            return "Assets/talents/arrow-hook.png"
+        default:
+            return ""
+        }
     }
 
     Rectangle {
@@ -343,8 +360,18 @@ Rectangle {
 
     Image {
         id: bottomArrow
-        source: "Assets/talents/arrow-vertical-1.png"
-        height: parent.height * 1.20
+        property string bottomArrowType: warrior.getBottomArrow(treePos, talentPos)
+        source: getArrowIcon(bottomArrowType)
+        height: {
+            switch (bottomArrowType) {
+            case "VERTICAL0":
+                return parent.height * 0.2
+            case "VERTICAL1":
+                return parent.height * 1.20
+            case "VERTICAL2":
+                return parent.height * 2.4
+            }
+        }
 
         visible: warrior.showBottomArrow(treePos, talentPos)
 
@@ -356,7 +383,7 @@ Rectangle {
 
     Colorize {
         id: bottomArrowDark
-        visible: bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || !warrior.hasTalentPointsRemaining())
+        visible: bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || (!warrior.hasTalentPointsRemaining() && !warrior.bottomChildActive(treePos, talentPos)))
         anchors.fill: bottomArrow
         source: bottomArrow
         hue: 0.0

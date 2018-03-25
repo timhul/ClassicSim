@@ -90,6 +90,14 @@ bool TalentTree::bottom_child_is_available(const QString &position) const {
     return total_spent_points >= (QString(child_pos[0]).toInt() - 1) * 5;
 }
 
+bool TalentTree::bottom_child_is_active(const QString &position) const {
+    if (!talents.contains(position) || !talents[position]->has_bottom_child()) {
+        return false;
+    }
+
+    return talents[position]->get_bottom_child()->is_active();
+}
+
 bool TalentTree::right_child_is_available(const QString &position) const {
     if (!talents.contains(position) || !talents[position]->has_right_child())
         return false;
@@ -97,6 +105,14 @@ bool TalentTree::right_child_is_available(const QString &position) const {
     QString child_pos = talents[position]->get_right_child()->get_position();
 
     return total_spent_points >= (QString(child_pos[0]).toInt() - 1) * 5;
+}
+
+bool TalentTree::right_child_is_active(const QString &position) const {
+    if (!talents.contains(position) || !talents[position]->has_right_child()) {
+        return false;
+    }
+
+    return talents[position]->get_right_child()->is_active();
 }
 
 int TalentTree::get_current_rank(const QString &position) const {
