@@ -76,7 +76,19 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.cpp \
     Character/Class/Warrior/TalentTrees/Arms/DeepWounds.cpp \
     Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
-    Character/Talents.cpp
+    Character/Talents.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedDemoralizingShout.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrath.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedCleave.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/DeathWish.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -148,7 +160,19 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.h \
     Character/Class/Warrior/TalentTrees/Arms/DeepWounds.h \
     Character/Class/Warrior/TalentTrees/Arms/Impale.h \
-    Character/Talents.h
+    Character/Talents.h \
+    Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.h \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedDemoralizingShout.h \
+    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrath.h \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedCleave.h \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.h \
+    Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.h \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.h \
+    Character/Class/Warrior/TalentTrees/Fury/DeathWish.h \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.h \
+    Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.h \
+    Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.h \
+    Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
