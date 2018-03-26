@@ -190,7 +190,17 @@ bool TalentTree::is_available(const QString &position) const {
     if (!talents.contains(position))
         return false;
 
+    if (has_parent(position) && !talents[position]->get_parent()->is_maxed())
+        return false;
+
     return total_spent_points >= (QString(position[0]).toInt() - 1) * 5;
+}
+
+bool TalentTree::has_parent(const QString &position) const {
+    if (!talents.contains(position))
+        return false;
+
+    return talents[position]->has_parent();
 }
 
 bool TalentTree::has_right_child(const QString &position) const {

@@ -147,6 +147,10 @@ bool Talent::is_maxed() const {
     return curr_points == max_points;
 }
 
+bool Talent::has_parent() const {
+    return parent != nullptr;
+}
+
 bool Talent::has_right_child() const {
     return right_child != nullptr;
 }
@@ -158,6 +162,10 @@ bool Talent::has_bottom_child() const {
 bool Talent::any_child_active() const {
     return ((right_child != nullptr && right_child->is_active())
             || (right_child != nullptr && bottom_child->is_active()));
+}
+
+Talent* Talent::get_parent() const {
+    return parent;
 }
 
 Talent* Talent::get_bottom_child() const {

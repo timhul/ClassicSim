@@ -36,8 +36,10 @@ public:
     bool is_active() const;
     bool is_maxed() const;
 
+    bool has_parent() const;
     bool has_right_child() const;
     bool has_bottom_child() const;
+    Talent* get_parent() const;
     Talent* get_bottom_child() const;
     Talent* get_right_child() const;
 

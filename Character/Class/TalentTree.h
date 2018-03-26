@@ -38,6 +38,7 @@ public:
     bool is_active(const QString &position) const;
     bool is_maxed(const QString &position) const;
     bool is_available(const QString &position) const;
+    bool has_parent(const QString &position) const;
     bool has_right_child(const QString &position) const;
     bool has_bottom_child(const QString &position) const;
 
