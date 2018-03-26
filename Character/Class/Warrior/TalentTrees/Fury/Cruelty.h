@@ -6,7 +6,7 @@
 class Cruelty: public Talent {
     Q_OBJECT
 public:
-    Cruelty();
+    Cruelty(Character *pchar);
     virtual ~Cruelty();
 
 private:

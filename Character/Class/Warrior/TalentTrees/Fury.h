@@ -6,7 +6,7 @@
 class Fury: public TalentTree {
     Q_OBJECT
 public:
-    Fury(QObject* parent = 0);
+    Fury(Character *pchar, QObject* parent = 0);
     virtual ~Fury();
 
 private:

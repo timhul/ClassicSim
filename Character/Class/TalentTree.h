@@ -6,6 +6,7 @@
 #include <QMap>
 #include <assert.h>
 
+class Character;
 class Talent;
 
 class TalentTree: public QObject {
@@ -50,6 +51,7 @@ protected:
 
     QMap<QString, Talent*> talents;
     QMap<QString, int> spent_points;
+
 
     void add_talents(const QMap<QString, Talent *> &new_talents);
 

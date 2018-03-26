@@ -42,7 +42,7 @@ public:
 
     Q_INVOKABLE void clearTree(const QString tree_position);
 
-    void setTalentTree(const QString &tree_position, TalentTree* tree);
+    void set_talent_tree(const QString &tree_position, TalentTree* tree);
 
 Q_SIGNALS:
     void talentsUpdated();

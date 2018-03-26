@@ -266,7 +266,7 @@ void Talents::clearTree(const QString tree_position) {
     Q_EMIT talentsUpdated();
 }
 
-void Talents::setTalentTree(const QString &tree_position, TalentTree *tree) {
+void Talents::set_talent_tree(const QString &tree_position, TalentTree *tree) {
     if (talent_trees.contains(tree_position) && talent_trees[tree_position] != nullptr) {
         delete talent_trees[tree_position];
     }

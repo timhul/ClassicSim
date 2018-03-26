@@ -204,7 +204,7 @@ void Warrior::decrease_attack_speed(float decrease) {
 }
 
 void Warrior::initialize_talents() {
-    talents->setTalentTree("LEFT", dynamic_cast<TalentTree*>(new Arms()));
-    talents->setTalentTree("MID", dynamic_cast<TalentTree*>(new Fury()));
-    talents->setTalentTree("RIGHT", dynamic_cast<TalentTree*>(new Protection()));
+    talents->set_talent_tree("LEFT", dynamic_cast<TalentTree*>(new Arms(this)));
+    talents->set_talent_tree("MID", dynamic_cast<TalentTree*>(new Fury(this)));
+    talents->set_talent_tree("RIGHT", dynamic_cast<TalentTree*>(new Protection(this)));
 }

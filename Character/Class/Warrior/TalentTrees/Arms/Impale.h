@@ -6,7 +6,7 @@
 class Impale: public Talent {
     Q_OBJECT
 public:
-    Impale();
+    Impale(Character *pchar);
     virtual ~Impale();
 
 private:

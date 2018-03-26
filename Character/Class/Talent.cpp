@@ -1,8 +1,10 @@
 
 #include "Talent.h"
 #include <QDebug>
+#include "Character.h"
 
-Talent::Talent(const QString &name_, const QString & position_, const QString &icon_, const int max_points_) :
+Talent::Talent(Character *pchar_, const QString &name_, const QString & position_, const QString &icon_, const int max_points_) :
+    pchar(pchar_),
     name(name_),
     position(position_),
     icon(icon_),

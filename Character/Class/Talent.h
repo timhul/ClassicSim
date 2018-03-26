@@ -6,10 +6,12 @@
 #include <QMap>
 #include <assert.h>
 
+class Character;
+
 class Talent: public QObject {
     Q_OBJECT
 public:
-    Talent(const QString& name_, const QString & position_, const QString &icon_, const int max_points_);
+    Talent(Character* pchar_, const QString& name_, const QString & position_, const QString &icon_, const int max_points_);
     virtual ~Talent();
 
     QString get_name() const;
@@ -43,6 +45,7 @@ public:
     void set_right_child(Talent*);
 
 protected:
+    Character* pchar;
     const QString name;
     const QString position;
     const QString icon;

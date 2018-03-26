@@ -6,7 +6,7 @@
 class DeepWounds: public Talent {
     Q_OBJECT
 public:
-    DeepWounds();
+    DeepWounds(Character* pchar);
     virtual ~DeepWounds();
 
 private:

@@ -6,7 +6,7 @@
 class ImprovedRend: public Talent {
     Q_OBJECT
 public:
-    ImprovedRend();
+    ImprovedRend(Character *pchar);
     virtual ~ImprovedRend();
 
 private:

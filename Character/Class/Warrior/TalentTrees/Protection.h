@@ -6,7 +6,7 @@
 class Protection: public TalentTree {
     Q_OBJECT
 public:
-    Protection(QObject* parent = 0);
+    Protection(Character *pchar, QObject* parent = 0);
     virtual ~Protection();
 
 private:
