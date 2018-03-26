@@ -42,6 +42,8 @@ public:
 
     int get_total_points() const;
 
+    void clear_tree();
+
 protected:
     const QString name;
     int total_spent_points;

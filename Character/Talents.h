@@ -40,6 +40,8 @@ public:
     Q_INVOKABLE void maxRank(const QString tree_position, const QString talent_position);
     Q_INVOKABLE void minRank(const QString tree_position, const QString talent_position);
 
+    Q_INVOKABLE void clearTree(const QString tree_position);
+
     void setTalentTree(const QString &tree_position, TalentTree* tree);
 
 Q_SIGNALS:

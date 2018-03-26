@@ -28,6 +28,8 @@ public:
     bool increment_rank();
     bool decrement_rank();
 
+    void force_clear_rank();
+
     bool is_active() const;
     bool is_maxed() const;
 

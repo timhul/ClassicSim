@@ -127,6 +127,10 @@ bool Talent::decrement_rank() {
     return true;
 }
 
+void Talent::force_clear_rank() {
+    curr_points = 0;
+}
+
 bool Talent::is_active() const {
     return curr_points > 0;
 }

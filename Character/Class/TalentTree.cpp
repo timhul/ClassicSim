@@ -252,3 +252,11 @@ int TalentTree::get_points_spent_up_to_rank(const int rank) const {
 int TalentTree::get_total_points() const {
     return total_spent_points;
 }
+
+void TalentTree::clear_tree() {
+    for (auto it : talents.keys()) {
+        talents.value(it)->force_clear_rank();
+    }
+
+    total_spent_points = 0;
+}

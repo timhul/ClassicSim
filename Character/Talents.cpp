@@ -252,6 +252,20 @@ void Talents::minRank(const QString tree_position, const QString talent_position
     Q_EMIT talentsUpdated();
 }
 
+void Talents::clearTree(const QString tree_position) {
+    if (!talent_trees.contains(tree_position)) {
+        qDebug() << "Talents::clearTree could not find tree position" << tree_position;
+        return;
+    }
+
+    int points_refunded = talent_trees[tree_position]->get_total_points();
+    talent_trees[tree_position]->clear_tree();
+    max_talent_points += points_refunded;
+    assert(max_talent_points <= 51);
+
+    Q_EMIT talentsUpdated();
+}
+
 void Talents::setTalentTree(const QString &tree_position, TalentTree *tree) {
     if (talent_trees.contains(tree_position) && talent_trees[tree_position] != nullptr) {
         delete talent_trees[tree_position];
