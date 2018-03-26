@@ -33,6 +33,7 @@
 #include "Random.h"
 #include "Mechanics.h"
 #include "Target.h"
+#include "Talents.h"
 
 #include <assert.h>
 #include <QDebug>
@@ -78,7 +79,8 @@ void Test::test_queue(void) {
     Target* target = new Target(63);
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
-    Warrior* pchar = new Warrior(race, engine, equipment, combat);
+    Talents* talents = new Talents();
+    Warrior* pchar = new Warrior(race, engine, equipment, combat, talents);
     pchar->set_clvl(60);
     combat->set_character(pchar);
     EncounterStart* start_event = new EncounterStart(pchar);
@@ -94,6 +96,7 @@ void Test::test_queue(void) {
     delete pchar;
     delete race;
     delete engine;
+    delete talents;
 }
 
 void Test::test_random(void) {
@@ -113,7 +116,8 @@ void Test::test_combat_roll_melee_hit_result(void) {
     Race* race = new Orc();
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
-    Warrior* pchar = new Warrior(race, engine, equipment, combat);
+    Talents* talents = new Talents();
+    Warrior* pchar = new Warrior(race, engine, equipment, combat, talents);
     combat->set_character(pchar);
 
     AttackResult* result = combat->get_melee_hit_result(300);
@@ -131,6 +135,7 @@ void Test::test_combat_roll_melee_hit_result(void) {
     delete pchar;
     delete random;
     delete combat;
+    delete talents;
 }
 
 void Test::test_combat_roll_creation(void) {
@@ -140,7 +145,8 @@ void Test::test_combat_roll_creation(void) {
     Race* race = new Orc();
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
-    Warrior* pchar = new Warrior(race, engine, equipment, combat);
+    Talents* talents = new Talents();
+    Warrior* pchar = new Warrior(race, engine, equipment, combat, talents);
     combat->set_character(dynamic_cast<Character*>(pchar));
 
     combat->get_white_hit_table(300);
@@ -156,6 +162,7 @@ void Test::test_combat_roll_creation(void) {
     delete pchar;
     delete random;
     delete combat;
+    delete talents;
 }
 
 void Test::test_mechanics_dodge(void) {
@@ -290,6 +297,7 @@ void Test::test_character_creation(void) {
     Target* target = new Target(63);
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
+    Talents* talents = new Talents();
 
     Race* race = new Human();
     // TODO: Add assertions
@@ -322,44 +330,44 @@ void Test::test_character_creation(void) {
     race = new Troll();
     // TODO: Add assertions
 
-    Warrior* warr = new Warrior(race, engine, equipment, combat);
+    Warrior* warr = new Warrior(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete warr;
 
-    Priest* priest = new Priest(race, engine, equipment, combat);
+    Priest* priest = new Priest(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete priest;
 
-    Rogue* rogue = new Rogue(race, engine, equipment, combat);
+    Rogue* rogue = new Rogue(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete rogue;
 
-    Mage* mage = new Mage(race, engine, equipment, combat);
+    Mage* mage = new Mage(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete mage;
 
-    Druid* druid = new Druid(race, engine, equipment, combat);
+    Druid* druid = new Druid(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete druid;
 
-    Hunter* hunter = new Hunter(race, engine, equipment, combat);
+    Hunter* hunter = new Hunter(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete hunter;
 
-    Warlock* warlock = new Warlock(race, engine, equipment, combat);
+    Warlock* warlock = new Warlock(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete warlock;
 
-    Shaman* shaman = new Shaman(race, engine, equipment, combat);
+    Shaman* shaman = new Shaman(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete shaman;
 
-    Paladin* paladin = new Paladin(race, engine, equipment, combat);
+    Paladin* paladin = new Paladin(race, engine, equipment, combat, talents);
     // TODO: Add assertions
     delete paladin;
 
     race = new Orc();
-    warr = new Warrior(race, engine, equipment, combat);
+    warr = new Warrior(race, engine, equipment, combat, talents);
     assert(warr->get_name() == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");
     // TODO: Assert stats
@@ -373,4 +381,5 @@ void Test::test_character_creation(void) {
     delete warr;
     delete engine;
     delete equipment;
+    delete talents;
 }

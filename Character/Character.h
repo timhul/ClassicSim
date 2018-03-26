@@ -8,44 +8,16 @@
 class Race;
 class Engine;
 class Equipment;
-class TalentTree;
+class Talents;
 
 class Character: public QObject {
     Q_OBJECT
 
 public:
-    Character(Race*, Engine*, Equipment*, QObject* parent = 0);
+    Character(Race*, Engine*, Equipment*, Talents*, QObject* parent = 0);
 
     Race* get_race(void);
     virtual QString get_name() const = 0;
-
-    Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showBottomArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showRightArrow(const QString tree_position, const QString talent_position) const;
-
-    Q_INVOKABLE QString getBottomArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getRightArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool bottomChildAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool bottomChildActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool rightChildAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool rightChildActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isMaxed(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool hasTalentPointsRemaining() const;
-    Q_INVOKABLE QString getRank(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getMaxRank(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE void decrementRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE QString getRequirements(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getCurrentRankDescription(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getNextRankDescription(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE int getTreePoints(const QString tree_position) const;
-    Q_INVOKABLE QString getTreeName(const QString tree_position) const;
-    Q_INVOKABLE QString getTalentName(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE void maxRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE void minRank(const QString tree_position, const QString talent_position);
 
     virtual void rotation(void) = 0;
     virtual void mh_auto_attack(const int) = 0;
@@ -102,6 +74,7 @@ protected:
     Race* race;
     Engine* engine;
     Equipment* equipment;
+    Talents* talents;
     int STR;
     int AGI;
     int STAM;
@@ -115,7 +88,6 @@ protected:
     int clvl;
     bool melee_attacking;
     float last_action;
-    QMap<QString, TalentTree*> talent_trees;
 
     int max_talent_points;
 

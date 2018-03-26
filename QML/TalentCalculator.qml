@@ -6,11 +6,11 @@ Rectangle {
     width: parent.width
 
     Connections {
-        target: warrior
+        target: talents
         onTalentsUpdated: {
-            leftTotalPoints.text = warrior.getTreePoints("LEFT")
-            midTotalPoints.text = warrior.getTreePoints("MID")
-            rightTotalPoints.text = warrior.getTreePoints("RIGHT")
+            leftTotalPoints.text = talents.getTreePoints("LEFT")
+            midTotalPoints.text = talents.getTreePoints("MID")
+            rightTotalPoints.text = talents.getTreePoints("RIGHT")
         }
     }
 
@@ -74,7 +74,7 @@ Rectangle {
                     pointSize: 28
                 }
 
-                text:  warrior.getTreePoints("LEFT")
+                text:  talents.getTreePoints("LEFT")
             }
 
             Text {
@@ -92,7 +92,7 @@ Rectangle {
                     pointSize: 28
                 }
 
-                text:  warrior.getTreePoints("MID")
+                text:  talents.getTreePoints("MID")
             }
 
             Text {
@@ -110,7 +110,7 @@ Rectangle {
                     pointSize: 28
                 }
 
-                text:  warrior.getTreePoints("RIGHT")
+                text:  talents.getTreePoints("RIGHT")
             }
         }
     }

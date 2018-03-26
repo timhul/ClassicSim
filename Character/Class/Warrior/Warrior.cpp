@@ -1,5 +1,6 @@
 
 #include "Warrior.h"
+#include "Talents.h"
 #include "PlayerAction.h"
 #include "Bloodthirst.h"
 #include "MainhandAttack.h"
@@ -14,8 +15,8 @@
 #include "Protection.h"
 #include <QDebug>
 
-Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
-    Character(race, engine, _eq, parent) {
+Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Talents *talents, QObject* parent) :
+    Character(race, engine, _eq, talents, parent) {
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
     this->STR += get_strength_modifier() + 97;
@@ -37,10 +38,6 @@ Warrior::~Warrior() {
     delete mh_attack;
     delete oh_attack;
     delete flurry;
-
-    for (auto it : talent_trees.keys()) {
-        delete talent_trees.value(it);
-    }
 }
 
 QString Warrior::get_name(void) const {
@@ -207,7 +204,7 @@ void Warrior::decrease_attack_speed(float decrease) {
 }
 
 void Warrior::initialize_talents() {
-    talent_trees["LEFT"] = dynamic_cast<TalentTree*>(new Arms());
-    talent_trees["MID"] = dynamic_cast<TalentTree*>(new Fury());
-    talent_trees["RIGHT"] = dynamic_cast<TalentTree*>(new Protection());
+    talents->setTalentTree("LEFT", dynamic_cast<TalentTree*>(new Arms()));
+    talents->setTalentTree("MID", dynamic_cast<TalentTree*>(new Fury()));
+    talents->setTalentTree("RIGHT", dynamic_cast<TalentTree*>(new Protection()));
 }

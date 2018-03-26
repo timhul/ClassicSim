@@ -8,6 +8,7 @@
 #include "Equipment.h"
 #include "Target.h"
 #include "CombatRoll.h"
+#include "Talents.h"
 
 #include "Dwarf.h"
 #include "Gnome.h"
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
     Target* target = new Target(63);
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
+    Talents* talents = new Talents();
 
     Race* dwarf = new Dwarf();
     Race* gnome = new Gnome();
@@ -52,15 +54,15 @@ int main(int argc, char *argv[])
     Race* troll = new Troll();
     Race* undead = new Undead();
 
-    Druid* druid = new Druid(nelf, engine, equipment, combat);
-    Hunter* hunter = new Hunter(dwarf, engine, equipment, combat);
-    Mage* mage = new Mage(gnome, engine, equipment, combat);
-    Paladin* paladin = new Paladin(human, engine, equipment, combat);
-    Priest* priest = new Priest(undead, engine, equipment, combat);
-    Rogue* rogue = new Rogue(undead, engine, equipment, combat);
-    Shaman* shaman = new Shaman(tauren, engine, equipment, combat);
-    Warlock* warlock = new Warlock(troll, engine, equipment, combat);
-    Warrior* warrior = new Warrior(orc, engine, equipment, combat);
+    Druid* druid = new Druid(nelf, engine, equipment, combat, talents);
+    Hunter* hunter = new Hunter(dwarf, engine, equipment, combat, talents);
+    Mage* mage = new Mage(gnome, engine, equipment, combat, talents);
+    Paladin* paladin = new Paladin(human, engine, equipment, combat, talents);
+    Priest* priest = new Priest(undead, engine, equipment, combat, talents);
+    Rogue* rogue = new Rogue(undead, engine, equipment, combat, talents);
+    Shaman* shaman = new Shaman(tauren, engine, equipment, combat, talents);
+    Warlock* warlock = new Warlock(troll, engine, equipment, combat, talents);
+    Warrior* warrior = new Warrior(orc, engine, equipment, combat, talents);
 
     QQmlApplicationEngine qml_engine;
     QQmlContext* context = qml_engine.rootContext();
@@ -74,6 +76,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("shaman", shaman);
     context->setContextProperty("warlock", warlock);
     context->setContextProperty("warrior", warrior);
+    context->setContextProperty("talents", talents);
 
     qml_engine.addImageProvider(QLatin1String("graphics"), new QQuickImageProvider(QQuickImageProvider::Image));
     qml_engine.clearComponentCache();

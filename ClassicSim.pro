@@ -75,7 +75,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.cpp \
     Character/Class/Warrior/TalentTrees/Arms/DeepWounds.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/Impale.cpp
+    Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
+    Character/Talents.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -146,7 +147,8 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.h \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.h \
     Character/Class/Warrior/TalentTrees/Arms/DeepWounds.h \
-    Character/Class/Warrior/TalentTrees/Arms/Impale.h
+    Character/Class/Warrior/TalentTrees/Arms/Impale.h \
+    Character/Talents.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

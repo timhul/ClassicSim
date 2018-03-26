@@ -4,6 +4,7 @@
 #include "Character.h"
 
 class CombatRoll;
+class Talents;
 class Bloodthirst;
 class MainhandAttack;
 class OffhandAttack;
@@ -12,7 +13,7 @@ class Flurry;
 class Warrior: public Character {
     Q_OBJECT
 public:
-    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0);
+    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Talents* talents, QObject *parent = 0);
     virtual ~Warrior();
 
     QString get_name() const override;

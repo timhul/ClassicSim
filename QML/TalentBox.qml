@@ -13,35 +13,35 @@ Rectangle {
     height: parent.height
 
     Connections {
-        target: warrior
+        target: talents
         onTalentsUpdated: update()
     }
 
     function update() {
-        rank.text = warrior.getRank(treePos, talentPos)
-        rank.color = warrior.isMaxed(treePos, talentPos) ? talentMaxed :
+        rank.text = talents.getRank(treePos, talentPos)
+        rank.color = talents.isMaxed(treePos, talentPos) ? talentMaxed :
                                                            talentAvailable
-        unavailable.visible = icon.visible && !warrior.isAvailable(treePos, talentPos)
-        bottomArrowDark.visible = bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || (!warrior.hasTalentPointsRemaining() && !warrior.bottomChildActive(treePos, talentPos)))
+        unavailable.visible = icon.visible && !talents.isAvailable(treePos, talentPos)
+        bottomArrowDark.visible = bottomArrow.visible && (!talents.bottomChildAvailable(treePos, talentPos) || (!talents.hasTalentPointsRemaining() && !talents.bottomChildActive(treePos, talentPos)))
         border.color = unavailable.visible ? root.gray :
-                                             warrior.isMaxed(treePos, talentPos) ? talentMaxed :
+                                             talents.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                                   talentAvailable
-        ttRank.text = "Rank " + warrior.getRank(treePos, talentPos) + "/" + warrior.getMaxRank(treePos, talentPos)
-        ttDescription.text = warrior.getCurrentRankDescription(treePos, talentPos)
+        ttRank.text = "Rank " + talents.getRank(treePos, talentPos) + "/" + talents.getMaxRank(treePos, talentPos)
+        ttDescription.text = talents.getCurrentRankDescription(treePos, talentPos)
 
-        ttRequirements.visible = ttRect.visible && !warrior.isAvailable(treePos, talentPos)
-        ttRequirements.text = !ttRequirements.visible ? "" : warrior.getRequirements(treePos, talentPos)
+        ttRequirements.visible = ttRect.visible && !talents.isAvailable(treePos, talentPos)
+        ttRequirements.text = !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
 
-        ttNextRank.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
-        ttNextRankDescription.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
-        ttNextRankDescription.text = ttNextRankDescription.visible ? warrior.getNextRankDescription(treePos,  talentPos) : ""
+        ttNextRank.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
+        ttNextRankDescription.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
+        ttNextRankDescription.text = ttNextRankDescription.visible ? talents.getNextRankDescription(treePos,  talentPos) : ""
 
         ttRect.height = getTooltipHeight()
     }
 
     function updateVisibility() {
-        ttNextRank.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
-        ttNextRankDescription.visible = ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+        ttNextRank.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
+        ttNextRankDescription.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
         ttRect.height = getTooltipHeight()
     }
 
@@ -83,15 +83,15 @@ Rectangle {
         x: parent.width / 2 - width / 2
         y: parent.height / 2 - height / 2
 
-        visible: warrior.showPosition(treePos, talentPos)
+        visible: talents.showPosition(treePos, talentPos)
 
         color: unavailable.visible ? root.gray :
-                                     warrior.isMaxed(treePos, talentPos) ? talentMaxed :
+                                     talents.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                            talentAvailable
 
         Image {
             id: icon
-            source: warrior.getIcon(treePos, talentPos)
+            source: talents.getIcon(treePos, talentPos)
 
             anchors.fill: parent
             anchors.margins: 1
@@ -111,7 +111,7 @@ Rectangle {
 
         Colorize {
             id: unavailable
-            visible: icon.visible && !warrior.isAvailable(treePos, talentPos)
+            visible: icon.visible && !talents.isAvailable(treePos, talentPos)
             anchors.fill: icon
             source: icon
             hue: 0.0
@@ -134,7 +134,7 @@ Rectangle {
 
         Text {
             id: rank
-            text: warrior.getRank(treePos, talentPos)
+            text: talents.getRank(treePos, talentPos)
 
             anchors.fill: parent
 
@@ -143,7 +143,7 @@ Rectangle {
                 pointSize: 10
             }
 
-            color: warrior.isMaxed(treePos, talentPos) ? talentMaxed :
+            color: talents.isMaxed(treePos, talentPos) ? talentMaxed :
                                                          talentAvailable
 
             horizontalAlignment: Text.AlignHCenter
@@ -159,23 +159,23 @@ Rectangle {
         onClicked: {
             if (mouse.button === Qt.RightButton) {
                 if (mouse.modifiers & Qt.ShiftModifier)
-                    warrior.minRank(treePos, talentPos)
+                    talents.minRank(treePos, talentPos)
                 else
-                    warrior.decrementRank(treePos, talentPos)
+                    talents.decrementRank(treePos, talentPos)
             }
             else {
                 if (mouse.modifiers & Qt.ShiftModifier)
-                    warrior.maxRank(treePos, talentPos)
+                    talents.maxRank(treePos, talentPos)
                 else
-                    warrior.incrementRank(treePos, talentPos)
+                    talents.incrementRank(treePos, talentPos)
             }
         }
 
         onPressAndHold: {
             if (mouse.button === Qt.RightButton)
-                warrior.minRank(treePos, talentPos)
+                talents.minRank(treePos, talentPos)
             else
-                warrior.maxRank(treePos, talentPos)
+                talents.maxRank(treePos, talentPos)
         }
 
         onEntered: {
@@ -207,7 +207,7 @@ Rectangle {
 
     Text {
         id: ttTitle
-        text: warrior.getTalentName(treePos, talentPos)
+        text: talents.getTalentName(treePos, talentPos)
 
         visible: ttRect.visible
 
@@ -231,7 +231,7 @@ Rectangle {
 
     Text {
         id: ttRank
-        text: "Rank " + warrior.getRank(treePos, talentPos) + "/" + warrior.getMaxRank(treePos, talentPos)
+        text: "Rank " + talents.getRank(treePos, talentPos) + "/" + talents.getMaxRank(treePos, talentPos)
 
         visible: ttRect.visible
 
@@ -255,9 +255,9 @@ Rectangle {
 
     Text {
         id: ttRequirements
-        text: !ttRequirements.visible ? "" : warrior.getRequirements(treePos, talentPos)
+        text: !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
 
-        visible: ttRect.visible && !warrior.isAvailable(treePos, talentPos)
+        visible: ttRect.visible && !talents.isAvailable(treePos, talentPos)
 
         anchors {
             top: ttRank.bottom
@@ -282,7 +282,7 @@ Rectangle {
 
     Text {
         id: ttDescription
-        text: warrior.getCurrentRankDescription(treePos, talentPos)
+        text: talents.getCurrentRankDescription(treePos, talentPos)
 
         visible: ttRect.visible
 
@@ -311,7 +311,7 @@ Rectangle {
         id: ttNextRank
         text: "Next rank:"
 
-        visible: ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+        visible: ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
 
         anchors {
             top: ttDescription.bottom
@@ -333,9 +333,9 @@ Rectangle {
 
     Text {
         id: ttNextRankDescription
-        text: warrior.getNextRankDescription(treePos,  talentPos)
+        text: talents.getNextRankDescription(treePos,  talentPos)
 
-        visible: ttRect.visible && warrior.isActive(treePos, talentPos) && !warrior.isMaxed(treePos, talentPos)
+        visible: ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
 
         anchors {
             top: ttNextRank.bottom
@@ -360,7 +360,7 @@ Rectangle {
 
     Image {
         id: bottomArrow
-        property string bottomArrowType: warrior.getBottomArrow(treePos, talentPos)
+        property string bottomArrowType: talents.getBottomArrow(treePos, talentPos)
         source: getArrowIcon(bottomArrowType)
         height: {
             switch (bottomArrowType) {
@@ -373,7 +373,7 @@ Rectangle {
             }
         }
 
-        visible: warrior.showBottomArrow(treePos, talentPos)
+        visible: talents.showBottomArrow(treePos, talentPos)
 
         anchors {
             top: border.bottom
@@ -383,7 +383,7 @@ Rectangle {
 
     Colorize {
         id: bottomArrowDark
-        visible: bottomArrow.visible && (!warrior.bottomChildAvailable(treePos, talentPos) || (!warrior.hasTalentPointsRemaining() && !warrior.bottomChildActive(treePos, talentPos)))
+        visible: bottomArrow.visible && (!talents.bottomChildAvailable(treePos, talentPos) || (!talents.hasTalentPointsRemaining() && !talents.bottomChildActive(treePos, talentPos)))
         anchors.fill: bottomArrow
         source: bottomArrow
         hue: 0.0
