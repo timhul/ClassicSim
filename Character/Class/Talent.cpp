@@ -114,6 +114,7 @@ bool Talent::increment_rank() {
         return false;
     }
 
+    apply_rank_effect();
     curr_points++;
     return true;
 }
@@ -125,11 +126,16 @@ bool Talent::decrement_rank() {
     if (curr_points == 0)
         return false;
 
+    remove_rank_effect();
     curr_points--;
     return true;
 }
 
 void Talent::force_clear_rank() {
+    for (int i = 0; i < curr_points; ++i) {
+        remove_rank_effect();
+    }
+
     curr_points = 0;
 }
 

@@ -21,7 +21,8 @@ public:
     QString get_bottom_arrow_image() const;
 
     // TODO: Mark as abstract class when talents are fully implemented.
-    virtual void effect() {} //= 0;
+    virtual void apply_rank_effect() {} //= 0;
+    virtual void remove_rank_effect() {} //= 0;
     virtual QString get_requirement_string() const;
     QString get_current_rank_description() const;
     QString get_next_rank_description() const;
