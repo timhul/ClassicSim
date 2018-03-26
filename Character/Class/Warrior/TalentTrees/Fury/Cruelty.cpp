@@ -1,6 +1,6 @@
 
 #include "Cruelty.h"
-#include <QDebug>
+#include "Character.h"
 
 Cruelty::Cruelty(Character *pchar) :
     Talent(pchar, "Cruelty", "1MR", "Assets/warrior/fury/tier1/Ability_rogue_eviscerate.png", 5)
@@ -11,4 +11,12 @@ Cruelty::Cruelty(Character *pchar) :
 
 Cruelty::~Cruelty() {
 
+}
+
+void Cruelty::apply_rank_effect() {
+    pchar->increase_crit(1.0);
+}
+
+void Cruelty::remove_rank_effect() {
+    pchar->decrease_crit(1.0);
 }

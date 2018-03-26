@@ -9,6 +9,9 @@ public:
     Cruelty(Character *pchar);
     virtual ~Cruelty();
 
+    virtual void apply_rank_effect() override;
+    virtual void remove_rank_effect() override;
+
 private:
 };
 
