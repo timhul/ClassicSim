@@ -40,6 +40,9 @@ Rectangle {
     }
 
     function updateVisibility() {
+        ttRequirements.visible = ttRect.visible && !talents.isAvailable(treePos, talentPos)
+        ttRequirements.text = !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
+
         ttNextRank.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
         ttNextRankDescription.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
         ttRect.height = getTooltipHeight()
