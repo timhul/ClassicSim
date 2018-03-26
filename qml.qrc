@@ -66,5 +66,7 @@
         <file>QML/Assets/talents/arrow-vertical-0.png</file>
         <file>QML/Assets/talents/arrow-vertical-1.png</file>
         <file>QML/Assets/talents/arrow-vertical-2.png</file>
+        <file>QML/Assets/cross.png</file>
+        <file>QML/ClickableImage.qml</file>
     </qresource>
 </RCC>

@@ -59,58 +59,90 @@ Rectangle {
         Row {
             anchors.fill: parent
 
-            Text {
-                id: leftTotalPoints
+            Rectangle {
                 height: parent.height
                 width: parent.width / 3
 
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+                color: "transparent"
 
-                color: root.gold
+                Text {
+                    id: leftTotalPoints
 
-                font {
-                    family: root.fontNumbers
-                    pointSize: 28
+                    anchors.centerIn: parent
+
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    color: root.gold
+
+                    font {
+                        family: root.fontNumbers
+                        pointSize: 28
+                    }
+
+                    text:  talents.getTreePoints("LEFT")
                 }
 
-                text:  talents.getTreePoints("LEFT")
+                ClickableImage {
+                    onImageClicked: talents.clearTree("LEFT")
+                }
             }
 
-            Text {
-                id: midTotalPoints
+            Rectangle {
                 height: parent.height
                 width: parent.width / 3
 
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+                color: "transparent"
 
-                color: root.gold
+                Text {
+                    id: midTotalPoints
 
-                font {
-                    family: root.fontNumbers
-                    pointSize: 28
+                    anchors.centerIn: parent
+
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    color: root.gold
+
+                    font {
+                        family: root.fontNumbers
+                        pointSize: 28
+                    }
+
+                    text:  talents.getTreePoints("MID")
                 }
 
-                text:  talents.getTreePoints("MID")
+                ClickableImage {
+                    onImageClicked: talents.clearTree("MID")
+                }
             }
 
-            Text {
-                id: rightTotalPoints
+            Rectangle {
                 height: parent.height
                 width: parent.width / 3
 
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+                color: "transparent"
+                Text {
+                    id: rightTotalPoints
 
-                color: root.gold
+                    anchors.centerIn: parent
 
-                font {
-                    family: root.fontNumbers
-                    pointSize: 28
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    color: root.gold
+
+                    font {
+                        family: root.fontNumbers
+                        pointSize: 28
+                    }
+
+                    text: talents.getTreePoints("RIGHT")
                 }
 
-                text:  talents.getTreePoints("RIGHT")
+                ClickableImage {
+                    onImageClicked: talents.clearTree("RIGHT")
+                }
             }
         }
     }
