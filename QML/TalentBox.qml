@@ -33,7 +33,6 @@ Rectangle {
         ttRequirements.text = !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
 
         ttNextRank.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
-        ttNextRankDescription.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
         ttNextRankDescription.text = ttNextRankDescription.visible ? talents.getNextRankDescription(treePos,  talentPos) : ""
 
         ttRect.height = getTooltipHeight()
@@ -44,7 +43,7 @@ Rectangle {
         ttRequirements.text = !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
 
         ttNextRank.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
-        ttNextRankDescription.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
+        ttNextRankDescription.text = ttNextRankDescription.visible ? talents.getNextRankDescription(treePos,  talentPos) : ""
         ttRect.height = getTooltipHeight()
     }
 
@@ -338,7 +337,7 @@ Rectangle {
         id: ttNextRankDescription
         text: talents.getNextRankDescription(treePos,  talentPos)
 
-        visible: ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
+        visible: ttNextRank.visible
 
         anchors {
             top: ttNextRank.bottom
