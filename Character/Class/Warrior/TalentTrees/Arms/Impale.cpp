@@ -12,3 +12,11 @@ Impale::Impale(Character *pchar) :
 Impale::~Impale() {
 
 }
+
+void Impale::apply_rank_effect() {
+    // TODO: Decide how rank effects work for this talent.
+}
+
+void Impale::remove_rank_effect() {
+    // TODO: Decide how rank effects work for this talent.
+}

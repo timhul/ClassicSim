@@ -9,6 +9,9 @@ public:
     ImprovedRend(Character *pchar);
     virtual ~ImprovedRend();
 
+    virtual void apply_rank_effect() override;
+    virtual void remove_rank_effect() override;
+
 private:
 };
 

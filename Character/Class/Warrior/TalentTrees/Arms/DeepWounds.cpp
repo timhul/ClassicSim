@@ -12,3 +12,11 @@ DeepWounds::DeepWounds(Character *pchar) :
 DeepWounds::~DeepWounds() {
 
 }
+
+void DeepWounds::apply_rank_effect() {
+    // TODO: Decide how rank effects work for this talent.
+}
+
+void DeepWounds::remove_rank_effect() {
+    // TODO: Decide how rank effects work for this talent.
+}

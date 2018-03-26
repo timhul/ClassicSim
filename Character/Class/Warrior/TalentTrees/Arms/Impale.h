@@ -9,6 +9,9 @@ public:
     Impale(Character *pchar);
     virtual ~Impale();
 
+    virtual void apply_rank_effect() override;
+    virtual void remove_rank_effect() override;
+
 private:
 };
 

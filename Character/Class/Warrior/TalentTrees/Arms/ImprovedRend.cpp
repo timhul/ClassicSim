@@ -12,3 +12,11 @@ ImprovedRend::ImprovedRend(Character *pchar) :
 ImprovedRend::~ImprovedRend() {
 
 }
+
+void ImprovedRend::apply_rank_effect() {
+    // TODO: Decide how rank effects work for this talent.
+}
+
+void ImprovedRend::remove_rank_effect() {
+    // TODO: Decide how rank effects work for this talent.
+}
