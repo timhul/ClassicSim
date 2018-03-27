@@ -88,7 +88,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.cpp \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.cpp \
-    Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.cpp
+    Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.cpp \
+    Character/Class/GenericTalent.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -172,7 +173,8 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.h \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.h \
-    Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.h
+    Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.h \
+    Character/Class/GenericTalent.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
