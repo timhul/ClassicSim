@@ -26,7 +26,6 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, Talents* 
     this->percent_attack_speed = 0.0;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
-    this->max_talent_points = 51;
 }
 
 Race* Character::get_race(void) {

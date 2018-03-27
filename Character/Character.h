@@ -89,8 +89,6 @@ protected:
     bool melee_attacking;
     float last_action;
 
-    int max_talent_points;
-
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);
 
