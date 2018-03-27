@@ -12,6 +12,8 @@ public:
 
     ~Talents();
 
+    Q_PROPERTY(int talentPointsRemaining READ get_talent_points_remaining NOTIFY talentsUpdated)
+
     Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool showBottomArrow(const QString tree_position, const QString talent_position) const;
@@ -44,6 +46,8 @@ public:
 
     void set_talent_tree(const QString &tree_position, TalentTree* tree);
 
+    int get_talent_points_remaining() const;
+
 Q_SIGNALS:
     void talentsUpdated();
 
@@ -51,7 +55,7 @@ Q_SIGNALS:
 private:
     QMap<QString, TalentTree*> talent_trees;
 
-    int max_talent_points;
+    int talent_points_remaining;
 };
 
 #endif // TALENTS_H

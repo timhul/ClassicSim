@@ -5,7 +5,7 @@
 
 Talents::Talents(QObject* parent) :
     QObject(parent),
-    max_talent_points(51)
+    talent_points_remaining(51)
 {}
 
 Talents::~Talents() {
@@ -95,7 +95,7 @@ bool Talents::isAvailable(const QString tree_position, const QString talent_posi
         return false;
     }
 
-    if (max_talent_points == 0 && !talent_trees[tree_position]->is_active(talent_position))
+    if (talent_points_remaining == 0 && !talent_trees[tree_position]->is_active(talent_position))
         return false;
 
     return talent_trees[tree_position]->is_available(talent_position);
@@ -111,7 +111,7 @@ bool Talents::isMaxed(const QString tree_position, const QString talent_position
 }
 
 bool Talents::hasTalentPointsRemaining() const {
-    return max_talent_points > 0;
+    return talent_points_remaining > 0;
 }
 
 QString Talents::getRank(const QString tree_position, const QString talent_position) const {
@@ -138,13 +138,13 @@ void Talents::incrementRank(const QString tree_position, const QString talent_po
         return;
     }
 
-    assert(max_talent_points >= 0);
+    assert(talent_points_remaining >= 0);
 
-    if (max_talent_points == 0)
+    if (talent_points_remaining == 0)
         return;
 
     if (talent_trees[tree_position]->increment_rank(talent_position)) {
-        --max_talent_points;
+        --talent_points_remaining;
         Q_EMIT talentsUpdated();
     }
 }
@@ -155,13 +155,13 @@ void Talents::decrementRank(const QString tree_position, const QString talent_po
         return;
     }
 
-    assert(max_talent_points >= 0);
+    assert(talent_points_remaining >= 0);
 
-    if (max_talent_points == 51)
+    if (talent_points_remaining == 51)
         return;
 
     if (talent_trees[tree_position]->decrement_rank(talent_position)) {
-        ++max_talent_points;
+        ++talent_points_remaining;
         Q_EMIT talentsUpdated();
     }
 }
@@ -226,9 +226,9 @@ void Talents::maxRank(const QString tree_position, const QString talent_position
         return;
     }
 
-    while (max_talent_points > 0 && !talent_trees[tree_position]->is_maxed(talent_position)) {
+    while (talent_points_remaining > 0 && !talent_trees[tree_position]->is_maxed(talent_position)) {
         if (talent_trees[tree_position]->increment_rank(talent_position))
-            --max_talent_points;
+            --talent_points_remaining;
         else
             break;
     }
@@ -242,9 +242,9 @@ void Talents::minRank(const QString tree_position, const QString talent_position
         return;
     }
 
-    while (max_talent_points < 51 && talent_trees[tree_position]->is_active(talent_position)) {
+    while (talent_points_remaining < 51 && talent_trees[tree_position]->is_active(talent_position)) {
         if (talent_trees[tree_position]->decrement_rank(talent_position))
-            ++max_talent_points;
+            ++talent_points_remaining;
         else
             break;
     }
@@ -260,8 +260,8 @@ void Talents::clearTree(const QString tree_position) {
 
     int points_refunded = talent_trees[tree_position]->get_total_points();
     talent_trees[tree_position]->clear_tree();
-    max_talent_points += points_refunded;
-    assert(max_talent_points <= 51);
+    talent_points_remaining += points_refunded;
+    assert(talent_points_remaining <= 51);
 
     Q_EMIT talentsUpdated();
 }
@@ -272,4 +272,8 @@ void Talents::set_talent_tree(const QString &tree_position, TalentTree *tree) {
     }
 
     talent_trees[tree_position] = tree;
+}
+
+int Talents::get_talent_points_remaining() const {
+    return talent_points_remaining;
 }
