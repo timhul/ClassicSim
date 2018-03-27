@@ -81,7 +81,7 @@ QString TalentTree::get_bottom_arrow(const QString &position) {
 }
 
 bool TalentTree::bottom_child_is_available(const QString &position) const {
-    if (!talents.contains(position) || !talents[position]->has_bottom_child()) {
+    if (!talents.contains(position) || !talents[position]->has_bottom_child() || !is_maxed(position)) {
         return false;
     }
 
@@ -99,7 +99,7 @@ bool TalentTree::bottom_child_is_active(const QString &position) const {
 }
 
 bool TalentTree::right_child_is_available(const QString &position) const {
-    if (!talents.contains(position) || !talents[position]->has_right_child())
+    if (!talents.contains(position) || !talents[position]->has_right_child() || !is_maxed(position))
         return false;
 
     QString child_pos = talents[position]->get_right_child()->get_position();
