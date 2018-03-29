@@ -5,6 +5,10 @@ QString Paladin::get_name(void) const {
     return "Paladin";
 }
 
+QString Paladin::get_class_color() const {
+    return "#F58CBA";
+}
+
 int Paladin::get_strength_modifier(void) const {
     return 2;
 }

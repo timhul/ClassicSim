@@ -45,40 +45,15 @@ int main(int argc, char *argv[])
     Target* target = new Target(63);
     Random* random = new Random(0, 9999);
     CombatRoll* combat = new CombatRoll(target, random);
-    Talents* talents = new Talents();
 
-    GUIControl* gui_control = new GUIControl(talents);
+    GUIControl* gui_control = new GUIControl();
 
-    Race* dwarf = new Dwarf();
-    Race* gnome = new Gnome();
-    Race* human = new Human();
-    Race* nelf = new NightElf();
     Race* orc = new Orc();
-    Race* tauren = new Tauren();
-    Race* troll = new Troll();
-    Race* undead = new Undead();
-
-    Druid* druid = new Druid(nelf, engine, equipment, combat, talents);
-    Hunter* hunter = new Hunter(dwarf, engine, equipment, combat, talents);
-    Mage* mage = new Mage(gnome, engine, equipment, combat, talents);
-    Paladin* paladin = new Paladin(human, engine, equipment, combat, talents);
-    Priest* priest = new Priest(undead, engine, equipment, combat, talents);
-    Rogue* rogue = new Rogue(undead, engine, equipment, combat, talents);
-    Shaman* shaman = new Shaman(tauren, engine, equipment, combat, talents);
-    Warlock* warlock = new Warlock(troll, engine, equipment, combat, talents);
-    Warrior* warrior = new Warrior(orc, engine, equipment, combat, talents);
+    Warrior* warrior = new Warrior(orc, engine, equipment, combat);
 
     QQmlApplicationEngine qml_engine;
     QQmlContext* context = qml_engine.rootContext();
 
-    context->setContextProperty("druid", druid);
-    context->setContextProperty("hunter", hunter);
-    context->setContextProperty("mage", mage);
-    context->setContextProperty("paladin", paladin);
-    context->setContextProperty("priest", priest);
-    context->setContextProperty("rogue", rogue);
-    context->setContextProperty("shaman", shaman);
-    context->setContextProperty("warlock", warlock);
     context->setContextProperty("warrior", warrior);
     context->setContextProperty("character", gui_control);
     context->setContextProperty("talents", gui_control);

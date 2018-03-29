@@ -7,8 +7,8 @@
 class Druid: public Character {
     Q_OBJECT
 public:
-    Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Talents* talents, QObject *parent = 0) :
-        Character(race, engine, _eq, talents, parent) {
+    Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
+        Character(race, engine, _eq, parent) {
         this->STR += get_strength_modifier();
         this->AGI += get_agility_modifier();
         this->STAM += get_stamina_modifier();
@@ -20,6 +20,7 @@ public:
     virtual ~Druid() {}
 
     QString get_name() const override;
+    QString get_class_color() const override;
     int get_strength_modifier() const override;
     int get_agility_modifier() const override;
     int get_stamina_modifier() const override;

@@ -5,6 +5,10 @@ QString Mage::get_name(void) const {
     return "Mage";
 }
 
+QString Mage::get_class_color() const {
+    return "#69CCF0";
+}
+
 int Mage::get_strength_modifier(void) const {
     return 0;
 }

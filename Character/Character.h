@@ -14,7 +14,8 @@ class Character: public QObject {
     Q_OBJECT
 
 public:
-    Character(Race*, Engine*, Equipment*, Talents*, QObject* parent = 0);
+    Character(Race*, Engine*, Equipment*, QObject* parent = 0);
+    virtual ~Character();
 
     Race* get_race(void);
     virtual QString get_name() const = 0;
@@ -29,6 +30,8 @@ public:
     virtual int get_intellect_modifier() const = 0;
     virtual int get_spirit_modifier() const = 0;
 
+    virtual QString get_class_color() const = 0;
+
     int get_strength();
     int get_agility();
     int get_stamina();
@@ -40,6 +43,7 @@ public:
     void set_clvl(const int&);
     Engine* get_engine(void) const;
     Equipment* get_equipment(void) const;
+    Talents* get_talents(void) const;
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
     void start_attack(void);
@@ -66,9 +70,6 @@ public:
 
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
-
-Q_SIGNALS:
-    void talentsUpdated();
 
 protected:
     Race* race;

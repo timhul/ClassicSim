@@ -5,6 +5,10 @@ QString Warlock::get_name(void) const {
     return "Warlock";
 }
 
+QString Warlock::get_class_color() const {
+    return "#9482C9";
+}
+
 int Warlock::get_strength_modifier(void) const {
     return 0;
 }

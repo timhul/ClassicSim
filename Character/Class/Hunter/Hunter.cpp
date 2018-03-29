@@ -5,6 +5,10 @@ QString Hunter::get_name(void) const {
     return "Hunter";
 }
 
+QString Hunter::get_class_color() const {
+    return "#ABD473";
+}
+
 int Hunter::get_strength_modifier(void) const {
     return 0;
 }

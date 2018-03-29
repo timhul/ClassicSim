@@ -5,6 +5,10 @@ QString Shaman::get_name(void) const {
     return "Shaman";
 }
 
+QString Shaman::get_class_color() const {
+    return "#0070DE";
+}
+
 int Shaman::get_strength_modifier(void) const {
     return 1;
 }

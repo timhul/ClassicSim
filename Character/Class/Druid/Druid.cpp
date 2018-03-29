@@ -5,6 +5,10 @@ QString Druid::get_name(void) const {
     return "Druid";
 }
 
+QString Druid::get_class_color() const {
+    return "#FF7D0A";
+}
+
 int Druid::get_strength_modifier(void) const {
     return 1;
 }

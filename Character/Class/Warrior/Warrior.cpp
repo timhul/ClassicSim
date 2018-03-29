@@ -15,8 +15,8 @@
 #include "Protection.h"
 #include <QDebug>
 
-Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Talents *talents, QObject* parent) :
-    Character(race, engine, _eq, talents, parent) {
+Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
+    Character(race, engine, _eq, parent) {
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
     this->STR += get_strength_modifier() + 97;
@@ -42,6 +42,10 @@ Warrior::~Warrior() {
 
 QString Warrior::get_name(void) const {
     return "Warrior";
+}
+
+QString Warrior::get_class_color() const {
+    return "#C79C6E";
 }
 
 int Warrior::get_strength_modifier(void) const {

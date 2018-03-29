@@ -39,14 +39,14 @@ Rectangle {
                     horizontalAlignment: Text.AlignRight
                     verticalAlignment: Text.AlignVCenter
 
-                    color: root.colorWarrior
+                    color: character.classColor
 
                     font {
                         family: root.fontText
                         pointSize: 10
                     }
 
-                    text: "Warrior"
+                    text: character.className
                 }
 
                 Text {

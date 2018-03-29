@@ -5,6 +5,10 @@ QString Priest::get_name(void) const {
     return "Priest";
 }
 
+QString Priest::get_class_color() const {
+    return "#FFFFFF";
+}
+
 int Priest::get_strength_modifier(void) const {
     return 0;
 }

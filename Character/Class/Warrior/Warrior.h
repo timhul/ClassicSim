@@ -13,10 +13,11 @@ class Flurry;
 class Warrior: public Character {
     Q_OBJECT
 public:
-    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Talents* talents, QObject *parent = 0);
+    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0);
     virtual ~Warrior();
 
     QString get_name() const override;
+    QString get_class_color() const override;
     int get_strength_modifier() const override;
     int get_agility_modifier() const override;
     int get_stamina_modifier() const override;

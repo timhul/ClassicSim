@@ -5,6 +5,10 @@ QString Rogue::get_name(void) const {
     return "Rogue";
 }
 
+QString Rogue::get_class_color() const {
+    return "#FFF569";
+}
+
 int Rogue::get_strength_modifier(void) const {
     return 1;
 }

@@ -8,13 +8,13 @@
 
 #include <QDebug>
 
-Character::Character(Race* race, Engine* engine, Equipment* equipment, Talents* talents, QObject* parent) :
+Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* parent) :
     QObject(parent)
 {
     this->race = race;
     this->engine = engine;
     this->equipment = equipment;
-    this->talents = talents;
+    this->talents = new Talents();
     this->STR = race->get_base_strength();
     this->AGI = race->get_base_agility();
     this->STAM = race->get_base_stamina();
@@ -26,6 +26,10 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, Talents* 
     this->percent_attack_speed = 0.0;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
+}
+
+Character::~Character() {
+    delete talents;
 }
 
 Race* Character::get_race(void) {
@@ -82,6 +86,10 @@ Engine* Character::get_engine(void) const {
 
 Equipment* Character::get_equipment(void) const {
     return this->equipment;
+}
+
+Talents* Character::get_talents(void) const {
+    return this->talents;
 }
 
 void Character::add_next_mh_attack(void) {

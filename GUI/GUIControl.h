@@ -3,12 +3,27 @@
 
 #include <QObject>
 
+#include "Engine.h"
+#include "Test.h"
+#include "Equipment.h"
+#include "Target.h"
+#include "CombatRoll.h"
 #include "Talents.h"
+#include "Talents.h"
+#include "Character.h"
+#include "Race.h"
 
 class GUIControl: public QObject {
     Q_OBJECT
 public:
-    GUIControl(Talents* talents_, QObject* parent = 0);
+    GUIControl(QObject* parent = 0);
+    ~GUIControl();
+
+    /* Character */
+    Q_PROPERTY(QString classColor READ get_class_color NOTIFY classChanged)
+    Q_PROPERTY(QString className READ get_class_name NOTIFY classChanged)
+
+    /* End of Character */
 
     /* Talents */
     Q_PROPERTY(int talentPointsRemaining READ get_talent_points_remaining NOTIFY talentsUpdated)
@@ -42,16 +57,25 @@ public:
     Q_INVOKABLE void minRank(const QString tree_position, const QString talent_position);
 
     Q_INVOKABLE void clearTree(const QString tree_position);
+    /* End of Talents */
 
 Q_SIGNALS:
     void talentsUpdated();
+    void classChanged();
 
 private:
     int get_talent_points_remaining() const;
+    QString get_class_color() const;
+    QString get_class_name() const;
 
-
-private:
-    Talents* talents;
+    Engine* engine;
+    Equipment* equipment;
+    Target* target;
+    Random* random;
+    CombatRoll* combat;
+    QMap<QString, Character*> chars;
+    QMap<QString, Race*> races;
+    Character* current_char;
 };
 
 #endif // GUICONTROL_H
