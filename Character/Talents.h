@@ -2,6 +2,7 @@
 #define TALENTS_H
 
 #include <QObject>
+#include <QVector>
 
 #include "TalentTree.h"
 
@@ -42,15 +43,17 @@ public:
     void decrease_to_min_rank(const QString tree_position, const QString talent_position);
 
     void clear_tree(const QString tree_position);
+    void set_current_index(const int index);
 
-    void set_talent_tree(const QString &tree_position, TalentTree* tree);
+    void add_talent_tree(TalentTree *left_tree, TalentTree* mid_tree, TalentTree *right_tree);
 
     int get_talent_points_remaining() const;
 
 private:
-    QMap<QString, TalentTree*> talent_trees;
+    QVector<QMap<QString, TalentTree*>> talent_trees;
 
-    int talent_points_remaining;
+    int current_index;
+    QVector<int> talent_points_remaining;
 };
 
 #endif // TALENTS_H

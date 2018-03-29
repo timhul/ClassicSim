@@ -9,7 +9,6 @@
 #include "Target.h"
 #include "CombatRoll.h"
 #include "Talents.h"
-#include "Talents.h"
 #include "Character.h"
 #include "Race.h"
 
@@ -60,6 +59,8 @@ public:
     Q_INVOKABLE void minRank(const QString tree_position, const QString talent_position);
 
     Q_INVOKABLE void clearTree(const QString tree_position);
+
+    Q_INVOKABLE void setTalentSetup(const int talent_index);
     /* End of Talents */
 
 Q_SIGNALS:

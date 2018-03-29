@@ -195,6 +195,11 @@ void GUIControl::clearTree(const QString tree_position) {
     Q_EMIT talentsUpdated();
 }
 
+void GUIControl::setTalentSetup(const int talent_index) {
+    current_char->get_talents()->set_current_index(talent_index);
+    Q_EMIT talentsUpdated();
+}
+
 int GUIControl::get_talent_points_remaining() const {
     return current_char->get_talents()->get_talent_points_remaining();
 }

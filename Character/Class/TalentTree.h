@@ -55,9 +55,7 @@ protected:
     QMap<QString, Talent*> talents;
     QMap<QString, int> spent_points;
 
-
     void add_talents(const QMap<QString, Talent *> &new_talents);
-
     QString get_highest_invested_rank() const;
     int get_investment_requirement_for_rank(const int rank) const;
     int get_points_spent_up_to_rank(const int rank) const;

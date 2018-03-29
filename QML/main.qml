@@ -86,7 +86,7 @@ Window {
             right: rightNavBar.left
             top: continuousDpsUpdateRect.bottom
             left: parent.left
-            bottom: parent.bottom
+            bottom: quickSwitchBar.top
         }
 
         color: darkDarkGray
@@ -96,5 +96,17 @@ Window {
             x: parent.width / 2 - width / 2
             y: 20
         }
+    }
+
+    QuickSwitchBar {
+        id: quickSwitchBar
+
+        anchors {
+            left: parent.left
+            right: rightNavBar.left
+            bottom: parent.bottom
+        }
+
+        height: 125
     }
 }
