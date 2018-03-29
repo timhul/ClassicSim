@@ -27,6 +27,9 @@ public:
 
     /* Talents */
     Q_PROPERTY(int talentPointsRemaining READ get_talent_points_remaining NOTIFY talentsUpdated)
+    Q_PROPERTY(QString leftTalentTreeBackground READ getLeftBackgroundImage NOTIFY classChanged)
+    Q_PROPERTY(QString midTalentTreeBackground READ getMidBackgroundImage NOTIFY classChanged)
+    Q_PROPERTY(QString rightTalentTreeBackground READ getRightBackgroundImage NOTIFY classChanged)
 
     Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
     Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
@@ -67,6 +70,10 @@ private:
     int get_talent_points_remaining() const;
     QString get_class_color() const;
     QString get_class_name() const;
+
+    QString getLeftBackgroundImage() const;
+    QString getMidBackgroundImage() const;
+    QString getRightBackgroundImage() const;
 
     Engine* engine;
     Equipment* equipment;

@@ -17,7 +17,7 @@
 #include "GenericTalent.h"
 
 Fury::Fury(Character *pchar, QObject* parent) :
-    TalentTree("Fury", parent)
+    TalentTree("Fury", "Assets/warrior/warrior_fury.jpg",  parent)
 {
     QString base_url = "Assets/warrior/fury/";
 

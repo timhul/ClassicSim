@@ -8,7 +8,7 @@
 #include <QDebug>
 
 Arms::Arms(Character *pchar, QObject* parent) :
-    TalentTree("Arms", parent)
+    TalentTree("Arms", "Assets/warrior/warrior_arms.jpg", parent)
 {
     QString base_url = "Assets/warrior/arms/";
 

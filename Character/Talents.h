@@ -12,6 +12,7 @@ public:
 
     ~Talents();
 
+    QString get_background_image(const QString tree_position) const;
     QString get_icon(const QString tree_position, const QString talent_position) const;
     bool show_position(const QString tree_position, const QString talent_position) const;
     bool show_bottom_arrow(const QString tree_position, const QString talent_position) const;

@@ -12,10 +12,11 @@ class Talent;
 class TalentTree: public QObject {
     Q_OBJECT
 public:
-    TalentTree(const QString &name_, QObject* parent = 0);
+    TalentTree(const QString &name_, const QString &background_, QObject* parent = 0);
     virtual ~TalentTree() = 0;
 
     QString get_name() const;
+    QString get_background_image() const;
     QString get_icon(const QString &position);
     QString get_right_arrow(const QString &position);
     QString get_bottom_arrow(const QString &position);
@@ -48,6 +49,7 @@ public:
 
 protected:
     const QString name;
+    const QString background;
     int total_spent_points;
 
     QMap<QString, Talent*> talents;

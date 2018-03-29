@@ -71,6 +71,18 @@ GUIControl::~GUIControl() {
     delete combat;
 }
 
+QString GUIControl::getLeftBackgroundImage() const {
+    return current_char->get_talents()->get_background_image("LEFT");
+}
+
+QString GUIControl::getMidBackgroundImage() const {
+    return current_char->get_talents()->get_background_image("MID");
+}
+
+QString GUIControl::getRightBackgroundImage() const {
+    return current_char->get_talents()->get_background_image("RIGHT");
+}
+
 QString GUIControl::getIcon(const QString tree_position, const QString talent_position) const {
     return current_char->get_talents()->get_icon(tree_position, talent_position);
 }

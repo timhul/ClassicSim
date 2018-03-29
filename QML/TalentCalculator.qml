@@ -126,7 +126,7 @@ Rectangle {
             spacing: 1
 
             TalentTree {
-                talentTreeImage: "Assets/warrior/warrior_arms.jpg"
+                talentTreeImage: talents.leftTalentTreeBackground
                 treePosition: "LEFT"
                 y: 1
                 z: 2
@@ -134,7 +134,7 @@ Rectangle {
                 width: parent.width / 3 - 1
             }
             TalentTree {
-                talentTreeImage: "Assets/warrior/warrior_fury.jpg"
+                talentTreeImage: talents.midTalentTreeBackground
                 treePosition: "MID"
                 y: 1
                 z: 1
@@ -142,7 +142,7 @@ Rectangle {
                 width: parent.width / 3 - 1
             }
             TalentTree {
-                talentTreeImage: "Assets/warrior/warrior_protection.jpg"
+                talentTreeImage: talents.rightTalentTreeBackground
                 treePosition: "RIGHT"
                 y: 1
                 z: 0

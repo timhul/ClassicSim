@@ -3,9 +3,10 @@
 #include "Talent.h"
 #include <QDebug>
 
-TalentTree::TalentTree(const QString &name_, QObject *parent) :
+TalentTree::TalentTree(const QString &name_, const QString &background_, QObject *parent) :
     QObject(parent),
     name(name_),
+    background(background_),
     total_spent_points(0),
     talents(QMap<QString, Talent*>())
 {
@@ -22,6 +23,10 @@ TalentTree::~TalentTree() {
 
 QString TalentTree::get_name() const {
     return name;
+}
+
+QString TalentTree::get_background_image() const {
+    return background;
 }
 
 QString TalentTree::get_talent_name(const QString &position) const {
