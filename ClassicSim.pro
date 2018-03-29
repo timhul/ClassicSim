@@ -89,7 +89,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.cpp \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.cpp \
-    Character/Class/GenericTalent.cpp
+    Character/Class/GenericTalent.cpp \
+    GUI/GUIControl.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -174,7 +175,8 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.h \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.h \
     Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.h \
-    Character/Class/GenericTalent.h
+    Character/Class/GenericTalent.h \
+    GUI/GUIControl.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -207,7 +209,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Target \
     C:\C++\ClassicSim\Statistics \
     C:\C++\ClassicSim\Mechanics \
-    C:\C++\ClassicSim\Test
+    C:\C++\ClassicSim\Test \
+    C:\C++\ClassicSim\GUI
 
 RESOURCES += qml.qrc
 

@@ -12,45 +12,39 @@ public:
 
     ~Talents();
 
-    Q_PROPERTY(int talentPointsRemaining READ get_talent_points_remaining NOTIFY talentsUpdated)
+    QString get_icon(const QString tree_position, const QString talent_position) const;
+    bool show_position(const QString tree_position, const QString talent_position) const;
+    bool show_bottom_arrow(const QString tree_position, const QString talent_position) const;
+    bool show_right_arrow(const QString tree_position, const QString talent_position) const;
 
-    Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showBottomArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showRightArrow(const QString tree_position, const QString talent_position) const;
+    QString get_bottom_arrow(const QString tree_position, const QString talent_position) const;
+    QString get_right_arrow(const QString tree_position, const QString talent_position) const;
+    bool bottom_child_available(const QString tree_position, const QString talent_position) const;
+    bool bottom_child_active(const QString tree_position, const QString talent_position) const;
+    bool right_child_available(const QString tree_position, const QString talent_position) const;
+    bool right_child_active(const QString tree_position, const QString talent_position) const;
+    bool is_active(const QString tree_position, const QString talent_position) const;
+    bool is_available(const QString tree_position, const QString talent_position) const;
+    bool is_maxed(const QString tree_position, const QString talent_position) const;
+    bool has_talent_points_remaining() const;
+    QString get_rank(const QString tree_position, const QString talent_position) const;
+    QString get_max_rank(const QString tree_position, const QString talent_position) const;
+    void increment_rank(const QString tree_position, const QString talent_position);
+    void decrement_rank(const QString tree_position, const QString talent_position);
+    QString get_requirements(const QString tree_position, const QString talent_position) const;
+    QString get_current_rank_description(const QString tree_position, const QString talent_position) const;
+    QString get_next_rank_description(const QString tree_position, const QString talent_position) const;
+    int get_tree_points(const QString tree_position) const;
+    QString get_tree_name(const QString tree_position) const;
+    QString get_talent_name(const QString tree_position, const QString talent_position) const;
+    void increase_to_max_rank(const QString tree_position, const QString talent_position);
+    void decrease_to_min_rank(const QString tree_position, const QString talent_position);
 
-    Q_INVOKABLE QString getBottomArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getRightArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool bottomChildAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool bottomChildActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool rightChildAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool rightChildActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isMaxed(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool hasTalentPointsRemaining() const;
-    Q_INVOKABLE QString getRank(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getMaxRank(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE void decrementRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE QString getRequirements(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getCurrentRankDescription(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getNextRankDescription(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE int getTreePoints(const QString tree_position) const;
-    Q_INVOKABLE QString getTreeName(const QString tree_position) const;
-    Q_INVOKABLE QString getTalentName(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE void maxRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE void minRank(const QString tree_position, const QString talent_position);
-
-    Q_INVOKABLE void clearTree(const QString tree_position);
+    void clear_tree(const QString tree_position);
 
     void set_talent_tree(const QString &tree_position, TalentTree* tree);
 
     int get_talent_points_remaining() const;
-
-Q_SIGNALS:
-    void talentsUpdated();
-
 
 private:
     QMap<QString, TalentTree*> talent_trees;

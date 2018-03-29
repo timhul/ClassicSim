@@ -3,6 +3,8 @@
 #include <QQuickImageProvider>
 #include <QQmlContext>
 
+#include "GUIControl.h"
+
 #include "Engine.h"
 #include "Test.h"
 #include "Equipment.h"
@@ -45,6 +47,8 @@ int main(int argc, char *argv[])
     CombatRoll* combat = new CombatRoll(target, random);
     Talents* talents = new Talents();
 
+    GUIControl* gui_control = new GUIControl(talents);
+
     Race* dwarf = new Dwarf();
     Race* gnome = new Gnome();
     Race* human = new Human();
@@ -76,9 +80,9 @@ int main(int argc, char *argv[])
     context->setContextProperty("shaman", shaman);
     context->setContextProperty("warlock", warlock);
     context->setContextProperty("warrior", warrior);
-    context->setContextProperty("talents", talents);
+    context->setContextProperty("character", gui_control);
+    context->setContextProperty("talents", gui_control);
 
-    qml_engine.addImageProvider(QLatin1String("graphics"), new QQuickImageProvider(QQuickImageProvider::Image));
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));
     if (qml_engine.rootObjects().isEmpty())
