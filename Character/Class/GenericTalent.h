@@ -2,6 +2,7 @@
 #define GENERICTALENT_H
 
 #include "Talent.h"
+#include <QVector>
 
 class TalentTree;
 
@@ -15,9 +16,7 @@ public:
                   const QString &icon,
                   const int max_points,
                   const QString &rank_description,
-                  const int base_val,
-                  const int increment,
-                  bool use_increment);
+                  const QVector<QPair<int, int>> format_values);
     virtual ~GenericTalent();
 
     virtual void apply_rank_effect() override;

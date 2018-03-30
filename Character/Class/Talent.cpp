@@ -195,9 +195,22 @@ Talent* Talent::get_right_child() const {
     return right_child;
 }
 
-void Talent::initialize_rank_descriptions(const QString &base_str, const int base_val, const int increase) {
+void Talent::initialize_rank_descriptions(const QString &base_str, const int base_value, const int increase) {
     for (int i = 0; i < max_points; ++i) {
-        rank_descriptions.insert(i + +1, base_str.arg(base_val + i * increase));
+        rank_descriptions.insert(i + 1, base_str.arg(base_value + i * increase));
+    }
+
+    rank_descriptions[0] = rank_descriptions[1];
+}
+
+void Talent::initialize_rank_descriptions(const QString &base_str, const QVector<QPair<int, int>> &format_values) {
+    for (int i = 0; i < max_points; ++i) {
+        QString format_str = base_str;
+        for (int j = 0; j < format_values.size(); ++j) {
+            format_str = format_str.arg(format_values[j].first + i * format_values[j].second);
+        }
+
+        rank_descriptions.insert(i + 1, format_str);
     }
 
     rank_descriptions[0] = rank_descriptions[1];

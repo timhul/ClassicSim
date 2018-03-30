@@ -66,7 +66,9 @@ protected:
 
     bool any_child_active() const;
     QString get_arrow_identifier(const QString target_position) const;
-    void initialize_rank_descriptions(const QString &base_str, const int base_val, const int increase);
+
+    void initialize_rank_descriptions(const QString &base_str, const int base_value, const int increase);
+    void initialize_rank_descriptions(const QString &base_str, const QVector<QPair<int, int> > &format_values);
 
 private:
 

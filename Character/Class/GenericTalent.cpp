@@ -3,11 +3,11 @@
 #include "Character.h"
 #include "TalentTree.h"
 
-GenericTalent::GenericTalent(Character *pchar, TalentTree* tree, const QString &name, const QString &position, const QString &icon, const int max_points, const QString &rank_description, const int base_val, const int increment, bool use_increment) :
+GenericTalent::GenericTalent(Character *pchar, TalentTree* tree, const QString &name, const QString &position, const QString &icon, const int max_points, const QString &rank_description, const QVector<QPair<int, int>> format_values) :
     Talent(pchar, tree, name, position, icon, max_points)
 {
-    if (use_increment) {
-        initialize_rank_descriptions(rank_description, base_val, increment);
+    if (format_values.size() > 0) {
+        initialize_rank_descriptions(rank_description, format_values);
     }
     else {
         rank_descriptions.insert(0, rank_description);
