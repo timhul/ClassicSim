@@ -1,13 +1,13 @@
-#ifndef IMPALE_H
-#define IMPALE_H
+#ifndef AXESPECIALIZATION_H
+#define AXESPECIALIZATION_H
 
 #include "Talent.h"
 
-class Impale: public Talent {
+class AxeSpecialization: public Talent {
     Q_OBJECT
 public:
-    Impale(Character *pchar);
-    virtual ~Impale();
+    AxeSpecialization(Character *pchar);
+    virtual ~AxeSpecialization();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
@@ -17,4 +17,4 @@ public:
 private:
 };
 
-#endif // IMPALE_H
+#endif // AXESPECIALIZATION_H

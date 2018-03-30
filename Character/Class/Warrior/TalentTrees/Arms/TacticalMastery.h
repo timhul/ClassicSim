@@ -1,13 +1,13 @@
-#ifndef IMPALE_H
-#define IMPALE_H
+#ifndef TACTICALMASTERY_H
+#define TACTICALMASTERY_H
 
 #include "Talent.h"
 
-class Impale: public Talent {
+class TacticalMastery: public Talent {
     Q_OBJECT
 public:
-    Impale(Character *pchar);
-    virtual ~Impale();
+    TacticalMastery(Character *pchar);
+    virtual ~TacticalMastery();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
@@ -17,4 +17,4 @@ public:
 private:
 };
 
-#endif // IMPALE_H
+#endif // TACTICALMASTERY_H

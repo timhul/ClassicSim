@@ -90,7 +90,12 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.cpp \
     Character/Class/GenericTalent.cpp \
-    GUI/GUIControl.cpp
+    GUI/GUIControl.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/ImprovedHeroicStrike.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/ImprovedOverpower.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -176,7 +181,12 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.h \
     Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.h \
     Character/Class/GenericTalent.h \
-    GUI/GUIControl.h
+    GUI/GUIControl.h \
+    Character/Class/Warrior/TalentTrees/Arms/ImprovedHeroicStrike.h \
+    Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
+    Character/Class/Warrior/TalentTrees/Arms/ImprovedOverpower.h \
+    Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
+    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

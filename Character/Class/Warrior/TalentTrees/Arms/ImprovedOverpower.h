@@ -1,13 +1,13 @@
-#ifndef IMPALE_H
-#define IMPALE_H
+#ifndef IMPROVEDOVERPOWER_H
+#define IMPROVEDOVERPOWER_H
 
 #include "Talent.h"
 
-class Impale: public Talent {
+class ImprovedOverpower: public Talent {
     Q_OBJECT
 public:
-    Impale(Character *pchar);
-    virtual ~Impale();
+    ImprovedOverpower(Character *pchar);
+    virtual ~ImprovedOverpower();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
@@ -17,4 +17,4 @@ public:
 private:
 };
 
-#endif // IMPALE_H
+#endif // IMPROVEDOVERPOWER_H

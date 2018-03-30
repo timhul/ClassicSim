@@ -20,3 +20,13 @@ void DeepWounds::apply_rank_effect() {
 void DeepWounds::remove_rank_effect() {
     // TODO: Decide how rank effects work for this talent.
 }
+
+QString DeepWounds::get_requirement_string() const {
+    QString req_string = "";
+    if (parent != nullptr && !parent->is_maxed()) {
+        req_string = "Requires 3 points in Improved Rend\n";
+    }
+
+    // TODO: Req 10 points only valid if user has not spent 10 points.
+    return req_string + "Requires 10 points in Arms Talents";
+}
