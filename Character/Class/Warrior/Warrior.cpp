@@ -122,6 +122,9 @@ void Warrior::add_next_oh_attack(void) {
 }
 
 void Warrior::mh_auto_attack(const int iteration) {
+    if (!is_melee_attacking())
+        return;
+
     if (!mh_attack->attack_is_valid(iteration))
         return;
     // TODO: Check if Heroic Strike "buff" up
@@ -139,6 +142,9 @@ void Warrior::mh_auto_attack(const int iteration) {
 }
 
 void Warrior::oh_auto_attack(const int iteration) {
+    if (!is_melee_attacking())
+        return;
+
     if (!oh_attack->attack_is_valid(iteration))
         return;
 

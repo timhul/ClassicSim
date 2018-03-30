@@ -111,7 +111,6 @@ void Character::start_attack(void) {
 }
 
 void Character::stop_attack(void) {
-    // TODO: Also need to clear melee hit event queues to stop next attacks landing.
     this->melee_attacking = false;
 }
 
