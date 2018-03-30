@@ -3,16 +3,17 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class GenericTalent: public Talent {
     Q_OBJECT
 public:
     GenericTalent(Character *pchar,
+                  TalentTree *tree,
                   const QString &name,
                   const QString &position,
                   const QString &icon,
                   const int max_points,
-                  const QString &req_string_parent_,
-                  const QString &req_string_base_,
                   const QString &rank_description,
                   const int base_val,
                   const int increment,
@@ -21,12 +22,6 @@ public:
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
-
-    QString get_requirement_string() const override;
-
-private:
-    const QString req_string_parent;
-    const QString req_string_base;
 };
 
 #endif // GENERICTALENT_H

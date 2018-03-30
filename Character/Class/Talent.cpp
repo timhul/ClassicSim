@@ -2,9 +2,11 @@
 #include "Talent.h"
 #include <QDebug>
 #include "Character.h"
+#include "TalentTree.h"
 
-Talent::Talent(Character *pchar_, const QString &name_, const QString & position_, const QString &icon_, const int max_points_) :
+Talent::Talent(Character *pchar_, TalentTree *tree_, const QString &name_, const QString & position_, const QString &icon_, const int max_points_) :
     pchar(pchar_),
+    tree(tree_),
     name(name_),
     position(position_),
     icon(icon_),
@@ -33,7 +35,24 @@ QString Talent::get_position() const {
 }
 
 QString Talent::get_requirement_string() const {
-    return "Missing override for " + get_name();
+    QString req_string = "";
+    if (parent != nullptr && !parent->is_maxed()) {
+        QString max_rank = QString::number(parent->get_max_rank());
+        QString point = parent->get_max_rank() > 1 ? "points" : "point";
+        req_string += QString("Requires %1 %2 in %3").arg(max_rank, point, parent->get_name());
+    }
+
+    int own_row = QString(position[0]).toInt();
+    int point_investment = (own_row - 1) * 5;
+
+    if (point_investment > tree->get_total_points()) {
+        if (req_string != "")
+            req_string += "\n";
+
+        req_string += QString("Requires %1 points in %2 Talents").arg(QString::number(point_investment), tree->get_name());
+    }
+
+    return req_string;
 }
 
 QString Talent::get_current_rank_description() const {

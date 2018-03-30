@@ -3,16 +3,16 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class TacticalMastery: public Talent {
     Q_OBJECT
 public:
-    TacticalMastery(Character *pchar);
+    TacticalMastery(Character *pchar, TalentTree* tree);
     virtual ~TacticalMastery();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
-
-    QString get_requirement_string() const override;
 
 private:
 };

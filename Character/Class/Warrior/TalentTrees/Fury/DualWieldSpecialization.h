@@ -3,16 +3,16 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class DualWieldSpecialization: public Talent {
     Q_OBJECT
 public:
-    DualWieldSpecialization(Character *pchar);
+    DualWieldSpecialization(Character *pchar, TalentTree* tree);
     virtual ~DualWieldSpecialization();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
-
-    QString get_requirement_string() const override;
 
 private:
 };

@@ -2,8 +2,8 @@
 #include "ImprovedDemoralizingShout.h"
 #include "Character.h"
 
-ImprovedDemoralizingShout::ImprovedDemoralizingShout(Character *pchar) :
-    Talent(pchar, "Improved Demoralizing Shout", "2ML", "Assets/warrior/fury/tier2/Ability_warrior_warcry.png", 5)
+ImprovedDemoralizingShout::ImprovedDemoralizingShout(Character *pchar, TalentTree* tree) :
+    Talent(pchar, tree, "Improved Demoralizing Shout", "2ML", "Assets/warrior/fury/tier2/Ability_warrior_warcry.png", 5)
 {
     QString base_str = "Increases the melee attack power reduction of your Demoralizing Shout by %1%.";
     initialize_rank_descriptions(base_str, 8, 8);
@@ -19,8 +19,4 @@ void ImprovedDemoralizingShout::apply_rank_effect() {
 
 void ImprovedDemoralizingShout::remove_rank_effect() {
     // TODO: Decide how rank effects work for this talent.
-}
-
-QString ImprovedDemoralizingShout::get_requirement_string() const {
-    return "Requires 5 points in Fury Talents";
 }

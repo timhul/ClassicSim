@@ -7,11 +7,12 @@
 #include <assert.h>
 
 class Character;
+class TalentTree;
 
 class Talent: public QObject {
     Q_OBJECT
 public:
-    Talent(Character* pchar_, const QString& name_, const QString & position_, const QString &icon_, const int max_points_);
+    Talent(Character* pchar_, TalentTree *tree_, const QString& name_, const QString & position_, const QString &icon_, const int max_points_);
     virtual ~Talent();
 
     QString get_name() const;
@@ -23,7 +24,8 @@ public:
     // TODO: Mark as abstract class when talents are fully implemented.
     virtual void apply_rank_effect() {} //= 0;
     virtual void remove_rank_effect() {} //= 0;
-    virtual QString get_requirement_string() const;
+
+    QString get_requirement_string() const;
     QString get_current_rank_description() const;
     QString get_next_rank_description() const;
     int get_current_rank() const;
@@ -49,6 +51,7 @@ public:
 
 protected:
     Character* pchar;
+    TalentTree* tree;
     const QString name;
     const QString position;
     const QString icon;

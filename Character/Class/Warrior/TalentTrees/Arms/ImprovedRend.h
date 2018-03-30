@@ -3,10 +3,12 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class ImprovedRend: public Talent {
     Q_OBJECT
 public:
-    ImprovedRend(Character *pchar);
+    ImprovedRend(Character *pchar, TalentTree* tree);
     virtual ~ImprovedRend();
 
     virtual void apply_rank_effect() override;

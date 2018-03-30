@@ -3,10 +3,12 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class Cruelty: public Talent {
     Q_OBJECT
 public:
-    Cruelty(Character *pchar);
+    Cruelty(Character *pchar, TalentTree* tree);
     virtual ~Cruelty();
 
     virtual void apply_rank_effect() override;

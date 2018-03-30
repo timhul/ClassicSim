@@ -3,16 +3,16 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class DeepWounds: public Talent {
     Q_OBJECT
 public:
-    DeepWounds(Character* pchar);
+    DeepWounds(Character *pchar, TalentTree* tree);
     virtual ~DeepWounds();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
-
-    QString get_requirement_string() const override;
 
 private:
 };

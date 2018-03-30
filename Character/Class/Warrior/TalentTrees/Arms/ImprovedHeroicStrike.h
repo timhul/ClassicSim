@@ -3,10 +3,12 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class ImprovedHeroicStrike: public Talent {
     Q_OBJECT
 public:
-    ImprovedHeroicStrike(Character *pchar);
+    ImprovedHeroicStrike(Character *pchar, TalentTree* tree);
     virtual ~ImprovedHeroicStrike();
 
     virtual void apply_rank_effect() override;

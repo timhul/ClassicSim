@@ -3,16 +3,16 @@
 
 #include "Talent.h"
 
+class TalentTree;
+
 class FlurryTalent: public Talent {
     Q_OBJECT
 public:
-    FlurryTalent(Character *pchar);
+    FlurryTalent(Character *pchar, TalentTree* tree);
     virtual ~FlurryTalent();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;
-
-    QString get_requirement_string() const override;
 
 private:
 };
