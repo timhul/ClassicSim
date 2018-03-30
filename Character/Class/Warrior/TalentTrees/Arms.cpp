@@ -1,6 +1,7 @@
 
 #include "Arms.h"
 #include "Talent.h"
+#include "GenericTalent.h"
 #include "ImprovedHeroicStrike.h"
 #include "ImprovedRend.h"
 #include "TacticalMastery.h"
@@ -9,8 +10,10 @@
 #include "TwoHandedWeaponSpecialization.h"
 #include "Impale.h"
 #include "AxeSpecialization.h"
-#include "GenericTalent.h"
-#include <QDebug>
+#include "SweepingStrikes.h"
+#include "SwordSpecialization.h"
+#include "PolearmSpecialization.h"
+#include "MortalStrikeTalent.h"
 
 Arms::Arms(Character *pchar, QObject* parent) :
     TalentTree("Arms", "Assets/warrior/warrior_arms.jpg", parent)
@@ -37,16 +40,16 @@ Arms::Arms(Character *pchar, QObject* parent) :
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new AxeSpecialization(pchar, this)},
-                                  {"5ML", new Talent(pchar, this, "Sweeping Strikes", "5ML", base_url + "tier5/Ability_rogue_slicedice.png", 1)},
-                                  {"5MR", new Talent(pchar, this, "Mace Specialization", "5MR", base_url + "tier5/Inv_mace_01.png", 5)},
-                                  {"5RR", new Talent(pchar, this, "Sword Specialization", "5RR", base_url + "tier5/Inv_sword_27.png", 5)}};
+                                  {"5ML", new SweepingStrikes(pchar, this)},
+                                  {"5MR", new GenericTalent(pchar, this, "Mace Specialization", "5MR", base_url + "tier5/Inv_mace_01.png", 5, "Gives you a %1% chance to stun your target for 3 sec with a Mace.", 1, 1, true)},
+                                  {"5RR", new SwordSpecialization(pchar, this)}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6LL", new Talent(pchar, this, "Polearm Specialization", "6LL", base_url + "tier6/Inv_weapon_halbard_01.png", 5)},
+    QMap<QString, Talent*> tier6 {{"6LL", new PolearmSpecialization(pchar, this)},
                                   {"6MR", new GenericTalent(pchar, this, "Improved Hamstring", "6MR", base_url + "tier6/Ability_shockwave.png", 3, "Gives your Hamstring ability a %1% chance to immobilize the target for 5 sec.", 5, 5, true)}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new Talent(pchar, this, "Mortal Strike", "7ML", base_url + "tier7/Ability_warrior_savageblow.png", 1)}};
+    QMap<QString, Talent*> tier7 {{"7ML", new MortalStrikeTalent(pchar, this)}};
     add_talents(tier7);
 
     talents["1MR"]->set_bottom_child(talents["3MR"]);

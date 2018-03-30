@@ -95,7 +95,11 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedOverpower.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp
+    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -186,7 +190,11 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedOverpower.h \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
-    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.h
+    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.h \
+    Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.h \
+    Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.h \
+    Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.h \
+    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
