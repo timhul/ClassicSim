@@ -26,24 +26,19 @@ Rectangle {
         border.color = unavailable.visible ? root.gray :
                                              talents.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                                   talentAvailable
+        updateTooltip()
+    }
+
+    function updateTooltip() {
         ttRank.text = "Rank " + talents.getRank(treePos, talentPos) + "/" + talents.getMaxRank(treePos, talentPos)
         ttDescription.text = talents.getCurrentRankDescription(treePos, talentPos)
 
-        ttRequirements.visible = ttRect.visible && !talents.isAvailable(treePos, talentPos)
+        ttRequirements.visible = ttRect.visible && !talents.isAvailable(treePos, talentPos) && talents.hasTalentPointsRemaining()
         ttRequirements.text = !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
 
         ttNextRank.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
         ttNextRankDescription.text = ttNextRankDescription.visible ? talents.getNextRankDescription(treePos,  talentPos) : ""
 
-        ttRect.height = getTooltipHeight()
-    }
-
-    function updateVisibility() {
-        ttRequirements.visible = ttRect.visible && !talents.isAvailable(treePos, talentPos)
-        ttRequirements.text = !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
-
-        ttNextRank.visible = ttRect.visible && talents.isActive(treePos, talentPos) && !talents.isMaxed(treePos, talentPos)
-        ttNextRankDescription.text = ttNextRankDescription.visible ? talents.getNextRankDescription(treePos,  talentPos) : ""
         ttRect.height = getTooltipHeight()
     }
 
@@ -182,11 +177,11 @@ Rectangle {
 
         onEntered: {
             highlight.visible = icon.visible
-            updateVisibility()
+            updateTooltip()
         }
         onExited: {
             highlight.visible = false
-            updateVisibility()
+            updateTooltip()
         }
     }
 
@@ -259,7 +254,7 @@ Rectangle {
         id: ttRequirements
         text: !ttRequirements.visible ? "" : talents.getRequirements(treePos, talentPos)
 
-        visible: ttRect.visible && !talents.isAvailable(treePos, talentPos)
+        visible: ttRect.visible && !talents.isAvailable(treePos, talentPos) && talents.hasTalentPointsRemaining()
 
         anchors {
             top: ttRank.bottom
