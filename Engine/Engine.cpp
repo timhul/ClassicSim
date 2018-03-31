@@ -7,7 +7,6 @@ void Engine::run(void) {
     while(!queue->empty()) {
         ++processed_events;
         Event* event = queue->get_next();
-        qDebug() << event->get_priority() << ": Running " << event->get_name();
         set_current_priority(event);
         event->act();
         delete event;
@@ -20,7 +19,7 @@ void Engine::run(void) {
 }
 
 void Engine::end_combat(void) {
-    qDebug() << "Engine: Ending combat.";
+    qDebug() << "Engine: Ending combat.";    
     queue->clear();
 }
 
@@ -38,7 +37,6 @@ void Engine::set_current_priority(Event* event) {
 }
 
 void Engine::add_event(Event* event) {
-    qDebug() << current_prio << ": " << event->get_name() << " event added with priority " << event->get_priority();
     this->queue->push(event);
 }
 
