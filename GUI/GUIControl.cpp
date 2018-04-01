@@ -211,3 +211,31 @@ QString GUIControl::get_class_color() const {
 QString GUIControl::get_class_name() const {
     return current_char->get_name();
 }
+
+int GUIControl::get_strength() const {
+    return current_char->get_strength();
+}
+
+int GUIControl::get_agility() const {
+    return current_char->get_agility();
+}
+
+int GUIControl::get_stamina() const {
+    return current_char->get_stamina();
+}
+
+int GUIControl::get_intellect() const {
+    return current_char->get_intellect();
+}
+
+int GUIControl::get_spirit() const {
+    return current_char->get_spirit();
+}
+
+QString GUIControl::get_crit_chance() const {
+    return QString::number(current_char->get_crit_chance(), 'f', 2);
+}
+
+QString GUIControl::get_hit_chance() const {
+    return QString::number(current_char->get_hit_chance(), 'f', 2);
+}

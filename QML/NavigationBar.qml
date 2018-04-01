@@ -161,6 +161,132 @@ Rectangle {
         }
     }
 
+    RectangleBorders {
+        id: characterStats
+        anchors {
+            top: chooseFullSimSettingsRect.bottom
+            right: parent.right
+            left:parent.left
+        }
+
+        rectColor: root.darkDarkGray
+
+        height: 150
+
+        Column {
+            anchors {
+                fill: parent
+                leftMargin: 10
+                topMargin: 10
+            }
+
+            Text {
+                height: 15
+
+                text: "Strength: " + character.strength
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "Agility: " + character.agility
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "Stamina: " + character.stamina
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "Intellect: " + character.intellect
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "Spirit: " + character.spirit
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "Critical strike: " + character.critChance + "%"
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "Hit: " + character.hitChance + "%"
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+        }
+    }
+
     states: [
         State {
             name: "TALENTS"
