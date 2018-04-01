@@ -29,8 +29,12 @@ int Warlock::get_spirit_modifier(void) const {
     return 2;
 }
 
-int Warlock::get_melee_ap(void) {
-    return get_strength();
+int Warlock::get_ap_per_strength() const {
+    return 1;
+}
+
+int Warlock::get_ap_per_agi() const {
+    return 1;
 }
 
 void Warlock::rotation() {

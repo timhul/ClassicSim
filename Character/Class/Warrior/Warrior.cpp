@@ -13,17 +13,21 @@
 #include "Arms.h"
 #include "Fury.h"
 #include "Protection.h"
+#include "Stats.h"
+#include "Race.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
     Character(race, engine, _eq, parent) {
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
-    this->STR += get_strength_modifier() + 97;
-    this->AGI += get_agility_modifier() + 60;
-    this->STAM += get_stamina_modifier() + 88;
-    this->INT += get_intellect_modifier() + 10;
-    this->SPI += get_spirit_modifier() + 25;
+    stats->increase_str(race->get_base_strength() + get_strength_modifier() + 97);
+    stats->increase_agi(race->get_base_agility() + get_agility_modifier() + 60);
+    stats->increase_stam(race->get_base_stamina() + get_stamina_modifier() + 88);
+    stats->increase_int(race->get_base_intellect() + get_intellect_modifier() + 10);
+    stats->increase_spi(race->get_base_spirit() + get_spirit_modifier() + 25);
+    stats->set_melee_ap_per_agi(0);
+    stats->set_melee_ap_per_str(2);
     this->rage = 0;
     this->roll = _roll;
     this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this), roll);
@@ -68,9 +72,12 @@ int Warrior::get_spirit_modifier(void) const {
     return 0;
 }
 
-int Warrior::get_melee_ap(void) {
-    // TODO: Include AP from buffs (Crusader, Might Rage Potion, world buffs, etc.)
-    return get_strength() * 2;
+int Warrior::get_ap_per_strength() const {
+    return 2;
+}
+
+int Warrior::get_ap_per_agi() const {
+    return 0;
 }
 
 void Warrior::gain_rage(const int gained_rage) {

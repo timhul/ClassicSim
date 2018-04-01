@@ -29,8 +29,12 @@ int Priest::get_spirit_modifier(void) const {
     return 3;
 }
 
-int Priest::get_melee_ap(void) {
-    return get_strength();
+int Priest::get_ap_per_strength() const {
+    return 1;
+}
+
+int Priest::get_ap_per_agi() const {
+    return 1;
 }
 
 void Priest::rotation() {

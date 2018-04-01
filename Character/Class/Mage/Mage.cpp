@@ -29,8 +29,12 @@ int Mage::get_spirit_modifier(void) const {
     return 2;
 }
 
-int Mage::get_melee_ap(void) {
-    return get_strength();
+int Mage::get_ap_per_strength() const {
+    return 1;
+}
+
+int Mage::get_ap_per_agi() const {
+    return 1;
 }
 
 void Mage::rotation() {

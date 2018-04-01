@@ -9,11 +9,6 @@ class Hunter: public Character {
 public:
     Hunter(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
         Character(race, engine, _eq, parent) {
-        this->STR += get_strength_modifier();
-        this->AGI += get_agility_modifier();
-        this->STAM += get_stamina_modifier();
-        this->INT += get_intellect_modifier();
-        this->SPI += get_spirit_modifier();
         this->roll = _roll;
     }
 
@@ -31,7 +26,8 @@ public:
     void oh_auto_attack(const int) override;
     float global_cooldown() const override;
 
-    int get_melee_ap() override;
+    int get_ap_per_strength() const override;
+    int get_ap_per_agi() const override;
 
 protected:
 private:

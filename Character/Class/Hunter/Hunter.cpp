@@ -29,8 +29,12 @@ int Hunter::get_spirit_modifier(void) const {
     return 1;
 }
 
-int Hunter::get_melee_ap(void) {
-    return get_strength();
+int Hunter::get_ap_per_strength() const {
+    return 1;
+}
+
+int Hunter::get_ap_per_agi() const {
+    return 1;
 }
 
 void Hunter::rotation() {

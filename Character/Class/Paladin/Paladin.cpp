@@ -29,8 +29,12 @@ int Paladin::get_spirit_modifier(void) const {
     return 1;
 }
 
-int Paladin::get_melee_ap(void) {
-    return get_strength() * 2;
+int Paladin::get_ap_per_strength() const {
+    return 1;
+}
+
+int Paladin::get_ap_per_agi() const {
+    return 1;
 }
 
 void Paladin::rotation() {

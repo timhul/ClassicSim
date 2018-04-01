@@ -34,9 +34,10 @@ public:
 
     bool bt_available(void) const;
 
-    int get_melee_ap() override;
-
     Flurry* get_flurry() const;
+
+    int get_ap_per_strength() const override;
+    int get_ap_per_agi() const override;
 
     void increase_hit(float) override;
     void increase_crit(float) override;

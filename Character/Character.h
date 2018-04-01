@@ -9,6 +9,7 @@ class Race;
 class Engine;
 class Equipment;
 class Talents;
+class Stats;
 
 class Character: public QObject {
     Q_OBJECT
@@ -58,7 +59,7 @@ public:
     int get_oh_wpn_skill();
     int get_ranged_wpn_skill();
 
-    virtual int get_melee_ap();
+    int get_melee_ap();
 
     virtual void increase_hit(float);
     virtual void increase_crit(float);
@@ -76,11 +77,8 @@ protected:
     Engine* engine;
     Equipment* equipment;
     Talents* talents;
-    int STR;
-    int AGI;
-    int STAM;
-    int INT;
-    int SPI;
+    Stats* stats;
+
     int melee_ap;
     int ranged_ap;
     float percent_hit;
@@ -89,6 +87,9 @@ protected:
     int clvl;
     bool melee_attacking;
     float last_action;
+
+    virtual int get_ap_per_strength() const = 0;
+    virtual int get_ap_per_agi() const = 0;
 
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);

@@ -5,6 +5,7 @@
 #include "Equipment.h"
 #include "Mechanics.h"
 #include "Talents.h"
+#include "Stats.h"
 
 #include <QDebug>
 
@@ -15,21 +16,15 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* 
     this->engine = engine;
     this->equipment = equipment;
     this->talents = new Talents();
-    this->STR = race->get_base_strength();
-    this->AGI = race->get_base_agility();
-    this->STAM = race->get_base_stamina();
-    this->INT = race->get_base_intellect();
-    this->SPI = race->get_base_spirit();
+    this->stats = new Stats(this);
     this->clvl = 1;
-    this->percent_hit = 0.0;
-    this->percent_crit = 0.0;
-    this->percent_attack_speed = 0.0;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
 }
 
 Character::~Character() {
     delete talents;
+    delete stats;
 }
 
 Race* Character::get_race(void) {
@@ -37,31 +32,31 @@ Race* Character::get_race(void) {
 }
 
 int Character::get_strength(void) {
-    return STR;
+    return stats->get_strength();
 }
 
 int Character::get_agility(void) {
-    return AGI;
+    return stats->get_agility();
 }
 
 int Character::get_stamina(void) {
-    return STAM;
+    return stats->get_stamina();
 }
 
 int Character::get_intellect(void) {
-    return int(float(INT) * race->get_int_multiplier());
+    return stats->get_intellect();
 }
 
 int Character::get_spirit(void) {
-    return int(float(SPI) * race->get_spirit_multiplier());
+    return stats->get_spirit();
 }
 
 float Character::get_hit_chance(void) const {
-    return percent_hit;
+    return stats->get_hit_chance();
 }
 
 float Character::get_crit_chance(void) const {
-    return percent_crit;
+    return stats->get_crit_chance();
 }
 
 int Character::get_clvl(void) const {
@@ -125,7 +120,7 @@ bool Character::action_ready() const {
 }
 
 int Character::get_melee_ap() {
-    return 0;
+    return stats->get_melee_ap_total();
 }
 
 int Character::get_mh_dmg() {

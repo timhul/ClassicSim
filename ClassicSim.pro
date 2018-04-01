@@ -99,7 +99,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.cpp \
     Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.cpp
+    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.cpp \
+    Character/Stats.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -194,7 +195,8 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.h \
     Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.h \
-    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.h
+    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.h \
+    Character/Stats.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
