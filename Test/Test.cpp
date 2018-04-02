@@ -81,13 +81,13 @@ void Test::test_queue(void) {
     CombatRoll* combat = new CombatRoll(target, random);
     Warrior* pchar = new Warrior(race, engine, equipment, combat);
     pchar->set_clvl(60);
-    combat->set_character(pchar);
     EncounterStart* start_event = new EncounterStart(pchar);
-    EncounterEnd* end_event = new EncounterEnd(engine);
+    EncounterEnd* end_event = new EncounterEnd(engine, pchar);
 
     engine->add_event(end_event);
     engine->add_event(start_event);
     engine->run();
+    engine->dump();
 
     delete target;
     delete random;
