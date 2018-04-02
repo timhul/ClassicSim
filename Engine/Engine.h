@@ -23,6 +23,9 @@ public:
     }
 
     void run(void);
+    void dump(void);
+    void reset(void);
+    void prepare(void);
     void end_combat(void);
     float get_current_priority(void) const;
     void set_current_priority(Event*);

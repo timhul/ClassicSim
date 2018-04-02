@@ -2,8 +2,7 @@
 #include "Engine.h"
 #include <QDebug>
 
-void Engine::run(void) {
-    timer->start();
+void Engine::run() {
     while(!queue->empty()) {
         ++processed_events;
         Event* event = queue->get_next();
@@ -11,6 +10,14 @@ void Engine::run(void) {
         event->act();
         delete event;
     }
+}
+
+void Engine::prepare() {
+    timer->start();
+    statistics->clear();
+}
+
+void Engine::dump(void) {
     const float elapsed = (float)timer->elapsed() / 1000;
     statistics->dump();
 
@@ -18,9 +25,16 @@ void Engine::run(void) {
     qDebug() << processed_events / elapsed << " events per second";
 }
 
-void Engine::end_combat(void) {
-    qDebug() << "Engine: Ending combat.";    
+void Engine::reset(void) {
+    current_prio = -1;
+    processed_events = 0;
+    delete timer;
+    timer = new QTime();
+}
+
+void Engine::end_combat(void) {   
     queue->clear();
+    current_prio = -1;
 }
 
 float Engine::get_current_priority(void) const {
