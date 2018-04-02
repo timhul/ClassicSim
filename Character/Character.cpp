@@ -208,3 +208,9 @@ float Character::get_oh_wpn_speed() {
     wpn_speed /= 1 + percent_attack_speed;
     return wpn_speed;
 }
+
+void Character::reset() {
+    melee_attacking = false;
+    last_action = 0 - this->global_cooldown();
+    reset_spells();
+}

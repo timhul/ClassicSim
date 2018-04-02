@@ -87,3 +87,8 @@ bool OffhandAttack::attack_is_valid(const int iteration) const {
 int OffhandAttack::get_next_iteration() {
     return ++iteration;
 }
+
+void OffhandAttack::reset_effect() {
+    // TODO: Check if 0 should be used (start attack instantly). Change initializer as well.
+    next_expected_use = get_cooldown();
+}

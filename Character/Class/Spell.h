@@ -40,6 +40,9 @@ public:
 
     int perform(const int);
 
+    void reset();
+    virtual void reset_effect();
+
 protected:
     virtual int spell_effect(const int) const = 0;
     const QString name;

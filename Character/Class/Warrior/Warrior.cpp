@@ -15,12 +15,15 @@
 #include "Protection.h"
 #include "Stats.h"
 #include "Race.h"
+#include "Mainhand.h"
+#include "Offhand.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
     Character(race, engine, _eq, parent) {
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
+    set_clvl(60);
     stats->increase_str(race->get_base_strength() + get_strength_modifier() + 97);
     stats->increase_agi(race->get_base_agility() + get_agility_modifier() + 60);
     stats->increase_stam(race->get_base_stamina() + get_stamina_modifier() + 88);
@@ -30,6 +33,18 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     stats->set_melee_ap_per_str(2);
     this->rage = 0;
     this->roll = _roll;
+    this->roll->set_character(this);
+
+    // TODO: Remove hardcoded equipped weapons
+    Random* mh_dmg_range = new Random(80, 150);
+    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    equipment->set_mainhand(mainhand);
+    Random* oh_dmg_range = new Random(80, 150);
+    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    equipment->set_offhand(offhand);
+
+    // TODO: For now mainhand/offhand attack must be initialized after equipment is set.
+    // Fix so that equipment changes updates these spells.
     this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this), roll);
     this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this), roll);
     this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
@@ -104,7 +119,6 @@ int Warrior::rage_gained_from_dd(const int damage_dealt) const {
 void Warrior::rotation() {
     // TODO: Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
     // Fury warriors need this for overpower modelling.
-
     if (!is_melee_attacking())
         start_attack();
 
@@ -187,7 +201,6 @@ void Warrior::increase_crit(float increase) {
 }
 
 void Warrior::increase_attack_speed(float increase) {
-    qDebug() << engine->get_current_priority() << ": Attack speed increased by " << increase * 100 << "%";
     percent_attack_speed += increase;
 
     mh_attack->update_next_expected_use(increase);
@@ -208,7 +221,6 @@ void Warrior::decrease_crit(float decrease) {
 }
 
 void Warrior::decrease_attack_speed(float decrease) {
-    qDebug() << engine->get_current_priority() << ": Attack speed decreased by " << decrease * 100 << "%";
     percent_attack_speed -= decrease;
 
     mh_attack->update_next_expected_use(decrease);
@@ -224,4 +236,11 @@ void Warrior::initialize_talents() {
     for (int i = 0; i < 3; ++i) {
         talents->add_talent_tree(new Arms(this), new Fury(this), new Protection(this));
     }
+}
+
+void Warrior::reset_spells() const {
+    bt->reset();
+    mh_attack->reset();
+    oh_attack->reset();
+    flurry->reset();
 }

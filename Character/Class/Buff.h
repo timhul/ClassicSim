@@ -18,6 +18,8 @@ public:
     bool is_active() const;
     float time_left() const;
 
+    void reset();
+
 protected:
     Character* pchar;
     const QString name;

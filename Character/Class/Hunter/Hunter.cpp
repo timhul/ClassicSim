@@ -56,3 +56,7 @@ float Hunter::global_cooldown() const {
 void Hunter::initialize_talents() {
 
 }
+
+void Hunter::reset_spells() const {
+
+}

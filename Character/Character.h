@@ -72,6 +72,9 @@ public:
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
 
+    void reset();
+    virtual void reset_spells() const = 0;
+
 protected:
     Race* race;
     Engine* engine;

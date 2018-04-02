@@ -56,3 +56,7 @@ float Shaman::global_cooldown() const {
 void Shaman::initialize_talents() {
 
 }
+
+void Shaman::reset_spells() const {
+
+}

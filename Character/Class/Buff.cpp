@@ -8,14 +8,10 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
     pchar(_pchar),
     name(_name),
     duration(_dur),
-    base_charges(_base_charges),
-    current_charges(_base_charges),
-    iteration(0),
-    applied(_dur - 1),
-    refreshed(_dur - 1),
-    expired(_dur - 1),
-    active(false)
-{}
+    base_charges(_base_charges)
+{
+    reset();
+}
 
 Buff::~Buff() {
 }
@@ -70,4 +66,13 @@ float Buff::time_left() const {
     if (!is_active())
         return 0;
     return this->refreshed + this->duration - pchar->get_engine()->get_current_priority();
+}
+
+void Buff::reset() {
+    current_charges = 0;
+    iteration = 0;
+    applied = duration - 1;
+    refreshed = duration - 1;
+    expired = duration - 1;
+    active = false;
 }

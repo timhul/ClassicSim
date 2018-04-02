@@ -13,6 +13,7 @@ public:
     void update_next_expected_use(const float);
     bool attack_is_valid(const int) const;
     int get_next_iteration();
+    void reset_effect() override;
 
 protected:
 private:

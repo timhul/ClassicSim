@@ -29,6 +29,8 @@ public:
     int get_ap_per_strength() const override;
     int get_ap_per_agi() const override;
 
+    void reset_spells() const override;
+
 protected:
 private:
     CombatRoll* roll;

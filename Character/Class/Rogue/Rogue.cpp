@@ -56,3 +56,7 @@ float Rogue::global_cooldown() const {
 void Rogue::initialize_talents() {
 
 }
+
+void Rogue::reset_spells() const {
+
+}

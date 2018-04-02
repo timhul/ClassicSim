@@ -47,6 +47,8 @@ public:
     void decrease_crit(float) override;
     void decrease_attack_speed(float) override;
 
+    void reset_spells() const override;
+
 protected:
 private:
     int rage;

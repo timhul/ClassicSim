@@ -57,3 +57,7 @@ float Druid::global_cooldown() const {
 void Druid::initialize_talents() {
 
 }
+
+void Druid::reset_spells() const {
+
+}
