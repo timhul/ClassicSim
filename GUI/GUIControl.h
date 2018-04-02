@@ -75,10 +75,13 @@ public:
 
     /* End of Stats */
 
+    Q_INVOKABLE void runQuickSim();
+
 Q_SIGNALS:
     void talentsUpdated();
     void classChanged();
     void statsChanged();
+    void quickSimChanged(QString value, QString change, bool positive);
 
 private:
     int get_talent_points_remaining() const;
@@ -98,6 +101,8 @@ private:
     QString get_crit_chance() const;
     QString get_hit_chance() const;
 
+    void run_quick_sim();
+
     Engine* engine;
     Equipment* equipment;
     Target* target;
@@ -106,6 +111,7 @@ private:
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     Character* current_char;
+    float last_quick_sim_result;
 };
 
 #endif // GUICONTROL_H

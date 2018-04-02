@@ -13,6 +13,8 @@ Window {
     property color gold: "#ceac00"
     property color darkDarkGray: "#070707"
     property color gray: "#727171"
+    property color brightGreen: "#6cf92f"
+    property color brightRed: "#fc2323"
 
     property color colorDruid: "#FF7D0A"
     property color colorHunter: "#ABD473"
@@ -27,6 +29,15 @@ Window {
     property string fontText: "Arial"
 
     color: darkGray
+
+    Connections {
+        target: character
+        onQuickSimChanged: {
+            continuousDpsUpdateText.text = value;
+            percentualDifference.text = change;
+            percentualDifference.color = positive ? brightGreen : brightRed
+        }
+    }
 
     RectangleBorders {
         id: continuousDpsUpdateRect
@@ -44,7 +55,7 @@ Window {
             id: continuousDpsUpdateText
             anchors.fill: parent
 
-            text: "70.4"
+            text: "0.0"
 
             font {
                 family: fontNumbers
@@ -55,6 +66,28 @@ Window {
             color: gold
 
             verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+
+        Text {
+            id: percentualDifference
+            anchors {
+                bottom: parent.bottom
+                bottomMargin: - 10
+            }
+
+            width: parent.width
+
+            text: "+0.0%"
+
+            font {
+                family: fontNumbers
+                bold: true
+                pointSize: 10
+            }
+
+            color: gray
             horizontalAlignment: Text.AlignHCenter
         }
     }
@@ -74,7 +107,10 @@ Window {
         onTalentsClicked: console.log("main: talents clicked")
         onEquipmentClicked: console.log("main: equipment clicked")
         onBuffsClicked: console.log("main: buffs clicked")
-        onSettingsClicked: console.log("main: settings clicked")
+        onSettingsClicked: {
+            character.runQuickSim()
+            console.log("main: settings clicked")
+        }
     }
 
     Rectangle {

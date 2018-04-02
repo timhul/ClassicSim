@@ -20,8 +20,16 @@
 #include "Warlock.h"
 #include "Warrior.h"
 
+#include "Statistics.h"
+
+#include "EncounterStart.h"
+#include "EncounterEnd.h"
+
+#include <QDebug>
+
 GUIControl::GUIControl(QObject* parent) :
-    QObject(parent)
+    QObject(parent),
+    last_quick_sim_result(0.0)
 {
     races.insert("DWARF", new Dwarf());
     races.insert("GNOME", new Gnome());
@@ -238,4 +246,35 @@ QString GUIControl::get_crit_chance() const {
 
 QString GUIControl::get_hit_chance() const {
     return QString::number(current_char->get_hit_chance(), 'f', 2);
+}
+
+void GUIControl::run_quick_sim() {
+    engine->prepare();
+    // TODO: Remove hardcoded 1000 iterations for quick sim.
+    for (int i = 0; i < 1000; ++i) {
+        EncounterStart* start_event = new EncounterStart(current_char);
+        EncounterEnd* end_event = new EncounterEnd(engine, current_char);
+
+        engine->add_event(end_event);
+        engine->add_event(start_event);
+        engine->run();
+    }
+
+    engine->dump();
+    engine->reset();
+    // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
+    float previous = last_quick_sim_result;
+    last_quick_sim_result = float(engine->get_statistics()->get_total_damage()) / (1000 * 300);
+
+    float delta = ((last_quick_sim_result - previous) / previous);
+    QString change = delta > 0 ? "+" : "";
+    change += QString::number(((last_quick_sim_result - previous) / previous) * 100, 'f', 1) + "%";
+
+    QString dps = QString::number(last_quick_sim_result, 'f', 2);
+    qDebug() << "Total DPS: " << dps;
+    quickSimChanged(dps, change, delta > 0);
+}
+
+void GUIControl::runQuickSim() {
+    run_quick_sim();
 }
