@@ -21,6 +21,7 @@ Stats::Stats(Character* pchar_, QObject* parent ) :
     this->spi_multiplier = 1.0;
     this->int_multiplier = 1.0;
 
+    this->melee_ap = 0;
     this->melee_ap_per_str = 1;
     this->melee_ap_per_agi = 1;
 }
