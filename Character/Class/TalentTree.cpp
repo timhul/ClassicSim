@@ -275,3 +275,19 @@ void TalentTree::clear_tree() {
 
     total_spent_points = 0;
 }
+
+void TalentTree::remove_rank_effects() {
+    for (auto it : talents.keys()) {
+        for (int i = 0; i < talents.value(it)->get_current_rank(); ++i) {
+            talents.value(it)->remove_rank_effect();
+        }
+    }
+}
+
+void TalentTree::apply_rank_effects() {
+    for (auto it : talents.keys()) {
+        for (int i = 0; i < talents.value(it)->get_current_rank(); ++i) {
+            talents.value(it)->apply_rank_effect();
+        }
+    }
+}

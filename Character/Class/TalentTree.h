@@ -46,6 +46,8 @@ public:
     int get_total_points() const;
 
     void clear_tree();
+    void remove_rank_effects();
+    void apply_rank_effects();
 
 protected:
     const QString name;

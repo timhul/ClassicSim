@@ -41,13 +41,14 @@ public:
     void increase_spi(const int);
     void decrease_spi(const int);
 
-    void increase_hit(const float);
-    void increase_crit(const float);
-    void increase_attack_speed(const float);
+    void increase_crit(const float value);
+    void decrease_crit(const float value);
 
-    void decrease_hit(const float);
-    void decrease_crit(const float);
-    void decrease_attack_speed(const float);
+    void increase_hit(const float value);
+    void decrease_hit(const float value);
+
+    void increase_attack_speed(const float value);
+    void decrease_attack_speed(const float value);
 
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();

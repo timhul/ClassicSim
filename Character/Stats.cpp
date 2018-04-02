@@ -2,6 +2,7 @@
 #include "Stats.h"
 #include "Character.h"
 #include "Race.h"
+#include <QDebug>
 
 Stats::Stats(Character* pchar_, QObject* parent ) :
     QObject(parent),
@@ -131,4 +132,28 @@ void Stats::set_spi_multiplier(const float value) {
 
 void Stats::set_int_multiplier(const float value) {
     int_multiplier = value;
+}
+
+void Stats::increase_crit(const float value) {
+    percent_crit += value;
+}
+
+void Stats::decrease_crit(const float value) {
+    percent_crit -= value;
+}
+
+void Stats::increase_hit(const float value) {
+    percent_hit += value;
+}
+
+void Stats::decrease_hit(const float value) {
+    percent_hit -= value;
+}
+
+void Stats::increase_attack_speed(const float value) {
+    percent_attack_speed += value;
+}
+
+void Stats::decrease_attack_speed(const float value) {
+    percent_attack_speed -= value;
 }

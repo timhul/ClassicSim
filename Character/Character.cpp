@@ -175,26 +175,32 @@ int Character::get_oh_wpn_skill() {
 
 void Character::increase_hit(float increase) {
     percent_hit += increase;
-}
-
-void Character::increase_crit(float increase) {
-    percent_crit += increase;
-}
-
-void Character::increase_attack_speed(float increase) {
-    percent_attack_speed += increase;
+    stats->increase_hit(increase);
 }
 
 void Character::decrease_hit(float decrease) {
     percent_hit -= decrease;
+    stats->decrease_hit(decrease);
+}
+
+void Character::increase_crit(float increase) {
+    percent_crit += increase;
+    stats->increase_crit(increase);
 }
 
 void Character::decrease_crit(float decrease) {
     percent_crit -= decrease;
+    stats->decrease_crit(decrease);
+}
+
+void Character::increase_attack_speed(float increase) {
+    percent_attack_speed += increase;
+    stats->increase_attack_speed(increase);
 }
 
 void Character::decrease_attack_speed(float decrease) {
     percent_attack_speed -= decrease;
+    stats->decrease_attack_speed(decrease);
 }
 
 float Character::get_mh_wpn_speed() {

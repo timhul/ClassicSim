@@ -157,11 +157,13 @@ QString GUIControl::getMaxRank(const QString tree_position, const QString talent
 void GUIControl::incrementRank(const QString tree_position, const QString talent_position) {
     current_char->get_talents()->increment_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
+    Q_EMIT statsChanged();
 }
 
 void GUIControl::decrementRank(const QString tree_position, const QString talent_position) {
     current_char->get_talents()->decrement_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
+    Q_EMIT statsChanged();
 }
 
 QString GUIControl::getRequirements(const QString tree_position, const QString talent_position) const {
@@ -191,21 +193,25 @@ QString GUIControl::getTalentName(const QString tree_position, const QString tal
 void GUIControl::maxRank(const QString tree_position, const QString talent_position) {
     current_char->get_talents()->increase_to_max_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
+    Q_EMIT statsChanged();
 }
 
 void GUIControl::minRank(const QString tree_position, const QString talent_position) {
     current_char->get_talents()->decrease_to_min_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
+    Q_EMIT statsChanged();
 }
 
 void GUIControl::clearTree(const QString tree_position) {
     current_char->get_talents()->clear_tree(tree_position);
     Q_EMIT talentsUpdated();
+    Q_EMIT statsChanged();
 }
 
 void GUIControl::setTalentSetup(const int talent_index) {
     current_char->get_talents()->set_current_index(talent_index);
     Q_EMIT talentsUpdated();
+    Q_EMIT statsChanged();
 }
 
 int GUIControl::get_talent_points_remaining() const {

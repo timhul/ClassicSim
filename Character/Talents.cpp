@@ -301,7 +301,17 @@ void Talents::set_current_index(const int index) {
     if (index < 0 || index >= talent_trees.size())
         return;
 
+    for (auto it : talent_trees[current_index].keys()) {
+        if (talent_trees[current_index].value(it) != nullptr)
+            talent_trees[current_index].value(it)->remove_rank_effects();
+    }
+
     current_index = index;
+
+    for (auto it : talent_trees[current_index].keys()) {
+        if (talent_trees[current_index].value(it) != nullptr)
+            talent_trees[current_index].value(it)->apply_rank_effects();
+    }
 }
 
 void Talents::add_talent_tree(TalentTree* left_tree, TalentTree* mid_tree, TalentTree *right_tree) {

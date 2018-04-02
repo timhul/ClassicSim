@@ -194,14 +194,27 @@ Flurry* Warrior::get_flurry() const {
 
 void Warrior::increase_hit(float increase) {
     percent_hit += increase;
+    stats->increase_hit(increase);
+}
+
+void Warrior::decrease_hit(float decrease) {
+    percent_hit -= decrease;
+    stats->decrease_hit(decrease);
 }
 
 void Warrior::increase_crit(float increase) {
     percent_crit += increase;
+    stats->increase_crit(increase);
+}
+
+void Warrior::decrease_crit(float decrease) {
+    percent_crit -= decrease;
+    stats->decrease_crit(decrease);
 }
 
 void Warrior::increase_attack_speed(float increase) {
     percent_attack_speed += increase;
+    stats->increase_attack_speed(increase);
 
     mh_attack->update_next_expected_use(increase);
     add_next_mh_attack();
@@ -212,16 +225,9 @@ void Warrior::increase_attack_speed(float increase) {
     }
 }
 
-void Warrior::decrease_hit(float decrease) {
-    percent_hit -= decrease;
-}
-
-void Warrior::decrease_crit(float decrease) {
-    percent_crit -= decrease;
-}
-
 void Warrior::decrease_attack_speed(float decrease) {
     percent_attack_speed -= decrease;
+    stats->decrease_attack_speed(decrease);
 
     mh_attack->update_next_expected_use(decrease);
     add_next_mh_attack();
