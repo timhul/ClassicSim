@@ -32,6 +32,7 @@ public:
     void add_event(Event*);
 
     Statistics* get_statistics(void);
+    void save_event_history(Event*);
 
 protected:
 
@@ -42,6 +43,7 @@ private:
 
     unsigned processed_events;
     QTime *timer;
+    QMap<QString, int> processed_events_of_type;
 };
 
 

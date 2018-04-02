@@ -7,6 +7,7 @@ void Engine::run() {
         ++processed_events;
         Event* event = queue->get_next();
         set_current_priority(event);
+        save_event_history(event);
         event->act();
         delete event;
     }
@@ -15,11 +16,18 @@ void Engine::run() {
 void Engine::prepare() {
     timer->start();
     statistics->clear();
+    processed_events_of_type.clear();
 }
 
 void Engine::dump(void) {
     const float elapsed = (float)timer->elapsed() / 1000;
     statistics->dump();
+
+    QMap<QString, int>::const_iterator i = processed_events_of_type.constBegin();
+    while (i != processed_events_of_type.constEnd()) {
+        qDebug() << i.key() << "=>" << i.value() << (float(i.value()) / float(processed_events)) * 100 << "%";
+        ++i;
+    }
 
     qDebug() << "Processed" << processed_events << "events in " << elapsed << "s";
     qDebug() << processed_events / elapsed << " events per second";
@@ -56,4 +64,11 @@ void Engine::add_event(Event* event) {
 
 Statistics* Engine::get_statistics(void) {
     return this->statistics;
+}
+
+void Engine::save_event_history(Event* event) {
+    if (!processed_events_of_type.contains(event->get_name()))
+        processed_events_of_type[event->get_name()] = 0;
+
+    processed_events_of_type[event->get_name()]++;
 }
