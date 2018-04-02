@@ -2,25 +2,28 @@
 #define STATISTICS_H
 
 #include <QString>
-#include <map>
+#include <QMap>
 #include <math.h>
 
 class Statistics {
 public:
-    int get_int(QString);
-    void set_int(QString, int);
     int add(QString, int);
+    int get_int(QString);
     int increment(QString);
     void average(QString, int);
     float get_float(QString);
-    void set_float(QString, float);
+
+    int get_total_damage();
 
     void dump(void);
+    void clear();
 
 protected:
 private:
-    std::map<QString, int> int_stats;
-    std::map<QString, float> float_stats;
+    void set_int(QString, int);
+    void set_float(QString, float);
+    QMap<QString, int> int_stats;
+    QMap<QString, float> float_stats;
 };
 
 #endif // STATISTICS_H

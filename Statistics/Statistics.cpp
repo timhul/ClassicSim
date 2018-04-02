@@ -4,32 +4,31 @@
 
 int Statistics::get_int(QString key) {
     if (int_stats.find(key) != int_stats.end())
-        return int_stats.at(key);
-    int_stats.insert(std::pair<QString, int>(key, 0));
-    return int_stats.at(key);
+        return int_stats[key];
+    int_stats[key] = 0;
+    return 0;
 }
 
 void Statistics::set_int(QString key, int val) {
-    if (int_stats.find(key) != int_stats.end())
-        int_stats.at(key) = val;
-    else
-        int_stats.insert(std::pair<QString, int>(key, val));
+    int_stats[key] = val;
 }
 
 int Statistics::add(QString key, int val) {
     if (int_stats.find(key) != int_stats.end()) {
-        return int_stats.at(key) += val;
+        return int_stats[key] += val;
     }
-    int_stats.insert(std::pair<QString, int>(key, val));
-    return int_stats.at(key);
+
+    set_int(key, val);
+    return val;
 }
 
 int Statistics::increment(QString key) {
     if (int_stats.find(key) != int_stats.end()) {
-        return ++int_stats.at(key);
+        return ++int_stats[key];
     }
-    int_stats.insert(std::pair<QString, int>(key, 1));
-    return int_stats.at(key);
+
+    set_int(key, 1);
+    return 1;
 }
 
 void Statistics::average(QString key, int next_val) {
@@ -40,27 +39,42 @@ void Statistics::average(QString key, int next_val) {
 
 float Statistics::get_float(QString key) {
     if (float_stats.find(key) != float_stats.end())
-        return float_stats.at(key);
-    float_stats.insert(std::pair<QString, float>(key, 0.0));
-    return float_stats.at(key);
+        return float_stats[key];
+
+    set_float(key, 0.0);
+    return 0.0;
 }
 
 void Statistics::set_float(QString key, float val) {
-    if (float_stats.find(key) != float_stats.end())
-        float_stats.at(key) = val;
-    else
-        float_stats.insert(std::pair<QString, float>(key, val));
+    float_stats[key] = val;
+}
+
+int Statistics::get_total_damage() {
+    if (int_stats.find("Total Damage") != int_stats.end())
+        return int_stats["Total Damage"];
+
+    return 0;
 }
 
 void Statistics::dump(void) {
-    for (auto it = int_stats.begin(); it != int_stats.end(); ++it) {
-        qDebug() << it->first << " => " << it->second;
+    QMap<QString, int>::const_iterator i = int_stats.constBegin();
+    while (i != int_stats.constEnd()) {
+        qDebug() << i.key() << "=>" << i.value();
+        ++i;
     }
 
-    for (auto it = float_stats.begin(); it != float_stats.end(); ++it) {
-        qDebug() << it->first << " => " << it->second;
+    QMap<QString, float>::const_iterator j = float_stats.constBegin();
+    while (j != float_stats.constEnd()) {
+        qDebug() << j.key() << "=>" << j.value();
+        ++j;
     }
 
-    if (int_stats.find("Total Damage") != int_stats.end())
-        qDebug() << "Total DPS: " << float(int_stats.at("Total Damage")) / 300;
+    // TODO: Remove hardcoded fight length of 300 seconds.
+    qDebug() << "Total DPS: " << get_total_damage() / 300;
+}
+
+void Statistics::clear() {
+    qDebug() << "Clearing statistics";
+    float_stats.clear();
+    int_stats.clear();
 }
