@@ -15,7 +15,7 @@ class Mechanics;
 
 class CombatRoll {
 public:
-    CombatRoll(Target* _tar, Random* _rand);
+    CombatRoll(Target* _tar);
     ~CombatRoll();
 
     AttackResult* get_melee_hit_result(const int);

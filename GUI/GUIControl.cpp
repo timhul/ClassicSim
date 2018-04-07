@@ -52,8 +52,7 @@ GUIControl::GUIControl(QObject* parent) :
     Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
     target = new Target(63);
-    random = new Random(0, 9999);
-    combat = new CombatRoll(target, random);
+    combat = new CombatRoll(target);
 
     chars.insert("DRUID", dynamic_cast<Character*>(new Druid(races["NIGHTELF"], engine, equipment, combat)));
     chars.insert("HUNTER", dynamic_cast<Character*>(new Hunter(races["DWARF"], engine, equipment, combat)));
@@ -84,7 +83,6 @@ GUIControl::~GUIControl() {
     delete engine;
     delete equipment;
     delete target;
-    delete random;
     delete combat;
 }
 

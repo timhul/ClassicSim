@@ -77,8 +77,7 @@ void Test::test_queue(void) {
     equipment->set_offhand(offhand);
     Race* race = new Orc();
     Target* target = new Target(63);
-    Random* random = new Random(0, 9999);
-    CombatRoll* combat = new CombatRoll(target, random);
+    CombatRoll* combat = new CombatRoll(target);
     Warrior* pchar = new Warrior(race, engine, equipment, combat);
     pchar->set_clvl(60);
     EncounterStart* start_event = new EncounterStart(pchar);
@@ -90,7 +89,6 @@ void Test::test_queue(void) {
     engine->dump();
 
     delete target;
-    delete random;
     delete equipment;
     delete pchar;
     delete race;
@@ -112,8 +110,7 @@ void Test::test_combat_roll_melee_hit_result(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Random* random = new Random(0, 9999);
-    CombatRoll* combat = new CombatRoll(target, random);
+    CombatRoll* combat = new CombatRoll(target);
     Warrior* pchar = new Warrior(race, engine, equipment, combat);
     combat->set_character(pchar);
 
@@ -130,7 +127,6 @@ void Test::test_combat_roll_melee_hit_result(void) {
     delete equipment;
     delete race;
     delete pchar;
-    delete random;
     delete combat;
 }
 
@@ -139,8 +135,7 @@ void Test::test_combat_roll_creation(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Race* race = new Orc();
-    Random* random = new Random(0, 9999);
-    CombatRoll* combat = new CombatRoll(target, random);
+    CombatRoll* combat = new CombatRoll(target);
     Warrior* pchar = new Warrior(race, engine, equipment, combat);
     combat->set_character(dynamic_cast<Character*>(pchar));
 
@@ -155,7 +150,6 @@ void Test::test_combat_roll_creation(void) {
     delete equipment;
     delete race;
     delete pchar;
-    delete random;
     delete combat;
 }
 
@@ -289,8 +283,7 @@ void Test::test_character_creation(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
     Target* target = new Target(63);
-    Random* random = new Random(0, 9999);
-    CombatRoll* combat = new CombatRoll(target, random);
+    CombatRoll* combat = new CombatRoll(target);
 
     Race* race = new Human();
     // TODO: Add assertions
@@ -368,7 +361,6 @@ void Test::test_character_creation(void) {
     warr->set_clvl(60);
     assert(warr->get_clvl() == 60);
     delete target;
-    delete random;
     delete combat;
     delete race;
     delete warr;

@@ -8,11 +8,14 @@
 #include "MeleeSpecialTable.h"
 #include "Target.h"
 #include "Random.h"
+#include <QDebug>
 
-CombatRoll::CombatRoll(Target* _tar, Random* _rand):
-    target(_tar), random(_rand), mechanics(nullptr) {}
+CombatRoll::CombatRoll(Target* _tar):
+    target(_tar), random(new Random(0, 9999)), mechanics(nullptr) {
+}
 
 CombatRoll::~CombatRoll() {
+    delete random;
 
     std::map<int, WhiteHitTable*>::iterator it_auto;
     for (it_auto = auto_attack_tables.begin(); it_auto != auto_attack_tables.end(); ++it_auto) {
@@ -31,7 +34,6 @@ CombatRoll::~CombatRoll() {
         delete mechanics;
     }
 }
-
 
 AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill) {
     const int roll = random->get_roll();
