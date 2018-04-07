@@ -41,11 +41,12 @@ public:
 
     void increase_hit(float) override;
     void increase_crit(float) override;
-    void increase_attack_speed(float) override;
 
     void decrease_hit(float) override;
     void decrease_crit(float) override;
-    void decrease_attack_speed(float) override;
+
+    void increase_attack_speed(int) override;
+    void decrease_attack_speed(int) override;
 
     void reset_spells() const override;
 

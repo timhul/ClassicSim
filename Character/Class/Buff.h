@@ -19,6 +19,7 @@ public:
     float time_left() const;
 
     void reset();
+    void initialize();
 
 protected:
     Character* pchar;

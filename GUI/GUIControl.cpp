@@ -25,6 +25,9 @@
 #include "EncounterStart.h"
 #include "EncounterEnd.h"
 
+#include "Mainhand.h"
+#include "Offhand.h"
+
 #include <QDebug>
 
 GUIControl::GUIControl(QObject* parent) :
@@ -42,6 +45,12 @@ GUIControl::GUIControl(QObject* parent) :
 
     engine = new Engine();
     equipment = new Equipment();
+    Random* mh_dmg_range = new Random(80, 150);
+    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    equipment->set_mainhand(mainhand);
+    Random* oh_dmg_range = new Random(80, 150);
+    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    equipment->set_offhand(offhand);
     target = new Target(63);
     random = new Random(0, 9999);
     combat = new CombatRoll(target, random);

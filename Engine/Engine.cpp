@@ -3,6 +3,7 @@
 #include <QDebug>
 
 void Engine::run() {
+    processed_events_of_type.clear();
     while(!queue->empty()) {
         ++processed_events;
         Event* event = queue->get_next();
@@ -29,8 +30,8 @@ void Engine::dump(void) {
         ++i;
     }
 
-    qDebug() << "Processed" << processed_events << "events in " << elapsed << "s";
-    qDebug() << processed_events / elapsed << " events per second";
+    qDebug() << "Processed" << processed_events << "events in" << elapsed << "s";
+    qDebug() << processed_events / elapsed << "events per second";
 }
 
 void Engine::reset(void) {

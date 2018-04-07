@@ -10,6 +10,6 @@ EncounterEnd::EncounterEnd(Engine* engine, Character* pchar) {
 }
 
 void EncounterEnd::act(void) {
-    engine->end_combat();
     pchar->reset();
+    engine->end_combat();
 }

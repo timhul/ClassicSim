@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "Engine.h"
 #include "BuffRemoval.h"
+#include <QDebug>
 
 Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _base_charges):
     pchar(_pchar),
@@ -10,7 +11,7 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
     duration(_dur),
     base_charges(_base_charges)
 {
-    reset();
+    initialize();
 }
 
 Buff::~Buff() {
@@ -36,7 +37,7 @@ void Buff::apply_buff() {
 }
 
 void Buff::remove_buff(const int iteration) {
-    if (iteration != this->iteration)
+    if (iteration != this->iteration || !is_active())
         return;
 
     force_remove_buff();
@@ -69,6 +70,13 @@ float Buff::time_left() const {
 }
 
 void Buff::reset() {
+    if (is_active())
+        force_remove_buff();
+
+    initialize();
+}
+
+void Buff::initialize() {
     current_charges = 0;
     iteration = 0;
     applied = duration - 1;

@@ -4,12 +4,14 @@
 #include <QString>
 #include <QMap>
 #include <QObject>
+#include <QVector>
 
 class Race;
 class Engine;
 class Equipment;
 class Talents;
 class Stats;
+class Buff;
 
 class Character: public QObject {
     Q_OBJECT
@@ -63,14 +65,17 @@ public:
 
     virtual void increase_hit(float);
     virtual void increase_crit(float);
-    virtual void increase_attack_speed(float);
+    virtual void increase_attack_speed(int);
 
     virtual void decrease_hit(float);
     virtual void decrease_crit(float);
-    virtual void decrease_attack_speed(float);
+    virtual void decrease_attack_speed(int);
 
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
+
+    bool has_mainhand() const;
+    bool has_offhand() const;
 
     void reset();
     virtual void reset_spells() const = 0;
@@ -81,12 +86,16 @@ protected:
     Equipment* equipment;
     Talents* talents;
     Stats* stats;
+    QVector<Buff*> buffs;
+    QVector<int> attack_speed_buffs;
 
     int melee_ap;
     int ranged_ap;
     float percent_hit;
     float percent_crit;
-    float percent_attack_speed;
+    float mh_wpn_speed;
+    float oh_wpn_speed;
+
     int clvl;
     bool melee_attacking;
     float last_action;

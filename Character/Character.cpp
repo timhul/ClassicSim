@@ -6,6 +6,7 @@
 #include "Mechanics.h"
 #include "Talents.h"
 #include "Stats.h"
+#include "Buff.h"
 
 #include <QDebug>
 
@@ -20,6 +21,13 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* 
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
+    // TODO: Get haste enchants from gear
+    // TODO: Find out swing timer without weapons equipped.
+    mh_wpn_speed = has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() :
+                                    2.0;
+    oh_wpn_speed = has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() :
+                                   300.0;
+    // TODO: Populate this->buffs with general buffs.
 }
 
 Character::~Character() {
@@ -193,30 +201,49 @@ void Character::decrease_crit(float decrease) {
     stats->decrease_crit(decrease);
 }
 
-void Character::increase_attack_speed(float increase) {
-    percent_attack_speed += increase;
-    stats->increase_attack_speed(increase);
+void Character::increase_attack_speed(int increase) {
+    attack_speed_buffs.append(increase);
+
+    mh_wpn_speed /= 1 + float(increase / 100);
+
+    if (has_offhand())
+        oh_wpn_speed /= 1 + float(increase / 100);
 }
 
-void Character::decrease_attack_speed(float decrease) {
-    percent_attack_speed -= decrease;
-    stats->decrease_attack_speed(decrease);
+void Character::decrease_attack_speed(int decrease) {
+    assert(attack_speed_buffs.removeOne(decrease));
+
+    mh_wpn_speed /= 1 - float(decrease / 100);
+
+    if (has_offhand())
+        oh_wpn_speed /= 1 - float(decrease / 100);
 }
 
 float Character::get_mh_wpn_speed() {
-    float wpn_speed = equipment->get_mainhand()->get_base_weapon_speed();
-    wpn_speed /= 1 + percent_attack_speed;
-    return wpn_speed;
+    return mh_wpn_speed;
 }
 
 float Character::get_oh_wpn_speed() {
-    float wpn_speed = equipment->get_offhand()->get_base_weapon_speed();
-    wpn_speed /= 1 + percent_attack_speed;
-    return wpn_speed;
+    return oh_wpn_speed;
+}
+
+bool Character::has_mainhand() const {
+    return equipment->get_mainhand() != nullptr;
+}
+
+bool Character::has_offhand() const {
+    return equipment->get_offhand() != nullptr;
 }
 
 void Character::reset() {
     melee_attacking = false;
     last_action = 0 - this->global_cooldown();
+
+    for (int i = 0; i < buffs.size(); ++i) {
+        buffs[i]->reset();
+    }
+
     reset_spells();
+
+    assert(attack_speed_buffs.empty());
 }

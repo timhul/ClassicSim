@@ -50,6 +50,8 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
     this->flurry = new Flurry(dynamic_cast<Character*>(this));
     initialize_talents();
+
+    this->buffs.append(flurry);
 }
 
 Warrior::~Warrior() {
@@ -119,8 +121,9 @@ int Warrior::rage_gained_from_dd(const int damage_dealt) const {
 void Warrior::rotation() {
     // TODO: Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
     // Fury warriors need this for overpower modelling.
-    if (!is_melee_attacking())
+    if (!is_melee_attacking()) {
         start_attack();
+    }
 
     if (!action_ready()) {
         return;
@@ -212,8 +215,14 @@ void Warrior::decrease_crit(float decrease) {
     stats->decrease_crit(decrease);
 }
 
-void Warrior::increase_attack_speed(float increase) {
-    percent_attack_speed += increase;
+void Warrior::increase_attack_speed(int increase) {
+    attack_speed_buffs.append(increase);
+
+    mh_wpn_speed /= 1 + float(increase / 100);
+
+    if (has_offhand())
+        oh_wpn_speed /= 1 + float(increase / 100);
+
     stats->increase_attack_speed(increase);
 
     mh_attack->update_next_expected_use(increase);
@@ -225,15 +234,19 @@ void Warrior::increase_attack_speed(float increase) {
     }
 }
 
-void Warrior::decrease_attack_speed(float decrease) {
-    percent_attack_speed -= decrease;
-    stats->decrease_attack_speed(decrease);
+void Warrior::decrease_attack_speed(int decrease) {
+    assert(attack_speed_buffs.removeOne(decrease));
+    float decrease_ = float(decrease / 100);
+    mh_wpn_speed /= 1 - decrease_;
 
-    mh_attack->update_next_expected_use(decrease);
+    if (has_offhand())
+        oh_wpn_speed /= 1 - decrease_;
+
+    mh_attack->update_next_expected_use(decrease_);
     add_next_mh_attack();
 
     if (equipment->is_dual_wielding()) {
-        oh_attack->update_next_expected_use(decrease);
+        oh_attack->update_next_expected_use(decrease_);
         add_next_oh_attack();
     }
 }
@@ -248,5 +261,4 @@ void Warrior::reset_spells() const {
     bt->reset();
     mh_attack->reset();
     oh_attack->reset();
-    flurry->reset();
 }
