@@ -45,6 +45,7 @@ public:
     HeroicStrikeBuff* get_hs_buff() const;
     Execute* get_execute() const;
     Overpower* get_overpower() const;
+    OffhandAttack* get_offhand_attack() const;
 
     void critical_effect();
 

@@ -236,6 +236,10 @@ Overpower* Warrior::get_overpower() const {
     return this->overpower;
 }
 
+OffhandAttack* Warrior::get_offhand_attack() const {
+    return this->oh_attack;
+}
+
 void Warrior::critical_effect() {
     flurry->apply_buff();
     deep_wounds->apply_debuff();
