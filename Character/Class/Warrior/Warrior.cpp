@@ -17,6 +17,7 @@
 #include "Race.h"
 #include "Mainhand.h"
 #include "Offhand.h"
+#include "DeepWounds.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -45,10 +46,11 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 
     // TODO: For now mainhand/offhand attack must be initialized after equipment is set.
     // Fix so that equipment changes updates these spells.
-    this->bt = new Bloodthirst(engine, dynamic_cast<Character*>(this), roll);
-    this->mh_attack = new MainhandAttack(engine, dynamic_cast<Character*>(this), roll);
-    this->oh_attack = new OffhandAttack(engine, dynamic_cast<Character*>(this), roll);
-    this->flurry = new Flurry(dynamic_cast<Character*>(this));
+    this->bt = new Bloodthirst(engine, this, roll);
+    this->mh_attack = new MainhandAttack(engine, this, roll);
+    this->oh_attack = new OffhandAttack(engine, this, roll);
+    this->flurry = new Flurry(this);
+    this->deep_wounds = new DeepWounds(engine, this, roll);
     initialize_talents();
 
     this->buffs.append(flurry);
@@ -59,6 +61,7 @@ Warrior::~Warrior() {
     delete mh_attack;
     delete oh_attack;
     delete flurry;
+    delete deep_wounds;
 }
 
 QString Warrior::get_name(void) const {
@@ -193,6 +196,15 @@ int Warrior::get_curr_rage() const {
 
 Flurry* Warrior::get_flurry() const {
     return this->flurry;
+}
+
+DeepWounds* Warrior::get_deep_wounds() const {
+    return this->deep_wounds;
+}
+
+void Warrior::critical_effect() {
+    flurry->apply_buff();
+    deep_wounds->add_stack();
 }
 
 void Warrior::increase_hit(float increase) {

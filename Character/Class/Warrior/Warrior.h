@@ -9,6 +9,7 @@ class Bloodthirst;
 class MainhandAttack;
 class OffhandAttack;
 class Flurry;
+class DeepWounds;
 
 class Warrior: public Character {
     Q_OBJECT
@@ -35,6 +36,9 @@ public:
     bool bt_available(void) const;
 
     Flurry* get_flurry() const;
+    DeepWounds* get_deep_wounds() const;
+
+    void critical_effect();
 
     int get_ap_per_strength() const override;
     int get_ap_per_agi() const override;
@@ -58,6 +62,7 @@ private:
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
     Flurry* flurry;
+    DeepWounds* deep_wounds;
 
     void add_next_mh_attack(void) override;
     void add_next_oh_attack(void) override;

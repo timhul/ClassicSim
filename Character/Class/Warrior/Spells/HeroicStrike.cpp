@@ -2,6 +2,7 @@
 #include "HeroicStrike.h"
 #include "Warrior.h"
 #include "Flurry.h"
+#include "DeepWounds.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Heroic Strike", engine, pchar, roll, 0, 13)
@@ -28,7 +29,7 @@ int HeroicStrike::spell_effect(const int) {
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.
         damage_dealt *= 2.2;
-        pchar->get_flurry()->apply_buff();
+        pchar->critical_effect();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())

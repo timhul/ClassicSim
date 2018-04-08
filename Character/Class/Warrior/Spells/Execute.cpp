@@ -2,6 +2,7 @@
 #include "Execute.h"
 #include "Warrior.h"
 #include "Flurry.h"
+#include "DeepWounds.h"
 
 Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Execute", engine, pchar, roll, 0, 10)
@@ -28,7 +29,7 @@ int Execute::spell_effect(const int resource_level) {
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.
         damage_dealt *= 2.2;
-        pchar->get_flurry()->apply_buff();
+        pchar->critical_effect();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())
