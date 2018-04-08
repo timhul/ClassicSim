@@ -17,12 +17,11 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
     this->pchar = dynamic_cast<Warrior*>(pchar);
     next_expected_use = get_cooldown();
     iteration = 0;
+    talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
 }
 
 int OffhandAttack::spell_effect(const int) {
     // TODO: Check if Windfury is up, roll extra attacks.
-    // TODO: Take offhand dual-wield penalty into account.
-    // TODO: Take dual-wield specialization into account.
     engine->get_statistics()->increment("OH White Total Attempts");
 
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
@@ -42,8 +41,7 @@ int OffhandAttack::spell_effect(const int) {
         return 0;
     }
 
-    // TODO: Remove hardcoded 5/5 Dual-wield specialization.
-    int damage_dealt = std::max(1, int(round(pchar->get_oh_dmg() * 0.625)));
+    int damage_dealt = std::max(1, int(round(pchar->get_oh_dmg() * talent_ranks[rank_talent])));
 
     if (result->is_critical()) {
         damage_dealt *= 2;

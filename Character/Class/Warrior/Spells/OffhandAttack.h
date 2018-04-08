@@ -21,6 +21,7 @@ private:
     Warrior* pchar;
     float next_expected_use;
     int iteration;
+    QVector<float> talent_ranks;
 };
 
 #endif // OFFHANDATTACK_H
