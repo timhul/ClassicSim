@@ -102,7 +102,8 @@ SOURCES += main.cpp \
     Character/Stats.cpp \
     Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.cpp \
     Character/Class/Warrior/Spells/DeepWounds.cpp \
-    Event/Events/DotTick.cpp
+    Event/Events/DotTick.cpp \
+    Character/Class/Warrior/Buffs/HeroicStrikeBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -200,7 +201,8 @@ HEADERS += \
     Character/Stats.h \
     Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.h \
     Character/Class/Warrior/Spells/DeepWounds.h \
-    Event/Events/DotTick.h
+    Event/Events/DotTick.h \
+    Character/Class/Warrior/Buffs/HeroicStrikeBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

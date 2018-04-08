@@ -10,6 +10,8 @@ class MainhandAttack;
 class OffhandAttack;
 class Flurry;
 class DeepWounds;
+class HeroicStrike;
+class HeroicStrikeBuff;
 
 class Warrior: public Character {
     Q_OBJECT
@@ -37,6 +39,7 @@ public:
 
     Flurry* get_flurry() const;
     DeepWounds* get_deep_wounds() const;
+    HeroicStrikeBuff* get_hs_buff() const;
 
     void critical_effect();
 
@@ -63,6 +66,8 @@ private:
     OffhandAttack* oh_attack;
     Flurry* flurry;
     DeepWounds* deep_wounds;
+    HeroicStrike* heroic_strike;
+    HeroicStrikeBuff* heroic_strike_buff;
 
     void add_next_mh_attack(void) override;
     void add_next_oh_attack(void) override;

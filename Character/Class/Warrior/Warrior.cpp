@@ -18,6 +18,8 @@
 #include "Mainhand.h"
 #include "Offhand.h"
 #include "DeepWounds.h"
+#include "HeroicStrike.h"
+#include "HeroicStrikeBuff.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -51,9 +53,12 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->oh_attack = new OffhandAttack(engine, this, roll);
     this->flurry = new Flurry(this);
     this->deep_wounds = new DeepWounds(engine, this, roll);
+    this->heroic_strike = new HeroicStrike(engine, this, roll);
+    this->heroic_strike_buff = new HeroicStrikeBuff(this);
     initialize_talents();
 
     this->buffs.append(flurry);
+    this->buffs.append(heroic_strike_buff);
 }
 
 Warrior::~Warrior() {
@@ -136,6 +141,9 @@ void Warrior::rotation() {
 
     if (bt->is_available(rage))
         lose_rage(bt->perform(rage));
+
+    if (rage > 50)
+        heroic_strike_buff->apply_buff();
 }
 
 void Warrior::add_next_mh_attack(void) {
@@ -154,14 +162,16 @@ void Warrior::mh_auto_attack(const int iteration) {
 
     if (!mh_attack->attack_is_valid(iteration))
         return;
-    // TODO: Check if Heroic Strike "buff" up
-    // Then do not perform mh_attack.
 
-    gain_rage(mh_attack->perform(rage));
+    if (heroic_strike_buff->is_active())
+        lose_rage(heroic_strike->perform(rage));
+    else {
+        gain_rage(mh_attack->perform(rage));
 
-    if (action_ready()) {
-        PlayerAction* new_event = new PlayerAction(this, 0.1);
-        this->get_engine()->add_event(new_event);
+        if (action_ready()) {
+            PlayerAction* new_event = new PlayerAction(this, 0.1);
+            this->get_engine()->add_event(new_event);
+        }
     }
 
     mh_attack->update_next_expected_use(0.0);
@@ -202,9 +212,13 @@ DeepWounds* Warrior::get_deep_wounds() const {
     return this->deep_wounds;
 }
 
+HeroicStrikeBuff* Warrior::get_hs_buff() const {
+    return this->heroic_strike_buff;
+}
+
 void Warrior::critical_effect() {
     flurry->apply_buff();
-    deep_wounds->add_stack();
+    deep_wounds->apply_debuff();
 }
 
 void Warrior::increase_hit(float increase) {

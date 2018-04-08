@@ -3,6 +3,7 @@
 #include "Warrior.h"
 #include "Flurry.h"
 #include "DeepWounds.h"
+#include "HeroicStrikeBuff.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Heroic Strike", engine, pchar, roll, 0, 13)
@@ -11,6 +12,8 @@ HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
 }
 
 int HeroicStrike::spell_effect(const int) {
+    pchar->get_hs_buff()->use_charge();
+
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     if (result->is_miss()) {
@@ -24,6 +27,7 @@ int HeroicStrike::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
+    // TODO: Remove rank hardcoding.
     int damage_dealt = pchar->get_mh_dmg() + 138;
 
     if (result->is_critical()) {
