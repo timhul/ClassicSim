@@ -12,12 +12,11 @@ DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
 int DeepWounds::spell_effect(const int) {
     assert(!stacks.empty());
 
-    int damage_dealt = 0;
+    // TODO: Remove hardcoded assumption of 3/3 Deep Wounds.
+    int damage_dealt = stacks.size() * ((pchar->get_avg_mh_damage() * 0.6) / 6);
     for (int i = 0; i < stacks.size(); ++i) {
         assert(stacks[i] > 0);
         --stacks[i];
-        // TODO: Remove hardcoded assumption of 3/3 Deep Wounds.
-        damage_dealt += (pchar->get_avg_mh_damage() * 0.6) / 6;
     }
 
     stacks.removeAll(0);
