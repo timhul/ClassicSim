@@ -2,7 +2,9 @@
 #include "WhiteHitTable.h"
 #include <QDebug>
 
-void WhiteHitTable::set_attack_table(void) {
+WhiteHitTable::WhiteHitTable(const float miss, const float dodge, const float parry,
+                             const float glancing, const float block,  const float critical)
+{
     assert(miss >= 0);
     assert(dodge >= 0);
     assert(parry >= 0);
@@ -38,10 +40,14 @@ int WhiteHitTable::get_outcome(const int roll) {
 
 void WhiteHitTable::dump_table(void) {
     qDebug() << "------------";
-    qDebug() << "MISS RANGE " << miss_range << " (" << miss * 100 << "%)";
-    qDebug() << "DODGE RANGE " << dodge_range << " (" << dodge * 100 << "%)";
-    qDebug() << "PARRY RANGE " << parry_range << " (" << parry * 100 << "%)";
-    qDebug() << "GLANCING RANGE " << glancing_range << " (" << glancing* 100 << "%)";
-    qDebug() << "BLOCK RANGE " << block_range << " (" << block * 100 << "%)";
-    qDebug() << "CRITICAL RANGE " << critical_range << " (" << critical* 100 << "%)";
+    qDebug() << "MISS RANGE " << miss_range;
+    qDebug() << "DODGE RANGE " << dodge_range;
+    qDebug() << "PARRY RANGE " << parry_range;
+    qDebug() << "GLANCING RANGE " << glancing_range;
+    qDebug() << "BLOCK RANGE " << block_range;
+    qDebug() << "CRITICAL RANGE " << critical_range;
+}
+
+void WhiteHitTable::update_crit_chance(const float critical) {
+    this->critical_range = int(round(critical * 10000));
 }

@@ -2,7 +2,10 @@
 #include "MeleeSpecialTable.h"
 #include <QDebug>
 
-void MeleeSpecialTable::set_attack_table(void) {
+MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
+        const float miss, const float dodge, const float parry,
+        const float block, const float critical):
+    random(_rand) {
     assert(miss >= 0);
     assert(dodge >= 0);
     assert(parry >= 0);
@@ -39,10 +42,13 @@ int MeleeSpecialTable::get_outcome(const int roll) {
 
 void MeleeSpecialTable::dump_table(void) {
     qDebug() << "------------";
-    qDebug() << "MISS RANGE " << miss_range << " (" << miss * 100 << "%)";
-    qDebug() << "DODGE RANGE " << dodge_range << " (" << dodge * 100 << "%)";
-    qDebug() << "PARRY RANGE " << parry_range << " (" << parry * 100 << "%)";
-    qDebug() << "BLOCK RANGE " << block_range << " (" << block * 100 << "%)";
-    qDebug() << "CRITICAL RANGE " << critical_range << " (" << critical* 100 << "%)";
+    qDebug() << "MISS RANGE " << miss_range;
+    qDebug() << "DODGE RANGE " << dodge_range;
+    qDebug() << "PARRY RANGE " << parry_range;
+    qDebug() << "BLOCK RANGE " << block_range;
+    qDebug() << "CRITICAL RANGE " << critical_range;
 }
 
+void MeleeSpecialTable::update_crit_chance(const float critical) {
+    this->critical_range = int(round(critical * 10000));
+}

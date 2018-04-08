@@ -92,8 +92,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
                                              mechanics->get_parry_chance(wpn_skill),
                                              get_glancing_blow_chance(),
                                              mechanics->get_block_chance(),
-                                             pchar->get_crit_chance(),
-                                             wpn_skill);
+                                             pchar->get_crit_chance());
     auto_attack_tables.insert(std::pair<int, WhiteHitTable*>(wpn_skill, table));
 
     it = auto_attack_tables.find(wpn_skill);
@@ -115,8 +114,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
                                                      mechanics->get_dodge_chance(wpn_skill),
                                                      mechanics->get_parry_chance(wpn_skill),
                                                      mechanics->get_block_chance(),
-                                                     pchar->get_crit_chance(),
-                                                     wpn_skill);
+                                                     pchar->get_crit_chance());
     melee_special_tables.insert(std::pair<int, MeleeSpecialTable*>(wpn_skill, table));
 
     it = melee_special_tables.find(wpn_skill);
