@@ -220,35 +220,36 @@ void Test::test_mechanics_dw_white_miss(void) {
 
 void Test::test_white_hit_table(void) {
    WhiteHitTable* table = new WhiteHitTable(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-   assert(table->get_outcome(0) == Outcome::HIT);
-   assert(table->get_outcome(9999) == Outcome::HIT);
+   assert(table->get_outcome(0, 0.0) == Outcome::HIT);
+   assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
    delete table;
 
    table = new WhiteHitTable(0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
-   assert(table->get_outcome(0) == Outcome::MISS);
-   assert(table->get_outcome(1) == Outcome::DODGE);
-   assert(table->get_outcome(2) == Outcome::PARRY);
-   assert(table->get_outcome(3) == Outcome::GLANCING);
-   assert(table->get_outcome(4) == Outcome::BLOCK);
-   assert(table->get_outcome(5) == Outcome::CRITICAL);
-   assert(table->get_outcome(6) == Outcome::HIT);
-   assert(table->get_outcome(9999) == Outcome::HIT);
+   assert(table->get_outcome(0, 0.0) == Outcome::MISS);
+   assert(table->get_outcome(1, 0.0) == Outcome::DODGE);
+   assert(table->get_outcome(2, 0.0) == Outcome::PARRY);
+   assert(table->get_outcome(3, 0.0) == Outcome::GLANCING);
+   assert(table->get_outcome(4, 0.0) == Outcome::BLOCK);
+   assert(table->get_outcome(5, 0.0) == Outcome::CRITICAL);
+   assert(table->get_outcome(6, 0.0) == Outcome::HIT);
+   assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
+   assert(table->get_outcome(6, 1.0) == Outcome::CRITICAL);
    delete table;
 }
 
 void Test::test_special_hit_table(void) {
     Random* random = new Random(0, 9999);
     MeleeSpecialTable* table = new MeleeSpecialTable(random, 0.0, 0.0, 0.0, 0.0, 0.0);
-    assert(table->get_outcome(0) == Outcome::HIT);
+    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
     delete table;
 
     table = new MeleeSpecialTable(random, 0.0001, 0.0001, 0.0001, 0.0001, 1.0);
-    assert(table->get_outcome(0) == Outcome::MISS);
-    assert(table->get_outcome(1) == Outcome::DODGE);
-    assert(table->get_outcome(2) == Outcome::PARRY);
-    assert(table->get_outcome(3) == Outcome::BLOCK_CRITICAL);
-    assert(table->get_outcome(4) == Outcome::CRITICAL);
-    assert(table->get_outcome(9999) == Outcome::CRITICAL);
+    assert(table->get_outcome(0, 0.0) == Outcome::MISS);
+    assert(table->get_outcome(1, 0.0) == Outcome::DODGE);
+    assert(table->get_outcome(2, 0.0) == Outcome::PARRY);
+    assert(table->get_outcome(3, 0.0) == Outcome::BLOCK_CRITICAL);
+    assert(table->get_outcome(4, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
     delete table;
     delete random;
 }

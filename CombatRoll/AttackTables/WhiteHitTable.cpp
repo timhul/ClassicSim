@@ -20,7 +20,7 @@ WhiteHitTable::WhiteHitTable(const float miss, const float dodge, const float pa
     this->critical_range = int(round(critical * 10000)) + block_range;
 }
 
-int WhiteHitTable::get_outcome(const int roll) {
+int WhiteHitTable::get_outcome(const int roll, const float crit_mod) {
     assert(roll >= 0 && roll < 10000);
 
     if (roll < this->miss_range)
@@ -33,7 +33,7 @@ int WhiteHitTable::get_outcome(const int roll) {
         return Outcome::GLANCING;
     if (roll < this->block_range)
         return Outcome::BLOCK;
-    if (roll < this->critical_range)
+    if (roll < this->critical_range + int(round(crit_mod * 10000)))
         return Outcome::CRITICAL;
     return Outcome::HIT;
 }

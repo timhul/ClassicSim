@@ -33,20 +33,20 @@ CombatRoll::~CombatRoll() {
     }
 }
 
-AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill) {
+AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill, const float crit_mod) {
     const int roll = random->get_roll();
 
     WhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
-    AttackResult* result = new AttackResult(attack_table->get_outcome(roll));
+    AttackResult* result = new AttackResult(attack_table->get_outcome(roll, crit_mod));
 
     return result;
 }
 
-AttackResult* CombatRoll::get_melee_ability_result(const int wpn_skill) {
+AttackResult* CombatRoll::get_melee_ability_result(const int wpn_skill, const float crit_mod) {
     const int roll = random->get_roll();
 
     MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill);
-    AttackResult* result = new AttackResult(attack_table->get_outcome(roll));
+    AttackResult* result = new AttackResult(attack_table->get_outcome(roll, crit_mod));
 
     return result;
 }

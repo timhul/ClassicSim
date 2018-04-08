@@ -18,8 +18,8 @@ public:
     CombatRoll(Target* _tar);
     ~CombatRoll();
 
-    AttackResult* get_melee_hit_result(const int);
-    AttackResult* get_melee_ability_result(const int);
+    AttackResult* get_melee_hit_result(const int, const float = 0.0);
+    AttackResult* get_melee_ability_result(const int, const float = 0.0);
     AttackResult* get_ranged_hit_result(const int);
     AttackResult* get_ranged_ability_result(const int);
     AttackResult* get_spell_ability_result(void);
