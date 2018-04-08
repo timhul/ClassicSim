@@ -13,6 +13,8 @@ public:
 protected:
 private:
     Warrior* pchar;
+    QVector<int> spell_ranks;
+    QVector<int> talent_ranks;
 };
 
 #endif // EXECUTE_H

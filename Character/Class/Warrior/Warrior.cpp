@@ -20,6 +20,7 @@
 #include "DeepWounds.h"
 #include "HeroicStrike.h"
 #include "HeroicStrikeBuff.h"
+#include "Execute.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -55,6 +56,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->deep_wounds = new DeepWounds(engine, this, roll);
     this->heroic_strike = new HeroicStrike(engine, this, roll);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
+    this->execute = new Execute(engine, this, roll);
     initialize_talents();
 
     this->buffs.append(flurry);
@@ -218,6 +220,10 @@ DeepWounds* Warrior::get_deep_wounds() const {
 
 HeroicStrikeBuff* Warrior::get_hs_buff() const {
     return this->heroic_strike_buff;
+}
+
+Execute* Warrior::get_execute() const {
+    return this->execute;
 }
 
 void Warrior::critical_effect() {

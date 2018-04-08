@@ -2,6 +2,7 @@
 #define SPELL_H
 
 #include <QString>
+#include <QVector>
 #include <algorithm>
 #include "Engine.h"
 #include "CombatRoll.h"
@@ -26,7 +27,8 @@ public:
         cooldown(_cd),
         last_used(0 - _cd),
         resource_cost(_cost),
-        rank_talent(1)
+        rank_talent(1),
+        rank_spell(0)
     {}
 
     virtual ~Spell() {}
@@ -59,6 +61,7 @@ protected:
     float last_used;
     int resource_cost;
     int rank_talent;
+    int rank_spell;
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;
     void add_fail_stats(QString) const;

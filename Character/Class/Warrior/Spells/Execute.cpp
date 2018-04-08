@@ -8,6 +8,8 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Execute", engine, pchar, roll, 0, 10)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
+    spell_ranks = {600};
+    talent_ranks = {15, 12, 10};
 }
 
 int Execute::spell_effect(const int resource_level) {
@@ -24,7 +26,8 @@ int Execute::spell_effect(const int resource_level) {
         add_fail_stats("Parry");
     }
 
-    int damage_dealt = 600 + 15 * resource_level;
+    int damage_dealt = spell_ranks[rank_spell];
+    damage_dealt += (resource_level - talent_ranks[rank_talent - 1]) * resource_level;
 
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.

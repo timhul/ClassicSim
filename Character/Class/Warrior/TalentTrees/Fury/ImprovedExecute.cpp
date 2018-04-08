@@ -1,6 +1,7 @@
 
 #include "ImprovedExecute.h"
-#include "Character.h"
+#include "Execute.h"
+#include "Warrior.h"
 
 ImprovedExecute::ImprovedExecute(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Improved Execute", "4ML", "Assets/warrior/fury/tier4/Inv_sword_48.png", 2)
@@ -14,9 +15,9 @@ ImprovedExecute::~ImprovedExecute() {
 }
 
 void ImprovedExecute::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_execute()->increase_effect_via_talent();
 }
 
 void ImprovedExecute::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_execute()->decrease_effect_via_talent();
 }
