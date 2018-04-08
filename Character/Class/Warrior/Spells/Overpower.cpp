@@ -9,11 +9,12 @@ Overpower::Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Overpower", engine, pchar, roll, 5.0, 5)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
+    talent_ranks = {0.0, 0.25, 0.5};
 }
 
 int Overpower::spell_effect(const int) {
     // TODO: Use special hit table where dodge and parry are not possible.
-    AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
+    AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(), talent_ranks[rank_talent]);
 
     if (result->is_miss()) {
         add_fail_stats("Miss");

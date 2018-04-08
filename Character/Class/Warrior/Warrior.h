@@ -13,6 +13,7 @@ class DeepWounds;
 class HeroicStrike;
 class HeroicStrikeBuff;
 class Execute;
+class Overpower;
 
 class Warrior: public Character {
     Q_OBJECT
@@ -43,6 +44,7 @@ public:
     DeepWounds* get_deep_wounds() const;
     HeroicStrikeBuff* get_hs_buff() const;
     Execute* get_execute() const;
+    Overpower* get_overpower() const;
 
     void critical_effect();
 
@@ -73,6 +75,7 @@ private:
     HeroicStrike* heroic_strike;
     HeroicStrikeBuff* heroic_strike_buff;
     Execute* execute;
+    Overpower* overpower;
 
     void add_next_mh_attack(void) override;
     void add_next_oh_attack(void) override;

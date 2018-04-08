@@ -21,6 +21,7 @@
 #include "HeroicStrike.h"
 #include "HeroicStrikeBuff.h"
 #include "Execute.h"
+#include "Overpower.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -57,6 +58,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->heroic_strike = new HeroicStrike(engine, this, roll);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->execute = new Execute(engine, this, roll);
+    this->overpower = new Overpower(engine, this, roll);
     initialize_talents();
 
     this->buffs.append(flurry);
@@ -69,6 +71,10 @@ Warrior::~Warrior() {
     delete oh_attack;
     delete flurry;
     delete deep_wounds;
+    delete heroic_strike;
+    delete heroic_strike_buff;
+    delete execute;
+    delete overpower;
 }
 
 QString Warrior::get_name(void) const {
@@ -224,6 +230,10 @@ HeroicStrikeBuff* Warrior::get_hs_buff() const {
 
 Execute* Warrior::get_execute() const {
     return this->execute;
+}
+
+Overpower* Warrior::get_overpower() const {
+    return this->overpower;
 }
 
 void Warrior::critical_effect() {
