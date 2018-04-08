@@ -139,7 +139,7 @@ void Warrior::rotation() {
 
     // TODO: Check if execute is available. Requires target health.
 
-    if (bt->is_available(rage))
+    if (bt->is_enabled() && bt->is_available(rage))
         lose_rage(bt->perform(rage));
 
     if (rage > 50)
@@ -289,4 +289,8 @@ void Warrior::reset_spells() const {
     bt->reset();
     mh_attack->reset();
     oh_attack->reset();
+}
+
+void Warrior::reset_resource() {
+    rage = 0;
 }

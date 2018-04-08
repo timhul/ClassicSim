@@ -81,6 +81,8 @@ public:
 
     void reset();
     virtual void reset_spells() const = 0;
+    // TODO: Mark as abstract to force implementation.
+    virtual void reset_resource() {}
 
 protected:
     Race* race;

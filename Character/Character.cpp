@@ -251,6 +251,7 @@ void Character::reset() {
     }
 
     reset_spells();
+    reset_resource();
 
     assert(attack_speed_buffs.empty());
 }
