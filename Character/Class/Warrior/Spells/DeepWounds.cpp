@@ -32,7 +32,7 @@ int DeepWounds::spell_effect(const int) {
     return 0;
 }
 
-void DeepWounds::add_stack() {
+void DeepWounds::apply_debuff() {
     // TODO: Assumption is that each stack ticks 6 times (i.e. every 2 seconds).
     // After the first critical strike (T=0), the first tick comes at T=2, next at T=4, and so on.
     if (stacks.empty()) {
