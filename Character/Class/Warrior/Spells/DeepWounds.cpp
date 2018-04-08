@@ -7,7 +7,6 @@ DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Deep Wounds", engine, pchar, roll, 3, 0)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    this->rank_talent = 0;
     this->ranks = {0.2, 0.4, 0.6};
 }
 

@@ -27,7 +27,7 @@ public:
         cooldown(_cd),
         last_used(0 - _cd),
         resource_cost(_cost),
-        rank_talent(1),
+        rank_talent(0),
         rank_spell(0)
     {}
 

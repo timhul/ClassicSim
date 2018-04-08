@@ -27,7 +27,7 @@ int Execute::spell_effect(const int resource_level) {
     }
 
     int damage_dealt = spell_ranks[rank_spell];
-    damage_dealt += (resource_level - talent_ranks[rank_talent - 1]) * resource_level;
+    damage_dealt += (resource_level - talent_ranks[rank_talent]) * resource_level;
 
     if (result->is_critical()) {
         // TODO: Remove hardcoding of 2/2 Impale.
