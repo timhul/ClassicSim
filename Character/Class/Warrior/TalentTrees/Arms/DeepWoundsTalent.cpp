@@ -1,6 +1,7 @@
 
 #include "DeepWoundsTalent.h"
-#include <QDebug>
+#include "DeepWounds.h"
+#include "Warrior.h"
 
 DeepWoundsTalent::DeepWoundsTalent(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Deep Wounds", "3MR", "Assets/warrior/arms/tier3/Ability_backstab.png", 3)
@@ -14,9 +15,9 @@ DeepWoundsTalent::~DeepWoundsTalent() {
 }
 
 void DeepWoundsTalent::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_deep_wounds()->increase_effect_via_talent();
 }
 
 void DeepWoundsTalent::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_deep_wounds()->decrease_effect_via_talent();
 }

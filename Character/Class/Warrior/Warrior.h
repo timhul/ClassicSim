@@ -37,6 +37,7 @@ public:
 
     bool bt_available(void) const;
 
+    Bloodthirst* get_bloodthirst() const;
     Flurry* get_flurry() const;
     DeepWounds* get_deep_wounds() const;
     HeroicStrikeBuff* get_hs_buff() const;

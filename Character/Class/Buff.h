@@ -21,6 +21,11 @@ public:
     void reset();
     void initialize();
 
+    bool is_enabled() const;
+
+    void increase_rank();
+    void decrease_rank();
+
 protected:
     Character* pchar;
     const QString name;
@@ -32,6 +37,7 @@ protected:
     float refreshed;
     float expired;
     bool active;
+    int rank;
 
 private:
     void force_remove_buff();

@@ -1,6 +1,7 @@
 
 #include "BloodthirstTalent.h"
-#include "Character.h"
+#include "Bloodthirst.h"
+#include "Warrior.h"
 
 BloodthirstTalent::BloodthirstTalent(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Bloodthirst", "7ML", "Assets/warrior/fury/tier7/Spell_nature_bloodlust.png", 1)
@@ -15,9 +16,9 @@ BloodthirstTalent::~BloodthirstTalent() {
 }
 
 void BloodthirstTalent::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_bloodthirst()->increase_effect_via_talent();
 }
 
 void BloodthirstTalent::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_bloodthirst()->decrease_effect_via_talent();
 }

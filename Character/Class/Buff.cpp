@@ -9,7 +9,8 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
     pchar(_pchar),
     name(_name),
     duration(_dur),
-    base_charges(_base_charges)
+    base_charges(_base_charges),
+    rank(1)
 {
     initialize();
 }
@@ -22,6 +23,9 @@ QString Buff::get_name() const {
 }
 
 void Buff::apply_buff() {
+    if (!is_enabled())
+        return;
+
     this->current_charges = base_charges;
 
     if (!is_active()) {
@@ -83,4 +87,18 @@ void Buff::initialize() {
     refreshed = duration - 1;
     expired = duration - 1;
     active = false;
+}
+
+bool Buff::is_enabled() const {
+    return rank > 0;
+}
+
+void Buff::increase_rank() {
+    ++rank;
+    // TODO: Assert max rank?
+}
+
+void Buff::decrease_rank() {
+    --rank;
+    assert(rank >= 0);
 }

@@ -25,7 +25,9 @@ public:
         roll(_roll),
         cooldown(_cd),
         last_used(0 - _cd),
-        resource_cost(_cost) {}
+        resource_cost(_cost),
+        rank_talent(1)
+    {}
 
     virtual ~Spell() {}
 
@@ -35,8 +37,12 @@ public:
     float get_next_use() const;
     bool is_ready() const;
     bool is_available(const int) const;
+    bool is_enabled() const;
     bool cooldown_less_than(const float) const;
     bool cooldown_greater_than(const float) const;
+
+    void increase_effect_via_talent();
+    void decrease_effect_via_talent();
 
     int perform(const int);
 
@@ -52,6 +58,7 @@ protected:
     float cooldown;
     float last_used;
     int resource_cost;
+    int rank_talent;
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;
     void add_fail_stats(QString) const;

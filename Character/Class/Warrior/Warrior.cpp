@@ -204,6 +204,10 @@ int Warrior::get_curr_rage() const {
     return this->rage;
 }
 
+Bloodthirst* Warrior::get_bloodthirst() const {
+    return this->bt;
+}
+
 Flurry* Warrior::get_flurry() const {
     return this->flurry;
 }

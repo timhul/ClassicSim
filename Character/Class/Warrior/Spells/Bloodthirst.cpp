@@ -9,6 +9,8 @@ Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Bloodthirst", engine, pchar, roll, 6.0, 30)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
+    this->rank_talent = 0;
+
 }
 
 int Bloodthirst::spell_effect(const int) {

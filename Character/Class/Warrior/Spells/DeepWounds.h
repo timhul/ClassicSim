@@ -16,6 +16,7 @@ protected:
 private:
     Warrior* pchar;
     QVector<int> stacks;
+    QVector<float> ranks;
 };
 
 #endif // DEEPWOUNDS_H

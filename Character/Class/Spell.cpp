@@ -26,6 +26,10 @@ bool Spell::is_available(const int resource_level) const {
     return is_ready() && resource_level >= this->resource_cost;
 }
 
+bool Spell::is_enabled() const {
+    return rank_talent > 0;
+}
+
 bool Spell::cooldown_less_than(const float value) const {
     const float curr = engine->get_current_priority();
     float target_timestamp = curr + value;
@@ -42,8 +46,19 @@ bool Spell::cooldown_greater_than(const float value) const {
     return !cooldown_less_than(value);
 }
 
+void Spell::increase_effect_via_talent() {
+    ++rank_talent;
+    // TODO: Assert max rank?
+}
+
+void Spell::decrease_effect_via_talent() {
+    --rank_talent;
+    assert(rank_talent >= 0);
+}
+
 int Spell::perform(const int resource_level) {
     assert(resource_level >= resource_cost);
+    assert(rank_talent > 0);
     last_used = engine->get_current_priority();
     return this->spell_effect(resource_level);
 }

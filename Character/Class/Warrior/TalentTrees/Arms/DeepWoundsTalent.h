@@ -1,5 +1,5 @@
-#ifndef DEEPWOUNDS_H
-#define DEEPWOUNDS_H
+#ifndef DEEPWOUNDSTALENT_H
+#define DEEPWOUNDSTALENT_H
 
 #include "Talent.h"
 
@@ -17,4 +17,4 @@ public:
 private:
 };
 
-#endif // DEEPWOUNDS_H
+#endif // DEEPWOUNDSTALENT_H
