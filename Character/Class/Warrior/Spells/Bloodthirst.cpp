@@ -10,7 +10,7 @@ Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }
 
-int Bloodthirst::spell_effect(const int) const {
+int Bloodthirst::spell_effect(const int) {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     if (result->is_miss()) {

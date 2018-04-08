@@ -18,7 +18,7 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
     iteration = 0;
 }
 
-int OffhandAttack::spell_effect(const int) const {
+int OffhandAttack::spell_effect(const int) {
     // TODO: Check if Windfury is up, roll extra attacks.
     // TODO: Take offhand dual-wield penalty into account.
     // TODO: Take dual-wield specialization into account.

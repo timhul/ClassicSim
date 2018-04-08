@@ -74,7 +74,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Protection.cpp \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/DeepWounds.cpp \
     Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
     Character/Talents.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.cpp \
@@ -100,7 +99,10 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.cpp \
-    Character/Stats.cpp
+    Character/Stats.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.cpp \
+    Character/Class/Warrior/Spells/DeepWounds.cpp \
+    Event/Events/DotTick.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -170,7 +172,6 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Protection.h \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.h \
     Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.h \
-    Character/Class/Warrior/TalentTrees/Arms/DeepWounds.h \
     Character/Class/Warrior/TalentTrees/Arms/Impale.h \
     Character/Talents.h \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.h \
@@ -196,7 +197,10 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.h \
-    Character/Stats.h
+    Character/Stats.h \
+    Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.h \
+    Character/Class/Warrior/Spells/DeepWounds.h \
+    Event/Events/DotTick.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

@@ -9,7 +9,7 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }
 
-int Execute::spell_effect(const int resource_level) const {
+int Execute::spell_effect(const int resource_level) {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     if (result->is_miss()) {

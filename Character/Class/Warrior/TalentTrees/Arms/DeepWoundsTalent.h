@@ -5,11 +5,11 @@
 
 class TalentTree;
 
-class DeepWounds: public Talent {
+class DeepWoundsTalent: public Talent {
     Q_OBJECT
 public:
-    DeepWounds(Character *pchar, TalentTree* tree);
-    virtual ~DeepWounds();
+    DeepWoundsTalent(Character *pchar, TalentTree* tree);
+    virtual ~DeepWoundsTalent();
 
     virtual void apply_rank_effect() override;
     virtual void remove_rank_effect() override;

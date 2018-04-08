@@ -9,7 +9,7 @@ class Hamstring: public Spell {
 public:
     Hamstring(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    int spell_effect(const int) const override;
+    int spell_effect(const int) override;
 protected:
 private:
     Warrior* pchar;

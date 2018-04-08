@@ -8,7 +8,7 @@ public:
     Recklessness(Engine* engine, Character* pchar, CombatRoll* roll) :
         Spell("Recklessness", engine, pchar, roll, 1800.0, 0) {}
 
-    int spell_effect(const int) const override;
+    int spell_effect(const int) override;
 protected:
 private:
 };

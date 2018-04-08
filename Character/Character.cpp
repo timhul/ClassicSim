@@ -227,6 +227,13 @@ float Character::get_oh_wpn_speed() {
     return oh_wpn_speed;
 }
 
+float Character::get_avg_mh_damage() {
+    if (!has_mainhand())
+        return 1;
+
+    return (equipment->get_mainhand()->get_min_dmg() + equipment->get_mainhand()->get_max_dmg()) / 2;
+}
+
 bool Character::has_mainhand() const {
     return equipment->get_mainhand() != nullptr;
 }

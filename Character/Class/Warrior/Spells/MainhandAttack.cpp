@@ -18,7 +18,7 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
     iteration = 0;
 }
 
-int MainhandAttack::spell_effect(const int) const {
+int MainhandAttack::spell_effect(const int) {
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 

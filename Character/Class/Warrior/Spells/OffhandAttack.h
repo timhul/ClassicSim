@@ -17,7 +17,7 @@ public:
 
 protected:
 private:
-    int spell_effect(const int) const override;
+    int spell_effect(const int) override;
     Warrior* pchar;
     float next_expected_use;
     int iteration;

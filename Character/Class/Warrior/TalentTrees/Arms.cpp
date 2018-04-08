@@ -6,7 +6,7 @@
 #include "ImprovedRend.h"
 #include "TacticalMastery.h"
 #include "ImprovedOverpower.h"
-#include "DeepWounds.h"
+#include "DeepWoundsTalent.h"
 #include "TwoHandedWeaponSpecialization.h"
 #include "Impale.h"
 #include "AxeSpecialization.h"
@@ -34,7 +34,7 @@ Arms::Arms(Character *pchar, QObject* parent) :
 
     QMap<QString, Talent*> tier3 {{"3LL", new ImprovedOverpower(pchar, this)},
                                   {"3ML", new GenericTalent(pchar, this, "Anger Management", "3ML", base_url + "tier3/anger_management.png", 1, "Increases the time required for your rage to decay while out of combat by 30%.", QVector<QPair<int, int>>())},
-                                  {"3MR", new DeepWounds(pchar, this)}};
+                                  {"3MR", new DeepWoundsTalent(pchar, this)}};
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new TwoHandedWeaponSpecialization(pchar, this)},
