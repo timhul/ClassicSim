@@ -1,6 +1,6 @@
 
 #include "Impale.h"
-#include <QDebug>
+#include "Character.h"
 
 Impale::Impale(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Impale", "4MR", "Assets/warrior/arms/tier4/Ability_searingarrow.png", 2)
@@ -14,9 +14,9 @@ Impale::~Impale() {
 }
 
 void Impale::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    pchar->increase_ability_crit_dmg_mod(0.1);
 }
 
 void Impale::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    pchar->decrease_ability_crit_dmg_mod(0.1);
 }

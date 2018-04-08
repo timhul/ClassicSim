@@ -30,8 +30,7 @@ int Execute::spell_effect(const int resource_level) {
     damage_dealt += (resource_level - talent_ranks[rank_talent]) * resource_level;
 
     if (result->is_critical()) {
-        // TODO: Remove hardcoding of 2/2 Impale.
-        damage_dealt *= 2.2;
+        damage_dealt *= pchar->get_ability_crit_dmg_mod();
         pchar->critical_effect();
         add_success_stats("Critical", damage_dealt);
     }

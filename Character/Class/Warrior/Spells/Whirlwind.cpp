@@ -28,8 +28,7 @@ int Whirlwind::spell_effect(const int) {
     int damage_dealt = std::max(1, pchar->get_mh_dmg());
 
     if (result->is_critical()) {
-        // TODO: Remove hardcoding of 2/2 Impale.
-        damage_dealt *= 2.2;
+        damage_dealt *= pchar->get_ability_crit_dmg_mod();
         pchar->critical_effect();
         add_success_stats("Critical", damage_dealt);
     }

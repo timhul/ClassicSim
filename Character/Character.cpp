@@ -21,6 +21,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* 
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
+    this->ability_crit_dmg_mod = 2.0;
     // TODO: Get haste enchants from gear
     // TODO: Find out swing timer without weapons equipped.
     mh_wpn_speed = has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() :
@@ -131,8 +132,11 @@ int Character::get_melee_ap() {
     return stats->get_melee_ap_total();
 }
 
+float Character::get_ability_crit_dmg_mod() const {
+    return ability_crit_dmg_mod;
+}
+
 int Character::get_mh_dmg() {
-    // TODO: Check if base weapon speed should be used, or hasted.
     MeleeWeapon* mh = equipment->get_mainhand();
     float normalized_dmg = mh->get_random_dmg() / mh->get_base_weapon_speed();
     float normalized_ap = get_melee_ap() / 14;
@@ -141,7 +145,6 @@ int Character::get_mh_dmg() {
 }
 
 int Character::get_oh_dmg() {
-    // TODO: Check if base weapon speed should be used, or hasted.
     MeleeWeapon* oh = equipment->get_offhand();
     float normalized_dmg = oh->get_random_dmg() / oh->get_base_weapon_speed();
     float normalized_ap = get_melee_ap() / 14;
@@ -217,6 +220,14 @@ void Character::decrease_attack_speed(int decrease) {
 
     if (has_offhand())
         oh_wpn_speed /= 1 - float(decrease / 100);
+}
+
+void Character::increase_ability_crit_dmg_mod(float increase) {
+    ability_crit_dmg_mod += increase;
+}
+
+void Character::decrease_ability_crit_dmg_mod(float decrease) {
+    ability_crit_dmg_mod -= decrease;
 }
 
 float Character::get_mh_wpn_speed() {

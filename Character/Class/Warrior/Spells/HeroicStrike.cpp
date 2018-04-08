@@ -31,8 +31,7 @@ int HeroicStrike::spell_effect(const int) {
     int damage_dealt = pchar->get_mh_dmg() + 138;
 
     if (result->is_critical()) {
-        // TODO: Remove hardcoding of 2/2 Impale.
-        damage_dealt *= 2.2;
+        damage_dealt *= pchar->get_ability_crit_dmg_mod();
         pchar->critical_effect();
         add_success_stats("Critical", damage_dealt);
     }
