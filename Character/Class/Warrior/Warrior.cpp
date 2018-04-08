@@ -208,11 +208,13 @@ void Warrior::decrease_hit(float decrease) {
 void Warrior::increase_crit(float increase) {
     percent_crit += increase;
     stats->increase_crit(increase);
+    roll->update_crit_chance(percent_crit);
 }
 
 void Warrior::decrease_crit(float decrease) {
     percent_crit -= decrease;
     stats->decrease_crit(decrease);
+    roll->update_crit_chance(percent_crit);
 }
 
 void Warrior::increase_attack_speed(int increase) {

@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <math.h>
-#include <map>
+#include <QMap>
 
 class AttackResult;
 class Character;
@@ -33,6 +33,8 @@ public:
     float get_glancing_blow_chance();
     float get_glancing_blow_dmg_penalty(const int);
 
+    void update_crit_chance(const float critical);
+
 protected:
 private:
     Character* pchar;
@@ -40,8 +42,8 @@ private:
     Random* random;
     Mechanics* mechanics;
 
-    std::map<int, WhiteHitTable*> auto_attack_tables;
-    std::map<int, MeleeSpecialTable*> melee_special_tables;
+    QMap<int, WhiteHitTable*> auto_attack_tables;
+    QMap<int, MeleeSpecialTable*> melee_special_tables;
 };
 
 

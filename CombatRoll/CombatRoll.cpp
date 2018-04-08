@@ -17,14 +17,12 @@ CombatRoll::CombatRoll(Target* _tar):
 CombatRoll::~CombatRoll() {
     delete random;
 
-    std::map<int, WhiteHitTable*>::iterator it_auto;
-    for (it_auto = auto_attack_tables.begin(); it_auto != auto_attack_tables.end(); ++it_auto) {
-        delete it_auto->second;
+    for (auto it : auto_attack_tables.keys()) {
+        delete auto_attack_tables.value(it);
     }
 
-    std::map<int, MeleeSpecialTable*>::iterator it_special;
-    for (it_special = melee_special_tables.begin(); it_special != melee_special_tables.end(); ++it_special) {
-        delete it_special->second;
+    for (auto it : melee_special_tables.keys()) {
+        delete melee_special_tables.value(it);
     }
 
     auto_attack_tables.clear();
@@ -82,10 +80,8 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     assert(this->pchar != nullptr);
     assert(this->mechanics != nullptr);
 
-    std::map<int, WhiteHitTable*>::iterator it;
-    it = auto_attack_tables.find(wpn_skill);
-    if (it != auto_attack_tables.end())
-        return it->second;
+    if (auto_attack_tables.contains(wpn_skill))
+        return auto_attack_tables[wpn_skill];
 
     WhiteHitTable* table = new WhiteHitTable(get_white_miss_chance(wpn_skill),
                                              mechanics->get_dodge_chance(wpn_skill),
@@ -93,10 +89,8 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
                                              get_glancing_blow_chance(),
                                              mechanics->get_block_chance(),
                                              pchar->get_crit_chance());
-    auto_attack_tables.insert(std::pair<int, WhiteHitTable*>(wpn_skill, table));
+    auto_attack_tables[wpn_skill] = table;
 
-    it = auto_attack_tables.find(wpn_skill);
-    assert(it != auto_attack_tables.end());
     return table;
 }
 
@@ -104,10 +98,8 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
     assert(this->pchar != nullptr);
     assert(this->mechanics != nullptr);
 
-    std::map<int, MeleeSpecialTable*>::iterator it;
-    it = melee_special_tables.find(wpn_skill);
-    if (it != melee_special_tables.end())
-        return it->second;
+    if (melee_special_tables.contains(wpn_skill))
+        return melee_special_tables[wpn_skill];
 
     MeleeSpecialTable* table = new MeleeSpecialTable(this->random,
                                                      get_white_miss_chance(wpn_skill),
@@ -115,10 +107,8 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
                                                      mechanics->get_parry_chance(wpn_skill),
                                                      mechanics->get_block_chance(),
                                                      pchar->get_crit_chance());
-    melee_special_tables.insert(std::pair<int, MeleeSpecialTable*>(wpn_skill, table));
+    melee_special_tables[wpn_skill] = table;
 
-    it = melee_special_tables.find(wpn_skill);
-    assert(it != melee_special_tables.end());
     return table;
 }
 
@@ -134,4 +124,14 @@ float CombatRoll::get_glancing_blow_chance() {
 
 float CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
     return mechanics->get_glancing_blow_dmg_penalty(wpn_skill);
+}
+
+void CombatRoll::update_crit_chance(const float critical) {
+    for (auto it : auto_attack_tables.keys()) {
+        auto_attack_tables.value(it)->update_crit_chance(critical);
+    }
+
+    for (auto it : melee_special_tables.keys()) {
+        melee_special_tables.value(it)->update_crit_chance(critical);
+    }
 }
