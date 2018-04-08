@@ -49,5 +49,5 @@ void WhiteHitTable::dump_table(void) {
 }
 
 void WhiteHitTable::update_crit_chance(const float critical) {
-    this->critical_range = int(round(critical * 10000));
+    this->critical_range = int(round(critical * 10000)) + block_range;;
 }
