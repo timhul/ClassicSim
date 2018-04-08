@@ -14,9 +14,9 @@ Cruelty::~Cruelty() {
 }
 
 void Cruelty::apply_rank_effect() {
-    pchar->increase_crit(1.0);
+    pchar->increase_crit(0.01);
 }
 
 void Cruelty::remove_rank_effect() {
-    pchar->decrease_crit(1.0);
+    pchar->decrease_crit(0.01);
 }

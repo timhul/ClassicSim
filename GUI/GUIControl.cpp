@@ -254,11 +254,11 @@ int GUIControl::get_spirit() const {
 }
 
 QString GUIControl::get_crit_chance() const {
-    return QString::number(current_char->get_crit_chance(), 'f', 2);
+    return QString::number(current_char->get_crit_chance() * 100, 'f', 2);
 }
 
 QString GUIControl::get_hit_chance() const {
-    return QString::number(current_char->get_hit_chance(), 'f', 2);
+    return QString::number(current_char->get_hit_chance() * 100, 'f', 2);
 }
 
 void GUIControl::run_quick_sim() {
