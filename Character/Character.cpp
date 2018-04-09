@@ -22,6 +22,8 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* 
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
+    this->percent_hit = 0.0;
+    this->percent_crit = 0.0;
     // TODO: Get haste enchants from gear
     // TODO: Find out swing timer without weapons equipped.
     mh_wpn_speed = has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() :
