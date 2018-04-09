@@ -43,8 +43,8 @@ public:
     bool cooldown_less_than(const float) const;
     bool cooldown_greater_than(const float) const;
 
-    void increase_effect_via_talent();
-    void decrease_effect_via_talent();
+    virtual void increase_effect_via_talent();
+    virtual void decrease_effect_via_talent();
 
     int perform(const int);
 
