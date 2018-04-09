@@ -11,7 +11,9 @@ public:
     DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll);
 
     int spell_effect(const int) override;
+    void reset_effect() override;
     void apply_debuff();
+
 protected:
 private:
     Warrior* pchar;

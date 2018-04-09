@@ -44,3 +44,7 @@ void DeepWounds::apply_debuff() {
 
     stacks.append(6);
 }
+
+void DeepWounds::reset_effect() {
+    stacks.clear();
+}
