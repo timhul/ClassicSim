@@ -78,7 +78,6 @@ SOURCES += main.cpp \
     Character/Talents.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedDemoralizingShout.cpp \
-    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrath.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedCleave.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.cpp \
     Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.cpp \
@@ -103,7 +102,9 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.cpp \
     Character/Class/Warrior/Spells/DeepWounds.cpp \
     Event/Events/DotTick.cpp \
-    Character/Class/Warrior/Buffs/HeroicStrikeBuff.cpp
+    Character/Class/Warrior/Buffs/HeroicStrikeBuff.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.cpp \
+    Character/Class/Warrior/Spells/UnbridledWrath.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -177,7 +178,6 @@ HEADERS += \
     Character/Talents.h \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedDemoralizingShout.h \
-    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrath.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedCleave.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.h \
     Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.h \
@@ -202,7 +202,9 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.h \
     Character/Class/Warrior/Spells/DeepWounds.h \
     Event/Events/DotTick.h \
-    Character/Class/Warrior/Buffs/HeroicStrikeBuff.h
+    Character/Class/Warrior/Buffs/HeroicStrikeBuff.h \
+    Character/Class/Warrior/Spells/UnbridledWrath.h \
+    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

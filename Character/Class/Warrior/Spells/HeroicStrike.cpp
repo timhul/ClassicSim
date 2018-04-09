@@ -4,6 +4,7 @@
 #include "Flurry.h"
 #include "DeepWounds.h"
 #include "HeroicStrikeBuff.h"
+#include "UnbridledWrath.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Heroic Strike", engine, pchar, roll, 0, 15)
@@ -44,7 +45,7 @@ int HeroicStrike::spell_effect(const int) {
     else if (result->is_hit())
         add_success_stats("Hit", round(damage_dealt));
 
-    return resource_cost;
+    return resource_cost - pchar->get_unbridled_wrath()->perform(0);
 }
 
 void HeroicStrike::increase_effect_via_talent() {

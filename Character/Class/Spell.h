@@ -67,6 +67,7 @@ protected:
     void add_fail_stats(QString) const;
     void add_success_stats(QString, const int damage_dealt) const;
     void add_success_stats(QString, const int, const int) const;
+    void add_proc_stats(const int value, QString title) const;
 private:
 };
 

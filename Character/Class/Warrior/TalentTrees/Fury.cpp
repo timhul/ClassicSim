@@ -5,7 +5,7 @@
 #include "Cruelty.h"
 #include "BoomingVoice.h"
 #include "ImprovedDemoralizingShout.h"
-#include "UnbridledWrath.h"
+#include "UnbridledWrathTalent.h"
 #include "ImprovedCleave.h"
 #include "ImprovedBattleShout.h"
 #include "DualWieldSpecialization.h"
@@ -26,7 +26,7 @@ Fury::Fury(Character *pchar, QObject* parent) :
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2ML", new ImprovedDemoralizingShout(pchar, this)},
-                                  {"2MR", new UnbridledWrath(pchar, this)}};
+                                  {"2MR", new UnbridledWrathTalent(pchar, this)}};
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new ImprovedCleave(pchar, this)},

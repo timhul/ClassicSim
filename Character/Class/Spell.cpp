@@ -91,6 +91,11 @@ void Spell::add_success_stats(QString outcome, const int damage_dealt, const int
     engine->get_statistics()->add(get_name() + outcome + " Rage Gain", rage_gained);
 }
 
+void Spell::add_proc_stats(const int value, QString title) const {
+    engine->get_statistics()->increment(get_name() + "Proc");
+    engine->get_statistics()->add(get_name() + title, value);
+}
+
 void Spell::reset() {
     last_used = 0 - cooldown;
     reset_effect();

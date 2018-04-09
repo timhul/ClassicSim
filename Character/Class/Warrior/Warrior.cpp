@@ -22,6 +22,7 @@
 #include "HeroicStrikeBuff.h"
 #include "Execute.h"
 #include "Overpower.h"
+#include "UnbridledWrath.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -56,7 +57,9 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->heroic_strike = new HeroicStrike(engine, this, roll);
     this->execute = new Execute(engine, this, roll);
     this->overpower = new Overpower(engine, this, roll);
-    spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower};
+    this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
+    spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
+              unbridled_wrath};
 
     initialize_talents();
 
@@ -66,15 +69,13 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 }
 
 Warrior::~Warrior() {
-    delete bt;
-    delete mh_attack;
-    delete oh_attack;
-    delete flurry;
-    delete deep_wounds;
-    delete heroic_strike;
-    delete heroic_strike_buff;
-    delete execute;
-    delete overpower;
+    for (int i = 0; i < spells.size(); ++i) {
+        delete spells[i];
+    }
+
+    for (int i = 0; i < buffs.size(); ++i) {
+        delete buffs[i];
+    }
 }
 
 QString Warrior::get_name(void) const {
@@ -242,6 +243,10 @@ Overpower* Warrior::get_overpower() const {
 
 OffhandAttack* Warrior::get_offhand_attack() const {
     return this->oh_attack;
+}
+
+UnbridledWrath* Warrior::get_unbridled_wrath() const {
+    return this->unbridled_wrath;
 }
 
 void Warrior::melee_critical_effect() {

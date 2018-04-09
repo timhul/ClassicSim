@@ -14,6 +14,7 @@ class HeroicStrike;
 class HeroicStrikeBuff;
 class Execute;
 class Overpower;
+class UnbridledWrath;
 
 class Warrior: public Character {
     Q_OBJECT
@@ -47,6 +48,7 @@ public:
     Execute* get_execute() const;
     Overpower* get_overpower() const;
     OffhandAttack* get_offhand_attack() const;
+    UnbridledWrath* get_unbridled_wrath() const;
 
     void melee_critical_effect();
 
@@ -70,6 +72,7 @@ private:
     HeroicStrikeBuff* heroic_strike_buff;
     Execute* execute;
     Overpower* overpower;
+    UnbridledWrath* unbridled_wrath;
 
     void add_next_mh_attack(void) override;
     void add_next_oh_attack(void) override;
