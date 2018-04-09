@@ -40,26 +40,26 @@ int MainhandAttack::spell_effect(const int) {
         return 0;
     }
 
-    int damage_dealt = std::max(1, pchar->get_random_mh_dmg());
+    float damage_dealt = std::max(1, pchar->get_random_mh_dmg());
 
     if (result->is_critical()) {
         damage_dealt *= 2;
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         pchar->melee_critical_effect();
-        add_success_stats("Critical", damage_dealt, rage_gained);
+        add_success_stats("Critical", round(damage_dealt), rage_gained);
         return rage_gained;
     }
     if (result->is_glancing()) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         pchar->get_flurry()->use_charge();
-        add_success_stats("Glancing", damage_dealt, rage_gained);
+        add_success_stats("Glancing", round(damage_dealt), rage_gained);
         return rage_gained;
     }
 
-    const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
+    const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
     pchar->get_flurry()->use_charge();
-    add_success_stats("Hit", damage_dealt, rage_gained);
+    add_success_stats("Hit", round(damage_dealt), rage_gained);
     return rage_gained;
 }
 

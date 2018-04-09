@@ -26,16 +26,16 @@ int Execute::spell_effect(const int resource_level) {
         add_fail_stats("Parry");
     }
 
-    int damage_dealt = spell_ranks[rank_spell];
+    float damage_dealt = spell_ranks[rank_spell];
     damage_dealt += (resource_level - talent_ranks[rank_talent]) * resource_level;
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();
         pchar->melee_critical_effect();
-        add_success_stats("Critical", damage_dealt);
+        add_success_stats("Critical", round(damage_dealt));
     }
     else if (result->is_hit())
-        add_success_stats("Hit", damage_dealt);
+        add_success_stats("Hit", round(damage_dealt));
 
     add_gcd_event();
 

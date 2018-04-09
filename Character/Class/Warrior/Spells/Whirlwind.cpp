@@ -25,15 +25,15 @@ int Whirlwind::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
-    int damage_dealt = std::max(1, pchar->get_random_mh_dmg());
+    float damage_dealt = std::max(1, pchar->get_random_mh_dmg());
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();
         pchar->melee_critical_effect();
-        add_success_stats("Critical", damage_dealt);
+        add_success_stats("Critical", round(damage_dealt));
     }
     else if (result->is_hit())
-        add_success_stats("Hit", damage_dealt);
+        add_success_stats("Hit", round(damage_dealt));
 
     add_gcd_event();
     add_spell_cd_event();
