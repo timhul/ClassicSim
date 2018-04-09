@@ -56,7 +56,3 @@ float Warlock::global_cooldown() const {
 void Warlock::initialize_talents() {
 
 }
-
-void Warlock::reset_spells() const {
-
-}

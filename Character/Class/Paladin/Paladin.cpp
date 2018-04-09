@@ -56,7 +56,3 @@ float Paladin::global_cooldown() const {
 void Paladin::initialize_talents() {
 
 }
-
-void Paladin::reset_spells() const {
-
-}

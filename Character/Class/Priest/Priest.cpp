@@ -56,7 +56,3 @@ float Priest::global_cooldown() const {
 void Priest::initialize_talents() {
 
 }
-
-void Priest::reset_spells() const {
-
-}

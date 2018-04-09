@@ -52,16 +52,17 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->bt = new Bloodthirst(engine, this, roll);
     this->mh_attack = new MainhandAttack(engine, this, roll);
     this->oh_attack = new OffhandAttack(engine, this, roll);
-    this->flurry = new Flurry(this);
     this->deep_wounds = new DeepWounds(engine, this, roll);
     this->heroic_strike = new HeroicStrike(engine, this, roll);
-    this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->execute = new Execute(engine, this, roll);
     this->overpower = new Overpower(engine, this, roll);
+    spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower};
+
     initialize_talents();
 
-    this->buffs.append(flurry);
-    this->buffs.append(heroic_strike_buff);
+    this->flurry = new Flurry(this);
+    this->heroic_strike_buff = new HeroicStrikeBuff(this);
+    buffs = {flurry, heroic_strike_buff};
 }
 
 Warrior::~Warrior() {
@@ -284,12 +285,6 @@ void Warrior::initialize_talents() {
     for (int i = 0; i < 3; ++i) {
         talents->add_talent_tree(new Arms(this), new Fury(this), new Protection(this));
     }
-}
-
-void Warrior::reset_spells() const {
-    bt->reset();
-    mh_attack->reset();
-    oh_attack->reset();
 }
 
 void Warrior::reset_resource() {

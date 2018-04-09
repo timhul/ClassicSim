@@ -13,6 +13,7 @@ class Talents;
 class Stats;
 class Buff;
 class CombatRoll;
+class Spell;
 
 class Character: public QObject {
     Q_OBJECT
@@ -86,7 +87,6 @@ public:
     bool has_offhand() const;
 
     void reset();
-    virtual void reset_spells() const = 0;
     // TODO: Mark as abstract to force implementation.
     virtual void reset_resource() {}
 
@@ -97,6 +97,7 @@ protected:
     CombatRoll* roll;
     Talents* talents;
     Stats* stats;
+    QVector<Spell*> spells;
     QVector<Buff*> buffs;
     QVector<int> attack_speed_buffs;
 

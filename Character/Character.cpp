@@ -7,6 +7,7 @@
 #include "Talents.h"
 #include "Stats.h"
 #include "Buff.h"
+#include "Spell.h"
 #include "CombatRoll.h"
 
 #include <QDebug>
@@ -36,6 +37,8 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
 Character::~Character() {
     delete talents;
     delete stats;
+    spells.clear();
+    buffs.clear();
 }
 
 Race* Character::get_race(void) {
@@ -264,7 +267,10 @@ void Character::reset() {
         buffs[i]->reset();
     }
 
-    reset_spells();
+    for (int i = 0; i < spells.size(); ++i) {
+        spells[i]->reset();
+    }
+
     reset_resource();
 
     assert(attack_speed_buffs.empty());

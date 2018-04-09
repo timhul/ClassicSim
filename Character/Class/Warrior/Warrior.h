@@ -55,7 +55,6 @@ public:
     void increase_attack_speed(int) override;
     void decrease_attack_speed(int) override;
 
-    void reset_spells() const override;
     void reset_resource() override;
 
 protected:

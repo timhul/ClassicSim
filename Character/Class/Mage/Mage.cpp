@@ -56,7 +56,3 @@ float Mage::global_cooldown() const {
 void Mage::initialize_talents() {
 
 }
-
-void Mage::reset_spells() const {
-
-}
