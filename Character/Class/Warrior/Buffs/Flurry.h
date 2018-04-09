@@ -7,8 +7,8 @@
 class Flurry: public Buff {
 public:
     Flurry(Character* pchar): Buff(pchar, "Flurry", 15.0, 3) {
-        rank = 0;
-        ranks = {10, 15, 20, 25, 30};
+        rank_talent = 0;
+        rank_talents = {0, 10, 15, 20, 25, 30};
     }
 
     void buff_effect_when_applied() override;
@@ -16,7 +16,7 @@ public:
 
 protected:
 private:
-    QVector<int> ranks;
+    QVector<int> rank_talents;
 };
 
 

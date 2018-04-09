@@ -37,7 +37,7 @@ protected:
     float refreshed;
     float expired;
     bool active;
-    int rank;
+    int rank_talent;
 
 private:
     void force_remove_buff();

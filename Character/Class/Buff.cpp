@@ -10,7 +10,7 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
     name(_name),
     duration(_dur),
     base_charges(_base_charges),
-    rank(1)
+    rank_talent(0)
 {
     initialize();
 }
@@ -90,15 +90,15 @@ void Buff::initialize() {
 }
 
 bool Buff::is_enabled() const {
-    return rank > 0;
+    return rank_talent > 0;
 }
 
 void Buff::increase_rank() {
-    ++rank;
+    ++rank_talent;
     // TODO: Assert max rank?
 }
 
 void Buff::decrease_rank() {
-    --rank;
-    assert(rank >= 0);
+    --rank_talent;
+    assert(rank_talent >= 0);
 }

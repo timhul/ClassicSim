@@ -7,13 +7,13 @@ DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Deep Wounds", engine, pchar, roll, 3, 0)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    this->ranks = {0.2, 0.4, 0.6};
+    this->ranks = {0.0, 0.2, 0.4, 0.6};
 }
 
 int DeepWounds::spell_effect(const int) {
     assert(!stacks.empty());
 
-    int damage_dealt = stacks.size() * ((pchar->get_avg_mh_damage() * ranks[rank_talent - 1]) / 6);
+    int damage_dealt = stacks.size() * ((pchar->get_avg_mh_damage() * ranks[rank_talent]) / 6);
     for (int i = 0; i < stacks.size(); ++i) {
         assert(stacks[i] > 0);
         --stacks[i];
