@@ -42,6 +42,7 @@ public:
     Bloodthirst* get_bloodthirst() const;
     Flurry* get_flurry() const;
     DeepWounds* get_deep_wounds() const;
+    HeroicStrike* get_heroic_strike() const;
     HeroicStrikeBuff* get_hs_buff() const;
     Execute* get_execute() const;
     Overpower* get_overpower() const;

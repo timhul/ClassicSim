@@ -6,9 +6,16 @@
 #include "HeroicStrikeBuff.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Heroic Strike", engine, pchar, roll, 0, 13)
+    Spell("Heroic Strike", engine, pchar, roll, 0, 15)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
+
+    spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};
+    // TODO: Remove hardcoded assumption of rank 9 Heroic Strike.
+    rank_spell = 8;
+    additional_dmg = spell_ranks[rank_spell];
+
+    talent_ranks = {15, 14, 13, 12};
 }
 
 int HeroicStrike::spell_effect(const int) {
@@ -27,8 +34,7 @@ int HeroicStrike::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
-    // TODO: Remove rank hardcoding.
-    float damage_dealt = pchar->get_random_mh_dmg() + 138;
+    float damage_dealt = pchar->get_random_mh_dmg() + additional_dmg;
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();
@@ -39,4 +45,16 @@ int HeroicStrike::spell_effect(const int) {
         add_success_stats("Hit", round(damage_dealt));
 
     return resource_cost;
+}
+
+void HeroicStrike::increase_effect_via_talent() {
+    ++rank_talent;
+    // TODO: Assert max rank?
+    resource_cost = talent_ranks[rank_talent];
+}
+
+void HeroicStrike::decrease_effect_via_talent() {
+    --rank_talent;
+    assert(rank_talent >= 0);
+    resource_cost = talent_ranks[rank_talent];
 }

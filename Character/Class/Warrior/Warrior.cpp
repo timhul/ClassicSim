@@ -224,6 +224,10 @@ DeepWounds* Warrior::get_deep_wounds() const {
     return this->deep_wounds;
 }
 
+HeroicStrike* Warrior::get_heroic_strike() const {
+    return this->heroic_strike;
+}
+
 HeroicStrikeBuff* Warrior::get_hs_buff() const {
     return this->heroic_strike_buff;
 }

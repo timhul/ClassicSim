@@ -10,7 +10,7 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
     name(_name),
     duration(_dur),
     base_charges(_base_charges),
-    rank_talent(0)
+    rank_talent(1)
 {
     initialize();
 }
