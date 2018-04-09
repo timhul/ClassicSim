@@ -58,6 +58,8 @@ public:
     float get_ability_crit_dmg_mod() const;
     int get_mh_dmg();
     int get_oh_dmg();
+    int get_avg_mh_damage();
+    int get_normalized_dmg(const int, const float);
 
     int get_mh_wpn_skill();
     int get_oh_wpn_skill();
@@ -79,7 +81,6 @@ public:
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
 
-    float get_avg_mh_damage();
 
     bool has_mainhand() const;
     bool has_offhand() const;

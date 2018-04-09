@@ -140,18 +140,28 @@ float Character::get_ability_crit_dmg_mod() const {
 
 int Character::get_mh_dmg() {
     MeleeWeapon* mh = equipment->get_mainhand();
-    float normalized_dmg = mh->get_random_dmg() / mh->get_base_weapon_speed();
-    float normalized_ap = get_melee_ap() / 14;
-
-    return (normalized_dmg + normalized_ap) * mh->get_base_weapon_speed();
+    return get_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
 }
 
 int Character::get_oh_dmg() {
     MeleeWeapon* oh = equipment->get_offhand();
-    float normalized_dmg = oh->get_random_dmg() / oh->get_base_weapon_speed();
+    return get_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
+}
+
+int Character::get_avg_mh_damage() {
+    if (!has_mainhand())
+        return 1;
+
+    MeleeWeapon* mh = equipment->get_mainhand();
+    int avg_dmg = int(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
+    return get_normalized_dmg(avg_dmg, mh->get_base_weapon_speed());
+}
+
+int Character::get_normalized_dmg(const int damage, const float wpn_speed) {
+    float normalized_dmg = damage / wpn_speed;
     float normalized_ap = get_melee_ap() / 14;
 
-    return (normalized_dmg + normalized_ap) * oh->get_base_weapon_speed();
+    return (normalized_dmg + normalized_ap) * wpn_speed;
 }
 
 int Character::get_mh_wpn_skill() {
@@ -236,13 +246,6 @@ float Character::get_mh_wpn_speed() {
 
 float Character::get_oh_wpn_speed() {
     return oh_wpn_speed;
-}
-
-float Character::get_avg_mh_damage() {
-    if (!has_mainhand())
-        return 1;
-
-    return (equipment->get_mainhand()->get_min_dmg() + equipment->get_mainhand()->get_max_dmg()) / 2;
 }
 
 bool Character::has_mainhand() const {
