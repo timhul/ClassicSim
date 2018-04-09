@@ -7,23 +7,23 @@
 #include "Talents.h"
 #include "Stats.h"
 #include "Buff.h"
+#include "CombatRoll.h"
 
 #include <QDebug>
 
-Character::Character(Race* race, Engine* engine, Equipment* equipment, QObject* parent) :
+Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, QObject* parent) :
     QObject(parent)
 {
     this->race = race;
     this->engine = engine;
     this->equipment = equipment;
+    this->roll = roll;
     this->talents = new Talents();
     this->stats = new Stats(this);
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
-    this->percent_hit = 0.0;
-    this->percent_crit = 0.0;
     // TODO: Get haste enchants from gear
     // TODO: Find out swing timer without weapons equipped.
     mh_wpn_speed = has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() :
@@ -187,23 +187,21 @@ int Character::get_oh_wpn_skill() {
 }
 
 void Character::increase_hit(float increase) {
-    percent_hit += increase;
     stats->increase_hit(increase);
 }
 
 void Character::decrease_hit(float decrease) {
-    percent_hit -= decrease;
     stats->decrease_hit(decrease);
 }
 
 void Character::increase_crit(float increase) {
-    percent_crit += increase;
     stats->increase_crit(increase);
+    roll->update_crit_chance(stats->get_crit_chance());
 }
 
 void Character::decrease_crit(float decrease) {
-    percent_crit -= decrease;
     stats->decrease_crit(decrease);
+    roll->update_crit_chance(stats->get_crit_chance());
 }
 
 void Character::increase_attack_speed(int increase) {

@@ -24,7 +24,7 @@ int Overpower::spell_effect(const int) {
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();
-        pchar->critical_effect();
+        pchar->melee_critical_effect();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())

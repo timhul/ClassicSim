@@ -12,12 +12,13 @@ class Equipment;
 class Talents;
 class Stats;
 class Buff;
+class CombatRoll;
 
 class Character: public QObject {
     Q_OBJECT
 
 public:
-    Character(Race*, Engine*, Equipment*, QObject* parent = 0);
+    Character(Race*, Engine*, Equipment*, CombatRoll*, QObject* parent = 0);
     virtual ~Character();
 
     Race* get_race(void);
@@ -92,6 +93,7 @@ protected:
     Race* race;
     Engine* engine;
     Equipment* equipment;
+    CombatRoll* roll;
     Talents* talents;
     Stats* stats;
     QVector<Buff*> buffs;
@@ -99,8 +101,6 @@ protected:
 
     int melee_ap;
     int ranged_ap;
-    float percent_hit;
-    float percent_crit;
     float mh_wpn_speed;
     float oh_wpn_speed;
     float ability_crit_dmg_mod;

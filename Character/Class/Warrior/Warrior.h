@@ -47,16 +47,10 @@ public:
     Overpower* get_overpower() const;
     OffhandAttack* get_offhand_attack() const;
 
-    void critical_effect();
+    void melee_critical_effect();
 
     int get_ap_per_strength() const override;
     int get_ap_per_agi() const override;
-
-    void increase_hit(float) override;
-    void increase_crit(float) override;
-
-    void decrease_hit(float) override;
-    void decrease_crit(float) override;
 
     void increase_attack_speed(int) override;
     void decrease_attack_speed(int) override;
@@ -67,7 +61,6 @@ public:
 protected:
 private:
     int rage;
-    CombatRoll* roll;
     Bloodthirst* bt;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;

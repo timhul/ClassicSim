@@ -46,7 +46,7 @@ int OffhandAttack::spell_effect(const int) {
     if (result->is_critical()) {
         damage_dealt *= 2;
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-        pchar->critical_effect();
+        pchar->melee_critical_effect();
         add_success_stats("Critical", damage_dealt, rage_gained);
         return rage_gained;
     }

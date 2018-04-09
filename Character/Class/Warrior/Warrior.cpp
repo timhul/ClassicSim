@@ -25,7 +25,7 @@
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
-    Character(race, engine, _eq, parent) {
+    Character(race, engine, _eq, _roll, parent) {
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
     set_clvl(60);
@@ -37,7 +37,6 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     stats->set_melee_ap_per_agi(0);
     stats->set_melee_ap_per_str(2);
     this->rage = 0;
-    this->roll = _roll;
     this->roll->set_character(this);
 
     // TODO: Remove hardcoded equipped weapons
@@ -240,31 +239,9 @@ OffhandAttack* Warrior::get_offhand_attack() const {
     return this->oh_attack;
 }
 
-void Warrior::critical_effect() {
+void Warrior::melee_critical_effect() {
     flurry->apply_buff();
     deep_wounds->apply_debuff();
-}
-
-void Warrior::increase_hit(float increase) {
-    percent_hit += increase;
-    stats->increase_hit(increase);
-}
-
-void Warrior::decrease_hit(float decrease) {
-    percent_hit -= decrease;
-    stats->decrease_hit(decrease);
-}
-
-void Warrior::increase_crit(float increase) {
-    percent_crit += increase;
-    stats->increase_crit(increase);
-    roll->update_crit_chance(percent_crit);
-}
-
-void Warrior::decrease_crit(float decrease) {
-    percent_crit -= decrease;
-    stats->decrease_crit(decrease);
-    roll->update_crit_chance(percent_crit);
 }
 
 void Warrior::increase_attack_speed(int increase) {

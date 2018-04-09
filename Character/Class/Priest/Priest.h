@@ -8,9 +8,7 @@ class Priest: public Character {
     Q_OBJECT
 public:
     Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
-        Character(race, engine, _eq, parent) {
-        this->roll = _roll;
-    }
+        Character(race, engine, _eq, _roll, parent) {}
 
     virtual ~Priest() {}
 
