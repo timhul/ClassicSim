@@ -98,6 +98,14 @@ int Stats::get_melee_ap_total() {
     return melee_ap + STR * melee_ap_per_str + AGI * melee_ap_per_agi;
 }
 
+void Stats::increase_base_melee_ap(const int increase) {
+    melee_ap += increase;
+}
+
+void Stats::decrease_base_melee_ap(const int decrease) {
+    melee_ap -= decrease;
+}
+
 float Stats::get_hit_chance(void) const {
     return percent_hit;
 }

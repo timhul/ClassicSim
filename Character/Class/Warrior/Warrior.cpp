@@ -25,6 +25,8 @@
 #include "UnbridledWrath.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
+#include "BattleShout.h"
+#include "BattleShoutBuff.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -61,15 +63,17 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->overpower = new Overpower(engine, this, roll);
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
     this->death_wish = new DeathWish(engine, this, roll);
+    this->battle_shout = new BattleShout(engine, this, roll);
     spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
-              unbridled_wrath, death_wish};
+              unbridled_wrath, death_wish, battle_shout};
 
     initialize_talents();
 
     this->flurry = new Flurry(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
-    buffs = {flurry, heroic_strike_buff, death_wish_buff};
+    this->battle_shout_buff = new BattleShoutBuff(this);
+    buffs = {flurry, heroic_strike_buff, death_wish_buff, battle_shout_buff};
 }
 
 Warrior::~Warrior() {}
@@ -142,7 +146,10 @@ void Warrior::rotation() {
         return;
     }
 
-    if (death_wish->is_enabled() && death_wish->is_available(rage))
+    if (!battle_shout_buff->is_active() && battle_shout->is_available(rage))
+        lose_rage(battle_shout->perform(rage));
+
+    else if (death_wish->is_enabled() && death_wish->is_available(rage))
         lose_rage(death_wish->perform(rage));
 
     else if (bt->is_enabled() && bt->is_available(rage))
@@ -254,6 +261,14 @@ DeathWish* Warrior::get_death_wish() const {
 
 DeathWishBuff* Warrior::get_death_wish_buff() const {
     return this->death_wish_buff;
+}
+
+BattleShout* Warrior::get_battle_shout() const {
+    return this->battle_shout;
+}
+
+BattleShoutBuff* Warrior::get_battle_shout_buff() const {
+    return this->battle_shout_buff;
 }
 
 void Warrior::melee_critical_effect() {

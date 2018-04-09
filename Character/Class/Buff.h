@@ -29,7 +29,7 @@ public:
 protected:
     Character* pchar;
     const QString name;
-    const int duration;
+    int duration;
     const int base_charges;
     int current_charges;
     int iteration;

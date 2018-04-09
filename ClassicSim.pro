@@ -106,7 +106,9 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/UnbridledWrath.cpp \
     Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.cpp \
     Character/Class/Warrior/Spells/DeathWish.cpp \
-    Character/Class/Warrior/Buffs/DeathWishBuff.cpp
+    Character/Class/Warrior/Buffs/DeathWishBuff.cpp \
+    Character/Class/Warrior/Buffs/BattleShoutBuff.cpp \
+    Character/Class/Warrior/Spells/BattleShout.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -208,7 +210,9 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.h \
     Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.h \
     Character/Class/Warrior/Spells/DeathWish.h \
-    Character/Class/Warrior/Buffs/DeathWishBuff.h
+    Character/Class/Warrior/Buffs/DeathWishBuff.h \
+    Character/Class/Warrior/Buffs/BattleShoutBuff.h \
+    Character/Class/Warrior/Spells/BattleShout.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

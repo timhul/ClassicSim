@@ -23,6 +23,9 @@ public:
     int get_melee_ap_str_excluded();
     int get_melee_ap_total();
 
+    void increase_base_melee_ap(const int increase);
+    void decrease_base_melee_ap(const int decrease);
+
     float get_hit_chance(void) const;
     float get_crit_chance(void) const;
 

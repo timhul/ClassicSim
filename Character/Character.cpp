@@ -147,6 +147,14 @@ int Character::get_melee_ap() {
     return stats->get_melee_ap_total();
 }
 
+void Character::increase_melee_ap(const int increase) {
+    stats->increase_base_melee_ap(increase);
+}
+
+void Character::decrease_melee_ap(const int decrease) {
+    stats->decrease_base_melee_ap(decrease);
+}
+
 float Character::get_ability_crit_dmg_mod() const {
     return ability_crit_dmg_mod;
 }

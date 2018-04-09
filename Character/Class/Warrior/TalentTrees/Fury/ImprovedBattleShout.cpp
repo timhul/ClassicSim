@@ -1,6 +1,7 @@
 
 #include "ImprovedBattleShout.h"
-#include "Character.h"
+#include "BattleShoutBuff.h"
+#include "Warrior.h"
 
 ImprovedBattleShout::ImprovedBattleShout(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Improved Battle Shout", "3RR", "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png", 5)
@@ -14,9 +15,9 @@ ImprovedBattleShout::~ImprovedBattleShout() {
 }
 
 void ImprovedBattleShout::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_battle_shout_buff()->increase_effect_via_imp_shout();
 }
 
 void ImprovedBattleShout::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_battle_shout_buff()->decrease_effect_via_imp_shout();
 }

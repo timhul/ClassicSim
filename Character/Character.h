@@ -68,6 +68,8 @@ public:
     int get_ranged_wpn_skill();
 
     int get_melee_ap();
+    void increase_melee_ap(const int);
+    void decrease_melee_ap(const int);
 
     virtual void increase_hit(float);
     virtual void increase_crit(float);
@@ -105,7 +107,6 @@ protected:
     QVector<Buff*> buffs;
     QVector<int> attack_speed_buffs;
 
-    int melee_ap;
     int ranged_ap;
     float mh_wpn_speed;
     float oh_wpn_speed;
