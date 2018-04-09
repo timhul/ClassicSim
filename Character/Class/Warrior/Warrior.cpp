@@ -27,6 +27,7 @@
 #include "DeathWishBuff.h"
 #include "BattleShout.h"
 #include "BattleShoutBuff.h"
+#include "BerserkerRage.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -64,8 +65,9 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
     this->death_wish = new DeathWish(engine, this, roll);
     this->battle_shout = new BattleShout(engine, this, roll);
+    this->berserker_rage = new BerserkerRage(engine, this, roll);
     spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
-              unbridled_wrath, death_wish, battle_shout};
+              unbridled_wrath, death_wish, battle_shout, berserker_rage};
 
     initialize_talents();
 
@@ -142,6 +144,12 @@ void Warrior::rotation() {
         start_attack();
     }
 
+    if (rage < 50 && berserker_rage->is_available(rage))
+        gain_rage(berserker_rage->perform(rage));
+
+    if (rage > 50 && !heroic_strike_buff->is_active())
+        heroic_strike_buff->apply_buff();
+
     if (!action_ready()) {
         return;
     }
@@ -157,8 +165,6 @@ void Warrior::rotation() {
 
     // TODO: Check if execute is available. Requires target health.
 
-    if (rage > 50)
-        heroic_strike_buff->apply_buff();
 }
 
 void Warrior::add_next_mh_attack(void) {
@@ -269,6 +275,10 @@ BattleShout* Warrior::get_battle_shout() const {
 
 BattleShoutBuff* Warrior::get_battle_shout_buff() const {
     return this->battle_shout_buff;
+}
+
+BerserkerRage* Warrior::get_berserker_rage() const {
+    return this->berserker_rage;
 }
 
 void Warrior::melee_critical_effect() {

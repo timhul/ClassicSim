@@ -19,6 +19,7 @@ class DeathWish;
 class DeathWishBuff;
 class BattleShout;
 class BattleShoutBuff;
+class BerserkerRage;
 
 class Warrior: public Character {
     Q_OBJECT
@@ -57,6 +58,7 @@ public:
     DeathWishBuff* get_death_wish_buff() const;
     BattleShout* get_battle_shout() const;
     BattleShoutBuff* get_battle_shout_buff() const;
+    BerserkerRage* get_berserker_rage() const;
 
     void melee_critical_effect();
 
@@ -85,6 +87,7 @@ private:
     DeathWishBuff* death_wish_buff;
     BattleShout* battle_shout;
     BattleShoutBuff* battle_shout_buff;
+    BerserkerRage* berserker_rage;
 
     void add_next_mh_attack(void) override;
     void add_next_oh_attack(void) override;
