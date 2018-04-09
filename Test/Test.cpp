@@ -46,6 +46,8 @@ void Test::test_all(void) {
     test_equipment_creation();
     qDebug() << "test_white_hit_table";
     test_white_hit_table();
+    qDebug() << "test_white_hit_table_update";
+    test_white_hit_table_update();
     qDebug() << "test_special_hit_table";
     test_special_hit_table();
     qDebug() << "test_mechanics_glancing_rate";
@@ -235,6 +237,42 @@ void Test::test_white_hit_table(void) {
    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
    assert(table->get_outcome(6, 1.0) == Outcome::CRITICAL);
    delete table;
+}
+
+void Test::test_white_hit_table_update(void) {
+    Target* target = new Target(63);
+    Engine* engine = new Engine();
+    Equipment* equipment = new Equipment();
+    Race* race = new Orc();
+    CombatRoll* combat = new CombatRoll(target);
+    Warrior* pchar = new Warrior(race, engine, equipment, combat);
+    combat->set_character(dynamic_cast<Character*>(pchar));
+
+    WhiteHitTable* table = combat->get_white_hit_table(300);
+
+    assert(table->get_outcome(0, 0.0) == Outcome::MISS);
+    assert(table->get_outcome(2799, 0.0) == Outcome::MISS);
+    assert(table->get_outcome(2800, 0.0) == Outcome::DODGE);
+    assert(table->get_outcome(3299, 0.0) == Outcome::DODGE);
+    assert(table->get_outcome(3300, 0.0) == Outcome::GLANCING);
+    assert(table->get_outcome(7299, 0.0) == Outcome::GLANCING);
+    // TODO: This will fail once we factor in crit from base agility.
+    assert(table->get_outcome(7300, 0.0) == Outcome::HIT);
+
+    pchar->increase_crit(0.0001);
+    assert(table->get_outcome(7300, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(7301, 0.0) == Outcome::HIT);
+
+    pchar->increase_crit(0.9999);
+    assert(table->get_outcome(7300, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
+
+    delete target;
+    delete engine;
+    delete equipment;
+    delete race;
+    delete pchar;
+    delete combat;
 }
 
 void Test::test_special_hit_table(void) {
