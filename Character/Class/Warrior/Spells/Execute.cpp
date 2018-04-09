@@ -8,7 +8,16 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Execute", engine, pchar, roll, 0, 10)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    spell_ranks = {600};
+    spell_ranks = {QPair<int, int>(125, 3),
+                   QPair<int, int>(200, 6),
+                   QPair<int, int>(325, 9),
+                   QPair<int, int>(450, 12),
+                   QPair<int, int>(600, 15)};
+    // TODO: Remove hardcoded assumption of rank 5 Execute.
+    rank_spell = 4;
+    initial_dmg = spell_ranks[rank_spell].first;
+    dmg_per_rage_converted = spell_ranks[rank_spell].second;
+
     talent_ranks = {15, 12, 10};
 }
 
@@ -26,8 +35,7 @@ int Execute::spell_effect(const int resource_level) {
         add_fail_stats("Parry");
     }
 
-    float damage_dealt = spell_ranks[rank_spell];
-    damage_dealt += (resource_level - talent_ranks[rank_talent]) * resource_level;
+    float damage_dealt = initial_dmg + (resource_level - resource_cost) * dmg_per_rage_converted;
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();
@@ -40,4 +48,16 @@ int Execute::spell_effect(const int resource_level) {
     add_gcd_event();
 
     return resource_level;
+}
+
+void Execute::increase_effect_via_talent() {
+    ++rank_talent;
+    // TODO: Assert max rank?
+    resource_cost = talent_ranks[rank_talent];
+}
+
+void Execute::decrease_effect_via_talent() {
+    --rank_talent;
+    assert(rank_talent >= 0);
+    resource_cost = talent_ranks[rank_talent];
 }
