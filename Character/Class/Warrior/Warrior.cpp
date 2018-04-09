@@ -184,9 +184,13 @@ void Warrior::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;
 
-    if (heroic_strike_buff->is_active())
+    if (heroic_strike_buff->is_active() && heroic_strike->is_available(rage)) {
         lose_rage(heroic_strike->perform(rage));
+    }
     else {
+        if (heroic_strike_buff->is_active())
+            heroic_strike_buff->use_charge();
+
         gain_rage(mh_attack->perform(rage));
 
         if (action_ready()) {
