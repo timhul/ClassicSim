@@ -36,6 +36,7 @@ int Execute::spell_effect(const int resource_level) {
     }
 
     float damage_dealt = initial_dmg + (resource_level - resource_cost) * dmg_per_rage_converted;
+    damage_dealt *= pchar->get_total_phys_dmg_mod();
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

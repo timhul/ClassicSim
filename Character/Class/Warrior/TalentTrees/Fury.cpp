@@ -11,7 +11,7 @@
 #include "DualWieldSpecialization.h"
 #include "ImprovedExecute.h"
 #include "ImprovedSlam.h"
-#include "DeathWish.h"
+#include "DeathWishTalent.h"
 #include "ImprovedBerserkerRage.h"
 #include "FlurryTalent.h"
 #include "BloodthirstTalent.h"
@@ -41,7 +41,7 @@ Fury::Fury(Character *pchar, QObject* parent) :
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new ImprovedSlam(pchar, this)},
-                                  {"5ML", new DeathWish(pchar, this)},
+                                  {"5ML", new DeathWishTalent(pchar, this)},
                                   {"5RR", new GenericTalent(pchar, this, "Improved Intercept", "5RR", base_url + "tier5/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<int, int>>{QPair<int, int>(5, 5)})}};
     add_talents(tier5);
 

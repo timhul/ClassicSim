@@ -24,7 +24,7 @@ int Hamstring::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
-    float damage_dealt = 45;
+    float damage_dealt = 45 * pchar->get_total_phys_dmg_mod();
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

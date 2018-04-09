@@ -15,6 +15,8 @@ class HeroicStrikeBuff;
 class Execute;
 class Overpower;
 class UnbridledWrath;
+class DeathWish;
+class DeathWishBuff;
 
 class Warrior: public Character {
     Q_OBJECT
@@ -49,6 +51,8 @@ public:
     Overpower* get_overpower() const;
     OffhandAttack* get_offhand_attack() const;
     UnbridledWrath* get_unbridled_wrath() const;
+    DeathWish* get_death_wish() const;
+    DeathWishBuff* get_death_wish_buff() const;
 
     void melee_critical_effect();
 
@@ -73,6 +77,8 @@ private:
     Execute* execute;
     Overpower* overpower;
     UnbridledWrath* unbridled_wrath;
+    DeathWish* death_wish;
+    DeathWishBuff* death_wish_buff;
 
     void add_next_mh_attack(void) override;
     void add_next_oh_attack(void) override;

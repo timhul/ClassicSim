@@ -23,6 +23,8 @@
 #include "Execute.h"
 #include "Overpower.h"
 #include "UnbridledWrath.h"
+#include "DeathWish.h"
+#include "DeathWishBuff.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -58,14 +60,16 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->execute = new Execute(engine, this, roll);
     this->overpower = new Overpower(engine, this, roll);
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
+    this->death_wish = new DeathWish(engine, this, roll);
     spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
-              unbridled_wrath};
+              unbridled_wrath, death_wish};
 
     initialize_talents();
 
     this->flurry = new Flurry(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
-    buffs = {flurry, heroic_strike_buff};
+    this->death_wish_buff = new DeathWishBuff(this);
+    buffs = {flurry, heroic_strike_buff, death_wish_buff};
 }
 
 Warrior::~Warrior() {
@@ -146,10 +150,13 @@ void Warrior::rotation() {
         return;
     }
 
-    // TODO: Check if execute is available. Requires target health.
+    if (death_wish->is_enabled() && death_wish->is_available(rage))
+        lose_rage(death_wish->perform(rage));
 
-    if (bt->is_enabled() && bt->is_available(rage))
+    else if (bt->is_enabled() && bt->is_available(rage))
         lose_rage(bt->perform(rage));
+
+    // TODO: Check if execute is available. Requires target health.
 
     if (rage > 50)
         heroic_strike_buff->apply_buff();
@@ -247,6 +254,14 @@ OffhandAttack* Warrior::get_offhand_attack() const {
 
 UnbridledWrath* Warrior::get_unbridled_wrath() const {
     return this->unbridled_wrath;
+}
+
+DeathWish* Warrior::get_death_wish() const {
+    return this->death_wish;
+}
+
+DeathWishBuff* Warrior::get_death_wish_buff() const {
+    return this->death_wish_buff;
 }
 
 void Warrior::melee_critical_effect() {

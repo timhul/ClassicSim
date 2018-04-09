@@ -25,6 +25,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
+    this->total_phys_dmg_mod = 1.0;
     // TODO: Get haste enchants from gear
     // TODO: Find out swing timer without weapons equipped.
     mh_wpn_speed = has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() :
@@ -141,6 +142,11 @@ float Character::get_ability_crit_dmg_mod() const {
     return ability_crit_dmg_mod;
 }
 
+float Character::get_total_phys_dmg_mod() const {
+    // TODO: Include e.g. Two-Handed Weapon Specialization if using 2-handers.
+    return total_phys_dmg_mod;
+}
+
 int Character::get_random_mh_dmg() {
     MeleeWeapon* mh = equipment->get_mainhand();
     return get_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
@@ -161,7 +167,7 @@ int Character::get_avg_mh_damage() {
 }
 
 int Character::get_normalized_dmg(const int damage, const float wpn_speed) {
-    float normalized_dmg = damage / wpn_speed;
+    float normalized_dmg = (damage * get_total_phys_dmg_mod()) / wpn_speed;
     float normalized_ap = get_melee_ap() / 14;
 
     return (normalized_dmg + normalized_ap) * wpn_speed;
@@ -241,6 +247,14 @@ void Character::increase_ability_crit_dmg_mod(float increase) {
 
 void Character::decrease_ability_crit_dmg_mod(float decrease) {
     ability_crit_dmg_mod -= decrease;
+}
+
+void Character::increase_total_phys_dmg_mod(float increase) {
+    total_phys_dmg_mod += increase;
+}
+
+void Character::decrease_total_phys_dmg_mod(float decrease) {
+    total_phys_dmg_mod -= decrease;
 }
 
 float Character::get_mh_wpn_speed() {

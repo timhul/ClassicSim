@@ -21,6 +21,7 @@ int Overpower::spell_effect(const int) {
     }
 
     float damage_dealt = pchar->get_random_mh_dmg() + 35;
+    damage_dealt *= pchar->get_total_phys_dmg_mod();
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

@@ -57,6 +57,7 @@ public:
     virtual float global_cooldown() const;
 
     float get_ability_crit_dmg_mod() const;
+    float get_total_phys_dmg_mod() const;
     int get_random_mh_dmg();
     int get_random_oh_dmg();
     int get_avg_mh_damage();
@@ -78,6 +79,9 @@ public:
 
     void increase_ability_crit_dmg_mod(float);
     void decrease_ability_crit_dmg_mod(float);
+
+    void increase_total_phys_dmg_mod(float);
+    void decrease_total_phys_dmg_mod(float);
 
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
@@ -106,6 +110,7 @@ protected:
     float mh_wpn_speed;
     float oh_wpn_speed;
     float ability_crit_dmg_mod;
+    float total_phys_dmg_mod;
 
     int clvl;
     bool melee_attacking;

@@ -82,7 +82,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.cpp \
     Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.cpp \
-    Character/Class/Warrior/TalentTrees/Fury/DeathWish.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.cpp \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.cpp \
@@ -104,7 +103,10 @@ SOURCES += main.cpp \
     Event/Events/DotTick.cpp \
     Character/Class/Warrior/Buffs/HeroicStrikeBuff.cpp \
     Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.cpp \
-    Character/Class/Warrior/Spells/UnbridledWrath.cpp
+    Character/Class/Warrior/Spells/UnbridledWrath.cpp \
+    Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.cpp \
+    Character/Class/Warrior/Spells/DeathWish.cpp \
+    Character/Class/Warrior/Buffs/DeathWishBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -182,7 +184,6 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.h \
     Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.h \
-    Character/Class/Warrior/TalentTrees/Fury/DeathWish.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.h \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.h \
@@ -204,7 +205,10 @@ HEADERS += \
     Event/Events/DotTick.h \
     Character/Class/Warrior/Buffs/HeroicStrikeBuff.h \
     Character/Class/Warrior/Spells/UnbridledWrath.h \
-    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.h
+    Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.h \
+    Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.h \
+    Character/Class/Warrior/Spells/DeathWish.h \
+    Character/Class/Warrior/Buffs/DeathWishBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
