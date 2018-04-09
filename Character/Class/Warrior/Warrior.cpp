@@ -72,15 +72,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     buffs = {flurry, heroic_strike_buff, death_wish_buff};
 }
 
-Warrior::~Warrior() {
-    for (int i = 0; i < spells.size(); ++i) {
-        delete spells[i];
-    }
-
-    for (int i = 0; i < buffs.size(); ++i) {
-        delete buffs[i];
-    }
-}
+Warrior::~Warrior() {}
 
 QString Warrior::get_name(void) const {
     return "Warrior";

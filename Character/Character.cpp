@@ -38,6 +38,15 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
 Character::~Character() {
     delete talents;
     delete stats;
+
+    for (int i = 0; i < spells.size(); ++i) {
+        delete spells[i];
+    }
+
+    for (int i = 0; i < buffs.size(); ++i) {
+        delete buffs[i];
+    }
+
     spells.clear();
     buffs.clear();
 }
