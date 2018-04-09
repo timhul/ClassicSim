@@ -25,7 +25,7 @@ int Whirlwind::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
-    int damage_dealt = std::max(1, pchar->get_mh_dmg());
+    int damage_dealt = std::max(1, pchar->get_random_mh_dmg());
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

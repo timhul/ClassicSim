@@ -138,12 +138,12 @@ float Character::get_ability_crit_dmg_mod() const {
     return ability_crit_dmg_mod;
 }
 
-int Character::get_mh_dmg() {
+int Character::get_random_mh_dmg() {
     MeleeWeapon* mh = equipment->get_mainhand();
     return get_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
 }
 
-int Character::get_oh_dmg() {
+int Character::get_random_oh_dmg() {
     MeleeWeapon* oh = equipment->get_offhand();
     return get_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
 }

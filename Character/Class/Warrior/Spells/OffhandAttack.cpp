@@ -41,7 +41,7 @@ int OffhandAttack::spell_effect(const int) {
         return 0;
     }
 
-    int damage_dealt = std::max(1, int(round(pchar->get_oh_dmg() * talent_ranks[rank_talent])));
+    int damage_dealt = std::max(1, int(round(pchar->get_random_oh_dmg() * talent_ranks[rank_talent])));
 
     if (result->is_critical()) {
         damage_dealt *= 2;

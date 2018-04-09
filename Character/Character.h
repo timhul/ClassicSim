@@ -56,8 +56,8 @@ public:
     virtual float global_cooldown() const;
 
     float get_ability_crit_dmg_mod() const;
-    int get_mh_dmg();
-    int get_oh_dmg();
+    int get_random_mh_dmg();
+    int get_random_oh_dmg();
     int get_avg_mh_damage();
     int get_normalized_dmg(const int, const float);
 

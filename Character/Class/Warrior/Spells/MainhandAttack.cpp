@@ -40,7 +40,7 @@ int MainhandAttack::spell_effect(const int) {
         return 0;
     }
 
-    int damage_dealt = std::max(1, pchar->get_mh_dmg());
+    int damage_dealt = std::max(1, pchar->get_random_mh_dmg());
 
     if (result->is_critical()) {
         damage_dealt *= 2;
