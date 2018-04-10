@@ -45,11 +45,9 @@ GUIControl::GUIControl(QObject* parent) :
 
     engine = new Engine();
     equipment = new Equipment();
-    Random* mh_dmg_range = new Random(80, 150);
-    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_mainhand(mainhand);
-    Random* oh_dmg_range = new Random(80, 150);
-    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
     target = new Target(63);
     combat = new CombatRoll(target);

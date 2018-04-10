@@ -109,7 +109,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Buffs/DeathWishBuff.cpp \
     Character/Class/Warrior/Buffs/BattleShoutBuff.cpp \
     Character/Class/Warrior/Spells/BattleShout.cpp \
-    Character/Class/Warrior/Spells/BerserkerRage.cpp
+    Character/Class/Warrior/Spells/BerserkerRage.cpp \
+    Character/Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -214,7 +215,8 @@ HEADERS += \
     Character/Class/Warrior/Buffs/DeathWishBuff.h \
     Character/Class/Warrior/Buffs/BattleShoutBuff.h \
     Character/Class/Warrior/Spells/BattleShout.h \
-    Character/Class/Warrior/Spells/BerserkerRage.h
+    Character/Class/Warrior/Spells/BerserkerRage.h \
+    Character/Equipment/Item/MeleeWeapon/Specialization/Onehand.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

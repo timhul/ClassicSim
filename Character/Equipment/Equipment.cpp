@@ -105,14 +105,17 @@ Item* Equipment::get_relic(void) {
 }
 
 void Equipment::set_mainhand(MeleeWeapon* item) {
-    assert(item->get_item_type() == ItemTypes::MAINHAND);
+    assert(item->get_weapon_slot() == WeaponSlots::MAINHAND ||
+           item->get_weapon_slot() == WeaponSlots::ONEHAND ||
+           item->get_weapon_slot() == WeaponSlots::TWOHAND);
     if (this->mainhand != nullptr)
         delete this->mainhand;
     this->mainhand = item;
 }
 
 void Equipment::set_offhand(MeleeWeapon* item) {
-    assert(item->get_item_type() == ItemTypes::OFFHAND);
+    assert(item->get_weapon_slot() == WeaponSlots::ONEHAND ||
+           item->get_weapon_slot() == WeaponSlots::OFFHAND);
     assert(get_caster_offhand() == nullptr);
     if (this->offhand != nullptr)
         delete this->offhand;
@@ -120,7 +123,7 @@ void Equipment::set_offhand(MeleeWeapon* item) {
 }
 
 void Equipment::set_ranged(Item* item) {
-    assert(item->get_item_type() == ItemTypes::RANGED);
+    assert(item->get_item_type() == ItemSlots::RANGED);
     assert(get_relic() == nullptr);
     if (this->ranged != nullptr)
         delete this->ranged;
@@ -128,105 +131,105 @@ void Equipment::set_ranged(Item* item) {
 }
 
 void Equipment::set_head(Item* item) {
-    assert(item->get_item_type() == ItemTypes::HEAD);
+    assert(item->get_item_type() == ItemSlots::HEAD);
     if (this->head != nullptr)
         delete this->head;
     this->head = item;
 }
 
 void Equipment::set_neck(Item* item) {
-    assert(item->get_item_type() == ItemTypes::NECK);
+    assert(item->get_item_type() == ItemSlots::NECK);
     if (this->neck != nullptr)
         delete this->neck;
     this->neck = item;
 }
 
 void Equipment::set_shoulders(Item* item) {
-    assert(item->get_item_type() == ItemTypes::SHOULDERS);
+    assert(item->get_item_type() == ItemSlots::SHOULDERS);
     if (this->shoulders != nullptr)
         delete this->shoulders;
     this->shoulders = item;
 }
 
 void Equipment::set_back(Item* item) {
-    assert(item->get_item_type() == ItemTypes::BACK);
+    assert(item->get_item_type() == ItemSlots::BACK);
     if (this->back != nullptr)
         delete this->back;
     this->back = item;
 }
 
 void Equipment::set_chest(Item* item) {
-    assert(item->get_item_type() == ItemTypes::CHEST);
+    assert(item->get_item_type() == ItemSlots::CHEST);
     if (this->chest != nullptr)
         delete this->chest;
     this->chest = item;
 }
 
 void Equipment::set_wrist(Item* item) {
-    assert(item->get_item_type() == ItemTypes::WRIST);
+    assert(item->get_item_type() == ItemSlots::WRIST);
     if (this->wrist != nullptr)
         delete this->wrist;
     this->wrist = item;
 }
 
 void Equipment::set_gloves(Item* item) {
-    assert(item->get_item_type() == ItemTypes::GLOVES);
+    assert(item->get_item_type() == ItemSlots::GLOVES);
     if (this->gloves != nullptr)
         delete this->gloves;
     this->gloves = item;
 }
 
 void Equipment::set_belt(Item* item) {
-    assert(item->get_item_type() == ItemTypes::BELT);
+    assert(item->get_item_type() == ItemSlots::BELT);
     if (this->belt != nullptr)
         delete this->belt;
     this->belt = item;
 }
 
 void Equipment::set_legs(Item* item) {
-    assert(item->get_item_type() == ItemTypes::LEGS);
+    assert(item->get_item_type() == ItemSlots::LEGS);
     if (this->legs != nullptr)
         delete this->legs;
     this->legs = item;
 }
 
 void Equipment::set_boots(Item* item) {
-    assert(item->get_item_type() == ItemTypes::BOOTS);
+    assert(item->get_item_type() == ItemSlots::BOOTS);
     if (this->boots != nullptr)
         delete this->boots;
     this->boots = item;
 }
 
 void Equipment::set_ring1(Item* item) {
-    assert(item->get_item_type() == ItemTypes::RING);
+    assert(item->get_item_type() == ItemSlots::RING);
     if (this->ring1 != nullptr)
         delete this->ring1;
     this->ring1 = item;
 }
 
 void Equipment::set_ring2(Item* item) {
-    assert(item->get_item_type() == ItemTypes::RING);
+    assert(item->get_item_type() == ItemSlots::RING);
     if (this->ring2 != nullptr)
         delete this->ring2;
     this->ring2 = item;
 }
 
 void Equipment::set_trinket1(Item* item) {
-    assert(item->get_item_type() == ItemTypes::TRINKET);
+    assert(item->get_item_type() == ItemSlots::TRINKET);
     if (this->trinket1 != nullptr)
         delete this->trinket1;
     this->trinket1 = item;
 }
 
 void Equipment::set_trinket2(Item* item) {
-    assert(item->get_item_type() == ItemTypes::TRINKET);
+    assert(item->get_item_type() == ItemSlots::TRINKET);
     if (this->trinket2 != nullptr)
         delete this->trinket2;
     this->trinket2 = item;
 }
 
 void Equipment::set_caster_offhand(Item* item) {
-    assert(item->get_item_type() == ItemTypes::CASTER_OFFHAND);
+    assert(item->get_item_type() == ItemSlots::CASTER_OFFHAND);
     assert(get_offhand() == nullptr);
     if (this->caster_offhand != nullptr)
         delete this->caster_offhand;
@@ -234,7 +237,7 @@ void Equipment::set_caster_offhand(Item* item) {
 }
 
 void Equipment::set_relic(Item* item) {
-    assert(item->get_item_type() == ItemTypes::RELIC);
+    assert(item->get_item_type() == ItemSlots::RELIC);
     assert(get_ranged() == nullptr);
     if (this->relic != nullptr)
         delete this->relic;

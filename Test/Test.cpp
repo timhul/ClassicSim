@@ -71,11 +71,9 @@ void Test::test_all(void) {
 void Test::test_queue(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
-    Random* mh_dmg_range = new Random(80, 150);
-    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_mainhand(mainhand);
-    Random* oh_dmg_range = new Random(80, 150);
-    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
     Race* race = new Orc();
     Target* target = new Target(63);
@@ -295,8 +293,7 @@ void Test::test_special_hit_table(void) {
 void Test::test_equipment_creation(void) {
     Equipment* equipment = new Equipment();
 
-    Random* mh_dmg_range = new Random(80, 150);
-    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     assert(mainhand->get_name() == "Frostbite");
     assert(mainhand->get_weapon_type() == 0);
     assert(mainhand->get_min_dmg() == 80);

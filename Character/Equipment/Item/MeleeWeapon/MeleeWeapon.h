@@ -6,10 +6,9 @@
 
 class MeleeWeapon: public Item {
 public:
-    MeleeWeapon(QString name, Random* random,
-                int type, int min, int max, float speed, float proc_rate):
+    MeleeWeapon(QString name, int type, int min, int max, float speed, float proc_rate):
         Item(name) {
-        this->random = random;
+        this->random = new Random(min, max);
         this->weapon_type = type;
         this->min_dmg = min;
         this->max_dmg = max;
@@ -21,6 +20,7 @@ public:
         delete random;
     }
 
+    virtual int get_weapon_slot() const = 0;
     int get_weapon_type() const;
     int get_min_dmg() const;
     int get_max_dmg() const;

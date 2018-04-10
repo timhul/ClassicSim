@@ -46,11 +46,9 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->roll->set_character(this);
 
     // TODO: Remove hardcoded equipped weapons
-    Random* mh_dmg_range = new Random(80, 150);
-    Mainhand* mainhand = new Mainhand("Frostbite", mh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_mainhand(mainhand);
-    Random* oh_dmg_range = new Random(80, 150);
-    Offhand* offhand = new Offhand("Frostbite", oh_dmg_range, 0, 80, 150, 2.7, 0.0);
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
     equipment->set_offhand(offhand);
 
     // TODO: For now mainhand/offhand attack must be initialized after equipment is set.

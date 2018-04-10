@@ -4,7 +4,7 @@
 #include <QString>
 #include <assert.h>
 
-namespace ItemTypes {
+namespace ItemSlots {
     static const int MAINHAND = 0;
     static const int OFFHAND = 1;
     static const int RANGED = 2;
@@ -37,6 +37,14 @@ namespace WeaponTypes {
     static const int GUN = 9;
     static const int THROWN = 10;
     static const int WAND = 11;
+}
+
+namespace WeaponSlots {
+    static const int ONEHAND = 0;
+    static const int MAINHAND = 1;
+    static const int OFFHAND = 2;
+    static const int TWOHAND = 3;
+    static const int RANGED = 4;
 }
 
 
