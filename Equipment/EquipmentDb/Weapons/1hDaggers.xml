@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>
+	<weapon name="Alcor's Sunrazor">
+		<patch name="1.0.0">
+			<info type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no"/>
+			<dmg_range min="41" max="77" speed="1.3"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="FIRE_ATTACK" min="75" max="106" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			World drop. BoE in 1.9.0, BoP in patches before that.
+			</source>
+		</patch>
+		<patch name="1.9.0">
+			<info type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes"/>
+			<dmg_range min="41" max="77" speed="1.3"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="FIRE_ATTACK" min="75" max="106" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			World drop. BoE in 1.9.0, BoP in patches before that.
+			</source>
+		</patch>
+	</weapon>
+</weapons>

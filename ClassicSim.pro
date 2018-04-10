@@ -110,7 +110,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Buffs/BattleShoutBuff.cpp \
     Character/Class/Warrior/Spells/BattleShout.cpp \
     Character/Class/Warrior/Spells/BerserkerRage.cpp \
-    Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp
+    Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp \
+    Equipment/EquipmentDb/EquipmentDb.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -216,7 +217,8 @@ HEADERS += \
     Character/Class/Warrior/Buffs/BattleShoutBuff.h \
     Character/Class/Warrior/Spells/BattleShout.h \
     Character/Class/Warrior/Spells/BerserkerRage.h \
-    Equipment/Item/MeleeWeapon/Specialization/Onehand.h
+    Equipment/Item/MeleeWeapon/Specialization/Onehand.h \
+    Equipment/EquipmentDb/EquipmentDb.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -244,6 +246,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Equipment\Item \
     C:\C++\ClassicSim\Equipment\Item\MeleeWeapon \
     C:\C++\ClassicSim\Equipment\Item\MeleeWeapon\Specialization \
+    C:\C++\ClassicSim\Equipment\EquipmentDb \
     C:\C++\ClassicSim\CombatRoll \
     C:\C++\ClassicSim\CombatRoll\AttackTables \
     C:\C++\ClassicSim\Target \

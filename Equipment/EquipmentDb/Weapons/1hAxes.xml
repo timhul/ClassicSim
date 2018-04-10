@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>
+	<weapon name="Frostbite">
+		<patch name="1.5.0">
+			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no"/>
+			<dmg_range min="80" max="150" speed="2.7"/>
+			<stats>
+				<stat type="STRENGTH" value="15"/>
+			</stats>
+			<source>
+			Purchased for 2400 honor points. Horde only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Zulian Hacker">
+		<patch name="1.7.0">
+			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
+			<dmg_range min="71" max="134" speed="2.4"/>
+			<stats>
+				<stat type="AXE_SKILL" value="2"/>
+				<!-- TODO: Support selection of which affix. -->
+				<stat type="RANDOM_AFFIX" value="0"/>
+			</stats>
+			<source>
+			Random drop from trash in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+
+	<weapon name="Dark Iron Destroyer">
+		<patch name="all">
+			<info type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
+			<dmg_range min="71" max="134" speed="2.4"/>
+			<stats>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="FIRE_RES" value="6"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Ancient Hakkari Manslayer">
+		<patch name="1.7.0">
+			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no"/>
+			<dmg_range min="69" max="130" speed="2.0"/>
+			<proc>
+				<spell name="LIFE_DRAIN" min="48" max="54" instant="yes" rate="0.06" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Hakkar the Soulflayer in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Sickle of Unyielding Strength">
+		<patch name="1.9.0">
+			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
+			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
+			<class_restriction class="WARRIOR"/>
+			<dmg_range min="75" max="141" speed="2.1"/>
+			<stats>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="AGILITY" value="6"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="DEFENSE" value="4"/>
+			</stats>
+			<source>
+			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss and trash drops from Ruins of Ahn'Qiraj, and Exalted with Cenarion Circle.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Scythe of the Unseen Path">
+		<patch name="1.9.0">
+			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
+			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
+			<class_restriction class="HUNTER"/>
+			<dmg_range min="86" max="161" speed="2.4"/>
+			<stats>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STAMINA" value="9"/>
+			</stats>
+			<source>
+			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss and trash drops from Ruins of Ahn'Qiraj (AQ20), and Exalted with Cenarion Circle.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Doom's Edge">
+		<patch name="1.6.0">
+			<info type="AXE"  slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
+			<dmg_range min="83" max="154" speed="2.3"/>
+			<stats>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STRENGTH" value="9"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			Drops from trash in Blackwing Lair.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Deathbringer">
+		<patch name="all">
+			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no"/>
+			<dmg_range min="114" max="213" speed="2.9"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Onyxia in Onyxia's Lair.
+			</source>
+		</patch>
+	</weapon>	
+	
+	<weapon name="High Warlord's Cleaver">
+		<patch name="1.5.0">
+			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching High Warlord (rank 14). Horde only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Grand Marshal's Handaxe">
+		<patch name="1.5.0">
+			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Blessed Qiraji War Axe">
+		<patch name="1.9.0">
+			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
+			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no"/>
+			<dmg_range min="110" max="205" speed="2.6"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="14"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="INT" value="10"/>
+			</stats>
+			<source>
+			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+			<flavour_text>
+			The weapon is infused and reinforced with Elementium.
+			</flavour_text>
+		</patch>
+	</weapon>
+	
+	<weapon name="Crul'shorukh, Edge of Chaos">
+		<patch name="1.6.0">
+			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no"/>
+			<dmg_range min="101" max="188" speed="2.3"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="36"/>
+				<stat type="STAMINA" value="13"/>
+			</stats>
+			<source>
+			Drops from Nefarian in Blackwing Lair.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Hatchet of Sundered Bone">
+		<patch name="1.11.0">
+			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no"/>
+			<dmg_range min="119" max="221" speed="2.6"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="36"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Noth the Plaguebringer in Naxxramas.
+			</source>
+		</patch>
+	</weapon>
+</weapons>

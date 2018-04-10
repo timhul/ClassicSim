@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>
+	<weapon name="Arlokk's Grasp">
+		<patch name="1.7.0">
+			<info type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no"/>
+			<dmg_range min="41" max="85" speed="1.5"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from High Priestess Arlokk in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+
+	<weapon name="Thekal's Grasp">
+		<patch name="1.7.0">
+			<info type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no"/>
+			<dmg_range min="72" max="135" speed="2.2"/>
+			<stats>
+				<stat type="STAMINA" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from High Priest Thekal in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+
+	<weapon name="Eskhandar's Right Claw">
+		<patch name="1.3.0">
+			<info type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no"/>
+			<dmg_range min="50" max="94" speed="1.5"/>
+			<stats>
+				<stat type="AGILITY" value="4"/>
+			</stats>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="ATTACK_SPEED" amount="0.3" duration="5" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Magmadar in Molten Core.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Eskhandar's Left Claw">
+		<patch name="1.8.0">
+			<info type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no"/>
+			<dmg_range min="50" max="94" speed="1.5"/>
+			<stats>
+				<stat type="AGILITY" value="4"/>
+			</stats>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="PHYSICAL_DOT" amount="5" tick_rate="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Azuregos (world boss).
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Claw of the Black Drake">
+		<patch name="1.6.0">
+			<info type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no"/>
+			<dmg_range min="102" max="191" speed="2.6"/>
+			<stats>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="STAMINA" value="7"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Firemaw in Blackwing Lair.
+			</source>
+		</patch>
+	</weapon>
+
+	<weapon name="Silithid Claw">
+		<patch name="1.9.0">
+			<info type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no"/>
+			<dmg_range min="64" max="120" speed="1.6"/>
+			<stats>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="30"/>
+			</stats>
+			<source>
+			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</weapon>
+
+	<weapon name="High Warlord's Right Claw">
+		<patch name="1.5.0">
+			<info type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching High Warlord (rank 14). Horde only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Grand Marshal's Right Hand Blade">
+		<patch name="1.5.0">
+			<info type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+			</source>
+		</patch>
+	</weapon>
+
+	<weapon name="High Warlord's Left Claw">
+		<patch name="1.5.0">
+			<info type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching High Warlord (rank 14). Horde only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Grand Marshal's Left Hand Blade">
+		<patch name="1.5.0">
+			<info type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Claw of the Frost Wyrm">
+		<patch name="1.11.0">
+			<info type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no"/>
+			<dmg_range min="75" max="140" speed="1.5"/>
+			<stats>
+				<stat type="STAMINA" value="8"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="22"/>
+			</stats>
+			<source>
+			Drops from Sapphiron in Naxxramas.
+			</source>
+		</patch>
+	</weapon>
+
+</weapons>

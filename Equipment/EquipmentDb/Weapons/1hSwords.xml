@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>
+	<weapon name="Krol Blade">
+		<patch name="all">
+			<info type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="EPIC" boe="yes"/>
+			<dmg_range min="80" max="149" speed="2.8"/>
+			<stats>
+				<stat type="STRENGTH" value="7"/>
+				<stat type="STAMINA" value="5"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Cold Forged Blade">
+		<patch name="1.5.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE"  boe="no"/>
+			<dmg_range min="75" max="140" speed="2.6"/>
+			<stats>
+				<stat type="STAMINA" value="13"/>
+				<stat type="AGILITY" value="5"/>
+			</stats>
+			<source>
+			Drops from Lokholar the Ice Lord in Alterac Valley. Alliance only.
+			</source>
+		</patch>
+	</weapon>
+
+	<weapon name="Sword of Zeal">
+		<patch name="all">
+			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes"/>
+			<dmg_range min="81" max="151" speed="2.8"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="ADDITIONAL_DMG_BUFF" min="10" max="10" duration="15" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Skullforge Reaver">
+		<patch name="all">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
+			<dmg_range min="72" max="135" speed="2.5"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="SHADOW_DOT" min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Baron Rivendare in Stratholme Undead.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Dal'Rend's Tribal Guardian">
+		<patch name="all">
+			<info type="SWORD" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
+			<dmg_range min="52" max="97" speed="1.8"/>
+			<stats>
+				<stat type="ARMOR" value="100"/>
+				<stat type="DEFENSE" value="7"/>
+			</stats>
+			<source>
+			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Dal'Rend's Sacred Charge">
+		<patch name="all">
+			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
+			<dmg_range min="81" max="151" speed="2.8"/>
+			<stats>
+				<stat type="STRENGTH" value="4"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Dragon's Call">
+		<patch name="all">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no"/>
+			<dmg_range min="72" max="135" speed="2.5"/>
+			<proc>
+				<!-- TODO: Find proc rate, how much damage the minion deals, duration, etc. -->
+				<spell name="SUMMON_NATURE_MINION" amount="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Shade of Eranikus in Sunken Temple.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Protector's Sword">
+		<patch name="1.5.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"/>
+			<dmg_range min="78" max="146" speed="2.7"/>
+			<stats>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="STAMINA" value="5"/>
+			</stats>
+			<source>
+			Sold by Warsong Gulch vendor Illiyana Moonblaze. Alliance only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Legionnaire's Sword">
+		<patch name="1.5.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no"/>
+			<dmg_range min="78" max="146" speed="2.7"/>
+			<stats>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="STAMINA" value="5"/>
+			</stats>
+			<source>
+			Sold by Warsong Gulch vendor Kelm Hargunth. Horde only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Ravenholdt Slicer">
+		<patch name="1.10.0">
+			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no"/>
+			<dmg_range min="83" max="156" speed="2.8"/>
+			<stats>
+				<stat type="STAMINA" value="6"/>
+				<stat type="ATTACK_POWER" value="26"/>
+			</stats>
+			<source>
+			Reward from a quest in Silithus inn. Requires quest item from first boss in both AQ20 and ZG.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Dark Iron Reaver">
+		<patch name="all">
+			<info type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
+			<dmg_range min="71" max="134" speed="2.4"/>
+			<stats>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="FIRE_RES" value="6"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Fiery Retributer">
+		<patch name="1.7.0">
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no"/>
+			<dmg_range min="56" max="105" speed="1.8"/>
+			<stats>
+				<stat type="STRENGTH" value="7"/>
+				<stat type="DEFENSE" value="5"/>
+			</stats>
+			<proc>
+				<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Hazza'rah (Edge of Madness) in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Zulian Slicer">
+		<patch name="1.7.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no"/>
+			<dmg_range min="78" max="146" speed="2.5"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="12"/>
+			</stats>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from High Priest Thekal in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Teebu's Blazing Longsword">
+		<patch name="1.9.0">
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes"/>
+			<dmg_range min="96" max="178" speed="2.9"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops randomly in selected dungeons and raids.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Warblade of the Hakkari">
+		<patch name="1.7.0">
+			<info type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no"/>
+			<dmg_range min="57" max="106" speed="1.7"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="40"/>
+			</stats>
+			<source>
+			Drops from Bloodlord Mandokir in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Bloodlord's Defender">
+		<patch name="1.7.0">
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no"/>
+			<dmg_range min="64" max="119" speed="1.9"/>
+			<stats>
+				<stat type="ARMOR" value="80"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="DEFENSE" value="4"/>
+			</stats>
+			<source>
+			Drops from Bloodlord Mandokir in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Warblade of the Hakkari">
+		<patch name="1.7.0">
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no"/>
+			<dmg_range min="59" max="110" speed="1.7"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Hakkar in Zul'Gurub.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Brutality Blade">
+		<patch name="1.4.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
+			<dmg_range min="90" max="168" speed="2.5"/>
+			<stats>
+				<stat type="STRENGTH" value="9"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Garr in Molten Core.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Blackguard">
+		<patch name="1.6.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes"/>
+			<dmg_range min="65" max="121" speed="1.8"/>
+			<stats>
+				<stat type="STAMINA" value="9"/>
+				<stat type="PARRY_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Quel'Serrar">
+		<patch name="1.3.0">
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no"/>
+			<class_restriction class="WARRIOR"/>
+			<class_restriction class="PALADIN"/>
+			<dmg_range min="84" max="126" speed="2.0"/>
+			<stats>
+				<stat type="STAMINA" value="12"/>
+			</stats>
+			<!-- TODO: Add proc (only defensive value) -->
+			<source>
+			Quest reward. Requires rare quest item Foror's Compendium of Dragonslaying from Dire Maul and an Onyxia kill.
+			</source>
+			<flavour_text>
+			The High Blade
+			</flavour_text>
+		</patch>
+	</weapon>
+	
+	<weapon name="Nightmare Blade">
+		<patch name="1.8.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no"/>
+			<dmg_range min="99" max="185" speed="2.7"/>
+			<stats>
+				<stat type="ARMOR" value="70"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="ATTACK_POWER" value="32"/>
+			</stats>
+			<source>
+			Drops from Taerar (world boss).
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Thunderfury, Blessed Blade of the Windseeker">
+		<patch name="all">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no"/>
+			<class_restriction class="WARRIOR"/>
+			<class_restriction class="PALADIN"/>
+			<class_restriction class="HUNTER"/>
+			<class_restriction class="ROGUE"/>
+			<dmg_range min="44" max="115" speed="1.9"/>
+			<stats>
+				<stat type="AGILITY" value="5"/>
+				<stat type="STAMINA" value="8"/>
+				<stat type="FIRE_RES" value="8"/>
+				<stat type="NATURE_RES" value="9"/>
+			</stats>
+			<proc>
+				<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0" recursive="no"/>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Quest reward. Requires Left and Right Bindings of the Windseeker from Garr and Baron Geddon in Molten Core.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Vis'kag the Bloodletter">
+		<patch name="all">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no"/>
+			<dmg_range min="100" max="187" speed="2.6"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			Drops from Onyxia in Onyxia's Lair.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Maladath, Runed Blade of the Black Flight">
+		<patch name="1.6.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no"/>
+			<dmg_range min="86" max="162" speed="2.2"/>
+			<stats>
+				<stat type="PARRY_CHANCE" value="0.01"/>
+				<stat type="SWORD_SKILL" value="4"/>
+			</stats>
+			<source>
+			Drops from Broodlord Lashlayer in Blackwing Lair.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Ravencrest's Legacy">
+		<patch name="1.9.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no"/>
+			<dmg_range min="84" max="157" speed="2.1"/>
+			<stats>
+				<stat type="STAMINA" value="14"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="AGILITY" value="9"/>
+			</stats>
+			<source>
+			Quest reward from AQ40 Scepter chain.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Ancient Qiraji Ripper">
+		<patch name="1.9.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no"/>
+			<dmg_range min="114" max="213" speed="2.8"/>
+			<stats>
+				<stat type="STAMINA" value="11"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="20"/>
+			</stats>
+			<source>
+			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Chromatically Tempered Sword">
+		<patch name="1.6.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no"/>
+			<dmg_range min="106" max="198" speed="2.6"/>
+			<stats>
+				<stat type="AGILITY" value="14"/>
+				<stat type="STRENGTH" value="14"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			Drops from Chromaggus in Blackwing Lair.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="High Warlord's Blade">
+		<patch name="1.5.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching High Warlord (rank 14). Horde only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Grand Marshal's Longsword">
+		<patch name="1.5.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<dmg_range min="138" max="207" speed="2.9"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="High Warlord's Quickblade">
+		<patch name="1.5.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<dmg_range min="85" max="129" speed="1.8"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching High Warlord (rank 14). Horde only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Grand Marshal's Swiftblade">
+		<patch name="1.5.0">
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<dmg_range min="85" max="129" speed="1.8"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Widow's Remorse">
+		<patch name="1.11.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no"/>
+			<dmg_range min="70" max="131" speed="1.6"/>
+			<stats>
+				<stat type="ARMOR" value="100"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Grand Widow Faerlina in Naxxramas.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Iblis, Blade of the Fallen Seraph">
+		<patch name="1.11.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no"/>
+			<dmg_range min="70" max="131" speed="1.6"/>
+			<stats>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="26"/>
+			</stats>
+			<source>
+			Drops from Instructor Razuvious in Naxxramas.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="The Hungering Cold">
+		<patch name="1.11.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no"/>
+			<dmg_range min="76" max="143" speed="1.5"/>
+			<stats>
+				<stat type="ARMOR" value="140"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="SWORD_SKILL" value="6"/>
+			</stats>
+			<source>
+			Drops from Kel'Thuzad in Naxxramas.
+			</source>
+		</patch>
+	</weapon>
+	
+	<weapon name="Gressil, Dawn of Ruin">
+		<patch name="1.11.0">
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no"/>
+			<dmg_range min="138" max="257" speed="2.7"/>
+			<stats>
+				<stat type="STAMINA" value="14"/>
+				<stat type="ATTACK_POWER" value="40"/>
+			</stats>
+			<source>
+			Drops from Kel'Thuzad in Naxxramas.
+			</source>
+		</patch>
+	</weapon>
+
+</weapons>
