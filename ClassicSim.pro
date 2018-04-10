@@ -38,11 +38,11 @@ SOURCES += main.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Test.cpp \
-    Character/Equipment/Item/MeleeWeapon/MeleeWeapon.cpp \
-    Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
-    Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
-    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp \
-    Character/Equipment/Equipment.cpp \
+    Equipment/Item/MeleeWeapon/MeleeWeapon.cpp \
+    Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
+    Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
+    Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp \
+    Equipment/Equipment.cpp \
     CombatRoll/AttackResult.cpp \
     CombatRoll/CombatRoll.cpp \
     CombatRoll/AttackTables/WhiteHitTable.cpp \
@@ -110,7 +110,7 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Buffs/BattleShoutBuff.cpp \
     Character/Class/Warrior/Spells/BattleShout.cpp \
     Character/Class/Warrior/Spells/BerserkerRage.cpp \
-    Character/Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp
+    Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -139,12 +139,12 @@ HEADERS += \
     Character/Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
     Test/Test.h \
-    Character/Equipment/Equipment.h \
-    Character/Equipment/Item/Item.h \
-    Character/Equipment/Item/MeleeWeapon/MeleeWeapon.h \
-    Character/Equipment/Item/MeleeWeapon/Specialization/Mainhand.h \
-    Character/Equipment/Item/MeleeWeapon/Specialization/Offhand.h \
-    Character/Equipment/Item/MeleeWeapon/Specialization/TwoHander.h \
+    Equipment/Equipment.h \
+    Equipment/Item/Item.h \
+    Equipment/Item/MeleeWeapon/MeleeWeapon.h \
+    Equipment/Item/MeleeWeapon/Specialization/Mainhand.h \
+    Equipment/Item/MeleeWeapon/Specialization/Offhand.h \
+    Equipment/Item/MeleeWeapon/Specialization/TwoHander.h \
     Target/Target.h \
     CombatRoll/AttackResult.h \
     CombatRoll/AttackTable.h \
@@ -216,7 +216,7 @@ HEADERS += \
     Character/Class/Warrior/Buffs/BattleShoutBuff.h \
     Character/Class/Warrior/Spells/BattleShout.h \
     Character/Class/Warrior/Spells/BerserkerRage.h \
-    Character/Equipment/Item/MeleeWeapon/Specialization/Onehand.h
+    Equipment/Item/MeleeWeapon/Specialization/Onehand.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -240,10 +240,10 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\Warlock \
     C:\C++\ClassicSim\Character\Class\Shaman \
     C:\C++\ClassicSim\Character\Class\Paladin \
-    C:\C++\ClassicSim\Character\Equipment \
-    C:\C++\ClassicSim\Character\Equipment\Item \
-    C:\C++\ClassicSim\Character\Equipment\Item\MeleeWeapon \
-    C:\C++\ClassicSim\Character\Equipment\Item\MeleeWeapon\Specialization \
+    C:\C++\ClassicSim\Equipment \
+    C:\C++\ClassicSim\Equipment\Item \
+    C:\C++\ClassicSim\Equipment\Item\MeleeWeapon \
+    C:\C++\ClassicSim\Equipment\Item\MeleeWeapon\Specialization \
     C:\C++\ClassicSim\CombatRoll \
     C:\C++\ClassicSim\CombatRoll\AttackTables \
     C:\C++\ClassicSim\Target \
