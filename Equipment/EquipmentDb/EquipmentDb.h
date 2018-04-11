@@ -22,16 +22,16 @@ private:
     void info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item);
     void dmg_range_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item);
     void class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item);
-    void stats_element_reader(QXmlStreamReader &reader, QMap<QString, QString> &item);
+    void stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>> &stats);
     void proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>> &procs);
 
     void add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item);
     void add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item);
 
-    void create_item(QMap<QString, QString> &item, QVector<QMap<QString, QString>> &procs);
+    void create_item(QMap<QString, QString> &item, QVector<QPair<QString, QString> > &stats, QVector<QMap<QString, QString>> &procs);
 
-    void create_melee_weapon(QMap<QString, QString> &item, QVector<QMap<QString, QString>> &procs);
-    void create_ranged_weapon(QMap<QString, QString> &item, QVector<QMap<QString, QString>> &procs);
+    void create_melee_weapon(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>> &procs);
+    void create_ranged_weapon(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>> &procs);
 
     void add_onehand_weapon(MeleeWeapon* weapon);
     void add_twohand_weapon(MeleeWeapon* weapon);

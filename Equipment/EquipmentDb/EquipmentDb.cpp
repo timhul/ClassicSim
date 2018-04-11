@@ -113,6 +113,7 @@ void EquipmentDb::weapon_file_handler(QXmlStreamReader &reader) {
                     continue;
                 }
                 QMap<QString, QString> item;
+                QVector<QPair<QString, QString>> stats;
                 QVector<QMap<QString, QString>> procs;
                 item["classification"] = classification;
                 item["name"] = name;
@@ -132,7 +133,7 @@ void EquipmentDb::weapon_file_handler(QXmlStreamReader &reader) {
                         reader.skipCurrentElement();
                     }
                     else if (reader.name() == "stats") {
-                        stats_element_reader(reader, item);
+                        stats_element_reader(reader, stats);
                     }
                     else if (reader.name() == "source") {
                         item["source"] = reader.readElementText().trimmed();
@@ -147,7 +148,7 @@ void EquipmentDb::weapon_file_handler(QXmlStreamReader &reader) {
                 if (!procs.empty()) {
                     qDebug() << procs;
                 }
-                create_item(item, procs);
+                create_item(item, stats, procs);
                 item.remove("classification");
                 warn_remaining_keys(item);
             }
@@ -181,11 +182,11 @@ void EquipmentDb::class_restriction_element_reader(const QXmlStreamAttributes &a
     item["RESTRICTED_TO_" + attrs.value("class").toString()] = "true";
 }
 
-void EquipmentDb::stats_element_reader(QXmlStreamReader &reader, QMap<QString, QString> &item) {
+void EquipmentDb::stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>> &stats) {
     while (reader.readNextStartElement()) {
         QXmlStreamAttributes attrs = reader.attributes();
         if (reader.name() == "stat") {
-            item[attrs.value("type").toString()] = attrs.value("value").toString();
+            stats.append(QPair<QString, QString>(attrs.value("type").toString(), attrs.value("value").toString()));
         }
         reader.skipCurrentElement();
     }
@@ -228,7 +229,7 @@ void EquipmentDb::add_attr(const QXmlStreamAttributes &attrs, const QString& att
     item[attr] = attrs.value(attr).toString();
 }
 
-void EquipmentDb::create_item(QMap<QString, QString> &item, QVector<QMap<QString, QString>> &procs) {
+void EquipmentDb::create_item(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>> &procs) {
     QVector<QString> mandatory_attrs = {"name", "classification", "patch", "type", "slot",
                                         "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
@@ -244,13 +245,13 @@ void EquipmentDb::create_item(QMap<QString, QString> &item, QVector<QMap<QString
         return;
 
     if (item["classification"] == "melee_weapon")
-        create_melee_weapon(item, procs);
+        create_melee_weapon(item, stats, procs);
     else if (item["classification"] == "ranged_weapon")
-        create_ranged_weapon(item, procs);
+        create_ranged_weapon(item, stats, procs);
 
 }
 
-void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QMap<QString, QString>> &procs) {
+void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>> &procs) {
     bool missing_attrs = false;
     QVector<QString> mandatory_attrs_for_wpn = {"min", "max", "speed"};
 
@@ -264,11 +265,8 @@ void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QMap
     if (missing_attrs)
         return;
 
-    QMap<QString, QString> stats;
-    extract_stats(item, stats);
-
     QMap<QString, QString> info;
-    extract_info(item, stats);
+    extract_info(item, info);
 
     MeleeWeapon* weapon;
 
@@ -297,24 +295,16 @@ void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QMap
     }
 }
 
-void EquipmentDb::create_ranged_weapon(QMap<QString, QString> &, QVector<QMap<QString, QString>> &) {
+void EquipmentDb::create_ranged_weapon(QMap<QString, QString> &, QVector<QPair<QString, QString>> &, QVector<QMap<QString, QString>> &) {
 
 }
 
 void EquipmentDb::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
-    QVector<QString> keys = {"boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source"};
+    QVector<QString> keys = {"boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source",
+                            "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
+                            "RESTRICTED_TO_ROGUE"};
 
     extract(keys, item, info);
-}
-
-void EquipmentDb::extract_stats(QMap<QString, QString> &item, QMap<QString, QString> &stats) {
-    QVector<QString> keys = {"STRENGTH", "AGILITY", "STAMINA", "INTELLECT", "SPIRIT",
-                             "CRIT_CHANCE", "HIT_CHANCE", "PARRY_CHANCE", "DODGE_CHANCE",
-                             "AXE_SKILL", "SWORD_SKILL", "MACE_SKILL", "DAGGER_SKILL",
-                             "FIST_SKILL", "ATTACK_POWER",
-                             "ARMOR", "DEFENSE", "FIRE_RES", "NATURE_RES"};
-
-    extract(keys, item, stats);
 }
 
 void EquipmentDb::extract(QVector<QString> handled_keys, QMap<QString, QString> &source, QMap<QString, QString> &target) {

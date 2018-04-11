@@ -48,20 +48,26 @@ namespace WeaponSlots {
     static const int RANGED = 4;
 }
 
+class Stats;
 
 class Item {
 public:
-    virtual ~Item() {}
-    Item(QString _name, QMap<QString, QString> _stats, QMap<QString, QString> _info):
-        name(_name), stats(_stats), info(_info) {}
+    Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info);
+    virtual ~Item();
+
     virtual int get_item_type(void) const = 0;
 
-    QString get_name(void) const { return name; }
+    QString get_name(void) const;
+
+    void set_stat(const QString& key, const QString& value);
+    void set_stats(QVector<QPair<QString, QString>> stats);
 
 protected:
     QString name;
-    QMap<QString, QString> stats;
+    Stats* stats;
     QMap<QString, QString> info;
+
+    void unsupported_stat(const QString& stat);
 
 private:
 };

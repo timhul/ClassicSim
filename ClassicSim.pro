@@ -111,7 +111,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/BattleShout.cpp \
     Character/Class/Warrior/Spells/BerserkerRage.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp \
-    Equipment/EquipmentDb/EquipmentDb.cpp
+    Equipment/EquipmentDb/EquipmentDb.cpp \
+    Equipment/Item/Item.cpp
 
 HEADERS += \
     Queue/Queue.h \

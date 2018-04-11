@@ -20,7 +20,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->equipment = equipment;
     this->roll = roll;
     this->talents = new Talents();
-    this->stats = new Stats(this);
+    this->stats = new Stats();
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();

@@ -5,7 +5,7 @@
 
 class TwoHander: public MeleeWeapon {
 public:
-    TwoHander(QString name, int type, int min, int max, float speed, QMap<QString, QString> stats, QMap<QString, QString> info):
+    TwoHander(QString name, int type, int min, int max, float speed, QVector<QPair<QString, QString>> stats = {}, QMap<QString, QString> info = {}):
         MeleeWeapon(name, type, min, max, speed, stats, info) {}
 
     int get_item_type() const override;

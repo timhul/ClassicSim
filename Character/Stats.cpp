@@ -4,9 +4,8 @@
 #include "Race.h"
 #include <QDebug>
 
-Stats::Stats(Character* pchar_, QObject* parent ) :
-    QObject(parent),
-    pchar(pchar_)
+Stats::Stats(QObject* parent ) :
+    QObject(parent)
 {
     this->percent_hit = 0.0;
     this->percent_crit = 0.0;

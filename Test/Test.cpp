@@ -71,9 +71,9 @@ void Test::test_all(void) {
 void Test::test_queue(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, QMap<QString, QString>(), QMap<QString, QString>());
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7);
     equipment->set_mainhand(mainhand);
-    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, QMap<QString, QString>(), QMap<QString, QString>());
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7);
     equipment->set_offhand(offhand);
     Race* race = new Orc();
     Target* target = new Target(63);
@@ -293,7 +293,7 @@ void Test::test_special_hit_table(void) {
 void Test::test_equipment_creation(void) {
     Equipment* equipment = new Equipment();
 
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, QMap<QString, QString>(), QMap<QString, QString>());
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7);
     assert(mainhand->get_name() == "Frostbite");
     assert(mainhand->get_weapon_type() == 0);
     assert(mainhand->get_min_dmg() == 80);

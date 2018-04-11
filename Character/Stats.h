@@ -11,7 +11,7 @@ class Stats: public QObject {
     Q_OBJECT
 
 public:
-    Stats(Character*, QObject* parent = 0);
+    Stats(QObject* parent = 0);
     ~Stats();
 
     int get_strength();
@@ -66,7 +66,6 @@ public:
     void set_int_multiplier(const float value);
 
 private:
-    Character* pchar;
     int STR;
     int AGI;
     int STAM;
