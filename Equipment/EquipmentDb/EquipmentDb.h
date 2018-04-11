@@ -15,6 +15,8 @@ public:
 
     ~EquipmentDb();
 
+    MeleeWeapon* get_melee_weapon(const QString &name);
+
     void set_patch(const QString &current_patch);
 
 protected:

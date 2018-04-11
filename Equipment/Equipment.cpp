@@ -1,8 +1,11 @@
 
 #include "Equipment.h"
+#include "EquipmentDb.h"
+#include <QSet>
 #include <assert.h>
 
 Equipment::Equipment() {
+    db = new EquipmentDb();
     mainhand = nullptr;
     offhand = nullptr;
     ranged = nullptr;
@@ -22,6 +25,10 @@ Equipment::Equipment() {
     trinket2 = nullptr;
     caster_offhand = nullptr;
     relic = nullptr;
+}
+
+Equipment::~Equipment() {
+    delete db;
 }
 
 bool Equipment::is_dual_wielding(void) {
@@ -104,22 +111,38 @@ Item* Equipment::get_relic(void) {
     return relic;
 }
 
-void Equipment::set_mainhand(MeleeWeapon* item) {
-    assert(item->get_weapon_slot() == WeaponSlots::MAINHAND ||
-           item->get_weapon_slot() == WeaponSlots::ONEHAND ||
-           item->get_weapon_slot() == WeaponSlots::TWOHAND);
-    if (this->mainhand != nullptr)
-        delete this->mainhand;
-    this->mainhand = item;
+void Equipment::set_mainhand(const QString &name) {
+    MeleeWeapon* weapon = db->get_melee_weapon(name);
+
+    if (weapon == nullptr)
+        return;
+
+    QSet<int> accepted_weapon_slots = {WeaponSlots::MAINHAND,
+                                       WeaponSlots::ONEHAND,
+                                       WeaponSlots::TWOHAND};
+
+    if (!accepted_weapon_slots.contains(weapon->get_weapon_slot()))
+        return;
+
+    this->mainhand = weapon;
+
+    if (weapon->get_weapon_slot() == WeaponSlots::TWOHAND)
+        this->offhand = nullptr;
 }
 
-void Equipment::set_offhand(MeleeWeapon* item) {
-    assert(item->get_weapon_slot() == WeaponSlots::ONEHAND ||
-           item->get_weapon_slot() == WeaponSlots::OFFHAND);
-    assert(get_caster_offhand() == nullptr);
-    if (this->offhand != nullptr)
-        delete this->offhand;
-    this->offhand = item;
+void Equipment::set_offhand(const QString &name) {
+    MeleeWeapon* weapon = db->get_melee_weapon(name);
+
+    if (weapon == nullptr)
+        return;
+
+    QSet<int> accepted_weapon_slots = {WeaponSlots::ONEHAND,
+                                       WeaponSlots::OFFHAND};
+
+    if (!accepted_weapon_slots.contains(weapon->get_weapon_slot()))
+        return;
+
+    this->offhand = weapon;
 }
 
 void Equipment::set_ranged(Item* item) {

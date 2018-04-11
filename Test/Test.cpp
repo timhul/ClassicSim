@@ -71,10 +71,8 @@ void Test::test_all(void) {
 void Test::test_queue(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7);
-    equipment->set_mainhand(mainhand);
-    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7);
-    equipment->set_offhand(offhand);
+    equipment->set_mainhand("Frostbite");
+    equipment->set_offhand("Frostbite");
     Race* race = new Orc();
     Target* target = new Target(63);
     CombatRoll* combat = new CombatRoll(target);
@@ -300,7 +298,7 @@ void Test::test_equipment_creation(void) {
     assert(mainhand->get_max_dmg() == 150);
     assert(mainhand->get_base_weapon_speed() - 2.7 < 0.01);
 
-    equipment->set_mainhand(mainhand);
+    equipment->set_mainhand("Frostbite");
     MeleeWeapon* mh = equipment->get_mainhand();
 
     assert(mh->get_name() == "Frostbite");

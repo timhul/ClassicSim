@@ -4,31 +4,12 @@
 #include "Item.h"
 #include "MeleeWeapon.h"
 
+class EquipmentDb;
+
 class Equipment {
 public:
     Equipment();
-
-    ~Equipment() {
-        delete mainhand;
-        delete offhand;
-        delete ranged;
-        delete head;
-        delete neck;
-        delete shoulders;
-        delete back;
-        delete chest;
-        delete wrist;
-        delete gloves;
-        delete belt;
-        delete legs;
-        delete boots;
-        delete ring1;
-        delete ring2;
-        delete trinket1;
-        delete trinket2;
-        delete caster_offhand;
-        delete relic;
-    }
+    ~Equipment();
 
     bool is_dual_wielding(void);
 
@@ -52,8 +33,8 @@ public:
     Item* get_caster_offhand(void);
     Item* get_relic(void);
 
-    void set_mainhand(MeleeWeapon*);
-    void set_offhand(MeleeWeapon*);
+    void set_mainhand(const QString &name);
+    void set_offhand(const QString &name);
     void set_ranged(Item*);
     void set_head(Item*);
     void set_neck(Item*);
@@ -75,6 +56,7 @@ public:
 
 protected:
 private:
+    EquipmentDb* db;
     MeleeWeapon* mainhand;
     MeleeWeapon* offhand;
     Item* ranged;
