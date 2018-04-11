@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QXmlStreamReader>
 #include <QVector>
+#include <QVersionNumber>
 
 class MeleeWeapon;
 
@@ -14,8 +15,14 @@ public:
 
     ~EquipmentDb();
 
+    void set_patch(const QString &current_patch);
+
 protected:
 private:
+    void read_equipment_files();
+
+    bool item_valid_for_current_patch(const QString &item_patch);
+
     void read_equipment_file(const QString &path);
     void weapon_file_handler(QXmlStreamReader &reader);
 
@@ -45,14 +52,10 @@ private:
 
     int get_weapon_type(const QString &type);
 
-    QVector<MeleeWeapon*> onehand_axes;
-    QVector<MeleeWeapon*> onehand_swords;
-    QVector<MeleeWeapon*> onehand_maces;
-    QVector<MeleeWeapon*> onehand_fists;
-    QVector<MeleeWeapon*> onehand_daggers;
-    QVector<MeleeWeapon*> onehand_weapons;
+    QVersionNumber current_patch;
+    QVector<MeleeWeapon*> melee_weapons;
 
-    QVector<MeleeWeapon*> twohand_weapons;
+    QVector<MeleeWeapon*> current_patch_melee_weapons;
 
 };
 

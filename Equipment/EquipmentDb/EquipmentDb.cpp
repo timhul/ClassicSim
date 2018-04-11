@@ -8,9 +8,51 @@
 #include "Offhand.h"
 #include "TwoHander.h"
 
+
 EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)
 {
+    read_equipment_files();
+}
+
+EquipmentDb::~EquipmentDb() {
+    for (int i = 0; i < melee_weapons.size(); ++i) {
+        delete melee_weapons[i];
+    }
+}
+
+void EquipmentDb::set_patch(const QString &patch) {
+    this->current_patch = QVersionNumber::fromString(patch);
+
+    current_patch_melee_weapons.clear();
+    QMap<QString, MeleeWeapon*> tmp_names;
+
+    for (int i = 0; i < melee_weapons.size(); ++i) {
+        if (item_valid_for_current_patch(melee_weapons[i]->get_patch())) {
+            if (tmp_names.contains(melee_weapons[i]->get_name())) {
+                QString curr_tmp_patch = tmp_names[melee_weapons[i]->get_name()]->get_patch();
+                QString contender_patch = melee_weapons[i]->get_patch();
+
+                if (QVersionNumber::fromString(contender_patch) < QVersionNumber::fromString(curr_tmp_patch))
+                    continue;
+            }
+            tmp_names[melee_weapons[i]->get_name()] = melee_weapons[i];
+        }
+    }
+
+    for (auto it: tmp_names.keys())
+        current_patch_melee_weapons.append(tmp_names.value(it));
+
+    for (int i = 0; i < current_patch_melee_weapons.size(); ++i) {
+        qDebug() << current_patch_melee_weapons[i]->get_name() << current_patch_melee_weapons[i]->get_patch();
+    }
+}
+
+bool EquipmentDb::item_valid_for_current_patch(const QString &item_patch) {
+    return current_patch >= QVersionNumber::fromString(item_patch);
+}
+
+void EquipmentDb::read_equipment_files() {
     QFile file("paths.xml");
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
@@ -56,24 +98,6 @@ EquipmentDb::EquipmentDb(QObject* parent):
     }
 }
 
-EquipmentDb::~EquipmentDb() {
-    for (int i = 0; i < onehand_weapons.size(); ++i) {
-        delete onehand_weapons[i];
-    }
-
-    for (int i = 0; i < twohand_weapons.size(); ++i) {
-        delete twohand_weapons[i];
-    }
-
-    twohand_weapons.clear();
-    onehand_weapons.clear();
-    onehand_axes.clear();
-    onehand_daggers.clear();
-    onehand_fists.clear();
-    onehand_maces.clear();
-    onehand_swords.clear();
-}
-
 void EquipmentDb::read_equipment_file(const QString &path) {
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
@@ -117,7 +141,7 @@ void EquipmentDb::weapon_file_handler(QXmlStreamReader &reader) {
                 QVector<QMap<QString, QString>> procs;
                 item["classification"] = classification;
                 item["name"] = name;
-                item["patch"] = reader.attributes().value("patch").toString();
+                item["patch"] = reader.attributes().value("name").toString();
 
                 while (reader.readNextStartElement()) {
                     if (reader.name() == "info") {
@@ -145,16 +169,13 @@ void EquipmentDb::weapon_file_handler(QXmlStreamReader &reader) {
                         reader.skipCurrentElement();
                 }
 
-                if (!procs.empty()) {
-                    qDebug() << procs;
-                }
                 create_item(item, stats, procs);
                 item.remove("classification");
                 warn_remaining_keys(item);
             }
         }
         else {
-            qDebug() << "Skipping element" << reader.readElementText();
+            qDebug() << "Skipping element" << reader.name();
             reader.skipCurrentElement();
         }
     }
@@ -251,7 +272,7 @@ void EquipmentDb::create_item(QMap<QString, QString> &item, QVector<QPair<QStrin
 
 }
 
-void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>> &procs) {
+void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>>&) {
     bool missing_attrs = false;
     QVector<QString> mandatory_attrs_for_wpn = {"min", "max", "speed"};
 
@@ -283,10 +304,7 @@ void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QPai
         weapon = new TwoHander(item["name"], get_weapon_type(item["type"]),
                 item["min"].toInt(), item["max"].toInt(), item["speed"].toFloat(), stats, info);
 
-    if (item["slot"] == "1H" || item["slot"] == "MH" || item["slot"] == "OH")
-        add_onehand_weapon(weapon);
-    else if (item["slot"] == "2H")
-        add_twohand_weapon(weapon);
+    melee_weapons.append(weapon);
 
     QVector<QString> handled_keys = {"name", "slot", "type", "min", "max", "speed"};
 
@@ -300,7 +318,7 @@ void EquipmentDb::create_ranged_weapon(QMap<QString, QString> &, QVector<QPair<Q
 }
 
 void EquipmentDb::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
-    QVector<QString> keys = {"boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source",
+    QVector<QString> keys = {"patch", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source",
                             "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
                             "RESTRICTED_TO_ROGUE"};
 
@@ -320,32 +338,6 @@ void EquipmentDb::warn_remaining_keys(QMap<QString, QString> &item) {
     for (auto it : item.keys()) {
         qDebug() << "Warning: Unhandled key" << it;
     }
-}
-
-void EquipmentDb::add_onehand_weapon(MeleeWeapon* weapon) {
-    onehand_weapons.append(weapon);
-
-    switch (weapon->get_weapon_type()) {
-    case WeaponTypes::AXE:
-        onehand_axes.append(weapon);
-        break;
-    case WeaponTypes::DAGGER:
-        onehand_daggers.append(weapon);
-        break;
-    case WeaponTypes::FIST:
-        onehand_fists.append(weapon);
-        break;
-    case WeaponTypes::MACE:
-        onehand_maces.append(weapon);
-        break;
-    case WeaponTypes::SWORD:
-        onehand_swords.append(weapon);
-        break;
-    }
-}
-
-void EquipmentDb::add_twohand_weapon(MeleeWeapon* weapon) {
-    twohand_weapons.append(weapon);
 }
 
 int EquipmentDb::get_weapon_type(const QString &type) {

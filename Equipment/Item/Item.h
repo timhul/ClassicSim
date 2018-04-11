@@ -58,12 +58,14 @@ public:
     virtual int get_item_type(void) const = 0;
 
     QString get_name(void) const;
+    QString get_patch() const;
 
     void set_stat(const QString& key, const QString& value);
     void set_stats(QVector<QPair<QString, QString>> stats);
 
 protected:
     QString name;
+    QString patch;
     Stats* stats;
     QMap<QString, QString> info;
 
