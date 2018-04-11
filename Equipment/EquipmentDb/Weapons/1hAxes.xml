@@ -29,7 +29,7 @@
 	</melee_weapon>
 
 	<melee_weapon name="Dark Iron Destroyer">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
 			<dmg_range min="71" max="134" speed="2.4"/>
 			<stats>
@@ -105,7 +105,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Deathbringer">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no"/>
 			<dmg_range min="114" max="213" speed="2.9"/>
 			<proc>

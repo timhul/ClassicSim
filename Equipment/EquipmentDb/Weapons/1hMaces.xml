@@ -31,7 +31,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Ironfoe">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no"/>
 			<dmg_range min="73" max="136" speed="2.4"/>
 			<proc>

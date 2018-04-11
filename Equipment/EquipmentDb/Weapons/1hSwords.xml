@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
 	<melee_weapon name="Krol Blade">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="EPIC" boe="yes"/>
 			<dmg_range min="80" max="149" speed="2.8"/>
 			<stats>
@@ -30,7 +30,7 @@
 	</melee_weapon>
 
 	<melee_weapon name="Sword of Zeal">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes"/>
 			<dmg_range min="81" max="151" speed="2.8"/>
 			<proc>
@@ -44,7 +44,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Skullforge Reaver">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
 			<dmg_range min="72" max="135" speed="2.5"/>
 			<proc>
@@ -58,7 +58,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Dal'Rend's Tribal Guardian">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
 			<dmg_range min="52" max="97" speed="1.8"/>
 			<stats>
@@ -72,7 +72,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Dal'Rend's Sacred Charge">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
 			<dmg_range min="81" max="151" speed="2.8"/>
 			<stats>
@@ -86,7 +86,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Dragon's Call">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no"/>
 			<dmg_range min="72" max="135" speed="2.5"/>
 			<proc>
@@ -143,7 +143,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Dark Iron Reaver">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
 			<dmg_range min="71" max="134" speed="2.4"/>
 			<stats>
@@ -310,7 +310,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Thunderfury, Blessed Blade of the Windseeker">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no"/>
 			<class_restriction class="WARRIOR"/>
 			<class_restriction class="PALADIN"/>
@@ -335,7 +335,7 @@
 	</melee_weapon>
 	
 	<melee_weapon name="Vis'kag the Bloodletter">
-		<patch name="all">
+		<patch name="1.0.0">
 			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no"/>
 			<dmg_range min="100" max="187" speed="2.6"/>
 			<proc>
