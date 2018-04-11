@@ -51,6 +51,8 @@ Window {
 
         rectColor: darkDarkGray
 
+        onRectangleClicked: character.runQuickSim()
+
         Text {
             id: continuousDpsUpdateText
             anchors.fill: parent
@@ -104,13 +106,12 @@ Window {
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
 
-        onTalentsClicked: console.log("main: talents clicked")
-        onEquipmentClicked: console.log("main: equipment clicked")
-        onBuffsClicked: console.log("main: buffs clicked")
-        onSettingsClicked: {
-            character.runQuickSim()
-            console.log("main: settings clicked")
-        }
+        state: "EQUIPMENT"//"TALENTS"
+
+        onTalentsClicked: state = "TALENTS"
+        onEquipmentClicked: state = "EQUIPMENT"
+        onBuffsClicked: state = "BUFFS"
+        onSettingsClicked: state = "SETTINGS"
     }
 
     Rectangle {
@@ -128,10 +129,17 @@ Window {
         color: darkDarkGray
 
         TalentCalculator {
+            visible: parent.state === "TALENTS"
             width: parent.width * 0.90
             x: parent.width / 2 - width / 2
             y: 20
         }
+
+        Equipment {
+            visible: parent.state === "EQUIPMENT"
+        }
+
+
     }
 
     QuickSwitchBar {

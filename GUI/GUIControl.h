@@ -11,6 +11,7 @@
 #include "Talents.h"
 #include "Character.h"
 #include "Race.h"
+#include "ItemModel.h"
 
 class GUIControl: public QObject {
     Q_OBJECT
@@ -75,7 +76,15 @@ public:
 
     /* End of Stats */
 
+    /* ItemModel */
+    ItemModel* get_item_model() const;
+
+    /* End of ItemModel */
+
+
     Q_INVOKABLE void runQuickSim();
+
+
 
 Q_SIGNALS:
     void talentsUpdated();
@@ -112,6 +121,7 @@ private:
     QMap<QString, Race*> races;
     Character* current_char;
     float last_quick_sim_result;
+    ItemModel* item_model;
 };
 
 #endif // GUICONTROL_H

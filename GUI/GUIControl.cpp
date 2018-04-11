@@ -25,9 +25,6 @@
 #include "EncounterStart.h"
 #include "EncounterEnd.h"
 
-#include "Mainhand.h"
-#include "Offhand.h"
-
 #include <QDebug>
 
 GUIControl::GUIControl(QObject* parent) :
@@ -61,6 +58,9 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("WARRIOR", dynamic_cast<Character*>(new Warrior(races["ORC"], engine, equipment, combat)));
 
     current_char = chars["WARRIOR"];
+
+    item_model = new ItemModel();
+    item_model->addItem(equipment->get_mainhand());
 }
 
 GUIControl::~GUIControl() {
@@ -80,6 +80,7 @@ GUIControl::~GUIControl() {
     delete equipment;
     delete target;
     delete combat;
+    delete item_model;
 }
 
 QString GUIControl::getLeftBackgroundImage() const {
@@ -255,6 +256,10 @@ QString GUIControl::get_crit_chance() const {
 
 QString GUIControl::get_hit_chance() const {
     return QString::number(current_char->get_hit_chance() * 100, 'f', 2);
+}
+
+ItemModel* GUIControl::get_item_model() const {
+    return this->item_model;
 }
 
 void GUIControl::run_quick_sim() {

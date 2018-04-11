@@ -52,10 +52,6 @@ void EquipmentDb::set_patch(const QString &patch) {
 
     for (auto it: tmp_names.keys())
         current_patch_melee_weapons.append(tmp_names.value(it));
-
-    for (int i = 0; i < current_patch_melee_weapons.size(); ++i) {
-        qDebug() << current_patch_melee_weapons[i]->get_name() << current_patch_melee_weapons[i]->get_patch();
-    }
 }
 
 bool EquipmentDb::item_valid_for_current_patch(const QString &item_patch) {
@@ -137,8 +133,6 @@ void EquipmentDb::weapon_file_handler(QXmlStreamReader &reader) {
                 continue;
             }
             QString name = reader.attributes().value("name").toString();
-
-            qDebug() << "Processing" << classification << name;
 
             while (reader.readNextStartElement()) {
                 if (reader.name() != "patch") {

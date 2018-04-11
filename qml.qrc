@@ -69,5 +69,6 @@
         <file>QML/Assets/cross.png</file>
         <file>QML/ClickableImage.qml</file>
         <file>QML/QuickSwitchBar.qml</file>
+        <file>QML/Equipment.qml</file>
     </qresource>
 </RCC>
