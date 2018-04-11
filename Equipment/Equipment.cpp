@@ -266,3 +266,100 @@ void Equipment::set_relic(Item* item) {
         delete this->relic;
     this->relic = item;
 }
+
+void Equipment::patch_changed() {
+    if (get_mainhand()) {
+        if (db->item_valid_for_current_patch(get_mainhand()->get_patch()))
+            this->mainhand = nullptr;
+    }
+
+    if (get_offhand()) {
+        if (db->item_valid_for_current_patch(get_offhand()->get_patch()))
+            this->offhand = nullptr;
+    }
+
+    if (get_ranged()) {
+        if (db->item_valid_for_current_patch(get_ranged()->get_patch()))
+            this->ranged = nullptr;
+    }
+
+    if (get_head()) {
+        if (db->item_valid_for_current_patch(get_head()->get_patch()))
+            this->head = nullptr;
+    }
+
+    if (get_neck()) {
+        if (db->item_valid_for_current_patch(get_neck()->get_patch()))
+            this->neck = nullptr;
+    }
+
+    if (get_shoulders()) {
+        if (db->item_valid_for_current_patch(get_shoulders()->get_patch()))
+            this->shoulders = nullptr;
+    }
+
+    if (get_back()) {
+        if (db->item_valid_for_current_patch(get_back()->get_patch()))
+            this->back = nullptr;
+    }
+
+    if (get_chest()) {
+        if (db->item_valid_for_current_patch(get_chest()->get_patch()))
+            this->chest = nullptr;
+    }
+
+    if (get_wrist()) {
+        if (db->item_valid_for_current_patch(get_wrist()->get_patch()))
+            this->wrist = nullptr;
+    }
+
+    if (get_gloves()) {
+        if (db->item_valid_for_current_patch(get_gloves()->get_patch()))
+            this->gloves = nullptr;
+    }
+
+    if (get_belt()) {
+        if (db->item_valid_for_current_patch(get_belt()->get_patch()))
+            this->belt = nullptr;
+    }
+
+    if (get_legs()) {
+        if (db->item_valid_for_current_patch(get_legs()->get_patch()))
+            this->legs = nullptr;
+    }
+
+    if (get_boots()) {
+        if (db->item_valid_for_current_patch(get_boots()->get_patch()))
+            this->boots = nullptr;
+    }
+
+    if (get_ring1()) {
+        if (db->item_valid_for_current_patch(get_ring1()->get_patch()))
+            this->ring1 = nullptr;
+    }
+
+    if (get_ring2()) {
+        if (db->item_valid_for_current_patch(get_ring2()->get_patch()))
+            this->ring2 = nullptr;
+    }
+
+    if (get_trinket1()) {
+        if (db->item_valid_for_current_patch(get_trinket1()->get_patch()))
+            this->trinket1 = nullptr;
+    }
+
+    if (get_trinket2()) {
+        if (db->item_valid_for_current_patch(get_trinket2()->get_patch()))
+            this->trinket2 = nullptr;
+    }
+
+    if (get_caster_offhand()) {
+        if (db->item_valid_for_current_patch(get_caster_offhand()->get_patch()))
+            this->caster_offhand = nullptr;
+    }
+
+    if (get_relic()) {
+        if (db->item_valid_for_current_patch(get_relic()->get_patch()))
+            this->relic = nullptr;
+    }
+}

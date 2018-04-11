@@ -53,6 +53,7 @@ public:
     void set_caster_offhand(Item*);
     void set_relic(Item*);
 
+    void patch_changed();
 
 protected:
 private:

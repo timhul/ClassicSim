@@ -18,12 +18,12 @@ public:
     MeleeWeapon* get_melee_weapon(const QString &name);
 
     void set_patch(const QString &current_patch);
+    bool item_valid_for_current_patch(const QString &item_patch);
 
 protected:
 private:
     void read_equipment_files();
 
-    bool item_valid_for_current_patch(const QString &item_patch);
 
     void read_equipment_file(const QString &path);
     void weapon_file_handler(QXmlStreamReader &reader);
