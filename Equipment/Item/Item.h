@@ -2,6 +2,7 @@
 #define ITEM_H
 
 #include <QString>
+#include <QMap>
 #include <assert.h>
 
 namespace ItemSlots {
@@ -51,13 +52,16 @@ namespace WeaponSlots {
 class Item {
 public:
     virtual ~Item() {}
-    Item(QString _name): name(_name) {}
+    Item(QString _name, QMap<QString, QString> _stats, QMap<QString, QString> _info):
+        name(_name), stats(_stats), info(_info) {}
     virtual int get_item_type(void) const = 0;
 
     QString get_name(void) const { return name; }
 
 protected:
     QString name;
+    QMap<QString, QString> stats;
+    QMap<QString, QString> info;
 
 private:
 };

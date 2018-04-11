@@ -45,9 +45,9 @@ GUIControl::GUIControl(QObject* parent) :
 
     engine = new Engine();
     equipment = new Equipment();
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, QMap<QString, QString>(), QMap<QString, QString>());
     equipment->set_mainhand(mainhand);
-    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, QMap<QString, QString>(), QMap<QString, QString>());
     equipment->set_offhand(offhand);
     target = new Target(63);
     combat = new CombatRoll(target);

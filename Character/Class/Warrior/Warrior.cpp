@@ -46,9 +46,9 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->roll->set_character(this);
 
     // TODO: Remove hardcoded equipped weapons
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7, QMap<QString, QString>(), QMap<QString, QString>());
     equipment->set_mainhand(mainhand);
-    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, 0.0);
+    Offhand* offhand = new Offhand("Frostbite", 0, 80, 150, 2.7, QMap<QString, QString>(), QMap<QString, QString>());
     equipment->set_offhand(offhand);
 
     // TODO: For now mainhand/offhand attack must be initialized after equipment is set.

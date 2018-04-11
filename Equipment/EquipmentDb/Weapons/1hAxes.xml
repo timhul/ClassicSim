@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<weapon name="Frostbite">
+	<melee_weapon name="Frostbite">
 		<patch name="1.5.0">
 			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no"/>
 			<dmg_range min="80" max="150" speed="2.7"/>
@@ -11,9 +11,9 @@
 			Purchased for 2400 honor points. Horde only.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Zulian Hacker">
+	<melee_weapon name="Zulian Hacker">
 		<patch name="1.7.0">
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
 			<dmg_range min="71" max="134" speed="2.4"/>
@@ -26,9 +26,9 @@
 			Random drop from trash in Zul'Gurub.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 
-	<weapon name="Dark Iron Destroyer">
+	<melee_weapon name="Dark Iron Destroyer">
 		<patch name="all">
 			<info type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
 			<dmg_range min="71" max="134" speed="2.4"/>
@@ -40,9 +40,9 @@
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Ancient Hakkari Manslayer">
+	<melee_weapon name="Ancient Hakkari Manslayer">
 		<patch name="1.7.0">
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no"/>
 			<dmg_range min="69" max="130" speed="2.0"/>
@@ -53,9 +53,9 @@
 			Drops from Hakkar the Soulflayer in Zul'Gurub.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Sickle of Unyielding Strength">
+	<melee_weapon name="Sickle of Unyielding Strength">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
 			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
@@ -71,9 +71,9 @@
 			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss and trash drops from Ruins of Ahn'Qiraj, and Exalted with Cenarion Circle.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Scythe of the Unseen Path">
+	<melee_weapon name="Scythe of the Unseen Path">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
 			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
@@ -87,9 +87,9 @@
 			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss and trash drops from Ruins of Ahn'Qiraj (AQ20), and Exalted with Cenarion Circle.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Doom's Edge">
+	<melee_weapon name="Doom's Edge">
 		<patch name="1.6.0">
 			<info type="AXE"  slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
 			<dmg_range min="83" max="154" speed="2.3"/>
@@ -102,9 +102,9 @@
 			Drops from trash in Blackwing Lair.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Deathbringer">
+	<melee_weapon name="Deathbringer">
 		<patch name="all">
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no"/>
 			<dmg_range min="114" max="213" speed="2.9"/>
@@ -116,9 +116,9 @@
 			Drops from Onyxia in Onyxia's Lair.
 			</source>
 		</patch>
-	</weapon>	
+	</melee_weapon>	
 	
-	<weapon name="High Warlord's Cleaver">
+	<melee_weapon name="High Warlord's Cleaver">
 		<patch name="1.5.0">
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
@@ -131,9 +131,9 @@
 			May be purchased upon reaching High Warlord (rank 14). Horde only.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Grand Marshal's Handaxe">
+	<melee_weapon name="Grand Marshal's Handaxe">
 		<patch name="1.5.0">
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
@@ -146,9 +146,9 @@
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Blessed Qiraji War Axe">
+	<melee_weapon name="Blessed Qiraji War Axe">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
 			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no"/>
@@ -157,7 +157,7 @@
 				<stat type="ATTACK_POWER" value="14"/>
 				<stat type="CRIT_CHANCE" value="0.01"/>
 				<stat type="STAMINA" value="9"/>
-				<stat type="INT" value="10"/>
+				<stat type="INTELLECT" value="10"/>
 			</stats>
 			<source>
 			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
@@ -166,9 +166,9 @@
 			The weapon is infused and reinforced with Elementium.
 			</flavour_text>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Crul'shorukh, Edge of Chaos">
+	<melee_weapon name="Crul'shorukh, Edge of Chaos">
 		<patch name="1.6.0">
 			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no"/>
 			<dmg_range min="101" max="188" speed="2.3"/>
@@ -180,9 +180,9 @@
 			Drops from Nefarian in Blackwing Lair.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 	
-	<weapon name="Hatchet of Sundered Bone">
+	<melee_weapon name="Hatchet of Sundered Bone">
 		<patch name="1.11.0">
 			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no"/>
 			<dmg_range min="119" max="221" speed="2.6"/>
@@ -194,5 +194,5 @@
 			Drops from Noth the Plaguebringer in Naxxramas.
 			</source>
 		</patch>
-	</weapon>
+	</melee_weapon>
 </weapons>

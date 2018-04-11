@@ -6,14 +6,13 @@
 
 class MeleeWeapon: public Item {
 public:
-    MeleeWeapon(QString name, int type, int min, int max, float speed, float proc_rate):
-        Item(name) {
+    MeleeWeapon(QString name, int type, int min, int max, float speed, QMap<QString, QString> stats, QMap<QString, QString> info):
+        Item(name, stats, info) {
         this->random = new Random(min, max);
         this->weapon_type = type;
         this->min_dmg = min;
         this->max_dmg = max;
         this->weapon_speed = speed;
-        this->proc_rate = proc_rate;
     }
 
     virtual ~MeleeWeapon() {
@@ -26,8 +25,6 @@ public:
     int get_max_dmg() const;
     int get_random_dmg() const;
     float get_base_weapon_speed() const;
-    float get_weapon_proc_rate() const;
-    // Also need a pointer to some proc event (e.g. Ironfoe triggers an extra attack event).
 
 protected:
     Random* random;
@@ -35,7 +32,6 @@ protected:
     int min_dmg;
     int max_dmg;
     float weapon_speed;
-    float proc_rate;
 private:
 };
 

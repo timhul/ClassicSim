@@ -5,8 +5,8 @@
 
 class Mainhand: public MeleeWeapon {
 public:
-    Mainhand(QString name, int type, int min, int max, float speed, float proc_rate):
-        MeleeWeapon(name, type, min, max, speed, proc_rate) {}
+    Mainhand(QString name, int type, int min, int max, float speed, QMap<QString, QString> stats, QMap<QString, QString> info):
+        MeleeWeapon(name, type, min, max, speed, stats, info) {}
 
     int get_item_type() const override;
     int get_weapon_slot() const override;
