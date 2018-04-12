@@ -7,6 +7,7 @@ Rectangle {
 
     property bool selected: false
     property string slotString
+    property string iconSource: ""
 
     state: "MAINHAND"
 
@@ -17,6 +18,14 @@ Rectangle {
     color: "transparent"
     border.color: state === slotString ? root.gold : "transparent"
     border.width: 1
+
+    Image {
+        source: iconSource
+        height: parent.height - 2
+        width: parent.width - 2
+        x: 1
+        y: 1
+    }
 
     MouseArea {
         anchors.fill: parent

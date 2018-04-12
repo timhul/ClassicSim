@@ -4,6 +4,8 @@ RectangleBorders {
     width: 850
     height: 45
 
+    signal entryClicked();
+
     property string entryName
     property string entryQuality
     property string entrySpeed
@@ -36,7 +38,10 @@ RectangleBorders {
 
     rectColorHighlighted: "#232323"
 
-    onRectangleClicked: console.log("Clicked", entryName)
+    onRectangleClicked: {
+        console.log("Clicked", entryName)
+        entryClicked();
+    }
 
     Row {
 

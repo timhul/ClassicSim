@@ -300,3 +300,13 @@ void GUIControl::run_quick_sim() {
 void GUIControl::runQuickSim() {
     run_quick_sim();
 }
+
+QString GUIControl::get_mainhand_icon() const {
+    return "Assets/items/" + equipment->get_mainhand()->get_value("icon");
+}
+
+void GUIControl::setSlot(QString slot_string, QString item) {
+    if (slot_string == "MAINHAND")
+        equipment->set_mainhand(item);
+    equipmentChanged();
+}

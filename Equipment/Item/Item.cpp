@@ -24,7 +24,7 @@ void Item::set_stats(QVector<QPair<QString, QString>> stats) {
 }
 
 QString Item::get_value(const QString& key) const {
-    return info[key];
+    return info.contains(key) ? info[key] : "";
 }
 
 void Item::set_stat(const QString& key, const QString &value) {

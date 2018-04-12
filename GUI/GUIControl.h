@@ -77,6 +77,13 @@ public:
 
     /* End of Stats */
 
+    /* Equipment */
+    Q_PROPERTY(QString mainhandIcon READ get_mainhand_icon NOTIFY equipmentChanged)
+
+    Q_INVOKABLE void setSlot(QString slot_string, QString item);
+
+    /* End of Equipment */
+
     /* ItemModel */
     ItemModel* get_item_model() const;
     WeaponModel* get_weapon_model() const;
@@ -92,6 +99,7 @@ Q_SIGNALS:
     void talentsUpdated();
     void classChanged();
     void statsChanged();
+    void equipmentChanged();
     void quickSimChanged(QString value, QString change, bool positive);
 
 private:
@@ -113,6 +121,10 @@ private:
     QString get_hit_chance() const;
 
     void run_quick_sim();
+
+    QString get_mainhand_icon() const;
+
+
 
     Engine* engine;
     Equipment* equipment;

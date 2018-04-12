@@ -103,6 +103,7 @@ Rectangle {
 
                     state: eqRect.state
                     slotString: "MAINHAND"
+                    iconSource: equipment.mainhandIcon
 
                     onSelectItem: eqRect.state = "MAINHAND"
                     onClearItem: console.log("Clearing mainhand")
@@ -247,6 +248,8 @@ Rectangle {
                     entryItemlvl: item_lvl
                     entryQuality: quality
                     entryIcon: icon
+
+                    onEntryClicked: equipment.setSlot(eqRect.state, entryName)
                 }
             }
         }
