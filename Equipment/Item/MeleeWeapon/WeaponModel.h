@@ -16,7 +16,11 @@ public:
         SpeedRole,
         DpsRole,
         PatchRole,
-        SourceRole
+        SourceRole,
+        TypeRole,
+        ReqLvlRole,
+        ItemLvlRole,
+        QualityRole
     };
 
     WeaponModel(QObject *parent = 0);

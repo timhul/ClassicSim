@@ -2,6 +2,7 @@
 #include "WeaponModel.h"
 #include "MeleeWeapon.h"
 #include "EquipmentDb.h"
+#include <QDebug>
 
 WeaponModel::WeaponModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -56,9 +57,17 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
     if (role == DpsRole)
         return QString::number(weapon->get_wpn_dps(), 'f', 1 );
     if (role == PatchRole)
-        return weapon->get_patch();
+        return weapon->get_value("patch");
     if (role == SourceRole)
-        return weapon->get_source();
+        return weapon->get_value("source");
+    if (role == TypeRole)
+        return weapon->get_value("type");
+    if (role == ReqLvlRole)
+        return weapon->get_value("req_lvl");
+    if (role == ItemLvlRole)
+        return weapon->get_value("item_lvl");
+    if (role == QualityRole)
+        return weapon->get_value("quality");
 
     return QVariant();
 }
@@ -70,5 +79,9 @@ QHash<int, QByteArray> WeaponModel::roleNames() const {
     roles[DpsRole] = "dps";
     roles[PatchRole] = "patch";
     roles[SourceRole] = "source";
+    roles[TypeRole] = "type";
+    roles[ReqLvlRole] = "req_lvl";
+    roles[ItemLvlRole] = "item_lvl";
+    roles[QualityRole] = "quality";
     return roles;
 }

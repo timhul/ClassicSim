@@ -1,8 +1,11 @@
 import QtQuick 2.0
 
-Row {
+RectangleBorders {
+    width: parent.width
+    height: 45
+
     property string entryName
-    property color entryQuality
+    property string entryQuality
     property string entrySpeed
     property string entryDps
     property string entryPatch
@@ -11,65 +14,142 @@ Row {
     property string entryReq
     property string entryItemlvl
 
-    width: parent.width - x
-    height: 30
-    x: 20
+    function qualityColor(quality) {
+        switch (quality) {
+        case "POOR":
+            return root.qualityPoor
+        case "COMMON":
+            return root.qualityCommon
+        case "UNCOMMON":
+            return root.qualityUncommon
+        case "RARE":
+            return root.qualityRare
+        case "EPIC":
+            return root.qualityEpic
+        case "LEGENDARY":
+            return root.qualityLegendary
+        default:
+            return "red"
+        }
+    }
 
-    Text {
-        id: textName
-        text: entryName
+    onRectangleClicked: console.log("Clicked", entryName)
 
-        width: 400
+    Row {
+
+        width: parent.width - x
         height: parent.height
+        x: 20
 
-        color: root.qualityEpic
+        Text {
+            id: textName
+            text: entryName
 
-        font {
-            family: root.fontText
-            pointSize: 10
+            width: 300
+            height: parent.height
+
+            color: qualityColor(entryQuality)
+
+            font {
+                family: root.fontText
+                pointSize: 10
+            }
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+
         }
 
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignLeft
+        Text {
+            id: textDps
+            text: entryDps
 
-    }
+            width: 50
+            height: parent.height
 
-    Text {
-        id: textDps
-        text: entryDps
+            font {
+                family: root.fontText
+                pointSize: 10
+            }
 
-        width: 50
-        height: parent.height
+            color: "white"
 
-        color: "white"
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+        }
 
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignLeft
-    }
+        Text {
+            id: textSpeed
+            text: entrySpeed
 
-    Text {
-        id: textSpeed
-        text: entrySpeed
+            width: 50
+            height: parent.height
 
-        width: 50
-        height: parent.height
+            font {
+                family: root.fontText
+                pointSize: 10
+            }
 
-        color: "white"
+            color: "white"
 
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignLeft
-    }
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+        }
 
-    Text {
-        id: textPatch
-        text: entryPatch
+        Text {
+            id: textPatch
+            text: entryPatch
 
-        width: 50
-        height: parent.height
+            width: 50
+            height: parent.height
 
-        color: "white"
+            font {
+                family: root.fontText
+                pointSize: 10
+            }
 
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignLeft
+            color: "white"
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+        }
+
+        Text {
+            id: textType
+            text: entryType
+
+            width: 60
+            height: parent.height
+
+            font {
+                family: root.fontText
+                pointSize: 10
+            }
+
+            color: "white"
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+        }
+
+        Text {
+            id: textSource
+            text: entrySource
+
+            width: 300
+            height: parent.height
+            wrapMode: Text.WordWrap
+
+            font {
+                family: root.fontText
+                pointSize: 8
+            }
+
+            color: "white"
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+        }
     }
 }
+

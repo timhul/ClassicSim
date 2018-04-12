@@ -13,7 +13,7 @@ EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)
 {
     read_equipment_files();
-    set_patch("1.0.0");
+    set_patch("1.12.1");
 }
 
 EquipmentDb::~EquipmentDb() {
@@ -47,10 +47,10 @@ void EquipmentDb::set_patch(const QString &patch) {
     QMap<QString, MeleeWeapon*> tmp_names;
 
     for (int i = 0; i < melee_weapons.size(); ++i) {
-        if (item_valid_for_current_patch(melee_weapons[i]->get_patch())) {
+        if (item_valid_for_current_patch(melee_weapons[i]->get_value("patch"))) {
             if (tmp_names.contains(melee_weapons[i]->get_name())) {
-                QString curr_tmp_patch = tmp_names[melee_weapons[i]->get_name()]->get_patch();
-                QString contender_patch = melee_weapons[i]->get_patch();
+                QString curr_tmp_patch = tmp_names[melee_weapons[i]->get_name()]->get_value("patch");
+                QString contender_patch = melee_weapons[i]->get_value("patch");
 
                 if (QVersionNumber::fromString(contender_patch) < QVersionNumber::fromString(curr_tmp_patch))
                     continue;
@@ -305,16 +305,16 @@ void EquipmentDb::create_melee_weapon(QMap<QString, QString> &item, QVector<QPai
     MeleeWeapon* weapon;
 
     if (item["slot"] == "1H")
-        weapon = new Onehand(item["name"], get_weapon_type(item["type"]),
+        weapon = new Onehand(item["name"], get_weapon_type(info["type"]),
                 item["min"].toInt(), item["max"].toInt(), item["speed"].toFloat(), stats, info);
     else if (item["slot"] == "MH")
-        weapon = new Mainhand(item["name"], get_weapon_type(item["type"]),
+        weapon = new Mainhand(item["name"], get_weapon_type(info["type"]),
                 item["min"].toInt(), item["max"].toInt(), item["speed"].toFloat(), stats, info);
     else if (item["slot"] == "OH")
-        weapon = new Offhand(item["name"], get_weapon_type(item["type"]),
+        weapon = new Offhand(item["name"], get_weapon_type(info["type"]),
                 item["min"].toInt(), item["max"].toInt(), item["speed"].toFloat(), stats, info);
     else if (item["slot"] == "2H")
-        weapon = new TwoHander(item["name"], get_weapon_type(item["type"]),
+        weapon = new TwoHander(item["name"], get_weapon_type(info["type"]),
                 item["min"].toInt(), item["max"].toInt(), item["speed"].toFloat(), stats, info);
 
     melee_weapons.append(weapon);
@@ -331,7 +331,7 @@ void EquipmentDb::create_ranged_weapon(QMap<QString, QString> &, QVector<QPair<Q
 }
 
 void EquipmentDb::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
-    QVector<QString> keys = {"patch", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source",
+    QVector<QString> keys = {"patch", "type", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source",
                             "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
                             "RESTRICTED_TO_ROGUE"};
 

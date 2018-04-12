@@ -57,6 +57,7 @@ private:
     void warn_remaining_keys(QMap<QString, QString> &item);
 
     int get_weapon_type(const QString &type);
+    QString get_type_string(const QString &slot, const QString &type);
 
     QVersionNumber current_patch;
     QVector<MeleeWeapon*> melee_weapons;
