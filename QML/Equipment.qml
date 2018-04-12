@@ -2,10 +2,13 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 
 Rectangle {
+    id: eqRect
     height: parent.height
     width: parent.width
 
     color: root.darkDarkGray
+
+    state: "MAINHAND"
 
     RectangleBorders {
         width: parent.width - 850
@@ -21,6 +24,8 @@ Rectangle {
             height: 448
             width: 426
 
+
+
             Column {
                 width: 46
                 height: parent.height
@@ -30,139 +35,98 @@ Rectangle {
 
                 spacing: 5
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: helmSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    state: eqRect.state
+                    slotString: "HELM"
+
+                    onSelectItem: eqRect.state = "HELM"
+                    onClearItem: console.log("Clearing helm")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: neckSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: eqRect.state = "NECK"
+                    onClearItem: console.log("Clearing neck")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: shoulderSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: eqRect.state = "SHOULDERS"
+                    onClearItem: console.log("Clearing shoulders")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: backSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: eqRect.state = "BACK"
+                    onClearItem: console.log("Clearing back")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: chestSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: eqRect.state = "CHEST"
+                    onClearItem: console.log("Clearing chest")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: shirtSlot
-                    height: 46
-                    width: 46
-
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: tabardSlot
-                    height: 46
-                    width: 46
-
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: wristSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: eqRect.state = "WRIST"
+                    onClearItem: console.log("Clearing wrist")
                 }
             }
 
             Row {
                 height: 46
-                width: 46*3 + 10
+                width: 46*3 + 12
 
                 x: 138
                 y: 395
 
                 spacing: 6
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: mainhandSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    state: eqRect.state
+                    slotString: "MAINHAND"
+
+                    onSelectItem: eqRect.state = "MAINHAND"
+                    onClearItem: console.log("Clearing mainhand")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: offhandSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    state: eqRect.state
+                    slotString: "OFFHAND"
+
+                    onSelectItem: eqRect.state = "OFFHAND"
+                    onClearItem: console.log("Clearing offhand")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: rangedSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: eqRect.state = "RANGED"
+                    onClearItem: console.log("Clearing ranged")
                 }
             }
 
-            Rectangle {
+            EquipmentSlotBox {
                 id: ammoSlot
                 height: 34
                 width: 34
@@ -170,10 +134,8 @@ Rectangle {
                 x: 307
                 y: 400
 
-                radius: 5
-                color: "transparent"
-                border.color: "white"
-                border.width: 1
+                onSelectItem: console.log("Selecting ammo")
+                onClearItem: console.log("Clearing ammo")
             }
 
             Column {
@@ -185,96 +147,62 @@ Rectangle {
 
                 spacing: 5
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: gloveSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting gloves")
+                    onClearItem: console.log("Clearing gloves")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: beltSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting belt")
+                    onClearItem: console.log("Clearing belt")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: legSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting legs")
+                    onClearItem: console.log("Clearing legs")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: bootSlot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting boots")
+                    onClearItem: console.log("Clearing boots")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: ring1Slot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting ring1")
+                    onClearItem: console.log("Clearing ring1")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: ring2Slot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting ring2")
+                    onClearItem: console.log("Clearing ring2")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: trinket1Slot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting trinket1")
+                    onClearItem: console.log("Clearing trinket1")
                 }
 
-                Rectangle {
+                EquipmentSlotBox {
                     id: trinket2Slot
-                    height: 46
-                    width: 46
 
-                    radius: 5
-                    color: "transparent"
-                    border.color: "white"
-                    border.width: 1
+                    onSelectItem: console.log("Selecting trinket2")
+                    onClearItem: console.log("Clearing trinket2")
                 }
             }
-
-
         }
     }
 

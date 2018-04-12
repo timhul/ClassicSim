@@ -129,5 +129,6 @@
         <file>QML/Assets/items/Inv_mace_28.png</file>
         <file>QML/Assets/items/Spell_frost_frostbrand.png</file>
         <file>QML/Assets/char_slots.png</file>
+        <file>QML/EquipmentSlotBox.qml</file>
     </qresource>
 </RCC>
