@@ -71,5 +71,31 @@
         <file>QML/QuickSwitchBar.qml</file>
         <file>QML/Equipment.qml</file>
         <file>QML/ItemEntryWeapon.qml</file>
+        <file>QML/Assets/items/Inv_sword_61.png</file>
+        <file>QML/Assets/items/Inv_sword_01.png</file>
+        <file>QML/Assets/items/Inv_sword_05.png</file>
+        <file>QML/Assets/items/Inv_sword_07.png</file>
+        <file>QML/Assets/items/Inv_sword_11.png</file>
+        <file>QML/Assets/items/Inv_sword_12.png</file>
+        <file>QML/Assets/items/Inv_sword_15.png</file>
+        <file>QML/Assets/items/Inv_sword_18.png</file>
+        <file>QML/Assets/items/Inv_sword_22.png</file>
+        <file>QML/Assets/items/Inv_sword_27.png</file>
+        <file>QML/Assets/items/Inv_sword_31.png</file>
+        <file>QML/Assets/items/Inv_sword_35.png</file>
+        <file>QML/Assets/items/Inv_sword_38.png</file>
+        <file>QML/Assets/items/Inv_sword_39.png</file>
+        <file>QML/Assets/items/Inv_sword_40.png</file>
+        <file>QML/Assets/items/Inv_sword_43.png</file>
+        <file>QML/Assets/items/Inv_sword_44.png</file>
+        <file>QML/Assets/items/Inv_sword_47.png</file>
+        <file>QML/Assets/items/Inv_sword_48.png</file>
+        <file>QML/Assets/items/Inv_sword_49.png</file>
+        <file>QML/Assets/items/Inv_sword_51.png</file>
+        <file>QML/Assets/items/Inv_sword_54.png</file>
+        <file>QML/Assets/items/Inv_sword_55.png</file>
+        <file>QML/Assets/items/Inv_sword_60.png</file>
+        <file>QML/Assets/items/Inv_sword_62.png</file>
+        <file>QML/Assets/items/Inv_sword_84.png</file>
     </qresource>
 </RCC>

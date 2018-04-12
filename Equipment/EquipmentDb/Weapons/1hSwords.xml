@@ -2,7 +2,7 @@
 <weapons>
 	<melee_weapon name="Krol Blade">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="EPIC" boe="yes"/>
+			<info type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="EPIC" boe="yes" icon="Inv_sword_18.png"/>
 			<dmg_range min="80" max="149" speed="2.8"/>
 			<stats>
 				<stat type="STRENGTH" value="7"/>
@@ -17,7 +17,7 @@
 	
 	<melee_weapon name="Cold Forged Blade">
 		<patch name="1.5.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE"  boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"  icon="Inv_sword_47.png"/>
 			<dmg_range min="75" max="140" speed="2.6"/>
 			<stats>
 				<stat type="STAMINA" value="13"/>
@@ -31,7 +31,7 @@
 
 	<melee_weapon name="Sword of Zeal">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes"/>
+			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_39.png"/>
 			<dmg_range min="81" max="151" speed="2.8"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -45,7 +45,7 @@
 	
 	<melee_weapon name="Skullforge Reaver">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_12.png"/>
 			<dmg_range min="72" max="135" speed="2.5"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -59,7 +59,7 @@
 	
 	<melee_weapon name="Dal'Rend's Tribal Guardian">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
+			<info type="SWORD" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_40.png"/>
 			<dmg_range min="52" max="97" speed="1.8"/>
 			<stats>
 				<stat type="ARMOR" value="100"/>
@@ -73,7 +73,7 @@
 	
 	<melee_weapon name="Dal'Rend's Sacred Charge">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no"/>
+			<info type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_43.png"/>
 			<dmg_range min="81" max="151" speed="2.8"/>
 			<stats>
 				<stat type="STRENGTH" value="4"/>
@@ -87,7 +87,7 @@
 	
 	<melee_weapon name="Dragon's Call">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_sword_38.png"/>
 			<dmg_range min="72" max="135" speed="2.5"/>
 			<proc>
 				<!-- TODO: Find proc rate, how much damage the minion deals, duration, etc. -->
@@ -101,7 +101,7 @@
 	
 	<melee_weapon name="Protector's Sword">
 		<patch name="1.5.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_sword_27.png"/>
 			<dmg_range min="78" max="146" speed="2.7"/>
 			<stats>
 				<stat type="STRENGTH" value="13"/>
@@ -115,7 +115,7 @@
 	
 	<melee_weapon name="Legionnaire's Sword">
 		<patch name="1.5.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_sword_31.png"/>
 			<dmg_range min="78" max="146" speed="2.7"/>
 			<stats>
 				<stat type="STRENGTH" value="13"/>
@@ -130,7 +130,7 @@
 	<melee_weapon name="Ravenholdt Slicer">
 		<patch name="1.10.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_38.png"/>
 			<dmg_range min="83" max="156" speed="2.8"/>
 			<stats>
 				<stat type="STAMINA" value="6"/>
@@ -144,7 +144,7 @@
 	
 	<melee_weapon name="Dark Iron Reaver">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes"/>
+			<info type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_sword_48.png"/>
 			<dmg_range min="71" max="134" speed="2.4"/>
 			<stats>
 				<stat type="STRENGTH" value="10"/>
@@ -158,7 +158,7 @@
 	
 	<melee_weapon name="Fiery Retributer">
 		<patch name="1.7.0">
-			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no"/>
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_01.png"/>
 			<dmg_range min="56" max="105" speed="1.8"/>
 			<stats>
 				<stat type="STRENGTH" value="7"/>
@@ -175,7 +175,7 @@
 	
 	<melee_weapon name="Zulian Slicer">
 		<patch name="1.7.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_35.png"/>
 			<dmg_range min="78" max="146" speed="2.5"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="12"/>
@@ -192,7 +192,7 @@
 	
 	<melee_weapon name="Teebu's Blazing Longsword">
 		<patch name="1.9.0">
-			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes"/>
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
 			<dmg_range min="96" max="178" speed="2.9"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -206,7 +206,7 @@
 	
 	<melee_weapon name="Warblade of the Hakkari">
 		<patch name="1.7.0">
-			<info type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
 			<dmg_range min="57" max="106" speed="1.7"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="40"/>
@@ -219,7 +219,7 @@
 	
 	<melee_weapon name="Bloodlord's Defender">
 		<patch name="1.7.0">
-			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_54.png"/>
 			<dmg_range min="64" max="119" speed="1.9"/>
 			<stats>
 				<stat type="ARMOR" value="80"/>
@@ -234,7 +234,7 @@
 	
 	<melee_weapon name="Warblade of the Hakkari">
 		<patch name="1.7.0">
-			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
 			<dmg_range min="59" max="110" speed="1.7"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -248,7 +248,7 @@
 	
 	<melee_weapon name="Brutality Blade">
 		<patch name="1.4.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
 			<dmg_range min="90" max="168" speed="2.5"/>
 			<stats>
 				<stat type="STRENGTH" value="9"/>
@@ -263,7 +263,7 @@
 	
 	<melee_weapon name="Blackguard">
 		<patch name="1.6.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_sword_39.png"/>
 			<dmg_range min="65" max="121" speed="1.8"/>
 			<stats>
 				<stat type="STAMINA" value="9"/>
@@ -277,7 +277,7 @@
 	
 	<melee_weapon name="Quel'Serrar">
 		<patch name="1.3.0">
-			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_01.png"/>
 			<class_restriction class="WARRIOR"/>
 			<class_restriction class="PALADIN"/>
 			<dmg_range min="84" max="126" speed="2.0"/>
@@ -296,7 +296,7 @@
 	
 	<melee_weapon name="Nightmare Blade">
 		<patch name="1.8.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_44.png"/>
 			<dmg_range min="99" max="185" speed="2.7"/>
 			<stats>
 				<stat type="ARMOR" value="70"/>
@@ -311,7 +311,7 @@
 	
 	<melee_weapon name="Thunderfury, Blessed Blade of the Windseeker">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_sword_39.png"/>
 			<class_restriction class="WARRIOR"/>
 			<class_restriction class="PALADIN"/>
 			<class_restriction class="HUNTER"/>
@@ -336,7 +336,7 @@
 	
 	<melee_weapon name="Vis'kag the Bloodletter">
 		<patch name="1.0.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
 			<dmg_range min="100" max="187" speed="2.6"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -350,7 +350,7 @@
 	
 	<melee_weapon name="Maladath, Runed Blade of the Black Flight">
 		<patch name="1.6.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
 			<dmg_range min="86" max="162" speed="2.2"/>
 			<stats>
 				<stat type="PARRY_CHANCE" value="0.01"/>
@@ -364,7 +364,7 @@
 	
 	<melee_weapon name="Ravencrest's Legacy">
 		<patch name="1.9.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
 			<dmg_range min="84" max="157" speed="2.1"/>
 			<stats>
 				<stat type="STAMINA" value="14"/>
@@ -379,7 +379,7 @@
 	
 	<melee_weapon name="Ancient Qiraji Ripper">
 		<patch name="1.9.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_84.png"/>
 			<dmg_range min="114" max="213" speed="2.8"/>
 			<stats>
 				<stat type="STAMINA" value="11"/>
@@ -394,7 +394,7 @@
 	
 	<melee_weapon name="Chromatically Tempered Sword">
 		<patch name="1.6.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
 			<dmg_range min="106" max="198" speed="2.6"/>
 			<stats>
 				<stat type="AGILITY" value="14"/>
@@ -409,7 +409,7 @@
 	
 	<melee_weapon name="High Warlord's Blade">
 		<patch name="1.5.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_11.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -424,7 +424,7 @@
 	
 	<melee_weapon name="Grand Marshal's Longsword">
 		<patch name="1.5.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_11.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -439,7 +439,7 @@
 	
 	<melee_weapon name="High Warlord's Quickblade">
 		<patch name="1.5.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_05.png"/>
 			<dmg_range min="85" max="129" speed="1.8"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -454,7 +454,7 @@
 	
 	<melee_weapon name="Grand Marshal's Swiftblade">
 		<patch name="1.5.0">
-			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<info type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_05.png"/>
 			<dmg_range min="85" max="129" speed="1.8"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -469,7 +469,7 @@
 	
 	<melee_weapon name="Widow's Remorse">
 		<patch name="1.11.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_60.png"/>
 			<dmg_range min="70" max="131" speed="1.6"/>
 			<stats>
 				<stat type="ARMOR" value="100"/>
@@ -484,7 +484,7 @@
 	
 	<melee_weapon name="Iblis, Blade of the Fallen Seraph">
 		<patch name="1.11.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_07.png"/>
 			<dmg_range min="70" max="131" speed="1.6"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -499,7 +499,7 @@
 	
 	<melee_weapon name="The Hungering Cold">
 		<patch name="1.11.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_62.png"/>
 			<dmg_range min="76" max="143" speed="1.5"/>
 			<stats>
 				<stat type="ARMOR" value="140"/>
@@ -514,7 +514,7 @@
 	
 	<melee_weapon name="Gressil, Dawn of Ruin">
 		<patch name="1.11.0">
-			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no"/>
+			<info type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_61.png"/>
 			<dmg_range min="138" max="257" speed="2.7"/>
 			<stats>
 				<stat type="STAMINA" value="14"/>
