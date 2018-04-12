@@ -106,5 +106,6 @@
         <file>QML/Assets/items/Inv_axe_24.png</file>
         <file>QML/Assets/items/Inv_axe_26.png</file>
         <file>QML/Assets/items/Inv_axe_35.png</file>
+        <file>QML/Assets/items/Inv_sword_34.png</file>
     </qresource>
 </RCC>
