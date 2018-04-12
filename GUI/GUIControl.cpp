@@ -25,6 +25,8 @@
 #include "EncounterStart.h"
 #include "EncounterEnd.h"
 
+#include "WeaponModel.h"
+
 #include <QDebug>
 
 GUIControl::GUIControl(QObject* parent) :
@@ -61,7 +63,7 @@ GUIControl::GUIControl(QObject* parent) :
 
     item_model = new ItemModel();
 
-    weapon_model = new WeaponModel();
+    weapon_model = new WeaponModel(equipment->get_db());
     weapon_model->addWeapons(equipment->get_db());
 }
 

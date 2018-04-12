@@ -24,8 +24,9 @@ public:
         IconRole
     };
 
-    WeaponModel(QObject *parent = 0);
+    WeaponModel(EquipmentDb*, QObject *parent = 0);
 
+    Q_INVOKABLE void setPatch(const QString &patch);
     void addWeapons(const EquipmentDb *db);
     void addWeapon(MeleeWeapon *weapon);
 
@@ -36,6 +37,7 @@ public:
 protected:
     QHash<int, QByteArray> roleNames() const;
 private:
+    EquipmentDb* db;
     QList<MeleeWeapon*> melee_weapons;
 };
 

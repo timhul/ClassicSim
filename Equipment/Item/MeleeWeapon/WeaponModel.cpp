@@ -4,9 +4,11 @@
 #include "EquipmentDb.h"
 #include <QDebug>
 
-WeaponModel::WeaponModel(QObject *parent)
+WeaponModel::WeaponModel(EquipmentDb* db, QObject *parent)
     : QAbstractListModel(parent)
-{}
+{
+    this->db = db;
+}
 
 bool dps(MeleeWeapon* lhs, MeleeWeapon* rhs) {
     return lhs->get_wpn_dps() > rhs->get_wpn_dps();
@@ -20,8 +22,18 @@ bool name(MeleeWeapon* lhs, MeleeWeapon* rhs) {
     return lhs->get_name() > rhs->get_name();
 }
 
+void WeaponModel::setPatch(const QString &patch) {
+    QString patch_split = patch.split(' ').first();
+    db->set_patch(patch);
+    addWeapons(this->db);
+}
+
 void WeaponModel::addWeapons(const EquipmentDb* db) {
-    melee_weapons.clear();
+    if (melee_weapons.size() > 0) {
+        beginRemoveRows(QModelIndex(), 0, melee_weapons.size() - 1);
+        melee_weapons.clear();
+        endRemoveRows();
+    }
 
     QVector<MeleeWeapon*> wpns = db->get_melee_weapons();
 

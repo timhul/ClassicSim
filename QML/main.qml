@@ -1,5 +1,7 @@
 import QtQuick 2.10
 import QtQuick.Window 2.10
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Styles 1.4
 
 Window {
     id: root
@@ -44,6 +46,34 @@ Window {
             percentualDifference.text = change;
             percentualDifference.color = positive ? brightGreen : brightRed
         }
+    }
+
+    ComboBox {
+        anchors {
+            right: continuousDpsUpdateRect.left
+            rightMargin: 20
+            bottom: mainView.top
+        }
+
+        width: 200
+        model: [
+            "1.0.0 (Beta)",
+            "1.1.0 (US Release)",
+            "1.2.0 (Maraudon)",
+            "1.3.0 (Dire Maul)",
+            "1.4.0 (Benediction/Rhok'delar)",
+            "1.5.0 (Battlegrounds)",
+            "1.6.0 (Blackwing Lair)",
+            "1.7.0 (Zul'Gurub)",
+            "1.8.0 (Dragon World Bosses)",
+            "1.9.0 (Ahn'Qiraj)",
+            "1.10.0 (Tier 0.5)",
+            "1.11.0 (Naxxramas)",
+            "1.12.1"]
+
+        currentIndex: 12
+
+        onActivated: weaponModel.setPatch(currentText)
     }
 
     RectangleBorders {
