@@ -9,28 +9,28 @@ Rectangle {
 
     RectangleBorders {
         height: parent.height
-        width: parent.width
+        width: 850
         anchors {
             right: parent.right
         }
 
         color: root.darkGray
 
+        RectangleBorders {
+            id: sortRect
+            height: parent.height * 0.05
+            width: parent.width
+        }
+
         ScrollView {
-            height: parent.height * 0.9
             width: parent.width
 
-            y: parent.height * 0.05
+            anchors {
+                top: sortRect.bottom
+                right: parent.right
+                bottom: parent.bottom
+            }
 
-//            roles[NameRole] = "name";
-//            roles[SpeedRole] = "speed";
-//            roles[DpsRole] = "dps";
-//            roles[PatchRole] = "patch";
-//            roles[SourceRole] = "source";
-//            roles[TypeRole] = "type";
-//            roles[ReqLvlRole] = "req_lvl";
-//            roles[ItemLvlRole] = "item_lvl";
-//            roles[QualityRole] = "quality";
             ListView {
                 model: weaponModel
                 boundsBehavior: Flickable.StopAtBounds
@@ -47,6 +47,7 @@ Rectangle {
                     entryReq: req_lvl
                     entryItemlvl: item_lvl
                     entryQuality: quality
+                    entryIcon: icon
                 }
             }
         }

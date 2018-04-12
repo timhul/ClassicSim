@@ -20,7 +20,8 @@ public:
         TypeRole,
         ReqLvlRole,
         ItemLvlRole,
-        QualityRole
+        QualityRole,
+        IconRole
     };
 
     WeaponModel(QObject *parent = 0);

@@ -196,7 +196,7 @@ void EquipmentDb::weapon_file_handler(QXmlStreamReader &reader) {
 
 void EquipmentDb::info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item) {
     QVector<QString> mandatory_attrs = {"type", "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
-    QVector<QString> optional_attrs = {"faction"};
+    QVector<QString> optional_attrs = {"faction", "icon"};
 
     for (int i = 0; i < mandatory_attrs.size(); ++i)
         add_mandatory_attr(attrs, mandatory_attrs[i], item);
@@ -331,7 +331,7 @@ void EquipmentDb::create_ranged_weapon(QMap<QString, QString> &, QVector<QPair<Q
 }
 
 void EquipmentDb::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
-    QVector<QString> keys = {"patch", "type", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source",
+    QVector<QString> keys = {"patch", "type", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source", "icon",
                             "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
                             "RESTRICTED_TO_ROGUE"};
 

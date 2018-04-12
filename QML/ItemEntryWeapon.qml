@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 RectangleBorders {
-    width: parent.width
+    width: 850
     height: 45
 
     property string entryName
@@ -13,6 +13,7 @@ RectangleBorders {
     property string entryType
     property string entryReq
     property string entryItemlvl
+    property string entryIcon
 
     function qualityColor(quality) {
         switch (quality) {
@@ -39,7 +40,24 @@ RectangleBorders {
 
         width: parent.width - x
         height: parent.height
-        x: 20
+        x: 3
+
+        Image {
+            id: icon
+
+            height: 40
+            width: 40
+
+            source: "Assets/items/" + entryIcon
+
+            y: parent.height / 2 - height / 2
+        }
+
+        Rectangle {
+            color: "transparent"
+            height: parent.height
+            width: 5
+        }
 
         Text {
             id: textName

@@ -68,6 +68,8 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
         return weapon->get_value("item_lvl");
     if (role == QualityRole)
         return weapon->get_value("quality");
+    if (role == IconRole)
+        return weapon->get_value("icon");
 
     return QVariant();
 }
@@ -83,5 +85,6 @@ QHash<int, QByteArray> WeaponModel::roleNames() const {
     roles[ReqLvlRole] = "req_lvl";
     roles[ItemLvlRole] = "item_lvl";
     roles[QualityRole] = "quality";
+    roles[IconRole] = "icon";
     return roles;
 }
