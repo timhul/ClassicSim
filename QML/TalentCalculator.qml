@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle {
     color: root.darkGray
     height: width / 3 * 1.77 + 75
-    width: parent.width
+    width: 700
 
     Connections {
         target: talents

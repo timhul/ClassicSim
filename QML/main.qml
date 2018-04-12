@@ -4,7 +4,7 @@ import QtQuick.Window 2.10
 Window {
     id: root
     visible: true
-    width: 1000
+    width: 1500
     height: 800
     title: qsTr("ClassicSim")
 
@@ -137,7 +137,6 @@ Window {
 
         TalentCalculator {
             visible: parent.state === "TALENTS"
-            width: parent.width * 0.90
             x: parent.width / 2 - width / 2
             y: 20
         }
