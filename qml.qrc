@@ -107,5 +107,12 @@
         <file>QML/Assets/items/Inv_axe_26.png</file>
         <file>QML/Assets/items/Inv_axe_35.png</file>
         <file>QML/Assets/items/Inv_sword_34.png</file>
+        <file>QML/Assets/items/Ability_rogue_rupture.png</file>
+        <file>QML/Assets/items/Inv_misc_monsterclaw_03.png</file>
+        <file>QML/Assets/items/Inv_misc_monsterclaw_04.png</file>
+        <file>QML/Assets/items/Inv_weapon_hand_01.png</file>
+        <file>QML/Assets/items/Inv_weapon_hand_03.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_07.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_27.png</file>
     </qresource>
 </RCC>
