@@ -97,5 +97,14 @@
         <file>QML/Assets/items/Inv_sword_60.png</file>
         <file>QML/Assets/items/Inv_sword_62.png</file>
         <file>QML/Assets/items/Inv_sword_84.png</file>
+        <file>QML/Assets/items/Inv_axe_02.png</file>
+        <file>QML/Assets/items/Inv_axe_08.png</file>
+        <file>QML/Assets/items/Inv_axe_09.png</file>
+        <file>QML/Assets/items/Inv_axe_12.png</file>
+        <file>QML/Assets/items/Inv_axe_15.png</file>
+        <file>QML/Assets/items/Inv_axe_22.png</file>
+        <file>QML/Assets/items/Inv_axe_24.png</file>
+        <file>QML/Assets/items/Inv_axe_26.png</file>
+        <file>QML/Assets/items/Inv_axe_35.png</file>
     </qresource>
 </RCC>
