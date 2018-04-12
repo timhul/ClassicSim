@@ -302,11 +302,19 @@ void GUIControl::runQuickSim() {
 }
 
 QString GUIControl::get_mainhand_icon() const {
-    return "Assets/items/" + equipment->get_mainhand()->get_value("icon");
+    if (equipment->get_mainhand() != nullptr)
+        return "Assets/items/" + equipment->get_mainhand()->get_value("icon");
+    return "";
 }
 
 void GUIControl::setSlot(QString slot_string, QString item) {
     if (slot_string == "MAINHAND")
         equipment->set_mainhand(item);
+    equipmentChanged();
+}
+
+void GUIControl::clearSlot(QString slot_string) {
+    if (slot_string == "MAINHAND")
+        equipment->clear_mainhand();
     equipmentChanged();
 }

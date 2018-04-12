@@ -80,6 +80,7 @@ public:
     /* Equipment */
     Q_PROPERTY(QString mainhandIcon READ get_mainhand_icon NOTIFY equipmentChanged)
 
+    Q_INVOKABLE void clearSlot(QString slot_string);
     Q_INVOKABLE void setSlot(QString slot_string, QString item);
 
     /* End of Equipment */

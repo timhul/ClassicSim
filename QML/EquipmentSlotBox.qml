@@ -2,10 +2,8 @@ import QtQuick 2.0
 import QtGraphicalEffects 1.0
 
 Rectangle {
-    signal clearItem();
     signal selectItem();
 
-    property bool selected: false
     property string slotString
     property string iconSource: ""
 
@@ -33,7 +31,7 @@ Rectangle {
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         onClicked: {
             if (mouse.button === Qt.RightButton)
-                clearItem();
+                equipment.clearSlot(slotString);
             else
                 selectItem();
         }

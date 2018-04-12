@@ -53,6 +53,26 @@ public:
     void set_caster_offhand(Item*);
     void set_relic(Item*);
 
+    void clear_mainhand();
+    void clear_offhand();
+    void clear_ranged();
+    void clear_head();
+    void clear_neck();
+    void clear_shoulders();
+    void clear_back();
+    void clear_chest();
+    void clear_wrist();
+    void clear_gloves();
+    void clear_belt();
+    void clear_legs();
+    void clear_boots();
+    void clear_ring1();
+    void clear_ring2();
+    void clear_trinket1();
+    void clear_trinket2();
+    void clear_caster_offhand();
+    void clear_relic();
+
     void patch_changed();
     EquipmentDb *get_db() const;
 

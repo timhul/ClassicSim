@@ -24,8 +24,6 @@ Rectangle {
             height: 448
             width: 426
 
-
-
             Column {
                 width: 46
                 height: parent.height
@@ -42,35 +40,30 @@ Rectangle {
                     slotString: "HELM"
 
                     onSelectItem: eqRect.state = "HELM"
-                    onClearItem: console.log("Clearing helm")
                 }
 
                 EquipmentSlotBox {
                     id: neckSlot
 
                     onSelectItem: eqRect.state = "NECK"
-                    onClearItem: console.log("Clearing neck")
                 }
 
                 EquipmentSlotBox {
                     id: shoulderSlot
 
                     onSelectItem: eqRect.state = "SHOULDERS"
-                    onClearItem: console.log("Clearing shoulders")
                 }
 
                 EquipmentSlotBox {
                     id: backSlot
 
                     onSelectItem: eqRect.state = "BACK"
-                    onClearItem: console.log("Clearing back")
                 }
 
                 EquipmentSlotBox {
                     id: chestSlot
 
                     onSelectItem: eqRect.state = "CHEST"
-                    onClearItem: console.log("Clearing chest")
                 }
 
                 EquipmentSlotBox {
@@ -85,7 +78,6 @@ Rectangle {
                     id: wristSlot
 
                     onSelectItem: eqRect.state = "WRIST"
-                    onClearItem: console.log("Clearing wrist")
                 }
             }
 
@@ -106,7 +98,6 @@ Rectangle {
                     iconSource: equipment.mainhandIcon
 
                     onSelectItem: eqRect.state = "MAINHAND"
-                    onClearItem: console.log("Clearing mainhand")
                 }
 
                 EquipmentSlotBox {
@@ -116,14 +107,12 @@ Rectangle {
                     slotString: "OFFHAND"
 
                     onSelectItem: eqRect.state = "OFFHAND"
-                    onClearItem: console.log("Clearing offhand")
                 }
 
                 EquipmentSlotBox {
                     id: rangedSlot
 
                     onSelectItem: eqRect.state = "RANGED"
-                    onClearItem: console.log("Clearing ranged")
                 }
             }
 
@@ -136,7 +125,6 @@ Rectangle {
                 y: 400
 
                 onSelectItem: console.log("Selecting ammo")
-                onClearItem: console.log("Clearing ammo")
             }
 
             Column {
@@ -152,56 +140,48 @@ Rectangle {
                     id: gloveSlot
 
                     onSelectItem: console.log("Selecting gloves")
-                    onClearItem: console.log("Clearing gloves")
                 }
 
                 EquipmentSlotBox {
                     id: beltSlot
 
                     onSelectItem: console.log("Selecting belt")
-                    onClearItem: console.log("Clearing belt")
                 }
 
                 EquipmentSlotBox {
                     id: legSlot
 
                     onSelectItem: console.log("Selecting legs")
-                    onClearItem: console.log("Clearing legs")
                 }
 
                 EquipmentSlotBox {
                     id: bootSlot
 
                     onSelectItem: console.log("Selecting boots")
-                    onClearItem: console.log("Clearing boots")
                 }
 
                 EquipmentSlotBox {
                     id: ring1Slot
 
                     onSelectItem: console.log("Selecting ring1")
-                    onClearItem: console.log("Clearing ring1")
                 }
 
                 EquipmentSlotBox {
                     id: ring2Slot
 
                     onSelectItem: console.log("Selecting ring2")
-                    onClearItem: console.log("Clearing ring2")
                 }
 
                 EquipmentSlotBox {
                     id: trinket1Slot
 
                     onSelectItem: console.log("Selecting trinket1")
-                    onClearItem: console.log("Clearing trinket1")
                 }
 
                 EquipmentSlotBox {
                     id: trinket2Slot
 
                     onSelectItem: console.log("Selecting trinket2")
-                    onClearItem: console.log("Clearing trinket2")
                 }
             }
         }

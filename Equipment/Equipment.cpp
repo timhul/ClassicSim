@@ -267,6 +267,82 @@ void Equipment::set_relic(Item* item) {
     this->relic = item;
 }
 
+void Equipment::clear_mainhand() {
+    this->mainhand = nullptr;
+}
+
+void Equipment::clear_offhand() {
+    this->offhand = nullptr;
+}
+
+void Equipment::clear_ranged() {
+    this->ranged = nullptr;
+}
+
+void Equipment::clear_head() {
+    this->head = nullptr;
+}
+
+void Equipment::clear_neck() {
+    this->neck = nullptr;
+}
+
+void Equipment::clear_shoulders() {
+    this->shoulders = nullptr;
+}
+
+void Equipment::clear_back() {
+    this->back = nullptr;
+}
+
+void Equipment::clear_chest() {
+    this->chest = nullptr;
+}
+
+void Equipment::clear_wrist() {
+    this->wrist = nullptr;
+}
+
+void Equipment::clear_gloves() {
+    this->gloves = nullptr;
+}
+
+void Equipment::clear_belt() {
+    this->belt = nullptr;
+}
+
+void Equipment::clear_legs() {
+    this->legs = nullptr;
+}
+
+void Equipment::clear_boots() {
+    this->boots = nullptr;
+}
+
+void Equipment::clear_ring1() {
+    this->ring1 = nullptr;
+}
+
+void Equipment::clear_ring2() {
+    this->ring2 = nullptr;
+}
+
+void Equipment::clear_trinket1() {
+    this->trinket1 = nullptr;
+}
+
+void Equipment::clear_trinket2() {
+    this->trinket2 = nullptr;
+}
+
+void Equipment::clear_caster_offhand() {
+    this->caster_offhand = nullptr;
+}
+
+void Equipment::clear_relic() {
+    this->relic = nullptr;
+}
+
 void Equipment::patch_changed() {
     if (get_mainhand()) {
         if (db->item_valid_for_current_patch(get_mainhand()->get_value("patch")))
