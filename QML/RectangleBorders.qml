@@ -4,6 +4,7 @@ Rectangle {
     property string outerBorderColor: root.gray
     property string innerBorderColor: "black"
     property color rectColor
+    property color rectColorHighlighted: rectColor
     property int paddingInner: 1
     property string text: "Missing"
     property int setRadius: 0
@@ -49,8 +50,11 @@ Rectangle {
                 radius: setRadius
 
                 MouseArea {
+                    hoverEnabled: true
                     anchors.fill: parent
                     onClicked: rectangleClicked()
+                    onEntered: parent.color = rectColorHighlighted
+                    onExited: parent.color = rectColor
                 }
             }
         }

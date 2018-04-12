@@ -34,6 +34,8 @@ RectangleBorders {
         }
     }
 
+    rectColorHighlighted: "#232323"
+
     onRectangleClicked: console.log("Clicked", entryName)
 
     Row {
