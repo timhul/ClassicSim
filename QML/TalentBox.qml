@@ -17,6 +17,12 @@ Rectangle {
         onTalentsUpdated: update()
     }
 
+    onVisibleChanged: {
+        if (visible === true) {
+            update()
+        }
+    }
+
     function update() {
         rank.text = talents.getRank(treePos, talentPos)
         rank.color = talents.isMaxed(treePos, talentPos) ? talentMaxed :
