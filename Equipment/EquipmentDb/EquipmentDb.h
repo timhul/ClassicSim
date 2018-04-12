@@ -22,6 +22,8 @@ public:
 
     const QVector<MeleeWeapon*>& get_melee_weapons() const;
 
+    void add_melee_weapon(MeleeWeapon* wpn);
+
 protected:
 private:
     void read_equipment_files();

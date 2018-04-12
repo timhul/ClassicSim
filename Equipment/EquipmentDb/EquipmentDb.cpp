@@ -13,13 +13,18 @@ EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)
 {
     read_equipment_files();
-    set_patch("1.5.0");
+    set_patch("1.0.0");
 }
 
 EquipmentDb::~EquipmentDb() {
     for (int i = 0; i < melee_weapons.size(); ++i) {
         delete melee_weapons[i];
     }
+}
+
+void EquipmentDb::add_melee_weapon(MeleeWeapon* wpn) {
+    melee_weapons.append(wpn);
+    current_patch_melee_weapons.append(wpn);
 }
 
 MeleeWeapon* EquipmentDb::get_melee_weapon(const QString &name) {

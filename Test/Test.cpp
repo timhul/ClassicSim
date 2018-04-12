@@ -24,6 +24,8 @@
 
 #include "Character.h"
 #include "Equipment.h"
+#include "EquipmentDb.h"
+#include "Onehand.h"
 #include "Mainhand.h"
 #include "Offhand.h"
 #include "WhiteHitTable.h"
@@ -68,9 +70,15 @@ void Test::test_all(void) {
     test_queue();
 }
 
+void add_frostbite(EquipmentDb* db) {
+    Onehand* wpn = new Onehand("Frostbite", WeaponTypes::AXE, 80, 150, 2.7);
+    db->add_melee_weapon(wpn);
+}
+
 void Test::test_queue(void) {
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
+    add_frostbite(equipment->get_db());
     equipment->set_mainhand("Frostbite");
     equipment->set_offhand("Frostbite");
     Race* race = new Orc();
@@ -107,6 +115,7 @@ void Test::test_combat_roll_melee_hit_result(void) {
     Target* target = new Target(63);
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
+    add_frostbite(equipment->get_db());
     Race* race = new Orc();
     CombatRoll* combat = new CombatRoll(target);
     Warrior* pchar = new Warrior(race, engine, equipment, combat);
@@ -132,6 +141,7 @@ void Test::test_combat_roll_creation(void) {
     Target* target = new Target(63);
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
+    add_frostbite(equipment->get_db());
     Race* race = new Orc();
     CombatRoll* combat = new CombatRoll(target);
     Warrior* pchar = new Warrior(race, engine, equipment, combat);
@@ -239,6 +249,7 @@ void Test::test_white_hit_table_update(void) {
     Target* target = new Target(63);
     Engine* engine = new Engine();
     Equipment* equipment = new Equipment();
+    add_frostbite(equipment->get_db());
     Race* race = new Orc();
     CombatRoll* combat = new CombatRoll(target);
     Warrior* pchar = new Warrior(race, engine, equipment, combat);
@@ -290,19 +301,12 @@ void Test::test_special_hit_table(void) {
 
 void Test::test_equipment_creation(void) {
     Equipment* equipment = new Equipment();
-
-    Mainhand* mainhand = new Mainhand("Frostbite", 0, 80, 150, 2.7);
-    assert(mainhand->get_name() == "Frostbite");
-    assert(mainhand->get_weapon_type() == 0);
-    assert(mainhand->get_min_dmg() == 80);
-    assert(mainhand->get_max_dmg() == 150);
-    assert(mainhand->get_base_weapon_speed() - 2.7 < 0.01);
-
+    add_frostbite(equipment->get_db());
     equipment->set_mainhand("Frostbite");
     MeleeWeapon* mh = equipment->get_mainhand();
 
     assert(mh->get_name() == "Frostbite");
-    assert(mh->get_weapon_type() == 0);
+    assert(mh->get_weapon_type() == WeaponTypes::AXE);
     assert(mh->get_min_dmg() == 80);
     assert(mh->get_max_dmg() == 150);
     assert(mh->get_base_weapon_speed() - 2.7 < 0.01);
