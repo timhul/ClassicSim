@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("character", gui_control);
     context->setContextProperty("talents", gui_control);
     context->setContextProperty("itemModel", gui_control->get_item_model());
+    context->setContextProperty("weaponModel", gui_control->get_weapon_model());
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

@@ -12,6 +12,7 @@
 #include "Character.h"
 #include "Race.h"
 #include "ItemModel.h"
+#include "WeaponModel.h"
 
 class GUIControl: public QObject {
     Q_OBJECT
@@ -78,6 +79,7 @@ public:
 
     /* ItemModel */
     ItemModel* get_item_model() const;
+    WeaponModel* get_weapon_model() const;
 
     /* End of ItemModel */
 
@@ -122,6 +124,7 @@ private:
     Character* current_char;
     float last_quick_sim_result;
     ItemModel* item_model;
+    WeaponModel* weapon_model;
 };
 
 #endif // GUICONTROL_H

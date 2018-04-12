@@ -13,7 +13,7 @@ EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)
 {
     read_equipment_files();
-    set_patch("1.12.1");
+    set_patch("1.5.0");
 }
 
 EquipmentDb::~EquipmentDb() {
@@ -29,6 +29,10 @@ MeleeWeapon* EquipmentDb::get_melee_weapon(const QString &name) {
     }
 
     return nullptr;
+}
+
+const QVector<MeleeWeapon *>& EquipmentDb::get_melee_weapons() const {
+    return current_patch_melee_weapons;
 }
 
 void EquipmentDb::set_patch(const QString &patch) {

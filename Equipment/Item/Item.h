@@ -59,6 +59,7 @@ public:
 
     QString get_name(void) const;
     QString get_patch() const;
+    QString get_source() const;
 
     void set_stat(const QString& key, const QString& value);
     void set_stats(QVector<QPair<QString, QString>> stats);
@@ -66,6 +67,7 @@ public:
 protected:
     QString name;
     QString patch;
+    QString source;
     Stats* stats;
     QMap<QString, QString> info;
 

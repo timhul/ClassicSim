@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
 
 Rectangle {
     height: parent.height
@@ -8,22 +9,30 @@ Rectangle {
 
     RectangleBorders {
         height: parent.height
-        width: parent.width / 2
+        width: parent.width
         anchors {
             right: parent.right
         }
 
         color: root.darkGray
 
-        ListView {
-            anchors.fill: parent
+        ScrollView {
+            height: parent.height * 0.9
+            width: parent.width
 
-            model: itemModel
+            y: parent.height * 0.05
 
-            delegate: Text {
-                text: name
 
-                color: "white"
+            ListView {
+                model: weaponModel
+                boundsBehavior: Flickable.StopAtBounds
+
+                delegate: ItemEntryWeapon {
+                    entryName: name
+                    entryDps: dps
+                    entrySpeed: speed
+                    entryPatch: patch
+                }
             }
         }
     }

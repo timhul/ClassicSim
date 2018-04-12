@@ -60,7 +60,9 @@ GUIControl::GUIControl(QObject* parent) :
     current_char = chars["WARRIOR"];
 
     item_model = new ItemModel();
-    item_model->addItem(equipment->get_mainhand());
+
+    weapon_model = new WeaponModel();
+    weapon_model->addWeapons(equipment->get_db());
 }
 
 GUIControl::~GUIControl() {
@@ -260,6 +262,10 @@ QString GUIControl::get_hit_chance() const {
 
 ItemModel* GUIControl::get_item_model() const {
     return this->item_model;
+}
+
+WeaponModel* GUIControl::get_weapon_model() const {
+    return this->weapon_model;
 }
 
 void GUIControl::run_quick_sim() {

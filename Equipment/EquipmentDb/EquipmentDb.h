@@ -20,6 +20,8 @@ public:
     void set_patch(const QString &current_patch);
     bool item_valid_for_current_patch(const QString &item_patch);
 
+    const QVector<MeleeWeapon*>& get_melee_weapons() const;
+
 protected:
 private:
     void read_equipment_files();

@@ -26,6 +26,7 @@ public:
     int get_max_dmg() const;
     int get_random_dmg() const;
     float get_base_weapon_speed() const;
+    float get_wpn_dps() const;
 
 protected:
     Random* random;

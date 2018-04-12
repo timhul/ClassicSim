@@ -9,6 +9,7 @@ Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString,
     this->stats = new Stats();
     set_stats(_stats);
     patch = info["patch"];
+    source = info["source"];
 }
 
 Item::~Item() {
@@ -26,6 +27,10 @@ void Item::set_stats(QVector<QPair<QString, QString>> stats) {
 
 QString Item::get_patch() const {
     return patch;
+}
+
+QString Item::get_source() const {
+    return source;
 }
 
 void Item::set_stat(const QString& key, const QString &value) {

@@ -70,5 +70,6 @@
         <file>QML/ClickableImage.qml</file>
         <file>QML/QuickSwitchBar.qml</file>
         <file>QML/Equipment.qml</file>
+        <file>QML/ItemEntryWeapon.qml</file>
     </qresource>
 </RCC>

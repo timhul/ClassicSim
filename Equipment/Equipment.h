@@ -54,6 +54,7 @@ public:
     void set_relic(Item*);
 
     void patch_changed();
+    const EquipmentDb* get_db() const;
 
 protected:
 private:

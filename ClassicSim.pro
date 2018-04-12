@@ -113,7 +113,8 @@ SOURCES += main.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp \
     Equipment/EquipmentDb/EquipmentDb.cpp \
     Equipment/Item/Item.cpp \
-    Equipment/Item/ItemModel.cpp
+    Equipment/Item/ItemModel.cpp \
+    Equipment/Item/MeleeWeapon/WeaponModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -221,7 +222,8 @@ HEADERS += \
     Character/Class/Warrior/Spells/BerserkerRage.h \
     Equipment/Item/MeleeWeapon/Specialization/Onehand.h \
     Equipment/EquipmentDb/EquipmentDb.h \
-    Equipment/Item/ItemModel.h
+    Equipment/Item/ItemModel.h \
+    Equipment/Item/MeleeWeapon/WeaponModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

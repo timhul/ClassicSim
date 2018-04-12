@@ -363,3 +363,7 @@ void Equipment::patch_changed() {
             this->relic = nullptr;
     }
 }
+
+const EquipmentDb* Equipment::get_db() const {
+    return this->db;
+}

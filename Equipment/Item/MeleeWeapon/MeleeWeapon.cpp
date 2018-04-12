@@ -23,3 +23,7 @@ int MeleeWeapon::get_random_dmg() const {
 float MeleeWeapon::get_base_weapon_speed() const {
     return weapon_speed;
 }
+
+float MeleeWeapon::get_wpn_dps() const {
+    return ((min_dmg + max_dmg) / 2) / weapon_speed;
+}

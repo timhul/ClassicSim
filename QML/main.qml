@@ -15,6 +15,12 @@ Window {
     property color gray: "#727171"
     property color brightGreen: "#6cf92f"
     property color brightRed: "#fc2323"
+    property color qualityPoor: "#9d9d9d"
+    property color qualityCommon: "#ffffff"
+    property color qualityUncommon: "#1eff00"
+    property color qualityRare: "#0070dd"
+    property color qualityLegendary: "#ff8000"
+    property color qualityEpic: "#a335ee"
 
     property color colorDruid: "#FF7D0A"
     property color colorHunter: "#ABD473"
@@ -27,6 +33,7 @@ Window {
     property color colorWarrior: "#C79C6E"
     property string fontNumbers: "Cambria Math"
     property string fontText: "Arial"
+
 
     color: darkGray
 
