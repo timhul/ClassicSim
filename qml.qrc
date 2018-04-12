@@ -114,5 +114,19 @@
         <file>QML/Assets/items/Inv_weapon_hand_03.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_07.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_27.png</file>
+        <file>QML/Assets/items/Inv_hammer_05.png</file>
+        <file>QML/Assets/items/Inv_hammer_08.png</file>
+        <file>QML/Assets/items/Inv_hammer_11.png</file>
+        <file>QML/Assets/items/Inv_hammer_19.png</file>
+        <file>QML/Assets/items/Inv_hammer_20.png</file>
+        <file>QML/Assets/items/Inv_hammer_21.png</file>
+        <file>QML/Assets/items/Inv_mace_04.png</file>
+        <file>QML/Assets/items/Inv_mace_06.png</file>
+        <file>QML/Assets/items/Inv_mace_08.png</file>
+        <file>QML/Assets/items/Inv_mace_13.png</file>
+        <file>QML/Assets/items/Inv_mace_1h_stratholme_d_01.png</file>
+        <file>QML/Assets/items/Inv_mace_24.png</file>
+        <file>QML/Assets/items/Inv_mace_28.png</file>
+        <file>QML/Assets/items/Spell_frost_frostbrand.png</file>
     </qresource>
 </RCC>

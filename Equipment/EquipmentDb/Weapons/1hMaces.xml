@@ -2,7 +2,7 @@
 <weapons>
 	<melee_weapon name="Stormstrike Hammer">
 		<patch name="1.5.0">
-			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE"  faction="ALLIANCE" boe="no"/>
+			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE"  faction="ALLIANCE" boe="no" icon="Inv_hammer_21.png"/>
 			<dmg_range min="80" max="150" speed="2.7"/>
 			<stats>
 				<stat type="STRENGTH" value="15"/>
@@ -15,7 +15,7 @@
 
 	<melee_weapon name="Sceptre of Smiting">
 		<patch name="1.7.0">
-			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no"/>
+			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_mace_08.png"/>
 			<dmg_range min="77" max="145" speed="2.6"/>
 			<stats>
 				<stat type="MACE_SKILL" value="2"/>
@@ -32,7 +32,7 @@
 	
 	<melee_weapon name="Ironfoe">
 		<patch name="1.0.0">
-			<info type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no"/>
+			<info type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
 			<dmg_range min="73" max="136" speed="2.4"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -46,7 +46,7 @@
 
 	<melee_weapon name="Gri'lek's Grinder">
 		<patch name="1.7.0">
-			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no"/>
+			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_mace_04.png"/>
 			<dmg_range min="75" max="140" speed="2.4"/>
 			<stats>
 				<stat type="ATTACK_POWER_DRAGONKIN" value="48"/>
@@ -59,7 +59,7 @@
 	
 	<melee_weapon name="Persuader">
 		<patch name="1.10.0">
-			<info type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes"/>
+			<info type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_hammer_08.png"/>
 			<dmg_range min="86" max="161" speed="2.7"/>
 			<stats>
 				<stat type="HIT_CHANCE" value="0.01"/>
@@ -73,7 +73,7 @@
 	
 	<melee_weapon name="Empyrean Demolisher">
 		<patch name="1.3.0">
-			<info type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no"/>
+			<info type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
 			<dmg_range min="94" max="175" speed="2.8"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -87,7 +87,7 @@
 	
 	<melee_weapon name="Ebon Hand">
 		<patch name="1.6.0">
-			<info type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes"/>
+			<info type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
 			<dmg_range min="83" max="153" speed="2.3"/>
 			<stats>
 				<stat type="STAMINA" value="9"/>
@@ -105,7 +105,7 @@
 	
 	<melee_weapon name="Anubisath Warhammer">
 		<patch name="1.9.0">
-			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no"/>
+			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_hammer_11.png"/>
 			<dmg_range min="66" max="123" speed="1.8"/>
 			<stats>
 				<stat type="STAMINA" value="7"/>
@@ -120,7 +120,7 @@
 	
 	<melee_weapon name="Sand Polished Hammer">
 		<patch name="1.9.0">
-			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no"/>
+			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_mace_24.png"/>
 			<dmg_range min="97" max="181" speed="2.6"/>
 			<stats>
 				<stat type="STAMINA" value="9"/>
@@ -135,7 +135,7 @@
 	
 	<melee_weapon name="Spineshatter">
 		<patch name="1.6.0">
-			<info type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no"/>
+			<info type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_06.png"/>
 			<dmg_range min="99" max="184" speed="2.6"/>
 			<stats>
 				<stat type="STAMINA" value="16"/>
@@ -150,7 +150,7 @@
 	
 	<melee_weapon name="High Warlord's Bludgeon">
 		<patch name="1.5.0">
-			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no"/>
+			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_hammer_20.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -165,7 +165,7 @@
 	
 	<melee_weapon name="Grand Marshal's Punisher">
 		<patch name="1.5.0">
-			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no"/>
+			<info type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_mace_13.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -180,7 +180,7 @@
 	
 	<melee_weapon name="The Castigator">
 		<patch name="1.11.0">
-			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no"/>
+			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_1h_stratholme_d_01.png"/>
 			<dmg_range min="119" max="221" speed="2.6"/>
 			<stats>
 				<stat type="STAMINA" value="9"/>
@@ -196,7 +196,7 @@
 	
 	<melee_weapon name="Misplaced Servo Arm">
 		<patch name="1.11.0">
-			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no"/>
+			<info type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_28.png"/>
 			<dmg_range min="128" max="238" speed="2.8"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
