@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<helms>
+	<helm name="Shadowcraft Cap">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
+			<stats>
+				<stat type="ARMOR" value="141"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="SPIRIT" value="5"/>
+			</stats>
+			<source>
+			Drops from Darkmaster Gandling in Scholomance.
+			</source>
+		</patch>
+	</helm>
+
+	<helm name="Eye of Rend">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_46.png"/>
+			<stats>
+				<stat type="ARMOR" value="143"/>
+				<stat type="STAMINA" value="7"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
+			</source>
+		</patch>
+	</helm>
+
+	<helm name="Foror's Eyepatch">
+		<patch name="1.7.0">
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
+			<stats>
+				<stat type="ARMOR" value="160"/>
+				<stat type="STAMINA" value="19"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="ATTACK_POWER" value="44"/>
+			</stats>
+			<source>
+			Drops from Gahz'ranka in Zul'Gurub.
+			</source>
+		</patch>
+	</helm>
+
+	<helm name="Blooddrenched Mask">
+		<patch name="1.7.0">
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
+			<stats>
+				<stat type="ARMOR" value="153"/>
+				<stat type="AGILITY" value="22"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from High Priest(ess) bosses in Zul'Gurub.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Circlet of Restless Dreams">
+		<patch name="1.8.0">
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="164"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="AGILITY" value="24"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Emeriss (world boss).
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Southwind Helm">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="164"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="AGILITY" value="24"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Moam in Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</helm>	
+	
+	<helm name="Guise of the Devourer">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
+			<stats>
+				<stat type="ARMOR" value="250"/>
+				<stat type="STAMINA" value="36"/>
+				<stat type="AGILITY" value="19"/>
+				<stat type="STRENGTH" value="17"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from bug trio in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</helm>	
+</helms>

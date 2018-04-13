@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<helms>
+
+	<helm name="Backwood Helm">
+		<patch name="1.0.0">
+			<info type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>
+			<stats>
+				<stat type="ARMOR" value="301"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="SPIRIT" value="9"/>
+				<stat type="STAMINA" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Balnazzar in Stratholme Living.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Crown of Tyranny">
+		<patch name="1.0.0">
+			<info type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_03.png"/>
+			<stats>
+				<stat type="ARMOR" value="301"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="40"/>
+			</stats>
+			<source>
+			Drops from Balnazzar in Stratholme Living.
+			</source>
+		</patch>
+	</helm>
+
+	<helm name="Bloodstained Coif">
+		<patch name="1.7.0">
+			<info type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_39.png"/>
+			<stats>
+				<stat type="ARMOR" value="337"/>
+				<stat type="INTELLECT" value="14"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="ATTACK_POWER" value="28"/>
+			</stats>
+			<source>
+			Drops from Jin'do the Hexxer in Zul'Gurub.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Crown of Destruction">
+		<patch name="1.0.0">
+			<info type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
+			<stats>
+				<stat type="ARMOR" value="392"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="SPIRIT" value="9"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="ATTACK_POWER" value="44"/>
+			</stats>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+	</helm>
+	
+
+	
+</helms>

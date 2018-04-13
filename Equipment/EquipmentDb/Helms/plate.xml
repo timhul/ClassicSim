@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<helms>
+	
+	<helm name="Lionheart Helm">
+		<patch name="1.5.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="yes" icon="Inv_helmet_36.png"/>
+			<stats>
+				<stat type="ARMOR" value="565"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Crafted by blacksmiths. Plans drop from world bosses and Ragnaros, Nefarian, Onyxia.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Warleader's Crown">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="UNCOMMON" boe="yes" icon="Inv_helmet_19.png"/>
+			<stats>
+				<stat type="ARMOR" value="478"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="SPIRIT" value="5"/>
+			</stats>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Lightforge Helm">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_08.png"/>
+			<stats>
+				<stat type="ARMOR" value="478"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="INTELLECT" value="14"/>
+				<stat type="AGILITY" value="6"/>
+				<stat type="SPIRIT" value="10"/>
+			</stats>
+			<source>
+			Drops from Darkmaster Gandling in Scholomance.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Helm of Valor">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_02.png"/>
+			<stats>
+				<stat type="ARMOR" value="478"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="SPIRIT" value="8"/>
+			</stats>
+			<source>
+			Drops from Darkmaster Gandling in Scholomance.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Lieutenant's Commander's Plate Helm">
+		<patch name="1.5.0">
+			<info type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="598"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Lieutenant Commander (rank 10). Alliance only.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Helm of the Executioner">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="534"/>
+				<stat type="STRENGTH" value="14"/>
+				<stat type="STAMINA" value="31"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Baron Rivendare in Stratholme Undead.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Grand Crusader's Helm">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="584"/>
+				<stat type="STRENGTH" value="16"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="SPIRIT" value="12"/>
+				<stat type="SHADOW_RESISTANCE" value="15"/>
+			</stats>
+			<source>
+			Drops from Balnazzar in Stratholme Living.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Darkrune Helm">
+		<patch name="1.8.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="584"/>
+				<stat type="STAMINA" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="SHADOW_RESISTANCE" value="25"/>
+			</stats>
+			<source>
+			Crafted by blacksmiths. Drops from bag awarded via repeatable quest in Silithus.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Champion's Plate Headguard">
+		<patch name="1.5.0">
+			<info type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="598"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Champion (rank 10). Horde only.
+			</source>
+		</patch>
+	</helm>
+
+	<helm name="Exalted Helmet">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="59" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_helmet_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="492"/>
+				<stat type="RANDOM_AFFIX" value="0"/>
+			</stats>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Gurubashi Helm">
+		<patch name="1.7.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_helmet_25.png"/>
+			<stats>
+				<stat type="ARMOR" value="549"/>
+				<stat type="STRENGTH" value="22"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="STAMINA" value="13"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Zul'Gurub.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Helm of Might">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_helmet_09.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="608"/>
+				<stat type="STAMINA" value="35"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+				<stat type="DEFENSE" value="7"/>
+			</stats>
+			<source>
+			Drops from Garr in Molten Core.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Dark Iron Helm">
+		<patch name="1.6.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_22.png"/>
+			<stats>
+				<stat type="ARMOR" value="758"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="FIRE_RESISTANCE" value="35"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Helm of Domination">
+		<patch name="1.9.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_09.png"/>
+			<stats>
+				<stat type="ARMOR" value="661"/>
+				<stat type="STAMINA" value="28"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="AGILITY" value="11"/>
+				<stat type="PARRY_CHANCE" value="0.01"/>
+				<stat type="DEFENSE" value="7"/>
+			</stats>
+			<source>
+			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Warlord's Plate Headpiece">
+		<patch name="1.5.0">
+			<info type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="719"/>
+				<stat type="STAMINA" value="34"/>
+				<stat type="STRENGTH" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Warlord (rank 13). Horde only.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Helm of Endless Rage">
+		<patch name="1.6.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_helmet_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="679"/>
+				<stat type="STRENGTH" value="26"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="29"/>
+			</stats>
+			<source>
+			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Field Marshal's Plate Helm">
+		<patch name="1.5.0">
+			<info type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="598"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			May be purchased upon reaching Field Marshal (rank 13). Alliance only.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Helm of Wrath">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_71.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="696"/>
+				<stat type="STAMINA" value="40"/>
+				<stat type="STRENGTH" value="17"/>
+				<stat type="FROST_RESISTANCE" value="10"/>
+				<stat type="SHADOW_RESISTANCE" value="10"/>
+				<stat type="DEFENSE" value="11"/>
+			</stats>
+			<source>
+			Drops from Onyxia in Onyxia's Lair.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Conqueror's Crown">
+		<patch name="1.9.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_72.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="739"/>
+				<stat type="AGILITY" value="18"/>
+				<stat type="STRENGTH" value="29"/>
+				<stat type="STAMINA" value="34"/>
+				<stat type="DEFENSE" value="6"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Icebane Helmet">
+		<patch name="1.11.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
+			<stats>
+				<stat type="ARMOR" value="757"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="STRENGTH" value="12"/>
+				<stat type="FROST_RESISTANCE" value="44"/>
+				<stat type="DEFENSE" value="8"/>
+			</stats>
+			<source>
+			Drops from Heigan the Unclean in Naxxramas.
+			</source>
+		</patch>
+	</helm>
+	
+	<helm name="Dreadnaught Helmet">
+		<patch name="1.11.0">
+			<info type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="800"/>
+				<stat type="STAMINA" value="45"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="DEFENSE" value="14"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drop from Thaddius in Naxxramas.
+			</source>
+		</patch>
+	</helm>
+	
+</helms>
