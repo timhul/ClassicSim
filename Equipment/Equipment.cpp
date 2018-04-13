@@ -145,125 +145,176 @@ void Equipment::set_offhand(const QString &name) {
     this->offhand = weapon;
 }
 
-void Equipment::set_ranged(Item* item) {
+void Equipment::set_ranged(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::RANGED);
     assert(get_relic() == nullptr);
-    if (this->ranged != nullptr)
-        delete this->ranged;
     this->ranged = item;
 }
 
-void Equipment::set_head(Item* item) {
+void Equipment::set_head(const QString &name) {
+    Item* item = db->get_head(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::HEAD);
-    if (this->head != nullptr)
-        delete this->head;
     this->head = item;
 }
 
-void Equipment::set_neck(Item* item) {
+void Equipment::set_neck(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::NECK);
-    if (this->neck != nullptr)
-        delete this->neck;
     this->neck = item;
 }
 
-void Equipment::set_shoulders(Item* item) {
+void Equipment::set_shoulders(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::SHOULDERS);
-    if (this->shoulders != nullptr)
-        delete this->shoulders;
     this->shoulders = item;
 }
 
-void Equipment::set_back(Item* item) {
+void Equipment::set_back(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::BACK);
-    if (this->back != nullptr)
-        delete this->back;
     this->back = item;
 }
 
-void Equipment::set_chest(Item* item) {
+void Equipment::set_chest(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::CHEST);
-    if (this->chest != nullptr)
-        delete this->chest;
     this->chest = item;
 }
 
-void Equipment::set_wrist(Item* item) {
+void Equipment::set_wrist(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::WRIST);
-    if (this->wrist != nullptr)
-        delete this->wrist;
     this->wrist = item;
 }
 
-void Equipment::set_gloves(Item* item) {
+void Equipment::set_gloves(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::GLOVES);
-    if (this->gloves != nullptr)
-        delete this->gloves;
     this->gloves = item;
 }
 
-void Equipment::set_belt(Item* item) {
+void Equipment::set_belt(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::BELT);
-    if (this->belt != nullptr)
-        delete this->belt;
     this->belt = item;
 }
 
-void Equipment::set_legs(Item* item) {
+void Equipment::set_legs(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::LEGS);
-    if (this->legs != nullptr)
-        delete this->legs;
     this->legs = item;
 }
 
-void Equipment::set_boots(Item* item) {
+void Equipment::set_boots(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::BOOTS);
-    if (this->boots != nullptr)
-        delete this->boots;
     this->boots = item;
 }
 
-void Equipment::set_ring1(Item* item) {
+void Equipment::set_ring1(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::RING);
-    if (this->ring1 != nullptr)
-        delete this->ring1;
     this->ring1 = item;
 }
 
-void Equipment::set_ring2(Item* item) {
+void Equipment::set_ring2(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::RING);
-    if (this->ring2 != nullptr)
-        delete this->ring2;
     this->ring2 = item;
 }
 
-void Equipment::set_trinket1(Item* item) {
+void Equipment::set_trinket1(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::TRINKET);
-    if (this->trinket1 != nullptr)
-        delete this->trinket1;
     this->trinket1 = item;
 }
 
-void Equipment::set_trinket2(Item* item) {
+void Equipment::set_trinket2(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::TRINKET);
-    if (this->trinket2 != nullptr)
-        delete this->trinket2;
     this->trinket2 = item;
 }
 
-void Equipment::set_caster_offhand(Item* item) {
+void Equipment::set_caster_offhand(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::CASTER_OFFHAND);
     assert(get_offhand() == nullptr);
-    if (this->caster_offhand != nullptr)
-        delete this->caster_offhand;
     this->caster_offhand = item;
 }
 
-void Equipment::set_relic(Item* item) {
+void Equipment::set_relic(const QString &name) {
+    Item* item = db->get_ranged(name);
+
+    if (item == nullptr)
+        return;
+
     assert(item->get_item_slot() == ItemSlots::RELIC);
     assert(get_ranged() == nullptr);
-    if (this->relic != nullptr)
-        delete this->relic;
     this->relic = item;
 }
 

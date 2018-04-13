@@ -62,12 +62,82 @@ MeleeWeapon* EquipmentDb::get_melee_weapon(const QString &name) {
     return nullptr;
 }
 
-Item* EquipmentDb::get_helm(const QString &name) {
+Item* EquipmentDb::get_ranged(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_head(const QString &name) {
     for (int i = 0; i < current_patch_helms.size(); ++i) {
         if (name == current_patch_helms[i]->get_name())
             return current_patch_helms[i];
     }
 
+    return nullptr;
+}
+
+Item* EquipmentDb::get_neck(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_shoulders(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_back(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_chest(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_wrist(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_gloves(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_belt(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_legs(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_boots(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_ring1(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_ring2(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_trinket1(const QString &name) {
+    qDebug() << "get" << name;
+    return nullptr;
+}
+
+Item* EquipmentDb::get_trinket2(const QString &name) {
+    qDebug() << "get" << name;
     return nullptr;
 }
 

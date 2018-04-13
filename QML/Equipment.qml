@@ -34,16 +34,21 @@ Rectangle {
                 spacing: 5
 
                 EquipmentSlotBox {
-                    id: helmSlot
+                    id: headSlot
 
                     state: eqRect.state
-                    slotString: "HELM"
+                    slotString: "HEAD"
+                    iconSource: equipment.headIcon
 
-                    onSelectItem: eqRect.state = "HELM"
+                    onSelectItem: eqRect.state = "HEAD"
                 }
 
                 EquipmentSlotBox {
                     id: neckSlot
+
+                    state: eqRect.state
+                    slotString: "NECK"
+                    iconSource: equipment.neckIcon
 
                     onSelectItem: eqRect.state = "NECK"
                 }
@@ -51,17 +56,29 @@ Rectangle {
                 EquipmentSlotBox {
                     id: shoulderSlot
 
+                    state: eqRect.state
+                    slotString: "SHOULDERS"
+                    iconSource: equipment.shouldersIcon
+
                     onSelectItem: eqRect.state = "SHOULDERS"
                 }
 
                 EquipmentSlotBox {
                     id: backSlot
 
+                    state: eqRect.state
+                    slotString: "BACK"
+                    iconSource: equipment.backIcon
+
                     onSelectItem: eqRect.state = "BACK"
                 }
 
                 EquipmentSlotBox {
                     id: chestSlot
+
+                    state: eqRect.state
+                    slotString: "CHEST"
+                    iconSource: equipment.chestIcon
 
                     onSelectItem: eqRect.state = "CHEST"
                 }
@@ -76,6 +93,10 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: wristSlot
+
+                    state: eqRect.state
+                    slotString: "WRIST"
+                    iconSource: equipment.wristIcon
 
                     onSelectItem: eqRect.state = "WRIST"
                 }
@@ -113,6 +134,10 @@ Rectangle {
                 EquipmentSlotBox {
                     id: rangedSlot
 
+                    state: eqRect.state
+                    slotString: "RANGED"
+                    iconSource: equipment.rangedIcon
+
                     onSelectItem: eqRect.state = "RANGED"
                 }
             }
@@ -140,49 +165,81 @@ Rectangle {
                 EquipmentSlotBox {
                     id: gloveSlot
 
-                    onSelectItem: console.log("Selecting gloves")
+                    state: eqRect.state
+                    slotString: "GLOVES"
+                    iconSource: equipment.glovesIcon
+
+                    onSelectItem: eqRect.state = "GLOVES"
                 }
 
                 EquipmentSlotBox {
                     id: beltSlot
 
-                    onSelectItem: console.log("Selecting belt")
+                    state: eqRect.state
+                    slotString: "BELT"
+                    iconSource: equipment.beltIcon
+
+                    onSelectItem: eqRect.state = "BELT"
                 }
 
                 EquipmentSlotBox {
                     id: legSlot
 
-                    onSelectItem: console.log("Selecting legs")
+                    state: eqRect.state
+                    slotString: "LEGS"
+                    iconSource: equipment.legsIcon
+
+                    onSelectItem: eqRect.state = "LEGS"
                 }
 
                 EquipmentSlotBox {
                     id: bootSlot
 
-                    onSelectItem: console.log("Selecting boots")
+                    state: eqRect.state
+                    slotString: "BOOTS"
+                    iconSource: equipment.bootsIcon
+
+                    onSelectItem: eqRect.state = "BOOTS"
                 }
 
                 EquipmentSlotBox {
                     id: ring1Slot
 
-                    onSelectItem: console.log("Selecting ring1")
+                    state: eqRect.state
+                    slotString: "RING1"
+                    iconSource: equipment.ring1Icon
+
+                    onSelectItem: eqRect.state = "RING1"
                 }
 
                 EquipmentSlotBox {
                     id: ring2Slot
 
-                    onSelectItem: console.log("Selecting ring2")
+                    state: eqRect.state
+                    slotString: "RING2"
+                    iconSource: equipment.ring2Icon
+
+                    onSelectItem: eqRect.state = "RING2"
                 }
 
                 EquipmentSlotBox {
                     id: trinket1Slot
 
-                    onSelectItem: console.log("Selecting trinket1")
+                    state: eqRect.state
+                    slotString: "TRINKET1"
+                    iconSource: equipment.trinket1Icon
+
+                    onSelectItem: eqRect.state = "TRINKET1"
                 }
 
                 EquipmentSlotBox {
                     id: trinket2Slot
 
-                    onSelectItem: console.log("Selecting trinket2")
+                    state: eqRect.state
+                    slotString: "TRINKET2"
+                    iconSource: equipment.trinket2Icon
+
+                    onSelectItem: eqRect.state = "TRINKET2"
                 }
             }
         }

@@ -80,6 +80,21 @@ public:
     /* Equipment */
     Q_PROPERTY(QString mainhandIcon READ get_mainhand_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString offhandIcon READ get_offhand_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString rangedIcon READ get_ranged_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString headIcon READ get_head_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString neckIcon READ get_neck_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString shouldersIcon READ get_shoulders_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString backIcon READ get_back_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString chestIcon READ get_chest_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString wristIcon READ get_wrist_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString glovesIcon READ get_gloves_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString beltIcon READ get_belt_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString legsIcon READ get_legs_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString bootsIcon READ get_boots_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString ring1Icon READ get_ring1_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString ring2Icon READ get_ring2_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString trinket1Icon READ get_trinket1_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString trinket2Icon READ get_trinket2_icon NOTIFY equipmentChanged)
 
     Q_INVOKABLE void clearSlot(QString slot_string);
     Q_INVOKABLE void setSlot(QString slot_string, QString item);
@@ -127,6 +142,21 @@ private:
 
     QString get_mainhand_icon() const;
     QString get_offhand_icon() const;
+    QString get_ranged_icon() const;
+    QString get_head_icon() const;
+    QString get_neck_icon() const;
+    QString get_shoulders_icon() const;
+    QString get_back_icon() const;
+    QString get_chest_icon() const;
+    QString get_wrist_icon() const;
+    QString get_gloves_icon() const;
+    QString get_belt_icon() const;
+    QString get_legs_icon() const;
+    QString get_boots_icon() const;
+    QString get_ring1_icon() const;
+    QString get_ring2_icon() const;
+    QString get_trinket1_icon() const;
+    QString get_trinket2_icon() const;
 
 
     Engine* engine;

@@ -314,11 +314,132 @@ QString GUIControl::get_offhand_icon() const {
     return "";
 }
 
+QString GUIControl::get_ranged_icon() const {
+    if (equipment->get_ranged() != nullptr)
+        return "Assets/items/" + equipment->get_ranged()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_head_icon() const {
+    if (equipment->get_head() != nullptr)
+        return "Assets/items/" + equipment->get_head()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_neck_icon() const {
+    if (equipment->get_neck() != nullptr)
+        return "Assets/items/" + equipment->get_neck()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_shoulders_icon() const {
+    if (equipment->get_shoulders() != nullptr)
+        return "Assets/items/" + equipment->get_shoulders()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_back_icon() const {
+    if (equipment->get_back() != nullptr)
+        return "Assets/items/" + equipment->get_back()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_chest_icon() const {
+    if (equipment->get_chest() != nullptr)
+        return "Assets/items/" + equipment->get_chest()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_wrist_icon() const {
+    if (equipment->get_wrist() != nullptr)
+        return "Assets/items/" + equipment->get_wrist()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_gloves_icon() const {
+    if (equipment->get_gloves() != nullptr)
+        return "Assets/items/" + equipment->get_gloves()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_belt_icon() const {
+    if (equipment->get_belt() != nullptr)
+        return "Assets/items/" + equipment->get_belt()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_legs_icon() const {
+    if (equipment->get_legs() != nullptr)
+        return "Assets/items/" + equipment->get_legs()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_boots_icon() const {
+    if (equipment->get_boots() != nullptr)
+        return "Assets/items/" + equipment->get_boots()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_ring1_icon() const {
+    if (equipment->get_ring1() != nullptr)
+        return "Assets/items/" + equipment->get_ring1()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_ring2_icon() const {
+    if (equipment->get_ring2() != nullptr)
+        return "Assets/items/" + equipment->get_ring2()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_trinket1_icon() const {
+    if (equipment->get_trinket1() != nullptr)
+        return "Assets/items/" + equipment->get_trinket1()->get_value("icon");
+    return "";
+}
+
+QString GUIControl::get_trinket2_icon() const {
+    if (equipment->get_trinket2() != nullptr)
+        return "Assets/items/" + equipment->get_trinket2()->get_value("icon");
+    return "";
+}
+
 void GUIControl::setSlot(QString slot_string, QString item) {
     if (slot_string == "MAINHAND")
         equipment->set_mainhand(item);
     if (slot_string == "OFFHAND")
         equipment->set_offhand(item);
+    if (slot_string == "RANGED")
+        equipment->set_ranged(item);
+    if (slot_string == "HEAD")
+        equipment->set_head(item);
+    if (slot_string == "NECK")
+        equipment->set_neck(item);
+    if (slot_string == "SHOULDERS")
+        equipment->set_shoulders(item);
+    if (slot_string == "BACK")
+        equipment->set_back(item);
+    if (slot_string == "CHEST")
+        equipment->set_chest(item);
+    if (slot_string == "WRIST")
+        equipment->set_wrist(item);
+    if (slot_string == "GLOVES")
+        equipment->set_gloves(item);
+    if (slot_string == "BELT")
+        equipment->set_belt(item);
+    if (slot_string == "LEGS")
+        equipment->set_legs(item);
+    if (slot_string == "BOOTS")
+        equipment->set_boots(item);
+    if (slot_string == "RING1")
+        equipment->set_ring1(item);
+    if (slot_string == "RING2")
+        equipment->set_ring2(item);
+    if (slot_string == "TRINKET1")
+        equipment->set_trinket1(item);
+    if (slot_string == "TRINKET2")
+        equipment->set_trinket2(item);
+
     equipmentChanged();
 }
 
@@ -327,6 +448,37 @@ void GUIControl::clearSlot(QString slot_string) {
         equipment->clear_mainhand();
     if (slot_string == "OFFHAND")
         equipment->clear_offhand();
+    if (slot_string == "RANGED")
+        equipment->clear_ranged();
+    if (slot_string == "HEAD")
+        equipment->clear_head();
+    if (slot_string == "NECK")
+        equipment->clear_neck();
+    if (slot_string == "SHOULDERS")
+        equipment->clear_shoulders();
+    if (slot_string == "BACK")
+        equipment->clear_back();
+    if (slot_string == "CHEST")
+        equipment->clear_chest();
+    if (slot_string == "WRIST")
+        equipment->clear_wrist();
+    if (slot_string == "GLOVES")
+        equipment->clear_gloves();
+    if (slot_string == "BELT")
+        equipment->clear_belt();
+    if (slot_string == "LEGS")
+        equipment->clear_legs();
+    if (slot_string == "BOOTS")
+        equipment->clear_boots();
+    if (slot_string == "RING1")
+        equipment->clear_ring1();
+    if (slot_string == "RING2")
+        equipment->clear_ring2();
+    if (slot_string == "TRINKET1")
+        equipment->clear_trinket1();
+    if (slot_string == "TRINKET2")
+        equipment->clear_trinket2();
+
     equipmentChanged();
 }
 

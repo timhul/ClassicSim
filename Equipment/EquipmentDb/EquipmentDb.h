@@ -17,7 +17,21 @@ public:
     ~EquipmentDb();
 
     MeleeWeapon* get_melee_weapon(const QString &name);
-    Item* get_helm(const QString &name);
+    Item* get_ranged(const QString &name);
+    Item* get_head(const QString &name);
+    Item* get_neck(const QString &name);
+    Item* get_shoulders(const QString &name);
+    Item* get_back(const QString &name);
+    Item* get_chest(const QString &name);
+    Item* get_wrist(const QString &name);
+    Item* get_gloves(const QString &name);
+    Item* get_belt(const QString &name);
+    Item* get_legs(const QString &name);
+    Item* get_boots(const QString &name);
+    Item* get_ring1(const QString &name);
+    Item* get_ring2(const QString &name);
+    Item* get_trinket1(const QString &name);
+    Item* get_trinket2(const QString &name);
 
     void set_patch(const QString &current_patch);
     bool item_valid_for_current_patch(const QString &item_patch);
