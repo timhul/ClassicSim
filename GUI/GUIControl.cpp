@@ -307,14 +307,24 @@ QString GUIControl::get_mainhand_icon() const {
     return "";
 }
 
+QString GUIControl::get_offhand_icon() const {
+    if (equipment->get_offhand() != nullptr)
+        return "Assets/items/" + equipment->get_offhand()->get_value("icon");
+    return "";
+}
+
 void GUIControl::setSlot(QString slot_string, QString item) {
     if (slot_string == "MAINHAND")
         equipment->set_mainhand(item);
+    if (slot_string == "OFFHAND")
+        equipment->set_offhand(item);
     equipmentChanged();
 }
 
 void GUIControl::clearSlot(QString slot_string) {
     if (slot_string == "MAINHAND")
         equipment->clear_mainhand();
+    if (slot_string == "OFFHAND")
+        equipment->clear_offhand();
     equipmentChanged();
 }

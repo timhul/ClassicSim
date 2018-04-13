@@ -79,6 +79,7 @@ public:
 
     /* Equipment */
     Q_PROPERTY(QString mainhandIcon READ get_mainhand_icon NOTIFY equipmentChanged)
+    Q_PROPERTY(QString offhandIcon READ get_offhand_icon NOTIFY equipmentChanged)
 
     Q_INVOKABLE void clearSlot(QString slot_string);
     Q_INVOKABLE void setSlot(QString slot_string, QString item);
@@ -124,7 +125,7 @@ private:
     void run_quick_sim();
 
     QString get_mainhand_icon() const;
-
+    QString get_offhand_icon() const;
 
 
     Engine* engine;

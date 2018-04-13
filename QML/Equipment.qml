@@ -105,6 +105,7 @@ Rectangle {
 
                     state: eqRect.state
                     slotString: "OFFHAND"
+                    iconSource: equipment.offhandIcon
 
                     onSelectItem: eqRect.state = "OFFHAND"
                 }
