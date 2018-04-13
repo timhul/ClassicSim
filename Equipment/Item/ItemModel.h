@@ -5,6 +5,7 @@
 #include <QStringList>
 
 class Item;
+class EquipmentDb;
 
 class ItemModel : public QAbstractListModel
 {
@@ -12,11 +13,22 @@ class ItemModel : public QAbstractListModel
 public:
     enum ItemRoles {
         NameRole = Qt::UserRole + 1,
+        PatchRole,
+        SourceRole,
+        TypeRole,
+        ReqLvlRole,
+        ItemLvlRole,
+        QualityRole,
+        IconRole
     };
 
-    ItemModel(QObject *parent = 0);
+    ItemModel(EquipmentDb*, QObject *parent = 0);
 
-    void addItem(Item *item);
+    void set_patch(const QString &patch);
+    Q_INVOKABLE void setSlot(const QString &slot);
+
+    void addItems(const EquipmentDb *db);
+    void addItem(Item* item);
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
 
@@ -25,6 +37,8 @@ public:
 protected:
     QHash<int, QByteArray> roleNames() const;
 private:
+    QString slot;
+    EquipmentDb* db;
     QList<Item*> items;
 };
 

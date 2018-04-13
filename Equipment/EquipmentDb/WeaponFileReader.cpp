@@ -7,7 +7,6 @@
 #include <QDebug>
 
 void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
-    qDebug() << "Handling weapons";
     while (reader.readNextStartElement()) {
         if (reader.name() == "melee_weapon" || reader.name() == "ranged_weapon") {
             QString classification = reader.name().toString();
@@ -99,23 +98,23 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
 
     MeleeWeapon* weapon = nullptr;
 
-    if (item_map["slot"] == "1H")
+    if (info["slot"] == "1H")
         weapon = new Onehand(item_map["name"], get_weapon_type(info["type"]),
                 item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
-    else if (item_map["slot"] == "MH")
+    else if (info["slot"] == "MH")
         weapon = new Mainhand(item_map["name"], get_weapon_type(info["type"]),
                 item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
-    else if (item_map["slot"] == "OH")
+    else if (info["slot"] == "OH")
         weapon = new Offhand(item_map["name"], get_weapon_type(info["type"]),
                 item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
-    else if (item_map["slot"] == "2H")
+    else if (info["slot"] == "2H")
         weapon = new TwoHander(item_map["name"], get_weapon_type(info["type"]),
                 item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
 
     if (weapon != nullptr)
         items.append(weapon);
 
-    QVector<QString> handled_keys = {"name", "slot", "type", "min", "max", "speed"};
+    QVector<QString> handled_keys = {"name", "type", "min", "max", "speed"};
 
     for (int i = 0; i < handled_keys.size(); ++i) {
         item_map.remove(handled_keys[i]);

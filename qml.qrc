@@ -130,5 +130,24 @@
         <file>QML/Assets/items/Spell_frost_frostbrand.png</file>
         <file>QML/Assets/char_slots.png</file>
         <file>QML/EquipmentSlotBox.qml</file>
+        <file>QML/Assets/items/Inv_crown_02.png</file>
+        <file>QML/Assets/items/Inv_helmet_01.png</file>
+        <file>QML/Assets/items/Inv_helmet_02.png</file>
+        <file>QML/Assets/items/Inv_helmet_03.png</file>
+        <file>QML/Assets/items/Inv_helmet_05.png</file>
+        <file>QML/Assets/items/Inv_helmet_06.png</file>
+        <file>QML/Assets/items/Inv_helmet_08.png</file>
+        <file>QML/Assets/items/Inv_helmet_09.png</file>
+        <file>QML/Assets/items/Inv_helmet_10.png</file>
+        <file>QML/Assets/items/Inv_helmet_19.png</file>
+        <file>QML/Assets/items/Inv_helmet_22.png</file>
+        <file>QML/Assets/items/Inv_helmet_25.png</file>
+        <file>QML/Assets/items/Inv_helmet_36.png</file>
+        <file>QML/Assets/items/Inv_helmet_39.png</file>
+        <file>QML/Assets/items/Inv_helmet_41.png</file>
+        <file>QML/Assets/items/Inv_helmet_46.png</file>
+        <file>QML/Assets/items/Inv_helmet_58.png</file>
+        <file>QML/Assets/items/Inv_helmet_71.png</file>
+        <file>QML/Assets/items/Inv_helmet_72.png</file>
     </qresource>
 </RCC>

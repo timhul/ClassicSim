@@ -61,7 +61,8 @@ GUIControl::GUIControl(QObject* parent) :
 
     current_char = chars["WARRIOR"];
 
-    item_model = new ItemModel();
+    item_model = new ItemModel(equipment->get_db());
+    item_model->addItems(equipment->get_db());
 
     weapon_model = new WeaponModel(equipment->get_db());
     weapon_model->addWeapons(equipment->get_db());
@@ -327,4 +328,9 @@ void GUIControl::clearSlot(QString slot_string) {
     if (slot_string == "OFFHAND")
         equipment->clear_offhand();
     equipmentChanged();
+}
+
+void GUIControl::setPatch(QString patch) {
+    weapon_model->set_patch(patch);
+    item_model->set_patch(patch);
 }

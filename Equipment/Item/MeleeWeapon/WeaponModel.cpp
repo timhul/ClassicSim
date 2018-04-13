@@ -22,7 +22,8 @@ bool name(MeleeWeapon* lhs, MeleeWeapon* rhs) {
     return lhs->get_name() > rhs->get_name();
 }
 
-void WeaponModel::setPatch(const QString &patch) {
+void WeaponModel::set_patch(const QString &patch) {
+    // TODO: Check if using patch_split fixes occasional 1 entry in model bug.
     QString patch_split = patch.split(' ').first();
     db->set_patch(patch);
     addWeapons(this->db);
@@ -41,7 +42,9 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
         addWeapon(dynamic_cast<MeleeWeapon*>(wpns[i]));
     }
 
+    layoutAboutToBeChanged();
     std::sort(melee_weapons.begin(), melee_weapons.end(), dps);
+    layoutChanged();
 }
 
 void WeaponModel::addWeapon(MeleeWeapon* weapon)

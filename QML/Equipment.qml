@@ -206,6 +206,8 @@ Rectangle {
         ScrollView {
             width: parent.width
 
+            visible: eqRect.state === "MAINHAND"
+
             anchors {
                 top: sortRect.bottom
                 right: parent.right
@@ -222,6 +224,40 @@ Rectangle {
                     entryName: name
                     entrySpeed: speed
                     entryDps: dps
+                    entryPatch: patch
+                    entrySource: source
+                    entryType: type
+                    entryReq: req_lvl
+                    entryItemlvl: item_lvl
+                    entryQuality: quality
+                    entryIcon: icon
+
+                    onEntryClicked: equipment.setSlot(eqRect.state, entryName)
+                }
+            }
+        }
+
+        ScrollView {
+            width: parent.width
+
+            visible: eqRect.state !== "MAINHAND"
+
+            anchors {
+                top: sortRect.bottom
+                right: parent.right
+                bottom: parent.bottom
+            }
+
+            ListView {
+                model: itemModel
+                boundsBehavior: Flickable.StopAtBounds
+
+                clip: true
+
+                delegate: ItemEntryWeapon {
+                    entryName: name
+                    entrySpeed: "0"
+                    entryDps: "0"
                     entryPatch: patch
                     entrySource: source
                     entryType: type

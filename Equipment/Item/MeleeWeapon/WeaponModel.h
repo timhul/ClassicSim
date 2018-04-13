@@ -26,7 +26,8 @@ public:
 
     WeaponModel(EquipmentDb*, QObject *parent = 0);
 
-    Q_INVOKABLE void setPatch(const QString &patch);
+    void set_patch(const QString &patch);
+
     void addWeapons(const EquipmentDb *db);
     void addWeapon(MeleeWeapon *weapon);
 

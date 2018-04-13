@@ -94,6 +94,7 @@ public:
 
 
     Q_INVOKABLE void runQuickSim();
+    Q_INVOKABLE void setPatch(QString patch);
 
 
 

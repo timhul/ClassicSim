@@ -23,6 +23,7 @@ public:
     bool item_valid_for_current_patch(const QString &item_patch);
 
     const QVector<Item *> &get_mh_slot_items() const;
+    const QVector<Item *> &get_slot_items(const QString &slot) const;
 
     void add_melee_weapon(MeleeWeapon* wpn);
 
@@ -45,6 +46,8 @@ private:
 
     QVector<Item*> helms;
     QVector<Item*> current_patch_helms;
+
+    QVector<QVector<Item*>> all_slots_items;
 
 };
 

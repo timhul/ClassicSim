@@ -15,11 +15,30 @@ EquipmentDb::EquipmentDb(QObject* parent):
 {
     read_equipment_files();
     set_patch("1.12.1");
+
+    all_slots_items.append(mh_slot_items);
+    all_slots_items.append(oh_slot_items);
+    all_slots_items.append(helms);
 }
 
 EquipmentDb::~EquipmentDb() {
     for (int i = 0; i < mh_slot_items.size(); ++i) {
         delete mh_slot_items[i];
+    }
+
+    for (int i = 0; i < oh_slot_items.size(); ++i) {
+        if (mh_slot_items.contains(oh_slot_items[i]))
+            continue;
+
+        delete oh_slot_items[i];
+    }
+
+    for (int i = 0; i < helms.size(); ++i) {
+        delete helms[i];
+    }
+
+    for (int i = 0; i < all_slots_items.size(); ++i) {
+        all_slots_items[i].clear();
     }
 }
 
@@ -54,6 +73,10 @@ Item* EquipmentDb::get_helm(const QString &name) {
 
 const QVector<Item *>& EquipmentDb::get_mh_slot_items() const {
     return current_patch_mh_slot_items;
+}
+
+const QVector<Item *> & EquipmentDb::get_slot_items(const QString &) const {
+    return current_patch_helms;
 }
 
 void EquipmentDb::set_patch(const QString &patch) {

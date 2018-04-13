@@ -73,7 +73,7 @@ Window {
 
         currentIndex: 12
 
-        onActivated: weaponModel.setPatch(currentText)
+        onActivated: settings.setPatch(currentText)
     }
 
     RectangleBorders {
