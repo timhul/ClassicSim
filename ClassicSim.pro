@@ -114,7 +114,9 @@ SOURCES += main.cpp \
     Equipment/EquipmentDb/EquipmentDb.cpp \
     Equipment/Item/Item.cpp \
     Equipment/Item/ItemModel.cpp \
-    Equipment/Item/MeleeWeapon/WeaponModel.cpp
+    Equipment/Item/MeleeWeapon/WeaponModel.cpp \
+    Equipment/EquipmentDb/ItemFileReader.cpp \
+    Equipment/EquipmentDb/WeaponFileReader.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -223,7 +225,9 @@ HEADERS += \
     Equipment/Item/MeleeWeapon/Specialization/Onehand.h \
     Equipment/EquipmentDb/EquipmentDb.h \
     Equipment/Item/ItemModel.h \
-    Equipment/Item/MeleeWeapon/WeaponModel.h
+    Equipment/Item/MeleeWeapon/WeaponModel.h \
+    Equipment/EquipmentDb/ItemFileReader.h \
+    Equipment/EquipmentDb/WeaponFileReader.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

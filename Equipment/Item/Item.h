@@ -55,7 +55,7 @@ public:
     Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info);
     virtual ~Item();
 
-    virtual int get_item_type(void) const = 0;
+    virtual int get_item_slot(void) const;
 
     QString get_name(void) const;
     QString get_value(const QString& key) const;
@@ -68,9 +68,11 @@ protected:
     QString patch;
     QString source;
     QString quality;
-    Stats* stats;
     QMap<QString, QString> info;
+    Stats* stats;
 
+    int slot;
+    void set_item_slot(const QMap<QString, QString>& info);
     void unsupported_stat(const QString& stat);
 
 private:

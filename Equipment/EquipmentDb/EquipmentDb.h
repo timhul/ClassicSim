@@ -7,6 +7,7 @@
 #include <QVector>
 #include <QVersionNumber>
 
+class Item;
 class MeleeWeapon;
 
 class EquipmentDb: public QObject {
@@ -16,11 +17,12 @@ public:
     ~EquipmentDb();
 
     MeleeWeapon* get_melee_weapon(const QString &name);
+    Item* get_helm(const QString &name);
 
     void set_patch(const QString &current_patch);
     bool item_valid_for_current_patch(const QString &item_patch);
 
-    const QVector<MeleeWeapon*>& get_melee_weapons() const;
+    const QVector<Item *> &get_mh_slot_items() const;
 
     void add_melee_weapon(MeleeWeapon* wpn);
 
@@ -28,41 +30,21 @@ protected:
 private:
     void read_equipment_files();
 
-
-    void read_equipment_file(const QString &path);
-    void weapon_file_handler(QXmlStreamReader &reader);
-
-    void info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item);
-    void dmg_range_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item);
-    void class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item);
-    void stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>> &stats);
-    void proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>> &procs);
-
-    void add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item);
-    void add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item);
-
-    void create_item(QMap<QString, QString> &item, QVector<QPair<QString, QString> > &stats, QVector<QMap<QString, QString>> &procs);
-
-    void create_melee_weapon(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>> &procs);
-    void create_ranged_weapon(QMap<QString, QString> &item, QVector<QPair<QString, QString>> &stats, QVector<QMap<QString, QString>> &procs);
-
-    void add_onehand_weapon(MeleeWeapon* weapon);
-    void add_twohand_weapon(MeleeWeapon* weapon);
-
-    void extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info);
-    void extract_stats(QMap<QString, QString> &item, QMap<QString, QString> &stats);
-
-    void extract(QVector<QString> handled_keys, QMap<QString, QString> &source, QMap<QString, QString> &target);
-
-    void warn_remaining_keys(QMap<QString, QString> &item);
-
-    int get_weapon_type(const QString &type);
-    QString get_type_string(const QString &slot, const QString &type);
-
     QVersionNumber current_patch;
-    QVector<MeleeWeapon*> melee_weapons;
 
-    QVector<MeleeWeapon*> current_patch_melee_weapons;
+    void set_weapons(QVector<Item*> &mixed_items);
+    void set_items(QVector<Item*> &mixed_items, QVector<Item *> &sorted, const int slot);
+
+    void set_patch_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &patch_slot_items);
+
+    QVector<Item*> mh_slot_items;
+    QVector<Item*> current_patch_mh_slot_items;
+
+    QVector<Item*> oh_slot_items;
+    QVector<Item*> current_patch_oh_slot_items;
+
+    QVector<Item*> helms;
+    QVector<Item*> current_patch_helms;
 
 };
 

@@ -1,7 +1,7 @@
 
 #include "Mainhand.h"
 
-int Mainhand::get_item_type(void) const {
+int Mainhand::get_item_slot(void) const {
     return ItemSlots::MAINHAND;
 }
 

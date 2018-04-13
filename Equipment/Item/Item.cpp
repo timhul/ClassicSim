@@ -8,10 +8,59 @@ Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString,
 {
     this->stats = new Stats();
     set_stats(_stats);
+    set_item_slot(info);
 }
 
 Item::~Item() {
     delete stats;
+}
+
+void Item::set_item_slot(const QMap<QString, QString>& info) {
+    slot = -1;
+    if (!info.contains("slot")) {
+        return;
+    }
+
+    QString slot_string = info["slot"];
+
+    if (slot_string == "MAINHAND")
+        slot = ItemSlots::MAINHAND;
+    else if (slot_string == "OFFHAND")
+        slot = ItemSlots::OFFHAND;
+    else if (slot_string == "RANGED")
+        slot = ItemSlots::RANGED;
+    else if (slot_string == "HEAD")
+        slot = ItemSlots::HEAD;
+    else if (slot_string == "NECK")
+        slot = ItemSlots::NECK;
+    else if (slot_string == "SHOULDERS")
+        slot = ItemSlots::SHOULDERS;
+    else if (slot_string == "BACK")
+        slot = ItemSlots::BACK;
+    else if (slot_string == "CHEST")
+        slot = ItemSlots::CHEST;
+    else if (slot_string == "WRIST")
+        slot = ItemSlots::WRIST;
+    else if (slot_string == "GLOVES")
+        slot = ItemSlots::GLOVES;
+    else if (slot_string == "BELT")
+        slot = ItemSlots::BELT;
+    else if (slot_string == "LEGS")
+        slot = ItemSlots::LEGS;
+    else if (slot_string == "BOOTS")
+        slot = ItemSlots::BOOTS;
+    else if (slot_string == "RING")
+        slot = ItemSlots::RING;
+    else if (slot_string == "TRINKET")
+        slot = ItemSlots::TRINKET;
+    else if (slot_string == "CASTER_OFFHAND")
+        slot = ItemSlots::CASTER_OFFHAND;
+    else if (slot_string == "RELIC")
+        slot = ItemSlots::RELIC;
+}
+
+int Item::get_item_slot(void) const {
+    return slot;
 }
 
 QString Item::get_name(void) const {

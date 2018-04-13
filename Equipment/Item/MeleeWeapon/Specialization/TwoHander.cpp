@@ -1,7 +1,7 @@
 
 #include "TwoHander.h"
 
-int TwoHander::get_item_type(void) const {
+int TwoHander::get_item_slot(void) const {
     return ItemSlots::MAINHAND;
 }
 

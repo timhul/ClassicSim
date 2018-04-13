@@ -35,10 +35,10 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
         endRemoveRows();
     }
 
-    QVector<MeleeWeapon*> wpns = db->get_melee_weapons();
+    QVector<Item*> wpns = db->get_mh_slot_items();
 
     for (int i = 0; i < wpns.size(); ++i) {
-        addWeapon(wpns[i]);
+        addWeapon(dynamic_cast<MeleeWeapon*>(wpns[i]));
     }
 
     std::sort(melee_weapons.begin(), melee_weapons.end(), dps);
