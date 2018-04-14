@@ -1,6 +1,6 @@
 
 #include "WeaponModel.h"
-#include "MeleeWeapon.h"
+#include "Weapon.h"
 #include "EquipmentDb.h"
 #include <QDebug>
 
@@ -10,15 +10,15 @@ WeaponModel::WeaponModel(EquipmentDb* db, QObject *parent)
     this->db = db;
 }
 
-bool dps(MeleeWeapon* lhs, MeleeWeapon* rhs) {
+bool dps(Weapon* lhs, Weapon* rhs) {
     return lhs->get_wpn_dps() > rhs->get_wpn_dps();
 }
 
-bool speed(MeleeWeapon* lhs, MeleeWeapon* rhs) {
+bool speed(Weapon* lhs, Weapon* rhs) {
     return lhs->get_base_weapon_speed() > rhs->get_base_weapon_speed();
 }
 
-bool name(MeleeWeapon* lhs, MeleeWeapon* rhs) {
+bool name(Weapon* lhs, Weapon* rhs) {
     return lhs->get_name() > rhs->get_name();
 }
 
@@ -39,7 +39,7 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
     QVector<Item*> wpns = db->get_mh_slot_items();
 
     for (int i = 0; i < wpns.size(); ++i) {
-        addWeapon(dynamic_cast<MeleeWeapon*>(wpns[i]));
+        addWeapon(dynamic_cast<Weapon*>(wpns[i]));
     }
 
     layoutAboutToBeChanged();
@@ -47,7 +47,7 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
     layoutChanged();
 }
 
-void WeaponModel::addWeapon(MeleeWeapon* weapon)
+void WeaponModel::addWeapon(Weapon* weapon)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     melee_weapons << weapon;
@@ -63,7 +63,7 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
     if (index.row() < 0 || index.row() >= melee_weapons.count())
         return QVariant();
 
-    const MeleeWeapon* weapon = melee_weapons[index.row()];
+    const Weapon* weapon = melee_weapons[index.row()];
 
     if (role == NameRole)
         return weapon->get_name();

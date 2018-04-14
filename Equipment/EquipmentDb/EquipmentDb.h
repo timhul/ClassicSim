@@ -8,7 +8,7 @@
 #include <QVersionNumber>
 
 class Item;
-class MeleeWeapon;
+class Weapon;
 
 class EquipmentDb: public QObject {
 public:
@@ -16,7 +16,7 @@ public:
 
     ~EquipmentDb();
 
-    MeleeWeapon* get_melee_weapon(const QString &name);
+    Weapon* get_melee_weapon(const QString &name);
     Item* get_ranged(const QString &name);
     Item* get_head(const QString &name);
     Item* get_neck(const QString &name);
@@ -37,7 +37,7 @@ public:
     const QVector<Item *> &get_mh_slot_items() const;
     const QVector<Item *> &get_slot_items(const int slot) const;
 
-    void add_melee_weapon(MeleeWeapon* wpn);
+    void add_melee_weapon(Weapon* wpn);
 
 protected:
 private:

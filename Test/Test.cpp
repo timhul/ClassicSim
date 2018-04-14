@@ -303,7 +303,7 @@ void Test::test_equipment_creation(void) {
     Equipment* equipment = new Equipment();
     add_frostbite(equipment->get_db());
     equipment->set_mainhand("Frostbite");
-    MeleeWeapon* mh = equipment->get_mainhand();
+    Weapon* mh = equipment->get_mainhand();
 
     assert(mh->get_name() == "Frostbite");
     assert(mh->get_weapon_type() == WeaponTypes::AXE);

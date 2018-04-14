@@ -175,5 +175,6 @@
         <file>QML/Assets/items/Inv_shoulder_01.png</file>
         <file>QML/Assets/items/Inv_shoulder_10.png</file>
         <file>QML/Assets/items/Inv_shoulder_23.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_08.png</file>
     </qresource>
 </RCC>

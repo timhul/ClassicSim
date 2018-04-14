@@ -35,11 +35,11 @@ bool Equipment::is_dual_wielding(void) {
     return offhand != nullptr;
 }
 
-MeleeWeapon* Equipment::get_mainhand(void) {
+Weapon* Equipment::get_mainhand(void) {
     return mainhand;
 }
 
-MeleeWeapon* Equipment::get_offhand(void) {
+Weapon* Equipment::get_offhand(void) {
     return offhand;
 }
 
@@ -112,7 +112,7 @@ Item* Equipment::get_relic(void) {
 }
 
 void Equipment::set_mainhand(const QString &name) {
-    MeleeWeapon* weapon = db->get_melee_weapon(name);
+    Weapon* weapon = db->get_melee_weapon(name);
 
     if (weapon == nullptr)
         return;
@@ -131,7 +131,7 @@ void Equipment::set_mainhand(const QString &name) {
 }
 
 void Equipment::set_offhand(const QString &name) {
-    MeleeWeapon* weapon = db->get_melee_weapon(name);
+    Weapon* weapon = db->get_melee_weapon(name);
 
     if (weapon == nullptr)
         return;

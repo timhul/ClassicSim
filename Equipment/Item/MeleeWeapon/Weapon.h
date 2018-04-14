@@ -1,13 +1,13 @@
-#ifndef MELEEWEAPON_H
-#define MELEEWEAPON_H
+#ifndef WEAPON_H
+#define WEAPON_H
 
 #include "Item.h"
 #include "Random.h"
 #include <QVector>
 
-class MeleeWeapon: public Item {
+class Weapon: public Item {
 public:
-    MeleeWeapon(QString name, int type, int min, int max, float speed, QVector<QPair<QString, QString>> stats, QMap<QString, QString> info):
+    Weapon(QString name, int type, int min, int max, float speed, QVector<QPair<QString, QString>> stats, QMap<QString, QString> info):
         Item(name, stats, info) {
         this->random = new Random(min, max);
         this->weapon_type = type;
@@ -16,7 +16,7 @@ public:
         this->weapon_speed = speed;
     }
 
-    virtual ~MeleeWeapon() {
+    virtual ~Weapon() {
         delete random;
     }
 
@@ -37,4 +37,4 @@ protected:
 private:
 };
 
-#endif // MELEEWEAPON_H
+#endif // WEAPON_H

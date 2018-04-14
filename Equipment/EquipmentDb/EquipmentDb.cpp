@@ -60,21 +60,21 @@ void EquipmentDb::delete_items(QVector<Item *>* list) {
         delete list->at(i);
 }
 
-void EquipmentDb::add_melee_weapon(MeleeWeapon* wpn) {
+void EquipmentDb::add_melee_weapon(Weapon* wpn) {
     mh_slot_items.append(wpn);
     current_patch_mh_slot_items.append(wpn);
 }
 
-MeleeWeapon* EquipmentDb::get_melee_weapon(const QString &name) {
+Weapon* EquipmentDb::get_melee_weapon(const QString &name) {
     for (int i = 0; i < current_patch_mh_slot_items.size(); ++i) {
         if (name == current_patch_mh_slot_items[i]->get_name())
-            return dynamic_cast<MeleeWeapon*>(current_patch_mh_slot_items[i]);
+            return dynamic_cast<Weapon*>(current_patch_mh_slot_items[i]);
     }
 
     // TODO: How to handle caster offhands?
     for (int i = 0; i < current_patch_oh_slot_items.size(); ++i) {
         if (name == current_patch_oh_slot_items[i]->get_name())
-            return dynamic_cast<MeleeWeapon*>(current_patch_oh_slot_items[i]);
+            return dynamic_cast<Weapon*>(current_patch_oh_slot_items[i]);
     }
 
     return nullptr;
@@ -171,6 +171,8 @@ const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
         return current_patch_rings;
     case ItemSlots::TRINKET:
         return current_patch_trinkets;
+    case ItemSlots::RANGED:
+        return current_patch_ranged_items;
     }
 
     return current_patch_amulets;
@@ -289,7 +291,7 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
         if (!accepted_slots.contains(mixed_items[i]->get_item_slot()))
             continue;
 
-        MeleeWeapon* wpn = dynamic_cast<MeleeWeapon*>(mixed_items[i]);
+        Weapon* wpn = dynamic_cast<Weapon*>(mixed_items[i]);
 
         switch (wpn->get_weapon_slot()) {
         case WeaponSlots::MAINHAND:

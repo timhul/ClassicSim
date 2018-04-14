@@ -38,7 +38,6 @@ SOURCES += main.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Test.cpp \
-    Equipment/Item/MeleeWeapon/MeleeWeapon.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
     Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp \
@@ -116,7 +115,9 @@ SOURCES += main.cpp \
     Equipment/Item/ItemModel.cpp \
     Equipment/Item/MeleeWeapon/WeaponModel.cpp \
     Equipment/EquipmentDb/ItemFileReader.cpp \
-    Equipment/EquipmentDb/WeaponFileReader.cpp
+    Equipment/EquipmentDb/WeaponFileReader.cpp \
+    Equipment/Item/MeleeWeapon/Specialization/Ranged.cpp \
+    Equipment/Item/MeleeWeapon/Weapon.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -147,7 +148,6 @@ HEADERS += \
     Test/Test.h \
     Equipment/Equipment.h \
     Equipment/Item/Item.h \
-    Equipment/Item/MeleeWeapon/MeleeWeapon.h \
     Equipment/Item/MeleeWeapon/Specialization/Mainhand.h \
     Equipment/Item/MeleeWeapon/Specialization/Offhand.h \
     Equipment/Item/MeleeWeapon/Specialization/TwoHander.h \
@@ -227,7 +227,9 @@ HEADERS += \
     Equipment/Item/ItemModel.h \
     Equipment/Item/MeleeWeapon/WeaponModel.h \
     Equipment/EquipmentDb/ItemFileReader.h \
-    Equipment/EquipmentDb/WeaponFileReader.h
+    Equipment/EquipmentDb/WeaponFileReader.h \
+    Equipment/Item/MeleeWeapon/Specialization/Ranged.h \
+    Equipment/Item/MeleeWeapon/Weapon.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

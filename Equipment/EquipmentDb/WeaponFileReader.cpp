@@ -4,6 +4,7 @@
 #include "Mainhand.h"
 #include "Offhand.h"
 #include "TwoHander.h"
+#include "Ranged.h"
 #include <QDebug>
 
 void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
@@ -96,7 +97,7 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
     QMap<QString, QString> info;
     extract_info(item_map, info);
 
-    MeleeWeapon* weapon = nullptr;
+    Weapon* weapon = nullptr;
 
     if (info["slot"] == "1H")
         weapon = new Onehand(item_map["name"], get_weapon_type(info["type"]),
@@ -109,6 +110,9 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
                 item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
     else if (info["slot"] == "2H")
         weapon = new TwoHander(item_map["name"], get_weapon_type(info["type"]),
+                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
+    else if (info["slot"] == "RANGED")
+        weapon = new Ranged(item_map["name"], get_weapon_type(info["type"]),
                 item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
 
     if (weapon != nullptr)

@@ -4,7 +4,7 @@
 #include <QAbstractListModel>
 #include <QStringList>
 
-class MeleeWeapon;
+class Weapon;
 class EquipmentDb;
 
 class WeaponModel : public QAbstractListModel
@@ -29,7 +29,7 @@ public:
     void set_patch(const QString &patch);
 
     void addWeapons(const EquipmentDb *db);
-    void addWeapon(MeleeWeapon *weapon);
+    void addWeapon(Weapon *weapon);
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
 
@@ -39,7 +39,7 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 private:
     EquipmentDb* db;
-    QList<MeleeWeapon*> melee_weapons;
+    QList<Weapon*> melee_weapons;
 };
 
 #endif // WEAPONMODEL_H

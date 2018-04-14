@@ -2,7 +2,7 @@
 #define EQUIPMENT_H
 
 #include "Item.h"
-#include "MeleeWeapon.h"
+#include "Weapon.h"
 
 class EquipmentDb;
 
@@ -13,8 +13,8 @@ public:
 
     bool is_dual_wielding(void);
 
-    MeleeWeapon* get_mainhand(void);
-    MeleeWeapon* get_offhand(void);
+    Weapon* get_mainhand(void);
+    Weapon* get_offhand(void);
     Item* get_ranged(void);
     Item* get_head(void);
     Item* get_neck(void);
@@ -79,8 +79,8 @@ public:
 protected:
 private:
     EquipmentDb* db;
-    MeleeWeapon* mainhand;
-    MeleeWeapon* offhand;
+    Weapon* mainhand;
+    Weapon* offhand;
     Item* ranged;
     Item* head;
     Item* neck;
