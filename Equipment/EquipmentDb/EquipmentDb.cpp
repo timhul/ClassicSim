@@ -141,12 +141,14 @@ Item* EquipmentDb::get_trinket(const QString &name) {
     return get_item(current_patch_trinkets, name);
 }
 
-const QVector<Item *>& EquipmentDb::get_mh_slot_items() const {
-    return current_patch_mh_slot_items;
-}
-
 const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
+    case ItemSlots::MAINHAND:
+        return current_patch_mh_slot_items;
+    case ItemSlots::OFFHAND:
+        return current_patch_oh_slot_items;
+    case ItemSlots::RANGED:
+        return current_patch_ranged_items;
     case ItemSlots::HEAD:
         return current_patch_helms;
     case ItemSlots::NECK:
@@ -171,8 +173,6 @@ const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
         return current_patch_rings;
     case ItemSlots::TRINKET:
         return current_patch_trinkets;
-    case ItemSlots::RANGED:
-        return current_patch_ranged_items;
     }
 
     return current_patch_amulets;

@@ -27,6 +27,7 @@ public:
     WeaponModel(EquipmentDb*, QObject *parent = 0);
 
     void set_patch(const QString &patch);
+    Q_INVOKABLE void setSlot(const int slot);
 
     void addWeapons(const EquipmentDb *db);
     void addWeapon(Weapon *weapon);
@@ -38,6 +39,7 @@ public:
 protected:
     QHash<int, QByteArray> roleNames() const;
 private:
+    int slot;
     EquipmentDb* db;
     QList<Weapon*> melee_weapons;
 };

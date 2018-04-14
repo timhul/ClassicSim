@@ -414,7 +414,8 @@ void GUIControl::selectSlot(QString slot_string) {
     switch (slot) {
     case ItemSlots::MAINHAND:
     case ItemSlots::OFFHAND:
-        // TODO: Switch between showing mh/oh items.
+    case ItemSlots::RANGED:
+        weapon_model->setSlot(slot);
         return;
     }
 

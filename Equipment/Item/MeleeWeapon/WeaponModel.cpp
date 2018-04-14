@@ -8,6 +8,7 @@ WeaponModel::WeaponModel(EquipmentDb* db, QObject *parent)
     : QAbstractListModel(parent)
 {
     this->db = db;
+    this->slot = ItemSlots::MAINHAND;
 }
 
 bool dps(Weapon* lhs, Weapon* rhs) {
@@ -29,6 +30,11 @@ void WeaponModel::set_patch(const QString &patch) {
     addWeapons(this->db);
 }
 
+void WeaponModel::setSlot(const int slot) {
+    this->slot = slot;
+    addWeapons(this->db);
+}
+
 void WeaponModel::addWeapons(const EquipmentDb* db) {
     if (melee_weapons.size() > 0) {
         beginRemoveRows(QModelIndex(), 0, melee_weapons.size() - 1);
@@ -36,7 +42,7 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
         endRemoveRows();
     }
 
-    QVector<Item*> wpns = db->get_mh_slot_items();
+    QVector<Item*> wpns = db->get_slot_items(slot);
 
     for (int i = 0; i < wpns.size(); ++i) {
         addWeapon(dynamic_cast<Weapon*>(wpns[i]));

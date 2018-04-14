@@ -261,9 +261,10 @@ Rectangle {
         }
 
         ScrollView {
+            id: scrollWeapon
             width: parent.width
 
-            visible: eqRect.state === "MAINHAND"
+            visible: eqRect.state === "MAINHAND" || eqRect.state === "OFFHAND" || eqRect.state === "RANGED"
 
             anchors {
                 top: sortRect.bottom
@@ -297,7 +298,7 @@ Rectangle {
         ScrollView {
             width: parent.width
 
-            visible: eqRect.state !== "MAINHAND"
+            visible: !scrollWeapon.visible
 
             anchors {
                 top: sortRect.bottom

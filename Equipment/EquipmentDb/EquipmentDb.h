@@ -34,7 +34,6 @@ public:
     void set_patch(const QString &current_patch);
     bool item_valid_for_current_patch(const QString &item_patch);
 
-    const QVector<Item *> &get_mh_slot_items() const;
     const QVector<Item *> &get_slot_items(const int slot) const;
 
     void add_melee_weapon(Weapon* wpn);
