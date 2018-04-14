@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<boots name="Boots of the Shadow Flame">
+		<patch name="1.6.0">
+			<info type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
+			<stats>
+				<stat type="ARMOR" value="286"/>
+				<stat type="STAMINA" value="22"/>
+				<stat type="ATTACK_POWER" value="44"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Nefarian in Blackwing Lair.
+			</source>
+		</patch>
+	</boots>
+</items>

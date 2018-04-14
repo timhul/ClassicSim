@@ -33,4 +33,8 @@
 	<file path="Legs/plate.xml"/>
 	<file path="Legs/mail.xml"/>
 	<file path="Legs/leather.xml"/>
+	
+	<file path="Boots/plate.xml"/>
+	<file path="Boots/mail.xml"/>
+	<file path="Boots/leather.xml"/>
 </paths>
