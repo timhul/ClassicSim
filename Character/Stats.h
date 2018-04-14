@@ -44,6 +44,51 @@ public:
     void increase_spi(const int);
     void decrease_spi(const int);
 
+    void increase_armor(const int);
+    void decrease_armor(const int);
+
+    void increase_defense(const int);
+    void decrease_defense(const int);
+
+    void increase_dodge(const float);
+    void decrease_dodge(const float);
+
+    void increase_parry(const float);
+    void decrease_parry(const float);
+
+    void increase_all_resistances(const int);
+    void decrease_all_resistances(const int);
+
+    void increase_arcane_resistance(const int);
+    void decrease_arcane_resistance(const int);
+
+    void increase_fire_resistance(const int);
+    void decrease_fire_resistance(const int);
+
+    void increase_frost_resistance(const int);
+    void decrease_frost_resistance(const int);
+
+    void increase_holy_resistance(const int);
+    void decrease_holy_resistance(const int);
+
+    void increase_nature_resistance(const int);
+    void decrease_nature_resistance(const int);
+
+    void increase_shadow_resistance(const int);
+    void decrease_shadow_resistance(const int);
+
+    void increase_axe_skill(const int);
+    void decrease_axe_skill(const int);
+
+    void increase_dagger_skill(const int);
+    void decrease_dagger_skill(const int);
+
+    void increase_mace_skill(const int);
+    void decrease_mace_skill(const int);
+
+    void increase_sword_skill(const int);
+    void decrease_sword_skill(const int);
+
     void increase_crit(const float value);
     void decrease_crit(const float value);
 
@@ -71,6 +116,24 @@ private:
     int STAM;
     int INT;
     int SPI;
+
+    int armor;
+    int defense;
+    float dodge_chance;
+    float parry_chance;
+
+    int arcane_res;
+    int fire_res;
+    int frost_res;
+    int holy_res;
+    int nature_res;
+    int shadow_res;
+
+    int axe_skill;
+    int dagger_skill;
+    int mace_skill;
+    int sword_skill;
+
     int melee_ap;
     int melee_ap_per_str;
     int melee_ap_per_agi;

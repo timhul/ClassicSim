@@ -34,7 +34,7 @@
 			<dmg_range min="71" max="134" speed="2.4"/>
 			<stats>
 				<stat type="STRENGTH" value="10"/>
-				<stat type="FIRE_RES" value="6"/>
+				<stat type="FIRE_RESISTANCE" value="6"/>
 			</stats>
 			<source>
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.

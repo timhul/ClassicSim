@@ -66,6 +66,48 @@ void Item::set_stat(const QString& key, const QString &value) {
     else if (key == "ATTACK_POWER") {
         this->stats->increase_base_melee_ap(value.toInt());
     }
+    else if (key == "AXE_SKILL") {
+        this->stats->increase_axe_skill(value.toInt());
+    }
+    else if (key == "DAGGER_SKILL") {
+        this->stats->increase_dagger_skill(value.toInt());
+    }
+    else if (key == "MACE_SKILL") {
+        this->stats->increase_mace_skill(value.toInt());
+    }
+    else if (key == "SWORD_SKILL") {
+        this->stats->increase_sword_skill(value.toInt());
+    }
+    else if (key == "ARMOR") {
+        this->stats->increase_armor(value.toInt());
+    }
+    else if (key == "DEFENSE") {
+        this->stats->increase_defense(value.toInt());
+    }
+    else if (key == "DODGE_CHANCE") {
+        this->stats->increase_dodge(value.toFloat());
+    }
+    else if (key == "PARRY_CHANCE") {
+        this->stats->increase_parry(value.toFloat());
+    }
+    else if (key == "ARCANE_RESISTANCE") {
+        this->stats->increase_arcane_resistance(value.toInt());
+    }
+    else if (key == "FIRE_RESISTANCE") {
+        this->stats->increase_fire_resistance(value.toInt());
+    }
+    else if (key == "FROST_RESISTANCE") {
+        this->stats->increase_frost_resistance(value.toInt());
+    }
+    else if (key == "HOLY_RESISTANCE") {
+        this->stats->increase_holy_resistance(value.toInt());
+    }
+    else if (key == "NATURE_RESISTANCE") {
+        this->stats->increase_nature_resistance(value.toInt());
+    }
+    else if (key == "SHADOW_RESISTANCE") {
+        this->stats->increase_shadow_resistance(value.toInt());
+    }
     else
         unsupported_stat(key);
 }

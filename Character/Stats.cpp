@@ -7,14 +7,32 @@
 Stats::Stats(QObject* parent ) :
     QObject(parent)
 {
-    this->percent_hit = 0.0;
-    this->percent_crit = 0.0;
-    this->percent_attack_speed = 0.0;
     this->STR = 0;
     this->AGI = 0;
     this->STAM = 0;
     this->INT = 0;
     this->SPI = 0;
+
+    this->armor = 0;
+    this->defense = 0;
+    this->dodge_chance = 0.0;
+    this->parry_chance = 0.0;
+
+    this->arcane_res = 0;
+    this->fire_res = 0;
+    this->frost_res = 0;
+    this->holy_res = 0;
+    this->nature_res = 0;
+    this->shadow_res = 0;
+
+    this->axe_skill = 0;
+    this->dagger_skill = 0;
+    this->mace_skill = 0;
+    this->sword_skill = 0;
+
+    this->percent_hit = 0.0;
+    this->percent_crit = 0.0;
+    this->percent_attack_speed = 0.0;
     this->str_multiplier = 1.0;
     this->agi_multiplier = 1.0;
     this->stam_multiplier = 1.0;
@@ -87,6 +105,135 @@ void Stats::increase_spi(const int increase) {
 
 void Stats::decrease_spi(const int decrease) {
     SPI -= decrease;
+}
+
+void Stats::increase_armor(const int increase) {
+    armor += increase;
+}
+
+void Stats::decrease_armor(const int decrease) {
+    armor -= decrease;
+}
+
+void Stats::increase_defense(const int increase) {
+    defense += increase;
+}
+
+void Stats::decrease_defense(const int decrease) {
+    defense -= decrease;
+}
+
+void Stats::increase_dodge(const float increase) {
+    dodge_chance += increase;
+}
+
+void Stats::decrease_dodge(const float decrease) {
+    dodge_chance -= decrease;
+}
+
+void Stats::increase_parry(const float increase) {
+    parry_chance += increase;
+}
+
+void Stats::decrease_parry(const float decrease) {
+    parry_chance -= decrease;
+}
+
+void Stats::increase_all_resistances(const int increase) {
+    increase_arcane_resistance(increase);
+    increase_fire_resistance(increase);
+    increase_frost_resistance(increase);
+    increase_holy_resistance(increase);
+    increase_nature_resistance(increase);
+    increase_shadow_resistance(increase);
+}
+
+void Stats::decrease_all_resistances(const int decrease) {
+    decrease_arcane_resistance(decrease);
+    decrease_fire_resistance(decrease);
+    decrease_frost_resistance(decrease);
+    decrease_holy_resistance(decrease);
+    decrease_nature_resistance(decrease);
+    decrease_shadow_resistance(decrease);
+}
+
+void Stats::increase_arcane_resistance(const int increase) {
+    arcane_res += increase;
+}
+
+void Stats::decrease_arcane_resistance(const int decrease) {
+    arcane_res -= decrease;
+}
+
+void Stats::increase_fire_resistance(const int increase) {
+    fire_res += increase;
+}
+
+void Stats::decrease_fire_resistance(const int decrease) {
+    fire_res -= decrease;
+}
+
+void Stats::increase_frost_resistance(const int increase) {
+    frost_res += increase;
+}
+
+void Stats::decrease_frost_resistance(const int decrease) {
+    frost_res -= decrease;
+}
+
+void Stats::increase_holy_resistance(const int increase) {
+    holy_res += increase;
+}
+
+void Stats::decrease_holy_resistance(const int decrease) {
+    holy_res -= decrease;
+}
+
+void Stats::increase_nature_resistance(const int increase) {
+    nature_res += increase;
+}
+
+void Stats::decrease_nature_resistance(const int decrease) {
+    nature_res -= decrease;
+}
+
+void Stats::increase_shadow_resistance(const int increase) {
+    shadow_res += increase;
+}
+
+void Stats::decrease_shadow_resistance(const int decrease) {
+    shadow_res -= decrease;
+}
+
+void Stats::increase_axe_skill(const int increase) {
+    axe_skill += increase;
+}
+void Stats::decrease_axe_skill(const int decrease) {
+    axe_skill -= decrease;
+}
+
+void Stats::increase_dagger_skill(const int increase) {
+    dagger_skill += increase;
+}
+
+void Stats::decrease_dagger_skill(const int decrease) {
+    dagger_skill -= decrease;
+}
+
+void Stats::increase_mace_skill(const int increase) {
+    mace_skill += increase;
+}
+
+void Stats::decrease_mace_skill(const int decrease) {
+    mace_skill -= decrease;
+}
+
+void Stats::increase_sword_skill(const int increase) {
+    sword_skill += increase;
+}
+
+void Stats::decrease_sword_skill(const int decrease) {
+    sword_skill -= decrease;
 }
 
 int Stats::get_melee_ap_str_excluded() {
