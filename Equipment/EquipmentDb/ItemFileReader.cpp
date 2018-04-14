@@ -15,7 +15,7 @@ void ItemFileReader::read_items(QVector<Item *> &items, const QString &path) {
     QXmlStreamReader reader(&file);
 
     if (reader.readNextStartElement()) {
-        if (reader.name() == "helms")
+        if (reader.name() == "items")
             item_file_handler(reader, items);
         if (reader.name() == "weapons")
             WeaponFileReader().weapon_file_handler(reader, items);

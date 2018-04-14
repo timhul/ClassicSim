@@ -25,7 +25,7 @@ public:
     ItemModel(EquipmentDb*, QObject *parent = 0);
 
     void set_patch(const QString &patch);
-    Q_INVOKABLE void setSlot(const QString &slot);
+    Q_INVOKABLE void setSlot(const int slot);
 
     void addItems(const EquipmentDb *db);
     void addItem(Item* item);
@@ -37,7 +37,7 @@ public:
 protected:
     QHash<int, QByteArray> roleNames() const;
 private:
-    QString slot;
+    int slot;
     EquipmentDb* db;
     QList<Item*> items;
 };

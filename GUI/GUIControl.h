@@ -96,8 +96,9 @@ public:
     Q_PROPERTY(QString trinket1Icon READ get_trinket1_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString trinket2Icon READ get_trinket2_icon NOTIFY equipmentChanged)
 
-    Q_INVOKABLE void clearSlot(QString slot_string);
+    Q_INVOKABLE void selectSlot(QString slot_string);
     Q_INVOKABLE void setSlot(QString slot_string, QString item);
+    Q_INVOKABLE void clearSlot(QString slot_string);
 
     /* End of Equipment */
 

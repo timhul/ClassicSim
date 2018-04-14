@@ -16,15 +16,29 @@ EquipmentDb::EquipmentDb(QObject* parent):
     read_equipment_files();
     set_patch("1.12.1");
 
-    all_slots_items.append(mh_slot_items);
-    all_slots_items.append(oh_slot_items);
-    all_slots_items.append(helms);
+    all_slots_items = {
+        &mh_slot_items,
+        &oh_slot_items,
+        &ranged_items,
+        &helms,
+        &amulets,
+        &shoulders,
+        &backs,
+        &chests,
+        &wrists,
+        &gloves,
+        &belts,
+        &legs,
+        &boots,
+        &rings,
+        &trinkets
+    };
 }
 
 EquipmentDb::~EquipmentDb() {
-    for (int i = 0; i < mh_slot_items.size(); ++i) {
-        delete mh_slot_items[i];
-    }
+    // TODO: Check how we can avoid special handling deletion of common elements in OH/MH.
+    // The issue is WeaponType::ONEHAND can be found in both lists.
+    delete_items(&mh_slot_items);
 
     for (int i = 0; i < oh_slot_items.size(); ++i) {
         if (mh_slot_items.contains(oh_slot_items[i]))
@@ -32,14 +46,18 @@ EquipmentDb::~EquipmentDb() {
 
         delete oh_slot_items[i];
     }
-
-    for (int i = 0; i < helms.size(); ++i) {
-        delete helms[i];
-    }
+    mh_slot_items.clear();
+    oh_slot_items.clear();
 
     for (int i = 0; i < all_slots_items.size(); ++i) {
-        all_slots_items[i].clear();
+        delete_items(all_slots_items[i]);
+        all_slots_items[i]->clear();
     }
+}
+
+void EquipmentDb::delete_items(QVector<Item *>* list) {
+    for (int i = 0 ; i < list->size(); ++i)
+        delete list->at(i);
 }
 
 void EquipmentDb::add_melee_weapon(MeleeWeapon* wpn) {
@@ -62,91 +80,100 @@ MeleeWeapon* EquipmentDb::get_melee_weapon(const QString &name) {
     return nullptr;
 }
 
-Item* EquipmentDb::get_ranged(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
-}
-
-Item* EquipmentDb::get_head(const QString &name) {
-    for (int i = 0; i < current_patch_helms.size(); ++i) {
-        if (name == current_patch_helms[i]->get_name())
-            return current_patch_helms[i];
+Item* EquipmentDb::get_item(const QVector<Item*> &list, const QString &name) {
+    for (int i = 0; i < list.size(); ++i) {
+        if (name == list[i]->get_name())
+            return list[i];
     }
 
     return nullptr;
 }
 
+Item* EquipmentDb::get_ranged(const QString &name) {
+    return get_item(current_patch_ranged_items, name);
+}
+
+Item* EquipmentDb::get_head(const QString &name) {
+    return get_item(current_patch_helms, name);
+}
+
 Item* EquipmentDb::get_neck(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_amulets, name);
 }
 
 Item* EquipmentDb::get_shoulders(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_shoulders, name);
 }
 
 Item* EquipmentDb::get_back(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_backs, name);
 }
 
 Item* EquipmentDb::get_chest(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_chests, name);
 }
 
 Item* EquipmentDb::get_wrist(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_wrists, name);
 }
 
 Item* EquipmentDb::get_gloves(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_gloves, name);
 }
 
 Item* EquipmentDb::get_belt(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_belts, name);
 }
 
 Item* EquipmentDb::get_legs(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_legs, name);
 }
 
 Item* EquipmentDb::get_boots(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+    return get_item(current_patch_boots, name);
 }
 
-Item* EquipmentDb::get_ring1(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+Item* EquipmentDb::get_ring(const QString &name) {
+    return get_item(current_patch_rings, name);
 }
 
-Item* EquipmentDb::get_ring2(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
-}
-
-Item* EquipmentDb::get_trinket1(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
-}
-
-Item* EquipmentDb::get_trinket2(const QString &name) {
-    qDebug() << "get" << name;
-    return nullptr;
+Item* EquipmentDb::get_trinket(const QString &name) {
+    return get_item(current_patch_trinkets, name);
 }
 
 const QVector<Item *>& EquipmentDb::get_mh_slot_items() const {
     return current_patch_mh_slot_items;
 }
 
-const QVector<Item *> & EquipmentDb::get_slot_items(const QString &) const {
-    return current_patch_helms;
+const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
+    switch (slot) {
+    case ItemSlots::HEAD:
+        return current_patch_helms;
+    case ItemSlots::NECK:
+        return current_patch_amulets;
+    case ItemSlots::SHOULDERS:
+        return current_patch_shoulders;
+    case ItemSlots::BACK:
+        return current_patch_backs;
+    case ItemSlots::CHEST:
+        return current_patch_chests;
+    case ItemSlots::WRIST:
+        return current_patch_wrists;
+    case ItemSlots::GLOVES:
+        return current_patch_gloves;
+    case ItemSlots::BELT:
+        return current_patch_belts;
+    case ItemSlots::LEGS:
+        return current_patch_legs;
+    case ItemSlots::BOOTS:
+        return current_patch_boots;
+    case ItemSlots::RING:
+        return current_patch_rings;
+    case ItemSlots::TRINKET:
+        return current_patch_trinkets;
+    }
+
+    return current_patch_amulets;
 }
 
 void EquipmentDb::set_patch(const QString &patch) {
@@ -154,7 +181,19 @@ void EquipmentDb::set_patch(const QString &patch) {
 
     set_patch_for_slot(mh_slot_items, current_patch_mh_slot_items);
     set_patch_for_slot(oh_slot_items, current_patch_oh_slot_items);
+    set_patch_for_slot(ranged_items, current_patch_ranged_items);
     set_patch_for_slot(helms, current_patch_helms);
+    set_patch_for_slot(amulets, current_patch_amulets);
+    set_patch_for_slot(shoulders, current_patch_shoulders);
+    set_patch_for_slot(backs, current_patch_backs);
+    set_patch_for_slot(chests, current_patch_chests);
+    set_patch_for_slot(wrists, current_patch_wrists);
+    set_patch_for_slot(gloves, current_patch_gloves);
+    set_patch_for_slot(belts, current_patch_belts);
+    set_patch_for_slot(legs, current_patch_legs);
+    set_patch_for_slot(boots, current_patch_boots);
+    set_patch_for_slot(rings, current_patch_rings);
+    set_patch_for_slot(trinkets, current_patch_trinkets);
 }
 
 void EquipmentDb::set_patch_for_slot(QVector<Item *> &total_slot_items, QVector<Item*> &patch_slot_items) {
@@ -229,7 +268,19 @@ void EquipmentDb::read_equipment_files() {
     }
 
     set_weapons(items);
+    set_items(items, ranged_items, ItemSlots::RANGED);
     set_items(items, helms, ItemSlots::HEAD);
+    set_items(items, amulets, ItemSlots::NECK);
+    set_items(items, shoulders, ItemSlots::SHOULDERS);
+    set_items(items, backs, ItemSlots::BACK);
+    set_items(items, chests, ItemSlots::CHEST);
+    set_items(items, wrists, ItemSlots::WRIST);
+    set_items(items, gloves, ItemSlots::GLOVES);
+    set_items(items, belts, ItemSlots::BELT);
+    set_items(items, legs, ItemSlots::LEGS);
+    set_items(items, boots, ItemSlots::BOOTS);
+    set_items(items, rings, ItemSlots::RING);
+    set_items(items, trinkets, ItemSlots::TRINKET);
 }
 
 void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {

@@ -50,6 +50,8 @@ namespace WeaponSlots {
 
 class Stats;
 
+int get_slot_int(const QString& slot_string);
+
 class Item {
 public:
     Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info);
@@ -62,6 +64,7 @@ public:
 
     void set_stat(const QString& key, const QString& value);
     void set_stats(QVector<QPair<QString, QString>> stats);
+
 
 protected:
     QString name;

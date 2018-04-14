@@ -167,7 +167,7 @@ void Equipment::set_head(const QString &name) {
 }
 
 void Equipment::set_neck(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_neck(name);
 
     if (item == nullptr)
         return;
@@ -177,7 +177,7 @@ void Equipment::set_neck(const QString &name) {
 }
 
 void Equipment::set_shoulders(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_shoulders(name);
 
     if (item == nullptr)
         return;
@@ -187,7 +187,7 @@ void Equipment::set_shoulders(const QString &name) {
 }
 
 void Equipment::set_back(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_back(name);
 
     if (item == nullptr)
         return;
@@ -197,7 +197,7 @@ void Equipment::set_back(const QString &name) {
 }
 
 void Equipment::set_chest(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_chest(name);
 
     if (item == nullptr)
         return;
@@ -207,7 +207,7 @@ void Equipment::set_chest(const QString &name) {
 }
 
 void Equipment::set_wrist(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_wrist(name);
 
     if (item == nullptr)
         return;
@@ -217,7 +217,7 @@ void Equipment::set_wrist(const QString &name) {
 }
 
 void Equipment::set_gloves(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_gloves(name);
 
     if (item == nullptr)
         return;
@@ -227,7 +227,7 @@ void Equipment::set_gloves(const QString &name) {
 }
 
 void Equipment::set_belt(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_belt(name);
 
     if (item == nullptr)
         return;
@@ -237,7 +237,7 @@ void Equipment::set_belt(const QString &name) {
 }
 
 void Equipment::set_legs(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_legs(name);
 
     if (item == nullptr)
         return;
@@ -247,7 +247,7 @@ void Equipment::set_legs(const QString &name) {
 }
 
 void Equipment::set_boots(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_boots(name);
 
     if (item == nullptr)
         return;
@@ -257,46 +257,67 @@ void Equipment::set_boots(const QString &name) {
 }
 
 void Equipment::set_ring1(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_ring(name);
 
     if (item == nullptr)
         return;
+
+    if (item->get_value("unique") == "yes") {
+        if (ring2 != nullptr && ring2->get_name() == item->get_name())
+            return;
+    }
 
     assert(item->get_item_slot() == ItemSlots::RING);
     this->ring1 = item;
 }
 
 void Equipment::set_ring2(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_ring(name);
 
     if (item == nullptr)
         return;
+
+    if (item->get_value("unique") == "yes") {
+        if (ring1 != nullptr && ring1->get_name() == item->get_name())
+            return;
+    }
 
     assert(item->get_item_slot() == ItemSlots::RING);
     this->ring2 = item;
 }
 
 void Equipment::set_trinket1(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_trinket(name);
 
     if (item == nullptr)
         return;
+
+    if (item->get_value("unique") == "yes") {
+        if (trinket2 != nullptr && trinket2->get_name() == item->get_name())
+            return;
+    }
 
     assert(item->get_item_slot() == ItemSlots::TRINKET);
     this->trinket1 = item;
 }
 
 void Equipment::set_trinket2(const QString &name) {
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_trinket(name);
 
     if (item == nullptr)
         return;
+
+    if (item->get_value("unique") == "yes") {
+        if (trinket1 != nullptr && trinket1->get_name() == item->get_name())
+            return;
+    }
 
     assert(item->get_item_slot() == ItemSlots::TRINKET);
     this->trinket2 = item;
 }
 
 void Equipment::set_caster_offhand(const QString &name) {
+    // TODO: Get caster offhand.
     Item* item = db->get_ranged(name);
 
     if (item == nullptr)

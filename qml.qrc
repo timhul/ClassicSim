@@ -149,5 +149,11 @@
         <file>QML/Assets/items/Inv_helmet_58.png</file>
         <file>QML/Assets/items/Inv_helmet_71.png</file>
         <file>QML/Assets/items/Inv_helmet_72.png</file>
+        <file>QML/Assets/items/Inv_jewelry_talisman_07.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_17.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_18.png</file>
+        <file>QML/Assets/items/Inv_jewelry_talisman_01.png</file>
+        <file>QML/Assets/items/Inv_misc_armorkit_09.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_20.png</file>
     </qresource>
 </RCC>

@@ -5,6 +5,10 @@
 	<file path="Weapons/1hFists.xml"/>
 	<file path="Weapons/1hMaces.xml"/>
 	<file path="Weapons/1hSwords.xml"/>
+	<file path="Misc/neck.xml"/>
+	<file path="Misc/rings.xml"/>
+	<file path="Misc/trinkets.xml"/>
+	<file path="Misc/backs.xml"/>
 	
 	<file path="Helms/plate.xml"/>
 	<file path="Helms/mail.xml"/>

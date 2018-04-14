@@ -86,6 +86,7 @@ GUIControl::~GUIControl() {
     delete target;
     delete combat;
     delete item_model;
+    delete weapon_model;
 }
 
 QString GUIControl::getLeftBackgroundImage() const {
@@ -404,7 +405,24 @@ QString GUIControl::get_trinket2_icon() const {
     return "";
 }
 
+void GUIControl::selectSlot(QString slot_string) {
+    int slot = get_slot_int(slot_string);
+
+    if (slot == -1)
+        return;
+
+    switch (slot) {
+    case ItemSlots::MAINHAND:
+    case ItemSlots::OFFHAND:
+        // TODO: Switch between showing mh/oh items.
+        return;
+    }
+
+    item_model->setSlot(slot);
+}
+
 void GUIControl::setSlot(QString slot_string, QString item) {
+    // TODO: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         equipment->set_mainhand(item);
     if (slot_string == "OFFHAND")

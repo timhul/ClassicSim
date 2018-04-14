@@ -32,8 +32,9 @@ Rectangle {
         onClicked: {
             if (mouse.button === Qt.RightButton)
                 equipment.clearSlot(slotString);
-            else
-                selectItem();
+
+            selectItem();
+            equipment.selectSlot(slotString)
         }
     }
 }

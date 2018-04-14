@@ -21,42 +21,7 @@ void Item::set_item_slot(const QMap<QString, QString>& info) {
         return;
     }
 
-    QString slot_string = info["slot"];
-
-    if (slot_string == "MAINHAND")
-        slot = ItemSlots::MAINHAND;
-    else if (slot_string == "OFFHAND")
-        slot = ItemSlots::OFFHAND;
-    else if (slot_string == "RANGED")
-        slot = ItemSlots::RANGED;
-    else if (slot_string == "HEAD")
-        slot = ItemSlots::HEAD;
-    else if (slot_string == "NECK")
-        slot = ItemSlots::NECK;
-    else if (slot_string == "SHOULDERS")
-        slot = ItemSlots::SHOULDERS;
-    else if (slot_string == "BACK")
-        slot = ItemSlots::BACK;
-    else if (slot_string == "CHEST")
-        slot = ItemSlots::CHEST;
-    else if (slot_string == "WRIST")
-        slot = ItemSlots::WRIST;
-    else if (slot_string == "GLOVES")
-        slot = ItemSlots::GLOVES;
-    else if (slot_string == "BELT")
-        slot = ItemSlots::BELT;
-    else if (slot_string == "LEGS")
-        slot = ItemSlots::LEGS;
-    else if (slot_string == "BOOTS")
-        slot = ItemSlots::BOOTS;
-    else if (slot_string == "RING")
-        slot = ItemSlots::RING;
-    else if (slot_string == "TRINKET")
-        slot = ItemSlots::TRINKET;
-    else if (slot_string == "CASTER_OFFHAND")
-        slot = ItemSlots::CASTER_OFFHAND;
-    else if (slot_string == "RELIC")
-        slot = ItemSlots::RELIC;
+    slot = get_slot_int(info["slot"]);
 }
 
 int Item::get_item_slot(void) const {
@@ -103,6 +68,53 @@ void Item::set_stat(const QString& key, const QString &value) {
     }
     else
         unsupported_stat(key);
+}
+
+int get_slot_int(const QString& slot_string) {
+    if (slot_string == "MAINHAND")
+        return ItemSlots::MAINHAND;
+    else if (slot_string == "OFFHAND")
+        return ItemSlots::OFFHAND;
+    else if (slot_string == "RANGED")
+        return ItemSlots::RANGED;
+    else if (slot_string == "HEAD")
+        return ItemSlots::HEAD;
+    else if (slot_string == "NECK")
+        return ItemSlots::NECK;
+    else if (slot_string == "SHOULDERS")
+        return ItemSlots::SHOULDERS;
+    else if (slot_string == "BACK")
+        return ItemSlots::BACK;
+    else if (slot_string == "CHEST")
+        return ItemSlots::CHEST;
+    else if (slot_string == "WRIST")
+        return ItemSlots::WRIST;
+    else if (slot_string == "GLOVES")
+        return ItemSlots::GLOVES;
+    else if (slot_string == "BELT")
+        return ItemSlots::BELT;
+    else if (slot_string == "LEGS")
+        return ItemSlots::LEGS;
+    else if (slot_string == "BOOTS")
+        return ItemSlots::BOOTS;
+    else if (slot_string == "RING")
+        return ItemSlots::RING;
+    else if (slot_string == "RING1")
+        return ItemSlots::RING;
+    else if (slot_string == "RING2")
+        return ItemSlots::RING;
+    else if (slot_string == "TRINKET")
+        return ItemSlots::TRINKET;
+    else if (slot_string == "TRINKET1")
+        return ItemSlots::TRINKET;
+    else if (slot_string == "TRINKET2")
+        return ItemSlots::TRINKET;
+    else if (slot_string == "CASTER_OFFHAND")
+        return ItemSlots::CASTER_OFFHAND;
+    else if (slot_string == "RELIC")
+        return ItemSlots::RELIC;
+
+    return -1;
 }
 
 void Item::unsupported_stat(const QString& stat) {

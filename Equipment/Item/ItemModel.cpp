@@ -8,7 +8,7 @@ ItemModel::ItemModel(EquipmentDb* db, QObject *parent)
     : QAbstractListModel(parent)
 {
     this->db = db;
-    this->slot = "MAINHAND";
+    this->slot = ItemSlots::MAINHAND;
 }
 
 bool ilvl(Item* lhs, Item* rhs) {
@@ -22,8 +22,9 @@ void ItemModel::set_patch(const QString &patch) {
     addItems(this->db);
 }
 
-void ItemModel::setSlot(const QString &slot) {
+void ItemModel::setSlot(const int slot) {
     this->slot = slot;
+    addItems(this->db);
 }
 
 void ItemModel::addItems(const EquipmentDb* db) {

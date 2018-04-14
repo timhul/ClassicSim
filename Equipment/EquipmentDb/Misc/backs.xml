@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>
+	<cloak name="Cape of the Black Baron">
+		<patch name="1.0.0">
+			<info type="BACK" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
+			<stats>
+				<stat type="AGILITY" value="15"/>
+				<stat type="ATTACK_POWER" value="20"/>
+			</stats>
+			<source>
+			Drops from Baron Rivendare in Stratholme Undead.
+			</source>
+		</patch>
+	</cloak>
+</items>

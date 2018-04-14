@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>
+	<amulet name="Mark of Fordring">
+		<patch name="1.0.0">
+			<info type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
+			<stats>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="26"/>
+			</stats>
+			<source>
+			Quest chain reward. Started by Tirion Fordring in Eastern Plaguelands.
+			</source>
+		</patch>
+	</amulet>
+</items>
