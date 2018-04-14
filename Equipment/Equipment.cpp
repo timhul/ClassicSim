@@ -124,6 +124,14 @@ void Equipment::set_mainhand(const QString &name) {
     if (!accepted_weapon_slots.contains(weapon->get_weapon_slot()))
         return;
 
+    if (weapon->get_value("unique") == "yes") {
+        if (offhand != nullptr && offhand->get_name() == weapon->get_name()) {
+            offhand = nullptr;
+            if (mainhand != nullptr)
+                set_offhand(mainhand->get_name());
+        }
+    }
+
     this->mainhand = weapon;
 
     if (weapon->get_weapon_slot() == WeaponSlots::TWOHAND)
@@ -141,6 +149,14 @@ void Equipment::set_offhand(const QString &name) {
 
     if (!accepted_weapon_slots.contains(weapon->get_weapon_slot()))
         return;
+
+    if (weapon->get_value("unique") == "yes") {
+        if (mainhand != nullptr && mainhand->get_name() == weapon->get_name())
+            mainhand = nullptr;
+    }
+
+    if (mainhand != nullptr && mainhand->get_weapon_slot() == WeaponSlots::TWOHAND)
+        mainhand = nullptr;
 
     this->offhand = weapon;
 }
@@ -262,12 +278,16 @@ void Equipment::set_ring1(const QString &name) {
     if (item == nullptr)
         return;
 
+    assert(item->get_item_slot() == ItemSlots::RING);
+
     if (item->get_value("unique") == "yes") {
-        if (ring2 != nullptr && ring2->get_name() == item->get_name())
-            return;
+        if (ring2 != nullptr && ring2->get_name() == item->get_name()) {
+            ring2 = nullptr;
+            if (ring1 != nullptr)
+                set_ring2(ring1->get_name());
+        }
     }
 
-    assert(item->get_item_slot() == ItemSlots::RING);
     this->ring1 = item;
 }
 
@@ -277,12 +297,16 @@ void Equipment::set_ring2(const QString &name) {
     if (item == nullptr)
         return;
 
+    assert(item->get_item_slot() == ItemSlots::RING);
+
     if (item->get_value("unique") == "yes") {
-        if (ring1 != nullptr && ring1->get_name() == item->get_name())
-            return;
+        if (ring1 != nullptr && ring1->get_name() == item->get_name()) {
+            ring1 = nullptr;
+            if (ring2 != nullptr)
+                set_ring1(ring2->get_name());
+        }
     }
 
-    assert(item->get_item_slot() == ItemSlots::RING);
     this->ring2 = item;
 }
 
@@ -292,12 +316,16 @@ void Equipment::set_trinket1(const QString &name) {
     if (item == nullptr)
         return;
 
+    assert(item->get_item_slot() == ItemSlots::TRINKET);
+
     if (item->get_value("unique") == "yes") {
-        if (trinket2 != nullptr && trinket2->get_name() == item->get_name())
-            return;
+        if (trinket2 != nullptr && trinket2->get_name() == item->get_name()) {
+            trinket2 = nullptr;
+            if (trinket1 != nullptr)
+                set_trinket2(trinket1->get_name());
+        }
     }
 
-    assert(item->get_item_slot() == ItemSlots::TRINKET);
     this->trinket1 = item;
 }
 
@@ -307,12 +335,16 @@ void Equipment::set_trinket2(const QString &name) {
     if (item == nullptr)
         return;
 
+    assert(item->get_item_slot() == ItemSlots::TRINKET);
+
     if (item->get_value("unique") == "yes") {
-        if (trinket1 != nullptr && trinket1->get_name() == item->get_name())
-            return;
+        if (trinket1 != nullptr && trinket1->get_name() == item->get_name()) {
+            trinket1 = nullptr;
+            if (trinket2 != nullptr)
+                set_trinket1(trinket2->get_name());
+        }
     }
 
-    assert(item->get_item_slot() == ItemSlots::TRINKET);
     this->trinket2 = item;
 }
 
