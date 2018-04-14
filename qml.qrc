@@ -155,5 +155,9 @@
         <file>QML/Assets/items/Inv_jewelry_talisman_01.png</file>
         <file>QML/Assets/items/Inv_misc_armorkit_09.png</file>
         <file>QML/Assets/items/Inv_misc_cape_20.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_16.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_07.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_17.png</file>
+        <file>QML/Assets/items/Inv_chest_leather_03.png</file>
     </qresource>
 </RCC>

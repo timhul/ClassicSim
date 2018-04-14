@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<chest name="Tombstone Breastplate">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
+			<stats>
+				<stat type="ARMOR" value="174"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Darkmaster Gandling in Scholomance.
+			</source>
+		</patch>
+	</chest>
+	
+	<chest name="Cadaverous Armor">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_03.png"/>
+			<stats>
+				<stat type="ARMOR" value="172"/>
+				<stat type="STRENGTH" value="8"/>
+				<stat type="AGILITY" value="8"/>
+				<stat type="ATTACK_POWER" value="60"/>
+			</stats>
+			<source>
+			Drops by several bosses in Scholomance.
+			</source>
+		</patch>
+	</chest>
+</items>

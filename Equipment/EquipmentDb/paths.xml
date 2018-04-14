@@ -13,4 +13,8 @@
 	<file path="Helms/plate.xml"/>
 	<file path="Helms/mail.xml"/>
 	<file path="Helms/leather.xml"/>	
+	
+	<file path="Chests/plate.xml"/>
+	<file path="Chests/mail.xml"/>
+	<file path="Chests/leather.xml"/>
 </paths>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<chest name="Warforged Chestplate">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="CHEST" unique="no" req_lvl="40" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
+			<stats>
+				<stat type="ARMOR" value="543"/>
+				<stat type="STRENGTH" value="24"/>
+				<stat type="STAMINA" value="2"/>
+			</stats>
+			<source>
+			Quest reward. Elite group quest in Badlands.
+			</source>
+		</patch>
+	</chest>	
+</items>
