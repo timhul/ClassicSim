@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<legs name="Scaled Sand Reaver Leggings">
+		<patch name="1.9.0">
+			<info type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_pants_mail_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="427"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="ATTACK_POWER" value="62"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</legs>	
+</items>

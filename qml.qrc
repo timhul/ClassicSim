@@ -167,5 +167,8 @@
         <file>QML/Assets/items/Inv_belt_02.png</file>
         <file>QML/Assets/items/Inv_belt_18.png</file>
         <file>QML/Assets/items/Inv_belt_29.png</file>
+        <file>QML/Assets/items/Inv_pants_04.png</file>
+        <file>QML/Assets/items/Inv_pants_mail_10.png</file>
+        <file>QML/Assets/items/Inv_pants_wolf.png</file>
     </qresource>
 </RCC>

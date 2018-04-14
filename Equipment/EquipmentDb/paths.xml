@@ -29,4 +29,8 @@
 	<file path="Belts/plate.xml"/>
 	<file path="Belts/mail.xml"/>
 	<file path="Belts/leather.xml"/>
+	
+	<file path="Legs/plate.xml"/>
+	<file path="Legs/mail.xml"/>
+	<file path="Legs/leather.xml"/>
 </paths>
