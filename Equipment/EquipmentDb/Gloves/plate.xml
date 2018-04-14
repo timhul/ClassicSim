@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<gloves name="Flameguard Gauntlets">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
+			<stats>
+				<stat type="ARMOR" value="488"/>
+				<stat type="STAMINA" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="54"/>
+			</stats>
+			<source>
+			Drops from several bosses in Molten Core.
+			</source>
+		</patch>
+	</gloves>	
+</items>

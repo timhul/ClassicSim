@@ -162,5 +162,7 @@
         <file>QML/Assets/items/Inv_bracer_14.png</file>
         <file>QML/Assets/items/Inv_bracer_17.png</file>
         <file>QML/Assets/items/Inv_bracer_07.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_26.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_30.png</file>
     </qresource>
 </RCC>
