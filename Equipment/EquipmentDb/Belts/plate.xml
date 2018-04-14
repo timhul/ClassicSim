@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<belt name="Onslaught Girdle">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_belt_29.png"/>
+			<stats>
+				<stat type="ARMOR" value="494"/>
+				<stat type="STRENGTH" value="31"/>
+				<stat type="STAMINA" value="11"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+	</belt>	
+</items>

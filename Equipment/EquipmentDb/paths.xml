@@ -25,4 +25,8 @@
 	<file path="Gloves/plate.xml"/>
 	<file path="Gloves/mail.xml"/>
 	<file path="Gloves/leather.xml"/>
+	
+	<file path="Belts/plate.xml"/>
+	<file path="Belts/mail.xml"/>
+	<file path="Belts/leather.xml"/>
 </paths>

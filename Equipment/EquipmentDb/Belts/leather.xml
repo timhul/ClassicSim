@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<belt name="Mugger's Belt">
+		<patch name="1.3.0">
+			<info type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_02.png"/>
+			<stats>
+				<stat type="ARMOR" value="98"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="DAGGER_SKILL" value="5"/>
+			</stats>
+			<source>
+			Drops from Captain Kromcrush in Dire Maul.
+			</source>
+		</patch>
+	</belt>	
+</items>
