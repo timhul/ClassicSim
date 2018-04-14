@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<wrist name="Bracers of the Stone Princess">
+		<patch name="1.2.0">
+			<info type="MAIL" slot="WRIST" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>
+			<stats>
+				<stat type="ARMOR" value="141"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="INTELLECT" value="5"/>
+				<stat type="ATTACK_POWER" value="30"/>
+			</stats>
+			<source>
+			Drops from Princess Theradras in Maraudon.
+			</source>
+		</patch>
+	</wrist>
+	
+	
+</items>

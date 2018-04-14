@@ -159,5 +159,8 @@
         <file>QML/Assets/items/Inv_chest_chain_07.png</file>
         <file>QML/Assets/items/Inv_chest_chain_17.png</file>
         <file>QML/Assets/items/Inv_chest_leather_03.png</file>
+        <file>QML/Assets/items/Inv_bracer_14.png</file>
+        <file>QML/Assets/items/Inv_bracer_17.png</file>
+        <file>QML/Assets/items/Inv_bracer_07.png</file>
     </qresource>
 </RCC>
