@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<shoulders name="Truestrike Shoulders">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="129"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+				<stat type="ATTACK_POWER" value="24"/>
+			</stats>
+			<source>
+			Drops from Pyroguard Emberseer in Upper Blackrock Spire.
+			</source>
+		</patch>
+	</shoulders>
+</items>

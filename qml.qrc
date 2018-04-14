@@ -172,5 +172,8 @@
         <file>QML/Assets/items/Inv_pants_wolf.png</file>
         <file>QML/Assets/items/Inv_boots_cloth_05.png</file>
         <file>QML/Assets/items/Inv_boots_plate_04.png</file>
+        <file>QML/Assets/items/Inv_shoulder_01.png</file>
+        <file>QML/Assets/items/Inv_shoulder_10.png</file>
+        <file>QML/Assets/items/Inv_shoulder_23.png</file>
     </qresource>
 </RCC>

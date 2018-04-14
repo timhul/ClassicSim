@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<shoulders name="Black Dragonscale Shoulders">
+		<patch name="1.0.0">
+			<info type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_shoulder_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="266"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="FIRE_RESISTANCE" value="6"/>
+				<stat type="ATTACK_POWER" value="40"/>
+			</stats>
+			<source>
+			Crafted by leatherworkers. Pattern drops in Blackrock Depths.
+			</source>
+		</patch>
+	</shoulders>
+</items>

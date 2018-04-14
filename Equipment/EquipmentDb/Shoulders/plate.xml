@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>	
+	<shoulders name="Drake Talon Pauldrons">
+		<patch name="1.6.0">
+			<info type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
+			<stats>
+				<stat type="ARMOR" value="634"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STRENGTH" value="20"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Ebonroc, Flamegor, and Firemaw in Blackwing Lair.
+			</source>
+		</patch>
+	</shoulders>
+</items>
