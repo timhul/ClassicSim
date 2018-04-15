@@ -15,6 +15,7 @@ public:
 
     bool is_dual_wielding(void);
 
+    const Stats* get_stats() const;
     Weapon* get_mainhand(void);
     Weapon* get_offhand(void);
     Item* get_ranged(void);

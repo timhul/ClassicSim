@@ -20,7 +20,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->equipment = equipment;
     this->roll = roll;
     this->talents = new Talents();
-    this->stats = new Stats();
+    this->base_stats = new Stats();
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -37,7 +37,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
 
 Character::~Character() {
     delete talents;
-    delete stats;
+    delete base_stats;
 
     for (int i = 0; i < spells.size(); ++i) {
         delete spells[i];
@@ -56,31 +56,31 @@ Race* Character::get_race(void) {
 }
 
 int Character::get_strength(void) {
-    return stats->get_strength();
+    return base_stats->get_strength() + equipment->get_stats()->get_strength();
 }
 
 int Character::get_agility(void) {
-    return stats->get_agility();
+    return base_stats->get_agility() + equipment->get_stats()->get_agility();
 }
 
 int Character::get_stamina(void) {
-    return stats->get_stamina();
+    return base_stats->get_stamina() + equipment->get_stats()->get_stamina();
 }
 
 int Character::get_intellect(void) {
-    return stats->get_intellect();
+    return base_stats->get_intellect() + equipment->get_stats()->get_intellect();
 }
 
 int Character::get_spirit(void) {
-    return stats->get_spirit();
+    return base_stats->get_spirit() + equipment->get_stats()->get_spirit();
 }
 
 float Character::get_hit_chance(void) const {
-    return stats->get_hit_chance();
+    return base_stats->get_hit_chance()  + equipment->get_stats()->get_hit_chance();
 }
 
 float Character::get_crit_chance(void) const {
-    return stats->get_crit_chance();
+    return base_stats->get_crit_chance()  + equipment->get_stats()->get_crit_chance();
 }
 
 int Character::get_clvl(void) const {
@@ -144,15 +144,15 @@ bool Character::action_ready() const {
 }
 
 int Character::get_melee_ap() {
-    return stats->get_melee_ap_total();
+    return base_stats->get_melee_ap_total()  + equipment->get_stats()->get_melee_ap_total();
 }
 
 void Character::increase_melee_ap(const int increase) {
-    stats->increase_base_melee_ap(increase);
+    base_stats->increase_base_melee_ap(increase);
 }
 
 void Character::decrease_melee_ap(const int decrease) {
-    stats->decrease_base_melee_ap(decrease);
+    base_stats->decrease_base_melee_ap(decrease);
 }
 
 float Character::get_ability_crit_dmg_mod() const {
@@ -223,21 +223,21 @@ int Character::get_oh_wpn_skill() {
 }
 
 void Character::increase_hit(float increase) {
-    stats->increase_hit(increase);
+    base_stats->increase_hit(increase);
 }
 
 void Character::decrease_hit(float decrease) {
-    stats->decrease_hit(decrease);
+    base_stats->decrease_hit(decrease);
 }
 
 void Character::increase_crit(float increase) {
-    stats->increase_crit(increase);
-    roll->update_crit_chance(stats->get_crit_chance());
+    base_stats->increase_crit(increase);
+    roll->update_crit_chance(base_stats->get_crit_chance());
 }
 
 void Character::decrease_crit(float decrease) {
-    stats->decrease_crit(decrease);
-    roll->update_crit_chance(stats->get_crit_chance());
+    base_stats->decrease_crit(decrease);
+    roll->update_crit_chance(base_stats->get_crit_chance());
 }
 
 void Character::increase_attack_speed(int increase) {

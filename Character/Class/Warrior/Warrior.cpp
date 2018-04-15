@@ -35,17 +35,17 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
     set_clvl(60);
-    stats->increase_str(race->get_base_strength() + get_strength_modifier() + 97);
-    stats->increase_agi(race->get_base_agility() + get_agility_modifier() + 60);
-    stats->increase_stam(race->get_base_stamina() + get_stamina_modifier() + 88);
-    stats->increase_int(race->get_base_intellect() + get_intellect_modifier() + 10);
-    stats->increase_spi(race->get_base_spirit() + get_spirit_modifier() + 25);
-    stats->set_melee_ap_per_agi(0);
-    stats->set_melee_ap_per_str(2);
+    base_stats->increase_str(race->get_base_strength() + get_strength_modifier() + 97);
+    base_stats->increase_agi(race->get_base_agility() + get_agility_modifier() + 60);
+    base_stats->increase_stam(race->get_base_stamina() + get_stamina_modifier() + 88);
+    base_stats->increase_int(race->get_base_intellect() + get_intellect_modifier() + 10);
+    base_stats->increase_spi(race->get_base_spirit() + get_spirit_modifier() + 25);
+    base_stats->set_melee_ap_per_agi(0);
+    base_stats->set_melee_ap_per_str(2);
     this->rage = 0;
     this->roll->set_character(this);
 
-    equipment->set_mainhand("Frostbite");
+    equipment->set_mainhand("Skullforge Reaver");
     equipment->set_offhand("Frostbite");
 
     // TODO: For now mainhand/offhand attack must be initialized after equipment is set.
@@ -174,7 +174,7 @@ void Warrior::add_next_oh_attack(void) {
 
 void Warrior::mh_auto_attack(const int iteration) {
     if (!is_melee_attacking())
-        return;
+        start_attack();
 
     if (!mh_attack->attack_is_valid(iteration))
         return;
@@ -200,7 +200,7 @@ void Warrior::mh_auto_attack(const int iteration) {
 
 void Warrior::oh_auto_attack(const int iteration) {
     if (!is_melee_attacking())
-        return;
+        start_attack();
 
     if (!oh_attack->attack_is_valid(iteration))
         return;
@@ -293,7 +293,7 @@ void Warrior::increase_attack_speed(int increase) {
     if (has_offhand())
         oh_wpn_speed /= 1 + float(increase / 100);
 
-    stats->increase_attack_speed(increase);
+    base_stats->increase_attack_speed(increase);
 
     mh_attack->update_next_expected_use(increase);
     add_next_mh_attack();

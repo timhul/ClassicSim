@@ -74,6 +74,7 @@ public:
 
     Q_PROPERTY(QString critChance READ get_crit_chance NOTIFY statsChanged)
     Q_PROPERTY(QString hitChance READ get_hit_chance NOTIFY statsChanged)
+    Q_PROPERTY(int attackPower READ get_attack_power NOTIFY statsChanged)
 
     /* End of Stats */
 
@@ -112,8 +113,6 @@ public:
     Q_INVOKABLE void runQuickSim();
     Q_INVOKABLE void setPatch(QString patch);
 
-
-
 Q_SIGNALS:
     void talentsUpdated();
     void classChanged();
@@ -138,6 +137,8 @@ private:
 
     QString get_crit_chance() const;
     QString get_hit_chance() const;
+
+    int get_attack_power() const;
 
     void run_quick_sim();
 

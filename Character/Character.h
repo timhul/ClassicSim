@@ -102,7 +102,7 @@ protected:
     Equipment* equipment;
     CombatRoll* roll;
     Talents* talents;
-    Stats* stats;
+    Stats* base_stats;
     QVector<Spell*> spells;
     QVector<Buff*> buffs;
     QVector<int> attack_speed_buffs;

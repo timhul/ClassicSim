@@ -38,6 +38,10 @@ bool Equipment::is_dual_wielding(void) {
     return offhand != nullptr;
 }
 
+const Stats* Equipment::get_stats() const {
+    return this->stats_from_equipped_gear;
+}
+
 Weapon* Equipment::get_mainhand(void) {
     return mainhand;
 }

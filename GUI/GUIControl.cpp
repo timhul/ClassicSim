@@ -44,8 +44,6 @@ GUIControl::GUIControl(QObject* parent) :
 
     engine = new Engine();
     equipment = new Equipment();
-    equipment->set_mainhand("Frostbite");
-    equipment->set_offhand("Frostbite");
     target = new Target(63);
     combat = new CombatRoll(target);
 
@@ -264,6 +262,10 @@ QString GUIControl::get_hit_chance() const {
     return QString::number(current_char->get_hit_chance() * 100, 'f', 2);
 }
 
+int GUIControl::get_attack_power() const {
+    return current_char->get_melee_ap();
+}
+
 ItemModel* GUIControl::get_item_model() const {
     return this->item_model;
 }
@@ -460,6 +462,7 @@ void GUIControl::setSlot(QString slot_string, QString item) {
         equipment->set_trinket2(item);
 
     equipmentChanged();
+    statsChanged();
 }
 
 void GUIControl::clearSlot(QString slot_string) {
@@ -499,6 +502,7 @@ void GUIControl::clearSlot(QString slot_string) {
         equipment->clear_trinket2();
 
     equipmentChanged();
+    statsChanged();
 }
 
 void GUIControl::setPatch(QString patch) {

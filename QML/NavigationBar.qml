@@ -284,6 +284,21 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
+
+            Text {
+                height: 15
+
+                text: "Attack Power: " + character.attackPower
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
         }
     }
 
