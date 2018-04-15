@@ -4,6 +4,8 @@
 #include "Item.h"
 #include "Weapon.h"
 
+class Stats;
+
 class EquipmentDb;
 
 class Equipment {
@@ -76,9 +78,16 @@ public:
     void patch_changed();
     EquipmentDb *get_db() const;
 
+    void equip(Item*& current, Item*& next);
+    void unequip(Item*& item);
+
+    void equip(Weapon*& current, Weapon*& next);
+    void unequip(Weapon*&  weapon);
+
 protected:
 private:
     EquipmentDb* db;
+    Stats* stats_from_equipped_gear;
     Weapon* mainhand;
     Weapon* offhand;
     Item* ranged;

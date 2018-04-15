@@ -47,23 +47,65 @@ Stats::Stats(QObject* parent ) :
 Stats::~Stats()
 {}
 
-int Stats::get_strength(void) {
+void Stats::add(const Stats* rhs) {
+    increase_str(rhs->get_strength());
+    increase_agi(rhs->get_agility());
+    increase_stam(rhs->get_stamina());
+    increase_int(rhs->get_intellect());
+    increase_spi(rhs->get_spirit());
+
+    // TODO: Add getters to add/remove defensive stats.
+
+    increase_axe_skill(rhs->get_axe_skill());
+    increase_dagger_skill(rhs->get_dagger_skill());
+    increase_mace_skill(rhs->get_mace_skill());
+    increase_sword_skill(rhs->get_sword_skill());
+
+    increase_hit(rhs->get_hit_chance());
+    increase_crit(rhs->get_crit_chance());
+    // TODO: Attack speed missing.
+
+    increase_base_melee_ap(rhs->get_melee_ap_str_excluded());
+}
+
+void Stats::remove(const Stats* rhs) {
+    decrease_str(rhs->get_strength());
+    decrease_agi(rhs->get_agility());
+    decrease_stam(rhs->get_stamina());
+    decrease_int(rhs->get_intellect());
+    decrease_spi(rhs->get_spirit());
+
+    // TODO: Add getters to add/remove defensive stats.
+
+    decrease_axe_skill(rhs->get_axe_skill());
+    decrease_dagger_skill(rhs->get_dagger_skill());
+    decrease_mace_skill(rhs->get_mace_skill());
+    decrease_sword_skill(rhs->get_sword_skill());
+
+    decrease_hit(rhs->get_hit_chance());
+    decrease_crit(rhs->get_crit_chance());
+    // TODO: Attack speed missing.
+
+    decrease_base_melee_ap(rhs->get_melee_ap_str_excluded());
+}
+
+int Stats::get_strength(void) const {
     return STR;
 }
 
-int Stats::get_agility(void) {
+int Stats::get_agility(void) const {
     return AGI;
 }
 
-int Stats::get_stamina(void) {
+int Stats::get_stamina(void) const {
     return STAM;
 }
 
-int Stats::get_intellect(void) {
+int Stats::get_intellect(void) const {
     return int(float(INT) * int_multiplier);
 }
 
-int Stats::get_spirit(void) {
+int Stats::get_spirit(void) const {
     return int(float(SPI) * spi_multiplier);
 }
 
@@ -205,6 +247,22 @@ void Stats::decrease_shadow_resistance(const int decrease) {
     shadow_res -= decrease;
 }
 
+int Stats::get_axe_skill() const {
+    return axe_skill;
+}
+
+int Stats::get_dagger_skill() const {
+    return dagger_skill;
+}
+
+int Stats::get_mace_skill() const {
+    return mace_skill;
+}
+
+int Stats::get_sword_skill() const {
+    return sword_skill;
+}
+
 void Stats::increase_axe_skill(const int increase) {
     axe_skill += increase;
 }
@@ -236,11 +294,11 @@ void Stats::decrease_sword_skill(const int decrease) {
     sword_skill -= decrease;
 }
 
-int Stats::get_melee_ap_str_excluded() {
+int Stats::get_melee_ap_str_excluded() const {
     return melee_ap;
 }
 
-int Stats::get_melee_ap_total() {
+int Stats::get_melee_ap_total() const {
     return melee_ap + STR * melee_ap_per_str + AGI * melee_ap_per_agi;
 }
 

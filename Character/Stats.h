@@ -14,14 +14,17 @@ public:
     Stats(QObject* parent = 0);
     ~Stats();
 
-    int get_strength();
-    int get_agility();
-    int get_stamina();
-    int get_intellect();
-    int get_spirit();
+    void add(const Stats*);
+    void remove(const Stats*);
 
-    int get_melee_ap_str_excluded();
-    int get_melee_ap_total();
+    int get_strength() const;
+    int get_agility() const;
+    int get_stamina() const;
+    int get_intellect() const;
+    int get_spirit() const;
+
+    int get_melee_ap_str_excluded() const;
+    int get_melee_ap_total() const;
 
     void increase_base_melee_ap(const int increase);
     void decrease_base_melee_ap(const int decrease);
@@ -77,15 +80,19 @@ public:
     void increase_shadow_resistance(const int);
     void decrease_shadow_resistance(const int);
 
+    int get_axe_skill() const;
     void increase_axe_skill(const int);
     void decrease_axe_skill(const int);
 
+    int get_dagger_skill() const;
     void increase_dagger_skill(const int);
     void decrease_dagger_skill(const int);
 
+    int get_mace_skill() const;
     void increase_mace_skill(const int);
     void decrease_mace_skill(const int);
 
+    int get_sword_skill() const;
     void increase_sword_skill(const int);
     void decrease_sword_skill(const int);
 
@@ -98,8 +105,8 @@ public:
     void increase_attack_speed(const float value);
     void decrease_attack_speed(const float value);
 
-    float get_mh_wpn_speed();
-    float get_oh_wpn_speed();
+    float get_mh_wpn_speed() const;
+    float get_oh_wpn_speed() const;
 
     void set_melee_ap_per_str(const int value);
     void set_melee_ap_per_agi(const int value);

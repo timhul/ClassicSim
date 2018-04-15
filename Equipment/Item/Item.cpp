@@ -41,6 +41,10 @@ QString Item::get_value(const QString& key) const {
     return info.contains(key) ? info[key] : "";
 }
 
+const Stats* Item::get_stats() const {
+    return this->stats;
+}
+
 void Item::set_stat(const QString& key, const QString &value) {
     if (key == "STRENGTH") {
         this->stats->increase_str(value.toInt());

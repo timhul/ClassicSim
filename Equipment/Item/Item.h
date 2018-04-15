@@ -62,9 +62,9 @@ public:
     QString get_name(void) const;
     QString get_value(const QString& key) const;
 
+    const Stats* get_stats() const;
     void set_stat(const QString& key, const QString& value);
     void set_stats(QVector<QPair<QString, QString>> stats);
-
 
 protected:
     QString name;
