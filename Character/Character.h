@@ -14,6 +14,7 @@ class Stats;
 class Buff;
 class CombatRoll;
 class Spell;
+class Weapon;
 
 class Character: public QObject {
     Q_OBJECT
@@ -96,6 +97,8 @@ public:
     // TODO: Mark as abstract to force implementation.
     virtual void reset_resource() {}
 
+    void dump();
+
 protected:
     Race* race;
     Engine* engine;
@@ -124,6 +127,9 @@ protected:
     virtual void add_next_oh_attack(void);
 
     virtual void initialize_talents() = 0;
+
+    int get_wpn_skill(Weapon*) const;
+
 private:
 };
 

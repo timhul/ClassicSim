@@ -191,35 +191,32 @@ int Character::get_normalized_dmg(const int damage, const float wpn_speed) {
 }
 
 int Character::get_mh_wpn_skill() {
-    int racial_bonus = 0;
-    switch (equipment->get_mainhand()->get_weapon_type()) {
-    case WeaponTypes::AXE:
-        racial_bonus += race->get_axe_bonus();
-        break;
-    case WeaponTypes::SWORD:
-        racial_bonus += race->get_sword_bonus();
-        break;
-    case WeaponTypes::MACE:
-        racial_bonus += race->get_mace_bonus();
-        break;
-    }
-    return get_clvl() * 5 + racial_bonus;
+    return equipment->get_mainhand() != nullptr ? get_wpn_skill(equipment->get_mainhand()) :
+                                                  get_clvl() * 5;
 }
 
 int Character::get_oh_wpn_skill() {
-    int racial_bonus = 0;
-    switch (equipment->get_offhand()->get_weapon_type()) {
+    return equipment->get_offhand() != nullptr ? get_wpn_skill(equipment->get_offhand()) :
+                                                 get_clvl() * 5;
+}
+
+int Character::get_wpn_skill(Weapon* weapon) const {
+    int skill_bonus = 0;
+    switch (weapon->get_weapon_type()) {
     case WeaponTypes::AXE:
-        racial_bonus += race->get_axe_bonus();
+        skill_bonus += race->get_axe_bonus() + equipment->get_stats()->get_axe_skill();
+        break;
+    case WeaponTypes::DAGGER:
+        skill_bonus += equipment->get_stats()->get_dagger_skill();
         break;
     case WeaponTypes::SWORD:
-        racial_bonus += race->get_sword_bonus();
+        skill_bonus += race->get_sword_bonus() + equipment->get_stats()->get_sword_skill();
         break;
     case WeaponTypes::MACE:
-        racial_bonus += race->get_mace_bonus();
+        skill_bonus += race->get_mace_bonus() + equipment->get_stats()->get_mace_skill();
         break;
     }
-    return get_clvl() * 5 + racial_bonus;
+    return get_clvl() * 5 + skill_bonus;
 }
 
 void Character::increase_hit(float increase) {
@@ -305,4 +302,21 @@ void Character::reset() {
     reset_resource();
 
     assert(attack_speed_buffs.empty());
+}
+
+void Character::dump() {
+    qDebug() << "--------------------------------------";
+    qDebug() << get_name();
+    qDebug() << "STRENGTH" << get_strength();
+    qDebug() << "AGILITY" << get_agility();
+    qDebug() << "STAMINA" << get_stamina();
+    qDebug() << "INTELLECT" << get_intellect();
+    qDebug() << "SPIRIT" << get_spirit();
+    qDebug() << "MH Wpn skill" << get_mh_wpn_skill();
+    qDebug() << "OH Wpn skill" << get_oh_wpn_skill();
+    qDebug() << "MH DPS" << (equipment->get_mainhand() != nullptr ? QString::number(equipment->get_mainhand()->get_wpn_dps()) : "No MH");
+    qDebug() << "OH DPS" << (equipment->get_offhand() != nullptr ? QString::number(equipment->get_offhand()->get_wpn_dps()) : "No OH");
+    qDebug() << "Hit chance" << get_hit_chance();
+    qDebug() << "Crit chance" << get_crit_chance();
+    qDebug() << "--------------------------------------";
 }

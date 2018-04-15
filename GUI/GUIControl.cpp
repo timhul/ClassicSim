@@ -275,6 +275,7 @@ WeaponModel* GUIControl::get_weapon_model() const {
 }
 
 void GUIControl::run_quick_sim() {
+    current_char->dump();
     engine->prepare();
     // TODO: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
@@ -299,6 +300,7 @@ void GUIControl::run_quick_sim() {
     QString dps = QString::number(last_quick_sim_result, 'f', 2);
     qDebug() << "Total DPS: " << dps;
     quickSimChanged(dps, change, delta > 0);
+    current_char->dump();
 }
 
 void GUIControl::runQuickSim() {
