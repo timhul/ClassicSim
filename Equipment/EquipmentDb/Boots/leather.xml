@@ -2,7 +2,7 @@
 <items>	
 	<boots name="Boots of the Shadow Flame">
 		<patch name="1.6.0">
-			<info type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
 			<stats>
 				<stat type="ARMOR" value="286"/>
 				<stat type="STAMINA" value="22"/>
