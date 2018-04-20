@@ -26,6 +26,7 @@
 #include "EncounterEnd.h"
 
 #include "WeaponModel.h"
+#include "EquipmentDb.h"
 
 #include <QDebug>
 
@@ -510,4 +511,112 @@ void GUIControl::clearSlot(QString slot_string) {
 void GUIControl::setPatch(QString patch) {
     weapon_model->set_patch(patch);
     item_model->set_patch(patch);
+}
+
+QVariantList GUIControl::getTooltip(const QString &slot_string) {
+    Item* item = nullptr;
+
+    if (slot_string == "MAINHAND")
+        item = equipment->get_mainhand();
+    if (slot_string == "OFFHAND")
+        item = equipment->get_offhand();
+    if (slot_string == "RANGED")
+        item = equipment->get_ranged();
+    if (slot_string == "HEAD")
+        item = equipment->get_head();
+    if (slot_string == "NECK")
+        item = equipment->get_neck();
+    if (slot_string == "SHOULDERS")
+        item = equipment->get_shoulders();
+    if (slot_string == "BACK")
+        item = equipment->get_back();
+    if (slot_string == "CHEST")
+        item = equipment->get_chest();
+    if (slot_string == "WRIST")
+        item = equipment->get_wrist();
+    if (slot_string == "GLOVES")
+        item = equipment->get_gloves();
+    if (slot_string == "BELT")
+        item = equipment->get_belt();
+    if (slot_string == "LEGS")
+        item = equipment->get_legs();
+    if (slot_string == "BOOTS")
+        item = equipment->get_boots();
+    if (slot_string == "RING1")
+        item = equipment->get_ring1();
+    if (slot_string == "RING2")
+        item = equipment->get_ring2();
+    if (slot_string == "TRINKET1")
+        item = equipment->get_trinket1();
+    if (slot_string == "TRINKET2")
+        item = equipment->get_trinket2();
+
+    if (item == nullptr)
+        return QVariantList();
+
+    QString boe_string = item->get_value("boe") == "yes" ? "Binds when equipped" :
+                                                          "Binds when picked up";
+    QString unique = item->get_value("unique") == "yes" ? "Unique" :
+                                                          "";
+
+    QString slot = item->get_value("slot");
+    QString dmg_range = "";
+    QString weapon_speed = "";
+    QString dps = "";
+
+    if (slot == "1H")
+        set_weapon_tooltip(item, slot, "One-hand", dmg_range, weapon_speed, dps);
+    else if (slot == "MH")
+        set_weapon_tooltip(item, slot, "Mainhand", dmg_range, weapon_speed, dps);
+    else if (slot == "OH")
+        set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
+    else if (slot == "2H")
+        set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
+    else if (slot == "RING")
+        slot = "Finger";
+    else
+        slot = get_capitalized_string(slot);
+
+    QString class_restriction = "";
+    set_class_restriction_tooltip(item, class_restriction);
+
+    QString lvl_req = QString("Requires level %1").arg(item->get_value("req_lvl"));
+
+    // TODO: Add proc information and flavor text.
+    QVariantList tooltip_info = {
+        QVariant(item->get_name()),
+        QVariant(item->get_value("quality")),
+        QVariant(boe_string),
+        QVariant(unique),
+        QVariant(slot),
+        QVariant(get_capitalized_string(item->get_value("type"))),
+        QVariant(dmg_range),
+        QVariant(weapon_speed),
+        QVariant(dps),
+        QVariant(item->get_base_stat_tooltip()),
+        QVariant(class_restriction),
+        QVariant(lvl_req),
+        QVariant(item->get_equip_effect_tooltip())
+    };
+
+    return tooltip_info;
+}
+
+void GUIControl::set_weapon_tooltip(Item*& item, QString& slot, QString type, QString& dmg_range, QString& wpn_speed, QString& dps) {
+    slot = type;
+    Weapon* wpn = dynamic_cast<Weapon*>(item);
+    dmg_range = QString("%1 - %2 Damage").arg(QString::number(wpn->get_min_dmg()), QString::number(wpn->get_max_dmg()));
+    dps = QString("(%1 damage per second)").arg(QString::number(wpn->get_wpn_dps(), 'f', 1));
+    wpn_speed = "Speed " + QString::number(wpn->get_base_weapon_speed(), 'f', 2);
+}
+
+void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction) {
+    if (item->get_value("RESTRICTED_TO_WARRIOR") == "")
+        return;
+
+    restriction = "Class: <font color=\"#C79C6E\">Warrior</font>";
+}
+
+QString GUIControl::get_capitalized_string(const QString& string) const {
+    return QString(string[0]) + QString(string.right(string.size() - 1)).toLower();
 }

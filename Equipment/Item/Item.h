@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QMap>
+#include <QVector>
 #include <assert.h>
 
 namespace ItemSlots {
@@ -61,10 +62,13 @@ public:
 
     QString get_name(void) const;
     QString get_value(const QString& key) const;
+    QString get_base_stat_tooltip() const;
+    QString get_equip_effect_tooltip() const;
 
     const Stats* get_stats() const;
     void set_stat(const QString& key, const QString& value);
     void set_stats(QVector<QPair<QString, QString>> stats);
+
 
 protected:
     QString name;
@@ -72,11 +76,14 @@ protected:
     QString source;
     QString quality;
     QMap<QString, QString> info;
+    QVector<QString> base_tooltip_stats;
+    QVector<QString> equip_effects_tooltip_stats;
     Stats* stats;
 
     int slot;
     void set_item_slot(const QMap<QString, QString>& info);
     void unsupported_stat(const QString& stat);
+    QString get_tooltip(const QVector<QString>&) const;
 
 private:
 };

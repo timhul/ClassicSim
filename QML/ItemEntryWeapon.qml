@@ -17,25 +17,6 @@ RectangleBorders {
     property string entryItemlvl
     property string entryIcon
 
-    function qualityColor(quality) {
-        switch (quality) {
-        case "POOR":
-            return root.qualityPoor
-        case "COMMON":
-            return root.qualityCommon
-        case "UNCOMMON":
-            return root.qualityUncommon
-        case "RARE":
-            return root.qualityRare
-        case "EPIC":
-            return root.qualityEpic
-        case "LEGENDARY":
-            return root.qualityLegendary
-        default:
-            return "red"
-        }
-    }
-
     rectColorHighlighted: "#232323"
 
     onRectangleClicked: {
@@ -73,7 +54,7 @@ RectangleBorders {
             width: 300
             height: parent.height
 
-            color: qualityColor(entryQuality)
+            color: root.qualityColor(entryQuality)
 
             font {
                 family: root.fontText

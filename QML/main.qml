@@ -36,8 +36,26 @@ Window {
     property string fontNumbers: "Cambria Math"
     property string fontText: "Arial"
 
-
     color: darkGray
+
+    function qualityColor(quality) {
+        switch (quality) {
+        case "POOR":
+            return qualityPoor
+        case "COMMON":
+            return qualityCommon
+        case "UNCOMMON":
+            return qualityUncommon
+        case "RARE":
+            return qualityRare
+        case "EPIC":
+            return qualityEpic
+        case "LEGENDARY":
+            return qualityLegendary
+        default:
+            return "red"
+        }
+    }
 
     Connections {
         target: character

@@ -97,6 +97,8 @@ public:
     Q_PROPERTY(QString trinket1Icon READ get_trinket1_icon NOTIFY equipmentChanged)
     Q_PROPERTY(QString trinket2Icon READ get_trinket2_icon NOTIFY equipmentChanged)
 
+    Q_INVOKABLE QVariantList getTooltip(const QString &slot_string);
+
     Q_INVOKABLE void selectSlot(QString slot_string);
     Q_INVOKABLE void setSlot(QString slot_string, QString item);
     Q_INVOKABLE void clearSlot(QString slot_string);
@@ -118,6 +120,7 @@ Q_SIGNALS:
     void classChanged();
     void statsChanged();
     void equipmentChanged();
+    void tooltipChanged();
     void quickSimChanged(QString value, QString change, bool positive);
 
 private:
@@ -160,6 +163,9 @@ private:
     QString get_trinket1_icon() const;
     QString get_trinket2_icon() const;
 
+    QString get_capitalized_string(const QString&) const;
+    void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);
+    void set_class_restriction_tooltip(Item *&item, QString &restriction);
 
     Engine* engine;
     Equipment* equipment;
