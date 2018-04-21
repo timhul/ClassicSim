@@ -117,7 +117,9 @@ SOURCES += main.cpp \
     Equipment/EquipmentDb/ItemFileReader.cpp \
     Equipment/EquipmentDb/WeaponFileReader.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Ranged.cpp \
-    Equipment/Item/MeleeWeapon/Weapon.cpp
+    Equipment/Item/MeleeWeapon/Weapon.cpp \
+    Test/Warrior/TestWarrior.cpp \
+    Test/Warrior/Spells/TestExecute.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -229,7 +231,9 @@ HEADERS += \
     Equipment/EquipmentDb/ItemFileReader.h \
     Equipment/EquipmentDb/WeaponFileReader.h \
     Equipment/Item/MeleeWeapon/Specialization/Ranged.h \
-    Equipment/Item/MeleeWeapon/Weapon.h
+    Equipment/Item/MeleeWeapon/Weapon.h \
+    Test/Warrior/TestWarrior.h \
+    Test/Warrior/Spells/TestExecute.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -264,6 +268,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Statistics \
     C:\C++\ClassicSim\Mechanics \
     C:\C++\ClassicSim\Test \
+    C:\C++\ClassicSim\Test\Warrior\
+    C:\C++\ClassicSim\Test\Warrior\Spells \
     C:\C++\ClassicSim\GUI
 
 RESOURCES += qml.qrc

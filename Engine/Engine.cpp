@@ -63,6 +63,10 @@ void Engine::add_event(Event* event) {
     this->queue->push(event);
 }
 
+Queue* Engine::get_queue() const {
+    return this->queue;
+}
+
 Statistics* Engine::get_statistics(void) {
     return this->statistics;
 }

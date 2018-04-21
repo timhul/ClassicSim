@@ -40,6 +40,8 @@
 #include <assert.h>
 #include <QDebug>
 
+#include "TestWarrior.h"
+
 
 void Test::test_all(void) {
     qDebug() << "test_character_creation";
@@ -68,6 +70,8 @@ void Test::test_all(void) {
     test_combat_roll_melee_hit_result();
     qDebug() << "test_queue";
     test_queue();
+    qDebug() << "test_warrior";
+    test_warrior();
 }
 
 void add_frostbite(EquipmentDb* db) {
@@ -352,10 +356,6 @@ void Test::test_character_creation(void) {
     race = new Troll();
     // TODO: Add assertions
 
-    Warrior* warr = new Warrior(race, engine, equipment, combat);
-    // TODO: Add assertions
-    delete warr;
-
     Priest* priest = new Priest(race, engine, equipment, combat);
     // TODO: Add assertions
     delete priest;
@@ -385,21 +385,18 @@ void Test::test_character_creation(void) {
     delete shaman;
 
     Paladin* paladin = new Paladin(race, engine, equipment, combat);
+    paladin->set_clvl(60);
+    assert(paladin->get_clvl() == 60);
     // TODO: Add assertions
     delete paladin;
 
-    race = new Orc();
-    warr = new Warrior(race, engine, equipment, combat);
-    assert(warr->get_name() == "Warrior");
-    assert(warr->get_race()->get_name() == "Orc");
-    // TODO: Assert stats
-
-    warr->set_clvl(60);
-    assert(warr->get_clvl() == 60);
     delete target;
     delete combat;
     delete race;
-    delete warr;
     delete engine;
     delete equipment;
+}
+
+void Test::test_warrior() {
+    TestWarrior().test_all();
 }

@@ -8,7 +8,7 @@
 class Engine {
 public:
     Engine():
-        current_prio(-1),
+        current_prio(0),
         processed_events(0)
     {
         queue = new Queue();
@@ -30,6 +30,8 @@ public:
     float get_current_priority(void) const;
     void set_current_priority(Event*);
     void add_event(Event*);
+
+    Queue *get_queue() const;
 
     Statistics* get_statistics(void);
     void save_event_history(Event*);
