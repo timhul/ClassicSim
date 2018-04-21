@@ -48,23 +48,23 @@ const Stats* Item::get_stats() const {
 void Item::set_stat(const QString& key, const QString &value) {
     if (key == "STRENGTH") {
         this->stats->increase_str(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Strength").arg(value));
+        base_tooltip_stats.append(QString("+%1 Strength").arg(value));
     }
     else if (key == "AGILITY") {
         this->stats->increase_agi(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Agility").arg(value));
+        base_tooltip_stats.append(QString("+%1 Agility").arg(value));
     }
     else if (key == "STAMINA") {
         this->stats->increase_stam(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Stamina").arg(value));
+        base_tooltip_stats.append(QString("+%1 Stamina").arg(value));
     }
     else if (key == "INTELLECT") {
         this->stats->increase_int(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Intellect").arg(value));
+        base_tooltip_stats.append(QString("+%1 Intellect").arg(value));
     }
     else if (key == "SPIRIT") {
         this->stats->increase_spi(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Spirit").arg(value));
+        base_tooltip_stats.append(QString("+%1 Spirit").arg(value));
     }
     else if (key == "CRIT_CHANCE") {
         this->stats->increase_crit(value.toFloat());

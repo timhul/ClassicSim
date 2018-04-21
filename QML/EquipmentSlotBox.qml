@@ -53,24 +53,20 @@ Rectangle {
         ttRect.height = getTooltipHeight()
     }
 
-    function clearTooltip() {
-        ttTitle.text = ""
-    }
-
     function getTooltipHeight() {
         var height = 0;
-        height += ttTitle.contentHeight + ttTitle.anchors.topMargin
-        height += ttBind.contentHeight + ttBind.anchors.topMargin
-        height += ttUnique.text !== "" ? ttUnique.contentHeight + ttUnique.anchors.topMargin : 0
-        height += ttItemSlot.contentHeight + ttItemSlot.anchors.topMargin
-        height += ttWeaponDamageRange.text !== "" ? (ttWeaponDamageRange.contentHeight + ttWeaponDamageRange.anchors.topMargin) * 2 : 0
-        height += ttDurability.text !== "" ? ttDurability.contentHeight + ttDurability.anchors.topMargin : 0
-        height += ttBaseStats.text !== "" ? ttBaseStats.contentHeight + ttBaseStats.anchors.topMargin : 0
-        height += ttClassRestrictions.text !== "" ? ttClassRestrictions.contentHeight + ttClassRestrictions.anchors.topMargin : 0
-        height += ttLevelRequirement.contentHeight + ttLevelRequirement.anchors.topMargin
-        height += ttEquipEffect.text !== "" ? ttEquipEffect.contentHeight + ttEquipEffect.anchors.topMargin : 0
+        height += ttTitle.contentHeight
+        height += ttBind.contentHeight
+        height += ttUnique.text !== "" ? ttUnique.contentHeight : 0
+        height += ttItemSlot.contentHeight
+        height += ttWeaponDamageRange.text !== "" ? (ttWeaponDamageRange.contentHeight) * 2 : 0
+        height += showDurabilityInTooltip === true ? ttDurability.contentHeight : 0
+        height += ttBaseStats.text !== "" ? ttBaseStats.contentHeight : 0
+        height += ttClassRestrictions.text !== "" ? ttClassRestrictions.contentHeight : 0
+        height += ttLevelRequirement.contentHeight
+        height += ttEquipEffect.text !== "" ? ttEquipEffect.contentHeight : 0
 
-        height += 10
+        height += 20
         return height
     }
 
@@ -117,8 +113,6 @@ Rectangle {
         width: ttTitle.width > ttEquipEffect.width ? ttTitle.width + 20 :
                                                      ttEquipEffect.width +  20
 
-        Component.onCompleted: getTooltipHeight()
-
         rectColor: root.darkDarkGray
         opacity: 0.8
         setRadius: 4
@@ -156,7 +150,7 @@ Rectangle {
                 leftMargin: 10
             }
 
-            height: 15
+            height: 10
             font {
                 family: "Arial"
                 pointSize: 9
@@ -179,7 +173,7 @@ Rectangle {
                 leftMargin: 10
             }
 
-            height: 15
+            height: 10
             font {
                 family: "Arial"
                 pointSize: 9
@@ -249,7 +243,7 @@ Rectangle {
                 leftMargin: 10
             }
 
-            height: 10
+            height: text !== "" ? 10 : 0
             font {
                 family: "Arial"
                 pointSize: 9
@@ -295,7 +289,7 @@ Rectangle {
                 leftMargin: 10
             }
 
-            height: 10
+            height: text !== "" ? 10 : 0
             font {
                 family: "Arial"
                 pointSize: 9
@@ -314,7 +308,7 @@ Rectangle {
             anchors {
                 top: ttWeaponDps.visible ? ttWeaponDps.bottom :
                                            ttItemSlot.bottom
-                topMargin: 5
+                topMargin: 3
                 left: ttRect.left
                 leftMargin: 10
             }
@@ -348,6 +342,8 @@ Rectangle {
                 pointSize: 9
             }
 
+            height: 10
+
             text: "Durability 105 / 105"
 
             visible: ttRect.visible && showDurabilityInTooltip
@@ -373,7 +369,7 @@ Rectangle {
             }
 
 
-            height: visible ? 10 : 0
+            height: text !== "" ? 10 : 0
             visible: ttRect.visible && text !== ""
 
             color: "white"
@@ -385,7 +381,10 @@ Rectangle {
             id: ttLevelRequirement
 
             anchors {
-                top: ttClassRestrictions.bottom
+                top: ttClassRestrictions.visible ? ttClassRestrictions.bottom :
+                                                   showDurabilityInTooltip ? ttDurability.bottom :
+                                                                             ttBaseStats.text !== "" ? ttBaseStats.bottom :
+                                                                                                       ttItemSlot.bottom
                 topMargin: 5
                 left: ttRect.left
                 leftMargin: 10

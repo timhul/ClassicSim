@@ -611,10 +611,27 @@ void GUIControl::set_weapon_tooltip(Item*& item, QString& slot, QString type, QS
 }
 
 void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction) {
-    if (item->get_value("RESTRICTED_TO_WARRIOR") == "")
+    QVector<QString> restrictions;
+
+    if (item->get_value("RESTRICTED_TO_WARRIOR") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["WARRIOR"]->get_class_color(), chars["WARRIOR"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_PALADIN") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["PALADIN"]->get_class_color(), chars["PALADIN"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_ROGUE") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["ROGUE"]->get_class_color(), chars["ROGUE"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_HUNTER") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["HUNTER"]->get_class_color(), chars["HUNTER"]->get_name()));
+
+    if (restrictions.empty())
         return;
 
-    restriction = "Class: <font color=\"#C79C6E\">Warrior</font>";
+    for (int i = 0; i < restrictions.size(); ++i) {
+        if (restriction == "")
+            restriction = "Classes: ";
+        else
+            restriction += ", ";
+        restriction += restrictions[i];
+    }
 }
 
 QString GUIControl::get_capitalized_string(const QString& string) const {
