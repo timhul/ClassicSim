@@ -38,6 +38,7 @@ public:
 
     virtual QString get_class_color() const = 0;
 
+
     int get_strength();
     int get_agility();
     int get_stamina();
@@ -55,6 +56,7 @@ public:
     void start_attack(void);
     void stop_attack(void);
     bool action_ready(void) const;
+    void start_global_cooldown();
     virtual float global_cooldown() const;
 
     float get_ability_crit_dmg_mod() const;

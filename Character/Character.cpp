@@ -133,6 +133,11 @@ void Character::stop_attack(void) {
     this->melee_attacking = false;
 }
 
+void Character::start_global_cooldown() {
+    assert(action_ready());
+    this->last_action = engine->get_current_priority();
+}
+
 float Character::global_cooldown() const {
     return 1.5;
 }

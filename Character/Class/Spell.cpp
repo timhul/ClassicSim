@@ -69,6 +69,7 @@ void Spell::add_spell_cd_event(void) const {
 }
 
 void Spell::add_gcd_event(void) const {
+    pchar->start_global_cooldown();
     float gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
     CooldownReady* new_event = new CooldownReady(pchar, gcd_ready);
     engine->add_event(new_event);
