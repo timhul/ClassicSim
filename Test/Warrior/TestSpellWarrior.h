@@ -2,8 +2,7 @@
 #define TESTSPELLWARRIOR_H
 
 #include "TestSpell.h"
-
-class Warrior;
+#include "Warrior.h"
 
 class TestSpellWarrior: public TestSpell {
 public:

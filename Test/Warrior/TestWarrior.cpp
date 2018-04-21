@@ -9,9 +9,11 @@
 #include "Target.h"
 #include "CombatRoll.h"
 #include "TestExecute.h"
+#include "TestHeroicStrike.h"
 
 void TestWarrior::test_all() {
     TestExecute().test_all();
+    TestHeroicStrike().test_all();
 }
 
 void TestWarrior::test_char_initialization() {
