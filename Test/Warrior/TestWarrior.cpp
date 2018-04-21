@@ -10,10 +10,12 @@
 #include "CombatRoll.h"
 #include "TestExecute.h"
 #include "TestHeroicStrike.h"
+#include "TestBloodthirst.h"
 
 void TestWarrior::test_all() {
     TestExecute().test_all();
     TestHeroicStrike().test_all();
+    TestBloodthirst().test_all();
 }
 
 void TestWarrior::test_char_initialization() {
