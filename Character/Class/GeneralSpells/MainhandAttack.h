@@ -13,6 +13,8 @@ public:
     int get_next_iteration();
     void reset_effect() override;
 
+    float get_cooldown() override;
+
 protected:
     virtual int spell_effect(const int) override;
     float next_expected_use;

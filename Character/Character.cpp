@@ -112,6 +112,15 @@ Talents* Character::get_talents(void) const {
     return this->talents;
 }
 
+MainhandAttack* Character::get_mh_attack() const {
+    return this->mh_attack;
+}
+
+OffhandAttack* Character::get_oh_attack() const {
+    return this->oh_attack;
+}
+
+
 void Character::add_next_mh_attack(void) {
     MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
     this->get_engine()->add_event(new_event);
@@ -251,36 +260,36 @@ void Character::decrease_crit(float decrease) {
 
 void Character::increase_attack_speed(int increase) {
     attack_speed_buffs.append(increase);
-
-    mh_haste += float(increase / 100);
+    float increase_float = float(increase / 100);
+    mh_haste += increase_float;
 
     if (has_offhand())
-        oh_haste += float(increase / 100);
+        oh_haste += increase_float;
 
-    base_stats->increase_attack_speed(increase);
+    base_stats->increase_attack_speed(increase_float);
 
-    mh_attack->update_next_expected_use(increase);
+    mh_attack->update_next_expected_use(increase_float);
     add_next_mh_attack();
 
     if (equipment->is_dual_wielding()) {
-        oh_attack->update_next_expected_use(increase);
+        oh_attack->update_next_expected_use(increase_float);
         add_next_oh_attack();
     }
 }
 
 void Character::decrease_attack_speed(int decrease) {
     assert(attack_speed_buffs.removeOne(decrease));
-    float decrease_ = float(decrease / 100);
-    mh_haste -= decrease_;
+    float decrease_float = float(decrease / 100);
+    mh_haste -= decrease_float;
 
     if (has_offhand())
-        oh_haste -= decrease_;
+        oh_haste -= decrease_float;
 
-    mh_attack->update_next_expected_use(decrease_);
+    mh_attack->update_next_expected_use(-decrease_float);
     add_next_mh_attack();
 
     if (equipment->is_dual_wielding()) {
-        oh_attack->update_next_expected_use(decrease_);
+        oh_attack->update_next_expected_use(-decrease_float);
         add_next_oh_attack();
     }
 }

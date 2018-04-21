@@ -2,6 +2,7 @@
 #include "MainhandAttack.h"
 #include "Equipment.h"
 #include "Character.h"
+#include <QDebug>
 
 MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Mainhand Attack",
@@ -13,11 +14,13 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
           0)
 {
     this->pchar = pchar;
-    next_expected_use = get_cooldown();
+    next_expected_use = 0;
     iteration = 0;
 }
 
 int MainhandAttack::spell_effect(const int) {
+    update_next_expected_use(0.0);
+
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 
@@ -63,7 +66,12 @@ float MainhandAttack::get_next_expected_use() const {
 void MainhandAttack::update_next_expected_use(const float haste_change) {
     if (haste_change > 0.01 || haste_change < -0.01) {
         float curr_time = pchar->get_engine()->get_current_priority();
-        float remainder_after_haste_change = (next_expected_use - curr_time) / (1 + haste_change);
+        float remainder_after_haste_change = (next_expected_use - curr_time);
+        assert(remainder_after_haste_change > -0.0000001);
+        if (haste_change < 0)
+            remainder_after_haste_change *=  (1 + (-1) * haste_change);
+        else
+            remainder_after_haste_change /=  (1 + haste_change);
         next_expected_use = curr_time + remainder_after_haste_change;
     }
     else {
@@ -80,6 +88,12 @@ int MainhandAttack::get_next_iteration() {
 }
 
 void MainhandAttack::reset_effect() {
-    // TODO: Check if 0 should be used (start attack instantly). Change initializer as well.
-    next_expected_use = get_cooldown();
+    next_expected_use = 0;
+}
+
+float MainhandAttack::get_cooldown() {
+    qDebug() << "Do not use get_cooldown() for white hit spells, use get_next_expected_use() instead.";
+    assert(false);
+
+    return 1.0;
 }

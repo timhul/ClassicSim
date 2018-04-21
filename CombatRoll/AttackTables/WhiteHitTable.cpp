@@ -51,3 +51,23 @@ void WhiteHitTable::dump_table(void) {
 void WhiteHitTable::update_crit_chance(const float critical) {
     this->critical_range = int(round(critical * 10000)) + block_range;;
 }
+
+void WhiteHitTable::set_miss_range(const int range) {
+    this->miss_range = range;
+}
+
+void WhiteHitTable::set_dodge_range(const int range) {
+    this->dodge_range = range;
+}
+
+void WhiteHitTable::set_parry_range(const int range) {
+    this->parry_range = range;
+}
+
+void WhiteHitTable::set_block_range(const int range) {
+    this->block_range = range;
+}
+
+void WhiteHitTable::set_glancing_range(const int range) {
+    this->glancing_range = range;
+}

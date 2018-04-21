@@ -53,6 +53,10 @@ public:
     Engine* get_engine(void) const;
     Equipment* get_equipment(void) const;
     Talents* get_talents(void) const;
+
+    MainhandAttack* get_mh_attack() const;
+    OffhandAttack* get_oh_attack() const;
+
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
     void start_attack(void);

@@ -12,12 +12,11 @@ OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, Com
                   roll)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    next_expected_use = get_cooldown();
-    iteration = 0;
     talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
 }
 
 int OffhandAttackWarrior::spell_effect(const int) {
+    update_next_expected_use(0.0);
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("OH White Total Attempts");
 

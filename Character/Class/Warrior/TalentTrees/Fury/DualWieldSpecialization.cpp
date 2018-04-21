@@ -15,9 +15,9 @@ DualWieldSpecialization::~DualWieldSpecialization() {
 }
 
 void DualWieldSpecialization::apply_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_offhand_attack()->increase_effect_via_talent();
+    dynamic_cast<Warrior*>(pchar)->get_oh_attack_warrior()->increase_effect_via_talent();
 }
 
 void DualWieldSpecialization::remove_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_offhand_attack()->decrease_effect_via_talent();
+    dynamic_cast<Warrior*>(pchar)->get_oh_attack_warrior()->decrease_effect_via_talent();
 }

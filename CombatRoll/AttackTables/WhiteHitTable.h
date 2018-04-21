@@ -12,6 +12,12 @@ public:
     void dump_table(void) override;
     void update_crit_chance(const float critical) override;
 
+    void set_miss_range(const int range);
+    void set_dodge_range(const int range);
+    void set_parry_range(const int range);
+    void set_block_range(const int range);
+    void set_glancing_range(const int range);
+
 protected:
 private:
     float miss;

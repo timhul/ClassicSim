@@ -51,7 +51,7 @@ public:
     HeroicStrikeBuff* get_hs_buff() const;
     Execute* get_execute() const;
     Overpower* get_overpower() const;
-    OffhandAttackWarrior* get_offhand_attack() const;
+    OffhandAttackWarrior* get_oh_attack_warrior() const;
     UnbridledWrath* get_unbridled_wrath() const;
     DeathWish* get_death_wish() const;
     DeathWishBuff* get_death_wish_buff() const;

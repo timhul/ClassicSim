@@ -34,7 +34,7 @@ public:
     virtual ~Spell() {}
 
     QString get_name() const;
-    float get_cooldown();
+    virtual float get_cooldown();
     float get_last_used();
     float get_next_use() const;
     bool is_ready() const;
