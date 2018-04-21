@@ -1,10 +1,7 @@
 
 #include "MainhandAttack.h"
-#include "Warrior.h"
-#include "Flurry.h"
 #include "Equipment.h"
-#include "DeepWounds.h"
-#include "UnbridledWrath.h"
+#include "Character.h"
 
 MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Mainhand Attack",
@@ -15,7 +12,7 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
                                                                 10000,
           0)
 {
-    this->pchar = dynamic_cast<Warrior*>(pchar);
+    this->pchar = pchar;
     next_expected_use = get_cooldown();
     iteration = 0;
 }
@@ -42,27 +39,21 @@ int MainhandAttack::spell_effect(const int) {
     }
 
     float damage_dealt = std::max(1, pchar->get_random_mh_dmg());
-    int uw_proc = pchar->get_unbridled_wrath()->perform(0);
 
     if (result->is_critical()) {
         damage_dealt *= 2;
-        const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         pchar->melee_critical_effect();
-        add_success_stats("Critical", round(damage_dealt), rage_gained);
-        return rage_gained + uw_proc;
+        add_success_stats("Critical", round(damage_dealt), 0);
+        return 0;
     }
     if (result->is_glancing()) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
-        const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-        pchar->get_flurry()->use_charge();
-        add_success_stats("Glancing", round(damage_dealt), rage_gained);
-        return rage_gained + uw_proc;
+        add_success_stats("Glancing", round(damage_dealt), 0);
+        return 0;
     }
 
-    const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
-    pchar->get_flurry()->use_charge();
-    add_success_stats("Hit", round(damage_dealt), rage_gained);
-    return rage_gained + uw_proc;
+    add_success_stats("Hit", round(damage_dealt), 0);
+    return 0;
 }
 
 float MainhandAttack::get_next_expected_use() const {

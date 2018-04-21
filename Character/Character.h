@@ -15,6 +15,8 @@ class Buff;
 class CombatRoll;
 class Spell;
 class Weapon;
+class MainhandAttack;
+class OffhandAttack;
 
 class Character: public QObject {
     Q_OBJECT
@@ -59,6 +61,7 @@ public:
     void start_global_cooldown();
     virtual float global_cooldown() const;
 
+    virtual void melee_critical_effect();
     float get_ability_crit_dmg_mod() const;
     float get_total_phys_dmg_mod() const;
     int get_random_mh_dmg();
@@ -76,11 +79,11 @@ public:
 
     virtual void increase_hit(float);
     virtual void increase_crit(float);
-    virtual void increase_attack_speed(int);
+    void increase_attack_speed(int);
 
     virtual void decrease_hit(float);
     virtual void decrease_crit(float);
-    virtual void decrease_attack_speed(int);
+    void decrease_attack_speed(int);
 
     void increase_ability_crit_dmg_mod(float);
     void decrease_ability_crit_dmg_mod(float);
@@ -108,6 +111,8 @@ protected:
     CombatRoll* roll;
     Talents* talents;
     Stats* base_stats;
+    MainhandAttack* mh_attack;
+    OffhandAttack* oh_attack;
     QVector<Spell*> spells;
     QVector<Buff*> buffs;
     QVector<int> attack_speed_buffs;
@@ -125,8 +130,8 @@ protected:
     virtual int get_ap_per_strength() const = 0;
     virtual int get_ap_per_agi() const = 0;
 
-    virtual void add_next_mh_attack(void);
-    virtual void add_next_oh_attack(void);
+    void add_next_mh_attack(void);
+    void add_next_oh_attack(void);
 
     virtual void initialize_talents() = 0;
 

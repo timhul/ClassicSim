@@ -3,11 +3,9 @@
 
 #include "Spell.h"
 
-class Warrior;
-
 class MainhandAttack: public Spell {
 public:
-    MainhandAttack(Engine* engine, Character *pchar, CombatRoll* roll);
+    MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll);
 
     float get_next_expected_use() const;
     void update_next_expected_use(const float);
@@ -16,11 +14,11 @@ public:
     void reset_effect() override;
 
 protected:
-private:
-    int spell_effect(const int) override;
-    Warrior* pchar;
+    virtual int spell_effect(const int) override;
     float next_expected_use;
     int iteration;
+    QVector<float> talent_ranks;
+private:
 };
 
 #endif // MAINHANDATTACK_H

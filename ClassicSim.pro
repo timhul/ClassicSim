@@ -47,10 +47,8 @@ SOURCES += main.cpp \
     CombatRoll/AttackTables/WhiteHitTable.cpp \
     Character/Class/Spell.cpp \
     Character/Class/Warrior/Spells/Bloodthirst.cpp \
-    Character/Class/Warrior/Spells/MainhandAttack.cpp \
     Event/Events/OffhandMeleeHit.cpp \
     Event/Events/MainhandMeleeHit.cpp \
-    Character/Class/Warrior/Spells/OffhandAttack.cpp \
     Event/Events/CooldownReady.cpp \
     Character/Class/Warrior/Spells/Whirlwind.cpp \
     Character/Class/Warrior/Spells/Execute.cpp \
@@ -123,7 +121,11 @@ SOURCES += main.cpp \
     Test/TestSpell.cpp \
     Test/Warrior/TestSpellWarrior.cpp \
     Test/Warrior/Spells/TestHeroicStrike.cpp \
-    Test/Warrior/Spells/TestBloodthirst.cpp
+    Test/Warrior/Spells/TestBloodthirst.cpp \
+    Character/Class/GeneralSpells/MainhandAttack.cpp \
+    Character/Class/GeneralSpells/OffhandAttack.cpp \
+    Character/Class/Warrior/Spells/MainhandAttackWarrior.cpp \
+    Character/Class/Warrior/Spells/OffhandAttackWarrior.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -166,10 +168,8 @@ HEADERS += \
     Character/Class/Spell.h \
     Character/Class/Warrior/Spells/Bloodthirst.h \
     Character/Class/AutoAttack.h \
-    Character/Class/Warrior/Spells/MainhandAttack.h \
     Event/Events/OffhandMeleeHit.h \
     Event/Events/MainhandMeleeHit.h \
-    Character/Class/Warrior/Spells/OffhandAttack.h \
     Event/Events/CooldownReady.h \
     Character/Class/Warrior/Spells/Whirlwind.h \
     Character/Class/Warrior/Spells/Execute.h \
@@ -241,7 +241,11 @@ HEADERS += \
     Test/TestSpell.h \
     Test/Warrior/TestSpellWarrior.h \
     Test/Warrior/Spells/TestHeroicStrike.h \
-    Test/Warrior/Spells/TestBloodthirst.h
+    Test/Warrior/Spells/TestBloodthirst.h \
+    Character/Class/GeneralSpells/MainhandAttack.h \
+    Character/Class/GeneralSpells/OffhandAttack.h \
+    Character/Class/Warrior/Spells/MainhandAttackWarrior.h \
+    Character/Class/Warrior/Spells/OffhandAttackWarrior.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -276,8 +280,9 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Statistics \
     C:\C++\ClassicSim\Mechanics \
     C:\C++\ClassicSim\Test \
-    C:\C++\ClassicSim\Test\Warrior\
+    C:\C++\ClassicSim\Test\Warrior \
     C:\C++\ClassicSim\Test\Warrior\Spells \
+    C:\C++\ClassicSim\Character\Class\GeneralSpells \
     C:\C++\ClassicSim\GUI
 
 RESOURCES += qml.qrc

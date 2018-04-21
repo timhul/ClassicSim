@@ -9,6 +9,10 @@
 #include "Buff.h"
 #include "Spell.h"
 #include "CombatRoll.h"
+#include "MainhandAttack.h"
+#include "OffhandAttack.h"
+#include "MainhandMeleeHit.h"
+#include "OffhandMeleeHit.h"
 
 #include <QDebug>
 
@@ -109,11 +113,13 @@ Talents* Character::get_talents(void) const {
 }
 
 void Character::add_next_mh_attack(void) {
-    return;
+    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
+    this->get_engine()->add_event(new_event);
 }
 
 void Character::add_next_oh_attack(void) {
-    return;
+    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
+    this->get_engine()->add_event(new_event);
 }
 
 void Character::start_attack(void) {
@@ -155,6 +161,10 @@ void Character::increase_melee_ap(const int increase) {
 
 void Character::decrease_melee_ap(const int decrease) {
     base_stats->decrease_base_melee_ap(decrease);
+}
+
+void Character::melee_critical_effect() {
+
 }
 
 float Character::get_ability_crit_dmg_mod() const {
@@ -246,15 +256,33 @@ void Character::increase_attack_speed(int increase) {
 
     if (has_offhand())
         oh_haste += float(increase / 100);
+
+    base_stats->increase_attack_speed(increase);
+
+    mh_attack->update_next_expected_use(increase);
+    add_next_mh_attack();
+
+    if (equipment->is_dual_wielding()) {
+        oh_attack->update_next_expected_use(increase);
+        add_next_oh_attack();
+    }
 }
 
 void Character::decrease_attack_speed(int decrease) {
     assert(attack_speed_buffs.removeOne(decrease));
-
-    mh_haste -= float(decrease / 100);
+    float decrease_ = float(decrease / 100);
+    mh_haste -= decrease_;
 
     if (has_offhand())
-        oh_haste -= float(decrease / 100);
+        oh_haste -= decrease_;
+
+    mh_attack->update_next_expected_use(decrease_);
+    add_next_mh_attack();
+
+    if (equipment->is_dual_wielding()) {
+        oh_attack->update_next_expected_use(decrease_);
+        add_next_oh_attack();
+    }
 }
 
 void Character::increase_ability_crit_dmg_mod(float increase) {

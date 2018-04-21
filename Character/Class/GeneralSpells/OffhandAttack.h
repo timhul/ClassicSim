@@ -3,8 +3,6 @@
 
 #include "Spell.h"
 
-class Warrior;
-
 class OffhandAttack: public Spell {
 public:
     OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll);
@@ -16,12 +14,11 @@ public:
     void reset_effect() override;
 
 protected:
-private:
-    int spell_effect(const int) override;
-    Warrior* pchar;
+    virtual int spell_effect(const int) override;
     float next_expected_use;
     int iteration;
     QVector<float> talent_ranks;
+private:
 };
 
 #endif // OFFHANDATTACK_H

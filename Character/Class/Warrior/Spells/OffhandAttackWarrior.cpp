@@ -1,19 +1,15 @@
 
-#include "OffhandAttack.h"
+#include "OffhandAttackWarrior.h"
 #include "Warrior.h"
 #include "Flurry.h"
 #include "Equipment.h"
 #include "DeepWounds.h"
 #include "UnbridledWrath.h"
 
-OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Offhand Attack",
-          engine,
-          pchar,
-          roll,
-          (pchar->get_equipment()->is_dual_wielding()) ? pchar->get_equipment()->get_offhand()->get_base_weapon_speed() :
-                                                         10000,
-          0)
+OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
+    OffhandAttack(engine,
+                  pchar,
+                  roll)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     next_expected_use = get_cooldown();
@@ -21,7 +17,7 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
     talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
 }
 
-int OffhandAttack::spell_effect(const int) {
+int OffhandAttackWarrior::spell_effect(const int) {
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("OH White Total Attempts");
 
@@ -64,32 +60,4 @@ int OffhandAttack::spell_effect(const int) {
     pchar->get_flurry()->use_charge();
     add_success_stats("Hit", round(damage_dealt), rage_gained);
     return rage_gained + uw_proc;
-}
-
-float OffhandAttack::get_next_expected_use() const {
-    return next_expected_use;
-}
-
-void OffhandAttack::update_next_expected_use(const float haste_change) {
-    if (haste_change > 0.01 || haste_change < -0.01) {
-        float curr_time = pchar->get_engine()->get_current_priority();
-        float remainder_after_haste_change = (next_expected_use - curr_time) / (1 + haste_change);
-        next_expected_use = curr_time + remainder_after_haste_change;
-    }
-    else {
-        next_expected_use = last_used + pchar->get_oh_wpn_speed();
-    }
-}
-
-bool OffhandAttack::attack_is_valid(const int iteration) const {
-    return this->iteration == iteration;
-}
-
-int OffhandAttack::get_next_iteration() {
-    return ++iteration;
-}
-
-void OffhandAttack::reset_effect() {
-    // TODO: Check if 0 should be used (start attack instantly). Change initializer as well.
-    next_expected_use = get_cooldown();
 }

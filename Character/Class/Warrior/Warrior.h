@@ -6,8 +6,6 @@
 class CombatRoll;
 class Talents;
 class Bloodthirst;
-class MainhandAttack;
-class OffhandAttack;
 class Flurry;
 class DeepWounds;
 class HeroicStrike;
@@ -20,6 +18,7 @@ class DeathWishBuff;
 class BattleShout;
 class BattleShoutBuff;
 class BerserkerRage;
+class OffhandAttackWarrior;
 
 class Warrior: public Character {
     Q_OBJECT
@@ -52,7 +51,7 @@ public:
     HeroicStrikeBuff* get_hs_buff() const;
     Execute* get_execute() const;
     Overpower* get_overpower() const;
-    OffhandAttack* get_offhand_attack() const;
+    OffhandAttackWarrior* get_offhand_attack() const;
     UnbridledWrath* get_unbridled_wrath() const;
     DeathWish* get_death_wish() const;
     DeathWishBuff* get_death_wish_buff() const;
@@ -60,13 +59,10 @@ public:
     BattleShoutBuff* get_battle_shout_buff() const;
     BerserkerRage* get_berserker_rage() const;
 
-    void melee_critical_effect();
+    void melee_critical_effect() override;
 
     int get_ap_per_strength() const override;
     int get_ap_per_agi() const override;
-
-    void increase_attack_speed(int) override;
-    void decrease_attack_speed(int) override;
 
     void reset_resource() override;
 
@@ -74,8 +70,6 @@ protected:
 private:
     int rage;
     Bloodthirst* bt;
-    MainhandAttack* mh_attack;
-    OffhandAttack* oh_attack;
     Flurry* flurry;
     DeepWounds* deep_wounds;
     HeroicStrike* heroic_strike;
@@ -88,9 +82,6 @@ private:
     BattleShout* battle_shout;
     BattleShoutBuff* battle_shout_buff;
     BerserkerRage* berserker_rage;
-
-    void add_next_mh_attack(void) override;
-    void add_next_oh_attack(void) override;
 
     void initialize_talents() override;
 };

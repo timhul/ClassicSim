@@ -1,6 +1,6 @@
 
 #include "DualWieldSpecialization.h"
-#include "OffhandAttack.h"
+#include "OffhandAttackWarrior.h"
 #include "Warrior.h"
 
 DualWieldSpecialization::DualWieldSpecialization(Character *pchar, TalentTree* tree) :

@@ -3,8 +3,8 @@
 #include "Talents.h"
 #include "PlayerAction.h"
 #include "Bloodthirst.h"
-#include "MainhandAttack.h"
-#include "OffhandAttack.h"
+#include "MainhandAttackWarrior.h"
+#include "OffhandAttackWarrior.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
 #include "Flurry.h"
@@ -51,8 +51,8 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     // TODO: For now mainhand/offhand attack must be initialized after equipment is set.
     // Fix so that equipment changes updates these spells.
     this->bt = new Bloodthirst(engine, this, roll);
-    this->mh_attack = new MainhandAttack(engine, this, roll);
-    this->oh_attack = new OffhandAttack(engine, this, roll);
+    this->mh_attack = new MainhandAttackWarrior(engine, this, roll);
+    this->oh_attack = new OffhandAttackWarrior(engine, this, roll);
     this->deep_wounds = new DeepWounds(engine, this, roll);
     this->heroic_strike = new HeroicStrike(engine, this, roll);
     this->execute = new Execute(engine, this, roll);
@@ -162,16 +162,6 @@ void Warrior::rotation() {
 
 }
 
-void Warrior::add_next_mh_attack(void) {
-    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
-    this->get_engine()->add_event(new_event);
-}
-
-void Warrior::add_next_oh_attack(void) {
-    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
-    this->get_engine()->add_event(new_event);
-}
-
 void Warrior::mh_auto_attack(const int iteration) {
     if (!is_melee_attacking())
         start_attack();
@@ -252,8 +242,8 @@ Overpower* Warrior::get_overpower() const {
     return this->overpower;
 }
 
-OffhandAttack* Warrior::get_offhand_attack() const {
-    return this->oh_attack;
+OffhandAttackWarrior* Warrior::get_offhand_attack() const {
+    return dynamic_cast<OffhandAttackWarrior*>(this->oh_attack);
 }
 
 UnbridledWrath* Warrior::get_unbridled_wrath() const {
@@ -283,42 +273,6 @@ BerserkerRage* Warrior::get_berserker_rage() const {
 void Warrior::melee_critical_effect() {
     flurry->apply_buff();
     deep_wounds->apply_debuff();
-}
-
-void Warrior::increase_attack_speed(int increase) {
-    attack_speed_buffs.append(increase);
-
-    mh_haste += float(increase / 100);
-
-    if (has_offhand())
-        oh_haste += float(increase / 100);
-
-    base_stats->increase_attack_speed(increase);
-
-    mh_attack->update_next_expected_use(increase);
-    add_next_mh_attack();
-
-    if (equipment->is_dual_wielding()) {
-        oh_attack->update_next_expected_use(increase);
-        add_next_oh_attack();
-    }
-}
-
-void Warrior::decrease_attack_speed(int decrease) {
-    assert(attack_speed_buffs.removeOne(decrease));
-    float decrease_ = float(decrease / 100);
-    mh_haste -= decrease_;
-
-    if (has_offhand())
-        oh_haste -= decrease_;
-
-    mh_attack->update_next_expected_use(decrease_);
-    add_next_mh_attack();
-
-    if (equipment->is_dual_wielding()) {
-        oh_attack->update_next_expected_use(decrease_);
-        add_next_oh_attack();
-    }
 }
 
 void Warrior::initialize_talents() {
