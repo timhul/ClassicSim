@@ -10,6 +10,9 @@ class Character;
 
 class TestSpell {
 public:
+    TestSpell();
+    ~TestSpell();
+
     void set_up_general();
     void tear_down_general();
 
