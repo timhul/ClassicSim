@@ -52,3 +52,19 @@ void MeleeSpecialTable::dump_table(void) {
 void MeleeSpecialTable::update_crit_chance(const float critical) {
     this->critical_range = int(round(critical * 10000));
 }
+
+void MeleeSpecialTable::set_miss_range(const int range) {
+    this->miss_range = range;
+}
+
+void MeleeSpecialTable::set_dodge_range(const int range) {
+    this->dodge_range = range;
+}
+
+void MeleeSpecialTable::set_parry_range(const int range) {
+    this->parry_range = range;
+}
+
+void MeleeSpecialTable::set_block_range(const int range) {
+    this->block_range = range;
+}

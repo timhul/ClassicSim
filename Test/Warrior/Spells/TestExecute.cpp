@@ -1,6 +1,7 @@
 
 #include "TestExecute.h"
 #include "Execute.h"
+#include "Impale.h"
 
 #include "Warrior.h"
 #include "Target.h"
@@ -12,28 +13,9 @@
 #include "Target.h"
 #include "CombatRoll.h"
 #include "PlayerAction.h"
+#include "MeleeSpecialTable.h"
 
 #include <QDebug>
-
-void TestExecute::set_up() {
-    // not thread safe
-    engine = new Engine();
-    equipment = new Equipment();
-    target = new Target(63);
-    combat = new CombatRoll(target);
-    race = new Orc();
-    warrior = new Warrior(race, engine, equipment, combat);
-}
-
-void TestExecute::tear_down() {
-    // not thread safe
-    delete engine;
-    delete equipment;
-    delete combat;
-    delete target;
-    delete race;
-    delete warrior;
-}
 
 void TestExecute::test_all() {
     set_up();
@@ -46,6 +28,90 @@ void TestExecute::test_all() {
 
     set_up();
     test_incurs_global_cooldown_on_use();
+    tear_down();
+
+    set_up();
+    test_1_of_2_improved_execute_reduces_rage_cost();
+    tear_down();
+
+    set_up();
+    test_2_of_2_improved_execute_reduces_rage_cost();
+    tear_down();
+
+    set_up();
+    test_removing_points_in_improved_execute_increases_rage_cost();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_0_of_2_imp_execute_0_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_1_of_2_imp_execute_0_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_1_of_2_imp_execute_0_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_2_of_2_imp_execute_0_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_2_of_2_imp_execute_0_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_0_of_2_imp_execute_1_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_0_of_2_imp_execute_1_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_1_of_2_imp_execute_1_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_1_of_2_imp_execute_1_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_2_of_2_imp_execute_1_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_2_of_2_imp_execute_1_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_0_of_2_imp_execute_2_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_0_of_2_imp_execute_2_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_1_of_2_imp_execute_2_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_1_of_2_imp_execute_2_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
     tear_down();
 }
 
@@ -61,11 +127,275 @@ void TestExecute::test_incurs_global_cooldown_on_use() {
     Queue* queue = engine->get_queue();
     assert(queue->empty());
 
-    warrior->get_execute()->perform(100);
+    when_execute_is_performed_with_rage(100);
 
     assert(!queue->empty());
     assert(!warrior->action_ready());
     Event* event = queue->get_next();
     assert(event->get_name() == "CooldownReady");
     assert(QString::number(event->get_priority(), 'f', 3) == QString::number(warrior->global_cooldown(), 'f', 3));
+}
+
+void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
+    assert(warrior->get_execute()->is_available(15));
+    assert(!warrior->get_execute()->is_available(14));
+
+    warrior->get_execute()->increase_effect_via_talent();
+
+    assert(warrior->get_execute()->is_available(13));
+    assert(!warrior->get_execute()->is_available(12));
+}
+
+void TestExecute::test_2_of_2_improved_execute_reduces_rage_cost() {
+    assert(warrior->get_execute()->is_available(15));
+    assert(!warrior->get_execute()->is_available(14));
+
+    warrior->get_execute()->increase_effect_via_talent();
+    warrior->get_execute()->increase_effect_via_talent();
+
+    assert(warrior->get_execute()->is_available(10));
+    assert(!warrior->get_execute()->is_available(9));
+}
+
+void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost() {
+    assert(warrior->get_execute()->is_available(15));
+    assert(!warrior->get_execute()->is_available(14));
+
+    warrior->get_execute()->increase_effect_via_talent();
+    warrior->get_execute()->increase_effect_via_talent();
+
+    assert(warrior->get_execute()->is_available(10));
+    assert(!warrior->get_execute()->is_available(9));
+
+    warrior->get_execute()->decrease_effect_via_talent();
+
+    assert(warrior->get_execute()->is_available(13));
+    assert(!warrior->get_execute()->is_available(12));
+
+    warrior->get_execute()->decrease_effect_via_talent();
+
+    assert(warrior->get_execute()->is_available(15));
+    assert(!warrior->get_execute()->is_available(14));
+}
+
+void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_0_of_2_impale();
+    given_0_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(15);
+
+    then_damage_dealt_is(1200);
+}
+
+void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_0_of_2_impale();
+    given_0_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(3750);
+}
+
+void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_0_of_2_impale();
+    given_1_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(13);
+
+    then_damage_dealt_is(1200);
+}
+
+void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_0_of_2_impale();
+    given_1_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(3810);
+}
+
+void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_0_of_2_impale();
+    given_2_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(10);
+
+    then_damage_dealt_is(1200);
+}
+
+void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_0_of_2_impale();
+    given_2_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(3900);
+}
+
+void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_1_of_2_impale();
+    given_0_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(15);
+
+    then_damage_dealt_is(1260);
+}
+
+void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_1_of_2_impale();
+    given_0_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(3937);
+}
+
+void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_1_of_2_impale();
+    given_1_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(13);
+
+    then_damage_dealt_is(1260);
+}
+
+void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_1_of_2_impale();
+    given_1_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(4000);
+}
+
+void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_1_of_2_impale();
+    given_2_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(10);
+
+    then_damage_dealt_is(1260);
+}
+
+void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_1_of_2_impale();
+    given_2_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(4095);
+}
+
+void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_2_of_2_impale();
+    given_0_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(15);
+
+    then_damage_dealt_is(1320);
+}
+
+void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_2_of_2_impale();
+    given_0_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(4125);
+}
+
+void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_2_of_2_impale();
+    given_1_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(13);
+
+    then_damage_dealt_is(1320);
+}
+
+void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_2_of_2_impale();
+    given_1_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(4191);
+}
+
+void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_2_of_2_impale();
+    given_2_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(10);
+
+    then_damage_dealt_is(1320);
+}
+
+void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
+    given_a_guaranteed_melee_ability_crit();
+    given_2_of_2_impale();
+    given_2_of_2_improved_execute();
+    given_no_previous_damage_dealt();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_damage_dealt_is(4290);
+}
+
+void TestExecute::given_0_of_2_improved_execute() {
+    assert(warrior->get_execute()->is_available(15));
+    assert(!warrior->get_execute()->is_available(14));
+}
+
+void TestExecute::given_1_of_2_improved_execute() {
+    warrior->get_execute()->increase_effect_via_talent();
+
+    assert(warrior->get_execute()->is_available(13));
+    assert(!warrior->get_execute()->is_available(12));
+}
+
+void TestExecute::given_2_of_2_improved_execute() {
+    warrior->get_execute()->increase_effect_via_talent();
+    warrior->get_execute()->increase_effect_via_talent();
+
+    assert(warrior->get_execute()->is_available(10));
+    assert(!warrior->get_execute()->is_available(9));
+}
+
+void TestExecute::when_execute_is_performed_with_rage(const int rage) {
+    warrior->get_execute()->perform(rage);
 }

@@ -5,7 +5,7 @@
 #include "DeepWounds.h"
 
 Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Execute", engine, pchar, roll, 0, 10)
+    Spell("Execute", engine, pchar, roll, 0, 15)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     spell_ranks = {QPair<int, int>(125, 3),
@@ -18,7 +18,7 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     initial_dmg = spell_ranks[rank_spell].first;
     dmg_per_rage_converted = spell_ranks[rank_spell].second;
 
-    talent_ranks = {15, 12, 10};
+    talent_ranks = {15, 13, 10};
 }
 
 int Execute::spell_effect(const int resource_level) {

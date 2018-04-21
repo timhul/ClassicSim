@@ -119,7 +119,9 @@ SOURCES += main.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Ranged.cpp \
     Equipment/Item/MeleeWeapon/Weapon.cpp \
     Test/Warrior/TestWarrior.cpp \
-    Test/Warrior/Spells/TestExecute.cpp
+    Test/Warrior/Spells/TestExecute.cpp \
+    Test/TestSpell.cpp \
+    Test/Warrior/TestSpellWarrior.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -233,7 +235,9 @@ HEADERS += \
     Equipment/Item/MeleeWeapon/Specialization/Ranged.h \
     Equipment/Item/MeleeWeapon/Weapon.h \
     Test/Warrior/TestWarrior.h \
-    Test/Warrior/Spells/TestExecute.h
+    Test/Warrior/Spells/TestExecute.h \
+    Test/TestSpell.h \
+    Test/Warrior/TestSpellWarrior.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

@@ -1,35 +1,53 @@
 #ifndef TESTEXECUTE_H
 #define TESTEXECUTE_H
 
-class Engine;
-class Equipment;
-class CombatRoll;
-class Target;
-class Race;
-class Warrior;
+#include "TestSpellWarrior.h"
 
-class TestExecute {
+class TestExecute: public TestSpellWarrior {
 public:
-    // Move to common class
-    void set_up();
-    void tear_down();
-
-
-
-    // Test specific
     void test_all();
+
     void test_name_correct();
     void test_has_no_cooldown();
     void test_incurs_global_cooldown_on_use();
+    void test_1_of_2_improved_execute_reduces_rage_cost();
+    void test_2_of_2_improved_execute_reduces_rage_cost();
+    void test_removing_points_in_improved_execute_increases_rage_cost();
+
+    void test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale();
+    void test_max_crit_dmg_0_of_2_imp_execute_0_of_2_impale();
+
+    void test_min_crit_dmg_1_of_2_imp_execute_0_of_2_impale();
+    void test_max_crit_dmg_1_of_2_imp_execute_0_of_2_impale();
+
+    void test_min_crit_dmg_2_of_2_imp_execute_0_of_2_impale();
+    void test_max_crit_dmg_2_of_2_imp_execute_0_of_2_impale();
+
+    void test_min_crit_dmg_0_of_2_imp_execute_1_of_2_impale();
+    void test_max_crit_dmg_0_of_2_imp_execute_1_of_2_impale();
+
+    void test_min_crit_dmg_1_of_2_imp_execute_1_of_2_impale();
+    void test_max_crit_dmg_1_of_2_imp_execute_1_of_2_impale();
+
+    void test_min_crit_dmg_2_of_2_imp_execute_1_of_2_impale();
+    void test_max_crit_dmg_2_of_2_imp_execute_1_of_2_impale();
+
+    void test_min_crit_dmg_0_of_2_imp_execute_2_of_2_impale();
+    void test_max_crit_dmg_0_of_2_imp_execute_2_of_2_impale();
+
+    void test_min_crit_dmg_1_of_2_imp_execute_2_of_2_impale();
+    void test_max_crit_dmg_1_of_2_imp_execute_2_of_2_impale();
+
+    void test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
+    void test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
+
+    void given_0_of_2_improved_execute();
+    void given_1_of_2_improved_execute();
+    void given_2_of_2_improved_execute();
+
+    void when_execute_is_performed_with_rage(const int rage);
 
 private:
-    Engine* engine;
-    Equipment* equipment;
-    CombatRoll* combat;
-    Target* target;
-    Race* race;
-    Warrior* warrior;
-
 };
 
 #endif // TESTEXECUTE_H
