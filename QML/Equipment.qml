@@ -103,7 +103,8 @@ Rectangle {
 
         Image {
             x: parent.width / 2 - width / 2
-            y: 30
+            y: parent.height / 2 - height / 2
+
             source: "Assets/char_slots.png"
 
             height: 448
