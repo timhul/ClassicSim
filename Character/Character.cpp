@@ -27,11 +27,8 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->ability_crit_dmg_mod = 2.0;
     this->total_phys_dmg_mod = 1.0;
     // TODO: Get haste enchants from gear
-    // TODO: Find out swing timer without weapons equipped.
-    mh_wpn_speed = has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() :
-                                    2.0;
-    oh_wpn_speed = has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() :
-                                   300.0;
+    this->mh_haste = 0;
+    this->oh_haste = 0;
     // TODO: Populate this->buffs with general buffs.
 }
 
@@ -245,19 +242,19 @@ void Character::decrease_crit(float decrease) {
 void Character::increase_attack_speed(int increase) {
     attack_speed_buffs.append(increase);
 
-    mh_wpn_speed /= 1 + float(increase / 100);
+    mh_haste += float(increase / 100);
 
     if (has_offhand())
-        oh_wpn_speed /= 1 + float(increase / 100);
+        oh_haste += float(increase / 100);
 }
 
 void Character::decrease_attack_speed(int decrease) {
     assert(attack_speed_buffs.removeOne(decrease));
 
-    mh_wpn_speed /= 1 - float(decrease / 100);
+    mh_haste -= float(decrease / 100);
 
     if (has_offhand())
-        oh_wpn_speed /= 1 - float(decrease / 100);
+        oh_haste -= float(decrease / 100);
 }
 
 void Character::increase_ability_crit_dmg_mod(float increase) {
@@ -277,11 +274,13 @@ void Character::decrease_total_phys_dmg_mod(float decrease) {
 }
 
 float Character::get_mh_wpn_speed() {
-    return mh_wpn_speed;
+    return has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / (1 + mh_haste) :
+            2.0 / 1 + mh_haste;
 }
 
 float Character::get_oh_wpn_speed() {
-    return oh_wpn_speed;
+    return has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / (1 + oh_haste) :
+            300;
 }
 
 bool Character::has_mainhand() const {

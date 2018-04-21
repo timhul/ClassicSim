@@ -288,10 +288,10 @@ void Warrior::melee_critical_effect() {
 void Warrior::increase_attack_speed(int increase) {
     attack_speed_buffs.append(increase);
 
-    mh_wpn_speed /= 1 + float(increase / 100);
+    mh_haste += float(increase / 100);
 
     if (has_offhand())
-        oh_wpn_speed /= 1 + float(increase / 100);
+        oh_haste += float(increase / 100);
 
     base_stats->increase_attack_speed(increase);
 
@@ -307,10 +307,10 @@ void Warrior::increase_attack_speed(int increase) {
 void Warrior::decrease_attack_speed(int decrease) {
     assert(attack_speed_buffs.removeOne(decrease));
     float decrease_ = float(decrease / 100);
-    mh_wpn_speed /= 1 - decrease_;
+    mh_haste -= decrease_;
 
     if (has_offhand())
-        oh_wpn_speed /= 1 - decrease_;
+        oh_haste -= decrease_;
 
     mh_attack->update_next_expected_use(decrease_);
     add_next_mh_attack();

@@ -113,8 +113,8 @@ protected:
     QVector<int> attack_speed_buffs;
 
     int ranged_ap;
-    float mh_wpn_speed;
-    float oh_wpn_speed;
+    float mh_haste;
+    float oh_haste;
     float ability_crit_dmg_mod;
     float total_phys_dmg_mod;
 
