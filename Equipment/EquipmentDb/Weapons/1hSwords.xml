@@ -37,6 +37,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="ADDITIONAL_DMG_BUFF" min="10" max="10" duration="15" rate="0.05" internal_cd="0" recursive="no"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: A burst of energy fills thecaster, increasing damage by 10 and armor by 150 for 15 sec.
+			</special_equip_effect>
 			<source>
 			World drop.
 			</source>
@@ -51,6 +54,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="SHADOW_DOT" min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Drains the target for 2 Shadow damage every 1 sec and transfers it to the caster. Lasts for 30 sec.
+			</special_equip_effect>
 			<source>
 			Drops from Baron Rivendare in Stratholme Undead.
 			</source>
@@ -93,6 +99,9 @@
 				<!-- TODO: Find proc rate, how much damage the minion deals, duration, etc. -->
 				<spell name="SUMMON_NATURE_MINION" amount="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Calls forth an Emerald Dragon Whelp to protect you in battle for a short period of time.
+			</special_equip_effect>
 			<source>
 			Drops from Shade of Eranikus in Sunken Temple.
 			</source>
@@ -167,6 +176,9 @@
 			<proc>
 				<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" recursive="no"/>
 			</proc>
+			<special_equip_effect>
+			Equip: Adds 2 fire damage to your melee attacks.
+			</special_equip_effect>
 			<source>
 			Drops from Hazza'rah (Edge of Madness) in Zul'Gurub.
 			</source>
@@ -184,6 +196,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Slices the enemy for 72 to 97 Nature damage.
+			</special_equip_effect>
 			<source>
 			Drops from High Priest Thekal in Zul'Gurub.
 			</source>
@@ -288,8 +303,11 @@
 			<source>
 			Quest reward. Requires rare quest item Foror's Compendium of Dragonslaying from Dire Maul and an Onyxia kill.
 			</source>
+			<special_equip_effect>
+			Chance on hit: When active, grants the wielder 13 defense and 300 armor for 10 sec.
+			</special_equip_effect>
 			<flavour_text>
-			The High Blade
+			"The High Blade"
 			</flavour_text>
 		</patch>
 	</melee_weapon>
@@ -328,6 +346,11 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Blasts your enemy with lightning, dealing 300  Nature damage and then jumping to additional nearby enemies.
+			Each jump reduces that victim's Nature resistance by 25. Affects 5 targets.
+			Your primary target is also consumed by a cyclone, slowing its attack speed by 20% for 12 sec.
+			</special_equip_effect>
 			<source>
 			Quest reward. Requires Left and Right Bindings of the Windseeker from Garr and Baron Geddon in Molten Core.
 			</source>

@@ -54,6 +54,12 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
                     else if (reader.name() == "proc") {
                         proc_element_reader(reader, procs);
                     }
+                    else if (reader.name() == "flavour_text") {
+                        item_map["flavour_text"] = reader.readElementText().simplified();
+                    }
+                    else if (reader.name() == "special_equip_effect") {
+                        item_map["special_equip_effect"] = reader.readElementText().simplified();
+                    }
                     else
                         reader.skipCurrentElement();
                 }

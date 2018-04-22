@@ -116,27 +116,27 @@ void Item::set_stat(const QString& key, const QString &value) {
     }
     else if (key == "ARCANE_RESISTANCE") {
         this->stats->increase_arcane_resistance(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Arcane Resistance").arg(value));
+        base_tooltip_stats.append(QString("+%1 Arcane Resistance").arg(value));
     }
     else if (key == "FIRE_RESISTANCE") {
         this->stats->increase_fire_resistance(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Fire Resistance").arg(value));
+        base_tooltip_stats.append(QString("+%1 Fire Resistance").arg(value));
     }
     else if (key == "FROST_RESISTANCE") {
         this->stats->increase_frost_resistance(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Frost Resistance").arg(value));
+        base_tooltip_stats.append(QString("+%1 Frost Resistance").arg(value));
     }
     else if (key == "HOLY_RESISTANCE") {
         this->stats->increase_holy_resistance(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Holy Resistance").arg(value));
+        base_tooltip_stats.append(QString("+%1 Holy Resistance").arg(value));
     }
     else if (key == "NATURE_RESISTANCE") {
         this->stats->increase_nature_resistance(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Nature Resistance").arg(value));
+        base_tooltip_stats.append(QString("+%1 Nature Resistance").arg(value));
     }
     else if (key == "SHADOW_RESISTANCE") {
         this->stats->increase_shadow_resistance(value.toInt());
-        base_tooltip_stats.append(QString("+ %1 Shadow Resistance").arg(value));
+        base_tooltip_stats.append(QString("+%1 Shadow Resistance").arg(value));
     }
     else
         unsupported_stat(key);

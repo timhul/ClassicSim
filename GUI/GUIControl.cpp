@@ -596,7 +596,9 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         QVariant(item->get_base_stat_tooltip()),
         QVariant(class_restriction),
         QVariant(lvl_req),
-        QVariant(item->get_equip_effect_tooltip())
+        QVariant(item->get_equip_effect_tooltip()),
+        QVariant(item->get_value("special_equip_effect")),
+        QVariant(item->get_value("flavour_text"))
     };
 
     return tooltip_info;

@@ -49,6 +49,14 @@ Rectangle {
         ttClassRestrictions.text = tooltipInfo[10];
         ttLevelRequirement.text = tooltipInfo[11];
         ttEquipEffect.text = tooltipInfo[12];
+        if (tooltipInfo[13] !== "") {
+            if (ttEquipEffect.text !== "") {
+                ttEquipEffect.text += "\n"
+            }
+            ttEquipEffect.text += tooltipInfo[13];
+        }
+
+        ttFlavourText.text = tooltipInfo[14];
 
         ttRect.height = getTooltipHeight()
     }
@@ -65,6 +73,7 @@ Rectangle {
         height += ttClassRestrictions.text !== "" ? ttClassRestrictions.contentHeight : 0
         height += ttLevelRequirement.contentHeight
         height += ttEquipEffect.text !== "" ? ttEquipEffect.contentHeight : 0
+        height += ttFlavourText.text !== "" ? ttFlavourText.contentHeight : 0
 
         height += 20
         return height
@@ -425,6 +434,32 @@ Rectangle {
             color: root.qualityUncommon
             wrapMode: Text.WordWrap
 
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        Text {
+            id: ttFlavourText
+
+            anchors {
+                top: ttEquipEffect.text !== "" ? ttEquipEffect.bottom :
+                                                 ttLevelRequirement.bottom
+                topMargin: 5
+                left: ttRect.left
+                leftMargin: 10
+            }
+
+            font {
+                family: "Arial"
+                pointSize: 9
+            }
+
+            width: ttRect.width
+            height: text !== "" ? 10 : 0
+            visible: ttRect.visible && text !== ""
+            wrapMode: Text.WordWrap
+
+            color: "#ffd100"
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
         }
