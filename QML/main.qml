@@ -161,7 +161,7 @@ Window {
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
 
-        state: "EQUIPMENT"//"TALENTS"
+        state: "BUFFS"
 
         onTalentsClicked: state = "TALENTS"
         onEquipmentClicked: state = "EQUIPMENT"
@@ -193,7 +193,9 @@ Window {
             visible: parent.state === "EQUIPMENT"
         }
 
-
+        Buffs {
+            visible: parent.state === "BUFFS"
+        }
     }
 
     QuickSwitchBar {

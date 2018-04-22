@@ -176,5 +176,25 @@
         <file>QML/Assets/items/Inv_shoulder_10.png</file>
         <file>QML/Assets/items/Inv_shoulder_23.png</file>
         <file>QML/Assets/items/Inv_weapon_bow_08.png</file>
+        <file>QML/Buffs.qml</file>
+        <file>QML/BuffBox.qml</file>
+        <file>QML/Assets/buffs/Inv_potion_32.png</file>
+        <file>QML/Assets/buffs/Spell_nature_unyeildingstamina.png</file>
+        <file>QML/Assets/buffs/Spell_nature_windfury.png</file>
+        <file>QML/Assets/buffs/Spell_nature_regeneration.png</file>
+        <file>QML/Assets/buffs/Spell_magic_greaterblessingofkings.png</file>
+        <file>QML/Assets/buffs/Spell_holy_greaterblessingofkings.png</file>
+        <file>QML/Assets/buffs/Inv_misc_monsterscales_11.png</file>
+        <file>QML/Assets/buffs/Inv_misc_monsterscales_07.png</file>
+        <file>QML/Assets/buffs/Inv_potion_61.png</file>
+        <file>QML/Assets/buffs/Inv_potion_40.png</file>
+        <file>QML/Assets/buffs/Inv_stone_15.png</file>
+        <file>QML/Assets/buffs/Inv_potion_92.png</file>
+        <file>QML/Assets/buffs/Inv_misc_food_64.png</file>
+        <file>QML/Assets/buffs/Inv_scroll_02.png</file>
+        <file>QML/Assets/buffs/Inv_misc_head_dragon_01.png</file>
+        <file>QML/Assets/buffs/Spell_holy_mindvision.png</file>
+        <file>QML/Assets/buffs/Ability_creature_poison_05.png</file>
+        <file>QML/Assets/buffs/Spell_nature_undyingstrength.png</file>
     </qresource>
 </RCC>

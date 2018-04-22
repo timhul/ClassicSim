@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Rectangle {
-    property string outerBorderColor: root.gray
+    property string outerBorderColor: root.darkGray
     property string innerBorderColor: "black"
     property color rectColor
     property color rectColorHighlighted: rectColor
@@ -10,6 +10,7 @@ Rectangle {
     property int setRadius: 0
 
     signal rectangleClicked()
+    signal rectangleRightClicked()
 
     color: "transparent"
     radius: setRadius
@@ -51,8 +52,14 @@ Rectangle {
 
                 MouseArea {
                     hoverEnabled: true
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
                     anchors.fill: parent
-                    onClicked: rectangleClicked()
+                    onClicked: {
+                        if (mouse.button === Qt.RightButton)
+                            rectangleRightClicked()
+                        else
+                            rectangleClicked()
+                    }
                     onEntered: parent.color = rectColorHighlighted
                     onExited: parent.color = rectColor
                 }
