@@ -35,7 +35,7 @@ int HeroicStrike::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
-    float damage_dealt = pchar->get_random_mh_dmg() + additional_dmg;
+    float damage_dealt = pchar->get_random_non_normalized_mh_dmg() + additional_dmg;
     damage_dealt *= pchar->get_total_phys_dmg_mod();
 
     if (result->is_critical()) {

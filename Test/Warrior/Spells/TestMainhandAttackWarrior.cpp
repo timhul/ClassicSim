@@ -77,7 +77,7 @@ void TestMainhandAttackWarrior::test_hit_dmg() {
 
     when_mh_attack_is_performed();
 
-    then_damage_dealt_is(warrior->get_normalized_dmg(100, warrior->get_mh_wpn_speed()));
+    then_damage_dealt_is(warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()));
 }
 
 void TestMainhandAttackWarrior::test_crit_dmg() {
@@ -88,7 +88,7 @@ void TestMainhandAttackWarrior::test_crit_dmg() {
 
     when_mh_attack_is_performed();
 
-    then_damage_dealt_is(warrior->get_normalized_dmg(100, warrior->get_mh_wpn_speed()) * 2);
+    then_damage_dealt_is(warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()) * 2);
 }
 
 void TestMainhandAttackWarrior::test_mid_swing_haste_increase_updates_attack_speed() {

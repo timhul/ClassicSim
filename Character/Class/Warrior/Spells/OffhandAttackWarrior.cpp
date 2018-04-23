@@ -37,7 +37,7 @@ int OffhandAttackWarrior::spell_effect(const int) {
         return 0;
     }
 
-    float damage_dealt = std::max(1, int(round(pchar->get_random_oh_dmg() * talent_ranks[rank_talent])));
+    float damage_dealt = std::max(1, int(round(pchar->get_random_non_normalized_oh_dmg() * talent_ranks[rank_talent])));
     int uw_proc = pchar->get_unbridled_wrath()->perform(0);
 
     if (result->is_critical()) {

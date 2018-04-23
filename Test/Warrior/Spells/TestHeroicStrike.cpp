@@ -105,7 +105,7 @@ void TestHeroicStrike::test_hit_dmg() {
 
     when_heroic_strike_is_performed();
 
-    then_damage_dealt_is(warrior->get_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157);
+    then_damage_dealt_is(warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157);
 }
 
 void TestHeroicStrike::test_crit_dmg_0_of_2_impale() {
@@ -116,7 +116,7 @@ void TestHeroicStrike::test_crit_dmg_0_of_2_impale() {
 
     when_heroic_strike_is_performed();
 
-    then_damage_dealt_is(round((warrior->get_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157) * 2));
+    then_damage_dealt_is(round((warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157) * 2));
 }
 
 void TestHeroicStrike::test_crit_dmg_1_of_2_impale() {
@@ -127,7 +127,7 @@ void TestHeroicStrike::test_crit_dmg_1_of_2_impale() {
 
     when_heroic_strike_is_performed();
 
-    then_damage_dealt_is(round((warrior->get_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157) * 2.1));
+    then_damage_dealt_is(round((warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157) * 2.1));
 }
 
 void TestHeroicStrike::test_crit_dmg_2_of_2_impale() {
@@ -138,7 +138,7 @@ void TestHeroicStrike::test_crit_dmg_2_of_2_impale() {
 
     when_heroic_strike_is_performed();
 
-    then_damage_dealt_is(round((warrior->get_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157) * 2.2));
+    then_damage_dealt_is(round((warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()) + 157) * 2.2));
 }
 
 void TestHeroicStrike::given_0_of_3_improved_hs() {

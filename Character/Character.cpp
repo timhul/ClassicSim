@@ -185,14 +185,24 @@ float Character::get_total_phys_dmg_mod() const {
     return total_phys_dmg_mod;
 }
 
-int Character::get_random_mh_dmg() {
+int Character::get_random_normalized_mh_dmg() {
     Weapon* mh = equipment->get_mainhand();
-    return get_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
+    return get_normalized_dmg(mh->get_random_dmg(), mh);
 }
 
-int Character::get_random_oh_dmg() {
+int Character::get_random_non_normalized_mh_dmg() {
+    Weapon* mh = equipment->get_mainhand();
+    return get_non_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
+}
+
+int Character::get_random_normalized_oh_dmg() {
     Weapon* oh = equipment->get_offhand();
-    return get_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
+    return get_normalized_dmg(oh->get_random_dmg(), oh);
+}
+
+int Character::get_random_non_normalized_oh_dmg() {
+    Weapon* oh = equipment->get_offhand();
+    return get_non_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
 }
 
 int Character::get_avg_mh_damage() {
@@ -201,10 +211,33 @@ int Character::get_avg_mh_damage() {
 
     Weapon* mh = equipment->get_mainhand();
     int avg_dmg = int(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
-    return get_normalized_dmg(avg_dmg, mh->get_base_weapon_speed());
+    return get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed());
 }
 
-int Character::get_normalized_dmg(const int damage, const float wpn_speed) {
+int Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
+    // TODO: Consider moving these types of mechanical assumptions into e.g. Mechanics
+    float normalized_wpn_speed = -1;
+
+    switch (weapon->get_weapon_slot()) {
+    case WeaponSlots::MAINHAND:
+    case WeaponSlots::OFFHAND:
+    case WeaponSlots::ONEHAND:
+        normalized_wpn_speed = weapon->get_weapon_type() == WeaponTypes::DAGGER ? 1.7 : 2.4;
+        break;
+    case WeaponSlots::TWOHAND:
+        normalized_wpn_speed = 3.3;
+        break;
+    case WeaponSlots::RANGED:
+        normalized_wpn_speed = 2.8;
+        break;
+    default:
+        assert(false);
+    }
+
+    return get_non_normalized_dmg(damage, normalized_wpn_speed);
+}
+
+int Character::get_non_normalized_dmg(const int damage, const float wpn_speed) {
     float normalized_dmg = (damage * get_total_phys_dmg_mod()) / wpn_speed;
     float normalized_ap = get_melee_ap() / 14;
 

@@ -36,7 +36,7 @@ int MainhandAttackWarrior::spell_effect(const int) {
         return 0;
     }
 
-    float damage_dealt = std::max(1, pchar->get_random_mh_dmg());
+    float damage_dealt = std::max(1, pchar->get_random_non_normalized_mh_dmg());
     int uw_proc = pchar->get_unbridled_wrath()->perform(0);
 
     if (result->is_critical()) {

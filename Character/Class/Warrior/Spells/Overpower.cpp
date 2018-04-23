@@ -20,7 +20,7 @@ int Overpower::spell_effect(const int) {
         add_fail_stats("Miss");
     }
 
-    float damage_dealt = pchar->get_random_mh_dmg() + 35;
+    float damage_dealt = pchar->get_random_normalized_mh_dmg() + 35;
     damage_dealt *= pchar->get_total_phys_dmg_mod();
 
     if (result->is_critical()) {
