@@ -126,7 +126,8 @@ SOURCES += main.cpp \
     Character/Class/GeneralSpells/OffhandAttack.cpp \
     Character/Class/Warrior/Spells/MainhandAttackWarrior.cpp \
     Character/Class/Warrior/Spells/OffhandAttackWarrior.cpp \
-    Test/Warrior/Spells/TestMainhandAttackWarrior.cpp
+    Test/Warrior/Spells/TestMainhandAttackWarrior.cpp \
+    Test/Warrior/Spells/TestWhirlwind.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -247,7 +248,8 @@ HEADERS += \
     Character/Class/GeneralSpells/OffhandAttack.h \
     Character/Class/Warrior/Spells/MainhandAttackWarrior.h \
     Character/Class/Warrior/Spells/OffhandAttackWarrior.h \
-    Test/Warrior/Spells/TestMainhandAttackWarrior.h
+    Test/Warrior/Spells/TestMainhandAttackWarrior.h \
+    Test/Warrior/Spells/TestWhirlwind.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

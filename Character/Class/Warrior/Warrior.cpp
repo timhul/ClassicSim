@@ -28,6 +28,7 @@
 #include "BattleShout.h"
 #include "BattleShoutBuff.h"
 #include "BerserkerRage.h"
+#include "Whirlwind.h"
 #include <QDebug>
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
@@ -61,8 +62,9 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->death_wish = new DeathWish(engine, this, roll);
     this->battle_shout = new BattleShout(engine, this, roll);
     this->berserker_rage = new BerserkerRage(engine, this, roll);
+    this->whirlwind = new Whirlwind(engine, this, roll);
     spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
-              unbridled_wrath, death_wish, battle_shout, berserker_rage};
+              unbridled_wrath, death_wish, battle_shout, berserker_rage, whirlwind};
 
     initialize_talents();
 
@@ -270,6 +272,10 @@ BattleShoutBuff* Warrior::get_battle_shout_buff() const {
 
 BerserkerRage* Warrior::get_berserker_rage() const {
     return this->berserker_rage;
+}
+
+Whirlwind* Warrior::get_whirlwind() const {
+    return this->whirlwind;
 }
 
 void Warrior::melee_critical_effect() {

@@ -6,6 +6,7 @@
 class CombatRoll;
 class Talents;
 class Bloodthirst;
+class Whirlwind;
 class Flurry;
 class DeepWounds;
 class HeroicStrike;
@@ -58,6 +59,7 @@ public:
     BattleShout* get_battle_shout() const;
     BattleShoutBuff* get_battle_shout_buff() const;
     BerserkerRage* get_berserker_rage() const;
+    Whirlwind* get_whirlwind() const;
 
     void melee_critical_effect() override;
 
@@ -82,6 +84,7 @@ private:
     BattleShout* battle_shout;
     BattleShoutBuff* battle_shout_buff;
     BerserkerRage* berserker_rage;
+    Whirlwind* whirlwind;
 
     void initialize_talents() override;
 };
