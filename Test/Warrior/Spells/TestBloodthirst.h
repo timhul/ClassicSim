@@ -16,7 +16,6 @@ public:
     void test_crit_dmg_1_of_2_impale();
     void test_crit_dmg_2_of_2_impale();
 
-    void given_1000_melee_ap();
     void when_bloodthirst_is_performed();
 
 private:

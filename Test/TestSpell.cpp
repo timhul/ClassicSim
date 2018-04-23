@@ -123,6 +123,11 @@ void TestSpell::given_a_mainhand_weapon_with_2_speed() {
     assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 2);
 }
 
+void TestSpell::given_1000_melee_ap() {
+    pchar->increase_melee_ap(1000 - pchar->get_melee_ap());
+    assert(pchar->get_melee_ap() == 1000);
+}
+
 void TestSpell::then_damage_dealt_is(const int damage) {
     assert(engine->get_statistics()->get_total_damage() == damage);
 }

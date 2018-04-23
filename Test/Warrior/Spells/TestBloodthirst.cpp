@@ -110,11 +110,6 @@ void TestBloodthirst::test_crit_dmg_2_of_2_impale() {
     then_damage_dealt_is(990);
 }
 
-void TestBloodthirst::given_1000_melee_ap() {
-    warrior->increase_melee_ap(1000 - warrior->get_melee_ap());
-    assert(warrior->get_melee_ap() == 1000);
-}
-
 void TestBloodthirst::when_bloodthirst_is_performed() {
     warrior->get_bloodthirst()->perform(100);
 }
