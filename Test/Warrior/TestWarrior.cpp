@@ -13,6 +13,7 @@
 #include "TestBloodthirst.h"
 #include "TestMainhandAttackWarrior.h"
 #include "TestWhirlwind.h"
+#include "TestOverpower.h"
 
 void TestWarrior::test_all() {
     TestExecute().test_all();
@@ -20,6 +21,7 @@ void TestWarrior::test_all() {
     TestBloodthirst().test_all();
     TestMainhandAttackWarrior().test_all();
     TestWhirlwind().test_all();
+    TestOverpower().test_all();
 }
 
 void TestWarrior::test_char_initialization() {
