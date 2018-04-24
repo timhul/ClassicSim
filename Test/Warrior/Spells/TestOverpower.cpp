@@ -70,45 +70,57 @@ void TestOverpower::test_incurs_global_cooldown_on_use() {
 void TestOverpower::test_hit_dmg() {
     given_a_guaranteed_melee_ability_hit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
 
     when_overpower_is_performed();
 
-    then_damage_dealt_is(warrior->get_normalized_dmg(100 + 35, warrior->get_equipment()->get_mainhand()));
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + overpower_additional_dmg
+    // [306] = 100 + (2.4 * 1000 / 14) + 35
+    then_damage_dealt_is(306);
 }
 
 void TestOverpower::test_crit_dmg_0_of_2_impale() {
     given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_0_of_2_impale();
 
     when_overpower_is_performed();
 
-    then_damage_dealt_is(round(warrior->get_normalized_dmg(100 + 35, warrior->get_equipment()->get_mainhand()) * 2.0));
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + overpower_additional_dmg) * crit_dmg_modifier
+    // [613] = (100 + (2.4 * 1000 / 14) + 35) * 2.0
+    then_damage_dealt_is(613);
 }
 
 void TestOverpower::test_crit_dmg_1_of_2_impale() {
     given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_1_of_2_impale();
 
     when_overpower_is_performed();
 
-    then_damage_dealt_is(round(warrior->get_normalized_dmg(100 + 35, warrior->get_equipment()->get_mainhand()) * 2.1));
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + overpower_additional_dmg) * crit_dmg_modifier
+    // [644] = (100 + (2.4 * 1000 / 14) + 35) * 2.0
+    then_damage_dealt_is(644);
 }
 
 void TestOverpower::test_crit_dmg_2_of_2_impale() {
     given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
 
     when_overpower_is_performed();
 
-    then_damage_dealt_is(round(warrior->get_normalized_dmg(100 + 35, warrior->get_equipment()->get_mainhand()) * 2.2));
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + overpower_additional_dmg) * crit_dmg_modifier
+    // [674] = (100 + (2.4 * 1000 / 14) + 35) * 2.0
+    then_damage_dealt_is(674);
 }
 
 void TestOverpower::when_overpower_is_performed() {

@@ -70,45 +70,57 @@ void TestWhirlwind::test_incurs_global_cooldown_on_use() {
 void TestWhirlwind::test_hit_dmg() {
     given_a_guaranteed_melee_ability_hit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
 
     when_whirlwind_is_performed();
 
-    then_damage_dealt_is(warrior->get_normalized_dmg(100, warrior->get_equipment()->get_mainhand()));
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14)
+    // [271] = 100 + (2.4 * 1000 / 14)
+    then_damage_dealt_is(271);
 }
 
 void TestWhirlwind::test_crit_dmg_0_of_2_impale() {
     given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_0_of_2_impale();
 
     when_whirlwind_is_performed();
 
-    then_damage_dealt_is(round(warrior->get_normalized_dmg(100, warrior->get_equipment()->get_mainhand()) * 2.0));
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) * crit_dmg_modifier
+    // [543] = (100 + (2.4 * 1000 / 14)) * 2.0
+    then_damage_dealt_is(543);
 }
 
 void TestWhirlwind::test_crit_dmg_1_of_2_impale() {
     given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_1_of_2_impale();
 
     when_whirlwind_is_performed();
 
-    then_damage_dealt_is(round(warrior->get_normalized_dmg(100, warrior->get_equipment()->get_mainhand()) * 2.1));
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) * crit_dmg_modifier
+    // [570] = (100 + (2.4 * 1000 / 14)) * 2.1
+    then_damage_dealt_is(570);
 }
 
 void TestWhirlwind::test_crit_dmg_2_of_2_impale() {
     given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
 
     when_whirlwind_is_performed();
 
-    then_damage_dealt_is(round(warrior->get_normalized_dmg(100, warrior->get_equipment()->get_mainhand()) * 2.2));
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) * crit_dmg_modifier
+    // [597] = (100 + (2.4 * 1000 / 14)) * 2.2
+    then_damage_dealt_is(597);
 }
 
 void TestWhirlwind::when_whirlwind_is_performed() {

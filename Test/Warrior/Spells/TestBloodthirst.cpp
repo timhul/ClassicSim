@@ -74,6 +74,8 @@ void TestBloodthirst::test_hit_dmg() {
 
     when_bloodthirst_is_performed();
 
+    // [Damage] = melee_ap * 0.45
+    // [450] = 1000 * 0.45
     then_damage_dealt_is(450);
 }
 
@@ -85,6 +87,8 @@ void TestBloodthirst::test_crit_dmg_0_of_2_impale() {
 
     when_bloodthirst_is_performed();
 
+    // [Damage] = melee_ap * 0.45 * crit_dmg_modifier
+    // [900] = 1000 * 0.45 * 2.0
     then_damage_dealt_is(900);
 }
 
@@ -96,6 +100,8 @@ void TestBloodthirst::test_crit_dmg_1_of_2_impale() {
 
     when_bloodthirst_is_performed();
 
+    // [Damage] = melee_ap * 0.45 * crit_dmg_modifier
+    // [945] = 1000 * 0.45 * 2.1
     then_damage_dealt_is(945);
 }
 
@@ -107,6 +113,8 @@ void TestBloodthirst::test_crit_dmg_2_of_2_impale() {
 
     when_bloodthirst_is_performed();
 
+    // [Damage] = melee_ap * 0.45 * crit_dmg_modifier
+    // [990] = 1000 * 0.45 * 2.2
     then_damage_dealt_is(990);
 }
 

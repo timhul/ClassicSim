@@ -72,23 +72,29 @@ void TestMainhandAttackWarrior::test_does_not_incur_global_cooldown_on_use() {
 void TestMainhandAttackWarrior::test_hit_dmg() {
     given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
 
     when_mh_attack_is_performed();
 
-    then_damage_dealt_is(warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()));
+    // [Damage] = base_dmg + (wpn_speed * AP / 14)
+    // [286] = 100 + (2.6 * 1000 / 14)
+    then_damage_dealt_is(286);
 }
 
 void TestMainhandAttackWarrior::test_crit_dmg() {
     given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
 
     when_mh_attack_is_performed();
 
-    then_damage_dealt_is(warrior->get_non_normalized_dmg(100, warrior->get_mh_wpn_speed()) * 2);
+    // [Damage] = base_dmg + (wpn_speed * AP / 14) * crit_dmg_modifier
+    // [571] = (100 + (2.6 * 1000 / 14)) * 2.0
+    then_damage_dealt_is(571);
 }
 
 void TestMainhandAttackWarrior::test_mid_swing_haste_increase_updates_attack_speed() {

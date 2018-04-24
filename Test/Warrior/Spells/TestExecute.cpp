@@ -186,6 +186,8 @@ void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
 
     when_execute_is_performed_with_rage(15);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1200] = (600 + 15 * (15 - 15)) * 2.0
     then_damage_dealt_is(1200);
 }
 
@@ -197,6 +199,8 @@ void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [3750] = (600 + 15 * (100 - 15)) * 2.0
     then_damage_dealt_is(3750);
 }
 
@@ -208,6 +212,8 @@ void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
 
     when_execute_is_performed_with_rage(13);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1200] = (600 + 15 * (13 - 13)) * 2.0
     then_damage_dealt_is(1200);
 }
 
@@ -219,6 +225,8 @@ void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [3810] = (600 + 15 * (100 - 13)) * 2.0
     then_damage_dealt_is(3810);
 }
 
@@ -230,6 +238,8 @@ void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
 
     when_execute_is_performed_with_rage(10);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1200] = (600 + 15 * (10 - 10)) * 2.0
     then_damage_dealt_is(1200);
 }
 
@@ -241,6 +251,8 @@ void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [3900] = (600 + 15 * (100 - 10)) * 2.0
     then_damage_dealt_is(3900);
 }
 
@@ -252,6 +264,8 @@ void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
 
     when_execute_is_performed_with_rage(15);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1260] = (600 + 15 * (15 - 15)) * 2.1
     then_damage_dealt_is(1260);
 }
 
@@ -263,6 +277,9 @@ void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [3938] = (600 + 15 * (100 - 15)) * 2.1
+    // TODO: 3937.5 is erroneously rounded to 3937 instead of 3938. Consider using ceil.
     then_damage_dealt_is(3937);
 }
 
@@ -274,6 +291,8 @@ void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
 
     when_execute_is_performed_with_rage(13);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1260] = (600 + 15 * (13 - 13)) * 2.1
     then_damage_dealt_is(1260);
 }
 
@@ -285,6 +304,9 @@ void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [4001] = (600 + 15 * (100 - 13)) * 2.1
+    // TODO: 4000.5 is erroneously rounded to 4000 instead of 4000. Consider using ceil.
     then_damage_dealt_is(4000);
 }
 
@@ -296,6 +318,8 @@ void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
 
     when_execute_is_performed_with_rage(10);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1260] = (600 + 15 * (10 - 10)) * 2.1
     then_damage_dealt_is(1260);
 }
 
@@ -307,6 +331,8 @@ void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [4095] = (600 + 15 * (100 - 10)) * 2.1
     then_damage_dealt_is(4095);
 }
 
@@ -318,6 +344,8 @@ void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
 
     when_execute_is_performed_with_rage(15);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1320] = (600 + 15 * (15 - 15)) * 2.2
     then_damage_dealt_is(1320);
 }
 
@@ -329,6 +357,8 @@ void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [4125] = (600 + 15 * (100 - 15)) * 2.2
     then_damage_dealt_is(4125);
 }
 
@@ -340,6 +370,8 @@ void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
 
     when_execute_is_performed_with_rage(13);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1320] = (600 + 15 * (13 - 13)) * 2.2
     then_damage_dealt_is(1320);
 }
 
@@ -351,6 +383,8 @@ void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [4191] = (600 + 15 * (100 - 13)) * 2.2
     then_damage_dealt_is(4191);
 }
 
@@ -362,6 +396,8 @@ void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
 
     when_execute_is_performed_with_rage(10);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [1320] = (600 + 15 * (10 - 10)) * 2.2
     then_damage_dealt_is(1320);
 }
 
@@ -373,6 +409,8 @@ void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
 
     when_execute_is_performed_with_rage(100);
 
+    // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
+    // [4290] = (600 + 15 * (100 - 10)) * 2.2
     then_damage_dealt_is(4290);
 }
 

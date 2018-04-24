@@ -69,15 +69,15 @@ public:
     float get_ability_crit_dmg_mod() const;
     float get_total_phys_dmg_mod() const;
 
-    int get_random_normalized_mh_dmg();
-    int get_random_non_normalized_mh_dmg();
+    float get_random_normalized_mh_dmg();
+    float get_random_non_normalized_mh_dmg();
 
-    int get_random_normalized_oh_dmg();
-    int get_random_non_normalized_oh_dmg();
+    float get_random_normalized_oh_dmg();
+    float get_random_non_normalized_oh_dmg();
 
     int get_avg_mh_damage();
-    int get_normalized_dmg(const int, const Weapon*);
-    int get_non_normalized_dmg(const int, const float);
+    float get_normalized_dmg(const int, const Weapon*);
+    float get_non_normalized_dmg(const int, const float);
 
     int get_mh_wpn_skill();
     int get_oh_wpn_skill();
