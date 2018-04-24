@@ -19,6 +19,10 @@ void TestWhirlwind::test_all() {
     tear_down();
 
     set_up();
+    test_costs_25_rage();
+    tear_down();
+
+    set_up();
     test_hit_dmg();
     tear_down();
 
@@ -65,6 +69,14 @@ void TestWhirlwind::test_incurs_global_cooldown_on_use() {
     Event* event = queue->get_next();
     assert(event->get_name() == "CooldownReady");
     assert(QString::number(event->get_priority(), 'f', 3) == QString::number(warrior->global_cooldown(), 'f', 3));
+}
+
+void TestWhirlwind::test_costs_25_rage() {
+    given_warrior_has_rage(25);
+
+    when_whirlwind_is_performed();
+
+    then_warrior_has_rage(0);
 }
 
 void TestWhirlwind::test_hit_dmg() {
@@ -124,5 +136,5 @@ void TestWhirlwind::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestWhirlwind::when_whirlwind_is_performed() {
-    warrior->get_whirlwind()->perform(100);
+    warrior->lose_rage(warrior->get_whirlwind()->perform(warrior->get_curr_rage()));
 }

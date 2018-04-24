@@ -15,7 +15,6 @@ public:
     void test_hit_dmg();
     void test_crit_dmg();
 
-
     void test_mid_swing_haste_increase_updates_attack_speed();
     void test_mid_swing_haste_decrease_updates_attack_speed();
 

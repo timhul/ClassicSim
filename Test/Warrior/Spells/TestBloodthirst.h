@@ -10,6 +10,7 @@ public:
     void test_name_correct();
     void test_has_6_second_cooldown();
     void test_incurs_global_cooldown_on_use();
+    void test_costs_30_rage();
 
     void test_hit_dmg();
     void test_crit_dmg_0_of_2_impale();

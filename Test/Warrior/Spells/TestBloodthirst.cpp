@@ -18,6 +18,10 @@ void TestBloodthirst::test_all() {
     tear_down();
 
     set_up();
+    test_costs_30_rage();
+    tear_down();
+
+    set_up();
     test_hit_dmg();
     tear_down();
 
@@ -64,6 +68,14 @@ void TestBloodthirst::test_incurs_global_cooldown_on_use() {
     Event* event = queue->get_next();
     assert(event->get_name() == "CooldownReady");
     assert(QString::number(event->get_priority(), 'f', 3) == QString::number(warrior->global_cooldown(), 'f', 3));
+}
+
+void TestBloodthirst::test_costs_30_rage() {
+    given_warrior_has_rage(30);
+
+    when_bloodthirst_is_performed();
+
+    then_warrior_has_rage(0);
 }
 
 void TestBloodthirst::test_hit_dmg() {
@@ -119,5 +131,5 @@ void TestBloodthirst::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestBloodthirst::when_bloodthirst_is_performed() {
-    warrior->get_bloodthirst()->perform(100);
+    warrior->lose_rage(warrior->get_bloodthirst()->perform(warrior->get_curr_rage()));
 }

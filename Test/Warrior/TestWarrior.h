@@ -5,10 +5,7 @@ class TestWarrior {
 public:
 
     void test_all();
-
     void test_char_initialization();
-
-    void test_battle_shout();
 
 private:
 
