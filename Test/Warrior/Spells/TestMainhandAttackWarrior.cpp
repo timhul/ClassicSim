@@ -99,6 +99,7 @@ void TestMainhandAttackWarrior::test_crit_dmg() {
 
 void TestMainhandAttackWarrior::test_mid_swing_haste_increase_updates_attack_speed() {
     given_a_mainhand_weapon_with_2_speed();
+    given_no_offhand();
     when_mh_attack_is_performed();
     then_next_expected_use_is(2.0);
     given_engine_priority_at(1.0);
@@ -110,6 +111,7 @@ void TestMainhandAttackWarrior::test_mid_swing_haste_increase_updates_attack_spe
 
 void TestMainhandAttackWarrior::test_mid_swing_haste_decrease_updates_attack_speed() {
     given_a_mainhand_weapon_with_3_speed();
+    given_no_offhand();
     when_increasing_attack_speed(100);
     when_mh_attack_is_performed();
     then_next_expected_use_is(1.5);

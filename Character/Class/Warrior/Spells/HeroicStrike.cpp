@@ -5,6 +5,7 @@
 #include "DeepWounds.h"
 #include "HeroicStrikeBuff.h"
 #include "UnbridledWrath.h"
+#include "MainhandAttackWarrior.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Heroic Strike", engine, pchar, roll, 0, 15)
@@ -21,6 +22,7 @@ HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
 
 int HeroicStrike::spell_effect(const int) {
     pchar->get_hs_buff()->use_charge();
+    pchar->get_mh_attack()->complete_swing();
 
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
@@ -35,6 +37,7 @@ int HeroicStrike::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
+    pchar->get_flurry()->use_charge();
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg() + additional_dmg;
     damage_dealt *= pchar->get_total_phys_dmg_mod();
 

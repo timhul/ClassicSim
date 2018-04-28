@@ -16,7 +16,7 @@ OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, Com
 }
 
 int OffhandAttackWarrior::spell_effect(const int) {
-    update_next_expected_use(0.0);
+    complete_swing();
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("OH White Total Attempts");
 

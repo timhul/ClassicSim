@@ -186,8 +186,6 @@ void Warrior::mh_auto_attack(const int iteration) {
         }
     }
 
-    // TODO: Double update of next expected use, this is due to heroic strike not resetting it.
-    mh_attack->update_next_expected_use(0.0);
     add_next_mh_attack();
 }
 
@@ -205,8 +203,6 @@ void Warrior::oh_auto_attack(const int iteration) {
         this->get_engine()->add_event(new_event);
     }
 
-    // TODO: Double update of next expected use, this is due to heroic strike not resetting it.
-    oh_attack->update_next_expected_use(0.0);
     add_next_oh_attack();
 }
 

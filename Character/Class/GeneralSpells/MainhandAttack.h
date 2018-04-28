@@ -14,6 +14,7 @@ public:
     void reset_effect() override;
 
     float get_cooldown() override;
+    void complete_swing();
 
 protected:
     virtual int spell_effect(const int) override;

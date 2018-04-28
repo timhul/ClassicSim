@@ -9,6 +9,7 @@ public:
 
     float get_next_expected_use() const;
     void update_next_expected_use(const float);
+    void complete_swing();
     bool attack_is_valid(const int) const;
     int get_next_iteration();
     void reset_effect() override;

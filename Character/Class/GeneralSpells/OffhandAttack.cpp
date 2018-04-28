@@ -19,7 +19,7 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
 }
 
 int OffhandAttack::spell_effect(const int) {
-    update_next_expected_use(0.0);
+    complete_swing();
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 
@@ -63,18 +63,26 @@ float OffhandAttack::get_next_expected_use() const {
 }
 
 void OffhandAttack::update_next_expected_use(const float haste_change) {
-    if (haste_change > 0.01 || haste_change < -0.01) {
-        float curr_time = pchar->get_engine()->get_current_priority();
-        float remainder_after_haste_change = (next_expected_use - curr_time);
-        if (haste_change < 0)
-            remainder_after_haste_change *=  (1 + (-1)*haste_change);
-        else
-            remainder_after_haste_change /=  (1 + haste_change);
-        next_expected_use = curr_time + remainder_after_haste_change;
-    }
-    else {
-        next_expected_use = last_used + pchar->get_oh_wpn_speed();
-    }
+    assert(haste_change > 0.001 || haste_change < -0.001);
+
+    float curr_time = pchar->get_engine()->get_current_priority();
+    float remainder_after_haste_change = (next_expected_use - curr_time);
+    // TODO: This assertion fails when next_expected_use is not updated previously.
+    // This happens when e.g. attacking with mainhand but not offhand and haste change occurs.
+    // We should not update next expected use if the spell is not currently on cooldown.
+    // For auto attacks we have a built in expectation that they are always cast immediately when available,
+    // which is the reason this assertion is in place. Consider replacing this expectation with a toggle system.
+    // Then we should skip doing any update of next expected use if not currently toggled.
+    assert(remainder_after_haste_change > -0.0000001);
+    if (haste_change < 0)
+        remainder_after_haste_change *=  (1 + (-1) * haste_change);
+    else
+        remainder_after_haste_change /=  (1 + haste_change);
+    next_expected_use = curr_time + remainder_after_haste_change;
+}
+
+void OffhandAttack::complete_swing() {
+    next_expected_use = last_used + pchar->get_oh_wpn_speed();
 }
 
 bool OffhandAttack::attack_is_valid(const int iteration) const {

@@ -19,7 +19,7 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
 }
 
 int MainhandAttack::spell_effect(const int) {
-    update_next_expected_use(0.0);
+    complete_swing();
 
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
@@ -64,19 +64,25 @@ float MainhandAttack::get_next_expected_use() const {
 }
 
 void MainhandAttack::update_next_expected_use(const float haste_change) {
-    if (haste_change > 0.01 || haste_change < -0.01) {
-        float curr_time = pchar->get_engine()->get_current_priority();
-        float remainder_after_haste_change = (next_expected_use - curr_time);
-        assert(remainder_after_haste_change > -0.0000001);
-        if (haste_change < 0)
-            remainder_after_haste_change *=  (1 + (-1) * haste_change);
-        else
-            remainder_after_haste_change /=  (1 + haste_change);
-        next_expected_use = curr_time + remainder_after_haste_change;
-    }
-    else {
-        next_expected_use = last_used + pchar->get_mh_wpn_speed();
-    }
+    assert(haste_change > 0.001 || haste_change < -0.001);
+
+    float curr_time = pchar->get_engine()->get_current_priority();
+    float remainder_after_haste_change = (next_expected_use - curr_time);
+    assert(remainder_after_haste_change > -0.0000001);
+    if (haste_change < 0)
+        remainder_after_haste_change *=  (1 + (-1) * haste_change);
+    else
+        remainder_after_haste_change /=  (1 + haste_change);
+    next_expected_use = curr_time + remainder_after_haste_change;
+}
+
+void MainhandAttack::complete_swing() {
+    // TODO: last_used is not updated within the context of Heroic Strike,
+    // since it directly invokes complete_swing() instead of going via perform().
+    // To fix this, we set last_used directly.
+    // This means we update last_used twice with the same value when going via perform().
+    last_used = engine->get_current_priority();
+    next_expected_use = last_used + pchar->get_mh_wpn_speed();
 }
 
 bool MainhandAttack::attack_is_valid(const int iteration) const {

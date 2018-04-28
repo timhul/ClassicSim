@@ -290,7 +290,7 @@ void Character::decrease_crit(float decrease) {
 
 void Character::increase_attack_speed(int increase) {
     attack_speed_buffs.append(increase);
-    float increase_float = float(increase / 100);
+    float increase_float = float(increase) / 100;
     mh_haste += increase_float;
 
     if (has_offhand())
@@ -309,11 +309,13 @@ void Character::increase_attack_speed(int increase) {
 
 void Character::decrease_attack_speed(int decrease) {
     assert(attack_speed_buffs.removeOne(decrease));
-    float decrease_float = float(decrease / 100);
+    float decrease_float = float(decrease) / 100;
     mh_haste -= decrease_float;
 
     if (has_offhand())
         oh_haste -= decrease_float;
+
+    base_stats->decrease_attack_speed(decrease_float);
 
     mh_attack->update_next_expected_use(-decrease_float);
     add_next_mh_attack();

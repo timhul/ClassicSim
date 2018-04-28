@@ -123,6 +123,21 @@ void TestSpell::given_a_mainhand_weapon_with_2_speed() {
     assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 2);
 }
 
+void TestSpell::given_no_offhand() {
+    pchar->get_equipment()->clear_offhand();
+    assert(pchar->get_equipment()->get_offhand() == nullptr);
+}
+
+void TestSpell::given_an_offhand_weapon_with_2_speed() {
+    if (equipment->get_db()->get_melee_weapon("Test 2 Speed") == nullptr) {
+        Onehand* wpn = new Onehand("Test 2 Speed", WeaponTypes::SWORD, 100, 100, 2.0);
+        equipment->get_db()->add_melee_weapon(wpn);
+    }
+
+    pchar->get_equipment()->set_offhand("Test 2 Speed");
+    assert(int(pchar->get_equipment()->get_offhand()->get_base_weapon_speed()) == 2);
+}
+
 void TestSpell::given_1000_melee_ap() {
     pchar->increase_melee_ap(1000 - pchar->get_melee_ap());
     assert(pchar->get_melee_ap() == 1000);
@@ -132,3 +147,19 @@ void TestSpell::then_damage_dealt_is(const int damage) {
     assert(engine->get_statistics()->get_total_damage() == damage);
 }
 
+void TestSpell::then_next_event_is(const QString &name) {
+    Event* event = engine->get_queue()->get_next();
+
+    assert(event->get_name() == name);
+
+    delete event;
+}
+
+void TestSpell::then_next_event_is(const QString &name, const QString &priority) {
+    Event* event = engine->get_queue()->get_next();
+
+    assert(event->get_name() == name);
+    assert(QString::number(event->get_priority(), 'f', 3) == priority);
+
+    delete event;
+}
