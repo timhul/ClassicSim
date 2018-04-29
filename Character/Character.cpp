@@ -81,7 +81,10 @@ float Character::get_hit_chance(void) const {
 }
 
 float Character::get_crit_chance(void) const {
-    return base_stats->get_crit_chance()  + equipment->get_stats()->get_crit_chance();
+    const float equip_effect = base_stats->get_crit_chance()  + equipment->get_stats()->get_crit_chance();
+    const float crit_from_agi = float(float((base_stats->get_agility() + equipment->get_stats()->get_agility())) / get_agi_needed_for_one_percent_phys_crit());
+
+    return equip_effect + crit_from_agi / 100;
 }
 
 int Character::get_clvl(void) const {
@@ -280,12 +283,12 @@ void Character::decrease_hit(float decrease) {
 
 void Character::increase_crit(float increase) {
     base_stats->increase_crit(increase);
-    roll->update_crit_chance(base_stats->get_crit_chance());
+    roll->update_crit_chance(get_crit_chance());
 }
 
 void Character::decrease_crit(float decrease) {
     base_stats->decrease_crit(decrease);
-    roll->update_crit_chance(base_stats->get_crit_chance());
+    roll->update_crit_chance(get_crit_chance());
 }
 
 void Character::increase_attack_speed(int increase) {
