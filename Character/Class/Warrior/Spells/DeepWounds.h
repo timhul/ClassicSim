@@ -17,6 +17,7 @@ public:
 protected:
 private:
     Warrior* pchar;
+    float previous_tick_rest;
     QVector<int> stacks;
     QVector<float> ranks;
 };

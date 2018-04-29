@@ -7,6 +7,7 @@ DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Deep Wounds", engine, pchar, roll, 3, 0)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
+    this->previous_tick_rest = 0;
     this->ranks = {0.0, 0.2, 0.4, 0.6};
 }
 
@@ -14,6 +15,12 @@ int DeepWounds::spell_effect(const int) {
     assert(!stacks.empty());
 
     float damage_dealt = stacks.size() * ((pchar->get_avg_mh_damage() * ranks[rank_talent]) / 6);
+
+    // TODO: previous_tick_rest not correctly increased/decreased by dmg increasing effects
+    // occuring since the previous tick was calculated. This effect is VERY minor.
+    damage_dealt += previous_tick_rest;
+    previous_tick_rest = damage_dealt - round(damage_dealt);
+
     for (int i = 0; i < stacks.size(); ++i) {
         assert(stacks[i] > 0);
         --stacks[i];
