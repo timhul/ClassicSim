@@ -6,7 +6,7 @@ Rectangle {
     property int choiceHeight: 70
     property color choiceBackgroundColor
     property color choiceSelectedBackgroundColor
-    property string fontFamily: "Cambria Math"
+    property string fontFamily: root.fontText
     property string fontSize: "16"
     property color fontColor
 
@@ -41,6 +41,7 @@ Rectangle {
             font {
                 family: fontFamily
                 pointSize: fontSize
+                bold: true
             }
 
             verticalAlignment: Text.AlignVCenter
@@ -77,6 +78,7 @@ Rectangle {
             font {
                 family: fontFamily
                 pointSize: fontSize
+                bold: true
             }
 
             verticalAlignment: Text.AlignVCenter
@@ -112,6 +114,7 @@ Rectangle {
             font {
                 family: fontFamily
                 pointSize: fontSize
+                bold: true
             }
 
             verticalAlignment: Text.AlignVCenter
@@ -147,6 +150,7 @@ Rectangle {
             font {
                 family: fontFamily
                 pointSize: fontSize
+                bold: true
             }
 
             verticalAlignment: Text.AlignVCenter
