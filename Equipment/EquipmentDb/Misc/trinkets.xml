@@ -9,6 +9,9 @@
 			<proc>
 				<spell name="EXTRA_ATTACK" amount="1" instant="yes" rate="0.02" internal_cd="0" recursive="yes"/>
 			</proc>
+			<special_equip_effect>
+			Equip: 2% chance on melee hit to gain 1 extra attack.
+			</special_equip_effect>
 			<source>
 			Drops from Emperor Dagran Thaurissan in Blackrock Depths.
 			</source>
