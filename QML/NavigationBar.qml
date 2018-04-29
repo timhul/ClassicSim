@@ -175,7 +175,7 @@ Rectangle {
 
         rectColor: root.darkDarkGray
 
-        height: 150
+        height: 175
 
         Column {
             anchors {
@@ -293,6 +293,36 @@ Rectangle {
                 height: 15
 
                 text: "Attack Power: " + character.attackPower
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "MH Skill: " + character.wpnSkillMh
+                color: "white"
+
+                font {
+                    family: fontFamily
+                    pointSize: 10
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                height: 15
+
+                text: "OH Skill: " + character.wpnSkillOh
                 color: "white"
 
                 font {

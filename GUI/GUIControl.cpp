@@ -267,6 +267,14 @@ int GUIControl::get_attack_power() const {
     return current_char->get_melee_ap();
 }
 
+int GUIControl::get_mainhand_wpn_skill() const {
+    return current_char->get_mh_wpn_skill();
+}
+
+int GUIControl::get_offhand_wpn_skill() const {
+    return current_char->get_oh_wpn_skill();
+}
+
 ItemModel* GUIControl::get_item_model() const {
     return this->item_model;
 }

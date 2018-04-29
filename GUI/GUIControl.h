@@ -75,6 +75,8 @@ public:
     Q_PROPERTY(QString critChance READ get_crit_chance NOTIFY statsChanged)
     Q_PROPERTY(QString hitChance READ get_hit_chance NOTIFY statsChanged)
     Q_PROPERTY(int attackPower READ get_attack_power NOTIFY statsChanged)
+    Q_PROPERTY(int wpnSkillMh READ get_mainhand_wpn_skill NOTIFY statsChanged)
+    Q_PROPERTY(int wpnSkillOh READ get_offhand_wpn_skill NOTIFY statsChanged)
 
     /* End of Stats */
 
@@ -142,6 +144,8 @@ private:
     QString get_hit_chance() const;
 
     int get_attack_power() const;
+    int get_mainhand_wpn_skill() const;
+    int get_offhand_wpn_skill() const;
 
     void run_quick_sim();
 
