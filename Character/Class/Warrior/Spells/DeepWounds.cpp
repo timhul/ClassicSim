@@ -32,6 +32,8 @@ int DeepWounds::spell_effect(const int) {
         DotTick* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
         this->engine->add_event(new_event);
     }
+    else
+        previous_tick_rest = 0;
 
     add_success_stats("Hit", round(damage_dealt));
 
@@ -54,4 +56,5 @@ void DeepWounds::apply_debuff() {
 
 void DeepWounds::reset_effect() {
     stacks.clear();
+    previous_tick_rest = 0;
 }
