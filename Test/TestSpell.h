@@ -29,6 +29,7 @@ public:
     void given_no_offhand();
     void given_an_offhand_weapon_with_2_speed();
     void given_1000_melee_ap();
+    void given_engine_priority_at(const float priority);
 
     void then_damage_dealt_is(const int damage);
     void then_next_event_is(const QString &name);
@@ -41,6 +42,12 @@ protected:
     Target* target;
     Race* race;
     Character* pchar;
+
+    void set_melee_special_table_for_hit(const int wpn_skill);
+    void set_melee_special_table_for_crit(const int wpn_skill);
+
+    void set_melee_auto_table_for_hit(const int wpn_skill);
+    void set_melee_auto_table_for_crit(const int wpn_skill);
 };
 
 #endif // TESTSPELL_H

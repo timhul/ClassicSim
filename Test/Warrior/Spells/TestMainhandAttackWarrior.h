@@ -18,8 +18,6 @@ public:
     void test_mid_swing_haste_increase_updates_attack_speed();
     void test_mid_swing_haste_decrease_updates_attack_speed();
 
-    void given_engine_priority_at(const float priority);
-
     void when_mh_attack_is_performed();
     void when_changing_to_2_speed();
     void when_increasing_attack_speed(const int change);

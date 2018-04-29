@@ -11,6 +11,7 @@
 #include "Character.h"
 #include "Onehand.h"
 #include "EquipmentDb.h"
+#include "MainhandMeleeHit.h"
 
 TestSpell::TestSpell() :
     equipment(nullptr)
@@ -43,20 +44,65 @@ void TestSpell::given_no_previous_damage_dealt() {
 }
 
 void TestSpell::given_a_guaranteed_white_hit() {
-    WhiteHitTable* table = combat->get_white_hit_table(pchar->get_mh_wpn_skill());
-    table->set_miss_range(0);
-    table->set_dodge_range(0);
-    table->set_parry_range(0);
-    table->set_block_range(0);
-    table->set_glancing_range(0);
-    table->update_crit_chance(0.0);
-
-    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
-    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
+    set_melee_auto_table_for_hit(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_hit(pchar->get_oh_wpn_skill());
 }
 
 void TestSpell::given_a_guaranteed_white_crit() {
-    WhiteHitTable* table = combat->get_white_hit_table(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_crit(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_crit(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_melee_ability_crit() {
+    set_melee_special_table_for_crit(pchar->get_mh_wpn_skill());
+    set_melee_special_table_for_crit(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_melee_ability_hit() {
+    set_melee_special_table_for_hit(pchar->get_mh_wpn_skill());
+    set_melee_special_table_for_hit(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
+    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    table->set_miss_range(0);
+    table->set_dodge_range(0);
+    table->set_parry_range(0);
+    table->set_block_range(0);
+    table->update_crit_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
+
+}
+
+void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
+    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    table->set_miss_range(0);
+    table->set_dodge_range(0);
+    table->set_parry_range(0);
+    table->set_block_range(0);
+    table->update_crit_chance(1.0);
+
+    assert(table->get_outcome(0, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
+}
+
+void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
+    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    table->set_miss_range(0);
+    table->set_dodge_range(0);
+    table->set_parry_range(0);
+    table->set_block_range(0);
+    table->set_glancing_range(0);
+    table->update_crit_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
+}
+
+void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
+    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
     table->set_miss_range(0);
     table->set_dodge_range(0);
     table->set_parry_range(0);
@@ -66,30 +112,6 @@ void TestSpell::given_a_guaranteed_white_crit() {
 
     assert(table->get_outcome(0, 0.0) == Outcome::CRITICAL);
     assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
-}
-
-void TestSpell::given_a_guaranteed_melee_ability_crit() {
-    MeleeSpecialTable* table = combat->get_melee_special_table(pchar->get_mh_wpn_skill());
-    table->set_miss_range(0);
-    table->set_dodge_range(0);
-    table->set_parry_range(0);
-    table->set_block_range(0);
-    table->update_crit_chance(1.0);
-
-    assert(table->get_outcome(0, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
-}
-
-void TestSpell::given_a_guaranteed_melee_ability_hit() {
-    MeleeSpecialTable* table = combat->get_melee_special_table(pchar->get_mh_wpn_skill());
-    table->set_miss_range(0);
-    table->set_dodge_range(0);
-    table->set_parry_range(0);
-    table->set_block_range(0);
-    table->update_crit_chance(0.0);
-
-    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
-    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
 }
 
 void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
@@ -143,12 +165,19 @@ void TestSpell::given_1000_melee_ap() {
     assert(pchar->get_melee_ap() == 1000);
 }
 
+void TestSpell::given_engine_priority_at(const float priority) {
+    MainhandMeleeHit* event = new MainhandMeleeHit(pchar, priority, 0);
+    engine->set_current_priority(event);
+    delete event;
+}
+
 void TestSpell::then_damage_dealt_is(const int damage) {
     assert(engine->get_statistics()->get_total_damage() == damage);
 }
 
 void TestSpell::then_next_event_is(const QString &name) {
     Event* event = engine->get_queue()->get_next();
+    engine->set_current_priority(event);
 
     assert(event->get_name() == name);
 
@@ -156,7 +185,9 @@ void TestSpell::then_next_event_is(const QString &name) {
 }
 
 void TestSpell::then_next_event_is(const QString &name, const QString &priority) {
+    assert(!engine->get_queue()->empty());
     Event* event = engine->get_queue()->get_next();
+    engine->set_current_priority(event);
 
     assert(event->get_name() == name);
     assert(QString::number(event->get_priority(), 'f', 3) == priority);

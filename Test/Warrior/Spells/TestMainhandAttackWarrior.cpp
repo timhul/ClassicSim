@@ -2,7 +2,6 @@
 #include "TestMainhandAttackWarrior.h"
 #include "Equipment.h"
 #include "MainhandAttackWarrior.h"
-#include "MainhandMeleeHit.h"
 #include <QDebug>
 
 void TestMainhandAttackWarrior::test_all() {
@@ -120,12 +119,6 @@ void TestMainhandAttackWarrior::test_mid_swing_haste_decrease_updates_attack_spe
     when_decreasing_attack_speed(100);
 
     then_next_expected_use_is(2.0);
-}
-
-void TestMainhandAttackWarrior::given_engine_priority_at(const float priority) {
-    MainhandMeleeHit* event = new MainhandMeleeHit(warrior, priority, 0);
-    engine->set_current_priority(event);
-    delete event;
 }
 
 void TestMainhandAttackWarrior::when_mh_attack_is_performed() {

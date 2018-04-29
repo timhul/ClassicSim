@@ -12,6 +12,7 @@ public:
     virtual ~Buff();
 
     QString get_name() const;
+    int get_charges() const;
     void apply_buff();
     void remove_buff(const int);
     void use_charge();

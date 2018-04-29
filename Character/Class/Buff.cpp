@@ -22,6 +22,10 @@ QString Buff::get_name() const {
     return this->name;
 }
 
+int Buff::get_charges() const {
+    return this->current_charges;
+}
+
 void Buff::apply_buff() {
     if (!is_enabled())
         return;
