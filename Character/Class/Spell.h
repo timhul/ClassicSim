@@ -50,6 +50,7 @@ public:
 
     void reset();
     virtual void reset_effect();
+    virtual void periodic_effect();
 
 protected:
     virtual int spell_effect(const int) = 0;

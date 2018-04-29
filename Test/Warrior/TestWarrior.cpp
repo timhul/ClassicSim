@@ -17,6 +17,7 @@
 #include "TestOverpower.h"
 #include "TestFlurryWarrior.h"
 #include "TestDeepWounds.h"
+#include "TestBloodrage.h"
 
 void TestWarrior::test_all() {
     TestExecute().test_all();
@@ -28,6 +29,7 @@ void TestWarrior::test_all() {
     TestOverpower().test_all();
     TestFlurryWarrior().test_all();
     TestDeepWounds().test_all();
+    TestBloodrage().test_all();
 }
 
 void TestWarrior::test_char_initialization() {

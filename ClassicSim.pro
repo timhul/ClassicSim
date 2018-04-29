@@ -133,7 +133,10 @@ SOURCES += main.cpp \
     Test/Warrior/Buffs/TestFlurryWarrior.cpp \
     Test/Warrior/TestBuffWarrior.cpp \
     Test/Warrior/Spells/TestOffhandAttackWarrior.cpp \
-    Test/Warrior/Spells/TestDeepWounds.cpp
+    Test/Warrior/Spells/TestDeepWounds.cpp \
+    Character/Class/Warrior/Spells/Bloodrage.cpp \
+    Event/Events/ResourceGain.cpp \
+    Test/Warrior/Spells/TestBloodrage.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -261,7 +264,10 @@ HEADERS += \
     Test/Warrior/Buffs/TestFlurryWarrior.h \
     Test/Warrior/TestBuffWarrior.h \
     Test/Warrior/Spells/TestOffhandAttackWarrior.h \
-    Test/Warrior/Spells/TestDeepWounds.h
+    Test/Warrior/Spells/TestDeepWounds.h \
+    Event/Events/ResourceGain.h \
+    Character/Class/Warrior/Spells/Bloodrage.h \
+    Test/Warrior/Spells/TestBloodrage.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

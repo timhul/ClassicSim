@@ -19,6 +19,7 @@ class DeathWishBuff;
 class BattleShout;
 class BattleShoutBuff;
 class BerserkerRage;
+class Bloodrage;
 class OffhandAttackWarrior;
 
 class Warrior: public Character {
@@ -61,6 +62,7 @@ public:
     BattleShout* get_battle_shout() const;
     BattleShoutBuff* get_battle_shout_buff() const;
     BerserkerRage* get_berserker_rage() const;
+    Bloodrage* get_bloodrage() const;
     Whirlwind* get_whirlwind() const;
 
     void melee_critical_effect() override;
@@ -86,6 +88,7 @@ private:
     BattleShout* battle_shout;
     BattleShoutBuff* battle_shout_buff;
     BerserkerRage* berserker_rage;
+    Bloodrage* bloodrage;
     Whirlwind* whirlwind;
 
     void initialize_talents() override;

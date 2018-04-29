@@ -105,3 +105,7 @@ void Spell::reset() {
 void Spell::reset_effect() {
 
 }
+
+void Spell::periodic_effect() {
+
+}

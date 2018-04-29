@@ -28,6 +28,7 @@
 #include "BattleShout.h"
 #include "BattleShoutBuff.h"
 #include "BerserkerRage.h"
+#include "Bloodrage.h"
 #include "Whirlwind.h"
 #include <QDebug>
 
@@ -70,9 +71,10 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->death_wish = new DeathWish(engine, this, roll);
     this->battle_shout = new BattleShout(engine, this, roll);
     this->berserker_rage = new BerserkerRage(engine, this, roll);
+    this->bloodrage = new Bloodrage(engine, this, roll);
     this->whirlwind = new Whirlwind(engine, this, roll);
     spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
-              unbridled_wrath, death_wish, battle_shout, berserker_rage, whirlwind};
+              unbridled_wrath, death_wish, battle_shout, berserker_rage, bloodrage, whirlwind};
 
     initialize_talents();
 
@@ -160,6 +162,9 @@ void Warrior::rotation() {
 
     if (rage < 50 && berserker_rage->is_available(rage))
         gain_rage(berserker_rage->perform(rage));
+
+    if (rage < 50 && bloodrage->is_available(rage))
+        gain_rage(bloodrage->perform(rage));
 
     if (rage > 50 && !heroic_strike_buff->is_active())
         heroic_strike_buff->apply_buff();
@@ -285,6 +290,10 @@ BattleShoutBuff* Warrior::get_battle_shout_buff() const {
 
 BerserkerRage* Warrior::get_berserker_rage() const {
     return this->berserker_rage;
+}
+
+Bloodrage* Warrior::get_bloodrage() const {
+    return this->bloodrage;
 }
 
 Whirlwind* Warrior::get_whirlwind() const {
