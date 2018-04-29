@@ -131,7 +131,8 @@ SOURCES += main.cpp \
     Test/Warrior/Spells/TestOverpower.cpp \
     Test/TestBuff.cpp \
     Test/Warrior/Buffs/TestFlurryWarrior.cpp \
-    Test/Warrior/TestBuffWarrior.cpp
+    Test/Warrior/TestBuffWarrior.cpp \
+    Test/Warrior/Spells/TestOffhandAttackWarrior.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -257,7 +258,8 @@ HEADERS += \
     Test/Warrior/Spells/TestOverpower.h \
     Test/TestBuff.h \
     Test/Warrior/Buffs/TestFlurryWarrior.h \
-    Test/Warrior/TestBuffWarrior.h
+    Test/Warrior/TestBuffWarrior.h \
+    Test/Warrior/Spells/TestOffhandAttackWarrior.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

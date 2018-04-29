@@ -145,9 +145,35 @@ void TestSpell::given_a_mainhand_weapon_with_2_speed() {
     assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 2);
 }
 
+void TestSpell::given_no_mainhand() {
+    pchar->get_equipment()->clear_mainhand();
+    assert(pchar->get_equipment()->get_mainhand() == nullptr);
+}
+
 void TestSpell::given_no_offhand() {
     pchar->get_equipment()->clear_offhand();
     assert(pchar->get_equipment()->get_offhand() == nullptr);
+}
+
+void TestSpell::given_an_offhand_weapon_with_100_min_max_dmg() {
+    if (equipment->get_db()->get_melee_weapon("Test 100 dmg") == nullptr) {
+        Onehand* wpn = new Onehand("Test 100 dmg", WeaponTypes::SWORD, 100, 100, 2.6);
+        equipment->get_db()->add_melee_weapon(wpn);
+    }
+
+    pchar->get_equipment()->set_offhand("Test 100 dmg");
+    assert(pchar->get_equipment()->get_offhand()->get_min_dmg() == 100);
+    assert(pchar->get_equipment()->get_offhand()->get_max_dmg() == 100);
+}
+
+void TestSpell::given_an_offhand_weapon_with_3_speed() {
+    if (equipment->get_db()->get_melee_weapon("Test 3 Speed") == nullptr) {
+        Onehand* wpn = new Onehand("Test 3 Speed", WeaponTypes::SWORD, 100, 100, 3.0);
+        equipment->get_db()->add_melee_weapon(wpn);
+    }
+
+    pchar->get_equipment()->set_offhand("Test 3 Speed");
+    assert(int(pchar->get_equipment()->get_offhand()->get_base_weapon_speed()) == 3);
 }
 
 void TestSpell::given_an_offhand_weapon_with_2_speed() {

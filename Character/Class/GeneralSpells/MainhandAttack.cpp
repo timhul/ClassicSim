@@ -68,7 +68,10 @@ void MainhandAttack::update_next_expected_use(const float haste_change) {
 
     float curr_time = pchar->get_engine()->get_current_priority();
     float remainder_after_haste_change = (next_expected_use - curr_time);
-    assert(remainder_after_haste_change > -0.0000001);
+
+    if (remainder_after_haste_change < -0.0001)
+        return;
+
     if (haste_change < 0)
         remainder_after_haste_change *=  (1 + (-1) * haste_change);
     else

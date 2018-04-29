@@ -26,7 +26,10 @@ public:
     void given_a_mainhand_weapon_with_100_min_max_dmg();
     void given_a_mainhand_weapon_with_3_speed();
     void given_a_mainhand_weapon_with_2_speed();
+    void given_no_mainhand();
     void given_no_offhand();
+    void given_an_offhand_weapon_with_100_min_max_dmg();
+    void given_an_offhand_weapon_with_3_speed();
     void given_an_offhand_weapon_with_2_speed();
     void given_1000_melee_ap();
     void given_engine_priority_at(const float priority);

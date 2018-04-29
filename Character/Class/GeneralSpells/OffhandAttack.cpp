@@ -21,10 +21,10 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
 int OffhandAttack::spell_effect(const int) {
     complete_swing();
     // TODO: Check if Windfury is up, roll extra attacks.
-    engine->get_statistics()->increment("MH White Total Attempts");
+    engine->get_statistics()->increment("OH White Total Attempts");
 
-    const int mh_wpn_skill = pchar->get_mh_wpn_skill();
-    AttackResult* result = roll->get_melee_hit_result(mh_wpn_skill);
+    const int oh_wpn_skill = pchar->get_oh_wpn_skill();
+    AttackResult* result = roll->get_melee_hit_result(oh_wpn_skill);
 
     if (result->is_miss()) {
         add_fail_stats("Miss");
@@ -40,7 +40,7 @@ int OffhandAttack::spell_effect(const int) {
         return 0;
     }
 
-    float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
+    float damage_dealt = pchar->get_random_non_normalized_oh_dmg() * 0.5;
 
     if (result->is_critical()) {
         damage_dealt *= 2;
@@ -49,7 +49,7 @@ int OffhandAttack::spell_effect(const int) {
         return 0;
     }
     if (result->is_glancing()) {
-        damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
+        damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
         add_success_stats("Glancing", round(damage_dealt), 0);
         return 0;
     }
@@ -67,17 +67,15 @@ void OffhandAttack::update_next_expected_use(const float haste_change) {
 
     float curr_time = pchar->get_engine()->get_current_priority();
     float remainder_after_haste_change = (next_expected_use - curr_time);
-    // TODO: This assertion fails when next_expected_use is not updated previously.
-    // This happens when e.g. attacking with mainhand but not offhand and haste change occurs.
-    // We should not update next expected use if the spell is not currently on cooldown.
-    // For auto attacks we have a built in expectation that they are always cast immediately when available,
-    // which is the reason this assertion is in place. Consider replacing this expectation with a toggle system.
-    // Then we should skip doing any update of next expected use if not currently toggled.
-    assert(remainder_after_haste_change > -0.0000001);
+
+    if (remainder_after_haste_change < -0.0001)
+        return;
+
     if (haste_change < 0)
         remainder_after_haste_change *=  (1 + (-1) * haste_change);
     else
         remainder_after_haste_change /=  (1 + haste_change);
+
     next_expected_use = curr_time + remainder_after_haste_change;
 }
 

@@ -299,10 +299,12 @@ void Character::increase_attack_speed(int increase) {
     base_stats->increase_attack_speed(increase_float);
 
     mh_attack->update_next_expected_use(increase_float);
+    // TODO: Check if actually attacking
     add_next_mh_attack();
 
     if (equipment->is_dual_wielding()) {
         oh_attack->update_next_expected_use(increase_float);
+        // TODO: Check if actually attacking
         add_next_oh_attack();
     }
 }
@@ -318,10 +320,12 @@ void Character::decrease_attack_speed(int decrease) {
     base_stats->decrease_attack_speed(decrease_float);
 
     mh_attack->update_next_expected_use(-decrease_float);
+    // TODO: Check if actually attacking
     add_next_mh_attack();
 
     if (equipment->is_dual_wielding()) {
         oh_attack->update_next_expected_use(-decrease_float);
+        // TODO: Check if actually attacking
         add_next_oh_attack();
     }
 }
