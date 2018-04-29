@@ -269,15 +269,15 @@ void Test::test_white_hit_table_update(void) {
     assert(table->get_outcome(7299, 0.0) == Outcome::GLANCING);
     assert(table->get_outcome(7300, 0.0) == Outcome::CRITICAL);
     // TODO: This will fail when changing base agility or agi needed per crit.
-    assert(table->get_outcome(7684, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(7685, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(7984, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(7985, 0.0) == Outcome::HIT);
 
     pchar->increase_crit(0.0001);
-    assert(table->get_outcome(7685, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(7686, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(7985, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(7986, 0.0) == Outcome::HIT);
 
     pchar->increase_crit(0.9999);
-    assert(table->get_outcome(7686, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(7986, 0.0) == Outcome::CRITICAL);
     assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
 
     delete target;
