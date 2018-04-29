@@ -48,26 +48,14 @@ void TestBloodthirst::test_has_6_second_cooldown() {
 
     when_bloodthirst_is_performed();
 
-    Queue* queue = engine->get_queue();
-    assert(!queue->empty());
-    Event* event = queue->get_next();
-    assert(!queue->empty());
-    event = queue->get_next();
-    assert(event->get_name() == "CooldownReady");
-    assert(QString::number(event->get_priority(), 'f', 3) == "6.000");
+    then_next_event_is("CooldownReady", "1.500");
+    then_next_event_is("CooldownReady", "6.000");
 }
 
 void TestBloodthirst::test_incurs_global_cooldown_on_use() {
-    Queue* queue = engine->get_queue();
-    assert(queue->empty());
-
     when_bloodthirst_is_performed();
 
-    assert(!queue->empty());
-    assert(!warrior->action_ready());
-    Event* event = queue->get_next();
-    assert(event->get_name() == "CooldownReady");
-    assert(QString::number(event->get_priority(), 'f', 3) == QString::number(warrior->global_cooldown(), 'f', 3));
+    then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
 void TestBloodthirst::test_costs_30_rage() {

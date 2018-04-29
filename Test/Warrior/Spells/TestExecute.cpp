@@ -124,16 +124,9 @@ void TestExecute::test_has_no_cooldown() {
 }
 
 void TestExecute::test_incurs_global_cooldown_on_use() {
-    Queue* queue = engine->get_queue();
-    assert(queue->empty());
-
     when_execute_is_performed_with_rage(100);
 
-    assert(!queue->empty());
-    assert(!warrior->action_ready());
-    Event* event = queue->get_next();
-    assert(event->get_name() == "CooldownReady");
-    assert(QString::number(event->get_priority(), 'f', 3) == QString::number(warrior->global_cooldown(), 'f', 3));
+    then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
 void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
