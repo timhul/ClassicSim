@@ -70,7 +70,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
                     item_map["flavour_text"] = reader.readElementText().simplified();
                 }
                 else if (reader.name() == "special_equip_effect") {
-                    item_map["flavour_text"] = reader.readElementText().simplified();
+                    item_map["special_equip_effect"] = reader.readElementText().simplified();
                 }
                 else
                     reader.skipCurrentElement();
