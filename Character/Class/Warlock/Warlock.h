@@ -19,6 +19,8 @@ public:
     int get_stamina_modifier() const override;
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
+    int get_agi_needed_for_one_percent_phys_crit() const override;
+    int get_int_needed_for_one_percent_spell_crit() const override;
     void rotation() override;
     void mh_auto_attack(const int) override;
     void oh_auto_attack(const int) override;

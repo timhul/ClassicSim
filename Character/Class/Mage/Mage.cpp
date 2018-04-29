@@ -29,6 +29,16 @@ int Mage::get_spirit_modifier(void) const {
     return 2;
 }
 
+int Mage::get_agi_needed_for_one_percent_phys_crit() const {
+    // TODO: Placeholder value
+    return 20;
+}
+
+int Mage::get_int_needed_for_one_percent_spell_crit() const {
+    // TODO: Placeholder value
+    return 20;
+}
+
 int Mage::get_ap_per_strength() const {
     return 1;
 }
