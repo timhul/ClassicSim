@@ -44,16 +44,18 @@ int OffhandAttack::spell_effect(const int) {
 
     if (result->is_critical()) {
         damage_dealt *= 2;
-        pchar->melee_critical_effect();
+        pchar->melee_oh_critical_effect();
         add_success_stats("Critical", round(damage_dealt), 0);
         return 0;
     }
     if (result->is_glancing()) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
+        pchar->melee_oh_hit_effect();
         add_success_stats("Glancing", round(damage_dealt), 0);
         return 0;
     }
 
+    pchar->melee_oh_hit_effect();
     add_success_stats("Hit", round(damage_dealt), 0);
     return 0;
 }

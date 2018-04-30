@@ -48,7 +48,7 @@ int MainhandAttack::calculate_damage() {
 
     if (result->is_critical()) {
         damage_dealt *= 2;
-        pchar->melee_critical_effect();
+        pchar->melee_mh_critical_effect();
         add_success_stats("Critical", round(damage_dealt), 0);
         return 0;
     }

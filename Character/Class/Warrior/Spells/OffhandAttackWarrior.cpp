@@ -41,20 +41,19 @@ int OffhandAttackWarrior::spell_effect(const int) {
     if (result->is_critical()) {
         damage_dealt = round(damage_dealt * 2);
         const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
-        pchar->melee_critical_effect();
+        pchar->melee_oh_critical_effect();
         add_success_stats("Critical", round(damage_dealt), rage_gained);
         return rage_gained;
     }
-    else if (result->is_glancing()) {
+    if (result->is_glancing()) {
         damage_dealt = round(roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
         const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
-        pchar->melee_hit_effect();
+        pchar->melee_oh_hit_effect();
         add_success_stats("Glancing", damage_dealt, rage_gained);
         return rage_gained;
     }
-    else
-        pchar->melee_hit_effect();
 
+    pchar->melee_oh_hit_effect();
     damage_dealt = round(damage_dealt);
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
     add_success_stats("Hit", damage_dealt, rage_gained);

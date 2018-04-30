@@ -18,6 +18,8 @@ class Weapon;
 class MainhandAttack;
 class OffhandAttack;
 class WindfuryTotemAttack;
+class HolyStrength;
+class Crusader;
 
 class Character: public QObject {
     Q_OBJECT
@@ -59,6 +61,8 @@ public:
     MainhandAttack* get_mh_attack() const;
     OffhandAttack* get_oh_attack() const;
     WindfuryTotemAttack* get_wf_totem() const;
+    HolyStrength* get_holy_strength_mh() const;
+    HolyStrength* get_holy_strength_oh() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -68,9 +72,14 @@ public:
     void start_global_cooldown();
     virtual float global_cooldown() const;
 
-    virtual void melee_hit_effect();
-    virtual void melee_critical_effect();
-    void run_proc_effects();
+    virtual void melee_mh_hit_effect();
+    virtual void melee_mh_critical_effect();
+    virtual void melee_oh_hit_effect();
+    virtual void melee_oh_critical_effect();
+
+    void run_general_proc_effects();
+    void run_mh_specific_proc_effects();
+    void run_oh_specific_proc_effects();
     void run_extra_attack();
 
     float get_ability_crit_dmg_mod() const;
@@ -89,6 +98,9 @@ public:
     int get_mh_wpn_skill();
     int get_oh_wpn_skill();
     int get_ranged_wpn_skill();
+
+    void increase_strength(const int);
+    void decrease_strength(const int);
 
     int get_melee_ap();
     void increase_melee_ap(const int);
@@ -130,9 +142,15 @@ protected:
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
     WindfuryTotemAttack* wf_totem;
+    Crusader* crusader_mh;
+    Crusader* crusader_oh;
+    HolyStrength* holy_strength_mh;
+    HolyStrength* holy_strength_oh;
     QVector<Spell*> spells;
     QVector<Buff*> buffs;
     QVector<Spell*> melee_attack_procs;
+    QVector<Spell*> mainhand_attack_procs;
+    QVector<Spell*> offhand_attack_procs;
     QVector<int> attack_speed_buffs;
 
     int ranged_ap;

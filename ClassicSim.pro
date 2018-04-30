@@ -140,7 +140,8 @@ SOURCES += main.cpp \
     Character/Class/Proc.cpp \
     Character/Class/General/Enchants/WindfuryTotemAttack.cpp \
     Character/Class/General/Enchants/Crusader.cpp \
-    Character/Class/ProcPPM.cpp
+    Character/Class/ProcPPM.cpp \
+    Character/Class/General/Buffs/HolyStrength.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -275,7 +276,8 @@ HEADERS += \
     Character/Class/Proc.h \
     Character/Class/General/Enchants/WindfuryTotemAttack.h \
     Character/Class/General/Enchants/Crusader.h \
-    Character/Class/ProcPPM.h
+    Character/Class/ProcPPM.h \
+    Character/Class/General/Buffs/HolyStrength.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -316,6 +318,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Test\Warrior\Buffs \
     C:\C++\ClassicSim\Character\Class\General \
     C:\C++\ClassicSim\Character\Class\General\Enchants \
+    C:\C++\ClassicSim\Character\Class\General\Buffs \
     C:\C++\ClassicSim\GUI
 
 RESOURCES += qml.qrc

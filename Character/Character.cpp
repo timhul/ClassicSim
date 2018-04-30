@@ -14,6 +14,8 @@
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
 #include "WindfuryTotemAttack.h"
+#include "Crusader.h"
+#include "HolyStrength.h"
 
 #include <QDebug>
 
@@ -34,11 +36,18 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     // TODO: Get haste enchants from gear
     this->mh_haste = 0;
     this->oh_haste = 0;
-    // TODO: Populate this->buffs with general buffs.
 
+    // TODO: Move general buffs into separate class to reduce godliness of this object.
     this->wf_totem = new WindfuryTotemAttack(engine, this, roll);
+    this->crusader_mh = new Crusader(engine, this, roll, EnchantSlot::MAINHAND);
+    this->crusader_oh = new Crusader(engine, this, roll, EnchantSlot::OFFHAND);
+    this->holy_strength_mh = new HolyStrength(this);
+    this->holy_strength_oh = new HolyStrength(this);
 
+    this->buffs = {holy_strength_mh, holy_strength_oh};
     this->melee_attack_procs = {wf_totem};
+    this->mainhand_attack_procs = {crusader_mh};
+    this->offhand_attack_procs = {crusader_oh};
 }
 
 Character::~Character() {
@@ -57,9 +66,19 @@ Character::~Character() {
         delete melee_attack_procs[i];
     }
 
+    for (int i = 0; i < mainhand_attack_procs.size(); ++i) {
+        delete mainhand_attack_procs[i];
+    }
+
+    for (int i = 0; i < offhand_attack_procs.size(); ++i) {
+        delete offhand_attack_procs[i];
+    }
+
     spells.clear();
     buffs.clear();
     melee_attack_procs.clear();
+    mainhand_attack_procs.clear();
+    offhand_attack_procs.clear();
 }
 
 Race* Character::get_race(void) {
@@ -137,6 +156,14 @@ WindfuryTotemAttack* Character::get_wf_totem() const {
     return this->wf_totem;
 }
 
+HolyStrength* Character::get_holy_strength_mh() const {
+    return this->holy_strength_mh;
+}
+
+HolyStrength* Character::get_holy_strength_oh() const {
+    return this->holy_strength_oh;
+}
+
 void Character::add_next_mh_attack(void) {
     MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
     this->get_engine()->add_event(new_event);
@@ -176,6 +203,14 @@ bool Character::action_ready() const {
     return delta < 0.0001;
 }
 
+void Character::increase_strength(const int increase) {
+    base_stats->increase_str(increase);
+}
+
+void Character::decrease_strength(const int decrease) {
+    base_stats->decrease_str(decrease);
+}
+
 int Character::get_melee_ap() {
     return base_stats->get_melee_ap_total()  + equipment->get_stats()->get_melee_ap_total();
 }
@@ -188,17 +223,41 @@ void Character::decrease_melee_ap(const int decrease) {
     base_stats->decrease_base_melee_ap(decrease);
 }
 
-void Character::melee_hit_effect() {
-    run_proc_effects();
+void Character::melee_mh_hit_effect() {
+    run_mh_specific_proc_effects();
 }
 
-void Character::melee_critical_effect() {
-    run_proc_effects();
+void Character::melee_mh_critical_effect() {
+    run_mh_specific_proc_effects();
 }
 
-void Character::run_proc_effects() {
+void Character::melee_oh_hit_effect() {
+    run_oh_specific_proc_effects();
+}
+
+void Character::melee_oh_critical_effect() {
+    run_oh_specific_proc_effects();
+}
+
+void Character::run_general_proc_effects() {
     for (int i = 0; i < melee_attack_procs.size(); ++i) {
         melee_attack_procs[i]->perform(0);
+    }
+}
+
+void Character::run_mh_specific_proc_effects() {
+    run_general_proc_effects();
+
+    for (int i = 0; i < mainhand_attack_procs.size(); ++i) {
+        mainhand_attack_procs[i]->perform(0);
+    }
+}
+
+void Character::run_oh_specific_proc_effects() {
+    run_general_proc_effects();
+
+    for (int i = 0; i < offhand_attack_procs.size(); ++i) {
+        offhand_attack_procs[i]->perform(0);
     }
 }
 
@@ -406,8 +465,8 @@ void Character::reset() {
         spells[i]->reset();
     }
 
-    for (int i = 0; i < melee_attack_procs.size(); ++i) {
-        melee_attack_procs[i]->reset();
+    for (int i = 0; i < mainhand_attack_procs.size(); ++i) {
+        mainhand_attack_procs[i]->reset();
     }
 
     reset_resource();

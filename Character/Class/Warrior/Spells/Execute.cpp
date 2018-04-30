@@ -40,7 +40,7 @@ int Execute::spell_effect(const int resource_level) {
 
     if (result->is_critical()) {
         damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());
-        pchar->melee_critical_effect();
+        pchar->melee_mh_critical_effect();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit())

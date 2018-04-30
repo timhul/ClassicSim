@@ -41,11 +41,11 @@ int HeroicStrike::spell_effect(const int) {
 
     if (result->is_critical()) {
         damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());
-        pchar->melee_critical_effect();
+        pchar->melee_mh_critical_effect();
         add_success_stats("Critical", damage_dealt);
     }
     else if (result->is_hit()) {
-        pchar->melee_hit_effect();
+        pchar->melee_mh_hit_effect();
         add_success_stats("Hit", round(damage_dealt));
     }
 

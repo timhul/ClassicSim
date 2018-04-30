@@ -67,7 +67,6 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->heroic_strike = new HeroicStrike(engine, this, roll);
     this->execute = new Execute(engine, this, roll);
     this->overpower = new Overpower(engine, this, roll);
-    this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
     this->death_wish = new DeathWish(engine, this, roll);
     this->battle_shout = new BattleShout(engine, this, roll);
     this->berserker_rage = new BerserkerRage(engine, this, roll);
@@ -76,15 +75,19 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
               death_wish, battle_shout, berserker_rage, bloodrage, whirlwind};
 
-    initialize_talents();
-
     this->flurry = new Flurry(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
-    buffs = {flurry, heroic_strike_buff, death_wish_buff, battle_shout_buff};
+    buffs.append(flurry);
+    buffs.append(heroic_strike_buff);
+    buffs.append(death_wish_buff);
+    buffs.append(battle_shout_buff);
 
+    this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
     melee_attack_procs.append(unbridled_wrath);
+
+    initialize_talents();
 }
 
 Warrior::~Warrior() {}
@@ -302,15 +305,26 @@ Whirlwind* Warrior::get_whirlwind() const {
     return this->whirlwind;
 }
 
-void Warrior::melee_hit_effect() {
+void Warrior::melee_mh_hit_effect() {
     flurry->use_charge();
-    run_proc_effects();
+    run_mh_specific_proc_effects();
 }
 
-void Warrior::melee_critical_effect() {
+void Warrior::melee_mh_critical_effect() {
     flurry->apply_buff();
     deep_wounds->apply_debuff();
-    run_proc_effects();
+    run_mh_specific_proc_effects();
+}
+
+void Warrior::melee_oh_hit_effect() {
+    flurry->use_charge();
+    run_oh_specific_proc_effects();
+}
+
+void Warrior::melee_oh_critical_effect() {
+    flurry->apply_buff();
+    deep_wounds->apply_debuff();
+    run_oh_specific_proc_effects();
 }
 
 void Warrior::initialize_talents() {

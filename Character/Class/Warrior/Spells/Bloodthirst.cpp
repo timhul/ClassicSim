@@ -29,7 +29,7 @@ int Bloodthirst::spell_effect(const int) {
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();
-        pchar->melee_critical_effect();
+        pchar->melee_mh_critical_effect();
         add_success_stats("Critical", round(damage_dealt));
     }
     else if (result->is_hit())
