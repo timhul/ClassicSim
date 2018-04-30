@@ -590,7 +590,6 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
 
     QString lvl_req = QString("Requires level %1").arg(item->get_value("req_lvl"));
 
-    // TODO: Add proc information and flavor text.
     QVariantList tooltip_info = {
         QVariant(item->get_name()),
         QVariant(item->get_value("quality")),

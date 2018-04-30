@@ -9,14 +9,11 @@
 #include "Procs.h"
 #include "Buffs.h"
 #include "Spells.h"
-#include "Buff.h"
-#include "Spell.h"
 #include "CombatRoll.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
-#include "FieryWeaponAttack.h"
 #include <QDebug>
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, QObject* parent) :

@@ -3,8 +3,6 @@
 
 #include "Character.h"
 
-class CombatRoll;
-class Talents;
 class Bloodthirst;
 class Whirlwind;
 class Flurry;
@@ -45,8 +43,6 @@ public:
     void gain_rage(const int);
     void lose_rage(const int);
     int rage_gained_from_dd(const int) const;
-
-    bool bt_available(void) const;
 
     Bloodthirst* get_bloodthirst() const;
     Flurry* get_flurry() const;
