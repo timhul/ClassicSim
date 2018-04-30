@@ -1,13 +1,14 @@
 
 #include "BattleShoutBuff.h"
 #include "Warrior.h"
+#include "CharacterStats.h"
 
 void BattleShoutBuff::buff_effect_when_applied() {
-    dynamic_cast<Warrior*>(pchar)->increase_melee_ap(base_ap * ranks_imp_shout[rank_imp_shout]);
+    pchar->get_stats()->increase_melee_ap(base_ap * ranks_imp_shout[rank_imp_shout]);
 }
 
 void BattleShoutBuff::buff_effect_when_removed() {
-    dynamic_cast<Warrior*>(pchar)->decrease_melee_ap(base_ap * ranks_imp_shout[rank_imp_shout]);
+    pchar->get_stats()->decrease_melee_ap(base_ap * ranks_imp_shout[rank_imp_shout]);
 }
 
 void BattleShoutBuff::increase_effect_via_booming_voice() {

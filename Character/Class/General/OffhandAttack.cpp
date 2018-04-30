@@ -2,6 +2,7 @@
 #include "OffhandAttack.h"
 #include "Equipment.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include <QDebug>
 
 OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -81,7 +82,7 @@ void OffhandAttack::update_next_expected_use(const float haste_change) {
 }
 
 void OffhandAttack::complete_swing() {
-    next_expected_use = last_used + pchar->get_oh_wpn_speed();
+    next_expected_use = last_used + pchar->get_stats()->get_oh_wpn_speed();
 }
 
 bool OffhandAttack::attack_is_valid(const int iteration) const {

@@ -11,6 +11,7 @@ class Engine;
 class Equipment;
 class Talents;
 class Stats;
+class CharacterStats;
 class Procs;
 class Buffs;
 class Spells;
@@ -43,13 +44,6 @@ public:
 
     virtual QString get_class_color() const = 0;
 
-    int get_strength();
-    int get_agility();
-    int get_stamina();
-    int get_intellect();
-    int get_spirit();
-    float get_hit_chance(void) const;
-    float get_crit_chance(void) const;
     int get_clvl(void) const;
     void set_clvl(const int&);
     Engine* get_engine(void) const;
@@ -58,6 +52,7 @@ public:
     Talents* get_talents(void) const;
     Buffs* get_buffs(void) const;
     Spells* get_spells(void) const;
+    CharacterStats* get_stats(void) const;
 
     MainhandAttack* get_mh_attack() const;
     OffhandAttack* get_oh_attack() const;
@@ -99,29 +94,11 @@ public:
     int get_oh_wpn_skill();
     int get_ranged_wpn_skill();
 
-    void increase_strength(const int);
-    void decrease_strength(const int);
-
-    int get_melee_ap();
-    void increase_melee_ap(const int);
-    void decrease_melee_ap(const int);
-
-    virtual void increase_hit(float);
-    virtual void increase_crit(float);
     void increase_attack_speed(int);
-
-    virtual void decrease_hit(float);
-    virtual void decrease_crit(float);
     void decrease_attack_speed(int);
 
     void increase_ability_crit_dmg_mod(float);
     void decrease_ability_crit_dmg_mod(float);
-
-    void increase_total_phys_dmg_mod(float);
-    void decrease_total_phys_dmg_mod(float);
-
-    float get_mh_wpn_speed();
-    float get_oh_wpn_speed();
 
     bool has_mainhand() const;
     bool has_offhand() const;
@@ -135,10 +112,9 @@ public:
 protected:
     Race* race;
     Engine* engine;
-    Equipment* equipment;
     CombatRoll* roll;
     Talents* talents;
-    Stats* base_stats;
+    CharacterStats* cstats;
     Procs* procs;
     Buffs* buffs;
     Spells* spells;
@@ -146,11 +122,7 @@ protected:
     OffhandAttack* oh_attack;
     QVector<int> attack_speed_buffs;
 
-    int ranged_ap;
-    float mh_haste;
-    float oh_haste;
     float ability_crit_dmg_mod;
-    float total_phys_dmg_mod;
 
     int clvl;
     bool melee_attacking;

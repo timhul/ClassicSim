@@ -1,6 +1,7 @@
 
 #include "CombatRoll.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include "Mechanics.h"
 #include "AttackResult.h"
 #include "AttackTable.h"
@@ -72,7 +73,7 @@ void CombatRoll::set_character(Character* pchar) {
     this->pchar = pchar;
 
     if (mechanics == nullptr) {
-        mechanics = new Mechanics(target->get_lvl(), pchar->get_hit_chance());
+        mechanics = new Mechanics(target->get_lvl(), pchar->get_stats()->get_hit_chance());
     }
 }
 
@@ -88,7 +89,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
                                              mechanics->get_parry_chance(wpn_skill),
                                              get_glancing_blow_chance(),
                                              mechanics->get_block_chance(),
-                                             pchar->get_crit_chance());
+                                             pchar->get_stats()->get_crit_chance());
     auto_attack_tables[wpn_skill] = table;
 
     return table;
@@ -106,7 +107,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
                                                      mechanics->get_dodge_chance(wpn_skill),
                                                      mechanics->get_parry_chance(wpn_skill),
                                                      mechanics->get_block_chance(),
-                                                     pchar->get_crit_chance());
+                                                     pchar->get_stats()->get_crit_chance());
     melee_special_tables[wpn_skill] = table;
 
     return table;

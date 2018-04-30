@@ -23,6 +23,7 @@
 #include "Paladin.h"
 
 #include "Character.h"
+#include "CharacterStats.h"
 #include "Equipment.h"
 #include "EquipmentDb.h"
 #include "Onehand.h"
@@ -272,11 +273,11 @@ void Test::test_white_hit_table_update(void) {
     assert(table->get_outcome(7984, 0.0) == Outcome::CRITICAL);
     assert(table->get_outcome(7985, 0.0) == Outcome::HIT);
 
-    pchar->increase_crit(0.0001);
+    pchar->get_stats()->increase_crit(0.0001);
     assert(table->get_outcome(7985, 0.0) == Outcome::CRITICAL);
     assert(table->get_outcome(7986, 0.0) == Outcome::HIT);
 
-    pchar->increase_crit(0.9999);
+    pchar->get_stats()->increase_crit(0.9999);
     assert(table->get_outcome(7986, 0.0) == Outcome::CRITICAL);
     assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
 

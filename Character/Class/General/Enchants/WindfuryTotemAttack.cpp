@@ -1,6 +1,7 @@
 
 #include "WindfuryTotemAttack.h"
 #include "Character.h"
+#include "CharacterStats.h"
 
 WindfuryTotemAttack::WindfuryTotemAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
     Proc("Windfury Totem Attack", 0.0, 0, false, QVector<Proc*>(), engine, pchar, roll)
@@ -12,9 +13,9 @@ WindfuryTotemAttack::~WindfuryTotemAttack() {
 
 void WindfuryTotemAttack::proc_effect() {
     // TODO: Check if Windfury Totem extra attacks can glance.
-    pchar->increase_melee_ap(rank_spells[rank_spell]);
+    pchar->get_stats()->increase_melee_ap(rank_spells[rank_spell]);
     pchar->run_extra_attack();
-    pchar->decrease_melee_ap(rank_spells[rank_spell]);
+    pchar->get_stats()->decrease_melee_ap(rank_spells[rank_spell]);
 }
 
 void WindfuryTotemAttack::increase_spell_rank() {

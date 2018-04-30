@@ -28,6 +28,8 @@
 #include "WeaponModel.h"
 #include "EquipmentDb.h"
 
+#include "CharacterStats.h"
+
 #include <QDebug>
 
 GUIControl::GUIControl(QObject* parent) :
@@ -236,35 +238,35 @@ QString GUIControl::get_class_name() const {
 }
 
 int GUIControl::get_strength() const {
-    return current_char->get_strength();
+    return current_char->get_stats()->get_strength();
 }
 
 int GUIControl::get_agility() const {
-    return current_char->get_agility();
+    return current_char->get_stats()->get_agility();
 }
 
 int GUIControl::get_stamina() const {
-    return current_char->get_stamina();
+    return current_char->get_stats()->get_stamina();
 }
 
 int GUIControl::get_intellect() const {
-    return current_char->get_intellect();
+    return current_char->get_stats()->get_intellect();
 }
 
 int GUIControl::get_spirit() const {
-    return current_char->get_spirit();
+    return current_char->get_stats()->get_spirit();
 }
 
 QString GUIControl::get_crit_chance() const {
-    return QString::number(current_char->get_crit_chance() * 100, 'f', 2);
+    return QString::number(current_char->get_stats()->get_crit_chance() * 100, 'f', 2);
 }
 
 QString GUIControl::get_hit_chance() const {
-    return QString::number(current_char->get_hit_chance() * 100, 'f', 2);
+    return QString::number(current_char->get_stats()->get_hit_chance() * 100, 'f', 2);
 }
 
 int GUIControl::get_attack_power() const {
-    return current_char->get_melee_ap();
+    return current_char->get_stats()->get_melee_ap();
 }
 
 int GUIControl::get_mainhand_wpn_skill() const {

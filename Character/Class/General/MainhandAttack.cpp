@@ -2,6 +2,7 @@
 #include "MainhandAttack.h"
 #include "Equipment.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include <QDebug>
 
 MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -87,7 +88,7 @@ void MainhandAttack::complete_swing() {
     // To fix this, we set last_used directly.
     // This means we update last_used twice with the same value when going via perform().
     last_used = engine->get_current_priority();
-    next_expected_use = last_used + pchar->get_mh_wpn_speed();
+    next_expected_use = last_used + pchar->get_stats()->get_mh_wpn_speed();
 }
 
 void MainhandAttack::extra_attack() {

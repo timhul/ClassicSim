@@ -1,6 +1,7 @@
 
 #include "Bloodthirst.h"
 #include "Warrior.h"
+#include "CharacterStats.h"
 #include "CooldownReady.h"
 #include "Flurry.h"
 #include "DeepWounds.h"
@@ -25,7 +26,7 @@ int Bloodthirst::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
-    float damage_dealt = pchar->get_melee_ap() * 0.45 * pchar->get_total_phys_dmg_mod();
+    float damage_dealt = pchar->get_stats()->get_melee_ap() * 0.45 * pchar->get_stats()->get_total_phys_dmg_mod();
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

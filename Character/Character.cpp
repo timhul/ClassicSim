@@ -5,6 +5,7 @@
 #include "Equipment.h"
 #include "Mechanics.h"
 #include "Talents.h"
+#include "CharacterStats.h"
 #include "Stats.h"
 #include "Procs.h"
 #include "Buffs.h"
@@ -21,10 +22,10 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
 {
     this->race = race;
     this->engine = engine;
-    this->equipment = equipment;
     this->roll = roll;
     this->talents = new Talents();
-    this->base_stats = new Stats();
+    // TODO: Consider saving equipment pointer as well, to shorten expressions.
+    this->cstats = new CharacterStats(this, equipment);
     this->procs = new Procs(this);
     this->buffs = new Buffs(this);
     this->spells = new Spells(this);
@@ -32,15 +33,11 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
-    this->total_phys_dmg_mod = 1.0;
-    // TODO: Get haste enchants from gear
-    this->mh_haste = 0;
-    this->oh_haste = 0;
 }
 
 Character::~Character() {
     delete talents;
-    delete base_stats;
+    delete cstats;
     delete procs;
     delete buffs;
     delete spells;
@@ -48,37 +45,6 @@ Character::~Character() {
 
 Race* Character::get_race(void) {
     return this->race;
-}
-
-int Character::get_strength(void) {
-    return base_stats->get_strength() + equipment->get_stats()->get_strength();
-}
-
-int Character::get_agility(void) {
-    return base_stats->get_agility() + equipment->get_stats()->get_agility();
-}
-
-int Character::get_stamina(void) {
-    return base_stats->get_stamina() + equipment->get_stats()->get_stamina();
-}
-
-int Character::get_intellect(void) {
-    return base_stats->get_intellect() + equipment->get_stats()->get_intellect();
-}
-
-int Character::get_spirit(void) {
-    return base_stats->get_spirit() + equipment->get_stats()->get_spirit();
-}
-
-float Character::get_hit_chance(void) const {
-    return base_stats->get_hit_chance()  + equipment->get_stats()->get_hit_chance();
-}
-
-float Character::get_crit_chance(void) const {
-    const float equip_effect = base_stats->get_crit_chance()  + equipment->get_stats()->get_crit_chance();
-    const float crit_from_agi = float(float((base_stats->get_agility() + equipment->get_stats()->get_agility())) / get_agi_needed_for_one_percent_phys_crit());
-
-    return equip_effect + crit_from_agi / 100;
 }
 
 int Character::get_clvl(void) const {
@@ -90,7 +56,7 @@ void Character::set_clvl(const int& clvl) {
 }
 
 bool Character::is_dual_wielding(void) {
-    return equipment->is_dual_wielding();
+    return cstats->get_equipment()->is_dual_wielding();
 }
 
 bool Character::is_melee_attacking(void) const {
@@ -106,7 +72,7 @@ CombatRoll* Character::get_combat_roll(void) const {
 }
 
 Equipment* Character::get_equipment(void) const {
-    return this->equipment;
+    return this->cstats->get_equipment();
 }
 
 Talents* Character::get_talents(void) const {
@@ -119,6 +85,10 @@ Buffs* Character::get_buffs(void) const {
 
 Spells* Character::get_spells(void) const {
     return this->spells;
+}
+
+CharacterStats* Character::get_stats(void) const {
+    return this->cstats;
 }
 
 MainhandAttack* Character::get_mh_attack() const {
@@ -168,26 +138,6 @@ bool Character::action_ready() const {
     return delta < 0.0001;
 }
 
-void Character::increase_strength(const int increase) {
-    base_stats->increase_str(increase);
-}
-
-void Character::decrease_strength(const int decrease) {
-    base_stats->decrease_str(decrease);
-}
-
-int Character::get_melee_ap() {
-    return base_stats->get_melee_ap_total()  + equipment->get_stats()->get_melee_ap_total();
-}
-
-void Character::increase_melee_ap(const int increase) {
-    base_stats->increase_base_melee_ap(increase);
-}
-
-void Character::decrease_melee_ap(const int decrease) {
-    base_stats->decrease_base_melee_ap(decrease);
-}
-
 void Character::melee_mh_hit_effect() {
     run_mh_specific_proc_effects();
 }
@@ -231,27 +181,26 @@ float Character::get_ability_crit_dmg_mod() const {
 }
 
 float Character::get_total_phys_dmg_mod() const {
-    // TODO: Include e.g. Two-Handed Weapon Specialization if using 2-handers.
-    return total_phys_dmg_mod;
+    return cstats->get_total_phys_dmg_mod();
 }
 
 float Character::get_random_normalized_mh_dmg() {
-    Weapon* mh = equipment->get_mainhand();
+    Weapon* mh = cstats->get_equipment()->get_mainhand();
     return get_normalized_dmg(mh->get_random_dmg(), mh);
 }
 
 float Character::get_random_non_normalized_mh_dmg() {
-    Weapon* mh = equipment->get_mainhand();
+    Weapon* mh = cstats->get_equipment()->get_mainhand();
     return get_non_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
 }
 
 float Character::get_random_normalized_oh_dmg() {
-    Weapon* oh = equipment->get_offhand();
+    Weapon* oh = cstats->get_equipment()->get_offhand();
     return get_normalized_dmg(oh->get_random_dmg(), oh);
 }
 
 float Character::get_random_non_normalized_oh_dmg() {
-    Weapon* oh = equipment->get_offhand();
+    Weapon* oh = cstats->get_equipment()->get_offhand();
     return get_non_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
 }
 
@@ -259,7 +208,7 @@ int Character::get_avg_mh_damage() {
     if (!has_mainhand())
         return 1;
 
-    Weapon* mh = equipment->get_mainhand();
+    Weapon* mh = cstats->get_equipment()->get_mainhand();
     int avg_dmg = int(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
     return get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed());
 }
@@ -288,71 +237,53 @@ float Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
 }
 
 float Character::get_non_normalized_dmg(const int damage, const float wpn_speed) {
-    return damage + (wpn_speed * get_melee_ap() / 14);
+    return damage + (wpn_speed * cstats->get_melee_ap() / 14);
 }
 
 int Character::get_mh_wpn_skill() {
-    return equipment->get_mainhand() != nullptr ? get_wpn_skill(equipment->get_mainhand()) :
-                                                  get_clvl() * 5;
+    return cstats->get_equipment()->get_mainhand() != nullptr ? get_wpn_skill(cstats->get_equipment()->get_mainhand()) :
+                                                               get_clvl() * 5;
 }
 
 int Character::get_oh_wpn_skill() {
-    return equipment->get_offhand() != nullptr ? get_wpn_skill(equipment->get_offhand()) :
-                                                 get_clvl() * 5;
+    return cstats->get_equipment()->get_offhand() != nullptr ? get_wpn_skill(cstats->get_equipment()->get_offhand()) :
+                                                              get_clvl() * 5;
 }
 
 int Character::get_wpn_skill(Weapon* weapon) const {
     int skill_bonus = 0;
     switch (weapon->get_weapon_type()) {
     case WeaponTypes::AXE:
-        skill_bonus += race->get_axe_bonus() + equipment->get_stats()->get_axe_skill();
+        skill_bonus += race->get_axe_bonus() + cstats->get_equipment()->get_stats()->get_axe_skill();
         break;
     case WeaponTypes::DAGGER:
-        skill_bonus += equipment->get_stats()->get_dagger_skill();
+        skill_bonus += cstats->get_equipment()->get_stats()->get_dagger_skill();
         break;
     case WeaponTypes::SWORD:
-        skill_bonus += race->get_sword_bonus() + equipment->get_stats()->get_sword_skill();
+        skill_bonus += race->get_sword_bonus() + cstats->get_equipment()->get_stats()->get_sword_skill();
         break;
     case WeaponTypes::MACE:
-        skill_bonus += race->get_mace_bonus() + equipment->get_stats()->get_mace_skill();
+        skill_bonus += race->get_mace_bonus() + cstats->get_equipment()->get_stats()->get_mace_skill();
         break;
     }
     return get_clvl() * 5 + skill_bonus;
 }
 
-void Character::increase_hit(float increase) {
-    base_stats->increase_hit(increase);
-}
-
-void Character::decrease_hit(float decrease) {
-    base_stats->decrease_hit(decrease);
-}
-
-void Character::increase_crit(float increase) {
-    base_stats->increase_crit(increase);
-    roll->update_crit_chance(get_crit_chance());
-}
-
-void Character::decrease_crit(float decrease) {
-    base_stats->decrease_crit(decrease);
-    roll->update_crit_chance(get_crit_chance());
-}
-
 void Character::increase_attack_speed(int increase) {
     attack_speed_buffs.append(increase);
     float increase_float = float(increase) / 100;
-    mh_haste += increase_float;
+    cstats->increase_mh_haste(increase_float);
 
     if (has_offhand())
-        oh_haste += increase_float;
+        cstats->increase_oh_haste(increase_float);
 
-    base_stats->increase_attack_speed(increase_float);
+    cstats->get_stats()->increase_attack_speed(increase_float);
 
     mh_attack->update_next_expected_use(increase_float);
     // TODO: Check if actually attacking
     add_next_mh_attack();
 
-    if (equipment->is_dual_wielding()) {
+    if (cstats->get_equipment()->is_dual_wielding()) {
         oh_attack->update_next_expected_use(increase_float);
         // TODO: Check if actually attacking
         add_next_oh_attack();
@@ -362,18 +293,18 @@ void Character::increase_attack_speed(int increase) {
 void Character::decrease_attack_speed(int decrease) {
     assert(attack_speed_buffs.removeOne(decrease));
     float decrease_float = float(decrease) / 100;
-    mh_haste -= decrease_float;
+    cstats->decrease_mh_haste(decrease_float);
 
     if (has_offhand())
-        oh_haste -= decrease_float;
+        cstats->decrease_mh_haste(decrease_float);
 
-    base_stats->decrease_attack_speed(decrease_float);
+    cstats->get_stats()->decrease_attack_speed(decrease_float);
 
     mh_attack->update_next_expected_use(-decrease_float);
     // TODO: Check if actually attacking
     add_next_mh_attack();
 
-    if (equipment->is_dual_wielding()) {
+    if (cstats->get_equipment()->is_dual_wielding()) {
         oh_attack->update_next_expected_use(-decrease_float);
         // TODO: Check if actually attacking
         add_next_oh_attack();
@@ -388,30 +319,12 @@ void Character::decrease_ability_crit_dmg_mod(float decrease) {
     ability_crit_dmg_mod -= decrease;
 }
 
-void Character::increase_total_phys_dmg_mod(float increase) {
-    total_phys_dmg_mod += increase;
-}
-
-void Character::decrease_total_phys_dmg_mod(float decrease) {
-    total_phys_dmg_mod -= decrease;
-}
-
-float Character::get_mh_wpn_speed() {
-    return has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / (1 + mh_haste) :
-            2.0 / 1 + mh_haste;
-}
-
-float Character::get_oh_wpn_speed() {
-    return has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / (1 + oh_haste) :
-            300;
-}
-
 bool Character::has_mainhand() const {
-    return equipment->get_mainhand() != nullptr;
+    return cstats->get_equipment()->get_mainhand() != nullptr;
 }
 
 bool Character::has_offhand() const {
-    return equipment->get_offhand() != nullptr;
+    return cstats->get_equipment()->get_offhand() != nullptr;
 }
 
 void Character::reset() {
@@ -430,16 +343,16 @@ void Character::reset() {
 void Character::dump() {
     qDebug() << "--------------------------------------";
     qDebug() << get_name();
-    qDebug() << "STRENGTH" << get_strength();
-    qDebug() << "AGILITY" << get_agility();
-    qDebug() << "STAMINA" << get_stamina();
-    qDebug() << "INTELLECT" << get_intellect();
-    qDebug() << "SPIRIT" << get_spirit();
+    qDebug() << "STRENGTH" << cstats->get_strength();
+    qDebug() << "AGILITY" << cstats->get_agility();
+    qDebug() << "STAMINA" << cstats->get_stamina();
+    qDebug() << "INTELLECT" << cstats->get_intellect();
+    qDebug() << "SPIRIT" << cstats->get_spirit();
     qDebug() << "MH Wpn skill" << get_mh_wpn_skill();
     qDebug() << "OH Wpn skill" << get_oh_wpn_skill();
-    qDebug() << "MH DPS" << (equipment->get_mainhand() != nullptr ? QString::number(equipment->get_mainhand()->get_wpn_dps()) : "No MH");
-    qDebug() << "OH DPS" << (equipment->get_offhand() != nullptr ? QString::number(equipment->get_offhand()->get_wpn_dps()) : "No OH");
-    qDebug() << "Hit chance" << get_hit_chance();
-    qDebug() << "Crit chance" << get_crit_chance();
+    qDebug() << "MH DPS" << (cstats->get_equipment()->get_mainhand() != nullptr ? QString::number(cstats->get_equipment()->get_mainhand()->get_wpn_dps()) : "No MH");
+    qDebug() << "OH DPS" << (cstats->get_equipment()->get_offhand() != nullptr ? QString::number(cstats->get_equipment()->get_offhand()->get_wpn_dps()) : "No OH");
+    qDebug() << "Hit chance" << cstats->get_hit_chance();
+    qDebug() << "Crit chance" << cstats->get_crit_chance();
     qDebug() << "--------------------------------------";
 }

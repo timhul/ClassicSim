@@ -1,6 +1,7 @@
 
 #include "ProcPPM.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include <assert.h>
 
 ProcPPM::ProcPPM(const QString& name, const int wpn,
@@ -21,9 +22,9 @@ ProcPPM::~ProcPPM() {
 int ProcPPM::get_proc_range() const {
     switch (weapon) {
     case EnchantSlot::MAINHAND:
-        return round(proc_rate_base * pchar->get_mh_wpn_speed() * 100);
+        return round(proc_rate_base * pchar->get_stats()->get_mh_wpn_speed() * 100);
     case EnchantSlot::OFFHAND:
-        return round(proc_rate_base * pchar->get_oh_wpn_speed() * 100);
+        return round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100);
     default:
         assert(false);
     }

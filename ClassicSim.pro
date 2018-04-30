@@ -146,7 +146,8 @@ SOURCES += main.cpp \
     Character/Buffs.cpp \
     Character/Class/General/Enchants/FieryWeapon.cpp \
     Character/Class/General/Spells/FieryWeaponAttack.cpp \
-    Character/Spells.cpp
+    Character/Spells.cpp \
+    Character/CharacterStats.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -287,7 +288,8 @@ HEADERS += \
     Character/Buffs.h \
     Character/Class/General/Enchants/FieryWeapon.h \
     Character/Class/General/Spells/FieryWeaponAttack.h \
-    Character/Spells.h
+    Character/Spells.h \
+    Character/CharacterStats.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

@@ -9,6 +9,7 @@
 #include "Equipment.h"
 #include "Target.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include "Onehand.h"
 #include "EquipmentDb.h"
 #include "MainhandMeleeHit.h"
@@ -187,8 +188,8 @@ void TestSpell::given_an_offhand_weapon_with_2_speed() {
 }
 
 void TestSpell::given_1000_melee_ap() {
-    pchar->increase_melee_ap(1000 - pchar->get_melee_ap());
-    assert(pchar->get_melee_ap() == 1000);
+    pchar->get_stats()->increase_melee_ap(1000 - pchar->get_stats()->get_melee_ap());
+    assert(pchar->get_stats()->get_melee_ap() == 1000);
 }
 
 void TestSpell::given_engine_priority_at(const float priority) {

@@ -17,6 +17,7 @@
 #include "Procs.h"
 #include "Buffs.h"
 #include "Spells.h"
+#include "CharacterStats.h"
 #include "Race.h"
 #include "Mainhand.h"
 #include "Offhand.h"
@@ -40,26 +41,26 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     // TODO: Investigate whether base stats below are the same for all melee classes.
     // Character sheet implies 3% base crit.
     // Crit without gear and no crit from base agil = 3 - (clvl * 5 - wpn-skill) * 0.04
-    this->base_stats->increase_crit(0.03);
+    this->cstats->increase_crit(0.03);
     // Character sheet implies 160 base ap (not including base strength) at lvl 60.
     // Character sheet implies 10 base ap (not including base strength) at lvl 1.
-    this->base_stats->increase_base_melee_ap(160);
+    this->cstats->get_stats()->increase_base_melee_ap(160);
 
     // Constants added as a hack, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
     set_clvl(60);
-    base_stats->increase_str(race->get_base_strength() + get_strength_modifier() + 97);
-    base_stats->increase_agi(race->get_base_agility() + get_agility_modifier() + 60);
-    base_stats->increase_stam(race->get_base_stamina() + get_stamina_modifier() + 88);
-    base_stats->increase_int(race->get_base_intellect() + get_intellect_modifier() + 10);
-    base_stats->increase_spi(race->get_base_spirit() + get_spirit_modifier() + 25);
-    base_stats->set_melee_ap_per_agi(0);
-    base_stats->set_melee_ap_per_str(2);
+    cstats->get_stats()->increase_str(race->get_base_strength() + get_strength_modifier() + 97);
+    cstats->get_stats()->increase_agi(race->get_base_agility() + get_agility_modifier() + 60);
+    cstats->get_stats()->increase_stam(race->get_base_stamina() + get_stamina_modifier() + 88);
+    cstats->get_stats()->increase_int(race->get_base_intellect() + get_intellect_modifier() + 10);
+    cstats->get_stats()->increase_spi(race->get_base_spirit() + get_spirit_modifier() + 25);
+    cstats->get_stats()->set_melee_ap_per_agi(0);
+    cstats->get_stats()->set_melee_ap_per_str(2);
     this->rage = 0;
     this->roll->set_character(this);
 
-    equipment->set_mainhand("Skullforge Reaver");
-    equipment->set_offhand("Frostbite");
+    cstats->get_equipment()->set_mainhand("Skullforge Reaver");
+    cstats->get_equipment()->set_offhand("Frostbite");
 
     this->bt = new Bloodthirst(engine, this, roll);
     this->mh_attack = new MainhandAttackWarrior(engine, this, roll);
