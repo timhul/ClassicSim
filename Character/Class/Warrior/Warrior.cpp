@@ -61,8 +61,6 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     equipment->set_mainhand("Skullforge Reaver");
     equipment->set_offhand("Frostbite");
 
-    // TODO: For now mainhand/offhand attack must be initialized after equipment is set.
-    // Fix so that equipment changes updates these spells.
     this->bt = new Bloodthirst(engine, this, roll);
     this->mh_attack = new MainhandAttackWarrior(engine, this, roll);
     this->oh_attack = new OffhandAttackWarrior(engine, this, roll);
@@ -169,8 +167,7 @@ void Warrior::lose_rage(const int lost_rage) {
 
 int Warrior::rage_gained_from_dd(const int damage_dealt) const {
     // Using the 307 damage dealt = 10 rage formula.
-    // TODO: add max(1, round(damage_dealt/30.7))
-    return int(ceil(damage_dealt/30.7));
+    return std::max(1, int(round(damage_dealt/30.7)));
 }
 
 void Warrior::rotation() {
