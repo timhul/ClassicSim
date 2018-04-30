@@ -142,7 +142,8 @@ SOURCES += main.cpp \
     Character/Class/General/Enchants/Crusader.cpp \
     Character/Class/ProcPPM.cpp \
     Character/Class/General/Buffs/HolyStrength.cpp \
-    Character/Procs.cpp
+    Character/Procs.cpp \
+    Character/Buffs.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -279,7 +280,8 @@ HEADERS += \
     Character/Class/General/Enchants/Crusader.h \
     Character/Class/ProcPPM.h \
     Character/Class/General/Buffs/HolyStrength.h \
-    Character/Procs.h
+    Character/Procs.h \
+    Character/Buffs.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

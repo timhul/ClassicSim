@@ -7,6 +7,7 @@
 #include "Talents.h"
 #include "Stats.h"
 #include "Procs.h"
+#include "Buffs.h"
 #include "Buff.h"
 #include "Spell.h"
 #include "CombatRoll.h"
@@ -14,7 +15,6 @@
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
-#include "HolyStrength.h"
 
 #include <QDebug>
 
@@ -28,6 +28,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->talents = new Talents();
     this->base_stats = new Stats();
     this->procs = new Procs(this);
+    this->buffs = new Buffs(this);
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -36,29 +37,19 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     // TODO: Get haste enchants from gear
     this->mh_haste = 0;
     this->oh_haste = 0;
-
-    // TODO: Move general buffs into separate class to reduce godliness of this object.
-    this->holy_strength_mh = new HolyStrength(this);
-    this->holy_strength_oh = new HolyStrength(this);
-
-    this->buffs = {holy_strength_mh, holy_strength_oh};
 }
 
 Character::~Character() {
     delete talents;
     delete base_stats;
     delete procs;
+    delete buffs;
 
     for (int i = 0; i < spells.size(); ++i) {
         delete spells[i];
     }
 
-    for (int i = 0; i < buffs.size(); ++i) {
-        delete buffs[i];
-    }
-
     spells.clear();
-    buffs.clear();
 }
 
 Race* Character::get_race(void) {
@@ -128,20 +119,16 @@ Talents* Character::get_talents(void) const {
     return this->talents;
 }
 
+Buffs* Character::get_buffs(void) const {
+    return this->buffs;
+}
+
 MainhandAttack* Character::get_mh_attack() const {
     return this->mh_attack;
 }
 
 OffhandAttack* Character::get_oh_attack() const {
     return this->oh_attack;
-}
-
-HolyStrength* Character::get_holy_strength_mh() const {
-    return this->holy_strength_mh;
-}
-
-HolyStrength* Character::get_holy_strength_oh() const {
-    return this->holy_strength_oh;
 }
 
 void Character::add_next_mh_attack(void) {
@@ -425,9 +412,7 @@ void Character::reset() {
     melee_attacking = false;
     last_action = 0 - this->global_cooldown();
 
-    for (int i = 0; i < buffs.size(); ++i) {
-        buffs[i]->reset();
-    }
+    buffs->reset();
 
     for (int i = 0; i < spells.size(); ++i) {
         spells[i]->reset();

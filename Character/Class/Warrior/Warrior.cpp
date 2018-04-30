@@ -15,6 +15,7 @@
 #include "Protection.h"
 #include "Stats.h"
 #include "Procs.h"
+#include "Buffs.h"
 #include "Race.h"
 #include "Mainhand.h"
 #include "Offhand.h"
@@ -80,10 +81,11 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
-    buffs.append(flurry);
-    buffs.append(heroic_strike_buff);
-    buffs.append(death_wish_buff);
-    buffs.append(battle_shout_buff);
+
+    buffs->add_buff(flurry);
+    buffs->add_buff(heroic_strike_buff);
+    buffs->add_buff(death_wish_buff);
+    buffs->add_buff(battle_shout_buff);
 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
     procs->add_general_proc_effect(unbridled_wrath);
