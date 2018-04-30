@@ -42,7 +42,6 @@ public:
 
     virtual QString get_class_color() const = 0;
 
-
     int get_strength();
     int get_agility();
     int get_stamina();
@@ -67,7 +66,10 @@ public:
     void start_global_cooldown();
     virtual float global_cooldown() const;
 
+    virtual void melee_hit_effect();
     virtual void melee_critical_effect();
+    void run_proc_effects();
+
     float get_ability_crit_dmg_mod() const;
     float get_total_phys_dmg_mod() const;
 
@@ -106,7 +108,6 @@ public:
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
 
-
     bool has_mainhand() const;
     bool has_offhand() const;
 
@@ -127,6 +128,7 @@ protected:
     OffhandAttack* oh_attack;
     QVector<Spell*> spells;
     QVector<Buff*> buffs;
+    QVector<Spell*> melee_attack_procs;
     QVector<int> attack_speed_buffs;
 
     int ranged_ap;

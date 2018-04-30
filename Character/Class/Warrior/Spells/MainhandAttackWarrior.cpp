@@ -4,7 +4,6 @@
 #include "Flurry.h"
 #include "Equipment.h"
 #include "DeepWounds.h"
-#include "UnbridledWrath.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
     MainhandAttack(engine,
@@ -37,26 +36,26 @@ int MainhandAttackWarrior::spell_effect(const int) {
     }
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
-    int uw_proc = pchar->get_unbridled_wrath()->perform(0);
 
     if (result->is_critical()) {
         damage_dealt = round(damage_dealt * 2);
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         pchar->melee_critical_effect();
         add_success_stats("Critical", damage_dealt, rage_gained);
-        return rage_gained + uw_proc;
+        return rage_gained;
     }
     else if (result->is_glancing()) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-        pchar->get_flurry()->use_charge();
+        pchar->melee_hit_effect();
         add_success_stats("Glancing", damage_dealt, rage_gained);
-        return rage_gained + uw_proc;
+        return rage_gained;
     }
+    else
+        pchar->melee_hit_effect();
 
     damage_dealt = round(damage_dealt);
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-    pchar->get_flurry()->use_charge();
     add_success_stats("Hit", damage_dealt, rage_gained);
-    return rage_gained + uw_proc;
+    return rage_gained;
 }

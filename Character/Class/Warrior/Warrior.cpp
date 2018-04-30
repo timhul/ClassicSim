@@ -74,7 +74,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->bloodrage = new Bloodrage(engine, this, roll);
     this->whirlwind = new Whirlwind(engine, this, roll);
     spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
-              unbridled_wrath, death_wish, battle_shout, berserker_rage, bloodrage, whirlwind};
+              death_wish, battle_shout, berserker_rage, bloodrage, whirlwind};
 
     initialize_talents();
 
@@ -83,6 +83,8 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
     buffs = {flurry, heroic_strike_buff, death_wish_buff, battle_shout_buff};
+
+    melee_attack_procs = {unbridled_wrath};
 }
 
 Warrior::~Warrior() {}
@@ -300,9 +302,15 @@ Whirlwind* Warrior::get_whirlwind() const {
     return this->whirlwind;
 }
 
+void Warrior::melee_hit_effect() {
+    flurry->use_charge();
+    run_proc_effects();
+}
+
 void Warrior::melee_critical_effect() {
     flurry->apply_buff();
     deep_wounds->apply_debuff();
+    run_proc_effects();
 }
 
 void Warrior::initialize_talents() {

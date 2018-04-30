@@ -4,7 +4,6 @@
 #include "Flurry.h"
 #include "DeepWounds.h"
 #include "HeroicStrikeBuff.h"
-#include "UnbridledWrath.h"
 #include "MainhandAttackWarrior.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -37,7 +36,6 @@ int HeroicStrike::spell_effect(const int) {
         add_fail_stats("Parry");
     }
 
-    pchar->get_flurry()->use_charge();
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg() + additional_dmg;
     damage_dealt *= pchar->get_total_phys_dmg_mod();
 
@@ -46,10 +44,12 @@ int HeroicStrike::spell_effect(const int) {
         pchar->melee_critical_effect();
         add_success_stats("Critical", damage_dealt);
     }
-    else if (result->is_hit())
+    else if (result->is_hit()) {
+        pchar->melee_hit_effect();
         add_success_stats("Hit", round(damage_dealt));
+    }
 
-    return resource_cost - pchar->get_unbridled_wrath()->perform(0);
+    return resource_cost;
 }
 
 void HeroicStrike::increase_effect_via_talent() {

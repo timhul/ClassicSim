@@ -65,6 +65,7 @@ public:
     Bloodrage* get_bloodrage() const;
     Whirlwind* get_whirlwind() const;
 
+    void melee_hit_effect() override;
     void melee_critical_effect() override;
 
     int get_ap_per_strength() const override;

@@ -4,7 +4,6 @@
 #include "Flurry.h"
 #include "Equipment.h"
 #include "DeepWounds.h"
-#include "UnbridledWrath.h"
 
 OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
     OffhandAttack(engine,
@@ -38,26 +37,26 @@ int OffhandAttackWarrior::spell_effect(const int) {
     }
 
     float damage_dealt = pchar->get_random_non_normalized_oh_dmg() * talent_ranks[rank_talent];
-    int uw_proc = pchar->get_unbridled_wrath()->perform(0);
 
     if (result->is_critical()) {
         damage_dealt = round(damage_dealt * 2);
         const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
         pchar->melee_critical_effect();
         add_success_stats("Critical", round(damage_dealt), rage_gained);
-        return rage_gained + uw_proc;
+        return rage_gained;
     }
-    if (result->is_glancing()) {
+    else if (result->is_glancing()) {
         damage_dealt = round(roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
         const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
-        pchar->get_flurry()->use_charge();
+        pchar->melee_hit_effect();
         add_success_stats("Glancing", damage_dealt, rage_gained);
-        return rage_gained + uw_proc;
+        return rage_gained;
     }
+    else
+        pchar->melee_hit_effect();
 
     damage_dealt = round(damage_dealt);
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-    pchar->get_flurry()->use_charge();
     add_success_stats("Hit", damage_dealt, rage_gained);
-    return rage_gained + uw_proc;
+    return rage_gained;
 }

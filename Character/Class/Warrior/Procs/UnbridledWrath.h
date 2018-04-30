@@ -1,25 +1,23 @@
 #ifndef UNBRIDLEDWRATH_H
 #define UNBRIDLEDWRATH_H
 
-#include "Spell.h"
+#include "Proc.h"
 
 class Warrior;
 
-class UnbridledWrath: public Spell {
+class UnbridledWrath: public Proc {
 public:
     UnbridledWrath(Engine* engine, Character* pchar, CombatRoll* roll);
     ~UnbridledWrath();
 
-    int spell_effect(const int) override;
+    void proc_effect() override;
     void increase_effect_via_talent() override;
     void decrease_effect_via_talent() override;
 
 protected:
 private:
     Warrior* pchar;
-    Random* random;
     QVector<int> talent_ranks;
-    int proc_range;
 };
 
 #endif // UNBRIDLEDWRATH_H

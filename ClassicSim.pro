@@ -100,7 +100,7 @@ SOURCES += main.cpp \
     Event/Events/DotTick.cpp \
     Character/Class/Warrior/Buffs/HeroicStrikeBuff.cpp \
     Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.cpp \
-    Character/Class/Warrior/Spells/UnbridledWrath.cpp \
+    Character/Class/Warrior/Procs/UnbridledWrath.cpp \
     Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.cpp \
     Character/Class/Warrior/Spells/DeathWish.cpp \
     Character/Class/Warrior/Buffs/DeathWishBuff.cpp \
@@ -136,7 +136,8 @@ SOURCES += main.cpp \
     Test/Warrior/Spells/TestDeepWounds.cpp \
     Character/Class/Warrior/Spells/Bloodrage.cpp \
     Event/Events/ResourceGain.cpp \
-    Test/Warrior/Spells/TestBloodrage.cpp
+    Test/Warrior/Spells/TestBloodrage.cpp \
+    Character/Class/Proc.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -231,7 +232,7 @@ HEADERS += \
     Character/Class/Warrior/Spells/DeepWounds.h \
     Event/Events/DotTick.h \
     Character/Class/Warrior/Buffs/HeroicStrikeBuff.h \
-    Character/Class/Warrior/Spells/UnbridledWrath.h \
+    Character/Class/Warrior/Procs/UnbridledWrath.h \
     Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.h \
     Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.h \
     Character/Class/Warrior/Spells/DeathWish.h \
@@ -267,7 +268,8 @@ HEADERS += \
     Test/Warrior/Spells/TestDeepWounds.h \
     Event/Events/ResourceGain.h \
     Character/Class/Warrior/Spells/Bloodrage.h \
-    Test/Warrior/Spells/TestBloodrage.h
+    Test/Warrior/Spells/TestBloodrage.h \
+    Character/Class/Proc.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -280,6 +282,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\Warrior \
     C:\C++\ClassicSim\Character\Class\Warrior\Spells \
     C:\C++\ClassicSim\Character\Class\Warrior\Buffs \
+    C:\C++\ClassicSim\Character\Class\Warrior\Procs \
     C:\C++\ClassicSim\Character\Class\Warrior\TalentTrees \
     C:\C++\ClassicSim\Character\Class\Warrior\TalentTrees\Fury \
     C:\C++\ClassicSim\Character\Class\Warrior\TalentTrees\Arms \

@@ -34,6 +34,8 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->mh_haste = 0;
     this->oh_haste = 0;
     // TODO: Populate this->buffs with general buffs.
+
+    this->melee_attack_procs = {};
 }
 
 Character::~Character() {
@@ -175,8 +177,18 @@ void Character::decrease_melee_ap(const int decrease) {
     base_stats->decrease_base_melee_ap(decrease);
 }
 
-void Character::melee_critical_effect() {
+void Character::melee_hit_effect() {
+    run_proc_effects();
+}
 
+void Character::melee_critical_effect() {
+    run_proc_effects();
+}
+
+void Character::run_proc_effects() {
+    for (int i = 0; i < melee_attack_procs.size(); ++i) {
+        melee_attack_procs[i]->perform(0);
+    }
 }
 
 float Character::get_ability_crit_dmg_mod() const {
@@ -377,6 +389,10 @@ void Character::reset() {
 
     for (int i = 0; i < spells.size(); ++i) {
         spells[i]->reset();
+    }
+
+    for (int i = 0; i < melee_attack_procs.size(); ++i) {
+        melee_attack_procs[i]->reset();
     }
 
     reset_resource();

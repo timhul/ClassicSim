@@ -1,30 +1,23 @@
 
 #include "UnbridledWrath.h"
-#include "Random.h"
 #include "Warrior.h"
 
 UnbridledWrath::UnbridledWrath(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Unbridled Wrath", engine, pchar, roll, 0, 0),
-    random(new Random(0, 99))
+    Proc("Unbridled Wrath", 0.0, 0, false, QVector<Proc*>(), engine, pchar, roll)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    talent_ranks = {0, 8, 16, 24, 32, 40};
-
-    proc_range = talent_ranks[rank_talent];
+    this->talent_ranks = {0, 8, 16, 24, 32, 40};
 }
 
 UnbridledWrath::~UnbridledWrath() {
-    delete random;
 }
 
-int UnbridledWrath::spell_effect(const int) {
-    int rage = 0;
-    if (random->get_roll() < proc_range) {
-        add_proc_stats(1, "Rage gain");
-        rage = 1;
-    }
+void UnbridledWrath::proc_effect() {
+    int rage = pchar->get_curr_rage();
+    pchar->gain_rage(1);
 
-    return rage;
+    if (pchar->get_curr_rage() != rage)
+        add_proc_stats(1, "Rage gain");
 }
 
 void UnbridledWrath::increase_effect_via_talent() {
