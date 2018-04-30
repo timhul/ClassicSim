@@ -122,8 +122,8 @@ SOURCES += main.cpp \
     Test/Warrior/TestSpellWarrior.cpp \
     Test/Warrior/Spells/TestHeroicStrike.cpp \
     Test/Warrior/Spells/TestBloodthirst.cpp \
-    Character/Class/GeneralSpells/MainhandAttack.cpp \
-    Character/Class/GeneralSpells/OffhandAttack.cpp \
+    Character/Class/General/MainhandAttack.cpp \
+    Character/Class/General/OffhandAttack.cpp \
     Character/Class/Warrior/Spells/MainhandAttackWarrior.cpp \
     Character/Class/Warrior/Spells/OffhandAttackWarrior.cpp \
     Test/Warrior/Spells/TestMainhandAttackWarrior.cpp \
@@ -138,7 +138,9 @@ SOURCES += main.cpp \
     Event/Events/ResourceGain.cpp \
     Test/Warrior/Spells/TestBloodrage.cpp \
     Character/Class/Proc.cpp \
-    Character/Class/GeneralSpells/Enchants/WindfuryTotemAttack.cpp
+    Character/Class/General/Enchants/WindfuryTotemAttack.cpp \
+    Character/Class/General/Enchants/Crusader.cpp \
+    Character/Class/ProcPPM.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -255,8 +257,8 @@ HEADERS += \
     Test/Warrior/TestSpellWarrior.h \
     Test/Warrior/Spells/TestHeroicStrike.h \
     Test/Warrior/Spells/TestBloodthirst.h \
-    Character/Class/GeneralSpells/MainhandAttack.h \
-    Character/Class/GeneralSpells/OffhandAttack.h \
+    Character/Class/General/MainhandAttack.h \
+    Character/Class/General/OffhandAttack.h \
     Character/Class/Warrior/Spells/MainhandAttackWarrior.h \
     Character/Class/Warrior/Spells/OffhandAttackWarrior.h \
     Test/Warrior/Spells/TestMainhandAttackWarrior.h \
@@ -271,7 +273,9 @@ HEADERS += \
     Character/Class/Warrior/Spells/Bloodrage.h \
     Test/Warrior/Spells/TestBloodrage.h \
     Character/Class/Proc.h \
-    Character/Class/GeneralSpells/Enchants/WindfuryTotemAttack.h
+    Character/Class/General/Enchants/WindfuryTotemAttack.h \
+    Character/Class/General/Enchants/Crusader.h \
+    Character/Class/ProcPPM.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -310,8 +314,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Test\Warrior \
     C:\C++\ClassicSim\Test\Warrior\Spells \
     C:\C++\ClassicSim\Test\Warrior\Buffs \
-    C:\C++\ClassicSim\Character\Class\GeneralSpells \
-    C:\C++\ClassicSim\Character\Class\GeneralSpells\Enchants \
+    C:\C++\ClassicSim\Character\Class\General \
+    C:\C++\ClassicSim\Character\Class\General\Enchants \
     C:\C++\ClassicSim\GUI
 
 RESOURCES += qml.qrc
