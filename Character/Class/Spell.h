@@ -46,6 +46,9 @@ public:
     virtual void increase_effect_via_talent();
     virtual void decrease_effect_via_talent();
 
+    virtual void increase_spell_rank();
+    virtual void decrease_spell_rank();
+
     int perform(const int);
 
     void reset();

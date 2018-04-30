@@ -56,6 +56,14 @@ void Spell::decrease_effect_via_talent() {
     assert(rank_talent >= 0);
 }
 
+void Spell::increase_spell_rank() {
+    ++rank_spell;
+}
+
+void Spell::decrease_spell_rank() {
+    --rank_spell;
+}
+
 int Spell::perform(const int resource_level) {
     assert(resource_level >= resource_cost);
     last_used = engine->get_current_priority();

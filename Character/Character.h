@@ -17,6 +17,7 @@ class Spell;
 class Weapon;
 class MainhandAttack;
 class OffhandAttack;
+class WindfuryTotemAttack;
 
 class Character: public QObject {
     Q_OBJECT
@@ -57,6 +58,7 @@ public:
 
     MainhandAttack* get_mh_attack() const;
     OffhandAttack* get_oh_attack() const;
+    WindfuryTotemAttack* get_wf_totem() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -69,6 +71,7 @@ public:
     virtual void melee_hit_effect();
     virtual void melee_critical_effect();
     void run_proc_effects();
+    void run_extra_attack();
 
     float get_ability_crit_dmg_mod() const;
     float get_total_phys_dmg_mod() const;
@@ -126,6 +129,7 @@ protected:
     Stats* base_stats;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
+    WindfuryTotemAttack* wf_totem;
     QVector<Spell*> spells;
     QVector<Buff*> buffs;
     QVector<Spell*> melee_attack_procs;

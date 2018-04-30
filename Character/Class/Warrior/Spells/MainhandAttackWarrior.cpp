@@ -13,8 +13,16 @@ MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, C
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }
 
+void MainhandAttackWarrior::extra_attack() {
+    pchar->gain_rage(calculate_damage());
+}
+
 int MainhandAttackWarrior::spell_effect(const int) {
     complete_swing();
+    return calculate_damage();
+}
+
+int MainhandAttackWarrior::calculate_damage() {
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 

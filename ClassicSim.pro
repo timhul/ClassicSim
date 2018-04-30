@@ -137,7 +137,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Bloodrage.cpp \
     Event/Events/ResourceGain.cpp \
     Test/Warrior/Spells/TestBloodrage.cpp \
-    Character/Class/Proc.cpp
+    Character/Class/Proc.cpp \
+    Character/Class/GeneralSpells/Enchants/WindfuryTotemAttack.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -269,7 +270,8 @@ HEADERS += \
     Event/Events/ResourceGain.h \
     Character/Class/Warrior/Spells/Bloodrage.h \
     Test/Warrior/Spells/TestBloodrage.h \
-    Character/Class/Proc.h
+    Character/Class/Proc.h \
+    Character/Class/GeneralSpells/Enchants/WindfuryTotemAttack.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -309,6 +311,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Test\Warrior\Spells \
     C:\C++\ClassicSim\Test\Warrior\Buffs \
     C:\C++\ClassicSim\Character\Class\GeneralSpells \
+    C:\C++\ClassicSim\Character\Class\GeneralSpells\Enchants \
     C:\C++\ClassicSim\GUI
 
 RESOURCES += qml.qrc

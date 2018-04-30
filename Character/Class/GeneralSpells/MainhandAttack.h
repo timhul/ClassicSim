@@ -16,8 +16,11 @@ public:
     float get_cooldown() override;
     void complete_swing();
 
+    virtual void extra_attack();
+
 protected:
     virtual int spell_effect(const int) override;
+    virtual int calculate_damage();
     float next_expected_use;
     int iteration;
     QVector<float> talent_ranks;

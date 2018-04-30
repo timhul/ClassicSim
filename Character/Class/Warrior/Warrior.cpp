@@ -84,7 +84,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->battle_shout_buff = new BattleShoutBuff(this);
     buffs = {flurry, heroic_strike_buff, death_wish_buff, battle_shout_buff};
 
-    melee_attack_procs = {unbridled_wrath};
+    melee_attack_procs.append(unbridled_wrath);
 }
 
 Warrior::~Warrior() {}

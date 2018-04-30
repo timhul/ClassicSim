@@ -13,6 +13,7 @@
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
+#include "WindfuryTotemAttack.h"
 
 #include <QDebug>
 
@@ -35,7 +36,9 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->oh_haste = 0;
     // TODO: Populate this->buffs with general buffs.
 
-    this->melee_attack_procs = {};
+    this->wf_totem = new WindfuryTotemAttack(engine, this, roll);
+
+    this->melee_attack_procs = {wf_totem};
 }
 
 Character::~Character() {
@@ -50,8 +53,13 @@ Character::~Character() {
         delete buffs[i];
     }
 
+    for (int i = 0; i < melee_attack_procs.size(); ++i) {
+        delete melee_attack_procs[i];
+    }
+
     spells.clear();
     buffs.clear();
+    melee_attack_procs.clear();
 }
 
 Race* Character::get_race(void) {
@@ -125,6 +133,9 @@ OffhandAttack* Character::get_oh_attack() const {
     return this->oh_attack;
 }
 
+WindfuryTotemAttack* Character::get_wf_totem() const {
+    return this->wf_totem;
+}
 
 void Character::add_next_mh_attack(void) {
     MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
@@ -189,6 +200,10 @@ void Character::run_proc_effects() {
     for (int i = 0; i < melee_attack_procs.size(); ++i) {
         melee_attack_procs[i]->perform(0);
     }
+}
+
+void Character::run_extra_attack() {
+    mh_attack->extra_attack();
 }
 
 float Character::get_ability_crit_dmg_mod() const {

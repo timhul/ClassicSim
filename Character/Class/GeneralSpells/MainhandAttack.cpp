@@ -20,7 +20,10 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
 
 int MainhandAttack::spell_effect(const int) {
     complete_swing();
+    return calculate_damage();
+}
 
+int MainhandAttack::calculate_damage() {
     // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 
@@ -86,6 +89,10 @@ void MainhandAttack::complete_swing() {
     // This means we update last_used twice with the same value when going via perform().
     last_used = engine->get_current_priority();
     next_expected_use = last_used + pchar->get_mh_wpn_speed();
+}
+
+void MainhandAttack::extra_attack() {
+    calculate_damage();
 }
 
 bool MainhandAttack::attack_is_valid(const int iteration) const {
