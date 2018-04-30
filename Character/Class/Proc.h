@@ -13,7 +13,7 @@ public:
     int spell_effect(const int) override;
     virtual void proc_effect() = 0;
 
-    int get_proc_range() const;
+    virtual int get_proc_range() const;
 
 protected:
     Random* random;
