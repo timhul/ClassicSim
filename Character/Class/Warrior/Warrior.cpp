@@ -14,6 +14,7 @@
 #include "Fury.h"
 #include "Protection.h"
 #include "Stats.h"
+#include "Procs.h"
 #include "Race.h"
 #include "Mainhand.h"
 #include "Offhand.h"
@@ -85,7 +86,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     buffs.append(battle_shout_buff);
 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
-    melee_attack_procs.append(unbridled_wrath);
+    procs->add_general_proc_effect(unbridled_wrath);
 
     initialize_talents();
 }

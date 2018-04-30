@@ -6,6 +6,7 @@
 #include "Mechanics.h"
 #include "Talents.h"
 #include "Stats.h"
+#include "Procs.h"
 #include "Buff.h"
 #include "Spell.h"
 #include "CombatRoll.h"
@@ -13,8 +14,6 @@
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
-#include "WindfuryTotemAttack.h"
-#include "Crusader.h"
 #include "HolyStrength.h"
 
 #include <QDebug>
@@ -28,6 +27,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->roll = roll;
     this->talents = new Talents();
     this->base_stats = new Stats();
+    this->procs = new Procs(this);
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -38,21 +38,16 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->oh_haste = 0;
 
     // TODO: Move general buffs into separate class to reduce godliness of this object.
-    this->wf_totem = new WindfuryTotemAttack(engine, this, roll);
-    this->crusader_mh = new Crusader(engine, this, roll, EnchantSlot::MAINHAND);
-    this->crusader_oh = new Crusader(engine, this, roll, EnchantSlot::OFFHAND);
     this->holy_strength_mh = new HolyStrength(this);
     this->holy_strength_oh = new HolyStrength(this);
 
     this->buffs = {holy_strength_mh, holy_strength_oh};
-    this->melee_attack_procs = {wf_totem};
-    this->mainhand_attack_procs = {crusader_mh};
-    this->offhand_attack_procs = {crusader_oh};
 }
 
 Character::~Character() {
     delete talents;
     delete base_stats;
+    delete procs;
 
     for (int i = 0; i < spells.size(); ++i) {
         delete spells[i];
@@ -62,23 +57,8 @@ Character::~Character() {
         delete buffs[i];
     }
 
-    for (int i = 0; i < melee_attack_procs.size(); ++i) {
-        delete melee_attack_procs[i];
-    }
-
-    for (int i = 0; i < mainhand_attack_procs.size(); ++i) {
-        delete mainhand_attack_procs[i];
-    }
-
-    for (int i = 0; i < offhand_attack_procs.size(); ++i) {
-        delete offhand_attack_procs[i];
-    }
-
     spells.clear();
     buffs.clear();
-    melee_attack_procs.clear();
-    mainhand_attack_procs.clear();
-    offhand_attack_procs.clear();
 }
 
 Race* Character::get_race(void) {
@@ -136,6 +116,10 @@ Engine* Character::get_engine(void) const {
     return this->engine;
 }
 
+CombatRoll* Character::get_combat_roll(void) const {
+    return this->roll;
+}
+
 Equipment* Character::get_equipment(void) const {
     return this->equipment;
 }
@@ -150,10 +134,6 @@ MainhandAttack* Character::get_mh_attack() const {
 
 OffhandAttack* Character::get_oh_attack() const {
     return this->oh_attack;
-}
-
-WindfuryTotemAttack* Character::get_wf_totem() const {
-    return this->wf_totem;
 }
 
 HolyStrength* Character::get_holy_strength_mh() const {
@@ -239,26 +219,14 @@ void Character::melee_oh_critical_effect() {
     run_oh_specific_proc_effects();
 }
 
-void Character::run_general_proc_effects() {
-    for (int i = 0; i < melee_attack_procs.size(); ++i) {
-        melee_attack_procs[i]->perform(0);
-    }
-}
-
 void Character::run_mh_specific_proc_effects() {
-    run_general_proc_effects();
-
-    for (int i = 0; i < mainhand_attack_procs.size(); ++i) {
-        mainhand_attack_procs[i]->perform(0);
-    }
+    procs->run_general_proc_effects();
+    procs->run_mh_specific_proc_effects();
 }
 
 void Character::run_oh_specific_proc_effects() {
-    run_general_proc_effects();
-
-    for (int i = 0; i < offhand_attack_procs.size(); ++i) {
-        offhand_attack_procs[i]->perform(0);
-    }
+    procs->run_general_proc_effects();
+    procs->run_oh_specific_proc_effects();
 }
 
 void Character::run_extra_attack() {
@@ -465,9 +433,7 @@ void Character::reset() {
         spells[i]->reset();
     }
 
-    for (int i = 0; i < mainhand_attack_procs.size(); ++i) {
-        mainhand_attack_procs[i]->reset();
-    }
+    procs->reset();
 
     reset_resource();
 

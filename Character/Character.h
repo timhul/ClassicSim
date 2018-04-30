@@ -11,15 +11,14 @@ class Engine;
 class Equipment;
 class Talents;
 class Stats;
+class Procs;
 class Buff;
 class CombatRoll;
 class Spell;
 class Weapon;
 class MainhandAttack;
 class OffhandAttack;
-class WindfuryTotemAttack;
 class HolyStrength;
-class Crusader;
 
 class Character: public QObject {
     Q_OBJECT
@@ -55,12 +54,12 @@ public:
     int get_clvl(void) const;
     void set_clvl(const int&);
     Engine* get_engine(void) const;
+    CombatRoll* get_combat_roll(void) const;
     Equipment* get_equipment(void) const;
     Talents* get_talents(void) const;
 
     MainhandAttack* get_mh_attack() const;
     OffhandAttack* get_oh_attack() const;
-    WindfuryTotemAttack* get_wf_totem() const;
     HolyStrength* get_holy_strength_mh() const;
     HolyStrength* get_holy_strength_oh() const;
 
@@ -77,7 +76,6 @@ public:
     virtual void melee_oh_hit_effect();
     virtual void melee_oh_critical_effect();
 
-    void run_general_proc_effects();
     void run_mh_specific_proc_effects();
     void run_oh_specific_proc_effects();
     void run_extra_attack();
@@ -139,18 +137,13 @@ protected:
     CombatRoll* roll;
     Talents* talents;
     Stats* base_stats;
+    Procs* procs;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
-    WindfuryTotemAttack* wf_totem;
-    Crusader* crusader_mh;
-    Crusader* crusader_oh;
     HolyStrength* holy_strength_mh;
     HolyStrength* holy_strength_oh;
     QVector<Spell*> spells;
     QVector<Buff*> buffs;
-    QVector<Spell*> melee_attack_procs;
-    QVector<Spell*> mainhand_attack_procs;
-    QVector<Spell*> offhand_attack_procs;
     QVector<int> attack_speed_buffs;
 
     int ranged_ap;

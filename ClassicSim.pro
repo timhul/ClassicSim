@@ -141,7 +141,8 @@ SOURCES += main.cpp \
     Character/Class/General/Enchants/WindfuryTotemAttack.cpp \
     Character/Class/General/Enchants/Crusader.cpp \
     Character/Class/ProcPPM.cpp \
-    Character/Class/General/Buffs/HolyStrength.cpp
+    Character/Class/General/Buffs/HolyStrength.cpp \
+    Character/Procs.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -277,7 +278,8 @@ HEADERS += \
     Character/Class/General/Enchants/WindfuryTotemAttack.h \
     Character/Class/General/Enchants/Crusader.h \
     Character/Class/ProcPPM.h \
-    Character/Class/General/Buffs/HolyStrength.h
+    Character/Class/General/Buffs/HolyStrength.h \
+    Character/Procs.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
