@@ -15,7 +15,7 @@
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
-
+#include "FieryWeaponAttack.h"
 #include <QDebug>
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, QObject* parent) :
@@ -37,6 +37,9 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     // TODO: Get haste enchants from gear
     this->mh_haste = 0;
     this->oh_haste = 0;
+
+    // TODO: Move general spells into separate class like Procs and Buffs.
+    this->fw_attack = new FieryWeaponAttack(engine, this, roll);
 }
 
 Character::~Character() {
@@ -44,6 +47,7 @@ Character::~Character() {
     delete base_stats;
     delete procs;
     delete buffs;
+    delete fw_attack;
 
     for (int i = 0; i < spells.size(); ++i) {
         delete spells[i];
@@ -131,6 +135,10 @@ OffhandAttack* Character::get_oh_attack() const {
     return this->oh_attack;
 }
 
+FieryWeaponAttack* Character::get_fiery_weapon_attack() const {
+    return this->fw_attack;
+}
+
 void Character::add_next_mh_attack(void) {
     MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
     this->get_engine()->add_event(new_event);
@@ -204,6 +212,14 @@ void Character::melee_oh_hit_effect() {
 
 void Character::melee_oh_critical_effect() {
     run_oh_specific_proc_effects();
+}
+
+void Character::spell_hit_effect() {
+
+}
+
+void Character::spell_critical_effect() {
+
 }
 
 void Character::run_mh_specific_proc_effects() {

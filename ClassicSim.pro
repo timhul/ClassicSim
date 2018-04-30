@@ -143,7 +143,9 @@ SOURCES += main.cpp \
     Character/Class/ProcPPM.cpp \
     Character/Class/General/Buffs/HolyStrength.cpp \
     Character/Procs.cpp \
-    Character/Buffs.cpp
+    Character/Buffs.cpp \
+    Character/Class/General/Enchants/FieryWeapon.cpp \
+    Character/Class/General/Spells/FieryWeaponAttack.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -281,7 +283,9 @@ HEADERS += \
     Character/Class/ProcPPM.h \
     Character/Class/General/Buffs/HolyStrength.h \
     Character/Procs.h \
-    Character/Buffs.h
+    Character/Buffs.h \
+    Character/Class/General/Enchants/FieryWeapon.h \
+    Character/Class/General/Spells/FieryWeaponAttack.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -323,6 +327,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General \
     C:\C++\ClassicSim\Character\Class\General\Enchants \
     C:\C++\ClassicSim\Character\Class\General\Buffs \
+    C:\C++\ClassicSim\Character\Class\General\Spells \
     C:\C++\ClassicSim\GUI
 
 RESOURCES += qml.qrc

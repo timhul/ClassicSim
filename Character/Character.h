@@ -19,6 +19,7 @@ class Spell;
 class Weapon;
 class MainhandAttack;
 class OffhandAttack;
+class FieryWeaponAttack;
 
 class Character: public QObject {
     Q_OBJECT
@@ -61,6 +62,7 @@ public:
 
     MainhandAttack* get_mh_attack() const;
     OffhandAttack* get_oh_attack() const;
+    FieryWeaponAttack* get_fiery_weapon_attack() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -74,6 +76,9 @@ public:
     virtual void melee_mh_critical_effect();
     virtual void melee_oh_hit_effect();
     virtual void melee_oh_critical_effect();
+
+    virtual void spell_hit_effect();
+    virtual void spell_critical_effect();
 
     void run_mh_specific_proc_effects();
     void run_oh_specific_proc_effects();
@@ -140,6 +145,7 @@ protected:
     Buffs* buffs;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
+    FieryWeaponAttack* fw_attack;
     QVector<Spell*> spells;
     QVector<int> attack_speed_buffs;
 
