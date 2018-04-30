@@ -20,7 +20,6 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
 
 int OffhandAttack::spell_effect(const int) {
     complete_swing();
-    // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("OH White Total Attempts");
 
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();

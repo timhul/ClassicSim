@@ -24,7 +24,6 @@ int MainhandAttack::spell_effect(const int) {
 }
 
 int MainhandAttack::calculate_damage() {
-    // TODO: Check if Windfury is up, roll extra attacks.
     engine->get_statistics()->increment("MH White Total Attempts");
 
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
