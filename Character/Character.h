@@ -13,13 +13,13 @@ class Talents;
 class Stats;
 class Procs;
 class Buffs;
+class Spells;
 class Buff;
 class CombatRoll;
 class Spell;
 class Weapon;
 class MainhandAttack;
 class OffhandAttack;
-class FieryWeaponAttack;
 
 class Character: public QObject {
     Q_OBJECT
@@ -59,10 +59,10 @@ public:
     Equipment* get_equipment(void) const;
     Talents* get_talents(void) const;
     Buffs* get_buffs(void) const;
+    Spells* get_spells(void) const;
 
     MainhandAttack* get_mh_attack() const;
     OffhandAttack* get_oh_attack() const;
-    FieryWeaponAttack* get_fiery_weapon_attack() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -143,10 +143,9 @@ protected:
     Stats* base_stats;
     Procs* procs;
     Buffs* buffs;
+    Spells* spells;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
-    FieryWeaponAttack* fw_attack;
-    QVector<Spell*> spells;
     QVector<int> attack_speed_buffs;
 
     int ranged_ap;

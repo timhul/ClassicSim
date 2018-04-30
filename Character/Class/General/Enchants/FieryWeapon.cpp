@@ -1,6 +1,7 @@
 
 #include "FieryWeapon.h"
 #include "Character.h"
+#include "Spells.h"
 #include "FieryWeaponAttack.h"
 
 FieryWeapon::FieryWeapon(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon) :
@@ -16,11 +17,11 @@ void FieryWeapon::proc_effect() {
     switch (weapon) {
     case EnchantSlot::MAINHAND:
         add_proc_stats(1, "Mainhand Proc");
-        pchar->get_fiery_weapon_attack()->perform(0);
+        pchar->get_spells()->get_fiery_weapon()->perform(0);
         return;
     case EnchantSlot::OFFHAND:
         add_proc_stats(1, "Offhand Proc");
-        pchar->get_fiery_weapon_attack()->perform(0);
+        pchar->get_spells()->get_fiery_weapon()->perform(0);
         return;
     }
 }

@@ -8,6 +8,7 @@
 #include "Stats.h"
 #include "Procs.h"
 #include "Buffs.h"
+#include "Spells.h"
 #include "Buff.h"
 #include "Spell.h"
 #include "CombatRoll.h"
@@ -29,6 +30,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->base_stats = new Stats();
     this->procs = new Procs(this);
     this->buffs = new Buffs(this);
+    this->spells = new Spells(this);
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -37,9 +39,6 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     // TODO: Get haste enchants from gear
     this->mh_haste = 0;
     this->oh_haste = 0;
-
-    // TODO: Move general spells into separate class like Procs and Buffs.
-    this->fw_attack = new FieryWeaponAttack(engine, this, roll);
 }
 
 Character::~Character() {
@@ -47,13 +46,7 @@ Character::~Character() {
     delete base_stats;
     delete procs;
     delete buffs;
-    delete fw_attack;
-
-    for (int i = 0; i < spells.size(); ++i) {
-        delete spells[i];
-    }
-
-    spells.clear();
+    delete spells;
 }
 
 Race* Character::get_race(void) {
@@ -127,16 +120,16 @@ Buffs* Character::get_buffs(void) const {
     return this->buffs;
 }
 
+Spells* Character::get_spells(void) const {
+    return this->spells;
+}
+
 MainhandAttack* Character::get_mh_attack() const {
     return this->mh_attack;
 }
 
 OffhandAttack* Character::get_oh_attack() const {
     return this->oh_attack;
-}
-
-FieryWeaponAttack* Character::get_fiery_weapon_attack() const {
-    return this->fw_attack;
 }
 
 void Character::add_next_mh_attack(void) {
@@ -429,11 +422,7 @@ void Character::reset() {
     last_action = 0 - this->global_cooldown();
 
     buffs->reset();
-
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
-    }
-
+    spells->reset();
     procs->reset();
 
     reset_resource();

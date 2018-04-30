@@ -16,6 +16,7 @@
 #include "Stats.h"
 #include "Procs.h"
 #include "Buffs.h"
+#include "Spells.h"
 #include "Race.h"
 #include "Mainhand.h"
 #include "Offhand.h"
@@ -74,8 +75,19 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->berserker_rage = new BerserkerRage(engine, this, roll);
     this->bloodrage = new Bloodrage(engine, this, roll);
     this->whirlwind = new Whirlwind(engine, this, roll);
-    spells = {bt, mh_attack, oh_attack, deep_wounds, heroic_strike, execute, overpower,
-              death_wish, battle_shout, berserker_rage, bloodrage, whirlwind};
+
+    spells->add_spell(bt);
+    spells->add_spell(mh_attack);
+    spells->add_spell(oh_attack);
+    spells->add_spell(deep_wounds);
+    spells->add_spell(heroic_strike);
+    spells->add_spell(execute);
+    spells->add_spell(overpower);
+    spells->add_spell(death_wish);
+    spells->add_spell(battle_shout);
+    spells->add_spell(berserker_rage);
+    spells->add_spell(bloodrage);
+    spells->add_spell(whirlwind);
 
     this->flurry = new Flurry(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
