@@ -20,7 +20,7 @@ void WindfuryTotemAttack::proc_effect() {
 void WindfuryTotemAttack::increase_spell_rank() {
     ++rank_spell;
 
-    proc_range = 20;
+    proc_range = 2000;
 }
 
 void WindfuryTotemAttack::decrease_spell_rank() {

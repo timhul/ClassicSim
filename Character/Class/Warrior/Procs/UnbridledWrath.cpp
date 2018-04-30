@@ -23,11 +23,11 @@ void UnbridledWrath::proc_effect() {
 void UnbridledWrath::increase_effect_via_talent() {
     ++rank_talent;
     // TODO: Assert max rank?
-    proc_range = talent_ranks[rank_talent];
+    proc_range = talent_ranks[rank_talent] * 100;
 }
 
 void UnbridledWrath::decrease_effect_via_talent() {
     --rank_talent;
     assert(rank_talent >= 0);
-    proc_range = talent_ranks[rank_talent];
+    proc_range = talent_ranks[rank_talent] * 100;
 }
