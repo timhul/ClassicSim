@@ -1,6 +1,7 @@
 
 #include "HeroicStrike.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 #include "Flurry.h"
 #include "DeepWounds.h"
 #include "HeroicStrikeBuff.h"
@@ -21,7 +22,7 @@ HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
 
 int HeroicStrike::spell_effect(const int) {
     pchar->get_hs_buff()->use_charge();
-    pchar->get_mh_attack()->complete_swing();
+    pchar->get_spells()->get_mh_attack()->complete_swing();
 
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 

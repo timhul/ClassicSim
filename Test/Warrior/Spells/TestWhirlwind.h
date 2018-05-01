@@ -7,6 +7,8 @@ class TestWhirlwind: public TestSpellWarrior {
 public:
     void test_all();
 
+    Whirlwind* whirlwind();
+
     void test_name_correct();
     void test_has_10_second_cooldown();
     void test_incurs_global_cooldown_on_use();

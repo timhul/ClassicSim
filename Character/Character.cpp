@@ -13,8 +13,6 @@
 #include "CombatRoll.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
-#include "MainhandMeleeHit.h"
-#include "OffhandMeleeHit.h"
 #include <QDebug>
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, QObject* parent) :
@@ -28,7 +26,6 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->cstats = new CharacterStats(this, equipment);
     this->procs = new Procs(this);
     this->buffs = new Buffs(this);
-    this->spells = new Spells(this);
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -40,11 +37,14 @@ Character::~Character() {
     delete cstats;
     delete procs;
     delete buffs;
-    delete spells;
 }
 
 Race* Character::get_race(void) {
     return this->race;
+}
+
+void Character::rotation() {
+    spells->rotation();
 }
 
 int Character::get_clvl(void) const {
@@ -91,32 +91,10 @@ CharacterStats* Character::get_stats(void) const {
     return this->cstats;
 }
 
-MainhandAttack* Character::get_mh_attack() const {
-    return this->mh_attack;
-}
-
-OffhandAttack* Character::get_oh_attack() const {
-    return this->oh_attack;
-}
-
-void Character::add_next_mh_attack(void) {
-    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, mh_attack->get_next_expected_use(), mh_attack->get_next_iteration());
-    this->get_engine()->add_event(new_event);
-}
-
-void Character::add_next_oh_attack(void) {
-    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
-    this->get_engine()->add_event(new_event);
-}
-
 void Character::start_attack(void) {
     this->melee_attacking = true;
 
-    add_next_mh_attack();
-
-    if (is_dual_wielding()) {
-        add_next_oh_attack();
-    }
+    spells->start_attack();
 }
 
 void Character::stop_attack(void) {
@@ -173,7 +151,7 @@ void Character::run_oh_specific_proc_effects() {
 }
 
 void Character::run_extra_attack() {
-    mh_attack->extra_attack();
+    spells->get_mh_attack()->extra_attack();
 }
 
 float Character::get_ability_crit_dmg_mod() const {
@@ -273,14 +251,14 @@ void Character::increase_attack_speed(int increase) {
     cstats->increase_haste(increase);
     float increase_float = float(increase) / 100;
 
-    mh_attack->update_next_expected_use(increase_float);
+    spells->get_mh_attack()->update_next_expected_use(increase_float);
     // TODO: Check if actually attacking
-    add_next_mh_attack();
+    spells->add_next_mh_attack();
 
     if (cstats->get_equipment()->is_dual_wielding()) {
-        oh_attack->update_next_expected_use(increase_float);
+        spells->get_oh_attack()->update_next_expected_use(increase_float);
         // TODO: Check if actually attacking
-        add_next_oh_attack();
+        spells->add_next_oh_attack();
     }
 }
 
@@ -288,14 +266,14 @@ void Character::decrease_attack_speed(int decrease) {
     cstats->decrease_haste(decrease);
     float decrease_float = float(decrease) / 100;
 
-    mh_attack->update_next_expected_use(-decrease_float);
+    spells->get_mh_attack()->update_next_expected_use(-decrease_float);
     // TODO: Check if actually attacking
-    add_next_mh_attack();
+    spells->add_next_mh_attack();
 
     if (cstats->get_equipment()->is_dual_wielding()) {
-        oh_attack->update_next_expected_use(-decrease_float);
+        spells->get_oh_attack()->update_next_expected_use(-decrease_float);
         // TODO: Check if actually attacking
-        add_next_oh_attack();
+        spells->add_next_oh_attack();
     }
 }
 
@@ -320,7 +298,7 @@ void Character::reset() {
     last_action = 0 - this->global_cooldown();
 
     buffs->reset();
-    spells->reset();
+    reset_spells();
     procs->reset();
     cstats->reset();
 

@@ -30,12 +30,16 @@ void TestBloodrage::test_all() {
     tear_down();
 }
 
+Bloodrage* TestBloodrage::bloodrage() {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodrage();
+}
+
 void TestBloodrage::test_name_correct() {
-    assert(warrior->get_bloodrage()->get_name() == "Bloodrage");
+    assert(bloodrage()->get_name() == "Bloodrage");
 }
 
 void TestBloodrage::test_has_60_second_cooldown() {
-    assert(QString::number(warrior->get_bloodrage()->get_cooldown(), 'f', 3) == "60.000");
+    assert(QString::number(bloodrage()->get_cooldown(), 'f', 3) == "60.000");
 }
 
 void TestBloodrage::test_does_not_incur_global_cooldown_on_use() {
@@ -45,7 +49,7 @@ void TestBloodrage::test_does_not_incur_global_cooldown_on_use() {
 }
 
 void TestBloodrage::test_costs_0_rage() {
-    assert(warrior->get_bloodrage()->is_available(0));
+    assert(bloodrage()->is_available(0));
 }
 
 void TestBloodrage::test_gain_10_rage_immediately() {
@@ -65,7 +69,7 @@ void TestBloodrage::test_gain_10_rage_over_10_seconds() {
 }
 
 void TestBloodrage::when_bloodrage_is_performed() {
-    warrior->gain_rage(warrior->get_bloodrage()->perform(warrior->get_curr_rage()));
+    warrior->gain_rage(bloodrage()->perform(warrior->get_curr_rage()));
 }
 
 void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const int expected_rage_gain) {

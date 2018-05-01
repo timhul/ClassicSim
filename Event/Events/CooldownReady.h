@@ -3,16 +3,16 @@
 
 #include "Event.h"
 
-class Character;
+class Spells;
 
 class CooldownReady: public Event {
 public:
-    CooldownReady(Character*, const float);
+    CooldownReady(Spells*, const float);
 
     virtual void act(void) override;
 protected:
 private:
-    Character* pchar;
+    Spells* spells;
 };
 
 

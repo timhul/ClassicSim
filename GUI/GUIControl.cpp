@@ -20,6 +20,8 @@
 #include "Warlock.h"
 #include "Warrior.h"
 
+#include "Spells.h"
+
 #include "Statistics.h"
 
 #include "EncounterStart.h"

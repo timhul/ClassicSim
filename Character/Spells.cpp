@@ -2,7 +2,11 @@
 #include "Spells.h"
 #include "Character.h"
 #include "FieryWeaponAttack.h"
-
+#include "MainhandAttack.h"
+#include "OffhandAttack.h"
+#include "MainhandMeleeHit.h"
+#include "OffhandMeleeHit.h"
+#include <QDebug>
 Spells::Spells(Character* pchar, QObject* parent) :
     QObject(parent),
     pchar(pchar)
@@ -21,16 +25,32 @@ Spells::~Spells()
     spells.clear();
 }
 
-void Spells::add_spell(Spell* spell) {
-    spells.append(spell);
+void Spells::start_attack(void) {
+    add_next_mh_attack();
+
+    if (pchar->is_dual_wielding()) {
+        add_next_oh_attack();
+    }
 }
 
-void Spells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
-    }
+MainhandAttack* Spells::get_mh_attack() const {
+    return this->mh_attack;
+}
+
+OffhandAttack* Spells::get_oh_attack() const {
+    return this->oh_attack;
 }
 
 FieryWeaponAttack* Spells::get_fiery_weapon() const {
     return fiery_weapon_attack;
+}
+
+void Spells::add_next_mh_attack(void) {
+    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
+    pchar->get_engine()->add_event(new_event);
+}
+
+void Spells::add_next_oh_attack(void) {
+    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
+    pchar->get_engine()->add_event(new_event);
 }

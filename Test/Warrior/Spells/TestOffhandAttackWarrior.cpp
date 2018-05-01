@@ -79,8 +79,13 @@ void TestOffhandAttackWarrior::test_all() {
     tear_down();
 }
 
+OffhandAttackWarrior* TestOffhandAttackWarrior::oh_attack() {
+    WarriorSpells* spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
+    return dynamic_cast<OffhandAttackWarrior*>(spells->get_oh_attack());
+}
+
 void TestOffhandAttackWarrior::test_name_correct() {
-    assert(warrior->get_oh_attack()->get_name() == "Offhand Attack");
+    assert(oh_attack()->get_name() == "Offhand Attack");
 }
 
 void TestOffhandAttackWarrior::test_has_weapon_speed_as_cooldown() {
@@ -320,41 +325,41 @@ void TestOffhandAttackWarrior::given_0_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::given_1_of_5_dual_wield_specialization() {
-    warrior->get_oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
 }
 
 void TestOffhandAttackWarrior::given_2_of_5_dual_wield_specialization() {
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
 }
 
 void TestOffhandAttackWarrior::given_3_of_5_dual_wield_specialization() {
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
 }
 
 void TestOffhandAttackWarrior::given_4_of_5_dual_wield_specialization() {
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
 }
 
 void TestOffhandAttackWarrior::given_5_of_5_dual_wield_specialization() {
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
-    warrior->get_oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
+    oh_attack()->increase_effect_via_talent();
 }
 
 void TestOffhandAttackWarrior::when_mh_attack_is_performed() {
-    warrior->get_mh_attack()->perform(0);
+    warrior->get_spells()->get_mh_attack()->perform(0);
 }
 
 void TestOffhandAttackWarrior::when_oh_attack_is_performed() {
-    warrior->get_oh_attack()->perform(0);
+    oh_attack()->perform(0);
 }
 
 void TestOffhandAttackWarrior::when_changing_to_2_speed() {
@@ -370,5 +375,5 @@ void TestOffhandAttackWarrior::when_decreasing_attack_speed(const int change) {
 }
 
 void TestOffhandAttackWarrior::then_next_expected_use_is(const float next_expected_use) {
-    assert(QString::number(warrior->get_oh_attack()->get_next_expected_use(), 'f', 3) == QString::number(next_expected_use, 'f', 3));
+    assert(QString::number(oh_attack()->get_next_expected_use(), 'f', 3) == QString::number(next_expected_use, 'f', 3));
 }

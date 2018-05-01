@@ -47,18 +47,6 @@ int Shaman::get_ap_per_agi() const {
     return 1;
 }
 
-void Shaman::rotation() {
-    return;
-}
-
-void Shaman::mh_auto_attack(const int) {
-    return;
-}
-
-void Shaman::oh_auto_attack(const int) {
-    return;
-}
-
 float Shaman::global_cooldown() const {
     return 1.5;
 }

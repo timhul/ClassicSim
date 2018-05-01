@@ -3,6 +3,7 @@
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
 DeathWishTalent::DeathWishTalent(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Death Wish", "5ML", "Assets/warrior/fury/tier5/Spell_shadow_deathpact.png", 1)
@@ -17,11 +18,15 @@ DeathWishTalent::~DeathWishTalent() {
 }
 
 void DeathWishTalent::apply_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_death_wish_buff()->increase_rank();
-    dynamic_cast<Warrior*>(pchar)->get_death_wish()->increase_effect_via_talent();
+    // TODO: Create WarriorTalent that has warrior available.
+    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    warr->get_death_wish_buff()->increase_rank();
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->increase_effect_via_talent();
 }
 
 void DeathWishTalent::remove_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_death_wish_buff()->decrease_rank();
-    dynamic_cast<Warrior*>(pchar)->get_death_wish()->decrease_effect_via_talent();
+    // TODO: Create WarriorTalent that has warrior available.
+    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    warr->get_death_wish_buff()->decrease_rank();
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->decrease_effect_via_talent();
 }

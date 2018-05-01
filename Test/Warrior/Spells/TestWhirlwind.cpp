@@ -39,13 +39,17 @@ void TestWhirlwind::test_all() {
     tear_down();
 }
 
+Whirlwind* TestWhirlwind::whirlwind() {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind();
+}
+
 void TestWhirlwind::test_name_correct() {
-    assert(warrior->get_whirlwind()->get_name() == "Whirlwind");
+    assert(whirlwind()->get_name() == "Whirlwind");
 }
 
 void TestWhirlwind::test_has_10_second_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    assert(QString::number(warrior->get_whirlwind()->get_cooldown(), 'f', 3) == "10.000");
+    assert(QString::number(whirlwind()->get_cooldown(), 'f', 3) == "10.000");
 
     when_whirlwind_is_performed();
 
@@ -124,5 +128,5 @@ void TestWhirlwind::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestWhirlwind::when_whirlwind_is_performed() {
-    warrior->lose_rage(warrior->get_whirlwind()->perform(warrior->get_curr_rage()));
+    warrior->lose_rage(whirlwind()->perform(warrior->get_curr_rage()));
 }

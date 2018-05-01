@@ -17,8 +17,6 @@ class Buffs;
 class Spells;
 class CombatRoll;
 class Weapon;
-class MainhandAttack;
-class OffhandAttack;
 
 class Character: public QObject {
     Q_OBJECT
@@ -30,10 +28,7 @@ public:
     Race* get_race(void);
     virtual QString get_name() const = 0;
 
-    virtual void rotation(void) = 0;
-    virtual void mh_auto_attack(const int) = 0;
-    virtual void oh_auto_attack(const int) = 0;
-
+    virtual void rotation();
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;
     virtual int get_stamina_modifier() const = 0;
@@ -53,9 +48,6 @@ public:
     Buffs* get_buffs(void) const;
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
-
-    MainhandAttack* get_mh_attack() const;
-    OffhandAttack* get_oh_attack() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -106,6 +98,8 @@ public:
     void reset();
     // TODO: Mark as abstract to force implementation.
     virtual void reset_resource() {}
+    // TODO: Mark as abstract to force implementation.
+    virtual void reset_spells() {}
 
     void dump();
 
@@ -118,8 +112,6 @@ protected:
     Procs* procs;
     Buffs* buffs;
     Spells* spells;
-    MainhandAttack* mh_attack;
-    OffhandAttack* oh_attack;
 
     float ability_crit_dmg_mod;
 
@@ -129,9 +121,6 @@ protected:
 
     virtual int get_ap_per_strength() const = 0;
     virtual int get_ap_per_agi() const = 0;
-
-    void add_next_mh_attack(void);
-    void add_next_oh_attack(void);
 
     virtual void initialize_talents() = 0;
 

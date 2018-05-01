@@ -38,6 +38,8 @@
 #include "Target.h"
 #include "Talents.h"
 
+#include "WarriorSpells.h"
+
 #include <assert.h>
 #include <QDebug>
 

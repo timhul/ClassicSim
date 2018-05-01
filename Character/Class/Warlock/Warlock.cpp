@@ -47,18 +47,6 @@ int Warlock::get_ap_per_agi() const {
     return 1;
 }
 
-void Warlock::rotation() {
-    return;
-}
-
-void Warlock::mh_auto_attack(const int) {
-    return;
-}
-
-void Warlock::oh_auto_attack(const int) {
-    return;
-}
-
 float Warlock::global_cooldown() const {
     return 1.5;
 }

@@ -47,18 +47,6 @@ int Mage::get_ap_per_agi() const {
     return 1;
 }
 
-void Mage::rotation() {
-    return;
-}
-
-void Mage::mh_auto_attack(const int) {
-    return;
-}
-
-void Mage::oh_auto_attack(const int) {
-    return;
-}
-
 float Mage::global_cooldown() const {
     return 1.5;
 }

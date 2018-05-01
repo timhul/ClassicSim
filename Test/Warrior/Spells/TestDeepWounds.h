@@ -9,6 +9,8 @@ class TestDeepWounds: public TestSpellWarrior {
 public:
     void test_all();
 
+    DeepWounds* deep_wounds();
+
     void test_name_correct();
     void test_has_no_cooldown();
     void test_does_not_incur_global_cooldown_on_proc();

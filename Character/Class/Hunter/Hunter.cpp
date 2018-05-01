@@ -47,18 +47,6 @@ int Hunter::get_ap_per_agi() const {
     return 1;
 }
 
-void Hunter::rotation() {
-    return;
-}
-
-void Hunter::mh_auto_attack(const int) {
-    return;
-}
-
-void Hunter::oh_auto_attack(const int) {
-    return;
-}
-
 float Hunter::global_cooldown() const {
     return 1.5;
 }

@@ -3,7 +3,7 @@
 #include "Execute.h"
 #include "Impale.h"
 
-#include "Warrior.h"
+#include "WarriorSpells.h"
 #include "Target.h"
 #include "Orc.h"
 
@@ -12,7 +12,6 @@
 #include "Equipment.h"
 #include "Target.h"
 #include "CombatRoll.h"
-#include "PlayerAction.h"
 #include "MeleeSpecialTable.h"
 
 #include <QDebug>
@@ -115,12 +114,16 @@ void TestExecute::test_all() {
     tear_down();
 }
 
+Execute* TestExecute::execute() {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_execute();
+}
+
 void TestExecute::test_name_correct() {
-    assert(warrior->get_execute()->get_name() == "Execute");
+    assert(execute()->get_name() == "Execute");
 }
 
 void TestExecute::test_has_no_cooldown() {
-    assert(QString::number(warrior->get_execute()->get_cooldown(), 'f', 3) == "0.000");
+    assert(QString::number(execute()->get_cooldown(), 'f', 3) == "0.000");
 }
 
 void TestExecute::test_incurs_global_cooldown_on_use() {
@@ -130,45 +133,45 @@ void TestExecute::test_incurs_global_cooldown_on_use() {
 }
 
 void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
-    assert(warrior->get_execute()->is_available(15));
-    assert(!warrior->get_execute()->is_available(14));
+    assert(execute()->is_available(15));
+    assert(!execute()->is_available(14));
 
-    warrior->get_execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
 
-    assert(warrior->get_execute()->is_available(13));
-    assert(!warrior->get_execute()->is_available(12));
+    assert(execute()->is_available(13));
+    assert(!execute()->is_available(12));
 }
 
 void TestExecute::test_2_of_2_improved_execute_reduces_rage_cost() {
-    assert(warrior->get_execute()->is_available(15));
-    assert(!warrior->get_execute()->is_available(14));
+    assert(execute()->is_available(15));
+    assert(!execute()->is_available(14));
 
-    warrior->get_execute()->increase_effect_via_talent();
-    warrior->get_execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
 
-    assert(warrior->get_execute()->is_available(10));
-    assert(!warrior->get_execute()->is_available(9));
+    assert(execute()->is_available(10));
+    assert(!execute()->is_available(9));
 }
 
 void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost() {
-    assert(warrior->get_execute()->is_available(15));
-    assert(!warrior->get_execute()->is_available(14));
+    assert(execute()->is_available(15));
+    assert(!execute()->is_available(14));
 
-    warrior->get_execute()->increase_effect_via_talent();
-    warrior->get_execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
 
-    assert(warrior->get_execute()->is_available(10));
-    assert(!warrior->get_execute()->is_available(9));
+    assert(execute()->is_available(10));
+    assert(!execute()->is_available(9));
 
-    warrior->get_execute()->decrease_effect_via_talent();
+    execute()->decrease_effect_via_talent();
 
-    assert(warrior->get_execute()->is_available(13));
-    assert(!warrior->get_execute()->is_available(12));
+    assert(execute()->is_available(13));
+    assert(!execute()->is_available(12));
 
-    warrior->get_execute()->decrease_effect_via_talent();
+    execute()->decrease_effect_via_talent();
 
-    assert(warrior->get_execute()->is_available(15));
-    assert(!warrior->get_execute()->is_available(14));
+    assert(execute()->is_available(15));
+    assert(!execute()->is_available(14));
 }
 
 void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
@@ -408,25 +411,25 @@ void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
 }
 
 void TestExecute::given_0_of_2_improved_execute() {
-    assert(warrior->get_execute()->is_available(15));
-    assert(!warrior->get_execute()->is_available(14));
+    assert(execute()->is_available(15));
+    assert(!execute()->is_available(14));
 }
 
 void TestExecute::given_1_of_2_improved_execute() {
-    warrior->get_execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
 
-    assert(warrior->get_execute()->is_available(13));
-    assert(!warrior->get_execute()->is_available(12));
+    assert(execute()->is_available(13));
+    assert(!execute()->is_available(12));
 }
 
 void TestExecute::given_2_of_2_improved_execute() {
-    warrior->get_execute()->increase_effect_via_talent();
-    warrior->get_execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
+    execute()->increase_effect_via_talent();
 
-    assert(warrior->get_execute()->is_available(10));
-    assert(!warrior->get_execute()->is_available(9));
+    assert(execute()->is_available(10));
+    assert(!execute()->is_available(9));
 }
 
 void TestExecute::when_execute_is_performed_with_rage(const int rage) {
-    warrior->get_execute()->perform(rage);
+    execute()->perform(rage);
 }

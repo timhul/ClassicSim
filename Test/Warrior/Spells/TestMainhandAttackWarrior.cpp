@@ -38,8 +38,13 @@ void TestMainhandAttackWarrior::test_all() {
     tear_down();
 }
 
+MainhandAttackWarrior* TestMainhandAttackWarrior::mh_attack() {
+    WarriorSpells* spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
+    return dynamic_cast<MainhandAttackWarrior*>(spells->get_mh_attack());
+}
+
 void TestMainhandAttackWarrior::test_name_correct() {
-    assert(warrior->get_mh_attack()->get_name() == "Mainhand Attack");
+    assert(mh_attack()->get_name() == "Mainhand Attack");
 }
 
 void TestMainhandAttackWarrior::test_has_weapon_speed_as_cooldown() {
@@ -122,7 +127,7 @@ void TestMainhandAttackWarrior::test_mid_swing_haste_decrease_updates_attack_spe
 }
 
 void TestMainhandAttackWarrior::when_mh_attack_is_performed() {
-    warrior->get_mh_attack()->perform(0);
+    mh_attack()->perform(0);
 }
 
 void TestMainhandAttackWarrior::when_changing_to_2_speed() {
@@ -138,5 +143,5 @@ void TestMainhandAttackWarrior::when_decreasing_attack_speed(const int change) {
 }
 
 void TestMainhandAttackWarrior::then_next_expected_use_is(const float next_expected_use) {
-    assert(QString::number(warrior->get_mh_attack()->get_next_expected_use(), 'f', 3) == QString::number(next_expected_use, 'f', 3));
+    assert(QString::number(mh_attack()->get_next_expected_use(), 'f', 3) == QString::number(next_expected_use, 'f', 3));
 }

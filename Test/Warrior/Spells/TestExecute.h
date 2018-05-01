@@ -3,9 +3,13 @@
 
 #include "TestSpellWarrior.h"
 
+class Execute;
+
 class TestExecute: public TestSpellWarrior {
 public:
     void test_all();
+
+    Execute* execute();
 
     void test_name_correct();
     void test_has_no_cooldown();

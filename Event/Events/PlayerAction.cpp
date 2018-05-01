@@ -1,14 +1,14 @@
 
 #include "PlayerAction.h"
-#include "Character.h"
+#include "Spells.h"
 #include "Engine.h"
 
-PlayerAction::PlayerAction(Character *pchar, const float delay) {
-    this->pchar = pchar;
-    this->priority = pchar->get_engine()->get_current_priority() + delay;
+PlayerAction::PlayerAction(Spells* spells, const float priority) {
+    this->spells = spells;
+    this->priority = priority;
     this->name = "PlayerAction";
 }
 
 void PlayerAction::act(void) {
-    pchar->rotation();
+    spells->rotation();
 }

@@ -3,6 +3,7 @@
 
 #include "TestSpell.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
 class TestSpellWarrior: public TestSpell {
 public:

@@ -3,9 +3,13 @@
 
 #include "TestSpellWarrior.h"
 
+class MainhandAttackWarrior;
+
 class TestMainhandAttackWarrior: public TestSpellWarrior {
 public:
     void test_all();
+
+    MainhandAttackWarrior* mh_attack();
 
     void test_name_correct();
     void test_has_weapon_speed_as_cooldown();

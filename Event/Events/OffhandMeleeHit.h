@@ -3,16 +3,16 @@
 
 #include "Event.h"
 
-class Character;
+class Spells;
 
 class OffhandMeleeHit: public Event {
 public:
-    OffhandMeleeHit(Character*, const float, const int);
+    OffhandMeleeHit(Spells*, const float, const int);
 
     virtual void act(void) override;
 protected:
 private:
-    Character* pchar;
+    Spells* spells;
     int iteration;
 };
 

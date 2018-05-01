@@ -47,18 +47,6 @@ int Paladin::get_ap_per_agi() const {
     return 1;
 }
 
-void Paladin::rotation() {
-    return;
-}
-
-void Paladin::mh_auto_attack(const int) {
-    return;
-}
-
-void Paladin::oh_auto_attack(const int) {
-    return;
-}
-
 float Paladin::global_cooldown() const {
     return 1.5;
 }

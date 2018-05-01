@@ -87,8 +87,12 @@ void TestDeepWounds::test_all() {
     tear_down();
 }
 
+DeepWounds* TestDeepWounds::deep_wounds() {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_deep_wounds();
+}
+
 void TestDeepWounds::test_name_correct() {
-    assert(warrior->get_deep_wounds()->get_name() == "Deep Wounds");
+    assert(deep_wounds()->get_name() == "Deep Wounds");
 }
 
 void TestDeepWounds::test_has_no_cooldown() {
@@ -110,7 +114,7 @@ void TestDeepWounds::test_does_not_incur_global_cooldown_on_proc() {
 
     when_mh_attack_is_performed();
 
-    assert(warrior->get_deep_wounds()->is_ready());
+    assert(deep_wounds()->is_ready());
 }
 
 void TestDeepWounds::test_critical_mh_attack_applies_deep_wounds() {
@@ -130,7 +134,7 @@ void TestDeepWounds::test_critical_oh_attack_applies_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_oh_attack());
+    when_attack_is_performed(warrior->get_spells()->get_oh_attack());
 
     then_deep_wounds_is_applied();
 }
@@ -140,7 +144,7 @@ void TestDeepWounds::test_critical_bloodthirst_applies_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_bloodthirst());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst());
 
     then_deep_wounds_is_applied();
 }
@@ -150,7 +154,7 @@ void TestDeepWounds::test_critical_whirlwind_applies_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_whirlwind());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind());
 
     then_deep_wounds_is_applied();
 }
@@ -160,7 +164,7 @@ void TestDeepWounds::test_critical_heroic_strike_applies_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_heroic_strike());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
 
     then_deep_wounds_is_applied();
 }
@@ -170,7 +174,7 @@ void TestDeepWounds::test_critical_overpower_applies_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_overpower());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower());
 
     then_deep_wounds_is_applied();
 }
@@ -190,7 +194,7 @@ void TestDeepWounds::test_regular_hit_oh_attack_does_not_apply_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_oh_attack());
+    when_attack_is_performed(warrior->get_spells()->get_oh_attack());
 
     then_deep_wounds_is_not_applied();
 }
@@ -200,7 +204,7 @@ void TestDeepWounds::test_regular_hit_bloodthirst_does_not_apply_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_bloodthirst());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst());
 
     then_deep_wounds_is_not_applied();
 }
@@ -210,7 +214,7 @@ void TestDeepWounds::test_regular_hit_whirlwind_does_not_apply_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_whirlwind());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind());
 
     then_deep_wounds_is_not_applied();
 }
@@ -220,7 +224,7 @@ void TestDeepWounds::test_regular_hit_heroic_strike_does_not_apply_deep_wounds()
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_heroic_strike());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
 
     then_deep_wounds_is_not_applied();
 }
@@ -230,7 +234,7 @@ void TestDeepWounds::test_regular_hit_overpower_does_not_apply_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(warrior->get_overpower());
+    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower());
 
     then_deep_wounds_is_not_applied();
 }
@@ -301,22 +305,22 @@ void TestDeepWounds::given_deep_wounds_enabled() {
 }
 
 void TestDeepWounds::given_0_of_3_deep_wounds() {
-    assert(!warrior->get_deep_wounds()->is_enabled());
+    assert(!deep_wounds()->is_enabled());
 }
 
 void TestDeepWounds::given_1_of_3_deep_wounds() {
-    warrior->get_deep_wounds()->increase_effect_via_talent();
+    deep_wounds()->increase_effect_via_talent();
 }
 
 void TestDeepWounds::given_2_of_3_deep_wounds() {
-    warrior->get_deep_wounds()->increase_effect_via_talent();
-    warrior->get_deep_wounds()->increase_effect_via_talent();
+    deep_wounds()->increase_effect_via_talent();
+    deep_wounds()->increase_effect_via_talent();
 }
 
 void TestDeepWounds::given_3_of_3_deep_wounds() {
-    warrior->get_deep_wounds()->increase_effect_via_talent();
-    warrior->get_deep_wounds()->increase_effect_via_talent();
-    warrior->get_deep_wounds()->increase_effect_via_talent();
+    deep_wounds()->increase_effect_via_talent();
+    deep_wounds()->increase_effect_via_talent();
+    deep_wounds()->increase_effect_via_talent();
 }
 
 void TestDeepWounds::given_no_previous_deep_wounds_damage_dealt() {
@@ -324,7 +328,7 @@ void TestDeepWounds::given_no_previous_deep_wounds_damage_dealt() {
 }
 
 void TestDeepWounds::when_mh_attack_is_performed() {
-    warrior->get_mh_attack()->perform(0);
+    warrior->get_spells()->get_mh_attack()->perform(0);
 }
 
 void TestDeepWounds::when_attack_is_performed(Spell* spell) {

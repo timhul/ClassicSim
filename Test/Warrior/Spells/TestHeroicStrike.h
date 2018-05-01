@@ -3,9 +3,13 @@
 
 #include "TestSpellWarrior.h"
 
+class HeroicStrike;
+
 class TestHeroicStrike: public TestSpellWarrior {
 public:
     void test_all();
+
+    HeroicStrike* heroic_strike();
 
     void test_name_correct();
     void test_has_no_cooldown();

@@ -47,18 +47,6 @@ int Rogue::get_ap_per_agi() const {
     return 1;
 }
 
-void Rogue::rotation() {
-    return;
-}
-
-void Rogue::mh_auto_attack(const int) {
-    return;
-}
-
-void Rogue::oh_auto_attack(const int) {
-    return;
-}
-
 float Rogue::global_cooldown() const {
     return 1.0;
 }

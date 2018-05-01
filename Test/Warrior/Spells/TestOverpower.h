@@ -7,6 +7,8 @@ class TestOverpower: public TestSpellWarrior {
 public:
     void test_all();
 
+    Overpower* overpower();
+
     void test_name_correct();
     void test_has_5_second_cooldown();
     void test_incurs_global_cooldown_on_use();

@@ -1,13 +1,13 @@
 
 #include "CooldownReady.h"
-#include "Character.h"
+#include "Spells.h"
 
-CooldownReady::CooldownReady(Character* pchar, const float cooldown_ready) {
-    this->pchar = pchar;
+CooldownReady::CooldownReady(Spells* spells, const float cooldown_ready) {
+    this->spells = spells;
     this->priority = cooldown_ready;
     this->name = "CooldownReady";
 }
 
 void CooldownReady::act(void) {
-    pchar->rotation();
+    spells->rotation();
 }

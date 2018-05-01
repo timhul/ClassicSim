@@ -39,13 +39,17 @@ void TestOverpower::test_all() {
     tear_down();
 }
 
+Overpower* TestOverpower::overpower() {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower();
+}
+
 void TestOverpower::test_name_correct() {
-    assert(warrior->get_overpower()->get_name() == "Overpower");
+    assert(overpower()->get_name() == "Overpower");
 }
 
 void TestOverpower::test_has_5_second_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    assert(QString::number(warrior->get_overpower()->get_cooldown(), 'f', 3) == "5.000");
+    assert(QString::number(overpower()->get_cooldown(), 'f', 3) == "5.000");
 
     when_overpower_is_performed();
 
@@ -124,5 +128,5 @@ void TestOverpower::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestOverpower::when_overpower_is_performed() {
-    warrior->lose_rage(warrior->get_overpower()->perform(warrior->get_curr_rage()));
+    warrior->lose_rage(overpower()->perform(warrior->get_curr_rage()));
 }

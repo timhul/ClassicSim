@@ -38,13 +38,17 @@ void TestBloodthirst::test_all() {
     tear_down();
 }
 
+Bloodthirst* TestBloodthirst::bloodthirst() {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst();
+}
+
 void TestBloodthirst::test_name_correct() {
-    assert(warrior->get_bloodthirst()->get_name() == "Bloodthirst");
+    assert(bloodthirst()->get_name() == "Bloodthirst");
 }
 
 void TestBloodthirst::test_has_6_second_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    assert(QString::number(warrior->get_bloodthirst()->get_cooldown(), 'f', 3) == "6.000");
+    assert(QString::number(bloodthirst()->get_cooldown(), 'f', 3) == "6.000");
 
     when_bloodthirst_is_performed();
 
@@ -119,5 +123,5 @@ void TestBloodthirst::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestBloodthirst::when_bloodthirst_is_performed() {
-    warrior->lose_rage(warrior->get_bloodthirst()->perform(warrior->get_curr_rage()));
+    warrior->lose_rage(bloodthirst()->perform(warrior->get_curr_rage()));
 }

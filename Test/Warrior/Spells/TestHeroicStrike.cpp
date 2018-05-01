@@ -48,12 +48,16 @@ void TestHeroicStrike::test_all() {
     tear_down();
 }
 
+HeroicStrike* TestHeroicStrike::heroic_strike() {
+    return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike();
+}
+
 void TestHeroicStrike::test_name_correct() {
-    assert(warrior->get_heroic_strike()->get_name() == "Heroic Strike");
+    assert(heroic_strike()->get_name() == "Heroic Strike");
 }
 
 void TestHeroicStrike::test_has_no_cooldown() {
-    assert(QString::number(warrior->get_heroic_strike()->get_cooldown(), 'f', 3) == "0.000");
+    assert(QString::number(heroic_strike()->get_cooldown(), 'f', 3) == "0.000");
 }
 
 void TestHeroicStrike::test_does_not_incur_global_cooldown_on_use() {
@@ -84,15 +88,15 @@ void TestHeroicStrike::test_3_of_3_improved_hs_reduces_rage_cost() {
 
 void TestHeroicStrike::test_removing_points_in_improved_hs_increases_rage_cost() {
     given_3_of_3_improved_hs();
-    warrior->get_heroic_strike()->decrease_effect_via_talent();
+    heroic_strike()->decrease_effect_via_talent();
 
     then_heroic_strike_costs(13);
 
-    warrior->get_heroic_strike()->decrease_effect_via_talent();
+    heroic_strike()->decrease_effect_via_talent();
 
     then_heroic_strike_costs(14);
 
-    warrior->get_heroic_strike()->decrease_effect_via_talent();
+    heroic_strike()->decrease_effect_via_talent();
 
     then_heroic_strike_costs(15);
 }
@@ -157,25 +161,25 @@ void TestHeroicStrike::given_0_of_3_improved_hs() {
 }
 
 void TestHeroicStrike::given_1_of_3_improved_hs() {
-    warrior->get_heroic_strike()->increase_effect_via_talent();
+    heroic_strike()->increase_effect_via_talent();
 }
 
 void TestHeroicStrike::given_2_of_3_improved_hs() {
-    warrior->get_heroic_strike()->increase_effect_via_talent();
-    warrior->get_heroic_strike()->increase_effect_via_talent();
+    heroic_strike()->increase_effect_via_talent();
+    heroic_strike()->increase_effect_via_talent();
 }
 
 void TestHeroicStrike::given_3_of_3_improved_hs() {
-    warrior->get_heroic_strike()->increase_effect_via_talent();
-    warrior->get_heroic_strike()->increase_effect_via_talent();
-    warrior->get_heroic_strike()->increase_effect_via_talent();
+    heroic_strike()->increase_effect_via_talent();
+    heroic_strike()->increase_effect_via_talent();
+    heroic_strike()->increase_effect_via_talent();
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {
-    warrior->get_heroic_strike()->perform(100);
+    heroic_strike()->perform(100);
 }
 
 void TestHeroicStrike::then_heroic_strike_costs(const int rage) {
-    assert(warrior->get_heroic_strike()->is_available(rage));
-    assert(!warrior->get_heroic_strike()->is_available(rage - 1));
+    assert(heroic_strike()->is_available(rage));
+    assert(!heroic_strike()->is_available(rage - 1));
 }

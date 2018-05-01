@@ -193,7 +193,7 @@ void TestSpell::given_1000_melee_ap() {
 }
 
 void TestSpell::given_engine_priority_at(const float priority) {
-    MainhandMeleeHit* event = new MainhandMeleeHit(pchar, priority, 0);
+    MainhandMeleeHit* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
     engine->set_current_priority(event);
     delete event;
 }

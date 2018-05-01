@@ -72,14 +72,14 @@ int Spell::perform(const int resource_level) {
 
 void Spell::add_spell_cd_event(void) const {
     float cooldown_ready = engine->get_current_priority() + cooldown;
-    CooldownReady* new_event = new CooldownReady(pchar, cooldown_ready);
+    CooldownReady* new_event = new CooldownReady(pchar->get_spells(), cooldown_ready);
     engine->add_event(new_event);
 }
 
 void Spell::add_gcd_event(void) const {
     pchar->start_global_cooldown();
     float gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
-    CooldownReady* new_event = new CooldownReady(pchar, gcd_ready);
+    CooldownReady* new_event = new CooldownReady(pchar->get_spells(), gcd_ready);
     engine->add_event(new_event);
 }
 

@@ -47,18 +47,6 @@ int Druid::get_ap_per_agi() const {
     return 1;
 }
 
-void Druid::rotation() {
-    return;
-}
-
-void Druid::mh_auto_attack(const int) {
-    return;
-}
-
-void Druid::oh_auto_attack(const int) {
-    return;
-}
-
 float Druid::global_cooldown() const {
     // Incomplete implementation, is stance specific.
     return 1.5;

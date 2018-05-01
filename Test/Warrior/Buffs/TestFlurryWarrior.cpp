@@ -1,6 +1,7 @@
 
 #include "TestFlurryWarrior.h"
 #include "Flurry.h"
+#include "WarriorSpells.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
 #include "MainhandMeleeHit.h"
@@ -336,7 +337,7 @@ void TestFlurryWarrior::test_critical_bloodthirst_applies_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_bloodthirst());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst());
 
     then_flurry_is_active();
 }
@@ -346,7 +347,7 @@ void TestFlurryWarrior::test_critical_whirlwind_applies_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_whirlwind());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind());
 
     then_flurry_is_active();
 }
@@ -356,7 +357,7 @@ void TestFlurryWarrior::test_critical_heroic_strike_applies_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_heroic_strike());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
 
     then_flurry_is_active();
 }
@@ -366,7 +367,7 @@ void TestFlurryWarrior::test_critical_overpower_applies_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_overpower());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower());
 
     then_flurry_is_active();
 }
@@ -396,7 +397,7 @@ void TestFlurryWarrior::test_regular_hit_bloodthirst_does_not_apply_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_bloodthirst());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst());
 
     then_flurry_is_not_active();
 }
@@ -406,7 +407,7 @@ void TestFlurryWarrior::test_regular_hit_whirlwind_does_not_apply_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_whirlwind());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind());
 
     then_flurry_is_not_active();
 }
@@ -416,7 +417,7 @@ void TestFlurryWarrior::test_regular_hit_heroic_strike_does_not_apply_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_heroic_strike());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
 
     then_flurry_is_not_active();
 }
@@ -426,7 +427,7 @@ void TestFlurryWarrior::test_regular_hit_overpower_does_not_apply_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(warrior->get_overpower());
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower());
 
     then_flurry_is_not_active();
 }
@@ -487,11 +488,11 @@ void TestFlurryWarrior::given_5_of_5_flurry() {
 }
 
 void TestFlurryWarrior::when_performing_mh_attack() {
-    warrior->get_mh_attack()->perform(100);
+    warrior->get_spells()->get_mh_attack()->perform(100);
 }
 
 void TestFlurryWarrior::when_performing_oh_attack() {
-    warrior->get_oh_attack()->perform(100);
+    warrior->get_spells()->get_oh_attack()->perform(100);
 }
 
 void TestFlurryWarrior::when_performing_attack(Spell* spell) {

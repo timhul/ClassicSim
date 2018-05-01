@@ -7,6 +7,8 @@ class TestBloodrage: public TestSpellWarrior {
 public:
     void test_all();
 
+    Bloodrage* bloodrage();
+
     void test_name_correct();
     void test_has_60_second_cooldown();
     void test_does_not_incur_global_cooldown_on_use();
