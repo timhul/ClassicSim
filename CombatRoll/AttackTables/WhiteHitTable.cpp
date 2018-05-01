@@ -2,9 +2,24 @@
 #include "WhiteHitTable.h"
 #include <QDebug>
 
-WhiteHitTable::WhiteHitTable(const float miss, const float dodge, const float parry,
-                             const float glancing, const float block,  const float critical)
+WhiteHitTable::WhiteHitTable(const int wpn_skill, const float miss, const float dodge, const float parry,
+                             const float glancing, const float block,  const float critical) :
+    wpn_skill(wpn_skill),
+    miss(miss),
+    dodge(dodge),
+    parry(parry),
+    glancing(glancing),
+    block(block),
+    critical(critical)
 {
+    update_ranges();
+}
+
+int WhiteHitTable::get_wpn_skill() {
+    return wpn_skill;
+}
+
+void WhiteHitTable::update_ranges() {
     assert(miss >= 0);
     assert(dodge >= 0);
     assert(parry >= 0);
@@ -39,7 +54,7 @@ int WhiteHitTable::get_outcome(const int roll, const float crit_mod) {
 }
 
 void WhiteHitTable::dump_table(void) {
-    qDebug() << "------------";
+    qDebug() << QString("------ WHITE HIT TABLE %1 WEAPON SKILL ------").arg(wpn_skill);
     qDebug() << "MISS RANGE " << miss_range;
     qDebug() << "DODGE RANGE " << dodge_range;
     qDebug() << "PARRY RANGE " << parry_range;
@@ -49,25 +64,31 @@ void WhiteHitTable::dump_table(void) {
 }
 
 void WhiteHitTable::update_crit_chance(const float critical) {
-    this->critical_range = int(round(critical * 10000)) + block_range;;
+    this->critical = critical;
+    update_ranges();
 }
 
-void WhiteHitTable::set_miss_range(const int range) {
-    this->miss_range = range;
+void WhiteHitTable::update_miss_chance(const float miss) {
+    this->miss = miss;
+    update_ranges();
 }
 
-void WhiteHitTable::set_dodge_range(const int range) {
-    this->dodge_range = range;
+void WhiteHitTable::update_dodge_chance(const float dodge) {
+    this->dodge = dodge;
+    update_ranges();
 }
 
-void WhiteHitTable::set_parry_range(const int range) {
-    this->parry_range = range;
+void WhiteHitTable::update_parry_chance(const float parry) {
+    this->parry = parry;
+    update_ranges();
 }
 
-void WhiteHitTable::set_block_range(const int range) {
-    this->block_range = range;
+void WhiteHitTable::update_glancing_chance(const float glancing) {
+    this->glancing = glancing;
+    update_ranges();
 }
 
-void WhiteHitTable::set_glancing_range(const int range) {
-    this->glancing_range = range;
+void WhiteHitTable::update_block_chance(const float block) {
+    this->block = block;
+    update_ranges();
 }

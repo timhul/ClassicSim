@@ -66,11 +66,11 @@ void TestSpell::given_a_guaranteed_melee_ability_hit() {
 
 void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
     MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
-    table->set_miss_range(0);
-    table->set_dodge_range(0);
-    table->set_parry_range(0);
-    table->set_block_range(0);
     table->update_crit_chance(0.0);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
 
     assert(table->get_outcome(0, 0.0) == Outcome::HIT);
     assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
@@ -79,11 +79,11 @@ void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
 
 void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
     MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
-    table->set_miss_range(0);
-    table->set_dodge_range(0);
-    table->set_parry_range(0);
-    table->set_block_range(0);
     table->update_crit_chance(1.0);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
 
     assert(table->get_outcome(0, 0.0) == Outcome::CRITICAL);
     assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
@@ -91,11 +91,11 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
     WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
-    table->set_miss_range(0);
-    table->set_dodge_range(0);
-    table->set_parry_range(0);
-    table->set_block_range(0);
-    table->set_glancing_range(0);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
+    table->update_glancing_chance(0.0);
     table->update_crit_chance(0.0);
 
     assert(table->get_outcome(0, 0.0) == Outcome::HIT);
@@ -104,11 +104,11 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
     WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
-    table->set_miss_range(0);
-    table->set_dodge_range(0);
-    table->set_parry_range(0);
-    table->set_block_range(0);
-    table->set_glancing_range(0);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
+    table->update_glancing_chance(0.0);
     table->update_crit_chance(1.0);
 
     assert(table->get_outcome(0, 0.0) == Outcome::CRITICAL);

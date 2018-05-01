@@ -234,12 +234,12 @@ void Test::test_mechanics_dw_white_miss(void) {
 }
 
 void Test::test_white_hit_table(void) {
-   WhiteHitTable* table = new WhiteHitTable(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+   WhiteHitTable* table = new WhiteHitTable(300, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
    delete table;
 
-   table = new WhiteHitTable(0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
+   table = new WhiteHitTable(300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
    assert(table->get_outcome(0, 0.0) == Outcome::MISS);
    assert(table->get_outcome(1, 0.0) == Outcome::DODGE);
    assert(table->get_outcome(2, 0.0) == Outcome::PARRY);
@@ -293,11 +293,11 @@ void Test::test_white_hit_table_update(void) {
 
 void Test::test_special_hit_table(void) {
     Random* random = new Random(0, 9999);
-    MeleeSpecialTable* table = new MeleeSpecialTable(random, 0.0, 0.0, 0.0, 0.0, 0.0);
+    MeleeSpecialTable* table = new MeleeSpecialTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == Outcome::HIT);
     delete table;
 
-    table = new MeleeSpecialTable(random, 0.0001, 0.0001, 0.0001, 0.0001, 1.0);
+    table = new MeleeSpecialTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001, 1.0);
     assert(table->get_outcome(0, 0.0) == Outcome::MISS);
     assert(table->get_outcome(1, 0.0) == Outcome::DODGE);
     assert(table->get_outcome(2, 0.0) == Outcome::PARRY);

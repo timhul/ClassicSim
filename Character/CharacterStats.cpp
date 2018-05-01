@@ -106,10 +106,12 @@ float CharacterStats::get_total_phys_dmg_mod() const {
 
 void CharacterStats::increase_hit(float increase) {
     base_stats->increase_hit(increase);
+    pchar->get_combat_roll()->update_miss_chance(get_hit_chance());
 }
 
 void CharacterStats::decrease_hit(float decrease) {
     base_stats->decrease_hit(decrease);
+    pchar->get_combat_roll()->update_miss_chance(get_hit_chance());
 }
 
 void CharacterStats::increase_crit(float increase) {

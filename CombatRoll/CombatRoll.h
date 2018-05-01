@@ -30,10 +30,14 @@ public:
     void set_character(Character*);
 
     float get_white_miss_chance(const int);
+    float get_yellow_miss_chance(const int wpn_skill);
     float get_glancing_blow_chance();
     float get_glancing_blow_dmg_penalty(const int);
 
     void update_crit_chance(const float critical);
+    void update_miss_chance(const float hit);
+
+    void dump_tables();
 
 protected:
 private:

@@ -5,28 +5,32 @@
 
 class WhiteHitTable: public AttackTable {
 public:
-    WhiteHitTable(const float miss, const float dodge, const float parry,
+    WhiteHitTable(const int wpn_skill, const float miss, const float dodge, const float parry,
                   const float glancing, const float block,  const float critical);
 
     int get_outcome(const int, const float crit_mod) override;
     void dump_table(void) override;
     void update_crit_chance(const float critical) override;
+    void update_miss_chance(const float miss) override;
+    void update_dodge_chance(const float dodge);
+    void update_parry_chance(const float parry);
+    void update_glancing_chance(const float glancing);
+    void update_block_chance(const float block);
 
-    void set_miss_range(const int range);
-    void set_dodge_range(const int range);
-    void set_parry_range(const int range);
-    void set_block_range(const int range);
-    void set_glancing_range(const int range);
+    int get_wpn_skill();
+
+    void update_ranges();
 
 protected:
 private:
+    const int wpn_skill;
+
     float miss;
     float dodge;
     float parry;
     float glancing;
     float block;
     float critical;
-    int wpn_skill;
 
     int range;
     int miss_range;
