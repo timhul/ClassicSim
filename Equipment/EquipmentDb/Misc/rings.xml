@@ -27,4 +27,32 @@
 			</source>
 		</patch>
 	</ring>
+	
+	<ring name="Band of Accuria">
+		<patch name="1.0.0">
+			<info type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
+			<stats>
+				<stat type="STAMINA" value="10"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+	</ring>
+	
+	<ring name="Master Dragonslayer's Ring">
+		<patch name="1.6.0">
+			<info type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
+			<stats>
+				<stat type="STAMINA" value="14"/>
+				<stat type="ATTACK_POWER" value="48"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires Head of Nefarian from Blackwing Lair.
+			</source>
+		</patch>
+	</ring>
 </items>

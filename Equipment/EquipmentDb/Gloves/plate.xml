@@ -13,5 +13,21 @@
 			Drops from several bosses in Molten Core.
 			</source>
 		</patch>
-	</gloves>	
+	</gloves>
+	
+	<gloves name="Gauntlets of Annihilation">
+		<patch name="1.9.0">
+			<info type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
+			<stats>
+				<stat type="ARMOR" value="615"/>
+				<stat type="STRENGTH" value="35"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</gloves>
 </items>

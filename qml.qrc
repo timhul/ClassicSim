@@ -196,5 +196,16 @@
         <file>QML/Assets/buffs/Spell_holy_mindvision.png</file>
         <file>QML/Assets/buffs/Ability_creature_poison_05.png</file>
         <file>QML/Assets/buffs/Spell_nature_undyingstrength.png</file>
+        <file>QML/Assets/items/Inv_bracer_13.png</file>
+        <file>QML/Assets/items/Inv_bracer_04.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_15.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_31.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_naxxramas_03.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_28naxxramas.png</file>
+        <file>QML/Assets/items/Inv_shoulder_35.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_20.png</file>
+        <file>QML/Assets/items/Inv_belt_13.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_41.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_15.png</file>
     </qresource>
 </RCC>

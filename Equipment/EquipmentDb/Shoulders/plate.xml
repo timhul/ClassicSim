@@ -15,4 +15,22 @@
 			</source>
 		</patch>
 	</shoulders>
+	
+	<shoulders name="Conqueror's Spaulders">
+		<patch name="1.9.0">
+			<info type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_35.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="659"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STRENGTH" value="20"/>
+				<stat type="STAMINA" value="21"/>
+				<stat type="DEFENSE" value="4"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</shoulders>
 </items>

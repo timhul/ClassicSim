@@ -12,5 +12,21 @@
 			Quest reward. Elite group quest in Badlands.
 			</source>
 		</patch>
-	</chest>	
+	</chest>
+	
+	<chest name="Plated Abomination Ribcage">
+		<patch name="1.11.0">
+			<info type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
+			<stats>
+				<stat type="ARMOR" value="953"/>
+				<stat type="STRENGTH" value="45"/>
+				<stat type="STAMINA" value="25"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Thaddius in Naxxramas.
+			</source>
+		</patch>
+	</chest>
 </items>

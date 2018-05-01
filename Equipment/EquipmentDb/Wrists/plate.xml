@@ -12,5 +12,20 @@
 			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
 			</source>
 		</patch>
+	</wrist>
+	
+	<wrist name="Wristguards of Vengeance">
+		<patch name="1.11.0">
+			<info type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
+			<stats>
+				<stat type="ARMOR" value="407"/>
+				<stat type="STRENGTH" value="24"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Anub'Rekhan in Naxxramas.
+			</source>
+		</patch>
 	</wrist>	
 </items>

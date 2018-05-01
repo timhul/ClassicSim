@@ -14,5 +14,22 @@
 			Drops from Ragnaros in Molten Core.
 			</source>
 		</patch>
+	</belt>
+	
+	<belt name="Girdle of the Mentor">
+		<patch name="1.11.0">
+			<info type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_belt_13.png"/>
+			<stats>
+				<stat type="ARMOR" value="536"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="STAMINA" value="21"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Instructor Razuvious in Naxxramas.
+			</source>
+		</patch>
 	</belt>	
 </items>

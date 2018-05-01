@@ -30,4 +30,34 @@
 			</source>
 		</patch>
 	</wrist>
+	
+	<wrist name="Wristguards of Stability">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_04.png"/>
+			<stats>
+				<stat type="ARMOR" value="86"/>
+				<stat type="STRENGTH" value="24"/>
+				<stat type="STAMINA" value="8"/>
+			</stats>
+			<source>
+			Drops from several bosses in Molten Core.
+			</source>
+		</patch>
+	</wrist>
+	
+	<wrist name="Qiraji Execution Bracers">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
+			<stats>
+				<stat type="ARMOR" value="103"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</wrist>
 </items>
