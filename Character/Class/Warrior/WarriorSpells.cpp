@@ -80,8 +80,7 @@ void WarriorSpells::rotation() {
     if (pchar->get_curr_rage() < 50)
         try_bloodrage();
 
-    if (pchar->get_curr_rage() > 50 && !pchar->get_hs_buff()->is_active())
-        pchar->get_hs_buff()->apply_buff();
+    try_heroic_strike();
 
     if (!pchar->action_ready())
         return;
@@ -96,6 +95,9 @@ void WarriorSpells::rotation() {
         return;
 
     if (try_bloodthirst())
+        return;
+
+    if (try_whirlwind())
         return;
 }
 
@@ -218,10 +220,25 @@ void WarriorSpells::try_bloodrage() {
 }
 
 void WarriorSpells::try_heroic_strike() {
+    // TODO: Refactor this check into separate target mechanic.
+    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
+    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
 
+    if (execute_phase)
+        return;
+
+    if (pchar->get_curr_rage() > 50 && !pchar->get_hs_buff()->is_active())
+        pchar->get_hs_buff()->apply_buff();
 }
 
 bool WarriorSpells::try_bloodthirst() {
+    // TODO: Refactor this check into separate target mechanic.
+    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
+    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
+
+    if (execute_phase)
+        return false;
+
     if (bt->is_enabled() && bt->is_available(pchar->get_curr_rage())) {
         pchar->lose_rage(bt->perform(pchar->get_curr_rage()));
         return true;
@@ -231,7 +248,15 @@ bool WarriorSpells::try_bloodthirst() {
 }
 
 bool WarriorSpells::try_execute() {
-    // TODO: Check if execute is available. Requires target health.
+    // TODO: Refactor this check into separate target mechanic.
+    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
+    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
+
+    if (execute_phase && execute->is_available(pchar->get_curr_rage())) {
+        pchar->lose_rage(execute->perform(pchar->get_curr_rage()));
+        return true;
+    }
+
     return false;
 }
 
@@ -258,5 +283,17 @@ bool WarriorSpells::try_battle_shout() {
 }
 
 bool WarriorSpells::try_whirlwind() {
+    // TODO: Refactor this check into separate target mechanic.
+    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
+    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
+
+    if (execute_phase)
+        return false;
+
+    if (whirlwind->is_available(pchar->get_curr_rage())) {
+        pchar->lose_rage(whirlwind->perform(pchar->get_curr_rage()));
+        return true;
+    }
+
     return false;
 }
