@@ -270,14 +270,8 @@ int Character::get_wpn_skill(Weapon* weapon) const {
 }
 
 void Character::increase_attack_speed(int increase) {
-    attack_speed_buffs.append(increase);
+    cstats->increase_haste(increase);
     float increase_float = float(increase) / 100;
-    cstats->increase_mh_haste(increase_float);
-
-    if (has_offhand())
-        cstats->increase_oh_haste(increase_float);
-
-    cstats->get_stats()->increase_attack_speed(increase_float);
 
     mh_attack->update_next_expected_use(increase_float);
     // TODO: Check if actually attacking
@@ -291,14 +285,8 @@ void Character::increase_attack_speed(int increase) {
 }
 
 void Character::decrease_attack_speed(int decrease) {
-    assert(attack_speed_buffs.removeOne(decrease));
+    cstats->decrease_haste(decrease);
     float decrease_float = float(decrease) / 100;
-    cstats->decrease_mh_haste(decrease_float);
-
-    if (has_offhand())
-        cstats->decrease_mh_haste(decrease_float);
-
-    cstats->get_stats()->decrease_attack_speed(decrease_float);
 
     mh_attack->update_next_expected_use(-decrease_float);
     // TODO: Check if actually attacking
@@ -334,10 +322,9 @@ void Character::reset() {
     buffs->reset();
     spells->reset();
     procs->reset();
+    cstats->reset();
 
     reset_resource();
-
-    assert(attack_speed_buffs.empty());
 }
 
 void Character::dump() {

@@ -13,8 +13,7 @@ CharacterStats::CharacterStats(Character* pchar, Equipment* equipment, QObject* 
     this->base_stats = new Stats();
     this->total_phys_dmg_mod = 1.0;
     // TODO: Get haste enchants from gear
-    this->mh_haste = 0;
-    this->oh_haste = 0;
+    this->haste_factor = 1.0;
 }
 
 CharacterStats::~CharacterStats() {
@@ -60,28 +59,24 @@ float CharacterStats::get_crit_chance(void) const {
     return equip_effect + crit_from_agi / 100;
 }
 
-float CharacterStats::get_mh_haste() {
-    return mh_haste;
+void CharacterStats::increase_haste(const int increase) {
+    attack_speed_buffs.append(increase);
+
+    haste_factor = 1.0;
+    for (int i = 0; i < attack_speed_buffs.size(); ++i) {
+        float haste_buff = float(attack_speed_buffs[i]) / 100;
+        haste_factor *= 1 + haste_buff;
+    }
 }
 
-float CharacterStats::get_oh_haste() {
-    return oh_haste;
-}
+void CharacterStats::decrease_haste(const int decrease) {
+    assert(attack_speed_buffs.removeOne(decrease));
 
-void CharacterStats::increase_mh_haste(const float increase) {
-    mh_haste += increase;
-}
-
-void CharacterStats::decrease_mh_haste(const float decrease) {
-    mh_haste -= decrease;
-}
-
-void CharacterStats::increase_oh_haste(const float increase) {
-    oh_haste += increase;
-}
-
-void CharacterStats::decrease_oh_haste(const float decrease) {
-    oh_haste -= decrease;
+    haste_factor = 1.0;
+    for (int i = 0; i < attack_speed_buffs.size(); ++i) {
+        float haste_buff = float(attack_speed_buffs[i]) / 100;
+        haste_factor *= 1 + haste_buff;
+    }
 }
 
 void CharacterStats::increase_strength(const int increase) {
@@ -136,11 +131,17 @@ void CharacterStats::decrease_total_phys_dmg_mod(float decrease) {
 }
 
 float CharacterStats::get_mh_wpn_speed() {
-    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / (1 + mh_haste) :
-                                   2.0 / 1 + mh_haste;
+    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / haste_factor :
+                                   2.0 / haste_factor;
 }
 
 float CharacterStats::get_oh_wpn_speed() {
-    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / (1 + oh_haste) :
+    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / haste_factor :
                                   300;
+}
+
+void CharacterStats::reset() {
+    attack_speed_buffs.clear();
+    haste_factor = 1.0;
+    // TODO: Add +1% haste enchant from gear
 }

@@ -120,7 +120,6 @@ protected:
     Spells* spells;
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
-    QVector<int> attack_speed_buffs;
 
     float ability_crit_dmg_mod;
 

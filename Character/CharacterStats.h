@@ -2,6 +2,7 @@
 #define CHARACTERSTATS_H
 
 #include <QObject>
+#include <QVector>
 
 class Character;
 class Race;
@@ -33,14 +34,8 @@ public:
     int get_oh_wpn_skill();
     int get_ranged_wpn_skill();
 
-    float get_mh_haste();
-    float get_oh_haste();
-
-    void increase_mh_haste(const float);
-    void decrease_mh_haste(const float);
-
-    void increase_oh_haste(const float);
-    void decrease_oh_haste(const float);
+    void increase_haste(const int);
+    void decrease_haste(const int);
 
     void increase_strength(const int);
     void decrease_strength(const int);
@@ -61,14 +56,16 @@ public:
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
 
+    void reset();
+
 protected:
     Character* pchar;
     Equipment* equipment;
     Stats* base_stats;
+    QVector<int> attack_speed_buffs;
 
     int ranged_ap;
-    float mh_haste;
-    float oh_haste;
+    float haste_factor;
     float ability_crit_dmg_mod;
     float total_phys_dmg_mod;
 
