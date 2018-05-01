@@ -18,16 +18,7 @@ CombatRoll::CombatRoll(Target* _tar):
 CombatRoll::~CombatRoll() {
     delete random;
 
-    for (auto it : auto_attack_tables.keys()) {
-        delete auto_attack_tables.value(it);
-    }
-
-    for (auto it : melee_special_tables.keys()) {
-        delete melee_special_tables.value(it);
-    }
-
-    auto_attack_tables.clear();
-    melee_special_tables.clear();
+    drop_tables();
 
     if (mechanics != nullptr) {
         delete mechanics;
@@ -177,4 +168,17 @@ void CombatRoll::dump_tables() {
     for (auto it : melee_special_tables.keys()) {
         melee_special_tables.value(it)->dump_table();
     }
+}
+
+void CombatRoll::drop_tables() {
+    for (auto it : auto_attack_tables.keys()) {
+        delete auto_attack_tables.value(it);
+    }
+
+    for (auto it : melee_special_tables.keys()) {
+        delete melee_special_tables.value(it);
+    }
+
+    auto_attack_tables.clear();
+    melee_special_tables.clear();
 }

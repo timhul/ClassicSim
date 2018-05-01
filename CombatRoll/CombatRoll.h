@@ -38,6 +38,7 @@ public:
     void update_miss_chance(const float hit);
 
     void dump_tables();
+    void drop_tables();
 
 protected:
 private:

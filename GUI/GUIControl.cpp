@@ -290,6 +290,7 @@ WeaponModel* GUIControl::get_weapon_model() const {
 void GUIControl::run_quick_sim() {
     current_char->dump();
     engine->prepare();
+    combat->drop_tables();
     // TODO: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
         EncounterStart* start_event = new EncounterStart(current_char);
