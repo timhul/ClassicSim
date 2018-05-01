@@ -30,6 +30,22 @@ void TestMainhandAttackWarrior::test_all() {
     tear_down();
 
     set_up();
+    test_glancing_damage_300_wpn_skill();
+    tear_down();
+
+    set_up();
+    test_glancing_damage_305_wpn_skill();
+    tear_down();
+
+    set_up();
+    test_glancing_damage_310_wpn_skill();
+    tear_down();
+
+    set_up();
+    test_glancing_damage_315_wpn_skill();
+    tear_down();
+
+    set_up();
     test_mid_swing_haste_increase_updates_attack_speed();
     tear_down();
 
@@ -99,6 +115,66 @@ void TestMainhandAttackWarrior::test_crit_dmg() {
     // [Damage] = base_dmg + (wpn_speed * AP / 14) * crit_dmg_modifier
     // [571] = (100 + (2.6 * 1000 / 14)) * 2.0
     then_damage_dealt_is(571);
+}
+
+void TestMainhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
+    given_a_guaranteed_white_glancing_blow();
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_300_weapon_skill_mh();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_mh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
+    // [100] = (100 + (2.6 * 1000 / 14)) * 0.7
+    then_damage_dealt_is(200);
+}
+
+void TestMainhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_305_weapon_skill_mh();
+    given_a_guaranteed_white_glancing_blow();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_mh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
+    // [121] = (100 + (2.6 * 1000 / 14)) * 0.85
+    then_damage_dealt_is(243);
+}
+
+void TestMainhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_310_weapon_skill_mh();
+    given_a_guaranteed_white_glancing_blow();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_mh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
+    // [143] = (100 + (2.6 * 1000 / 14)) * 1.0
+    then_damage_dealt_is(286);
+}
+
+void TestMainhandAttackWarrior::test_glancing_damage_315_wpn_skill() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_315_weapon_skill_mh();
+    given_a_guaranteed_white_glancing_blow();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_mh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
+    // [143] = (100 + (2.6 * 1000 / 14)) * 1.0
+    then_damage_dealt_is(286);
 }
 
 void TestMainhandAttackWarrior::test_mid_swing_haste_increase_updates_attack_speed() {

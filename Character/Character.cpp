@@ -220,12 +220,12 @@ float Character::get_non_normalized_dmg(const int damage, const float wpn_speed)
 
 int Character::get_mh_wpn_skill() {
     return cstats->get_equipment()->get_mainhand() != nullptr ? get_wpn_skill(cstats->get_equipment()->get_mainhand()) :
-                                                               get_clvl() * 5;
+                                                                get_clvl() * 5;
 }
 
 int Character::get_oh_wpn_skill() {
     return cstats->get_equipment()->get_offhand() != nullptr ? get_wpn_skill(cstats->get_equipment()->get_offhand()) :
-                                                              get_clvl() * 5;
+                                                               get_clvl() * 5;
 }
 
 int Character::get_wpn_skill(Weapon* weapon) const {

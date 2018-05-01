@@ -45,7 +45,7 @@ int OffhandAttackWarrior::spell_effect(const int) {
         return rage_gained;
     }
     if (result->is_glancing()) {
-        damage_dealt = round(roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
+        damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
         const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
         pchar->melee_oh_hit_effect();
         add_success_stats("Glancing", damage_dealt, rage_gained);

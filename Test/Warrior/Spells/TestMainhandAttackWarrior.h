@@ -19,6 +19,11 @@ public:
     void test_hit_dmg();
     void test_crit_dmg();
 
+    void test_glancing_damage_300_wpn_skill();
+    void test_glancing_damage_305_wpn_skill();
+    void test_glancing_damage_310_wpn_skill();
+    void test_glancing_damage_315_wpn_skill();
+
     void test_mid_swing_haste_increase_updates_attack_speed();
     void test_mid_swing_haste_decrease_updates_attack_speed();
 

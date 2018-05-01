@@ -71,6 +71,22 @@ void TestOffhandAttackWarrior::test_all() {
     tear_down();
 
     set_up();
+    test_glancing_damage_300_wpn_skill();
+    tear_down();
+
+    set_up();
+    test_glancing_damage_305_wpn_skill();
+    tear_down();
+
+    set_up();
+    test_glancing_damage_310_wpn_skill();
+    tear_down();
+
+    set_up();
+    test_glancing_damage_315_wpn_skill();
+    tear_down();
+
+    set_up();
     test_mid_swing_haste_increase_updates_attack_speed();
     tear_down();
 
@@ -292,6 +308,66 @@ void TestOffhandAttackWarrior::test_crit_dmg_5_of_5_dual_wield_specialization() 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * crit_dmg_modifier * dual_wield_penalty
     // [357] = (100 + (2.6 * 1000 / 14)) * 2 * 0.625
     then_damage_dealt_is(357);
+}
+
+void TestOffhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
+    given_a_guaranteed_white_glancing_blow();
+    given_an_offhand_weapon_with_100_min_max_dmg();
+    given_300_weapon_skill_oh();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_oh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier * dual_wield_penalty
+    // [100] = (100 + (2.6 * 1000 / 14)) * 0.7 * 0.5
+    then_damage_dealt_is(100);
+}
+
+void TestOffhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
+    given_305_weapon_skill_oh();
+    given_a_guaranteed_white_glancing_blow();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_oh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier * dual_wield_penalty
+    // [121] = (100 + (2.6 * 1000 / 14)) * 0.85 * 0.5
+    then_damage_dealt_is(121);
+}
+
+void TestOffhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
+    given_310_weapon_skill_oh();
+    given_a_guaranteed_white_glancing_blow();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_oh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier * dual_wield_penalty
+    // [143] = (100 + (2.6 * 1000 / 14)) * 1.0 * 0.5
+    then_damage_dealt_is(143);
+}
+
+void TestOffhandAttackWarrior::test_glancing_damage_315_wpn_skill() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
+    given_315_weapon_skill_oh();
+    given_a_guaranteed_white_glancing_blow();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_2_impale();
+
+    when_oh_attack_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier * dual_wield_penalty
+    // [143] = (100 + (2.6 * 1000 / 14)) * 1.0 * 0.5
+    then_damage_dealt_is(143);
 }
 
 void TestOffhandAttackWarrior::test_mid_swing_haste_increase_updates_attack_speed() {

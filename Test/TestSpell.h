@@ -20,9 +20,18 @@ public:
 
     void given_no_previous_damage_dealt();
     void given_a_guaranteed_white_hit();
+    void given_a_guaranteed_white_glancing_blow();
     void given_a_guaranteed_white_crit();
     void given_a_guaranteed_melee_ability_crit();
     void given_a_guaranteed_melee_ability_hit();
+    void given_300_weapon_skill_mh();
+    void given_305_weapon_skill_mh();
+    void given_310_weapon_skill_mh();
+    void given_315_weapon_skill_mh();
+    void given_300_weapon_skill_oh();
+    void given_305_weapon_skill_oh();
+    void given_310_weapon_skill_oh();
+    void given_315_weapon_skill_oh();
     void given_a_mainhand_weapon_with_100_min_max_dmg();
     void given_a_mainhand_weapon_with_3_speed();
     void given_a_mainhand_weapon_with_2_speed();
@@ -50,6 +59,7 @@ protected:
     void set_melee_special_table_for_crit(const int wpn_skill);
 
     void set_melee_auto_table_for_hit(const int wpn_skill);
+    void set_melee_auto_table_for_glancing(const int wpn_skill);
     void set_melee_auto_table_for_crit(const int wpn_skill);
 };
 

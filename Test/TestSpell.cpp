@@ -10,7 +10,9 @@
 #include "Target.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "Stats.h"
 #include "Onehand.h"
+#include "Item.h"
 #include "EquipmentDb.h"
 #include "MainhandMeleeHit.h"
 
@@ -47,6 +49,11 @@ void TestSpell::given_no_previous_damage_dealt() {
 void TestSpell::given_a_guaranteed_white_hit() {
     set_melee_auto_table_for_hit(pchar->get_mh_wpn_skill());
     set_melee_auto_table_for_hit(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_white_glancing_blow() {
+    set_melee_auto_table_for_glancing(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_glancing(pchar->get_oh_wpn_skill());
 }
 
 void TestSpell::given_a_guaranteed_white_crit() {
@@ -102,6 +109,19 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
     assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
 }
 
+void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
+    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
+    table->update_glancing_chance(1.0);
+    table->update_crit_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == Outcome::GLANCING);
+    assert(table->get_outcome(9999, 0.0) == Outcome::GLANCING);
+}
+
 void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
     WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
@@ -144,6 +164,104 @@ void TestSpell::given_a_mainhand_weapon_with_2_speed() {
 
     pchar->get_equipment()->set_mainhand("Test 2 Speed");
     assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 2);
+}
+
+void TestSpell::given_300_weapon_skill_mh() {
+    assert(pchar->get_mh_wpn_skill() == 300);
+}
+
+void TestSpell::given_305_weapon_skill_mh() {
+    if (equipment->get_db()->get_ring("Test +5 Sword Skill") == nullptr) {
+        QMap<QString, QString> info = {{"slot", "RING"}};
+        QVector<QPair<QString, QString>> stats;
+        stats.append(QPair<QString, QString>("SWORD_SKILL", "5"));
+
+        Item* ring = new Item("Test +5 Sword Skill", stats, info);
+        equipment->get_db()->add_ring(ring);
+    }
+
+    pchar->get_equipment()->set_ring1("Test +5 Sword Skill");
+
+    assert(pchar->get_mh_wpn_skill() == 305);
+}
+
+void TestSpell::given_310_weapon_skill_mh() {
+    if (equipment->get_db()->get_ring("Test +10 Sword Skill") == nullptr) {
+        QMap<QString, QString> info = {{"slot", "RING"}};
+        QVector<QPair<QString, QString>> stats;
+        stats.append(QPair<QString, QString>("SWORD_SKILL", "10"));
+
+        Item* ring = new Item("Test +10 Sword Skill", stats, info);
+        equipment->get_db()->add_ring(ring);
+    }
+
+    pchar->get_equipment()->set_ring1("Test +10 Sword Skill");
+
+    assert(pchar->get_mh_wpn_skill() == 310);
+}
+
+void TestSpell::given_315_weapon_skill_mh() {
+    if (equipment->get_db()->get_ring("Test +15 Sword Skill") == nullptr) {
+        QMap<QString, QString> info = {{"slot", "RING"}};
+        QVector<QPair<QString, QString>> stats;
+        stats.append(QPair<QString, QString>("SWORD_SKILL", "15"));
+
+        Item* ring = new Item("Test +15 Sword Skill", stats, info);
+        equipment->get_db()->add_ring(ring);
+    }
+
+    pchar->get_equipment()->set_ring1("Test +15 Sword Skill");
+
+    assert(pchar->get_mh_wpn_skill() == 315);
+}
+
+void TestSpell::given_300_weapon_skill_oh() {
+    assert(pchar->get_oh_wpn_skill() == 300);
+}
+
+void TestSpell::given_305_weapon_skill_oh() {
+    if (equipment->get_db()->get_ring("Test +5 Sword Skill") == nullptr) {
+        QMap<QString, QString> info = {{"slot", "RING"}};
+        QVector<QPair<QString, QString>> stats;
+        stats.append(QPair<QString, QString>("SWORD_SKILL", "5"));
+
+        Item* ring = new Item("Test +5 Sword Skill", stats, info);
+        equipment->get_db()->add_ring(ring);
+    }
+
+    pchar->get_equipment()->set_ring1("Test +5 Sword Skill");
+
+    assert(pchar->get_oh_wpn_skill() == 305);
+}
+
+void TestSpell::given_310_weapon_skill_oh() {
+    if (equipment->get_db()->get_ring("Test +10 Sword Skill") == nullptr) {
+        QMap<QString, QString> info = {{"slot", "RING"}};
+        QVector<QPair<QString, QString>> stats;
+        stats.append(QPair<QString, QString>("SWORD_SKILL", "10"));
+
+        Item* ring = new Item("Test +10 Sword Skill", stats, info);
+        equipment->get_db()->add_ring(ring);
+    }
+
+    pchar->get_equipment()->set_ring1("Test +10 Sword Skill");
+
+    assert(pchar->get_oh_wpn_skill() == 310);
+}
+
+void TestSpell::given_315_weapon_skill_oh() {
+    if (equipment->get_db()->get_ring("Test +15 Sword Skill") == nullptr) {
+        QMap<QString, QString> info = {{"slot", "RING"}};
+        QVector<QPair<QString, QString>> stats;
+        stats.append(QPair<QString, QString>("SWORD_SKILL", "15"));
+
+        Item* ring = new Item("Test +15 Sword Skill", stats, info);
+        equipment->get_db()->add_ring(ring);
+    }
+
+    pchar->get_equipment()->set_ring1("Test +15 Sword Skill");
+
+    assert(pchar->get_oh_wpn_skill() == 315);
 }
 
 void TestSpell::given_no_mainhand() {

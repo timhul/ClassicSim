@@ -65,6 +65,11 @@ void EquipmentDb::add_melee_weapon(Weapon* wpn) {
     current_patch_mh_slot_items.append(wpn);
 }
 
+void EquipmentDb::add_ring(Item* ring) {
+    rings.append(ring);
+    current_patch_rings.append(ring);
+}
+
 Weapon* EquipmentDb::get_melee_weapon(const QString &name) {
     for (int i = 0; i < current_patch_mh_slot_items.size(); ++i) {
         if (name == current_patch_mh_slot_items[i]->get_name())

@@ -37,6 +37,7 @@ public:
     const QVector<Item *> &get_slot_items(const int slot) const;
 
     void add_melee_weapon(Weapon* wpn);
+    void add_ring(Item* ring);
 
 protected:
 private:
