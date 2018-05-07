@@ -1,4 +1,4 @@
-QT += quick
+QT += quick charts
 CONFIG += c++11 console
 
 # The following define makes your compiler emit warnings if you use
@@ -148,7 +148,9 @@ SOURCES += main.cpp \
     Character/Class/General/Spells/FieryWeaponAttack.cpp \
     Character/Spells.cpp \
     Character/CharacterStats.cpp \
-    Character/Class/Warrior/WarriorSpells.cpp
+    Character/Class/Warrior/WarriorSpells.cpp \
+    Statistics/Charts/PieChart.cpp \
+    Statistics/Charts/PieChartModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -291,7 +293,9 @@ HEADERS += \
     Character/Class/General/Spells/FieryWeaponAttack.h \
     Character/Spells.h \
     Character/CharacterStats.h \
-    Character/Class/Warrior/WarriorSpells.h
+    Character/Class/Warrior/WarriorSpells.h \
+    Statistics/Charts/PieChart.h \
+    Statistics/Charts/PieChartModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -325,6 +329,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\CombatRoll\AttackTables \
     C:\C++\ClassicSim\Target \
     C:\C++\ClassicSim\Statistics \
+    C:\C++\ClassicSim\Statistics\Charts \
     C:\C++\ClassicSim\Mechanics \
     C:\C++\ClassicSim\Test \
     C:\C++\ClassicSim\Test\Warrior \

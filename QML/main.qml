@@ -161,12 +161,13 @@ Window {
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
 
-        state: "BUFFS"
+        state: "STATISTICS"
 
         onTalentsClicked: state = "TALENTS"
         onEquipmentClicked: state = "EQUIPMENT"
         onBuffsClicked: state = "BUFFS"
         onSettingsClicked: state = "SETTINGS"
+        onStatisticsClicked: state = "STATISTICS"
     }
 
     Rectangle {
@@ -195,6 +196,14 @@ Window {
 
         Buffs {
             visible: parent.state === "BUFFS"
+        }
+
+        Statistics {
+            visible: parent.state === "STATISTICS"
+        }
+
+        Settings {
+            visible: parent.state ===  "SETTINGS"
         }
     }
 

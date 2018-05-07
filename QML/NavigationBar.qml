@@ -14,6 +14,7 @@ Rectangle {
     signal equipmentClicked();
     signal buffsClicked();
     signal settingsClicked();
+    signal statisticsClicked();
 
     width: 150
 
@@ -21,7 +22,8 @@ Rectangle {
     color: "transparent"
 
     Column {
-        height: chooseTalentsRect.height + chooseBuffsRect.height + chooseFullSimSettingsRect.height + chooseGearRect.height + characterStats.height
+        height: chooseTalentsRect.height + chooseBuffsRect.height + statisticsRect.height +
+                chooseFullSimSettingsRect.height + chooseGearRect.height + characterStats.height
         width: parent.width
 
         RectangleBorders {
@@ -121,6 +123,38 @@ Rectangle {
         }
 
         RectangleBorders {
+            id: statisticsRect
+
+            rectColor: parent.parent.state == "STATISTICS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+
+            height: choiceHeight
+            width: parent.width
+
+            Text {
+                anchors.fill: parent
+
+                text: "Statistics"
+                color: fontColor
+
+                font {
+                    family: fontFamily
+                    pointSize: fontSize
+                    bold: true
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            onRectangleClicked: {
+                if (parent.parent.state !== "STATISTICS") {
+                    parent.parent.state = "STATISTICS"
+                    statisticsClicked()
+                }
+            }
+        }
+
+        RectangleBorders {
             id: chooseFullSimSettingsRect
 
             rectColor: parent.parent.state == "SETTINGS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
@@ -151,6 +185,7 @@ Rectangle {
                 }
             }
         }
+
 
         CharacterStats {
             id: characterStats
