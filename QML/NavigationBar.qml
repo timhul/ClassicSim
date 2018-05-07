@@ -20,333 +20,140 @@ Rectangle {
     state: "TALENTS"
     color: "transparent"
 
-    RectangleBorders {
-        id: chooseTalentsRect
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-        }
+    Column {
+        height: chooseTalentsRect.height + chooseBuffsRect.height + chooseFullSimSettingsRect.height + chooseGearRect.height + characterStats.height
+        width: parent.width
 
-        rectColor: parent.state == "TALENTS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+        RectangleBorders {
+            id: chooseTalentsRect
 
-        height: choiceHeight
+            rectColor: parent.parent.state == "TALENTS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
 
-        Text {
-            anchors.fill: parent
+            height: choiceHeight
+            width: parent.width
 
-            text: "Talents"
-            color: fontColor
+            Text {
+                anchors.fill: parent
 
-            font {
-                family: fontFamily
-                pointSize: fontSize
-                bold: true
+                text: "Talents"
+                color: fontColor
+
+                font {
+                    family: fontFamily
+                    pointSize: fontSize
+                    bold: true
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
             }
 
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
+            onRectangleClicked: {
+                if (parent.parent.state !== "TALENTS") {
+                    parent.parent.state = "TALENTS"
+                    talentsClicked()
+                }
+            }
         }
 
-        onRectangleClicked: {
-            if (parent.state !== "TALENTS") {
-                parent.state = "TALENTS"
-                talentsClicked()
+        RectangleBorders {
+            id: chooseGearRect
+
+            rectColor: parent.parent.state == "EQUIPMENT" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+
+            height: choiceHeight
+            width: parent.width
+
+            Text {
+                anchors.fill: parent
+
+                text: "Equipment"
+                color: fontColor
+
+                font {
+                    family: fontFamily
+                    pointSize: fontSize
+                    bold: true
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
             }
+
+            onRectangleClicked: {
+                if (parent.parent.state !== "EQUIPMENT") {
+                    parent.parent.state = "EQUIPMENT"
+                    equipmentClicked()
+                }
+            }
+        }
+
+        RectangleBorders {
+            id: chooseBuffsRect
+
+            rectColor: parent.parent.state == "BUFFS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+
+            height: choiceHeight
+            width: parent.width
+
+            Text {
+                anchors.fill: parent
+
+                text: "Buffs"
+                color: fontColor
+
+                font {
+                    family: fontFamily
+                    pointSize: fontSize
+                    bold: true
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            onRectangleClicked: {
+                if (parent.parent.state !== "BUFFS") {
+                    parent.parent.state = "BUFFS"
+                    buffsClicked()
+                }
+            }
+        }
+
+        RectangleBorders {
+            id: chooseFullSimSettingsRect
+
+            rectColor: parent.parent.state == "SETTINGS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+
+            height: choiceHeight
+            width: parent.width
+
+            Text {
+                anchors.fill: parent
+
+                text: "Settings"
+                color: fontColor
+
+                font {
+                    family: fontFamily
+                    pointSize: fontSize
+                    bold: true
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            onRectangleClicked: {
+                if (parent.parent.state !== "SETTINGS") {
+                    parent.parent.state = "SETTINGS"
+                    settingsClicked()
+                }
+            }
+        }
+
+        CharacterStats {
+            id: characterStats
         }
     }
-
-
-    RectangleBorders {
-        id: chooseGearRect
-        anchors {
-            top: chooseTalentsRect.bottom
-            left: parent.left
-            right: parent.right
-        }
-
-        rectColor: parent.state == "EQUIPMENT" ? choiceSelectedBackgroundColor : choiceBackgroundColor
-
-        height: choiceHeight
-
-        Text {
-            anchors.fill: parent
-
-            text: "Equipment"
-            color: fontColor
-
-            font {
-                family: fontFamily
-                pointSize: fontSize
-                bold: true
-            }
-
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        onRectangleClicked: {
-            if (parent.state !== "EQUIPMENT") {
-                parent.state = "EQUIPMENT"
-                equipmentClicked()
-            }
-        }
-    }
-
-    RectangleBorders {
-        id: chooseBuffsRect
-        anchors {
-            top: chooseGearRect.bottom
-            left: parent.left
-            right: parent.right
-        }
-
-        rectColor: parent.state == "BUFFS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
-
-        height: choiceHeight
-
-        Text {
-            anchors.fill: parent
-
-            text: "Buffs"
-            color: fontColor
-
-            font {
-                family: fontFamily
-                pointSize: fontSize
-                bold: true
-            }
-
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        onRectangleClicked: {
-            if (parent.state !== "BUFFS") {
-                parent.state = "BUFFS"
-                buffsClicked()
-            }
-        }
-    }
-
-    RectangleBorders {
-        id: chooseFullSimSettingsRect
-        anchors {
-            top: chooseBuffsRect.bottom
-            left: parent.left
-            right: parent.right
-        }
-
-        rectColor: parent.state == "SETTINGS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
-
-        height: choiceHeight
-
-        Text {
-            anchors.fill: parent
-
-            text: "Settings"
-            color: fontColor
-
-            font {
-                family: fontFamily
-                pointSize: fontSize
-                bold: true
-            }
-
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        onRectangleClicked: {
-            if (parent.state !== "SETTINGS") {
-                parent.state = "SETTINGS"
-                settingsClicked()
-            }
-        }
-    }
-
-    RectangleBorders {
-        id: characterStats
-        anchors {
-            top: chooseFullSimSettingsRect.bottom
-            right: parent.right
-            left:parent.left
-        }
-
-        rectColor: root.darkDarkGray
-
-        height: 175
-
-        Column {
-            anchors {
-                fill: parent
-                leftMargin: 10
-                topMargin: 10
-            }
-
-            Text {
-                height: 15
-
-                text: "Strength: " + character.strength
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "Agility: " + character.agility
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "Stamina: " + character.stamina
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "Intellect: " + character.intellect
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "Spirit: " + character.spirit
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "Critical strike: " + character.critChance + "%"
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "Hit: " + character.hitChance + "%"
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "Attack Power: " + character.attackPower
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "MH Skill: " + character.wpnSkillMh
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                height: 15
-
-                text: "OH Skill: " + character.wpnSkillOh
-                color: "white"
-
-                font {
-                    family: fontFamily
-                    pointSize: 10
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-        }
-    }
-
-    states: [
-        State {
-            name: "TALENTS"
-        },
-        State {
-            name: "EQUIPMENT"
-        },
-        State {
-            name: "BUFFS"
-        },
-        State {
-            name: "SETTINGS"
-        }]
 }

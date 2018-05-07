@@ -110,6 +110,11 @@ Rectangle {
             height: 448
             width: 426
 
+            CharacterStats {
+                x: parent.width - width - 80
+                y: 7
+            }
+
             Column {
                 width: 46
                 height: parent.height
