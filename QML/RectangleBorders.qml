@@ -51,7 +51,6 @@ Rectangle {
                 radius: setRadius
 
                 MouseArea {
-                    hoverEnabled: true
                     acceptedButtons: Qt.LeftButton | Qt.RightButton
                     anchors.fill: parent
                     onClicked: {
@@ -60,8 +59,6 @@ Rectangle {
                         else
                             rectangleClicked()
                     }
-                    onEntered: parent.color = rectColorHighlighted
-                    onExited: parent.color = rectColor
                 }
             }
         }
