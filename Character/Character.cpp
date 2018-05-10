@@ -184,7 +184,7 @@ float Character::get_random_non_normalized_oh_dmg() {
 
 int Character::get_avg_mh_damage() {
     if (!has_mainhand())
-        return 1;
+        return get_normalized_dmg(1, nullptr);
 
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     int avg_dmg = int(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
@@ -193,6 +193,9 @@ int Character::get_avg_mh_damage() {
 
 float Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
     // TODO: Consider moving these types of mechanical assumptions into e.g. Mechanics
+    if (weapon == nullptr)
+        return get_non_normalized_dmg(damage, 2.0);
+
     float normalized_wpn_speed = -1;
 
     switch (weapon->get_weapon_slot()) {
