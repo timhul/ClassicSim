@@ -114,6 +114,14 @@ public:
     /* End of ItemModel */
 
 
+    /* Statistics */
+    Q_INVOKABLE int getNumStatisticsRows() const;
+    Q_INVOKABLE QVariantList getChartInfo(const int index) const;
+    Q_INVOKABLE QVariantList getTableInfo(const int index) const;
+    Q_INVOKABLE QString getEntryIcon(const int index) const;
+
+    /* End of Statistics */
+
     Q_INVOKABLE void runQuickSim();
     Q_INVOKABLE void setPatch(QString patch);
 
@@ -123,7 +131,10 @@ Q_SIGNALS:
     void statsChanged();
     void equipmentChanged();
     void tooltipChanged();
+    void startQuickSim();
     void quickSimChanged(QString value, QString change, bool positive);
+    void statisticsCleared();
+    void statisticsReady();
 
 private:
     int get_talent_points_remaining() const;
@@ -147,7 +158,7 @@ private:
     int get_mainhand_wpn_skill() const;
     int get_offhand_wpn_skill() const;
 
-    void run_quick_sim();
+    Q_SLOT void run_quick_sim();
 
     QString get_mainhand_icon() const;
     QString get_offhand_icon() const;

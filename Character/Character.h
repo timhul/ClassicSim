@@ -17,6 +17,7 @@ class Buffs;
 class Spells;
 class CombatRoll;
 class Weapon;
+class ClassStatistics;
 
 class Character: public QObject {
     Q_OBJECT
@@ -50,6 +51,7 @@ public:
     Buffs* get_buffs(void) const;
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
+    ClassStatistics* get_statistics(void) const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -114,6 +116,7 @@ protected:
     Procs* procs;
     Buffs* buffs;
     Spells* spells;
+    ClassStatistics* statistics;
 
     float ability_crit_dmg_mod;
 

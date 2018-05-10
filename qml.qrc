@@ -210,5 +210,7 @@
         <file>QML/Settings.qml</file>
         <file>QML/CharacterStats.qml</file>
         <file>QML/Statistics.qml</file>
+        <file>QML/StatisticEntry.qml</file>
+        <file>QML/StaticTable.qml</file>
     </qresource>
 </RCC>

@@ -31,6 +31,7 @@
 #include "EquipmentDb.h"
 
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 
 #include <QDebug>
 
@@ -38,6 +39,8 @@ GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
     last_quick_sim_result(0.0)
 {
+    QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
+
     races.insert("DWARF", new Dwarf());
     races.insert("GNOME", new Gnome());
     races.insert("HUMAN", new Human());
@@ -287,6 +290,22 @@ WeaponModel* GUIControl::get_weapon_model() const {
     return this->weapon_model;
 }
 
+int GUIControl::getNumStatisticsRows() const {
+    return current_char->get_statistics()->getNumStatisticsRows();
+}
+
+QVariantList GUIControl::getChartInfo(const int index) const {
+    return current_char->get_statistics()->getChartInfo(index);
+}
+
+QVariantList GUIControl::getTableInfo(const int index) const {
+    return current_char->get_statistics()->getTableInfo(index);
+}
+
+QString GUIControl::getEntryIcon(const int index) const {
+    return current_char->get_statistics()->getEntryIcon(index);
+}
+
 void GUIControl::run_quick_sim() {
     current_char->dump();
     engine->prepare();
@@ -315,10 +334,12 @@ void GUIControl::run_quick_sim() {
     qDebug() << "Total DPS: " << dps;
     quickSimChanged(dps, change, delta > 0);
     current_char->dump();
+    statisticsReady();
 }
 
 void GUIControl::runQuickSim() {
-    run_quick_sim();
+    statisticsCleared();
+    startQuickSim();
 }
 
 QString GUIControl::get_mainhand_icon() const {

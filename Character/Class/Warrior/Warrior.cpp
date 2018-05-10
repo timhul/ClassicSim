@@ -16,6 +16,7 @@
 #include "Buffs.h"
 #include "WarriorSpells.h"
 #include "CharacterStats.h"
+#include "WarriorStatistics.h"
 #include "Race.h"
 #include "Mainhand.h"
 #include "Offhand.h"
@@ -53,6 +54,8 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     cstats->get_equipment()->set_mainhand("Skullforge Reaver");
     cstats->get_equipment()->set_offhand("Frostbite");
 
+    this->statistics = new WarriorStatistics();
+
     this->warr_spells = new WarriorSpells(this);
     this->spells = dynamic_cast<Spells*>(warr_spells);
 
@@ -74,6 +77,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 
 Warrior::~Warrior() {
     delete warr_spells;
+    delete statistics;
 }
 
 void Warrior::rotation() {

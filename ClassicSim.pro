@@ -150,7 +150,9 @@ SOURCES += main.cpp \
     Character/CharacterStats.cpp \
     Character/Class/Warrior/WarriorSpells.cpp \
     Statistics/Charts/PieChart.cpp \
-    Statistics/Charts/PieChartModel.cpp
+    Statistics/Charts/PieChartModel.cpp \
+    Statistics/ClassStatistics.cpp \
+    Statistics/Class/WarriorStatistics.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -295,7 +297,9 @@ HEADERS += \
     Character/CharacterStats.h \
     Character/Class/Warrior/WarriorSpells.h \
     Statistics/Charts/PieChart.h \
-    Statistics/Charts/PieChartModel.h
+    Statistics/Charts/PieChartModel.h \
+    Statistics/Class/WarriorStatistics.h \
+    Statistics/ClassStatistics.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -330,6 +334,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Target \
     C:\C++\ClassicSim\Statistics \
     C:\C++\ClassicSim\Statistics\Charts \
+    C:\C++\ClassicSim\Statistics\Class \
     C:\C++\ClassicSim\Mechanics \
     C:\C++\ClassicSim\Test \
     C:\C++\ClassicSim\Test\Warrior \

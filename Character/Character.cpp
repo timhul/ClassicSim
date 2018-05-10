@@ -91,6 +91,10 @@ CharacterStats* Character::get_stats(void) const {
     return this->cstats;
 }
 
+ClassStatistics* Character::get_statistics(void) const {
+    return this->statistics;
+}
+
 void Character::start_attack(void) {
     this->melee_attacking = true;
 
