@@ -8,9 +8,10 @@ Procs::Procs(Character* pchar, QObject* parent) :
     QObject(parent),
     pchar(pchar)
 {
-    this->melee_attack_procs = {new WindfuryTotemAttack(pchar->get_engine(), pchar, pchar->get_combat_roll())};
-    this->mainhand_attack_procs = {new Crusader(pchar->get_engine(), pchar, pchar->get_combat_roll(), EnchantSlot::MAINHAND)};
-    this->offhand_attack_procs = {new Crusader(pchar->get_engine(), pchar, pchar->get_combat_roll(), EnchantSlot::OFFHAND)};
+    // TODO: Find way to activate and deactivate baseline procs such as WF/Crusader, etc.
+//    this->melee_attack_procs = {new WindfuryTotemAttack(pchar->get_engine(), pchar, pchar->get_combat_roll())};
+//    this->mainhand_attack_procs = {new Crusader(pchar->get_engine(), pchar, pchar->get_combat_roll(), EnchantSlot::MAINHAND)};
+//    this->offhand_attack_procs = {new Crusader(pchar->get_engine(), pchar, pchar->get_combat_roll(), EnchantSlot::OFFHAND)};
 }
 
 Procs::~Procs()
