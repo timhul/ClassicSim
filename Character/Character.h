@@ -36,6 +36,8 @@ public:
     virtual int get_spirit_modifier() const = 0;
     virtual int get_agi_needed_for_one_percent_phys_crit() const = 0;
     virtual int get_int_needed_for_one_percent_spell_crit() const = 0;
+    virtual int get_ap_per_strength() const = 0;
+    virtual int get_ap_per_agi() const = 0;
 
     virtual QString get_class_color() const = 0;
 
@@ -119,8 +121,6 @@ protected:
     bool melee_attacking;
     float last_action;
 
-    virtual int get_ap_per_strength() const = 0;
-    virtual int get_ap_per_agi() const = 0;
 
     virtual void initialize_talents() = 0;
 

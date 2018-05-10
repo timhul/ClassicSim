@@ -26,6 +26,9 @@ public:
     int get_spirit_modifier() const override;
     int get_agi_needed_for_one_percent_phys_crit() const override;
     int get_int_needed_for_one_percent_spell_crit() const override;
+    int get_ap_per_strength() const override;
+    int get_ap_per_agi() const override;
+
     float global_cooldown() const override;
     int get_curr_rage() const;
     void gain_rage(const int);
@@ -43,8 +46,6 @@ public:
     void melee_oh_hit_effect() override;
     void melee_oh_critical_effect() override;
 
-    int get_ap_per_strength() const override;
-    int get_ap_per_agi() const override;
 
     void reset_resource() override;
     void reset_spells() override;

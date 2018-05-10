@@ -88,7 +88,12 @@ void CharacterStats::decrease_strength(const int decrease) {
 }
 
 int CharacterStats::get_melee_ap() {
-    return base_stats->get_melee_ap_total()  + equipment->get_stats()->get_melee_ap_total();
+    // TODO: Equipment does not know about char, and therefore it cannot calculate modifiers correctly.
+    int eq_base_melee_ap = equipment->get_stats()->get_melee_ap_str_excluded();
+    int eq_str = equipment->get_stats()->get_strength();
+    int eq_agi = equipment->get_stats()->get_agility();
+    int eq_melee_ap = eq_base_melee_ap + eq_str * pchar->get_ap_per_strength() + eq_agi * pchar->get_ap_per_agi();
+    return base_stats->get_melee_ap_total()  + eq_melee_ap;
 }
 
 void CharacterStats::increase_melee_ap(const int increase) {
