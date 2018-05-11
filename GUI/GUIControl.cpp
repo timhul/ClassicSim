@@ -108,6 +108,8 @@ void GUIControl::selectClass(const QString class_name) {
     }
 
     current_char = chars[class_name];
+    reset_race();
+    classChanged();
 }
 
 void GUIControl::selectRace(const QString race_name) {
@@ -133,8 +135,45 @@ void GUIControl::selectFaction(const bool faction) {
     this->faction = faction;
     factionChanged();
 
-    // TODO: Clear race selection (always, since no common races between factions)
-    // TODO: Clear class selection (if paladin/shaman)
+    reset_race();
+
+    if (current_char->get_name() == "Shaman" || current_char->get_name() == "Paladin") {
+        current_char = chars["Warrior"];
+        reset_race();
+        classChanged();
+    }
+}
+
+bool GUIControl::raceAvailable(const QString race_name) {
+    if (!races.contains(race_name)) {
+        qDebug() << QString("Race %1 not found").arg(race_name);
+        return false;
+    }
+
+    return current_char->race_available(races[race_name]);
+}
+
+void GUIControl::reset_race() {
+    QVector<QString> available_races;
+    if (faction == false)
+        available_races = {"Dwarf", "Gnome", "Human", "Night Elf"};
+    else
+        available_races = {"Orc", "Tauren", "Troll", "Undead"};
+
+    for (int i = 0; i < available_races.size(); ++i) {
+        if (!races.contains(available_races[i])) {
+            qDebug() << QString("Race %1 not valid!").arg(available_races[i]);
+            continue;
+        }
+
+        if (current_char->race_available(races[available_races[i]])) {
+            current_char->set_race(races[available_races[i]]);
+            break;
+        }
+    }
+
+    raceChanged();
+    statsChanged();
 }
 
 QString GUIControl::getLeftBackgroundImage() const {

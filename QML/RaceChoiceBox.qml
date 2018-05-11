@@ -11,6 +11,8 @@ RectangleBorders {
     height: sideLength
     width: sideLength
 
+    visible: character.raceAvailable(raceName)
+
     Image {
         id: icon
         source: raceIcon

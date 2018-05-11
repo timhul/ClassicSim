@@ -30,6 +30,8 @@ public:
     Q_INVOKABLE void selectRace(const QString race_name);
     Q_INVOKABLE void selectFaction(const bool faction);
 
+    Q_INVOKABLE bool raceAvailable(const QString race_name);
+
     /* End of Character */
 
     /* Talents */
@@ -150,6 +152,8 @@ private:
     QString get_class_name() const;
     QString get_race_name() const;
     bool get_faction() const;
+
+    void reset_race();
 
     QString getLeftBackgroundImage() const;
     QString getMidBackgroundImage() const;
