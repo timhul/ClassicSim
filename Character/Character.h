@@ -18,12 +18,13 @@ class Spells;
 class CombatRoll;
 class Weapon;
 class ClassStatistics;
+class Faction;
 
 class Character: public QObject {
     Q_OBJECT
 
 public:
-    Character(Race*, Engine*, Equipment*, CombatRoll*, QObject* parent = 0);
+    Character(Race*, Engine*, Equipment*, CombatRoll*, Faction* faction, QObject* parent = 0);
     virtual ~Character();
 
     Race* get_race(void);
@@ -113,6 +114,7 @@ protected:
     Race* race;
     Engine* engine;
     CombatRoll* roll;
+    Faction* faction;
     Talents* talents;
     CharacterStats* cstats;
     Procs* procs;

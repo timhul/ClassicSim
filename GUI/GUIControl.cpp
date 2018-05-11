@@ -56,15 +56,15 @@ GUIControl::GUIControl(QObject* parent) :
     combat = new CombatRoll(target);
     faction = new Faction();
 
-    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat)));
-    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat)));
-    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], engine, equipment, combat)));
-    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], engine, equipment, combat)));
-    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], engine, equipment, combat)));
-    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Orc"], engine, equipment, combat)));
-    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], engine, equipment, combat)));
-    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Troll"], engine, equipment, combat)));
-    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat)));
+    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat, faction)));
+    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat, faction)));
+    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], engine, equipment, combat, faction)));
+    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], engine, equipment, combat, faction)));
+    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], engine, equipment, combat, faction)));
+    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Orc"], engine, equipment, combat, faction)));
+    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], engine, equipment, combat, faction)));
+    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Troll"], engine, equipment, combat, faction)));
+    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat, faction)));
 
     current_char = chars["Warrior"];
 

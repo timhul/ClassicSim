@@ -3,6 +3,7 @@
 
 #include "Orc.h"
 #include "CombatRoll.h"
+#include "Faction.h"
 #include "WhiteHitTable.h"
 #include "MeleeSpecialTable.h"
 #include "Engine.h"
@@ -32,6 +33,7 @@ void TestSpell::set_up_general() {
     target = new Target(63);
     combat = new CombatRoll(target);
     race = new Orc();
+    faction = new Faction();
 }
 
 void TestSpell::tear_down_general() {
@@ -40,6 +42,7 @@ void TestSpell::tear_down_general() {
     delete combat;
     delete target;
     delete race;
+    delete faction;
 }
 
 void TestSpell::given_no_previous_damage_dealt() {

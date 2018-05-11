@@ -7,8 +7,8 @@
 class Druid: public Character {
     Q_OBJECT
 public:
-    Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, parent) {
+    Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
+        Character(race, engine, _eq, _roll, faction, parent) {
         available_races.append("Night Elf");
         available_races.append("Tauren");
     }

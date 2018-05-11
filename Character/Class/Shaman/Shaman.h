@@ -7,8 +7,8 @@
 class Shaman: public Character {
     Q_OBJECT
 public:
-    Shaman(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, parent) {
+    Shaman(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
+        Character(race, engine, _eq, _roll, faction, parent) {
         available_races.append("Orc");
         available_races.append("Tauren");
         available_races.append("Troll");

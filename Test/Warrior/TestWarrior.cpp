@@ -8,6 +8,7 @@
 #include "Equipment.h"
 #include "Target.h"
 #include "CombatRoll.h"
+#include "Faction.h"
 #include "TestExecute.h"
 #include "TestHeroicStrike.h"
 #include "TestBloodthirst.h"
@@ -37,14 +38,16 @@ void TestWarrior::test_char_initialization() {
     Equipment* equipment = new Equipment();
     Target* target = new Target(63);
     CombatRoll* combat = new CombatRoll(target);
+    Faction* faction = new Faction();
 
     Race* race = new Orc();
-    Warrior* warr = new Warrior(race, engine, equipment, combat);
+    Warrior* warr = new Warrior(race, engine, equipment, combat, faction);
 
     assert(warr->get_name() == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");
     // TODO: Add more assertions
 
+    delete faction;
     delete race;
     delete warr;
     delete engine;

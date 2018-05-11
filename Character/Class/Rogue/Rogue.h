@@ -7,8 +7,8 @@
 class Rogue: public Character {
     Q_OBJECT
 public:
-    Rogue(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, parent) {
+    Rogue(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
+        Character(race, engine, _eq, _roll, faction, parent) {
         available_races.append("Dwarf");
         available_races.append("Gnome");
         available_races.append("Human");

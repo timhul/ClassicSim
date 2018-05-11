@@ -28,8 +28,8 @@
 #include "DeathWishBuff.h"
 #include "BattleShoutBuff.h"
 
-Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
-    Character(race, engine, _eq, _roll, parent) {
+Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction *faction, QObject* parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");

@@ -3,6 +3,7 @@
 #include "Race.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "Faction.h"
 #include "Mechanics.h"
 #include "Talents.h"
 #include "CharacterStats.h"
@@ -15,12 +16,13 @@
 #include "OffhandAttack.h"
 #include <QDebug>
 
-Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, QObject* parent) :
+Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, Faction* faction, QObject* parent) :
     QObject(parent)
 {
     this->race = race;
     this->engine = engine;
     this->roll = roll;
+    this->faction = faction,
     this->talents = new Talents();
     // TODO: Consider saving equipment pointer as well, to shorten expressions.
     this->cstats = new CharacterStats(this, equipment);

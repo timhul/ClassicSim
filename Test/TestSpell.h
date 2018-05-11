@@ -6,6 +6,7 @@
 class Engine;
 class Equipment;
 class CombatRoll;
+class Faction;
 class Target;
 class Race;
 class Character;
@@ -51,6 +52,7 @@ protected:
     Engine* engine;
     Equipment* equipment;
     CombatRoll* combat;
+    Faction* faction;
     Target* target;
     Race* race;
     Character* pchar;
