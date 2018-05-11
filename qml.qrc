@@ -223,5 +223,6 @@
         <file>QML/Assets/classes/Ui-charactercreate-classes_warlock.png</file>
         <file>QML/Assets/classes/Ui-charactercreate-classes_warrior.png</file>
         <file>QML/ClassChoiceBox.qml</file>
+        <file>QML/FactionChoice.qml</file>
     </qresource>
 </RCC>

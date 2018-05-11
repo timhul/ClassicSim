@@ -26,6 +26,7 @@ public:
     Q_PROPERTY(bool faction READ get_faction NOTIFY factionChanged)
 
     Q_INVOKABLE void selectClass(const QString class_name);
+    Q_INVOKABLE void selectFaction(const bool faction);
 
     /* End of Character */
 
@@ -198,6 +199,7 @@ private:
     float last_quick_sim_result;
     ItemModel* item_model;
     WeaponModel* weapon_model;
+    bool faction;
 };
 
 #endif // GUICONTROL_H

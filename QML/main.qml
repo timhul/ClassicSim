@@ -66,7 +66,26 @@ Window {
         }
     }
 
+    FactionChoice {
+        id: factionChoice
+
+        anchors {
+            left: parent.left
+            leftMargin: 5
+            top: parent.top
+            topMargin: 5
+        }
+    }
+
     ClassChoice {
+        id: classChoice
+
+        anchors {
+            left: factionChoice.right
+            leftMargin: 5
+            top: parent.top
+            topMargin: 5
+        }
     }
 
     ComboBox {

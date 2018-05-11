@@ -37,7 +37,8 @@
 
 GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
-    last_quick_sim_result(0.0)
+    last_quick_sim_result(0.0),
+    faction(true)
 {
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
 
@@ -107,6 +108,17 @@ void GUIControl::selectClass(const QString class_name) {
     }
 
     current_char = chars[class_name];
+}
+
+void GUIControl::selectFaction(const bool faction) {
+    if (this->faction == faction)
+        return;
+
+    this->faction = faction;
+    factionChanged();
+
+    // TODO: Clear race selection (always, since no common races between factions)
+    // TODO: Clear class selection (if paladin/shaman)
 }
 
 QString GUIControl::getLeftBackgroundImage() const {
@@ -257,9 +269,7 @@ QString GUIControl::get_class_name() const {
 }
 
 bool GUIControl::get_faction() const {
-    // TODO: Remove hardcoded faction
-    // alliance = false, horde = true
-    return true;
+    return faction;
 }
 
 int GUIControl::get_strength() const {
