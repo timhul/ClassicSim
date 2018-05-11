@@ -1,8 +1,5 @@
 
 #include "Stats.h"
-#include "Character.h"
-#include "Race.h"
-#include <QDebug>
 
 Stats::Stats(QObject* parent ) :
     QObject(parent)

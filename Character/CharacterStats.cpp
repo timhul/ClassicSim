@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "Equipment.h"
 #include "Stats.h"
+#include "Race.h"
 #include "CombatRoll.h"
 
 CharacterStats::CharacterStats(Character* pchar, Equipment* equipment, QObject* parent) :
@@ -28,24 +29,24 @@ Stats* CharacterStats::get_stats(void) const {
     return this->base_stats;
 }
 
-int CharacterStats::get_strength(void) {
-    return base_stats->get_strength() + equipment->get_stats()->get_strength();
+int CharacterStats::get_strength(void) const {
+    return base_stats->get_strength() + equipment->get_stats()->get_strength() + pchar->get_race()->get_base_strength();
 }
 
-int CharacterStats::get_agility(void) {
-    return base_stats->get_agility() + equipment->get_stats()->get_agility();
+int CharacterStats::get_agility(void) const {
+    return base_stats->get_agility() + equipment->get_stats()->get_agility() + pchar->get_race()->get_base_agility();
 }
 
-int CharacterStats::get_stamina(void) {
-    return base_stats->get_stamina() + equipment->get_stats()->get_stamina();
+int CharacterStats::get_stamina(void) const {
+    return base_stats->get_stamina() + equipment->get_stats()->get_stamina() + pchar->get_race()->get_base_stamina();
 }
 
-int CharacterStats::get_intellect(void) {
-    return base_stats->get_intellect() + equipment->get_stats()->get_intellect();
+int CharacterStats::get_intellect(void) const {
+    return base_stats->get_intellect() + equipment->get_stats()->get_intellect() + pchar->get_race()->get_base_intellect();
 }
 
-int CharacterStats::get_spirit(void) {
-    return base_stats->get_spirit() + equipment->get_stats()->get_spirit();
+int CharacterStats::get_spirit(void) const {
+    return base_stats->get_spirit() + equipment->get_stats()->get_spirit() + pchar->get_race()->get_base_spirit();
 }
 
 float CharacterStats::get_hit_chance(void) const {
@@ -54,7 +55,7 @@ float CharacterStats::get_hit_chance(void) const {
 
 float CharacterStats::get_crit_chance(void) const {
     const float equip_effect = base_stats->get_crit_chance()  + equipment->get_stats()->get_crit_chance();
-    const float crit_from_agi = float(float((base_stats->get_agility() + equipment->get_stats()->get_agility())) / pchar->get_agi_needed_for_one_percent_phys_crit());
+    const float crit_from_agi = float(float(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit());
 
     return equip_effect + crit_from_agi / 100;
 }
@@ -85,6 +86,38 @@ void CharacterStats::increase_strength(const int increase) {
 
 void CharacterStats::decrease_strength(const int decrease) {
     base_stats->decrease_str(decrease);
+}
+
+void CharacterStats::increase_agility(const int increase) {
+    base_stats->increase_agi(increase);
+}
+
+void CharacterStats::decrease_agility(const int decrease) {
+    base_stats->decrease_agi(decrease);
+}
+
+void CharacterStats::increase_stamina(const int increase) {
+    base_stats->increase_stam(increase);
+}
+
+void CharacterStats::decrease_stamina(const int decrease) {
+    base_stats->decrease_stam(decrease);
+}
+
+void CharacterStats::increase_intellect(const int increase) {
+    base_stats->increase_int(increase);
+}
+
+void CharacterStats::decrease_intellect(const int decrease) {
+    base_stats->decrease_int(decrease);
+}
+
+void CharacterStats::increase_spirit(const int increase) {
+    base_stats->increase_spi(increase);
+}
+
+void CharacterStats::decrease_spirit(const int decrease) {
+    base_stats->decrease_spi(decrease);
 }
 
 int CharacterStats::get_melee_ap() {

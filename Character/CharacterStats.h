@@ -20,11 +20,11 @@ public:
     Equipment* get_equipment(void) const;
     Stats* get_stats(void) const;
 
-    int get_strength();
-    int get_agility();
-    int get_stamina();
-    int get_intellect();
-    int get_spirit();
+    int get_strength() const;
+    int get_agility() const;
+    int get_stamina() const;
+    int get_intellect() const;
+    int get_spirit() const;
     float get_hit_chance(void) const;
     float get_crit_chance(void) const;
 
@@ -39,6 +39,18 @@ public:
 
     void increase_strength(const int);
     void decrease_strength(const int);
+
+    void increase_agility(const int);
+    void decrease_agility(const int);
+
+    void increase_stamina(const int);
+    void decrease_stamina(const int);
+
+    void increase_intellect(const int);
+    void decrease_intellect(const int);
+
+    void increase_spirit(const int);
+    void decrease_spirit(const int);
 
     int get_melee_ap();
     void increase_melee_ap(const int);

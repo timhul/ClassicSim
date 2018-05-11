@@ -1,11 +1,7 @@
 #ifndef STATS_H
 #define STATS_H
 
-#include <QString>
-#include <QMap>
 #include <QObject>
-
-class Character;
 
 class Stats: public QObject {
     Q_OBJECT
