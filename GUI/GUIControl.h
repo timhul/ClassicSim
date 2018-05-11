@@ -23,9 +23,11 @@ public:
     /* Character */
     Q_PROPERTY(QString classColor READ get_class_color NOTIFY classChanged)
     Q_PROPERTY(QString className READ get_class_name NOTIFY classChanged)
+    Q_PROPERTY(QString raceName READ get_race_name NOTIFY raceChanged)
     Q_PROPERTY(bool faction READ get_faction NOTIFY factionChanged)
 
     Q_INVOKABLE void selectClass(const QString class_name);
+    Q_INVOKABLE void selectRace(const QString race_name);
     Q_INVOKABLE void selectFaction(const bool faction);
 
     /* End of Character */
@@ -130,8 +132,10 @@ public:
     Q_INVOKABLE void setPatch(QString patch);
 
 Q_SIGNALS:
-    void talentsUpdated();
     void classChanged();
+    void raceChanged();
+    void factionChanged();
+    void talentsUpdated();
     void statsChanged();
     void equipmentChanged();
     void tooltipChanged();
@@ -139,12 +143,12 @@ Q_SIGNALS:
     void quickSimChanged(QString value, QString change, bool positive);
     void statisticsCleared();
     void statisticsReady();
-    void factionChanged();
 
 private:
     int get_talent_points_remaining() const;
     QString get_class_color() const;
     QString get_class_name() const;
+    QString get_race_name() const;
     bool get_faction() const;
 
     QString getLeftBackgroundImage() const;

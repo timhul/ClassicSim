@@ -224,5 +224,15 @@
         <file>QML/Assets/classes/Ui-charactercreate-classes_warrior.png</file>
         <file>QML/ClassChoiceBox.qml</file>
         <file>QML/FactionChoice.qml</file>
+        <file>QML/RaceChoice.qml</file>
+        <file>QML/RaceChoiceBox.qml</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_dwarf-female.png</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_gnome-female.png</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_human-female.png</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_nightelf-female.png</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_orc-female.png</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_tauren-female.png</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_troll-female.png</file>
+        <file>QML/Assets/races/Ui-charactercreate-races_undead-female.png</file>
     </qresource>
 </RCC>

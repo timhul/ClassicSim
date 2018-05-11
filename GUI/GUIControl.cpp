@@ -42,29 +42,29 @@ GUIControl::GUIControl(QObject* parent) :
 {
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
 
-    races.insert("DWARF", new Dwarf());
-    races.insert("GNOME", new Gnome());
-    races.insert("HUMAN", new Human());
-    races.insert("NIGHTELF", new NightElf());
-    races.insert("ORC", new Orc());
-    races.insert("TAUREN", new Tauren());
-    races.insert("TROLL", new Troll());
-    races.insert("UNDEAD", new Undead());
+    races.insert("Dwarf", new Dwarf());
+    races.insert("Gnome", new Gnome());
+    races.insert("Human", new Human());
+    races.insert("NightElf", new NightElf());
+    races.insert("Orc", new Orc());
+    races.insert("Tauren", new Tauren());
+    races.insert("Troll", new Troll());
+    races.insert("Undead", new Undead());
 
     engine = new Engine();
     equipment = new Equipment();
     target = new Target(63);
     combat = new CombatRoll(target);
 
-    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["NIGHTELF"], engine, equipment, combat)));
-    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["DWARF"], engine, equipment, combat)));
-    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["GNOME"], engine, equipment, combat)));
-    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["HUMAN"], engine, equipment, combat)));
-    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["UNDEAD"], engine, equipment, combat)));
-    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["ORC"], engine, equipment, combat)));
-    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["TAUREN"], engine, equipment, combat)));
-    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["TROLL"], engine, equipment, combat)));
-    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["ORC"], engine, equipment, combat)));
+    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["NightElf"], engine, equipment, combat)));
+    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat)));
+    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], engine, equipment, combat)));
+    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], engine, equipment, combat)));
+    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], engine, equipment, combat)));
+    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Orc"], engine, equipment, combat)));
+    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], engine, equipment, combat)));
+    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Troll"], engine, equipment, combat)));
+    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat)));
 
     current_char = chars["Warrior"];
 
@@ -108,6 +108,22 @@ void GUIControl::selectClass(const QString class_name) {
     }
 
     current_char = chars[class_name];
+}
+
+void GUIControl::selectRace(const QString race_name) {
+    if (!races.contains(race_name)) {
+        qDebug() << QString("Race %1 not found").arg(race_name);
+        return;
+    }
+
+    if (!current_char->race_available(races[race_name])) {
+        qDebug() << QString("Race %1 not available for %2").arg(race_name, current_char->get_name());
+        return;
+    }
+
+    current_char->set_race(races[race_name]);
+    raceChanged();
+    statsChanged();
 }
 
 void GUIControl::selectFaction(const bool faction) {
@@ -266,6 +282,10 @@ QString GUIControl::get_class_color() const {
 
 QString GUIControl::get_class_name() const {
     return current_char->get_name();
+}
+
+QString GUIControl::get_race_name() const {
+    return current_char->get_race()->get_name();
 }
 
 bool GUIControl::get_faction() const {

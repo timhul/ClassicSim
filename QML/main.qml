@@ -91,6 +91,17 @@ Window {
         }
     }
 
+    RaceChoice {
+        id: raceChoice
+
+        anchors {
+            left: classChoice.right
+            leftMargin: 5
+            top: parent.top
+            topMargin: 5
+        }
+    }
+
     ComboBox {
         anchors {
             right: continuousDpsUpdateRect.left

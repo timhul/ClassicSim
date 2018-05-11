@@ -43,6 +43,12 @@ Race* Character::get_race(void) {
     return this->race;
 }
 
+void Character::set_race(Race* race) {
+    assert(race_available(race));
+
+    this->race = race;
+}
+
 void Character::rotation() {
     spells->rotation();
 }

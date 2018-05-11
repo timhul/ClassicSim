@@ -28,6 +28,8 @@ public:
 
     Race* get_race(void);
     virtual QString get_name() const = 0;
+    virtual bool race_available(Race*) const { return true; }
+    void set_race(Race* race);
 
     virtual void rotation();
     virtual int get_strength_modifier() const = 0;
