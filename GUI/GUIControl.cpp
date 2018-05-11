@@ -55,17 +55,17 @@ GUIControl::GUIControl(QObject* parent) :
     target = new Target(63);
     combat = new CombatRoll(target);
 
-    chars.insert("DRUID", dynamic_cast<Character*>(new Druid(races["NIGHTELF"], engine, equipment, combat)));
-    chars.insert("HUNTER", dynamic_cast<Character*>(new Hunter(races["DWARF"], engine, equipment, combat)));
-    chars.insert("MAGE", dynamic_cast<Character*>(new Mage(races["GNOME"], engine, equipment, combat)));
-    chars.insert("PALADIN", dynamic_cast<Character*>(new Paladin(races["HUMAN"], engine, equipment, combat)));
-    chars.insert("PRIEST", dynamic_cast<Character*>(new Priest(races["UNDEAD"], engine, equipment, combat)));
-    chars.insert("ROGUE", dynamic_cast<Character*>(new Rogue(races["ORC"], engine, equipment, combat)));
-    chars.insert("SHAMAN", dynamic_cast<Character*>(new Shaman(races["TAUREN"], engine, equipment, combat)));
-    chars.insert("WARLOCK", dynamic_cast<Character*>(new Warlock(races["TROLL"], engine, equipment, combat)));
-    chars.insert("WARRIOR", dynamic_cast<Character*>(new Warrior(races["ORC"], engine, equipment, combat)));
+    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["NIGHTELF"], engine, equipment, combat)));
+    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["DWARF"], engine, equipment, combat)));
+    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["GNOME"], engine, equipment, combat)));
+    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["HUMAN"], engine, equipment, combat)));
+    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["UNDEAD"], engine, equipment, combat)));
+    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["ORC"], engine, equipment, combat)));
+    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["TAUREN"], engine, equipment, combat)));
+    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["TROLL"], engine, equipment, combat)));
+    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["ORC"], engine, equipment, combat)));
 
-    current_char = chars["WARRIOR"];
+    current_char = chars["Warrior"];
 
     item_model = new ItemModel(equipment->get_db());
     item_model->addItems(equipment->get_db());
@@ -93,6 +93,20 @@ GUIControl::~GUIControl() {
     delete combat;
     delete item_model;
     delete weapon_model;
+}
+
+void GUIControl::selectClass(const QString class_name) {
+    if (!chars.contains(class_name)) {
+        qDebug() << QString("Class %1 not found in char list!").arg(class_name);
+        return;
+    }
+
+    if (class_name != "Warrior") {
+        qDebug() << QString("Class %1 not implemented").arg(class_name);
+        return;
+    }
+
+    current_char = chars[class_name];
 }
 
 QString GUIControl::getLeftBackgroundImage() const {
@@ -240,6 +254,12 @@ QString GUIControl::get_class_color() const {
 
 QString GUIControl::get_class_name() const {
     return current_char->get_name();
+}
+
+bool GUIControl::get_faction() const {
+    // TODO: Remove hardcoded faction
+    // alliance = false, horde = true
+    return true;
 }
 
 int GUIControl::get_strength() const {

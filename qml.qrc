@@ -212,5 +212,16 @@
         <file>QML/Statistics.qml</file>
         <file>QML/StatisticEntry.qml</file>
         <file>QML/StaticTable.qml</file>
+        <file>QML/ClassChoice.qml</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_druid.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_hunter.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_mage.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_paladin.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_priest.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_rogue.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_shaman.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_warlock.png</file>
+        <file>QML/Assets/classes/Ui-charactercreate-classes_warrior.png</file>
+        <file>QML/ClassChoiceBox.qml</file>
     </qresource>
 </RCC>

@@ -66,6 +66,9 @@ Window {
         }
     }
 
+    ClassChoice {
+    }
+
     ComboBox {
         anchors {
             right: continuousDpsUpdateRect.left
