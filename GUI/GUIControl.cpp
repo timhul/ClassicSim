@@ -109,8 +109,9 @@ void GUIControl::selectClass(const QString class_name) {
     }
 
     current_char = chars[class_name];
-    reset_race();
+    raceChanged();
     classChanged();
+    statsChanged();
 }
 
 void GUIControl::selectRace(const QString race_name) {
@@ -137,17 +138,16 @@ void GUIControl::selectFaction(const bool faction) {
 
     for (auto it : chars.keys()) {
         chars.value(it)->switch_faction();
+        reset_race(chars.value(it));
     }
 
     factionChanged();
 
     if (current_char->get_name() == "Shaman" || current_char->get_name() == "Paladin") {
         current_char = chars["Warrior"];
-        reset_race();
+        reset_race(current_char);
         classChanged();
     }
-    else
-        reset_race();
 }
 
 bool GUIControl::raceAvailable(const QString race_name) {
@@ -159,7 +159,7 @@ bool GUIControl::raceAvailable(const QString race_name) {
     return current_char->race_available(races[race_name]);
 }
 
-void GUIControl::reset_race() {
+void GUIControl::reset_race(Character* pchar) {
     const QVector<QString>& available_races = faction->get_faction_races();
 
     for (int i = 0; i < available_races.size(); ++i) {
@@ -168,8 +168,8 @@ void GUIControl::reset_race() {
             continue;
         }
 
-        if (current_char->race_available(races[available_races[i]])) {
-            current_char->set_race(races[available_races[i]]);
+        if (pchar->race_available(races[available_races[i]])) {
+            pchar->set_race(races[available_races[i]]);
             break;
         }
     }

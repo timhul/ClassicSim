@@ -156,7 +156,7 @@ private:
     bool get_is_alliance() const;
     bool get_is_horde() const;
 
-    void reset_race();
+    void reset_race(Character *pchar);
 
     QString getLeftBackgroundImage() const;
     QString getMidBackgroundImage() const;
