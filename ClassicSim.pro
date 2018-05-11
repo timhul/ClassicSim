@@ -153,7 +153,8 @@ SOURCES += main.cpp \
     Statistics/Charts/PieChartModel.cpp \
     Statistics/ClassStatistics.cpp \
     Statistics/Class/WarriorStatistics.cpp \
-    Faction/Faction.cpp
+    Faction/Faction.cpp \
+    Target/Target.cpp
 
 HEADERS += \
     Queue/Queue.h \
