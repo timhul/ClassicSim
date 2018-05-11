@@ -13,6 +13,7 @@
 #include "Race.h"
 #include "ItemModel.h"
 #include "WeaponModel.h"
+#include "Faction.h"
 
 class GUIControl: public QObject {
     Q_OBJECT
@@ -24,7 +25,8 @@ public:
     Q_PROPERTY(QString classColor READ get_class_color NOTIFY classChanged)
     Q_PROPERTY(QString className READ get_class_name NOTIFY classChanged)
     Q_PROPERTY(QString raceName READ get_race_name NOTIFY raceChanged)
-    Q_PROPERTY(bool faction READ get_faction NOTIFY factionChanged)
+    Q_PROPERTY(bool isAlliance READ get_is_alliance NOTIFY factionChanged)
+    Q_PROPERTY(bool isHorde READ get_is_horde NOTIFY factionChanged)
 
     Q_INVOKABLE void selectClass(const QString class_name);
     Q_INVOKABLE void selectRace(const QString race_name);
@@ -151,7 +153,8 @@ private:
     QString get_class_color() const;
     QString get_class_name() const;
     QString get_race_name() const;
-    bool get_faction() const;
+    bool get_is_alliance() const;
+    bool get_is_horde() const;
 
     void reset_race();
 
@@ -201,13 +204,13 @@ private:
     Target* target;
     Random* random;
     CombatRoll* combat;
+    Faction* faction;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     Character* current_char;
     float last_quick_sim_result;
     ItemModel* item_model;
     WeaponModel* weapon_model;
-    bool faction;
 };
 
 #endif // GUICONTROL_H

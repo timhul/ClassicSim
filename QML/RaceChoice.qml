@@ -23,7 +23,7 @@ Rectangle {
     Row {
         anchors.fill: parent
 
-        visible: character.faction === root.alliance
+        visible: character.isAlliance
         RaceChoiceBox {
             raceName: "Dwarf"
             raceIcon: urlDwarf
@@ -52,7 +52,7 @@ Rectangle {
     Row {
         anchors.fill: parent
 
-        visible: character.faction === root.horde
+        visible: character.isHorde
         RaceChoiceBox {
             raceName: "Orc"
             raceIcon: urlOrc

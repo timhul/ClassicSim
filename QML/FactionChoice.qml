@@ -20,8 +20,8 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "A"
-                color: character.faction === root.alliance ? "blue" :
-                                                             root.gray
+                color: character.isAlliance ? "blue" :
+                                              root.gray
 
                 font {
                     family: root.fontText
@@ -45,8 +45,8 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "H"
-                color: character.faction === root.horde ? "red" :
-                                                          root.gray
+                color: character.isHorde ? "red" :
+                                           root.gray
 
                 font {
                     family: root.fontText

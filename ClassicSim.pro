@@ -152,7 +152,8 @@ SOURCES += main.cpp \
     Statistics/Charts/PieChart.cpp \
     Statistics/Charts/PieChartModel.cpp \
     Statistics/ClassStatistics.cpp \
-    Statistics/Class/WarriorStatistics.cpp
+    Statistics/Class/WarriorStatistics.cpp \
+    Faction/Faction.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -299,7 +300,8 @@ HEADERS += \
     Statistics/Charts/PieChart.h \
     Statistics/Charts/PieChartModel.h \
     Statistics/Class/WarriorStatistics.h \
-    Statistics/ClassStatistics.h
+    Statistics/ClassStatistics.h \
+    Faction/Faction.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -344,7 +346,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General\Enchants \
     C:\C++\ClassicSim\Character\Class\General\Buffs \
     C:\C++\ClassicSim\Character\Class\General\Spells \
-    C:\C++\ClassicSim\GUI
+    C:\C++\ClassicSim\GUI \
+    C:\C++\ClassicSim\Faction
 
 RESOURCES += qml.qrc
 

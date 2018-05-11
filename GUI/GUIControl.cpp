@@ -37,8 +37,7 @@
 
 GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
-    last_quick_sim_result(0.0),
-    faction(true)
+    last_quick_sim_result(0.0)
 {
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
 
@@ -55,6 +54,7 @@ GUIControl::GUIControl(QObject* parent) :
     equipment = new Equipment();
     target = new Target(63);
     combat = new CombatRoll(target);
+    faction = new Faction();
 
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat)));
@@ -92,6 +92,7 @@ GUIControl::~GUIControl() {
     delete equipment;
     delete target;
     delete combat;
+    delete faction;
     delete item_model;
     delete weapon_model;
 }
@@ -129,10 +130,10 @@ void GUIControl::selectRace(const QString race_name) {
 }
 
 void GUIControl::selectFaction(const bool faction) {
-    if (this->faction == faction)
+    if (this->faction->get_faction() == faction)
         return;
 
-    this->faction = faction;
+    this->faction->switch_faction();
     factionChanged();
 
     reset_race();
@@ -154,11 +155,7 @@ bool GUIControl::raceAvailable(const QString race_name) {
 }
 
 void GUIControl::reset_race() {
-    QVector<QString> available_races;
-    if (faction == false)
-        available_races = {"Dwarf", "Gnome", "Human", "Night Elf"};
-    else
-        available_races = {"Orc", "Tauren", "Troll", "Undead"};
+    const QVector<QString>& available_races = faction->get_faction_races();
 
     for (int i = 0; i < available_races.size(); ++i) {
         if (!races.contains(available_races[i])) {
@@ -327,8 +324,12 @@ QString GUIControl::get_race_name() const {
     return current_char->get_race()->get_name();
 }
 
-bool GUIControl::get_faction() const {
-    return faction;
+bool GUIControl::get_is_alliance() const {
+    return faction->is_alliance();
+}
+
+bool GUIControl::get_is_horde() const {
+    return faction->is_horde();
 }
 
 int GUIControl::get_strength() const {
