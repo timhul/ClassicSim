@@ -8,7 +8,12 @@ class Mage: public Character {
     Q_OBJECT
 public:
     Mage(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, parent) {}
+        Character(race, engine, _eq, _roll, parent) {
+        available_races.append("Gnome");
+        available_races.append("Human");
+        available_races.append("Troll");
+        available_races.append("Undead");
+    }
 
     virtual ~Mage() {}
 

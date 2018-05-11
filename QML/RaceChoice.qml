@@ -43,7 +43,7 @@ Rectangle {
         }
 
         RaceChoiceBox {
-            raceName: "NightElf"
+            raceName: "Night Elf"
             raceIcon: urlNightElf
             sideLength: raceChoiceHeight
         }

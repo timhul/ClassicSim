@@ -30,6 +30,15 @@
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, QObject* parent) :
     Character(race, engine, _eq, _roll, parent) {
+    available_races.append("Dwarf");
+    available_races.append("Gnome");
+    available_races.append("Human");
+    available_races.append("Night Elf");
+    available_races.append("Orc");
+    available_races.append("Tauren");
+    available_races.append("Troll");
+    available_races.append("Undead");
+
     // TODO: Investigate whether base stats below are the same for all melee classes.
     // Character sheet implies 3% base crit.
     // Crit without gear and no crit from base agil = 3 - (clvl * 5 - wpn-skill) * 0.04

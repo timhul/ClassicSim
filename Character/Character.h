@@ -28,7 +28,7 @@ public:
 
     Race* get_race(void);
     virtual QString get_name() const = 0;
-    virtual bool race_available(Race*) const { return true; }
+    bool race_available(Race*) const;
     void set_race(Race* race);
 
     virtual void rotation();
@@ -120,6 +120,7 @@ protected:
     Spells* spells;
     ClassStatistics* statistics;
 
+    QVector<QString> available_races;
     float ability_crit_dmg_mod;
 
     int clvl;

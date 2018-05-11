@@ -43,6 +43,10 @@ Race* Character::get_race(void) {
     return this->race;
 }
 
+bool Character::race_available(Race* race) const {
+    return available_races.contains(race->get_name());
+}
+
 void Character::set_race(Race* race) {
     assert(race_available(race));
 

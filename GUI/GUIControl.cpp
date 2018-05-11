@@ -45,7 +45,7 @@ GUIControl::GUIControl(QObject* parent) :
     races.insert("Dwarf", new Dwarf());
     races.insert("Gnome", new Gnome());
     races.insert("Human", new Human());
-    races.insert("NightElf", new NightElf());
+    races.insert("Night Elf", new NightElf());
     races.insert("Orc", new Orc());
     races.insert("Tauren", new Tauren());
     races.insert("Troll", new Troll());
@@ -56,7 +56,7 @@ GUIControl::GUIControl(QObject* parent) :
     target = new Target(63);
     combat = new CombatRoll(target);
 
-    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["NightElf"], engine, equipment, combat)));
+    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat)));
     chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], engine, equipment, combat)));
     chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], engine, equipment, combat)));

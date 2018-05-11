@@ -1,5 +1,6 @@
 
 #include "Druid.h"
+#include "Race.h"
 
 QString Druid::get_name(void) const {
     return "Druid";
