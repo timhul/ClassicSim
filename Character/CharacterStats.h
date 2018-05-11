@@ -62,8 +62,8 @@ public:
     virtual void decrease_hit(float);
     virtual void decrease_crit(float);
 
-    void increase_total_phys_dmg_mod(float);
-    void decrease_total_phys_dmg_mod(float);
+    void increase_total_phys_dmg_mod(const int);
+    void decrease_total_phys_dmg_mod(const int);
 
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
@@ -75,6 +75,7 @@ protected:
     Equipment* equipment;
     Stats* base_stats;
     QVector<int> attack_speed_buffs;
+    QVector<int> phys_dmg_buffs;
 
     int ranged_ap;
     float haste_factor;

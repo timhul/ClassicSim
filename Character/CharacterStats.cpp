@@ -162,12 +162,22 @@ void CharacterStats::decrease_crit(float decrease) {
     pchar->get_combat_roll()->update_crit_chance(get_crit_chance());
 }
 
-void CharacterStats::increase_total_phys_dmg_mod(float increase) {
-    total_phys_dmg_mod += increase;
+void CharacterStats::increase_total_phys_dmg_mod(const int increase) {
+    phys_dmg_buffs.append(increase);
+
+    total_phys_dmg_mod = 1.0;
+    for (int i = 0; i < phys_dmg_buffs.size(); ++i) {
+        total_phys_dmg_mod = total_phys_dmg_mod * (1 + float(phys_dmg_buffs[i] / 100));
+    }
 }
 
-void CharacterStats::decrease_total_phys_dmg_mod(float decrease) {
-    total_phys_dmg_mod -= decrease;
+void CharacterStats::decrease_total_phys_dmg_mod(const int decrease) {
+    assert(phys_dmg_buffs.removeOne(decrease));
+
+    total_phys_dmg_mod = 1.0;
+    for (int i = 0; i < phys_dmg_buffs.size(); ++i) {
+        total_phys_dmg_mod = total_phys_dmg_mod * (1 + float(phys_dmg_buffs[i] / 100));
+    }
 }
 
 float CharacterStats::get_mh_wpn_speed() {
@@ -182,6 +192,8 @@ float CharacterStats::get_oh_wpn_speed() {
 
 void CharacterStats::reset() {
     attack_speed_buffs.clear();
+    phys_dmg_buffs.clear();
+    total_phys_dmg_mod = 1.0;
     haste_factor = 1.0;
     // TODO: Add +1% haste enchant from gear
 }

@@ -8,7 +8,7 @@ class DeathWishBuff: public Buff {
 public:
     DeathWishBuff(Character* pchar): Buff(pchar, "Death Wish", 30, 0) {
         rank_talent = 0;
-        rank_talents = {0, 0.2};
+        rank_talents = {0, 20};
     }
 
     void buff_effect_when_applied() override;
@@ -16,7 +16,7 @@ public:
 
 protected:
 private:
-    QVector<float> rank_talents;
+    QVector<int> rank_talents;
 };
 
 #endif // DEATHWISHBUFF_H
