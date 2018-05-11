@@ -23,7 +23,7 @@ Rectangle {
     Column {
         anchors.fill: parent
 
-        visible: character.faction === false
+        visible: character.faction === root.alliance
 
         Row {
             ClassChoiceBox {
@@ -81,7 +81,7 @@ Rectangle {
     Column {
         anchors.fill: parent
 
-        visible: character.faction === true
+        visible: character.faction === root.horde
 
         Row {
             ClassChoiceBox {

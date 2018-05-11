@@ -36,6 +36,9 @@ Window {
     property string fontNumbers: "Cambria Math"
     property string fontText: "Arial"
 
+    property bool alliance: false
+    property bool horde: true
+
     color: darkGray
 
     function qualityColor(quality) {

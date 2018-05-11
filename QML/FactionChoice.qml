@@ -4,8 +4,6 @@ Rectangle {
     color: "transparent"
 
     property int sideLength: 55
-    property bool alliance: false
-    property bool horde: true
 
     height: sideLength * 2
     width: sideLength
@@ -22,8 +20,8 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "A"
-                color: character.faction === alliance ? "blue" :
-                                                        root.gray
+                color: character.faction === root.alliance ? "blue" :
+                                                             root.gray
 
                 font {
                     family: root.fontText
@@ -34,8 +32,8 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: character.selectFaction(alliance)
-            onRectangleRightClicked: character.selectFaction(alliance)
+            onRectangleClicked: character.selectFaction(root.alliance)
+            onRectangleRightClicked: character.selectFaction(root.alliance)
         }
 
         RectangleBorders {
@@ -47,8 +45,8 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "H"
-                color: character.faction === horde ? "red" :
-                                                     root.gray
+                color: character.faction === root.horde ? "red" :
+                                                          root.gray
 
                 font {
                     family: root.fontText
@@ -59,8 +57,8 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: character.selectFaction(horde)
-            onRectangleRightClicked: character.selectFaction(horde)
+            onRectangleClicked: character.selectFaction(root.horde)
+            onRectangleRightClicked: character.selectFaction(root.horde)
         }
     }
 }
