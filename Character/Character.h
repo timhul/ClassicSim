@@ -32,6 +32,8 @@ public:
     bool race_available(Race*) const;
     void set_race(Race* race);
 
+    void switch_faction();
+
     virtual void rotation();
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;

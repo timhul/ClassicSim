@@ -26,8 +26,8 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->talents = new Talents();
     // TODO: Consider saving equipment pointer as well, to shorten expressions.
     this->cstats = new CharacterStats(this, equipment);
-    this->procs = new Procs(this);
-    this->buffs = new Buffs(this);
+    this->procs = new Procs(this, faction);
+    this->buffs = new Buffs(this, faction);
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -53,6 +53,11 @@ void Character::set_race(Race* race) {
     assert(race_available(race));
 
     this->race = race;
+}
+
+void Character::switch_faction() {
+    procs->switch_faction();
+    buffs->switch_faction();
 }
 
 void Character::rotation() {

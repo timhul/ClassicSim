@@ -134,15 +134,20 @@ void GUIControl::selectFaction(const bool faction) {
         return;
 
     this->faction->switch_faction();
-    factionChanged();
 
-    reset_race();
+    for (auto it : chars.keys()) {
+        chars.value(it)->switch_faction();
+    }
+
+    factionChanged();
 
     if (current_char->get_name() == "Shaman" || current_char->get_name() == "Paladin") {
         current_char = chars["Warrior"];
         reset_race();
         classChanged();
     }
+    else
+        reset_race();
 }
 
 bool GUIControl::raceAvailable(const QString race_name) {

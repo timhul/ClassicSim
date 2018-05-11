@@ -1,13 +1,16 @@
 
 #include "Procs.h"
 #include "Character.h"
+#include "Faction.h"
 #include "WindfuryTotemAttack.h"
 #include "Crusader.h"
 
-Procs::Procs(Character* pchar, QObject* parent) :
+Procs::Procs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
-    pchar(pchar)
+    pchar(pchar),
+    faction(faction)
 {
+    this->horde_only_procs = {new WindfuryTotemAttack(pchar->get_engine(), pchar, pchar->get_combat_roll())};
     // TODO: Find way to activate and deactivate baseline procs such as WF/Crusader, etc.
 //    this->melee_attack_procs = {new WindfuryTotemAttack(pchar->get_engine(), pchar, pchar->get_combat_roll())};
 //    this->mainhand_attack_procs = {new Crusader(pchar->get_engine(), pchar, pchar->get_combat_roll(), EnchantSlot::MAINHAND)};
@@ -99,5 +102,18 @@ void Procs::reset() {
 
     for (int i = 0; i < offhand_attack_procs.size(); ++i) {
         offhand_attack_procs[i]->reset();
+    }
+}
+
+void Procs::switch_faction() {
+    if (faction->is_alliance()) {
+        for (int i = 0; i < horde_only_procs.size(); ++i) {
+            remove_mh_specific_proc_effect(horde_only_procs[i]);
+        }
+    }
+    else {
+        for (int i = 0; i < horde_only_procs.size(); ++i) {
+            add_mh_specific_proc_effect(horde_only_procs[i]);
+        }
     }
 }

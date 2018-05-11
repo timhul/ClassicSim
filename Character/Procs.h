@@ -8,12 +8,13 @@ class Character;
 class Proc;
 class Engine;
 class CombatRoll;
+class Faction;
 
 class Procs: public QObject {
     Q_OBJECT
 
 public:
-    Procs(Character* pchar, QObject* parent = 0);
+    Procs(Character* pchar, Faction* faction, QObject* parent = 0);
     ~Procs();
 
     void run_general_proc_effects();
@@ -30,11 +31,16 @@ public:
 
     void reset();
 
+    void switch_faction();
+
 private:
     Character* pchar;
+    Faction* faction;
     QVector<Proc*> melee_attack_procs;
     QVector<Proc*> mainhand_attack_procs;
     QVector<Proc*> offhand_attack_procs;
+
+    QVector<Proc*> horde_only_procs;
 
     void remove_one_proc_effect(QVector<Proc*>& vec, const Proc* proc);
 };
