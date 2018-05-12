@@ -1,6 +1,9 @@
 #ifndef TARGET_H
 #define TARGET_H
 
+#include <QMap>
+#include <QString>
+
 class Target {
 public:
     enum CreatureType {
@@ -21,6 +24,9 @@ public:
 
     int get_defense(void) const;
 
+    QString get_creature_type() const;
+    void set_creature_type(const QString& target);
+
     bool is_beast() const;
     bool is_demon() const;
     bool is_dragonkin() const;
@@ -34,6 +40,8 @@ protected:
 private:
     int target_lvl;
     CreatureType target_type;
+    QMap<QString, CreatureType> string_to_creature_type;
+    QMap<CreatureType, QString> creature_type_strings;
 };
 
 

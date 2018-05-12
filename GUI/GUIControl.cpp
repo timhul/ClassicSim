@@ -178,6 +178,15 @@ void GUIControl::reset_race(Character* pchar) {
     statsChanged();
 }
 
+QString GUIControl::get_creature_type() const {
+    return target->get_creature_type();
+}
+
+void GUIControl::setCreatureType(const QString& creature_type) {
+    target->set_creature_type(creature_type);
+    creatureTypeChanged();
+}
+
 QString GUIControl::getLeftBackgroundImage() const {
     return current_char->get_talents()->get_background_image("LEFT");
 }

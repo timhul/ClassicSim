@@ -104,6 +104,7 @@ Window {
     }
 
     ComboBox {
+        id: patchChoice
         anchors {
             right: continuousDpsUpdateRect.left
             rightMargin: 20
@@ -129,6 +130,32 @@ Window {
         currentIndex: 12
 
         onActivated: settings.setPatch(currentText)
+    }
+
+    ComboBox {
+        id: creatureType
+        anchors {
+            bottom: patchChoice.top
+            bottomMargin: 2
+            right: continuousDpsUpdateRect.left
+            rightMargin: 20
+        }
+
+        width: 200
+        model: [
+            "Beast",
+            "Demon",
+            "Dragonkin",
+            "Elemental",
+            "Giant",
+            "Humanoid",
+            "Mechanical",
+            "Undead"
+        ]
+
+        currentIndex: 0
+
+        onActivated: settings.setCreatureType(currentText)
     }
 
     RectangleBorders {

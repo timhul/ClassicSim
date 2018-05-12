@@ -132,6 +132,12 @@ public:
 
     /* End of Statistics */
 
+    /* Target */
+    Q_PROPERTY(QString creatureType READ get_creature_type NOTIFY creatureTypeChanged)
+    Q_INVOKABLE void setCreatureType(const QString& creature_type);
+
+    /* End of Target */
+
     Q_INVOKABLE void runQuickSim();
     Q_INVOKABLE void setPatch(QString patch);
 
@@ -147,6 +153,7 @@ Q_SIGNALS:
     void quickSimChanged(QString value, QString change, bool positive);
     void statisticsCleared();
     void statisticsReady();
+    void creatureTypeChanged();
 
 private:
     int get_talent_points_remaining() const;
@@ -157,6 +164,8 @@ private:
     bool get_is_horde() const;
 
     void reset_race(Character *pchar);
+
+    QString get_creature_type() const;
 
     QString getLeftBackgroundImage() const;
     QString getMidBackgroundImage() const;
