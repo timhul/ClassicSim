@@ -1,8 +1,9 @@
 
 #include "WarriorStatistics.h"
+#include "Statistics.h"
 
-WarriorStatistics::WarriorStatistics(QObject *parent) :
-    ClassStatistics(parent)
+WarriorStatistics::WarriorStatistics(Statistics* statistics, QObject *parent) :
+    ClassStatistics(statistics, parent)
 {
 
 }
@@ -14,13 +15,14 @@ void WarriorStatistics::update_statistics() {
 int WarriorStatistics::getNumStatisticsRows() const {
     // TODO: Check how many of the possible statistic entries actually have statistics.
     // That is, to show e.g. Bloodthirst damage, there must be some Bloodthirst statistics.
-    return 1;
+    return spell_statistics.empty() ? 0 :
+                                      1;
 }
 
 QVariantList WarriorStatistics::getTableInfo(const int) const {
     QVariantList table_info;
 
-    table_info.append(get_ratio_heroic_strike_table());
+    table_info.append(get_damage_breakdown_table());
 
     return table_info;
 }
@@ -28,14 +30,15 @@ QVariantList WarriorStatistics::getTableInfo(const int) const {
 QVariantList WarriorStatistics::getChartInfo(const int) const {
     QVariantList chart_info;
 
-    chart_info.append(get_ratio_heroic_strike_chart());
+    chart_info.append(get_damage_breakdown_chart());
 
     return chart_info;
 }
 
 QString WarriorStatistics::getEntryIcon(const int) const {
     // TODO: Refactor the knowledge of exact icon path (also listed in Improved Heroic Strike)
-    return "Assets/warrior/arms/tier1/Ability_rogue_ambush.png";
+    // return "Assets/warrior/arms/tier1/Ability_rogue_ambush.png";
+    return "";
 }
 
 QVariantList WarriorStatistics::get_ratio_heroic_strike_table() const {

@@ -63,7 +63,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     cstats->get_equipment()->set_mainhand("Skullforge Reaver");
     cstats->get_equipment()->set_offhand("Frostbite");
 
-    this->statistics = new WarriorStatistics();
+    this->statistics = new WarriorStatistics(engine->get_statistics());
 
     this->warr_spells = new WarriorSpells(this);
     this->spells = dynamic_cast<Spells*>(warr_spells);

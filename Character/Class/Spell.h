@@ -11,27 +11,13 @@
 #include "assert.h"
 
 class Character;
+class StatisticsSpell;
 
 class Spell {
 public:
-    Spell(QString _name,
-          Engine* _eng,
-          Character* _pchar,
-          CombatRoll* _roll,
-          float _cd,
-          int _cost) :
-        name(_name),
-        engine(_eng),
-        pchar(_pchar),
-        roll(_roll),
-        cooldown(_cd),
-        last_used(0 - _cd),
-        resource_cost(_cost),
-        rank_talent(0),
-        rank_spell(0)
-    {}
+    Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll, float _cd, int _cost);
 
-    virtual ~Spell() {}
+    virtual ~Spell();
 
     QString get_name() const;
     virtual float get_cooldown();
@@ -61,17 +47,43 @@ protected:
     Engine* engine;
     Character* pchar;
     CombatRoll* roll;
+    StatisticsSpell* statistics;
+
     float cooldown;
     float last_used;
     int resource_cost;
     int rank_talent;
     int rank_spell;
+
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;
     void add_fail_stats(QString) const;
     void add_success_stats(QString, const int damage_dealt) const;
     void add_success_stats(QString, const int, const int) const;
     void add_proc_stats(const int value, QString title) const;
+
+    void increment_miss();
+    void increment_full_resist();
+
+    void increment_dodge();
+    void increment_parry();
+    void increment_full_block();
+
+    void increment_partial_resist();
+    void increment_partial_block();
+    void increment_partial_block_crit();
+
+    void increment_glancing();
+    void increment_hit();
+    void increment_crit();
+
+    void add_partial_resist_dmg(const int);
+    void add_partial_block_dmg(const int);
+    void add_partial_block_crit_dmg(const int);
+    void add_glancing_dmg(const int);
+    void add_hit_dmg(const int);
+    void add_crit_dmg(const int);
+
 private:
 };
 

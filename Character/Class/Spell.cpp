@@ -1,6 +1,25 @@
 
 #include "Spell.h"
 #include "Character.h"
+#include "StatisticsSpell.h"
+
+Spell::Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll,
+             float _cd, int _cost) :
+    name(_name),
+    engine(_eng),
+    pchar(_pchar),
+    roll(_roll),
+    statistics(new StatisticsSpell(name)),
+    cooldown(_cd),
+    last_used(0 - _cd),
+    resource_cost(_cost),
+    rank_talent(0),
+    rank_spell(0)
+{}
+
+Spell::~Spell() {
+    delete statistics;
+}
 
 QString Spell::get_name() const {
     return this->name;
@@ -103,6 +122,74 @@ void Spell::add_success_stats(QString outcome, const int damage_dealt, const int
 void Spell::add_proc_stats(const int value, QString title) const {
     engine->get_statistics()->increment(get_name() + "Proc");
     engine->get_statistics()->add(get_name() + title, value);
+}
+
+void Spell::increment_miss() {
+    statistics->increment_miss();
+}
+
+void Spell::increment_full_resist() {
+    statistics->increment_full_resist();
+}
+
+void Spell::increment_dodge() {
+    statistics->increment_dodge();
+}
+
+void Spell::increment_parry() {
+    statistics->increment_parry();
+}
+
+void Spell::increment_full_block() {
+    statistics->increment_full_block();
+}
+
+void Spell::increment_partial_resist() {
+    statistics->increment_partial_resist();
+}
+
+void Spell::increment_partial_block() {
+    statistics->increment_partial_block();
+}
+
+void Spell::increment_partial_block_crit() {
+    statistics->increment_partial_block_crit();
+}
+
+void Spell::increment_glancing() {
+    statistics->increment_glancing();
+}
+
+void Spell::increment_hit() {
+    statistics->increment_hit();
+}
+
+void Spell::increment_crit() {
+    statistics->increment_crit();
+}
+
+void Spell::add_partial_resist_dmg(const int damage) {
+    statistics->add_partial_resist_dmg(damage);
+}
+
+void Spell::add_partial_block_dmg(const int damage) {
+    statistics->add_partial_block_dmg(damage);
+}
+
+void Spell::add_partial_block_crit_dmg(const int damage) {
+    statistics->add_partial_block_crit_dmg(damage);
+}
+
+void Spell::add_glancing_dmg(const int damage) {
+    statistics->add_glancing_dmg(damage);
+}
+
+void Spell::add_hit_dmg(const int damage) {
+    statistics->add_hit_dmg(damage);
+}
+
+void Spell::add_crit_dmg(const int damage) {
+    statistics->add_crit_dmg(damage);
 }
 
 void Spell::reset() {
