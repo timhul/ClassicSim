@@ -26,6 +26,8 @@ public:
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);
 
+    void add_statistics();
+
     virtual MainhandAttack* get_mh_attack() const;
     virtual OffhandAttack* get_oh_attack() const;
     FieryWeaponAttack* get_fiery_weapon() const;

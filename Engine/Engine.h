@@ -2,8 +2,8 @@
 #define ENGINE_H
 
 #include "Queue.h"
-#include "Statistics.h"
 #include <QTime>
+#include <QMap>
 
 class Engine {
 public:
@@ -12,13 +12,11 @@ public:
         processed_events(0)
     {
         queue = new Queue();
-        statistics = new Statistics();
         timer = new QTime();
     }
 
     ~Engine() {
         delete queue;
-        delete statistics;
         delete timer;
     }
 
@@ -33,14 +31,12 @@ public:
 
     Queue *get_queue() const;
 
-    Statistics* get_statistics(void);
     void save_event_history(Event*);
 
 protected:
 
 private:
     Queue* queue;
-    Statistics* statistics;
     float current_prio;
 
     unsigned processed_events;

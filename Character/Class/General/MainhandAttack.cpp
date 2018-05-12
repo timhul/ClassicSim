@@ -25,22 +25,20 @@ int MainhandAttack::spell_effect(const int) {
 }
 
 int MainhandAttack::calculate_damage() {
-    engine->get_statistics()->increment("MH White Total Attempts");
-
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     AttackResult* result = roll->get_melee_hit_result(mh_wpn_skill);
 
     if (result->is_miss()) {
-        add_fail_stats("Miss");
+        increment_miss();
         return 0;
     }
     // TODO: Apply Overpower
     if (result->is_dodge()) {
-        add_fail_stats("Dodge");
+        increment_dodge();
         return 0;
     }
     if (result->is_parry()) {
-        add_fail_stats("Parry");
+        increment_parry();
         return 0;
     }
 
@@ -49,16 +47,16 @@ int MainhandAttack::calculate_damage() {
     if (result->is_critical()) {
         damage_dealt *= 2;
         pchar->melee_mh_critical_effect();
-        add_success_stats("Critical", round(damage_dealt), 0);
+        add_crit_dmg(round(damage_dealt));
         return 0;
     }
     if (result->is_glancing()) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
-        add_success_stats("Glancing", round(damage_dealt), 0);
+        add_glancing_dmg(round(damage_dealt));
         return 0;
     }
 
-    add_success_stats("Hit", round(damage_dealt), 0);
+    add_hit_dmg(round(damage_dealt));
     return 0;
 }
 

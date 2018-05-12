@@ -8,6 +8,7 @@
 #include "HeroicStrike.h"
 #include "Overpower.h"
 #include "Queue.h"
+#include "ClassStatistics.h"
 
 void TestDeepWounds::test_all() {
     set_up();
@@ -324,7 +325,7 @@ void TestDeepWounds::given_3_of_3_deep_wounds() {
 }
 
 void TestDeepWounds::given_no_previous_deep_wounds_damage_dealt() {
-    assert(engine->get_statistics()->get_int("Deep WoundsHit Damage") == 0);
+    assert(pchar->get_statistics()->get_total_damage_for_spell("Deep Wounds") == 0);
 }
 
 void TestDeepWounds::when_mh_attack_is_performed() {
@@ -349,7 +350,7 @@ void TestDeepWounds::then_deep_wounds_damage_dealt_is(const int damage_dealt) {
         delete event;
     }
 
-    assert(engine->get_statistics()->get_int("Deep WoundsHit Damage") == damage_dealt);
+    assert(pchar->get_statistics()->get_total_damage_for_spell("Deep Wounds") == damage_dealt);
 }
 
 void TestDeepWounds::then_deep_wounds_is_applied() {
@@ -366,7 +367,7 @@ void TestDeepWounds::then_deep_wounds_is_applied() {
         delete event;
     }
 
-    assert(engine->get_statistics()->get_int("Deep WoundsHit Damage") > 0);
+    assert(pchar->get_statistics()->get_total_damage_for_spell("Deep Wounds") > 0);
 }
 
 void TestDeepWounds::then_deep_wounds_is_not_applied() {

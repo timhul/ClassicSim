@@ -16,10 +16,12 @@ Crusader::~Crusader() {
 void Crusader::proc_effect() {
     switch (weapon) {
     case EnchantSlot::MAINHAND:
-        add_proc_stats(1, "Mainhand Proc");
+        // TODO: Add proc/resource gain statistics
+        // add_proc_stats(1, "Mainhand Proc");
         return pchar->get_buffs()->get_holy_strength_mh()->apply_buff();
     case EnchantSlot::OFFHAND:
-        add_proc_stats(1, "Offhand Proc");
+        // TODO: Add proc/resource gain statistics
+        // add_proc_stats(1, "Offhand Proc");
         return pchar->get_buffs()->get_holy_strength_oh()->apply_buff();
     }
 }

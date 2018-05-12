@@ -6,7 +6,8 @@
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
-#include <QDebug>
+#include "ClassStatistics.h"
+
 Spells::Spells(Character* pchar, QObject* parent) :
     QObject(parent),
     pchar(pchar)
@@ -53,4 +54,10 @@ void Spells::add_next_mh_attack(void) {
 void Spells::add_next_oh_attack(void) {
     OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
     pchar->get_engine()->add_event(new_event);
+}
+
+void Spells::add_statistics() {
+    for (int i = 0; i < spells.size(); ++i) {
+        pchar->get_statistics()->add_spell_statistics(spells[i]->get_statistics_for_spell());
+    }
 }

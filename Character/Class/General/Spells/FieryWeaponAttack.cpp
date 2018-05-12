@@ -20,11 +20,11 @@ int FieryWeaponAttack::spell_effect(const int) {
         // TODO: Remove assumption player has 50% spell crit damage (e.g. Ruin)
         damage_dealt = round(damage_dealt * 1.5);
         pchar->spell_critical_effect();
-        add_success_stats("Critical", damage_dealt);
+        add_crit_dmg(damage_dealt);
     }
     else if (result->is_hit()) {
         pchar->spell_hit_effect();
-        add_success_stats("Hit", round(damage_dealt));
+        add_hit_dmg(round(damage_dealt));
     }
 
     return 0;

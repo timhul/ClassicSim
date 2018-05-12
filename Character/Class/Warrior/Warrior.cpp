@@ -63,7 +63,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     cstats->get_equipment()->set_mainhand("Skullforge Reaver");
     cstats->get_equipment()->set_offhand("Frostbite");
 
-    this->statistics = new WarriorStatistics(engine->get_statistics());
+    this->statistics = new WarriorStatistics();
 
     this->warr_spells = new WarriorSpells(this);
     this->spells = dynamic_cast<Spells*>(warr_spells);
@@ -81,6 +81,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
     procs->add_general_proc_effect(unbridled_wrath);
 
+    spells->add_statistics();
     initialize_talents();
 }
 

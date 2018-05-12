@@ -16,22 +16,21 @@ OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, Com
 
 int OffhandAttackWarrior::spell_effect(const int) {
     complete_swing();
-    engine->get_statistics()->increment("OH White Total Attempts");
 
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
     AttackResult* result = roll->get_melee_hit_result(oh_wpn_skill);
 
     if (result->is_miss()) {
-        add_fail_stats("Miss");
+        increment_miss();
         return 0;
     }
     // TODO: Apply Overpower
     if (result->is_dodge()) {
-        add_fail_stats("Dodge");
+        increment_dodge();
         return 0;
     }
     if (result->is_parry()) {
-        add_fail_stats("Parry");
+        increment_parry();
         return 0;
     }
 
@@ -41,20 +40,23 @@ int OffhandAttackWarrior::spell_effect(const int) {
         damage_dealt = round(damage_dealt * 2);
         const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
         pchar->melee_oh_critical_effect();
-        add_success_stats("Critical", round(damage_dealt), rage_gained);
+        // TODO: Save statistics for resource gains
+        add_crit_dmg(round(damage_dealt));
         return rage_gained;
     }
     if (result->is_glancing()) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
         const int rage_gained = pchar->rage_gained_from_dd(round(damage_dealt));
         pchar->melee_oh_hit_effect();
-        add_success_stats("Glancing", damage_dealt, rage_gained);
+        // TODO: Save statistics for resource gains
+        add_glancing_dmg(damage_dealt);
         return rage_gained;
     }
 
     pchar->melee_oh_hit_effect();
     damage_dealt = round(damage_dealt);
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-    add_success_stats("Hit", damage_dealt, rage_gained);
+    // TODO: Save statistics for resource gains
+    add_hit_dmg(damage_dealt);
     return rage_gained;
 }

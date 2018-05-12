@@ -21,6 +21,10 @@ Spell::~Spell() {
     delete statistics;
 }
 
+StatisticsSpell* Spell::get_statistics_for_spell() const {
+    return statistics;
+}
+
 QString Spell::get_name() const {
     return this->name;
 }
@@ -102,28 +106,6 @@ void Spell::add_gcd_event(void) const {
     engine->add_event(new_event);
 }
 
-void Spell::add_fail_stats(QString outcome) const {
-    engine->get_statistics()->increment(get_name() + outcome);
-}
-
-void Spell::add_success_stats(QString outcome, const int damage_dealt) const {
-    engine->get_statistics()->increment(get_name() + outcome);
-    engine->get_statistics()->add("Total Damage", damage_dealt);
-    engine->get_statistics()->add(get_name() + outcome + " Damage", damage_dealt);
-}
-
-void Spell::add_success_stats(QString outcome, const int damage_dealt, const int rage_gained) const {
-    engine->get_statistics()->increment(get_name() + outcome);
-    engine->get_statistics()->add("Total Damage", damage_dealt);
-    engine->get_statistics()->add(get_name() + outcome + " Damage", damage_dealt);
-    engine->get_statistics()->add(get_name() + outcome + " Rage Gain", rage_gained);
-}
-
-void Spell::add_proc_stats(const int value, QString title) const {
-    engine->get_statistics()->increment(get_name() + "Proc");
-    engine->get_statistics()->add(get_name() + title, value);
-}
-
 void Spell::increment_miss() {
     statistics->increment_miss();
 }
@@ -144,52 +126,34 @@ void Spell::increment_full_block() {
     statistics->increment_full_block();
 }
 
-void Spell::increment_partial_resist() {
-    statistics->increment_partial_resist();
-}
-
-void Spell::increment_partial_block() {
-    statistics->increment_partial_block();
-}
-
-void Spell::increment_partial_block_crit() {
-    statistics->increment_partial_block_crit();
-}
-
-void Spell::increment_glancing() {
-    statistics->increment_glancing();
-}
-
-void Spell::increment_hit() {
-    statistics->increment_hit();
-}
-
-void Spell::increment_crit() {
-    statistics->increment_crit();
-}
-
 void Spell::add_partial_resist_dmg(const int damage) {
     statistics->add_partial_resist_dmg(damage);
+    statistics->increment_partial_resist();
 }
 
 void Spell::add_partial_block_dmg(const int damage) {
     statistics->add_partial_block_dmg(damage);
+    statistics->increment_partial_block();
 }
 
 void Spell::add_partial_block_crit_dmg(const int damage) {
     statistics->add_partial_block_crit_dmg(damage);
+    statistics->increment_partial_block_crit();
 }
 
 void Spell::add_glancing_dmg(const int damage) {
     statistics->add_glancing_dmg(damage);
+    statistics->increment_glancing();
 }
 
 void Spell::add_hit_dmg(const int damage) {
     statistics->add_hit_dmg(damage);
+    statistics->increment_hit();
 }
 
 void Spell::add_crit_dmg(const int damage) {
     statistics->add_crit_dmg(damage);
+    statistics->increment_crit();
 }
 
 void Spell::reset() {

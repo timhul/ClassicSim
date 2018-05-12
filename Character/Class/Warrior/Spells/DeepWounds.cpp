@@ -35,7 +35,7 @@ int DeepWounds::spell_effect(const int) {
     else
         previous_tick_rest = 0;
 
-    add_success_stats("Hit", round(damage_dealt));
+    add_hit_dmg(round(damage_dealt));
 
     return 0;
 }

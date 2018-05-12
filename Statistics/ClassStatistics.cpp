@@ -2,9 +2,8 @@
 #include "ClassStatistics.h"
 #include "StatisticsSpell.h"
 
-ClassStatistics::ClassStatistics(Statistics *statistics, QObject *parent) :
-    QObject(parent),
-    statistics(statistics)
+ClassStatistics::ClassStatistics(QObject *parent) :
+    QObject(parent)
 {}
 
 void ClassStatistics::add_spell_statistics(StatisticsSpell* spell) {
@@ -15,19 +14,40 @@ void ClassStatistics::add_spell_statistics(StatisticsSpell* spell) {
     spell_statistics[spell->get_name()] = spell;
 }
 
+bool variant_list_greater_than(const QVariantList &list1, const QVariantList &list2) {
+    if (list1.size() < 2)
+        return false;
+    if (list2.size() < 2)
+        return true;
+
+    return list1[1] > list2[1];
+}
+
 QVariantList ClassStatistics::get_damage_breakdown_table() const {
     QVariantList info;
 
     int total_damage_dealt = get_total_damage_dealt();
 
-    info.append(spell_statistics.size());
-    info.append(QVariantList({"Ability", "Total Damage", "Percentage"}));
+    QVariantList columns  = {"Ability", "Total Damage", "Percentage"};
+    info.append(columns.size());
+    info.append(columns);
+
+    QVector<QVariantList> dmg_entries;
 
     for (auto it : spell_statistics.keys()) {
-        QString name = spell_statistics.value(it)->get_name();
         int dmg = spell_statistics.value(it)->get_total_dmg_dealt();
+        if (dmg == 0)
+            continue;
+
+        QString name = spell_statistics.value(it)->get_name();
         float percentage = float(dmg) / float(total_damage_dealt);
-        info.append(QVariantList({name, dmg, QString::number(percentage, 'f', 2)}));
+        dmg_entries.append(QVariantList({name, dmg, QString::number(percentage * 100, 'f', 2) + "%"}));
+    }
+
+    std::sort(dmg_entries.begin(), dmg_entries.end(), variant_list_greater_than);
+
+    for (int i = 0; i < dmg_entries.size(); ++i) {
+        info.append(dmg_entries[i]);
     }
 
     return info;
@@ -39,17 +59,12 @@ QVariantList ClassStatistics::get_damage_breakdown_chart() const {
     info.append("Total Damage Breakdown");
     info.append("PIE");
 
-    info.append("52.5% HS");
-    info.append(52.5);
-    info.append("#edbd00");
-
-    info.append("47.5% MH Auto");
-    info.append(100-52.5);
-    info.append("#e5e4e0");
-
     for (auto it : spell_statistics.keys()) {
-        QString name = spell_statistics.value(it)->get_name();
         int dmg = spell_statistics.value(it)->get_total_dmg_dealt();
+        if (dmg == 0)
+            continue;
+
+        QString name = spell_statistics.value(it)->get_name();
         info.append(QVariantList({name, dmg, "#edbd00"}));
     }
 
@@ -63,4 +78,16 @@ int ClassStatistics::get_total_damage_dealt() const {
     }
 
     return sum;
+}
+int ClassStatistics::get_total_damage_for_spell(const QString name) {
+    if (!spell_statistics.contains(name))
+        return 0;
+
+    return spell_statistics[name]->get_total_dmg_dealt();
+}
+
+void ClassStatistics::reset_statistics() {
+    for (auto it : spell_statistics.keys()) {
+        spell_statistics.value(it)->reset();
+    }
 }

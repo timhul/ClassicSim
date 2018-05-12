@@ -13,11 +13,12 @@ UnbridledWrath::~UnbridledWrath() {
 }
 
 void UnbridledWrath::proc_effect() {
-    int rage = pchar->get_curr_rage();
+//    int rage = pchar->get_curr_rage();
     pchar->gain_rage(1);
 
-    if (pchar->get_curr_rage() != rage)
-        add_proc_stats(1, "Rage gain");
+    // TODO: Add proc/resource gain statistics
+//    if (pchar->get_curr_rage() != rage)
+//        add_proc_stats(1, "Rage gain");
 }
 
 void UnbridledWrath::increase_effect_via_talent() {

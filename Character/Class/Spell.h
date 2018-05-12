@@ -19,6 +19,8 @@ public:
 
     virtual ~Spell();
 
+    StatisticsSpell* get_statistics_for_spell() const;
+
     QString get_name() const;
     virtual float get_cooldown();
     float get_last_used();
@@ -57,10 +59,6 @@ protected:
 
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;
-    void add_fail_stats(QString) const;
-    void add_success_stats(QString, const int damage_dealt) const;
-    void add_success_stats(QString, const int, const int) const;
-    void add_proc_stats(const int value, QString title) const;
 
     void increment_miss();
     void increment_full_resist();
@@ -68,14 +66,6 @@ protected:
     void increment_dodge();
     void increment_parry();
     void increment_full_block();
-
-    void increment_partial_resist();
-    void increment_partial_block();
-    void increment_partial_block_crit();
-
-    void increment_glancing();
-    void increment_hit();
-    void increment_crit();
 
     void add_partial_resist_dmg(const int);
     void add_partial_block_dmg(const int);

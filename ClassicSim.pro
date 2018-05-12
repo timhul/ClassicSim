@@ -56,7 +56,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Overpower.cpp \
     Character/Class/Warrior/Spells/Hamstring.cpp \
     Character/Class/Warrior/Spells/Recklessness.cpp \
-    Statistics/Statistics.cpp \
     CombatRoll/AttackTables/MeleeSpecialTable.cpp \
     Mechanics/Mechanics.cpp \
     Character/Class/Buff.cpp \
@@ -207,7 +206,6 @@ HEADERS += \
     Character/Class/Warrior/Spells/Overpower.h \
     Character/Class/Warrior/Spells/Hamstring.h \
     Character/Class/Warrior/Spells/Recklessness.h \
-    Statistics/Statistics.h \
     CombatRoll/AttackTables/MeleeSpecialTable.h \
     Mechanics/Mechanics.h \
     Character/Class/Buff.h \

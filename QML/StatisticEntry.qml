@@ -56,6 +56,7 @@ RectangleBorders {
             antialiasing: true
             animationOptions: ChartView.NoAnimation
             backgroundColor: root.darkDarkGray
+            legend.visible: false
 
             title: chartTitle
 

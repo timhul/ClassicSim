@@ -24,6 +24,8 @@ public:
 
     StatisticsSpell(QString name);
 
+    void reset();
+
     QString get_name() const;
 
     void increment_miss();

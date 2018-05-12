@@ -16,13 +16,11 @@ void Engine::run() {
 
 void Engine::prepare() {
     timer->start();
-    statistics->clear();
     processed_events_of_type.clear();
 }
 
 void Engine::dump(void) {
     const float elapsed = (float)timer->elapsed() / 1000;
-    statistics->dump();
 
     QMap<QString, int>::const_iterator i = processed_events_of_type.constBegin();
     while (i != processed_events_of_type.constEnd()) {
@@ -65,10 +63,6 @@ void Engine::add_event(Event* event) {
 
 Queue* Engine::get_queue() const {
     return this->queue;
-}
-
-Statistics* Engine::get_statistics(void) {
-    return this->statistics;
 }
 
 void Engine::save_event_history(Event* event) {

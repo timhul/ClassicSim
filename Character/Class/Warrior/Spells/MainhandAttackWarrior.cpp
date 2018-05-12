@@ -23,22 +23,22 @@ int MainhandAttackWarrior::spell_effect(const int) {
 }
 
 int MainhandAttackWarrior::calculate_damage() {
-    engine->get_statistics()->increment("MH White Total Attempts");
+    // TODO: complete_swing() ? OffhandAttackWarrior has it, do not remember difference.
 
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     AttackResult* result = roll->get_melee_hit_result(mh_wpn_skill);
 
     if (result->is_miss()) {
-        add_fail_stats("Miss");
+        increment_miss();
         return 0;
     }
     // TODO: Apply Overpower
     if (result->is_dodge()) {
-        add_fail_stats("Dodge");
+        increment_dodge();
         return 0;
     }
     if (result->is_parry()) {
-        add_fail_stats("Parry");
+        increment_parry();
         return 0;
     }
 
@@ -48,21 +48,23 @@ int MainhandAttackWarrior::calculate_damage() {
         damage_dealt = round(damage_dealt * 2);
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         pchar->melee_mh_critical_effect();
-        add_success_stats("Critical", damage_dealt, rage_gained);
+        add_crit_dmg(damage_dealt);
+        // TODO: Save statistics for resource gains
         return rage_gained;
     }
-    else if (result->is_glancing()) {
+    if (result->is_glancing()) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
         pchar->melee_mh_hit_effect();
-        add_success_stats("Glancing", damage_dealt, rage_gained);
+        add_glancing_dmg(damage_dealt);
+        // TODO: Save statistics for resource gains
         return rage_gained;
     }
-    else
-        pchar->melee_mh_hit_effect();
 
     damage_dealt = round(damage_dealt);
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-    add_success_stats("Hit", damage_dealt, rage_gained);
+    pchar->melee_mh_hit_effect();
+    add_hit_dmg(damage_dealt);
+    // TODO: Save statistics for resource gains
     return rage_gained;
 }

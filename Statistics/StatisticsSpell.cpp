@@ -5,6 +5,11 @@ StatisticsSpell::StatisticsSpell(QString name):
     name(name)
 {}
 
+void StatisticsSpell::reset() {
+    attempts.clear();
+    damage.clear();
+}
+
 QString StatisticsSpell::get_name() const {
     return this->name;
 }
@@ -61,10 +66,10 @@ void StatisticsSpell::increment_crit() {
 }
 
 void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg) {
-    if (!attempts.contains(outcome))
-        attempts[outcome] = 0;
+    if (!damage.contains(outcome))
+        damage[outcome] = 0;
 
-    attempts[outcome] += dmg;
+    damage[outcome] += dmg;
 }
 
 void StatisticsSpell::add_partial_resist_dmg(const int dmg) {

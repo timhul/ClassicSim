@@ -1,9 +1,8 @@
 
 #include "WarriorStatistics.h"
-#include "Statistics.h"
 
-WarriorStatistics::WarriorStatistics(Statistics* statistics, QObject *parent) :
-    ClassStatistics(statistics, parent)
+WarriorStatistics::WarriorStatistics(QObject *parent) :
+    ClassStatistics(parent)
 {
 
 }

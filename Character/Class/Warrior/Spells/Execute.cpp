@@ -25,14 +25,14 @@ int Execute::spell_effect(const int resource_level) {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     if (result->is_miss()) {
-        add_fail_stats("Miss");
+        increment_miss();
     }
     // TODO: Apply Overpower
-    if (result->is_dodge()) {
-        add_fail_stats("Dodge");
+    else if (result->is_dodge()) {
+        increment_dodge();
     }
-    if (result->is_parry()) {
-        add_fail_stats("Parry");
+    else if (result->is_parry()) {
+        increment_parry();
     }
 
     float damage_dealt = initial_dmg + (resource_level - resource_cost) * dmg_per_rage_converted;
@@ -41,13 +41,14 @@ int Execute::spell_effect(const int resource_level) {
     if (result->is_critical()) {
         damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());
         pchar->melee_mh_critical_effect();
-        add_success_stats("Critical", damage_dealt);
+        add_crit_dmg(damage_dealt);
     }
     else if (result->is_hit())
-        add_success_stats("Hit", round(damage_dealt));
+        add_hit_dmg(round(damage_dealt));
 
     add_gcd_event();
 
+    // TODO: Resource cost on failed hit should not be 100% of cost.
     return resource_level;
 }
 

@@ -22,8 +22,6 @@
 
 #include "Spells.h"
 
-#include "Statistics.h"
-
 #include "EncounterStart.h"
 #include "EncounterEnd.h"
 
@@ -412,6 +410,7 @@ QString GUIControl::getEntryIcon(const int index) const {
 
 void GUIControl::run_quick_sim() {
     current_char->dump();
+    current_char->get_statistics()->reset_statistics();
     engine->prepare();
     combat->drop_tables();
     // TODO: Remove hardcoded 1000 iterations for quick sim.
@@ -428,7 +427,7 @@ void GUIControl::run_quick_sim() {
     engine->reset();
     // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
     float previous = last_quick_sim_result;
-    last_quick_sim_result = float(engine->get_statistics()->get_total_damage()) / (1000 * 300);
+    last_quick_sim_result = float(current_char->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
 
     float delta = ((last_quick_sim_result - previous) / previous);
     QString change = delta > 0 ? "+" : "";

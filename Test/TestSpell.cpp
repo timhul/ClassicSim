@@ -11,6 +11,7 @@
 #include "Target.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "Stats.h"
 #include "Onehand.h"
 #include "Item.h"
@@ -320,7 +321,7 @@ void TestSpell::given_engine_priority_at(const float priority) {
 }
 
 void TestSpell::then_damage_dealt_is(const int damage) {
-    assert(engine->get_statistics()->get_total_damage() == damage);
+    assert(pchar->get_statistics()->get_total_damage_dealt() == damage);
 }
 
 void TestSpell::then_next_event_is(const QString &name) {
