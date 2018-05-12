@@ -3,6 +3,9 @@
 
 #include "Spell.h"
 
+class StatisticsBuff;
+class StatisticsResource;
+
 class Proc: public Spell {
 public:
     Proc(const QString &name, const float proc_rate, const float inner_cooldown,
@@ -15,10 +18,16 @@ public:
 
     virtual int get_proc_range() const;
 
+    StatisticsBuff* get_statistics_for_buff() const;
+    StatisticsResource* get_statistics_for_resource() const;
+
 protected:
     Random* random;
     QVector<int> talent_ranks;
     QVector<Proc*> linked_procs;
+    StatisticsBuff* statistics_buff;
+    StatisticsResource* statistics_resource;
+
     int proc_range;
     bool recursive;
 private:

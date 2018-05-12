@@ -83,6 +83,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 
     spells->add_statistics();
     buffs->add_statistics();
+    procs->add_statistics();
     initialize_talents();
 }
 

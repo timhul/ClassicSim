@@ -1,6 +1,7 @@
 
 #include "UnbridledWrath.h"
 #include "Warrior.h"
+#include "StatisticsResource.h"
 
 UnbridledWrath::UnbridledWrath(Engine* engine, Character* pchar, CombatRoll* roll) :
     Proc("Unbridled Wrath", 0.0, 0, false, QVector<Proc*>(), engine, pchar, roll)
@@ -13,12 +14,11 @@ UnbridledWrath::~UnbridledWrath() {
 }
 
 void UnbridledWrath::proc_effect() {
-//    int rage = pchar->get_curr_rage();
+    int rage = pchar->get_curr_rage();
     pchar->gain_rage(1);
 
-    // TODO: Add proc/resource gain statistics
-//    if (pchar->get_curr_rage() != rage)
-//        add_proc_stats(1, "Rage gain");
+    if (pchar->get_curr_rage() != rage)
+        statistics_resource->add_resource_gain(1);
 }
 
 void UnbridledWrath::increase_effect_via_talent() {

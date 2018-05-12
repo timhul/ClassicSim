@@ -155,7 +155,8 @@ SOURCES += main.cpp \
     Faction/Faction.cpp \
     Target/Target.cpp \
     Statistics/StatisticsSpell.cpp \
-    Statistics/StatisticsBuff.cpp
+    Statistics/StatisticsBuff.cpp \
+    Statistics/StatisticsResource.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -304,7 +305,8 @@ HEADERS += \
     Statistics/ClassStatistics.h \
     Faction/Faction.h \
     Statistics/StatisticsSpell.h \
-    Statistics/StatisticsBuff.h
+    Statistics/StatisticsBuff.h \
+    Statistics/StatisticsResource.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

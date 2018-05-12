@@ -33,6 +33,8 @@ public:
 
     void switch_faction();
 
+    void add_statistics();
+
 private:
     Character* pchar;
     Faction* faction;

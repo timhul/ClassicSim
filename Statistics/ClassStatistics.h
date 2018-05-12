@@ -7,6 +7,7 @@
 
 class StatisticsSpell;
 class StatisticsBuff;
+class StatisticsResource;
 
 class ClassStatistics : public QObject {
     Q_OBJECT
@@ -22,6 +23,7 @@ public:
 
     void add_spell_statistics(StatisticsSpell *);
     void add_buff_statistics(StatisticsBuff *);
+    void add_resource_statistics(StatisticsResource*);
     int get_total_damage_dealt() const;
 
     int get_total_damage_for_spell(const QString name);
@@ -31,11 +33,13 @@ public:
 protected:
     QMap<QString, StatisticsSpell*> spell_statistics;
     QMap<QString, StatisticsBuff*> buff_statistics;
+    QMap<QString, StatisticsResource*> resource_statistics;
 
     QVariantList get_damage_breakdown_table() const;
     QVariantList get_damage_breakdown_chart() const;
 
     QVariantList get_buff_uptime_table() const;
+    virtual QVariantList get_resource_gain_table() const;
 
 };
 

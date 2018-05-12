@@ -16,6 +16,7 @@ int WarriorStatistics::getNumStatisticsRows() const {
     // That is, to show e.g. Bloodthirst damage, there must be some Bloodthirst statistics.
     int data = spell_statistics.empty() ? 0 : 1;
     data += buff_statistics.empty() ? 0 : 1;
+    data += resource_statistics.empty() ? 0 : 1;
     return data;
 }
 
@@ -28,6 +29,10 @@ QVariantList WarriorStatistics::getTableInfo(const int index) const {
         break;
     case 1:
         table_info.append(get_buff_uptime_table());
+        break;
+    case 2:
+        table_info.append(get_resource_gain_table());
+        break;
     }
 
     return table_info;

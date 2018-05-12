@@ -2,6 +2,7 @@
 #include "ClassStatistics.h"
 #include "StatisticsSpell.h"
 #include "StatisticsBuff.h"
+#include "StatisticsResource.h"
 
 ClassStatistics::ClassStatistics(QObject *parent) :
     QObject(parent)
@@ -20,6 +21,13 @@ void ClassStatistics::add_buff_statistics(StatisticsBuff* buff) {
         return;
 
     buff_statistics[buff->get_name()] = buff;
+}
+
+void ClassStatistics::add_resource_statistics(StatisticsResource* resource) {
+    if (resource_statistics.contains(resource->get_name()))
+        return;
+
+    resource_statistics[resource->get_name()] = resource;
 }
 
 bool variant_list_greater_than(const QVariantList &list1, const QVariantList &list2) {
@@ -107,6 +115,36 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
     return info;
 }
 
+QVariantList ClassStatistics::get_resource_gain_table() const {
+    QVariantList info;
+
+    QVariantList columns  = {"Source", "Resource Gain per 5s"};
+    info.append(columns.size());
+    info.append(columns);
+
+    QVector<QVariantList> entries;
+
+    for (auto it : resource_statistics.keys()) {
+        int gain = resource_statistics.value(it)->get_resource_gain();
+        if (gain == 0)
+            continue;
+
+        QString name = resource_statistics.value(it)->get_name();
+        // TODO: Remove hardcoded knowledge of num fights / fight length
+        float gain_per_5 = float(gain) / ((300 / 5) * 1000);
+        entries.append(QVariantList({name, gain, QString::number(gain_per_5, 'f', 2)}));
+    }
+
+    std::sort(entries.begin(), entries.end(), variant_list_greater_than);
+
+    for (int i = 0; i < entries.size(); ++i) {
+        QVariantList pruned = {entries[i][0], entries[i][2]};
+        info.append(pruned);
+    }
+
+    return info;
+}
+
 int ClassStatistics::get_total_damage_dealt() const {
     int sum = 0;
     for (auto it : spell_statistics.keys()) {
@@ -129,5 +167,9 @@ void ClassStatistics::reset_statistics() {
 
     for (auto it : buff_statistics.keys()) {
         buff_statistics.value(it)->reset();
+    }
+
+    for (auto it : resource_statistics.keys()) {
+        resource_statistics.value(it)->reset();
     }
 }
