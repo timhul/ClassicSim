@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<buffs>
+	<buff name="Battle Shout" type="PARTY" provided_by="Warrior" icon="Assets/warrior/fury/tier3/Ability_warrior_battleshout.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="ATTACK_POWER" value="232"/>
+			</rank>
+			
+			<rank value="1">
+				<stat type="ATTACK_POWER" value="244"/>
+			</rank>
+			
+			<rank value="2">
+				<stat type="ATTACK_POWER" value="255"/>
+			</rank>
+			
+			<rank value="3">
+				<stat type="ATTACK_POWER" value="269"/>
+			</rank>
+			
+			<rank value="4">
+				<stat type="ATTACK_POWER" value="278"/>
+			</rank>
+		
+			<rank value="5">
+				<stat type="ATTACK_POWER" value="290"/>
+			</rank>
+
+			<format_string>
+			Battle Shout\nIncreases attack power by %1
+			</format_string>
+		</patch>
+	</buff>
+
+	<buff name="Leader of the Pack" type="PARTY" provided_by="Druid" icon="Assets/buffs/Spell_nature_unyeildingstamina.png">
+		<patch name="1.8.0">
+			<rank value="0">
+				<stat type="CRIT_CHANCE" value="0.03"/>
+			</rank>
+		
+			<format_string>
+			Leader of the Pack\n+%1% Critical Strike
+			</format_string>
+		</patch>
+	</buff>
+	
+	<!-- Should probably be treated as a temporary weapon enchant, not a buff
+	<buff name="Windfury Totem" type="PARTY" provided_by="Shaman" faction="HORDE" icon="Assets/buffs/Spell_nature_windfury.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<apply_buff name="WINDFURY_TOTEM"/>
+			</rank>
+			
+			<rank value="1">
+				<apply_buff name="WINDFURY_TOTEM"/>
+			</rank>
+			
+			<rank value="2">
+				<apply_buff name="WINDFURY_TOTEM"/>
+			</rank>
+
+			<format_string>
+			Windfury Totem\n20% chance to grant 1 extra attack with extra melee ap
+			</format_string>
+		</patch>
+	</buff>
+	-->
+	
+	<buff name="Mark of the Wild" type="PARTY" provided_by="Druid" icon="Assets/buffs/Spell_nature_regeneration.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="ARMOR" value="285"/>
+				<stat type="ALL_STATS" value="12"/>
+				<stat type="ALL_RESISTANCES" value="20"/>
+			</rank>
+
+			<rank value="1">
+				<stat type="ARMOR" value="305"/>
+				<stat type="ALL_STATS" value="13"/>
+				<stat type="ALL_RESISTANCES" value="22"/>
+			</rank>
+			
+			<rank value="2">
+				<stat type="ARMOR" value="325"/>
+				<stat type="ALL_STATS" value="14"/>
+				<stat type="ALL_RESISTANCES" value="23"/>
+			</rank>
+			
+			<rank value="3">
+				<stat type="ARMOR" value="345"/>
+				<stat type="ALL_STATS" value="15"/>
+				<stat type="ALL_RESISTANCES" value="25"/>
+			</rank>
+			
+			<rank value="4">
+				<stat type="ARMOR" value="365"/>
+				<stat type="ALL_STATS" value="16"/>
+				<stat type="ALL_RESISTANCES" value="26"/>
+			</rank>
+			
+			<rank value="5">
+				<stat type="ARMOR" value="385"/>
+				<stat type="ALL_STATS" value="17"/>
+				<stat type="ALL_RESISTANCES" value="27"/>
+			</rank>
+
+			<format_string>
+			Mark of the Wild\n+%1 all attributes
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Blessing of Kings" type="PARTY" provided_by="Paladin" faction="ALLIANCE" icon="Assets/buffs/Spell_magic_greaterblessingofkings.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="PERCENT_ALL_STATS" value="10"/>
+			</rank>
+
+			<format_string>
+			Blessing of Kings\nIncreases total stats by 10%
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Blessing of Might" type="PARTY" provided_by="Paladin" faction="ALLIANCE" icon="Assets/buffs/Spell_holy_greaterblessingofkings.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="ATTACK_POWER" value="185"/>
+			</rank>
+			
+			<rank value="1">
+				<stat type="ATTACK_POWER" value="193"/>
+			</rank>
+			
+			<rank value="2">
+				<stat type="ATTACK_POWER" value="200"/>
+			</rank>
+			
+			<rank value="3">
+				<stat type="ATTACK_POWER" value="208"/>
+			</rank>
+			
+			<rank value="4">
+				<stat type="ATTACK_POWER" value="215"/>
+			</rank>
+			
+			<rank value="5">
+				<stat type="ATTACK_POWER" value="222"/>
+			</rank>
+
+			<format_string>
+			Blessing of Might\n+%1 attack power
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Elixir of the Mongoose" type="CONSUMABLE" icon="Assets/buffs/Inv_potion_32.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="AGILITY" value="25"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</rank>
+
+			<format_string>
+			Elixir of the Mongoose\n+25 Agility, +%2 Critical Strike
+			</format_string>
+			
+			<ingredients>
+				<ingredient name="Mountain Silversage" value="2"/>
+				<ingredient name="Plaguebloom" value="2"/>
+				<ingredient name="Crystal Vial" value="1"/>
+			</ingredients>
+		</patch>
+	</buff>
+	
+	<buff name="Elixir of Giants" type="CONSUMABLE" icon="Assets/buffs/Inv_potion_61.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="STRENGTH" value="25"/>
+			</rank>
+
+			<format_string>
+			Elixir of Giants\n+25 Strength
+			</format_string>
+			
+			<ingredients>
+				<ingredient name="Sungrass" value="1"/>
+				<ingredient name="Gromsblood" value="1"/>
+				<ingredient name="Crystal Vial" value="1"/>
+			</ingredients>
+		</patch>
+	</buff>
+	
+	<buff name="Elixir of Brute Force" type="CONSUMABLE" icon="Assets/buffs/Inv_potion_40.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="STRENGTH" value="18"/>
+				<stat type="STAMINA" value="18"/>
+			</rank>
+
+			<format_string>
+			Elixir of Brute Force\n+18 Strength and Stamina
+			</format_string>
+			
+			<ingredients>
+				<ingredient name="Gromsblood" value="2"/>
+				<ingredient name="Plaguebloom" value="2"/>
+				<ingredient name="Crystal Vial" value="1"/>
+			</ingredients>
+		</patch>
+	</buff>
+	
+	<buff name="Juju Power" type="CONSUMABLE" icon="Assets/buffs/Inv_misc_monsterscales_11.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="STRENGTH" value="30"/>
+			</rank>
+
+			<format_string>
+			Juju Power\n+30 Strength
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Juju Might" type="CONSUMABLE" icon="Assets/buffs/Inv_misc_monsterscales_07.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="ATTACK_POWER" value="40"/>
+			</rank>
+
+			<format_string>
+			Juju Might\n+40 Attack power
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="R.O.I.D.S" type="CONSUMABLE" icon="Assets/buffs/Inv_stone_15.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="STRENGTH" value="25"/>
+			</rank>
+
+			<format_string>
+			R.O.I.D.S\n+25 Strength
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Winterfall Firewater" type="CONSUMABLE" icon="Assets/buffs/Inv_potion_92.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="ATTACK_POWER" value="35"/>
+			</rank>
+
+			<format_string>
+			Winterfall Firewater\n+35 Melee attack power
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Smoked Desert Dumpling" type="CONSUMABLE" icon="Assets/buffs/Inv_misc_food_64.png">
+		<!-- TODO: Check when this recipe was added -->
+		<patch name="1.9.0">
+			<rank value="0">
+				<stat type="STRENGTH" value="20"/>
+			</rank>
+
+			<format_string>
+			Smoked Desert Dumpling\n+20 Strength
+			</format_string>
+			
+			<ingredients>
+				<ingredient name="Sandworm Meat" value="1"/>
+				<ingredient name="Soothing Spices" value="1"/>
+			</ingredients>
+		</patch>
+	</buff>
+	
+	<buff name="Scroll of Strength IV" type="CONSUMABLE" icon="Assets/buffs/Inv_scroll_02.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="STRENGTH" value="17"/>
+			</rank>
+
+			<format_string>
+			Scroll of Strength IV\n+17 Strength
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Rallying Cry of the Dragonslayer" type="WORLD_BUFF" icon="Assets/buffs/Inv_misc_head_dragon_01.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="SPELL_CRIT_CHANCE" value="0.1"/>
+				<stat type="CRIT_CHANCE" value="0.05"/>
+				<stat type="ATTACK_POWER" value="140"/>
+			</rank>
+
+			<format_string>
+			Rallying Cry of the Dragonslayer\n+10% Spell crit, +5% melee/ranged crit, +140 attack power
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Songflower Serenade" type="WORLD_BUFF" icon="Assets/buffs/Spell_holy_mindvision.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="CRIT_CHANCE" value="0.05"/>
+				<stat type="ALL_STATS" value="15"/>
+			</rank>
+
+			<format_string>
+			Songflower Serenade\n+5% Crit, +15 all attributes
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Spirit of Zandalar" type="WORLD_BUFF" icon="Assets/buffs/Ability_creature_poison_05.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="PERCENT_ALL_STATS" value="15"/>
+				<stat type="MOVEMENT_SPEED" value="15"/>
+			</rank>
+
+			<format_string>
+			Spirit of Zandalar\n15% all stats and 10% movement speed
+			</format_string>
+		</patch>
+	</buff>
+	
+	<buff name="Fengus' Ferocity" type="WORLD_BUFF" icon="Assets/buffs/Spell_nature_undyingstrength.png">
+		<patch name="1.0.0">
+			<rank value="0">
+				<stat type="ATTACK_POWER" value="200"/>
+			</rank>
+
+			<format_string>
+			Fengus' Ferocity\n+200 Attack power
+			</format_string>
+		</patch>
+	</buff>
+
+</buffs>

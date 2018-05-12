@@ -36,7 +36,7 @@ Rectangle {
         ListElement {
             bname: "BLESSING_OF_MIGHT"
             bicon: "Assets/buffs/Spell_holy_greaterblessingofkings.png"
-            btext: "Greater Blessing of Kings\nIncreases melee attack power by 185"
+            btext: "Greater Blessing of Might\nIncreases melee attack power by 185"
         }
         ListElement {
             bname: "MONGOOSE"
