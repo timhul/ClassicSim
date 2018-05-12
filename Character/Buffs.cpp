@@ -1,6 +1,7 @@
 
 #include "Buffs.h"
 #include "Character.h"
+#include "ClassStatistics.h"
 #include "Faction.h"
 #include "HolyStrength.h"
 
@@ -62,6 +63,12 @@ void Buffs::switch_faction() {
         for (int i = 0; i < horde_only_buffs.size(); ++i) {
             add_buff(horde_only_buffs[i]);
         }
+    }
+}
+
+void Buffs::add_statistics() {
+    for (int i = 0; i < buffs.size(); ++i) {
+        pchar->get_statistics()->add_buff_statistics(buffs[i]->get_statistics_for_buff());
     }
 }
 

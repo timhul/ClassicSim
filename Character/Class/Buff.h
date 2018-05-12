@@ -5,12 +5,14 @@
 #include <assert.h>
 
 class Character;
+class StatisticsBuff;
 
 class Buff {
 public:
     Buff(Character*, const QString, const int, const int);
     virtual ~Buff();
 
+    StatisticsBuff* get_statistics_for_buff() const;
     QString get_name() const;
     int get_charges() const;
     void apply_buff();
@@ -29,6 +31,7 @@ public:
 
 protected:
     Character* pchar;
+    StatisticsBuff* statistics;
     const QString name;
     int duration;
     const int base_charges;
@@ -39,6 +42,7 @@ protected:
     float expired;
     bool active;
     int rank_talent;
+    float uptime;
 
 private:
     void force_remove_buff();

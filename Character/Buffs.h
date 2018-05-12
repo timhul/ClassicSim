@@ -22,6 +22,8 @@ public:
 
     void switch_faction();
 
+    void add_statistics();
+
     HolyStrength* get_holy_strength_mh() const;
     HolyStrength* get_holy_strength_oh() const;
 

@@ -82,6 +82,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     procs->add_general_proc_effect(unbridled_wrath);
 
     spells->add_statistics();
+    buffs->add_statistics();
     initialize_talents();
 }
 

@@ -14,22 +14,34 @@ void WarriorStatistics::update_statistics() {
 int WarriorStatistics::getNumStatisticsRows() const {
     // TODO: Check how many of the possible statistic entries actually have statistics.
     // That is, to show e.g. Bloodthirst damage, there must be some Bloodthirst statistics.
-    return spell_statistics.empty() ? 0 :
-                                      1;
+    int data = spell_statistics.empty() ? 0 : 1;
+    data += buff_statistics.empty() ? 0 : 1;
+    return data;
 }
 
-QVariantList WarriorStatistics::getTableInfo(const int) const {
+QVariantList WarriorStatistics::getTableInfo(const int index) const {
     QVariantList table_info;
 
-    table_info.append(get_damage_breakdown_table());
+    switch (index) {
+    case 0:
+        table_info.append(get_damage_breakdown_table());
+        break;
+    case 1:
+        table_info.append(get_buff_uptime_table());
+    }
 
     return table_info;
 }
 
-QVariantList WarriorStatistics::getChartInfo(const int) const {
+QVariantList WarriorStatistics::getChartInfo(const int index) const {
     QVariantList chart_info;
 
-    chart_info.append(get_damage_breakdown_chart());
+
+    switch (index) {
+    case 0:
+        chart_info.append(get_damage_breakdown_chart());
+        break;
+    }
 
     return chart_info;
 }

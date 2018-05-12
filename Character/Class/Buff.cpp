@@ -1,12 +1,14 @@
 
 #include "Buff.h"
 #include "Character.h"
+#include "StatisticsBuff.h"
 #include "Engine.h"
 #include "BuffRemoval.h"
 #include <QDebug>
 
 Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _base_charges):
     pchar(_pchar),
+    statistics(new StatisticsBuff(_name)),
     name(_name),
     duration(_dur),
     base_charges(_base_charges),
@@ -16,6 +18,11 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
 }
 
 Buff::~Buff() {
+    delete statistics;
+}
+
+StatisticsBuff* Buff::get_statistics_for_buff() const {
+    return this->statistics;
 }
 
 QString Buff::get_name() const {
@@ -54,6 +61,8 @@ void Buff::remove_buff(const int iteration) {
 void Buff::force_remove_buff() {
     this->expired = pchar->get_engine()->get_current_priority();
     this->active = false;
+    this->uptime += expired - applied;
+
     this->buff_effect_when_removed();
 }
 
@@ -81,6 +90,8 @@ void Buff::reset() {
     if (is_active())
         force_remove_buff();
 
+    // TODO: Remove knowledge of fight length being 300s.
+    statistics->add_uptime_for_encounter(uptime / 300);
     initialize();
 }
 
@@ -91,6 +102,7 @@ void Buff::initialize() {
     refreshed = duration - 1;
     expired = duration - 1;
     active = false;
+    uptime = 0;
 }
 
 bool Buff::is_enabled() const {

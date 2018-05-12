@@ -1,6 +1,7 @@
 
 #include "ClassStatistics.h"
 #include "StatisticsSpell.h"
+#include "StatisticsBuff.h"
 
 ClassStatistics::ClassStatistics(QObject *parent) :
     QObject(parent)
@@ -12,6 +13,13 @@ void ClassStatistics::add_spell_statistics(StatisticsSpell* spell) {
         return;
 
     spell_statistics[spell->get_name()] = spell;
+}
+
+void ClassStatistics::add_buff_statistics(StatisticsBuff* buff) {
+    if (buff_statistics.contains(buff->get_name()))
+        return;
+
+    buff_statistics[buff->get_name()] = buff;
 }
 
 bool variant_list_greater_than(const QVariantList &list1, const QVariantList &list2) {
@@ -71,6 +79,34 @@ QVariantList ClassStatistics::get_damage_breakdown_chart() const {
     return info;
 }
 
+QVariantList ClassStatistics::get_buff_uptime_table() const {
+    QVariantList info;
+
+    QVariantList columns  = {"Buff", "Uptime"};
+    info.append(columns.size());
+    info.append(columns);
+
+    QVector<QVariantList> uptime_entries;
+
+    for (auto it : buff_statistics.keys()) {
+        float uptime = buff_statistics.value(it)->get_uptime();
+        if (uptime < 0.00001)
+            continue;
+
+        QString name = buff_statistics.value(it)->get_name();
+        uptime_entries.append(QVariantList({name, uptime, QString::number(uptime * 100, 'f', 2) + "%"}));
+    }
+
+    std::sort(uptime_entries.begin(), uptime_entries.end(), variant_list_greater_than);
+
+    for (int i = 0; i < uptime_entries.size(); ++i) {
+        QVariantList pruned = {uptime_entries[i][0], uptime_entries[i][2]};
+        info.append(pruned);
+    }
+
+    return info;
+}
+
 int ClassStatistics::get_total_damage_dealt() const {
     int sum = 0;
     for (auto it : spell_statistics.keys()) {
@@ -89,5 +125,9 @@ int ClassStatistics::get_total_damage_for_spell(const QString name) {
 void ClassStatistics::reset_statistics() {
     for (auto it : spell_statistics.keys()) {
         spell_statistics.value(it)->reset();
+    }
+
+    for (auto it : buff_statistics.keys()) {
+        buff_statistics.value(it)->reset();
     }
 }
