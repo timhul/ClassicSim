@@ -493,7 +493,7 @@ void Equipment::clear_items_not_available_on_patch() {
 
     if (get_neck()) {
         if (!db->item_valid_for_current_patch(get_neck()->get_value("patch")))
-            unequip(head);
+            unequip(neck);
     }
 
     if (get_shoulders()) {
