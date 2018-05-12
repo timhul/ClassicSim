@@ -234,5 +234,7 @@
         <file>QML/Assets/races/Ui-charactercreate-races_tauren-female.png</file>
         <file>QML/Assets/races/Ui-charactercreate-races_troll-female.png</file>
         <file>QML/Assets/races/Ui-charactercreate-races_undead-female.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_48naxxramas.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_07.png</file>
     </qresource>
 </RCC>
