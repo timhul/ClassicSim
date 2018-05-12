@@ -6,116 +6,131 @@
 #include "Stats.h"
 
 Equipment::Equipment() {
+    setup_index = 0;
     db = new EquipmentDb();
-    stats_from_equipped_gear = new Stats();
-    mainhand = nullptr;
-    offhand = nullptr;
-    ranged = nullptr;
-    head = nullptr;
-    neck = nullptr;
-    shoulders = nullptr;
-    back = nullptr;
-    chest = nullptr;
-    wrist = nullptr;
-    gloves = nullptr;
-    belt = nullptr;
-    legs = nullptr;
-    boots = nullptr;
-    ring1 = nullptr;
-    ring2 = nullptr;
-    trinket1 = nullptr;
-    trinket2 = nullptr;
-    caster_offhand = nullptr;
-    relic = nullptr;
+
+    stats_from_equipped_gear = {nullptr, nullptr, nullptr};
+    for (int i = 0; i < stats_from_equipped_gear.size(); ++i) {
+        stats_from_equipped_gear[i] = new Stats();
+    }
+
+    mainhand = {nullptr, nullptr, nullptr};
+    offhand = {nullptr, nullptr, nullptr};
+    ranged = {nullptr, nullptr, nullptr};
+    head = {nullptr, nullptr, nullptr};
+    neck = {nullptr, nullptr, nullptr};
+    shoulders = {nullptr, nullptr, nullptr};
+    back = {nullptr, nullptr, nullptr};
+    chest = {nullptr, nullptr, nullptr};
+    wrist = {nullptr, nullptr, nullptr};
+    gloves = {nullptr, nullptr, nullptr};
+    belt = {nullptr, nullptr, nullptr};
+    legs = {nullptr, nullptr, nullptr};
+    boots = {nullptr, nullptr, nullptr};
+    ring1 = {nullptr, nullptr, nullptr};
+    ring2 = {nullptr, nullptr, nullptr};
+    trinket1 = {nullptr, nullptr, nullptr};
+    trinket2 = {nullptr, nullptr, nullptr};
+    caster_offhand = {nullptr, nullptr, nullptr};
+    relic = {nullptr, nullptr, nullptr};
 }
 
 Equipment::~Equipment() {
     delete db;
-    delete stats_from_equipped_gear;
+    for (int i = 0; i < stats_from_equipped_gear.size(); ++i) {
+        delete stats_from_equipped_gear[i];
+    }
+}
+
+void Equipment::change_setup(const int index) {
+    if (index < 0 || index >= stats_from_equipped_gear.size())
+        return;
+
+    setup_index = index;
 }
 
 bool Equipment::is_dual_wielding(void) {
-    return offhand != nullptr;
+    return offhand[setup_index] != nullptr;
 }
 
 const Stats* Equipment::get_stats() const {
-    return this->stats_from_equipped_gear;
+    return this->stats_from_equipped_gear[setup_index];
 }
 
 Weapon* Equipment::get_mainhand(void) {
-    return mainhand;
+    return mainhand[setup_index];
 }
 
 Weapon* Equipment::get_offhand(void) {
-    return offhand;
+    return offhand[setup_index];
 }
 
 Item* Equipment::get_ranged(void) {
-    return ranged;
+    return ranged[setup_index];
 }
 
 Item* Equipment::get_head(void) {
-    return head;
+    return head[setup_index];
 }
 
 Item* Equipment::get_neck(void) {
-    return neck;
+    return neck[setup_index];
 }
 
 Item* Equipment::get_shoulders(void) {
-    return shoulders;
+    return shoulders[setup_index];
 }
 
 Item* Equipment::get_back(void) {
-    return back;
+    return back[setup_index];
 }
 
 Item* Equipment::get_chest(void) {
-    return chest;
+    return chest[setup_index];
 }
 
 Item* Equipment::get_wrist(void) {
-    return wrist;
+    return wrist[setup_index];
 }
 
 Item* Equipment::get_gloves(void) {
-    return gloves;
+    return gloves[setup_index];
 }
 
 Item* Equipment::get_belt(void) {
-    return belt;
+    return belt[setup_index];
 }
 
 Item* Equipment::get_legs(void) {
-    return legs;
+    return legs[setup_index];
 }
 
 Item* Equipment::get_boots(void) {
-    return boots;
+    return boots[setup_index];
 }
 
 Item* Equipment::get_ring1(void) {
-    return ring1;
+    return ring1[setup_index];
 }
 
 Item* Equipment::get_ring2(void) {
-    return ring2;
+    return ring2[setup_index];
 }
 
 Item* Equipment::get_trinket1(void) {
-    return trinket1;
+    return trinket1[setup_index];
 }
 
 Item* Equipment::get_trinket2(void) {
-    return trinket2;
+    return trinket2[setup_index];
 }
 
 Item* Equipment::get_caster_offhand(void) {
-    return caster_offhand;
+    return caster_offhand[setup_index];
 }
 
 Item* Equipment::get_relic(void) {
-    return relic;
+    return relic[setup_index];
 }
 
 void Equipment::set_mainhand(const QString &name) {
@@ -134,10 +149,10 @@ void Equipment::set_mainhand(const QString &name) {
     if (weapon->get_weapon_slot() == WeaponSlots::TWOHAND)
         unequip(offhand);
     else if (weapon->get_value("unique") == "yes") {
-        if (offhand != nullptr && offhand->get_name() == weapon->get_name()) {
+        if (get_offhand() != nullptr && get_offhand()->get_name() == weapon->get_name()) {
             unequip(offhand);
-            if (mainhand != nullptr)
-                set_offhand(mainhand->get_name());
+            if (get_mainhand() != nullptr)
+                set_offhand(get_mainhand()->get_name());
         }
     }
 
@@ -156,11 +171,11 @@ void Equipment::set_offhand(const QString &name) {
     if (!accepted_weapon_slots.contains(weapon->get_weapon_slot()))
         return;
 
-    if (mainhand != nullptr) {
-        if (mainhand->get_weapon_slot() == WeaponSlots::TWOHAND)
+    if (get_mainhand() != nullptr) {
+        if (get_mainhand()->get_weapon_slot() == WeaponSlots::TWOHAND)
             unequip(mainhand);
         else if (weapon->get_value("unique") == "yes") {
-            if (mainhand->get_name() == weapon->get_name())
+            if (get_mainhand()->get_name() == weapon->get_name())
                 unequip(mainhand);
         }
     }
@@ -176,7 +191,7 @@ void Equipment::set_ranged(const QString &name) {
 
     assert(item->get_item_slot() == ItemSlots::RANGED);
     assert(get_relic() == nullptr);
-    equip(this->ranged, item);
+    equip(ranged, item);
 }
 
 void Equipment::set_head(const QString &name) {
@@ -288,10 +303,10 @@ void Equipment::set_ring1(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::RING);
 
     if (item->get_value("unique") == "yes") {
-        if (ring2 != nullptr && ring2->get_name() == item->get_name()) {
-            ring2 = nullptr;
-            if (ring1 != nullptr)
-                set_ring2(ring1->get_name());
+        if (get_ring2() != nullptr && get_ring2()->get_name() == item->get_name()) {
+            unequip(ring2);
+            if (get_ring1() != nullptr)
+                set_ring2(get_ring1()->get_name());
         }
     }
 
@@ -307,10 +322,10 @@ void Equipment::set_ring2(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::RING);
 
     if (item->get_value("unique") == "yes") {
-        if (ring1 != nullptr && ring1->get_name() == item->get_name()) {
-            ring1 = nullptr;
-            if (ring2 != nullptr)
-                set_ring1(ring2->get_name());
+        if (get_ring1() != nullptr && get_ring1()->get_name() == item->get_name()) {
+            unequip(ring1);
+            if (get_ring2() != nullptr)
+                set_ring1(get_ring2()->get_name());
         }
     }
 
@@ -326,10 +341,10 @@ void Equipment::set_trinket1(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::TRINKET);
 
     if (item->get_value("unique") == "yes") {
-        if (trinket2 != nullptr && trinket2->get_name() == item->get_name()) {
-            trinket2 = nullptr;
-            if (trinket1 != nullptr)
-                set_trinket2(trinket1->get_name());
+        if (get_trinket2() != nullptr && get_trinket2()->get_name() == item->get_name()) {
+            unequip(trinket2);
+            if (get_trinket1() != nullptr)
+                set_trinket2(get_trinket1()->get_name());
         }
     }
 
@@ -345,10 +360,10 @@ void Equipment::set_trinket2(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::TRINKET);
 
     if (item->get_value("unique") == "yes") {
-        if (trinket1 != nullptr && trinket1->get_name() == item->get_name()) {
-            trinket1 = nullptr;
-            if (trinket2 != nullptr)
-                set_trinket1(trinket2->get_name());
+        if (get_trinket1() != nullptr && get_trinket1()->get_name() == item->get_name()) {
+            unequip(trinket1);
+            if (get_trinket2() != nullptr)
+                set_trinket1(get_trinket2()->get_name());
         }
     }
 
@@ -364,7 +379,7 @@ void Equipment::set_caster_offhand(const QString &name) {
 
     assert(item->get_item_slot() == ItemSlots::CASTER_OFFHAND);
     assert(get_offhand() == nullptr);
-    this->caster_offhand = item;
+    equip(caster_offhand, item);
 }
 
 void Equipment::set_relic(const QString &name) {
@@ -555,34 +570,34 @@ EquipmentDb* Equipment::get_db() const {
     return this->db;
 }
 
-void Equipment::equip(Item*& current, Item*& next) {
+void Equipment::equip(QVector<Item*>& current, Item*& next) {
     assert(next != nullptr);
 
     unequip(current);
-    current = next;
-    stats_from_equipped_gear->add(current->get_stats());
+    current[setup_index] = next;
+    stats_from_equipped_gear[setup_index]->add(current[setup_index]->get_stats());
 }
 
-void Equipment::unequip(Item*& item) {
-    if (item == nullptr)
+void Equipment::unequip(QVector<Item*>& item) {
+    if (item[setup_index] == nullptr)
         return;
 
-    stats_from_equipped_gear->remove(item->get_stats());
-    item = nullptr;
+    stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
+    item[setup_index] = nullptr;
 }
 
-void Equipment::equip(Weapon*& current, Weapon*& next) {
+void Equipment::equip(QVector<Weapon*>& current, Weapon*& next) {
     assert(next != nullptr);
 
     unequip(current);
-    current = next;
-    stats_from_equipped_gear->add(current->get_stats());
+    current[setup_index] = next;
+    stats_from_equipped_gear[setup_index]->add(current[setup_index]->get_stats());
 }
 
-void Equipment::unequip(Weapon*& item) {
-    if (item == nullptr)
+void Equipment::unequip(QVector<Weapon*>& item) {
+    if (item[setup_index] == nullptr)
         return;
 
-    stats_from_equipped_gear->remove(item->get_stats());
-    item = nullptr;
+    stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
+    item[setup_index] = nullptr;
 }

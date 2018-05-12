@@ -94,5 +94,93 @@ Rectangle {
                 }
             }
         }
+
+        Column {
+            width: 150
+            height: parent.height
+
+            state: "EQUIPMENT1"
+
+            RectangleBorders {
+                height: parent.height / 3
+                width: parent.width
+
+                rectColor: parent.state === "EQUIPMENT1" ? root.darkDarkGray : root.darkGray
+
+                Text {
+                    anchors.fill: parent
+
+                    text: "Gear setup 1"
+                    color: root.gold
+
+                    font {
+                        family: root.fontText
+                        pointSize: 12
+                    }
+
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                onRectangleClicked: {
+                    parent.state = "EQUIPMENT1"
+                    talents.setEquipmentSetup(0)
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height / 3
+                width: parent.width
+
+                rectColor: parent.state === "EQUIPMENT2" ? root.darkDarkGray : root.darkGray
+
+                Text {
+                    anchors.fill: parent
+
+                    text: "Gear setup 2"
+                    color: root.gold
+
+                    font {
+                        family: root.fontText
+                        pointSize: 12
+                    }
+
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                onRectangleClicked: {
+                    parent.state = "EQUIPMENT2"
+                    talents.setEquipmentSetup(1)
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height / 3
+                width: parent.width
+
+                rectColor: parent.state === "EQUIPMENT3" ? root.darkDarkGray : root.darkGray
+
+                Text {
+                    anchors.fill: parent
+
+                    text: "Gear setup 3"
+                    color: root.gold
+
+                    font {
+                        family: root.fontText
+                        pointSize: 12
+                    }
+
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                onRectangleClicked: {
+                    parent.state = "EQUIPMENT3"
+                    talents.setEquipmentSetup(2)
+                }
+            }
+        }
     }
 }

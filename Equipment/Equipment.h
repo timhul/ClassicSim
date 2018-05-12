@@ -13,6 +13,8 @@ public:
     Equipment();
     ~Equipment();
 
+    void change_setup(const int);
+
     bool is_dual_wielding(void);
 
     const Stats* get_stats() const;
@@ -79,35 +81,36 @@ public:
     void patch_changed();
     EquipmentDb *get_db() const;
 
-    void equip(Item*& current, Item*& next);
-    void unequip(Item*& item);
+    void equip(QVector<Item *> &current, Item*& next);
+    void unequip(QVector<Item *> &item);
 
-    void equip(Weapon*& current, Weapon*& next);
-    void unequip(Weapon*&  weapon);
+    void equip(QVector<Weapon *> &current, Weapon*& next);
+    void unequip(QVector<Weapon *> &weapon);
 
 protected:
 private:
+    int setup_index;
     EquipmentDb* db;
-    Stats* stats_from_equipped_gear;
-    Weapon* mainhand;
-    Weapon* offhand;
-    Item* ranged;
-    Item* head;
-    Item* neck;
-    Item* shoulders;
-    Item* back;
-    Item* chest;
-    Item* wrist;
-    Item* gloves;
-    Item* belt;
-    Item* legs;
-    Item* boots;
-    Item* ring1;
-    Item* ring2;
-    Item* trinket1;
-    Item* trinket2;
-    Item* caster_offhand;
-    Item* relic;
+    QVector<Stats*> stats_from_equipped_gear;
+    QVector<Weapon*> mainhand;
+    QVector<Weapon*> offhand;
+    QVector<Item*> ranged;
+    QVector<Item*> head;
+    QVector<Item*> neck;
+    QVector<Item*> shoulders;
+    QVector<Item*> back;
+    QVector<Item*> chest;
+    QVector<Item*> wrist;
+    QVector<Item*> gloves;
+    QVector<Item*> belt;
+    QVector<Item*> legs;
+    QVector<Item*> boots;
+    QVector<Item*> ring1;
+    QVector<Item*> ring2;
+    QVector<Item*> trinket1;
+    QVector<Item*> trinket2;
+    QVector<Item*> caster_offhand;
+    QVector<Item*> relic;
 };
 
 #endif // EQUIPMENT_H

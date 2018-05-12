@@ -646,6 +646,12 @@ void GUIControl::clearSlot(QString slot_string) {
     statsChanged();
 }
 
+void GUIControl::setEquipmentSetup(const int equipment_index) {
+    current_char->get_stats()->get_equipment()->change_setup(equipment_index);
+    equipmentChanged();
+    statsChanged();
+}
+
 void GUIControl::setPatch(QString patch) {
     weapon_model->set_patch(patch);
     item_model->set_patch(patch);

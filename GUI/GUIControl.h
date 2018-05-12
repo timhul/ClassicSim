@@ -115,6 +115,8 @@ public:
     Q_INVOKABLE void setSlot(QString slot_string, QString item);
     Q_INVOKABLE void clearSlot(QString slot_string);
 
+    Q_INVOKABLE void setEquipmentSetup(const int equipment_index);
+
     /* End of Equipment */
 
     /* ItemModel */
