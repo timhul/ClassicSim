@@ -655,6 +655,10 @@ void GUIControl::setEquipmentSetup(const int equipment_index) {
 void GUIControl::setPatch(QString patch) {
     weapon_model->set_patch(patch);
     item_model->set_patch(patch);
+
+    current_char->get_stats()->get_equipment()->clear_items_not_available_on_patch();
+    equipmentChanged();
+    statsChanged();
 }
 
 QVariantList GUIControl::getTooltip(const QString &slot_string) {

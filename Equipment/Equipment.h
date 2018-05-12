@@ -78,7 +78,7 @@ public:
     void clear_caster_offhand();
     void clear_relic();
 
-    void patch_changed();
+    void clear_items_not_available_on_patch();
     EquipmentDb *get_db() const;
 
     void equip(QVector<Item *> &current, Item*& next);

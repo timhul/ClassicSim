@@ -47,6 +47,7 @@ void Equipment::change_setup(const int index) {
         return;
 
     setup_index = index;
+    clear_items_not_available_on_patch();
 }
 
 bool Equipment::is_dual_wielding(void) {
@@ -469,99 +470,99 @@ void Equipment::clear_relic() {
     unequip(relic);
 }
 
-void Equipment::patch_changed() {
+void Equipment::clear_items_not_available_on_patch() {
     if (get_mainhand()) {
-        if (db->item_valid_for_current_patch(get_mainhand()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_mainhand()->get_value("patch")))
             unequip(mainhand);
     }
 
     if (get_offhand()) {
-        if (db->item_valid_for_current_patch(get_offhand()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_offhand()->get_value("patch")))
             unequip(offhand);
     }
 
     if (get_ranged()) {
-        if (db->item_valid_for_current_patch(get_ranged()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_ranged()->get_value("patch")))
             unequip(ranged);
     }
 
     if (get_head()) {
-        if (db->item_valid_for_current_patch(get_head()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_head()->get_value("patch")))
             unequip(head);
     }
 
     if (get_neck()) {
-        if (db->item_valid_for_current_patch(get_neck()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_neck()->get_value("patch")))
             unequip(head);
     }
 
     if (get_shoulders()) {
-        if (db->item_valid_for_current_patch(get_shoulders()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_shoulders()->get_value("patch")))
             unequip(shoulders);
     }
 
     if (get_back()) {
-        if (db->item_valid_for_current_patch(get_back()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_back()->get_value("patch")))
             unequip(back);
     }
 
     if (get_chest()) {
-        if (db->item_valid_for_current_patch(get_chest()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_chest()->get_value("patch")))
             unequip(chest);
     }
 
     if (get_wrist()) {
-        if (db->item_valid_for_current_patch(get_wrist()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_wrist()->get_value("patch")))
             unequip(wrist);
     }
 
     if (get_gloves()) {
-        if (db->item_valid_for_current_patch(get_gloves()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_gloves()->get_value("patch")))
             unequip(gloves);
     }
 
     if (get_belt()) {
-        if (db->item_valid_for_current_patch(get_belt()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_belt()->get_value("patch")))
             unequip(belt);
     }
 
     if (get_legs()) {
-        if (db->item_valid_for_current_patch(get_legs()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_legs()->get_value("patch")))
             unequip(legs);
     }
 
     if (get_boots()) {
-        if (db->item_valid_for_current_patch(get_boots()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_boots()->get_value("patch")))
             unequip(boots);
     }
 
     if (get_ring1()) {
-        if (db->item_valid_for_current_patch(get_ring1()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_ring1()->get_value("patch")))
             unequip(ring1);
     }
 
     if (get_ring2()) {
-        if (db->item_valid_for_current_patch(get_ring2()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_ring2()->get_value("patch")))
             unequip(ring2);
     }
 
     if (get_trinket1()) {
-        if (db->item_valid_for_current_patch(get_trinket1()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_trinket1()->get_value("patch")))
             unequip(trinket1);
     }
 
     if (get_trinket2()) {
-        if (db->item_valid_for_current_patch(get_trinket2()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_trinket2()->get_value("patch")))
             unequip(trinket2);
     }
 
     if (get_caster_offhand()) {
-        if (db->item_valid_for_current_patch(get_caster_offhand()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_caster_offhand()->get_value("patch")))
             unequip(caster_offhand);
     }
 
     if (get_relic()) {
-        if (db->item_valid_for_current_patch(get_relic()->get_value("patch")))
+        if (!db->item_valid_for_current_patch(get_relic()->get_value("patch")))
             unequip(relic);
     }
 }
