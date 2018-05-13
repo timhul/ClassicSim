@@ -61,6 +61,11 @@ Window {
         }
     }
 
+    function createNewObject(parentObject, qmlFile) {
+        var object = Qt.createComponent(qmlFile).createObject(parentObject)
+        return object
+    }
+
     Connections {
         target: character
         onQuickSimChanged: {

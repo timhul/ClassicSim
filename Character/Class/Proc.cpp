@@ -33,7 +33,6 @@ int Proc::spell_effect(const int) {
         proc_effect();
         statistics_proc->increment_proc();
 
-
         for (int i = 0; i < linked_procs.size(); ++i) {
             linked_procs[i]->spell_effect(0);
         }

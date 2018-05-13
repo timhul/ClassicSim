@@ -20,20 +20,14 @@ Rectangle {
         id: objectModel
     }
 
-    function updateStatistics() {
-        if (objectModel.count !== 0) {
-            console.log("children non-zero, will fail to update chart, delaying update")
-            timer.start()
-            return
-        }
+    Rectangle {
+        id: tmpStorage
+        visible: false
+    }
 
+    function updateStatistics() {
         for (var i = 0; i < statistics.getNumStatisticsRows(); ++i) {
-            var component = Qt.createComponent("StatisticEntry.qml")
-            if (component.status !== Component.Ready) {
-                console.log("Created component not ready!", component.errorString())
-                continue
-            }
-            var entry = component.createObject(statisticsRect)
+            var entry = root.createNewObject(tmpStorage, "StatisticEntry.qml")
             entry.imageSource = statistics.getEntryIcon(i)
 
             var tableInfo = statistics.getTableInfo(i)
@@ -54,7 +48,7 @@ Rectangle {
     function clearStatistics() {
         for (var i = objectModel.count; i > 0; --i) {
             objectModel.get(i - 1).clearTable()
-            objectModel.get(i - 1).destroy()
+            //tmpStorage.children[i - 1].destroy()
         }
         objectModel.clear()
     }
@@ -67,14 +61,6 @@ Rectangle {
             entry.addSlice(chartInfo[i], chartInfo[i + 1], chartInfo[i + 2])
             i += 3
         }
-    }
-
-    Timer {
-        id: timer
-        interval: 500
-        running: false
-        repeat: false
-        onTriggered: updateStatistics()
     }
 
     ScrollView {
