@@ -41,6 +41,10 @@ int MainhandAttackWarrior::calculate_damage() {
         increment_parry();
         return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
     }
+    if (result->is_block()) {
+        increment_full_block();
+        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
+    }
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
 

@@ -28,6 +28,7 @@ public:
     bool is_miss(void) const;
     bool is_dodge(void) const;
     bool is_parry(void) const;
+    bool is_block(void) const;
     bool is_resist(void) const;
     bool is_partial_resist(void) const;
     void dump() const;

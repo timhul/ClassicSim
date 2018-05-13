@@ -14,6 +14,10 @@ bool AttackResult::is_glancing(void) const {
     return (this->outcome == Outcome::GLANCING);
 }
 
+bool AttackResult::is_block(void) const {
+    return (this->outcome == Outcome::BLOCK);
+}
+
 bool AttackResult::is_miss(void) const {
     return (this->outcome == Outcome::MISS);
 }
@@ -44,6 +48,12 @@ void AttackResult::dump() const {
         break;
     case Outcome::GLANCING:
         qDebug() << "Outcome::GLANCING";
+        break;
+    case Outcome::BLOCK:
+        qDebug() << "Outcome::BLOCK";
+        break;
+    case Outcome::BLOCK_CRITICAL:
+        qDebug() << "Outcome::BLOCK_CRITICAL";
         break;
     case Outcome::MISS:
         qDebug() << "Outcome::MISS";
