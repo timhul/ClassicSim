@@ -3,6 +3,7 @@
 
 #include "Spell.h"
 
+class StatisticsProc;
 class StatisticsBuff;
 class StatisticsResource;
 
@@ -18,6 +19,7 @@ public:
 
     virtual int get_proc_range() const;
 
+    StatisticsProc* get_statistics_for_proc() const;
     StatisticsBuff* get_statistics_for_buff() const;
     StatisticsResource* get_statistics_for_resource() const;
 
@@ -25,6 +27,7 @@ protected:
     Random* random;
     QVector<int> talent_ranks;
     QVector<Proc*> linked_procs;
+    StatisticsProc* statistics_proc;
     StatisticsBuff* statistics_buff;
     StatisticsResource* statistics_resource;
 

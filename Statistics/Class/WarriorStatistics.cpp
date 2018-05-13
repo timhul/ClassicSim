@@ -17,6 +17,7 @@ int WarriorStatistics::getNumStatisticsRows() const {
     int data = spell_statistics.empty() ? 0 : 1;
     data += buff_statistics.empty() ? 0 : 1;
     data += resource_statistics.empty() ? 0 : 1;
+    data += proc_statistics.empty() ? 0 : 1;
     return data;
 }
 
@@ -32,6 +33,9 @@ QVariantList WarriorStatistics::getTableInfo(const int index) const {
         break;
     case 2:
         table_info.append(get_resource_gain_table());
+        break;
+    case 3:
+        table_info.append(get_proc_table());
         break;
     }
 

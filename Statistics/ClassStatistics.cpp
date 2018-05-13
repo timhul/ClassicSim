@@ -3,6 +3,7 @@
 #include "StatisticsSpell.h"
 #include "StatisticsBuff.h"
 #include "StatisticsResource.h"
+#include "StatisticsProc.h"
 
 ClassStatistics::ClassStatistics(QObject *parent) :
     QObject(parent)
@@ -28,6 +29,13 @@ void ClassStatistics::add_resource_statistics(StatisticsResource* resource) {
         return;
 
     resource_statistics[resource->get_name()] = resource;
+}
+
+void ClassStatistics::add_proc_statistics(StatisticsProc* proc) {
+    if (proc_statistics.contains(proc->get_name()))
+        return;
+
+    proc_statistics[proc->get_name()] = proc;
 }
 
 bool variant_list_greater_than(const QVariantList &list1, const QVariantList &list2) {
@@ -150,6 +158,38 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
     return info;
 }
 
+QVariantList ClassStatistics::get_proc_table() const {
+    QVector<QVariantList> entries;
+
+    for (auto it : proc_statistics.keys()) {
+        int procs = proc_statistics.value(it)->get_procs();
+        if (procs == 0)
+            continue;
+
+        QString name = proc_statistics.value(it)->get_name();
+        int attempts = proc_statistics.value(it)->get_attempts();
+        float proc_rate = proc_statistics.value(it)->get_proc_rate();
+
+        entries.append(QVariantList({name, proc_rate, QString::number(proc_rate * 100, 'f', 2), attempts}));
+    }
+
+    QVariantList info;
+    if (entries.empty())
+        return info;
+
+    QVariantList columns  = {"Source", "Procs", "Proc %"};
+    info.append(columns.size());
+    info.append(columns);
+    std::sort(entries.begin(), entries.end(), variant_list_greater_than);
+
+    for (int i = 0; i < entries.size(); ++i) {
+        QVariantList pruned = {entries[i][0], entries[i][3], entries[i][2]};
+        info.append(pruned);
+    }
+
+    return info;
+}
+
 int ClassStatistics::get_total_damage_dealt() const {
     int sum = 0;
     for (auto it : spell_statistics.keys()) {
@@ -158,11 +198,19 @@ int ClassStatistics::get_total_damage_dealt() const {
 
     return sum;
 }
-int ClassStatistics::get_total_damage_for_spell(const QString name) {
+
+int ClassStatistics::get_total_damage_for_spell(const QString name) const {
     if (!spell_statistics.contains(name))
         return 0;
 
     return spell_statistics[name]->get_total_dmg_dealt();
+}
+
+int ClassStatistics::get_total_attempts_for_spell(const QString name) const {
+    if (!spell_statistics.contains(name))
+        return 0;
+
+    return spell_statistics[name]->get_total_attempts_made();
 }
 
 void ClassStatistics::reset_statistics() {
@@ -176,5 +224,9 @@ void ClassStatistics::reset_statistics() {
 
     for (auto it : resource_statistics.keys()) {
         resource_statistics.value(it)->reset();
+    }
+
+    for (auto it : proc_statistics.keys()) {
+        proc_statistics.value(it)->reset();
     }
 }

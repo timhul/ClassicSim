@@ -121,18 +121,21 @@ void Procs::switch_faction() {
 
 void Procs::add_statistics() {
     for (int i = 0; i < melee_attack_procs.size(); ++i) {
+        pchar->get_statistics()->add_proc_statistics(melee_attack_procs[i]->get_statistics_for_proc());
         pchar->get_statistics()->add_buff_statistics(melee_attack_procs[i]->get_statistics_for_buff());
         pchar->get_statistics()->add_spell_statistics(melee_attack_procs[i]->get_statistics_for_spell());
         pchar->get_statistics()->add_resource_statistics(melee_attack_procs[i]->get_statistics_for_resource());
     }
 
     for (int i = 0; i < mainhand_attack_procs.size(); ++i) {
+        pchar->get_statistics()->add_proc_statistics(mainhand_attack_procs[i]->get_statistics_for_proc());
         pchar->get_statistics()->add_buff_statistics(mainhand_attack_procs[i]->get_statistics_for_buff());
         pchar->get_statistics()->add_spell_statistics(mainhand_attack_procs[i]->get_statistics_for_spell());
         pchar->get_statistics()->add_resource_statistics(mainhand_attack_procs[i]->get_statistics_for_resource());
     }
 
     for (int i = 0; i < offhand_attack_procs.size(); ++i) {
+        pchar->get_statistics()->add_proc_statistics(offhand_attack_procs[i]->get_statistics_for_proc());
         pchar->get_statistics()->add_buff_statistics(offhand_attack_procs[i]->get_statistics_for_buff());
         pchar->get_statistics()->add_spell_statistics(offhand_attack_procs[i]->get_statistics_for_spell());
         pchar->get_statistics()->add_resource_statistics(offhand_attack_procs[i]->get_statistics_for_resource());
