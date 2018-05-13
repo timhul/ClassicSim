@@ -17,6 +17,8 @@ RectangleBorders {
     property string chartTitle
 
     function addSlice(label, value, color) {
+        chartView.visible = true
+        pieSeries.visible = true
         var slice = pieSeries.append(label, value)
         slice.color = color
         slice.labelVisible = true
@@ -50,6 +52,8 @@ RectangleBorders {
         }
 
         ChartView {
+            id: chartView
+            visible: false
             width: 400
             height: entryHeight
             theme: ChartView.ChartThemeDark
@@ -62,6 +66,7 @@ RectangleBorders {
 
             PieSeries {
                 id: pieSeries
+                visible: false
             }
         }
     }
