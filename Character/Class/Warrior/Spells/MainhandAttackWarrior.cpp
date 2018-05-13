@@ -35,11 +35,11 @@ int MainhandAttackWarrior::calculate_damage() {
     // TODO: Apply Overpower
     if (result->is_dodge()) {
         increment_dodge();
-        return 0;
+        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
     }
     if (result->is_parry()) {
         increment_parry();
-        return 0;
+        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
     }
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
