@@ -68,6 +68,8 @@ void Buffs::switch_faction() {
 
 void Buffs::add_statistics() {
     for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs[i]->is_hidden())
+            continue;
         pchar->get_statistics()->add_buff_statistics(buffs[i]->get_statistics_for_buff());
     }
 }

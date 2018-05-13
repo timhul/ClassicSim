@@ -40,13 +40,7 @@ bool variant_list_greater_than(const QVariantList &list1, const QVariantList &li
 }
 
 QVariantList ClassStatistics::get_damage_breakdown_table() const {
-    QVariantList info;
-
     int total_damage_dealt = get_total_damage_dealt();
-
-    QVariantList columns  = {"Ability", "Total Damage", "Percentage"};
-    info.append(columns.size());
-    info.append(columns);
 
     QVector<QVariantList> dmg_entries;
 
@@ -59,6 +53,14 @@ QVariantList ClassStatistics::get_damage_breakdown_table() const {
         float percentage = float(dmg) / float(total_damage_dealt);
         dmg_entries.append(QVariantList({name, dmg, QString::number(percentage * 100, 'f', 2) + "%"}));
     }
+
+    QVariantList info;
+    if (dmg_entries.empty())
+        return info;
+
+    QVariantList columns  = {"Ability", "Total Damage", "Percentage"};
+    info.append(columns.size());
+    info.append(columns);
 
     std::sort(dmg_entries.begin(), dmg_entries.end(), variant_list_greater_than);
 
@@ -88,12 +90,6 @@ QVariantList ClassStatistics::get_damage_breakdown_chart() const {
 }
 
 QVariantList ClassStatistics::get_buff_uptime_table() const {
-    QVariantList info;
-
-    QVariantList columns  = {"Buff", "Uptime"};
-    info.append(columns.size());
-    info.append(columns);
-
     QVector<QVariantList> uptime_entries;
 
     for (auto it : buff_statistics.keys()) {
@@ -104,6 +100,14 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
         QString name = buff_statistics.value(it)->get_name();
         uptime_entries.append(QVariantList({name, uptime, QString::number(uptime * 100, 'f', 2) + "%"}));
     }
+
+    QVariantList info;
+    if (uptime_entries.empty())
+        return info;
+
+    QVariantList columns  = {"Buff", "Uptime"};
+    info.append(columns.size());
+    info.append(columns);
 
     std::sort(uptime_entries.begin(), uptime_entries.end(), variant_list_greater_than);
 
@@ -116,12 +120,6 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
 }
 
 QVariantList ClassStatistics::get_resource_gain_table() const {
-    QVariantList info;
-
-    QVariantList columns  = {"Source", "Resource Gain per 5s"};
-    info.append(columns.size());
-    info.append(columns);
-
     QVector<QVariantList> entries;
 
     for (auto it : resource_statistics.keys()) {
@@ -135,6 +133,13 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
         entries.append(QVariantList({name, gain, QString::number(gain_per_5, 'f', 2)}));
     }
 
+    QVariantList info;
+    if (entries.empty())
+        return info;
+
+    QVariantList columns  = {"Source", "Resource Gain per 5s"};
+    info.append(columns.size());
+    info.append(columns);
     std::sort(entries.begin(), entries.end(), variant_list_greater_than);
 
     for (int i = 0; i < entries.size(); ++i) {

@@ -25,6 +25,7 @@ public:
     void initialize();
 
     bool is_enabled() const;
+    bool is_hidden() const;
 
     void increase_rank();
     void decrease_rank();
@@ -43,6 +44,7 @@ protected:
     bool active;
     int rank_talent;
     float uptime;
+    bool hidden;
 
 private:
     void force_remove_buff();

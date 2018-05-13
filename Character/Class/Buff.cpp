@@ -12,7 +12,8 @@ Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _ba
     name(_name),
     duration(_dur),
     base_charges(_base_charges),
-    rank_talent(1)
+    rank_talent(1),
+    hidden(false)
 {
     initialize();
 }
@@ -107,6 +108,10 @@ void Buff::initialize() {
 
 bool Buff::is_enabled() const {
     return rank_talent > 0;
+}
+
+bool Buff::is_hidden() const {
+    return hidden;
 }
 
 void Buff::increase_rank() {
