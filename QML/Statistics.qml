@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import QtQml.Models 2.1
+import QtQuick.Controls 2.2
 
 Rectangle {
     id: statisticsRect
@@ -14,8 +16,12 @@ Rectangle {
         onStatisticsReady: updateStatistics()
     }
 
+    ObjectModel {
+        id: objectModel
+    }
+
     function updateStatistics() {
-        if (statisticsColumn.children.length !== 0) {
+        if (objectModel.count !== 0) {
             console.log("children non-zero, will fail to update chart, delaying update")
             timer.start()
             return
@@ -27,7 +33,7 @@ Rectangle {
                 console.log("Created component not ready!", component.errorString())
                 continue
             }
-            var entry = component.createObject(statisticsColumn)
+            var entry = component.createObject(statisticsRect)
             entry.imageSource = statistics.getEntryIcon(i)
 
             var tableInfo = statistics.getTableInfo(i)
@@ -40,14 +46,17 @@ Rectangle {
                 createPieChart(chartInfo, entry)
             else
                 console.log("Unhandled chart type", chartInfo[1])
+
+            objectModel.append(entry)
         }
     }
 
     function clearStatistics() {
-        for (var i = statisticsColumn.children.length; i > 0; --i) {
-            statisticsColumn.children[i - 1].clearTable()
-            statisticsColumn.children[i - 1].destroy()
+        for (var i = objectModel.count; i > 0; --i) {
+            objectModel.get(i - 1).clearTable()
+            objectModel.get(i - 1).destroy()
         }
+        objectModel.clear()
     }
 
     function createPieChart(chartInfo, entry) {
@@ -68,10 +77,14 @@ Rectangle {
         onTriggered: updateStatistics()
     }
 
-    Column {
-        id: statisticsColumn
-
+    ScrollView {
         anchors.fill: parent
+
+        ListView {
+            clip: true
+            model: objectModel
+            boundsBehavior: Flickable.StopAtBounds
+        }
     }
 
 //    ChartView {

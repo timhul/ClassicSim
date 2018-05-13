@@ -9,11 +9,6 @@ RectangleBorders {
     height: entryHeight
     color: "transparent"
 
-    anchors {
-        left: parent.left
-        right: parent.right
-    }
-
     property string chartTitle
 
     function addSlice(label, value, color) {
