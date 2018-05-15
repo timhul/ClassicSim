@@ -65,10 +65,14 @@
 		<condition resource_greater="30"/>
 	</cast_if>
 	
-	The let-attribute in <cast_if> element specifies what variable value should be when the spell is cast.
+	The "let" attribute inside <cast_if> element specifies what value the variable should be assigned when spell is cast.
 	The <let> element inside the <cast_if> element specifies the immediate value of the variable (if the cast_if conditions all evaluate to true).
+	Note that the difference is only clear on non-instant attacks (such as Heroic Strike) that the <let> element will immediately set the value to "true",
+	and the "let" attribute will set the value to "false" when the attack actually occurs.
 	
-	In the example we can use then use the variable dumping_rage_before_stancing in other places, e.g. in order to delay stance switch.
+	TODO: Consider how to set variable over more than one swing.
+	
+	In the example we can then use the variable dumping_rage_before_stancing in other places, e.g. in order to delay stance switch.
 	
 	<cast_if name="Battle Stance">
 		...
@@ -85,9 +89,6 @@
 	Action* action = rotation.takeFirstTrue();
 	while (action != nullptr) {
 		action->perform();
-		// faster to check immediately if placed on GCD.
-		if (onGCD())
-			break;
 		action = rotation.takeFirstTrue();
 	}
 	
@@ -105,7 +106,6 @@
 	}
 	-->
 A rotation that attempts to heavily conserve rage when stance dancing.
-It attempts to lose zero rage when switching stances.
 
 This implies fewer Overpowers are cast since Overpower is more likely to not always be consumed before proccing again,
 but it also implies less rage lost from stance dancing.
@@ -118,7 +118,7 @@ Better for lower item levels due to less rage available, and thus rage conservat
 	
 	<prerequisites>
 		<talent name="Bloodthirst"/>
-		<patch at_least="1.0.0"/>
+		<patch at_least="1.5.0"/>
 		<patch at_most="1.12.1"/>
 	</prerequisites>
 
