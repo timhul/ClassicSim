@@ -39,6 +39,15 @@ Stats::Stats(QObject* parent ) :
     this->melee_ap = 0;
     this->melee_ap_per_str = 1;
     this->melee_ap_per_agi = 1;
+
+    this->melee_ap_against_creature[Target::CreatureType::Beast] = 0;
+    this->melee_ap_against_creature[Target::CreatureType::Demon] = 0;
+    this->melee_ap_against_creature[Target::CreatureType::Dragonkin] = 0;
+    this->melee_ap_against_creature[Target::CreatureType::Elemental] = 0;
+    this->melee_ap_against_creature[Target::CreatureType::Giant] = 0;
+    this->melee_ap_against_creature[Target::CreatureType::Humanoid] = 0;
+    this->melee_ap_against_creature[Target::CreatureType::Mechanical] = 0;
+    this->melee_ap_against_creature[Target::CreatureType::Undead] = 0;
 }
 
 Stats::~Stats()
@@ -63,6 +72,15 @@ void Stats::add(const Stats* rhs) {
     // TODO: Attack speed missing.
 
     increase_base_melee_ap(rhs->get_melee_ap_str_excluded());
+
+    increase_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
+    increase_melee_ap_against_type(Target::CreatureType::Demon, rhs->get_melee_ap_against_type(Target::CreatureType::Demon));
+    increase_melee_ap_against_type(Target::CreatureType::Dragonkin, rhs->get_melee_ap_against_type(Target::CreatureType::Dragonkin));
+    increase_melee_ap_against_type(Target::CreatureType::Elemental, rhs->get_melee_ap_against_type(Target::CreatureType::Elemental));
+    increase_melee_ap_against_type(Target::CreatureType::Giant, rhs->get_melee_ap_against_type(Target::CreatureType::Giant));
+    increase_melee_ap_against_type(Target::CreatureType::Humanoid, rhs->get_melee_ap_against_type(Target::CreatureType::Humanoid));
+    increase_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
+    increase_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 }
 
 void Stats::remove(const Stats* rhs) {
@@ -84,6 +102,15 @@ void Stats::remove(const Stats* rhs) {
     // TODO: Attack speed missing.
 
     decrease_base_melee_ap(rhs->get_melee_ap_str_excluded());
+
+    decrease_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
+    decrease_melee_ap_against_type(Target::CreatureType::Demon, rhs->get_melee_ap_against_type(Target::CreatureType::Demon));
+    decrease_melee_ap_against_type(Target::CreatureType::Dragonkin, rhs->get_melee_ap_against_type(Target::CreatureType::Dragonkin));
+    decrease_melee_ap_against_type(Target::CreatureType::Elemental, rhs->get_melee_ap_against_type(Target::CreatureType::Elemental));
+    decrease_melee_ap_against_type(Target::CreatureType::Giant, rhs->get_melee_ap_against_type(Target::CreatureType::Giant));
+    decrease_melee_ap_against_type(Target::CreatureType::Humanoid, rhs->get_melee_ap_against_type(Target::CreatureType::Humanoid));
+    decrease_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
+    decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 }
 
 int Stats::get_strength(void) const {
@@ -365,4 +392,16 @@ void Stats::increase_attack_speed(const float value) {
 
 void Stats::decrease_attack_speed(const float value) {
     percent_attack_speed -= value;
+}
+
+void Stats::increase_melee_ap_against_type(const Target::CreatureType type, const int increase) {
+    melee_ap_against_creature[type] += increase;
+}
+
+void Stats::decrease_melee_ap_against_type(const Target::CreatureType type, const int decrease) {
+    melee_ap_against_creature[type] -= decrease;
+}
+
+int Stats::get_melee_ap_against_type(const Target::CreatureType type) const {
+    return melee_ap_against_creature[type];
 }

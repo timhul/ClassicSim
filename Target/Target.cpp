@@ -46,7 +46,11 @@ void Target::set_armor(const int armor) {
     this->target_armor = armor;
 }
 
-QString Target::get_creature_type() const {
+Target::CreatureType Target::get_creature_type() const {
+    return this->target_type;
+}
+
+QString Target::get_creature_type_string() const {
     return creature_type_strings[target_type];
 }
 

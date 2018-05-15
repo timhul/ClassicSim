@@ -29,6 +29,8 @@ public:
     void set_target(Target*);
     void set_character(Character*);
 
+    Target* get_target() const;
+
     float get_white_miss_chance(const int);
     float get_yellow_miss_chance(const int wpn_skill);
     float get_glancing_blow_chance();

@@ -27,7 +27,8 @@ public:
     int get_armor() const;
     void set_armor(const int);
 
-    QString get_creature_type() const;
+    CreatureType get_creature_type() const;
+    QString get_creature_type_string() const;
     void set_creature_type(const QString& target);
 
     bool is_beast() const;

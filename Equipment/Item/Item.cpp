@@ -1,6 +1,7 @@
 
 #include "Item.h"
 #include "Stats.h"
+#include "Target.h"
 #include <QDebug>
 
 Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString, QString> _info):
@@ -79,6 +80,22 @@ void Item::set_stat(const QString& key, const QString &value) {
     else if (key == "ATTACK_POWER") {
         this->stats->increase_base_melee_ap(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_BEAST") {
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Beast, value.toInt());
+        equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Beasts.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_DEMON") {
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Demon, value.toInt());
+        equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Demons.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_DRAGONKIN") {
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Dragonkin, value.toInt());
+        equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Dragonkin.").arg(value));
+    }
+    else if (key == "ATTACK_POWER_UNDEAD") {
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Undead, value.toInt());
+        equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Undead.").arg(value));
     }
     else if (key == "AXE_SKILL") {
         this->stats->increase_axe_skill(value.toInt());

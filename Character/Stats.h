@@ -2,6 +2,7 @@
 #define STATS_H
 
 #include <QObject>
+#include "Target.h"
 
 class Stats: public QObject {
     Q_OBJECT
@@ -113,6 +114,10 @@ public:
     void set_spi_multiplier(const float value);
     void set_int_multiplier(const float value);
 
+    void increase_melee_ap_against_type(const Target::CreatureType, const int);
+    void decrease_melee_ap_against_type(const Target::CreatureType, const int);
+    int get_melee_ap_against_type(const Target::CreatureType) const;
+
 private:
     int STR;
     int AGI;
@@ -144,6 +149,8 @@ private:
     float percent_hit;
     float percent_crit;
     float percent_attack_speed;
+
+    QMap<Target::CreatureType, int> melee_ap_against_creature;
 
     float str_multiplier;
     float agi_multiplier;

@@ -5,6 +5,7 @@
 #include "Stats.h"
 #include "Race.h"
 #include "CombatRoll.h"
+#include "Target.h"
 
 CharacterStats::CharacterStats(Character* pchar, Equipment* equipment, QObject* parent) :
     QObject(parent),
@@ -126,7 +127,8 @@ int CharacterStats::get_melee_ap() {
     int eq_str = equipment->get_stats()->get_strength();
     int eq_agi = equipment->get_stats()->get_agility();
     int eq_melee_ap = eq_base_melee_ap + eq_str * pchar->get_ap_per_strength() + eq_agi * pchar->get_ap_per_agi();
-    return base_stats->get_melee_ap_total()  + eq_melee_ap;
+    int target_ap = equipment->get_stats()->get_melee_ap_against_type(pchar->get_combat_roll()->get_target()->get_creature_type());
+    return base_stats->get_melee_ap_total()  + eq_melee_ap + target_ap;
 }
 
 void CharacterStats::increase_melee_ap(const int increase) {
