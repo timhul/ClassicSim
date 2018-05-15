@@ -4,6 +4,7 @@
 
 Target::Target(int target_lvl):
     target_lvl(target_lvl),
+    target_armor(4900),
     target_type(CreatureType::Beast)
 {
     creature_type_strings = {{CreatureType::Beast, "Beast"},
@@ -35,6 +36,14 @@ void Target::set_lvl(int new_tlvl) {
 
 int Target::get_defense(void) const {
     return target_lvl * 5;
+}
+
+int Target::get_armor() const {
+    return target_armor;
+}
+
+void Target::set_armor(const int armor) {
+    this->target_armor = armor;
 }
 
 QString Target::get_creature_type() const {

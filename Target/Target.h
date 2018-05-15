@@ -24,6 +24,9 @@ public:
 
     int get_defense(void) const;
 
+    int get_armor() const;
+    void set_armor(const int);
+
     QString get_creature_type() const;
     void set_creature_type(const QString& target);
 
@@ -39,6 +42,7 @@ public:
 protected:
 private:
     int target_lvl;
+    int target_armor;
     CreatureType target_type;
     QMap<QString, CreatureType> string_to_creature_type;
     QMap<CreatureType, QString> creature_type_strings;
