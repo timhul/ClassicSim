@@ -64,7 +64,7 @@ void CombatRoll::set_character(Character* pchar) {
     this->pchar = pchar;
 
     if (mechanics == nullptr) {
-        mechanics = new Mechanics(target->get_lvl(), pchar->get_stats()->get_hit_chance());
+        mechanics = new Mechanics(target);
     }
 }
 

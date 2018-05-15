@@ -1,5 +1,10 @@
 
 #include "Mechanics.h"
+#include "Target.h"
+
+Mechanics::Mechanics(Target* target):
+    target(target)
+{}
 
 float Mechanics::get_yellow_miss_chance(const int wpn_skill) const {
     return get_2h_white_miss_chance(wpn_skill);
@@ -8,21 +13,21 @@ float Mechanics::get_yellow_miss_chance(const int wpn_skill) const {
 float Mechanics::get_dw_white_miss_chance(const int wpn_skill) const {
     // Note that it assumes defense diff is positive.
     // Formula currently not correct when diff is negative (player wpn skill > target defense)
-    int defense_diff = tdefense - wpn_skill;
+    int defense_diff = target->get_defense() - wpn_skill;
 
     if (defense_diff > 10)
-        return std::max(0.0, 0.26 - hit_chance + (defense_diff - 10) * 0.004);
-    return std::max(0.0, 0.24 - hit_chance + defense_diff * 0.001);
+        return std::max(0.0, 0.26 + (defense_diff - 10) * 0.004);
+    return std::max(0.0, 0.24 + defense_diff * 0.001);
 }
 
 float Mechanics::get_2h_white_miss_chance(const int wpn_skill) const {
     // Note that it assumes defense diff is positive.
     // Formula currently not correct when diff is negative (player wpn skill > target defense)
-    int defense_diff = tdefense - wpn_skill;
+    int defense_diff = target->get_defense() - wpn_skill;
 
     if (defense_diff > 10)
-        return std::max(0.0, 0.07 - hit_chance + (defense_diff - 10) * 0.004);
-    return std::max(0.0, 0.05 - hit_chance + defense_diff * 0.001);
+        return std::max(0.0, 0.07 + (defense_diff - 10) * 0.004);
+    return std::max(0.0, 0.05 + defense_diff * 0.001);
 }
 
 float Mechanics::get_1h_white_miss_chance(const int wpn_skill) const {
@@ -32,7 +37,7 @@ float Mechanics::get_1h_white_miss_chance(const int wpn_skill) const {
 
 float Mechanics::get_glancing_blow_chance(const int clvl) const {
     // TODO: Non-melee classes do not follow this formula.
-    int level_diff = tlvl - clvl;
+    int level_diff = target->get_lvl() - clvl;
     if (level_diff < 0)
         return 0.0;
 
@@ -40,7 +45,7 @@ float Mechanics::get_glancing_blow_chance(const int clvl) const {
 }
 
 float Mechanics::get_dodge_chance(const int wpn_skill) const {
-    int defense_diff = wpn_skill - tdefense;
+    int defense_diff = wpn_skill - target->get_defense();
 
     if (defense_diff > 0)
         return 0.05 - defense_diff * 0.0004;
@@ -57,11 +62,10 @@ float Mechanics::get_block_chance(void) const {
     return 0.0;
 }
 
-void Mechanics::set_tlvl(const int tlvl) {
-    this->tlvl = tlvl;
-    this->tdefense = tlvl * 5;
+float Mechanics::get_reduction_from_armor(const int armor, const int clvl) const {
+    return armor / (armor + 400 + 85 * (clvl + 4.5 * (clvl - 60)));
 }
 
 float Mechanics::get_glancing_blow_dmg_penalty(const int wpn_skill) const {
-    return std::max(0.7, std::min(1.0, 1.0 - (tdefense - wpn_skill - 5) * 0.03));
+    return std::max(0.7, std::min(1.0, 1.0 - (target->get_defense() - wpn_skill - 5) * 0.03));
 }

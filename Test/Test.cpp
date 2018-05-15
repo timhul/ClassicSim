@@ -177,41 +177,46 @@ void Test::test_combat_roll_creation(void) {
 }
 
 void Test::test_mechanics_dodge(void) {
-    Mechanics* mechanics = new Mechanics(63, 0);
+    Target* target = new Target(63);
+    Mechanics* mechanics = new Mechanics(target);
 
     assert(fabs(0.05 - mechanics->get_dodge_chance(300)) < 0.001);
     assert(fabs(0.05 - mechanics->get_dodge_chance(315)) < 0.001);
 
-    mechanics->set_tlvl(60);
+    target->set_lvl(60);
     assert(fabs(0.044 - mechanics->get_dodge_chance(315)) < 0.001);
 
     delete mechanics;
+    delete target;
 }
 
 void Test::test_mechanics_glancing_rate(void) {
-    Mechanics* mechanics = new Mechanics(63, 0);
+    Target* target = new Target(63);
+    Mechanics* mechanics = new Mechanics(target);
 
     assert(fabs(6.3 - mechanics->get_glancing_blow_chance(1)) < 0.001);
 
     assert(fabs(0.4 -  mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    mechanics->set_tlvl(62);
+    target->set_lvl(62);
     assert(fabs(0.3 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    mechanics->set_tlvl(61);
+    target->set_lvl(61);
     assert(fabs(0.2 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    mechanics->set_tlvl(60);
+    target->set_lvl(60);
     assert(fabs(0.1 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
-    mechanics->set_tlvl(59);
+    target->set_lvl(59);
     assert(fabs(0.0 - mechanics->get_glancing_blow_chance(60)) < 0.001);
 
     delete mechanics;
+    delete target;
 }
 
 void Test::test_mechanics_glancing_dmg_penalty(void) {
-    Mechanics* mechanics = new Mechanics(63, 0);
+    Target* target = new Target(63);
+    Mechanics* mechanics = new Mechanics(target);
 
     assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(5)) < 0.001);
 
@@ -221,24 +226,27 @@ void Test::test_mechanics_glancing_dmg_penalty(void) {
     assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(10000)) < 0.001);
 
     delete mechanics;
+    delete target;
 }
 
 void Test::test_mechanics_dw_white_miss(void) {
-    Mechanics* mechanics = new Mechanics(63, 0);
+    Target* target = new Target(63);
+    Mechanics* mechanics = new Mechanics(target);
 
     assert(fabs(0.28 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
     assert(fabs(0.24 - mechanics->get_dw_white_miss_chance(315)) < 0.001);
 
-    mechanics->set_tlvl(62);
+    target->set_lvl(62);
     assert(fabs(0.25 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
 
-    mechanics->set_tlvl(61);
+    target->set_lvl(61);
     assert(fabs(0.245 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
 
-    mechanics->set_tlvl(60);
+    target->set_lvl(60);
     assert(fabs(0.24 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
 
     delete mechanics;
+    delete target;
 }
 
 void Test::test_white_hit_table(void) {

@@ -4,9 +4,11 @@
 #include <algorithm>
 #include "math.h"
 
+class Target;
+
 class Mechanics {
 public:
-    Mechanics(int _tlvl, int _hit): tlvl(_tlvl), tdefense(_tlvl * 5), hit_chance(_hit) {}
+    Mechanics(Target*);
 
     float get_yellow_miss_chance(const int) const;
     float get_1h_white_miss_chance(const int) const;
@@ -20,12 +22,12 @@ public:
 
     float get_glancing_blow_dmg_penalty(const int) const;
 
+    float get_reduction_from_armor(const int, const int) const;
+
     void set_tlvl(const int);
 protected:
 private:
-    int tlvl;
-    int tdefense;
-    int hit_chance;
+    Target* target;
 };
 
 #endif // MECHANICS_H

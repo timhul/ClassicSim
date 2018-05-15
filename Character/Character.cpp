@@ -4,7 +4,6 @@
 #include "Engine.h"
 #include "Equipment.h"
 #include "Faction.h"
-#include "Mechanics.h"
 #include "Talents.h"
 #include "CharacterStats.h"
 #include "Stats.h"
