@@ -154,6 +154,9 @@ bool TalentTree::decrement_rank(const QString &position) {
     if (!talents.contains(position))
         return false;
 
+    if (bottom_child_is_active(position) || right_child_is_active(position))
+        return false;
+
     int investigated_rank = get_highest_invested_rank().toInt();
     int decremented_rank = QString(position[0]).toInt();
 
@@ -271,6 +274,10 @@ int TalentTree::get_total_points() const {
 void TalentTree::clear_tree() {
     for (auto it : talents.keys()) {
         talents.value(it)->force_clear_rank();
+    }
+
+    for (auto it : spent_points.keys()) {
+        spent_points[it] = 0;
     }
 
     total_spent_points = 0;
