@@ -29,4 +29,17 @@
 			</source>
 		</patch>
 	</trinket>
+	
+	<trinket name="Mark of the Champion">
+		<patch name="1.11.0">
+			<info type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_token_argentdawn2.png"/>
+			<stats>
+				<stat type="ATTACK_POWER_UNDEAD" value="150"/>
+				<stat type="ATTACK_POWER_DEMON" value="150"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drop from Kel'Thuzad in Naxxramas.
+			</source>
+		</patch>
+	</trinket>
 </items>
