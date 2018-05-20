@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
+	<gloves name="Gauntlets of Might">
+		<patch name="1.0.0">
+			<info type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="468"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="STRENGTH" value="22"/>
+				<stat type="FIRE_RESISTANCE" value="7"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="DEFENSE" value="5"/>
+			</stats>
+			<source>
+			Drops from Lucifron in Molten Core.
+			</source>
+		</patch>
+	</gloves>
+
 	<gloves name="Flameguard Gauntlets">
 		<patch name="1.0.0">
 			<info type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
