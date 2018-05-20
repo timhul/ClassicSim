@@ -66,16 +66,22 @@ public:
     void start_global_cooldown();
     virtual float global_cooldown() const;
 
-    virtual void melee_mh_hit_effect();
-    virtual void melee_mh_critical_effect();
-    virtual void melee_oh_hit_effect();
-    virtual void melee_oh_critical_effect();
+    virtual void melee_mh_white_hit_effect();
+    virtual void melee_mh_yellow_hit_effect();
+    virtual void melee_mh_white_critical_effect();
+    virtual void melee_mh_yellow_critical_effect();
+    virtual void melee_oh_white_hit_effect();
+    virtual void melee_oh_yellow_hit_effect();
+    virtual void melee_oh_white_critical_effect();
+    virtual void melee_oh_yellow_critical_effect();
 
     virtual void spell_hit_effect();
     virtual void spell_critical_effect();
 
-    void run_mh_specific_proc_effects();
-    void run_oh_specific_proc_effects();
+    void run_mh_white_specific_proc_effects();
+    void run_mh_yellow_specific_proc_effects();
+    void run_oh_white_specific_proc_effects();
+    void run_oh_yellow_specific_proc_effects();
     void run_extra_attack();
 
     float get_ability_crit_dmg_mod() const;

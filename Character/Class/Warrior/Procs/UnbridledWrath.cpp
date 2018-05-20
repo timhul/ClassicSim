@@ -2,9 +2,13 @@
 #include "UnbridledWrath.h"
 #include "Warrior.h"
 #include "StatisticsResource.h"
+#include "ProcInfo.h"
 
 UnbridledWrath::UnbridledWrath(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Proc("Unbridled Wrath", 0.0, 0, false, QVector<Proc*>(), engine, pchar, roll)
+    Proc("Unbridled Wrath", 0.0, 0, false, QVector<Proc*>(),
+         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
+                                    ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
+         engine, pchar, roll)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     this->talent_ranks = {0, 8, 16, 24, 32, 40};

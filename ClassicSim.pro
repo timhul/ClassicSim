@@ -157,7 +157,10 @@ SOURCES += main.cpp \
     Statistics/StatisticsSpell.cpp \
     Statistics/StatisticsBuff.cpp \
     Statistics/StatisticsResource.cpp \
-    Statistics/StatisticsProc.cpp
+    Statistics/StatisticsProc.cpp \
+    Test/Warrior/Procs/TestUnbridledWrath.cpp \
+    Test/Warrior/TestProcWarrior.cpp \
+    Test/TestProc.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -308,7 +311,11 @@ HEADERS += \
     Statistics/StatisticsSpell.h \
     Statistics/StatisticsBuff.h \
     Statistics/StatisticsResource.h \
-    Statistics/StatisticsProc.h
+    Statistics/StatisticsProc.h \
+    Character/Class/ProcInfo.h \
+    Test/Warrior/Procs/TestUnbridledWrath.h \
+    Test/Warrior/TestProcWarrior.h \
+    Test/TestProc.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -349,6 +356,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Test\Warrior \
     C:\C++\ClassicSim\Test\Warrior\Spells \
     C:\C++\ClassicSim\Test\Warrior\Buffs \
+    C:\C++\ClassicSim\Test\Warrior\Procs \
     C:\C++\ClassicSim\Character\Class\General \
     C:\C++\ClassicSim\Character\Class\General\Enchants \
     C:\C++\ClassicSim\Character\Class\General\Buffs \

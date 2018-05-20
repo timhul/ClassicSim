@@ -2,6 +2,7 @@
 #define ProcPPM_H
 
 #include "Proc.h"
+#include "ProcInfo.h"
 
 namespace EnchantSlot {
     static const int MAINHAND = 0;
@@ -11,8 +12,9 @@ namespace EnchantSlot {
 class ProcPPM: public Proc {
 public:
     ProcPPM(const QString &name, const int weapon, const float ppm, const float inner_cooldown,
-         const bool recursive, const QVector<Proc*> linked_procs,
-         Engine* engine, Character* pchar, CombatRoll* roll);
+            const bool recursive, const QVector<Proc*> linked_procs,
+            const QVector<ProcInfo::Source> proc_sources,
+            Engine* engine, Character* pchar, CombatRoll* roll);
     ~ProcPPM();
 
     virtual void proc_effect() = 0;

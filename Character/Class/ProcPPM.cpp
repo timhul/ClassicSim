@@ -7,8 +7,9 @@
 ProcPPM::ProcPPM(const QString& name, const int wpn,
                  const float ppm, const float inner_cooldown, const bool recursive,
                  const QVector<Proc*> linked_procs,
+                 const QVector<ProcInfo::Source> proc_sources,
                  Engine* engine, Character* pchar, CombatRoll* roll) :
-    Proc(name, 0.0, inner_cooldown, recursive, linked_procs, engine, pchar, roll),
+    Proc(name, 0.0, inner_cooldown, recursive, linked_procs, proc_sources, engine, pchar, roll),
     proc_rate_base(ppm * 100 / 60),
     weapon(wpn)
 {

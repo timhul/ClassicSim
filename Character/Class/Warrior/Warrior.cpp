@@ -79,7 +79,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     buffs->add_buff(battle_shout_buff);
 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
-    procs->add_general_proc_effect(unbridled_wrath);
+    procs->add_proc_effect(unbridled_wrath);
 
     spells->add_statistics();
     buffs->add_statistics();
@@ -185,26 +185,46 @@ int Warrior::get_curr_rage() const {
     return this->rage;
 }
 
-void Warrior::melee_mh_hit_effect() {
+void Warrior::melee_mh_white_hit_effect() {
     flurry->use_charge();
-    run_mh_specific_proc_effects();
+    run_mh_white_specific_proc_effects();
 }
 
-void Warrior::melee_mh_critical_effect() {
+void Warrior::melee_mh_yellow_hit_effect() {
+    run_mh_yellow_specific_proc_effects();
+}
+
+void Warrior::melee_mh_white_critical_effect() {
     flurry->apply_buff();
     warr_spells->apply_deep_wounds();
-    run_mh_specific_proc_effects();
+    run_mh_white_specific_proc_effects();
 }
 
-void Warrior::melee_oh_hit_effect() {
-    flurry->use_charge();
-    run_oh_specific_proc_effects();
-}
-
-void Warrior::melee_oh_critical_effect() {
+void Warrior::melee_mh_yellow_critical_effect() {
     flurry->apply_buff();
     warr_spells->apply_deep_wounds();
-    run_oh_specific_proc_effects();
+    run_mh_yellow_specific_proc_effects();
+}
+
+void Warrior::melee_oh_white_hit_effect() {
+    flurry->use_charge();
+    run_oh_white_specific_proc_effects();
+}
+
+void Warrior::melee_oh_yellow_hit_effect() {
+    run_oh_yellow_specific_proc_effects();
+}
+
+void Warrior::melee_oh_white_critical_effect() {
+    flurry->apply_buff();
+    warr_spells->apply_deep_wounds();
+    run_oh_white_specific_proc_effects();
+}
+
+void Warrior::melee_oh_yellow_critical_effect() {
+    flurry->apply_buff();
+    warr_spells->apply_deep_wounds();
+    run_oh_yellow_specific_proc_effects();
 }
 
 void Warrior::initialize_talents() {

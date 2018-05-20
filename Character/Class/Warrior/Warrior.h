@@ -41,11 +41,14 @@ public:
     BattleShoutBuff* get_battle_shout_buff() const;
     DeathWishBuff* get_death_wish_buff() const;
 
-    void melee_mh_hit_effect() override;
-    void melee_mh_critical_effect() override;
-    void melee_oh_hit_effect() override;
-    void melee_oh_critical_effect() override;
-
+    void melee_mh_white_hit_effect() override;
+    void melee_mh_yellow_hit_effect() override;
+    void melee_mh_white_critical_effect() override;
+    void melee_mh_yellow_critical_effect() override;
+    void melee_oh_white_hit_effect() override;
+    void melee_oh_yellow_hit_effect() override;
+    void melee_oh_white_critical_effect() override;
+    void melee_oh_yellow_critical_effect() override;
 
     void reset_resource() override;
     void reset_spells() override;

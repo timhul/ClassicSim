@@ -2,6 +2,7 @@
 #define PROC_H
 
 #include "Spell.h"
+#include "ProcInfo.h"
 
 class StatisticsProc;
 class StatisticsBuff;
@@ -11,6 +12,7 @@ class Proc: public Spell {
 public:
     Proc(const QString &name, const float proc_rate, const float inner_cooldown,
          const bool recursive, const QVector<Proc *> linked_procs,
+         const QVector<ProcInfo::Source> proc_sources,
          Engine* engine, Character* pchar, CombatRoll* roll);
     ~Proc();
 
@@ -18,6 +20,8 @@ public:
     virtual void proc_effect() = 0;
 
     virtual int get_proc_range() const;
+
+    bool procs_from_source(ProcInfo::Source) const;
 
     StatisticsProc* get_statistics_for_proc() const;
     StatisticsBuff* get_statistics_for_buff() const;
@@ -27,6 +31,7 @@ protected:
     Random* random;
     QVector<int> talent_ranks;
     QVector<Proc*> linked_procs;
+    QVector<ProcInfo::Source> proc_sources;
     StatisticsProc* statistics_proc;
     StatisticsBuff* statistics_buff;
     StatisticsResource* statistics_resource;

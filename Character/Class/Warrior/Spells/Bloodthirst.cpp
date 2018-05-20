@@ -30,11 +30,13 @@ int Bloodthirst::spell_effect(const int) {
 
     if (result->is_critical()) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();
-        pchar->melee_mh_critical_effect();
+        pchar->melee_mh_yellow_critical_effect();
         add_crit_dmg(round(damage_dealt));
     }
-    else if (result->is_hit())
+    else if (result->is_hit()) {
+        pchar->melee_mh_yellow_hit_effect();
         add_hit_dmg(round(damage_dealt));
+    }
 
     add_spell_cd_event();
     add_gcd_event();

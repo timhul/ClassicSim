@@ -51,7 +51,7 @@ int MainhandAttackWarrior::calculate_damage() {
     if (result->is_critical()) {
         damage_dealt = round(damage_dealt * 2);
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-        pchar->melee_mh_critical_effect();
+        pchar->melee_mh_white_critical_effect();
         add_crit_dmg(damage_dealt);
         // TODO: Save statistics for resource gains
         return rage_gained;
@@ -59,7 +59,7 @@ int MainhandAttackWarrior::calculate_damage() {
     if (result->is_glancing()) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
         const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-        pchar->melee_mh_hit_effect();
+        pchar->melee_mh_white_hit_effect();
         add_glancing_dmg(damage_dealt);
         // TODO: Save statistics for resource gains
         return rage_gained;
@@ -67,7 +67,7 @@ int MainhandAttackWarrior::calculate_damage() {
 
     damage_dealt = round(damage_dealt);
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
-    pchar->melee_mh_hit_effect();
+    pchar->melee_mh_white_hit_effect();
     add_hit_dmg(damage_dealt);
     // TODO: Save statistics for resource gains
     return rage_gained;

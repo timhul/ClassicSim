@@ -7,9 +7,11 @@
 
 Proc::Proc(const QString& name, const float proc_rate, const float inner_cooldown,
            const bool recursive, const QVector<Proc *> linked_procs,
+           const QVector<ProcInfo::Source> proc_sources,
            Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell(name, engine, pchar, roll, inner_cooldown, 0),
     random(new Random(0, 9999)),
+    proc_sources(proc_sources),
     statistics_proc(new StatisticsProc(name)),
     statistics_buff(new StatisticsBuff(name)),
     statistics_resource(new StatisticsResource(name))
@@ -43,6 +45,10 @@ int Proc::spell_effect(const int) {
 
 int Proc::get_proc_range() const {
     return proc_range;
+}
+
+bool Proc::procs_from_source(ProcInfo::Source source) const {
+    return proc_sources.contains(source);
 }
 
 StatisticsProc* Proc::get_statistics_for_proc() const {

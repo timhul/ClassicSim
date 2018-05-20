@@ -2,11 +2,13 @@
 #include "WindfuryTotemAttack.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "ProcInfo.h"
 
 WindfuryTotemAttack::WindfuryTotemAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Proc("Windfury Totem Attack", 0.0, 0, false, QVector<Proc*>(), engine, pchar, roll)
-{
-}
+    Proc("Windfury Totem Attack", 0.0, 0, false, QVector<Proc*>(),
+         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing}),
+         engine, pchar, roll)
+{}
 
 WindfuryTotemAttack::~WindfuryTotemAttack() {
 }

@@ -8,6 +8,7 @@
 #include "CharacterStats.h"
 #include "Stats.h"
 #include "Procs.h"
+#include "ProcInfo.h"
 #include "Buffs.h"
 #include "Spells.h"
 #include "CombatRoll.h"
@@ -136,21 +137,38 @@ bool Character::action_ready() const {
     return delta < 0.0001;
 }
 
-void Character::melee_mh_hit_effect() {
-    run_mh_specific_proc_effects();
+void Character::melee_mh_white_hit_effect() {
+    run_mh_white_specific_proc_effects();
 }
 
-void Character::melee_mh_critical_effect() {
-    run_mh_specific_proc_effects();
+void Character::melee_mh_yellow_hit_effect() {
+    run_mh_yellow_specific_proc_effects();
 }
 
-void Character::melee_oh_hit_effect() {
-    run_oh_specific_proc_effects();
+void Character::melee_mh_white_critical_effect() {
+    run_mh_white_specific_proc_effects();
 }
 
-void Character::melee_oh_critical_effect() {
-    run_oh_specific_proc_effects();
+void Character::melee_mh_yellow_critical_effect() {
+    run_mh_yellow_specific_proc_effects();
 }
+
+void Character::melee_oh_white_hit_effect() {
+    run_oh_white_specific_proc_effects();
+}
+
+void Character::melee_oh_yellow_hit_effect() {
+    run_oh_yellow_specific_proc_effects();
+}
+
+void Character::melee_oh_white_critical_effect() {
+    run_oh_white_specific_proc_effects();
+}
+
+void Character::melee_oh_yellow_critical_effect() {
+    run_oh_yellow_specific_proc_effects();
+}
+
 
 void Character::spell_hit_effect() {
 
@@ -160,14 +178,20 @@ void Character::spell_critical_effect() {
 
 }
 
-void Character::run_mh_specific_proc_effects() {
-    procs->run_general_proc_effects();
-    procs->run_mh_specific_proc_effects();
+void Character::run_mh_white_specific_proc_effects() {
+    procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
 }
 
-void Character::run_oh_specific_proc_effects() {
-    procs->run_general_proc_effects();
-    procs->run_oh_specific_proc_effects();
+void Character::run_mh_yellow_specific_proc_effects() {
+    procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
+}
+
+void Character::run_oh_white_specific_proc_effects() {
+    procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
+}
+
+void Character::run_oh_yellow_specific_proc_effects() {
+    procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
 }
 
 void Character::run_extra_attack() {
