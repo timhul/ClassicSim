@@ -6,10 +6,12 @@
 #include "ExtraAttackOnNextSwingBuff.h"
 
 ExtraAttackInstantProc::ExtraAttackInstantProc(Engine* engine, Character* pchar, CombatRoll* roll,
+                                               QString proc_name,
                                                QVector<ProcInfo::Source> proc_sources,
-                                               const float proc_rate) :
-    Proc("Extra Attack Instant Proc", proc_rate, 0, false, QVector<Proc*>(), proc_sources, engine, pchar, roll),
-    extra_attack_buff(nullptr)
+                                               const float proc_rate, const int num_attacks) :
+    Proc(proc_name, proc_rate, 0, false, QVector<Proc*>(), proc_sources, engine, pchar, roll),
+    extra_attack_buff(nullptr),
+    num_attacks(num_attacks)
 {
     assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
 }
@@ -44,13 +46,13 @@ void ExtraAttackInstantProc::proc_from_next_swing_effect() {
 void ExtraAttackInstantProc::proc_from_instant_effect() {
     assert(extra_attack_buff == nullptr);
 
-    for (int i = 0; i < i; ++i)
+    for (int i = 0; i < num_attacks; ++i)
         run_extra_attacks();
 }
 
 void ExtraAttackInstantProc::run_extra_attacks() {
-    if (proc_sources.contains(ProcInfo::Source::MainhandSwing))
+    if (proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::MainhandSpell))
         pchar->run_extra_mh_attack();
-    if (proc_sources.contains(ProcInfo::Source::OffhandSwing))
+    if (proc_sources.contains(ProcInfo::Source::OffhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSpell))
         pchar->run_extra_oh_attack();
 }

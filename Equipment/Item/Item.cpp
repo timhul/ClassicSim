@@ -2,10 +2,14 @@
 #include "Item.h"
 #include "Stats.h"
 #include "Target.h"
+#include "Character.h"
+#include "ExtraAttackInstantProc.h"
+#include "ExtraAttackOnNextSwingProc.h"
 #include <QDebug>
 
-Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString, QString> _info):
-    name(_name), info(_info)
+Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString, QString> _info,
+           QVector<QMap<QString, QString>> _procs):
+    name(_name), info(_info), procs_map(_procs)
 {
     this->stats = new Stats();
     set_stats(_stats);
@@ -29,8 +33,124 @@ int Item::get_item_slot(void) const {
     return slot;
 }
 
+void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
+    if (pchar == nullptr)
+        return;
+
+    assert(procs.empty());
+
+    set_procs(procs_map, pchar, eq_slot);
+}
+
+void Item::remove_equip_effect(Character* pchar) {
+    if (pchar == nullptr) {
+        assert(procs.empty());
+        return;
+    }
+
+    for (int i = 0; i < procs.size(); ++i) {
+        procs[i]->disable_proc();
+        delete procs[i];
+    }
+
+    procs.clear();
+}
+
 QString Item::get_name(void) const {
     return name;
+}
+
+void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {
+    for (int i = 0; i < procs.size(); ++i) {
+        if (!proc_info_complete(procs[i])) {
+            qDebug() << "Missing proc info for item" << get_name();
+            continue;
+        }
+
+        QString proc_name = procs[i]["name"];
+        QString instant = procs[i]["instant"].toLower();
+        // TODO: Support recursive
+        // QString recursive = procs[i]["recursive"];
+        int amount = QString(procs[i]["amount"]).toInt();
+        float internal_cd = QString(procs[i]["internal_cd"]).toFloat();
+        float proc_rate = QString(procs[i]["rate"]).toFloat();
+
+        if (amount < 0) {
+            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(amount));
+            continue;
+        }
+        if (proc_rate < 0) {
+            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(proc_rate, 'f', 2));
+            continue;
+        }
+        if (internal_cd < 0) {
+            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(internal_cd, 'f', 2));
+            continue;
+        }
+
+        QVector<ProcInfo::Source> proc_source;
+        Proc* proc = nullptr;
+
+        if (proc_name == "EXTRA_ATTACK") {
+            switch (eq_slot) {
+            case EquipmentSlot::MAINHAND:
+                proc_source.append(ProcInfo::Source::MainhandSwing);
+                proc_source.append(ProcInfo::Source::MainhandSpell);
+                break;
+            case EquipmentSlot::OFFHAND:
+                proc_source.append(ProcInfo::Source::OffhandSwing);
+                proc_source.append(ProcInfo::Source::OffhandSpell);
+                break;
+            default:
+                proc_source.append(ProcInfo::Source::MainhandSwing);
+                proc_source.append(ProcInfo::Source::MainhandSpell);
+                proc_source.append(ProcInfo::Source::OffhandSwing);
+                proc_source.append(ProcInfo::Source::OffhandSpell);
+                break;
+            }
+
+            if (instant == "yes") {
+                proc = new ExtraAttackInstantProc(pchar->get_engine(),
+                                                  pchar,
+                                                  pchar->get_combat_roll(),
+                                                  get_name(),
+                                                  proc_source,
+                                                  proc_rate,
+                                                  amount);
+            }
+            else {
+                proc = new ExtraAttackOnNextSwingProc(pchar->get_engine(),
+                                                      pchar,
+                                                      pchar->get_combat_roll(),
+                                                      get_name(),
+                                                      proc_source,
+                                                      proc_rate,
+                                                      amount);
+            }
+        }
+
+        if (proc != nullptr) {
+            this->procs.append(proc);
+            proc->enable_proc();
+        }
+    }
+}
+
+bool Item::proc_info_complete(QMap<QString, QString> & proc) {
+    QVector<QString> expected_keys = {"name", "instant", "recursive", "amount", "internal_cd",
+                                     "rate"};
+    QVector<QString> missing_keys;
+    for (int i = 0; i < expected_keys.size(); ++i) {
+        if (!proc.contains(expected_keys[i]))
+            missing_keys.append(expected_keys[i]);
+    }
+
+    if (missing_keys.size() > 0) {
+        qDebug() << "Missing proc info keys" << missing_keys;
+        return false;
+    }
+
+    return true;
 }
 
 void Item::set_stats(QVector<QPair<QString, QString>> stats) {

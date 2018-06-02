@@ -3,6 +3,7 @@
 #include "Equipment.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "Weapon.h"
 #include <QDebug>
 
 OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :

@@ -38,6 +38,34 @@ void ClassStatistics::add_proc_statistics(StatisticsProc* proc) {
     proc_statistics[proc->get_name()] = proc;
 }
 
+void ClassStatistics::remove_spell_statistics(const QString key) {
+    if (!spell_statistics.contains(key))
+        return;
+
+    spell_statistics.remove(key);
+}
+
+void ClassStatistics::remove_buff_statistics(const QString key) {
+    if (!buff_statistics.contains(key))
+        return;
+
+    buff_statistics.remove(key);
+}
+
+void ClassStatistics::remove_resource_statistics(const QString key) {
+    if (!resource_statistics.contains(key))
+        return;
+
+    resource_statistics.remove(key);
+}
+
+void ClassStatistics::remove_proc_statistics(const QString key) {
+    if (!proc_statistics.contains(key))
+        return;
+
+    proc_statistics.remove(key);
+}
+
 bool variant_list_greater_than(const QVariantList &list1, const QVariantList &list2) {
     if (list1.size() < 2)
         return false;

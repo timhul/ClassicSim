@@ -4,6 +4,7 @@
 #include "Spell.h"
 #include "ProcInfo.h"
 
+class Procs;
 class StatisticsProc;
 class StatisticsBuff;
 class StatisticsResource;
@@ -18,8 +19,10 @@ public:
 
     int spell_effect(const int) override;
     virtual void proc_effect() = 0;
-
     virtual int get_proc_range() const;
+
+    void enable_proc();
+    void disable_proc();
 
     bool procs_from_source(ProcInfo::Source) const;
 
@@ -27,7 +30,11 @@ public:
     StatisticsBuff* get_statistics_for_buff() const;
     StatisticsResource* get_statistics_for_resource() const;
 
+    void add_proc_statistic();
+    void remove_proc_statistic();
+
 protected:
+    Procs* procs;
     Random* random;
     QVector<int> talent_ranks;
     QVector<Proc*> linked_procs;

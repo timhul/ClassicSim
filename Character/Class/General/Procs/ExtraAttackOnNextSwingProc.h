@@ -9,7 +9,7 @@ class ExtraAttackInstantProc;
 class ExtraAttackOnNextSwingProc: public Proc {
 public:
     ExtraAttackOnNextSwingProc(Engine* engine, Character* pchar, CombatRoll* roll,
-                               QVector<ProcInfo::Source> proc_sources,
+                               QString proc_name, QVector<ProcInfo::Source> proc_sources,
                                const float proc_rate, const int num_attacks);
     ~ExtraAttackOnNextSwingProc();
 

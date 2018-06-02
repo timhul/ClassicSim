@@ -25,6 +25,7 @@
 #include "EncounterStart.h"
 #include "EncounterEnd.h"
 
+#include "Weapon.h"
 #include "WeaponModel.h"
 #include "EquipmentDb.h"
 
@@ -106,6 +107,7 @@ void GUIControl::selectClass(const QString class_name) {
         return;
     }
 
+    equipment->set_character(chars[class_name]);
     current_char = chars[class_name];
     raceChanged();
     classChanged();

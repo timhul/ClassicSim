@@ -28,6 +28,11 @@ public:
     void add_proc_statistics(StatisticsProc*);
     int get_total_damage_dealt() const;
 
+    void remove_spell_statistics(const QString key);
+    void remove_buff_statistics(const QString key);
+    void remove_resource_statistics(const QString key);
+    void remove_proc_statistics(const QString key);
+
     int get_total_damage_for_spell(const QString name) const;
     int get_total_attempts_for_spell(const QString name) const;
 

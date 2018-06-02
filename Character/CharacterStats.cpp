@@ -6,6 +6,7 @@
 #include "Race.h"
 #include "CombatRoll.h"
 #include "Target.h"
+#include "Weapon.h"
 
 CharacterStats::CharacterStats(Character* pchar, Equipment* equipment, QObject* parent) :
     QObject(parent),

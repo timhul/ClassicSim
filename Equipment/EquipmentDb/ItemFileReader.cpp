@@ -148,7 +148,7 @@ void ItemFileReader::add_attr(const QXmlStreamAttributes &attrs, const QString& 
 void ItemFileReader::create_item(QVector<Item*> &items,
                                  QMap<QString, QString> &item_map,
                                  QVector<QPair<QString, QString>> &stats,
-                                 QVector<QMap<QString, QString>> &) {
+                                 QVector<QMap<QString, QString>> &procs) {
     QVector<QString> mandatory_attrs = {"name", "classification", "patch", "type", "slot",
                                         "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
@@ -166,7 +166,7 @@ void ItemFileReader::create_item(QVector<Item*> &items,
     QMap<QString, QString> info;
     extract_info(item_map, info);
 
-    items.append(new Item(item_map["name"], stats, info));
+    items.append(new Item(item_map["name"], stats, info, procs));
 
     QVector<QString> handled_keys = {"name"};
 

@@ -14,6 +14,7 @@
 #include "CombatRoll.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
+#include "Weapon.h"
 #include <QDebug>
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, Faction* faction, QObject* parent) :
@@ -25,6 +26,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->faction = faction,
     this->talents = new Talents();
     // TODO: Consider saving equipment pointer as well, to shorten expressions.
+    equipment->set_character(this);
     this->cstats = new CharacterStats(this, equipment);
     this->procs = new Procs(this, faction);
     this->buffs = new Buffs(this, faction);

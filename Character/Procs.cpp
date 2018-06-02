@@ -4,7 +4,6 @@
 #include "Faction.h"
 #include "WindfuryTotemAttack.h"
 #include "Crusader.h"
-#include "ClassStatistics.h"
 
 Procs::Procs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
@@ -67,10 +66,11 @@ void Procs::switch_faction() {
 }
 
 void Procs::add_statistics() {
-    for (int i = 0; i < procs.size(); ++i) {
-        pchar->get_statistics()->add_proc_statistics(procs[i]->get_statistics_for_proc());
-        pchar->get_statistics()->add_buff_statistics(procs[i]->get_statistics_for_buff());
-        pchar->get_statistics()->add_spell_statistics(procs[i]->get_statistics_for_spell());
-        pchar->get_statistics()->add_resource_statistics(procs[i]->get_statistics_for_resource());
-    }
+    for (int i = 0; i < procs.size(); ++i)
+        procs[i]->add_proc_statistic();
+}
+
+void Procs::remove_statistics() {
+    for (int i = 0; i < procs.size(); ++i)
+        procs[i]->remove_proc_statistic();
 }

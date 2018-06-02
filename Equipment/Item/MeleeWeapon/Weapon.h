@@ -7,8 +7,11 @@
 
 class Weapon: public Item {
 public:
-    Weapon(QString name, int type, int min, int max, float speed, QVector<QPair<QString, QString>> stats, QMap<QString, QString> info):
-        Item(name, stats, info) {
+    Weapon(QString name, int type, int min, int max, float speed,
+           QVector<QPair<QString, QString>> stats,
+           QMap<QString, QString> info,
+           QVector<QMap<QString, QString>> procs):
+        Item(name, stats, info, procs) {
         this->random = new Random(min, max);
         this->weapon_type = type;
         this->min_dmg = min;

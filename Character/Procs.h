@@ -28,6 +28,7 @@ public:
     void switch_faction();
 
     void add_statistics();
+    void remove_statistics();
 
 private:
     Character* pchar;

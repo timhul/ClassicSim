@@ -3,6 +3,7 @@
 #include "Equipment.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "Weapon.h"
 #include <QDebug>
 
 MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll) :

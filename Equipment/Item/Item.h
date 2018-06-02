@@ -26,6 +26,26 @@ namespace ItemSlots {
     static const int RELIC = 16;
 }
 
+namespace EquipmentSlot {
+    static const int MAINHAND = 0;
+    static const int OFFHAND = 1;
+    static const int RANGED = 2;
+    static const int HEAD = 3;
+    static const int NECK = 4;
+    static const int SHOULDERS = 5;
+    static const int BACK = 6;
+    static const int CHEST = 7;
+    static const int WRIST = 8;
+    static const int GLOVES = 9;
+    static const int BELT = 10;
+    static const int LEGS = 11;
+    static const int BOOTS = 12;
+    static const int RING1 = 13;
+    static const int RING2 = 14;
+    static const int TRINKET1 = 15;
+    static const int TRINKET2 = 16;
+}
+
 namespace WeaponTypes {
     static const int AXE = 0;
     static const int DAGGER = 1;
@@ -50,15 +70,21 @@ namespace WeaponSlots {
 }
 
 class Stats;
+class Character;
+class Proc;
 
 int get_slot_int(const QString& slot_string);
 
 class Item {
 public:
-    Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info);
+    Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info,
+         QVector<QMap<QString, QString>> _procs = {});
     virtual ~Item();
 
     virtual int get_item_slot(void) const;
+
+    void apply_equip_effect(Character*, const int eq_slot);
+    void remove_equip_effect(Character*);
 
     QString get_name(void) const;
     QString get_value(const QString& key) const;
@@ -78,7 +104,12 @@ protected:
     QMap<QString, QString> info;
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;
+    QVector<QMap<QString, QString>> procs_map;
+    QVector<Proc*> procs;
     Stats* stats;
+
+    void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);
+    bool proc_info_complete(QMap<QString, QString> & proc);
 
     int slot;
     void set_item_slot(const QMap<QString, QString>& info);

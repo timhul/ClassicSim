@@ -1,18 +1,21 @@
 #ifndef EQUIPMENT_H
 #define EQUIPMENT_H
 
-#include "Item.h"
-#include "Weapon.h"
+#include <QString>
+#include <QVector>
 
+class Character;
+class Item;
 class Stats;
-
 class EquipmentDb;
+class Weapon;
 
 class Equipment {
 public:
-    Equipment();
+    Equipment(Character* = nullptr);
     ~Equipment();
 
+    void set_character(Character*);
     void change_setup(const int);
 
     bool is_dual_wielding(void);
@@ -81,16 +84,17 @@ public:
     void clear_items_not_available_on_patch();
     EquipmentDb *get_db() const;
 
-    void equip(QVector<Item *> &current, Item*& next);
+    void equip(QVector<Item *> &current, Item*& next, const int eq_slot);
     void unequip(QVector<Item *> &item);
 
-    void equip(QVector<Weapon *> &current, Weapon*& next);
+    void equip(QVector<Weapon *> &current, Weapon*& next, const int eq_slot);
     void unequip(QVector<Weapon *> &weapon);
 
 protected:
 private:
     int setup_index;
     EquipmentDb* db;
+    Character* pchar;
     QVector<Stats*> stats_from_equipped_gear;
     QVector<Weapon*> mainhand;
     QVector<Weapon*> offhand;
@@ -111,6 +115,12 @@ private:
     QVector<Item*> trinket2;
     QVector<Item*> caster_offhand;
     QVector<Item*> relic;
+
+    void add_proc_effects_from_current_setup();
+    void remove_proc_effects_from_current_setup();
+
+    void add_proc_effect_from_item(Item*, const int eq_slot);
+    void remove_proc_effect_from_item(Item*);
 };
 
 #endif // EQUIPMENT_H

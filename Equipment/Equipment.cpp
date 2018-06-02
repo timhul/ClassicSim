@@ -1,11 +1,15 @@
 
 #include "Equipment.h"
 #include "EquipmentDb.h"
-#include <QSet>
-#include <assert.h>
+#include "Item.h"
+#include "Weapon.h"
 #include "Stats.h"
+#include <assert.h>
+#include <QSet>
 
-Equipment::Equipment() {
+Equipment::Equipment(Character* pchar):
+    pchar(pchar)
+{
     setup_index = 0;
     db = new EquipmentDb();
 
@@ -42,12 +46,74 @@ Equipment::~Equipment() {
     }
 }
 
+void Equipment::set_character(Character* pchar) {
+    if (this->pchar != nullptr)
+        remove_proc_effects_from_current_setup();
+
+    this->pchar = pchar;
+    add_proc_effects_from_current_setup();
+}
+
 void Equipment::change_setup(const int index) {
     if (index < 0 || index >= stats_from_equipped_gear.size())
         return;
 
+    remove_proc_effects_from_current_setup();
+
     setup_index = index;
+
+    add_proc_effects_from_current_setup();
     clear_items_not_available_on_patch();
+}
+
+void Equipment::add_proc_effects_from_current_setup() {
+    add_proc_effect_from_item(get_mainhand(), EquipmentSlot::MAINHAND);
+    add_proc_effect_from_item(get_offhand(), EquipmentSlot::OFFHAND);
+    add_proc_effect_from_item(get_ranged(), EquipmentSlot::RANGED);
+    add_proc_effect_from_item(get_head(), EquipmentSlot::HEAD);
+    add_proc_effect_from_item(get_neck(), EquipmentSlot::NECK);
+    add_proc_effect_from_item(get_shoulders(), EquipmentSlot::SHOULDERS);
+    add_proc_effect_from_item(get_back(), EquipmentSlot::BACK);
+    add_proc_effect_from_item(get_chest(), EquipmentSlot::CHEST);
+    add_proc_effect_from_item(get_wrist(), EquipmentSlot::WRIST);
+    add_proc_effect_from_item(get_gloves(), EquipmentSlot::GLOVES);
+    add_proc_effect_from_item(get_belt(), EquipmentSlot::BELT);
+    add_proc_effect_from_item(get_legs(), EquipmentSlot::LEGS);
+    add_proc_effect_from_item(get_boots(), EquipmentSlot::BOOTS);
+    add_proc_effect_from_item(get_ring1(), EquipmentSlot::RING1);
+    add_proc_effect_from_item(get_ring2(), EquipmentSlot::RING2);
+    add_proc_effect_from_item(get_trinket1(), EquipmentSlot::TRINKET1);
+    add_proc_effect_from_item(get_trinket2(), EquipmentSlot::TRINKET2);
+}
+
+void Equipment::remove_proc_effects_from_current_setup() {
+    remove_proc_effect_from_item(get_mainhand());
+    remove_proc_effect_from_item(get_offhand());
+    remove_proc_effect_from_item(get_ranged());
+    remove_proc_effect_from_item(get_head());
+    remove_proc_effect_from_item(get_neck());
+    remove_proc_effect_from_item(get_shoulders());
+    remove_proc_effect_from_item(get_back());
+    remove_proc_effect_from_item(get_chest());
+    remove_proc_effect_from_item(get_wrist());
+    remove_proc_effect_from_item(get_gloves());
+    remove_proc_effect_from_item(get_belt());
+    remove_proc_effect_from_item(get_legs());
+    remove_proc_effect_from_item(get_boots());
+    remove_proc_effect_from_item(get_ring1());
+    remove_proc_effect_from_item(get_ring2());
+    remove_proc_effect_from_item(get_trinket1());
+    remove_proc_effect_from_item(get_trinket2());
+}
+
+void Equipment::add_proc_effect_from_item(Item* item, const int eq_slot) {
+    if (item != nullptr)
+        item->apply_equip_effect(pchar, eq_slot);
+}
+
+void Equipment::remove_proc_effect_from_item(Item* item) {
+    if (item != nullptr)
+        item->remove_equip_effect(pchar);
 }
 
 bool Equipment::is_dual_wielding(void) {
@@ -157,7 +223,7 @@ void Equipment::set_mainhand(const QString &name) {
         }
     }
 
-    equip(mainhand, weapon);
+    equip(mainhand, weapon, EquipmentSlot::MAINHAND);
 }
 
 void Equipment::set_offhand(const QString &name) {
@@ -181,7 +247,7 @@ void Equipment::set_offhand(const QString &name) {
         }
     }
 
-    equip(offhand, weapon);
+    equip(offhand, weapon, EquipmentSlot::OFFHAND);
 }
 
 void Equipment::set_ranged(const QString &name) {
@@ -192,7 +258,7 @@ void Equipment::set_ranged(const QString &name) {
 
     assert(item->get_item_slot() == ItemSlots::RANGED);
     assert(get_relic() == nullptr);
-    equip(ranged, item);
+    equip(ranged, item, EquipmentSlot::RANGED);
 }
 
 void Equipment::set_head(const QString &name) {
@@ -202,7 +268,7 @@ void Equipment::set_head(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::HEAD);
-    equip(head, item);
+    equip(head, item, EquipmentSlot::HEAD);
 }
 
 void Equipment::set_neck(const QString &name) {
@@ -212,7 +278,7 @@ void Equipment::set_neck(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::NECK);
-    equip(neck, item);
+    equip(neck, item, EquipmentSlot::NECK);
 }
 
 void Equipment::set_shoulders(const QString &name) {
@@ -222,7 +288,7 @@ void Equipment::set_shoulders(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::SHOULDERS);
-    equip(shoulders, item);
+    equip(shoulders, item, EquipmentSlot::SHOULDERS);
 }
 
 void Equipment::set_back(const QString &name) {
@@ -232,7 +298,7 @@ void Equipment::set_back(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::BACK);
-    equip(back, item);
+    equip(back, item, EquipmentSlot::BACK);
 }
 
 void Equipment::set_chest(const QString &name) {
@@ -242,7 +308,7 @@ void Equipment::set_chest(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::CHEST);
-    equip(chest, item);
+    equip(chest, item, EquipmentSlot::CHEST);
 }
 
 void Equipment::set_wrist(const QString &name) {
@@ -252,7 +318,7 @@ void Equipment::set_wrist(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::WRIST);
-    equip(wrist, item);
+    equip(wrist, item, EquipmentSlot::WRIST);
 }
 
 void Equipment::set_gloves(const QString &name) {
@@ -262,7 +328,7 @@ void Equipment::set_gloves(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::GLOVES);
-    equip(gloves, item);
+    equip(gloves, item, EquipmentSlot::GLOVES);
 }
 
 void Equipment::set_belt(const QString &name) {
@@ -272,7 +338,7 @@ void Equipment::set_belt(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::BELT);
-    equip(belt, item);
+    equip(belt, item, EquipmentSlot::BELT);
 }
 
 void Equipment::set_legs(const QString &name) {
@@ -282,7 +348,7 @@ void Equipment::set_legs(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::LEGS);
-    equip(legs, item);
+    equip(legs, item, EquipmentSlot::LEGS);
 }
 
 void Equipment::set_boots(const QString &name) {
@@ -292,7 +358,7 @@ void Equipment::set_boots(const QString &name) {
         return;
 
     assert(item->get_item_slot() == ItemSlots::BOOTS);
-    equip(boots, item);
+    equip(boots, item, EquipmentSlot::BOOTS);
 }
 
 void Equipment::set_ring1(const QString &name) {
@@ -311,7 +377,7 @@ void Equipment::set_ring1(const QString &name) {
         }
     }
 
-    equip(ring1, item);
+    equip(ring1, item, EquipmentSlot::RING1);
 }
 
 void Equipment::set_ring2(const QString &name) {
@@ -330,7 +396,7 @@ void Equipment::set_ring2(const QString &name) {
         }
     }
 
-    equip(ring2, item);
+    equip(ring2, item, EquipmentSlot::RING2);
 }
 
 void Equipment::set_trinket1(const QString &name) {
@@ -349,7 +415,7 @@ void Equipment::set_trinket1(const QString &name) {
         }
     }
 
-    equip(trinket1, item);
+    equip(trinket1, item, EquipmentSlot::TRINKET1);
 }
 
 void Equipment::set_trinket2(const QString &name) {
@@ -368,7 +434,7 @@ void Equipment::set_trinket2(const QString &name) {
         }
     }
 
-    equip(trinket2, item);
+    equip(trinket2, item, EquipmentSlot::TRINKET2);
 }
 
 void Equipment::set_caster_offhand(const QString &name) {
@@ -380,7 +446,7 @@ void Equipment::set_caster_offhand(const QString &name) {
 
     assert(item->get_item_slot() == ItemSlots::CASTER_OFFHAND);
     assert(get_offhand() == nullptr);
-    equip(caster_offhand, item);
+    equip(caster_offhand, item, EquipmentSlot::RANGED);
 }
 
 void Equipment::set_relic(const QString &name) {
@@ -391,7 +457,7 @@ void Equipment::set_relic(const QString &name) {
 
     assert(item->get_item_slot() == ItemSlots::RELIC);
     assert(get_ranged() == nullptr);
-    equip(relic, item);
+    equip(relic, item, EquipmentSlot::RANGED);
 }
 
 void Equipment::clear_mainhand() {
@@ -571,11 +637,12 @@ EquipmentDb* Equipment::get_db() const {
     return this->db;
 }
 
-void Equipment::equip(QVector<Item*>& current, Item*& next) {
+void Equipment::equip(QVector<Item*>& current, Item*& next, const int eq_slot) {
     assert(next != nullptr);
 
     unequip(current);
     current[setup_index] = next;
+    current[setup_index]->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current[setup_index]->get_stats());
 }
 
@@ -583,15 +650,17 @@ void Equipment::unequip(QVector<Item*>& item) {
     if (item[setup_index] == nullptr)
         return;
 
+    item[setup_index]->remove_equip_effect(pchar);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
     item[setup_index] = nullptr;
 }
 
-void Equipment::equip(QVector<Weapon*>& current, Weapon*& next) {
+void Equipment::equip(QVector<Weapon*>& current, Weapon*& next, const int eq_slot) {
     assert(next != nullptr);
 
     unequip(current);
     current[setup_index] = next;
+    current[setup_index]->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current[setup_index]->get_stats());
 }
 
@@ -599,6 +668,7 @@ void Equipment::unequip(QVector<Weapon*>& item) {
     if (item[setup_index] == nullptr)
         return;
 
+    item[setup_index]->remove_equip_effect(pchar);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
     item[setup_index] = nullptr;
 }

@@ -8,11 +8,14 @@
 
 ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Engine* engine, Character* pchar,
                                                        CombatRoll* roll,
+                                                       QString proc_name,
                                                        QVector<ProcInfo::Source> proc_sources,
                                                        const float proc_rate,
                                                        const int num_attacks) :
-    Proc("Extra Attack On Next Swing Proc", proc_rate, 0, false, QVector<Proc*>(), proc_sources, engine, pchar, roll),
-    extra_attack_instant_proc(new ExtraAttackInstantProc(engine, pchar, roll, proc_sources, 1.0)),
+    Proc(proc_name, proc_rate, 0, false, QVector<Proc*>(), proc_sources, engine, pchar, roll),
+    extra_attack_instant_proc(new ExtraAttackInstantProc(engine, pchar, roll,
+                                                         QString("%1 Instant").arg(proc_name),
+                                                         proc_sources, 1.0, num_attacks)),
     extra_attack_buff(new ExtraAttackOnNextSwingBuff(pchar, extra_attack_instant_proc, num_attacks))
 {
     assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
