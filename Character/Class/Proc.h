@@ -24,6 +24,9 @@ public:
     void enable_proc();
     void disable_proc();
 
+    int get_instance_id() const;
+    void set_instance_id(const int);
+
     bool procs_from_source(ProcInfo::Source) const;
 
     StatisticsProc* get_statistics_for_proc() const;
@@ -42,6 +45,8 @@ protected:
     StatisticsProc* statistics_proc;
     StatisticsBuff* statistics_buff;
     StatisticsResource* statistics_resource;
+
+    int instance_id;
 
     int proc_range;
     bool recursive;

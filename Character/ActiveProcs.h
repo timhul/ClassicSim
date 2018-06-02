@@ -13,6 +13,11 @@ class Engine;
 class CombatRoll;
 class Faction;
 
+namespace ProcStatus {
+    static const int INACTIVE = -1;
+    static const int INITIAL_ID = 0;
+}
+
 class ActiveProcs: public QObject {
     Q_OBJECT
 
@@ -32,6 +37,8 @@ private:
     Character* pchar;
     Faction* faction;
     GeneralProcs* general_procs;
+
+    int next_instance_id;
 
     QVector<Proc*> active_procs;
 };

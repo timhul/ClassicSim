@@ -9,7 +9,8 @@ ActiveProcs::ActiveProcs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
     pchar(pchar),
     faction(faction),
-    general_procs(new GeneralProcs(pchar, faction))
+    general_procs(new GeneralProcs(pchar, faction)),
+    next_instance_id(ProcStatus::INITIAL_ID)
 {}
 
 ActiveProcs::~ActiveProcs()
@@ -26,11 +27,16 @@ void ActiveProcs::run_proc_effects(ProcInfo::Source source) {
 
 void ActiveProcs::add_proc_effect(Proc* proc) {
     active_procs.append(proc);
+
+    if (proc->get_instance_id() == ProcStatus::INACTIVE) {
+        proc->set_instance_id(next_instance_id);
+        ++next_instance_id;
+    }
 }
 
 void ActiveProcs::remove_proc_effect(const Proc *proc) {
     for (int i = 0; i < active_procs.size(); ++i) {
-        if (active_procs.at(i)->get_name() == proc->get_name()) {
+        if (active_procs.at(i)->get_instance_id() == proc->get_instance_id()) {
             active_procs.removeAt(i);
             break;
         }

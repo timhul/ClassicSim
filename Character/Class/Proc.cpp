@@ -19,7 +19,8 @@ Proc::Proc(const QString& name, const float proc_rate, const float inner_cooldow
     proc_sources(proc_sources),
     statistics_proc(new StatisticsProc(name)),
     statistics_buff(new StatisticsBuff(name)),
-    statistics_resource(new StatisticsResource(name))
+    statistics_resource(new StatisticsResource(name)),
+    instance_id(ProcStatus::INACTIVE)
 {
     this->proc_range = round(proc_rate * 10000);
     this->recursive = recursive;
@@ -60,6 +61,14 @@ void Proc::enable_proc() {
 void Proc::disable_proc() {
     this->remove_proc_statistic();
     procs->remove_proc_effect(this);
+}
+
+int Proc::get_instance_id() const {
+    return this->instance_id;
+}
+
+void Proc::set_instance_id(const int instance_id) {
+    this->instance_id = instance_id;
 }
 
 bool Proc::procs_from_source(ProcInfo::Source source) const {
