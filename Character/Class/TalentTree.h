@@ -49,6 +49,8 @@ public:
     void remove_rank_effects();
     void apply_rank_effects();
 
+    QVector<QPair<QString, QString>> get_talent_tree_setup() const;
+
 protected:
     const QString name;
     const QString background;

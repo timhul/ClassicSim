@@ -29,6 +29,8 @@
 #include "WeaponModel.h"
 #include "EquipmentDb.h"
 
+#include "CharacterEncoder.h"
+#include "CharacterDecoder.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 
@@ -72,6 +74,9 @@ GUIControl::GUIControl(QObject* parent) :
 
     weapon_model = new WeaponModel(equipment->get_db());
     weapon_model->addWeapons(equipment->get_db());
+
+    character_encoder = new CharacterEncoder(current_char);
+    character_decoder = new CharacterDecoder();
 }
 
 GUIControl::~GUIControl() {
@@ -94,6 +99,8 @@ GUIControl::~GUIControl() {
     delete faction;
     delete item_model;
     delete weapon_model;
+    delete character_encoder;
+    delete character_decoder;
 }
 
 void GUIControl::selectClass(const QString class_name) {
@@ -412,6 +419,9 @@ QString GUIControl::getEntryIcon(const int index) const {
 }
 
 void GUIControl::run_quick_sim() {
+    QString encode_str = character_encoder->get_current_setup_string();
+    character_decoder->initialize(encode_str);
+
     current_char->dump();
     current_char->get_statistics()->reset_statistics();
     engine->prepare();

@@ -49,6 +49,8 @@ public:
 
     int get_talent_points_remaining() const;
 
+    QVector<QPair<QString, QVector<QPair<QString, QString>>>> get_current_talent_setup() const;
+
 private:
     QVector<QMap<QString, TalentTree*>> talent_trees;
 

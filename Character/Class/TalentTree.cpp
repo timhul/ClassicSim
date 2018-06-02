@@ -298,3 +298,21 @@ void TalentTree::apply_rank_effects() {
         }
     }
 }
+
+QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
+    QVector<QString> suffixes = {"LL", "ML", "MR", "RR"};
+    QVector<QPair<QString, QString>> talent_tree_setup;
+
+    for (int tier = 0; tier < 7; ++tier) {
+        for (int suffix = 0; suffix < suffixes.size(); ++suffix) {
+            QString position = QString("%1%2").arg(QString::number(tier + 1), suffixes[suffix]);
+
+            if (!talents.contains(position) || !talents[position]->is_active())
+                continue;
+
+            talent_tree_setup.append(QPair<QString, QString>(position, QString::number(talents[position]->get_current_rank())));
+        }
+    }
+
+    return talent_tree_setup;
+}

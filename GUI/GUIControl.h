@@ -15,6 +15,10 @@
 #include "WeaponModel.h"
 #include "Faction.h"
 
+class CharacterEncoder;
+class CharacterDecoder;
+
+
 class GUIControl: public QObject {
     Q_OBJECT
 public:
@@ -216,6 +220,8 @@ private:
     Random* random;
     CombatRoll* combat;
     Faction* faction;
+    CharacterEncoder* character_encoder;
+    CharacterDecoder* character_decoder;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     Character* current_char;

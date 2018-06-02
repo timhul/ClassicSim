@@ -326,3 +326,31 @@ int Talents::get_talent_points_remaining() const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     return talent_points_remaining[current_index];
 }
+
+QVector<QPair<QString, QVector<QPair<QString, QString>>>> Talents::get_current_talent_setup() const {
+    QVector<QPair<QString, QVector<QPair<QString, QString>>>> talents;
+    QPair<QString, QVector<QPair<QString, QString>>> entry;
+
+    QVector<QPair<QString, QString>> setup = talent_trees[current_index]["LEFT"]->get_talent_tree_setup();
+    if (!setup.empty()) {
+        entry.first = "LEFT";
+        entry.second = setup;
+        talents.append(entry);
+    }
+
+    setup = talent_trees[current_index]["MID"]->get_talent_tree_setup();
+    if (!setup.empty()) {
+        entry.first = "MID";
+        entry.second = setup;
+        talents.append(entry);
+    }
+
+    setup = talent_trees[current_index]["RIGHT"]->get_talent_tree_setup();
+    if (!setup.empty()) {
+        entry.first = "RIGHT";
+        entry.second = setup;
+        talents.append(entry);
+    }
+
+    return talents;
+}

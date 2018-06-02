@@ -164,7 +164,9 @@ SOURCES += main.cpp \
     Character/Class/General/Procs/ExtraAttackOnNextSwingProc.cpp \
     Character/Class/General/Buffs/ExtraAttackOnNextSwingBuff.cpp \
     Character/Class/General/Procs/ExtraAttackInstantProc.cpp \
-    Character/Class/General/GeneralProcs.cpp
+    Character/Class/General/GeneralProcs.cpp \
+    Character/CharacterDecoder.cpp \
+    Character/CharacterEncoder.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -323,7 +325,10 @@ HEADERS += \
     Character/Class/General/Procs/ExtraAttackOnNextSwingProc.h \
     Character/Class/General/Buffs/ExtraAttackOnNextSwingBuff.h \
     Character/Class/General/Procs/ExtraAttackInstantProc.h \
-    Character/Class/General/GeneralProcs.h
+    Character/Class/General/GeneralProcs.h \
+    Character/CharacterEncoding.h \
+    Character/CharacterDecoder.h \
+    Character/CharacterEncoder.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
