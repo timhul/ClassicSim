@@ -12,7 +12,7 @@ class Equipment;
 class Talents;
 class Stats;
 class CharacterStats;
-class Procs;
+class ActiveProcs;
 class Buffs;
 class Spells;
 class CombatRoll;
@@ -57,7 +57,7 @@ public:
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
-    Procs* get_procs() const;
+    ActiveProcs* get_active_procs() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -127,7 +127,7 @@ protected:
     Faction* faction;
     Talents* talents;
     CharacterStats* cstats;
-    Procs* procs;
+    ActiveProcs* active_procs;
     Buffs* buffs;
     Spells* spells;
     ClassStatistics* statistics;

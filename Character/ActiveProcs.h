@@ -1,5 +1,5 @@
-#ifndef PROCS_H
-#define PROCS_H
+#ifndef ACTIVEPROCS_H
+#define ACTIVEPROCS_H
 
 #include <QObject>
 #include <QVector>
@@ -13,12 +13,12 @@ class Engine;
 class CombatRoll;
 class Faction;
 
-class Procs: public QObject {
+class ActiveProcs: public QObject {
     Q_OBJECT
 
 public:
-    Procs(Character* pchar, Faction* faction, QObject* parent = 0);
-    ~Procs();
+    ActiveProcs(Character* pchar, Faction* faction, QObject* parent = 0);
+    ~ActiveProcs();
 
     void run_proc_effects(ProcInfo::Source);
     void add_proc_effect(Proc* proc);
@@ -36,4 +36,4 @@ private:
     QVector<Proc*> active_procs;
 };
 
-#endif // PROCS_H
+#endif // ACTIVEPROCS_H

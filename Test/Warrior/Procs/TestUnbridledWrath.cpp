@@ -1,7 +1,7 @@
 
 #include "TestUnbridledWrath.h"
 #include "Warrior.h"
-#include "Procs.h"
+#include "ActiveProcs.h"
 #include "UnbridledWrath.h"
 #include "UnbridledWrathTalent.h"
 #include "ProcInfo.h"

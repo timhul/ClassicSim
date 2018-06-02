@@ -12,7 +12,7 @@
 #include "Fury.h"
 #include "Protection.h"
 #include "Stats.h"
-#include "Procs.h"
+#include "ActiveProcs.h"
 #include "Buffs.h"
 #include "WarriorSpells.h"
 #include "CharacterStats.h"

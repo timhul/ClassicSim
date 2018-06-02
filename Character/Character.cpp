@@ -7,7 +7,7 @@
 #include "Talents.h"
 #include "CharacterStats.h"
 #include "Stats.h"
-#include "Procs.h"
+#include "ActiveProcs.h"
 #include "ProcInfo.h"
 #include "Buffs.h"
 #include "Spells.h"
@@ -28,7 +28,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     // TODO: Consider saving equipment pointer as well, to shorten expressions.
     equipment->set_character(this);
     this->cstats = new CharacterStats(this, equipment);
-    this->procs = new Procs(this, faction);
+    this->active_procs = new ActiveProcs(this, faction);
     this->buffs = new Buffs(this, faction);
     this->clvl = 1;
     this->melee_attacking = false;
@@ -39,7 +39,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
 Character::~Character() {
     delete talents;
     delete cstats;
-    delete procs;
+    delete active_procs;
     delete buffs;
 }
 
@@ -58,7 +58,7 @@ void Character::set_race(Race* race) {
 }
 
 void Character::switch_faction() {
-    procs->switch_faction();
+    active_procs->switch_faction();
     buffs->switch_faction();
 }
 
@@ -114,8 +114,8 @@ ClassStatistics* Character::get_statistics(void) const {
     return this->statistics;
 }
 
-Procs* Character::get_procs() const {
-    return this->procs;
+ActiveProcs* Character::get_active_procs() const {
+    return this->active_procs;
 }
 
 void Character::start_attack(void) {
@@ -185,19 +185,19 @@ void Character::spell_critical_effect() {
 }
 
 void Character::run_mh_white_specific_proc_effects() {
-    procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
+    active_procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
 }
 
 void Character::run_mh_yellow_specific_proc_effects() {
-    procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
+    active_procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
 }
 
 void Character::run_oh_white_specific_proc_effects() {
-    procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
+    active_procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
 }
 
 void Character::run_oh_yellow_specific_proc_effects() {
-    procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
+    active_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
 }
 
 void Character::run_extra_mh_attack() {
@@ -356,7 +356,7 @@ void Character::reset() {
 
     buffs->reset();
     reset_spells();
-    procs->reset();
+    active_procs->reset();
     cstats->reset();
 
     reset_resource();

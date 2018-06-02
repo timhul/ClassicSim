@@ -4,7 +4,7 @@
 #include "Spell.h"
 #include "ProcInfo.h"
 
-class Procs;
+class ActiveProcs;
 class StatisticsProc;
 class StatisticsBuff;
 class StatisticsResource;
@@ -34,7 +34,7 @@ public:
     void remove_proc_statistic();
 
 protected:
-    Procs* procs;
+    ActiveProcs* procs;
     Random* random;
     QVector<int> talent_ranks;
     QVector<Proc*> linked_procs;

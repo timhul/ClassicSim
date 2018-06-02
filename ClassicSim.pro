@@ -141,7 +141,7 @@ SOURCES += main.cpp \
     Character/Class/General/Enchants/Crusader.cpp \
     Character/Class/ProcPPM.cpp \
     Character/Class/General/Buffs/HolyStrength.cpp \
-    Character/Procs.cpp \
+    Character/ActiveProcs.cpp \
     Character/Buffs.cpp \
     Character/Class/General/Enchants/FieryWeapon.cpp \
     Character/Class/General/Spells/FieryWeaponAttack.cpp \
@@ -300,7 +300,7 @@ HEADERS += \
     Character/Class/General/Enchants/Crusader.h \
     Character/Class/ProcPPM.h \
     Character/Class/General/Buffs/HolyStrength.h \
-    Character/Procs.h \
+    Character/ActiveProcs.h \
     Character/Buffs.h \
     Character/Class/General/Enchants/FieryWeapon.h \
     Character/Class/General/Spells/FieryWeaponAttack.h \
