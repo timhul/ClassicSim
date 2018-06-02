@@ -17,6 +17,11 @@ Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString,
 }
 
 Item::~Item() {
+    for (int i = 0; i < procs.size(); ++i) {
+        procs[i]->disable_proc();
+        delete procs[i];
+    }
+
     delete stats;
 }
 

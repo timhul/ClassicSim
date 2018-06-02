@@ -27,7 +27,6 @@ Proc::Proc(const QString& name, const float proc_rate, const float inner_cooldow
 }
 
 Proc::~Proc() {
-    procs->remove_proc_effect(this);
     delete random;
     delete statistics_proc;
     delete statistics_buff;

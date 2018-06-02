@@ -7,6 +7,7 @@
 #include "ProcInfo.h"
 
 class Character;
+class GeneralProcs;
 class Proc;
 class Engine;
 class CombatRoll;
@@ -27,15 +28,12 @@ public:
 
     void switch_faction();
 
-    void add_statistics();
-    void remove_statistics();
-
 private:
     Character* pchar;
     Faction* faction;
+    GeneralProcs* general_procs;
 
-    QVector<Proc*> procs;
-    QVector<Proc*> horde_only_procs;
+    QVector<Proc*> active_procs;
 };
 
 #endif // PROCS_H

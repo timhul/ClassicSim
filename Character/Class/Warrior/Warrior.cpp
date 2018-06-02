@@ -88,6 +88,8 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 Warrior::~Warrior() {
     delete warr_spells;
     delete statistics;
+    // TODO: Create a WarriorProcs class that holds UnbridledWrath and other (?) warrior procs.
+    delete unbridled_wrath;
 }
 
 void Warrior::rotation() {
