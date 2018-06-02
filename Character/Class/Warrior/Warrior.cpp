@@ -79,11 +79,9 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     buffs->add_buff(battle_shout_buff);
 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
-    procs->add_proc_effect(unbridled_wrath);
 
     spells->add_statistics();
     buffs->add_statistics();
-    procs->add_statistics();
     initialize_talents();
 }
 
