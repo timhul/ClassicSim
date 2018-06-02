@@ -14,9 +14,16 @@ OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, Com
     talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
 }
 
+void OffhandAttackWarrior::extra_attack() {
+    pchar->gain_rage(calculate_damage());
+}
+
 int OffhandAttackWarrior::spell_effect(const int) {
     complete_swing();
+    return calculate_damage();
+}
 
+int OffhandAttackWarrior::calculate_damage() {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
     AttackResult* result = roll->get_melee_hit_result(oh_wpn_skill);
 

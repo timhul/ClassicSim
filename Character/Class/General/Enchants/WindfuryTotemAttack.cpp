@@ -16,7 +16,7 @@ WindfuryTotemAttack::~WindfuryTotemAttack() {
 void WindfuryTotemAttack::proc_effect() {
     // TODO: Check if Windfury Totem extra attacks can glance.
     pchar->get_stats()->increase_melee_ap(rank_spells[rank_spell]);
-    pchar->run_extra_attack();
+    pchar->run_extra_mh_attack();
     pchar->get_stats()->decrease_melee_ap(rank_spells[rank_spell]);
 }
 

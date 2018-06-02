@@ -57,6 +57,7 @@ public:
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
+    Procs* get_procs() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -82,7 +83,8 @@ public:
     void run_mh_yellow_specific_proc_effects();
     void run_oh_white_specific_proc_effects();
     void run_oh_yellow_specific_proc_effects();
-    void run_extra_attack();
+    void run_extra_mh_attack();
+    void run_extra_oh_attack();
 
     float get_ability_crit_dmg_mod() const;
     float get_total_phys_dmg_mod() const;

@@ -112,6 +112,10 @@ ClassStatistics* Character::get_statistics(void) const {
     return this->statistics;
 }
 
+Procs* Character::get_procs() const {
+    return this->procs;
+}
+
 void Character::start_attack(void) {
     this->melee_attacking = true;
 
@@ -194,8 +198,12 @@ void Character::run_oh_yellow_specific_proc_effects() {
     procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
 }
 
-void Character::run_extra_attack() {
+void Character::run_extra_mh_attack() {
     spells->get_mh_attack()->extra_attack();
+}
+
+void Character::run_extra_oh_attack() {
+    spells->get_oh_attack()->extra_attack();
 }
 
 float Character::get_ability_crit_dmg_mod() const {

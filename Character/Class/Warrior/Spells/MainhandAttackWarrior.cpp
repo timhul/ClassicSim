@@ -23,8 +23,6 @@ int MainhandAttackWarrior::spell_effect(const int) {
 }
 
 int MainhandAttackWarrior::calculate_damage() {
-    // TODO: complete_swing() ? OffhandAttackWarrior has it, do not remember difference.
-
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     AttackResult* result = roll->get_melee_hit_result(mh_wpn_skill);
 

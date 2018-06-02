@@ -21,7 +21,10 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
 
 int OffhandAttack::spell_effect(const int) {
     complete_swing();
+    return calculate_damage();
+}
 
+int OffhandAttack::calculate_damage() {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
     AttackResult* result = roll->get_melee_hit_result(oh_wpn_skill);
 
@@ -101,4 +104,8 @@ float OffhandAttack::get_cooldown() {
     assert(false);
 
     return 1.0;
+}
+
+void OffhandAttack::extra_attack() {
+    calculate_damage();
 }

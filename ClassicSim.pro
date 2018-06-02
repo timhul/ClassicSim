@@ -160,7 +160,10 @@ SOURCES += main.cpp \
     Statistics/StatisticsProc.cpp \
     Test/Warrior/Procs/TestUnbridledWrath.cpp \
     Test/Warrior/TestProcWarrior.cpp \
-    Test/TestProc.cpp
+    Test/TestProc.cpp \
+    Character/Class/General/Procs/ExtraAttackOnNextSwingProc.cpp \
+    Character/Class/General/Buffs/ExtraAttackOnNextSwingBuff.cpp \
+    Character/Class/General/Procs/ExtraAttackInstantProc.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -315,7 +318,10 @@ HEADERS += \
     Character/Class/ProcInfo.h \
     Test/Warrior/Procs/TestUnbridledWrath.h \
     Test/Warrior/TestProcWarrior.h \
-    Test/TestProc.h
+    Test/TestProc.h \
+    Character/Class/General/Procs/ExtraAttackOnNextSwingProc.h \
+    Character/Class/General/Buffs/ExtraAttackOnNextSwingBuff.h \
+    Character/Class/General/Procs/ExtraAttackInstantProc.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -361,6 +367,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General\Enchants \
     C:\C++\ClassicSim\Character\Class\General\Buffs \
     C:\C++\ClassicSim\Character\Class\General\Spells \
+    C:\C++\ClassicSim\Character\Class\General\Procs \
     C:\C++\ClassicSim\GUI \
     C:\C++\ClassicSim\Faction
 
