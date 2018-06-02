@@ -8,7 +8,6 @@ class Character;
 class Spell;
 class MainhandAttack;
 class OffhandAttack;
-class FieryWeaponAttack;
 
 class Spells: public QObject {
     Q_OBJECT
@@ -30,7 +29,6 @@ public:
 
     virtual MainhandAttack* get_mh_attack() const;
     virtual OffhandAttack* get_oh_attack() const;
-    FieryWeaponAttack* get_fiery_weapon() const;
 
 protected:
     Character* pchar;
@@ -38,7 +36,6 @@ protected:
 
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
-    FieryWeaponAttack* fiery_weapon_attack;
 
 private:
 };

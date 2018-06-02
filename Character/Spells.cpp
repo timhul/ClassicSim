@@ -1,7 +1,6 @@
 
 #include "Spells.h"
 #include "Character.h"
-#include "FieryWeaponAttack.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
 #include "MainhandMeleeHit.h"
@@ -12,9 +11,7 @@ Spells::Spells(Character* pchar, QObject* parent) :
     QObject(parent),
     pchar(pchar)
 {
-    this->fiery_weapon_attack = new FieryWeaponAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
-
-    this->spells = {fiery_weapon_attack};
+    spells = {};
 }
 
 Spells::~Spells()
@@ -40,10 +37,6 @@ MainhandAttack* Spells::get_mh_attack() const {
 
 OffhandAttack* Spells::get_oh_attack() const {
     return this->oh_attack;
-}
-
-FieryWeaponAttack* Spells::get_fiery_weapon() const {
-    return fiery_weapon_attack;
 }
 
 void Spells::add_next_mh_attack(void) {
