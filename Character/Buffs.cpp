@@ -1,20 +1,15 @@
 
 #include "Buffs.h"
+#include "Buff.h"
 #include "Character.h"
 #include "ClassStatistics.h"
 #include "Faction.h"
-#include "HolyStrength.h"
 
 Buffs::Buffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
     pchar(pchar),
     faction(faction)
-{
-    this->holy_strength_mh = new HolyStrength(pchar);
-    this->holy_strength_oh = new HolyStrength(pchar);
-
-    this->buffs = {holy_strength_mh, holy_strength_oh};
-}
+{}
 
 Buffs::~Buffs()
 {
@@ -72,12 +67,4 @@ void Buffs::add_statistics() {
             continue;
         pchar->get_statistics()->add_buff_statistics(buffs[i]->get_statistics_for_buff());
     }
-}
-
-HolyStrength* Buffs::get_holy_strength_mh() const {
-    return this->holy_strength_mh;
-}
-
-HolyStrength* Buffs::get_holy_strength_oh() const {
-    return this->holy_strength_oh;
 }

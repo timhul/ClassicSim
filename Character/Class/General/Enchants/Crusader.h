@@ -3,6 +3,8 @@
 
 #include "ProcPPM.h"
 
+class HolyStrength;
+
 class Crusader: public ProcPPM {
 public:
     Crusader(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon);
@@ -12,6 +14,7 @@ public:
 
 protected:
 private:
+    HolyStrength* holy_strength;
 };
 
 #endif // CRUSADER_H

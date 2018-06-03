@@ -7,7 +7,8 @@
 Crusader::Crusader(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon) :
     ProcPPM("Holy Strength", weapon, 1.0, 0.0, false, QVector<Proc*>(),
             QVector<ProcInfo::Source>(),
-            engine, pchar, roll)
+            engine, pchar, roll),
+    holy_strength(new HolyStrength(pchar))
 {
     assert(weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND);
 
@@ -22,17 +23,9 @@ Crusader::Crusader(Engine* engine, Character* pchar, CombatRoll* roll, const int
 }
 
 Crusader::~Crusader() {
+    delete holy_strength;
 }
 
 void Crusader::proc_effect() {
-    switch (weapon) {
-    case EnchantSlot::MAINHAND:
-        // TODO: Add proc/resource gain statistics
-        // add_proc_stats(1, "Mainhand Proc");
-        return pchar->get_buffs()->get_holy_strength_mh()->apply_buff();
-    case EnchantSlot::OFFHAND:
-        // TODO: Add proc/resource gain statistics
-        // add_proc_stats(1, "Offhand Proc");
-        return pchar->get_buffs()->get_holy_strength_oh()->apply_buff();
-    }
+    return holy_strength->apply_buff();
 }
