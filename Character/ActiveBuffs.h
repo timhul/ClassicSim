@@ -1,5 +1,5 @@
-#ifndef BUFFS_H
-#define BUFFS_H
+#ifndef ACTIVEBUFFS_H
+#define ACTIVEBUFFS_H
 
 #include <QObject>
 #include <QVector>
@@ -7,13 +7,14 @@
 class Buff;
 class Character;
 class Faction;
+class GeneralBuffs;
 
-class Buffs: public QObject {
+class ActiveBuffs: public QObject {
     Q_OBJECT
 
 public:
-    Buffs(Character* pchar, Faction* faction, QObject* parent = 0);
-    ~Buffs();
+    ActiveBuffs(Character* pchar, Faction* faction, QObject* parent = 0);
+    ~ActiveBuffs();
 
     void add_buff(Buff* buff);
     void remove_buff(Buff* buff);
@@ -27,9 +28,11 @@ private:
 
     int next_instance_id;
 
-    QVector<Buff*> buffs;
+    GeneralBuffs* general_buffs;
+
+    QVector<Buff*> active_buffs;
     QVector<Buff*> alliance_only_buffs;
     QVector<Buff*> horde_only_buffs;
 };
 
-#endif // BUFFS_H
+#endif // ACTIVEBUFFS_H

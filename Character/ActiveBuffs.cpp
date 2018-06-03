@@ -1,28 +1,26 @@
 
-#include "Buffs.h"
+#include "ActiveBuffs.h"
 #include "Buff.h"
 #include "Character.h"
 #include "ClassStatistics.h"
 #include "Faction.h"
+#include "GeneralBuffs.h"
 
-Buffs::Buffs(Character* pchar, Faction* faction, QObject* parent) :
+ActiveBuffs::ActiveBuffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
     pchar(pchar),
     faction(faction),
-    next_instance_id(BuffStatus::INITIAL_ID)
+    next_instance_id(BuffStatus::INITIAL_ID),
+    general_buffs(new GeneralBuffs(pchar, faction))
 {}
 
-Buffs::~Buffs()
+ActiveBuffs::~ActiveBuffs()
 {
-    for (int i = 0; i < buffs.size(); ++i) {
-        delete buffs[i];
-    }
-
-    buffs.clear();
+    delete general_buffs;
 }
 
-void Buffs::add_buff(Buff* buff) {
-    buffs.append(buff);
+void ActiveBuffs::add_buff(Buff* buff) {
+    active_buffs.append(buff);
 
     if (buff->get_instance_id() == BuffStatus::INACTIVE) {
         buff->set_instance_id(next_instance_id);
@@ -30,23 +28,23 @@ void Buffs::add_buff(Buff* buff) {
     }
 }
 
-void Buffs::remove_buff(Buff* buff) {
-    for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs.at(i)->get_instance_id() == buff->get_instance_id()) {
-            buffs.at(i)->reset();
-            buffs.removeAt(i);
+void ActiveBuffs::remove_buff(Buff* buff) {
+    for (int i = 0; i < active_buffs.size(); ++i) {
+        if (active_buffs.at(i)->get_instance_id() == buff->get_instance_id()) {
+            active_buffs.at(i)->reset();
+            active_buffs.removeAt(i);
             break;
         }
     }
 }
 
-void Buffs::reset() {
-    for (int i = 0; i < buffs.size(); ++i) {
-        buffs[i]->reset();
+void ActiveBuffs::reset() {
+    for (int i = 0; i < active_buffs.size(); ++i) {
+        active_buffs[i]->reset();
     }
 }
 
-void Buffs::switch_faction() {
+void ActiveBuffs::switch_faction() {
     if (faction->is_alliance()) {
         for (int i = 0; i < horde_only_buffs.size(); ++i) {
             remove_buff(horde_only_buffs[i]);

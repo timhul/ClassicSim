@@ -1,7 +1,7 @@
 
 #include "Crusader.h"
 #include "Character.h"
-#include "Buffs.h"
+#include "ActiveBuffs.h"
 #include "HolyStrength.h"
 
 Crusader::Crusader(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon) :

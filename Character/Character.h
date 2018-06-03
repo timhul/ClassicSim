@@ -13,7 +13,7 @@ class Talents;
 class Stats;
 class CharacterStats;
 class ActiveProcs;
-class Buffs;
+class ActiveBuffs;
 class Spells;
 class CombatRoll;
 class Weapon;
@@ -53,7 +53,7 @@ public:
     CombatRoll* get_combat_roll(void) const;
     Equipment* get_equipment(void) const;
     Talents* get_talents(void) const;
-    Buffs* get_buffs(void) const;
+    ActiveBuffs* get_active_buffs(void) const;
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
@@ -128,7 +128,7 @@ protected:
     Talents* talents;
     CharacterStats* cstats;
     ActiveProcs* active_procs;
-    Buffs* buffs;
+    ActiveBuffs* active_buffs;
     Spells* spells;
     ClassStatistics* statistics;
 

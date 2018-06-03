@@ -142,7 +142,7 @@ SOURCES += main.cpp \
     Character/Class/ProcPPM.cpp \
     Character/Class/General/Buffs/HolyStrength.cpp \
     Character/ActiveProcs.cpp \
-    Character/Buffs.cpp \
+    Character/ActiveBuffs.cpp \
     Character/Class/General/Enchants/FieryWeapon.cpp \
     Character/Class/General/Spells/FieryWeaponAttack.cpp \
     Character/Spells.cpp \
@@ -168,7 +168,8 @@ SOURCES += main.cpp \
     Character/CharacterDecoder.cpp \
     Character/CharacterEncoder.cpp \
     Thread/SimulationThreadPool.cpp \
-    Thread/SimulationRunner.cpp
+    Thread/SimulationRunner.cpp \
+    Character/Class/General/GeneralBuffs.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -305,7 +306,7 @@ HEADERS += \
     Character/Class/ProcPPM.h \
     Character/Class/General/Buffs/HolyStrength.h \
     Character/ActiveProcs.h \
-    Character/Buffs.h \
+    Character/ActiveBuffs.h \
     Character/Class/General/Enchants/FieryWeapon.h \
     Character/Class/General/Spells/FieryWeaponAttack.h \
     Character/Spells.h \
@@ -332,7 +333,8 @@ HEADERS += \
     Character/CharacterDecoder.h \
     Character/CharacterEncoder.h \
     Thread/SimulationThreadPool.h \
-    Thread/SimulationRunner.h
+    Thread/SimulationRunner.h \
+    Character/Class/General/GeneralBuffs.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

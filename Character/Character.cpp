@@ -9,7 +9,7 @@
 #include "Stats.h"
 #include "ActiveProcs.h"
 #include "ProcInfo.h"
-#include "Buffs.h"
+#include "ActiveBuffs.h"
 #include "Spells.h"
 #include "CombatRoll.h"
 #include "MainhandAttack.h"
@@ -29,7 +29,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     equipment->set_character(this);
     this->cstats = new CharacterStats(this, equipment);
     this->active_procs = new ActiveProcs(this, faction);
-    this->buffs = new Buffs(this, faction);
+    this->active_buffs = new ActiveBuffs(this, faction);
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -40,7 +40,7 @@ Character::~Character() {
     delete talents;
     delete cstats;
     delete active_procs;
-    delete buffs;
+    delete active_buffs;
 }
 
 Race* Character::get_race(void) {
@@ -59,7 +59,7 @@ void Character::set_race(Race* race) {
 
 void Character::switch_faction() {
     active_procs->switch_faction();
-    buffs->switch_faction();
+    active_buffs->switch_faction();
 }
 
 void Character::rotation() {
@@ -98,8 +98,8 @@ Talents* Character::get_talents(void) const {
     return this->talents;
 }
 
-Buffs* Character::get_buffs(void) const {
-    return this->buffs;
+ActiveBuffs* Character::get_active_buffs(void) const {
+    return this->active_buffs;
 }
 
 Spells* Character::get_spells(void) const {
@@ -354,7 +354,7 @@ void Character::reset() {
     melee_attacking = false;
     last_action = 0 - this->global_cooldown();
 
-    buffs->reset();
+    active_buffs->reset();
     reset_spells();
     active_procs->reset();
     cstats->reset();

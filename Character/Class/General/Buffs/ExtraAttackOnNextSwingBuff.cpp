@@ -1,7 +1,7 @@
 
 #include "ExtraAttackOnNextSwingBuff.h"
 #include "Character.h"
-#include "Buffs.h"
+#include "ActiveBuffs.h"
 #include "ActiveProcs.h"
 #include "ExtraAttackInstantProc.h"
 

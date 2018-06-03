@@ -1,6 +1,6 @@
 
 #include "Buff.h"
-#include "Buffs.h"
+#include "ActiveBuffs.h"
 #include "Character.h"
 #include "ClassStatistics.h"
 #include "StatisticsBuff.h"
@@ -151,10 +151,10 @@ void Buff::remove_buff_statistic() {
 
 void Buff::enable_buff() {
     this->add_buff_statistic();
-    pchar->get_buffs()->add_buff(this);
+    pchar->get_active_buffs()->add_buff(this);
 }
 
 void Buff::disable_buff() {
     this->remove_buff_statistic();
-    pchar->get_buffs()->remove_buff(this);
+    pchar->get_active_buffs()->remove_buff(this);
 }

@@ -13,7 +13,7 @@
 #include "Protection.h"
 #include "Stats.h"
 #include "ActiveProcs.h"
-#include "Buffs.h"
+#include "ActiveBuffs.h"
 #include "WarriorSpells.h"
 #include "CharacterStats.h"
 #include "WarriorStatistics.h"
