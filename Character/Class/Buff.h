@@ -7,6 +7,11 @@
 class Character;
 class StatisticsBuff;
 
+namespace BuffStatus {
+    static const int INACTIVE = -1;
+    static const int INITIAL_ID = 0;
+}
+
 class Buff {
 public:
     Buff(Character*, const QString, const int, const int);
@@ -30,9 +35,18 @@ public:
     void increase_rank();
     void decrease_rank();
 
+    void set_instance_id(const int);
+    int get_instance_id() const;
+
+    void enable_buff();
+    void disable_buff();
+
+    void add_buff_statistic();
+    void remove_buff_statistic();
+
 protected:
     Character* pchar;
-    StatisticsBuff* statistics;
+    StatisticsBuff* statistics_buff;
     const QString name;
     int duration;
     const int base_charges;
@@ -45,6 +59,8 @@ protected:
     int rank_talent;
     float uptime;
     bool hidden;
+
+    int instance_id;
 
 private:
     void force_remove_buff();

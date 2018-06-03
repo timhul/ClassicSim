@@ -73,15 +73,12 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
 
-    buffs->add_buff(flurry);
-    buffs->add_buff(heroic_strike_buff);
-    buffs->add_buff(death_wish_buff);
-    buffs->add_buff(battle_shout_buff);
+    heroic_strike_buff->enable_buff();
+    battle_shout_buff->enable_buff();
 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
 
     spells->add_statistics();
-    buffs->add_statistics();
     initialize_talents();
 }
 
@@ -90,6 +87,11 @@ Warrior::~Warrior() {
     delete statistics;
     // TODO: Create a WarriorProcs class that holds UnbridledWrath and other (?) warrior procs.
     delete unbridled_wrath;
+    // TODO: Create a WarriorBuffs class that holds Battle Shout, Death Wish, Flurry, etc.
+    delete battle_shout_buff;
+    delete death_wish_buff;
+    delete flurry;
+    delete heroic_strike_buff;
 }
 
 void Warrior::rotation() {

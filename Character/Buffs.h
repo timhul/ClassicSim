@@ -16,16 +16,16 @@ public:
     ~Buffs();
 
     void add_buff(Buff* buff);
-    void remove_one_buff(Buff* buff);
+    void remove_buff(Buff* buff);
     void reset();
 
     void switch_faction();
 
-    void add_statistics();
-
 private:
     Character* pchar;
     Faction* faction;
+
+    int next_instance_id;
 
     QVector<Buff*> buffs;
     QVector<Buff*> alliance_only_buffs;

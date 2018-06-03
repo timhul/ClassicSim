@@ -8,7 +8,8 @@
 Buffs::Buffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
     pchar(pchar),
-    faction(faction)
+    faction(faction),
+    next_instance_id(BuffStatus::INITIAL_ID)
 {}
 
 Buffs::~Buffs()
@@ -22,12 +23,17 @@ Buffs::~Buffs()
 
 void Buffs::add_buff(Buff* buff) {
     buffs.append(buff);
+
+    if (buff->get_instance_id() == BuffStatus::INACTIVE) {
+        buff->set_instance_id(next_instance_id);
+        ++next_instance_id;
+    }
 }
 
-void Buffs::remove_one_buff(Buff* buff) {
+void Buffs::remove_buff(Buff* buff) {
     for (int i = 0; i < buffs.size(); ++i) {
-        if (buff->get_name() == buffs[i]->get_name()) {
-            buff->reset();
+        if (buffs.at(i)->get_instance_id() == buff->get_instance_id()) {
+            buffs.at(i)->reset();
             buffs.removeAt(i);
             break;
         }
@@ -43,7 +49,7 @@ void Buffs::reset() {
 void Buffs::switch_faction() {
     if (faction->is_alliance()) {
         for (int i = 0; i < horde_only_buffs.size(); ++i) {
-            remove_one_buff(horde_only_buffs[i]);
+            remove_buff(horde_only_buffs[i]);
         }
 
         for (int i = 0; i < alliance_only_buffs.size(); ++i) {
@@ -52,19 +58,11 @@ void Buffs::switch_faction() {
     }
     else {
         for (int i = 0; i < alliance_only_buffs.size(); ++i) {
-            remove_one_buff(alliance_only_buffs[i]);
+            remove_buff(alliance_only_buffs[i]);
         }
 
         for (int i = 0; i < horde_only_buffs.size(); ++i) {
             add_buff(horde_only_buffs[i]);
         }
-    }
-}
-
-void Buffs::add_statistics() {
-    for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->is_hidden())
-            continue;
-        pchar->get_statistics()->add_buff_statistics(buffs[i]->get_statistics_for_buff());
     }
 }

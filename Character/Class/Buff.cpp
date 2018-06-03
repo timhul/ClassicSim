@@ -1,6 +1,8 @@
 
 #include "Buff.h"
+#include "Buffs.h"
 #include "Character.h"
+#include "ClassStatistics.h"
 #include "StatisticsBuff.h"
 #include "Engine.h"
 #include "BuffRemoval.h"
@@ -8,22 +10,23 @@
 
 Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _base_charges):
     pchar(_pchar),
-    statistics(new StatisticsBuff(_name)),
+    statistics_buff(new StatisticsBuff(_name)),
     name(_name),
     duration(_dur),
     base_charges(_base_charges),
     rank_talent(1),
-    hidden(false)
+    hidden(false),
+    instance_id(BuffStatus::INACTIVE)
 {
     initialize();
 }
 
 Buff::~Buff() {
-    delete statistics;
+    delete statistics_buff;
 }
 
 StatisticsBuff* Buff::get_statistics_for_buff() const {
-    return this->statistics;
+    return this->statistics_buff;
 }
 
 QString Buff::get_name() const {
@@ -92,7 +95,7 @@ void Buff::reset() {
         force_remove_buff();
 
     // TODO: Remove knowledge of fight length being 300s.
-    statistics->add_uptime_for_encounter(uptime / 300);
+    statistics_buff->add_uptime_for_encounter(uptime / 300);
     initialize();
 }
 
@@ -122,4 +125,36 @@ void Buff::increase_rank() {
 void Buff::decrease_rank() {
     --rank_talent;
     assert(rank_talent >= 0);
+}
+
+void Buff::set_instance_id(const int instance_id) {
+    this->instance_id = instance_id;
+}
+
+int Buff::get_instance_id() const {
+    return this->instance_id;
+}
+
+void Buff::add_buff_statistic() {
+    if (this->is_hidden())
+        return;
+
+    pchar->get_statistics()->add_buff_statistics(this->statistics_buff);
+}
+
+void Buff::remove_buff_statistic() {
+    if (this->is_hidden())
+        return;
+
+    pchar->get_statistics()->remove_buff_statistics(this->statistics_buff->get_name());
+}
+
+void Buff::enable_buff() {
+    this->add_buff_statistic();
+    pchar->get_buffs()->add_buff(this);
+}
+
+void Buff::disable_buff() {
+    this->remove_buff_statistic();
+    pchar->get_buffs()->remove_buff(this);
 }

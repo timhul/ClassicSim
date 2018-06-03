@@ -16,8 +16,14 @@ FlurryTalent::~FlurryTalent() {
 
 void FlurryTalent::apply_rank_effect() {
     dynamic_cast<Warrior*>(pchar)->get_flurry()->increase_rank();
+
+    if (this->curr_points == 1)
+        dynamic_cast<Warrior*>(pchar)->get_flurry()->enable_buff();
 }
 
 void FlurryTalent::remove_rank_effect() {
     dynamic_cast<Warrior*>(pchar)->get_flurry()->decrease_rank();
+
+    if (this->curr_points == 0)
+        dynamic_cast<Warrior*>(pchar)->get_flurry()->disable_buff();
 }
