@@ -166,7 +166,9 @@ SOURCES += main.cpp \
     Character/Class/General/Procs/ExtraAttackInstantProc.cpp \
     Character/Class/General/GeneralProcs.cpp \
     Character/CharacterDecoder.cpp \
-    Character/CharacterEncoder.cpp
+    Character/CharacterEncoder.cpp \
+    Thread/SimulationThreadPool.cpp \
+    Thread/SimulationRunner.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -328,7 +330,9 @@ HEADERS += \
     Character/Class/General/GeneralProcs.h \
     Character/CharacterEncoding.h \
     Character/CharacterDecoder.h \
-    Character/CharacterEncoder.h
+    Character/CharacterEncoder.h \
+    Thread/SimulationThreadPool.h \
+    Thread/SimulationRunner.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -376,7 +380,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General\Spells \
     C:\C++\ClassicSim\Character\Class\General\Procs \
     C:\C++\ClassicSim\GUI \
-    C:\C++\ClassicSim\Faction
+    C:\C++\ClassicSim\Faction \
+    C:\C++\ClassicSim\Thread
 
 RESOURCES += qml.qrc
 

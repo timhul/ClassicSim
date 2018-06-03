@@ -16,6 +16,12 @@ public:
         delete distr;
     }
 
+    void set_gen_from_seed(std::string seed_str) {
+        std::seed_seq seed (seed_str.begin(), seed_str.end());
+        delete gen;
+        this->gen = new std::mt19937(seed);
+    }
+
     int get_roll(void) {
         return (*distr)((*gen));
     }

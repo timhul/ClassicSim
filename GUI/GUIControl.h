@@ -17,6 +17,7 @@
 
 class CharacterEncoder;
 class CharacterDecoder;
+class SimulationThreadPool;
 
 
 class GUIControl: public QObject {
@@ -222,6 +223,7 @@ private:
     Faction* faction;
     CharacterEncoder* character_encoder;
     CharacterDecoder* character_decoder;
+    SimulationThreadPool* thread_pool;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     Character* current_char;

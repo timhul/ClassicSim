@@ -42,6 +42,8 @@ public:
     void dump_tables();
     void drop_tables();
 
+    void set_new_seed(const QString& seed_str);
+
 protected:
 private:
     Character* pchar;

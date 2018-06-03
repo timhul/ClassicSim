@@ -186,3 +186,7 @@ void CombatRoll::drop_tables() {
     auto_attack_tables.clear();
     melee_special_tables.clear();
 }
+
+void CombatRoll::set_new_seed(const QString& seed_str) {
+    this->random->set_gen_from_seed(seed_str.toStdString());
+}

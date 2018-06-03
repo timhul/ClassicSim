@@ -34,6 +34,8 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 
+#include "SimulationThreadPool.h"
+
 #include <QDebug>
 
 GUIControl::GUIControl(QObject* parent) :
@@ -77,6 +79,7 @@ GUIControl::GUIControl(QObject* parent) :
 
     character_encoder = new CharacterEncoder(current_char);
     character_decoder = new CharacterDecoder();
+    thread_pool = new SimulationThreadPool();
 }
 
 GUIControl::~GUIControl() {
@@ -101,6 +104,7 @@ GUIControl::~GUIControl() {
     delete weapon_model;
     delete character_encoder;
     delete character_decoder;
+    delete thread_pool;
 }
 
 void GUIControl::selectClass(const QString class_name) {
@@ -419,8 +423,7 @@ QString GUIControl::getEntryIcon(const int index) const {
 }
 
 void GUIControl::run_quick_sim() {
-    QString encode_str = character_encoder->get_current_setup_string();
-    character_decoder->initialize(encode_str);
+    thread_pool->run_sim(character_encoder->get_current_setup_string());
 
     current_char->dump();
     current_char->get_statistics()->reset_statistics();
