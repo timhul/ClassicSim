@@ -6,14 +6,23 @@ RectangleBorders {
     property string buffText
     property bool selected: false
 
+    signal buffClicked()
+
     height: 60
     width: 250
 
     rectColor: selected === true ? "#173117" : root.darkDarkGray
     rectColorHighlighted: selected === false ? root.darkGray : "#134f00"
     outerBorderColor: root.darkGray
-    onRectangleClicked: { selected = !selected }
-    onRectangleRightClicked: { selected = false }
+    onRectangleClicked: buffClicked()
+    onRectangleRightClicked: buffClicked()
+
+    Connections {
+        target: settings
+        onExternalBuffsChanged: {
+            selected = settings.buffActive(buffName)
+        }
+    }
 
     Row {
         id: row

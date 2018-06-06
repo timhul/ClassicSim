@@ -64,3 +64,7 @@ void ActiveBuffs::switch_faction() {
         }
     }
 }
+
+GeneralBuffs* ActiveBuffs::get_general_buffs() {
+    return this->general_buffs;
+}

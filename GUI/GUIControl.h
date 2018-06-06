@@ -13,6 +13,7 @@
 #include "Race.h"
 #include "ItemModel.h"
 #include "WeaponModel.h"
+#include "BuffModel.h"
 #include "Faction.h"
 
 class CharacterEncoder;
@@ -127,9 +128,14 @@ public:
     /* ItemModel */
     ItemModel* get_item_model() const;
     WeaponModel* get_weapon_model() const;
-
+    BuffModel* get_buff_model() const;
     /* End of ItemModel */
 
+    /* Buffs */
+    Q_INVOKABLE void selectBuff(QString buff);
+    Q_INVOKABLE bool buffActive(QString buff) const;
+
+    /* End of Buffs */
 
     /* Statistics */
     Q_INVOKABLE int getNumStatisticsRows() const;
@@ -161,6 +167,7 @@ Q_SIGNALS:
     void statisticsCleared();
     void statisticsReady();
     void creatureTypeChanged();
+    void externalBuffsChanged();
 
 private:
     int get_talent_points_remaining() const;
@@ -230,6 +237,7 @@ private:
     float last_quick_sim_result;
     ItemModel* item_model;
     WeaponModel* weapon_model;
+    BuffModel* buff_model;
 };
 
 #endif // GUICONTROL_H

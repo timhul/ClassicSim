@@ -21,6 +21,7 @@ public:
     void reset();
 
     void switch_faction();
+    GeneralBuffs* get_general_buffs();
 
 private:
     Character* pchar;

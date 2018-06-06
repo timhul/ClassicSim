@@ -36,6 +36,10 @@
 
 #include "SimulationThreadPool.h"
 
+#include "ActiveBuffs.h"
+#include "BuffModel.h"
+#include "GeneralBuffs.h"
+
 #include <QDebug>
 
 GUIControl::GUIControl(QObject* parent) :
@@ -77,9 +81,12 @@ GUIControl::GUIControl(QObject* parent) :
     weapon_model = new WeaponModel(equipment->get_db());
     weapon_model->addWeapons(equipment->get_db());
 
+    // TODO: Handle switching pchar
     character_encoder = new CharacterEncoder(current_char);
     character_decoder = new CharacterDecoder();
     thread_pool = new SimulationThreadPool();
+    // TODO: Handle switching pchar
+    buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
 }
 
 GUIControl::~GUIControl() {
@@ -102,6 +109,7 @@ GUIControl::~GUIControl() {
     delete faction;
     delete item_model;
     delete weapon_model;
+    delete buff_model;
     delete character_encoder;
     delete character_decoder;
     delete thread_pool;
@@ -406,6 +414,20 @@ WeaponModel* GUIControl::get_weapon_model() const {
     return this->weapon_model;
 }
 
+BuffModel* GUIControl::get_buff_model() const {
+    return this->buff_model;
+}
+
+void GUIControl::selectBuff(QString buff) {
+    current_char->get_active_buffs()->get_general_buffs()->toggle_external_buff(buff);
+    Q_EMIT statsChanged();
+    Q_EMIT externalBuffsChanged();
+}
+
+bool GUIControl::buffActive(QString buff) const {
+    return current_char->get_active_buffs()->get_general_buffs()->buff_active(buff);
+}
+
 int GUIControl::getNumStatisticsRows() const {
     return current_char->get_statistics()->getNumStatisticsRows();
 }
@@ -670,6 +692,7 @@ void GUIControl::setEquipmentSetup(const int equipment_index) {
 void GUIControl::setPatch(QString patch) {
     weapon_model->set_patch(patch);
     item_model->set_patch(patch);
+    buff_model->set_patch(patch);
 
     current_char->get_stats()->get_equipment()->clear_items_not_available_on_patch();
     equipmentChanged();

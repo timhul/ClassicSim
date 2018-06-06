@@ -169,7 +169,14 @@ SOURCES += main.cpp \
     Character/CharacterEncoder.cpp \
     Thread/SimulationThreadPool.cpp \
     Thread/SimulationRunner.cpp \
-    Character/Class/General/GeneralBuffs.cpp
+    Character/Class/General/GeneralBuffs.cpp \
+    GUI/Models/BuffModel.cpp \
+    Character/Class/General/Buffs/ElixirOfTheMongoose.cpp \
+    Character/Class/ExternalBuff.cpp \
+    Character/Class/General/Buffs/ElixirOfGiants.cpp \
+    Character/Class/General/Buffs/ElixirOfBruteForce.cpp \
+    Character/Class/General/Buffs/RallyingCryOfTheDragonslayer.cpp \
+    Character/Class/General/Buffs/SongflowerSerenade.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -334,7 +341,14 @@ HEADERS += \
     Character/CharacterEncoder.h \
     Thread/SimulationThreadPool.h \
     Thread/SimulationRunner.h \
-    Character/Class/General/GeneralBuffs.h
+    Character/Class/General/GeneralBuffs.h \
+    GUI/Models/BuffModel.h \
+    Character/Class/General/Buffs/ElixirOfTheMongoose.h \
+    Character/Class/ExternalBuff.h \
+    Character/Class/General/Buffs/ElixirOfGiants.h \
+    Character/Class/General/Buffs/ElixirOfBruteForce.h \
+    Character/Class/General/Buffs/RallyingCryOfTheDragonslayer.h \
+    Character/Class/General/Buffs/SongflowerSerenade.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -382,6 +396,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General\Spells \
     C:\C++\ClassicSim\Character\Class\General\Procs \
     C:\C++\ClassicSim\GUI \
+    C:\C++\ClassicSim\GUI\Models \
     C:\C++\ClassicSim\Faction \
     C:\C++\ClassicSim\Thread
 
