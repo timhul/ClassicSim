@@ -52,7 +52,6 @@ void Buff::apply_buff() {
     this->active = true;
 
     if (this->duration != BuffDuration::PERMANENT) {
-        // TODO: Decide if we should use BuffApplication event as well.
         BuffRemoval* new_event = new BuffRemoval(this,
                                                  pchar->get_engine()->get_current_priority() + duration,
                                                  ++iteration);
