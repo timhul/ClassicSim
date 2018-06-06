@@ -44,6 +44,7 @@ private:
     void invest_talent_points(CharacterDecoder& decoder);
     void add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position);
     void apply_external_buffs(CharacterDecoder& decoder);
+    void setup_target(CharacterDecoder& decoder);
     void exit_thread(QString err);
     void delete_objects();
 };

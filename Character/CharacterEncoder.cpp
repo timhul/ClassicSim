@@ -8,6 +8,8 @@
 #include "Weapon.h"
 #include "Race.h"
 #include "CharacterEncoding.h"
+#include "CombatRoll.h"
+#include "Target.h"
 #include <QDebug>
 
 CharacterEncoder::CharacterEncoder(Character* pchar, QObject* parent):
@@ -41,8 +43,10 @@ QString CharacterEncoder::get_current_setup_string() {
 
     QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup = pchar->get_talents()->get_current_talent_setup();
     add_vector(setup);
-
     add_vector_values_only("BUFFS", pchar->get_active_buffs()->get_active_external_buffs());
+    key_val("TARGET_LVL", QString::number(pchar->get_combat_roll()->get_target()->get_lvl()));
+    key_val("TARGET_TYPE", pchar->get_combat_roll()->get_target()->get_creature_type_string());
+    key_val("TARGET_ARMOR", QString::number(pchar->get_combat_roll()->get_target()->get_armor()));
 
     return pchar_str;
 }

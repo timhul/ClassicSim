@@ -66,6 +66,7 @@ void SimulationRunner::run_sim() {
     equip_gear(decoder);
     invest_talent_points(decoder);
     apply_external_buffs(decoder);
+    setup_target(decoder);
 
     CharacterEncoder encoder(pchar);
     if (encoder.get_current_setup_string() != this->setup_string)
@@ -210,6 +211,12 @@ void SimulationRunner::apply_external_buffs(CharacterDecoder& decoder) {
     for (int i = 0; i < buffs.size(); ++i) {
         pchar->get_active_buffs()->get_general_buffs()->toggle_external_buff(buffs[i].first);
     }
+}
+
+void SimulationRunner::setup_target(CharacterDecoder& decoder) {
+    pchar->get_combat_roll()->get_target()->set_creature_type(decoder.get_key("TARGET_TYPE"));
+    pchar->get_combat_roll()->get_target()->set_lvl(decoder.get_key("TARGET_LVL").toInt());
+    pchar->get_combat_roll()->get_target()->set_armor(decoder.get_key("TARGET_ARMOR").toInt());
 }
 
 void SimulationRunner::exit_thread(QString err) {
