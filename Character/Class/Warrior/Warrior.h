@@ -28,6 +28,7 @@ public:
     int get_int_needed_for_one_percent_spell_crit() const override;
     int get_ap_per_strength() const override;
     int get_ap_per_agi() const override;
+    void set_clvl(const int) override;
 
     float global_cooldown() const override;
     int get_curr_rage() const;
@@ -56,6 +57,7 @@ public:
 protected:
 private:
     int rage;
+    double rage_conversion_value;
     Flurry* flurry;
     HeroicStrikeBuff* heroic_strike_buff;
     UnbridledWrath* unbridled_wrath;

@@ -48,7 +48,7 @@ public:
     virtual QString get_class_color() const = 0;
 
     int get_clvl(void) const;
-    void set_clvl(const int&);
+    virtual void set_clvl(const int);
     Engine* get_engine(void) const;
     CombatRoll* get_combat_roll(void) const;
     Equipment* get_equipment(void) const;

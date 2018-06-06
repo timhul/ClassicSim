@@ -75,7 +75,7 @@ int Character::get_clvl(void) const {
     return this->clvl;
 }
 
-void Character::set_clvl(const int& clvl) {
+void Character::set_clvl(const int clvl) {
     this->clvl = clvl;
 }
 

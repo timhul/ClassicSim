@@ -159,8 +159,13 @@ void Warrior::lose_rage(const int lost_rage) {
 }
 
 int Warrior::rage_gained_from_dd(const int damage_dealt) const {
-    // Using the 307 damage dealt = 10 rage formula.
-    return std::max(1, int(round(damage_dealt/30.7)));
+    // TODO: Check if you are guaranteed 1 rage on swing even with very low damage.
+    return std::max(1, int(round(damage_dealt/rage_conversion_value * 7.5)));
+}
+
+void Warrior::set_clvl(const int clvl) {
+    this->clvl = clvl;
+    this->rage_conversion_value = 0.0091107836 * std::pow(clvl, 2) + 3.225598133 * clvl + 4.2652911;
 }
 
 Flurry* Warrior::get_flurry() const {
