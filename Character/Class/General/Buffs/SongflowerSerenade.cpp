@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 SongflowerSerenade::SongflowerSerenade(Character* pchar):
-    ExternalBuff(pchar, "Songflower Serenade", 300, 1,
+    ExternalBuff(pchar, "Songflower Serenade", BuffDuration::PERMANENT, 1,
                  "Assets/buffs/Spell_holy_mindvision.png",
                  "+5% Crit, +15 all attributes", QVersionNumber::fromString("1.0.0"))
 {}

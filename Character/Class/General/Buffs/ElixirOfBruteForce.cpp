@@ -4,7 +4,8 @@
 #include "CharacterStats.h"
 
 ElixirOfBruteForce::ElixirOfBruteForce(Character* pchar):
-    ExternalBuff(pchar, "Elixir of Brute Force", 300, 1, "Assets/buffs/Inv_potion_40.png",
+    ExternalBuff(pchar, "Elixir of Brute Force", BuffDuration::PERMANENT, 1,
+                 "Assets/buffs/Inv_potion_40.png",
                  "+18 Strength and Stamina", QVersionNumber::fromString("1.0.0"))
 {}
 

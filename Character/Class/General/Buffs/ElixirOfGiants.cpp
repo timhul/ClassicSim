@@ -4,7 +4,8 @@
 #include "CharacterStats.h"
 
 ElixirOfGiants::ElixirOfGiants(Character* pchar):
-    ExternalBuff(pchar, "Elixir of Giants", 300, 1, "Assets/buffs/Inv_potion_61.png",
+    ExternalBuff(pchar, "Elixir of Giants", BuffDuration::PERMANENT, 1,
+                 "Assets/buffs/Inv_potion_61.png",
                  "+25 Strength", QVersionNumber::fromString("1.0.0"))
 {}
 

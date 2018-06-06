@@ -4,7 +4,8 @@
 #include "CharacterStats.h"
 
 ElixirOfTheMongoose::ElixirOfTheMongoose(Character* pchar):
-    ExternalBuff(pchar, "Elixir of the Mongoose", 300, 1, "Assets/buffs/Inv_potion_32.png",
+    ExternalBuff(pchar, "Elixir of the Mongoose", BuffDuration::PERMANENT, 1,
+                 "Assets/buffs/Inv_potion_32.png",
                  "+25 Agility, +%2 Critical Strike", QVersionNumber::fromString("1.0.0"))
 {}
 

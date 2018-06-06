@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 RallyingCryOfTheDragonslayer::RallyingCryOfTheDragonslayer(Character* pchar):
-    ExternalBuff(pchar, "Rallying Cry of the Dragonslayer", 300, 1,
+    ExternalBuff(pchar, "Rallying Cry of the Dragonslayer", BuffDuration::PERMANENT, 1,
                  "Assets/buffs/Inv_misc_head_dragon_01.png",
                  "+10% Spell crit, +5% melee/ranged crit, +140 attack power",
                  QVersionNumber::fromString("1.0.0"))

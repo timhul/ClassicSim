@@ -12,6 +12,10 @@ namespace BuffStatus {
     static const int INITIAL_ID = 0;
 }
 
+namespace BuffDuration {
+    static const int PERMANENT = -1;
+}
+
 class Buff {
 public:
     Buff(Character*, const QString, const int, const int);

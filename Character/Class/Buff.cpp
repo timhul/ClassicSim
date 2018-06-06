@@ -50,9 +50,14 @@ void Buff::apply_buff() {
 
     this->refreshed = pchar->get_engine()->get_current_priority();
     this->active = true;
-    // TODO: Decide if we should use BuffApplication event as well.
-    BuffRemoval* new_event = new BuffRemoval(this, pchar->get_engine()->get_current_priority() + duration, ++iteration);
-    pchar->get_engine()->add_event(new_event);
+
+    if (this->duration != BuffDuration::PERMANENT) {
+        // TODO: Decide if we should use BuffApplication event as well.
+        BuffRemoval* new_event = new BuffRemoval(this,
+                                                 pchar->get_engine()->get_current_priority() + duration,
+                                                 ++iteration);
+        pchar->get_engine()->add_event(new_event);
+    }
 }
 
 void Buff::remove_buff(const int iteration) {
