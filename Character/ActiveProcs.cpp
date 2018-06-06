@@ -34,12 +34,13 @@ void ActiveProcs::add_proc_effect(Proc* proc) {
     }
 }
 
-void ActiveProcs::remove_proc_effect(const Proc *proc) {
+void ActiveProcs::remove_proc_effect(const int instance_id) {
+    if (instance_id == ProcStatus::INACTIVE)
+        return;
+
     for (int i = 0; i < active_procs.size(); ++i) {
-        if (active_procs.at(i)->get_instance_id() == proc->get_instance_id()) {
-            active_procs.removeAt(i);
-            break;
-        }
+        if (active_procs.at(i)->get_instance_id() == instance_id)
+            return active_procs.removeAt(i);
     }
 }
 

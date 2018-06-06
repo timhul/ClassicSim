@@ -17,5 +17,5 @@ void ExtraAttackOnNextSwingBuff::buff_effect_when_applied() {
 }
 
 void ExtraAttackOnNextSwingBuff::buff_effect_when_removed() {
-    pchar->get_active_procs()->remove_proc_effect(extra_attack);
+    pchar->get_active_procs()->remove_proc_effect(extra_attack->get_instance_id());
 }

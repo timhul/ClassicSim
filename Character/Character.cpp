@@ -30,6 +30,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->cstats = new CharacterStats(this, equipment);
     this->active_procs = new ActiveProcs(this, faction);
     this->active_buffs = new ActiveBuffs(this, faction);
+    this->statistics = nullptr;
     this->clvl = 1;
     this->melee_attacking = false;
     this->last_action = 0 - this->global_cooldown();
@@ -58,6 +59,10 @@ void Character::set_race(Race* race) {
 }
 
 void Character::switch_faction() {
+    // TODO: When all classes have implemented ClassStatistics remove this.
+    if (this->statistics == nullptr)
+        return;
+
     active_procs->switch_faction();
     active_buffs->switch_faction();
 }

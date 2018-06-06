@@ -60,7 +60,7 @@ void Proc::enable_proc() {
 
 void Proc::disable_proc() {
     this->remove_proc_statistic();
-    procs->remove_proc_effect(this);
+    procs->remove_proc_effect(this->instance_id);
 }
 
 int Proc::get_instance_id() const {
