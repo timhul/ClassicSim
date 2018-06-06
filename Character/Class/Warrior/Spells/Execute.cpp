@@ -24,15 +24,21 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
 int Execute::spell_effect(const int resource_level) {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
+    add_gcd_event();
+
+    // TODO: Check Execute rage loss on miss/dodge/parry
     if (result->is_miss()) {
         increment_miss();
+        return resource_cost;
     }
     // TODO: Apply Overpower
-    else if (result->is_dodge()) {
+    if (result->is_dodge()) {
         increment_dodge();
+        return round(resource_cost * 0.25);
     }
-    else if (result->is_parry()) {
+    if (result->is_parry()) {
         increment_parry();
+        return round(resource_cost * 0.25);
     }
 
     float damage_dealt = initial_dmg + (resource_level - resource_cost) * dmg_per_rage_converted;
@@ -48,9 +54,6 @@ int Execute::spell_effect(const int resource_level) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    add_gcd_event();
-
-    // TODO: Resource cost on failed hit should not be 100% of cost.
     return resource_level;
 }
 

@@ -28,13 +28,16 @@ int HeroicStrike::spell_effect(const int) {
 
     if (result->is_miss()) {
         increment_miss();
+        return resource_cost;
     }
     // TODO: Apply Overpower
-    else if (result->is_dodge()) {
+    if (result->is_dodge()) {
         increment_dodge();
+        return round(resource_cost * 0.25);
     }
-    else if (result->is_parry()) {
+    if (result->is_parry()) {
         increment_parry();
+        return round(resource_cost * 0.25);
     }
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg() + additional_dmg;
@@ -50,7 +53,6 @@ int HeroicStrike::spell_effect(const int) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    // TODO: Resource cost on failed hit should not be 100% of cost.
     return resource_cost;
 }
 

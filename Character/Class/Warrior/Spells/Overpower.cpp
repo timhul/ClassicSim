@@ -16,8 +16,12 @@ int Overpower::spell_effect(const int) {
     // TODO: Use special hit table where dodge and parry are not possible.
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(), talent_ranks[rank_talent]);
 
+    add_gcd_event();
+    add_spell_cd_event();
+
     if (result->is_miss()) {
         increment_miss();
+        return resource_cost;
     }
 
     float damage_dealt = pchar->get_random_normalized_mh_dmg() + 35;
@@ -33,9 +37,5 @@ int Overpower::spell_effect(const int) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    add_gcd_event();
-    add_spell_cd_event();
-
-    // TODO: Resource cost on failed hit should not be 100% of cost.
     return resource_cost;
 }

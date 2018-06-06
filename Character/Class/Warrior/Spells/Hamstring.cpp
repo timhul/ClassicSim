@@ -13,15 +13,20 @@ Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
 int Hamstring::spell_effect(const int) {
     AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
+    add_gcd_event();
+
     if (result->is_miss()) {
         increment_miss();
+        return resource_cost;
     }
     // TODO: Apply Overpower
-    else if (result->is_dodge()) {
+    if (result->is_dodge()) {
         increment_dodge();
+        return round(resource_cost * 0.25);
     }
-    else if (result->is_parry()) {
+    if (result->is_parry()) {
         increment_parry();
+        return round(resource_cost * 0.25);
     }
 
     float damage_dealt = 45 * pchar->get_total_phys_dmg_mod();
@@ -36,8 +41,5 @@ int Hamstring::spell_effect(const int) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    add_gcd_event();
-
-    // TODO: Resource cost on failed hit should not be 100% of cost.
     return resource_cost;
 }

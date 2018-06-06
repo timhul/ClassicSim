@@ -63,6 +63,7 @@ void TestBloodthirst::test_incurs_global_cooldown_on_use() {
 }
 
 void TestBloodthirst::test_costs_30_rage() {
+    given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(30);
 
     when_bloodthirst_is_performed();

@@ -64,6 +64,7 @@ void TestWhirlwind::test_incurs_global_cooldown_on_use() {
 }
 
 void TestWhirlwind::test_costs_25_rage() {
+    given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(25);
 
     when_whirlwind_is_performed();

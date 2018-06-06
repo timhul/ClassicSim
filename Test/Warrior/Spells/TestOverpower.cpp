@@ -64,6 +64,7 @@ void TestOverpower::test_incurs_global_cooldown_on_use() {
 }
 
 void TestOverpower::test_costs_5_rage() {
+    given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(5);
 
     when_overpower_is_performed();
