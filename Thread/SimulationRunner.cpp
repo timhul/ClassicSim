@@ -33,6 +33,8 @@
 #include "EncounterEnd.h"
 
 #include "ClassStatistics.h"
+#include "ActiveBuffs.h"
+#include "GeneralBuffs.h"
 
 SimulationRunner::SimulationRunner(QString setup_string, QString thread_id, QObject* parent):
     QObject(parent),
@@ -63,6 +65,7 @@ void SimulationRunner::run_sim() {
 
     equip_gear(decoder);
     invest_talent_points(decoder);
+    apply_external_buffs(decoder);
 
     CharacterEncoder encoder(pchar);
     if (encoder.get_current_setup_string() != this->setup_string)
@@ -198,6 +201,14 @@ void SimulationRunner::add_points_to_talent_tree(CharacterDecoder &decoder, cons
         for (int points = 0; points < invested_talents[i].second.toInt(); ++points) {
             pchar->get_talents()->increment_rank(tree_position, invested_talents[i].first);
         }
+    }
+}
+
+void SimulationRunner::apply_external_buffs(CharacterDecoder& decoder) {
+    QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("BUFFS");
+
+    for (int i = 0; i < buffs.size(); ++i) {
+        pchar->get_active_buffs()->get_general_buffs()->toggle_external_buff(buffs[i].first);
     }
 }
 

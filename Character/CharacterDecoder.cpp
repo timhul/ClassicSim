@@ -73,3 +73,8 @@ QPair<QString, QString> CharacterDecoder::get_key_val(const QString& key_val_str
 QVector<QPair<QString, QString> > CharacterDecoder::get_key_val_pairs(const QString& key) {
     return setup_lists.take(key);
 }
+
+void CharacterDecoder::dump() {
+    qDebug() << "setup_map" << setup_map;
+    qDebug() << "setup_lists" << setup_lists;
+}

@@ -21,6 +21,8 @@ public:
     QString get_key(const QString& key);
     QVector<QPair<QString, QString>> get_key_val_pairs(const QString& key);
 
+    void dump();
+
 protected:
 private:
     QMap<QString, QString> setup_map;

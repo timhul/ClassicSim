@@ -22,6 +22,7 @@ public:
 
     void switch_faction();
     GeneralBuffs* get_general_buffs();
+    QVector<QString> get_active_external_buffs();
 
 private:
     Character* pchar;

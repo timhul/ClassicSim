@@ -5,6 +5,7 @@
 #include "ClassStatistics.h"
 #include "Faction.h"
 #include "GeneralBuffs.h"
+#include "ExternalBuff.h"
 
 ActiveBuffs::ActiveBuffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
@@ -67,4 +68,16 @@ void ActiveBuffs::switch_faction() {
 
 GeneralBuffs* ActiveBuffs::get_general_buffs() {
     return this->general_buffs;
+}
+
+QVector<QString> ActiveBuffs::get_active_external_buffs() {
+    QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
+    QVector<QString> active_external_buffs;
+
+    for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs[i]->is_active())
+            active_external_buffs.append(buffs[i]->get_name());
+    }
+
+    return active_external_buffs;
 }

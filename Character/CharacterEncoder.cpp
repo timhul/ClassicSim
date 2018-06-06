@@ -1,5 +1,6 @@
 
 #include "CharacterEncoder.h"
+#include "ActiveBuffs.h"
 #include "Character.h"
 #include "Equipment.h"
 #include "Item.h"
@@ -41,6 +42,8 @@ QString CharacterEncoder::get_current_setup_string() {
     QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup = pchar->get_talents()->get_current_talent_setup();
     add_vector(setup);
 
+    add_vector_values_only("BUFFS", pchar->get_active_buffs()->get_active_external_buffs());
+
     return pchar_str;
 }
 
@@ -49,6 +52,23 @@ void CharacterEncoder::add_item(const QString& key, Item* item) {
         return;
 
     key_val(key, item->get_name());
+}
+
+void CharacterEncoder::add_vector_values_only(const QString& name, const QVector<QString>& vec) {
+    if (vec.empty())
+        return;
+
+    QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup;
+    QVector<QPair<QString, QString>> key_vals;
+
+    for (int i = 0; i < vec.size(); ++i) {
+        key_vals.append(QPair<QString, QString>(vec[i], "N/A"));
+    }
+
+    QPair<QString, QVector<QPair<QString, QString>>> list = {name, key_vals};
+
+    setup.append(list);
+    add_vector(setup);
 }
 
 void CharacterEncoder::add_vector(QVector<QPair<QString, QVector<QPair<QString, QString>>>> & vec) {
