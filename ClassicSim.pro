@@ -108,8 +108,8 @@ SOURCES += main.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp \
     Equipment/EquipmentDb/EquipmentDb.cpp \
     Equipment/Item/Item.cpp \
-    Equipment/Item/ItemModel.cpp \
-    Equipment/Item/MeleeWeapon/WeaponModel.cpp \
+    GUI/Models/ItemModel.cpp \
+    GUI/Models/WeaponModel.cpp \
     Equipment/EquipmentDb/ItemFileReader.cpp \
     Equipment/EquipmentDb/WeaponFileReader.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Ranged.cpp \
@@ -148,7 +148,7 @@ SOURCES += main.cpp \
     Character/CharacterStats.cpp \
     Character/Class/Warrior/WarriorSpells.cpp \
     Statistics/Charts/PieChart.cpp \
-    Statistics/Charts/PieChartModel.cpp \
+    GUI/Models/PieChartModel.cpp \
     Statistics/ClassStatistics.cpp \
     Statistics/Class/WarriorStatistics.cpp \
     Faction/Faction.cpp \
@@ -278,8 +278,8 @@ HEADERS += \
     Character/Class/Warrior/Spells/BerserkerRage.h \
     Equipment/Item/MeleeWeapon/Specialization/Onehand.h \
     Equipment/EquipmentDb/EquipmentDb.h \
-    Equipment/Item/ItemModel.h \
-    Equipment/Item/MeleeWeapon/WeaponModel.h \
+    GUI/Models/ItemModel.h \
+    GUI/Models/WeaponModel.h \
     Equipment/EquipmentDb/ItemFileReader.h \
     Equipment/EquipmentDb/WeaponFileReader.h \
     Equipment/Item/MeleeWeapon/Specialization/Ranged.h \
@@ -318,7 +318,7 @@ HEADERS += \
     Character/CharacterStats.h \
     Character/Class/Warrior/WarriorSpells.h \
     Statistics/Charts/PieChart.h \
-    Statistics/Charts/PieChartModel.h \
+    GUI/Models/PieChartModel.h \
     Statistics/Class/WarriorStatistics.h \
     Statistics/ClassStatistics.h \
     Faction/Faction.h \
