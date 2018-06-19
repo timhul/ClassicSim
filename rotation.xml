@@ -6,13 +6,10 @@
 	Must specify a name. Is attempted to be cast if specified conditions are met. There is an implied condition that spell must be castable that exact instant.	
 	This implied condition evaluates to true if resources >= resource cost, not on gcd (if ability restricted to gcd), not on spell cd, in correct stance/form, etc.
 	If no conditions are specified only this implied condition is used.	
-	
-	<condition [active="name"] [greater|less]="value">	// condition active refers to a buff. Optionally greater/less can be specified, and if omitted the condition is whether buff is up or not, regardless of time remaining.
-	<condition [variable="name"] [equal|greater|less]  // condition variable refers to a variable, either built-in or may also be initialized in define_vars. Bools can only use equal.
-	<condition [cooldown="name"] [greater|less]="value"/> // condition cooldown refers to a value of a spell cooldown. Mostly used with greater/less in order to compare cooldown to a value.	
-	
-	<condition not="" .. /> not attribute may be added to invert the value of the condition.
-	
+
+	Logic operators ("and"/"or") must be used to chain conditions if a <cast_if> has more than a single condition.	
+
+
 	Built-in variables:
 	melee_attacking - whether player is melee attacking.
 	target_health - percentage hp remaining.
@@ -20,69 +17,13 @@
 	time_remaining_execute - time remaining to Execute phase.
 	time_remaining_mh_swing - time remaining to next MH swing.
 	
-	Logic operators below must be used to chain conditions if a <cast_if> has more than a single condition.
-	<and/>
-	<nand/>
-	<or/>
-	<nor/>
-	<xor/>
-	<xnor/>
-	
-	Nested conditions can be created by using <parenthesis> elements.
-	Example:	
-	<condition variable="time_remaining_execute" greater="3"/>
-	<and/>
-	<parenthesis>
-		<condition resource_greater="50"/>
-		<or/>
-		<parenthesis>
-			<condition resource_greater="30"/>
-			<and/>
-			<condition active="Overpower" greater="3"/>
-			<and/>
-			<not/>
-			<condition active="Berserker Stance"/>
-			<and/>
-			<condition variable="time_remaining_mh_swing" less="1"/>
-		</parenthesis>
-	</parenthesis>	
-		
-	Example:
-	<cast_if name="Berserker Stance">
-		<not/><condition active="Berserker Stance"/>
-	</cast_if>
-	
-	"Cast Berserker Stance if Berserker Stance is not active (mentioned condition) and Berserker Stance is ready to be cast (implicit condition)"		
-	
-	
 	State:
 	In order to simplify conditions variables can be used to implement state.
 	This is mostly (only?) useful for non-instant attacks, such as Heroic Strike.
-	
-	Example:
-	<cast_if name="Heroic Strike" let="dumping_rage_before_stancing" equal="false">
-		<let variable="dumping_rage_before_stancing" equal="true"/>
-		<condition resource_greater="30"/>
-	</cast_if>
-	
-	The "let" attribute inside <cast_if> element specifies what value the variable should be assigned when spell is cast.
-	The <let> element inside the <cast_if> element specifies the immediate value of the variable (if the cast_if conditions all evaluate to true).
-	Note that the difference is only clear on non-instant attacks (such as Heroic Strike) that the <let> element will immediately set the value to "true",
-	and the "let" attribute will set the value to "false" when the attack actually occurs.
-	
-	TODO: Consider how to set variable over more than one swing.
-	
-	In the example we can then use the variable dumping_rage_before_stancing in other places, e.g. in order to delay stance switch.
-	
-	<cast_if name="Battle Stance">
-		...
-		other conditions
-		...
-		<condition variable="dumping_rage_before_stancing" equal="false"/>
-	</cast_if>
-	
-	
-	Order is significant, first has highest priority.
+
+	TODO: Consider how to set trigger to change variable value.
+
+	Order is significant in this file, first <cast_if> has highest priority.
 	Remember to evaluate non-GCD abilities first, as the rotation is re-run if player was not put on GCD by (non-empty) action.
 	
 	rotation = QVector<Action*>
@@ -105,47 +46,42 @@
 		qDebug() << actions[i]->dump_printable_conditions();
 	}
 	-->
-A rotation that attempts to heavily conserve rage when stance dancing.
+	A rotation that attempts to heavily conserve rage when stance dancing.
 
-This implies fewer Overpowers are cast since Overpower is more likely to not always be consumed before proccing again,
-but it also implies less rage lost from stance dancing.
+	This implies fewer Overpowers are cast since Overpower is more likely to not always be consumed before proccing again,
+	but it also implies less rage lost from stance dancing.
 
-Better for lower item levels due to less rage available, and thus rage conservation is more important.
-	</description
+	Better for lower item levels due to less rage available, and thus rage conservation is more important.
+	</description>
 	<define_vars>
 		<let variable="dumping_rage_before_stancing" equal="false"/>
+		<let variable="execute_dagger_switch" equal="false"/>
 	</define_vars>
 	
 	<prerequisites>
 		<talent name="Bloodthirst"/>
-		<patch at_least="1.5.0"/>
-		<patch at_most="1.12.1"/>
+		<patch_at_least name="1.5.0"/>
+		<patch_at_most name="1.12.1"/>
 	</prerequisites>
 
-	
-	<cast_if name="Melee Attack">
-		<condition variable="melee_attacking" equal="false"/>	
-	</cast_if>
+
+	<cast_if name="Melee Attack"/>
 	
 	<!-- General heroic strike usage -->
 	<cast_if name="Heroic Strike">
-		<condition variable="time_remaining_execute" greater="3"/>
-		<and/>
-		<condition resource_greater="50"/>
+		variable "time_remaining_execute" greater 3
+		and resource "Rage" greater 50
 	</cast_if>
 
 	<!-- Special heroic strike usage: attempt to dump rage when Overpower is up. -->
 	<cast_if name="Heroic Strike" let="dumping_rage_before_stancing" equal="false">
-		<let variable="dumping_rage_before_stancing" equal="true"/>
-		<condition variable="time_remaining_execute" greater="3"/>
-		<and/>
-		<condition resource_greater="30"/>
-		<and/>
-		<condition active="Overpower" greater="3"/>
-		<and/>
-		<condition not="" active="Battle Stance"/>
-		<and/>
-		<condition variable="time_remaining_mh_swing" less="1.5"/>
+		variable "time_remaining_execute" greater 3
+		and resource "Rage" greater 30
+		and buff "Overpower" greater 3
+		and buff "Battle Stance" false
+		and variable "time_remaining_mh_swing" less 1.5
+
+		let "dumping_rage_before_stancing" = true
 	</cast_if>
 	
 	<!-- Always cast Execute if available (implicit condition). -->
@@ -153,14 +89,13 @@ Better for lower item levels due to less rage available, and thus rage conservat
 	
 	<!-- Always cast Bloodthirst if not in Execute range. -->
 	<cast_if name="Bloodthirst"/>
-		<condition variable="time_remaining_execute" greater="0"/>
+		variable "time_remaining_execute" greater 0
 	</cast_if>
 	
 	<!-- Whirlwind only if Bloodthirst on cooldown and not in Execute phase. -->
 	<cast_if name="Whirlwind">
-		<condition cooldown="Bloodthirst" greater="3"/>
-		<and/>
-		<condition variable="time_remaining_execute" greater="0"/>
+		spell "Bloodthirst" cooldown greater 3
+		variable "time_remaining_execute" greater 0
 	</cast_if>
 	
 	<!-- Always cast Overpower if available. The implied condition checks that player is in correct stance, Overpower is active, etc. -->
@@ -168,27 +103,24 @@ Better for lower item levels due to less rage available, and thus rage conservat
 	
 	<!-- Switch to Battle Stance -->
 	<cast_if name="Battle Stance">
-		<condition variable="time_remaining_execute" greater="5"/>
-		<and/>
-		<condition active="Overpower" greater="2"/>	
-		<and/>
-		<!-- Be able to check Flurry charges. If Flurry is not up, we should probably switch regardless of BT cooldown in low ilvl gear. -->
-		<condition cooldown="Bloodthirst" greater="3"/>
-		<and/>
-		<condition resource_less="50"/>
-		<and/>
-		<condition variable="dumping_rage_before_stancing" equal="false"/>
+		variable "time_remaining_execute" greater 5
+		and buff "Overpower" greater 2
+		and spell "Bloodthirst" cooldown greater 3
+		and resource "Rage" less 50
+		and variable "dumping_rage_before_stancing" false
 	</cast_if>
-	
+
 	<cast_if name="Berserker Stance">
-		<condition variable="time_remaining_execute" less="0"/>
-		<or/>
-		<condition not="" active="Overpower"/>
+		variable "time_remaining_execute" less 0
+		or buff "Overpower" false
 	</cast_if>
-	
+
 	<!-- Switch to dagger set before Execute (if user specified one) -->
-	<cast_if name="Dagger Switch">
-		<condition time_remaining_execute less="2"/>
+	<cast_if name="Execute Dagger Switch">
+		spell "Execute Dagger Switch" active
+		and variable "time_remaining_execute" less 3
+		and variable "execute_dagger_switch" false
+
+		let "execute_dagger_switch" = true
 	</cast_if>
-				
 </rotation>

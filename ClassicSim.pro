@@ -175,7 +175,11 @@ SOURCES += main.cpp \
     Character/Class/General/Buffs/ElixirOfGiants.cpp \
     Character/Class/General/Buffs/ElixirOfBruteForce.cpp \
     Character/Class/General/Buffs/RallyingCryOfTheDragonslayer.cpp \
-    Character/Class/General/Buffs/SongflowerSerenade.cpp
+    Character/Class/General/Buffs/SongflowerSerenade.cpp \
+    Rotation/RotationFileReader.cpp \
+    Rotation/Rotation.cpp \
+    Rotation/CastIf.cpp \
+    Rotation/Condition.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -346,7 +350,11 @@ HEADERS += \
     Character/Class/General/Buffs/ElixirOfGiants.h \
     Character/Class/General/Buffs/ElixirOfBruteForce.h \
     Character/Class/General/Buffs/RallyingCryOfTheDragonslayer.h \
-    Character/Class/General/Buffs/SongflowerSerenade.h
+    Character/Class/General/Buffs/SongflowerSerenade.h \
+    Rotation/RotationFileReader.h \
+    Rotation/Rotation.h \
+    Rotation/CastIf.h \
+    Rotation/Condition.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -396,7 +404,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\GUI \
     C:\C++\ClassicSim\GUI\Models \
     C:\C++\ClassicSim\Faction \
-    C:\C++\ClassicSim\Thread
+    C:\C++\ClassicSim\Thread \
+    C:\C++\ClassicSim\Rotation
 
 RESOURCES += qml.qrc
 
