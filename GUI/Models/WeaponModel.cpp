@@ -24,8 +24,6 @@ bool name(Weapon* lhs, Weapon* rhs) {
 }
 
 void WeaponModel::set_patch(const QString &patch) {
-    // TODO: Check if using patch_split fixes occasional 1 entry in model bug.
-    QString patch_split = patch.split(' ').first();
     db->set_patch(patch);
     addWeapons(this->db);
 }
