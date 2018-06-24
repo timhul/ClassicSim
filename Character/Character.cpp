@@ -26,7 +26,6 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->faction = faction,
     this->talents = new Talents();
     // TODO: Consider saving equipment pointer as well, to shorten expressions.
-    equipment->set_character(this);
     this->cstats = new CharacterStats(this, equipment);
     this->active_procs = new ActiveProcs(this, faction);
     this->active_buffs = new ActiveBuffs(this, faction);

@@ -74,6 +74,7 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat, faction)));
 
     current_char = chars["Warrior"];
+    equipment->set_character(current_char);
 
     item_model = new ItemModel(equipment->get_db());
     item_model->addItems(equipment->get_db());

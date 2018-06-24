@@ -59,10 +59,6 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     cstats->get_stats()->set_melee_ap_per_str(2);
     this->rage = 0;
     this->roll->set_character(this);
-
-    cstats->get_equipment()->set_mainhand("Skullforge Reaver");
-    cstats->get_equipment()->set_offhand("Frostbite");
-
     this->statistics = new WarriorStatistics();
 
     this->warr_spells = new WarriorSpells(this);
@@ -72,7 +68,6 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
-
     heroic_strike_buff->enable_buff();
     battle_shout_buff->enable_buff();
 
@@ -80,6 +75,10 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 
     spells->add_statistics();
     initialize_talents();
+
+    // TODO: Remove character hardcoded equip of these items.
+    cstats->get_equipment()->set_mainhand("Skullforge Reaver");
+    cstats->get_equipment()->set_offhand("Frostbite");
 }
 
 Warrior::~Warrior() {

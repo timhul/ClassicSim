@@ -1,8 +1,6 @@
 
 #include "MainhandAttackWarrior.h"
 #include "Warrior.h"
-#include "Flurry.h"
-#include "Equipment.h"
 #include "DeepWounds.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :

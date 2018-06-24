@@ -36,7 +36,7 @@
 			<dmg_range min="73" max="136" speed="2.4"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.05" internal_cd="0" recursive="yes"/>
+				<spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.027" internal_cd="0" recursive="yes"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Grants 2 extra attacks on your next swing.

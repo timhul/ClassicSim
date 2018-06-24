@@ -1,8 +1,6 @@
 
 #include "OffhandAttackWarrior.h"
 #include "Warrior.h"
-#include "Flurry.h"
-#include "Equipment.h"
 #include "DeepWounds.h"
 
 OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :

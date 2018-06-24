@@ -34,13 +34,10 @@ void ExtraAttackInstantProc::proc_from_next_swing_effect() {
     assert(extra_attack_buff != nullptr);
     assert(extra_attack_buff->is_active());
 
-
-    for (int i = 0; i < extra_attack_buff->get_charges(); ++i) {
+    while (extra_attack_buff->is_active()) {
         run_extra_attacks();
         extra_attack_buff->use_charge();
     }
-
-    assert(!extra_attack_buff->is_active());
 }
 
 void ExtraAttackInstantProc::proc_from_instant_effect() {

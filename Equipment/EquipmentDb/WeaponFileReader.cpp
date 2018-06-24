@@ -86,7 +86,7 @@ void WeaponFileReader::dmg_range_element_reader(const QXmlStreamAttributes &attr
 void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
                                            QMap<QString, QString> &item_map,
                                            QVector<QPair<QString, QString>> &stats,
-                                           QVector<QMap<QString, QString>>&) {
+                                           QVector<QMap<QString, QString>>& procs) {
     bool missing_attrs = false;
     QVector<QString> mandatory_attrs_for_wpn = {"min", "max", "speed"};
 
@@ -107,19 +107,19 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
 
     if (info["slot"] == "1H")
         weapon = new Onehand(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
+                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
     else if (info["slot"] == "MH")
         weapon = new Mainhand(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
+                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
     else if (info["slot"] == "OH")
         weapon = new Offhand(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
+                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
     else if (info["slot"] == "2H")
         weapon = new TwoHander(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
+                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
     else if (info["slot"] == "RANGED")
         weapon = new Ranged(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info);
+                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
 
     if (weapon != nullptr)
         items.append(weapon);
