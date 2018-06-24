@@ -256,7 +256,7 @@ Window {
         TalentCalculator {
             visible: parent.state === "TALENTS"
             x: parent.width / 2 - width / 2
-            y: 20
+            y: parent.height / 2 - height / 2
         }
 
         Equipment {
