@@ -42,7 +42,6 @@ SOURCES += main.cpp \
     Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
     Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp \
     Equipment/Equipment.cpp \
-    CombatRoll/AttackResult.cpp \
     CombatRoll/CombatRoll.cpp \
     CombatRoll/AttackTables/WhiteHitTable.cpp \
     Character/Class/Spell.cpp \

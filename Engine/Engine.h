@@ -7,18 +7,8 @@
 
 class Engine {
 public:
-    Engine():
-        current_prio(0),
-        processed_events(0)
-    {
-        queue = new Queue();
-        timer = new QTime();
-    }
-
-    ~Engine() {
-        delete queue;
-        delete timer;
-    }
+    Engine();
+    ~Engine();
 
     void run(void);
     void dump(void);
@@ -37,10 +27,9 @@ protected:
 
 private:
     Queue* queue;
-    float current_prio;
-
-    unsigned processed_events;
     QTime *timer;
+    float current_prio;
+    unsigned processed_events;
     QMap<QString, int> processed_events_of_type;
 };
 

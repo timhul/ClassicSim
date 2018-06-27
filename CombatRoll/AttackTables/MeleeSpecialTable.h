@@ -2,6 +2,7 @@
 #define MELEESPECIALTABLE_H
 
 #include "AttackTable.h"
+#include "AttackResult.h"
 #include "Random.h"
 
 class MeleeSpecialTable: public AttackTable {

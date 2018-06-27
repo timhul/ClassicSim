@@ -43,19 +43,19 @@ int MeleeSpecialTable::get_outcome(const int roll, const float crit_mod) {
     assert(roll >= 0 && roll < 10000);
 
     if (roll < this->miss_range)
-        return Outcome::MISS;
+        return AttackResult::MISS;
     if (roll < this->dodge_range)
-        return Outcome::DODGE;
+        return AttackResult::DODGE;
     if (roll < this->parry_range)
-        return Outcome::PARRY;
+        return AttackResult::PARRY;
     if (roll < this->block_range) {
         if (random->get_roll() < this->critical_range + int(round(crit_mod * 10000)))
-            return Outcome::BLOCK_CRITICAL;
-        return Outcome::BLOCK;
+            return AttackResult::BLOCK_CRITICAL;
+        return AttackResult::BLOCK;
     }
     if (random->get_roll() < this->critical_range + int(round(crit_mod * 10000)))
-        return Outcome::CRITICAL;
-    return Outcome::HIT;
+        return AttackResult::CRITICAL;
+    return AttackResult::HIT;
 }
 
 void MeleeSpecialTable::dump_table(void) {

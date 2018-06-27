@@ -24,18 +24,18 @@ int HeroicStrike::spell_effect(const int) {
     pchar->get_hs_buff()->use_charge();
     pchar->get_spells()->get_mh_attack()->complete_swing();
 
-    AttackResult* result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
-    if (result->is_miss()) {
+    if (result == AttackResult::MISS) {
         increment_miss();
         return resource_cost;
     }
     // TODO: Apply Overpower
-    if (result->is_dodge()) {
+    if (result == AttackResult::DODGE) {
         increment_dodge();
         return round(resource_cost * 0.25);
     }
-    if (result->is_parry()) {
+    if (result == AttackResult::PARRY) {
         increment_parry();
         return round(resource_cost * 0.25);
     }
@@ -43,12 +43,12 @@ int HeroicStrike::spell_effect(const int) {
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg() + additional_dmg;
     damage_dealt *= pchar->get_total_phys_dmg_mod();
 
-    if (result->is_critical()) {
+    if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());
         pchar->melee_mh_yellow_critical_effect();
         add_crit_dmg(damage_dealt);
     }
-    else if (result->is_hit()) {
+    else if (result == AttackResult::HIT) {
         pchar->melee_mh_yellow_hit_effect();
         add_hit_dmg(round(damage_dealt));
     }

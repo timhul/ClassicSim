@@ -1,6 +1,10 @@
 
 #include "Queue.h"
 
+Queue::~Queue() {
+    this->clear();
+}
+
 Event* Queue::get_next(void) {
     Event* top = this->queue.top();
     this->queue.pop();

@@ -133,13 +133,9 @@ void Test::test_combat_roll_melee_hit_result(void) {
     Warrior* pchar = new Warrior(race, engine, equipment, combat, faction);
     combat->set_character(pchar);
 
-    AttackResult* result = combat->get_melee_hit_result(300);
-
     for(int i = 0; i < 30; ++i) {
-        delete result;
-        result = combat->get_melee_hit_result(300);
+        combat->get_melee_hit_result(300);
     }
-    delete result;
 
     delete faction;
     delete target;
@@ -251,20 +247,20 @@ void Test::test_mechanics_dw_white_miss(void) {
 
 void Test::test_white_hit_table(void) {
    WhiteHitTable* table = new WhiteHitTable(300, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-   assert(table->get_outcome(0, 0.0) == Outcome::HIT);
-   assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
+   assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
+   assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
    delete table;
 
    table = new WhiteHitTable(300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
-   assert(table->get_outcome(0, 0.0) == Outcome::MISS);
-   assert(table->get_outcome(1, 0.0) == Outcome::DODGE);
-   assert(table->get_outcome(2, 0.0) == Outcome::PARRY);
-   assert(table->get_outcome(3, 0.0) == Outcome::GLANCING);
-   assert(table->get_outcome(4, 0.0) == Outcome::BLOCK);
-   assert(table->get_outcome(5, 0.0) == Outcome::CRITICAL);
-   assert(table->get_outcome(6, 0.0) == Outcome::HIT);
-   assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
-   assert(table->get_outcome(6, 1.0) == Outcome::CRITICAL);
+   assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
+   assert(table->get_outcome(1, 0.0) == AttackResult::DODGE);
+   assert(table->get_outcome(2, 0.0) == AttackResult::PARRY);
+   assert(table->get_outcome(3, 0.0) == AttackResult::GLANCING);
+   assert(table->get_outcome(4, 0.0) == AttackResult::BLOCK);
+   assert(table->get_outcome(5, 0.0) == AttackResult::CRITICAL);
+   assert(table->get_outcome(6, 0.0) == AttackResult::HIT);
+   assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
+   assert(table->get_outcome(6, 1.0) == AttackResult::CRITICAL);
    delete table;
 }
 
@@ -281,24 +277,24 @@ void Test::test_white_hit_table_update(void) {
 
     WhiteHitTable* table = combat->get_white_hit_table(300);
 
-    assert(table->get_outcome(0, 0.0) == Outcome::MISS);
-    assert(table->get_outcome(2799, 0.0) == Outcome::MISS);
-    assert(table->get_outcome(2800, 0.0) == Outcome::DODGE);
-    assert(table->get_outcome(3299, 0.0) == Outcome::DODGE);
-    assert(table->get_outcome(3300, 0.0) == Outcome::GLANCING);
-    assert(table->get_outcome(7299, 0.0) == Outcome::GLANCING);
-    assert(table->get_outcome(7300, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
+    assert(table->get_outcome(2799, 0.0) == AttackResult::MISS);
+    assert(table->get_outcome(2800, 0.0) == AttackResult::DODGE);
+    assert(table->get_outcome(3299, 0.0) == AttackResult::DODGE);
+    assert(table->get_outcome(3300, 0.0) == AttackResult::GLANCING);
+    assert(table->get_outcome(7299, 0.0) == AttackResult::GLANCING);
+    assert(table->get_outcome(7300, 0.0) == AttackResult::CRITICAL);
     // TODO: This will fail when changing base agility or agi needed per crit.
-    assert(table->get_outcome(7984, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(7985, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(7984, 0.0) == AttackResult::CRITICAL);
+    assert(table->get_outcome(7985, 0.0) == AttackResult::HIT);
 
     pchar->get_stats()->increase_crit(0.0001);
-    assert(table->get_outcome(7985, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(7986, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(7985, 0.0) == AttackResult::CRITICAL);
+    assert(table->get_outcome(7986, 0.0) == AttackResult::HIT);
 
     pchar->get_stats()->increase_crit(0.9999);
-    assert(table->get_outcome(7986, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(7986, 0.0) == AttackResult::CRITICAL);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::CRITICAL);
 
     delete faction;
     delete target;
@@ -312,16 +308,16 @@ void Test::test_white_hit_table_update(void) {
 void Test::test_special_hit_table(void) {
     Random* random = new Random(0, 9999);
     MeleeSpecialTable* table = new MeleeSpecialTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
-    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
     delete table;
 
     table = new MeleeSpecialTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001, 1.0);
-    assert(table->get_outcome(0, 0.0) == Outcome::MISS);
-    assert(table->get_outcome(1, 0.0) == Outcome::DODGE);
-    assert(table->get_outcome(2, 0.0) == Outcome::PARRY);
-    assert(table->get_outcome(3, 0.0) == Outcome::BLOCK_CRITICAL);
-    assert(table->get_outcome(4, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
+    assert(table->get_outcome(1, 0.0) == AttackResult::DODGE);
+    assert(table->get_outcome(2, 0.0) == AttackResult::PARRY);
+    assert(table->get_outcome(3, 0.0) == AttackResult::BLOCK_CRITICAL);
+    assert(table->get_outcome(4, 0.0) == AttackResult::CRITICAL);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::CRITICAL);
     delete table;
     delete random;
 }

@@ -83,8 +83,8 @@ void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
-    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
 
 }
 
@@ -96,8 +96,8 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    assert(table->get_outcome(0, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(0, 0.0) == AttackResult::CRITICAL);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::CRITICAL);
 }
 
 void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
@@ -109,8 +109,8 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
     table->update_glancing_chance(0.0);
     table->update_crit_chance(0.0);
 
-    assert(table->get_outcome(0, 0.0) == Outcome::HIT);
-    assert(table->get_outcome(9999, 0.0) == Outcome::HIT);
+    assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
 }
 
 void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
@@ -122,8 +122,8 @@ void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
     table->update_glancing_chance(1.0);
     table->update_crit_chance(0.0);
 
-    assert(table->get_outcome(0, 0.0) == Outcome::GLANCING);
-    assert(table->get_outcome(9999, 0.0) == Outcome::GLANCING);
+    assert(table->get_outcome(0, 0.0) == AttackResult::GLANCING);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::GLANCING);
 }
 
 void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
@@ -135,8 +135,8 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
     table->update_glancing_chance(0.0);
     table->update_crit_chance(1.0);
 
-    assert(table->get_outcome(0, 0.0) == Outcome::CRITICAL);
-    assert(table->get_outcome(9999, 0.0) == Outcome::CRITICAL);
+    assert(table->get_outcome(0, 0.0) == AttackResult::CRITICAL);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::CRITICAL);
 }
 
 void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {

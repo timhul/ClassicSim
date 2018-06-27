@@ -27,31 +27,31 @@ int OffhandAttack::spell_effect(const int) {
 
 int OffhandAttack::calculate_damage() {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
-    AttackResult* result = roll->get_melee_hit_result(oh_wpn_skill);
+    const int result = roll->get_melee_hit_result(oh_wpn_skill);
 
-    if (result->is_miss()) {
+    if (result == AttackResult::MISS) {
         increment_miss();
         return 0;
     }
     // TODO: Apply Overpower
-    if (result->is_dodge()) {
+    if (result == AttackResult::DODGE) {
         increment_dodge();
         return 0;
     }
-    if (result->is_parry()) {
+    if (result == AttackResult::PARRY) {
         increment_parry();
         return 0;
     }
 
     float damage_dealt = pchar->get_random_non_normalized_oh_dmg() * 0.5;
 
-    if (result->is_critical()) {
+    if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;
         pchar->melee_oh_white_critical_effect();
         add_crit_dmg(round(damage_dealt));
         return 0;
     }
-    if (result->is_glancing()) {
+    if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
         pchar->melee_oh_white_hit_effect();
         add_glancing_dmg(round(damage_dealt));

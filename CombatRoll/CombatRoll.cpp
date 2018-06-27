@@ -25,34 +25,35 @@ CombatRoll::~CombatRoll() {
     }
 }
 
-AttackResult* CombatRoll::get_melee_hit_result(const int wpn_skill, const float crit_mod) {
+int CombatRoll::get_melee_hit_result(const int wpn_skill, const float crit_mod) {
     const int roll = random->get_roll();
 
     WhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
-    AttackResult* result = new AttackResult(attack_table->get_outcome(roll, crit_mod));
 
-    return result;
+    return attack_table->get_outcome(roll, crit_mod);
 }
 
-AttackResult* CombatRoll::get_melee_ability_result(const int wpn_skill, const float crit_mod) {
+int CombatRoll::get_melee_ability_result(const int wpn_skill, const float crit_mod) {
     const int roll = random->get_roll();
 
     MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill);
-    AttackResult* result = new AttackResult(attack_table->get_outcome(roll, crit_mod));
 
-    return result;
+    return attack_table->get_outcome(roll, crit_mod);
 }
 
-AttackResult* CombatRoll::get_ranged_hit_result(const int){
-    return new AttackResult(Outcome::CRITICAL);
+int CombatRoll::get_ranged_hit_result(const int) {
+    // TODO: Remove hardcoded critical result
+    return AttackResult::CRITICAL;
 }
 
-AttackResult* CombatRoll::get_ranged_ability_result(const int){
-    return new AttackResult(Outcome::CRITICAL);
+int CombatRoll::get_ranged_ability_result(const int) {
+    // TODO: Remove hardcoded critical result
+    return AttackResult::CRITICAL;
 }
 
-AttackResult* CombatRoll::get_spell_ability_result(void){
-    return new AttackResult(Outcome::CRITICAL);
+int CombatRoll::get_spell_ability_result(void) {
+    // TODO: Remove hardcoded critical result
+    return AttackResult::CRITICAL;
 }
 
 void CombatRoll::set_target(Target* target) {

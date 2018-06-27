@@ -6,6 +6,8 @@
 
 class Queue {
 public:
+    ~Queue();
+
     Event* get_next(void);
     void push(Event*);
     bool empty(void);

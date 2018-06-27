@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <QMap>
+#include "AttackResult.h"
 
-class AttackResult;
 class Character;
 class Target;
 class Random;
@@ -18,11 +18,11 @@ public:
     CombatRoll(Target* _tar);
     ~CombatRoll();
 
-    AttackResult* get_melee_hit_result(const int, const float = 0.0);
-    AttackResult* get_melee_ability_result(const int, const float = 0.0);
-    AttackResult* get_ranged_hit_result(const int);
-    AttackResult* get_ranged_ability_result(const int);
-    AttackResult* get_spell_ability_result(void);
+    int get_melee_hit_result(const int, const float = 0.0);
+    int get_melee_ability_result(const int, const float = 0.0);
+    int get_ranged_hit_result(const int);
+    int get_ranged_ability_result(const int);
+    int get_spell_ability_result(void);
 
     WhiteHitTable* get_white_hit_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);

@@ -2,6 +2,18 @@
 #include "Engine.h"
 #include <QDebug>
 
+Engine::Engine():
+    queue(new Queue()),
+    timer(new QTime()),
+    current_prio(0),
+    processed_events(0)
+{}
+
+Engine::~Engine() {
+    delete queue;
+    delete timer;
+}
+
 void Engine::run() {
     processed_events_of_type.clear();
     while(!queue->empty()) {
@@ -35,6 +47,7 @@ void Engine::dump(void) {
 void Engine::reset(void) {
     current_prio = -1;
     processed_events = 0;
+    queue->clear();
     delete timer;
     timer = new QTime();
 }
