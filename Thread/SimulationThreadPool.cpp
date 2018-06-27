@@ -5,47 +5,57 @@
 #include <limits.h>
 #include <QThread>
 #include <QDebug>
+#include <QThreadPool>
 
 SimulationThreadPool::SimulationThreadPool(QObject* parent):
     QObject(parent),
     random(new Random(std::numeric_limits<int>::min(), std::numeric_limits<int>::max())),
     running_threads(0)
-{}
-
-SimulationThreadPool::~SimulationThreadPool() {
-    delete random;
-}
-
-void SimulationThreadPool::run_sim(const QString &setup_string) {
-    const int num_threads = 4;
-    running_threads += num_threads;
-
-    for (int i = 0; i < num_threads; ++i) {
-        int seed = random->get_roll();
-        thread_results.append(QPair<int, float>(seed, 0.0));
-        setup_thread(setup_string, QString::number(seed));
+{
+    for (int i = 0; i < QThreadPool::globalInstance()->maxThreadCount(); ++i) {
+        setup_thread(random->get_roll());
     }
 }
 
-void SimulationThreadPool::setup_thread(const QString &setup_string, const QString &thread_id) {
+SimulationThreadPool::~SimulationThreadPool() {
+    delete random;
+    // TODO: Delete threads.
+}
+
+void SimulationThreadPool::run_sim(const QString &setup_string) {
+    assert(running_threads == 0);
+    assert(thread_results.empty());
+
+    for (int i = 0; i < thread_pool.size(); ++i) {
+        thread_results.append(QPair<int, float>(thread_pool[i].first, 0.0));
+    }
+
+    running_threads = thread_pool.size();
+    emit thread_setup_string(setup_string);
+}
+
+void SimulationThreadPool::setup_thread(const int thread_id) {
     QThread* thread = new QThread();
-    SimulationRunner* runner = new SimulationRunner(setup_string, thread_id);
+    SimulationRunner* runner = new SimulationRunner(QString::number(thread_id));
 
-    runner->moveToThread(thread);
-
+    connect(this, SIGNAL (thread_setup_string(QString)), runner, SLOT (run_sim(QString)));
     connect(runner, SIGNAL (error(QString, QString)), this, SLOT (error_string(QString, QString)));
     connect(runner, SIGNAL (result(QString, QString)), this, SLOT (result(QString, QString)));
-    connect(thread, SIGNAL (started()), runner, SLOT (run_sim()));
-    connect(runner, SIGNAL (finished()), thread, SLOT (quit()));
-    connect(runner, SIGNAL (finished()), runner, SLOT (deleteLater()));
     connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
 
+    thread_pool.append(QPair<int, QThread*>(thread_id, thread));
+
+    runner->moveToThread(thread);
     thread->start();
 }
 
 void SimulationThreadPool::error_string(QString seed, QString error) {
     qDebug() << "thread error" << seed << ": " << error;
     --running_threads;
+
+    if (running_threads == 0) {
+        thread_results.clear();
+    }
 }
 
 void SimulationThreadPool::result(QString seed, QString result) {

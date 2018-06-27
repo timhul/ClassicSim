@@ -2,6 +2,7 @@
 #define SIMULATIONRUNNER_H
 
 #include <QObject>
+#include <QMap>
 
 class Character;
 class CharacterDecoder;
@@ -15,11 +16,12 @@ class Target;
 class SimulationRunner: public QObject {
     Q_OBJECT
 public:
-    SimulationRunner(QString setup_string, QString seed, QObject* parent = 0);
+    SimulationRunner(QString seed, QObject* parent = 0);
     ~SimulationRunner();
 
 public slots:
-    void run_sim();
+    void run_sim(QString setup_string);
+
 signals:
     void finished();
     void result(QString seed, QString result);
@@ -37,6 +39,9 @@ private:
 
     QString setup_string;
     QString seed;
+
+    QMap<QString, Character*> chars;
+    QMap<QString, Race*> races;
 
     void setup_race(CharacterDecoder& decoder);
     void setup_pchar(CharacterDecoder& decoder);

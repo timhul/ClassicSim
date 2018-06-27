@@ -36,24 +36,26 @@
 #include "ActiveBuffs.h"
 #include "GeneralBuffs.h"
 
-SimulationRunner::SimulationRunner(QString setup_string, QString thread_id, QObject* parent):
+SimulationRunner::SimulationRunner(QString thread_id, QObject* parent):
     QObject(parent),
-    setup_string(setup_string),
+    pchar(nullptr),
+    combat(nullptr),
+    engine(nullptr),
+    equipment(nullptr),
+    faction(nullptr),
+    race(nullptr),
+    target(nullptr),
     seed(thread_id)
 {}
 
 SimulationRunner::~SimulationRunner() {
 }
 
-void SimulationRunner::run_sim() {
+void SimulationRunner::run_sim(QString setup_string) {
+    this->setup_string = setup_string;
+
     CharacterDecoder decoder;
     decoder.initialize(this->setup_string);
-
-    engine = nullptr;
-    equipment = nullptr;
-    target = nullptr;
-    combat = nullptr;
-    faction = nullptr;
 
     setup_race(decoder);
     if (race == nullptr)
@@ -77,6 +79,7 @@ void SimulationRunner::run_sim() {
     pchar->get_statistics()->reset_statistics();
     engine->prepare();
     combat->drop_tables();
+
     // TODO: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
         EncounterStart* start_event = new EncounterStart(pchar);
@@ -100,7 +103,6 @@ void SimulationRunner::run_sim() {
 void SimulationRunner::setup_race(CharacterDecoder& decoder) {
     QString race_string = decoder.get_race();
 
-    race = nullptr;
     if (race_string == "Dwarf")
         race = new Dwarf();
     else if (race_string == "Gnome")
@@ -225,14 +227,18 @@ void SimulationRunner::exit_thread(QString err) {
 }
 
 void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
-    engine = new Engine();
-    equipment = new Equipment();
-    target = new Target(63);
-    combat = new CombatRoll(target);
-    faction = new Faction();
+    if (engine == nullptr)
+        engine = new Engine();
+    if (equipment == nullptr)
+        equipment = new Equipment();
+    if (target == nullptr)
+        target = new Target(63);
+    if (combat == nullptr)
+        combat = new CombatRoll(target);
+    if (faction == nullptr)
+        faction = new Faction();
 
     QString pchar_string = decoder.get_class();
-    pchar = nullptr;
 
     if (pchar_string == "Druid")
         pchar = dynamic_cast<Character*>(new Druid(race, engine, equipment, combat, faction));
@@ -258,12 +264,6 @@ void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
 }
 
 void SimulationRunner::delete_objects() {
-    delete engine;
-    delete equipment;
-    delete target;
-    delete combat;
-    delete faction;
-
     if (pchar != nullptr)
         delete pchar;
 

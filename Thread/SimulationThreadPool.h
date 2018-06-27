@@ -5,6 +5,7 @@
 #include <QVector>
 
 class Random;
+class QThread;
 
 class SimulationThreadPool: public QObject {
     Q_OBJECT
@@ -20,6 +21,7 @@ public slots:
 
 signals:
     void thread_result(QString dps);
+    void thread_setup_string(QString setup_string);
 
 protected:
 private:
@@ -27,8 +29,9 @@ private:
     int running_threads;
 
     QVector<QPair<int, float>> thread_results;
+    QVector<QPair<int, QThread*>> thread_pool;
 
-    void setup_thread(const QString& setup_string, const QString& thread_id);
+    void setup_thread(const int thread_id);
 };
 
 #endif // SIMULATIONTHREADPOOL_H
