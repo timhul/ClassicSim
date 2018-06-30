@@ -17,7 +17,7 @@ public:
 
 public slots:
     void error_string(QString, QString);
-    void result(QString, QString);
+    void result(QString, float);
 
 signals:
     void thread_result(QString dps);
@@ -32,6 +32,7 @@ private:
     QVector<QPair<int, QThread*>> thread_pool;
 
     void setup_thread(const int thread_id);
+    void check_threads_finished();
 };
 
 #endif // SIMULATIONTHREADPOOL_H

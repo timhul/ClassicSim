@@ -96,7 +96,7 @@ void SimulationRunner::run_sim(QString setup_string) {
 
     delete_objects();
 
-    emit result(seed, QString::number(dps, 'f', 2));
+    emit result(seed, dps);
     emit finished();
 }
 
@@ -261,6 +261,8 @@ void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
 
     if (pchar == nullptr)
         delete_objects();
+    else
+        equipment->set_character(pchar);
 }
 
 void SimulationRunner::delete_objects() {

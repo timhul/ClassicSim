@@ -24,7 +24,7 @@ public slots:
 
 signals:
     void finished();
-    void result(QString seed, QString result);
+    void result(QString seed, float result);
     void error(QString seed, QString err);
 
 protected:
