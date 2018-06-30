@@ -7,6 +7,8 @@
 
 class TestSpellWarrior: public TestSpell {
 public:
+    TestSpellWarrior(QString spell_under_test);
+
     void set_up();
     void tear_down();
 

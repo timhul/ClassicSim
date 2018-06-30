@@ -5,6 +5,10 @@
 #include "Equipment.h"
 #include <QDebug>
 
+TestWhirlwind::TestWhirlwind() :
+    TestSpellWarrior("Whirlwind")
+{}
+
 void TestWhirlwind::test_all() {
     set_up();
     test_name_correct();

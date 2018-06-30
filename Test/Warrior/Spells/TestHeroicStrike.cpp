@@ -2,6 +2,10 @@
 #include "TestHeroicStrike.h"
 #include "HeroicStrike.h"
 
+TestHeroicStrike::TestHeroicStrike() :
+    TestSpellWarrior("Heroic Strike")
+{}
+
 void TestHeroicStrike::test_all() {
     set_up();
     test_name_correct();

@@ -4,6 +4,10 @@
 #include "MainhandAttackWarrior.h"
 #include <QDebug>
 
+TestMainhandAttackWarrior::TestMainhandAttackWarrior() :
+    TestSpellWarrior("MainhandAttackWarrior")
+{}
+
 void TestMainhandAttackWarrior::test_all() {
     set_up();
     test_name_correct();

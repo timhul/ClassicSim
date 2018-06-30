@@ -6,6 +6,8 @@
 
 class TestBuffWarrior: public TestBuff {
 public:
+    TestBuffWarrior(QString buff_under_test);
+
     void set_up();
     void tear_down();
 

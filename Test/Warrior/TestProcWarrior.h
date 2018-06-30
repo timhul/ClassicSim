@@ -6,6 +6,8 @@
 
 class TestProcWarrior: public TestProc {
 public:
+    TestProcWarrior(QString proc_under_test);
+
     void set_up();
     void tear_down();
 

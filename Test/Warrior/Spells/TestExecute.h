@@ -7,6 +7,8 @@ class Execute;
 
 class TestExecute: public TestSpellWarrior {
 public:
+    TestExecute();
+
     void test_all();
 
     Execute* execute();

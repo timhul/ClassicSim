@@ -8,6 +8,8 @@ class Spell;
 
 class TestFlurryWarrior: public TestBuffWarrior {
 public:
+    TestFlurryWarrior();
+
     void test_all();
 
     void test_name_correct();

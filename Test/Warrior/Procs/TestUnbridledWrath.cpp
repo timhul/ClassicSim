@@ -6,6 +6,10 @@
 #include "UnbridledWrathTalent.h"
 #include "ProcInfo.h"
 
+TestUnbridledWrath::TestUnbridledWrath() :
+    TestProcWarrior("Unbridled Wrath")
+{}
+
 void TestUnbridledWrath::test_all() {
     set_up();
     test_name_correct();

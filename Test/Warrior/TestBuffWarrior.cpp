@@ -3,6 +3,10 @@
 
 #include "Warrior.h"
 
+TestBuffWarrior::TestBuffWarrior(QString buff_under_test) :
+    TestBuff(buff_under_test)
+{}
+
 void TestBuffWarrior::set_up() {
     set_up_general();
     warrior = new Warrior(race, engine, equipment, combat, faction);

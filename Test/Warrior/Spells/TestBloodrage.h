@@ -5,6 +5,8 @@
 
 class TestBloodrage: public TestSpellWarrior {
 public:
+    TestBloodrage();
+
     void test_all();
 
     Bloodrage* bloodrage();

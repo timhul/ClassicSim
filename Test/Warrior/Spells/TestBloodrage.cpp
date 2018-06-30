@@ -4,6 +4,10 @@
 #include "Queue.h"
 #include <QDebug>
 
+TestBloodrage::TestBloodrage() :
+    TestSpellWarrior("Bloodrage")
+{}
+
 void TestBloodrage::test_all() {
     set_up();
     test_name_correct();

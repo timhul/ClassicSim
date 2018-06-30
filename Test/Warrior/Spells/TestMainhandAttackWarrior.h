@@ -7,6 +7,8 @@ class MainhandAttackWarrior;
 
 class TestMainhandAttackWarrior: public TestSpellWarrior {
 public:
+    TestMainhandAttackWarrior();
+
     void test_all();
 
     MainhandAttackWarrior* mh_attack();

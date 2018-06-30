@@ -5,6 +5,10 @@
 #include "Equipment.h"
 #include <QDebug>
 
+TestOverpower::TestOverpower() :
+    TestSpellWarrior("Overpower")
+{}
+
 void TestOverpower::test_all() {
     set_up();
     test_name_correct();

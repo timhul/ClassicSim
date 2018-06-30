@@ -17,9 +17,11 @@
 #include "Item.h"
 #include "EquipmentDb.h"
 #include "MainhandMeleeHit.h"
+#include <QDebug>
 
-TestSpell::TestSpell() :
-    equipment(nullptr)
+TestSpell::TestSpell(QString spell_under_test) :
+    equipment(nullptr),
+    spell_under_test(spell_under_test)
 {}
 
 TestSpell::~TestSpell() {
@@ -321,6 +323,9 @@ void TestSpell::given_engine_priority_at(const float priority) {
 }
 
 void TestSpell::then_damage_dealt_is(const int damage) {
+    if (damage != pchar->get_statistics()->get_total_damage_dealt())
+        qDebug() << spell_under_test << "then_damage_dealt_is() assertion failed, expected"
+                 << damage << "got" << pchar->get_statistics()->get_total_damage_dealt();
     assert(pchar->get_statistics()->get_total_damage_dealt() == damage);
 }
 

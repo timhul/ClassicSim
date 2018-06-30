@@ -16,6 +16,10 @@
 
 #include <QDebug>
 
+TestExecute::TestExecute() :
+    TestSpellWarrior("Execute")
+{}
+
 void TestExecute::test_all() {
     set_up();
     test_name_correct();

@@ -4,6 +4,10 @@
 #include "Impale.h"
 #include "Warrior.h"
 
+TestSpellWarrior::TestSpellWarrior(QString spell_under_test) :
+    TestSpell(spell_under_test)
+{}
+
 void TestSpellWarrior::set_up() {
     set_up_general();
     warrior = new Warrior(race, engine, equipment, combat, faction);

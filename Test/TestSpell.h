@@ -13,7 +13,7 @@ class Character;
 
 class TestSpell {
 public:
-    TestSpell();
+    TestSpell(QString spell_under_test);
     ~TestSpell();
 
     void set_up_general();
@@ -56,6 +56,7 @@ protected:
     Target* target;
     Race* race;
     Character* pchar;
+    QString spell_under_test;
 
     void set_melee_special_table_for_hit(const int wpn_skill);
     void set_melee_special_table_for_crit(const int wpn_skill);

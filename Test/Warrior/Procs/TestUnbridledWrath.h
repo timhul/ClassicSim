@@ -5,6 +5,8 @@
 
 class TestUnbridledWrath: public TestProcWarrior {
 public:
+    TestUnbridledWrath();
+
     void test_all();
 
     void test_name_correct();

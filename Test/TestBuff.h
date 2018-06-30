@@ -7,6 +7,7 @@ class Buff;
 
 class TestBuff : public TestSpell {
 public:
+    TestBuff(QString buff_under_test);
 
     void then_number_of_charges_is(Buff* buff, const int charges);
 };

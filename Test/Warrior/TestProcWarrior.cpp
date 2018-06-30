@@ -3,6 +3,10 @@
 
 #include "Warrior.h"
 
+TestProcWarrior::TestProcWarrior(QString spell_under_test) :
+    TestProc(spell_under_test)
+{}
+
 void TestProcWarrior::set_up() {
     set_up_general();
     warrior = new Warrior(race, engine, equipment, combat, faction);

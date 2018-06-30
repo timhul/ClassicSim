@@ -5,6 +5,10 @@
 #include "OffhandAttackWarrior.h"
 #include <QDebug>
 
+TestOffhandAttackWarrior::TestOffhandAttackWarrior() :
+    TestSpellWarrior("OffhandAttackWarrior")
+{}
+
 void TestOffhandAttackWarrior::test_all() {
     set_up();
     test_name_correct();

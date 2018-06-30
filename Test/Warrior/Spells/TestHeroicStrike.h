@@ -7,6 +7,8 @@ class HeroicStrike;
 
 class TestHeroicStrike: public TestSpellWarrior {
 public:
+    TestHeroicStrike();
+
     void test_all();
 
     HeroicStrike* heroic_strike();

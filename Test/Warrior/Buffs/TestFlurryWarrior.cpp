@@ -13,6 +13,10 @@
 #include "Spell.h"
 #include <QDebug>
 
+TestFlurryWarrior::TestFlurryWarrior() :
+    TestBuffWarrior("FlurryWarrior")
+{}
+
 void TestFlurryWarrior::test_all() {
     set_up();
     test_name_correct();

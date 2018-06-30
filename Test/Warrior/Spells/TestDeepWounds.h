@@ -7,6 +7,8 @@ class Spell;
 
 class TestDeepWounds: public TestSpellWarrior {
 public:
+    TestDeepWounds();
+
     void test_all();
 
     DeepWounds* deep_wounds();

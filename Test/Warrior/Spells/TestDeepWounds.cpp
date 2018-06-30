@@ -10,6 +10,10 @@
 #include "Queue.h"
 #include "ClassStatistics.h"
 
+TestDeepWounds::TestDeepWounds() :
+    TestSpellWarrior("Deep Wounds")
+{}
+
 void TestDeepWounds::test_all() {
     set_up();
     test_name_correct();
