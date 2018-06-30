@@ -1,23 +1,22 @@
 
 #include "TestSpell.h"
 
-#include "Orc.h"
-#include "CombatRoll.h"
-#include "Faction.h"
-#include "WhiteHitTable.h"
-#include "MeleeSpecialTable.h"
-#include "Engine.h"
-#include "Equipment.h"
-#include "Target.h"
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
-#include "Stats.h"
-#include "Onehand.h"
-#include "Item.h"
+#include "CombatRoll.h"
+#include "Engine.h"
+#include "Equipment.h"
 #include "EquipmentDb.h"
+#include "Faction.h"
+#include "Item.h"
 #include "MainhandMeleeHit.h"
-#include <QDebug>
+#include "MeleeSpecialTable.h"
+#include "Onehand.h"
+#include "Orc.h"
+#include "Stats.h"
+#include "Target.h"
+#include "WhiteHitTable.h"
 
 TestSpell::TestSpell(QString spell_under_test) :
     equipment(nullptr),

@@ -14,8 +14,6 @@
 #include "CombatRoll.h"
 #include "MeleeSpecialTable.h"
 
-#include <QDebug>
-
 TestExecute::TestExecute() :
     TestSpellWarrior("Execute")
 {}

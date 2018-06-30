@@ -11,7 +11,6 @@
 #include "HeroicStrike.h"
 #include "Overpower.h"
 #include "Spell.h"
-#include <QDebug>
 
 TestFlurryWarrior::TestFlurryWarrior() :
     TestBuffWarrior("FlurryWarrior")

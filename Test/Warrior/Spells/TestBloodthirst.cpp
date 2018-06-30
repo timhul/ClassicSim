@@ -2,7 +2,6 @@
 #include "TestBloodthirst.h"
 #include "Bloodthirst.h"
 #include "Queue.h"
-#include <QDebug>
 
 TestBloodthirst::TestBloodthirst() :
     TestSpellWarrior("Bloodthirst")

@@ -2,6 +2,7 @@
 #define TESTSPELL_H
 
 #include <QString>
+#include <QDebug>
 
 class Engine;
 class Equipment;
