@@ -3,7 +3,6 @@
 #include "Whirlwind.h"
 #include "Queue.h"
 #include "Equipment.h"
-#include <QDebug>
 
 TestWhirlwind::TestWhirlwind() :
     TestSpellWarrior("Whirlwind")
@@ -77,8 +76,8 @@ void TestWhirlwind::test_costs_25_rage() {
 }
 
 void TestWhirlwind::test_hit_dmg() {
-    given_a_guaranteed_melee_ability_hit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -91,8 +90,8 @@ void TestWhirlwind::test_hit_dmg() {
 }
 
 void TestWhirlwind::test_crit_dmg_0_of_2_impale() {
-    given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_0_of_2_impale();
@@ -105,8 +104,8 @@ void TestWhirlwind::test_crit_dmg_0_of_2_impale() {
 }
 
 void TestWhirlwind::test_crit_dmg_1_of_2_impale() {
-    given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_1_of_2_impale();
@@ -119,8 +118,8 @@ void TestWhirlwind::test_crit_dmg_1_of_2_impale() {
 }
 
 void TestWhirlwind::test_crit_dmg_2_of_2_impale() {
-    given_a_guaranteed_melee_ability_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();

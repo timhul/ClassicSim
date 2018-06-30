@@ -2,7 +2,6 @@
 #include "TestMainhandAttackWarrior.h"
 #include "Equipment.h"
 #include "MainhandAttackWarrior.h"
-#include <QDebug>
 
 TestMainhandAttackWarrior::TestMainhandAttackWarrior() :
     TestSpellWarrior("MainhandAttackWarrior")
@@ -94,8 +93,8 @@ void TestMainhandAttackWarrior::test_does_not_incur_global_cooldown_on_use() {
 }
 
 void TestMainhandAttackWarrior::test_hit_dmg() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_hit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -108,8 +107,8 @@ void TestMainhandAttackWarrior::test_hit_dmg() {
 }
 
 void TestMainhandAttackWarrior::test_crit_dmg() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -122,8 +121,8 @@ void TestMainhandAttackWarrior::test_crit_dmg() {
 }
 
 void TestMainhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
-    given_a_guaranteed_white_glancing_blow();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_glancing_blow();
     given_300_weapon_skill_mh();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();

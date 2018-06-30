@@ -142,9 +142,9 @@ void TestFlurryWarrior::test_has_3_charges() {
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_1_of_5_flurry();
 
     when_performing_mh_attack();
@@ -156,9 +156,9 @@ void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied()
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_2_of_5_flurry();
 
     when_performing_mh_attack();
@@ -170,9 +170,9 @@ void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied()
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_3_of_5_flurry();
 
     when_performing_mh_attack();
@@ -184,9 +184,9 @@ void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied()
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_4_of_5_flurry();
 
     when_performing_mh_attack();
@@ -198,9 +198,9 @@ void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied()
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_5_of_5_flurry();
 
     when_performing_mh_attack();
@@ -212,9 +212,9 @@ void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_1_of_5_flurry();
 
     when_performing_mh_attack();
@@ -233,9 +233,9 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_2_of_5_flurry();
 
     when_performing_mh_attack();
@@ -254,9 +254,9 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_3_of_5_flurry();
 
     when_performing_mh_attack();
@@ -275,9 +275,9 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_4_of_5_flurry();
 
     when_performing_mh_attack();
@@ -296,9 +296,9 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_5_of_5_flurry_removed() {
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
+    given_a_guaranteed_white_hit();
     given_5_of_5_flurry();
 
     when_performing_mh_attack();

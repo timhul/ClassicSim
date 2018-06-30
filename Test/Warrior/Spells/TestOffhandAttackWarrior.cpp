@@ -3,7 +3,6 @@
 #include "Equipment.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
-#include <QDebug>
 
 TestOffhandAttackWarrior::TestOffhandAttackWarrior() :
     TestSpellWarrior("OffhandAttackWarrior")
@@ -135,9 +134,9 @@ void TestOffhandAttackWarrior::test_does_not_incur_global_cooldown_on_use() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_0_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_0_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -150,9 +149,9 @@ void TestOffhandAttackWarrior::test_hit_dmg_0_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_1_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_1_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -165,9 +164,9 @@ void TestOffhandAttackWarrior::test_hit_dmg_1_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_2_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_2_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -180,9 +179,9 @@ void TestOffhandAttackWarrior::test_hit_dmg_2_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_3_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_3_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -195,9 +194,9 @@ void TestOffhandAttackWarrior::test_hit_dmg_3_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_4_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_4_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -210,9 +209,9 @@ void TestOffhandAttackWarrior::test_hit_dmg_4_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_5_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_5_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -225,9 +224,9 @@ void TestOffhandAttackWarrior::test_hit_dmg_5_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_0_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_0_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -240,9 +239,9 @@ void TestOffhandAttackWarrior::test_crit_dmg_0_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_1_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_1_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -255,9 +254,9 @@ void TestOffhandAttackWarrior::test_crit_dmg_1_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_2_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_2_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -270,9 +269,9 @@ void TestOffhandAttackWarrior::test_crit_dmg_2_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_3_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_3_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -285,9 +284,9 @@ void TestOffhandAttackWarrior::test_crit_dmg_3_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_4_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_4_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -300,9 +299,9 @@ void TestOffhandAttackWarrior::test_crit_dmg_4_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_5_of_5_dual_wield_specialization() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_5_of_5_dual_wield_specialization();
-    given_an_offhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -315,8 +314,8 @@ void TestOffhandAttackWarrior::test_crit_dmg_5_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
-    given_a_guaranteed_white_glancing_blow();
     given_an_offhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_glancing_blow();
     given_300_weapon_skill_oh();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();

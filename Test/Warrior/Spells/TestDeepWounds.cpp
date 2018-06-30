@@ -101,8 +101,8 @@ void TestDeepWounds::test_name_correct() {
 }
 
 void TestDeepWounds::test_has_no_cooldown() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_deep_wounds_enabled();
 
@@ -112,8 +112,8 @@ void TestDeepWounds::test_has_no_cooldown() {
 }
 
 void TestDeepWounds::test_does_not_incur_global_cooldown_on_proc() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_deep_wounds_enabled();
 
@@ -123,8 +123,8 @@ void TestDeepWounds::test_does_not_incur_global_cooldown_on_proc() {
 }
 
 void TestDeepWounds::test_critical_mh_attack_applies_deep_wounds() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
@@ -245,8 +245,8 @@ void TestDeepWounds::test_regular_hit_overpower_does_not_apply_deep_wounds() {
 }
 
 void TestDeepWounds::test_damage_of_1_of_3_deep_wounds() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_1_of_3_deep_wounds();
     given_no_previous_deep_wounds_damage_dealt();
@@ -260,8 +260,8 @@ void TestDeepWounds::test_damage_of_1_of_3_deep_wounds() {
 }
 
 void TestDeepWounds::test_damage_of_2_of_3_deep_wounds() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_2_of_3_deep_wounds();
     given_no_previous_deep_wounds_damage_dealt();
@@ -275,8 +275,8 @@ void TestDeepWounds::test_damage_of_2_of_3_deep_wounds() {
 }
 
 void TestDeepWounds::test_damage_of_3_of_3_deep_wounds() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_3_of_3_deep_wounds();
     given_no_previous_deep_wounds_damage_dealt();
@@ -290,8 +290,8 @@ void TestDeepWounds::test_damage_of_3_of_3_deep_wounds() {
 }
 
 void TestDeepWounds::test_damage_stacks_when_multiple_crits_occur() {
-    given_a_guaranteed_white_crit();
     given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_white_crit();
     given_1000_melee_ap();
     given_3_of_3_deep_wounds();
     given_no_previous_deep_wounds_damage_dealt();
