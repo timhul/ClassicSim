@@ -180,10 +180,15 @@ void TestHeroicStrike::given_3_of_3_improved_hs() {
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {
-    heroic_strike()->perform(100);
+    heroic_strike()->perform();
 }
 
 void TestHeroicStrike::then_heroic_strike_costs(const int rage) {
-    assert(heroic_strike()->is_available(rage));
-    assert(!heroic_strike()->is_available(rage - 1));
+    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->gain_rage(rage);
+    assert(heroic_strike()->is_available());
+
+    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->gain_rage(rage - 1);
+    assert(!heroic_strike()->is_available());
 }

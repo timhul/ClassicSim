@@ -26,7 +26,7 @@ public:
     float get_last_used();
     float get_next_use() const;
     bool is_ready() const;
-    bool is_available(const int) const;
+    virtual bool is_available() const;
     bool is_enabled() const;
     bool cooldown_less_than(const float) const;
     bool cooldown_greater_than(const float) const;
@@ -37,14 +37,14 @@ public:
     virtual void increase_spell_rank();
     virtual void decrease_spell_rank();
 
-    int perform(const int);
+    void perform();
 
     void reset();
     virtual void reset_effect();
     virtual void periodic_effect();
 
 protected:
-    virtual int spell_effect(const int) = 0;
+    virtual void spell_effect() = 0;
     const QString name;
     Engine* engine;
     Character* pchar;
@@ -56,6 +56,7 @@ protected:
     int resource_cost;
     int rank_talent;
     int rank_spell;
+    bool enabled_by_talent;
 
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;

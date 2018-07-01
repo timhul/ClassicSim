@@ -52,6 +52,7 @@ public:
     void given_2_of_2_improved_execute();
 
     void when_execute_is_performed_with_rage(const int rage);
+    bool execute_available_with_rage(const int rage);
 
 private:
 };

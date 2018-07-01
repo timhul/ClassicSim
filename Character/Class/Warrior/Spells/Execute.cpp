@@ -21,7 +21,7 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     talent_ranks = {15, 13, 10};
 }
 
-int Execute::spell_effect(const int resource_level) {
+void Execute::spell_effect() {
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     add_gcd_event();
@@ -29,19 +29,22 @@ int Execute::spell_effect(const int resource_level) {
     // TODO: Check Execute rage loss on miss/dodge/parry
     if (result == AttackResult::MISS) {
         increment_miss();
-        return resource_cost;
+        pchar->lose_rage(resource_cost);
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
 
-    float damage_dealt = initial_dmg + (resource_level - resource_cost) * dmg_per_rage_converted;
+    float damage_dealt = initial_dmg + (pchar->get_curr_rage() - resource_cost) * dmg_per_rage_converted;
     damage_dealt *= pchar->get_total_phys_dmg_mod();
 
     if (result == AttackResult::CRITICAL) {
@@ -54,7 +57,7 @@ int Execute::spell_effect(const int resource_level) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    return resource_level;
+    pchar->lose_rage(pchar->get_curr_rage());
 }
 
 void Execute::increase_effect_via_talent() {

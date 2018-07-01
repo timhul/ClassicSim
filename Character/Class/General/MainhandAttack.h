@@ -18,8 +18,8 @@ public:
     virtual void extra_attack();
 
 protected:
-    virtual int spell_effect(const int) override;
-    virtual int calculate_damage();
+    virtual void spell_effect() override;
+    virtual void calculate_damage();
     float next_expected_use;
     int iteration;
     QVector<float> talent_ranks;

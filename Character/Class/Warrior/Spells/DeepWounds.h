@@ -10,7 +10,7 @@ class DeepWounds: public Spell {
 public:
     DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    int spell_effect(const int) override;
+    void spell_effect() override;
     void reset_effect() override;
     void apply_debuff();
 

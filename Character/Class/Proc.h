@@ -17,7 +17,7 @@ public:
          Engine* engine, Character* pchar, CombatRoll* roll);
     ~Proc();
 
-    int spell_effect(const int) override;
+    void spell_effect() override;
     virtual void proc_effect() = 0;
     virtual int get_proc_range() const;
 

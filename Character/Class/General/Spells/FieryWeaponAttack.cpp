@@ -8,7 +8,7 @@ FieryWeaponAttack::FieryWeaponAttack(Engine* engine, Character* pchar, CombatRol
     Spell("Fiery Weapon", engine, pchar, roll, 0, 0)
 {}
 
-int FieryWeaponAttack::spell_effect(const int) {
+void FieryWeaponAttack::spell_effect() {
     // TODO: Add spell table, since Fiery Weapon deals fire damage.
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
@@ -26,6 +26,4 @@ int FieryWeaponAttack::spell_effect(const int) {
         pchar->spell_hit_effect();
         add_hit_dmg(round(damage_dealt));
     }
-
-    return 0;
 }

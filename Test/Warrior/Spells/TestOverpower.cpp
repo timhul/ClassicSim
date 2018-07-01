@@ -132,5 +132,5 @@ void TestOverpower::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestOverpower::when_overpower_is_performed() {
-    warrior->lose_rage(overpower()->perform(warrior->get_curr_rage()));
+    overpower()->perform();
 }

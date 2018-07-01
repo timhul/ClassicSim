@@ -13,34 +13,37 @@ OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, Com
 }
 
 void OffhandAttackWarrior::extra_attack() {
-    pchar->gain_rage(calculate_damage());
+    calculate_damage();
 }
 
-int OffhandAttackWarrior::spell_effect(const int) {
+void OffhandAttackWarrior::spell_effect() {
     complete_swing();
-    return calculate_damage();
+    calculate_damage();
 }
 
-int OffhandAttackWarrior::calculate_damage() {
+void OffhandAttackWarrior::calculate_damage() {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
     const int result = roll->get_melee_hit_result(oh_wpn_skill);
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        return 0;
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
+        pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
+        pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
+        return;
     }
     if (result == AttackResult::BLOCK) {
         increment_full_block();
-        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
+        pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
+        return;
     }
 
     float damage_dealt = pchar->get_random_non_normalized_oh_dmg() * talent_ranks[rank_talent];
@@ -51,7 +54,8 @@ int OffhandAttackWarrior::calculate_damage() {
         pchar->melee_oh_white_critical_effect();
         // TODO: Save statistics for resource gains
         add_crit_dmg(round(damage_dealt));
-        return rage_gained;
+        pchar->gain_rage(rage_gained);
+        return;
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
@@ -59,7 +63,8 @@ int OffhandAttackWarrior::calculate_damage() {
         pchar->melee_oh_white_hit_effect();
         // TODO: Save statistics for resource gains
         add_glancing_dmg(damage_dealt);
-        return rage_gained;
+        pchar->gain_rage(rage_gained);
+        return;
     }
 
     pchar->melee_oh_white_hit_effect();
@@ -67,5 +72,5 @@ int OffhandAttackWarrior::calculate_damage() {
     const int rage_gained = pchar->rage_gained_from_dd(damage_dealt);
     // TODO: Save statistics for resource gains
     add_hit_dmg(damage_dealt);
-    return rage_gained;
+    pchar->gain_rage(rage_gained);
 }

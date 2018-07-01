@@ -20,27 +20,27 @@ OffhandAttack::OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll)
     iteration = 0;
 }
 
-int OffhandAttack::spell_effect(const int) {
+void OffhandAttack::spell_effect() {
     complete_swing();
-    return calculate_damage();
+    calculate_damage();
 }
 
-int OffhandAttack::calculate_damage() {
+void OffhandAttack::calculate_damage() {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
     const int result = roll->get_melee_hit_result(oh_wpn_skill);
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        return 0;
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return 0;
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return 0;
+        return;
     }
 
     float damage_dealt = pchar->get_random_non_normalized_oh_dmg() * 0.5;
@@ -49,18 +49,17 @@ int OffhandAttack::calculate_damage() {
         damage_dealt *= 2;
         pchar->melee_oh_white_critical_effect();
         add_crit_dmg(round(damage_dealt));
-        return 0;
+        return;
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
         pchar->melee_oh_white_hit_effect();
         add_glancing_dmg(round(damage_dealt));
-        return 0;
+        return;
     }
 
     pchar->melee_oh_white_hit_effect();
     add_hit_dmg(round(damage_dealt));
-    return 0;
 }
 
 float OffhandAttack::get_next_expected_use() const {

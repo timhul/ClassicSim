@@ -20,27 +20,27 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
     iteration = 0;
 }
 
-int MainhandAttack::spell_effect(const int) {
+void MainhandAttack::spell_effect() {
     complete_swing();
-    return calculate_damage();
+    calculate_damage();
 }
 
-int MainhandAttack::calculate_damage() {
+void MainhandAttack::calculate_damage() {
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     const int result = roll->get_melee_hit_result(mh_wpn_skill);
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        return 0;
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return 0;
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return 0;
+        return;
     }
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
@@ -49,18 +49,17 @@ int MainhandAttack::calculate_damage() {
         damage_dealt *= 2;
         pchar->melee_mh_white_critical_effect();
         add_crit_dmg(round(damage_dealt));
-        return 0;
+        return;
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
         pchar->melee_mh_white_hit_effect();
         add_glancing_dmg(round(damage_dealt));
-        return 0;
+        return;
     }
 
     pchar->melee_mh_white_hit_effect();
     add_hit_dmg(round(damage_dealt));
-    return 0;
 }
 
 float MainhandAttack::get_next_expected_use() const {

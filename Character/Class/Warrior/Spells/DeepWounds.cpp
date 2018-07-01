@@ -9,9 +9,10 @@ DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->pchar = dynamic_cast<Warrior*>(pchar);
     this->previous_tick_rest = 0;
     this->ranks = {0.0, 0.2, 0.4, 0.6};
+    this->rank_talent = 0;
 }
 
-int DeepWounds::spell_effect(const int) {
+void DeepWounds::spell_effect() {
     assert(!stacks.empty());
 
     float damage_dealt = stacks.size() * ((pchar->get_avg_mh_damage() * ranks[rank_talent]) / 6);
@@ -36,8 +37,6 @@ int DeepWounds::spell_effect(const int) {
         previous_tick_rest = 0;
 
     add_hit_dmg(round(damage_dealt));
-
-    return 0;
 }
 
 void DeepWounds::apply_debuff() {

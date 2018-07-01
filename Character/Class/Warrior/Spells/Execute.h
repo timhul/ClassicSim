@@ -9,7 +9,7 @@ class Execute: public Spell {
 public:
     Execute(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    int spell_effect(const int) override;
+    void spell_effect() override;
     void increase_effect_via_talent() override;
     void decrease_effect_via_talent() override;
 

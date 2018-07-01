@@ -14,7 +14,8 @@ Spell::Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll,
     last_used(0 - _cd),
     resource_cost(_cost),
     rank_talent(0),
-    rank_spell(0)
+    rank_spell(0),
+    enabled_by_talent(false)
 {}
 
 Spell::~Spell() {
@@ -45,12 +46,12 @@ bool Spell::is_ready() const {
     return cooldown_less_than(0);
 }
 
-bool Spell::is_available(const int resource_level) const {
-    return is_ready() && resource_level >= this->resource_cost;
+bool Spell::is_available() const {
+    return is_enabled() && is_ready() && pchar->get_resource_level() >= this->resource_cost;
 }
 
 bool Spell::is_enabled() const {
-    return rank_talent > 0;
+    return enabled_by_talent ? rank_talent > 0 : true;
 }
 
 bool Spell::cooldown_less_than(const float value) const {
@@ -87,10 +88,10 @@ void Spell::decrease_spell_rank() {
     --rank_spell;
 }
 
-int Spell::perform(const int resource_level) {
-    assert(resource_level >= resource_cost);
+void Spell::perform() {
+    assert(pchar->get_resource_level() >= resource_cost);
     last_used = engine->get_current_priority();
-    return this->spell_effect(resource_level);
+    this->spell_effect();
 }
 
 void Spell::add_spell_cd_event(void) const {

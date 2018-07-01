@@ -132,5 +132,5 @@ void TestWhirlwind::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestWhirlwind::when_whirlwind_is_performed() {
-    warrior->lose_rage(whirlwind()->perform(warrior->get_curr_rage()));
+    whirlwind()->perform();
 }

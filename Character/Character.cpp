@@ -354,6 +354,10 @@ bool Character::has_offhand() const {
     return cstats->get_equipment()->get_offhand() != nullptr;
 }
 
+int Character::get_resource_level() const {
+    return 0;
+}
+
 void Character::reset() {
     melee_attacking = false;
     last_action = 0 - this->global_cooldown();

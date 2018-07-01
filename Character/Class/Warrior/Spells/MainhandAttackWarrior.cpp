@@ -12,34 +12,37 @@ MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, C
 }
 
 void MainhandAttackWarrior::extra_attack() {
-    pchar->gain_rage(calculate_damage());
+    calculate_damage();
 }
 
-int MainhandAttackWarrior::spell_effect(const int) {
+void MainhandAttackWarrior::spell_effect() {
     complete_swing();
-    return calculate_damage();
+    calculate_damage();
 }
 
-int MainhandAttackWarrior::calculate_damage() {
+void MainhandAttackWarrior::calculate_damage() {
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     const int result = roll->get_melee_hit_result(mh_wpn_skill);
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        return 0;
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
+        pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
+        pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
+        return;
     }
     if (result == AttackResult::BLOCK) {
         increment_full_block();
-        return pchar->rage_gained_from_dd(pchar->get_avg_mh_damage());
+        pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
+        return;
     }
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
@@ -50,7 +53,8 @@ int MainhandAttackWarrior::calculate_damage() {
         pchar->melee_mh_white_critical_effect();
         add_crit_dmg(damage_dealt);
         // TODO: Save statistics for resource gains
-        return rage_gained;
+        pchar->gain_rage(rage_gained);
+        return;
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
@@ -58,7 +62,8 @@ int MainhandAttackWarrior::calculate_damage() {
         pchar->melee_mh_white_hit_effect();
         add_glancing_dmg(damage_dealt);
         // TODO: Save statistics for resource gains
-        return rage_gained;
+        pchar->gain_rage(rage_gained);
+        return;
     }
 
     damage_dealt = round(damage_dealt);
@@ -66,5 +71,5 @@ int MainhandAttackWarrior::calculate_damage() {
     pchar->melee_mh_white_hit_effect();
     add_hit_dmg(damage_dealt);
     // TODO: Save statistics for resource gains
-    return rage_gained;
+    pchar->gain_rage(rage_gained);
 }

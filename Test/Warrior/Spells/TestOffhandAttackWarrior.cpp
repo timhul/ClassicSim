@@ -434,11 +434,11 @@ void TestOffhandAttackWarrior::given_5_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::when_mh_attack_is_performed() {
-    warrior->get_spells()->get_mh_attack()->perform(0);
+    warrior->get_spells()->get_mh_attack()->perform();
 }
 
 void TestOffhandAttackWarrior::when_oh_attack_is_performed() {
-    oh_attack()->perform(0);
+    oh_attack()->perform();
 }
 
 void TestOffhandAttackWarrior::when_changing_to_2_speed() {

@@ -14,8 +14,8 @@ public:
 
 protected:
 private:
-    int spell_effect(const int) override;
-    int calculate_damage() override;
+    void spell_effect() override;
+    void calculate_damage() override;
     Warrior* pchar;
 };
 

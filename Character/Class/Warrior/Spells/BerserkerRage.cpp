@@ -9,8 +9,8 @@ BerserkerRage::BerserkerRage(Engine* engine, Character* pchar, CombatRoll* roll)
     talent_ranks = {0, 5, 10};
 }
 
-int BerserkerRage::spell_effect(const int) {
+void BerserkerRage::spell_effect() {
     add_spell_cd_event();
 
-    return talent_ranks[rank_talent];
+    pchar->gain_rage(talent_ranks[rank_talent]);
 }

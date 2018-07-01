@@ -31,6 +31,7 @@ public:
     void set_clvl(const int) override;
 
     float global_cooldown() const override;
+    int get_resource_level() const override;
     int get_curr_rage() const;
     void gain_rage(const int);
     void lose_rage(const int);
@@ -53,6 +54,7 @@ public:
 
     void reset_resource() override;
     void reset_spells() override;
+
 
 protected:
 private:

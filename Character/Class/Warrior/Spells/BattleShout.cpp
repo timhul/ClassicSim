@@ -9,11 +9,11 @@ BattleShout::BattleShout(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }
 
-int BattleShout::spell_effect(const int) {
+void BattleShout::spell_effect() {
     pchar->get_battle_shout_buff()->apply_buff();
 
     add_spell_cd_event();
     add_gcd_event();
 
-    return resource_cost;
+    pchar->lose_rage(resource_cost);
 }

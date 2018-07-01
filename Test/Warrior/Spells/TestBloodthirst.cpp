@@ -127,5 +127,5 @@ void TestBloodthirst::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestBloodthirst::when_bloodthirst_is_performed() {
-    warrior->lose_rage(bloodthirst()->perform(warrior->get_curr_rage()));
+    bloodthirst()->perform();
 }

@@ -11,7 +11,7 @@ Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }
 
-int Whirlwind::spell_effect(const int) {
+void Whirlwind::spell_effect() {
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     add_gcd_event();
@@ -19,16 +19,19 @@ int Whirlwind::spell_effect(const int) {
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        return resource_cost;
+        pchar->lose_rage(resource_cost);
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
 
     float damage_dealt = pchar->get_random_normalized_mh_dmg();
@@ -43,5 +46,5 @@ int Whirlwind::spell_effect(const int) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    return resource_cost;
+    pchar->lose_rage(resource_cost);
 }

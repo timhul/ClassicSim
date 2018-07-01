@@ -9,7 +9,7 @@ class BerserkerRage: public Spell {
 public:
     BerserkerRage(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    int spell_effect(const int) override;
+    void spell_effect() override;
 
 protected:
 private:

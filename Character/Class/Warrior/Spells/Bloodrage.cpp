@@ -12,14 +12,14 @@ Bloodrage::Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->periodic_rage_current = periodic_rage_base;
 }
 
-int Bloodrage::spell_effect(const int) {
+void Bloodrage::spell_effect() {
     add_spell_cd_event();
 
     ResourceGain* new_event = new ResourceGain(this, engine->get_current_priority() + 1.0);
     this->engine->add_event(new_event);
     periodic_rage_current = periodic_rage_base;
 
-    return talent_ranks[rank_talent];
+    pchar->gain_rage(talent_ranks[rank_talent]);
 }
 
 void Bloodrage::periodic_effect() {

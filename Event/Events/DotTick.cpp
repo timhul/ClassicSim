@@ -9,5 +9,5 @@ DotTick::DotTick(Spell* spell, float priority) {
 }
 
 void DotTick::act(void) {
-    spell->perform(0);
+    spell->perform();
 }

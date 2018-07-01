@@ -24,5 +24,5 @@ FieryWeapon::~FieryWeapon() {
 }
 
 void FieryWeapon::proc_effect() {
-    fiery_weapon_attack->perform(0);
+    fiery_weapon_attack->perform();
 }

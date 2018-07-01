@@ -333,11 +333,11 @@ void TestDeepWounds::given_no_previous_deep_wounds_damage_dealt() {
 }
 
 void TestDeepWounds::when_mh_attack_is_performed() {
-    warrior->get_spells()->get_mh_attack()->perform(0);
+    warrior->get_spells()->get_mh_attack()->perform();
 }
 
 void TestDeepWounds::when_attack_is_performed(Spell* spell) {
-    spell->perform(100);
+    spell->perform();
 }
 
 void TestDeepWounds::then_deep_wounds_damage_dealt_is(const int damage_dealt) {

@@ -491,15 +491,15 @@ void TestFlurryWarrior::given_5_of_5_flurry() {
 }
 
 void TestFlurryWarrior::when_performing_mh_attack() {
-    warrior->get_spells()->get_mh_attack()->perform(100);
+    warrior->get_spells()->get_mh_attack()->perform();
 }
 
 void TestFlurryWarrior::when_performing_oh_attack() {
-    warrior->get_spells()->get_oh_attack()->perform(100);
+    warrior->get_spells()->get_oh_attack()->perform();
 }
 
 void TestFlurryWarrior::when_performing_attack(Spell* spell) {
-    spell->perform(100);
+    spell->perform();
 }
 
 void TestFlurryWarrior::then_flurry_is_active() {

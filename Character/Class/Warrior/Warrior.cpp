@@ -187,6 +187,10 @@ float Warrior::global_cooldown() const {
     return 1.5;
 }
 
+int Warrior::get_resource_level() const {
+    return get_curr_rage();
+}
+
 int Warrior::get_curr_rage() const {
     return this->rage;
 }

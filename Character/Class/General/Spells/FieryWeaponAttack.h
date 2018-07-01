@@ -7,7 +7,7 @@ class FieryWeaponAttack: public Spell {
 public:
     FieryWeaponAttack(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    int spell_effect(const int) override;
+    void spell_effect() override;
 
 protected:
 private:

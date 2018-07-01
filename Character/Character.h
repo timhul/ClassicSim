@@ -6,19 +6,19 @@
 #include <QObject>
 #include <QVector>
 
-class Race;
-class Engine;
-class Equipment;
-class Talents;
-class Stats;
-class CharacterStats;
 class ActiveProcs;
 class ActiveBuffs;
-class Spells;
-class CombatRoll;
-class Weapon;
+class CharacterStats;
 class ClassStatistics;
+class CombatRoll;
+class Engine;
+class Equipment;
 class Faction;
+class Race;
+class Spells;
+class Stats;
+class Talents;
+class Weapon;
 
 class Character: public QObject {
     Q_OBJECT
@@ -111,6 +111,8 @@ public:
 
     bool has_mainhand() const;
     bool has_offhand() const;
+
+    virtual int get_resource_level() const;
 
     void reset();
     // TODO: Mark as abstract to force implementation.

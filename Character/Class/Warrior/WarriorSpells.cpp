@@ -108,14 +108,14 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;
 
-    if (pchar->get_hs_buff()->is_active() && heroic_strike->is_available(pchar->get_curr_rage())) {
-        pchar->lose_rage(heroic_strike->perform(pchar->get_curr_rage()));
+    if (pchar->get_hs_buff()->is_active() && heroic_strike->is_available()) {
+        heroic_strike->perform();
     }
     else {
         if (pchar->get_hs_buff()->is_active())
             pchar->get_hs_buff()->use_charge();
 
-        pchar->gain_rage(mh_attack->perform(pchar->get_curr_rage()));
+        mh_attack->perform();
 
         if (pchar->action_ready()) {
             PlayerAction* new_event = new PlayerAction(this, pchar->get_engine()->get_current_priority() + 0.1);
@@ -133,7 +133,7 @@ void WarriorSpells::oh_auto_attack(const int iteration) {
     if (!oh_attack->attack_is_valid(iteration))
         return;
 
-    pchar->gain_rage(oh_attack->perform(pchar->get_curr_rage()));
+    oh_attack->perform();
 
     if (pchar->action_ready()) {
         PlayerAction* new_event = new PlayerAction(this, pchar->get_engine()->get_current_priority() + 0.1);
@@ -210,13 +210,13 @@ void WarriorSpells::apply_deep_wounds() {
 }
 
 void WarriorSpells::try_berserker_rage() {
-    if (berserker_rage->is_available(pchar->get_curr_rage()))
-        pchar->gain_rage(berserker_rage->perform(pchar->get_curr_rage()));
+    if (berserker_rage->is_available())
+        berserker_rage->perform();
 }
 
 void WarriorSpells::try_bloodrage() {
-    if (bloodrage->is_available(pchar->get_curr_rage()))
-        pchar->gain_rage(bloodrage->perform(pchar->get_curr_rage()));
+    if (bloodrage->is_available())
+        bloodrage->perform();
 }
 
 void WarriorSpells::try_heroic_strike() {
@@ -239,8 +239,8 @@ bool WarriorSpells::try_bloodthirst() {
     if (execute_phase)
         return false;
 
-    if (bt->is_enabled() && bt->is_available(pchar->get_curr_rage())) {
-        pchar->lose_rage(bt->perform(pchar->get_curr_rage()));
+    if (bt->is_available()) {
+        bt->perform();
         return true;
     }
 
@@ -252,8 +252,8 @@ bool WarriorSpells::try_execute() {
     float time_remaining = 300 - pchar->get_engine()->get_current_priority();
     bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
 
-    if (execute_phase && execute->is_available(pchar->get_curr_rage())) {
-        pchar->lose_rage(execute->perform(pchar->get_curr_rage()));
+    if (execute_phase && execute->is_available()) {
+        execute->perform();
         return true;
     }
 
@@ -265,8 +265,8 @@ bool WarriorSpells::try_overpower() {
 }
 
 bool WarriorSpells::try_death_wish() {
-    if (death_wish->is_enabled() && death_wish->is_available(pchar->get_curr_rage())) {
-        pchar->lose_rage(death_wish->perform(pchar->get_curr_rage()));
+    if (death_wish->is_available()) {
+        death_wish->perform();
         return true;
     }
 
@@ -274,8 +274,8 @@ bool WarriorSpells::try_death_wish() {
 }
 
 bool WarriorSpells::try_battle_shout() {
-    if (!pchar->get_battle_shout_buff()->is_active() && battle_shout->is_available(pchar->get_curr_rage())) {
-        pchar->lose_rage(battle_shout->perform(pchar->get_curr_rage()));
+    if (!pchar->get_battle_shout_buff()->is_active() && battle_shout->is_available()) {
+        battle_shout->perform();
         return true;
     }
 
@@ -290,8 +290,8 @@ bool WarriorSpells::try_whirlwind() {
     if (execute_phase)
         return false;
 
-    if (whirlwind->is_available(pchar->get_curr_rage())) {
-        pchar->lose_rage(whirlwind->perform(pchar->get_curr_rage()));
+    if (whirlwind->is_available()) {
+        whirlwind->perform();
         return true;
     }
 

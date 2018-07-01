@@ -34,7 +34,7 @@ Proc::~Proc() {
     delete statistics_resource;
 }
 
-int Proc::spell_effect(const int) {
+void Proc::spell_effect() {
     statistics_proc->increment_attempt();
 
     if (random->get_roll() < get_proc_range()) {
@@ -42,11 +42,9 @@ int Proc::spell_effect(const int) {
         statistics_proc->increment_proc();
 
         for (int i = 0; i < linked_procs.size(); ++i) {
-            linked_procs[i]->spell_effect(0);
+            linked_procs[i]->spell_effect();
         }
     }
-
-    return 0;
 }
 
 int Proc::get_proc_range() const {

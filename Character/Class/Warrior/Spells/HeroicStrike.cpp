@@ -20,7 +20,7 @@ HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     talent_ranks = {15, 14, 13, 12};
 }
 
-int HeroicStrike::spell_effect(const int) {
+void HeroicStrike::spell_effect() {
     pchar->get_hs_buff()->use_charge();
     pchar->get_spells()->get_mh_attack()->complete_swing();
 
@@ -28,16 +28,19 @@ int HeroicStrike::spell_effect(const int) {
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        return resource_cost;
+        pchar->lose_rage(resource_cost);
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg() + additional_dmg;
@@ -53,7 +56,7 @@ int HeroicStrike::spell_effect(const int) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    return resource_cost;
+    pchar->lose_rage(resource_cost);
 }
 
 void HeroicStrike::increase_effect_via_talent() {

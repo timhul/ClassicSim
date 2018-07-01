@@ -10,9 +10,10 @@ Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Bloodthirst", engine, pchar, roll, 6.0, 30)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
+    this->enabled_by_talent = true;
 }
 
-int Bloodthirst::spell_effect(const int) {
+void Bloodthirst::spell_effect() {
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     add_spell_cd_event();
@@ -20,16 +21,19 @@ int Bloodthirst::spell_effect(const int) {
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        return resource_cost;
+        pchar->lose_rage(resource_cost);
+        return;
     }
     // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        return round(resource_cost * 0.25);
+        pchar->lose_rage(round(resource_cost * 0.25));
+        return;
     }
 
     float damage_dealt = pchar->get_stats()->get_melee_ap() * 0.45 * pchar->get_stats()->get_total_phys_dmg_mod();
@@ -44,5 +48,5 @@ int Bloodthirst::spell_effect(const int) {
         add_hit_dmg(round(damage_dealt));
     }
 
-    return resource_cost;
+    pchar->lose_rage(resource_cost);
 }

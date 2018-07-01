@@ -52,7 +52,8 @@ void TestBloodrage::test_does_not_incur_global_cooldown_on_use() {
 }
 
 void TestBloodrage::test_costs_0_rage() {
-    assert(bloodrage()->is_available(0));
+    warrior->lose_rage(warrior->get_curr_rage());
+    assert(bloodrage()->is_available());
 }
 
 void TestBloodrage::test_gain_10_rage_immediately() {
@@ -72,7 +73,7 @@ void TestBloodrage::test_gain_10_rage_over_10_seconds() {
 }
 
 void TestBloodrage::when_bloodrage_is_performed() {
-    warrior->gain_rage(bloodrage()->perform(warrior->get_curr_rage()));
+    bloodrage()->perform();
 }
 
 void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const int expected_rage_gain) {

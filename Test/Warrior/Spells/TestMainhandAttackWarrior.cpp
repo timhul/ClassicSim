@@ -206,7 +206,7 @@ void TestMainhandAttackWarrior::test_mid_swing_haste_decrease_updates_attack_spe
 }
 
 void TestMainhandAttackWarrior::when_mh_attack_is_performed() {
-    mh_attack()->perform(0);
+    mh_attack()->perform();
 }
 
 void TestMainhandAttackWarrior::when_changing_to_2_speed() {

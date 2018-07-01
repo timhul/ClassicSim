@@ -9,7 +9,7 @@ class Bloodthirst: public Spell {
 public:
     Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    int spell_effect(const int) override;
+    void spell_effect() override;
 protected:
 private:
     Warrior* pchar;
