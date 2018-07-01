@@ -266,8 +266,10 @@ void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
 }
 
 void SimulationRunner::delete_objects() {
-    if (pchar != nullptr)
+    if (pchar != nullptr) {
+        equipment->set_character(nullptr);
         delete pchar;
+    }
 
     if (race != nullptr)
         delete race;
