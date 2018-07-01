@@ -17,9 +17,12 @@ Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString,
 }
 
 Item::~Item() {
-    for (int i = 0; i < procs.size(); ++i) {
-        procs[i]->disable_proc();
-        delete procs[i];
+    for (auto it : proc_map.keys()) {
+        QVector<Proc*> procs_ = proc_map.value(it);
+        for (int i = 0; i < procs_.size(); ++i) {
+            procs_[i]->disable_proc();
+            delete procs_[i];
+        }
     }
 
     delete stats;
@@ -42,23 +45,27 @@ void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
     if (pchar == nullptr)
         return;
 
-    assert(procs.empty());
+    if (proc_map.contains(eq_slot))
+        assert(proc_map.empty());
 
     set_procs(procs_map, pchar, eq_slot);
 }
 
-void Item::remove_equip_effect(Character* pchar) {
-    if (pchar == nullptr) {
-        assert(procs.empty());
+void Item::remove_equip_effect(Character* pchar, const int eq_slot) {
+    if (pchar == nullptr || !proc_map.contains(eq_slot)) {
+        if (proc_map.contains(eq_slot))
+            assert(proc_map.empty());
         return;
     }
 
-    for (int i = 0; i < procs.size(); ++i) {
-        procs[i]->disable_proc();
-        delete procs[i];
+    QVector<Proc*> procs_ = proc_map.take(eq_slot);
+
+    for (int i = 0; i < procs_.size(); ++i) {
+        procs_[i]->disable_proc();
+        delete procs_[i];
     }
 
-    procs.clear();
+    assert(!proc_map.contains(eq_slot));
 }
 
 QString Item::get_name(void) const {
@@ -66,6 +73,7 @@ QString Item::get_name(void) const {
 }
 
 void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {
+    QVector<Proc*> procs_;
     for (int i = 0; i < procs.size(); ++i) {
         if (!proc_info_complete(procs[i])) {
             qDebug() << "Missing proc info for item" << get_name();
@@ -93,24 +101,24 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             continue;
         }
 
-        QVector<ProcInfo::Source> proc_source;
+        QVector<ProcInfo::Source> proc_sources;
         Proc* proc = nullptr;
 
         if (proc_name == "EXTRA_ATTACK") {
             switch (eq_slot) {
             case EquipmentSlot::MAINHAND:
-                proc_source.append(ProcInfo::Source::MainhandSwing);
-                proc_source.append(ProcInfo::Source::MainhandSpell);
+                proc_sources.append(ProcInfo::Source::MainhandSwing);
+                proc_sources.append(ProcInfo::Source::MainhandSpell);
                 break;
             case EquipmentSlot::OFFHAND:
-                proc_source.append(ProcInfo::Source::OffhandSwing);
-                proc_source.append(ProcInfo::Source::OffhandSpell);
+                proc_sources.append(ProcInfo::Source::OffhandSwing);
+                proc_sources.append(ProcInfo::Source::OffhandSpell);
                 break;
             default:
-                proc_source.append(ProcInfo::Source::MainhandSwing);
-                proc_source.append(ProcInfo::Source::MainhandSpell);
-                proc_source.append(ProcInfo::Source::OffhandSwing);
-                proc_source.append(ProcInfo::Source::OffhandSpell);
+                proc_sources.append(ProcInfo::Source::MainhandSwing);
+                proc_sources.append(ProcInfo::Source::MainhandSpell);
+                proc_sources.append(ProcInfo::Source::OffhandSwing);
+                proc_sources.append(ProcInfo::Source::OffhandSpell);
                 break;
             }
 
@@ -119,7 +127,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
                                                   pchar,
                                                   pchar->get_combat_roll(),
                                                   get_name(),
-                                                  proc_source,
+                                                  proc_sources,
                                                   proc_rate,
                                                   amount);
             }
@@ -128,17 +136,20 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
                                                       pchar,
                                                       pchar->get_combat_roll(),
                                                       get_name(),
-                                                      proc_source,
+                                                      proc_sources,
                                                       proc_rate,
                                                       amount);
             }
         }
 
         if (proc != nullptr) {
-            this->procs.append(proc);
+            procs_.append(proc);
             proc->enable_proc();
         }
     }
+
+    if (!procs_.empty())
+        this->proc_map.insert(eq_slot, procs_);
 }
 
 bool Item::proc_info_complete(QMap<QString, QString> & proc) {

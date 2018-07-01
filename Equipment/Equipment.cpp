@@ -87,23 +87,23 @@ void Equipment::add_proc_effects_from_current_setup() {
 }
 
 void Equipment::remove_proc_effects_from_current_setup() {
-    remove_proc_effect_from_item(get_mainhand());
-    remove_proc_effect_from_item(get_offhand());
-    remove_proc_effect_from_item(get_ranged());
-    remove_proc_effect_from_item(get_head());
-    remove_proc_effect_from_item(get_neck());
-    remove_proc_effect_from_item(get_shoulders());
-    remove_proc_effect_from_item(get_back());
-    remove_proc_effect_from_item(get_chest());
-    remove_proc_effect_from_item(get_wrist());
-    remove_proc_effect_from_item(get_gloves());
-    remove_proc_effect_from_item(get_belt());
-    remove_proc_effect_from_item(get_legs());
-    remove_proc_effect_from_item(get_boots());
-    remove_proc_effect_from_item(get_ring1());
-    remove_proc_effect_from_item(get_ring2());
-    remove_proc_effect_from_item(get_trinket1());
-    remove_proc_effect_from_item(get_trinket2());
+    remove_proc_effect_from_item(get_mainhand(), EquipmentSlot::MAINHAND);
+    remove_proc_effect_from_item(get_offhand(), EquipmentSlot::OFFHAND);
+    remove_proc_effect_from_item(get_ranged(), EquipmentSlot::RANGED);
+    remove_proc_effect_from_item(get_head(), EquipmentSlot::HEAD);
+    remove_proc_effect_from_item(get_neck(), EquipmentSlot::NECK);
+    remove_proc_effect_from_item(get_shoulders(), EquipmentSlot::SHOULDERS);
+    remove_proc_effect_from_item(get_back(), EquipmentSlot::BACK);
+    remove_proc_effect_from_item(get_chest(), EquipmentSlot::CHEST);
+    remove_proc_effect_from_item(get_wrist(), EquipmentSlot::WRIST);
+    remove_proc_effect_from_item(get_gloves(), EquipmentSlot::GLOVES);
+    remove_proc_effect_from_item(get_belt(), EquipmentSlot::BELT);
+    remove_proc_effect_from_item(get_legs(), EquipmentSlot::LEGS);
+    remove_proc_effect_from_item(get_boots(), EquipmentSlot::BOOTS);
+    remove_proc_effect_from_item(get_ring1(), EquipmentSlot::RING1);
+    remove_proc_effect_from_item(get_ring2(), EquipmentSlot::RING2);
+    remove_proc_effect_from_item(get_trinket1(), EquipmentSlot::TRINKET1);
+    remove_proc_effect_from_item(get_trinket2(), EquipmentSlot::TRINKET2);
 }
 
 void Equipment::add_proc_effect_from_item(Item* item, const int eq_slot) {
@@ -111,9 +111,9 @@ void Equipment::add_proc_effect_from_item(Item* item, const int eq_slot) {
         item->apply_equip_effect(pchar, eq_slot);
 }
 
-void Equipment::remove_proc_effect_from_item(Item* item) {
+void Equipment::remove_proc_effect_from_item(Item* item, const int eq_slot) {
     if (item != nullptr)
-        item->remove_equip_effect(pchar);
+        item->remove_equip_effect(pchar, eq_slot);
 }
 
 bool Equipment::is_dual_wielding(void) {
@@ -214,10 +214,10 @@ void Equipment::set_mainhand(const QString &name) {
         return;
 
     if (weapon->get_weapon_slot() == WeaponSlots::TWOHAND)
-        unequip(offhand);
+        unequip(offhand, EquipmentSlot::OFFHAND);
     else if (weapon->get_value("unique") == "yes") {
         if (get_offhand() != nullptr && get_offhand()->get_name() == weapon->get_name()) {
-            unequip(offhand);
+            unequip(offhand, EquipmentSlot::OFFHAND);
             if (get_mainhand() != nullptr)
                 set_offhand(get_mainhand()->get_name());
         }
@@ -240,10 +240,10 @@ void Equipment::set_offhand(const QString &name) {
 
     if (get_mainhand() != nullptr) {
         if (get_mainhand()->get_weapon_slot() == WeaponSlots::TWOHAND)
-            unequip(mainhand);
+            unequip(mainhand, EquipmentSlot::MAINHAND);
         else if (weapon->get_value("unique") == "yes") {
             if (get_mainhand()->get_name() == weapon->get_name())
-                unequip(mainhand);
+                unequip(mainhand, EquipmentSlot::MAINHAND);
         }
     }
 
@@ -371,7 +371,7 @@ void Equipment::set_ring1(const QString &name) {
 
     if (item->get_value("unique") == "yes") {
         if (get_ring2() != nullptr && get_ring2()->get_name() == item->get_name()) {
-            unequip(ring2);
+            unequip(ring2, EquipmentSlot::RING2);
             if (get_ring1() != nullptr)
                 set_ring2(get_ring1()->get_name());
         }
@@ -390,7 +390,7 @@ void Equipment::set_ring2(const QString &name) {
 
     if (item->get_value("unique") == "yes") {
         if (get_ring1() != nullptr && get_ring1()->get_name() == item->get_name()) {
-            unequip(ring1);
+            unequip(ring1, EquipmentSlot::RING1);
             if (get_ring2() != nullptr)
                 set_ring1(get_ring2()->get_name());
         }
@@ -409,7 +409,7 @@ void Equipment::set_trinket1(const QString &name) {
 
     if (item->get_value("unique") == "yes") {
         if (get_trinket2() != nullptr && get_trinket2()->get_name() == item->get_name()) {
-            unequip(trinket2);
+            unequip(trinket2, EquipmentSlot::TRINKET2);
             if (get_trinket1() != nullptr)
                 set_trinket2(get_trinket1()->get_name());
         }
@@ -428,7 +428,7 @@ void Equipment::set_trinket2(const QString &name) {
 
     if (item->get_value("unique") == "yes") {
         if (get_trinket1() != nullptr && get_trinket1()->get_name() == item->get_name()) {
-            unequip(trinket1);
+            unequip(trinket1, EquipmentSlot::TRINKET1);
             if (get_trinket2() != nullptr)
                 set_trinket1(get_trinket2()->get_name());
         }
@@ -461,175 +461,175 @@ void Equipment::set_relic(const QString &name) {
 }
 
 void Equipment::clear_mainhand() {
-    unequip(mainhand);
+    unequip(mainhand, EquipmentSlot::MAINHAND);
 }
 
 void Equipment::clear_offhand() {
-    unequip(offhand);
+    unequip(offhand, EquipmentSlot::OFFHAND);
 }
 
 void Equipment::clear_ranged() {
-    unequip(ranged);
+    unequip(ranged, EquipmentSlot::RANGED);
 }
 
 void Equipment::clear_head() {
-    unequip(head);
+    unequip(head, EquipmentSlot::HEAD);
 }
 
 void Equipment::clear_neck() {
-    unequip(neck);
+    unequip(neck, EquipmentSlot::NECK);
 }
 
 void Equipment::clear_shoulders() {
-    unequip(shoulders);
+    unequip(shoulders, EquipmentSlot::SHOULDERS);
 }
 
 void Equipment::clear_back() {
-    unequip(back);
+    unequip(back, EquipmentSlot::BACK);
 }
 
 void Equipment::clear_chest() {
-    unequip(chest);
+    unequip(chest, EquipmentSlot::CHEST);
 }
 
 void Equipment::clear_wrist() {
-    unequip(wrist);
+    unequip(wrist, EquipmentSlot::WRIST);
 }
 
 void Equipment::clear_gloves() {
-    unequip(gloves);
+    unequip(gloves, EquipmentSlot::GLOVES);
 }
 
 void Equipment::clear_belt() {
-    unequip(belt);
+    unequip(belt, EquipmentSlot::BELT);
 }
 
 void Equipment::clear_legs() {
-    unequip(legs);
+    unequip(legs, EquipmentSlot::LEGS);
 }
 
 void Equipment::clear_boots() {
-    unequip(boots);
+    unequip(boots, EquipmentSlot::BOOTS);
 }
 
 void Equipment::clear_ring1() {
-    unequip(ring1);
+    unequip(ring1, EquipmentSlot::RING1);
 }
 
 void Equipment::clear_ring2() {
-    unequip(ring2);
+    unequip(ring2, EquipmentSlot::RING2);
 }
 
 void Equipment::clear_trinket1() {
-    unequip(trinket1);
+    unequip(trinket1, EquipmentSlot::TRINKET1);
 }
 
 void Equipment::clear_trinket2() {
-    unequip(trinket2);
+    unequip(trinket2, EquipmentSlot::TRINKET2);
 }
 
 void Equipment::clear_caster_offhand() {
-    unequip(caster_offhand);
+    unequip(caster_offhand, EquipmentSlot::OFFHAND);
 }
 
 void Equipment::clear_relic() {
-    unequip(relic);
+    unequip(relic, EquipmentSlot::RANGED);
 }
 
 void Equipment::clear_items_not_available_on_patch() {
     if (get_mainhand()) {
         if (!db->item_valid_for_current_patch(get_mainhand()->get_value("patch")))
-            unequip(mainhand);
+            clear_mainhand();
     }
 
     if (get_offhand()) {
         if (!db->item_valid_for_current_patch(get_offhand()->get_value("patch")))
-            unequip(offhand);
+            clear_offhand();
     }
 
     if (get_ranged()) {
         if (!db->item_valid_for_current_patch(get_ranged()->get_value("patch")))
-            unequip(ranged);
+            clear_ranged();
     }
 
     if (get_head()) {
         if (!db->item_valid_for_current_patch(get_head()->get_value("patch")))
-            unequip(head);
+            clear_head();
     }
 
     if (get_neck()) {
         if (!db->item_valid_for_current_patch(get_neck()->get_value("patch")))
-            unequip(neck);
+            clear_neck();
     }
 
     if (get_shoulders()) {
         if (!db->item_valid_for_current_patch(get_shoulders()->get_value("patch")))
-            unequip(shoulders);
+            clear_shoulders();
     }
 
     if (get_back()) {
         if (!db->item_valid_for_current_patch(get_back()->get_value("patch")))
-            unequip(back);
+            clear_back();
     }
 
     if (get_chest()) {
         if (!db->item_valid_for_current_patch(get_chest()->get_value("patch")))
-            unequip(chest);
+            clear_chest();
     }
 
     if (get_wrist()) {
         if (!db->item_valid_for_current_patch(get_wrist()->get_value("patch")))
-            unequip(wrist);
+            clear_wrist();
     }
 
     if (get_gloves()) {
         if (!db->item_valid_for_current_patch(get_gloves()->get_value("patch")))
-            unequip(gloves);
+            clear_gloves();
     }
 
     if (get_belt()) {
         if (!db->item_valid_for_current_patch(get_belt()->get_value("patch")))
-            unequip(belt);
+            clear_belt();
     }
 
     if (get_legs()) {
         if (!db->item_valid_for_current_patch(get_legs()->get_value("patch")))
-            unequip(legs);
+            clear_legs();
     }
 
     if (get_boots()) {
         if (!db->item_valid_for_current_patch(get_boots()->get_value("patch")))
-            unequip(boots);
+            clear_boots();
     }
 
     if (get_ring1()) {
         if (!db->item_valid_for_current_patch(get_ring1()->get_value("patch")))
-            unequip(ring1);
+            clear_ring1();
     }
 
     if (get_ring2()) {
         if (!db->item_valid_for_current_patch(get_ring2()->get_value("patch")))
-            unequip(ring2);
+            clear_ring2();
     }
 
     if (get_trinket1()) {
         if (!db->item_valid_for_current_patch(get_trinket1()->get_value("patch")))
-            unequip(trinket1);
+            clear_trinket1();
     }
 
     if (get_trinket2()) {
         if (!db->item_valid_for_current_patch(get_trinket2()->get_value("patch")))
-            unequip(trinket2);
+            clear_trinket2();
     }
 
     if (get_caster_offhand()) {
         if (!db->item_valid_for_current_patch(get_caster_offhand()->get_value("patch")))
-            unequip(caster_offhand);
+            clear_caster_offhand();
     }
 
     if (get_relic()) {
         if (!db->item_valid_for_current_patch(get_relic()->get_value("patch")))
-            unequip(relic);
+            clear_relic();
     }
 }
 
@@ -640,17 +640,17 @@ EquipmentDb* Equipment::get_db() const {
 void Equipment::equip(QVector<Item*>& current, Item*& next, const int eq_slot) {
     assert(next != nullptr);
 
-    unequip(current);
+    unequip(current, eq_slot);
     current[setup_index] = next;
     current[setup_index]->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current[setup_index]->get_stats());
 }
 
-void Equipment::unequip(QVector<Item*>& item) {
+void Equipment::unequip(QVector<Item*>& item, const int eq_slot) {
     if (item[setup_index] == nullptr)
         return;
 
-    item[setup_index]->remove_equip_effect(pchar);
+    item[setup_index]->remove_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
     item[setup_index] = nullptr;
 }
@@ -658,17 +658,17 @@ void Equipment::unequip(QVector<Item*>& item) {
 void Equipment::equip(QVector<Weapon*>& current, Weapon*& next, const int eq_slot) {
     assert(next != nullptr);
 
-    unequip(current);
+    unequip(current, eq_slot);
     current[setup_index] = next;
     current[setup_index]->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current[setup_index]->get_stats());
 }
 
-void Equipment::unequip(QVector<Weapon*>& item) {
+void Equipment::unequip(QVector<Weapon*>& item, const int eq_slot) {
     if (item[setup_index] == nullptr)
         return;
 
-    item[setup_index]->remove_equip_effect(pchar);
+    item[setup_index]->remove_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
     item[setup_index] = nullptr;
 }

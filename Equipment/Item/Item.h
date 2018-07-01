@@ -84,7 +84,7 @@ public:
     virtual int get_item_slot(void) const;
 
     void apply_equip_effect(Character*, const int eq_slot);
-    void remove_equip_effect(Character*);
+    void remove_equip_effect(Character*, const int eq_slot);
 
     QString get_name(void) const;
     QString get_value(const QString& key) const;
@@ -105,7 +105,7 @@ protected:
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;
     QVector<QMap<QString, QString>> procs_map;
-    QVector<Proc*> procs;
+    QMap<int, QVector<Proc*>> proc_map;
     Stats* stats;
 
     void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);
