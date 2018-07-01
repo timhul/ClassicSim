@@ -239,5 +239,7 @@
         <file>QML/Assets/items/Inv_misc_token_argentdawn2.png</file>
         <file>QML/Assets/items/Inv_gauntlets_10.png</file>
         <file>QML/Assets/items/Inv_sword_36.png</file>
+        <file>QML/Assets/items/Inv_axe_07.png</file>
+        <file>QML/Assets/items/Inv_axe_17.png</file>
     </qresource>
 </RCC>

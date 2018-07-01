@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon name="Flurry Axe">
+		<patch name="1.0.0">
+			<info type="AXE" slot="1H" unique="no" req_lvl="42" item_lvl="47" quality="EPIC" boe="yes" icon="Inv_axe_17.png"/>
+			<dmg_range min="37" max="69" speed="1.5"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0" recursive="yes"/>
+			</proc>
+			<special_equip_effect>
+			Chance on hit: Grants 1 extra attack on your next swing.
+			</special_equip_effect>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</melee_weapon>
+
+	<melee_weapon name="Axe of the Deep Woods">
+		<patch name="1.0.0">
+			<info type="AXE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="yes" icon="Inv_axe_07.png"/>
+			<dmg_range min="78" max="146" speed="2.7"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+			</proc>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</melee_weapon>
+
 	<melee_weapon name="Frostbite">
 		<patch name="1.5.0">
 			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no" icon="Inv_axe_22.png"/>
