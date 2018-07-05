@@ -69,7 +69,7 @@
 			<dmg_range min="72" max="135" speed="2.5"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="SHADOW_DOT" min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="SHADOW_DOT" instant="no" amount="0"  min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Drains the target for 2 Shadow damage every 1 sec and transfers it to the caster. Lasts for 30 sec.
