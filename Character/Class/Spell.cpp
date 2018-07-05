@@ -3,17 +3,17 @@
 #include "Character.h"
 #include "StatisticsSpell.h"
 
-Spell::Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll,
-             bool restricted_by_gcd, float _cd, int _cost) :
-    name(_name),
-    engine(_eng),
-    pchar(_pchar),
-    roll(_roll),
+Spell::Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
+             bool restricted_by_gcd, float cooldown, int resource_cost) :
+    name(name),
+    engine(engine),
+    pchar(pchar),
+    roll(roll),
     statistics(new StatisticsSpell(name)),
     restricted_by_gcd(restricted_by_gcd),
-    cooldown(_cd),
-    last_used(0 - _cd),
-    resource_cost(_cost),
+    cooldown(cooldown),
+    last_used(0 - cooldown),
+    resource_cost(resource_cost),
     rank_talent(0),
     rank_spell(0),
     enabled_by_talent(false)
@@ -31,7 +31,7 @@ QString Spell::get_name() const {
     return this->name;
 }
 
-float Spell::get_cooldown() {
+float Spell::get_base_cooldown() {
     return this->cooldown;
 }
 
@@ -47,7 +47,8 @@ bool Spell::is_ready() const {
     // TODO: Check stance cd if spell restricted by stance cd
     if (restricted_by_gcd && pchar->on_global_cooldown())
         return false;
-    return cooldown_less_than(0);
+
+    return (get_next_use() - engine->get_current_priority()) < 0.0001;
 }
 
 bool Spell::is_available() const {
@@ -62,22 +63,6 @@ float Spell::get_cooldown_remaining() const {
     float delta = last_used + cooldown - engine->get_current_priority();
 
     return delta > 0 ? delta : 0;
-}
-
-bool Spell::cooldown_less_than(const float value) const {
-    const float curr = engine->get_current_priority();
-    float target_timestamp = curr + value;
-
-    float delta = get_next_use() - target_timestamp;
-    if (delta < 0.0001)
-        return true;
-
-    return target_timestamp >= get_next_use();
-}
-
-bool Spell::cooldown_greater_than(const float value) const {
-    // Note that this function actually returns GEQ and not greater.
-    return !cooldown_less_than(value);
 }
 
 void Spell::increase_effect_via_talent() {

@@ -52,7 +52,7 @@ void TestOverpower::test_name_correct() {
 
 void TestOverpower::test_has_5_second_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    assert(QString::number(overpower()->get_cooldown(), 'f', 3) == "5.000");
+    assert(QString::number(overpower()->get_base_cooldown(), 'f', 3) == "5.000");
 
     when_overpower_is_performed();
 

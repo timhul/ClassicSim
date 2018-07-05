@@ -15,15 +15,15 @@ class StatisticsSpell;
 
 class Spell {
 public:
-    Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll, bool restricted_by_gcd, float _cd, int _cost);
+    Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
+          bool restricted_by_gcd, float cooldown, int resource_cost);
 
     virtual ~Spell();
 
     StatisticsSpell* get_statistics_for_spell() const;
 
     QString get_name() const;
-    // TODO: Rename to get_base_cooldown()
-    virtual float get_cooldown();
+    float get_base_cooldown();
     float get_last_used();
     float get_next_use() const;
     bool is_ready() const;
@@ -31,10 +31,6 @@ public:
     bool is_enabled() const;
 
     float get_cooldown_remaining() const;
-
-    // TODO: Remove these two functions (replaced by get_cooldown_remaining())
-    bool cooldown_less_than(const float) const;
-    bool cooldown_greater_than(const float) const;
 
     virtual void increase_effect_via_talent();
     virtual void decrease_effect_via_talent();

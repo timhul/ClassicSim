@@ -42,7 +42,7 @@ void TestBloodrage::test_name_correct() {
 }
 
 void TestBloodrage::test_has_60_second_cooldown() {
-    assert(QString::number(bloodrage()->get_cooldown(), 'f', 3) == "60.000");
+    assert(QString::number(bloodrage()->get_base_cooldown(), 'f', 3) == "60.000");
 }
 
 void TestBloodrage::test_does_not_incur_global_cooldown_on_use() {

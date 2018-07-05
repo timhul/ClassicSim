@@ -12,7 +12,6 @@ public:
     bool attack_is_valid(const int) const;
     int get_next_iteration();
     void reset_effect() override;
-    float get_cooldown() override;
 
     void complete_swing();
     virtual void extra_attack();

@@ -52,7 +52,7 @@ void TestWhirlwind::test_name_correct() {
 
 void TestWhirlwind::test_has_10_second_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    assert(QString::number(whirlwind()->get_cooldown(), 'f', 3) == "10.000");
+    assert(QString::number(whirlwind()->get_base_cooldown(), 'f', 3) == "10.000");
 
     when_whirlwind_is_performed();
 

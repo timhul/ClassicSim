@@ -61,7 +61,7 @@ void TestHeroicStrike::test_name_correct() {
 }
 
 void TestHeroicStrike::test_has_no_cooldown() {
-    assert(QString::number(heroic_strike()->get_cooldown(), 'f', 3) == "0.000");
+    assert(QString::number(heroic_strike()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
 void TestHeroicStrike::test_does_not_incur_global_cooldown_on_use() {

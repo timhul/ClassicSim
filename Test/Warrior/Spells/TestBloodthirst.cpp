@@ -51,7 +51,7 @@ void TestBloodthirst::test_name_correct() {
 
 void TestBloodthirst::test_has_6_second_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    assert(QString::number(bloodthirst()->get_cooldown(), 'f', 3) == "6.000");
+    assert(QString::number(bloodthirst()->get_base_cooldown(), 'f', 3) == "6.000");
 
     when_bloodthirst_is_performed();
 

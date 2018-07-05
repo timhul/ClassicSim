@@ -107,10 +107,3 @@ int MainhandAttack::get_next_iteration() {
 void MainhandAttack::reset_effect() {
     next_expected_use = 0;
 }
-
-float MainhandAttack::get_cooldown() {
-    qDebug() << "Do not use get_cooldown() for white hit spells, use get_next_expected_use() instead.";
-    assert(false);
-
-    return 1.0;
-}

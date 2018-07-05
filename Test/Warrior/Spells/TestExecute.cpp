@@ -125,7 +125,7 @@ void TestExecute::test_name_correct() {
 }
 
 void TestExecute::test_has_no_cooldown() {
-    assert(QString::number(execute()->get_cooldown(), 'f', 3) == "0.000");
+    assert(QString::number(execute()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
 void TestExecute::test_incurs_global_cooldown_on_use() {
