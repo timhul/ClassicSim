@@ -20,7 +20,7 @@ HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     talent_ranks = {15, 14, 13, 12};
 }
 
-void HeroicStrike::spell_effect() {
+void HeroicStrike::calculate_damage() {
     pchar->get_hs_buff()->use_charge();
     pchar->get_spells()->get_mh_attack()->complete_swing();
 
@@ -57,6 +57,10 @@ void HeroicStrike::spell_effect() {
     }
 
     pchar->lose_rage(resource_cost);
+}
+
+void HeroicStrike::spell_effect() {
+    pchar->get_hs_buff()->apply_buff();
 }
 
 void HeroicStrike::increase_effect_via_talent() {

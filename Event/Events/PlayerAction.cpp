@@ -1,14 +1,13 @@
 
 #include "PlayerAction.h"
-#include "Spells.h"
-#include "Engine.h"
+#include "Rotation.h"
 
-PlayerAction::PlayerAction(Spells* spells, const float priority) {
-    this->spells = spells;
+PlayerAction::PlayerAction(Rotation* rotation, const float priority) {
+    this->rotation = rotation;
     this->priority = priority;
     this->name = "PlayerAction";
 }
 
 void PlayerAction::act(void) {
-    spells->rotation();
+    rotation->perform_rotation();
 }

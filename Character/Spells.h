@@ -18,7 +18,6 @@ public:
 
     virtual void reset() = 0;
 
-    virtual void rotation(void) = 0;
     virtual void mh_auto_attack(const int) = 0;
     virtual void oh_auto_attack(const int) = 0;
     virtual void start_attack();

@@ -169,7 +169,7 @@ void TestDeepWounds::test_critical_heroic_strike_applies_deep_wounds() {
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
+    dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike()->calculate_damage();
 
     then_deep_wounds_is_applied();
 }
@@ -229,7 +229,7 @@ void TestDeepWounds::test_regular_hit_heroic_strike_does_not_apply_deep_wounds()
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
 
-    when_attack_is_performed(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
+    dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike()->calculate_damage();
 
     then_deep_wounds_is_not_applied();
 }

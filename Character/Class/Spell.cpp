@@ -44,6 +44,9 @@ float Spell::get_next_use() const {
 }
 
 bool Spell::is_ready() const {
+    // TODO: E.g. Execute and other spells have more requirements.
+    // Execute: only available below 20%
+
     // TODO: Check stance cd if spell restricted by stance cd
     if (restricted_by_gcd && pchar->on_global_cooldown())
         return false;
@@ -91,14 +94,14 @@ void Spell::perform() {
 
 void Spell::add_spell_cd_event(void) const {
     float cooldown_ready = engine->get_current_priority() + cooldown;
-    CooldownReady* new_event = new CooldownReady(pchar->get_spells(), cooldown_ready);
+    CooldownReady* new_event = new CooldownReady(pchar->get_rotation(), cooldown_ready);
     engine->add_event(new_event);
 }
 
 void Spell::add_gcd_event(void) const {
     pchar->start_global_cooldown();
     float gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
-    CooldownReady* new_event = new CooldownReady(pchar->get_spells(), gcd_ready);
+    CooldownReady* new_event = new CooldownReady(pchar->get_rotation(), gcd_ready);
     engine->add_event(new_event);
 }
 

@@ -99,6 +99,10 @@ void Character::perform_rotation() {
     this->current_rotation->perform_rotation();
 }
 
+Rotation* Character::get_rotation() {
+    return this->current_rotation;
+}
+
 int Character::get_clvl(void) const {
     return this->clvl;
 }

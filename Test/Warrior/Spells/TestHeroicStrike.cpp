@@ -180,7 +180,7 @@ void TestHeroicStrike::given_3_of_3_improved_hs() {
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {
-    heroic_strike()->perform();
+    heroic_strike()->calculate_damage();
 }
 
 void TestHeroicStrike::then_heroic_strike_costs(const int rage) {

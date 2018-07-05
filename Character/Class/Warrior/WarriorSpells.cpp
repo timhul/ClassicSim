@@ -67,49 +67,16 @@ void WarriorSpells::reset() {
     }
 }
 
-void WarriorSpells::rotation() {
-    // TODO: Some classes will need "special gcd" for stances, totems, shapeshifts, auras(?), etc.
-    // Fury warriors need this for overpower modelling.
-    if (!pchar->is_melee_attacking()) {
-        pchar->start_attack();
-    }
-
-    if (pchar->get_curr_rage() < 50)
-        try_berserker_rage();
-
-    if (pchar->get_curr_rage() < 50)
-        try_bloodrage();
-
-    try_heroic_strike();
-
-    if (!pchar->action_ready())
-        return;
-
-    if (try_battle_shout())
-        return;
-
-    if (try_death_wish())
-        return;
-
-    if (try_execute())
-        return;
-
-    if (try_bloodthirst())
-        return;
-
-    if (try_whirlwind())
-        return;
-}
+// TODO: Refactor this check into separate target mechanic.
+//float time_remaining = 300 - pchar->get_engine()->get_current_priority();
+//bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
 
 void WarriorSpells::mh_auto_attack(const int iteration) {
-    if (!pchar->is_melee_attacking())
-        pchar->start_attack();
-
     if (!mh_attack->attack_is_valid(iteration))
         return;
 
     if (pchar->get_hs_buff()->is_active() && heroic_strike->is_available()) {
-        heroic_strike->perform();
+        heroic_strike->calculate_damage();
     }
     else {
         if (pchar->get_hs_buff()->is_active())
@@ -118,7 +85,7 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
         mh_attack->perform();
 
         if (pchar->action_ready()) {
-            PlayerAction* new_event = new PlayerAction(this, pchar->get_engine()->get_current_priority() + 0.1);
+            PlayerAction* new_event = new PlayerAction(pchar->get_rotation(), pchar->get_engine()->get_current_priority() + 0.1);
             pchar->get_engine()->add_event(new_event);
         }
     }
@@ -127,16 +94,13 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
 }
 
 void WarriorSpells::oh_auto_attack(const int iteration) {
-    if (!pchar->is_melee_attacking())
-        pchar->start_attack();
-
     if (!oh_attack->attack_is_valid(iteration))
         return;
 
     oh_attack->perform();
 
     if (pchar->action_ready()) {
-        PlayerAction* new_event = new PlayerAction(this, pchar->get_engine()->get_current_priority() + 0.1);
+        PlayerAction* new_event = new PlayerAction(pchar->get_rotation(), pchar->get_engine()->get_current_priority() + 0.1);
         pchar->get_engine()->add_event(new_event);
     }
 
@@ -207,93 +171,4 @@ Whirlwind* WarriorSpells::get_whirlwind() const {
 
 void WarriorSpells::apply_deep_wounds() {
     deep_wounds->apply_debuff();
-}
-
-void WarriorSpells::try_berserker_rage() {
-    if (berserker_rage->is_available())
-        berserker_rage->perform();
-}
-
-void WarriorSpells::try_bloodrage() {
-    if (bloodrage->is_available())
-        bloodrage->perform();
-}
-
-void WarriorSpells::try_heroic_strike() {
-    // TODO: Refactor this check into separate target mechanic.
-    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
-    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
-
-    if (execute_phase)
-        return;
-
-    if (pchar->get_curr_rage() > 50 && !pchar->get_hs_buff()->is_active())
-        pchar->get_hs_buff()->apply_buff();
-}
-
-bool WarriorSpells::try_bloodthirst() {
-    // TODO: Refactor this check into separate target mechanic.
-    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
-    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
-
-    if (execute_phase)
-        return false;
-
-    if (bt->is_available()) {
-        bt->perform();
-        return true;
-    }
-
-    return false;
-}
-
-bool WarriorSpells::try_execute() {
-    // TODO: Refactor this check into separate target mechanic.
-    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
-    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
-
-    if (execute_phase && execute->is_available()) {
-        execute->perform();
-        return true;
-    }
-
-    return false;
-}
-
-bool WarriorSpells::try_overpower() {
-    return false;
-}
-
-bool WarriorSpells::try_death_wish() {
-    if (death_wish->is_available()) {
-        death_wish->perform();
-        return true;
-    }
-
-    return false;
-}
-
-bool WarriorSpells::try_battle_shout() {
-    if (!pchar->get_battle_shout_buff()->is_active() && battle_shout->is_available()) {
-        battle_shout->perform();
-        return true;
-    }
-
-    return false;
-}
-
-bool WarriorSpells::try_whirlwind() {
-    // TODO: Refactor this check into separate target mechanic.
-    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
-    bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
-
-    if (execute_phase)
-        return false;
-
-    if (whirlwind->is_available()) {
-        whirlwind->perform();
-        return true;
-    }
-
-    return false;
 }

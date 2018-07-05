@@ -13,6 +13,8 @@ public:
     void increase_effect_via_talent() override;
     void decrease_effect_via_talent() override;
 
+    void calculate_damage();
+
 protected:
 private:
     Warrior* pchar;

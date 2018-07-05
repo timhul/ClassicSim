@@ -24,7 +24,6 @@ public:
     WarriorSpells(Warrior *pchar);
     virtual ~WarriorSpells();
 
-    void rotation() override;
     void reset() override;
     void mh_auto_attack(const int) override;
     void oh_auto_attack(const int) override;
@@ -47,15 +46,6 @@ public:
     Whirlwind* get_whirlwind() const;
 
     void apply_deep_wounds();
-    void try_heroic_strike();
-    void try_berserker_rage();
-    void try_bloodrage();
-    bool try_execute();
-    bool try_overpower();
-    bool try_death_wish();
-    bool try_battle_shout();
-    bool try_bloodthirst();
-    bool try_whirlwind();
 
 private:
     Warrior* pchar;

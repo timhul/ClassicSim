@@ -36,6 +36,7 @@ public:
     QVector<QString> get_rotation_names() const;
     QString get_current_rotation_name() const;
     void perform_rotation();
+    Rotation* get_rotation();
 
     void switch_faction();
 

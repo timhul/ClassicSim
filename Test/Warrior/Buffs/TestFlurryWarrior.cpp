@@ -360,7 +360,7 @@ void TestFlurryWarrior::test_critical_heroic_strike_applies_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
+    dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike()->calculate_damage();
 
     then_flurry_is_active();
 }
@@ -420,7 +420,7 @@ void TestFlurryWarrior::test_regular_hit_heroic_strike_does_not_apply_flurry() {
     given_flurry_enabled();
     given_flurry_is_not_active();
 
-    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike());
+    dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike()->calculate_damage();
 
     then_flurry_is_not_active();
 }
