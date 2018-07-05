@@ -5,26 +5,44 @@
 #include <QMap>
 #include <QVector>
 
+#include <functional>
+
 class Condition;
+class Sentence;
+class Spell;
 
 class CastIf: public QObject {
     Q_OBJECT
 public:
-    CastIf(QString name, QObject* parent = 0);
+    CastIf(QString spell_name, QObject* parent = 0);
     ~CastIf();
 
+    void add_sentence(Sentence* sentence);
     void add_condition(Condition* condition);
-    QVector<Condition*>& get_conditions();
 
     void add_variable_assignment(QString var, QString value);
     QMap<QString, QString>& get_variable_assignments();
 
+    void attempt_cast();
+
+    QString get_spell_name() const;
+
+    Spell* get_spell() const;
+    void set_spell(Spell*);
+
     void dump();
 
-private:
-    QString name;
+    QVector<Sentence*> sentences;
     QVector<Condition*> conditions;
+
+private:
+    QString spell_name;
+
     QMap<QString, QString> variable_assignments;
+    Spell* spell;
+
+    std::function<bool()> spell_available;
+
 };
 
 #endif // CASTIF_H

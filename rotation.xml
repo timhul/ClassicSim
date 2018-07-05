@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<rotation name="Rage conservative stance dancing">
+<rotation class="Warrior" name="Fury Rage conservative stance dancing">
 	<!-- 
 	Spell evaluation:
 	<cast_if name="">
@@ -63,9 +63,6 @@
 		<patch_at_least name="1.5.0"/>
 		<patch_at_most name="1.12.1"/>
 	</prerequisites>
-
-
-	<cast_if name="Melee Attack"/>
 	
 	<!-- General heroic strike usage -->
 	<cast_if name="Heroic Strike">
@@ -78,8 +75,8 @@
 		variable "time_remaining_execute" greater 3
 		and resource "Rage" greater 30
 		and buff "Overpower" greater 3
-		and buff "Battle Stance" false
-		and variable "time_remaining_mh_swing" less 1.5
+		and buff "Battle Stance" is false
+		and spell "Mainhand Attack" less 1.5
 
 		let "dumping_rage_before_stancing" = true
 	</cast_if>
@@ -107,19 +104,18 @@
 		and buff "Overpower" greater 2
 		and spell "Bloodthirst" cooldown greater 3
 		and resource "Rage" less 50
-		and variable "dumping_rage_before_stancing" false
+		and variable "dumping_rage_before_stancing" is false
 	</cast_if>
 
 	<cast_if name="Berserker Stance">
 		variable "time_remaining_execute" less 0
-		or buff "Overpower" false
+		or buff "Overpower" is false
 	</cast_if>
 
 	<!-- Switch to dagger set before Execute (if user specified one) -->
 	<cast_if name="Execute Dagger Switch">
-		spell "Execute Dagger Switch" active
-		and variable "time_remaining_execute" less 3
-		and variable "execute_dagger_switch" false
+		variable "time_remaining_execute" less 3
+		and variable "execute_dagger_switch" is false
 
 		let "execute_dagger_switch" = true
 	</cast_if>

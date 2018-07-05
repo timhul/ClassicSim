@@ -1,11 +1,17 @@
 
 #include "Rotation.h"
 #include "CastIf.h"
+#include "ConditionBuff.h"
+#include "ConditionResource.h"
+#include "ConditionSpell.h"
+#include "ConditionVariableAssign.h"
+#include "ConditionVariableBuiltin.h"
 
 #include <QDebug>
 
-Rotation::Rotation(QObject* parent) :
-    QObject(parent)
+Rotation::Rotation(Character *pchar, QObject* parent) :
+    QObject(parent),
+    pchar(pchar)
 {}
 
 Rotation::~Rotation() {
@@ -14,6 +20,70 @@ Rotation::~Rotation() {
     }
 
     cast_ifs.clear();
+}
+
+void Rotation::perform_rotation() const {
+    for (int i = 0; i < cast_ifs.size(); ++i) {
+        cast_ifs[i]->attempt_cast();
+    }
+}
+
+void Rotation::link_spells() {
+    for (int i = 0; i < cast_ifs.size(); ++i) {
+        QString spell_name = cast_ifs[i]->get_spell_name();
+
+        assert(cast_ifs[i]->get_spell() == nullptr);
+
+        Spell* spell = get_spell_from_name(spell_name);
+        if (spell == nullptr) {
+            // TODO: Simply continuing is not enough if assertion is placed in CastIf that spell is nullptr
+            qDebug() << "Could not find matching spell for" << spell_name;
+            continue;
+        }
+
+        cast_ifs[i]->set_spell(spell);
+        this->link_conditionals(i);
+    }
+
+    // TODO: Consider removing CastIfs with nullptr spells (see note above about continue).
+}
+
+void Rotation::link_conditionals(const int index) {
+    CastIf* cast_if = cast_ifs[index];
+
+    for (int i = 0; i < cast_if->sentences.size(); ++i) {
+        Condition* condition = nullptr;
+        Sentence* sentence = cast_if->sentences[i];
+
+        switch (sentence->condition_type) {
+        case ConditionTypes::BuffCondition:
+            condition = new ConditionBuff(get_buff_from_name(sentence->type_value),
+                                          sentence->compared_value_type,
+                                          sentence->compared_value.toFloat());
+            break;
+        case ConditionTypes::SpellCondition:
+            condition = new ConditionSpell(get_spell_from_name(sentence->type_value),
+                                           sentence->compared_value_type,
+                                           sentence->compared_value.toFloat());
+            break;
+        case ConditionTypes::ResourceCondition:
+            condition = new ConditionResource(this->pchar,
+                                              sentence->compared_value_type,
+                                              sentence->compared_value.toFloat());
+            break;
+        default:
+            qDebug() << "condition type not supported:" << sentence->condition_type;
+            break;
+        }
+
+        if (condition != nullptr) {
+            cast_if->add_condition(condition);
+        }
+    }
+}
+
+void Rotation::set_class(const QString class_name) {
+    this->class_name = class_name;
 }
 
 void Rotation::set_name(const QString name) {
@@ -36,7 +106,20 @@ void Rotation::add_cast_if(CastIf* cast_if) {
     this->cast_ifs.append(cast_if);
 }
 
+QString Rotation::get_class() const {
+    return this->class_name;
+}
+
+QString Rotation::get_name() const {
+    return this->get_name();
+}
+
+QString Rotation::get_description() const {
+    return this->description;
+}
+
 void Rotation::dump() {
+    qDebug() << "class" << class_name;
     qDebug() << "name" << name;
     qDebug() << "desc" << description;
     qDebug() << "defined_variables" << defined_variables;

@@ -43,6 +43,7 @@ float Spell::get_next_use() const {
 }
 
 bool Spell::is_ready() const {
+    // TODO: Check gcd/stance cd if spell restricted by gcd/stance cd
     return cooldown_less_than(0);
 }
 
@@ -52,6 +53,12 @@ bool Spell::is_available() const {
 
 bool Spell::is_enabled() const {
     return enabled_by_talent ? rank_talent > 0 : true;
+}
+
+float Spell::get_cooldown_remaining() const {
+    float delta = last_used + cooldown - engine->get_current_priority();
+
+    return delta > 0 ? delta : 0;
 }
 
 bool Spell::cooldown_less_than(const float value) const {

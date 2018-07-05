@@ -10,7 +10,7 @@
 
 class Rotation;
 class CastIf;
-class Condition;
+class Sentence;
 
 class RotationFileReader: public QObject {
     Q_OBJECT
@@ -25,10 +25,10 @@ private:
     bool cast_if_handler(QXmlStreamReader &reader, CastIf *cast_if);
 
     bool evaluate_condition();
-    bool add_type(Condition* condition, const QString& type_string);
-    bool add_logical_operator(Condition* condition, const QString& logical_operator);
-    bool add_compare_operation(Condition* condition, QString &logical_operation);
-    bool add_let(Condition* condition, QStringList& let_list);
+    bool add_type(Sentence* sentence, const QString& type_string);
+    bool add_logical_connective(Sentence* sentence, const QString& logical_connective);
+    bool add_compare_operation(Sentence* sentence, QString &compare_operation);
+    bool add_let(Sentence* sentence, QStringList& let_list);
 };
 
 #endif // ROTATIONFILEREADER_H

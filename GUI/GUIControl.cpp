@@ -39,6 +39,8 @@
 #include "ActiveBuffs.h"
 #include "BuffModel.h"
 #include "GeneralBuffs.h"
+#include "RotationFileReader.h"
+#include "Rotation.h"
 
 #include <QDebug>
 

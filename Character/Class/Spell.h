@@ -22,12 +22,17 @@ public:
     StatisticsSpell* get_statistics_for_spell() const;
 
     QString get_name() const;
+    // TODO: Rename to get_base_cooldown()
     virtual float get_cooldown();
     float get_last_used();
     float get_next_use() const;
     bool is_ready() const;
     virtual bool is_available() const;
     bool is_enabled() const;
+
+    float get_cooldown_remaining() const;
+
+    // TODO: Remove these two functions (replaced by get_cooldown_remaining())
     bool cooldown_less_than(const float) const;
     bool cooldown_greater_than(const float) const;
 

@@ -15,6 +15,7 @@
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
 #include "Weapon.h"
+#include "Rotation.h"
 #include <QDebug>
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, Faction* faction, QObject* parent) :
@@ -41,6 +42,10 @@ Character::~Character() {
     delete cstats;
     delete active_procs;
     delete active_buffs;
+
+    for (int i = 0; i < rotations.size(); ++i) {
+        delete rotations[i];
+    }
 }
 
 Race* Character::get_race(void) {
@@ -57,6 +62,30 @@ void Character::set_race(Race* race) {
     this->race = race;
 }
 
+bool Character::set_rotation(const int index) {
+    if (index < 0 || index >= rotations.size()) {
+        qDebug() << "set_rotation() index out of bounds" << index;
+        return false;
+    }
+
+    current_rotation = rotations[index];
+    return true;
+}
+
+QVector<QString> Character::get_rotation_names() const {
+    QVector<QString> rotation_names;
+    for (int i = 0; i < rotations.size(); ++i) {
+        rotation_names.append(rotations[i]->get_name());
+    }
+
+    return rotation_names;
+}
+
+QString Character::get_current_rotation_name() const {
+    return current_rotation != nullptr ? current_rotation->get_name() :
+                                         "No rotation selected";
+}
+
 void Character::switch_faction() {
     // TODO: When all classes have implemented ClassStatistics remove this.
     if (this->statistics == nullptr)
@@ -66,8 +95,8 @@ void Character::switch_faction() {
     active_buffs->switch_faction();
 }
 
-void Character::rotation() {
-    spells->rotation();
+void Character::perform_rotation() {
+    this->current_rotation->perform_rotation();
 }
 
 int Character::get_clvl(void) const {

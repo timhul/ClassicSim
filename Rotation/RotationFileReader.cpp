@@ -16,8 +16,15 @@ void RotationFileReader::read_cast_ifs(Rotation *rotation, const QString &path) 
 
     QXmlStreamReader reader(&file);
 
-    if (reader.readNextStartElement() && reader.name() == "rotation")
+    if (reader.readNextStartElement() && reader.name() == "rotation") {
+        if (!reader.attributes().hasAttribute("class")) {
+            qDebug() << path << "missing 'class' attribute on <rotation> element";
+            file.close();
+            return;
+        }
+        rotation->set_class(reader.attributes().value("class").toString());
         rotation_file_handler(reader, rotation);
+    }
 
     file.close();
 }
@@ -99,7 +106,7 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
         return true;
 
     QString let_statement = "let";
-    // First entry does not have chain logical operator at start.
+    // First sentence does not have logical connective at start.
     // [TYPE] "[TYPE_VALUE]" [COMPARE_OPERATION]
     // Split into [TYPE, TYPE_VALUE, COMPARE_OPERATION]
     QStringList quotation_split = expressions.takeFirst().split('"', QString::SkipEmptyParts);
@@ -111,23 +118,23 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
         return false;
     }
 
-    Condition* condition = new Condition();
+    Sentence* sentence = new Sentence();
     // Take TYPE or LET statement
     if (quotation_split[0].startsWith(let_statement) == true) {
-        if (add_let(condition, quotation_split) == false)
+        if (add_let(sentence, quotation_split) == false)
             return false;
     }
     else {
-        if (this->add_type(condition, quotation_split.takeFirst()) == false)
+        if (this->add_type(sentence, quotation_split.takeFirst()) == false)
             return false;
 
         // Take TYPE_VALUE
-        condition->type_value = quotation_split.takeFirst();
+        sentence->type_value = quotation_split.takeFirst();
 
         // Take COMPARE_OPERATION
         if (!quotation_split.empty()) {
             QString compare_operation = quotation_split.takeFirst();
-            add_compare_operation(condition, compare_operation);
+            add_compare_operation(sentence, compare_operation);
             if (!quotation_split.empty()) {
                 qDebug() << "Quotation split not empty after adding compare operation" << quotation_split;
                 return false;
@@ -135,7 +142,7 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
         }
     }
 
-    cast_if->add_condition(condition);
+    cast_if->add_sentence(sentence);
 
     for (int i = 0; i < expressions.size(); ++i) {
         quotation_split = expressions[i].split('"', QString::SkipEmptyParts);
@@ -147,130 +154,145 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
             return false;
         }
 
-        condition = new Condition();
+        sentence = new Sentence();
         // Take LET statement if exists
         if (quotation_split[0].startsWith(let_statement) == true) {
-            if (add_let(condition, quotation_split) == false) {
-                delete condition;
+            if (add_let(sentence, quotation_split) == false) {
+                delete sentence;
                 return false;
             }
 
-            cast_if->add_condition(condition);
+            cast_if->add_sentence(sentence);
             continue;
         }
 
-        QStringList logical_operator_split = quotation_split.takeFirst().split(' ', QString::SkipEmptyParts);
-        // Else LOGICAL OPERATOR
-        if (logical_operator_split.size() != 2) {
-            qDebug() << "Expected logical operator split size of 2, got:" << logical_operator_split;
-            delete condition;
+        QStringList logical_connective_split = quotation_split.takeFirst().split(' ', QString::SkipEmptyParts);
+        // Else LOGICAL CONNECTIVE
+        if (logical_connective_split.size() != 2) {
+            qDebug() << "Expected logical operator split size of 2, got:" << logical_connective_split;
+            delete sentence;
             return false;
         }
 
-        if (this->add_logical_operator(condition, logical_operator_split.takeFirst()) == false) {
-            delete condition;
+        if (this->add_logical_connective(sentence, logical_connective_split.takeFirst()) == false) {
+            delete sentence;
             return false;
         }
 
         // Take TYPE
-        if (this->add_type(condition, logical_operator_split.takeFirst()) == false) {
-            delete condition;
+        if (this->add_type(sentence, logical_connective_split.takeFirst()) == false) {
+            delete sentence;
             return false;
         }
 
         // Take TYPE_VALUE
-        condition->type_value = quotation_split.takeFirst();
+        sentence->type_value = quotation_split.takeFirst();
 
         // Take COMPARE_OPERATION
         if (!quotation_split.empty()) {
             QString compare_operation = quotation_split.takeFirst();
-            add_compare_operation(condition, compare_operation);
+            add_compare_operation(sentence, compare_operation);
             if (!quotation_split.empty()) {
                 qDebug() << "Quotation split not empty after adding compare operation" << quotation_split;
-                delete condition;
+                delete sentence;
                 return false;
             }
         }
 
-        cast_if->add_condition(condition);
+        cast_if->add_sentence(sentence);
     }
 
     return true;
 }
 
-bool RotationFileReader::add_type(Condition *condition, const QString& type_string) {
-    QSet<QString> acceptable_types = {"spell", "buff", "resource", "variable"};
+bool RotationFileReader::add_type(Sentence* sentence, const QString& type_string) {
+    QMap<QString, int> acceptable_types = {{"spell", ConditionTypes::SpellCondition},
+                                           {"buff", ConditionTypes::BuffCondition},
+                                           {"resource", ConditionTypes::ResourceCondition},
+                                           {"variable", ConditionTypes::VariableCondition}};
 
     if (!acceptable_types.contains(type_string)) {
         qDebug() << "Expected type, got" << type_string;
         return false;
     }
 
-    condition->type = type_string;
+    sentence->condition_type = acceptable_types.value(type_string);
 
     return true;
 }
 
-bool RotationFileReader::add_logical_operator(Condition *condition, const QString& logical_operator) {
-    QSet<QString> logical_operators = {"and", "or"};
-    if (!logical_operators.contains(logical_operator)) {
-        qDebug() << "Expected logical operator, got" << logical_operator;
+bool RotationFileReader::add_logical_connective(Sentence* sentence, const QString& logical_connective) {
+    QSet<QString> logical_connective_strings = {"and", "or"};
+    if (!logical_connective_strings.contains(logical_connective)) {
+        qDebug() << "Expected logical connective, got" << logical_connective;
         return false;
     }
 
-    condition->logical_operator = logical_operator;
+    sentence->logical_connective = logical_connective == "and" ? LogicalConnectives::AND :
+                                                                 LogicalConnectives::OR;
     return true;
 }
 
-bool RotationFileReader::add_compare_operation(Condition *condition, QString& logical_operation) {
-    QSet<QString> cmp_by_following_value = {"greater", "less"};
-    QSet<QString> cmp_immediate = {"true", "false"};
+bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& compare_operation) {
+    QSet<QString> cmp_by_float = {"greater", "less"};
+    QSet<QString> cmp_by_bool = {"is"};
 
-    QStringList logical_operation_split = logical_operation.split(' ', QString::SkipEmptyParts);
-    if (logical_operation_split.empty()) {
-        qDebug() << "Logical operation split returned empty split";
+    QStringList cmp_operation_split = compare_operation.split(' ', QString::SkipEmptyParts);
+    if (cmp_operation_split.empty()) {
+        qDebug() << "Compare operation split returned empty split";
         return false;
     }
 
-    for (auto &str : logical_operation_split)
+    for (auto &str : cmp_operation_split)
         str = str.trimmed();
 
-    if (logical_operation_split.size() == 1) {
-        QString cmp = logical_operation_split.takeFirst();
-        if (!cmp_immediate.contains(cmp)) {
-            qDebug() << "Expected immediate compare value:" << cmp;
+    // Sentence e.g. "buff 'Overpower' is false"
+    // Sentence e.g. "buff 'Overpower' greater 2"
+    if (cmp_operation_split.size() == 2) {
+        QString cmp = cmp_operation_split.takeFirst();
+        if (!cmp_by_float.contains(cmp) && !cmp_by_bool.contains(cmp)) {
+            qDebug() << "Invalid left hand side:" << cmp;
             return false;
         }
 
-        condition->compare = "equal";
-        condition->cmp_value = cmp;
-        return true;
-    }
+        // is [true/false]
+        if (cmp_by_bool.contains(cmp)) {
+            QSet<QString> accepted_vals = {"true", "false"};
+            QString compare_value = cmp_operation_split.takeFirst();
+            if (!accepted_vals.contains(compare_value)) {
+                qDebug() << "Invalid right hand side value for 'is':" << compare_value;
+                return false;
+            }
 
-    if (logical_operation_split.size() == 2) {
-        QString cmp = logical_operation_split.takeFirst();
-        if (!cmp_by_following_value.contains(cmp)) {
-            qDebug() << "Invalid left hand side operator:" << cmp;
-            return false;
+            sentence->mathematical_symbol = Comparators::eq;
+            sentence->compared_value_type = CompareValueTypes::bool_val;
+            sentence->compared_value = compare_value;
+            return true;
         }
 
-        condition->compare = cmp;
-        condition->cmp_value = logical_operation_split.takeFirst();
-        return true;
+        // [greater/less] [0-9]
+        else {
+            sentence->mathematical_symbol = cmp == "greater" ? Comparators::greater :
+                                                               Comparators::less;
+            sentence->compared_value_type = CompareValueTypes::float_val;
+            sentence->compared_value = cmp_operation_split.takeFirst();
+            return true;
+        }
     }
 
-    qDebug() << "Unexpected logical operation split" << logical_operation_split;
+    qDebug() << "Unexpected logical operation split" << cmp_operation_split;
     return false;
 }
 
-bool RotationFileReader::add_let(Condition *condition, QStringList &let_list) {
+bool RotationFileReader::add_let(Sentence* sentence, QStringList &let_list) {
     if (let_list.size() != 3) {
         qDebug() << "Failed to parse let statement:" << let_list;
         return false;
     }
-    condition->type = let_list[0];
-    condition->type_value = let_list[1];
-    condition->cmp_value = let_list[2].split(' ', QString::SkipEmptyParts).takeLast();
+
+    sentence->condition_type = ConditionTypes::VariableAssignment;
+    sentence->type_value = let_list[1];
+    sentence->compared_value = let_list[2].split(' ', QString::SkipEmptyParts).takeLast();
 
     return true;
 }

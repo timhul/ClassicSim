@@ -15,6 +15,7 @@ class Engine;
 class Equipment;
 class Faction;
 class Race;
+class Rotation;
 class Spells;
 class Stats;
 class Talents;
@@ -31,10 +32,13 @@ public:
     virtual QString get_name() const = 0;
     bool race_available(Race*) const;
     void set_race(Race* race);
+    bool set_rotation(const int index);
+    QVector<QString> get_rotation_names() const;
+    QString get_current_rotation_name() const;
+    void perform_rotation();
 
     void switch_faction();
 
-    virtual void rotation();
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;
     virtual int get_stamina_modifier() const = 0;
@@ -133,6 +137,8 @@ protected:
     ActiveBuffs* active_buffs;
     Spells* spells;
     ClassStatistics* statistics;
+    QVector<Rotation*> rotations;
+    Rotation* current_rotation;
 
     QVector<QString> available_races;
     float ability_crit_dmg_mod;

@@ -16,7 +16,6 @@ public:
     Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0);
     virtual ~Warrior();
 
-    void rotation() override;
     QString get_name() const override;
     QString get_class_color() const override;
     int get_strength_modifier() const override;

@@ -178,7 +178,14 @@ SOURCES += main.cpp \
     Rotation/RotationFileReader.cpp \
     Rotation/Rotation.cpp \
     Rotation/CastIf.cpp \
-    Rotation/Condition.cpp
+    Rotation/Condition.cpp \
+    Character/Class/Warrior/WarriorRotation.cpp \
+    Rotation/Conditions/ConditionSpell.cpp \
+    Rotation/Conditions/ConditionBuff.cpp \
+    Rotation/Conditions/ConditionResource.cpp \
+    Rotation/VariableAssign.cpp \
+    Rotation/Conditions/ConditionVariableAssign.cpp \
+    Rotation/Conditions/ConditionVariableBuiltin.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -353,7 +360,14 @@ HEADERS += \
     Rotation/RotationFileReader.h \
     Rotation/Rotation.h \
     Rotation/CastIf.h \
-    Rotation/Condition.h
+    Rotation/Condition.h \
+    Character/Class/Warrior/WarriorRotation.h \
+    Rotation/Conditions/ConditionSpell.h \
+    Rotation/Conditions/ConditionBuff.h \
+    Rotation/Conditions/ConditionResource.h \
+    Rotation/VariableAssign.h \
+    Rotation/Conditions/ConditionVariableAssign.h \
+    Rotation/Conditions/ConditionVariableBuiltin.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -404,7 +418,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\GUI\Models \
     C:\C++\ClassicSim\Faction \
     C:\C++\ClassicSim\Thread \
-    C:\C++\ClassicSim\Rotation
+    C:\C++\ClassicSim\Rotation \
+    C:\C++\ClassicSim\Rotation\Conditions
 
 RESOURCES += qml.qrc
 
