@@ -4,12 +4,13 @@
 #include "StatisticsSpell.h"
 
 Spell::Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll,
-             float _cd, int _cost) :
+             bool restricted_by_gcd, float _cd, int _cost) :
     name(_name),
     engine(_eng),
     pchar(_pchar),
     roll(_roll),
     statistics(new StatisticsSpell(name)),
+    restricted_by_gcd(restricted_by_gcd),
     cooldown(_cd),
     last_used(0 - _cd),
     resource_cost(_cost),
@@ -43,7 +44,9 @@ float Spell::get_next_use() const {
 }
 
 bool Spell::is_ready() const {
-    // TODO: Check gcd/stance cd if spell restricted by gcd/stance cd
+    // TODO: Check stance cd if spell restricted by stance cd
+    if (restricted_by_gcd && pchar->on_global_cooldown())
+        return false;
     return cooldown_less_than(0);
 }
 

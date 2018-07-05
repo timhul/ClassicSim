@@ -3,7 +3,7 @@
 #include "Warrior.h"
 
 BerserkerRage::BerserkerRage(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Berserker Rage", engine, pchar, roll, 30, 0)
+    Spell("Berserker Rage", engine, pchar, roll, false, 30, 0)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     talent_ranks = {0, 5, 10};

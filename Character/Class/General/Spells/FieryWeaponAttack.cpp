@@ -5,7 +5,7 @@
 #include "DeepWounds.h"
 
 FieryWeaponAttack::FieryWeaponAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Fiery Weapon", engine, pchar, roll, 0, 0)
+    Spell("Fiery Weapon", engine, pchar, roll, false, 0, 0)
 {}
 
 void FieryWeaponAttack::spell_effect() {

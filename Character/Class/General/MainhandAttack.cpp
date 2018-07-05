@@ -11,6 +11,7 @@ MainhandAttack::MainhandAttack(Engine* engine, Character* pchar, CombatRoll* rol
           engine,
           pchar,
           roll,
+          false,
           (pchar->get_equipment()->get_mainhand() != nullptr) ? pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() :
                                                                 10000,
           0)

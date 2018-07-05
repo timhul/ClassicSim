@@ -15,7 +15,7 @@ class StatisticsSpell;
 
 class Spell {
 public:
-    Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll, float _cd, int _cost);
+    Spell(QString _name, Engine* _eng, Character* _pchar, CombatRoll* _roll, bool restricted_by_gcd, float _cd, int _cost);
 
     virtual ~Spell();
 
@@ -56,6 +56,7 @@ protected:
     CombatRoll* roll;
     StatisticsSpell* statistics;
 
+    bool restricted_by_gcd;
     float cooldown;
     float last_used;
     int resource_cost;

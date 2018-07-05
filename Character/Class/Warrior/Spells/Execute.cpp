@@ -5,7 +5,7 @@
 #include "DeepWounds.h"
 
 Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Execute", engine, pchar, roll, 0, 15)
+    Spell("Execute", engine, pchar, roll, true, 0, 15)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     spell_ranks = {QPair<int, int>(125, 3),

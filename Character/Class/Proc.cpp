@@ -13,7 +13,7 @@ Proc::Proc(const QString& name, const float proc_rate, const float inner_cooldow
            const bool recursive, const QVector<Proc *> linked_procs,
            const QVector<ProcInfo::Source> proc_sources,
            Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell(name, engine, pchar, roll, inner_cooldown, 0),
+    Spell(name, engine, pchar, roll, false, inner_cooldown, 0),
     procs(pchar->get_active_procs()),
     random(new Random(0, 9999)),
     proc_sources(proc_sources),

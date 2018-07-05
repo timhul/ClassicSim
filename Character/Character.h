@@ -70,6 +70,7 @@ public:
     bool action_ready(void) const;
     void start_global_cooldown();
     virtual float global_cooldown() const;
+    virtual bool on_global_cooldown() const;
 
     virtual void melee_mh_white_hit_effect();
     virtual void melee_mh_yellow_hit_effect();

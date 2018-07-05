@@ -8,7 +8,7 @@
 #include "MainhandAttackWarrior.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Heroic Strike", engine, pchar, roll, 0, 15)
+    Spell("Heroic Strike", engine, pchar, roll, false, 0, 15)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
 

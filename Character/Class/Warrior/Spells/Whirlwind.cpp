@@ -6,7 +6,7 @@
 #include "DeepWounds.h"
 
 Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Whirlwind", engine, pchar, roll, 10.0, 25)
+    Spell("Whirlwind", engine, pchar, roll, true, 10.0, 25)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }

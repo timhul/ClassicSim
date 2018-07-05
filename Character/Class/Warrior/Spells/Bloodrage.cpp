@@ -4,7 +4,7 @@
 #include "ResourceGain.h"
 
 Bloodrage::Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Bloodrage", engine, pchar, roll, 60, 0)
+    Spell("Bloodrage", engine, pchar, roll, false, 60, 0)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     this->talent_ranks = {10, 12, 15};

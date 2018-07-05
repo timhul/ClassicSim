@@ -170,6 +170,10 @@ float Character::global_cooldown() const {
     return 1.5;
 }
 
+bool Character::on_global_cooldown() const {
+    return engine->get_current_priority() < (this->last_action + 1.5);
+}
+
 bool Character::action_ready() const {
     // Allow some rounding errors (this could effectively speed up gcd by 1/10000ths of a second).
     float delta = last_action + global_cooldown() - engine->get_current_priority();

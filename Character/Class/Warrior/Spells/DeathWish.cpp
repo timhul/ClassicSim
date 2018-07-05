@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 DeathWish::DeathWish(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Death Wish", engine, pchar, roll, 180, 10)
+    Spell("Death Wish", engine, pchar, roll, true, 180, 10)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     this->enabled_by_talent = true;

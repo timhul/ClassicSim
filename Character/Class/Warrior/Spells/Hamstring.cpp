@@ -5,7 +5,7 @@
 #include "DeepWounds.h"
 
 Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Hamstring", engine, pchar, roll, 0, 10)
+    Spell("Hamstring", engine, pchar, roll, true, 0, 10)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }

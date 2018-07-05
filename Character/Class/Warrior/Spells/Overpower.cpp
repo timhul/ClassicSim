@@ -6,7 +6,7 @@
 #include "DeepWounds.h"
 
 Overpower::Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Overpower", engine, pchar, roll, 5.0, 5)
+    Spell("Overpower", engine, pchar, roll, true, 5.0, 5)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
     talent_ranks = {0.0, 0.25, 0.5};

@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 BattleShout::BattleShout(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Battle Shout", engine, pchar, roll, 0, 10)
+    Spell("Battle Shout", engine, pchar, roll, true, 0, 10)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }
