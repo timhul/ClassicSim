@@ -21,6 +21,12 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     talent_ranks = {15, 13, 10};
 }
 
+bool Execute::is_ready_spell_specific() const {
+    // TODO: Refactor this check into separate target mechanic.
+    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
+    return time_remaining / 300 > 0.8 ? true : false;
+}
+
 void Execute::spell_effect() {
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 

@@ -67,10 +67,6 @@ void WarriorSpells::reset() {
     }
 }
 
-// TODO: Refactor this check into separate target mechanic.
-//float time_remaining = 300 - pchar->get_engine()->get_current_priority();
-//bool execute_phase = time_remaining / 300 > 0.8 ? true : false;
-
 void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;

@@ -20,6 +20,8 @@ private:
     QVector<int> talent_ranks;
     int initial_dmg;
     int dmg_per_rage_converted;
+
+    bool is_ready_spell_specific() const override;
 };
 
 #endif // EXECUTE_H

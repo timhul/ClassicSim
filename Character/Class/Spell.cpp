@@ -44,14 +44,18 @@ float Spell::get_next_use() const {
 }
 
 bool Spell::is_ready() const {
-    // TODO: E.g. Execute and other spells have more requirements.
-    // Execute: only available below 20%
-
     // TODO: Check stance cd if spell restricted by stance cd
     if (restricted_by_gcd && pchar->on_global_cooldown())
         return false;
 
+    if (is_ready_spell_specific() == false)
+        return false;
+
     return (get_next_use() - engine->get_current_priority()) < 0.0001;
+}
+
+bool Spell::is_ready_spell_specific() const {
+    return true;
 }
 
 bool Spell::is_available() const {

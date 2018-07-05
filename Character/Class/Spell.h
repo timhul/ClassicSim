@@ -46,6 +46,7 @@ public:
 
 protected:
     virtual void spell_effect() = 0;
+    virtual bool is_ready_spell_specific() const;
     const QString name;
     Engine* engine;
     Character* pchar;
