@@ -64,6 +64,10 @@
 		<patch_at_most name="1.12.1"/>
 	</prerequisites>
 	
+	<cast_if name="Battle Shout">
+		buff "Battle Shout" less 3
+	</cast_if>
+	
 	<!-- General heroic strike usage -->
 	<cast_if name="Heroic Strike">
 		variable "time_remaining_execute" greater 3
