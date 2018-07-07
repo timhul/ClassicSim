@@ -4,16 +4,19 @@
 #include "Spells.h"
 
 class Warrior;
-class Bloodthirst;
-class Whirlwind;
-class DeepWounds;
-class HeroicStrike;
-class Execute;
-class Overpower;
-class DeathWish;
+
 class BattleShout;
 class BerserkerRage;
 class Bloodrage;
+class Bloodthirst;
+class DeathWish;
+class DeepWounds;
+class Execute;
+class HeroicStrike;
+class Overpower;
+class Recklessness;
+class Whirlwind;
+
 class MainhandAttackWarrior;
 class OffhandAttackWarrior;
 
@@ -44,6 +47,7 @@ public:
     BerserkerRage* get_berserker_rage() const;
     Bloodrage* get_bloodrage() const;
     Whirlwind* get_whirlwind() const;
+    Recklessness* get_recklessness() const;
 
     void apply_deep_wounds();
 
@@ -58,6 +62,7 @@ private:
     BattleShout* battle_shout;
     BerserkerRage* berserker_rage;
     Bloodrage* bloodrage;
+    Recklessness* recklessness;
     Whirlwind* whirlwind;
 
     MainhandAttackWarrior* mh_attack;

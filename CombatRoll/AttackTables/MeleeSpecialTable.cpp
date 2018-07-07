@@ -17,11 +17,11 @@ MeleeSpecialTable::MeleeSpecialTable(Random* _rand, const int wpn_skill,
 }
 
 void MeleeSpecialTable::update_ranges() {
-    assert(miss >= 0);
-    assert(dodge >= 0);
-    assert(parry >= 0);
-    assert(block >= 0);
-    assert(critical >= 0);
+    assert(int(round(miss * 10000)) >= 0);
+    assert(int(round(dodge * 10000)) >= 0);
+    assert(int(round(parry * 10000)) >= 0);
+    assert(int(round(block * 10000)) >= 0);
+    assert(int(round(critical * 10000)) >= 0);
 
     this->miss_range = int(round(miss * 10000));
     this->dodge_range = int(round(dodge * 10000)) + miss_range;

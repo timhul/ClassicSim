@@ -2,6 +2,7 @@
 #include "OffhandAttackWarrior.h"
 #include "Warrior.h"
 #include "DeepWounds.h"
+#include "RecklessnessBuff.h"
 
 OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
     OffhandAttack(engine,
@@ -23,7 +24,7 @@ void OffhandAttackWarrior::spell_effect() {
 
 void OffhandAttackWarrior::calculate_damage() {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
-    const int result = roll->get_melee_hit_result(oh_wpn_skill);
+    int result = roll->get_melee_hit_result(oh_wpn_skill);
 
     if (result == AttackResult::MISS) {
         increment_miss();
@@ -45,6 +46,9 @@ void OffhandAttackWarrior::calculate_damage() {
         pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
         return;
     }
+
+    if (pchar->get_recklessness_buff()->is_active())
+        result = AttackResult::CRITICAL;
 
     float damage_dealt = pchar->get_random_non_normalized_oh_dmg() * talent_ranks[rank_talent];
 

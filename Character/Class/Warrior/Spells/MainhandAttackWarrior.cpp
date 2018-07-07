@@ -2,6 +2,7 @@
 #include "MainhandAttackWarrior.h"
 #include "Warrior.h"
 #include "DeepWounds.h"
+#include "RecklessnessBuff.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
     MainhandAttack(engine,
@@ -22,7 +23,7 @@ void MainhandAttackWarrior::spell_effect() {
 
 void MainhandAttackWarrior::calculate_damage() {
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
-    const int result = roll->get_melee_hit_result(mh_wpn_skill);
+    int result = roll->get_melee_hit_result(mh_wpn_skill);
 
     if (result == AttackResult::MISS) {
         increment_miss();
@@ -44,6 +45,9 @@ void MainhandAttackWarrior::calculate_damage() {
         pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
         return;
     }
+
+    if (pchar->get_recklessness_buff()->is_active())
+        result = AttackResult::CRITICAL;
 
     float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
 

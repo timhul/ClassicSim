@@ -24,8 +24,16 @@ public:
     void given_a_guaranteed_white_hit();
     void given_a_guaranteed_white_glancing_blow();
     void given_a_guaranteed_white_crit();
+    void given_a_guaranteed_white_miss();
+    void given_a_guaranteed_white_dodge();
+    void given_a_guaranteed_white_parry();
+    void given_a_guaranteed_white_block();
     void given_a_guaranteed_melee_ability_crit();
     void given_a_guaranteed_melee_ability_hit();
+    void given_a_guaranteed_melee_ability_miss();
+    void given_a_guaranteed_melee_ability_dodge();
+    void given_a_guaranteed_melee_ability_parry();
+    void given_a_guaranteed_melee_ability_block();
     void given_300_weapon_skill_mh();
     void given_305_weapon_skill_mh();
     void given_310_weapon_skill_mh();
@@ -45,6 +53,8 @@ public:
     void given_1000_melee_ap();
     void given_engine_priority_at(const float priority);
 
+    void when_running_queued_events_until(const float priority);
+
     void then_damage_dealt_is(const int damage);
     void then_next_event_is(const QString &name);
     void then_next_event_is(const QString &name, const QString &priority);
@@ -61,10 +71,18 @@ protected:
 
     void set_melee_special_table_for_hit(const int wpn_skill);
     void set_melee_special_table_for_crit(const int wpn_skill);
+    void set_melee_special_table_for_miss(const int wpn_skill);
+    void set_melee_special_table_for_dodge(const int wpn_skill);
+    void set_melee_special_table_for_parry(const int wpn_skill);
+    void set_melee_special_table_for_block(const int wpn_skill);
 
     void set_melee_auto_table_for_hit(const int wpn_skill);
     void set_melee_auto_table_for_glancing(const int wpn_skill);
     void set_melee_auto_table_for_crit(const int wpn_skill);
+    void set_melee_auto_table_for_miss(const int wpn_skill);
+    void set_melee_auto_table_for_dodge(const int wpn_skill);
+    void set_melee_auto_table_for_parry(const int wpn_skill);
+    void set_melee_auto_table_for_block(const int wpn_skill);
 };
 
 #endif // TESTSPELL_H

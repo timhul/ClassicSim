@@ -20,6 +20,7 @@
 #include "TestDeepWounds.h"
 #include "TestBloodrage.h"
 #include "TestUnbridledWrath.h"
+#include "TestRecklessness.h"
 
 void TestWarrior::test_all() {
     TestExecute().test_all();
@@ -33,6 +34,7 @@ void TestWarrior::test_all() {
     TestDeepWounds().test_all();
     TestBloodrage().test_all();
     TestUnbridledWrath().test_all();
+    TestRecklessness().test_all();
 }
 
 void TestWarrior::test_char_initialization() {

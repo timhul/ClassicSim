@@ -29,6 +29,7 @@
 #include "UnbridledWrath.h"
 #include "DeathWishBuff.h"
 #include "BattleShoutBuff.h"
+#include "RecklessnessBuff.h"
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction *faction, QObject* parent) :
     Character(race, engine, _eq, _roll, faction, parent) {
@@ -70,8 +71,10 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
+    this->recklessness_buff = new RecklessnessBuff(this);
     heroic_strike_buff->enable_buff();
     battle_shout_buff->enable_buff();
+    recklessness_buff->enable_buff();
 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
 
@@ -99,6 +102,7 @@ Warrior::~Warrior() {
     delete death_wish_buff;
     delete flurry;
     delete heroic_strike_buff;
+    delete recklessness_buff;
 }
 
 QString Warrior::get_name(void) const {
@@ -185,6 +189,10 @@ DeathWishBuff* Warrior::get_death_wish_buff() const {
 }
 BattleShoutBuff* Warrior::get_battle_shout_buff() const {
     return this->battle_shout_buff;
+}
+
+RecklessnessBuff* Warrior::get_recklessness_buff() const {
+    return this->recklessness_buff;
 }
 
 float Warrior::global_cooldown() const {

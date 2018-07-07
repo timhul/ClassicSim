@@ -15,6 +15,7 @@
 #include "Execute.h"
 #include "HeroicStrike.h"
 #include "Overpower.h"
+#include "Recklessness.h"
 #include "Whirlwind.h"
 
 #include "MainhandAttackWarrior.h"
@@ -30,29 +31,31 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     Spells(pchar),
     pchar(pchar)
 {
-    this->bt = new Bloodthirst(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->deep_wounds = new DeepWounds(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->heroic_strike = new HeroicStrike(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->execute = new Execute(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->overpower = new Overpower(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->death_wish = new DeathWish(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->battle_shout = new BattleShout(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->berserker_rage = new BerserkerRage(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->bloodrage = new Bloodrage(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->bt = new Bloodthirst(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->death_wish = new DeathWish(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->deep_wounds = new DeepWounds(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->execute = new Execute(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->heroic_strike = new HeroicStrike(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->overpower = new Overpower(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->recklessness = new Recklessness(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->whirlwind = new Whirlwind(pchar->get_engine(), pchar, pchar->get_combat_roll());
 
     this->mh_attack = new MainhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->oh_attack = new OffhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
 
-    spells.append(bt);
-    spells.append(deep_wounds);
-    spells.append(heroic_strike);
-    spells.append(execute);
-    spells.append(overpower);
-    spells.append(death_wish);
     spells.append(battle_shout);
     spells.append(berserker_rage);
     spells.append(bloodrage);
+    spells.append(bt);
+    spells.append(death_wish);
+    spells.append(deep_wounds);
+    spells.append(execute);
+    spells.append(heroic_strike);
+    spells.append(overpower);
+    spells.append(recklessness);
     spells.append(whirlwind);
     spells.append(mh_attack);
     spells.append(oh_attack);
@@ -163,6 +166,10 @@ Bloodrage* WarriorSpells::get_bloodrage() const {
 
 Whirlwind* WarriorSpells::get_whirlwind() const {
     return this->whirlwind;
+}
+
+Recklessness* WarriorSpells::get_recklessness() const {
+    return this->recklessness;
 }
 
 void WarriorSpells::apply_deep_wounds() {

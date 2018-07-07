@@ -66,6 +66,26 @@ void TestSpell::given_a_guaranteed_white_crit() {
     set_melee_auto_table_for_crit(pchar->get_oh_wpn_skill());
 }
 
+void TestSpell::given_a_guaranteed_white_miss() {
+    set_melee_auto_table_for_miss(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_miss(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_white_dodge() {
+    set_melee_auto_table_for_dodge(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_dodge(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_white_parry() {
+    set_melee_auto_table_for_parry(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_parry(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_white_block() {
+    set_melee_auto_table_for_block(pchar->get_mh_wpn_skill());
+    set_melee_auto_table_for_block(pchar->get_oh_wpn_skill());
+}
+
 void TestSpell::given_a_guaranteed_melee_ability_crit() {
     set_melee_special_table_for_crit(pchar->get_mh_wpn_skill());
     set_melee_special_table_for_crit(pchar->get_oh_wpn_skill());
@@ -74,6 +94,26 @@ void TestSpell::given_a_guaranteed_melee_ability_crit() {
 void TestSpell::given_a_guaranteed_melee_ability_hit() {
     set_melee_special_table_for_hit(pchar->get_mh_wpn_skill());
     set_melee_special_table_for_hit(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_melee_ability_miss() {
+    set_melee_special_table_for_miss(pchar->get_mh_wpn_skill());
+    set_melee_special_table_for_miss(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_melee_ability_dodge() {
+    set_melee_special_table_for_dodge(pchar->get_mh_wpn_skill());
+    set_melee_special_table_for_dodge(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_melee_ability_parry() {
+    set_melee_special_table_for_parry(pchar->get_mh_wpn_skill());
+    set_melee_special_table_for_parry(pchar->get_oh_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_melee_ability_block() {
+    set_melee_special_table_for_block(pchar->get_mh_wpn_skill());
+    set_melee_special_table_for_block(pchar->get_oh_wpn_skill());
 }
 
 void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
@@ -99,6 +139,54 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
 
     assert(table->get_outcome(0, 0.0) == AttackResult::CRITICAL);
     assert(table->get_outcome(9999, 0.0) == AttackResult::CRITICAL);
+}
+
+void TestSpell::set_melee_special_table_for_miss(const int wpn_skill) {
+    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    table->update_crit_chance(0.0);
+    table->update_miss_chance(1.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::MISS);
+}
+
+void TestSpell::set_melee_special_table_for_dodge(const int wpn_skill) {
+    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    table->update_crit_chance(0.0);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(1.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::DODGE);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::DODGE);
+}
+
+void TestSpell::set_melee_special_table_for_parry(const int wpn_skill) {
+    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    table->update_crit_chance(0.0);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(1.0);
+    table->update_block_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::PARRY);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::PARRY);
+}
+
+void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
+    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    table->update_crit_chance(0.0);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(1.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::BLOCK);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::BLOCK);
 }
 
 void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
@@ -138,6 +226,58 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
 
     assert(table->get_outcome(0, 0.0) == AttackResult::CRITICAL);
     assert(table->get_outcome(9999, 0.0) == AttackResult::CRITICAL);
+}
+
+void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
+    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    table->update_miss_chance(1.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
+    table->update_glancing_chance(0.0);
+    table->update_crit_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::MISS);
+}
+
+void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
+    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(1.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(0.0);
+    table->update_glancing_chance(0.0);
+    table->update_crit_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::DODGE);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::DODGE);
+}
+
+void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
+    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(1.0);
+    table->update_block_chance(0.0);
+    table->update_glancing_chance(0.0);
+    table->update_crit_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::PARRY);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::PARRY);
+}
+
+void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
+    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_parry_chance(0.0);
+    table->update_block_chance(1.0);
+    table->update_glancing_chance(0.0);
+    table->update_crit_chance(0.0);
+
+    assert(table->get_outcome(0, 0.0) == AttackResult::BLOCK);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::BLOCK);
 }
 
 void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
@@ -319,6 +459,23 @@ void TestSpell::given_engine_priority_at(const float priority) {
     MainhandMeleeHit* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
     engine->set_current_priority(event);
     delete event;
+}
+
+void TestSpell::when_running_queued_events_until(const float priority) {
+    while (engine->get_current_priority() < priority) {
+        if (engine->get_queue()->empty()) {
+            qDebug() << "Attempted to run queued events until"
+                     << QString::number(priority, 'f', 3)
+                     << "but ran out of events at" << engine->get_current_priority();
+            assert(false);
+        }
+        Event* event = engine->get_queue()->get_next();
+        engine->set_current_priority(event);
+
+        event->act();
+
+        delete event;
+    }
 }
 
 void TestSpell::then_damage_dealt_is(const int damage) {

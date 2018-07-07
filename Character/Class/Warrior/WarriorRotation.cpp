@@ -15,12 +15,14 @@
 #include "HeroicStrike.h"
 #include "MainhandAttack.h"
 #include "Overpower.h"
+#include "Recklessness.h"
 #include "Whirlwind.h"
 
 #include "BattleShoutBuff.h"
 #include "DeathWishBuff.h"
 #include "Flurry.h"
 #include "HeroicStrikeBuff.h"
+#include "RecklessnessBuff.h"
 
 WarriorRotation::WarriorRotation(Warrior* pchar, QObject* parent) :
     Rotation(pchar, parent),
@@ -54,7 +56,7 @@ Spell* WarriorRotation::get_spell_from_name(const QString& spell_name) const {
     else if (spell_name == "Overpower")
         spell = spells->get_overpower();
     else if (spell_name == "Recklessness")
-        spell = nullptr;
+        spell = spells->get_recklessness();
     else if (spell_name == "Whirlwind")
         spell = spells->get_whirlwind();
 
@@ -72,6 +74,8 @@ Buff* WarriorRotation::get_buff_from_name(const QString &buff_name) const {
         buff = pchar->get_hs_buff();
     else if (buff_name == "Death Wish")
         buff = pchar->get_death_wish_buff();
+    else if (buff_name == "Recklessness")
+        buff = pchar->get_recklessness_buff();
 
     return buff;
 }
