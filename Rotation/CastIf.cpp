@@ -12,15 +12,17 @@ CastIf::CastIf(QString name, QObject* parent) :
 {}
 
 CastIf::~CastIf() {
-    for (int i = 0; i < conditions.size(); ++i) {
-        delete conditions[i];
+    for (int i = 0; i < condition_groups.size(); ++i) {
+        for (int j = 0; j < condition_groups.at(i).size(); ++j) {
+            delete condition_groups[i][j];
+        }
     }
 
     for (int i = 0; i < sentences.size(); ++i) {
         delete sentences[i];
     }
 
-    conditions.clear();
+    condition_groups.clear();
     sentences.clear();
 }
 
@@ -29,13 +31,27 @@ void CastIf::attempt_cast() {
     if (spell->is_available() == false)
         return;
 
-    for (int i = 0; i < conditions.size(); ++i) {
-        if (conditions[i]->condition_fulfilled() == false) {
+    if (condition_groups.empty()) {
+        spell->perform();
+        return;
+    }
+
+    for (int i = 0; i < condition_groups.size(); ++i) {
+        if (condition_group_fulfilled(i) == true) {
+            spell->perform();
             return;
         }
     }
+}
 
-    spell->perform();
+bool CastIf::condition_group_fulfilled(const int index) const {
+    for (int i = 0; i < condition_groups.at(index).size(); ++i) {
+        if (condition_groups[index][i]->condition_fulfilled() == false) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 QString CastIf::get_spell_name() const {
@@ -55,8 +71,8 @@ void CastIf::add_sentence(Sentence* sentence) {
     this->sentences.append(sentence);
 }
 
-void CastIf::add_condition(Condition* condition) {
-    this->conditions.append(condition);
+void CastIf::add_condition(QVector<Condition*> condition) {
+    this->condition_groups.append(condition);
 }
 
 void CastIf::add_variable_assignment(QString var, QString value) {

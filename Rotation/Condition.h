@@ -19,17 +19,17 @@ namespace CompareValueTypes {
     static const int float_val = 1;
 }
 
-namespace LogicalConnectives {
-    static const int AND = 0;
-    static const int OR = 1;
-}
-
 namespace ConditionTypes {
     static const int BuffCondition = 0;
     static const int SpellCondition = 1;
     static const int ResourceCondition = 2;
     static const int VariableBuiltinCondition = 3;
     static const int VariableAssignment = 4;
+}
+
+namespace LogicalConnectives {
+    static const int AND = 0;
+    static const int OR = 1;
 }
 
 
@@ -43,12 +43,6 @@ public:
     QString compared_value;
 
     void dump() const;
-};
-
-
-class LogicalConnective {
-public:
-    int logical_connective;
 };
 
 

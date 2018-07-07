@@ -50,10 +50,17 @@ void Rotation::link_spells() {
 
 void Rotation::add_conditionals(const int index) {
     CastIf* cast_if = cast_ifs[index];
+    QVector<Condition*> condition_group_to_add;
 
     for (int i = 0; i < cast_if->sentences.size(); ++i) {
         Condition* condition = nullptr;
         Sentence* sentence = cast_if->sentences[i];
+
+        if (sentence->logical_connective == LogicalConnectives::OR) {
+            assert(condition_group_to_add.empty() == false);
+            cast_if->add_condition(condition_group_to_add);
+            condition_group_to_add.clear();
+        }
 
         switch (sentence->condition_type) {
         case ConditionTypes::BuffCondition:
@@ -85,9 +92,13 @@ void Rotation::add_conditionals(const int index) {
         }
 
         if (condition != nullptr) {
-            cast_if->add_condition(condition);
+            condition_group_to_add.append(condition);
         }
     }
+
+    // Add last condition manually
+    if (!condition_group_to_add.empty())
+        cast_if->add_condition(condition_group_to_add);
 }
 
 void Rotation::set_class(const QString class_name) {

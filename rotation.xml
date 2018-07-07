@@ -84,7 +84,13 @@
 
 		let "dumping_rage_before_stancing" = true
 	</cast_if>
-	
+
+	<cast_if name="Death Wish">
+		variable "time_remaining_encounter" less 33
+		or variable "time_remaining_execute" less 3
+		or variable "time_remaining_execute" greater 180
+	</cast_if>
+
 	<!-- Always cast Execute if available (implicit condition). -->
 	<cast_if name="Execute"/>
 	

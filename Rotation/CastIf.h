@@ -18,7 +18,7 @@ public:
     ~CastIf();
 
     void add_sentence(Sentence* sentence);
-    void add_condition(Condition* condition);
+    void add_condition(QVector<Condition *> condition);
 
     void add_variable_assignment(QString var, QString value);
     QMap<QString, QString>& get_variable_assignments();
@@ -33,7 +33,7 @@ public:
     void dump();
 
     QVector<Sentence*> sentences;
-    QVector<Condition*> conditions;
+    QVector<QVector<Condition*>> condition_groups;
 
 private:
     QString spell_name;
@@ -42,6 +42,8 @@ private:
     Spell* spell;
 
     std::function<bool()> spell_available;
+
+    bool condition_group_fulfilled(const int index) const;
 
 };
 
