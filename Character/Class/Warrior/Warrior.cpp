@@ -61,6 +61,8 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     cstats->get_stats()->set_melee_ap_per_agi(0);
     cstats->get_stats()->set_melee_ap_per_str(2);
     this->rage = 0;
+    this->stance = WarriorStances::Battle;
+    this->next_stance_cd = 0.0;
     this->roll->set_character(this);
     this->statistics = new WarriorStatistics();
 
@@ -199,12 +201,57 @@ float Warrior::global_cooldown() const {
     return 1.5;
 }
 
+float Warrior::stance_cooldown() const {
+    return 1.0;
+}
+
 int Warrior::get_resource_level() const {
     return get_curr_rage();
 }
 
 int Warrior::get_curr_rage() const {
     return this->rage;
+}
+
+bool Warrior::on_stance_cooldown() const {
+    return engine->get_current_priority() < this->next_stance_cd;
+}
+
+void Warrior::switch_stances() {
+    if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
+        this->next_gcd = engine->get_current_priority() + 0.5;
+        CooldownReady* new_event = new CooldownReady(this->get_rotation(), next_gcd);
+        engine->add_event(new_event);
+    }
+
+    this->next_stance_cd = engine->get_current_priority() + stance_cooldown();
+}
+
+void Warrior::switch_to_battle_stance() {
+    this->stance = WarriorStances::Battle;
+    switch_stances();
+}
+
+void Warrior::switch_to_berserker_stance() {
+    this->stance = WarriorStances::Berserker;
+    switch_stances();
+}
+
+void Warrior::switch_to_defensive_stance() {
+    this->stance = WarriorStances::Defensive;
+    switch_stances();
+}
+
+bool Warrior::in_battle_stance() const {
+    return this->stance == WarriorStances::Battle;
+}
+
+bool Warrior::in_berserker_stance() const {
+    return this->stance == WarriorStances::Berserker;
+}
+
+bool Warrior::in_defensive_stance() const {
+    return this->stance == WarriorStances::Defensive;
 }
 
 void Warrior::melee_mh_white_hit_effect() {

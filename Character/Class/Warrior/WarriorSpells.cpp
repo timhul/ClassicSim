@@ -7,6 +7,7 @@
 #include "OffhandMeleeHit.h"
 
 #include "BattleShout.h"
+#include "BattleStance.h"
 #include "BerserkerRage.h"
 #include "Bloodrage.h"
 #include "Bloodthirst.h"
@@ -32,6 +33,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     pchar(pchar)
 {
     this->battle_shout = new BattleShout(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->battle_stance = new BattleStance(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->berserker_rage = new BerserkerRage(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->bloodrage = new Bloodrage(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->bt = new Bloodthirst(pchar->get_engine(), pchar, pchar->get_combat_roll());
@@ -47,6 +49,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->oh_attack = new OffhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
 
     spells.append(battle_shout);
+    spells.append(battle_stance);
     spells.append(berserker_rage);
     spells.append(bloodrage);
     spells.append(bt);
@@ -122,6 +125,10 @@ MainhandAttack* WarriorSpells::get_mh_attack() const {
 
 OffhandAttack* WarriorSpells::get_oh_attack() const {
     return dynamic_cast<OffhandAttack*>(oh_attack);
+}
+
+BattleStance* WarriorSpells::get_battle_stance() const {
+    return this->battle_stance;
 }
 
 Bloodthirst* WarriorSpells::get_bloodthirst() const {

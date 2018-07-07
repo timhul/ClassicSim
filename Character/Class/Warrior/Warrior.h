@@ -11,6 +11,12 @@ class DeathWishBuff;
 class RecklessnessBuff;
 class WarriorSpells;
 
+namespace WarriorStances {
+    static const int Battle = 0;
+    static const int Defensive = 1;
+    static const int Berserker = 2;
+}
+
 class Warrior: public Character {
     Q_OBJECT
 public:
@@ -31,11 +37,19 @@ public:
     void set_clvl(const int) override;
 
     float global_cooldown() const override;
+    float stance_cooldown() const;
+    bool on_stance_cooldown() const;
     int get_resource_level() const override;
     int get_curr_rage() const;
     void gain_rage(const int);
     void lose_rage(const int);
     int rage_gained_from_dd(const int) const;
+    void switch_to_battle_stance();
+    void switch_to_berserker_stance();
+    void switch_to_defensive_stance();
+    bool in_battle_stance() const;
+    bool in_berserker_stance() const;
+    bool in_defensive_stance() const;
 
     Flurry* get_flurry() const;
     UnbridledWrath* get_unbridled_wrath() const;
@@ -56,10 +70,11 @@ public:
     void reset_resource() override;
     void reset_spells() override;
 
-
 protected:
 private:
     int rage;
+    int stance;
+    float next_stance_cd;
     double rage_conversion_value;
     Flurry* flurry;
     HeroicStrikeBuff* heroic_strike_buff;
@@ -70,6 +85,7 @@ private:
     WarriorSpells* warr_spells;
 
     void initialize_talents() override;
+    void switch_stances();
 };
 
 #endif // WARRIOR_H

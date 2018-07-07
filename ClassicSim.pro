@@ -189,7 +189,8 @@ SOURCES += main.cpp \
     CombatRoll/xorshift/xoroshiro128plus.cpp \
     CombatRoll/Random.cpp \
     Character/Class/Warrior/Buffs/RecklessnessBuff.cpp \
-    Test/Warrior/Spells/TestRecklessness.cpp
+    Test/Warrior/Spells/TestRecklessness.cpp \
+    Character/Class/Warrior/Spells/BattleStance.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -374,7 +375,8 @@ HEADERS += \
     Rotation/Conditions/ConditionVariableBuiltin.h \
     CombatRoll/xorshift/xoroshiro128plus.h \
     Character/Class/Warrior/Buffs/RecklessnessBuff.h \
-    Test/Warrior/Spells/TestRecklessness.h
+    Test/Warrior/Spells/TestRecklessness.h \
+    Character/Class/Warrior/Spells/BattleStance.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
