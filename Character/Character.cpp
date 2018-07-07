@@ -33,7 +33,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->statistics = nullptr;
     this->clvl = 1;
     this->melee_attacking = false;
-    this->last_action = 0 - this->global_cooldown();
+    this->next_gcd = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
 }
 
@@ -167,7 +167,7 @@ void Character::stop_attack(void) {
 
 void Character::start_global_cooldown() {
     assert(action_ready());
-    this->last_action = engine->get_current_priority();
+    this->next_gcd = engine->get_current_priority() + global_cooldown();
 }
 
 float Character::global_cooldown() const {
@@ -175,12 +175,12 @@ float Character::global_cooldown() const {
 }
 
 bool Character::on_global_cooldown() const {
-    return engine->get_current_priority() < (this->last_action + 1.5);
+    return engine->get_current_priority() < this->next_gcd;
 }
 
 bool Character::action_ready() const {
     // Allow some rounding errors (this could effectively speed up gcd by 1/10000ths of a second).
-    float delta = last_action + global_cooldown() - engine->get_current_priority();
+    float delta = next_gcd - engine->get_current_priority();
     return delta < 0.0001;
 }
 
@@ -397,7 +397,7 @@ int Character::get_resource_level() const {
 
 void Character::reset() {
     melee_attacking = false;
-    last_action = 0 - this->global_cooldown();
+    next_gcd = 0 - this->global_cooldown();
 
     active_buffs->reset();
     reset_spells();

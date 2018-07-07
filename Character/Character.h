@@ -147,7 +147,7 @@ protected:
 
     int clvl;
     bool melee_attacking;
-    float last_action;
+    float next_gcd;
 
 
     virtual void initialize_talents() = 0;
