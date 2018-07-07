@@ -30,13 +30,14 @@ public:
     QString get_description() const;
 
     void link_spells();
-    void link_conditionals(const int index);
+    void add_conditionals(const int index);
 
     void dump();
 
 protected:
     virtual Spell* get_spell_from_name(const QString& spell_name) const = 0;
     virtual Buff* get_buff_from_name(const QString& buff_name) const = 0;
+    int get_builtin_variable(const QString& var_name) const;
 
 private:
     Character* pchar;

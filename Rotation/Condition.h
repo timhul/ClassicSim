@@ -27,8 +27,8 @@ namespace LogicalConnectives {
 namespace ConditionTypes {
     static const int BuffCondition = 0;
     static const int SpellCondition = 1;
-    static const int VariableCondition = 2;
-    static const int ResourceCondition = 3;
+    static const int ResourceCondition = 2;
+    static const int VariableBuiltinCondition = 3;
     static const int VariableAssignment = 4;
 }
 
@@ -53,7 +53,7 @@ public:
 
 
 class Condition {
-  public:
+public:
     virtual ~Condition();
 
     virtual bool condition_fulfilled() const = 0;

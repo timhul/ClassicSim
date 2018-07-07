@@ -42,13 +42,13 @@ void Rotation::link_spells() {
         }
 
         cast_ifs[i]->set_spell(spell);
-        this->link_conditionals(i);
+        this->add_conditionals(i);
     }
 
     // TODO: Consider removing CastIfs with nullptr spells (see note above about continue).
 }
 
-void Rotation::link_conditionals(const int index) {
+void Rotation::add_conditionals(const int index) {
     CastIf* cast_if = cast_ifs[index];
 
     for (int i = 0; i < cast_if->sentences.size(); ++i) {
@@ -58,18 +58,26 @@ void Rotation::link_conditionals(const int index) {
         switch (sentence->condition_type) {
         case ConditionTypes::BuffCondition:
             condition = new ConditionBuff(get_buff_from_name(sentence->type_value),
-                                          sentence->compared_value_type,
+                                          sentence->mathematical_symbol,
                                           sentence->compared_value.toFloat());
             break;
         case ConditionTypes::SpellCondition:
             condition = new ConditionSpell(get_spell_from_name(sentence->type_value),
-                                           sentence->compared_value_type,
+                                           sentence->mathematical_symbol,
                                            sentence->compared_value.toFloat());
             break;
         case ConditionTypes::ResourceCondition:
             condition = new ConditionResource(this->pchar,
-                                              sentence->compared_value_type,
+                                              sentence->mathematical_symbol,
                                               sentence->compared_value.toFloat());
+            break;
+        case ConditionTypes::VariableBuiltinCondition:
+            if (get_builtin_variable(sentence->type_value) == BuiltinVariables::Undefined)
+                break;
+            condition = new ConditionVariableBuiltin(this->pchar,
+                                                     get_builtin_variable(sentence->type_value),
+                                                     sentence->mathematical_symbol,
+                                                     sentence->compared_value.toFloat());
             break;
         default:
             qDebug() << "condition type not supported:" << sentence->condition_type;
@@ -116,6 +124,17 @@ QString Rotation::get_name() const {
 
 QString Rotation::get_description() const {
     return this->description;
+}
+
+int Rotation::get_builtin_variable(const QString& var_name) const {
+    if (var_name == "target_health")
+        return BuiltinVariables::TargetHealth;
+    if (var_name == "time_remaining_encounter")
+        return BuiltinVariables::TimeRemainingEncounter;
+    if (var_name == "time_remaining_execute")
+        return BuiltinVariables::TimeRemainingExecute;
+
+    return BuiltinVariables::Undefined;
 }
 
 void Rotation::dump() {

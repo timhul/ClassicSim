@@ -209,7 +209,7 @@ bool RotationFileReader::add_type(Sentence* sentence, const QString& type_string
     QMap<QString, int> acceptable_types = {{"spell", ConditionTypes::SpellCondition},
                                            {"buff", ConditionTypes::BuffCondition},
                                            {"resource", ConditionTypes::ResourceCondition},
-                                           {"variable", ConditionTypes::VariableCondition}};
+                                           {"variable", ConditionTypes::VariableBuiltinCondition}};
 
     if (!acceptable_types.contains(type_string)) {
         qDebug() << "Expected type, got" << type_string;
