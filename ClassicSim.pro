@@ -185,7 +185,9 @@ SOURCES += main.cpp \
     Rotation/Conditions/ConditionResource.cpp \
     Rotation/VariableAssign.cpp \
     Rotation/Conditions/ConditionVariableAssign.cpp \
-    Rotation/Conditions/ConditionVariableBuiltin.cpp
+    Rotation/Conditions/ConditionVariableBuiltin.cpp \
+    CombatRoll/xorshift/xoroshiro128plus.cpp \
+    CombatRoll/Random.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -367,7 +369,8 @@ HEADERS += \
     Rotation/Conditions/ConditionResource.h \
     Rotation/VariableAssign.h \
     Rotation/Conditions/ConditionVariableAssign.h \
-    Rotation/Conditions/ConditionVariableBuiltin.h
+    Rotation/Conditions/ConditionVariableBuiltin.h \
+    CombatRoll/xorshift/xoroshiro128plus.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -399,6 +402,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Equipment\EquipmentDb \
     C:\C++\ClassicSim\CombatRoll \
     C:\C++\ClassicSim\CombatRoll\AttackTables \
+    C:\C++\ClassicSim\CombatRoll\xorshift \
     C:\C++\ClassicSim\Target \
     C:\C++\ClassicSim\Statistics \
     C:\C++\ClassicSim\Statistics\Charts \

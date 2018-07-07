@@ -1,34 +1,21 @@
 #ifndef RANDOM_H
 #define RANDOM_H
 
-#include <random>
-#include <ctime>
+#include "xoroshiro128plus.h"
+
 
 class Random {
 public:
-    Random(const int min_range, const int max_range) {
-        gen = new std::mt19937(std::time(0));
-        distr = new std::uniform_int_distribution<>(min_range, max_range);
-    }
+    Random(const int min_range, const int max_range);
+    ~Random();
 
-    ~Random() {
-        delete gen;
-        delete distr;
-    }
-
-    void set_gen_from_seed(std::string seed_str) {
-        std::seed_seq seed (seed_str.begin(), seed_str.end());
-        delete gen;
-        this->gen = new std::mt19937(seed);
-    }
-
-    int get_roll(void) {
-        return (*distr)((*gen));
-    }
+    void set_gen_from_seed(const unsigned long seed);
+    int get_roll(void);
 protected:
 private:
-    std::mt19937* gen;
-    std::uniform_int_distribution<>* distr;
+    uint64_t min_range;
+    uint64_t modulo;
+    xoroshiro128plus* xoroshiro;
 };
 
 #endif // RANDOM_H
