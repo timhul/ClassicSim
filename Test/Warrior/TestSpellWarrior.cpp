@@ -5,6 +5,7 @@
 #include "TacticalMastery.h"
 #include "OverpowerBuff.h"
 #include "Warrior.h"
+#include <QDebug>
 
 TestSpellWarrior::TestSpellWarrior(QString spell_under_test) :
     TestSpell(spell_under_test)
@@ -91,6 +92,8 @@ void TestSpellWarrior::given_warrior_has_rage(const int rage) {
 }
 
 void TestSpellWarrior::then_warrior_has_rage(const int rage) {
+    if (rage != warrior->get_curr_rage())
+        qDebug() << spell_under_test << "expected" << rage << "rage but has" << warrior->get_curr_rage();
     assert(warrior->get_curr_rage() == rage);
 }
 
