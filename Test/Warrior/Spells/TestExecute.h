@@ -47,6 +47,8 @@ public:
     void test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
     void test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
 
+    void test_dodge_applies_overpower_buff();
+
     // TODO: When Target mechanism is properly implemented, add test that Execute only available in Execute range.
 
     void given_0_of_2_improved_execute();

@@ -5,6 +5,7 @@
 #include "CooldownReady.h"
 #include "Flurry.h"
 #include "DeepWounds.h"
+#include "OverpowerBuff.h"
 
 Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Bloodthirst", engine, pchar, roll, true, 6.0, 30)
@@ -24,9 +25,9 @@ void Bloodthirst::spell_effect() {
         pchar->lose_rage(resource_cost);
         return;
     }
-    // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
+        pchar->get_overpower_buff()->apply_buff();
         pchar->lose_rage(round(resource_cost * 0.25));
         return;
     }

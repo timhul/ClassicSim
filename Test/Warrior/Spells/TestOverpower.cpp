@@ -3,6 +3,7 @@
 #include "Overpower.h"
 #include "Queue.h"
 #include "Equipment.h"
+#include "OverpowerBuff.h"
 
 TestOverpower::TestOverpower() :
     TestSpellWarrior("Overpower")
@@ -39,6 +40,18 @@ void TestOverpower::test_all() {
 
     set_up();
     test_crit_dmg_2_of_2_impale();
+    tear_down();
+
+    set_up();
+    test_overpower_hit_removes_buff();
+    tear_down();
+
+    set_up();
+    test_overpower_crit_removes_buff();
+    tear_down();
+
+    set_up();
+    test_overpower_miss_removes_buff();
     tear_down();
 }
 
@@ -131,6 +144,41 @@ void TestOverpower::test_crit_dmg_2_of_2_impale() {
     then_damage_dealt_is(674);
 }
 
+void TestOverpower::test_overpower_hit_removes_buff() {
+    given_a_guaranteed_melee_ability_hit();
+
+    when_overpower_buff_is_applied();
+    when_overpower_is_performed();
+
+    then_overpower_is_inactive();
+}
+
+void TestOverpower::test_overpower_crit_removes_buff() {
+    given_a_guaranteed_melee_ability_crit();
+
+    when_overpower_buff_is_applied();
+    when_overpower_is_performed();
+
+    then_overpower_is_inactive();
+}
+
+void TestOverpower::test_overpower_miss_removes_buff() {
+    given_a_guaranteed_melee_ability_miss();
+
+    when_overpower_buff_is_applied();
+    when_overpower_is_performed();
+
+    then_overpower_is_inactive();
+}
+
 void TestOverpower::when_overpower_is_performed() {
     overpower()->perform();
+}
+
+void TestOverpower::when_overpower_buff_is_applied() {
+    warrior->get_overpower_buff()->apply_buff();
+}
+
+void TestOverpower::then_overpower_is_inactive() {
+    assert(warrior->get_overpower_buff()->is_active() == false);
 }

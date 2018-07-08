@@ -114,6 +114,10 @@ void TestExecute::test_all() {
     set_up();
     test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
     tear_down();
+
+    set_up();
+    test_dodge_applies_overpower_buff();
+    tear_down();
 }
 
 Execute* TestExecute::execute() {
@@ -451,6 +455,14 @@ void TestExecute::given_2_of_2_improved_execute() {
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
+}
+
+void TestExecute::test_dodge_applies_overpower_buff() {
+    given_a_guaranteed_melee_ability_dodge();
+
+    when_execute_is_performed_with_rage(100);
+
+    then_overpower_is_active();
 }
 
 void TestExecute::given_target_in_execute_range() {

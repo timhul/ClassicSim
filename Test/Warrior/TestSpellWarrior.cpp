@@ -3,6 +3,7 @@
 
 #include "Impale.h"
 #include "TacticalMastery.h"
+#include "OverpowerBuff.h"
 #include "Warrior.h"
 
 TestSpellWarrior::TestSpellWarrior(QString spell_under_test) :
@@ -91,4 +92,8 @@ void TestSpellWarrior::given_warrior_has_rage(const int rage) {
 
 void TestSpellWarrior::then_warrior_has_rage(const int rage) {
     assert(warrior->get_curr_rage() == rage);
+}
+
+void TestSpellWarrior::then_overpower_is_active() {
+    assert(warrior->get_overpower_buff()->is_active());
 }

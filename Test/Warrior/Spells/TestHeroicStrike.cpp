@@ -50,6 +50,10 @@ void TestHeroicStrike::test_all() {
     set_up();
     test_crit_dmg_2_of_2_impale();
     tear_down();
+
+    set_up();
+    test_dodge_applies_overpower_buff();
+    tear_down();
 }
 
 HeroicStrike* TestHeroicStrike::heroic_strike() {
@@ -158,6 +162,14 @@ void TestHeroicStrike::test_crit_dmg_2_of_2_impale() {
     // [Damage] = (base_dmg + (wpn_speed * AP / 14) + hs_flat_dmg) * crit_dmg_modifier
     // [974] = (100 + (2.6 * 1000 / 14) + 157) * 2.2
     then_damage_dealt_is(974);
+}
+
+void TestHeroicStrike::test_dodge_applies_overpower_buff() {
+    given_a_guaranteed_melee_ability_dodge();
+
+    when_heroic_strike_is_performed();
+
+    then_overpower_is_active();
 }
 
 void TestHeroicStrike::given_0_of_3_improved_hs() {

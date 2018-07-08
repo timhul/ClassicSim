@@ -24,6 +24,7 @@
 #include "DeathWishBuff.h"
 #include "Flurry.h"
 #include "HeroicStrikeBuff.h"
+#include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 
 WarriorRotation::WarriorRotation(Warrior* pchar, QObject* parent) :
@@ -80,6 +81,8 @@ Buff* WarriorRotation::get_buff_from_name(const QString &buff_name) const {
         buff = pchar->get_hs_buff();
     else if (buff_name == "Death Wish")
         buff = pchar->get_death_wish_buff();
+    else if (buff_name == "Overpower")
+        buff = pchar->get_overpower_buff();
     else if (buff_name == "Recklessness")
         buff = pchar->get_recklessness_buff();
 

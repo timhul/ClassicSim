@@ -2,6 +2,7 @@
 #include "MainhandAttackWarrior.h"
 #include "Warrior.h"
 #include "DeepWounds.h"
+#include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -29,9 +30,9 @@ void MainhandAttackWarrior::calculate_damage() {
         increment_miss();
         return;
     }
-    // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
+        pchar->get_overpower_buff()->apply_buff();
         pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
         return;
     }

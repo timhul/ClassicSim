@@ -39,6 +39,10 @@ void TestBloodthirst::test_all() {
     set_up();
     test_crit_dmg_2_of_2_impale();
     tear_down();
+
+    set_up();
+    test_dodge_applies_overpower_buff();
+    tear_down();
 }
 
 Bloodthirst* TestBloodthirst::bloodthirst() {
@@ -124,6 +128,14 @@ void TestBloodthirst::test_crit_dmg_2_of_2_impale() {
     // [Damage] = melee_ap * 0.45 * crit_dmg_modifier
     // [990] = 1000 * 0.45 * 2.2
     then_damage_dealt_is(990);
+}
+
+void TestBloodthirst::test_dodge_applies_overpower_buff() {
+    given_a_guaranteed_melee_ability_dodge();
+
+    when_bloodthirst_is_performed();
+
+    then_overpower_is_active();
 }
 
 void TestBloodthirst::when_bloodthirst_is_performed() {

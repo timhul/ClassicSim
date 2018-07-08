@@ -24,6 +24,7 @@ public:
     void given_warrior_has_rage(const int);
 
     void then_warrior_has_rage(const int);
+    void then_overpower_is_active();
 
 protected:
     Warrior* warrior;

@@ -55,6 +55,10 @@ void TestMainhandAttackWarrior::test_all() {
     set_up();
     test_mid_swing_haste_decrease_updates_attack_speed();
     tear_down();
+
+    set_up();
+    test_dodge_applies_overpower_buff();
+    tear_down();
 }
 
 MainhandAttackWarrior* TestMainhandAttackWarrior::mh_attack() {
@@ -203,6 +207,14 @@ void TestMainhandAttackWarrior::test_mid_swing_haste_decrease_updates_attack_spe
     when_decreasing_attack_speed(100);
 
     then_next_expected_use_is(2.0);
+}
+
+void TestMainhandAttackWarrior::test_dodge_applies_overpower_buff() {
+    given_a_guaranteed_white_dodge();
+
+    when_mh_attack_is_performed();
+
+    then_overpower_is_active();
 }
 
 void TestMainhandAttackWarrior::when_mh_attack_is_performed() {

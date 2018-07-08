@@ -96,6 +96,10 @@ void TestOffhandAttackWarrior::test_all() {
     set_up();
     test_mid_swing_haste_decrease_updates_attack_speed();
     tear_down();
+
+    set_up();
+    test_dodge_applies_overpower_buff();
+    tear_down();
 }
 
 OffhandAttackWarrior* TestOffhandAttackWarrior::oh_attack() {
@@ -397,6 +401,14 @@ void TestOffhandAttackWarrior::test_mid_swing_haste_decrease_updates_attack_spee
     when_decreasing_attack_speed(100);
 
     then_next_expected_use_is(2.0);
+}
+
+void TestOffhandAttackWarrior::test_dodge_applies_overpower_buff() {
+    given_a_guaranteed_white_dodge();
+
+    when_oh_attack_is_performed();
+
+    then_overpower_is_active();
 }
 
 void TestOffhandAttackWarrior::given_0_of_5_dual_wield_specialization() {

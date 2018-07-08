@@ -9,6 +9,7 @@ class BerserkerStanceBuff;
 class HeroicStrikeBuff;
 class BattleShoutBuff;
 class DeathWishBuff;
+class OverpowerBuff;
 class RecklessnessBuff;
 class WarriorSpells;
 
@@ -61,6 +62,7 @@ public:
     HeroicStrikeBuff* get_hs_buff() const;
     BattleShoutBuff* get_battle_shout_buff() const;
     DeathWishBuff* get_death_wish_buff() const;
+    OverpowerBuff* get_overpower_buff() const;
     RecklessnessBuff* get_recklessness_buff() const;
 
     void melee_mh_white_hit_effect() override;
@@ -88,6 +90,7 @@ private:
     UnbridledWrath* unbridled_wrath;
     DeathWishBuff* death_wish_buff;
     BattleShoutBuff* battle_shout_buff;
+    OverpowerBuff* overpower_buff;
     RecklessnessBuff* recklessness_buff;
     WarriorSpells* warr_spells;
 

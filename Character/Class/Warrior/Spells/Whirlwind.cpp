@@ -4,6 +4,7 @@
 #include "Warrior.h"
 #include "Flurry.h"
 #include "DeepWounds.h"
+#include "OverpowerBuff.h"
 
 Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Whirlwind", engine, pchar, roll, true, 10.0, 25)
@@ -26,9 +27,9 @@ void Whirlwind::spell_effect() {
         pchar->lose_rage(resource_cost);
         return;
     }
-    // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
+        pchar->get_overpower_buff()->apply_buff();
         pchar->lose_rage(round(resource_cost * 0.25));
         return;
     }

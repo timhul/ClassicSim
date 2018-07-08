@@ -1,21 +1,24 @@
 
 #include "Overpower.h"
 #include "Warrior.h"
-#include "CooldownReady.h"
-#include "Flurry.h"
-#include "DeepWounds.h"
+#include "OverpowerBuff.h"
 
 Overpower::Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Overpower", engine, pchar, roll, true, 5.0, 5)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    talent_ranks = {0.0, 0.25, 0.5};
+    this->talent_ranks = {0.0, 0.25, 0.5};
+}
+
+bool Overpower::is_ready_spell_specific() const {
+    return pchar->in_battle_stance() && pchar->get_overpower_buff()->is_active();
 }
 
 void Overpower::spell_effect() {
-    // TODO: Use special hit table where dodge and parry are not possible.
+    // TODO: Use special hit table where dodge/parry/block are not possible.
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(), talent_ranks[rank_talent]);
 
+    pchar->get_overpower_buff()->cancel_buff();
     add_gcd_event();
     add_spell_cd_event();
 

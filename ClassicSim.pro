@@ -193,7 +193,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/BattleStance.cpp \
     Character/Class/Warrior/Spells/BerserkerStance.cpp \
     Character/Class/Warrior/Buffs/BerserkerStanceBuff.cpp \
-    Test/Warrior/Spells/TestBerserkerStance.cpp
+    Test/Warrior/Spells/TestBerserkerStance.cpp \
+    Character/Class/Warrior/Buffs/OverpowerBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -382,7 +383,8 @@ HEADERS += \
     Character/Class/Warrior/Spells/BattleStance.h \
     Character/Class/Warrior/Spells/BerserkerStance.h \
     Character/Class/Warrior/Buffs/BerserkerStanceBuff.h \
-    Test/Warrior/Spells/TestBerserkerStance.h
+    Test/Warrior/Spells/TestBerserkerStance.h \
+    Character/Class/Warrior/Buffs/OverpowerBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

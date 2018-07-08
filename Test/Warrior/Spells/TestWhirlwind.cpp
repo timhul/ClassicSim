@@ -40,6 +40,10 @@ void TestWhirlwind::test_all() {
     set_up();
     test_crit_dmg_2_of_2_impale();
     tear_down();
+
+    set_up();
+    test_dodge_applies_overpower_buff();
+    tear_down();
 }
 
 Whirlwind* TestWhirlwind::whirlwind() {
@@ -129,6 +133,14 @@ void TestWhirlwind::test_crit_dmg_2_of_2_impale() {
     // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) * crit_dmg_modifier
     // [597] = (100 + (2.4 * 1000 / 14)) * 2.2
     then_damage_dealt_is(597);
+}
+
+void TestWhirlwind::test_dodge_applies_overpower_buff() {
+    given_a_guaranteed_melee_ability_dodge();
+
+    when_whirlwind_is_performed();
+
+    then_overpower_is_active();
 }
 
 void TestWhirlwind::when_whirlwind_is_performed() {

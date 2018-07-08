@@ -30,6 +30,7 @@
 #include "UnbridledWrath.h"
 #include "DeathWishBuff.h"
 #include "BattleShoutBuff.h"
+#include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 
 Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction *faction, QObject* parent) :
@@ -76,10 +77,12 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
+    this->overpower_buff = new OverpowerBuff(this);
     this->recklessness_buff = new RecklessnessBuff(this);
     berserker_stance_buff->enable_buff();
     heroic_strike_buff->enable_buff();
     battle_shout_buff->enable_buff();
+    overpower_buff->enable_buff();
     recklessness_buff->enable_buff();
 
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
@@ -109,6 +112,7 @@ Warrior::~Warrior() {
     delete death_wish_buff;
     delete flurry;
     delete heroic_strike_buff;
+    delete overpower_buff;
     delete recklessness_buff;
 }
 
@@ -193,12 +197,19 @@ BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {
 HeroicStrikeBuff* Warrior::get_hs_buff() const {
     return this->heroic_strike_buff;
 }
+
 UnbridledWrath* Warrior::get_unbridled_wrath() const {
     return this->unbridled_wrath;
 }
+
 DeathWishBuff* Warrior::get_death_wish_buff() const {
     return this->death_wish_buff;
 }
+
+OverpowerBuff* Warrior::get_overpower_buff() const {
+    return this->overpower_buff;
+}
+
 BattleShoutBuff* Warrior::get_battle_shout_buff() const {
     return this->battle_shout_buff;
 }

@@ -6,6 +6,7 @@
 #include "DeepWounds.h"
 #include "HeroicStrikeBuff.h"
 #include "MainhandAttackWarrior.h"
+#include "OverpowerBuff.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Heroic Strike", engine, pchar, roll, false, 0, 15)
@@ -31,9 +32,9 @@ void HeroicStrike::calculate_damage() {
         pchar->lose_rage(resource_cost);
         return;
     }
-    // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
+        pchar->get_overpower_buff()->apply_buff();
         pchar->lose_rage(round(resource_cost * 0.25));
         return;
     }
