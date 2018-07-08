@@ -63,6 +63,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     cstats->get_stats()->set_melee_ap_per_str(2);
     this->rage = 0;
     this->stance = WarriorStances::Battle;
+    this->stance_rage_remainder = 0;
     this->next_stance_cd = 0.0;
     this->roll->set_character(this);
     this->statistics = new WarriorStatistics();
@@ -222,6 +223,20 @@ int Warrior::get_curr_rage() const {
     return this->rage;
 }
 
+void Warrior::increase_stance_rage_remainder() {
+    this->stance_rage_remainder += 5;
+    assert(stance_rage_remainder <= 25);
+}
+
+void Warrior::decrease_stance_rage_remainder() {
+    this->stance_rage_remainder -= 5;
+    assert(stance_rage_remainder >= 0);
+}
+
+int Warrior::get_stance_remainder() const {
+    return this->stance_rage_remainder;
+}
+
 bool Warrior::on_stance_cooldown() const {
     return engine->get_current_priority() < this->next_stance_cd;
 }
@@ -232,6 +247,9 @@ void Warrior::new_stance_effect() {
         berserker_stance_buff->apply_buff();
         break;
     }
+
+    if (rage > stance_rage_remainder)
+        rage = stance_rage_remainder;
 
     if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
         this->next_gcd = engine->get_current_priority() + 0.5;

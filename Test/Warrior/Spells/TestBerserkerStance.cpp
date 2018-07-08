@@ -41,6 +41,34 @@ void TestBerserkerStance::test_all() {
     set_up();
     test_removes_crit_when_stance_exited();
     tear_down();
+
+    set_up();
+    test_0_rage_remains_after_stance_switch_with_0_of_5_tactical_mastery();
+    tear_down();
+
+    set_up();
+    test_5_rage_remains_after_stance_switch_with_1_of_5_tactical_mastery();
+    tear_down();
+
+    set_up();
+    test_10_rage_remains_after_stance_switch_with_2_of_5_tactical_mastery();
+    tear_down();
+
+    set_up();
+    test_15_rage_remains_after_stance_switch_with_3_of_5_tactical_mastery();
+    tear_down();
+
+    set_up();
+    test_20_rage_remains_after_stance_switch_with_4_of_5_tactical_mastery();
+    tear_down();
+
+    set_up();
+    test_25_rage_remains_after_stance_switch_with_5_of_5_tactical_mastery();
+    tear_down();
+
+    set_up();
+    test_rage_is_not_increased_by_switching_stances_with_5_of_5_tactical_mastery();
+    tear_down();
 }
 
 BerserkerStance* TestBerserkerStance::berserker_stance() {
@@ -122,6 +150,69 @@ void TestBerserkerStance::test_removes_crit_when_stance_exited() {
     dynamic_cast<Warrior*>(pchar)->switch_to_battle_stance();
 
     assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "0.000");
+}
+
+void TestBerserkerStance::test_0_rage_remains_after_stance_switch_with_0_of_5_tactical_mastery() {
+    given_0_of_5_tactical_mastery();
+    given_warrior_has_rage(100);
+
+    when_berserker_stance_is_performed();
+
+    then_warrior_has_rage(0);
+}
+
+void TestBerserkerStance::test_5_rage_remains_after_stance_switch_with_1_of_5_tactical_mastery() {
+    given_1_of_5_tactical_mastery();
+    given_warrior_has_rage(100);
+
+    when_berserker_stance_is_performed();
+
+    then_warrior_has_rage(5);
+}
+
+void TestBerserkerStance::test_10_rage_remains_after_stance_switch_with_2_of_5_tactical_mastery() {
+    given_2_of_5_tactical_mastery();
+    given_warrior_has_rage(100);
+
+    when_berserker_stance_is_performed();
+
+    then_warrior_has_rage(10);
+}
+
+void TestBerserkerStance::test_15_rage_remains_after_stance_switch_with_3_of_5_tactical_mastery() {
+    given_3_of_5_tactical_mastery();
+    given_warrior_has_rage(100);
+
+    when_berserker_stance_is_performed();
+
+    then_warrior_has_rage(15);
+}
+
+void TestBerserkerStance::test_20_rage_remains_after_stance_switch_with_4_of_5_tactical_mastery() {
+    given_4_of_5_tactical_mastery();
+    given_warrior_has_rage(100);
+
+    when_berserker_stance_is_performed();
+
+    then_warrior_has_rage(20);
+}
+
+void TestBerserkerStance::test_25_rage_remains_after_stance_switch_with_5_of_5_tactical_mastery() {
+    given_5_of_5_tactical_mastery();
+    given_warrior_has_rage(100);
+
+    when_berserker_stance_is_performed();
+
+    then_warrior_has_rage(25);
+}
+
+void TestBerserkerStance::test_rage_is_not_increased_by_switching_stances_with_5_of_5_tactical_mastery() {
+    given_5_of_5_tactical_mastery();
+    given_warrior_has_rage(0);
+
+    when_berserker_stance_is_performed();
+
+    then_warrior_has_rage(0);
 }
 
 void TestBerserkerStance::given_warrior_in_battle_stance() {

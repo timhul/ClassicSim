@@ -19,6 +19,13 @@ public:
     void test_costs_0_rage();
     void test_gives_crit_when_stance_entered();
     void test_removes_crit_when_stance_exited();
+    void test_0_rage_remains_after_stance_switch_with_0_of_5_tactical_mastery();
+    void test_5_rage_remains_after_stance_switch_with_1_of_5_tactical_mastery();
+    void test_10_rage_remains_after_stance_switch_with_2_of_5_tactical_mastery();
+    void test_15_rage_remains_after_stance_switch_with_3_of_5_tactical_mastery();
+    void test_20_rage_remains_after_stance_switch_with_4_of_5_tactical_mastery();
+    void test_25_rage_remains_after_stance_switch_with_5_of_5_tactical_mastery();
+    void test_rage_is_not_increased_by_switching_stances_with_5_of_5_tactical_mastery();
 
     void given_warrior_in_battle_stance();
     void when_berserker_stance_is_performed();

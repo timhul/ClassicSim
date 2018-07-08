@@ -4,6 +4,7 @@
 #include "Talent.h"
 
 class TalentTree;
+class Warrior;
 
 class TacticalMastery: public Talent {
     Q_OBJECT
@@ -15,6 +16,7 @@ public:
     virtual void remove_rank_effect() override;
 
 private:
+    Warrior* pchar;
 };
 
 #endif // TACTICALMASTERY_H

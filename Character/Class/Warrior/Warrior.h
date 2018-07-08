@@ -40,6 +40,9 @@ public:
     float global_cooldown() const override;
     float stance_cooldown() const;
     bool on_stance_cooldown() const;
+    void increase_stance_rage_remainder();
+    void decrease_stance_rage_remainder();
+    int get_stance_remainder() const;
     int get_resource_level() const override;
     int get_curr_rage() const;
     void gain_rage(const int);
@@ -76,6 +79,7 @@ protected:
 private:
     int rage;
     int stance;
+    int stance_rage_remainder;
     float next_stance_cd;
     double rage_conversion_value;
     Flurry* flurry;
