@@ -33,12 +33,17 @@ int CombatRoll::get_melee_hit_result(const int wpn_skill, const float crit_mod) 
     return attack_table->get_outcome(roll, crit_mod);
 }
 
-int CombatRoll::get_melee_ability_result(const int wpn_skill, const float crit_mod) {
+int CombatRoll::get_melee_ability_result(const int wpn_skill,
+                                         const float crit_mod,
+                                         const bool include_dodge,
+                                         const bool include_parry,
+                                         const bool include_block,
+                                         const bool include_miss) {
     const int roll = random->get_roll();
 
     MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill);
 
-    return attack_table->get_outcome(roll, crit_mod);
+    return attack_table->get_outcome(roll, crit_mod, include_dodge, include_parry, include_block, include_miss);
 }
 
 int CombatRoll::get_ranged_hit_result(const int) {
@@ -85,6 +90,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
         miss_chance = 0;
 
     WhiteHitTable* table = new WhiteHitTable(
+                this->random,
                 wpn_skill,
                 miss_chance,
                 mechanics->get_dodge_chance(wpn_skill),

@@ -1,9 +1,11 @@
 
 #include "WhiteHitTable.h"
+#include "Random.h"
 #include <QDebug>
 
-WhiteHitTable::WhiteHitTable(const int wpn_skill, const float miss, const float dodge, const float parry,
+WhiteHitTable::WhiteHitTable(Random *random, const int wpn_skill, const float miss, const float dodge, const float parry,
                              const float glancing, const float block,  const float critical) :
+    random(random),
     wpn_skill(wpn_skill),
     miss(miss),
     dodge(dodge),
@@ -20,36 +22,57 @@ int WhiteHitTable::get_wpn_skill() {
 }
 
 void WhiteHitTable::update_ranges() {
-    assert(miss >= 0);
-    assert(dodge >= 0);
-    assert(parry >= 0);
-    assert(glancing >= 0);
-    assert(block >= 0);
-    assert(critical >= 0);
+    assert(int(round(miss * 10000)) >= 0);
+    assert(int(round(dodge * 10000)) >= 0);
+    assert(int(round(parry * 10000)) >= 0);
+    assert(int(round(block * 10000)) >= 0);
+    assert(int(round(glancing * 10000)) >= 0);
+    assert(int(round(critical * 10000)) >= 0);
 
     this->miss_range = int(round(miss * 10000));
-    this->dodge_range = int(round(dodge * 10000)) + miss_range;
-    this->parry_range = int(round(parry * 10000)) + dodge_range;
-    this->glancing_range = int(round(glancing * 10000)) + parry_range;
-    this->block_range = int(round(block * 10000)) + glancing_range;
-    this->critical_range = int(round(critical * 10000)) + block_range;
+    this->dodge_range = int(round(dodge * 10000));
+    this->parry_range = int(round(parry * 10000));
+    this->glancing_range = int(round(glancing * 10000));
+    this->block_range = int(round(block * 10000));
+    this->critical_range = int(round(critical * 10000));
 }
 
-int WhiteHitTable::get_outcome(const int roll, const float crit_mod) {
+int WhiteHitTable::get_outcome(const int roll,
+                               const float crit_mod,
+                               const bool include_dodge,
+                               const bool include_parry,
+                               const bool include_block,
+                               const bool include_miss) {
     assert(roll >= 0 && roll < 10000);
 
-    if (roll < this->miss_range)
+    int range = 0;
+
+    if (include_miss && roll < this->miss_range)
         return AttackResult::MISS;
-    if (roll < this->dodge_range)
+    range += include_miss ? miss_range : 0;
+
+    if (include_dodge && roll < (range + this->dodge_range))
         return AttackResult::DODGE;
-    if (roll < this->parry_range)
+    range += include_dodge ? dodge_range : 0;
+
+    if (include_parry && roll < (range + this->parry_range))
         return AttackResult::PARRY;
-    if (roll < this->glancing_range)
+    range += include_parry ? parry_range : 0;
+
+    if (roll < (range + this->glancing_range))
         return AttackResult::GLANCING;
-    if (roll < this->block_range)
+    range += glancing_range;
+
+    if (include_block && roll < (range + this->block_range)) {
+        if (random->get_roll() < range + this->critical_range + int(round(crit_mod * 10000)))
+            return AttackResult::BLOCK_CRITICAL;
         return AttackResult::BLOCK;
-    if (roll < this->critical_range + int(round(crit_mod * 10000)))
+    }
+    range += include_block ? block_range : 0;
+
+    if (roll < (range + this->critical_range + int(round(crit_mod * 10000))))
         return AttackResult::CRITICAL;
+
     return AttackResult::HIT;
 }
 

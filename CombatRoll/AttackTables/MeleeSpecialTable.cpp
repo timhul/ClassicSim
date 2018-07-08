@@ -3,8 +3,8 @@
 #include <QDebug>
 
 MeleeSpecialTable::MeleeSpecialTable(Random* _rand, const int wpn_skill,
-        const float miss, const float dodge, const float parry,
-        const float block, const float critical):
+                                     const float miss, const float dodge, const float parry,
+                                     const float block, const float critical):
     random(_rand),
     wpn_skill(wpn_skill),
     miss(miss),
@@ -24,9 +24,9 @@ void MeleeSpecialTable::update_ranges() {
     assert(int(round(critical * 10000)) >= 0);
 
     this->miss_range = int(round(miss * 10000));
-    this->dodge_range = int(round(dodge * 10000)) + miss_range;
-    this->parry_range = int(round(parry * 10000)) + dodge_range;
-    this->block_range = int(round(block * 10000)) + parry_range;
+    this->dodge_range = int(round(dodge * 10000));
+    this->parry_range = int(round(parry * 10000));
+    this->block_range = int(round(block * 10000));
 
     // Separate roll.
     this->critical_range = int(round(critical * 10000));
@@ -39,22 +39,38 @@ int MeleeSpecialTable::get_wpn_skill() {
     return wpn_skill;
 }
 
-int MeleeSpecialTable::get_outcome(const int roll, const float crit_mod) {
+int MeleeSpecialTable::get_outcome(const int roll,
+                                   const float crit_mod,
+                                   const bool include_dodge,
+                                   const bool include_parry,
+                                   const bool include_block,
+                                   const bool include_miss) {
     assert(roll >= 0 && roll < 10000);
 
-    if (roll < this->miss_range)
+    int range = 0;
+
+    if (include_miss && roll < this->miss_range)
         return AttackResult::MISS;
-    if (roll < this->dodge_range)
+    range += include_miss ? miss_range : 0;
+
+    if (include_dodge && roll < (range + this->dodge_range))
         return AttackResult::DODGE;
-    if (roll < this->parry_range)
+    range += include_dodge ? dodge_range : 0;
+
+    if (include_parry && roll < (range + this->parry_range))
         return AttackResult::PARRY;
-    if (roll < this->block_range) {
+    range += include_parry ? parry_range : 0;
+
+    if (include_block && roll < (range + this->block_range)) {
         if (random->get_roll() < this->critical_range + int(round(crit_mod * 10000)))
             return AttackResult::BLOCK_CRITICAL;
         return AttackResult::BLOCK;
     }
+    range += include_block ? block_range : 0;
+
     if (random->get_roll() < this->critical_range + int(round(crit_mod * 10000)))
         return AttackResult::CRITICAL;
+
     return AttackResult::HIT;
 }
 

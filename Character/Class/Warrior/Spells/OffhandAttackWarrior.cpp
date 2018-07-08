@@ -42,7 +42,7 @@ void OffhandAttackWarrior::calculate_damage() {
         pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
         return;
     }
-    if (result == AttackResult::BLOCK) {
+    if (result == AttackResult::BLOCK || result == AttackResult::BLOCK_CRITICAL) {
         increment_full_block();
         pchar->gain_rage(pchar->rage_gained_from_dd(pchar->get_avg_mh_damage()));
         return;

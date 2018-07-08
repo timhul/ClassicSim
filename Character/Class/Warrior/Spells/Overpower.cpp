@@ -15,12 +15,17 @@ bool Overpower::is_ready_spell_specific() const {
 }
 
 void Overpower::spell_effect() {
-    // TODO: Use special hit table where dodge/parry/block are not possible.
-    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(), talent_ranks[rank_talent]);
+    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(),
+                                                      talent_ranks[rank_talent],
+                                                      false,
+                                                      false,
+                                                      false,
+                                                      true);
 
     pchar->get_overpower_buff()->cancel_buff();
     add_gcd_event();
     add_spell_cd_event();
+    pchar->lose_rage(resource_cost);
 
     if (result == AttackResult::MISS) {
         increment_miss();
@@ -39,6 +44,4 @@ void Overpower::spell_effect() {
         pchar->melee_mh_yellow_hit_effect();
         add_hit_dmg(round(damage_dealt));
     }
-
-    pchar->lose_rage(resource_cost);
 }

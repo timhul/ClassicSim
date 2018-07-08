@@ -3,12 +3,18 @@
 
 #include "AttackTable.h"
 
+class Random;
+
 class WhiteHitTable: public AttackTable {
 public:
-    WhiteHitTable(const int wpn_skill, const float miss, const float dodge, const float parry,
+    WhiteHitTable(Random* random, const int wpn_skill, const float miss, const float dodge, const float parry,
                   const float glancing, const float block,  const float critical);
 
-    int get_outcome(const int, const float crit_mod) override;
+    int get_outcome(const int, const float crit_mod,
+                    const bool include_dodge = true,
+                    const bool include_parry = true,
+                    const bool include_block = true,
+                    const bool include_miss = true) override;
     void dump_table(void) override;
     void update_crit_chance(const float critical) override;
     void update_miss_chance(const float miss) override;
@@ -23,6 +29,7 @@ public:
 
 protected:
 private:
+    Random* random;
     const int wpn_skill;
 
     float miss;

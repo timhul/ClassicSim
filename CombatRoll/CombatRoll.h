@@ -19,7 +19,12 @@ public:
     ~CombatRoll();
 
     int get_melee_hit_result(const int, const float = 0.0);
-    int get_melee_ability_result(const int, const float = 0.0);
+    int get_melee_ability_result(const int,
+                                 const float = 0.0,
+                                 const bool include_dodge = true,
+                                 const bool include_parry = true,
+                                 const bool include_block = true,
+                                 const bool include_miss = true);
     int get_ranged_hit_result(const int);
     int get_ranged_ability_result(const int);
     int get_spell_ability_result(void);

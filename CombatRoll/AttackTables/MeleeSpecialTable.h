@@ -11,7 +11,12 @@ public:
                       const float miss, const float dodge, const float parry,
                       const float block, const float critical);
 
-    int get_outcome(const int, const float crit_mod) override;
+    int get_outcome(const int,
+                    const float crit_mod,
+                    const bool include_dodge = true,
+                    const bool include_parry = true,
+                    const bool include_block = true,
+                    const bool include_miss = true) override;
     void dump_table(void) override;
     void update_crit_chance(const float critical) override;
     void update_miss_chance(const float miss) override;

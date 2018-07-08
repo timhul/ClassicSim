@@ -246,22 +246,24 @@ void Test::test_mechanics_dw_white_miss(void) {
 }
 
 void Test::test_white_hit_table(void) {
-   WhiteHitTable* table = new WhiteHitTable(300, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-   assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
-   assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
-   delete table;
+    Random* random = new Random(0, 9999);
+    WhiteHitTable* table = new WhiteHitTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+    assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
+    delete table;
 
-   table = new WhiteHitTable(300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
-   assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
-   assert(table->get_outcome(1, 0.0) == AttackResult::DODGE);
-   assert(table->get_outcome(2, 0.0) == AttackResult::PARRY);
-   assert(table->get_outcome(3, 0.0) == AttackResult::GLANCING);
-   assert(table->get_outcome(4, 0.0) == AttackResult::BLOCK);
-   assert(table->get_outcome(5, 0.0) == AttackResult::CRITICAL);
-   assert(table->get_outcome(6, 0.0) == AttackResult::HIT);
-   assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
-   assert(table->get_outcome(6, 1.0) == AttackResult::CRITICAL);
-   delete table;
+    table = new WhiteHitTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
+    assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
+    assert(table->get_outcome(1, 0.0) == AttackResult::DODGE);
+    assert(table->get_outcome(2, 0.0) == AttackResult::PARRY);
+    assert(table->get_outcome(3, 0.0) == AttackResult::GLANCING);
+    assert(table->get_outcome(4, 0.0) == AttackResult::BLOCK);
+    assert(table->get_outcome(5, 0.0) == AttackResult::CRITICAL);
+    assert(table->get_outcome(6, 0.0) == AttackResult::HIT);
+    assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
+    assert(table->get_outcome(6, 1.0) == AttackResult::CRITICAL);
+    delete random;
+    delete table;
 }
 
 void Test::test_white_hit_table_update(void) {
