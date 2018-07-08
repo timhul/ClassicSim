@@ -47,9 +47,12 @@ public:
     void test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
     void test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale();
 
+    // TODO: When Target mechanism is properly implemented, add test that Execute only available in Execute range.
+
     void given_0_of_2_improved_execute();
     void given_1_of_2_improved_execute();
     void given_2_of_2_improved_execute();
+    void given_target_in_execute_range();
 
     void when_execute_is_performed_with_rage(const int rage);
     bool execute_available_with_rage(const int rage);

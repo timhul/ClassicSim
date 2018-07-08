@@ -135,6 +135,7 @@ void TestExecute::test_incurs_global_cooldown_on_use() {
 }
 
 void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
+    given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
@@ -145,6 +146,7 @@ void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
 }
 
 void TestExecute::test_2_of_2_improved_execute_reduces_rage_cost() {
+    given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
@@ -156,6 +158,7 @@ void TestExecute::test_2_of_2_improved_execute_reduces_rage_cost() {
 }
 
 void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost() {
+    given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
@@ -177,6 +180,7 @@ void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost()
 }
 
 void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_0_of_2_impale();
     given_0_of_2_improved_execute();
@@ -190,6 +194,7 @@ void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_0_of_2_impale();
     given_0_of_2_improved_execute();
@@ -203,6 +208,7 @@ void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_0_of_2_impale();
     given_1_of_2_improved_execute();
@@ -216,6 +222,7 @@ void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_0_of_2_impale();
     given_1_of_2_improved_execute();
@@ -229,6 +236,7 @@ void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_0_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_0_of_2_impale();
     given_2_of_2_improved_execute();
@@ -242,6 +250,7 @@ void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_0_of_2_impale();
     given_2_of_2_improved_execute();
@@ -255,6 +264,7 @@ void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_0_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_1_of_2_impale();
     given_0_of_2_improved_execute();
@@ -268,6 +278,7 @@ void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_1_of_2_impale();
     given_0_of_2_improved_execute();
@@ -282,6 +293,7 @@ void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_1_of_2_impale();
     given_1_of_2_improved_execute();
@@ -295,6 +307,7 @@ void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_1_of_2_impale();
     given_1_of_2_improved_execute();
@@ -309,6 +322,7 @@ void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_1_of_2_impale();
     given_2_of_2_improved_execute();
@@ -322,6 +336,7 @@ void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_1_of_2_impale();
     given_2_of_2_improved_execute();
@@ -335,6 +350,7 @@ void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_2_of_2_impale();
     given_0_of_2_improved_execute();
@@ -348,6 +364,7 @@ void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_2_of_2_impale();
     given_0_of_2_improved_execute();
@@ -361,6 +378,7 @@ void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_2_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_2_of_2_impale();
     given_1_of_2_improved_execute();
@@ -374,6 +392,7 @@ void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_2_of_2_impale();
     given_1_of_2_improved_execute();
@@ -387,6 +406,7 @@ void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_2_of_2_impale() {
 }
 
 void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_2_of_2_impale();
     given_2_of_2_improved_execute();
@@ -400,6 +420,7 @@ void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
 }
 
 void TestExecute::test_max_crit_dmg_2_of_2_imp_execute_2_of_2_impale() {
+    given_target_in_execute_range();
     given_a_guaranteed_melee_ability_crit();
     given_2_of_2_impale();
     given_2_of_2_improved_execute();
@@ -430,6 +451,11 @@ void TestExecute::given_2_of_2_improved_execute() {
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
+}
+
+void TestExecute::given_target_in_execute_range() {
+    // TODO: Remove knowledge 280 seconds is within Execute range, use target mechanic.
+    given_engine_priority_at(280);
 }
 
 void TestExecute::when_execute_is_performed_with_rage(const int rage) {

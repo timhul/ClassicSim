@@ -24,7 +24,7 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
 bool Execute::is_ready_spell_specific() const {
     // TODO: Refactor this check into separate target mechanic.
     float time_remaining = 300 - pchar->get_engine()->get_current_priority();
-    return time_remaining / 300 > 0.8 ? true : false;
+    return time_remaining / 300 < 0.2 ? true : false;
 }
 
 void Execute::spell_effect() {
