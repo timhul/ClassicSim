@@ -65,6 +65,7 @@ Rectangle {
 
     ScrollView {
         anchors.fill: parent
+        ScrollBar.vertical.policy: ScrollBar.AlwaysOn
 
         ListView {
             clip: true
