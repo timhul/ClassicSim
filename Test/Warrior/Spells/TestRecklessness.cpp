@@ -112,6 +112,9 @@ void TestRecklessness::test_crit_reduced_after_buff_expires() {
     assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "10000.000");
     when_running_queued_events_until(15.01);
 
+    if (dynamic_cast<Warrior*>(pchar)->in_berserker_stance())
+        dynamic_cast<Warrior*>(pchar)->switch_to_battle_stance();
+
     assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "0.000");
 }
 

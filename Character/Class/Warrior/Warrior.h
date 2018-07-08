@@ -5,6 +5,7 @@
 
 class Flurry;
 class UnbridledWrath;
+class BerserkerStanceBuff;
 class HeroicStrikeBuff;
 class BattleShoutBuff;
 class DeathWishBuff;
@@ -53,6 +54,7 @@ public:
 
     Flurry* get_flurry() const;
     UnbridledWrath* get_unbridled_wrath() const;
+    BerserkerStanceBuff* get_berserker_stance_buff() const;
     HeroicStrikeBuff* get_hs_buff() const;
     BattleShoutBuff* get_battle_shout_buff() const;
     DeathWishBuff* get_death_wish_buff() const;
@@ -77,6 +79,7 @@ private:
     float next_stance_cd;
     double rage_conversion_value;
     Flurry* flurry;
+    BerserkerStanceBuff* berserker_stance_buff;
     HeroicStrikeBuff* heroic_strike_buff;
     UnbridledWrath* unbridled_wrath;
     DeathWishBuff* death_wish_buff;
@@ -85,7 +88,7 @@ private:
     WarriorSpells* warr_spells;
 
     void initialize_talents() override;
-    void switch_stances();
+    void new_stance_effect();
 };
 
 #endif // WARRIOR_H

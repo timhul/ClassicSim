@@ -25,6 +25,7 @@
 #include <QDebug>
 
 #include "Flurry.h"
+#include "BerserkerStanceBuff.h"
 #include "HeroicStrikeBuff.h"
 #include "UnbridledWrath.h"
 #include "DeathWishBuff.h"
@@ -70,10 +71,12 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->spells = dynamic_cast<Spells*>(warr_spells);
 
     this->flurry = new Flurry(this);
+    this->berserker_stance_buff = new BerserkerStanceBuff(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
     this->recklessness_buff = new RecklessnessBuff(this);
+    berserker_stance_buff->enable_buff();
     heroic_strike_buff->enable_buff();
     battle_shout_buff->enable_buff();
     recklessness_buff->enable_buff();
@@ -100,6 +103,7 @@ Warrior::~Warrior() {
     // TODO: Create a WarriorProcs class that holds UnbridledWrath and other (?) warrior procs.
     delete unbridled_wrath;
     // TODO: Create a WarriorBuffs class that holds Battle Shout, Death Wish, Flurry, etc.
+    delete berserker_stance_buff;
     delete battle_shout_buff;
     delete death_wish_buff;
     delete flurry;
@@ -180,6 +184,11 @@ void Warrior::set_clvl(const int clvl) {
 Flurry* Warrior::get_flurry() const {
     return this->flurry;
 }
+
+BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {
+    return this->berserker_stance_buff;
+}
+
 HeroicStrikeBuff* Warrior::get_hs_buff() const {
     return this->heroic_strike_buff;
 }
@@ -217,7 +226,13 @@ bool Warrior::on_stance_cooldown() const {
     return engine->get_current_priority() < this->next_stance_cd;
 }
 
-void Warrior::switch_stances() {
+void Warrior::new_stance_effect() {
+    switch (this->stance) {
+    case WarriorStances::Berserker:
+        berserker_stance_buff->apply_buff();
+        break;
+    }
+
     if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
         this->next_gcd = engine->get_current_priority() + 0.5;
         CooldownReady* new_event = new CooldownReady(this->get_rotation(), next_gcd);
@@ -228,18 +243,30 @@ void Warrior::switch_stances() {
 }
 
 void Warrior::switch_to_battle_stance() {
+    switch (this->stance) {
+    case WarriorStances::Berserker:
+        berserker_stance_buff->cancel_buff();
+        break;
+    }
+
     this->stance = WarriorStances::Battle;
-    switch_stances();
+    new_stance_effect();
 }
 
 void Warrior::switch_to_berserker_stance() {
     this->stance = WarriorStances::Berserker;
-    switch_stances();
+    new_stance_effect();
 }
 
 void Warrior::switch_to_defensive_stance() {
+    switch (this->stance) {
+    case WarriorStances::Berserker:
+        berserker_stance_buff->use_charge();
+        break;
+    }
+
     this->stance = WarriorStances::Defensive;
-    switch_stances();
+    new_stance_effect();
 }
 
 bool Warrior::in_battle_stance() const {
@@ -307,5 +334,9 @@ void Warrior::reset_resource() {
 }
 
 void Warrior::reset_spells() {
+    // TODO: Consider adding pre-run actions for stance
+    switch_to_battle_stance();
     warr_spells->reset();
+    this->next_stance_cd = 0.0 - stance_cooldown();
+    this->next_gcd = 0.0 - global_cooldown();
 }

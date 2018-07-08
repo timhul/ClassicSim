@@ -9,6 +9,10 @@ BerserkerRage::BerserkerRage(Engine* engine, Character* pchar, CombatRoll* roll)
     talent_ranks = {0, 5, 10};
 }
 
+bool BerserkerRage::is_ready_spell_specific() const {
+    return pchar->in_berserker_stance();
+}
+
 void BerserkerRage::spell_effect() {
     add_spell_cd_event();
 

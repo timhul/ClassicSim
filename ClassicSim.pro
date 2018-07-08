@@ -190,7 +190,10 @@ SOURCES += main.cpp \
     CombatRoll/Random.cpp \
     Character/Class/Warrior/Buffs/RecklessnessBuff.cpp \
     Test/Warrior/Spells/TestRecklessness.cpp \
-    Character/Class/Warrior/Spells/BattleStance.cpp
+    Character/Class/Warrior/Spells/BattleStance.cpp \
+    Character/Class/Warrior/Spells/BerserkerStance.cpp \
+    Character/Class/Warrior/Buffs/BerserkerStanceBuff.cpp \
+    Test/Warrior/Spells/TestBerserkerStance.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -376,7 +379,10 @@ HEADERS += \
     CombatRoll/xorshift/xoroshiro128plus.h \
     Character/Class/Warrior/Buffs/RecklessnessBuff.h \
     Test/Warrior/Spells/TestRecklessness.h \
-    Character/Class/Warrior/Spells/BattleStance.h
+    Character/Class/Warrior/Spells/BattleStance.h \
+    Character/Class/Warrior/Spells/BerserkerStance.h \
+    Character/Class/Warrior/Buffs/BerserkerStanceBuff.h \
+    Test/Warrior/Spells/TestBerserkerStance.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

@@ -84,6 +84,13 @@ void Buff::use_charge() {
         force_remove_buff();
 }
 
+void Buff::cancel_buff() {
+    if (!is_active())
+        return;
+
+    force_remove_buff();
+}
+
 bool Buff::is_active() const {
     return this->active;
 }

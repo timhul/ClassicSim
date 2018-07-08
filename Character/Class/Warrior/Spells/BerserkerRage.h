@@ -10,6 +10,7 @@ public:
     BerserkerRage(Engine* engine, Character* pchar, CombatRoll* roll);
 
     void spell_effect() override;
+    bool is_ready_spell_specific() const override;
 
 protected:
 private:

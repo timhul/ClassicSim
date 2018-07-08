@@ -8,6 +8,7 @@
 #include "BattleShout.h"
 #include "BattleStance.h"
 #include "BerserkerRage.h"
+#include "BerserkerStance.h"
 #include "Bloodrage.h"
 #include "Bloodthirst.h"
 #include "DeathWish.h"
@@ -40,6 +41,8 @@ Spell* WarriorRotation::get_spell_from_name(const QString& spell_name) const {
         spell = spells->get_battle_stance();
     else if (spell_name == "Berserker Rage")
         spell = spells->get_berserker_rage();
+    else if (spell_name == "Berserker Stance")
+        spell = spells->get_berserker_stance();
     else if (spell_name == "Bloodrage")
         spell = spells->get_bloodrage();
     else if (spell_name == "Bloodthirst")

@@ -27,6 +27,7 @@ public:
     void apply_buff();
     void remove_buff(const int);
     void use_charge();
+    void cancel_buff();
     bool is_active() const;
     float time_left() const;
 

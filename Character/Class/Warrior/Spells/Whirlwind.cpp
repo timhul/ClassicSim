@@ -11,6 +11,10 @@ Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->pchar = dynamic_cast<Warrior*>(pchar);
 }
 
+bool Whirlwind::is_ready_spell_specific() const {
+    return pchar->in_berserker_stance();
+}
+
 void Whirlwind::spell_effect() {
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
