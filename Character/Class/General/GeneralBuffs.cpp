@@ -16,23 +16,28 @@
 GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
     pchar(pchar),
-    faction(faction)
+    faction(faction),
+    current_setup(0)
 {
     this->holy_strength_mh = new HolyStrength(pchar);
     this->holy_strength_oh = new HolyStrength(pchar);
 
     this->buffs = {holy_strength_mh, holy_strength_oh};
 
-    this->external_buffs.append(new ElixirOfBruteForce(pchar));
-    this->external_buffs.append(new ElixirOfGiants(pchar));
-    this->external_buffs.append(new ElixirOfTheMongoose(pchar));
-    this->external_buffs.append(new RallyingCryOfTheDragonslayer(pchar));
-    this->external_buffs.append(new SongflowerSerenade(pchar));
+    for (int i = 0; i < 3; ++i) {
+        this->external_buffs.append(QVector<QPair<bool, ExternalBuff*>>());
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new ElixirOfBruteForce(pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new ElixirOfGiants(pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new ElixirOfTheMongoose(pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new RallyingCryOfTheDragonslayer(pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new SongflowerSerenade(pchar)));
 
-    this->external_debuffs.append(new SunderArmorBuff(pchar));
-    this->external_debuffs.append(new CurseOfRecklessnessBuff(pchar));
-    this->external_debuffs.append(new FaerieFireBuff(pchar));
-    this->external_debuffs.append(new AnnihilatorBuff(pchar));
+        this->external_debuffs.append(QVector<QPair<bool, ExternalBuff*>>());
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new SunderArmorBuff(pchar)));
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new CurseOfRecklessnessBuff(pchar)));
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new FaerieFireBuff(pchar)));
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new AnnihilatorBuff(pchar)));
+    }
 }
 
 GeneralBuffs::~GeneralBuffs()
@@ -42,11 +47,15 @@ GeneralBuffs::~GeneralBuffs()
     }
 
     for (int i = 0; i < this->external_buffs.size(); ++i) {
-        delete this->external_buffs[i];
+        for (int j = 0; j < this->external_buffs[i].size(); ++j) {
+            delete this->external_buffs[i][j].second;
+        }
     }
 
     for (int i = 0; i < this->external_debuffs.size(); ++i) {
-        delete this->external_debuffs[i];
+        for (int j = 0; j < this->external_debuffs[i].size(); ++j) {
+            delete this->external_debuffs[i][j].second;
+        }
     }
 
     this->buffs.clear();
@@ -66,22 +75,32 @@ HolyStrength* GeneralBuffs::get_holy_strength_oh() const {
 }
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {
-    return this->external_buffs;
+    QVector<ExternalBuff*> vec;
+    for (int i = 0; i < external_buffs[current_setup].size(); ++i) {
+        vec.append(external_buffs[current_setup][i].second);
+    }
+    return vec;
 }
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_debuffs() const {
-    return this->external_debuffs;
+    QVector<ExternalBuff*> vec;
+    for (int i = 0; i < external_debuffs[current_setup].size(); ++i) {
+        vec.append(external_debuffs[current_setup][i].second);
+    }
+    return vec;
 }
 
-void GeneralBuffs::toggle_external(const QString& name, const QVector<ExternalBuff*>& vec) const {
-    for (int i = 0; i < vec.size(); ++i) {
-        if (vec[i]->get_name() == name) {
-            if (vec[i]->is_active()) {
-                vec[i]->cancel_buff();
-                assert(!vec[i]->is_active());
+void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) {
+    for (int i = 0; i < vec[current_setup].size(); ++i) {
+        if (vec[current_setup][i].second->get_name() == name) {
+            if (vec[current_setup][i].second->is_active()) {
+                vec[current_setup][i].first = false;
+                vec[current_setup][i].second->cancel_buff();
+                assert(!vec[current_setup][i].second->is_active());
             }
             else {
-                vec[i]->apply_buff();
+                vec[current_setup][i].first = true;
+                vec[current_setup][i].second->apply_buff();
             }
 
             break;
@@ -97,10 +116,10 @@ void GeneralBuffs::toggle_external_debuff(const QString& debuff_name) {
     toggle_external(debuff_name, this->external_debuffs);
 }
 
-bool GeneralBuffs::external_buff_active(const QString& name, const QVector<ExternalBuff*>& vec) const {
-    for (int i = 0; i < vec.size(); ++i) {
-        if (vec[i]->get_name() == name)
-            return vec[i]->is_active();
+bool GeneralBuffs::external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) const {
+    for (int i = 0; i < vec[current_setup].size(); ++i) {
+        if (vec[current_setup][i].second->get_name() == name)
+            return vec[current_setup][i].second->is_active();
     }
 
     return false;
@@ -112,6 +131,37 @@ bool GeneralBuffs::buff_active(const QString& buff_name) const {
 
 bool GeneralBuffs::debuff_active(const QString& debuff_name) const {
     return external_buff_active(debuff_name, this->external_debuffs);
+}
+
+void GeneralBuffs::change_setup(const int setup) {
+    deactivate_buffs_for_current_setup();
+    this->current_setup = setup;
+    activate_buffs_for_current_setup();
+}
+
+void GeneralBuffs::activate_buffs_for_current_setup() {
+    activate_externals(external_buffs);
+    activate_externals(external_debuffs);
+}
+
+void GeneralBuffs::deactivate_buffs_for_current_setup() {
+    deactivate_externals(external_buffs);
+    deactivate_externals(external_debuffs);
+}
+
+void GeneralBuffs::activate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) {
+    for (int i = 0; i < vec[current_setup].size(); ++i) {
+        if (vec[current_setup][i].first == true) {
+            vec[current_setup][i].second->apply_buff();
+        }
+    }
+}
+
+void GeneralBuffs::deactivate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) {
+    for (int i = 0; i < vec[current_setup].size(); ++i) {
+        if (vec[current_setup][i].second->is_active())
+            vec[current_setup][i].second->cancel_buff();
+    }
 }
 
 /*

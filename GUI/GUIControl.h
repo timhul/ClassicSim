@@ -138,6 +138,7 @@ public:
     Q_INVOKABLE bool buffActive(QString buff) const;
     Q_INVOKABLE void selectDebuff(QString debuff);
     Q_INVOKABLE bool debuffActive(QString debuff) const;
+    Q_INVOKABLE void setBuffSetup(const int buff_index);
 
     /* End of Buffs and debuffs */
 

@@ -62,5 +62,33 @@ Rectangle {
                 onChoiceClicked: talents.setEquipmentSetup(2)
             }
         }
+
+        Column {
+            width: 150
+            height: parent.height
+
+            state: "BUFFS1"
+
+            QuickSwitchBox {
+                choiceState: "BUFFS1"
+                choiceText: "Buff setup 1"
+
+                onChoiceClicked: talents.setBuffSetup(0)
+            }
+
+            QuickSwitchBox {
+                choiceState: "BUFFS2"
+                choiceText: "Buff setup 2"
+
+                onChoiceClicked: talents.setBuffSetup(1)
+            }
+
+            QuickSwitchBox {
+                choiceState: "BUFFS3"
+                choiceText: "Buff setup 3"
+
+                onChoiceClicked: talents.setBuffSetup(2)
+            }
+        }
     }
 }

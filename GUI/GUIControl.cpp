@@ -446,6 +446,13 @@ bool GUIControl::debuffActive(QString debuff) const {
     return current_char->get_active_buffs()->get_general_buffs()->debuff_active(debuff);
 }
 
+void GUIControl::setBuffSetup(const int buff_index) {
+    current_char->get_active_buffs()->get_general_buffs()->change_setup(buff_index);
+    Q_EMIT statsChanged();
+    Q_EMIT externalBuffsChanged();
+    Q_EMIT externalDebuffsChanged();
+}
+
 int GUIControl::getNumStatisticsRows() const {
     return current_char->get_statistics()->getNumStatisticsRows();
 }
