@@ -59,7 +59,9 @@ bool Character::race_available(Race* race) const {
 void Character::set_race(Race* race) {
     assert(race_available(race));
 
+    remove_racial_effects();
     this->race = race;
+    apply_racial_effects();
 }
 
 bool Character::set_rotation(const int index) {
@@ -101,6 +103,35 @@ void Character::perform_rotation() {
 
 Rotation* Character::get_rotation() {
     return this->current_rotation;
+}
+
+void Character::change_target_creature_type(const QString &creature_type) {
+    remove_racial_effects();
+    roll->get_target()->set_creature_type(creature_type);
+    apply_racial_effects();
+}
+
+void Character::apply_racial_effects() {
+    switch (roll->get_target()->get_creature_type()) {
+    case Target::CreatureType::Beast:
+        if (race->get_race_int() == Races::Troll)
+            cstats->increase_total_phys_dmg_mod(5);
+        break;
+    default:
+        ;
+    }
+}
+
+void Character::remove_racial_effects() {
+    // TODO: Move enabling racials from is_ready_spell_specific
+    switch (roll->get_target()->get_creature_type()) {
+    case Target::CreatureType::Beast:
+        if (race->get_race_int() == Races::Troll)
+            cstats->decrease_total_phys_dmg_mod(5);
+        break;
+    default:
+        ;
+    }
 }
 
 int Character::get_clvl(void) const {
@@ -402,7 +433,6 @@ void Character::reset() {
     active_buffs->reset();
     reset_spells();
     active_procs->reset();
-    cstats->reset();
 
     reset_resource();
 }

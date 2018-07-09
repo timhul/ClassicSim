@@ -61,11 +61,6 @@ int CombatRoll::get_spell_ability_result(void) {
     return AttackResult::CRITICAL;
 }
 
-void CombatRoll::set_target(Target* target) {
-    this->target = target;
-    // TODO: Update attack tables (in order to detect target level change)
-}
-
 void CombatRoll::set_character(Character* pchar) {
     this->pchar = pchar;
 

@@ -207,7 +207,8 @@ QString GUIControl::get_creature_type() const {
 }
 
 void GUIControl::setCreatureType(const QString& creature_type) {
-    target->set_creature_type(creature_type);
+    // TODO: Must update target for all chars
+    current_char->change_target_creature_type(creature_type);
     creatureTypeChanged();
     statsChanged();
 }

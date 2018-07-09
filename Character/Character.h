@@ -37,6 +37,7 @@ public:
     QString get_current_rotation_name() const;
     void perform_rotation();
     Rotation* get_rotation();
+    void change_target_creature_type(const QString& creature_type);
 
     void switch_faction();
 
@@ -153,6 +154,9 @@ protected:
     virtual void initialize_talents() = 0;
 
     int get_wpn_skill(Weapon*) const;
+
+    void apply_racial_effects();
+    void remove_racial_effects();
 
 private:
 };

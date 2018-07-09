@@ -31,7 +31,6 @@ public:
 
     WhiteHitTable* get_white_hit_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);
-    void set_target(Target*);
     void set_character(Character*);
 
     Target* get_target() const;

@@ -170,7 +170,8 @@ void CharacterStats::increase_total_phys_dmg_mod(const int increase) {
 
     total_phys_dmg_mod = 1.0;
     for (int i = 0; i < phys_dmg_buffs.size(); ++i) {
-        total_phys_dmg_mod = total_phys_dmg_mod * (1 + float(phys_dmg_buffs[i] / 100));
+        float coefficient = 1.0 + float(phys_dmg_buffs[i]) / 100;
+        total_phys_dmg_mod = total_phys_dmg_mod * coefficient;
     }
 }
 
@@ -179,7 +180,8 @@ void CharacterStats::decrease_total_phys_dmg_mod(const int decrease) {
 
     total_phys_dmg_mod = 1.0;
     for (int i = 0; i < phys_dmg_buffs.size(); ++i) {
-        total_phys_dmg_mod = total_phys_dmg_mod * (1 + float(phys_dmg_buffs[i] / 100));
+        float coefficient = 1.0 + float(phys_dmg_buffs[i]) / 100;
+        total_phys_dmg_mod = total_phys_dmg_mod * coefficient;
     }
 }
 
@@ -191,12 +193,4 @@ float CharacterStats::get_mh_wpn_speed() {
 float CharacterStats::get_oh_wpn_speed() {
     return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / haste_factor :
                                   300;
-}
-
-void CharacterStats::reset() {
-    attack_speed_buffs.clear();
-    phys_dmg_buffs.clear();
-    total_phys_dmg_mod = 1.0;
-    haste_factor = 1.0;
-    // TODO: Add +1% haste enchant from gear
 }

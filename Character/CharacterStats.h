@@ -68,8 +68,6 @@ public:
     float get_mh_wpn_speed();
     float get_oh_wpn_speed();
 
-    void reset();
-
 protected:
     Character* pchar;
     Equipment* equipment;
