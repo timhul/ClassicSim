@@ -25,6 +25,7 @@
 #include <QDebug>
 
 #include "Flurry.h"
+#include "BerserkingBuff.h"
 #include "BerserkerStanceBuff.h"
 #include "BloodFuryBuff.h"
 #include "HeroicStrikeBuff.h"
@@ -75,6 +76,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 
     this->flurry = new Flurry(this);
     this->berserker_stance_buff = new BerserkerStanceBuff(this);
+    this->berserking_buff = new BerserkingBuff(this);
     this->blood_fury_buff = new BloodFuryBuff(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
@@ -83,6 +85,7 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->recklessness_buff = new RecklessnessBuff(this);
     battle_shout_buff->enable_buff();
     berserker_stance_buff->enable_buff();
+    berserking_buff->enable_buff();
     blood_fury_buff->enable_buff();
     heroic_strike_buff->enable_buff();
     overpower_buff->enable_buff();
@@ -110,8 +113,9 @@ Warrior::~Warrior() {
     // TODO: Create a WarriorProcs class that holds UnbridledWrath and other (?) warrior procs.
     delete unbridled_wrath;
     // TODO: Create a WarriorBuffs class that holds Battle Shout, Death Wish, Flurry, etc.
-    delete berserker_stance_buff;
     delete battle_shout_buff;
+    delete berserker_stance_buff;
+    delete berserking_buff;
     delete blood_fury_buff;
     delete death_wish_buff;
     delete flurry;
@@ -196,6 +200,10 @@ Flurry* Warrior::get_flurry() const {
 
 BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {
     return this->berserker_stance_buff;
+}
+
+BerserkingBuff* Warrior::get_berserking_buff() const {
+    return this->berserking_buff;
 }
 
 BloodFuryBuff* Warrior::get_blood_fury_buff() const {

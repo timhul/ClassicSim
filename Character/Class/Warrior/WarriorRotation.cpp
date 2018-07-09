@@ -9,6 +9,7 @@
 #include "BattleStance.h"
 #include "BerserkerRage.h"
 #include "BerserkerStance.h"
+#include "Berserking.h"
 #include "BloodFury.h"
 #include "Bloodrage.h"
 #include "Bloodthirst.h"
@@ -22,6 +23,7 @@
 #include "Whirlwind.h"
 
 #include "BattleShoutBuff.h"
+#include "BerserkingBuff.h"
 #include "BloodFuryBuff.h"
 #include "DeathWishBuff.h"
 #include "Flurry.h"
@@ -46,6 +48,8 @@ Spell* WarriorRotation::get_spell_from_name(const QString& spell_name) const {
         spell = spells->get_berserker_rage();
     else if (spell_name == "Berserker Stance")
         spell = spells->get_berserker_stance();
+    else if (spell_name == "Berserking")
+        spell = spells->get_berserking();
     else if (spell_name == "Blood Fury")
         spell = spells->get_blood_fury();
     else if (spell_name == "Bloodrage")
@@ -79,6 +83,8 @@ Buff* WarriorRotation::get_buff_from_name(const QString &buff_name) const {
 
     if (buff_name == "Battle Shout")
         buff = pchar->get_battle_shout_buff();
+    else if (buff_name == "Berserking")
+        buff = pchar->get_berserking_buff();
     else if (buff_name == "Blood Fury")
         buff = pchar->get_blood_fury_buff();
     else if (buff_name == "Flurry")

@@ -10,6 +10,7 @@
 #include "BattleStance.h"
 #include "BerserkerRage.h"
 #include "BerserkerStance.h"
+#include "Berserking.h"
 #include "BloodFury.h"
 #include "Bloodrage.h"
 #include "Bloodthirst.h"
@@ -38,6 +39,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->battle_stance = new BattleStance(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->berserker_rage = new BerserkerRage(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->berserker_stance = new BerserkerStance(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->berserking = new Berserking(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->blood_fury = new BloodFury(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->bloodrage = new Bloodrage(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->bt = new Bloodthirst(pchar->get_engine(), pchar, pchar->get_combat_roll());
@@ -56,6 +58,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     spells.append(battle_stance);
     spells.append(berserker_rage);
     spells.append(berserker_stance);
+    spells.append(berserking);
     spells.append(blood_fury);
     spells.append(bloodrage);
     spells.append(bt);
@@ -139,6 +142,10 @@ BattleStance* WarriorSpells::get_battle_stance() const {
 
 BerserkerStance* WarriorSpells::get_berserker_stance() const {
     return this->berserker_stance;
+}
+
+Berserking* WarriorSpells::get_berserking() const {
+    return this->berserking;
 }
 
 BloodFury* WarriorSpells::get_blood_fury() const {
