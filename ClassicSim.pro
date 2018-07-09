@@ -202,7 +202,8 @@ SOURCES += main.cpp \
     Character/Class/General/Debuffs/SunderArmorBuff.cpp \
     GUI/Models/DebuffModel.cpp \
     Character/Class/General/Debuffs/FaerieFireBuff.cpp \
-    Character/Class/General/Debuffs/CurseOfRecklessnessBuff.cpp
+    Character/Class/General/Debuffs/CurseOfRecklessnessBuff.cpp \
+    Character/Class/General/Debuffs/AnnihilatorBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -400,7 +401,8 @@ HEADERS += \
     Character/Class/General/Debuffs/SunderArmorBuff.h \
     GUI/Models/DebuffModel.h \
     Character/Class/General/Debuffs/FaerieFireBuff.h \
-    Character/Class/General/Debuffs/CurseOfRecklessnessBuff.h
+    Character/Class/General/Debuffs/CurseOfRecklessnessBuff.h \
+    Character/Class/General/Debuffs/AnnihilatorBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
