@@ -1,6 +1,10 @@
 
 #include "Human.h"
 
+int Human::get_race_int() const {
+    return Races::Human;
+}
+
 QString Human::get_name(void) const {
     return "Human";
 }

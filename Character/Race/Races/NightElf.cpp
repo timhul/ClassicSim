@@ -1,6 +1,10 @@
 
 #include "NightElf.h"
 
+int NightElf::get_race_int() const {
+    return Races::NightElf;
+}
+
 QString NightElf::get_name(void) const {
     return "Night Elf";
 }

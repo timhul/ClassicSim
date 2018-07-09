@@ -4,10 +4,22 @@
 #include <map>
 #include <QString>
 
+namespace Races {
+    static const int Dwarf = 0;
+    static const int Gnome = 1;
+    static const int Human = 2;
+    static const int NightElf = 3;
+    static const int Orc = 4;
+    static const int Tauren = 5;
+    static const int Troll = 6;
+    static const int Undead = 7;
+}
+
 class Race {
 public:
     virtual ~Race() {}
 
+    virtual int get_race_int() const = 0;
     virtual QString get_name() const = 0;
     virtual int get_base_strength() const = 0;
     virtual int get_base_agility() const = 0;

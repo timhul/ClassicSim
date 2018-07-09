@@ -1,6 +1,10 @@
 
 #include "Undead.h"
 
+int Undead::get_race_int() const {
+    return Races::Undead;
+}
+
 QString Undead::get_name(void) const {
     return "Undead";
 }

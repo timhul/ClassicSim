@@ -1,6 +1,10 @@
 
 #include "Tauren.h"
 
+int Tauren::get_race_int() const {
+    return Races::Tauren;
+}
+
 QString Tauren::get_name(void) const {
     return "Tauren";
 }

@@ -1,6 +1,10 @@
 
 #include "Orc.h"
 
+int Orc::get_race_int() const {
+    return Races::Orc;
+}
+
 QString Orc::get_name(void) const {
     return "Orc";
 }

@@ -1,6 +1,10 @@
 
 #include "Gnome.h"
 
+int Gnome::get_race_int() const {
+    return Races::Gnome;
+}
+
 QString Gnome::get_name(void) const {
     return "Gnome";
 }

@@ -1,6 +1,10 @@
 
 #include "Dwarf.h"
 
+int Dwarf::get_race_int() const {
+    return Races::Dwarf;
+}
+
 QString Dwarf::get_name(void) const {
     return "Dwarf";
 }

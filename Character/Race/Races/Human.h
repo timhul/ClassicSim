@@ -5,6 +5,7 @@
 
 class Human: public Race {
 public:
+    int get_race_int() const override;
     QString get_name() const override;
     int get_base_strength() const override;
     int get_base_agility() const override;

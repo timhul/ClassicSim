@@ -1,6 +1,10 @@
 
 #include "Troll.h"
 
+int Troll::get_race_int() const {
+    return Races::Troll;
+}
+
 QString Troll::get_name(void) const {
     return "Troll";
 }
