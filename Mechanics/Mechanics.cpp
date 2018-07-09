@@ -62,6 +62,10 @@ float Mechanics::get_block_chance(void) const {
     return 0.0;
 }
 
+int Mechanics::get_boss_base_armor() const {
+    return 4960;
+}
+
 float Mechanics::get_reduction_from_armor(const int armor, const int clvl) const {
     return armor / (armor + 400 + 85 * (clvl + 4.5 * (clvl - 60)));
 }
