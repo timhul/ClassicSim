@@ -8,12 +8,12 @@
 #include "BuffRemoval.h"
 #include <QDebug>
 
-Buff::Buff(Character* _pchar, const QString _name, const int _dur, const int _base_charges):
-    pchar(_pchar),
-    statistics_buff(new StatisticsBuff(_name)),
-    name(_name),
-    duration(_dur),
-    base_charges(_base_charges),
+Buff::Buff(Character* pchar, const QString name, const int duration, const int base_charges):
+    pchar(pchar),
+    statistics_buff(new StatisticsBuff(name)),
+    name(name),
+    duration(duration),
+    base_charges(base_charges),
     rank_talent(1),
     hidden(false),
     instance_id(BuffStatus::INACTIVE)

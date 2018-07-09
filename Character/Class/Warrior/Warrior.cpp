@@ -26,6 +26,7 @@
 
 #include "Flurry.h"
 #include "BerserkerStanceBuff.h"
+#include "BloodFuryBuff.h"
 #include "HeroicStrikeBuff.h"
 #include "UnbridledWrath.h"
 #include "DeathWishBuff.h"
@@ -74,14 +75,16 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
 
     this->flurry = new Flurry(this);
     this->berserker_stance_buff = new BerserkerStanceBuff(this);
+    this->blood_fury_buff = new BloodFuryBuff(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
     this->overpower_buff = new OverpowerBuff(this);
     this->recklessness_buff = new RecklessnessBuff(this);
-    berserker_stance_buff->enable_buff();
-    heroic_strike_buff->enable_buff();
     battle_shout_buff->enable_buff();
+    berserker_stance_buff->enable_buff();
+    blood_fury_buff->enable_buff();
+    heroic_strike_buff->enable_buff();
     overpower_buff->enable_buff();
     recklessness_buff->enable_buff();
 
@@ -109,6 +112,7 @@ Warrior::~Warrior() {
     // TODO: Create a WarriorBuffs class that holds Battle Shout, Death Wish, Flurry, etc.
     delete berserker_stance_buff;
     delete battle_shout_buff;
+    delete blood_fury_buff;
     delete death_wish_buff;
     delete flurry;
     delete heroic_strike_buff;
@@ -192,6 +196,10 @@ Flurry* Warrior::get_flurry() const {
 
 BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {
     return this->berserker_stance_buff;
+}
+
+BloodFuryBuff* Warrior::get_blood_fury_buff() const {
+    return this->blood_fury_buff;
 }
 
 HeroicStrikeBuff* Warrior::get_hs_buff() const {

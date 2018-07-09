@@ -66,6 +66,9 @@
 	
 	<cast_if name="Battle Shout">
 		buff "Battle Shout" less 3
+		or variable "time_remaining_execute" less 10
+		and variable "time_remaining_execute" greater 0
+		and buff "Battle Shout" less 45
 	</cast_if>
 	
 	<!-- General heroic strike usage -->
@@ -93,6 +96,12 @@
 
 	<cast_if name="Recklessness">
 		variable "time_remaining_execute" less 0
+	</cast_if>
+	
+	<cast_if name="Blood Fury">
+		variable "time_remaining_execute" less 0
+		and resource "Rage" less 50
+		or variable "time_remaining_execute" greater 120
 	</cast_if>
 
 	<!-- Always cast Execute if available (implicit condition). -->

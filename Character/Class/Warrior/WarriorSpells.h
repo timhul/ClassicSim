@@ -9,6 +9,7 @@ class BattleShout;
 class BattleStance;
 class BerserkerRage;
 class BerserkerStance;
+class BloodFury;
 class Bloodrage;
 class Bloodthirst;
 class DeathWish;
@@ -40,6 +41,7 @@ public:
 
     BattleStance* get_battle_stance() const;
     BerserkerStance* get_berserker_stance() const;
+    BloodFury* get_blood_fury() const;
     Bloodthirst* get_bloodthirst() const;
     DeepWounds* get_deep_wounds() const;
     HeroicStrike* get_heroic_strike() const;
@@ -59,6 +61,7 @@ private:
     Warrior* pchar;
     BattleStance* battle_stance;
     BerserkerStance* berserker_stance;
+    BloodFury* blood_fury;
     Bloodthirst* bt;
     DeepWounds* deep_wounds;
     HeroicStrike* heroic_strike;

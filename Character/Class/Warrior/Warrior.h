@@ -6,6 +6,7 @@
 class Flurry;
 class UnbridledWrath;
 class BerserkerStanceBuff;
+class BloodFuryBuff;
 class HeroicStrikeBuff;
 class BattleShoutBuff;
 class DeathWishBuff;
@@ -59,6 +60,7 @@ public:
     Flurry* get_flurry() const;
     UnbridledWrath* get_unbridled_wrath() const;
     BerserkerStanceBuff* get_berserker_stance_buff() const;
+    BloodFuryBuff* get_blood_fury_buff() const;
     HeroicStrikeBuff* get_hs_buff() const;
     BattleShoutBuff* get_battle_shout_buff() const;
     DeathWishBuff* get_death_wish_buff() const;
@@ -86,6 +88,7 @@ private:
     double rage_conversion_value;
     Flurry* flurry;
     BerserkerStanceBuff* berserker_stance_buff;
+    BloodFuryBuff* blood_fury_buff;
     HeroicStrikeBuff* heroic_strike_buff;
     UnbridledWrath* unbridled_wrath;
     DeathWishBuff* death_wish_buff;
