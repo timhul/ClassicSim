@@ -18,6 +18,9 @@
 #include "Rotation.h"
 #include <QDebug>
 
+#include "BerserkingBuff.h"
+#include "BloodFuryBuff.h"
+
 Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, Faction* faction, QObject* parent) :
     QObject(parent)
 {
@@ -35,6 +38,9 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->melee_attacking = false;
     this->next_gcd = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
+
+    this->berserking_buff = new BerserkingBuff(this);
+    this->blood_fury_buff = new BloodFuryBuff(this);
 }
 
 Character::~Character() {
@@ -42,6 +48,8 @@ Character::~Character() {
     delete cstats;
     delete active_procs;
     delete active_buffs;
+    delete berserking_buff;
+    delete blood_fury_buff;
 
     for (int i = 0; i < rotations.size(); ++i) {
         delete rotations[i];
@@ -184,6 +192,14 @@ ClassStatistics* Character::get_statistics(void) const {
 
 ActiveProcs* Character::get_active_procs() const {
     return this->active_procs;
+}
+
+BerserkingBuff* Character::get_berserking_buff() const {
+    return this->berserking_buff;
+}
+
+BloodFuryBuff* Character::get_blood_fury_buff() const {
+    return this->blood_fury_buff;
 }
 
 void Character::start_attack(void) {

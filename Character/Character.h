@@ -8,6 +8,8 @@
 
 class ActiveProcs;
 class ActiveBuffs;
+class BerserkingBuff;
+class BloodFuryBuff;
 class CharacterStats;
 class ClassStatistics;
 class CombatRoll;
@@ -64,6 +66,9 @@ public:
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
     ActiveProcs* get_active_procs() const;
+
+    BerserkingBuff* get_berserking_buff() const;
+    BloodFuryBuff* get_blood_fury_buff() const;
 
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
@@ -142,6 +147,9 @@ protected:
     ClassStatistics* statistics;
     QVector<Rotation*> rotations;
     Rotation* current_rotation;
+
+    BerserkingBuff* berserking_buff;
+    BloodFuryBuff* blood_fury_buff;
 
     QVector<QString> available_races;
     float ability_crit_dmg_mod;

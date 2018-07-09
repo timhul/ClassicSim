@@ -1,5 +1,7 @@
 
 #include "Spells.h"
+#include "Berserking.h"
+#include "BloodFury.h"
 #include "Character.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
@@ -11,7 +13,9 @@ Spells::Spells(Character* pchar, QObject* parent) :
     QObject(parent),
     pchar(pchar)
 {
-    spells = {};
+    berserking = new Berserking(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    blood_fury = new BloodFury(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    spells = {berserking, blood_fury};
 }
 
 Spells::~Spells()
@@ -37,6 +41,14 @@ MainhandAttack* Spells::get_mh_attack() const {
 
 OffhandAttack* Spells::get_oh_attack() const {
     return this->oh_attack;
+}
+
+Berserking* Spells::get_berserking() const {
+    return this->berserking;
+}
+
+BloodFury* Spells::get_blood_fury() const {
+    return this->blood_fury;
 }
 
 void Spells::add_next_mh_attack(void) {

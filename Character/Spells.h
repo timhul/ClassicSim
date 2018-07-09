@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QVector>
 
+class Berserking;
+class BloodFury;
 class Character;
 class Spell;
 class MainhandAttack;
@@ -29,12 +31,18 @@ public:
     virtual MainhandAttack* get_mh_attack() const;
     virtual OffhandAttack* get_oh_attack() const;
 
+    Berserking* get_berserking() const;
+    BloodFury* get_blood_fury() const;
+
 protected:
     Character* pchar;
     QVector<Spell*> spells;
 
     MainhandAttack* mh_attack;
     OffhandAttack* oh_attack;
+
+    Berserking* berserking;
+    BloodFury* blood_fury;
 
 private:
 };

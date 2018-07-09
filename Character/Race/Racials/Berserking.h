@@ -3,7 +3,7 @@
 
 #include "Spell.h"
 
-class Warrior;
+class Character;
 
 class Berserking: public Spell {
 public:
@@ -14,8 +14,6 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
-
 };
 
 #endif // BERSERKING_H

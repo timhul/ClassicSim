@@ -3,8 +3,6 @@
 
 #include "Spell.h"
 
-class Warrior;
-
 class BloodFury: public Spell {
 public:
     BloodFury(Engine* engine, Character* pchar, CombatRoll* roll);
@@ -14,8 +12,6 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
-
 };
 
 #endif // BLOODFURY_H

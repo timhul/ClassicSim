@@ -2,13 +2,11 @@
 #include "Berserking.h"
 #include "BerserkingBuff.h"
 #include "Race.h"
-#include "Warrior.h"
+#include "Character.h"
 
 Berserking::Berserking(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Berserking", engine, pchar, roll, true, 180, 0)
-{
-    this->pchar = dynamic_cast<Warrior*>(pchar);
-}
+{}
 
 bool Berserking::is_ready_spell_specific() const {
     return pchar->get_race()->get_race_int() == Races::Troll;
