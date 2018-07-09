@@ -8,6 +8,7 @@
 #include "RallyingCryOfTheDragonslayer.h"
 #include "SongflowerSerenade.h"
 
+#include "CurseOfRecklessnessBuff.h"
 #include "FaerieFireBuff.h"
 #include "SunderArmorBuff.h"
 
@@ -28,6 +29,7 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
     this->external_buffs.append(new SongflowerSerenade(pchar));
 
     this->external_debuffs.append(new SunderArmorBuff(pchar));
+    this->external_debuffs.append(new CurseOfRecklessnessBuff(pchar));
     this->external_debuffs.append(new FaerieFireBuff(pchar));
 }
 
