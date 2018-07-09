@@ -3,7 +3,9 @@
 
 StatisticsBuff::StatisticsBuff(QString name) :
     name(name)
-{}
+{
+    reset();
+}
 
 void StatisticsBuff::reset() {
     counter = 0;
@@ -16,7 +18,7 @@ QString StatisticsBuff::get_name() const {
 
 void StatisticsBuff::add_uptime_for_encounter(const float uptime) {
     ++counter;
-    avg_uptime = ((uptime) * (counter - 1) + avg_uptime) / counter;
+    avg_uptime = counter == 1 ? uptime : ((uptime) * (counter - 1) + avg_uptime) / counter;
 }
 
 float StatisticsBuff::get_uptime() const {
