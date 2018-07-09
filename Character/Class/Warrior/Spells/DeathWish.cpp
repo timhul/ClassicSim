@@ -7,7 +7,8 @@ DeathWish::DeathWish(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Death Wish", engine, pchar, roll, true, 180, 10)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    this->enabled_by_talent = true;
+    this->is_enabled_externally = true;
+    this->enabled = false;
 }
 
 void DeathWish::spell_effect() {

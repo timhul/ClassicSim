@@ -87,10 +87,6 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     overpower_buff->enable_buff();
     recklessness_buff->enable_buff();
 
-    // TODO: Fix having to enable buffs after class statistics instantiated
-    berserking_buff->enable_buff();
-    blood_fury_buff->enable_buff();
-
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
 
     spells->add_statistics();
@@ -105,6 +101,8 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->rotations.append(current_rotation);
     rotation_file_reader.read_cast_ifs(rotations[0], "rotation.xml");
     this->current_rotation->link_spells();
+
+    apply_racial_effects();
 }
 
 Warrior::~Warrior() {

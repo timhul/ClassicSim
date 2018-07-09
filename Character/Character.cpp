@@ -18,7 +18,9 @@
 #include "Rotation.h"
 #include <QDebug>
 
+#include "Berserking.h"
 #include "BerserkingBuff.h"
+#include "BloodFury.h"
 #include "BloodFuryBuff.h"
 
 Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, Faction* faction, QObject* parent) :
@@ -120,25 +122,28 @@ void Character::change_target_creature_type(const QString &creature_type) {
 }
 
 void Character::apply_racial_effects() {
-    switch (roll->get_target()->get_creature_type()) {
-    case Target::CreatureType::Beast:
-        if (race->get_race_int() == Races::Troll)
+    switch (race->get_race_int()) {
+    case Races::Orc:
+        spells->get_blood_fury()->enable();
+        break;
+    case Races::Troll:
+        spells->get_berserking()->enable();
+        if (roll->get_target()->get_creature_type() == Target::CreatureType::Beast)
             cstats->increase_total_phys_dmg_mod(5);
         break;
-    default:
-        ;
     }
 }
 
 void Character::remove_racial_effects() {
-    // TODO: Move enabling racials from is_ready_spell_specific
-    switch (roll->get_target()->get_creature_type()) {
-    case Target::CreatureType::Beast:
-        if (race->get_race_int() == Races::Troll)
+    switch (race->get_race_int()) {
+    case Races::Orc:
+        spells->get_blood_fury()->disable();
+        break;
+    case Races::Troll:
+        spells->get_berserking()->disable();
+        if (roll->get_target()->get_creature_type() == Target::CreatureType::Beast)
             cstats->decrease_total_phys_dmg_mod(5);
         break;
-    default:
-        ;
     }
 }
 

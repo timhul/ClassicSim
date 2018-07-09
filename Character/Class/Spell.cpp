@@ -18,7 +18,8 @@ Spell::Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
     resource_cost(resource_cost),
     rank_talent(0),
     rank_spell(0),
-    enabled_by_talent(false)
+    is_enabled_externally(false),
+    enabled(true)
 {}
 
 Spell::~Spell() {
@@ -60,12 +61,34 @@ bool Spell::is_ready_spell_specific() const {
     return true;
 }
 
+void Spell::enable_spell_effect() {
+
+}
+
+void Spell::disable_spell_effect() {
+
+}
+
 bool Spell::is_available() const {
-    return is_enabled() && is_ready() && pchar->get_resource_level() >= this->resource_cost;
+    return enabled && is_ready() && pchar->get_resource_level() >= this->resource_cost;
 }
 
 bool Spell::is_enabled() const {
-    return enabled_by_talent ? rank_talent > 0 : true;
+    return enabled;
+}
+
+void Spell::enable() {
+    assert(is_enabled_externally);
+    assert(enabled == false);
+    enabled = true;
+    enable_spell_effect();
+}
+
+void Spell::disable() {
+    assert(is_enabled_externally);
+    assert(enabled);
+    enabled = false;
+    disable_spell_effect();
 }
 
 float Spell::get_cooldown_remaining() const {
@@ -77,11 +100,15 @@ float Spell::get_cooldown_remaining() const {
 void Spell::increase_effect_via_talent() {
     ++rank_talent;
     // TODO: Assert max rank?
+    if (is_enabled_externally && !enabled)
+        enabled = true;
 }
 
 void Spell::decrease_effect_via_talent() {
     --rank_talent;
     assert(rank_talent >= 0);
+    if (is_enabled_externally && enabled && rank_talent == 0)
+        enabled = false;
 }
 
 void Spell::increase_spell_rank() {

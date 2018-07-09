@@ -29,6 +29,8 @@ public:
     bool is_ready() const;
     virtual bool is_available() const;
     bool is_enabled() const;
+    void enable();
+    void disable();
 
     float get_cooldown_remaining() const;
 
@@ -47,6 +49,8 @@ public:
 protected:
     virtual void spell_effect() = 0;
     virtual bool is_ready_spell_specific() const;
+    virtual void enable_spell_effect();
+    virtual void disable_spell_effect();
     const QString name;
     Engine* engine;
     Character* pchar;
@@ -59,7 +63,8 @@ protected:
     int resource_cost;
     int rank_talent;
     int rank_spell;
-    bool enabled_by_talent;
+    bool is_enabled_externally;
+    bool enabled;
 
     void add_spell_cd_event(void) const;
     void add_gcd_event(void) const;

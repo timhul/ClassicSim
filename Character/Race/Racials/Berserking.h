@@ -9,10 +9,13 @@ class Berserking: public Spell {
 public:
     Berserking(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    bool is_ready_spell_specific() const override;
     void spell_effect() override;
 
 protected:
+
+    void enable_spell_effect() override;
+    void disable_spell_effect() override;
+
 private:
 };
 

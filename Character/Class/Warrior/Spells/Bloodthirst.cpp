@@ -11,7 +11,8 @@ Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Bloodthirst", engine, pchar, roll, true, 6.0, 30)
 {
     this->pchar = dynamic_cast<Warrior*>(pchar);
-    this->enabled_by_talent = true;
+    this->is_enabled_externally = true;
+    this->enabled = false;
 }
 
 void Bloodthirst::spell_effect() {

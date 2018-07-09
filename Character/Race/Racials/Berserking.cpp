@@ -6,10 +6,9 @@
 
 Berserking::Berserking(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Berserking", engine, pchar, roll, true, 180, 0)
-{}
-
-bool Berserking::is_ready_spell_specific() const {
-    return pchar->get_race()->get_race_int() == Races::Troll;
+{
+    this->is_enabled_externally = true;
+    this->enabled = false;
 }
 
 void Berserking::spell_effect() {
@@ -17,4 +16,12 @@ void Berserking::spell_effect() {
 
     add_spell_cd_event();
     add_gcd_event();
+}
+
+void Berserking::enable_spell_effect() {
+    pchar->get_berserking_buff()->enable_buff();
+}
+
+void Berserking::disable_spell_effect() {
+    pchar->get_berserking_buff()->disable_buff();
 }
