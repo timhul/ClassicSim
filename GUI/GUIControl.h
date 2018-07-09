@@ -14,6 +14,7 @@
 #include "ItemModel.h"
 #include "WeaponModel.h"
 #include "BuffModel.h"
+#include "DebuffModel.h"
 #include "Faction.h"
 
 class CharacterEncoder;
@@ -129,13 +130,16 @@ public:
     ItemModel* get_item_model() const;
     WeaponModel* get_weapon_model() const;
     BuffModel* get_buff_model() const;
+    DebuffModel* get_debuff_model() const;
     /* End of ItemModel */
 
-    /* Buffs */
+    /* Buffs and debuffs */
     Q_INVOKABLE void selectBuff(QString buff);
     Q_INVOKABLE bool buffActive(QString buff) const;
+    Q_INVOKABLE void selectDebuff(QString debuff);
+    Q_INVOKABLE bool debuffActive(QString debuff) const;
 
-    /* End of Buffs */
+    /* End of Buffs and debuffs */
 
     /* Statistics */
     Q_INVOKABLE int getNumStatisticsRows() const;
@@ -168,6 +172,7 @@ Q_SIGNALS:
     void statisticsReady();
     void creatureTypeChanged();
     void externalBuffsChanged();
+    void externalDebuffsChanged();
 
 private:
     int get_talent_points_remaining() const;
@@ -238,6 +243,7 @@ private:
     ItemModel* item_model;
     WeaponModel* weapon_model;
     BuffModel* buff_model;
+    DebuffModel* debuff_model;
 };
 
 #endif // GUICONTROL_H

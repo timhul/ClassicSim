@@ -90,6 +90,7 @@ GUIControl::GUIControl(QObject* parent) :
     thread_pool = new SimulationThreadPool();
     // TODO: Handle switching pchar
     buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
+    debuff_model = new DebuffModel(current_char->get_active_buffs()->get_general_buffs());
 }
 
 GUIControl::~GUIControl() {
@@ -113,6 +114,7 @@ GUIControl::~GUIControl() {
     delete item_model;
     delete weapon_model;
     delete buff_model;
+    delete debuff_model;
     delete character_encoder;
     delete character_decoder;
     delete thread_pool;
@@ -421,6 +423,10 @@ BuffModel* GUIControl::get_buff_model() const {
     return this->buff_model;
 }
 
+DebuffModel* GUIControl::get_debuff_model() const {
+    return this->debuff_model;
+}
+
 void GUIControl::selectBuff(QString buff) {
     current_char->get_active_buffs()->get_general_buffs()->toggle_external_buff(buff);
     Q_EMIT statsChanged();
@@ -429,6 +435,15 @@ void GUIControl::selectBuff(QString buff) {
 
 bool GUIControl::buffActive(QString buff) const {
     return current_char->get_active_buffs()->get_general_buffs()->buff_active(buff);
+}
+
+void GUIControl::selectDebuff(QString debuff) {
+    current_char->get_active_buffs()->get_general_buffs()->toggle_external_debuff(debuff);
+    Q_EMIT externalDebuffsChanged();
+}
+
+bool GUIControl::debuffActive(QString debuff) const {
+    return current_char->get_active_buffs()->get_general_buffs()->debuff_active(debuff);
 }
 
 int GUIControl::getNumStatisticsRows() const {

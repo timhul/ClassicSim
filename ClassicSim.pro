@@ -198,7 +198,9 @@ SOURCES += main.cpp \
     Character/Race/Racials/BloodFury.cpp \
     Character/Race/Racials/BloodFuryBuff.cpp \
     Character/Race/Racials/Berserking.cpp \
-    Character/Race/Racials/BerserkingBuff.cpp
+    Character/Race/Racials/BerserkingBuff.cpp \
+    Character/Class/General/Debuffs/SunderArmorBuff.cpp \
+    GUI/Models/DebuffModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -392,7 +394,9 @@ HEADERS += \
     Character/Race/Racials/BloodFury.h \
     Character/Race/Racials/BloodFuryBuff.h \
     Character/Race/Racials/Berserking.h \
-    Character/Race/Racials/BerserkingBuff.h
+    Character/Race/Racials/BerserkingBuff.h \
+    Character/Class/General/Debuffs/SunderArmorBuff.h \
+    GUI/Models/DebuffModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -439,6 +443,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General \
     C:\C++\ClassicSim\Character\Class\General\Enchants \
     C:\C++\ClassicSim\Character\Class\General\Buffs \
+    C:\C++\ClassicSim\Character\Class\General\Debuffs \
     C:\C++\ClassicSim\Character\Class\General\Spells \
     C:\C++\ClassicSim\Character\Class\General\Procs \
     C:\C++\ClassicSim\GUI \

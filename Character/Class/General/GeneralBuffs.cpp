@@ -8,6 +8,8 @@
 #include "RallyingCryOfTheDragonslayer.h"
 #include "SongflowerSerenade.h"
 
+#include "SunderArmorBuff.h"
+
 GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
     pchar(pchar),
@@ -23,6 +25,8 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
     this->external_buffs.append(new ElixirOfTheMongoose(pchar));
     this->external_buffs.append(new RallyingCryOfTheDragonslayer(pchar));
     this->external_buffs.append(new SongflowerSerenade(pchar));
+
+    this->external_debuffs.append(new SunderArmorBuff(pchar));
 }
 
 GeneralBuffs::~GeneralBuffs()
@@ -31,13 +35,17 @@ GeneralBuffs::~GeneralBuffs()
         delete this->buffs[i];
     }
 
-    this->buffs.clear();
-
     for (int i = 0; i < this->external_buffs.size(); ++i) {
         delete this->external_buffs[i];
     }
 
+    for (int i = 0; i < this->external_debuffs.size(); ++i) {
+        delete this->external_debuffs[i];
+    }
+
+    this->buffs.clear();
     this->external_buffs.clear();
+    this->external_debuffs.clear();
 }
 
 void GeneralBuffs::switch_faction() {
@@ -55,15 +63,19 @@ QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {
     return this->external_buffs;
 }
 
-void GeneralBuffs::toggle_external_buff(const QString& buff_name) {
-    for (int i = 0; i < external_buffs.size(); ++i) {
-        if (external_buffs[i]->get_name() == buff_name) {
-            if (external_buffs[i]->is_active()) {
-                external_buffs[i]->use_charge();
-                assert(!external_buffs[i]->is_active());
+QVector<ExternalBuff*> GeneralBuffs::get_external_debuffs() const {
+    return this->external_debuffs;
+}
+
+void GeneralBuffs::toggle_external(const QString& name, const QVector<ExternalBuff*>& vec) const {
+    for (int i = 0; i < vec.size(); ++i) {
+        if (vec[i]->get_name() == name) {
+            if (vec[i]->is_active()) {
+                vec[i]->cancel_buff();
+                assert(!vec[i]->is_active());
             }
             else {
-                external_buffs[i]->apply_buff();
+                vec[i]->apply_buff();
             }
 
             break;
@@ -71,13 +83,29 @@ void GeneralBuffs::toggle_external_buff(const QString& buff_name) {
     }
 }
 
-bool GeneralBuffs::buff_active(const QString& buff_name) const {
-    for (int i = 0; i < external_buffs.size(); ++i) {
-        if (external_buffs[i]->get_name() == buff_name)
-            return external_buffs[i]->is_active();
+void GeneralBuffs::toggle_external_buff(const QString& buff_name) {
+    toggle_external(buff_name, this->external_buffs);
+}
+
+void GeneralBuffs::toggle_external_debuff(const QString& debuff_name) {
+    toggle_external(debuff_name, this->external_debuffs);
+}
+
+bool GeneralBuffs::external_buff_active(const QString& name, const QVector<ExternalBuff*>& vec) const {
+    for (int i = 0; i < vec.size(); ++i) {
+        if (vec[i]->get_name() == name)
+            return vec[i]->is_active();
     }
 
     return false;
+}
+
+bool GeneralBuffs::buff_active(const QString& buff_name) const {
+    return external_buff_active(buff_name, this->external_buffs);
+}
+
+bool GeneralBuffs::debuff_active(const QString& debuff_name) const {
+    return external_buff_active(debuff_name, this->external_debuffs);
 }
 
 /*

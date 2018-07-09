@@ -26,6 +26,8 @@ public:
 
     int get_armor() const;
     void set_armor(const int);
+    void increase_armor(const int);
+    void decrease_armor(const int);
 
     CreatureType get_creature_type() const;
     QString get_creature_type_string() const;

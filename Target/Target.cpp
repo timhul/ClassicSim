@@ -4,7 +4,7 @@
 
 Target::Target(int target_lvl):
     target_lvl(target_lvl),
-    target_armor(4900),
+    target_armor(4700),
     target_type(CreatureType::Beast)
 {
     creature_type_strings = {{CreatureType::Beast, "Beast"},
@@ -39,11 +39,19 @@ int Target::get_defense(void) const {
 }
 
 int Target::get_armor() const {
-    return target_armor;
+    return target_armor < 0 ? 0 : target_armor;
 }
 
 void Target::set_armor(const int armor) {
     this->target_armor = armor;
+}
+
+void Target::increase_armor(const int armor) {
+    this->target_armor += armor;
+}
+
+void Target::decrease_armor(const int armor) {
+    this->target_armor -= armor;
 }
 
 Target::CreatureType Target::get_creature_type() const {
