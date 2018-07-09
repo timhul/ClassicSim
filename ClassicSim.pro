@@ -200,7 +200,8 @@ SOURCES += main.cpp \
     Character/Race/Racials/Berserking.cpp \
     Character/Race/Racials/BerserkingBuff.cpp \
     Character/Class/General/Debuffs/SunderArmorBuff.cpp \
-    GUI/Models/DebuffModel.cpp
+    GUI/Models/DebuffModel.cpp \
+    Character/Class/General/Debuffs/FaerieFireBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -396,7 +397,8 @@ HEADERS += \
     Character/Race/Racials/Berserking.h \
     Character/Race/Racials/BerserkingBuff.h \
     Character/Class/General/Debuffs/SunderArmorBuff.h \
-    GUI/Models/DebuffModel.h
+    GUI/Models/DebuffModel.h \
+    Character/Class/General/Debuffs/FaerieFireBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
