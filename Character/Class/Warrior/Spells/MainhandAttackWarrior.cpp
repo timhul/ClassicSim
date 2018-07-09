@@ -50,7 +50,7 @@ void MainhandAttackWarrior::calculate_damage() {
     if (pchar->get_recklessness_buff()->is_active())
         result = AttackResult::CRITICAL;
 
-    float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
+    float damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_mh_dmg());
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * 2);

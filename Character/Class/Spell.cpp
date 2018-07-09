@@ -1,7 +1,9 @@
 
 #include "Spell.h"
 #include "Character.h"
+#include "Target.h"
 #include "StatisticsSpell.h"
+#include "Mechanics.h"
 
 Spell::Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
              bool restricted_by_gcd, float cooldown, int resource_cost) :
@@ -157,6 +159,11 @@ void Spell::add_hit_dmg(const int damage) {
 void Spell::add_crit_dmg(const int damage) {
     statistics->add_crit_dmg(damage);
     statistics->increment_crit();
+}
+
+float Spell::damage_after_modifiers(const float damage) const {
+    float armor_reduction = 1 - roll->get_mechanics()->get_reduction_from_armor(roll->get_target()->get_armor(), pchar->get_clvl());
+    return damage * pchar->get_total_phys_dmg_mod() * armor_reduction;
 }
 
 void Spell::reset() {

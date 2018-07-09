@@ -79,6 +79,7 @@ void TestBloodthirst::test_costs_30_rage() {
 }
 
 void TestBloodthirst::test_hit_dmg() {
+    given_target_has_0_armor();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
@@ -92,6 +93,7 @@ void TestBloodthirst::test_hit_dmg() {
 }
 
 void TestBloodthirst::test_crit_dmg_0_of_2_impale() {
+    given_target_has_0_armor();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
@@ -105,6 +107,7 @@ void TestBloodthirst::test_crit_dmg_0_of_2_impale() {
 }
 
 void TestBloodthirst::test_crit_dmg_1_of_2_impale() {
+    given_target_has_0_armor();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
@@ -118,6 +121,7 @@ void TestBloodthirst::test_crit_dmg_1_of_2_impale() {
 }
 
 void TestBloodthirst::test_crit_dmg_2_of_2_impale() {
+    given_target_has_0_armor();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();

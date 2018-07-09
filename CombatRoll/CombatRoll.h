@@ -35,6 +35,7 @@ public:
     void set_character(Character*);
 
     Target* get_target() const;
+    Mechanics* get_mechanics() const;
 
     float get_white_miss_chance(const int);
     float get_yellow_miss_chance(const int wpn_skill);

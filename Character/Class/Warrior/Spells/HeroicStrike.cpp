@@ -44,8 +44,7 @@ void HeroicStrike::calculate_damage() {
         return;
     }
 
-    float damage_dealt = pchar->get_random_non_normalized_mh_dmg() + additional_dmg;
-    damage_dealt *= pchar->get_total_phys_dmg_mod();
+    float damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_mh_dmg() + additional_dmg);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());

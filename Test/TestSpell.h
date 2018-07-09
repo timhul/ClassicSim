@@ -51,6 +51,7 @@ public:
     void given_an_offhand_weapon_with_3_speed();
     void given_an_offhand_weapon_with_2_speed();
     void given_1000_melee_ap();
+    void given_target_has_0_armor();
     void given_engine_priority_at(const float priority);
 
     void when_running_queued_events_until(const float priority);

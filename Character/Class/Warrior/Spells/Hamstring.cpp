@@ -33,7 +33,7 @@ void Hamstring::spell_effect() {
         return;
     }
 
-    float damage_dealt = 45 * pchar->get_total_phys_dmg_mod();
+    float damage_dealt = damage_after_modifiers(45);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

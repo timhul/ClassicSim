@@ -37,7 +37,7 @@ void Bloodthirst::spell_effect() {
         return;
     }
 
-    float damage_dealt = pchar->get_stats()->get_melee_ap() * 0.45 * pchar->get_stats()->get_total_phys_dmg_mod();
+    float damage_dealt = damage_after_modifiers(pchar->get_stats()->get_melee_ap() * 0.45);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

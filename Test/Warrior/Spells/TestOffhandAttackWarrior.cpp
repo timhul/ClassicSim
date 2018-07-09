@@ -138,6 +138,7 @@ void TestOffhandAttackWarrior::test_does_not_incur_global_cooldown_on_use() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_0_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_0_of_5_dual_wield_specialization();
@@ -153,6 +154,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_0_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_1_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_1_of_5_dual_wield_specialization();
@@ -168,6 +170,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_1_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_2_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_2_of_5_dual_wield_specialization();
@@ -183,6 +186,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_2_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_3_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_3_of_5_dual_wield_specialization();
@@ -198,6 +202,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_3_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_4_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_4_of_5_dual_wield_specialization();
@@ -213,6 +218,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_4_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_hit_dmg_5_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_5_of_5_dual_wield_specialization();
@@ -228,6 +234,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_5_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_0_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_0_of_5_dual_wield_specialization();
@@ -243,6 +250,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_0_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_1_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_1_of_5_dual_wield_specialization();
@@ -258,6 +266,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_1_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_2_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_2_of_5_dual_wield_specialization();
@@ -273,6 +282,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_2_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_3_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_3_of_5_dual_wield_specialization();
@@ -288,6 +298,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_3_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_4_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_4_of_5_dual_wield_specialization();
@@ -303,6 +314,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_4_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_crit_dmg_5_of_5_dual_wield_specialization() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_5_of_5_dual_wield_specialization();
@@ -318,6 +330,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_5_of_5_dual_wield_specialization() 
 }
 
 void TestOffhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_glancing_blow();
     given_300_weapon_skill_oh();
@@ -333,6 +346,7 @@ void TestOffhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
 }
 
 void TestOffhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_305_weapon_skill_oh();
     given_a_guaranteed_white_glancing_blow();
@@ -348,6 +362,7 @@ void TestOffhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
 }
 
 void TestOffhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_310_weapon_skill_oh();
     given_a_guaranteed_white_glancing_blow();
@@ -363,6 +378,7 @@ void TestOffhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
 }
 
 void TestOffhandAttackWarrior::test_glancing_damage_315_wpn_skill() {
+    given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_315_weapon_skill_oh();
     given_a_guaranteed_white_glancing_blow();

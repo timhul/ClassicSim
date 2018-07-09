@@ -32,8 +32,7 @@ void Overpower::spell_effect() {
         return;
     }
 
-    float damage_dealt = pchar->get_random_normalized_mh_dmg() + 35;
-    damage_dealt *= pchar->get_total_phys_dmg_mod();
+    float damage_dealt = damage_after_modifiers(pchar->get_random_normalized_mh_dmg() + 35);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= pchar->get_ability_crit_dmg_mod();

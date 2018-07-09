@@ -110,6 +110,7 @@ void TestHeroicStrike::test_removing_points_in_improved_hs_increases_rage_cost()
 }
 
 void TestHeroicStrike::test_hit_dmg() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_hit();
@@ -124,6 +125,7 @@ void TestHeroicStrike::test_hit_dmg() {
 }
 
 void TestHeroicStrike::test_crit_dmg_0_of_2_impale() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();
@@ -137,6 +139,7 @@ void TestHeroicStrike::test_crit_dmg_0_of_2_impale() {
     then_damage_dealt_is(885);
 }
 void TestHeroicStrike::test_crit_dmg_1_of_2_impale() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();
@@ -151,6 +154,7 @@ void TestHeroicStrike::test_crit_dmg_1_of_2_impale() {
 }
 
 void TestHeroicStrike::test_crit_dmg_2_of_2_impale() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();

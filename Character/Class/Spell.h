@@ -78,6 +78,8 @@ protected:
     void add_hit_dmg(const int);
     void add_crit_dmg(const int);
 
+    float damage_after_modifiers(const float damage) const;
+
 private:
 };
 

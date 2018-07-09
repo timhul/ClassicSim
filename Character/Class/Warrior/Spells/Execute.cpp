@@ -52,7 +52,7 @@ void Execute::spell_effect() {
     }
 
     float damage_dealt = initial_dmg + (pchar->get_curr_rage() - resource_cost) * dmg_per_rage_converted;
-    damage_dealt *= pchar->get_total_phys_dmg_mod();
+    damage_dealt = damage_after_modifiers(damage_dealt);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());

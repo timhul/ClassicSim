@@ -22,7 +22,7 @@ public:
 
     float get_glancing_blow_dmg_penalty(const int) const;
 
-    float get_reduction_from_armor(const int, const int) const;
+    float get_reduction_from_armor(const int armor, const int clvl) const;
 
     void set_tlvl(const int);
 protected:

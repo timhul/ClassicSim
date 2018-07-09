@@ -198,6 +198,7 @@ void TestRecklessness::test_white_block_still_blocks() {
 }
 
 void TestRecklessness::test_glancing_hits_converted_to_crits() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_white_glancing_blow();
@@ -210,6 +211,7 @@ void TestRecklessness::test_glancing_hits_converted_to_crits() {
 }
 
 void TestRecklessness::test_white_hit_converted_to_crit() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_white_hit();
@@ -222,6 +224,7 @@ void TestRecklessness::test_white_hit_converted_to_crit() {
 }
 
 void TestRecklessness::test_white_crit_still_crits() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_white_crit();
@@ -234,6 +237,7 @@ void TestRecklessness::test_white_crit_still_crits() {
 }
 
 void TestRecklessness::test_ability_hit_converted_to_crit() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();
@@ -246,6 +250,7 @@ void TestRecklessness::test_ability_hit_converted_to_crit() {
 }
 
 void TestRecklessness::test_ability_crit_still_crits() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_1000_melee_ap();
     given_a_guaranteed_melee_ability_crit();

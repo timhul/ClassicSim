@@ -78,6 +78,10 @@ Target* CombatRoll::get_target() const {
     return this->target;
 }
 
+Mechanics* CombatRoll::get_mechanics() const {
+    return this->mechanics;
+}
+
 WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     assert(this->pchar != nullptr);
     assert(this->mechanics != nullptr);

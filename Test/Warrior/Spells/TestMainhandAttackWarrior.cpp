@@ -97,6 +97,7 @@ void TestMainhandAttackWarrior::test_does_not_incur_global_cooldown_on_use() {
 }
 
 void TestMainhandAttackWarrior::test_hit_dmg() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_1000_melee_ap();
@@ -111,6 +112,7 @@ void TestMainhandAttackWarrior::test_hit_dmg() {
 }
 
 void TestMainhandAttackWarrior::test_crit_dmg() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_1000_melee_ap();
@@ -125,6 +127,7 @@ void TestMainhandAttackWarrior::test_crit_dmg() {
 }
 
 void TestMainhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_glancing_blow();
     given_300_weapon_skill_mh();
@@ -140,6 +143,7 @@ void TestMainhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
 }
 
 void TestMainhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_305_weapon_skill_mh();
     given_a_guaranteed_white_glancing_blow();
@@ -155,6 +159,7 @@ void TestMainhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
 }
 
 void TestMainhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_310_weapon_skill_mh();
     given_a_guaranteed_white_glancing_blow();
@@ -170,6 +175,7 @@ void TestMainhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
 }
 
 void TestMainhandAttackWarrior::test_glancing_damage_315_wpn_skill() {
+    given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_315_weapon_skill_mh();
     given_a_guaranteed_white_glancing_blow();

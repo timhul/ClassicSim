@@ -455,6 +455,11 @@ void TestSpell::given_1000_melee_ap() {
     assert(pchar->get_stats()->get_melee_ap() == 1000);
 }
 
+void TestSpell::given_target_has_0_armor() {
+    pchar->get_combat_roll()->get_target()->set_armor(0);
+    assert(pchar->get_combat_roll()->get_target()->get_armor() == 0);
+}
+
 void TestSpell::given_engine_priority_at(const float priority) {
     MainhandMeleeHit* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
     engine->set_current_priority(event);
