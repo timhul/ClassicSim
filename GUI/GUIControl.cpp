@@ -65,6 +65,10 @@ GUIControl::GUIControl(QObject* parent) :
     combat = new CombatRoll(target);
     faction = new Faction();
 
+    item_type_filter_model = new ItemTypeFilterModel();
+    item_model = new ItemModel(equipment->get_db(), item_type_filter_model);
+    item_model->addItems(equipment->get_db());
+
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat, faction)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat, faction)));
     chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], engine, equipment, combat, faction)));
@@ -75,11 +79,7 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Troll"], engine, equipment, combat, faction)));
     chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat, faction)));
 
-    current_char = chars["Warrior"];
-    equipment->set_character(current_char);
-
-    item_model = new ItemModel(equipment->get_db());
-    item_model->addItems(equipment->get_db());
+    set_character(chars["Warrior"]);
 
     weapon_model = new WeaponModel(equipment->get_db());
     weapon_model->addWeapons(equipment->get_db());
@@ -112,12 +112,19 @@ GUIControl::~GUIControl() {
     delete combat;
     delete faction;
     delete item_model;
+    delete item_type_filter_model;
     delete weapon_model;
     delete buff_model;
     delete debuff_model;
     delete character_encoder;
     delete character_decoder;
     delete thread_pool;
+}
+
+void GUIControl::set_character(Character* pchar) {
+    current_char = pchar;
+    item_type_filter_model->set_character(current_char);
+    equipment->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString class_name) {
@@ -131,8 +138,7 @@ void GUIControl::selectClass(const QString class_name) {
         return;
     }
 
-    equipment->set_character(chars[class_name]);
-    current_char = chars[class_name];
+    set_character(chars[class_name]);
     raceChanged();
     classChanged();
     statsChanged();
@@ -168,7 +174,7 @@ void GUIControl::selectFaction(const bool faction) {
     factionChanged();
 
     if (current_char->get_name() == "Shaman" || current_char->get_name() == "Paladin") {
-        current_char = chars["Warrior"];
+        set_character(chars["Warrior"]);
         reset_race(current_char);
         classChanged();
     }
@@ -420,6 +426,19 @@ WeaponModel* GUIControl::get_weapon_model() const {
     return this->weapon_model;
 }
 
+ItemTypeFilterModel* GUIControl::get_item_type_filter_model() const {
+    return this->item_type_filter_model;
+}
+
+bool GUIControl::getFilterActive(const int filter) const {
+    return this->item_type_filter_model->get_filter_active(filter);
+}
+
+void GUIControl::toggleSingleFilter(const int filter) {
+    this->item_type_filter_model->toggle_single_filter(filter);
+    Q_EMIT filtersUpdated();
+}
+
 BuffModel* GUIControl::get_buff_model() const {
     return this->buff_model;
 }
@@ -622,9 +641,11 @@ void GUIControl::selectSlot(QString slot_string) {
     case ItemSlots::OFFHAND:
     case ItemSlots::RANGED:
         weapon_model->setSlot(slot);
+        item_type_filter_model->set_item_slot(slot);
         return;
     }
 
+    item_type_filter_model->set_item_slot(slot);
     item_model->setSlot(slot);
 }
 

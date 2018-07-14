@@ -43,6 +43,9 @@ public:
 
     void switch_faction();
 
+    virtual int get_highest_possible_armor_type() const = 0;
+    virtual QVector<int> get_weapon_proficiencies_for_slot(const int) const = 0;
+
     virtual int get_strength_modifier() const = 0;
     virtual int get_agility_modifier() const = 0;
     virtual int get_stamina_modifier() const = 0;

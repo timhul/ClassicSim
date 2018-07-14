@@ -244,5 +244,6 @@
         <file>QML/Assets/buffs/Spell_nature_faeriefire.png</file>
         <file>QML/Assets/buffs/Spell_shadow_unholystrength.png</file>
         <file>QML/QuickSwitchBox.qml</file>
+        <file>QML/EquipmentSelectionBox.qml</file>
     </qresource>
 </RCC>

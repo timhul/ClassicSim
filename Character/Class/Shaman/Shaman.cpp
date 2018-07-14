@@ -1,5 +1,6 @@
 
 #include "Shaman.h"
+#include "Weapon.h"
 
 QString Shaman::get_name(void) const {
     return "Shaman";
@@ -53,4 +54,25 @@ float Shaman::global_cooldown() const {
 
 void Shaman::initialize_talents() {
 
+}
+
+int Shaman::get_highest_possible_armor_type() const {
+    return ArmorTypes::MAIL;
+}
+
+QVector<int> Shaman::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
+                             WeaponTypes::MACE, WeaponTypes::POLEARM,
+                             WeaponTypes::STAFF, WeaponTypes::TWOHAND_AXE,
+                             WeaponTypes::TWOHAND_MACE});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::CASTER_OFFHAND, WeaponTypes::SHIELD});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::TOTEM});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
 }

@@ -33,6 +33,8 @@ public:
 
     int get_ap_per_strength() const override;
     int get_ap_per_agi() const override;
+    int get_highest_possible_armor_type() const override;
+    QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
 protected:
 private:

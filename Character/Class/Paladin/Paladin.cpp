@@ -1,5 +1,6 @@
 
 #include "Paladin.h"
+#include "Weapon.h"
 
 QString Paladin::get_name(void) const {
     return "Paladin";
@@ -53,4 +54,24 @@ float Paladin::global_cooldown() const {
 
 void Paladin::initialize_talents() {
 
+}
+
+int Paladin::get_highest_possible_armor_type() const {
+    return ArmorTypes::PLATE;
+}
+
+QVector<int> Paladin::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::MACE, WeaponTypes::SWORD,
+                             WeaponTypes::POLEARM, WeaponTypes::TWOHAND_AXE,
+                             WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::CASTER_OFFHAND, WeaponTypes::SHIELD});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::LIBRAM});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
 }

@@ -1,5 +1,6 @@
 
 #include "Mage.h"
+#include "Weapon.h"
 
 QString Mage::get_name(void) const {
     return "Mage";
@@ -53,4 +54,22 @@ float Mage::global_cooldown() const {
 
 void Mage::initialize_talents() {
 
+}
+
+int Mage::get_highest_possible_armor_type() const {
+    return ArmorTypes::CLOTH;
+}
+
+QVector<int> Mage::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::SWORD, WeaponTypes::STAFF});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::CASTER_OFFHAND});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::WAND});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
 }

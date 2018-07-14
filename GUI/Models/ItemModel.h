@@ -6,6 +6,7 @@
 
 class Item;
 class EquipmentDb;
+class ItemTypeFilterModel;
 
 class ItemModel : public QAbstractListModel
 {
@@ -22,7 +23,7 @@ public:
         IconRole
     };
 
-    ItemModel(EquipmentDb*, QObject *parent = 0);
+    ItemModel(EquipmentDb*, ItemTypeFilterModel*, QObject *parent = 0);
 
     void set_patch(const QString &patch);
     Q_INVOKABLE void setSlot(const int slot);
@@ -39,6 +40,7 @@ protected:
 private:
     int slot;
     EquipmentDb* db;
+    ItemTypeFilterModel* item_type_filter_model;
     QList<Item*> items;
 };
 

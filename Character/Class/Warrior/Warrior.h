@@ -38,6 +38,9 @@ public:
     int get_ap_per_agi() const override;
     void set_clvl(const int) override;
 
+    int get_highest_possible_armor_type() const override;
+    QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
+
     float global_cooldown() const override;
     float stance_cooldown() const;
     bool on_stance_cooldown() const;

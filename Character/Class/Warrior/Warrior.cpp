@@ -222,6 +222,30 @@ RecklessnessBuff* Warrior::get_recklessness_buff() const {
     return this->recklessness_buff;
 }
 
+int Warrior::get_highest_possible_armor_type() const {
+    return ArmorTypes::PLATE;
+}
+
+QVector<int> Warrior::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
+                             WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::POLEARM,
+                             WeaponTypes::STAFF, WeaponTypes::TWOHAND_AXE,
+                             WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
+                            WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::CASTER_OFFHAND,
+                            WeaponTypes::SHIELD});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
+                            WeaponTypes::THROWN});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
+}
+
 float Warrior::global_cooldown() const {
     return 1.5;
 }

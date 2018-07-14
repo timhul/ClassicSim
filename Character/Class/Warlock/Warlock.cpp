@@ -1,5 +1,6 @@
 
 #include "Warlock.h"
+#include "Weapon.h"
 
 QString Warlock::get_name(void) const {
     return "Warlock";
@@ -53,4 +54,22 @@ float Warlock::global_cooldown() const {
 
 void Warlock::initialize_talents() {
 
+}
+
+int Warlock::get_highest_possible_armor_type() const {
+    return ArmorTypes::CLOTH;
+}
+
+QVector<int> Warlock::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::SWORD, WeaponTypes::STAFF});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::CASTER_OFFHAND});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::WAND});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
 }

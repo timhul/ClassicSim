@@ -4,10 +4,11 @@
 #include "EquipmentDb.h"
 #include <QDebug>
 
-ItemModel::ItemModel(EquipmentDb* db, QObject *parent)
+ItemModel::ItemModel(EquipmentDb* db, ItemTypeFilterModel* item_type_filter_model, QObject *parent)
     : QAbstractListModel(parent)
 {
     this->db = db;
+    this->item_type_filter_model = item_type_filter_model;
     this->slot = ItemSlots::MAINHAND;
 }
 
@@ -35,6 +36,8 @@ void ItemModel::addItems(const EquipmentDb* db) {
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);
 
     for (int i = 0; i < tmp_items.size(); ++i) {
+        // TODO: Check whether item type is filtered
+        // TODO: Check whether item stats fulfill stat filter requirements
         addItem(tmp_items[i]);
     }
 

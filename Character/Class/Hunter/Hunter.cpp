@@ -1,5 +1,6 @@
 
 #include "Hunter.h"
+#include "Weapon.h"
 
 QString Hunter::get_name(void) const {
     return "Hunter";
@@ -53,4 +54,24 @@ float Hunter::global_cooldown() const {
 
 void Hunter::initialize_talents() {
 
+}
+
+int Hunter::get_highest_possible_armor_type() const {
+    return ArmorTypes::MAIL;
+}
+
+QVector<int> Hunter::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
+                             WeaponTypes::SWORD, WeaponTypes::POLEARM, WeaponTypes::STAFF,
+                             WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_SWORD});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
 }

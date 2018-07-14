@@ -1,5 +1,6 @@
 
 #include "Priest.h"
+#include "Weapon.h"
 
 QString Priest::get_name(void) const {
     return "Priest";
@@ -53,4 +54,22 @@ float Priest::global_cooldown() const {
 
 void Priest::initialize_talents() {
 
+}
+
+int Priest::get_highest_possible_armor_type() const {
+    return ArmorTypes::CLOTH;
+}
+
+QVector<int> Priest::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::MACE, WeaponTypes::STAFF});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::CASTER_OFFHAND});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::WAND});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
 }

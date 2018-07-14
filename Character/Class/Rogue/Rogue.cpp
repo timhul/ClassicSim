@@ -1,5 +1,6 @@
 
 #include "Rogue.h"
+#include "Weapon.h"
 
 QString Rogue::get_name(void) const {
     return "Rogue";
@@ -53,4 +54,25 @@ float Rogue::global_cooldown() const {
 
 void Rogue::initialize_talents() {
 
+}
+
+int Rogue::get_highest_possible_armor_type() const {
+    return ArmorTypes::LEATHER;
+}
+
+QVector<int> Rogue::get_weapon_proficiencies_for_slot(const int slot) const {
+    switch (slot) {
+    case EquipmentSlot::MAINHAND:
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST,
+                             WeaponTypes::MACE, WeaponTypes::SWORD});
+    case EquipmentSlot::OFFHAND:
+        return QVector<int>({WeaponTypes::DAGGER, WeaponTypes::FIST,
+                            WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::CASTER_OFFHAND});
+    case EquipmentSlot::RANGED:
+        return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
+                            WeaponTypes::THROWN});
+    default:
+        assert(false);
+        return QVector<int>();
+    }
 }

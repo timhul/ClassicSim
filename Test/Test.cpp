@@ -38,6 +38,7 @@
 #include "Target.h"
 #include "Talents.h"
 #include "Faction.h"
+#include "ItemNamespace.h"
 
 #include "WarriorSpells.h"
 

@@ -15,6 +15,7 @@
 #include "WeaponModel.h"
 #include "BuffModel.h"
 #include "DebuffModel.h"
+#include "ItemTypeFilterModel.h"
 #include "Faction.h"
 
 class CharacterEncoder;
@@ -129,11 +130,14 @@ public:
     /* ItemModel */
     ItemModel* get_item_model() const;
     WeaponModel* get_weapon_model() const;
-    BuffModel* get_buff_model() const;
-    DebuffModel* get_debuff_model() const;
+    ItemTypeFilterModel* get_item_type_filter_model() const;
+    Q_INVOKABLE bool getFilterActive(const int filter) const;
+    Q_INVOKABLE void toggleSingleFilter(const int filter);
     /* End of ItemModel */
 
     /* Buffs and debuffs */
+    BuffModel* get_buff_model() const;
+    DebuffModel* get_debuff_model() const;
     Q_INVOKABLE void selectBuff(QString buff);
     Q_INVOKABLE bool buffActive(QString buff) const;
     Q_INVOKABLE void selectDebuff(QString debuff);
@@ -174,6 +178,7 @@ Q_SIGNALS:
     void creatureTypeChanged();
     void externalBuffsChanged();
     void externalDebuffsChanged();
+    void filtersUpdated();
 
 private:
     int get_talent_points_remaining() const;
@@ -227,6 +232,7 @@ private:
     QString get_capitalized_string(const QString&) const;
     void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);
     void set_class_restriction_tooltip(Item *&item, QString &restriction);
+    void set_character(Character* pchar);
 
     Engine* engine;
     Equipment* equipment;
@@ -242,6 +248,7 @@ private:
     Character* current_char;
     float last_quick_sim_result;
     ItemModel* item_model;
+    ItemTypeFilterModel* item_type_filter_model;
     WeaponModel* weapon_model;
     BuffModel* buff_model;
     DebuffModel* debuff_model;
