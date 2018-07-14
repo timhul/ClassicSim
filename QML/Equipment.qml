@@ -17,79 +17,99 @@ Rectangle {
             right: parent.right
         }
 
-        rectColor: root.darkDarkGray
-
-        RectangleBorders {
-            id: sortRect
-            height: parent.height * 0.05
-            width: parent.width
+        EquipmentFilters {
+            id: filterRect
+            anchors {
+                left: parent.left
+                leftMargin: 10
+                top: parent.top
+                topMargin: 10
+            }
         }
 
-        ScrollView {
-            id: scrollWeapon
-            width: parent.width
-
-            visible: eqRect.state === "MAINHAND" || eqRect.state === "OFFHAND" || eqRect.state === "RANGED"
-
+        Rectangle {
+            id: itemsRect
             anchors {
-                top: sortRect.bottom
-                right: parent.right
+                left: filterRect.right
+                leftMargin: 10
+                top: parent.top
                 bottom: parent.bottom
+                right: parent.right
             }
 
-            ListView {
-                model: weaponModel
-                boundsBehavior: Flickable.StopAtBounds
+            color: "transparent"
 
-                clip: true
+            RectangleBorders {
+                id: headerRect
+                height: 60
+                width: parent.width
+            }
 
-                delegate: ItemEntryWeapon {
-                    entryName: name
-                    entrySpeed: speed
-                    entryDps: dps
-                    entryPatch: patch
-                    entrySource: source
-                    entryType: type
-                    entryReq: req_lvl
-                    entryItemlvl: item_lvl
-                    entryQuality: quality
-                    entryIcon: icon
-
-                    onEntryClicked: equipment.setSlot(eqRect.state, entryName)
+            RectangleBorders {
+                id: selectionRect
+                anchors {
+                    top: headerRect.bottom
+                    bottom: parent.bottom
+                    left: parent.left
+                    right: parent.right
                 }
-            }
-        }
 
-        ScrollView {
-            width: parent.width
+                ScrollView {
+                    id: scrollWeapon
+                    width: parent.width
 
-            visible: !scrollWeapon.visible
+                    visible: eqRect.state === "MAINHAND" || eqRect.state === "OFFHAND" || eqRect.state === "RANGED"
 
-            anchors {
-                top: sortRect.bottom
-                right: parent.right
-                bottom: parent.bottom
-            }
+                    anchors.fill: parent
 
-            ListView {
-                model: itemModel
-                boundsBehavior: Flickable.StopAtBounds
+                    ListView {
+                        model: weaponModel
+                        boundsBehavior: Flickable.StopAtBounds
 
-                clip: true
+                        clip: true
 
-                delegate: ItemEntryWeapon {
-                    entryName: name
-                    entrySpeed: "0"
-                    entryDps: "0"
-                    entryPatch: patch
-                    entrySource: source
-                    entryType: type
-                    entryReq: req_lvl
-                    entryItemlvl: item_lvl
-                    entryQuality: quality
-                    entryIcon: icon
+                        delegate: ItemEntryWeapon {
+                            entryName: name
+                            entrySpeed: speed
+                            entryDps: dps
+                            entryPatch: patch
+                            entrySource: source
+                            entryType: type
+                            entryReq: req_lvl
+                            entryItemlvl: item_lvl
+                            entryQuality: quality
+                            entryIcon: icon
 
-                    onEntryClicked: equipment.setSlot(eqRect.state, entryName)
+                            onEntryClicked: equipment.setSlot(eqRect.state, entryName)
+                        }
+                    }
+                }
+
+                ScrollView {
+                    anchors.fill: parent
+                    visible: !scrollWeapon.visible
+
+                    ListView {
+                        model: itemModel
+                        boundsBehavior: Flickable.StopAtBounds
+
+                        clip: true
+
+                        delegate: ItemEntryWeapon {
+                            entryName: name
+                            entrySpeed: "0"
+                            entryDps: "0"
+                            entryPatch: patch
+                            entrySource: source
+                            entryType: type
+                            entryReq: req_lvl
+                            entryItemlvl: item_lvl
+                            entryQuality: quality
+                            entryIcon: icon
+
+                            onEntryClicked: equipment.setSlot(eqRect.state, entryName)
+                        }
+                    }
                 }
             }
         }
