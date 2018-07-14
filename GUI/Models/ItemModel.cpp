@@ -1,5 +1,6 @@
 
 #include "ItemModel.h"
+#include "ItemTypeFilterModel.h"
 #include "Item.h"
 #include "EquipmentDb.h"
 #include <QDebug>
@@ -16,14 +17,18 @@ bool ilvl(Item* lhs, Item* rhs) {
     return lhs->get_value("item_lvl") > rhs->get_value("item_lvl");
 }
 
+void ItemModel::update_items() {
+    addItems(this->db);
+}
+
 void ItemModel::set_patch(const QString &patch) {
     db->set_patch(patch);
-    addItems(this->db);
+    update_items();
 }
 
 void ItemModel::setSlot(const int slot) {
     this->slot = slot;
-    addItems(this->db);
+    update_items();
 }
 
 void ItemModel::addItems(const EquipmentDb* db) {
@@ -36,7 +41,9 @@ void ItemModel::addItems(const EquipmentDb* db) {
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);
 
     for (int i = 0; i < tmp_items.size(); ++i) {
-        // TODO: Check whether item type is filtered
+        if (item_type_filter_model->get_filter_active(tmp_items[i]->get_item_type()))
+            continue;
+
         // TODO: Check whether item stats fulfill stat filter requirements
         addItem(tmp_items[i]);
     }

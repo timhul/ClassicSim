@@ -436,6 +436,7 @@ bool GUIControl::getFilterActive(const int filter) const {
 
 void GUIControl::toggleSingleFilter(const int filter) {
     this->item_type_filter_model->toggle_single_filter(filter);
+    this->item_model->update_items();
     Q_EMIT filtersUpdated();
 }
 
@@ -636,17 +637,18 @@ void GUIControl::selectSlot(QString slot_string) {
     if (slot == -1)
         return;
 
+    item_type_filter_model->set_item_slot(slot);
+
     switch (slot) {
     case ItemSlots::MAINHAND:
     case ItemSlots::OFFHAND:
     case ItemSlots::RANGED:
         weapon_model->setSlot(slot);
-        item_type_filter_model->set_item_slot(slot);
+        return;
+    default:
+        item_model->setSlot(slot);
         return;
     }
-
-    item_type_filter_model->set_item_slot(slot);
-    item_model->setSlot(slot);
 }
 
 void GUIControl::setSlot(QString slot_string, QString item) {

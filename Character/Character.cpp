@@ -382,15 +382,18 @@ int Character::get_wpn_skill(Weapon* weapon) const {
     int skill_bonus = 0;
     switch (weapon->get_weapon_type()) {
     case WeaponTypes::AXE:
+    case WeaponTypes::TWOHAND_AXE:
         skill_bonus += race->get_axe_bonus() + cstats->get_equipment()->get_stats()->get_axe_skill();
         break;
     case WeaponTypes::DAGGER:
         skill_bonus += cstats->get_equipment()->get_stats()->get_dagger_skill();
         break;
     case WeaponTypes::SWORD:
+    case WeaponTypes::TWOHAND_SWORD:
         skill_bonus += race->get_sword_bonus() + cstats->get_equipment()->get_stats()->get_sword_skill();
         break;
     case WeaponTypes::MACE:
+    case WeaponTypes::TWOHAND_MACE:
         skill_bonus += race->get_mace_bonus() + cstats->get_equipment()->get_stats()->get_mace_skill();
         break;
     }

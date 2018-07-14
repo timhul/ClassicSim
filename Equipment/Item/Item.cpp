@@ -14,6 +14,7 @@ Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString,
     this->stats = new Stats();
     set_stats(_stats);
     set_item_slot(info);
+    set_item_type(info);
 }
 
 Item::~Item() {
@@ -37,8 +38,21 @@ void Item::set_item_slot(const QMap<QString, QString>& info) {
     slot = get_slot_int(info["slot"]);
 }
 
+void Item::set_item_type(const QMap<QString, QString>& info) {
+    item_type = -1;
+    if (!info.contains("type")) {
+        return;
+    }
+
+    item_type = get_type_int(info["type"]);
+}
+
 int Item::get_item_slot(void) const {
     return slot;
+}
+
+int Item::get_item_type(void) const {
+    return this->item_type;
 }
 
 void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
@@ -357,6 +371,59 @@ int get_slot_int(const QString& slot_string) {
         return ItemSlots::CASTER_OFFHAND;
     else if (slot_string == "RELIC")
         return ItemSlots::RELIC;
+
+    return -1;
+}
+
+int Item::get_type_int(const QString& type_string) {
+    if (type_string == "AXE")
+        return WeaponTypes::AXE;
+    else if (type_string == "DAGGER")
+        return WeaponTypes::DAGGER;
+    else if (type_string == "FIST")
+        return WeaponTypes::FIST;
+    else if (type_string == "MACE")
+        return WeaponTypes::MACE;
+    else if (type_string == "POLEARM")
+        return WeaponTypes::POLEARM;
+    else if (type_string == "STAFF")
+        return WeaponTypes::STAFF;
+    else if (type_string == "SWORD")
+        return WeaponTypes::SWORD;
+    else if (type_string == "BOW")
+        return WeaponTypes::BOW;
+    else if (type_string == "CROSSBOW")
+        return WeaponTypes::CROSSBOW;
+    else if (type_string == "GUN")
+        return WeaponTypes::GUN;
+    else if (type_string == "THROWN")
+        return WeaponTypes::THROWN;
+    else if (type_string == "WAND")
+        return WeaponTypes::WAND;
+    else if (type_string == "IDOL")
+        return WeaponTypes::IDOL;
+    else if (type_string == "LIBRAM")
+        return WeaponTypes::LIBRAM;
+    else if (type_string == "TOTEM")
+        return WeaponTypes::TOTEM;
+    else if (type_string == "SHIELD")
+        return WeaponTypes::SHIELD;
+    else if (type_string == "CASTER_OFFHAND")
+        return WeaponTypes::CASTER_OFFHAND;
+    else if (type_string == "TWOHAND_AXE")
+        return WeaponTypes::TWOHAND_AXE;
+    else if (type_string == "TWOHAND_MACE")
+        return WeaponTypes::TWOHAND_MACE;
+    else if (type_string == "TWOHAND_SWORD")
+        return WeaponTypes::TWOHAND_SWORD;
+    else if (type_string == "CLOTH")
+        return ArmorTypes::CLOTH;
+    else if (type_string == "LEATHER")
+        return ArmorTypes::LEATHER;
+    else if (type_string == "MAIL")
+        return ArmorTypes::MAIL;
+    else if (type_string == "PLATE")
+        return ArmorTypes::PLATE;
 
     return -1;
 }

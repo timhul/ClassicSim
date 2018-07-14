@@ -10,11 +10,11 @@ class Character;
 class ItemFilter
 {
 public:
-    explicit ItemFilter(const int index, const QString name) :
-        index(index), name(name), active(false)
+    explicit ItemFilter(const int item_type, const QString name) :
+        item_type(item_type), name(name), active(false)
     {}
 
-    int index;
+    int item_type;
     QString name;
     bool active;
 };
@@ -25,7 +25,7 @@ class ItemTypeFilterModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum ItemTypeFilterRoles {
-        IndexRole = Qt::UserRole + 1,
+        ItemTypeRole = Qt::UserRole + 1,
         DescriptionRole,
         ActiveRole
     };

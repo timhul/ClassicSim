@@ -72,11 +72,12 @@ namespace WeaponSlots {
     static const int RANGED = 4;
 }
 
+// TODO: Coalesce WeaponTypes and ArmorTypes
 namespace ArmorTypes {
-    static const int CLOTH = 0;
-    static const int LEATHER = 1;
-    static const int MAIL = 2;
-    static const int PLATE = 3;
+    static const int CLOTH = 20;
+    static const int LEATHER = 21;
+    static const int MAIL = 22;
+    static const int PLATE = 23;
 }
 
 #endif // ITEMNAMESPACE_H

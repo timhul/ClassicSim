@@ -20,6 +20,7 @@ public:
     virtual ~Item();
 
     virtual int get_item_slot(void) const;
+    int get_item_type(void) const;
 
     void apply_equip_effect(Character*, const int eq_slot);
     void remove_equip_effect(Character*, const int eq_slot);
@@ -50,7 +51,10 @@ protected:
     bool proc_info_complete(QMap<QString, QString> & proc);
 
     int slot;
+    int item_type;
     void set_item_slot(const QMap<QString, QString>& info);
+    void set_item_type(const QMap<QString, QString>& info);
+    int get_type_int(const QString& type_string);
     void unsupported_stat(const QString& stat);
     QString get_tooltip(const QVector<QString>&) const;
 

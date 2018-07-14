@@ -27,9 +27,11 @@ public:
 
     void set_patch(const QString &patch);
     Q_INVOKABLE void setSlot(const int slot);
+    void update_items();
 
     void addItems(const EquipmentDb *db);
     void addItem(Item* item);
+
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
 

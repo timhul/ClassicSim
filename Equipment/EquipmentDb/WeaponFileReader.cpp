@@ -160,6 +160,12 @@ int WeaponFileReader::get_weapon_type(const QString &type) {
         return WeaponTypes::THROWN;
     if (type == "WAND")
         return WeaponTypes::WAND;
+    if (type == "TWOHAND_AXE")
+        return WeaponTypes::TWOHAND_AXE;
+    if (type == "TWOHAND_MACE")
+        return WeaponTypes::TWOHAND_MACE;
+    if (type == "TWOHAND_SWORD")
+        return WeaponTypes::TWOHAND_SWORD;
 
     return -1;
 }

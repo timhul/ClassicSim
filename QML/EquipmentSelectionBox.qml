@@ -32,12 +32,12 @@ Rectangle {
                 Connections {
                     target: equipment
                     onFiltersUpdated: {
-                        filterActive = equipment.getFilterActive(index)
+                        filterActive = equipment.getFilterActive(item_type)
                     }
                 }
 
-                onRectangleClicked: equipment.toggleSingleFilter(index)
-                onRectangleRightClicked: equipment.toggleSingleFilter(index)
+                onRectangleClicked: equipment.toggleSingleFilter(item_type)
+                onRectangleRightClicked: equipment.toggleSingleFilter(item_type)
 
                 Text {
                     anchors.fill: parent

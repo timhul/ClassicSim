@@ -17,21 +17,24 @@ void ItemTypeFilterModel::set_character(Character *pchar) {
 }
 
 bool ItemTypeFilterModel::get_filter_active(const int filter) const {
-    if (filter < 0 || filter >= item_type_filters.size()) {
-        qDebug() << "ItemTypeFilterModel::get_filter_active(): Filter out of range" << filter;
-        return false;
+    for (int i = 0; i < item_type_filters.size(); ++i) {
+        if (item_type_filters[i].item_type == filter) {
+            return item_type_filters[i].active;
+        }
     }
 
-    return item_type_filters[filter].active;
+    return false;
 }
 
 void ItemTypeFilterModel::toggle_single_filter(const int filter) {
-    if (filter < 0 || filter >= item_type_filters.size()) {
-        qDebug() << "Filter out of range" << filter;
-        return;
+    for (int i = 0; i < item_type_filters.size(); ++i) {
+        if (item_type_filters[i].item_type == filter) {
+            item_type_filters[i].active = !item_type_filters[i].active;
+            return;
+        }
     }
 
-    item_type_filters[filter].active = !item_type_filters[filter].active;
+    qDebug() << "ItemTypeFilterModel::toggle_single_filter: could not find filter" << filter;
 }
 
 void ItemTypeFilterModel::clearCurrentFiltersAndSelectSingleFilter(const int) {
@@ -75,13 +78,13 @@ void ItemTypeFilterModel::add_armor_item_type_filters() {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     switch (pchar->get_highest_possible_armor_type()) {
     case ArmorTypes::PLATE:
-        item_type_filters.append(ItemFilter(3, "Plate"));
+        item_type_filters.append(ItemFilter(ArmorTypes::PLATE, "Plate"));
     case ArmorTypes::MAIL:
-        item_type_filters.append(ItemFilter(2, "Mail"));
+        item_type_filters.append(ItemFilter(ArmorTypes::MAIL, "Mail"));
     case ArmorTypes::LEATHER:
-        item_type_filters.append(ItemFilter(1, "Leather"));
+        item_type_filters.append(ItemFilter(ArmorTypes::LEATHER, "Leather"));
     case ArmorTypes::CLOTH:
-        item_type_filters.append(ItemFilter(0, "Cloth"));
+        item_type_filters.append(ItemFilter(ArmorTypes::CLOTH, "Cloth"));
     }
 
     std::reverse(item_type_filters.begin(), item_type_filters.end());
@@ -97,49 +100,52 @@ void ItemTypeFilterModel::add_weapon_item_type_filters() {
     for (int i = 0; i < available_types.size(); ++i) {
         switch (available_types[i]) {
         case WeaponTypes::AXE:
-            item_type_filters.append(ItemFilter(i, "Axe"));
+            item_type_filters.append(ItemFilter(WeaponTypes::AXE, "Axe"));
             break;
         case WeaponTypes::BOW:
-            item_type_filters.append(ItemFilter(i, "Bow"));
+            item_type_filters.append(ItemFilter(WeaponTypes::BOW, "Bow"));
             break;
         case WeaponTypes::CASTER_OFFHAND:
-            item_type_filters.append(ItemFilter(i, "Offhand"));
+            item_type_filters.append(ItemFilter(WeaponTypes::CASTER_OFFHAND, "Offhand"));
             break;
         case WeaponTypes::CROSSBOW:
-            item_type_filters.append(ItemFilter(i, "Crossbow"));
+            item_type_filters.append(ItemFilter(WeaponTypes::CROSSBOW, "Crossbow"));
             break;
         case WeaponTypes::DAGGER:
-            item_type_filters.append(ItemFilter(i, "Dagger"));
+            item_type_filters.append(ItemFilter(WeaponTypes::DAGGER, "Dagger"));
             break;
         case WeaponTypes::FIST:
-            item_type_filters.append(ItemFilter(i, "Fist"));
+            item_type_filters.append(ItemFilter(WeaponTypes::FIST, "Fist"));
             break;
         case WeaponTypes::GUN:
-            item_type_filters.append(ItemFilter(i, "Gun"));
+            item_type_filters.append(ItemFilter(WeaponTypes::GUN, "Gun"));
             break;
         case WeaponTypes::MACE:
-            item_type_filters.append(ItemFilter(i, "Mace"));
+            item_type_filters.append(ItemFilter(WeaponTypes::MACE, "Mace"));
             break;
         case WeaponTypes::POLEARM:
-            item_type_filters.append(ItemFilter(i, "Polearm"));
+            item_type_filters.append(ItemFilter(WeaponTypes::POLEARM, "Polearm"));
             break;
         case WeaponTypes::SHIELD:
-            item_type_filters.append(ItemFilter(i, "Shield"));
+            item_type_filters.append(ItemFilter(WeaponTypes::SHIELD, "Shield"));
             break;
         case WeaponTypes::STAFF:
-            item_type_filters.append(ItemFilter(i, "Staff"));
+            item_type_filters.append(ItemFilter(WeaponTypes::STAFF, "Staff"));
             break;
         case WeaponTypes::SWORD:
-            item_type_filters.append(ItemFilter(i, "Sword"));
+            item_type_filters.append(ItemFilter(WeaponTypes::SWORD, "Sword"));
+            break;
+        case WeaponTypes::THROWN:
+            item_type_filters.append(ItemFilter(WeaponTypes::THROWN, "Thrown"));
             break;
         case WeaponTypes::TWOHAND_AXE:
-            item_type_filters.append(ItemFilter(i, "Two-hand Axe"));
+            item_type_filters.append(ItemFilter(WeaponTypes::TWOHAND_AXE, "Two-hand Axe"));
             break;
         case WeaponTypes::TWOHAND_MACE:
-            item_type_filters.append(ItemFilter(i, "Two-hand Mace"));
+            item_type_filters.append(ItemFilter(WeaponTypes::TWOHAND_MACE, "Two-hand Mace"));
             break;
         case WeaponTypes::TWOHAND_SWORD:
-            item_type_filters.append(ItemFilter(i, "Two-hand Sword"));
+            item_type_filters.append(ItemFilter(WeaponTypes::TWOHAND_SWORD, "Two-hand Sword"));
             break;
         }
     }
@@ -156,8 +162,8 @@ QVariant ItemTypeFilterModel::data(const QModelIndex & index, int role) const {
     if (index.row() < 0 || index.row() >= item_type_filters.count())
         return QVariant();
 
-    if (role == IndexRole)
-        return item_type_filters[index.row()].index;
+    if (role == ItemTypeRole)
+        return item_type_filters[index.row()].item_type;
     if (role == DescriptionRole)
         return item_type_filters[index.row()].name;
     if (role == ActiveRole)
@@ -169,7 +175,7 @@ QVariant ItemTypeFilterModel::data(const QModelIndex & index, int role) const {
 QHash<int, QByteArray> ItemTypeFilterModel::roleNames() const {
     QHash<int, QByteArray> roles;
 
-    roles[IndexRole] = "index";
+    roles[ItemTypeRole] = "item_type";
     roles[DescriptionRole] = "desc";
     roles[ActiveRole] = "active";
 
