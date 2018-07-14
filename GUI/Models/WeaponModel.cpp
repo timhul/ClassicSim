@@ -2,12 +2,14 @@
 #include "WeaponModel.h"
 #include "Weapon.h"
 #include "EquipmentDb.h"
+#include "ItemTypeFilterModel.h"
 #include <QDebug>
 
-WeaponModel::WeaponModel(EquipmentDb* db, QObject *parent)
+WeaponModel::WeaponModel(EquipmentDb* db, ItemTypeFilterModel* item_type_filter_model, QObject *parent)
     : QAbstractListModel(parent)
 {
     this->db = db;
+    this->item_type_filter_model = item_type_filter_model;
     this->slot = ItemSlots::MAINHAND;
 }
 
@@ -23,14 +25,18 @@ bool name(Weapon* lhs, Weapon* rhs) {
     return lhs->get_name() > rhs->get_name();
 }
 
+void WeaponModel::update_items() {
+    addWeapons(this->db);
+}
+
 void WeaponModel::set_patch(const QString &patch) {
     db->set_patch(patch);
-    addWeapons(this->db);
+    update_items();
 }
 
 void WeaponModel::setSlot(const int slot) {
     this->slot = slot;
-    addWeapons(this->db);
+    update_items();
 }
 
 void WeaponModel::addWeapons(const EquipmentDb* db) {
@@ -43,6 +49,9 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
     QVector<Item*> wpns = db->get_slot_items(slot);
 
     for (int i = 0; i < wpns.size(); ++i) {
+        if (item_type_filter_model->get_filter_active(wpns[i]->get_item_type()))
+            continue;
+
         addWeapon(dynamic_cast<Weapon*>(wpns[i]));
     }
 

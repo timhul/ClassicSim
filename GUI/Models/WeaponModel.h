@@ -6,6 +6,7 @@
 
 class Weapon;
 class EquipmentDb;
+class ItemTypeFilterModel;
 
 class WeaponModel : public QAbstractListModel
 {
@@ -24,13 +25,15 @@ public:
         IconRole
     };
 
-    WeaponModel(EquipmentDb*, QObject *parent = 0);
+    WeaponModel(EquipmentDb*, ItemTypeFilterModel*, QObject *parent = 0);
 
     void set_patch(const QString &patch);
     Q_INVOKABLE void setSlot(const int slot);
 
     void addWeapons(const EquipmentDb *db);
     void addWeapon(Weapon *weapon);
+
+    void update_items();
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
 
@@ -41,6 +44,7 @@ protected:
 private:
     int slot;
     EquipmentDb* db;
+    ItemTypeFilterModel* item_type_filter_model;
     QList<Weapon*> melee_weapons;
 };
 

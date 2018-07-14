@@ -68,6 +68,8 @@ GUIControl::GUIControl(QObject* parent) :
     item_type_filter_model = new ItemTypeFilterModel();
     item_model = new ItemModel(equipment->get_db(), item_type_filter_model);
     item_model->addItems(equipment->get_db());
+    weapon_model = new WeaponModel(equipment->get_db(), item_type_filter_model);
+    weapon_model->addWeapons(equipment->get_db());
 
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat, faction)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat, faction)));
@@ -80,9 +82,6 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat, faction)));
 
     set_character(chars["Warrior"]);
-
-    weapon_model = new WeaponModel(equipment->get_db());
-    weapon_model->addWeapons(equipment->get_db());
 
     // TODO: Handle switching pchar
     character_encoder = new CharacterEncoder(current_char);
@@ -437,6 +436,7 @@ bool GUIControl::getFilterActive(const int filter) const {
 void GUIControl::toggleSingleFilter(const int filter) {
     this->item_type_filter_model->toggle_single_filter(filter);
     this->item_model->update_items();
+    this->weapon_model->update_items();
     Q_EMIT filtersUpdated();
 }
 
