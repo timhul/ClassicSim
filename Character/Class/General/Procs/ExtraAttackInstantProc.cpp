@@ -48,8 +48,8 @@ void ExtraAttackInstantProc::proc_from_instant_effect() {
 }
 
 void ExtraAttackInstantProc::run_extra_attacks() {
-    if (proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::MainhandSpell))
+    if (curr_proc_source == ProcInfo::Source::MainhandSwing || curr_proc_source == ProcInfo::Source::MainhandSpell)
         pchar->run_extra_mh_attack();
-    if (proc_sources.contains(ProcInfo::Source::OffhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSpell))
+    else if (curr_proc_source == ProcInfo::Source::OffhandSwing || curr_proc_source == ProcInfo::Source::OffhandSpell)
         pchar->run_extra_oh_attack();
 }

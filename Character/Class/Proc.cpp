@@ -69,6 +69,10 @@ void Proc::set_instance_id(const int instance_id) {
     this->instance_id = instance_id;
 }
 
+void Proc::set_current_proc_source(const ProcInfo::Source source) {
+    this->curr_proc_source = source;
+}
+
 bool Proc::procs_from_source(ProcInfo::Source source) const {
     return proc_sources.contains(source);
 }

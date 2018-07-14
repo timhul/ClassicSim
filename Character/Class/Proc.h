@@ -26,6 +26,7 @@ public:
 
     int get_instance_id() const;
     void set_instance_id(const int);
+    void set_current_proc_source(const ProcInfo::Source);
 
     bool procs_from_source(ProcInfo::Source) const;
 
@@ -42,6 +43,7 @@ protected:
     QVector<int> talent_ranks;
     QVector<Proc*> linked_procs;
     QVector<ProcInfo::Source> proc_sources;
+    ProcInfo::Source curr_proc_source;
     StatisticsProc* statistics_proc;
     StatisticsBuff* statistics_buff;
     StatisticsResource* statistics_resource;

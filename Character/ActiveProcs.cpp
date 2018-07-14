@@ -20,8 +20,10 @@ ActiveProcs::~ActiveProcs()
 
 void ActiveProcs::run_proc_effects(ProcInfo::Source source) {
     for (int i = 0; i < active_procs.size(); ++i) {
-        if (active_procs[i]->procs_from_source(source))
+        if (active_procs[i]->procs_from_source(source)) {
+            active_procs[i]->set_current_proc_source(source);
             active_procs[i]->perform();
+        }
     }
 }
 
