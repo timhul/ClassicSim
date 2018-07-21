@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>	
 	<melee_weapon name="Ashkandi, Greatsword of the Brotherhood">
-		<patch name="1.5.0">
+		<patch name="1.6.0">
 			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
 			<dmg_range min="229" max="344" speed="3.5"/>
 			<stats>
