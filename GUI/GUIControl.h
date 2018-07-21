@@ -179,6 +179,7 @@ Q_SIGNALS:
     void externalBuffsChanged();
     void externalDebuffsChanged();
     void filtersUpdated();
+    void equipmentSlotSelected();
 
 private:
     int get_talent_points_remaining() const;

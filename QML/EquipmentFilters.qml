@@ -23,6 +23,9 @@ RectangleBorders {
                 onFiltersUpdated: {
                     filterActive = equipment.getFilterActive(item_type)
                 }
+                onEquipmentSlotSelected: {
+                    filterActive = equipment.getFilterActive(item_type)
+                }
             }
 
             onRectangleClicked: equipment.toggleSingleFilter(item_type)

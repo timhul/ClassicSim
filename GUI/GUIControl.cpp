@@ -67,9 +67,7 @@ GUIControl::GUIControl(QObject* parent) :
 
     item_type_filter_model = new ItemTypeFilterModel();
     item_model = new ItemModel(equipment->get_db(), item_type_filter_model);
-    item_model->addItems(equipment->get_db());
     weapon_model = new WeaponModel(equipment->get_db(), item_type_filter_model);
-    weapon_model->addWeapons(equipment->get_db());
 
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat, faction)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat, faction)));
@@ -90,6 +88,9 @@ GUIControl::GUIControl(QObject* parent) :
     // TODO: Handle switching pchar
     buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_active_buffs()->get_general_buffs());
+
+    item_model->addItems(equipment->get_db());
+    weapon_model->addWeapons(equipment->get_db());
 }
 
 GUIControl::~GUIControl() {
@@ -644,11 +645,13 @@ void GUIControl::selectSlot(QString slot_string) {
     case ItemSlots::OFFHAND:
     case ItemSlots::RANGED:
         weapon_model->setSlot(slot);
-        return;
+        break;
     default:
         item_model->setSlot(slot);
-        return;
+        break;
     }
+
+    Q_EMIT equipmentSlotSelected();
 }
 
 void GUIControl::setSlot(QString slot_string, QString item) {
