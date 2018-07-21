@@ -6,7 +6,6 @@ Rectangle {
     property color rectColor
     property color rectColorHighlighted: rectColor
     property int paddingInner: 1
-    property string text: "Missing"
     property int setRadius: 0
 
     signal rectangleClicked()
