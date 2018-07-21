@@ -25,10 +25,14 @@ Rectangle {
                 top: parent.top
                 topMargin: 10
             }
+
+            onToggleStatFilterSelection: {
+                statFilter.visible = !statFilter.visible
+            }
         }
 
         Rectangle {
-            id: itemsRect
+            id: modelViewRect
             anchors {
                 left: filterRect.right
                 leftMargin: 10
@@ -61,6 +65,7 @@ Rectangle {
                     visible: eqRect.state === "MAINHAND" || eqRect.state === "OFFHAND" || eqRect.state === "RANGED"
 
                     anchors.fill: parent
+                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn
 
                     ListView {
                         model: weaponModel
@@ -88,6 +93,7 @@ Rectangle {
                 ScrollView {
                     anchors.fill: parent
                     visible: !scrollWeapon.visible
+                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn
 
                     ListView {
                         model: itemModel
@@ -110,6 +116,86 @@ Rectangle {
                             onEntryClicked: equipment.setSlot(eqRect.state, entryName)
                         }
                     }
+                }
+
+                Row {
+                    id: statFilter
+                    anchors.fill: parent
+                    visible: false
+
+                    RectangleBorders {
+                        id: statFilterView
+                        height: parent.height
+                        width: parent.width / 4
+
+                        ScrollView {
+                            anchors.fill: parent
+
+                            ListView {
+                                model: statFilterModel
+                                boundsBehavior: Flickable.StopAtBounds
+
+                                clip: true
+
+                                delegate: RectangleBorders {
+                                    height: 30
+                                    width: parent.width
+                                    Text {
+                                        text: statText
+
+                                        font {
+                                            family: "Arial"
+                                            pointSize: 9
+                                        }
+
+                                        anchors.fill: parent
+
+                                        color: "white"
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
+                                    onRectangleClicked: {
+                                        statFilter.visible = false
+                                        console.log("Clicked", statText)
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    MouseArea {
+                        height: parent.height
+                        width: parent.width - statFilterView.width
+                        onClicked: statFilter.visible = false
+                    }
+                }
+
+                ListModel {
+                    id: statFilterModel
+                    ListElement { statText: "Agility" }
+                    ListElement { statText: "Intellect" }
+                    ListElement { statText: "Spirit" }
+                    ListElement { statText: "Stamina" }
+                    ListElement { statText: "Strength" }
+                    ListElement { statText: "Attack Power" }
+                    ListElement { statText: "Melee AP" }
+                    ListElement { statText: "Ranged AP" }
+                    ListElement { statText: "Crit %" }
+                    ListElement { statText: "Hit %" }
+                    ListElement { statText: "+Axe Skill" }
+                    ListElement { statText: "+Dagger Skill" }
+                    ListElement { statText: "+Mace Skill" }
+                    ListElement { statText: "+Sword Skill" }
+                    ListElement { statText: "Spell Damage" }
+                    ListElement { statText: "Spell Crit %" }
+                    ListElement { statText: "Spell Hit %" }
+                    ListElement { statText: "+Healing" }
+                    ListElement { statText: "+Arcane Damage" }
+                    ListElement { statText: "+Fire Damage" }
+                    ListElement { statText: "+Frost Damage" }
+                    ListElement { statText: "+Holy Damage" }
+                    ListElement { statText: "+Nature Damage" }
+                    ListElement { statText: "+Shadow Damage" }
                 }
             }
         }

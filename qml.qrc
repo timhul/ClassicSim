@@ -246,5 +246,6 @@
         <file>QML/QuickSwitchBox.qml</file>
         <file>QML/EquipmentFilters.qml</file>
         <file>QML/Assets/items/Inv_sword_50.png</file>
+        <file>QML/EquipmentStatFilterBox.qml</file>
     </qresource>
 </RCC>

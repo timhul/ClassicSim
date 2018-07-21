@@ -1,12 +1,16 @@
 import QtQuick 2.0
 
 RectangleBorders {
-    height: 500
     width: 150
+    height: parent.height
+    signal toggleStatFilterSelection();
+
     ListView {
+        id: listView
         interactive: false
         width: parent.width
-        height: parent.height
+        implicitHeight: contentHeight
+
         model: itemTypeFilterModel
         delegate: RectangleBorders {
             height: 30
@@ -37,6 +41,21 @@ RectangleBorders {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
+        }
+    }
+
+    RectangleBorders {
+        anchors {
+            top: listView.bottom
+            topMargin: 15
+            left: parent.left
+            right: parent.right
+        }
+
+        height: 50
+
+        EquipmentStatFilterBox {
+            onAddFilter: toggleStatFilterSelection()
         }
     }
 }
