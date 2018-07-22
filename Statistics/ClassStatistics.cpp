@@ -130,7 +130,7 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
 
     for (auto it : buff_statistics.keys()) {
         float uptime = buff_statistics.value(it)->get_uptime();
-        if (uptime < 0.00001)
+        if (uptime < float(0.00001))
             continue;
 
         QString name = buff_statistics.value(it)->get_name();
@@ -195,10 +195,8 @@ QVariantList ClassStatistics::get_proc_table() const {
             continue;
 
         QString name = proc_statistics.value(it)->get_name();
-        int attempts = proc_statistics.value(it)->get_attempts();
         float proc_rate = proc_statistics.value(it)->get_proc_rate();
-
-        entries.append(QVariantList({name, proc_rate, QString::number(proc_rate * 100, 'f', 2), attempts}));
+        entries.append(QVariantList({name, proc_rate, QString::number(proc_rate * 100, 'f', 2), procs}));
     }
 
     QVariantList info;
