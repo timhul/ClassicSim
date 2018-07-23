@@ -204,7 +204,23 @@ SOURCES += main.cpp \
     Character/Class/General/Debuffs/FaerieFireBuff.cpp \
     Character/Class/General/Debuffs/CurseOfRecklessnessBuff.cpp \
     Character/Class/General/Debuffs/AnnihilatorBuff.cpp \
-    GUI/Models/ItemTypeFilterModel.cpp
+    GUI/Models/ItemTypeFilterModel.cpp \
+    Character/Class/Warlock/WarlockSpells.cpp \
+    Character/Class/Shaman/ShamanSpells.cpp \
+    Character/Class/Rogue/RogueSpells.cpp \
+    Character/Class/Priest/PriestSpells.cpp \
+    Character/Class/Paladin/PaladinSpells.cpp \
+    Character/Class/Mage/MageSpells.cpp \
+    Character/Class/Hunter/HunterSpells.cpp \
+    Character/Class/Druid/DruidSpells.cpp \
+    Statistics/Class/WarlockStatistics.cpp \
+    Statistics/Class/ShamanStatistics.cpp \
+    Statistics/Class/RogueStatistics.cpp \
+    Statistics/Class/PriestStatistics.cpp \
+    Statistics/Class/PaladinStatistics.cpp \
+    Statistics/Class/MageStatistics.cpp \
+    Statistics/Class/HunterStatistics.cpp \
+    Statistics/Class/DruidStatistics.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -405,7 +421,23 @@ HEADERS += \
     Character/Class/General/Debuffs/CurseOfRecklessnessBuff.h \
     Character/Class/General/Debuffs/AnnihilatorBuff.h \
     GUI/Models/ItemTypeFilterModel.h \
-    Equipment/Item/ItemNamespace.h
+    Equipment/Item/ItemNamespace.h \
+    Character/Class/Warlock/WarlockSpells.h \
+    Character/Class/Shaman/ShamanSpells.h \
+    Character/Class/Rogue/RogueSpells.h \
+    Character/Class/Priest/PriestSpells.h \
+    Character/Class/Paladin/PaladinSpells.h \
+    Character/Class/Mage/MageSpells.h \
+    Character/Class/Hunter/HunterSpells.h \
+    Character/Class/Druid/DruidSpells.h \
+    Statistics/Class/WarlockStatistics.h \
+    Statistics/Class/ShamanStatistics.h \
+    Statistics/Class/RogueStatistics.h \
+    Statistics/Class/PriestStatistics.h \
+    Statistics/Class/PaladinStatistics.h \
+    Statistics/Class/MageStatistics.h \
+    Statistics/Class/HunterStatistics.h \
+    Statistics/Class/DruidStatistics.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

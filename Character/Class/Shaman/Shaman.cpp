@@ -1,6 +1,25 @@
 
 #include "Shaman.h"
+#include "ShamanSpells.h"
+#include "ShamanStatistics.h"
 #include "Weapon.h"
+
+Shaman::Shaman(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Orc");
+    available_races.append("Tauren");
+    available_races.append("Troll");
+    this->statistics = new ShamanStatistics();
+
+    this->shaman_spells = new ShamanSpells(this);
+    this->spells = dynamic_cast<Spells*>(shaman_spells);
+}
+
+Shaman::~Shaman()
+{
+    delete shaman_spells;
+    delete statistics;
+}
 
 QString Shaman::get_name(void) const {
     return "Shaman";

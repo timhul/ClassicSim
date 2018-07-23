@@ -1,6 +1,24 @@
 
 #include "Paladin.h"
+#include "PaladinSpells.h"
+#include "PaladinStatistics.h"
 #include "Weapon.h"
+
+Paladin::Paladin(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Dwarf");
+    available_races.append("Human");
+    this->statistics = new PaladinStatistics();
+
+    this->paladin_spells = new PaladinSpells(this);
+    this->spells = dynamic_cast<Spells*>(paladin_spells);
+}
+
+Paladin::~Paladin()
+{
+    delete paladin_spells;
+    delete statistics;
+}
 
 QString Paladin::get_name(void) const {
     return "Paladin";

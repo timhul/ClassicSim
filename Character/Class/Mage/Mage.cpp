@@ -1,6 +1,26 @@
 
 #include "Mage.h"
+#include "MageSpells.h"
+#include "MageStatistics.h"
 #include "Weapon.h"
+
+Mage::Mage(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Gnome");
+    available_races.append("Human");
+    available_races.append("Troll");
+    available_races.append("Undead");
+    this->statistics = new MageStatistics();
+
+    this->mage_spells = new MageSpells(this);
+    this->spells = dynamic_cast<Spells*>(mage_spells);
+}
+
+Mage::~Mage()
+{
+    delete mage_spells;
+    delete statistics;
+}
 
 QString Mage::get_name(void) const {
     return "Mage";

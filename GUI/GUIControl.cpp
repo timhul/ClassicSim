@@ -74,9 +74,9 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], engine, equipment, combat, faction)));
     chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], engine, equipment, combat, faction)));
     chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], engine, equipment, combat, faction)));
-    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Orc"], engine, equipment, combat, faction)));
+    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Troll"], engine, equipment, combat, faction)));
     chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], engine, equipment, combat, faction)));
-    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Troll"], engine, equipment, combat, faction)));
+    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Orc"], engine, equipment, combat, faction)));
     chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat, faction)));
 
     set_character(chars["Warrior"]);

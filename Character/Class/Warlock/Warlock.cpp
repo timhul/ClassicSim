@@ -1,6 +1,26 @@
 
 #include "Warlock.h"
+#include "WarlockSpells.h"
+#include "WarlockStatistics.h"
 #include "Weapon.h"
+
+Warlock::Warlock(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Gnome");
+    available_races.append("Human");
+    available_races.append("Orc");
+    available_races.append("Undead");
+    this->statistics = new WarlockStatistics();
+
+    this->warlock_spells = new WarlockSpells(this);
+    this->spells = dynamic_cast<Spells*>(warlock_spells);
+}
+
+Warlock::~Warlock()
+{
+    delete warlock_spells;
+    delete statistics;
+}
 
 QString Warlock::get_name(void) const {
     return "Warlock";

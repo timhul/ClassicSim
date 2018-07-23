@@ -1,6 +1,27 @@
 
 #include "Priest.h"
+#include "PriestSpells.h"
+#include "PriestStatistics.h"
 #include "Weapon.h"
+
+Priest::Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Dwarf");
+    available_races.append("Human");
+    available_races.append("Night Elf");
+    available_races.append("Troll");
+    available_races.append("Undead");
+    this->statistics = new PriestStatistics();
+
+    this->priest_spells = new PriestSpells(this);
+    this->spells = dynamic_cast<Spells*>(priest_spells);
+}
+
+Priest::~Priest()
+{
+    delete priest_spells;
+    delete statistics;
+}
 
 QString Priest::get_name(void) const {
     return "Priest";

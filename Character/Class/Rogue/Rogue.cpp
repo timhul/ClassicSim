@@ -1,6 +1,31 @@
 
 #include "Rogue.h"
+#include "RogueSpells.h"
+#include "RogueStatistics.h"
 #include "Weapon.h"
+
+Rogue::Rogue(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Dwarf");
+    available_races.append("Gnome");
+    available_races.append("Human");
+    available_races.append("Night Elf");
+    available_races.append("Orc");
+    available_races.append("Troll");
+    available_races.append("Undead");
+    this->statistics = new RogueStatistics();
+
+    this->rogue_spells = new RogueSpells(this);
+    this->spells = dynamic_cast<Spells*>(rogue_spells);
+
+    apply_racial_effects();
+}
+
+Rogue::~Rogue()
+{
+    delete rogue_spells;
+    delete statistics;
+}
 
 QString Rogue::get_name(void) const {
     return "Rogue";

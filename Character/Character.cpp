@@ -29,7 +29,7 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
     this->race = race;
     this->engine = engine;
     this->roll = roll;
-    this->faction = faction,
+    this->faction = faction;
     this->talents = new Talents();
     // TODO: Consider saving equipment pointer as well, to shorten expressions.
     this->cstats = new CharacterStats(this, equipment);

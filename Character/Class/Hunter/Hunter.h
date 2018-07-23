@@ -2,21 +2,15 @@
 #define HUNTER_H
 
 #include "Character.h"
-#include "CombatRoll.h"
+
+class HunterSpells;
+
 
 class Hunter: public Character {
     Q_OBJECT
 public:
-    Hunter(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, faction, parent) {
-        available_races.append("Dwarf");
-        available_races.append("Night Elf");
-        available_races.append("Orc");
-        available_races.append("Tauren");
-        available_races.append("Troll");
-    }
-
-    virtual ~Hunter() {}
+    Hunter(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    virtual ~Hunter() override;
 
     QString get_name() const override;
     QString get_class_color() const override;
@@ -36,9 +30,9 @@ public:
 
 protected:
 private:
-    CombatRoll* roll;
-
     void initialize_talents() override;
+
+    HunterSpells* hunter_spells;
 };
 
 #endif // HUNTER_H

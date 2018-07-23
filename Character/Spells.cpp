@@ -35,12 +35,35 @@ void Spells::start_attack(void) {
     }
 }
 
+void Spells::mh_auto_attack(const int iteration) {
+    if (!mh_attack->attack_is_valid(iteration))
+        return;
+
+    mh_attack->perform();
+
+    add_next_mh_attack();
+}
+
+void Spells::add_next_mh_attack(void) {
+    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
+    pchar->get_engine()->add_event(new_event);
+}
+
+void Spells::oh_auto_attack(const int) {
+    assert(false);
+}
+
+void Spells::add_next_oh_attack(void) {
+    assert(false);
+}
+
 MainhandAttack* Spells::get_mh_attack() const {
     return this->mh_attack;
 }
 
 OffhandAttack* Spells::get_oh_attack() const {
-    return this->oh_attack;
+    assert(false);
+    return nullptr;
 }
 
 Berserking* Spells::get_berserking() const {
@@ -49,16 +72,6 @@ Berserking* Spells::get_berserking() const {
 
 BloodFury* Spells::get_blood_fury() const {
     return this->blood_fury;
-}
-
-void Spells::add_next_mh_attack(void) {
-    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
-    pchar->get_engine()->add_event(new_event);
-}
-
-void Spells::add_next_oh_attack(void) {
-    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
-    pchar->get_engine()->add_event(new_event);
 }
 
 void Spells::add_statistics() {

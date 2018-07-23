@@ -86,9 +86,10 @@ void Spell::enable() {
 
 void Spell::disable() {
     assert(is_enabled_externally);
-    assert(enabled);
+    if (enabled)
+        disable_spell_effect();
+
     enabled = false;
-    disable_spell_effect();
 }
 
 float Spell::get_cooldown_remaining() const {

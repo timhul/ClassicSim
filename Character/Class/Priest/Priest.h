@@ -1,22 +1,16 @@
 #ifndef PRIEST_H
 #define PRIEST_H
 
-#include "CombatRoll.h"
 #include "Character.h"
+
+class PriestSpells;
+
 
 class Priest: public Character {
     Q_OBJECT
 public:
-    Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, faction, parent) {
-        available_races.append("Dwarf");
-        available_races.append("Human");
-        available_races.append("Night Elf");
-        available_races.append("Troll");
-        available_races.append("Undead");
-    }
-
-    virtual ~Priest() {}
+    Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    virtual ~Priest() override;
 
     QString get_name() const override;
     QString get_class_color() const override;
@@ -36,9 +30,9 @@ public:
 
 protected:
 private:
-    CombatRoll* roll;
-
     void initialize_talents() override;
+
+    PriestSpells* priest_spells;
 };
 
 #endif // PRIEST_H

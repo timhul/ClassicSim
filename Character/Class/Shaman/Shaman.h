@@ -2,19 +2,15 @@
 #define SHAMAN_H
 
 #include "Character.h"
-#include "CombatRoll.h"
+
+class ShamanSpells;
+
 
 class Shaman: public Character {
     Q_OBJECT
 public:
-    Shaman(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, faction, parent) {
-        available_races.append("Orc");
-        available_races.append("Tauren");
-        available_races.append("Troll");
-    }
-
-    virtual ~Shaman() {}
+    Shaman(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    virtual ~Shaman() override;
 
     QString get_name() const override;
     QString get_class_color() const override;
@@ -34,9 +30,9 @@ public:
 
 protected:
 private:
-    CombatRoll* roll;
-
     void initialize_talents() override;
+
+    ShamanSpells* shaman_spells;
 };
 
 #endif // SHAMAN_H

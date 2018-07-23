@@ -1,6 +1,27 @@
 
 #include "Hunter.h"
+#include "HunterSpells.h"
+#include "HunterStatistics.h"
 #include "Weapon.h"
+
+Hunter::Hunter(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Dwarf");
+    available_races.append("Night Elf");
+    available_races.append("Orc");
+    available_races.append("Tauren");
+    available_races.append("Troll");
+    this->statistics = new HunterStatistics();
+
+    this->hunter_spells = new HunterSpells(this);
+    this->spells = dynamic_cast<Spells*>(hunter_spells);
+}
+
+Hunter::~Hunter()
+{
+    delete hunter_spells;
+    delete statistics;
+}
 
 QString Hunter::get_name(void) const {
     return "Hunter";

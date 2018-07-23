@@ -2,20 +2,15 @@
 #define MAGE_H
 
 #include "Character.h"
-#include "CombatRoll.h"
+
+class MageSpells;
+
 
 class Mage: public Character {
     Q_OBJECT
 public:
-    Mage(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, faction, parent) {
-        available_races.append("Gnome");
-        available_races.append("Human");
-        available_races.append("Troll");
-        available_races.append("Undead");
-    }
-
-    virtual ~Mage() {}
+    Mage(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    virtual ~Mage() override;
 
     QString get_name() const override;
     QString get_class_color() const override;
@@ -35,9 +30,9 @@ public:
 
 protected:
 private:
-    CombatRoll* roll;
-
     void initialize_talents() override;
+
+    MageSpells* mage_spells;
 };
 
 #endif // MAGE_H

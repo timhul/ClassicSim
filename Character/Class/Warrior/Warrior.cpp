@@ -26,8 +26,6 @@
 
 #include "Flurry.h"
 #include "BerserkerStanceBuff.h"
-#include "BerserkingBuff.h"
-#include "BloodFuryBuff.h"
 #include "HeroicStrikeBuff.h"
 #include "UnbridledWrath.h"
 #include "DeathWishBuff.h"

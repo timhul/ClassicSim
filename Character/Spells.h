@@ -20,9 +20,9 @@ public:
 
     virtual void reset() = 0;
 
-    virtual void mh_auto_attack(const int) = 0;
-    virtual void oh_auto_attack(const int) = 0;
     virtual void start_attack();
+    virtual void mh_auto_attack(const int);
+    virtual void oh_auto_attack(const int);
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);
 

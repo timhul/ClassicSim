@@ -59,8 +59,6 @@ private:
     Warrior* pchar;
     BattleStance* battle_stance;
     BerserkerStance* berserker_stance;
-    Berserking* berserking;
-    BloodFury* blood_fury;
     Bloodthirst* bt;
     DeepWounds* deep_wounds;
     HeroicStrike* heroic_strike;

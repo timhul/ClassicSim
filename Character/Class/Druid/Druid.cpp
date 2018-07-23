@@ -1,7 +1,25 @@
 
 #include "Druid.h"
+#include "DruidSpells.h"
+#include "DruidStatistics.h"
 #include "Race.h"
 #include "Weapon.h"
+
+Druid::Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
+    Character(race, engine, _eq, _roll, faction, parent) {
+    available_races.append("Night Elf");
+    available_races.append("Tauren");
+    this->statistics = new DruidStatistics();
+
+    this->druid_spells = new DruidSpells(this);
+    this->spells = dynamic_cast<Spells*>(druid_spells);
+}
+
+Druid::~Druid()
+{
+    delete druid_spells;
+    delete statistics;
+}
 
 QString Druid::get_name(void) const {
     return "Druid";

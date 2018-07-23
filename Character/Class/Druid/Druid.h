@@ -2,18 +2,15 @@
 #define DRUID_H
 
 #include "Character.h"
-#include "CombatRoll.h"
+
+class DruidSpells;
+
 
 class Druid: public Character {
     Q_OBJECT
 public:
-    Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0) :
-        Character(race, engine, _eq, _roll, faction, parent) {
-        available_races.append("Night Elf");
-        available_races.append("Tauren");
-    }
-
-    virtual ~Druid() {}
+    Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    virtual ~Druid() override;
 
     QString get_name() const override;
     QString get_class_color() const override;
@@ -33,9 +30,9 @@ public:
 
 protected:
 private:
-    CombatRoll* roll;
-
     void initialize_talents() override;
+
+    DruidSpells* druid_spells;
 };
 
 #endif // DRUID_H
