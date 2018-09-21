@@ -222,7 +222,7 @@ void Character::start_global_cooldown() {
     this->next_gcd = engine->get_current_priority() + global_cooldown();
 }
 
-float Character::global_cooldown() const {
+double Character::global_cooldown() const {
     return 1.5;
 }
 
@@ -232,7 +232,7 @@ bool Character::on_global_cooldown() const {
 
 bool Character::action_ready() const {
     // Allow some rounding errors (this could effectively speed up gcd by 1/10000ths of a second).
-    float delta = next_gcd - engine->get_current_priority();
+    double delta = next_gcd - engine->get_current_priority();
     return delta < 0.0001;
 }
 
@@ -301,49 +301,49 @@ void Character::run_extra_oh_attack() {
     spells->get_oh_attack()->extra_attack();
 }
 
-float Character::get_ability_crit_dmg_mod() const {
+double Character::get_ability_crit_dmg_mod() const {
     return ability_crit_dmg_mod;
 }
 
-float Character::get_total_phys_dmg_mod() const {
+double Character::get_total_phys_dmg_mod() const {
     return cstats->get_total_phys_dmg_mod();
 }
 
-float Character::get_random_normalized_mh_dmg() {
+double Character::get_random_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     return get_normalized_dmg(mh->get_random_dmg(), mh);
 }
 
-float Character::get_random_non_normalized_mh_dmg() {
+double Character::get_random_non_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     return get_non_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
 }
 
-float Character::get_random_normalized_oh_dmg() {
+double Character::get_random_normalized_oh_dmg() {
     Weapon* oh = cstats->get_equipment()->get_offhand();
     return get_normalized_dmg(oh->get_random_dmg(), oh);
 }
 
-float Character::get_random_non_normalized_oh_dmg() {
+double Character::get_random_non_normalized_oh_dmg() {
     Weapon* oh = cstats->get_equipment()->get_offhand();
     return get_non_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
 }
 
 int Character::get_avg_mh_damage() {
     if (!has_mainhand())
-        return get_normalized_dmg(1, nullptr);
+        return static_cast<int>(round(get_normalized_dmg(1, nullptr)));
 
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     int avg_dmg = int(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
-    return get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed());
+    return static_cast<int>(round(get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed())));
 }
 
-float Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
+double Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
     // TODO: Consider moving these types of mechanical assumptions into e.g. Mechanics
     if (weapon == nullptr)
         return get_non_normalized_dmg(damage, 2.0);
 
-    float normalized_wpn_speed = -1;
+    double normalized_wpn_speed = -1;
 
     switch (weapon->get_weapon_slot()) {
     case WeaponSlots::MAINHAND:
@@ -364,7 +364,7 @@ float Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
     return get_non_normalized_dmg(damage, normalized_wpn_speed);
 }
 
-float Character::get_non_normalized_dmg(const int damage, const float wpn_speed) {
+double Character::get_non_normalized_dmg(const int damage, const double wpn_speed) {
     return damage + (wpn_speed * cstats->get_melee_ap() / 14);
 }
 
@@ -402,14 +402,14 @@ int Character::get_wpn_skill(Weapon* weapon) const {
 
 void Character::increase_attack_speed(int increase) {
     cstats->increase_haste(increase);
-    float increase_float = float(increase) / 100;
+    double increase_double = double(increase) / 100;
 
-    spells->get_mh_attack()->update_next_expected_use(increase_float);
+    spells->get_mh_attack()->update_next_expected_use(increase_double);
     // TODO: Check if actually attacking
     spells->add_next_mh_attack();
 
     if (cstats->get_equipment()->is_dual_wielding()) {
-        spells->get_oh_attack()->update_next_expected_use(increase_float);
+        spells->get_oh_attack()->update_next_expected_use(increase_double);
         // TODO: Check if actually attacking
         spells->add_next_oh_attack();
     }
@@ -417,24 +417,24 @@ void Character::increase_attack_speed(int increase) {
 
 void Character::decrease_attack_speed(int decrease) {
     cstats->decrease_haste(decrease);
-    float decrease_float = float(decrease) / 100;
+    double decrease_double = double(decrease) / 100;
 
-    spells->get_mh_attack()->update_next_expected_use(-decrease_float);
+    spells->get_mh_attack()->update_next_expected_use(-decrease_double);
     // TODO: Check if actually attacking
     spells->add_next_mh_attack();
 
     if (cstats->get_equipment()->is_dual_wielding()) {
-        spells->get_oh_attack()->update_next_expected_use(-decrease_float);
+        spells->get_oh_attack()->update_next_expected_use(-decrease_double);
         // TODO: Check if actually attacking
         spells->add_next_oh_attack();
     }
 }
 
-void Character::increase_ability_crit_dmg_mod(float increase) {
+void Character::increase_ability_crit_dmg_mod(double increase) {
     ability_crit_dmg_mod += increase;
 }
 
-void Character::decrease_ability_crit_dmg_mod(float decrease) {
+void Character::decrease_ability_crit_dmg_mod(double decrease) {
     ability_crit_dmg_mod -= decrease;
 }
 

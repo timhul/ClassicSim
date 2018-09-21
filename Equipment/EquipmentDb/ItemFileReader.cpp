@@ -5,6 +5,10 @@
 #include <QDebug>
 #include <QDir>
 
+ItemFileReader::ItemFileReader(QObject* parent):
+    QObject(parent)
+{}
+
 void ItemFileReader::read_items(QVector<Item *> &items, const QString &path) {
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {

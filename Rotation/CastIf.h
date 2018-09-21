@@ -14,7 +14,7 @@ class Spell;
 class CastIf: public QObject {
     Q_OBJECT
 public:
-    CastIf(QString spell_name, QObject* parent = 0);
+    CastIf(QString spell_name, QObject* parent = nullptr);
     ~CastIf();
 
     void add_sentence(Sentence* sentence);

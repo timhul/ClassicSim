@@ -5,8 +5,7 @@
 
 class WeaponFileReader: public ItemFileReader {
 public:
-    WeaponFileReader():
-        ItemFileReader() {}
+    WeaponFileReader();
 
     void weapon_file_handler(QXmlStreamReader &reader, QVector<Item*> &items);
 

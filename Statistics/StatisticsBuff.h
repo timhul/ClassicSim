@@ -10,13 +10,13 @@ public:
     void reset();
 
     QString get_name() const;
-    void add_uptime_for_encounter(const float);
-    float get_uptime() const;
+    void add_uptime_for_encounter(const double);
+    double get_uptime() const;
 
 protected:
 private:
     const QString name;
-    float avg_uptime;
+    double avg_uptime;
     int counter;
 };
 

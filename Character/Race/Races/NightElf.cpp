@@ -29,11 +29,11 @@ int NightElf::get_base_spirit(void) const {
     return 20;
 }
 
-float NightElf::get_int_multiplier() const {
+double NightElf::get_int_multiplier() const {
     return 1.0;
 }
 
-float NightElf::get_spirit_multiplier() const {
+double NightElf::get_spirit_multiplier() const {
     return 1.0;
 }
 

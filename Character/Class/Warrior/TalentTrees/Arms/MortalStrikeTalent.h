@@ -9,10 +9,10 @@ class MortalStrikeTalent: public Talent {
     Q_OBJECT
 public:
     MortalStrikeTalent(Character *pchar, TalentTree* tree);
-    virtual ~MortalStrikeTalent();
+    ~MortalStrikeTalent() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

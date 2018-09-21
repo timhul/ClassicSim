@@ -25,7 +25,7 @@ public:
         IconRole
     };
 
-    WeaponModel(EquipmentDb*, ItemTypeFilterModel*, QObject *parent = 0);
+    WeaponModel(EquipmentDb*, ItemTypeFilterModel*, QObject *parent = nullptr);
 
     void set_patch(const QString &patch);
     Q_INVOKABLE void setSlot(const int slot);

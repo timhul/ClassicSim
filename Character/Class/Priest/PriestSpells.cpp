@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-PriestSpells::PriestSpells(Priest* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+PriestSpells::PriestSpells(Priest* priest) :
+    Spells(priest),
+    priest(priest)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(priest->get_engine(), priest, priest->get_combat_roll());
 
     spells.append(mh_attack);
 }

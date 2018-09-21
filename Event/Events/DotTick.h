@@ -7,7 +7,7 @@ class Spell;
 
 class DotTick: public Event {
 public:
-    DotTick(Spell *spell, float priority);
+    DotTick(Spell *spell, double priority);
 
     virtual void act(void) override;
 protected:

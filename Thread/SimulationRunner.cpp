@@ -92,7 +92,7 @@ void SimulationRunner::run_sim(QString setup_string) {
 
     engine->reset();
     // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
-    float dps = float(pchar->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
+    double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
 
     delete_objects();
 

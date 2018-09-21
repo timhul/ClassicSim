@@ -73,7 +73,7 @@ int Rogue::get_ap_per_agi() const {
     return 1;
 }
 
-float Rogue::global_cooldown() const {
+double Rogue::global_cooldown() const {
     return 1.0;
 }
 

@@ -6,7 +6,7 @@
 class WindfuryTotemAttack: public Proc {
 public:
     WindfuryTotemAttack(Engine* engine, Character* pchar, CombatRoll* roll);
-    ~WindfuryTotemAttack();
+    ~WindfuryTotemAttack() override;
 
     void proc_effect() override;
 

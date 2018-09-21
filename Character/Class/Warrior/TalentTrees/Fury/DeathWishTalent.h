@@ -9,10 +9,10 @@ class DeathWishTalent: public Talent {
     Q_OBJECT
 public:
     DeathWishTalent(Character *pchar, TalentTree* tree);
-    virtual ~DeathWishTalent();
+    ~DeathWishTalent() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

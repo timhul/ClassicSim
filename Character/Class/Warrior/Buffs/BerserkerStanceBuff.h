@@ -14,7 +14,7 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
+    Warrior* warr;
 };
 
 #endif // BERSERKERSTANCEBUFF_H

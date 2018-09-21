@@ -4,8 +4,8 @@
 
 PieChartModel::PieChartModel()
 {
-    slices.append(QPair<QString, float>("Jane", 1));
-    slices.append(QPair<QString, float>("Joe", 2));
+    slices.append(QPair<QString, double>("Jane", 1));
+    slices.append(QPair<QString, double>("Joe", 2));
 
     updateLabels();
 }
@@ -47,7 +47,7 @@ QModelIndex PieChartModel::parent(const QModelIndex &) const {
 }
 
 void PieChartModel::updateLabels() {
-    float total = 0;
+    double total = 0;
     for (int i = 0; i < slices.size(); ++i) {
         total += slices[i].second;
     }

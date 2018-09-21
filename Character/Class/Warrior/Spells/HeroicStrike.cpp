@@ -9,10 +9,9 @@
 #include "OverpowerBuff.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Heroic Strike", engine, pchar, roll, false, 0, 15)
+    Spell("Heroic Strike", engine, pchar, roll, false, 0, 15),
+    warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->pchar = dynamic_cast<Warrior*>(pchar);
-
     spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};
     // TODO: Remove hardcoded assumption of rank 9 Heroic Strike.
     rank_spell = 8;
@@ -22,45 +21,44 @@ HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
 }
 
 void HeroicStrike::calculate_damage() {
-    pchar->get_hs_buff()->use_charge();
-    pchar->get_spells()->get_mh_attack()->complete_swing();
+    warr->get_hs_buff()->use_charge();
+    warr->get_spells()->get_mh_attack()->complete_swing();
 
-    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill());
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        pchar->lose_rage(resource_cost);
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        pchar->get_overpower_buff()->apply_buff();
-        pchar->lose_rage(round(resource_cost * 0.25));
+        warr->get_overpower_buff()->apply_buff();
+        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
         return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        pchar->lose_rage(round(resource_cost * 0.25));
+        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
         return;
     }
 
-    float damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_mh_dmg() + additional_dmg);
+    double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_mh_dmg() + additional_dmg);
 
     if (result == AttackResult::CRITICAL) {
-        damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());
-        pchar->melee_mh_yellow_critical_effect();
-        add_crit_dmg(damage_dealt);
+        warr->melee_mh_yellow_critical_effect();
+        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_ability_crit_dmg_mod())));
     }
     else if (result == AttackResult::HIT) {
-        pchar->melee_mh_yellow_hit_effect();
-        add_hit_dmg(round(damage_dealt));
+        warr->melee_mh_yellow_hit_effect();
+        add_hit_dmg(static_cast<int>(round(damage_dealt)));
     }
 
-    pchar->lose_rage(resource_cost);
+    warr->lose_rage(resource_cost);
 }
 
 void HeroicStrike::spell_effect() {
-    pchar->get_hs_buff()->apply_buff();
+    warr->get_hs_buff()->apply_buff();
 }
 
 void HeroicStrike::increase_effect_via_talent() {

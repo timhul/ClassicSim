@@ -9,10 +9,10 @@ class PolearmSpecialization: public Talent {
     Q_OBJECT
 public:
     PolearmSpecialization(Character *pchar, TalentTree* tree);
-    virtual ~PolearmSpecialization();
+    ~PolearmSpecialization() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

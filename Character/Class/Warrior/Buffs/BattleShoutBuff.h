@@ -33,8 +33,8 @@ public:
 protected:
 private:
     QVector<int> spell_ranks;
-    QVector<float> ranks_booming_voice;
-    QVector<float> ranks_imp_shout;
+    QVector<double> ranks_booming_voice;
+    QVector<double> ranks_imp_shout;
     int rank_spell;
     int base_duration;
     int base_ap;

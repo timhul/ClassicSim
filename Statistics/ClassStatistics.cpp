@@ -86,7 +86,7 @@ QVariantList ClassStatistics::get_damage_breakdown_table() const {
             continue;
 
         QString name = spell_statistics.value(it)->get_name();
-        float percentage = float(dmg) / float(total_damage_dealt);
+        double percentage = double(dmg) / double(total_damage_dealt);
         dmg_entries.append(QVariantList({name, dmg, QString::number(percentage * 100, 'f', 2) + "%"}));
     }
 
@@ -129,8 +129,8 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
     QVector<QVariantList> uptime_entries;
 
     for (auto it : buff_statistics.keys()) {
-        float uptime = buff_statistics.value(it)->get_uptime();
-        if (uptime < float(0.00001))
+        double uptime = buff_statistics.value(it)->get_uptime();
+        if (uptime < double(0.00001))
             continue;
 
         QString name = buff_statistics.value(it)->get_name();
@@ -165,7 +165,7 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
 
         QString name = resource_statistics.value(it)->get_name();
         // TODO: Remove hardcoded knowledge of num fights / fight length
-        float gain_per_5 = float(gain) / ((300 / 5) * 1000);
+        double gain_per_5 = double(gain) / ((300 / 5) * 1000);
         entries.append(QVariantList({name, gain, QString::number(gain_per_5, 'f', 2)}));
     }
 
@@ -195,7 +195,7 @@ QVariantList ClassStatistics::get_proc_table() const {
             continue;
 
         QString name = proc_statistics.value(it)->get_name();
-        float proc_rate = proc_statistics.value(it)->get_proc_rate();
+        double proc_rate = proc_statistics.value(it)->get_proc_rate();
         entries.append(QVariantList({name, proc_rate, QString::number(proc_rate * 100, 'f', 2), procs}));
     }
 

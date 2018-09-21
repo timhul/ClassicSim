@@ -17,7 +17,7 @@ public:
         DescriptionRole
     };
 
-    BuffModel(GeneralBuffs* general_buffs, QObject *parent = 0);
+    BuffModel(GeneralBuffs* general_buffs, QObject *parent = nullptr);
 
     void set_patch(const QString &patch);
     void addBuffs();

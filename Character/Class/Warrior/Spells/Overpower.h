@@ -14,8 +14,8 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
-    QVector<float> talent_ranks;
+    Warrior* warr;
+    QVector<double> talent_ranks;
 };
 
 #endif // OVERPOWER_H

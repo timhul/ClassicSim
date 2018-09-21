@@ -9,13 +9,13 @@ class DruidSpells: public Spells {
     Q_OBJECT
 
 public:
-    DruidSpells(Druid *pchar);
+    DruidSpells(Druid *druid);
     virtual ~DruidSpells() override;
 
     void reset() override;
 
 private:
-    Druid* pchar;
+    Druid* druid;
 };
 
 #endif // DRUIDSPELLS_H

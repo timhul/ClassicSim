@@ -67,7 +67,7 @@ int Druid::get_ap_per_agi() const {
     return 1;
 }
 
-float Druid::global_cooldown() const {
+double Druid::global_cooldown() const {
     // Incomplete implementation, is stance specific.
     return 1.5;
 }

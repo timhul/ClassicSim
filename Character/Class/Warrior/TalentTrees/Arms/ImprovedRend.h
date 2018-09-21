@@ -9,10 +9,10 @@ class ImprovedRend: public Talent {
     Q_OBJECT
 public:
     ImprovedRend(Character *pchar, TalentTree* tree);
-    virtual ~ImprovedRend();
+    ~ImprovedRend() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

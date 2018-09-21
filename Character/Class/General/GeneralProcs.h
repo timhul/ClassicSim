@@ -21,7 +21,7 @@ class GeneralProcs: public QObject {
     Q_OBJECT
 
 public:
-    GeneralProcs(Character* pchar, Faction* faction, QObject* parent = 0);
+    GeneralProcs(Character* pchar, Faction* faction, QObject* parent = nullptr);
     ~GeneralProcs();
 
     void switch_faction() const;

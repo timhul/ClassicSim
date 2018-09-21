@@ -4,9 +4,9 @@
 #include "DotTick.h"
 
 DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Deep Wounds", engine, pchar, roll, false, 3, 0)
+    Spell("Deep Wounds", engine, pchar, roll, false, 3, 0),
+    warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->pchar = dynamic_cast<Warrior*>(pchar);
     this->previous_tick_rest = 0;
     this->ranks = {0.0, 0.2, 0.4, 0.6};
     this->rank_talent = 0;
@@ -15,7 +15,7 @@ DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
 void DeepWounds::spell_effect() {
     assert(!stacks.empty());
 
-    float damage_dealt = stacks.size() * ((pchar->get_avg_mh_damage() * ranks[rank_talent]) / 6);
+    double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * ranks[rank_talent]) / 6);
 
     // TODO: previous_tick_rest not correctly increased/decreased by dmg increasing effects
     // occuring since the previous tick was calculated. This effect is VERY minor.
@@ -36,7 +36,7 @@ void DeepWounds::spell_effect() {
     else
         previous_tick_rest = 0;
 
-    add_hit_dmg(round(damage_dealt));
+    add_hit_dmg(static_cast<int>(round(damage_dealt)));
 }
 
 void DeepWounds::apply_debuff() {

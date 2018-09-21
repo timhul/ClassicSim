@@ -18,9 +18,9 @@ public:
     CombatRoll(Target* _tar);
     ~CombatRoll();
 
-    int get_melee_hit_result(const int, const float = 0.0);
+    int get_melee_hit_result(const int, const double = 0.0);
     int get_melee_ability_result(const int,
-                                 const float = 0.0,
+                                 const double = 0.0,
                                  const bool include_dodge = true,
                                  const bool include_parry = true,
                                  const bool include_block = true,
@@ -36,13 +36,13 @@ public:
     Target* get_target() const;
     Mechanics* get_mechanics() const;
 
-    float get_white_miss_chance(const int);
-    float get_yellow_miss_chance(const int wpn_skill);
-    float get_glancing_blow_chance();
-    float get_glancing_blow_dmg_penalty(const int);
+    double get_white_miss_chance(const int);
+    double get_yellow_miss_chance(const int wpn_skill);
+    double get_glancing_blow_chance();
+    double get_glancing_blow_dmg_penalty(const int);
 
-    void update_crit_chance(const float critical);
-    void update_miss_chance(const float hit);
+    void update_crit_chance(const double critical);
+    void update_miss_chance(const double hit);
 
     void dump_tables();
     void drop_tables();

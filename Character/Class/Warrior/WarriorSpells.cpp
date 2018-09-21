@@ -31,7 +31,7 @@
 
 WarriorSpells::WarriorSpells(Warrior* pchar) :
     Spells(pchar),
-    pchar(pchar)
+    warr(pchar)
 {
     this->battle_shout = new BattleShout(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->battle_stance = new BattleStance(pchar->get_engine(), pchar, pchar->get_combat_roll());
@@ -47,8 +47,8 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->recklessness = new Recklessness(pchar->get_engine(), pchar, pchar->get_combat_roll());
     this->whirlwind = new Whirlwind(pchar->get_engine(), pchar, pchar->get_combat_roll());
 
-    this->mh_attack = new MainhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->oh_attack = new OffhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->warr_mh_attack = new MainhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->warr_oh_attack = new OffhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
 
     spells.append(battle_shout);
     spells.append(battle_stance);
@@ -63,8 +63,8 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     spells.append(overpower);
     spells.append(recklessness);
     spells.append(whirlwind);
-    spells.append(mh_attack);
-    spells.append(oh_attack);
+    spells.append(warr_mh_attack);
+    spells.append(warr_oh_attack);
 }
 
 WarriorSpells::~WarriorSpells()
@@ -77,21 +77,21 @@ void WarriorSpells::reset() {
 }
 
 void WarriorSpells::mh_auto_attack(const int iteration) {
-    if (!mh_attack->attack_is_valid(iteration))
+    if (!warr_mh_attack->attack_is_valid(iteration))
         return;
 
-    if (pchar->get_hs_buff()->is_active() && heroic_strike->is_available()) {
+    if (warr->get_hs_buff()->is_active() && heroic_strike->is_available()) {
         heroic_strike->calculate_damage();
     }
     else {
-        if (pchar->get_hs_buff()->is_active())
-            pchar->get_hs_buff()->use_charge();
+        if (warr->get_hs_buff()->is_active())
+            warr->get_hs_buff()->use_charge();
 
-        mh_attack->perform();
+        warr_mh_attack->perform();
 
-        if (pchar->action_ready()) {
-            PlayerAction* new_event = new PlayerAction(pchar->get_rotation(), pchar->get_engine()->get_current_priority() + 0.1);
-            pchar->get_engine()->add_event(new_event);
+        if (warr->action_ready()) {
+            PlayerAction* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
+            warr->get_engine()->add_event(new_event);
         }
     }
 
@@ -99,14 +99,14 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
 }
 
 void WarriorSpells::oh_auto_attack(const int iteration) {
-    if (!oh_attack->attack_is_valid(iteration))
+    if (!warr_oh_attack->attack_is_valid(iteration))
         return;
 
-    oh_attack->perform();
+    warr_oh_attack->perform();
 
-    if (pchar->action_ready()) {
-        PlayerAction* new_event = new PlayerAction(pchar->get_rotation(), pchar->get_engine()->get_current_priority() + 0.1);
-        pchar->get_engine()->add_event(new_event);
+    if (warr->action_ready()) {
+        PlayerAction* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
+        warr->get_engine()->add_event(new_event);
     }
 
     add_next_oh_attack();
@@ -114,20 +114,20 @@ void WarriorSpells::oh_auto_attack(const int iteration) {
 
 void WarriorSpells::add_next_mh_attack(void) {
     MainhandMeleeHit* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
-    pchar->get_engine()->add_event(new_event);
+    warr->get_engine()->add_event(new_event);
 }
 
 void WarriorSpells::add_next_oh_attack(void) {
-    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
-    pchar->get_engine()->add_event(new_event);
+    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, warr_oh_attack->get_next_expected_use(), warr_oh_attack->get_next_iteration());
+    warr->get_engine()->add_event(new_event);
 }
 
 MainhandAttack* WarriorSpells::get_mh_attack() const {
-    return dynamic_cast<MainhandAttack*>(mh_attack);
+    return dynamic_cast<MainhandAttack*>(warr_mh_attack);
 }
 
 OffhandAttack* WarriorSpells::get_oh_attack() const {
-    return dynamic_cast<OffhandAttack*>(oh_attack);
+    return dynamic_cast<OffhandAttack*>(warr_oh_attack);
 }
 
 BattleStance* WarriorSpells::get_battle_stance() const {
@@ -159,7 +159,7 @@ Overpower* WarriorSpells::get_overpower() const {
 }
 
 OffhandAttackWarrior* WarriorSpells::get_oh_attack_warrior() const {
-    return dynamic_cast<OffhandAttackWarrior*>(this->oh_attack);
+    return dynamic_cast<OffhandAttackWarrior*>(this->warr_oh_attack);
 }
 
 DeathWish* WarriorSpells::get_death_wish() const {

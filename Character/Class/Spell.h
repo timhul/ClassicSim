@@ -16,23 +16,23 @@ class StatisticsSpell;
 class Spell {
 public:
     Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
-          bool restricted_by_gcd, float cooldown, int resource_cost);
+          bool restricted_by_gcd, double cooldown, int resource_cost);
 
     virtual ~Spell();
 
     StatisticsSpell* get_statistics_for_spell() const;
 
     QString get_name() const;
-    float get_base_cooldown();
-    float get_last_used();
-    float get_next_use() const;
+    double get_base_cooldown();
+    double get_last_used();
+    double get_next_use() const;
     bool is_ready() const;
     virtual bool is_available() const;
     bool is_enabled() const;
     void enable();
     void disable();
 
-    float get_cooldown_remaining() const;
+    double get_cooldown_remaining() const;
 
     virtual void increase_effect_via_talent();
     virtual void decrease_effect_via_talent();
@@ -58,8 +58,8 @@ protected:
     StatisticsSpell* statistics;
 
     bool restricted_by_gcd;
-    float cooldown;
-    float last_used;
+    double cooldown;
+    double last_used;
     int resource_cost;
     int rank_talent;
     int rank_spell;
@@ -83,9 +83,7 @@ protected:
     void add_hit_dmg(const int);
     void add_crit_dmg(const int);
 
-    float damage_after_modifiers(const float damage) const;
-
-private:
+    double damage_after_modifiers(const double damage) const;
 };
 
 #endif // SPELL_H

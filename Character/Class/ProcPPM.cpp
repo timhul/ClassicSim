@@ -5,7 +5,7 @@
 #include <assert.h>
 
 ProcPPM::ProcPPM(const QString& name, const int wpn,
-                 const float ppm, const float inner_cooldown, const bool recursive,
+                 const double ppm, const double inner_cooldown, const bool recursive,
                  const QVector<Proc*> linked_procs,
                  const QVector<ProcInfo::Source> proc_sources,
                  Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -23,9 +23,9 @@ ProcPPM::~ProcPPM() {
 int ProcPPM::get_proc_range() const {
     switch (weapon) {
     case EnchantSlot::MAINHAND:
-        return round(proc_rate_base * pchar->get_stats()->get_mh_wpn_speed() * 100);
+        return static_cast<int>(round(proc_rate_base * pchar->get_stats()->get_mh_wpn_speed() * 100));
     case EnchantSlot::OFFHAND:
-        return round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100);
+        return static_cast<int>(round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100));
     default:
         assert(false);
     }

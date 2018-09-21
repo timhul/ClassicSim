@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-WarlockSpells::WarlockSpells(Warlock* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+WarlockSpells::WarlockSpells(Warlock* warlock) :
+    Spells(warlock),
+    warlock(warlock)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(warlock->get_engine(), warlock, warlock->get_combat_roll());
 
     spells.append(mh_attack);
 }

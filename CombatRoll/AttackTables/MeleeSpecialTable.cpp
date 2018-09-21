@@ -3,8 +3,8 @@
 #include <QDebug>
 
 MeleeSpecialTable::MeleeSpecialTable(Random* _rand, const int wpn_skill,
-                                     const float miss, const float dodge, const float parry,
-                                     const float block, const float critical):
+                                     const double miss, const double dodge, const double parry,
+                                     const double block, const double critical):
     random(_rand),
     wpn_skill(wpn_skill),
     miss(miss),
@@ -40,7 +40,7 @@ int MeleeSpecialTable::get_wpn_skill() {
 }
 
 int MeleeSpecialTable::get_outcome(const int roll,
-                                   const float crit_mod,
+                                   const double crit_mod,
                                    const bool include_dodge,
                                    const bool include_parry,
                                    const bool include_block,
@@ -83,27 +83,27 @@ void MeleeSpecialTable::dump_table(void) {
     qDebug() << "CRITICAL RANGE " << critical_range;
 }
 
-void MeleeSpecialTable::update_crit_chance(const float critical) {
+void MeleeSpecialTable::update_crit_chance(const double critical) {
     this->critical = critical;
     update_ranges();
 }
 
-void MeleeSpecialTable::update_miss_chance(const float miss) {
+void MeleeSpecialTable::update_miss_chance(const double miss) {
     this->miss = miss;
     update_ranges();
 }
 
-void MeleeSpecialTable::update_dodge_chance(const float dodge) {
+void MeleeSpecialTable::update_dodge_chance(const double dodge) {
     this->dodge = dodge;
     update_ranges();
 }
 
-void MeleeSpecialTable::update_parry_chance(const float parry) {
+void MeleeSpecialTable::update_parry_chance(const double parry) {
     this->parry = parry;
     update_ranges();
 }
 
-void MeleeSpecialTable::update_block_chance(const float block) {
+void MeleeSpecialTable::update_block_chance(const double block) {
     this->block = block;
     update_ranges();
 }

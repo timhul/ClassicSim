@@ -9,13 +9,13 @@ class MageSpells: public Spells {
     Q_OBJECT
 
 public:
-    MageSpells(Mage *pchar);
+    MageSpells(Mage *mage);
     virtual ~MageSpells() override;
 
     void reset() override;
 
 private:
-    Mage* pchar;
+    Mage* mage;
 };
 
 #endif // MAGESPELLS_H

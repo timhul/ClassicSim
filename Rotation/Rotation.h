@@ -13,7 +13,7 @@ class Spell;
 class Rotation: public QObject {
     Q_OBJECT
 public:
-    Rotation(Character* pchar, QObject* parent = 0);
+    Rotation(Character* pchar, QObject* parent = nullptr);
     virtual ~Rotation();
 
     void perform_rotation() const;

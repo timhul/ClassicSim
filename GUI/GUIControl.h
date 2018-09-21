@@ -26,7 +26,7 @@ class SimulationThreadPool;
 class GUIControl: public QObject {
     Q_OBJECT
 public:
-    GUIControl(QObject* parent = 0);
+    GUIControl(QObject* parent = nullptr);
     ~GUIControl();
 
     /* Character */
@@ -247,7 +247,7 @@ private:
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     Character* current_char;
-    float last_quick_sim_result;
+    double last_quick_sim_result;
     ItemModel* item_model;
     ItemTypeFilterModel* item_type_filter_model;
     WeaponModel* weapon_model;

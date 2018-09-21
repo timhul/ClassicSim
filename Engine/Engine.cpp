@@ -32,11 +32,11 @@ void Engine::prepare() {
 }
 
 void Engine::dump(void) {
-    const float elapsed = (float)timer->elapsed() / 1000;
+    const double elapsed = timer->elapsed() / 1000;
 
     QMap<QString, int>::const_iterator i = processed_events_of_type.constBegin();
     while (i != processed_events_of_type.constEnd()) {
-        qDebug() << i.key() << "=>" << i.value() << (float(i.value()) / float(processed_events)) * 100 << "%";
+        qDebug() << i.key() << "=>" << i.value() << (double(i.value()) / double(processed_events)) * 100 << "%";
         ++i;
     }
 
@@ -57,7 +57,7 @@ void Engine::end_combat(void) {
     current_prio = -1;
 }
 
-float Engine::get_current_priority(void) const {
+double Engine::get_current_priority(void) const {
     return current_prio;
 }
 

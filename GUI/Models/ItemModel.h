@@ -23,7 +23,7 @@ public:
         IconRole
     };
 
-    ItemModel(EquipmentDb*, ItemTypeFilterModel*, QObject *parent = 0);
+    ItemModel(EquipmentDb*, ItemTypeFilterModel*, QObject *parent = nullptr);
 
     void set_patch(const QString &patch);
     Q_INVOKABLE void setSlot(const int slot);

@@ -15,7 +15,7 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
+    Warrior* warr;
     QVector<QPair<int, int>> spell_ranks;
     QVector<int> talent_ranks;
     int initial_dmg;

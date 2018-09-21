@@ -3,7 +3,7 @@
 
 #include "Buff.h"
 
-ConditionBuff::ConditionBuff(Buff* buff, const int comparator, const float cmp_value) :
+ConditionBuff::ConditionBuff(Buff* buff, const int comparator, const double cmp_value) :
     buff(buff),
     comparator(comparator),
     cmp_value(cmp_value)

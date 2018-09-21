@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-DruidSpells::DruidSpells(Druid* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+DruidSpells::DruidSpells(Druid* druid) :
+    Spells(druid),
+    druid(druid)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(druid->get_engine(), druid, druid->get_combat_roll());
 
     spells.append(mh_attack);
 }

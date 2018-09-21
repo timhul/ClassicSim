@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-MageSpells::MageSpells(Mage* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+MageSpells::MageSpells(Mage* mage) :
+    Spells(mage),
+    mage(mage)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(mage->get_engine(), mage, mage->get_combat_roll());
 
     spells.append(mh_attack);
 }

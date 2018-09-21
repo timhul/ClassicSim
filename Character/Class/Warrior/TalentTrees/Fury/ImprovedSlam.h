@@ -9,10 +9,10 @@ class ImprovedSlam: public Talent {
     Q_OBJECT
 public:
     ImprovedSlam(Character *pchar, TalentTree* tree);
-    virtual ~ImprovedSlam();
+    ~ImprovedSlam() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

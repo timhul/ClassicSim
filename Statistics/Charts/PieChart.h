@@ -11,7 +11,7 @@ class PieChart : public QObject {
     Q_OBJECT
 
 public:
-    PieChart(QObject *parent = 0);
+    PieChart(QObject *parent = nullptr);
 
     Q_INVOKABLE QVariantList getSlices();
 

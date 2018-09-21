@@ -11,7 +11,7 @@ class CharacterEncoder: public QObject {
     Q_OBJECT
 
 public:
-    CharacterEncoder(Character* pchar, QObject* parent = 0);
+    CharacterEncoder(Character* pchar, QObject* parent = nullptr);
 
     QString get_current_setup_string();
 

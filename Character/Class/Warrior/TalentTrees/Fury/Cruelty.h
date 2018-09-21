@@ -9,10 +9,10 @@ class Cruelty: public Talent {
     Q_OBJECT
 public:
     Cruelty(Character *pchar, TalentTree* tree);
-    virtual ~Cruelty();
+    ~Cruelty() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

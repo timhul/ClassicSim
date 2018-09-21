@@ -460,13 +460,13 @@ void TestSpell::given_target_has_0_armor() {
     assert(pchar->get_combat_roll()->get_target()->get_armor() == 0);
 }
 
-void TestSpell::given_engine_priority_at(const float priority) {
+void TestSpell::given_engine_priority_at(const double priority) {
     MainhandMeleeHit* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
     engine->set_current_priority(event);
     delete event;
 }
 
-void TestSpell::when_running_queued_events_until(const float priority) {
+void TestSpell::when_running_queued_events_until(const double priority) {
     while (engine->get_current_priority() < priority) {
         if (engine->get_queue()->empty()) {
             qDebug() << "Attempted to run queued events until"

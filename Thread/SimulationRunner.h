@@ -16,7 +16,7 @@ class Target;
 class SimulationRunner: public QObject {
     Q_OBJECT
 public:
-    SimulationRunner(QString seed, QObject* parent = 0);
+    SimulationRunner(QString seed, QObject* parent = nullptr);
     ~SimulationRunner();
 
 public slots:
@@ -24,7 +24,7 @@ public slots:
 
 signals:
     void finished();
-    void result(QString seed, float result);
+    void result(QString seed, double result);
     void error(QString seed, QString err);
 
 protected:

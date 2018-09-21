@@ -82,10 +82,13 @@ void ItemTypeFilterModel::add_armor_item_type_filters() {
     switch (pchar->get_highest_possible_armor_type()) {
     case ArmorTypes::PLATE:
         item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::PLATE, "Plate"));
+        // C++17 [[clang::fallthrough]];
     case ArmorTypes::MAIL:
         item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::MAIL, "Mail"));
+        // C++17 [[clang::fallthrough]];
     case ArmorTypes::LEATHER:
         item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::LEATHER, "Leather"));
+        // C++17 [[clang::fallthrough]];
     case ArmorTypes::CLOTH:
         item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::CLOTH, "Cloth"));
     }

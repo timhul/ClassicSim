@@ -15,7 +15,7 @@ class Spells: public QObject {
     Q_OBJECT
 
 public:
-    Spells(Character* pchar, QObject* parent = 0);
+    Spells(Character* pchar, QObject* parent = nullptr);
     virtual ~Spells();
 
     virtual void reset() = 0;

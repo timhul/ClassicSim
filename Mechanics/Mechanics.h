@@ -10,20 +10,20 @@ class Mechanics {
 public:
     Mechanics(Target*);
 
-    float get_yellow_miss_chance(const int) const;
-    float get_1h_white_miss_chance(const int) const;
-    float get_2h_white_miss_chance(const int) const;
-    float get_dw_white_miss_chance(const int) const;
+    double get_yellow_miss_chance(const int) const;
+    double get_1h_white_miss_chance(const int) const;
+    double get_2h_white_miss_chance(const int) const;
+    double get_dw_white_miss_chance(const int) const;
 
-    float get_glancing_blow_chance(const int) const;
-    float get_dodge_chance(const int) const;
-    float get_parry_chance(const int) const;
-    float get_block_chance(void) const;
+    double get_glancing_blow_chance(const int) const;
+    double get_dodge_chance(const int) const;
+    double get_parry_chance(const int) const;
+    double get_block_chance(void) const;
 
-    float get_glancing_blow_dmg_penalty(const int) const;
+    double get_glancing_blow_dmg_penalty(const int) const;
 
     int get_boss_base_armor() const;
-    float get_reduction_from_armor(const int armor, const int clvl) const;
+    double get_reduction_from_armor(const int armor, const int clvl) const;
 
     void set_tlvl(const int);
 protected:

@@ -16,11 +16,11 @@ QString StatisticsBuff::get_name() const {
     return this->name;
 }
 
-void StatisticsBuff::add_uptime_for_encounter(const float uptime) {
+void StatisticsBuff::add_uptime_for_encounter(const double uptime) {
     ++counter;
     avg_uptime = counter == 1 ? uptime : ((uptime) * (counter - 1) + avg_uptime) / counter;
 }
 
-float StatisticsBuff::get_uptime() const {
+double StatisticsBuff::get_uptime() const {
     return this->avg_uptime;
 }

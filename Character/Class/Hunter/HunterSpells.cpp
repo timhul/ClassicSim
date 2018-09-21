@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-HunterSpells::HunterSpells(Hunter* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+HunterSpells::HunterSpells(Hunter* hunter) :
+    Spells(hunter),
+    hunter(hunter)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(hunter->get_engine(), hunter, hunter->get_combat_roll());
 
     spells.append(mh_attack);
 }

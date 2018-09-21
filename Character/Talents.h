@@ -9,7 +9,7 @@
 class Talents: public QObject {
     Q_OBJECT
 public:
-    Talents(QObject* parent = 0);
+    Talents(QObject* parent = nullptr);
 
     ~Talents();
 

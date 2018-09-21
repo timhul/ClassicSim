@@ -17,7 +17,7 @@ public:
         DescriptionRole
     };
 
-    DebuffModel(GeneralBuffs* general_debuffs, QObject *parent = 0);
+    DebuffModel(GeneralBuffs* general_debuffs, QObject *parent = nullptr);
 
     void set_patch(const QString &patch);
     void addDebuffs();

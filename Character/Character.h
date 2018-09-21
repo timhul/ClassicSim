@@ -27,7 +27,7 @@ class Character: public QObject {
     Q_OBJECT
 
 public:
-    Character(Race*, Engine*, Equipment*, CombatRoll*, Faction* faction, QObject* parent = 0);
+    Character(Race*, Engine*, Equipment*, CombatRoll*, Faction* faction, QObject* parent = nullptr);
     virtual ~Character();
 
     Race* get_race(void);
@@ -79,7 +79,7 @@ public:
     void stop_attack(void);
     bool action_ready(void) const;
     void start_global_cooldown();
-    virtual float global_cooldown() const;
+    virtual double global_cooldown() const;
     virtual bool on_global_cooldown() const;
 
     virtual void melee_mh_white_hit_effect();
@@ -101,18 +101,18 @@ public:
     void run_extra_mh_attack();
     void run_extra_oh_attack();
 
-    float get_ability_crit_dmg_mod() const;
-    float get_total_phys_dmg_mod() const;
+    double get_ability_crit_dmg_mod() const;
+    double get_total_phys_dmg_mod() const;
 
-    float get_random_normalized_mh_dmg();
-    float get_random_non_normalized_mh_dmg();
+    double get_random_normalized_mh_dmg();
+    double get_random_non_normalized_mh_dmg();
 
-    float get_random_normalized_oh_dmg();
-    float get_random_non_normalized_oh_dmg();
+    double get_random_normalized_oh_dmg();
+    double get_random_non_normalized_oh_dmg();
 
     int get_avg_mh_damage();
-    float get_normalized_dmg(const int, const Weapon*);
-    float get_non_normalized_dmg(const int, const float);
+    double get_normalized_dmg(const int, const Weapon*);
+    double get_non_normalized_dmg(const int, const double);
 
     int get_mh_wpn_skill();
     int get_oh_wpn_skill();
@@ -121,8 +121,8 @@ public:
     void increase_attack_speed(int);
     void decrease_attack_speed(int);
 
-    void increase_ability_crit_dmg_mod(float);
-    void decrease_ability_crit_dmg_mod(float);
+    void increase_ability_crit_dmg_mod(double);
+    void decrease_ability_crit_dmg_mod(double);
 
     bool has_mainhand() const;
     bool has_offhand() const;
@@ -155,11 +155,11 @@ protected:
     BloodFuryBuff* blood_fury_buff;
 
     QVector<QString> available_races;
-    float ability_crit_dmg_mod;
+    double ability_crit_dmg_mod;
 
     int clvl;
     bool melee_attacking;
-    float next_gcd;
+    double next_gcd;
 
 
     virtual void initialize_talents() = 0;

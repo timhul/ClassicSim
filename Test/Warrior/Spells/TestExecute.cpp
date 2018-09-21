@@ -300,8 +300,7 @@ void TestExecute::test_max_crit_dmg_0_of_2_imp_execute_1_of_2_impale() {
 
     // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
     // [3938] = (600 + 15 * (100 - 15)) * 2.1
-    // TODO: 3937.5 is erroneously rounded to 3937 instead of 3938. Consider using ceil.
-    then_damage_dealt_is(3937);
+    then_damage_dealt_is(3938);
 }
 
 void TestExecute::test_min_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
@@ -331,8 +330,7 @@ void TestExecute::test_max_crit_dmg_1_of_2_imp_execute_1_of_2_impale() {
 
     // [Damage] = (600 + 15 * (rage - rage_cost)) * crit_dmg_modifier
     // [4001] = (600 + 15 * (100 - 13)) * 2.1
-    // TODO: 4000.5 is erroneously rounded to 4000 instead of 4000. Consider using ceil.
-    then_damage_dealt_is(4000);
+    then_damage_dealt_is(4001);
 }
 
 void TestExecute::test_min_crit_dmg_2_of_2_imp_execute_1_of_2_impale() {

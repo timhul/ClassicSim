@@ -12,7 +12,7 @@ public:
     QString get_name() const;
     int get_procs() const;
     int get_attempts() const;
-    float get_proc_rate() const;
+    double get_proc_rate() const;
 
     void increment_attempt();
     void increment_proc();

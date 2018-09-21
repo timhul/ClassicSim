@@ -29,7 +29,7 @@ public:
     void use_charge();
     void cancel_buff();
     bool is_active() const;
-    float time_left() const;
+    double time_left() const;
 
     void reset();
     void initialize();
@@ -57,17 +57,16 @@ protected:
     const int base_charges;
     int current_charges;
     int iteration;
-    float applied;
-    float refreshed;
-    float expired;
+    double applied;
+    double refreshed;
+    double expired;
     bool active;
     int rank_talent;
-    float uptime;
+    double uptime;
     bool hidden;
 
     int instance_id;
 
-private:
     void force_remove_buff();
     virtual void buff_effect_when_applied() = 0;
     virtual void buff_effect_when_removed() = 0;

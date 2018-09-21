@@ -52,9 +52,9 @@ public:
     void given_an_offhand_weapon_with_2_speed();
     void given_1000_melee_ap();
     void given_target_has_0_armor();
-    void given_engine_priority_at(const float priority);
+    void given_engine_priority_at(const double priority);
 
-    void when_running_queued_events_until(const float priority);
+    void when_running_queued_events_until(const double priority);
 
     void then_damage_dealt_is(const int damage);
     void then_next_event_is(const QString &name);

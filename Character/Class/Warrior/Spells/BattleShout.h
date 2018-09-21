@@ -13,7 +13,7 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
+    Warrior* warr;
 };
 
 #endif // BATTLESHOUT_H

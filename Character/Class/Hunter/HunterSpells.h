@@ -9,13 +9,13 @@ class HunterSpells: public Spells {
     Q_OBJECT
 
 public:
-    HunterSpells(Hunter *pchar);
+    HunterSpells(Hunter *hunter);
     virtual ~HunterSpells() override;
 
     void reset() override;
 
 private:
-    Hunter* pchar;
+    Hunter* hunter;
 };
 
 #endif // HUNTERSPELLS_H

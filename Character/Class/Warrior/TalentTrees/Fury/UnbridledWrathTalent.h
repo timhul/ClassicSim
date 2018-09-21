@@ -9,10 +9,10 @@ class UnbridledWrathTalent: public Talent {
     Q_OBJECT
 public:
     UnbridledWrathTalent(Character *pchar, TalentTree* tree);
-    virtual ~UnbridledWrathTalent();
+    ~UnbridledWrathTalent() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

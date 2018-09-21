@@ -14,9 +14,9 @@ public:
     virtual void act(void) = 0;
     virtual QString get_name(void) const;
 
-    float get_priority(void) const;
+    double get_priority(void) const;
 protected:
-    float priority;
+    double priority;
     QString name;
 private:
 };

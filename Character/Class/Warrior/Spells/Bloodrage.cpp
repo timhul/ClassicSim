@@ -4,9 +4,9 @@
 #include "ResourceGain.h"
 
 Bloodrage::Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Bloodrage", engine, pchar, roll, false, 60, 0)
+    Spell("Bloodrage", engine, pchar, roll, false, 60, 0),
+    warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->pchar = dynamic_cast<Warrior*>(pchar);
     this->talent_ranks = {10, 12, 15};
     this->periodic_rage_base = 10;
     this->periodic_rage_current = periodic_rage_base;
@@ -19,12 +19,12 @@ void Bloodrage::spell_effect() {
     this->engine->add_event(new_event);
     periodic_rage_current = periodic_rage_base;
 
-    pchar->gain_rage(talent_ranks[rank_talent]);
+    warr->gain_rage(talent_ranks[rank_talent]);
 }
 
 void Bloodrage::periodic_effect() {
     // TODO: Add statistics for periodic rage gain.
-    pchar->gain_rage(1);
+    warr->gain_rage(1);
     --periodic_rage_current;
 
     if (periodic_rage_current == 0)

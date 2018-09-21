@@ -2,7 +2,7 @@
 #include "DotTick.h"
 #include "Spell.h"
 
-DotTick::DotTick(Spell* spell, float priority) {
+DotTick::DotTick(Spell* spell, double priority) {
     this->spell = spell;
     this->priority = priority;
     this->name = "DotTick";

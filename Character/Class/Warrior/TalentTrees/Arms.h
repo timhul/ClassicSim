@@ -6,8 +6,8 @@
 class Arms: public TalentTree {
     Q_OBJECT
 public:
-    Arms(Character* pchar, QObject* parent = 0);
-    virtual ~Arms();
+    Arms(Character* pchar, QObject* parent = nullptr);
+    ~Arms() override;
 
 private:
 };

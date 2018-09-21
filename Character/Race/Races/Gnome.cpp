@@ -29,11 +29,11 @@ int Gnome::get_base_spirit(void) const {
     return 20;
 }
 
-float Gnome::get_int_multiplier() const {
+double Gnome::get_int_multiplier() const {
     return 1.05;
 }
 
-float Gnome::get_spirit_multiplier() const {
+double Gnome::get_spirit_multiplier() const {
     return 1.0;
 }
 

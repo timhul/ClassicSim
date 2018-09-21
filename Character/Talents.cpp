@@ -46,7 +46,7 @@ bool Talents::show_bottom_arrow(const QString tree_position, const QString talen
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::show_bottom_arrow could not find tree position" << tree_position;
-        return "";
+        return false;
     }
 
     return talent_trees[current_index][tree_position]->has_bottom_child(talent_position);
@@ -56,7 +56,7 @@ bool Talents::show_right_arrow(const QString tree_position, const QString talent
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::show_right_arrow could not find tree position" << tree_position;
-        return "";
+        return false;
     }
 
     return talent_trees[current_index][tree_position]->has_right_child(talent_position);

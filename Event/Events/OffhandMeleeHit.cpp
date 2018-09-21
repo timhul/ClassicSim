@@ -2,7 +2,7 @@
 #include "OffhandMeleeHit.h"
 #include "Spells.h"
 
-OffhandMeleeHit::OffhandMeleeHit(Spells* spells, const float next_timestamp, const int iteration) {
+OffhandMeleeHit::OffhandMeleeHit(Spells* spells, const double next_timestamp, const int iteration) {
     this->spells = spells;
     this->priority = next_timestamp;
     this->name = "OffhandMeleeHit";

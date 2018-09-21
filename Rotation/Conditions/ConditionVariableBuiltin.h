@@ -19,7 +19,7 @@ public:
     ConditionVariableBuiltin(Character*,
                              const int builtin,
                              const int comparator,
-                             const float rhs_value);
+                             const double rhs_value);
 
 
     bool condition_fulfilled() const override;
@@ -29,9 +29,9 @@ private:
     Engine* engine;
     const int builtin;
     const int comparator;
-    const float rhs_value;
+    const double rhs_value;
 
-    bool cmp_values(const float lhs_value) const;
+    bool cmp_values(const double lhs_value) const;
 };
 
 #endif // CONDITIONBUILTIN_H

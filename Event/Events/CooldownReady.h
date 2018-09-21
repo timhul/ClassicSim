@@ -7,7 +7,7 @@ class Rotation;
 
 class CooldownReady: public Event {
 public:
-    CooldownReady(Rotation* rotation, const float);
+    CooldownReady(Rotation* rotation, const double);
 
     virtual void act(void) override;
 protected:

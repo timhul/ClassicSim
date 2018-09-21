@@ -17,7 +17,7 @@ namespace Races {
 
 class Race {
 public:
-    virtual ~Race() {}
+    virtual ~Race();
 
     virtual int get_race_int() const = 0;
     virtual QString get_name() const = 0;
@@ -26,8 +26,8 @@ public:
     virtual int get_base_stamina() const = 0;
     virtual int get_base_intellect() const = 0;
     virtual int get_base_spirit() const = 0;
-    virtual float get_int_multiplier() const = 0;
-    virtual float get_spirit_multiplier() const = 0;
+    virtual double get_int_multiplier() const = 0;
+    virtual double get_spirit_multiplier() const = 0;
 
     virtual int get_axe_bonus() const = 0;
     virtual int get_sword_bonus() const = 0;

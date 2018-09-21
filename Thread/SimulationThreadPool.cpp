@@ -27,7 +27,7 @@ void SimulationThreadPool::run_sim(const QString &setup_string) {
     assert(thread_results.empty());
 
     for (int i = 0; i < thread_pool.size(); ++i) {
-        thread_results.append(QPair<int, float>(thread_pool[i].first, 0.0));
+        thread_results.append(QPair<int, double>(thread_pool[i].first, 0.0));
     }
 
     running_threads = thread_pool.size();
@@ -40,7 +40,7 @@ void SimulationThreadPool::setup_thread(const int thread_id) {
 
     connect(this, SIGNAL (thread_setup_string(QString)), runner, SLOT (run_sim(QString)));
     connect(runner, SIGNAL (error(QString, QString)), this, SLOT (error_string(QString, QString)));
-    connect(runner, SIGNAL (result(QString, float)), this, SLOT (result(QString, float)));
+    connect(runner, SIGNAL (result(QString, double)), this, SLOT (result(QString, double)));
     connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
 
     thread_pool.append(QPair<int, QThread*>(thread_id, thread));
@@ -58,7 +58,7 @@ void SimulationThreadPool::error_string(QString seed, QString error) {
     }
 }
 
-void SimulationThreadPool::result(QString seed, float result) {
+void SimulationThreadPool::result(QString seed, double result) {
     --running_threads;
 
     for (int i = 0; i < thread_results.size(); ++i) {
@@ -73,7 +73,7 @@ void SimulationThreadPool::result(QString seed, float result) {
 
 void SimulationThreadPool::check_threads_finished() {
     if (running_threads == 0) {
-        float avg_dps = 0.0;
+        double avg_dps = 0.0;
         int num_threads_with_result = 0;
 
         for (int i = 0; i < thread_results.size(); ++i) {

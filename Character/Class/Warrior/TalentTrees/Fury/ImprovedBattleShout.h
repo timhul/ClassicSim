@@ -9,10 +9,10 @@ class ImprovedBattleShout: public Talent {
     Q_OBJECT
 public:
     ImprovedBattleShout(Character *pchar, TalentTree* tree);
-    virtual ~ImprovedBattleShout();
+    ~ImprovedBattleShout() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

@@ -6,9 +6,9 @@
 #include "OverpowerBuff.h"
 
 Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Execute", engine, pchar, roll, true, 0, 15)
+    Spell("Execute", engine, pchar, roll, true, 0, 15),
+    warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->pchar = dynamic_cast<Warrior*>(pchar);
     spell_ranks = {QPair<int, int>(125, 3),
                    QPair<int, int>(200, 6),
                    QPair<int, int>(325, 9),
@@ -24,47 +24,46 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
 
 bool Execute::is_ready_spell_specific() const {
     // TODO: Refactor this check into separate target mechanic.
-    float time_remaining = 300 - pchar->get_engine()->get_current_priority();
+    double time_remaining = 300 - warr->get_engine()->get_current_priority();
     return time_remaining / 300 < 0.2 ? true : false;
 }
 
 void Execute::spell_effect() {
-    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill());
 
     add_gcd_event();
 
     // TODO: Check Execute rage loss on miss/dodge/parry
     if (result == AttackResult::MISS) {
         increment_miss();
-        pchar->lose_rage(resource_cost);
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        pchar->get_overpower_buff()->apply_buff();
-        pchar->lose_rage(round(resource_cost * 0.25));
+        warr->get_overpower_buff()->apply_buff();
+        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
         return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        pchar->lose_rage(round(resource_cost * 0.25));
+        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
         return;
     }
 
-    float damage_dealt = initial_dmg + (pchar->get_curr_rage() - resource_cost) * dmg_per_rage_converted;
+    double damage_dealt = initial_dmg + (warr->get_curr_rage() - resource_cost) * dmg_per_rage_converted;
     damage_dealt = damage_after_modifiers(damage_dealt);
 
     if (result == AttackResult::CRITICAL) {
-        damage_dealt = round(damage_dealt * pchar->get_ability_crit_dmg_mod());
-        pchar->melee_mh_yellow_critical_effect();
-        add_crit_dmg(damage_dealt);
+        warr->melee_mh_yellow_critical_effect();
+        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_ability_crit_dmg_mod())));
     }
     else if (result == AttackResult::HIT) {
-        pchar->melee_mh_yellow_hit_effect();
-        add_hit_dmg(round(damage_dealt));
+        warr->melee_mh_yellow_hit_effect();
+        add_hit_dmg(static_cast<int>(round(damage_dealt)));
     }
 
-    pchar->lose_rage(pchar->get_curr_rage());
+    warr->lose_rage(warr->get_curr_rage());
 }
 
 void Execute::increase_effect_via_talent() {

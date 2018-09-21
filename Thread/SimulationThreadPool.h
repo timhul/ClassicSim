@@ -10,14 +10,14 @@ class QThread;
 class SimulationThreadPool: public QObject {
     Q_OBJECT
 public:
-    SimulationThreadPool(QObject* parent = 0);
+    SimulationThreadPool(QObject* parent = nullptr);
     ~SimulationThreadPool();
 
     void run_sim(const QString& setup_string);
 
 public slots:
     void error_string(QString, QString);
-    void result(QString, float);
+    void result(QString, double);
 
 signals:
     void thread_result(QString dps);
@@ -28,7 +28,7 @@ private:
     Random* random;
     int running_threads;
 
-    QVector<QPair<int, float>> thread_results;
+    QVector<QPair<int, double>> thread_results;
     QVector<QPair<int, QThread*>> thread_pool;
 
     void setup_thread(const int thread_id);

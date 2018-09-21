@@ -17,10 +17,10 @@ public:
                   const int max_points,
                   const QString &rank_description,
                   const QVector<QPair<int, int>> format_values);
-    virtual ~GenericTalent();
+    ~GenericTalent() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 };
 
 #endif // GENERICTALENT_H

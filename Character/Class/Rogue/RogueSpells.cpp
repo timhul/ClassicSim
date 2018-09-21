@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-RogueSpells::RogueSpells(Rogue* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+RogueSpells::RogueSpells(Rogue* rogue) :
+    Spells(rogue),
+    rogue(rogue)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(rogue->get_engine(), rogue, rogue->get_combat_roll());
 
     spells.append(mh_attack);
 }

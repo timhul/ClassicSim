@@ -239,6 +239,6 @@ void TestMainhandAttackWarrior::when_decreasing_attack_speed(const int change) {
     warrior->decrease_attack_speed(change);
 }
 
-void TestMainhandAttackWarrior::then_next_expected_use_is(const float next_expected_use) {
+void TestMainhandAttackWarrior::then_next_expected_use_is(const double next_expected_use) {
     assert(QString::number(mh_attack()->get_next_expected_use(), 'f', 3) == QString::number(next_expected_use, 'f', 3));
 }

@@ -44,34 +44,34 @@ void MainhandAttack::calculate_damage() {
         return;
     }
 
-    float damage_dealt = pchar->get_random_non_normalized_mh_dmg();
+    double damage_dealt = pchar->get_random_non_normalized_mh_dmg();
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;
         pchar->melee_mh_white_critical_effect();
-        add_crit_dmg(round(damage_dealt));
+        add_crit_dmg(static_cast<int>(round(damage_dealt)));
         return;
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
         pchar->melee_mh_white_hit_effect();
-        add_glancing_dmg(round(damage_dealt));
+        add_glancing_dmg(static_cast<int>(round(damage_dealt)));
         return;
     }
 
     pchar->melee_mh_white_hit_effect();
-    add_hit_dmg(round(damage_dealt));
+    add_hit_dmg(static_cast<int>(round(damage_dealt)));
 }
 
-float MainhandAttack::get_next_expected_use() const {
+double MainhandAttack::get_next_expected_use() const {
     return next_expected_use;
 }
 
-void MainhandAttack::update_next_expected_use(const float haste_change) {
+void MainhandAttack::update_next_expected_use(const double haste_change) {
     assert(haste_change > 0.001 || haste_change < -0.001);
 
-    float curr_time = pchar->get_engine()->get_current_priority();
-    float remainder_after_haste_change = (next_expected_use - curr_time);
+    double curr_time = pchar->get_engine()->get_current_priority();
+    double remainder_after_haste_change = (next_expected_use - curr_time);
 
     if (remainder_after_haste_change < -0.0001)
         return;

@@ -7,7 +7,7 @@ class Spells;
 
 class MainhandMeleeHit: public Event {
 public:
-    MainhandMeleeHit(Spells*, const float, const int);
+    MainhandMeleeHit(Spells*, const double, const int);
 
     virtual void act(void) override;
 protected:

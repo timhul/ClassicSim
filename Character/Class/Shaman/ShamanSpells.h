@@ -9,13 +9,13 @@ class ShamanSpells: public Spells {
     Q_OBJECT
 
 public:
-    ShamanSpells(Shaman *pchar);
+    ShamanSpells(Shaman *shaman);
     virtual ~ShamanSpells() override;
 
     void reset() override;
 
 private:
-    Shaman* pchar;
+    Shaman* shaman;
 };
 
 #endif // SHAMANSPELLS_H

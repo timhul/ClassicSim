@@ -9,13 +9,13 @@ class PriestSpells: public Spells {
     Q_OBJECT
 
 public:
-    PriestSpells(Priest *pchar);
+    PriestSpells(Priest *priest);
     virtual ~PriestSpells() override;
 
     void reset() override;
 
 private:
-    Priest* pchar;
+    Priest* priest;
 };
 
 #endif // PRIESTSPELLS_H

@@ -8,47 +8,47 @@
 #include "OverpowerBuff.h"
 
 Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Bloodthirst", engine, pchar, roll, true, 6.0, 30)
+    Spell("Bloodthirst", engine, pchar, roll, true, 6.0, 30),
+    warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->pchar = dynamic_cast<Warrior*>(pchar);
     this->is_enabled_externally = true;
     this->enabled = false;
 }
 
 void Bloodthirst::spell_effect() {
-    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill());
 
     add_spell_cd_event();
     add_gcd_event();
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        pchar->lose_rage(resource_cost);
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == AttackResult::DODGE) {
         increment_dodge();
-        pchar->get_overpower_buff()->apply_buff();
-        pchar->lose_rage(round(resource_cost * 0.25));
+        warr->get_overpower_buff()->apply_buff();
+        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
         return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        pchar->lose_rage(round(resource_cost * 0.25));
+        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
         return;
     }
 
-    float damage_dealt = damage_after_modifiers(pchar->get_stats()->get_melee_ap() * 0.45);
+    double damage_dealt = damage_after_modifiers(warr->get_stats()->get_melee_ap() * 0.45);
 
     if (result == AttackResult::CRITICAL) {
-        damage_dealt *= pchar->get_ability_crit_dmg_mod();
-        pchar->melee_mh_yellow_critical_effect();
-        add_crit_dmg(round(damage_dealt));
+        damage_dealt *= warr->get_ability_crit_dmg_mod();
+        warr->melee_mh_yellow_critical_effect();
+        add_crit_dmg(static_cast<int>(round(damage_dealt)));
     }
     else if (result == AttackResult::HIT) {
-        pchar->melee_mh_yellow_hit_effect();
-        add_hit_dmg(round(damage_dealt));
+        warr->melee_mh_yellow_hit_effect();
+        add_hit_dmg(static_cast<int>(round(damage_dealt)));
     }
 
-    pchar->lose_rage(resource_cost);
+    warr->lose_rage(resource_cost);
 }

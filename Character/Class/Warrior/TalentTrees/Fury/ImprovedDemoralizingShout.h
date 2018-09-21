@@ -9,10 +9,10 @@ class ImprovedDemoralizingShout: public Talent {
     Q_OBJECT
 public:
     ImprovedDemoralizingShout(Character *pchar, TalentTree* tree);
-    virtual ~ImprovedDemoralizingShout();
+    ~ImprovedDemoralizingShout() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

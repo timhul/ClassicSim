@@ -220,7 +220,9 @@ SOURCES += main.cpp \
     Statistics/Class/PaladinStatistics.cpp \
     Statistics/Class/MageStatistics.cpp \
     Statistics/Class/HunterStatistics.cpp \
-    Statistics/Class/DruidStatistics.cpp
+    Statistics/Class/DruidStatistics.cpp \
+    CombatRoll/AttackTable.cpp \
+    Character/Race/Race.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -262,7 +264,6 @@ HEADERS += \
     CombatRoll/Random.h \
     Character/Class/Spell.h \
     Character/Class/Warrior/Spells/Bloodthirst.h \
-    Character/Class/AutoAttack.h \
     Event/Events/OffhandMeleeHit.h \
     Event/Events/MainhandMeleeHit.h \
     Event/Events/CooldownReady.h \

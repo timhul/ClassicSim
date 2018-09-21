@@ -8,7 +8,7 @@ class Stats: public QObject {
     Q_OBJECT
 
 public:
-    Stats(QObject* parent = 0);
+    Stats(QObject* parent = nullptr);
     ~Stats();
 
     void add(const Stats*);
@@ -26,8 +26,8 @@ public:
     void increase_base_melee_ap(const int increase);
     void decrease_base_melee_ap(const int decrease);
 
-    float get_hit_chance(void) const;
-    float get_crit_chance(void) const;
+    double get_hit_chance(void) const;
+    double get_crit_chance(void) const;
 
     void increase_str(const int increase);
     void decrease_str(const int decrease);
@@ -50,11 +50,11 @@ public:
     void increase_defense(const int);
     void decrease_defense(const int);
 
-    void increase_dodge(const float);
-    void decrease_dodge(const float);
+    void increase_dodge(const double);
+    void decrease_dodge(const double);
 
-    void increase_parry(const float);
-    void decrease_parry(const float);
+    void increase_parry(const double);
+    void decrease_parry(const double);
 
     void increase_all_resistances(const int);
     void decrease_all_resistances(const int);
@@ -93,26 +93,26 @@ public:
     void increase_sword_skill(const int);
     void decrease_sword_skill(const int);
 
-    void increase_crit(const float value);
-    void decrease_crit(const float value);
+    void increase_crit(const double value);
+    void decrease_crit(const double value);
 
-    void increase_hit(const float value);
-    void decrease_hit(const float value);
+    void increase_hit(const double value);
+    void decrease_hit(const double value);
 
-    void increase_attack_speed(const float value);
-    void decrease_attack_speed(const float value);
+    void increase_attack_speed(const double value);
+    void decrease_attack_speed(const double value);
 
-    float get_mh_wpn_speed() const;
-    float get_oh_wpn_speed() const;
+    double get_mh_wpn_speed() const;
+    double get_oh_wpn_speed() const;
 
     void set_melee_ap_per_str(const int value);
     void set_melee_ap_per_agi(const int value);
 
-    void set_str_multiplier(const float value);
-    void set_agi_multiplier(const float value);
-    void set_stam_multiplier(const float value);
-    void set_spi_multiplier(const float value);
-    void set_int_multiplier(const float value);
+    void set_str_multiplier(const double value);
+    void set_agi_multiplier(const double value);
+    void set_stam_multiplier(const double value);
+    void set_spi_multiplier(const double value);
+    void set_int_multiplier(const double value);
 
     void increase_melee_ap_against_type(const Target::CreatureType, const int);
     void decrease_melee_ap_against_type(const Target::CreatureType, const int);
@@ -127,8 +127,8 @@ private:
 
     int armor;
     int defense;
-    float dodge_chance;
-    float parry_chance;
+    double dodge_chance;
+    double parry_chance;
 
     int arcane_res;
     int fire_res;
@@ -146,17 +146,17 @@ private:
     int melee_ap_per_str;
     int melee_ap_per_agi;
     int ranged_ap;
-    float percent_hit;
-    float percent_crit;
-    float percent_attack_speed;
+    double percent_hit;
+    double percent_crit;
+    double percent_attack_speed;
 
     QMap<Target::CreatureType, int> melee_ap_against_creature;
 
-    float str_multiplier;
-    float agi_multiplier;
-    float stam_multiplier;
-    float spi_multiplier;
-    float int_multiplier;
+    double str_multiplier;
+    double agi_multiplier;
+    double stam_multiplier;
+    double spi_multiplier;
+    double int_multiplier;
 };
 
 #endif // STATS_H

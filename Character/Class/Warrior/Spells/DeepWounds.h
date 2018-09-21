@@ -16,10 +16,10 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
-    float previous_tick_rest;
+    Warrior* warr;
+    double previous_tick_rest;
     QVector<int> stacks;
-    QVector<float> ranks;
+    QVector<double> ranks;
 };
 
 #endif // DEEPWOUNDS_H

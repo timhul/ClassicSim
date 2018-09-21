@@ -66,7 +66,7 @@ int Paladin::get_ap_per_agi() const {
     return 1;
 }
 
-float Paladin::global_cooldown() const {
+double Paladin::global_cooldown() const {
     return 1.5;
 }
 

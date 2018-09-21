@@ -3,8 +3,8 @@
 #include "Random.h"
 #include <QDebug>
 
-WhiteHitTable::WhiteHitTable(Random *random, const int wpn_skill, const float miss, const float dodge, const float parry,
-                             const float glancing, const float block,  const float critical) :
+WhiteHitTable::WhiteHitTable(Random *random, const int wpn_skill, const double miss, const double dodge, const double parry,
+                             const double glancing, const double block,  const double critical) :
     random(random),
     wpn_skill(wpn_skill),
     miss(miss),
@@ -38,7 +38,7 @@ void WhiteHitTable::update_ranges() {
 }
 
 int WhiteHitTable::get_outcome(const int roll,
-                               const float crit_mod,
+                               const double crit_mod,
                                const bool include_dodge,
                                const bool include_parry,
                                const bool include_block,
@@ -86,32 +86,32 @@ void WhiteHitTable::dump_table(void) {
     qDebug() << "CRITICAL RANGE " << critical_range;
 }
 
-void WhiteHitTable::update_crit_chance(const float critical) {
+void WhiteHitTable::update_crit_chance(const double critical) {
     this->critical = critical;
     update_ranges();
 }
 
-void WhiteHitTable::update_miss_chance(const float miss) {
+void WhiteHitTable::update_miss_chance(const double miss) {
     this->miss = miss;
     update_ranges();
 }
 
-void WhiteHitTable::update_dodge_chance(const float dodge) {
+void WhiteHitTable::update_dodge_chance(const double dodge) {
     this->dodge = dodge;
     update_ranges();
 }
 
-void WhiteHitTable::update_parry_chance(const float parry) {
+void WhiteHitTable::update_parry_chance(const double parry) {
     this->parry = parry;
     update_ranges();
 }
 
-void WhiteHitTable::update_glancing_chance(const float glancing) {
+void WhiteHitTable::update_glancing_chance(const double glancing) {
     this->glancing = glancing;
     update_ranges();
 }
 
-void WhiteHitTable::update_block_chance(const float block) {
+void WhiteHitTable::update_block_chance(const double block) {
     this->block = block;
     update_ranges();
 }

@@ -32,6 +32,6 @@ int StatisticsProc::get_attempts() const {
     return attempts;
 }
 
-float StatisticsProc::get_proc_rate() const {
-    return (float)proc_counter / (float)attempts;
+double StatisticsProc::get_proc_rate() const {
+    return static_cast<double>(proc_counter) / static_cast<double>(attempts);
 }

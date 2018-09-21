@@ -69,7 +69,7 @@ int Priest::get_ap_per_agi() const {
     return 1;
 }
 
-float Priest::global_cooldown() const {
+double Priest::global_cooldown() const {
     return 1.5;
 }
 

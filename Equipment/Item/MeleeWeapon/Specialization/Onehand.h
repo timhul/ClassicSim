@@ -5,7 +5,7 @@
 
 class Onehand: public Weapon {
 public:
-    Onehand(QString name, int type, int min, int max, float speed,
+    Onehand(QString name, int type, int min, int max, double speed,
             QVector<QPair<QString, QString>> stats = {},
             QMap<QString, QString> info = {},
             QVector<QMap<QString, QString>> procs = {}):

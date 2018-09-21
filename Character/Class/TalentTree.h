@@ -12,7 +12,7 @@ class Talent;
 class TalentTree: public QObject {
     Q_OBJECT
 public:
-    TalentTree(const QString &name_, const QString &background_, QObject* parent = 0);
+    TalentTree(const QString &name_, const QString &background_, QObject* parent = nullptr);
     virtual ~TalentTree() = 0;
 
     QString get_name() const;

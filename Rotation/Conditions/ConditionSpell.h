@@ -7,14 +7,14 @@ class Spell;
 
 class ConditionSpell : public Condition {
 public:
-    ConditionSpell(Spell* spell, const int comparator, const float cmp_value);
+    ConditionSpell(Spell* spell, const int comparator, const double cmp_value);
 
     bool condition_fulfilled() const override;
 
 private:
     Spell* spell;
     const int comparator;
-    const float cmp_value;
+    const double cmp_value;
 };
 
 #endif // CONDITIONSPELL_H

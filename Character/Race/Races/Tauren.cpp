@@ -29,11 +29,11 @@ int Tauren::get_base_spirit(void) const {
     return 22;
 }
 
-float Tauren::get_int_multiplier() const {
+double Tauren::get_int_multiplier() const {
     return 1.0;
 }
 
-float Tauren::get_spirit_multiplier() const {
+double Tauren::get_spirit_multiplier() const {
     return 1.0;
 }
 

@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-PaladinSpells::PaladinSpells(Paladin* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+PaladinSpells::PaladinSpells(Paladin* paladin) :
+    Spells(paladin),
+    paladin(paladin)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(paladin->get_engine(), paladin, paladin->get_combat_roll());
 
     spells.append(mh_attack);
 }

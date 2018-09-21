@@ -21,7 +21,7 @@ bool operator>=(const Event& l, const Event& r) {
     return !(r < l);
 }
 
-float Event::get_priority(void) const {
+double Event::get_priority(void) const {
     return this->priority;
 }
 

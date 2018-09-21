@@ -8,7 +8,7 @@ class Warrior;
 class UnbridledWrath: public Proc {
 public:
     UnbridledWrath(Engine* engine, Character* pchar, CombatRoll* roll);
-    ~UnbridledWrath();
+    ~UnbridledWrath() override;
 
     void proc_effect() override;
     void increase_effect_via_talent() override;
@@ -16,8 +16,7 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
-    QVector<int> talent_ranks;
+    Warrior* warr;
 };
 
 #endif // UNBRIDLEDWRATH_H

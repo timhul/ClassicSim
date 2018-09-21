@@ -22,8 +22,8 @@ namespace WarriorStances {
 class Warrior: public Character {
     Q_OBJECT
 public:
-    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = 0);
-    virtual ~Warrior();
+    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    ~Warrior() override;
 
     QString get_name() const override;
     QString get_class_color() const override;
@@ -41,8 +41,8 @@ public:
     int get_highest_possible_armor_type() const override;
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
-    float global_cooldown() const override;
-    float stance_cooldown() const;
+    double global_cooldown() const override;
+    double stance_cooldown() const;
     bool on_stance_cooldown() const;
     void increase_stance_rage_remainder();
     void decrease_stance_rage_remainder();
@@ -85,7 +85,7 @@ private:
     int rage;
     int stance;
     int stance_rage_remainder;
-    float next_stance_cd;
+    double next_stance_cd;
     double rage_conversion_value;
     Flurry* flurry;
     BerserkerStanceBuff* berserker_stance_buff;

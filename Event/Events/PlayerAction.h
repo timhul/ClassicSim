@@ -7,7 +7,7 @@ class Rotation;
 
 class PlayerAction: public Event {
 public:
-    PlayerAction(Rotation* rotation, const float);
+    PlayerAction(Rotation* rotation, const double);
 
     virtual void act(void) override;
 protected:

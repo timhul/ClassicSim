@@ -9,13 +9,13 @@ class WarlockSpells: public Spells {
     Q_OBJECT
 
 public:
-    WarlockSpells(Warlock *pchar);
+    WarlockSpells(Warlock *warlock);
     virtual ~WarlockSpells() override;
 
     void reset() override;
 
 private:
-    Warlock* pchar;
+    Warlock* warlock;
 };
 
 #endif // WARLOCKSPELLS_H

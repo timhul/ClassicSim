@@ -306,6 +306,7 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
             break;
         case WeaponSlots::ONEHAND:
             mh_slot_items.append(mixed_items.at(i));
+            // C++17 [[clang::fallthrough]];
         case WeaponSlots::OFFHAND:
             oh_slot_items.append(mixed_items.takeAt(i));
             --i;

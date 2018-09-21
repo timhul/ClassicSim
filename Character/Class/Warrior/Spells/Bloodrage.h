@@ -14,7 +14,7 @@ public:
 
 protected:
 private:
-    Warrior* pchar;
+    Warrior* warr;
     QVector<int> talent_ranks;
     int periodic_rage_base;
     int periodic_rage_current;

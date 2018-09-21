@@ -244,11 +244,11 @@ QVector<int> Warrior::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-float Warrior::global_cooldown() const {
+double Warrior::global_cooldown() const {
     return 1.5;
 }
 
-float Warrior::stance_cooldown() const {
+double Warrior::stance_cooldown() const {
     return 1.0;
 }
 

@@ -68,7 +68,7 @@ int Mage::get_ap_per_agi() const {
     return 1;
 }
 
-float Mage::global_cooldown() const {
+double Mage::global_cooldown() const {
     return 1.5;
 }
 

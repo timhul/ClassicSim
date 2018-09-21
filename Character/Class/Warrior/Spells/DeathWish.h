@@ -12,7 +12,7 @@ public:
     void spell_effect() override;
 protected:
 private:
-    Warrior* pchar;
+    Warrior* warr;
 
 };
 

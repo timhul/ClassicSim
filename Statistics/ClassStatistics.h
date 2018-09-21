@@ -14,7 +14,7 @@ class ClassStatistics : public QObject {
     Q_OBJECT
 
 public:
-    ClassStatistics(QObject* parent = 0);
+    ClassStatistics(QObject* parent = nullptr);
 
     virtual void update_statistics() = 0;
     Q_INVOKABLE virtual int getNumStatisticsRows() const = 0;

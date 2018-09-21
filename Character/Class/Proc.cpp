@@ -9,7 +9,7 @@
 #include "StatisticsResource.h"
 #include "Character.h"
 
-Proc::Proc(const QString& name, const float proc_rate, const float inner_cooldown,
+Proc::Proc(const QString& name, const double proc_rate, const double inner_cooldown,
            const bool recursive, const QVector<Proc *> linked_procs,
            const QVector<ProcInfo::Source> proc_sources,
            Engine* engine, Character* pchar, CombatRoll* roll) :
@@ -22,7 +22,7 @@ Proc::Proc(const QString& name, const float proc_rate, const float inner_cooldow
     statistics_resource(new StatisticsResource(name)),
     instance_id(ProcStatus::INACTIVE)
 {
-    this->proc_range = round(proc_rate * 10000);
+    this->proc_range = static_cast<int>(round(proc_rate * 10000));
     this->recursive = recursive;
     this->linked_procs = linked_procs;
 }

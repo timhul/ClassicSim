@@ -8,7 +8,7 @@ class Warrior;
 
 class WarriorRotation: public Rotation {
 public:
-    WarriorRotation(Warrior* pchar, QObject* parent = 0);
+    WarriorRotation(Warrior* pchar, QObject* parent = nullptr);
 
 private:
     Warrior* pchar;

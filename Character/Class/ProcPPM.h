@@ -11,7 +11,7 @@ namespace EnchantSlot {
 
 class ProcPPM: public Proc {
 public:
-    ProcPPM(const QString &name, const int weapon, const float ppm, const float inner_cooldown,
+    ProcPPM(const QString &name, const int weapon, const double ppm, const double inner_cooldown,
             const bool recursive, const QVector<Proc*> linked_procs,
             const QVector<ProcInfo::Source> proc_sources,
             Engine* engine, Character* pchar, CombatRoll* roll);
@@ -22,7 +22,7 @@ public:
     virtual int get_proc_range() const;
 
 protected:
-    const float proc_rate_base;
+    const double proc_rate_base;
     const int weapon;
 private:
 };

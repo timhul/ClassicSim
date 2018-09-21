@@ -7,6 +7,10 @@
 #include "Ranged.h"
 #include <QDebug>
 
+WeaponFileReader::WeaponFileReader():
+    ItemFileReader()
+{}
+
 void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
     while (reader.readNextStartElement()) {
         if (reader.name() == "melee_weapon" || reader.name() == "ranged_weapon") {

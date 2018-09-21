@@ -29,11 +29,11 @@ int Troll::get_base_spirit(void) const {
     return 21;
 }
 
-float Troll::get_int_multiplier() const {
+double Troll::get_int_multiplier() const {
     return 1.0;
 }
 
-float Troll::get_spirit_multiplier() const {
+double Troll::get_spirit_multiplier() const {
     return 1.0;
 }
 

@@ -26,8 +26,8 @@ class WarriorSpells: public Spells {
     Q_OBJECT
 
 public:
-    WarriorSpells(Warrior *pchar);
-    virtual ~WarriorSpells();
+    WarriorSpells(Warrior *warr);
+    ~WarriorSpells() override;
 
     void reset() override;
     void mh_auto_attack(const int) override;
@@ -56,7 +56,7 @@ public:
     void apply_deep_wounds();
 
 private:
-    Warrior* pchar;
+    Warrior* warr;
     BattleStance* battle_stance;
     BerserkerStance* berserker_stance;
     Bloodthirst* bt;
@@ -71,8 +71,8 @@ private:
     Recklessness* recklessness;
     Whirlwind* whirlwind;
 
-    MainhandAttackWarrior* mh_attack;
-    OffhandAttackWarrior* oh_attack;
+    MainhandAttackWarrior* warr_mh_attack;
+    OffhandAttackWarrior* warr_oh_attack;
 };
 
 #endif // WARRIORSPELLS_H

@@ -15,7 +15,7 @@ public:
     void reset(void);
     void prepare(void);
     void end_combat(void);
-    float get_current_priority(void) const;
+    double get_current_priority(void) const;
     void set_current_priority(Event*);
     void add_event(Event*);
 
@@ -28,7 +28,7 @@ protected:
 private:
     Queue* queue;
     QTime *timer;
-    float current_prio;
+    double current_prio;
     unsigned processed_events;
     QMap<QString, int> processed_events_of_type;
 };

@@ -66,17 +66,17 @@ void Rotation::add_conditionals(const int index) {
         case ConditionTypes::BuffCondition:
             condition = new ConditionBuff(get_buff_from_name(sentence->type_value),
                                           sentence->mathematical_symbol,
-                                          sentence->compared_value.toFloat());
+                                          sentence->compared_value.toDouble());
             break;
         case ConditionTypes::SpellCondition:
             condition = new ConditionSpell(get_spell_from_name(sentence->type_value),
                                            sentence->mathematical_symbol,
-                                           sentence->compared_value.toFloat());
+                                           sentence->compared_value.toDouble());
             break;
         case ConditionTypes::ResourceCondition:
             condition = new ConditionResource(this->pchar,
                                               sentence->mathematical_symbol,
-                                              sentence->compared_value.toFloat());
+                                              sentence->compared_value.toDouble());
             break;
         case ConditionTypes::VariableBuiltinCondition:
             if (get_builtin_variable(sentence->type_value) == BuiltinVariables::Undefined)
@@ -84,7 +84,7 @@ void Rotation::add_conditionals(const int index) {
             condition = new ConditionVariableBuiltin(this->pchar,
                                                      get_builtin_variable(sentence->type_value),
                                                      sentence->mathematical_symbol,
-                                                     sentence->compared_value.toFloat());
+                                                     sentence->compared_value.toDouble());
             break;
         default:
             qDebug() << "condition type not supported:" << sentence->condition_type;
@@ -130,7 +130,7 @@ QString Rotation::get_class() const {
 }
 
 QString Rotation::get_name() const {
-    return this->get_name();
+    return this->name;
 }
 
 QString Rotation::get_description() const {

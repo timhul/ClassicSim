@@ -7,7 +7,7 @@ class Spell;
 
 class ResourceGain: public Event {
 public:
-    ResourceGain(Spell*, const float);
+    ResourceGain(Spell*, const double);
 
     virtual void act(void) override;
 protected:

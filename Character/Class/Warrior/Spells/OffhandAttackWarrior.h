@@ -16,7 +16,7 @@ protected:
 private:
     void spell_effect() override;
     void calculate_damage() override;
-    Warrior* pchar;
+    Warrior* warr;
 };
 
 #endif // OFFHANDATTACKWARRIOR_H

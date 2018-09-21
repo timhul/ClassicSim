@@ -248,18 +248,22 @@ int TalentTree::get_investment_requirement_for_rank(const int rank) const {
 int TalentTree::get_points_spent_up_to_rank(const int rank) const {
     int invested_below_rank = 0;
 
-    // Breaks are purposefully omitted.
     switch (rank) {
     case 7:
         invested_below_rank += spent_points["6"];
+        // C++17 [[clang::fallthrough]];
     case 6:
         invested_below_rank += spent_points["5"];
+        // C++17 [[clang::fallthrough]];
     case 5:
         invested_below_rank += spent_points["4"];
+        // C++17 [[clang::fallthrough]];
     case 4:
         invested_below_rank += spent_points["3"];
+        // C++17 [[clang::fallthrough]];
     case 3:
         invested_below_rank += spent_points["2"];
+        // C++17 [[clang::fallthrough]];
     case 2:
         invested_below_rank += spent_points["1"];
     }

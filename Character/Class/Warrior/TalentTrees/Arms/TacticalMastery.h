@@ -10,13 +10,13 @@ class TacticalMastery: public Talent {
     Q_OBJECT
 public:
     TacticalMastery(Character *pchar, TalentTree* tree);
-    virtual ~TacticalMastery();
+    ~TacticalMastery() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
-    Warrior* pchar;
+    Warrior* warr;
 };
 
 #endif // TACTICALMASTERY_H

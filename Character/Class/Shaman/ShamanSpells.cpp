@@ -5,11 +5,11 @@
 #include "MainhandAttack.h"
 
 
-ShamanSpells::ShamanSpells(Shaman* pchar) :
-    Spells(pchar),
-    pchar(pchar)
+ShamanSpells::ShamanSpells(Shaman* shaman) :
+    Spells(shaman),
+    shaman(shaman)
 {
-    this->mh_attack = new MainhandAttack(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->mh_attack = new MainhandAttack(shaman->get_engine(), shaman, shaman->get_combat_roll());
 
     spells.append(mh_attack);
 }

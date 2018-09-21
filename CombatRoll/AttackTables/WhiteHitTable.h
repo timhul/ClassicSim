@@ -7,21 +7,21 @@ class Random;
 
 class WhiteHitTable: public AttackTable {
 public:
-    WhiteHitTable(Random* random, const int wpn_skill, const float miss, const float dodge, const float parry,
-                  const float glancing, const float block,  const float critical);
+    WhiteHitTable(Random* random, const int wpn_skill, const double miss, const double dodge, const double parry,
+                  const double glancing, const double block,  const double critical);
 
-    int get_outcome(const int, const float crit_mod,
+    int get_outcome(const int, const double crit_mod,
                     const bool include_dodge = true,
                     const bool include_parry = true,
                     const bool include_block = true,
                     const bool include_miss = true) override;
     void dump_table(void) override;
-    void update_crit_chance(const float critical) override;
-    void update_miss_chance(const float miss) override;
-    void update_dodge_chance(const float dodge);
-    void update_parry_chance(const float parry);
-    void update_glancing_chance(const float glancing);
-    void update_block_chance(const float block);
+    void update_crit_chance(const double critical) override;
+    void update_miss_chance(const double miss) override;
+    void update_dodge_chance(const double dodge);
+    void update_parry_chance(const double parry);
+    void update_glancing_chance(const double glancing);
+    void update_block_chance(const double block);
 
     int get_wpn_skill();
 
@@ -32,12 +32,12 @@ private:
     Random* random;
     const int wpn_skill;
 
-    float miss;
-    float dodge;
-    float parry;
-    float glancing;
-    float block;
-    float critical;
+    double miss;
+    double dodge;
+    double parry;
+    double glancing;
+    double block;
+    double critical;
 
     int range;
     int miss_range;

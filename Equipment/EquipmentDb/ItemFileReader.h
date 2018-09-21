@@ -9,8 +9,7 @@ class Item;
 
 class ItemFileReader: public QObject {
 public:
-    ItemFileReader(QObject* parent = 0):
-        QObject(parent) {}
+    ItemFileReader(QObject* parent = nullptr);
 
     void read_items(QVector<Item *> &items, const QString &path);
 

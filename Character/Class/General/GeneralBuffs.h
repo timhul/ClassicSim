@@ -16,7 +16,7 @@ class GeneralBuffs: public QObject {
     Q_OBJECT
 
 public:
-    GeneralBuffs(Character* pchar, Faction* faction, QObject* parent = 0);
+    GeneralBuffs(Character* pchar, Faction* faction, QObject* parent = nullptr);
     ~GeneralBuffs();
 
     void switch_faction();

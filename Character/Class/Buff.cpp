@@ -95,7 +95,7 @@ bool Buff::is_active() const {
     return this->active;
 }
 
-float Buff::time_left() const {
+double Buff::time_left() const {
     if (!is_active())
         return 0;
     return this->refreshed + this->duration - pchar->get_engine()->get_current_priority();

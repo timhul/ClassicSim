@@ -9,10 +9,10 @@ class ImprovedOverpower: public Talent {
     Q_OBJECT
 public:
     ImprovedOverpower(Character *pchar, TalentTree* tree);
-    virtual ~ImprovedOverpower();
+    ~ImprovedOverpower() override;
 
-    virtual void apply_rank_effect() override;
-    virtual void remove_rank_effect() override;
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 
 private:
 };

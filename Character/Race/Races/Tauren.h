@@ -12,8 +12,8 @@ public:
     int get_base_stamina() const override;
     int get_base_intellect() const override;
     int get_base_spirit() const override;
-    float get_int_multiplier() const override;
-    float get_spirit_multiplier() const override;
+    double get_int_multiplier() const override;
+    double get_spirit_multiplier() const override;
 
     int get_axe_bonus() const override;
     int get_sword_bonus() const override;

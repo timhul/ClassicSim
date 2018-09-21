@@ -10,8 +10,8 @@ class ExtraAttackOnNextSwingProc: public Proc {
 public:
     ExtraAttackOnNextSwingProc(Engine* engine, Character* pchar, CombatRoll* roll,
                                QString proc_name, QVector<ProcInfo::Source> proc_sources,
-                               const float proc_rate, const int num_attacks);
-    ~ExtraAttackOnNextSwingProc();
+                               const double proc_rate, const int num_attacks);
+    ~ExtraAttackOnNextSwingProc() override;
 
     void proc_effect() override;
 

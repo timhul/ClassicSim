@@ -6,7 +6,7 @@
 #include "Mechanics.h"
 
 Spell::Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
-             bool restricted_by_gcd, float cooldown, int resource_cost) :
+             bool restricted_by_gcd, double cooldown, int resource_cost) :
     name(name),
     engine(engine),
     pchar(pchar),
@@ -34,15 +34,15 @@ QString Spell::get_name() const {
     return this->name;
 }
 
-float Spell::get_base_cooldown() {
+double Spell::get_base_cooldown() {
     return this->cooldown;
 }
 
-float Spell::get_last_used() {
+double Spell::get_last_used() {
     return this->last_used;
 }
 
-float Spell::get_next_use() const {
+double Spell::get_next_use() const {
     return last_used + cooldown;
 }
 
@@ -92,8 +92,8 @@ void Spell::disable() {
     enabled = false;
 }
 
-float Spell::get_cooldown_remaining() const {
-    float delta = last_used + cooldown - engine->get_current_priority();
+double Spell::get_cooldown_remaining() const {
+    double delta = last_used + cooldown - engine->get_current_priority();
 
     return delta > 0 ? delta : 0;
 }
@@ -127,14 +127,14 @@ void Spell::perform() {
 }
 
 void Spell::add_spell_cd_event(void) const {
-    float cooldown_ready = engine->get_current_priority() + cooldown;
+    double cooldown_ready = engine->get_current_priority() + cooldown;
     CooldownReady* new_event = new CooldownReady(pchar->get_rotation(), cooldown_ready);
     engine->add_event(new_event);
 }
 
 void Spell::add_gcd_event(void) const {
     pchar->start_global_cooldown();
-    float gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
+    double gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
     CooldownReady* new_event = new CooldownReady(pchar->get_rotation(), gcd_ready);
     engine->add_event(new_event);
 }
@@ -189,8 +189,8 @@ void Spell::add_crit_dmg(const int damage) {
     statistics->increment_crit();
 }
 
-float Spell::damage_after_modifiers(const float damage) const {
-    float armor_reduction = 1 - roll->get_mechanics()->get_reduction_from_armor(roll->get_target()->get_armor(), pchar->get_clvl());
+double Spell::damage_after_modifiers(const double damage) const {
+    double armor_reduction = 1 - roll->get_mechanics()->get_reduction_from_armor(roll->get_target()->get_armor(), pchar->get_clvl());
     return damage * pchar->get_total_phys_dmg_mod() * armor_reduction;
 }
 

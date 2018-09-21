@@ -13,7 +13,7 @@ class ActiveBuffs: public QObject {
     Q_OBJECT
 
 public:
-    ActiveBuffs(Character* pchar, Faction* faction, QObject* parent = 0);
+    ActiveBuffs(Character* pchar, Faction* faction, QObject* parent = nullptr);
     ~ActiveBuffs();
 
     void add_buff(Buff* buff);

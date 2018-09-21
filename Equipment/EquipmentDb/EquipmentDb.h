@@ -12,7 +12,7 @@ class Weapon;
 
 class EquipmentDb: public QObject {
 public:
-    EquipmentDb(QObject* parent = 0);
+    EquipmentDb(QObject* parent = nullptr);
 
     ~EquipmentDb();
 

@@ -11,11 +11,11 @@ class StatisticsResource;
 
 class Proc: public Spell {
 public:
-    Proc(const QString &name, const float proc_rate, const float inner_cooldown,
+    Proc(const QString &name, const double proc_rate, const double inner_cooldown,
          const bool recursive, const QVector<Proc *> linked_procs,
          const QVector<ProcInfo::Source> proc_sources,
          Engine* engine, Character* pchar, CombatRoll* roll);
-    ~Proc();
+    ~Proc() override;
 
     void spell_effect() override;
     virtual void proc_effect() = 0;

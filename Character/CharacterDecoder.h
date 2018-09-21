@@ -12,7 +12,7 @@ class CharacterDecoder: public QObject {
     Q_OBJECT
 
 public:
-    CharacterDecoder(QObject* parent = 0);
+    CharacterDecoder(QObject* parent = nullptr);
 
     void initialize(const QString &setup_string);
 

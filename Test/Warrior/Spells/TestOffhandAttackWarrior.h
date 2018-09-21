@@ -50,7 +50,7 @@ public:
     void when_increasing_attack_speed(const int change);
     void when_decreasing_attack_speed(const int change);
 
-    void then_next_expected_use_is(const float next_expected_use);
+    void then_next_expected_use_is(const double next_expected_use);
 
 private:
 };

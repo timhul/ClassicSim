@@ -22,7 +22,7 @@ class ActiveProcs: public QObject {
     Q_OBJECT
 
 public:
-    ActiveProcs(Character* pchar, Faction* faction, QObject* parent = 0);
+    ActiveProcs(Character* pchar, Faction* faction, QObject* parent = nullptr);
     ~ActiveProcs();
 
     void run_proc_effects(ProcInfo::Source);

@@ -9,13 +9,13 @@ class RogueSpells: public Spells {
     Q_OBJECT
 
 public:
-    RogueSpells(Rogue *pchar);
+    RogueSpells(Rogue *rogue);
     virtual ~RogueSpells() override;
 
     void reset() override;
 
 private:
-    Rogue* pchar;
+    Rogue* rogue;
 };
 
 #endif // ROGUESPELLS_H

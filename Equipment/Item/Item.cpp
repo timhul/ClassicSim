@@ -99,8 +99,8 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
         // TODO: Support recursive
         // QString recursive = procs[i]["recursive"];
         int amount = QString(procs[i]["amount"]).toInt();
-        float internal_cd = QString(procs[i]["internal_cd"]).toFloat();
-        float proc_rate = QString(procs[i]["rate"]).toFloat();
+        double internal_cd = QString(procs[i]["internal_cd"]).toDouble();
+        double proc_rate = QString(procs[i]["rate"]).toDouble();
 
         if (amount < 0) {
             qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(amount));
@@ -218,13 +218,13 @@ void Item::set_stat(const QString& key, const QString &value) {
         base_tooltip_stats.append(QString("+%1 Spirit").arg(value));
     }
     else if (key == "CRIT_CHANCE") {
-        this->stats->increase_crit(value.toFloat());
-        QString number = QString::number(value.toFloat() * 100);
+        this->stats->increase_crit(value.toDouble());
+        QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike by %1%.").arg(number));
     }
     else if (key == "HIT_CHANCE") {
-        this->stats->increase_hit(value.toFloat());
-        QString number = QString::number(value.toFloat() * 100);
+        this->stats->increase_hit(value.toDouble());
+        QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit by %1%.").arg(number));
     }
     else if (key == "ATTACK_POWER") {
@@ -272,13 +272,13 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Defense +%1.").arg(value));
     }
     else if (key == "DODGE_CHANCE") {
-        this->stats->increase_dodge(value.toFloat());
-        QString number = QString::number(value.toFloat() * 100);
+        this->stats->increase_dodge(value.toDouble());
+        QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to dodge an attack by %1%.").arg(number));
     }
     else if (key == "PARRY_CHANCE") {
-        this->stats->increase_parry(value.toFloat());
-        QString number = QString::number(value.toFloat() * 100);
+        this->stats->increase_parry(value.toDouble());
+        QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to parry an attack by %1%.").arg(number));
     }
     else if (key == "ARCANE_RESISTANCE") {

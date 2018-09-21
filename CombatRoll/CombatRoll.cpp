@@ -25,7 +25,7 @@ CombatRoll::~CombatRoll() {
     }
 }
 
-int CombatRoll::get_melee_hit_result(const int wpn_skill, const float crit_mod) {
+int CombatRoll::get_melee_hit_result(const int wpn_skill, const double crit_mod) {
     const int roll = random->get_roll();
 
     WhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
@@ -34,7 +34,7 @@ int CombatRoll::get_melee_hit_result(const int wpn_skill, const float crit_mod) 
 }
 
 int CombatRoll::get_melee_ability_result(const int wpn_skill,
-                                         const float crit_mod,
+                                         const double crit_mod,
                                          const bool include_dodge,
                                          const bool include_parry,
                                          const bool include_block,
@@ -84,7 +84,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     if (auto_attack_tables.contains(wpn_skill))
         return auto_attack_tables[wpn_skill];
 
-    float miss_chance = get_white_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
+    double miss_chance = get_white_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
     if (miss_chance < 0)
         miss_chance = 0;
 
@@ -110,7 +110,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
     if (melee_special_tables.contains(wpn_skill))
         return melee_special_tables[wpn_skill];
 
-    float miss_chance = get_yellow_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
+    double miss_chance = get_yellow_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
     if (miss_chance < 0)
         miss_chance = 0;
 
@@ -126,25 +126,25 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
     return table;
 }
 
-float CombatRoll::get_white_miss_chance(const int wpn_skill) {
+double CombatRoll::get_white_miss_chance(const int wpn_skill) {
     if (pchar->is_dual_wielding())
         return mechanics->get_dw_white_miss_chance(wpn_skill);
     return mechanics->get_2h_white_miss_chance(wpn_skill);
 }
 
-float CombatRoll::get_yellow_miss_chance(const int wpn_skill) {
+double CombatRoll::get_yellow_miss_chance(const int wpn_skill) {
     return mechanics->get_yellow_miss_chance(wpn_skill);
 }
 
-float CombatRoll::get_glancing_blow_chance() {
+double CombatRoll::get_glancing_blow_chance() {
     return mechanics->get_glancing_blow_chance(pchar->get_clvl());
 }
 
-float CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
+double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
     return mechanics->get_glancing_blow_dmg_penalty(wpn_skill);
 }
 
-void CombatRoll::update_crit_chance(const float critical) {
+void CombatRoll::update_crit_chance(const double critical) {
     for (auto it : auto_attack_tables.keys()) {
         auto_attack_tables.value(it)->update_crit_chance(critical);
     }
@@ -154,16 +154,16 @@ void CombatRoll::update_crit_chance(const float critical) {
     }
 }
 
-void CombatRoll::update_miss_chance(const float hit) {
+void CombatRoll::update_miss_chance(const double hit) {
     for (auto it : auto_attack_tables.keys()) {
-        float new_miss_chance = get_white_miss_chance(auto_attack_tables.value(it)->get_wpn_skill()) - hit;
+        double new_miss_chance = get_white_miss_chance(auto_attack_tables.value(it)->get_wpn_skill()) - hit;
         if (new_miss_chance < 0)
             new_miss_chance = 0.0;
         auto_attack_tables.value(it)->update_miss_chance(new_miss_chance);
     }
 
     for (auto it : melee_special_tables.keys()) {
-        float new_miss_chance = get_white_miss_chance(melee_special_tables.value(it)->get_wpn_skill()) - hit;
+        double new_miss_chance = get_white_miss_chance(melee_special_tables.value(it)->get_wpn_skill()) - hit;
         if (new_miss_chance < 0)
             new_miss_chance = 0.0;
         melee_special_tables.value(it)->update_miss_chance(new_miss_chance);

@@ -126,11 +126,11 @@ int Stats::get_stamina(void) const {
 }
 
 int Stats::get_intellect(void) const {
-    return int(float(INT) * int_multiplier);
+    return int(double(INT) * int_multiplier);
 }
 
 int Stats::get_spirit(void) const {
-    return int(float(SPI) * spi_multiplier);
+    return int(double(SPI) * spi_multiplier);
 }
 
 void Stats::increase_str(const int increase) {
@@ -189,19 +189,19 @@ void Stats::decrease_defense(const int decrease) {
     defense -= decrease;
 }
 
-void Stats::increase_dodge(const float increase) {
+void Stats::increase_dodge(const double increase) {
     dodge_chance += increase;
 }
 
-void Stats::decrease_dodge(const float decrease) {
+void Stats::decrease_dodge(const double decrease) {
     dodge_chance -= decrease;
 }
 
-void Stats::increase_parry(const float increase) {
+void Stats::increase_parry(const double increase) {
     parry_chance += increase;
 }
 
-void Stats::decrease_parry(const float decrease) {
+void Stats::decrease_parry(const double decrease) {
     parry_chance -= decrease;
 }
 
@@ -334,11 +334,11 @@ void Stats::decrease_base_melee_ap(const int decrease) {
     melee_ap -= decrease;
 }
 
-float Stats::get_hit_chance(void) const {
+double Stats::get_hit_chance(void) const {
     return percent_hit;
 }
 
-float Stats::get_crit_chance(void) const {
+double Stats::get_crit_chance(void) const {
     return percent_crit;
 }
 
@@ -350,47 +350,47 @@ void Stats::set_melee_ap_per_agi(const int value) {
     melee_ap_per_agi = value;
 }
 
-void Stats::set_str_multiplier(const float value) {
+void Stats::set_str_multiplier(const double value) {
     str_multiplier = value;
 }
 
-void Stats::set_agi_multiplier(const float value) {
+void Stats::set_agi_multiplier(const double value) {
     agi_multiplier = value;
 }
 
-void Stats::set_stam_multiplier(const float value) {
+void Stats::set_stam_multiplier(const double value) {
     stam_multiplier = value;
 }
 
-void Stats::set_spi_multiplier(const float value) {
+void Stats::set_spi_multiplier(const double value) {
     spi_multiplier = value;
 }
 
-void Stats::set_int_multiplier(const float value) {
+void Stats::set_int_multiplier(const double value) {
     int_multiplier = value;
 }
 
-void Stats::increase_crit(const float value) {
+void Stats::increase_crit(const double value) {
     percent_crit += value;
 }
 
-void Stats::decrease_crit(const float value) {
+void Stats::decrease_crit(const double value) {
     percent_crit -= value;
 }
 
-void Stats::increase_hit(const float value) {
+void Stats::increase_hit(const double value) {
     percent_hit += value;
 }
 
-void Stats::decrease_hit(const float value) {
+void Stats::decrease_hit(const double value) {
     percent_hit -= value;
 }
 
-void Stats::increase_attack_speed(const float value) {
+void Stats::increase_attack_speed(const double value) {
     percent_attack_speed += value;
 }
 
-void Stats::decrease_attack_speed(const float value) {
+void Stats::decrease_attack_speed(const double value) {
     percent_attack_speed -= value;
 }
 

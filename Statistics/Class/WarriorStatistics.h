@@ -7,7 +7,7 @@ class WarriorStatistics: public ClassStatistics {
     Q_OBJECT
 
 public:
-    WarriorStatistics(QObject* parent = 0);
+    WarriorStatistics(QObject* parent = nullptr);
 
     void update_statistics() override;
 

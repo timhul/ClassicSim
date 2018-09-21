@@ -15,7 +15,7 @@ class Sentence;
 class RotationFileReader: public QObject {
     Q_OBJECT
 public:
-    RotationFileReader(QObject* parent = 0):
+    RotationFileReader(QObject* parent = nullptr):
         QObject(parent) {}
 
     void read_cast_ifs(Rotation* rotation, const QString &path);

@@ -511,10 +511,10 @@ void GUIControl::run_quick_sim() {
     engine->dump();
     engine->reset();
     // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
-    float previous = last_quick_sim_result;
-    last_quick_sim_result = float(current_char->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
+    double previous = last_quick_sim_result;
+    last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
 
-    float delta = ((last_quick_sim_result - previous) / previous);
+    double delta = ((last_quick_sim_result - previous) / previous);
     QString change = delta > 0 ? "+" : "";
     change += QString::number(((last_quick_sim_result - previous) / previous) * 100, 'f', 1) + "%";
 
