@@ -37,6 +37,7 @@ private:
     QMap<Enchant::Weapon, Proc*> oh_enchants;
 
     void create_weapon_enchants(QMap<Enchant::Weapon, Proc*>& enchants, const int slot);
+    void delete_objects(const QMap<Enchant::Weapon, Proc*>& map);
 
     QVector<Proc*> alliance_only_procs;
     QVector<Proc*> horde_only_procs;

@@ -20,8 +20,6 @@ Arms::Arms(Character *pchar, QObject* parent) :
 {
     QString base_url = "Assets/warrior/arms/";
 
-    QVector<QPair<int, int>> test = {QPair<int, int>(1, 1)};
-
     QMap<QString, Talent*> tier1 {{"1LL", new ImprovedHeroicStrike(pchar, this)},
                                   {"1ML", new GenericTalent(pchar, this, "Deflection", "1ML", base_url + "tier1/Ability_parry.png", 5, "Increase your Parry chance by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
                                   {"1MR", new ImprovedRend(pchar, this)}};

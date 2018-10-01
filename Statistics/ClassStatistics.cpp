@@ -80,14 +80,19 @@ QVariantList ClassStatistics::get_damage_breakdown_table() const {
 
     QVector<QVariantList> dmg_entries;
 
-    for (const auto& it : spell_statistics.keys()) {
-        int dmg = spell_statistics.value(it)->get_total_dmg_dealt();
-        if (dmg == 0)
+    QMap<QString, StatisticsSpell*>::const_iterator it = spell_statistics.constBegin();
+    auto end = spell_statistics.constEnd();
+    while(it != end) {
+        int dmg = it.value()->get_total_dmg_dealt();
+        if (dmg == 0) {
+            ++it;
             continue;
+        }
 
-        QString name = spell_statistics.value(it)->get_name();
+        QString name = it.value()->get_name();
         double percentage = double(dmg) / double(total_damage_dealt);
         dmg_entries.append(QVariantList({name, dmg, QString::number(percentage * 100, 'f', 2) + "%"}));
+        ++it;
     }
 
     QVariantList info;
@@ -113,13 +118,18 @@ QVariantList ClassStatistics::get_damage_breakdown_chart() const {
     info.append("Total Damage Breakdown");
     info.append("PIE");
 
-    for (const auto& it : spell_statistics.keys()) {
-        int dmg = spell_statistics.value(it)->get_total_dmg_dealt();
-        if (dmg == 0)
+    QMap<QString, StatisticsSpell*>::const_iterator it = spell_statistics.constBegin();
+    auto end = spell_statistics.constEnd();
+    while(it != end) {
+        int dmg = it.value()->get_total_dmg_dealt();
+        if (dmg == 0) {
+            ++it;
             continue;
+        }
 
-        QString name = spell_statistics.value(it)->get_name();
+        QString name = it.value()->get_name();
         info.append(QVariantList({name, dmg, "#edbd00"}));
+        ++it;
     }
 
     return info;
@@ -128,13 +138,18 @@ QVariantList ClassStatistics::get_damage_breakdown_chart() const {
 QVariantList ClassStatistics::get_buff_uptime_table() const {
     QVector<QVariantList> uptime_entries;
 
-    for (const auto& it : buff_statistics.keys()) {
-        double uptime = buff_statistics.value(it)->get_uptime();
-        if (uptime < double(0.00001))
+    QMap<QString, StatisticsBuff*>::const_iterator it = buff_statistics.constBegin();
+    auto end = buff_statistics.constEnd();
+    while(it != end) {
+        double uptime = it.value()->get_uptime();
+        if (uptime < double(0.00001)) {
+            ++it;
             continue;
+        }
 
-        QString name = buff_statistics.value(it)->get_name();
+        QString name = it.value()->get_name();
         uptime_entries.append(QVariantList({name, uptime, QString::number(uptime * 100, 'f', 2) + "%"}));
+        ++it;
     }
 
     QVariantList info;
@@ -158,15 +173,20 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
 QVariantList ClassStatistics::get_resource_gain_table() const {
     QVector<QVariantList> entries;
 
-    for (const auto& it : resource_statistics.keys()) {
-        int gain = resource_statistics.value(it)->get_resource_gain();
-        if (gain == 0)
+    QMap<QString, StatisticsResource*>::const_iterator it = resource_statistics.constBegin();
+    auto end = resource_statistics.constEnd();
+    while(it != end) {
+        int gain = it.value()->get_resource_gain();
+        if (gain == 0) {
+            ++it;
             continue;
+        }
 
-        QString name = resource_statistics.value(it)->get_name();
+        QString name = it.value()->get_name();
         // TODO: Remove hardcoded knowledge of num fights / fight length
-        double gain_per_5 = double(gain) / ((300 / 5) * 1000);
+        double gain_per_5 = double(gain) / ((double(300) / 5) * 1000);
         entries.append(QVariantList({name, gain, QString::number(gain_per_5, 'f', 2)}));
+        ++it;
     }
 
     QVariantList info;
@@ -189,14 +209,19 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
 QVariantList ClassStatistics::get_proc_table() const {
     QVector<QVariantList> entries;
 
-    for (const auto& it : proc_statistics.keys()) {
-        int procs = proc_statistics.value(it)->get_procs();
-        if (procs == 0)
+    QMap<QString, StatisticsProc*>::const_iterator it = proc_statistics.constBegin();
+    auto end = proc_statistics.constEnd();
+    while(it != end) {
+        int procs = it.value()->get_procs();
+        if (procs == 0) {
+            ++it;
             continue;
+        }
 
-        QString name = proc_statistics.value(it)->get_name();
-        double proc_rate = proc_statistics.value(it)->get_proc_rate();
+        QString name = it.value()->get_name();
+        double proc_rate = it.value()->get_proc_rate();
         entries.append(QVariantList({name, proc_rate, QString::number(proc_rate * 100, 'f', 2), procs}));
+        ++it;
     }
 
     QVariantList info;
@@ -218,8 +243,12 @@ QVariantList ClassStatistics::get_proc_table() const {
 
 int ClassStatistics::get_total_damage_dealt() const {
     int sum = 0;
-    for (const auto& it : spell_statistics.keys()) {
-        sum += spell_statistics.value(it)->get_total_dmg_dealt();
+
+    QMap<QString, StatisticsSpell*>::const_iterator it = spell_statistics.constBegin();
+    auto end = spell_statistics.constEnd();
+    while(it != end) {
+        sum += it.value()->get_total_dmg_dealt();
+        ++it;
     }
 
     return sum;
@@ -240,19 +269,31 @@ int ClassStatistics::get_total_attempts_for_spell(const QString& name) const {
 }
 
 void ClassStatistics::reset_statistics() {
-    for (const auto& it : spell_statistics.keys()) {
-        spell_statistics.value(it)->reset();
+    QMap<QString, StatisticsSpell*>::const_iterator it_spell = spell_statistics.constBegin();
+    auto end_spell = spell_statistics.constEnd();
+    while(it_spell != end_spell) {
+        it_spell.value()->reset();
+        ++it_spell;
     }
 
-    for (const auto& it : buff_statistics.keys()) {
-        buff_statistics.value(it)->reset();
+    QMap<QString, StatisticsBuff*>::const_iterator it_buff = buff_statistics.constBegin();
+    auto end_buff = buff_statistics.constEnd();
+    while(it_buff != end_buff) {
+        it_buff.value()->reset();
+        ++it_buff;
     }
 
-    for (const auto& it : resource_statistics.keys()) {
-        resource_statistics.value(it)->reset();
+    QMap<QString, StatisticsResource*>::const_iterator it_resource = resource_statistics.constBegin();
+    auto end_resource = resource_statistics.constEnd();
+    while(it_resource != end_resource) {
+        it_resource.value()->reset();
+        ++it_resource;
     }
 
-    for (const auto& it : proc_statistics.keys()) {
-        proc_statistics.value(it)->reset();
+    QMap<QString, StatisticsProc*>::const_iterator it_proc = proc_statistics.constBegin();
+    auto end_proc = proc_statistics.constEnd();
+    while(it_proc != end_proc) {
+        it_proc.value()->reset();
+        ++it_proc;
     }
 }

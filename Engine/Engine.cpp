@@ -32,7 +32,7 @@ void Engine::prepare() {
 }
 
 void Engine::dump() {
-    const double elapsed = timer->elapsed() / 1000;
+    const double elapsed = double(timer->elapsed()) / 1000;
 
     QMap<QString, int>::const_iterator i = processed_events_of_type.constBegin();
     while (i != processed_events_of_type.constEnd()) {

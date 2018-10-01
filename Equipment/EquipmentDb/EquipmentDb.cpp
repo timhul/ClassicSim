@@ -220,8 +220,12 @@ void EquipmentDb::set_patch_for_slot(QVector<Item *> &total_slot_items, QVector<
         }
     }
 
-    for (const auto& it: tmp_names.keys())
-        patch_slot_items.append(tmp_names.value(it));
+    QMap<QString, Item*>::const_iterator it = tmp_names.constBegin();
+    auto end = tmp_names.constEnd();
+    while(it != end) {
+        patch_slot_items.append(it.value());
+        ++it;
+    }
 }
 
 bool EquipmentDb::item_valid_for_current_patch(const QString &item_patch) {
@@ -233,7 +237,7 @@ void EquipmentDb::read_equipment_files() {
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file:" << file.errorString();
-        qDebug() << QDir().currentPath();
+        qDebug() << QDir::currentPath();
         exit(0);
     }
 

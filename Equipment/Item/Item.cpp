@@ -19,12 +19,15 @@ Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString,
 }
 
 Item::~Item() {
-    for (auto it : proc_map.keys()) {
-        QVector<Proc*> procs_ = proc_map.value(it);
+    QMap<int, QVector<Proc*>>::const_iterator it = proc_map.constBegin();
+    auto end = proc_map.constEnd();
+    while(it != end) {
+        QVector<Proc*> procs_ = it.value();
         for (auto & proc : procs_) {
             proc->disable_proc();
             delete proc;
         }
+        ++it;
     }
 
     delete stats;

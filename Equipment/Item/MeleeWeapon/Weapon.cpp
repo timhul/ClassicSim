@@ -43,5 +43,5 @@ double Weapon::get_base_weapon_speed() const {
 }
 
 double Weapon::get_wpn_dps() const {
-    return ((min_dmg + max_dmg) / 2) / weapon_speed;
+    return (double(min_dmg + max_dmg) / 2) / weapon_speed;
 }

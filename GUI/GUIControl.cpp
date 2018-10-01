@@ -95,14 +95,20 @@ GUIControl::GUIControl(QObject* parent) :
 }
 
 GUIControl::~GUIControl() {
-    for (const auto& it : chars.keys()) {
-        delete chars.value(it);
+    QMap<QString, Character*>::const_iterator it_chars = chars.constBegin();
+    auto end_chars = chars.constEnd();
+    while(it_chars != end_chars) {
+        delete it_chars.value();
+        ++it_chars;
     }
 
     chars.clear();
 
-    for (const auto& it : races.keys()) {
-        delete races.value(it);
+    QMap<QString, Race*>::const_iterator it_races = races.constBegin();
+    auto end_races = races.constEnd();
+    while(it_races != end_races) {
+        delete it_races.value();
+        ++it_races;
     }
 
     races.clear();
@@ -167,9 +173,12 @@ void GUIControl::selectFaction(const bool faction) {
 
     this->faction->switch_faction();
 
-    for (const auto& it : chars.keys()) {
-        chars.value(it)->switch_faction();
-        reset_race(chars.value(it));
+    QMap<QString, Character*>::const_iterator it_chars = chars.constBegin();
+    auto end_chars = chars.constEnd();
+    while(it_chars != end_chars) {
+        it_chars.value()->switch_faction();
+        reset_race(it_chars.value());
+        ++it_chars;
     }
 
     factionChanged();

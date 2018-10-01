@@ -144,48 +144,72 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
 }
 
 void CombatRoll::update_crit_chance(const double critical) {
-    for (auto it : auto_attack_tables.keys()) {
-        auto_attack_tables.value(it)->update_crit_chance(critical);
+    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
+    auto end_auto = auto_attack_tables.constEnd();
+    while(it_auto != end_auto) {
+        it_auto.value()->update_crit_chance(critical);
+        ++it_auto;
     }
 
-    for (auto it : melee_special_tables.keys()) {
-        melee_special_tables.value(it)->update_crit_chance(critical);
+    QMap<int, MeleeSpecialTable*>::const_iterator it_special = melee_special_tables.constBegin();
+    auto end_special = melee_special_tables.constEnd();
+    while(it_special != end_special) {
+        it_special.value()->update_crit_chance(critical);
+        ++it_special;
     }
 }
 
 void CombatRoll::update_miss_chance(const double hit) {
-    for (auto it : auto_attack_tables.keys()) {
-        double new_miss_chance = get_white_miss_chance(auto_attack_tables.value(it)->get_wpn_skill()) - hit;
+    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
+    auto end_auto = auto_attack_tables.constEnd();
+    while(it_auto != end_auto) {
+        double new_miss_chance = get_white_miss_chance(it_auto.value()->get_wpn_skill()) - hit;
         if (new_miss_chance < 0)
             new_miss_chance = 0.0;
-        auto_attack_tables.value(it)->update_miss_chance(new_miss_chance);
+        it_auto.value()->update_miss_chance(new_miss_chance);
+        ++it_auto;
     }
 
-    for (auto it : melee_special_tables.keys()) {
-        double new_miss_chance = get_white_miss_chance(melee_special_tables.value(it)->get_wpn_skill()) - hit;
+    QMap<int, MeleeSpecialTable*>::const_iterator it_special = melee_special_tables.constBegin();
+    auto end_special = melee_special_tables.constEnd();
+    while(it_special != end_special) {
+        double new_miss_chance = get_white_miss_chance(it_special.value()->get_wpn_skill()) - hit;
         if (new_miss_chance < 0)
             new_miss_chance = 0.0;
-        melee_special_tables.value(it)->update_miss_chance(new_miss_chance);
+        it_special.value()->update_miss_chance(new_miss_chance);
+        ++it_special;
     }
 }
 
 void CombatRoll::dump_tables() {
-    for (auto it : auto_attack_tables.keys()) {
-        auto_attack_tables.value(it)->dump_table();
+    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
+    auto end_auto = auto_attack_tables.constEnd();
+    while(it_auto != end_auto) {
+        it_auto.value()->dump_table();
+        ++it_auto;
     }
 
-    for (auto it : melee_special_tables.keys()) {
-        melee_special_tables.value(it)->dump_table();
+    QMap<int, MeleeSpecialTable*>::const_iterator it_special = melee_special_tables.constBegin();
+    auto end_special = melee_special_tables.constEnd();
+    while(it_special != end_special) {
+        it_special.value()->dump_table();
+        ++it_special;
     }
 }
 
 void CombatRoll::drop_tables() {
-    for (auto it : auto_attack_tables.keys()) {
-        delete auto_attack_tables.value(it);
+    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
+    auto end_auto = auto_attack_tables.constEnd();
+    while(it_auto != end_auto) {
+        delete it_auto.value();
+        ++it_auto;
     }
 
-    for (auto it : melee_special_tables.keys()) {
-        delete melee_special_tables.value(it);
+    QMap<int, MeleeSpecialTable*>::const_iterator it_special = melee_special_tables.constBegin();
+    auto end_special = melee_special_tables.constEnd();
+    while(it_special != end_special) {
+        delete it_special.value();
+        ++it_special;
     }
 
     auto_attack_tables.clear();

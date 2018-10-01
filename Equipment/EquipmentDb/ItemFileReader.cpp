@@ -196,7 +196,10 @@ void ItemFileReader::extract(QVector<QString> handled_keys, QMap<QString, QStrin
 }
 
 void ItemFileReader::warn_remaining_keys(QMap<QString, QString> &item) {
-    for (const auto& it : item.keys()) {
-        qDebug() << "Warning: Unhandled key" << it;
+    QMap<QString, QString>::const_iterator it = item.constBegin();
+    auto end = item.constEnd();
+    while(it != end) {
+        qDebug() << "Warning: Unhandled key" << it.value();
+        ++it;
     }
 }

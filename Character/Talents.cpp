@@ -11,9 +11,11 @@ Talents::Talents(QObject* parent) :
 
 Talents::~Talents() {
     for (auto & talent_tree : talent_trees) {
-        for (const auto& it : talent_tree.keys()) {
-            if (talent_tree.value(it) != nullptr)
-                delete talent_tree.value(it);
+        QMap<QString, TalentTree*>::const_iterator it = talent_tree.constBegin();
+        auto end = talent_tree.constEnd();
+        while(it != end) {
+            delete it.value();
+            ++it;
         }
     }
 }
@@ -301,16 +303,22 @@ void Talents::set_current_index(const int index) {
     if (index < 0 || index >= talent_trees.size())
         return;
 
-    for (const auto& it : talent_trees[current_index].keys()) {
-        if (talent_trees[current_index].value(it) != nullptr)
-            talent_trees[current_index].value(it)->remove_rank_effects();
+    QMap<QString, TalentTree*>::const_iterator it = talent_trees[current_index].constBegin();
+    auto end = talent_trees[current_index].constEnd();
+    while(it != end) {
+        if (it.value() != nullptr)
+            it.value()->remove_rank_effects();
+        ++it;
     }
 
     current_index = index;
+    it = talent_trees[current_index].constBegin();
+    end = talent_trees[current_index].constEnd();
 
-    for (const auto& it : talent_trees[current_index].keys()) {
-        if (talent_trees[current_index].value(it) != nullptr)
-            talent_trees[current_index].value(it)->apply_rank_effects();
+    while(it != end) {
+        if (it.value() != nullptr)
+            it.value()->apply_rank_effects();
+        ++it;
     }
 }
 

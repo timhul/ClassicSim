@@ -19,12 +19,16 @@ GeneralProcs::GeneralProcs(Character* pchar, Faction* faction, QObject* parent) 
 
 GeneralProcs::~GeneralProcs()
 {
-    for (auto it : mh_enchants.keys()) {
-        delete mh_enchants.value(it);
-    }
+    delete_objects(mh_enchants);
+    delete_objects(oh_enchants);
+}
 
-    for (auto it : oh_enchants.keys()) {
-        delete oh_enchants.value(it);
+void GeneralProcs::delete_objects(const QMap<Enchant::Weapon, Proc*>& map) {
+    QMap<Enchant::Weapon, Proc*>::const_iterator it = map.constBegin();
+    auto end = map.constEnd();
+    while(it != end) {
+        delete it.value();
+        ++it;
     }
 }
 
