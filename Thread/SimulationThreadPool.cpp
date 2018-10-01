@@ -9,7 +9,7 @@
 
 SimulationThreadPool::SimulationThreadPool(QObject* parent):
     QObject(parent),
-    random(new Random(std::numeric_limits<int>::min(), std::numeric_limits<int>::max())),
+    random(new Random(0, std::numeric_limits<unsigned>::max())),
     running_threads(0)
 {
     for (int i = 0; i < QThreadPool::globalInstance()->maxThreadCount(); ++i) {
@@ -27,14 +27,14 @@ void SimulationThreadPool::run_sim(const QString &setup_string) {
     assert(thread_results.empty());
 
     for (int i = 0; i < thread_pool.size(); ++i) {
-        thread_results.append(QPair<int, double>(thread_pool[i].first, 0.0));
+        thread_results.append(QPair<unsigned, double>(thread_pool[i].first, 0.0));
     }
 
     running_threads = thread_pool.size();
     emit thread_setup_string(setup_string);
 }
 
-void SimulationThreadPool::setup_thread(const int thread_id) {
+void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     QThread* thread = new QThread();
     SimulationRunner* runner = new SimulationRunner(QString::number(thread_id));
 
@@ -43,7 +43,7 @@ void SimulationThreadPool::setup_thread(const int thread_id) {
     connect(runner, SIGNAL (result(QString, double)), this, SLOT (result(QString, double)));
     connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
 
-    thread_pool.append(QPair<int, QThread*>(thread_id, thread));
+    thread_pool.append(QPair<unsigned, QThread*>(thread_id, thread));
 
     runner->moveToThread(thread);
     thread->start();
@@ -62,7 +62,7 @@ void SimulationThreadPool::result(QString seed, double result) {
     --running_threads;
 
     for (int i = 0; i < thread_results.size(); ++i) {
-        if (thread_results[i].first != seed.toInt())
+        if (thread_results[i].first != seed.toUInt())
             continue;
 
         thread_results[i].second = result;

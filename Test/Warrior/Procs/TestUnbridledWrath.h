@@ -23,7 +23,7 @@ public:
     void given_4_of_5_unbridled_wrath();
     void given_5_of_5_unbridled_wrath();
 
-    void then_proc_range_is(const int);
+    void then_proc_range_is(const unsigned);
 
 private:
 };

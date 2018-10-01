@@ -19,7 +19,7 @@ public:
 
     void spell_effect() override;
     virtual void proc_effect() = 0;
-    virtual int get_proc_range() const;
+    virtual unsigned get_proc_range() const;
 
     void enable_proc();
     void disable_proc();
@@ -40,7 +40,7 @@ public:
 protected:
     ActiveProcs* procs;
     Random* random;
-    QVector<int> talent_ranks;
+    QVector<unsigned> talent_ranks;
     QVector<Proc*> linked_procs;
     QVector<ProcInfo::Source> proc_sources;
     ProcInfo::Source curr_proc_source;
@@ -50,7 +50,7 @@ protected:
 
     int instance_id;
 
-    int proc_range;
+    unsigned proc_range;
     bool recursive;
 private:
 };

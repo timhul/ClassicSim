@@ -21,9 +21,9 @@ public:
     void given_3_of_5_tactical_mastery();
     void given_4_of_5_tactical_mastery();
     void given_5_of_5_tactical_mastery();
-    void given_warrior_has_rage(const int);
+    void given_warrior_has_rage(const unsigned);
 
-    void then_warrior_has_rage(const int);
+    void then_warrior_has_rage(const unsigned);
     void then_overpower_is_active();
 
 protected:

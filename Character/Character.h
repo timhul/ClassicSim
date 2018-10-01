@@ -110,9 +110,9 @@ public:
     double get_random_normalized_oh_dmg();
     double get_random_non_normalized_oh_dmg();
 
-    int get_avg_mh_damage();
-    double get_normalized_dmg(const int, const Weapon*);
-    double get_non_normalized_dmg(const int, const double);
+    unsigned get_avg_mh_damage();
+    double get_normalized_dmg(const unsigned, const Weapon*);
+    double get_non_normalized_dmg(const unsigned, const double);
 
     int get_mh_wpn_skill();
     int get_oh_wpn_skill();
@@ -127,7 +127,7 @@ public:
     bool has_mainhand() const;
     bool has_offhand() const;
 
-    virtual int get_resource_level() const;
+    virtual unsigned get_resource_level() const;
 
     void reset();
     // TODO: Mark as abstract to force implementation.

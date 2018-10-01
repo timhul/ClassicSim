@@ -7,7 +7,7 @@
 class AttackTable {
 public:
     virtual ~AttackTable();
-    virtual int get_outcome(const int wpn_skill,
+    virtual int get_outcome(const unsigned roll,
                             const double crit_mod,
                             const bool include_dodge,
                             const bool include_parry,

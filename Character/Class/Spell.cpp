@@ -70,7 +70,7 @@ void Spell::disable_spell_effect() {
 }
 
 bool Spell::is_available() const {
-    return enabled && is_ready() && pchar->get_resource_level() >= this->resource_cost;
+    return enabled && is_ready() && static_cast<int>(pchar->get_resource_level()) >= this->resource_cost;
 }
 
 bool Spell::is_enabled() const {
@@ -121,7 +121,7 @@ void Spell::decrease_spell_rank() {
 }
 
 void Spell::perform() {
-    assert(pchar->get_resource_level() >= resource_cost);
+    assert(static_cast<int>(pchar->get_resource_level()) >= resource_cost);
     last_used = engine->get_current_priority();
     this->spell_effect();
 }

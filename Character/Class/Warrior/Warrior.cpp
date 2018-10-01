@@ -163,8 +163,7 @@ int Warrior::get_ap_per_agi() const {
     return 0;
 }
 
-void Warrior::gain_rage(const int gained_rage) {
-    assert(gained_rage >= 0);
+void Warrior::gain_rage(const unsigned gained_rage) {
     this->rage += gained_rage;
 
     // TODO: Add statistics for rage lost due to overcapping.
@@ -172,15 +171,15 @@ void Warrior::gain_rage(const int gained_rage) {
         rage = 100;
 }
 
-void Warrior::lose_rage(const int lost_rage) {
+void Warrior::lose_rage(const unsigned lost_rage) {
     assert(lost_rage > 0);
+    assert(this->rage >= lost_rage);
     this->rage -= lost_rage;
-    assert(this->rage >= 0);
 }
 
-int Warrior::rage_gained_from_dd(const int damage_dealt) const {
+unsigned Warrior::rage_gained_from_dd(const unsigned damage_dealt) const {
     // TODO: Check if you are guaranteed 1 rage on swing even with very low damage.
-    return std::max(1, int(round(damage_dealt/rage_conversion_value * 7.5)));
+    return static_cast<unsigned>(std::max(1, int(round(damage_dealt / rage_conversion_value * 7.5))));
 }
 
 void Warrior::set_clvl(const int clvl) {
@@ -252,11 +251,11 @@ double Warrior::stance_cooldown() const {
     return 1.0;
 }
 
-int Warrior::get_resource_level() const {
+unsigned Warrior::get_resource_level() const {
     return get_curr_rage();
 }
 
-int Warrior::get_curr_rage() const {
+unsigned Warrior::get_curr_rage() const {
     return this->rage;
 }
 
@@ -266,11 +265,11 @@ void Warrior::increase_stance_rage_remainder() {
 }
 
 void Warrior::decrease_stance_rage_remainder() {
+    assert(stance_rage_remainder >= 5);
     this->stance_rage_remainder -= 5;
-    assert(stance_rage_remainder >= 0);
 }
 
-int Warrior::get_stance_remainder() const {
+unsigned Warrior::get_stance_remainder() const {
     return this->stance_rage_remainder;
 }
 

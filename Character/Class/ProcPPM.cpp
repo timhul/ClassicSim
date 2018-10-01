@@ -20,12 +20,12 @@ ProcPPM::~ProcPPM() {
 
 }
 
-int ProcPPM::get_proc_range() const {
+unsigned ProcPPM::get_proc_range() const {
     switch (weapon) {
     case EnchantSlot::MAINHAND:
-        return static_cast<int>(round(proc_rate_base * pchar->get_stats()->get_mh_wpn_speed() * 100));
+        return static_cast<unsigned>(round(proc_rate_base * pchar->get_stats()->get_mh_wpn_speed() * 100));
     case EnchantSlot::OFFHAND:
-        return static_cast<int>(round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100));
+        return static_cast<unsigned>(round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100));
     default:
         assert(false);
     }

@@ -76,8 +76,8 @@ void TestBloodrage::when_bloodrage_is_performed() {
     bloodrage()->perform();
 }
 
-void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const int expected_rage_gain) {
-    int prev = warrior->get_curr_rage();
+void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const unsigned expected_rage_gain) {
+    unsigned prev = warrior->get_curr_rage();
     while (!engine->get_queue()->empty()) {
         Event* event = engine->get_queue()->get_next();
         engine->set_current_priority(event);

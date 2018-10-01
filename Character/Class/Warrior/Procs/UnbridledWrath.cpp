@@ -18,7 +18,7 @@ UnbridledWrath::~UnbridledWrath() {
 }
 
 void UnbridledWrath::proc_effect() {
-    int rage = warr->get_curr_rage();
+    unsigned rage = warr->get_curr_rage();
     warr->gain_rage(1);
 
     if (warr->get_curr_rage() != rage)

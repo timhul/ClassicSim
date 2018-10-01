@@ -26,7 +26,7 @@ CombatRoll::~CombatRoll() {
 }
 
 int CombatRoll::get_melee_hit_result(const int wpn_skill, const double crit_mod) {
-    const int roll = random->get_roll();
+    const unsigned roll = random->get_roll();
 
     WhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
 
@@ -39,7 +39,7 @@ int CombatRoll::get_melee_ability_result(const int wpn_skill,
                                          const bool include_parry,
                                          const bool include_block,
                                          const bool include_miss) {
-    const int roll = random->get_roll();
+    const unsigned roll = random->get_roll();
 
     MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill);
 

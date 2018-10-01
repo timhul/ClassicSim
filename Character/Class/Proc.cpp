@@ -22,7 +22,7 @@ Proc::Proc(const QString& name, const double proc_rate, const double inner_coold
     statistics_resource(new StatisticsResource(name)),
     instance_id(ProcStatus::INACTIVE)
 {
-    this->proc_range = static_cast<int>(round(proc_rate * 10000));
+    this->proc_range = static_cast<unsigned>(round(proc_rate * 10000));
     this->recursive = recursive;
     this->linked_procs = linked_procs;
 }
@@ -47,7 +47,7 @@ void Proc::spell_effect() {
     }
 }
 
-int Proc::get_proc_range() const {
+unsigned Proc::get_proc_range() const {
     return proc_range;
 }
 

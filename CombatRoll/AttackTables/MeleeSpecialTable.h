@@ -11,7 +11,7 @@ public:
                       const double miss, const double dodge, const double parry,
                       const double block, const double critical);
 
-    int get_outcome(const int,
+    int get_outcome(const unsigned roll,
                     const double crit_mod,
                     const bool include_dodge = true,
                     const bool include_parry = true,
@@ -39,11 +39,11 @@ private:
     double block;
     double critical;
 
-    int miss_range;
-    int dodge_range;
-    int parry_range;
-    int block_range;
-    int critical_range;
+    unsigned miss_range;
+    unsigned dodge_range;
+    unsigned parry_range;
+    unsigned block_range;
+    unsigned critical_range;
 };
 
 #endif // MELEESPECIALTABLE_H

@@ -5,7 +5,7 @@
 
 class Ranged: public Weapon {
 public:
-    Ranged(QString name, int type, int min, int max, double speed,
+    Ranged(QString name, int type, unsigned min, unsigned max, double speed,
            QVector<QPair<QString, QString>> stats = {},
            QMap<QString, QString> info = {},
            QVector<QMap<QString, QString>> procs = {}):

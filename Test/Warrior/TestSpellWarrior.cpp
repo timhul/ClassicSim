@@ -85,13 +85,13 @@ void TestSpellWarrior::given_5_of_5_tactical_mastery() {
     assert(warrior->get_stance_remainder() == 25);
 }
 
-void TestSpellWarrior::given_warrior_has_rage(const int rage) {
+void TestSpellWarrior::given_warrior_has_rage(const unsigned rage) {
     warrior->lose_rage(warrior->get_curr_rage());
     warrior->gain_rage(rage);
     then_warrior_has_rage(rage);
 }
 
-void TestSpellWarrior::then_warrior_has_rage(const int rage) {
+void TestSpellWarrior::then_warrior_has_rage(const unsigned rage) {
     if (rage != warrior->get_curr_rage())
         qDebug() << spell_under_test << "expected" << rage << "rage but has" << warrior->get_curr_rage();
     assert(warrior->get_curr_rage() == rage);

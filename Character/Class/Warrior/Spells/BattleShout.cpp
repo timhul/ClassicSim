@@ -14,5 +14,5 @@ void BattleShout::spell_effect() {
     add_spell_cd_event();
     add_gcd_event();
 
-    warr->lose_rage(resource_cost);
+    warr->lose_rage(static_cast<unsigned>(resource_cost));
 }

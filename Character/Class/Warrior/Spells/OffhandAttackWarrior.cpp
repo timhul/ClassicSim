@@ -53,7 +53,7 @@ void OffhandAttackWarrior::calculate_damage() {
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * 2);
-        const int rage_gained = warr->rage_gained_from_dd(static_cast<int>(round(damage_dealt)));
+        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(round(damage_dealt)));
         warr->melee_oh_white_critical_effect();
         // TODO: Save statistics for resource gains
         add_crit_dmg(static_cast<int>(round(damage_dealt)));
@@ -62,7 +62,7 @@ void OffhandAttackWarrior::calculate_damage() {
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
-        const int rage_gained = warr->rage_gained_from_dd(static_cast<int>(damage_dealt));
+        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
         warr->melee_oh_white_hit_effect();
         // TODO: Save statistics for resource gains
         add_glancing_dmg(static_cast<int>(damage_dealt));
@@ -72,7 +72,7 @@ void OffhandAttackWarrior::calculate_damage() {
 
     warr->melee_oh_white_hit_effect();
     damage_dealt = round(damage_dealt);
-    const int rage_gained = warr->rage_gained_from_dd(static_cast<int>(damage_dealt));
+    const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
     // TODO: Save statistics for resource gains
     add_hit_dmg(static_cast<int>(damage_dealt));
     warr->gain_rage(rage_gained);

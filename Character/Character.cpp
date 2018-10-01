@@ -329,16 +329,16 @@ double Character::get_random_non_normalized_oh_dmg() {
     return get_non_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
 }
 
-int Character::get_avg_mh_damage() {
+unsigned Character::get_avg_mh_damage() {
     if (!has_mainhand())
-        return static_cast<int>(round(get_normalized_dmg(1, nullptr)));
+        return static_cast<unsigned>(round(get_normalized_dmg(1, nullptr)));
 
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    int avg_dmg = int(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
-    return static_cast<int>(round(get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed())));
+    unsigned avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
+    return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed())));
 }
 
-double Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
+double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon) {
     // TODO: Consider moving these types of mechanical assumptions into e.g. Mechanics
     if (weapon == nullptr)
         return get_non_normalized_dmg(damage, 2.0);
@@ -364,7 +364,7 @@ double Character::get_normalized_dmg(const int damage, const Weapon* weapon) {
     return get_non_normalized_dmg(damage, normalized_wpn_speed);
 }
 
-double Character::get_non_normalized_dmg(const int damage, const double wpn_speed) {
+double Character::get_non_normalized_dmg(const unsigned damage, const double wpn_speed) {
     return damage + (wpn_speed * cstats->get_melee_ap() / 14);
 }
 
@@ -446,7 +446,7 @@ bool Character::has_offhand() const {
     return cstats->get_equipment()->get_offhand() != nullptr;
 }
 
-int Character::get_resource_level() const {
+unsigned Character::get_resource_level() const {
     return 0;
 }
 

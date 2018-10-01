@@ -23,18 +23,18 @@ void Bloodthirst::spell_effect() {
 
     if (result == AttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(resource_cost);
+        warr->lose_rage(static_cast<unsigned>(resource_cost));
         return;
     }
     if (result == AttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();
-        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
+        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
     if (result == AttackResult::PARRY) {
         increment_parry();
-        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
+        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
 
@@ -50,5 +50,5 @@ void Bloodthirst::spell_effect() {
         add_hit_dmg(static_cast<int>(round(damage_dealt)));
     }
 
-    warr->lose_rage(resource_cost);
+    warr->lose_rage(static_cast<unsigned>(resource_cost));
 }

@@ -28,10 +28,10 @@ private:
     Random* random;
     int running_threads;
 
-    QVector<QPair<int, double>> thread_results;
-    QVector<QPair<int, QThread*>> thread_pool;
+    QVector<QPair<unsigned, double>> thread_results;
+    QVector<QPair<unsigned, QThread*>> thread_pool;
 
-    void setup_thread(const int thread_id);
+    void setup_thread(const unsigned thread_id);
     void check_threads_finished();
 };
 

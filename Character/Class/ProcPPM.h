@@ -15,11 +15,11 @@ public:
             const bool recursive, const QVector<Proc*> linked_procs,
             const QVector<ProcInfo::Source> proc_sources,
             Engine* engine, Character* pchar, CombatRoll* roll);
-    ~ProcPPM();
+    virtual ~ProcPPM() override;
 
-    virtual void proc_effect() = 0;
+    virtual void proc_effect() override = 0;
 
-    virtual int get_proc_range() const;
+    virtual unsigned get_proc_range() const override;
 
 protected:
     const double proc_rate_base;

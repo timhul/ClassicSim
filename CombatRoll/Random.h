@@ -6,11 +6,11 @@
 
 class Random {
 public:
-    Random(const int min_range, const int max_range);
+    Random(const unsigned min_range, const unsigned max_range);
     ~Random();
 
-    void set_gen_from_seed(const unsigned long seed);
-    int get_roll(void);
+    void set_gen_from_seed(const unsigned long long seed);
+    unsigned get_roll(void);
 protected:
 private:
     uint64_t min_range;

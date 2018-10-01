@@ -111,19 +111,19 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
 
     if (info["slot"] == "1H")
         weapon = new Onehand(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "MH")
         weapon = new Mainhand(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "OH")
         weapon = new Offhand(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "2H")
         weapon = new TwoHander(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "RANGED")
         weapon = new Ranged(item_map["name"], get_weapon_type(info["type"]),
-                item_map["min"].toInt(), item_map["max"].toInt(), item_map["speed"].toFloat(), stats, info, procs);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
 
     if (weapon != nullptr)
         items.append(weapon);

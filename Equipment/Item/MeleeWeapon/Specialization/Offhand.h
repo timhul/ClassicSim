@@ -5,7 +5,7 @@
 
 class Offhand: public Weapon {
 public:
-    Offhand(QString name, int type, int min, int max, double speed,
+    Offhand(QString name, int type, unsigned min, unsigned max, double speed,
             QVector<QPair<QString, QString>> stats = {},
             QMap<QString, QString> info = {},
             QVector<QMap<QString, QString>> procs = {}):

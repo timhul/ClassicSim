@@ -15,7 +15,7 @@ public:
 protected:
 private:
     Random* random;
-    int curr_buff;
+    unsigned curr_buff;
 };
 
 #endif // BERSERKINGBUFF_H

@@ -46,12 +46,12 @@ public:
     bool on_stance_cooldown() const;
     void increase_stance_rage_remainder();
     void decrease_stance_rage_remainder();
-    int get_stance_remainder() const;
-    int get_resource_level() const override;
-    int get_curr_rage() const;
-    void gain_rage(const int);
-    void lose_rage(const int);
-    int rage_gained_from_dd(const int) const;
+    unsigned get_stance_remainder() const;
+    unsigned get_resource_level() const override;
+    unsigned get_curr_rage() const;
+    void gain_rage(const unsigned);
+    void lose_rage(const unsigned);
+    unsigned rage_gained_from_dd(const unsigned) const;
     void switch_to_battle_stance();
     void switch_to_berserker_stance();
     void switch_to_defensive_stance();
@@ -82,9 +82,9 @@ public:
 
 protected:
 private:
-    int rage;
+    unsigned rage;
     int stance;
-    int stance_rage_remainder;
+    unsigned stance_rage_remainder;
     double next_stance_cd;
     double rage_conversion_value;
     Flurry* flurry;

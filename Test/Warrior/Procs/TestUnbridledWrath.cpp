@@ -116,6 +116,6 @@ void TestUnbridledWrath::test_proc_sources_are_valid() {
     assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSwing));
 }
 
-void TestUnbridledWrath::then_proc_range_is(const int proc_range) {
+void TestUnbridledWrath::then_proc_range_is(const unsigned proc_range) {
     assert(warrior->get_unbridled_wrath()->get_proc_range() == proc_range);
 }

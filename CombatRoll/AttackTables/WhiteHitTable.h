@@ -10,7 +10,8 @@ public:
     WhiteHitTable(Random* random, const int wpn_skill, const double miss, const double dodge, const double parry,
                   const double glancing, const double block,  const double critical);
 
-    int get_outcome(const int, const double crit_mod,
+    int get_outcome(const unsigned roll,
+                    const double crit_mod,
                     const bool include_dodge = true,
                     const bool include_parry = true,
                     const bool include_block = true,
@@ -39,13 +40,13 @@ private:
     double block;
     double critical;
 
-    int range;
-    int miss_range;
-    int dodge_range;
-    int parry_range;
-    int glancing_range;
-    int block_range;
-    int critical_range;
+    unsigned range;
+    unsigned miss_range;
+    unsigned dodge_range;
+    unsigned parry_range;
+    unsigned glancing_range;
+    unsigned block_range;
+    unsigned critical_range;
 };
 
 #endif // WHITEHITTABLE_H
