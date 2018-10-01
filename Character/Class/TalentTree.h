@@ -4,10 +4,39 @@
 #include <QObject>
 #include <QString>
 #include <QMap>
-#include <assert.h>
+#include <QVector>
+#include <cassert>
 
 class Character;
 class Talent;
+
+
+class TalentTier {
+public:
+    TalentTier():
+        spent_points(0)
+    {}
+
+    void clear_points() {
+        spent_points = 0;
+    }
+
+    void increment_point() {
+        spent_points++;
+    }
+
+    void decrement_point() {
+        spent_points--;
+    }
+
+    int get_points() const {
+        return spent_points;
+    }
+
+private:
+    int spent_points;
+};
+
 
 class TalentTree: public QObject {
     Q_OBJECT
@@ -57,12 +86,14 @@ protected:
     int total_spent_points;
 
     QMap<QString, Talent*> talents;
-    QMap<QString, int> spent_points;
+    QVector<TalentTier*> tiers;
 
     void add_talents(const QMap<QString, Talent *> &new_talents);
-    QString get_highest_invested_rank() const;
+    int get_highest_invested_rank() const;
     int get_investment_requirement_for_rank(const int rank) const;
     int get_points_spent_up_to_rank(const int rank) const;
+
+    TalentTier* get_tier(const int tier) const;
 
 private:
 };

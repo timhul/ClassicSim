@@ -11,15 +11,26 @@ TalentTree::TalentTree(QString name_, QString background_, QObject *parent) :
     total_spent_points(0),
     talents(QMap<QString, Talent*>())
 {
-    spent_points = {{"1", 0}, {"2", 0}, {"3", 0}, {"4", 0}, {"5", 0}, {"6", 0}, {"7", 0}};
+    for (int i = 0; i < 7; ++i) {
+        tiers.append(new TalentTier());
+    }
 }
 
 TalentTree::~TalentTree() {
-    for (const auto& it : talents.keys()) {
-        delete talents.value(it);
+    QMap<QString, Talent*>::const_iterator it = talents.constBegin();
+    auto end = talents.constEnd();
+    while(it != end) {
+        delete it.value();
+        ++it;
     }
 
     talents.clear();
+
+    for(auto & tier :  tiers) {
+        delete tier;
+    }
+
+    tiers.clear();
 }
 
 QString TalentTree::get_name() const {
@@ -141,10 +152,7 @@ bool TalentTree::increment_rank(const QString &position) {
 
     if (talents[position]->increment_rank()) {
         ++total_spent_points;
-        if (spent_points.contains(QString(position[0])))
-            spent_points[QString(position[0])]++;
-        else
-            qDebug() << "TalentTree::increment_rank Missing position" << position;
+        get_tier(QString(position[0]).toInt() - 1)->increment_point();
         return true;
     }
 
@@ -158,7 +166,7 @@ bool TalentTree::decrement_rank(const QString &position) {
     if (bottom_child_is_active(position) || right_child_is_active(position))
         return false;
 
-    int investigated_rank = get_highest_invested_rank().toInt();
+    int investigated_rank = get_highest_invested_rank();
     int decremented_rank = QString(position[0]).toInt();
 
     while (investigated_rank > decremented_rank) {
@@ -174,7 +182,7 @@ bool TalentTree::decrement_rank(const QString &position) {
 
     if (talents[position]->decrement_rank()) {
         --total_spent_points;
-        spent_points[QString(position[0])]--;
+        get_tier(QString(position[0]).toInt() - 1)->decrement_point();
         return true;
     }
 
@@ -226,20 +234,20 @@ bool TalentTree::has_bottom_child(const QString &position) const {
     return talents[position]->has_bottom_child();
 }
 
-QString TalentTree::get_highest_invested_rank() const {
-    if (spent_points["7"] > 0)
-        return "7";
-    if (spent_points["6"] > 0)
-        return "6";
-    if (spent_points["5"] > 0)
-        return "5";
-    if (spent_points["4"] > 0)
-        return "4";
-    if (spent_points["3"] > 0)
-        return "3";
-    if (spent_points["2"] > 0)
-        return "2";
-    return "1";
+int TalentTree::get_highest_invested_rank() const {
+    if (get_tier(6)->get_points() > 0)
+        return 6;
+    if (get_tier(5)->get_points() > 0)
+        return 5;
+    if (get_tier(4)->get_points() > 0)
+        return 4;
+    if (get_tier(3)->get_points() > 0)
+        return 3;
+    if (get_tier(2)->get_points() > 0)
+        return 2;
+    if (get_tier(1)->get_points() > 0)
+        return 1;
+    return 0;
 }
 
 int TalentTree::get_investment_requirement_for_rank(const int rank) const {
@@ -250,23 +258,23 @@ int TalentTree::get_points_spent_up_to_rank(const int rank) const {
     int invested_below_rank = 0;
 
     switch (rank) {
-    case 7:
-        invested_below_rank += spent_points["6"];
-        // C++17 [[clang::fallthrough]];
     case 6:
-        invested_below_rank += spent_points["5"];
+        invested_below_rank += get_tier(6)->get_points();
         // C++17 [[clang::fallthrough]];
     case 5:
-        invested_below_rank += spent_points["4"];
+        invested_below_rank += get_tier(5)->get_points();
         // C++17 [[clang::fallthrough]];
     case 4:
-        invested_below_rank += spent_points["3"];
+        invested_below_rank += get_tier(4)->get_points();
         // C++17 [[clang::fallthrough]];
     case 3:
-        invested_below_rank += spent_points["2"];
+        invested_below_rank += get_tier(3)->get_points();
         // C++17 [[clang::fallthrough]];
     case 2:
-        invested_below_rank += spent_points["1"];
+        invested_below_rank += get_tier(2)->get_points();
+        // C++17 [[clang::fallthrough]];
+    case 1:
+        invested_below_rank += get_tier(1)->get_points();
     }
 
     return invested_below_rank;
@@ -277,31 +285,46 @@ int TalentTree::get_total_points() const {
 }
 
 void TalentTree::clear_tree() {
-    for (const auto& it : talents.keys()) {
-        talents.value(it)->force_clear_rank();
+    QMap<QString, Talent*>::const_iterator it = talents.constBegin();
+    auto end = talents.constEnd();
+    while(it != end) {
+        it.value()->force_clear_rank();
+        ++it;
     }
 
-    for (const auto& it : spent_points.keys()) {
-        spent_points[it] = 0;
+    for(auto & tier : tiers) {
+        tier->clear_points();
     }
 
     total_spent_points = 0;
 }
 
 void TalentTree::remove_rank_effects() {
-    for (const auto& it : talents.keys()) {
-        for (int i = 0; i < talents.value(it)->get_current_rank(); ++i) {
-            talents.value(it)->remove_rank_effect();
+    QMap<QString, Talent*>::const_iterator it = talents.constBegin();
+    auto end = talents.constEnd();
+    while(it != end) {
+        for (int i = 0; i < it.value()->get_current_rank(); ++i) {
+            it.value()->remove_rank_effect();
         }
+        ++it;
     }
 }
 
 void TalentTree::apply_rank_effects() {
-    for (const auto& it : talents.keys()) {
-        for (int i = 0; i < talents.value(it)->get_current_rank(); ++i) {
-            talents.value(it)->apply_rank_effect();
+    QMap<QString, Talent*>::const_iterator it = talents.constBegin();
+    auto end = talents.constEnd();
+    while(it != end) {
+        for (int i = 0; i < it.value()->get_current_rank(); ++i) {
+            it.value()->apply_rank_effect();
         }
+        ++it;
     }
+}
+
+TalentTier* TalentTree::get_tier(const int tier) const {
+    if (tier < 0 || tier >= tiers.size())
+        return nullptr;
+    return tiers[tier];
 }
 
 QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
