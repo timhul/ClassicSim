@@ -1,4 +1,4 @@
 
 #include "AttackTable.h"
 
-AttackTable::~AttackTable() {}
+AttackTable::~AttackTable() = default;

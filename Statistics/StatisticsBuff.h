@@ -16,8 +16,8 @@ public:
 protected:
 private:
     const QString name;
-    double avg_uptime;
-    int counter;
+    double avg_uptime{};
+    int counter{};
 };
 
 #endif // STATISTICSBUFF_H

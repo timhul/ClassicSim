@@ -8,6 +8,6 @@ CooldownReady::CooldownReady(Rotation* rotation, const double cooldown_ready) {
     this->name = "CooldownReady";
 }
 
-void CooldownReady::act(void) {
+void CooldownReady::act() {
     this->rotation->perform_rotation();
 }

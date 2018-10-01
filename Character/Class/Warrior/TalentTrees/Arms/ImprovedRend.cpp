@@ -9,9 +9,7 @@ ImprovedRend::ImprovedRend(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 15, 10);
 }
 
-ImprovedRend::~ImprovedRend() {
-
-}
+ImprovedRend::~ImprovedRend() = default;
 
 void ImprovedRend::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

@@ -10,8 +10,7 @@ WindfuryTotemAttack::WindfuryTotemAttack(Engine* engine, Character* pchar, Comba
          engine, pchar, roll)
 {}
 
-WindfuryTotemAttack::~WindfuryTotemAttack() {
-}
+WindfuryTotemAttack::~WindfuryTotemAttack() = default;
 
 void WindfuryTotemAttack::proc_effect() {
     // TODO: Check if Windfury Totem extra attacks can glance.

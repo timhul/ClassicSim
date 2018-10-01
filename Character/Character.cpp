@@ -53,12 +53,12 @@ Character::~Character() {
     delete berserking_buff;
     delete blood_fury_buff;
 
-    for (int i = 0; i < rotations.size(); ++i) {
-        delete rotations[i];
+    for (auto & rotation : rotations) {
+        delete rotation;
     }
 }
 
-Race* Character::get_race(void) {
+Race* Character::get_race() {
     return this->race;
 }
 
@@ -86,8 +86,8 @@ bool Character::set_rotation(const int index) {
 
 QVector<QString> Character::get_rotation_names() const {
     QVector<QString> rotation_names;
-    for (int i = 0; i < rotations.size(); ++i) {
-        rotation_names.append(rotations[i]->get_name());
+    for (auto rotation : rotations) {
+        rotation_names.append(rotation->get_name());
     }
 
     return rotation_names;
@@ -147,7 +147,7 @@ void Character::remove_racial_effects() {
     }
 }
 
-int Character::get_clvl(void) const {
+int Character::get_clvl() const {
     return this->clvl;
 }
 
@@ -155,43 +155,43 @@ void Character::set_clvl(const int clvl) {
     this->clvl = clvl;
 }
 
-bool Character::is_dual_wielding(void) {
+bool Character::is_dual_wielding() {
     return cstats->get_equipment()->is_dual_wielding();
 }
 
-bool Character::is_melee_attacking(void) const {
+bool Character::is_melee_attacking() const {
     return melee_attacking;
 }
 
-Engine* Character::get_engine(void) const {
+Engine* Character::get_engine() const {
     return this->engine;
 }
 
-CombatRoll* Character::get_combat_roll(void) const {
+CombatRoll* Character::get_combat_roll() const {
     return this->roll;
 }
 
-Equipment* Character::get_equipment(void) const {
+Equipment* Character::get_equipment() const {
     return this->cstats->get_equipment();
 }
 
-Talents* Character::get_talents(void) const {
+Talents* Character::get_talents() const {
     return this->talents;
 }
 
-ActiveBuffs* Character::get_active_buffs(void) const {
+ActiveBuffs* Character::get_active_buffs() const {
     return this->active_buffs;
 }
 
-Spells* Character::get_spells(void) const {
+Spells* Character::get_spells() const {
     return this->spells;
 }
 
-CharacterStats* Character::get_stats(void) const {
+CharacterStats* Character::get_stats() const {
     return this->cstats;
 }
 
-ClassStatistics* Character::get_statistics(void) const {
+ClassStatistics* Character::get_statistics() const {
     return this->statistics;
 }
 
@@ -207,13 +207,13 @@ BloodFuryBuff* Character::get_blood_fury_buff() const {
     return this->blood_fury_buff;
 }
 
-void Character::start_attack(void) {
+void Character::start_attack() {
     this->melee_attacking = true;
 
     spells->start_attack();
 }
 
-void Character::stop_attack(void) {
+void Character::stop_attack() {
     this->melee_attacking = false;
 }
 
@@ -334,7 +334,7 @@ unsigned Character::get_avg_mh_damage() {
         return static_cast<unsigned>(round(get_normalized_dmg(1, nullptr)));
 
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    unsigned avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
+    auto avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
     return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed())));
 }
 

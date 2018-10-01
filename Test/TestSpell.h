@@ -61,13 +61,13 @@ public:
     void then_next_event_is(const QString &name, const QString &priority);
 
 protected:
-    Engine* engine;
+    Engine* engine{};
     Equipment* equipment;
-    CombatRoll* combat;
-    Faction* faction;
-    Target* target;
-    Race* race;
-    Character* pchar;
+    CombatRoll* combat{};
+    Faction* faction{};
+    Target* target{};
+    Race* race{};
+    Character* pchar{};
     QString spell_under_test;
 
     void set_melee_special_table_for_hit(const int wpn_skill);

@@ -9,9 +9,7 @@ ImprovedDemoralizingShout::ImprovedDemoralizingShout(Character *pchar, TalentTre
     initialize_rank_descriptions(base_str, 8, 8);
 }
 
-ImprovedDemoralizingShout::~ImprovedDemoralizingShout() {
-
-}
+ImprovedDemoralizingShout::~ImprovedDemoralizingShout() = default;
 
 void ImprovedDemoralizingShout::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

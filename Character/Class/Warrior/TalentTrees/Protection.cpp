@@ -51,5 +51,4 @@ Protection::Protection(Character *pchar, QObject* parent) :
     talents["7ML"]->set_parent(talents["5ML"]);
 }
 
-Protection::~Protection()
-{}
+Protection::~Protection() = default;

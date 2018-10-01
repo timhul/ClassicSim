@@ -145,7 +145,7 @@ private:
     int melee_ap;
     int melee_ap_per_str;
     int melee_ap_per_agi;
-    int ranged_ap;
+    int ranged_ap{};
     double percent_hit;
     double percent_crit;
     double percent_attack_speed;

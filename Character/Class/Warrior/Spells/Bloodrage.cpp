@@ -15,7 +15,7 @@ Bloodrage::Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll) :
 void Bloodrage::spell_effect() {
     add_spell_cd_event();
 
-    ResourceGain* new_event = new ResourceGain(this, engine->get_current_priority() + 1.0);
+    auto* new_event = new ResourceGain(this, engine->get_current_priority() + 1.0);
     this->engine->add_event(new_event);
     periodic_rage_current = periodic_rage_base;
 
@@ -30,6 +30,6 @@ void Bloodrage::periodic_effect() {
     if (periodic_rage_current == 0)
         return;
 
-    ResourceGain* new_event = new ResourceGain(this, engine->get_current_priority() + 1.0);
+    auto* new_event = new ResourceGain(this, engine->get_current_priority() + 1.0);
     this->engine->add_event(new_event);
 }

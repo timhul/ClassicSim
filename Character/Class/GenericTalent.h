@@ -16,7 +16,7 @@ public:
                   const QString &icon,
                   const int max_points,
                   const QString &rank_description,
-                  const QVector<QPair<int, int>> format_values);
+                  const QVector<QPair<int, int>>& format_values);
     ~GenericTalent() override;
 
     void apply_rank_effect() override;

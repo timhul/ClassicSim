@@ -21,10 +21,10 @@ bool operator>=(const Event& l, const Event& r) {
     return !(r < l);
 }
 
-double Event::get_priority(void) const {
+double Event::get_priority() const {
     return this->priority;
 }
 
-QString Event::get_name(void) const {
+QString Event::get_name() const {
     return this->name;
 }

@@ -20,9 +20,8 @@ CombatRoll::~CombatRoll() {
 
     drop_tables();
 
-    if (mechanics != nullptr) {
+    
         delete mechanics;
-    }
 }
 
 int CombatRoll::get_melee_hit_result(const int wpn_skill, const double crit_mod) {
@@ -56,7 +55,7 @@ int CombatRoll::get_ranged_ability_result(const int) {
     return AttackResult::CRITICAL;
 }
 
-int CombatRoll::get_spell_ability_result(void) {
+int CombatRoll::get_spell_ability_result() {
     // TODO: Remove hardcoded critical result
     return AttackResult::CRITICAL;
 }
@@ -88,7 +87,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     if (miss_chance < 0)
         miss_chance = 0;
 
-    WhiteHitTable* table = new WhiteHitTable(
+    auto* table = new WhiteHitTable(
                 this->random,
                 wpn_skill,
                 miss_chance,
@@ -114,7 +113,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
     if (miss_chance < 0)
         miss_chance = 0;
 
-    MeleeSpecialTable* table = new MeleeSpecialTable(this->random,
+    auto* table = new MeleeSpecialTable(this->random,
                                                      wpn_skill,
                                                      miss_chance,
                                                      mechanics->get_dodge_chance(wpn_skill),

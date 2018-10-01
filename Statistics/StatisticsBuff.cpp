@@ -1,8 +1,10 @@
 
 #include "StatisticsBuff.h"
 
+#include <utility>
+
 StatisticsBuff::StatisticsBuff(QString name) :
-    name(name)
+    name(std::move(name))
 {
     reset();
 }

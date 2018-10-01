@@ -9,9 +9,7 @@ ImprovedSlam::ImprovedSlam(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 1, 1);
 }
 
-ImprovedSlam::~ImprovedSlam() {
-
-}
+ImprovedSlam::~ImprovedSlam() = default;
 
 void ImprovedSlam::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

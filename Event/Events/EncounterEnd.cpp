@@ -9,7 +9,7 @@ EncounterEnd::EncounterEnd(Engine* engine, Character* pchar) {
     this->name = "EncounterEnd";
 }
 
-void EncounterEnd::act(void) {
+void EncounterEnd::act() {
     pchar->reset();
     engine->end_combat();
 }

@@ -14,11 +14,10 @@ MageSpells::MageSpells(Mage* mage) :
     spells.append(mh_attack);
 }
 
-MageSpells::~MageSpells()
-{}
+MageSpells::~MageSpells() = default;
 
 void MageSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

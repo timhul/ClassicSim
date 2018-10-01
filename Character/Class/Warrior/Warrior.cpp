@@ -118,7 +118,7 @@ Warrior::~Warrior() {
     delete recklessness_buff;
 }
 
-QString Warrior::get_name(void) const {
+QString Warrior::get_name() const {
     return "Warrior";
 }
 
@@ -126,23 +126,23 @@ QString Warrior::get_class_color() const {
     return "#C79C6E";
 }
 
-int Warrior::get_strength_modifier(void) const {
+int Warrior::get_strength_modifier() const {
     return 3;
 }
 
-int Warrior::get_agility_modifier(void) const {
+int Warrior::get_agility_modifier() const {
     return 0;
 }
 
-int Warrior::get_stamina_modifier(void) const {
+int Warrior::get_stamina_modifier() const {
     return 2;
 }
 
-int Warrior::get_intellect_modifier(void) const {
+int Warrior::get_intellect_modifier() const {
     return 0;
 }
 
-int Warrior::get_spirit_modifier(void) const {
+int Warrior::get_spirit_modifier() const {
     return 0;
 }
 
@@ -289,7 +289,7 @@ void Warrior::new_stance_effect() {
 
     if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
         this->next_gcd = engine->get_current_priority() + 0.5;
-        CooldownReady* new_event = new CooldownReady(this->get_rotation(), next_gcd);
+        auto* new_event = new CooldownReady(this->get_rotation(), next_gcd);
         engine->add_event(new_event);
     }
 

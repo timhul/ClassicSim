@@ -11,18 +11,16 @@ ImprovedExecute::ImprovedExecute(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 2, 3);
 }
 
-ImprovedExecute::~ImprovedExecute() {
-
-}
+ImprovedExecute::~ImprovedExecute() = default;
 
 void ImprovedExecute::apply_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->increase_effect_via_talent();
 }
 
 void ImprovedExecute::remove_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->decrease_effect_via_talent();
 }

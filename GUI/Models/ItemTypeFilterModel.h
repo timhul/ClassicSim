@@ -47,7 +47,7 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 
 private:
-    int equipment_slot;
+    int equipment_slot{};
     QVector<QList<ItemFilter>> item_type_filters;
     Character* pchar;
 

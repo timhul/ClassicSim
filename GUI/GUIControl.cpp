@@ -43,6 +43,7 @@
 #include "Rotation.h"
 
 #include <QDebug>
+#include <utility>
 
 GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
@@ -94,13 +95,13 @@ GUIControl::GUIControl(QObject* parent) :
 }
 
 GUIControl::~GUIControl() {
-    for (auto it : chars.keys()) {
+    for (const auto& it : chars.keys()) {
         delete chars.value(it);
     }
 
     chars.clear();
 
-    for (auto it : races.keys()) {
+    for (const auto& it : races.keys()) {
         delete races.value(it);
     }
 
@@ -127,7 +128,7 @@ void GUIControl::set_character(Character* pchar) {
     equipment->set_character(current_char);
 }
 
-void GUIControl::selectClass(const QString class_name) {
+void GUIControl::selectClass(const QString& class_name) {
     if (!chars.contains(class_name)) {
         qDebug() << QString("Class %1 not found in char list!").arg(class_name);
         return;
@@ -144,7 +145,7 @@ void GUIControl::selectClass(const QString class_name) {
     statsChanged();
 }
 
-void GUIControl::selectRace(const QString race_name) {
+void GUIControl::selectRace(const QString& race_name) {
     if (!races.contains(race_name)) {
         qDebug() << QString("Race %1 not found").arg(race_name);
         return;
@@ -166,7 +167,7 @@ void GUIControl::selectFaction(const bool faction) {
 
     this->faction->switch_faction();
 
-    for (auto it : chars.keys()) {
+    for (const auto& it : chars.keys()) {
         chars.value(it)->switch_faction();
         reset_race(chars.value(it));
     }
@@ -180,7 +181,7 @@ void GUIControl::selectFaction(const bool faction) {
     }
 }
 
-bool GUIControl::raceAvailable(const QString race_name) {
+bool GUIControl::raceAvailable(const QString& race_name) {
     if (!races.contains(race_name)) {
         qDebug() << QString("Race %1 not found").arg(race_name);
         return false;
@@ -192,14 +193,14 @@ bool GUIControl::raceAvailable(const QString race_name) {
 void GUIControl::reset_race(Character* pchar) {
     const QVector<QString>& available_races = faction->get_faction_races();
 
-    for (int i = 0; i < available_races.size(); ++i) {
-        if (!races.contains(available_races[i])) {
-            qDebug() << QString("Race %1 not valid!").arg(available_races[i]);
+    for (const auto & available_race : available_races) {
+        if (!races.contains(available_race)) {
+            qDebug() << QString("Race %1 not valid!").arg(available_race);
             continue;
         }
 
-        if (pchar->race_available(races[available_races[i]])) {
-            pchar->set_race(races[available_races[i]]);
+        if (pchar->race_available(races[available_race])) {
+            pchar->set_race(races[available_race]);
             break;
         }
     }
@@ -231,54 +232,54 @@ QString GUIControl::getRightBackgroundImage() const {
     return current_char->get_talents()->get_background_image("RIGHT");
 }
 
-QString GUIControl::getIcon(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getIcon(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_icon(tree_position, talent_position);
 }
 
-bool GUIControl::showPosition(const QString tree_position, const QString talent_position) const {
+bool GUIControl::showPosition(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->show_position(tree_position, talent_position);
 }
 
-bool GUIControl::showBottomArrow(const QString tree_position, const QString talent_position) const {
+bool GUIControl::showBottomArrow(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->show_bottom_arrow(tree_position, talent_position);
 }
-bool GUIControl::showRightArrow(const QString tree_position, const QString talent_position) const {
+bool GUIControl::showRightArrow(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->show_right_arrow(tree_position, talent_position);
 }
 
-QString GUIControl::getBottomArrow(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getBottomArrow(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_bottom_arrow(tree_position, talent_position);
 }
 
-QString GUIControl::getRightArrow(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getRightArrow(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_right_arrow(tree_position, talent_position);
 }
 
-bool GUIControl::bottomChildAvailable(const QString tree_position, const QString talent_position) const {
+bool GUIControl::bottomChildAvailable(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->bottom_child_available(tree_position, talent_position);
 }
 
-bool GUIControl::bottomChildActive(const QString tree_position, const QString talent_position) const {
+bool GUIControl::bottomChildActive(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->bottom_child_active(tree_position, talent_position);
 }
 
-bool GUIControl::rightChildAvailable(const QString tree_position, const QString talent_position) const {
+bool GUIControl::rightChildAvailable(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->right_child_available(tree_position, talent_position);
 }
 
-bool GUIControl::rightChildActive(const QString tree_position, const QString talent_position) const {
+bool GUIControl::rightChildActive(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->right_child_active(tree_position, talent_position);
 }
 
-bool GUIControl::isActive(const QString tree_position, const QString talent_position) const {
+bool GUIControl::isActive(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->is_active(tree_position, talent_position);
 }
 
-bool GUIControl::isAvailable(const QString tree_position, const QString talent_position) const {
+bool GUIControl::isAvailable(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->is_available(tree_position, talent_position);
 }
 
-bool GUIControl::isMaxed(const QString tree_position, const QString talent_position) const {
+bool GUIControl::isMaxed(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->is_maxed(tree_position, talent_position);
 }
 
@@ -286,63 +287,63 @@ bool GUIControl::hasTalentPointsRemaining() const {
     return current_char->get_talents()->has_talent_points_remaining();
 }
 
-QString GUIControl::getRank(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getRank(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_rank(tree_position, talent_position);
 }
 
-QString GUIControl::getMaxRank(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getMaxRank(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_max_rank(tree_position, talent_position);
 }
 
-void GUIControl::incrementRank(const QString tree_position, const QString talent_position) {
+void GUIControl::incrementRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->increment_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
     Q_EMIT statsChanged();
 }
 
-void GUIControl::decrementRank(const QString tree_position, const QString talent_position) {
+void GUIControl::decrementRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->decrement_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
     Q_EMIT statsChanged();
 }
 
-QString GUIControl::getRequirements(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getRequirements(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_requirements(tree_position, talent_position);
 }
 
-QString GUIControl::getCurrentRankDescription(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getCurrentRankDescription(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_current_rank_description(tree_position, talent_position);
 }
 
-QString GUIControl::getNextRankDescription(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getNextRankDescription(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_next_rank_description(tree_position, talent_position);
 }
 
-int GUIControl::getTreePoints(const QString tree_position) const {
+int GUIControl::getTreePoints(const QString& tree_position) const {
     return current_char->get_talents()->get_tree_points(tree_position);
 }
 
-QString GUIControl::getTreeName(const QString tree_position) const {
+QString GUIControl::getTreeName(const QString& tree_position) const {
     return current_char->get_talents()->get_tree_name(tree_position);
 }
 
-QString GUIControl::getTalentName(const QString tree_position, const QString talent_position) const {
+QString GUIControl::getTalentName(const QString& tree_position, const QString& talent_position) const {
     return current_char->get_talents()->get_talent_name(tree_position, talent_position);
 }
 
-void GUIControl::maxRank(const QString tree_position, const QString talent_position) {
+void GUIControl::maxRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->increase_to_max_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
     Q_EMIT statsChanged();
 }
 
-void GUIControl::minRank(const QString tree_position, const QString talent_position) {
+void GUIControl::minRank(const QString& tree_position, const QString& talent_position) {
     current_char->get_talents()->decrease_to_min_rank(tree_position, talent_position);
     Q_EMIT talentsUpdated();
     Q_EMIT statsChanged();
 }
 
-void GUIControl::clearTree(const QString tree_position) {
+void GUIControl::clearTree(const QString& tree_position) {
     current_char->get_talents()->clear_tree(tree_position);
     Q_EMIT talentsUpdated();
     Q_EMIT statsChanged();
@@ -449,22 +450,22 @@ DebuffModel* GUIControl::get_debuff_model() const {
     return this->debuff_model;
 }
 
-void GUIControl::selectBuff(QString buff) {
+void GUIControl::selectBuff(const QString& buff) {
     current_char->get_active_buffs()->get_general_buffs()->toggle_external_buff(buff);
     Q_EMIT statsChanged();
     Q_EMIT externalBuffsChanged();
 }
 
-bool GUIControl::buffActive(QString buff) const {
+bool GUIControl::buffActive(const QString& buff) const {
     return current_char->get_active_buffs()->get_general_buffs()->buff_active(buff);
 }
 
-void GUIControl::selectDebuff(QString debuff) {
+void GUIControl::selectDebuff(const QString& debuff) {
     current_char->get_active_buffs()->get_general_buffs()->toggle_external_debuff(debuff);
     Q_EMIT externalDebuffsChanged();
 }
 
-bool GUIControl::debuffActive(QString debuff) const {
+bool GUIControl::debuffActive(const QString& debuff) const {
     return current_char->get_active_buffs()->get_general_buffs()->debuff_active(debuff);
 }
 
@@ -500,8 +501,8 @@ void GUIControl::run_quick_sim() {
     combat->drop_tables();
     // TODO: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
-        EncounterStart* start_event = new EncounterStart(current_char);
-        EncounterEnd* end_event = new EncounterEnd(engine, current_char);
+        auto* start_event = new EncounterStart(current_char);
+        auto* end_event = new EncounterEnd(engine, current_char);
 
         engine->add_event(end_event);
         engine->add_event(start_event);
@@ -632,7 +633,7 @@ QString GUIControl::get_trinket2_icon() const {
     return "";
 }
 
-void GUIControl::selectSlot(QString slot_string) {
+void GUIControl::selectSlot(const QString& slot_string) {
     int slot = get_slot_int(slot_string);
 
     if (slot == -1)
@@ -654,7 +655,7 @@ void GUIControl::selectSlot(QString slot_string) {
     Q_EMIT equipmentSlotSelected();
 }
 
-void GUIControl::setSlot(QString slot_string, QString item) {
+void GUIControl::setSlot(const QString& slot_string, const QString& item) {
     // TODO: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         equipment->set_mainhand(item);
@@ -695,7 +696,7 @@ void GUIControl::setSlot(QString slot_string, QString item) {
     statsChanged();
 }
 
-void GUIControl::clearSlot(QString slot_string) {
+void GUIControl::clearSlot(const QString& slot_string) {
     if (slot_string == "MAINHAND")
         equipment->clear_mainhand();
     if (slot_string == "OFFHAND")
@@ -741,7 +742,7 @@ void GUIControl::setEquipmentSetup(const int equipment_index) {
     statsChanged();
 }
 
-void GUIControl::setPatch(QString patch) {
+void GUIControl::setPatch(const QString& patch) {
     weapon_model->set_patch(patch);
     item_model->set_patch(patch);
     buff_model->set_patch(patch);
@@ -842,8 +843,8 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
 }
 
 void GUIControl::set_weapon_tooltip(Item*& item, QString& slot, QString type, QString& dmg_range, QString& wpn_speed, QString& dps) {
-    slot = type;
-    Weapon* wpn = dynamic_cast<Weapon*>(item);
+    slot = std::move(type);
+    auto* wpn = dynamic_cast<Weapon*>(item);
     dmg_range = QString("%1 - %2 Damage").arg(QString::number(wpn->get_min_dmg()), QString::number(wpn->get_max_dmg()));
     dps = QString("(%1 damage per second)").arg(QString::number(wpn->get_wpn_dps(), 'f', 1));
     wpn_speed = "Speed " + QString::number(wpn->get_base_weapon_speed(), 'f', 2);
@@ -864,12 +865,12 @@ void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction
     if (restrictions.empty())
         return;
 
-    for (int i = 0; i < restrictions.size(); ++i) {
+    for (const auto & i : restrictions) {
         if (restriction == "")
             restriction = "Classes: ";
         else
             restriction += ", ";
-        restriction += restrictions[i];
+        restriction += i;
     }
 }
 

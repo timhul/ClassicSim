@@ -9,6 +9,6 @@ MainhandMeleeHit::MainhandMeleeHit(Spells* spells, const double next_timestamp, 
     this->iteration = iteration;
 }
 
-void MainhandMeleeHit::act(void) {
+void MainhandMeleeHit::act() {
     spells->mh_auto_attack(iteration);
 }

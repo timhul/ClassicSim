@@ -1,8 +1,10 @@
 
 #include "StatisticsProc.h"
 
+#include <utility>
+
 StatisticsProc::StatisticsProc(QString name) :
-    name(name),
+    name(std::move(name)),
     attempts(0),
     proc_counter(0)
 {}

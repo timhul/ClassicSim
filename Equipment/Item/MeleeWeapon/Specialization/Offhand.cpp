@@ -1,7 +1,7 @@
 
 #include "Offhand.h"
 
-int Offhand::get_item_slot(void) const {
+int Offhand::get_item_slot() const {
     return ItemSlots::OFFHAND;
 }
 

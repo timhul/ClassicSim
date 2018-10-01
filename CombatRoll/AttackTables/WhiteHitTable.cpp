@@ -76,7 +76,7 @@ int WhiteHitTable::get_outcome(const unsigned roll,
     return AttackResult::HIT;
 }
 
-void WhiteHitTable::dump_table(void) {
+void WhiteHitTable::dump_table() {
     qDebug() << QString("------ WHITE HIT TABLE %1 WEAPON SKILL ------").arg(wpn_skill);
     qDebug() << "MISS RANGE " << miss_range;
     qDebug() << "DODGE RANGE " << dodge_range;

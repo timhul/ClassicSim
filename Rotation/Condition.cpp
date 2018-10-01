@@ -3,9 +3,7 @@
 
 #include <QDebug>
 
-Condition::~Condition() {
-
-}
+Condition::~Condition() = default;
 
 void Sentence::dump() const {
     qDebug() << "logical_connective" << logical_connective;

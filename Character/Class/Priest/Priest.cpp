@@ -23,7 +23,7 @@ Priest::~Priest()
     delete statistics;
 }
 
-QString Priest::get_name(void) const {
+QString Priest::get_name() const {
     return "Priest";
 }
 
@@ -31,23 +31,23 @@ QString Priest::get_class_color() const {
     return "#FFFFFF";
 }
 
-int Priest::get_strength_modifier(void) const {
+int Priest::get_strength_modifier() const {
     return 0;
 }
 
-int Priest::get_agility_modifier(void) const {
+int Priest::get_agility_modifier() const {
     return 0;
 }
 
-int Priest::get_stamina_modifier(void) const {
+int Priest::get_stamina_modifier() const {
     return 0;
 }
 
-int Priest::get_intellect_modifier(void) const {
+int Priest::get_intellect_modifier() const {
     return 2;
 }
 
-int Priest::get_spirit_modifier(void) const {
+int Priest::get_spirit_modifier() const {
     return 3;
 }
 

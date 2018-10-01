@@ -14,11 +14,10 @@ PriestSpells::PriestSpells(Priest* priest) :
     spells.append(mh_attack);
 }
 
-PriestSpells::~PriestSpells()
-{}
+PriestSpells::~PriestSpells() = default;
 
 void PriestSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

@@ -12,18 +12,16 @@ BloodthirstTalent::BloodthirstTalent(Character *pchar, TalentTree* tree) :
     rank_descriptions.insert(1, base_str);
 }
 
-BloodthirstTalent::~BloodthirstTalent() {
-
-}
+BloodthirstTalent::~BloodthirstTalent() = default;
 
 void BloodthirstTalent::apply_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_bloodthirst()->increase_effect_via_talent();
 }
 
 void BloodthirstTalent::remove_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_bloodthirst()->decrease_effect_via_talent();
 }

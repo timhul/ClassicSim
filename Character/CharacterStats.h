@@ -75,9 +75,9 @@ protected:
     QVector<int> attack_speed_buffs;
     QVector<int> phys_dmg_buffs;
 
-    int ranged_ap;
+    int ranged_ap{};
     double haste_factor;
-    double ability_crit_dmg_mod;
+    double ability_crit_dmg_mod{};
     double total_phys_dmg_mod;
 
 private:

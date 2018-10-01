@@ -42,13 +42,13 @@
 
 #include "WarriorSpells.h"
 
-#include <assert.h>
+#include <cassert>
 #include <QDebug>
 
 #include "TestWarrior.h"
 
 
-void Test::test_all(void) {
+void Test::test_all() {
     qDebug() << "test_character_creation";
     test_character_creation();
     qDebug() << "test_equipment_creation";
@@ -84,20 +84,20 @@ void add_frostbite(EquipmentDb* db) {
     db->add_melee_weapon(wpn);
 }
 
-void Test::test_queue(void) {
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
+void Test::test_queue() {
+    auto* engine = new Engine();
+    auto* equipment = new Equipment();
     add_frostbite(equipment->get_db());
     equipment->set_mainhand("Frostbite");
     equipment->set_offhand("Frostbite");
     Race* race = new Orc();
-    Target* target = new Target(63);
-    CombatRoll* combat = new CombatRoll(target);
-    Faction* faction = new Faction();
-    Warrior* pchar = new Warrior(race, engine, equipment, combat, faction);
+    auto* target = new Target(63);
+    auto* combat = new CombatRoll(target);
+    auto* faction = new Faction();
+    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
     pchar->set_clvl(60);
-    EncounterStart* start_event = new EncounterStart(pchar);
-    EncounterEnd* end_event = new EncounterEnd(engine, pchar);
+    auto* start_event = new EncounterStart(pchar);
+    auto* end_event = new EncounterEnd(engine, pchar);
 
     engine->add_event(end_event);
     engine->add_event(start_event);
@@ -113,8 +113,8 @@ void Test::test_queue(void) {
     delete engine;
 }
 
-void Test::test_random(void) {
-    Random* random = new Random(0, 9999);
+void Test::test_random() {
+    auto* random = new Random(0, 9999);
 
     for (int i = 0; i < 10; ++i) {
         qDebug() << "Random rolling " << random->get_roll();
@@ -123,15 +123,15 @@ void Test::test_random(void) {
     delete random;
 }
 
-void Test::test_combat_roll_melee_hit_result(void) {
-    Target* target = new Target(63);
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
+void Test::test_combat_roll_melee_hit_result() {
+    auto* target = new Target(63);
+    auto* engine = new Engine();
+    auto* equipment = new Equipment();
     add_frostbite(equipment->get_db());
     Race* race = new Orc();
-    CombatRoll* combat = new CombatRoll(target);
-    Faction* faction = new Faction();
-    Warrior* pchar = new Warrior(race, engine, equipment, combat, faction);
+    auto* combat = new CombatRoll(target);
+    auto* faction = new Faction();
+    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
     combat->set_character(pchar);
 
     for(int i = 0; i < 30; ++i) {
@@ -147,15 +147,15 @@ void Test::test_combat_roll_melee_hit_result(void) {
     delete combat;
 }
 
-void Test::test_combat_roll_creation(void) {
-    Target* target = new Target(63);
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
+void Test::test_combat_roll_creation() {
+    auto* target = new Target(63);
+    auto* engine = new Engine();
+    auto* equipment = new Equipment();
     add_frostbite(equipment->get_db());
     Race* race = new Orc();
-    CombatRoll* combat = new CombatRoll(target);
-    Faction* faction = new Faction();
-    Warrior* pchar = new Warrior(race, engine, equipment, combat, faction);
+    auto* combat = new CombatRoll(target);
+    auto* faction = new Faction();
+    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
     combat->set_character(dynamic_cast<Character*>(pchar));
 
     combat->get_white_hit_table(300);
@@ -173,9 +173,9 @@ void Test::test_combat_roll_creation(void) {
     delete combat;
 }
 
-void Test::test_mechanics_dodge(void) {
-    Target* target = new Target(63);
-    Mechanics* mechanics = new Mechanics(target);
+void Test::test_mechanics_dodge() {
+    auto* target = new Target(63);
+    auto* mechanics = new Mechanics(target);
 
     assert(fabs(0.05 - mechanics->get_dodge_chance(300)) < 0.001);
     assert(fabs(0.05 - mechanics->get_dodge_chance(315)) < 0.001);
@@ -187,9 +187,9 @@ void Test::test_mechanics_dodge(void) {
     delete target;
 }
 
-void Test::test_mechanics_glancing_rate(void) {
-    Target* target = new Target(63);
-    Mechanics* mechanics = new Mechanics(target);
+void Test::test_mechanics_glancing_rate() {
+    auto* target = new Target(63);
+    auto* mechanics = new Mechanics(target);
 
     assert(fabs(6.3 - mechanics->get_glancing_blow_chance(1)) < 0.001);
 
@@ -211,9 +211,9 @@ void Test::test_mechanics_glancing_rate(void) {
     delete target;
 }
 
-void Test::test_mechanics_glancing_dmg_penalty(void) {
-    Target* target = new Target(63);
-    Mechanics* mechanics = new Mechanics(target);
+void Test::test_mechanics_glancing_dmg_penalty() {
+    auto* target = new Target(63);
+    auto* mechanics = new Mechanics(target);
 
     assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(5)) < 0.001);
 
@@ -226,9 +226,9 @@ void Test::test_mechanics_glancing_dmg_penalty(void) {
     delete target;
 }
 
-void Test::test_mechanics_dw_white_miss(void) {
-    Target* target = new Target(63);
-    Mechanics* mechanics = new Mechanics(target);
+void Test::test_mechanics_dw_white_miss() {
+    auto* target = new Target(63);
+    auto* mechanics = new Mechanics(target);
 
     assert(fabs(0.28 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
     assert(fabs(0.24 - mechanics->get_dw_white_miss_chance(315)) < 0.001);
@@ -246,9 +246,9 @@ void Test::test_mechanics_dw_white_miss(void) {
     delete target;
 }
 
-void Test::test_white_hit_table(void) {
-    Random* random = new Random(0, 9999);
-    WhiteHitTable* table = new WhiteHitTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+void Test::test_white_hit_table() {
+    auto* random = new Random(0, 9999);
+    auto* table = new WhiteHitTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
     assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
     delete table;
@@ -267,15 +267,15 @@ void Test::test_white_hit_table(void) {
     delete table;
 }
 
-void Test::test_white_hit_table_update(void) {
-    Target* target = new Target(63);
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
+void Test::test_white_hit_table_update() {
+    auto* target = new Target(63);
+    auto* engine = new Engine();
+    auto* equipment = new Equipment();
     add_frostbite(equipment->get_db());
     Race* race = new Orc();
-    CombatRoll* combat = new CombatRoll(target);
-    Faction* faction = new Faction();
-    Warrior* pchar = new Warrior(race, engine, equipment, combat, faction);
+    auto* combat = new CombatRoll(target);
+    auto* faction = new Faction();
+    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
     combat->set_character(dynamic_cast<Character*>(pchar));
 
     WhiteHitTable* table = combat->get_white_hit_table(300);
@@ -308,9 +308,9 @@ void Test::test_white_hit_table_update(void) {
     delete combat;
 }
 
-void Test::test_special_hit_table(void) {
-    Random* random = new Random(0, 9999);
-    MeleeSpecialTable* table = new MeleeSpecialTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
+void Test::test_special_hit_table() {
+    auto* random = new Random(0, 9999);
+    auto* table = new MeleeSpecialTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
     delete table;
 
@@ -325,8 +325,8 @@ void Test::test_special_hit_table(void) {
     delete random;
 }
 
-void Test::test_equipment_creation(void) {
-    Equipment* equipment = new Equipment();
+void Test::test_equipment_creation() {
+    auto* equipment = new Equipment();
     add_frostbite(equipment->get_db());
     equipment->set_mainhand("Frostbite");
     Weapon* mh = equipment->get_mainhand();
@@ -341,12 +341,12 @@ void Test::test_equipment_creation(void) {
 }
 
 
-void Test::test_character_creation(void) {
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
-    Target* target = new Target(63);
-    CombatRoll* combat = new CombatRoll(target);
-    Faction* faction = new Faction();
+void Test::test_character_creation() {
+    auto* engine = new Engine();
+    auto* equipment = new Equipment();
+    auto* target = new Target(63);
+    auto* combat = new CombatRoll(target);
+    auto* faction = new Faction();
 
     Race* race = new Human();
     // TODO: Add assertions
@@ -379,35 +379,35 @@ void Test::test_character_creation(void) {
     race = new Troll();
     // TODO: Add assertions
 
-    Priest* priest = new Priest(race, engine, equipment, combat, faction);
+    auto* priest = new Priest(race, engine, equipment, combat, faction);
     // TODO: Add assertions
     delete priest;
 
-    Rogue* rogue = new Rogue(race, engine, equipment, combat, faction);
+    auto* rogue = new Rogue(race, engine, equipment, combat, faction);
     // TODO: Add assertions
     delete rogue;
 
-    Mage* mage = new Mage(race, engine, equipment, combat, faction);
+    auto* mage = new Mage(race, engine, equipment, combat, faction);
     // TODO: Add assertions
     delete mage;
 
-    Druid* druid = new Druid(race, engine, equipment, combat, faction);
+    auto* druid = new Druid(race, engine, equipment, combat, faction);
     // TODO: Add assertions
     delete druid;
 
-    Hunter* hunter = new Hunter(race, engine, equipment, combat, faction);
+    auto* hunter = new Hunter(race, engine, equipment, combat, faction);
     // TODO: Add assertions
     delete hunter;
 
-    Warlock* warlock = new Warlock(race, engine, equipment, combat, faction);
+    auto* warlock = new Warlock(race, engine, equipment, combat, faction);
     // TODO: Add assertions
     delete warlock;
 
-    Shaman* shaman = new Shaman(race, engine, equipment, combat, faction);
+    auto* shaman = new Shaman(race, engine, equipment, combat, faction);
     // TODO: Add assertions
     delete shaman;
 
-    Paladin* paladin = new Paladin(race, engine, equipment, combat, faction);
+    auto* paladin = new Paladin(race, engine, equipment, combat, faction);
     paladin->set_clvl(60);
     assert(paladin->get_clvl() == 60);
     // TODO: Add assertions

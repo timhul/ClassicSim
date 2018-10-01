@@ -21,7 +21,7 @@ Shaman::~Shaman()
     delete statistics;
 }
 
-QString Shaman::get_name(void) const {
+QString Shaman::get_name() const {
     return "Shaman";
 }
 
@@ -29,23 +29,23 @@ QString Shaman::get_class_color() const {
     return "#0070DE";
 }
 
-int Shaman::get_strength_modifier(void) const {
+int Shaman::get_strength_modifier() const {
     return 1;
 }
 
-int Shaman::get_agility_modifier(void) const {
+int Shaman::get_agility_modifier() const {
     return 0;
 }
 
-int Shaman::get_stamina_modifier(void) const {
+int Shaman::get_stamina_modifier() const {
     return 1;
 }
 
-int Shaman::get_intellect_modifier(void) const {
+int Shaman::get_intellect_modifier() const {
     return 1;
 }
 
-int Shaman::get_spirit_modifier(void) const {
+int Shaman::get_spirit_modifier() const {
     return 2;
 }
 

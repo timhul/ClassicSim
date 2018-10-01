@@ -9,9 +9,7 @@ AxeSpecialization::AxeSpecialization(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 1, 1);
 }
 
-AxeSpecialization::~AxeSpecialization() {
-
-}
+AxeSpecialization::~AxeSpecialization() = default;
 
 void AxeSpecialization::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

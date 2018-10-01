@@ -13,13 +13,11 @@ DeathWishTalent::DeathWishTalent(Character *pchar, TalentTree* tree) :
     rank_descriptions.insert(1, base_str);
 }
 
-DeathWishTalent::~DeathWishTalent() {
-
-}
+DeathWishTalent::~DeathWishTalent() = default;
 
 void DeathWishTalent::apply_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     warr->get_death_wish_buff()->increase_rank();
     warr->get_death_wish_buff()->enable_buff();
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->increase_effect_via_talent();
@@ -27,7 +25,7 @@ void DeathWishTalent::apply_rank_effect() {
 
 void DeathWishTalent::remove_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     warr->get_death_wish_buff()->decrease_rank();
     warr->get_death_wish_buff()->disable_buff();
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->decrease_effect_via_talent();

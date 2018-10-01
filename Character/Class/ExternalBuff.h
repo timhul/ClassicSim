@@ -6,8 +6,8 @@
 
 class ExternalBuff: public Buff {
 public:
-    ExternalBuff(Character*, const QString name, const int dur, const int base_charges,
-                 const QString icon, const QString description, const QVersionNumber min_patch);
+    ExternalBuff(Character*, const QString& name, const int dur, const int base_charges,
+                 QString icon, QString description, QVersionNumber min_patch);
     virtual ~ExternalBuff();
 
     QString get_icon() const;

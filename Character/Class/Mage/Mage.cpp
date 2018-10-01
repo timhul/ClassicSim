@@ -22,7 +22,7 @@ Mage::~Mage()
     delete statistics;
 }
 
-QString Mage::get_name(void) const {
+QString Mage::get_name() const {
     return "Mage";
 }
 
@@ -30,23 +30,23 @@ QString Mage::get_class_color() const {
     return "#69CCF0";
 }
 
-int Mage::get_strength_modifier(void) const {
+int Mage::get_strength_modifier() const {
     return 0;
 }
 
-int Mage::get_agility_modifier(void) const {
+int Mage::get_agility_modifier() const {
     return 0;
 }
 
-int Mage::get_stamina_modifier(void) const {
+int Mage::get_stamina_modifier() const {
     return 0;
 }
 
-int Mage::get_intellect_modifier(void) const {
+int Mage::get_intellect_modifier() const {
     return 3;
 }
 
-int Mage::get_spirit_modifier(void) const {
+int Mage::get_spirit_modifier() const {
     return 2;
 }
 

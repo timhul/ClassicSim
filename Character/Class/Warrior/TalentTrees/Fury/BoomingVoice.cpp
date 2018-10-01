@@ -10,9 +10,7 @@ BoomingVoice::BoomingVoice(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 10, 10);
 }
 
-BoomingVoice::~BoomingVoice() {
-
-}
+BoomingVoice::~BoomingVoice() = default;
 
 void BoomingVoice::apply_rank_effect() {
     dynamic_cast<Warrior*>(pchar)->get_battle_shout_buff()->increase_effect_via_booming_voice();

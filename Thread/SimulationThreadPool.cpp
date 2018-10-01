@@ -2,7 +2,7 @@
 #include "SimulationThreadPool.h"
 #include "SimulationRunner.h"
 #include "Random.h"
-#include <limits.h>
+#include <climits>
 #include <QThread>
 #include <QDebug>
 #include <QThreadPool>
@@ -26,8 +26,8 @@ void SimulationThreadPool::run_sim(const QString &setup_string) {
     assert(running_threads == 0);
     assert(thread_results.empty());
 
-    for (int i = 0; i < thread_pool.size(); ++i) {
-        thread_results.append(QPair<unsigned, double>(thread_pool[i].first, 0.0));
+    for (auto & i : thread_pool) {
+        thread_results.append(QPair<unsigned, double>(i.first, 0.0));
     }
 
     running_threads = thread_pool.size();
@@ -35,7 +35,7 @@ void SimulationThreadPool::run_sim(const QString &setup_string) {
 }
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {
-    QThread* thread = new QThread();
+    auto* thread = new QThread();
     SimulationRunner* runner = new SimulationRunner(QString::number(thread_id));
 
     connect(this, SIGNAL (thread_setup_string(QString)), runner, SLOT (run_sim(QString)));
@@ -49,7 +49,7 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     thread->start();
 }
 
-void SimulationThreadPool::error_string(QString seed, QString error) {
+void SimulationThreadPool::error_string(const QString& seed, const QString& error) {
     qDebug() << "thread error" << seed << ": " << error;
     --running_threads;
 
@@ -58,14 +58,14 @@ void SimulationThreadPool::error_string(QString seed, QString error) {
     }
 }
 
-void SimulationThreadPool::result(QString seed, double result) {
+void SimulationThreadPool::result(const QString& seed, double result) {
     --running_threads;
 
-    for (int i = 0; i < thread_results.size(); ++i) {
-        if (thread_results[i].first != seed.toUInt())
+    for (auto & thread_result : thread_results) {
+        if (thread_result.first != seed.toUInt())
             continue;
 
-        thread_results[i].second = result;
+        thread_result.second = result;
     }
 
     check_threads_finished();
@@ -76,12 +76,12 @@ void SimulationThreadPool::check_threads_finished() {
         double avg_dps = 0.0;
         int num_threads_with_result = 0;
 
-        for (int i = 0; i < thread_results.size(); ++i) {
-            if (thread_results[i].second < 0.001)
+        for (auto & thread_result : thread_results) {
+            if (thread_result.second < 0.001)
                 continue;
 
             ++num_threads_with_result;
-            avg_dps += thread_results[i].second;
+            avg_dps += thread_result.second;
             if (num_threads_with_result > 1)
                 avg_dps /= 2;
         }

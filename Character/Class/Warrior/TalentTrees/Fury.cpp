@@ -59,5 +59,4 @@ Fury::Fury(Character *pchar, QObject* parent) :
     talents["6MR"]->set_parent(talents["4MR"]);
 }
 
-Fury::~Fury()
-{}
+Fury::~Fury() = default;

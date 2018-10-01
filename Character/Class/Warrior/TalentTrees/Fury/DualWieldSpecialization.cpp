@@ -11,18 +11,16 @@ DualWieldSpecialization::DualWieldSpecialization(Character *pchar, TalentTree* t
     initialize_rank_descriptions(base_str, 5, 5);
 }
 
-DualWieldSpecialization::~DualWieldSpecialization() {
-
-}
+DualWieldSpecialization::~DualWieldSpecialization() = default;
 
 void DualWieldSpecialization::apply_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_oh_attack_warrior()->increase_effect_via_talent();
 }
 
 void DualWieldSpecialization::remove_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_oh_attack_warrior()->decrease_effect_via_talent();
 }

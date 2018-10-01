@@ -14,11 +14,10 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     spells.append(mh_attack);
 }
 
-ShamanSpells::~ShamanSpells()
-{}
+ShamanSpells::~ShamanSpells() = default;
 
 void ShamanSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

@@ -22,7 +22,7 @@ Warlock::~Warlock()
     delete statistics;
 }
 
-QString Warlock::get_name(void) const {
+QString Warlock::get_name() const {
     return "Warlock";
 }
 
@@ -30,23 +30,23 @@ QString Warlock::get_class_color() const {
     return "#9482C9";
 }
 
-int Warlock::get_strength_modifier(void) const {
+int Warlock::get_strength_modifier() const {
     return 0;
 }
 
-int Warlock::get_agility_modifier(void) const {
+int Warlock::get_agility_modifier() const {
     return 0;
 }
 
-int Warlock::get_stamina_modifier(void) const {
+int Warlock::get_stamina_modifier() const {
     return 1;
 }
 
-int Warlock::get_intellect_modifier(void) const {
+int Warlock::get_intellect_modifier() const {
     return 2;
 }
 
-int Warlock::get_spirit_modifier(void) const {
+int Warlock::get_spirit_modifier() const {
     return 2;
 }
 

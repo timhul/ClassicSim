@@ -15,16 +15,16 @@ Rotation::Rotation(Character *pchar, QObject* parent) :
 {}
 
 Rotation::~Rotation() {
-    for (int i = 0; i < cast_ifs.size(); ++i) {
-        delete cast_ifs[i];
+    for (auto & cast_if : cast_ifs) {
+        delete cast_if;
     }
 
     cast_ifs.clear();
 }
 
 void Rotation::perform_rotation() const {
-    for (int i = 0; i < cast_ifs.size(); ++i) {
-        cast_ifs[i]->attempt_cast();
+    for (auto cast_if : cast_ifs) {
+        cast_if->attempt_cast();
     }
 }
 
@@ -101,23 +101,23 @@ void Rotation::add_conditionals(const int index) {
         cast_if->add_condition(condition_group_to_add);
 }
 
-void Rotation::set_class(const QString class_name) {
+void Rotation::set_class(const QString& class_name) {
     this->class_name = class_name;
 }
 
-void Rotation::set_name(const QString name) {
+void Rotation::set_name(const QString& name) {
     this->name = name;
 }
 
-void Rotation::set_description(const QString desc) {
+void Rotation::set_description(const QString& desc) {
     this->description = desc;
 }
 
-void Rotation::add_variable(const QString var, const QString value) {
+void Rotation::add_variable(const QString& var, const QString& value) {
     this->defined_variables.insert(var, value);
 }
 
-void Rotation::add_prerequisite(const QString key, const QString value) {
+void Rotation::add_prerequisite(const QString& key, const QString& value) {
     this->prerequisites.insert(key, value);
 }
 
@@ -155,7 +155,7 @@ void Rotation::dump() {
     qDebug() << "defined_variables" << defined_variables;
     qDebug() << "prerequisites" << prerequisites;
     qDebug() << "cast_ifs:";
-    for (int i = 0; i < cast_ifs.size(); ++i) {
-        cast_ifs[i]->dump();
+    for (auto & cast_if : cast_ifs) {
+        cast_if->dump();
     }
 }

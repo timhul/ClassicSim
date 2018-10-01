@@ -18,18 +18,18 @@ void DebuffModel::set_patch(const QString &patch) {
 }
 
 void DebuffModel::addDebuffs() {
-    if (external_debuffs.size() > 0) {
+    if (!external_debuffs.empty()) {
         beginRemoveRows(QModelIndex(), 0, external_debuffs.size() - 1);
         external_debuffs.clear();
         endRemoveRows();
     }
 
     QVector<ExternalBuff*> debuffs = general_debuffs->get_external_debuffs();
-    for (int i = 0; i < debuffs.size(); ++i) {
+    for (auto debuff : debuffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
-        if (debuffs.at(i)->valid_for_patch(this->patch))
-            external_debuffs << debuffs.at(i);
+        if (debuff->valid_for_patch(this->patch))
+            external_debuffs << debuff;
         endInsertRows();
     }
 }

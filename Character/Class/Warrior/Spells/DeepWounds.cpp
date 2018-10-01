@@ -22,15 +22,15 @@ void DeepWounds::spell_effect() {
     damage_dealt += previous_tick_rest;
     previous_tick_rest = damage_dealt - round(damage_dealt);
 
-    for (int i = 0; i < stacks.size(); ++i) {
-        assert(stacks[i] > 0);
-        --stacks[i];
+    for (int & stack : stacks) {
+        assert(stack > 0);
+        --stack;
     }
 
     stacks.removeAll(0);
 
     if (!stacks.empty()) {
-        DotTick* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
+        auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
         this->engine->add_event(new_event);
     }
     else
@@ -46,7 +46,7 @@ void DeepWounds::apply_debuff() {
     // TODO: Assumption is that each stack ticks 6 times (i.e. every 2 seconds).
     // After the first critical strike (T=0), the first tick comes at T=2, next at T=4, and so on.
     if (stacks.empty()) {
-        DotTick* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
+        auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
         this->engine->add_event(new_event);
     }
 

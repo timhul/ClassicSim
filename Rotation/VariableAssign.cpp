@@ -1,9 +1,10 @@
 
 #include "VariableAssign.h"
 
+#include <utility>
 
 VariableAssign::VariableAssign(QString id, bool value) :
-    id(id),
+    id(std::move(id)),
     value(value)
 {}
 

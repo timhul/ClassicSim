@@ -2,11 +2,12 @@
 #include "TalentTree.h"
 #include "Talent.h"
 #include <QDebug>
+#include <utility>
 
-TalentTree::TalentTree(const QString &name_, const QString &background_, QObject *parent) :
+TalentTree::TalentTree(QString name_, QString background_, QObject *parent) :
     QObject(parent),
-    name(name_),
-    background(background_),
+    name(std::move(name_)),
+    background(std::move(background_)),
     total_spent_points(0),
     talents(QMap<QString, Talent*>())
 {
@@ -14,7 +15,7 @@ TalentTree::TalentTree(const QString &name_, const QString &background_, QObject
 }
 
 TalentTree::~TalentTree() {
-    for (auto it : talents.keys()) {
+    for (const auto& it : talents.keys()) {
         delete talents.value(it);
     }
 
@@ -276,11 +277,11 @@ int TalentTree::get_total_points() const {
 }
 
 void TalentTree::clear_tree() {
-    for (auto it : talents.keys()) {
+    for (const auto& it : talents.keys()) {
         talents.value(it)->force_clear_rank();
     }
 
-    for (auto it : spent_points.keys()) {
+    for (const auto& it : spent_points.keys()) {
         spent_points[it] = 0;
     }
 
@@ -288,7 +289,7 @@ void TalentTree::clear_tree() {
 }
 
 void TalentTree::remove_rank_effects() {
-    for (auto it : talents.keys()) {
+    for (const auto& it : talents.keys()) {
         for (int i = 0; i < talents.value(it)->get_current_rank(); ++i) {
             talents.value(it)->remove_rank_effect();
         }
@@ -296,7 +297,7 @@ void TalentTree::remove_rank_effects() {
 }
 
 void TalentTree::apply_rank_effects() {
-    for (auto it : talents.keys()) {
+    for (const auto& it : talents.keys()) {
         for (int i = 0; i < talents.value(it)->get_current_rank(); ++i) {
             talents.value(it)->apply_rank_effect();
         }
@@ -308,8 +309,8 @@ QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
     QVector<QPair<QString, QString>> talent_tree_setup;
 
     for (int tier = 0; tier < 7; ++tier) {
-        for (int suffix = 0; suffix < suffixes.size(); ++suffix) {
-            QString position = QString("%1%2").arg(QString::number(tier + 1), suffixes[suffix]);
+        for (const auto & suffix : suffixes) {
+            QString position = QString("%1%2").arg(QString::number(tier + 1), suffix);
 
             if (!talents.contains(position) || !talents[position]->is_active())
                 continue;

@@ -18,17 +18,15 @@ void Faction::switch_faction() {
 }
 
 const QVector<QString>& Faction::get_faction_races() const {
-    return this->faction == true ? horde_races :
-                                   alliance_races;
+    return this->faction ? horde_races : alliance_races;
 }
 
 const QVector<QString>& Faction::get_faction_classes() const {
-    return this->faction == true ? horde_classes :
-                                   alliance_classes;
+    return this->faction ? horde_classes : alliance_classes;
 }
 
 bool Faction::is_alliance() const {
-    return this->faction == false;
+    return !this->faction;
 }
 
 bool Faction::is_horde() const {

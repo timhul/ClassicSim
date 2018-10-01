@@ -14,11 +14,10 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     spells.append(mh_attack);
 }
 
-PaladinSpells::~PaladinSpells()
-{}
+PaladinSpells::~PaladinSpells() = default;
 
 void PaladinSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

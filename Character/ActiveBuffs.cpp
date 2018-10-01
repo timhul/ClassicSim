@@ -40,28 +40,28 @@ void ActiveBuffs::remove_buff(Buff* buff) {
 }
 
 void ActiveBuffs::reset() {
-    for (int i = 0; i < active_buffs.size(); ++i) {
-        active_buffs[i]->reset();
+    for (auto & active_buff : active_buffs) {
+        active_buff->reset();
     }
 }
 
 void ActiveBuffs::switch_faction() {
     if (faction->is_alliance()) {
-        for (int i = 0; i < horde_only_buffs.size(); ++i) {
-            remove_buff(horde_only_buffs[i]);
+        for (auto & horde_only_buff : horde_only_buffs) {
+            remove_buff(horde_only_buff);
         }
 
-        for (int i = 0; i < alliance_only_buffs.size(); ++i) {
-            add_buff(alliance_only_buffs[i]);
+        for (auto & alliance_only_buff : alliance_only_buffs) {
+            add_buff(alliance_only_buff);
         }
     }
     else {
-        for (int i = 0; i < alliance_only_buffs.size(); ++i) {
-            remove_buff(alliance_only_buffs[i]);
+        for (auto & alliance_only_buff : alliance_only_buffs) {
+            remove_buff(alliance_only_buff);
         }
 
-        for (int i = 0; i < horde_only_buffs.size(); ++i) {
-            add_buff(horde_only_buffs[i]);
+        for (auto & horde_only_buff : horde_only_buffs) {
+            add_buff(horde_only_buff);
         }
     }
 }
@@ -74,9 +74,9 @@ QVector<QString> ActiveBuffs::get_active_external_buffs() {
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     QVector<QString> active_external_buffs;
 
-    for (int i = 0; i < buffs.size(); ++i) {
-        if (buffs[i]->is_active())
-            active_external_buffs.append(buffs[i]->get_name());
+    for (auto & buff : buffs) {
+        if (buff->is_active())
+            active_external_buffs.append(buff->get_name());
     }
 
     return active_external_buffs;

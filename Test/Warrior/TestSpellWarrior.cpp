@@ -6,9 +6,10 @@
 #include "OverpowerBuff.h"
 #include "Warrior.h"
 #include <QDebug>
+#include <utility>
 
 TestSpellWarrior::TestSpellWarrior(QString spell_under_test) :
-    TestSpell(spell_under_test)
+    TestSpell(std::move(spell_under_test))
 {}
 
 void TestSpellWarrior::set_up() {

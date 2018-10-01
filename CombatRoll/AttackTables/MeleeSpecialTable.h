@@ -39,11 +39,11 @@ private:
     double block;
     double critical;
 
-    unsigned miss_range;
-    unsigned dodge_range;
-    unsigned parry_range;
-    unsigned block_range;
-    unsigned critical_range;
+    unsigned miss_range{};
+    unsigned dodge_range{};
+    unsigned parry_range{};
+    unsigned block_range{};
+    unsigned critical_range{};
 };
 
 #endif // MELEESPECIALTABLE_H

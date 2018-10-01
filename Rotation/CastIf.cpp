@@ -4,22 +4,23 @@
 #include "Spell.h"
 
 #include <QDebug>
+#include <utility>
 
 CastIf::CastIf(QString name, QObject* parent) :
     QObject(parent),
-    spell_name(name),
+    spell_name(std::move(name)),
     spell(nullptr)
 {}
 
 CastIf::~CastIf() {
-    for (int i = 0; i < condition_groups.size(); ++i) {
-        for (int j = 0; j < condition_groups.at(i).size(); ++j) {
-            delete condition_groups[i][j];
+    for (auto & condition_group : condition_groups) {
+        for (auto & j : condition_group) {
+            delete j;
         }
     }
 
-    for (int i = 0; i < sentences.size(); ++i) {
-        delete sentences[i];
+    for (auto & sentence : sentences) {
+        delete sentence;
     }
 
     condition_groups.clear();
@@ -28,7 +29,7 @@ CastIf::~CastIf() {
 
 void CastIf::attempt_cast() {
     assert(spell != nullptr);
-    if (spell->is_available() == false)
+    if (!spell->is_available())
         return;
 
     if (condition_groups.empty()) {
@@ -37,7 +38,7 @@ void CastIf::attempt_cast() {
     }
 
     for (int i = 0; i < condition_groups.size(); ++i) {
-        if (condition_group_fulfilled(i) == true) {
+        if (condition_group_fulfilled(i)) {
             spell->perform();
             return;
         }
@@ -46,7 +47,7 @@ void CastIf::attempt_cast() {
 
 bool CastIf::condition_group_fulfilled(const int index) const {
     for (int i = 0; i < condition_groups.at(index).size(); ++i) {
-        if (condition_groups[index][i]->condition_fulfilled() == false) {
+        if (!condition_groups[index][i]->condition_fulfilled()) {
             return false;
         }
     }
@@ -71,11 +72,11 @@ void CastIf::add_sentence(Sentence* sentence) {
     this->sentences.append(sentence);
 }
 
-void CastIf::add_condition(QVector<Condition*> condition) {
+void CastIf::add_condition(const QVector<Condition*>& condition) {
     this->condition_groups.append(condition);
 }
 
-void CastIf::add_variable_assignment(QString var, QString value) {
+void CastIf::add_variable_assignment(const QString& var, const QString& value) {
     this->variable_assignments.insert(var, value);
 }
 
@@ -86,8 +87,8 @@ QMap<QString, QString>& CastIf::get_variable_assignments() {
 void CastIf::dump() {
     qDebug() << "variable assignments" << variable_assignments;
     qDebug() << "conditions:";
-    for (int i = 0; i < sentences.size(); ++i) {
+    for (auto sentence : sentences) {
         qDebug() << "----- sentences ------";
-        sentences.at(i)->dump();
+        sentence->dump();
     }
 }

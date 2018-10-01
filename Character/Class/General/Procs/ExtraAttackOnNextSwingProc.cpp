@@ -8,8 +8,8 @@
 
 ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Engine* engine, Character* pchar,
                                                        CombatRoll* roll,
-                                                       QString proc_name,
-                                                       QVector<ProcInfo::Source> proc_sources,
+                                                       const QString& proc_name,
+                                                       const QVector<ProcInfo::Source>& proc_sources,
                                                        const double proc_rate,
                                                        const int num_attacks) :
     Proc(proc_name, proc_rate, 0, false, QVector<Proc*>(), proc_sources, engine, pchar, roll),

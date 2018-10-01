@@ -11,18 +11,16 @@ ImprovedHeroicStrike::ImprovedHeroicStrike(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 1, 1);
 }
 
-ImprovedHeroicStrike::~ImprovedHeroicStrike() {
-
-}
+ImprovedHeroicStrike::~ImprovedHeroicStrike() = default;
 
 void ImprovedHeroicStrike::apply_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_heroic_strike()->increase_effect_via_talent();
 }
 
 void ImprovedHeroicStrike::remove_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_heroic_strike()->decrease_effect_via_talent();
 }

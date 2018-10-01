@@ -5,7 +5,7 @@
 #include "StatisticsSpell.h"
 #include "Mechanics.h"
 
-Spell::Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
+Spell::Spell(const QString& name, Engine* engine, Character* pchar, CombatRoll* roll,
              bool restricted_by_gcd, double cooldown, int resource_cost) :
     name(name),
     engine(engine),
@@ -51,7 +51,7 @@ bool Spell::is_ready() const {
     if (restricted_by_gcd && pchar->on_global_cooldown())
         return false;
 
-    if (is_ready_spell_specific() == false)
+    if (!is_ready_spell_specific())
         return false;
 
     return (get_next_use() - engine->get_current_priority()) < 0.0001;
@@ -126,16 +126,16 @@ void Spell::perform() {
     this->spell_effect();
 }
 
-void Spell::add_spell_cd_event(void) const {
+void Spell::add_spell_cd_event() const {
     double cooldown_ready = engine->get_current_priority() + cooldown;
-    CooldownReady* new_event = new CooldownReady(pchar->get_rotation(), cooldown_ready);
+    auto* new_event = new CooldownReady(pchar->get_rotation(), cooldown_ready);
     engine->add_event(new_event);
 }
 
-void Spell::add_gcd_event(void) const {
+void Spell::add_gcd_event() const {
     pchar->start_global_cooldown();
     double gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
-    CooldownReady* new_event = new CooldownReady(pchar->get_rotation(), gcd_ready);
+    auto* new_event = new CooldownReady(pchar->get_rotation(), gcd_ready);
     engine->add_event(new_event);
 }
 

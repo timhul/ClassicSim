@@ -1,8 +1,10 @@
 
 #include "StatisticsResource.h"
 
+#include <utility>
+
 StatisticsResource::StatisticsResource(QString name) :
-    name(name),
+    name(std::move(name)),
     resource_gain(0)
 {}
 

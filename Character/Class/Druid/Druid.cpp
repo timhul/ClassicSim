@@ -21,7 +21,7 @@ Druid::~Druid()
     delete statistics;
 }
 
-QString Druid::get_name(void) const {
+QString Druid::get_name() const {
     return "Druid";
 }
 
@@ -29,23 +29,23 @@ QString Druid::get_class_color() const {
     return "#FF7D0A";
 }
 
-int Druid::get_strength_modifier(void) const {
+int Druid::get_strength_modifier() const {
     return 1;
 }
 
-int Druid::get_agility_modifier(void) const {
+int Druid::get_agility_modifier() const {
     return 0;
 }
 
-int Druid::get_stamina_modifier(void) const {
+int Druid::get_stamina_modifier() const {
     return 0;
 }
 
-int Druid::get_intellect_modifier(void) const {
+int Druid::get_intellect_modifier() const {
     return 2;
 }
 
-int Druid::get_spirit_modifier(void) const {
+int Druid::get_spirit_modifier() const {
     return 2;
 }
 

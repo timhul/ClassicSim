@@ -5,27 +5,27 @@ int Dwarf::get_race_int() const {
     return Races::Dwarf;
 }
 
-QString Dwarf::get_name(void) const {
+QString Dwarf::get_name() const {
     return "Dwarf";
 }
 
-int Dwarf::get_base_strength(void) const {
+int Dwarf::get_base_strength() const {
     return 22;
 }
 
-int Dwarf::get_base_agility(void) const {
+int Dwarf::get_base_agility() const {
     return 16;
 }
 
-int Dwarf::get_base_stamina(void) const {
+int Dwarf::get_base_stamina() const {
     return 23;
 }
 
-int Dwarf::get_base_intellect(void) const {
+int Dwarf::get_base_intellect() const {
     return 19;
 }
 
-int Dwarf::get_base_spirit(void) const {
+int Dwarf::get_base_spirit() const {
     return 19;
 }
 

@@ -37,25 +37,25 @@ QVariant PieChartModel::data(const QModelIndex & index, int role) const {
 
 QModelIndex PieChartModel::index(int row, int column, const QModelIndex &) const {
     if (row >= slices.size() || column > 1)
-        return QModelIndex();
+        return {};
 
     return createIndex(row, column);
 }
 
 QModelIndex PieChartModel::parent(const QModelIndex &) const {
-    return QModelIndex();
+    return {};
 }
 
 void PieChartModel::updateLabels() {
     double total = 0;
-    for (int i = 0; i < slices.size(); ++i) {
-        total += slices[i].second;
+    for (auto & slice : slices) {
+        total += slice.second;
     }
 
-    for (int i = 0; i < slices.size(); ++i) {
-        QString label = slices[i].first;
-        QString number = QString::number(slices[i].second / total * 100, 'f', 2);
+    for (auto & slice : slices) {
+        QString label = slice.first;
+        QString number = QString::number(slice.second / total * 100, 'f', 2);
 
-        slices[i].first = QString("%1 %2%").arg(label, number);
+        slice.first = QString("%1 %2%").arg(label, number);
     }
 }

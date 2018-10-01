@@ -31,7 +31,7 @@ void Engine::prepare() {
     processed_events_of_type.clear();
 }
 
-void Engine::dump(void) {
+void Engine::dump() {
     const double elapsed = timer->elapsed() / 1000;
 
     QMap<QString, int>::const_iterator i = processed_events_of_type.constBegin();
@@ -44,7 +44,7 @@ void Engine::dump(void) {
     qDebug() << processed_events / elapsed << "events per second";
 }
 
-void Engine::reset(void) {
+void Engine::reset() {
     current_prio = -1;
     processed_events = 0;
     queue->clear();
@@ -52,12 +52,12 @@ void Engine::reset(void) {
     timer = new QTime();
 }
 
-void Engine::end_combat(void) {   
+void Engine::end_combat() {   
     queue->clear();
     current_prio = -1;
 }
 
-double Engine::get_current_priority(void) const {
+double Engine::get_current_priority() const {
     return current_prio;
 }
 

@@ -25,7 +25,7 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
 bool Execute::is_ready_spell_specific() const {
     // TODO: Refactor this check into separate target mechanic.
     double time_remaining = 300 - warr->get_engine()->get_current_priority();
-    return time_remaining / 300 < 0.2 ? true : false;
+    return time_remaining / 300 < 0.2;
 }
 
 void Execute::spell_effect() {

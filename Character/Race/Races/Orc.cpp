@@ -5,27 +5,27 @@ int Orc::get_race_int() const {
     return Races::Orc;
 }
 
-QString Orc::get_name(void) const {
+QString Orc::get_name() const {
     return "Orc";
 }
 
-int Orc::get_base_strength(void) const {
+int Orc::get_base_strength() const {
     return 23;
 }
 
-int Orc::get_base_agility(void) const {
+int Orc::get_base_agility() const {
     return 17;
 }
 
-int Orc::get_base_stamina(void) const {
+int Orc::get_base_stamina() const {
     return 22;
 }
 
-int Orc::get_base_intellect(void) const {
+int Orc::get_base_intellect() const {
     return 17;
 }
 
-int Orc::get_base_spirit(void) const {
+int Orc::get_base_spirit() const {
     return 23;
 }
 

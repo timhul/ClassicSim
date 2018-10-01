@@ -1,18 +1,19 @@
 
 #include "ExternalBuff.h"
 
-ExternalBuff::ExternalBuff(Character* pchar, const QString name,
+#include <utility>
+
+ExternalBuff::ExternalBuff(Character* pchar, const QString& name,
                            const int dur, const int base_charges,
-                           const QString icon, const QString description,
-                           const QVersionNumber min_patch):
+                           QString icon, QString description,
+                           QVersionNumber min_patch):
     Buff(pchar, name, dur, base_charges),
-    icon(icon),
-    description(description),
-    min_patch(min_patch)
+    icon(std::move(icon)),
+    description(std::move(description)),
+    min_patch(std::move(min_patch))
 {}
 
-ExternalBuff::~ExternalBuff() {
-}
+ExternalBuff::~ExternalBuff() = default;
 
 QString ExternalBuff::get_icon() const {
     return this->icon;

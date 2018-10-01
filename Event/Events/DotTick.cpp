@@ -8,6 +8,6 @@ DotTick::DotTick(Spell* spell, double priority) {
     this->name = "DotTick";
 }
 
-void DotTick::act(void) {
+void DotTick::act() {
     spell->perform();
 }

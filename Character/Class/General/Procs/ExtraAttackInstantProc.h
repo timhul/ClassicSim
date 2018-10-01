@@ -7,8 +7,8 @@ class ExtraAttackOnNextSwingBuff;
 
 class ExtraAttackInstantProc: public Proc {
 public:
-    ExtraAttackInstantProc(Engine* engine, Character* pchar, CombatRoll* roll, QString proc_name,
-                           QVector<ProcInfo::Source> proc_sources, const double proc_rate,
+    ExtraAttackInstantProc(Engine* engine, Character* pchar, CombatRoll* roll, const QString& proc_name,
+                           const QVector<ProcInfo::Source>& proc_sources, const double proc_rate,
                            const int num_attacks);
     ~ExtraAttackInstantProc() override;
 

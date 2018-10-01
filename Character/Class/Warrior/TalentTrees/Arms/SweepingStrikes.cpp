@@ -10,9 +10,7 @@ SweepingStrikes::SweepingStrikes(Character *pchar, TalentTree* tree) :
     rank_descriptions.insert(1, base_str);
 }
 
-SweepingStrikes::~SweepingStrikes() {
-
-}
+SweepingStrikes::~SweepingStrikes() = default;
 
 void SweepingStrikes::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

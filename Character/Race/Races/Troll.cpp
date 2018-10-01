@@ -5,27 +5,27 @@ int Troll::get_race_int() const {
     return Races::Troll;
 }
 
-QString Troll::get_name(void) const {
+QString Troll::get_name() const {
     return "Troll";
 }
 
-int Troll::get_base_strength(void) const {
+int Troll::get_base_strength() const {
     return 21;
 }
 
-int Troll::get_base_agility(void) const {
+int Troll::get_base_agility() const {
     return 22;
 }
 
-int Troll::get_base_stamina(void) const {
+int Troll::get_base_stamina() const {
     return 21;
 }
 
-int Troll::get_base_intellect(void) const {
+int Troll::get_base_intellect() const {
     return 16;
 }
 
-int Troll::get_base_spirit(void) const {
+int Troll::get_base_spirit() const {
     return 21;
 }
 

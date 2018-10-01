@@ -15,7 +15,7 @@ class StatisticsSpell;
 
 class Spell {
 public:
-    Spell(QString name, Engine* engine, Character* pchar, CombatRoll* roll,
+    Spell(const QString& name, Engine* engine, Character* pchar, CombatRoll* roll,
           bool restricted_by_gcd, double cooldown, int resource_cost);
 
     virtual ~Spell();

@@ -9,9 +9,7 @@ TwoHandedWeaponSpecialization::TwoHandedWeaponSpecialization(Character *pchar, T
     initialize_rank_descriptions(base_str, 1, 1);
 }
 
-TwoHandedWeaponSpecialization::~TwoHandedWeaponSpecialization() {
-
-}
+TwoHandedWeaponSpecialization::~TwoHandedWeaponSpecialization() = default;
 
 void TwoHandedWeaponSpecialization::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

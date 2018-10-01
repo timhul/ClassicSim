@@ -27,9 +27,9 @@ void ItemTypeFilterModel::set_character(Character *pchar) {
 }
 
 bool ItemTypeFilterModel::get_filter_active(const int filter) const {
-    for (int i = 0; i < item_type_filters[equipment_slot].size(); ++i) {
-        if (item_type_filters[equipment_slot][i].item_type == filter) {
-            return item_type_filters[equipment_slot][i].active;
+    for (const auto & i : item_type_filters[equipment_slot]) {
+        if (i.item_type == filter) {
+            return i.active;
         }
     }
 
@@ -37,9 +37,9 @@ bool ItemTypeFilterModel::get_filter_active(const int filter) const {
 }
 
 void ItemTypeFilterModel::toggle_single_filter(const int filter) {
-    for (int i = 0; i < item_type_filters[equipment_slot].size(); ++i) {
-        if (item_type_filters[equipment_slot][i].item_type == filter) {
-            item_type_filters[equipment_slot][i].active = !item_type_filters[equipment_slot][i].active;
+    for (auto & i : item_type_filters[equipment_slot]) {
+        if (i.item_type == filter) {
+            i.active = !i.active;
             return;
         }
     }
@@ -103,8 +103,8 @@ void ItemTypeFilterModel::add_weapon_item_type_filters() {
 
     QVector<int> available_types = pchar->get_weapon_proficiencies_for_slot(equipment_slot);
 
-    for (int i = 0; i < available_types.size(); ++i) {
-        switch (available_types[i]) {
+    for (int available_type : available_types) {
+        switch (available_type) {
         case WeaponTypes::AXE:
             item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::AXE, "Axe"));
             break;

@@ -27,7 +27,7 @@ Target::Target(int target_lvl):
                                {"Undead", CreatureType::Undead}};
 }
 
-int Target::get_lvl(void) const {
+int Target::get_lvl() const {
     return target_lvl;
 }
 
@@ -35,7 +35,7 @@ void Target::set_lvl(int new_tlvl) {
     target_lvl = new_tlvl;
 }
 
-int Target::get_defense(void) const {
+int Target::get_defense() const {
     return target_lvl * 5;
 }
 

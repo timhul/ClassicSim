@@ -3,10 +3,10 @@
 #include "Character.h"
 #include "TalentTree.h"
 
-GenericTalent::GenericTalent(Character *pchar, TalentTree* tree, const QString &name, const QString &position, const QString &icon, const int max_points, const QString &rank_description, const QVector<QPair<int, int>> format_values) :
+GenericTalent::GenericTalent(Character *pchar, TalentTree* tree, const QString &name, const QString &position, const QString &icon, const int max_points, const QString &rank_description, const QVector<QPair<int, int>>& format_values) :
     Talent(pchar, tree, name, position, icon, max_points)
 {
-    if (format_values.size() > 0) {
+    if (!format_values.empty()) {
         initialize_rank_descriptions(rank_description, format_values);
     }
     else {
@@ -15,9 +15,7 @@ GenericTalent::GenericTalent(Character *pchar, TalentTree* tree, const QString &
     }
 }
 
-GenericTalent::~GenericTalent() {
-
-}
+GenericTalent::~GenericTalent() = default;
 
 void GenericTalent::apply_rank_effect() {}
 

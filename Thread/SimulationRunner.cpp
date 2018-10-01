@@ -1,5 +1,8 @@
 
 #include "SimulationRunner.h"
+
+#include <utility>
+
 #include "CharacterEncoder.h"
 #include "CharacterDecoder.h"
 
@@ -45,14 +48,13 @@ SimulationRunner::SimulationRunner(QString thread_id, QObject* parent):
     faction(nullptr),
     race(nullptr),
     target(nullptr),
-    seed(thread_id)
+    seed(std::move(thread_id))
 {}
 
-SimulationRunner::~SimulationRunner() {
-}
+SimulationRunner::~SimulationRunner() = default;
 
 void SimulationRunner::run_sim(QString setup_string) {
-    this->setup_string = setup_string;
+    this->setup_string = std::move(setup_string);
 
     CharacterDecoder decoder;
     decoder.initialize(this->setup_string);
@@ -82,8 +84,8 @@ void SimulationRunner::run_sim(QString setup_string) {
 
     // TODO: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
-        EncounterStart* start_event = new EncounterStart(pchar);
-        EncounterEnd* end_event = new EncounterEnd(engine, pchar);
+        auto* start_event = new EncounterStart(pchar);
+        auto* end_event = new EncounterEnd(engine, pchar);
 
         engine->add_event(end_event);
         engine->add_event(start_event);
@@ -200,9 +202,9 @@ void SimulationRunner::invest_talent_points(CharacterDecoder &decoder) {
 void SimulationRunner::add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position) {
     QVector<QPair<QString, QString>> invested_talents = decoder.get_key_val_pairs(tree_position);
 
-    for (int i = 0; i < invested_talents.size(); ++i) {
-        for (int points = 0; points < invested_talents[i].second.toInt(); ++points) {
-            pchar->get_talents()->increment_rank(tree_position, invested_talents[i].first);
+    for (auto & invested_talent : invested_talents) {
+        for (int points = 0; points < invested_talent.second.toInt(); ++points) {
+            pchar->get_talents()->increment_rank(tree_position, invested_talent.first);
         }
     }
 }
@@ -210,8 +212,8 @@ void SimulationRunner::add_points_to_talent_tree(CharacterDecoder &decoder, cons
 void SimulationRunner::apply_external_buffs(CharacterDecoder& decoder) {
     QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("BUFFS");
 
-    for (int i = 0; i < buffs.size(); ++i) {
-        pchar->get_active_buffs()->get_general_buffs()->toggle_external_buff(buffs[i].first);
+    for (auto & buff : buffs) {
+        pchar->get_active_buffs()->get_general_buffs()->toggle_external_buff(buff.first);
     }
 }
 
@@ -222,7 +224,7 @@ void SimulationRunner::setup_target(CharacterDecoder& decoder) {
 }
 
 void SimulationRunner::exit_thread(QString err) {
-    emit error(seed, err);
+    emit error(seed, std::move(err));
     emit finished();
 }
 
@@ -271,6 +273,6 @@ void SimulationRunner::delete_objects() {
         delete pchar;
     }
 
-    if (race != nullptr)
+    
         delete race;
 }

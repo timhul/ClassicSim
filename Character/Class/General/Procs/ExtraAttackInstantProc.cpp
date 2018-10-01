@@ -6,8 +6,8 @@
 #include "ExtraAttackOnNextSwingBuff.h"
 
 ExtraAttackInstantProc::ExtraAttackInstantProc(Engine* engine, Character* pchar, CombatRoll* roll,
-                                               QString proc_name,
-                                               QVector<ProcInfo::Source> proc_sources,
+                                               const QString& proc_name,
+                                               const QVector<ProcInfo::Source>& proc_sources,
                                                const double proc_rate, const int num_attacks) :
     Proc(proc_name, proc_rate, 0, false, QVector<Proc*>(), proc_sources, engine, pchar, roll),
     extra_attack_buff(nullptr),
@@ -16,8 +16,7 @@ ExtraAttackInstantProc::ExtraAttackInstantProc(Engine* engine, Character* pchar,
     assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
 }
 
-ExtraAttackInstantProc::~ExtraAttackInstantProc() {
-}
+ExtraAttackInstantProc::~ExtraAttackInstantProc() = default;
 
 void ExtraAttackInstantProc::proc_effect() {
     if (extra_attack_buff != nullptr)

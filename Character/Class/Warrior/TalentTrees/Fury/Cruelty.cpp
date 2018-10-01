@@ -10,9 +10,7 @@ Cruelty::Cruelty(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 1, 1);
 }
 
-Cruelty::~Cruelty() {
-
-}
+Cruelty::~Cruelty() = default;
 
 void Cruelty::apply_rank_effect() {
     pchar->get_stats()->increase_crit(0.01);

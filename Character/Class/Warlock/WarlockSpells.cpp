@@ -14,11 +14,10 @@ WarlockSpells::WarlockSpells(Warlock* warlock) :
     spells.append(mh_attack);
 }
 
-WarlockSpells::~WarlockSpells()
-{}
+WarlockSpells::~WarlockSpells() = default;
 
 void WarlockSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

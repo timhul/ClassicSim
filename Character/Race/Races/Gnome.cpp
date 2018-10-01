@@ -5,27 +5,27 @@ int Gnome::get_race_int() const {
     return Races::Gnome;
 }
 
-QString Gnome::get_name(void) const {
+QString Gnome::get_name() const {
     return "Gnome";
 }
 
-int Gnome::get_base_strength(void) const {
+int Gnome::get_base_strength() const {
     return 15;
 }
 
-int Gnome::get_base_agility(void) const {
+int Gnome::get_base_agility() const {
     return 23;
 }
 
-int Gnome::get_base_stamina(void) const {
+int Gnome::get_base_stamina() const {
     return 19;
 }
 
-int Gnome::get_base_intellect(void) const {
+int Gnome::get_base_intellect() const {
     return 23;
 }
 
-int Gnome::get_base_spirit(void) const {
+int Gnome::get_base_spirit() const {
     return 20;
 }
 

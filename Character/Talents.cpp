@@ -10,15 +10,15 @@ Talents::Talents(QObject* parent) :
 {}
 
 Talents::~Talents() {
-    for (int i = 0; i < talent_trees.size(); ++i) {
-        for (auto it : talent_trees[i].keys()) {
-            if (talent_trees[i].value(it) != nullptr)
-                delete talent_trees[i].value(it);
+    for (auto & talent_tree : talent_trees) {
+        for (const auto& it : talent_tree.keys()) {
+            if (talent_tree.value(it) != nullptr)
+                delete talent_tree.value(it);
         }
     }
 }
 
-QString Talents::get_background_image(const QString tree_position) const {
+QString Talents::get_background_image(const QString& tree_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_background_image could not find tree position" << tree_position;
@@ -28,7 +28,7 @@ QString Talents::get_background_image(const QString tree_position) const {
     return talent_trees[current_index][tree_position]->get_background_image();
 }
 
-QString Talents::get_icon(const QString tree_position, const QString talent_position) const {
+QString Talents::get_icon(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_icon could not find tree position" << tree_position;
@@ -38,11 +38,11 @@ QString Talents::get_icon(const QString tree_position, const QString talent_posi
     return talent_trees[current_index][tree_position]->get_icon(talent_position);
 }
 
-bool Talents::show_position(const QString tree_position, const QString talent_position) const {
+bool Talents::show_position(const QString& tree_position, const QString& talent_position) const {
     return get_icon(tree_position, talent_position) != "";
 }
 
-bool Talents::show_bottom_arrow(const QString tree_position, const QString talent_position) const {
+bool Talents::show_bottom_arrow(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::show_bottom_arrow could not find tree position" << tree_position;
@@ -52,7 +52,7 @@ bool Talents::show_bottom_arrow(const QString tree_position, const QString talen
     return talent_trees[current_index][tree_position]->has_bottom_child(talent_position);
 }
 
-bool Talents::show_right_arrow(const QString tree_position, const QString talent_position) const {
+bool Talents::show_right_arrow(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::show_right_arrow could not find tree position" << tree_position;
@@ -62,7 +62,7 @@ bool Talents::show_right_arrow(const QString tree_position, const QString talent
     return talent_trees[current_index][tree_position]->has_right_child(talent_position);
 }
 
-QString Talents::get_bottom_arrow(const QString tree_position, const QString talent_position) const {
+QString Talents::get_bottom_arrow(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_bottom_arrow could not find tree position" << tree_position;
@@ -72,7 +72,7 @@ QString Talents::get_bottom_arrow(const QString tree_position, const QString tal
     return talent_trees[current_index][tree_position]->get_bottom_arrow(talent_position);
 }
 
-QString Talents::get_right_arrow(const QString tree_position, const QString talent_position) const {
+QString Talents::get_right_arrow(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_right_arrow could not find tree position" << tree_position;
@@ -82,27 +82,27 @@ QString Talents::get_right_arrow(const QString tree_position, const QString tale
     return talent_trees[current_index][tree_position]->get_right_arrow(talent_position);
 }
 
-bool Talents::bottom_child_available(const QString tree_position, const QString talent_position) const {
+bool Talents::bottom_child_available(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     return talent_trees[current_index][tree_position]->bottom_child_is_available(talent_position);
 }
 
-bool Talents::right_child_available(const QString tree_position, const QString talent_position) const {
+bool Talents::right_child_available(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     return talent_trees[current_index][tree_position]->right_child_is_available(talent_position);
 }
 
-bool Talents::bottom_child_active(const QString tree_position, const QString talent_position) const {
+bool Talents::bottom_child_active(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     return talent_trees[current_index][tree_position]->bottom_child_is_active(talent_position);
 }
 
-bool Talents::right_child_active(const QString tree_position, const QString talent_position) const {
+bool Talents::right_child_active(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     return talent_trees[current_index][tree_position]->right_child_is_active(talent_position);
 }
 
-bool Talents::is_active(const QString tree_position, const QString talent_position) const {
+bool Talents::is_active(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::is_active could not find tree position" << tree_position;
@@ -112,7 +112,7 @@ bool Talents::is_active(const QString tree_position, const QString talent_positi
     return talent_trees[current_index][tree_position]->is_active(talent_position);
 }
 
-bool Talents::is_available(const QString tree_position, const QString talent_position) const {
+bool Talents::is_available(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::is_available could not find tree position" << tree_position;
@@ -125,7 +125,7 @@ bool Talents::is_available(const QString tree_position, const QString talent_pos
     return talent_trees[current_index][tree_position]->is_available(talent_position);
 }
 
-bool Talents::is_maxed(const QString tree_position, const QString talent_position) const {
+bool Talents::is_maxed(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::is_maxed could not find tree position" << tree_position;
@@ -140,7 +140,7 @@ bool Talents::has_talent_points_remaining() const {
     return talent_points_remaining[current_index] > 0;
 }
 
-QString Talents::get_rank(const QString tree_position, const QString talent_position) const {
+QString Talents::get_rank(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_rank could not find tree position" << tree_position;
@@ -150,7 +150,7 @@ QString Talents::get_rank(const QString tree_position, const QString talent_posi
     return QString::number(talent_trees[current_index][tree_position]->get_current_rank(talent_position));
 }
 
-QString Talents::get_max_rank(const QString tree_position, const QString talent_position) const {
+QString Talents::get_max_rank(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_max_rank could not find tree position" << tree_position;
@@ -160,7 +160,7 @@ QString Talents::get_max_rank(const QString tree_position, const QString talent_
     return QString::number(talent_trees[current_index][tree_position]->get_max_rank(talent_position));
 }
 
-void Talents::increment_rank(const QString tree_position, const QString talent_position) {
+void Talents::increment_rank(const QString& tree_position, const QString& talent_position) {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::increment_rank could not find tree position" << tree_position;
@@ -177,7 +177,7 @@ void Talents::increment_rank(const QString tree_position, const QString talent_p
     }
 }
 
-void Talents::decrement_rank(const QString tree_position, const QString talent_position) {
+void Talents::decrement_rank(const QString& tree_position, const QString& talent_position) {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::decrement_rank could not find tree position" << tree_position;
@@ -194,7 +194,7 @@ void Talents::decrement_rank(const QString tree_position, const QString talent_p
     }
 }
 
-QString Talents::get_requirements(const QString tree_position, const QString talent_position) const {
+QString Talents::get_requirements(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_requirements could not find tree position" << tree_position;
@@ -204,7 +204,7 @@ QString Talents::get_requirements(const QString tree_position, const QString tal
     return talent_trees[current_index][tree_position]->get_requirement_string(talent_position);
 }
 
-QString Talents::get_current_rank_description(const QString tree_position, const QString talent_position) const {
+QString Talents::get_current_rank_description(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_current_rank_description could not find tree position" << tree_position;
@@ -214,7 +214,7 @@ QString Talents::get_current_rank_description(const QString tree_position, const
     return talent_trees[current_index][tree_position]->get_current_rank_description(talent_position);
 }
 
-QString Talents::get_next_rank_description(const QString tree_position, const QString talent_position) const {
+QString Talents::get_next_rank_description(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_next_rank_description could not find tree position" << tree_position;
@@ -224,7 +224,7 @@ QString Talents::get_next_rank_description(const QString tree_position, const QS
     return talent_trees[current_index][tree_position]->get_next_rank_description(talent_position);
 }
 
-int Talents::get_tree_points(const QString tree_position) const {
+int Talents::get_tree_points(const QString& tree_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_tree_points could not find tree position" << tree_position;
@@ -234,7 +234,7 @@ int Talents::get_tree_points(const QString tree_position) const {
     return talent_trees[current_index][tree_position]->get_total_points();
 }
 
-QString Talents::get_tree_name(const QString tree_position) const {
+QString Talents::get_tree_name(const QString& tree_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_tree_name could not find tree position" << tree_position;
@@ -244,7 +244,7 @@ QString Talents::get_tree_name(const QString tree_position) const {
     return talent_trees[current_index][tree_position]->get_name();
 }
 
-QString Talents::get_talent_name(const QString tree_position, const QString talent_position) const {
+QString Talents::get_talent_name(const QString& tree_position, const QString& talent_position) const {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::get_talent_name could not find tree position" << tree_position;
@@ -254,7 +254,7 @@ QString Talents::get_talent_name(const QString tree_position, const QString tale
     return talent_trees[current_index][tree_position]->get_talent_name(talent_position);
 }
 
-void Talents::increase_to_max_rank(const QString tree_position, const QString talent_position) {
+void Talents::increase_to_max_rank(const QString& tree_position, const QString& talent_position) {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::increase_to_max_rank could not find tree position" << tree_position;
@@ -269,7 +269,7 @@ void Talents::increase_to_max_rank(const QString tree_position, const QString ta
     }
 }
 
-void Talents::decrease_to_min_rank(const QString tree_position, const QString talent_position) {
+void Talents::decrease_to_min_rank(const QString& tree_position, const QString& talent_position) {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::decrease_to_min_rank could not find tree position" << tree_position;
@@ -284,7 +284,7 @@ void Talents::decrease_to_min_rank(const QString tree_position, const QString ta
     }
 }
 
-void Talents::clear_tree(const QString tree_position) {
+void Talents::clear_tree(const QString& tree_position) {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::clear_tree could not find tree position" << tree_position;
@@ -301,14 +301,14 @@ void Talents::set_current_index(const int index) {
     if (index < 0 || index >= talent_trees.size())
         return;
 
-    for (auto it : talent_trees[current_index].keys()) {
+    for (const auto& it : talent_trees[current_index].keys()) {
         if (talent_trees[current_index].value(it) != nullptr)
             talent_trees[current_index].value(it)->remove_rank_effects();
     }
 
     current_index = index;
 
-    for (auto it : talent_trees[current_index].keys()) {
+    for (const auto& it : talent_trees[current_index].keys()) {
         if (talent_trees[current_index].value(it) != nullptr)
             talent_trees[current_index].value(it)->apply_rank_effects();
     }

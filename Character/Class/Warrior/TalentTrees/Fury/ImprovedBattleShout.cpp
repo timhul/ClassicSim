@@ -10,9 +10,7 @@ ImprovedBattleShout::ImprovedBattleShout(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 5, 5);
 }
 
-ImprovedBattleShout::~ImprovedBattleShout() {
-
-}
+ImprovedBattleShout::~ImprovedBattleShout() = default;
 
 void ImprovedBattleShout::apply_rank_effect() {
     dynamic_cast<Warrior*>(pchar)->get_battle_shout_buff()->increase_effect_via_imp_shout();

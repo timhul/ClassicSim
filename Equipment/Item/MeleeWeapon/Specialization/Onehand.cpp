@@ -1,7 +1,7 @@
 
 #include "Onehand.h"
 
-int Onehand::get_item_slot(void) const {
+int Onehand::get_item_slot() const {
     return ItemSlots::MAINHAND;
 }
 

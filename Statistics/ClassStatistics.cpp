@@ -38,28 +38,28 @@ void ClassStatistics::add_proc_statistics(StatisticsProc* proc) {
     proc_statistics[proc->get_name()] = proc;
 }
 
-void ClassStatistics::remove_spell_statistics(const QString key) {
+void ClassStatistics::remove_spell_statistics(const QString& key) {
     if (!spell_statistics.contains(key))
         return;
 
     spell_statistics.remove(key);
 }
 
-void ClassStatistics::remove_buff_statistics(const QString key) {
+void ClassStatistics::remove_buff_statistics(const QString& key) {
     if (!buff_statistics.contains(key))
         return;
 
     buff_statistics.remove(key);
 }
 
-void ClassStatistics::remove_resource_statistics(const QString key) {
+void ClassStatistics::remove_resource_statistics(const QString& key) {
     if (!resource_statistics.contains(key))
         return;
 
     resource_statistics.remove(key);
 }
 
-void ClassStatistics::remove_proc_statistics(const QString key) {
+void ClassStatistics::remove_proc_statistics(const QString& key) {
     if (!proc_statistics.contains(key))
         return;
 
@@ -80,7 +80,7 @@ QVariantList ClassStatistics::get_damage_breakdown_table() const {
 
     QVector<QVariantList> dmg_entries;
 
-    for (auto it : spell_statistics.keys()) {
+    for (const auto& it : spell_statistics.keys()) {
         int dmg = spell_statistics.value(it)->get_total_dmg_dealt();
         if (dmg == 0)
             continue;
@@ -100,8 +100,8 @@ QVariantList ClassStatistics::get_damage_breakdown_table() const {
 
     std::sort(dmg_entries.begin(), dmg_entries.end(), variant_list_greater_than);
 
-    for (int i = 0; i < dmg_entries.size(); ++i) {
-        info.append(dmg_entries[i]);
+    for (const auto & dmg_entry : dmg_entries) {
+        info.append(dmg_entry);
     }
 
     return info;
@@ -113,7 +113,7 @@ QVariantList ClassStatistics::get_damage_breakdown_chart() const {
     info.append("Total Damage Breakdown");
     info.append("PIE");
 
-    for (auto it : spell_statistics.keys()) {
+    for (const auto& it : spell_statistics.keys()) {
         int dmg = spell_statistics.value(it)->get_total_dmg_dealt();
         if (dmg == 0)
             continue;
@@ -128,7 +128,7 @@ QVariantList ClassStatistics::get_damage_breakdown_chart() const {
 QVariantList ClassStatistics::get_buff_uptime_table() const {
     QVector<QVariantList> uptime_entries;
 
-    for (auto it : buff_statistics.keys()) {
+    for (const auto& it : buff_statistics.keys()) {
         double uptime = buff_statistics.value(it)->get_uptime();
         if (uptime < double(0.00001))
             continue;
@@ -147,8 +147,8 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
 
     std::sort(uptime_entries.begin(), uptime_entries.end(), variant_list_greater_than);
 
-    for (int i = 0; i < uptime_entries.size(); ++i) {
-        QVariantList pruned = {uptime_entries[i][0], uptime_entries[i][2]};
+    for (auto & uptime_entry : uptime_entries) {
+        QVariantList pruned = {uptime_entry[0], uptime_entry[2]};
         info.append(pruned);
     }
 
@@ -158,7 +158,7 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
 QVariantList ClassStatistics::get_resource_gain_table() const {
     QVector<QVariantList> entries;
 
-    for (auto it : resource_statistics.keys()) {
+    for (const auto& it : resource_statistics.keys()) {
         int gain = resource_statistics.value(it)->get_resource_gain();
         if (gain == 0)
             continue;
@@ -178,8 +178,8 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
     info.append(columns);
     std::sort(entries.begin(), entries.end(), variant_list_greater_than);
 
-    for (int i = 0; i < entries.size(); ++i) {
-        QVariantList pruned = {entries[i][0], entries[i][2]};
+    for (auto & entry : entries) {
+        QVariantList pruned = {entry[0], entry[2]};
         info.append(pruned);
     }
 
@@ -189,7 +189,7 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
 QVariantList ClassStatistics::get_proc_table() const {
     QVector<QVariantList> entries;
 
-    for (auto it : proc_statistics.keys()) {
+    for (const auto& it : proc_statistics.keys()) {
         int procs = proc_statistics.value(it)->get_procs();
         if (procs == 0)
             continue;
@@ -208,8 +208,8 @@ QVariantList ClassStatistics::get_proc_table() const {
     info.append(columns);
     std::sort(entries.begin(), entries.end(), variant_list_greater_than);
 
-    for (int i = 0; i < entries.size(); ++i) {
-        QVariantList pruned = {entries[i][0], entries[i][3], entries[i][2]};
+    for (auto & entry : entries) {
+        QVariantList pruned = {entry[0], entry[3], entry[2]};
         info.append(pruned);
     }
 
@@ -218,21 +218,21 @@ QVariantList ClassStatistics::get_proc_table() const {
 
 int ClassStatistics::get_total_damage_dealt() const {
     int sum = 0;
-    for (auto it : spell_statistics.keys()) {
+    for (const auto& it : spell_statistics.keys()) {
         sum += spell_statistics.value(it)->get_total_dmg_dealt();
     }
 
     return sum;
 }
 
-int ClassStatistics::get_total_damage_for_spell(const QString name) const {
+int ClassStatistics::get_total_damage_for_spell(const QString& name) const {
     if (!spell_statistics.contains(name))
         return 0;
 
     return spell_statistics[name]->get_total_dmg_dealt();
 }
 
-int ClassStatistics::get_total_attempts_for_spell(const QString name) const {
+int ClassStatistics::get_total_attempts_for_spell(const QString& name) const {
     if (!spell_statistics.contains(name))
         return 0;
 
@@ -240,19 +240,19 @@ int ClassStatistics::get_total_attempts_for_spell(const QString name) const {
 }
 
 void ClassStatistics::reset_statistics() {
-    for (auto it : spell_statistics.keys()) {
+    for (const auto& it : spell_statistics.keys()) {
         spell_statistics.value(it)->reset();
     }
 
-    for (auto it : buff_statistics.keys()) {
+    for (const auto& it : buff_statistics.keys()) {
         buff_statistics.value(it)->reset();
     }
 
-    for (auto it : resource_statistics.keys()) {
+    for (const auto& it : resource_statistics.keys()) {
         resource_statistics.value(it)->reset();
     }
 
-    for (auto it : proc_statistics.keys()) {
+    for (const auto& it : proc_statistics.keys()) {
         proc_statistics.value(it)->reset();
     }
 }

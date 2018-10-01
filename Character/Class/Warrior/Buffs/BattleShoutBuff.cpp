@@ -4,12 +4,12 @@
 #include "CharacterStats.h"
 
 void BattleShoutBuff::buff_effect_when_applied() {
-    int change = static_cast<int>(round(base_ap * ranks_imp_shout[rank_imp_shout]));
+    auto change = static_cast<int>(round(base_ap * ranks_imp_shout[rank_imp_shout]));
     pchar->get_stats()->increase_melee_ap(change);
 }
 
 void BattleShoutBuff::buff_effect_when_removed() {
-    int change = static_cast<int>(round(base_ap * ranks_imp_shout[rank_imp_shout]));
+    auto change = static_cast<int>(round(base_ap * ranks_imp_shout[rank_imp_shout]));
     pchar->get_stats()->decrease_melee_ap(change);
 }
 

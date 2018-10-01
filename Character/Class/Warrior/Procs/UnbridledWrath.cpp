@@ -14,8 +14,7 @@ UnbridledWrath::UnbridledWrath(Engine* engine, Character* pchar, CombatRoll* rol
     this->talent_ranks = {0, 8, 16, 24, 32, 40};
 }
 
-UnbridledWrath::~UnbridledWrath() {
-}
+UnbridledWrath::~UnbridledWrath() = default;
 
 void UnbridledWrath::proc_effect() {
     unsigned rage = warr->get_curr_rage();

@@ -67,12 +67,11 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     spells.append(warr_oh_attack);
 }
 
-WarriorSpells::~WarriorSpells()
-{}
+WarriorSpells::~WarriorSpells() = default;
 
 void WarriorSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }
 
@@ -90,7 +89,7 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
         warr_mh_attack->perform();
 
         if (warr->action_ready()) {
-            PlayerAction* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
+            auto* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
             warr->get_engine()->add_event(new_event);
         }
     }
@@ -105,20 +104,20 @@ void WarriorSpells::oh_auto_attack(const int iteration) {
     warr_oh_attack->perform();
 
     if (warr->action_ready()) {
-        PlayerAction* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
+        auto* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
         warr->get_engine()->add_event(new_event);
     }
 
     add_next_oh_attack();
 }
 
-void WarriorSpells::add_next_mh_attack(void) {
-    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
+void WarriorSpells::add_next_mh_attack() {
+    auto* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
     warr->get_engine()->add_event(new_event);
 }
 
-void WarriorSpells::add_next_oh_attack(void) {
-    OffhandMeleeHit* new_event = new OffhandMeleeHit(this, warr_oh_attack->get_next_expected_use(), warr_oh_attack->get_next_iteration());
+void WarriorSpells::add_next_oh_attack() {
+    auto* new_event = new OffhandMeleeHit(this, warr_oh_attack->get_next_expected_use(), warr_oh_attack->get_next_iteration());
     warr->get_engine()->add_event(new_event);
 }
 

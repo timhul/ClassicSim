@@ -20,14 +20,14 @@ Spells::Spells(Character* pchar, QObject* parent) :
 
 Spells::~Spells()
 {
-    for (int i = 0; i < spells.size(); ++i) {
-        delete spells[i];
+    for (auto & spell : spells) {
+        delete spell;
     }
 
     spells.clear();
 }
 
-void Spells::start_attack(void) {
+void Spells::start_attack() {
     add_next_mh_attack();
 
     if (pchar->is_dual_wielding()) {
@@ -44,8 +44,8 @@ void Spells::mh_auto_attack(const int iteration) {
     add_next_mh_attack();
 }
 
-void Spells::add_next_mh_attack(void) {
-    MainhandMeleeHit* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
+void Spells::add_next_mh_attack() {
+    auto* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
     pchar->get_engine()->add_event(new_event);
 }
 
@@ -53,7 +53,7 @@ void Spells::oh_auto_attack(const int) {
     assert(false);
 }
 
-void Spells::add_next_oh_attack(void) {
+void Spells::add_next_oh_attack() {
     assert(false);
 }
 
@@ -75,7 +75,7 @@ BloodFury* Spells::get_blood_fury() const {
 }
 
 void Spells::add_statistics() {
-    for (int i = 0; i < spells.size(); ++i) {
-        pchar->get_statistics()->add_spell_statistics(spells[i]->get_statistics_for_spell());
+    for (auto & spell : spells) {
+        pchar->get_statistics()->add_spell_statistics(spell->get_statistics_for_spell());
     }
 }

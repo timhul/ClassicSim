@@ -14,11 +14,10 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     spells.append(mh_attack);
 }
 
-RogueSpells::~RogueSpells()
-{}
+RogueSpells::~RogueSpells() = default;
 
 void RogueSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

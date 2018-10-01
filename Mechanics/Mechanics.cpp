@@ -57,7 +57,7 @@ double Mechanics::get_parry_chance(const int) const {
     return 0.0;
 }
 
-double Mechanics::get_block_chance(void) const {
+double Mechanics::get_block_chance() const {
     // TODO: Add possibility to activate block chance and have it affected by wpn skill.
     return 0.0;
 }

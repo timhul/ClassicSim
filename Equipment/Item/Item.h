@@ -50,8 +50,8 @@ protected:
     void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);
     bool proc_info_complete(QMap<QString, QString> & proc);
 
-    int slot;
-    int item_type;
+    int slot{};
+    int item_type{};
     void set_item_slot(const QMap<QString, QString>& info);
     void set_item_type(const QMap<QString, QString>& info);
     int get_type_int(const QString& type_string);

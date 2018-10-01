@@ -10,9 +10,7 @@ TacticalMastery::TacticalMastery(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 5, 5);
 }
 
-TacticalMastery::~TacticalMastery() {
-
-}
+TacticalMastery::~TacticalMastery() = default;
 
 void TacticalMastery::apply_rank_effect() {
     warr->increase_stance_rage_remainder();

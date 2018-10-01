@@ -8,6 +8,6 @@ PlayerAction::PlayerAction(Rotation* rotation, const double priority) {
     this->name = "PlayerAction";
 }
 
-void PlayerAction::act(void) {
+void PlayerAction::act() {
     rotation->perform_rotation();
 }

@@ -23,7 +23,7 @@ Hunter::~Hunter()
     delete statistics;
 }
 
-QString Hunter::get_name(void) const {
+QString Hunter::get_name() const {
     return "Hunter";
 }
 
@@ -31,23 +31,23 @@ QString Hunter::get_class_color() const {
     return "#ABD473";
 }
 
-int Hunter::get_strength_modifier(void) const {
+int Hunter::get_strength_modifier() const {
     return 0;
 }
 
-int Hunter::get_agility_modifier(void) const {
+int Hunter::get_agility_modifier() const {
     return 3;
 }
 
-int Hunter::get_stamina_modifier(void) const {
+int Hunter::get_stamina_modifier() const {
     return 1;
 }
 
-int Hunter::get_intellect_modifier(void) const {
+int Hunter::get_intellect_modifier() const {
     return 0;
 }
 
-int Hunter::get_spirit_modifier(void) const {
+int Hunter::get_spirit_modifier() const {
     return 1;
 }
 

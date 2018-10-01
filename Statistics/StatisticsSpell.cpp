@@ -1,8 +1,10 @@
 
 #include "StatisticsSpell.h"
 
+#include <utility>
+
 StatisticsSpell::StatisticsSpell(QString name):
-    name(name)
+    name(std::move(name))
 {}
 
 void StatisticsSpell::reset() {
@@ -194,8 +196,8 @@ int StatisticsSpell::get_num_attempt_columns() {
 
     int columns = 0;
 
-    for (int i = 0; i < outcomes.size(); ++i) {
-        if (get_attempts(outcomes[i]) > 0)
+    for (auto & outcome : outcomes) {
+        if (get_attempts(outcome) > 0)
             ++columns;
     }
 
@@ -210,8 +212,8 @@ int StatisticsSpell::get_num_dmg_columns() {
 
     int columns = 0;
 
-    for (int i = 0; i < outcomes.size(); ++i) {
-        if (get_dmg(outcomes[i]) > 0)
+    for (auto & outcome : outcomes) {
+        if (get_dmg(outcome) > 0)
             ++columns;
     }
 
@@ -225,8 +227,8 @@ int StatisticsSpell::get_total_dmg_dealt() {
 
     int sum = 0;
 
-    for (int i = 0; i < outcomes.size(); ++i) {
-        sum += get_dmg(outcomes[i]);
+    for (auto & outcome : outcomes) {
+        sum += get_dmg(outcome);
     }
 
     return sum;
@@ -241,8 +243,8 @@ int StatisticsSpell::get_total_attempts_made() {
 
     int sum = 0;
 
-    for (int i = 0; i < outcomes.size(); ++i) {
-        sum += get_attempts(outcomes[i]);
+    for (auto & outcome : outcomes) {
+        sum += get_attempts(outcome);
     }
 
     return sum;

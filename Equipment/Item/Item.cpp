@@ -6,13 +6,14 @@
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
 #include <QDebug>
+#include <utility>
 
 Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString, QString> _info,
            QVector<QMap<QString, QString>> _procs):
-    name(_name), info(_info), procs_map(_procs)
+    name(std::move(_name)), info(std::move(_info)), procs_map(std::move(_procs))
 {
     this->stats = new Stats();
-    set_stats(_stats);
+    set_stats(std::move(_stats));
     set_item_slot(info);
     set_item_type(info);
 }
@@ -20,9 +21,9 @@ Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString,
 Item::~Item() {
     for (auto it : proc_map.keys()) {
         QVector<Proc*> procs_ = proc_map.value(it);
-        for (int i = 0; i < procs_.size(); ++i) {
-            procs_[i]->disable_proc();
-            delete procs_[i];
+        for (auto & proc : procs_) {
+            proc->disable_proc();
+            delete proc;
         }
     }
 
@@ -47,11 +48,11 @@ void Item::set_item_type(const QMap<QString, QString>& info) {
     item_type = get_type_int(info["type"]);
 }
 
-int Item::get_item_slot(void) const {
+int Item::get_item_slot() const {
     return slot;
 }
 
-int Item::get_item_type(void) const {
+int Item::get_item_type() const {
     return this->item_type;
 }
 
@@ -74,33 +75,33 @@ void Item::remove_equip_effect(Character* pchar, const int eq_slot) {
 
     QVector<Proc*> procs_ = proc_map.take(eq_slot);
 
-    for (int i = 0; i < procs_.size(); ++i) {
-        procs_[i]->disable_proc();
-        delete procs_[i];
+    for (auto & proc : procs_) {
+        proc->disable_proc();
+        delete proc;
     }
 
     assert(!proc_map.contains(eq_slot));
 }
 
-QString Item::get_name(void) const {
+QString Item::get_name() const {
     return name;
 }
 
 void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {
     QVector<Proc*> procs_;
-    for (int i = 0; i < procs.size(); ++i) {
-        if (!proc_info_complete(procs[i])) {
+    for (auto & i : procs) {
+        if (!proc_info_complete(i)) {
             qDebug() << "Missing proc info for item" << get_name();
             continue;
         }
 
-        QString proc_name = procs[i]["name"];
-        QString instant = procs[i]["instant"].toLower();
+        QString proc_name = i["name"];
+        QString instant = i["instant"].toLower();
         // TODO: Support recursive
         // QString recursive = procs[i]["recursive"];
-        int amount = QString(procs[i]["amount"]).toInt();
-        double internal_cd = QString(procs[i]["internal_cd"]).toDouble();
-        double proc_rate = QString(procs[i]["rate"]).toDouble();
+        int amount = QString(i["amount"]).toInt();
+        double internal_cd = QString(i["internal_cd"]).toDouble();
+        double proc_rate = QString(i["rate"]).toDouble();
 
         if (amount < 0) {
             qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(amount));
@@ -170,12 +171,12 @@ bool Item::proc_info_complete(QMap<QString, QString> & proc) {
     QVector<QString> expected_keys = {"name", "instant", "recursive", "amount", "internal_cd",
                                      "rate"};
     QVector<QString> missing_keys;
-    for (int i = 0; i < expected_keys.size(); ++i) {
-        if (!proc.contains(expected_keys[i]))
-            missing_keys.append(expected_keys[i]);
+    for (const auto & expected_key : expected_keys) {
+        if (!proc.contains(expected_key))
+            missing_keys.append(expected_key);
     }
 
-    if (missing_keys.size() > 0) {
+    if (!missing_keys.empty()) {
         qDebug() << "Missing proc info keys" << missing_keys;
         return false;
     }
@@ -184,8 +185,8 @@ bool Item::proc_info_complete(QMap<QString, QString> & proc) {
 }
 
 void Item::set_stats(QVector<QPair<QString, QString>> stats) {
-    for (int i = 0; i < stats.size(); ++i)
-        set_stat(stats[i].first, stats[i].second);
+    for (auto & stat : stats)
+        set_stat(stat.first, stat.second);
 }
 
 QString Item::get_value(const QString& key) const {
@@ -319,10 +320,10 @@ QString Item::get_equip_effect_tooltip() const {
 
 QString Item::get_tooltip(const QVector<QString>& tt_strings) const {
     QString tooltip = "";
-    for (int i = 0; i < tt_strings.size(); ++i) {
+    for (const auto & tt_string : tt_strings) {
         if (tooltip != "")
             tooltip += "\n";
-        tooltip += tt_strings[i];
+        tooltip += tt_string;
     }
 
     return tooltip;
@@ -331,45 +332,45 @@ QString Item::get_tooltip(const QVector<QString>& tt_strings) const {
 int get_slot_int(const QString& slot_string) {
     if (slot_string == "MAINHAND")
         return ItemSlots::MAINHAND;
-    else if (slot_string == "OFFHAND")
+    if (slot_string == "OFFHAND")
         return ItemSlots::OFFHAND;
-    else if (slot_string == "RANGED")
+    if (slot_string == "RANGED")
         return ItemSlots::RANGED;
-    else if (slot_string == "HEAD")
+    if (slot_string == "HEAD")
         return ItemSlots::HEAD;
-    else if (slot_string == "NECK")
+    if (slot_string == "NECK")
         return ItemSlots::NECK;
-    else if (slot_string == "SHOULDERS")
+    if (slot_string == "SHOULDERS")
         return ItemSlots::SHOULDERS;
-    else if (slot_string == "BACK")
+    if (slot_string == "BACK")
         return ItemSlots::BACK;
-    else if (slot_string == "CHEST")
+    if (slot_string == "CHEST")
         return ItemSlots::CHEST;
-    else if (slot_string == "WRIST")
+    if (slot_string == "WRIST")
         return ItemSlots::WRIST;
-    else if (slot_string == "GLOVES")
+    if (slot_string == "GLOVES")
         return ItemSlots::GLOVES;
-    else if (slot_string == "BELT")
+    if (slot_string == "BELT")
         return ItemSlots::BELT;
-    else if (slot_string == "LEGS")
+    if (slot_string == "LEGS")
         return ItemSlots::LEGS;
-    else if (slot_string == "BOOTS")
+    if (slot_string == "BOOTS")
         return ItemSlots::BOOTS;
-    else if (slot_string == "RING")
+    if (slot_string == "RING")
         return ItemSlots::RING;
-    else if (slot_string == "RING1")
+    if (slot_string == "RING1")
         return ItemSlots::RING;
-    else if (slot_string == "RING2")
+    if (slot_string == "RING2")
         return ItemSlots::RING;
-    else if (slot_string == "TRINKET")
+    if (slot_string == "TRINKET")
         return ItemSlots::TRINKET;
-    else if (slot_string == "TRINKET1")
+    if (slot_string == "TRINKET1")
         return ItemSlots::TRINKET;
-    else if (slot_string == "TRINKET2")
+    if (slot_string == "TRINKET2")
         return ItemSlots::TRINKET;
-    else if (slot_string == "CASTER_OFFHAND")
+    if (slot_string == "CASTER_OFFHAND")
         return ItemSlots::CASTER_OFFHAND;
-    else if (slot_string == "RELIC")
+    if (slot_string == "RELIC")
         return ItemSlots::RELIC;
 
     return -1;
@@ -378,51 +379,51 @@ int get_slot_int(const QString& slot_string) {
 int Item::get_type_int(const QString& type_string) {
     if (type_string == "AXE")
         return WeaponTypes::AXE;
-    else if (type_string == "DAGGER")
+    if (type_string == "DAGGER")
         return WeaponTypes::DAGGER;
-    else if (type_string == "FIST")
+    if (type_string == "FIST")
         return WeaponTypes::FIST;
-    else if (type_string == "MACE")
+    if (type_string == "MACE")
         return WeaponTypes::MACE;
-    else if (type_string == "POLEARM")
+    if (type_string == "POLEARM")
         return WeaponTypes::POLEARM;
-    else if (type_string == "STAFF")
+    if (type_string == "STAFF")
         return WeaponTypes::STAFF;
-    else if (type_string == "SWORD")
+    if (type_string == "SWORD")
         return WeaponTypes::SWORD;
-    else if (type_string == "BOW")
+    if (type_string == "BOW")
         return WeaponTypes::BOW;
-    else if (type_string == "CROSSBOW")
+    if (type_string == "CROSSBOW")
         return WeaponTypes::CROSSBOW;
-    else if (type_string == "GUN")
+    if (type_string == "GUN")
         return WeaponTypes::GUN;
-    else if (type_string == "THROWN")
+    if (type_string == "THROWN")
         return WeaponTypes::THROWN;
-    else if (type_string == "WAND")
+    if (type_string == "WAND")
         return WeaponTypes::WAND;
-    else if (type_string == "IDOL")
+    if (type_string == "IDOL")
         return WeaponTypes::IDOL;
-    else if (type_string == "LIBRAM")
+    if (type_string == "LIBRAM")
         return WeaponTypes::LIBRAM;
-    else if (type_string == "TOTEM")
+    if (type_string == "TOTEM")
         return WeaponTypes::TOTEM;
-    else if (type_string == "SHIELD")
+    if (type_string == "SHIELD")
         return WeaponTypes::SHIELD;
-    else if (type_string == "CASTER_OFFHAND")
+    if (type_string == "CASTER_OFFHAND")
         return WeaponTypes::CASTER_OFFHAND;
-    else if (type_string == "TWOHAND_AXE")
+    if (type_string == "TWOHAND_AXE")
         return WeaponTypes::TWOHAND_AXE;
-    else if (type_string == "TWOHAND_MACE")
+    if (type_string == "TWOHAND_MACE")
         return WeaponTypes::TWOHAND_MACE;
-    else if (type_string == "TWOHAND_SWORD")
+    if (type_string == "TWOHAND_SWORD")
         return WeaponTypes::TWOHAND_SWORD;
-    else if (type_string == "CLOTH")
+    if (type_string == "CLOTH")
         return ArmorTypes::CLOTH;
-    else if (type_string == "LEATHER")
+    if (type_string == "LEATHER")
         return ArmorTypes::LEATHER;
-    else if (type_string == "MAIL")
+    if (type_string == "MAIL")
         return ArmorTypes::MAIL;
-    else if (type_string == "PLATE")
+    if (type_string == "PLATE")
         return ArmorTypes::PLATE;
 
     return -1;

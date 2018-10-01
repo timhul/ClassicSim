@@ -42,19 +42,19 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
 
 GeneralBuffs::~GeneralBuffs()
 {
-    for (int i = 0; i < this->buffs.size(); ++i) {
-        delete this->buffs[i];
+    for (auto & buff : this->buffs) {
+        delete buff;
     }
 
-    for (int i = 0; i < this->external_buffs.size(); ++i) {
-        for (int j = 0; j < this->external_buffs[i].size(); ++j) {
-            delete this->external_buffs[i][j].second;
+    for (auto & external_buff : this->external_buffs) {
+        for (auto & j : external_buff) {
+            delete j.second;
         }
     }
 
-    for (int i = 0; i < this->external_debuffs.size(); ++i) {
-        for (int j = 0; j < this->external_debuffs[i].size(); ++j) {
-            delete this->external_debuffs[i][j].second;
+    for (auto & external_debuff : this->external_debuffs) {
+        for (auto & j : external_debuff) {
+            delete j.second;
         }
     }
 
@@ -76,31 +76,31 @@ HolyStrength* GeneralBuffs::get_holy_strength_oh() const {
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {
     QVector<ExternalBuff*> vec;
-    for (int i = 0; i < external_buffs[current_setup].size(); ++i) {
-        vec.append(external_buffs[current_setup][i].second);
+    for (auto i : external_buffs[current_setup]) {
+        vec.append(i.second);
     }
     return vec;
 }
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_debuffs() const {
     QVector<ExternalBuff*> vec;
-    for (int i = 0; i < external_debuffs[current_setup].size(); ++i) {
-        vec.append(external_debuffs[current_setup][i].second);
+    for (auto i : external_debuffs[current_setup]) {
+        vec.append(i.second);
     }
     return vec;
 }
 
 void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) {
-    for (int i = 0; i < vec[current_setup].size(); ++i) {
-        if (vec[current_setup][i].second->get_name() == name) {
-            if (vec[current_setup][i].second->is_active()) {
-                vec[current_setup][i].first = false;
-                vec[current_setup][i].second->cancel_buff();
-                assert(!vec[current_setup][i].second->is_active());
+    for (auto & i : vec[current_setup]) {
+        if (i.second->get_name() == name) {
+            if (i.second->is_active()) {
+                i.first = false;
+                i.second->cancel_buff();
+                assert(!i.second->is_active());
             }
             else {
-                vec[current_setup][i].first = true;
-                vec[current_setup][i].second->apply_buff();
+                i.first = true;
+                i.second->apply_buff();
             }
 
             break;
@@ -117,9 +117,9 @@ void GeneralBuffs::toggle_external_debuff(const QString& debuff_name) {
 }
 
 bool GeneralBuffs::external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) const {
-    for (int i = 0; i < vec[current_setup].size(); ++i) {
-        if (vec[current_setup][i].second->get_name() == name)
-            return vec[current_setup][i].second->is_active();
+    for (auto i : vec[current_setup]) {
+        if (i.second->get_name() == name)
+            return i.second->is_active();
     }
 
     return false;
@@ -150,89 +150,15 @@ void GeneralBuffs::deactivate_buffs_for_current_setup() {
 }
 
 void GeneralBuffs::activate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) {
-    for (int i = 0; i < vec[current_setup].size(); ++i) {
-        if (vec[current_setup][i].first == true) {
-            vec[current_setup][i].second->apply_buff();
-        }
+    for (auto i : vec[current_setup]) {
+        if (i.first)
+            i.second->apply_buff();
     }
 }
 
 void GeneralBuffs::deactivate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) {
-    for (int i = 0; i < vec[current_setup].size(); ++i) {
-        if (vec[current_setup][i].second->is_active())
-            vec[current_setup][i].second->cancel_buff();
+    for (auto i : vec[current_setup]) {
+        if (i.second->is_active())
+            i.second->cancel_buff();
     }
 }
-
-/*
-ListElement {
-    bname: "BATTLE_SHOUT"
-    bicon: "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png"
-    btext: "Improved Battle Shout\nIncreases attack power by 290"
-}
-ListElement {
-    bname: "LEADER_OF_THE_PACK"
-    bicon: "Assets/buffs/Spell_nature_unyeildingstamina.png"
-    btext: "Leader of the Pack\n+3% Critical Strike"
-}
-ListElement {
-    bname: "WINDFURY"
-    bicon: "Assets/buffs/Spell_nature_windfury.png"
-    btext: "Windfury Totem\n20% chance to grant 1 extra attack with extra melee ap"
-}
-ListElement {
-    bname: "MARK_OF_THE_WILD"
-    bicon: "Assets/buffs/Spell_nature_regeneration.png"
-    btext: "Improved Mark of the Wild\n+20 all attributes"
-}
-ListElement {
-    bname: "BLESSING_OF_KINGS"
-    bicon: "Assets/buffs/Spell_magic_greaterblessingofkings.png"
-    btext: "Greater Blessing of Kings\nIncreases total stats by 10%"
-}
-ListElement {
-    bname: "BLESSING_OF_MIGHT"
-    bicon: "Assets/buffs/Spell_holy_greaterblessingofkings.png"
-    btext: "Greater Blessing of Might\nIncreases melee attack power by 185"
-}
-ListElement {
-    bname: "JUJU_POWER"
-    bicon: "Assets/buffs/Inv_misc_monsterscales_11.png"
-    btext: "Juju Power\n+30 Strength"
-}
-ListElement {
-    bname: "JUJU_MIGHT"
-    bicon: "Assets/buffs/Inv_misc_monsterscales_07.png"
-    btext: "Juju Might\n+40 Attack power"
-}
-ListElement {
-    bname: "ROIDS"
-    bicon: "Assets/buffs/Inv_stone_15.png"
-    btext: "R.O.I.D.S\n+25 Strength"
-}
-ListElement {
-    bname: "WINTERFALL_FIREWATER"
-    bicon: "Assets/buffs/Inv_potion_92.png"
-    btext: "Winterfall Firewater\n+35 Melee attack power"
-}
-ListElement {
-    bname: "SMOKED_DESERT_DUMPLINGS"
-    bicon: "Assets/buffs/Inv_misc_food_64.png"
-    btext: "Smoked Desert Dumplings\n+20 Strength"
-}
-ListElement {
-    bname: "SCROLL_OF_STRENGTH_IV"
-    bicon: "Assets/buffs/Inv_scroll_02.png"
-    btext: "Scroll of Strength IV\n+17 Strength"
-}
-ListElement {
-    bname: "SPIRIT_OF_ZANDALAR"
-    bicon: "Assets/buffs/Ability_creature_poison_05.png"
-    btext: "Spirit of Zandalar\n15% all stats and 10% movement speed"
-}
-ListElement {
-    bname: "FENGUS_FEROCITY"
-    bicon: "Assets/buffs/Spell_nature_undyingstrength.png"
-    btext: "Fengus' Ferocity\n+200 Attack power"
-}
-*/

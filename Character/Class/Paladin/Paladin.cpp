@@ -20,7 +20,7 @@ Paladin::~Paladin()
     delete statistics;
 }
 
-QString Paladin::get_name(void) const {
+QString Paladin::get_name() const {
     return "Paladin";
 }
 
@@ -28,23 +28,23 @@ QString Paladin::get_class_color() const {
     return "#F58CBA";
 }
 
-int Paladin::get_strength_modifier(void) const {
+int Paladin::get_strength_modifier() const {
     return 2;
 }
 
-int Paladin::get_agility_modifier(void) const {
+int Paladin::get_agility_modifier() const {
     return 0;
 }
 
-int Paladin::get_stamina_modifier(void) const {
+int Paladin::get_stamina_modifier() const {
     return 2;
 }
 
-int Paladin::get_intellect_modifier(void) const {
+int Paladin::get_intellect_modifier() const {
     return 0;
 }
 
-int Paladin::get_spirit_modifier(void) const {
+int Paladin::get_spirit_modifier() const {
     return 1;
 }
 

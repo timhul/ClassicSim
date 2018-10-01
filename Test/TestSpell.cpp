@@ -1,6 +1,8 @@
 
 #include "TestSpell.h"
 
+#include <utility>
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
@@ -20,7 +22,7 @@
 
 TestSpell::TestSpell(QString spell_under_test) :
     equipment(nullptr),
-    spell_under_test(spell_under_test)
+    spell_under_test(std::move(spell_under_test))
 {}
 
 TestSpell::~TestSpell() {
@@ -461,7 +463,7 @@ void TestSpell::given_target_has_0_armor() {
 }
 
 void TestSpell::given_engine_priority_at(const double priority) {
-    MainhandMeleeHit* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
+    auto* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
     engine->set_current_priority(event);
     delete event;
 }

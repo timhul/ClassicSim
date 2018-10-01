@@ -7,10 +7,6 @@
 #include "Ranged.h"
 #include <QDebug>
 
-WeaponFileReader::WeaponFileReader():
-    ItemFileReader()
-{}
-
 void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
     while (reader.readNextStartElement()) {
         if (reader.name() == "melee_weapon" || reader.name() == "ranged_weapon") {
@@ -83,8 +79,8 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
 void WeaponFileReader::dmg_range_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item) {
     QVector<QString> mandatory_attrs = {"min", "max", "speed"};
 
-    for (int i = 0; i < mandatory_attrs.size(); ++i)
-        add_mandatory_attr(attrs, mandatory_attrs[i], item);
+    for (const auto & mandatory_attr : mandatory_attrs)
+        add_mandatory_attr(attrs, mandatory_attr, item);
 }
 
 void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
@@ -94,9 +90,9 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
     bool missing_attrs = false;
     QVector<QString> mandatory_attrs_for_wpn = {"min", "max", "speed"};
 
-    for (int i = 0; i < mandatory_attrs_for_wpn.size(); ++i) {
-        if (!item_map.contains(mandatory_attrs_for_wpn[i])) {
-            qDebug() << "Missing mandatory weapon attribute" << mandatory_attrs_for_wpn[i];
+    for (const auto & i : mandatory_attrs_for_wpn) {
+        if (!item_map.contains(i)) {
+            qDebug() << "Missing mandatory weapon attribute" << i;
             missing_attrs = true;
         }
     }
@@ -130,8 +126,8 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
 
     QVector<QString> handled_keys = {"name", "type", "min", "max", "speed"};
 
-    for (int i = 0; i < handled_keys.size(); ++i) {
-        item_map.remove(handled_keys[i]);
+    for (const auto & handled_key : handled_keys) {
+        item_map.remove(handled_key);
     }
 }
 

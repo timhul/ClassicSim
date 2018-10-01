@@ -38,7 +38,7 @@ WarriorRotation::WarriorRotation(Warrior* pchar, QObject* parent) :
 
 Spell* WarriorRotation::get_spell_from_name(const QString& spell_name) const {
     Spell* spell = nullptr;
-    WarriorSpells* spells = dynamic_cast<WarriorSpells*>(pchar->get_spells());
+    auto* spells = dynamic_cast<WarriorSpells*>(pchar->get_spells());
 
     if (spell_name == "Battle Shout")
         spell = spells->get_battle_shout();

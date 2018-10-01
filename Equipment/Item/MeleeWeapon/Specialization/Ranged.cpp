@@ -1,7 +1,7 @@
 
 #include "Ranged.h"
 
-int Ranged::get_item_slot(void) const {
+int Ranged::get_item_slot() const {
     return ItemSlots::RANGED;
 }
 

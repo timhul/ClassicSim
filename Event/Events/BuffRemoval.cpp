@@ -9,6 +9,6 @@ BuffRemoval::BuffRemoval(Buff* buff, const double timestamp, const int iteration
     this->name = "BuffRemoval";
 }
 
-void BuffRemoval::act(void) {
+void BuffRemoval::act() {
     buff->remove_buff(iteration);
 }

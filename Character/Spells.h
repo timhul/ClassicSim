@@ -38,8 +38,8 @@ protected:
     Character* pchar;
     QVector<Spell*> spells;
 
-    MainhandAttack* mh_attack;
-    OffhandAttack* oh_attack;
+    MainhandAttack* mh_attack{};
+    OffhandAttack* oh_attack{};
 
     Berserking* berserking;
     BloodFury* blood_fury;

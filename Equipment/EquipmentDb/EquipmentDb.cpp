@@ -40,24 +40,24 @@ EquipmentDb::~EquipmentDb() {
     // The issue is WeaponType::ONEHAND can be found in both lists.
     delete_items(&mh_slot_items);
 
-    for (int i = 0; i < oh_slot_items.size(); ++i) {
-        if (mh_slot_items.contains(oh_slot_items[i]))
+    for (auto & oh_slot_item : oh_slot_items) {
+        if (mh_slot_items.contains(oh_slot_item))
             continue;
 
-        delete oh_slot_items[i];
+        delete oh_slot_item;
     }
     mh_slot_items.clear();
     oh_slot_items.clear();
 
-    for (int i = 0; i < all_slots_items.size(); ++i) {
-        delete_items(all_slots_items[i]);
-        all_slots_items[i]->clear();
+    for (auto & all_slots_item : all_slots_items) {
+        delete_items(all_slots_item);
+        all_slots_item->clear();
     }
 }
 
 void EquipmentDb::delete_items(QVector<Item *>* list) {
-    for (int i = 0 ; i < list->size(); ++i)
-        delete list->at(i);
+    for (auto i : *list)
+        delete i;
 }
 
 void EquipmentDb::add_melee_weapon(Weapon* wpn) {
@@ -71,24 +71,24 @@ void EquipmentDb::add_ring(Item* ring) {
 }
 
 Weapon* EquipmentDb::get_melee_weapon(const QString &name) {
-    for (int i = 0; i < current_patch_mh_slot_items.size(); ++i) {
-        if (name == current_patch_mh_slot_items[i]->get_name())
-            return dynamic_cast<Weapon*>(current_patch_mh_slot_items[i]);
+    for (auto & current_patch_mh_slot_item : current_patch_mh_slot_items) {
+        if (name == current_patch_mh_slot_item->get_name())
+            return dynamic_cast<Weapon*>(current_patch_mh_slot_item);
     }
 
     // TODO: How to handle caster offhands?
-    for (int i = 0; i < current_patch_oh_slot_items.size(); ++i) {
-        if (name == current_patch_oh_slot_items[i]->get_name())
-            return dynamic_cast<Weapon*>(current_patch_oh_slot_items[i]);
+    for (auto & current_patch_oh_slot_item : current_patch_oh_slot_items) {
+        if (name == current_patch_oh_slot_item->get_name())
+            return dynamic_cast<Weapon*>(current_patch_oh_slot_item);
     }
 
     return nullptr;
 }
 
 Item* EquipmentDb::get_item(const QVector<Item*> &list, const QString &name) {
-    for (int i = 0; i < list.size(); ++i) {
-        if (name == list[i]->get_name())
-            return list[i];
+    for (auto i : list) {
+        if (name == i->get_name())
+            return i;
     }
 
     return nullptr;
@@ -207,20 +207,20 @@ void EquipmentDb::set_patch_for_slot(QVector<Item *> &total_slot_items, QVector<
     patch_slot_items.clear();
     QMap<QString, Item*> tmp_names;
 
-    for (int i = 0; i < total_slot_items.size(); ++i) {
-        if (item_valid_for_current_patch(total_slot_items[i]->get_value("patch"))) {
-            if (tmp_names.contains(total_slot_items[i]->get_name())) {
-                QString curr_tmp_patch = tmp_names[total_slot_items[i]->get_name()]->get_value("patch");
-                QString contender_patch = total_slot_items[i]->get_value("patch");
+    for (auto & total_slot_item : total_slot_items) {
+        if (item_valid_for_current_patch(total_slot_item->get_value("patch"))) {
+            if (tmp_names.contains(total_slot_item->get_name())) {
+                QString curr_tmp_patch = tmp_names[total_slot_item->get_name()]->get_value("patch");
+                QString contender_patch = total_slot_item->get_value("patch");
 
                 if (QVersionNumber::fromString(contender_patch) < QVersionNumber::fromString(curr_tmp_patch))
                     continue;
             }
-            tmp_names[total_slot_items[i]->get_name()] = total_slot_items[i];
+            tmp_names[total_slot_item->get_name()] = total_slot_item;
         }
     }
 
-    for (auto it: tmp_names.keys())
+    for (const auto& it: tmp_names.keys())
         patch_slot_items.append(tmp_names.value(it));
 }
 
@@ -270,8 +270,8 @@ void EquipmentDb::read_equipment_files() {
 
     QVector<Item*> items;
 
-    for (int i = 0; i < equipment_file_paths.size(); ++i) {
-        ItemFileReader().read_items(items, equipment_file_paths[i]);
+    for (const auto & equipment_file_path : equipment_file_paths) {
+        ItemFileReader().read_items(items, equipment_file_path);
     }
 
     set_weapons(items);
@@ -296,7 +296,7 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
         if (!accepted_slots.contains(mixed_items[i]->get_item_slot()))
             continue;
 
-        Weapon* wpn = dynamic_cast<Weapon*>(mixed_items[i]);
+        auto* wpn = dynamic_cast<Weapon*>(mixed_items[i]);
 
         switch (wpn->get_weapon_slot()) {
         case WeaponSlots::MAINHAND:

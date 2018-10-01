@@ -15,7 +15,7 @@ worldwide. This software is distributed without any warranty.
 
 See <http://creativecommons.org/publicdomain/zero/1.0/>. */
 
-#include <stdint.h>
+#include <cstdint>
 #include "xoroshiro128plus.h"
 
 // Windows-specific
@@ -37,7 +37,7 @@ void xoroshiro128plus::set_state(uint64_t state) {
         this->next();
 }
 
-uint64_t xoroshiro128plus::next(void) {
+uint64_t xoroshiro128plus::next() {
     const uint64_t s0 = state[0];
     uint64_t s1 = state[1];
     const uint64_t result = s0 + s1;

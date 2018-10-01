@@ -5,27 +5,27 @@ int Tauren::get_race_int() const {
     return Races::Tauren;
 }
 
-QString Tauren::get_name(void) const {
+QString Tauren::get_name() const {
     return "Tauren";
 }
 
-int Tauren::get_base_strength(void) const {
+int Tauren::get_base_strength() const {
     return 25;
 }
 
-int Tauren::get_base_agility(void) const {
+int Tauren::get_base_agility() const {
     return 15;
 }
 
-int Tauren::get_base_stamina(void) const {
+int Tauren::get_base_stamina() const {
     return 22;
 }
 
-int Tauren::get_base_intellect(void) const {
+int Tauren::get_base_intellect() const {
     return 15;
 }
 
-int Tauren::get_base_spirit(void) const {
+int Tauren::get_base_spirit() const {
     return 22;
 }
 

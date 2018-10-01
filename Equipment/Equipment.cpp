@@ -4,7 +4,7 @@
 #include "Item.h"
 #include "Weapon.h"
 #include "Stats.h"
-#include <assert.h>
+#include <cassert>
 #include <QSet>
 
 Equipment::Equipment(Character* pchar):
@@ -14,8 +14,8 @@ Equipment::Equipment(Character* pchar):
     db = new EquipmentDb();
 
     stats_from_equipped_gear = {nullptr, nullptr, nullptr};
-    for (int i = 0; i < stats_from_equipped_gear.size(); ++i) {
-        stats_from_equipped_gear[i] = new Stats();
+    for (auto & i : stats_from_equipped_gear) {
+        i = new Stats();
     }
 
     mainhand = {nullptr, nullptr, nullptr};
@@ -41,8 +41,8 @@ Equipment::Equipment(Character* pchar):
 
 Equipment::~Equipment() {
     delete db;
-    for (int i = 0; i < stats_from_equipped_gear.size(); ++i) {
-        delete stats_from_equipped_gear[i];
+    for (auto & i : stats_from_equipped_gear) {
+        delete i;
     }
 }
 
@@ -116,7 +116,7 @@ void Equipment::remove_proc_effect_from_item(Item* item, const int eq_slot) {
         item->remove_equip_effect(pchar, eq_slot);
 }
 
-bool Equipment::is_dual_wielding(void) {
+bool Equipment::is_dual_wielding() {
     return offhand[setup_index] != nullptr;
 }
 
@@ -124,79 +124,79 @@ const Stats* Equipment::get_stats() const {
     return this->stats_from_equipped_gear[setup_index];
 }
 
-Weapon* Equipment::get_mainhand(void) {
+Weapon* Equipment::get_mainhand() {
     return mainhand[setup_index];
 }
 
-Weapon* Equipment::get_offhand(void) {
+Weapon* Equipment::get_offhand() {
     return offhand[setup_index];
 }
 
-Item* Equipment::get_ranged(void) {
+Item* Equipment::get_ranged() {
     return ranged[setup_index];
 }
 
-Item* Equipment::get_head(void) {
+Item* Equipment::get_head() {
     return head[setup_index];
 }
 
-Item* Equipment::get_neck(void) {
+Item* Equipment::get_neck() {
     return neck[setup_index];
 }
 
-Item* Equipment::get_shoulders(void) {
+Item* Equipment::get_shoulders() {
     return shoulders[setup_index];
 }
 
-Item* Equipment::get_back(void) {
+Item* Equipment::get_back() {
     return back[setup_index];
 }
 
-Item* Equipment::get_chest(void) {
+Item* Equipment::get_chest() {
     return chest[setup_index];
 }
 
-Item* Equipment::get_wrist(void) {
+Item* Equipment::get_wrist() {
     return wrist[setup_index];
 }
 
-Item* Equipment::get_gloves(void) {
+Item* Equipment::get_gloves() {
     return gloves[setup_index];
 }
 
-Item* Equipment::get_belt(void) {
+Item* Equipment::get_belt() {
     return belt[setup_index];
 }
 
-Item* Equipment::get_legs(void) {
+Item* Equipment::get_legs() {
     return legs[setup_index];
 }
 
-Item* Equipment::get_boots(void) {
+Item* Equipment::get_boots() {
     return boots[setup_index];
 }
 
-Item* Equipment::get_ring1(void) {
+Item* Equipment::get_ring1() {
     return ring1[setup_index];
 }
 
-Item* Equipment::get_ring2(void) {
+Item* Equipment::get_ring2() {
     return ring2[setup_index];
 }
 
-Item* Equipment::get_trinket1(void) {
+Item* Equipment::get_trinket1() {
     return trinket1[setup_index];
 }
 
-Item* Equipment::get_trinket2(void) {
+Item* Equipment::get_trinket2() {
     return trinket2[setup_index];
 }
 
-Item* Equipment::get_caster_offhand(void) {
+Item* Equipment::get_caster_offhand() {
     return caster_offhand[setup_index];
 }
 
-Item* Equipment::get_relic(void) {
+Item* Equipment::get_relic() {
     return relic[setup_index];
 }
 

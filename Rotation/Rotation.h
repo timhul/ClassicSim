@@ -18,11 +18,11 @@ public:
 
     void perform_rotation() const;
 
-    void set_class(const QString class_name);
-    void set_name(const QString name);
-    void set_description(const QString desc);
-    void add_variable(const QString var, const QString value);
-    void add_prerequisite(const QString key, const QString value);
+    void set_class(const QString& class_name);
+    void set_name(const QString& name);
+    void set_description(const QString& desc);
+    void add_variable(const QString& var, const QString& value);
+    void add_prerequisite(const QString& key, const QString& value);
     void add_cast_if(CastIf* cast_if);
 
     QString get_class() const;

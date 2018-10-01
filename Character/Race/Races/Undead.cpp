@@ -5,27 +5,27 @@ int Undead::get_race_int() const {
     return Races::Undead;
 }
 
-QString Undead::get_name(void) const {
+QString Undead::get_name() const {
     return "Undead";
 }
 
-int Undead::get_base_strength(void) const {
+int Undead::get_base_strength() const {
     return 19;
 }
 
-int Undead::get_base_agility(void) const {
+int Undead::get_base_agility() const {
     return 18;
 }
 
-int Undead::get_base_stamina(void) const {
+int Undead::get_base_stamina() const {
     return 21;
 }
 
-int Undead::get_base_intellect(void) const {
+int Undead::get_base_intellect() const {
     return 18;
 }
 
-int Undead::get_base_spirit(void) const {
+int Undead::get_base_spirit() const {
     return 25;
 }
 

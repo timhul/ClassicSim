@@ -91,11 +91,11 @@ void ItemFileReader::info_element_reader(const QXmlStreamAttributes &attrs, QMap
     QVector<QString> mandatory_attrs = {"type", "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
     QVector<QString> optional_attrs = {"faction", "icon"};
 
-    for (int i = 0; i < mandatory_attrs.size(); ++i)
-        add_mandatory_attr(attrs, mandatory_attrs[i], item);
+    for (const auto & mandatory_attr : mandatory_attrs)
+        add_mandatory_attr(attrs, mandatory_attr, item);
 
-    for (int i = 0; i < optional_attrs.size(); ++i)
-        add_attr(attrs, optional_attrs[i], item);
+    for (const auto & optional_attr : optional_attrs)
+        add_attr(attrs, optional_attr, item);
 }
 
 void ItemFileReader::class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item) {
@@ -157,9 +157,9 @@ void ItemFileReader::create_item(QVector<Item*> &items,
                                         "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
     bool missing_attrs = false;
-    for (int i = 0; i < mandatory_attrs.size(); ++i) {
-        if (!item_map.contains(mandatory_attrs[i])) {
-            qDebug() << "Missing mandatory base attribute" << mandatory_attrs[i];
+    for (const auto & mandatory_attr : mandatory_attrs) {
+        if (!item_map.contains(mandatory_attr)) {
+            qDebug() << "Missing mandatory base attribute" << mandatory_attr;
             missing_attrs = true;
         }
     }
@@ -174,8 +174,8 @@ void ItemFileReader::create_item(QVector<Item*> &items,
 
     QVector<QString> handled_keys = {"name"};
 
-    for (int i = 0; i < handled_keys.size(); ++i) {
-        item_map.remove(handled_keys[i]);
+    for (const auto & handled_key : handled_keys) {
+        item_map.remove(handled_key);
     }
 }
 
@@ -188,8 +188,7 @@ void ItemFileReader::extract_info(QMap<QString, QString> &item, QMap<QString, QS
 }
 
 void ItemFileReader::extract(QVector<QString> handled_keys, QMap<QString, QString> &source, QMap<QString, QString> &target) {
-    for (int i = 0; i < handled_keys.size(); ++i) {
-        QString key = handled_keys[i];
+    for (const auto& key : handled_keys) {
         if (source.contains(key)) {
             target[key] = source.take(key);
         }
@@ -197,7 +196,7 @@ void ItemFileReader::extract(QVector<QString> handled_keys, QMap<QString, QStrin
 }
 
 void ItemFileReader::warn_remaining_keys(QMap<QString, QString> &item) {
-    for (auto it : item.keys()) {
+    for (const auto& it : item.keys()) {
         qDebug() << "Warning: Unhandled key" << it;
     }
 }

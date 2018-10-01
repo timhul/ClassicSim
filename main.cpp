@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     test.test_all();
 
     QApplication app(argc, argv);
-    GUIControl* gui_control = new GUIControl();
+    auto* gui_control = new GUIControl();
 
     QQmlApplicationEngine qml_engine;
     QQmlContext* context = qml_engine.rootContext();
@@ -39,5 +39,5 @@ int main(int argc, char *argv[])
         return -1;
 
 
-    return app.exec();
+    return QApplication::exec();
 }

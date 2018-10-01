@@ -9,7 +9,7 @@ ResourceGain::ResourceGain(Spell *spell, const double priority) {
     this->name = "ResourceGain";
 }
 
-void ResourceGain::act(void) {
+void ResourceGain::act() {
     spell->periodic_effect();
     // TODO: Consider adding PlayerAction event.
 }

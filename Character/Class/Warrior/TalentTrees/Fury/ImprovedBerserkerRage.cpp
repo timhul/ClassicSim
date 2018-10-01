@@ -11,18 +11,16 @@ ImprovedBerserkerRage::ImprovedBerserkerRage(Character *pchar, TalentTree* tree)
     initialize_rank_descriptions(base_str, 5, 5);
 }
 
-ImprovedBerserkerRage::~ImprovedBerserkerRage() {
-
-}
+ImprovedBerserkerRage::~ImprovedBerserkerRage() = default;
 
 void ImprovedBerserkerRage::apply_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_berserker_rage()->increase_effect_via_talent();
 }
 
 void ImprovedBerserkerRage::remove_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_berserker_rage()->decrease_effect_via_talent();
 }

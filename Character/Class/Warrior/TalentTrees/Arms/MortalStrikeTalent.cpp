@@ -10,9 +10,7 @@ MortalStrikeTalent::MortalStrikeTalent(Character *pchar, TalentTree* tree) :
     rank_descriptions.insert(1, base_str);
 }
 
-MortalStrikeTalent::~MortalStrikeTalent() {
-
-}
+MortalStrikeTalent::~MortalStrikeTalent() = default;
 
 void MortalStrikeTalent::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

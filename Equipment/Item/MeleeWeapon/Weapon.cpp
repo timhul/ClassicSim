@@ -1,11 +1,13 @@
 
 #include "Weapon.h"
 
+#include <utility>
+
 Weapon::Weapon(QString name, int type, unsigned min, unsigned max, double speed,
        QVector<QPair<QString, QString>> stats,
        QMap<QString, QString> info,
        QVector<QMap<QString, QString>> procs):
-    Item(name, stats, info, procs) {
+    Item(std::move(name), std::move(stats), std::move(info), std::move(procs)) {
     this->random = new Random(min, max);
     this->weapon_type = type;
     this->min_dmg = min;

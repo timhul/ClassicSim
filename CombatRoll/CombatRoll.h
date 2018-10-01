@@ -51,7 +51,7 @@ public:
 
 protected:
 private:
-    Character* pchar;
+    Character* pchar{};
     Target* target;
     Random* random;
     Mechanics* mechanics;

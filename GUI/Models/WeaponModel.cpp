@@ -40,7 +40,7 @@ void WeaponModel::setSlot(const int slot) {
 }
 
 void WeaponModel::addWeapons(const EquipmentDb* db) {
-    if (melee_weapons.size() > 0) {
+    if (!melee_weapons.empty()) {
         beginRemoveRows(QModelIndex(), 0, melee_weapons.size() - 1);
         melee_weapons.clear();
         endRemoveRows();
@@ -48,11 +48,11 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
 
     QVector<Item*> wpns = db->get_slot_items(slot);
 
-    for (int i = 0; i < wpns.size(); ++i) {
-        if (item_type_filter_model->get_filter_active(wpns[i]->get_item_type()))
+    for (auto & wpn : wpns) {
+        if (item_type_filter_model->get_filter_active(wpn->get_item_type()))
             continue;
 
-        addWeapon(dynamic_cast<Weapon*>(wpns[i]));
+        addWeapon(dynamic_cast<Weapon*>(wpn));
     }
 
     layoutAboutToBeChanged();

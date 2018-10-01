@@ -27,7 +27,7 @@ public:
     void then_overpower_is_active();
 
 protected:
-    Warrior* warrior;
+    Warrior* warrior{};
 };
 
 #endif // TESTSPELLWARRIOR_H

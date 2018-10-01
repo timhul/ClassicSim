@@ -62,7 +62,7 @@ void TestMainhandAttackWarrior::test_all() {
 }
 
 MainhandAttackWarrior* TestMainhandAttackWarrior::mh_attack() {
-    WarriorSpells* spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
+    auto* spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
     return dynamic_cast<MainhandAttackWarrior*>(spells->get_mh_attack());
 }
 

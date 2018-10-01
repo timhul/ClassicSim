@@ -10,9 +10,7 @@ FlurryTalent::FlurryTalent(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 10, 5);
 }
 
-FlurryTalent::~FlurryTalent() {
-
-}
+FlurryTalent::~FlurryTalent() = default;
 
 void FlurryTalent::apply_rank_effect() {
     dynamic_cast<Warrior*>(pchar)->get_flurry()->increase_rank();

@@ -9,9 +9,7 @@ ImprovedCleave::ImprovedCleave(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 40, 40);
 }
 
-ImprovedCleave::~ImprovedCleave() {
-
-}
+ImprovedCleave::~ImprovedCleave() = default;
 
 void ImprovedCleave::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

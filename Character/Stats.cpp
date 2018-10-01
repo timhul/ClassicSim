@@ -50,8 +50,7 @@ Stats::Stats(QObject* parent ) :
     this->melee_ap_against_creature[Target::CreatureType::Undead] = 0;
 }
 
-Stats::~Stats()
-{}
+Stats::~Stats() = default;
 
 void Stats::add(const Stats* rhs) {
     increase_str(rhs->get_strength());
@@ -113,23 +112,23 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 }
 
-int Stats::get_strength(void) const {
+int Stats::get_strength() const {
     return STR;
 }
 
-int Stats::get_agility(void) const {
+int Stats::get_agility() const {
     return AGI;
 }
 
-int Stats::get_stamina(void) const {
+int Stats::get_stamina() const {
     return STAM;
 }
 
-int Stats::get_intellect(void) const {
+int Stats::get_intellect() const {
     return int(double(INT) * int_multiplier);
 }
 
-int Stats::get_spirit(void) const {
+int Stats::get_spirit() const {
     return int(double(SPI) * spi_multiplier);
 }
 
@@ -334,11 +333,11 @@ void Stats::decrease_base_melee_ap(const int decrease) {
     melee_ap -= decrease;
 }
 
-double Stats::get_hit_chance(void) const {
+double Stats::get_hit_chance() const {
     return percent_hit;
 }
 
-double Stats::get_crit_chance(void) const {
+double Stats::get_crit_chance() const {
     return percent_crit;
 }
 

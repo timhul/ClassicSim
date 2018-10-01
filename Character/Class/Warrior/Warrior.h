@@ -86,7 +86,7 @@ private:
     int stance;
     unsigned stance_rage_remainder;
     double next_stance_cd;
-    double rage_conversion_value;
+    double rage_conversion_value{};
     Flurry* flurry;
     BerserkerStanceBuff* berserker_stance_buff;
     HeroicStrikeBuff* heroic_strike_buff;

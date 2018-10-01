@@ -146,10 +146,10 @@ protected:
     CharacterStats* cstats;
     ActiveProcs* active_procs;
     ActiveBuffs* active_buffs;
-    Spells* spells;
+    Spells* spells{};
     ClassStatistics* statistics;
     QVector<Rotation*> rotations;
-    Rotation* current_rotation;
+    Rotation* current_rotation{};
 
     BerserkingBuff* berserking_buff;
     BloodFuryBuff* blood_fury_buff;

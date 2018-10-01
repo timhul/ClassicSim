@@ -3,8 +3,10 @@
 
 #include "Warrior.h"
 
+#include <utility>
+
 TestBuffWarrior::TestBuffWarrior(QString buff_under_test) :
-    TestBuff(buff_under_test)
+    TestBuff(std::move(buff_under_test))
 {}
 
 void TestBuffWarrior::set_up() {

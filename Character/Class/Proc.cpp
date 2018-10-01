@@ -1,5 +1,7 @@
 
 #include "Proc.h"
+
+#include <utility>
 #include "ActiveProcs.h"
 #include "Random.h"
 #include "ClassStatistics.h"
@@ -10,13 +12,13 @@
 #include "Character.h"
 
 Proc::Proc(const QString& name, const double proc_rate, const double inner_cooldown,
-           const bool recursive, const QVector<Proc *> linked_procs,
-           const QVector<ProcInfo::Source> proc_sources,
+           const bool recursive, const QVector<Proc *>& linked_procs,
+           QVector<ProcInfo::Source>  proc_sources,
            Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell(name, engine, pchar, roll, false, inner_cooldown, 0),
     procs(pchar->get_active_procs()),
     random(new Random(0, 9999)),
-    proc_sources(proc_sources),
+    proc_sources(std::move(proc_sources)),
     statistics_proc(new StatisticsProc(name)),
     statistics_buff(new StatisticsBuff(name)),
     statistics_resource(new StatisticsResource(name)),
@@ -41,8 +43,8 @@ void Proc::spell_effect() {
         proc_effect();
         statistics_proc->increment_proc();
 
-        for (int i = 0; i < linked_procs.size(); ++i) {
-            linked_procs[i]->spell_effect();
+        for (auto & linked_proc : linked_procs) {
+            linked_proc->spell_effect();
         }
     }
 }

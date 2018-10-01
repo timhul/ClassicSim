@@ -9,9 +9,7 @@ SwordSpecialization::SwordSpecialization(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 1, 1);
 }
 
-SwordSpecialization::~SwordSpecialization() {
-
-}
+SwordSpecialization::~SwordSpecialization() = default;
 
 void SwordSpecialization::apply_rank_effect() {
     // TODO: Decide how rank effects work for this talent.

@@ -6,7 +6,7 @@
 
 class CombatLog {
 public:
-    void add_entry(QString);
+    void add_entry(const QString&);
     void dump(void);
 
 protected:

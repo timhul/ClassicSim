@@ -9,6 +9,6 @@ OffhandMeleeHit::OffhandMeleeHit(Spells* spells, const double next_timestamp, co
     this->iteration = iteration;
 }
 
-void OffhandMeleeHit::act(void) {
+void OffhandMeleeHit::act() {
     spells->oh_auto_attack(iteration);
 }

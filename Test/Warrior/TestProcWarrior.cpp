@@ -3,8 +3,10 @@
 
 #include "Warrior.h"
 
+#include <utility>
+
 TestProcWarrior::TestProcWarrior(QString spell_under_test) :
-    TestProc(spell_under_test)
+    TestProc(std::move(spell_under_test))
 {}
 
 void TestProcWarrior::set_up() {

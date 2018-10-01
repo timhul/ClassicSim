@@ -18,7 +18,7 @@ namespace BuffDuration {
 
 class Buff {
 public:
-    Buff(Character* pchar, const QString name, const int duration, const int base_charges);
+    Buff(Character* pchar, const QString& name, const int duration, const int base_charges);
     virtual ~Buff();
 
     StatisticsBuff* get_statistics_for_buff() const;
@@ -55,14 +55,14 @@ protected:
     const QString name;
     int duration;
     const int base_charges;
-    int current_charges;
-    int iteration;
-    double applied;
-    double refreshed;
-    double expired;
-    bool active;
+    int current_charges{};
+    int iteration{};
+    double applied{};
+    double refreshed{};
+    double expired{};
+    bool active{};
     int rank_talent;
-    double uptime;
+    double uptime{};
     bool hidden;
 
     int instance_id;

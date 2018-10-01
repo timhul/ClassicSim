@@ -27,7 +27,7 @@ Rogue::~Rogue()
     delete statistics;
 }
 
-QString Rogue::get_name(void) const {
+QString Rogue::get_name() const {
     return "Rogue";
 }
 
@@ -35,23 +35,23 @@ QString Rogue::get_class_color() const {
     return "#FFF569";
 }
 
-int Rogue::get_strength_modifier(void) const {
+int Rogue::get_strength_modifier() const {
     return 1;
 }
 
-int Rogue::get_agility_modifier(void) const {
+int Rogue::get_agility_modifier() const {
     return 3;
 }
 
-int Rogue::get_stamina_modifier(void) const {
+int Rogue::get_stamina_modifier() const {
     return 1;
 }
 
-int Rogue::get_intellect_modifier(void) const {
+int Rogue::get_intellect_modifier() const {
     return 0;
 }
 
-int Rogue::get_spirit_modifier(void) const {
+int Rogue::get_spirit_modifier() const {
     return 0;
 }
 

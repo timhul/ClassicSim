@@ -65,8 +65,8 @@ void CharacterEncoder::add_vector_values_only(const QString& name, const QVector
     QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup;
     QVector<QPair<QString, QString>> key_vals;
 
-    for (int i = 0; i < vec.size(); ++i) {
-        key_vals.append(QPair<QString, QString>(vec[i], "N/A"));
+    for (const auto & i : vec) {
+        key_vals.append(QPair<QString, QString>(i, "N/A"));
     }
 
     QPair<QString, QVector<QPair<QString, QString>>> list = {name, key_vals};
@@ -81,12 +81,12 @@ void CharacterEncoder::add_vector(QVector<QPair<QString, QVector<QPair<QString, 
     if (vec.empty())
         return;
 
-    for (int i = 0; i < vec.size(); ++i) {
+    for (auto & i : vec) {
         new_element();
 
-        pchar_str += vec[i].first + QString(Encoding::LIST_INITIALIZER);
-        for (int j = 0; j < vec[i].second.size(); ++j) {
-            key_val_list(vec[i].second[j].first, vec[i].second[j].second);
+        pchar_str += i.first + QString(Encoding::LIST_INITIALIZER);
+        for (auto & j : i.second) {
+            key_val_list(j.first, j.second);
         }
 
         pchar_str += QString(Encoding::LIST_END);

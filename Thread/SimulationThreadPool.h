@@ -16,8 +16,8 @@ public:
     void run_sim(const QString& setup_string);
 
 public slots:
-    void error_string(QString, QString);
-    void result(QString, double);
+    void error_string(const QString&, const QString&);
+    void result(const QString&, double);
 
 signals:
     void thread_result(QString dps);

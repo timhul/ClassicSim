@@ -36,11 +36,11 @@ public:
     Q_PROPERTY(bool isAlliance READ get_is_alliance NOTIFY factionChanged)
     Q_PROPERTY(bool isHorde READ get_is_horde NOTIFY factionChanged)
 
-    Q_INVOKABLE void selectClass(const QString class_name);
-    Q_INVOKABLE void selectRace(const QString race_name);
+    Q_INVOKABLE void selectClass(const QString& class_name);
+    Q_INVOKABLE void selectRace(const QString& race_name);
     Q_INVOKABLE void selectFaction(const bool faction);
 
-    Q_INVOKABLE bool raceAvailable(const QString race_name);
+    Q_INVOKABLE bool raceAvailable(const QString& race_name);
 
     /* End of Character */
 
@@ -50,35 +50,35 @@ public:
     Q_PROPERTY(QString midTalentTreeBackground READ getMidBackgroundImage NOTIFY classChanged)
     Q_PROPERTY(QString rightTalentTreeBackground READ getRightBackgroundImage NOTIFY classChanged)
 
-    Q_INVOKABLE QString getIcon(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showPosition(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showBottomArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool showRightArrow(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE QString getIcon(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool showPosition(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool showBottomArrow(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool showRightArrow(const QString& tree_position, const QString& talent_position) const;
 
-    Q_INVOKABLE QString getBottomArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getRightArrow(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool bottomChildAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool bottomChildActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool rightChildAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool rightChildActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isActive(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isAvailable(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE bool isMaxed(const QString tree_position, const QString talent_position) const;
+    Q_INVOKABLE QString getBottomArrow(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE QString getRightArrow(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool bottomChildAvailable(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool bottomChildActive(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool rightChildAvailable(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool rightChildActive(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool isActive(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool isAvailable(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE bool isMaxed(const QString& tree_position, const QString& talent_position) const;
     Q_INVOKABLE bool hasTalentPointsRemaining() const;
-    Q_INVOKABLE QString getRank(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getMaxRank(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE void incrementRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE void decrementRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE QString getRequirements(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getCurrentRankDescription(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE QString getNextRankDescription(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE int getTreePoints(const QString tree_position) const;
-    Q_INVOKABLE QString getTreeName(const QString tree_position) const;
-    Q_INVOKABLE QString getTalentName(const QString tree_position, const QString talent_position) const;
-    Q_INVOKABLE void maxRank(const QString tree_position, const QString talent_position);
-    Q_INVOKABLE void minRank(const QString tree_position, const QString talent_position);
+    Q_INVOKABLE QString getRank(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE QString getMaxRank(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE void incrementRank(const QString& tree_position, const QString& talent_position);
+    Q_INVOKABLE void decrementRank(const QString& tree_position, const QString& talent_position);
+    Q_INVOKABLE QString getRequirements(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE QString getCurrentRankDescription(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE QString getNextRankDescription(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE int getTreePoints(const QString& tree_position) const;
+    Q_INVOKABLE QString getTreeName(const QString& tree_position) const;
+    Q_INVOKABLE QString getTalentName(const QString& tree_position, const QString& talent_position) const;
+    Q_INVOKABLE void maxRank(const QString& tree_position, const QString& talent_position);
+    Q_INVOKABLE void minRank(const QString& tree_position, const QString& talent_position);
 
-    Q_INVOKABLE void clearTree(const QString tree_position);
+    Q_INVOKABLE void clearTree(const QString& tree_position);
 
     Q_INVOKABLE void setTalentSetup(const int talent_index);
     /* End of Talents */
@@ -119,9 +119,9 @@ public:
 
     Q_INVOKABLE QVariantList getTooltip(const QString &slot_string);
 
-    Q_INVOKABLE void selectSlot(QString slot_string);
-    Q_INVOKABLE void setSlot(QString slot_string, QString item);
-    Q_INVOKABLE void clearSlot(QString slot_string);
+    Q_INVOKABLE void selectSlot(const QString& slot_string);
+    Q_INVOKABLE void setSlot(const QString& slot_string, const QString& item);
+    Q_INVOKABLE void clearSlot(const QString& slot_string);
 
     Q_INVOKABLE void setEquipmentSetup(const int equipment_index);
 
@@ -138,10 +138,10 @@ public:
     /* Buffs and debuffs */
     BuffModel* get_buff_model() const;
     DebuffModel* get_debuff_model() const;
-    Q_INVOKABLE void selectBuff(QString buff);
-    Q_INVOKABLE bool buffActive(QString buff) const;
-    Q_INVOKABLE void selectDebuff(QString debuff);
-    Q_INVOKABLE bool debuffActive(QString debuff) const;
+    Q_INVOKABLE void selectBuff(const QString& buff);
+    Q_INVOKABLE bool buffActive(const QString& buff) const;
+    Q_INVOKABLE void selectDebuff(const QString& debuff);
+    Q_INVOKABLE bool debuffActive(const QString& debuff) const;
     Q_INVOKABLE void setBuffSetup(const int buff_index);
 
     /* End of Buffs and debuffs */
@@ -161,7 +161,7 @@ public:
     /* End of Target */
 
     Q_INVOKABLE void runQuickSim();
-    Q_INVOKABLE void setPatch(QString patch);
+    Q_INVOKABLE void setPatch(const QString& patch);
 
 Q_SIGNALS:
     void classChanged();
@@ -238,7 +238,7 @@ private:
     Engine* engine;
     Equipment* equipment;
     Target* target;
-    Random* random;
+    Random* random{};
     CombatRoll* combat;
     Faction* faction;
     CharacterEncoder* character_encoder;
@@ -246,7 +246,7 @@ private:
     SimulationThreadPool* thread_pool;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
-    Character* current_char;
+    Character* current_char{};
     double last_quick_sim_result;
     ItemModel* item_model;
     ItemTypeFilterModel* item_type_filter_model;

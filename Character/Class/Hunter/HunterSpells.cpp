@@ -14,11 +14,10 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     spells.append(mh_attack);
 }
 
-HunterSpells::~HunterSpells()
-{}
+HunterSpells::~HunterSpells() = default;
 
 void HunterSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

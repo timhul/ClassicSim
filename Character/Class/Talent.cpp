@@ -1,15 +1,16 @@
 
 #include "Talent.h"
 #include <QDebug>
+#include <utility>
 #include "Character.h"
 #include "TalentTree.h"
 
-Talent::Talent(Character *pchar_, TalentTree *tree_, const QString &name_, const QString & position_, const QString &icon_, const int max_points_) :
+Talent::Talent(Character *pchar_, TalentTree *tree_, QString name_, QString  position_, QString icon_, const int max_points_) :
     pchar(pchar_),
     tree(tree_),
-    name(name_),
-    position(position_),
-    icon(icon_),
+    name(std::move(name_)),
+    position(std::move(position_)),
+    icon(std::move(icon_)),
     max_points(max_points_),
     curr_points(0),
     parent(nullptr),
@@ -19,8 +20,7 @@ Talent::Talent(Character *pchar_, TalentTree *tree_, const QString &name_, const
     assert(max_points > 0 && max_points <= 5);
 }
 
-Talent::~Talent() {
-}
+Talent::~Talent() = default;
 
 QString Talent::get_name() const {
     return name;
@@ -83,7 +83,7 @@ QString Talent::get_bottom_arrow_image() const {
     return get_arrow_identifier(bottom_child->get_position());
 }
 
-QString Talent::get_arrow_identifier(const QString target_position) const {
+QString Talent::get_arrow_identifier(const QString& target_position) const {
     int own_row = QString(position[0]).toInt();
     int target_row = QString(target_position[0]).toInt();
     QString own_column = QString(position).remove(0, 1);
@@ -206,8 +206,8 @@ void Talent::initialize_rank_descriptions(const QString &base_str, const int bas
 void Talent::initialize_rank_descriptions(const QString &base_str, const QVector<QPair<int, int>> &format_values) {
     for (int i = 0; i < max_points; ++i) {
         QString format_str = base_str;
-        for (int j = 0; j < format_values.size(); ++j) {
-            format_str = format_str.arg(format_values[j].first + i * format_values[j].second);
+        for (auto format_value : format_values) {
+            format_str = format_str.arg(format_value.first + i * format_value.second);
         }
 
         rank_descriptions.insert(i + 1, format_str);

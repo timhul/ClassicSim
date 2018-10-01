@@ -2,12 +2,12 @@
 #include "CombatLog.h"
 #include <QDebug>
 
-void CombatLog::add_entry(QString entry) {
+void CombatLog::add_entry(const QString& entry) {
     combatlog.append(entry);
 }
 
-void CombatLog::dump(void) {
-    for (int i = 0; i < combatlog.size(); ++i) {
-        qDebug() << combatlog[i];
+void CombatLog::dump() {
+    for (const auto & i : combatlog) {
+        qDebug() << i;
     }
 }

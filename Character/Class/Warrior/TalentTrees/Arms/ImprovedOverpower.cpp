@@ -11,18 +11,16 @@ ImprovedOverpower::ImprovedOverpower(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 25, 25);
 }
 
-ImprovedOverpower::~ImprovedOverpower() {
-
-}
+ImprovedOverpower::~ImprovedOverpower() = default;
 
 void ImprovedOverpower::apply_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_overpower()->increase_effect_via_talent();
 }
 
 void ImprovedOverpower::remove_rank_effect() {
     // TODO: Create WarriorTalent that has warrior available.
-    Warrior* warr = dynamic_cast<Warrior*>(pchar);
+    auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_overpower()->decrease_effect_via_talent();
 }

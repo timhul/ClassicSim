@@ -10,9 +10,7 @@ UnbridledWrathTalent::UnbridledWrathTalent(Character *pchar, TalentTree* tree) :
     initialize_rank_descriptions(base_str, 8, 8);
 }
 
-UnbridledWrathTalent::~UnbridledWrathTalent() {
-
-}
+UnbridledWrathTalent::~UnbridledWrathTalent() = default;
 
 void UnbridledWrathTalent::apply_rank_effect() {
     dynamic_cast<Warrior*>(pchar)->get_unbridled_wrath()->increase_effect_via_talent();

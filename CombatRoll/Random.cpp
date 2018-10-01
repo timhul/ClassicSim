@@ -15,7 +15,7 @@ void Random::set_gen_from_seed(const unsigned long long seed) {
     xoroshiro->set_state(seed);
 }
 
-unsigned Random::get_roll(void) {
+unsigned Random::get_roll() {
     if (modulo == 0)
         return static_cast<unsigned>(min_range);
     return static_cast<unsigned>((xoroshiro->next() % modulo) + min_range);

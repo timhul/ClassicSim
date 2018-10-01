@@ -8,7 +8,7 @@
 #include "BuffRemoval.h"
 #include <QDebug>
 
-Buff::Buff(Character* pchar, const QString name, const int duration, const int base_charges):
+Buff::Buff(Character* pchar, const QString& name, const int duration, const int base_charges):
     pchar(pchar),
     statistics_buff(new StatisticsBuff(name)),
     name(name),
@@ -52,9 +52,9 @@ void Buff::apply_buff() {
     this->active = true;
 
     if (this->duration != BuffDuration::PERMANENT) {
-        BuffRemoval* new_event = new BuffRemoval(this,
-                                                 pchar->get_engine()->get_current_priority() + duration,
-                                                 ++iteration);
+        auto* new_event = new BuffRemoval(this,
+                                          pchar->get_engine()->get_current_priority() + duration,
+                                          ++iteration);
         pchar->get_engine()->add_event(new_event);
     }
 }

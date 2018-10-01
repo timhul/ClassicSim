@@ -18,18 +18,18 @@ void BuffModel::set_patch(const QString &patch) {
 }
 
 void BuffModel::addBuffs() {
-    if (external_buffs.size() > 0) {
+    if (!external_buffs.empty()) {
         beginRemoveRows(QModelIndex(), 0, external_buffs.size() - 1);
         external_buffs.clear();
         endRemoveRows();
     }
 
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
-    for (int i = 0; i < buffs.size(); ++i) {
+    for (auto buff : buffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
-        if (buffs.at(i)->valid_for_patch(this->patch))
-            external_buffs << buffs.at(i);
+        if (buff->valid_for_patch(this->patch))
+            external_buffs << buff;
         endInsertRows();
     }
 }

@@ -19,10 +19,10 @@ ActiveProcs::~ActiveProcs()
 }
 
 void ActiveProcs::run_proc_effects(ProcInfo::Source source) {
-    for (int i = 0; i < active_procs.size(); ++i) {
-        if (active_procs[i]->procs_from_source(source)) {
-            active_procs[i]->set_current_proc_source(source);
-            active_procs[i]->perform();
+    for (auto & active_proc : active_procs) {
+        if (active_proc->procs_from_source(source)) {
+            active_proc->set_current_proc_source(source);
+            active_proc->perform();
         }
     }
 }
@@ -47,8 +47,8 @@ void ActiveProcs::remove_proc_effect(const int instance_id) {
 }
 
 void ActiveProcs::reset() {
-    for (int i = 0; i < active_procs.size(); ++i) {
-        active_procs[i]->reset();
+    for (auto & active_proc : active_procs) {
+        active_proc->reset();
     }
 }
 

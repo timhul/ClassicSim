@@ -74,7 +74,7 @@ int MeleeSpecialTable::get_outcome(const unsigned roll,
     return AttackResult::HIT;
 }
 
-void MeleeSpecialTable::dump_table(void) {
+void MeleeSpecialTable::dump_table() {
     qDebug() << QString("------ SPECIAL ATTACK TABLE %1 WEAPON SKILL ------").arg(wpn_skill);
     qDebug() << "MISS RANGE " << miss_range;
     qDebug() << "DODGE RANGE " << dodge_range;

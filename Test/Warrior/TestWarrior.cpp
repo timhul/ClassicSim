@@ -40,14 +40,14 @@ void TestWarrior::test_all() {
 }
 
 void TestWarrior::test_char_initialization() {
-    Engine* engine = new Engine();
-    Equipment* equipment = new Equipment();
-    Target* target = new Target(63);
-    CombatRoll* combat = new CombatRoll(target);
-    Faction* faction = new Faction();
+    auto* engine = new Engine();
+    auto* equipment = new Equipment();
+    auto* target = new Target(63);
+    auto* combat = new CombatRoll(target);
+    auto* faction = new Faction();
 
     Race* race = new Orc();
-    Warrior* warr = new Warrior(race, engine, equipment, combat, faction);
+    auto* warr = new Warrior(race, engine, equipment, combat, faction);
 
     assert(warr->get_name() == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");

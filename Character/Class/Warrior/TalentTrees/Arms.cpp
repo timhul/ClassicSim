@@ -67,5 +67,4 @@ Arms::Arms(Character *pchar, QObject* parent) :
     talents["7ML"]->set_parent(talents["5ML"]);
 }
 
-Arms::~Arms()
-{}
+Arms::~Arms() = default;

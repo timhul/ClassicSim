@@ -32,7 +32,7 @@ void ItemModel::setSlot(const int slot) {
 }
 
 void ItemModel::addItems(const EquipmentDb* db) {
-    if (items.size() > 0) {
+    if (!items.empty()) {
         beginRemoveRows(QModelIndex(), 0, items.size() - 1);
         items.clear();
         endRemoveRows();
@@ -40,12 +40,12 @@ void ItemModel::addItems(const EquipmentDb* db) {
 
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);
 
-    for (int i = 0; i < tmp_items.size(); ++i) {
-        if (item_type_filter_model->get_filter_active(tmp_items[i]->get_item_type()))
+    for (auto & tmp_item : tmp_items) {
+        if (item_type_filter_model->get_filter_active(tmp_item->get_item_type()))
             continue;
 
         // TODO: Check whether item stats fulfill stat filter requirements
-        addItem(tmp_items[i]);
+        addItem(tmp_item);
     }
 
     layoutAboutToBeChanged();

@@ -87,7 +87,7 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotatio
         if (reader.name() == "cast_if") {
             QString name = reader.attributes().value("name").toString();
             CastIf* cast_if = new CastIf(name);
-            if (cast_if_handler(reader, cast_if) == true) {
+            if (cast_if_handler(reader, cast_if)) {
                 rotation->add_cast_if(cast_if);
             }
             else
@@ -118,14 +118,14 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
         return false;
     }
 
-    Sentence* sentence = new Sentence();
+    auto* sentence = new Sentence();
     // Take TYPE or LET statement
-    if (quotation_split[0].startsWith(let_statement) == true) {
-        if (add_let(sentence, quotation_split) == false)
+    if (quotation_split[0].startsWith(let_statement)) {
+        if (!add_let(sentence, quotation_split))
             return false;
     }
     else {
-        if (this->add_type(sentence, quotation_split.takeFirst()) == false)
+        if (!this->add_type(sentence, quotation_split.takeFirst()))
             return false;
 
         // Take TYPE_VALUE
@@ -156,8 +156,8 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
 
         sentence = new Sentence();
         // Take LET statement if exists
-        if (quotation_split[0].startsWith(let_statement) == true) {
-            if (add_let(sentence, quotation_split) == false) {
+        if (quotation_split[0].startsWith(let_statement)) {
+            if (!add_let(sentence, quotation_split)) {
                 delete sentence;
                 return false;
             }
@@ -174,13 +174,13 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
             return false;
         }
 
-        if (this->add_logical_connective(sentence, logical_connective_split.takeFirst()) == false) {
+        if (!this->add_logical_connective(sentence, logical_connective_split.takeFirst())) {
             delete sentence;
             return false;
         }
 
         // Take TYPE
-        if (this->add_type(sentence, logical_connective_split.takeFirst()) == false) {
+        if (!this->add_type(sentence, logical_connective_split.takeFirst())) {
             delete sentence;
             return false;
         }
@@ -270,14 +270,12 @@ bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& comp
             return true;
         }
 
-        // [greater/less] [0-9]
-        else {
-            sentence->mathematical_symbol = cmp == "greater" ? Comparators::greater :
-                                                               Comparators::less;
-            sentence->compared_value_type = CompareValueTypes::float_val;
-            sentence->compared_value = cmp_operation_split.takeFirst();
-            return true;
-        }
+        // [greater/less] [0-9]  
+        sentence->mathematical_symbol = cmp == "greater" ? Comparators::greater :
+                                                           Comparators::less;
+        sentence->compared_value_type = CompareValueTypes::float_val;
+        sentence->compared_value = cmp_operation_split.takeFirst();
+        return true;
     }
 
     qDebug() << "Unexpected logical operation split" << cmp_operation_split;

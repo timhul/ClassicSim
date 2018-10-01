@@ -14,11 +14,10 @@ DruidSpells::DruidSpells(Druid* druid) :
     spells.append(mh_attack);
 }
 
-DruidSpells::~DruidSpells()
-{}
+DruidSpells::~DruidSpells() = default;
 
 void DruidSpells::reset() {
-    for (int i = 0; i < spells.size(); ++i) {
-        spells[i]->reset();
+    for (auto & spell : spells) {
+        spell->reset();
     }
 }

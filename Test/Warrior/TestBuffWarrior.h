@@ -12,7 +12,7 @@ public:
     void tear_down();
 
 protected:
-    Warrior* warrior;
+    Warrior* warrior{};
 };
 
 #endif // TESTBUFFWARRIOR_H
