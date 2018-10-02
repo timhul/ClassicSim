@@ -17,7 +17,7 @@ void ItemTypeFilterModel::set_character(Character *pchar) {
     assert(EquipmentSlot::TRINKET2 == 16);
     for (int i = 0; i < 16; ++i) {
         equipment_slot = i;
-        item_type_filters.append(QList<ItemFilter>());
+        item_type_filters.append(QList<ItemTypeFilter>());
         add_item_type_filters();
     }
 
@@ -48,7 +48,7 @@ void ItemTypeFilterModel::toggle_single_filter(const int filter) {
 }
 
 void ItemTypeFilterModel::clearCurrentFiltersAndSelectSingleFilter(const int) {
-
+    // TODO: Implement possibility to clear all filters and select single filter.
 }
 
 void ItemTypeFilterModel::set_item_slot(const int item_slot) {
@@ -81,16 +81,16 @@ void ItemTypeFilterModel::add_armor_item_type_filters() {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     switch (pchar->get_highest_possible_armor_type()) {
     case ArmorTypes::PLATE:
-        item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::PLATE, "Plate"));
+        item_type_filters[equipment_slot].append(ItemTypeFilter(ArmorTypes::PLATE, "Plate"));
         // C++17 [[clang::fallthrough]];
     case ArmorTypes::MAIL:
-        item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::MAIL, "Mail"));
+        item_type_filters[equipment_slot].append(ItemTypeFilter(ArmorTypes::MAIL, "Mail"));
         // C++17 [[clang::fallthrough]];
     case ArmorTypes::LEATHER:
-        item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::LEATHER, "Leather"));
+        item_type_filters[equipment_slot].append(ItemTypeFilter(ArmorTypes::LEATHER, "Leather"));
         // C++17 [[clang::fallthrough]];
     case ArmorTypes::CLOTH:
-        item_type_filters[equipment_slot].append(ItemFilter(ArmorTypes::CLOTH, "Cloth"));
+        item_type_filters[equipment_slot].append(ItemTypeFilter(ArmorTypes::CLOTH, "Cloth"));
     }
 
     std::reverse(item_type_filters[equipment_slot].begin(), item_type_filters[equipment_slot].end());
@@ -106,52 +106,52 @@ void ItemTypeFilterModel::add_weapon_item_type_filters() {
     for (int available_type : available_types) {
         switch (available_type) {
         case WeaponTypes::AXE:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::AXE, "Axe"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::AXE, "Axe"));
             break;
         case WeaponTypes::BOW:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::BOW, "Bow"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::BOW, "Bow"));
             break;
         case WeaponTypes::CASTER_OFFHAND:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::CASTER_OFFHAND, "Offhand"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::CASTER_OFFHAND, "Offhand"));
             break;
         case WeaponTypes::CROSSBOW:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::CROSSBOW, "Crossbow"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::CROSSBOW, "Crossbow"));
             break;
         case WeaponTypes::DAGGER:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::DAGGER, "Dagger"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::DAGGER, "Dagger"));
             break;
         case WeaponTypes::FIST:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::FIST, "Fist"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::FIST, "Fist"));
             break;
         case WeaponTypes::GUN:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::GUN, "Gun"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::GUN, "Gun"));
             break;
         case WeaponTypes::MACE:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::MACE, "Mace"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::MACE, "Mace"));
             break;
         case WeaponTypes::POLEARM:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::POLEARM, "Polearm"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::POLEARM, "Polearm"));
             break;
         case WeaponTypes::SHIELD:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::SHIELD, "Shield"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::SHIELD, "Shield"));
             break;
         case WeaponTypes::STAFF:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::STAFF, "Staff"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::STAFF, "Staff"));
             break;
         case WeaponTypes::SWORD:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::SWORD, "Sword"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::SWORD, "Sword"));
             break;
         case WeaponTypes::THROWN:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::THROWN, "Thrown"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::THROWN, "Thrown"));
             break;
         case WeaponTypes::TWOHAND_AXE:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::TWOHAND_AXE, "Two-hand Axe"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::TWOHAND_AXE, "Two-hand Axe"));
             break;
         case WeaponTypes::TWOHAND_MACE:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::TWOHAND_MACE, "Two-hand Mace"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::TWOHAND_MACE, "Two-hand Mace"));
             break;
         case WeaponTypes::TWOHAND_SWORD:
-            item_type_filters[equipment_slot].append(ItemFilter(WeaponTypes::TWOHAND_SWORD, "Two-hand Sword"));
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::TWOHAND_SWORD, "Two-hand Sword"));
             break;
         }
     }

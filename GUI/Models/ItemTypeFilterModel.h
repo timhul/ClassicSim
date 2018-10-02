@@ -7,10 +7,10 @@
 class Character;
 
 
-class ItemFilter
+class ItemTypeFilter
 {
 public:
-    explicit ItemFilter(const int item_type, const QString name) :
+    explicit ItemTypeFilter(const int item_type, const QString name) :
         item_type(item_type), name(name), active(false)
     {}
 
@@ -48,7 +48,7 @@ protected:
 
 private:
     int equipment_slot{};
-    QVector<QList<ItemFilter>> item_type_filters;
+    QVector<QList<ItemTypeFilter>> item_type_filters;
     Character* pchar;
 
     void add_item_type_filters();

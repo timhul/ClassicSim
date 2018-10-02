@@ -67,8 +67,12 @@ GUIControl::GUIControl(QObject* parent) :
     faction = new Faction();
 
     item_type_filter_model = new ItemTypeFilterModel();
-    item_model = new ItemModel(equipment->get_db(), item_type_filter_model);
-    weapon_model = new WeaponModel(equipment->get_db(), item_type_filter_model);
+    active_stat_filter_model = new ActiveItemStatFilterModel();
+    item_model = new ItemModel(equipment->get_db(), item_type_filter_model, active_stat_filter_model);
+    weapon_model = new WeaponModel(equipment->get_db(), item_type_filter_model, active_stat_filter_model);
+    active_stat_filter_model->set_item_model(item_model);
+    active_stat_filter_model->set_weapon_model(weapon_model);
+    available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
 
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat, faction)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat, faction)));
@@ -120,6 +124,8 @@ GUIControl::~GUIControl() {
     delete faction;
     delete item_model;
     delete item_type_filter_model;
+    delete active_stat_filter_model;
+    delete available_stat_filter_model;
     delete weapon_model;
     delete buff_model;
     delete debuff_model;
@@ -438,6 +444,14 @@ WeaponModel* GUIControl::get_weapon_model() const {
 
 ItemTypeFilterModel* GUIControl::get_item_type_filter_model() const {
     return this->item_type_filter_model;
+}
+
+ActiveItemStatFilterModel* GUIControl::get_active_stat_filter_model() const {
+    return this->active_stat_filter_model;
+}
+
+AvailableItemStatFilterModel* GUIControl::get_available_stat_filter_model() const {
+    return this->available_stat_filter_model;
 }
 
 bool GUIControl::getFilterActive(const int filter) const {

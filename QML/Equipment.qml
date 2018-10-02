@@ -132,7 +132,7 @@ Rectangle {
                             anchors.fill: parent
 
                             ListView {
-                                model: statFilterModel
+                                model: availableStatFilterModel
                                 boundsBehavior: Flickable.StopAtBounds
 
                                 clip: true
@@ -141,7 +141,7 @@ Rectangle {
                                     height: 30
                                     width: parent.width
                                     Text {
-                                        text: statText
+                                        text: description
 
                                         font {
                                             family: "Arial"
@@ -156,7 +156,7 @@ Rectangle {
                                     }
                                     onRectangleClicked: {
                                         statFilter.visible = false
-                                        console.log("Clicked", statText)
+                                        availableStatFilterModel.addStatFilter(index)
                                     }
                                 }
                             }
@@ -168,34 +168,6 @@ Rectangle {
                         width: parent.width - statFilterView.width
                         onClicked: statFilter.visible = false
                     }
-                }
-
-                ListModel {
-                    id: statFilterModel
-                    ListElement { statText: "Agility" }
-                    ListElement { statText: "Intellect" }
-                    ListElement { statText: "Spirit" }
-                    ListElement { statText: "Stamina" }
-                    ListElement { statText: "Strength" }
-                    ListElement { statText: "Attack Power" }
-                    ListElement { statText: "Melee AP" }
-                    ListElement { statText: "Ranged AP" }
-                    ListElement { statText: "Crit %" }
-                    ListElement { statText: "Hit %" }
-                    ListElement { statText: "+Axe Skill" }
-                    ListElement { statText: "+Dagger Skill" }
-                    ListElement { statText: "+Mace Skill" }
-                    ListElement { statText: "+Sword Skill" }
-                    ListElement { statText: "Spell Damage" }
-                    ListElement { statText: "Spell Crit %" }
-                    ListElement { statText: "Spell Hit %" }
-                    ListElement { statText: "+Healing" }
-                    ListElement { statText: "+Arcane Damage" }
-                    ListElement { statText: "+Fire Damage" }
-                    ListElement { statText: "+Frost Damage" }
-                    ListElement { statText: "+Holy Damage" }
-                    ListElement { statText: "+Nature Damage" }
-                    ListElement { statText: "+Shadow Damage" }
                 }
             }
         }

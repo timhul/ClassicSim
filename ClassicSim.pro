@@ -222,7 +222,9 @@ SOURCES += main.cpp \
     Statistics/Class/HunterStatistics.cpp \
     Statistics/Class/DruidStatistics.cpp \
     CombatRoll/AttackTable.cpp \
-    Character/Race/Race.cpp
+    Character/Race/Race.cpp \
+    GUI/Models/ActiveItemStatFilterModel.cpp \
+    GUI/Models/AvailableItemStatFilterModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -438,7 +440,10 @@ HEADERS += \
     Statistics/Class/PaladinStatistics.h \
     Statistics/Class/MageStatistics.h \
     Statistics/Class/HunterStatistics.h \
-    Statistics/Class/DruidStatistics.h
+    Statistics/Class/DruidStatistics.h \
+    Equipment/Item/ItemStatsEnum.h \
+    GUI/Models/ActiveItemStatFilterModel.h \
+    GUI/Models/AvailableItemStatFilterModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

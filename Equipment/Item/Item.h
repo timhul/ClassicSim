@@ -6,6 +6,7 @@
 #include <QVector>
 #include <assert.h>
 #include "ItemNamespace.h"
+#include "ItemStatsEnum.h"
 
 class Stats;
 class Character;
@@ -34,6 +35,7 @@ public:
     void set_stat(const QString& key, const QString& value);
     void set_stats(QVector<QPair<QString, QString>> stats);
 
+    int get_stat_value_via_flag(const ItemStats) const;
 
 protected:
     QString name;
@@ -45,6 +47,7 @@ protected:
     QVector<QString> equip_effects_tooltip_stats;
     QVector<QMap<QString, QString>> procs_map;
     QMap<int, QVector<Proc*>> proc_map;
+    QMap<ItemStats, int> item_stat_values;
     Stats* stats;
 
     void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);

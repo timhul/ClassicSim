@@ -48,6 +48,9 @@ RectangleBorders {
     }
 
     RectangleBorders {
+        id: addStatFilterButton
+        height: 30
+
         anchors {
             top: listView.bottom
             topMargin: 15
@@ -55,10 +58,44 @@ RectangleBorders {
             right: parent.right
         }
 
-        height: 50
+        Text {
+            text: "Add stat filter"
 
-        EquipmentStatFilterBox {
-            onAddFilter: toggleStatFilterSelection()
+            font {
+                family: "Arial"
+                pointSize: 9
+            }
+
+            anchors.fill: parent
+
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        onRectangleClicked: toggleStatFilterSelection()
+        onRectangleRightClicked: activeStatFilterModel.clearFilters()
+    }
+
+    ListView {
+        id: activeStatFilterView
+
+        anchors {
+            top:  addStatFilterButton.bottom
+            topMargin: 15
+            left: parent.left
+            right: parent.right
+        }
+
+        interactive: false
+        implicitHeight: contentHeight
+
+        model: activeStatFilterModel
+        delegate: EquipmentStatFilterBox {
+            filterText: _description
+            itemStatFlag: _itemstatflag
+            comparator: _comparator
+            compareValue: _comparevalue
         }
     }
 }

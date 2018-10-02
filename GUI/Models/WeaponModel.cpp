@@ -2,13 +2,18 @@
 #include "WeaponModel.h"
 #include "Weapon.h"
 #include "EquipmentDb.h"
+#include "ActiveItemStatFilterModel.h"
 #include "ItemTypeFilterModel.h"
 #include <QDebug>
 
-WeaponModel::WeaponModel(EquipmentDb* db, ItemTypeFilterModel* item_type_filter_model, QObject *parent)
+WeaponModel::WeaponModel(EquipmentDb* db,
+                         ItemTypeFilterModel* item_type_filter_model,
+                         ActiveItemStatFilterModel* item_stat_filter_model,
+                         QObject *parent)
     : QAbstractListModel(parent)
 {
     this->db = db;
+    this->item_stat_filter_model = item_stat_filter_model;
     this->item_type_filter_model = item_type_filter_model;
     this->slot = ItemSlots::MAINHAND;
 }
@@ -52,7 +57,8 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
         if (item_type_filter_model->get_filter_active(wpn->get_item_type()))
             continue;
 
-        addWeapon(dynamic_cast<Weapon*>(wpn));
+        if (item_stat_filter_model->item_passes_active_stat_filters(wpn))
+            addWeapon(dynamic_cast<Weapon*>(wpn));
     }
 
     layoutAboutToBeChanged();

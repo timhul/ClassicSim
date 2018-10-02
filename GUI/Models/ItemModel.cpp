@@ -1,15 +1,20 @@
 
 #include "ItemModel.h"
 #include "ItemTypeFilterModel.h"
+#include "ActiveItemStatFilterModel.h"
 #include "Item.h"
 #include "EquipmentDb.h"
 #include <QDebug>
 
-ItemModel::ItemModel(EquipmentDb* db, ItemTypeFilterModel* item_type_filter_model, QObject *parent)
+ItemModel::ItemModel(EquipmentDb* db,
+                     ItemTypeFilterModel* item_type_filter_model,
+                     ActiveItemStatFilterModel* item_stat_filter_model,
+                     QObject *parent)
     : QAbstractListModel(parent)
 {
     this->db = db;
     this->item_type_filter_model = item_type_filter_model;
+    this->item_stat_filter_model = item_stat_filter_model;
     this->slot = ItemSlots::MAINHAND;
 }
 
@@ -44,8 +49,8 @@ void ItemModel::addItems(const EquipmentDb* db) {
         if (item_type_filter_model->get_filter_active(tmp_item->get_item_type()))
             continue;
 
-        // TODO: Check whether item stats fulfill stat filter requirements
-        addItem(tmp_item);
+        if (item_stat_filter_model->item_passes_active_stat_filters(tmp_item))
+            addItem(tmp_item);
     }
 
     layoutAboutToBeChanged();

@@ -15,6 +15,8 @@
 #include "WeaponModel.h"
 #include "BuffModel.h"
 #include "DebuffModel.h"
+#include "ActiveItemStatFilterModel.h"
+#include "AvailableItemStatFilterModel.h"
 #include "ItemTypeFilterModel.h"
 #include "Faction.h"
 
@@ -131,6 +133,8 @@ public:
     ItemModel* get_item_model() const;
     WeaponModel* get_weapon_model() const;
     ItemTypeFilterModel* get_item_type_filter_model() const;
+    ActiveItemStatFilterModel* get_active_stat_filter_model() const;
+    AvailableItemStatFilterModel* get_available_stat_filter_model() const;
     Q_INVOKABLE bool getFilterActive(const int filter) const;
     Q_INVOKABLE void toggleSingleFilter(const int filter);
     /* End of ItemModel */
@@ -249,6 +253,8 @@ private:
     Character* current_char{};
     double last_quick_sim_result;
     ItemModel* item_model;
+    ActiveItemStatFilterModel* active_stat_filter_model;
+    AvailableItemStatFilterModel* available_stat_filter_model;
     ItemTypeFilterModel* item_type_filter_model;
     WeaponModel* weapon_model;
     BuffModel* buff_model;
