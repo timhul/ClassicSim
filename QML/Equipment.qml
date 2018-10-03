@@ -12,7 +12,7 @@ Rectangle {
 
     RectangleBorders {
         height: parent.height
-        width: 850
+        width: parent.width - equipmentSlots.width
         anchors {
             right: parent.right
         }
@@ -174,7 +174,8 @@ Rectangle {
     }
 
     RectangleBorders {
-        width: parent.width - 850
+        id: equipmentSlots
+        width: 500
         height: parent.height
 
         rectColor: root.darkDarkGray
