@@ -28,8 +28,14 @@ RectangleBorders {
                 }
             }
 
-            onRectangleClicked: equipment.toggleSingleFilter(item_type)
-            onRectangleRightClicked: equipment.toggleSingleFilter(item_type)
+            sendShiftClick: true
+            sendCtrlClick: true
+            onRectangleClicked: equipment.clearFiltersAndSelectSingle(item_type)
+            onRectangleRightClicked: equipment.clearFiltersAndSelectSingle(item_type)
+            onRectangleShiftClicked: equipment.selectRangeOfFiltersFromPrevious(item_type)
+            onRectangleShiftRightClicked: equipment.selectRangeOfFiltersFromPrevious(item_type)
+            onRectangleCtrlClicked: equipment.toggleSingleFilter(item_type)
+            onRectangleCtrlRightClicked: equipment.toggleSingleFilter(item_type)
 
             Text {
                 anchors.fill: parent

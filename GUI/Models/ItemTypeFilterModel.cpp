@@ -7,7 +7,8 @@
 
 ItemTypeFilterModel::ItemTypeFilterModel(QObject *parent)
     : QAbstractListModel(parent),
-      pchar(nullptr)
+      pchar(nullptr),
+      last_toggled(-1)
 {}
 
 void ItemTypeFilterModel::set_character(Character *pchar) {
@@ -37,9 +38,10 @@ bool ItemTypeFilterModel::get_filter_active(const int filter) const {
 }
 
 void ItemTypeFilterModel::toggle_single_filter(const int filter) {
-    for (auto & i : item_type_filters[equipment_slot]) {
-        if (i.item_type == filter) {
-            i.active = !i.active;
+    for (int i = 0; i < item_type_filters[equipment_slot].size(); ++i) {
+        if (item_type_filters[equipment_slot][i].item_type == filter) {
+            item_type_filters[equipment_slot][i].active = !item_type_filters[equipment_slot][i].active;
+            last_toggled = i;
             return;
         }
     }
@@ -47,14 +49,55 @@ void ItemTypeFilterModel::toggle_single_filter(const int filter) {
     qDebug() << "ItemTypeFilterModel::toggle_single_filter: could not find filter" << filter;
 }
 
-void ItemTypeFilterModel::clearCurrentFiltersAndSelectSingleFilter(const int) {
-    // TODO: Implement possibility to clear all filters and select single filter.
+void ItemTypeFilterModel::select_range_of_filters(const int filter) {
+    int target_index = -1;
+
+    for (int i = 0; i < item_type_filters[equipment_slot].size(); ++i) {
+        if (item_type_filters[equipment_slot][i].item_type == filter) {
+            target_index = i;
+            break;
+        }
+    }
+
+    if (target_index == last_toggled || target_index == -1)
+        return;
+
+    if (last_toggled == -1) {
+        last_toggled = target_index;
+        return;
+    }
+
+    if (target_index > last_toggled) {
+        for (int i = last_toggled; i <= target_index; ++i)
+            item_type_filters[equipment_slot][i].active = false;
+    }
+    else {
+        for (int i = last_toggled; i >= target_index; --i)
+            item_type_filters[equipment_slot][i].active = false;
+    }
+
+    last_toggled = target_index;
+}
+
+void ItemTypeFilterModel::clear_filters_and_select_single_filter(const int filter) {
+    layoutAboutToBeChanged();
+    for (int i = 0; i < item_type_filters[equipment_slot].size(); ++i) {
+        if (item_type_filters[equipment_slot][i].item_type == filter) {
+            item_type_filters[equipment_slot][i].active = false;
+            last_toggled = i;
+        }
+        else
+            item_type_filters[equipment_slot][i].active = true;
+    }
+
+    layoutChanged();
 }
 
 void ItemTypeFilterModel::set_item_slot(const int item_slot) {
     layoutAboutToBeChanged();
     this->equipment_slot = item_slot;
     layoutChanged();
+    last_toggled = -1;
 }
 
 void ItemTypeFilterModel::add_item_type_filters() {

@@ -137,6 +137,8 @@ public:
     AvailableItemStatFilterModel* get_available_stat_filter_model() const;
     Q_INVOKABLE bool getFilterActive(const int filter) const;
     Q_INVOKABLE void toggleSingleFilter(const int filter);
+    Q_INVOKABLE void clearFiltersAndSelectSingle(const int filter);
+    Q_INVOKABLE void selectRangeOfFiltersFromPrevious(const int filter);
     /* End of ItemModel */
 
     /* Buffs and debuffs */

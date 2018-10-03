@@ -78,7 +78,7 @@ void ActiveItemStatFilterModel::set_weapon_model(WeaponModel *weapon_model) {
     this->weapon_model = weapon_model;
 }
 
-void ActiveItemStatFilterModel::add_filter(const ItemStats item_stat_flag, const QString description) {
+void ActiveItemStatFilterModel::add_filter(const ItemStats item_stat_flag, const QString& description) {
     for (auto & filter : active_item_stat_filters) {
         if (filter->item_stat_flag == item_stat_flag)
             return;
@@ -120,10 +120,10 @@ void ActiveItemStatFilterModel::changeComparator(const int item_stat_flag_int, c
         return;
 
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_int);
-    for (int i = 0; i < active_item_stat_filters.size(); ++i) {
-        if (active_item_stat_filters[i]->item_stat_flag == item_stat_flag) {
+    for (auto & active_item_stat_filter : active_item_stat_filters) {
+        if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();
-            active_item_stat_filters[i]->comparator = comparator;
+            active_item_stat_filter->comparator = comparator;
             layoutChanged();
             update_affected_models();
             return;
@@ -136,10 +136,10 @@ void ActiveItemStatFilterModel::changeCompareValue(const int item_stat_flag_int,
         return;
 
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_int);
-    for (int i = 0; i < active_item_stat_filters.size(); ++i) {
-        if (active_item_stat_filters[i]->item_stat_flag == item_stat_flag) {
+    for (auto & active_item_stat_filter : active_item_stat_filters) {
+        if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();
-            active_item_stat_filters[i]->cmp_value = cmp_value;
+            active_item_stat_filter->cmp_value = cmp_value;
             layoutChanged();
             update_affected_models();
             return;

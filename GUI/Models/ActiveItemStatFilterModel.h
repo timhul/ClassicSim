@@ -57,7 +57,7 @@ public:
     void set_item_model(ItemModel*);
     void set_weapon_model(WeaponModel*);
 
-    void add_filter(const ItemStats, const QString);
+    void add_filter(const ItemStats, const QString&);
     Q_INVOKABLE void removeFilter(const int);
     Q_INVOKABLE void clearFilters();
     Q_INVOKABLE void changeComparator(const int, const int);

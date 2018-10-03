@@ -465,6 +465,20 @@ void GUIControl::toggleSingleFilter(const int filter) {
     Q_EMIT filtersUpdated();
 }
 
+void GUIControl::clearFiltersAndSelectSingle(const int filter) {
+    this->item_type_filter_model->clear_filters_and_select_single_filter(filter);
+    this->item_model->update_items();
+    this->weapon_model->update_items();
+    Q_EMIT filtersUpdated();
+}
+
+void GUIControl::selectRangeOfFiltersFromPrevious(const int filter) {
+    this->item_type_filter_model->select_range_of_filters(filter);
+    this->item_model->update_items();
+    this->weapon_model->update_items();
+    Q_EMIT filtersUpdated();
+}
+
 BuffModel* GUIControl::get_buff_model() const {
     return this->buff_model;
 }
