@@ -43,16 +43,14 @@ Rectangle {
 
             color: "transparent"
 
-            RectangleBorders {
-                id: headerRect
-                height: 60
-                width: parent.width
+            EquipmentSortingWeapon {
+                id: sortingWeaponRect
             }
 
             RectangleBorders {
                 id: selectionRect
                 anchors {
-                    top: headerRect.bottom
+                    top: sortingWeaponRect.bottom
                     bottom: parent.bottom
                     left: parent.left
                     right: parent.right

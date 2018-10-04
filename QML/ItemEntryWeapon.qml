@@ -81,7 +81,7 @@ RectangleBorders {
             color: "white"
 
             verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignLeft
+            horizontalAlignment: Text.AlignHCenter
         }
 
         Text {
@@ -99,7 +99,7 @@ RectangleBorders {
             color: "white"
 
             verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignLeft
+            horizontalAlignment: Text.AlignHCenter
         }
 
         Text {
@@ -117,7 +117,7 @@ RectangleBorders {
             color: "white"
 
             verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignLeft
+            horizontalAlignment: Text.AlignHCenter
         }
 
         Text {
@@ -135,7 +135,7 @@ RectangleBorders {
             color: "white"
 
             verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignLeft
+            horizontalAlignment: Text.AlignHCenter
         }
 
         Text {
