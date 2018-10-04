@@ -191,7 +191,7 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
     if (role == SourceRole)
         return weapon->get_value("source");
     if (role == TypeRole)
-        return weapon->get_value("type");
+        return weapon->get_weapon_type_string();
     if (role == ReqLvlRole)
         return weapon->get_value("req_lvl");
     if (role == ItemLvlRole)

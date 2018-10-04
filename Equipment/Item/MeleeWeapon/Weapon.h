@@ -20,6 +20,7 @@ public:
     unsigned get_random_dmg() const;
     double get_base_weapon_speed() const;
     double get_wpn_dps() const;
+    QString get_weapon_type_string() const;
 
 protected:
     Random* random;
