@@ -23,13 +23,9 @@
 TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
     equipment_db(equipment_db),
     pchar(nullptr),
-    race(new Orc()),
+    race(nullptr),
     spell_under_test(std::move(spell_under_test))
 {}
-
-TestSpell::~TestSpell() {
-    // We rely on tests to run tear_down_general() before finishing tests.
-}
 
 void TestSpell::set_up_general() {
     race = new Orc();

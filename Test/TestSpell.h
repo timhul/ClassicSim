@@ -16,7 +16,6 @@ class Character;
 class TestSpell {
 public:
     TestSpell(EquipmentDb *equipment_db, QString spell_under_test);
-    ~TestSpell();
 
     void set_up_general();
     void tear_down_general();

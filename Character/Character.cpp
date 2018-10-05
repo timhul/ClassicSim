@@ -172,7 +172,7 @@ Engine* Character::get_engine() const {
     return this->engine;
 }
 
-Target* Character::get_target(void) const {
+Target* Character::get_target() const {
     return this->target;
 }
 
@@ -180,7 +180,7 @@ CombatRoll* Character::get_combat_roll() const {
     return this->roll;
 }
 
-Faction* Character::get_faction(void) const {
+Faction* Character::get_faction() const {
     return this->faction;
 }
 
