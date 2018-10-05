@@ -45,6 +45,12 @@ Rectangle {
 
             EquipmentSortingWeapon {
                 id: sortingWeaponRect
+                visible: scrollWeapon.visible
+            }
+
+            EquipmentSortingItem {
+                id: sortingItemRect
+                visible: !scrollWeapon.visible
             }
 
             RectangleBorders {
@@ -99,10 +105,8 @@ Rectangle {
 
                         clip: true
 
-                        delegate: ItemEntryWeapon {
+                        delegate: ItemEntry {
                             entryName: name
-                            entrySpeed: "0"
-                            entryDps: "0"
                             entryPatch: patch
                             entrySource: source
                             entryType: type

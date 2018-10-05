@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("pieChartModel", new PieChartModel());
 
     qmlRegisterType<WeaponSorting>("WeaponSort", 1, 0, "WeaponSort");
+    qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

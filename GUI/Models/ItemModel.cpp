@@ -16,10 +16,37 @@ ItemModel::ItemModel(EquipmentDb* db,
     this->item_type_filter_model = item_type_filter_model;
     this->item_stat_filter_model = item_stat_filter_model;
     this->slot = ItemSlots::MAINHAND;
+
+    this->current_sorting_method = ItemSorting::Methods::ByIlvl;
+    this->sorting_methods.insert(ItemSorting::Methods::ByIlvl, true);
+    this->sorting_methods.insert(ItemSorting::Methods::ByName, false);
+    this->sorting_methods.insert(ItemSorting::Methods::ByPatch, false);
+    this->sorting_methods.insert(ItemSorting::Methods::ByItemType, false);
+}
+
+bool name(Item* lhs, Item* rhs) {
+    return lhs->get_name() < rhs->get_name();
 }
 
 bool ilvl(Item* lhs, Item* rhs) {
-    return lhs->get_value("item_lvl") > rhs->get_value("item_lvl");
+    auto lhs_ilvl = lhs->get_value("item_lvl");
+    auto rhs_ilvl = rhs->get_value("item_lvl");
+
+    return lhs_ilvl == rhs_ilvl ? name(lhs, rhs) : lhs_ilvl > rhs_ilvl;
+}
+
+bool patch(Item* lhs, Item* rhs) {
+    auto lhs_patch = QVersionNumber::fromString(lhs->get_value("patch"));
+    auto rhs_patch = QVersionNumber::fromString(rhs->get_value("patch"));
+
+    return lhs_patch == rhs_patch ? ilvl(lhs, rhs) : lhs_patch > rhs_patch;
+}
+
+bool item_type(Item* lhs, Item* rhs) {
+    auto lhs_itemtype = lhs->get_item_type();
+    auto rhs_itemtype = rhs->get_item_type();
+
+    return lhs_itemtype == rhs_itemtype ? ilvl(lhs, rhs) : lhs_itemtype > rhs_itemtype;
 }
 
 void ItemModel::update_items() {
@@ -35,6 +62,51 @@ void ItemModel::setSlot(const int slot) {
     this->slot = slot;
     update_items();
 }
+
+void ItemModel::selectSort(const int method) {
+    layoutAboutToBeChanged();
+
+    auto sorting_method = static_cast<ItemSorting::Methods>(method);
+    switch (sorting_method) {
+    case ItemSorting::Methods::ByIlvl:
+        std::sort(items.begin(), items.end(), ilvl);
+        select_new_method(ItemSorting::Methods::ByIlvl);
+        break;
+    case ItemSorting::Methods::ByName:
+        std::sort(items.begin(), items.end(), name);
+        select_new_method(ItemSorting::Methods::ByName);
+        break;
+    case ItemSorting::Methods::ByPatch:
+        std::sort(items.begin(), items.end(), patch);
+        select_new_method(ItemSorting::Methods::ByPatch);
+        break;
+    case ItemSorting::Methods::ByItemType:
+        std::sort(items.begin(), items.end(), item_type);
+        select_new_method(ItemSorting::Methods::ByItemType);
+        break;
+    }
+
+    layoutChanged();
+}
+
+void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
+    if (sorting_methods[new_method])
+        std::reverse(items.begin(), items.end());
+
+    sorting_methods[new_method] = !sorting_methods[new_method];
+    current_sorting_method = new_method;
+
+    QHash<ItemSorting::Methods, bool>::iterator it = sorting_methods.begin();
+    while (it != sorting_methods.end()) {
+        if (it.key() != new_method) {
+            sorting_methods[it.key()] = false;
+        }
+        ++it;
+    }
+
+    Q_EMIT sortingMethodChanged();
+}
+
 
 void ItemModel::addItems(const EquipmentDb* db) {
     if (!items.empty()) {
