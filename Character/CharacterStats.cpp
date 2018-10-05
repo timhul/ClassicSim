@@ -11,7 +11,7 @@
 CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObject* parent) :
     QObject(parent),
     pchar(pchar),
-    equipment(new Equipment(equipment_db))
+    equipment(new Equipment(equipment_db, pchar))
 {
     this->base_stats = new Stats();
     this->total_phys_dmg_mod = 1.0;

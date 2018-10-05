@@ -281,7 +281,7 @@ void Test::test_special_hit_table() {
 }
 
 void Test::test_equipment_creation() {
-    auto* equipment = new Equipment(equipment_db);
+    auto* equipment = new Equipment(equipment_db, nullptr);
     equipment->set_mainhand("Frostbite");
     Weapon* mh = equipment->get_mainhand();
 

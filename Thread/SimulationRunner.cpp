@@ -95,7 +95,11 @@ void SimulationRunner::run_sim(QString setup_string) {
     // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
     double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
 
-    delete_objects();
+    // Need to clean because items have pchar state and are stored persistently between simulations
+    pchar->get_equipment()->clean_item_proc_state();
+
+    delete pchar;
+    delete race;
 
     emit result(seed, dps);
     emit finished();
@@ -250,17 +254,5 @@ void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
         pchar = dynamic_cast<Character*>(new Warrior(race, equipment_db));
 
     if (pchar == nullptr)
-        delete_objects();
-    else
-        pchar->get_equipment()->set_character(pchar);
-}
-
-void SimulationRunner::delete_objects() {
-    if (pchar != nullptr) {
-        pchar->get_equipment()->set_character(nullptr);
-        delete pchar;
-    }
-
-    
         delete race;
 }

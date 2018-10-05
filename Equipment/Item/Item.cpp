@@ -60,21 +60,14 @@ int Item::get_item_type() const {
 }
 
 void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
-    if (pchar == nullptr)
-        return;
-
-    if (proc_map.contains(eq_slot))
-        assert(proc_map.empty());
+    assert(proc_map.empty());
 
     set_procs(procs_map, pchar, eq_slot);
 }
 
-void Item::remove_equip_effect(Character* pchar, const int eq_slot) {
-    if (pchar == nullptr || !proc_map.contains(eq_slot)) {
-        if (proc_map.contains(eq_slot))
-            assert(proc_map.empty());
+void Item::remove_equip_effect(const int eq_slot) {
+    if (!proc_map.contains(eq_slot))
         return;
-    }
 
     QVector<Proc*> procs_ = proc_map.take(eq_slot);
 

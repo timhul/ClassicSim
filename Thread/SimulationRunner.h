@@ -49,7 +49,6 @@ private:
     void apply_external_buffs(CharacterDecoder& decoder);
     void setup_target(CharacterDecoder& decoder);
     void exit_thread(QString err);
-    void delete_objects();
 };
 
 #endif // SIMULATIONRUNNER_H

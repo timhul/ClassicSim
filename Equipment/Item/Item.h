@@ -24,7 +24,7 @@ public:
     int get_item_type(void) const;
 
     void apply_equip_effect(Character*, const int eq_slot);
-    void remove_equip_effect(Character*, const int eq_slot);
+    void remove_equip_effect(const int eq_slot);
 
     QString get_name(void) const;
     QString get_value(const QString& key) const;

@@ -12,11 +12,11 @@ class Weapon;
 
 class Equipment {
 public:
-    Equipment(EquipmentDb* equipment_db, Character* = nullptr);
+    Equipment(EquipmentDb* equipment_db, Character* pchar);
     ~Equipment();
 
-    void set_character(Character*);
     void change_setup(const int);
+    void clean_item_proc_state();
 
     bool is_dual_wielding(void);
 
@@ -117,8 +117,6 @@ private:
     QVector<Item*> relic;
 
     void add_proc_effects_from_current_setup();
-    void remove_proc_effects_from_current_setup();
-
     void add_proc_effect_from_item(Item*, const int eq_slot);
     void remove_proc_effect_from_item(Item*, const int eq_slot);
 };

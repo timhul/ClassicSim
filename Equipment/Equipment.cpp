@@ -45,19 +45,11 @@ Equipment::~Equipment() {
     }
 }
 
-void Equipment::set_character(Character* pchar) {
-    if (this->pchar != nullptr)
-        remove_proc_effects_from_current_setup();
-
-    this->pchar = pchar;
-    add_proc_effects_from_current_setup();
-}
-
 void Equipment::change_setup(const int index) {
     if (index < 0 || index >= stats_from_equipped_gear.size())
         return;
 
-    remove_proc_effects_from_current_setup();
+    clean_item_proc_state();
 
     setup_index = index;
 
@@ -85,7 +77,7 @@ void Equipment::add_proc_effects_from_current_setup() {
     add_proc_effect_from_item(get_trinket2(), EquipmentSlot::TRINKET2);
 }
 
-void Equipment::remove_proc_effects_from_current_setup() {
+void Equipment::clean_item_proc_state() {
     remove_proc_effect_from_item(get_mainhand(), EquipmentSlot::MAINHAND);
     remove_proc_effect_from_item(get_offhand(), EquipmentSlot::OFFHAND);
     remove_proc_effect_from_item(get_ranged(), EquipmentSlot::RANGED);
@@ -112,7 +104,7 @@ void Equipment::add_proc_effect_from_item(Item* item, const int eq_slot) {
 
 void Equipment::remove_proc_effect_from_item(Item* item, const int eq_slot) {
     if (item != nullptr)
-        item->remove_equip_effect(pchar, eq_slot);
+        item->remove_equip_effect(eq_slot);
 }
 
 bool Equipment::is_dual_wielding() {
@@ -649,7 +641,7 @@ void Equipment::unequip(QVector<Item*>& item, const int eq_slot) {
     if (item[setup_index] == nullptr)
         return;
 
-    item[setup_index]->remove_equip_effect(pchar, eq_slot);
+    item[setup_index]->remove_equip_effect(eq_slot);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
     item[setup_index] = nullptr;
 }
@@ -667,7 +659,7 @@ void Equipment::unequip(QVector<Weapon*>& item, const int eq_slot) {
     if (item[setup_index] == nullptr)
         return;
 
-    item[setup_index]->remove_equip_effect(pchar, eq_slot);
+    item[setup_index]->remove_equip_effect(eq_slot);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
     item[setup_index] = nullptr;
 }

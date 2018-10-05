@@ -130,7 +130,6 @@ GUIControl::~GUIControl() {
 void GUIControl::set_character(Character* pchar) {
     current_char = pchar;
     item_type_filter_model->set_character(current_char);
-    current_char->get_equipment()->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString& class_name) {
