@@ -1,7 +1,6 @@
 #ifndef RACE_H
 #define RACE_H
 
-#include <map>
 #include <QString>
 
 namespace Races {
@@ -35,10 +34,6 @@ public:
     virtual int get_bow_bonus() const = 0;
     virtual int get_gun_bonus() const = 0;
     virtual int get_thrown_bonus() const = 0;
-
-protected:
-    std::map<QString, int> stats;
-private:
 };
 
 #endif // RACE_H
