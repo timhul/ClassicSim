@@ -15,19 +15,21 @@ class ClassStatistics;
 class CombatRoll;
 class Engine;
 class Equipment;
+class EquipmentDb;
 class Faction;
 class Race;
 class Rotation;
 class Spells;
 class Stats;
 class Talents;
+class Target;
 class Weapon;
 
 class Character: public QObject {
     Q_OBJECT
 
 public:
-    Character(Race*, Engine*, Equipment*, CombatRoll*, Faction* faction, QObject* parent = nullptr);
+    Character(Race*, EquipmentDb *equipment_db, QObject* parent = nullptr);
     virtual ~Character();
 
     Race* get_race(void);
@@ -61,7 +63,9 @@ public:
     int get_clvl(void) const;
     virtual void set_clvl(const int);
     Engine* get_engine(void) const;
+    Target* get_target(void) const;
     CombatRoll* get_combat_roll(void) const;
+    Faction* get_faction(void) const;
     Equipment* get_equipment(void) const;
     Talents* get_talents(void) const;
     ActiveBuffs* get_active_buffs(void) const;
@@ -140,6 +144,7 @@ public:
 protected:
     Race* race;
     Engine* engine;
+    Target* target;
     CombatRoll* roll;
     Faction* faction;
     Talents* talents;

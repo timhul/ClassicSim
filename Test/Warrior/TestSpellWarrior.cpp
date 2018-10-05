@@ -8,13 +8,13 @@
 #include <QDebug>
 #include <utility>
 
-TestSpellWarrior::TestSpellWarrior(QString spell_under_test) :
-    TestSpell(std::move(spell_under_test))
+TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
+    TestSpell(equipment_db, std::move(spell_under_test))
 {}
 
 void TestSpellWarrior::set_up() {
     set_up_general();
-    warrior = new Warrior(race, engine, equipment, combat, faction);
+    warrior = new Warrior(race, equipment_db);
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;

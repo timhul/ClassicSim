@@ -11,17 +11,19 @@
 #include "Random.h"
 #include <QDebug>
 
-CombatRoll::CombatRoll(Target* _tar):
-    target(_tar), random(new Random(0, 9999)), mechanics(nullptr) {
+CombatRoll::CombatRoll(Character *pchar):
+    pchar(pchar),
+    target(pchar->get_target()),
+    random(new Random(0, 9999)),
+    mechanics(new Mechanics(target)) {
 }
 
 CombatRoll::~CombatRoll() {
     delete random;
 
     drop_tables();
-
     
-        delete mechanics;
+    delete mechanics;
 }
 
 int CombatRoll::get_melee_hit_result(const int wpn_skill, const double crit_mod) {
@@ -58,14 +60,6 @@ int CombatRoll::get_ranged_ability_result(const int) {
 int CombatRoll::get_spell_ability_result() {
     // TODO: Remove hardcoded critical result
     return AttackResult::CRITICAL;
-}
-
-void CombatRoll::set_character(Character* pchar) {
-    this->pchar = pchar;
-
-    if (mechanics == nullptr) {
-        mechanics = new Mechanics(target);
-    }
 }
 
 Target* CombatRoll::get_target() const {

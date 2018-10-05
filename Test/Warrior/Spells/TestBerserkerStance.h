@@ -5,7 +5,7 @@
 
 class TestBerserkerStance: public TestSpellWarrior {
 public:
-    TestBerserkerStance();
+    TestBerserkerStance(EquipmentDb* equipment_db);
 
     void test_all();
 

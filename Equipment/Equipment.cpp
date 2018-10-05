@@ -7,11 +7,11 @@
 #include <cassert>
 #include <QSet>
 
-Equipment::Equipment(Character* pchar):
+Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
+    db(equipment_db),
     pchar(pchar)
 {
     setup_index = 0;
-    db = new EquipmentDb();
 
     stats_from_equipped_gear = {nullptr, nullptr, nullptr};
     for (auto & i : stats_from_equipped_gear) {
@@ -40,7 +40,6 @@ Equipment::Equipment(Character* pchar):
 }
 
 Equipment::~Equipment() {
-    delete db;
     for (auto & i : stats_from_equipped_gear) {
         delete i;
     }

@@ -3,8 +3,8 @@
 #include "Bloodthirst.h"
 #include "Queue.h"
 
-TestBloodthirst::TestBloodthirst() :
-    TestSpellWarrior("Bloodthirst")
+TestBloodthirst::TestBloodthirst(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Bloodthirst")
 {}
 
 void TestBloodthirst::test_all() {

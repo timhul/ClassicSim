@@ -22,7 +22,7 @@ namespace WarriorStances {
 class Warrior: public Character {
     Q_OBJECT
 public:
-    Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    Warrior(Race* race, EquipmentDb *equipment_db, QObject *parent = nullptr);
     ~Warrior() override;
 
     QString get_name() const override;

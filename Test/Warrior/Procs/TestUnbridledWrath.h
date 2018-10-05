@@ -5,7 +5,7 @@
 
 class TestUnbridledWrath: public TestProcWarrior {
 public:
-    TestUnbridledWrath();
+    TestUnbridledWrath(EquipmentDb *equipment_db);
 
     void test_all();
 

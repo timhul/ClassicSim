@@ -27,6 +27,7 @@
 
 #include "Weapon.h"
 #include "WeaponModel.h"
+#include "Equipment.h"
 #include "EquipmentDb.h"
 
 #include "CharacterEncoder.h"
@@ -60,29 +61,25 @@ GUIControl::GUIControl(QObject* parent) :
     races.insert("Troll", new Troll());
     races.insert("Undead", new Undead());
 
-    engine = new Engine();
-    equipment = new Equipment();
-    target = new Target(63);
-    combat = new CombatRoll(target);
-    faction = new Faction();
+    equipment_db = new EquipmentDb();
 
     item_type_filter_model = new ItemTypeFilterModel();
     active_stat_filter_model = new ActiveItemStatFilterModel();
-    item_model = new ItemModel(equipment->get_db(), item_type_filter_model, active_stat_filter_model);
-    weapon_model = new WeaponModel(equipment->get_db(), item_type_filter_model, active_stat_filter_model);
+    item_model = new ItemModel(equipment_db, item_type_filter_model, active_stat_filter_model);
+    weapon_model = new WeaponModel(equipment_db, item_type_filter_model, active_stat_filter_model);
     active_stat_filter_model->set_item_model(item_model);
     active_stat_filter_model->set_weapon_model(weapon_model);
     available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
 
-    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], engine, equipment, combat, faction)));
-    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], engine, equipment, combat, faction)));
-    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], engine, equipment, combat, faction)));
-    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], engine, equipment, combat, faction)));
-    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], engine, equipment, combat, faction)));
-    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Troll"], engine, equipment, combat, faction)));
-    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], engine, equipment, combat, faction)));
-    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Orc"], engine, equipment, combat, faction)));
-    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], engine, equipment, combat, faction)));
+    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], equipment_db)));
+    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], equipment_db)));
+    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], equipment_db)));
+    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], equipment_db)));
+    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], equipment_db)));
+    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Troll"], equipment_db)));
+    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], equipment_db)));
+    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Orc"], equipment_db)));
+    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], equipment_db)));
 
     set_character(chars["Warrior"]);
 
@@ -94,8 +91,8 @@ GUIControl::GUIControl(QObject* parent) :
     buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_active_buffs()->get_general_buffs());
 
-    item_model->addItems(equipment->get_db());
-    weapon_model->addWeapons(equipment->get_db());
+    item_model->addItems(equipment_db);
+    weapon_model->addWeapons(equipment_db);
 }
 
 GUIControl::~GUIControl() {
@@ -117,11 +114,7 @@ GUIControl::~GUIControl() {
 
     races.clear();
 
-    delete engine;
-    delete equipment;
-    delete target;
-    delete combat;
-    delete faction;
+    delete equipment_db;
     delete item_model;
     delete item_type_filter_model;
     delete active_stat_filter_model;
@@ -137,7 +130,7 @@ GUIControl::~GUIControl() {
 void GUIControl::set_character(Character* pchar) {
     current_char = pchar;
     item_type_filter_model->set_character(current_char);
-    equipment->set_character(current_char);
+    current_char->get_equipment()->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -174,10 +167,10 @@ void GUIControl::selectRace(const QString& race_name) {
 }
 
 void GUIControl::selectFaction(const bool faction) {
-    if (this->faction->get_faction() == faction)
+    if (this->current_char->get_faction()->get_faction() == faction)
         return;
 
-    this->faction->switch_faction();
+    this->current_char->get_faction()->switch_faction();
 
     QMap<QString, Character*>::const_iterator it_chars = chars.constBegin();
     auto end_chars = chars.constEnd();
@@ -206,7 +199,7 @@ bool GUIControl::raceAvailable(const QString& race_name) {
 }
 
 void GUIControl::reset_race(Character* pchar) {
-    const QVector<QString>& available_races = faction->get_faction_races();
+    const QVector<QString>& available_races = this->current_char->get_faction()->get_faction_races();
 
     for (const auto & available_race : available_races) {
         if (!races.contains(available_race)) {
@@ -225,7 +218,7 @@ void GUIControl::reset_race(Character* pchar) {
 }
 
 QString GUIControl::get_creature_type() const {
-    return target->get_creature_type_string();
+    return this->current_char->get_target()->get_creature_type_string();
 }
 
 void GUIControl::setCreatureType(const QString& creature_type) {
@@ -387,11 +380,11 @@ QString GUIControl::get_race_name() const {
 }
 
 bool GUIControl::get_is_alliance() const {
-    return faction->is_alliance();
+    return this->current_char->get_faction()->is_alliance();
 }
 
 bool GUIControl::get_is_horde() const {
-    return faction->is_horde();
+    return this->current_char->get_faction()->is_horde();
 }
 
 int GUIControl::get_strength() const {
@@ -534,20 +527,20 @@ void GUIControl::run_quick_sim() {
 
     current_char->dump();
     current_char->get_statistics()->reset_statistics();
-    engine->prepare();
-    combat->drop_tables();
+    this->current_char->get_engine()->prepare();
+    this->current_char->get_combat_roll()->drop_tables();
     // TODO: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
         auto* start_event = new EncounterStart(current_char);
-        auto* end_event = new EncounterEnd(engine, current_char);
+        auto* end_event = new EncounterEnd(this->current_char->get_engine(), current_char);
 
-        engine->add_event(end_event);
-        engine->add_event(start_event);
-        engine->run();
+        this->current_char->get_engine()->add_event(end_event);
+        this->current_char->get_engine()->add_event(start_event);
+        this->current_char->get_engine()->run();
     }
 
-    engine->dump();
-    engine->reset();
+    this->current_char->get_engine()->dump();
+    this->current_char->get_engine()->reset();
     // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
     double previous = last_quick_sim_result;
     last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
@@ -569,104 +562,104 @@ void GUIControl::runQuickSim() {
 }
 
 QString GUIControl::get_mainhand_icon() const {
-    if (equipment->get_mainhand() != nullptr)
-        return "Assets/items/" + equipment->get_mainhand()->get_value("icon");
+    if (current_char->get_equipment()->get_mainhand() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_mainhand()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_offhand_icon() const {
-    if (equipment->get_offhand() != nullptr)
-        return "Assets/items/" + equipment->get_offhand()->get_value("icon");
+    if (current_char->get_equipment()->get_offhand() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_offhand()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_ranged_icon() const {
-    if (equipment->get_ranged() != nullptr)
-        return "Assets/items/" + equipment->get_ranged()->get_value("icon");
+    if (current_char->get_equipment()->get_ranged() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_ranged()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_head_icon() const {
-    if (equipment->get_head() != nullptr)
-        return "Assets/items/" + equipment->get_head()->get_value("icon");
+    if (current_char->get_equipment()->get_head() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_head()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_neck_icon() const {
-    if (equipment->get_neck() != nullptr)
-        return "Assets/items/" + equipment->get_neck()->get_value("icon");
+    if (current_char->get_equipment()->get_neck() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_neck()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_shoulders_icon() const {
-    if (equipment->get_shoulders() != nullptr)
-        return "Assets/items/" + equipment->get_shoulders()->get_value("icon");
+    if (current_char->get_equipment()->get_shoulders() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_shoulders()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_back_icon() const {
-    if (equipment->get_back() != nullptr)
-        return "Assets/items/" + equipment->get_back()->get_value("icon");
+    if (current_char->get_equipment()->get_back() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_back()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_chest_icon() const {
-    if (equipment->get_chest() != nullptr)
-        return "Assets/items/" + equipment->get_chest()->get_value("icon");
+    if (current_char->get_equipment()->get_chest() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_chest()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_wrist_icon() const {
-    if (equipment->get_wrist() != nullptr)
-        return "Assets/items/" + equipment->get_wrist()->get_value("icon");
+    if (current_char->get_equipment()->get_wrist() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_wrist()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_gloves_icon() const {
-    if (equipment->get_gloves() != nullptr)
-        return "Assets/items/" + equipment->get_gloves()->get_value("icon");
+    if (current_char->get_equipment()->get_gloves() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_gloves()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_belt_icon() const {
-    if (equipment->get_belt() != nullptr)
-        return "Assets/items/" + equipment->get_belt()->get_value("icon");
+    if (current_char->get_equipment()->get_belt() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_belt()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_legs_icon() const {
-    if (equipment->get_legs() != nullptr)
-        return "Assets/items/" + equipment->get_legs()->get_value("icon");
+    if (current_char->get_equipment()->get_legs() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_legs()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_boots_icon() const {
-    if (equipment->get_boots() != nullptr)
-        return "Assets/items/" + equipment->get_boots()->get_value("icon");
+    if (current_char->get_equipment()->get_boots() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_boots()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_ring1_icon() const {
-    if (equipment->get_ring1() != nullptr)
-        return "Assets/items/" + equipment->get_ring1()->get_value("icon");
+    if (current_char->get_equipment()->get_ring1() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_ring1()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_ring2_icon() const {
-    if (equipment->get_ring2() != nullptr)
-        return "Assets/items/" + equipment->get_ring2()->get_value("icon");
+    if (current_char->get_equipment()->get_ring2() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_ring2()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_trinket1_icon() const {
-    if (equipment->get_trinket1() != nullptr)
-        return "Assets/items/" + equipment->get_trinket1()->get_value("icon");
+    if (current_char->get_equipment()->get_trinket1() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_trinket1()->get_value("icon");
     return "";
 }
 
 QString GUIControl::get_trinket2_icon() const {
-    if (equipment->get_trinket2() != nullptr)
-        return "Assets/items/" + equipment->get_trinket2()->get_value("icon");
+    if (current_char->get_equipment()->get_trinket2() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_trinket2()->get_value("icon");
     return "";
 }
 
@@ -695,39 +688,39 @@ void GUIControl::selectSlot(const QString& slot_string) {
 void GUIControl::setSlot(const QString& slot_string, const QString& item) {
     // TODO: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
-        equipment->set_mainhand(item);
+        current_char->get_equipment()->set_mainhand(item);
     if (slot_string == "OFFHAND")
-        equipment->set_offhand(item);
+        current_char->get_equipment()->set_offhand(item);
     if (slot_string == "RANGED")
-        equipment->set_ranged(item);
+        current_char->get_equipment()->set_ranged(item);
     if (slot_string == "HEAD")
-        equipment->set_head(item);
+        current_char->get_equipment()->set_head(item);
     if (slot_string == "NECK")
-        equipment->set_neck(item);
+        current_char->get_equipment()->set_neck(item);
     if (slot_string == "SHOULDERS")
-        equipment->set_shoulders(item);
+        current_char->get_equipment()->set_shoulders(item);
     if (slot_string == "BACK")
-        equipment->set_back(item);
+        current_char->get_equipment()->set_back(item);
     if (slot_string == "CHEST")
-        equipment->set_chest(item);
+        current_char->get_equipment()->set_chest(item);
     if (slot_string == "WRIST")
-        equipment->set_wrist(item);
+        current_char->get_equipment()->set_wrist(item);
     if (slot_string == "GLOVES")
-        equipment->set_gloves(item);
+        current_char->get_equipment()->set_gloves(item);
     if (slot_string == "BELT")
-        equipment->set_belt(item);
+        current_char->get_equipment()->set_belt(item);
     if (slot_string == "LEGS")
-        equipment->set_legs(item);
+        current_char->get_equipment()->set_legs(item);
     if (slot_string == "BOOTS")
-        equipment->set_boots(item);
+        current_char->get_equipment()->set_boots(item);
     if (slot_string == "RING1")
-        equipment->set_ring1(item);
+        current_char->get_equipment()->set_ring1(item);
     if (slot_string == "RING2")
-        equipment->set_ring2(item);
+        current_char->get_equipment()->set_ring2(item);
     if (slot_string == "TRINKET1")
-        equipment->set_trinket1(item);
+        current_char->get_equipment()->set_trinket1(item);
     if (slot_string == "TRINKET2")
-        equipment->set_trinket2(item);
+        current_char->get_equipment()->set_trinket2(item);
 
     equipmentChanged();
     statsChanged();
@@ -735,39 +728,39 @@ void GUIControl::setSlot(const QString& slot_string, const QString& item) {
 
 void GUIControl::clearSlot(const QString& slot_string) {
     if (slot_string == "MAINHAND")
-        equipment->clear_mainhand();
+        current_char->get_equipment()->clear_mainhand();
     if (slot_string == "OFFHAND")
-        equipment->clear_offhand();
+        current_char->get_equipment()->clear_offhand();
     if (slot_string == "RANGED")
-        equipment->clear_ranged();
+        current_char->get_equipment()->clear_ranged();
     if (slot_string == "HEAD")
-        equipment->clear_head();
+        current_char->get_equipment()->clear_head();
     if (slot_string == "NECK")
-        equipment->clear_neck();
+        current_char->get_equipment()->clear_neck();
     if (slot_string == "SHOULDERS")
-        equipment->clear_shoulders();
+        current_char->get_equipment()->clear_shoulders();
     if (slot_string == "BACK")
-        equipment->clear_back();
+        current_char->get_equipment()->clear_back();
     if (slot_string == "CHEST")
-        equipment->clear_chest();
+        current_char->get_equipment()->clear_chest();
     if (slot_string == "WRIST")
-        equipment->clear_wrist();
+        current_char->get_equipment()->clear_wrist();
     if (slot_string == "GLOVES")
-        equipment->clear_gloves();
+        current_char->get_equipment()->clear_gloves();
     if (slot_string == "BELT")
-        equipment->clear_belt();
+        current_char->get_equipment()->clear_belt();
     if (slot_string == "LEGS")
-        equipment->clear_legs();
+        current_char->get_equipment()->clear_legs();
     if (slot_string == "BOOTS")
-        equipment->clear_boots();
+        current_char->get_equipment()->clear_boots();
     if (slot_string == "RING1")
-        equipment->clear_ring1();
+        current_char->get_equipment()->clear_ring1();
     if (slot_string == "RING2")
-        equipment->clear_ring2();
+        current_char->get_equipment()->clear_ring2();
     if (slot_string == "TRINKET1")
-        equipment->clear_trinket1();
+        current_char->get_equipment()->clear_trinket1();
     if (slot_string == "TRINKET2")
-        equipment->clear_trinket2();
+        current_char->get_equipment()->clear_trinket2();
 
     equipmentChanged();
     statsChanged();
@@ -793,39 +786,39 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
     Item* item = nullptr;
 
     if (slot_string == "MAINHAND")
-        item = equipment->get_mainhand();
+        item = current_char->get_equipment()->get_mainhand();
     if (slot_string == "OFFHAND")
-        item = equipment->get_offhand();
+        item = current_char->get_equipment()->get_offhand();
     if (slot_string == "RANGED")
-        item = equipment->get_ranged();
+        item = current_char->get_equipment()->get_ranged();
     if (slot_string == "HEAD")
-        item = equipment->get_head();
+        item = current_char->get_equipment()->get_head();
     if (slot_string == "NECK")
-        item = equipment->get_neck();
+        item = current_char->get_equipment()->get_neck();
     if (slot_string == "SHOULDERS")
-        item = equipment->get_shoulders();
+        item = current_char->get_equipment()->get_shoulders();
     if (slot_string == "BACK")
-        item = equipment->get_back();
+        item = current_char->get_equipment()->get_back();
     if (slot_string == "CHEST")
-        item = equipment->get_chest();
+        item = current_char->get_equipment()->get_chest();
     if (slot_string == "WRIST")
-        item = equipment->get_wrist();
+        item = current_char->get_equipment()->get_wrist();
     if (slot_string == "GLOVES")
-        item = equipment->get_gloves();
+        item = current_char->get_equipment()->get_gloves();
     if (slot_string == "BELT")
-        item = equipment->get_belt();
+        item = current_char->get_equipment()->get_belt();
     if (slot_string == "LEGS")
-        item = equipment->get_legs();
+        item = current_char->get_equipment()->get_legs();
     if (slot_string == "BOOTS")
-        item = equipment->get_boots();
+        item = current_char->get_equipment()->get_boots();
     if (slot_string == "RING1")
-        item = equipment->get_ring1();
+        item = current_char->get_equipment()->get_ring1();
     if (slot_string == "RING2")
-        item = equipment->get_ring2();
+        item = current_char->get_equipment()->get_ring2();
     if (slot_string == "TRINKET1")
-        item = equipment->get_trinket1();
+        item = current_char->get_equipment()->get_trinket1();
     if (slot_string == "TRINKET2")
-        item = equipment->get_trinket2();
+        item = current_char->get_equipment()->get_trinket2();
 
     if (item == nullptr)
         return QVariantList();

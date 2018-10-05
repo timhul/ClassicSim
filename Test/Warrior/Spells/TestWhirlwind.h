@@ -5,7 +5,7 @@
 
 class TestWhirlwind: public TestSpellWarrior {
 public:
-    TestWhirlwind();
+    TestWhirlwind(EquipmentDb *equipment_db);
 
     void test_all();
 

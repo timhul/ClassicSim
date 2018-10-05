@@ -3,8 +3,8 @@
 #include "Bloodrage.h"
 #include "Queue.h"
 
-TestBloodrage::TestBloodrage() :
-    TestSpellWarrior("Bloodrage")
+TestBloodrage::TestBloodrage(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Bloodrage")
 {}
 
 void TestBloodrage::test_all() {
@@ -78,9 +78,9 @@ void TestBloodrage::when_bloodrage_is_performed() {
 
 void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const unsigned expected_rage_gain) {
     unsigned prev = warrior->get_curr_rage();
-    while (!engine->get_queue()->empty()) {
-        Event* event = engine->get_queue()->get_next();
-        engine->set_current_priority(event);
+    while (!pchar->get_engine()->get_queue()->empty()) {
+        Event* event = pchar->get_engine()->get_queue()->get_next();
+        pchar->get_engine()->set_current_priority(event);
 
         if (event->get_name() != "ResourceGain") {
             delete event;

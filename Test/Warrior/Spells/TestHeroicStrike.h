@@ -7,7 +7,7 @@ class HeroicStrike;
 
 class TestHeroicStrike: public TestSpellWarrior {
 public:
-    TestHeroicStrike();
+    TestHeroicStrike(EquipmentDb *equipment_db);
 
     void test_all();
 

@@ -5,6 +5,7 @@
 #include "Equipment.h"
 #include "Faction.h"
 #include "Talents.h"
+#include "Target.h"
 #include "CharacterStats.h"
 #include "Stats.h"
 #include "ActiveProcs.h"
@@ -23,16 +24,16 @@
 #include "BloodFury.h"
 #include "BloodFuryBuff.h"
 
-Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRoll* roll, Faction* faction, QObject* parent) :
+Character::Character(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     QObject(parent)
 {
     this->race = race;
-    this->engine = engine;
-    this->roll = roll;
-    this->faction = faction;
+    this->engine = new Engine();
+    this->target = new Target(63);
+    this->roll = new CombatRoll(this);
+    this->faction = new Faction();
     this->talents = new Talents();
-    // TODO: Consider saving equipment pointer as well, to shorten expressions.
-    this->cstats = new CharacterStats(this, equipment);
+    this->cstats = new CharacterStats(this, equipment_db);
     this->active_procs = new ActiveProcs(this, faction);
     this->active_buffs = new ActiveBuffs(this, faction);
     this->statistics = nullptr;
@@ -46,6 +47,10 @@ Character::Character(Race* race, Engine* engine, Equipment* equipment, CombatRol
 }
 
 Character::~Character() {
+    delete engine;
+    delete target;
+    delete roll;
+    delete faction;
     delete talents;
     delete cstats;
     delete active_procs;
@@ -167,8 +172,16 @@ Engine* Character::get_engine() const {
     return this->engine;
 }
 
+Target* Character::get_target(void) const {
+    return this->target;
+}
+
 CombatRoll* Character::get_combat_roll() const {
     return this->roll;
+}
+
+Faction* Character::get_faction(void) const {
+    return this->faction;
 }
 
 Equipment* Character::get_equipment() const {

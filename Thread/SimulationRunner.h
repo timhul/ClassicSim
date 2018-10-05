@@ -9,6 +9,7 @@ class CharacterDecoder;
 class CombatRoll;
 class Engine;
 class Equipment;
+class EquipmentDb;
 class Faction;
 class Race;
 class Target;
@@ -30,12 +31,9 @@ signals:
 protected:
 private:
     Character* pchar;
-    CombatRoll* combat;
-    Engine* engine;
-    Equipment* equipment;
-    Faction* faction;
+    // TODO: Check if it is safe to use db from main thread
+    EquipmentDb* equipment_db;
     Race* race;
-    Target* target;
 
     QString setup_string;
     QString seed;

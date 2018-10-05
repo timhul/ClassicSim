@@ -5,13 +5,13 @@
 
 #include <utility>
 
-TestProcWarrior::TestProcWarrior(QString spell_under_test) :
-    TestProc(std::move(spell_under_test))
+TestProcWarrior::TestProcWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
+    TestProc(equipment_db, std::move(spell_under_test))
 {}
 
 void TestProcWarrior::set_up() {
     set_up_general();
-    warrior = new Warrior(race, engine, equipment, combat, faction);
+    warrior = new Warrior(race, equipment_db);
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;

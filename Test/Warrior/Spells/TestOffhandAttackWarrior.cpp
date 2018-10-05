@@ -4,8 +4,8 @@
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
 
-TestOffhandAttackWarrior::TestOffhandAttackWarrior() :
-    TestSpellWarrior("OffhandAttackWarrior")
+TestOffhandAttackWarrior::TestOffhandAttackWarrior(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "OffhandAttackWarrior")
 {}
 
 void TestOffhandAttackWarrior::test_all() {

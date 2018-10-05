@@ -4,8 +4,8 @@
 #include "HunterStatistics.h"
 #include "Weapon.h"
 
-Hunter::Hunter(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
-    Character(race, engine, _eq, _roll, faction, parent) {
+Hunter::Hunter(Race* race, EquipmentDb *equipment_db, QObject *parent) :
+    Character(race, equipment_db, parent) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
     available_races.append("Orc");

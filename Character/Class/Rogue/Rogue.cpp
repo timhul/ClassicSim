@@ -4,8 +4,8 @@
 #include "RogueStatistics.h"
 #include "Weapon.h"
 
-Rogue::Rogue(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
-    Character(race, engine, _eq, _roll, faction, parent) {
+Rogue::Rogue(Race* race, EquipmentDb *equipment_db, QObject *parent) :
+    Character(race, equipment_db, parent) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");

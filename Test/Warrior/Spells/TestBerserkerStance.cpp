@@ -5,8 +5,8 @@
 #include "Whirlwind.h"
 #include "CharacterStats.h"
 
-TestBerserkerStance::TestBerserkerStance() :
-    TestSpellWarrior("Berserker Stance")
+TestBerserkerStance::TestBerserkerStance(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Berserker Stance")
 {}
 
 void TestBerserkerStance::test_all() {

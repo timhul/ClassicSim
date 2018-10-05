@@ -2,8 +2,8 @@
 #include "TestHeroicStrike.h"
 #include "HeroicStrike.h"
 
-TestHeroicStrike::TestHeroicStrike() :
-    TestSpellWarrior("Heroic Strike")
+TestHeroicStrike::TestHeroicStrike(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Heroic Strike")
 {}
 
 void TestHeroicStrike::test_all() {

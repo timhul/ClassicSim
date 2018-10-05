@@ -7,7 +7,7 @@ class MainhandAttackWarrior;
 
 class TestMainhandAttackWarrior: public TestSpellWarrior {
 public:
-    TestMainhandAttackWarrior();
+    TestMainhandAttackWarrior(EquipmentDb *equipment_db);
 
     void test_all();
 

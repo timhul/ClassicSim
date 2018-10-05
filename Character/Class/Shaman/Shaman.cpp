@@ -4,8 +4,8 @@
 #include "ShamanStatistics.h"
 #include "Weapon.h"
 
-Shaman::Shaman(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
-    Character(race, engine, _eq, _roll, faction, parent) {
+Shaman::Shaman(Race* race, EquipmentDb* equipment_db, QObject *parent) :
+    Character(race, equipment_db, parent) {
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");

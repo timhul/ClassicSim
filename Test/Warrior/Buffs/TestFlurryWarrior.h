@@ -8,7 +8,7 @@ class Spell;
 
 class TestFlurryWarrior: public TestBuffWarrior {
 public:
-    TestFlurryWarrior();
+    TestFlurryWarrior(EquipmentDb *equipment_db);
 
     void test_all();
 

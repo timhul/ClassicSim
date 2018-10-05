@@ -7,6 +7,7 @@
 class Character;
 class Race;
 class Equipment;
+class EquipmentDb;
 class Stats;
 class Weapon;
 
@@ -14,7 +15,7 @@ class CharacterStats: public QObject {
     Q_OBJECT
 
 public:
-    CharacterStats(Character*, Equipment*, QObject* parent = nullptr);
+    CharacterStats(Character*, EquipmentDb* equipment_db, QObject* parent = nullptr);
     virtual ~CharacterStats();
 
     Equipment* get_equipment(void) const;

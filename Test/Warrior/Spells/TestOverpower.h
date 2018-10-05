@@ -5,7 +5,7 @@
 
 class TestOverpower: public TestSpellWarrior {
 public:
-    TestOverpower();
+    TestOverpower(EquipmentDb *equipment_db);
 
     void test_all();
 

@@ -3,12 +3,14 @@
 
 #include "TestSpell.h"
 
+class EquipmentDb;
 class Proc;
 
 class TestProc : public TestSpell {
 public:
-    TestProc(QString proc_under_test);
+    TestProc(EquipmentDb* equipment_db, QString proc_under_test);
 
+private:
 };
 
 #endif // TESTPROC_H

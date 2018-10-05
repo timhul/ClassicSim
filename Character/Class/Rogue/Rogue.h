@@ -9,7 +9,7 @@ class RogueSpells;
 class Rogue: public Character {
     Q_OBJECT
 public:
-    Rogue(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    Rogue(Race* race, EquipmentDb* equipment_db, QObject *parent = nullptr);
     virtual ~Rogue() override;
 
     QString get_name() const override;

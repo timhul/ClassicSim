@@ -15,7 +15,7 @@ class Mechanics;
 
 class CombatRoll {
 public:
-    CombatRoll(Target* _tar);
+    CombatRoll(Character* pchar);
     ~CombatRoll();
 
     int get_melee_hit_result(const int, const double = 0.0);
@@ -31,7 +31,6 @@ public:
 
     WhiteHitTable* get_white_hit_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);
-    void set_character(Character*);
 
     Target* get_target() const;
     Mechanics* get_mechanics() const;
@@ -51,7 +50,7 @@ public:
 
 protected:
 private:
-    Character* pchar{};
+    Character* pchar;
     Target* target;
     Random* random;
     Mechanics* mechanics;

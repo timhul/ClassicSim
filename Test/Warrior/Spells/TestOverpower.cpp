@@ -5,8 +5,8 @@
 #include "Equipment.h"
 #include "OverpowerBuff.h"
 
-TestOverpower::TestOverpower() :
-    TestSpellWarrior("Overpower")
+TestOverpower::TestOverpower(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Overpower")
 {}
 
 void TestOverpower::test_all() {

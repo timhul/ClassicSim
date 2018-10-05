@@ -4,8 +4,8 @@
 #include "PriestStatistics.h"
 #include "Weapon.h"
 
-Priest::Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
-    Character(race, engine, _eq, _roll, faction, parent) {
+Priest::Priest(Race* race, EquipmentDb* equipment_db, QObject *parent) :
+    Character(race, equipment_db, parent) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");

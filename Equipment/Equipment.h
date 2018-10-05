@@ -12,7 +12,7 @@ class Weapon;
 
 class Equipment {
 public:
-    Equipment(Character* = nullptr);
+    Equipment(EquipmentDb* equipment_db, Character* = nullptr);
     ~Equipment();
 
     void set_character(Character*);

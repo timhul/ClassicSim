@@ -14,8 +14,8 @@
 #include "CombatRoll.h"
 #include "MeleeSpecialTable.h"
 
-TestExecute::TestExecute() :
-    TestSpellWarrior("Execute")
+TestExecute::TestExecute(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Execute")
 {}
 
 void TestExecute::test_all() {

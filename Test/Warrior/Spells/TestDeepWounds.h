@@ -7,7 +7,7 @@ class Spell;
 
 class TestDeepWounds: public TestSpellWarrior {
 public:
-    TestDeepWounds();
+    TestDeepWounds(EquipmentDb *equipment_db);
 
     void test_all();
 

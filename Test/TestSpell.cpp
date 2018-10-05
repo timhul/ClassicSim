@@ -20,33 +20,23 @@
 #include "Target.h"
 #include "WhiteHitTable.h"
 
-TestSpell::TestSpell(QString spell_under_test) :
-    equipment(nullptr),
+TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
+    equipment_db(equipment_db),
+    pchar(nullptr),
+    race(new Orc()),
     spell_under_test(std::move(spell_under_test))
 {}
 
 TestSpell::~TestSpell() {
-    delete equipment;
+    // We rely on tests to run tear_down_general() before finishing tests.
 }
 
 void TestSpell::set_up_general() {
-    // not thread safe
-    engine = new Engine();
-    if (equipment == nullptr)
-        equipment = new Equipment();
-    target = new Target(63);
-    combat = new CombatRoll(target);
     race = new Orc();
-    faction = new Faction();
 }
 
 void TestSpell::tear_down_general() {
-    // not thread safe
-    delete engine;
-    delete combat;
-    delete target;
     delete race;
-    delete faction;
 }
 
 void TestSpell::given_no_previous_damage_dealt() {
@@ -119,7 +109,7 @@ void TestSpell::given_a_guaranteed_melee_ability_block() {
 }
 
 void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
-    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
     table->update_crit_chance(0.0);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
@@ -132,7 +122,7 @@ void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
-    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
     table->update_crit_chance(1.0);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
@@ -144,7 +134,7 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_special_table_for_miss(const int wpn_skill) {
-    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
     table->update_crit_chance(0.0);
     table->update_miss_chance(1.0);
     table->update_dodge_chance(0.0);
@@ -156,7 +146,7 @@ void TestSpell::set_melee_special_table_for_miss(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_special_table_for_dodge(const int wpn_skill) {
-    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
     table->update_crit_chance(0.0);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(1.0);
@@ -168,7 +158,7 @@ void TestSpell::set_melee_special_table_for_dodge(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_special_table_for_parry(const int wpn_skill) {
-    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
     table->update_crit_chance(0.0);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
@@ -180,7 +170,7 @@ void TestSpell::set_melee_special_table_for_parry(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
-    MeleeSpecialTable* table = combat->get_melee_special_table(wpn_skill);
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
     table->update_crit_chance(0.0);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
@@ -192,7 +182,7 @@ void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
-    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -205,7 +195,7 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
-    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -218,7 +208,7 @@ void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
-    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -231,7 +221,7 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
-    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(1.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -244,7 +234,7 @@ void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
-    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(1.0);
     table->update_parry_chance(0.0);
@@ -257,7 +247,7 @@ void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
-    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(1.0);
@@ -270,7 +260,7 @@ void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
-    WhiteHitTable* table = combat->get_white_hit_table(wpn_skill);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -283,9 +273,9 @@ void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
 }
 
 void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
-    if (equipment->get_db()->get_melee_weapon("Test 100 dmg") == nullptr) {
+    if (equipment_db->get_melee_weapon("Test 100 dmg") == nullptr) {
         Onehand* wpn = new Onehand("Test 100 dmg", WeaponTypes::SWORD, 100, 100, 2.6);
-        equipment->get_db()->add_melee_weapon(wpn);
+        equipment_db->add_melee_weapon(wpn);
     }
 
     pchar->get_equipment()->set_mainhand("Test 100 dmg");
@@ -294,9 +284,9 @@ void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
 }
 
 void TestSpell::given_a_mainhand_weapon_with_3_speed() {
-    if (equipment->get_db()->get_melee_weapon("Test 3 Speed") == nullptr) {
+    if (equipment_db->get_melee_weapon("Test 3 Speed") == nullptr) {
         Onehand* wpn = new Onehand("Test 3 Speed", WeaponTypes::SWORD, 100, 100, 3.0);
-        equipment->get_db()->add_melee_weapon(wpn);
+        equipment_db->add_melee_weapon(wpn);
     }
 
     pchar->get_equipment()->set_mainhand("Test 3 Speed");
@@ -304,9 +294,9 @@ void TestSpell::given_a_mainhand_weapon_with_3_speed() {
 }
 
 void TestSpell::given_a_mainhand_weapon_with_2_speed() {
-    if (equipment->get_db()->get_melee_weapon("Test 2 Speed") == nullptr) {
+    if (equipment_db->get_melee_weapon("Test 2 Speed") == nullptr) {
         Onehand* wpn = new Onehand("Test 2 Speed", WeaponTypes::SWORD, 100, 100, 2.0);
-        equipment->get_db()->add_melee_weapon(wpn);
+        equipment_db->add_melee_weapon(wpn);
     }
 
     pchar->get_equipment()->set_mainhand("Test 2 Speed");
@@ -318,13 +308,13 @@ void TestSpell::given_300_weapon_skill_mh() {
 }
 
 void TestSpell::given_305_weapon_skill_mh() {
-    if (equipment->get_db()->get_ring("Test +5 Sword Skill") == nullptr) {
+    if (equipment_db->get_ring("Test +5 Sword Skill") == nullptr) {
         QMap<QString, QString> info = {{"slot", "RING"}};
         QVector<QPair<QString, QString>> stats;
         stats.append(QPair<QString, QString>("SWORD_SKILL", "5"));
 
         Item* ring = new Item("Test +5 Sword Skill", stats, info);
-        equipment->get_db()->add_ring(ring);
+        equipment_db->add_ring(ring);
     }
 
     pchar->get_equipment()->set_ring1("Test +5 Sword Skill");
@@ -333,13 +323,13 @@ void TestSpell::given_305_weapon_skill_mh() {
 }
 
 void TestSpell::given_310_weapon_skill_mh() {
-    if (equipment->get_db()->get_ring("Test +10 Sword Skill") == nullptr) {
+    if (equipment_db->get_ring("Test +10 Sword Skill") == nullptr) {
         QMap<QString, QString> info = {{"slot", "RING"}};
         QVector<QPair<QString, QString>> stats;
         stats.append(QPair<QString, QString>("SWORD_SKILL", "10"));
 
         Item* ring = new Item("Test +10 Sword Skill", stats, info);
-        equipment->get_db()->add_ring(ring);
+        equipment_db->add_ring(ring);
     }
 
     pchar->get_equipment()->set_ring1("Test +10 Sword Skill");
@@ -348,13 +338,13 @@ void TestSpell::given_310_weapon_skill_mh() {
 }
 
 void TestSpell::given_315_weapon_skill_mh() {
-    if (equipment->get_db()->get_ring("Test +15 Sword Skill") == nullptr) {
+    if (equipment_db->get_ring("Test +15 Sword Skill") == nullptr) {
         QMap<QString, QString> info = {{"slot", "RING"}};
         QVector<QPair<QString, QString>> stats;
         stats.append(QPair<QString, QString>("SWORD_SKILL", "15"));
 
         Item* ring = new Item("Test +15 Sword Skill", stats, info);
-        equipment->get_db()->add_ring(ring);
+        equipment_db->add_ring(ring);
     }
 
     pchar->get_equipment()->set_ring1("Test +15 Sword Skill");
@@ -367,13 +357,13 @@ void TestSpell::given_300_weapon_skill_oh() {
 }
 
 void TestSpell::given_305_weapon_skill_oh() {
-    if (equipment->get_db()->get_ring("Test +5 Sword Skill") == nullptr) {
+    if (equipment_db->get_ring("Test +5 Sword Skill") == nullptr) {
         QMap<QString, QString> info = {{"slot", "RING"}};
         QVector<QPair<QString, QString>> stats;
         stats.append(QPair<QString, QString>("SWORD_SKILL", "5"));
 
         Item* ring = new Item("Test +5 Sword Skill", stats, info);
-        equipment->get_db()->add_ring(ring);
+        equipment_db->add_ring(ring);
     }
 
     pchar->get_equipment()->set_ring1("Test +5 Sword Skill");
@@ -382,13 +372,13 @@ void TestSpell::given_305_weapon_skill_oh() {
 }
 
 void TestSpell::given_310_weapon_skill_oh() {
-    if (equipment->get_db()->get_ring("Test +10 Sword Skill") == nullptr) {
+    if (equipment_db->get_ring("Test +10 Sword Skill") == nullptr) {
         QMap<QString, QString> info = {{"slot", "RING"}};
         QVector<QPair<QString, QString>> stats;
         stats.append(QPair<QString, QString>("SWORD_SKILL", "10"));
 
         Item* ring = new Item("Test +10 Sword Skill", stats, info);
-        equipment->get_db()->add_ring(ring);
+        equipment_db->add_ring(ring);
     }
 
     pchar->get_equipment()->set_ring1("Test +10 Sword Skill");
@@ -397,13 +387,13 @@ void TestSpell::given_310_weapon_skill_oh() {
 }
 
 void TestSpell::given_315_weapon_skill_oh() {
-    if (equipment->get_db()->get_ring("Test +15 Sword Skill") == nullptr) {
+    if (equipment_db->get_ring("Test +15 Sword Skill") == nullptr) {
         QMap<QString, QString> info = {{"slot", "RING"}};
         QVector<QPair<QString, QString>> stats;
         stats.append(QPair<QString, QString>("SWORD_SKILL", "15"));
 
         Item* ring = new Item("Test +15 Sword Skill", stats, info);
-        equipment->get_db()->add_ring(ring);
+        equipment_db->add_ring(ring);
     }
 
     pchar->get_equipment()->set_ring1("Test +15 Sword Skill");
@@ -422,9 +412,9 @@ void TestSpell::given_no_offhand() {
 }
 
 void TestSpell::given_an_offhand_weapon_with_100_min_max_dmg() {
-    if (equipment->get_db()->get_melee_weapon("Test 100 dmg") == nullptr) {
+    if (equipment_db->get_melee_weapon("Test 100 dmg") == nullptr) {
         Onehand* wpn = new Onehand("Test 100 dmg", WeaponTypes::SWORD, 100, 100, 2.6);
-        equipment->get_db()->add_melee_weapon(wpn);
+        equipment_db->add_melee_weapon(wpn);
     }
 
     pchar->get_equipment()->set_offhand("Test 100 dmg");
@@ -433,9 +423,9 @@ void TestSpell::given_an_offhand_weapon_with_100_min_max_dmg() {
 }
 
 void TestSpell::given_an_offhand_weapon_with_3_speed() {
-    if (equipment->get_db()->get_melee_weapon("Test 3 Speed") == nullptr) {
+    if (equipment_db->get_melee_weapon("Test 3 Speed") == nullptr) {
         Onehand* wpn = new Onehand("Test 3 Speed", WeaponTypes::SWORD, 100, 100, 3.0);
-        equipment->get_db()->add_melee_weapon(wpn);
+        equipment_db->add_melee_weapon(wpn);
     }
 
     pchar->get_equipment()->set_offhand("Test 3 Speed");
@@ -443,9 +433,9 @@ void TestSpell::given_an_offhand_weapon_with_3_speed() {
 }
 
 void TestSpell::given_an_offhand_weapon_with_2_speed() {
-    if (equipment->get_db()->get_melee_weapon("Test 2 Speed") == nullptr) {
+    if (equipment_db->get_melee_weapon("Test 2 Speed") == nullptr) {
         Onehand* wpn = new Onehand("Test 2 Speed", WeaponTypes::SWORD, 100, 100, 2.0);
-        equipment->get_db()->add_melee_weapon(wpn);
+        equipment_db->add_melee_weapon(wpn);
     }
 
     pchar->get_equipment()->set_offhand("Test 2 Speed");
@@ -464,20 +454,20 @@ void TestSpell::given_target_has_0_armor() {
 
 void TestSpell::given_engine_priority_at(const double priority) {
     auto* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
-    engine->set_current_priority(event);
+    pchar->get_engine()->set_current_priority(event);
     delete event;
 }
 
 void TestSpell::when_running_queued_events_until(const double priority) {
-    while (engine->get_current_priority() < priority) {
-        if (engine->get_queue()->empty()) {
+    while (pchar->get_engine()->get_current_priority() < priority) {
+        if (pchar->get_engine()->get_queue()->empty()) {
             qDebug() << "Attempted to run queued events until"
                      << QString::number(priority, 'f', 3)
-                     << "but ran out of events at" << engine->get_current_priority();
+                     << "but ran out of events at" << pchar->get_engine()->get_current_priority();
             assert(false);
         }
-        Event* event = engine->get_queue()->get_next();
-        engine->set_current_priority(event);
+        Event* event = pchar->get_engine()->get_queue()->get_next();
+        pchar->get_engine()->set_current_priority(event);
 
         event->act();
 
@@ -493,8 +483,8 @@ void TestSpell::then_damage_dealt_is(const int damage) {
 }
 
 void TestSpell::then_next_event_is(const QString &name) {
-    Event* event = engine->get_queue()->get_next();
-    engine->set_current_priority(event);
+    Event* event = pchar->get_engine()->get_queue()->get_next();
+    pchar->get_engine()->set_current_priority(event);
 
     assert(event->get_name() == name);
 
@@ -502,9 +492,9 @@ void TestSpell::then_next_event_is(const QString &name) {
 }
 
 void TestSpell::then_next_event_is(const QString &name, const QString &priority) {
-    assert(!engine->get_queue()->empty());
-    Event* event = engine->get_queue()->get_next();
-    engine->set_current_priority(event);
+    assert(!pchar->get_engine()->get_queue()->empty());
+    Event* event = pchar->get_engine()->get_queue()->get_next();
+    pchar->get_engine()->set_current_priority(event);
 
     assert(event->get_name() == name);
     assert(QString::number(event->get_priority(), 'f', 3) == priority);

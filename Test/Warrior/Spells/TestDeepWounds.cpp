@@ -10,8 +10,8 @@
 #include "Queue.h"
 #include "ClassStatistics.h"
 
-TestDeepWounds::TestDeepWounds() :
-    TestSpellWarrior("Deep Wounds")
+TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Deep Wounds")
 {}
 
 void TestDeepWounds::test_all() {
@@ -343,9 +343,9 @@ void TestDeepWounds::when_attack_is_performed(Spell* spell) {
 }
 
 void TestDeepWounds::then_deep_wounds_damage_dealt_is(const int damage_dealt) {
-    while (!engine->get_queue()->empty()) {
-        Event* event = engine->get_queue()->get_next();
-        engine->set_current_priority(event);
+    while (!pchar->get_engine()->get_queue()->empty()) {
+        Event* event = pchar->get_engine()->get_queue()->get_next();
+        pchar->get_engine()->set_current_priority(event);
 
         if (event->get_name() != "DotTick") {
             delete event;
@@ -362,9 +362,9 @@ void TestDeepWounds::then_deep_wounds_damage_dealt_is(const int damage_dealt) {
 }
 
 void TestDeepWounds::then_deep_wounds_is_applied() {
-    while (!engine->get_queue()->empty()) {
-        Event* event = engine->get_queue()->get_next();
-        engine->set_current_priority(event);
+    while (!pchar->get_engine()->get_queue()->empty()) {
+        Event* event = pchar->get_engine()->get_queue()->get_next();
+        pchar->get_engine()->set_current_priority(event);
 
         if (event->get_name() != "DotTick") {
             delete event;
@@ -383,5 +383,5 @@ void TestDeepWounds::then_deep_wounds_is_not_applied() {
 }
 
 void TestDeepWounds::then_damage_is_dealt_over_12_seconds() {
-    assert(QString::number(engine->get_current_priority(), 'f', 3) == "12.000");
+    assert(QString::number(pchar->get_engine()->get_current_priority(), 'f', 3) == "12.000");
 }

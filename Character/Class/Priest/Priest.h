@@ -9,7 +9,7 @@ class PriestSpells;
 class Priest: public Character {
     Q_OBJECT
 public:
-    Priest(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    Priest(Race* race, EquipmentDb *equipment_db, QObject *parent = nullptr);
     virtual ~Priest() override;
 
     QString get_name() const override;

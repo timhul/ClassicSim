@@ -5,7 +5,6 @@
 
 #include "Engine.h"
 #include "Test.h"
-#include "Equipment.h"
 #include "Target.h"
 #include "CombatRoll.h"
 #include "Talents.h"
@@ -22,6 +21,7 @@
 
 class CharacterEncoder;
 class CharacterDecoder;
+class EquipmentDb;
 class SimulationThreadPool;
 
 
@@ -241,12 +241,7 @@ private:
     void set_class_restriction_tooltip(Item *&item, QString &restriction);
     void set_character(Character* pchar);
 
-    Engine* engine;
-    Equipment* equipment;
-    Target* target;
-    Random* random{};
-    CombatRoll* combat;
-    Faction* faction;
+    EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;
     CharacterDecoder* character_decoder;
     SimulationThreadPool* thread_pool;

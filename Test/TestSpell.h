@@ -6,6 +6,7 @@
 
 class Engine;
 class Equipment;
+class EquipmentDb;
 class CombatRoll;
 class Faction;
 class Target;
@@ -14,7 +15,7 @@ class Character;
 
 class TestSpell {
 public:
-    TestSpell(QString spell_under_test);
+    TestSpell(EquipmentDb *equipment_db, QString spell_under_test);
     ~TestSpell();
 
     void set_up_general();
@@ -61,13 +62,9 @@ public:
     void then_next_event_is(const QString &name, const QString &priority);
 
 protected:
-    Engine* engine{};
-    Equipment* equipment;
-    CombatRoll* combat{};
-    Faction* faction{};
-    Target* target{};
-    Race* race{};
-    Character* pchar{};
+    EquipmentDb* equipment_db;
+    Character* pchar;
+    Race* race;
     QString spell_under_test;
 
     void set_melee_special_table_for_hit(const int wpn_skill);

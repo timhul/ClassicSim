@@ -6,8 +6,8 @@
 #include "UnbridledWrathTalent.h"
 #include "ProcInfo.h"
 
-TestUnbridledWrath::TestUnbridledWrath() :
-    TestProcWarrior("Unbridled Wrath")
+TestUnbridledWrath::TestUnbridledWrath(EquipmentDb* equipment_db) :
+    TestProcWarrior(equipment_db, "Unbridled Wrath")
 {}
 
 void TestUnbridledWrath::test_all() {

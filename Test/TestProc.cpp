@@ -3,6 +3,6 @@
 
 #include <utility>
 
-TestProc::TestProc(QString proc_under_test) :
-    TestSpell(std::move(proc_under_test))
+TestProc::TestProc(EquipmentDb *equipment_db, QString proc_under_test) :
+    TestSpell(equipment_db, std::move(proc_under_test))
 {}

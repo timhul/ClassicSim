@@ -9,7 +9,7 @@ class HunterSpells;
 class Hunter: public Character {
     Q_OBJECT
 public:
-    Hunter(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    Hunter(Race* race, EquipmentDb* equipment_db, QObject *parent = nullptr);
     virtual ~Hunter() override;
 
     QString get_name() const override;

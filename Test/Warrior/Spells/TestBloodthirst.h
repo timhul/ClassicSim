@@ -5,7 +5,7 @@
 
 class TestBloodthirst: public TestSpellWarrior {
 public:
-    TestBloodthirst();
+    TestBloodthirst(EquipmentDb *equipment_db);
 
     void test_all();
 

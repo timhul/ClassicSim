@@ -4,8 +4,8 @@
 #include "Queue.h"
 #include "Equipment.h"
 
-TestWhirlwind::TestWhirlwind() :
-    TestSpellWarrior("Whirlwind")
+TestWhirlwind::TestWhirlwind(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "Whirlwind")
 {}
 
 void TestWhirlwind::test_all() {

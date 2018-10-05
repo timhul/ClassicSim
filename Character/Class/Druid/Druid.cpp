@@ -5,8 +5,8 @@
 #include "Race.h"
 #include "Weapon.h"
 
-Druid::Druid(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
-    Character(race, engine, _eq, _roll, faction, parent) {
+Druid::Druid(Race* race, EquipmentDb *equipment_db, QObject *parent) :
+    Character(race, equipment_db, parent) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
     this->statistics = new DruidStatistics();

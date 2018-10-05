@@ -8,10 +8,10 @@
 #include "Target.h"
 #include "Weapon.h"
 
-CharacterStats::CharacterStats(Character* pchar, Equipment* equipment, QObject* parent) :
+CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObject* parent) :
     QObject(parent),
     pchar(pchar),
-    equipment(equipment)
+    equipment(new Equipment(equipment_db))
 {
     this->base_stats = new Stats();
     this->total_phys_dmg_mod = 1.0;
@@ -21,6 +21,7 @@ CharacterStats::CharacterStats(Character* pchar, Equipment* equipment, QObject* 
 
 CharacterStats::~CharacterStats() {
     delete base_stats;
+    delete equipment;
 }
 
 Equipment* CharacterStats::get_equipment() const {

@@ -33,8 +33,8 @@
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 
-Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction *faction, QObject* parent) :
-    Character(race, engine, _eq, _roll, faction, parent) {
+Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
+    Character(race, equipment_db, parent) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");
@@ -66,7 +66,6 @@ Warrior::Warrior(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, 
     this->stance = WarriorStances::Battle;
     this->stance_rage_remainder = 0;
     this->next_stance_cd = 0.0;
-    this->roll->set_character(this);
     this->statistics = new WarriorStatistics();
 
     this->warr_spells = new WarriorSpells(this);

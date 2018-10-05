@@ -4,11 +4,19 @@
 #include "Engine.h"
 
 
+class EquipmentDb;
+
+
 class Test {
 public:
+    Test();
+    ~Test();
+
     void test_all();
 protected:
 private:
+    EquipmentDb* equipment_db;
+
     void test_special_hit_table();
     void test_white_hit_table();
     void test_white_hit_table_update();

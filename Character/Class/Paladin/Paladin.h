@@ -9,7 +9,7 @@ class PaladinSpells;
 class Paladin: public Character {
     Q_OBJECT
 public:
-    Paladin(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent = nullptr);
+    Paladin(Race* race, EquipmentDb* equipment_db, QObject *parent = nullptr);
     virtual ~Paladin() override;
 
     QString get_name() const override;

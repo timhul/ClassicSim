@@ -3,8 +3,8 @@
 #include "Equipment.h"
 #include "MainhandAttackWarrior.h"
 
-TestMainhandAttackWarrior::TestMainhandAttackWarrior() :
-    TestSpellWarrior("MainhandAttackWarrior")
+TestMainhandAttackWarrior::TestMainhandAttackWarrior(EquipmentDb *equipment_db) :
+    TestSpellWarrior(equipment_db, "MainhandAttackWarrior")
 {}
 
 void TestMainhandAttackWarrior::test_all() {

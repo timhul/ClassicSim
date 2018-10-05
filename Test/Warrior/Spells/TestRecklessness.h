@@ -5,7 +5,7 @@
 
 class TestRecklessness: public TestSpellWarrior {
 public:
-    TestRecklessness();
+    TestRecklessness(EquipmentDb *equipment_db);
 
     void test_all();
 

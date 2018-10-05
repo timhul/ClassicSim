@@ -4,8 +4,8 @@
 #include "PaladinStatistics.h"
 #include "Weapon.h"
 
-Paladin::Paladin(Race* race, Engine* engine, Equipment* _eq, CombatRoll* _roll, Faction* faction, QObject *parent) :
-    Character(race, engine, _eq, _roll, faction, parent) {
+Paladin::Paladin(Race* race, EquipmentDb *equipment_db, QObject *parent) :
+    Character(race, equipment_db, parent) {
     available_races.append("Dwarf");
     available_races.append("Human");
     this->statistics = new PaladinStatistics();

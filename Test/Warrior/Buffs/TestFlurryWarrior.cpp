@@ -12,8 +12,8 @@
 #include "Overpower.h"
 #include "Spell.h"
 
-TestFlurryWarrior::TestFlurryWarrior() :
-    TestBuffWarrior("FlurryWarrior")
+TestFlurryWarrior::TestFlurryWarrior(EquipmentDb* equipment_db) :
+    TestBuffWarrior(equipment_db, "FlurryWarrior")
 {}
 
 void TestFlurryWarrior::test_all() {

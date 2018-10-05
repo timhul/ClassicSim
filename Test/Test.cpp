@@ -47,6 +47,13 @@
 
 #include "TestWarrior.h"
 
+Test::Test() :
+    equipment_db(new EquipmentDb())
+{}
+
+Test::~Test() {
+    delete equipment_db;
+}
 
 void Test::test_all() {
     qDebug() << "test_character_creation";
@@ -79,38 +86,22 @@ void Test::test_all() {
     test_warrior();
 }
 
-void add_frostbite(EquipmentDb* db) {
-    Onehand* wpn = new Onehand("Frostbite", WeaponTypes::AXE, 80, 150, 2.7);
-    db->add_melee_weapon(wpn);
-}
-
 void Test::test_queue() {
-    auto* engine = new Engine();
-    auto* equipment = new Equipment();
-    add_frostbite(equipment->get_db());
-    equipment->set_mainhand("Frostbite");
-    equipment->set_offhand("Frostbite");
     Race* race = new Orc();
-    auto* target = new Target(63);
-    auto* combat = new CombatRoll(target);
-    auto* faction = new Faction();
-    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
+    auto* pchar = new Warrior(race, equipment_db);
+    pchar->get_equipment()->set_mainhand("Frostbite");
+    pchar->get_equipment()->set_offhand("Krol Blade");
     pchar->set_clvl(60);
     auto* start_event = new EncounterStart(pchar);
-    auto* end_event = new EncounterEnd(engine, pchar);
+    auto* end_event = new EncounterEnd(pchar->get_engine(), pchar);
 
-    engine->add_event(end_event);
-    engine->add_event(start_event);
-    engine->run();
-    engine->dump();
+    pchar->get_engine()->add_event(end_event);
+    pchar->get_engine()->add_event(start_event);
+    pchar->get_engine()->run();
+    pchar->get_engine()->dump();
 
-    delete faction;
-    delete combat;
-    delete target;
-    delete equipment;
     delete pchar;
     delete race;
-    delete engine;
 }
 
 void Test::test_random() {
@@ -124,53 +115,29 @@ void Test::test_random() {
 }
 
 void Test::test_combat_roll_melee_hit_result() {
-    auto* target = new Target(63);
-    auto* engine = new Engine();
-    auto* equipment = new Equipment();
-    add_frostbite(equipment->get_db());
     Race* race = new Orc();
-    auto* combat = new CombatRoll(target);
-    auto* faction = new Faction();
-    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
-    combat->set_character(pchar);
+    auto* pchar = new Warrior(race, equipment_db);
 
     for(int i = 0; i < 30; ++i) {
-        combat->get_melee_hit_result(300);
+        pchar->get_combat_roll()->get_melee_hit_result(300);
     }
 
-    delete faction;
-    delete target;
-    delete engine;
-    delete equipment;
     delete race;
     delete pchar;
-    delete combat;
 }
 
 void Test::test_combat_roll_creation() {
-    auto* target = new Target(63);
-    auto* engine = new Engine();
-    auto* equipment = new Equipment();
-    add_frostbite(equipment->get_db());
-    Race* race = new Orc();
-    auto* combat = new CombatRoll(target);
-    auto* faction = new Faction();
-    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
-    combat->set_character(dynamic_cast<Character*>(pchar));
+    auto* race = new Orc();
+    auto* pchar = new Warrior(race, equipment_db);
 
-    combat->get_white_hit_table(300);
-    combat->get_white_hit_table(300);
-    combat->get_white_hit_table(315);
-    combat->get_white_hit_table(315);
-    combat->get_white_hit_table(300);
+    pchar->get_combat_roll()->get_white_hit_table(300);
+    pchar->get_combat_roll()->get_white_hit_table(300);
+    pchar->get_combat_roll()->get_white_hit_table(315);
+    pchar->get_combat_roll()->get_white_hit_table(315);
+    pchar->get_combat_roll()->get_white_hit_table(300);
 
-    delete faction;
-    delete target;
-    delete engine;
-    delete equipment;
     delete race;
     delete pchar;
-    delete combat;
 }
 
 void Test::test_mechanics_dodge() {
@@ -268,17 +235,10 @@ void Test::test_white_hit_table() {
 }
 
 void Test::test_white_hit_table_update() {
-    auto* target = new Target(63);
-    auto* engine = new Engine();
-    auto* equipment = new Equipment();
-    add_frostbite(equipment->get_db());
     Race* race = new Orc();
-    auto* combat = new CombatRoll(target);
-    auto* faction = new Faction();
-    auto* pchar = new Warrior(race, engine, equipment, combat, faction);
-    combat->set_character(dynamic_cast<Character*>(pchar));
+    auto* pchar = new Warrior(race, equipment_db);
 
-    WhiteHitTable* table = combat->get_white_hit_table(300);
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(300);
 
     assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
     assert(table->get_outcome(2799, 0.0) == AttackResult::MISS);
@@ -299,13 +259,8 @@ void Test::test_white_hit_table_update() {
     assert(table->get_outcome(7986, 0.0) == AttackResult::CRITICAL);
     assert(table->get_outcome(9999, 0.0) == AttackResult::CRITICAL);
 
-    delete faction;
-    delete target;
-    delete engine;
-    delete equipment;
     delete race;
     delete pchar;
-    delete combat;
 }
 
 void Test::test_special_hit_table() {
@@ -326,8 +281,7 @@ void Test::test_special_hit_table() {
 }
 
 void Test::test_equipment_creation() {
-    auto* equipment = new Equipment();
-    add_frostbite(equipment->get_db());
+    auto* equipment = new Equipment(equipment_db);
     equipment->set_mainhand("Frostbite");
     Weapon* mh = equipment->get_mainhand();
 
@@ -342,12 +296,6 @@ void Test::test_equipment_creation() {
 
 
 void Test::test_character_creation() {
-    auto* engine = new Engine();
-    auto* equipment = new Equipment();
-    auto* target = new Target(63);
-    auto* combat = new CombatRoll(target);
-    auto* faction = new Faction();
-
     Race* race = new Human();
     // TODO: Add assertions
     delete race;
@@ -379,46 +327,41 @@ void Test::test_character_creation() {
     race = new Troll();
     // TODO: Add assertions
 
-    auto* priest = new Priest(race, engine, equipment, combat, faction);
+    auto* priest = new Priest(race, equipment_db);
     // TODO: Add assertions
     delete priest;
 
-    auto* rogue = new Rogue(race, engine, equipment, combat, faction);
+    auto* rogue = new Rogue(race, equipment_db);
     // TODO: Add assertions
     delete rogue;
 
-    auto* mage = new Mage(race, engine, equipment, combat, faction);
+    auto* mage = new Mage(race, equipment_db);
     // TODO: Add assertions
     delete mage;
 
-    auto* druid = new Druid(race, engine, equipment, combat, faction);
+    auto* druid = new Druid(race, equipment_db);
     // TODO: Add assertions
     delete druid;
 
-    auto* hunter = new Hunter(race, engine, equipment, combat, faction);
+    auto* hunter = new Hunter(race, equipment_db);
     // TODO: Add assertions
     delete hunter;
 
-    auto* warlock = new Warlock(race, engine, equipment, combat, faction);
+    auto* warlock = new Warlock(race, equipment_db);
     // TODO: Add assertions
     delete warlock;
 
-    auto* shaman = new Shaman(race, engine, equipment, combat, faction);
+    auto* shaman = new Shaman(race, equipment_db);
     // TODO: Add assertions
     delete shaman;
 
-    auto* paladin = new Paladin(race, engine, equipment, combat, faction);
+    auto* paladin = new Paladin(race, equipment_db);
     paladin->set_clvl(60);
     assert(paladin->get_clvl() == 60);
     // TODO: Add assertions
     delete paladin;
 
-    delete faction;
-    delete target;
-    delete combat;
     delete race;
-    delete engine;
-    delete equipment;
 }
 
 void Test::test_warrior() {
