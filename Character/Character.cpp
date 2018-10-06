@@ -447,11 +447,11 @@ void Character::decrease_ability_crit_dmg_mod(double decrease) {
 }
 
 void Character::increase_spell_crit_dmg_mod(double increase) {
-    ability_crit_dmg_mod += increase;
+    spell_crit_dmg_mod += increase;
 }
 
 void Character::decrease_spell_crit_dmg_mod(double decrease) {
-    ability_crit_dmg_mod -= decrease;
+    spell_crit_dmg_mod -= decrease;
 }
 
 bool Character::has_mainhand() const {

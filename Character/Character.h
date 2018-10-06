@@ -169,7 +169,6 @@ protected:
     bool melee_attacking;
     double next_gcd;
 
-
     virtual void initialize_talents() = 0;
 
     int get_wpn_skill(Weapon*) const;
