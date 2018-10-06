@@ -20,7 +20,8 @@ SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, QObject* p
 
 SimulationThreadPool::~SimulationThreadPool() {
     delete random;
-    // TODO: Delete threads.
+    for (auto & thread_entry : thread_pool)
+        delete thread_entry.second;
 }
 
 void SimulationThreadPool::run_sim(const QString &setup_string) {
