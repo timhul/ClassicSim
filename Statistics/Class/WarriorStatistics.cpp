@@ -7,10 +7,6 @@ WarriorStatistics::WarriorStatistics(QObject *parent) :
 
 }
 
-void WarriorStatistics::update_statistics() {
-    // TODO: Find all valid entries
-}
-
 int WarriorStatistics::getNumStatisticsRows() const {
     // TODO: Check how many of the possible statistic entries actually have statistics.
     // That is, to show e.g. Bloodthirst damage, there must be some Bloodthirst statistics.

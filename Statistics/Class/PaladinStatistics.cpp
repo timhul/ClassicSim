@@ -7,12 +7,7 @@ PaladinStatistics::PaladinStatistics(QObject *parent) :
 
 }
 
-void PaladinStatistics::update_statistics() {
-    // TODO: Find all valid entries
-}
-
 int PaladinStatistics::getNumStatisticsRows() const {
-    // TODO: Check how many of the possible statistic entries actually have statistics.
     int data = spell_statistics.empty() ? 0 : 1;
     data += buff_statistics.empty() ? 0 : 1;
     data += resource_statistics.empty() ? 0 : 1;
@@ -55,6 +50,5 @@ QVariantList PaladinStatistics::getChartInfo(const int index) const {
 }
 
 QString PaladinStatistics::getEntryIcon(const int) const {
-    // TODO: Refactor the knowledge of exact icon path (also listed in Improved Heroic Strike)
     return "";
 }

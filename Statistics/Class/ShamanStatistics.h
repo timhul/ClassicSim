@@ -9,8 +9,6 @@ class ShamanStatistics: public ClassStatistics {
 public:
     ShamanStatistics(QObject* parent = nullptr);
 
-    void update_statistics() override;
-
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;
     Q_INVOKABLE QVariantList getChartInfo(const int index) const override;

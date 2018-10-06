@@ -16,7 +16,6 @@ class ClassStatistics : public QObject {
 public:
     ClassStatistics(QObject* parent = nullptr);
 
-    virtual void update_statistics() = 0;
     Q_INVOKABLE virtual int getNumStatisticsRows() const = 0;
     Q_INVOKABLE virtual QVariantList getTableInfo(const int index) const = 0;
     Q_INVOKABLE virtual QVariantList getChartInfo(const int index) const = 0;
