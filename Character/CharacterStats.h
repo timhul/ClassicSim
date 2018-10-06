@@ -74,6 +74,9 @@ public:
     void increase_total_phys_dmg_mod(const int);
     void decrease_total_phys_dmg_mod(const int);
 
+    void add_damage_taken_mod(const int);
+    void remove_damage_taken_mod(const int);
+
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
 
@@ -83,11 +86,13 @@ protected:
     Stats* base_stats;
     QVector<int> attack_speed_buffs;
     QVector<int> phys_dmg_buffs;
+    QVector<int> damage_taken_changes;
 
     int ranged_ap{};
     double haste_factor;
     double ability_crit_dmg_mod{};
     double total_phys_dmg_mod;
+    double damage_taken_mod;
 
 private:
 };

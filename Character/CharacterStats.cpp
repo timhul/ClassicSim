@@ -16,6 +16,7 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObj
     this->base_stats = new Stats();
     this->total_phys_dmg_mod = 1.0;
     this->haste_factor = 1.0;
+    this->damage_taken_mod = 1.0;
 }
 
 CharacterStats::~CharacterStats() {
@@ -211,6 +212,26 @@ void CharacterStats::decrease_total_phys_dmg_mod(const int decrease) {
     for (int phys_dmg_buff : phys_dmg_buffs) {
         double coefficient = 1.0 + double(phys_dmg_buff) / 100;
         total_phys_dmg_mod = total_phys_dmg_mod * coefficient;
+    }
+}
+
+void CharacterStats::add_damage_taken_mod(const int mod) {
+    damage_taken_changes.append(mod);
+
+    damage_taken_mod = 1.0;
+    for (int damage_taken_change : damage_taken_changes) {
+        double coefficient = 1.0 + double(damage_taken_change) / 100;
+        damage_taken_mod = damage_taken_mod * coefficient;
+    }
+}
+
+void CharacterStats::remove_damage_taken_mod(const int mod) {
+    assert(damage_taken_changes.removeOne(mod));
+
+    damage_taken_mod = 1.0;
+    for (int damage_taken_change : damage_taken_changes) {
+        double coefficient = 1.0 + double(damage_taken_change) / 100;
+        damage_taken_mod = damage_taken_mod * coefficient;
     }
 }
 

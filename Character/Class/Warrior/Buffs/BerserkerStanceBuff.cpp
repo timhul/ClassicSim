@@ -11,11 +11,11 @@ BerserkerStanceBuff::BerserkerStanceBuff(Character* pchar):
 }
 
 void BerserkerStanceBuff::buff_effect_when_applied() {
-    // CSIM-65: Add more damage taken
     warr->get_stats()->increase_crit(0.03);
+    warr->get_stats()->add_damage_taken_mod(10);
 }
 
 void BerserkerStanceBuff::buff_effect_when_removed() {
-    // CSIM-65: Add more damage taken
     warr->get_stats()->decrease_crit(0.03);
+    warr->get_stats()->remove_damage_taken_mod(10);
 }

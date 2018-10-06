@@ -11,9 +11,11 @@ DefensiveStanceBuff::DefensiveStanceBuff(Character* pchar):
 }
 
 void DefensiveStanceBuff::buff_effect_when_applied() {
-    // CSIM-87: Defensive Stance
+    warr->get_stats()->add_damage_taken_mod(-10);
+    warr->get_stats()->increase_total_phys_dmg_mod(-10);
 }
 
 void DefensiveStanceBuff::buff_effect_when_removed() {
-    // CSIM-87: Defensive Stance
+    warr->get_stats()->remove_damage_taken_mod(-10);
+    warr->get_stats()->decrease_total_phys_dmg_mod(-10);
 }
