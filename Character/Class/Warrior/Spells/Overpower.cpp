@@ -2,6 +2,7 @@
 #include "Overpower.h"
 #include "Warrior.h"
 #include "OverpowerBuff.h"
+#include "CharacterStats.h"
 
 Overpower::Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Overpower", engine, pchar, roll, true, 5.0, 5),
@@ -15,8 +16,9 @@ bool Overpower::is_ready_spell_specific() const {
 }
 
 void Overpower::spell_effect() {
+    double crit_mod = pchar->get_stats()->get_mh_crit_chance() + talent_ranks[rank_talent];
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(),
-                                                      talent_ranks[rank_talent],
+                                                      crit_mod,
                                                       false,
                                                       false,
                                                       false,

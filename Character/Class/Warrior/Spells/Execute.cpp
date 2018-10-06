@@ -4,6 +4,7 @@
 #include "Flurry.h"
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
+#include "CharacterStats.h"
 
 Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Execute", engine, pchar, roll, true, 0, 15),
@@ -31,7 +32,7 @@ bool Execute::is_ready_spell_specific() const {
 }
 
 void Execute::spell_effect() {
-    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
     add_gcd_event();
 

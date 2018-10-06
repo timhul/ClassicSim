@@ -4,6 +4,7 @@
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
+#include "CharacterStats.h"
 
 OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
     OffhandAttack(engine, pchar, roll),
@@ -23,7 +24,7 @@ void OffhandAttackWarrior::spell_effect() {
 
 void OffhandAttackWarrior::calculate_damage() {
     const int oh_wpn_skill = warr->get_oh_wpn_skill();
-    int result = roll->get_melee_hit_result(oh_wpn_skill);
+    int result = roll->get_melee_hit_result(oh_wpn_skill, pchar->get_stats()->get_oh_crit_chance());
 
     if (result == AttackResult::MISS) {
         increment_miss();

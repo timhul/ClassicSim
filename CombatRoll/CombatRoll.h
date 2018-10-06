@@ -20,7 +20,7 @@ public:
 
     int get_melee_hit_result(const int, const double = 0.0);
     int get_melee_ability_result(const int,
-                                 const double = 0.0,
+                                 const double,
                                  const bool include_dodge = true,
                                  const bool include_parry = true,
                                  const bool include_block = true,
@@ -40,7 +40,6 @@ public:
     double get_glancing_blow_chance();
     double get_glancing_blow_dmg_penalty(const int);
 
-    void update_crit_chance(const double critical);
     void update_miss_chance(const double hit);
     void update_spell_crit_chance(const double critical);
     void update_spell_miss_chance(const double hit);

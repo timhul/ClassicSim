@@ -14,7 +14,6 @@ public:
                             const bool include_block,
                             const bool include_miss) = 0;
     virtual void dump_table(void) = 0;
-    virtual void update_crit_chance(const double critical) = 0;
     virtual void update_miss_chance(const double hit) = 0;
 protected:
 private:

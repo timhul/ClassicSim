@@ -7,6 +7,7 @@
 #include "HeroicStrikeBuff.h"
 #include "MainhandAttackWarrior.h"
 #include "OverpowerBuff.h"
+#include "CharacterStats.h"
 
 HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Heroic Strike", engine, pchar, roll, false, 0, 15),
@@ -23,7 +24,7 @@ void HeroicStrike::calculate_damage() {
     warr->get_hs_buff()->use_charge();
     warr->get_spells()->get_mh_attack()->complete_swing();
 
-    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
     if (result == AttackResult::MISS) {
         increment_miss();

@@ -4,6 +4,7 @@
 #include "Flurry.h"
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
+#include "CharacterStats.h"
 
 Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Hamstring", engine, pchar, roll, true, 0, 10),
@@ -11,7 +12,7 @@ Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
 {}
 
 void Hamstring::spell_effect() {
-    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
     add_gcd_event();
 

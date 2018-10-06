@@ -226,12 +226,10 @@ void CharacterStats::decrease_hit(double decrease) {
 
 void CharacterStats::increase_crit(double increase) {
     base_stats->increase_crit(increase);
-    pchar->get_combat_roll()->update_crit_chance(get_mh_crit_chance());
 }
 
 void CharacterStats::decrease_crit(double decrease) {
     base_stats->decrease_crit(decrease);
-    pchar->get_combat_roll()->update_crit_chance(get_mh_crit_chance());
 }
 
 void CharacterStats::increase_crit_for_weapon_type(const int weapon_type, const double increase) {

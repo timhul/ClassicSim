@@ -3,6 +3,7 @@
 #include "Warrior.h"
 #include "Flurry.h"
 #include "DeepWounds.h"
+#include "CharacterStats.h"
 
 FieryWeaponAttack::FieryWeaponAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Fiery Weapon", engine, pchar, roll, false, 0, 0)
@@ -10,7 +11,8 @@ FieryWeaponAttack::FieryWeaponAttack(Engine* engine, Character* pchar, CombatRol
 
 void FieryWeaponAttack::spell_effect() {
     // CSIM-60: Add spell attack table and use it here
-    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(),
+                                                      pchar->get_stats()->get_mh_crit_chance());
 
     double damage_dealt = 40;
     // CSIM-64: Add +dmg as a stat and apply +damage bonus at ratio (unknown ratio atm).

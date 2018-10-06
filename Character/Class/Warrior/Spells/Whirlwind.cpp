@@ -5,6 +5,7 @@
 #include "Flurry.h"
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
+#include "CharacterStats.h"
 
 Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
     Spell("Whirlwind", engine, pchar, roll, true, 10.0, 25),
@@ -16,7 +17,7 @@ bool Whirlwind::is_ready_spell_specific() const {
 }
 
 void Whirlwind::spell_effect() {
-    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill());
+    const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
     add_gcd_event();
     add_spell_cd_event();

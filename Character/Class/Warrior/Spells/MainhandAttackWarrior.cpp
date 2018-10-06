@@ -4,6 +4,7 @@
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
+#include "CharacterStats.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
     MainhandAttack(engine, pchar, roll),
@@ -21,7 +22,7 @@ void MainhandAttackWarrior::spell_effect() {
 
 void MainhandAttackWarrior::calculate_damage() {
     const int mh_wpn_skill = warr->get_mh_wpn_skill();
-    int result = roll->get_melee_hit_result(mh_wpn_skill);
+    int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());
 
     if (result == AttackResult::MISS) {
         increment_miss();

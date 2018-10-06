@@ -88,8 +88,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
                 mechanics->get_dodge_chance(wpn_skill),
                 mechanics->get_parry_chance(wpn_skill),
                 get_glancing_blow_chance(),
-                mechanics->get_block_chance(),
-                pchar->get_stats()->get_mh_crit_chance());
+                mechanics->get_block_chance());
 
     auto_attack_tables[wpn_skill] = table;
 
@@ -108,12 +107,11 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
         miss_chance = 0;
 
     auto* table = new MeleeSpecialTable(this->random,
-                                                     wpn_skill,
-                                                     miss_chance,
-                                                     mechanics->get_dodge_chance(wpn_skill),
-                                                     mechanics->get_parry_chance(wpn_skill),
-                                                     mechanics->get_block_chance(),
-                                                     pchar->get_stats()->get_mh_crit_chance());
+                                        wpn_skill,
+                                        miss_chance,
+                                        mechanics->get_dodge_chance(wpn_skill),
+                                        mechanics->get_parry_chance(wpn_skill),
+                                        mechanics->get_block_chance());
     melee_special_tables[wpn_skill] = table;
 
     return table;
@@ -135,22 +133,6 @@ double CombatRoll::get_glancing_blow_chance() {
 
 double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
     return mechanics->get_glancing_blow_dmg_penalty(wpn_skill);
-}
-
-void CombatRoll::update_crit_chance(const double critical) {
-    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
-    auto end_auto = auto_attack_tables.constEnd();
-    while(it_auto != end_auto) {
-        it_auto.value()->update_crit_chance(critical);
-        ++it_auto;
-    }
-
-    QMap<int, MeleeSpecialTable*>::const_iterator it_special = melee_special_tables.constBegin();
-    auto end_special = melee_special_tables.constEnd();
-    while(it_special != end_special) {
-        it_special.value()->update_crit_chance(critical);
-        ++it_special;
-    }
 }
 
 void CombatRoll::update_miss_chance(const double hit) {

@@ -3,16 +3,20 @@
 #include "Random.h"
 #include <QDebug>
 
-WhiteHitTable::WhiteHitTable(Random *random, const int wpn_skill, const double miss, const double dodge, const double parry,
-                             const double glancing, const double block,  const double critical) :
+WhiteHitTable::WhiteHitTable(Random *random,
+                             const int wpn_skill,
+                             const double miss,
+                             const double dodge,
+                             const double parry,
+                             const double glancing,
+                             const double block) :
     random(random),
     wpn_skill(wpn_skill),
     miss(miss),
     dodge(dodge),
     parry(parry),
     glancing(glancing),
-    block(block),
-    critical(critical)
+    block(block)
 {
     update_ranges();
 }
@@ -27,18 +31,16 @@ void WhiteHitTable::update_ranges() {
     assert(int(round(parry * 10000)) >= 0);
     assert(int(round(block * 10000)) >= 0);
     assert(int(round(glancing * 10000)) >= 0);
-    assert(int(round(critical * 10000)) >= 0);
 
     this->miss_range = static_cast<unsigned>(round(miss * 10000));
     this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
     this->parry_range = static_cast<unsigned>(round(parry * 10000));
     this->glancing_range = static_cast<unsigned>(round(glancing * 10000));
     this->block_range = static_cast<unsigned>(round(block * 10000));
-    this->critical_range = static_cast<unsigned>(round(critical * 10000));
 }
 
 int WhiteHitTable::get_outcome(const unsigned roll,
-                               const double crit_mod,
+                               const double crit_chance,
                                const bool include_dodge,
                                const bool include_parry,
                                const bool include_block,
@@ -64,13 +66,13 @@ int WhiteHitTable::get_outcome(const unsigned roll,
     range += glancing_range;
 
     if (include_block && roll < (range + this->block_range)) {
-        if (random->get_roll() < range + this->critical_range + static_cast<unsigned>(round(crit_mod * 10000)))
+        if (random->get_roll() < range + static_cast<unsigned>(round(crit_chance * 10000)))
             return AttackResult::BLOCK_CRITICAL;
         return AttackResult::BLOCK;
     }
     range += include_block ? block_range : 0;
 
-    if (roll < (range + this->critical_range + static_cast<unsigned>(round(crit_mod * 10000))))
+    if (roll < (range + static_cast<unsigned>(round(crit_chance * 10000))))
         return AttackResult::CRITICAL;
 
     return AttackResult::HIT;
@@ -83,12 +85,6 @@ void WhiteHitTable::dump_table() {
     qDebug() << "PARRY RANGE " << parry_range;
     qDebug() << "GLANCING RANGE " << glancing_range;
     qDebug() << "BLOCK RANGE " << block_range;
-    qDebug() << "CRITICAL RANGE " << critical_range;
-}
-
-void WhiteHitTable::update_crit_chance(const double critical) {
-    this->critical = critical;
-    update_ranges();
 }
 
 void WhiteHitTable::update_miss_chance(const double miss) {

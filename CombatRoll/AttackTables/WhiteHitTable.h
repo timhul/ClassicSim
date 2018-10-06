@@ -7,17 +7,21 @@ class Random;
 
 class WhiteHitTable: public AttackTable {
 public:
-    WhiteHitTable(Random* random, const int wpn_skill, const double miss, const double dodge, const double parry,
-                  const double glancing, const double block,  const double critical);
+    WhiteHitTable(Random* random,
+                  const int wpn_skill,
+                  const double miss,
+                  const double dodge,
+                  const double parry,
+                  const double glancing,
+                  const double block);
 
     int get_outcome(const unsigned roll,
-                    const double crit_mod,
+                    const double crit_chance,
                     const bool include_dodge = true,
                     const bool include_parry = true,
                     const bool include_block = true,
                     const bool include_miss = true) override;
     void dump_table(void) override;
-    void update_crit_chance(const double critical) override;
     void update_miss_chance(const double miss) override;
     void update_dodge_chance(const double dodge);
     void update_parry_chance(const double parry);
@@ -46,7 +50,6 @@ private:
     unsigned parry_range{};
     unsigned glancing_range{};
     unsigned block_range{};
-    unsigned critical_range{};
 };
 
 #endif // WHITEHITTABLE_H
