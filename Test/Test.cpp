@@ -295,68 +295,100 @@ void Test::test_equipment_creation() {
 
 void Test::test_character_creation() {
     Race* race = new Human();
-    // TODO: Add assertions
+    assert(race->get_name() == "Human");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 5);
+    assert(race->get_sword_bonus() == 5);
+    assert(race->get_bow_bonus() == 0);
+    assert(race->get_gun_bonus() == 0);
     delete race;
 
     race = new Dwarf();
-    // TODO: Add assertions
+    assert(race->get_name() == "Dwarf");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 0);
+    assert(race->get_gun_bonus() == 5);
     delete race;
 
     race = new NightElf();
-    // TODO: Add assertions
+    assert(race->get_name() == "Night Elf");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 0);
+    assert(race->get_gun_bonus() == 0);
     delete race;
 
     race = new Gnome();
-    // TODO: Add assertions
+    assert(race->get_name() == "Gnome");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 0);
+    assert(race->get_gun_bonus() == 0);
     delete race;
 
     race = new Orc();
-    // TODO: Add assertions
+    assert(race->get_name() == "Orc");
+    assert(race->get_axe_bonus() == 5);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 0);
+    assert(race->get_gun_bonus() == 0);
     delete race;
 
     race = new Undead();
-    // TODO: Add assertions
+    assert(race->get_name() == "Undead");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 0);
+    assert(race->get_gun_bonus() == 0);
     delete race;
 
     race = new Tauren();
-    // TODO: Add assertions
+    assert(race->get_name() == "Tauren");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 0);
+    assert(race->get_gun_bonus() == 0);
     delete race;
 
     race = new Troll();
-    // TODO: Add assertions
+    assert(race->get_name() == "Troll");
+    assert(race->get_axe_bonus() == 0);
+    assert(race->get_mace_bonus() == 0);
+    assert(race->get_sword_bonus() == 0);
+    assert(race->get_bow_bonus() == 5);
+    assert(race->get_gun_bonus() == 0);
 
     auto* priest = new Priest(race, equipment_db);
-    // TODO: Add assertions
     delete priest;
 
     auto* rogue = new Rogue(race, equipment_db);
-    // TODO: Add assertions
     delete rogue;
 
     auto* mage = new Mage(race, equipment_db);
-    // TODO: Add assertions
     delete mage;
 
     auto* druid = new Druid(race, equipment_db);
-    // TODO: Add assertions
     delete druid;
 
     auto* hunter = new Hunter(race, equipment_db);
-    // TODO: Add assertions
     delete hunter;
 
     auto* warlock = new Warlock(race, equipment_db);
-    // TODO: Add assertions
     delete warlock;
 
     auto* shaman = new Shaman(race, equipment_db);
-    // TODO: Add assertions
     delete shaman;
 
     auto* paladin = new Paladin(race, equipment_db);
     paladin->set_clvl(60);
     assert(paladin->get_clvl() == 60);
-    // TODO: Add assertions
     delete paladin;
 
     delete race;
