@@ -70,10 +70,10 @@ void Stats::add(const Stats* rhs) {
 
     increase_hit(rhs->get_hit_chance());
     increase_crit(rhs->get_crit_chance());
+    increase_attack_speed(rhs->get_attack_speed());
 
     increase_spell_hit(rhs->get_spell_hit_chance());
     increase_spell_crit(rhs->get_spell_crit_chance());
-    // TODO: Attack speed missing.
 
     increase_base_melee_ap(rhs->get_melee_ap_str_excluded());
 
@@ -103,10 +103,10 @@ void Stats::remove(const Stats* rhs) {
 
     decrease_hit(rhs->get_hit_chance());
     decrease_crit(rhs->get_crit_chance());
+    decrease_attack_speed(rhs->get_attack_speed());
 
     decrease_spell_hit(rhs->get_spell_hit_chance());
     decrease_spell_crit(rhs->get_spell_crit_chance());
-    // TODO: Attack speed missing.
 
     decrease_base_melee_ap(rhs->get_melee_ap_str_excluded());
 
@@ -355,6 +355,10 @@ double Stats::get_spell_hit_chance() const {
 
 double Stats::get_spell_crit_chance() const {
     return percent_spell_crit;
+}
+
+double Stats::get_attack_speed() const {
+    return percent_attack_speed;
 }
 
 void Stats::set_melee_ap_per_str(const int value) {
