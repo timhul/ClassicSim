@@ -17,6 +17,17 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObj
     this->total_phys_dmg_mod = 1.0;
     this->haste_factor = 1.0;
     this->damage_taken_mod = 1.0;
+
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::FIST, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::MACE, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::POLEARM, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::SWORD, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::BOW, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::CROSSBOW, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::GUN, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
 }
 
 CharacterStats::~CharacterStats() {
@@ -56,11 +67,26 @@ double CharacterStats::get_hit_chance() const {
     return base_stats->get_hit_chance() + equipment->get_stats()->get_hit_chance();
 }
 
-double CharacterStats::get_crit_chance() const {
-    const double equip_effect = base_stats->get_crit_chance()  + equipment->get_stats()->get_crit_chance();
+double CharacterStats::get_mh_crit_chance() const {
+    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
     const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
 
-    return equip_effect + crit_from_agi / 100;
+    double crit_from_wpn_type = 0.0;
+    if (equipment->get_mainhand() != nullptr)
+        crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
+
+    return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;
+}
+
+double CharacterStats::get_oh_crit_chance() const {
+    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
+    const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
+
+    double crit_from_wpn_type = 0.0;
+    if (equipment->get_offhand() != nullptr)
+        crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
+
+    return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;;
 }
 
 double CharacterStats::get_spell_hit_chance() const {
@@ -72,6 +98,39 @@ double CharacterStats::get_spell_crit_chance() const {
     const auto crit_from_int = double(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit();
 
     return equip_effect + crit_from_int / 100;
+}
+
+int CharacterStats::get_mh_wpn_skill() const {
+    return get_wpn_skill(equipment->get_mainhand());
+}
+
+int CharacterStats::get_oh_wpn_skill() const {
+    return get_wpn_skill(equipment->get_offhand());
+}
+
+int CharacterStats::get_wpn_skill(Weapon* weapon) const {
+    if (weapon == nullptr)
+        return pchar->get_clvl() * 5;
+
+    int skill_bonus = 0;
+    switch (weapon->get_weapon_type()) {
+    case WeaponTypes::AXE:
+    case WeaponTypes::TWOHAND_AXE:
+        skill_bonus += pchar->get_race()->get_axe_bonus() + equipment->get_stats()->get_axe_skill();
+        break;
+    case WeaponTypes::DAGGER:
+        skill_bonus += equipment->get_stats()->get_dagger_skill();
+        break;
+    case WeaponTypes::SWORD:
+    case WeaponTypes::TWOHAND_SWORD:
+        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_sword_skill();
+        break;
+    case WeaponTypes::MACE:
+    case WeaponTypes::TWOHAND_MACE:
+        skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_mace_skill();
+        break;
+    }
+    return pchar->get_clvl() * 5 + skill_bonus;
 }
 
 void CharacterStats::increase_haste(const int increase) {
@@ -167,12 +226,20 @@ void CharacterStats::decrease_hit(double decrease) {
 
 void CharacterStats::increase_crit(double increase) {
     base_stats->increase_crit(increase);
-    pchar->get_combat_roll()->update_crit_chance(get_crit_chance());
+    pchar->get_combat_roll()->update_crit_chance(get_mh_crit_chance());
 }
 
 void CharacterStats::decrease_crit(double decrease) {
     base_stats->decrease_crit(decrease);
-    pchar->get_combat_roll()->update_crit_chance(get_crit_chance());
+    pchar->get_combat_roll()->update_crit_chance(get_mh_crit_chance());
+}
+
+void CharacterStats::increase_crit_for_weapon_type(const int weapon_type, const double increase) {
+    crit_bonuses_per_weapon_type[weapon_type] += increase;
+}
+
+void CharacterStats::decrease_crit_for_weapon_type(const int weapon_type, const double decrease) {
+    crit_bonuses_per_weapon_type[weapon_type] -= decrease;
 }
 
 void CharacterStats::increase_spell_hit(double increase) {

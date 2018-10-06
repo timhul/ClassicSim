@@ -115,13 +115,13 @@ public:
     double get_random_normalized_oh_dmg();
     double get_random_non_normalized_oh_dmg();
 
+    int get_mh_wpn_skill() const;
+    int get_oh_wpn_skill() const;
+    int get_wpn_skill(Weapon*) const;
+
     unsigned get_avg_mh_damage();
     double get_normalized_dmg(const unsigned, const Weapon*);
     double get_non_normalized_dmg(const unsigned, const double);
-
-    int get_mh_wpn_skill();
-    int get_oh_wpn_skill();
-    int get_ranged_wpn_skill();
 
     void increase_attack_speed(int);
     void decrease_attack_speed(int);
@@ -170,8 +170,6 @@ protected:
     double next_gcd;
 
     virtual void initialize_talents() = 0;
-
-    int get_wpn_skill(Weapon*) const;
 
     void apply_racial_effects();
     void remove_racial_effects();

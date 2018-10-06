@@ -380,36 +380,16 @@ double Character::get_non_normalized_dmg(const unsigned damage, const double wpn
     return damage + (wpn_speed * cstats->get_melee_ap() / 14);
 }
 
-int Character::get_mh_wpn_skill() {
-    return cstats->get_equipment()->get_mainhand() != nullptr ? get_wpn_skill(cstats->get_equipment()->get_mainhand()) :
-                                                                get_clvl() * 5;
+int Character::get_mh_wpn_skill() const {
+    return cstats->get_mh_wpn_skill();
 }
 
-int Character::get_oh_wpn_skill() {
-    return cstats->get_equipment()->get_offhand() != nullptr ? get_wpn_skill(cstats->get_equipment()->get_offhand()) :
-                                                               get_clvl() * 5;
+int Character::get_oh_wpn_skill() const {
+    return cstats->get_oh_wpn_skill();
 }
 
 int Character::get_wpn_skill(Weapon* weapon) const {
-    int skill_bonus = 0;
-    switch (weapon->get_weapon_type()) {
-    case WeaponTypes::AXE:
-    case WeaponTypes::TWOHAND_AXE:
-        skill_bonus += race->get_axe_bonus() + cstats->get_equipment()->get_stats()->get_axe_skill();
-        break;
-    case WeaponTypes::DAGGER:
-        skill_bonus += cstats->get_equipment()->get_stats()->get_dagger_skill();
-        break;
-    case WeaponTypes::SWORD:
-    case WeaponTypes::TWOHAND_SWORD:
-        skill_bonus += race->get_sword_bonus() + cstats->get_equipment()->get_stats()->get_sword_skill();
-        break;
-    case WeaponTypes::MACE:
-    case WeaponTypes::TWOHAND_MACE:
-        skill_bonus += race->get_mace_bonus() + cstats->get_equipment()->get_stats()->get_mace_skill();
-        break;
-    }
-    return get_clvl() * 5 + skill_bonus;
+    return cstats->get_wpn_skill(weapon);
 }
 
 void Character::increase_attack_speed(int increase) {
@@ -485,11 +465,11 @@ void Character::dump() {
     qDebug() << "STAMINA" << cstats->get_stamina();
     qDebug() << "INTELLECT" << cstats->get_intellect();
     qDebug() << "SPIRIT" << cstats->get_spirit();
-    qDebug() << "MH Wpn skill" << get_mh_wpn_skill();
-    qDebug() << "OH Wpn skill" << get_oh_wpn_skill();
+    qDebug() << "MH Wpn skill" << cstats->get_mh_wpn_skill();
+    qDebug() << "OH Wpn skill" << cstats->get_oh_wpn_skill();
     qDebug() << "MH DPS" << (cstats->get_equipment()->get_mainhand() != nullptr ? QString::number(cstats->get_equipment()->get_mainhand()->get_wpn_dps()) : "No MH");
     qDebug() << "OH DPS" << (cstats->get_equipment()->get_offhand() != nullptr ? QString::number(cstats->get_equipment()->get_offhand()->get_wpn_dps()) : "No OH");
     qDebug() << "Hit chance" << cstats->get_hit_chance();
-    qDebug() << "Crit chance" << cstats->get_crit_chance();
+    qDebug() << "Crit chance" << cstats->get_mh_crit_chance();
     qDebug() << "--------------------------------------";
 }

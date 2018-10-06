@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QVector>
+#include <QHash>
 
 class Character;
 class Race;
@@ -27,14 +28,16 @@ public:
     int get_intellect() const;
     int get_spirit() const;
     double get_hit_chance(void) const;
-    double get_crit_chance(void) const;
+    double get_mh_crit_chance(void) const;
+    double get_oh_crit_chance(void) const;
     double get_spell_hit_chance(void) const;
     double get_spell_crit_chance(void) const;
 
     double get_total_phys_dmg_mod() const;
 
-    int get_mh_wpn_skill();
-    int get_oh_wpn_skill();
+    int get_mh_wpn_skill() const;
+    int get_oh_wpn_skill() const;
+    int get_wpn_skill(Weapon*) const;
     int get_ranged_wpn_skill();
 
     void increase_haste(const int);
@@ -65,6 +68,9 @@ public:
     virtual void increase_crit(double);
     virtual void decrease_crit(double);
 
+    void increase_crit_for_weapon_type(const int, const double);
+    void decrease_crit_for_weapon_type(const int, const double);
+
     virtual void increase_spell_hit(double);
     virtual void decrease_spell_hit(double);
 
@@ -87,6 +93,7 @@ protected:
     QVector<int> attack_speed_buffs;
     QVector<int> phys_dmg_buffs;
     QVector<int> damage_taken_changes;
+    QHash<int, double> crit_bonuses_per_weapon_type;
 
     int ranged_ap{};
     double haste_factor;

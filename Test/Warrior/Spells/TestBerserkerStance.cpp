@@ -129,22 +129,22 @@ void TestBerserkerStance::test_does_not_incur_extra_global_cooldown_if_gcd_longe
 }
 
 void TestBerserkerStance::test_gives_crit_when_stance_entered() {
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_crit_chance());
-    assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "0.000");
+    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    assert(QString::number(int(round(pchar->get_stats()->get_mh_crit_chance() * 10000)), 'f', 3) == "0.000");
 
     when_berserker_stance_is_performed();
 
-    assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "300.000");
+    assert(QString::number(int(round(pchar->get_stats()->get_mh_crit_chance() * 10000)), 'f', 3) == "300.000");
 }
 
 void TestBerserkerStance::test_removes_crit_when_stance_exited() {
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_crit_chance());
+    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
     when_berserker_stance_is_performed();
-    assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "300.000");
+    assert(QString::number(int(round(pchar->get_stats()->get_mh_crit_chance() * 10000)), 'f', 3) == "300.000");
 
     dynamic_cast<Warrior*>(pchar)->switch_to_battle_stance();
 
-    assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "0.000");
+    assert(QString::number(int(round(pchar->get_stats()->get_mh_crit_chance() * 10000)), 'f', 3) == "0.000");
 }
 
 void TestBerserkerStance::test_0_rage_remains_after_stance_switch_with_0_of_5_tactical_mastery() {
