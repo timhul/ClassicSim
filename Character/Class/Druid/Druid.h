@@ -28,6 +28,9 @@ public:
     int get_highest_possible_armor_type() const override;
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
+    void reset_resource() override;
+    void reset_spells() override;
+
 protected:
 private:
     void initialize_talents() override;

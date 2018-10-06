@@ -93,3 +93,11 @@ QVector<int> Mage::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>();
     }
 }
+
+void Mage::reset_resource() {
+
+}
+
+void Mage::reset_spells() {
+
+}

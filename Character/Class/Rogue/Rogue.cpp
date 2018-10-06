@@ -101,3 +101,11 @@ QVector<int> Rogue::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>();
     }
 }
+
+void Rogue::reset_resource() {
+
+}
+
+void Rogue::reset_spells() {
+
+}

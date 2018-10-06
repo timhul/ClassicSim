@@ -134,10 +134,8 @@ public:
     virtual unsigned get_resource_level() const;
 
     void reset();
-    // TODO: Mark as abstract to force implementation.
-    virtual void reset_resource() {}
-    // TODO: Mark as abstract to force implementation.
-    virtual void reset_spells() {}
+    virtual void reset_resource() = 0;
+    virtual void reset_spells() = 0;
 
     void dump();
 

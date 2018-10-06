@@ -95,3 +95,11 @@ QVector<int> Shaman::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>();
     }
 }
+
+void Shaman::reset_resource() {
+
+}
+
+void Shaman::reset_spells() {
+
+}

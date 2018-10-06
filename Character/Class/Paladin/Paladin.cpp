@@ -93,3 +93,11 @@ QVector<int> Paladin::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>();
     }
 }
+
+void Paladin::reset_resource() {
+
+}
+
+void Paladin::reset_spells() {
+
+}

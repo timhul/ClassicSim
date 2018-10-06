@@ -96,3 +96,11 @@ QVector<int> Hunter::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>();
     }
 }
+
+void Hunter::reset_resource() {
+
+}
+
+void Hunter::reset_spells() {
+
+}
