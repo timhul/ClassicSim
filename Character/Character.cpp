@@ -103,10 +103,6 @@ QString Character::get_current_rotation_name() const {
 }
 
 void Character::switch_faction() {
-    // TODO: When all classes have implemented ClassStatistics remove this.
-    if (this->statistics == nullptr)
-        return;
-
     active_procs->switch_faction();
     active_buffs->switch_faction();
 }
