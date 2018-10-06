@@ -40,10 +40,10 @@
 #include "ActiveBuffs.h"
 #include "GeneralBuffs.h"
 
-SimulationRunner::SimulationRunner(QString thread_id, QObject* parent):
+SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, QString thread_id, QObject* parent):
     QObject(parent),
     pchar(nullptr),
-    equipment_db(new EquipmentDb()),
+    equipment_db(equipment_db),
     race(nullptr),
     seed(std::move(thread_id))
 {}

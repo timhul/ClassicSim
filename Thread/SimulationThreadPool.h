@@ -4,13 +4,14 @@
 #include <QObject>
 #include <QVector>
 
+class EquipmentDb;
 class Random;
 class QThread;
 
 class SimulationThreadPool: public QObject {
     Q_OBJECT
 public:
-    SimulationThreadPool(QObject* parent = nullptr);
+    SimulationThreadPool(EquipmentDb* equipment_db, QObject* parent = nullptr);
     ~SimulationThreadPool();
 
     void run_sim(const QString& setup_string);
@@ -25,6 +26,7 @@ signals:
 
 protected:
 private:
+    EquipmentDb* equipment_db;
     Random* random;
     int running_threads;
 

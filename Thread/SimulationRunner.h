@@ -17,7 +17,7 @@ class Target;
 class SimulationRunner: public QObject {
     Q_OBJECT
 public:
-    SimulationRunner(QString seed, QObject* parent = nullptr);
+    SimulationRunner(EquipmentDb* equipment_db, QString seed, QObject* parent = nullptr);
     ~SimulationRunner();
 
 public slots:
@@ -31,7 +31,6 @@ signals:
 protected:
 private:
     Character* pchar;
-    // TODO: Check if it is safe to use db from main thread
     EquipmentDb* equipment_db;
     Race* race;
 

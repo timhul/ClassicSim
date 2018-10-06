@@ -7,8 +7,9 @@
 #include <QDebug>
 #include <QThreadPool>
 
-SimulationThreadPool::SimulationThreadPool(QObject* parent):
+SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, QObject* parent):
     QObject(parent),
+    equipment_db(equipment_db),
     random(new Random(0, std::numeric_limits<unsigned>::max())),
     running_threads(0)
 {
@@ -36,7 +37,7 @@ void SimulationThreadPool::run_sim(const QString &setup_string) {
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     auto* thread = new QThread();
-    SimulationRunner* runner = new SimulationRunner(QString::number(thread_id));
+    SimulationRunner* runner = new SimulationRunner(equipment_db, QString::number(thread_id));
 
     connect(this, SIGNAL (thread_setup_string(QString)), runner, SLOT (run_sim(QString)));
     connect(runner, SIGNAL (error(QString, QString)), this, SLOT (error_string(QString, QString)));

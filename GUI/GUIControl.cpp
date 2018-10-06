@@ -86,7 +86,7 @@ GUIControl::GUIControl(QObject* parent) :
     // TODO: Handle switching pchar
     character_encoder = new CharacterEncoder(current_char);
     character_decoder = new CharacterDecoder();
-    thread_pool = new SimulationThreadPool();
+    thread_pool = new SimulationThreadPool(equipment_db);
     // TODO: Handle switching pchar
     buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_active_buffs()->get_general_buffs());
