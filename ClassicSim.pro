@@ -38,9 +38,6 @@ SOURCES += main.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Test.cpp \
-    Equipment/Item/MeleeWeapon/Specialization/Mainhand.cpp \
-    Equipment/Item/MeleeWeapon/Specialization/Offhand.cpp \
-    Equipment/Item/MeleeWeapon/Specialization/TwoHander.cpp \
     Equipment/Equipment.cpp \
     CombatRoll/CombatRoll.cpp \
     CombatRoll/AttackTables/WhiteHitTable.cpp \
@@ -104,15 +101,13 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Buffs/BattleShoutBuff.cpp \
     Character/Class/Warrior/Spells/BattleShout.cpp \
     Character/Class/Warrior/Spells/BerserkerRage.cpp \
-    Equipment/Item/MeleeWeapon/Specialization/Onehand.cpp \
     Equipment/EquipmentDb/EquipmentDb.cpp \
     Equipment/Item/Item.cpp \
     GUI/Models/ItemModel.cpp \
     GUI/Models/WeaponModel.cpp \
     Equipment/EquipmentDb/ItemFileReader.cpp \
     Equipment/EquipmentDb/WeaponFileReader.cpp \
-    Equipment/Item/MeleeWeapon/Specialization/Ranged.cpp \
-    Equipment/Item/MeleeWeapon/Weapon.cpp \
+    Equipment/Item/Weapon.cpp \
     Test/Warrior/TestWarrior.cpp \
     Test/Warrior/Spells/TestExecute.cpp \
     Test/TestSpell.cpp \
@@ -255,9 +250,6 @@ HEADERS += \
     Test/Test.h \
     Equipment/Equipment.h \
     Equipment/Item/Item.h \
-    Equipment/Item/MeleeWeapon/Specialization/Mainhand.h \
-    Equipment/Item/MeleeWeapon/Specialization/Offhand.h \
-    Equipment/Item/MeleeWeapon/Specialization/TwoHander.h \
     Target/Target.h \
     CombatRoll/AttackResult.h \
     CombatRoll/AttackTable.h \
@@ -324,14 +316,12 @@ HEADERS += \
     Character/Class/Warrior/Buffs/BattleShoutBuff.h \
     Character/Class/Warrior/Spells/BattleShout.h \
     Character/Class/Warrior/Spells/BerserkerRage.h \
-    Equipment/Item/MeleeWeapon/Specialization/Onehand.h \
     Equipment/EquipmentDb/EquipmentDb.h \
     GUI/Models/ItemModel.h \
     GUI/Models/WeaponModel.h \
     Equipment/EquipmentDb/ItemFileReader.h \
     Equipment/EquipmentDb/WeaponFileReader.h \
-    Equipment/Item/MeleeWeapon/Specialization/Ranged.h \
-    Equipment/Item/MeleeWeapon/Weapon.h \
+    Equipment/Item/Weapon.h \
     Test/Warrior/TestWarrior.h \
     Test/Warrior/Spells/TestExecute.h \
     Test/TestSpell.h \
@@ -471,8 +461,6 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\Paladin \
     C:\C++\ClassicSim\Equipment \
     C:\C++\ClassicSim\Equipment\Item \
-    C:\C++\ClassicSim\Equipment\Item\MeleeWeapon \
-    C:\C++\ClassicSim\Equipment\Item\MeleeWeapon\Specialization \
     C:\C++\ClassicSim\Equipment\EquipmentDb \
     C:\C++\ClassicSim\CombatRoll \
     C:\C++\ClassicSim\CombatRoll\AttackTables \

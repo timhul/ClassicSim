@@ -18,8 +18,7 @@
 #include "CharacterStats.h"
 #include "WarriorStatistics.h"
 #include "Race.h"
-#include "Mainhand.h"
-#include "Offhand.h"
+#include "Weapon.h"
 #include "RotationFileReader.h"
 #include "WarriorRotation.h"
 #include <QDebug>

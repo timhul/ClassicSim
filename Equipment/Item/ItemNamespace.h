@@ -65,6 +65,7 @@ namespace WeaponTypes {
 }
 
 namespace WeaponSlots {
+    static const int NON_WEAPON = -1;
     static const int ONEHAND = 0;
     static const int MAINHAND = 1;
     static const int OFFHAND = 2;

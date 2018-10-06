@@ -14,7 +14,7 @@
 #include "Item.h"
 #include "MainhandMeleeHit.h"
 #include "MeleeSpecialTable.h"
-#include "Onehand.h"
+#include "Weapon.h"
 #include "Orc.h"
 #include "Stats.h"
 #include "Target.h"
@@ -270,7 +270,7 @@ void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
 
 void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
     if (equipment_db->get_melee_weapon("Test 100 dmg") == nullptr) {
-        Onehand* wpn = new Onehand("Test 100 dmg", WeaponTypes::SWORD, 100, 100, 2.6);
+        Weapon* wpn = new Weapon("Test 100 dmg", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.6);
         equipment_db->add_melee_weapon(wpn);
     }
 
@@ -281,7 +281,7 @@ void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
 
 void TestSpell::given_a_mainhand_weapon_with_3_speed() {
     if (equipment_db->get_melee_weapon("Test 3 Speed") == nullptr) {
-        Onehand* wpn = new Onehand("Test 3 Speed", WeaponTypes::SWORD, 100, 100, 3.0);
+        Weapon* wpn = new Weapon("Test 3 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 3.0);
         equipment_db->add_melee_weapon(wpn);
     }
 
@@ -291,7 +291,7 @@ void TestSpell::given_a_mainhand_weapon_with_3_speed() {
 
 void TestSpell::given_a_mainhand_weapon_with_2_speed() {
     if (equipment_db->get_melee_weapon("Test 2 Speed") == nullptr) {
-        Onehand* wpn = new Onehand("Test 2 Speed", WeaponTypes::SWORD, 100, 100, 2.0);
+        Weapon* wpn = new Weapon("Test 2 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.0);
         equipment_db->add_melee_weapon(wpn);
     }
 
@@ -409,7 +409,7 @@ void TestSpell::given_no_offhand() {
 
 void TestSpell::given_an_offhand_weapon_with_100_min_max_dmg() {
     if (equipment_db->get_melee_weapon("Test 100 dmg") == nullptr) {
-        Onehand* wpn = new Onehand("Test 100 dmg", WeaponTypes::SWORD, 100, 100, 2.6);
+        Weapon* wpn = new Weapon("Test 100 dmg", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.6);
         equipment_db->add_melee_weapon(wpn);
     }
 
@@ -420,7 +420,7 @@ void TestSpell::given_an_offhand_weapon_with_100_min_max_dmg() {
 
 void TestSpell::given_an_offhand_weapon_with_3_speed() {
     if (equipment_db->get_melee_weapon("Test 3 Speed") == nullptr) {
-        Onehand* wpn = new Onehand("Test 3 Speed", WeaponTypes::SWORD, 100, 100, 3.0);
+        Weapon* wpn = new Weapon("Test 3 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 3.0);
         equipment_db->add_melee_weapon(wpn);
     }
 
@@ -430,7 +430,7 @@ void TestSpell::given_an_offhand_weapon_with_3_speed() {
 
 void TestSpell::given_an_offhand_weapon_with_2_speed() {
     if (equipment_db->get_melee_weapon("Test 2 Speed") == nullptr) {
-        Onehand* wpn = new Onehand("Test 2 Speed", WeaponTypes::SWORD, 100, 100, 2.0);
+        Weapon* wpn = new Weapon("Test 2 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.0);
         equipment_db->add_melee_weapon(wpn);
     }
 

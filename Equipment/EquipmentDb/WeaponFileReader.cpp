@@ -1,10 +1,6 @@
 
 #include "WeaponFileReader.h"
-#include "Onehand.h"
-#include "Mainhand.h"
-#include "Offhand.h"
-#include "TwoHander.h"
-#include "Ranged.h"
+#include "Weapon.h"
 #include <QDebug>
 
 void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
@@ -64,7 +60,7 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
                         reader.skipCurrentElement();
                 }
 
-                create_melee_weapon(items, item_map, stats, procs);
+                create_weapon(items, item_map, stats, procs);
                 item_map.remove("classification");
                 warn_remaining_keys(item_map);
             }
@@ -83,7 +79,7 @@ void WeaponFileReader::dmg_range_element_reader(const QXmlStreamAttributes &attr
         add_mandatory_attr(attrs, mandatory_attr, item);
 }
 
-void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
+void WeaponFileReader::create_weapon(QVector<Item*> &items,
                                            QMap<QString, QString> &item_map,
                                            QVector<QPair<QString, QString>> &stats,
                                            QVector<QMap<QString, QString>>& procs) {
@@ -106,19 +102,19 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
     Weapon* weapon = nullptr;
 
     if (info["slot"] == "1H")
-        weapon = new Onehand(item_map["name"], get_weapon_type(info["type"]),
+        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "MH")
-        weapon = new Mainhand(item_map["name"], get_weapon_type(info["type"]),
+        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "OH")
-        weapon = new Offhand(item_map["name"], get_weapon_type(info["type"]),
+        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "2H")
-        weapon = new TwoHander(item_map["name"], get_weapon_type(info["type"]),
+        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "RANGED")
-        weapon = new Ranged(item_map["name"], get_weapon_type(info["type"]),
+        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::RANGED,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
 
     if (weapon != nullptr)
@@ -129,10 +125,6 @@ void WeaponFileReader::create_melee_weapon(QVector<Item*> &items,
     for (const auto & handled_key : handled_keys) {
         item_map.remove(handled_key);
     }
-}
-
-void WeaponFileReader::create_ranged_weapon(QVector<Item*> &, QMap<QString, QString> &, QVector<QPair<QString, QString>> &, QVector<QMap<QString, QString>> &) {
-
 }
 
 int WeaponFileReader::get_weapon_type(const QString &type) {

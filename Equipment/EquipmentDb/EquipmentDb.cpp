@@ -4,10 +4,7 @@
 #include <QDebug>
 #include <QDir>
 
-#include "Onehand.h"
-#include "Mainhand.h"
-#include "Offhand.h"
-#include "TwoHander.h"
+#include "Weapon.h"
 
 
 EquipmentDb::EquipmentDb(QObject* parent):
@@ -72,34 +69,14 @@ void EquipmentDb::add_ring(Item* ring) {
 
 Weapon* EquipmentDb::get_melee_weapon(const QString &name) {
     for (auto & current_patch_mh_slot_item : current_patch_mh_slot_items) {
-        if (name == current_patch_mh_slot_item->get_name()) {
-            auto* weapon = dynamic_cast<Weapon*>(current_patch_mh_slot_item);
-            switch (weapon->get_weapon_slot()) {
-            case WeaponSlots::MAINHAND:
-                return new Mainhand(dynamic_cast<Mainhand*>(weapon));
-            case WeaponSlots::ONEHAND:
-                return new Onehand(dynamic_cast<Onehand*>(weapon));
-            case WeaponSlots::TWOHAND:
-                return new TwoHander(dynamic_cast<TwoHander*>(weapon));
-            }
-
-            assert(false);
-        }
+        if (name == current_patch_mh_slot_item->get_name())
+            return new Weapon(dynamic_cast<Weapon*>(current_patch_mh_slot_item));
     }
 
     // TODO: How to handle caster offhands?
     for (auto & current_patch_oh_slot_item : current_patch_oh_slot_items) {
-        if (name == current_patch_oh_slot_item->get_name()) {
-            auto* weapon = dynamic_cast<Weapon*>(current_patch_oh_slot_item);
-            switch (weapon->get_weapon_slot()) {
-            case WeaponSlots::ONEHAND:
-                return new Onehand(dynamic_cast<Onehand*>(weapon));
-            case WeaponSlots::OFFHAND:
-                return new Offhand(dynamic_cast<Offhand*>(weapon));
-            }
-
-            assert(false);
-        }
+        if (name == current_patch_oh_slot_item->get_name())
+            return new Weapon(dynamic_cast<Weapon*>(current_patch_oh_slot_item));
     }
 
     return nullptr;
@@ -315,14 +292,10 @@ void EquipmentDb::read_equipment_files() {
 }
 
 void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
-    QSet<int> accepted_slots = {ItemSlots::MAINHAND, ItemSlots::OFFHAND};
     for (int i = 0; i < mixed_items.size(); ++i) {
-        if (!accepted_slots.contains(mixed_items[i]->get_item_slot()))
-            continue;
-
-        auto* wpn = dynamic_cast<Weapon*>(mixed_items[i]);
-
-        switch (wpn->get_weapon_slot()) {
+        switch (mixed_items[i]->get_weapon_slot()) {
+        case WeaponSlots::NON_WEAPON:
+            break;
         case WeaponSlots::MAINHAND:
         case WeaponSlots::TWOHAND:
             mh_slot_items.append(mixed_items.takeAt(i));

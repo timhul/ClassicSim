@@ -23,6 +23,7 @@ public:
 
     virtual int get_item_slot(void) const;
     int get_item_type(void) const;
+    virtual int get_weapon_slot(void) const;
 
     void apply_equip_effect(Character*, const int eq_slot);
     void remove_equip_effect(const int eq_slot);

@@ -3,23 +3,25 @@
 
 #include <utility>
 
-Weapon::Weapon(QString name, int type, unsigned min, unsigned max, double speed,
-       QVector<QPair<QString, QString>>& stats,
+Weapon::Weapon(QString name, int type, int weapon_slot, unsigned min, unsigned max, double speed,
+       QVector<QPair<QString, QString> > stats,
        QMap<QString, QString> info,
        QVector<QMap<QString, QString>> procs):
-    Item(std::move(name), stats, std::move(info), std::move(procs)) {
-    this->random = new Random(min, max);
-    this->weapon_type = type;
-    this->min_dmg = min;
-    this->max_dmg = max;
-    this->weapon_speed = speed;
-}
+    Item(std::move(name), stats, std::move(info), std::move(procs)),
+    random(new Random(min, max)),
+    weapon_type(type),
+    weapon_slot(weapon_slot),
+    min_dmg(min),
+    max_dmg(max),
+    weapon_speed(speed)
+{}
 
 Weapon::Weapon(const Weapon* weapon):
     Item(weapon)
 {
     this->random = new Random(weapon->min_dmg, weapon->max_dmg);
     this->weapon_type = weapon->weapon_type;
+    this->weapon_slot = weapon->weapon_slot;
     this->min_dmg = weapon->min_dmg;
     this->max_dmg = weapon->max_dmg;
     this->weapon_speed = weapon->weapon_speed;
@@ -27,6 +29,10 @@ Weapon::Weapon(const Weapon* weapon):
 
 Weapon::~Weapon() {
     delete random;
+}
+
+int Weapon::get_weapon_slot() const {
+    return weapon_slot;
 }
 
 int Weapon::get_weapon_type() const {

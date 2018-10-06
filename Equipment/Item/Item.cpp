@@ -74,6 +74,10 @@ int Item::get_item_type() const {
     return this->item_type;
 }
 
+int Item::get_weapon_slot(void) const {
+    return WeaponSlots::NON_WEAPON;
+}
+
 void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
     assert(proc_map.empty());
 
