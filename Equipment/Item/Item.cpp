@@ -8,12 +8,27 @@
 #include <QDebug>
 #include <utility>
 
-Item::Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString, QString> _info,
+Item::Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info,
            QVector<QMap<QString, QString>> _procs):
-    name(std::move(_name)), info(std::move(_info)), procs_map(std::move(_procs))
+    name(std::move(_name)),
+    info(std::move(_info)),
+    procs_map(std::move(_procs)),
+    stats_key_value_pairs(_stats),
+    stats(new Stats())
 {
-    this->stats = new Stats();
-    set_stats(std::move(_stats));
+    set_stats(stats_key_value_pairs);
+    set_item_slot(info);
+    set_item_type(info);
+}
+
+Item::Item(const Item* item) :
+    name(item->name),
+    info(item->info),
+    procs_map(item->procs_map),
+    stats_key_value_pairs(item->stats_key_value_pairs),
+    stats(new Stats())
+{
+    set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
 }
@@ -180,7 +195,7 @@ bool Item::proc_info_complete(QMap<QString, QString> & proc) {
     return true;
 }
 
-void Item::set_stats(QVector<QPair<QString, QString>> stats) {
+void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {
     for (auto & stat : stats)
         set_stat(stat.first, stat.second);
 }

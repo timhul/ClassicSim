@@ -10,6 +10,8 @@ public:
               QMap<QString, QString> info = {},
               QVector<QMap<QString, QString>> procs = {}):
         Weapon(name, type, min, max, speed, stats, info, procs) {}
+    TwoHander(const TwoHander* two_hander):
+        Weapon(two_hander) {}
 
     int get_item_slot() const override;
     int get_weapon_slot() const override;

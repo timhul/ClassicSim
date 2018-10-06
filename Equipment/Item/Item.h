@@ -16,8 +16,9 @@ int get_slot_int(const QString& slot_string);
 
 class Item {
 public:
-    Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info,
+    Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString, QString> _info,
          QVector<QMap<QString, QString>> _procs = {});
+    Item(const Item* item);
     virtual ~Item();
 
     virtual int get_item_slot(void) const;
@@ -33,7 +34,7 @@ public:
 
     const Stats* get_stats() const;
     void set_stat(const QString& key, const QString& value);
-    void set_stats(QVector<QPair<QString, QString>> stats);
+    void set_stats(const QVector<QPair<QString, QString>> &stats);
 
     int get_stat_value_via_flag(const ItemStats) const;
 
@@ -46,6 +47,7 @@ protected:
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;
     QVector<QMap<QString, QString>> procs_map;
+    QVector<QPair<QString, QString>> stats_key_value_pairs;
     QMap<int, QVector<Proc*>> proc_map;
     QMap<ItemStats, int> item_stat_values;
     Stats* stats;

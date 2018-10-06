@@ -72,23 +72,43 @@ void EquipmentDb::add_ring(Item* ring) {
 
 Weapon* EquipmentDb::get_melee_weapon(const QString &name) {
     for (auto & current_patch_mh_slot_item : current_patch_mh_slot_items) {
-        if (name == current_patch_mh_slot_item->get_name())
-            return dynamic_cast<Weapon*>(current_patch_mh_slot_item);
+        if (name == current_patch_mh_slot_item->get_name()) {
+            auto* weapon = dynamic_cast<Weapon*>(current_patch_mh_slot_item);
+            switch (weapon->get_weapon_slot()) {
+            case WeaponSlots::MAINHAND:
+                return new Mainhand(dynamic_cast<Mainhand*>(weapon));
+            case WeaponSlots::ONEHAND:
+                return new Onehand(dynamic_cast<Onehand*>(weapon));
+            case WeaponSlots::TWOHAND:
+                return new TwoHander(dynamic_cast<TwoHander*>(weapon));
+            }
+
+            assert(false);
+        }
     }
 
     // TODO: How to handle caster offhands?
     for (auto & current_patch_oh_slot_item : current_patch_oh_slot_items) {
-        if (name == current_patch_oh_slot_item->get_name())
-            return dynamic_cast<Weapon*>(current_patch_oh_slot_item);
+        if (name == current_patch_oh_slot_item->get_name()) {
+            auto* weapon = dynamic_cast<Weapon*>(current_patch_oh_slot_item);
+            switch (weapon->get_weapon_slot()) {
+            case WeaponSlots::ONEHAND:
+                return new Onehand(dynamic_cast<Onehand*>(weapon));
+            case WeaponSlots::OFFHAND:
+                return new Offhand(dynamic_cast<Offhand*>(weapon));
+            }
+
+            assert(false);
+        }
     }
 
     return nullptr;
 }
 
-Item* EquipmentDb::get_item(const QVector<Item*> &list, const QString &name) {
-    for (auto i : list) {
-        if (name == i->get_name())
-            return i;
+Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const QString &name) {
+    for (auto item : item_list) {
+        if (name == item->get_name())
+            return new Item(item);
     }
 
     return nullptr;

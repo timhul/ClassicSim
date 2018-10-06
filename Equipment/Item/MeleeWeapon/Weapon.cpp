@@ -4,15 +4,25 @@
 #include <utility>
 
 Weapon::Weapon(QString name, int type, unsigned min, unsigned max, double speed,
-       QVector<QPair<QString, QString>> stats,
+       QVector<QPair<QString, QString>>& stats,
        QMap<QString, QString> info,
        QVector<QMap<QString, QString>> procs):
-    Item(std::move(name), std::move(stats), std::move(info), std::move(procs)) {
+    Item(std::move(name), stats, std::move(info), std::move(procs)) {
     this->random = new Random(min, max);
     this->weapon_type = type;
     this->min_dmg = min;
     this->max_dmg = max;
     this->weapon_speed = speed;
+}
+
+Weapon::Weapon(const Weapon* weapon):
+    Item(weapon)
+{
+    this->random = new Random(weapon->min_dmg, weapon->max_dmg);
+    this->weapon_type = weapon->weapon_type;
+    this->min_dmg = weapon->min_dmg;
+    this->max_dmg = weapon->max_dmg;
+    this->weapon_speed = weapon->weapon_speed;
 }
 
 Weapon::~Weapon() {

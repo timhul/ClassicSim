@@ -45,6 +45,63 @@ Equipment::~Equipment() {
     for (auto & i : stats_from_equipped_gear) {
         delete i;
     }
+
+    for (auto & item : mainhand)
+        delete item;
+
+    for (auto & item : offhand)
+        delete item;
+
+    for (auto & item : ranged)
+        delete item;
+
+    for (auto & item : head)
+        delete item;
+
+    for (auto & item : neck)
+        delete item;
+
+    for (auto & item : shoulders)
+        delete item;
+
+    for (auto & item : back)
+        delete item;
+
+    for (auto & item : chest)
+        delete item;
+
+    for (auto & item : wrist)
+        delete item;
+
+    for (auto & item : gloves)
+        delete item;
+
+    for (auto & item : belt)
+        delete item;
+
+    for (auto & item : legs)
+        delete item;
+
+    for (auto & item : boots)
+        delete item;
+
+    for (auto & item : ring1)
+        delete item;
+
+    for (auto & item : ring2)
+        delete item;
+
+    for (auto & item : trinket1)
+        delete item;
+
+    for (auto & item : trinket2)
+        delete item;
+
+    for (auto & item : caster_offhand)
+        delete item;
+
+    for (auto & item : relic)
+        delete item;
 }
 
 void Equipment::change_setup(const int index) {
@@ -203,8 +260,10 @@ void Equipment::set_mainhand(const QString &name) {
                                        WeaponSlots::ONEHAND,
                                        WeaponSlots::TWOHAND};
 
-    if (!accepted_weapon_slots.contains(weapon->get_weapon_slot()))
+    if (!accepted_weapon_slots.contains(weapon->get_weapon_slot())) {
+        delete weapon;
         return;
+    }
 
     if (weapon->get_weapon_slot() == WeaponSlots::TWOHAND)
         unequip(offhand, EquipmentSlot::OFFHAND);
@@ -228,8 +287,10 @@ void Equipment::set_offhand(const QString &name) {
     QSet<int> accepted_weapon_slots = {WeaponSlots::ONEHAND,
                                        WeaponSlots::OFFHAND};
 
-    if (!accepted_weapon_slots.contains(weapon->get_weapon_slot()))
+    if (!accepted_weapon_slots.contains(weapon->get_weapon_slot())) {
+        delete weapon;
         return;
+    }
 
     if (get_mainhand() != nullptr) {
         if (get_mainhand()->get_weapon_slot() == WeaponSlots::TWOHAND)
@@ -645,6 +706,7 @@ void Equipment::unequip(QVector<Item*>& item, const int eq_slot) {
 
     item[setup_index]->remove_equip_effect(eq_slot);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
+    delete item[setup_index];
     item[setup_index] = nullptr;
 }
 
@@ -663,5 +725,6 @@ void Equipment::unequip(QVector<Weapon*>& item, const int eq_slot) {
 
     item[setup_index]->remove_equip_effect(eq_slot);
     stats_from_equipped_gear[setup_index]->remove(item[setup_index]->get_stats());
+    delete item[setup_index];
     item[setup_index] = nullptr;
 }
