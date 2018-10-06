@@ -41,6 +41,7 @@ Character::Character(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     this->melee_attacking = false;
     this->next_gcd = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
+    this->spell_crit_dmg_mod = 1.5;
 
     this->berserking_buff = new BerserkingBuff(this);
     this->blood_fury_buff = new BloodFuryBuff(this);
@@ -317,6 +318,10 @@ double Character::get_total_phys_dmg_mod() const {
     return cstats->get_total_phys_dmg_mod();
 }
 
+double Character::get_spell_crit_dmg_mod() const {
+    return spell_crit_dmg_mod;
+}
+
 double Character::get_random_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     return get_normalized_dmg(mh->get_random_dmg(), mh);
@@ -438,6 +443,14 @@ void Character::increase_ability_crit_dmg_mod(double increase) {
 }
 
 void Character::decrease_ability_crit_dmg_mod(double decrease) {
+    ability_crit_dmg_mod -= decrease;
+}
+
+void Character::increase_spell_crit_dmg_mod(double increase) {
+    ability_crit_dmg_mod += increase;
+}
+
+void Character::decrease_spell_crit_dmg_mod(double decrease) {
     ability_crit_dmg_mod -= decrease;
 }
 
