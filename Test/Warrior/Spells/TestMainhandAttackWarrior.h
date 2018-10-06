@@ -13,10 +13,15 @@ public:
 
     MainhandAttackWarrior* mh_attack();
 
-    void test_name_correct();
-    void test_has_weapon_speed_as_cooldown();
+    void test_name_correct() override;
+    void test_spell_cooldown() override;
+    void test_stance_cooldown() override;
+    void test_incurs_global_cooldown() override;
+    void test_obeys_global_cooldown() override;
+    void test_resource_cost() override;
+    void test_is_ready_conditions() override;
+
     void test_changing_weapons_changes_cooldown();
-    void test_does_not_incur_global_cooldown_on_use();
     void test_hit_dmg();
     void test_crit_dmg();
     void test_glancing_damage_300_wpn_skill();

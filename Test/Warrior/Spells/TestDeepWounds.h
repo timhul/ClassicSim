@@ -13,9 +13,13 @@ public:
 
     DeepWounds* deep_wounds();
 
-    void test_name_correct();
-    void test_has_no_cooldown();
-    void test_does_not_incur_global_cooldown_on_proc();
+    void test_name_correct() override;
+    void test_spell_cooldown() override;
+    void test_stance_cooldown() override;
+    void test_incurs_global_cooldown() override;
+    void test_obeys_global_cooldown() override;
+    void test_resource_cost() override;
+    void test_is_ready_conditions() override;
 
     void test_critical_mh_attack_applies_deep_wounds();
     void test_critical_oh_attack_applies_deep_wounds();

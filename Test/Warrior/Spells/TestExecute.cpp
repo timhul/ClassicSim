@@ -3,7 +3,6 @@
 #include "Execute.h"
 #include "Impale.h"
 
-#include "WarriorSpells.h"
 #include "Target.h"
 #include "Orc.h"
 
@@ -19,17 +18,7 @@ TestExecute::TestExecute(EquipmentDb *equipment_db) :
 {}
 
 void TestExecute::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_no_cooldown();
-    tear_down();
-
-    set_up();
-    test_incurs_global_cooldown_on_use();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_1_of_2_improved_execute_reduces_rage_cost();
@@ -128,14 +117,84 @@ void TestExecute::test_name_correct() {
     assert(execute()->get_name() == "Execute");
 }
 
-void TestExecute::test_has_no_cooldown() {
+void TestExecute::test_spell_cooldown() {
     assert(QString::number(execute()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestExecute::test_incurs_global_cooldown_on_use() {
+void TestExecute::test_incurs_global_cooldown() {
     when_execute_is_performed_with_rage(100);
 
     then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
+}
+
+void TestExecute::test_obeys_global_cooldown() {
+    given_target_in_execute_range();
+    given_warrior_has_rage(100);
+    assert(execute()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(!execute()->is_available());
+}
+
+void TestExecute::test_resource_cost() {
+    given_target_in_execute_range();
+    given_a_guaranteed_melee_ability_hit();
+    assert(execute_available_with_rage(15));
+    assert(!execute_available_with_rage(14));
+
+    when_execute_is_performed_with_rage(15);
+
+    then_warrior_has_rage(0);
+}
+
+void TestExecute::test_is_ready_conditions() {
+    given_warrior_in_battle_stance();
+    given_target_not_in_execute_range();
+    given_warrior_has_rage(0);
+
+    assert(warrior->action_ready());
+    assert(!execute()->is_available());
+
+    given_target_in_execute_range();
+    assert(!execute()->is_available());
+
+    given_target_not_in_execute_range();
+    given_warrior_has_rage(100);
+    assert(!execute()->is_available());
+
+    given_target_in_execute_range();
+    given_warrior_in_defensive_stance();
+    given_warrior_has_rage(100);
+    assert(!execute()->is_available());
+
+    given_warrior_in_berserker_stance();
+    given_warrior_has_rage(100);
+    assert(execute()->is_available());
+
+    given_warrior_in_battle_stance();
+    given_warrior_has_rage(100);
+    assert(execute()->is_available());
+}
+
+void TestExecute::test_stance_cooldown() {
+    given_warrior_in_battle_stance();
+    given_target_in_execute_range();
+    given_warrior_has_rage(100);
+    assert(execute()->is_available());
+
+    when_switching_to_berserker_stance();
+    given_warrior_has_rage(100);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!execute()->is_available());
+
+    given_engine_priority_pushed_forward(0.99);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!execute()->is_available());
+
+    given_engine_priority_pushed_forward(0.02);
+    assert(warrior->on_stance_cooldown() == false);
+    assert(execute()->is_available());
 }
 
 void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
@@ -484,6 +543,11 @@ void TestExecute::test_dodge_applies_overpower_buff() {
 void TestExecute::given_target_in_execute_range() {
     // CSIM-69: Remove knowledge 280 seconds is within Execute range, use target mechanic.
     given_engine_priority_at(280);
+}
+
+void TestExecute::given_target_not_in_execute_range() {
+    // CSIM-69: Use target mechanic.
+    given_engine_priority_at(0.0);
 }
 
 void TestExecute::when_execute_is_performed_with_rage(const int rage) {

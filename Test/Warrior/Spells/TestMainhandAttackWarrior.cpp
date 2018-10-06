@@ -8,20 +8,10 @@ TestMainhandAttackWarrior::TestMainhandAttackWarrior(EquipmentDb *equipment_db) 
 {}
 
 void TestMainhandAttackWarrior::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_weapon_speed_as_cooldown();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_changing_weapons_changes_cooldown();
-    tear_down();
-
-    set_up();
-    test_does_not_incur_global_cooldown_on_use();
     tear_down();
 
     set_up();
@@ -70,12 +60,37 @@ void TestMainhandAttackWarrior::test_name_correct() {
     assert(mh_attack()->get_name() == "Mainhand Attack");
 }
 
-void TestMainhandAttackWarrior::test_has_weapon_speed_as_cooldown() {
+void TestMainhandAttackWarrior::test_spell_cooldown() {
     given_a_mainhand_weapon_with_3_speed();
 
     when_mh_attack_is_performed();
 
     then_next_expected_use_is(3.0);
+}
+
+void TestMainhandAttackWarrior::test_obeys_global_cooldown() {
+    assert(mh_attack()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(mh_attack()->is_available());
+}
+
+void TestMainhandAttackWarrior::test_resource_cost() {
+    given_warrior_has_rage(0);
+    assert(mh_attack()->is_available());
+}
+
+void TestMainhandAttackWarrior::test_is_ready_conditions() {
+    // No conditions not tested in other mandatory tests.
+}
+
+void TestMainhandAttackWarrior::test_stance_cooldown() {
+    when_switching_to_berserker_stance();
+
+    assert(warrior->on_stance_cooldown() == true);
+
+    assert(mh_attack()->is_available());
 }
 
 void TestMainhandAttackWarrior::test_changing_weapons_changes_cooldown() {
@@ -88,7 +103,7 @@ void TestMainhandAttackWarrior::test_changing_weapons_changes_cooldown() {
     then_next_expected_use_is(2.0);
 }
 
-void TestMainhandAttackWarrior::test_does_not_incur_global_cooldown_on_use() {
+void TestMainhandAttackWarrior::test_incurs_global_cooldown() {
     assert(warrior->action_ready());
 
     when_mh_attack_is_performed();

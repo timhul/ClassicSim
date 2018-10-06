@@ -2,7 +2,6 @@
 #include "TestBerserkerStance.h"
 #include "BerserkerStance.h"
 #include "Queue.h"
-#include "Whirlwind.h"
 #include "CharacterStats.h"
 
 TestBerserkerStance::TestBerserkerStance(EquipmentDb *equipment_db) :
@@ -10,28 +9,10 @@ TestBerserkerStance::TestBerserkerStance(EquipmentDb *equipment_db) :
 {}
 
 void TestBerserkerStance::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_no_cooldown();
-    tear_down();
-
-    set_up();
-    test_incurs_1_second_stance_cooldown_on_use();
-    tear_down();
-
-    set_up();
-    test_incurs_half_second_global_cooldown_if_not_on_gcd();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_does_not_incur_extra_global_cooldown_if_gcd_longer_than_half_second();
-    tear_down();
-
-    set_up();
-    test_costs_0_rage();
     tear_down();
 
     set_up();
@@ -79,11 +60,11 @@ void TestBerserkerStance::test_name_correct() {
     assert(berserker_stance()->get_name() == "Berserker Stance");
 }
 
-void TestBerserkerStance::test_has_no_cooldown() {
+void TestBerserkerStance::test_spell_cooldown() {
     assert(QString::number(berserker_stance()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestBerserkerStance::test_incurs_1_second_stance_cooldown_on_use() {
+void TestBerserkerStance::test_stance_cooldown() {
     assert(warrior->on_stance_cooldown() == false);
 
     when_berserker_stance_is_performed();
@@ -95,7 +76,19 @@ void TestBerserkerStance::test_incurs_1_second_stance_cooldown_on_use() {
     assert(warrior->on_stance_cooldown() == false);
 }
 
-void TestBerserkerStance::test_incurs_half_second_global_cooldown_if_not_on_gcd() {
+void TestBerserkerStance::test_resource_cost() {
+    warrior->lose_rage(warrior->get_curr_rage());
+    assert(berserker_stance()->is_available());
+}
+
+void TestBerserkerStance::test_is_ready_conditions() {
+    assert(!warrior->on_global_cooldown());
+    assert(!warrior->on_stance_cooldown());
+
+    assert(berserker_stance()->is_available());
+}
+
+void TestBerserkerStance::test_incurs_global_cooldown() {
     assert(warrior->on_global_cooldown() == false);
 
     when_berserker_stance_is_performed();
@@ -107,9 +100,16 @@ void TestBerserkerStance::test_incurs_half_second_global_cooldown_if_not_on_gcd(
     assert(warrior->on_global_cooldown() == false);
 }
 
+void TestBerserkerStance::test_obeys_global_cooldown() {
+    assert(berserker_stance()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(!berserker_stance()->is_available());
+}
+
 void TestBerserkerStance::test_does_not_incur_extra_global_cooldown_if_gcd_longer_than_half_second() {
-    when_whirlwind_is_performed();
-    assert(warrior->on_global_cooldown());
+    given_warrior_is_on_gcd();
     assert(warrior->on_stance_cooldown() == false);
 
     when_berserker_stance_is_performed();
@@ -126,11 +126,6 @@ void TestBerserkerStance::test_does_not_incur_extra_global_cooldown_if_gcd_longe
     assert(warrior->on_global_cooldown());
     given_engine_priority_at(1.51);
     assert(warrior->on_global_cooldown() == false);
-}
-
-void TestBerserkerStance::test_costs_0_rage() {
-    warrior->lose_rage(warrior->get_curr_rage());
-    assert(berserker_stance()->is_available());
 }
 
 void TestBerserkerStance::test_gives_crit_when_stance_entered() {
@@ -215,15 +210,6 @@ void TestBerserkerStance::test_rage_is_not_increased_by_switching_stances_with_5
     then_warrior_has_rage(0);
 }
 
-void TestBerserkerStance::given_warrior_in_battle_stance() {
-    assert(dynamic_cast<Warrior*>(pchar)->in_battle_stance());
-}
-
 void TestBerserkerStance::when_berserker_stance_is_performed() {
     dynamic_cast<Warrior*>(pchar)->switch_to_berserker_stance();
-}
-
-void TestBerserkerStance::when_whirlwind_is_performed() {
-    warrior->gain_rage(100);
-    dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind()->perform();
 }

@@ -11,6 +11,7 @@ public:
     void spell_effect() override;
 protected:
 private:
+    bool is_ready_spell_specific() const override;
 };
 
 #endif // RECKLESSNESS_H

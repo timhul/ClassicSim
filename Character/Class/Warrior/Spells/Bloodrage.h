@@ -18,6 +18,8 @@ private:
     QVector<int> talent_ranks;
     int periodic_rage_base;
     int periodic_rage_current;
+
+    bool is_ready_spell_specific() const override;
 };
 
 #endif // BLOODRAGE_H

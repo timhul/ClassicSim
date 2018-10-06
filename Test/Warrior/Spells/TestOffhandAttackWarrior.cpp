@@ -9,20 +9,10 @@ TestOffhandAttackWarrior::TestOffhandAttackWarrior(EquipmentDb *equipment_db) :
 {}
 
 void TestOffhandAttackWarrior::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_weapon_speed_as_cooldown();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_changing_weapons_changes_cooldown();
-    tear_down();
-
-    set_up();
-    test_does_not_incur_global_cooldown_on_use();
     tear_down();
 
     set_up();
@@ -111,12 +101,37 @@ void TestOffhandAttackWarrior::test_name_correct() {
     assert(oh_attack()->get_name() == "Offhand Attack");
 }
 
-void TestOffhandAttackWarrior::test_has_weapon_speed_as_cooldown() {
+void TestOffhandAttackWarrior::test_spell_cooldown() {
     given_an_offhand_weapon_with_3_speed();
 
     when_oh_attack_is_performed();
 
     then_next_expected_use_is(3.0);
+}
+
+void TestOffhandAttackWarrior::test_obeys_global_cooldown() {
+    assert(oh_attack()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(oh_attack()->is_available());
+}
+
+void TestOffhandAttackWarrior::test_resource_cost() {
+    given_warrior_has_rage(0);
+    assert(oh_attack()->is_available());
+}
+
+void TestOffhandAttackWarrior::test_is_ready_conditions() {
+    // No conditions not tested in other mandatory tests.
+}
+
+void TestOffhandAttackWarrior::test_stance_cooldown() {
+    when_switching_to_berserker_stance();
+
+    assert(warrior->on_stance_cooldown() == true);
+
+    assert(oh_attack()->is_available());
 }
 
 void TestOffhandAttackWarrior::test_changing_weapons_changes_cooldown() {
@@ -129,7 +144,7 @@ void TestOffhandAttackWarrior::test_changing_weapons_changes_cooldown() {
     then_next_expected_use_is(2.0);
 }
 
-void TestOffhandAttackWarrior::test_does_not_incur_global_cooldown_on_use() {
+void TestOffhandAttackWarrior::test_incurs_global_cooldown() {
     assert(warrior->action_ready());
 
     when_oh_attack_is_performed();

@@ -15,17 +15,7 @@ TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
 {}
 
 void TestDeepWounds::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_no_cooldown();
-    tear_down();
-
-    set_up();
-    test_does_not_incur_global_cooldown_on_proc();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_critical_mh_attack_applies_deep_wounds();
@@ -100,7 +90,7 @@ void TestDeepWounds::test_name_correct() {
     assert(deep_wounds()->get_name() == "Deep Wounds");
 }
 
-void TestDeepWounds::test_has_no_cooldown() {
+void TestDeepWounds::test_spell_cooldown() {
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_1000_melee_ap();
@@ -111,7 +101,7 @@ void TestDeepWounds::test_has_no_cooldown() {
     assert(warrior->action_ready());
 }
 
-void TestDeepWounds::test_does_not_incur_global_cooldown_on_proc() {
+void TestDeepWounds::test_incurs_global_cooldown() {
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_1000_melee_ap();
@@ -120,6 +110,19 @@ void TestDeepWounds::test_does_not_incur_global_cooldown_on_proc() {
     when_mh_attack_is_performed();
 
     assert(deep_wounds()->is_ready());
+}
+
+void TestDeepWounds::test_obeys_global_cooldown() {
+    assert(deep_wounds()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(deep_wounds()->is_available());
+}
+
+void TestDeepWounds::test_resource_cost() {
+    given_warrior_has_rage(0);
+    assert(deep_wounds()->is_available());
 }
 
 void TestDeepWounds::test_critical_mh_attack_applies_deep_wounds() {
@@ -132,6 +135,18 @@ void TestDeepWounds::test_critical_mh_attack_applies_deep_wounds() {
     when_mh_attack_is_performed();
 
     then_deep_wounds_is_applied();
+}
+
+void TestDeepWounds::test_is_ready_conditions() {
+    // No conditions not tested in other mandatory tests.
+}
+
+void TestDeepWounds::test_stance_cooldown() {
+    when_switching_to_berserker_stance();
+
+    assert(warrior->on_stance_cooldown() == true);
+
+    assert(deep_wounds()->is_available());
 }
 
 void TestDeepWounds::test_critical_oh_attack_applies_deep_wounds() {

@@ -13,24 +13,14 @@ TestRecklessness::TestRecklessness(EquipmentDb *equipment_db) :
 {}
 
 void TestRecklessness::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_1800_second_cooldown();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_crit_reduced_after_buff_expires();
     tear_down();
 
     set_up();
-    test_incurs_global_cooldown_on_use();
-    tear_down();
-
-    set_up();
-    test_costs_0_rage();
+    test_incurs_global_cooldown();
     tear_down();
 
     set_up();
@@ -94,7 +84,7 @@ void TestRecklessness::test_name_correct() {
     assert(recklessness()->get_name() == "Recklessness");
 }
 
-void TestRecklessness::test_has_1800_second_cooldown() {
+void TestRecklessness::test_spell_cooldown() {
     given_a_guaranteed_melee_ability_hit();
     assert(QString::number(recklessness()->get_base_cooldown(), 'f', 3) == "1800.000");
 
@@ -103,6 +93,47 @@ void TestRecklessness::test_has_1800_second_cooldown() {
     then_next_event_is("CooldownReady", "1.500");
     then_next_event_is("BuffRemoval", "15.000");
     then_next_event_is("CooldownReady", "1800.000");
+}
+
+void TestRecklessness::test_obeys_global_cooldown() {
+    given_warrior_in_berserker_stance();
+    assert(recklessness()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(!recklessness()->is_available());
+}
+
+void TestRecklessness::test_is_ready_conditions() {
+    given_warrior_has_rage(0);
+    given_warrior_in_battle_stance();
+    assert(warrior->action_ready());
+    assert(!recklessness()->is_available());
+
+    given_warrior_has_rage(100);
+    assert(!recklessness()->is_available());
+
+    given_warrior_in_berserker_stance();
+    given_warrior_has_rage(100);
+    assert(recklessness()->is_available());
+}
+
+void TestRecklessness::test_stance_cooldown() {
+    given_warrior_in_berserker_stance();
+    assert(recklessness()->is_available());
+
+    given_warrior_in_battle_stance();
+    when_switching_to_berserker_stance();
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!recklessness()->is_available());
+
+    given_engine_priority_pushed_forward(0.99);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!recklessness()->is_available());
+
+    given_engine_priority_pushed_forward(0.02);
+    assert(warrior->on_stance_cooldown() == false);
+    assert(recklessness()->is_available());
 }
 
 void TestRecklessness::test_crit_reduced_after_buff_expires() {
@@ -118,13 +149,13 @@ void TestRecklessness::test_crit_reduced_after_buff_expires() {
     assert(QString::number(int(round(pchar->get_stats()->get_crit_chance() * 10000)), 'f', 3) == "0.000");
 }
 
-void TestRecklessness::test_incurs_global_cooldown_on_use() {
+void TestRecklessness::test_incurs_global_cooldown() {
     when_recklessness_is_performed();
 
     then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
-void TestRecklessness::test_costs_0_rage() {
+void TestRecklessness::test_resource_cost() {
     given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(0);
 

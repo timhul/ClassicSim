@@ -25,6 +25,7 @@
 
 #include "Flurry.h"
 #include "BerserkerStanceBuff.h"
+#include "DefensiveStanceBuff.h"
 #include "HeroicStrikeBuff.h"
 #include "UnbridledWrath.h"
 #include "DeathWishBuff.h"
@@ -72,6 +73,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
 
     this->flurry = new Flurry(this);
     this->berserker_stance_buff = new BerserkerStanceBuff(this);
+    this->defensive_stance_buff = new DefensiveStanceBuff(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
@@ -79,6 +81,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     this->recklessness_buff = new RecklessnessBuff(this);
     battle_shout_buff->enable_buff();
     berserker_stance_buff->enable_buff();
+    defensive_stance_buff->enable_buff();
     heroic_strike_buff->enable_buff();
     overpower_buff->enable_buff();
     recklessness_buff->enable_buff();
@@ -110,6 +113,7 @@ Warrior::~Warrior() {
     // TODO: Create a WarriorBuffs class that holds Battle Shout, Death Wish, Flurry, etc.
     delete battle_shout_buff;
     delete berserker_stance_buff;
+    delete defensive_stance_buff;
     delete death_wish_buff;
     delete flurry;
     delete heroic_strike_buff;
@@ -191,6 +195,10 @@ Flurry* Warrior::get_flurry() const {
 
 BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {
     return this->berserker_stance_buff;
+}
+
+DefensiveStanceBuff* Warrior::get_defensive_stance_buff() const {
+    return this->defensive_stance_buff;
 }
 
 HeroicStrikeBuff* Warrior::get_hs_buff() const {
@@ -299,6 +307,9 @@ void Warrior::switch_to_battle_stance() {
     case WarriorStances::Berserker:
         berserker_stance_buff->cancel_buff();
         break;
+    case WarriorStances::Defensive:
+        defensive_stance_buff->cancel_buff();
+        break;
     }
 
     this->stance = WarriorStances::Battle;
@@ -306,6 +317,12 @@ void Warrior::switch_to_battle_stance() {
 }
 
 void Warrior::switch_to_berserker_stance() {
+    switch (this->stance) {
+    case WarriorStances::Defensive:
+        defensive_stance_buff->cancel_buff();
+        break;
+    }
+
     this->stance = WarriorStances::Berserker;
     new_stance_effect();
 }
@@ -313,7 +330,7 @@ void Warrior::switch_to_berserker_stance() {
 void Warrior::switch_to_defensive_stance() {
     switch (this->stance) {
     case WarriorStances::Berserker:
-        berserker_stance_buff->use_charge();
+        berserker_stance_buff->cancel_buff();
         break;
     }
 

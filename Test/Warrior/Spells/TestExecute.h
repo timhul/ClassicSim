@@ -13,9 +13,14 @@ public:
 
     Execute* execute();
 
-    void test_name_correct();
-    void test_has_no_cooldown();
-    void test_incurs_global_cooldown_on_use();
+    void test_name_correct() override;
+    void test_spell_cooldown() override;
+    void test_stance_cooldown() override;
+    void test_incurs_global_cooldown() override;
+    void test_obeys_global_cooldown() override;
+    void test_resource_cost() override;
+    void test_is_ready_conditions() override;
+
     void test_1_of_2_improved_execute_reduces_rage_cost();
     void test_2_of_2_improved_execute_reduces_rage_cost();
     void test_removing_points_in_improved_execute_increases_rage_cost();
@@ -55,6 +60,7 @@ public:
     void given_1_of_2_improved_execute();
     void given_2_of_2_improved_execute();
     void given_target_in_execute_range();
+    void given_target_not_in_execute_range();
 
     void when_execute_is_performed_with_rage(const int rage);
     bool execute_available_with_rage(const int rage);

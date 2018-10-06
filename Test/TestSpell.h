@@ -53,6 +53,7 @@ public:
     void given_1000_melee_ap();
     void given_target_has_0_armor();
     void given_engine_priority_at(const double priority);
+    void given_engine_priority_pushed_forward(const double priority);
 
     void when_running_queued_events_until(const double priority);
 

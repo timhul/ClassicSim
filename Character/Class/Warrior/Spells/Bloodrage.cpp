@@ -12,6 +12,10 @@ Bloodrage::Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll) :
     this->periodic_rage_current = periodic_rage_base;
 }
 
+bool Bloodrage::is_ready_spell_specific() const {
+    return !warr->in_defensive_stance();
+}
+
 void Bloodrage::spell_effect() {
     add_spell_cd_event();
 

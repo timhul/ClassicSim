@@ -8,21 +8,7 @@ TestBloodrage::TestBloodrage(EquipmentDb *equipment_db) :
 {}
 
 void TestBloodrage::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_60_second_cooldown();
-    tear_down();
-
-    set_up();
-    test_does_not_incur_global_cooldown_on_use();
-    tear_down();
-
-    set_up();
-    test_costs_0_rage();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_gain_10_rage_immediately();
@@ -41,17 +27,54 @@ void TestBloodrage::test_name_correct() {
     assert(bloodrage()->get_name() == "Bloodrage");
 }
 
-void TestBloodrage::test_has_60_second_cooldown() {
+void TestBloodrage::test_spell_cooldown() {
     assert(QString::number(bloodrage()->get_base_cooldown(), 'f', 3) == "60.000");
 }
 
-void TestBloodrage::test_does_not_incur_global_cooldown_on_use() {
+void TestBloodrage::test_incurs_global_cooldown() {
     when_bloodrage_is_performed();
 
     assert(warrior->action_ready());
 }
 
-void TestBloodrage::test_costs_0_rage() {
+void TestBloodrage::test_obeys_global_cooldown() {
+    assert(bloodrage()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(bloodrage()->is_available());
+}
+
+void TestBloodrage::test_is_ready_conditions() {
+    assert(bloodrage()->is_available());
+
+    given_warrior_in_defensive_stance();
+    assert(!bloodrage()->is_available());
+
+    given_warrior_in_battle_stance();
+    assert(bloodrage()->is_available());
+
+    given_warrior_in_berserker_stance();
+    assert(bloodrage()->is_available());
+}
+
+void TestBloodrage::test_stance_cooldown() {
+    assert(bloodrage()->is_available());
+
+    when_switching_to_berserker_stance();
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!bloodrage()->is_available());
+
+    given_engine_priority_pushed_forward(0.99);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!bloodrage()->is_available());
+
+    given_engine_priority_pushed_forward(0.02);
+    assert(warrior->on_stance_cooldown() == false);
+    assert(bloodrage()->is_available());
+}
+
+void TestBloodrage::test_resource_cost() {
     warrior->lose_rage(warrior->get_curr_rage());
     assert(bloodrage()->is_available());
 }

@@ -9,3 +9,7 @@ void Recklessness::spell_effect() {
     add_gcd_event();
     add_spell_cd_event();
 }
+
+bool Recklessness::is_ready_spell_specific() const {
+    return dynamic_cast<Warrior*>(pchar)->in_berserker_stance();
+}

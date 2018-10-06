@@ -13,9 +13,14 @@ public:
 
     HeroicStrike* heroic_strike();
 
-    void test_name_correct();
-    void test_has_no_cooldown();
-    void test_does_not_incur_global_cooldown_on_use();
+    void test_name_correct() override;
+    void test_spell_cooldown() override;
+    void test_stance_cooldown() override;
+    void test_incurs_global_cooldown() override;
+    void test_obeys_global_cooldown() override;
+    void test_resource_cost() override;
+    void test_is_ready_conditions() override;
+
     void test_1_of_3_improved_hs_reduces_rage_cost();
     void test_2_of_3_improved_hs_reduces_rage_cost();
     void test_3_of_3_improved_hs_reduces_rage_cost();
@@ -30,10 +35,12 @@ public:
     void given_1_of_3_improved_hs();
     void given_2_of_3_improved_hs();
     void given_3_of_3_improved_hs();
+    void given_user_has_activated_heroic_strike();
+    void given_user_has_not_activate_heroic_strike();
 
     void when_heroic_strike_is_performed();
 
-    void then_heroic_strike_costs(const int rage);
+    void then_heroic_strike_costs(const unsigned rage);
 
 private:
 };

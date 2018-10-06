@@ -1,6 +1,8 @@
 
 #include "TestWhirlwind.h"
 #include "Whirlwind.h"
+#include "WarriorSpells.h"
+#include "Execute.h"
 #include "Queue.h"
 #include "Equipment.h"
 
@@ -9,21 +11,7 @@ TestWhirlwind::TestWhirlwind(EquipmentDb *equipment_db) :
 {}
 
 void TestWhirlwind::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_10_second_cooldown();
-    tear_down();
-
-    set_up();
-    test_incurs_global_cooldown_on_use();
-    tear_down();
-
-    set_up();
-    test_costs_25_rage();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_hit_dmg();
@@ -54,7 +42,7 @@ void TestWhirlwind::test_name_correct() {
     assert(whirlwind()->get_name() == "Whirlwind");
 }
 
-void TestWhirlwind::test_has_10_second_cooldown() {
+void TestWhirlwind::test_spell_cooldown() {
     given_a_guaranteed_melee_ability_hit();
     assert(QString::number(whirlwind()->get_base_cooldown(), 'f', 3) == "10.000");
 
@@ -64,13 +52,45 @@ void TestWhirlwind::test_has_10_second_cooldown() {
     then_next_event_is("CooldownReady", "10.000");
 }
 
-void TestWhirlwind::test_incurs_global_cooldown_on_use() {
+void TestWhirlwind::test_incurs_global_cooldown() {
     when_whirlwind_is_performed();
 
     then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
-void TestWhirlwind::test_costs_25_rage() {
+void TestWhirlwind::test_obeys_global_cooldown() {
+    given_warrior_in_berserker_stance();
+    given_warrior_has_rage(100);
+    assert(whirlwind()->is_available());
+
+    given_warrior_is_on_gcd(dynamic_cast<WarriorSpells*>(pchar->get_spells())->get_execute());
+
+    assert(!whirlwind()->is_available());
+}
+
+void TestWhirlwind::test_is_ready_conditions() {
+
+}
+
+void TestWhirlwind::test_stance_cooldown() {
+    given_warrior_has_rage(100);
+    assert(whirlwind()->is_available());
+
+    when_switching_to_berserker_stance();
+    given_warrior_has_rage(100);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!whirlwind()->is_available());
+
+    given_engine_priority_pushed_forward(0.99);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!whirlwind()->is_available());
+
+    given_engine_priority_pushed_forward(0.02);
+    assert(warrior->on_stance_cooldown() == false);
+    assert(whirlwind()->is_available());
+}
+
+void TestWhirlwind::test_resource_cost() {
     given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(25);
 

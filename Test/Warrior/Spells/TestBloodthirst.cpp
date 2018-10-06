@@ -8,21 +8,7 @@ TestBloodthirst::TestBloodthirst(EquipmentDb *equipment_db) :
 {}
 
 void TestBloodthirst::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_6_second_cooldown();
-    tear_down();
-
-    set_up();
-    test_incurs_global_cooldown_on_use();
-    tear_down();
-
-    set_up();
-    test_costs_30_rage();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_hit_dmg();
@@ -53,7 +39,7 @@ void TestBloodthirst::test_name_correct() {
     assert(bloodthirst()->get_name() == "Bloodthirst");
 }
 
-void TestBloodthirst::test_has_6_second_cooldown() {
+void TestBloodthirst::test_spell_cooldown() {
     given_a_guaranteed_melee_ability_hit();
     assert(QString::number(bloodthirst()->get_base_cooldown(), 'f', 3) == "6.000");
 
@@ -63,19 +49,45 @@ void TestBloodthirst::test_has_6_second_cooldown() {
     then_next_event_is("CooldownReady", "6.000");
 }
 
-void TestBloodthirst::test_incurs_global_cooldown_on_use() {
+void TestBloodthirst::test_incurs_global_cooldown() {
     when_bloodthirst_is_performed();
 
     then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
-void TestBloodthirst::test_costs_30_rage() {
+void TestBloodthirst::test_obeys_global_cooldown() {
+
+}
+
+void TestBloodthirst::test_is_ready_conditions() {
+
+}
+
+void TestBloodthirst::test_resource_cost() {
     given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(30);
 
     when_bloodthirst_is_performed();
 
     then_warrior_has_rage(0);
+}
+
+void TestBloodthirst::test_stance_cooldown() {
+    given_warrior_has_rage(100);
+    assert(bloodthirst()->is_available());
+
+    when_switching_to_berserker_stance();
+    given_warrior_has_rage(100);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!bloodthirst()->is_available());
+
+    given_engine_priority_pushed_forward(0.99);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!bloodthirst()->is_available());
+
+    given_engine_priority_pushed_forward(0.02);
+    assert(warrior->on_stance_cooldown() == false);
+    assert(bloodthirst()->is_available());
 }
 
 void TestBloodthirst::test_hit_dmg() {

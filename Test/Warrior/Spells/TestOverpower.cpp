@@ -10,21 +10,7 @@ TestOverpower::TestOverpower(EquipmentDb *equipment_db) :
 {}
 
 void TestOverpower::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_5_second_cooldown();
-    tear_down();
-
-    set_up();
-    test_incurs_global_cooldown_on_use();
-    tear_down();
-
-    set_up();
-    test_costs_5_rage();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_hit_dmg();
@@ -63,7 +49,7 @@ void TestOverpower::test_name_correct() {
     assert(overpower()->get_name() == "Overpower");
 }
 
-void TestOverpower::test_has_5_second_cooldown() {
+void TestOverpower::test_spell_cooldown() {
     given_a_guaranteed_melee_ability_hit();
     assert(QString::number(overpower()->get_base_cooldown(), 'f', 3) == "5.000");
 
@@ -73,19 +59,72 @@ void TestOverpower::test_has_5_second_cooldown() {
     then_next_event_is("CooldownReady", "5.000");
 }
 
-void TestOverpower::test_incurs_global_cooldown_on_use() {
+void TestOverpower::test_incurs_global_cooldown() {
     when_overpower_is_performed();
 
     then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
-void TestOverpower::test_costs_5_rage() {
+void TestOverpower::test_obeys_global_cooldown() {
+    given_warrior_has_rage(100);
+    when_overpower_buff_is_applied();
+    assert(overpower()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(!overpower()->is_available());
+}
+
+
+void TestOverpower::test_resource_cost() {
     given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(5);
 
     when_overpower_is_performed();
 
     then_warrior_has_rage(0);
+}
+
+void TestOverpower::test_is_ready_conditions() {
+    given_warrior_in_battle_stance();
+    given_no_overpower_buff();
+    given_warrior_has_rage(100);
+    assert(!overpower()->is_available());
+
+    given_warrior_in_berserker_stance();
+    when_overpower_buff_is_applied();
+    given_warrior_has_rage(100);
+    assert(!overpower()->is_available());
+
+    given_warrior_in_defensive_stance();
+    when_overpower_buff_is_applied();
+    given_warrior_has_rage(100);
+    assert(!overpower()->is_available());
+
+    given_warrior_in_battle_stance();
+    when_overpower_buff_is_applied();
+    given_warrior_has_rage(100);
+    assert(overpower()->is_available());
+}
+
+void TestOverpower::test_stance_cooldown() {
+    given_warrior_in_berserker_stance();
+    when_overpower_buff_is_applied();
+    given_warrior_has_rage(100);
+    assert(overpower()->is_available());
+
+    when_switching_to_battle_stance();
+    given_warrior_has_rage(100);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!overpower()->is_available());
+
+    given_engine_priority_pushed_forward(0.99);
+    assert(warrior->on_stance_cooldown() == true);
+    assert(!overpower()->is_available());
+
+    given_engine_priority_pushed_forward(0.02);
+    assert(warrior->on_stance_cooldown() == false);
+    assert(overpower()->is_available());
 }
 
 void TestOverpower::test_hit_dmg() {
@@ -175,12 +214,18 @@ void TestOverpower::test_overpower_miss_removes_buff() {
     then_overpower_is_inactive();
 }
 
+void TestOverpower::given_no_overpower_buff() {
+    warrior->get_overpower_buff()->cancel_buff();
+    assert(!warrior->get_overpower_buff()->is_active());
+}
+
 void TestOverpower::when_overpower_is_performed() {
     overpower()->perform();
 }
 
 void TestOverpower::when_overpower_buff_is_applied() {
     warrior->get_overpower_buff()->apply_buff();
+    assert(warrior->get_overpower_buff()->is_active());
 }
 
 void TestOverpower::then_overpower_is_inactive() {

@@ -1,23 +1,15 @@
 
 #include "TestHeroicStrike.h"
 #include "HeroicStrike.h"
+#include "HeroicStrikeBuff.h"
+#include "WarriorSpells.h"
 
 TestHeroicStrike::TestHeroicStrike(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Heroic Strike")
 {}
 
 void TestHeroicStrike::test_all() {
-    set_up();
-    test_name_correct();
-    tear_down();
-
-    set_up();
-    test_has_no_cooldown();
-    tear_down();
-
-    set_up();
-    test_does_not_incur_global_cooldown_on_use();
-    tear_down();
+    run_mandatory_tests();
 
     set_up();
     test_1_of_3_improved_hs_reduces_rage_cost();
@@ -64,16 +56,52 @@ void TestHeroicStrike::test_name_correct() {
     assert(heroic_strike()->get_name() == "Heroic Strike");
 }
 
-void TestHeroicStrike::test_has_no_cooldown() {
+void TestHeroicStrike::test_spell_cooldown() {
     assert(QString::number(heroic_strike()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestHeroicStrike::test_does_not_incur_global_cooldown_on_use() {
+void TestHeroicStrike::test_incurs_global_cooldown() {
     assert(warrior->action_ready());
 
     when_heroic_strike_is_performed();
 
     assert(warrior->action_ready());
+}
+
+void TestHeroicStrike::test_obeys_global_cooldown() {
+    given_warrior_has_rage(100);
+    assert(heroic_strike()->is_available());
+
+    given_warrior_is_on_gcd();
+
+    assert(heroic_strike()->is_available());
+}
+
+void TestHeroicStrike::test_resource_cost() {
+    then_heroic_strike_costs(15);
+}
+
+void TestHeroicStrike::test_is_ready_conditions() {
+    given_warrior_in_battle_stance();
+    given_warrior_has_rage(100);
+    assert(heroic_strike()->is_available());
+
+    given_warrior_in_berserker_stance();
+    given_warrior_has_rage(100);
+    assert(heroic_strike()->is_available());
+
+    given_warrior_in_defensive_stance();
+    given_warrior_has_rage(100);
+    assert(heroic_strike()->is_available());
+}
+
+void TestHeroicStrike::test_stance_cooldown() {
+    when_switching_to_berserker_stance();
+
+    given_warrior_has_rage(100);
+    assert(warrior->on_stance_cooldown() == true);
+
+    assert(heroic_strike()->is_available());
 }
 
 void TestHeroicStrike::test_1_of_3_improved_hs_reduces_rage_cost() {
@@ -195,11 +223,21 @@ void TestHeroicStrike::given_3_of_3_improved_hs() {
     heroic_strike()->increase_effect_via_talent();
 }
 
+void TestHeroicStrike::given_user_has_activated_heroic_strike() {
+    warrior->get_hs_buff()->apply_buff();
+    assert(warrior->get_hs_buff()->is_active());
+}
+
+void TestHeroicStrike::given_user_has_not_activate_heroic_strike() {
+    warrior->get_hs_buff()->cancel_buff();
+    assert(!warrior->get_hs_buff()->is_active());
+}
+
 void TestHeroicStrike::when_heroic_strike_is_performed() {
     heroic_strike()->calculate_damage();
 }
 
-void TestHeroicStrike::then_heroic_strike_costs(const int rage) {
+void TestHeroicStrike::then_heroic_strike_costs(const unsigned rage) {
     warrior->lose_rage(warrior->get_curr_rage());
     warrior->gain_rage(rage);
     assert(heroic_strike()->is_available());
