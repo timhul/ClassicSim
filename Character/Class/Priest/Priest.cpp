@@ -51,14 +51,12 @@ int Priest::get_spirit_modifier() const {
     return 3;
 }
 
-int Priest::get_agi_needed_for_one_percent_phys_crit() const {
-    // TODO: Placeholder value
-    return 20;
+double Priest::get_agi_needed_for_one_percent_phys_crit() const {
+    return std::numeric_limits<double>::max();
 }
 
-int Priest::get_int_needed_for_one_percent_spell_crit() const {
-    // TODO: Placeholder value
-    return 20;
+double Priest::get_int_needed_for_one_percent_spell_crit() const {
+    return 59.2;
 }
 
 int Priest::get_ap_per_strength() const {

@@ -32,8 +32,8 @@ public:
     int get_stamina_modifier() const override;
     int get_intellect_modifier() const override;
     int get_spirit_modifier() const override;
-    int get_agi_needed_for_one_percent_phys_crit() const override;
-    int get_int_needed_for_one_percent_spell_crit() const override;
+    double get_agi_needed_for_one_percent_phys_crit() const override;
+    double get_int_needed_for_one_percent_spell_crit() const override;
     int get_ap_per_strength() const override;
     int get_ap_per_agi() const override;
     void set_clvl(const int) override;

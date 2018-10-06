@@ -49,14 +49,12 @@ int Druid::get_spirit_modifier() const {
     return 2;
 }
 
-int Druid::get_agi_needed_for_one_percent_phys_crit() const {
-    // TODO: Placeholder value
+double Druid::get_agi_needed_for_one_percent_phys_crit() const {
     return 20;
 }
 
-int Druid::get_int_needed_for_one_percent_spell_crit() const {
-    // TODO: Placeholder value
-    return 20;
+double Druid::get_int_needed_for_one_percent_spell_crit() const {
+    return 60.0;
 }
 
 int Druid::get_ap_per_strength() const {

@@ -48,14 +48,12 @@ int Paladin::get_spirit_modifier() const {
     return 1;
 }
 
-int Paladin::get_agi_needed_for_one_percent_phys_crit() const {
-    // TODO: Placeholder value
+double Paladin::get_agi_needed_for_one_percent_phys_crit() const {
     return 20;
 }
 
-int Paladin::get_int_needed_for_one_percent_spell_crit() const {
-    // TODO: Placeholder value
-    return 20;
+double Paladin::get_int_needed_for_one_percent_spell_crit() const {
+    return 54;
 }
 
 int Paladin::get_ap_per_strength() const {
