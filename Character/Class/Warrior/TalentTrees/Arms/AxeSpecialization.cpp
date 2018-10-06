@@ -1,6 +1,8 @@
 
 #include "AxeSpecialization.h"
-#include <QDebug>
+#include "Warrior.h"
+#include "CharacterStats.h"
+#include "ItemNamespace.h"
 
 AxeSpecialization::AxeSpecialization(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Axe Specialization", "5LL", "Assets/warrior/arms/tier5/Inv_axe_06.png", 5)
@@ -12,9 +14,9 @@ AxeSpecialization::AxeSpecialization(Character *pchar, TalentTree* tree) :
 AxeSpecialization::~AxeSpecialization() = default;
 
 void AxeSpecialization::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_stats()->increase_crit_for_weapon_type(WeaponTypes::AXE, 0.01);
 }
 
 void AxeSpecialization::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::AXE, 0.01);
 }

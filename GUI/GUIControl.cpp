@@ -413,7 +413,7 @@ QString GUIControl::get_crit_chance() const {
     auto delta = (mh_crit - oh_crit) < 0 ? (mh_crit - oh_crit) * -1 : mh_crit - oh_crit;
 
     if (delta > 0.001) {
-        QString format = "%1 / %2";
+        QString format = "%1% / %2";
         return format.arg(QString::number(mh_crit * 100, 'f', 2), QString::number(oh_crit * 100, 'f', 2));
     }
 

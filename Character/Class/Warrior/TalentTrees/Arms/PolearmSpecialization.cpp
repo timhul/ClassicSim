@@ -1,6 +1,8 @@
 
 #include "PolearmSpecialization.h"
-#include <QDebug>
+#include "Warrior.h"
+#include "CharacterStats.h"
+#include "ItemNamespace.h"
 
 PolearmSpecialization::PolearmSpecialization(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Polearm Specialization", "6LL", "Assets/warrior/arms/tier6/Inv_weapon_halbard_01.png", 5)
@@ -12,9 +14,9 @@ PolearmSpecialization::PolearmSpecialization(Character *pchar, TalentTree* tree)
 PolearmSpecialization::~PolearmSpecialization() = default;
 
 void PolearmSpecialization::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_stats()->increase_crit_for_weapon_type(WeaponTypes::POLEARM, 0.01);
 }
 
 void PolearmSpecialization::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    dynamic_cast<Warrior*>(pchar)->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::POLEARM, 0.01);
 }

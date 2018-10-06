@@ -91,8 +91,10 @@ RectangleBorders {
 
         Text {
             height: 15
+            property string crit: character.critChance.length < 8 ? "Critical strike: " :
+                                                                    "Crit: "
 
-            text: "Critical strike: " + character.critChance + "%"
+            text: crit + character.critChance + "%"
             color: "white"
 
             font {
