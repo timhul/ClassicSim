@@ -33,16 +33,9 @@ EquipmentDb::EquipmentDb(QObject* parent):
 }
 
 EquipmentDb::~EquipmentDb() {
-    // TODO: Check how we can avoid special handling deletion of common elements in OH/MH.
-    // The issue is WeaponType::ONEHAND can be found in both lists.
     delete_items(&mh_slot_items);
+    delete_items(&oh_slot_items);
 
-    for (auto & oh_slot_item : oh_slot_items) {
-        if (mh_slot_items.contains(oh_slot_item))
-            continue;
-
-        delete oh_slot_item;
-    }
     mh_slot_items.clear();
     oh_slot_items.clear();
 
@@ -305,7 +298,7 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
             mh_slot_items.append(mixed_items.at(i));
             // C++17 [[clang::fallthrough]];
         case WeaponSlots::OFFHAND:
-            oh_slot_items.append(mixed_items.takeAt(i));
+            oh_slot_items.append(new Weapon(dynamic_cast<Weapon*>(mixed_items.takeAt(i))));
             --i;
             break;
         }
