@@ -245,7 +245,7 @@ void Test::test_white_hit_table_update() {
     assert(table->get_outcome(3300, 0.0) == AttackResult::GLANCING);
     assert(table->get_outcome(7299, 0.0) == AttackResult::GLANCING);
     assert(table->get_outcome(7300, 0.0) == AttackResult::CRITICAL);
-    // TODO: This will fail when changing base agility or agi needed per crit.
+    // Note: This will fail when changing base agility or agi needed per crit.
     assert(table->get_outcome(7984, 0.0) == AttackResult::CRITICAL);
     assert(table->get_outcome(7985, 0.0) == AttackResult::HIT);
 

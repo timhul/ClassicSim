@@ -8,7 +8,6 @@ class BattleShoutBuff: public Buff {
 public:
     BattleShoutBuff(Character* pchar): Buff(pchar, "Battle Shout", 120, 0) {
         spell_ranks = {15, 35, 55, 85, 130, 185, 232};
-        // TODO: Remove hardcoded rank 7 Battle Shout.
         rank_spell = 6;
         base_ap = spell_ranks[rank_spell];
 

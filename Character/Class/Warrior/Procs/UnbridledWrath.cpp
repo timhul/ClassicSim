@@ -26,7 +26,6 @@ void UnbridledWrath::proc_effect() {
 
 void UnbridledWrath::increase_effect_via_talent() {
     ++rank_talent;
-    // TODO: Assert max rank?
     if (rank_talent == 1)
         this->enable_proc();
 

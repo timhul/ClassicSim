@@ -528,7 +528,7 @@ void GUIControl::run_quick_sim() {
     current_char->get_statistics()->reset_statistics();
     this->current_char->get_engine()->prepare();
     this->current_char->get_combat_roll()->drop_tables();
-    // TODO: Remove hardcoded 1000 iterations for quick sim.
+    // CSIM-59: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
         auto* start_event = new EncounterStart(current_char);
         auto* end_event = new EncounterEnd(this->current_char->get_engine(), current_char);
@@ -540,7 +540,7 @@ void GUIControl::run_quick_sim() {
 
     this->current_char->get_engine()->dump();
     this->current_char->get_engine()->reset();
-    // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
+    // CSIM-59: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
     double previous = last_quick_sim_result;
     last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
 
@@ -685,7 +685,7 @@ void GUIControl::selectSlot(const QString& slot_string) {
 }
 
 void GUIControl::setSlot(const QString& slot_string, const QString& item) {
-    // TODO: Replace with switch on slot as int.
+    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         current_char->get_equipment()->set_mainhand(item);
     if (slot_string == "OFFHAND")

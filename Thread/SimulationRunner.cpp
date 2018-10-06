@@ -81,7 +81,7 @@ void SimulationRunner::run_sim(QString setup_string) {
     pchar->get_engine()->prepare();
     pchar->get_combat_roll()->drop_tables();
 
-    // TODO: Remove hardcoded 1000 iterations for quick sim.
+    // CSIM-59: Remove hardcoded 1000 iterations for quick sim.
     for (int i = 0; i < 1000; ++i) {
         auto* start_event = new EncounterStart(pchar);
         auto* end_event = new EncounterEnd(pchar->get_engine(), pchar);
@@ -92,7 +92,7 @@ void SimulationRunner::run_sim(QString setup_string) {
     }
 
     pchar->get_engine()->reset();
-    // TODO: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
+    // CSIM-59: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
     double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
 
     delete pchar;

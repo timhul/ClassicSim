@@ -43,7 +43,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     available_races.append("Troll");
     available_races.append("Undead");
 
-    // TODO: Investigate whether base stats below are the same for all melee classes.
+    // CSIM-67: Investigate whether base stats below are the same for all melee classes.
     // Character sheet implies 3% base crit.
     // Crit without gear and no crit from base agil = 3 - (clvl * 5 - wpn-skill) * 0.04
     this->cstats->increase_crit(0.03);
@@ -51,7 +51,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     // Character sheet implies 10 base ap (not including base strength) at lvl 1.
     this->cstats->get_stats()->increase_base_melee_ap(160);
 
-    // Constants added as a hack, these are the gains from 1-60.
+    // CSIM-68: Constants added as a hack for now, these are the gains from 1-60.
     // This essentially forces a clvl of 60 for stats to be accurate for warrior.
     set_clvl(60);
     cstats->increase_strength(get_strength_modifier() + 97);

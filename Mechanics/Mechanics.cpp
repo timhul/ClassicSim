@@ -36,7 +36,7 @@ double Mechanics::get_1h_white_miss_chance(const int wpn_skill) const {
 }
 
 double Mechanics::get_glancing_blow_chance(const int clvl) const {
-    // TODO: Non-melee classes do not follow this formula.
+    // Non-melee classes do not follow this formula.
     int level_diff = target->get_lvl() - clvl;
     if (level_diff < 0)
         return 0.0;
@@ -53,12 +53,12 @@ double Mechanics::get_dodge_chance(const int wpn_skill) const {
 }
 
 double Mechanics::get_parry_chance(const int) const {
-    // TODO: Add possibility to activate parry chance and have it affected by wpn skill.
+    // CSIM-81: Add possibility to activate parry chance and have it affected by wpn skill.
     return 0.0;
 }
 
 double Mechanics::get_block_chance() const {
-    // TODO: Add possibility to activate block chance and have it affected by wpn skill.
+    // CSIM-81: Add possibility to activate block chance and have it affected by wpn skill.
     return 0.0;
 }
 

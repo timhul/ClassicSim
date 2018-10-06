@@ -48,17 +48,17 @@ int CombatRoll::get_melee_ability_result(const int wpn_skill,
 }
 
 int CombatRoll::get_ranged_hit_result(const int) {
-    // TODO: Remove hardcoded critical result
+    // CSIM-73: Remove hardcoded critical result
     return AttackResult::CRITICAL;
 }
 
 int CombatRoll::get_ranged_ability_result(const int) {
-    // TODO: Remove hardcoded critical result
+    // CSIM-73: Remove hardcoded critical result
     return AttackResult::CRITICAL;
 }
 
 int CombatRoll::get_spell_ability_result() {
-    // TODO: Remove hardcoded critical result
+    // CSIM-60: Remove hardcoded critical result
     return AttackResult::CRITICAL;
 }
 

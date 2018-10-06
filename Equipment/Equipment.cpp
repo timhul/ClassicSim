@@ -492,7 +492,7 @@ void Equipment::set_trinket2(const QString &name) {
 }
 
 void Equipment::set_caster_offhand(const QString &name) {
-    // TODO: Get caster offhand.
+    // CSIM-74: Get caster offhand.
     Item* item = db->get_ranged(name);
 
     if (item == nullptr)

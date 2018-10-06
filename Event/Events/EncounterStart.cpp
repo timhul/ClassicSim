@@ -10,7 +10,6 @@ EncounterStart::EncounterStart(Character* pchar) {
 }
 
 void EncounterStart::act() {
-    // TODO: Make start_attack() virtual such that ranged classes do not start melee attacking.
     pchar->start_attack();
     pchar->perform_rotation();
 }

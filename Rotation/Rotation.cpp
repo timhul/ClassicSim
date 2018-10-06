@@ -36,7 +36,7 @@ void Rotation::link_spells() {
 
         Spell* spell = get_spell_from_name(spell_name);
         if (spell == nullptr) {
-            // TODO: Simply continuing is not enough if assertion is placed in CastIf that spell is nullptr
+            // CSIM-82: Simply continuing is not enough if assertion is placed in CastIf that spell is nullptr
             qDebug() << "Could not find matching spell for" << spell_name;
             continue;
         }
@@ -45,7 +45,9 @@ void Rotation::link_spells() {
         this->add_conditionals(i);
     }
 
-    // TODO: Consider removing CastIfs with nullptr spells (see note above about continue).
+    // CSIM-82: One option is to remove CastIfs with nullptr spells (see note above about continue).
+    // However, this means the rotation is as the user expects it. Decide whether the reading of
+    // this is atomic (complete rotation or none) or if the deviation should just be reported to the user.
 }
 
 void Rotation::add_conditionals(const int index) {

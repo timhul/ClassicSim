@@ -17,17 +17,17 @@ ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
 bool ConditionVariableBuiltin::condition_fulfilled() const {
     switch (builtin) {
     case BuiltinVariables::TargetHealth: {
-        // TODO: Remove knowledge of fight length
+        // CSIM-59: Remove knowledge of fight length
         double remaining_health = (300 - engine->get_current_priority()) / 300;
         return cmp_values(remaining_health);
     }
     case BuiltinVariables::TimeRemainingEncounter: {
-        // TODO: Remove knowledge of fight length
+        // CSIM-59: Remove knowledge of fight length
         double remaining_encounter_time = 300 - engine->get_current_priority();
         return cmp_values(remaining_encounter_time);
     }
     case BuiltinVariables::TimeRemainingExecute: {
-        // TODO: Refactor this check into separate target mechanic.
+        // CSIM-69: Refactor this check into separate target mechanic.
         double remaining_execute_time = 300 * 0.8 - engine->get_current_priority();
         return cmp_values(remaining_execute_time);
     }

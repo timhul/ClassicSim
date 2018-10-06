@@ -100,7 +100,6 @@ double Spell::get_cooldown_remaining() const {
 
 void Spell::increase_effect_via_talent() {
     ++rank_talent;
-    // TODO: Assert max rank?
     if (is_enabled_externally && !enabled)
         enabled = true;
 }

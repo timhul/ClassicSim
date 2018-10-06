@@ -14,7 +14,6 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
                    QPair<int, int>(325, 9),
                    QPair<int, int>(450, 12),
                    QPair<int, int>(600, 15)};
-    // TODO: Remove hardcoded assumption of rank 5 Execute.
     rank_spell = 4;
     initial_dmg = spell_ranks[rank_spell].first;
     dmg_per_rage_converted = spell_ranks[rank_spell].second;
@@ -23,7 +22,7 @@ Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
 }
 
 bool Execute::is_ready_spell_specific() const {
-    // TODO: Refactor this check into separate target mechanic.
+    // CSIM-69: Refactor this check into separate target mechanic.
     double time_remaining = 300 - warr->get_engine()->get_current_priority();
     return time_remaining / 300 < 0.2;
 }
@@ -33,7 +32,7 @@ void Execute::spell_effect() {
 
     add_gcd_event();
 
-    // TODO: Check Execute rage loss on miss/dodge/parry
+    // CSIM-70: Investigate Execute rage loss on miss/dodge/parry
     if (result == AttackResult::MISS) {
         increment_miss();
         warr->lose_rage(static_cast<unsigned>(resource_cost));
@@ -68,7 +67,6 @@ void Execute::spell_effect() {
 
 void Execute::increase_effect_via_talent() {
     ++rank_talent;
-    // TODO: Assert max rank?
     resource_cost = talent_ranks[rank_talent];
 }
 

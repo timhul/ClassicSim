@@ -482,7 +482,7 @@ void TestExecute::test_dodge_applies_overpower_buff() {
 }
 
 void TestExecute::given_target_in_execute_range() {
-    // TODO: Remove knowledge 280 seconds is within Execute range, use target mechanic.
+    // CSIM-69: Remove knowledge 280 seconds is within Execute range, use target mechanic.
     given_engine_priority_at(280);
 }
 

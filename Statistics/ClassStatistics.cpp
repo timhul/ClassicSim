@@ -10,7 +10,6 @@ ClassStatistics::ClassStatistics(QObject *parent) :
 {}
 
 void ClassStatistics::add_spell_statistics(StatisticsSpell* spell) {
-    // TODO: Minimize adding of spell statistics. Maybe at end of encounter/sim
     if (spell_statistics.contains(spell->get_name()))
         return;
 
@@ -183,7 +182,7 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
         }
 
         QString name = it.value()->get_name();
-        // TODO: Remove hardcoded knowledge of num fights / fight length
+        // CSIM-59: Remove hardcoded knowledge of num fights / fight length
         double gain_per_5 = double(gain) / ((double(300) / 5) * 1000);
         entries.append(QVariantList({name, gain, QString::number(gain_per_5, 'f', 2)}));
         ++it;

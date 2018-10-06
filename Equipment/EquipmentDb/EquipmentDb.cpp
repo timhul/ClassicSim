@@ -73,7 +73,7 @@ Weapon* EquipmentDb::get_melee_weapon(const QString &name) {
             return new Weapon(dynamic_cast<Weapon*>(current_patch_mh_slot_item));
     }
 
-    // TODO: How to handle caster offhands?
+    // CSIM-74: How to handle caster offhands?
     for (auto & current_patch_oh_slot_item : current_patch_oh_slot_items) {
         if (name == current_patch_oh_slot_item->get_name())
             return new Weapon(dynamic_cast<Weapon*>(current_patch_oh_slot_item));

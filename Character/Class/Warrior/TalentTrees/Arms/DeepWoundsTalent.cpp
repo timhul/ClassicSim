@@ -14,13 +14,11 @@ DeepWoundsTalent::DeepWoundsTalent(Character *pchar, TalentTree* tree) :
 DeepWoundsTalent::~DeepWoundsTalent() = default;
 
 void DeepWoundsTalent::apply_rank_effect() {
-    // TODO: Create WarriorTalent that has warrior available.
     auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_deep_wounds()->increase_effect_via_talent();
 }
 
 void DeepWoundsTalent::remove_rank_effect() {
-    // TODO: Create WarriorTalent that has warrior available.
     auto* warr = dynamic_cast<Warrior*>(pchar);
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_deep_wounds()->decrease_effect_via_talent();
 }

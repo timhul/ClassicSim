@@ -73,7 +73,7 @@ namespace WeaponSlots {
     static const int RANGED = 4;
 }
 
-// TODO: Coalesce WeaponTypes and ArmorTypes
+// CSIM-76: Coalesce WeaponTypes and ArmorTypes
 namespace ArmorTypes {
     static const int CLOTH = 20;
     static const int LEATHER = 21;

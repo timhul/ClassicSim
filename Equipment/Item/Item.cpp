@@ -112,7 +112,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
 
         QString proc_name = i["name"];
         QString instant = i["instant"].toLower();
-        // TODO: Support recursive
+        // CSIM-75: Investigate if recursive should be supported
         // QString recursive = procs[i]["recursive"];
         int amount = QString(i["amount"]).toInt();
         double internal_cd = QString(i["internal_cd"]).toDouble();

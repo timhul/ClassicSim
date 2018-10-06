@@ -15,7 +15,6 @@ void BattleShoutBuff::buff_effect_when_removed() {
 
 void BattleShoutBuff::increase_effect_via_booming_voice() {
     ++rank_booming_voice;
-    // TODO: Assert max rank?
     duration = static_cast<int>(round(base_duration * ranks_booming_voice[rank_booming_voice]));
 }
 
@@ -27,7 +26,6 @@ void BattleShoutBuff::decrease_effect_via_booming_voice() {
 
 void BattleShoutBuff::increase_effect_via_imp_shout() {
     ++rank_imp_shout;
-    // TODO: Assert max rank?
 }
 
 void BattleShoutBuff::decrease_effect_via_imp_shout() {

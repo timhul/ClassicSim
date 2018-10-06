@@ -13,7 +13,6 @@ HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
     warr(dynamic_cast<Warrior*>(pchar))
 {
     spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};
-    // TODO: Remove hardcoded assumption of rank 9 Heroic Strike.
     rank_spell = 8;
     additional_dmg = spell_ranks[rank_spell];
 
@@ -63,7 +62,6 @@ void HeroicStrike::spell_effect() {
 
 void HeroicStrike::increase_effect_via_talent() {
     ++rank_talent;
-    // TODO: Assert max rank?
     resource_cost = talent_ranks[rank_talent];
 }
 
