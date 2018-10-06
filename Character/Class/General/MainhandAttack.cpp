@@ -34,7 +34,6 @@ void MainhandAttack::calculate_damage() {
         increment_miss();
         return;
     }
-    // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
         return;
@@ -84,10 +83,6 @@ void MainhandAttack::update_next_expected_use(const double haste_change) {
 }
 
 void MainhandAttack::complete_swing() {
-    // TODO: last_used is not updated within the context of Heroic Strike,
-    // since it directly invokes complete_swing() instead of going via perform().
-    // To fix this, we set last_used directly.
-    // This means we update last_used twice with the same value when going via perform().
     last_used = engine->get_current_priority();
     next_expected_use = last_used + pchar->get_stats()->get_mh_wpn_speed();
 }

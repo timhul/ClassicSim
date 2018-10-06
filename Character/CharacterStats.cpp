@@ -15,7 +15,6 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObj
 {
     this->base_stats = new Stats();
     this->total_phys_dmg_mod = 1.0;
-    // TODO: Get haste enchants from gear
     this->haste_factor = 1.0;
 }
 
@@ -124,7 +123,6 @@ void CharacterStats::decrease_spirit(const int decrease) {
 }
 
 int CharacterStats::get_melee_ap() {
-    // TODO: Equipment does not know about char, and therefore it cannot calculate modifiers correctly.
     int eq_base_melee_ap = equipment->get_stats()->get_melee_ap_str_excluded();
     int eq_str = equipment->get_stats()->get_strength();
     int eq_agi = equipment->get_stats()->get_agility();
@@ -142,7 +140,6 @@ void CharacterStats::decrease_melee_ap(const int decrease) {
 }
 
 double CharacterStats::get_total_phys_dmg_mod() const {
-    // TODO: Include e.g. Two-Handed Weapon Specialization if using 2-handers.
     return total_phys_dmg_mod;
 }
 

@@ -9,11 +9,11 @@ FieryWeaponAttack::FieryWeaponAttack(Engine* engine, Character* pchar, CombatRol
 {}
 
 void FieryWeaponAttack::spell_effect() {
-    // TODO: Add spell table, since Fiery Weapon deals fire damage.
+    // CSIM-60: Add spell attack table and use it here
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill());
 
     double damage_dealt = 40;
-    // TODO: Apply +damage bonus at ratio (unknown ratio atm).
+    // CSIM-64: Add +dmg as a stat and apply +damage bonus at ratio (unknown ratio atm).
     damage_dealt *= 1;
 
     if (result == AttackResult::CRITICAL) {

@@ -34,7 +34,6 @@ void OffhandAttack::calculate_damage() {
         increment_miss();
         return;
     }
-    // TODO: Apply Overpower
     if (result == AttackResult::DODGE) {
         increment_dodge();
         return;

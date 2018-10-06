@@ -347,7 +347,6 @@ unsigned Character::get_avg_mh_damage() {
 }
 
 double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon) {
-    // TODO: Consider moving these types of mechanical assumptions into e.g. Mechanics
     if (weapon == nullptr)
         return get_non_normalized_dmg(damage, 2.0);
 
@@ -413,12 +412,10 @@ void Character::increase_attack_speed(int increase) {
     double increase_double = double(increase) / 100;
 
     spells->get_mh_attack()->update_next_expected_use(increase_double);
-    // TODO: Check if actually attacking
     spells->add_next_mh_attack();
 
     if (cstats->get_equipment()->is_dual_wielding()) {
         spells->get_oh_attack()->update_next_expected_use(increase_double);
-        // TODO: Check if actually attacking
         spells->add_next_oh_attack();
     }
 }
@@ -428,12 +425,10 @@ void Character::decrease_attack_speed(int decrease) {
     double decrease_double = double(decrease) / 100;
 
     spells->get_mh_attack()->update_next_expected_use(-decrease_double);
-    // TODO: Check if actually attacking
     spells->add_next_mh_attack();
 
     if (cstats->get_equipment()->is_dual_wielding()) {
         spells->get_oh_attack()->update_next_expected_use(-decrease_double);
-        // TODO: Check if actually attacking
         spells->add_next_oh_attack();
     }
 }

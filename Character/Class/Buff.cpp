@@ -105,7 +105,6 @@ void Buff::reset() {
     if (is_active())
         force_remove_buff();
 
-    // TODO: Remove knowledge of fight length being 300s.
     statistics_buff->add_uptime_for_encounter(uptime / 300);
     initialize();
 }
@@ -130,7 +129,6 @@ bool Buff::is_hidden() const {
 
 void Buff::increase_rank() {
     ++rank_talent;
-    // TODO: Assert max rank?
 }
 
 void Buff::decrease_rank() {
