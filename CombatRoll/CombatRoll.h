@@ -42,6 +42,8 @@ public:
 
     void update_crit_chance(const double critical);
     void update_miss_chance(const double hit);
+    void update_spell_crit_chance(const double critical);
+    void update_spell_miss_chance(const double hit);
 
     void dump_tables();
     void drop_tables();

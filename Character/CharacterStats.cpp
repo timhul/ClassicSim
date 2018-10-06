@@ -52,7 +52,7 @@ int CharacterStats::get_spirit() const {
 }
 
 double CharacterStats::get_hit_chance() const {
-    return base_stats->get_hit_chance()  + equipment->get_stats()->get_hit_chance();
+    return base_stats->get_hit_chance() + equipment->get_stats()->get_hit_chance();
 }
 
 double CharacterStats::get_crit_chance() const {
@@ -60,6 +60,17 @@ double CharacterStats::get_crit_chance() const {
     const auto crit_from_agi = double(double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit());
 
     return equip_effect + crit_from_agi / 100;
+}
+
+double CharacterStats::get_spell_hit_chance() const {
+    return base_stats->get_spell_hit_chance() + equipment->get_stats()->get_spell_hit_chance();
+}
+
+double CharacterStats::get_spell_crit_chance() const {
+    const double equip_effect = base_stats->get_spell_crit_chance()  + equipment->get_stats()->get_spell_crit_chance();
+    const auto crit_from_int = double(double(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit());
+
+    return equip_effect + crit_from_int / 100;
 }
 
 void CharacterStats::increase_haste(const int increase) {
@@ -161,6 +172,26 @@ void CharacterStats::increase_crit(double increase) {
 void CharacterStats::decrease_crit(double decrease) {
     base_stats->decrease_crit(decrease);
     pchar->get_combat_roll()->update_crit_chance(get_crit_chance());
+}
+
+void CharacterStats::increase_spell_hit(double increase) {
+    base_stats->increase_spell_hit(increase);
+    pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
+}
+
+void CharacterStats::decrease_spell_hit(double decrease) {
+    base_stats->decrease_spell_hit(decrease);
+    pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
+}
+
+void CharacterStats::increase_spell_crit(double increase) {
+    base_stats->increase_spell_crit(increase);
+    pchar->get_combat_roll()->update_spell_crit_chance(get_spell_crit_chance());
+}
+
+void CharacterStats::decrease_spell_crit(double decrease) {
+    base_stats->decrease_spell_crit(decrease);
+    pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
 }
 
 void CharacterStats::increase_total_phys_dmg_mod(const int increase) {

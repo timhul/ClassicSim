@@ -28,6 +28,8 @@ public:
 
     double get_hit_chance(void) const;
     double get_crit_chance(void) const;
+    double get_spell_hit_chance(void) const;
+    double get_spell_crit_chance(void) const;
 
     void increase_str(const int increase);
     void decrease_str(const int decrease);
@@ -99,6 +101,12 @@ public:
     void increase_hit(const double value);
     void decrease_hit(const double value);
 
+    void increase_spell_hit(const double value);
+    void decrease_spell_hit(const double value);
+
+    void increase_spell_crit(const double value);
+    void decrease_spell_crit(const double value);
+
     void increase_attack_speed(const double value);
     void decrease_attack_speed(const double value);
 
@@ -148,6 +156,8 @@ private:
     int ranged_ap{};
     double percent_hit;
     double percent_crit;
+    double percent_spell_hit;
+    double percent_spell_crit;
     double percent_attack_speed;
 
     QMap<Target::CreatureType, int> melee_ap_against_creature;

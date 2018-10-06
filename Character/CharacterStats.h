@@ -28,6 +28,8 @@ public:
     int get_spirit() const;
     double get_hit_chance(void) const;
     double get_crit_chance(void) const;
+    double get_spell_hit_chance(void) const;
+    double get_spell_crit_chance(void) const;
 
     double get_total_phys_dmg_mod() const;
 
@@ -58,10 +60,16 @@ public:
     void decrease_melee_ap(const int);
 
     virtual void increase_hit(double);
-    virtual void increase_crit(double);
-
     virtual void decrease_hit(double);
+
+    virtual void increase_crit(double);
     virtual void decrease_crit(double);
+
+    virtual void increase_spell_hit(double);
+    virtual void decrease_spell_hit(double);
+
+    virtual void increase_spell_crit(double);
+    virtual void decrease_spell_crit(double);
 
     void increase_total_phys_dmg_mod(const int);
     void decrease_total_phys_dmg_mod(const int);

@@ -175,6 +175,14 @@ void CombatRoll::update_miss_chance(const double hit) {
     }
 }
 
+void CombatRoll::update_spell_crit_chance(const double) {
+    // CSIM-60 Implement spell attack rolls
+}
+
+void CombatRoll::update_spell_miss_chance(const double) {
+    // CSIM-60 Implement spell attack rolls
+}
+
 void CombatRoll::dump_tables() {
     QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
     auto end_auto = auto_attack_tables.constEnd();
