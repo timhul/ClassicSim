@@ -47,7 +47,6 @@ double Spell::get_next_use() const {
 }
 
 bool Spell::is_ready() const {
-    // TODO: Check stance cd if spell restricted by stance cd
     if (restricted_by_gcd && pchar->on_global_cooldown())
         return false;
 
