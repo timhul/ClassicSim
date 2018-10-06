@@ -1,18 +1,14 @@
 #ifndef TESTWARRIOR_H
 #define TESTWARRIOR_H
 
+#include "TestCharacter.h"
+
 class EquipmentDb;
 
-class TestWarrior {
+class TestWarrior : public TestCharacter {
 public:
-    TestWarrior();
-    ~TestWarrior();
-
-    void test_all();
-    void test_char_initialization();
-
-private:
-    EquipmentDb* equipment_db;
+    void test_all() override;
+    void test_basic_properties() override;
 };
 
 #endif // TESTWARRIOR_H

@@ -6,10 +6,10 @@
 
 #include "Engine.h"
 #include "Equipment.h"
-#include "EquipmentDb.h"
 #include "Target.h"
 #include "CombatRoll.h"
 #include "Faction.h"
+#include "ItemNamespace.h"
 #include "TestExecute.h"
 #include "TestHeroicStrike.h"
 #include "TestBloodthirst.h"
@@ -24,15 +24,9 @@
 #include "TestRecklessness.h"
 #include "TestBerserkerStance.h"
 
-TestWarrior::TestWarrior() :
-    equipment_db(new EquipmentDb())
-{}
-
-TestWarrior::~TestWarrior() {
-    delete equipment_db;
-}
-
 void TestWarrior::test_all() {
+    test_basic_properties();
+
     TestExecute(equipment_db).test_all();
     TestHeroicStrike(equipment_db).test_all();
     TestBloodthirst(equipment_db).test_all();
@@ -48,13 +42,17 @@ void TestWarrior::test_all() {
     TestBerserkerStance(equipment_db).test_all();
 }
 
-void TestWarrior::test_char_initialization() {
+void TestWarrior::test_basic_properties() {
     Race* race = new Orc();
     auto* warr = new Warrior(race, equipment_db);
 
     assert(warr->get_name() == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");
-    // TODO: Add more assertions
+    assert(warr->get_highest_possible_armor_type() == ArmorTypes::PLATE);
+    assert(delta(1.5, warr->global_cooldown()) < 0.0001);
+    assert(delta(1.0, warr->stance_cooldown()) < 0.0001);
+    assert(delta(2.0, warr->get_ability_crit_dmg_mod()) < 0.0001);
+    assert(delta(1.5, warr->get_spell_crit_dmg_mod()) < 0.0001);
 
     delete race;
     delete warr;
