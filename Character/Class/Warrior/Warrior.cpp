@@ -103,6 +103,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
 }
 
 Warrior::~Warrior() {
+    delete cstats;
     delete warr_spells;
     delete statistics;
     // TODO: Create a WarriorProcs class that holds UnbridledWrath and other (?) warrior procs.

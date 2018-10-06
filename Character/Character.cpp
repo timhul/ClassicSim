@@ -52,7 +52,6 @@ Character::~Character() {
     delete roll;
     delete faction;
     delete talents;
-    delete cstats;
     delete active_procs;
     delete active_buffs;
     delete berserking_buff;

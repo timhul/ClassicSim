@@ -40,6 +40,8 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
 }
 
 Equipment::~Equipment() {
+    clean_item_proc_state();
+
     for (auto & i : stats_from_equipped_gear) {
         delete i;
     }
