@@ -12,10 +12,10 @@ BerserkerStanceBuff::BerserkerStanceBuff(Character* pchar):
 
 void BerserkerStanceBuff::buff_effect_when_applied() {
     warr->get_stats()->increase_crit(0.03);
-    warr->get_stats()->add_damage_taken_mod(10);
+    warr->get_stats()->add_phys_damage_taken_mod(10);
 }
 
 void BerserkerStanceBuff::buff_effect_when_removed() {
     warr->get_stats()->decrease_crit(0.03);
-    warr->get_stats()->remove_damage_taken_mod(10);
+    warr->get_stats()->remove_phys_damage_taken_mod(10);
 }

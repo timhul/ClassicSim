@@ -15,8 +15,9 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObj
 {
     this->base_stats = new Stats();
     this->total_phys_dmg_mod = 1.0;
-    this->haste_factor = 1.0;
-    this->damage_taken_mod = 1.0;
+    this->attack_speed_mod = 1.0;
+    this->physical_damage_taken_mod = 1.0;
+    this->spell_damage_taken_mod = 1.0;
 
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0.0);
@@ -134,11 +135,11 @@ int CharacterStats::get_wpn_skill(Weapon* weapon) const {
 }
 
 void CharacterStats::increase_haste(const int increase) {
-    add_multiplicative_effect(attack_speed_buffs, increase, haste_factor);
+    add_multiplicative_effect(attack_speed_buffs, increase, attack_speed_mod);
 }
 
 void CharacterStats::decrease_haste(const int decrease) {
-    remove_multiplicative_effect(attack_speed_buffs, decrease, haste_factor);
+    remove_multiplicative_effect(attack_speed_buffs, decrease, attack_speed_mod);
 }
 
 void CharacterStats::increase_strength(const int increase) {
@@ -256,21 +257,29 @@ void CharacterStats::decrease_total_phys_dmg_mod(const int decrease) {
     remove_multiplicative_effect(phys_dmg_buffs, decrease, total_phys_dmg_mod);
 }
 
-void CharacterStats::add_damage_taken_mod(const int mod) {
-    add_multiplicative_effect(damage_taken_changes, mod, damage_taken_mod);
+void CharacterStats::add_phys_damage_taken_mod(const int mod) {
+    add_multiplicative_effect(phys_damage_taken_changes, mod, physical_damage_taken_mod);
 }
 
-void CharacterStats::remove_damage_taken_mod(const int mod) {
-    remove_multiplicative_effect(damage_taken_changes, mod, damage_taken_mod);
+void CharacterStats::remove_phys_damage_taken_mod(const int mod) {
+    remove_multiplicative_effect(phys_damage_taken_changes, mod, physical_damage_taken_mod);
+}
+
+void CharacterStats::add_spell_damage_taken_mod(const int mod) {
+    add_multiplicative_effect(spell_damage_taken_changes, mod, spell_damage_taken_mod);
+}
+
+void CharacterStats::remove_spell_damage_taken_mod(const int mod) {
+    remove_multiplicative_effect(spell_damage_taken_changes, mod, spell_damage_taken_mod);
 }
 
 double CharacterStats::get_mh_wpn_speed() {
-    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / haste_factor :
-                                   2.0 / haste_factor;
+    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / attack_speed_mod :
+                                   2.0 / attack_speed_mod;
 }
 
 double CharacterStats::get_oh_wpn_speed() {
-    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / haste_factor :
+    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / attack_speed_mod :
                                   300;
 }
 

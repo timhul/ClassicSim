@@ -80,8 +80,11 @@ public:
     void increase_total_phys_dmg_mod(const int);
     void decrease_total_phys_dmg_mod(const int);
 
-    void add_damage_taken_mod(const int);
-    void remove_damage_taken_mod(const int);
+    void add_phys_damage_taken_mod(const int);
+    void remove_phys_damage_taken_mod(const int);
+
+    void add_spell_damage_taken_mod(const int);
+    void remove_spell_damage_taken_mod(const int);
 
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
@@ -92,14 +95,16 @@ protected:
     Stats* base_stats;
     QVector<int> attack_speed_buffs;
     QVector<int> phys_dmg_buffs;
-    QVector<int> damage_taken_changes;
+    QVector<int> phys_damage_taken_changes;
+    QVector<int> spell_damage_taken_changes;
     QHash<int, double> crit_bonuses_per_weapon_type;
 
     int ranged_ap{};
-    double haste_factor;
-    double ability_crit_dmg_mod{};
+    double melee_ability_crit_mod{};
+    double attack_speed_mod;
     double total_phys_dmg_mod;
-    double damage_taken_mod;
+    double physical_damage_taken_mod;
+    double spell_damage_taken_mod;
 
     void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
     void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
