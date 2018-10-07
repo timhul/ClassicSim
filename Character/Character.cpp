@@ -314,10 +314,6 @@ double Character::get_ability_crit_dmg_mod() const {
     return ability_crit_dmg_mod;
 }
 
-double Character::get_total_phys_dmg_mod() const {
-    return cstats->get_total_phys_dmg_mod();
-}
-
 double Character::get_spell_crit_dmg_mod() const {
     return spell_crit_dmg_mod;
 }

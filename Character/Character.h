@@ -106,7 +106,6 @@ public:
     void run_extra_oh_attack();
 
     double get_ability_crit_dmg_mod() const;
-    double get_total_phys_dmg_mod() const;
     double get_spell_crit_dmg_mod() const;
 
     double get_random_normalized_mh_dmg();

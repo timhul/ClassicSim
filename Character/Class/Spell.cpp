@@ -1,6 +1,7 @@
 
 #include "Spell.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include "Target.h"
 #include "StatisticsSpell.h"
 #include "Mechanics.h"
@@ -189,7 +190,7 @@ void Spell::add_crit_dmg(const int damage) {
 
 double Spell::damage_after_modifiers(const double damage) const {
     double armor_reduction = 1 - roll->get_mechanics()->get_reduction_from_armor(roll->get_target()->get_armor(), pchar->get_clvl());
-    return damage * pchar->get_total_phys_dmg_mod() * armor_reduction;
+    return damage * pchar->get_stats()->get_total_phys_dmg_mod() * armor_reduction;
 }
 
 void Spell::reset() {
