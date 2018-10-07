@@ -61,6 +61,8 @@ public:
     void then_next_event_is(const QString &name);
     void then_next_event_is(const QString &name, const QString &priority);
 
+    void dump_queued_events();
+
 protected:
     EquipmentDb* equipment_db;
     Character* pchar;

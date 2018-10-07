@@ -14,7 +14,7 @@ Buff::Buff(Character* pchar, const QString& name, const int duration, const int 
     name(name),
     duration(duration),
     base_charges(base_charges),
-    rank_talent(1),
+    rank_talent(0),
     hidden(false),
     instance_id(BuffStatus::INACTIVE)
 {
@@ -159,11 +159,13 @@ void Buff::remove_buff_statistic() {
 }
 
 void Buff::enable_buff() {
+    this->increase_rank();
     this->add_buff_statistic();
     pchar->get_active_buffs()->add_buff(this);
 }
 
 void Buff::disable_buff() {
+    this->rank_talent = 0;
     this->remove_buff_statistic();
     pchar->get_active_buffs()->remove_buff(this);
 }

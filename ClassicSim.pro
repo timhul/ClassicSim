@@ -222,7 +222,8 @@ SOURCES += main.cpp \
     GUI/Models/AvailableItemStatFilterModel.cpp \
     Test/TestCharacter.cpp \
     Test/TestSpellDamage.cpp \
-    Character/Class/Warrior/Buffs/DefensiveStanceBuff.cpp
+    Character/Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
+    Test/Warrior/Spells/TestDeathWish.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -439,7 +440,8 @@ HEADERS += \
     GUI/Models/AvailableItemStatFilterModel.h \
     Test/TestCharacter.h \
     Test/TestSpellDamage.h \
-    Character/Class/Warrior/Buffs/DefensiveStanceBuff.h
+    Character/Class/Warrior/Buffs/DefensiveStanceBuff.h \
+    Test/Warrior/Spells/TestDeathWish.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

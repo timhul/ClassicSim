@@ -17,14 +17,10 @@ DeathWishTalent::~DeathWishTalent() = default;
 
 void DeathWishTalent::apply_rank_effect() {
     auto* warr = dynamic_cast<Warrior*>(pchar);
-    warr->get_death_wish_buff()->increase_rank();
-    warr->get_death_wish_buff()->enable_buff();
-    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->increase_effect_via_talent();
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->enable();
 }
 
 void DeathWishTalent::remove_rank_effect() {
     auto* warr = dynamic_cast<Warrior*>(pchar);
-    warr->get_death_wish_buff()->decrease_rank();
-    warr->get_death_wish_buff()->disable_buff();
-    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->decrease_effect_via_talent();
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_death_wish()->disable();
 }

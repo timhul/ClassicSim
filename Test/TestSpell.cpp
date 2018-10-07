@@ -506,3 +506,14 @@ void TestSpell::then_next_event_is(const QString &name, const QString &priority)
 
     delete event;
 }
+
+void TestSpell::dump_queued_events() {
+    Queue* queue = pchar->get_engine()->get_queue();
+    while (!queue->empty()) {
+        Event* event = queue->get_next();
+
+        qDebug() << event->get_name() << ": " << event->get_priority();
+
+        delete event;
+    }
+}

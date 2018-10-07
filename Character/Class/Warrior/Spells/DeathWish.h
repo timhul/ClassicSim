@@ -10,6 +10,9 @@ public:
     DeathWish(Engine* engine, Character* pchar, CombatRoll* roll);
 
     void spell_effect() override;
+    void enable_spell_effect() override;
+    void disable_spell_effect() override;
+
 protected:
 private:
     Warrior* warr;
