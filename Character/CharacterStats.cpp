@@ -134,23 +134,11 @@ int CharacterStats::get_wpn_skill(Weapon* weapon) const {
 }
 
 void CharacterStats::increase_haste(const int increase) {
-    attack_speed_buffs.append(increase);
-
-    haste_factor = 1.0;
-    for (int attack_speed_buff : attack_speed_buffs) {
-        double haste_buff = double(attack_speed_buff) / 100;
-        haste_factor *= 1 + haste_buff;
-    }
+    add_multiplicative_effect(attack_speed_buffs, increase, haste_factor);
 }
 
 void CharacterStats::decrease_haste(const int decrease) {
-    assert(attack_speed_buffs.removeOne(decrease));
-
-    haste_factor = 1.0;
-    for (int attack_speed_buff : attack_speed_buffs) {
-        double haste_buff = double(attack_speed_buff) / 100;
-        haste_factor *= 1 + haste_buff;
-    }
+    remove_multiplicative_effect(attack_speed_buffs, decrease, haste_factor);
 }
 
 void CharacterStats::increase_strength(const int increase) {
@@ -261,43 +249,19 @@ void CharacterStats::decrease_spell_crit(double decrease) {
 }
 
 void CharacterStats::increase_total_phys_dmg_mod(const int increase) {
-    phys_dmg_buffs.append(increase);
-
-    total_phys_dmg_mod = 1.0;
-    for (int phys_dmg_buff : phys_dmg_buffs) {
-        double coefficient = 1.0 + double(phys_dmg_buff) / 100;
-        total_phys_dmg_mod = total_phys_dmg_mod * coefficient;
-    }
+    add_multiplicative_effect(phys_dmg_buffs, increase, total_phys_dmg_mod);
 }
 
 void CharacterStats::decrease_total_phys_dmg_mod(const int decrease) {
-    assert(phys_dmg_buffs.removeOne(decrease));
-
-    total_phys_dmg_mod = 1.0;
-    for (int phys_dmg_buff : phys_dmg_buffs) {
-        double coefficient = 1.0 + double(phys_dmg_buff) / 100;
-        total_phys_dmg_mod = total_phys_dmg_mod * coefficient;
-    }
+    remove_multiplicative_effect(phys_dmg_buffs, decrease, total_phys_dmg_mod);
 }
 
 void CharacterStats::add_damage_taken_mod(const int mod) {
-    damage_taken_changes.append(mod);
-
-    damage_taken_mod = 1.0;
-    for (int damage_taken_change : damage_taken_changes) {
-        double coefficient = 1.0 + double(damage_taken_change) / 100;
-        damage_taken_mod = damage_taken_mod * coefficient;
-    }
+    add_multiplicative_effect(damage_taken_changes, mod, damage_taken_mod);
 }
 
 void CharacterStats::remove_damage_taken_mod(const int mod) {
-    assert(damage_taken_changes.removeOne(mod));
-
-    damage_taken_mod = 1.0;
-    for (int damage_taken_change : damage_taken_changes) {
-        double coefficient = 1.0 + double(damage_taken_change) / 100;
-        damage_taken_mod = damage_taken_mod * coefficient;
-    }
+    remove_multiplicative_effect(damage_taken_changes, mod, damage_taken_mod);
 }
 
 double CharacterStats::get_mh_wpn_speed() {
@@ -309,3 +273,27 @@ double CharacterStats::get_oh_wpn_speed() {
     return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / haste_factor :
                                   300;
 }
+
+void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {
+    effects.append(add_value);
+
+    recalculate_multiplicative_effects(effects, modifier);
+}
+
+void CharacterStats::remove_multiplicative_effect(QVector<int>& effects, int remove_value, double &modifier) {
+    assert(effects.removeOne(remove_value));
+
+    recalculate_multiplicative_effects(effects, modifier);
+}
+
+void CharacterStats::recalculate_multiplicative_effects(QVector<int>& effects, double& modifier) {
+    modifier = 1.0;
+    for (int effect : effects) {
+        double coefficient = 1.0 + double(effect) / 100;
+        modifier = modifier * coefficient;
+    }
+
+    assert(modifier > 0);
+}
+
+

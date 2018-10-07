@@ -101,6 +101,10 @@ protected:
     double total_phys_dmg_mod;
     double damage_taken_mod;
 
+    void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
+    void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
+    void recalculate_multiplicative_effects(QVector<int>& effects, double& modifier);
+
 private:
 };
 
