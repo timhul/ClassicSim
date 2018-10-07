@@ -70,31 +70,31 @@ void TestSwordSpecialization::test_name_correct() {
 void TestSwordSpecialization::test_proc_range_for_1_of_5_sword_spec() {
     given_1_of_5_sword_spec();
 
-    then_proc_range_is(100);
+    then_proc_range_is(sword_spec(), 100);
 }
 
 void TestSwordSpecialization::test_proc_range_for_2_of_5_sword_spec() {
     given_2_of_5_sword_pec();
 
-    then_proc_range_is(200);
+    then_proc_range_is(sword_spec(), 200);
 }
 
 void TestSwordSpecialization::test_proc_range_for_3_of_5_sword_spec() {
     given_3_of_5_sword_spec();
 
-    then_proc_range_is(300);
+    then_proc_range_is(sword_spec(), 300);
 }
 
 void TestSwordSpecialization::test_proc_range_for_4_of_5_sword_spec() {
     given_4_of_5_sword_spec();
 
-    then_proc_range_is(400);
+    then_proc_range_is(sword_spec(), 400);
 }
 
 void TestSwordSpecialization::test_proc_range_for_5_of_5_sword_spec() {
     given_5_of_5_sword_spec();
 
-    then_proc_range_is(500);
+    then_proc_range_is(sword_spec(), 500);
 }
 
 void TestSwordSpecialization::given_1_of_5_sword_spec() {
@@ -133,8 +133,7 @@ void TestSwordSpecialization::given_5_of_5_sword_spec() {
 }
 
 void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_sword_in_mh() {
-    given_warrior_has_1h_sword_equipped_in_mainhand();
-    given_warrior_does_not_have_sword_equipped_in_offhand();
+    given_warrior_has_1h_sword_equipped_in_mainhand(warrior);
 
     SwordSpecialization spec(pchar);
 
@@ -144,6 +143,40 @@ void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_sword_i
     spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
     assert(spec.proc_specific_conditions_fulfilled());
 
+    given_warrior_has_no_offhand(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_1h_axe_equipped_in_offhand(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_1h_mace_equipped_in_offhand(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_fist_weapon_equipped_in_offhand(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_dagger_equipped_in_offhand(warrior);
+
     spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
     assert(!spec.proc_specific_conditions_fulfilled());
 
@@ -152,7 +185,7 @@ void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_sword_i
 }
 
 void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_2h_sword() {
-    given_warrior_has_2h_sword_equipped_in_mainhand();
+    given_warrior_has_2h_sword_equipped(warrior);
 
     SwordSpecialization spec(pchar);
 
@@ -170,9 +203,51 @@ void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_2h_swor
 }
 
 void TestSwordSpecialization::test_mh_proc_conditions_not_fulfilled_if_using_other_types_of_2h() {
-    given_warrior_has_2h_that_is_not_sword_equipped_in_mainhand();
-
     SwordSpecialization spec(pchar);
+
+    given_warrior_has_2h_axe_equipped(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_2h_mace_equipped(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_polearm_equipped(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_staff_equipped(warrior);
 
     spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
     assert(!spec.proc_specific_conditions_fulfilled());
@@ -188,8 +263,8 @@ void TestSwordSpecialization::test_mh_proc_conditions_not_fulfilled_if_using_oth
 }
 
 void TestSwordSpecialization::test_proc_conditions_not_fulfilled_if_not_using_sword_in_either_mh_or_oh() {
-    given_warrior_does_not_have_sword_equipped_in_mainhand();
-    given_warrior_does_not_have_sword_equipped_in_offhand();
+    given_warrior_has_1h_axe_equipped_in_mainhand(warrior);
+    given_warrior_has_1h_mace_equipped_in_offhand(warrior);
 
     SwordSpecialization spec(pchar);
 
@@ -207,59 +282,55 @@ void TestSwordSpecialization::test_proc_conditions_not_fulfilled_if_not_using_sw
 }
 
 void TestSwordSpecialization::test_oh_proc_conditions_fulfilled_if_using_sword_in_oh() {
-    given_warrior_does_not_have_sword_equipped_in_mainhand();
-    given_warrior_has_1h_sword_equipped_in_offhand();
+    given_warrior_has_1h_sword_equipped_in_offhand(warrior);
 
     SwordSpecialization spec(pchar);
 
-    spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(spec.proc_specific_conditions_fulfilled());
+
+    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
+    assert(spec.proc_specific_conditions_fulfilled());
+
+    given_warrior_has_no_mainhand(warrior);
+
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
     assert(!spec.proc_specific_conditions_fulfilled());
 
     spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
     assert(!spec.proc_specific_conditions_fulfilled());
 
-    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
-    assert(spec.proc_specific_conditions_fulfilled());
+    given_warrior_has_1h_axe_equipped_in_mainhand(warrior);
 
-    spec.set_current_proc_source(ProcInfo::Source::OffhandSwing);
-    assert(spec.proc_specific_conditions_fulfilled());
-}
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 
-void TestSwordSpecialization::given_warrior_has_1h_sword_equipped_in_mainhand() {
-    warrior->get_stats()->get_equipment()->set_mainhand("Skullforge Reaver");
-    warrior->get_stats()->get_equipment()->clear_offhand();
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 
-    assert(warrior->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::SWORD);
-}
+    given_warrior_has_1h_mace_equipped_in_mainhand(warrior);
 
-void TestSwordSpecialization::given_warrior_has_2h_sword_equipped_in_mainhand() {
-    warrior->get_stats()->get_equipment()->set_mainhand("Ashkandi, Greatsword of the Brotherhood");
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 
-    assert(warrior->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_SWORD);
-}
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 
-void TestSwordSpecialization::given_warrior_has_2h_that_is_not_sword_equipped_in_mainhand() {
-    warrior->get_stats()->get_equipment()->set_mainhand("Arcanite Reaper");
+    given_warrior_has_fist_weapon_equipped_in_mainhand(warrior);
 
-    assert(warrior->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_AXE);
-}
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 
-void TestSwordSpecialization::given_warrior_does_not_have_sword_equipped_in_mainhand() {
-    warrior->get_stats()->get_equipment()->set_mainhand("Frostbite");
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 
-    assert(warrior->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::AXE);
-}
+    given_warrior_has_dagger_equipped_in_mainhand(warrior);
 
-void TestSwordSpecialization::given_warrior_has_1h_sword_equipped_in_offhand() {
-    warrior->get_stats()->get_equipment()->set_offhand("Skullforge Reaver");
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 
-    assert(warrior->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::SWORD);
-}
-
-void TestSwordSpecialization::given_warrior_does_not_have_sword_equipped_in_offhand() {
-    warrior->get_stats()->get_equipment()->set_offhand("Frostbite");
-
-    assert(warrior->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::AXE);
+    spec.set_current_proc_source(ProcInfo::Source::MainhandSwing);
+    assert(!spec.proc_specific_conditions_fulfilled());
 }
 
 void TestSwordSpecialization::test_proc_sources_are_valid() {
@@ -269,6 +340,6 @@ void TestSwordSpecialization::test_proc_sources_are_valid() {
     assert(warrior->get_sword_spec()->procs_from_source(ProcInfo::Source::OffhandSwing));
 }
 
-void TestSwordSpecialization::then_proc_range_is(const unsigned proc_range) {
-    assert(warrior->get_sword_spec()->get_proc_range() == proc_range);
+SwordSpecialization* TestSwordSpecialization::sword_spec() {
+    return warrior->get_sword_spec();
 }

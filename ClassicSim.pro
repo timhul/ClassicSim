@@ -227,7 +227,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.cpp \
     Character/Class/Warrior/Procs/SwordSpecialization.cpp \
     Test/Warrior/Procs/TestSwordSpecialization.cpp \
-    Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp
+    Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp \
+    Test/Warrior/TestWarriorUtils.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -449,7 +450,9 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.h \
     Character/Class/Warrior/Procs/SwordSpecialization.h \
     Test/Warrior/Procs/TestSwordSpecialization.h \
-    Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.h
+    Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.h \
+    Test/Warrior/TestWarriorUtils.h \
+    Test/TestUtils.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

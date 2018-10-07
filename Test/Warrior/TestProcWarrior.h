@@ -8,11 +8,12 @@ class TestProcWarrior: public TestProc {
 public:
     TestProcWarrior(EquipmentDb* equipment_db, QString proc_under_test);
 
-    void set_up();
-    void tear_down();
 
 protected:
     Warrior* warrior{};
+
+    void set_up();
+    void tear_down();
 };
 
 #endif // TESTPROCWARRIOR_H

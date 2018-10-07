@@ -12,7 +12,8 @@
 #include <utility>
 
 TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test))
+    TestSpellDamage(equipment_db, std::move(spell_under_test)),
+    warrior(nullptr)
 {}
 
 void TestSpellWarrior::set_up() {

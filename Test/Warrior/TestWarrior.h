@@ -2,6 +2,7 @@
 #define TESTWARRIOR_H
 
 #include "TestCharacter.h"
+#include "TestUtils.h"
 
 class EquipmentDb;
 

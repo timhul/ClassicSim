@@ -3,6 +3,8 @@
 
 #include "TestProcWarrior.h"
 
+class UnbridledWrath;
+
 class TestUnbridledWrath: public TestProcWarrior {
 public:
     TestUnbridledWrath(EquipmentDb *equipment_db);
@@ -23,9 +25,8 @@ public:
     void given_4_of_5_unbridled_wrath();
     void given_5_of_5_unbridled_wrath();
 
-    void then_proc_range_is(const unsigned);
-
 private:
+    UnbridledWrath* unbridled_wrath();
 };
 
 #endif // TESTUNBRIDLEDWRATH_H

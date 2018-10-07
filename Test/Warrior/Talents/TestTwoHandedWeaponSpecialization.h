@@ -1,12 +1,14 @@
 #ifndef TESTTWOHANDEDWEAPONSPECIALIZATION_H
 #define TESTTWOHANDEDWEAPONSPECIALIZATION_H
 
+#include "TestWarriorUtils.h"
+
 class EquipmentDb;
 class Race;
 class TwoHandedWeaponSpecialization;
 class Warrior;
 
-class TestTwoHandedWeaponSpecialization {
+class TestTwoHandedWeaponSpecialization : public TestWarriorUtils {
 public:
     TestTwoHandedWeaponSpecialization(EquipmentDb* equipment_db);
 
@@ -27,24 +29,7 @@ private:
     void set_up();
     void tear_down();
 
-    double delta(double lhs, double rhs);
-
     void test_basic_properties();
-
-    void given_warrior_has_1h_axe_equipped_in_mainhand();
-    void given_warrior_has_1h_mace_equipped_in_mainhand();
-    void given_warrior_has_1h_sword_equipped_in_mainhand();
-    void given_warrior_has_fist_weapon_equipped_in_mainhand();
-    void given_warrior_has_dagger_equipped_in_mainhand();
-
-    void given_warrior_has_no_mainhand();
-    void given_warrior_has_no_offhand();
-
-    void given_warrior_has_2h_axe_equipped();
-    void given_warrior_has_2h_mace_equipped();
-    void given_warrior_has_2h_sword_equipped();
-    void given_warrior_has_polearm_equipped();
-    void given_warrior_has_staff_equipped();
 };
 
 #endif // TESTTWOHANDEDWEAPONSPECIALIZATION_H

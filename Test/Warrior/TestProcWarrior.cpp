@@ -2,6 +2,7 @@
 #include "TestProcWarrior.h"
 
 #include "Warrior.h"
+#include "Proc.h"
 
 #include <utility>
 
@@ -12,8 +13,6 @@ TestProcWarrior::TestProcWarrior(EquipmentDb *equipment_db, QString spell_under_
 void TestProcWarrior::set_up() {
     set_up_general();
     warrior = new Warrior(race, equipment_db);
-    warrior->set_clvl(60);
-    warrior->gain_rage(100);
     pchar = warrior;
 }
 

@@ -1,16 +1,16 @@
 #ifndef TESTCHARACTER_H
 #define TESTCHARACTER_H
 
+#include "TestUtils.h"
+
 class EquipmentDb;
 
-class TestCharacter {
+class TestCharacter : public TestUtils {
 public:
     TestCharacter();
     virtual ~TestCharacter();
 
     virtual void test_all() = 0;
-
-    double delta(double lhs, double rhs);
 
 protected:
     EquipmentDb* equipment_db;

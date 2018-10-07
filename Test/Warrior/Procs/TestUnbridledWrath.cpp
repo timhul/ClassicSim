@@ -40,6 +40,10 @@ void TestUnbridledWrath::test_all() {
     tear_down();
 }
 
+UnbridledWrath* TestUnbridledWrath::unbridled_wrath() {
+    return warrior->get_unbridled_wrath();
+}
+
 void TestUnbridledWrath::test_name_correct() {
     assert(warrior->get_unbridled_wrath()->get_name() == "Unbridled Wrath");
 }
@@ -47,31 +51,31 @@ void TestUnbridledWrath::test_name_correct() {
 void TestUnbridledWrath::test_proc_range_for_1_of_5_unbridled_wrath() {
     given_1_of_5_unbridled_wrath();
 
-    then_proc_range_is(800);
+    then_proc_range_is(unbridled_wrath(), 800);
 }
 
 void TestUnbridledWrath::test_proc_range_for_2_of_5_unbridled_wrath() {
     given_2_of_5_unbridled_wrath();
 
-    then_proc_range_is(1600);
+    then_proc_range_is(unbridled_wrath(), 1600);
 }
 
 void TestUnbridledWrath::test_proc_range_for_3_of_5_unbridled_wrath() {
     given_3_of_5_unbridled_wrath();
 
-    then_proc_range_is(2400);
+    then_proc_range_is(unbridled_wrath(), 2400);
 }
 
 void TestUnbridledWrath::test_proc_range_for_4_of_5_unbridled_wrath() {
     given_4_of_5_unbridled_wrath();
 
-    then_proc_range_is(3200);
+    then_proc_range_is(unbridled_wrath(), 3200);
 }
 
 void TestUnbridledWrath::test_proc_range_for_5_of_5_unbridled_wrath() {
     given_5_of_5_unbridled_wrath();
 
-    then_proc_range_is(4000);
+    then_proc_range_is(unbridled_wrath(), 4000);
 }
 
 void TestUnbridledWrath::given_1_of_5_unbridled_wrath() {
@@ -114,8 +118,4 @@ void TestUnbridledWrath::test_proc_sources_are_valid() {
     assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::MainhandSwing));
     assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSpell));
     assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSwing));
-}
-
-void TestUnbridledWrath::then_proc_range_is(const unsigned proc_range) {
-    assert(warrior->get_unbridled_wrath()->get_proc_range() == proc_range);
 }

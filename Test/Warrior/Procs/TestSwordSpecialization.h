@@ -2,8 +2,11 @@
 #define TESTSWORDSPECIALIZATION_H
 
 #include "TestProcWarrior.h"
+#include "TestWarriorUtils.h"
 
-class TestSwordSpecialization: public TestProcWarrior {
+class SwordSpecialization;
+
+class TestSwordSpecialization: public TestProcWarrior, public TestWarriorUtils {
 public:
     TestSwordSpecialization(EquipmentDb *equipment_db);
 
@@ -31,17 +34,8 @@ public:
     void given_4_of_5_sword_spec();
     void given_5_of_5_sword_spec();
 
-    void given_warrior_has_1h_sword_equipped_in_mainhand();
-    void given_warrior_has_2h_sword_equipped_in_mainhand();
-    void given_warrior_has_2h_that_is_not_sword_equipped_in_mainhand();
-    void given_warrior_does_not_have_sword_equipped_in_mainhand();
-
-    void given_warrior_has_1h_sword_equipped_in_offhand();
-    void given_warrior_does_not_have_sword_equipped_in_offhand();
-
-    void then_proc_range_is(const unsigned);
-
 private:
+    SwordSpecialization* sword_spec();
 };
 
 #endif // TESTSWORDSPECIALIZATION_H

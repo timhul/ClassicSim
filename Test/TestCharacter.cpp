@@ -9,7 +9,3 @@ TestCharacter::TestCharacter() :
 TestCharacter::~TestCharacter() {
     delete equipment_db;
 }
-
-double TestCharacter::delta(double lhs, double rhs) {
-    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
-}
