@@ -13,12 +13,10 @@ DeathWish::DeathWish(Character* pchar) :
 
 void DeathWish::enable_spell_effect() {
     warr->get_death_wish_buff()->increase_rank();
-    warr->get_death_wish_buff()->enable_buff();
 }
 
 void DeathWish::disable_spell_effect() {
     warr->get_death_wish_buff()->decrease_rank();
-    warr->get_death_wish_buff()->disable_buff();
 }
 
 void DeathWish::spell_effect() {

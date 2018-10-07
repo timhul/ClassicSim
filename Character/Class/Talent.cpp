@@ -133,8 +133,8 @@ bool Talent::increment_rank() {
         return false;
     }
 
-    apply_rank_effect();
     curr_points++;
+    apply_rank_effect();
     return true;
 }
 
@@ -145,16 +145,14 @@ bool Talent::decrement_rank() {
     if (curr_points == 0)
         return false;
 
-    remove_rank_effect();
     curr_points--;
+    remove_rank_effect();
     return true;
 }
 
 void Talent::force_clear_rank() {
-    for (; curr_points > 0;) {
+    for (; curr_points > 0; --curr_points)
         remove_rank_effect();
-        --curr_points;
-    }
 }
 
 bool Talent::is_active() const {

@@ -87,8 +87,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     overpower_buff->enable_buff();
     recklessness_buff->enable_buff();
 
-    death_wish_buff->disable_buff();
-
     this->sword_spec = new SwordSpecialization(this);
     this->unbridled_wrath = new UnbridledWrath(this);
 

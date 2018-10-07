@@ -61,7 +61,9 @@ protected:
     double refreshed{};
     double expired{};
     bool active{};
+    bool enabled;
     int rank_talent;
+    int max_rank_talent;
     double uptime{};
     bool hidden;
 
