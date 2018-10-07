@@ -9,7 +9,6 @@ class HeroicStrike: public Spell {
 public:
     HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
     void increase_effect_via_talent() override;
     void decrease_effect_via_talent() override;
 
@@ -21,6 +20,8 @@ private:
     QVector<int> spell_ranks;
     QVector<int> talent_ranks;
     int additional_dmg;
+
+    void spell_effect() override;
 };
 
 #endif // HEROICSTRIKE_H

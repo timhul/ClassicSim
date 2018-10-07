@@ -9,7 +9,6 @@ class Bloodrage: public Spell {
 public:
     Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
     void periodic_effect() override;
 
 protected:
@@ -19,6 +18,7 @@ private:
     int periodic_rage_base;
     int periodic_rage_current;
 
+    void spell_effect() override;
     bool is_ready_spell_specific() const override;
 };
 

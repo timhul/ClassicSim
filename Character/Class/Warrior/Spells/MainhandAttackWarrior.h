@@ -14,9 +14,10 @@ public:
 
 protected:
 private:
+    Warrior* warr;
+
     void spell_effect() override;
     void calculate_damage() override;
-    Warrior* warr;
 };
 
 #endif // MAINHANDATTACKWARRIOR_H

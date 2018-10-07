@@ -10,8 +10,6 @@ class DeepWounds: public Spell {
 public:
     DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
-    void reset_effect() override;
     void apply_debuff();
 
 protected:
@@ -20,6 +18,9 @@ private:
     double previous_tick_rest;
     QVector<int> stacks;
     QVector<double> ranks;
+
+    void spell_effect() override;
+    void reset_effect() override;
 };
 
 #endif // DEEPWOUNDS_H

@@ -9,12 +9,12 @@ class Whirlwind: public Spell {
 public:
     Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
-    bool is_ready_spell_specific() const override;
-
 protected:
 private:
     Warrior* warr;
+
+    void spell_effect() override;
+    bool is_ready_spell_specific() const override;
 };
 
 

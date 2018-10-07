@@ -9,11 +9,11 @@ class Bloodthirst: public Spell {
 public:
     Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
 protected:
 private:
     Warrior* warr;
 
+    void spell_effect() override;
 };
 
 #endif // BLOODTHIRST_H

@@ -9,11 +9,12 @@ class BerserkerStance: public Spell {
 public:
     BerserkerStance(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    bool is_ready_spell_specific() const override;
-    void spell_effect() override;
 protected:
 private:
     Warrior* warr;
+
+    bool is_ready_spell_specific() const override;
+    void spell_effect() override;
 };
 
 #endif // BERSERKERSTANCE_H

@@ -7,14 +7,11 @@ class BloodFury: public Spell {
 public:
     BloodFury(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
-
 protected:
-
+private:
+    void spell_effect() override;
     void enable_spell_effect() override;
     void disable_spell_effect() override;
-
-private:
 };
 
 #endif // BLOODFURY_H

@@ -8,9 +8,9 @@ public:
     Recklessness(Engine* engine, Character* pchar, CombatRoll* roll) :
         Spell("Recklessness", engine, pchar, roll, true, 1800.0, 0) {}
 
-    void spell_effect() override;
 protected:
 private:
+    void spell_effect() override;
     bool is_ready_spell_specific() const override;
 };
 

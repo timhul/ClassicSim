@@ -9,7 +9,6 @@ class Execute: public Spell {
 public:
     Execute(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
     void increase_effect_via_talent() override;
     void decrease_effect_via_talent() override;
 
@@ -21,6 +20,7 @@ private:
     int initial_dmg;
     int dmg_per_rage_converted;
 
+    void spell_effect() override;
     bool is_ready_spell_specific() const override;
 };
 

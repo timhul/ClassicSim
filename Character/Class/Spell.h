@@ -43,14 +43,15 @@ public:
     void perform();
 
     void reset();
-    virtual void reset_effect();
     virtual void periodic_effect();
 
 protected:
     virtual void spell_effect() = 0;
-    virtual bool is_ready_spell_specific() const;
     virtual void enable_spell_effect();
     virtual void disable_spell_effect();
+    virtual void reset_effect();
+    virtual bool is_ready_spell_specific() const;
+
     const QString name;
     Engine* engine;
     Character* pchar;

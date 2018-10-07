@@ -9,10 +9,11 @@ class Hamstring: public Spell {
 public:
     Hamstring(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void spell_effect() override;
 protected:
 private:
     Warrior* warr;
+
+    void spell_effect() override;
 };
 
 #endif // HAMSTRING_H
