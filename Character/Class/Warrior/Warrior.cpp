@@ -24,10 +24,11 @@
 #include <QDebug>
 
 #include "Flurry.h"
+#include "SwordSpecialization.h"
+#include "UnbridledWrath.h"
 #include "BerserkerStanceBuff.h"
 #include "DefensiveStanceBuff.h"
 #include "HeroicStrikeBuff.h"
-#include "UnbridledWrath.h"
 #include "DeathWishBuff.h"
 #include "BattleShoutBuff.h"
 #include "OverpowerBuff.h"
@@ -88,6 +89,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
 
     death_wish_buff->disable_buff();
 
+    this->sword_spec = new SwordSpecialization(engine, this, roll);
     this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
 
     spells->add_statistics();
@@ -205,6 +207,10 @@ DefensiveStanceBuff* Warrior::get_defensive_stance_buff() const {
 
 HeroicStrikeBuff* Warrior::get_hs_buff() const {
     return this->heroic_strike_buff;
+}
+
+SwordSpecialization* Warrior::get_sword_spec() const {
+    return this->sword_spec;
 }
 
 UnbridledWrath* Warrior::get_unbridled_wrath() const {

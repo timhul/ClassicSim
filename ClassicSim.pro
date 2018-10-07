@@ -85,7 +85,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.cpp \
     Character/Stats.cpp \
@@ -224,7 +223,10 @@ SOURCES += main.cpp \
     Test/TestSpellDamage.cpp \
     Character/Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
     Test/Warrior/Spells/TestDeathWish.cpp \
-    Test/TestCharacterStats.cpp
+    Test/TestCharacterStats.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.cpp \
+    Character/Class/Warrior/Procs/SwordSpecialization.cpp \
+    Test/Warrior/Procs/TestSwordSpecialization.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -305,7 +307,6 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.h \
-    Character/Class/Warrior/TalentTrees/Arms/SwordSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.h \
     Character/Stats.h \
@@ -443,7 +444,10 @@ HEADERS += \
     Test/TestSpellDamage.h \
     Character/Class/Warrior/Buffs/DefensiveStanceBuff.h \
     Test/Warrior/Spells/TestDeathWish.h \
-    Test/TestCharacterStats.h
+    Test/TestCharacterStats.h \
+    Character/Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.h \
+    Character/Class/Warrior/Procs/SwordSpecialization.h \
+    Test/Warrior/Procs/TestSwordSpecialization.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

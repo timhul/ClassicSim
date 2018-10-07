@@ -52,6 +52,8 @@ protected:
 
     unsigned proc_range;
     bool recursive;
+
+    virtual bool proc_specific_conditions_fulfilled() const;
 private:
 };
 

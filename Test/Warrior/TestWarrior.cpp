@@ -20,10 +20,12 @@
 #include "TestFlurryWarrior.h"
 #include "TestDeepWounds.h"
 #include "TestBloodrage.h"
-#include "TestUnbridledWrath.h"
 #include "TestRecklessness.h"
 #include "TestBerserkerStance.h"
 #include "TestDeathWish.h"
+
+#include "TestSwordSpecialization.h"
+#include "TestUnbridledWrath.h"
 
 void TestWarrior::test_all() {
     test_basic_properties();
@@ -38,10 +40,11 @@ void TestWarrior::test_all() {
     TestFlurryWarrior(equipment_db).test_all();
     TestDeepWounds(equipment_db).test_all();
     TestBloodrage(equipment_db).test_all();
-    TestUnbridledWrath(equipment_db).test_all();
     TestRecklessness(equipment_db).test_all();
     TestBerserkerStance(equipment_db).test_all();
     TestDeathWish(equipment_db).test_all();
+    TestUnbridledWrath(equipment_db).test_all();
+    TestSwordSpecialization(equipment_db).test_all();
 }
 
 void TestWarrior::test_basic_properties() {

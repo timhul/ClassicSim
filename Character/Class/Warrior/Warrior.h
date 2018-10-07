@@ -4,6 +4,7 @@
 #include "Character.h"
 
 class Flurry;
+class SwordSpecialization;
 class UnbridledWrath;
 class BerserkerStanceBuff;
 class DefensiveStanceBuff;
@@ -61,6 +62,7 @@ public:
     bool in_defensive_stance() const;
 
     Flurry* get_flurry() const;
+    SwordSpecialization* get_sword_spec() const;
     UnbridledWrath* get_unbridled_wrath() const;
     BerserkerStanceBuff* get_berserker_stance_buff() const;
     DefensiveStanceBuff* get_defensive_stance_buff() const;
@@ -90,10 +92,11 @@ private:
     double next_stance_cd;
     double rage_conversion_value{};
     Flurry* flurry;
+    SwordSpecialization* sword_spec;
+    UnbridledWrath* unbridled_wrath;
     BerserkerStanceBuff* berserker_stance_buff;
     DefensiveStanceBuff* defensive_stance_buff;
     HeroicStrikeBuff* heroic_strike_buff;
-    UnbridledWrath* unbridled_wrath;
     DeathWishBuff* death_wish_buff;
     BattleShoutBuff* battle_shout_buff;
     OverpowerBuff* overpower_buff;

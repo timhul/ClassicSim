@@ -11,7 +11,7 @@
 #include "Impale.h"
 #include "AxeSpecialization.h"
 #include "SweepingStrikes.h"
-#include "SwordSpecialization.h"
+#include "SwordSpecializationTalent.h"
 #include "PolearmSpecialization.h"
 #include "MortalStrikeTalent.h"
 
@@ -42,7 +42,7 @@ Arms::Arms(Character *pchar, QObject* parent) :
     QMap<QString, Talent*> tier5 {{"5LL", new AxeSpecialization(pchar, this)},
                                   {"5ML", new SweepingStrikes(pchar, this)},
                                   {"5MR", new GenericTalent(pchar, this, "Mace Specialization", "5MR", base_url + "tier5/Inv_mace_01.png", 5, "Gives you a %1% chance to stun your target for 3 sec with a Mace.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
-                                  {"5RR", new SwordSpecialization(pchar, this)}};
+                                  {"5RR", new SwordSpecializationTalent(pchar, this)}};
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6LL", new PolearmSpecialization(pchar, this)},

@@ -39,7 +39,7 @@ Proc::~Proc() {
 void Proc::spell_effect() {
     statistics_proc->increment_attempt();
 
-    if (random->get_roll() < get_proc_range()) {
+    if (random->get_roll() < get_proc_range() && proc_specific_conditions_fulfilled()) {
         proc_effect();
         statistics_proc->increment_proc();
 
@@ -103,4 +103,8 @@ StatisticsBuff* Proc::get_statistics_for_buff() const {
 
 StatisticsResource* Proc::get_statistics_for_resource() const {
     return statistics_resource;
+}
+
+bool Proc::proc_specific_conditions_fulfilled() const {
+    return true;
 }

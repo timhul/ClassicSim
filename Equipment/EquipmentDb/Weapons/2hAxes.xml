@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>	
+	<melee_weapon name="Arcanite Reaper">
+		<patch name="1.0.0">
+			<info type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_axe_09.png"/>
+			<dmg_range min="153" max="256" speed="3.8"/>
+			<stats>
+				<stat type="STAMINA" value="13"/>
+				<stat type="ATTACK_POWER" value="62"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths.
+			</source>
+		</patch>
+	</melee_weapon>
+</weapons>
