@@ -86,12 +86,14 @@ double CharacterStats::get_mh_crit_chance() const {
 }
 
 double CharacterStats::get_oh_crit_chance() const {
-    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
-    const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
-
     double crit_from_wpn_type = 0.0;
     if (equipment->get_offhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
+    else
+        return 0.0;
+
+    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
+    const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
 
     return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;;
 }
