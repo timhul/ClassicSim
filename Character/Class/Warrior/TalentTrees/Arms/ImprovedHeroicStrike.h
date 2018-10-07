@@ -11,10 +11,9 @@ public:
     ImprovedHeroicStrike(Character *pchar, TalentTree* tree);
     ~ImprovedHeroicStrike() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // IMPROVEDHEROICSTRIKE_H

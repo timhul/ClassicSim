@@ -11,10 +11,9 @@ public:
     MortalStrikeTalent(Character *pchar, TalentTree* tree);
     ~MortalStrikeTalent() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // MORTALSTRIKETALENT_H

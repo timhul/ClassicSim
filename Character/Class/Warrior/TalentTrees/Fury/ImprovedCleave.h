@@ -11,10 +11,9 @@ public:
     ImprovedCleave(Character *pchar, TalentTree* tree);
     ~ImprovedCleave() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // IMPROVEDCLEAVE_H

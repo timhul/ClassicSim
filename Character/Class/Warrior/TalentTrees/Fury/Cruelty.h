@@ -11,10 +11,9 @@ public:
     Cruelty(Character *pchar, TalentTree* tree);
     ~Cruelty() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // CRUELTY_H

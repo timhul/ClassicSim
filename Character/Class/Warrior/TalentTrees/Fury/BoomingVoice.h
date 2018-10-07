@@ -11,10 +11,9 @@ public:
     BoomingVoice(Character *pchar, TalentTree* tree);
     ~BoomingVoice() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // BOOMINGVOICE_H

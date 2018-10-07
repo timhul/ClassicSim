@@ -11,10 +11,9 @@ public:
     ImprovedRend(Character *pchar, TalentTree* tree);
     ~ImprovedRend() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // IMPROVEDREND_H

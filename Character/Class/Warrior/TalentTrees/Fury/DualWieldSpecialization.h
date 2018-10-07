@@ -11,10 +11,9 @@ public:
     DualWieldSpecialization(Character *pchar, TalentTree* tree);
     ~DualWieldSpecialization() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // DUALWIELDSPECIALIZATION_H

@@ -11,10 +11,9 @@ public:
     BloodthirstTalent(Character *pchar, TalentTree* tree);
     ~BloodthirstTalent() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // BLOODTHIRSTTALENT_H

@@ -11,10 +11,9 @@ public:
     DeathWishTalent(Character *pchar, TalentTree* tree);
     ~DeathWishTalent() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // DEATHWISHTALENT_H

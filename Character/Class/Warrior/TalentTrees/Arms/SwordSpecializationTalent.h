@@ -11,10 +11,9 @@ public:
     SwordSpecializationTalent(Character *pchar, TalentTree* tree);
     ~SwordSpecializationTalent() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // SWORDSPECIALIZATIONTALENT_H

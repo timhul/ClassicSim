@@ -11,10 +11,9 @@ public:
     SweepingStrikes(Character *pchar, TalentTree* tree);
     ~SweepingStrikes() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // SWEEPINGSTRIKES_H

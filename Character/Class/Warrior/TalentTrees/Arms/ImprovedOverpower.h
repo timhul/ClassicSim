@@ -11,10 +11,9 @@ public:
     ImprovedOverpower(Character *pchar, TalentTree* tree);
     ~ImprovedOverpower() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // IMPROVEDOVERPOWER_H

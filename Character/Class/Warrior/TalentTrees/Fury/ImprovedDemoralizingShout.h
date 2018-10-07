@@ -11,10 +11,9 @@ public:
     ImprovedDemoralizingShout(Character *pchar, TalentTree* tree);
     ~ImprovedDemoralizingShout() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // IMPROVEDDEMORALIZINGSHOUT_H

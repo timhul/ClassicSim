@@ -21,9 +21,6 @@ public:
     QString get_right_arrow_image() const;
     QString get_bottom_arrow_image() const;
 
-    virtual void apply_rank_effect() = 0;
-    virtual void remove_rank_effect() = 0;
-
     QString get_requirement_string() const;
     QString get_current_rank_description() const;
     QString get_next_rank_description() const;
@@ -68,6 +65,9 @@ protected:
 
     void initialize_rank_descriptions(const QString &base_str, const int base_value, const int increase);
     void initialize_rank_descriptions(const QString &base_str, const QVector<QPair<int, int> > &format_values);
+
+    virtual void apply_rank_effect() = 0;
+    virtual void remove_rank_effect() = 0;
 
 private:
 

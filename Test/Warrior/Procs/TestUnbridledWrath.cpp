@@ -76,37 +76,37 @@ void TestUnbridledWrath::test_proc_range_for_5_of_5_unbridled_wrath() {
 
 void TestUnbridledWrath::given_1_of_5_unbridled_wrath() {
     UnbridledWrathTalent uw(warrior, nullptr);
-    uw.apply_rank_effect();
+    assert(uw.increment_rank());
 }
 
 void TestUnbridledWrath::given_2_of_5_unbridled_wrath() {
     UnbridledWrathTalent uw(warrior, nullptr);
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
 }
 
 void TestUnbridledWrath::given_3_of_5_unbridled_wrath() {
     UnbridledWrathTalent uw(warrior, nullptr);
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
 }
 
 void TestUnbridledWrath::given_4_of_5_unbridled_wrath() {
     UnbridledWrathTalent uw(warrior, nullptr);
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
 }
 
 void TestUnbridledWrath::given_5_of_5_unbridled_wrath() {
     UnbridledWrathTalent uw(warrior, nullptr);
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
-    uw.apply_rank_effect();
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
+    assert(uw.increment_rank());
 }
 
 void TestUnbridledWrath::test_proc_sources_are_valid() {

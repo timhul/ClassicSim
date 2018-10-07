@@ -14,12 +14,12 @@ public:
     TwoHandedWeaponSpecialization(Character *pchar, TalentTree* tree);
     ~TwoHandedWeaponSpecialization() override;
 
-    void apply_rank_effect() override;
-    void remove_rank_effect() override;
-
 private:
     QVector<int> talent_ranks;
     QSet<int> affected_weapon_types;
+
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 };
 
 #endif // TWOHANDEDWEAPONSPECIALIZATION_H

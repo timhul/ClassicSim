@@ -99,37 +99,37 @@ void TestSwordSpecialization::test_proc_range_for_5_of_5_sword_spec() {
 
 void TestSwordSpecialization::given_1_of_5_sword_spec() {
     SwordSpecializationTalent spec(warrior, nullptr);
-    spec.apply_rank_effect();
+    assert(spec.increment_rank());
 }
 
 void TestSwordSpecialization::given_2_of_5_sword_pec() {
     SwordSpecializationTalent spec(warrior, nullptr);
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
 }
 
 void TestSwordSpecialization::given_3_of_5_sword_spec() {
     SwordSpecializationTalent spec(warrior, nullptr);
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
 }
 
 void TestSwordSpecialization::given_4_of_5_sword_spec() {
     SwordSpecializationTalent spec(warrior, nullptr);
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
 }
 
 void TestSwordSpecialization::given_5_of_5_sword_spec() {
     SwordSpecializationTalent spec(warrior, nullptr);
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
-    spec.apply_rank_effect();
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
+    assert(spec.increment_rank());
 }
 
 void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_sword_in_mh() {
@@ -234,14 +234,12 @@ void TestSwordSpecialization::given_warrior_has_1h_sword_equipped_in_mainhand() 
 
 void TestSwordSpecialization::given_warrior_has_2h_sword_equipped_in_mainhand() {
     warrior->get_stats()->get_equipment()->set_mainhand("Ashkandi, Greatsword of the Brotherhood");
-    warrior->get_stats()->get_equipment()->clear_offhand();
 
     assert(warrior->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_SWORD);
 }
 
 void TestSwordSpecialization::given_warrior_has_2h_that_is_not_sword_equipped_in_mainhand() {
     warrior->get_stats()->get_equipment()->set_mainhand("Arcanite Reaper");
-    warrior->get_stats()->get_equipment()->clear_offhand();
 
     assert(warrior->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_AXE);
 }

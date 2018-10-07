@@ -11,10 +11,9 @@ public:
     UnbridledWrathTalent(Character *pchar, TalentTree* tree);
     ~UnbridledWrathTalent() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // UNBRIDLEDWRATHTALENT_H

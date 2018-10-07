@@ -11,10 +11,9 @@ public:
     DeepWoundsTalent(Character *pchar, TalentTree* tree);
     ~DeepWoundsTalent() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // DEEPWOUNDSTALENT_H

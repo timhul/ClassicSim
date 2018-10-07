@@ -12,11 +12,11 @@ public:
     TacticalMastery(Character *pchar, TalentTree* tree);
     ~TacticalMastery() override;
 
-    void apply_rank_effect() override;
-    void remove_rank_effect() override;
-
 private:
     Warrior* warr;
+
+    void apply_rank_effect() override;
+    void remove_rank_effect() override;
 };
 
 #endif // TACTICALMASTERY_H

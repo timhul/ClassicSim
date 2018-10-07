@@ -304,7 +304,7 @@ void TalentTree::remove_rank_effects() {
     auto end = talents.constEnd();
     while(it != end) {
         for (int i = 0; i < it.value()->get_current_rank(); ++i) {
-            it.value()->remove_rank_effect();
+            it.value()->decrement_rank();
         }
         ++it;
     }
@@ -315,7 +315,7 @@ void TalentTree::apply_rank_effects() {
     auto end = talents.constEnd();
     while(it != end) {
         for (int i = 0; i < it.value()->get_current_rank(); ++i) {
-            it.value()->apply_rank_effect();
+            it.value()->increment_rank();
         }
         ++it;
     }

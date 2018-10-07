@@ -11,10 +11,9 @@ public:
     ImprovedBattleShout(Character *pchar, TalentTree* tree);
     ~ImprovedBattleShout() override;
 
+private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
-
-private:
 };
 
 #endif // IMPROVEDBATTLESHOUT_H
