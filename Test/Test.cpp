@@ -44,6 +44,7 @@
 #include <QDebug>
 
 #include "TestWarrior.h"
+#include "TestCharacterStats.h"
 
 Test::Test() :
     equipment_db(new EquipmentDb())
@@ -397,5 +398,6 @@ void Test::test_character_creation() {
 }
 
 void Test::test_warrior() {
+    TestCharacterStats().test_all();
     TestWarrior().test_all();
 }

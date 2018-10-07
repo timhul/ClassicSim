@@ -223,7 +223,8 @@ SOURCES += main.cpp \
     Test/TestCharacter.cpp \
     Test/TestSpellDamage.cpp \
     Character/Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
-    Test/Warrior/Spells/TestDeathWish.cpp
+    Test/Warrior/Spells/TestDeathWish.cpp \
+    Test/TestCharacterStats.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -441,7 +442,8 @@ HEADERS += \
     Test/TestCharacter.h \
     Test/TestSpellDamage.h \
     Character/Class/Warrior/Buffs/DefensiveStanceBuff.h \
-    Test/Warrior/Spells/TestDeathWish.h
+    Test/Warrior/Spells/TestDeathWish.h \
+    Test/TestCharacterStats.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

@@ -34,6 +34,9 @@ public:
     double get_spell_crit_chance(void) const;
 
     double get_total_phys_dmg_mod() const;
+    double get_attack_speed_mod() const;
+    double get_physical_damage_taken_mod() const;
+    double get_spell_damage_taken_mod() const;
 
     int get_mh_wpn_skill() const;
     int get_oh_wpn_skill() const;

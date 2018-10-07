@@ -203,6 +203,18 @@ double CharacterStats::get_total_phys_dmg_mod() const {
     return total_phys_dmg_mod;
 }
 
+double CharacterStats::get_attack_speed_mod() const {
+    return attack_speed_mod;
+}
+
+double CharacterStats::get_physical_damage_taken_mod() const {
+    return physical_damage_taken_mod;
+}
+
+double CharacterStats::get_spell_damage_taken_mod() const {
+    return spell_damage_taken_mod;
+}
+
 void CharacterStats::increase_hit(double increase) {
     base_stats->increase_hit(increase);
     pchar->get_combat_roll()->update_miss_chance(get_hit_chance());

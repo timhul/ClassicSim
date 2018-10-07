@@ -8,6 +8,8 @@ class EquipmentDb;
 class TestWarrior : public TestCharacter {
 public:
     void test_all() override;
+
+private:
     void test_basic_properties() override;
 };
 
