@@ -202,6 +202,6 @@ void Spell::reset_effect() {
 
 }
 
-void Spell::periodic_effect() {
+void Spell::perform_periodic() {
 
 }

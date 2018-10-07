@@ -9,7 +9,7 @@ class Bloodrage: public Spell {
 public:
     Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll);
 
-    void periodic_effect() override;
+    void perform_periodic() override;
 
 protected:
 private:

@@ -41,9 +41,9 @@ public:
     virtual void decrease_spell_rank();
 
     void perform();
+    virtual void perform_periodic();
 
     void reset();
-    virtual void periodic_effect();
 
 protected:
     virtual void spell_effect() = 0;

@@ -10,6 +10,6 @@ ResourceGain::ResourceGain(Spell *spell, const double priority) {
 }
 
 void ResourceGain::act() {
-    spell->periodic_effect();
+    spell->perform_periodic();
     // TODO: Consider adding PlayerAction event.
 }

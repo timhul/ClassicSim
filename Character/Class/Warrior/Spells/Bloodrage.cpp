@@ -26,7 +26,7 @@ void Bloodrage::spell_effect() {
     warr->gain_rage(talent_ranks[rank_talent]);
 }
 
-void Bloodrage::periodic_effect() {
+void Bloodrage::perform_periodic() {
     // TODO: Add statistics for periodic rage gain.
     warr->gain_rage(1);
     --periodic_rage_current;
