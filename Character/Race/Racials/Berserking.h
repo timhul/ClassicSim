@@ -7,7 +7,7 @@ class Character;
 
 class Berserking: public Spell {
 public:
-    Berserking(Engine* engine, Character* pchar, CombatRoll* roll);
+    Berserking(Character* pchar);
 
 protected:
 private:

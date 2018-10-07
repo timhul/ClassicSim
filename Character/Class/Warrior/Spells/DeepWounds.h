@@ -8,7 +8,7 @@ class Warrior;
 
 class DeepWounds: public Spell {
 public:
-    DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll);
+    DeepWounds(Character* pchar);
 
     void apply_debuff();
 

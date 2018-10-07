@@ -33,22 +33,22 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     Spells(pchar),
     warr(pchar)
 {
-    this->battle_shout = new BattleShout(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->battle_stance = new BattleStance(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->berserker_rage = new BerserkerRage(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->berserker_stance = new BerserkerStance(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->bloodrage = new Bloodrage(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->bt = new Bloodthirst(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->death_wish = new DeathWish(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->deep_wounds = new DeepWounds(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->execute = new Execute(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->heroic_strike = new HeroicStrike(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->overpower = new Overpower(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->recklessness = new Recklessness(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->whirlwind = new Whirlwind(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->battle_shout = new BattleShout(pchar);
+    this->battle_stance = new BattleStance(pchar);
+    this->berserker_rage = new BerserkerRage(pchar);
+    this->berserker_stance = new BerserkerStance(pchar);
+    this->bloodrage = new Bloodrage(pchar);
+    this->bt = new Bloodthirst(pchar);
+    this->death_wish = new DeathWish(pchar);
+    this->deep_wounds = new DeepWounds(pchar);
+    this->execute = new Execute(pchar);
+    this->heroic_strike = new HeroicStrike(pchar);
+    this->overpower = new Overpower(pchar);
+    this->recklessness = new Recklessness(pchar);
+    this->whirlwind = new Whirlwind(pchar);
 
-    this->warr_mh_attack = new MainhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    this->warr_oh_attack = new OffhandAttackWarrior(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    this->warr_mh_attack = new MainhandAttackWarrior(pchar);
+    this->warr_oh_attack = new OffhandAttackWarrior(pchar);
 
     spells.append(battle_shout);
     spells.append(battle_stance);

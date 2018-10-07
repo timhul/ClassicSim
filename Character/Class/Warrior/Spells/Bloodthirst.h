@@ -7,7 +7,7 @@ class Warrior;
 
 class Bloodthirst: public Spell {
 public:
-    Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll);
+    Bloodthirst(Character* pchar);
 
 protected:
 private:

@@ -3,8 +3,8 @@
 #include "Warrior.h"
 #include "ResourceGain.h"
 
-Bloodrage::Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Bloodrage", engine, pchar, roll, false, 60, 0),
+Bloodrage::Bloodrage(Character* pchar) :
+    Spell("Bloodrage", pchar, false, 60, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->talent_ranks = {10, 12, 15};

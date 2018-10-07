@@ -89,8 +89,8 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
 
     death_wish_buff->disable_buff();
 
-    this->sword_spec = new SwordSpecialization(engine, this, roll);
-    this->unbridled_wrath = new UnbridledWrath(engine, this, roll);
+    this->sword_spec = new SwordSpecialization(this);
+    this->unbridled_wrath = new UnbridledWrath(this);
 
     spells->add_statistics();
     initialize_talents();

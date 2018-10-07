@@ -7,7 +7,7 @@ class FieryWeaponAttack;
 
 class FieryWeapon: public ProcPPM {
 public:
-    FieryWeapon(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon);
+    FieryWeapon(Character* pchar, const int weapon);
     ~FieryWeapon() override;
 
     void proc_effect() override;

@@ -9,7 +9,7 @@ DruidSpells::DruidSpells(Druid* druid) :
     Spells(druid),
     druid(druid)
 {
-    this->mh_attack = new MainhandAttack(druid->get_engine(), druid, druid->get_combat_roll());
+    this->mh_attack = new MainhandAttack(druid);
 
     spells.append(mh_attack);
 }

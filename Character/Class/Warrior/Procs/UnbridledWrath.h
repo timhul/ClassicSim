@@ -7,7 +7,7 @@ class Warrior;
 
 class UnbridledWrath: public Proc {
 public:
-    UnbridledWrath(Engine* engine, Character* pchar, CombatRoll* roll);
+    UnbridledWrath(Character* pchar);
     ~UnbridledWrath() override;
 
     void proc_effect() override;

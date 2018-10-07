@@ -7,8 +7,8 @@
 #include "OverpowerBuff.h"
 #include "CharacterStats.h"
 
-Whirlwind::Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Whirlwind", engine, pchar, roll, true, 10.0, 25),
+Whirlwind::Whirlwind(Character* pchar) :
+    Spell("Whirlwind", pchar, true, 10.0, 25),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

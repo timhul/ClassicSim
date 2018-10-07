@@ -7,7 +7,7 @@ class Warrior;
 
 class Whirlwind: public Spell {
 public:
-    Whirlwind(Engine* engine, Character* pchar, CombatRoll* roll);
+    Whirlwind(Character* pchar);
 
 protected:
 private:

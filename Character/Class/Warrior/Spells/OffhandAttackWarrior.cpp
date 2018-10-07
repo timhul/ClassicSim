@@ -6,8 +6,8 @@
 #include "RecklessnessBuff.h"
 #include "CharacterStats.h"
 
-OffhandAttackWarrior::OffhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
-    OffhandAttack(engine, pchar, roll),
+OffhandAttackWarrior::OffhandAttackWarrior(Character* pchar) :
+    OffhandAttack(pchar),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};

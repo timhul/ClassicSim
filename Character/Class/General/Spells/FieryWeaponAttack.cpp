@@ -5,8 +5,8 @@
 #include "DeepWounds.h"
 #include "CharacterStats.h"
 
-FieryWeaponAttack::FieryWeaponAttack(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Fiery Weapon", engine, pchar, roll, false, 0, 0)
+FieryWeaponAttack::FieryWeaponAttack(Character* pchar) :
+    Spell("Fiery Weapon", pchar, false, 0, 0)
 {}
 
 void FieryWeaponAttack::spell_effect() {

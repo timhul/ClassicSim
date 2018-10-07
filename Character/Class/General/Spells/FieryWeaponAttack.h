@@ -5,7 +5,7 @@
 
 class FieryWeaponAttack: public Spell {
 public:
-    FieryWeaponAttack(Engine* engine, Character* pchar, CombatRoll* roll);
+    FieryWeaponAttack(Character* pchar);
 
 
 protected:

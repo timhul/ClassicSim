@@ -2,8 +2,8 @@
 #include "BattleStance.h"
 #include "Warrior.h"
 
-BattleStance::BattleStance(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Battle Stance", engine, pchar, roll, true, 0.0, 0),
+BattleStance::BattleStance(Character* pchar) :
+    Spell("Battle Stance", pchar, true, 0.0, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

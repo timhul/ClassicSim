@@ -4,8 +4,8 @@
 #include "OverpowerBuff.h"
 #include "CharacterStats.h"
 
-Overpower::Overpower(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Overpower", engine, pchar, roll, true, 5.0, 5),
+Overpower::Overpower(Character* pchar) :
+    Spell("Overpower", pchar, true, 5.0, 5),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->talent_ranks = {0.0, 0.25, 0.5};

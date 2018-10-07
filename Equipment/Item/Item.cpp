@@ -153,18 +153,14 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             }
 
             if (instant == "yes") {
-                proc = new ExtraAttackInstantProc(pchar->get_engine(),
-                                                  pchar,
-                                                  pchar->get_combat_roll(),
+                proc = new ExtraAttackInstantProc(pchar,
                                                   get_name(),
                                                   proc_sources,
                                                   proc_rate,
                                                   amount);
             }
             else {
-                proc = new ExtraAttackOnNextSwingProc(pchar->get_engine(),
-                                                      pchar,
-                                                      pchar->get_combat_roll(),
+                proc = new ExtraAttackOnNextSwingProc(pchar,
                                                       get_name(),
                                                       proc_sources,
                                                       proc_rate,

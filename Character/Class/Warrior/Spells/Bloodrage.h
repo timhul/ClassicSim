@@ -7,7 +7,7 @@ class Warrior;
 
 class Bloodrage: public Spell {
 public:
-    Bloodrage(Engine* engine, Character* pchar, CombatRoll* roll);
+    Bloodrage(Character* pchar);
 
     void perform_periodic() override;
 

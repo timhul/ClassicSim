@@ -9,8 +9,8 @@
 #include "OverpowerBuff.h"
 #include "CharacterStats.h"
 
-HeroicStrike::HeroicStrike(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Heroic Strike", engine, pchar, roll, false, 0, 15),
+HeroicStrike::HeroicStrike(Character* pchar) :
+    Spell("Heroic Strike", pchar, false, 0, 15),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};

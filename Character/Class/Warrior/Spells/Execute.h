@@ -7,7 +7,7 @@ class Warrior;
 
 class Execute: public Spell {
 public:
-    Execute(Engine* engine, Character* pchar, CombatRoll* roll);
+    Execute(Character* pchar);
 
     void increase_effect_via_talent() override;
     void decrease_effect_via_talent() override;

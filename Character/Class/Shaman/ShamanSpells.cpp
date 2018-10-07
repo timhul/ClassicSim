@@ -9,7 +9,7 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     Spells(shaman),
     shaman(shaman)
 {
-    this->mh_attack = new MainhandAttack(shaman->get_engine(), shaman, shaman->get_combat_roll());
+    this->mh_attack = new MainhandAttack(shaman);
 
     spells.append(mh_attack);
 }

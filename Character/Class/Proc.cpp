@@ -11,11 +11,14 @@
 #include "StatisticsResource.h"
 #include "Character.h"
 
-Proc::Proc(const QString& name, const double proc_rate, const double inner_cooldown,
-           const bool recursive, const QVector<Proc *>& linked_procs,
+Proc::Proc(const QString& name,
+           const double proc_rate,
+           const double inner_cooldown,
+           const bool recursive,
+           const QVector<Proc *>& linked_procs,
            QVector<ProcInfo::Source>  proc_sources,
-           Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell(name, engine, pchar, roll, false, inner_cooldown, 0),
+           Character* pchar) :
+    Spell(name, pchar, false, inner_cooldown, 0),
     procs(pchar->get_active_procs()),
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),

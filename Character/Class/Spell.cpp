@@ -6,12 +6,15 @@
 #include "StatisticsSpell.h"
 #include "Mechanics.h"
 
-Spell::Spell(const QString& name, Engine* engine, Character* pchar, CombatRoll* roll,
-             bool restricted_by_gcd, double cooldown, int resource_cost) :
+Spell::Spell(const QString& name,
+             Character* pchar,
+             bool restricted_by_gcd,
+             double cooldown, int
+             resource_cost) :
     name(name),
-    engine(engine),
     pchar(pchar),
-    roll(roll),
+    engine(pchar->get_engine()),
+    roll(pchar->get_combat_roll()),
     statistics(new StatisticsSpell(name)),
     restricted_by_gcd(restricted_by_gcd),
     cooldown(cooldown),

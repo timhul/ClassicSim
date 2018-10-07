@@ -6,8 +6,8 @@
 #include "OverpowerBuff.h"
 #include "CharacterStats.h"
 
-Hamstring::Hamstring(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Hamstring", engine, pchar, roll, true, 0, 10),
+Hamstring::Hamstring(Character* pchar) :
+    Spell("Hamstring", pchar, true, 0, 10),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

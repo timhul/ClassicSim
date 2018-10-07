@@ -11,10 +11,13 @@ class StatisticsResource;
 
 class Proc: public Spell {
 public:
-    Proc(const QString &name, const double proc_rate, const double inner_cooldown,
-         const bool recursive, const QVector<Proc *>& linked_procs,
+    Proc(const QString &name,
+         const double proc_rate,
+         const double inner_cooldown,
+         const bool recursive,
+         const QVector<Proc *>& linked_procs,
          QVector<ProcInfo::Source>  proc_sources,
-         Engine* engine, Character* pchar, CombatRoll* roll);
+         Character* pchar);
     ~Proc() override;
 
     virtual unsigned get_proc_range() const;

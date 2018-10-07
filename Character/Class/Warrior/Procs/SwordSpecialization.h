@@ -8,7 +8,7 @@ class Weapon;
 
 class SwordSpecialization: public Proc {
 public:
-    SwordSpecialization(Engine* engine, Character* pchar, CombatRoll* roll);
+    SwordSpecialization(Character* pchar);
     ~SwordSpecialization() override;
 
     void proc_effect() override;

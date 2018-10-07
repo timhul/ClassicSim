@@ -9,7 +9,7 @@ MageSpells::MageSpells(Mage* mage) :
     Spells(mage),
     mage(mage)
 {
-    this->mh_attack = new MainhandAttack(mage->get_engine(), mage, mage->get_combat_roll());
+    this->mh_attack = new MainhandAttack(mage);
 
     spells.append(mh_attack);
 }

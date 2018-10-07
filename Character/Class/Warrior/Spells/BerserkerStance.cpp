@@ -2,8 +2,8 @@
 #include "BerserkerStance.h"
 #include "Warrior.h"
 
-BerserkerStance::BerserkerStance(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Berserker Stance", engine, pchar, roll, true, 0.0, 0),
+BerserkerStance::BerserkerStance(Character* pchar) :
+    Spell("Berserker Stance", pchar, true, 0.0, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

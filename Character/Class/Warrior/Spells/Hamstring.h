@@ -7,7 +7,7 @@ class Warrior;
 
 class Hamstring: public Spell {
 public:
-    Hamstring(Engine* engine, Character* pchar, CombatRoll* roll);
+    Hamstring(Character* pchar);
 
 protected:
 private:

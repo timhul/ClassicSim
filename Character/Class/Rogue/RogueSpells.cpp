@@ -9,7 +9,7 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     Spells(rogue),
     rogue(rogue)
 {
-    this->mh_attack = new MainhandAttack(rogue->get_engine(), rogue, rogue->get_combat_roll());
+    this->mh_attack = new MainhandAttack(rogue);
 
     spells.append(mh_attack);
 }

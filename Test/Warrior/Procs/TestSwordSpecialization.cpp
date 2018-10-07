@@ -136,7 +136,7 @@ void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_sword_i
     given_warrior_has_1h_sword_equipped_in_mainhand();
     given_warrior_does_not_have_sword_equipped_in_offhand();
 
-    SwordSpecialization spec(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    SwordSpecialization spec(pchar);
 
     spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
     assert(spec.proc_specific_conditions_fulfilled());
@@ -154,7 +154,7 @@ void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_sword_i
 void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_2h_sword() {
     given_warrior_has_2h_sword_equipped_in_mainhand();
 
-    SwordSpecialization spec(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    SwordSpecialization spec(pchar);
 
     spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
     assert(spec.proc_specific_conditions_fulfilled());
@@ -172,7 +172,7 @@ void TestSwordSpecialization::test_mh_proc_conditions_fulfilled_if_using_2h_swor
 void TestSwordSpecialization::test_mh_proc_conditions_not_fulfilled_if_using_other_types_of_2h() {
     given_warrior_has_2h_that_is_not_sword_equipped_in_mainhand();
 
-    SwordSpecialization spec(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    SwordSpecialization spec(pchar);
 
     spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
     assert(!spec.proc_specific_conditions_fulfilled());
@@ -191,7 +191,7 @@ void TestSwordSpecialization::test_proc_conditions_not_fulfilled_if_not_using_sw
     given_warrior_does_not_have_sword_equipped_in_mainhand();
     given_warrior_does_not_have_sword_equipped_in_offhand();
 
-    SwordSpecialization spec(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    SwordSpecialization spec(pchar);
 
     spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
     assert(!spec.proc_specific_conditions_fulfilled());
@@ -210,7 +210,7 @@ void TestSwordSpecialization::test_oh_proc_conditions_fulfilled_if_using_sword_i
     given_warrior_does_not_have_sword_equipped_in_mainhand();
     given_warrior_has_1h_sword_equipped_in_offhand();
 
-    SwordSpecialization spec(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    SwordSpecialization spec(pchar);
 
     spec.set_current_proc_source(ProcInfo::Source::MainhandSpell);
     assert(!spec.proc_specific_conditions_fulfilled());

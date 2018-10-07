@@ -9,7 +9,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     Spells(hunter),
     hunter(hunter)
 {
-    this->mh_attack = new MainhandAttack(hunter->get_engine(), hunter, hunter->get_combat_roll());
+    this->mh_attack = new MainhandAttack(hunter);
 
     spells.append(mh_attack);
 }

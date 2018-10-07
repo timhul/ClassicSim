@@ -12,7 +12,7 @@ GeneralProcs::GeneralProcs(Character* pchar, Faction* faction, QObject* parent) 
     faction(faction)
 {
     create_weapon_enchants(mh_enchants, EnchantSlot::MAINHAND);
-    mh_enchants.insert(Enchant::Weapon::WindfuryTotem, new WindfuryTotemAttack(pchar->get_engine(), pchar, pchar->get_combat_roll()));
+    mh_enchants.insert(Enchant::Weapon::WindfuryTotem, new WindfuryTotemAttack(pchar));
 
     create_weapon_enchants(oh_enchants, EnchantSlot::OFFHAND);
 }
@@ -50,6 +50,6 @@ Proc* GeneralProcs::get_oh_enchant(const Enchant::Weapon enchant) const {
 }
 
 void GeneralProcs::create_weapon_enchants(QMap<Enchant::Weapon, Proc*>& enchants, const int slot) {
-    enchants.insert(Enchant::Weapon::Crusader, new Crusader(pchar->get_engine(), pchar, pchar->get_combat_roll(), slot));
-    enchants.insert(Enchant::Weapon::FieryWeapon, new FieryWeapon(pchar->get_engine(), pchar, pchar->get_combat_roll(), slot));
+    enchants.insert(Enchant::Weapon::Crusader, new Crusader(pchar, slot));
+    enchants.insert(Enchant::Weapon::FieryWeapon, new FieryWeapon(pchar, slot));
 }

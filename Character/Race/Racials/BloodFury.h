@@ -5,7 +5,7 @@
 
 class BloodFury: public Spell {
 public:
-    BloodFury(Engine* engine, Character* pchar, CombatRoll* roll);
+    BloodFury(Character* pchar);
 
 protected:
 private:

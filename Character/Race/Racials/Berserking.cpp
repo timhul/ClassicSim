@@ -4,8 +4,8 @@
 #include "Race.h"
 #include "Character.h"
 
-Berserking::Berserking(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Berserking", engine, pchar, roll, true, 180, 0)
+Berserking::Berserking(Character* pchar) :
+    Spell("Berserking", pchar, true, 180, 0)
 {
     this->is_enabled_externally = true;
     this->enabled = false;

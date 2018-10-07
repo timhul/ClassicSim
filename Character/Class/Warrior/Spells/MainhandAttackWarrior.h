@@ -8,7 +8,7 @@ class Warrior;
 
 class MainhandAttackWarrior: public MainhandAttack {
 public:
-    MainhandAttackWarrior(Engine* engine, Character *pchar, CombatRoll* roll);
+    MainhandAttackWarrior(Character *pchar);
 
     void extra_attack() override;
 

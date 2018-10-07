@@ -5,7 +5,7 @@
 
 class OffhandAttack: public Spell {
 public:
-    OffhandAttack(Engine* engine, Character* pchar, CombatRoll* roll);
+    OffhandAttack(Character* pchar);
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);

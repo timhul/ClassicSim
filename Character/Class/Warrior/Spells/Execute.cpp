@@ -6,8 +6,8 @@
 #include "OverpowerBuff.h"
 #include "CharacterStats.h"
 
-Execute::Execute(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Execute", engine, pchar, roll, true, 0, 15),
+Execute::Execute(Character* pchar) :
+    Spell("Execute", pchar, true, 0, 15),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     spell_ranks = {QPair<int, int>(125, 3),

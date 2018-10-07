@@ -8,7 +8,7 @@ class Warrior;
 
 class OffhandAttackWarrior: public OffhandAttack {
 public:
-    OffhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll);
+    OffhandAttackWarrior(Character* pchar);
 
     void extra_attack() override;
 

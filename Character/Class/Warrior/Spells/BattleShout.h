@@ -7,7 +7,7 @@ class Warrior;
 
 class BattleShout: public Spell {
 public:
-    BattleShout(Engine* engine, Character* pchar, CombatRoll* roll);
+    BattleShout(Character* pchar);
 
 protected:
 private:

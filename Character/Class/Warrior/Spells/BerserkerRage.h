@@ -7,7 +7,7 @@ class Warrior;
 
 class BerserkerRage: public Spell {
 public:
-    BerserkerRage(Engine* engine, Character* pchar, CombatRoll* roll);
+    BerserkerRage(Character* pchar);
 
 protected:
 private:

@@ -3,8 +3,8 @@
 #include "BattleShoutBuff.h"
 #include "Warrior.h"
 
-BattleShout::BattleShout(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Battle Shout", engine, pchar, roll, true, 0, 10),
+BattleShout::BattleShout(Character* pchar) :
+    Spell("Battle Shout", pchar, true, 0, 10),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

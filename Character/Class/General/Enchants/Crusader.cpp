@@ -4,10 +4,10 @@
 #include "ActiveBuffs.h"
 #include "HolyStrength.h"
 
-Crusader::Crusader(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon) :
+Crusader::Crusader(Character* pchar, const int weapon) :
     ProcPPM("Holy Strength", weapon, 1.0, 0.0, false, QVector<Proc*>(),
             QVector<ProcInfo::Source>(),
-            engine, pchar, roll),
+            pchar),
     holy_strength(new HolyStrength(pchar))
 {
     assert(weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND);

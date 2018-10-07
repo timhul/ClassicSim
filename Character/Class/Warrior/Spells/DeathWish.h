@@ -7,7 +7,7 @@ class Warrior;
 
 class DeathWish: public Spell {
 public:
-    DeathWish(Engine* engine, Character* pchar, CombatRoll* roll);
+    DeathWish(Character* pchar);
 
 protected:
 private:

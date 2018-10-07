@@ -5,8 +5,7 @@
 
 class Recklessness: public Spell {
 public:
-    Recklessness(Engine* engine, Character* pchar, CombatRoll* roll) :
-        Spell("Recklessness", engine, pchar, roll, true, 1800.0, 0) {}
+    Recklessness(Character* pchar);
 
 protected:
 private:

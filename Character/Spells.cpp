@@ -13,8 +13,8 @@ Spells::Spells(Character* pchar, QObject* parent) :
     QObject(parent),
     pchar(pchar)
 {
-    berserking = new Berserking(pchar->get_engine(), pchar, pchar->get_combat_roll());
-    blood_fury = new BloodFury(pchar->get_engine(), pchar, pchar->get_combat_roll());
+    berserking = new Berserking(pchar);
+    blood_fury = new BloodFury(pchar);
     spells = {berserking, blood_fury};
 }
 

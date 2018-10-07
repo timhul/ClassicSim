@@ -7,7 +7,7 @@ class HolyStrength;
 
 class Crusader: public ProcPPM {
 public:
-    Crusader(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon);
+    Crusader(Character* pchar, const int weapon);
     ~Crusader() override;
 
     void proc_effect() override;

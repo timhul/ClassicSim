@@ -15,8 +15,11 @@ class StatisticsSpell;
 
 class Spell {
 public:
-    Spell(const QString& name, Engine* engine, Character* pchar, CombatRoll* roll,
-          bool restricted_by_gcd, double cooldown, int resource_cost);
+    Spell(const QString& name,
+          Character* pchar,
+          bool restricted_by_gcd,
+          double cooldown,
+          int resource_cost);
 
     virtual ~Spell();
 
@@ -53,8 +56,8 @@ protected:
     virtual bool is_ready_spell_specific() const;
 
     const QString name;
-    Engine* engine;
     Character* pchar;
+    Engine* engine;
     CombatRoll* roll;
     StatisticsSpell* statistics;
 

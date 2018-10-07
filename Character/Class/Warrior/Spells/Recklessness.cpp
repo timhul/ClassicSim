@@ -3,6 +3,10 @@
 #include "Warrior.h"
 #include "RecklessnessBuff.h"
 
+Recklessness::Recklessness(Character* pchar) :
+    Spell("Recklessness", pchar, true, 1800.0, 0)
+{}
+
 void Recklessness::spell_effect() {
     dynamic_cast<Warrior*>(pchar)->get_recklessness_buff()->apply_buff();
 

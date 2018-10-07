@@ -3,8 +3,8 @@
 #include "Warrior.h"
 #include "DotTick.h"
 
-DeepWounds::DeepWounds(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Deep Wounds", engine, pchar, roll, false, 3, 0),
+DeepWounds::DeepWounds(Character* pchar) :
+    Spell("Deep Wounds", pchar, false, 3, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->previous_tick_rest = 0;

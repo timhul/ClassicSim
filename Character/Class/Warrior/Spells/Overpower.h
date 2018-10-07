@@ -7,7 +7,7 @@ class Warrior;
 
 class Overpower: public Spell {
 public:
-    Overpower(Engine* engine, Character* pchar, CombatRoll* roll);
+    Overpower(Character* pchar);
 
 protected:
 private:

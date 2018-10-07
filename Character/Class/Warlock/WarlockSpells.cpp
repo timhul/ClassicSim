@@ -9,7 +9,7 @@ WarlockSpells::WarlockSpells(Warlock* warlock) :
     Spells(warlock),
     warlock(warlock)
 {
-    this->mh_attack = new MainhandAttack(warlock->get_engine(), warlock, warlock->get_combat_roll());
+    this->mh_attack = new MainhandAttack(warlock);
 
     spells.append(mh_attack);
 }

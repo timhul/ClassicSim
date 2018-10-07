@@ -3,8 +3,8 @@
 #include "DeathWishBuff.h"
 #include "Warrior.h"
 
-DeathWish::DeathWish(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Death Wish", engine, pchar, roll, true, 180, 10),
+DeathWish::DeathWish(Character* pchar) :
+    Spell("Death Wish", pchar, true, 180, 10),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->is_enabled_externally = true;

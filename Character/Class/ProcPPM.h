@@ -11,10 +11,14 @@ namespace EnchantSlot {
 
 class ProcPPM: public Proc {
 public:
-    ProcPPM(const QString &name, const int weapon, const double ppm, const double inner_cooldown,
-            const bool recursive, const QVector<Proc*>& linked_procs,
+    ProcPPM(const QString &name,
+            const int weapon,
+            const double ppm,
+            const double inner_cooldown,
+            const bool recursive,
+            const QVector<Proc*>& linked_procs,
             const QVector<ProcInfo::Source>& proc_sources,
-            Engine* engine, Character* pchar, CombatRoll* roll);
+            Character* pchar);
     virtual ~ProcPPM() override;
 
     virtual void proc_effect() override = 0;

@@ -7,8 +7,8 @@
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
 
-Bloodthirst::Bloodthirst(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Bloodthirst", engine, pchar, roll, true, 6.0, 30),
+Bloodthirst::Bloodthirst(Character* pchar) :
+    Spell("Bloodthirst", pchar, true, 6.0, 30),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->is_enabled_externally = true;

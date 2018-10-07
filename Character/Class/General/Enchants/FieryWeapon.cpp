@@ -2,10 +2,10 @@
 #include "FieryWeapon.h"
 #include "FieryWeaponAttack.h"
 
-FieryWeapon::FieryWeapon(Engine* engine, Character* pchar, CombatRoll* roll, const int weapon) :
+FieryWeapon::FieryWeapon(Character* pchar, const int weapon) :
     ProcPPM("Fiery Weapon", weapon, 6.0, 0.0, false, QVector<Proc*>(),
-            QVector<ProcInfo::Source>(), engine, pchar, roll),
-    fiery_weapon_attack(new FieryWeaponAttack(engine, pchar, roll))
+            QVector<ProcInfo::Source>(), pchar),
+    fiery_weapon_attack(new FieryWeaponAttack(pchar))
 {
     assert(weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND);
 

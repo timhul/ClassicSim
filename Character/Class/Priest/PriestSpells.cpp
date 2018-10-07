@@ -9,7 +9,7 @@ PriestSpells::PriestSpells(Priest* priest) :
     Spells(priest),
     priest(priest)
 {
-    this->mh_attack = new MainhandAttack(priest->get_engine(), priest, priest->get_combat_roll());
+    this->mh_attack = new MainhandAttack(priest);
 
     spells.append(mh_attack);
 }

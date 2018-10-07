@@ -4,8 +4,8 @@
 #include "Race.h"
 #include "Character.h"
 
-BloodFury::BloodFury(Engine* engine, Character* pchar, CombatRoll* roll) :
-    Spell("Blood Fury", engine, pchar, roll, true, 120, 0)
+BloodFury::BloodFury(Character* pchar) :
+    Spell("Blood Fury", pchar, true, 120, 0)
 {
     this->is_enabled_externally = true;
     this->enabled = false;

@@ -7,11 +7,11 @@
 #include "ItemNamespace.h"
 #include "ProcInfo.h"
 
-SwordSpecialization::SwordSpecialization(Engine* engine, Character* pchar, CombatRoll* roll) :
+SwordSpecialization::SwordSpecialization(Character* pchar) :
     Proc("Sword Specialization", 0.0, 0, false, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
-         engine, pchar, roll),
+         pchar),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->talent_ranks = {0, 1, 2, 3, 4, 5};

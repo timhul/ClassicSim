@@ -6,8 +6,8 @@
 #include "RecklessnessBuff.h"
 #include "CharacterStats.h"
 
-MainhandAttackWarrior::MainhandAttackWarrior(Engine* engine, Character* pchar, CombatRoll* roll) :
-    MainhandAttack(engine, pchar, roll),
+MainhandAttackWarrior::MainhandAttackWarrior(Character* pchar) :
+    MainhandAttack(pchar),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

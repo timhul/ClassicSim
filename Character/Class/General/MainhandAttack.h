@@ -5,7 +5,7 @@
 
 class MainhandAttack: public Spell {
 public:
-    MainhandAttack(Engine* engine, Character* pchar, CombatRoll* roll);
+    MainhandAttack(Character* pchar);
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);
