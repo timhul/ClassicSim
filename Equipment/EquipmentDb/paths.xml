@@ -6,7 +6,10 @@
 	<file path="Weapons/1hMaces.xml"/>
 	<file path="Weapons/1hSwords.xml"/>
 	<file path="Weapons/2hAxes.xml"/>
+	<file path="Weapons/2hMaces.xml"/>
 	<file path="Weapons/2hSwords.xml"/>
+	<file path="Weapons/Polearms.xml"/>
+	<file path="Weapons/Staves.xml"/>
 	<file path="Weapons/Ranged.xml"/>
 	
 	<file path="Misc/neck.xml"/>

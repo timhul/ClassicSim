@@ -74,6 +74,9 @@ public:
     void increase_crit_for_weapon_type(const int, const double);
     void decrease_crit_for_weapon_type(const int, const double);
 
+    void increase_total_phys_dmg_for_weapon_type(const int, const int);
+    void decrease_total_phys_dmg_for_weapon_type(const int, const int);
+
     virtual void increase_spell_hit(double);
     virtual void decrease_spell_hit(double);
 
@@ -101,6 +104,7 @@ protected:
     QVector<int> phys_damage_taken_changes;
     QVector<int> spell_damage_taken_changes;
     QHash<int, double> crit_bonuses_per_weapon_type;
+    QHash<int, int> damage_bonuses_per_weapon_type;
 
     int ranged_ap{};
     double melee_ability_crit_mod{};

@@ -20,15 +20,21 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObj
     this->spell_damage_taken_mod = 1.0;
 
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::FIST, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::MACE, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::POLEARM, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::SWORD, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::BOW, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::CROSSBOW, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::GUN, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
+
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::FIST, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::MACE, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::SWORD, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_MACE, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_SWORD, 0.0);
 }
 
 CharacterStats::~CharacterStats() {
@@ -200,7 +206,11 @@ void CharacterStats::decrease_melee_ap(const int decrease) {
 }
 
 double CharacterStats::get_total_phys_dmg_mod() const {
-    return total_phys_dmg_mod;
+    double dmg_bonus_from_wpn_type = 1.0;
+    if (equipment->get_mainhand() != nullptr)
+        dmg_bonus_from_wpn_type += double(damage_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()]) / 100;
+
+    return total_phys_dmg_mod * dmg_bonus_from_wpn_type;
 }
 
 double CharacterStats::get_attack_speed_mod() const {
@@ -239,6 +249,14 @@ void CharacterStats::increase_crit_for_weapon_type(const int weapon_type, const 
 
 void CharacterStats::decrease_crit_for_weapon_type(const int weapon_type, const double decrease) {
     crit_bonuses_per_weapon_type[weapon_type] -= decrease;
+}
+
+void CharacterStats::increase_total_phys_dmg_for_weapon_type(const int weapon_type, const int increase) {
+    damage_bonuses_per_weapon_type[weapon_type] += increase;
+}
+
+void CharacterStats::decrease_total_phys_dmg_for_weapon_type(const int weapon_type, const int decrease) {
+    damage_bonuses_per_weapon_type[weapon_type] -= decrease;
 }
 
 void CharacterStats::increase_spell_hit(double increase) {

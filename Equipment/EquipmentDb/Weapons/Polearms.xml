@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>	
+	<melee_weapon name="Barb of the Sand Reaver">
+		<patch name="1.9.0">
+			<info type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_halberd_ahnqiraj.png"/>
+			<dmg_range min="225" max="338" speed="3.7"/>
+			<stats>
+				<stat type="AGILITY" value="41"/>
+				<stat type="STAMINA" value="31"/>
+			</stats>
+			<source>
+			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</melee_weapon>
+</weapons>

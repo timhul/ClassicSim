@@ -250,5 +250,8 @@
         <file>QML/EquipmentSortingWeapon.qml</file>
         <file>QML/EquipmentSortingItem.qml</file>
         <file>QML/ItemEntry.qml</file>
+        <file>QML/Assets/items/Inv_hammer_04.png</file>
+        <file>QML/Assets/items/Inv_weapon_halberd_ahnqiraj.png</file>
+        <file>QML/Assets/items/Inv_staff_goldfeathered_01.png</file>
     </qresource>
 </RCC>

@@ -27,6 +27,8 @@
 #include "TestSwordSpecialization.h"
 #include "TestUnbridledWrath.h"
 
+#include "TestTwoHandedWeaponSpecialization.h"
+
 void TestWarrior::test_all() {
     test_basic_properties();
 
@@ -43,8 +45,11 @@ void TestWarrior::test_all() {
     TestRecklessness(equipment_db).test_all();
     TestBerserkerStance(equipment_db).test_all();
     TestDeathWish(equipment_db).test_all();
+
     TestUnbridledWrath(equipment_db).test_all();
     TestSwordSpecialization(equipment_db).test_all();
+
+    TestTwoHandedWeaponSpecialization(equipment_db).test_all();
 }
 
 void TestWarrior::test_basic_properties() {
