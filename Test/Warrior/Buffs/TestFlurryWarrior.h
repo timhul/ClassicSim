@@ -33,6 +33,7 @@ public:
     void test_critical_whirlwind_applies_flurry();
     void test_critical_heroic_strike_applies_flurry();
     void test_critical_overpower_applies_flurry();
+    void test_critical_mortal_strike_applies_flurry();
 
     void test_regular_hit_mh_attack_does_not_apply_flurry();
     void test_regular_hit_oh_attack_does_not_apply_flurry();
@@ -40,6 +41,7 @@ public:
     void test_regular_hit_whirlwind_does_not_apply_flurry();
     void test_regular_hit_heroic_strike_does_not_apply_flurry();
     void test_regular_hit_overpower_does_not_apply_flurry();
+    void test_regular_hit_mortal_strike_does_not_apply_flurry();
 
     void given_flurry_enabled();
     void given_flurry_not_enabled();

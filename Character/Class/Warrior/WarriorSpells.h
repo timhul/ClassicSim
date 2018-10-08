@@ -15,6 +15,7 @@ class DeathWish;
 class DeepWounds;
 class Execute;
 class HeroicStrike;
+class MortalStrike;
 class Overpower;
 class Recklessness;
 class Whirlwind;
@@ -44,6 +45,7 @@ public:
     DeepWounds* get_deep_wounds() const;
     HeroicStrike* get_heroic_strike() const;
     Execute* get_execute() const;
+    MortalStrike* get_mortal_strike() const;
     Overpower* get_overpower() const;
     OffhandAttackWarrior* get_oh_attack_warrior() const;
     DeathWish* get_death_wish() const;
@@ -63,6 +65,7 @@ private:
     DeepWounds* deep_wounds;
     HeroicStrike* heroic_strike;
     Execute* execute;
+    MortalStrike* mortal_strike;
     Overpower* overpower;
     DeathWish* death_wish;
     BattleShout* battle_shout;

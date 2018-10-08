@@ -17,6 +17,7 @@
 #include "Execute.h"
 #include "HeroicStrike.h"
 #include "Overpower.h"
+#include "MortalStrike.h"
 #include "Recklessness.h"
 #include "Whirlwind.h"
 
@@ -44,6 +45,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->execute = new Execute(pchar);
     this->heroic_strike = new HeroicStrike(pchar);
     this->overpower = new Overpower(pchar);
+    this->mortal_strike = new MortalStrike(pchar);
     this->recklessness = new Recklessness(pchar);
     this->whirlwind = new Whirlwind(pchar);
 
@@ -61,6 +63,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     spells.append(execute);
     spells.append(heroic_strike);
     spells.append(overpower);
+    spells.append(mortal_strike);
     spells.append(recklessness);
     spells.append(whirlwind);
     spells.append(warr_mh_attack);
@@ -151,6 +154,10 @@ HeroicStrike* WarriorSpells::get_heroic_strike() const {
 
 Execute* WarriorSpells::get_execute() const {
     return this->execute;
+}
+
+MortalStrike* WarriorSpells::get_mortal_strike() const {
+    return this->mortal_strike;
 }
 
 Overpower* WarriorSpells::get_overpower() const {

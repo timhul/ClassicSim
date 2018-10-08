@@ -4,6 +4,8 @@
 #include <QString>
 #include <QDebug>
 
+#include "TestUtils.h"
+
 class Engine;
 class Equipment;
 class EquipmentDb;
@@ -13,7 +15,7 @@ class Target;
 class Race;
 class Character;
 
-class TestSpell {
+class TestSpell : public TestUtils {
 public:
     TestSpell(EquipmentDb *equipment_db, QString spell_under_test);
 
@@ -45,6 +47,7 @@ public:
     void given_a_mainhand_weapon_with_100_min_max_dmg();
     void given_a_mainhand_weapon_with_3_speed();
     void given_a_mainhand_weapon_with_2_speed();
+    void given_a_twohand_weapon_with_100_min_max_dmg();
     void given_no_mainhand();
     void given_no_offhand();
     void given_an_offhand_weapon_with_100_min_max_dmg();

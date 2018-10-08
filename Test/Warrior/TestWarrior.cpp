@@ -23,6 +23,7 @@
 #include "TestRecklessness.h"
 #include "TestBerserkerStance.h"
 #include "TestDeathWish.h"
+#include "TestMortalStrike.h"
 
 #include "TestSwordSpecialization.h"
 #include "TestUnbridledWrath.h"
@@ -45,6 +46,7 @@ void TestWarrior::test_all() {
     TestRecklessness(equipment_db).test_all();
     TestBerserkerStance(equipment_db).test_all();
     TestDeathWish(equipment_db).test_all();
+    TestMortalStrike(equipment_db).test_all();
 
     TestUnbridledWrath(equipment_db).test_all();
     TestSwordSpecialization(equipment_db).test_all();

@@ -299,6 +299,17 @@ void TestSpell::given_a_mainhand_weapon_with_2_speed() {
     assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 2);
 }
 
+void TestSpell::given_a_twohand_weapon_with_100_min_max_dmg() {
+    if (equipment_db->get_melee_weapon("Test 100 dmg 2h") == nullptr) {
+        Weapon* wpn = new Weapon("Test 100 dmg 2h", WeaponTypes::TWOHAND_SWORD, WeaponSlots::TWOHAND, 100, 100, 3.5);
+        equipment_db->add_melee_weapon(wpn);
+    }
+
+    pchar->get_equipment()->set_mainhand("Test 100 dmg 2h");
+    assert(pchar->get_equipment()->get_mainhand()->get_min_dmg() == 100);
+    assert(pchar->get_equipment()->get_mainhand()->get_max_dmg() == 100);
+}
+
 void TestSpell::given_300_weapon_skill_mh() {
     assert(pchar->get_mh_wpn_skill() == 300);
 }

@@ -10,6 +10,7 @@
 #include "Whirlwind.h"
 #include "HeroicStrike.h"
 #include "Overpower.h"
+#include "MortalStrike.h"
 #include "Spell.h"
 
 TestFlurryWarrior::TestFlurryWarrior(EquipmentDb* equipment_db) :
@@ -94,6 +95,10 @@ void TestFlurryWarrior::test_all() {
     tear_down();
 
     set_up();
+    test_critical_mortal_strike_applies_flurry();
+    tear_down();
+
+    set_up();
     test_regular_hit_mh_attack_does_not_apply_flurry();
     tear_down();
 
@@ -115,6 +120,10 @@ void TestFlurryWarrior::test_all() {
 
     set_up();
     test_regular_hit_overpower_does_not_apply_flurry();
+    tear_down();
+
+    set_up();
+    test_regular_hit_mortal_strike_does_not_apply_flurry();
     tear_down();
 }
 
@@ -375,6 +384,16 @@ void TestFlurryWarrior::test_critical_overpower_applies_flurry() {
     then_flurry_is_active();
 }
 
+void TestFlurryWarrior::test_critical_mortal_strike_applies_flurry() {
+    given_a_guaranteed_melee_ability_crit();
+    given_flurry_enabled();
+    given_flurry_is_not_active();
+
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_mortal_strike());
+
+    then_flurry_is_active();
+}
+
 void TestFlurryWarrior::test_regular_hit_mh_attack_does_not_apply_flurry() {
     given_a_guaranteed_white_hit();
     given_flurry_enabled();
@@ -431,6 +450,16 @@ void TestFlurryWarrior::test_regular_hit_overpower_does_not_apply_flurry() {
     given_flurry_is_not_active();
 
     when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower());
+
+    then_flurry_is_not_active();
+}
+
+void TestFlurryWarrior::test_regular_hit_mortal_strike_does_not_apply_flurry() {
+    given_a_guaranteed_melee_ability_hit();
+    given_flurry_enabled();
+    given_flurry_is_not_active();
+
+    when_performing_attack(dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_mortal_strike());
 
     then_flurry_is_not_active();
 }

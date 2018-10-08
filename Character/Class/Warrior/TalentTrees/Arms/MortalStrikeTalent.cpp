@@ -1,6 +1,8 @@
 
 #include "MortalStrikeTalent.h"
-#include "Character.h"
+#include "Warrior.h"
+#include "WarriorSpells.h"
+#include "MortalStrike.h"
 
 MortalStrikeTalent::MortalStrikeTalent(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Mortal Strike", "7ML", "Assets/warrior/arms/tier7/Ability_warrior_savageblow.png", 1)
@@ -13,9 +15,11 @@ MortalStrikeTalent::MortalStrikeTalent(Character *pchar, TalentTree* tree) :
 MortalStrikeTalent::~MortalStrikeTalent() = default;
 
 void MortalStrikeTalent::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    auto* warr = dynamic_cast<Warrior*>(pchar);
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_mortal_strike()->enable();
 }
 
 void MortalStrikeTalent::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    auto* warr = dynamic_cast<Warrior*>(pchar);
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_mortal_strike()->disable();
 }
