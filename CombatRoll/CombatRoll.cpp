@@ -62,10 +62,6 @@ int CombatRoll::get_spell_ability_result() {
     return AttackResult::CRITICAL;
 }
 
-Target* CombatRoll::get_target() const {
-    return this->target;
-}
-
 Mechanics* CombatRoll::get_mechanics() const {
     return this->mechanics;
 }

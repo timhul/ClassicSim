@@ -32,7 +32,6 @@ public:
     WhiteHitTable* get_white_hit_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);
 
-    Target* get_target() const;
     Mechanics* get_mechanics() const;
 
     double get_white_miss_chance(const int);

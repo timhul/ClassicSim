@@ -455,8 +455,8 @@ void TestSpell::given_1000_melee_ap() {
 }
 
 void TestSpell::given_target_has_0_armor() {
-    pchar->get_combat_roll()->get_target()->set_armor(0);
-    assert(pchar->get_combat_roll()->get_target()->get_armor() == 0);
+    pchar->get_target()->set_armor(0);
+    assert(pchar->get_target()->get_armor() == 0);
 }
 
 void TestSpell::given_engine_priority_at(const double priority) {

@@ -218,9 +218,9 @@ void SimulationRunner::apply_external_buffs(CharacterDecoder& decoder) {
 }
 
 void SimulationRunner::setup_target(CharacterDecoder& decoder) {
-    pchar->get_combat_roll()->get_target()->set_creature_type(decoder.get_key("TARGET_TYPE"));
-    pchar->get_combat_roll()->get_target()->set_lvl(decoder.get_key("TARGET_LVL").toInt());
-    pchar->get_combat_roll()->get_target()->set_armor(decoder.get_key("TARGET_ARMOR").toInt());
+    pchar->get_target()->set_creature_type(decoder.get_key("TARGET_TYPE"));
+    pchar->get_target()->set_lvl(decoder.get_key("TARGET_LVL").toInt());
+    pchar->get_target()->set_armor(decoder.get_key("TARGET_ARMOR").toInt());
 }
 
 void SimulationRunner::exit_thread(QString err) {

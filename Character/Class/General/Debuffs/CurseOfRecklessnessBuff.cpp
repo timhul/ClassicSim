@@ -1,7 +1,6 @@
 
 #include "CurseOfRecklessnessBuff.h"
 #include "Character.h"
-#include "CombatRoll.h"
 #include "Target.h"
 
 CurseOfRecklessnessBuff::CurseOfRecklessnessBuff(Character* pchar):
@@ -11,9 +10,9 @@ CurseOfRecklessnessBuff::CurseOfRecklessnessBuff(Character* pchar):
 {}
 
 void CurseOfRecklessnessBuff::buff_effect_when_applied() {
-    pchar->get_combat_roll()->get_target()->decrease_armor(640);
+    pchar->get_target()->decrease_armor(640);
 }
 
 void CurseOfRecklessnessBuff::buff_effect_when_removed() {
-    pchar->get_combat_roll()->get_target()->increase_armor(640);
+    pchar->get_target()->increase_armor(640);
 }

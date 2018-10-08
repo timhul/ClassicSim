@@ -118,7 +118,7 @@ Rotation* Character::get_rotation() {
 
 void Character::change_target_creature_type(const QString &creature_type) {
     remove_racial_effects();
-    roll->get_target()->set_creature_type(creature_type);
+    target->set_creature_type(creature_type);
     apply_racial_effects();
 }
 
@@ -129,7 +129,7 @@ void Character::apply_racial_effects() {
         break;
     case Races::Troll:
         spells->get_berserking()->enable();
-        if (roll->get_target()->get_creature_type() == Target::CreatureType::Beast)
+        if (target->get_creature_type() == Target::CreatureType::Beast)
             cstats->increase_total_phys_dmg_mod(5);
         break;
     }
@@ -142,7 +142,7 @@ void Character::remove_racial_effects() {
         break;
     case Races::Troll:
         spells->get_berserking()->disable();
-        if (roll->get_target()->get_creature_type() == Target::CreatureType::Beast)
+        if (target->get_creature_type() == Target::CreatureType::Beast)
             cstats->decrease_total_phys_dmg_mod(5);
         break;
     }

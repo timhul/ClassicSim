@@ -195,7 +195,7 @@ int CharacterStats::get_melee_ap() {
     int eq_str = equipment->get_stats()->get_strength();
     int eq_agi = equipment->get_stats()->get_agility();
     int eq_melee_ap = eq_base_melee_ap + eq_str * pchar->get_ap_per_strength() + eq_agi * pchar->get_ap_per_agi();
-    int target_ap = equipment->get_stats()->get_melee_ap_against_type(pchar->get_combat_roll()->get_target()->get_creature_type());
+    int target_ap = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     return base_stats->get_melee_ap_total()  + eq_melee_ap + target_ap;
 }
 

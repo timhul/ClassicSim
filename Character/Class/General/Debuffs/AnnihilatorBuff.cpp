@@ -1,7 +1,6 @@
 
 #include "AnnihilatorBuff.h"
 #include "Character.h"
-#include "CombatRoll.h"
 #include "Target.h"
 
 AnnihilatorBuff::AnnihilatorBuff(Character* pchar):
@@ -11,9 +10,9 @@ AnnihilatorBuff::AnnihilatorBuff(Character* pchar):
 {}
 
 void AnnihilatorBuff::buff_effect_when_applied() {
-    pchar->get_combat_roll()->get_target()->decrease_armor(600);
+    pchar->get_target()->decrease_armor(600);
 }
 
 void AnnihilatorBuff::buff_effect_when_removed() {
-    pchar->get_combat_roll()->get_target()->increase_armor(600);
+    pchar->get_target()->increase_armor(600);
 }

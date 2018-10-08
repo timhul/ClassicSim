@@ -1,7 +1,6 @@
 
 #include "SunderArmorBuff.h"
 #include "Character.h"
-#include "CombatRoll.h"
 #include "Target.h"
 
 SunderArmorBuff::SunderArmorBuff(Character* pchar):
@@ -11,9 +10,9 @@ SunderArmorBuff::SunderArmorBuff(Character* pchar):
 {}
 
 void SunderArmorBuff::buff_effect_when_applied() {
-    pchar->get_combat_roll()->get_target()->decrease_armor(2250);
+    pchar->get_target()->decrease_armor(2250);
 }
 
 void SunderArmorBuff::buff_effect_when_removed() {
-    pchar->get_combat_roll()->get_target()->increase_armor(2250);
+    pchar->get_target()->increase_armor(2250);
 }
