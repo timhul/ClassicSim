@@ -2,7 +2,6 @@
 #include "WarriorSpells.h"
 #include "Warrior.h"
 
-#include "PlayerAction.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
 
@@ -19,6 +18,7 @@
 #include "Overpower.h"
 #include "MortalStrike.h"
 #include "Recklessness.h"
+#include "Slam.h"
 #include "Whirlwind.h"
 
 #include "MainhandAttackWarrior.h"
@@ -47,6 +47,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->overpower = new Overpower(pchar);
     this->mortal_strike = new MortalStrike(pchar);
     this->recklessness = new Recklessness(pchar);
+    this->slam = new Slam(pchar);
     this->whirlwind = new Whirlwind(pchar);
 
     this->warr_mh_attack = new MainhandAttackWarrior(pchar);
@@ -65,6 +66,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     spells.append(overpower);
     spells.append(mortal_strike);
     spells.append(recklessness);
+    spells.append(slam);
     spells.append(whirlwind);
     spells.append(warr_mh_attack);
     spells.append(warr_oh_attack);
@@ -82,6 +84,9 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!warr_mh_attack->attack_is_valid(iteration))
         return;
 
+    if (!pchar->is_melee_attacking())
+        return;
+
     if (warr->get_hs_buff()->is_active() && heroic_strike->is_available()) {
         heroic_strike->calculate_damage();
     }
@@ -91,10 +96,8 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
 
         warr_mh_attack->perform();
 
-        if (warr->action_ready()) {
-            auto* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
-            warr->get_engine()->add_event(new_event);
-        }
+        if (warr->action_ready())
+            pchar->add_player_reaction_event();
     }
 
     add_next_mh_attack();
@@ -104,12 +107,13 @@ void WarriorSpells::oh_auto_attack(const int iteration) {
     if (!warr_oh_attack->attack_is_valid(iteration))
         return;
 
+    if (!pchar->is_melee_attacking())
+        return;
+
     warr_oh_attack->perform();
 
-    if (warr->action_ready()) {
-        auto* new_event = new PlayerAction(warr->get_rotation(), warr->get_engine()->get_current_priority() + 0.1);
-        warr->get_engine()->add_event(new_event);
-    }
+    if (warr->action_ready())
+        pchar->add_player_reaction_event();
 
     add_next_oh_attack();
 }
@@ -186,6 +190,10 @@ Bloodrage* WarriorSpells::get_bloodrage() const {
 
 Whirlwind* WarriorSpells::get_whirlwind() const {
     return this->whirlwind;
+}
+
+Slam* WarriorSpells::get_slam() const {
+    return this->slam;
 }
 
 Recklessness* WarriorSpells::get_recklessness() const {

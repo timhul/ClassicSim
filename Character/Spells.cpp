@@ -39,6 +39,9 @@ void Spells::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;
 
+    if (!pchar->is_melee_attacking())
+        return;
+
     mh_attack->perform();
 
     add_next_mh_attack();

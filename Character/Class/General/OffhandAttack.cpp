@@ -85,6 +85,10 @@ void OffhandAttack::complete_swing() {
     next_expected_use = last_used + pchar->get_stats()->get_oh_wpn_speed();
 }
 
+void OffhandAttack::reset_swingtimer() {
+    next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_oh_wpn_speed();
+}
+
 bool OffhandAttack::attack_is_valid(const int iteration) const {
     return this->iteration == iteration;
 }

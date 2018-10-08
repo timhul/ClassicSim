@@ -1,6 +1,8 @@
 
 #include "ImprovedSlam.h"
-#include "Character.h"
+#include "Slam.h"
+#include "Warrior.h"
+#include "WarriorSpells.h"
 
 ImprovedSlam::ImprovedSlam(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Improved Slam", "5LL", "Assets/warrior/fury/tier5/Ability_warrior_decisivestrike.png", 5)
@@ -12,9 +14,11 @@ ImprovedSlam::ImprovedSlam(Character *pchar, TalentTree* tree) :
 ImprovedSlam::~ImprovedSlam() = default;
 
 void ImprovedSlam::apply_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    auto* warr = dynamic_cast<Warrior*>(pchar);
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_slam()->increase_effect_via_talent();
 }
 
 void ImprovedSlam::remove_rank_effect() {
-    // TODO: Decide how rank effects work for this talent.
+    auto* warr = dynamic_cast<Warrior*>(pchar);
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_slam()->decrease_effect_via_talent();
 }

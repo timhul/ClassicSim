@@ -18,6 +18,7 @@ class HeroicStrike;
 class MortalStrike;
 class Overpower;
 class Recklessness;
+class Slam;
 class Whirlwind;
 
 class MainhandAttackWarrior;
@@ -53,6 +54,7 @@ public:
     BerserkerRage* get_berserker_rage() const;
     Bloodrage* get_bloodrage() const;
     Whirlwind* get_whirlwind() const;
+    Slam* get_slam() const;
     Recklessness* get_recklessness() const;
 
     void apply_deep_wounds();
@@ -72,6 +74,7 @@ private:
     BerserkerRage* berserker_rage;
     Bloodrage* bloodrage;
     Recklessness* recklessness;
+    Slam* slam;
     Whirlwind* whirlwind;
 
     MainhandAttackWarrior* warr_mh_attack;

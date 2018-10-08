@@ -63,7 +63,7 @@ double Engine::get_current_priority() const {
 
 void Engine::set_current_priority(Event* event) {
     if (event->get_priority() < this->current_prio) {
-        qDebug() << "Engine: Next event lower priority than current prio! " \
+        qDebug() << "Engine: Next event" << event->get_name() << "lower priority than current prio! " \
                  << event->get_priority() << " < " << this->current_prio;
         exit(-1);
     }

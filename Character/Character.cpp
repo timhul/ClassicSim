@@ -17,6 +17,7 @@
 #include "OffhandAttack.h"
 #include "Weapon.h"
 #include "Rotation.h"
+#include "PlayerAction.h"
 #include <QDebug>
 
 #include "Berserking.h"
@@ -214,6 +215,11 @@ BerserkingBuff* Character::get_berserking_buff() const {
 
 BloodFuryBuff* Character::get_blood_fury_buff() const {
     return this->blood_fury_buff;
+}
+
+void Character::add_player_reaction_event() {
+    auto* new_event = new PlayerAction(current_rotation, engine->get_current_priority() + 0.1);
+    engine->add_event(new_event);
 }
 
 void Character::start_attack() {

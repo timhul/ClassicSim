@@ -77,6 +77,8 @@ public:
     BerserkingBuff* get_berserking_buff() const;
     BloodFuryBuff* get_blood_fury_buff() const;
 
+    void add_player_reaction_event();
+
     bool is_dual_wielding(void);
     bool is_melee_attacking(void) const;
     void start_attack(void);

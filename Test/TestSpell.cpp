@@ -507,13 +507,25 @@ void TestSpell::then_next_event_is(const QString &name) {
     delete event;
 }
 
-void TestSpell::then_next_event_is(const QString &name, const QString &priority) {
+void TestSpell::then_next_event_is(const QString &name, const QString &priority, bool act_event) {
     assert(!pchar->get_engine()->get_queue()->empty());
     Event* event = pchar->get_engine()->get_queue()->get_next();
     pchar->get_engine()->set_current_priority(event);
 
-    assert(event->get_name() == name);
-    assert(QString::number(event->get_priority(), 'f', 3) == priority);
+    if (event->get_name() != name) {
+        qDebug() << spell_under_test << "Expected event" << name << "but got" << event->get_name()
+                 << "at priority" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
+        assert(false);
+    }
+
+    if (QString::number(event->get_priority(), 'f', 3) != priority) {
+        qDebug() << spell_under_test << "During event" << name << "expected" << priority
+                 << "but got" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
+        assert(false);
+    }
+
+    if (act_event)
+        event->act();
 
     delete event;
 }

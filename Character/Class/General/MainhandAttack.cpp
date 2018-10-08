@@ -85,6 +85,10 @@ void MainhandAttack::complete_swing() {
     next_expected_use = last_used + pchar->get_stats()->get_mh_wpn_speed();
 }
 
+void MainhandAttack::reset_swingtimer() {
+    next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_mh_wpn_speed();
+}
+
 void MainhandAttack::extra_attack() {
     calculate_damage();
 }

@@ -13,6 +13,8 @@ public:
     int get_next_iteration();
 
     void complete_swing();
+    void reset_swingtimer();
+
     virtual void extra_attack();
 
 protected:

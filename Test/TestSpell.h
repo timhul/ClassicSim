@@ -62,7 +62,7 @@ public:
 
     void then_damage_dealt_is(const int damage);
     void then_next_event_is(const QString &name);
-    void then_next_event_is(const QString &name, const QString &priority);
+    void then_next_event_is(const QString &name, const QString &priority, bool act_event = false);
 
     void dump_queued_events();
 
