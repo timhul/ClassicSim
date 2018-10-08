@@ -120,7 +120,6 @@ void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<
             add_mandatory_attr(attrs, "name", map);
             add_mandatory_attr(attrs, "rate", map);
             add_mandatory_attr(attrs, "internal_cd", map);
-            add_mandatory_attr(attrs, "recursive", map);
 
             add_attr(attrs, "min", map);
             add_attr(attrs, "max", map);

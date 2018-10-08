@@ -15,7 +15,6 @@ public:
             const int weapon,
             const double ppm,
             const double inner_cooldown,
-            const bool recursive,
             const QVector<Proc*>& linked_procs,
             const QVector<ProcInfo::Source>& proc_sources,
             Character* pchar);

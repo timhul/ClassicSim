@@ -14,7 +14,6 @@ public:
     Proc(const QString &name,
          const double proc_rate,
          const double inner_cooldown,
-         const bool recursive,
          const QVector<Proc *>& linked_procs,
          QVector<ProcInfo::Source>  proc_sources,
          Character* pchar);
@@ -52,7 +51,6 @@ protected:
     int instance_id;
 
     unsigned proc_range;
-    bool recursive;
 
     void spell_effect() override;
     virtual void proc_effect() = 0;

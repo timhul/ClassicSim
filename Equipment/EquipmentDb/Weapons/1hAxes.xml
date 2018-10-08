@@ -6,7 +6,7 @@
 			<dmg_range min="37" max="69" speed="1.5"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0" recursive="yes"/>
+				<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Grants 1 extra attack on your next swing.
@@ -23,7 +23,7 @@
 			<dmg_range min="78" max="146" speed="2.7"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
 			<source>
 			World drop.
@@ -78,7 +78,7 @@
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_axe_35.png"/>
 			<dmg_range min="69" max="130" speed="2.0"/>
 			<proc>
-				<spell name="LIFE_DRAIN" min="48" max="54" instant="yes" rate="0.06" internal_cd="0" recursive="no"/>
+				<spell name="LIFE_DRAIN" min="48" max="54" instant="yes" rate="0.06" internal_cd="0"/>
 			</proc>
 			<source>
 			Drops from Hakkar the Soulflayer in Zul'Gurub.
@@ -141,7 +141,7 @@
 			<dmg_range min="114" max="213" speed="2.9"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
 			<source>
 			Drops from Onyxia in Onyxia's Lair.

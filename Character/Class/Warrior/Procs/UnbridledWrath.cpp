@@ -5,7 +5,7 @@
 #include "ProcInfo.h"
 
 UnbridledWrath::UnbridledWrath(Character* pchar) :
-    Proc("Unbridled Wrath", 0.0, 0, false, QVector<Proc*>(),
+    Proc("Unbridled Wrath", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
          pchar),

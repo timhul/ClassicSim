@@ -6,7 +6,7 @@
 			<dmg_range min="41" max="85" speed="1.5"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
 			<source>
 			Drops from High Priestess Arlokk in Zul'Gurub.
@@ -37,7 +37,7 @@
 			</stats>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="ATTACK_SPEED" amount="0.3" duration="5" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="ATTACK_SPEED" amount="0.3" duration="5" rate="0.05" internal_cd="0"/>
 			</proc>
 			<source>
 			Drops from Magmadar in Molten Core.
@@ -54,7 +54,7 @@
 			</stats>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="PHYSICAL_DOT" amount="5" tick_rate="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="PHYSICAL_DOT" amount="5" tick_rate="1" duration="30" rate="0.05" internal_cd="0"/>
 			</proc>
 			<source>
 			Drops from Azuregos (world boss).

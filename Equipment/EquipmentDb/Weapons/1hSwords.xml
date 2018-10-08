@@ -6,7 +6,7 @@
 			<dmg_range min="66" max="124" speed="2.7"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0" recursive="yes"/>
+				<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Grants an extra attack on your next swing.
@@ -52,7 +52,7 @@
 			<dmg_range min="81" max="151" speed="2.8"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="ADDITIONAL_DMG_BUFF" min="10" max="10" duration="15" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="ADDITIONAL_DMG_BUFF" min="10" max="10" duration="15" rate="0.05" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: A burst of energy fills thecaster, increasing damage by 10 and armor by 150 for 15 sec.
@@ -69,7 +69,7 @@
 			<dmg_range min="72" max="135" speed="2.5"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="SHADOW_DOT" instant="no" amount="0"  min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="SHADOW_DOT" instant="no" amount="0"  min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Drains the target for 2 Shadow damage every 1 sec and transfers it to the caster. Lasts for 30 sec.
@@ -114,7 +114,7 @@
 			<dmg_range min="72" max="135" speed="2.5"/>
 			<proc>
 				<!-- TODO: Find proc rate, how much damage the minion deals, duration, etc. -->
-				<spell name="SUMMON_NATURE_MINION" amount="1" duration="30" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="SUMMON_NATURE_MINION" amount="1" duration="30" rate="0.05" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Calls forth an Emerald Dragon Whelp to protect you in battle for a short period of time.
@@ -191,7 +191,7 @@
 				<stat type="DEFENSE" value="5"/>
 			</stats>
 			<proc>
-				<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" recursive="no"/>
+				<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Equip: Adds 2 fire damage to your melee attacks.
@@ -211,7 +211,7 @@
 			</stats>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Slices the enemy for 72 to 97 Nature damage.
@@ -228,7 +228,7 @@
 			<dmg_range min="96" max="178" speed="2.9"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
 			<source>
 			Drops randomly in selected dungeons and raids.
@@ -359,9 +359,9 @@
 				<stat type="NATURE_RESISTANCE" value="9"/>
 			</stats>
 			<proc>
-				<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0" recursive="no"/>
+				<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0"/>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
 			<special_equip_effect>
 			Chance on hit: Blasts your enemy with lightning, dealing 300  Nature damage and then jumping to additional nearby enemies.
@@ -380,7 +380,7 @@
 			<dmg_range min="100" max="187" speed="2.6"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
-				<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0" recursive="no"/>
+				<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
 			<source>
 			Drops from Onyxia in Onyxia's Lair.

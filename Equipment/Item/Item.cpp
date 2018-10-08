@@ -112,8 +112,6 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
 
         QString proc_name = i["name"];
         QString instant = i["instant"].toLower();
-        // CSIM-75: Investigate if recursive should be supported
-        // QString recursive = procs[i]["recursive"];
         int amount = QString(i["amount"]).toInt();
         double internal_cd = QString(i["internal_cd"]).toDouble();
         double proc_rate = QString(i["rate"]).toDouble();
@@ -179,8 +177,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
 }
 
 bool Item::proc_info_complete(QMap<QString, QString> & proc) {
-    QVector<QString> expected_keys = {"name", "instant", "recursive", "amount", "internal_cd",
-                                     "rate"};
+    QVector<QString> expected_keys = {"name", "instant", "amount", "internal_cd", "rate"};
     QVector<QString> missing_keys;
     for (const auto & expected_key : expected_keys) {
         if (!proc.contains(expected_key))

@@ -14,7 +14,6 @@
 Proc::Proc(const QString& name,
            const double proc_rate,
            const double inner_cooldown,
-           const bool recursive,
            const QVector<Proc *>& linked_procs,
            QVector<ProcInfo::Source>  proc_sources,
            Character* pchar) :
@@ -28,7 +27,6 @@ Proc::Proc(const QString& name,
     instance_id(ProcStatus::INACTIVE)
 {
     this->proc_range = static_cast<unsigned>(round(proc_rate * 10000));
-    this->recursive = recursive;
     this->linked_procs = linked_procs;
 }
 
