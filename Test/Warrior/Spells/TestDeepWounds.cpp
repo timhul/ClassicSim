@@ -113,6 +113,7 @@ void TestDeepWounds::test_incurs_global_cooldown() {
 }
 
 void TestDeepWounds::test_obeys_global_cooldown() {
+    given_deep_wounds_enabled();
     assert(deep_wounds()->is_available());
 
     given_warrior_is_on_gcd();
@@ -121,6 +122,7 @@ void TestDeepWounds::test_obeys_global_cooldown() {
 }
 
 void TestDeepWounds::test_resource_cost() {
+    given_deep_wounds_enabled();
     given_warrior_has_rage(0);
     assert(deep_wounds()->is_available());
 }
@@ -142,6 +144,7 @@ void TestDeepWounds::test_is_ready_conditions() {
 }
 
 void TestDeepWounds::test_stance_cooldown() {
+    given_deep_wounds_enabled();
     when_switching_to_berserker_stance();
 
     assert(warrior->on_stance_cooldown() == true);

@@ -7,6 +7,9 @@ DeepWounds::DeepWounds(Character* pchar) :
     Spell("Deep Wounds", pchar, false, 3, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {
+    this->is_enabled_externally = true;
+    this->enabled = false;
+
     this->previous_tick_rest = 0;
     this->ranks = {0.0, 0.2, 0.4, 0.6};
     this->rank_talent = 0;
