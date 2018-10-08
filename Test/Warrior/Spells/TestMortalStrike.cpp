@@ -157,7 +157,7 @@ void TestMortalStrike::test_crit_dmg_2_of_2_impale() {
     when_mortal_strike_is_performed();
 
     // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) * crit_dmg_modifier
-    // [597] = (100 + (3.3 * 1000 / 14)) * 2.2
+    // [1091] = (100 + (3.3 * 1000 / 14)) * 2.2
     then_damage_dealt_is(1091);
 }
 
