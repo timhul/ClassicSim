@@ -92,19 +92,20 @@ QVector<ExternalBuff*> GeneralBuffs::get_external_debuffs() const {
 
 void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *>>> &vec) {
     for (auto & i : vec[current_setup]) {
-        if (i.second->get_name() == name) {
-            if (i.second->is_active()) {
-                i.first = false;
-                i.second->cancel_buff();
-                assert(!i.second->is_active());
-            }
-            else {
-                i.first = true;
-                i.second->apply_buff();
-            }
+        if (i.second->get_name() != name)
+            continue;
 
-            break;
+        if (i.second->is_active()) {
+            i.first = false;
+            i.second->cancel_buff();
+            assert(!i.second->is_active());
         }
+        else {
+            i.first = true;
+            i.second->apply_buff();
+        }
+
+        break;
     }
 }
 

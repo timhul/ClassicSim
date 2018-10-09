@@ -7,7 +7,9 @@ CurseOfRecklessnessBuff::CurseOfRecklessnessBuff(Character* pchar):
     ExternalBuff(pchar, "Cure of Recklessness", BuffDuration::PERMANENT, 0,
                  "Assets/buffs/Spell_shadow_unholystrength.png",
                  "Reduces target armor by 640.", QVersionNumber::fromString("1.0.0"))
-{}
+{
+    this->enabled = true;
+}
 
 void CurseOfRecklessnessBuff::buff_effect_when_applied() {
     pchar->get_target()->decrease_armor(640);

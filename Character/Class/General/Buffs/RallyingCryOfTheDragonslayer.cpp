@@ -8,7 +8,9 @@ RallyingCryOfTheDragonslayer::RallyingCryOfTheDragonslayer(Character* pchar):
                  "Assets/buffs/Inv_misc_head_dragon_01.png",
                  "+10% Spell crit, +5% melee/ranged crit, +140 attack power",
                  QVersionNumber::fromString("1.0.0"))
-{}
+{
+    this->enabled = true;
+}
 
 void RallyingCryOfTheDragonslayer::buff_effect_when_applied() {
     pchar->get_stats()->increase_spell_crit(0.10);

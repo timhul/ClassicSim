@@ -7,7 +7,9 @@ SongflowerSerenade::SongflowerSerenade(Character* pchar):
     ExternalBuff(pchar, "Songflower Serenade", BuffDuration::PERMANENT, 1,
                  "Assets/buffs/Spell_holy_mindvision.png",
                  "+5% Crit, +15 all attributes", QVersionNumber::fromString("1.0.0"))
-{}
+{
+    this->enabled = true;
+}
 
 void SongflowerSerenade::buff_effect_when_applied() {
     pchar->get_stats()->increase_crit(0.05);

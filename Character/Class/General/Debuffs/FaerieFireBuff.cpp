@@ -7,7 +7,9 @@ FaerieFireBuff::FaerieFireBuff(Character* pchar):
     ExternalBuff(pchar, "Faerie Fire", BuffDuration::PERMANENT, 0,
                  "Assets/buffs/Spell_nature_faeriefire.png",
                  "Reduces target armor by 505.", QVersionNumber::fromString("1.0.0"))
-{}
+{
+    this->enabled = true;
+}
 
 void FaerieFireBuff::buff_effect_when_applied() {
     pchar->get_target()->decrease_armor(505);

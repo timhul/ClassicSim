@@ -7,7 +7,9 @@ ElixirOfGiants::ElixirOfGiants(Character* pchar):
     ExternalBuff(pchar, "Elixir of Giants", BuffDuration::PERMANENT, 1,
                  "Assets/buffs/Inv_potion_61.png",
                  "+25 Strength", QVersionNumber::fromString("1.0.0"))
-{}
+{
+    this->enabled = true;
+}
 
 void ElixirOfGiants::buff_effect_when_applied() {
     pchar->get_stats()->increase_strength(25);

@@ -7,7 +7,9 @@ ElixirOfTheMongoose::ElixirOfTheMongoose(Character* pchar):
     ExternalBuff(pchar, "Elixir of the Mongoose", BuffDuration::PERMANENT, 1,
                  "Assets/buffs/Inv_potion_32.png",
                  "+25 Agility, +%2 Critical Strike", QVersionNumber::fromString("1.0.0"))
-{}
+{
+    this->enabled = true;
+}
 
 void ElixirOfTheMongoose::buff_effect_when_applied() {
     pchar->get_stats()->increase_agility(25);

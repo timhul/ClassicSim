@@ -7,7 +7,9 @@ ElixirOfBruteForce::ElixirOfBruteForce(Character* pchar):
     ExternalBuff(pchar, "Elixir of Brute Force", BuffDuration::PERMANENT, 1,
                  "Assets/buffs/Inv_potion_40.png",
                  "+18 Strength and Stamina", QVersionNumber::fromString("1.0.0"))
-{}
+{
+    this->enabled = true;
+}
 
 void ElixirOfBruteForce::buff_effect_when_applied() {
     pchar->get_stats()->increase_strength(18);
