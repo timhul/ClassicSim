@@ -29,10 +29,12 @@ TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
 
 void TestSpell::set_up_general() {
     race = new Orc();
+    ignored_events.clear();
 }
 
 void TestSpell::tear_down_general() {
     delete race;
+    ignored_events.clear();
 }
 
 void TestSpell::given_no_previous_damage_dealt() {
@@ -474,6 +476,10 @@ void TestSpell::given_engine_priority_pushed_forward(const double priority) {
     delete event;
 }
 
+void TestSpell::given_event_is_ignored(QString event) {
+    ignored_events.insert(event);
+}
+
 void TestSpell::when_running_queued_events_until(const double priority) {
     while (pchar->get_engine()->get_current_priority() < priority) {
         if (pchar->get_engine()->get_queue()->empty()) {
@@ -509,11 +515,20 @@ void TestSpell::then_next_event_is(const QString &name) {
 
 void TestSpell::then_next_event_is(const QString &name, const QString &priority, bool act_event) {
     assert(!pchar->get_engine()->get_queue()->empty());
-    Event* event = pchar->get_engine()->get_queue()->get_next();
-    pchar->get_engine()->set_current_priority(event);
+
+    Event* event = nullptr;
+    while (!pchar->get_engine()->get_queue()->empty()) {
+        event = pchar->get_engine()->get_queue()->get_next();
+        pchar->get_engine()->set_current_priority(event);
+
+        if (!ignored_events.contains(event->get_name()))
+            break;
+
+        delete event;
+    }
 
     if (event->get_name() != name) {
-        qDebug() << spell_under_test << "Expected event" << name << "but got" << event->get_name()
+        qDebug() << spell_under_test << "Expected event" << name << priority << "but got" << event->get_name()
                  << "at priority" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
         assert(false);
     }

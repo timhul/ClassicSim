@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QDebug>
+#include <QSet>
 
 #include "TestUtils.h"
 
@@ -57,6 +58,7 @@ public:
     void given_target_has_0_armor();
     void given_engine_priority_at(const double priority);
     void given_engine_priority_pushed_forward(const double priority);
+    void given_event_is_ignored(QString event);
 
     void when_running_queued_events_until(const double priority);
 
@@ -71,6 +73,7 @@ protected:
     Character* pchar;
     Race* race;
     QString spell_under_test;
+    QSet<QString> ignored_events;
 
     void set_melee_special_table_for_hit(const int wpn_skill);
     void set_melee_special_table_for_crit(const int wpn_skill);

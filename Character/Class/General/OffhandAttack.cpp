@@ -82,6 +82,7 @@ void OffhandAttack::update_next_expected_use(const double haste_change) {
 }
 
 void OffhandAttack::complete_swing() {
+    last_used = engine->get_current_priority();
     next_expected_use = last_used + pchar->get_stats()->get_oh_wpn_speed();
 }
 

@@ -95,9 +95,6 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
             warr->get_hs_buff()->use_charge();
 
         warr_mh_attack->perform();
-
-        if (warr->action_ready())
-            pchar->add_player_reaction_event();
     }
 
     add_next_mh_attack();
@@ -111,9 +108,6 @@ void WarriorSpells::oh_auto_attack(const int iteration) {
         return;
 
     warr_oh_attack->perform();
-
-    if (warr->action_ready())
-        pchar->add_player_reaction_event();
 
     add_next_oh_attack();
 }

@@ -28,6 +28,9 @@ void MainhandAttackWarrior::calculate_damage() {
         increment_miss();
         return;
     }
+
+    pchar->add_player_reaction_event();
+
     if (result == AttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();

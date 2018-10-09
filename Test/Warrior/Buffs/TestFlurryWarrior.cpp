@@ -136,6 +136,7 @@ void TestFlurryWarrior::test_has_15_second_duration() {
 
     when_flurry_is_applied();
 
+    given_event_is_ignored("PlayerAction");
     then_next_event_is("MainhandMeleeHit");
     then_next_event_is("OffhandMeleeHit");
     then_next_event_is("BuffRemoval", "15.000");
@@ -152,13 +153,15 @@ void TestFlurryWarrior::test_has_3_charges() {
 void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied() {
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
-    given_a_guaranteed_white_hit();
+    given_a_guaranteed_white_crit();
     given_1_of_5_flurry();
 
-    when_performing_mh_attack();
-    when_performing_oh_attack();
-    when_flurry_is_applied();
+    warrior->start_attack();
 
+    given_event_is_ignored("PlayerAction");
+    then_next_event_is("MainhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
     then_next_event_is("OffhandMeleeHit", "1.818");
     then_next_event_is("MainhandMeleeHit", "2.727");
 }
@@ -166,13 +169,15 @@ void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied()
 void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied() {
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
-    given_a_guaranteed_white_hit();
+    given_a_guaranteed_white_crit();
     given_2_of_5_flurry();
 
-    when_performing_mh_attack();
-    when_performing_oh_attack();
-    when_flurry_is_applied();
+    warrior->start_attack();
 
+    given_event_is_ignored("PlayerAction");
+    then_next_event_is("MainhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
     then_next_event_is("OffhandMeleeHit", "1.739");
     then_next_event_is("MainhandMeleeHit", "2.609");
 }
@@ -180,13 +185,15 @@ void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied()
 void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied() {
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
-    given_a_guaranteed_white_hit();
+    given_a_guaranteed_white_crit();
     given_3_of_5_flurry();
 
-    when_performing_mh_attack();
-    when_performing_oh_attack();
-    when_flurry_is_applied();
+    warrior->start_attack();
 
+    given_event_is_ignored("PlayerAction");
+    then_next_event_is("MainhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
     then_next_event_is("OffhandMeleeHit", "1.667");
     then_next_event_is("MainhandMeleeHit", "2.500");
 }
@@ -194,13 +201,15 @@ void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied()
 void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied() {
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
-    given_a_guaranteed_white_hit();
+    given_a_guaranteed_white_crit();
     given_4_of_5_flurry();
 
-    when_performing_mh_attack();
-    when_performing_oh_attack();
-    when_flurry_is_applied();
+    warrior->start_attack();
 
+    given_event_is_ignored("PlayerAction");
+    then_next_event_is("MainhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
     then_next_event_is("OffhandMeleeHit", "1.600");
     then_next_event_is("MainhandMeleeHit", "2.400");
 }
@@ -208,18 +217,21 @@ void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied()
 void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied() {
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
-    given_a_guaranteed_white_hit();
+    given_a_guaranteed_white_crit();
     given_5_of_5_flurry();
 
-    when_performing_mh_attack();
-    when_performing_oh_attack();
-    when_flurry_is_applied();
+    warrior->start_attack();
 
+    given_event_is_ignored("PlayerAction");
+    then_next_event_is("MainhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
+    then_next_event_is("OffhandMeleeHit", "0.000", true);
     then_next_event_is("OffhandMeleeHit", "1.538");
     then_next_event_is("MainhandMeleeHit", "2.308");
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed() {
+    given_event_is_ignored("PlayerAction");
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -241,6 +253,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed() {
+    given_event_is_ignored("PlayerAction");
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -262,6 +275,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed() {
+    given_event_is_ignored("PlayerAction");
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -283,6 +297,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed() {
+    given_event_is_ignored("PlayerAction");
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
@@ -304,6 +319,7 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed()
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_5_of_5_flurry_removed() {
+    given_event_is_ignored("PlayerAction");
     given_a_mainhand_weapon_with_3_speed();
     given_an_offhand_weapon_with_2_speed();
     given_a_guaranteed_white_hit();
