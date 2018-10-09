@@ -47,6 +47,11 @@ void Slam::spell_effect() {
 void Slam::perform_periodic() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
+    pchar->add_player_reaction_event();
+    pchar->get_spells()->get_mh_attack()->reset_swingtimer();
+    pchar->get_spells()->get_oh_attack()->reset_swingtimer();
+    pchar->start_attack();
+
     if (result == AttackResult::MISS) {
         increment_miss();
         warr->lose_rage(static_cast<unsigned>(resource_cost));
@@ -77,9 +82,4 @@ void Slam::perform_periodic() {
     }
 
     warr->lose_rage(static_cast<unsigned>(resource_cost));
-
-    pchar->get_spells()->get_mh_attack()->reset_swingtimer();
-    pchar->get_spells()->get_oh_attack()->reset_swingtimer();
-    pchar->start_attack();
-    pchar->add_player_reaction_event();
 }

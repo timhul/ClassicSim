@@ -483,7 +483,7 @@ void TestSpell::given_event_is_ignored(QString event) {
 void TestSpell::when_running_queued_events_until(const double priority) {
     while (pchar->get_engine()->get_current_priority() < priority) {
         if (pchar->get_engine()->get_queue()->empty()) {
-            qDebug() << "Attempted to run queued events until"
+            qDebug() << spell_under_test << "Attempted to run queued events until"
                      << QString::number(priority, 'f', 3)
                      << "but ran out of events at" << pchar->get_engine()->get_current_priority();
             assert(false);
@@ -514,7 +514,10 @@ void TestSpell::then_next_event_is(const QString &name) {
 }
 
 void TestSpell::then_next_event_is(const QString &name, const QString &priority, bool act_event) {
-    assert(!pchar->get_engine()->get_queue()->empty());
+    if (pchar->get_engine()->get_queue()->empty()) {
+        qDebug() << spell_under_test << "Queue empty! Expected to find" << name << priority;
+        assert(false);
+    }
 
     Event* event = nullptr;
     while (!pchar->get_engine()->get_queue()->empty()) {

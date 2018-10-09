@@ -248,9 +248,9 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
     ImprovedSlam(pchar, nullptr).increment_rank();
     ImprovedSlam(pchar, nullptr).increment_rank();
     given_warrior_has_rage(100);
-    given_a_guaranteed_white_hit();
     given_a_mainhand_weapon_with_2_speed();
     given_an_offhand_weapon_with_3_speed();
+    given_a_guaranteed_white_hit();
 
     pchar->start_attack();
 
