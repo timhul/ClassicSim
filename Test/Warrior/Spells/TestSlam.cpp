@@ -11,10 +11,6 @@ TestSlam::TestSlam(EquipmentDb *equipment_db) :
 {}
 
 void TestSlam::test_all() {
-    set_up();
-    test_auto_attacks_cancelled_during_slam_cast();
-    tear_down();
-
     run_mandatory_tests();
 
     set_up();
@@ -61,6 +57,9 @@ void TestSlam::test_all() {
     test_cast_time_with_5_of_5_improved_slam();
     tear_down();
 
+    set_up();
+    test_auto_attacks_cancelled_during_slam_cast();
+    tear_down();
 }
 
 Slam* TestSlam::slam() {
