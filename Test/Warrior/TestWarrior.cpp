@@ -31,6 +31,8 @@
 
 #include "TestTwoHandedWeaponSpecialization.h"
 
+#include "TestFury.h"
+
 void TestWarrior::test_all() {
     test_basic_properties();
 
@@ -54,6 +56,8 @@ void TestWarrior::test_all() {
     TestSwordSpecialization(equipment_db).test_all();
 
     TestTwoHandedWeaponSpecialization(equipment_db).test_all();
+
+    TestFury(equipment_db).test_all();
 }
 
 void TestWarrior::test_basic_properties() {
