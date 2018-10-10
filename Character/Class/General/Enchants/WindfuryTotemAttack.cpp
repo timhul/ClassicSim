@@ -13,20 +13,20 @@ WindfuryTotemAttack::WindfuryTotemAttack(Character* pchar) :
 WindfuryTotemAttack::~WindfuryTotemAttack() = default;
 
 void WindfuryTotemAttack::proc_effect() {
-    pchar->get_stats()->increase_melee_ap(rank_spells[rank_spell]);
+    pchar->get_stats()->increase_melee_ap(rank_spells[spell_rank]);
     pchar->run_extra_mh_attack();
-    pchar->get_stats()->decrease_melee_ap(rank_spells[rank_spell]);
+    pchar->get_stats()->decrease_melee_ap(rank_spells[spell_rank]);
 }
 
 void WindfuryTotemAttack::increase_spell_rank() {
-    ++rank_spell;
+    ++spell_rank;
 
     proc_range = 2000;
 }
 
 void WindfuryTotemAttack::decrease_spell_rank() {
-    --rank_spell;
+    --spell_rank;
 
-    if (rank_spell < 1)
+    if (spell_rank < 1)
         proc_range = 0;
 }

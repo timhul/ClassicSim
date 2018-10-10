@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class Slam;
 class TalentTree;
 
 class ImprovedSlam: public Talent {
@@ -12,6 +13,8 @@ public:
     ~ImprovedSlam() override;
 
 private:
+    Slam* slam;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

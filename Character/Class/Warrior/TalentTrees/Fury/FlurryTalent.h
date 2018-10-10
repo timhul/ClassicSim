@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class Flurry;
 class TalentTree;
 
 class FlurryTalent: public Talent {
@@ -12,6 +13,8 @@ public:
     ~FlurryTalent() override;
 
 private:
+    Flurry* flurry;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

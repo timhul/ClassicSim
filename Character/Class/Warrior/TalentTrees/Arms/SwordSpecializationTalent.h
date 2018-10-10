@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class SwordSpecialization;
 class TalentTree;
 
 class SwordSpecializationTalent: public Talent {
@@ -12,6 +13,8 @@ public:
     ~SwordSpecializationTalent() override;
 
 private:
+    SwordSpecialization* sword_spec;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

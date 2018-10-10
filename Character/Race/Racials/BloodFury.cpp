@@ -7,7 +7,6 @@
 BloodFury::BloodFury(Character* pchar) :
     Spell("Blood Fury", pchar, true, 120, 0)
 {
-    this->is_enabled_externally = true;
     this->enabled = false;
 }
 

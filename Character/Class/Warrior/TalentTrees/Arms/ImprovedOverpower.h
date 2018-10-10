@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class Overpower;
 class TalentTree;
 
 class ImprovedOverpower: public Talent {
@@ -12,6 +13,8 @@ public:
     ~ImprovedOverpower() override;
 
 private:
+    Overpower* overpower;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

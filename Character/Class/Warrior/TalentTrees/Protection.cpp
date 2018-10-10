@@ -41,14 +41,14 @@ Protection::Protection(Character *pchar, QObject* parent) :
     QMap<QString, Talent*> tier7 {{"7ML", new GenericTalent(pchar, this, "Shield Slam", "7ML", base_url + "tier7/Inv_shield_05.png", 1, "Slam the target with your shield, causing 225 to 236 damage, modified by your shield block value, and has a 50% chance of dispelling 1 magic effect on the target. Also causes a high amount of threat.", QVector<QPair<int, int>>())}};
     add_talents(tier7);
 
-    talents["1ML"]->set_bottom_child(talents["3ML"]);
-    talents["3ML"]->set_parent(talents["1ML"]);
+    talents["1ML"]->talent->set_bottom_child(talents["3ML"]->talent);
+    talents["3ML"]->talent->set_parent(talents["1ML"]->talent);
 
-    talents["2LL"]->set_bottom_child(talents["3LL"]);
-    talents["3LL"]->set_parent(talents["2LL"]);
+    talents["2LL"]->talent->set_bottom_child(talents["3LL"]->talent);
+    talents["3LL"]->talent->set_parent(talents["2LL"]->talent);
 
-    talents["5ML"]->set_bottom_child(talents["7ML"]);
-    talents["7ML"]->set_parent(talents["5ML"]);
+    talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
+    talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
 Protection::~Protection() = default;

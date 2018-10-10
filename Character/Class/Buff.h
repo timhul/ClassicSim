@@ -37,9 +37,6 @@ public:
     bool is_enabled() const;
     bool is_hidden() const;
 
-    void increase_rank();
-    void decrease_rank();
-
     void set_instance_id(const int);
     int get_instance_id() const;
 
@@ -62,8 +59,6 @@ protected:
     double expired{};
     bool active{};
     bool enabled;
-    int rank_talent;
-    int max_rank_talent;
     double uptime{};
     bool hidden;
 

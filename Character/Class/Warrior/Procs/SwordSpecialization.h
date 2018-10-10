@@ -2,26 +2,29 @@
 #define SWORDSPECIALIZATION_H
 
 #include "Proc.h"
+#include "TalentRequirer.h"
 
 class Warrior;
 class Weapon;
 
-class SwordSpecialization: public Proc {
+class SwordSpecialization: public Proc, public TalentRequirer {
 public:
     SwordSpecialization(Character* pchar);
     ~SwordSpecialization() override;
 
     void proc_effect() override;
-    void increase_effect_via_talent() override;
-    void decrease_effect_via_talent() override;
 
     bool proc_specific_conditions_fulfilled() const override;
 protected:
 private:
+    friend class SwordSpecializationTalent;
+
     Warrior* warr;
 
-
     bool weapon_is_sword(Weapon*) const;
+
+    void increase_talent_rank_effect(const QString& talent_name) override;
+    void decrease_talent_rank_effect(const QString& talent_name) override;
 };
 
 #endif // SWORDSPECIALIZATION_H

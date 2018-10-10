@@ -11,11 +11,12 @@
 
 HeroicStrike::HeroicStrike(Character* pchar) :
     Spell("Heroic Strike", pchar, false, 0, 15),
+    TalentRequirer(3, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};
-    rank_spell = 8;
-    additional_dmg = spell_ranks[rank_spell];
+    spell_rank = 8;
+    additional_dmg = spell_ranks[spell_rank];
 
     talent_ranks = {15, 14, 13, 12};
 }
@@ -61,13 +62,10 @@ void HeroicStrike::spell_effect() {
     warr->get_hs_buff()->apply_buff();
 }
 
-void HeroicStrike::increase_effect_via_talent() {
-    ++rank_talent;
-    resource_cost = talent_ranks[rank_talent];
+void HeroicStrike::increase_talent_rank_effect(const QString&) {
+    resource_cost = talent_ranks[curr_talent_rank];
 }
 
-void HeroicStrike::decrease_effect_via_talent() {
-    --rank_talent;
-    assert(rank_talent >= 0);
-    resource_cost = talent_ranks[rank_talent];
+void HeroicStrike::decrease_talent_rank_effect(const QString&) {
+    resource_cost = talent_ranks[curr_talent_rank];
 }

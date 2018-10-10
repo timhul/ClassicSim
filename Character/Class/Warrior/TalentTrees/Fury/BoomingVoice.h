@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class BattleShoutBuff;
 class TalentTree;
 
 class BoomingVoice: public Talent {
@@ -12,6 +13,8 @@ public:
     ~BoomingVoice() override;
 
 private:
+    BattleShoutBuff* battle_shout_buff;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

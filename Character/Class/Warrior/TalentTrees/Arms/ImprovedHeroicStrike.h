@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class HeroicStrike;
 class TalentTree;
 
 class ImprovedHeroicStrike: public Talent {
@@ -12,6 +13,8 @@ public:
     ~ImprovedHeroicStrike() override;
 
 private:
+    HeroicStrike* heroic_strike;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

@@ -9,9 +9,9 @@
 
 Bloodthirst::Bloodthirst(Character* pchar) :
     Spell("Bloodthirst", pchar, true, 6.0, 30),
+    TalentRequirer(1, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->is_enabled_externally = true;
     this->enabled = false;
 }
 
@@ -51,4 +51,10 @@ void Bloodthirst::spell_effect() {
     }
 
     warr->lose_rage(static_cast<unsigned>(resource_cost));
+}
+
+void Bloodthirst::increase_talent_rank_effect(const QString&) {
+}
+
+void Bloodthirst::decrease_talent_rank_effect(const QString&) {
 }

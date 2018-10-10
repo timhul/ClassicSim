@@ -9,6 +9,7 @@
 #include "Overpower.h"
 #include "Queue.h"
 #include "ClassStatistics.h"
+#include "DeepWoundsTalent.h"
 
 TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Deep Wounds")
@@ -334,18 +335,18 @@ void TestDeepWounds::given_0_of_3_deep_wounds() {
 }
 
 void TestDeepWounds::given_1_of_3_deep_wounds() {
-    deep_wounds()->increase_effect_via_talent();
+    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
 }
 
 void TestDeepWounds::given_2_of_3_deep_wounds() {
-    deep_wounds()->increase_effect_via_talent();
-    deep_wounds()->increase_effect_via_talent();
+    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
 }
 
 void TestDeepWounds::given_3_of_3_deep_wounds() {
-    deep_wounds()->increase_effect_via_talent();
-    deep_wounds()->increase_effect_via_talent();
-    deep_wounds()->increase_effect_via_talent();
+    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
 }
 
 void TestDeepWounds::given_no_previous_deep_wounds_damage_dealt() {

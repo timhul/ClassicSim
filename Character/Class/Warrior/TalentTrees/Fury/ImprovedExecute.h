@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class Execute;
 class TalentTree;
 
 class ImprovedExecute: public Talent {
@@ -12,6 +13,8 @@ public:
     ~ImprovedExecute() override;
 
 private:
+    Execute* execute;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

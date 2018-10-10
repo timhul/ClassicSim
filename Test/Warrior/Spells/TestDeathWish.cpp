@@ -2,6 +2,7 @@
 #include "TestDeathWish.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
+#include "DeathWishTalent.h"
 #include "CharacterStats.h"
 
 TestDeathWish::TestDeathWish(EquipmentDb *equipment_db) :
@@ -104,15 +105,13 @@ void TestDeathWish::test_dmg_mod_reduced_after_buff_expires() {
 }
 
 void TestDeathWish::given_death_wish_is_enabled() {
-    death_wish()->enable();
+    DeathWishTalent(pchar, nullptr).increment_rank();
 
     assert(death_wish()->is_enabled());
     assert(warrior->get_death_wish_buff()->is_enabled());
 }
 
 void TestDeathWish::given_death_wish_is_not_enabled() {
-    death_wish()->disable();
-
     assert(!death_wish()->is_enabled());
     assert(!warrior->get_death_wish_buff()->is_enabled());
 }

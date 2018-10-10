@@ -7,7 +7,6 @@
 Berserking::Berserking(Character* pchar) :
     Spell("Berserking", pchar, true, 180, 0)
 {
-    this->is_enabled_externally = true;
     this->enabled = false;
 }
 

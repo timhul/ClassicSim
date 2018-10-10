@@ -9,9 +9,9 @@
 
 MortalStrike::MortalStrike(Character* pchar) :
     Spell("Mortal Strike", pchar, true, 6.0, 30),
+    TalentRequirer(1, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->is_enabled_externally = true;
     this->enabled = false;
 }
 
@@ -51,4 +51,10 @@ void MortalStrike::spell_effect() {
     }
 
     warr->lose_rage(static_cast<unsigned>(resource_cost));
+}
+
+void MortalStrike::increase_talent_rank_effect(const QString&) {
+}
+
+void MortalStrike::decrease_talent_rank_effect(const QString&) {
 }

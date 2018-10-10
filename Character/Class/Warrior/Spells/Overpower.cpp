@@ -6,9 +6,11 @@
 
 Overpower::Overpower(Character* pchar) :
     Spell("Overpower", pchar, true, 5.0, 5),
+    TalentRequirer(2, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->talent_ranks = {0.0, 0.25, 0.5};
+    crit_mod = talent_ranks[curr_talent_rank];
 }
 
 bool Overpower::is_ready_spell_specific() const {
@@ -16,9 +18,9 @@ bool Overpower::is_ready_spell_specific() const {
 }
 
 void Overpower::spell_effect() {
-    double crit_mod = pchar->get_stats()->get_mh_crit_chance() + talent_ranks[rank_talent];
+    double total_crit = pchar->get_stats()->get_mh_crit_chance() + crit_mod;
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(),
-                                                      crit_mod,
+                                                      total_crit,
                                                       false,
                                                       false,
                                                       false,
@@ -45,4 +47,12 @@ void Overpower::spell_effect() {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)));
     }
+}
+
+void Overpower::increase_talent_rank_effect(const QString&) {
+    crit_mod = talent_ranks[curr_talent_rank];
+}
+
+void Overpower::decrease_talent_rank_effect(const QString&) {
+    crit_mod = talent_ranks[curr_talent_rank];
 }

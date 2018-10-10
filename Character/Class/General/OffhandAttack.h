@@ -2,6 +2,7 @@
 #define OFFHANDATTACK_H
 
 #include "Spell.h"
+#include "TalentRequirer.h"
 
 class OffhandAttack: public Spell {
 public:
@@ -20,12 +21,13 @@ public:
 protected:
     double next_expected_use;
     int iteration;
-    QVector<double> talent_ranks;
+    double offhand_penalty;
 
     virtual void spell_effect() override;
     void reset_effect() override;
 
     virtual void calculate_damage();
+
 private:
 };
 

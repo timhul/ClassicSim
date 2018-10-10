@@ -2,6 +2,7 @@
 #include "TestHeroicStrike.h"
 #include "HeroicStrike.h"
 #include "HeroicStrikeBuff.h"
+#include "ImprovedHeroicStrike.h"
 #include "WarriorSpells.h"
 
 TestHeroicStrike::TestHeroicStrike(EquipmentDb *equipment_db) :
@@ -123,17 +124,18 @@ void TestHeroicStrike::test_3_of_3_improved_hs_reduces_rage_cost() {
 }
 
 void TestHeroicStrike::test_removing_points_in_improved_hs_increases_rage_cost() {
-    given_3_of_3_improved_hs();
-    heroic_strike()->decrease_effect_via_talent();
+    ImprovedHeroicStrike improved_heroic_strike(pchar, nullptr);
+    assert(improved_heroic_strike.increment_rank());
+    assert(improved_heroic_strike.increment_rank());
+    assert(improved_heroic_strike.increment_rank());
 
+    assert(improved_heroic_strike.decrement_rank());
     then_heroic_strike_costs(13);
 
-    heroic_strike()->decrease_effect_via_talent();
-
+    assert(improved_heroic_strike.decrement_rank());
     then_heroic_strike_costs(14);
 
-    heroic_strike()->decrease_effect_via_talent();
-
+    assert(improved_heroic_strike.decrement_rank());
     then_heroic_strike_costs(15);
 }
 
@@ -209,18 +211,18 @@ void TestHeroicStrike::given_0_of_3_improved_hs() {
 }
 
 void TestHeroicStrike::given_1_of_3_improved_hs() {
-    heroic_strike()->increase_effect_via_talent();
+    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
 }
 
 void TestHeroicStrike::given_2_of_3_improved_hs() {
-    heroic_strike()->increase_effect_via_talent();
-    heroic_strike()->increase_effect_via_talent();
+    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
+    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
 }
 
 void TestHeroicStrike::given_3_of_3_improved_hs() {
-    heroic_strike()->increase_effect_via_talent();
-    heroic_strike()->increase_effect_via_talent();
-    heroic_strike()->increase_effect_via_talent();
+    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
+    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
+    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
 }
 
 void TestHeroicStrike::given_user_has_activated_heroic_strike() {

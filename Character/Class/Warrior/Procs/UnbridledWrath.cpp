@@ -9,9 +9,12 @@ UnbridledWrath::UnbridledWrath(Character* pchar) :
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
          pchar),
+    TalentRequirer(5, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->talent_ranks = {0, 8, 16, 24, 32, 40};
+    this->enabled = false;
+    this->talent_ranks = {0, 800, 1600, 2400, 3200, 4000};
+    proc_range = talent_ranks[curr_talent_rank];
 }
 
 UnbridledWrath::~UnbridledWrath() = default;
@@ -24,19 +27,10 @@ void UnbridledWrath::proc_effect() {
         statistics_resource->add_resource_gain(1);
 }
 
-void UnbridledWrath::increase_effect_via_talent() {
-    ++rank_talent;
-    if (rank_talent == 1)
-        this->enable_proc();
-
-    proc_range = talent_ranks[rank_talent] * 100;
+void UnbridledWrath::increase_talent_rank_effect(const QString&) {
+    proc_range = talent_ranks[curr_talent_rank];
 }
 
-void UnbridledWrath::decrease_effect_via_talent() {
-    --rank_talent;
-    if (rank_talent == 0)
-        this->disable_proc();
-
-    assert(rank_talent >= 0);
-    proc_range = talent_ranks[rank_talent] * 100;
+void UnbridledWrath::decrease_talent_rank_effect(const QString&) {
+    proc_range = talent_ranks[curr_talent_rank];
 }

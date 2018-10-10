@@ -5,7 +5,8 @@
 #include "WarriorSpells.h"
 
 ImprovedBerserkerRage::ImprovedBerserkerRage(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree,  "Improved Berserker Rage", "6LL", "Assets/warrior/fury/tier6/Spell_nature_ancestralguardian.png", 2)
+    Talent(pchar, tree,  "Improved Berserker Rage", "6LL", "Assets/warrior/fury/tier6/Spell_nature_ancestralguardian.png", 2),
+    berserker_rage(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_berserker_rage())
 {
     QString base_str = "The Berserker Rage ability will generate %1 rage when used.";
     initialize_rank_descriptions(base_str, 5, 5);
@@ -14,11 +15,9 @@ ImprovedBerserkerRage::ImprovedBerserkerRage(Character *pchar, TalentTree* tree)
 ImprovedBerserkerRage::~ImprovedBerserkerRage() = default;
 
 void ImprovedBerserkerRage::apply_rank_effect() {
-    auto* warr = dynamic_cast<Warrior*>(pchar);
-    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_berserker_rage()->increase_effect_via_talent();
+    berserker_rage->increase_talent_rank(berserker_rage);
 }
 
 void ImprovedBerserkerRage::remove_rank_effect() {
-    auto* warr = dynamic_cast<Warrior*>(pchar);
-    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_berserker_rage()->decrease_effect_via_talent();
+    berserker_rage->decrease_talent_rank(berserker_rage);
 }

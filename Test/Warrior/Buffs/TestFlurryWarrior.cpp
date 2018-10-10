@@ -1,6 +1,7 @@
 
 #include "TestFlurryWarrior.h"
 #include "Flurry.h"
+#include "FlurryTalent.h"
 #include "WarriorSpells.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
@@ -506,33 +507,33 @@ void TestFlurryWarrior::when_flurry_is_removed() {
 }
 
 void TestFlurryWarrior::given_1_of_5_flurry() {
-    warrior->get_flurry()->increase_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
 }
 
 void TestFlurryWarrior::given_2_of_5_flurry() {
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
 }
 
 void TestFlurryWarrior::given_3_of_5_flurry() {
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
 }
 
 void TestFlurryWarrior::given_4_of_5_flurry() {
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
 }
 
 void TestFlurryWarrior::given_5_of_5_flurry() {
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
-    warrior->get_flurry()->increase_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
+    FlurryTalent(pchar, nullptr).increment_rank();
 }
 
 void TestFlurryWarrior::when_performing_mh_attack() {

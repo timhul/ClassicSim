@@ -8,9 +8,19 @@
 
 OffhandAttackWarrior::OffhandAttackWarrior(Character* pchar) :
     OffhandAttack(pchar),
+    TalentRequirer(5, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
+    offhand_penalty = talent_ranks[curr_talent_rank];
+}
+
+void OffhandAttackWarrior::increase_talent_rank_effect(const QString&) {
+    offhand_penalty = talent_ranks[curr_talent_rank];
+}
+
+void OffhandAttackWarrior::decrease_talent_rank_effect(const QString&) {
+    offhand_penalty = talent_ranks[curr_talent_rank];
 }
 
 void OffhandAttackWarrior::extra_attack() {
@@ -53,7 +63,7 @@ void OffhandAttackWarrior::calculate_damage() {
     if (warr->get_recklessness_buff()->is_active())
         result = AttackResult::CRITICAL;
 
-    double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_oh_dmg() * talent_ranks[rank_talent]);
+    double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_oh_dmg() * offhand_penalty);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * 2);

@@ -2,16 +2,14 @@
 #define SLAM_H
 
 #include "Spell.h"
+#include "TalentRequirer.h"
 #include <QVector>
 
 class Warrior;
 
-class Slam: public Spell {
+class Slam: public Spell, public TalentRequirer {
 public:
     Slam(Character* pchar);
-
-    void increase_effect_via_talent() override;
-    void decrease_effect_via_talent() override;
 
     void perform_periodic() override;
 
@@ -19,11 +17,16 @@ public:
 
 protected:
 private:
+    friend class ImprovedSlam;
+
     Warrior* warr;
     int cast_time;
     QVector<int> talent_ranks;
 
     void spell_effect() override;
+
+    void increase_talent_rank_effect(const QString& talent_name) override;
+    void decrease_talent_rank_effect(const QString& talent_name) override;
 };
 
 #endif // SLAM_H

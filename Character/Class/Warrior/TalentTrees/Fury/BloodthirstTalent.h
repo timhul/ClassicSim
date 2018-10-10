@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class Bloodthirst;
 class TalentTree;
 
 class BloodthirstTalent: public Talent {
@@ -12,6 +13,8 @@ public:
     ~BloodthirstTalent() override;
 
 private:
+    Bloodthirst* bloodthirst;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

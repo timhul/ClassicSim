@@ -20,9 +20,7 @@ Spell::Spell(const QString& name,
     cooldown(cooldown),
     last_used(0 - cooldown),
     resource_cost(resource_cost),
-    rank_talent(0),
-    rank_spell(0),
-    is_enabled_externally(false),
+    spell_rank(0),
     enabled(true)
 {}
 
@@ -81,14 +79,12 @@ bool Spell::is_enabled() const {
 }
 
 void Spell::enable() {
-    assert(is_enabled_externally);
     assert(enabled == false);
     enabled = true;
     enable_spell_effect();
 }
 
 void Spell::disable() {
-    assert(is_enabled_externally);
     if (enabled)
         disable_spell_effect();
 
@@ -101,25 +97,12 @@ double Spell::get_cooldown_remaining() const {
     return delta > 0 ? delta : 0;
 }
 
-void Spell::increase_effect_via_talent() {
-    ++rank_talent;
-    if (is_enabled_externally && !enabled)
-        enabled = true;
-}
-
-void Spell::decrease_effect_via_talent() {
-    --rank_talent;
-    assert(rank_talent >= 0);
-    if (is_enabled_externally && enabled && rank_talent == 0)
-        enabled = false;
-}
-
 void Spell::increase_spell_rank() {
-    ++rank_spell;
+    ++spell_rank;
 }
 
 void Spell::decrease_spell_rank() {
-    --rank_spell;
+    --spell_rank;
 }
 
 void Spell::perform() {

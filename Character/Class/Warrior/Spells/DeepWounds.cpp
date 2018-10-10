@@ -5,20 +5,20 @@
 
 DeepWounds::DeepWounds(Character* pchar) :
     Spell("Deep Wounds", pchar, false, 3, 0),
+    TalentRequirer(3, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->is_enabled_externally = true;
     this->enabled = false;
 
     this->previous_tick_rest = 0;
-    this->ranks = {0.0, 0.2, 0.4, 0.6};
-    this->rank_talent = 0;
+    this->talent_ranks = {0.0, 0.2, 0.4, 0.6};
+    wpn_percent = talent_ranks[curr_talent_rank];
 }
 
 void DeepWounds::spell_effect() {
     assert(!stacks.empty());
 
-    double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * ranks[rank_talent]) / 6);
+    double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * wpn_percent) / 6);
 
     // TODO: previous_tick_rest not correctly increased/decreased by dmg increasing effects
     // occuring since the previous tick was calculated. This effect is VERY minor.
@@ -59,4 +59,12 @@ void DeepWounds::apply_debuff() {
 void DeepWounds::reset_effect() {
     stacks.clear();
     previous_tick_rest = 0;
+}
+
+void DeepWounds::increase_talent_rank_effect(const QString&) {
+    wpn_percent = talent_ranks[curr_talent_rank];
+}
+
+void DeepWounds::decrease_talent_rank_effect(const QString&) {
+    wpn_percent = talent_ranks[curr_talent_rank];
 }

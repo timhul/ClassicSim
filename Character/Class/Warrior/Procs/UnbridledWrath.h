@@ -2,21 +2,25 @@
 #define UNBRIDLEDWRATH_H
 
 #include "Proc.h"
+#include "TalentRequirer.h"
 
 class Warrior;
 
-class UnbridledWrath: public Proc {
+class UnbridledWrath: public Proc, public TalentRequirer {
 public:
     UnbridledWrath(Character* pchar);
     ~UnbridledWrath() override;
 
     void proc_effect() override;
-    void increase_effect_via_talent() override;
-    void decrease_effect_via_talent() override;
 
 protected:
 private:
+    friend class UnbridledWrathTalent;
+
     Warrior* warr;
+
+    void increase_talent_rank_effect(const QString& talent_name) override;
+    void decrease_talent_rank_effect(const QString& talent_name) override;
 };
 
 #endif // UNBRIDLEDWRATH_H

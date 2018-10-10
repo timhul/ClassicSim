@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class MortalStrike;
 class TalentTree;
 
 class MortalStrikeTalent: public Talent {
@@ -12,6 +13,8 @@ public:
     ~MortalStrikeTalent() override;
 
 private:
+    MortalStrike* mortal_strike;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

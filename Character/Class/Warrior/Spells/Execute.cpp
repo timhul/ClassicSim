@@ -8,6 +8,7 @@
 
 Execute::Execute(Character* pchar) :
     Spell("Execute", pchar, true, 0, 15),
+    TalentRequirer(2, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     spell_ranks = {QPair<int, int>(125, 3),
@@ -15,9 +16,9 @@ Execute::Execute(Character* pchar) :
                    QPair<int, int>(325, 9),
                    QPair<int, int>(450, 12),
                    QPair<int, int>(600, 15)};
-    rank_spell = 4;
-    initial_dmg = spell_ranks[rank_spell].first;
-    dmg_per_rage_converted = spell_ranks[rank_spell].second;
+    spell_rank = 4;
+    initial_dmg = spell_ranks[spell_rank].first;
+    dmg_per_rage_converted = spell_ranks[spell_rank].second;
 
     talent_ranks = {15, 13, 10};
 }
@@ -69,13 +70,10 @@ void Execute::spell_effect() {
     warr->lose_rage(warr->get_curr_rage());
 }
 
-void Execute::increase_effect_via_talent() {
-    ++rank_talent;
-    resource_cost = talent_ranks[rank_talent];
+void Execute::increase_talent_rank_effect(const QString&) {
+    resource_cost = talent_ranks[curr_talent_rank];
 }
 
-void Execute::decrease_effect_via_talent() {
-    --rank_talent;
-    assert(rank_talent >= 0);
-    resource_cost = talent_ranks[rank_talent];
+void Execute::decrease_talent_rank_effect(const QString&) {
+    resource_cost = talent_ranks[curr_talent_rank];
 }

@@ -233,7 +233,8 @@ SOURCES += main.cpp \
     Test/Warrior/Spells/TestMortalStrike.cpp \
     Character/Class/Warrior/Spells/Slam.cpp \
     Event/Events/CastComplete.cpp \
-    Test/Warrior/Spells/TestSlam.cpp
+    Test/Warrior/Spells/TestSlam.cpp \
+    Character/Class/TalentRequirer.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -462,7 +463,8 @@ HEADERS += \
     Test/Warrior/Spells/TestMortalStrike.h \
     Character/Class/Warrior/Spells/Slam.h \
     Event/Events/CastComplete.h \
-    Test/Warrior/Spells/TestSlam.h
+    Test/Warrior/Spells/TestSlam.h \
+    Character/Class/TalentRequirer.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

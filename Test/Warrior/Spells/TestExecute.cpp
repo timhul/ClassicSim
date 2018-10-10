@@ -1,6 +1,7 @@
 
 #include "TestExecute.h"
 #include "Execute.h"
+#include "ImprovedExecute.h"
 #include "Impale.h"
 
 #include "Target.h"
@@ -202,41 +203,43 @@ void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
-    execute()->increase_effect_via_talent();
+    assert(ImprovedExecute(pchar, nullptr).increment_rank());
 
     assert(execute_available_with_rage(13));
     assert(!execute_available_with_rage(12));
 }
 
 void TestExecute::test_2_of_2_improved_execute_reduces_rage_cost() {
+    ImprovedExecute improved_execute(pchar, nullptr);
     given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
-    execute()->increase_effect_via_talent();
-    execute()->increase_effect_via_talent();
+    assert(improved_execute.increment_rank());
+    assert(improved_execute.increment_rank());
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
 }
 
 void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost() {
+    ImprovedExecute improved_execute(pchar, nullptr);
     given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
-    execute()->increase_effect_via_talent();
-    execute()->increase_effect_via_talent();
+    assert(improved_execute.increment_rank());
+    assert(improved_execute.increment_rank());
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
 
-    execute()->decrease_effect_via_talent();
+    assert(improved_execute.decrement_rank());
 
     assert(execute_available_with_rage(13));
     assert(!execute_available_with_rage(12));
 
-    execute()->decrease_effect_via_talent();
+    assert(improved_execute.decrement_rank());
 
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
@@ -518,15 +521,15 @@ void TestExecute::given_0_of_2_improved_execute() {
 }
 
 void TestExecute::given_1_of_2_improved_execute() {
-    execute()->increase_effect_via_talent();
+    assert(ImprovedExecute(pchar, nullptr).increment_rank());
 
     assert(execute_available_with_rage(13));
     assert(!execute_available_with_rage(12));
 }
 
 void TestExecute::given_2_of_2_improved_execute() {
-    execute()->increase_effect_via_talent();
-    execute()->increase_effect_via_talent();
+    assert(ImprovedExecute(pchar, nullptr).increment_rank());
+    assert(ImprovedExecute(pchar, nullptr).increment_rank());
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));

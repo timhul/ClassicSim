@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class BerserkerRage;
 class TalentTree;
 
 class ImprovedBerserkerRage: public Talent {
@@ -12,6 +13,8 @@ public:
     ~ImprovedBerserkerRage() override;
 
 private:
+    BerserkerRage* berserker_rage;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

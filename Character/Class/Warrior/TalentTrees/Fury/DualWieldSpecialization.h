@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class OffhandAttackWarrior;
 class TalentTree;
 
 class DualWieldSpecialization: public Talent {
@@ -12,6 +13,8 @@ public:
     ~DualWieldSpecialization() override;
 
 private:
+    OffhandAttackWarrior* oh_attack;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

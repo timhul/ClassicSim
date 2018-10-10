@@ -37,9 +37,6 @@ public:
 
     double get_cooldown_remaining() const;
 
-    virtual void increase_effect_via_talent();
-    virtual void decrease_effect_via_talent();
-
     virtual void increase_spell_rank();
     virtual void decrease_spell_rank();
 
@@ -65,9 +62,7 @@ protected:
     double cooldown;
     double last_used;
     int resource_cost;
-    int rank_talent;
-    int rank_spell;
-    bool is_enabled_externally;
+    int spell_rank;
     bool enabled;
 
     void add_spell_cd_event(void) const;

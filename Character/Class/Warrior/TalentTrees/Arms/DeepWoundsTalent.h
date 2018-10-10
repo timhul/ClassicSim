@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class DeepWounds;
 class TalentTree;
 
 class DeepWoundsTalent: public Talent {
@@ -12,6 +13,8 @@ public:
     ~DeepWoundsTalent() override;
 
 private:
+    DeepWounds* deep_wounds;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

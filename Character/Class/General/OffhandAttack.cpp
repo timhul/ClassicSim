@@ -12,7 +12,8 @@ OffhandAttack::OffhandAttack(Character* pchar) :
           false,
           (pchar->get_equipment()->get_offhand() != nullptr) ? pchar->get_equipment()->get_offhand()->get_base_weapon_speed() :
                                                                 10000,
-          0)
+          0),
+    offhand_penalty(0.5)
 {
     this->pchar = pchar;
     next_expected_use = 0;
@@ -41,7 +42,7 @@ void OffhandAttack::calculate_damage() {
         return;
     }
 
-    double damage_dealt = pchar->get_random_non_normalized_oh_dmg() * 0.5;
+    double damage_dealt = pchar->get_random_non_normalized_oh_dmg() * offhand_penalty;
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;

@@ -15,8 +15,6 @@ Buff::Buff(Character* pchar, const QString& name, const int duration, const int 
     duration(duration),
     base_charges(base_charges),
     enabled(false),
-    rank_talent(0),
-    max_rank_talent(std::numeric_limits<int>::max()),
     hidden(false),
     instance_id(BuffStatus::INACTIVE)
 {
@@ -129,23 +127,6 @@ bool Buff::is_hidden() const {
     return hidden;
 }
 
-void Buff::increase_rank() {
-    ++rank_talent;
-    if (!enabled)
-        enable_buff();
-
-    assert(rank_talent <= max_rank_talent);
-}
-
-void Buff::decrease_rank() {
-    --rank_talent;
-
-    if (rank_talent == 0)
-        disable_buff();
-
-    assert(rank_talent >= 0);
-}
-
 void Buff::set_instance_id(const int instance_id) {
     this->instance_id = instance_id;
 }
@@ -179,7 +160,6 @@ void Buff::enable_buff() {
 void Buff::disable_buff() {
     if (!enabled)
         assert(enabled);
-    this->rank_talent = 0;
     this->enabled = false;
     this->remove_buff_statistic();
     pchar->get_active_buffs()->remove_buff(this);

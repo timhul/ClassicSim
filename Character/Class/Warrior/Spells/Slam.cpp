@@ -13,22 +13,19 @@
 
 Slam::Slam(Character* pchar) :
     Spell("Slam", pchar, true, 0.0, 15),
+    TalentRequirer(5, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar)),
     cast_time(1500)
 {
     talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
 }
 
-void Slam::increase_effect_via_talent() {
-    ++rank_talent;
-    assert(rank_talent < talent_ranks.size());
-    cast_time = talent_ranks[rank_talent];
+void Slam::increase_talent_rank_effect(const QString&) {
+    cast_time = talent_ranks[curr_talent_rank];
 }
 
-void Slam::decrease_effect_via_talent() {
-    --rank_talent;
-    assert(rank_talent >= 0);
-    cast_time = talent_ranks[rank_talent];
+void Slam::decrease_talent_rank_effect(const QString&) {
+    cast_time = talent_ranks[curr_talent_rank];
 }
 
 double Slam::get_cast_time() const {
