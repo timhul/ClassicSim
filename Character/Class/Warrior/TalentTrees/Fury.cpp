@@ -52,11 +52,11 @@ Fury::Fury(Character *pchar, QObject* parent) :
     QMap<QString, Talent*> tier7 {{"7ML", new BloodthirstTalent(pchar, this)}};
     add_talents(tier7);
 
-    talents["5ML"]->set_bottom_child(talents["7ML"]);
-    talents["7ML"]->set_parent(talents["5ML"]);
+    talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
+    talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 
-    talents["4MR"]->set_bottom_child(talents["6MR"]);
-    talents["6MR"]->set_parent(talents["4MR"]);
+    talents["4MR"]->talent->set_bottom_child(talents["6MR"]->talent);
+    talents["6MR"]->talent->set_parent(talents["4MR"]->talent);
 }
 
 Fury::~Fury() = default;

@@ -52,17 +52,17 @@ Arms::Arms(Character *pchar, QObject* parent) :
     QMap<QString, Talent*> tier7 {{"7ML", new MortalStrikeTalent(pchar, this)}};
     add_talents(tier7);
 
-    talents["1MR"]->set_bottom_child(talents["3MR"]);
-    talents["3MR"]->set_parent(talents["1MR"]);
+    talents["1MR"]->talent->set_bottom_child(talents["3MR"]->talent);
+    talents["3MR"]->talent->set_parent(talents["1MR"]->talent);
 
-    talents["3MR"]->set_bottom_child(talents["4MR"]);
-    talents["4MR"]->set_parent(talents["3MR"]);
+    talents["3MR"]->talent->set_bottom_child(talents["4MR"]->talent);
+    talents["4MR"]->talent->set_parent(talents["3MR"]->talent);
 
-    talents["2ML"]->set_bottom_child(talents["3ML"]);
-    talents["3ML"]->set_parent(talents["2ML"]);
+    talents["2ML"]->talent->set_bottom_child(talents["3ML"]->talent);
+    talents["3ML"]->talent->set_parent(talents["2ML"]->talent);
 
-    talents["5ML"]->set_bottom_child(talents["7ML"]);
-    talents["7ML"]->set_parent(talents["5ML"]);
+    talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
+    talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
 Arms::~Arms() = default;

@@ -37,6 +37,19 @@ private:
     int spent_points;
 };
 
+class TalentStorage {
+public:
+    TalentStorage(Talent* talent) :
+        talent(talent),
+        points_for_setup(0)
+    {}
+
+    ~TalentStorage();
+
+    Talent* talent;
+    int points_for_setup;
+};
+
 
 class TalentTree: public QObject {
     Q_OBJECT
@@ -85,7 +98,7 @@ protected:
     const QString background;
     int total_spent_points;
 
-    QMap<QString, Talent*> talents;
+    QMap<QString, TalentStorage*> talents;
     QVector<TalentTier*> tiers;
 
     void add_talents(const QMap<QString, Talent *> &new_talents);
