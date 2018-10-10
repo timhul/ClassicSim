@@ -26,6 +26,8 @@
 #include "Flurry.h"
 #include "SwordSpecialization.h"
 #include "UnbridledWrath.h"
+
+#include "BattleStanceBuff.h"
 #include "BerserkerStanceBuff.h"
 #include "DefensiveStanceBuff.h"
 #include "HeroicStrikeBuff.h"
@@ -73,14 +75,16 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     this->spells = dynamic_cast<Spells*>(warr_spells);
 
     this->flurry = new Flurry(this);
+    this->battle_shout_buff = new BattleShoutBuff(this);
+    this->battle_stance_buff = new BattleStanceBuff(this);
     this->berserker_stance_buff = new BerserkerStanceBuff(this);
     this->defensive_stance_buff = new DefensiveStanceBuff(this);
     this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
-    this->battle_shout_buff = new BattleShoutBuff(this);
     this->overpower_buff = new OverpowerBuff(this);
     this->recklessness_buff = new RecklessnessBuff(this);
     battle_shout_buff->enable_buff();
+    battle_stance_buff->enable_buff();
     berserker_stance_buff->enable_buff();
     defensive_stance_buff->enable_buff();
     heroic_strike_buff->enable_buff();
@@ -100,7 +104,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     RotationFileReader rotation_file_reader;
     this->current_rotation = new WarriorRotation(this);
     this->rotations.append(current_rotation);
-    rotation_file_reader.read_cast_ifs(rotations[0], "rotation.xml");
+    rotation_file_reader.read_cast_ifs(rotations[0], "rotation_arms.xml");
     this->current_rotation->link_spells();
 
     apply_racial_effects();
@@ -114,6 +118,7 @@ Warrior::~Warrior() {
     delete unbridled_wrath;
     // TODO: Create a WarriorBuffs class that holds Battle Shout, Death Wish, Flurry, etc.
     delete battle_shout_buff;
+    delete battle_stance_buff;
     delete berserker_stance_buff;
     delete defensive_stance_buff;
     delete death_wish_buff;
@@ -193,6 +198,10 @@ void Warrior::set_clvl(const int clvl) {
 
 Flurry* Warrior::get_flurry() const {
     return this->flurry;
+}
+
+BattleStanceBuff* Warrior::get_battle_stance_buff() const {
+    return this->battle_stance_buff;
 }
 
 BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {

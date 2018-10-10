@@ -11,6 +11,7 @@ namespace BuiltinVariables {
     static const int TargetHealth = 0;
     static const int TimeRemainingEncounter = 1;
     static const int TimeRemainingExecute = 2;
+    static const int SwingTimer = 3;
 }
 
 

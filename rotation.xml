@@ -78,7 +78,7 @@
 	</cast_if>
 
 	<!-- Special heroic strike usage: attempt to dump rage when Overpower is up. -->
-	<cast_if name="Heroic Strike" let="dumping_rage_before_stancing" equal="false">
+	<cast_if name="Heroic Strike">
 		variable "time_remaining_execute" greater 3
 		and resource "Rage" greater 30
 		and buff "Overpower" greater 3
@@ -131,7 +131,7 @@
 	<cast_if name="Battle Stance">
 		variable "time_remaining_execute" greater 5
 		and buff "Overpower" greater 2
-		and spell "Bloodthirst" cooldown greater 3
+		and spell "Bloodthirst" greater 3
 		and resource "Rage" less 50
 		and variable "dumping_rage_before_stancing" is false
 	</cast_if>

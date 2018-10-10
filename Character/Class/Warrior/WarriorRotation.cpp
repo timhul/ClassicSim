@@ -18,14 +18,19 @@
 #include "Execute.h"
 #include "HeroicStrike.h"
 #include "MainhandAttack.h"
+#include "MortalStrike.h"
 #include "Overpower.h"
 #include "Recklessness.h"
+#include "Slam.h"
 #include "Whirlwind.h"
 
 #include "BattleShoutBuff.h"
+#include "BattleStanceBuff.h"
+#include "BerserkerStanceBuff.h"
 #include "BerserkingBuff.h"
 #include "BloodFuryBuff.h"
 #include "DeathWishBuff.h"
+#include "DefensiveStanceBuff.h"
 #include "Flurry.h"
 #include "HeroicStrikeBuff.h"
 #include "OverpowerBuff.h"
@@ -68,10 +73,14 @@ Spell* WarriorRotation::get_spell_from_name(const QString& spell_name) const {
         spell = spells->get_heroic_strike();
     else if (spell_name == "Mainhand Attack")
         spell = spells->get_mh_attack();
+    else if (spell_name == "Mortal Strike")
+        spell = spells->get_mortal_strike();
     else if (spell_name == "Overpower")
         spell = spells->get_overpower();
     else if (spell_name == "Recklessness")
         spell = spells->get_recklessness();
+    else if (spell_name == "Slam")
+        spell = spells->get_slam();
     else if (spell_name == "Whirlwind")
         spell = spells->get_whirlwind();
 
@@ -83,10 +92,16 @@ Buff* WarriorRotation::get_buff_from_name(const QString &buff_name) const {
 
     if (buff_name == "Battle Shout")
         buff = pchar->get_battle_shout_buff();
+    else if (buff_name == "Battle Stance")
+        buff = pchar->get_battle_stance_buff();
+    else if (buff_name == "Berserker Stance")
+        buff = pchar->get_berserker_stance_buff();
     else if (buff_name == "Berserking")
         buff = pchar->get_berserking_buff();
     else if (buff_name == "Blood Fury")
         buff = pchar->get_blood_fury_buff();
+    else if (buff_name == "Defensive Stance")
+        buff = pchar->get_defensive_stance_buff();
     else if (buff_name == "Flurry")
         buff = pchar->get_flurry();
     else if (buff_name == "Heroic Strike")

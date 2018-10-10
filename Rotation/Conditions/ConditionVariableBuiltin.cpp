@@ -1,7 +1,10 @@
 
 #include "ConditionVariableBuiltin.h"
 #include "Character.h"
+#include "CharacterStats.h"
+#include "Spells.h"
 #include "Engine.h"
+#include "MainhandAttack.h"
 
 ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const int builtin,
@@ -30,6 +33,10 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
         // CSIM-69: Refactor this check into separate target mechanic.
         double remaining_execute_time = 300 * 0.8 - engine->get_current_priority();
         return cmp_values(remaining_execute_time);
+    }
+    case BuiltinVariables::SwingTimer: {
+        double delta = pchar->get_stats()->get_mh_wpn_speed() - pchar->get_spells()->get_mh_attack()->get_cooldown_remaining();
+        return delta < 0.4;
     }
     default:
         assert(false);

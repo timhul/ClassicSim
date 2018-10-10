@@ -6,6 +6,7 @@
 class Flurry;
 class SwordSpecialization;
 class UnbridledWrath;
+class BattleStanceBuff;
 class BerserkerStanceBuff;
 class DefensiveStanceBuff;
 class HeroicStrikeBuff;
@@ -64,6 +65,7 @@ public:
     Flurry* get_flurry() const;
     SwordSpecialization* get_sword_spec() const;
     UnbridledWrath* get_unbridled_wrath() const;
+    BattleStanceBuff* get_battle_stance_buff() const;
     BerserkerStanceBuff* get_berserker_stance_buff() const;
     DefensiveStanceBuff* get_defensive_stance_buff() const;
     HeroicStrikeBuff* get_hs_buff() const;
@@ -94,6 +96,7 @@ private:
     Flurry* flurry;
     SwordSpecialization* sword_spec;
     UnbridledWrath* unbridled_wrath;
+    BattleStanceBuff* battle_stance_buff;
     BerserkerStanceBuff* berserker_stance_buff;
     DefensiveStanceBuff* defensive_stance_buff;
     HeroicStrikeBuff* heroic_strike_buff;

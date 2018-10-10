@@ -48,6 +48,8 @@ void Rotation::link_spells() {
     // CSIM-82: One option is to remove CastIfs with nullptr spells (see note above about continue).
     // However, this means the rotation is as the user expects it. Decide whether the reading of
     // this is atomic (complete rotation or none) or if the deviation should just be reported to the user.
+
+    check_integrity();
 }
 
 void Rotation::add_conditionals(const int index) {
@@ -90,6 +92,7 @@ void Rotation::add_conditionals(const int index) {
             break;
         default:
             qDebug() << "condition type not supported:" << sentence->condition_type;
+            sentence->dump();
             break;
         }
 
@@ -146,8 +149,28 @@ int Rotation::get_builtin_variable(const QString& var_name) const {
         return BuiltinVariables::TimeRemainingEncounter;
     if (var_name == "time_remaining_execute")
         return BuiltinVariables::TimeRemainingExecute;
+    if (var_name == "time_since_swing")
+        return BuiltinVariables::SwingTimer;
 
     return BuiltinVariables::Undefined;
+}
+
+void Rotation::check_integrity() const {
+    bool has_errors = false;
+    for (auto & i : cast_ifs) {
+        if (i == nullptr) {
+            qDebug() << "castif nullptr";
+            has_errors = true;
+            continue;
+        }
+
+        if (i->get_spell() == nullptr) {
+            qDebug() << i->get_spell_name() << "nullptr";
+            has_errors = true;
+        }
+    }
+
+    assert(!has_errors);
 }
 
 void Rotation::dump() {
