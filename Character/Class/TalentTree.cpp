@@ -170,18 +170,18 @@ bool TalentTree::decrement_rank(const QString &position) {
     if (bottom_child_is_active(position) || right_child_is_active(position))
         return false;
 
-    int investigated_rank = get_highest_invested_rank();
-    int decremented_rank = QString(position[0]).toInt();
+    int tier_under_investigation = get_highest_invested_tier();
+    int tier_to_be_decremented = QString(position[0]).toInt();
 
-    while (investigated_rank > decremented_rank) {
-        int attempted_decrement = get_points_spent_up_to_rank(investigated_rank) - 1;
-        int minimum_requirement = get_investment_requirement_for_rank(investigated_rank);
+    while (tier_under_investigation > tier_to_be_decremented) {
+        int attempted_decrement = get_points_spent_up_to_tier(tier_under_investigation) - 1;
+        int minimum_requirement = get_investment_requirement_for_tier(tier_under_investigation);
 
         if (attempted_decrement < minimum_requirement) {
             return false;
         }
 
-        --investigated_rank;
+        --tier_under_investigation;
     }
 
     if (talents[position]->talent->decrement_rank()) {
@@ -238,47 +238,47 @@ bool TalentTree::has_bottom_child(const QString &position) const {
     return talents[position]->talent->has_bottom_child();
 }
 
-int TalentTree::get_highest_invested_rank() const {
-    if (get_tier(6)->get_points() > 0)
-        return 6;
+int TalentTree::get_highest_invested_tier() const {
     if (get_tier(5)->get_points() > 0)
-        return 5;
+        return 6;
     if (get_tier(4)->get_points() > 0)
-        return 4;
+        return 5;
     if (get_tier(3)->get_points() > 0)
-        return 3;
+        return 4;
     if (get_tier(2)->get_points() > 0)
-        return 2;
+        return 3;
     if (get_tier(1)->get_points() > 0)
+        return 2;
+    if (get_tier(0)->get_points() > 0)
         return 1;
     return 0;
 }
 
-int TalentTree::get_investment_requirement_for_rank(const int rank) const {
-    return (rank - 1) * 5;
+int TalentTree::get_investment_requirement_for_tier(const int tier) const {
+    return (tier - 1) * 5;
 }
 
-int TalentTree::get_points_spent_up_to_rank(const int rank) const {
+int TalentTree::get_points_spent_up_to_tier(const int tier) const {
     int invested_below_rank = 0;
 
-    switch (rank) {
-    case 6:
-        invested_below_rank += get_tier(6)->get_points();
-        // C++17 [[clang::fallthrough]];
-    case 5:
+    switch (tier) {
+    case 7:
         invested_below_rank += get_tier(5)->get_points();
         // C++17 [[clang::fallthrough]];
-    case 4:
+    case 6:
         invested_below_rank += get_tier(4)->get_points();
         // C++17 [[clang::fallthrough]];
-    case 3:
+    case 5:
         invested_below_rank += get_tier(3)->get_points();
         // C++17 [[clang::fallthrough]];
-    case 2:
+    case 4:
         invested_below_rank += get_tier(2)->get_points();
         // C++17 [[clang::fallthrough]];
-    case 1:
+    case 3:
         invested_below_rank += get_tier(1)->get_points();
+        // C++17 [[clang::fallthrough]];
+    case 2:
+        invested_below_rank += get_tier(0)->get_points();
     }
 
     return invested_below_rank;

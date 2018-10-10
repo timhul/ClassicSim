@@ -102,9 +102,9 @@ protected:
     QVector<TalentTier*> tiers;
 
     void add_talents(const QMap<QString, Talent *> &new_talents);
-    int get_highest_invested_rank() const;
-    int get_investment_requirement_for_rank(const int rank) const;
-    int get_points_spent_up_to_rank(const int rank) const;
+    int get_highest_invested_tier() const;
+    int get_investment_requirement_for_tier(const int tier) const;
+    int get_points_spent_up_to_tier(const int tier) const;
 
     TalentTier* get_tier(const int tier) const;
 
