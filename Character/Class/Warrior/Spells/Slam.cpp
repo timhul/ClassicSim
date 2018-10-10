@@ -10,38 +10,33 @@
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
 #include "CastComplete.h"
+#include "HeroicStrikeBuff.h"
 
 Slam::Slam(Character* pchar) :
-    Spell("Slam", pchar, true, 0.0, 15),
+    SpellCastingTime("Slam", pchar, true, 0.0, 15, 1500),
     TalentRequirer(5, DisabledAtZero::No),
-    warr(dynamic_cast<Warrior*>(pchar)),
-    cast_time(1500)
+    warr(dynamic_cast<Warrior*>(pchar))
 {
     talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
 }
 
 void Slam::increase_talent_rank_effect(const QString&) {
-    cast_time = talent_ranks[curr_talent_rank];
+    casting_time_ms = talent_ranks[curr_talent_rank];
 }
 
 void Slam::decrease_talent_rank_effect(const QString&) {
-    cast_time = talent_ranks[curr_talent_rank];
-}
-
-double Slam::get_cast_time() const {
-    return double(cast_time) / 1000;
+    casting_time_ms = talent_ranks[curr_talent_rank];
 }
 
 void Slam::spell_effect() {
+    start_cast();
     add_gcd_event();
 
-    auto* new_event = new CastComplete(this, engine->get_current_priority() + get_cast_time());
-    this->engine->add_event(new_event);
-
     pchar->stop_attack();
+    warr->get_hs_buff()->cancel_buff();
 }
 
-void Slam::perform_periodic() {
+void Slam::complete_cast_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
     pchar->add_player_reaction_event();

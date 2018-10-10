@@ -76,9 +76,12 @@ void TestSlam::test_spell_cooldown() {
 }
 
 void TestSlam::test_incurs_global_cooldown() {
+    ImprovedSlam(pchar, nullptr).increment_rank();
+
     slam()->perform();
 
-    then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
+    then_next_event_is("CastComplete", "1.400");
+    then_next_event_is("CooldownReady", "1.500");
 }
 
 void TestSlam::test_obeys_global_cooldown() {

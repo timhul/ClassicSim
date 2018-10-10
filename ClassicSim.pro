@@ -234,7 +234,9 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Slam.cpp \
     Event/Events/CastComplete.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
-    Character/Class/TalentRequirer.cpp
+    Character/Class/TalentRequirer.cpp \
+    Character/Class/Warrior/Buffs/BattleStanceBuff.cpp \
+    Character/Class/SpellCastingTime.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -464,7 +466,9 @@ HEADERS += \
     Character/Class/Warrior/Spells/Slam.h \
     Event/Events/CastComplete.h \
     Test/Warrior/Spells/TestSlam.h \
-    Character/Class/TalentRequirer.h
+    Character/Class/TalentRequirer.h \
+    Character/Class/Warrior/Buffs/BattleStanceBuff.h \
+    Character/Class/SpellCastingTime.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

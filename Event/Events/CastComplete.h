@@ -3,16 +3,16 @@
 
 #include "Event.h"
 
-class Spell;
+class SpellCastingTime;
 
 class CastComplete: public Event {
 public:
-    CastComplete(Spell*, const double);
+    CastComplete(SpellCastingTime *, const double);
 
     virtual void act(void) override;
 protected:
 private:
-    Spell* spell;
+    SpellCastingTime* spell;
 };
 
 #endif // CASTCOMPLETE_H
