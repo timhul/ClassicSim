@@ -43,6 +43,7 @@ Character::Character(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     this->next_gcd = 0 - this->global_cooldown();
     this->ability_crit_dmg_mod = 2.0;
     this->spell_crit_dmg_mod = 1.5;
+    this->current_rotation = nullptr;
 
     this->berserking_buff = new BerserkingBuff(this);
     this->blood_fury_buff = new BloodFuryBuff(this);
@@ -58,10 +59,6 @@ Character::~Character() {
     delete active_buffs;
     delete berserking_buff;
     delete blood_fury_buff;
-
-    for (auto & rotation : rotations) {
-        delete rotation;
-    }
 }
 
 Race* Character::get_race() {
@@ -80,23 +77,15 @@ void Character::set_race(Race* race) {
     apply_racial_effects();
 }
 
-bool Character::set_rotation(const int index) {
-    if (index < 0 || index >= rotations.size()) {
-        qDebug() << "set_rotation() index out of bounds" << index;
+bool Character::set_rotation(Rotation* rotation) {
+    if (!rotation->link_spells(this)) {
+        qDebug() << "failed to link spells for rotation" << rotation->get_name();
         return false;
     }
 
-    current_rotation = rotations[index];
+    current_rotation = rotation;
+    qDebug() << "setting rotation" << current_rotation->get_name();
     return true;
-}
-
-QVector<QString> Character::get_rotation_names() const {
-    QVector<QString> rotation_names;
-    for (auto rotation : rotations) {
-        rotation_names.append(rotation->get_name());
-    }
-
-    return rotation_names;
 }
 
 QString Character::get_current_rotation_name() const {
@@ -110,6 +99,9 @@ void Character::switch_faction() {
 }
 
 void Character::perform_rotation() {
+    if (current_rotation == nullptr)
+        return;
+
     this->current_rotation->perform_rotation();
 }
 

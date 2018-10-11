@@ -237,7 +237,8 @@ SOURCES += main.cpp \
     Character/Class/TalentRequirer.cpp \
     Character/Class/Warrior/Buffs/BattleStanceBuff.cpp \
     Character/Class/SpellCastingTime.cpp \
-    Test/Warrior/Talents/TestFury.cpp
+    Test/Warrior/Talents/TestFury.cpp \
+    GUI/Models/RotationModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -470,7 +471,8 @@ HEADERS += \
     Character/Class/TalentRequirer.h \
     Character/Class/Warrior/Buffs/BattleStanceBuff.h \
     Character/Class/SpellCastingTime.h \
-    Test/Warrior/Talents/TestFury.h
+    Test/Warrior/Talents/TestFury.h \
+    GUI/Models/RotationModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

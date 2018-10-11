@@ -9,5 +9,8 @@ CooldownReady::CooldownReady(Rotation* rotation, const double cooldown_ready) {
 }
 
 void CooldownReady::act() {
-    this->rotation->perform_rotation();
+    if (rotation == nullptr)
+        return;
+
+    rotation->perform_rotation();
 }

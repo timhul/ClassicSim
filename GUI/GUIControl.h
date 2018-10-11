@@ -17,6 +17,7 @@
 #include "ActiveItemStatFilterModel.h"
 #include "AvailableItemStatFilterModel.h"
 #include "ItemTypeFilterModel.h"
+#include "RotationModel.h"
 #include "Faction.h"
 
 class CharacterEncoder;
@@ -169,6 +170,11 @@ public:
     Q_INVOKABLE void runQuickSim();
     Q_INVOKABLE void setPatch(const QString& patch);
 
+    /* Rotation */
+     RotationModel* get_rotation_model() const;
+     Q_INVOKABLE void selectRotation(const int);
+    /* End of Rotation */
+
 Q_SIGNALS:
     void classChanged();
     void raceChanged();
@@ -186,6 +192,7 @@ Q_SIGNALS:
     void externalDebuffsChanged();
     void filtersUpdated();
     void equipmentSlotSelected();
+    void rotationChanged();
 
 private:
     int get_talent_points_remaining() const;
@@ -256,6 +263,7 @@ private:
     WeaponModel* weapon_model;
     BuffModel* buff_model;
     DebuffModel* debuff_model;
+    RotationModel* rotation_model;
 };
 
 #endif // GUICONTROL_H

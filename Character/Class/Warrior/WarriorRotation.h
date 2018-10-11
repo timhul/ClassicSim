@@ -8,10 +8,10 @@ class Warrior;
 
 class WarriorRotation: public Rotation {
 public:
-    WarriorRotation(Warrior* pchar, QObject* parent = nullptr);
+    WarriorRotation(QObject* parent = nullptr);
 
 private:
-    Warrior* pchar;
+    Warrior* warrior;
 
     Spell* get_spell_from_name(const QString& spell_name) const override;
     Buff* get_buff_from_name(const QString &buff_name) const override;

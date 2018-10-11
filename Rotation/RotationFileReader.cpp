@@ -4,29 +4,43 @@
 #include "CastIf.h"
 #include "Condition.h"
 
+#include "WarriorRotation.h"
+
 #include <QDebug>
 #include <QDir>
 
-void RotationFileReader::read_cast_ifs(Rotation *rotation, const QString &path) {
+Rotation *RotationFileReader::get_rotation(const QString &path) {
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file" << path << ":" << file.errorString();
-        return;
+        return nullptr;
     }
 
     QXmlStreamReader reader(&file);
+
+    Rotation* rotation = nullptr;
 
     if (reader.readNextStartElement() && reader.name() == "rotation") {
         if (!reader.attributes().hasAttribute("class")) {
             qDebug() << path << "missing 'class' attribute on <rotation> element";
             file.close();
-            return;
+            return rotation;
         }
-        rotation->set_class(reader.attributes().value("class").toString());
+        QString class_name = reader.attributes().value("class").toString();
+
+        if (class_name != "Warrior") {
+            qDebug() << "Only warrior rotations supported";
+            file.close();
+            return rotation;
+        }
+
+        rotation = new WarriorRotation();
         rotation_file_handler(reader, rotation);
     }
 
     file.close();
+
+    return rotation;
 }
 
 void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotation* rotation) {

@@ -9,9 +9,9 @@
 
 #include <QDebug>
 
-Rotation::Rotation(Character *pchar, QObject* parent) :
+Rotation::Rotation(QString class_name, QObject* parent) :
     QObject(parent),
-    pchar(pchar)
+    class_name(class_name)
 {}
 
 Rotation::~Rotation() {
@@ -28,7 +28,9 @@ void Rotation::perform_rotation() const {
     }
 }
 
-void Rotation::link_spells() {
+bool Rotation::link_spells(Character* pchar) {
+    this->pchar = pchar;
+
     for (int i = 0; i < cast_ifs.size(); ++i) {
         QString spell_name = cast_ifs[i]->get_spell_name();
 
@@ -36,23 +38,19 @@ void Rotation::link_spells() {
 
         Spell* spell = get_spell_from_name(spell_name);
         if (spell == nullptr) {
-            // CSIM-82: Simply continuing is not enough if assertion is placed in CastIf that spell is nullptr
             qDebug() << "Could not find matching spell for" << spell_name;
-            continue;
+            return false;
         }
 
         cast_ifs[i]->set_spell(spell);
-        this->add_conditionals(i);
+        if (!this->add_conditionals(i))
+            return false;
     }
 
-    // CSIM-82: One option is to remove CastIfs with nullptr spells (see note above about continue).
-    // However, this means the rotation is as the user expects it. Decide whether the reading of
-    // this is atomic (complete rotation or none) or if the deviation should just be reported to the user.
-
-    check_integrity();
+    return true;
 }
 
-void Rotation::add_conditionals(const int index) {
+bool Rotation::add_conditionals(const int index) {
     CastIf* cast_if = cast_ifs[index];
     QVector<Condition*> condition_group_to_add;
 
@@ -93,21 +91,17 @@ void Rotation::add_conditionals(const int index) {
         default:
             qDebug() << "condition type not supported:" << sentence->condition_type;
             sentence->dump();
-            break;
+            return false;
         }
 
-        if (condition != nullptr) {
-            condition_group_to_add.append(condition);
-        }
+        condition_group_to_add.append(condition);
     }
 
     // Add last condition manually
     if (!condition_group_to_add.empty())
         cast_if->add_condition(condition_group_to_add);
-}
 
-void Rotation::set_class(const QString& class_name) {
-    this->class_name = class_name;
+    return true;
 }
 
 void Rotation::set_name(const QString& name) {
@@ -153,24 +147,6 @@ int Rotation::get_builtin_variable(const QString& var_name) const {
         return BuiltinVariables::SwingTimer;
 
     return BuiltinVariables::Undefined;
-}
-
-void Rotation::check_integrity() const {
-    bool has_errors = false;
-    for (auto & i : cast_ifs) {
-        if (i == nullptr) {
-            qDebug() << "castif nullptr";
-            has_errors = true;
-            continue;
-        }
-
-        if (i->get_spell() == nullptr) {
-            qDebug() << i->get_spell_name() << "nullptr";
-            has_errors = true;
-        }
-    }
-
-    assert(!has_errors);
 }
 
 void Rotation::dump() {

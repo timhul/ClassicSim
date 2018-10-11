@@ -36,14 +36,13 @@
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 
-WarriorRotation::WarriorRotation(Warrior* pchar, QObject* parent) :
-    Rotation(pchar, parent),
-    pchar(pchar)
+WarriorRotation::WarriorRotation(QObject* parent) :
+    Rotation("Warrior", parent)
 {}
 
 Spell* WarriorRotation::get_spell_from_name(const QString& spell_name) const {
     Spell* spell = nullptr;
-    auto* spells = dynamic_cast<WarriorSpells*>(pchar->get_spells());
+    auto* spells = dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells());
 
     if (spell_name == "Battle Shout")
         spell = spells->get_battle_shout();
@@ -91,27 +90,27 @@ Buff* WarriorRotation::get_buff_from_name(const QString &buff_name) const {
     Buff* buff = nullptr;
 
     if (buff_name == "Battle Shout")
-        buff = pchar->get_battle_shout_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_battle_shout_buff();
     else if (buff_name == "Battle Stance")
-        buff = pchar->get_battle_stance_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_battle_stance_buff();
     else if (buff_name == "Berserker Stance")
-        buff = pchar->get_berserker_stance_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_berserker_stance_buff();
     else if (buff_name == "Berserking")
-        buff = pchar->get_berserking_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_berserking_buff();
     else if (buff_name == "Blood Fury")
-        buff = pchar->get_blood_fury_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_blood_fury_buff();
     else if (buff_name == "Defensive Stance")
-        buff = pchar->get_defensive_stance_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_defensive_stance_buff();
     else if (buff_name == "Flurry")
-        buff = pchar->get_flurry();
+        buff = dynamic_cast<Warrior*>(pchar)->get_flurry();
     else if (buff_name == "Heroic Strike")
-        buff = pchar->get_hs_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_hs_buff();
     else if (buff_name == "Death Wish")
-        buff = pchar->get_death_wish_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_death_wish_buff();
     else if (buff_name == "Overpower")
-        buff = pchar->get_overpower_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_overpower_buff();
     else if (buff_name == "Recklessness")
-        buff = pchar->get_recklessness_buff();
+        buff = dynamic_cast<Warrior*>(pchar)->get_recklessness_buff();
 
     return buff;
 }

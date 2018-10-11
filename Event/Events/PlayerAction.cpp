@@ -9,5 +9,7 @@ PlayerAction::PlayerAction(Rotation* rotation, const double priority) {
 }
 
 void PlayerAction::act() {
+    if (rotation == nullptr)
+        return;
     rotation->perform_rotation();
 }

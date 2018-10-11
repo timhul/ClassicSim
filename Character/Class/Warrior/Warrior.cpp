@@ -19,8 +19,6 @@
 #include "WarriorStatistics.h"
 #include "Race.h"
 #include "Weapon.h"
-#include "RotationFileReader.h"
-#include "WarriorRotation.h"
 #include <QDebug>
 
 #include "Flurry.h"
@@ -100,12 +98,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, QObject* parent) :
     // TODO: Remove character hardcoded equip of these items.
     cstats->get_equipment()->set_mainhand("Skullforge Reaver");
     cstats->get_equipment()->set_offhand("Frostbite");
-
-    RotationFileReader rotation_file_reader;
-    this->current_rotation = new WarriorRotation(this);
-    this->rotations.append(current_rotation);
-    rotation_file_reader.read_cast_ifs(rotations[0], "rotation_arms.xml");
-    this->current_rotation->link_spells();
 
     apply_racial_effects();
 }

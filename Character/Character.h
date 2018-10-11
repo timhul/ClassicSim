@@ -36,8 +36,7 @@ public:
     virtual QString get_name() const = 0;
     bool race_available(Race*) const;
     void set_race(Race* race);
-    bool set_rotation(const int index);
-    QVector<QString> get_rotation_names() const;
+    bool set_rotation(Rotation*);
     QString get_current_rotation_name() const;
     void perform_rotation();
     Rotation* get_rotation();
@@ -156,8 +155,7 @@ protected:
     ActiveBuffs* active_buffs;
     Spells* spells{};
     ClassStatistics* statistics;
-    QVector<Rotation*> rotations;
-    Rotation* current_rotation{};
+    Rotation* current_rotation;
 
     BerserkingBuff* berserking_buff;
     BloodFuryBuff* blood_fury_buff;

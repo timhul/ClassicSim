@@ -70,6 +70,7 @@ GUIControl::GUIControl(QObject* parent) :
     active_stat_filter_model->set_item_model(item_model);
     active_stat_filter_model->set_weapon_model(weapon_model);
     available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
+    rotation_model = new RotationModel(current_char);
 
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], equipment_db)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], equipment_db)));
@@ -93,6 +94,24 @@ GUIControl::GUIControl(QObject* parent) :
 
     item_model->addItems(equipment_db);
     weapon_model->addWeapons(equipment_db);
+
+    setSlot("MAINHAND", "Arcanite Reaper");
+    setSlot("HEAD", "Lionheart Helm");
+    setSlot("NECK", "Mark of Fordring");
+    setSlot("SHOULDERS", "Truestrike Shoulders");
+    setSlot("BACK", "Cape of the Black Baron");
+    setSlot("CHEST", "Tombstone Breastplate");
+    setSlot("WRIST", "Battleborn Armbraces");
+    setSlot("GLOVES", "Devilsaur Gauntlets");
+    setSlot("BELT", "Marksman's Girdle");
+    setSlot("LEGS", "Devilsaur Leggings");
+    setSlot("BOOTS", "Windreaver Greaves");
+    setSlot("RING1", "Painweaver Band");
+    setSlot("RING2", "Blackstone Ring");
+    setSlot("TRINKET1", "Blackhand's Breadth");
+    setSlot("TRINKET2", "Hand of Justice");
+
+    rotation_model->select_rotation(0);
 }
 
 GUIControl::~GUIControl() {
@@ -122,6 +141,7 @@ GUIControl::~GUIControl() {
     delete weapon_model;
     delete buff_model;
     delete debuff_model;
+    delete rotation_model;
     delete character_encoder;
     delete character_decoder;
     delete thread_pool;
@@ -130,6 +150,7 @@ GUIControl::~GUIControl() {
 void GUIControl::set_character(Character* pchar) {
     current_char = pchar;
     item_type_filter_model->set_character(current_char);
+    rotation_model->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -147,6 +168,7 @@ void GUIControl::selectClass(const QString& class_name) {
     raceChanged();
     classChanged();
     statsChanged();
+    rotationChanged();
 }
 
 void GUIControl::selectRace(const QString& race_name) {
@@ -531,6 +553,17 @@ QVariantList GUIControl::getTableInfo(const int index) const {
 
 QString GUIControl::getEntryIcon(const int index) const {
     return current_char->get_statistics()->getEntryIcon(index);
+}
+
+RotationModel* GUIControl::get_rotation_model() const {
+    return this->rotation_model;
+}
+
+void GUIControl::selectRotation(const int index) {
+    if (!rotation_model->select_rotation(index))
+        qDebug() << "Failed to select rotation index" << index;
+
+    rotationChanged();
 }
 
 void GUIControl::run_quick_sim() {
