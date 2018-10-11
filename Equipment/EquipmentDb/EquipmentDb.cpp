@@ -223,7 +223,7 @@ bool EquipmentDb::item_valid_for_current_patch(const QString &item_patch) {
 }
 
 void EquipmentDb::read_equipment_files() {
-    QFile file("paths.xml");
+    QFile file("equipment_paths.xml");
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file:" << file.errorString();
@@ -236,7 +236,7 @@ void EquipmentDb::read_equipment_files() {
 
     if (reader.readNextStartElement()) {
         if (reader.name() != "paths") {
-            qDebug() << "Expected <paths> root element in paths.xml.";
+            qDebug() << "Expected <paths> root element in equipment_paths.xml.";
             return;
         }
 
@@ -255,12 +255,12 @@ void EquipmentDb::read_equipment_files() {
         }
     }
     else
-        qDebug() << "Failed to read paths.xml.";
+        qDebug() << "Failed to read equipment_paths.xml.";
 
     file.close();
 
     if (equipment_file_paths.empty())
-        qDebug() << "Failed to find equipment files in paths.xml";
+        qDebug() << "Failed to find equipment files in equipment_paths.xml";
 
     QVector<Item*> items;
 
