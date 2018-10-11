@@ -13,14 +13,12 @@ public:
                      int casting_time_ms);
 
     double get_cast_time() const;
-    bool cast_in_progress() const;
 
     void complete_cast();
 
 protected:
     int casting_time_ms;
-    double start_cast_timestamp;
-    double complete_cast_timestamp;
+    bool cast_in_progress;
 
     void start_cast();
 
