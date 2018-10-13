@@ -34,8 +34,6 @@ bool Rotation::link_spells(Character* pchar) {
     for (int i = 0; i < cast_ifs.size(); ++i) {
         QString spell_name = cast_ifs[i]->get_spell_name();
 
-        assert(cast_ifs[i]->get_spell() == nullptr);
-
         Spell* spell = get_spell_from_name(spell_name);
         if (spell == nullptr) {
             qDebug() << "Could not find matching spell for" << spell_name;

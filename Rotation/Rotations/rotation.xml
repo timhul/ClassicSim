@@ -85,7 +85,7 @@
 		and buff "Battle Stance" is false
 		and spell "Mainhand Attack" less 1.5
 
-		let "dumping_rage_before_stancing" = true
+		<!--let "dumping_rage_before_stancing" = true-->
 	</cast_if>
 
 	<cast_if name="Death Wish">
@@ -133,7 +133,7 @@
 		and buff "Overpower" greater 2
 		and spell "Bloodthirst" greater 3
 		and resource "Rage" less 50
-		and variable "dumping_rage_before_stancing" is false
+		<!-- and variable "dumping_rage_before_stancing" is false -->
 	</cast_if>
 
 	<cast_if name="Berserker Stance">
@@ -142,10 +142,10 @@
 	</cast_if>
 
 	<!-- Switch to dagger set before Execute (if user specified one) -->
-	<cast_if name="Execute Dagger Switch">
+	<!-- <cast_if name="Execute Dagger Switch">
 		variable "time_remaining_execute" less 3
 		and variable "execute_dagger_switch" is false
 
 		let "execute_dagger_switch" = true
-	</cast_if>
+	</cast_if> -->
 </rotation>

@@ -79,12 +79,12 @@ void Character::set_race(Race* race) {
 
 bool Character::set_rotation(Rotation* rotation) {
     if (!rotation->link_spells(this)) {
-        qDebug() << "failed to link spells for rotation" << rotation->get_name();
+        qDebug() << "Failed to link spells for rotation" << rotation->get_name();
         return false;
     }
 
     current_rotation = rotation;
-    qDebug() << "setting rotation" << current_rotation->get_name();
+    qDebug() << "Successfully set rotation" << current_rotation->get_name();
     return true;
 }
 

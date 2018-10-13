@@ -85,10 +85,10 @@
 	</cast_if>
 
 	<!-- Switch to dagger set before Execute (if user specified one) -->
-	<cast_if name="Execute Dagger Switch">
+	<!-- <cast_if name="Execute Dagger Switch">
 		variable "time_remaining_execute" less 3
 		and variable "execute_dagger_switch" is false
 
 		let "execute_dagger_switch" = true
-	</cast_if>
+	</cast_if> -->
 </rotation>
