@@ -15,7 +15,7 @@ public:
     SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, QObject* parent = nullptr);
     ~SimulationThreadPool();
 
-    void run_sim(const QString& setup_string);
+    void run_sim(const QString& setup_string, bool full_sim);
 
 public slots:
     void error_string(const QString&, const QString&);
@@ -23,7 +23,7 @@ public slots:
 
 signals:
     void thread_result(QString dps);
-    void thread_setup_string(QString setup_string);
+    void thread_setup_string(QString setup_string, bool full_sim);
 
 protected:
 private:

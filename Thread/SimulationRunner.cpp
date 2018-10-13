@@ -52,6 +52,7 @@ SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_s
     rotation(nullptr),
     global_sim_settings(sim_settings),
     local_sim_settings(nullptr),
+    full_sim(false),
     seed(std::move(thread_id))
 {}
 
@@ -59,8 +60,9 @@ SimulationRunner::~SimulationRunner() {
     delete equipment_db;
 }
 
-void SimulationRunner::run_sim(QString setup_string) {
+void SimulationRunner::run_sim(QString setup_string, bool full_sim) {
     this->setup_string = std::move(setup_string);
+    this->full_sim = full_sim;
 
     CharacterDecoder decoder;
     decoder.initialize(this->setup_string);
@@ -85,7 +87,7 @@ void SimulationRunner::run_sim(QString setup_string) {
 
     pchar->get_combat_roll()->set_new_seed(seed);
 
-    SimControl(local_sim_settings).run_sim(pchar);
+    SimControl(local_sim_settings).run_quick_sim(pchar);
 
     double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (local_sim_settings->get_combat_iterations() * local_sim_settings->get_combat_length());
 

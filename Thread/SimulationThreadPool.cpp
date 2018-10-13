@@ -25,7 +25,7 @@ SimulationThreadPool::~SimulationThreadPool() {
         delete thread_entry.second;
 }
 
-void SimulationThreadPool::run_sim(const QString &setup_string) {
+void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim) {
     assert(running_threads == 0);
     assert(thread_results.empty());
 
@@ -34,14 +34,14 @@ void SimulationThreadPool::run_sim(const QString &setup_string) {
     }
 
     running_threads = thread_pool.size();
-    emit thread_setup_string(setup_string);
+    emit thread_setup_string(setup_string, full_sim);
 }
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     auto* thread = new QThread();
     SimulationRunner* runner = new SimulationRunner(equipment_db, sim_settings, QString::number(thread_id));
 
-    connect(this, SIGNAL (thread_setup_string(QString)), runner, SLOT (run_sim(QString)));
+    connect(this, SIGNAL (thread_setup_string(QString, bool)), runner, SLOT (run_sim(QString, bool)));
     connect(runner, SIGNAL (error(QString, QString)), this, SLOT (error_string(QString, QString)));
     connect(runner, SIGNAL (result(QString, double)), this, SLOT (result(QString, double)));
     connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));

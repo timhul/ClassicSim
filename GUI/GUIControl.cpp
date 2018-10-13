@@ -57,6 +57,7 @@ GUIControl::GUIControl(QObject* parent) :
     last_quick_sim_result(0.0)
 {
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
+    QObject::connect(this, SIGNAL(startFullSim()), this, SLOT(run_full_sim()));
 
     this->sim_control = new SimControl(sim_settings);
     races.insert("Dwarf", new Dwarf());
@@ -597,8 +598,8 @@ QString GUIControl::get_information_rotation_description() const {
 }
 
 void GUIControl::run_quick_sim() {
-    thread_pool->run_sim(character_encoder->get_current_setup_string());
-    sim_control->run_sim(current_char);
+    thread_pool->run_sim(character_encoder->get_current_setup_string(), false);
+    sim_control->run_quick_sim(current_char);
 
     double previous = last_quick_sim_result;
     last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations() * sim_settings->get_combat_length());
@@ -611,6 +612,12 @@ void GUIControl::run_quick_sim() {
     qDebug() << "Total DPS: " << dps;
     quickSimChanged(dps, change, delta > 0);
     current_char->dump();
+    statisticsReady();
+}
+
+void GUIControl::run_full_sim() {
+    thread_pool->run_sim(character_encoder->get_current_setup_string(), true);
+
     statisticsReady();
 }
 

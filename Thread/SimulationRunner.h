@@ -23,7 +23,7 @@ public:
     ~SimulationRunner();
 
 public slots:
-    void run_sim(QString setup_string);
+    void run_sim(QString setup_string, bool full_sim);
 
 signals:
     void finished();
@@ -38,6 +38,7 @@ private:
     Rotation* rotation;
     SimSettings* global_sim_settings;
     SimSettings* local_sim_settings;
+    bool full_sim;
 
     QString setup_string;
     QString seed;

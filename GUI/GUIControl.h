@@ -191,6 +191,7 @@ Q_SIGNALS:
     void equipmentChanged();
     void tooltipChanged();
     void startQuickSim();
+    void startFullSim();
     void quickSimChanged(QString value, QString change, bool positive);
     void statisticsCleared();
     void statisticsReady();
@@ -232,6 +233,7 @@ private:
     int get_offhand_wpn_skill() const;
 
     Q_SLOT void run_quick_sim();
+    Q_SLOT void run_full_sim();
 
     QString get_curr_rotation_name() const;
     QString get_curr_rotation_description() const;

@@ -4,7 +4,9 @@
 SimSettings::SimSettings() :
     combat_length(300),
     combat_iterations(1000)
-{}
+{
+    sim_options = QSet<SimOption>({SimOption::ScaleStrength, SimOption::ScaleCritChance, SimOption::ScaleHitChance});
+}
 
 int SimSettings::get_combat_length() const {
     return this->combat_length;
@@ -20,4 +22,21 @@ void SimSettings::set_combat_length(const int combat_length) {
 
 void SimSettings::set_combat_iterations(const int combat_iterations) {
     this->combat_iterations = combat_iterations;
+}
+
+void SimSettings::add_sim_option(SimOption option) {
+    sim_options.insert(option);
+}
+
+void SimSettings::remove_sim_option(SimOption option) {
+    if (sim_options.contains(option))
+        sim_options.remove(option);
+}
+
+bool SimSettings::option_active(SimOption option) const {
+    return sim_options.contains(option);
+}
+
+QSet<SimOption> SimSettings::get_active_options() const {
+    return sim_options;
 }
