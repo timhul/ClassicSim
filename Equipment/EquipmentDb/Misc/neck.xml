@@ -13,6 +13,36 @@
 		</patch>
 	</amulet>
 	
+	<amulet name="Onyxia Tooth Pendant">
+		<patch name="1.0.0">
+			<info type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+			<stats>
+				<stat type="AGILITY" value="12"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward from turning in Head of Onyxia.
+			</source>
+		</patch>
+	</amulet>
+	
+	<amulet name="Barbed Choker">
+		<patch name="1.9.0">
+			<info type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
+			<stats>
+				<stat type="STAMINA" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="44"/>
+			</stats>
+			<source>
+			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</amulet>
+	
 	<amulet name="Stormrage's Talisman of Seething">
 		<patch name="1.11.0">
 			<info type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>

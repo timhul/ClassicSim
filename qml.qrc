@@ -255,5 +255,9 @@
         <file>QML/Assets/items/Inv_staff_goldfeathered_01.png</file>
         <file>QML/Rotations.qml</file>
         <file>QML/RotationInformation.qml</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_ahnqiraj_02.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_09.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_02.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_05.png</file>
     </qresource>
 </RCC>

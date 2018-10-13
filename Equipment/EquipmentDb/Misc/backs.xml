@@ -13,6 +13,55 @@
 		</patch>
 	</cloak>
 	
+	<cloak name="Onyxia Scale Cloak">
+		<patch name="1.0.0">
+			<info type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_05.png"/>
+			<stats>
+				<stat type="STAMINA" value="7"/>
+				<stat type="FIRE_RESISTANCE" value="16"/>
+			</stats>
+			<source>
+			Crafted by leatherworkers.
+			</source>
+			<special_equip_effect>
+			Equip: Protects the wearer from being fully engulfed by Shadow Flame.
+			</special_equip_effect>
+		</patch>
+	</cloak>
+	
+	<cloak name="Drape of Unyielding Strength">
+		<patch name="1.9.0">
+			<info type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="52"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</cloak>
+	
+	<cloak name="Cloak of Concentrated Hatred">
+		<patch name="1.9.0">
+			<info type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
+			<stats>
+				<stat type="ARMOR" value="56"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STRENGTH" value="11"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</cloak>
+	
 	<cloak name="Shroud of Dominion">
 		<patch name="1.11.0">
 			<info type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
