@@ -31,6 +31,7 @@
 
 #include "TestTwoHandedWeaponSpecialization.h"
 
+#include "TestArms.h"
 #include "TestFury.h"
 
 void TestWarrior::test_all() {
@@ -57,6 +58,7 @@ void TestWarrior::test_all() {
 
     TestTwoHandedWeaponSpecialization(equipment_db).test_all();
 
+    TestArms(equipment_db).test_all();
     TestFury(equipment_db).test_all();
 }
 

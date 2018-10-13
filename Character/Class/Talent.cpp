@@ -151,8 +151,10 @@ bool Talent::decrement_rank() {
 }
 
 void Talent::force_clear_rank() {
-    for (; curr_points > 0; --curr_points)
+    for (; curr_points > 0;) {
+        --curr_points;
         remove_rank_effect();
+    }
 }
 
 bool Talent::is_active() const {

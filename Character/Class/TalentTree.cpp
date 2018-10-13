@@ -239,6 +239,8 @@ bool TalentTree::has_bottom_child(const QString &position) const {
 }
 
 int TalentTree::get_highest_invested_tier() const {
+    if (get_tier(6)->get_points() > 0)
+        return 7;
     if (get_tier(5)->get_points() > 0)
         return 6;
     if (get_tier(4)->get_points() > 0)
