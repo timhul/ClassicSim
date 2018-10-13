@@ -10,7 +10,7 @@ TestFury::TestFury(EquipmentDb* equipment_db):
 
 void TestFury::set_up() {
     race = new Orc();
-    warrior = new Warrior(race, equipment_db);
+    warrior = new Warrior(race, equipment_db, nullptr);
     fury = new Fury(warrior);
 }
 

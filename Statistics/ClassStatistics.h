@@ -5,6 +5,7 @@
 #include <QVariantList>
 #include <QMap>
 
+class SimSettings;
 class StatisticsSpell;
 class StatisticsBuff;
 class StatisticsResource;
@@ -14,7 +15,7 @@ class ClassStatistics : public QObject {
     Q_OBJECT
 
 public:
-    ClassStatistics(QObject* parent = nullptr);
+    ClassStatistics(SimSettings* settings, QObject* parent = nullptr);
 
     Q_INVOKABLE virtual int getNumStatisticsRows() const = 0;
     Q_INVOKABLE virtual QVariantList getTableInfo(const int index) const = 0;
@@ -37,7 +38,11 @@ public:
 
     void reset_statistics();
 
+    void set_combat_length(const int);
+    void set_combat_iterations(const int);
+
 protected:
+    SimSettings* sim_settings;
     QMap<QString, StatisticsSpell*> spell_statistics;
     QMap<QString, StatisticsBuff*> buff_statistics;
     QMap<QString, StatisticsResource*> resource_statistics;

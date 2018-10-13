@@ -9,7 +9,7 @@ class DruidSpells;
 class Druid: public Character {
     Q_OBJECT
 public:
-    Druid(Race* race, EquipmentDb* equipment_db, QObject *parent = nullptr);
+    Druid(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, QObject *parent = nullptr);
     virtual ~Druid() override;
 
     QString get_name() const override;

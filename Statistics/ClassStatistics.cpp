@@ -1,12 +1,14 @@
 
 #include "ClassStatistics.h"
+#include "SimSettings.h"
 #include "StatisticsSpell.h"
 #include "StatisticsBuff.h"
 #include "StatisticsResource.h"
 #include "StatisticsProc.h"
 
-ClassStatistics::ClassStatistics(QObject *parent) :
-    QObject(parent)
+ClassStatistics::ClassStatistics(SimSettings* sim_settings, QObject *parent) :
+    QObject(parent),
+    sim_settings(sim_settings)
 {}
 
 void ClassStatistics::add_spell_statistics(StatisticsSpell* spell) {
@@ -182,8 +184,8 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
         }
 
         QString name = it.value()->get_name();
-        // CSIM-59: Remove hardcoded knowledge of num fights / fight length
-        double gain_per_5 = double(gain) / ((double(300) / 5) * 1000);
+
+        double gain_per_5 = double(gain) / ((double(sim_settings->get_combat_length()) / 5) * sim_settings->get_combat_iterations());
         entries.append(QVariantList({name, gain, QString::number(gain_per_5, 'f', 2)}));
         ++it;
     }

@@ -5,6 +5,7 @@
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
 #include "CharacterStats.h"
+#include "SimSettings.h"
 
 Execute::Execute(Character* pchar) :
     Spell("Execute", pchar, true, 0, 15),
@@ -27,9 +28,9 @@ bool Execute::is_ready_spell_specific() const {
     if (warr->in_defensive_stance())
         return false;
 
-    // CSIM-69: Refactor this check into separate target mechanic.
-    double time_remaining = 300 - warr->get_engine()->get_current_priority();
-    return time_remaining / 300 < 0.2;
+    int combat_length = warr->get_sim_settings()->get_combat_length();
+    double time_remaining = combat_length - warr->get_engine()->get_current_priority();
+    return time_remaining / combat_length < 0.2;
 }
 
 void Execute::spell_effect() {

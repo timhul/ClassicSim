@@ -64,7 +64,7 @@ void TestWarrior::test_all() {
 
 void TestWarrior::test_basic_properties() {
     Race* race = new Orc();
-    auto* warr = new Warrior(race, equipment_db);
+    auto* warr = new Warrior(race, equipment_db, nullptr);
 
     assert(warr->get_name() == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");

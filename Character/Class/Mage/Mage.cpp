@@ -4,13 +4,13 @@
 #include "MageStatistics.h"
 #include "Weapon.h"
 
-Mage::Mage(Race* race, EquipmentDb* equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Troll");
     available_races.append("Undead");
-    this->statistics = new MageStatistics();
+    this->statistics = new MageStatistics(sim_settings);
 
     this->mage_spells = new MageSpells(this);
     this->spells = dynamic_cast<Spells*>(mage_spells);

@@ -7,7 +7,7 @@ class HunterStatistics: public ClassStatistics {
     Q_OBJECT
 
 public:
-    HunterStatistics(QObject* parent = nullptr);
+    HunterStatistics(SimSettings* settings, QObject* parent = nullptr);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

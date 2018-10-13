@@ -87,12 +87,12 @@ void Test::test_all() {
 
 void Test::test_queue() {
     Race* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db);
+    auto* pchar = new Warrior(race, equipment_db, nullptr);
     pchar->get_equipment()->set_mainhand("Frostbite");
     pchar->get_equipment()->set_offhand("Krol Blade");
     pchar->set_clvl(60);
     auto* start_event = new EncounterStart(pchar);
-    auto* end_event = new EncounterEnd(pchar->get_engine(), pchar);
+    auto* end_event = new EncounterEnd(pchar->get_engine(), pchar, 300);
 
     pchar->get_engine()->add_event(end_event);
     pchar->get_engine()->add_event(start_event);
@@ -115,7 +115,7 @@ void Test::test_random() {
 
 void Test::test_combat_roll_melee_hit_result() {
     Race* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db);
+    auto* pchar = new Warrior(race, equipment_db, nullptr);
 
     for(int i = 0; i < 30; ++i) {
         pchar->get_combat_roll()->get_melee_hit_result(300);
@@ -127,7 +127,7 @@ void Test::test_combat_roll_melee_hit_result() {
 
 void Test::test_combat_roll_creation() {
     auto* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db);
+    auto* pchar = new Warrior(race, equipment_db, nullptr);
 
     pchar->get_combat_roll()->get_white_hit_table(300);
     pchar->get_combat_roll()->get_white_hit_table(300);
@@ -235,7 +235,7 @@ void Test::test_white_hit_table() {
 
 void Test::test_white_hit_table_update() {
     Race* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db);
+    auto* pchar = new Warrior(race, equipment_db, nullptr);
 
     WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(300);
 
@@ -368,28 +368,28 @@ void Test::test_character_creation() {
     assert(race->get_bow_bonus() == 5);
     assert(race->get_gun_bonus() == 0);
 
-    auto* priest = new Priest(race, equipment_db);
+    auto* priest = new Priest(race, equipment_db, nullptr);
     delete priest;
 
-    auto* rogue = new Rogue(race, equipment_db);
+    auto* rogue = new Rogue(race, equipment_db, nullptr);
     delete rogue;
 
-    auto* mage = new Mage(race, equipment_db);
+    auto* mage = new Mage(race, equipment_db, nullptr);
     delete mage;
 
-    auto* druid = new Druid(race, equipment_db);
+    auto* druid = new Druid(race, equipment_db, nullptr);
     delete druid;
 
-    auto* hunter = new Hunter(race, equipment_db);
+    auto* hunter = new Hunter(race, equipment_db, nullptr);
     delete hunter;
 
-    auto* warlock = new Warlock(race, equipment_db);
+    auto* warlock = new Warlock(race, equipment_db, nullptr);
     delete warlock;
 
-    auto* shaman = new Shaman(race, equipment_db);
+    auto* shaman = new Shaman(race, equipment_db, nullptr);
     delete shaman;
 
-    auto* paladin = new Paladin(race, equipment_db);
+    auto* paladin = new Paladin(race, equipment_db, nullptr);
     paladin->set_clvl(60);
     assert(paladin->get_clvl() == 60);
     delete paladin;

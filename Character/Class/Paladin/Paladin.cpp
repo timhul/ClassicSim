@@ -4,11 +4,11 @@
 #include "PaladinStatistics.h"
 #include "Weapon.h"
 
-Paladin::Paladin(Race* race, EquipmentDb *equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Dwarf");
     available_races.append("Human");
-    this->statistics = new PaladinStatistics();
+    this->statistics = new PaladinStatistics(sim_settings);
 
     this->paladin_spells = new PaladinSpells(this);
     this->spells = dynamic_cast<Spells*>(paladin_spells);

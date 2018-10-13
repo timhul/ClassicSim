@@ -7,7 +7,7 @@ class RogueStatistics: public ClassStatistics {
     Q_OBJECT
 
 public:
-    RogueStatistics(QObject* parent = nullptr);
+    RogueStatistics(SimSettings* settings, QObject* parent = nullptr);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

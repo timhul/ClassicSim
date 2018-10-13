@@ -6,12 +6,13 @@
 
 class EquipmentDb;
 class Random;
+class SimSettings;
 class QThread;
 
 class SimulationThreadPool: public QObject {
     Q_OBJECT
 public:
-    SimulationThreadPool(EquipmentDb* equipment_db, QObject* parent = nullptr);
+    SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, QObject* parent = nullptr);
     ~SimulationThreadPool();
 
     void run_sim(const QString& setup_string);
@@ -28,6 +29,7 @@ protected:
 private:
     EquipmentDb* equipment_db;
     Random* random;
+    SimSettings* sim_settings;
     int running_threads;
 
     QVector<QPair<unsigned, double>> thread_results;

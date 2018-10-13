@@ -1,8 +1,8 @@
 
 #include "RogueStatistics.h"
 
-RogueStatistics::RogueStatistics(QObject *parent) :
-    ClassStatistics(parent)
+RogueStatistics::RogueStatistics(SimSettings *settings, QObject *parent) :
+    ClassStatistics(settings, parent)
 {
 
 }

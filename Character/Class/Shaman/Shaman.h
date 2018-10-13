@@ -9,7 +9,7 @@ class ShamanSpells;
 class Shaman: public Character {
     Q_OBJECT
 public:
-    Shaman(Race* race, EquipmentDb *equipment_db, QObject *parent = nullptr);
+    Shaman(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent = nullptr);
     virtual ~Shaman() override;
 
     QString get_name() const override;

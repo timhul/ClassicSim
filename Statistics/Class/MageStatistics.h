@@ -7,7 +7,7 @@ class MageStatistics: public ClassStatistics {
     Q_OBJECT
 
 public:
-    MageStatistics(QObject* parent = nullptr);
+    MageStatistics(SimSettings* settings, QObject* parent = nullptr);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

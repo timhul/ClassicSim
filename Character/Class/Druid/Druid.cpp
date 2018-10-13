@@ -5,11 +5,11 @@
 #include "Race.h"
 #include "Weapon.h"
 
-Druid::Druid(Race* race, EquipmentDb *equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
-    this->statistics = new DruidStatistics();
+    this->statistics = new DruidStatistics(sim_settings);
 
     this->druid_spells = new DruidSpells(this);
     this->spells = dynamic_cast<Spells*>(druid_spells);

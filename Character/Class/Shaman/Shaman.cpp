@@ -4,12 +4,12 @@
 #include "ShamanStatistics.h"
 #include "Weapon.h"
 
-Shaman::Shaman(Race* race, EquipmentDb* equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
-    this->statistics = new ShamanStatistics();
+    this->statistics = new ShamanStatistics(sim_settings);
 
     this->shaman_spells = new ShamanSpells(this);
     this->spells = dynamic_cast<Spells*>(shaman_spells);

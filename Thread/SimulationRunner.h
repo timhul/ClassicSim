@@ -13,12 +13,13 @@ class EquipmentDb;
 class Faction;
 class Race;
 class Rotation;
+class SimSettings;
 class Target;
 
 class SimulationRunner: public QObject {
     Q_OBJECT
 public:
-    SimulationRunner(EquipmentDb* equipment_db, QString seed, QObject* parent = nullptr);
+    SimulationRunner(EquipmentDb* equipment_db, SimSettings* sim_settings, QString seed, QObject* parent = nullptr);
     ~SimulationRunner();
 
 public slots:
@@ -35,6 +36,8 @@ private:
     EquipmentDb* equipment_db;
     Race* race;
     Rotation* rotation;
+    SimSettings* global_sim_settings;
+    SimSettings* local_sim_settings;
 
     QString setup_string;
     QString seed;

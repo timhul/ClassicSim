@@ -23,6 +23,7 @@
 class CharacterEncoder;
 class CharacterDecoder;
 class EquipmentDb;
+class SimSettings;
 class SimulationThreadPool;
 
 
@@ -263,10 +264,10 @@ private:
     CharacterEncoder* character_encoder;
     CharacterDecoder* character_decoder;
     SimulationThreadPool* thread_pool;
+    SimSettings* sim_settings;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     Character* current_char{};
-    double last_quick_sim_result;
     ItemModel* item_model;
     ActiveItemStatFilterModel* active_stat_filter_model;
     AvailableItemStatFilterModel* available_stat_filter_model;
@@ -275,6 +276,7 @@ private:
     BuffModel* buff_model;
     DebuffModel* debuff_model;
     RotationModel* rotation_model;
+    double last_quick_sim_result;
 };
 
 #endif // GUICONTROL_H

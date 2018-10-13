@@ -4,14 +4,14 @@
 #include "HunterStatistics.h"
 #include "Weapon.h"
 
-Hunter::Hunter(Race* race, EquipmentDb *equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
-    this->statistics = new HunterStatistics();
+    this->statistics = new HunterStatistics(sim_settings);
 
     this->hunter_spells = new HunterSpells(this);
     this->spells = dynamic_cast<Spells*>(hunter_spells);

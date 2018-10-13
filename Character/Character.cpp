@@ -18,6 +18,7 @@
 #include "Weapon.h"
 #include "Rotation.h"
 #include "PlayerAction.h"
+#include "SimSettings.h"
 #include <QDebug>
 
 #include "Berserking.h"
@@ -25,8 +26,9 @@
 #include "BloodFury.h"
 #include "BloodFuryBuff.h"
 
-Character::Character(Race* race, EquipmentDb* equipment_db, QObject* parent) :
-    QObject(parent)
+Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, QObject* parent) :
+    QObject(parent),
+    sim_settings(sim_settings)
 {
     this->race = race;
     this->engine = new Engine();
@@ -199,6 +201,10 @@ ClassStatistics* Character::get_statistics() const {
 
 ActiveProcs* Character::get_active_procs() const {
     return this->active_procs;
+}
+
+SimSettings* Character::get_sim_settings() const {
+    return this->sim_settings;
 }
 
 BerserkingBuff* Character::get_berserking_buff() const {

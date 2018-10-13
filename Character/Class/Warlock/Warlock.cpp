@@ -4,13 +4,13 @@
 #include "WarlockStatistics.h"
 #include "Weapon.h"
 
-Warlock::Warlock(Race* race, EquipmentDb *equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Orc");
     available_races.append("Undead");
-    this->statistics = new WarlockStatistics();
+    this->statistics = new WarlockStatistics(sim_settings);
 
     this->warlock_spells = new WarlockSpells(this);
     this->spells = dynamic_cast<Spells*>(warlock_spells);

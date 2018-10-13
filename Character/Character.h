@@ -19,6 +19,7 @@ class EquipmentDb;
 class Faction;
 class Race;
 class Rotation;
+class SimSettings;
 class Spells;
 class Stats;
 class Talents;
@@ -29,7 +30,7 @@ class Character: public QObject {
     Q_OBJECT
 
 public:
-    Character(Race*, EquipmentDb *equipment_db, QObject* parent = nullptr);
+    Character(Race*, EquipmentDb *equipment_db, SimSettings* sim_settings, QObject* parent = nullptr);
     virtual ~Character();
 
     Race* get_race(void);
@@ -72,6 +73,7 @@ public:
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
     ActiveProcs* get_active_procs() const;
+    SimSettings* get_sim_settings() const;
 
     BerserkingBuff* get_berserking_buff() const;
     BloodFuryBuff* get_blood_fury_buff() const;
@@ -156,6 +158,7 @@ protected:
     Spells* spells{};
     ClassStatistics* statistics;
     Rotation* current_rotation;
+    SimSettings* sim_settings;
 
     BerserkingBuff* berserking_buff;
     BloodFuryBuff* blood_fury_buff;

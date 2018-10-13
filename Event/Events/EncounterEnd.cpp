@@ -2,10 +2,10 @@
 #include "EncounterEnd.h"
 #include "Character.h"
 
-EncounterEnd::EncounterEnd(Engine* engine, Character* pchar) {
+EncounterEnd::EncounterEnd(Engine* engine, Character* pchar, int combat_length) {
     this->engine = engine;
     this->pchar = pchar;
-    this->priority = 300.0;
+    this->priority = double(combat_length);
     this->name = "EncounterEnd";
 }
 

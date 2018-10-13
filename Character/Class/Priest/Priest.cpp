@@ -4,14 +4,14 @@
 #include "PriestStatistics.h"
 #include "Weapon.h"
 
-Priest::Priest(Race* race, EquipmentDb* equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");
     available_races.append("Troll");
     available_races.append("Undead");
-    this->statistics = new PriestStatistics();
+    this->statistics = new PriestStatistics(sim_settings);
 
     this->priest_spells = new PriestSpells(this);
     this->spells = dynamic_cast<Spells*>(priest_spells);

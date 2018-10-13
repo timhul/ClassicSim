@@ -1,8 +1,8 @@
 
 #include "WarlockStatistics.h"
 
-WarlockStatistics::WarlockStatistics(QObject *parent) :
-    ClassStatistics(parent)
+WarlockStatistics::WarlockStatistics(SimSettings* settings, QObject *parent) :
+    ClassStatistics(settings, parent)
 {
 
 }

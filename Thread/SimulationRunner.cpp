@@ -41,13 +41,16 @@
 #include "ClassStatistics.h"
 #include "ActiveBuffs.h"
 #include "GeneralBuffs.h"
+#include "SimSettings.h"
 
-SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, QString thread_id, QObject* parent):
+SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_settings, QString thread_id, QObject* parent):
     QObject(parent),
     pchar(nullptr),
     equipment_db(equipment_db),
     race(nullptr),
     rotation(nullptr),
+    global_sim_settings(sim_settings),
+    local_sim_settings(nullptr),
     seed(std::move(thread_id))
 {}
 
@@ -85,10 +88,9 @@ void SimulationRunner::run_sim(QString setup_string) {
     pchar->get_engine()->prepare();
     pchar->get_combat_roll()->drop_tables();
 
-    // CSIM-59: Remove hardcoded 1000 iterations for quick sim.
-    for (int i = 0; i < 1000; ++i) {
+    for (int i = 0; i < local_sim_settings->get_combat_iterations(); ++i) {
         auto* start_event = new EncounterStart(pchar);
-        auto* end_event = new EncounterEnd(pchar->get_engine(), pchar);
+        auto* end_event = new EncounterEnd(pchar->get_engine(), pchar, local_sim_settings->get_combat_length());
 
         pchar->get_engine()->add_event(end_event);
         pchar->get_engine()->add_event(start_event);
@@ -96,12 +98,12 @@ void SimulationRunner::run_sim(QString setup_string) {
     }
 
     pchar->get_engine()->reset();
-    // CSIM-59: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
-    double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
+    double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (local_sim_settings->get_combat_iterations() * local_sim_settings->get_combat_length());
 
     delete pchar;
     delete race;
     delete rotation;
+    delete local_sim_settings;
 
     emit result(seed, dps);
     emit finished();
@@ -255,31 +257,36 @@ void SimulationRunner::exit_thread(QString err) {
     delete pchar;
     delete race;
     delete rotation;
+    delete local_sim_settings;
     emit error(seed, std::move(err));
     emit finished();
 }
 
 void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
+    this->local_sim_settings = new SimSettings();
+    local_sim_settings->set_combat_iterations(global_sim_settings->get_combat_iterations());
+    local_sim_settings->set_combat_length(global_sim_settings->get_combat_length());
+
     QString pchar_string = decoder.get_class();
 
     if (pchar_string == "Druid")
-        pchar = dynamic_cast<Character*>(new Druid(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Druid(race, equipment_db, local_sim_settings));
     if (pchar_string == "Hunter")
-        pchar = dynamic_cast<Character*>(new Hunter(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Hunter(race, equipment_db, local_sim_settings));
     if (pchar_string == "Mage")
-        pchar = dynamic_cast<Character*>(new Mage(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Mage(race, equipment_db, local_sim_settings));
     if (pchar_string == "Paladin")
-        pchar = dynamic_cast<Character*>(new Paladin(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Paladin(race, equipment_db, local_sim_settings));
     if (pchar_string == "Priest")
-        pchar = dynamic_cast<Character*>(new Priest(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Priest(race, equipment_db, local_sim_settings));
     if (pchar_string == "Rogue")
-        pchar = dynamic_cast<Character*>(new Rogue(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Rogue(race, equipment_db, local_sim_settings));
     if (pchar_string == "Shaman")
-        pchar = dynamic_cast<Character*>(new Shaman(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Shaman(race, equipment_db, local_sim_settings));
     if (pchar_string == "Warlock")
-        pchar = dynamic_cast<Character*>(new Warlock(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Warlock(race, equipment_db, local_sim_settings));
     if (pchar_string == "Warrior")
-        pchar = dynamic_cast<Character*>(new Warrior(race, equipment_db));
+        pchar = dynamic_cast<Character*>(new Warrior(race, equipment_db, local_sim_settings));
 
     if (pchar == nullptr)
         delete race;

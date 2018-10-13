@@ -8,7 +8,7 @@ class Character;
 
 class EncounterEnd: public Event {
 public:
-    EncounterEnd(Engine*, Character* pchar);
+    EncounterEnd(Engine*, Character* pchar, int combat_length);
 
     virtual void act(void) override;
 protected:

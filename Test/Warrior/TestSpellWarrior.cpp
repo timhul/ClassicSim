@@ -8,17 +8,19 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
+#include "SimSettings.h"
 #include <QDebug>
 #include <utility>
 
 TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
     TestSpellDamage(equipment_db, std::move(spell_under_test)),
-    warrior(nullptr)
+    warrior(nullptr),
+    sim_settings(new SimSettings())
 {}
 
 void TestSpellWarrior::set_up() {
     set_up_general();
-    warrior = new Warrior(race, equipment_db);
+    warrior = new Warrior(race, equipment_db, sim_settings);
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;

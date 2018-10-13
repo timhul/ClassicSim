@@ -14,7 +14,7 @@ TestTwoHandedWeaponSpecialization::TestTwoHandedWeaponSpecialization(EquipmentDb
 
 void TestTwoHandedWeaponSpecialization::set_up() {
     race = new Orc();
-    warrior = new Warrior(race, equipment_db);
+    warrior = new Warrior(race, equipment_db, nullptr);
     talent = new TwoHandedWeaponSpecialization(warrior, nullptr);
 }
 

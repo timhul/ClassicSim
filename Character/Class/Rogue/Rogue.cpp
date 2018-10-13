@@ -4,8 +4,8 @@
 #include "RogueStatistics.h"
 #include "Weapon.h"
 
-Rogue::Rogue(Race* race, EquipmentDb *equipment_db, QObject *parent) :
-    Character(race, equipment_db, parent) {
+Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent) :
+    Character(race, equipment_db, sim_settings, parent) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");
@@ -13,7 +13,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, QObject *parent) :
     available_races.append("Orc");
     available_races.append("Troll");
     available_races.append("Undead");
-    this->statistics = new RogueStatistics();
+    this->statistics = new RogueStatistics(sim_settings);
 
     this->rogue_spells = new RogueSpells(this);
     this->spells = dynamic_cast<Spells*>(rogue_spells);

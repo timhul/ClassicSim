@@ -54,8 +54,6 @@ public:
 
     void test_dodge_applies_overpower_buff();
 
-    // CSIM-69: When Target mechanism is properly implemented, add test that Execute only available in Execute range.
-
     void given_0_of_2_improved_execute();
     void given_1_of_2_improved_execute();
     void given_2_of_2_improved_execute();

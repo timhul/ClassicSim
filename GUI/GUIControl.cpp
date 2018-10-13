@@ -36,6 +36,7 @@
 #include "ClassStatistics.h"
 
 #include "SimulationThreadPool.h"
+#include "SimSettings.h"
 
 #include "ActiveBuffs.h"
 #include "BuffModel.h"
@@ -48,6 +49,10 @@
 
 GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
+    equipment_db(new EquipmentDb()),
+    sim_settings(new SimSettings()),
+    active_stat_filter_model(new ActiveItemStatFilterModel()),
+    item_type_filter_model(new ItemTypeFilterModel()),
     last_quick_sim_result(0.0)
 {
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
@@ -61,10 +66,6 @@ GUIControl::GUIControl(QObject* parent) :
     races.insert("Troll", new Troll());
     races.insert("Undead", new Undead());
 
-    equipment_db = new EquipmentDb();
-
-    item_type_filter_model = new ItemTypeFilterModel();
-    active_stat_filter_model = new ActiveItemStatFilterModel();
     item_model = new ItemModel(equipment_db, item_type_filter_model, active_stat_filter_model);
     weapon_model = new WeaponModel(equipment_db, item_type_filter_model, active_stat_filter_model);
     active_stat_filter_model->set_item_model(item_model);
@@ -72,22 +73,22 @@ GUIControl::GUIControl(QObject* parent) :
     available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
     rotation_model = new RotationModel(current_char);
 
-    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], equipment_db)));
-    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], equipment_db)));
-    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], equipment_db)));
-    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], equipment_db)));
-    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], equipment_db)));
-    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Troll"], equipment_db)));
-    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], equipment_db)));
-    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Orc"], equipment_db)));
-    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], equipment_db)));
+    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], equipment_db, sim_settings)));
+    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], equipment_db, sim_settings)));
+    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], equipment_db, sim_settings)));
+    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], equipment_db, sim_settings)));
+    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], equipment_db, sim_settings)));
+    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Troll"], equipment_db, sim_settings)));
+    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], equipment_db, sim_settings)));
+    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Orc"], equipment_db, sim_settings)));
+    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], equipment_db, sim_settings)));
 
     set_character(chars["Warrior"]);
 
     // TODO: Handle switching pchar
     character_encoder = new CharacterEncoder(current_char);
     character_decoder = new CharacterDecoder();
-    thread_pool = new SimulationThreadPool(equipment_db);
+    thread_pool = new SimulationThreadPool(equipment_db, sim_settings);
     // TODO: Handle switching pchar
     buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_active_buffs()->get_general_buffs());
@@ -146,6 +147,7 @@ GUIControl::~GUIControl() {
     delete character_encoder;
     delete character_decoder;
     delete thread_pool;
+    delete sim_settings;
 }
 
 void GUIControl::set_character(Character* pchar) {
@@ -598,10 +600,10 @@ void GUIControl::run_quick_sim() {
     current_char->get_statistics()->reset_statistics();
     this->current_char->get_engine()->prepare();
     this->current_char->get_combat_roll()->drop_tables();
-    // CSIM-59: Remove hardcoded 1000 iterations for quick sim.
-    for (int i = 0; i < 1000; ++i) {
+
+    for (int i = 0; i < sim_settings->get_combat_iterations(); ++i) {
         auto* start_event = new EncounterStart(current_char);
-        auto* end_event = new EncounterEnd(this->current_char->get_engine(), current_char);
+        auto* end_event = new EncounterEnd(this->current_char->get_engine(), current_char, sim_settings->get_combat_length());
 
         this->current_char->get_engine()->add_event(end_event);
         this->current_char->get_engine()->add_event(start_event);
@@ -610,9 +612,9 @@ void GUIControl::run_quick_sim() {
 
     this->current_char->get_engine()->dump();
     this->current_char->get_engine()->reset();
-    // CSIM-59: Remove hardcoded 1000 iterations 300 seconds fight for quick sim.
+
     double previous = last_quick_sim_result;
-    last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (1000 * 300);
+    last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations() * sim_settings->get_combat_length());
 
     double delta = ((last_quick_sim_result - previous) / previous);
     QString change = delta > 0 ? "+" : "";

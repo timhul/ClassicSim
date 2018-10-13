@@ -7,7 +7,7 @@ class WarlockStatistics: public ClassStatistics {
     Q_OBJECT
 
 public:
-    WarlockStatistics(QObject* parent = nullptr);
+    WarlockStatistics(SimSettings* settings, QObject* parent = nullptr);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

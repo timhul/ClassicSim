@@ -10,7 +10,7 @@ TestArms::TestArms(EquipmentDb* equipment_db):
 
 void TestArms::set_up() {
     race = new Orc();
-    warrior = new Warrior(race, equipment_db);
+    warrior = new Warrior(race, equipment_db, nullptr);
     arms = new Arms(warrior);
 }
 
