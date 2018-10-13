@@ -9,7 +9,55 @@
 #include <QDebug>
 #include <QDir>
 
-Rotation *RotationFileReader::get_rotation(const QString &path) {
+void RotationFileReader::add_rotations(QVector<Rotation*> & rotations) {
+    QFile paths_file("rotation_paths.xml");
+
+    if (!paths_file.open(QFile::ReadOnly | QFile::Text)) {
+        qDebug() << "Cannot read file:" << paths_file.errorString();
+        qDebug() << QDir::currentPath();
+        exit(0);
+    }
+
+    QXmlStreamReader paths_reader(&paths_file);
+    QVector<QString> equipment_file_paths;
+
+    if (paths_reader.readNextStartElement()) {
+        if (paths_reader.name() != "paths") {
+            qDebug() << "Expected <paths> root element in rotation_paths.xml.";
+            return;
+        }
+
+        while (paths_reader.readNextStartElement()) {
+            if (paths_reader.name() == "file") {
+                QXmlStreamAttributes attrs = paths_reader.attributes();
+                if (attrs.hasAttribute("path"))
+                    equipment_file_paths.append(attrs.value("path").toString());
+
+                paths_reader.skipCurrentElement();
+            }
+            else {
+                qDebug() << "Skipping element" << paths_reader.readElementText();
+                paths_reader.skipCurrentElement();
+            }
+        }
+    }
+    else
+        qDebug() << "Failed to read rotation_paths.xml.";
+
+    paths_file.close();
+
+    if (equipment_file_paths.empty())
+        qDebug() << "Failed to find rotation files in rotation_paths.xml";
+
+    for (auto & path : equipment_file_paths) {
+        qDebug() << "Parsing rotation file" << path;
+        Rotation* rotation = parse_rotation_file(path);
+        if (rotation != nullptr)
+            rotations.append(rotation);
+    }
+}
+
+Rotation* RotationFileReader::parse_rotation_file(const QString& path) {
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file" << path << ":" << file.errorString();
@@ -44,7 +92,7 @@ Rotation *RotationFileReader::get_rotation(const QString &path) {
 }
 
 void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotation* rotation) {
-    rotation->set_name(reader.name().toString());
+    rotation->set_name(reader.attributes().value("name").toString());
 
     while (reader.readNextStartElement()) {
         if (reader.name() == "description") {

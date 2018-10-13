@@ -32,22 +32,35 @@ void RotationModel::set_character(Character* pchar) {
 void RotationModel::addRotations() {
     if (!rotations.empty()) {
         beginRemoveRows(QModelIndex(), 0, rotations.size() - 1);
+
+        for (auto & vectors : rotations.values()) {
+            for (auto & i : vectors) {
+                delete i;
+            }
+        }
+
         rotations.clear();
         endRemoveRows();
     }
 
     RotationFileReader rotation_file_reader;
-    Rotation* rotation = rotation_file_reader.get_rotation("rotation_arms.xml");
+    QVector<Rotation*> new_rotations;
+    rotation_file_reader.add_rotations(new_rotations);
 
-    if (rotation == nullptr)
-        return;
+    for (auto & rotation : new_rotations) {
+        if (rotation == nullptr) {
+            delete rotation;
+            continue;
+        }
 
-    if (!rotations.contains(rotation->get_class()))
-        rotations.insert(rotation->get_class(), QVector<Rotation*>({}));
+        if (!rotations.contains(rotation->get_class()))
+            rotations.insert(rotation->get_class(), QVector<Rotation*>({}));
 
-    beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    rotations[rotation->get_class()].append(rotation);
-    endInsertRows();
+        beginInsertRows(QModelIndex(), rowCount(), rowCount());
+        rotations[rotation->get_class()].append(rotation);
+        qDebug() << "adding rotation" << rotation->get_name();
+        endInsertRows();
+    }    
 }
 
 bool RotationModel::select_rotation(const int index) {

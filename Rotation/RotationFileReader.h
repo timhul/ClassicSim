@@ -18,9 +18,10 @@ public:
     RotationFileReader(QObject* parent = nullptr):
         QObject(parent) {}
 
-    Rotation* get_rotation(const QString &path);
+    void add_rotations(QVector<Rotation*>&);
 
 private:
+    Rotation* parse_rotation_file(const QString& path);
     void rotation_file_handler(QXmlStreamReader &reader, Rotation *rotation);
     bool cast_if_handler(QXmlStreamReader &reader, CastIf *cast_if);
 
