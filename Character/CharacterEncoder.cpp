@@ -47,6 +47,8 @@ QString CharacterEncoder::get_current_setup_string() {
     key_val("TARGET_TYPE", pchar->get_target()->get_creature_type_string());
     key_val("TARGET_ARMOR", QString::number(pchar->get_target()->get_armor()));
 
+    key_val("ROTATION", pchar->get_current_rotation_name());
+
     return pchar_str;
 }
 

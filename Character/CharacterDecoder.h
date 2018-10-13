@@ -7,6 +7,7 @@
 
 class Character;
 class Item;
+class Rotation;
 
 class CharacterDecoder: public QObject {
     Q_OBJECT

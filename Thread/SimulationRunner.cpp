@@ -31,6 +31,8 @@
 #include "Target.h"
 #include "CombatRoll.h"
 #include "Faction.h"
+#include "Rotation.h"
+#include "RotationFileReader.h"
 #include "Talents.h"
 
 #include "EncounterStart.h"
@@ -45,6 +47,7 @@ SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, QString thread_id,
     pchar(nullptr),
     equipment_db(equipment_db),
     race(nullptr),
+    rotation(nullptr),
     seed(std::move(thread_id))
 {}
 
@@ -70,6 +73,7 @@ void SimulationRunner::run_sim(QString setup_string) {
     invest_talent_points(decoder);
     apply_external_buffs(decoder);
     setup_target(decoder);
+    select_rotation(decoder);
 
     CharacterEncoder encoder(pchar);
     if (encoder.get_current_setup_string() != this->setup_string)
@@ -97,6 +101,7 @@ void SimulationRunner::run_sim(QString setup_string) {
 
     delete pchar;
     delete race;
+    delete rotation;
 
     emit result(seed, dps);
     emit finished();
@@ -223,7 +228,33 @@ void SimulationRunner::setup_target(CharacterDecoder& decoder) {
     pchar->get_target()->set_armor(decoder.get_key("TARGET_ARMOR").toInt());
 }
 
+void SimulationRunner::select_rotation(CharacterDecoder& decoder) {
+    RotationFileReader rotation_file_reader;
+    QVector<Rotation*> new_rotations;
+    rotation_file_reader.add_rotations(new_rotations);
+
+    QString rotation_name = decoder.get_key("ROTATION");
+
+    for (auto & rotation : new_rotations) {
+        if (rotation == nullptr)
+            continue;
+
+        if (pchar->get_name() != rotation->get_class() || rotation->get_name() != rotation_name) {
+            delete rotation;
+            continue;
+        }
+
+        pchar->set_rotation(rotation);
+    }
+
+    if (pchar->get_current_rotation_name() != rotation_name)
+        exit_thread("Failed to set rotation to " + rotation_name);
+}
+
 void SimulationRunner::exit_thread(QString err) {
+    delete pchar;
+    delete race;
+    delete rotation;
     emit error(seed, std::move(err));
     emit finished();
 }
