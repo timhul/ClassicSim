@@ -36,6 +36,7 @@
 #include "ClassStatistics.h"
 
 #include "SimulationThreadPool.h"
+#include "SimControl.h"
 #include "SimSettings.h"
 
 #include "ActiveBuffs.h"
@@ -57,6 +58,7 @@ GUIControl::GUIControl(QObject* parent) :
 {
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
 
+    this->sim_control = new SimControl(sim_settings);
     races.insert("Dwarf", new Dwarf());
     races.insert("Gnome", new Gnome());
     races.insert("Human", new Human());
@@ -147,6 +149,7 @@ GUIControl::~GUIControl() {
     delete character_encoder;
     delete character_decoder;
     delete thread_pool;
+    delete sim_control;
     delete sim_settings;
 }
 
@@ -595,23 +598,7 @@ QString GUIControl::get_information_rotation_description() const {
 
 void GUIControl::run_quick_sim() {
     thread_pool->run_sim(character_encoder->get_current_setup_string());
-
-    current_char->dump();
-    current_char->get_statistics()->reset_statistics();
-    this->current_char->get_engine()->prepare();
-    this->current_char->get_combat_roll()->drop_tables();
-
-    for (int i = 0; i < sim_settings->get_combat_iterations(); ++i) {
-        auto* start_event = new EncounterStart(current_char);
-        auto* end_event = new EncounterEnd(this->current_char->get_engine(), current_char, sim_settings->get_combat_length());
-
-        this->current_char->get_engine()->add_event(end_event);
-        this->current_char->get_engine()->add_event(start_event);
-        this->current_char->get_engine()->run();
-    }
-
-    this->current_char->get_engine()->dump();
-    this->current_char->get_engine()->reset();
+    sim_control->run_sim(current_char);
 
     double previous = last_quick_sim_result;
     last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations() * sim_settings->get_combat_length());

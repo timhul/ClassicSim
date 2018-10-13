@@ -240,7 +240,8 @@ SOURCES += main.cpp \
     Test/Warrior/Talents/TestFury.cpp \
     GUI/Models/RotationModel.cpp \
     Test/Warrior/Talents/TestArms.cpp \
-    GUI/SimSettings.cpp
+    GUI/SimSettings.cpp \
+    GUI/SimControl.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -476,7 +477,8 @@ HEADERS += \
     Test/Warrior/Talents/TestFury.h \
     GUI/Models/RotationModel.h \
     Test/Warrior/Talents/TestArms.h \
-    GUI/SimSettings.h
+    GUI/SimSettings.h \
+    GUI/SimControl.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

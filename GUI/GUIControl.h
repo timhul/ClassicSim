@@ -23,6 +23,7 @@
 class CharacterEncoder;
 class CharacterDecoder;
 class EquipmentDb;
+class SimControl;
 class SimSettings;
 class SimulationThreadPool;
 
@@ -264,6 +265,7 @@ private:
     CharacterEncoder* character_encoder;
     CharacterDecoder* character_decoder;
     SimulationThreadPool* thread_pool;
+    SimControl* sim_control;
     SimSettings* sim_settings;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;

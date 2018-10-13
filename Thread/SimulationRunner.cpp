@@ -41,6 +41,7 @@
 #include "ClassStatistics.h"
 #include "ActiveBuffs.h"
 #include "GeneralBuffs.h"
+#include "SimControl.h"
 #include "SimSettings.h"
 
 SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_settings, QString thread_id, QObject* parent):
@@ -84,20 +85,8 @@ void SimulationRunner::run_sim(QString setup_string) {
 
     pchar->get_combat_roll()->set_new_seed(seed);
 
-    pchar->get_statistics()->reset_statistics();
-    pchar->get_engine()->prepare();
-    pchar->get_combat_roll()->drop_tables();
+    SimControl(local_sim_settings).run_sim(pchar);
 
-    for (int i = 0; i < local_sim_settings->get_combat_iterations(); ++i) {
-        auto* start_event = new EncounterStart(pchar);
-        auto* end_event = new EncounterEnd(pchar->get_engine(), pchar, local_sim_settings->get_combat_length());
-
-        pchar->get_engine()->add_event(end_event);
-        pchar->get_engine()->add_event(start_event);
-        pchar->get_engine()->run();
-    }
-
-    pchar->get_engine()->reset();
     double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (local_sim_settings->get_combat_iterations() * local_sim_settings->get_combat_length());
 
     delete pchar;
