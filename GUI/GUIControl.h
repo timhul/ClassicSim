@@ -172,7 +172,12 @@ public:
 
     /* Rotation */
      RotationModel* get_rotation_model() const;
-     Q_INVOKABLE void selectRotation(const int);
+     Q_INVOKABLE void selectRotation();
+     Q_INVOKABLE void selectInformationRotation(const int);
+     Q_PROPERTY(QString rotationName READ get_curr_rotation_name NOTIFY rotationChanged)
+     Q_PROPERTY(QString rotationDescription READ get_curr_rotation_description NOTIFY rotationChanged)
+     Q_PROPERTY(QString rotationInfoName READ get_information_rotation_name NOTIFY informationRotationChanged)
+     Q_PROPERTY(QString rotationInfoDesc READ get_information_rotation_description NOTIFY informationRotationChanged)
     /* End of Rotation */
 
 Q_SIGNALS:
@@ -193,6 +198,7 @@ Q_SIGNALS:
     void filtersUpdated();
     void equipmentSlotSelected();
     void rotationChanged();
+    void informationRotationChanged();
 
 private:
     int get_talent_points_remaining() const;
@@ -224,6 +230,11 @@ private:
     int get_offhand_wpn_skill() const;
 
     Q_SLOT void run_quick_sim();
+
+    QString get_curr_rotation_name() const;
+    QString get_curr_rotation_description() const;
+    QString get_information_rotation_name() const;
+    QString get_information_rotation_description() const;
 
     QString get_mainhand_icon() const;
     QString get_offhand_icon() const;

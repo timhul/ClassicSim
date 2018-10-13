@@ -14,8 +14,8 @@ class RotationModel : public QAbstractListModel
 public:
     enum RotationRoles {
         NameRole = Qt::UserRole + 1,
-        IndexRole,
         SelectedRole,
+        IndexRole,
         DescriptionRole
     };
 
@@ -26,7 +26,11 @@ public:
     void set_character(Character* pchar);
     void addRotations();
 
-    bool select_rotation(const int);
+    bool select_rotation();
+    bool set_information_index(const int);
+
+    QString get_rotation_information_name() const;
+    QString get_rotation_information_description() const;
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
@@ -34,6 +38,7 @@ public:
 private:
     Character* pchar;
     QString patch;
+    int information_index;
     QHash<int, QByteArray> roleNames() const;
     QMap<QString, QVector<Rotation*>> rotations;
 };

@@ -7,7 +7,8 @@
 RotationModel::RotationModel(Character *pchar, QObject *parent)
     : QAbstractListModel(parent),
       pchar(pchar),
-      patch("1.0.0")
+      patch("1.0.0"),
+      information_index(-1)
 {}
 
 RotationModel::~RotationModel() {
@@ -26,6 +27,7 @@ void RotationModel::set_patch(const QString &patch) {
 
 void RotationModel::set_character(Character* pchar) {
     this->pchar = pchar;
+    information_index = -1;
     addRotations();
 }
 
@@ -58,18 +60,48 @@ void RotationModel::addRotations() {
 
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         rotations[rotation->get_class()].append(rotation);
+
+        if (rotation->get_class() == pchar->get_name()) {
+            if (rotation->get_name() == pchar->get_current_rotation_name())
+                information_index = rotations[rotation->get_class()].size() - 1;
+        }
+
         endInsertRows();
     }
 }
 
-bool RotationModel::select_rotation(const int index) {
+bool RotationModel::select_rotation() {
+    if (information_index < 0 || information_index >= rowCount())
+        return false;
+
+    if (rotations[pchar->get_name()][information_index]->get_name() == pchar->get_current_rotation_name())
+        return false;
+
+    return pchar->set_rotation(rotations[pchar->get_name()][information_index]);
+}
+
+bool RotationModel::set_information_index(const int index) {
     if (index < 0 || index >= rowCount())
         return false;
 
-    if (rotations[pchar->get_name()][index]->get_name() == pchar->get_current_rotation_name())
-        return false;
+    layoutAboutToBeChanged();
+    information_index = index;
+    layoutChanged();
+    return true;
+}
 
-    return pchar->set_rotation(rotations[pchar->get_name()][index]);
+QString RotationModel::get_rotation_information_name() const {
+    if (information_index < 0 || information_index >= rowCount())
+        return "";
+
+    return rotations[pchar->get_name()][information_index]->get_name();
+}
+
+QString RotationModel::get_rotation_information_description() const {
+    if (information_index < 0 || information_index >= rowCount())
+        return "";
+
+    return rotations[pchar->get_name()][information_index]->get_description();
 }
 
 int RotationModel::rowCount(const QModelIndex & parent) const {
@@ -85,10 +117,10 @@ QVariant RotationModel::data(const QModelIndex & index, int role) const {
 
     if (role == NameRole)
         return rotation->get_name();
+    if (role == SelectedRole)
+        return index.row() == information_index;
     if (role == IndexRole)
         return index.row();
-    if (role == SelectedRole)
-        return rotations[pchar->get_name()][index.row()]->get_name() == pchar->get_current_rotation_name();
     if (role == DescriptionRole)
         return rotation->get_description();
 
@@ -98,8 +130,8 @@ QVariant RotationModel::data(const QModelIndex & index, int role) const {
 QHash<int, QByteArray> RotationModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[NameRole] = "_name";
-    roles[IndexRole] = "_index";
     roles[SelectedRole] = "_selected";
+    roles[IndexRole] = "_index";
     roles[DescriptionRole] = "_description";
 
     return roles;

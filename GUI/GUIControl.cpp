@@ -111,7 +111,8 @@ GUIControl::GUIControl(QObject* parent) :
     setSlot("TRINKET1", "Blackhand's Breadth");
     setSlot("TRINKET2", "Hand of Justice");
 
-    rotation_model->select_rotation(0);
+    rotation_model->set_information_index(0);
+    rotation_model->select_rotation();
 }
 
 GUIControl::~GUIControl() {
@@ -559,11 +560,35 @@ RotationModel* GUIControl::get_rotation_model() const {
     return this->rotation_model;
 }
 
-void GUIControl::selectRotation(const int index) {
-    if (!rotation_model->select_rotation(index))
+void GUIControl::selectRotation() {
+    if (!rotation_model->select_rotation())
         return;
 
     rotationChanged();
+}
+
+void GUIControl::selectInformationRotation(const int index) {
+    if (!rotation_model->set_information_index(index))
+        return;
+
+    informationRotationChanged();
+}
+
+QString GUIControl::get_curr_rotation_name() const {
+    return current_char->get_current_rotation_name();
+}
+
+QString GUIControl::get_curr_rotation_description() const {
+    return current_char->get_rotation() != nullptr ? current_char->get_rotation()->get_description() :
+                                                     "";
+}
+
+QString GUIControl::get_information_rotation_name() const {
+    return rotation_model->get_rotation_information_name();
+}
+
+QString GUIControl::get_information_rotation_description() const {
+    return rotation_model->get_rotation_information_description();
 }
 
 void GUIControl::run_quick_sim() {
