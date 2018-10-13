@@ -253,5 +253,7 @@
         <file>QML/Assets/items/Inv_hammer_04.png</file>
         <file>QML/Assets/items/Inv_weapon_halberd_ahnqiraj.png</file>
         <file>QML/Assets/items/Inv_staff_goldfeathered_01.png</file>
+        <file>QML/Rotations.qml</file>
+        <file>QML/RotationInformation.qml</file>
     </qresource>
 </RCC>

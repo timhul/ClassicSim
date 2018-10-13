@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("weaponModel", gui_control->get_weapon_model());
     context->setContextProperty("buffModel", gui_control->get_buff_model());
     context->setContextProperty("debuffModel", gui_control->get_debuff_model());
+    context->setContextProperty("rotationModel", gui_control->get_rotation_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 

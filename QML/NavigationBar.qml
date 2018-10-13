@@ -13,6 +13,7 @@ Rectangle {
     signal talentsClicked();
     signal equipmentClicked();
     signal buffsClicked();
+    signal rotationClicked();
     signal settingsClicked();
     signal statisticsClicked();
 
@@ -118,6 +119,38 @@ Rectangle {
                 if (parent.parent.state !== "BUFFS") {
                     parent.parent.state = "BUFFS"
                     buffsClicked()
+                }
+            }
+        }
+
+        RectangleBorders {
+            id: rotationRect
+
+            rectColor: parent.parent.state == "ROTATION" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+
+            height: choiceHeight
+            width: parent.width
+
+            Text {
+                anchors.fill: parent
+
+                text: "Rotation"
+                color: fontColor
+
+                font {
+                    family: fontFamily
+                    pointSize: fontSize
+                    bold: true
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            onRectangleClicked: {
+                if (parent.parent.state !== "ROTATION") {
+                    parent.parent.state = "ROTATION"
+                    rotationClicked()
                 }
             }
         }

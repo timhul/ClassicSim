@@ -230,11 +230,12 @@ Window {
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
 
-        state: "EQUIPMENT"
+        state: "ROTATION"
 
         onTalentsClicked: state = "TALENTS"
         onEquipmentClicked: state = "EQUIPMENT"
         onBuffsClicked: state = "BUFFS"
+        onRotationClicked: state = "ROTATION"
         onSettingsClicked: state = "SETTINGS"
         onStatisticsClicked: state = "STATISTICS"
     }
@@ -265,6 +266,12 @@ Window {
 
         Buffs {
             visible: parent.state === "BUFFS"
+        }
+
+        Rotations {
+            visible: parent.state === "ROTATION"
+            x: parent.width / 2 - width / 2
+            y: parent.height / 2 - height / 2
         }
 
         Statistics {

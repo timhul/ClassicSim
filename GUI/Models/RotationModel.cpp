@@ -58,13 +58,15 @@ void RotationModel::addRotations() {
 
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         rotations[rotation->get_class()].append(rotation);
-        qDebug() << "adding rotation" << rotation->get_name();
         endInsertRows();
-    }    
+    }
 }
 
 bool RotationModel::select_rotation(const int index) {
-    if (index < 0 || index >= rotations[pchar->get_name()].size())
+    if (index < 0 || index >= rowCount())
+        return false;
+
+    if (rotations[pchar->get_name()][index]->get_name() == pchar->get_current_rotation_name())
         return false;
 
     return pchar->set_rotation(rotations[pchar->get_name()][index]);
@@ -76,7 +78,7 @@ int RotationModel::rowCount(const QModelIndex & parent) const {
 }
 
 QVariant RotationModel::data(const QModelIndex & index, int role) const {
-    if (index.row() < 0 || index.row() >= rotations.count())
+    if (index.row() < 0 || index.row() >= rowCount())
         return QVariant();
 
     const Rotation* rotation = rotations[pchar->get_name()][index.row()];
@@ -97,7 +99,8 @@ QHash<int, QByteArray> RotationModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[NameRole] = "_name";
     roles[IndexRole] = "_index";
-    roles[IndexRole] = "_selected";
+    roles[SelectedRole] = "_selected";
     roles[DescriptionRole] = "_description";
+
     return roles;
 }

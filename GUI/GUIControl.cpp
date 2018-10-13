@@ -561,7 +561,7 @@ RotationModel* GUIControl::get_rotation_model() const {
 
 void GUIControl::selectRotation(const int index) {
     if (!rotation_model->select_rotation(index))
-        qDebug() << "Failed to select rotation index" << index;
+        return;
 
     rotationChanged();
 }
