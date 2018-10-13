@@ -24,6 +24,7 @@ Rectangle {
                 leftMargin: 10
                 top: parent.top
                 topMargin: 10
+                bottom: parent.bottom
             }
 
             onToggleStatFilterSelection: {
