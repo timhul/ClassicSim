@@ -48,7 +48,6 @@ Rectangle {
     function clearStatistics() {
         for (var i = objectModel.count; i > 0; --i) {
             objectModel.get(i - 1).clearTable()
-            //tmpStorage.children[i - 1].destroy()
         }
         objectModel.clear()
     }
@@ -73,45 +72,4 @@ Rectangle {
             boundsBehavior: Flickable.StopAtBounds
         }
     }
-
-//    ChartView {
-//        width: 400
-//        height: 300
-//        theme: ChartView.ChartThemeDark
-//        antialiasing: true
-//        animationOptions: ChartView.NoAnimation
-//        backgroundColor: root.darkDarkGray
-//        title: "Heroic Strike"
-
-//        PieSeries {
-//            id: pieSeries
-
-//            function updateSlices() {
-//                pieSeries.clear()
-//                var slices = pieChart.getSlices()
-
-//                console.log(slices)
-
-//                var i = 0
-//                for (; i < slices.length;) {
-//                    pieSeries.append(slices[i], slices[i + 1])
-//                    console.log(slices[i], slices[i + 1])
-//                    i += 2
-//                }
-//            }
-
-
-//            Component.onCompleted: updateSlices()
-//        }
-
-//        PieSeries {
-//            id: pieSeries
-
-//            VPieModelMapper {
-//                model: pieChartModel
-//                labelsColumn: 0
-//                valuesColumn: 1
-//            }
-//        }
-//    }
 }
