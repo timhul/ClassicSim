@@ -10,7 +10,8 @@ BattleShoutBuff::BattleShoutBuff(Character* pchar):
 {
     spell_ranks = {15, 35, 55, 85, 130, 185, 232};
     rank_spell = 6;
-    attack_power = spell_ranks[rank_spell];
+    base_attack_power = spell_ranks[rank_spell];
+    modified_by_talents_attack_power = base_attack_power;
 
     rank_booming_voice = 0;
     rank_imp_shout = 0;
@@ -22,19 +23,19 @@ BattleShoutBuff::BattleShoutBuff(Character* pchar):
 }
 
 void BattleShoutBuff::buff_effect_when_applied() {
-    auto change = static_cast<int>(round(attack_power * ranks_imp_shout[rank_imp_shout]));
+    auto change = static_cast<int>(round(modified_by_talents_attack_power * ranks_imp_shout[rank_imp_shout]));
     pchar->get_stats()->increase_melee_ap(change);
 }
 
 void BattleShoutBuff::buff_effect_when_removed() {
-    auto change = static_cast<int>(round(attack_power * ranks_imp_shout[rank_imp_shout]));
+    auto change = static_cast<int>(round(modified_by_talents_attack_power * ranks_imp_shout[rank_imp_shout]));
     pchar->get_stats()->decrease_melee_ap(change);
 }
 
 void BattleShoutBuff::increase_talent_rank_effect(const QString& talent_name) {
     if (talent_name == "Improved Battle Shout") {
         ++rank_imp_shout;
-        attack_power = static_cast<int>(round(attack_power * ranks_imp_shout[rank_imp_shout]));
+        modified_by_talents_attack_power = static_cast<int>(round(base_attack_power * ranks_imp_shout[rank_imp_shout]));
     }
     else if (talent_name == "Booming Voice") {
         ++rank_booming_voice;
@@ -49,7 +50,7 @@ void BattleShoutBuff::increase_talent_rank_effect(const QString& talent_name) {
 void BattleShoutBuff::decrease_talent_rank_effect(const QString& talent_name) {
     if (talent_name == "Improved Battle Shout") {
         --rank_imp_shout;
-        attack_power = static_cast<int>(round(attack_power * ranks_imp_shout[rank_imp_shout]));
+        modified_by_talents_attack_power = static_cast<int>(round(base_attack_power * ranks_imp_shout[rank_imp_shout]));
     }
     else if (talent_name == "Booming Voice") {
         --rank_booming_voice;

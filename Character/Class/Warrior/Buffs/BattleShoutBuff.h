@@ -23,7 +23,8 @@ private:
     QVector<double> ranks_imp_shout;
     int rank_spell;
     int base_duration;
-    int attack_power;
+    int base_attack_power;
+    int modified_by_talents_attack_power;
     int rank_booming_voice;
     int rank_imp_shout;
 
