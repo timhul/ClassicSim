@@ -23,6 +23,10 @@ void TestFury::test_all() {
     set_up();
     test_fury_talents();
     tear_down();
+
+    set_up();
+    test_clear_tree();
+    tear_down();
 }
 
 void TestFury::test_fury_talents() {
@@ -113,6 +117,19 @@ void TestFury::test_fury_talents() {
     assert(!decrement("DW Spec"));
 
     assert(decrement("BT"));
+}
+
+void TestFury::test_clear_tree() {
+    assert(increment_talent_num_times("BV", 5));
+    assert(increment_talent_num_times("Cruelty", 5));
+    assert(increment_talent_num_times("UW", 5));
+    assert(increment_talent_num_times("Imp BS", 5));
+    assert(increment_talent_num_times("Enrage", 5));
+    assert(increment_talent_num_times("Flurry", 5));
+    assert(increment("Death Wish"));
+    assert(increment("BT"));
+
+    fury->clear_tree();
 }
 
 bool TestFury::increment(const QString& name) {

@@ -24,6 +24,7 @@ private:
     void tear_down();
 
     void test_fury_talents();
+    void test_clear_tree();
 
     QString get_position(const QString& name);
 
