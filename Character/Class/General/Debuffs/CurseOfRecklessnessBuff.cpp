@@ -4,7 +4,7 @@
 #include "Target.h"
 
 CurseOfRecklessnessBuff::CurseOfRecklessnessBuff(Character* pchar):
-    ExternalBuff(pchar, "Cure of Recklessness", BuffDuration::PERMANENT, 0,
+    ExternalBuff(pchar, "Curse of Recklessness", BuffDuration::PERMANENT, 0,
                  "Assets/buffs/Spell_shadow_unholystrength.png",
                  "Reduces target armor by 640.", QVersionNumber::fromString("1.0.0"))
 {
