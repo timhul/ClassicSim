@@ -6,10 +6,12 @@
 #include "EncounterEnd.h"
 #include "EncounterStart.h"
 #include "SimControl.h"
+#include "NumberCruncher.h"
 #include <QDebug>
 
-SimControl::SimControl(SimSettings* sim_settings) :
-    sim_settings(sim_settings)
+SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
+    sim_settings(sim_settings),
+    scaler(scaler)
 {}
 
 void SimControl::run_quick_sim(Character* pchar) {
@@ -18,19 +20,22 @@ void SimControl::run_quick_sim(Character* pchar) {
 
 void SimControl::run_full_sim(Character* pchar) {
     run_sim(pchar);
-    // do some statistics handling
+
+    scaler->add_class_statistic(SimOption::NoScale, pchar->relinquish_ownership_of_statistics());
 
     QSet<SimOption> options = sim_settings->get_active_options();
     for (auto & option : options) {
+        qDebug() << "Running sim with option" << option;
         run_sim_with_option(pchar, option);
-        // do some statistics handling
+        scaler->add_class_statistic(option, pchar->relinquish_ownership_of_statistics());
     }
 }
 
 void SimControl::run_sim(Character* pchar) {
-    pchar->get_statistics()->reset_statistics();
+    pchar->get_statistics()->prepare_statistics();
     pchar->get_engine()->prepare();
     pchar->get_combat_roll()->drop_tables();
+    pchar->prepare_set_of_combat_iterations();
 
     for (int i = 0; i < sim_settings->get_combat_iterations(); ++i) {
         auto* start_event = new EncounterStart(pchar);
@@ -54,23 +59,27 @@ void SimControl::run_sim_with_option(Character* pchar, SimOption option) {
 
 void SimControl::add_option(Character* pchar, SimOption option) {
     switch (option) {
+    case SimOption::NoScale:
+        break;
     case SimOption::ScaleAgility:
         pchar->get_stats()->increase_agility(10);
-        break;
-    case SimOption::ScaleIntellect:
-        pchar->get_stats()->increase_intellect(10);
+        pchar->get_statistics()->set_sim_option(option);;
         break;
     case SimOption::ScaleStrength:
         pchar->get_stats()->increase_strength(10);
+        pchar->get_statistics()->set_sim_option(option);
         break;
     case SimOption::ScaleMeleeAP:
         pchar->get_stats()->increase_melee_ap(10);
+        pchar->get_statistics()->set_sim_option(option);
         break;
     case SimOption::ScaleHitChance:
         pchar->get_stats()->increase_hit(0.01);
+        pchar->get_statistics()->set_sim_option(option);
         break;
     case SimOption::ScaleCritChance:
         pchar->get_stats()->increase_crit(0.01);
+        pchar->get_statistics()->set_sim_option(option);
         break;
     default:
         qDebug() << "SimControl::add_option unhandled option" << option;
@@ -79,11 +88,10 @@ void SimControl::add_option(Character* pchar, SimOption option) {
 
 void SimControl::remove_option(Character* pchar, SimOption option) {
     switch (option) {
+    case SimOption::NoScale:
+        break;
     case SimOption::ScaleAgility:
         pchar->get_stats()->decrease_agility(10);
-        break;
-    case SimOption::ScaleIntellect:
-        pchar->get_stats()->decrease_intellect(10);
         break;
     case SimOption::ScaleStrength:
         pchar->get_stats()->decrease_strength(10);

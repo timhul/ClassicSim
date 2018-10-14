@@ -241,7 +241,8 @@ SOURCES += main.cpp \
     GUI/Models/RotationModel.cpp \
     Test/Warrior/Talents/TestArms.cpp \
     GUI/SimSettings.cpp \
-    GUI/SimControl.cpp
+    GUI/SimControl.cpp \
+    Statistics/NumberCruncher.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -478,7 +479,8 @@ HEADERS += \
     GUI/Models/RotationModel.h \
     Test/Warrior/Talents/TestArms.h \
     GUI/SimSettings.h \
-    GUI/SimControl.h
+    GUI/SimControl.h \
+    Statistics/NumberCruncher.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

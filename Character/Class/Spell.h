@@ -23,8 +23,6 @@ public:
 
     virtual ~Spell();
 
-    StatisticsSpell* get_statistics_for_spell() const;
-
     QString get_name() const;
     double get_base_cooldown();
     double get_last_used();
@@ -44,6 +42,8 @@ public:
     virtual void perform_periodic();
 
     void reset();
+    virtual void prepare_set_of_combat_iterations();
+    StatisticsSpell* get_statistics_for_spell() const;
 
 protected:
     virtual void spell_effect() = 0;
@@ -56,7 +56,7 @@ protected:
     Character* pchar;
     Engine* engine;
     CombatRoll* roll;
-    StatisticsSpell* statistics;
+    StatisticsSpell* statistics_spell;
 
     bool restricted_by_gcd;
     double cooldown;

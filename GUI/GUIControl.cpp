@@ -38,6 +38,7 @@
 #include "SimulationThreadPool.h"
 #include "SimControl.h"
 #include "SimSettings.h"
+#include "NumberCruncher.h"
 
 #include "ActiveBuffs.h"
 #include "BuffModel.h"
@@ -52,6 +53,7 @@ GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
     equipment_db(new EquipmentDb()),
     sim_settings(new SimSettings()),
+    number_cruncher(new NumberCruncher()),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
     last_quick_sim_result(0.0)
@@ -59,7 +61,10 @@ GUIControl::GUIControl(QObject* parent) :
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
     QObject::connect(this, SIGNAL(startFullSim()), this, SLOT(run_full_sim()));
 
-    this->sim_control = new SimControl(sim_settings);
+    thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
+    QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
+
+    this->sim_control = new SimControl(sim_settings, number_cruncher);
     races.insert("Dwarf", new Dwarf());
     races.insert("Gnome", new Gnome());
     races.insert("Human", new Human());
@@ -91,7 +96,6 @@ GUIControl::GUIControl(QObject* parent) :
     // TODO: Handle switching pchar
     character_encoder = new CharacterEncoder(current_char);
     character_decoder = new CharacterDecoder();
-    thread_pool = new SimulationThreadPool(equipment_db, sim_settings);
     // TODO: Handle switching pchar
     buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_active_buffs()->get_general_buffs());
@@ -152,6 +156,7 @@ GUIControl::~GUIControl() {
     delete thread_pool;
     delete sim_control;
     delete sim_settings;
+    delete number_cruncher;
 }
 
 void GUIControl::set_character(Character* pchar) {
@@ -598,7 +603,7 @@ QString GUIControl::get_information_rotation_description() const {
 }
 
 void GUIControl::run_quick_sim() {
-    thread_pool->run_sim(character_encoder->get_current_setup_string(), false);
+    thread_pool->run_sim(character_encoder->get_current_setup_string(), true);
     sim_control->run_quick_sim(current_char);
 
     double previous = last_quick_sim_result;
@@ -624,6 +629,11 @@ void GUIControl::run_full_sim() {
 void GUIControl::runQuickSim() {
     statisticsCleared();
     startQuickSim();
+}
+
+void GUIControl::compile_thread_results() {
+    number_cruncher->print();
+    number_cruncher->reset();
 }
 
 QString GUIControl::get_mainhand_icon() const {

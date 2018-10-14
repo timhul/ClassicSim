@@ -26,6 +26,7 @@ class EquipmentDb;
 class SimControl;
 class SimSettings;
 class SimulationThreadPool;
+class NumberCruncher;
 
 
 class GUIControl: public QObject {
@@ -182,6 +183,8 @@ public:
      Q_PROPERTY(QString rotationInfoDesc READ get_information_rotation_description NOTIFY informationRotationChanged)
     /* End of Rotation */
 
+     Q_SLOT void compile_thread_results();
+
 Q_SIGNALS:
     void classChanged();
     void raceChanged();
@@ -269,6 +272,7 @@ private:
     SimulationThreadPool* thread_pool;
     SimControl* sim_control;
     SimSettings* sim_settings;
+    NumberCruncher* number_cruncher;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     Character* current_char{};

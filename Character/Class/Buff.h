@@ -21,7 +21,6 @@ public:
     Buff(Character* pchar, const QString& name, const int duration, const int base_charges);
     virtual ~Buff();
 
-    StatisticsBuff* get_statistics_for_buff() const;
     QString get_name() const;
     int get_charges() const;
     void apply_buff();
@@ -33,6 +32,7 @@ public:
 
     void reset();
     void initialize();
+    void prepare_set_of_combat_iterations();
 
     bool is_enabled() const;
     bool is_hidden() const;
@@ -42,9 +42,6 @@ public:
 
     void enable_buff();
     void disable_buff();
-
-    void add_buff_statistic();
-    void remove_buff_statistic();
 
 protected:
     Character* pchar;

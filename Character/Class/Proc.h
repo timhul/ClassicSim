@@ -30,12 +30,7 @@ public:
 
     bool procs_from_source(ProcInfo::Source) const;
 
-    StatisticsProc* get_statistics_for_proc() const;
-    StatisticsBuff* get_statistics_for_buff() const;
-    StatisticsResource* get_statistics_for_resource() const;
-
-    void add_proc_statistic();
-    void remove_proc_statistic();
+    void prepare_set_of_combat_iterations() override;
 
 protected:
     ActiveProcs* procs;

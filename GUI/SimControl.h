@@ -4,16 +4,18 @@
 #include "SimSettings.h"
 
 class Character;
+class NumberCruncher;
 
 class SimControl {
 public:
-    SimControl(SimSettings* sim_settings);
+    SimControl(SimSettings* sim_settings, NumberCruncher* scaler);
 
     void run_quick_sim(Character*);
     void run_full_sim(Character*);
 
 private:
     SimSettings* sim_settings;
+    NumberCruncher* scaler;
 
     void add_option(Character*, SimOption);
     void remove_option(Character*, SimOption);

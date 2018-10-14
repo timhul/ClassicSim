@@ -1,4 +1,5 @@
 
+#include "Character.h"
 #include "TestSpellDamage.h"
 
 TestSpellDamage::TestSpellDamage(EquipmentDb* equipment_db, QString spell_under_test):

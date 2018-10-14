@@ -7,6 +7,7 @@
 #include "Talents.h"
 #include "Target.h"
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "Stats.h"
 #include "ActiveProcs.h"
 #include "ProcInfo.h"
@@ -196,6 +197,10 @@ CharacterStats* Character::get_stats() const {
 }
 
 ClassStatistics* Character::get_statistics() const {
+    return this->statistics;
+}
+
+ClassStatistics* Character::relinquish_ownership_of_statistics() {
     return this->statistics;
 }
 
@@ -455,6 +460,12 @@ void Character::reset() {
     active_procs->reset();
 
     reset_resource();
+}
+
+void Character::prepare_set_of_combat_iterations() {
+    spells->prepare_set_of_combat_iterations();
+    active_buffs->prepare_set_of_combat_iterations();
+    active_procs->prepare_set_of_combat_iterations();
 }
 
 void Character::dump() {

@@ -91,6 +91,7 @@ void Test::test_queue() {
     pchar->get_equipment()->set_mainhand("Frostbite");
     pchar->get_equipment()->set_offhand("Krol Blade");
     pchar->set_clvl(60);
+    pchar->prepare_set_of_combat_iterations();
     auto* start_event = new EncounterStart(pchar);
     auto* end_event = new EncounterEnd(pchar->get_engine(), pchar, 300);
 

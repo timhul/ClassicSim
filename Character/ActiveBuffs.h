@@ -18,11 +18,13 @@ public:
 
     void add_buff(Buff* buff);
     void remove_buff(Buff* buff);
-    void reset();
 
     void switch_faction();
     GeneralBuffs* get_general_buffs();
     QVector<QString> get_active_external_buffs();
+
+    void reset();
+    void prepare_set_of_combat_iterations();
 
 private:
     Character* pchar;

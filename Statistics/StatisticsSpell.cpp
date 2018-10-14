@@ -7,6 +7,10 @@ StatisticsSpell::StatisticsSpell(QString name):
     name(std::move(name))
 {}
 
+StatisticsSpell::~StatisticsSpell() {
+    reset();
+}
+
 void StatisticsSpell::reset() {
     attempts.clear();
     damage.clear();

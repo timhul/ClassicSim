@@ -92,7 +92,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->sword_spec = new SwordSpecialization(this);
     this->unbridled_wrath = new UnbridledWrath(this);
 
-    spells->add_statistics();
     initialize_talents();
 
     // TODO: Remove character hardcoded equip of these items.
@@ -106,9 +105,10 @@ Warrior::~Warrior() {
     delete cstats;
     delete warr_spells;
     delete statistics;
-    // TODO: Create a WarriorProcs class that holds UnbridledWrath and other (?) warrior procs.
+    // TODO: Create a WarriorProcs class.
     delete unbridled_wrath;
-    // TODO: Create a WarriorBuffs class that holds Battle Shout, Death Wish, Flurry, etc.
+    delete sword_spec;
+    // TODO: Create a WarriorBuffs class.
     delete battle_shout_buff;
     delete battle_stance_buff;
     delete berserker_stance_buff;
@@ -415,4 +415,10 @@ void Warrior::reset_spells() {
     warr_spells->reset();
     this->next_stance_cd = 0.0 - stance_cooldown();
     this->next_gcd = 0.0 - global_cooldown();
+}
+
+ClassStatistics* Warrior::relinquish_ownership_of_statistics() {
+    ClassStatistics* tmp = this->statistics;
+    this->statistics = new WarriorStatistics(sim_settings);
+    return tmp;
 }

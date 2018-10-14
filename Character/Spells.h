@@ -26,7 +26,7 @@ public:
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);
 
-    void add_statistics();
+    void prepare_set_of_combat_iterations();
 
     virtual MainhandAttack* get_mh_attack() const;
     virtual OffhandAttack* get_oh_attack() const;

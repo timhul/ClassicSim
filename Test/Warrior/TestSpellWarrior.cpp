@@ -24,6 +24,7 @@ void TestSpellWarrior::set_up() {
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;
+    warrior->prepare_set_of_combat_iterations();
 }
 
 void TestSpellWarrior::tear_down() {

@@ -23,6 +23,7 @@ public:
     };
 
     StatisticsSpell(QString name);
+    ~StatisticsSpell();
 
     void reset();
 

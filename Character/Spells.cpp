@@ -77,8 +77,7 @@ BloodFury* Spells::get_blood_fury() const {
     return this->blood_fury;
 }
 
-void Spells::add_statistics() {
-    for (auto & spell : spells) {
-        pchar->get_statistics()->add_spell_statistics(spell->get_statistics_for_spell());
-    }
+void Spells::prepare_set_of_combat_iterations() {
+    for (auto & spell : spells)
+        spell->prepare_set_of_combat_iterations();
 }

@@ -7,12 +7,13 @@
 class EquipmentDb;
 class Random;
 class SimSettings;
+class NumberCruncher;
 class QThread;
 
 class SimulationThreadPool: public QObject {
     Q_OBJECT
 public:
-    SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, QObject* parent = nullptr);
+    SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent = nullptr);
     ~SimulationThreadPool();
 
     void run_sim(const QString& setup_string, bool full_sim);
@@ -22,7 +23,7 @@ public slots:
     void result(const QString&, double);
 
 signals:
-    void thread_result(QString dps);
+    void threads_finished();
     void thread_setup_string(QString setup_string, bool full_sim);
 
 protected:
@@ -30,6 +31,7 @@ private:
     EquipmentDb* equipment_db;
     Random* random;
     SimSettings* sim_settings;
+    NumberCruncher* scaler;
     int running_threads;
 
     QVector<QPair<unsigned, double>> thread_results;

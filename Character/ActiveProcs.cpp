@@ -55,3 +55,8 @@ void ActiveProcs::reset() {
 void ActiveProcs::switch_faction() {
     general_procs->switch_faction();
 }
+
+void ActiveProcs::prepare_set_of_combat_iterations() {
+    for (auto & proc : active_procs)
+        proc->prepare_set_of_combat_iterations();
+}

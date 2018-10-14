@@ -32,7 +32,6 @@ void ActiveBuffs::add_buff(Buff* buff) {
 void ActiveBuffs::remove_buff(Buff* buff) {
     for (int i = 0; i < active_buffs.size(); ++i) {
         if (active_buffs.at(i)->get_instance_id() == buff->get_instance_id()) {
-            active_buffs.at(i)->reset();
             active_buffs.removeAt(i);
             break;
         }
@@ -80,4 +79,9 @@ QVector<QString> ActiveBuffs::get_active_external_buffs() {
     }
 
     return active_external_buffs;
+}
+
+void ActiveBuffs::prepare_set_of_combat_iterations() {
+    for (auto & buff : active_buffs)
+        buff->prepare_set_of_combat_iterations();
 }

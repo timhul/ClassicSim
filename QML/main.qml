@@ -230,7 +230,7 @@ Window {
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
 
-        state: "ROTATION"
+        state: "STATISTICS"
 
         onTalentsClicked: state = "TALENTS"
         onEquipmentClicked: state = "EQUIPMENT"

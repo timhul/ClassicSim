@@ -2,6 +2,7 @@
 #include "Spell.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "Target.h"
 #include "StatisticsSpell.h"
 #include "Mechanics.h"
@@ -15,7 +16,7 @@ Spell::Spell(const QString& name,
     pchar(pchar),
     engine(pchar->get_engine()),
     roll(pchar->get_combat_roll()),
-    statistics(new StatisticsSpell(name)),
+    statistics_spell(nullptr),
     restricted_by_gcd(restricted_by_gcd),
     cooldown(cooldown),
     last_used(0 - cooldown),
@@ -25,11 +26,6 @@ Spell::Spell(const QString& name,
 {}
 
 Spell::~Spell() {
-    delete statistics;
-}
-
-StatisticsSpell* Spell::get_statistics_for_spell() const {
-    return statistics;
 }
 
 QString Spell::get_name() const {
@@ -125,53 +121,53 @@ void Spell::add_gcd_event() const {
 }
 
 void Spell::increment_miss() {
-    statistics->increment_miss();
+    statistics_spell->increment_miss();
 }
 
 void Spell::increment_full_resist() {
-    statistics->increment_full_resist();
+    statistics_spell->increment_full_resist();
 }
 
 void Spell::increment_dodge() {
-    statistics->increment_dodge();
+    statistics_spell->increment_dodge();
 }
 
 void Spell::increment_parry() {
-    statistics->increment_parry();
+    statistics_spell->increment_parry();
 }
 
 void Spell::increment_full_block() {
-    statistics->increment_full_block();
+    statistics_spell->increment_full_block();
 }
 
 void Spell::add_partial_resist_dmg(const int damage) {
-    statistics->add_partial_resist_dmg(damage);
-    statistics->increment_partial_resist();
+    statistics_spell->add_partial_resist_dmg(damage);
+    statistics_spell->increment_partial_resist();
 }
 
 void Spell::add_partial_block_dmg(const int damage) {
-    statistics->add_partial_block_dmg(damage);
-    statistics->increment_partial_block();
+    statistics_spell->add_partial_block_dmg(damage);
+    statistics_spell->increment_partial_block();
 }
 
 void Spell::add_partial_block_crit_dmg(const int damage) {
-    statistics->add_partial_block_crit_dmg(damage);
-    statistics->increment_partial_block_crit();
+    statistics_spell->add_partial_block_crit_dmg(damage);
+    statistics_spell->increment_partial_block_crit();
 }
 
 void Spell::add_glancing_dmg(const int damage) {
-    statistics->add_glancing_dmg(damage);
-    statistics->increment_glancing();
+    statistics_spell->add_glancing_dmg(damage);
+    statistics_spell->increment_glancing();
 }
 
 void Spell::add_hit_dmg(const int damage) {
-    statistics->add_hit_dmg(damage);
-    statistics->increment_hit();
+    statistics_spell->add_hit_dmg(damage);
+    statistics_spell->increment_hit();
 }
 
 void Spell::add_crit_dmg(const int damage) {
-    statistics->add_crit_dmg(damage);
-    statistics->increment_crit();
+    statistics_spell->add_crit_dmg(damage);
+    statistics_spell->increment_crit();
 }
 
 double Spell::damage_after_modifiers(const double damage) const {
@@ -182,6 +178,14 @@ double Spell::damage_after_modifiers(const double damage) const {
 void Spell::reset() {
     last_used = 0 - cooldown;
     reset_effect();
+}
+
+void Spell::prepare_set_of_combat_iterations() {
+    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name);
+}
+
+StatisticsSpell* Spell::get_statistics_for_spell() const {
+    return this->statistics_spell;
 }
 
 void Spell::reset_effect() {

@@ -43,8 +43,9 @@
 #include "GeneralBuffs.h"
 #include "SimControl.h"
 #include "SimSettings.h"
+#include "NumberCruncher.h"
 
-SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_settings, QString thread_id, QObject* parent):
+SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_settings, NumberCruncher* scaler, QString thread_id, QObject* parent):
     QObject(parent),
     pchar(nullptr),
     equipment_db(equipment_db),
@@ -52,6 +53,7 @@ SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_s
     rotation(nullptr),
     global_sim_settings(sim_settings),
     local_sim_settings(nullptr),
+    scaler(scaler),
     full_sim(false),
     seed(std::move(thread_id))
 {}
@@ -87,7 +89,10 @@ void SimulationRunner::run_sim(QString setup_string, bool full_sim) {
 
     pchar->get_combat_roll()->set_new_seed(seed);
 
-    SimControl(local_sim_settings).run_quick_sim(pchar);
+    if (full_sim)
+        SimControl(local_sim_settings, scaler).run_full_sim(pchar);
+    else
+        SimControl(local_sim_settings, scaler).run_quick_sim(pchar);
 
     double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (local_sim_settings->get_combat_iterations() * local_sim_settings->get_combat_length());
 

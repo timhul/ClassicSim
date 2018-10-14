@@ -33,6 +33,8 @@ public:
 
     void switch_faction();
 
+    void prepare_set_of_combat_iterations();
+
 private:
     Character* pchar;
     Faction* faction;

@@ -74,6 +74,8 @@ public:
     OverpowerBuff* get_overpower_buff() const;
     RecklessnessBuff* get_recklessness_buff() const;
 
+    ClassStatistics* relinquish_ownership_of_statistics() override;
+
     void melee_mh_white_hit_effect() override;
     void melee_mh_yellow_hit_effect() override;
     void melee_mh_white_critical_effect() override;

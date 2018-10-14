@@ -72,6 +72,7 @@ public:
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
+    virtual ClassStatistics* relinquish_ownership_of_statistics(void); // mark pure virtual
     ActiveProcs* get_active_procs() const;
     SimSettings* get_sim_settings() const;
 
@@ -140,6 +141,7 @@ public:
     virtual unsigned get_resource_level() const;
 
     void reset();
+    void prepare_set_of_combat_iterations();
     virtual void reset_resource() = 0;
     virtual void reset_spells() = 0;
 

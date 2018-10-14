@@ -5,7 +5,8 @@
 #include <QVariantList>
 #include <QMap>
 
-class SimSettings;
+#include "SimSettings.h"
+
 class StatisticsSpell;
 class StatisticsBuff;
 class StatisticsResource;
@@ -16,33 +17,33 @@ class ClassStatistics : public QObject {
 
 public:
     ClassStatistics(SimSettings* settings, QObject* parent = nullptr);
+    ~ClassStatistics();
 
     Q_INVOKABLE virtual int getNumStatisticsRows() const = 0;
     Q_INVOKABLE virtual QVariantList getTableInfo(const int index) const = 0;
     Q_INVOKABLE virtual QVariantList getChartInfo(const int index) const = 0;
     Q_INVOKABLE virtual QString getEntryIcon(const int index) const = 0;
 
-    void add_spell_statistics(StatisticsSpell *);
-    void add_buff_statistics(StatisticsBuff *);
-    void add_resource_statistics(StatisticsResource*);
-    void add_proc_statistics(StatisticsProc*);
+    StatisticsSpell* get_spell_statistics(const QString& name);
+    StatisticsBuff* get_buff_statistics(const QString& name);
+    StatisticsResource* get_resource_statistics(const QString& name);
+    StatisticsProc* get_proc_statistics(const QString& name);
     int get_total_damage_dealt() const;
-
-    void remove_spell_statistics(const QString& key);
-    void remove_buff_statistics(const QString& key);
-    void remove_resource_statistics(const QString& key);
-    void remove_proc_statistics(const QString& key);
+    double get_total_dps() const;
 
     int get_total_damage_for_spell(const QString& name) const;
     int get_total_attempts_for_spell(const QString& name) const;
 
-    void reset_statistics();
+    void prepare_statistics();
 
-    void set_combat_length(const int);
-    void set_combat_iterations(const int);
+    void set_sim_option(const SimOption);
+    SimOption get_sim_option() const;
 
 protected:
     SimSettings* sim_settings;
+    SimOption option;
+    int combat_iterations;
+    int combat_length;
     QMap<QString, StatisticsSpell*> spell_statistics;
     QMap<QString, StatisticsBuff*> buff_statistics;
     QMap<QString, StatisticsResource*> resource_statistics;
@@ -54,6 +55,9 @@ protected:
     QVariantList get_buff_uptime_table() const;
     virtual QVariantList get_resource_gain_table() const;
     QVariantList get_proc_table() const;
+
+    void delete_maps();
+
 };
 
 #endif // CLASSSTATISTICS_H

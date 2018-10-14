@@ -10,7 +10,7 @@
 
 Buff::Buff(Character* pchar, const QString& name, const int duration, const int base_charges):
     pchar(pchar),
-    statistics_buff(new StatisticsBuff(name)),
+    statistics_buff(nullptr),
     name(name),
     duration(duration),
     base_charges(base_charges),
@@ -22,11 +22,6 @@ Buff::Buff(Character* pchar, const QString& name, const int duration, const int 
 }
 
 Buff::~Buff() {
-    delete statistics_buff;
-}
-
-StatisticsBuff* Buff::get_statistics_for_buff() const {
-    return this->statistics_buff;
 }
 
 QString Buff::get_name() const {
@@ -98,6 +93,7 @@ bool Buff::is_active() const {
 double Buff::time_left() const {
     if (!is_active())
         return 0;
+
     return this->refreshed + this->duration - pchar->get_engine()->get_current_priority();
 }
 
@@ -105,7 +101,9 @@ void Buff::reset() {
     if (is_active())
         force_remove_buff();
 
-    statistics_buff->add_uptime_for_encounter(uptime / 300);
+    if (!is_hidden())
+        statistics_buff->add_uptime_for_encounter(uptime / 300);
+
     initialize();
 }
 
@@ -135,32 +133,27 @@ int Buff::get_instance_id() const {
     return this->instance_id;
 }
 
-void Buff::add_buff_statistic() {
-    if (this->is_hidden())
-        return;
-
-    pchar->get_statistics()->add_buff_statistics(this->statistics_buff);
-}
-
-void Buff::remove_buff_statistic() {
-    if (this->is_hidden())
-        return;
-
-    pchar->get_statistics()->remove_buff_statistics(this->statistics_buff->get_name());
-}
-
 void Buff::enable_buff() {
     if (enabled)
         assert(!enabled);
+
     this->enabled = true;
-    this->add_buff_statistic();
     pchar->get_active_buffs()->add_buff(this);
 }
 
 void Buff::disable_buff() {
     if (!enabled)
         assert(enabled);
+
     this->enabled = false;
-    this->remove_buff_statistic();
     pchar->get_active_buffs()->remove_buff(this);
+}
+
+void Buff::prepare_set_of_combat_iterations() {
+    initialize();
+
+    if (this->is_hidden())
+        return;
+
+    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name);
 }

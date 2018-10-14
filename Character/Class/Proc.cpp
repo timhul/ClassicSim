@@ -21,9 +21,9 @@ Proc::Proc(const QString& name,
     procs(pchar->get_active_procs()),
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),
-    statistics_proc(new StatisticsProc(name)),
-    statistics_buff(new StatisticsBuff(name)),
-    statistics_resource(new StatisticsResource(name)),
+    statistics_proc(nullptr),
+    statistics_buff(nullptr),
+    statistics_resource(nullptr),
     instance_id(ProcStatus::INACTIVE)
 {
     this->proc_range = static_cast<unsigned>(round(proc_rate * 10000));
@@ -32,9 +32,6 @@ Proc::Proc(const QString& name,
 
 Proc::~Proc() {
     delete random;
-    delete statistics_proc;
-    delete statistics_buff;
-    delete statistics_resource;
 }
 
 void Proc::spell_effect() {
@@ -55,12 +52,10 @@ unsigned Proc::get_proc_range() const {
 }
 
 void Proc::enable_proc() {
-    this->add_proc_statistic();
     procs->add_proc_effect(this);
 }
 
 void Proc::disable_proc() {
-    this->remove_proc_statistic();
     procs->remove_proc_effect(this->instance_id);
 }
 
@@ -80,30 +75,11 @@ bool Proc::procs_from_source(ProcInfo::Source source) const {
     return proc_sources.contains(source);
 }
 
-void Proc::add_proc_statistic() {
-    pchar->get_statistics()->add_proc_statistics(this->statistics_proc);
-    pchar->get_statistics()->add_buff_statistics(this->statistics_buff);
-    pchar->get_statistics()->add_resource_statistics(this->statistics_resource);
-    pchar->get_statistics()->add_spell_statistics(get_statistics_for_spell());
-}
-
-void Proc::remove_proc_statistic() {
-    pchar->get_statistics()->remove_proc_statistics(this->statistics_proc->get_name());
-    pchar->get_statistics()->remove_buff_statistics(this->statistics_buff->get_name());
-    pchar->get_statistics()->remove_resource_statistics(this->statistics_resource->get_name());
-    pchar->get_statistics()->remove_spell_statistics(get_statistics_for_spell()->get_name());
-}
-
-StatisticsProc* Proc::get_statistics_for_proc() const {
-    return statistics_proc;
-}
-
-StatisticsBuff* Proc::get_statistics_for_buff() const {
-    return statistics_buff;
-}
-
-StatisticsResource* Proc::get_statistics_for_resource() const {
-    return statistics_resource;
+void Proc::prepare_set_of_combat_iterations() {
+    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name);
+    this->statistics_proc = pchar->get_statistics()->get_proc_statistics(name);
+    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name);
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name);
 }
 
 bool Proc::proc_specific_conditions_fulfilled() const {

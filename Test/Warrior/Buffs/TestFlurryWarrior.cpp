@@ -508,17 +508,20 @@ void TestFlurryWarrior::when_flurry_is_removed() {
 
 void TestFlurryWarrior::given_1_of_5_flurry() {
     FlurryTalent(pchar, nullptr).increment_rank();
+    warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_2_of_5_flurry() {
     FlurryTalent(pchar, nullptr).increment_rank();
     FlurryTalent(pchar, nullptr).increment_rank();
+    warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_3_of_5_flurry() {
     FlurryTalent(pchar, nullptr).increment_rank();
     FlurryTalent(pchar, nullptr).increment_rank();
     FlurryTalent(pchar, nullptr).increment_rank();
+    warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_4_of_5_flurry() {
@@ -526,6 +529,7 @@ void TestFlurryWarrior::given_4_of_5_flurry() {
     FlurryTalent(pchar, nullptr).increment_rank();
     FlurryTalent(pchar, nullptr).increment_rank();
     FlurryTalent(pchar, nullptr).increment_rank();
+    warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_5_of_5_flurry() {
@@ -534,6 +538,7 @@ void TestFlurryWarrior::given_5_of_5_flurry() {
     FlurryTalent(pchar, nullptr).increment_rank();
     FlurryTalent(pchar, nullptr).increment_rank();
     FlurryTalent(pchar, nullptr).increment_rank();
+    warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::when_performing_mh_attack() {

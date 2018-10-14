@@ -25,6 +25,7 @@ void SimSettings::set_combat_iterations(const int combat_iterations) {
 }
 
 void SimSettings::add_sim_option(SimOption option) {
+    assert(option != SimOption::NoScale);
     sim_options.insert(option);
 }
 

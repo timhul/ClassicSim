@@ -7,11 +7,12 @@
 #include <QDebug>
 #include <QThreadPool>
 
-SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, QObject* parent):
+SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
     equipment_db(equipment_db),
     random(new Random(0, std::numeric_limits<unsigned>::max())),
     sim_settings(sim_settings),
+    scaler(scaler),
     running_threads(0)
 {
     for (int i = 0; i < QThreadPool::globalInstance()->maxThreadCount(); ++i) {
@@ -39,7 +40,7 @@ void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim) {
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     auto* thread = new QThread();
-    SimulationRunner* runner = new SimulationRunner(equipment_db, sim_settings, QString::number(thread_id));
+    SimulationRunner* runner = new SimulationRunner(equipment_db, sim_settings, scaler, QString::number(thread_id));
 
     connect(this, SIGNAL (thread_setup_string(QString, bool)), runner, SLOT (run_sim(QString, bool)));
     connect(runner, SIGNAL (error(QString, QString)), this, SLOT (error_string(QString, QString)));
@@ -91,7 +92,7 @@ void SimulationThreadPool::check_threads_finished() {
 
         QString avg_dps_string = QString::number(avg_dps, 'f', 2);
         qDebug() << QString("Average dps from %1 threads: %2").arg(QString::number(num_threads_with_result), avg_dps_string);
-        thread_result(avg_dps_string);
+        threads_finished();
         thread_results.clear();
     }
 }

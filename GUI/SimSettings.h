@@ -4,13 +4,12 @@
 #include <QSet>
 
 enum SimOption {
+    NoScale = -1,
     ScaleAgility,
     ScaleStrength,
-    ScaleIntellect,
     ScaleHitChance,
     ScaleCritChance,
     ScaleMeleeAP,
-    ScaleRangedAP,
     ScaleWeaponSkill
 };
 

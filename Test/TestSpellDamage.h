@@ -3,6 +3,8 @@
 
 #include "TestSpell.h"
 
+class Character;
+
 class TestSpellDamage : public TestSpell {
 public:
     TestSpellDamage(EquipmentDb* equipment_db, QString spell_under_test);
