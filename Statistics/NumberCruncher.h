@@ -20,6 +20,9 @@ public:
 private:
     QMutex mutex;
     QMap<SimOption, QVector<ClassStatistics*>> class_stats;
+
+    double get_dps_for_option(SimOption) const;
+    void calculate_stat_weights() const;
 };
 
 #endif // NUMBERCRUNCHER_H
