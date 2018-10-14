@@ -46,7 +46,7 @@ public:
     void dump_tables();
     void drop_tables();
 
-    void set_new_seed(const QString& seed_str);
+    void set_new_seed(const unsigned seed);
 
 protected:
 private:

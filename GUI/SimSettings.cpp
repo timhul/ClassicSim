@@ -1,9 +1,11 @@
 
 #include "SimSettings.h"
+#include <QThread>
 
 SimSettings::SimSettings() :
     combat_length(300),
-    combat_iterations(1000)
+    combat_iterations(1000),
+    num_threads(QThread::idealThreadCount())
 {
     sim_options = QSet<SimOption>({SimOption::ScaleStrength, SimOption::ScaleCritChance, SimOption::ScaleHitChance});
 }
@@ -22,6 +24,21 @@ void SimSettings::set_combat_length(const int combat_length) {
 
 void SimSettings::set_combat_iterations(const int combat_iterations) {
     this->combat_iterations = combat_iterations;
+}
+
+int SimSettings::get_num_threads_current() const {
+    return num_threads;
+}
+
+int SimSettings::get_num_threads_max() const {
+    return QThread::idealThreadCount();
+}
+
+void SimSettings::set_num_threads(const int num_threads) {
+    if (num_threads < 1 || num_threads > get_num_threads_max())
+        return;
+
+    this->num_threads = num_threads;
 }
 
 void SimSettings::add_sim_option(SimOption option) {

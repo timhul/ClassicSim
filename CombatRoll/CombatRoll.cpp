@@ -196,6 +196,6 @@ void CombatRoll::drop_tables() {
     melee_special_tables.clear();
 }
 
-void CombatRoll::set_new_seed(const QString& seed_str) {
-    this->random->set_gen_from_seed(seed_str.toULong());
+void CombatRoll::set_new_seed(const unsigned seed) {
+    this->random->set_gen_from_seed(seed);
 }

@@ -636,6 +636,42 @@ void GUIControl::compile_thread_results() {
     number_cruncher->reset();
 }
 
+int GUIControl::get_combat_iterations() const {
+    return sim_settings->get_combat_iterations();
+}
+
+int GUIControl::get_combat_length() const {
+    return sim_settings->get_combat_length();
+}
+
+int GUIControl::get_num_threads() const {
+    return sim_settings->get_num_threads_current();
+}
+
+int GUIControl::get_max_threads() const {
+    return sim_settings->get_num_threads_max();
+}
+
+void GUIControl::setCombatIterations(const int iterations) {
+    sim_settings->set_combat_iterations(iterations);
+    combatIterationsChanged();
+}
+
+void GUIControl::setCombatLength(const int length) {
+    sim_settings->set_combat_length(length);
+    combatLengthChanged();
+}
+
+void GUIControl::setNumThreads(const int threads) {
+    if (thread_pool->sim_running())
+        return;
+
+    sim_settings->set_num_threads(threads);
+    thread_pool->scale_number_of_threads();
+
+    numThreadsChanged();
+}
+
 QString GUIControl::get_mainhand_icon() const {
     if (current_char->get_equipment()->get_mainhand() != nullptr)
         return "Assets/items/" + current_char->get_equipment()->get_mainhand()->get_value("icon");

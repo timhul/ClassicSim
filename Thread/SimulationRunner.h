@@ -20,11 +20,15 @@ class Target;
 class SimulationRunner: public QObject {
     Q_OBJECT
 public:
-    SimulationRunner(EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QString seed, QObject* parent = nullptr);
+    SimulationRunner(unsigned thread_id,
+                     EquipmentDb* equipment_db,
+                     SimSettings* sim_settings,
+                     NumberCruncher* scaler,
+                     QObject* parent = nullptr);
     ~SimulationRunner();
 
 public slots:
-    void run_sim(QString setup_string, bool full_sim);
+    void run_sim(unsigned thread_id, QString setup_string, bool full_sim);
 
 signals:
     void finished();
@@ -41,9 +45,9 @@ private:
     SimSettings* local_sim_settings;
     NumberCruncher* scaler;
     bool full_sim;
+    unsigned thread_id;
 
     QString setup_string;
-    QString seed;
 
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;

@@ -45,7 +45,7 @@
 #include "SimSettings.h"
 #include "NumberCruncher.h"
 
-SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_settings, NumberCruncher* scaler, QString thread_id, QObject* parent):
+SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, SimSettings *sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
     pchar(nullptr),
     equipment_db(equipment_db),
@@ -55,14 +55,18 @@ SimulationRunner::SimulationRunner(EquipmentDb* equipment_db, SimSettings *sim_s
     local_sim_settings(nullptr),
     scaler(scaler),
     full_sim(false),
-    seed(std::move(thread_id))
+    thread_id(thread_id)
 {}
 
 SimulationRunner::~SimulationRunner() {
-    delete equipment_db;
 }
 
-void SimulationRunner::run_sim(QString setup_string, bool full_sim) {
+void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool full_sim) {
+    if (this->thread_id != thread_id) {
+        emit finished();
+        return;
+    }
+
     this->setup_string = std::move(setup_string);
     this->full_sim = full_sim;
 
@@ -87,7 +91,7 @@ void SimulationRunner::run_sim(QString setup_string, bool full_sim) {
     if (encoder.get_current_setup_string() != this->setup_string)
         return exit_thread("Mismatch between setup strings after setup: dumped setup string: " + encoder.get_current_setup_string());
 
-    pchar->get_combat_roll()->set_new_seed(seed);
+    pchar->get_combat_roll()->set_new_seed(this->thread_id);
 
     if (full_sim)
         SimControl(local_sim_settings, scaler).run_full_sim(pchar);
@@ -101,7 +105,7 @@ void SimulationRunner::run_sim(QString setup_string, bool full_sim) {
     delete rotation;
     delete local_sim_settings;
 
-    emit result(seed, dps);
+    emit result(QString::number(thread_id), dps);
     emit finished();
 }
 
@@ -254,7 +258,7 @@ void SimulationRunner::exit_thread(QString err) {
     delete race;
     delete rotation;
     delete local_sim_settings;
-    emit error(seed, std::move(err));
+    emit error(QString::number(thread_id), std::move(err));
     emit finished();
 }
 

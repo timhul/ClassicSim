@@ -18,13 +18,16 @@ public:
 
     void run_sim(const QString& setup_string, bool full_sim);
 
+    bool sim_running() const;
+    void scale_number_of_threads();
+
 public slots:
     void error_string(const QString&, const QString&);
     void result(const QString&, double);
 
 signals:
     void threads_finished();
-    void thread_setup_string(QString setup_string, bool full_sim);
+    void start_simulation(const unsigned thread_id, QString setup_string, bool full_sim);
 
 protected:
 private:
@@ -36,9 +39,14 @@ private:
 
     QVector<QPair<unsigned, double>> thread_results;
     QVector<QPair<unsigned, QThread*>> thread_pool;
+    QVector<unsigned> active_thread_ids;
+    QVector<unsigned> inactive_thread_ids;
 
     void setup_thread(const unsigned thread_id);
     void check_threads_finished();
+
+    void add_threads(const int);
+    void remove_threads(const int);
 };
 
 #endif // SIMULATIONTHREADPOOL_H

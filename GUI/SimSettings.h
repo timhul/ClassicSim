@@ -23,6 +23,10 @@ public:
     int get_combat_length() const;
     int get_combat_iterations() const;
 
+    int get_num_threads_current() const;
+    int get_num_threads_max() const;
+    void set_num_threads(const int);
+
     void add_sim_option(SimOption);
     void remove_sim_option(SimOption);
     bool option_active(SimOption) const;
@@ -31,6 +35,7 @@ public:
 private:
     int combat_length;
     int combat_iterations;
+    int num_threads;
 
     QSet<SimOption> sim_options;
 };
