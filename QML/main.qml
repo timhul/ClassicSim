@@ -230,7 +230,7 @@ Window {
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
 
-        state: "STATISTICS"
+        state: "EQUIPMENT"
 
         onTalentsClicked: state = "TALENTS"
         onEquipmentClicked: state = "EQUIPMENT"
@@ -293,5 +293,37 @@ Window {
         }
 
         height: 125
+    }
+
+    Text {
+        text: "All art assets ©Blizzard Entertainment (2018)."
+        height: 15
+        anchors {
+            left: parent.left
+            bottom: parent.bottom
+            right:parent.right
+        }
+
+        font {
+            family: "Arial"
+            pointSize: 9
+        }
+
+        color: "black"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignBottom
+    }
+
+    Image {
+        source: "Assets/WoW_Classic_logo_small.png"
+        width: 150
+        height: 68
+
+        anchors {
+            right: parent.right
+            rightMargin: 10
+            bottom: parent.bottom
+            bottomMargin: 10
+        }
     }
 }
