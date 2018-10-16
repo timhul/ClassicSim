@@ -4,8 +4,8 @@
 #include "ActiveBuffs.h"
 #include "HolyStrength.h"
 
-Crusader::Crusader(Character* pchar, const int weapon) :
-    ProcPPM("Holy Strength", weapon, 1.0, 0.0, QVector<Proc*>(),
+Crusader::Crusader(Character* pchar, const QString& weapon_identifier, const int weapon) :
+    ProcPPM("Holy Strength " + weapon_identifier, weapon, 1.0, 0.0, QVector<Proc*>(),
             QVector<ProcInfo::Source>(),
             pchar),
     holy_strength(new HolyStrength(pchar))

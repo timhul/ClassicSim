@@ -19,6 +19,7 @@
 #include "ItemTypeFilterModel.h"
 #include "RotationModel.h"
 #include "Faction.h"
+#include "EnchantName.h"
 
 class CharacterEncoder;
 class CharacterDecoder;
@@ -131,6 +132,17 @@ public:
 
     Q_INVOKABLE void setEquipmentSetup(const int equipment_index);
 
+    Q_PROPERTY(bool has2HWeapon READ has_2h_weapon NOTIFY equipmentChanged)
+    Q_SIGNAL void enchantChanged();
+    Q_INVOKABLE bool hasItemEquipped(const QString& slot_string) const;
+    Q_INVOKABLE bool hasEnchant(const QString& slot_string) const;
+    Q_INVOKABLE bool hasTemporaryEnchant(const QString& slot_string) const;
+    Q_INVOKABLE QString getEnchantEffect(const QString& slot_string) const;
+    Q_INVOKABLE QString getTemporaryEnchantEffect(const QString& slot_string) const;
+    Q_INVOKABLE void applyEnchant(const QString& slot_string, const int enchant_name);
+    Q_INVOKABLE void applyTemporaryEnchant(const QString& slot_string, const int enchant_name);
+    Q_INVOKABLE void clearEnchant(const QString& slot_string);
+    Q_INVOKABLE void clearTemporaryEnchant(const QString& slot_string);
     /* End of Equipment */
 
     /* ItemModel */
@@ -167,7 +179,6 @@ public:
     /* Target */
     Q_PROPERTY(QString creatureType READ get_creature_type NOTIFY creatureTypeChanged)
     Q_INVOKABLE void setCreatureType(const QString& creature_type);
-
     /* End of Target */
 
     Q_INVOKABLE void runQuickSim();
@@ -279,6 +290,8 @@ private:
     QString get_ring2_icon() const;
     QString get_trinket1_icon() const;
     QString get_trinket2_icon() const;
+
+    bool has_2h_weapon() const;
 
     QString get_capitalized_string(const QString&) const;
     void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);

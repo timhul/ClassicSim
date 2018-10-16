@@ -7,7 +7,9 @@
 #include <assert.h>
 #include "ItemNamespace.h"
 #include "ItemStatsEnum.h"
+#include "EnchantName.h"
 
+class Enchant;
 class Stats;
 class Character;
 class Proc;
@@ -39,6 +41,12 @@ public:
 
     int get_stat_value_via_flag(const ItemStats) const;
 
+    bool has_enchant() const;
+    void apply_enchant(EnchantName::Name enchant_name, Character *pchar);
+    void clear_enchant();
+    QString get_enchant_name() const;
+    QString get_enchant_effect() const;
+
 protected:
     QString name;
     QString patch;
@@ -52,6 +60,7 @@ protected:
     QMap<int, QVector<Proc*>> proc_map;
     QMap<ItemStats, int> item_stat_values;
     Stats* stats;
+    Enchant* enchant;
 
     void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);
     bool proc_info_complete(QMap<QString, QString> & proc);

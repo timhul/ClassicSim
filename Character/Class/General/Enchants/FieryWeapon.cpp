@@ -2,8 +2,8 @@
 #include "FieryWeapon.h"
 #include "FieryWeaponAttack.h"
 
-FieryWeapon::FieryWeapon(Character* pchar, const int weapon) :
-    ProcPPM("Fiery Weapon", weapon, 6.0, 0.0, QVector<Proc*>(),
+FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, const int weapon) :
+    ProcPPM("Fiery Weapon " + weapon_identifier, weapon, 6.0, 0.0, QVector<Proc*>(),
             QVector<ProcInfo::Source>(), pchar),
     fiery_weapon_attack(new FieryWeaponAttack(pchar))
 {

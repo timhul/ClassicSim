@@ -10,6 +10,7 @@ Rectangle {
     property bool showTypeInTooltip: slotString !== "NECK" && slotString !== "RING1" && slotString !== "RING2"
                                      && slotString !== "TRINKET1" && slotString !== "TRINKET2"
     property bool showDurabilityInTooltip: showTypeInTooltip
+    property string enchantOrientation: "None"
 
     state: "MAINHAND"
 
@@ -108,6 +109,11 @@ Rectangle {
         onExited: {
             ttRect.visible = false
         }
+    }
+
+    EquipmentEnchant {
+        orientation: enchantOrientation
+        slot: slotString
     }
 
     RectangleBorders {

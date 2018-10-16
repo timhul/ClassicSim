@@ -1,5 +1,8 @@
 
 #include "Weapon.h"
+#include "Enchant.h"
+#include "EnchantProc.h"
+#include "EnchantStatic.h"
 
 #include <utility>
 
@@ -13,11 +16,13 @@ Weapon::Weapon(QString name, int type, int weapon_slot, unsigned min, unsigned m
     weapon_slot(weapon_slot),
     min_dmg(min),
     max_dmg(max),
-    weapon_speed(speed)
+    weapon_speed(speed),
+    temporary_enchant(nullptr)
 {}
 
 Weapon::Weapon(const Weapon* weapon):
-    Item(weapon)
+    Item(weapon),
+    temporary_enchant(nullptr)
 {
     this->random = new Random(weapon->min_dmg, weapon->max_dmg);
     this->weapon_type = weapon->weapon_type;
@@ -29,6 +34,7 @@ Weapon::Weapon(const Weapon* weapon):
 
 Weapon::~Weapon() {
     delete random;
+    delete temporary_enchant;
 }
 
 int Weapon::get_weapon_slot() const {
@@ -60,6 +66,51 @@ double Weapon::get_base_weapon_speed() const {
 
 double Weapon::get_wpn_dps() const {
     return (double(min_dmg + max_dmg) / 2) / weapon_speed;
+}
+
+bool Weapon::has_temporary_enchant() const {
+    return temporary_enchant != nullptr;
+}
+
+void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar) {
+    delete enchant;
+
+    switch (enchant_name) {
+    case EnchantName::Crusader:
+    case EnchantName::FieryWeapon:
+        enchant = new EnchantProc(enchant_name, pchar, slot);
+        break;
+    default:
+        enchant = new EnchantStatic(enchant_name, pchar);
+    }
+}
+
+void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *pchar) {
+    delete temporary_enchant;
+    switch (enchant_name) {
+    case EnchantName::WindfuryTotem:
+        temporary_enchant = new EnchantProc(enchant_name, pchar, slot);
+        break;
+    default:
+        assert(false);
+    }
+}
+
+void Weapon::clear_temporary_enchant() {
+    delete temporary_enchant;
+    temporary_enchant = nullptr;
+}
+
+QString Weapon::get_temporary_enchant_name() const {
+    return temporary_enchant != nullptr ? temporary_enchant->get_name() : "";
+}
+
+QString Weapon::get_temporary_enchant_effect() const {
+    return temporary_enchant != nullptr ? temporary_enchant->get_effect() : "";
+}
+
+bool Weapon::is_2hand() const {
+    return weapon_slot == WeaponSlots::TWOHAND;
 }
 
 QString Weapon::get_weapon_type_string() const {

@@ -22,7 +22,7 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
     switch (builtin) {
     case BuiltinVariables::TargetHealth: {
         int combat_length = pchar->get_sim_settings()->get_combat_length();
-        double remaining_health = (combat_length - engine->get_current_priority()) / 300;
+        double remaining_health = (combat_length - engine->get_current_priority()) / combat_length;
         return cmp_values(remaining_health);
     }
     case BuiltinVariables::TimeRemainingEncounter: {

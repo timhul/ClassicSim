@@ -1,9 +1,10 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
+#include <QVector>
+
 #include "Item.h"
 #include "Random.h"
-#include <QVector>
 
 class Weapon: public Item {
 public:
@@ -23,15 +24,23 @@ public:
     double get_base_weapon_speed() const;
     double get_wpn_dps() const;
     QString get_weapon_type_string() const;
+    bool is_2hand() const;
 
-protected:
+    bool has_temporary_enchant() const;
+    void apply_enchant(EnchantName::Name enchant_name, Character* pchar);
+    void apply_temporary_enchant(EnchantName::Name enchant_name, Character* pchar);
+    void clear_temporary_enchant();
+    QString get_temporary_enchant_name() const;
+    QString get_temporary_enchant_effect() const;
+
+private:
     Random* random;
     int weapon_type;
     int weapon_slot;
     unsigned min_dmg;
     unsigned max_dmg;
     double weapon_speed;
-private:
+    Enchant* temporary_enchant;
 };
 
 #endif // WEAPON_H

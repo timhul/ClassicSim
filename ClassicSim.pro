@@ -242,7 +242,10 @@ SOURCES += main.cpp \
     Test/Warrior/Talents/TestArms.cpp \
     GUI/SimSettings.cpp \
     GUI/SimControl.cpp \
-    Statistics/NumberCruncher.cpp
+    Statistics/NumberCruncher.cpp \
+    Character/Class/General/Enchants/Enchant.cpp \
+    Character/Class/General/Enchants/EnchantStatic.cpp \
+    Character/Class/General/Enchants/EnchantProc.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -480,7 +483,11 @@ HEADERS += \
     Test/Warrior/Talents/TestArms.h \
     GUI/SimSettings.h \
     GUI/SimControl.h \
-    Statistics/NumberCruncher.h
+    Statistics/NumberCruncher.h \
+    Character/Class/General/Enchants/Enchant.h \
+    Character/Class/General/Enchants/EnchantStatic.h \
+    Character/Class/General/Enchants/EnchantProc.h \
+    Character/Class/General/Enchants/EnchantName.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

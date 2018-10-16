@@ -3,6 +3,7 @@
 #include "Stats.h"
 #include "Target.h"
 #include "Character.h"
+#include "EnchantStatic.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
 #include <QDebug>
@@ -14,7 +15,8 @@ Item::Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString
     info(std::move(_info)),
     procs_map(std::move(_procs)),
     stats_key_value_pairs(_stats),
-    stats(new Stats())
+    stats(new Stats()),
+    enchant(nullptr)
 {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
@@ -26,7 +28,8 @@ Item::Item(const Item* item) :
     info(item->info),
     procs_map(item->procs_map),
     stats_key_value_pairs(item->stats_key_value_pairs),
-    stats(new Stats())
+    stats(new Stats()),
+    enchant(nullptr)
 {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
@@ -46,6 +49,7 @@ Item::~Item() {
     }
 
     delete stats;
+    delete enchant;
 }
 
 void Item::set_item_slot(const QMap<QString, QString>& info) {
@@ -100,6 +104,28 @@ void Item::remove_equip_effect(const int eq_slot) {
 
 QString Item::get_name() const {
     return name;
+}
+
+bool Item::has_enchant() const {
+    return enchant != nullptr;
+}
+
+void Item::apply_enchant(EnchantName::Name enchant_name, Character* pchar) {
+    delete enchant;
+    enchant = new EnchantStatic(enchant_name, pchar);
+}
+
+void Item::clear_enchant() {
+    delete enchant;
+    enchant = nullptr;
+}
+
+QString Item::get_enchant_name() const {
+    return enchant != nullptr ? enchant->get_name() : "";
+}
+
+QString Item::get_enchant_effect() const {
+    return enchant != nullptr ? enchant->get_effect() : "";
 }
 
 void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {

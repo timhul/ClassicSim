@@ -6,6 +6,7 @@
 #include "GUIControl.h"
 #include "PieChart.h"
 #include "PieChartModel.h"
+#include "EnchantName.h"
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<WeaponSorting>("WeaponSort", 1, 0, "WeaponSort");
     qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
+    qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

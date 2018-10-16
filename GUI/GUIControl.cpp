@@ -181,6 +181,8 @@ void GUIControl::selectClass(const QString& class_name) {
     classChanged();
     statsChanged();
     rotationChanged();
+    equipmentChanged();
+    enchantChanged();
 }
 
 void GUIControl::selectRace(const QString& race_name) {
@@ -774,6 +776,13 @@ QString GUIControl::get_trinket2_icon() const {
     return "";
 }
 
+bool GUIControl::has_2h_weapon() const {
+    if (current_char->get_equipment()->get_mainhand() != nullptr)
+        return false;
+
+    return current_char->get_equipment()->get_mainhand()->is_2hand();
+}
+
 void GUIControl::selectSlot(const QString& slot_string) {
     int slot = get_slot_int(slot_string);
 
@@ -794,6 +803,208 @@ void GUIControl::selectSlot(const QString& slot_string) {
     }
 
     Q_EMIT equipmentSlotSelected();
+}
+
+bool GUIControl::hasItemEquipped(const QString& slot_string) const {
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        return current_char->get_equipment()->get_mainhand() != nullptr;
+    if (slot_string == "OFFHAND")
+        return current_char->get_equipment()->get_offhand() != nullptr;
+    if (slot_string == "RANGED")
+        return current_char->get_equipment()->get_ranged() != nullptr;
+    if (slot_string == "HEAD")
+        return current_char->get_equipment()->get_head() != nullptr;
+    if (slot_string == "NECK")
+        return current_char->get_equipment()->get_neck() != nullptr;
+    if (slot_string == "SHOULDERS")
+        return current_char->get_equipment()->get_shoulders() != nullptr;
+    if (slot_string == "BACK")
+        return current_char->get_equipment()->get_back() != nullptr;
+    if (slot_string == "CHEST")
+        return current_char->get_equipment()->get_chest() != nullptr;
+    if (slot_string == "WRIST")
+        return current_char->get_equipment()->get_wrist() != nullptr;
+    if (slot_string == "GLOVES")
+        return current_char->get_equipment()->get_gloves() != nullptr;
+    if (slot_string == "BELT")
+        return current_char->get_equipment()->get_belt() != nullptr;
+    if (slot_string == "LEGS")
+        return current_char->get_equipment()->get_legs() != nullptr;
+    if (slot_string == "BOOTS")
+        return current_char->get_equipment()->get_boots() != nullptr;
+    if (slot_string == "RING1")
+        return current_char->get_equipment()->get_ring1() != nullptr;
+    if (slot_string == "RING2")
+        return current_char->get_equipment()->get_ring2() != nullptr;
+    if (slot_string == "TRINKET1")
+        return current_char->get_equipment()->get_trinket1() != nullptr;
+    if (slot_string == "TRINKET2")
+        return current_char->get_equipment()->get_trinket2() != nullptr;
+
+    return false;
+}
+
+bool GUIControl::hasEnchant(const QString& slot_string) const {
+    if (!hasItemEquipped(slot_string))
+        return false;
+
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        return current_char->get_equipment()->get_mainhand()->has_enchant();
+    if (slot_string == "OFFHAND")
+        return current_char->get_equipment()->get_offhand()->has_enchant();
+    if (slot_string == "RANGED")
+        return current_char->get_equipment()->get_ranged()->has_enchant();
+    if (slot_string == "HEAD")
+        return current_char->get_equipment()->get_head()->has_enchant();
+    if (slot_string == "SHOULDERS")
+        return current_char->get_equipment()->get_shoulders()->has_enchant();
+    if (slot_string == "BACK")
+        return current_char->get_equipment()->get_back()->has_enchant();
+    if (slot_string == "CHEST")
+        return current_char->get_equipment()->get_chest()->has_enchant();
+    if (slot_string == "WRIST")
+        return current_char->get_equipment()->get_wrist()->has_enchant();
+    if (slot_string == "GLOVES")
+        return current_char->get_equipment()->get_gloves()->has_enchant();
+    if (slot_string == "LEGS")
+        return current_char->get_equipment()->get_legs()->has_enchant();
+    if (slot_string == "BOOTS")
+        return current_char->get_equipment()->get_boots()->has_enchant();
+
+    return false;
+}
+
+bool GUIControl::hasTemporaryEnchant(const QString& slot_string) const {
+    if (!hasItemEquipped(slot_string))
+        return false;
+
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        return current_char->get_equipment()->get_mainhand()->has_temporary_enchant();
+    if (slot_string == "OFFHAND")
+        return current_char->get_equipment()->get_offhand()->has_temporary_enchant();
+
+    return false;
+}
+
+QString GUIControl::getEnchantEffect(const QString& slot_string) const {
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        return current_char->get_equipment()->get_mainhand()->get_enchant_effect();
+    if (slot_string == "OFFHAND")
+        return current_char->get_equipment()->get_offhand()->get_enchant_effect();
+    if (slot_string == "RANGED")
+        return current_char->get_equipment()->get_ranged()->get_enchant_effect();
+    if (slot_string == "HEAD")
+        return current_char->get_equipment()->get_head()->get_enchant_effect();
+    if (slot_string == "SHOULDERS")
+        return current_char->get_equipment()->get_shoulders()->get_enchant_effect();
+    if (slot_string == "BACK")
+        return current_char->get_equipment()->get_back()->get_enchant_effect();
+    if (slot_string == "CHEST")
+        return current_char->get_equipment()->get_chest()->get_enchant_effect();
+    if (slot_string == "WRIST")
+        return current_char->get_equipment()->get_wrist()->get_enchant_effect();
+    if (slot_string == "GLOVES")
+        return current_char->get_equipment()->get_gloves()->get_enchant_effect();
+    if (slot_string == "LEGS")
+        return current_char->get_equipment()->get_legs()->get_enchant_effect();
+    if (slot_string == "BOOTS")
+        return current_char->get_equipment()->get_boots()->get_enchant_effect();
+
+    return "";
+}
+
+QString GUIControl::getTemporaryEnchantEffect(const QString& slot_string) const {
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        return current_char->get_equipment()->get_mainhand()->get_temporary_enchant_effect();
+    if (slot_string == "OFFHAND")
+        return current_char->get_equipment()->get_offhand()->get_temporary_enchant_effect();
+
+    return "";
+}
+
+void GUIControl::applyEnchant(const QString& slot_string, const int enchant_name) {
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        current_char->get_equipment()->get_mainhand()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "OFFHAND")
+        current_char->get_equipment()->get_offhand()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "RANGED")
+        current_char->get_equipment()->get_ranged()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "HEAD")
+        current_char->get_equipment()->get_head()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "SHOULDERS")
+        current_char->get_equipment()->get_shoulders()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "BACK")
+        current_char->get_equipment()->get_back()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "CHEST")
+        current_char->get_equipment()->get_chest()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "WRIST")
+        current_char->get_equipment()->get_wrist()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "GLOVES")
+        current_char->get_equipment()->get_gloves()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "LEGS")
+        current_char->get_equipment()->get_legs()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "BOOTS")
+        current_char->get_equipment()->get_boots()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+
+    enchantChanged();
+    statsChanged();
+}
+
+void GUIControl::applyTemporaryEnchant(const QString& slot_string, const int enchant_name) {
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        current_char->get_equipment()->get_mainhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+    if (slot_string == "OFFHAND")
+        current_char->get_equipment()->get_offhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char);
+
+    enchantChanged();
+    statsChanged();
+}
+
+void GUIControl::clearEnchant(const QString& slot_string) {
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        current_char->get_equipment()->get_mainhand()->clear_enchant();
+    if (slot_string == "OFFHAND")
+        current_char->get_equipment()->get_offhand()->clear_enchant();
+    if (slot_string == "RANGED")
+        current_char->get_equipment()->get_ranged()->clear_enchant();
+    if (slot_string == "HEAD")
+        current_char->get_equipment()->get_head()->clear_enchant();
+    if (slot_string == "SHOULDERS")
+        current_char->get_equipment()->get_shoulders()->clear_enchant();
+    if (slot_string == "BACK")
+        current_char->get_equipment()->get_back()->clear_enchant();
+    if (slot_string == "CHEST")
+        current_char->get_equipment()->get_chest()->clear_enchant();
+    if (slot_string == "WRIST")
+        current_char->get_equipment()->get_wrist()->clear_enchant();
+    if (slot_string == "GLOVES")
+        current_char->get_equipment()->get_gloves()->clear_enchant();
+    if (slot_string == "LEGS")
+        current_char->get_equipment()->get_legs()->clear_enchant();
+    if (slot_string == "BOOTS")
+        current_char->get_equipment()->get_boots()->clear_enchant();
+
+    enchantChanged();
+    statsChanged();
+}
+
+void GUIControl::clearTemporaryEnchant(const QString& slot_string) {
+    // CSIM-79: Replace with switch on slot as int.
+    if (slot_string == "MAINHAND")
+        current_char->get_equipment()->get_mainhand()->clear_temporary_enchant();
+    if (slot_string == "OFFHAND")
+        current_char->get_equipment()->get_offhand()->clear_temporary_enchant();
+
+    enchantChanged();
+    statsChanged();
 }
 
 void GUIControl::setSlot(const QString& slot_string, const QString& item) {
@@ -835,6 +1046,7 @@ void GUIControl::setSlot(const QString& slot_string, const QString& item) {
 
     equipmentChanged();
     statsChanged();
+    enchantChanged();
 }
 
 void GUIControl::clearSlot(const QString& slot_string) {
@@ -875,12 +1087,14 @@ void GUIControl::clearSlot(const QString& slot_string) {
 
     equipmentChanged();
     statsChanged();
+    enchantChanged();
 }
 
 void GUIControl::setEquipmentSetup(const int equipment_index) {
     current_char->get_stats()->get_equipment()->change_setup(equipment_index);
     equipmentChanged();
     statsChanged();
+    enchantChanged();
 }
 
 void GUIControl::setPatch(const QString& patch) {
@@ -891,6 +1105,7 @@ void GUIControl::setPatch(const QString& patch) {
     current_char->get_stats()->get_equipment()->clear_items_not_available_on_patch();
     equipmentChanged();
     statsChanged();
+    enchantChanged();
 }
 
 QVariantList GUIControl::getTooltip(const QString &slot_string) {
