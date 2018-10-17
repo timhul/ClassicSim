@@ -91,6 +91,9 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     case EnchantName::WindfuryTotem:
         temporary_enchant = new EnchantProc(enchant_name, pchar, slot);
         break;
+    case EnchantName::ElementalSharpeningStone:
+        temporary_enchant = new EnchantStatic(enchant_name, pchar);
+        break;
     default:
         assert(false);
     }

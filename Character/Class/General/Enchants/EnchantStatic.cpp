@@ -48,6 +48,14 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar) :
         pchar->get_stats()->increase_stamina(4);
         pchar->get_stats()->increase_strength(4);
         break;
+    case EnchantName::EnchantBootsMinorSpeed:
+        break;
+    case EnchantName:: EnchantBootsGreaterAgility:
+        pchar->get_stats()->increase_agility(7);
+        break;
+    case EnchantName:: ElementalSharpeningStone:
+        pchar->get_stats()->increase_crit(0.02);
+        break;
     default:
         assert(false);
         break;
@@ -95,6 +103,14 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_stamina(4);
         pchar->get_stats()->decrease_strength(4);
         break;
+    case EnchantName::EnchantBootsMinorSpeed:
+        break;
+    case EnchantName:: EnchantBootsGreaterAgility:
+        pchar->get_stats()->decrease_agility(7);
+        break;
+    case EnchantName:: ElementalSharpeningStone:
+        pchar->get_stats()->decrease_crit(0.02);
+        break;
     default:
         assert(false);
         break;
@@ -125,6 +141,12 @@ QString get_name_from_enum(EnchantName::Name enchant_name) {
         return "Might of the Scourge";
     case EnchantName::EnchantChestGreaterStats:
         return "Greater Stats";
+    case EnchantName::EnchantBootsMinorSpeed:
+        return "Minor Speed";
+    case EnchantName:: EnchantBootsGreaterAgility:
+        return "Greater Agility";
+    case EnchantName:: ElementalSharpeningStone:
+        return "Elemental Sharpening Stone";
     default:
         assert(false);
         return "<Missing static enchant name>";
@@ -155,6 +177,12 @@ QString get_effect_from_enum(EnchantName::Name enchant_name) {
         return "+1% Crit and\n+26 Attack Power";
     case EnchantName::EnchantChestGreaterStats:
         return "+4 Attributes";
+    case EnchantName::EnchantBootsMinorSpeed:
+        return "Speed Increase";
+    case EnchantName:: EnchantBootsGreaterAgility:
+        return "+7 Agility";
+    case EnchantName:: ElementalSharpeningStone:
+        return "+2% Crit";
     default:
         assert(false);
         return "<Missing static enchant name>";

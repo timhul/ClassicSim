@@ -21,7 +21,10 @@ public:
         EnchantCloakLesserAgility,
         ZandalarSignetOfMight,
         MightOfTheScourge,
-        EnchantChestGreaterStats
+        EnchantChestGreaterStats,
+        EnchantBootsMinorSpeed,
+        EnchantBootsGreaterAgility,
+        ElementalSharpeningStone
     };
 
     Q_ENUMS(Name)
