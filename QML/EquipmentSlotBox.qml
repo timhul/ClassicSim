@@ -113,9 +113,23 @@ Rectangle {
     }
 
     EquipmentEnchant {
+        id: enchant
         orientation: enchantOrientation
         layoutDirection: enchantLayoutDirection
         slot: slotString
+    }
+
+    EquipmentEnchant {
+        id: temporaryEnchant
+        orientation: enchantOrientation
+        layoutDirection: enchantLayoutDirection
+        slot: slotString
+        temporaryEnchant: true
+
+        anchors.top: enchant.bottom
+
+        visible: slotString === "MAINHAND" || slotString === "OFFHAND"
+
     }
 
     RectangleBorders {

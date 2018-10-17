@@ -4,18 +4,19 @@ import EnchantName 1.0
 Rectangle {
     color: "transparent"
     height: 16
-    width: 100
+    width: 50
     property string orientation
     property string layoutDirection
     property string slot
     property bool hasEnchant: equipment.hasEnchant(slot)
+    property bool temporaryEnchant: false
 
-    visible: orientation === "RIGHT" && equipment.hasItemEquipped(slot)
+    visible: orientation !== "None" && equipment.hasItemEquipped(slot)
 
     Connections {
         target: equipment
         onEquipmentChanged: {
-            visible = orientation === "RIGHT" && equipment.hasItemEquipped(slot)
+            visible = orientation !== "None" && equipment.hasItemEquipped(slot)
         }
         onEnchantChanged: {
             hasEnchant = equipment.hasEnchant(slot)
@@ -24,11 +25,23 @@ Rectangle {
         }
     }
 
-    anchors {
-        left: parent.right
-        leftMargin: 13
-        bottom: parent.bottom
-        bottomMargin: 3
+    Component.onCompleted: setAnchors()
+
+    function setAnchors() {
+        if (temporaryEnchant)
+            return
+
+        if (orientation === "RIGHT") {
+            anchors.left = parent.right
+            anchors.leftMargin = 13
+            anchors.bottom = parent.bottom
+            anchors.bottomMargin = 3
+            }
+        if (orientation === "BELOW") {
+            anchors.left = parent.left
+            anchors.top = parent.bottom
+            anchors.topMargin = 10
+        }
     }
 
     Image {
@@ -75,9 +88,15 @@ Rectangle {
     function getModelFromSlot() {
         switch (slot) {
         case "MAINHAND":
-            return equipment.has2HWeapon ? enchant2HWeaponModel : enchant1HWeaponModel
+            if (temporaryEnchant === true)
+                return enchantTemporaryMHWeaponModel
+            else
+                return equipment.has2HWeapon ? enchant2HWeaponModel : enchant1HWeaponModel
         case "OFFHAND":
-            return enchant1HWeaponModel
+            if (temporaryEnchant === true)
+                return enchantTemporaryOHWeaponModel
+            else
+                return enchant1HWeaponModel
         case "HEAD":
             return enchantHeadModel
         case "SHOULDERS":
@@ -156,6 +175,24 @@ Rectangle {
         ListElement {
             name: "Fiery Weapon"
             enumvalue: EnchantName.FieryWeapon
+        }
+    }
+
+    ListModel {
+        id: enchantTemporaryMHWeaponModel
+
+        ListElement {
+            name: "Windfury Totem"
+            enumvalue: EnchantName.WindfuryTotem
+        }
+    }
+
+    ListModel {
+        id: enchantTemporaryOHWeaponModel
+
+        ListElement {
+            name: "<Placeholder>"
+            enumvalue: EnchantName.Crusader
         }
     }
 

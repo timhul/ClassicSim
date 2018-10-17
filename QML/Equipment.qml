@@ -193,8 +193,8 @@ Rectangle {
             width: 426
 
             CharacterStats {
-                x: parent.width - width - 80
-                y: 7
+                x: parent.width - width - 70
+                y: parent.height - height - 65
             }
 
             Column {
@@ -399,6 +399,9 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: mainhandSlot
+                    enchantOrientation: "BELOW"
+                    enchantLayoutDirection: "UP"
+                    z: 3
 
                     state: eqRect.state
                     slotString: "MAINHAND"
@@ -409,6 +412,9 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: offhandSlot
+                    enchantOrientation: "BELOW"
+                    enchantLayoutDirection: "UP"
+                    z: 2
 
                     state: eqRect.state
                     slotString: "OFFHAND"
@@ -419,6 +425,9 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: rangedSlot
+                    enchantOrientation: "BELOW"
+                    enchantLayoutDirection: "UP"
+                    z: 1
 
                     state: eqRect.state
                     slotString: "RANGED"
