@@ -209,6 +209,7 @@ Rectangle {
                 EquipmentSlotBox {
                     id: headSlot
                     enchantOrientation: "RIGHT"
+                    z: 5
 
                     state: eqRect.state
                     slotString: "HEAD"
@@ -230,6 +231,7 @@ Rectangle {
                 EquipmentSlotBox {
                     id: shoulderSlot
                     enchantOrientation: "RIGHT"
+                    z: 3
 
                     state: eqRect.state
                     slotString: "SHOULDERS"
@@ -241,6 +243,7 @@ Rectangle {
                 EquipmentSlotBox {
                     id: backSlot
                     enchantOrientation: "RIGHT"
+                    z: 2
 
                     state: eqRect.state
                     slotString: "BACK"
@@ -252,6 +255,7 @@ Rectangle {
                 EquipmentSlotBox {
                     id: chestSlot
                     enchantOrientation: "RIGHT"
+                    z: 1
 
                     state: eqRect.state
                     slotString: "CHEST"
@@ -271,6 +275,8 @@ Rectangle {
                 EquipmentSlotBox {
                     id: wristSlot
                     enchantOrientation: "RIGHT"
+                    enchantLayoutDirection: "UP"
+                    z: 5
 
                     state: eqRect.state
                     slotString: "WRIST"

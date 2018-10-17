@@ -6,6 +6,7 @@ Rectangle {
     height: 16
     width: 100
     property string orientation
+    property string layoutDirection
     property string slot
     property bool hasEnchant: equipment.hasEnchant(slot)
 
@@ -60,8 +61,12 @@ Rectangle {
         acceptedButtons: Qt.LeftButton | Qt.RightButton
 
         onClicked: {
-            if (mouse.button === Qt.RightButton)
-                equipment.clearEnchant(slot)
+            if (mouse.button === Qt.RightButton) {
+                if (hasEnchant)
+                    equipment.clearEnchant(slot)
+                else
+                    listView.visible = false
+            }
             else
                 listView.visible = !listView.visible
         }
@@ -89,13 +94,26 @@ Rectangle {
     }
 
     ListView {
-        anchors.top: parent.bottom
+        function setAnchors() {
+            if (parent.layoutDirection === "DOWN")
+                anchors.top = parent.bottom
+            else
+                anchors.bottom = parent.top
+        }
+
+        onVisibleChanged: {
+            if (visible === true)
+                setAnchors()
+        }
+
         id: listView
         interactive: false
         width: parent.width
         visible: false
         implicitHeight: contentHeight
         implicitWidth: contentWidth
+
+        verticalLayoutDirection: parent.layoutDirection === "DOWN" ? ListView.TopToBottom : ListView.BottomToTop
 
         model: getModelFromSlot()
         delegate: RectangleBorders {
@@ -106,6 +124,9 @@ Rectangle {
                 listView.visible = false
                 console.log("Clicked", name)
                 equipment.applyEnchant(slot, enumvalue)
+            }
+            onRectangleRightClicked: {
+                listView.visible = false
             }
 
             Text {

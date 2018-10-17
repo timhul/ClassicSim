@@ -11,6 +11,7 @@ Rectangle {
                                      && slotString !== "TRINKET1" && slotString !== "TRINKET2"
     property bool showDurabilityInTooltip: showTypeInTooltip
     property string enchantOrientation: "None"
+    property string enchantLayoutDirection: "DOWN"
 
     state: "MAINHAND"
 
@@ -113,6 +114,7 @@ Rectangle {
 
     EquipmentEnchant {
         orientation: enchantOrientation
+        layoutDirection: enchantLayoutDirection
         slot: slotString
     }
 
