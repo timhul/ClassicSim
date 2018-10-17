@@ -72,24 +72,29 @@ bool Weapon::has_temporary_enchant() const {
     return temporary_enchant != nullptr;
 }
 
-void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar) {
+void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, const bool mainhand) {
     delete enchant;
+
+    int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
 
     switch (enchant_name) {
     case EnchantName::Crusader:
     case EnchantName::FieryWeapon:
-        enchant = new EnchantProc(enchant_name, pchar, slot);
+        enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
         break;
     default:
         enchant = new EnchantStatic(enchant_name, pchar);
     }
 }
 
-void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *pchar) {
+void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *pchar, const bool mainhand) {
     delete temporary_enchant;
+
+    int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
+
     switch (enchant_name) {
     case EnchantName::WindfuryTotem:
-        temporary_enchant = new EnchantProc(enchant_name, pchar, slot);
+        temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::ElementalSharpeningStone:
         temporary_enchant = new EnchantStatic(enchant_name, pchar);

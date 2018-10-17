@@ -81,4 +81,10 @@ namespace ArmorTypes {
     static const int PLATE = 23;
 }
 
+// CSIM-76: Move this to separate file
+namespace EnchantSlot {
+    static const int MAINHAND = 0;
+    static const int OFFHAND = 1;
+}
+
 #endif // ITEMNAMESPACE_H

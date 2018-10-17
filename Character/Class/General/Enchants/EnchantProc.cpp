@@ -4,6 +4,7 @@
 #include "Crusader.h"
 #include "FieryWeapon.h"
 #include "WindfuryTotemAttack.h"
+#include "ItemNamespace.h"
 
 EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int slot) :
     Enchant(get_name_from_enum_weapon(enchant), get_effect_from_enum_weapon(enchant)),

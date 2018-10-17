@@ -75,6 +75,8 @@ Rectangle {
 
         text: ""
 
+        elide: slot === "MAINHAND" ? Text.ElideRight : Text.ElideNone
+
         font {
             family: "Arial"
             pointSize: 9

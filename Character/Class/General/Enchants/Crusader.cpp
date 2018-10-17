@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "ActiveBuffs.h"
 #include "HolyStrength.h"
+#include "ItemNamespace.h"
 
 Crusader::Crusader(Character* pchar, const QString& weapon_identifier, const int weapon) :
     ProcPPM("Holy Strength " + weapon_identifier, weapon, 1.0, 0.0, QVector<Proc*>(),

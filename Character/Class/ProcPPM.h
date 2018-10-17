@@ -4,11 +4,6 @@
 #include "Proc.h"
 #include "ProcInfo.h"
 
-namespace EnchantSlot {
-    static const int MAINHAND = 0;
-    static const int OFFHAND = 1;
-}
-
 class ProcPPM: public Proc {
 public:
     ProcPPM(const QString &name,

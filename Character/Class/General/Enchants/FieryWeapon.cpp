@@ -1,6 +1,7 @@
 
 #include "FieryWeapon.h"
 #include "FieryWeaponAttack.h"
+#include "ItemNamespace.h"
 
 FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, const int weapon) :
     ProcPPM("Fiery Weapon " + weapon_identifier, weapon, 6.0, 0.0, QVector<Proc*>(),

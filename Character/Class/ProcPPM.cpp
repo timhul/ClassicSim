@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include <cassert>
+#include "ItemNamespace.h"
 
 ProcPPM::ProcPPM(const QString& name,
                  const int wpn,
