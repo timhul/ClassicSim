@@ -309,6 +309,8 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: gloveSlot
+                    enchantOrientation: "LEFT"
+                    z: 3
 
                     state: eqRect.state
                     slotString: "GLOVES"
@@ -329,6 +331,8 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: legSlot
+                    enchantOrientation: "LEFT"
+                    z: 2
 
                     state: eqRect.state
                     slotString: "LEGS"
@@ -339,6 +343,8 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: bootSlot
+                    enchantOrientation: "LEFT"
+                    z: 1
 
                     state: eqRect.state
                     slotString: "BOOTS"

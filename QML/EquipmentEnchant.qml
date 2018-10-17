@@ -8,8 +8,8 @@ Rectangle {
     property string orientation
     property string layoutDirection
     property string slot
-    property bool hasEnchant: equipment.hasEnchant(slot)
     property bool temporaryEnchant: false
+    property bool hasEnchant: temporaryEnchant ? equipment.hasTemporaryEnchant(slot) : equipment.hasEnchant(slot)
 
     visible: orientation !== "None" && equipment.hasItemEquipped(slot)
 
@@ -19,9 +19,12 @@ Rectangle {
             visible = orientation !== "None" && equipment.hasItemEquipped(slot)
         }
         onEnchantChanged: {
-            hasEnchant = equipment.hasEnchant(slot)
+            hasEnchant = temporaryEnchant ? equipment.hasTemporaryEnchant(slot) : equipment.hasEnchant(slot)
 
-            effectText.text = hasEnchant ? equipment.getEnchantEffect(slot) : ""
+            if (temporaryEnchant)
+                effectText.text = hasEnchant ? equipment.getTemporaryEnchantEffect(slot) : ""
+            else
+                effectText.text = hasEnchant ? equipment.getEnchantEffect(slot) : ""
         }
     }
 
@@ -37,18 +40,33 @@ Rectangle {
             anchors.bottom = parent.bottom
             anchors.bottomMargin = 3
             }
-        if (orientation === "BELOW") {
+        else if (orientation === "BELOW") {
             anchors.left = parent.left
             anchors.top = parent.bottom
             anchors.topMargin = 10
         }
+        else if (orientation === "LEFT") {
+            anchors.right = parent.left
+            anchors.rightMargin = 13
+            anchors.bottom = parent.bottom
+            anchors.bottomMargin = 3
+        }
+
+        icon.setIconAnchors()
     }
 
     Image {
+        id: icon
         visible: parent.hasEnchant === false && parent.visible
         source: "Assets/misc/Trade_engraving.png"
         height: 16
         width: height
+
+        function setIconAnchors() {
+            if (orientation === "LEFT") {
+                anchors.right = parent.right
+            }
+        }
     }
 
     Text {
@@ -65,7 +83,7 @@ Rectangle {
         anchors.fill: parent
 
         color: root.qualityUncommon
-        horizontalAlignment: Text.AlignLeft
+        horizontalAlignment: orientation === "LEFT" ? Text.AlignRight : Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
     }
 
@@ -75,8 +93,12 @@ Rectangle {
 
         onClicked: {
             if (mouse.button === Qt.RightButton) {
-                if (hasEnchant)
-                    equipment.clearEnchant(slot)
+                if (hasEnchant) {
+                    if (temporaryEnchant)
+                        equipment.clearTemporaryEnchant(slot)
+                    else
+                        equipment.clearEnchant(slot)
+                }
                 else
                     listView.visible = false
             }
@@ -88,8 +110,12 @@ Rectangle {
     function getModelFromSlot() {
         switch (slot) {
         case "MAINHAND":
-            if (temporaryEnchant === true)
-                return enchantTemporaryMHWeaponModel
+            if (temporaryEnchant === true) {
+                if (character.isHorde)
+                    return enchantTemporaryMHWeaponModelHorde
+                else
+                    return enchantTemporaryMHWeaponModelAlliance
+            }
             else
                 return equipment.has2HWeapon ? enchant2HWeaponModel : enchant1HWeaponModel
         case "OFFHAND":
@@ -98,7 +124,8 @@ Rectangle {
             else
                 return enchant1HWeaponModel
         case "HEAD":
-            return enchantHeadModel
+        case "LEGS":
+            return enchantHeadLegsModel
         case "SHOULDERS":
             return enchantShoulderModel
         case "BACK":
@@ -107,6 +134,10 @@ Rectangle {
             return enchantChestModel
         case "WRIST":
             return enchantWristModel
+        case "GLOVES":
+            return enchantGlovesModel
+        case "BOOTS":
+            return enchantBootsModel
         }
 
         return enchant2HWeaponModel
@@ -139,10 +170,15 @@ Rectangle {
             height: 30
             width: 200
 
+            anchors.right: orientation === "LEFT" ? parent.right : undefined
+
             onRectangleClicked: {
                 listView.visible = false
                 console.log("Clicked", name)
-                equipment.applyEnchant(slot, enumvalue)
+                if (temporaryEnchant)
+                    equipment.applyTemporaryEnchant(slot, enumvalue)
+                else
+                    equipment.applyEnchant(slot, enumvalue)
             }
             onRectangleRightClicked: {
                 listView.visible = false
@@ -179,11 +215,25 @@ Rectangle {
     }
 
     ListModel {
-        id: enchantTemporaryMHWeaponModel
+        id: enchantTemporaryMHWeaponModelHorde
 
         ListElement {
             name: "Windfury Totem"
             enumvalue: EnchantName.WindfuryTotem
+        }
+
+        ListElement {
+            name: "Elemental Sharpening Stone"
+            enumvalue: EnchantName.ElementalSharpeningStone
+        }
+    }
+
+    ListModel {
+        id: enchantTemporaryMHWeaponModelAlliance
+
+        ListElement {
+            name: "Elemental Sharpening Stone"
+            enumvalue: EnchantName.ElementalSharpeningStone
         }
     }
 
@@ -191,8 +241,8 @@ Rectangle {
         id: enchantTemporaryOHWeaponModel
 
         ListElement {
-            name: "<Placeholder>"
-            enumvalue: EnchantName.Crusader
+            name: "Elemental Sharpening Stone"
+            enumvalue: EnchantName.ElementalSharpeningStone
         }
     }
 
@@ -221,7 +271,7 @@ Rectangle {
     }
 
     ListModel {
-        id: enchantHeadModel
+        id: enchantHeadLegsModel
 
         ListElement {
             name: "Arcanum of Rapidity"
@@ -272,6 +322,34 @@ Rectangle {
         ListElement {
             name: "Enchant Bracer - Superior Strength"
             enumvalue: EnchantName.EnchantBracerSuperiorStrength
+        }
+    }
+
+    ListModel {
+        id: enchantGlovesModel
+
+        ListElement {
+            name: "Enchant Gloves - Greater Strength"
+            enumvalue: EnchantName.EnchantGlovesGreaterStrength
+        }
+
+        ListElement {
+            name: "Enchant Gloves - Minor Haste"
+            enumvalue: EnchantName.EnchantGlovesMinorHaste
+        }
+    }
+
+    ListModel {
+        id: enchantBootsModel
+
+        ListElement {
+            name: "Enchant Boots - Minor Speed"
+            enumvalue: EnchantName.EnchantBootsMinorSpeed
+        }
+
+        ListElement {
+            name: "Enchant Boots - Greater Agility"
+            enumvalue: EnchantName.EnchantBootsGreaterAgility
         }
     }
 }
