@@ -128,8 +128,7 @@ Rectangle {
 
         anchors.top: enchant.bottom
 
-        visible: slotString === "MAINHAND" || slotString === "OFFHAND"
-
+        visible: (slotString === "MAINHAND" || slotString === "OFFHAND") && equipment.hasItemEquipped(slot)
     }
 
     RectangleBorders {

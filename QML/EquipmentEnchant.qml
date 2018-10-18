@@ -16,7 +16,10 @@ Rectangle {
     Connections {
         target: equipment
         onEquipmentChanged: {
-            visible = orientation !== "None" && equipment.hasItemEquipped(slot)
+            if (!temporaryEnchant)
+                visible = orientation !== "None" && equipment.hasItemEquipped(slot)
+            else
+                visible = (slotString === "MAINHAND" || slotString === "OFFHAND") && equipment.hasItemEquipped(slot)
         }
         onEnchantChanged: {
             hasEnchant = temporaryEnchant ? equipment.hasTemporaryEnchant(slot) : equipment.hasEnchant(slot)
