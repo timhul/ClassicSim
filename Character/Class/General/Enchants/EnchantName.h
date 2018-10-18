@@ -8,7 +8,8 @@ class EnchantName : public QObject {
 
 public:
     enum Name {
-        Crusader = 0,
+        NoEnchant = -1,
+        Crusader,
         FieryWeapon,
         WindfuryTotem,
         EnchantBracerSuperiorStrength,

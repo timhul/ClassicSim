@@ -2,16 +2,19 @@
 #define ENCHANT_H
 
 #include <QString>
+#include "EnchantName.h"
 
 class Enchant {
 public:
-    Enchant(const QString& name, const QString& effect);
+    Enchant(const EnchantName::Name enum_name, const QString& name, const QString& effect);
     virtual ~Enchant();
 
+    EnchantName::Name get_enum_name() const;
     QString get_name() const;
     QString get_effect() const;
 
 protected:
+    EnchantName::Name enum_name;
     QString name;
     QString effect;
 };

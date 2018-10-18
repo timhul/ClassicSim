@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QMap>
 
+#include "EnchantName.h"
+
 class Character;
 class CharacterDecoder;
 class CombatRoll;
@@ -58,9 +60,12 @@ private:
     void invest_talent_points(CharacterDecoder& decoder);
     void add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position);
     void apply_external_buffs(CharacterDecoder& decoder);
+    void apply_enchants(CharacterDecoder& decoder);
     void setup_target(CharacterDecoder& decoder);
     void select_rotation(CharacterDecoder& decoder);
     void exit_thread(QString err);
+
+    EnchantName::Name get_enum_val(QString enum_val_as_string);
 };
 
 #endif // SIMULATIONRUNNER_H

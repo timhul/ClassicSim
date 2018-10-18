@@ -44,6 +44,8 @@
 #include "SimControl.h"
 #include "SimSettings.h"
 #include "NumberCruncher.h"
+#include "Weapon.h"
+#include "Item.h"
 
 SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, SimSettings *sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
@@ -86,6 +88,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     apply_external_buffs(decoder);
     setup_target(decoder);
     select_rotation(decoder);
+    apply_enchants(decoder);
 
     CharacterEncoder encoder(pchar);
     if (encoder.get_current_setup_string() != this->setup_string)
@@ -224,6 +227,45 @@ void SimulationRunner::apply_external_buffs(CharacterDecoder& decoder) {
     }
 }
 
+void SimulationRunner::apply_enchants(CharacterDecoder& decoder) {
+    if (pchar->get_equipment()->get_mainhand() != nullptr) {
+        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_key("MH_ENCHANT")), pchar, true);
+        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_key("MH_TEMPORARY_ENCHANT")), pchar, true);
+    }
+
+    if (pchar->get_equipment()->get_offhand() != nullptr) {
+        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_key("OH_ENCHANT")), pchar, false);
+        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_key("OH_TEMPORARY_ENCHANT")), pchar, false);
+    }
+
+    if (pchar->get_equipment()->get_head() != nullptr)
+        pchar->get_equipment()->get_head()->apply_enchant(get_enum_val(decoder.get_key("HEAD_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_shoulders() != nullptr)
+        pchar->get_equipment()->get_shoulders()->apply_enchant(get_enum_val(decoder.get_key("SHOULDER_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_back() != nullptr)
+        pchar->get_equipment()->get_back()->apply_enchant(get_enum_val(decoder.get_key("BACK_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_chest() != nullptr)
+        pchar->get_equipment()->get_chest()->apply_enchant(get_enum_val(decoder.get_key("CHEST_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_wrist() != nullptr)
+        pchar->get_equipment()->get_wrist()->apply_enchant(get_enum_val(decoder.get_key("WRIST_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_gloves() != nullptr)
+        pchar->get_equipment()->get_gloves()->apply_enchant(get_enum_val(decoder.get_key("GLOVES_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_legs() != nullptr)
+        pchar->get_equipment()->get_legs()->apply_enchant(get_enum_val(decoder.get_key("LEGS_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_boots() != nullptr)
+        pchar->get_equipment()->get_boots()->apply_enchant(get_enum_val(decoder.get_key("BOOTS_ENCHANT")), pchar);
+
+    if (pchar->get_equipment()->get_ranged())
+        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_key("RANGED_ENCHANT")), pchar);
+}
+
 void SimulationRunner::setup_target(CharacterDecoder& decoder) {
     pchar->get_target()->set_creature_type(decoder.get_key("TARGET_TYPE"));
     pchar->get_target()->set_lvl(decoder.get_key("TARGET_LVL").toInt());
@@ -290,4 +332,8 @@ void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
 
     if (pchar == nullptr)
         delete race;
+}
+
+EnchantName::Name SimulationRunner::get_enum_val(QString enum_val_as_string) {
+    return static_cast<EnchantName::Name>(enum_val_as_string.toInt());
 }

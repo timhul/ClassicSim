@@ -7,7 +7,7 @@
 #include "ItemNamespace.h"
 
 EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int slot) :
-    Enchant(get_name_from_enum_weapon(enchant), get_effect_from_enum_weapon(enchant)),
+    Enchant(enchant, get_name_from_enum_weapon(enchant), get_effect_from_enum_weapon(enchant)),
     pchar(pchar)
 {
     QString identifier = slot == EnchantSlot::MAINHAND ? "Mainhand" : "Offhand";

@@ -27,6 +27,8 @@ private:
     void add_item(const QString& key, Item* item);
     void key_val(const QString& key, const QString& value);
     void key_val_list(const QString& key, const QString& value);
+
+    void add_enchants();
 };
 
 #endif // CHARACTERENCODER_H

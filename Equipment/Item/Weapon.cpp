@@ -73,6 +73,9 @@ bool Weapon::has_temporary_enchant() const {
 }
 
 void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, const bool mainhand) {
+    if (enchant_name == EnchantName::NoEnchant)
+        return;
+
     delete enchant;
 
     int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
@@ -110,7 +113,7 @@ void Weapon::clear_temporary_enchant() {
 }
 
 void Weapon::clear_windfury() {
-    if (temporary_enchant != nullptr && temporary_enchant->get_name() == "Windfury Totem")
+    if (temporary_enchant != nullptr && temporary_enchant->get_enum_name() == EnchantName::WindfuryTotem)
         clear_temporary_enchant();
 }
 
@@ -120,6 +123,10 @@ QString Weapon::get_temporary_enchant_name() const {
 
 QString Weapon::get_temporary_enchant_effect() const {
     return temporary_enchant != nullptr ? temporary_enchant->get_effect() : "";
+}
+
+EnchantName::Name Weapon::get_temporary_enchant_enum_value() const {
+    return temporary_enchant != nullptr ? temporary_enchant->get_enum_name() : EnchantName::NoEnchant;
 }
 
 bool Weapon::is_2hand() const {

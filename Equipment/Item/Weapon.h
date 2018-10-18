@@ -33,6 +33,7 @@ public:
     void clear_windfury();
     QString get_temporary_enchant_name() const;
     QString get_temporary_enchant_effect() const;
+    EnchantName::Name get_temporary_enchant_enum_value() const;
 
 private:
     Random* random;

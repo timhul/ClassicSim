@@ -4,7 +4,7 @@
 #include "EnchantStatic.h"
 
 EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar) :
-    Enchant(get_name_from_enum(enchant_name), get_effect_from_enum(enchant_name)),
+    Enchant(enchant_name, get_name_from_enum(enchant_name), get_effect_from_enum(enchant_name)),
     enchant_name(enchant_name),
     pchar(pchar)
 {

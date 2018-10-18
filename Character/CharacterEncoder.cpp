@@ -49,6 +49,8 @@ QString CharacterEncoder::get_current_setup_string() {
 
     key_val("ROTATION", pchar->get_current_rotation_name());
 
+    add_enchants();
+
     return pchar_str;
 }
 
@@ -112,4 +114,54 @@ void CharacterEncoder::key_val(const QString& key, const QString& value) {
 void CharacterEncoder::key_val_list(const QString& key, const QString& value) {
     new_list_element();
     pchar_str += QString("%1%2%3").arg(key, QString(Encoding::KEY_VAL_SEPARATOR), value);
+}
+
+void CharacterEncoder::add_enchants() {
+    Weapon* wpn = pchar->get_equipment()->get_mainhand();
+    if (wpn != nullptr) {
+        key_val("MH_TEMPORARY_ENCHANT", QString::number(wpn->get_temporary_enchant_enum_value()));
+        key_val("MH_ENCHANT", QString::number(wpn->get_enchant_enum_value()));
+    }
+
+    wpn = pchar->get_equipment()->get_offhand();
+    if (wpn != nullptr) {
+        key_val("OH_TEMPORARY_ENCHANT", QString::number(wpn->get_temporary_enchant_enum_value()));
+        key_val("OH_ENCHANT", QString::number(wpn->get_enchant_enum_value()));
+    }
+
+    Item* item = pchar->get_equipment()->get_head();
+    if (item != nullptr)
+        key_val("HEAD_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_shoulders();
+    if (item != nullptr)
+        key_val("SHOULDER_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_back();
+    if (item != nullptr)
+        key_val("BACK_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_chest();
+    if (item != nullptr)
+        key_val("CHEST_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_wrist();
+    if (item != nullptr)
+        key_val("WRIST_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_gloves();
+    if (item != nullptr)
+        key_val("GLOVES_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_legs();
+    if (item != nullptr)
+        key_val("LEGS_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_boots();
+    if (item != nullptr)
+        key_val("BOOTS_ENCHANT", QString::number(item->get_enchant_enum_value()));
+
+    item = pchar->get_equipment()->get_ranged();
+    if (item != nullptr)
+        key_val("RANGED_ENCHANT", QString::number(item->get_enchant_enum_value()));
 }

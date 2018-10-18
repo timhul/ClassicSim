@@ -111,6 +111,9 @@ bool Item::has_enchant() const {
 }
 
 void Item::apply_enchant(EnchantName::Name enchant_name, Character* pchar) {
+    if (enchant_name == EnchantName::NoEnchant)
+        return;
+
     delete enchant;
     enchant = new EnchantStatic(enchant_name, pchar);
 }
@@ -126,6 +129,10 @@ QString Item::get_enchant_name() const {
 
 QString Item::get_enchant_effect() const {
     return enchant != nullptr ? enchant->get_effect() : "";
+}
+
+EnchantName::Name Item::get_enchant_enum_value() const {
+    return enchant != nullptr ? enchant->get_enum_name() : EnchantName::NoEnchant;
 }
 
 void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {

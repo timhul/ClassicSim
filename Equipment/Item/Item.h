@@ -46,6 +46,7 @@ public:
     void clear_enchant();
     QString get_enchant_name() const;
     QString get_enchant_effect() const;
+    EnchantName::Name get_enchant_enum_value() const;
 
 protected:
     QString name;
