@@ -313,17 +313,4 @@ Window {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignBottom
     }
-
-    Image {
-        source: "Assets/WoW_Classic_logo_small.png"
-        width: 150
-        height: 68
-
-        anchors {
-            right: parent.right
-            rightMargin: 10
-            bottom: parent.bottom
-            bottomMargin: 10
-        }
-    }
 }

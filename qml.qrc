@@ -261,6 +261,5 @@
         <file>QML/Assets/items/Inv_misc_cape_05.png</file>
         <file>QML/Assets/misc/Trade_engraving.png</file>
         <file>QML/EquipmentEnchant.qml</file>
-        <file>QML/Assets/WoW_Classic_logo_small.png</file>
     </qresource>
 </RCC>
