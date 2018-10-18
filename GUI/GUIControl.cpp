@@ -777,7 +777,7 @@ QString GUIControl::get_trinket2_icon() const {
 }
 
 bool GUIControl::has_2h_weapon() const {
-    if (current_char->get_equipment()->get_mainhand() != nullptr)
+    if (current_char->get_equipment()->get_mainhand() == nullptr)
         return false;
 
     return current_char->get_equipment()->get_mainhand()->is_2hand();
