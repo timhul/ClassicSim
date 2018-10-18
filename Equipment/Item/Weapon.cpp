@@ -109,6 +109,11 @@ void Weapon::clear_temporary_enchant() {
     temporary_enchant = nullptr;
 }
 
+void Weapon::clear_windfury() {
+    if (temporary_enchant != nullptr && temporary_enchant->get_name() == "Windfury Totem")
+        clear_temporary_enchant();
+}
+
 QString Weapon::get_temporary_enchant_name() const {
     return temporary_enchant != nullptr ? temporary_enchant->get_name() : "";
 }

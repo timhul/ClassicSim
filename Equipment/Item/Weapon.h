@@ -30,6 +30,7 @@ public:
     void apply_enchant(EnchantName::Name enchant_name, Character* pchar, const bool mainhand);
     void apply_temporary_enchant(EnchantName::Name enchant_name, Character* pchar, const bool mainhand);
     void clear_temporary_enchant();
+    void clear_windfury();
     QString get_temporary_enchant_name() const;
     QString get_temporary_enchant_effect() const;
 
