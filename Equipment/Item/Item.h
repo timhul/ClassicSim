@@ -64,7 +64,6 @@ protected:
     Enchant* enchant;
 
     void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);
-    bool proc_info_complete(QMap<QString, QString> & proc);
 
     int slot{};
     int item_type{};

@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<weapons>	
+<weapons>
+	<melee_weapon name="Bonereaver's Edge">
+		<patch name="1.0.0">
+			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<dmg_range min="206" max="310" speed="3.4"/>
+			<stats>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="ARMOR_PENETRATION" value="300" max_stacks="1" duration="60" rate="0.02" internal_cd="0"/>
+			</proc>
+			<special_equip_effect>
+			Chance on hit: Reduces target's armor by 300 for 60 seconds.
+			</special_equip_effect>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+		
+		<patch name="1.7.0">
+			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<dmg_range min="206" max="310" speed="3.4"/>
+			<stats>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="ARMOR_PENETRATION" value="300" max_stacks="1" duration="10" rate="0.20" internal_cd="0"/>
+			</proc>
+			<special_equip_effect>
+			Chance on hit: Reduces target's armor by 300 for 10 seconds.
+			</special_equip_effect>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+		
+		<patch name="1.10.0">
+			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<dmg_range min="206" max="310" speed="3.4"/>
+			<stats>
+				<stat type="STAMINA" value="16"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="ARMOR_PENETRATION" value="700" max_stacks="1" duration="10" rate="0.20" internal_cd="0"/>
+			</proc>
+			<special_equip_effect>
+			Chance on hit: Reduces target's armor by 700 for 10 seconds.
+			</special_equip_effect>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+		
+		<patch name="1.12.0">
+			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<dmg_range min="206" max="310" speed="3.4"/>
+			<stats>
+				<stat type="STAMINA" value="16"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="ARMOR_PENETRATION" value="700" max_stacks="3" duration="10" rate="0.20" internal_cd="0"/>
+			</proc>
+			<special_equip_effect>
+			Chance on hit: Reduces target's armor by 700 for 10 seconds. This effect stacks up to 3 times.
+			</special_equip_effect>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+	</melee_weapon>
+
 	<melee_weapon name="Ashkandi, Greatsword of the Brotherhood">
 		<patch name="1.6.0">
 			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>

@@ -91,6 +91,9 @@ void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, con
 }
 
 void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *pchar, const bool mainhand) {
+    if (enchant_name == EnchantName::NoEnchant)
+        return;
+
     delete temporary_enchant;
 
     int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;

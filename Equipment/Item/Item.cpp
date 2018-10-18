@@ -6,6 +6,7 @@
 #include "EnchantStatic.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
+#include "ArmorPenetrationProc.h"
 #include <QDebug>
 #include <utility>
 
@@ -138,11 +139,6 @@ EnchantName::Name Item::get_enchant_enum_value() const {
 void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {
     QVector<Proc*> procs_;
     for (auto & i : procs) {
-        if (!proc_info_complete(i)) {
-            qDebug() << "Missing proc info for item" << get_name();
-            continue;
-        }
-
         QString proc_name = i["name"];
         QString instant = i["instant"].toLower();
         int amount = QString(i["amount"]).toInt();
@@ -198,6 +194,30 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
                                                       amount);
             }
         }
+        else if (proc_name == "ARMOR_PENETRATION") {
+            switch (eq_slot) {
+            case EquipmentSlot::MAINHAND:
+                proc_sources.append(ProcInfo::Source::MainhandSwing);
+                proc_sources.append(ProcInfo::Source::MainhandSpell);
+                break;
+            case EquipmentSlot::OFFHAND:
+                proc_sources.append(ProcInfo::Source::OffhandSwing);
+                proc_sources.append(ProcInfo::Source::OffhandSpell);
+                break;
+            default:
+                proc_sources.append(ProcInfo::Source::MainhandSwing);
+                proc_sources.append(ProcInfo::Source::MainhandSpell);
+                proc_sources.append(ProcInfo::Source::OffhandSwing);
+                proc_sources.append(ProcInfo::Source::OffhandSpell);
+                break;
+            }
+
+            int reduction = i["value"].toInt();
+            int max_stacks = i["max_stacks"].toInt();
+            int duration = i["duration"].toInt();
+
+            proc = new ArmorPenetrationProc(pchar, get_name(), proc_sources, proc_rate, reduction, max_stacks, duration);
+        }
 
         if (proc != nullptr) {
             procs_.append(proc);
@@ -207,22 +227,6 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
 
     if (!procs_.empty())
         this->proc_map.insert(eq_slot, procs_);
-}
-
-bool Item::proc_info_complete(QMap<QString, QString> & proc) {
-    QVector<QString> expected_keys = {"name", "instant", "amount", "internal_cd", "rate"};
-    QVector<QString> missing_keys;
-    for (const auto & expected_key : expected_keys) {
-        if (!proc.contains(expected_key))
-            missing_keys.append(expected_key);
-    }
-
-    if (!missing_keys.empty()) {
-        qDebug() << "Missing proc info keys" << missing_keys;
-        return false;
-    }
-
-    return true;
 }
 
 void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {

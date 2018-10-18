@@ -64,6 +64,8 @@ protected:
     void force_remove_buff();
     virtual void buff_effect_when_applied() = 0;
     virtual void buff_effect_when_removed() = 0;
+
+    virtual void buff_effect_when_refreshed();
 };
 
 #endif // BUFF_H

@@ -42,6 +42,8 @@ void Buff::apply_buff() {
         this->applied = pchar->get_engine()->get_current_priority();
         this->buff_effect_when_applied();
     }
+    else
+        this->buff_effect_when_refreshed();
 
     this->refreshed = pchar->get_engine()->get_current_priority();
     this->active = true;
@@ -156,4 +158,8 @@ void Buff::prepare_set_of_combat_iterations() {
         return;
 
     this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name);
+}
+
+void Buff::buff_effect_when_refreshed() {
+
 }

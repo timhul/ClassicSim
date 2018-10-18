@@ -245,7 +245,9 @@ SOURCES += main.cpp \
     Statistics/NumberCruncher.cpp \
     Character/Class/General/Enchants/Enchant.cpp \
     Character/Class/General/Enchants/EnchantStatic.cpp \
-    Character/Class/General/Enchants/EnchantProc.cpp
+    Character/Class/General/Enchants/EnchantProc.cpp \
+    Character/Class/General/Buffs/ArmorPenetrationBuff.cpp \
+    Character/Class/General/Procs/ArmorPenetrationProc.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -487,7 +489,9 @@ HEADERS += \
     Character/Class/General/Enchants/Enchant.h \
     Character/Class/General/Enchants/EnchantStatic.h \
     Character/Class/General/Enchants/EnchantProc.h \
-    Character/Class/General/Enchants/EnchantName.h
+    Character/Class/General/Enchants/EnchantName.h \
+    Character/Class/General/Buffs/ArmorPenetrationBuff.h \
+    Character/Class/General/Procs/ArmorPenetrationProc.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
