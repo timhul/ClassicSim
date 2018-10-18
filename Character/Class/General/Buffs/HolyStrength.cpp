@@ -2,7 +2,10 @@
 #include "HolyStrength.h"
 #include "Character.h"
 #include "CharacterStats.h"
-#include <QDebug>
+
+HolyStrength::HolyStrength(Character* pchar, const QString& weapon_side):
+    Buff(pchar, "Holy Strength " + weapon_side, 15, 0)
+{}
 
 void HolyStrength::buff_effect_when_applied() {
     pchar->get_stats()->increase_strength(100);

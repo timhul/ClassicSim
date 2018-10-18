@@ -7,7 +7,6 @@
 #include "ClassStatistics.h"
 #include "StatisticsSpell.h"
 #include "StatisticsProc.h"
-#include "StatisticsBuff.h"
 #include "StatisticsResource.h"
 #include "Character.h"
 
@@ -22,7 +21,6 @@ Proc::Proc(const QString& name,
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),
     statistics_proc(nullptr),
-    statistics_buff(nullptr),
     statistics_resource(nullptr),
     instance_id(ProcStatus::INACTIVE)
 {
@@ -78,7 +76,6 @@ bool Proc::procs_from_source(ProcInfo::Source source) const {
 void Proc::prepare_set_of_combat_iterations() {
     this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name);
     this->statistics_proc = pchar->get_statistics()->get_proc_statistics(name);
-    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name);
     this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name);
 }
 

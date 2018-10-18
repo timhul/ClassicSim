@@ -1,7 +1,6 @@
 
 #include "GeneralBuffs.h"
 #include "Character.h"
-#include "HolyStrength.h"
 #include "ElixirOfBruteForce.h"
 #include "ElixirOfGiants.h"
 #include "ElixirOfTheMongoose.h"
@@ -19,11 +18,6 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
     faction(faction),
     current_setup(0)
 {
-    this->holy_strength_mh = new HolyStrength(pchar);
-    this->holy_strength_oh = new HolyStrength(pchar);
-
-    this->buffs = {holy_strength_mh, holy_strength_oh};
-
     for (int i = 0; i < 3; ++i) {
         this->external_buffs.append(QVector<QPair<bool, ExternalBuff*>>());
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new ElixirOfBruteForce(pchar)));
@@ -64,14 +58,6 @@ GeneralBuffs::~GeneralBuffs()
 }
 
 void GeneralBuffs::switch_faction() {
-}
-
-HolyStrength* GeneralBuffs::get_holy_strength_mh() const {
-    return this->holy_strength_mh;
-}
-
-HolyStrength* GeneralBuffs::get_holy_strength_oh() const {
-    return this->holy_strength_oh;
 }
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {

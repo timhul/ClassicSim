@@ -8,7 +8,6 @@ class Character;
 class ExternalBuff;
 class Faction;
 class Buff;
-class HolyStrength;
 
 class SunderArmorBuff;
 
@@ -20,9 +19,6 @@ public:
     ~GeneralBuffs();
 
     void switch_faction();
-
-    HolyStrength* get_holy_strength_mh() const;
-    HolyStrength* get_holy_strength_oh() const;
 
     QVector<ExternalBuff*> get_external_buffs() const;
     QVector<ExternalBuff*> get_external_debuffs() const;
@@ -42,9 +38,6 @@ private:
     QVector<Buff*> horde_only_buffs;
     QVector<QVector<QPair<bool, ExternalBuff*>>> external_buffs;
     QVector<QVector<QPair<bool, ExternalBuff*>>> external_debuffs;
-
-    HolyStrength* holy_strength_mh;
-    HolyStrength* holy_strength_oh;
 
     void toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *> > > &vec);
     bool external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) const;
