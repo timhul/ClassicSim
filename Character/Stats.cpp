@@ -42,6 +42,9 @@ Stats::Stats(QObject* parent ) :
     this->melee_ap_per_str = 1;
     this->melee_ap_per_agi = 1;
 
+    this->ranged_ap = 0;
+    this->ranged_ap_per_agi = 2;
+
     this->melee_ap_against_creature[Target::CreatureType::Beast] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Demon] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Dragonkin] = 0;
@@ -50,6 +53,15 @@ Stats::Stats(QObject* parent ) :
     this->melee_ap_against_creature[Target::CreatureType::Humanoid] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Mechanical] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Undead] = 0;
+
+    this->ranged_ap_against_creature[Target::CreatureType::Beast] = 0;
+    this->ranged_ap_against_creature[Target::CreatureType::Demon] = 0;
+    this->ranged_ap_against_creature[Target::CreatureType::Dragonkin] = 0;
+    this->ranged_ap_against_creature[Target::CreatureType::Elemental] = 0;
+    this->ranged_ap_against_creature[Target::CreatureType::Giant] = 0;
+    this->ranged_ap_against_creature[Target::CreatureType::Humanoid] = 0;
+    this->ranged_ap_against_creature[Target::CreatureType::Mechanical] = 0;
+    this->ranged_ap_against_creature[Target::CreatureType::Undead] = 0;
 }
 
 Stats::~Stats() = default;
@@ -76,6 +88,7 @@ void Stats::add(const Stats* rhs) {
     increase_spell_crit(rhs->get_spell_crit_chance());
 
     increase_base_melee_ap(rhs->get_melee_ap_str_excluded());
+    increase_base_ranged_ap(rhs->get_ranged_ap_agi_excluded());
 
     increase_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
     increase_melee_ap_against_type(Target::CreatureType::Demon, rhs->get_melee_ap_against_type(Target::CreatureType::Demon));
@@ -109,6 +122,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_spell_crit(rhs->get_spell_crit_chance());
 
     decrease_base_melee_ap(rhs->get_melee_ap_str_excluded());
+    decrease_base_ranged_ap(rhs->get_ranged_ap_agi_excluded());
 
     decrease_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
     decrease_melee_ap_against_type(Target::CreatureType::Demon, rhs->get_melee_ap_against_type(Target::CreatureType::Demon));
@@ -341,6 +355,22 @@ void Stats::decrease_base_melee_ap(const int decrease) {
     melee_ap -= decrease;
 }
 
+int Stats::get_ranged_ap_agi_excluded() const {
+    return ranged_ap;
+}
+
+int Stats::get_ranged_ap_total() const {
+    return ranged_ap + AGI * ranged_ap_per_agi;
+}
+
+void Stats::increase_base_ranged_ap(const int increase) {
+    ranged_ap += increase;
+}
+
+void Stats::decrease_base_ranged_ap(const int decrease) {
+    ranged_ap -= decrease;
+}
+
 double Stats::get_hit_chance() const {
     return percent_hit;
 }
@@ -439,4 +469,16 @@ void Stats::decrease_melee_ap_against_type(const Target::CreatureType type, cons
 
 int Stats::get_melee_ap_against_type(const Target::CreatureType type) const {
     return melee_ap_against_creature[type];
+}
+
+void Stats::increase_ranged_ap_against_type(const Target::CreatureType type, const int increase) {
+    ranged_ap_against_creature[type] += increase;
+}
+
+void Stats::decrease_ranged_ap_against_type(const Target::CreatureType type, const int decrease) {
+    ranged_ap_against_creature[type] -= decrease;
+}
+
+int Stats::get_ranged_ap_against_type(const Target::CreatureType type) const {
+    return ranged_ap_against_creature[type];
 }

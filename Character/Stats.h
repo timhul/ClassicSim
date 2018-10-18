@@ -26,6 +26,12 @@ public:
     void increase_base_melee_ap(const int increase);
     void decrease_base_melee_ap(const int decrease);
 
+    int get_ranged_ap_agi_excluded() const;
+    int get_ranged_ap_total() const;
+
+    void increase_base_ranged_ap(const int);
+    void decrease_base_ranged_ap(const int);
+
     void increase_str(const int increase);
     void decrease_str(const int decrease);
 
@@ -126,6 +132,10 @@ public:
     void decrease_melee_ap_against_type(const Target::CreatureType, const int);
     int get_melee_ap_against_type(const Target::CreatureType) const;
 
+    void increase_ranged_ap_against_type(const Target::CreatureType, const int);
+    void decrease_ranged_ap_against_type(const Target::CreatureType, const int);
+    int get_ranged_ap_against_type(const Target::CreatureType) const;
+
 private:
     int STR;
     int AGI;
@@ -153,7 +163,8 @@ private:
     int melee_ap;
     int melee_ap_per_str;
     int melee_ap_per_agi;
-    int ranged_ap{};
+    int ranged_ap;
+    int ranged_ap_per_agi;
     double percent_hit;
     double percent_crit;
     double percent_spell_hit;
@@ -161,6 +172,7 @@ private:
     double percent_attack_speed;
 
     QMap<Target::CreatureType, int> melee_ap_against_creature;
+    QMap<Target::CreatureType, int> ranged_ap_against_creature;
 
     double str_multiplier;
     double agi_multiplier;

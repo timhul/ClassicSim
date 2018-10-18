@@ -190,7 +190,7 @@ void CharacterStats::decrease_spirit(const int decrease) {
     base_stats->decrease_spi(decrease);
 }
 
-int CharacterStats::get_melee_ap() {
+int CharacterStats::get_melee_ap() const {
     int eq_base_melee_ap = equipment->get_stats()->get_melee_ap_str_excluded();
     int eq_str = equipment->get_stats()->get_strength();
     int eq_agi = equipment->get_stats()->get_agility();
@@ -205,6 +205,22 @@ void CharacterStats::increase_melee_ap(const int increase) {
 
 void CharacterStats::decrease_melee_ap(const int decrease) {
     base_stats->decrease_base_melee_ap(decrease);
+}
+
+int CharacterStats::get_ranged_ap() const {
+    int eq_base_ranged_ap = equipment->get_stats()->get_ranged_ap_agi_excluded();
+    int eq_agi = equipment->get_stats()->get_agility();
+    int eq_ranged_ap = eq_base_ranged_ap + eq_agi * pchar->get_ap_per_agi();
+    int target_ap = equipment->get_stats()->get_ranged_ap_against_type(pchar->get_target()->get_creature_type());
+    return base_stats->get_ranged_ap_total()  + eq_ranged_ap + target_ap;
+}
+
+void CharacterStats::increase_ranged_ap(const int increase) {
+    base_stats->increase_base_ranged_ap(increase);
+}
+
+void CharacterStats::decrease_ranged_ap(const int decrease) {
+    base_stats->decrease_base_ranged_ap(decrease);
 }
 
 double CharacterStats::get_total_phys_dmg_mod() const {

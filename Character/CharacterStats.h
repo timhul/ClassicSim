@@ -61,9 +61,13 @@ public:
     void increase_spirit(const int);
     void decrease_spirit(const int);
 
-    int get_melee_ap();
+    int get_melee_ap() const;
     void increase_melee_ap(const int);
     void decrease_melee_ap(const int);
+
+    int get_ranged_ap() const;
+    void increase_ranged_ap(const int);
+    void decrease_ranged_ap(const int);
 
     virtual void increase_hit(double);
     virtual void decrease_hit(double);

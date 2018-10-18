@@ -16,16 +16,16 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar) :
         pchar->get_stats()->increase_strength(7);
         break;
     case EnchantName::EnchantGlovesMinorHaste:
-        pchar->get_stats()->increase_haste(1); // This is wrong, it should not be a multiplicative effect
+        pchar->get_stats()->increase_haste(1);
         break;
     case EnchantName::IronCounterweight:
-        pchar->get_stats()->increase_haste(3); // This is wrong, it should not be a multiplicative effect
+        pchar->get_stats()->increase_haste(3);
         break;
     case EnchantName::Enchant2HWeaponAgility:
         pchar->get_stats()->increase_agility(25);
         break;
     case EnchantName::ArcanumOfRapidity:
-        pchar->get_stats()->increase_haste(1); // MIGHT be wrong, investigate if it should be a multiplicative effect
+        pchar->get_stats()->increase_haste(1);
         break;
     case EnchantName::LesserArcanumOfVoracity:
         pchar->get_stats()->increase_strength(8);
@@ -35,10 +35,11 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar) :
         break;
     case EnchantName::ZandalarSignetOfMight:
         pchar->get_stats()->increase_melee_ap(30);
-        // TODO: should increase ranged ap
+        pchar->get_stats()->increase_ranged_ap(30);
         break;
     case EnchantName::MightOfTheScourge:
         pchar->get_stats()->increase_melee_ap(26);
+        pchar->get_stats()->increase_ranged_ap(26);
         pchar->get_stats()->increase_crit(0.01);
         break;
     case EnchantName::EnchantChestGreaterStats:
@@ -71,16 +72,16 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_strength(7);
         break;
     case EnchantName::EnchantGlovesMinorHaste:
-        pchar->get_stats()->decrease_haste(1); // This is wrong, it should not be a multiplicative effect
+        pchar->get_stats()->decrease_haste(1);
         break;
     case EnchantName::IronCounterweight:
-        pchar->get_stats()->decrease_haste(3); // This is wrong, it should not be a multiplicative effect
+        pchar->get_stats()->decrease_haste(3);
         break;
     case EnchantName::Enchant2HWeaponAgility:
         pchar->get_stats()->decrease_agility(25);
         break;
     case EnchantName::ArcanumOfRapidity:
-        pchar->get_stats()->decrease_haste(1); // MIGHT be wrong, investigate if it should be a multiplicative effect
+        pchar->get_stats()->decrease_haste(1);
         break;
     case EnchantName::LesserArcanumOfVoracity:
         pchar->get_stats()->decrease_strength(8);
@@ -90,10 +91,11 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::ZandalarSignetOfMight:
         pchar->get_stats()->decrease_melee_ap(30);
-        // TODO: should decrease ranged ap
+        pchar->get_stats()->decrease_ranged_ap(30);
         break;
     case EnchantName::MightOfTheScourge:
         pchar->get_stats()->decrease_melee_ap(26);
+        pchar->get_stats()->decrease_ranged_ap(26);
         pchar->get_stats()->decrease_crit(0.01);
         break;
     case EnchantName::EnchantChestGreaterStats:
