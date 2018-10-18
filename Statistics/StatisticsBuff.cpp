@@ -20,7 +20,7 @@ QString StatisticsBuff::get_name() const {
 
 void StatisticsBuff::add_uptime_for_encounter(const double uptime) {
     ++counter;
-    avg_uptime = counter == 1 ? uptime : ((uptime) * (counter - 1) + avg_uptime) / counter;
+    avg_uptime = avg_uptime + (uptime - avg_uptime) / counter;
 }
 
 double StatisticsBuff::get_uptime() const {
