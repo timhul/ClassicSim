@@ -37,6 +37,7 @@
 #include "Talents.h"
 #include "Faction.h"
 #include "ItemNamespace.h"
+#include "SimSettings.h"
 
 #include "WarriorSpells.h"
 
@@ -87,7 +88,8 @@ void Test::test_all() {
 
 void Test::test_queue() {
     Race* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* pchar = new Warrior(race, equipment_db, sim_settings);
     pchar->get_equipment()->set_mainhand("Frostbite");
     pchar->get_equipment()->set_offhand("Krol Blade");
     pchar->set_clvl(60);
@@ -102,6 +104,7 @@ void Test::test_queue() {
 
     delete pchar;
     delete race;
+    delete sim_settings;
 }
 
 void Test::test_random() {

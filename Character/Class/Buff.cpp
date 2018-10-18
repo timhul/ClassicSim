@@ -102,7 +102,7 @@ void Buff::reset() {
         force_remove_buff();
 
     if (!is_hidden())
-        statistics_buff->add_uptime_for_encounter(uptime / 300);
+        statistics_buff->add_uptime_for_encounter(uptime / pchar->get_sim_settings()->get_combat_length());
 
     initialize();
 }
