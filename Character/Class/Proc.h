@@ -24,8 +24,6 @@ public:
     void enable_proc();
     void disable_proc();
 
-    int get_instance_id() const;
-    void set_instance_id(const int);
     void set_current_proc_source(const ProcInfo::Source);
 
     bool procs_from_source(ProcInfo::Source) const;
@@ -41,8 +39,6 @@ protected:
     ProcInfo::Source curr_proc_source{};
     StatisticsProc* statistics_proc;
     StatisticsResource* statistics_resource;
-
-    int instance_id;
 
     unsigned proc_range;
 

@@ -53,32 +53,26 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->warr_mh_attack = new MainhandAttackWarrior(pchar);
     this->warr_oh_attack = new OffhandAttackWarrior(pchar);
 
-    spells.append(battle_shout);
-    spells.append(battle_stance);
-    spells.append(berserker_rage);
-    spells.append(berserker_stance);
-    spells.append(bloodrage);
-    spells.append(bt);
-    spells.append(death_wish);
-    spells.append(deep_wounds);
-    spells.append(execute);
-    spells.append(heroic_strike);
-    spells.append(overpower);
-    spells.append(mortal_strike);
-    spells.append(recklessness);
-    spells.append(slam);
-    spells.append(whirlwind);
-    spells.append(warr_mh_attack);
-    spells.append(warr_oh_attack);
+    add_spell(battle_shout);
+    add_spell(battle_stance);
+    add_spell(berserker_rage);
+    add_spell(berserker_stance);
+    add_spell(bloodrage);
+    add_spell(bt);
+    add_spell(death_wish);
+    add_spell(deep_wounds);
+    add_spell(execute);
+    add_spell(heroic_strike);
+    add_spell(overpower);
+    add_spell(mortal_strike);
+    add_spell(recklessness);
+    add_spell(slam);
+    add_spell(whirlwind);
+    add_spell(warr_mh_attack);
+    add_spell(warr_oh_attack);
 }
 
 WarriorSpells::~WarriorSpells() = default;
-
-void WarriorSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}
 
 void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!warr_mh_attack->attack_is_valid(iteration))

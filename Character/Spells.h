@@ -18,7 +18,10 @@ public:
     Spells(Character* pchar, QObject* parent = nullptr);
     virtual ~Spells();
 
-    virtual void reset() = 0;
+    void add_spell(Spell* spell);
+    void remove_spell(Spell* spell);
+
+    virtual void reset();
 
     virtual void start_attack();
     virtual void mh_auto_attack(const int);
@@ -43,6 +46,8 @@ protected:
 
     Berserking* berserking;
     BloodFury* blood_fury;
+
+    int next_instance_id;
 
 private:
 };

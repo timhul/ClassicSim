@@ -13,6 +13,11 @@
 class Character;
 class StatisticsSpell;
 
+namespace SpellStatus {
+    static const int INACTIVE = -1;
+    static const int INITIAL_ID = 0;
+}
+
 class Spell {
 public:
     Spell(const QString& name,
@@ -45,6 +50,9 @@ public:
     virtual void prepare_set_of_combat_iterations();
     StatisticsSpell* get_statistics_for_spell() const;
 
+    int get_instance_id() const;
+    void set_instance_id(const int);
+
 protected:
     virtual void spell_effect() = 0;
     virtual void enable_spell_effect();
@@ -63,6 +71,7 @@ protected:
     double last_used;
     int resource_cost;
     int spell_rank;
+    int instance_id;
     bool enabled;
 
     void add_spell_cd_event(void) const;

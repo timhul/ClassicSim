@@ -31,7 +31,6 @@ public:
     WarriorSpells(Warrior *warr);
     ~WarriorSpells() override;
 
-    void reset() override;
     void mh_auto_attack(const int) override;
     void oh_auto_attack(const int) override;
     void add_next_mh_attack(void) override;

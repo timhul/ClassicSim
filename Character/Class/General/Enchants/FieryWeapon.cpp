@@ -2,6 +2,8 @@
 #include "FieryWeapon.h"
 #include "FieryWeaponAttack.h"
 #include "ItemNamespace.h"
+#include "Character.h"
+#include "Spells.h"
 
 FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, const int weapon) :
     ProcPPM("Fiery Weapon " + weapon_identifier, weapon, 6.0, 0.0, QVector<Proc*>(),
@@ -18,9 +20,13 @@ FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, con
         proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
         break;
     }
+
+    pchar->get_spells()->add_spell(fiery_weapon_attack);
 }
 
 FieryWeapon::~FieryWeapon() {
+    pchar->get_spells()->remove_spell(fiery_weapon_attack);
+    fiery_weapon_attack->disable();
     delete fiery_weapon_attack;
 }
 

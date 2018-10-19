@@ -6,6 +6,7 @@
 #include "Target.h"
 #include "StatisticsSpell.h"
 #include "Mechanics.h"
+#include "Spells.h"
 
 Spell::Spell(const QString& name,
              Character* pchar,
@@ -22,6 +23,7 @@ Spell::Spell(const QString& name,
     last_used(0 - cooldown),
     resource_cost(resource_cost),
     spell_rank(0),
+    instance_id(SpellStatus::INACTIVE),
     enabled(true)
 {}
 
@@ -186,6 +188,14 @@ void Spell::prepare_set_of_combat_iterations() {
 
 StatisticsSpell* Spell::get_statistics_for_spell() const {
     return this->statistics_spell;
+}
+
+int Spell::get_instance_id() const {
+    return this->instance_id;
+}
+
+void Spell::set_instance_id(const int instance_id) {
+    this->instance_id = instance_id;
 }
 
 void Spell::reset_effect() {

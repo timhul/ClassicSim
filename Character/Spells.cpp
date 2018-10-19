@@ -11,7 +11,8 @@
 
 Spells::Spells(Character* pchar, QObject* parent) :
     QObject(parent),
-    pchar(pchar)
+    pchar(pchar),
+    next_instance_id(SpellStatus::INITIAL_ID)
 {
     berserking = new Berserking(pchar);
     blood_fury = new BloodFury(pchar);
@@ -25,6 +26,30 @@ Spells::~Spells()
     }
 
     spells.clear();
+}
+
+void Spells::add_spell(Spell* spell) {
+    if (spell->get_instance_id() == SpellStatus::INACTIVE) {
+        spell->set_instance_id(next_instance_id);
+        ++next_instance_id;
+    }
+
+    spells.append(spell);
+}
+
+void Spells::remove_spell(Spell* spell) {
+    for (auto & i : spells) {
+        if (i->get_instance_id() == spell->get_instance_id()) {
+            spells.removeOne(i);
+            break;
+        }
+    }
+}
+
+void Spells::reset() {
+    for (auto & spell : spells) {
+        spell->reset();
+    }
 }
 
 void Spells::start_attack() {
