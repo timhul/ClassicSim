@@ -9,6 +9,7 @@
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
 #include "SimSettings.h"
+#include "Equipment.h"
 #include <QDebug>
 #include <utility>
 
@@ -124,6 +125,9 @@ void TestSpellWarrior::given_warrior_in_defensive_stance() {
 }
 
 void TestSpellWarrior::given_warrior_is_on_gcd() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     given_warrior_is_on_gcd(dynamic_cast<WarriorSpells*>(pchar->get_spells())->get_whirlwind());
 }
 

@@ -40,6 +40,7 @@ void TestMortalStrike::test_name_correct() {
 }
 
 void TestMortalStrike::test_spell_cooldown() {
+    given_a_twohand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     assert(QString::number(mortal_strike()->get_base_cooldown(), 'f', 3) == "6.000");
 
@@ -50,6 +51,7 @@ void TestMortalStrike::test_spell_cooldown() {
 }
 
 void TestMortalStrike::test_incurs_global_cooldown() {
+    given_a_twohand_weapon_with_100_min_max_dmg();
     when_mortal_strike_is_performed();
 
     then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
@@ -75,6 +77,7 @@ void TestMortalStrike::test_is_ready_conditions() {
 }
 
 void TestMortalStrike::test_resource_cost() {
+    given_a_twohand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(30);
 

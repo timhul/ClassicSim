@@ -508,6 +508,8 @@ void TestSpell::then_next_event_is(const QString &name) {
     Event* event = pchar->get_engine()->get_queue()->get_next();
     pchar->get_engine()->set_current_priority(event);
 
+    if (event->get_name() != name)
+        qDebug() << "Expected event" << name << "got" << event->get_name();
     assert(event->get_name() == name);
 
     delete event;

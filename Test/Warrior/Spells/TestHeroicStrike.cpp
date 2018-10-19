@@ -4,6 +4,7 @@
 #include "HeroicStrikeBuff.h"
 #include "ImprovedHeroicStrike.h"
 #include "WarriorSpells.h"
+#include "Equipment.h"
 
 TestHeroicStrike::TestHeroicStrike(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Heroic Strike")
@@ -236,6 +237,9 @@ void TestHeroicStrike::given_user_has_not_activate_heroic_strike() {
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     heroic_strike()->calculate_damage();
 }
 

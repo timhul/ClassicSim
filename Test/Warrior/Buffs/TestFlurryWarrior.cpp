@@ -13,6 +13,7 @@
 #include "Overpower.h"
 #include "MortalStrike.h"
 #include "Spell.h"
+#include "Equipment.h"
 
 TestFlurryWarrior::TestFlurryWarrior(EquipmentDb* equipment_db) :
     TestBuffWarrior(equipment_db, "FlurryWarrior")
@@ -133,6 +134,7 @@ void TestFlurryWarrior::test_name_correct() {
 }
 
 void TestFlurryWarrior::test_has_15_second_duration() {
+    given_a_mainhand_and_offhand_equipped();
     given_flurry_enabled();
 
     when_flurry_is_applied();
@@ -382,6 +384,7 @@ void TestFlurryWarrior::test_critical_whirlwind_applies_flurry() {
 }
 
 void TestFlurryWarrior::test_critical_heroic_strike_applies_flurry() {
+    given_a_mainhand_and_offhand_equipped();
     given_a_guaranteed_melee_ability_crit();
     given_flurry_enabled();
     given_flurry_is_not_active();
@@ -452,6 +455,7 @@ void TestFlurryWarrior::test_regular_hit_whirlwind_does_not_apply_flurry() {
 }
 
 void TestFlurryWarrior::test_regular_hit_heroic_strike_does_not_apply_flurry() {
+    given_a_mainhand_and_offhand_equipped();
     given_a_guaranteed_melee_ability_hit();
     given_flurry_enabled();
     given_flurry_is_not_active();
@@ -492,6 +496,11 @@ void TestFlurryWarrior::given_flurry_not_enabled() {
 
 void TestFlurryWarrior::given_flurry_is_not_active() {
     when_flurry_is_removed();
+}
+
+void TestFlurryWarrior::given_a_mainhand_and_offhand_equipped() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_an_offhand_weapon_with_100_min_max_dmg();
 }
 
 void TestFlurryWarrior::when_flurry_is_applied() {
@@ -542,14 +551,23 @@ void TestFlurryWarrior::given_5_of_5_flurry() {
 }
 
 void TestFlurryWarrior::when_performing_mh_attack() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     warrior->get_spells()->get_mh_attack()->perform();
 }
 
 void TestFlurryWarrior::when_performing_oh_attack() {
+    if (pchar->get_equipment()->get_offhand() == nullptr)
+        given_an_offhand_weapon_with_100_min_max_dmg();
+
     warrior->get_spells()->get_oh_attack()->perform();
 }
 
 void TestFlurryWarrior::when_performing_attack(Spell* spell) {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     spell->perform();
 }
 

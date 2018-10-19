@@ -91,7 +91,7 @@ void Test::test_queue() {
     auto* sim_settings = new SimSettings();
     auto* pchar = new Warrior(race, equipment_db, sim_settings);
     pchar->get_equipment()->set_mainhand("Frostbite");
-    pchar->get_equipment()->set_offhand("Krol Blade");
+    pchar->get_equipment()->set_offhand("Vis'kag the Bloodletter");
     pchar->set_clvl(60);
     pchar->prepare_set_of_combat_iterations();
     auto* start_event = new EncounterStart(pchar);
@@ -120,6 +120,7 @@ void Test::test_random() {
 void Test::test_combat_roll_melee_hit_result() {
     Race* race = new Orc();
     auto* pchar = new Warrior(race, equipment_db, nullptr);
+    pchar->get_equipment()->set_mainhand("Frostbite");
 
     for(int i = 0; i < 30; ++i) {
         pchar->get_combat_roll()->get_melee_hit_result(300);
@@ -132,6 +133,7 @@ void Test::test_combat_roll_melee_hit_result() {
 void Test::test_combat_roll_creation() {
     auto* race = new Orc();
     auto* pchar = new Warrior(race, equipment_db, nullptr);
+    pchar->get_equipment()->set_mainhand("Frostbite");
 
     pchar->get_combat_roll()->get_white_hit_table(300);
     pchar->get_combat_roll()->get_white_hit_table(300);
@@ -240,6 +242,8 @@ void Test::test_white_hit_table() {
 void Test::test_white_hit_table_update() {
     Race* race = new Orc();
     auto* pchar = new Warrior(race, equipment_db, nullptr);
+    pchar->get_equipment()->set_mainhand("Frostbite");
+    pchar->get_equipment()->set_offhand("Vis'kag the Bloodletter");
 
     WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(300);
 

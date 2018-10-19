@@ -188,6 +188,7 @@ void TestOverpower::test_crit_dmg_2_of_2_impale() {
 }
 
 void TestOverpower::test_overpower_hit_removes_buff() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
 
     when_overpower_buff_is_applied();
@@ -197,6 +198,7 @@ void TestOverpower::test_overpower_hit_removes_buff() {
 }
 
 void TestOverpower::test_overpower_crit_removes_buff() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
 
     when_overpower_buff_is_applied();
@@ -206,6 +208,7 @@ void TestOverpower::test_overpower_crit_removes_buff() {
 }
 
 void TestOverpower::test_overpower_miss_removes_buff() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_miss();
 
     when_overpower_buff_is_applied();
@@ -220,6 +223,9 @@ void TestOverpower::given_no_overpower_buff() {
 }
 
 void TestOverpower::when_overpower_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     overpower()->perform();
 }
 

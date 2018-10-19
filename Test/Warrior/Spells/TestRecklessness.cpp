@@ -85,6 +85,7 @@ void TestRecklessness::test_name_correct() {
 }
 
 void TestRecklessness::test_spell_cooldown() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     assert(QString::number(recklessness()->get_base_cooldown(), 'f', 3) == "1800.000");
 
@@ -156,6 +157,7 @@ void TestRecklessness::test_incurs_global_cooldown() {
 }
 
 void TestRecklessness::test_resource_cost() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_warrior_has_rage(0);
 
@@ -165,6 +167,7 @@ void TestRecklessness::test_resource_cost() {
 }
 
 void TestRecklessness::test_ability_miss_still_misses() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_miss();
 
     when_reck_and_whirlwind_is_performed();
@@ -173,6 +176,7 @@ void TestRecklessness::test_ability_miss_still_misses() {
 }
 
 void TestRecklessness::test_ability_dodge_still_dodges() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_dodge();
 
     when_reck_and_whirlwind_is_performed();
@@ -181,6 +185,7 @@ void TestRecklessness::test_ability_dodge_still_dodges() {
 }
 
 void TestRecklessness::test_ability_parry_still_parries() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_parry();
 
     when_reck_and_whirlwind_is_performed();
@@ -189,6 +194,7 @@ void TestRecklessness::test_ability_parry_still_parries() {
 }
 
 void TestRecklessness::test_ability_block_still_blocks() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_block();
 
     when_reck_and_whirlwind_is_performed();
@@ -197,6 +203,7 @@ void TestRecklessness::test_ability_block_still_blocks() {
 }
 
 void TestRecklessness::test_white_miss_still_misses() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_miss();
 
     when_reck_and_mh_attack_is_performed();
@@ -205,6 +212,7 @@ void TestRecklessness::test_white_miss_still_misses() {
 }
 
 void TestRecklessness::test_white_dodge_still_dodges() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_dodge();
 
     when_reck_and_mh_attack_is_performed();
@@ -213,6 +221,7 @@ void TestRecklessness::test_white_dodge_still_dodges() {
 }
 
 void TestRecklessness::test_white_parry_still_parries() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_parry();
 
     when_reck_and_mh_attack_is_performed();
@@ -221,6 +230,7 @@ void TestRecklessness::test_white_parry_still_parries() {
 }
 
 void TestRecklessness::test_white_block_still_blocks() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_block();
 
     when_reck_and_mh_attack_is_performed();
@@ -294,6 +304,9 @@ void TestRecklessness::test_ability_crit_still_crits() {
 }
 
 void TestRecklessness::when_recklessness_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     recklessness()->perform();
 }
 

@@ -168,5 +168,8 @@ void TestWhirlwind::test_dodge_applies_overpower_buff() {
 }
 
 void TestWhirlwind::when_whirlwind_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     whirlwind()->perform();
 }

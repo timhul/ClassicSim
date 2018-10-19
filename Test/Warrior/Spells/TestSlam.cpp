@@ -5,6 +5,7 @@
 #include "ImprovedSlam.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
+#include "Equipment.h"
 
 TestSlam::TestSlam(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Slam")
@@ -278,6 +279,9 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
 }
 
 void TestSlam::when_slam_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     slam()->perform();
 
     while (pchar->get_engine()->get_current_priority() < 2.1) {

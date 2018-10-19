@@ -239,6 +239,9 @@ void TestMainhandAttackWarrior::test_dodge_applies_overpower_buff() {
 }
 
 void TestMainhandAttackWarrior::when_mh_attack_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     mh_attack()->perform();
 }
 

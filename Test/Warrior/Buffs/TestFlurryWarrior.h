@@ -46,6 +46,7 @@ public:
     void given_flurry_enabled();
     void given_flurry_not_enabled();
     void given_flurry_is_not_active();
+    void given_a_mainhand_and_offhand_equipped();
 
     void given_1_of_5_flurry();
     void given_2_of_5_flurry();

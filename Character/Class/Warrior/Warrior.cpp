@@ -94,10 +94,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
 
     initialize_talents();
 
-    // TODO: Remove character hardcoded equip of these items.
-    cstats->get_equipment()->set_mainhand("Skullforge Reaver");
-    cstats->get_equipment()->set_offhand("Frostbite");
-
     apply_racial_effects();
 }
 

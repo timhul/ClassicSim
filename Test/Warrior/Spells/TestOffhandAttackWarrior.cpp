@@ -3,6 +3,7 @@
 #include "DualWieldSpecialization.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
+#include "Equipment.h"
 
 TestOffhandAttackWarrior::TestOffhandAttackWarrior(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "OffhandAttackWarrior")
@@ -481,6 +482,9 @@ void TestOffhandAttackWarrior::when_mh_attack_is_performed() {
 }
 
 void TestOffhandAttackWarrior::when_oh_attack_is_performed() {
+    if (pchar->get_equipment()->get_offhand() == nullptr)
+        given_an_offhand_weapon_with_100_min_max_dmg();
+
     oh_attack()->perform();
 }
 

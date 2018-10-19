@@ -10,6 +10,7 @@
 #include "Queue.h"
 #include "ClassStatistics.h"
 #include "DeepWoundsTalent.h"
+#include "Equipment.h"
 
 TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Deep Wounds")
@@ -154,6 +155,7 @@ void TestDeepWounds::test_stance_cooldown() {
 }
 
 void TestDeepWounds::test_critical_oh_attack_applies_deep_wounds() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
@@ -184,6 +186,7 @@ void TestDeepWounds::test_critical_whirlwind_applies_deep_wounds() {
 }
 
 void TestDeepWounds::test_critical_heroic_strike_applies_deep_wounds() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
@@ -214,6 +217,7 @@ void TestDeepWounds::test_regular_hit_mh_attack_does_not_apply_deep_wounds() {
 }
 
 void TestDeepWounds::test_regular_hit_oh_attack_does_not_apply_deep_wounds() {
+    given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
@@ -244,6 +248,7 @@ void TestDeepWounds::test_regular_hit_whirlwind_does_not_apply_deep_wounds() {
 }
 
 void TestDeepWounds::test_regular_hit_heroic_strike_does_not_apply_deep_wounds() {
+    given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_deep_wounds_enabled();
     given_no_previous_deep_wounds_damage_dealt();
@@ -354,10 +359,16 @@ void TestDeepWounds::given_no_previous_deep_wounds_damage_dealt() {
 }
 
 void TestDeepWounds::when_mh_attack_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     warrior->get_spells()->get_mh_attack()->perform();
 }
 
 void TestDeepWounds::when_attack_is_performed(Spell* spell) {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
     spell->perform();
 }
 
