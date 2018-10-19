@@ -15,9 +15,3 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
 }
 
 PaladinSpells::~PaladinSpells() = default;
-
-void PaladinSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}

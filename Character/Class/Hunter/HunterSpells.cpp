@@ -15,9 +15,3 @@ HunterSpells::HunterSpells(Hunter* hunter) :
 }
 
 HunterSpells::~HunterSpells() = default;
-
-void HunterSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}

@@ -15,9 +15,3 @@ WarlockSpells::WarlockSpells(Warlock* warlock) :
 }
 
 WarlockSpells::~WarlockSpells() = default;
-
-void WarlockSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}

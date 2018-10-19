@@ -12,8 +12,6 @@ public:
     DruidSpells(Druid *druid);
     virtual ~DruidSpells() override;
 
-    void reset() override;
-
 private:
     Druid* druid;
 };

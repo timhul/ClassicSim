@@ -12,8 +12,6 @@ public:
     HunterSpells(Hunter *hunter);
     virtual ~HunterSpells() override;
 
-    void reset() override;
-
 private:
     Hunter* hunter;
 };

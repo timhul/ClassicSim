@@ -12,8 +12,6 @@ public:
     MageSpells(Mage *mage);
     virtual ~MageSpells() override;
 
-    void reset() override;
-
 private:
     Mage* mage;
 };

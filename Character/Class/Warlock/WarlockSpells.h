@@ -12,8 +12,6 @@ public:
     WarlockSpells(Warlock *warlock);
     virtual ~WarlockSpells() override;
 
-    void reset() override;
-
 private:
     Warlock* warlock;
 };

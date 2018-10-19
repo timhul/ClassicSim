@@ -15,9 +15,3 @@ MageSpells::MageSpells(Mage* mage) :
 }
 
 MageSpells::~MageSpells() = default;
-
-void MageSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}

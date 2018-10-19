@@ -12,8 +12,6 @@ public:
     ShamanSpells(Shaman *shaman);
     virtual ~ShamanSpells() override;
 
-    void reset() override;
-
 private:
     Shaman* shaman;
 };

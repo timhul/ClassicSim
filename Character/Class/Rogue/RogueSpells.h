@@ -12,8 +12,6 @@ public:
     RogueSpells(Rogue *rogue);
     virtual ~RogueSpells() override;
 
-    void reset() override;
-
 private:
     Rogue* rogue;
 };

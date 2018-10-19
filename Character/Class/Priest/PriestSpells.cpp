@@ -15,9 +15,3 @@ PriestSpells::PriestSpells(Priest* priest) :
 }
 
 PriestSpells::~PriestSpells() = default;
-
-void PriestSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}

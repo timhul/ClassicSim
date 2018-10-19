@@ -15,9 +15,3 @@ RogueSpells::RogueSpells(Rogue* rogue) :
 }
 
 RogueSpells::~RogueSpells() = default;
-
-void RogueSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}

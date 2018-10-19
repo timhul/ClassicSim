@@ -12,8 +12,6 @@ public:
     PaladinSpells(Paladin *paladin);
     virtual ~PaladinSpells() override;
 
-    void reset() override;
-
 private:
     Paladin* paladin;
 };

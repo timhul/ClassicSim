@@ -21,7 +21,7 @@ public:
     void add_spell(Spell* spell);
     void remove_spell(Spell* spell);
 
-    virtual void reset();
+    void reset();
 
     virtual void start_attack();
     virtual void mh_auto_attack(const int);

@@ -12,8 +12,6 @@ public:
     PriestSpells(Priest *priest);
     virtual ~PriestSpells() override;
 
-    void reset() override;
-
 private:
     Priest* priest;
 };

@@ -15,9 +15,3 @@ DruidSpells::DruidSpells(Druid* druid) :
 }
 
 DruidSpells::~DruidSpells() = default;
-
-void DruidSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}

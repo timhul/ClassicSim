@@ -15,9 +15,3 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
 }
 
 ShamanSpells::~ShamanSpells() = default;
-
-void ShamanSpells::reset() {
-    for (auto & spell : spells) {
-        spell->reset();
-    }
-}
