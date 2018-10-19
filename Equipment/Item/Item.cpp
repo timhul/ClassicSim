@@ -7,6 +7,7 @@
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
 #include "ArmorPenetrationProc.h"
+#include "ShadowBoltProc.h"
 #include <QDebug>
 #include <utility>
 
@@ -217,6 +218,30 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             int duration = i["duration"].toInt();
 
             proc = new ArmorPenetrationProc(pchar, get_name(), proc_sources, proc_rate, reduction, max_stacks, duration);
+        }
+
+        else if (proc_name == "SHADOW_ATTACK") {
+            switch (eq_slot) {
+            case EquipmentSlot::MAINHAND:
+                proc_sources.append(ProcInfo::Source::MainhandSwing);
+                proc_sources.append(ProcInfo::Source::MainhandSpell);
+                break;
+            case EquipmentSlot::OFFHAND:
+                proc_sources.append(ProcInfo::Source::OffhandSwing);
+                proc_sources.append(ProcInfo::Source::OffhandSpell);
+                break;
+            default:
+                proc_sources.append(ProcInfo::Source::MainhandSwing);
+                proc_sources.append(ProcInfo::Source::MainhandSpell);
+                proc_sources.append(ProcInfo::Source::OffhandSwing);
+                proc_sources.append(ProcInfo::Source::OffhandSpell);
+                break;
+            }
+
+            unsigned min = i["min"].toUInt();
+            unsigned max = i["max"].toUInt();
+
+            proc = new ShadowBoltProc(pchar, get_name(), proc_sources, proc_rate, min, max);
         }
 
         if (proc != nullptr) {

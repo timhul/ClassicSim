@@ -247,7 +247,9 @@ SOURCES += main.cpp \
     Character/Class/General/Enchants/EnchantStatic.cpp \
     Character/Class/General/Enchants/EnchantProc.cpp \
     Character/Class/General/Buffs/ArmorPenetrationBuff.cpp \
-    Character/Class/General/Procs/ArmorPenetrationProc.cpp
+    Character/Class/General/Procs/ArmorPenetrationProc.cpp \
+    Character/Class/General/Procs/ShadowBoltProc.cpp \
+    Character/Class/General/Spells/ShadowBoltAttack.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -491,7 +493,9 @@ HEADERS += \
     Character/Class/General/Enchants/EnchantProc.h \
     Character/Class/General/Enchants/EnchantName.h \
     Character/Class/General/Buffs/ArmorPenetrationBuff.h \
-    Character/Class/General/Procs/ArmorPenetrationProc.h
+    Character/Class/General/Procs/ArmorPenetrationProc.h \
+    Character/Class/General/Procs/ShadowBoltProc.h \
+    Character/Class/General/Spells/ShadowBoltAttack.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
