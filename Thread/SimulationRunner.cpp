@@ -69,7 +69,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
         return;
     }
 
-    this->setup_string = std::move(setup_string);
+    this->setup_string = setup_string;
     this->full_sim = full_sim;
 
     CharacterDecoder decoder;
