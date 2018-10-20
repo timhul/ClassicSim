@@ -7,6 +7,7 @@
 #include <assert.h>
 #include "ItemNamespace.h"
 #include "ItemStatsEnum.h"
+#include "ProcInfo.h"
 #include "EnchantName.h"
 
 class Enchant;
@@ -72,6 +73,8 @@ protected:
     int get_type_int(const QString& type_string);
     void unsupported_stat(const QString& stat);
     QString get_tooltip(const QVector<QString>&) const;
+
+    void add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot);
 
 private:
 };

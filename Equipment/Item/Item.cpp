@@ -159,26 +159,12 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             continue;
         }
 
+        auto direct_spell_damage_procs = QSet<QString>({"SHADOW_ATTACK"});
         QVector<ProcInfo::Source> proc_sources;
         Proc* proc = nullptr;
 
         if (proc_name == "EXTRA_ATTACK") {
-            switch (eq_slot) {
-            case EquipmentSlot::MAINHAND:
-                proc_sources.append(ProcInfo::Source::MainhandSwing);
-                proc_sources.append(ProcInfo::Source::MainhandSpell);
-                break;
-            case EquipmentSlot::OFFHAND:
-                proc_sources.append(ProcInfo::Source::OffhandSwing);
-                proc_sources.append(ProcInfo::Source::OffhandSpell);
-                break;
-            default:
-                proc_sources.append(ProcInfo::Source::MainhandSwing);
-                proc_sources.append(ProcInfo::Source::MainhandSpell);
-                proc_sources.append(ProcInfo::Source::OffhandSwing);
-                proc_sources.append(ProcInfo::Source::OffhandSpell);
-                break;
-            }
+            add_default_melee_proc_sources(proc_sources, eq_slot);
 
             if (instant == "yes") {
                 proc = new ExtraAttackInstantProc(pchar,
@@ -196,22 +182,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             }
         }
         else if (proc_name == "ARMOR_PENETRATION") {
-            switch (eq_slot) {
-            case EquipmentSlot::MAINHAND:
-                proc_sources.append(ProcInfo::Source::MainhandSwing);
-                proc_sources.append(ProcInfo::Source::MainhandSpell);
-                break;
-            case EquipmentSlot::OFFHAND:
-                proc_sources.append(ProcInfo::Source::OffhandSwing);
-                proc_sources.append(ProcInfo::Source::OffhandSpell);
-                break;
-            default:
-                proc_sources.append(ProcInfo::Source::MainhandSwing);
-                proc_sources.append(ProcInfo::Source::MainhandSpell);
-                proc_sources.append(ProcInfo::Source::OffhandSwing);
-                proc_sources.append(ProcInfo::Source::OffhandSpell);
-                break;
-            }
+            add_default_melee_proc_sources(proc_sources, eq_slot);
 
             int reduction = i["value"].toInt();
             int max_stacks = i["max_stacks"].toInt();
@@ -220,23 +191,8 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             proc = new ArmorPenetrationProc(pchar, get_name(), proc_sources, proc_rate, reduction, max_stacks, duration);
         }
 
-        else if (proc_name == "SHADOW_ATTACK") {
-            switch (eq_slot) {
-            case EquipmentSlot::MAINHAND:
-                proc_sources.append(ProcInfo::Source::MainhandSwing);
-                proc_sources.append(ProcInfo::Source::MainhandSpell);
-                break;
-            case EquipmentSlot::OFFHAND:
-                proc_sources.append(ProcInfo::Source::OffhandSwing);
-                proc_sources.append(ProcInfo::Source::OffhandSpell);
-                break;
-            default:
-                proc_sources.append(ProcInfo::Source::MainhandSwing);
-                proc_sources.append(ProcInfo::Source::MainhandSpell);
-                proc_sources.append(ProcInfo::Source::OffhandSwing);
-                proc_sources.append(ProcInfo::Source::OffhandSpell);
-                break;
-            }
+        else if (direct_spell_damage_procs.contains(proc_name)) {
+            add_default_melee_proc_sources(proc_sources, eq_slot);
 
             unsigned min = i["min"].toUInt();
             unsigned max = i["max"].toUInt();
@@ -252,6 +208,24 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
 
     if (!procs_.empty())
         this->proc_map.insert(eq_slot, procs_);
+}
+
+void Item::add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot) {
+    switch (eq_slot) {
+    case EquipmentSlot::MAINHAND:
+        proc_sources.append(ProcInfo::Source::MainhandSwing);
+        proc_sources.append(ProcInfo::Source::MainhandSpell);
+        break;
+    case EquipmentSlot::OFFHAND:
+        proc_sources.append(ProcInfo::Source::OffhandSwing);
+        proc_sources.append(ProcInfo::Source::OffhandSpell);
+        break;
+    default:
+        proc_sources.append(ProcInfo::Source::MainhandSwing);
+        proc_sources.append(ProcInfo::Source::MainhandSpell);
+        proc_sources.append(ProcInfo::Source::OffhandSwing);
+        proc_sources.append(ProcInfo::Source::OffhandSpell);
+    }
 }
 
 void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {
