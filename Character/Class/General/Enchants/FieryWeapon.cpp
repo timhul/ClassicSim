@@ -1,14 +1,15 @@
 
 #include "FieryWeapon.h"
-#include "FieryWeaponAttack.h"
+#include "InstantSpellAttack.h"
 #include "ItemNamespace.h"
 #include "Character.h"
 #include "Spells.h"
+#include "MagicSchools.h"
 
 FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, const int weapon) :
     ProcPPM("Fiery Weapon " + weapon_identifier, weapon, 6.0, 0.0, QVector<Proc*>(),
             QVector<ProcInfo::Source>(), pchar),
-    fiery_weapon_attack(new FieryWeaponAttack(pchar))
+    fiery_weapon_attack(new InstantSpellAttack(pchar, name, MagicSchool::Fire, 40, 40))
 {
     assert(weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND);
 

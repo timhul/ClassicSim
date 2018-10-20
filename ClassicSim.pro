@@ -136,7 +136,6 @@ SOURCES += main.cpp \
     Character/ActiveProcs.cpp \
     Character/ActiveBuffs.cpp \
     Character/Class/General/Enchants/FieryWeapon.cpp \
-    Character/Class/General/Spells/FieryWeaponAttack.cpp \
     Character/Spells.cpp \
     Character/CharacterStats.cpp \
     Character/Class/Warrior/WarriorSpells.cpp \
@@ -248,10 +247,6 @@ SOURCES += main.cpp \
     Character/Class/General/Enchants/EnchantProc.cpp \
     Character/Class/General/Buffs/ArmorPenetrationBuff.cpp \
     Character/Class/General/Procs/ArmorPenetrationProc.cpp \
-    Character/Class/General/Procs/ShadowBoltProc.cpp \
-    Character/Class/General/Spells/ShadowBoltAttack.cpp \
-    Character/Class/General/Procs/NatureDamageProc.cpp \
-    Character/Class/General/Spells/NatureDamageAttack.cpp \
     Character/Class/General/Spells/InstantSpellAttack.cpp \
     Character/Class/General/Procs/InstantSpellProc.cpp
 
@@ -384,7 +379,6 @@ HEADERS += \
     Character/ActiveProcs.h \
     Character/ActiveBuffs.h \
     Character/Class/General/Enchants/FieryWeapon.h \
-    Character/Class/General/Spells/FieryWeaponAttack.h \
     Character/Spells.h \
     Character/CharacterStats.h \
     Character/Class/Warrior/WarriorSpells.h \
@@ -498,10 +492,6 @@ HEADERS += \
     Character/Class/General/Enchants/EnchantName.h \
     Character/Class/General/Buffs/ArmorPenetrationBuff.h \
     Character/Class/General/Procs/ArmorPenetrationProc.h \
-    Character/Class/General/Procs/ShadowBoltProc.h \
-    Character/Class/General/Spells/ShadowBoltAttack.h \
-    Character/Class/General/Procs/NatureDamageProc.h \
-    Character/Class/General/Spells/NatureDamageAttack.h \
     Character/Class/General/Spells/InstantSpellAttack.h \
     Character/Class/General/Procs/InstantSpellProc.h \
     Character/Class/MagicSchools.h

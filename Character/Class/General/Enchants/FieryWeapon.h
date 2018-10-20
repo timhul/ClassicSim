@@ -3,7 +3,7 @@
 
 #include "ProcPPM.h"
 
-class FieryWeaponAttack;
+class InstantSpellAttack;
 
 class FieryWeapon: public ProcPPM {
 public:
@@ -14,7 +14,7 @@ public:
 
 protected:
 private:
-    FieryWeaponAttack* fiery_weapon_attack;
+    InstantSpellAttack* fiery_weapon_attack;
 };
 
 #endif // FIERYWEAPON_H

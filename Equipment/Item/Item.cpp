@@ -220,8 +220,6 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
                                         proc_rate,
                                         get_magic_school(proc_name),
                                         min, max);
-
-            assert(proc != nullptr);
         }
 
         if (proc != nullptr) {
