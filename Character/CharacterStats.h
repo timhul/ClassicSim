@@ -96,6 +96,9 @@ public:
     void add_spell_damage_taken_mod(const int);
     void remove_spell_damage_taken_mod(const int);
 
+    void add_total_stat_mod(const int);
+    void remove_total_stat_mod(const int);
+
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
 
@@ -107,6 +110,7 @@ protected:
     QVector<int> phys_dmg_buffs;
     QVector<int> phys_damage_taken_changes;
     QVector<int> spell_damage_taken_changes;
+    QVector<int> total_stat_mod_changes;
     QHash<int, double> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
 
@@ -116,6 +120,7 @@ protected:
     double total_phys_dmg_mod;
     double physical_damage_taken_mod;
     double spell_damage_taken_mod;
+    double total_stat_mod;
 
     void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
     void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);

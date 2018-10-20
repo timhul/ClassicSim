@@ -18,6 +18,7 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObj
     this->attack_speed_mod = 1.0;
     this->physical_damage_taken_mod = 1.0;
     this->spell_damage_taken_mod = 1.0;
+    this->total_stat_mod = 1.0;
 
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0.0);
@@ -51,23 +52,33 @@ Stats* CharacterStats::get_stats() const {
 }
 
 int CharacterStats::get_strength() const {
-    return base_stats->get_strength() + equipment->get_stats()->get_strength() + pchar->get_race()->get_base_strength();
+    return static_cast<int>(round(total_stat_mod * (base_stats->get_strength() +
+                                                    equipment->get_stats()->get_strength() +
+                                                    pchar->get_race()->get_base_strength())));
 }
 
 int CharacterStats::get_agility() const {
-    return base_stats->get_agility() + equipment->get_stats()->get_agility() + pchar->get_race()->get_base_agility();
+    return static_cast<int>(round(total_stat_mod * (base_stats->get_agility() +
+                                                    equipment->get_stats()->get_agility() +
+                                                    pchar->get_race()->get_base_agility())));
 }
 
 int CharacterStats::get_stamina() const {
-    return base_stats->get_stamina() + equipment->get_stats()->get_stamina() + pchar->get_race()->get_base_stamina();
+    return static_cast<int>(round(total_stat_mod * (base_stats->get_stamina() +
+                                                    equipment->get_stats()->get_stamina() +
+                                                    pchar->get_race()->get_base_stamina())));
 }
 
 int CharacterStats::get_intellect() const {
-    return base_stats->get_intellect() + equipment->get_stats()->get_intellect() + pchar->get_race()->get_base_intellect();
+    return static_cast<int>(round(total_stat_mod * (base_stats->get_intellect() +
+                                                    equipment->get_stats()->get_intellect() +
+                                                    pchar->get_race()->get_base_intellect())));
 }
 
 int CharacterStats::get_spirit() const {
-    return base_stats->get_spirit() + equipment->get_stats()->get_spirit() + pchar->get_race()->get_base_spirit();
+    return static_cast<int>(round(total_stat_mod * (base_stats->get_spirit() +
+                                                    equipment->get_stats()->get_spirit() +
+                                                    pchar->get_race()->get_base_spirit())));
 }
 
 double CharacterStats::get_hit_chance() const {
@@ -319,6 +330,14 @@ void CharacterStats::add_spell_damage_taken_mod(const int mod) {
 
 void CharacterStats::remove_spell_damage_taken_mod(const int mod) {
     remove_multiplicative_effect(spell_damage_taken_changes, mod, spell_damage_taken_mod);
+}
+
+void CharacterStats::add_total_stat_mod(const int mod) {
+    add_multiplicative_effect(total_stat_mod_changes, mod, total_stat_mod);
+}
+
+void CharacterStats::remove_total_stat_mod(const int mod) {
+    remove_multiplicative_effect(total_stat_mod_changes, mod, total_stat_mod);
 }
 
 double CharacterStats::get_mh_wpn_speed() {

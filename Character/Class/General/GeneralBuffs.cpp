@@ -20,8 +20,9 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::MarkOfTheWild, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ScrollOfStrengthIV, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SmokedDesertDumplings, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::RallyingCryOfTheDragonslayer, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SongflowerSerenade, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SpiritOfZandalar, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::RallyingCryOfTheDragonslayer, pchar)));
 
         this->external_debuffs.append(QVector<QPair<bool, ExternalBuff*>>());
         this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SunderArmor, pchar)));

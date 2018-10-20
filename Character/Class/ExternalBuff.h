@@ -6,6 +6,7 @@
 
 enum ExternalBuffName {
     RallyingCryOfTheDragonslayer = 0,
+    SpiritOfZandalar,
     SongflowerSerenade,
     ElixirOfTheMongoose,
     ElixirOfBruteForce,

@@ -46,6 +46,9 @@ void ExternalBuff::buff_effect_when_applied() {
         pchar->get_stats()->increase_crit(0.05);
         pchar->get_stats()->increase_melee_ap(140);
         break;
+    case ExternalBuffName::SpiritOfZandalar:
+        pchar->get_stats()->add_total_stat_mod(15);
+        break;
     case ExternalBuffName::SongflowerSerenade:
         pchar->get_stats()->increase_crit(0.05);
         pchar->get_stats()->increase_agility(15);
@@ -106,6 +109,9 @@ void ExternalBuff::buff_effect_when_removed() {
         pchar->get_stats()->decrease_crit(0.05);
         pchar->get_stats()->decrease_melee_ap(140);
         break;
+    case ExternalBuffName::SpiritOfZandalar:
+        pchar->get_stats()->remove_total_stat_mod(15);
+        break;
     case ExternalBuffName::SongflowerSerenade:
         pchar->get_stats()->decrease_crit(0.05);
         pchar->get_stats()->decrease_agility(15);
@@ -165,6 +171,11 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Rallying Cry of the Dragonslayer", BuffDuration::PERMANENT, 0,
                                 name, "Assets/buffs/Inv_misc_head_dragon_01.png",
                                 "+10% Spell crit, +5% melee/ranged crit, +140 attack power",
+                                QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::SpiritOfZandalar:
+        return new ExternalBuff(pchar, "Spirit of Zandalar", BuffDuration::PERMANENT, 0,
+                                name, "Assets/buffs/Ability_creature_poison_05.png",
+                                "Increases movement speed by 10% and all stats by 15%",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::SongflowerSerenade:
         return new ExternalBuff(pchar, "Songflower Serenade", BuffDuration::PERMANENT, 0,
