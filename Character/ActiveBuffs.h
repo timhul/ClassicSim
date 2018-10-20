@@ -5,6 +5,7 @@
 #include <QVector>
 
 class Buff;
+class SharedBuff;
 class Character;
 class Faction;
 class GeneralBuffs;
@@ -18,6 +19,8 @@ public:
 
     void add_buff(Buff* buff);
     void remove_buff(Buff* buff);
+    SharedBuff* use_shared_buff(const QString& name) const;
+    void return_shared_buff(Buff* shared_buff);
 
     void switch_faction();
     GeneralBuffs* get_general_buffs();

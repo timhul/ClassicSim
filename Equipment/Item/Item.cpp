@@ -8,6 +8,7 @@
 #include "ExtraAttackOnNextSwingProc.h"
 #include "ArmorPenetrationProc.h"
 #include "InstantSpellProc.h"
+#include "FelstrikerProc.h"
 #include <QDebug>
 #include <utility>
 
@@ -220,6 +221,12 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
                                         proc_rate,
                                         get_magic_school(proc_name),
                                         min, max);
+        }
+
+        else if (proc_name == "FELSTRIKER_PROC") {
+            add_default_melee_proc_sources(proc_sources, eq_slot);
+
+            proc = new FelstrikerProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, i["duration"].toInt());
         }
 
         if (proc != nullptr) {

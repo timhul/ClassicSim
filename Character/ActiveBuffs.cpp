@@ -1,11 +1,11 @@
 
 #include "ActiveBuffs.h"
-#include "Buff.h"
 #include "Character.h"
 #include "ClassStatistics.h"
 #include "Faction.h"
 #include "GeneralBuffs.h"
 #include "ExternalBuff.h"
+#include "SharedBuff.h"
 
 ActiveBuffs::ActiveBuffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
@@ -36,6 +36,37 @@ void ActiveBuffs::remove_buff(Buff* buff) {
             break;
         }
     }
+}
+
+SharedBuff *ActiveBuffs::use_shared_buff(const QString& name) const {
+    for (auto & buff : active_buffs) {
+        if (buff->get_name() == name) {
+            SharedBuff* uniq_buff = dynamic_cast<SharedBuff*>(buff);
+            uniq_buff->increment_reference();
+            return dynamic_cast<SharedBuff*>(buff);
+        }
+    }
+
+    return nullptr;
+}
+
+void ActiveBuffs::return_shared_buff(Buff* shared_buff) {
+    for (auto & buff : active_buffs) {
+        if (buff->get_name() != shared_buff->get_name())
+            continue;
+
+        SharedBuff* uniq_buff = dynamic_cast<SharedBuff*>(buff);
+        uniq_buff->decrement_reference();
+
+        if (uniq_buff->unused()) {
+            remove_buff(uniq_buff);
+            delete uniq_buff;
+        }
+
+        return;
+    }
+
+    assert(false);
 }
 
 void ActiveBuffs::reset() {

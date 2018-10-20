@@ -248,7 +248,11 @@ SOURCES += main.cpp \
     Character/Class/General/Buffs/ArmorPenetrationBuff.cpp \
     Character/Class/General/Procs/ArmorPenetrationProc.cpp \
     Character/Class/General/Spells/InstantSpellAttack.cpp \
-    Character/Class/General/Procs/InstantSpellProc.cpp
+    Character/Class/General/Procs/InstantSpellProc.cpp \
+    Test/General/Procs/TestFelstrikerProc.cpp \
+    Character/Class/General/Procs/FelstrikerProc.cpp \
+    Character/Class/General/Buffs/FelstrikerBuff.cpp \
+    Character/Class/SharedBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -494,7 +498,11 @@ HEADERS += \
     Character/Class/General/Procs/ArmorPenetrationProc.h \
     Character/Class/General/Spells/InstantSpellAttack.h \
     Character/Class/General/Procs/InstantSpellProc.h \
-    Character/Class/MagicSchools.h
+    Character/Class/MagicSchools.h \
+    Test/General/Procs/TestFelstrikerProc.h \
+    Character/Class/General/Procs/FelstrikerProc.h \
+    Character/Class/General/Buffs/FelstrikerBuff.h \
+    Character/Class/SharedBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -532,6 +540,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Statistics\Class \
     C:\C++\ClassicSim\Mechanics \
     C:\C++\ClassicSim\Test \
+    C:\C++\ClassicSim\Test\General\Procs \
     C:\C++\ClassicSim\Test\Warrior \
     C:\C++\ClassicSim\Test\Warrior\Spells \
     C:\C++\ClassicSim\Test\Warrior\Buffs \

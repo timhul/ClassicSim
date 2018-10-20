@@ -54,6 +54,7 @@ public:
     void given_an_offhand_weapon_with_100_min_max_dmg();
     void given_an_offhand_weapon_with_3_speed();
     void given_an_offhand_weapon_with_2_speed();
+    void given_an_offhand_axe();
     void given_1000_melee_ap();
     void given_target_has_0_armor();
     void given_engine_priority_at(const double priority);
@@ -89,6 +90,21 @@ protected:
     void set_melee_auto_table_for_dodge(const int wpn_skill);
     void set_melee_auto_table_for_parry(const int wpn_skill);
     void set_melee_auto_table_for_block(const int wpn_skill);
+
+    void assert_melee_special_table_can_only_hit(const int wpn_skill);
+    void assert_melee_special_table_can_only_crit(const int wpn_skill);
+    void assert_melee_special_table_can_only_miss(const int wpn_skill);
+    void assert_melee_special_table_can_only_dodge(const int wpn_skill);
+    void assert_melee_special_table_can_only_parry(const int wpn_skill);
+    void assert_melee_special_table_can_only_block(const int wpn_skill);
+
+    void assert_melee_auto_table_can_only_hit(const int wpn_skill);
+    void assert_melee_auto_table_can_only_glance(const int wpn_skill);
+    void assert_melee_auto_table_can_only_crit(const int wpn_skill);
+    void assert_melee_auto_table_can_only_miss(const int wpn_skill);
+    void assert_melee_auto_table_can_only_dodge(const int wpn_skill);
+    void assert_melee_auto_table_can_only_parry(const int wpn_skill);
+    void assert_melee_auto_table_can_only_block(const int wpn_skill);
 };
 
 #endif // TESTSPELL_H

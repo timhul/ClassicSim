@@ -115,8 +115,7 @@ void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
 
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
+    assert_melee_special_table_can_only_hit(wpn_skill);
 }
 
 void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
@@ -129,8 +128,7 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
     pchar->get_stats()->increase_crit(1.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
+    assert_melee_special_table_can_only_crit(wpn_skill);
 }
 
 void TestSpell::set_melee_special_table_for_miss(const int wpn_skill) {
@@ -140,8 +138,7 @@ void TestSpell::set_melee_special_table_for_miss(const int wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
+    assert_melee_special_table_can_only_miss(wpn_skill);
 }
 
 void TestSpell::set_melee_special_table_for_dodge(const int wpn_skill) {
@@ -151,8 +148,7 @@ void TestSpell::set_melee_special_table_for_dodge(const int wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
+    assert_melee_special_table_can_only_dodge(wpn_skill);
 }
 
 void TestSpell::set_melee_special_table_for_parry(const int wpn_skill) {
@@ -162,8 +158,7 @@ void TestSpell::set_melee_special_table_for_parry(const int wpn_skill) {
     table->update_parry_chance(1.0);
     table->update_block_chance(0.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
+    assert_melee_special_table_can_only_parry(wpn_skill);
 }
 
 void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
@@ -175,8 +170,7 @@ void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
 
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::BLOCK);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::BLOCK);
+    assert_melee_special_table_can_only_block(wpn_skill);
 }
 
 void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
@@ -189,8 +183,7 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
 
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
+    assert_melee_auto_table_can_only_hit(wpn_skill);
 }
 
 void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
@@ -204,8 +197,7 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
     pchar->get_stats()->increase_crit(1.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
+    assert_melee_auto_table_can_only_crit(wpn_skill);
 }
 
 void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
@@ -216,8 +208,7 @@ void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(1.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::GLANCING);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::GLANCING);
+    assert_melee_auto_table_can_only_glance(wpn_skill);
 }
 
 void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
@@ -228,8 +219,7 @@ void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
+    assert_melee_auto_table_can_only_miss(wpn_skill);
 }
 
 void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
@@ -240,8 +230,7 @@ void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
+    assert_melee_auto_table_can_only_dodge(wpn_skill);
 }
 
 void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
@@ -252,8 +241,7 @@ void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
+    assert_melee_auto_table_can_only_parry(wpn_skill);
 }
 
 void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
@@ -265,6 +253,96 @@ void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
     table->update_glancing_chance(0.0);
 
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+
+    assert_melee_auto_table_can_only_block(wpn_skill);
+}
+
+void TestSpell::assert_melee_special_table_can_only_hit(const int wpn_skill) {
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
+}
+
+void TestSpell::assert_melee_special_table_can_only_crit(const int wpn_skill) {
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
+}
+
+void TestSpell::assert_melee_special_table_can_only_miss(const int wpn_skill) {
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
+}
+
+void TestSpell::assert_melee_special_table_can_only_dodge(const int wpn_skill) {
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
+}
+
+void TestSpell::assert_melee_special_table_can_only_parry(const int wpn_skill) {
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
+}
+
+void TestSpell::assert_melee_special_table_can_only_block(const int wpn_skill) {
+    MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::BLOCK);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::BLOCK);
+}
+
+void TestSpell::assert_melee_auto_table_can_only_hit(const int wpn_skill) {
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
+}
+
+void TestSpell::assert_melee_auto_table_can_only_glance(const int wpn_skill) {
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::GLANCING);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::GLANCING);
+}
+
+void TestSpell::assert_melee_auto_table_can_only_crit(const int wpn_skill) {
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
+}
+
+void TestSpell::assert_melee_auto_table_can_only_miss(const int wpn_skill) {
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::MISS);
+}
+
+void TestSpell::assert_melee_auto_table_can_only_dodge(const int wpn_skill) {
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::DODGE);
+}
+
+void TestSpell::assert_melee_auto_table_can_only_parry(const int wpn_skill) {
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::PARRY);
+}
+
+void TestSpell::assert_melee_auto_table_can_only_block(const int wpn_skill) {
+    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::BLOCK);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::BLOCK);
@@ -449,6 +527,16 @@ void TestSpell::given_an_offhand_weapon_with_2_speed() {
 
     pchar->get_equipment()->set_offhand("Test 2 Speed");
     assert(int(pchar->get_equipment()->get_offhand()->get_base_weapon_speed()) == 2);
+}
+
+void TestSpell::given_an_offhand_axe() {
+    if (equipment_db->get_melee_weapon("Test Axe") == nullptr) {
+        Weapon* wpn = new Weapon("Test Axe", WeaponTypes::AXE, WeaponSlots::ONEHAND, 100, 100, 2.0);
+        equipment_db->add_melee_weapon(wpn);
+    }
+
+    pchar->get_equipment()->set_offhand("Test Axe");
+    assert(int(pchar->get_equipment()->get_offhand()->get_weapon_type_string() == "Axe"));
 }
 
 void TestSpell::given_1000_melee_ap() {

@@ -262,5 +262,6 @@
         <file>QML/Assets/misc/Trade_engraving.png</file>
         <file>QML/EquipmentEnchant.qml</file>
         <file>QML/EquipmentTooltip.qml</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_25.png</file>
     </qresource>
 </RCC>

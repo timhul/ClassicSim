@@ -46,6 +46,7 @@
 
 #include "TestWarrior.h"
 #include "TestCharacterStats.h"
+#include "TestFelstrikerProc.h"
 
 Test::Test() :
     equipment_db(new EquipmentDb())
@@ -82,6 +83,10 @@ void Test::test_all() {
     test_combat_roll_melee_hit_result();
     qDebug() << "test_queue";
     test_queue();
+
+    TestCharacterStats().test_all();
+    TestFelstrikerProc(equipment_db).test_all();
+
     qDebug() << "test_warrior";
     test_warrior();
 }
@@ -406,6 +411,5 @@ void Test::test_character_creation() {
 }
 
 void Test::test_warrior() {
-    TestCharacterStats().test_all();
     TestWarrior().test_all();
 }
