@@ -57,7 +57,6 @@ SOURCES += main.cpp \
     Character/Class/Buff.cpp \
     Character/Class/Warrior/Buffs/Flurry.cpp \
     Event/Events/BuffRemoval.cpp \
-    CombatLog/CombatLog.cpp \
     Character/Class/TalentTree.cpp \
     Character/Class/Talent.cpp \
     Character/Class/Warrior/TalentTrees/Arms.cpp \
@@ -308,7 +307,6 @@ HEADERS += \
     Character/Class/Buff.h \
     Character/Class/Warrior/Buffs/Flurry.h \
     Event/Events/BuffRemoval.h \
-    CombatLog/CombatLog.h \
     Character/Class/TalentTree.h \
     Character/Class/Talent.h \
     Character/Class/Warrior/TalentTrees/Arms.h \
