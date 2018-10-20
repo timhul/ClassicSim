@@ -7,6 +7,7 @@
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
 #include "ArmorPenetrationProc.h"
+#include "NatureDamageProc.h"
 #include "ShadowBoltProc.h"
 #include <QDebug>
 #include <utility>
@@ -108,6 +109,17 @@ QString Item::get_name() const {
     return name;
 }
 
+QString Item::get_weapon_side_name(const int eq_slot) const {
+    switch (eq_slot) {
+    case EquipmentSlot::MAINHAND:
+        return QString("%1 %2").arg(name, "(MH)");
+    case EquipmentSlot::OFFHAND:
+        return QString("%1 %2").arg(name, "(OH)");
+    default:
+        return name;
+    }
+}
+
 bool Item::has_enchant() const {
     return enchant != nullptr;
 }
@@ -159,7 +171,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             continue;
         }
 
-        auto direct_spell_damage_procs = QSet<QString>({"SHADOW_ATTACK"});
+        auto direct_spell_damage_procs = QSet<QString>({"SHADOW_ATTACK", "NATURE_ATTACK"});
         QVector<ProcInfo::Source> proc_sources;
         Proc* proc = nullptr;
 
@@ -188,7 +200,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             int max_stacks = i["max_stacks"].toInt();
             int duration = i["duration"].toInt();
 
-            proc = new ArmorPenetrationProc(pchar, get_name(), proc_sources, proc_rate, reduction, max_stacks, duration);
+            proc = new ArmorPenetrationProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, reduction, max_stacks, duration);
         }
 
         else if (direct_spell_damage_procs.contains(proc_name)) {
@@ -197,7 +209,12 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             unsigned min = i["min"].toUInt();
             unsigned max = i["max"].toUInt();
 
-            proc = new ShadowBoltProc(pchar, get_name(), proc_sources, proc_rate, min, max);
+            if (proc_name == "SHADOW_ATTACK")
+                proc = new ShadowBoltProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, min, max);
+            else if (proc_name == "NATURE_ATTACK")
+                proc = new NatureDamageProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, min, max);
+
+            assert(proc != nullptr);
         }
 
         if (proc != nullptr) {

@@ -24,6 +24,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="NATURE_ATTACK" min="63" max="94" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Blasts the enemy with poison for 63 to 94 Nature damage.
+			</special_equip_effect>
 			<source>
 			Random drop from trash in Zul'Gurub.
 			</source>
@@ -205,6 +208,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="NATURE_ATTACK" min="100" max="151" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
+			<special_equip_effect>
+			Chance to discharge electricity causing 100 to 151 Nature damage to your target.
+			</special_equip_effect>
 			<source>
 			Drops from trash mobs in Naxxramas.
 			</source>

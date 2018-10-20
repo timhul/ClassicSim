@@ -249,7 +249,9 @@ SOURCES += main.cpp \
     Character/Class/General/Buffs/ArmorPenetrationBuff.cpp \
     Character/Class/General/Procs/ArmorPenetrationProc.cpp \
     Character/Class/General/Procs/ShadowBoltProc.cpp \
-    Character/Class/General/Spells/ShadowBoltAttack.cpp
+    Character/Class/General/Spells/ShadowBoltAttack.cpp \
+    Character/Class/General/Procs/NatureDamageProc.cpp \
+    Character/Class/General/Spells/NatureDamageAttack.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -495,7 +497,9 @@ HEADERS += \
     Character/Class/General/Buffs/ArmorPenetrationBuff.h \
     Character/Class/General/Procs/ArmorPenetrationProc.h \
     Character/Class/General/Procs/ShadowBoltProc.h \
-    Character/Class/General/Spells/ShadowBoltAttack.h
+    Character/Class/General/Spells/ShadowBoltAttack.h \
+    Character/Class/General/Procs/NatureDamageProc.h \
+    Character/Class/General/Spells/NatureDamageAttack.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
