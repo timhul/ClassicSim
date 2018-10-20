@@ -15,6 +15,11 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfBruteForce, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfGiants, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfTheMongoose, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::WinterfallFirewater, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::JujuPower, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::MarkOfTheWild, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ScrollOfStrengthIV, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SmokedDesertDumplings, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::RallyingCryOfTheDragonslayer, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SongflowerSerenade, pchar)));
 
