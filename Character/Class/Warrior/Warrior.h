@@ -52,8 +52,8 @@ public:
     unsigned get_stance_remainder() const;
     unsigned get_resource_level() const override;
     unsigned get_curr_rage() const;
-    void gain_rage(const unsigned);
-    void lose_rage(const unsigned);
+    void gain_rage(const unsigned) override;
+    void lose_rage(const unsigned) override;
     unsigned rage_gained_from_dd(const unsigned) const;
     void switch_to_battle_stance();
     void switch_to_berserker_stance();

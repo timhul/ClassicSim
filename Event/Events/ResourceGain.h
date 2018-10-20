@@ -3,15 +3,17 @@
 
 #include "Event.h"
 
+class Character;
 class Spell;
 
 class ResourceGain: public Event {
 public:
-    ResourceGain(Spell*, const double);
+    ResourceGain(Character*, Spell*, const double);
 
     virtual void act(void) override;
 protected:
 private:
+    Character* pchar;
     Spell* spell;
 };
 

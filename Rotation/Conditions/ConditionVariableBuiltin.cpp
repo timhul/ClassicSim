@@ -32,7 +32,8 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
     }
     case BuiltinVariables::TimeRemainingExecute: {
         int combat_length = pchar->get_sim_settings()->get_combat_length();
-        double remaining_execute_time = combat_length * 0.8 - engine->get_current_priority();
+        double execute_threshold = pchar->get_sim_settings()->get_execute_threshold();
+        double remaining_execute_time = combat_length * (1 - execute_threshold) - engine->get_current_priority();
         return cmp_values(remaining_execute_time);
     }
     case BuiltinVariables::SwingTimer: {

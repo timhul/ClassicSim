@@ -17,15 +17,21 @@
 #include "Weapon.h"
 #include "Orc.h"
 #include "Stats.h"
+#include "SimSettings.h"
 #include "Target.h"
 #include "WhiteHitTable.h"
 
 TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
     equipment_db(equipment_db),
+    sim_settings(new SimSettings()),
     pchar(nullptr),
     race(nullptr),
     spell_under_test(std::move(spell_under_test))
 {}
+
+TestSpell::~TestSpell() {
+    delete sim_settings;
+}
 
 void TestSpell::set_up_general() {
     race = new Orc();

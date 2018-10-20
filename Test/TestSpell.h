@@ -15,10 +15,12 @@ class Faction;
 class Target;
 class Race;
 class Character;
+class SimSettings;
 
 class TestSpell : public TestUtils {
 public:
     TestSpell(EquipmentDb *equipment_db, QString spell_under_test);
+    ~TestSpell();
 
     void set_up_general();
     void tear_down_general();
@@ -71,6 +73,7 @@ public:
 
 protected:
     EquipmentDb* equipment_db;
+    SimSettings* sim_settings;
     Character* pchar;
     Race* race;
     QString spell_under_test;

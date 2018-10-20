@@ -10,7 +10,8 @@
 Execute::Execute(Character* pchar) :
     Spell("Execute", pchar, true, 0, 15),
     TalentRequirer(2, DisabledAtZero::No),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(dynamic_cast<Warrior*>(pchar)),
+    execute_treshold(0.2)
 {
     spell_ranks = {QPair<int, int>(125, 3),
                    QPair<int, int>(200, 6),
@@ -24,13 +25,14 @@ Execute::Execute(Character* pchar) :
     talent_ranks = {15, 13, 10};
 }
 
+
 bool Execute::is_ready_spell_specific() const {
     if (warr->in_defensive_stance())
         return false;
 
     int combat_length = warr->get_sim_settings()->get_combat_length();
     double time_remaining = combat_length - warr->get_engine()->get_current_priority();
-    return time_remaining / combat_length < 0.2;
+    return time_remaining / combat_length < execute_treshold;
 }
 
 void Execute::spell_effect() {
@@ -77,4 +79,13 @@ void Execute::increase_talent_rank_effect(const QString&) {
 
 void Execute::decrease_talent_rank_effect(const QString&) {
     resource_cost = talent_ranks[curr_talent_rank];
+}
+
+void Execute::set_execute_treshold(const double execute_treshold) {
+    assert(execute_treshold > -0.0001 && execute_treshold < 1.0001),
+    this->execute_treshold = execute_treshold;
+}
+
+void Execute::reset_execute_treshold() {
+    this->execute_treshold = 0.2;
 }

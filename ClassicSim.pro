@@ -252,7 +252,10 @@ SOURCES += main.cpp \
     Test/General/Procs/TestFelstrikerProc.cpp \
     Character/Class/General/Procs/FelstrikerProc.cpp \
     Character/Class/General/Buffs/FelstrikerBuff.cpp \
-    Character/Class/SharedBuff.cpp
+    Character/Class/SharedBuff.cpp \
+    Character/Class/General/Buffs/EssenceOfTheRed.cpp \
+    Character/Class/General/Spells/PeriodicResourceGainSpell.cpp \
+    Rulesets/RulesetControl.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -502,7 +505,12 @@ HEADERS += \
     Test/General/Procs/TestFelstrikerProc.h \
     Character/Class/General/Procs/FelstrikerProc.h \
     Character/Class/General/Buffs/FelstrikerBuff.h \
-    Character/Class/SharedBuff.h
+    Character/Class/SharedBuff.h \
+    Character/Class/General/Buffs/EssenceOfTheRed.h \
+    Character/Class/Resource.h \
+    Character/Class/General/Spells/PeriodicResourceGainSpell.h \
+    Rulesets/Rulesets.h \
+    Rulesets/RulesetControl.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -557,7 +565,8 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Faction \
     C:\C++\ClassicSim\Thread \
     C:\C++\ClassicSim\Rotation \
-    C:\C++\ClassicSim\Rotation\Conditions
+    C:\C++\ClassicSim\Rotation\Conditions \
+    C:\C++\ClassicSim\Rulesets
 
 RESOURCES += qml.qrc
 

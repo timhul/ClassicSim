@@ -12,6 +12,8 @@
 #include "FaerieFireBuff.h"
 #include "SunderArmorBuff.h"
 
+#include "EssenceOfTheRed.h"
+
 GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
     pchar(pchar),
@@ -32,6 +34,8 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
         this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new FaerieFireBuff(pchar)));
         this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new AnnihilatorBuff(pchar)));
     }
+
+    buffs.append(new EssenceOfTheRed(pchar));
 }
 
 GeneralBuffs::~GeneralBuffs()
@@ -58,6 +62,15 @@ GeneralBuffs::~GeneralBuffs()
 }
 
 void GeneralBuffs::switch_faction() {
+}
+
+Buff* GeneralBuffs::get_general_buff_by_name(const QString& buff_name) const {
+    for (auto & buff : buffs) {
+        if (buff->get_name() == buff_name)
+            return buff;
+    }
+
+    return nullptr;
 }
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {

@@ -11,7 +11,7 @@ TestBuffWarrior::TestBuffWarrior(EquipmentDb* equipment_db, QString buff_under_t
 
 void TestBuffWarrior::set_up() {
     set_up_general();
-    warrior = new Warrior(race, equipment_db, nullptr);
+    warrior = new Warrior(race, equipment_db, sim_settings);
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;

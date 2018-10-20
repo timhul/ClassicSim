@@ -1,10 +1,14 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include <QString>
+
 #include <QMap>
 #include <QObject>
+#include <QString>
 #include <QVector>
+
+#include "Resource.h"
+#include "Rulesets.h"
 
 class ActiveProcs;
 class ActiveBuffs;
@@ -145,6 +149,13 @@ public:
     virtual void reset_resource() = 0;
     virtual void reset_spells() = 0;
 
+    virtual void gain_mana(const unsigned);
+    virtual void lose_mana(const unsigned);
+    virtual void gain_rage(const unsigned);
+    virtual void lose_rage(const unsigned);
+    virtual void gain_energy(const unsigned);
+    virtual void lose_energy(const unsigned);
+
     void dump();
 
 protected:
@@ -172,6 +183,7 @@ protected:
     int clvl;
     bool melee_attacking;
     double next_gcd;
+    Ruleset ruleset;
 
     virtual void initialize_talents() = 0;
 

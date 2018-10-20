@@ -5,9 +5,10 @@
 #include <QVector>
 
 class Character;
+class Buff;
+class EssenceOfTheRed;
 class ExternalBuff;
 class Faction;
-class Buff;
 
 class SunderArmorBuff;
 
@@ -27,6 +28,8 @@ public:
     bool buff_active(const QString& buff_name) const;
     bool debuff_active(const QString& debuff_name) const;
     void change_setup(const int setup);
+
+    Buff* get_general_buff_by_name(const QString& buff_name) const;
 
 private:
     Character* pchar;

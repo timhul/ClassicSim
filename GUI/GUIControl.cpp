@@ -39,6 +39,7 @@
 #include "SimControl.h"
 #include "SimSettings.h"
 #include "NumberCruncher.h"
+#include "Rulesets.h"
 
 #include "ActiveBuffs.h"
 #include "BuffModel.h"
@@ -160,6 +161,7 @@ GUIControl::~GUIControl() {
 }
 
 void GUIControl::set_character(Character* pchar) {
+    sim_settings->use_ruleset(Ruleset::Standard, current_char);
     current_char = pchar;
     item_type_filter_model->set_character(current_char);
     rotation_model->set_character(current_char);

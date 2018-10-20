@@ -29,7 +29,7 @@ void Bloodrage::decrease_talent_rank_effect(const QString&) {
 void Bloodrage::spell_effect() {
     add_spell_cd_event();
 
-    auto* new_event = new ResourceGain(this, engine->get_current_priority() + 1.0);
+    auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 1.0);
     this->engine->add_event(new_event);
     periodic_rage_current = periodic_rage_base;
 
@@ -44,6 +44,6 @@ void Bloodrage::perform_periodic() {
     if (periodic_rage_current == 0)
         return;
 
-    auto* new_event = new ResourceGain(this, engine->get_current_priority() + 1.0);
+    auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 1.0);
     this->engine->add_event(new_event);
 }

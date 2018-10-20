@@ -20,6 +20,7 @@
 #include "Rotation.h"
 #include "PlayerAction.h"
 #include "SimSettings.h"
+#include "RulesetControl.h"
 #include <QDebug>
 
 #include "Berserking.h"
@@ -47,6 +48,7 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
     this->ability_crit_dmg_mod = 2.0;
     this->spell_crit_dmg_mod = 1.5;
     this->current_rotation = nullptr;
+    this->ruleset = Ruleset::Standard;
 
     this->berserking_buff = new BerserkingBuff(this);
     this->blood_fury_buff = new BloodFuryBuff(this);
@@ -451,6 +453,30 @@ unsigned Character::get_resource_level() const {
     return 0;
 }
 
+void Character::gain_mana(const unsigned) {
+
+}
+
+void Character::lose_mana(const unsigned) {
+
+}
+
+void Character::gain_rage(const unsigned) {
+
+}
+
+void Character::lose_rage(const unsigned) {
+
+}
+
+void Character::gain_energy(const unsigned) {
+
+}
+
+void Character::lose_energy(const unsigned) {
+
+}
+
 void Character::reset() {
     melee_attacking = false;
     next_gcd = 0 - this->global_cooldown();
@@ -460,9 +486,13 @@ void Character::reset() {
     active_procs->reset();
 
     reset_resource();
+
+    RulesetControl().use_ruleset(this->ruleset, this, sim_settings);
 }
 
 void Character::prepare_set_of_combat_iterations() {
+    this->ruleset = sim_settings->get_ruleset();
+    RulesetControl().use_ruleset(this->ruleset, this, sim_settings);
     spells->prepare_set_of_combat_iterations();
     active_buffs->prepare_set_of_combat_iterations();
     active_procs->prepare_set_of_combat_iterations();

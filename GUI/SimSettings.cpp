@@ -1,13 +1,19 @@
 
 #include "SimSettings.h"
+#include "RulesetControl.h"
 #include <QThread>
 
 SimSettings::SimSettings() :
     combat_length(300),
     combat_iterations(1000),
-    num_threads(QThread::idealThreadCount())
+    num_threads(QThread::idealThreadCount()),
+    ruleset_control(new RulesetControl())
 {
     sim_options = QSet<SimOption>({SimOption::ScaleStrength, SimOption::ScaleCritChance, SimOption::ScaleHitChance});
+}
+
+SimSettings::~SimSettings() {
+    delete ruleset_control;
 }
 
 int SimSettings::get_combat_length() const {
@@ -57,4 +63,24 @@ bool SimSettings::option_active(SimOption option) const {
 
 QSet<SimOption> SimSettings::get_active_options() const {
     return sim_options;
+}
+
+void SimSettings::use_ruleset(Ruleset ruleset, Character* pchar) {
+    ruleset_control->use_ruleset(ruleset, pchar, this);
+}
+
+Ruleset SimSettings::get_ruleset() const {
+    return ruleset_control->get_active_ruleset();
+}
+
+double SimSettings::get_execute_threshold() const {
+    return this->execute_threshold;
+}
+
+void SimSettings::set_execute_threshold(const double threshold) {
+    this->execute_threshold = threshold;
+}
+
+void SimSettings::clear_execute_threshold() {
+    this->execute_threshold = 0.2;
 }

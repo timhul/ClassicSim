@@ -10,6 +10,9 @@ class Execute: public Spell, public TalentRequirer {
 public:
     Execute(Character* pchar);
 
+    void set_execute_treshold(const double);
+    void reset_execute_treshold();
+
 protected:
 private:
     friend class ImprovedExecute;
@@ -19,6 +22,7 @@ private:
     QVector<int> talent_ranks;
     int initial_dmg;
     int dmg_per_rage_converted;
+    double execute_treshold;
 
     void spell_effect() override;
     bool is_ready_spell_specific() const override;
