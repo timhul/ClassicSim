@@ -264,5 +264,7 @@
         <file>QML/EquipmentTooltip.qml</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_25.png</file>
         <file>QML/Assets/buffs/Spell_nature_earthbindtotem.png</file>
+        <file>QML/Assets/items/Inv_misc_bone_06.png</file>
+        <file>QML/Assets/items/Inv_stone_02.png</file>
     </qresource>
 </RCC>
