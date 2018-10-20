@@ -9,6 +9,7 @@
 #include "ItemStatsEnum.h"
 #include "ProcInfo.h"
 #include "EnchantName.h"
+#include "MagicSchools.h"
 
 class Enchant;
 class Stats;
@@ -76,6 +77,7 @@ protected:
     QString get_tooltip(const QVector<QString>&) const;
 
     void add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot);
+    MagicSchool get_magic_school(const QString& name);
 
 private:
 };

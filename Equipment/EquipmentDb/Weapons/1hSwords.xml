@@ -230,6 +230,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Blasts a target for 150 Fire damage.
+			</special_equip_effect>
 			<source>
 			Drops randomly in selected dungeons and raids.
 			</source>
@@ -382,6 +385,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Delivers a fatal wound for 240 damage.
+			</special_equip_effect>
 			<source>
 			Drops from Onyxia in Onyxia's Lair.
 			</source>

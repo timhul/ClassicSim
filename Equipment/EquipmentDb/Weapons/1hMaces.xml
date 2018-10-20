@@ -103,6 +103,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Sends a shadowy bolt at the enemy causing 125 to 276 Shadow damage.
+			</special_equip_effect>
 			<source>
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
 			</source>

@@ -251,7 +251,9 @@ SOURCES += main.cpp \
     Character/Class/General/Procs/ShadowBoltProc.cpp \
     Character/Class/General/Spells/ShadowBoltAttack.cpp \
     Character/Class/General/Procs/NatureDamageProc.cpp \
-    Character/Class/General/Spells/NatureDamageAttack.cpp
+    Character/Class/General/Spells/NatureDamageAttack.cpp \
+    Character/Class/General/Spells/InstantSpellAttack.cpp \
+    Character/Class/General/Procs/InstantSpellProc.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -499,7 +501,10 @@ HEADERS += \
     Character/Class/General/Procs/ShadowBoltProc.h \
     Character/Class/General/Spells/ShadowBoltAttack.h \
     Character/Class/General/Procs/NatureDamageProc.h \
-    Character/Class/General/Spells/NatureDamageAttack.h
+    Character/Class/General/Spells/NatureDamageAttack.h \
+    Character/Class/General/Spells/InstantSpellAttack.h \
+    Character/Class/General/Procs/InstantSpellProc.h \
+    Character/Class/MagicSchools.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

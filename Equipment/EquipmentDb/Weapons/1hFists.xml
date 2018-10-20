@@ -8,6 +8,9 @@
 				<!-- TODO: Find actual proc rate. -->
 				<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.05" internal_cd="0"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Sends a shadowy bolt at the enemy causing 55 to 86 Shadow damage.
+			</special_equip_effect>
 			<source>
 			Drops from High Priestess Arlokk in Zul'Gurub.
 			</source>

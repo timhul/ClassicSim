@@ -81,8 +81,11 @@
 			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_axe_35.png"/>
 			<dmg_range min="69" max="130" speed="2.0"/>
 			<proc>
-				<spell name="LIFE_DRAIN" min="48" max="54" instant="yes" rate="0.06" internal_cd="0"/>
+				<spell name="SHADOW_ATTACK" min="48" max="54" instant="yes" rate="0.06" internal_cd="0"/>
 			</proc>
+			<special_equip_effect>
+			Chance on hit: Steals 48 to 55 life from target enemy.
+			</special_equip_effect>
 			<source>
 			Drops from Hakkar the Soulflayer in Zul'Gurub.
 			</source>

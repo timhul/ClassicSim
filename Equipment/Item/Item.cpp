@@ -7,8 +7,7 @@
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
 #include "ArmorPenetrationProc.h"
-#include "NatureDamageProc.h"
-#include "ShadowBoltProc.h"
+#include "InstantSpellProc.h"
 #include <QDebug>
 #include <utility>
 
@@ -171,7 +170,13 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             continue;
         }
 
-        auto direct_spell_damage_procs = QSet<QString>({"SHADOW_ATTACK", "NATURE_ATTACK"});
+        auto direct_spell_damage_procs = QSet<QString>({"PHYSICAL_ATTACK",
+                                                        "ARCANE_ATTACK",
+                                                        "FIRE_ATTACK",
+                                                        "FROST_ATTACK",
+                                                        "NATURE_ATTACK",
+                                                        "SHADOW_ATTACK",
+                                                        "HOLY_ATTACK"});
         QVector<ProcInfo::Source> proc_sources;
         Proc* proc = nullptr;
 
@@ -209,10 +214,12 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             unsigned min = i["min"].toUInt();
             unsigned max = i["max"].toUInt();
 
-            if (proc_name == "SHADOW_ATTACK")
-                proc = new ShadowBoltProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, min, max);
-            else if (proc_name == "NATURE_ATTACK")
-                proc = new NatureDamageProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, min, max);
+            proc = new InstantSpellProc(pchar,
+                                        get_weapon_side_name(eq_slot),
+                                        proc_sources,
+                                        proc_rate,
+                                        get_magic_school(proc_name),
+                                        min, max);
 
             assert(proc != nullptr);
         }
@@ -243,6 +250,26 @@ void Item::add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_source
         proc_sources.append(ProcInfo::Source::OffhandSwing);
         proc_sources.append(ProcInfo::Source::OffhandSpell);
     }
+}
+
+MagicSchool Item::get_magic_school(const QString& name) {
+    if (name.startsWith("PHYSICAL_"))
+        return MagicSchool::Physical;
+    if (name.startsWith("ARCANE_"))
+        return MagicSchool::Arcane;
+    if (name.startsWith("FIRE_"))
+        return MagicSchool::Fire;
+    if (name.startsWith("FROST_"))
+        return MagicSchool::Frost;
+    if (name.startsWith("NATURE_"))
+        return MagicSchool::Nature;
+    if (name.startsWith("SHADOW_"))
+        return MagicSchool::Shadow;
+    if (name.startsWith("HOLY_"))
+        return MagicSchool::Holy;
+
+    assert(false);
+    return MagicSchool::Physical;
 }
 
 void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {
