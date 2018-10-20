@@ -16,6 +16,7 @@ enum ExternalBuffName {
     MarkOfTheWild,
     ScrollOfStrengthIV,
     SmokedDesertDumplings,
+    ROIDS,
     SunderArmor,
     FaerieFire,
     CurseOfRecklessness,

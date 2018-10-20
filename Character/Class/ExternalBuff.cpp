@@ -87,6 +87,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::SmokedDesertDumplings:
         pchar->get_stats()->increase_strength(20);
         break;
+    case ExternalBuffName::ROIDS:
+        pchar->get_stats()->increase_strength(25);
+        break;
     case ExternalBuffName::Annihilator:
         pchar->get_target()->decrease_armor(600);
         break;
@@ -149,6 +152,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::SmokedDesertDumplings:
         pchar->get_stats()->decrease_strength(20);
+        break;
+    case ExternalBuffName::ROIDS:
+        pchar->get_stats()->decrease_strength(25);
         break;
     case ExternalBuffName::Annihilator:
         pchar->get_target()->increase_armor(600);
@@ -221,6 +227,11 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Smoked Desert Dumplings", BuffDuration::PERMANENT, 0,
                                 name, "Assets/buffs/Inv_misc_food_64.png",
                                 "+20 Strength",
+                                QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::ROIDS:
+        return new ExternalBuff(pchar, "R.O.I.D.S", BuffDuration::PERMANENT, 0,
+                                name, "Assets/buffs/Inv_stone_15.png",
+                                "+25 Strength",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::Annihilator:
         return new ExternalBuff(pchar, "Annihilator Proc", BuffDuration::PERMANENT, 0,
