@@ -4,11 +4,14 @@
 #include <QVector>
 #include <QString>
 
+#include "AvailableFactions.h"
+
 class Faction {
 public:
     Faction();
 
-    bool get_faction() const;
+    int get_faction() const;
+    AvailableFactions::Name get_faction_as_enum() const;
     void switch_faction();
 
     const QVector<QString>& get_faction_races() const;
@@ -18,7 +21,7 @@ public:
     bool is_horde() const;
 
 private:
-    bool faction;
+    AvailableFactions::Name current_faction;
     const QVector<QString> alliance_races;
     const QVector<QString> horde_races;
 

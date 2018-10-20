@@ -17,6 +17,11 @@ void BuffModel::set_patch(const QString &patch) {
     addBuffs();
 }
 
+void BuffModel::switch_faction() {
+    general_buffs->switch_faction();
+    addBuffs();
+}
+
 void BuffModel::addBuffs() {
     if (!external_buffs.empty()) {
         beginRemoveRows(QModelIndex(), 0, external_buffs.size() - 1);

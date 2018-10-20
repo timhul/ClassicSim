@@ -203,7 +203,7 @@ void GUIControl::selectRace(const QString& race_name) {
     statsChanged();
 }
 
-void GUIControl::selectFaction(const bool faction) {
+void GUIControl::selectFaction(const int faction) {
     if (this->current_char->get_faction()->get_faction() == faction)
         return;
 
@@ -238,6 +238,9 @@ void GUIControl::selectFaction(const bool faction) {
         reset_race(current_char);
         classChanged();
     }
+
+    buff_model->switch_faction();
+    statsChanged();
 }
 
 bool GUIControl::raceAvailable(const QString& race_name) {

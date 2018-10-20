@@ -37,8 +37,8 @@ private:
     int current_setup;
 
     QVector<Buff*> buffs;
-    QVector<Buff*> alliance_only_buffs;
-    QVector<Buff*> horde_only_buffs;
+    QVector<ExternalBuff*> alliance_only_buffs;
+    QVector<ExternalBuff*> horde_only_buffs;
     QVector<QVector<QPair<bool, ExternalBuff*>>> external_buffs;
     QVector<QVector<QPair<bool, ExternalBuff*>>> external_debuffs;
 

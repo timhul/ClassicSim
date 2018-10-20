@@ -490,7 +490,8 @@ HEADERS += \
     Character/Class/Resource.h \
     Character/Class/General/Spells/PeriodicResourceGainSpell.h \
     Rulesets/Rulesets.h \
-    Rulesets/RulesetControl.h
+    Rulesets/RulesetControl.h \
+    Faction/AvailableFactions.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

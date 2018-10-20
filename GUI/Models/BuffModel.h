@@ -21,6 +21,7 @@ public:
 
     void set_patch(const QString &patch);
     void addBuffs();
+    void switch_faction();
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;

@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Faction 1.0
 
 Rectangle {
     color: "transparent"
@@ -32,8 +33,8 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: character.selectFaction(root.alliance)
-            onRectangleRightClicked: character.selectFaction(root.alliance)
+            onRectangleClicked: character.selectFaction(Faction.Alliance)
+            onRectangleRightClicked: character.selectFaction(Faction.Alliance)
         }
 
         RectangleBorders {
@@ -57,8 +58,8 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: character.selectFaction(root.horde)
-            onRectangleRightClicked: character.selectFaction(root.horde)
+            onRectangleClicked: character.selectFaction(Faction.Horde)
+            onRectangleRightClicked: character.selectFaction(Faction.Horde)
         }
     }
 }

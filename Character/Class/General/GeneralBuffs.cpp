@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "ExternalBuff.h"
 #include "EssenceOfTheRed.h"
+#include "Faction.h"
 
 GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) :
     QObject(parent),
@@ -10,6 +11,11 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
     faction(faction),
     current_setup(0)
 {
+    this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfKings, pchar));
+    this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfMight, pchar));
+
+    this->horde_only_buffs.append(get_external_buff_by_name(ExternalBuffName::StrengthOfEarthTotem, pchar));
+
     for (int i = 0; i < 3; ++i) {
         this->external_buffs.append(QVector<QPair<bool, ExternalBuff*>>());
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfBruteForce, pchar)));
@@ -30,6 +36,15 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
         this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::CurseOfRecklessness, pchar)));
         this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::FaerieFire, pchar)));
         this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::Annihilator, pchar)));
+
+        if (faction->is_alliance()) {
+            for (auto & buff : alliance_only_buffs)
+                this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
+        }
+        else {
+            for (auto & buff : horde_only_buffs)
+                this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
+        }
     }
 
     buffs.append(new EssenceOfTheRed(pchar));
@@ -59,6 +74,29 @@ GeneralBuffs::~GeneralBuffs()
 }
 
 void GeneralBuffs::switch_faction() {
+    for (auto & setup : external_buffs) {
+        QVector<QPair<bool, ExternalBuff*>>::iterator it = setup.begin();
+
+        while (it != setup.end()) {
+            if (!it->second->valid_for_faction(faction->get_faction_as_enum())) {
+                delete it->second;
+                it = setup.erase(it);
+            }
+            else
+                ++it;
+        }
+    }
+
+    for (auto & setup : external_buffs) {
+        if (faction->is_alliance()) {
+            for (auto & buff : alliance_only_buffs)
+                setup.append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
+        }
+        else {
+            for (auto & buff : horde_only_buffs)
+                setup.append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
+        }
+    }
 }
 
 Buff* GeneralBuffs::get_general_buff_by_name(const QString& buff_name) const {

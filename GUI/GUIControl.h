@@ -45,7 +45,7 @@ public:
 
     Q_INVOKABLE void selectClass(const QString& class_name);
     Q_INVOKABLE void selectRace(const QString& race_name);
-    Q_INVOKABLE void selectFaction(const bool faction);
+    Q_INVOKABLE void selectFaction(const int faction);
 
     Q_INVOKABLE bool raceAvailable(const QString& race_name);
 

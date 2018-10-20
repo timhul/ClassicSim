@@ -2,6 +2,7 @@
 #define EXTERNALBUFF_H
 
 #include "Buff.h"
+#include "AvailableFactions.h"
 #include <QVersionNumber>
 
 enum ExternalBuffName {
@@ -17,6 +18,9 @@ enum ExternalBuffName {
     ScrollOfStrengthIV,
     SmokedDesertDumplings,
     ROIDS,
+    BlessingOfKings,
+    BlessingOfMight,
+    StrengthOfEarthTotem,
     SunderArmor,
     FaerieFire,
     CurseOfRecklessness,
@@ -34,6 +38,7 @@ public:
                  const int dur,
                  const int base_charges,
                  ExternalBuffName buff_name,
+                 AvailableFactions::Name faction,
                  QString icon,
                  QString description,
                  QVersionNumber min_patch);
@@ -42,12 +47,15 @@ public:
     QString get_icon() const;
     QString get_description() const;
     bool valid_for_patch(const QString& patch) const;
+    bool valid_for_faction(AvailableFactions::Name faction) const;
+    ExternalBuffName get_enum_value() const;
 
 protected:
     virtual void buff_effect_when_applied();
     virtual void buff_effect_when_removed();
 
     const ExternalBuffName buff_name;
+    AvailableFactions::Name faction;
     const QString icon;
     const QString description;
     const QVersionNumber min_patch;
