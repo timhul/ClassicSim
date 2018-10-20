@@ -1,17 +1,7 @@
 
 #include "GeneralBuffs.h"
 #include "Character.h"
-#include "ElixirOfBruteForce.h"
-#include "ElixirOfGiants.h"
-#include "ElixirOfTheMongoose.h"
-#include "RallyingCryOfTheDragonslayer.h"
-#include "SongflowerSerenade.h"
-
-#include "AnnihilatorBuff.h"
-#include "CurseOfRecklessnessBuff.h"
-#include "FaerieFireBuff.h"
-#include "SunderArmorBuff.h"
-
+#include "ExternalBuff.h"
 #include "EssenceOfTheRed.h"
 
 GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) :
@@ -22,17 +12,17 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) 
 {
     for (int i = 0; i < 3; ++i) {
         this->external_buffs.append(QVector<QPair<bool, ExternalBuff*>>());
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new ElixirOfBruteForce(pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new ElixirOfGiants(pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new ElixirOfTheMongoose(pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new RallyingCryOfTheDragonslayer(pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, new SongflowerSerenade(pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfBruteForce, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfGiants, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfTheMongoose, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::RallyingCryOfTheDragonslayer, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SongflowerSerenade, pchar)));
 
         this->external_debuffs.append(QVector<QPair<bool, ExternalBuff*>>());
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new SunderArmorBuff(pchar)));
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new CurseOfRecklessnessBuff(pchar)));
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new FaerieFireBuff(pchar)));
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, new AnnihilatorBuff(pchar)));
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SunderArmor, pchar)));
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::CurseOfRecklessness, pchar)));
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::FaerieFire, pchar)));
+        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::Annihilator, pchar)));
     }
 
     buffs.append(new EssenceOfTheRed(pchar));

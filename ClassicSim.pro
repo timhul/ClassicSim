@@ -161,12 +161,7 @@ SOURCES += main.cpp \
     Thread/SimulationRunner.cpp \
     Character/Class/General/GeneralBuffs.cpp \
     GUI/Models/BuffModel.cpp \
-    Character/Class/General/Buffs/ElixirOfTheMongoose.cpp \
     Character/Class/ExternalBuff.cpp \
-    Character/Class/General/Buffs/ElixirOfGiants.cpp \
-    Character/Class/General/Buffs/ElixirOfBruteForce.cpp \
-    Character/Class/General/Buffs/RallyingCryOfTheDragonslayer.cpp \
-    Character/Class/General/Buffs/SongflowerSerenade.cpp \
     Rotation/RotationFileReader.cpp \
     Rotation/Rotation.cpp \
     Rotation/CastIf.cpp \
@@ -191,11 +186,7 @@ SOURCES += main.cpp \
     Character/Race/Racials/BloodFuryBuff.cpp \
     Character/Race/Racials/Berserking.cpp \
     Character/Race/Racials/BerserkingBuff.cpp \
-    Character/Class/General/Debuffs/SunderArmorBuff.cpp \
     GUI/Models/DebuffModel.cpp \
-    Character/Class/General/Debuffs/FaerieFireBuff.cpp \
-    Character/Class/General/Debuffs/CurseOfRecklessnessBuff.cpp \
-    Character/Class/General/Debuffs/AnnihilatorBuff.cpp \
     GUI/Models/ItemTypeFilterModel.cpp \
     Character/Class/Warlock/WarlockSpells.cpp \
     Character/Class/Shaman/ShamanSpells.cpp \
@@ -411,12 +402,7 @@ HEADERS += \
     Thread/SimulationRunner.h \
     Character/Class/General/GeneralBuffs.h \
     GUI/Models/BuffModel.h \
-    Character/Class/General/Buffs/ElixirOfTheMongoose.h \
     Character/Class/ExternalBuff.h \
-    Character/Class/General/Buffs/ElixirOfGiants.h \
-    Character/Class/General/Buffs/ElixirOfBruteForce.h \
-    Character/Class/General/Buffs/RallyingCryOfTheDragonslayer.h \
-    Character/Class/General/Buffs/SongflowerSerenade.h \
     Rotation/RotationFileReader.h \
     Rotation/Rotation.h \
     Rotation/CastIf.h \
@@ -440,11 +426,7 @@ HEADERS += \
     Character/Race/Racials/BloodFuryBuff.h \
     Character/Race/Racials/Berserking.h \
     Character/Race/Racials/BerserkingBuff.h \
-    Character/Class/General/Debuffs/SunderArmorBuff.h \
     GUI/Models/DebuffModel.h \
-    Character/Class/General/Debuffs/FaerieFireBuff.h \
-    Character/Class/General/Debuffs/CurseOfRecklessnessBuff.h \
-    Character/Class/General/Debuffs/AnnihilatorBuff.h \
     GUI/Models/ItemTypeFilterModel.h \
     Equipment/Item/ItemNamespace.h \
     Character/Class/Warlock/WarlockSpells.h \
@@ -555,7 +537,6 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General \
     C:\C++\ClassicSim\Character\Class\General\Enchants \
     C:\C++\ClassicSim\Character\Class\General\Buffs \
-    C:\C++\ClassicSim\Character\Class\General\Debuffs \
     C:\C++\ClassicSim\Character\Class\General\Spells \
     C:\C++\ClassicSim\Character\Class\General\Procs \
     C:\C++\ClassicSim\GUI \
