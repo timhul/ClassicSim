@@ -23,23 +23,25 @@
 
 TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
     equipment_db(equipment_db),
-    sim_settings(new SimSettings()),
+    sim_settings(nullptr),
     pchar(nullptr),
     race(nullptr),
     spell_under_test(std::move(spell_under_test))
 {}
 
 TestSpell::~TestSpell() {
-    delete sim_settings;
+
 }
 
 void TestSpell::set_up_general() {
     race = new Orc();
+    sim_settings = new SimSettings();
     ignored_events.clear();
 }
 
 void TestSpell::tear_down_general() {
     delete race;
+    delete sim_settings;
     ignored_events.clear();
 }
 

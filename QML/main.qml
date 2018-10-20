@@ -163,6 +163,27 @@ Window {
         onActivated: settings.setCreatureType(currentText)
     }
 
+    ComboBox {
+        id: ruleset
+        anchors {
+            bottom: creatureType.top
+            bottomMargin: 2
+            right: continuousDpsUpdateRect.left
+            rightMargin: 20
+        }
+
+        width: 200
+        model: [
+            "Standard",
+            "Vaelastrasz",
+            "Loatheb"
+        ]
+
+        currentIndex: 0
+
+        onActivated: settings.selectRuleset(currentIndex)
+    }
+
     RectangleBorders {
         id: continuousDpsUpdateRect
         anchors {

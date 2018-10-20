@@ -487,12 +487,12 @@ void Character::reset() {
 
     reset_resource();
 
-    RulesetControl().use_ruleset(this->ruleset, this, sim_settings);
+    sim_settings->use_ruleset(this->ruleset, this);
 }
 
 void Character::prepare_set_of_combat_iterations() {
     this->ruleset = sim_settings->get_ruleset();
-    RulesetControl().use_ruleset(this->ruleset, this, sim_settings);
+    sim_settings->use_ruleset(this->ruleset, this);
     spells->prepare_set_of_combat_iterations();
     active_buffs->prepare_set_of_combat_iterations();
     active_procs->prepare_set_of_combat_iterations();

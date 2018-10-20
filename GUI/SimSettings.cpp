@@ -65,7 +65,7 @@ QSet<SimOption> SimSettings::get_active_options() const {
     return sim_options;
 }
 
-void SimSettings::use_ruleset(Ruleset ruleset, Character* pchar) {
+void SimSettings::use_ruleset(const Ruleset ruleset, Character* pchar) {
     ruleset_control->use_ruleset(ruleset, pchar, this);
 }
 

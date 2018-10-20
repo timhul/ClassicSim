@@ -206,6 +206,7 @@ public:
      Q_SIGNAL void combatLengthChanged();
      Q_SIGNAL void combatIterationsChanged();
      Q_SIGNAL void numThreadsChanged();
+     Q_INVOKABLE void selectRuleset(const int);
      /* End of SimSettings */
 
      Q_SLOT void compile_thread_results();

@@ -13,7 +13,6 @@ public:
     void then_number_of_charges_is(Buff* buff, const int charges);
 
 protected:
-    SimSettings* sim_settings;
 };
 
 #endif // TESTBUFF_H

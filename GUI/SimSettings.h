@@ -38,7 +38,7 @@ public:
     bool option_active(SimOption) const;
     QSet<SimOption> get_active_options() const;
 
-    void use_ruleset(Ruleset, Character*);
+    void use_ruleset(const Ruleset, Character*);
     Ruleset get_ruleset() const;
 
     double get_execute_threshold() const;

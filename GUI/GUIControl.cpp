@@ -690,6 +690,11 @@ void GUIControl::setNumThreads(const int threads) {
     numThreadsChanged();
 }
 
+void GUIControl::selectRuleset(const int ruleset) {
+    sim_settings->use_ruleset(static_cast<Ruleset>(ruleset), current_char);
+    statsChanged();
+}
+
 QString GUIControl::get_mainhand_icon() const {
     if (current_char->get_equipment()->get_mainhand() != nullptr)
         return "Assets/items/" + current_char->get_equipment()->get_mainhand()->get_value("icon");

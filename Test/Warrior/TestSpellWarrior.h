@@ -40,7 +40,6 @@ public:
 
 protected:
     Warrior* warrior{};
-    SimSettings* sim_settings;
 };
 
 #endif // TESTSPELLWARRIOR_H

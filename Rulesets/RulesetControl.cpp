@@ -1,6 +1,7 @@
 
 #include "ActiveBuffs.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 #include "Execute.h"
@@ -25,6 +26,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
         remove_vaelastrasz_ruleset(pchar, sim_settings);
         break;
     case Ruleset::Loatheb:
+        pchar->get_stats()->decrease_crit(1.0);
         break;
     }
 
@@ -37,6 +39,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
         use_vaelastrasz_ruleset(pchar, sim_settings);
         break;
     case Ruleset::Loatheb:
+        pchar->get_stats()->increase_crit(1.0);
         break;
     }
 }
@@ -62,8 +65,6 @@ void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* s
     Buff* buff = pchar->get_active_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
 
     assert(buff != nullptr);
-
-    buff->reset();
 
     if (buff->is_enabled())
         buff->disable_buff();
