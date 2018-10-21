@@ -269,5 +269,8 @@
         <file>QML/TextSmall.qml</file>
         <file>QML/StatisticsEntryMeleeDamageAvoidanceBreakdown.qml</file>
         <file>QML/StatisticsMeleeDamageAvoidanceBreakdownSorting.qml</file>
+        <file>QML/StatisticsMeleeDamageBreakdownSorting.qml</file>
+        <file>QML/StatisticsHeader.qml</file>
+        <file>QML/StatisticsEntryMeleeDamageBreakdown.qml</file>
     </qresource>
 </RCC>

@@ -8,26 +8,34 @@ Rectangle {
 
     color: "transparent"
 
-    StatisticsMeleeDamageAvoidanceBreakdownSorting {
-        id: damageBreakdownSorting
-    }
 
     ScrollView {
-        anchors {
-            top: damageBreakdownSorting.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-        }
+        anchors.fill: parent
         clip: true
 
+        StatisticsHeader {
+            id: headerOutcomes
+            title: "Ability Outcomes"
+        }
+
+        StatisticsMeleeDamageAvoidanceBreakdownSorting {
+            id: damageBreakdownSorting
+            anchors.top: headerOutcomes.bottom
+        }
+
         ListView {
-            id: damageBreakdownTable
+            id: damageAvoidanceBreakdownTable
+            anchors {
+                top: damageBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
             boundsBehavior: Flickable.StopAtBounds
 
             implicitHeight: contentHeight
 
-            model: damageBreakdownModel
+            model: meleeAvoidanceBreakdownModel
             delegate: StatisticsEntryMeleeDamageAvoidanceBreakdown {
                 name: _name
                 iconurl: _icon
@@ -46,6 +54,52 @@ Rectangle {
                 dodgepercent: _dodgepercent
                 numparries: _numparries
                 parrypercent: _parrypercent
+            }
+        }
+
+        StatisticsHeader {
+            id: headerMeleeDmgBreakdown
+            title: "Ability Damage Breakdown"
+
+            anchors.top: damageAvoidanceBreakdownTable.bottom
+        }
+
+        StatisticsMeleeDamageBreakdownSorting {
+            id: meleeDamageBreakdownSorting
+            anchors {
+                top: headerMeleeDmgBreakdown.bottom
+                left: parent.left
+                right: parent.right
+            }
+        }
+
+        ListView {
+            id: damageBreakdownTable
+            anchors {
+                top: meleeDamageBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: meleeDamageBreakdownModel
+            delegate: StatisticsEntryMeleeDamageBreakdown {
+                name: _name
+                iconurl: _icon
+                totaldmgabsolute: _totaldmgabsolute
+                totaldmgpercentage: _totaldmgpercent
+                minhit: _minhit
+                avghit: _avghit
+                maxhit: _maxhit
+                mincrit: _mincrit
+                avgcrit: _avgcrit
+                maxcrit: _maxcrit
+                minglance: _minglance
+                avgglance: _avgglance
+                maxglance: _maxglance
             }
         }
     }

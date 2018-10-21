@@ -7,6 +7,7 @@
 #include "SimSettings.h"
 
 class ClassStatistics;
+class MeleeDamageBreakdownModel;
 class MeleeDamageAvoidanceBreakdownModel;
 class StatisticsSpell;
 
@@ -20,6 +21,7 @@ public:
     void print();
 
 private:
+    friend class MeleeDamageBreakdownModel;
     friend class MeleeDamageAvoidanceBreakdownModel;
 
     QMutex mutex;

@@ -11,113 +11,25 @@ MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCru
     this->current_sorting_method = MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamageAbsolute;
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamageAbsolute, true);
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByName, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamagePercentage, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumHits, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByHitPercent, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumCrits, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByCritPercent, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumGlances, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByGlancePercent, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumMisses, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByMissPercent, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumDodges, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByDodgePercent, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumParries, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByParryPercent, false);
 }
 
 MeleeDamageAvoidanceBreakdownModel::~MeleeDamageAvoidanceBreakdownModel() {
     for (auto & i : spell_stats)
         delete i;
-}
-
-bool name(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return lhs->get_name() < rhs->get_name();
-}
-
-bool total_damage(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_dmg = lhs->get_total_dmg_dealt();
-    auto rhs_dmg = rhs->get_total_dmg_dealt();
-
-    return lhs_dmg == rhs_dmg ? name(lhs, rhs) : lhs_dmg > rhs_dmg;
-}
-
-bool total_attempts(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_total = lhs->get_total_attempts_made();
-    auto rhs_total = rhs->get_total_attempts_made();
-
-    return lhs_total == rhs_total ? name(lhs, rhs) : lhs_total > rhs_total;
-}
-
-bool hit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_hit = double(lhs->get_hits()) / lhs->get_total_attempts_made();
-    auto rhs_hit = double(rhs->get_hits()) / rhs->get_total_attempts_made();
-
-    return lhs_hit < rhs_hit;
-}
-
-bool num_hits(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_hit = lhs->get_hits();
-    auto rhs_hit = rhs->get_hits();
-
-    return lhs_hit == rhs_hit ? name(lhs, rhs) : lhs_hit > rhs_hit;
-}
-
-bool crit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_crit = double(lhs->get_crits()) / lhs->get_total_attempts_made();
-    auto rhs_crit = double(rhs->get_crits()) / rhs->get_total_attempts_made();
-
-    return lhs_crit < rhs_crit;
-}
-
-bool num_crits(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_crit = lhs->get_crits();
-    auto rhs_crit = rhs->get_crits();
-
-    return lhs_crit == rhs_crit ? name(lhs, rhs) : lhs_crit > rhs_crit;
-}
-
-bool glance_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_glance = double(lhs->get_glances()) / lhs->get_total_attempts_made();
-    auto rhs_glance = double(rhs->get_glances()) / rhs->get_total_attempts_made();
-
-    return lhs_glance < rhs_glance;
-}
-
-bool num_glances(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_glance = lhs->get_glances();
-    auto rhs_glance = rhs->get_glances();
-
-    return lhs_glance == rhs_glance ? name(lhs, rhs) : lhs_glance > rhs_glance;
-}
-
-bool miss_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_miss = double(lhs->get_misses()) / lhs->get_total_attempts_made();
-    auto rhs_miss = double(rhs->get_misses()) / rhs->get_total_attempts_made();
-
-    return lhs_miss < rhs_miss;
-}
-
-bool num_misses(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_miss = lhs->get_misses();
-    auto rhs_miss = rhs->get_misses();
-
-    return lhs_miss == rhs_miss ? name(lhs, rhs) : lhs_miss > rhs_miss;
-}
-
-bool dodge_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_dodge = double(lhs->get_dodges()) / lhs->get_total_attempts_made();
-    auto rhs_dodge = double(rhs->get_dodges()) / rhs->get_total_attempts_made();
-
-    return lhs_dodge < rhs_dodge;
-}
-
-bool num_dodges(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_dodge = lhs->get_dodges();
-    auto rhs_dodge = rhs->get_dodges();
-
-    return lhs_dodge == rhs_dodge ? name(lhs, rhs) : lhs_dodge > rhs_dodge;
-}
-
-bool parry_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_parry = double(lhs->get_parries()) / lhs->get_total_attempts_made();
-    auto rhs_parry = double(rhs->get_parries()) / rhs->get_total_attempts_made();
-
-    return lhs_parry < rhs_parry;
-}
-
-bool num_parries(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    auto lhs_parry = lhs->get_parries();
-    auto rhs_parry = rhs->get_parries();
-
-    return lhs_parry == rhs_parry ? name(lhs, rhs) : lhs_parry > rhs_parry;
 }
 
 void MeleeDamageAvoidanceBreakdownModel::selectSort(const int method) {

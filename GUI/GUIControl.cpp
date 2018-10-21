@@ -122,7 +122,8 @@ GUIControl::GUIControl(QObject* parent) :
 
     rotation_model->set_information_index(0);
     rotation_model->select_rotation();
-    damage_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
+    damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
+    damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
 }
 
 GUIControl::~GUIControl() {
@@ -159,6 +160,8 @@ GUIControl::~GUIControl() {
     delete sim_control;
     delete sim_settings;
     delete number_cruncher;
+    delete damage_breakdown_model;
+    delete damage_avoidance_breakdown_model;
 }
 
 void GUIControl::set_character(Character* pchar) {
@@ -589,8 +592,12 @@ QString GUIControl::getEntryIcon(const int index) const {
     return current_char->get_statistics()->getEntryIcon(index);
 }
 
-MeleeDamageAvoidanceBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
+MeleeDamageBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
     return this->damage_breakdown_model;
+}
+
+MeleeDamageAvoidanceBreakdownModel* GUIControl::get_dmg_breakdown_avoidance_model() const {
+    return this->damage_avoidance_breakdown_model;
 }
 
 RotationModel* GUIControl::get_rotation_model() const {
@@ -650,6 +657,7 @@ void GUIControl::run_full_sim() {
     thread_pool->run_sim(character_encoder->get_current_setup_string(), true);
 
     damage_breakdown_model->update_statistics();
+    damage_avoidance_breakdown_model->update_statistics();
     statisticsReady();
 }
 
@@ -661,8 +669,8 @@ void GUIControl::runQuickSim() {
 void GUIControl::compile_thread_results() {
     number_cruncher->print();
     damage_breakdown_model->update_statistics();
+    damage_avoidance_breakdown_model->update_statistics();
     number_cruncher->reset();
-
 }
 
 int GUIControl::get_combat_iterations() const {

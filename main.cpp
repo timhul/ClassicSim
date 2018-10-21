@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
     context->setContextProperty("buffModel", gui_control->get_buff_model());
     context->setContextProperty("debuffModel", gui_control->get_debuff_model());
     context->setContextProperty("rotationModel", gui_control->get_rotation_model());
-    context->setContextProperty("damageBreakdownModel", gui_control->get_dmg_breakdown_model());
+    context->setContextProperty("meleeDamageBreakdownModel", gui_control->get_dmg_breakdown_model());
+    context->setContextProperty("meleeAvoidanceBreakdownModel", gui_control->get_dmg_breakdown_avoidance_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 
@@ -43,6 +44,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
     qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
+    qmlRegisterType<MeleeDamageBreakdownSorting>("MeleeDamageBreakdownSorting", 1, 0, "MeleeDamageBreakdownSorting");
     qmlRegisterType<MeleeDamageAvoidanceBreakdownSorting>("MeleeDamageAvoidanceBreakdownSorting", 1, 0, "MeleeDamageAvoidanceBreakdownSorting");
 
     qml_engine.clearComponentCache();

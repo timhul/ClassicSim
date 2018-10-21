@@ -7,6 +7,33 @@
 #include <QVector>
 #include <math.h>
 
+class StatisticsSpell;
+
+bool name(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool total_damage(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool total_attempts(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool hit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_hits(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool crit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) ;
+bool num_crits(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool glance_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_glances(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool miss_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_misses(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool dodge_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_dodges(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool parry_percent(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool num_parries(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_hit(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_hit(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_hit(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_crit(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_crit(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_crit(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs);
+
 class StatisticsSpell {
 public:
     enum Outcome {
@@ -74,6 +101,15 @@ public:
     int get_hit_dmg() const;
     int get_crit_dmg() const;
 
+    int get_min_glancing_dmg() const;
+    int get_max_glancing_dmg() const;
+
+    int get_min_hit_dmg() const;
+    int get_max_hit_dmg() const;
+
+    int get_min_crit_dmg() const;
+    int get_max_crit_dmg() const;
+
     int get_num_attempt_columns() const;
     int get_num_dmg_columns() const;
 
@@ -92,6 +128,8 @@ private:
 
     int get_attempts(const Outcome) const;
     int get_dmg(const Outcome) const;
+    int get_min_dmg(const Outcome) const;
+    int get_max_dmg(const Outcome) const;
     void increment(const Outcome);
     void add_dmg(const Outcome outcome, const int dmg);
 
@@ -100,6 +138,8 @@ private:
 
     QMap<Outcome, int> attempts;
     QMap<Outcome, int> damage;
+    QMap<Outcome, int> min_damage;
+    QMap<Outcome, int> max_damage;
 };
 
 #endif // STATISTICSSPELL_H

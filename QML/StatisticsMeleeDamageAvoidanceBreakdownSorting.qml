@@ -24,11 +24,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByName
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Name"
@@ -41,11 +41,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalDamageAbsolute
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Total Damage"
@@ -58,11 +58,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalDamagePercentage
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Tot. Dmg %"
@@ -75,11 +75,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalAttempts
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Tot. Attemps"
@@ -92,11 +92,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumHits
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Hits"
@@ -109,11 +109,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByHitPercent
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Hit %"
@@ -126,11 +126,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumCrits
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Crits"
@@ -143,11 +143,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByCritPercent
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Crit %"
@@ -160,11 +160,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumGlances
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Glances"
@@ -177,11 +177,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByGlancePercent
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Glance %"
@@ -194,11 +194,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumMisses
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Misses"
@@ -211,11 +211,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByMissPercent
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Miss %"
@@ -228,11 +228,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumDodges
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Dodges"
@@ -245,11 +245,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByDodgePercent
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Dodge %"
@@ -262,11 +262,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumParries
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Parries"
@@ -279,11 +279,11 @@ RectangleBorders {
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByParryPercent
 
-            onRectangleClicked: damageBreakdownModel.selectSort(method)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
 
-            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                              root.darkDarkGray
+            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                      root.darkDarkGray
 
             TextSmall {
                 text: "Parry %"
