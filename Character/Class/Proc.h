@@ -12,6 +12,7 @@ class StatisticsResource;
 class Proc: public Spell {
 public:
     Proc(const QString &name,
+         const QString &icon,
          const double proc_rate,
          const double inner_cooldown,
          const QVector<Proc *>& linked_procs,

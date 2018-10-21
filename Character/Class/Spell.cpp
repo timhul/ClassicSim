@@ -9,11 +9,13 @@
 #include "Spells.h"
 
 Spell::Spell(const QString& name,
+             const QString& icon,
              Character* pchar,
              bool restricted_by_gcd,
              double cooldown, int
              resource_cost) :
     name(name),
+    icon(icon),
     pchar(pchar),
     engine(pchar->get_engine()),
     roll(pchar->get_combat_roll()),
@@ -177,7 +179,7 @@ void Spell::reset() {
 }
 
 void Spell::prepare_set_of_combat_iterations() {
-    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name);
+    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name, icon);
 }
 
 StatisticsSpell* Spell::get_statistics_for_spell() const {

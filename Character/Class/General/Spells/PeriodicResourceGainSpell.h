@@ -10,6 +10,7 @@
 class PeriodicResourceGainSpell : public Spell {
 public:
     PeriodicResourceGainSpell(const QString& name,
+                              const QString &icon,
                               Character* pchar,
                               bool restricted_by_gcd,
                               double cooldown,

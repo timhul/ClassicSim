@@ -154,7 +154,7 @@ QVariant MeleeDamageBreakdownModel::data(const QModelIndex & index, int role) co
     if (role == MeleeDamageBreakdownSorting::ByName)
         return spell_stat->get_name();
     if (role == MeleeDamageBreakdownSorting::Icon)
-        return "Assets/buffs/Inv_misc_head_dragon_01.png";
+        return spell_stat->get_icon();
     if (role == MeleeDamageBreakdownSorting::ByTotalDamageAbsolute)
         return spell_stat->get_total_dmg_dealt();
     if (role == MeleeDamageBreakdownSorting::ByTotalDamagePercentage)

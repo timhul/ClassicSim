@@ -50,12 +50,13 @@ public:
         Crit
     };
 
-    StatisticsSpell(QString name);
+    StatisticsSpell(const QString& name, const QString& icon);
     ~StatisticsSpell();
 
     void reset();
 
     QString get_name() const;
+    QString get_icon() const;
 
     void increment_miss();
     void increment_full_resist();
@@ -124,6 +125,7 @@ public:
 protected:
 private:
     const QString name;
+    const QString icon;
     double percentage_of_total_damage_done;
 
     int get_attempts(const Outcome) const;

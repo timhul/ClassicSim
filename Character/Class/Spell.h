@@ -21,6 +21,7 @@ namespace SpellStatus {
 class Spell {
 public:
     Spell(const QString& name,
+          const QString& icon,
           Character* pchar,
           bool restricted_by_gcd,
           double cooldown,
@@ -61,6 +62,7 @@ protected:
     virtual bool is_ready_spell_specific() const;
 
     const QString name;
+    const QString icon;
     Character* pchar;
     Engine* engine;
     CombatRoll* roll;

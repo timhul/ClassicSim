@@ -8,7 +8,7 @@ class Random;
 
 class InstantSpellAttack: public Spell {
 public:
-    InstantSpellAttack(Character* pchar, const QString& name, const MagicSchool school, const unsigned min, const unsigned max);
+    InstantSpellAttack(Character* pchar, const QString& name, const QString &icon, const MagicSchool school, const unsigned min, const unsigned max);
     ~InstantSpellAttack() override;
 
 protected:

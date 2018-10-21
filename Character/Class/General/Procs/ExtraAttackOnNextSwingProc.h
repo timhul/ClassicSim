@@ -10,6 +10,7 @@ class ExtraAttackOnNextSwingProc: public Proc {
 public:
     ExtraAttackOnNextSwingProc(Character* pchar,
                                const QString& proc_name,
+                               const QString &icon,
                                const QVector<ProcInfo::Source>& proc_sources,
                                const double proc_rate,
                                const int num_attacks);

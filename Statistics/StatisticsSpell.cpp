@@ -141,8 +141,9 @@ bool max_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_max_glancing_dmg() > rhs->get_max_glancing_dmg();
 }
 
-StatisticsSpell::StatisticsSpell(QString name):
-    name(std::move(name)),
+StatisticsSpell::StatisticsSpell(const QString& name, const QString& icon):
+    name(name),
+    icon(icon),
     percentage_of_total_damage_done(0.0)
 {
     this->possible_attempt_outcomes = QSet<Outcome>({
@@ -180,6 +181,10 @@ void StatisticsSpell::reset() {
 
 QString StatisticsSpell::get_name() const {
     return this->name;
+}
+
+QString StatisticsSpell::get_icon() const {
+    return this->icon;
 }
 
 void StatisticsSpell::increment(const Outcome outcome) {

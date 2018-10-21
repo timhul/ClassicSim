@@ -54,14 +54,14 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
                 continue;
             }
             handled_entries.insert(it.key());
-            merge_spell_entry(it.key(), total_damage_dealt, vec);
+            merge_spell_entry(it.key(), it.value()->get_icon(), total_damage_dealt, vec);
             ++it;
         }
     }
 }
 
-void NumberCruncher::merge_spell_entry(const QString& name, long long total_damage_dealt, QList<StatisticsSpell *> &vec) {
-    StatisticsSpell* result = new StatisticsSpell(name);
+void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, QList<StatisticsSpell *> &vec) {
+    StatisticsSpell* result = new StatisticsSpell(name, icon);
     for (auto & cstats : class_stats[SimOption::NoScale]) {
         if (!cstats->spell_statistics.contains(name))
             continue;

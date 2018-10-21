@@ -175,7 +175,7 @@ QVariant MeleeDamageAvoidanceBreakdownModel::data(const QModelIndex & index, int
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByName)
         return spell_stat->get_name();
     if (role == MeleeDamageAvoidanceBreakdownSorting::Icon)
-        return "Assets/buffs/Inv_misc_head_dragon_01.png";
+        return spell_stat->get_icon();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByTotalDamageAbsolute)
         return spell_stat->get_total_dmg_dealt();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByTotalDamagePercentage)

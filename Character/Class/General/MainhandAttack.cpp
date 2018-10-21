@@ -8,6 +8,7 @@
 
 MainhandAttack::MainhandAttack(Character* pchar) :
     Spell("Mainhand Attack",
+          "Assets/items/Inv_axe_01.png",
           pchar,
           false,
           (pchar->get_equipment()->get_mainhand() != nullptr) ? pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() :

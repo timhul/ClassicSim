@@ -3,12 +3,13 @@
 #include "CastComplete.h"
 
 SpellCastingTime::SpellCastingTime(const QString& name,
+                                   const QString &icon,
                                    Character* pchar,
                                    bool restricted_by_gcd,
                                    double cooldown,
                                    int resource_cost,
                                    int casting_time) :
-    Spell(name, pchar, restricted_by_gcd, cooldown, resource_cost),
+    Spell(name, icon, pchar, restricted_by_gcd, cooldown, resource_cost),
     casting_time_ms(casting_time),
     cast_in_progress(false)
 {}

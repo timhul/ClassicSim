@@ -27,10 +27,10 @@ SimOption ClassStatistics::get_sim_option() const {
     return this->option;
 }
 
-StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name) {
+StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, const QString& icon) {
     assert(!spell_statistics.contains(name));
 
-    spell_statistics[name] = new StatisticsSpell(name);
+    spell_statistics[name] = new StatisticsSpell(name, icon);
     return spell_statistics[name];
 }
 

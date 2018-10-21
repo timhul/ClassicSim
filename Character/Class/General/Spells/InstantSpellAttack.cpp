@@ -6,10 +6,11 @@
 
 InstantSpellAttack::InstantSpellAttack(Character* pchar,
                                        const QString &name,
+                                       const QString &icon,
                                        const MagicSchool school,
                                        const unsigned min,
                                        const unsigned max) :
-    Spell(name, pchar, false, 0, 0),
+    Spell(name, icon, pchar, false, 0, 0),
     school(school),
     min(min), max(max),
     random(new Random(min, max))

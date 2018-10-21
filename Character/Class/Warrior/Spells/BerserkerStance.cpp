@@ -3,7 +3,7 @@
 #include "Warrior.h"
 
 BerserkerStance::BerserkerStance(Character* pchar) :
-    Spell("Berserker Stance", pchar, true, 0.0, 0),
+    Spell("Berserker Stance", "Assets/cross.png", pchar, true, 0.0, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

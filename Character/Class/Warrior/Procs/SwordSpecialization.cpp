@@ -8,7 +8,7 @@
 #include "ProcInfo.h"
 
 SwordSpecialization::SwordSpecialization(Character* pchar) :
-    Proc("Sword Specialization", 0.0, 0, QVector<Proc*>(),
+    Proc("Sword Specialization", "Assets/warrior/arms/tier5/Inv_sword_27.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
          pchar),

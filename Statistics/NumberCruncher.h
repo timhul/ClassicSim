@@ -31,7 +31,7 @@ private:
     void calculate_stat_weights() const;
 
     void merge_spell_stats(QList<StatisticsSpell*>& vec);
-    void merge_spell_entry(const QString& name, long long int total_damage_dealt, QList<StatisticsSpell*>& vec);
+    void merge_spell_entry(const QString& name, const QString &icon, long long int total_damage_dealt, QList<StatisticsSpell*>& vec);
 };
 
 #endif // NUMBERCRUNCHER_H

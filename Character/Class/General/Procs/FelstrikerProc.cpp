@@ -12,7 +12,7 @@ FelstrikerProc::FelstrikerProc(Character* pchar,
                                const QVector<ProcInfo::Source>& proc_sources,
                                const double proc_rate,
                                const int duration) :
-    Proc(name, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar)
+    Proc(name, "Assets/items/Inv_weapon_shortblade_25.png", proc_rate, 0, QVector<Proc*>(), proc_sources, pchar)
 {
     assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
 

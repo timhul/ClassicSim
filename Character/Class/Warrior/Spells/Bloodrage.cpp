@@ -4,7 +4,7 @@
 #include "ResourceGain.h"
 
 Bloodrage::Bloodrage(Character* pchar) :
-    Spell("Bloodrage", pchar, false, 60, 0),
+    Spell("Bloodrage", "Assets/warrior/protection/tier2/Ability_racial_bloodrage.png", pchar, false, 60, 0),
     TalentRequirer(2, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {

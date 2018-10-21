@@ -8,7 +8,7 @@
 #include "CharacterStats.h"
 
 Whirlwind::Whirlwind(Character* pchar) :
-    Spell("Whirlwind", pchar, true, 10.0, 25),
+    Spell("Whirlwind", "Assets/warrior/Ability_whirlwind.png", pchar, true, 10.0, 25),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

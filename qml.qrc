@@ -272,5 +272,15 @@
         <file>QML/StatisticsMeleeDamageBreakdownSorting.qml</file>
         <file>QML/StatisticsHeader.qml</file>
         <file>QML/StatisticsEntryMeleeDamageBreakdown.qml</file>
+        <file>QML/Assets/buffs/Spell_fire_lavaspawn.png</file>
+        <file>QML/Assets/buffs/Spell_holy_blessingofstrength.png</file>
+        <file>QML/Assets/items/Inv_axe_01.png</file>
+        <file>QML/Assets/items/Inv_sword_04.png</file>
+        <file>QML/Assets/misc/Spell_holy_greaterheal.png</file>
+        <file>QML/Assets/races/Racial_orc_berserkerstrength.png</file>
+        <file>QML/Assets/races/Racial_troll_berserk.png</file>
+        <file>QML/Assets/warrior/Ability_criticalstrike.png</file>
+        <file>QML/Assets/warrior/Ability_whirlwind.png</file>
+        <file>QML/Assets/warrior/warrior_arms_old.jpg</file>
     </qresource>
 </RCC>

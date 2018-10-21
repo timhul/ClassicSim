@@ -5,7 +5,7 @@
 #include "Character.h"
 
 BloodFury::BloodFury(Character* pchar) :
-    Spell("Blood Fury", pchar, true, 120, 0)
+    Spell("Blood Fury", "Assets/Racial_orc_berserkerstrength.png", pchar, true, 120, 0)
 {
     this->enabled = false;
 }

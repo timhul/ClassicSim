@@ -8,12 +8,14 @@
 
 ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Character* pchar,
                                                        const QString& proc_name,
+                                                       const QString& icon,
                                                        const QVector<ProcInfo::Source>& proc_sources,
                                                        const double proc_rate,
                                                        const int num_attacks) :
-    Proc(proc_name, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
+    Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
     extra_attack_instant_proc(new ExtraAttackInstantProc(pchar,
                                                          QString("%1 Instant").arg(proc_name),
+                                                         icon,
                                                          proc_sources, 1.0, num_attacks)),
     extra_attack_buff(new ExtraAttackOnNextSwingBuff(pchar, extra_attack_instant_proc, num_attacks))
 {

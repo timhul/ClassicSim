@@ -11,12 +11,13 @@
 #include "Character.h"
 
 Proc::Proc(const QString& name,
+           const QString &icon,
            const double proc_rate,
            const double inner_cooldown,
            const QVector<Proc *>& linked_procs,
            QVector<ProcInfo::Source>  proc_sources,
            Character* pchar) :
-    Spell(name, pchar, false, inner_cooldown, 0),
+    Spell(name, icon, pchar, false, inner_cooldown, 0),
     procs(pchar->get_active_procs()),
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),

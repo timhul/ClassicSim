@@ -7,7 +7,7 @@
 #include "CharacterStats.h"
 
 Hamstring::Hamstring(Character* pchar) :
-    Spell("Hamstring", pchar, true, 0, 10),
+    Spell("Hamstring", "Assets/warrior/arms/tier6/Ability_shockwave.png", pchar, true, 0, 10),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

@@ -5,7 +5,7 @@
 #include "Character.h"
 
 Berserking::Berserking(Character* pchar) :
-    Spell("Berserking", pchar, true, 180, 0)
+    Spell("Berserking", "Assets/Racial_troll_berserk.png", pchar, true, 180, 0)
 {
     this->enabled = false;
 }

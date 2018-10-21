@@ -8,6 +8,7 @@
 
 OffhandAttack::OffhandAttack(Character* pchar) :
     Spell("Offhand Attack",
+          "Assets/items/Inv_sword_04.png",
           pchar,
           false,
           (pchar->get_equipment()->get_offhand() != nullptr) ? pchar->get_equipment()->get_offhand()->get_base_weapon_speed() :

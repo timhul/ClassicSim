@@ -8,7 +8,7 @@
 #include "SimSettings.h"
 
 Execute::Execute(Character* pchar) :
-    Spell("Execute", pchar, true, 0, 15),
+    Spell("Execute", "Assets/warrior/fury/tier4/Inv_sword_48.png", pchar, true, 0, 15),
     TalentRequirer(2, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar)),
     execute_treshold(0.2)

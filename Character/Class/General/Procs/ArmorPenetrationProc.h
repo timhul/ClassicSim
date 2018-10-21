@@ -9,6 +9,7 @@ class ArmorPenetrationProc: public Proc {
 public:
     ArmorPenetrationProc(Character* pchar,
                          const QString& proc_name,
+                         const QString &icon,
                          const QVector<ProcInfo::Source>& proc_sources,
                          const double proc_rate,
                          const int reduction,

@@ -25,7 +25,7 @@ public:
     Q_INVOKABLE virtual QVariantList getChartInfo(const int index) const = 0;
     Q_INVOKABLE virtual QString getEntryIcon(const int index) const = 0;
 
-    StatisticsSpell* get_spell_statistics(const QString& name);
+    StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon);
     StatisticsBuff* get_buff_statistics(const QString& name);
     StatisticsResource* get_resource_statistics(const QString& name);
     StatisticsProc* get_proc_statistics(const QString& name);

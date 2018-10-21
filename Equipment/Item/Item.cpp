@@ -187,6 +187,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             if (instant == "yes") {
                 proc = new ExtraAttackInstantProc(pchar,
                                                   get_name(),
+                                                  info["icon"],
                                                   proc_sources,
                                                   proc_rate,
                                                   amount);
@@ -194,6 +195,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             else {
                 proc = new ExtraAttackOnNextSwingProc(pchar,
                                                       get_name(),
+                                                      info["icon"],
                                                       proc_sources,
                                                       proc_rate,
                                                       amount);
@@ -206,7 +208,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
             int max_stacks = i["max_stacks"].toInt();
             int duration = i["duration"].toInt();
 
-            proc = new ArmorPenetrationProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, reduction, max_stacks, duration);
+            proc = new ArmorPenetrationProc(pchar, get_weapon_side_name(eq_slot), info["proc"], proc_sources, proc_rate, reduction, max_stacks, duration);
         }
 
         else if (direct_spell_damage_procs.contains(proc_name)) {
@@ -217,6 +219,7 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
 
             proc = new InstantSpellProc(pchar,
                                         get_weapon_side_name(eq_slot),
+                                        info["proc"],
                                         proc_sources,
                                         proc_rate,
                                         get_magic_school(proc_name),

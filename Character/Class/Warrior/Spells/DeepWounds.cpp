@@ -4,7 +4,7 @@
 #include "DotTick.h"
 
 DeepWounds::DeepWounds(Character* pchar) :
-    Spell("Deep Wounds", pchar, false, 3, 0),
+    Spell("Deep Wounds", "Assets/warrior/arms/tier3/Ability_backstab.png", pchar, false, 3, 0),
     TalentRequirer(3, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {
