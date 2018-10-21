@@ -144,32 +144,26 @@ void Spell::increment_full_block() {
 
 void Spell::add_partial_resist_dmg(const int damage) {
     statistics_spell->add_partial_resist_dmg(damage);
-    statistics_spell->increment_partial_resist();
 }
 
 void Spell::add_partial_block_dmg(const int damage) {
     statistics_spell->add_partial_block_dmg(damage);
-    statistics_spell->increment_partial_block();
 }
 
 void Spell::add_partial_block_crit_dmg(const int damage) {
     statistics_spell->add_partial_block_crit_dmg(damage);
-    statistics_spell->increment_partial_block_crit();
 }
 
 void Spell::add_glancing_dmg(const int damage) {
     statistics_spell->add_glancing_dmg(damage);
-    statistics_spell->increment_glancing();
 }
 
 void Spell::add_hit_dmg(const int damage) {
     statistics_spell->add_hit_dmg(damage);
-    statistics_spell->increment_hit();
 }
 
 void Spell::add_crit_dmg(const int damage) {
     statistics_spell->add_crit_dmg(damage);
-    statistics_spell->increment_crit();
 }
 
 double Spell::damage_after_modifiers(const double damage) const {
