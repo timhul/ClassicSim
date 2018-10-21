@@ -8,6 +8,32 @@ Rectangle {
 
     color: "transparent"
 
+    StatisticsDamageBreakdownSorting {
+        id: damageBreakdownSorting
+    }
+
+    ListView {
+        id: damageBreakdownTable
+
+        anchors {
+            top: damageBreakdownSorting.bottom
+            left: parent.left
+            right: parent.right
+        }
+
+        interactive: false
+        implicitHeight: contentHeight
+
+        model: damageBreakdownModel
+        delegate: StatisticsEntryDamageBreakdown {
+            name: _name
+            iconurl: _icon
+            totaldmgabsolute: _totaldmgabsolute
+            totaldmgpercentage: _totaldmgpercent
+        }
+    }
+
+    /*
     Component.onCompleted: updateStatistics()
 
     Connections {
@@ -71,5 +97,5 @@ Rectangle {
             model: objectModel
             boundsBehavior: Flickable.StopAtBounds
         }
-    }
+    }*/
 }

@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QMap>
+#include <QSet>
 #include <QVector>
 #include <math.h>
 
@@ -74,19 +75,28 @@ public:
     int get_crit_dmg();
 
     int get_num_attempt_columns();
-    int get_num_dmg_columns();
+    int get_num_dmg_columns() const;
 
-    int get_total_dmg_dealt();
+    int get_total_dmg_dealt() const;
     int get_total_attempts_made();
+
+    double get_percentage_of_damage_dealt() const;
+    void set_percentage_of_damage_dealt(long long int);
+
+    void add(const StatisticsSpell*);
 
 protected:
 private:
     const QString name;
+    double percentage_of_total_damage_done;
 
     int get_attempts(const Outcome);
-    int get_dmg(const Outcome);
+    int get_dmg(const Outcome) const;
     void increment(const Outcome);
     void add_dmg(const Outcome outcome, const int dmg);
+
+    QSet<Outcome> possible_attempt_outcomes;
+    QSet<Outcome> possible_success_outcomes;
 
     QMap<Outcome, int> attempts;
     QMap<Outcome, int> damage;

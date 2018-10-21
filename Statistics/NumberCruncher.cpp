@@ -34,6 +34,45 @@ void NumberCruncher::add_class_statistic(SimOption key, ClassStatistics* cstat) 
     class_stats[key].append(cstat);
 }
 
+void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
+    QMutexLocker lock(&mutex);
+
+    assert(class_stats.contains(SimOption::NoScale));
+
+    long long int total_damage_dealt = 0;
+    for (auto & cstats : class_stats[SimOption::NoScale]) {
+        total_damage_dealt += cstats->get_total_damage_dealt();
+    }
+
+    QSet<QString> handled_entries;
+    for (auto & cstats : class_stats[SimOption::NoScale]) {
+        QMap<QString, StatisticsSpell*>::const_iterator it = cstats->spell_statistics.constBegin();
+        auto end = cstats->spell_statistics.constEnd();
+        while (it != end) {
+            if (handled_entries.contains(it.key())) {
+                ++it;
+                continue;
+            }
+            handled_entries.insert(it.key());
+            merge_spell_entry(it.key(), total_damage_dealt, vec);
+            ++it;
+        }
+    }
+}
+
+void NumberCruncher::merge_spell_entry(const QString& name, long long total_damage_dealt, QList<StatisticsSpell *> &vec) {
+    StatisticsSpell* result = new StatisticsSpell(name);
+    for (auto & cstats : class_stats[SimOption::NoScale]) {
+        if (!cstats->spell_statistics.contains(name))
+            continue;
+
+        result->add(cstats->spell_statistics[name]);
+    }
+
+    result->set_percentage_of_damage_dealt(total_damage_dealt);
+    vec.append(result);
+}
+
 void NumberCruncher::print() {
     QMutexLocker lock(&mutex);
 

@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("buffModel", gui_control->get_buff_model());
     context->setContextProperty("debuffModel", gui_control->get_debuff_model());
     context->setContextProperty("rotationModel", gui_control->get_rotation_model());
+    context->setContextProperty("damageBreakdownModel", gui_control->get_dmg_breakdown_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
     qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
+    qmlRegisterType<DamageBreakdownSorting>("DamageBreakdownSorting", 1, 0, "DamageBreakdownSorting");
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

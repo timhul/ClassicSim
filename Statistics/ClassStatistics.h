@@ -7,6 +7,7 @@
 
 #include "SimSettings.h"
 
+class NumberCruncher;
 class StatisticsSpell;
 class StatisticsBuff;
 class StatisticsResource;
@@ -40,6 +41,8 @@ public:
     SimOption get_sim_option() const;
 
 protected:
+    friend class NumberCruncher;
+
     SimSettings* sim_settings;
     SimOption option;
     int combat_iterations;

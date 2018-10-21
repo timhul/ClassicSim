@@ -4,8 +4,32 @@
 #include <utility>
 
 StatisticsSpell::StatisticsSpell(QString name):
-    name(std::move(name))
-{}
+    name(std::move(name)),
+    percentage_of_total_damage_done(0.0)
+{
+    this->possible_attempt_outcomes = QSet<Outcome>({
+                                                        Outcome::Miss,
+                                                        Outcome::FullResist,
+                                                        Outcome::Dodge,
+                                                        Outcome::Parry,
+                                                        Outcome::FullBlock,
+                                                        Outcome::PartialResist,
+                                                        Outcome::PartialBlock,
+                                                        Outcome::PartialBlockCrit,
+                                                        Outcome::Glancing,
+                                                        Outcome::Hit,
+                                                        Outcome::Crit
+                                                    });
+
+    this->possible_success_outcomes = QSet<Outcome>({
+                                                        Outcome::PartialResist,
+                                                        Outcome::PartialBlock,
+                                                        Outcome::PartialBlockCrit,
+                                                        Outcome::Glancing,
+                                                        Outcome::Hit,
+                                                        Outcome::Crit
+                                                    });
+}
 
 StatisticsSpell::~StatisticsSpell() {
     reset();
@@ -159,7 +183,7 @@ int StatisticsSpell::get_crits()  {
     return get_attempts(Outcome::Crit);
 }
 
-int StatisticsSpell::get_dmg(const Outcome outcome) {
+int StatisticsSpell::get_dmg(const Outcome outcome) const {
     if (!damage.contains(outcome))
         return 0;
 
@@ -192,15 +216,9 @@ int StatisticsSpell::get_crit_dmg()  {
 
 // TODO: Instead of returning int, return QSet of Outcome and build superset in Statistics.
 int StatisticsSpell::get_num_attempt_columns() {
-    QVector<Outcome> outcomes = {
-        Outcome::Miss, Outcome::FullResist, Outcome::Dodge, Outcome::Parry,
-        Outcome::FullBlock, Outcome::PartialResist, Outcome::PartialBlock,
-        Outcome::PartialBlockCrit, Outcome::Glancing, Outcome::Hit, Outcome::Crit
-    };
-
     int columns = 0;
 
-    for (auto & outcome : outcomes) {
+    for (auto & outcome : possible_attempt_outcomes) {
         if (get_attempts(outcome) > 0)
             ++columns;
     }
@@ -209,14 +227,10 @@ int StatisticsSpell::get_num_attempt_columns() {
 }
 
 // TODO: Instead of returning int, return QSet of Outcome and build superset in Statistics.
-int StatisticsSpell::get_num_dmg_columns() {
-    QVector<Outcome> outcomes = {Outcome::PartialResist, Outcome::PartialBlock,
-                                 Outcome::PartialBlockCrit, Outcome::Glancing, Outcome::Hit,
-                                 Outcome::Crit};
-
+int StatisticsSpell::get_num_dmg_columns() const {
     int columns = 0;
 
-    for (auto & outcome : outcomes) {
+    for (auto & outcome : possible_success_outcomes) {
         if (get_dmg(outcome) > 0)
             ++columns;
     }
@@ -224,14 +238,10 @@ int StatisticsSpell::get_num_dmg_columns() {
     return columns;
 }
 
-int StatisticsSpell::get_total_dmg_dealt() {
-    QVector<Outcome> outcomes = {Outcome::PartialResist, Outcome::PartialBlock,
-                                 Outcome::PartialBlockCrit, Outcome::Glancing, Outcome::Hit,
-                                 Outcome::Crit};
-
+int StatisticsSpell::get_total_dmg_dealt() const {
     int sum = 0;
 
-    for (auto & outcome : outcomes) {
+    for (auto & outcome : possible_success_outcomes) {
         sum += get_dmg(outcome);
     }
 
@@ -239,17 +249,41 @@ int StatisticsSpell::get_total_dmg_dealt() {
 }
 
 int StatisticsSpell::get_total_attempts_made() {
-    QVector<Outcome> outcomes = {
-        Outcome::Miss, Outcome::FullResist, Outcome::Dodge, Outcome::Parry,
-        Outcome::FullBlock, Outcome::PartialResist, Outcome::PartialBlock,
-        Outcome::PartialBlockCrit, Outcome::Glancing, Outcome::Hit, Outcome::Crit
-    };
-
     int sum = 0;
 
-    for (auto & outcome : outcomes) {
+    for (auto & outcome : possible_attempt_outcomes) {
         sum += get_attempts(outcome);
     }
 
     return sum;
+}
+
+double StatisticsSpell::get_percentage_of_damage_dealt() const {
+    return this->percentage_of_total_damage_done;
+}
+
+void StatisticsSpell::set_percentage_of_damage_dealt(long long int total_damage_dealt) {
+    this->percentage_of_total_damage_done = double(get_total_dmg_dealt()) / total_damage_dealt;
+}
+
+void StatisticsSpell::add(const StatisticsSpell* other) {
+    for (auto & outcome : possible_attempt_outcomes) {
+        if (!other->attempts.contains(outcome))
+            continue;
+
+        if (!this->attempts.contains(outcome))
+            this->attempts.insert(outcome, 0);
+
+        this->attempts[outcome] += other->attempts[outcome];
+    }
+
+    for (auto & outcome : possible_success_outcomes) {
+        if (!other->damage.contains(outcome))
+            continue;
+
+        if (!this->damage.contains(outcome))
+            this->damage.insert(outcome, 0);
+
+        this->damage[outcome] += other->damage[outcome];
+    }
 }

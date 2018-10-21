@@ -245,7 +245,8 @@ SOURCES += main.cpp \
     Character/Class/SharedBuff.cpp \
     Character/Class/General/Buffs/EssenceOfTheRed.cpp \
     Character/Class/General/Spells/PeriodicResourceGainSpell.cpp \
-    Rulesets/RulesetControl.cpp
+    Rulesets/RulesetControl.cpp \
+    GUI/Models/Statistics/DamageBreakdownModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -491,7 +492,8 @@ HEADERS += \
     Character/Class/General/Spells/PeriodicResourceGainSpell.h \
     Rulesets/Rulesets.h \
     Rulesets/RulesetControl.h \
-    Faction/AvailableFactions.h
+    Faction/AvailableFactions.h \
+    GUI/Models/Statistics/DamageBreakdownModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
@@ -542,6 +544,7 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Character\Class\General\Procs \
     C:\C++\ClassicSim\GUI \
     C:\C++\ClassicSim\GUI\Models \
+    C:\C++\ClassicSim\GUI\Models\Statistics \
     C:\C++\ClassicSim\Faction \
     C:\C++\ClassicSim\Thread \
     C:\C++\ClassicSim\Rotation \

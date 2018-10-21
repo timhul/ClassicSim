@@ -122,6 +122,7 @@ GUIControl::GUIControl(QObject* parent) :
 
     rotation_model->set_information_index(0);
     rotation_model->select_rotation();
+    damage_breakdown_model = new DamageBreakdownModel(number_cruncher);
 }
 
 GUIControl::~GUIControl() {
@@ -588,6 +589,10 @@ QString GUIControl::getEntryIcon(const int index) const {
     return current_char->get_statistics()->getEntryIcon(index);
 }
 
+DamageBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
+    return this->damage_breakdown_model;
+}
+
 RotationModel* GUIControl::get_rotation_model() const {
     return this->rotation_model;
 }
@@ -644,6 +649,7 @@ void GUIControl::run_quick_sim() {
 void GUIControl::run_full_sim() {
     thread_pool->run_sim(character_encoder->get_current_setup_string(), true);
 
+    damage_breakdown_model->update_statistics();
     statisticsReady();
 }
 
@@ -654,7 +660,9 @@ void GUIControl::runQuickSim() {
 
 void GUIControl::compile_thread_results() {
     number_cruncher->print();
+    damage_breakdown_model->update_statistics();
     number_cruncher->reset();
+
 }
 
 int GUIControl::get_combat_iterations() const {
