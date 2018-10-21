@@ -52,33 +52,33 @@ public:
     void add_hit_dmg(const int);
     void add_crit_dmg(const int);
 
-    int get_misses();
-    int get_full_resists();
-    int get_dodges();
-    int get_parries();
-    int get_full_blocks();
+    int get_misses() const;
+    int get_full_resists() const;
+    int get_dodges() const;
+    int get_parries() const;
+    int get_full_blocks() const;
 
-    int get_partial_resist();
-    int get_partial_blocks();
-    int get_partial_block_crits();
+    int get_partial_resist() const;
+    int get_partial_blocks() const;
+    int get_partial_block_crits() const;
 
-    int get_glancings();
-    int get_hits();
-    int get_crits();
+    int get_glances() const;
+    int get_hits() const;
+    int get_crits() const;
 
-    int get_partial_resist_dmg();
-    int get_partial_block_dmg();
-    int get_partial_block_crit_dmg();
+    int get_partial_resist_dmg() const;
+    int get_partial_block_dmg() const;
+    int get_partial_block_crit_dmg() const;
 
-    int get_glancing_dmg();
-    int get_hit_dmg();
-    int get_crit_dmg();
+    int get_glancing_dmg() const;
+    int get_hit_dmg() const;
+    int get_crit_dmg() const;
 
-    int get_num_attempt_columns();
+    int get_num_attempt_columns() const;
     int get_num_dmg_columns() const;
 
     int get_total_dmg_dealt() const;
-    int get_total_attempts_made();
+    int get_total_attempts_made() const;
 
     double get_percentage_of_damage_dealt() const;
     void set_percentage_of_damage_dealt(long long int);
@@ -90,7 +90,7 @@ private:
     const QString name;
     double percentage_of_total_damage_done;
 
-    int get_attempts(const Outcome);
+    int get_attempts(const Outcome) const;
     int get_dmg(const Outcome) const;
     void increment(const Outcome);
     void add_dmg(const Outcome outcome, const int dmg);

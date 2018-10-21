@@ -132,54 +132,54 @@ void StatisticsSpell::add_crit_dmg(const int dmg) {
     add_dmg(Outcome::Crit, dmg);
 }
 
-int StatisticsSpell::get_attempts(const Outcome outcome) {
+int StatisticsSpell::get_attempts(const Outcome outcome) const {
     if (!attempts.contains(outcome))
         return 0;
 
     return attempts[outcome];
 }
 
-int StatisticsSpell::get_misses() {
+int StatisticsSpell::get_misses() const {
     return get_attempts(Outcome::Miss);
 }
 
-int StatisticsSpell::get_full_resists() {
+int StatisticsSpell::get_full_resists() const {
     return get_attempts(Outcome::FullResist);
 }
 
-int StatisticsSpell::get_dodges() {
+int StatisticsSpell::get_dodges() const {
     return get_attempts(Outcome::Dodge);
 }
 
-int StatisticsSpell::get_parries()  {
+int StatisticsSpell::get_parries() const  {
     return get_attempts(Outcome::Parry);
 }
 
-int StatisticsSpell::get_full_blocks()  {
+int StatisticsSpell::get_full_blocks() const  {
     return get_attempts(Outcome::FullBlock);
 }
 
-int StatisticsSpell::get_partial_resist() {
+int StatisticsSpell::get_partial_resist() const {
     return get_attempts(Outcome::PartialResist);
 }
 
-int StatisticsSpell::get_partial_blocks() {
+int StatisticsSpell::get_partial_blocks() const {
     return get_attempts(Outcome::PartialBlock);
 }
 
-int StatisticsSpell::get_partial_block_crits()  {
+int StatisticsSpell::get_partial_block_crits() const  {
     return get_attempts(Outcome::PartialBlockCrit);
 }
 
-int StatisticsSpell::get_glancings()  {
+int StatisticsSpell::get_glances() const  {
     return get_attempts(Outcome::Glancing);
 }
 
-int StatisticsSpell::get_hits() {
+int StatisticsSpell::get_hits() const {
     return get_attempts(Outcome::Hit);
 }
 
-int StatisticsSpell::get_crits()  {
+int StatisticsSpell::get_crits() const  {
     return get_attempts(Outcome::Crit);
 }
 
@@ -190,32 +190,32 @@ int StatisticsSpell::get_dmg(const Outcome outcome) const {
     return damage[outcome];
 }
 
-int StatisticsSpell::get_partial_resist_dmg() {
+int StatisticsSpell::get_partial_resist_dmg() const {
     return get_dmg(Outcome::PartialResist);
 }
 
-int StatisticsSpell::get_partial_block_dmg() {
+int StatisticsSpell::get_partial_block_dmg() const {
     return get_dmg(Outcome::PartialBlock);
 }
 
-int StatisticsSpell::get_partial_block_crit_dmg() {
+int StatisticsSpell::get_partial_block_crit_dmg() const {
     return get_dmg(Outcome::PartialBlockCrit);
 }
 
-int StatisticsSpell::get_glancing_dmg() {
+int StatisticsSpell::get_glancing_dmg() const {
     return get_dmg(Outcome::Glancing);
 }
 
-int StatisticsSpell::get_hit_dmg()  {
+int StatisticsSpell::get_hit_dmg() const  {
     return get_dmg(Outcome::Hit);
 }
 
-int StatisticsSpell::get_crit_dmg()  {
+int StatisticsSpell::get_crit_dmg() const  {
     return get_dmg(Outcome::Crit);
 }
 
 // TODO: Instead of returning int, return QSet of Outcome and build superset in Statistics.
-int StatisticsSpell::get_num_attempt_columns() {
+int StatisticsSpell::get_num_attempt_columns() const {
     int columns = 0;
 
     for (auto & outcome : possible_attempt_outcomes) {
@@ -248,7 +248,7 @@ int StatisticsSpell::get_total_dmg_dealt() const {
     return sum;
 }
 
-int StatisticsSpell::get_total_attempts_made() {
+int StatisticsSpell::get_total_attempts_made() const {
     int sum = 0;
 
     for (auto & outcome : possible_attempt_outcomes) {

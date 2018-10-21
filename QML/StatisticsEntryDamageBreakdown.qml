@@ -10,9 +10,25 @@ Rectangle {
     property string name
     property string totaldmgabsolute
     property string totaldmgpercentage
+    property string totalattempts
+    property string numhits
+    property string hitpercent
+    property string numcrits
+    property string critpercent
+    property string numglances
+    property string glancepercent
+    property string nummisses
+    property string misspercent
+    property string numdodges
+    property string dodgepercent
+    property string numparries
+    property string parrypercent
 
     Row {
         anchors.fill: parent
+
+        property int attemptsWidth: 80
+        property int percentageWidth: 70
 
         RectangleBorders {
             height: parent.height
@@ -51,10 +67,127 @@ Rectangle {
 
         RectangleBorders {
             height: parent.height
-            width: 75
+            width: parent.percentageWidth
 
             TextSmall {
                 text: totaldmgpercentage
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.attemptsWidth
+
+            TextSmall {
+                text: totalattempts
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.attemptsWidth
+
+            TextSmall {
+                text: numhits
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: hitpercent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.attemptsWidth
+
+            TextSmall {
+                text: numcrits
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: critpercent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.attemptsWidth
+
+            TextSmall {
+                text: numglances
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: glancepercent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.attemptsWidth
+
+            TextSmall {
+                text: nummisses
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: misspercent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.attemptsWidth
+
+            TextSmall {
+                text: numdodges
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: dodgepercent
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.attemptsWidth
+
+            TextSmall {
+                text: numparries
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: parrypercent
             }
         }
     }

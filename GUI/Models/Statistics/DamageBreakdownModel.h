@@ -14,7 +14,20 @@ public:
         ByName = Qt::UserRole + 1,
         Icon,
         ByTotalDamageAbsolute,
-        ByTotalDamagePercentage
+        ByTotalDamagePercentage,
+        ByTotalAttempts,
+        ByNumHits,
+        ByHitPercent,
+        ByNumCrits,
+        ByCritPercent,
+        ByNumGlances,
+        ByGlancePercent,
+        ByNumMisses,
+        ByMissPercent,
+        ByNumDodges,
+        ByDodgePercent,
+        ByNumParries,
+        ByParryPercent
     };
     Q_ENUMS(Methods)
 };

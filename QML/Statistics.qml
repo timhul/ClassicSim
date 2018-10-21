@@ -12,24 +12,41 @@ Rectangle {
         id: damageBreakdownSorting
     }
 
-    ListView {
-        id: damageBreakdownTable
-
+    ScrollView {
         anchors {
             top: damageBreakdownSorting.bottom
             left: parent.left
             right: parent.right
+            bottom: parent.bottom
         }
+        clip: true
 
-        interactive: false
-        implicitHeight: contentHeight
+        ListView {
+            id: damageBreakdownTable
+            boundsBehavior: Flickable.StopAtBounds
 
-        model: damageBreakdownModel
-        delegate: StatisticsEntryDamageBreakdown {
-            name: _name
-            iconurl: _icon
-            totaldmgabsolute: _totaldmgabsolute
-            totaldmgpercentage: _totaldmgpercent
+            implicitHeight: contentHeight
+
+            model: damageBreakdownModel
+            delegate: StatisticsEntryDamageBreakdown {
+                name: _name
+                iconurl: _icon
+                totaldmgabsolute: _totaldmgabsolute
+                totaldmgpercentage: _totaldmgpercent
+                totalattempts: _totalattempts
+                numhits: _numhits
+                hitpercent: _hitpercent
+                numcrits: _numcrits
+                critpercent: _critpercent
+                numglances: _numglances
+                glancepercent: _glancepercent
+                nummisses: _nummisses
+                misspercent: _misspercent
+                numdodges: _numdodges
+                dodgepercent: _dodgepercent
+                numparries: _numparries
+                parrypercent: _parrypercent
+            }
         }
     }
 
