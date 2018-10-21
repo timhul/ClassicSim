@@ -266,8 +266,8 @@
         <file>QML/Assets/buffs/Spell_nature_earthbindtotem.png</file>
         <file>QML/Assets/items/Inv_misc_bone_06.png</file>
         <file>QML/Assets/items/Inv_stone_02.png</file>
-        <file>QML/StatisticsEntryDamageBreakdown.qml</file>
         <file>QML/TextSmall.qml</file>
-        <file>QML/StatisticsDamageBreakdownSorting.qml</file>
+        <file>QML/StatisticsEntryMeleeDamageAvoidanceBreakdown.qml</file>
+        <file>QML/StatisticsMeleeDamageAvoidanceBreakdownSorting.qml</file>
     </qresource>
 </RCC>

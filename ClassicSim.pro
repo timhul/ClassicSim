@@ -246,7 +246,7 @@ SOURCES += main.cpp \
     Character/Class/General/Buffs/EssenceOfTheRed.cpp \
     Character/Class/General/Spells/PeriodicResourceGainSpell.cpp \
     Rulesets/RulesetControl.cpp \
-    GUI/Models/Statistics/DamageBreakdownModel.cpp
+    GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -493,7 +493,7 @@ HEADERS += \
     Rulesets/Rulesets.h \
     Rulesets/RulesetControl.h \
     Faction/AvailableFactions.h \
-    GUI/Models/Statistics/DamageBreakdownModel.h
+    GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

@@ -8,7 +8,7 @@ Rectangle {
 
     color: "transparent"
 
-    StatisticsDamageBreakdownSorting {
+    StatisticsMeleeDamageAvoidanceBreakdownSorting {
         id: damageBreakdownSorting
     }
 
@@ -28,7 +28,7 @@ Rectangle {
             implicitHeight: contentHeight
 
             model: damageBreakdownModel
-            delegate: StatisticsEntryDamageBreakdown {
+            delegate: StatisticsEntryMeleeDamageAvoidanceBreakdown {
                 name: _name
                 iconurl: _icon
                 totaldmgabsolute: _totaldmgabsolute

@@ -7,7 +7,7 @@
 class NumberCruncher;
 class StatisticsSpell;
 
-class DamageBreakdownSorting : public QObject {
+class MeleeDamageAvoidanceBreakdownSorting : public QObject {
     Q_OBJECT
 public:
     enum Methods {
@@ -32,12 +32,12 @@ public:
     Q_ENUMS(Methods)
 };
 
-class DamageBreakdownModel : public QAbstractListModel
+class MeleeDamageAvoidanceBreakdownModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    DamageBreakdownModel(NumberCruncher* statistics_source, QObject *parent = nullptr);
-    ~DamageBreakdownModel();
+    MeleeDamageAvoidanceBreakdownModel(NumberCruncher* statistics_source, QObject *parent = nullptr);
+    ~MeleeDamageAvoidanceBreakdownModel();
 
     Q_INVOKABLE void selectSort(const int method);
 
@@ -53,11 +53,11 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 private:
     NumberCruncher* statistics_source;
-    QHash<DamageBreakdownSorting::Methods, bool> sorting_methods;
+    QHash<MeleeDamageAvoidanceBreakdownSorting::Methods, bool> sorting_methods;
     QList<StatisticsSpell*> spell_stats;
-    DamageBreakdownSorting::Methods current_sorting_method;
+    MeleeDamageAvoidanceBreakdownSorting::Methods current_sorting_method;
 
-    void select_new_method(const DamageBreakdownSorting::Methods new_method);
+    void select_new_method(const MeleeDamageAvoidanceBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;
 };
 

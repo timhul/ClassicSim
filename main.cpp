@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
     qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
-    qmlRegisterType<DamageBreakdownSorting>("DamageBreakdownSorting", 1, 0, "DamageBreakdownSorting");
+    qmlRegisterType<MeleeDamageAvoidanceBreakdownSorting>("MeleeDamageAvoidanceBreakdownSorting", 1, 0, "MeleeDamageAvoidanceBreakdownSorting");
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

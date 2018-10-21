@@ -7,7 +7,7 @@
 #include "SimSettings.h"
 
 class ClassStatistics;
-class DamageBreakdownModel;
+class MeleeDamageAvoidanceBreakdownModel;
 class StatisticsSpell;
 
 class NumberCruncher {
@@ -20,7 +20,7 @@ public:
     void print();
 
 private:
-    friend class DamageBreakdownModel;
+    friend class MeleeDamageAvoidanceBreakdownModel;
 
     QMutex mutex;
     QMap<SimOption, QVector<ClassStatistics*>> class_stats;

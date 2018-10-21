@@ -20,7 +20,7 @@
 #include "RotationModel.h"
 #include "Faction.h"
 #include "EnchantName.h"
-#include "DamageBreakdownModel.h"
+#include "MeleeDamageAvoidanceBreakdownModel.h"
 
 class CharacterEncoder;
 class CharacterDecoder;
@@ -175,7 +175,7 @@ public:
     Q_INVOKABLE QVariantList getTableInfo(const int index) const;
     Q_INVOKABLE QString getEntryIcon(const int index) const;
 
-    DamageBreakdownModel* get_dmg_breakdown_model() const;
+    MeleeDamageAvoidanceBreakdownModel* get_dmg_breakdown_model() const;
     /* End of Statistics */
 
     /* Target */
@@ -319,7 +319,7 @@ private:
     BuffModel* buff_model;
     DebuffModel* debuff_model;
     RotationModel* rotation_model;
-    DamageBreakdownModel* damage_breakdown_model;
+    MeleeDamageAvoidanceBreakdownModel* damage_breakdown_model;
     double last_quick_sim_result;
 };
 

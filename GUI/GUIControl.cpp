@@ -122,7 +122,7 @@ GUIControl::GUIControl(QObject* parent) :
 
     rotation_model->set_information_index(0);
     rotation_model->select_rotation();
-    damage_breakdown_model = new DamageBreakdownModel(number_cruncher);
+    damage_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
 }
 
 GUIControl::~GUIControl() {
@@ -589,7 +589,7 @@ QString GUIControl::getEntryIcon(const int index) const {
     return current_char->get_statistics()->getEntryIcon(index);
 }
 
-DamageBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
+MeleeDamageAvoidanceBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
     return this->damage_breakdown_model;
 }
 

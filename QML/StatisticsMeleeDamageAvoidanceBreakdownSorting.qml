@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import DamageBreakdownSorting 1.0
+import MeleeDamageAvoidanceBreakdownSorting 1.0
 
 RectangleBorders {
     height: 30
@@ -22,11 +22,13 @@ RectangleBorders {
             height: parent.height
             width: 125
 
-            onRectangleClicked: damageBreakdownModel.selectSort(DamageBreakdownSorting.ByName)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(DamageBreakdownSorting.ByName)
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByName
 
-            rectColor: damageBreakdownModel.currentSortingMethod === DamageBreakdownSorting.ByName ? root.darkGray :
-                                                                                                     root.darkDarkGray
+            onRectangleClicked: damageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+
+            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                              root.darkDarkGray
 
             TextSmall {
                 text: "Name"
@@ -37,11 +39,13 @@ RectangleBorders {
             height: parent.height
             width: 120
 
-            onRectangleClicked: damageBreakdownModel.selectSort(DamageBreakdownSorting.ByTotalDamageAbsolute)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(DamageBreakdownSorting.ByTotalDamageAbsolute)
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalDamageAbsolute
 
-            rectColor: damageBreakdownModel.currentSortingMethod === DamageBreakdownSorting.ByTotalDamageAbsolute ? root.darkGray :
-                                                                                                                    root.darkDarkGray
+            onRectangleClicked: damageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+
+            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                              root.darkDarkGray
 
             TextSmall {
                 text: "Total Damage"
@@ -52,11 +56,13 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
-            onRectangleClicked: damageBreakdownModel.selectSort(DamageBreakdownSorting.ByTotalDamagePercentage)
-            onRectangleRightClicked: damageBreakdownModel.selectSort(DamageBreakdownSorting.ByTotalDamagePercentage)
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalDamagePercentage
 
-            rectColor: damageBreakdownModel.currentSortingMethod === DamageBreakdownSorting.ByTotalDamagePercentage ? root.darkGray :
-                                                                                                                      root.darkDarkGray
+            onRectangleClicked: damageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: damageBreakdownModel.selectSort(method)
+
+            rectColor: damageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                              root.darkDarkGray
 
             TextSmall {
                 text: "Tot. Dmg %"
@@ -67,7 +73,7 @@ RectangleBorders {
             height: parent.height
             width: parent.attemptsWidth
 
-            property int method: DamageBreakdownSorting.ByTotalAttempts
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalAttempts
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -84,7 +90,7 @@ RectangleBorders {
             height: parent.height
             width: parent.attemptsWidth
 
-            property int method: DamageBreakdownSorting.ByNumHits
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumHits
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -101,7 +107,7 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
-            property int method: DamageBreakdownSorting.ByHitPercent
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByHitPercent
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -118,7 +124,7 @@ RectangleBorders {
             height: parent.height
             width: parent.attemptsWidth
 
-            property int method: DamageBreakdownSorting.ByNumCrits
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumCrits
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -135,7 +141,7 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
-            property int method: DamageBreakdownSorting.ByCritPercent
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByCritPercent
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -152,7 +158,7 @@ RectangleBorders {
             height: parent.height
             width: parent.attemptsWidth
 
-            property int method: DamageBreakdownSorting.ByNumGlances
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumGlances
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -169,7 +175,7 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
-            property int method: DamageBreakdownSorting.ByGlancePercent
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByGlancePercent
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -186,7 +192,7 @@ RectangleBorders {
             height: parent.height
             width: parent.attemptsWidth
 
-            property int method: DamageBreakdownSorting.ByNumMisses
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumMisses
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -203,7 +209,7 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
-            property int method: DamageBreakdownSorting.ByMissPercent
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByMissPercent
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -220,7 +226,7 @@ RectangleBorders {
             height: parent.height
             width: parent.attemptsWidth
 
-            property int method: DamageBreakdownSorting.ByNumDodges
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumDodges
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -237,7 +243,7 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
-            property int method: DamageBreakdownSorting.ByDodgePercent
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByDodgePercent
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -254,7 +260,7 @@ RectangleBorders {
             height: parent.height
             width: parent.attemptsWidth
 
-            property int method: DamageBreakdownSorting.ByNumParries
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByNumParries
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
@@ -271,7 +277,7 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
-            property int method: DamageBreakdownSorting.ByParryPercent
+            property int method: MeleeDamageAvoidanceBreakdownSorting.ByParryPercent
 
             onRectangleClicked: damageBreakdownModel.selectSort(method)
             onRectangleRightClicked: damageBreakdownModel.selectSort(method)
