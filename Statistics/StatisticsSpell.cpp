@@ -25,7 +25,7 @@ bool hit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     auto lhs_hit = double(lhs->get_hits()) / lhs->get_total_attempts_made();
     auto rhs_hit = double(rhs->get_hits()) / rhs->get_total_attempts_made();
 
-    return lhs_hit < rhs_hit;
+    return lhs_hit > rhs_hit;
 }
 
 bool num_hits(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -39,7 +39,7 @@ bool crit_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     auto lhs_crit = double(lhs->get_crits()) / lhs->get_total_attempts_made();
     auto rhs_crit = double(rhs->get_crits()) / rhs->get_total_attempts_made();
 
-    return lhs_crit < rhs_crit;
+    return lhs_crit > rhs_crit;
 }
 
 bool num_crits(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -53,7 +53,7 @@ bool glance_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     auto lhs_glance = double(lhs->get_glances()) / lhs->get_total_attempts_made();
     auto rhs_glance = double(rhs->get_glances()) / rhs->get_total_attempts_made();
 
-    return lhs_glance < rhs_glance;
+    return lhs_glance > rhs_glance;
 }
 
 bool num_glances(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -67,7 +67,7 @@ bool miss_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     auto lhs_miss = double(lhs->get_misses()) / lhs->get_total_attempts_made();
     auto rhs_miss = double(rhs->get_misses()) / rhs->get_total_attempts_made();
 
-    return lhs_miss < rhs_miss;
+    return lhs_miss > rhs_miss;
 }
 
 bool num_misses(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -81,7 +81,7 @@ bool dodge_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     auto lhs_dodge = double(lhs->get_dodges()) / lhs->get_total_attempts_made();
     auto rhs_dodge = double(rhs->get_dodges()) / rhs->get_total_attempts_made();
 
-    return lhs_dodge < rhs_dodge;
+    return lhs_dodge > rhs_dodge;
 }
 
 bool num_dodges(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -95,7 +95,7 @@ bool parry_percent(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     auto lhs_parry = double(lhs->get_parries()) / lhs->get_total_attempts_made();
     auto rhs_parry = double(rhs->get_parries()) / rhs->get_total_attempts_made();
 
-    return lhs_parry < rhs_parry;
+    return lhs_parry > rhs_parry;
 }
 
 bool num_parries(StatisticsSpell* lhs, StatisticsSpell* rhs) {
@@ -106,39 +106,39 @@ bool num_parries(StatisticsSpell* lhs, StatisticsSpell* rhs) {
 }
 
 bool min_hit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return lhs->get_min_hit_dmg() < rhs->get_min_hit_dmg();
+    return lhs->get_min_hit_dmg() > rhs->get_min_hit_dmg();
 }
 
 bool avg_hit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return (double(lhs->get_hit_dmg()) / lhs->get_hits()) < (double(rhs->get_hit_dmg()) / rhs->get_hits());
+    return (double(lhs->get_hit_dmg()) / lhs->get_hits()) > (double(rhs->get_hit_dmg()) / rhs->get_hits());
 }
 
 bool max_hit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return lhs->get_max_hit_dmg() < rhs->get_max_hit_dmg();
+    return lhs->get_max_hit_dmg() > rhs->get_max_hit_dmg();
 }
 
 bool min_crit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return lhs->get_min_crit_dmg() < rhs->get_min_crit_dmg();
+    return lhs->get_min_crit_dmg() > rhs->get_min_crit_dmg();
 }
 
 bool avg_crit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return (double(lhs->get_crit_dmg()) / lhs->get_crits()) < (double(rhs->get_crit_dmg()) / rhs->get_crits());
+    return (double(lhs->get_crit_dmg()) / lhs->get_crits()) > (double(rhs->get_crit_dmg()) / rhs->get_crits());
 }
 
 bool max_crit(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return lhs->get_max_crit_dmg() < rhs->get_max_crit_dmg();
+    return lhs->get_max_crit_dmg() > rhs->get_max_crit_dmg();
 }
 
 bool min_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return lhs->get_min_glancing_dmg() < rhs->get_min_glancing_dmg();
+    return lhs->get_min_glancing_dmg() > rhs->get_min_glancing_dmg();
 }
 
 bool avg_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return (double(lhs->get_glancing_dmg()) / lhs->get_glances()) < (double(rhs->get_glancing_dmg()) / rhs->get_glances());
+    return (double(lhs->get_glancing_dmg()) / lhs->get_glances()) > (double(rhs->get_glancing_dmg()) / rhs->get_glances());
 }
 
 bool max_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
-    return lhs->get_max_glancing_dmg() < rhs->get_max_glancing_dmg();
+    return lhs->get_max_glancing_dmg() > rhs->get_max_glancing_dmg();
 }
 
 StatisticsSpell::StatisticsSpell(QString name):
