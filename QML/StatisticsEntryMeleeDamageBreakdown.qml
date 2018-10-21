@@ -41,13 +41,14 @@ Rectangle {
 
         RectangleBorders {
             height: parent.height
-            width: 125
+            width: 200
 
             TextSmall {
                 text: name
                 anchors.leftMargin: 10
 
                 horizontalAlignment: Text.AlignLeft
+                wrapMode: Text.WordWrap
             }
         }
 

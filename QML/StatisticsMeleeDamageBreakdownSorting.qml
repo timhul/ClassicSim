@@ -20,7 +20,7 @@ RectangleBorders {
 
         RectangleBorders {
             height: parent.height
-            width: 125
+            width: 200
 
             property int method: MeleeDamageBreakdownSorting.ByName
 

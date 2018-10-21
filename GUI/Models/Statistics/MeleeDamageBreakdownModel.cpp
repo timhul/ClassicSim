@@ -20,6 +20,9 @@ MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher *statistics_
     this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinGlance, false);
     this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgGlance, false);
     this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxGlance, false);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinDPR, false);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgDPR, false);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxDPR, false);
 }
 
 MeleeDamageBreakdownModel::~MeleeDamageBreakdownModel() {
@@ -80,6 +83,10 @@ void MeleeDamageBreakdownModel::selectSort(const int method) {
     case MeleeDamageBreakdownSorting::Methods::ByMaxGlance:
         std::sort(spell_stats.begin(), spell_stats.end(), max_glancing);
         select_new_method(sorting_method);
+        break;
+    case MeleeDamageBreakdownSorting::Methods::ByMinDPR:
+    case MeleeDamageBreakdownSorting::Methods::ByAvgDPR:
+    case MeleeDamageBreakdownSorting::Methods::ByMaxDPR:
         break;
     }
 
@@ -199,5 +206,8 @@ QHash<int, QByteArray> MeleeDamageBreakdownModel::roleNames() const {
     roles[MeleeDamageBreakdownSorting::Methods::ByMinGlance] = "_minglance";
     roles[MeleeDamageBreakdownSorting::Methods::ByAvgGlance] = "_avgglance";
     roles[MeleeDamageBreakdownSorting::Methods::ByMaxGlance] = "_maxglance";
+    roles[MeleeDamageBreakdownSorting::Methods::ByMinDPR] = "_mindpr";
+    roles[MeleeDamageBreakdownSorting::Methods::ByAvgDPR] = "_avgdpr";
+    roles[MeleeDamageBreakdownSorting::Methods::ByMaxDPR] = "_maxdpr";
     return roles;
 }

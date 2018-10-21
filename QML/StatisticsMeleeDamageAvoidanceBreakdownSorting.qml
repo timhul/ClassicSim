@@ -20,7 +20,7 @@ RectangleBorders {
 
         RectangleBorders {
             height: parent.height
-            width: 125
+            width: 200
 
             property int method: MeleeDamageAvoidanceBreakdownSorting.ByName
 
@@ -32,40 +32,6 @@ RectangleBorders {
 
             TextSmall {
                 text: "Name"
-            }
-        }
-
-        RectangleBorders {
-            height: parent.height
-            width: 120
-
-            property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalDamageAbsolute
-
-            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
-            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
-
-            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                                      root.darkDarkGray
-
-            TextSmall {
-                text: "Total Damage"
-            }
-        }
-
-        RectangleBorders {
-            height: parent.height
-            width: parent.percentageWidth
-
-            property int method: MeleeDamageAvoidanceBreakdownSorting.ByTotalDamagePercentage
-
-            onRectangleClicked: meleeAvoidanceBreakdownModel.selectSort(method)
-            onRectangleRightClicked: meleeAvoidanceBreakdownModel.selectSort(method)
-
-            rectColor: meleeAvoidanceBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                                      root.darkDarkGray
-
-            TextSmall {
-                text: "Tot. Dmg %"
             }
         }
 

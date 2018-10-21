@@ -13,8 +13,6 @@ public:
     enum Methods {
         ByName = Qt::UserRole + 1,
         Icon,
-        ByTotalDamageAbsolute,
-        ByTotalDamagePercentage,
         ByTotalAttempts,
         ByNumHits,
         ByHitPercent,

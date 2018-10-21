@@ -8,11 +8,9 @@ MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCru
     : QAbstractListModel(parent),
       statistics_source(statistics_source)
 {
-    this->current_sorting_method = MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamageAbsolute;
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamageAbsolute, true);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByName, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamagePercentage, false);
+    this->current_sorting_method = MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts;
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByName, false);
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumHits, false);
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByHitPercent, false);
     this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumCrits, false);
@@ -37,14 +35,6 @@ void MeleeDamageAvoidanceBreakdownModel::selectSort(const int method) {
 
     auto sorting_method = static_cast<MeleeDamageAvoidanceBreakdownSorting::Methods>(method);
     switch (sorting_method) {
-    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamageAbsolute:
-        std::sort(spell_stats.begin(), spell_stats.end(), total_damage);
-        select_new_method(sorting_method);
-        break;
-    case MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalDamagePercentage:
-        std::sort(spell_stats.begin(), spell_stats.end(), total_damage);
-        select_new_method(sorting_method);
-        break;
     case MeleeDamageAvoidanceBreakdownSorting::Methods::Icon:
     case MeleeDamageAvoidanceBreakdownSorting::Methods::ByName:
         std::sort(spell_stats.begin(), spell_stats.end(), name);
@@ -176,10 +166,6 @@ QVariant MeleeDamageAvoidanceBreakdownModel::data(const QModelIndex & index, int
         return spell_stat->get_name();
     if (role == MeleeDamageAvoidanceBreakdownSorting::Icon)
         return spell_stat->get_icon();
-    if (role == MeleeDamageAvoidanceBreakdownSorting::ByTotalDamageAbsolute)
-        return spell_stat->get_total_dmg_dealt();
-    if (role == MeleeDamageAvoidanceBreakdownSorting::ByTotalDamagePercentage)
-        return QString("%1 %").arg(QString::number(spell_stat->get_percentage_of_damage_dealt() * 100, 'f', 2));
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByTotalAttempts)
         return spell_stat->get_total_attempts_made();
     if (role == MeleeDamageAvoidanceBreakdownSorting::ByNumHits)
@@ -214,8 +200,6 @@ QHash<int, QByteArray> MeleeDamageAvoidanceBreakdownModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[MeleeDamageAvoidanceBreakdownSorting::ByName] = "_name";
     roles[MeleeDamageAvoidanceBreakdownSorting::Icon] = "_icon";
-    roles[MeleeDamageAvoidanceBreakdownSorting::ByTotalDamageAbsolute] = "_totaldmgabsolute";
-    roles[MeleeDamageAvoidanceBreakdownSorting::ByTotalDamagePercentage] = "_totaldmgpercent";
     roles[MeleeDamageAvoidanceBreakdownSorting::ByTotalAttempts] = "_totalattempts";
     roles[MeleeDamageAvoidanceBreakdownSorting::ByNumHits] = "_numhits";
     roles[MeleeDamageAvoidanceBreakdownSorting::ByHitPercent] = "_hitpercent";

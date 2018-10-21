@@ -24,6 +24,9 @@ public:
         ByMinGlance,
         ByAvgGlance,
         ByMaxGlance,
+        ByMinDPR,
+        ByAvgDPR,
+        ByMaxDPR
     };
     Q_ENUMS(Methods)
 };

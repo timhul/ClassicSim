@@ -39,8 +39,6 @@ Rectangle {
             delegate: StatisticsEntryMeleeDamageAvoidanceBreakdown {
                 name: _name
                 iconurl: _icon
-                totaldmgabsolute: _totaldmgabsolute
-                totaldmgpercentage: _totaldmgpercent
                 totalattempts: _totalattempts
                 numhits: _numhits
                 hitpercent: _hitpercent
