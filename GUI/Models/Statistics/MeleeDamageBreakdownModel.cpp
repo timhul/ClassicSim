@@ -96,6 +96,18 @@ void MeleeDamageBreakdownModel::selectSort(const int method) {
         std::sort(spell_stats.begin(), spell_stats.end(), max_dpr);
         select_new_method(sorting_method);
         break;
+    case MeleeDamageBreakdownSorting::Methods::ByMinDPET:
+        std::sort(spell_stats.begin(), spell_stats.end(), min_dpet);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageBreakdownSorting::Methods::ByAvgDPET:
+        std::sort(spell_stats.begin(), spell_stats.end(), avg_dpet);
+        select_new_method(sorting_method);
+        break;
+    case MeleeDamageBreakdownSorting::Methods::ByMaxDPET:
+        std::sort(spell_stats.begin(), spell_stats.end(), max_dpet);
+        select_new_method(sorting_method);
+        break;
     }
 
     layoutChanged();
@@ -201,6 +213,12 @@ QVariant MeleeDamageBreakdownModel::data(const QModelIndex & index, int role) co
         return QString::number(spell_stat->get_avg_dpr(), 'f', 1);
     if (role == MeleeDamageBreakdownSorting::ByMaxDPR)
         return QString::number(spell_stat->get_max_dpr(), 'f', 1);
+    if (role == MeleeDamageBreakdownSorting::ByMinDPET)
+        return QString::number(spell_stat->get_min_dpet(), 'f', 1);
+    if (role == MeleeDamageBreakdownSorting::ByAvgDPET)
+        return QString::number(spell_stat->get_avg_dpet(), 'f', 1);
+    if (role == MeleeDamageBreakdownSorting::ByMaxDPET)
+        return QString::number(spell_stat->get_max_dpet(), 'f', 1);
 
     return QVariant();
 }
@@ -223,5 +241,8 @@ QHash<int, QByteArray> MeleeDamageBreakdownModel::roleNames() const {
     roles[MeleeDamageBreakdownSorting::Methods::ByMinDPR] = "_mindpr";
     roles[MeleeDamageBreakdownSorting::Methods::ByAvgDPR] = "_avgdpr";
     roles[MeleeDamageBreakdownSorting::Methods::ByMaxDPR] = "_maxdpr";
+    roles[MeleeDamageBreakdownSorting::Methods::ByMinDPET] = "_mindpet";
+    roles[MeleeDamageBreakdownSorting::Methods::ByAvgDPET] = "_avgdpet";
+    roles[MeleeDamageBreakdownSorting::Methods::ByMaxDPET] = "_maxdpet";
     return roles;
 }

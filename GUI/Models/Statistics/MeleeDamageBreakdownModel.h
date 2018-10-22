@@ -26,7 +26,10 @@ public:
         ByMaxGlance,
         ByMinDPR,
         ByAvgDPR,
-        ByMaxDPR
+        ByMaxDPR,
+        ByMinDPET,
+        ByAvgDPET,
+        ByMaxDPET
     };
     Q_ENUMS(Methods)
 };

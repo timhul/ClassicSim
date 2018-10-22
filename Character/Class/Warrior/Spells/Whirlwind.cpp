@@ -44,11 +44,11 @@ void Whirlwind::spell_effect() {
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * warr->get_ability_crit_dmg_mod());
         warr->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
+        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
     else if (result == AttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
+        add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
 
     warr->lose_rage(resource_cost);

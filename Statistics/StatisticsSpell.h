@@ -36,6 +36,9 @@ bool max_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool min_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool avg_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool max_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs);
 
 class StatisticsSpell {
 public:
@@ -76,12 +79,12 @@ public:
     void increment_hit();
     void increment_crit();
 
-    void add_partial_resist_dmg(const int, const int);
-    void add_partial_block_dmg(const int, const int);
-    void add_partial_block_crit_dmg(const int, const int);
-    void add_glancing_dmg(const int, const int);
-    void add_hit_dmg(const int, const int);
-    void add_crit_dmg(const int, const int);
+    void add_partial_resist_dmg(const int, const int, const double);
+    void add_partial_block_dmg(const int, const int, const double);
+    void add_partial_block_crit_dmg(const int, const int, const double);
+    void add_glancing_dmg(const int, const int, const double);
+    void add_hit_dmg(const int, const int, const double);
+    void add_crit_dmg(const int, const int, const double);
 
     int get_misses() const;
     int get_full_resists() const;
@@ -118,6 +121,10 @@ public:
     double get_avg_dpr() const;
     double get_max_dpr() const;
 
+    double get_min_dpet() const;
+    double get_avg_dpet() const;
+    double get_max_dpet() const;
+
     int get_num_attempt_columns() const;
     int get_num_dmg_columns() const;
 
@@ -140,12 +147,19 @@ private:
     bool dpr_set;
     unsigned damage_dealt_successes;
 
+    double min_dpet;
+    double max_dpet;
+    double avg_dpet;
+    bool dpet_set;
+
     int get_attempts(const Outcome) const;
     int get_dmg(const Outcome) const;
     int get_min_dmg(const Outcome) const;
     int get_max_dmg(const Outcome) const;
     void increment(const Outcome);
-    void add_dmg(const Outcome outcome, const int dmg, const int resource_cost);
+    void add_dmg(const Outcome outcome, const int dmg, const int resource_cost, const double execution_time);
+    void add_dpr(const int dmg, const int resource_cost);
+    void add_dpet(const int dmg, const double execution_time);
 
     QSet<Outcome> possible_attempt_outcomes;
     QSet<Outcome> possible_success_outcomes;
@@ -154,6 +168,8 @@ private:
     QMap<Outcome, int> damage;
     QMap<Outcome, int> min_damage;
     QMap<Outcome, int> max_damage;
+
+    double delta(double lhs, double rhs);
 };
 
 #endif // STATISTICSSPELL_H

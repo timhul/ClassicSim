@@ -22,6 +22,9 @@ Rectangle {
     property string mindpr
     property string avgdpr
     property string maxdpr
+    property string mindpet
+    property string avgdpet
+    property string maxdpet
 
     Row {
         anchors.fill: parent
@@ -178,6 +181,33 @@ Rectangle {
 
             TextSmall {
                 text: maxdpr
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            TextSmall {
+                text: mindpet
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            TextSmall {
+                text: avgdpet
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            TextSmall {
+                text: maxdpet
             }
         }
     }

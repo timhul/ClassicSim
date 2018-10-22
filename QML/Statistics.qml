@@ -101,6 +101,9 @@ Rectangle {
                 mindpr: _mindpr
                 avgdpr: _avgdpr
                 maxdpr: _maxdpr
+                mindpet: _mindpet
+                avgdpet: _avgdpet
+                maxdpet: _maxdpet
             }
         }
     }

@@ -29,10 +29,10 @@ void InstantSpellAttack::spell_effect() {
 
     if (result == AttackResult::CRITICAL) {
         pchar->spell_critical_effect();
-        add_crit_dmg(static_cast<int>(damage_dealt * pchar->get_spell_crit_dmg_mod()), resource_cost);
+        add_crit_dmg(static_cast<int>(damage_dealt * pchar->get_spell_crit_dmg_mod()), resource_cost, 0);
     }
     else if (result == AttackResult::HIT) {
         pchar->spell_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
+        add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
     }
 }

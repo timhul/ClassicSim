@@ -47,18 +47,18 @@ void MainhandAttack::calculate_damage() {
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;
         pchar->melee_mh_white_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
+        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         return;
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
         pchar->melee_mh_white_hit_effect();
-        add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
+        add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         return;
     }
 
     pchar->melee_mh_white_hit_effect();
-    add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
+    add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 
 double MainhandAttack::get_next_expected_use() const {

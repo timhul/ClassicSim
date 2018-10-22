@@ -272,5 +272,56 @@ RectangleBorders {
                 text: "Max DPR"
             }
         }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            property int method: MeleeDamageBreakdownSorting.ByMinDPET
+
+            onRectangleClicked: meleeDamageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
+
+            rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                   root.darkDarkGray
+
+            TextSmall {
+                text: "Min DPET"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            property int method: MeleeDamageBreakdownSorting.ByAvgDPET
+
+            onRectangleClicked: meleeDamageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
+
+            rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                   root.darkDarkGray
+
+            TextSmall {
+                text: "Avg DPET"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            property int method: MeleeDamageBreakdownSorting.ByMaxDPET
+
+            onRectangleClicked: meleeDamageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
+
+            rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                   root.darkDarkGray
+
+            TextSmall {
+                text: "Max DPET"
+            }
+        }
     }
 }

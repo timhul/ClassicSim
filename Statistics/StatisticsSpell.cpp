@@ -153,6 +153,18 @@ bool max_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_max_dpr() > rhs->get_max_dpr();
 }
 
+bool min_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_min_dpet() > rhs->get_min_dpet();
+}
+
+bool avg_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_avg_dpet() > rhs->get_avg_dpet();
+}
+
+bool max_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_max_dpet() > rhs->get_max_dpet();
+}
+
 StatisticsSpell::StatisticsSpell(const QString& name, const QString& icon):
     name(name),
     icon(icon),
@@ -161,7 +173,11 @@ StatisticsSpell::StatisticsSpell(const QString& name, const QString& icon):
     max_dpr(std::numeric_limits<double>::min()),
     avg_dpr(0),
     dpr_set(false),
-    damage_dealt_successes(0)
+    damage_dealt_successes(0),
+    min_dpet(std::numeric_limits<double>::max()),
+    max_dpet(std::numeric_limits<double>::min()),
+    avg_dpet(0),
+    dpet_set(false)
 {
     this->possible_attempt_outcomes = QSet<Outcome>({
                                                         Outcome::Miss,
@@ -255,7 +271,7 @@ void StatisticsSpell::increment_crit() {
     increment(Outcome::Crit);
 }
 
-void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const int resource_cost) {
+void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const int resource_cost, const double execution_time) {
     if (!damage.contains(outcome))
         damage[outcome] = 0;
 
@@ -268,6 +284,11 @@ void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const int re
     damage[outcome] += dmg;
     ++damage_dealt_successes;
 
+    add_dpr(dmg, resource_cost);
+    add_dpet(dmg, execution_time);
+}
+
+void StatisticsSpell::add_dpr(const int dmg, const int resource_cost) {
     if (resource_cost == 0)
         return;
 
@@ -283,34 +304,50 @@ void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const int re
     avg_dpr = avg_dpr + (damage_per_resource - avg_dpr) / damage_dealt_successes;
 }
 
-void StatisticsSpell::add_partial_resist_dmg(const int dmg, const int resource_cost) {
+void StatisticsSpell::add_dpet(const int dmg, const double execution_time) {
+    if (delta(execution_time, 0) < 0.0001)
+        return;
+
+    dpet_set = true;
+
+    double damage_per_execution_time = double(dmg) / execution_time;
+
+    if (damage_per_execution_time < min_dpet)
+        min_dpet = damage_per_execution_time;
+    if (damage_per_execution_time > max_dpet)
+        max_dpet = damage_per_execution_time;
+
+    avg_dpet = avg_dpet + (damage_per_execution_time - avg_dpet) / damage_dealt_successes;
+}
+
+void StatisticsSpell::add_partial_resist_dmg(const int dmg, const int resource_cost, const double execution_time) {
     increment_partial_resist();
-    add_dmg(Outcome::PartialResist, dmg, resource_cost);
+    add_dmg(Outcome::PartialResist, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_partial_block_dmg(const int dmg, const int resource_cost) {
+void StatisticsSpell::add_partial_block_dmg(const int dmg, const int resource_cost, const double execution_time) {
     increment_partial_block();
-    add_dmg(Outcome::PartialBlock, dmg, resource_cost);
+    add_dmg(Outcome::PartialBlock, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_partial_block_crit_dmg(const int dmg, const int resource_cost) {
+void StatisticsSpell::add_partial_block_crit_dmg(const int dmg, const int resource_cost, const double execution_time) {
     increment_partial_block_crit();
-    add_dmg(Outcome::PartialBlockCrit, dmg, resource_cost);
+    add_dmg(Outcome::PartialBlockCrit, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_glancing_dmg(const int dmg, const int resource_cost) {
+void StatisticsSpell::add_glancing_dmg(const int dmg, const int resource_cost, const double execution_time) {
     increment_glancing();
-    add_dmg(Outcome::Glancing, dmg, resource_cost);
+    add_dmg(Outcome::Glancing, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_hit_dmg(const int dmg, const int resource_cost) {
+void StatisticsSpell::add_hit_dmg(const int dmg, const int resource_cost, const double execution_time) {
     increment_hit();
-    add_dmg(Outcome::Hit, dmg, resource_cost);
+    add_dmg(Outcome::Hit, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_crit_dmg(const int dmg, const int resource_cost) {
+void StatisticsSpell::add_crit_dmg(const int dmg, const int resource_cost, const double execution_time) {
     increment_crit();
-    add_dmg(Outcome::Crit, dmg, resource_cost);
+    add_dmg(Outcome::Crit, dmg, resource_cost, execution_time);
 }
 
 int StatisticsSpell::get_attempts(const Outcome outcome) const {
@@ -445,6 +482,18 @@ double StatisticsSpell::get_max_dpr() const {
     return dpr_set ? this->max_dpr : 0.0;
 }
 
+double StatisticsSpell::get_min_dpet() const {
+    return dpet_set ? this->min_dpet : 0.0;
+}
+
+double StatisticsSpell::get_avg_dpet() const {
+    return dpet_set ? this->avg_dpet : 0.0;
+}
+
+double StatisticsSpell::get_max_dpet() const {
+    return dpet_set ? this->max_dpet : 0.0;
+}
+
 // TODO: Instead of returning int, return QSet of Outcome and build superset in Statistics.
 int StatisticsSpell::get_num_attempt_columns() const {
     int columns = 0;
@@ -535,4 +584,12 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
     this->avg_dpr = other->avg_dpr;
     this->dpr_set = other->dpr_set;
     this->damage_dealt_successes = other->damage_dealt_successes;
+    this->min_dpet = other->min_dpet;
+    this->max_dpet = other->max_dpet;
+    this->avg_dpet = other->avg_dpet;
+    this->dpet_set = other->dpet_set;
+}
+
+double StatisticsSpell::delta(double lhs, double rhs) {
+    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
 }

@@ -70,7 +70,7 @@ void OffhandAttackWarrior::calculate_damage() {
         const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(round(damage_dealt)));
         warr->melee_oh_white_critical_effect();
         // TODO: Save statistics for resource gains
-        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
+        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         warr->gain_rage(rage_gained);
         return;
     }
@@ -79,7 +79,7 @@ void OffhandAttackWarrior::calculate_damage() {
         const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
         warr->melee_oh_white_hit_effect();
         // TODO: Save statistics for resource gains
-        add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost);
+        add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
         warr->gain_rage(rage_gained);
         return;
     }
@@ -88,6 +88,6 @@ void OffhandAttackWarrior::calculate_damage() {
     damage_dealt = round(damage_dealt);
     const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
     // TODO: Save statistics for resource gains
-    add_hit_dmg(static_cast<int>(damage_dealt), resource_cost);
+    add_hit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
     warr->gain_rage(rage_gained);
 }
