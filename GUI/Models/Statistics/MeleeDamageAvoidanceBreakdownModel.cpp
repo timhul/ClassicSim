@@ -147,7 +147,7 @@ void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
     endInsertRows();
 
     layoutAboutToBeChanged();
-    std::sort(spell_stats.begin(), spell_stats.end(), total_damage);
+    std::sort(spell_stats.begin(), spell_stats.end(), total_attempts);
     layoutChanged();
 }
 
