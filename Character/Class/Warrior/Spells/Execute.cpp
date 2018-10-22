@@ -63,11 +63,11 @@ void Execute::spell_effect() {
 
     if (result == AttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_ability_crit_dmg_mod())));
+        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_ability_crit_dmg_mod())), int(warr->get_curr_rage()));
     }
     else if (result == AttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)));
+        add_hit_dmg(static_cast<int>(round(damage_dealt)), int(warr->get_curr_rage()));
     }
 
     warr->lose_rage(warr->get_curr_rage());

@@ -39,7 +39,7 @@ void DeepWounds::spell_effect() {
     else
         previous_tick_rest = 0;
 
-    add_hit_dmg(static_cast<int>(round(damage_dealt)));
+    add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
 }
 
 void DeepWounds::apply_debuff() {

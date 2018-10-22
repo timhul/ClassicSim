@@ -48,18 +48,18 @@ void OffhandAttack::calculate_damage() {
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;
         pchar->melee_oh_white_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt)));
+        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
         return;
     }
     if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
         pchar->melee_oh_white_hit_effect();
-        add_glancing_dmg(static_cast<int>(round(damage_dealt)));
+        add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
         return;
     }
 
     pchar->melee_oh_white_hit_effect();
-    add_hit_dmg(static_cast<int>(round(damage_dealt)));
+    add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
 }
 
 double OffhandAttack::get_next_expected_use() const {

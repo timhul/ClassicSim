@@ -43,11 +43,11 @@ void MortalStrike::spell_effect() {
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= warr->get_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt)));
+        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
     }
     else if (result == AttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)));
+        add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost);
     }
 
     warr->lose_rage(static_cast<unsigned>(resource_cost));

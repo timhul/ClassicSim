@@ -33,6 +33,9 @@ bool max_crit(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool min_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool avg_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs);
 bool max_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool min_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool avg_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
+bool max_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs);
 
 class StatisticsSpell {
 public:
@@ -73,12 +76,12 @@ public:
     void increment_hit();
     void increment_crit();
 
-    void add_partial_resist_dmg(const int);
-    void add_partial_block_dmg(const int);
-    void add_partial_block_crit_dmg(const int);
-    void add_glancing_dmg(const int);
-    void add_hit_dmg(const int);
-    void add_crit_dmg(const int);
+    void add_partial_resist_dmg(const int, const int);
+    void add_partial_block_dmg(const int, const int);
+    void add_partial_block_crit_dmg(const int, const int);
+    void add_glancing_dmg(const int, const int);
+    void add_hit_dmg(const int, const int);
+    void add_crit_dmg(const int, const int);
 
     int get_misses() const;
     int get_full_resists() const;
@@ -111,6 +114,10 @@ public:
     int get_min_crit_dmg() const;
     int get_max_crit_dmg() const;
 
+    double get_min_dpr() const;
+    double get_avg_dpr() const;
+    double get_max_dpr() const;
+
     int get_num_attempt_columns() const;
     int get_num_dmg_columns() const;
 
@@ -127,13 +134,18 @@ private:
     const QString name;
     const QString icon;
     double percentage_of_total_damage_done;
+    double min_dpr;
+    double max_dpr;
+    double avg_dpr;
+    bool dpr_set;
+    unsigned damage_dealt_successes;
 
     int get_attempts(const Outcome) const;
     int get_dmg(const Outcome) const;
     int get_min_dmg(const Outcome) const;
     int get_max_dmg(const Outcome) const;
     void increment(const Outcome);
-    void add_dmg(const Outcome outcome, const int dmg);
+    void add_dmg(const Outcome outcome, const int dmg, const int resource_cost);
 
     QSet<Outcome> possible_attempt_outcomes;
     QSet<Outcome> possible_success_outcomes;

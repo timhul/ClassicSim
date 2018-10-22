@@ -141,10 +141,27 @@ bool max_glancing(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_max_glancing_dmg() > rhs->get_max_glancing_dmg();
 }
 
+bool min_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_min_dpr() > rhs->get_min_dpr();
+}
+
+bool avg_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_avg_dpr() > rhs->get_avg_dpr();
+}
+
+bool max_dpr(StatisticsSpell* lhs, StatisticsSpell* rhs) {
+    return lhs->get_max_dpr() > rhs->get_max_dpr();
+}
+
 StatisticsSpell::StatisticsSpell(const QString& name, const QString& icon):
     name(name),
     icon(icon),
-    percentage_of_total_damage_done(0.0)
+    percentage_of_total_damage_done(0.0),
+    min_dpr(std::numeric_limits<double>::max()),
+    max_dpr(std::numeric_limits<double>::min()),
+    avg_dpr(0),
+    dpr_set(false),
+    damage_dealt_successes(0)
 {
     this->possible_attempt_outcomes = QSet<Outcome>({
                                                         Outcome::Miss,
@@ -238,7 +255,7 @@ void StatisticsSpell::increment_crit() {
     increment(Outcome::Crit);
 }
 
-void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg) {
+void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const int resource_cost) {
     if (!damage.contains(outcome))
         damage[outcome] = 0;
 
@@ -249,36 +266,51 @@ void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg) {
         max_damage[outcome] = dmg;
 
     damage[outcome] += dmg;
+    ++damage_dealt_successes;
+
+    if (resource_cost == 0)
+        return;
+
+    dpr_set = true;
+
+    double damage_per_resource = double(dmg) / resource_cost;
+
+    if (damage_per_resource < min_dpr)
+        min_dpr = damage_per_resource;
+    if (damage_per_resource > max_dpr)
+        max_dpr = damage_per_resource;
+
+    avg_dpr = avg_dpr + (damage_per_resource - avg_dpr) / damage_dealt_successes;
 }
 
-void StatisticsSpell::add_partial_resist_dmg(const int dmg) {
+void StatisticsSpell::add_partial_resist_dmg(const int dmg, const int resource_cost) {
     increment_partial_resist();
-    add_dmg(Outcome::PartialResist, dmg);
+    add_dmg(Outcome::PartialResist, dmg, resource_cost);
 }
 
-void StatisticsSpell::add_partial_block_dmg(const int dmg) {
+void StatisticsSpell::add_partial_block_dmg(const int dmg, const int resource_cost) {
     increment_partial_block();
-    add_dmg(Outcome::PartialBlock, dmg);
+    add_dmg(Outcome::PartialBlock, dmg, resource_cost);
 }
 
-void StatisticsSpell::add_partial_block_crit_dmg(const int dmg) {
+void StatisticsSpell::add_partial_block_crit_dmg(const int dmg, const int resource_cost) {
     increment_partial_block_crit();
-    add_dmg(Outcome::PartialBlockCrit, dmg);
+    add_dmg(Outcome::PartialBlockCrit, dmg, resource_cost);
 }
 
-void StatisticsSpell::add_glancing_dmg(const int dmg) {
+void StatisticsSpell::add_glancing_dmg(const int dmg, const int resource_cost) {
     increment_glancing();
-    add_dmg(Outcome::Glancing, dmg);
+    add_dmg(Outcome::Glancing, dmg, resource_cost);
 }
 
-void StatisticsSpell::add_hit_dmg(const int dmg) {
+void StatisticsSpell::add_hit_dmg(const int dmg, const int resource_cost) {
     increment_hit();
-    add_dmg(Outcome::Hit, dmg);
+    add_dmg(Outcome::Hit, dmg, resource_cost);
 }
 
-void StatisticsSpell::add_crit_dmg(const int dmg) {
+void StatisticsSpell::add_crit_dmg(const int dmg, const int resource_cost) {
     increment_crit();
-    add_dmg(Outcome::Crit, dmg);
+    add_dmg(Outcome::Crit, dmg, resource_cost);
 }
 
 int StatisticsSpell::get_attempts(const Outcome outcome) const {
@@ -401,6 +433,18 @@ int StatisticsSpell::get_max_crit_dmg() const {
     return get_max_dmg(Outcome::Crit);
 }
 
+double StatisticsSpell::get_min_dpr() const {
+    return dpr_set ? this->min_dpr : 0.0;
+}
+
+double StatisticsSpell::get_avg_dpr() const {
+    return dpr_set ? this->avg_dpr : 0.0;
+}
+
+double StatisticsSpell::get_max_dpr() const {
+    return dpr_set ? this->max_dpr : 0.0;
+}
+
 // TODO: Instead of returning int, return QSet of Outcome and build superset in Statistics.
 int StatisticsSpell::get_num_attempt_columns() const {
     int columns = 0;
@@ -485,4 +529,10 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
             this->max_damage[outcome] = other->max_damage[outcome] < this->max_damage[outcome] ? other->max_damage[outcome] :
                                                                                                  this->max_damage[outcome];
     }
+
+    this->min_dpr = other->min_dpr;
+    this->max_dpr = other->max_dpr;
+    this->avg_dpr = other->avg_dpr;
+    this->dpr_set = other->dpr_set;
+    this->damage_dealt_successes = other->damage_dealt_successes;
 }

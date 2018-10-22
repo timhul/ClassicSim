@@ -86,12 +86,12 @@ protected:
     void increment_parry();
     void increment_full_block();
 
-    void add_partial_resist_dmg(const int);
-    void add_partial_block_dmg(const int);
-    void add_partial_block_crit_dmg(const int);
-    void add_glancing_dmg(const int);
-    void add_hit_dmg(const int);
-    void add_crit_dmg(const int);
+    void add_partial_resist_dmg(const int, const int resource_cost);
+    void add_partial_block_dmg(const int, const int resource_cost);
+    void add_partial_block_crit_dmg(const int, const int resource_cost);
+    void add_glancing_dmg(const int, const int resource_cost);
+    void add_hit_dmg(const int, const int resource_cost);
+    void add_crit_dmg(const int, const int resource_cost);
 
     double damage_after_modifiers(const double damage) const;
 };

@@ -57,7 +57,7 @@ void MainhandAttackWarrior::calculate_damage() {
         damage_dealt = round(damage_dealt * 2);
         const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
         warr->melee_mh_white_critical_effect();
-        add_crit_dmg(static_cast<int>(damage_dealt));
+        add_crit_dmg(static_cast<int>(damage_dealt), resource_cost);
         // TODO: Save statistics for resource gains
         warr->gain_rage(rage_gained);
         return;
@@ -66,7 +66,7 @@ void MainhandAttackWarrior::calculate_damage() {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
         const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
         warr->melee_mh_white_hit_effect();
-        add_glancing_dmg(static_cast<int>(damage_dealt));
+        add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost);
         // TODO: Save statistics for resource gains
         warr->gain_rage(rage_gained);
         return;
@@ -75,7 +75,7 @@ void MainhandAttackWarrior::calculate_damage() {
     damage_dealt = round(damage_dealt);
     const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
     warr->melee_mh_white_hit_effect();
-    add_hit_dmg(static_cast<int>(damage_dealt));
+    add_hit_dmg(static_cast<int>(damage_dealt), resource_cost);
     // TODO: Save statistics for resource gains
     warr->gain_rage(rage_gained);
 }

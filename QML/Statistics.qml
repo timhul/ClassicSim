@@ -98,6 +98,9 @@ Rectangle {
                 minglance: _minglance
                 avgglance: _avgglance
                 maxglance: _maxglance
+                mindpr: _mindpr
+                avgdpr: _avgdpr
+                maxdpr: _maxdpr
             }
         }
     }

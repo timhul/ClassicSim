@@ -19,6 +19,9 @@ Rectangle {
     property string minglance
     property string avgglance
     property string maxglance
+    property string mindpr
+    property string avgdpr
+    property string maxdpr
 
     Row {
         anchors.fill: parent
@@ -148,6 +151,33 @@ Rectangle {
 
             TextSmall {
                 text: maxglance
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            TextSmall {
+                text: mindpr
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            TextSmall {
+                text: avgdpr
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            TextSmall {
+                text: maxdpr
             }
         }
     }

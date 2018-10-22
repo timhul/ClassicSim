@@ -85,8 +85,16 @@ void MeleeDamageBreakdownModel::selectSort(const int method) {
         select_new_method(sorting_method);
         break;
     case MeleeDamageBreakdownSorting::Methods::ByMinDPR:
+        std::sort(spell_stats.begin(), spell_stats.end(), min_dpr);
+        select_new_method(sorting_method);
+        break;
     case MeleeDamageBreakdownSorting::Methods::ByAvgDPR:
+        std::sort(spell_stats.begin(), spell_stats.end(), avg_dpr);
+        select_new_method(sorting_method);
+        break;
     case MeleeDamageBreakdownSorting::Methods::ByMaxDPR:
+        std::sort(spell_stats.begin(), spell_stats.end(), max_dpr);
+        select_new_method(sorting_method);
         break;
     }
 
@@ -187,6 +195,12 @@ QVariant MeleeDamageBreakdownModel::data(const QModelIndex & index, int role) co
     }
     if (role == MeleeDamageBreakdownSorting::ByMaxGlance)
         return spell_stat->get_max_glancing_dmg();
+    if (role == MeleeDamageBreakdownSorting::ByMinDPR)
+        return QString::number(spell_stat->get_min_dpr(), 'f', 1);
+    if (role == MeleeDamageBreakdownSorting::ByAvgDPR)
+        return QString::number(spell_stat->get_avg_dpr(), 'f', 1);
+    if (role == MeleeDamageBreakdownSorting::ByMaxDPR)
+        return QString::number(spell_stat->get_max_dpr(), 'f', 1);
 
     return QVariant();
 }

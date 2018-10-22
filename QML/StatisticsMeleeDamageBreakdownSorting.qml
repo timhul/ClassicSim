@@ -164,7 +164,7 @@ RectangleBorders {
             onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
 
             rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                                      root.darkDarkGray
+                                                                                   root.darkDarkGray
 
             TextSmall {
                 text: "Max Crit"
@@ -181,7 +181,7 @@ RectangleBorders {
             onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
 
             rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                                      root.darkDarkGray
+                                                                                   root.darkDarkGray
 
             TextSmall {
                 text: "Min Glance"
@@ -198,7 +198,7 @@ RectangleBorders {
             onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
 
             rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                                      root.darkDarkGray
+                                                                                   root.darkDarkGray
 
             TextSmall {
                 text: "Avg Glance"
@@ -215,10 +215,61 @@ RectangleBorders {
             onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
 
             rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
-                                                                                      root.darkDarkGray
+                                                                                   root.darkDarkGray
 
             TextSmall {
                 text: "Max Glance"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            property int method: MeleeDamageBreakdownSorting.ByMinDPR
+
+            onRectangleClicked: meleeDamageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
+
+            rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                   root.darkDarkGray
+
+            TextSmall {
+                text: "Min DPR"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            property int method: MeleeDamageBreakdownSorting.ByAvgDPR
+
+            onRectangleClicked: meleeDamageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
+
+            rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                   root.darkDarkGray
+
+            TextSmall {
+                text: "Avg DPR"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.damageWidth
+
+            property int method: MeleeDamageBreakdownSorting.ByMaxDPR
+
+            onRectangleClicked: meleeDamageBreakdownModel.selectSort(method)
+            onRectangleRightClicked: meleeDamageBreakdownModel.selectSort(method)
+
+            rectColor: meleeDamageBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                                   root.darkDarkGray
+
+            TextSmall {
+                text: "Max DPR"
             }
         }
     }
