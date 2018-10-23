@@ -5,7 +5,7 @@
 #include <QMap>
 #include <QVector>
 
-class CastIf;
+class RotationExecutor;
 class Character;
 class Buff;
 class Spell;
@@ -22,7 +22,7 @@ public:
     void set_description(const QString& desc);
     void add_variable(const QString& var, const QString& value);
     void add_prerequisite(const QString& key, const QString& value);
-    void add_cast_if(CastIf* cast_if);
+    void add_executor(RotationExecutor* executor);
 
     QString get_class() const;
     QString get_name() const;
@@ -44,7 +44,7 @@ protected:
     QString description;
     QMap<QString, QString> defined_variables;
     QMap<QString, QString> prerequisites;
-    QVector<CastIf*> cast_ifs;
+    QVector<RotationExecutor*> rotation_executors;
 };
 
 #endif // ROTATION_H

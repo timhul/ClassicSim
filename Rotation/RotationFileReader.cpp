@@ -1,7 +1,7 @@
 
 #include "RotationFileReader.h"
 #include "Rotation.h"
-#include "CastIf.h"
+#include "RotationExecutor.h"
 #include "Condition.h"
 
 #include "WarriorRotation.h"
@@ -148,17 +148,17 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotatio
 
         if (reader.name() == "cast_if") {
             QString name = reader.attributes().value("name").toString();
-            CastIf* cast_if = new CastIf(name);
-            if (cast_if_handler(reader, cast_if)) {
-                rotation->add_cast_if(cast_if);
+            RotationExecutor* executor = new RotationExecutor(name);
+            if (rotation_executor_handler(reader, executor)) {
+                rotation->add_executor(executor);
             }
             else
-                delete cast_if;
+                delete executor;
         }
     }
 }
 
-bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_if) {    
+bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, RotationExecutor* executor) {
     QStringList expressions = reader.readElementText().trimmed().split('\n', QString::SkipEmptyParts);
 
     for (auto &str : expressions)
@@ -204,7 +204,7 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
         }
     }
 
-    cast_if->add_sentence(sentence);
+    executor->add_sentence(sentence);
 
     for (int i = 0; i < expressions.size(); ++i) {
         quotation_split = expressions[i].split('"', QString::SkipEmptyParts);
@@ -224,7 +224,7 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
                 return false;
             }
 
-            cast_if->add_sentence(sentence);
+            executor->add_sentence(sentence);
             continue;
         }
 
@@ -261,7 +261,7 @@ bool RotationFileReader::cast_if_handler(QXmlStreamReader &reader, CastIf* cast_
             }
         }
 
-        cast_if->add_sentence(sentence);
+        executor->add_sentence(sentence);
     }
 
     return true;

@@ -164,7 +164,6 @@ SOURCES += main.cpp \
     Character/Class/ExternalBuff.cpp \
     Rotation/RotationFileReader.cpp \
     Rotation/Rotation.cpp \
-    Rotation/CastIf.cpp \
     Rotation/Condition.cpp \
     Character/Class/Warrior/WarriorRotation.cpp \
     Rotation/Conditions/ConditionSpell.cpp \
@@ -247,7 +246,8 @@ SOURCES += main.cpp \
     Character/Class/General/Spells/PeriodicResourceGainSpell.cpp \
     Rulesets/RulesetControl.cpp \
     GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.cpp \
-    GUI/Models/Statistics/MeleeDamageBreakdownModel.cpp
+    GUI/Models/Statistics/MeleeDamageBreakdownModel.cpp \
+    Rotation/RotationExecutor.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -407,7 +407,6 @@ HEADERS += \
     Character/Class/ExternalBuff.h \
     Rotation/RotationFileReader.h \
     Rotation/Rotation.h \
-    Rotation/CastIf.h \
     Rotation/Condition.h \
     Character/Class/Warrior/WarriorRotation.h \
     Rotation/Conditions/ConditionSpell.h \
@@ -495,7 +494,8 @@ HEADERS += \
     Rulesets/RulesetControl.h \
     Faction/AvailableFactions.h \
     GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.h \
-    GUI/Models/Statistics/MeleeDamageBreakdownModel.h
+    GUI/Models/Statistics/MeleeDamageBreakdownModel.h \
+    Rotation/RotationExecutor.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

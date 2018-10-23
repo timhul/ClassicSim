@@ -1,6 +1,6 @@
 
 #include "Rotation.h"
-#include "CastIf.h"
+#include "RotationExecutor.h"
 #include "ConditionBuff.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
@@ -15,24 +15,24 @@ Rotation::Rotation(QString class_name, QObject* parent) :
 {}
 
 Rotation::~Rotation() {
-    for (auto & cast_if : cast_ifs) {
-        delete cast_if;
+    for (auto & executor : rotation_executors) {
+        delete executor;
     }
 
-    cast_ifs.clear();
+    rotation_executors.clear();
 }
 
 void Rotation::perform_rotation() const {
-    for (auto cast_if : cast_ifs) {
-        cast_if->attempt_cast();
+    for (auto executor : rotation_executors) {
+        executor->attempt_cast();
     }
 }
 
 bool Rotation::link_spells(Character* pchar) {
     this->pchar = pchar;
 
-    for (int i = 0; i < cast_ifs.size(); ++i) {
-        QString spell_name = cast_ifs[i]->get_spell_name();
+    for (int i = 0; i < rotation_executors.size(); ++i) {
+        QString spell_name = rotation_executors[i]->get_spell_name();
 
         Spell* spell = get_spell_from_name(spell_name);
         if (spell == nullptr) {
@@ -40,7 +40,7 @@ bool Rotation::link_spells(Character* pchar) {
             return false;
         }
 
-        cast_ifs[i]->set_spell(spell);
+        rotation_executors[i]->set_spell(spell);
         if (!this->add_conditionals(i))
             return false;
     }
@@ -49,16 +49,16 @@ bool Rotation::link_spells(Character* pchar) {
 }
 
 bool Rotation::add_conditionals(const int index) {
-    CastIf* cast_if = cast_ifs[index];
+    RotationExecutor* executor = rotation_executors[index];
     QVector<Condition*> condition_group_to_add;
 
-    for (int i = 0; i < cast_if->sentences.size(); ++i) {
+    for (int i = 0; i < executor->sentences.size(); ++i) {
         Condition* condition = nullptr;
-        Sentence* sentence = cast_if->sentences[i];
+        Sentence* sentence = executor->sentences[i];
 
         if (sentence->logical_connective == LogicalConnectives::OR) {
             assert(condition_group_to_add.empty() == false);
-            cast_if->add_condition(condition_group_to_add);
+            executor->add_condition(condition_group_to_add);
             condition_group_to_add.clear();
         }
 
@@ -97,7 +97,7 @@ bool Rotation::add_conditionals(const int index) {
 
     // Add last condition manually
     if (!condition_group_to_add.empty())
-        cast_if->add_condition(condition_group_to_add);
+        executor->add_condition(condition_group_to_add);
 
     return true;
 }
@@ -118,8 +118,8 @@ void Rotation::add_prerequisite(const QString& key, const QString& value) {
     this->prerequisites.insert(key, value);
 }
 
-void Rotation::add_cast_if(CastIf* cast_if) {
-    this->cast_ifs.append(cast_if);
+void Rotation::add_executor(RotationExecutor* executor) {
+    this->rotation_executors.append(executor);
 }
 
 QString Rotation::get_class() const {
@@ -153,8 +153,8 @@ void Rotation::dump() {
     qDebug() << "desc" << description;
     qDebug() << "defined_variables" << defined_variables;
     qDebug() << "prerequisites" << prerequisites;
-    qDebug() << "cast_ifs:";
-    for (auto & cast_if : cast_ifs) {
-        cast_if->dump();
+    qDebug() << "executors:";
+    for (auto & executor : rotation_executors) {
+        executor->dump();
     }
 }

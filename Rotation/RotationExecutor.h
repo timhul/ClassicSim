@@ -11,11 +11,11 @@ class Condition;
 class Sentence;
 class Spell;
 
-class CastIf: public QObject {
+class RotationExecutor: public QObject {
     Q_OBJECT
 public:
-    CastIf(QString spell_name, QObject* parent = nullptr);
-    ~CastIf();
+    RotationExecutor(QString spell_name, QObject* parent = nullptr);
+    ~RotationExecutor();
 
     void add_sentence(Sentence* sentence);
     void add_condition(const QVector<Condition *>& condition);

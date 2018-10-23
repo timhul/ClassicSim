@@ -2,7 +2,7 @@
 #include "WarriorRotation.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
-#include "CastIf.h"
+#include "RotationExecutor.h"
 #include <QDebug>
 
 #include "BattleShout.h"

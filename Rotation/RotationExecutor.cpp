@@ -1,18 +1,18 @@
 
-#include "CastIf.h"
+#include "RotationExecutor.h"
 #include "Condition.h"
 #include "Spell.h"
 
 #include <QDebug>
 #include <utility>
 
-CastIf::CastIf(QString name, QObject* parent) :
+RotationExecutor::RotationExecutor(QString name, QObject* parent) :
     QObject(parent),
     spell_name(std::move(name)),
     spell(nullptr)
 {}
 
-CastIf::~CastIf() {
+RotationExecutor::~RotationExecutor() {
     for (auto & condition_group : condition_groups) {
         for (auto & j : condition_group) {
             delete j;
@@ -27,7 +27,7 @@ CastIf::~CastIf() {
     sentences.clear();
 }
 
-void CastIf::attempt_cast() {
+void RotationExecutor::attempt_cast() {
     assert(spell != nullptr);
     if (!spell->is_available())
         return;
@@ -45,7 +45,7 @@ void CastIf::attempt_cast() {
     }
 }
 
-bool CastIf::condition_group_fulfilled(const int index) const {
+bool RotationExecutor::condition_group_fulfilled(const int index) const {
     for (int i = 0; i < condition_groups.at(index).size(); ++i) {
         if (!condition_groups[index][i]->condition_fulfilled()) {
             return false;
@@ -55,36 +55,36 @@ bool CastIf::condition_group_fulfilled(const int index) const {
     return true;
 }
 
-QString CastIf::get_spell_name() const {
+QString RotationExecutor::get_spell_name() const {
     return this->spell_name;
 }
 
-Spell* CastIf::get_spell() const {
+Spell* RotationExecutor::get_spell() const {
     return this->spell;
 }
 
-void CastIf::set_spell(Spell* spell) {
+void RotationExecutor::set_spell(Spell* spell) {
     assert(spell_name == spell->get_name());
     this->spell = spell;
 }
 
-void CastIf::add_sentence(Sentence* sentence) {
+void RotationExecutor::add_sentence(Sentence* sentence) {
     this->sentences.append(sentence);
 }
 
-void CastIf::add_condition(const QVector<Condition*>& condition) {
+void RotationExecutor::add_condition(const QVector<Condition*>& condition) {
     this->condition_groups.append(condition);
 }
 
-void CastIf::add_variable_assignment(const QString& var, const QString& value) {
+void RotationExecutor::add_variable_assignment(const QString& var, const QString& value) {
     this->variable_assignments.insert(var, value);
 }
 
-QMap<QString, QString>& CastIf::get_variable_assignments() {
+QMap<QString, QString>& RotationExecutor::get_variable_assignments() {
     return this->variable_assignments;
 }
 
-void CastIf::dump() {
+void RotationExecutor::dump() {
     qDebug() << "variable assignments" << variable_assignments;
     qDebug() << "conditions:";
     for (auto sentence : sentences) {

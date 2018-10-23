@@ -9,7 +9,7 @@
 #include <QVector>
 
 class Rotation;
-class CastIf;
+class RotationExecutor;
 class Sentence;
 
 class RotationFileReader: public QObject {
@@ -23,7 +23,7 @@ public:
 private:
     Rotation* parse_rotation_file(const QString& path);
     void rotation_file_handler(QXmlStreamReader &reader, Rotation *rotation);
-    bool cast_if_handler(QXmlStreamReader &reader, CastIf *cast_if);
+    bool rotation_executor_handler(QXmlStreamReader &reader, RotationExecutor* executor);
 
     bool evaluate_condition();
     bool add_type(Sentence* sentence, const QString& type_string);
