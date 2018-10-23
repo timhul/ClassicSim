@@ -27,6 +27,7 @@ public:
     QVector<QString> get_active_external_buffs();
 
     void reset();
+    void clear_all();
     void prepare_set_of_combat_iterations();
 
 private:

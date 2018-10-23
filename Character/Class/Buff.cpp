@@ -147,8 +147,8 @@ void Buff::disable_buff() {
     if (!enabled)
         assert(enabled);
 
-    this->enabled = false;
     pchar->get_active_buffs()->remove_buff(this);
+    this->enabled = false;
 }
 
 void Buff::prepare_set_of_combat_iterations() {

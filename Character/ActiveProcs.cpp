@@ -46,6 +46,11 @@ void ActiveProcs::remove_proc_effect(const int instance_id) {
     }
 }
 
+void ActiveProcs::clear_all() {
+    for (auto & active_proc : active_procs)
+        active_proc->disable_proc();
+}
+
 void ActiveProcs::reset() {
     for (auto & active_proc : active_procs) {
         active_proc->reset();

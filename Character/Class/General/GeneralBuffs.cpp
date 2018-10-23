@@ -168,6 +168,10 @@ bool GeneralBuffs::debuff_active(const QString& debuff_name) const {
     return external_buff_active(debuff_name, this->external_debuffs);
 }
 
+void GeneralBuffs::clear_all() {
+    deactivate_buffs_for_current_setup();
+}
+
 void GeneralBuffs::change_setup(const int setup) {
     deactivate_buffs_for_current_setup();
     this->current_setup = setup;

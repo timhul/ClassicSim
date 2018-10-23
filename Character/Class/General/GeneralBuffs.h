@@ -31,6 +31,8 @@ public:
 
     Buff* get_general_buff_by_name(const QString& buff_name) const;
 
+    void clear_all();
+
 private:
     Character* pchar;
     Faction* faction;

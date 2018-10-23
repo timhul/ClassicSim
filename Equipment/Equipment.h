@@ -16,7 +16,7 @@ public:
     ~Equipment();
 
     void change_setup(const int);
-    void clean_item_proc_state();
+    void unequip_all();
 
     bool is_dual_wielding(void);
 
@@ -117,6 +117,7 @@ private:
     QVector<Item*> relic;
 
     void add_proc_effects_from_current_setup();
+    void remove_proc_effects_from_current_setup();
     void add_proc_effect_from_item(Item*, const int eq_slot);
     void remove_proc_effect_from_item(Item*, const int eq_slot);
 };

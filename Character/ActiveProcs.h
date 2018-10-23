@@ -29,6 +29,7 @@ public:
     void add_proc_effect(Proc* proc);
     void remove_proc_effect(const int instance_id);
 
+    void clear_all();
     void reset();
 
     void switch_faction();

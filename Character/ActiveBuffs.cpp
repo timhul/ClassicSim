@@ -21,6 +21,7 @@ ActiveBuffs::~ActiveBuffs()
 }
 
 void ActiveBuffs::add_buff(Buff* buff) {
+    assert(buff->is_enabled());
     active_buffs.append(buff);
 
     if (buff->get_instance_id() == BuffStatus::INACTIVE) {
@@ -30,11 +31,10 @@ void ActiveBuffs::add_buff(Buff* buff) {
 }
 
 void ActiveBuffs::remove_buff(Buff* buff) {
+    assert(buff->is_enabled());
     for (int i = 0; i < active_buffs.size(); ++i) {
-        if (active_buffs.at(i)->get_instance_id() == buff->get_instance_id()) {
-            active_buffs.removeAt(i);
-            break;
-        }
+        if (active_buffs.at(i)->get_instance_id() == buff->get_instance_id())
+            return active_buffs.removeAt(i);
     }
 }
 
@@ -73,6 +73,16 @@ void ActiveBuffs::reset() {
     for (auto & active_buff : active_buffs) {
         active_buff->reset();
     }
+}
+
+void ActiveBuffs::clear_all() {
+    while (!active_buffs.empty()) {
+        Buff* buff = active_buffs.takeFirst();
+        buff->cancel_buff();
+        buff->disable_buff();
+    }
+
+    general_buffs->clear_all();
 }
 
 void ActiveBuffs::switch_faction() {

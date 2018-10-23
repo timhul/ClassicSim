@@ -40,7 +40,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
 }
 
 Equipment::~Equipment() {
-    clean_item_proc_state();
+    remove_proc_effects_from_current_setup();
 
     for (auto & i : stats_from_equipped_gear) {
         delete i;
@@ -108,12 +108,34 @@ void Equipment::change_setup(const int index) {
     if (index < 0 || index >= stats_from_equipped_gear.size())
         return;
 
-    clean_item_proc_state();
+    remove_proc_effects_from_current_setup();
 
     setup_index = index;
 
     add_proc_effects_from_current_setup();
     clear_items_not_available_on_patch();
+}
+
+void Equipment::unequip_all() {
+    clear_mainhand();
+    clear_offhand();
+    clear_ranged();
+    clear_head();
+    clear_neck();
+    clear_shoulders();
+    clear_back();
+    clear_chest();
+    clear_wrist();
+    clear_gloves();
+    clear_belt();
+    clear_legs();
+    clear_boots();
+    clear_ring1();
+    clear_ring2();
+    clear_trinket1();
+    clear_trinket2();
+    clear_caster_offhand();
+    clear_relic();
 }
 
 void Equipment::add_proc_effects_from_current_setup() {
@@ -136,7 +158,7 @@ void Equipment::add_proc_effects_from_current_setup() {
     add_proc_effect_from_item(get_trinket2(), EquipmentSlot::TRINKET2);
 }
 
-void Equipment::clean_item_proc_state() {
+void Equipment::remove_proc_effects_from_current_setup() {
     remove_proc_effect_from_item(get_mainhand(), EquipmentSlot::MAINHAND);
     remove_proc_effect_from_item(get_offhand(), EquipmentSlot::OFFHAND);
     remove_proc_effect_from_item(get_ranged(), EquipmentSlot::RANGED);
