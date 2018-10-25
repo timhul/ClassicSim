@@ -23,6 +23,7 @@ ExternalBuff::ExternalBuff(Character* pchar,
     min_patch(std::move(min_patch))
 {
     this->enabled = true;
+    this->hidden = true;
 }
 
 ExternalBuff::~ExternalBuff() {
