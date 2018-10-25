@@ -579,15 +579,30 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
                                                                                                  this->max_damage[outcome];
     }
 
-    this->min_dpr = other->min_dpr;
-    this->max_dpr = other->max_dpr;
-    this->avg_dpr = other->avg_dpr;
-    this->dpr_set = other->dpr_set;
-    this->damage_dealt_successes = other->damage_dealt_successes;
-    this->min_dpet = other->min_dpet;
-    this->max_dpet = other->max_dpet;
-    this->avg_dpet = other->avg_dpet;
-    this->dpet_set = other->dpet_set;
+    if (this->min_dpr > other->min_dpr)
+        this->min_dpr = other->min_dpr;
+
+    if (this->max_dpr < other->max_dpr)
+        this->max_dpr = other->max_dpr;
+
+    unsigned total_counter = this->damage_dealt_successes + other->damage_dealt_successes;
+    this->avg_dpr = this->avg_dpr * (double(this->damage_dealt_successes) / total_counter) +
+            other->avg_dpr * (double(other->damage_dealt_successes) / total_counter);
+
+    this->dpr_set = this->dpr_set ? true : other->dpr_set;
+
+    if (this->min_dpet > other->min_dpet)
+        this->min_dpet = other->min_dpet;
+
+    if (this->max_dpet < other->max_dpet)
+        this->max_dpet = other->max_dpet;
+
+    this->avg_dpet = this->avg_dpet * (double(this->damage_dealt_successes) / total_counter) +
+            other->avg_dpet * (double(other->damage_dealt_successes) / total_counter);
+
+    this->dpet_set = this->dpet_set ? true : other->dpet_set;
+
+    this->damage_dealt_successes += other->damage_dealt_successes;
 }
 
 double StatisticsSpell::delta(double lhs, double rhs) {
