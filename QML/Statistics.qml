@@ -8,10 +8,66 @@ Rectangle {
 
     color: "transparent"
 
+    state: "DAMAGE_BREAKDOWN"
+
+    Row {
+        id: changeStatistics
+        height: 30
+
+        anchors {
+            top: parent.top
+            topMargin: 15
+            left: parent.left
+            leftMargin: 30
+            right: parent.right
+        }
+
+        spacing: 5
+
+        RectangleBorders {
+            height: 30
+            width: 150
+            property string activeState: "DAMAGE_BREAKDOWN"
+
+            TextSmall {
+                text: "Damage Breakdown"
+                color: statisticsRect.state === parent.activeState ? "black" : "white"
+            }
+
+            onRectangleClicked: statisticsRect.state = activeState
+            onRectangleRightClicked: statisticsRect.state = activeState
+
+            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+        }
+
+        RectangleBorders {
+            height: 30
+            width: 150
+            property string activeState: "BUFF_BREAKDOWN"
+
+            TextSmall {
+                text: "Buff Breakdown"
+                color: statisticsRect.state === parent.activeState ? "black" : "white"
+            }
+
+            onRectangleClicked: statisticsRect.state = activeState
+            onRectangleRightClicked: statisticsRect.state = activeState
+
+            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+        }
+    }
 
     ScrollView {
-        anchors.fill: parent
+        anchors {
+            top: changeStatistics.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
         clip: true
+
+        visible: parent.state === "DAMAGE_BREAKDOWN"
 
         StatisticsHeader {
             id: headerOutcomes
@@ -104,6 +160,51 @@ Rectangle {
                 mindpet: _mindpet
                 avgdpet: _avgdpet
                 maxdpet: _maxdpet
+            }
+        }
+    }
+
+    ScrollView {
+        anchors {
+            top: changeStatistics.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+
+        visible: parent.state === "BUFF_BREAKDOWN"
+
+        StatisticsHeader {
+            id: headerBuffUptimes
+            title: "Buff Uptimes"
+        }
+
+        StatisticsBuffBreakdownSorting {
+            id: buffBreakdownSorting
+            anchors.top: headerBuffUptimes.bottom
+        }
+
+        ListView {
+            id: buffBreakdownTable
+            anchors {
+                top: buffBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: buffBreakdownModel
+            delegate: StatisticsEntryBuffBreakdown {
+                name: _name
+                iconurl: _icon
+                avguptime: _avguptime
+                minuptime: _minuptime
+                maxuptime: _maxuptime
             }
         }
     }

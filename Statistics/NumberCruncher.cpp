@@ -73,6 +73,39 @@ void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon,
     vec.append(result);
 }
 
+void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec) {
+    QMutexLocker lock(&mutex);
+
+    assert(class_stats.contains(SimOption::NoScale));
+
+    QSet<QString> handled_entries;
+    for (auto & cstats : class_stats[SimOption::NoScale]) {
+        QMap<QString, StatisticsBuff*>::const_iterator it = cstats->buff_statistics.constBegin();
+        auto end = cstats->buff_statistics.constEnd();
+        while (it != end) {
+            if (handled_entries.contains(it.key())) {
+                ++it;
+                continue;
+            }
+            handled_entries.insert(it.key());
+            merge_buff_entry(it.key(), it.value()->get_icon(), vec);
+            ++it;
+        }
+    }
+}
+
+void NumberCruncher::merge_buff_entry(const QString& name, const QString &icon, QList<StatisticsBuff*>& vec) {
+    auto* result = new StatisticsBuff(name, icon);
+    for (auto & cstats : class_stats[SimOption::NoScale]) {
+        if (!cstats->buff_statistics.contains(name))
+            continue;
+
+        result->add(cstats->buff_statistics[name]);
+    }
+
+    vec.append(result);
+}
+
 void NumberCruncher::print() {
     QMutexLocker lock(&mutex);
 
@@ -122,4 +155,8 @@ double NumberCruncher::get_dps_for_option(SimOption option) const {
     dps_sum /= dps.size();
 
     return dps_sum;
+}
+
+double NumberCruncher::delta(double lhs, double rhs) {
+    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
 }

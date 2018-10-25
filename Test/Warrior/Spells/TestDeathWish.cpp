@@ -117,5 +117,6 @@ void TestDeathWish::given_death_wish_is_not_enabled() {
 }
 
 void TestDeathWish::when_death_wish_is_performed() {
+    warrior->get_death_wish_buff()->prepare_set_of_combat_iterations();
     death_wish()->perform();
 }

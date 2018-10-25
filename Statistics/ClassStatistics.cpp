@@ -37,7 +37,7 @@ StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, cons
 StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name) {
     assert(!buff_statistics.contains(name));
 
-    buff_statistics[name] = new StatisticsBuff(name);
+    buff_statistics[name] = new StatisticsBuff(name, "Assets/buffs/Inv_potion_32.png");
     return buff_statistics[name];
 }
 
@@ -130,7 +130,7 @@ QVariantList ClassStatistics::get_buff_uptime_table() const {
     QMap<QString, StatisticsBuff*>::const_iterator it = buff_statistics.constBegin();
     auto end = buff_statistics.constEnd();
     while(it != end) {
-        double uptime = it.value()->get_uptime();
+        double uptime = it.value()->get_avg_uptime();
         if (uptime < double(0.00001)) {
             ++it;
             continue;

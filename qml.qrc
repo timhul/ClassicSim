@@ -282,5 +282,7 @@
         <file>QML/Assets/warrior/Ability_criticalstrike.png</file>
         <file>QML/Assets/warrior/Ability_whirlwind.png</file>
         <file>QML/Assets/warrior/warrior_arms_old.jpg</file>
+        <file>QML/StatisticsEntryBuffBreakdown.qml</file>
+        <file>QML/StatisticsBuffBreakdownSorting.qml</file>
     </qresource>
 </RCC>

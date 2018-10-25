@@ -68,6 +68,9 @@ void Buff::force_remove_buff() {
     this->active = false;
     this->uptime += expired - applied;
 
+    if (!hidden)
+        this->statistics_buff->add_uptime(expired - applied);
+
     this->buff_effect_when_removed();
 }
 
