@@ -5,7 +5,7 @@
 
 class SharedBuff : public Buff {
 public:
-    SharedBuff(Character* pchar, const QString& name, const int duration, const int base_charges);
+    SharedBuff(Character* pchar, const QString& name, const QString& icon, const int duration, const int base_charges);
 
     bool unused() const;
 

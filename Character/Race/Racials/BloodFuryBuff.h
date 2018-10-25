@@ -5,7 +5,7 @@
 
 class BloodFuryBuff: public Buff {
 public:
-    BloodFuryBuff(Character* pchar): Buff(pchar, "Blood Fury", 15, 1)
+    BloodFuryBuff(Character* pchar): Buff(pchar, "Blood Fury", "Assets/races/Racial_orc_berserkerstrength.png", 15, 1)
     {}
 
     void buff_effect_when_applied() override;

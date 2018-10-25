@@ -6,7 +6,7 @@
 #include "PeriodicResourceGainSpell.h"
 
 EssenceOfTheRed::EssenceOfTheRed(Character* pchar):
-    Buff(pchar, "Essence of the Red", 180, 0),
+    Buff(pchar, "Essence of the Red", "Assets/buffs/Spell_fire_lavaspawn.png", 180, 0),
     spell(new PeriodicResourceGainSpell(name,
                                         "Assets/buffs/Spell_fire_lavaspawn.png",
                                         pchar,

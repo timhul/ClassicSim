@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 DeathWishBuff::DeathWishBuff(Character* pchar):
-    Buff(pchar, "Death Wish", 30, 0),
+    Buff(pchar, "Death Wish", "Assets/warrior/fury/tier5/Spell_shadow_deathpact.png", 30, 0),
     TalentRequirer(1, DisabledAtZero::Yes)
 {}
 

@@ -8,10 +8,11 @@
 #include "BuffRemoval.h"
 #include <QDebug>
 
-Buff::Buff(Character* pchar, const QString& name, const int duration, const int base_charges):
+Buff::Buff(Character* pchar, const QString& name, const QString& icon, const int duration, const int base_charges):
     pchar(pchar),
     statistics_buff(nullptr),
     name(name),
+    icon(icon),
     duration(duration),
     base_charges(base_charges),
     enabled(false),
@@ -26,6 +27,10 @@ Buff::~Buff() {
 
 QString Buff::get_name() const {
     return this->name;
+}
+
+QString Buff::get_icon() const {
+    return this->icon;
 }
 
 int Buff::get_charges() const {
@@ -160,7 +165,7 @@ void Buff::prepare_set_of_combat_iterations() {
     if (this->is_hidden())
         return;
 
-    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name);
+    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon);
 }
 
 void Buff::buff_effect_when_refreshed() {

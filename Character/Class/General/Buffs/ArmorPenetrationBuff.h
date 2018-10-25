@@ -5,7 +5,12 @@
 
 class ArmorPenetrationBuff: public Buff {
 public:
-    ArmorPenetrationBuff(Character* pchar, const QString& name, const int reduction, const int max_stacks, const int duration);
+    ArmorPenetrationBuff(Character* pchar,
+                         const QString& name,
+                         const QString& icon,
+                         const int reduction,
+                         const int max_stacks,
+                         const int duration);
 
 private:
     int current_stacks;

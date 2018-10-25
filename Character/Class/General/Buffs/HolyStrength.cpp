@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 HolyStrength::HolyStrength(Character* pchar, const QString& weapon_side):
-    Buff(pchar, "Holy Strength " + weapon_side, 15, 0)
+    Buff(pchar, "Holy Strength " + weapon_side, "Assets/buffs/Spell_holy_blessingofstrength.png", 15, 0)
 {}
 
 void HolyStrength::buff_effect_when_applied() {

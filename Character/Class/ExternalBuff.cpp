@@ -15,7 +15,7 @@ ExternalBuff::ExternalBuff(Character* pchar,
                            QString icon,
                            QString description,
                            QVersionNumber min_patch):
-    Buff(pchar, name, dur, base_charges),
+    Buff(pchar, name, icon, dur, base_charges),
     buff_name(buff_name),
     faction(faction),
     icon(std::move(icon)),

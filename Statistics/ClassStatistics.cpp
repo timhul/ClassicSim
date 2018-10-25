@@ -34,10 +34,10 @@ StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, cons
     return spell_statistics[name];
 }
 
-StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name) {
+StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name, const QString& icon) {
     assert(!buff_statistics.contains(name));
 
-    buff_statistics[name] = new StatisticsBuff(name, "Assets/buffs/Inv_potion_32.png");
+    buff_statistics[name] = new StatisticsBuff(name, icon);
     return buff_statistics[name];
 }
 

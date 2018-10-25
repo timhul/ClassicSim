@@ -16,12 +16,16 @@ namespace BuffDuration {
     static const int PERMANENT = -1;
 }
 
+static const QString NO_ICON = "no-icon";
+
 class Buff {
 public:
-    Buff(Character* pchar, const QString& name, const int duration, const int base_charges);
+    Buff(Character* pchar, const QString& name, const QString &icon, const int duration, const int base_charges);
     virtual ~Buff();
 
+
     QString get_name() const;
+    QString get_icon() const;
     int get_charges() const;
     void apply_buff();
     void remove_buff(const int);
@@ -47,6 +51,7 @@ protected:
     Character* pchar;
     StatisticsBuff* statistics_buff;
     const QString name;
+    const QString icon;
     int duration;
     const int base_charges;
     int current_charges{};

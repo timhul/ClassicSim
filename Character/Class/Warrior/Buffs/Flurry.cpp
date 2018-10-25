@@ -3,7 +3,7 @@
 #include "Warrior.h"
 
 Flurry::Flurry(Character* pchar):
-    Buff(pchar, "Flurry", 15.0, 3),
+    Buff(pchar, "Flurry", "Assets/warrior/fury/tier6/Ability_ghoulfrenzy.png", 15.0, 3),
     TalentRequirer(5, DisabledAtZero::Yes)
 {
     rank_talents = {0, 10, 15, 20, 25, 30};

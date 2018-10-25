@@ -7,7 +7,7 @@
 #include "CharacterStats.h"
 
 FelstrikerBuff::FelstrikerBuff(Character* pchar, const int duration):
-    SharedBuff(pchar, "Felstriker", duration, 0)
+    SharedBuff(pchar, "Felstriker", "Assets/items/Inv_weapon_shortblade_25.png", duration, 0)
 {}
 
 void FelstrikerBuff::buff_effect_when_applied() {

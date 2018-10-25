@@ -5,7 +5,7 @@
 
 class HeroicStrikeBuff: public Buff {
 public:
-    HeroicStrikeBuff(Character* pchar): Buff(pchar, "Heroic Strike Buff",
+    HeroicStrikeBuff(Character* pchar): Buff(pchar, "Heroic Strike Buff", NO_ICON,
                                              BuffDuration::PERMANENT, 1) {
         hidden = true;
     }

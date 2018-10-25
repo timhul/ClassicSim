@@ -5,7 +5,7 @@
 #include "Random.h"
 
 BerserkingBuff::BerserkingBuff(Character* pchar):
-    Buff(pchar, "Berserking", 10, 0),
+    Buff(pchar, "Berserking", "Assets/races/Racial_troll_berserk.png", 10, 0),
     random(new Random(10, 30)),
     curr_buff(0)
 {}

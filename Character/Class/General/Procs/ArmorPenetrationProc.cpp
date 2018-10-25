@@ -13,7 +13,7 @@ ArmorPenetrationProc::ArmorPenetrationProc(Character* pchar,
                                            const int max_stacks,
                                            const int duration) :
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
-    armor_penetration_buff(new ArmorPenetrationBuff(pchar, proc_name, reduction, max_stacks, duration))
+    armor_penetration_buff(new ArmorPenetrationBuff(pchar, proc_name, icon, reduction, max_stacks, duration))
 {
     assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
 

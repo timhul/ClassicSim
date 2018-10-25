@@ -5,7 +5,7 @@
 #include <QDebug>
 
 BattleShoutBuff::BattleShoutBuff(Character* pchar):
-    Buff(pchar, "Battle Shout", 120, 0),
+    Buff(pchar, "Battle Shout", "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png",  120, 0),
     TalentRequirer(10, DisabledAtZero::No)
 {
     spell_ranks = {15, 35, 55, 85, 130, 185, 232};

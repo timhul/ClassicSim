@@ -2,7 +2,7 @@
 #include "BattleStanceBuff.h"
 
 BattleStanceBuff::BattleStanceBuff(Character* pchar):
-    Buff(pchar, "Battle Stance", BuffDuration::PERMANENT, 1)
+    Buff(pchar, "Battle Stance", NO_ICON, BuffDuration::PERMANENT, 1)
 {
     this->hidden = true;
 }

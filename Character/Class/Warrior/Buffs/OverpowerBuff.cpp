@@ -2,7 +2,7 @@
 #include "OverpowerBuff.h"
 
 OverpowerBuff::OverpowerBuff(Character* pchar) :
-    Buff(pchar, "Overpower Buff", 5, 1)
+    Buff(pchar, "Overpower Buff", NO_ICON, 5, 1)
 {
     hidden = true;
 }

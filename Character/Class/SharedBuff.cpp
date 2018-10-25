@@ -3,9 +3,10 @@
 
 SharedBuff::SharedBuff(Character* pchar,
                        const QString& name,
+                       const QString &icon,
                        const int duration,
                        const int base_charges) :
-    Buff(pchar, name, duration, base_charges),
+    Buff(pchar, name, icon, duration, base_charges),
     reference_counter(0)
 {}
 

@@ -5,8 +5,13 @@
 #include <cassert>
 #include <QDebug>
 
-ArmorPenetrationBuff::ArmorPenetrationBuff(Character* pchar, const QString& name, const int reduction, const int max_stacks, const int duration):
-    Buff(pchar, name, duration, 0)
+ArmorPenetrationBuff::ArmorPenetrationBuff(Character* pchar,
+                                           const QString& name,
+                                           const QString& icon,
+                                           const int reduction,
+                                           const int max_stacks,
+                                           const int duration):
+    Buff(pchar, name, icon, duration, 0)
 {
     this->current_stacks = 0;
     this->max_stacks = max_stacks;
