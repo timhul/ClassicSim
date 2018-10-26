@@ -2,6 +2,7 @@
 #define TALENTREQUIRER_H
 
 class Buff;
+class Proc;
 class Spell;
 
 #include <QString>
@@ -27,6 +28,9 @@ protected:
 
     void increase_talent_rank(Spell* spell, const QString &talent_name = "");
     void decrease_talent_rank(Spell* spell, const QString &talent_name = "");
+
+    void increase_talent_rank(Proc* proc, const QString &talent_name = "");
+    void decrease_talent_rank(Proc* proc, const QString &talent_name = "");
 
     virtual void increase_talent_rank_effect(const QString& talent_name = "") = 0;
     virtual void decrease_talent_rank_effect(const QString& talent_name = "") = 0;

@@ -2,6 +2,7 @@
 #include "TalentRequirer.h"
 #include "Buff.h"
 #include "Spell.h"
+#include "Proc.h"
 #include <cassert>
 
 TalentRequirer::TalentRequirer(const int max_talent_rank, const bool disabled_at_zero):
@@ -50,4 +51,28 @@ void TalentRequirer::decrease_talent_rank(Spell* spell, const QString &talent_na
 
     if (curr_talent_rank == 0 && disabled_at_zero)
         spell->disable();
+}
+
+void TalentRequirer::increase_talent_rank(Proc* proc, const QString& talent_name) {
+    ++curr_talent_rank;
+    assert(curr_talent_rank <= max_talent_rank);
+
+    increase_talent_rank_effect(talent_name);
+
+    if (curr_talent_rank == 1 && disabled_at_zero) {
+        proc->enable();
+        proc->enable_proc();
+    }
+}
+
+void TalentRequirer::decrease_talent_rank(Proc* proc, const QString &talent_name) {
+    --curr_talent_rank;
+    assert(curr_talent_rank >= 0);
+
+    decrease_talent_rank_effect(talent_name);
+
+    if (curr_talent_rank == 0 && disabled_at_zero) {
+        proc->disable_proc();
+        proc->disable();
+    }
 }
