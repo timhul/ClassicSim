@@ -24,7 +24,7 @@ void UnbridledWrath::proc_effect() {
     warr->gain_rage(1);
 
     if (warr->get_curr_rage() != rage)
-        statistics_resource->add_resource_gain(1);
+        statistics_resource->add_resource_gain(Resource::Rage, 1);
 }
 
 void UnbridledWrath::increase_talent_rank_effect(const QString&) {

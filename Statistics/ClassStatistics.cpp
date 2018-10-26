@@ -41,10 +41,10 @@ StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name, const 
     return buff_statistics[name];
 }
 
-StatisticsResource *ClassStatistics::get_resource_statistics(const QString& name) {
+StatisticsResource *ClassStatistics::get_resource_statistics(const QString& name, const QString& icon) {
     assert(!resource_statistics.contains(name));
 
-    resource_statistics[name] = new StatisticsResource(name);
+    resource_statistics[name] = new StatisticsResource(name, icon);
     return resource_statistics[name];
 }
 
@@ -165,7 +165,7 @@ QVariantList ClassStatistics::get_resource_gain_table() const {
     QMap<QString, StatisticsResource*>::const_iterator it = resource_statistics.constBegin();
     auto end = resource_statistics.constEnd();
     while(it != end) {
-        int gain = it.value()->get_resource_gain();
+        int gain = it.value()->get_rage_gain();
         if (gain == 0) {
             ++it;
             continue;

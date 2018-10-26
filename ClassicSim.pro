@@ -249,7 +249,8 @@ SOURCES += main.cpp \
     GUI/Models/Statistics/MeleeDamageBreakdownModel.cpp \
     Rotation/RotationExecutor.cpp \
     GUI/Models/Statistics/BuffBreakdownModel.cpp \
-    GUI/Models/Statistics/ProcBreakdownModel.cpp
+    GUI/Models/Statistics/ProcBreakdownModel.cpp \
+    GUI/Models/Statistics/ResourceBreakdownModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -499,7 +500,8 @@ HEADERS += \
     GUI/Models/Statistics/MeleeDamageBreakdownModel.h \
     Rotation/RotationExecutor.h \
     GUI/Models/Statistics/BuffBreakdownModel.h \
-    GUI/Models/Statistics/ProcBreakdownModel.h
+    GUI/Models/Statistics/ProcBreakdownModel.h \
+    GUI/Models/Statistics/ResourceBreakdownModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

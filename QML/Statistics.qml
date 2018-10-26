@@ -71,6 +71,22 @@ Rectangle {
 
             rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
         }
+
+        RectangleBorders {
+            height: 30
+            width: 150
+            property string activeState: "RESOURCE_BREAKDOWN"
+
+            TextSmall {
+                text: "Resource Breakdown"
+                color: statisticsRect.state === parent.activeState ? "black" : "white"
+            }
+
+            onRectangleClicked: statisticsRect.state = activeState
+            onRectangleRightClicked: statisticsRect.state = activeState
+
+            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+        }
     }
 
     ScrollView {
@@ -265,6 +281,51 @@ Rectangle {
                 iconurl: _icon
                 avgprocrate: _avgprocrate
                 numprocs: _numprocs
+            }
+        }
+    }
+
+    ScrollView {
+        anchors {
+            top: changeStatistics.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+
+        visible: parent.state === "RESOURCE_BREAKDOWN"
+
+        StatisticsHeader {
+            id: headerResource
+            title: "Resource information"
+        }
+
+        StatisticsResourceBreakdownSorting {
+            id: resourceBreakdownSorting
+            anchors.top: headerResource.bottom
+        }
+
+        ListView {
+            id: resourceBreakdownTable
+            anchors {
+                top: resourceBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: resourceBreakdownModel
+            delegate: StatisticsEntryResourceBreakdown {
+                name: _name
+                iconurl: _icon
+                mp5: _mp5
+                rp5: _rp5
+                ep5: _ep5
             }
         }
     }

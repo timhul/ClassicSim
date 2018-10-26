@@ -1,22 +1,38 @@
 #ifndef STATISTICSRESOURCE_H
 #define STATISTICSRESOURCE_H
 
+#include "Resource.h"
+
 #include <QString>
+#include <QMap>
+
+class StatisticsResource;
+
+bool name(StatisticsResource* lhs, StatisticsResource* rhs);
+bool mana_gain(StatisticsResource* lhs, StatisticsResource* rhs);
+bool rage_gain(StatisticsResource* lhs, StatisticsResource* rhs);
+bool energy_gain(StatisticsResource* lhs, StatisticsResource* rhs);
 
 class StatisticsResource {
 public:
-    StatisticsResource(QString name);
+    StatisticsResource(const QString& name, const QString& icon);
 
     void reset();
 
     QString get_name() const;
-    void add_resource_gain(const int);
-    int get_resource_gain() const;
+    QString get_icon() const;
+    void add_resource_gain(const Resource, const unsigned);
+    unsigned get_mana_gain() const;
+    unsigned get_rage_gain() const;
+    unsigned get_energy_gain() const;
+
+    void add(const StatisticsResource*);
 
 protected:
 private:
     const QString name;
-    int resource_gain;
+    const QString icon;
+    QMap<Resource, unsigned> resource_gain;
 };
 
 #endif // STATISTICSRESOURCE_H

@@ -286,5 +286,7 @@
         <file>QML/StatisticsBuffBreakdownSorting.qml</file>
         <file>QML/StatisticsEntryProcBreakdown.qml</file>
         <file>QML/StatisticsProcBreakdownSorting.qml</file>
+        <file>QML/StatisticsResourceBreakdownSorting.qml</file>
+        <file>QML/StatisticsEntryResourceBreakdown.qml</file>
     </qresource>
 </RCC>

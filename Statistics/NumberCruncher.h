@@ -11,8 +11,10 @@ class ClassStatistics;
 class MeleeDamageBreakdownModel;
 class MeleeDamageAvoidanceBreakdownModel;
 class ProcBreakdownModel;
+class ResourceBreakdownModel;
 class StatisticsBuff;
 class StatisticsProc;
+class StatisticsResource;
 class StatisticsSpell;
 
 
@@ -31,6 +33,7 @@ private:
     friend class MeleeDamageBreakdownModel;
     friend class MeleeDamageAvoidanceBreakdownModel;
     friend class ProcBreakdownModel;
+    friend class ResourceBreakdownModel;
 
     QMutex mutex;
     QMap<SimOption, QVector<ClassStatistics*>> class_stats;
@@ -46,6 +49,9 @@ private:
 
     void merge_proc_stats(QList<StatisticsProc*>& vec);
     void merge_proc_entry(const QString& name, const QString &icon, QList<StatisticsProc*>& vec);
+
+    void merge_resource_stats(QList<StatisticsResource*>& vec);
+    void merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec);
 };
 
 #endif // NUMBERCRUNCHER_H
