@@ -23,6 +23,7 @@
 #include "MeleeDamageBreakdownModel.h"
 #include "MeleeDamageAvoidanceBreakdownModel.h"
 #include "BuffBreakdownModel.h"
+#include "ProcBreakdownModel.h"
 
 class CharacterEncoder;
 class CharacterDecoder;
@@ -180,6 +181,7 @@ public:
     BuffBreakdownModel* get_buff_breakdown_model() const;
     MeleeDamageBreakdownModel* get_dmg_breakdown_model() const;
     MeleeDamageAvoidanceBreakdownModel* get_dmg_breakdown_avoidance_model() const;
+    ProcBreakdownModel* get_proc_breakdown_model() const;
     /* End of Statistics */
 
     /* Target */
@@ -326,6 +328,7 @@ private:
     BuffBreakdownModel* buff_breakdown_model;
     MeleeDamageBreakdownModel* damage_breakdown_model;
     MeleeDamageAvoidanceBreakdownModel* damage_avoidance_breakdown_model;
+    ProcBreakdownModel* proc_breakdown_model;
     double last_quick_sim_result;
 };
 

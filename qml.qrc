@@ -284,5 +284,7 @@
         <file>QML/Assets/warrior/warrior_arms_old.jpg</file>
         <file>QML/StatisticsEntryBuffBreakdown.qml</file>
         <file>QML/StatisticsBuffBreakdownSorting.qml</file>
+        <file>QML/StatisticsEntryProcBreakdown.qml</file>
+        <file>QML/StatisticsProcBreakdownSorting.qml</file>
     </qresource>
 </RCC>

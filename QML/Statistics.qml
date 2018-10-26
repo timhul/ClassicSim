@@ -55,6 +55,22 @@ Rectangle {
 
             rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
         }
+
+        RectangleBorders {
+            height: 30
+            width: 150
+            property string activeState: "PROC_BREAKDOWN"
+
+            TextSmall {
+                text: "Proc Breakdown"
+                color: statisticsRect.state === parent.activeState ? "black" : "white"
+            }
+
+            onRectangleClicked: statisticsRect.state = activeState
+            onRectangleRightClicked: statisticsRect.state = activeState
+
+            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+        }
     }
 
     ScrollView {
@@ -205,6 +221,50 @@ Rectangle {
                 avguptime: _avguptime
                 minuptime: _minuptime
                 maxuptime: _maxuptime
+            }
+        }
+    }
+
+    ScrollView {
+        anchors {
+            top: changeStatistics.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+
+        visible: parent.state === "PROC_BREAKDOWN"
+
+        StatisticsHeader {
+            id: headerProc
+            title: "Proc information"
+        }
+
+        StatisticsProcBreakdownSorting {
+            id: procBreakdownSorting
+            anchors.top: headerProc.bottom
+        }
+
+        ListView {
+            id: procBreakdownTable
+            anchors {
+                top: procBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: procBreakdownModel
+            delegate: StatisticsEntryProcBreakdown {
+                name: _name
+                iconurl: _icon
+                avgprocrate: _avgprocrate
+                numprocs: _numprocs
             }
         }
     }

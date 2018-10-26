@@ -28,7 +28,7 @@ public:
     StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon);
     StatisticsBuff* get_buff_statistics(const QString& name, const QString &icon);
     StatisticsResource* get_resource_statistics(const QString& name);
-    StatisticsProc* get_proc_statistics(const QString& name);
+    StatisticsProc* get_proc_statistics(const QString& name, const QString &icon);
     int get_total_damage_dealt() const;
     double get_total_dps() const;
 

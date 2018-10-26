@@ -106,6 +106,39 @@ void NumberCruncher::merge_buff_entry(const QString& name, const QString &icon, 
     vec.append(result);
 }
 
+void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
+    QMutexLocker lock(&mutex);
+
+    assert(class_stats.contains(SimOption::NoScale));
+
+    QSet<QString> handled_entries;
+    for (auto & cstats : class_stats[SimOption::NoScale]) {
+        QMap<QString, StatisticsProc*>::const_iterator it = cstats->proc_statistics.constBegin();
+        auto end = cstats->proc_statistics.constEnd();
+        while (it != end) {
+            if (handled_entries.contains(it.key())) {
+                ++it;
+                continue;
+            }
+            handled_entries.insert(it.key());
+            merge_proc_entry(it.key(), it.value()->get_icon(), vec);
+            ++it;
+        }
+    }
+}
+
+void NumberCruncher::merge_proc_entry(const QString& name, const QString &icon, QList<StatisticsProc*>& vec) {
+    auto* result = new StatisticsProc(name, icon);
+    for (auto & cstats : class_stats[SimOption::NoScale]) {
+        if (!cstats->proc_statistics.contains(name))
+            continue;
+
+        result->add(cstats->proc_statistics[name]);
+    }
+
+    vec.append(result);
+}
+
 void NumberCruncher::print() {
     QMutexLocker lock(&mutex);
 

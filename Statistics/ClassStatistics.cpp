@@ -48,10 +48,10 @@ StatisticsResource *ClassStatistics::get_resource_statistics(const QString& name
     return resource_statistics[name];
 }
 
-StatisticsProc *ClassStatistics::get_proc_statistics(const QString& name) {
+StatisticsProc *ClassStatistics::get_proc_statistics(const QString& name, const QString& icon) {
     assert(!proc_statistics.contains(name));
 
-    proc_statistics[name] = new StatisticsProc(name);
+    proc_statistics[name] = new StatisticsProc(name, icon);
     return proc_statistics[name];
 }
 
@@ -208,7 +208,7 @@ QVariantList ClassStatistics::get_proc_table() const {
         }
 
         QString name = it.value()->get_name();
-        double proc_rate = it.value()->get_proc_rate();
+        double proc_rate = it.value()->get_avg_proc_rate();
         entries.append(QVariantList({name, proc_rate, QString::number(proc_rate * 100, 'f', 2), procs}));
         ++it;
     }

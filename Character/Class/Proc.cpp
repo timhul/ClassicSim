@@ -66,7 +66,7 @@ bool Proc::procs_from_source(ProcInfo::Source source) const {
 }
 
 void Proc::prepare_set_of_combat_iterations() {
-    this->statistics_proc = pchar->get_statistics()->get_proc_statistics(name);
+    this->statistics_proc = pchar->get_statistics()->get_proc_statistics(name, icon);
     this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name);
 }
 
