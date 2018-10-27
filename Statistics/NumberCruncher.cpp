@@ -206,6 +206,10 @@ void NumberCruncher::calculate_stat_weights() const {
     qDebug() << "percentage increases per stat" << percentage_increases;
 }
 
+double NumberCruncher::get_total_dps(SimOption option) const {
+    return get_dps_for_option(option);
+}
+
 double NumberCruncher::get_dps_for_option(SimOption option) const {
     assert(class_stats.contains(option));
 

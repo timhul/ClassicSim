@@ -312,6 +312,7 @@ private:
     void set_class_restriction_tooltip(Item *&item, QString &restriction);
     void set_character(Character* pchar);
     void calculate_displayed_dps_value();
+    void update_displayed_dps_value(const double new_dps_value);
 
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;

@@ -653,11 +653,9 @@ QString GUIControl::get_information_rotation_description() const {
     return rotation_model->get_rotation_information_description();
 }
 
-void GUIControl::calculate_displayed_dps_value() {
-    // Note: intended for local testing to build confidence in thread results
+void GUIControl::update_displayed_dps_value(const double new_dps_value) {
     double previous = last_quick_sim_result;
-    last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length());
-
+    last_quick_sim_result = new_dps_value;
     double delta = ((last_quick_sim_result - previous) / previous);
     QString change = delta > 0 ? "+" : "";
     change += QString::number(((last_quick_sim_result - previous) / previous) * 100, 'f', 1) + "%";
@@ -665,6 +663,11 @@ void GUIControl::calculate_displayed_dps_value() {
     QString dps = QString::number(last_quick_sim_result, 'f', 2);
     qDebug() << "Total DPS: " << dps;
     quickSimChanged(dps, change, delta > 0);
+}
+
+void GUIControl::calculate_displayed_dps_value() {
+    // Note: intended for local testing to build confidence in thread results
+    update_displayed_dps_value(double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
 }
 
 void GUIControl::run_quick_sim() {
@@ -686,6 +689,7 @@ void GUIControl::compile_thread_results() {
     damage_avoidance_breakdown_model->update_statistics();
     proc_breakdown_model->update_statistics();
     resource_breakdown_model->update_statistics();
+    update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::NoScale));
     number_cruncher->reset();
 }
 

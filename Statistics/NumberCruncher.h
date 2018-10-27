@@ -25,6 +25,7 @@ public:
     void add_class_statistic(SimOption, ClassStatistics*);
     void reset();
 
+    double get_total_dps(SimOption) const;
     static double delta(double lhs, double rhs);
     void print();
 
