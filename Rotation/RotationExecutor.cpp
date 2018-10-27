@@ -28,7 +28,9 @@ RotationExecutor::~RotationExecutor() {
 }
 
 void RotationExecutor::attempt_cast() {
-    assert(spell != nullptr);
+    if (spell == nullptr)
+        return;
+
     if (!spell->is_available())
         return;
 
@@ -64,7 +66,9 @@ Spell* RotationExecutor::get_spell() const {
 }
 
 void RotationExecutor::set_spell(Spell* spell) {
-    assert(spell_name == spell->get_name());
+    if (spell != nullptr)
+        assert(spell_name == spell->get_name());
+
     this->spell = spell;
 }
 
@@ -85,10 +89,12 @@ QMap<QString, QString>& RotationExecutor::get_variable_assignments() {
 }
 
 void RotationExecutor::dump() {
+    qDebug() << "\nspell_name" << spell_name;
+    qDebug() << "spell ptr" << spell;
     qDebug() << "variable assignments" << variable_assignments;
     qDebug() << "conditions:";
     for (auto sentence : sentences) {
-        qDebug() << "----- sentences ------";
+        qDebug() << "----- sentence ------";
         sentence->dump();
     }
 }

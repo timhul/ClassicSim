@@ -26,7 +26,7 @@ public:
     void set_character(Character* pchar);
     void addRotations();
 
-    bool select_rotation();
+    void select_rotation();
     bool set_information_index(const int);
 
     QString get_rotation_information_name() const;

@@ -624,9 +624,7 @@ RotationModel* GUIControl::get_rotation_model() const {
 }
 
 void GUIControl::selectRotation() {
-    if (!rotation_model->select_rotation())
-        return;
-
+    rotation_model->select_rotation();
     rotationChanged();
 }
 

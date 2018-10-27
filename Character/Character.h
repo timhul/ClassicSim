@@ -41,7 +41,8 @@ public:
     virtual QString get_name() const = 0;
     bool race_available(Race*) const;
     void set_race(Race* race);
-    bool set_rotation(Rotation*);
+    void set_rotation(Rotation*);
+    void relink_spells();
     QString get_current_rotation_name() const;
     void perform_rotation();
     Rotation* get_rotation();

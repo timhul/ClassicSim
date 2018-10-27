@@ -4,8 +4,6 @@
 #include "RotationExecutor.h"
 #include "Condition.h"
 
-#include "WarriorRotation.h"
-
 #include <QDebug>
 #include <QDir>
 
@@ -76,13 +74,7 @@ Rotation* RotationFileReader::parse_rotation_file(const QString& path) {
         }
         QString class_name = reader.attributes().value("class").toString();
 
-        if (class_name != "Warrior") {
-            qDebug() << "Only warrior rotations supported";
-            file.close();
-            return rotation;
-        }
-
-        rotation = new WarriorRotation();
+        rotation = new Rotation(class_name);
         rotation_file_handler(reader, rotation);
     }
 

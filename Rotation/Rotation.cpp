@@ -1,4 +1,7 @@
 
+#include "ActiveBuffs.h"
+#include "Character.h"
+#include "Spells.h"
 #include "Rotation.h"
 #include "RotationExecutor.h"
 #include "ConditionBuff.h"
@@ -23,33 +26,28 @@ Rotation::~Rotation() {
 }
 
 void Rotation::perform_rotation() const {
-    for (auto executor : rotation_executors) {
+    for (auto executor : rotation_executors)
         executor->attempt_cast();
-    }
 }
 
-bool Rotation::link_spells(Character* pchar) {
+void Rotation::link_spells(Character* pchar) {
     this->pchar = pchar;
 
     for (int i = 0; i < rotation_executors.size(); ++i) {
         QString spell_name = rotation_executors[i]->get_spell_name();
 
-        Spell* spell = get_spell_from_name(spell_name);
-        if (spell == nullptr) {
-            qDebug() << "Could not find matching spell for" << spell_name;
-            return false;
-        }
-
+        Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
         rotation_executors[i]->set_spell(spell);
-        if (!this->add_conditionals(i))
-            return false;
-    }
 
-    return true;
+        if (spell == nullptr)
+            continue;
+
+        if (!this->add_conditionals(rotation_executors[i]))
+            rotation_executors[i]->set_spell(nullptr);
+    }
 }
 
-bool Rotation::add_conditionals(const int index) {
-    RotationExecutor* executor = rotation_executors[index];
+bool Rotation::add_conditionals(RotationExecutor * executor) {
     QVector<Condition*> condition_group_to_add;
 
     for (int i = 0; i < executor->sentences.size(); ++i) {
@@ -63,13 +61,19 @@ bool Rotation::add_conditionals(const int index) {
         }
 
         switch (sentence->condition_type) {
-        case ConditionTypes::BuffCondition:
-            condition = new ConditionBuff(get_buff_from_name(sentence->type_value),
+        case ConditionTypes::BuffCondition: {
+            Buff* buff = pchar->get_active_buffs()->get_buff_by_name(sentence->type_value);
+            if (buff == nullptr) {
+                qDebug() << "could not find buff for condition:" << sentence->type_value;
+                return false;
+            }
+            condition = new ConditionBuff(buff,
                                           sentence->mathematical_symbol,
                                           sentence->compared_value.toDouble());
             break;
+        }
         case ConditionTypes::SpellCondition:
-            condition = new ConditionSpell(get_spell_from_name(sentence->type_value),
+            condition = new ConditionSpell(pchar->get_spells()->get_spell_by_name(sentence->type_value),
                                            sentence->mathematical_symbol,
                                            sentence->compared_value.toDouble());
             break;

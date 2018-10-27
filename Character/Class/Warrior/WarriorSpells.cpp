@@ -55,24 +55,24 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->warr_mh_attack = new MainhandAttackWarrior(pchar);
     this->warr_oh_attack = new OffhandAttackWarrior(pchar);
 
-    add_spell(battle_shout);
-    add_spell(battle_stance);
-    add_spell(berserker_rage);
-    add_spell(berserker_stance);
-    add_spell(bloodrage);
-    add_spell(bt);
-    add_spell(death_wish);
-    add_spell(deep_wounds);
-    add_spell(execute);
-    add_spell(hamstring);
-    add_spell(heroic_strike);
-    add_spell(overpower);
-    add_spell(mortal_strike);
-    add_spell(recklessness);
-    add_spell(slam);
-    add_spell(whirlwind);
-    add_spell(warr_mh_attack);
-    add_spell(warr_oh_attack);
+    add_spell(battle_shout, NO_RELINK);
+    add_spell(battle_stance, NO_RELINK);
+    add_spell(berserker_rage, NO_RELINK);
+    add_spell(berserker_stance, NO_RELINK);
+    add_spell(bloodrage, NO_RELINK);
+    add_spell(bt, NO_RELINK);
+    add_spell(death_wish, NO_RELINK);
+    add_spell(deep_wounds, NO_RELINK);
+    add_spell(execute, NO_RELINK);
+    add_spell(hamstring, NO_RELINK);
+    add_spell(heroic_strike, NO_RELINK);
+    add_spell(overpower, NO_RELINK);
+    add_spell(mortal_strike, NO_RELINK);
+    add_spell(recklessness, NO_RELINK);
+    add_spell(slam, NO_RELINK);
+    add_spell(whirlwind, NO_RELINK);
+    add_spell(warr_mh_attack, NO_RELINK);
+    add_spell(warr_oh_attack, NO_RELINK);
 }
 
 WarriorSpells::~WarriorSpells() = default;

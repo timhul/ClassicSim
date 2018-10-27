@@ -28,13 +28,16 @@ Spells::~Spells()
     spells.clear();
 }
 
-void Spells::add_spell(Spell* spell) {
+void Spells::add_spell(Spell* spell, bool relink) {
     if (spell->get_instance_id() == SpellStatus::INACTIVE) {
         spell->set_instance_id(next_instance_id);
         ++next_instance_id;
     }
 
     spells.append(spell);
+
+    if (relink)
+        pchar->relink_spells();
 }
 
 void Spells::remove_spell(Spell* spell) {
@@ -44,6 +47,16 @@ void Spells::remove_spell(Spell* spell) {
             break;
         }
     }
+    pchar->relink_spells();
+}
+
+Spell* Spells::get_spell_by_name(const QString& spell_name) const {
+    for (auto & spell : spells) {
+        if (spell->get_name() == spell_name)
+            return spell;
+    }
+
+    return nullptr;
 }
 
 void Spells::reset() {

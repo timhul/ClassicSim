@@ -82,15 +82,15 @@ void Character::set_race(Race* race) {
     apply_racial_effects();
 }
 
-bool Character::set_rotation(Rotation* rotation) {
-    if (!rotation->link_spells(this)) {
-        qDebug() << "Failed to link spells for rotation" << rotation->get_name();
-        return false;
-    }
-
+void Character::set_rotation(Rotation* rotation) {
     current_rotation = rotation;
+    current_rotation->link_spells(this);
     qDebug() << "Successfully set rotation" << current_rotation->get_name();
-    return true;
+}
+
+void Character::relink_spells() {
+    if (current_rotation != nullptr)
+        current_rotation->link_spells(this);
 }
 
 QString Character::get_current_rotation_name() const {

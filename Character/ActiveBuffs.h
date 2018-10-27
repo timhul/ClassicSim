@@ -26,6 +26,8 @@ public:
     GeneralBuffs* get_general_buffs();
     QVector<QString> get_active_external_buffs();
 
+    Buff* get_buff_by_name(const QString& name) const;
+
     void reset();
     void clear_all();
     void prepare_set_of_combat_iterations();

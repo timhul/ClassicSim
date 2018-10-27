@@ -70,12 +70,12 @@ void RotationModel::addRotations() {
     }
 }
 
-bool RotationModel::select_rotation() {
+void RotationModel::select_rotation() {
     if (information_index < 0 || information_index >= rowCount())
-        return false;
+        return;
 
     if (rotations[pchar->get_name()][information_index]->get_name() == pchar->get_current_rotation_name())
-        return false;
+        return;
 
     return pchar->set_rotation(rotations[pchar->get_name()][information_index]);
 }

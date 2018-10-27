@@ -165,7 +165,6 @@ SOURCES += main.cpp \
     Rotation/RotationFileReader.cpp \
     Rotation/Rotation.cpp \
     Rotation/Condition.cpp \
-    Character/Class/Warrior/WarriorRotation.cpp \
     Rotation/Conditions/ConditionSpell.cpp \
     Rotation/Conditions/ConditionBuff.cpp \
     Rotation/Conditions/ConditionResource.cpp \
@@ -413,7 +412,6 @@ HEADERS += \
     Rotation/RotationFileReader.h \
     Rotation/Rotation.h \
     Rotation/Condition.h \
-    Character/Class/Warrior/WarriorRotation.h \
     Rotation/Conditions/ConditionSpell.h \
     Rotation/Conditions/ConditionBuff.h \
     Rotation/Conditions/ConditionResource.h \

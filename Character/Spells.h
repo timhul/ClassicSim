@@ -11,6 +11,8 @@ class Spell;
 class MainhandAttack;
 class OffhandAttack;
 
+static const bool NO_RELINK = false;
+
 class Spells: public QObject {
     Q_OBJECT
 
@@ -18,8 +20,10 @@ public:
     Spells(Character* pchar, QObject* parent = nullptr);
     virtual ~Spells();
 
-    void add_spell(Spell* spell);
+    void add_spell(Spell* spell, bool relink=true);
     void remove_spell(Spell* spell);
+
+    Spell* get_spell_by_name(const QString& spell_name) const;
 
     void reset();
 

@@ -38,6 +38,15 @@ void ActiveBuffs::remove_buff(Buff* buff) {
     }
 }
 
+Buff* ActiveBuffs::get_buff_by_name(const QString& name) const {
+    for (auto & buff : active_buffs) {
+        if (buff->get_name() == name)
+            return buff;
+    }
+
+    return nullptr;
+}
+
 SharedBuff *ActiveBuffs::use_shared_buff(const QString& name) const {
     for (auto & buff : active_buffs) {
         if (buff->get_name() == name) {
