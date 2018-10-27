@@ -288,5 +288,6 @@
         <file>QML/StatisticsProcBreakdownSorting.qml</file>
         <file>QML/StatisticsResourceBreakdownSorting.qml</file>
         <file>QML/StatisticsEntryResourceBreakdown.qml</file>
+        <file>QML/SettingsTextFieldEntry.qml</file>
     </qresource>
 </RCC>
