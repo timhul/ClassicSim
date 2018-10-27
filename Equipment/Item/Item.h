@@ -15,13 +15,17 @@ class Enchant;
 class Stats;
 class Character;
 class Proc;
+class Spell;
 
 int get_slot_int(const QString& slot_string);
 
 class Item {
 public:
-    Item(QString _name, QVector<QPair<QString, QString>> _stats, QMap<QString, QString> _info,
-         QVector<QMap<QString, QString>> _procs = {});
+    Item(QString _name,
+         QVector<QPair<QString, QString>> _stats,
+         QMap<QString, QString> _info,
+         QVector<QMap<QString, QString>> _procs = {},
+         QVector<QMap<QString, QString>> _use = {});
     Item(const Item* item);
     virtual ~Item();
 
@@ -56,16 +60,20 @@ protected:
     QString patch;
     QString source;
     QString quality;
+    QString icon;
     QMap<QString, QString> info;
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;
     QVector<QMap<QString, QString>> procs_map;
+    QVector<QMap<QString, QString>> use_map;
     QVector<QPair<QString, QString>> stats_key_value_pairs;
     QMap<int, QVector<Proc*>> proc_map;
+    QVector<Spell*> use_spells;
     QMap<ItemStats, int> item_stat_values;
     Stats* stats;
     Enchant* enchant;
 
+    void set_uses(Character *pchar);
     void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);
 
     int slot{};

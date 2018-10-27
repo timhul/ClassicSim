@@ -9,14 +9,21 @@
 #include "ArmorPenetrationProc.h"
 #include "InstantSpellProc.h"
 #include "FelstrikerProc.h"
+#include "GenericStatBuff.h"
+#include "UseTrinketApplyBuff.h"
 #include <QDebug>
 #include <utility>
 
-Item::Item(QString _name, QVector<QPair<QString, QString> > _stats, QMap<QString, QString> _info,
-           QVector<QMap<QString, QString>> _procs):
+Item::Item(QString _name,
+           QVector<QPair<QString, QString>> _stats,
+           QMap<QString, QString> _info,
+           QVector<QMap<QString, QString>> _procs,
+           QVector<QMap<QString, QString>> _use):
     name(std::move(_name)),
+    icon(_info["icon"]),
     info(std::move(_info)),
     procs_map(std::move(_procs)),
+    use_map(std::move(_use)),
     stats_key_value_pairs(_stats),
     stats(new Stats()),
     enchant(nullptr)
@@ -88,10 +95,18 @@ int Item::get_weapon_slot(void) const {
 void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
     assert(proc_map.empty());
 
+    set_uses(pchar);
     set_procs(procs_map, pchar, eq_slot);
 }
 
 void Item::remove_equip_effect(const int eq_slot) {
+    for (auto & spell : use_spells) {
+        spell->disable();
+        delete spell;
+    }
+
+    use_spells.clear();
+
     if (!proc_map.contains(eq_slot))
         return;
 
@@ -147,6 +162,40 @@ QString Item::get_enchant_effect() const {
 
 EnchantName::Name Item::get_enchant_enum_value() const {
     return enchant != nullptr ? enchant->get_enum_name() : EnchantName::NoEnchant;
+}
+
+void Item::set_uses(Character *pchar) {
+    for (auto & use : use_map) {
+        QString use_name = use["name"];
+
+        if (use_name == "GENERIC_STAT_BUFF") {
+            QString type = use["type"];
+            ItemStats stat_type;
+            if (type == "ATTACK_SPEED")
+                stat_type = ItemStats::AttackSpeedPercent;
+            else if (type == "ATTACK_POWER")
+                stat_type = ItemStats::AttackPower;
+            else if (type == "STRENGTH")
+                stat_type = ItemStats::Strength;
+            else {
+                stat_type = ItemStats::Armor;
+                qDebug() << "unsupported stat use type" << type;
+                assert(false);
+            }
+
+            int duration = use["duration"].toInt();
+            int value = use["value"].toInt();
+            int cooldown = use["cooldown"].toInt();
+
+            Buff* buff = new GenericStatBuff(pchar, use_name, this->icon, duration, stat_type, value);
+            Spell* use_spell = new UseTrinketApplyBuff(pchar, use_name, this->icon, cooldown, buff);
+
+            use_spells.append(use_spell);
+        }
+    }
+
+    for (auto & use: use_spells)
+        use->enable();
 }
 
 void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {

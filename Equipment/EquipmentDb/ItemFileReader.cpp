@@ -48,6 +48,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
             QMap<QString, QString> item_map;
             QVector<QPair<QString, QString>> stats;
             QVector<QMap<QString, QString>> procs;
+            QVector<QMap<QString, QString>> uses;
             item_map["classification"] = classification;
             item_map["name"] = name;
             item_map["patch"] = reader.attributes().value("name").toString();
@@ -70,6 +71,9 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
                 else if (reader.name() == "proc") {
                     proc_element_reader(reader, procs);
                 }
+                else if (reader.name() == "uses") {
+                    use_element_reader(reader, uses);
+                }
                 else if (reader.name() == "flavour_text") {
                     item_map["flavour_text"] = reader.readElementText().simplified();
                 }
@@ -80,7 +84,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
                     reader.skipCurrentElement();
             }
 
-            create_item(items, item_map, stats, procs);
+            create_item(items, item_map, stats, procs, uses);
             item_map.remove("classification");
             warn_remaining_keys(item_map);
         }
@@ -135,6 +139,23 @@ void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<
     }
 }
 
+void ItemFileReader::use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>> &uses) {
+    while (reader.readNextStartElement()) {
+        QXmlStreamAttributes attrs = reader.attributes();
+        if (reader.name() == "use") {
+            QMap<QString, QString> map;
+            add_mandatory_attr(attrs, "name", map);
+            add_mandatory_attr(attrs, "cooldown", map);
+
+            add_attr(attrs, "type", map);
+            add_attr(attrs, "value", map);
+            add_attr(attrs, "duration", map);
+            uses.append(map);
+        }
+        reader.skipCurrentElement();
+    }
+}
+
 void ItemFileReader::add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item) {
     add_attr(attrs, attr, item);
 
@@ -153,7 +174,8 @@ void ItemFileReader::add_attr(const QXmlStreamAttributes &attrs, const QString& 
 void ItemFileReader::create_item(QVector<Item*> &items,
                                  QMap<QString, QString> &item_map,
                                  QVector<QPair<QString, QString>> &stats,
-                                 QVector<QMap<QString, QString>> &procs) {
+                                 QVector<QMap<QString, QString>> &procs,
+                                 QVector<QMap<QString, QString>> &uses) {
     QVector<QString> mandatory_attrs = {"name", "classification", "patch", "type", "slot",
                                         "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
@@ -171,7 +193,7 @@ void ItemFileReader::create_item(QVector<Item*> &items,
     QMap<QString, QString> info;
     extract_info(item_map, info);
 
-    items.append(new Item(item_map["name"], stats, info, procs));
+    items.append(new Item(item_map["name"], stats, info, procs, uses));
 
     QVector<QString> handled_keys = {"name"};
 

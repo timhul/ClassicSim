@@ -250,7 +250,9 @@ SOURCES += main.cpp \
     Rotation/RotationExecutor.cpp \
     GUI/Models/Statistics/BuffBreakdownModel.cpp \
     GUI/Models/Statistics/ProcBreakdownModel.cpp \
-    GUI/Models/Statistics/ResourceBreakdownModel.cpp
+    GUI/Models/Statistics/ResourceBreakdownModel.cpp \
+    Character/Class/General/Buffs/GenericStatBuff.cpp \
+    Character/Class/General/Spells/UseTrinketApplyBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -501,7 +503,9 @@ HEADERS += \
     Rotation/RotationExecutor.h \
     GUI/Models/Statistics/BuffBreakdownModel.h \
     GUI/Models/Statistics/ProcBreakdownModel.h \
-    GUI/Models/Statistics/ResourceBreakdownModel.h
+    GUI/Models/Statistics/ResourceBreakdownModel.h \
+    Character/Class/General/Buffs/GenericStatBuff.h \
+    Character/Class/General/Spells/UseTrinketApplyBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

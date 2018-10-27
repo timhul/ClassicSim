@@ -20,11 +20,12 @@ protected:
     void class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item);
     void stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>> &stats);
     void proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>> &procs);
+    void use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>> &uses);
 
     void add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item);
     void add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item);
 
-    void create_item(QVector<Item *> &items, QMap<QString, QString> &item_map, QVector<QPair<QString, QString> > &stats, QVector<QMap<QString, QString>> &procs);
+    void create_item(QVector<Item *> &items, QMap<QString, QString> &item_map, QVector<QPair<QString, QString> > &stats, QVector<QMap<QString, QString>> &procs, QVector<QMap<QString, QString> > &uses);
 
     void extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info);
     void extract_stats(QMap<QString, QString> &item, QMap<QString, QString> &stats);

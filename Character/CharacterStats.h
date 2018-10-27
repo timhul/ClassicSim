@@ -5,6 +5,9 @@
 #include <QVector>
 #include <QHash>
 
+#include "ItemStatsEnum.h"
+#include "Target.h"
+
 class Character;
 class Race;
 class Equipment;
@@ -43,6 +46,9 @@ public:
     int get_wpn_skill(Weapon*) const;
     int get_ranged_wpn_skill();
 
+    void increase_stat(const ItemStats, const int);
+    void decrease_stat(const ItemStats, const int);
+
     void increase_haste(const int);
     void decrease_haste(const int);
 
@@ -68,6 +74,9 @@ public:
     int get_ranged_ap() const;
     void increase_ranged_ap(const int);
     void decrease_ranged_ap(const int);
+
+    void increase_ap_vs_type(const Target::CreatureType, const int);
+    void decrease_ap_vs_type(const Target::CreatureType, const int);
 
     virtual void increase_hit(double);
     virtual void decrease_hit(double);
@@ -114,6 +123,7 @@ protected:
     QHash<int, double> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
 
+
     int ranged_ap{};
     double melee_ability_crit_mod{};
     double attack_speed_mod;
@@ -125,6 +135,7 @@ protected:
     void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
     void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
     void recalculate_multiplicative_effects(QVector<int>& effects, double& modifier);
+    Target::CreatureType get_type_for_stat(const ItemStats);
 
 private:
 };

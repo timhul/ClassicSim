@@ -153,6 +153,106 @@ int CharacterStats::get_wpn_skill(Weapon* weapon) const {
     return pchar->get_clvl() * 5 + skill_bonus;
 }
 
+void CharacterStats::increase_stat(const ItemStats stat_type, const int value) {
+    switch (stat_type) {
+    case ItemStats::Agility:
+        return increase_agility(value);
+     case ItemStats::Intellect:
+        return increase_intellect(value);
+     case ItemStats::Spirit:
+        return increase_spirit(value);
+    case ItemStats::Stamina:
+        return increase_stamina(value);
+    case ItemStats::Strength:
+        return increase_strength(value);
+    case ItemStats::Armor:
+    case ItemStats::Defense:
+    case ItemStats::DodgeChance:
+    case ItemStats::ParryChance:
+    case ItemStats::ResistanceArcane:
+    case ItemStats::ResistanceFire:
+    case ItemStats::ResistanceFrost:
+    case ItemStats::ResistanceHoly:
+    case ItemStats::ResistanceNature:
+    case ItemStats::ResistanceShadow:
+    case ItemStats::SkillAxe:
+    case ItemStats::SkillDagger:
+    case ItemStats::SkillMace:
+    case ItemStats::SkillSword:
+        return;
+    case ItemStats::HitChance:
+        return increase_hit(static_cast<double>(value) / 100);
+    case ItemStats::CritChance:
+        return increase_crit(static_cast<double>(value) / 100);
+    case ItemStats::AttackSpeedPercent:
+        return pchar->increase_attack_speed(value);
+    case ItemStats::AttackPower:
+        increase_melee_ap(value);
+        return increase_ranged_ap(value);
+    case ItemStats::APVersusBeast:
+    case ItemStats::APVersusDemon:
+    case ItemStats::APVersusDragonkin:
+    case ItemStats::APVersusElemental:
+    case ItemStats::APVersusGiant:
+    case ItemStats::APVersusHumanoid:
+    case ItemStats::APVersusMechanical:
+    case ItemStats::APVersusUndead:
+    case ItemStats::MeleeAttackPower:
+    case ItemStats::RangedAttackPower:
+        return increase_ap_vs_type(get_type_for_stat(stat_type), value);
+    }
+}
+
+void CharacterStats::decrease_stat(const ItemStats stat_type, const int value) {
+    switch (stat_type) {
+    case ItemStats::Agility:
+        return decrease_agility(value);
+     case ItemStats::Intellect:
+        return decrease_intellect(value);
+     case ItemStats::Spirit:
+        return decrease_spirit(value);
+    case ItemStats::Stamina:
+        return decrease_stamina(value);
+    case ItemStats::Strength:
+        return decrease_strength(value);
+    case ItemStats::Armor:
+    case ItemStats::Defense:
+    case ItemStats::DodgeChance:
+    case ItemStats::ParryChance:
+    case ItemStats::ResistanceArcane:
+    case ItemStats::ResistanceFire:
+    case ItemStats::ResistanceFrost:
+    case ItemStats::ResistanceHoly:
+    case ItemStats::ResistanceNature:
+    case ItemStats::ResistanceShadow:
+    case ItemStats::SkillAxe:
+    case ItemStats::SkillDagger:
+    case ItemStats::SkillMace:
+    case ItemStats::SkillSword:
+        return;
+    case ItemStats::HitChance:
+        return decrease_hit(static_cast<double>(value) / 100);
+    case ItemStats::CritChance:
+        return decrease_crit(static_cast<double>(value) / 100);
+    case ItemStats::AttackSpeedPercent:
+        return pchar->decrease_attack_speed(value);
+    case ItemStats::AttackPower:
+        decrease_melee_ap(value);
+        return decrease_ranged_ap(value);
+    case ItemStats::APVersusBeast:
+    case ItemStats::APVersusDemon:
+    case ItemStats::APVersusDragonkin:
+    case ItemStats::APVersusElemental:
+    case ItemStats::APVersusGiant:
+    case ItemStats::APVersusHumanoid:
+    case ItemStats::APVersusMechanical:
+    case ItemStats::APVersusUndead:
+    case ItemStats::MeleeAttackPower:
+    case ItemStats::RangedAttackPower:
+        return decrease_ap_vs_type(get_type_for_stat(stat_type), value);
+    }
+}
+
 void CharacterStats::increase_haste(const int increase) {
     add_multiplicative_effect(attack_speed_buffs, increase, attack_speed_mod);
 }
@@ -229,6 +329,16 @@ void CharacterStats::increase_ranged_ap(const int increase) {
 
 void CharacterStats::decrease_ranged_ap(const int decrease) {
     base_stats->decrease_base_ranged_ap(decrease);
+}
+
+void CharacterStats::increase_ap_vs_type(const Target::CreatureType target_type, const int value) {
+    base_stats->increase_melee_ap_against_type(target_type, value);
+    base_stats->increase_ranged_ap_against_type(target_type, value);
+}
+
+void CharacterStats::decrease_ap_vs_type(const Target::CreatureType target_type, const int value) {
+    base_stats->decrease_melee_ap_against_type(target_type, value);
+    base_stats->decrease_ranged_ap_against_type(target_type, value);
 }
 
 double CharacterStats::get_total_phys_dmg_mod() const {
@@ -369,4 +479,26 @@ void CharacterStats::recalculate_multiplicative_effects(QVector<int>& effects, d
     assert(modifier > 0);
 }
 
-
+Target::CreatureType CharacterStats::get_type_for_stat(const ItemStats stats) {
+    switch (stats) {
+    case ItemStats::APVersusBeast:
+        return Target::CreatureType::Beast;
+    case ItemStats::APVersusDemon:
+        return Target::CreatureType::Demon;
+    case ItemStats::APVersusDragonkin:
+        return Target::CreatureType::Dragonkin;
+    case ItemStats::APVersusElemental:
+        return Target::CreatureType::Elemental;
+    case ItemStats::APVersusGiant:
+        return Target::CreatureType::Giant;
+    case ItemStats::APVersusHumanoid:
+        return Target::CreatureType::Humanoid;
+    case ItemStats::APVersusMechanical:
+        return Target::CreatureType::Mechanical;
+    case ItemStats::APVersusUndead:
+        return Target::CreatureType::Undead;
+    default:
+        assert(false);
+        return Target::CreatureType::Beast;
+    }
+}
