@@ -20,7 +20,6 @@ Item::Item(QString _name,
            QVector<QMap<QString, QString>> _procs,
            QVector<QMap<QString, QString>> _use):
     name(std::move(_name)),
-    icon(_info["icon"]),
     info(std::move(_info)),
     procs_map(std::move(_procs)),
     use_map(std::move(_use)),
@@ -37,6 +36,7 @@ Item::Item(const Item* item) :
     name(item->name),
     info(item->info),
     procs_map(item->procs_map),
+    use_map(item->use_map),
     stats_key_value_pairs(item->stats_key_value_pairs),
     stats(new Stats()),
     enchant(nullptr)
@@ -176,8 +176,9 @@ void Item::set_uses(Character *pchar) {
             int value = use["value"].toInt();
             int cooldown = use["cooldown"].toInt();
 
-            Buff* buff = new GenericStatBuff(pchar, use_name, this->icon, duration, stat_type, value);
-            Spell* use_spell = new UseTrinketApplyBuff(pchar, use_name, this->icon, cooldown, buff);
+            QString icon = QString("Assets/items/%1").arg(info["icon"]);
+            Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
+            Spell* use_spell = new UseTrinketApplyBuff(pchar, name, icon, cooldown, buff);
 
             use_spells.append(use_spell);
         }

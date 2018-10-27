@@ -60,7 +60,6 @@ protected:
     QString patch;
     QString source;
     QString quality;
-    QString icon;
     QMap<QString, QString> info;
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;

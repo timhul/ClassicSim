@@ -12,6 +12,7 @@ UseTrinketApplyBuff::UseTrinketApplyBuff(Character* pchar,
     Spell(name, icon, pchar, false, cooldown, 0),
     buff(buff)
 {
+    this->enabled = false;
     pchar->get_spells()->add_spell(this);
     buff->enable_buff();
 }
