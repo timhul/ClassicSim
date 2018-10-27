@@ -8,6 +8,8 @@ RectangleBorders {
         anchors.fill: parent
         anchors.margins: 5
 
+        spacing: 20
+
         Text {
             id: rotationName
 
@@ -28,35 +30,42 @@ RectangleBorders {
             verticalAlignment: Text.AlignVCenter
         }
 
-        RectangleBorders {
-            anchors {
-                left: parent.left
-                right: parent.right
-                leftMargin: 50
-                rightMargin: 50
+        Text {
+            id: rotationDescription
+
+            text: character.rotationInfoDesc
+            width: parent.width
+
+            anchors.margins: 40
+
+            font {
+                family: "Arial"
+                pointSize: 10
             }
 
-            height: 40
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            wrapMode: Text.WordWrap
+        }
 
-            Text {
-                id: rotationDescription
+        Text {
+            id: underConstruction
 
-                text: character.rotationInfoDesc
+            text: "UNDER CONSTRUCTION: Check Rotations/*.xml files meanwhile to see the details of each rotation."
+            width: parent.width
 
-                anchors.fill: parent
-                anchors.margins: 5
+            anchors.margins: 40
 
-                elide: Text.ElideRight
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+            font {
+                family: "Arial"
+                pointSize: 13
             }
+
+            color: "gray"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            wrapMode: Text.WordWrap
         }
     }
 }
