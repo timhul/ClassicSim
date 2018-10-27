@@ -26,6 +26,34 @@
 		and resource "Rage" greater 80
 	</cast_if>
 
+	<cast_if name="Kiss of the Spider">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Jom Gabbar">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Badge of the Swarmguard">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Slayer's Crest">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Earthstrike">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Zandalarian Hero Medallion">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Diamond Flask">
+		buff "Death Wish" is true
+	</cast_if>
+
 	<cast_if name="Death Wish">
 		variable "time_remaining_encounter" less 33
 		or variable "time_remaining_execute" less 3
