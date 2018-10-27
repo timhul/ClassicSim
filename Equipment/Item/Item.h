@@ -34,7 +34,7 @@ public:
     virtual int get_weapon_slot(void) const;
 
     void apply_equip_effect(Character*, const int eq_slot);
-    void remove_equip_effect(const int eq_slot);
+    void remove_equip_effect();
 
     QString get_name(void) const;
     QString get_value(const QString& key) const;
@@ -67,14 +67,14 @@ protected:
     QVector<QMap<QString, QString>> procs_map;
     QVector<QMap<QString, QString>> use_map;
     QVector<QPair<QString, QString>> stats_key_value_pairs;
-    QMap<int, QVector<Proc*>> proc_map;
+    QVector<Proc*> active_procs;
     QVector<Spell*> use_spells;
     QMap<ItemStats, int> item_stat_values;
     Stats* stats;
     Enchant* enchant;
 
     void set_uses(Character *pchar);
-    void set_procs(QVector<QMap<QString, QString>>& procs, Character *pchar, const int eq_slot);
+    void set_procs(Character *pchar, const int eq_slot);
 
     int slot{};
     int item_type{};

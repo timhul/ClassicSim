@@ -47,15 +47,9 @@ Item::Item(const Item* item) :
 }
 
 Item::~Item() {
-    QMap<int, QVector<Proc*>>::const_iterator it = proc_map.constBegin();
-    auto end = proc_map.constEnd();
-    while(it != end) {
-        QVector<Proc*> procs_ = it.value();
-        for (auto & proc : procs_) {
-            proc->disable_proc();
-            delete proc;
-        }
-        ++it;
+    for (auto & proc : active_procs) {
+        proc->disable_proc();
+        delete proc;
     }
 
     delete stats;
@@ -93,13 +87,13 @@ int Item::get_weapon_slot(void) const {
 }
 
 void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
-    assert(proc_map.empty());
+    assert(active_procs.empty());
 
     set_uses(pchar);
-    set_procs(procs_map, pchar, eq_slot);
+    set_procs(pchar, eq_slot);
 }
 
-void Item::remove_equip_effect(const int eq_slot) {
+void Item::remove_equip_effect() {
     for (auto & spell : use_spells) {
         spell->disable();
         delete spell;
@@ -107,17 +101,12 @@ void Item::remove_equip_effect(const int eq_slot) {
 
     use_spells.clear();
 
-    if (!proc_map.contains(eq_slot))
-        return;
-
-    QVector<Proc*> procs_ = proc_map.take(eq_slot);
-
-    for (auto & proc : procs_) {
+    for (auto & proc : active_procs) {
         proc->disable_proc();
         delete proc;
     }
 
-    assert(!proc_map.contains(eq_slot));
+    active_procs.clear();
 }
 
 QString Item::get_name() const {
@@ -198,9 +187,8 @@ void Item::set_uses(Character *pchar) {
         use->enable();
 }
 
-void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, const int eq_slot) {
-    QVector<Proc*> procs_;
-    for (auto & i : procs) {
+void Item::set_procs(Character* pchar, const int eq_slot) {
+    for (auto & i : procs_map) {
         QString proc_name = i["name"];
         QString instant = i["instant"].toLower();
         int amount = QString(i["amount"]).toInt();
@@ -285,13 +273,10 @@ void Item::set_procs(QVector<QMap<QString, QString>>& procs, Character* pchar, c
         }
 
         if (proc != nullptr) {
-            procs_.append(proc);
+            active_procs.append(proc);
             proc->enable_proc();
         }
     }
-
-    if (!procs_.empty())
-        this->proc_map.insert(eq_slot, procs_);
 }
 
 void Item::add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot) {

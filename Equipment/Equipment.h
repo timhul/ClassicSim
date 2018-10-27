@@ -85,10 +85,10 @@ public:
     EquipmentDb *get_db() const;
 
     void equip(QVector<Item *> &current, Item*& next, const int eq_slot);
-    void unequip(QVector<Item *> &item, const int eq_slot);
+    void unequip(QVector<Item *> &item);
 
     void equip(QVector<Weapon *> &current, Weapon*& next, const int eq_slot);
-    void unequip(QVector<Weapon *> &weapon, const int eq_slot);
+    void unequip(QVector<Weapon *> &weapon);
 
 protected:
 private:
@@ -119,7 +119,7 @@ private:
     void add_proc_effects_from_current_setup();
     void remove_proc_effects_from_current_setup();
     void add_proc_effect_from_item(Item*, const int eq_slot);
-    void remove_proc_effect_from_item(Item*, const int eq_slot);
+    void remove_proc_effect_from_item(Item*);
 };
 
 #endif // EQUIPMENT_H
