@@ -16,6 +16,7 @@
 #include "DeathWish.h"
 #include "DeepWounds.h"
 #include "Execute.h"
+#include "Hamstring.h"
 #include "HeroicStrike.h"
 #include "MainhandAttack.h"
 #include "MortalStrike.h"
@@ -67,7 +68,7 @@ Spell* WarriorRotation::get_spell_from_name(const QString& spell_name) const {
     else if (spell_name == "Execute")
         spell = spells->get_execute();
     else if (spell_name == "Hamstring")
-        spell = nullptr;
+        spell = spells->get_hamstring();
     else if (spell_name == "Heroic Strike")
         spell = spells->get_heroic_strike();
     else if (spell_name == "Mainhand Attack")

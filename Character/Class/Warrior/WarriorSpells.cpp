@@ -14,6 +14,7 @@
 #include "DeathWish.h"
 #include "DeepWounds.h"
 #include "Execute.h"
+#include "Hamstring.h"
 #include "HeroicStrike.h"
 #include "Overpower.h"
 #include "MortalStrike.h"
@@ -43,6 +44,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->death_wish = new DeathWish(pchar);
     this->deep_wounds = new DeepWounds(pchar);
     this->execute = new Execute(pchar);
+    this->hamstring = new Hamstring(pchar);
     this->heroic_strike = new HeroicStrike(pchar);
     this->overpower = new Overpower(pchar);
     this->mortal_strike = new MortalStrike(pchar);
@@ -62,6 +64,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell(death_wish);
     add_spell(deep_wounds);
     add_spell(execute);
+    add_spell(hamstring);
     add_spell(heroic_strike);
     add_spell(overpower);
     add_spell(mortal_strike);
@@ -138,6 +141,10 @@ Bloodthirst* WarriorSpells::get_bloodthirst() const {
 
 DeepWounds* WarriorSpells::get_deep_wounds() const {
     return this->deep_wounds;
+}
+
+Hamstring* WarriorSpells::get_hamstring() const {
+    return this->hamstring;
 }
 
 HeroicStrike* WarriorSpells::get_heroic_strike() const {

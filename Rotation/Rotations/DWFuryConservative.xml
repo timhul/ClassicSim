@@ -128,6 +128,13 @@
 	<!-- Always cast Overpower if available. The implied condition checks that player is in correct stance, Overpower is active, etc. -->
 	<cast_if name="Overpower"/>
 	
+	<cast_if name="Hamstring">
+		spell "Bloodthirst" greater 1.5
+		and variable "time_remaining_execute" greater 0
+		and buff "Overpower" is false
+		and resource "Rage" greater 50
+	</cast_if>
+	
 	<!-- Switch to Battle Stance -->
 	<cast_if name="Battle Stance">
 		variable "time_remaining_execute" greater 5

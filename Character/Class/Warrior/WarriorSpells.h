@@ -14,6 +14,7 @@ class Bloodthirst;
 class DeathWish;
 class DeepWounds;
 class Execute;
+class Hamstring;
 class HeroicStrike;
 class MortalStrike;
 class Overpower;
@@ -43,6 +44,7 @@ public:
     BerserkerStance* get_berserker_stance() const;
     Bloodthirst* get_bloodthirst() const;
     DeepWounds* get_deep_wounds() const;
+    Hamstring* get_hamstring() const;
     HeroicStrike* get_heroic_strike() const;
     Execute* get_execute() const;
     MortalStrike* get_mortal_strike() const;
@@ -64,6 +66,7 @@ private:
     BerserkerStance* berserker_stance;
     Bloodthirst* bt;
     DeepWounds* deep_wounds;
+    Hamstring* hamstring;
     HeroicStrike* heroic_strike;
     Execute* execute;
     MortalStrike* mortal_strike;

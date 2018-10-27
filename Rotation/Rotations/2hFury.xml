@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<rotation class="Warrior" name="2h Fury">
+	<description>
+	A rotation for 2-handed fury.
+	</description>
+	<define_vars>
+	<let variable="execute_dagger_switch" equal="false"/>
+	</define_vars>
+	
+	<prerequisites>
+		<talent name="Bloodthirst"/>
+		<patch_at_least name="1.5.0"/>
+		<patch_at_most name="1.12.1"/>
+	</prerequisites>
+	
+	<cast_if name="Battle Shout">
+		buff "Battle Shout" less 3
+		or variable "time_remaining_execute" less 10
+		and variable "time_remaining_execute" greater 0
+		and buff "Battle Shout" less 45
+	</cast_if>
+	
+	<!-- General heroic strike usage -->
+	<cast_if name="Heroic Strike">
+		variable "time_remaining_execute" greater 3
+		and resource "Rage" greater 80
+	</cast_if>
+
+	<cast_if name="Death Wish">
+		variable "time_remaining_encounter" less 33
+		or variable "time_remaining_execute" less 3
+		or variable "time_remaining_execute" greater 180
+	</cast_if>
+
+	<cast_if name="Recklessness">
+		variable "time_remaining_execute" less 0
+		or variable "time_remaining_encounter" less 20
+	</cast_if>
+	
+	<cast_if name="Blood Fury">
+		variable "time_remaining_execute" less 0
+		and resource "Rage" less 50
+		or variable "time_remaining_execute" greater 120
+	</cast_if>
+
+	<cast_if name="Berserking">
+		variable "time_remaining_execute" less 0
+		and resource "Rage" less 50
+		or variable "time_remaining_execute" greater 180
+	</cast_if>
+
+	<!-- Always cast Execute if available (implicit condition). -->
+	<cast_if name="Execute"/>
+	
+	<!-- Always cast Bloodthirst if not in Execute range. -->
+	<cast_if name="Bloodthirst">
+		variable "time_remaining_execute" greater 0
+	</cast_if>
+	
+	<!-- Whirlwind only if Bloodthirst on cooldown and not in Execute phase. -->
+	<cast_if name="Whirlwind">
+		spell "Bloodthirst" greater 1.5
+		and variable "time_remaining_execute" greater 0
+	</cast_if>
+	
+	<cast_if name="Hamstring">
+		spell "Bloodthirst" greater 1.5
+		and variable "time_remaining_execute" greater 0
+	</cast_if>
+	
+	<!-- Always cast Overpower if available. The implied condition checks that player is in correct stance, Overpower is active, etc. -->
+	<cast_if name="Overpower"/>
+	
+	<!-- Switch to Battle Stance -->
+	<cast_if name="Battle Stance">
+		variable "time_remaining_execute" greater 5
+		and buff "Overpower" greater 2
+		and spell "Bloodthirst" greater 3
+	</cast_if>
+
+	<cast_if name="Berserker Stance">
+		variable "time_remaining_execute" less 0
+		or buff "Overpower" is false
+	</cast_if>
+</rotation>
