@@ -653,12 +653,10 @@ QString GUIControl::get_information_rotation_description() const {
     return rotation_model->get_rotation_information_description();
 }
 
-void GUIControl::run_quick_sim() {
-    thread_pool->run_sim(character_encoder->get_current_setup_string(), true);
-    sim_control->run_quick_sim(current_char);
-
+void GUIControl::calculate_displayed_dps_value() {
+    // Note: intended for local testing to build confidence in thread results
     double previous = last_quick_sim_result;
-    last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations() * sim_settings->get_combat_length());
+    last_quick_sim_result = double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length());
 
     double delta = ((last_quick_sim_result - previous) / previous);
     QString change = delta > 0 ? "+" : "";
@@ -667,12 +665,14 @@ void GUIControl::run_quick_sim() {
     QString dps = QString::number(last_quick_sim_result, 'f', 2);
     qDebug() << "Total DPS: " << dps;
     quickSimChanged(dps, change, delta > 0);
-    current_char->dump();
-    statisticsReady();
+}
+
+void GUIControl::run_quick_sim() {
+    thread_pool->run_sim(character_encoder->get_current_setup_string(), false, sim_settings->get_combat_iterations_quick_sim());
 }
 
 void GUIControl::run_full_sim() {
-    thread_pool->run_sim(character_encoder->get_current_setup_string(), true);
+    thread_pool->run_sim(character_encoder->get_current_setup_string(), true, sim_settings->get_combat_iterations_full_sim());
 }
 
 void GUIControl::runQuickSim() {
@@ -689,8 +689,12 @@ void GUIControl::compile_thread_results() {
     number_cruncher->reset();
 }
 
-int GUIControl::get_combat_iterations() const {
-    return sim_settings->get_combat_iterations();
+int GUIControl::get_combat_iterations_full_sim() const {
+    return sim_settings->get_combat_iterations_full_sim();
+}
+
+int GUIControl::get_combat_iterations_quick_sim() const {
+    return sim_settings->get_combat_iterations_quick_sim();
 }
 
 int GUIControl::get_combat_length() const {
@@ -705,8 +709,8 @@ int GUIControl::get_max_threads() const {
     return sim_settings->get_num_threads_max();
 }
 
-void GUIControl::setCombatIterations(const int iterations) {
-    sim_settings->set_combat_iterations(iterations);
+void GUIControl::setCombatIterationsFullSim(const int iterations) {
+    sim_settings->set_combat_iterations_full_sim(iterations);
     combatIterationsChanged();
 }
 

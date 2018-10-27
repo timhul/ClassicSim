@@ -26,16 +26,18 @@ SimulationThreadPool::~SimulationThreadPool() {
         delete thread_entry.second;
 }
 
-void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim) {
+void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim, int iterations) {
     assert(running_threads == 0);
     assert(thread_results.empty());
+
+    int iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
 
     for (auto & thread : thread_pool) {
         if (!active_thread_ids.contains(thread.first))
             continue;
 
         thread_results.append(QPair<unsigned, double>(thread.first, 0.0));
-        emit start_simulation(thread.first, setup_string, full_sim);
+        emit start_simulation(thread.first, setup_string, full_sim, iterations_per_thread);
         ++running_threads;
     }
 
@@ -88,9 +90,9 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     SimulationRunner* runner = new SimulationRunner(thread_id, equipment_db, sim_settings, scaler);
     auto* thread = new QThread(runner);
 
-    connect(this, SIGNAL (start_simulation(unsigned, QString, bool)), runner, SLOT (run_sim(unsigned, QString, bool)));
+    connect(this, SIGNAL (start_simulation(unsigned, QString, bool, int)), runner, SLOT (run_sim(unsigned, QString, bool, int)));
     connect(runner, SIGNAL (error(QString, QString)), this, SLOT (error_string(QString, QString)));
-    connect(runner, SIGNAL (result(QString, double)), this, SLOT (result(QString, double)));
+    connect(runner, SIGNAL (result()), this, SLOT (thread_finished()));
     connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
 
     thread_pool.append(QPair<unsigned, QThread*>(thread_id, thread));
@@ -109,38 +111,11 @@ void SimulationThreadPool::error_string(const QString& seed, const QString& erro
     }
 }
 
-void SimulationThreadPool::result(const QString& seed, double result) {
+void SimulationThreadPool::thread_finished() {
     --running_threads;
 
-    for (auto & thread_result : thread_results) {
-        if (thread_result.first != seed.toUInt())
-            continue;
-
-        thread_result.second = result;
-    }
-
-    check_threads_finished();
-}
-
-void SimulationThreadPool::check_threads_finished() {
     if (running_threads > 0)
         return;
 
-    double avg_dps = 0.0;
-    int num_threads_with_result = 0;
-
-    for (auto & thread_result : thread_results) {
-        if (thread_result.second < 0.001)
-            continue;
-
-        ++num_threads_with_result;
-        avg_dps += thread_result.second;
-        if (num_threads_with_result > 1)
-            avg_dps /= 2;
-    }
-
-    QString avg_dps_string = QString::number(avg_dps, 'f', 2);
-    qDebug() << QString("Average dps from %1 threads: %2").arg(QString::number(num_threads_with_result), avg_dps_string);
     threads_finished();
-    thread_results.clear();
 }

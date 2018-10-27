@@ -10,6 +10,7 @@ Rectangle {
 
     Column {
         anchors.fill: parent
+        anchors.margins: 40
         spacing: 10
 
         Row {
@@ -42,7 +43,7 @@ Rectangle {
                 }
 
                 Text {
-                    text: settings.combatIterations
+                    text: settings.combatIterationsFullSim
                     visible: !combatIterations.visible
                     anchors.fill: parent
 
@@ -67,7 +68,7 @@ Rectangle {
                         top: 10000
                     }
                     inputMethodHints: Qt.ImhDigitsOnly
-                    placeholderText: settings.combatIterations
+                    placeholderText: settings.combatIterationsFullSim
 
                     font {
                         family: "Arial"
@@ -76,7 +77,7 @@ Rectangle {
                     color: "white"
 
                     onAccepted: {
-                        settings.setCombatIterations(text)
+                        settings.setCombatIterationsFullSim(text)
                         visible = false
                     }
                     horizontalAlignment: Text.AlignHCenter

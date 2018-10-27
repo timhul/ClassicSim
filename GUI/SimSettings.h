@@ -24,10 +24,13 @@ public:
     ~SimSettings();
 
     void set_combat_length(const int);
-    void set_combat_iterations(const int);
+    void set_combat_iterations_full_sim(const int);
+    void set_combat_iterations_quick_sim(const int);
+
+    int get_combat_iterations_quick_sim() const;
 
     int get_combat_length() const;
-    int get_combat_iterations() const;
+    int get_combat_iterations_full_sim() const;
 
     int get_num_threads_current() const;
     int get_num_threads_max() const;
@@ -47,7 +50,9 @@ public:
 
 private:
     int combat_length;
-    int combat_iterations;
+
+    int combat_iterations_quick_sim;
+    int combat_iterations_full_sim;
     int num_threads;
     double execute_threshold;
     RulesetControl* ruleset_control;

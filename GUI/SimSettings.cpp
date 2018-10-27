@@ -5,7 +5,8 @@
 
 SimSettings::SimSettings() :
     combat_length(300),
-    combat_iterations(1000),
+    combat_iterations_quick_sim(1000),
+    combat_iterations_full_sim(10000),
     num_threads(QThread::idealThreadCount()),
     ruleset_control(new RulesetControl())
 {
@@ -16,20 +17,28 @@ SimSettings::~SimSettings() {
     delete ruleset_control;
 }
 
+int SimSettings::get_combat_iterations_quick_sim() const {
+    return this->combat_iterations_quick_sim;
+}
+
 int SimSettings::get_combat_length() const {
     return this->combat_length;
 }
 
-int SimSettings::get_combat_iterations() const {
-    return this->combat_iterations;
+int SimSettings::get_combat_iterations_full_sim() const {
+    return this->combat_iterations_full_sim;
 }
 
 void SimSettings::set_combat_length(const int combat_length) {
     this->combat_length = combat_length;
 }
 
-void SimSettings::set_combat_iterations(const int combat_iterations) {
-    this->combat_iterations = combat_iterations;
+void SimSettings::set_combat_iterations_full_sim(const int combat_iterations) {
+    this->combat_iterations_full_sim = combat_iterations;
+}
+
+void SimSettings::set_combat_iterations_quick_sim(const int combat_iterations) {
+    this->combat_iterations_quick_sim = combat_iterations;
 }
 
 int SimSettings::get_num_threads_current() const {

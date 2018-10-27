@@ -207,11 +207,12 @@ public:
      /* SimSettings */
      SimSettings* get_sim_settings() const;
      Q_PROPERTY(int combatLength READ get_combat_length NOTIFY combatLengthChanged)
-     Q_PROPERTY(int combatIterations READ get_combat_iterations NOTIFY combatIterationsChanged)
+     Q_PROPERTY(int combatIterationsFullSim READ get_combat_iterations_full_sim NOTIFY combatIterationsChanged)
+     Q_PROPERTY(int combatIterationsQuickSim READ get_combat_iterations_quick_sim NOTIFY combatIterationsChanged)
      Q_PROPERTY(int numThreads READ get_num_threads NOTIFY numThreadsChanged)
      Q_PROPERTY(int maxThreads READ get_max_threads NOTIFY numThreadsChanged)
      Q_INVOKABLE void setCombatLength(const int);
-     Q_INVOKABLE void setCombatIterations(const int);
+     Q_INVOKABLE void setCombatIterationsFullSim(const int);
      Q_INVOKABLE void setNumThreads(const int);
      Q_SIGNAL void combatLengthChanged();
      Q_SIGNAL void combatIterationsChanged();
@@ -279,7 +280,8 @@ private:
     QString get_information_rotation_name() const;
     QString get_information_rotation_description() const;
 
-    int get_combat_iterations() const;
+    int get_combat_iterations_full_sim() const;
+    int get_combat_iterations_quick_sim() const;
     int get_combat_length() const;
     int get_num_threads() const;
     int get_max_threads() const;
@@ -308,6 +310,7 @@ private:
     void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);
     void set_class_restriction_tooltip(Item *&item, QString &restriction);
     void set_character(Character* pchar);
+    void calculate_displayed_dps_value();
 
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;

@@ -266,7 +266,7 @@ int ClassStatistics::get_total_attempts_for_spell(const QString& name) const {
 void ClassStatistics::prepare_statistics() {
     delete_maps();
 
-    combat_iterations = sim_settings->get_combat_iterations();
+    combat_iterations = sim_settings->get_combat_iterations_full_sim();
     combat_length = sim_settings->get_combat_length();
 }
 

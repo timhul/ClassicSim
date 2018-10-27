@@ -63,7 +63,7 @@ SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db
 SimulationRunner::~SimulationRunner() {
 }
 
-void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool full_sim) {
+void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
         emit finished();
         return;
@@ -83,6 +83,9 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     if (pchar == nullptr)
         return exit_thread("Pchar nullptr: " + decoder.get_class());
 
+    local_sim_settings->set_combat_iterations_full_sim(iterations);
+    local_sim_settings->set_combat_iterations_quick_sim(iterations);
+
     equip_gear(decoder);
     invest_talent_points(decoder);
     apply_external_buffs(decoder);
@@ -101,14 +104,12 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     else
         SimControl(local_sim_settings, scaler).run_quick_sim(pchar);
 
-    double dps = double(pchar->get_statistics()->get_total_damage_dealt()) / (local_sim_settings->get_combat_iterations() * local_sim_settings->get_combat_length());
-
     delete pchar;
     delete race;
     delete rotation;
     delete local_sim_settings;
 
-    emit result(QString::number(thread_id), dps);
+    emit result();
     emit finished();
 }
 
@@ -306,7 +307,6 @@ void SimulationRunner::exit_thread(QString err) {
 
 void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
     this->local_sim_settings = new SimSettings();
-    local_sim_settings->set_combat_iterations(global_sim_settings->get_combat_iterations());
     local_sim_settings->set_combat_length(global_sim_settings->get_combat_length());
 
     QString pchar_string = decoder.get_class();

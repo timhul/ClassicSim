@@ -30,11 +30,11 @@ public:
     ~SimulationRunner();
 
 public slots:
-    void run_sim(unsigned thread_id, QString setup_string, bool full_sim);
+    void run_sim(unsigned thread_id, QString setup_string, bool full_sim, int iterations);
 
 signals:
     void finished();
-    void result(QString seed, double result);
+    void result();
     void error(QString seed, QString err);
 
 protected:

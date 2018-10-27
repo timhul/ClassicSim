@@ -19,9 +19,11 @@ private:
 
     void add_option(Character*, SimOption);
     void remove_option(Character*, SimOption);
-    void run_sim_with_option(Character*, SimOption);
+    void run_sim_with_option(Character*, SimOption, const int combat_length, const int iterations);
 
-    void run_sim(Character*);
+    void run_sim(Character*, const int combat_length, const int iterations);
+
+    int thread_iterations(const int);
 
 };
 
