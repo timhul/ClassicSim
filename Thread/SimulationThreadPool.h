@@ -37,7 +37,6 @@ private:
     NumberCruncher* scaler;
     int running_threads;
 
-    QVector<QPair<unsigned, double>> thread_results;
     QVector<QPair<unsigned, QThread*>> thread_pool;
     QVector<unsigned> active_thread_ids;
     QVector<unsigned> inactive_thread_ids;

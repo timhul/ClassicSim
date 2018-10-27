@@ -28,7 +28,6 @@ SimulationThreadPool::~SimulationThreadPool() {
 
 void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim, int iterations) {
     assert(running_threads == 0);
-    assert(thread_results.empty());
 
     int iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
 
@@ -36,13 +35,11 @@ void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim, i
         if (!active_thread_ids.contains(thread.first))
             continue;
 
-        thread_results.append(QPair<unsigned, double>(thread.first, 0.0));
         emit start_simulation(thread.first, setup_string, full_sim, iterations_per_thread);
         ++running_threads;
     }
 
     assert(running_threads > 0);
-    assert(!thread_results.empty());
 }
 
 bool SimulationThreadPool::sim_running() const {
@@ -104,11 +101,7 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
 
 void SimulationThreadPool::error_string(const QString& seed, const QString& error) {
     qDebug() << "thread error" << seed << ": " << error;
-    --running_threads;
-
-    if (running_threads == 0) {
-        thread_results.clear();
-    }
+    thread_finished();
 }
 
 void SimulationThreadPool::thread_finished() {
