@@ -7,6 +7,8 @@ Rectangle {
 
     Row {
         anchors.fill: parent
+        anchors.margins: 20
+
         GridView {
             interactive: false
             height: parent.height
