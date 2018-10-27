@@ -714,6 +714,11 @@ void GUIControl::setCombatIterationsFullSim(const int iterations) {
     combatIterationsChanged();
 }
 
+void GUIControl::setCombatIterationsQuickSim(const int iterations) {
+    sim_settings->set_combat_iterations_quick_sim(iterations);
+    combatIterationsChanged();
+}
+
 void GUIControl::setCombatLength(const int length) {
     sim_settings->set_combat_length(length);
     combatLengthChanged();

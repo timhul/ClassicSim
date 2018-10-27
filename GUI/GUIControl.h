@@ -213,6 +213,7 @@ public:
      Q_PROPERTY(int maxThreads READ get_max_threads NOTIFY numThreadsChanged)
      Q_INVOKABLE void setCombatLength(const int);
      Q_INVOKABLE void setCombatIterationsFullSim(const int);
+     Q_INVOKABLE void setCombatIterationsQuickSim(const int);
      Q_INVOKABLE void setNumThreads(const int);
      Q_SIGNAL void combatLengthChanged();
      Q_SIGNAL void combatIterationsChanged();

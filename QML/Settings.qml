@@ -23,6 +23,17 @@ Rectangle {
         }
 
         SettingsTextFieldEntry {
+            description: "Iterations (quick simulation)"
+            minVal: 100
+            maxVal: 10000
+            valueText: settings.combatIterationsQuickSim
+            placeholderText: settings.combatIterationsQuickSim
+            unitText: "iterations"
+
+            onAcceptedInput: settings.setCombatIterationsQuickSim(value)
+        }
+
+        SettingsTextFieldEntry {
             description: "Combat length"
             minVal: 30
             maxVal: 600
