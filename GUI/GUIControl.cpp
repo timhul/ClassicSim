@@ -672,6 +672,9 @@ void GUIControl::calculate_displayed_dps_value() {
 }
 
 void GUIControl::run_quick_sim() {
+    if (current_char->get_equipment()->get_mainhand() == nullptr)
+        return;
+
     sim_in_progress = true;
     thread_pool->run_sim(character_encoder->get_current_setup_string(), false, sim_settings->get_combat_iterations_quick_sim());
 
@@ -679,6 +682,9 @@ void GUIControl::run_quick_sim() {
 }
 
 void GUIControl::run_full_sim() {
+    if (current_char->get_equipment()->get_mainhand() == nullptr)
+        return;
+
     sim_in_progress = true;
     thread_pool->run_sim(character_encoder->get_current_setup_string(), true, sim_settings->get_combat_iterations_full_sim());
 
