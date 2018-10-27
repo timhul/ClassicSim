@@ -52,13 +52,23 @@ void Buff::apply_buff() {
 
     this->refreshed = pchar->get_engine()->get_current_priority();
     this->active = true;
-
     if (this->duration != BuffDuration::PERMANENT) {
         auto* new_event = new BuffRemoval(this,
                                           pchar->get_engine()->get_current_priority() + duration,
                                           ++iteration);
         pchar->get_engine()->add_event(new_event);
     }
+}
+
+void Buff::refresh_buff() {
+    if (!is_enabled())
+        return;
+
+    if (!is_active())
+        return;
+
+    this->refreshed = pchar->get_engine()->get_current_priority();
+    this->buff_effect_when_refreshed();
 }
 
 void Buff::remove_buff(const int iteration) {
@@ -115,6 +125,7 @@ void Buff::reset() {
         statistics_buff->add_uptime_for_encounter(uptime / pchar->get_sim_settings()->get_combat_length());
 
     initialize();
+    reset_effect();
 }
 
 void Buff::initialize() {
@@ -144,16 +155,14 @@ int Buff::get_instance_id() const {
 }
 
 void Buff::enable_buff() {
-    if (enabled)
-        assert(!enabled);
+    assert(!enabled);
 
     this->enabled = true;
     pchar->get_active_buffs()->add_buff(this);
 }
 
 void Buff::disable_buff() {
-    if (!enabled)
-        assert(enabled);
+    assert(enabled);
 
     pchar->get_active_buffs()->remove_buff(this);
     this->enabled = false;
@@ -169,5 +178,9 @@ void Buff::prepare_set_of_combat_iterations() {
 }
 
 void Buff::buff_effect_when_refreshed() {
+
+}
+
+void Buff::reset_effect() {
 
 }

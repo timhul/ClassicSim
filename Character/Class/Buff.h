@@ -28,6 +28,7 @@ public:
     QString get_icon() const;
     int get_charges() const;
     void apply_buff();
+    void refresh_buff();
     void remove_buff(const int);
     void use_charge();
     void cancel_buff();
@@ -71,6 +72,7 @@ protected:
     virtual void buff_effect_when_removed() = 0;
 
     virtual void buff_effect_when_refreshed();
+    virtual void reset_effect();
 };
 
 #endif // BUFF_H

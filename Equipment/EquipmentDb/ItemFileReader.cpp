@@ -145,8 +145,8 @@ void ItemFileReader::use_element_reader(QXmlStreamReader &reader, QVector<QMap<Q
         if (reader.name() == "use") {
             QMap<QString, QString> map;
             add_mandatory_attr(attrs, "name", map);
-            add_mandatory_attr(attrs, "cooldown", map);
 
+            add_attr(attrs, "cooldown", map);
             add_attr(attrs, "type", map);
             add_attr(attrs, "value", map);
             add_attr(attrs, "duration", map);

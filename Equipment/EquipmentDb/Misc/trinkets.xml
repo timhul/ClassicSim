@@ -94,6 +94,23 @@
 		</patch>
 	</trinket>
 
+	<trinket name="Jom Gabbar">
+		<patch name="1.9.0">
+			<info type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_misc_enggizmos_19.png"/>
+			<stats>
+			</stats>
+			<uses>
+				<use name="JOM_GABBAR"/>
+			</uses>
+			<source>
+			Drops from Ouro in Temple of Ahn'Qiraj (AQ40).
+			</source>
+			<special_equip_effect>
+			Use: Increases attack power by 65 and an additional 65 every 2 sec. Lasts 20 sec. (cooldown 2 min)
+			</special_equip_effect>
+		</patch>
+	</trinket>
+	
 	<trinket name="Slayer's Crest">
 		<patch name="1.11.0">
 			<info type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas03.png"/>

@@ -251,7 +251,9 @@ SOURCES += main.cpp \
     GUI/Models/Statistics/ProcBreakdownModel.cpp \
     GUI/Models/Statistics/ResourceBreakdownModel.cpp \
     Character/Class/General/Buffs/GenericStatBuff.cpp \
-    Character/Class/General/Spells/UseTrinketApplyBuff.cpp
+    Character/Class/General/Spells/UseTrinketApplyBuff.cpp \
+    Character/Class/General/Buffs/JomGabbar.cpp \
+    Event/Events/PeriodicRefreshBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -503,7 +505,9 @@ HEADERS += \
     GUI/Models/Statistics/ProcBreakdownModel.h \
     GUI/Models/Statistics/ResourceBreakdownModel.h \
     Character/Class/General/Buffs/GenericStatBuff.h \
-    Character/Class/General/Spells/UseTrinketApplyBuff.h
+    Character/Class/General/Spells/UseTrinketApplyBuff.h \
+    Character/Class/General/Buffs/JomGabbar.h \
+    Event/Events/PeriodicRefreshBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

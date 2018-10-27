@@ -10,6 +10,7 @@
 #include "InstantSpellProc.h"
 #include "FelstrikerProc.h"
 #include "GenericStatBuff.h"
+#include "JomGabbar.h"
 #include "UseTrinketApplyBuff.h"
 #include <QDebug>
 #include <utility>
@@ -180,6 +181,11 @@ void Item::set_uses(Character *pchar) {
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
             Spell* use_spell = new UseTrinketApplyBuff(pchar, name, icon, cooldown, buff);
 
+            use_spells.append(use_spell);
+        }
+        if (use_name == "JOM_GABBAR") {
+            Buff* buff = new JomGabbar(pchar);
+            Spell* use_spell = new UseTrinketApplyBuff(pchar, buff->get_name(), buff->get_icon(), 120, buff);
             use_spells.append(use_spell);
         }
     }

@@ -293,5 +293,6 @@
         <file>QML/Assets/items/Inv_trinket_naxxramas03.png</file>
         <file>QML/Assets/items/Inv_trinket_naxxramas04.png</file>
         <file>QML/Assets/items/Spell_nature_abolishmagic.png</file>
+        <file>QML/Assets/items/Inv_misc_enggizmos_19.png</file>
     </qresource>
 </RCC>
