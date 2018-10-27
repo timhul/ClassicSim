@@ -219,6 +219,8 @@ public:
      Q_SIGNAL void combatIterationsChanged();
      Q_SIGNAL void numThreadsChanged();
      Q_INVOKABLE void selectRuleset(const int);
+     Q_PROPERTY(QString simProgressString READ get_sim_progress_string NOTIFY simProgressChanged)
+     Q_SIGNAL void simProgressChanged();
      /* End of SimSettings */
 
      Q_SLOT void compile_thread_results();
@@ -314,6 +316,8 @@ private:
     void calculate_displayed_dps_value();
     void update_displayed_dps_value(const double new_dps_value);
 
+    QString get_sim_progress_string() const;
+
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;
     CharacterDecoder* character_decoder;
@@ -338,6 +342,7 @@ private:
     ProcBreakdownModel* proc_breakdown_model;
     ResourceBreakdownModel* resource_breakdown_model;
     double last_quick_sim_result;
+    bool sim_in_progress;
 };
 
 #endif // GUICONTROL_H

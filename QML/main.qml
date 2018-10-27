@@ -233,6 +233,24 @@ Window {
             color: gray
             horizontalAlignment: Text.AlignHCenter
         }
+
+        Text {
+            font {
+                family: "Arial"
+                pointSize: 9
+            }
+
+            text: settings.simProgressString
+
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 5
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+
+            color: "gray"
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+        }
     }
 
     NavigationBar {

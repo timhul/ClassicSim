@@ -57,7 +57,8 @@ GUIControl::GUIControl(QObject* parent) :
     number_cruncher(new NumberCruncher()),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
-    last_quick_sim_result(0.0)
+    last_quick_sim_result(0.0),
+    sim_in_progress(false)
 {
     QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
     QObject::connect(this, SIGNAL(startFullSim()), this, SLOT(run_full_sim()));
@@ -671,11 +672,17 @@ void GUIControl::calculate_displayed_dps_value() {
 }
 
 void GUIControl::run_quick_sim() {
+    sim_in_progress = true;
     thread_pool->run_sim(character_encoder->get_current_setup_string(), false, sim_settings->get_combat_iterations_quick_sim());
+
+    simProgressChanged();
 }
 
 void GUIControl::run_full_sim() {
+    sim_in_progress = true;
     thread_pool->run_sim(character_encoder->get_current_setup_string(), true, sim_settings->get_combat_iterations_full_sim());
+
+    simProgressChanged();
 }
 
 void GUIControl::runQuickSim() {
@@ -691,6 +698,8 @@ void GUIControl::compile_thread_results() {
     resource_breakdown_model->update_statistics();
     update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::NoScale));
     number_cruncher->reset();
+    sim_in_progress = false;
+    simProgressChanged();
 }
 
 int GUIControl::get_combat_iterations_full_sim() const {
@@ -1301,4 +1310,8 @@ void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction
 
 QString GUIControl::get_capitalized_string(const QString& string) const {
     return QString(string[0]) + QString(string.right(string.size() - 1)).toLower();
+}
+
+QString GUIControl::get_sim_progress_string() const {
+    return sim_in_progress ? "Running..." : "Click me!";
 }
