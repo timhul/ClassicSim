@@ -289,5 +289,9 @@
         <file>QML/StatisticsResourceBreakdownSorting.qml</file>
         <file>QML/StatisticsEntryResourceBreakdown.qml</file>
         <file>QML/SettingsTextFieldEntry.qml</file>
+        <file>QML/Assets/items/Inv_drink_01.png</file>
+        <file>QML/Assets/items/Inv_trinket_naxxramas03.png</file>
+        <file>QML/Assets/items/Inv_trinket_naxxramas04.png</file>
+        <file>QML/Assets/items/Spell_nature_abolishmagic.png</file>
     </qresource>
 </RCC>
