@@ -111,6 +111,23 @@
 		</patch>
 	</trinket>
 
+	<trinket name="Badge of the Swarmguard">
+		<patch name="1.9.0">
+			<info type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_ahnqirajtrinket_04.png"/>
+			<stats>
+			</stats>
+			<uses>
+				<use name="BADGE_OF_THE_SWARMGUARD" value="0.8"/>
+			</uses>
+			<source>
+			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
+			</source>
+			<special_equip_effect>
+			Use: Gives a chance on melee or ranged attack to apply an armor penetration effect on you for 30 sec, lowering the target's physical armor by 200 to your own attacks. The armor penetration effect can be applied up to 6 rimes. (cooldown 3 min)
+			</special_equip_effect>
+		</patch>
+	</trinket>
+
 	<trinket name="Jom Gabbar">
 		<patch name="1.9.0">
 			<info type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_misc_enggizmos_19.png"/>

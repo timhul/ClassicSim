@@ -1,21 +1,23 @@
+#include <QDebug>
+#include <utility>
 
-#include "Item.h"
-#include "Stats.h"
-#include "Target.h"
+#include "ArmorPenetrationBuff.h"
+#include "ArmorPenetrationProc.h"
 #include "Character.h"
 #include "EnchantStatic.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
-#include "ArmorPenetrationProc.h"
-#include "InstantSpellProc.h"
 #include "FelstrikerProc.h"
 #include "FlatWeaponDamageBuff.h"
 #include "GenericStatBuff.h"
 #include "GenericChargeConsumerProc.h"
+#include "InstantSpellProc.h"
+#include "Item.h"
+#include "NoEffectBuff.h"
 #include "JomGabbar.h"
+#include "Stats.h"
+#include "Target.h"
 #include "UseTrinket.h"
-#include <QDebug>
-#include <utility>
 
 Item::Item(QString _name,
            QVector<QPair<QString, QString>> _stats,
@@ -201,6 +203,21 @@ void Item::set_uses(Character *pchar) {
             Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
             spell = new UseTrinket(pchar, name, icon, 120, buff, proc);
         }
+        else if (use_name == "BADGE_OF_THE_SWARMGUARD") {
+            double proc_rate = use["value"].toDouble();
+            QVector<ProcInfo::Source> proc_sources;
+            proc_sources.append(ProcInfo::Source::MainhandSwing);
+            proc_sources.append(ProcInfo::Source::MainhandSpell);
+            proc_sources.append(ProcInfo::Source::OffhandSwing);
+            proc_sources.append(ProcInfo::Source::OffhandSpell);
+            proc_sources.append(ProcInfo::Source::RangedAutoShoot);
+            proc_sources.append(ProcInfo::Source::RangedSpell);
+            auto* proc = new ArmorPenetrationProc(pchar, name, icon, proc_sources, proc_rate, 200, 6, 30, REFRESH_DOES_NOT_EXTEND_DURATION);
+            auto* buff = new NoEffectBuff(pchar, 30);
+            buff->link_buff_expiration(proc->get_buff());
+            proc->set_proc_requirement_buff(buff);
+            spell = new UseTrinket(pchar, name, icon, 180, buff, proc);
+        }
 
         if (spell != nullptr)
             use_spells.append(spell);
@@ -270,7 +287,12 @@ void Item::set_procs(Character* pchar, const int eq_slot) {
 
             proc = new ArmorPenetrationProc(pchar,
                                             get_weapon_side_name(eq_slot),
-                                            icon, proc_sources, proc_rate, reduction, max_stacks, duration);
+                                            icon, proc_sources,
+                                            proc_rate,
+                                            reduction,
+                                            max_stacks,
+                                            duration,
+                                            REFRESH_EXTENDS_DURATION);
         }
 
         else if (direct_spell_damage_procs.contains(proc_name)) {

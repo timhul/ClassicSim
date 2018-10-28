@@ -295,5 +295,6 @@
         <file>QML/Assets/items/Spell_nature_abolishmagic.png</file>
         <file>QML/Assets/items/Inv_misc_enggizmos_19.png</file>
         <file>QML/Assets/items/Inv_jewelry_necklace_13.png</file>
+        <file>QML/Assets/items/Inv_misc_ahnqirajtrinket_04.png</file>
     </qresource>
 </RCC>

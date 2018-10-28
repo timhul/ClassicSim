@@ -255,7 +255,8 @@ SOURCES += main.cpp \
     Event/Events/PeriodicRefreshBuff.cpp \
     Character/Class/General/Buffs/FlatWeaponDamageBuff.cpp \
     Character/Class/General/Procs/GenericChargeConsumerProc.cpp \
-    Character/Class/General/Spells/UseTrinket.cpp
+    Character/Class/General/Spells/UseTrinket.cpp \
+    Character/Class/General/Buffs/NoEffectBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -511,7 +512,8 @@ HEADERS += \
     Event/Events/PeriodicRefreshBuff.h \
     Character/Class/General/Buffs/FlatWeaponDamageBuff.h \
     Character/Class/General/Procs/GenericChargeConsumerProc.h \
-    Character/Class/General/Spells/UseTrinket.h
+    Character/Class/General/Spells/UseTrinket.h \
+    Character/Class/General/Buffs/NoEffectBuff.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
