@@ -2,8 +2,6 @@
 
 #include "ActiveBuffs.h"
 #include "ActiveProcs.h"
-#include "Berserking.h"
-#include "BloodFury.h"
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
@@ -73,9 +71,9 @@ bool Character::race_available(Race* race) const {
 void Character::set_race(Race* race) {
     assert(race_available(race));
 
-    remove_racial_effects();
+    spells->deactivate_racials();
     this->race = race;
-    apply_racial_effects();
+    spells->activate_racials();
 }
 
 void Character::set_rotation(Rotation* rotation) {
@@ -111,35 +109,9 @@ Rotation* Character::get_rotation() {
 }
 
 void Character::change_target_creature_type(const QString &creature_type) {
-    remove_racial_effects();
+    spells->deactivate_racials();
     target->set_creature_type(creature_type);
-    apply_racial_effects();
-}
-
-void Character::apply_racial_effects() {
-    switch (race->get_race_int()) {
-    case Races::Orc:
-        spells->get_blood_fury()->enable();
-        break;
-    case Races::Troll:
-        spells->get_berserking()->enable();
-        if (target->get_creature_type() == Target::CreatureType::Beast)
-            cstats->increase_total_phys_dmg_mod(5);
-        break;
-    }
-}
-
-void Character::remove_racial_effects() {
-    switch (race->get_race_int()) {
-    case Races::Orc:
-        spells->get_blood_fury()->disable();
-        break;
-    case Races::Troll:
-        spells->get_berserking()->disable();
-        if (target->get_creature_type() == Target::CreatureType::Beast)
-            cstats->decrease_total_phys_dmg_mod(5);
-        break;
-    }
+    spells->activate_racials();
 }
 
 int Character::get_clvl() const {

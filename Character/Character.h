@@ -196,9 +196,6 @@ protected:
 
     virtual void initialize_talents() = 0;
 
-    void apply_racial_effects();
-    void remove_racial_effects();
-
     double get_normalized_dmg(const unsigned, const Weapon*);
     double get_non_normalized_dmg(const unsigned, const double);
 

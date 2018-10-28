@@ -18,7 +18,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, Q
     this->rogue_spells = new RogueSpells(this);
     this->spells = dynamic_cast<Spells*>(rogue_spells);
 
-    apply_racial_effects();
+    spells->activate_racials();
 }
 
 Rogue::~Rogue()

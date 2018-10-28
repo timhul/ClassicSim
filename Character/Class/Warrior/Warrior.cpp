@@ -94,7 +94,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
 
     initialize_talents();
 
-    apply_racial_effects();
+    spells->activate_racials();
 }
 
 Warrior::~Warrior() {

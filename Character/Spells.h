@@ -20,6 +20,9 @@ public:
     Spells(Character* pchar, QObject* parent = nullptr);
     virtual ~Spells();
 
+    void activate_racials();
+    void deactivate_racials();
+
     void add_spell(Spell* spell, bool relink=true);
     void remove_spell(Spell* spell);
 

@@ -1,13 +1,16 @@
 
-#include "Spells.h"
-#include "Berserking.h"
 #include "BloodFury.h"
+#include "Berserking.h"
 #include "Character.h"
-#include "MainhandAttack.h"
-#include "OffhandAttack.h"
-#include "MainhandMeleeHit.h"
-#include "OffhandMeleeHit.h"
+#include "CharacterStats.h"
 #include "ClassStatistics.h"
+#include "MainhandAttack.h"
+#include "MainhandMeleeHit.h"
+#include "OffhandAttack.h"
+#include "OffhandMeleeHit.h"
+#include "Race.h"
+#include "Spells.h"
+#include "Target.h"
 
 Spells::Spells(Character* pchar, QObject* parent) :
     QObject(parent),
@@ -26,6 +29,32 @@ Spells::~Spells()
     }
 
     spells.clear();
+}
+
+void Spells::activate_racials() {
+    switch (pchar->get_race()->get_race_int()) {
+    case Races::Orc:
+        blood_fury->enable();
+        break;
+    case Races::Troll:
+        berserking->enable();
+        if (pchar->get_target()->get_creature_type() == Target::CreatureType::Beast)
+            pchar->get_stats()->increase_total_phys_dmg_mod(5);
+        break;
+    }
+}
+
+void Spells::deactivate_racials() {
+    switch (pchar->get_race()->get_race_int()) {
+    case Races::Orc:
+        blood_fury->disable();
+        break;
+    case Races::Troll:
+        berserking->disable();
+        if (pchar->get_target()->get_creature_type() == Target::CreatureType::Beast)
+            pchar->get_stats()->decrease_total_phys_dmg_mod(5);
+        break;
+    }
 }
 
 void Spells::add_spell(Spell* spell, bool relink) {
