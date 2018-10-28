@@ -52,9 +52,6 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
     this->spell_crit_dmg_mod = 1.5;
     this->current_rotation = nullptr;
     this->ruleset = Ruleset::Standard;
-
-    this->berserking_buff = new BerserkingBuff(this);
-    this->blood_fury_buff = new BloodFuryBuff(this);
 }
 
 Character::~Character() {
@@ -65,8 +62,6 @@ Character::~Character() {
     delete talents;
     delete active_procs;
     delete active_buffs;
-    delete berserking_buff;
-    delete blood_fury_buff;
 }
 
 Race* Character::get_race() {
@@ -215,14 +210,6 @@ ActiveProcs* Character::get_active_procs() const {
 
 SimSettings* Character::get_sim_settings() const {
     return this->sim_settings;
-}
-
-BerserkingBuff* Character::get_berserking_buff() const {
-    return this->berserking_buff;
-}
-
-BloodFuryBuff* Character::get_blood_fury_buff() const {
-    return this->blood_fury_buff;
 }
 
 void Character::add_player_reaction_event() {

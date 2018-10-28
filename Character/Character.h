@@ -81,9 +81,6 @@ public:
     ActiveProcs* get_active_procs() const;
     SimSettings* get_sim_settings() const;
 
-    BerserkingBuff* get_berserking_buff() const;
-    BloodFuryBuff* get_blood_fury_buff() const;
-
     void add_player_reaction_event();
 
     bool is_dual_wielding(void);
@@ -183,9 +180,6 @@ protected:
     ClassStatistics* statistics;
     Rotation* current_rotation;
     SimSettings* sim_settings;
-
-    BerserkingBuff* berserking_buff;
-    BloodFuryBuff* blood_fury_buff;
 
     QVector<QString> available_races;
     double ability_crit_dmg_mod;
