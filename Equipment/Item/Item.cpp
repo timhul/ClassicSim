@@ -182,7 +182,6 @@ void Item::set_uses(Character *pchar) {
             int value = use["value"].toInt();
             int cooldown = use["cooldown"].toInt();
 
-            QString icon = QString("Assets/items/%1").arg(info["icon"]);
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
             spell = new UseTrinketApplyBuff(pchar, name, icon, cooldown, buff);
         }
@@ -241,7 +240,6 @@ void Item::set_procs(Character* pchar, const int eq_slot) {
                                                         "HOLY_ATTACK"});
         QVector<ProcInfo::Source> proc_sources;
         Proc* proc = nullptr;
-        QString icon_path = QString("Assets/items/%1").arg(info["icon"]);
 
         if (proc_name == "EXTRA_ATTACK") {
             add_default_melee_proc_sources(proc_sources, eq_slot);
@@ -249,7 +247,7 @@ void Item::set_procs(Character* pchar, const int eq_slot) {
             if (instant == "yes") {
                 proc = new ExtraAttackInstantProc(pchar,
                                                   get_name(),
-                                                  icon_path,
+                                                  icon,
                                                   proc_sources,
                                                   proc_rate,
                                                   amount);
@@ -257,7 +255,7 @@ void Item::set_procs(Character* pchar, const int eq_slot) {
             else {
                 proc = new ExtraAttackOnNextSwingProc(pchar,
                                                       get_name(),
-                                                      icon_path,
+                                                      icon,
                                                       proc_sources,
                                                       proc_rate,
                                                       amount);
@@ -272,7 +270,7 @@ void Item::set_procs(Character* pchar, const int eq_slot) {
 
             proc = new ArmorPenetrationProc(pchar,
                                             get_weapon_side_name(eq_slot),
-                                            icon_path, proc_sources, proc_rate, reduction, max_stacks, duration);
+                                            icon, proc_sources, proc_rate, reduction, max_stacks, duration);
         }
 
         else if (direct_spell_damage_procs.contains(proc_name)) {
@@ -283,7 +281,7 @@ void Item::set_procs(Character* pchar, const int eq_slot) {
 
             proc = new InstantSpellProc(pchar,
                                         get_weapon_side_name(eq_slot),
-                                        icon_path,
+                                        icon,
                                         proc_sources,
                                         proc_rate,
                                         get_magic_school(proc_name),
