@@ -13,7 +13,7 @@
 #include "GenericStatBuff.h"
 #include "GenericChargeConsumerProc.h"
 #include "JomGabbar.h"
-#include "UseTrinketApplyBuff.h"
+#include "UseTrinket.h"
 #include <QDebug>
 #include <utility>
 
@@ -183,11 +183,11 @@ void Item::set_uses(Character *pchar) {
             int cooldown = use["cooldown"].toInt();
 
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
-            spell = new UseTrinketApplyBuff(pchar, name, icon, cooldown, buff);
+            spell = new UseTrinket(pchar, name, icon, cooldown, buff);
         }
         else if (use_name == "JOM_GABBAR") {
             Buff* buff = new JomGabbar(pchar);
-            spell = new UseTrinketApplyBuff(pchar, buff->get_name(), buff->get_icon(), 120, buff, nullptr);
+            spell = new UseTrinket(pchar, buff->get_name(), buff->get_icon(), 120, buff, nullptr);
         }
         else if (use_name == "ZANDALARIAN_HERO_MEDALLION") {
             QVector<ProcInfo::Source> proc_sources;
@@ -199,7 +199,7 @@ void Item::set_uses(Character *pchar) {
             proc_sources.append(ProcInfo::Source::RangedSpell);
             Buff* buff = new FlatWeaponDamageBuff(pchar, name, icon, 20, 20, AffectedWeaponSide::All, 2);
             Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
-            spell = new UseTrinketApplyBuff(pchar, name, icon, 120, buff, proc);
+            spell = new UseTrinket(pchar, name, icon, 120, buff, proc);
         }
 
         if (spell != nullptr)

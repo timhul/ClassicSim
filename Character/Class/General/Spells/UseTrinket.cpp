@@ -1,16 +1,16 @@
 
-#include "UseTrinketApplyBuff.h"
+#include "UseTrinket.h"
 #include "Character.h"
 #include "Spells.h"
 #include "Buff.h"
 #include "Proc.h"
 
-UseTrinketApplyBuff::UseTrinketApplyBuff(Character* pchar,
-                                         const QString &name,
-                                         const QString &icon,
-                                         const int cooldown,
-                                         Buff* buff,
-                                         Proc *proc) :
+UseTrinket::UseTrinket(Character* pchar,
+                       const QString &name,
+                       const QString &icon,
+                       const int cooldown,
+                       Buff* buff,
+                       Proc *proc) :
     Spell(name, icon, pchar, false, cooldown, 0),
     buff(buff),
     proc(proc)
@@ -24,7 +24,7 @@ UseTrinketApplyBuff::UseTrinketApplyBuff(Character* pchar,
         proc->enable_proc();
 }
 
-UseTrinketApplyBuff::~UseTrinketApplyBuff() {
+UseTrinket::~UseTrinket() {
     if (buff != nullptr)
         buff->disable_buff();
 
@@ -37,7 +37,7 @@ UseTrinketApplyBuff::~UseTrinketApplyBuff() {
     delete proc;
 }
 
-void UseTrinketApplyBuff::spell_effect() {
+void UseTrinket::spell_effect() {
     if (buff != nullptr)
         buff->apply_buff();
 }
