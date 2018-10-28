@@ -30,7 +30,10 @@
 
 Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, QObject* parent) :
     QObject(parent),
-    sim_settings(sim_settings)
+    sim_settings(sim_settings),
+    mh_flat_dmg_bonus(0),
+    oh_flat_dmg_bonus(0),
+    ranged_flat_dmg_bonus(0)
 {
     this->race = race;
     this->engine = new Engine();
@@ -313,6 +316,14 @@ void Character::run_oh_yellow_specific_proc_effects() {
     active_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
 }
 
+void Character::run_ranged_white_specific_proc_effects() {
+    active_procs->run_proc_effects(ProcInfo::Source::RangedAutoShoot);
+}
+
+void Character::run_ranged_yellow_specific_proc_effects() {
+    active_procs->run_proc_effects(ProcInfo::Source::RangedSpell);
+}
+
 void Character::run_extra_mh_attack() {
     spells->get_mh_attack()->extra_attack();
 }
@@ -331,22 +342,22 @@ double Character::get_spell_crit_dmg_mod() const {
 
 double Character::get_random_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    return get_normalized_dmg(mh->get_random_dmg(), mh);
+    return get_normalized_dmg(mh->get_random_dmg() + mh_flat_dmg_bonus, mh);
 }
 
 double Character::get_random_non_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    return get_non_normalized_dmg(mh->get_random_dmg(), mh->get_base_weapon_speed());
+    return get_non_normalized_dmg(mh->get_random_dmg() + mh_flat_dmg_bonus, mh->get_base_weapon_speed());
 }
 
 double Character::get_random_normalized_oh_dmg() {
     Weapon* oh = cstats->get_equipment()->get_offhand();
-    return get_normalized_dmg(oh->get_random_dmg(), oh);
+    return get_normalized_dmg(oh->get_random_dmg() + oh_flat_dmg_bonus, oh);
 }
 
 double Character::get_random_non_normalized_oh_dmg() {
     Weapon* oh = cstats->get_equipment()->get_offhand();
-    return get_non_normalized_dmg(oh->get_random_dmg(), oh->get_base_weapon_speed());
+    return get_non_normalized_dmg(oh->get_random_dmg() + oh_flat_dmg_bonus, oh->get_base_weapon_speed());
 }
 
 unsigned Character::get_avg_mh_damage() {
@@ -354,7 +365,7 @@ unsigned Character::get_avg_mh_damage() {
         return static_cast<unsigned>(round(get_normalized_dmg(1, nullptr)));
 
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    auto avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg()) / 2);
+    auto avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg() + mh_flat_dmg_bonus) / 2);
     return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed())));
 }
 
@@ -475,6 +486,34 @@ void Character::gain_energy(const unsigned) {
 
 void Character::lose_energy(const unsigned) {
 
+}
+
+void Character::increase_mh_flat_damage_bonus(const unsigned change) {
+    this->mh_flat_dmg_bonus += change;
+}
+
+void Character::decrease_mh_flat_damage_bonus(const unsigned change) {
+
+    assert(change <= mh_flat_dmg_bonus);
+    this->mh_flat_dmg_bonus -= change;
+}
+
+void Character::increase_oh_flat_damage_bonus(const unsigned change) {
+    this->oh_flat_dmg_bonus += change;
+}
+
+void Character::decrease_oh_flat_damage_bonus(const unsigned change) {
+    assert(change <= oh_flat_dmg_bonus);
+    this->oh_flat_dmg_bonus -= change;
+}
+
+void Character::increase_ranged_flat_damage_bonus(const unsigned change) {
+    this->ranged_flat_dmg_bonus += change;
+}
+
+void Character::decrease_ranged_flat_damage_bonus(const unsigned change) {
+    assert(change <= ranged_flat_dmg_bonus);
+    this->ranged_flat_dmg_bonus -= change;
 }
 
 void Character::reset() {

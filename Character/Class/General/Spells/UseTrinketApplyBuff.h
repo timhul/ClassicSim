@@ -4,6 +4,7 @@
 #include "Spell.h"
 
 class Buff;
+class Proc;
 
 class UseTrinketApplyBuff: public Spell {
 public:
@@ -11,12 +12,14 @@ public:
                         const QString& name,
                         const QString &icon,
                         const int cooldown,
-                        Buff *buff);
+                        Buff* buff = nullptr,
+                        Proc* proc = nullptr);
     ~UseTrinketApplyBuff() override;
 
 protected:
 private:
     Buff* buff;
+    Proc* proc;
 
     void spell_effect() override;
 };

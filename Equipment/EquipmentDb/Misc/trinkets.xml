@@ -77,6 +77,23 @@
 		</patch>
 	</trinket>
 
+	<trinket name="Zandalarian Hero Medallion">
+		<patch name="1.7.0">
+			<info type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
+			<stats>
+			</stats>
+			<uses>
+				<use name="ZANDALARIAN_HERO_MEDALLION"/>
+			</uses>
+			<source>
+			Quest reward. Requires boss drop from Hakkar in Zul'Gurub.
+			</source>
+			<special_equip_effect>
+			Use: Increases your melee and ranged damage by 40 for 20 sec. Every time you hit a target, this bonus is reduced by 2. (cooldown 2 min)
+			</special_equip_effect>
+		</patch>
+	</trinket>
+
 	<trinket name="Earthstrike">
 		<patch name="1.9.0">
 			<info type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Spell_nature_abolishmagic.png"/>

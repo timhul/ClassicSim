@@ -73,6 +73,7 @@ protected:
 
     virtual void buff_effect_when_refreshed();
     virtual void reset_effect();
+    virtual void charge_change_effect();
 };
 
 #endif // BUFF_H

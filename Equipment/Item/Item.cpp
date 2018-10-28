@@ -9,7 +9,9 @@
 #include "ArmorPenetrationProc.h"
 #include "InstantSpellProc.h"
 #include "FelstrikerProc.h"
+#include "FlatWeaponDamageBuff.h"
 #include "GenericStatBuff.h"
+#include "GenericChargeConsumerProc.h"
 #include "JomGabbar.h"
 #include "UseTrinketApplyBuff.h"
 #include <QDebug>
@@ -31,6 +33,7 @@ Item::Item(QString _name,
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
+    this->icon = QString("Assets/items/%1").arg(info["icon"]);
 }
 
 Item::Item(const Item* item) :
@@ -45,6 +48,7 @@ Item::Item(const Item* item) :
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
+    this->icon = QString("Assets/items/%1").arg(info["icon"]);
 }
 
 Item::~Item() {
@@ -157,6 +161,7 @@ EnchantName::Name Item::get_enchant_enum_value() const {
 void Item::set_uses(Character *pchar) {
     for (auto & use : use_map) {
         QString use_name = use["name"];
+        Spell* spell = nullptr;
 
         if (use_name == "GENERIC_STAT_BUFF") {
             QString type = use["type"];
@@ -179,15 +184,27 @@ void Item::set_uses(Character *pchar) {
 
             QString icon = QString("Assets/items/%1").arg(info["icon"]);
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
-            Spell* use_spell = new UseTrinketApplyBuff(pchar, name, icon, cooldown, buff);
-
-            use_spells.append(use_spell);
+            spell = new UseTrinketApplyBuff(pchar, name, icon, cooldown, buff);
         }
-        if (use_name == "JOM_GABBAR") {
+        else if (use_name == "JOM_GABBAR") {
             Buff* buff = new JomGabbar(pchar);
-            Spell* use_spell = new UseTrinketApplyBuff(pchar, buff->get_name(), buff->get_icon(), 120, buff);
-            use_spells.append(use_spell);
+            spell = new UseTrinketApplyBuff(pchar, buff->get_name(), buff->get_icon(), 120, buff, nullptr);
         }
+        else if (use_name == "ZANDALARIAN_HERO_MEDALLION") {
+            QVector<ProcInfo::Source> proc_sources;
+            proc_sources.append(ProcInfo::Source::MainhandSwing);
+            proc_sources.append(ProcInfo::Source::MainhandSpell);
+            proc_sources.append(ProcInfo::Source::OffhandSwing);
+            proc_sources.append(ProcInfo::Source::OffhandSpell);
+            proc_sources.append(ProcInfo::Source::RangedAutoShoot);
+            proc_sources.append(ProcInfo::Source::RangedSpell);
+            Buff* buff = new FlatWeaponDamageBuff(pchar, name, icon, 20, 20, AffectedWeaponSide::All, 2);
+            Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
+            spell = new UseTrinketApplyBuff(pchar, name, icon, 120, buff, proc);
+        }
+
+        if (spell != nullptr)
+            use_spells.append(spell);
     }
 
     for (auto & use: use_spells)

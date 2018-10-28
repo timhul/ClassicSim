@@ -111,6 +111,9 @@ public:
     void run_mh_yellow_specific_proc_effects();
     void run_oh_white_specific_proc_effects();
     void run_oh_yellow_specific_proc_effects();
+    void run_ranged_white_specific_proc_effects();
+    void run_ranged_yellow_specific_proc_effects();
+
     void run_extra_mh_attack();
     void run_extra_oh_attack();
 
@@ -128,8 +131,6 @@ public:
     int get_wpn_skill(Weapon*) const;
 
     unsigned get_avg_mh_damage();
-    double get_normalized_dmg(const unsigned, const Weapon*);
-    double get_non_normalized_dmg(const unsigned, const double);
 
     void increase_attack_speed(int);
     void decrease_attack_speed(int);
@@ -156,6 +157,15 @@ public:
     virtual void lose_rage(const unsigned);
     virtual void gain_energy(const unsigned);
     virtual void lose_energy(const unsigned);
+
+    void increase_mh_flat_damage_bonus(const unsigned);
+    void decrease_mh_flat_damage_bonus(const unsigned);
+
+    void increase_oh_flat_damage_bonus(const unsigned);
+    void decrease_oh_flat_damage_bonus(const unsigned);
+
+    void increase_ranged_flat_damage_bonus(const unsigned);
+    void decrease_ranged_flat_damage_bonus(const unsigned);
 
     void dump();
 
@@ -185,11 +195,17 @@ protected:
     bool melee_attacking;
     double next_gcd;
     Ruleset ruleset;
+    unsigned mh_flat_dmg_bonus;
+    unsigned oh_flat_dmg_bonus;
+    unsigned ranged_flat_dmg_bonus;
 
     virtual void initialize_talents() = 0;
 
     void apply_racial_effects();
     void remove_racial_effects();
+
+    double get_normalized_dmg(const unsigned, const Weapon*);
+    double get_non_normalized_dmg(const unsigned, const double);
 
 private:
 };

@@ -97,6 +97,8 @@ void Buff::use_charge() {
 
     if (--this->current_charges == 0)
         force_remove_buff();
+    else
+        charge_change_effect();
 }
 
 void Buff::cancel_buff() {
@@ -182,5 +184,9 @@ void Buff::buff_effect_when_refreshed() {
 }
 
 void Buff::reset_effect() {
+
+}
+
+void Buff::charge_change_effect() {
 
 }
