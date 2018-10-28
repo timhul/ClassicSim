@@ -15,8 +15,8 @@
 #include "PolearmSpecialization.h"
 #include "MortalStrikeTalent.h"
 
-Arms::Arms(Character *pchar, QObject* parent) :
-    TalentTree("Arms", "Assets/warrior/warrior_arms.jpg", parent)
+Arms::Arms(Character *pchar) :
+    TalentTree("Arms", "Assets/warrior/warrior_arms.jpg")
 {
     QString base_url = "Assets/warrior/arms/";
 

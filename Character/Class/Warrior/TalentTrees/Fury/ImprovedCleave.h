@@ -6,7 +6,6 @@
 class TalentTree;
 
 class ImprovedCleave: public Talent {
-    Q_OBJECT
 public:
     ImprovedCleave(Character *pchar, TalentTree* tree);
     ~ImprovedCleave() override;

@@ -1,7 +1,6 @@
 #ifndef ROTATION_H
 #define ROTATION_H
 
-#include <QObject>
 #include <QMap>
 #include <QVector>
 
@@ -10,10 +9,9 @@ class Character;
 class Buff;
 class Spell;
 
-class Rotation: public QObject {
-    Q_OBJECT
+class Rotation {
 public:
-    Rotation(QString class_name, QObject* parent = nullptr);
+    Rotation(QString class_name);
     virtual ~Rotation();
 
     void perform_rotation() const;

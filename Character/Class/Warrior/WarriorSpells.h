@@ -26,8 +26,6 @@ class MainhandAttackWarrior;
 class OffhandAttackWarrior;
 
 class WarriorSpells: public Spells {
-    Q_OBJECT
-
 public:
     WarriorSpells(Warrior *warr);
     ~WarriorSpells() override;

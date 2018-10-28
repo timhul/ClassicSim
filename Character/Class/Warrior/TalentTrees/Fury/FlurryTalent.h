@@ -7,7 +7,6 @@ class Flurry;
 class TalentTree;
 
 class FlurryTalent: public Talent {
-    Q_OBJECT
 public:
     FlurryTalent(Character *pchar, TalentTree* tree);
     ~FlurryTalent() override;

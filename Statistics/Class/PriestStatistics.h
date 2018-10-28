@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class PriestStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    PriestStatistics(SimSettings* settings, QObject* parent = nullptr);
+    PriestStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

@@ -1,8 +1,8 @@
 
 #include "PriestStatistics.h"
 
-PriestStatistics::PriestStatistics(SimSettings *settings, QObject *parent) :
-    ClassStatistics(settings, parent)
+PriestStatistics::PriestStatistics(SimSettings *settings) :
+    ClassStatistics(settings)
 {
 
 }

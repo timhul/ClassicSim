@@ -1,8 +1,8 @@
 
 #include "PaladinStatistics.h"
 
-PaladinStatistics::PaladinStatistics(SimSettings *settings, QObject *parent) :
-    ClassStatistics(settings, parent)
+PaladinStatistics::PaladinStatistics(SimSettings *settings) :
+    ClassStatistics(settings)
 {
 
 }

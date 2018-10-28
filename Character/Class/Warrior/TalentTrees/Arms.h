@@ -4,9 +4,8 @@
 #include "TalentTree.h"
 
 class Arms: public TalentTree {
-    Q_OBJECT
 public:
-    Arms(Character* pchar, QObject* parent = nullptr);
+    Arms(Character* pchar);
     ~Arms() override;
 
 private:

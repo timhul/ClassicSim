@@ -4,9 +4,8 @@
 #include "TalentTree.h"
 
 class Fury: public TalentTree {
-    Q_OBJECT
 public:
-    Fury(Character *pchar, QObject* parent = nullptr);
+    Fury(Character *pchar);
     ~Fury() override;
 
 private:

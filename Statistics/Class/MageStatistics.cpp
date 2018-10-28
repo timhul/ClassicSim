@@ -1,8 +1,8 @@
 
 #include "MageStatistics.h"
 
-MageStatistics::MageStatistics(SimSettings *settings, QObject *parent) :
-    ClassStatistics(settings, parent)
+MageStatistics::MageStatistics(SimSettings *settings) :
+    ClassStatistics(settings)
 {
 
 }

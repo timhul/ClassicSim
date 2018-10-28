@@ -7,8 +7,7 @@
 #include "ExternalBuff.h"
 #include "SharedBuff.h"
 
-ActiveBuffs::ActiveBuffs(Character* pchar, Faction* faction, QObject* parent) :
-    QObject(parent),
+ActiveBuffs::ActiveBuffs(Character* pchar, Faction* faction) :
     pchar(pchar),
     faction(faction),
     next_instance_id(BuffStatus::INITIAL_ID),

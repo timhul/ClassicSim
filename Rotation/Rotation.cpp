@@ -12,8 +12,7 @@
 
 #include <QDebug>
 
-Rotation::Rotation(QString class_name, QObject* parent) :
-    QObject(parent),
+Rotation::Rotation(QString class_name) :
     class_name(class_name)
 {}
 

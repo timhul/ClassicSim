@@ -7,7 +7,6 @@ class BattleShoutBuff;
 class TalentTree;
 
 class BoomingVoice: public Talent {
-    Q_OBJECT
 public:
     BoomingVoice(Character *pchar, TalentTree* tree);
     ~BoomingVoice() override;

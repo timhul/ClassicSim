@@ -7,7 +7,6 @@ class DeepWounds;
 class TalentTree;
 
 class DeepWoundsTalent: public Talent {
-    Q_OBJECT
 public:
     DeepWoundsTalent(Character *pchar, TalentTree* tree);
     ~DeepWoundsTalent() override;

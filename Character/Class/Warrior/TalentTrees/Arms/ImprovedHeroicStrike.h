@@ -7,7 +7,6 @@ class HeroicStrike;
 class TalentTree;
 
 class ImprovedHeroicStrike: public Talent {
-    Q_OBJECT
 public:
     ImprovedHeroicStrike(Character *pchar, TalentTree* tree);
     ~ImprovedHeroicStrike() override;

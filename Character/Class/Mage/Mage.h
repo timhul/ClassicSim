@@ -7,9 +7,8 @@ class MageSpells;
 
 
 class Mage: public Character {
-    Q_OBJECT
 public:
-    Mage(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings, QObject *parent = nullptr);
+    Mage(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings);
     virtual ~Mage() override;
 
     QString get_name() const override;

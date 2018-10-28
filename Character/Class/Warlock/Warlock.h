@@ -7,9 +7,8 @@ class WarlockSpells;
 
 
 class Warlock: public Character {
-    Q_OBJECT
 public:
-    Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, QObject *parent = nullptr);
+    Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
     virtual ~Warlock() override;
 
     QString get_name() const override;

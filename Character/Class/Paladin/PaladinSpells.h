@@ -6,8 +6,6 @@
 class Paladin;
 
 class PaladinSpells: public Spells {
-    Q_OBJECT
-
 public:
     PaladinSpells(Paladin *paladin);
     virtual ~PaladinSpells() override;

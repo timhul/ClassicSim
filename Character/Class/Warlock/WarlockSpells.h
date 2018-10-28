@@ -6,8 +6,6 @@
 class Warlock;
 
 class WarlockSpells: public Spells {
-    Q_OBJECT
-
 public:
     WarlockSpells(Warlock *warlock);
     virtual ~WarlockSpells() override;

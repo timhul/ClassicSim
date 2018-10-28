@@ -6,7 +6,6 @@
 class TalentTree;
 
 class ImprovedDemoralizingShout: public Talent {
-    Q_OBJECT
 public:
     ImprovedDemoralizingShout(Character *pchar, TalentTree* tree);
     ~ImprovedDemoralizingShout() override;

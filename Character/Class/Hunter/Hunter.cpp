@@ -4,8 +4,8 @@
 #include "HunterStatistics.h"
 #include "Weapon.h"
 
-Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent) :
-    Character(race, equipment_db, sim_settings, parent) {
+Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
+    Character(race, equipment_db, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
     available_races.append("Orc");

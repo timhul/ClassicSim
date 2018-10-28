@@ -1,7 +1,6 @@
 #ifndef ACTIVEPROCS_H
 #define ACTIVEPROCS_H
 
-#include <QObject>
 #include <QVector>
 
 #include "ProcInfo.h"
@@ -18,11 +17,9 @@ namespace ProcStatus {
     static const int INITIAL_ID = 0;
 }
 
-class ActiveProcs: public QObject {
-    Q_OBJECT
-
+class ActiveProcs {
 public:
-    ActiveProcs(Character* pchar, Faction* faction, QObject* parent = nullptr);
+    ActiveProcs(Character* pchar, Faction* faction);
     ~ActiveProcs();
 
     void run_proc_effects(ProcInfo::Source);

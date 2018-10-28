@@ -1,7 +1,6 @@
 #ifndef SPELLS_H
 #define SPELLS_H
 
-#include <QObject>
 #include <QVector>
 
 class Berserking;
@@ -13,11 +12,9 @@ class OffhandAttack;
 
 static const bool NO_RELINK = false;
 
-class Spells: public QObject {
-    Q_OBJECT
-
+class Spells {
 public:
-    Spells(Character* pchar, QObject* parent = nullptr);
+    Spells(Character* pchar);
     virtual ~Spells();
 
     void activate_racials();

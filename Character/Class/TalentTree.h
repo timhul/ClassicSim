@@ -1,7 +1,6 @@
 #ifndef TALENTTREE_H
 #define TALENTTREE_H
 
-#include <QObject>
 #include <QString>
 #include <QMap>
 #include <QVector>
@@ -51,10 +50,9 @@ public:
 };
 
 
-class TalentTree: public QObject {
-    Q_OBJECT
+class TalentTree {
 public:
-    TalentTree(QString name_, QString background_, QObject* parent = nullptr);
+    TalentTree(QString name_, QString background_);
     virtual ~TalentTree() = 0;
 
     QString get_name() const;

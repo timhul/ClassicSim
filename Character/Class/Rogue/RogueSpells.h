@@ -6,8 +6,6 @@
 class Rogue;
 
 class RogueSpells: public Spells {
-    Q_OBJECT
-
 public:
     RogueSpells(Rogue *rogue);
     virtual ~RogueSpells() override;

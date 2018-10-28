@@ -12,8 +12,7 @@
 #include "Spells.h"
 #include "Target.h"
 
-Spells::Spells(Character* pchar, QObject* parent) :
-    QObject(parent),
+Spells::Spells(Character* pchar) :
     pchar(pchar),
     next_instance_id(SpellStatus::INITIAL_ID)
 {

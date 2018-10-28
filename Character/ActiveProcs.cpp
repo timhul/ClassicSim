@@ -5,8 +5,7 @@
 #include "Character.h"
 #include "Faction.h"
 
-ActiveProcs::ActiveProcs(Character* pchar, Faction* faction, QObject* parent) :
-    QObject(parent),
+ActiveProcs::ActiveProcs(Character* pchar, Faction* faction) :
     pchar(pchar),
     faction(faction),
     general_procs(new GeneralProcs(pchar, faction)),

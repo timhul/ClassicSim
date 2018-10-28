@@ -4,8 +4,8 @@
 #include "WarlockStatistics.h"
 #include "Weapon.h"
 
-Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, QObject *parent) :
-    Character(race, equipment_db, sim_settings, parent) {
+Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
+    Character(race, equipment_db, sim_settings) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Orc");

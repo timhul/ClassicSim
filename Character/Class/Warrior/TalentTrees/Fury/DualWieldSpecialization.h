@@ -7,7 +7,6 @@ class OffhandAttackWarrior;
 class TalentTree;
 
 class DualWieldSpecialization: public Talent {
-    Q_OBJECT
 public:
     DualWieldSpecialization(Character *pchar, TalentTree* tree);
     ~DualWieldSpecialization() override;

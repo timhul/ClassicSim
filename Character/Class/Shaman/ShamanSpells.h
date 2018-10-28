@@ -6,8 +6,6 @@
 class Shaman;
 
 class ShamanSpells: public Spells {
-    Q_OBJECT
-
 public:
     ShamanSpells(Shaman *shaman);
     virtual ~ShamanSpells() override;

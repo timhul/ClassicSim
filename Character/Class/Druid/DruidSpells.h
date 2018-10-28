@@ -6,8 +6,6 @@
 class Druid;
 
 class DruidSpells: public Spells {
-    Q_OBJECT
-
 public:
     DruidSpells(Druid *druid);
     virtual ~DruidSpells() override;

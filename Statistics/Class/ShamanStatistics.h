@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class ShamanStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    ShamanStatistics(SimSettings* settings, QObject* parent = nullptr);
+    ShamanStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

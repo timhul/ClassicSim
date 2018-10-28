@@ -3,8 +3,7 @@
 #include "CharacterEncoding.h"
 #include <QDebug>
 
-CharacterDecoder::CharacterDecoder(QObject* parent):
-    QObject(parent)
+CharacterDecoder::CharacterDecoder()
 {}
 
 void CharacterDecoder::initialize(const QString& setup_string) {

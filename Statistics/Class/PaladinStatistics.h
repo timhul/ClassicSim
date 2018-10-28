@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class PaladinStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    PaladinStatistics(SimSettings* settings, QObject* parent = nullptr);
+    PaladinStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

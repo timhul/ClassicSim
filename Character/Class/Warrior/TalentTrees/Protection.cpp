@@ -4,8 +4,8 @@
 #include "GenericTalent.h"
 #include <QDebug>
 
-Protection::Protection(Character *pchar, QObject* parent) :
-    TalentTree("Protection", "Assets/warrior/warrior_protection.jpg", parent)
+Protection::Protection(Character *pchar) :
+    TalentTree("Protection", "Assets/warrior/warrior_protection.jpg")
 {
     QString base_url = "Assets/warrior/protection/";
 

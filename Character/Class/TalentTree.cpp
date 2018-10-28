@@ -8,8 +8,7 @@ TalentStorage::~TalentStorage() {
     delete talent;
 }
 
-TalentTree::TalentTree(QString name_, QString background_, QObject *parent) :
-    QObject(parent),
+TalentTree::TalentTree(QString name_, QString background_) :
     name(std::move(name_)),
     background(std::move(background_)),
     total_spent_points(0),

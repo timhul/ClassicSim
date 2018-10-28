@@ -11,8 +11,7 @@
 #include "Target.h"
 #include <QDebug>
 
-CharacterEncoder::CharacterEncoder(Character* pchar, QObject* parent):
-    QObject(parent),
+CharacterEncoder::CharacterEncoder(Character* pchar):
     pchar(pchar)
 {}
 

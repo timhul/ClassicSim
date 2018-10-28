@@ -1,8 +1,6 @@
 #ifndef ENCHANTPROC_H
 #define ENCHANTPROC_H
 
-#include <QObject>
-
 #include "Enchant.h"
 #include "EnchantName.h"
 

@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class DruidStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    DruidStatistics(SimSettings* settings, QObject* parent = nullptr);
+    DruidStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

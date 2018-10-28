@@ -6,7 +6,6 @@
 class TalentTree;
 
 class Impale: public Talent {
-    Q_OBJECT
 public:
     Impale(Character *pchar, TalentTree* tree);
     ~Impale() override;

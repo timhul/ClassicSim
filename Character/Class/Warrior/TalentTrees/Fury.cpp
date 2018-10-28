@@ -16,8 +16,8 @@
 #include "FlurryTalent.h"
 #include "BloodthirstTalent.h"
 
-Fury::Fury(Character *pchar, QObject* parent) :
-    TalentTree("Fury", "Assets/warrior/warrior_fury.jpg",  parent)
+Fury::Fury(Character *pchar) :
+    TalentTree("Fury", "Assets/warrior/warrior_fury.jpg")
 {
     QString base_url = "Assets/warrior/fury/";
 

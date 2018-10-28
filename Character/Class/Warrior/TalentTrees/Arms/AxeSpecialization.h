@@ -6,7 +6,6 @@
 class TalentTree;
 
 class AxeSpecialization: public Talent {
-    Q_OBJECT
 public:
     AxeSpecialization(Character *pchar, TalentTree* tree);
     ~AxeSpecialization() override;

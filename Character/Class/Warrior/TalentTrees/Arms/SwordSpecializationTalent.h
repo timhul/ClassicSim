@@ -7,7 +7,6 @@ class SwordSpecialization;
 class TalentTree;
 
 class SwordSpecializationTalent: public Talent {
-    Q_OBJECT
 public:
     SwordSpecializationTalent(Character *pchar, TalentTree* tree);
     ~SwordSpecializationTalent() override;

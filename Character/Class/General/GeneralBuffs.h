@@ -1,7 +1,6 @@
 #ifndef GENERALBUFFS_H
 #define GENERALBUFFS_H
 
-#include <QObject>
 #include <QVector>
 
 class Character;
@@ -12,11 +11,9 @@ class Faction;
 
 class SunderArmorBuff;
 
-class GeneralBuffs: public QObject {
-    Q_OBJECT
-
+class GeneralBuffs {
 public:
-    GeneralBuffs(Character* pchar, Faction* faction, QObject* parent = nullptr);
+    GeneralBuffs(Character* pchar, Faction* faction);
     ~GeneralBuffs();
 
     void switch_faction();

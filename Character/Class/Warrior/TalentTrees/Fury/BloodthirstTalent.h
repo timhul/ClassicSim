@@ -7,7 +7,6 @@ class Bloodthirst;
 class TalentTree;
 
 class BloodthirstTalent: public Talent {
-    Q_OBJECT
 public:
     BloodthirstTalent(Character *pchar, TalentTree* tree);
     ~BloodthirstTalent() override;

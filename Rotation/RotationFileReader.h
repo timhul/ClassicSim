@@ -1,7 +1,6 @@
 #ifndef ROTATIONFILEREADER_H
 #define ROTATIONFILEREADER_H
 
-#include <QObject>
 #include <QFile>
 #include <QXmlStreamReader>
 #include <QMap>
@@ -12,11 +11,10 @@ class Rotation;
 class RotationExecutor;
 class Sentence;
 
-class RotationFileReader: public QObject {
-    Q_OBJECT
+class RotationFileReader {
 public:
-    RotationFileReader(QObject* parent = nullptr):
-        QObject(parent) {}
+    RotationFileReader()
+    {}
 
     void add_rotations(QVector<Rotation*>&);
 

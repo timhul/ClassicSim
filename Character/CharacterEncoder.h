@@ -1,17 +1,14 @@
 #ifndef CHARACTERENCODER_H
 #define CHARACTERENCODER_H
 
-#include <QObject>
 #include <QVector>
 
 class Character;
 class Item;
 
-class CharacterEncoder: public QObject {
-    Q_OBJECT
-
+class CharacterEncoder {
 public:
-    CharacterEncoder(Character* pchar, QObject* parent = nullptr);
+    CharacterEncoder(Character* pchar);
 
     QString get_current_setup_string();
 

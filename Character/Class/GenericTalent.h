@@ -7,7 +7,6 @@
 class TalentTree;
 
 class GenericTalent: public Talent {
-    Q_OBJECT
 public:
     GenericTalent(Character *pchar,
                   TalentTree *tree,

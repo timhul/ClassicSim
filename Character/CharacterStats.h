@@ -1,7 +1,6 @@
 #ifndef CHARACTERSTATS_H
 #define CHARACTERSTATS_H
 
-#include <QObject>
 #include <QVector>
 #include <QHash>
 
@@ -15,11 +14,9 @@ class EquipmentDb;
 class Stats;
 class Weapon;
 
-class CharacterStats: public QObject {
-    Q_OBJECT
-
+class CharacterStats {
 public:
-    CharacterStats(Character*, EquipmentDb* equipment_db, QObject* parent = nullptr);
+    CharacterStats(Character*, EquipmentDb* equipment_db);
     virtual ~CharacterStats();
 
     Equipment* get_equipment(void) const;

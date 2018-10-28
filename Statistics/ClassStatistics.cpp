@@ -6,8 +6,7 @@
 #include "StatisticsProc.h"
 #include <QDebug>
 
-ClassStatistics::ClassStatistics(SimSettings* sim_settings, QObject *parent) :
-    QObject(parent),
+ClassStatistics::ClassStatistics(SimSettings* sim_settings) :
     sim_settings(sim_settings),
     option(SimOption::NoScale),
     combat_iterations(0),

@@ -7,7 +7,6 @@ class Slam;
 class TalentTree;
 
 class ImprovedSlam: public Talent {
-    Q_OBJECT
 public:
     ImprovedSlam(Character *pchar, TalentTree* tree);
     ~ImprovedSlam() override;

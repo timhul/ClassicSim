@@ -4,8 +4,8 @@
 #include "PriestStatistics.h"
 #include "Weapon.h"
 
-Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, QObject *parent) :
-    Character(race, equipment_db, sim_settings, parent) {
+Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
+    Character(race, equipment_db, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");

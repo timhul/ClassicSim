@@ -1,8 +1,7 @@
 
 #include "Stats.h"
 
-Stats::Stats(QObject* parent ) :
-    QObject(parent)
+Stats::Stats()
 {
     this->STR = 0;
     this->AGI = 0;

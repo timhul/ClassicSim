@@ -8,8 +8,7 @@
 #include "Target.h"
 #include "Weapon.h"
 
-CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db, QObject* parent) :
-    QObject(parent),
+CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     pchar(pchar),
     equipment(new Equipment(equipment_db, pchar))
 {

@@ -1,15 +1,13 @@
 #ifndef TALENTS_H
 #define TALENTS_H
 
-#include <QObject>
 #include <QVector>
 
 #include "TalentTree.h"
 
-class Talents: public QObject {
-    Q_OBJECT
+class Talents {
 public:
-    Talents(QObject* parent = nullptr);
+    Talents();
 
     ~Talents();
 

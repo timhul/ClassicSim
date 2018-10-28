@@ -1,14 +1,11 @@
 #ifndef STATS_H
 #define STATS_H
 
-#include <QObject>
 #include "Target.h"
 
-class Stats: public QObject {
-    Q_OBJECT
-
+class Stats {
 public:
-    Stats(QObject* parent = nullptr);
+    Stats();
     ~Stats();
 
     void add(const Stats*);

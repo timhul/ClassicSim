@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class WarlockStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    WarlockStatistics(SimSettings* settings, QObject* parent = nullptr);
+    WarlockStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

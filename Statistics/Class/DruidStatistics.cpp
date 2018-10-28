@@ -1,8 +1,8 @@
 
 #include "DruidStatistics.h"
 
-DruidStatistics::DruidStatistics(SimSettings *settings, QObject *parent) :
-    ClassStatistics(settings, parent)
+DruidStatistics::DruidStatistics(SimSettings *settings) :
+    ClassStatistics(settings)
 {
 
 }

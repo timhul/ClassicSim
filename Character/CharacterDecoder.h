@@ -1,7 +1,6 @@
 #ifndef CHARACTERDECODER_H
 #define CHARACTERDECODER_H
 
-#include <QObject>
 #include <QVector>
 #include <QMap>
 
@@ -9,11 +8,9 @@ class Character;
 class Item;
 class Rotation;
 
-class CharacterDecoder: public QObject {
-    Q_OBJECT
-
+class CharacterDecoder {
 public:
-    CharacterDecoder(QObject* parent = nullptr);
+    CharacterDecoder();
 
     void initialize(const QString &setup_string);
 

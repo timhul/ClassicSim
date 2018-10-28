@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class RogueStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    RogueStatistics(SimSettings* settings, QObject* parent = nullptr);
+    RogueStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

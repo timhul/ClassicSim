@@ -1,7 +1,6 @@
 #ifndef ACTIVEBUFFS_H
 #define ACTIVEBUFFS_H
 
-#include <QObject>
 #include <QVector>
 
 class Buff;
@@ -10,11 +9,9 @@ class Character;
 class Faction;
 class GeneralBuffs;
 
-class ActiveBuffs: public QObject {
-    Q_OBJECT
-
+class ActiveBuffs {
 public:
-    ActiveBuffs(Character* pchar, Faction* faction, QObject* parent = nullptr);
+    ActiveBuffs(Character* pchar, Faction* faction);
     ~ActiveBuffs();
 
     void add_buff(Buff* buff);

@@ -7,7 +7,6 @@ class BerserkerRage;
 class TalentTree;
 
 class ImprovedBerserkerRage: public Talent {
-    Q_OBJECT
 public:
     ImprovedBerserkerRage(Character *pchar, TalentTree* tree);
     ~ImprovedBerserkerRage() override;

@@ -1,7 +1,6 @@
 #ifndef CLASSSTATISTICS_H
 #define CLASSSTATISTICS_H
 
-#include <QObject>
 #include <QVariantList>
 #include <QMap>
 
@@ -13,12 +12,10 @@ class StatisticsBuff;
 class StatisticsResource;
 class StatisticsProc;
 
-class ClassStatistics : public QObject {
-    Q_OBJECT
-
+class ClassStatistics {
 public:
-    ClassStatistics(SimSettings* settings, QObject* parent = nullptr);
-    ~ClassStatistics();
+    ClassStatistics(SimSettings* settings);
+    virtual ~ClassStatistics();
 
     Q_INVOKABLE virtual int getNumStatisticsRows() const = 0;
     Q_INVOKABLE virtual QVariantList getTableInfo(const int index) const = 0;

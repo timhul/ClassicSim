@@ -1,7 +1,6 @@
 #ifndef TALENT_H
 #define TALENT_H
 
-#include <QObject>
 #include <QString>
 #include <QMap>
 #include <assert.h>
@@ -9,8 +8,7 @@
 class Character;
 class TalentTree;
 
-class Talent: public QObject {
-    Q_OBJECT
+class Talent {
 public:
     Talent(Character* pchar_, TalentTree *tree_, QString  name_, QString  position_, QString icon_, const int max_points_);
     virtual ~Talent();

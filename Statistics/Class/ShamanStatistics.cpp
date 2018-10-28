@@ -1,8 +1,8 @@
 
 #include "ShamanStatistics.h"
 
-ShamanStatistics::ShamanStatistics(SimSettings *settings, QObject *parent) :
-    ClassStatistics(settings, parent)
+ShamanStatistics::ShamanStatistics(SimSettings *settings) :
+    ClassStatistics(settings)
 {
 
 }

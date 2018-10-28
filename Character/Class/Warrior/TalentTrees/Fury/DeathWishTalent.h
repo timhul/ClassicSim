@@ -8,7 +8,6 @@ class DeathWishBuff;
 class TalentTree;
 
 class DeathWishTalent: public Talent {
-    Q_OBJECT
 public:
     DeathWishTalent(Character *pchar, TalentTree* tree);
     ~DeathWishTalent() override;

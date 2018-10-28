@@ -6,7 +6,6 @@
 class TalentTree;
 
 class SweepingStrikes: public Talent {
-    Q_OBJECT
 public:
     SweepingStrikes(Character *pchar, TalentTree* tree);
     ~SweepingStrikes() override;

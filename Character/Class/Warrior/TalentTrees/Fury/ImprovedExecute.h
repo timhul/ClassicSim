@@ -7,7 +7,6 @@ class Execute;
 class TalentTree;
 
 class ImprovedExecute: public Talent {
-    Q_OBJECT
 public:
     ImprovedExecute(Character *pchar, TalentTree* tree);
     ~ImprovedExecute() override;

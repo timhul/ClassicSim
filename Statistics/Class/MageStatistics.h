@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class MageStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    MageStatistics(SimSettings* settings, QObject* parent = nullptr);
+    MageStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

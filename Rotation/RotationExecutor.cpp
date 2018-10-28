@@ -6,8 +6,7 @@
 #include <QDebug>
 #include <utility>
 
-RotationExecutor::RotationExecutor(QString name, QObject* parent) :
-    QObject(parent),
+RotationExecutor::RotationExecutor(QString name) :
     spell_name(std::move(name)),
     spell(nullptr)
 {}

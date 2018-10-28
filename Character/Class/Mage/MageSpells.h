@@ -6,8 +6,6 @@
 class Mage;
 
 class MageSpells: public Spells {
-    Q_OBJECT
-
 public:
     MageSpells(Mage *mage);
     virtual ~MageSpells() override;

@@ -7,7 +7,6 @@ class TalentTree;
 class UnbridledWrath;
 
 class UnbridledWrathTalent: public Talent {
-    Q_OBJECT
 public:
     UnbridledWrathTalent(Character *pchar, TalentTree* tree);
     ~UnbridledWrathTalent() override;

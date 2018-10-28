@@ -6,8 +6,6 @@
 class Hunter;
 
 class HunterSpells: public Spells {
-    Q_OBJECT
-
 public:
     HunterSpells(Hunter *hunter);
     virtual ~HunterSpells() override;

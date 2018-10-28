@@ -6,7 +6,6 @@
 class TalentTree;
 
 class ImprovedRend: public Talent {
-    Q_OBJECT
 public:
     ImprovedRend(Character *pchar, TalentTree* tree);
     ~ImprovedRend() override;

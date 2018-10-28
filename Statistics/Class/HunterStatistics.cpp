@@ -1,8 +1,8 @@
 
 #include "HunterStatistics.h"
 
-HunterStatistics::HunterStatistics(SimSettings *settings, QObject *parent) :
-    ClassStatistics(settings, parent)
+HunterStatistics::HunterStatistics(SimSettings *settings) :
+    ClassStatistics(settings)
 {
 
 }

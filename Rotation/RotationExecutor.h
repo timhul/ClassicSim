@@ -1,7 +1,6 @@
 #ifndef CASTIF_H
 #define CASTIF_H
 
-#include <QObject>
 #include <QMap>
 #include <QVector>
 
@@ -11,10 +10,9 @@ class Condition;
 class Sentence;
 class Spell;
 
-class RotationExecutor: public QObject {
-    Q_OBJECT
+class RotationExecutor {
 public:
-    RotationExecutor(QString spell_name, QObject* parent = nullptr);
+    RotationExecutor(QString spell_name);
     ~RotationExecutor();
 
     void add_sentence(Sentence* sentence);

@@ -4,10 +4,8 @@
 #include "ClassStatistics.h"
 
 class HunterStatistics: public ClassStatistics {
-    Q_OBJECT
-
 public:
-    HunterStatistics(SimSettings* settings, QObject* parent = nullptr);
+    HunterStatistics(SimSettings* settings);
 
     Q_INVOKABLE int getNumStatisticsRows() const override;
     Q_INVOKABLE QVariantList getTableInfo(const int index) const override;

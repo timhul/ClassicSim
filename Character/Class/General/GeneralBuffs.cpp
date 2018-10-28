@@ -5,8 +5,7 @@
 #include "EssenceOfTheRed.h"
 #include "Faction.h"
 
-GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction, QObject* parent) :
-    QObject(parent),
+GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     pchar(pchar),
     faction(faction),
     current_setup(0)

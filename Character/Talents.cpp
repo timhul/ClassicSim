@@ -3,8 +3,7 @@
 
 #include <QDebug>
 
-Talents::Talents(QObject* parent) :
-    QObject(parent),
+Talents::Talents() :
     current_index(0),
     talent_points_remaining(QVector<int>{51, 51, 51})
 {}

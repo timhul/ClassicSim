@@ -6,7 +6,6 @@
 class TalentTree;
 
 class Cruelty: public Talent {
-    Q_OBJECT
 public:
     Cruelty(Character *pchar, TalentTree* tree);
     ~Cruelty() override;

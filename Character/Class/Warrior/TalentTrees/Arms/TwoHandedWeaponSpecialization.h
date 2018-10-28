@@ -9,7 +9,6 @@
 class TalentTree;
 
 class TwoHandedWeaponSpecialization: public Talent {
-    Q_OBJECT
 public:
     TwoHandedWeaponSpecialization(Character *pchar, TalentTree* tree);
     ~TwoHandedWeaponSpecialization() override;

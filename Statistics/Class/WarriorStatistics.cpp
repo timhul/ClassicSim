@@ -1,8 +1,8 @@
 
 #include "WarriorStatistics.h"
 
-WarriorStatistics::WarriorStatistics(SimSettings *settings, QObject *parent) :
-    ClassStatistics(settings, parent)
+WarriorStatistics::WarriorStatistics(SimSettings *settings) :
+    ClassStatistics(settings)
 {
 
 }

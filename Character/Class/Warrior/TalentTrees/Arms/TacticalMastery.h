@@ -7,7 +7,6 @@ class TalentTree;
 class Warrior;
 
 class TacticalMastery: public Talent {
-    Q_OBJECT
 public:
     TacticalMastery(Character *pchar, TalentTree* tree);
     ~TacticalMastery() override;

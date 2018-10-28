@@ -7,7 +7,6 @@ class Overpower;
 class TalentTree;
 
 class ImprovedOverpower: public Talent {
-    Q_OBJECT
 public:
     ImprovedOverpower(Character *pchar, TalentTree* tree);
     ~ImprovedOverpower() override;

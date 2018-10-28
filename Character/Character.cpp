@@ -23,8 +23,7 @@
 #include "Target.h"
 #include "Weapon.h"
 
-Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, QObject* parent) :
-    QObject(parent),
+Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
     race(race),
     engine(new Engine()),
     target(new Target(63)),
