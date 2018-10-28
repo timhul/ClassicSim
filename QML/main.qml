@@ -64,7 +64,7 @@ Window {
 
     Connections {
         target: character
-        onQuickSimChanged: {
+        onSimResultUpdated: {
             continuousDpsUpdateText.text = value;
             percentualDifference.text = change;
             percentualDifference.color = positive ? brightGreen : brightRed
@@ -328,6 +328,37 @@ Window {
         }
 
         height: 125
+    }
+
+    RectangleBorders {
+        id: fullSimButton
+
+        anchors {
+            right: parent.right
+            rightMargin: 15
+            bottom: parent.bottom
+            bottomMargin: 15
+        }
+
+        height: 50
+        width: 200
+
+        Text {
+            font {
+                family: "Arial"
+                pointSize: 9
+            }
+
+            text: "Run Full Sim"
+
+            anchors.fill: parent
+
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        onRectangleClicked: character.runFullSim()
     }
 
     Text {

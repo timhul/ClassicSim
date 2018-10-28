@@ -60,9 +60,6 @@ GUIControl::GUIControl(QObject* parent) :
     last_quick_sim_result(0.0),
     sim_in_progress(false)
 {
-    QObject::connect(this, SIGNAL(startQuickSim()), this, SLOT(run_quick_sim()));
-    QObject::connect(this, SIGNAL(startFullSim()), this, SLOT(run_full_sim()));
-
     thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
 
@@ -661,7 +658,7 @@ void GUIControl::update_displayed_dps_value(const double new_dps_value) {
 
     QString dps = QString::number(last_quick_sim_result, 'f', 2);
     qDebug() << "Total DPS: " << dps;
-    quickSimChanged(dps, change, delta > 0);
+    simResultUpdated(dps, change, delta > 0);
 }
 
 void GUIControl::calculate_displayed_dps_value() {
@@ -669,8 +666,8 @@ void GUIControl::calculate_displayed_dps_value() {
     update_displayed_dps_value(double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
 }
 
-void GUIControl::run_quick_sim() {
-    if (current_char->get_equipment()->get_mainhand() == nullptr)
+void GUIControl::runQuickSim() {
+    if (sim_in_progress || current_char->get_equipment()->get_mainhand() == nullptr)
         return;
 
     sim_in_progress = true;
@@ -679,18 +676,14 @@ void GUIControl::run_quick_sim() {
     simProgressChanged();
 }
 
-void GUIControl::run_full_sim() {
-    if (current_char->get_equipment()->get_mainhand() == nullptr)
+void GUIControl::runFullSim() {
+    if (sim_in_progress || current_char->get_equipment()->get_mainhand() == nullptr)
         return;
 
     sim_in_progress = true;
     thread_pool->run_sim(character_encoder->get_current_setup_string(), true, sim_settings->get_combat_iterations_full_sim());
 
     simProgressChanged();
-}
-
-void GUIControl::runQuickSim() {
-    startQuickSim();
 }
 
 void GUIControl::compile_thread_results() {

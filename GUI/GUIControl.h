@@ -191,7 +191,6 @@ public:
     Q_INVOKABLE void setCreatureType(const QString& creature_type);
     /* End of Target */
 
-    Q_INVOKABLE void runQuickSim();
     Q_INVOKABLE void setPatch(const QString& patch);
 
     /* Rotation */
@@ -221,6 +220,9 @@ public:
      Q_INVOKABLE void selectRuleset(const int);
      Q_PROPERTY(QString simProgressString READ get_sim_progress_string NOTIFY simProgressChanged)
      Q_SIGNAL void simProgressChanged();
+     Q_INVOKABLE void runQuickSim();
+     Q_INVOKABLE void runFullSim();
+     Q_SIGNAL void simResultUpdated(QString value, QString change, bool positive);
      /* End of SimSettings */
 
      Q_SLOT void compile_thread_results();
@@ -233,9 +235,6 @@ Q_SIGNALS:
     void statsChanged();
     void equipmentChanged();
     void tooltipChanged();
-    void startQuickSim();
-    void startFullSim();
-    void quickSimChanged(QString value, QString change, bool positive);
     void statisticsCleared();
     void statisticsReady();
     void creatureTypeChanged();
@@ -274,9 +273,6 @@ private:
     int get_attack_power() const;
     int get_mainhand_wpn_skill() const;
     int get_offhand_wpn_skill() const;
-
-    Q_SLOT void run_quick_sim();
-    Q_SLOT void run_full_sim();
 
     QString get_curr_rotation_name() const;
     QString get_curr_rotation_description() const;
