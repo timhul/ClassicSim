@@ -85,10 +85,6 @@ public:
     void melee_oh_white_critical_effect() override;
     void melee_oh_yellow_critical_effect() override;
 
-    void reset_resource() override;
-    void reset_spells() override;
-
-protected:
 private:
     unsigned rage;
     int stance;
@@ -110,6 +106,9 @@ private:
 
     void initialize_talents() override;
     void new_stance_effect();
+
+    void reset_resource() override;
+    void reset_spells() override;
 };
 
 #endif // WARRIOR_H

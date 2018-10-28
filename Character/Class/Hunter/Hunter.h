@@ -28,14 +28,13 @@ public:
     int get_highest_possible_armor_type() const override;
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
-    void reset_resource() override;
-    void reset_spells() override;
-
-protected:
 private:
+    HunterSpells* hunter_spells;
+
     void initialize_talents() override;
 
-    HunterSpells* hunter_spells;
+    void reset_resource() override;
+    void reset_spells() override;
 };
 
 #endif // HUNTER_H
