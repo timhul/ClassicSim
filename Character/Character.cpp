@@ -1,57 +1,55 @@
+#include <QDebug>
 
+#include "ActiveBuffs.h"
+#include "ActiveProcs.h"
+#include "Berserking.h"
+#include "BloodFury.h"
 #include "Character.h"
-#include "Race.h"
+#include "CharacterStats.h"
+#include "ClassStatistics.h"
+#include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "Faction.h"
-#include "Talents.h"
-#include "Target.h"
-#include "CharacterStats.h"
-#include "ClassStatistics.h"
-#include "Stats.h"
-#include "ActiveProcs.h"
-#include "ProcInfo.h"
-#include "ActiveBuffs.h"
-#include "Spells.h"
-#include "CombatRoll.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
-#include "Weapon.h"
-#include "Rotation.h"
 #include "PlayerAction.h"
-#include "SimSettings.h"
+#include "ProcInfo.h"
+#include "Race.h"
+#include "Rotation.h"
 #include "RulesetControl.h"
-#include <QDebug>
-
-#include "Berserking.h"
-#include "BerserkingBuff.h"
-#include "BloodFury.h"
-#include "BloodFuryBuff.h"
+#include "SimSettings.h"
+#include "Spells.h"
+#include "Stats.h"
+#include "Talents.h"
+#include "Target.h"
+#include "Weapon.h"
 
 Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, QObject* parent) :
     QObject(parent),
+    race(race),
+    engine(new Engine()),
+    target(new Target(63)),
+    faction(new Faction()),
+    talents(new Talents()),
+    statistics(nullptr),
+    current_rotation(nullptr),
     sim_settings(sim_settings),
+    ability_crit_dmg_mod(2.0),
+    spell_crit_dmg_mod(1.5),
+    clvl(1),
+    melee_attacking(false),
+    next_trinket_cd(-1),
+    ruleset(Ruleset::Standard),
     mh_flat_dmg_bonus(0),
     oh_flat_dmg_bonus(0),
     ranged_flat_dmg_bonus(0)
 {
-    this->race = race;
-    this->engine = new Engine();
-    this->target = new Target(63);
     this->roll = new CombatRoll(this);
-    this->faction = new Faction();
-    this->talents = new Talents();
     this->cstats = new CharacterStats(this, equipment_db);
     this->active_procs = new ActiveProcs(this, faction);
     this->active_buffs = new ActiveBuffs(this, faction);
-    this->statistics = nullptr;
-    this->clvl = 1;
-    this->melee_attacking = false;
     this->next_gcd = 0 - this->global_cooldown();
-    this->ability_crit_dmg_mod = 2.0;
-    this->spell_crit_dmg_mod = 1.5;
-    this->current_rotation = nullptr;
-    this->ruleset = Ruleset::Standard;
 }
 
 Character::~Character() {
@@ -238,6 +236,14 @@ double Character::global_cooldown() const {
 
 bool Character::on_global_cooldown() const {
     return engine->get_current_priority() < this->next_gcd;
+}
+
+void Character::start_trinket_cooldown(const double trinket_duration) {
+    this->next_trinket_cd = engine->get_current_priority() + trinket_duration;
+}
+
+bool Character::on_trinket_cooldown() const {
+    return engine->get_current_priority() < next_trinket_cd;
 }
 
 bool Character::action_ready() const {
@@ -506,6 +512,7 @@ void Character::decrease_ranged_flat_damage_bonus(const unsigned change) {
 void Character::reset() {
     melee_attacking = false;
     next_gcd = 0 - this->global_cooldown();
+    next_trinket_cd = -1;
 
     active_buffs->reset();
     reset_spells();

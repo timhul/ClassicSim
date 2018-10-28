@@ -91,6 +91,8 @@ public:
     void start_global_cooldown();
     virtual double global_cooldown() const;
     virtual bool on_global_cooldown() const;
+    void start_trinket_cooldown(const double);
+    bool on_trinket_cooldown() const;
 
     virtual void melee_mh_white_hit_effect();
     virtual void melee_mh_yellow_hit_effect();
@@ -186,6 +188,7 @@ protected:
     int clvl;
     bool melee_attacking;
     double next_gcd;
+    double next_trinket_cd;
     Ruleset ruleset;
     unsigned mh_flat_dmg_bonus;
     unsigned oh_flat_dmg_bonus;

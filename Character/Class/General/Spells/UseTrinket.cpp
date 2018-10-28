@@ -17,16 +17,14 @@ UseTrinket::UseTrinket(Character* pchar,
 {
     this->enabled = false;
     pchar->get_spells()->add_spell(this);
-    if (buff != nullptr)
-        buff->enable_buff();
+    buff->enable_buff();
 
     if (proc != nullptr)
         proc->enable_proc();
 }
 
 UseTrinket::~UseTrinket() {
-    if (buff != nullptr)
-        buff->disable_buff();
+    buff->disable_buff();
 
     if (proc != nullptr)
         proc->disable_proc();
@@ -38,6 +36,11 @@ UseTrinket::~UseTrinket() {
 }
 
 void UseTrinket::spell_effect() {
-    if (buff != nullptr)
-        buff->apply_buff();
+    buff->apply_buff();
+
+    pchar->start_trinket_cooldown(buff->time_left());
+}
+
+bool UseTrinket::is_ready_spell_specific() const {
+    return !pchar->on_trinket_cooldown();
 }
