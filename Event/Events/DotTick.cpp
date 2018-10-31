@@ -9,5 +9,5 @@ DotTick::DotTick(Spell* spell, double priority) {
 }
 
 void DotTick::act() {
-    spell->perform();
+    spell->perform_periodic();
 }

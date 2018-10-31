@@ -196,5 +196,5 @@ Recklessness* WarriorSpells::get_recklessness() const {
 }
 
 void WarriorSpells::apply_deep_wounds() {
-    deep_wounds->apply_debuff();
+    deep_wounds->perform();
 }

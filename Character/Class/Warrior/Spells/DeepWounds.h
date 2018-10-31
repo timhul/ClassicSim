@@ -11,7 +11,7 @@ class DeepWounds: public Spell, public TalentRequirer {
 public:
     DeepWounds(Character* pchar);
 
-    void apply_debuff();
+    void perform_periodic() override;
 
 protected:
 private:

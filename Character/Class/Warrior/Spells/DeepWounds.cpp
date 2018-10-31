@@ -1,10 +1,10 @@
 
 #include "DeepWounds.h"
-#include "Warrior.h"
 #include "DotTick.h"
+#include "Warrior.h"
 
 DeepWounds::DeepWounds(Character* pchar) :
-    Spell("Deep Wounds", "Assets/warrior/arms/tier3/Ability_backstab.png", pchar, false, 3, 0),
+    Spell("Deep Wounds", "Assets/warrior/arms/tier3/Ability_backstab.png", pchar, false, 0, 0),
     TalentRequirer(3, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {
@@ -15,7 +15,7 @@ DeepWounds::DeepWounds(Character* pchar) :
     wpn_percent = talent_ranks[curr_talent_rank];
 }
 
-void DeepWounds::spell_effect() {
+void DeepWounds::perform_periodic() {
     assert(!stacks.empty());
 
     double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * wpn_percent) / 6);
@@ -42,7 +42,7 @@ void DeepWounds::spell_effect() {
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 
-void DeepWounds::apply_debuff() {
+void DeepWounds::spell_effect() {
     if (!is_enabled())
         return;
 
