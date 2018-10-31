@@ -142,9 +142,9 @@ void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
 
 void WeaponModel::addWeapons(const EquipmentDb* db) {
     if (!melee_weapons.empty()) {
-        beginRemoveRows(QModelIndex(), 0, melee_weapons.size() - 1);
+        beginResetModel();
         melee_weapons.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     QVector<Item*> wpns = db->get_slot_items(slot);

@@ -121,13 +121,13 @@ int MeleeDamageAvoidanceBreakdownModel::get_current_sorting_method() const {
 
 void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
     if (!spell_stats.empty()) {
-        beginRemoveRows(QModelIndex(), 0, spell_stats.size() - 1);
+        beginResetModel();
 
         for (auto & i : spell_stats)
             delete i;
 
         spell_stats.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     beginInsertRows(QModelIndex(), 0, rowCount());

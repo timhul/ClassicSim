@@ -19,9 +19,9 @@ void DebuffModel::set_patch(const QString &patch) {
 
 void DebuffModel::addDebuffs() {
     if (!external_debuffs.empty()) {
-        beginRemoveRows(QModelIndex(), 0, external_debuffs.size() - 1);
+        beginResetModel();
         external_debuffs.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     QVector<ExternalBuff*> debuffs = general_debuffs->get_external_debuffs();

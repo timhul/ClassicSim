@@ -71,13 +71,13 @@ int BuffBreakdownModel::get_current_sorting_method() const {
 
 void BuffBreakdownModel::update_statistics() {
     if (!buff_stats.empty()) {
-        beginRemoveRows(QModelIndex(), 0, buff_stats.size() - 1);
+        beginResetModel();
 
         for (auto & i : buff_stats)
             delete i;
 
         buff_stats.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     beginInsertRows(QModelIndex(), 0, rowCount());

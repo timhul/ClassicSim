@@ -71,13 +71,13 @@ int ResourceBreakdownModel::get_current_sorting_method() const {
 
 void ResourceBreakdownModel::update_statistics() {
     if (!resource_stats.empty()) {
-        beginRemoveRows(QModelIndex(), 0, resource_stats.size() - 1);
+        beginResetModel();
 
         for (auto & i : resource_stats)
             delete i;
 
         resource_stats.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     beginInsertRows(QModelIndex(), 0, rowCount());

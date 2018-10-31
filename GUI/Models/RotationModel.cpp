@@ -33,8 +33,7 @@ void RotationModel::set_character(Character* pchar) {
 
 void RotationModel::addRotations() {
     if (!rotations.empty()) {
-        beginRemoveRows(QModelIndex(), 0, rotations.size() - 1);
-
+        beginResetModel();
         for (auto & vectors : rotations.values()) {
             for (auto & i : vectors) {
                 delete i;
@@ -42,7 +41,7 @@ void RotationModel::addRotations() {
         }
 
         rotations.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     RotationFileReader rotation_file_reader;

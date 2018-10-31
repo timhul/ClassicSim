@@ -110,9 +110,9 @@ void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
 
 void ItemModel::addItems(const EquipmentDb* db) {
     if (!items.empty()) {
-        beginRemoveRows(QModelIndex(), 0, items.size() - 1);
+        beginResetModel();
         items.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);

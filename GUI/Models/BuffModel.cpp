@@ -24,9 +24,9 @@ void BuffModel::switch_faction() {
 
 void BuffModel::addBuffs() {
     if (!external_buffs.empty()) {
-        beginRemoveRows(QModelIndex(), 0, external_buffs.size() - 1);
+        beginResetModel();
         external_buffs.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();

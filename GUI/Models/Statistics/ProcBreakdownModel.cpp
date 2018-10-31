@@ -66,13 +66,13 @@ int ProcBreakdownModel::get_current_sorting_method() const {
 
 void ProcBreakdownModel::update_statistics() {
     if (!proc_stats.empty()) {
-        beginRemoveRows(QModelIndex(), 0, proc_stats.size() - 1);
+        beginResetModel();
 
         for (auto & i : proc_stats)
             delete i;
 
         proc_stats.clear();
-        endRemoveRows();
+        endResetModel();
     }
 
     beginInsertRows(QModelIndex(), 0, rowCount());
