@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 BattleShout::BattleShout(Character* pchar) :
-    Spell("Battle Shout", "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png", pchar, true, 0, 10),
+    Spell("Battle Shout", "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png", pchar, RestrictedByGcd::Yes, 0, 10),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

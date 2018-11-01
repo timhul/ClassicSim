@@ -5,7 +5,7 @@
 #include "CharacterStats.h"
 
 Overpower::Overpower(Character* pchar) :
-    Spell("Overpower", "Assets/warrior/arms/tier3/Inv_sword_05.png", pchar, true, 5.0, 5),
+    Spell("Overpower", "Assets/warrior/arms/tier3/Inv_sword_05.png", pchar, RestrictedByGcd::Yes, 5.0, 5),
     TalentRequirer(2, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {

@@ -13,7 +13,7 @@
 #include "HeroicStrikeBuff.h"
 
 Slam::Slam(Character* pchar) :
-    SpellCastingTime("Slam", "Assets/warrior/fury/tier5/Ability_warrior_decisivestrike.png", pchar, true, 0.0, 15, 1500),
+    SpellCastingTime("Slam", "Assets/warrior/fury/tier5/Ability_warrior_decisivestrike.png", pchar, RestrictedByGcd::Yes, 0.0, 15, 1500),
     TalentRequirer(5, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {

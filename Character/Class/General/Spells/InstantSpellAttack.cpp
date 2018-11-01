@@ -10,7 +10,7 @@ InstantSpellAttack::InstantSpellAttack(Character* pchar,
                                        const MagicSchool school,
                                        const unsigned min,
                                        const unsigned max) :
-    Spell(name, icon, pchar, false, 0, 0),
+    Spell(name, icon, pchar, RestrictedByGcd::No, 0, 0),
     school(school),
     min(min), max(max),
     random(new Random(min, max))
