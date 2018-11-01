@@ -16,6 +16,11 @@ namespace BuffDuration {
     static const int PERMANENT = -1;
 }
 
+namespace Hidden {
+    static const bool Yes = true;
+    static const bool No = false;
+}
+
 static const QString NO_ICON = "no-icon";
 
 class Buff {

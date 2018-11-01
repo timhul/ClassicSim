@@ -3,6 +3,7 @@
 
 #include "Talent.h"
 
+class Rend;
 class TalentTree;
 
 class ImprovedRend: public Talent {
@@ -11,6 +12,8 @@ public:
     ~ImprovedRend() override;
 
 private:
+    Rend* rend;
+
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };

@@ -6,7 +6,10 @@
 class NoEffectBuff: public Buff {
 public:
     NoEffectBuff(Character* pchar,
-                 const int duration);
+                 const int duration,
+                 const QString& name = "NO_NAME",
+                 const QString& icon = NO_ICON,
+                 const bool hidden = Hidden::Yes);
 
     void link_buff_expiration(Buff* buff_to_cancel);
 

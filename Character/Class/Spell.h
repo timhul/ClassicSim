@@ -18,6 +18,11 @@ namespace SpellStatus {
     static const int INITIAL_ID = 0;
 }
 
+namespace RestrictedByGcd {
+    static const bool Yes = true;
+    static const bool No = false;
+}
+
 class Spell {
 public:
     Spell(const QString& name,

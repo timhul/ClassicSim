@@ -19,6 +19,7 @@
 #include "Overpower.h"
 #include "MortalStrike.h"
 #include "Recklessness.h"
+#include "Rend.h"
 #include "Slam.h"
 #include "Whirlwind.h"
 
@@ -49,6 +50,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->overpower = new Overpower(pchar);
     this->mortal_strike = new MortalStrike(pchar);
     this->recklessness = new Recklessness(pchar);
+    this->rend = new Rend(pchar);
     this->slam = new Slam(pchar);
     this->whirlwind = new Whirlwind(pchar);
 
@@ -69,6 +71,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell(overpower, NO_RELINK);
     add_spell(mortal_strike, NO_RELINK);
     add_spell(recklessness, NO_RELINK);
+    add_spell(rend, NO_RELINK);
     add_spell(slam, NO_RELINK);
     add_spell(whirlwind, NO_RELINK);
     add_spell(warr_mh_attack, NO_RELINK);
@@ -189,6 +192,10 @@ Whirlwind* WarriorSpells::get_whirlwind() const {
 
 Slam* WarriorSpells::get_slam() const {
     return this->slam;
+}
+
+Rend* WarriorSpells::get_rend() const {
+    return this->rend;
 }
 
 Recklessness* WarriorSpells::get_recklessness() const {

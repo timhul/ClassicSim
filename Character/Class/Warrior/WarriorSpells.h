@@ -19,6 +19,7 @@ class HeroicStrike;
 class MortalStrike;
 class Overpower;
 class Recklessness;
+class Rend;
 class Slam;
 class Whirlwind;
 
@@ -39,41 +40,43 @@ public:
     OffhandAttack* get_oh_attack() const override;
 
     BattleStance* get_battle_stance() const;
-    BerserkerStance* get_berserker_stance() const;
-    Bloodthirst* get_bloodthirst() const;
-    DeepWounds* get_deep_wounds() const;
-    Hamstring* get_hamstring() const;
-    HeroicStrike* get_heroic_strike() const;
-    Execute* get_execute() const;
-    MortalStrike* get_mortal_strike() const;
-    Overpower* get_overpower() const;
-    OffhandAttackWarrior* get_oh_attack_warrior() const;
-    DeathWish* get_death_wish() const;
     BattleShout* get_battle_shout() const;
+    BerserkerStance* get_berserker_stance() const;
     BerserkerRage* get_berserker_rage() const;
     Bloodrage* get_bloodrage() const;
-    Whirlwind* get_whirlwind() const;
+    Bloodthirst* get_bloodthirst() const;
+    DeathWish* get_death_wish() const;
+    DeepWounds* get_deep_wounds() const;
+    Execute* get_execute() const;
+    Hamstring* get_hamstring() const;
+    HeroicStrike* get_heroic_strike() const;
+    MortalStrike* get_mortal_strike() const;
+    OffhandAttackWarrior* get_oh_attack_warrior() const;
+    Overpower* get_overpower() const;
     Slam* get_slam() const;
+    Rend* get_rend() const;
     Recklessness* get_recklessness() const;
+    Whirlwind* get_whirlwind() const;
 
     void apply_deep_wounds();
 
 private:
     Warrior* warr;
+    BattleShout* battle_shout;
     BattleStance* battle_stance;
+    BerserkerRage* berserker_rage;
     BerserkerStance* berserker_stance;
+    Bloodrage* bloodrage;
     Bloodthirst* bt;
+    DeathWish* death_wish;
     DeepWounds* deep_wounds;
+    Execute* execute;
     Hamstring* hamstring;
     HeroicStrike* heroic_strike;
-    Execute* execute;
     MortalStrike* mortal_strike;
     Overpower* overpower;
-    DeathWish* death_wish;
-    BattleShout* battle_shout;
-    BerserkerRage* berserker_rage;
-    Bloodrage* bloodrage;
     Recklessness* recklessness;
+    Rend* rend;
     Slam* slam;
     Whirlwind* whirlwind;
 

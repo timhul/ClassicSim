@@ -25,6 +25,7 @@
 #include "TestDeathWish.h"
 #include "TestMortalStrike.h"
 #include "TestSlam.h"
+#include "TestRend.h"
 
 #include "TestSwordSpecialization.h"
 #include "TestUnbridledWrath.h"
@@ -52,6 +53,7 @@ void TestWarrior::test_all() {
     TestDeathWish(equipment_db).test_all();
     TestMortalStrike(equipment_db).test_all();
     TestSlam(equipment_db).test_all();
+    TestRend(equipment_db).test_all();
 
     TestUnbridledWrath(equipment_db).test_all();
     TestSwordSpecialization(equipment_db).test_all();
