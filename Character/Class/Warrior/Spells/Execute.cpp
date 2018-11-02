@@ -11,7 +11,7 @@ Execute::Execute(Character* pchar) :
     Spell("Execute", "Assets/warrior/fury/tier4/Inv_sword_48.png", pchar, RestrictedByGcd::Yes, 0, 15),
     TalentRequirer(2, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar)),
-    execute_treshold(0.2)
+    execute_threshold(0.2)
 {
     spell_ranks = {QPair<int, int>(125, 3),
                    QPair<int, int>(200, 6),
@@ -32,7 +32,7 @@ bool Execute::is_ready_spell_specific() const {
 
     int combat_length = warr->get_sim_settings()->get_combat_length();
     double time_remaining = combat_length - warr->get_engine()->get_current_priority();
-    return time_remaining / combat_length < execute_treshold;
+    return time_remaining / combat_length < execute_threshold;
 }
 
 void Execute::spell_effect() {
@@ -81,11 +81,11 @@ void Execute::decrease_talent_rank_effect(const QString&) {
     resource_cost = talent_ranks[curr_talent_rank];
 }
 
-void Execute::set_execute_treshold(const double execute_treshold) {
-    assert(execute_treshold > -0.0001 && execute_treshold < 1.0001),
-    this->execute_treshold = execute_treshold;
+void Execute::set_execute_threshold(const double execute_threshold) {
+    assert(execute_threshold > -0.0001 && execute_threshold < 1.0001),
+    this->execute_threshold = execute_threshold;
 }
 
-void Execute::reset_execute_treshold() {
-    this->execute_treshold = 0.2;
+void Execute::reset_execute_threshold() {
+    this->execute_threshold = 0.2;
 }

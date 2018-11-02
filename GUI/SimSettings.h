@@ -46,7 +46,7 @@ public:
 
     double get_execute_threshold() const;
     void set_execute_threshold(const double);
-    void clear_execute_threshold();
+    void reset_execute_threshold();
 
 private:
     int combat_length;

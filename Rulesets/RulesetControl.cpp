@@ -55,7 +55,7 @@ void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_
 
     auto* warr = dynamic_cast<Warrior*>(pchar);
     if (warr != nullptr)
-        dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->set_execute_treshold(0.67);
+        dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->set_execute_threshold(0.67);
 
     sim_settings->set_execute_threshold(0.67);
 }
@@ -70,7 +70,7 @@ void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* s
 
     auto* warr = dynamic_cast<Warrior*>(pchar);
     if (warr != nullptr)
-        dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->reset_execute_treshold();
+        dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->reset_execute_threshold();
 
-    sim_settings->clear_execute_threshold();
+    sim_settings->reset_execute_threshold();
 }
