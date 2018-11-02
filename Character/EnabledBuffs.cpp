@@ -1,27 +1,26 @@
-
-#include "ActiveBuffs.h"
 #include "Character.h"
 #include "ClassStatistics.h"
+#include "EnabledBuffs.h"
 #include "Faction.h"
 #include "GeneralBuffs.h"
 #include "ExternalBuff.h"
 #include "SharedBuff.h"
 
-ActiveBuffs::ActiveBuffs(Character* pchar, Faction* faction) :
+EnabledBuffs::EnabledBuffs(Character* pchar, Faction* faction) :
     pchar(pchar),
     faction(faction),
     next_instance_id(BuffStatus::INITIAL_ID),
     general_buffs(new GeneralBuffs(pchar, faction))
 {}
 
-ActiveBuffs::~ActiveBuffs()
+EnabledBuffs::~EnabledBuffs()
 {
     delete general_buffs;
 }
 
-void ActiveBuffs::add_buff(Buff* buff) {
+void EnabledBuffs::add_buff(Buff* buff) {
     assert(buff->is_enabled());
-    active_buffs.append(buff);
+    enabled_buffs.append(buff);
 
     if (buff->get_instance_id() == BuffStatus::INACTIVE) {
         buff->set_instance_id(next_instance_id);
@@ -29,16 +28,16 @@ void ActiveBuffs::add_buff(Buff* buff) {
     }
 }
 
-void ActiveBuffs::remove_buff(Buff* buff) {
+void EnabledBuffs::remove_buff(Buff* buff) {
     assert(buff->is_enabled());
-    for (int i = 0; i < active_buffs.size(); ++i) {
-        if (active_buffs.at(i)->get_instance_id() == buff->get_instance_id())
-            return active_buffs.removeAt(i);
+    for (int i = 0; i < enabled_buffs.size(); ++i) {
+        if (enabled_buffs.at(i)->get_instance_id() == buff->get_instance_id())
+            return enabled_buffs.removeAt(i);
     }
 }
 
-Buff* ActiveBuffs::get_buff_by_name(const QString& name) const {
-    for (auto & buff : active_buffs) {
+Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
+    for (auto & buff : enabled_buffs) {
         if (buff->get_name() == name)
             return buff;
     }
@@ -46,8 +45,8 @@ Buff* ActiveBuffs::get_buff_by_name(const QString& name) const {
     return nullptr;
 }
 
-SharedBuff *ActiveBuffs::use_shared_buff(const QString& name) const {
-    for (auto & buff : active_buffs) {
+SharedBuff *EnabledBuffs::use_shared_buff(const QString& name) const {
+    for (auto & buff : enabled_buffs) {
         if (buff->get_name() == name) {
             SharedBuff* uniq_buff = dynamic_cast<SharedBuff*>(buff);
             uniq_buff->increment_reference();
@@ -58,8 +57,8 @@ SharedBuff *ActiveBuffs::use_shared_buff(const QString& name) const {
     return nullptr;
 }
 
-void ActiveBuffs::return_shared_buff(Buff* shared_buff) {
-    for (auto & buff : active_buffs) {
+void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
+    for (auto & buff : enabled_buffs) {
         if (buff->get_name() != shared_buff->get_name())
             continue;
 
@@ -77,15 +76,14 @@ void ActiveBuffs::return_shared_buff(Buff* shared_buff) {
     assert(false);
 }
 
-void ActiveBuffs::reset() {
-    for (auto & active_buff : active_buffs) {
-        active_buff->reset();
-    }
+void EnabledBuffs::reset() {
+    for (auto & buff : enabled_buffs)
+        buff->reset();
 }
 
-void ActiveBuffs::clear_all() {
-    while (!active_buffs.empty()) {
-        Buff* buff = active_buffs.takeFirst();
+void EnabledBuffs::clear_all() {
+    while (!enabled_buffs.empty()) {
+        Buff* buff = enabled_buffs.takeFirst();
         buff->cancel_buff();
         buff->disable_buff();
     }
@@ -93,7 +91,7 @@ void ActiveBuffs::clear_all() {
     general_buffs->clear_all();
 }
 
-void ActiveBuffs::switch_faction() {
+void EnabledBuffs::switch_faction() {
     if (faction->is_alliance()) {
         for (auto & horde_only_buff : horde_only_buffs) {
             remove_buff(horde_only_buff);
@@ -114,11 +112,11 @@ void ActiveBuffs::switch_faction() {
     }
 }
 
-GeneralBuffs* ActiveBuffs::get_general_buffs() {
+GeneralBuffs* EnabledBuffs::get_general_buffs() {
     return this->general_buffs;
 }
 
-QVector<QString> ActiveBuffs::get_active_external_buffs() {
+QVector<QString> EnabledBuffs::get_active_external_buffs() {
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     QVector<QString> active_external_buffs;
 
@@ -130,7 +128,7 @@ QVector<QString> ActiveBuffs::get_active_external_buffs() {
     return active_external_buffs;
 }
 
-void ActiveBuffs::prepare_set_of_combat_iterations() {
-    for (auto & buff : active_buffs)
+void EnabledBuffs::prepare_set_of_combat_iterations() {
+    for (auto & buff : enabled_buffs)
         buff->prepare_set_of_combat_iterations();
 }

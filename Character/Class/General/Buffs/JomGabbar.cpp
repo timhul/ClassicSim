@@ -1,6 +1,6 @@
-#include "ActiveBuffs.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "EnabledBuffs.h"
 #include "Engine.h"
 #include "PeriodicRefreshBuff.h"
 #include "JomGabbar.h"

@@ -1,7 +1,6 @@
-
-#include "ActiveBuffs.h"
 #include "Character.h"
 #include "CharacterStats.h"
+#include "EnabledBuffs.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 #include "Execute.h"
@@ -45,7 +44,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
 }
 
 void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_settings) {
-    Buff* buff = pchar->get_active_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
+    Buff* buff = pchar->get_enabled_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
 
     assert(buff != nullptr);
 
@@ -62,7 +61,7 @@ void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_
 }
 
 void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_settings) {
-    Buff* buff = pchar->get_active_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
+    Buff* buff = pchar->get_enabled_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
 
     assert(buff != nullptr);
 

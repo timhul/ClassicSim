@@ -39,7 +39,7 @@
 #include "EncounterEnd.h"
 
 #include "ClassStatistics.h"
-#include "ActiveBuffs.h"
+#include "EnabledBuffs.h"
 #include "GeneralBuffs.h"
 #include "SimControl.h"
 #include "SimSettings.h"
@@ -224,7 +224,7 @@ void SimulationRunner::apply_external_buffs(CharacterDecoder& decoder) {
     QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("BUFFS");
 
     for (auto & buff : buffs) {
-        pchar->get_active_buffs()->get_general_buffs()->toggle_external_buff(buff.first);
+        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(buff.first);
     }
 }
 

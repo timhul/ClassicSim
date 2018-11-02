@@ -1,9 +1,8 @@
-
-#include "ExtraAttackOnNextSwingBuff.h"
-#include "Character.h"
-#include "ActiveBuffs.h"
 #include "ActiveProcs.h"
+#include "Character.h"
+#include "EnabledBuffs.h"
 #include "ExtraAttackInstantProc.h"
+#include "ExtraAttackOnNextSwingBuff.h"
 
 ExtraAttackOnNextSwingBuff::ExtraAttackOnNextSwingBuff(Character* pchar,
                                                        ExtraAttackInstantProc* extra_attack,

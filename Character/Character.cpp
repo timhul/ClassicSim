@@ -1,11 +1,11 @@
 #include <QDebug>
 
-#include "ActiveBuffs.h"
 #include "ActiveProcs.h"
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "EnabledBuffs.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "Faction.h"
@@ -45,7 +45,7 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
     this->roll = new CombatRoll(this);
     this->cstats = new CharacterStats(this, equipment_db);
     this->active_procs = new ActiveProcs(this, faction);
-    this->active_buffs = new ActiveBuffs(this, faction);
+    this->enabled_buffs = new EnabledBuffs(this, faction);
     this->next_gcd = 0 - this->global_cooldown();
 }
 
@@ -56,7 +56,7 @@ Character::~Character() {
     delete faction;
     delete talents;
     delete active_procs;
-    delete active_buffs;
+    delete enabled_buffs;
 }
 
 Race* Character::get_race() {
@@ -93,7 +93,7 @@ QString Character::get_current_rotation_name() const {
 
 void Character::switch_faction() {
     active_procs->switch_faction();
-    active_buffs->switch_faction();
+    enabled_buffs->switch_faction();
 }
 
 void Character::perform_rotation() {
@@ -153,8 +153,8 @@ Talents* Character::get_talents() const {
     return this->talents;
 }
 
-ActiveBuffs* Character::get_active_buffs() const {
-    return this->active_buffs;
+EnabledBuffs* Character::get_enabled_buffs() const {
+    return this->enabled_buffs;
 }
 
 Spells* Character::get_spells() const {
@@ -485,7 +485,7 @@ void Character::reset() {
     next_gcd = 0 - this->global_cooldown();
     next_trinket_cd = -1;
 
-    active_buffs->reset();
+    enabled_buffs->reset();
     reset_spells();
     active_procs->reset();
 
@@ -498,7 +498,7 @@ void Character::prepare_set_of_combat_iterations() {
     this->ruleset = sim_settings->get_ruleset();
     sim_settings->use_ruleset(this->ruleset, this);
     spells->prepare_set_of_combat_iterations();
-    active_buffs->prepare_set_of_combat_iterations();
+    enabled_buffs->prepare_set_of_combat_iterations();
     active_procs->prepare_set_of_combat_iterations();
 }
 

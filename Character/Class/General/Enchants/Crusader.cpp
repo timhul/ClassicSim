@@ -1,7 +1,6 @@
-
-#include "Crusader.h"
 #include "Character.h"
-#include "ActiveBuffs.h"
+#include "Crusader.h"
+#include "EnabledBuffs.h"
 #include "HolyStrength.h"
 #include "ItemNamespace.h"
 

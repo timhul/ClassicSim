@@ -41,7 +41,7 @@
 #include "NumberCruncher.h"
 #include "Rulesets.h"
 
-#include "ActiveBuffs.h"
+#include "EnabledBuffs.h"
 #include "BuffModel.h"
 #include "GeneralBuffs.h"
 #include "RotationFileReader.h"
@@ -96,8 +96,8 @@ GUIControl::GUIControl(QObject* parent) :
     character_encoder = new CharacterEncoder(current_char);
     character_decoder = new CharacterDecoder();
     // TODO: Handle switching pchar
-    buff_model = new BuffModel(current_char->get_active_buffs()->get_general_buffs());
-    debuff_model = new DebuffModel(current_char->get_active_buffs()->get_general_buffs());
+    buff_model = new BuffModel(current_char->get_enabled_buffs()->get_general_buffs());
+    debuff_model = new DebuffModel(current_char->get_enabled_buffs()->get_general_buffs());
 
     item_model->addItems(equipment_db);
     weapon_model->addWeapons(equipment_db);
@@ -555,26 +555,26 @@ DebuffModel* GUIControl::get_debuff_model() const {
 }
 
 void GUIControl::selectBuff(const QString& buff) {
-    current_char->get_active_buffs()->get_general_buffs()->toggle_external_buff(buff);
+    current_char->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(buff);
     Q_EMIT statsChanged();
     Q_EMIT externalBuffsChanged();
 }
 
 bool GUIControl::buffActive(const QString& buff) const {
-    return current_char->get_active_buffs()->get_general_buffs()->buff_active(buff);
+    return current_char->get_enabled_buffs()->get_general_buffs()->buff_active(buff);
 }
 
 void GUIControl::selectDebuff(const QString& debuff) {
-    current_char->get_active_buffs()->get_general_buffs()->toggle_external_debuff(debuff);
+    current_char->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(debuff);
     Q_EMIT externalDebuffsChanged();
 }
 
 bool GUIControl::debuffActive(const QString& debuff) const {
-    return current_char->get_active_buffs()->get_general_buffs()->debuff_active(debuff);
+    return current_char->get_enabled_buffs()->get_general_buffs()->debuff_active(debuff);
 }
 
 void GUIControl::setBuffSetup(const int buff_index) {
-    current_char->get_active_buffs()->get_general_buffs()->change_setup(buff_index);
+    current_char->get_enabled_buffs()->get_general_buffs()->change_setup(buff_index);
     Q_EMIT statsChanged();
     Q_EMIT externalBuffsChanged();
     Q_EMIT externalDebuffsChanged();

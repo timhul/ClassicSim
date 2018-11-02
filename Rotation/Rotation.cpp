@@ -1,6 +1,6 @@
 
-#include "ActiveBuffs.h"
 #include "Character.h"
+#include "EnabledBuffs.h"
 #include "Spells.h"
 #include "Rotation.h"
 #include "RotationExecutor.h"
@@ -61,7 +61,7 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
 
         switch (sentence->condition_type) {
         case ConditionTypes::BuffCondition: {
-            Buff* buff = pchar->get_active_buffs()->get_buff_by_name(sentence->type_value);
+            Buff* buff = pchar->get_enabled_buffs()->get_buff_by_name(sentence->type_value);
             if (buff == nullptr) {
                 qDebug() << "could not find buff for condition:" << sentence->type_value;
                 return false;

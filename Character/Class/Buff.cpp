@@ -1,12 +1,10 @@
-
 #include "Buff.h"
-#include "ActiveBuffs.h"
+#include "BuffRemoval.h"
 #include "Character.h"
 #include "ClassStatistics.h"
-#include "StatisticsBuff.h"
+#include "EnabledBuffs.h"
 #include "Engine.h"
-#include "BuffRemoval.h"
-#include <QDebug>
+#include "StatisticsBuff.h"
 
 Buff::Buff(Character* pchar, const QString& name, const QString& icon, const int duration, const int base_charges):
     pchar(pchar),
@@ -160,13 +158,13 @@ void Buff::enable_buff() {
     assert(!enabled);
 
     this->enabled = true;
-    pchar->get_active_buffs()->add_buff(this);
+    pchar->get_enabled_buffs()->add_buff(this);
 }
 
 void Buff::disable_buff() {
     assert(enabled);
 
-    pchar->get_active_buffs()->remove_buff(this);
+    pchar->get_enabled_buffs()->remove_buff(this);
     this->enabled = false;
 }
 

@@ -1,8 +1,7 @@
-
-#include "FelstrikerProc.h"
-#include "FelstrikerBuff.h"
 #include "Character.h"
-#include "ActiveBuffs.h"
+#include "EnabledBuffs.h"
+#include "FelstrikerBuff.h"
+#include "FelstrikerProc.h"
 #include "GeneralBuffs.h"
 #include "ProcInfo.h"
 #include "Spells.h"
@@ -16,7 +15,7 @@ FelstrikerProc::FelstrikerProc(Character* pchar,
 {
     assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
 
-    SharedBuff* buff = pchar->get_active_buffs()->use_shared_buff("Felstriker");
+    SharedBuff* buff = pchar->get_enabled_buffs()->use_shared_buff("Felstriker");
     if (buff == nullptr) {
         felstriker_buff = new FelstrikerBuff(pchar, duration);
         felstriker_buff->increment_reference();
@@ -27,7 +26,7 @@ FelstrikerProc::FelstrikerProc(Character* pchar,
 }
 
 FelstrikerProc::~FelstrikerProc() {
-    pchar->get_active_buffs()->return_shared_buff(felstriker_buff);
+    pchar->get_enabled_buffs()->return_shared_buff(felstriker_buff);
 }
 
 void FelstrikerProc::proc_effect() {

@@ -1,7 +1,6 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-
 #include <QMap>
 #include <QString>
 #include <QVector>
@@ -10,12 +9,12 @@
 #include "Rulesets.h"
 
 class ActiveProcs;
-class ActiveBuffs;
 class BerserkingBuff;
 class BloodFuryBuff;
 class CharacterStats;
 class ClassStatistics;
 class CombatRoll;
+class EnabledBuffs;
 class Engine;
 class Equipment;
 class EquipmentDb;
@@ -70,7 +69,7 @@ public:
     Faction* get_faction(void) const;
     Equipment* get_equipment(void) const;
     Talents* get_talents(void) const;
-    ActiveBuffs* get_active_buffs(void) const;
+    EnabledBuffs* get_enabled_buffs(void) const;
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
@@ -172,7 +171,7 @@ protected:
     Talents* talents;
     CharacterStats* cstats;
     ActiveProcs* active_procs;
-    ActiveBuffs* active_buffs;
+    EnabledBuffs* enabled_buffs;
     Spells* spells{};
     ClassStatistics* statistics;
     Rotation* current_rotation;

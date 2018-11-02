@@ -1,5 +1,5 @@
-#ifndef ACTIVEBUFFS_H
-#define ACTIVEBUFFS_H
+#ifndef ENABLEDBUFFS_H
+#define ENABLEDBUFFS_H
 
 #include <QVector>
 
@@ -9,10 +9,10 @@ class Character;
 class Faction;
 class GeneralBuffs;
 
-class ActiveBuffs {
+class EnabledBuffs {
 public:
-    ActiveBuffs(Character* pchar, Faction* faction);
-    ~ActiveBuffs();
+    EnabledBuffs(Character* pchar, Faction* faction);
+    ~EnabledBuffs();
 
     void add_buff(Buff* buff);
     void remove_buff(Buff* buff);
@@ -37,9 +37,9 @@ private:
 
     GeneralBuffs* general_buffs;
 
-    QVector<Buff*> active_buffs;
+    QVector<Buff*> enabled_buffs;
     QVector<Buff*> alliance_only_buffs;
     QVector<Buff*> horde_only_buffs;
 };
 
-#endif // ACTIVEBUFFS_H
+#endif // ENABLEDBUFFS_H

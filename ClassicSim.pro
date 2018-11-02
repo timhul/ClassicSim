@@ -133,7 +133,6 @@ SOURCES += main.cpp \
     Character/Class/ProcPPM.cpp \
     Character/Class/General/Buffs/HolyStrength.cpp \
     Character/ActiveProcs.cpp \
-    Character/ActiveBuffs.cpp \
     Character/Class/General/Enchants/FieryWeapon.cpp \
     Character/Spells.cpp \
     Character/CharacterStats.cpp \
@@ -258,7 +257,8 @@ SOURCES += main.cpp \
     Character/Class/General/Spells/UseTrinket.cpp \
     Character/Class/General/Buffs/NoEffectBuff.cpp \
     Character/Class/Warrior/Spells/Rend.cpp \
-    Test/Warrior/Spells/TestRend.cpp
+    Test/Warrior/Spells/TestRend.cpp \
+    Character/EnabledBuffs.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -386,7 +386,6 @@ HEADERS += \
     Character/Class/ProcPPM.h \
     Character/Class/General/Buffs/HolyStrength.h \
     Character/ActiveProcs.h \
-    Character/ActiveBuffs.h \
     Character/Class/General/Enchants/FieryWeapon.h \
     Character/Spells.h \
     Character/CharacterStats.h \
@@ -517,7 +516,8 @@ HEADERS += \
     Character/Class/General/Spells/UseTrinket.h \
     Character/Class/General/Buffs/NoEffectBuff.h \
     Character/Class/Warrior/Spells/Rend.h \
-    Test/Warrior/Spells/TestRend.h
+    Test/Warrior/Spells/TestRend.h \
+    Character/EnabledBuffs.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

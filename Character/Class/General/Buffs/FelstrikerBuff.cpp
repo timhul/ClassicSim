@@ -1,10 +1,9 @@
-
-#include "FelstrikerBuff.h"
 #include "Character.h"
+#include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "FelstrikerBuff.h"
 #include "MeleeSpecialTable.h"
 #include "WhiteHitTable.h"
-#include "CharacterStats.h"
 
 FelstrikerBuff::FelstrikerBuff(Character* pchar, const int duration):
     SharedBuff(pchar, "Felstriker", "Assets/items/Inv_weapon_shortblade_25.png", duration, 0)
