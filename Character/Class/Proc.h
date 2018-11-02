@@ -4,7 +4,7 @@
 #include "Spell.h"
 #include "ProcInfo.h"
 
-class ActiveProcs;
+class EnabledProcs;
 class StatisticsProc;
 class StatisticsBuff;
 class StatisticsResource;
@@ -32,7 +32,7 @@ public:
     void prepare_set_of_combat_iterations() override;
 
 protected:
-    ActiveProcs* procs;
+    EnabledProcs* procs;
     Random* random;
     QVector<unsigned> talent_ranks;
     QVector<Proc*> linked_procs;

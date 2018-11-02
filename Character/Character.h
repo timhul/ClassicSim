@@ -8,13 +8,13 @@
 #include "Resource.h"
 #include "Rulesets.h"
 
-class ActiveProcs;
 class BerserkingBuff;
 class BloodFuryBuff;
 class CharacterStats;
 class ClassStatistics;
 class CombatRoll;
 class EnabledBuffs;
+class EnabledProcs;
 class Engine;
 class Equipment;
 class EquipmentDb;
@@ -74,7 +74,7 @@ public:
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
     virtual ClassStatistics* relinquish_ownership_of_statistics(void); // mark pure virtual
-    ActiveProcs* get_active_procs() const;
+    EnabledProcs* get_enabled_procs() const;
     SimSettings* get_sim_settings() const;
 
     void add_player_reaction_event();
@@ -170,7 +170,7 @@ protected:
     Faction* faction;
     Talents* talents;
     CharacterStats* cstats;
-    ActiveProcs* active_procs;
+    EnabledProcs* enabled_procs;
     EnabledBuffs* enabled_buffs;
     Spells* spells{};
     ClassStatistics* statistics;

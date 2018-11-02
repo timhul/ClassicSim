@@ -2,7 +2,7 @@
 #include "Proc.h"
 
 #include <utility>
-#include "ActiveProcs.h"
+#include "EnabledProcs.h"
 #include "Random.h"
 #include "ClassStatistics.h"
 #include "StatisticsSpell.h"
@@ -18,7 +18,7 @@ Proc::Proc(const QString& name,
            QVector<ProcInfo::Source>  proc_sources,
            Character* pchar) :
     Spell(name, icon, pchar, false, inner_cooldown, 0),
-    procs(pchar->get_active_procs()),
+    procs(pchar->get_enabled_procs()),
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),
     statistics_proc(nullptr),

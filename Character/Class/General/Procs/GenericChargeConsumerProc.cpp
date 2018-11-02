@@ -4,7 +4,7 @@
 #include "ProcInfo.h"
 #include "Spells.h"
 #include "Buff.h"
-#include "ActiveProcs.h"
+#include "EnabledProcs.h"
 
 GenericChargeConsumerProc::GenericChargeConsumerProc(
         Character* pchar,

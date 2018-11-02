@@ -17,10 +17,10 @@ namespace ProcStatus {
     static const int INITIAL_ID = 0;
 }
 
-class ActiveProcs {
+class EnabledProcs {
 public:
-    ActiveProcs(Character* pchar, Faction* faction);
-    ~ActiveProcs();
+    EnabledProcs(Character* pchar, Faction* faction);
+    ~EnabledProcs();
 
     void run_proc_effects(ProcInfo::Source);
     void add_proc_effect(Proc* proc);
@@ -40,7 +40,7 @@ private:
 
     int next_instance_id;
 
-    QVector<Proc*> active_procs;
+    QVector<Proc*> enabled_procs;
 };
 
 #endif // ACTIVEPROCS_H

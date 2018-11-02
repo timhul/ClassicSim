@@ -12,7 +12,7 @@
 #include "Fury.h"
 #include "Protection.h"
 #include "Stats.h"
-#include "ActiveProcs.h"
+#include "EnabledProcs.h"
 #include "EnabledBuffs.h"
 #include "WarriorSpells.h"
 #include "CharacterStats.h"
@@ -100,7 +100,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
 Warrior::~Warrior() {
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
-    active_procs->clear_all();
+    enabled_procs->clear_all();
 
     delete cstats;
     delete warr_spells;

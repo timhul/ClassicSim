@@ -6,7 +6,7 @@
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Weapon.h"
-#include "ActiveProcs.h"
+#include "EnabledProcs.h"
 #include "ProcInfo.h"
 
 TestSwordSpecialization::TestSwordSpecialization(EquipmentDb* equipment_db) :

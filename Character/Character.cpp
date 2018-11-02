@@ -1,11 +1,11 @@
 #include <QDebug>
 
-#include "ActiveProcs.h"
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "EnabledBuffs.h"
+#include "EnabledProcs.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "Faction.h"
@@ -44,7 +44,7 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
 {
     this->roll = new CombatRoll(this);
     this->cstats = new CharacterStats(this, equipment_db);
-    this->active_procs = new ActiveProcs(this, faction);
+    this->enabled_procs = new EnabledProcs(this, faction);
     this->enabled_buffs = new EnabledBuffs(this, faction);
     this->next_gcd = 0 - this->global_cooldown();
 }
@@ -55,7 +55,7 @@ Character::~Character() {
     delete roll;
     delete faction;
     delete talents;
-    delete active_procs;
+    delete enabled_procs;
     delete enabled_buffs;
 }
 
@@ -92,7 +92,7 @@ QString Character::get_current_rotation_name() const {
 }
 
 void Character::switch_faction() {
-    active_procs->switch_faction();
+    enabled_procs->switch_faction();
     enabled_buffs->switch_faction();
 }
 
@@ -173,8 +173,8 @@ ClassStatistics* Character::relinquish_ownership_of_statistics() {
     return this->statistics;
 }
 
-ActiveProcs* Character::get_active_procs() const {
-    return this->active_procs;
+EnabledProcs* Character::get_enabled_procs() const {
+    return this->enabled_procs;
 }
 
 SimSettings* Character::get_sim_settings() const {
@@ -265,27 +265,27 @@ void Character::spell_critical_effect() {
 }
 
 void Character::run_mh_white_specific_proc_effects() {
-    active_procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
+    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
 }
 
 void Character::run_mh_yellow_specific_proc_effects() {
-    active_procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
+    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
 }
 
 void Character::run_oh_white_specific_proc_effects() {
-    active_procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
+    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
 }
 
 void Character::run_oh_yellow_specific_proc_effects() {
-    active_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
+    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
 }
 
 void Character::run_ranged_white_specific_proc_effects() {
-    active_procs->run_proc_effects(ProcInfo::Source::RangedAutoShoot);
+    enabled_procs->run_proc_effects(ProcInfo::Source::RangedAutoShoot);
 }
 
 void Character::run_ranged_yellow_specific_proc_effects() {
-    active_procs->run_proc_effects(ProcInfo::Source::RangedSpell);
+    enabled_procs->run_proc_effects(ProcInfo::Source::RangedSpell);
 }
 
 void Character::run_extra_mh_attack() {
@@ -487,7 +487,7 @@ void Character::reset() {
 
     enabled_buffs->reset();
     reset_spells();
-    active_procs->reset();
+    enabled_procs->reset();
 
     reset_resource();
 
@@ -499,7 +499,7 @@ void Character::prepare_set_of_combat_iterations() {
     sim_settings->use_ruleset(this->ruleset, this);
     spells->prepare_set_of_combat_iterations();
     enabled_buffs->prepare_set_of_combat_iterations();
-    active_procs->prepare_set_of_combat_iterations();
+    enabled_procs->prepare_set_of_combat_iterations();
 }
 
 void Character::dump() {
