@@ -17,6 +17,14 @@ bool relative_value(ScaleResult* lhs, ScaleResult* rhs) {
     return lhs->relative_value > rhs->relative_value;
 }
 
+bool standard_deviation(ScaleResult* lhs, ScaleResult* rhs) {
+    return lhs->standard_deviation > rhs->standard_deviation;
+}
+
+bool confidence_interval(ScaleResult* lhs, ScaleResult* rhs) {
+    return lhs->confidence_interval > rhs->confidence_interval;
+}
+
 ScaleResultModel::ScaleResultModel(NumberCruncher *statistics_source, QObject *parent)
     : QAbstractListModel(parent),
       statistics_source(statistics_source)
@@ -47,6 +55,14 @@ void ScaleResultModel::selectSort(const int method) {
         break;
     case ScaleResultSorting::Methods::ByRelativeValue:
         std::sort(scale_results.begin(), scale_results.end(), relative_value);
+        select_new_method(sorting_method);
+        break;
+    case ScaleResultSorting::Methods::ByStandardDeviation:
+        std::sort(scale_results.begin(), scale_results.end(), standard_deviation);
+        select_new_method(sorting_method);
+        break;
+    case ScaleResultSorting::Methods::ByConfidenceInterval:
+        std::sort(scale_results.begin(), scale_results.end(), confidence_interval);
         select_new_method(sorting_method);
         break;
     }
@@ -113,6 +129,10 @@ QVariant ScaleResultModel::data(const QModelIndex & index, int role) const {
         return QString::number(scale_result->absolute_value, 'f', 2);
     if (role == ScaleResultSorting::ByRelativeValue)
         return QString::number(scale_result->relative_value * 100, 'f', 2);
+    if (role == ScaleResultSorting::ByStandardDeviation)
+        return QString::number(scale_result->standard_deviation, 'f', 2);
+    if (role == ScaleResultSorting::ByConfidenceInterval)
+        return QString::number(scale_result->confidence_interval, 'f', 2);
 
     return QVariant();
 }
@@ -122,6 +142,9 @@ QHash<int, QByteArray> ScaleResultModel::roleNames() const {
     roles[ScaleResultSorting::ByName] = "_name";
     roles[ScaleResultSorting::ByAbsoluteValue] = "_absvalue";
     roles[ScaleResultSorting::ByRelativeValue] = "_relvalue";
+    roles[ScaleResultSorting::ByStandardDeviation] = "_standarddev";
+    roles[ScaleResultSorting::ByConfidenceInterval] = "_confidenceinterval";
+
 
     return roles;
 }

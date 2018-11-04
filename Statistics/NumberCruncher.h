@@ -60,19 +60,30 @@ private:
 
     void merge_resource_stats(QList<StatisticsResource*>& vec);
     void merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec);
+
+    double get_standard_deviation_for_option(SimOption::Name) const;
+    double get_confidence_interval_for_option(SimOption::Name, const double) const;
 };
 
 class ScaleResult {
 public:
-    ScaleResult(SimOption::Name option, double absolute_value, double relative_value) :
+    ScaleResult(SimOption::Name option,
+                double absolute_value,
+                double relative_value,
+                double standard_deviation,
+                double confidence_interval) :
         option(option),
         absolute_value(absolute_value),
-        relative_value(relative_value)
+        relative_value(relative_value),
+        standard_deviation(standard_deviation),
+        confidence_interval(confidence_interval)
     {}
 
     const SimOption::Name option;
     const double absolute_value;
     const double relative_value;
+    const double standard_deviation;
+    const double confidence_interval;
 };
 
 #endif // NUMBERCRUNCHER_H

@@ -10,7 +10,8 @@ ClassStatistics::ClassStatistics(SimSettings* sim_settings) :
     sim_settings(sim_settings),
     option(SimOption::Name::NoScale),
     combat_iterations(0),
-    combat_length(0)
+    combat_length(0),
+    damage_dealt_previous_iterations(0)
 {}
 
 ClassStatistics::~ClassStatistics() {
@@ -227,6 +228,14 @@ QVariantList ClassStatistics::get_proc_table() const {
     }
 
     return info;
+}
+
+void ClassStatistics::finish_combat_iteration() {
+    int damage_dealt_this_iteration = get_total_damage_dealt() - damage_dealt_previous_iterations;
+    assert(damage_dealt_this_iteration >= 0);
+
+    dps_for_iterations.append(static_cast<double>(damage_dealt_this_iteration) / combat_length);
+    damage_dealt_previous_iterations += damage_dealt_this_iteration;
 }
 
 int ClassStatistics::get_total_damage_dealt() const {

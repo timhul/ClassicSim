@@ -1,8 +1,9 @@
 #ifndef CLASSSTATISTICS_H
 #define CLASSSTATISTICS_H
 
-#include <QVariantList>
 #include <QMap>
+#include <QVariantList>
+#include <QVector>
 
 #include "SimOption.h"
 #include "SimSettings.h"
@@ -30,6 +31,8 @@ public:
     int get_total_damage_dealt() const;
     double get_total_dps() const;
 
+    void finish_combat_iteration();
+
     int get_total_damage_for_spell(const QString& name) const;
     int get_total_attempts_for_spell(const QString& name) const;
 
@@ -45,10 +48,14 @@ protected:
     SimOption::Name option;
     int combat_iterations;
     int combat_length;
+    int damage_dealt_previous_iterations;
+
     QMap<QString, StatisticsSpell*> spell_statistics;
     QMap<QString, StatisticsBuff*> buff_statistics;
     QMap<QString, StatisticsResource*> resource_statistics;
     QMap<QString, StatisticsProc*> proc_statistics;
+
+    QVector<double> dps_for_iterations;
 
     QVariantList get_damage_breakdown_table() const;
     QVariantList get_damage_breakdown_chart() const;

@@ -47,6 +47,7 @@ void SimControl::run_sim(Character* pchar, const int combat_length, const int it
         pchar->get_engine()->add_event(end_event);
         pchar->get_engine()->add_event(start_event);
         pchar->get_engine()->run();
+        pchar->get_statistics()->finish_combat_iteration();
     }
 
     pchar->get_engine()->reset();

@@ -144,6 +144,8 @@ Rectangle {
                 name: _name
                 absvalue: _absvalue
                 relvalue: _relvalue
+                standarddev: _standarddev
+                confidenceinterval: _confidenceinterval
             }
         }
     }

@@ -48,6 +48,40 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
+            property int method: ScaleResultSorting.ByConfidenceInterval
+
+            onRectangleClicked: scaleResultModel.selectSort(method)
+            onRectangleRightClicked: scaleResultModel.selectSort(method)
+
+            rectColor: scaleResultModel.currentSortingMethod === method ? root.darkGray :
+                                                                          root.darkDarkGray
+
+            TextSmall {
+                text: "± (95% CI)"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            property int method: ScaleResultSorting.ByStandardDeviation
+
+            onRectangleClicked: scaleResultModel.selectSort(method)
+            onRectangleRightClicked: scaleResultModel.selectSort(method)
+
+            rectColor: scaleResultModel.currentSortingMethod === method ? root.darkGray :
+                                                                          root.darkDarkGray
+
+            TextSmall {
+                text: "Standard Deviation"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
             property int method: ScaleResultSorting.ByRelativeValue
 
             onRectangleClicked: scaleResultModel.selectSort(method)

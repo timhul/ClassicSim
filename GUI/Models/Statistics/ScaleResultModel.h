@@ -14,7 +14,9 @@ public:
     enum Methods {
         ByName = Qt::UserRole + 1,
         ByAbsoluteValue,
-        ByRelativeValue
+        ByRelativeValue,
+        ByStandardDeviation,
+        ByConfidenceInterval
     };
     Q_ENUMS(Methods)
 };

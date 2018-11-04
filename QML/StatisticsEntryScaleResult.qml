@@ -9,6 +9,8 @@ Rectangle {
     property string name
     property string absvalue
     property string relvalue
+    property string standarddev
+    property string confidenceinterval
 
     Row {
         anchors.fill: parent
@@ -35,6 +37,24 @@ Rectangle {
 
             TextSmall {
                 text: absvalue
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: confidenceinterval
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: standarddev
             }
         }
 

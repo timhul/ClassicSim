@@ -196,7 +196,10 @@ void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {
         double absolute_diff = dps_it.value() - base_value;
         double relative_diff = absolute_diff / base_value;
 
-        list.append(new ScaleResult(dps_it.key(), absolute_diff, relative_diff));
+        double standard_deviation = get_standard_deviation_for_option(dps_it.key());
+        double confidence_interval = get_confidence_interval_for_option(dps_it.key(), standard_deviation);
+
+        list.append(new ScaleResult(dps_it.key(), absolute_diff, relative_diff, standard_deviation, confidence_interval));
         ++dps_it;
     }
 }
@@ -224,6 +227,34 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
 
 double NumberCruncher::delta(double lhs, double rhs) {
     return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
+}
+
+double NumberCruncher::get_standard_deviation_for_option(SimOption::Name option) const {
+    assert(class_stats.contains(option));
+
+    double mean = get_dps_for_option(option);
+    double variance = 0;
+    int counter = 0;
+    for (auto & class_stat : class_stats[option]) {
+        for (auto & dps : class_stat->dps_for_iterations) {
+            ++counter;
+            variance = variance + (std::pow(dps - mean, 2) - variance) / counter;
+        }
+    }
+
+    return sqrt(variance);
+}
+
+double NumberCruncher::get_confidence_interval_for_option(SimOption::Name option, const double standard_deviation) const {
+    assert(class_stats.contains(option));
+
+    double z_value = 1.960;
+
+    int population = 0;
+    for (auto & class_stat : class_stats[option])
+        population += class_stat->dps_for_iterations.size();
+
+    return z_value * (standard_deviation / std::sqrt(population));
 }
 
 QString get_name_for_option(const SimOption::Name option) {
