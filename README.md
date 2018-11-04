@@ -10,6 +10,10 @@ For information regarding new features / bug fixes in upcoming release, check [N
 
 Licensing information can be found in LICENSE.md.
 
+# Downloads
+
+Releases are available at [the ClassicSim website](https://classicsim.org).
+
 # Features of this tool
 
 These are some of the features of this tool:
@@ -21,10 +25,6 @@ These are some of the features of this tool:
 * Equipment sheet (with full stat filter support)
 * Data-driven rotations
 * Statistics
-
-# Getting a built release
-
-Releases are available at [http://classicsim.org].
 
 # Known issues
 
@@ -47,31 +47,36 @@ Release notes for each release.
 
 ## v0.1-alpha-2 (not yet released)
 
-### New features
+### New features/improvements/bug fixes
 
+* Full sim with stat weight calculations.
+* Debuff uptime statistics.
 * Use-trinkets now available to be equipped and used in rotations.
+* Rend and Anger Management added. Arms/Fury now fully supported for single-target damage.
+* Fury rotations now cast Bloodthirst over Execute if above 2k melee AP.
 
 ### Restrictions
 
-No new restrictions, delivered features or bug fixes are expected to be complete.
+No new restrictions; delivered features or bug fixes are expected to be complete.
 
 ## v0.1-alpha-1 (released 2018-10-27):
 
 Initial release:
 
-* Warrior advanced support (missing Protection and Rend)
-* Supporting systems (talent calculator, equipment selection, world buffs / consumables, data*driven rotations)
+* Warrior advanced support (missing Protection talents, Rend, Anger Management)
+* Supporting systems (talent calculator, equipment selection, world buffs / consumables, data-driven rotations)
 * Quick sim with statistics
 
 ### Restrictions
 
 * No full sim
-* Some missing statistics (stat weight calculations, rotation, dps distribution)
+* Some missing statistics (stat weight calculations, rotation, dps distribution, debuff uptimes)
 * Character level locked to 60
 * Spell ranks locked
 * Only warrior available
 * Items lists incomplete
 * Rotations must be viewed in the actual .xml files instead of within the application
+* Only single target simulation available
 * and more..
 
 # Future work
@@ -84,7 +89,8 @@ This is defined as "likely to be in the next release". Releases are currently ex
 weeks, or whenever an exciting new feature is available.
 
 * Use-trinkets supported (DONE)
-* Full stat weight calculations w/ confidence intervals
+* Full support for Arms/Fury when simulating single-target damage (DONE)
+* Full stat weight calculations w/ confidence intervals (DONE)
 * DPS distribution w/ standard deviation
 
 ## Near future:
