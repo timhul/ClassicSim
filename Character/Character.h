@@ -43,6 +43,7 @@ public:
     void perform_rotation();
     Rotation* get_rotation();
     void change_target_creature_type(const QString& creature_type);
+    void run_pre_combat_actions();
 
     void switch_faction();
 

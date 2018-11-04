@@ -5,6 +5,7 @@
 #include "MainhandMeleeHit.h"
 #include "OffhandMeleeHit.h"
 
+#include "AngerManagement.h"
 #include "BattleShout.h"
 #include "BattleStance.h"
 #include "BerserkerRage.h"
@@ -36,6 +37,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     Spells(pchar),
     warr(pchar)
 {
+    this->anger_management = new AngerManagement(pchar);
     this->battle_shout = new BattleShout(pchar);
     this->battle_stance = new BattleStance(pchar);
     this->berserker_rage = new BerserkerRage(pchar);
@@ -57,6 +59,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->warr_mh_attack = new MainhandAttackWarrior(pchar);
     this->warr_oh_attack = new OffhandAttackWarrior(pchar);
 
+    add_spell(anger_management, NO_RELINK);
     add_spell(battle_shout, NO_RELINK);
     add_spell(battle_stance, NO_RELINK);
     add_spell(berserker_rage, NO_RELINK);
@@ -128,6 +131,10 @@ MainhandAttack* WarriorSpells::get_mh_attack() const {
 
 OffhandAttack* WarriorSpells::get_oh_attack() const {
     return dynamic_cast<OffhandAttack*>(warr_oh_attack);
+}
+
+AngerManagement* WarriorSpells::get_anger_management() const {
+    return this->anger_management;
 }
 
 BattleStance* WarriorSpells::get_battle_stance() const {

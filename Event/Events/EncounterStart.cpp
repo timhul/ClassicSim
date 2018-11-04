@@ -10,6 +10,7 @@ EncounterStart::EncounterStart(Character* pchar) {
 }
 
 void EncounterStart::act() {
+    pchar->run_pre_combat_actions();
     pchar->start_attack();
     pchar->perform_rotation();
 }

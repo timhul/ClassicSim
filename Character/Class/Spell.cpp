@@ -180,6 +180,7 @@ void Spell::reset() {
 
 void Spell::prepare_set_of_combat_iterations() {
     this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name, icon);
+    prepare_set_of_combat_iterations_spell_specific();
 }
 
 StatisticsSpell* Spell::get_statistics_for_spell() const {
@@ -192,6 +193,10 @@ int Spell::get_instance_id() const {
 
 void Spell::set_instance_id(const int instance_id) {
     this->instance_id = instance_id;
+}
+
+void Spell::prepare_set_of_combat_iterations_spell_specific() {
+
 }
 
 void Spell::reset_effect() {

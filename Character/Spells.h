@@ -23,6 +23,10 @@ public:
     void add_spell(Spell* spell, bool relink=true);
     void remove_spell(Spell* spell);
 
+    void add_pre_combat_spell(Spell* spell);
+    void remove_pre_combat_spell(Spell* spell);
+    void run_pre_combat_spells();
+
     Spell* get_spell_by_name(const QString& spell_name) const;
 
     void reset();
@@ -44,6 +48,7 @@ public:
 protected:
     Character* pchar;
     QVector<Spell*> spells;
+    QVector<Spell*> pre_combat_spells;
 
     MainhandAttack* mh_attack{};
     OffhandAttack* oh_attack{};

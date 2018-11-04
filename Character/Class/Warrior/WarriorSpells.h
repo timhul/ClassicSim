@@ -5,6 +5,7 @@
 
 class Warrior;
 
+class AngerManagement;
 class BattleShout;
 class BattleStance;
 class BerserkerRage;
@@ -39,6 +40,7 @@ public:
     MainhandAttack* get_mh_attack() const override;
     OffhandAttack* get_oh_attack() const override;
 
+    AngerManagement* get_anger_management() const;
     BattleStance* get_battle_stance() const;
     BattleShout* get_battle_shout() const;
     BerserkerStance* get_berserker_stance() const;
@@ -62,6 +64,7 @@ public:
 
 private:
     Warrior* warr;
+    AngerManagement* anger_management;
     BattleShout* battle_shout;
     BattleStance* battle_stance;
     BerserkerRage* berserker_rage;

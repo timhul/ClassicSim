@@ -258,7 +258,9 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Rend.cpp \
     Test/Warrior/Spells/TestRend.cpp \
     Character/EnabledBuffs.cpp \
-    Character/EnabledProcs.cpp
+    Character/EnabledProcs.cpp \
+    Character/Class/Warrior/TalentTrees/Arms/AngerManagementTalent.cpp \
+    Character/Class/Warrior/Spells/AngerManagement.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -517,7 +519,9 @@ HEADERS += \
     Character/Class/Warrior/Spells/Rend.h \
     Test/Warrior/Spells/TestRend.h \
     Character/EnabledBuffs.h \
-    Character/EnabledProcs.h
+    Character/EnabledProcs.h \
+    Character/Class/Warrior/TalentTrees/Arms/AngerManagementTalent.h \
+    Character/Class/Warrior/Spells/AngerManagement.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

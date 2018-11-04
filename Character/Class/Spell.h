@@ -64,6 +64,7 @@ protected:
     virtual void enable_spell_effect();
     virtual void disable_spell_effect();
     virtual void reset_effect();
+    virtual void prepare_set_of_combat_iterations_spell_specific();
     virtual bool is_ready_spell_specific() const;
 
     const QString name;

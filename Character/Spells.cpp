@@ -23,11 +23,11 @@ Spells::Spells(Character* pchar) :
 
 Spells::~Spells()
 {
-    for (auto & spell : spells) {
+    for (auto & spell : spells)
         delete spell;
-    }
 
     spells.clear();
+    pre_combat_spells.clear();
 }
 
 void Spells::activate_racials() {
@@ -78,6 +78,29 @@ void Spells::remove_spell(Spell* spell) {
     pchar->relink_spells();
 }
 
+void Spells::add_pre_combat_spell(Spell* spell) {
+    if (spell->get_instance_id() == SpellStatus::INACTIVE) {
+        spell->set_instance_id(next_instance_id);
+        ++next_instance_id;
+    }
+
+    pre_combat_spells.append(spell);
+}
+
+void Spells::remove_pre_combat_spell(Spell* spell) {
+    for (auto & i : pre_combat_spells) {
+        if (i->get_instance_id() == spell->get_instance_id()) {
+            pre_combat_spells.removeOne(i);
+            return;
+        }
+    }
+}
+
+void Spells::run_pre_combat_spells() {
+    for (auto & spell : pre_combat_spells)
+        spell->perform();
+}
+
 Spell* Spells::get_spell_by_name(const QString& spell_name) const {
     for (auto & spell : spells) {
         if (spell->get_name() == spell_name)
@@ -88,9 +111,8 @@ Spell* Spells::get_spell_by_name(const QString& spell_name) const {
 }
 
 void Spells::reset() {
-    for (auto & spell : spells) {
+    for (auto & spell : spells)
         spell->reset();
-    }
 }
 
 void Spells::start_attack() {

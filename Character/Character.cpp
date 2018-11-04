@@ -502,6 +502,10 @@ void Character::prepare_set_of_combat_iterations() {
     enabled_procs->prepare_set_of_combat_iterations();
 }
 
+void Character::run_pre_combat_actions() {
+    spells->run_pre_combat_spells();
+}
+
 void Character::dump() {
     qDebug() << "--------------------------------------";
     qDebug() << get_name();

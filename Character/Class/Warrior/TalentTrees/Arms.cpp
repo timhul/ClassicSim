@@ -9,6 +9,7 @@
 #include "DeepWoundsTalent.h"
 #include "TwoHandedWeaponSpecialization.h"
 #include "Impale.h"
+#include "AngerManagementTalent.h"
 #include "AxeSpecialization.h"
 #include "SweepingStrikes.h"
 #include "SwordSpecializationTalent.h"
@@ -31,7 +32,7 @@ Arms::Arms(Character *pchar) :
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new ImprovedOverpower(pchar, this)},
-                                  {"3ML", new GenericTalent(pchar, this, "Anger Management", "3ML", base_url + "tier3/anger_management.png", 1, "Increases the time required for your rage to decay while out of combat by 30%.", QVector<QPair<int, int>>())},
+                                  {"3ML", new AngerManagementTalent(pchar, this)},
                                   {"3MR", new DeepWoundsTalent(pchar, this)}};
     add_talents(tier3);
 
