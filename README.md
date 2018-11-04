@@ -1,10 +1,10 @@
 # Introduction 
 
 This is an event-driven gameplay simulator for World of Warcraft Classic written in C++. It is called "ClassicSim", or
-CSIM for short. Its purpose is to provide feedback for a user regarding the value of equipment, talents, consumables,
+CSIM for short. Its purpose is to provide feedback to a user regarding the value of equipment, talents, consumables,
 rotation choices, etc.
 
-For information regarding new features / bug fixes in upcoming release, check [Next release].
+For information regarding new features / bug fixes in upcoming release, check [Next release](#next-release).
 
 # Licensing
 
@@ -38,8 +38,12 @@ These are some of the features of this tool:
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+* Full sim with stat weight calculations.
+* Debuff uptime statistics.
 * Use trinkets supported in rotation (Diamond Flask, Zandalarian Hero Medallion, Earthstrike, Badge of the Swarmguard,
 Slayer's Crest, Jom Gabbar, Kiss of the Spider).
+* Rend and Anger Management added. Arms/Fury now fully supported for single-target damage.
+* Fury rotations now cast Bloodthirst over Execute if above 2k melee AP.
 
 # Release notes
 
