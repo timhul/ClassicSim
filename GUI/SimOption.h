@@ -15,7 +15,10 @@ public:
         ScaleHitChance,
         ScaleCritChance,
         ScaleMeleeAP,
-        ScaleWeaponSkill
+        ScaleAxeSkill,
+        ScaleDaggerSkill,
+        ScaleMaceSkill,
+        ScaleSwordSkill
     };
 
     Q_ENUMS(Name)

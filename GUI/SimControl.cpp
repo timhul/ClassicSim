@@ -7,6 +7,7 @@
 #include "EncounterStart.h"
 #include "SimControl.h"
 #include "NumberCruncher.h"
+#include "ItemNamespace.h"
 #include <QDebug>
 
 SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
@@ -65,27 +66,34 @@ void SimControl::add_option(Character* pchar, SimOption::Name option) {
         break;
     case SimOption::Name::ScaleAgility:
         pchar->get_stats()->increase_agility(10);
-        pchar->get_statistics()->set_sim_option(option);;
         break;
     case SimOption::Name::ScaleStrength:
         pchar->get_stats()->increase_strength(10);
-        pchar->get_statistics()->set_sim_option(option);
         break;
     case SimOption::Name::ScaleMeleeAP:
         pchar->get_stats()->increase_melee_ap(10);
-        pchar->get_statistics()->set_sim_option(option);
         break;
     case SimOption::Name::ScaleHitChance:
         pchar->get_stats()->increase_hit(0.01);
-        pchar->get_statistics()->set_sim_option(option);
         break;
     case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->increase_crit(0.01);
-        pchar->get_statistics()->set_sim_option(option);
         break;
-    default:
-        qDebug() << "SimControl::add_option unhandled option" << option;
+    case SimOption::Name::ScaleAxeSkill:
+        pchar->get_stats()->increase_wpn_skill(WeaponTypes::AXE, 1);
+        break;
+    case SimOption::Name::ScaleDaggerSkill:
+        pchar->get_stats()->increase_wpn_skill(WeaponTypes::DAGGER, 1);
+        break;
+    case SimOption::Name::ScaleMaceSkill:
+        pchar->get_stats()->increase_wpn_skill(WeaponTypes::MACE, 1);
+        break;
+    case SimOption::Name::ScaleSwordSkill:
+        pchar->get_stats()->increase_wpn_skill(WeaponTypes::SWORD, 1);
+        break;
     }
+
+    pchar->get_statistics()->set_sim_option(option);
 }
 
 void SimControl::remove_option(Character* pchar, SimOption::Name option) {
@@ -107,7 +115,17 @@ void SimControl::remove_option(Character* pchar, SimOption::Name option) {
     case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->decrease_crit(0.01);
         break;
-    default:
-        qDebug() << "SimControl::remove_option unhandled option" << option;
+    case SimOption::Name::ScaleAxeSkill:
+        pchar->get_stats()->decrease_wpn_skill(WeaponTypes::AXE, 1);
+        break;
+    case SimOption::Name::ScaleDaggerSkill:
+        pchar->get_stats()->decrease_wpn_skill(WeaponTypes::DAGGER, 1);
+        break;
+    case SimOption::Name::ScaleMaceSkill:
+        pchar->get_stats()->decrease_wpn_skill(WeaponTypes::MACE, 1);
+        break;
+    case SimOption::Name::ScaleSwordSkill:
+        pchar->get_stats()->decrease_wpn_skill(WeaponTypes::SWORD, 1);
+        break;
     }
 }

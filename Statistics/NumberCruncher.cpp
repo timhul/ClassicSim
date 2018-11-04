@@ -237,8 +237,14 @@ QString get_name_for_option(const SimOption::Name option) {
         return "+1% Crit Chance";
     if (option == SimOption::Name::ScaleMeleeAP)
         return "+10 Melee AP";
-    if (option == SimOption::Name::ScaleWeaponSkill)
-        return "Weapon Skill";
+    if (option == SimOption::Name::ScaleAxeSkill)
+        return "+1 Axe Skill";
+    if (option == SimOption::Name::ScaleDaggerSkill)
+        return "+1 Dagger Skill";
+    if (option == SimOption::Name::ScaleMaceSkill)
+        return "+1 Mace Skill";
+    if (option == SimOption::Name::ScaleSwordSkill)
+        return "+1 Sword Skill";
 
     return "<unset scale name>";
 }

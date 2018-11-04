@@ -13,7 +13,10 @@ SimScaleModel::SimScaleModel(SimSettings *sim_settings, QObject *parent)
         SimOption::Name::ScaleHitChance,
         SimOption::Name::ScaleCritChance,
         SimOption::Name::ScaleMeleeAP,
-        SimOption::Name::ScaleWeaponSkill
+        SimOption::Name::ScaleAxeSkill,
+        SimOption::Name::ScaleDaggerSkill,
+        SimOption::Name::ScaleMaceSkill,
+        SimOption::Name::ScaleSwordSkill,
     };
     endInsertRows();
 }

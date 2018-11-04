@@ -10,7 +10,11 @@
 
 CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     pchar(pchar),
-    equipment(new Equipment(equipment_db, pchar))
+    equipment(new Equipment(equipment_db, pchar)),
+    axe_skill_bonus(0),
+    dagger_skill_bonus(0),
+    mace_skill_bonus(0),
+    sword_skill_bonus(0)
 {
     this->base_stats = new Stats();
     this->total_phys_dmg_mod = 1.0;
@@ -119,6 +123,44 @@ double CharacterStats::get_spell_crit_chance() const {
     return equip_effect + crit_from_int / 100;
 }
 
+void CharacterStats::increase_wpn_skill(const int weapon_type, const int increase) {
+    switch (weapon_type) {
+    case WeaponTypes::AXE:
+        axe_skill_bonus += increase;
+        break;
+    case WeaponTypes::DAGGER:
+        dagger_skill_bonus += increase;
+        break;
+    case WeaponTypes::MACE:
+        mace_skill_bonus += increase;
+        break;
+    case WeaponTypes::SWORD:
+        sword_skill_bonus += increase;
+        break;
+    }
+}
+
+void CharacterStats::decrease_wpn_skill(const int weapon_type, const int decrease) {
+    switch (weapon_type) {
+    case WeaponTypes::AXE:
+        axe_skill_bonus -= decrease;
+        assert(axe_skill_bonus >= 0);
+        break;
+    case WeaponTypes::DAGGER:
+        dagger_skill_bonus -= decrease;
+        assert(dagger_skill_bonus >= 0);
+        break;
+    case WeaponTypes::MACE:
+        mace_skill_bonus -= decrease;
+        assert(mace_skill_bonus >= 0);
+        break;
+    case WeaponTypes::SWORD:
+        sword_skill_bonus -= decrease;
+        assert(sword_skill_bonus >= 0);
+        break;
+    }
+}
+
 int CharacterStats::get_mh_wpn_skill() const {
     return get_wpn_skill(equipment->get_mainhand());
 }
@@ -135,18 +177,18 @@ int CharacterStats::get_wpn_skill(Weapon* weapon) const {
     switch (weapon->get_weapon_type()) {
     case WeaponTypes::AXE:
     case WeaponTypes::TWOHAND_AXE:
-        skill_bonus += pchar->get_race()->get_axe_bonus() + equipment->get_stats()->get_axe_skill();
+        skill_bonus += pchar->get_race()->get_axe_bonus() + equipment->get_stats()->get_axe_skill() + axe_skill_bonus;
         break;
     case WeaponTypes::DAGGER:
-        skill_bonus += equipment->get_stats()->get_dagger_skill();
+        skill_bonus += equipment->get_stats()->get_dagger_skill() + dagger_skill_bonus;
         break;
     case WeaponTypes::SWORD:
     case WeaponTypes::TWOHAND_SWORD:
-        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_sword_skill();
+        skill_bonus += pchar->get_race()->get_sword_bonus() + equipment->get_stats()->get_sword_skill() + sword_skill_bonus;
         break;
     case WeaponTypes::MACE:
     case WeaponTypes::TWOHAND_MACE:
-        skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_mace_skill();
+        skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_mace_skill() + mace_skill_bonus;
         break;
     }
     return pchar->get_clvl() * 5 + skill_bonus;

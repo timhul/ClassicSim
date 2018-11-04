@@ -43,6 +43,9 @@ public:
     int get_wpn_skill(Weapon*) const;
     int get_ranged_wpn_skill();
 
+    void increase_wpn_skill(const int, const int);
+    void decrease_wpn_skill(const int, const int);
+
     void increase_stat(const ItemStats, const int);
     void decrease_stat(const ItemStats, const int);
 
@@ -120,6 +123,10 @@ protected:
     QHash<int, double> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
 
+    int axe_skill_bonus;
+    int dagger_skill_bonus;
+    int mace_skill_bonus;
+    int sword_skill_bonus;
 
     int ranged_ap{};
     double melee_ability_crit_mod{};
