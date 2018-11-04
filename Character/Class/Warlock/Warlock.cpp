@@ -92,6 +92,6 @@ QVector<int> Warlock::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Warlock::reset_spells() {
+void Warlock::reset_class_specific() {
 
 }

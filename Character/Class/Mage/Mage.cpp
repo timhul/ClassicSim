@@ -92,6 +92,6 @@ QVector<int> Mage::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Mage::reset_spells() {
+void Mage::reset_class_specific() {
 
 }

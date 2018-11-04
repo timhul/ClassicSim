@@ -104,7 +104,7 @@ private:
     void initialize_talents() override;
     void new_stance_effect();
 
-    void reset_spells() override;
+    void reset_class_specific() override;
 };
 
 #endif // WARRIOR_H

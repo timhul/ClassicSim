@@ -100,6 +100,6 @@ QVector<int> Rogue::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Rogue::reset_spells() {
+void Rogue::reset_class_specific() {
 
 }

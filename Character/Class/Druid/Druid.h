@@ -31,7 +31,7 @@ private:
     DruidSpells* druid_spells;
 
     void initialize_talents() override;
-    void reset_spells() override;
+    void reset_class_specific() override;
 };
 
 #endif // DRUID_H

@@ -401,12 +401,10 @@ void Warrior::initialize_talents() {
     }
 }
 
-void Warrior::reset_spells() {
+void Warrior::reset_class_specific() {
     // TODO: Consider adding pre-run actions for stance
     switch_to_battle_stance();
-    warr_spells->reset();
     this->next_stance_cd = 0.0 - stance_cooldown();
-    this->next_gcd = 0.0 - global_cooldown();
 }
 
 ClassStatistics* Warrior::relinquish_ownership_of_statistics() {

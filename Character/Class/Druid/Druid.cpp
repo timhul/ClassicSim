@@ -94,6 +94,6 @@ QVector<int> Druid::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Druid::reset_spells() {
+void Druid::reset_class_specific() {
 
 }

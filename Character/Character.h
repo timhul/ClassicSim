@@ -200,7 +200,7 @@ protected:
     double get_non_normalized_dmg(const unsigned, const double);
 
     void reset_resource();
-    virtual void reset_spells() = 0;
+    virtual void reset_class_specific() = 0;
 
 private:
 };

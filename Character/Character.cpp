@@ -499,12 +499,14 @@ void Character::decrease_ranged_flat_damage_bonus(const unsigned change) {
 }
 
 void Character::reset() {
+    reset_class_specific();
+
     melee_attacking = false;
     next_gcd = 0 - this->global_cooldown();
     next_trinket_cd = -1;
 
     enabled_buffs->reset();
-    reset_spells();
+    spells->reset();
     enabled_procs->reset();
 
     reset_resource();
