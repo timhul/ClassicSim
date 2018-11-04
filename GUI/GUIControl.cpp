@@ -128,6 +128,7 @@ GUIControl::GUIControl(QObject* parent) :
     damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
     proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
     resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
+    scale_result_model = new ScaleResultModel(number_cruncher);
 }
 
 GUIControl::~GUIControl() {
@@ -171,6 +172,7 @@ GUIControl::~GUIControl() {
     delete damage_avoidance_breakdown_model;
     delete proc_breakdown_model;
     delete resource_breakdown_model;
+    delete scale_result_model;
 }
 
 void GUIControl::set_character(Character* pchar) {
@@ -625,6 +627,10 @@ ResourceBreakdownModel* GUIControl::get_resource_breakdown_model() const {
     return this->resource_breakdown_model;
 }
 
+ScaleResultModel* GUIControl::get_scale_result_model() const {
+    return this->scale_result_model;
+}
+
 RotationModel* GUIControl::get_rotation_model() const {
     return this->rotation_model;
 }
@@ -696,7 +702,7 @@ void GUIControl::runFullSim() {
 }
 
 void GUIControl::compile_thread_results() {
-    number_cruncher->print();
+    scale_result_model->update_statistics();
     buff_breakdown_model->update_statistics();
     debuff_breakdown_model->update_statistics();
     damage_breakdown_model->update_statistics();

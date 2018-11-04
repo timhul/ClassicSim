@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("procBreakdownModel", gui_control->get_proc_breakdown_model());
     context->setContextProperty("resourceBreakdownModel", gui_control->get_resource_breakdown_model());
     context->setContextProperty("simScaleModel", gui_control->get_sim_scale_model());
+    context->setContextProperty("scaleResultModel", gui_control->get_scale_result_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 
@@ -56,6 +57,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<MeleeDamageAvoidanceBreakdownSorting>("MeleeDamageAvoidanceBreakdownSorting", 1, 0, "MeleeDamageAvoidanceBreakdownSorting");
     qmlRegisterType<ProcBreakdownSorting>("ProcBreakdownSorting", 1, 0, "ProcBreakdownSorting");
     qmlRegisterType<ResourceBreakdownSorting>("ResourceBreakdownSorting", 1, 0, "ResourceBreakdownSorting");
+    qmlRegisterType<ScaleResultSorting>("ScaleResultSorting", 1, 0, "ScaleResultSorting");
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

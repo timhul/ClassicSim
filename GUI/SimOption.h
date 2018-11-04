@@ -2,6 +2,7 @@
 #define SIMOPTION_H
 
 #include <QObject>
+#include <QString>
 
 class SimOption : public QObject {
     Q_OBJECT

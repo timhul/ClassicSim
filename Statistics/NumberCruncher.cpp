@@ -175,13 +175,9 @@ void NumberCruncher::merge_resource_entry(const QString& name, const QString &ic
     vec.append(result);
 }
 
-void NumberCruncher::print() {
+void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {
     QMutexLocker lock(&mutex);
 
-    calculate_stat_weights();
-}
-
-void NumberCruncher::calculate_stat_weights() const {
     QMap<SimOption::Name, double> dps_per_option;
 
     QMap<SimOption::Name, QVector<ClassStatistics*>>::const_iterator it = class_stats.constBegin();
@@ -195,18 +191,14 @@ void NumberCruncher::calculate_stat_weights() const {
 
     double base_value = dps_per_option.take(SimOption::Name::NoScale);
 
-    QMap<SimOption::Name, QString> percentage_increases;
-
     QMap<SimOption::Name, double>::const_iterator dps_it = dps_per_option.constBegin();
-    auto dps_end = dps_per_option.constEnd();
-    while(dps_it != dps_end) {
-        double percentage_diff = (dps_it.value() - base_value) / base_value;
+    while(dps_it != dps_per_option.constEnd()) {
+        double absolute_diff = dps_it.value() - base_value;
+        double relative_diff = absolute_diff / base_value;
 
-        percentage_increases.insert(dps_it.key(), QString::number(percentage_diff * 100, 'f', 2));
+        list.append(new ScaleResult(dps_it.key(), absolute_diff, relative_diff));
         ++dps_it;
     }
-
-    qDebug() << "percentage increases per stat" << percentage_increases;
 }
 
 double NumberCruncher::get_total_dps(SimOption::Name option) const {
@@ -232,4 +224,21 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
 
 double NumberCruncher::delta(double lhs, double rhs) {
     return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
+}
+
+QString get_name_for_option(const SimOption::Name option) {
+    if (option == SimOption::Name::ScaleAgility)
+        return "+10 Agility";
+    if (option == SimOption::Name::ScaleStrength)
+        return "+10 Strength";
+    if (option == SimOption::Name::ScaleHitChance)
+        return "+1% Hit Chance";
+    if (option == SimOption::Name::ScaleCritChance)
+        return "+1% Crit Chance";
+    if (option == SimOption::Name::ScaleMeleeAP)
+        return "+10 Melee AP";
+    if (option == SimOption::Name::ScaleWeaponSkill)
+        return "Weapon Skill";
+
+    return "<unset scale name>";
 }

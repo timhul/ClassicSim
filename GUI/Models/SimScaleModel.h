@@ -29,8 +29,6 @@ private:
 
     SimSettings* sim_settings;
     QList<SimOption::Name> sim_options;
-
-    QString get_name_for_option(const SimOption::Name option) const;
 };
 
 #endif // SIMSCALEMODEL_H

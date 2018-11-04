@@ -1,3 +1,4 @@
+#include "NumberCruncher.h"
 #include "SimScaleModel.h"
 #include "SimSettings.h"
 
@@ -55,21 +56,4 @@ QHash<int, QByteArray> SimScaleModel::roleNames() const {
     roles[ActiveRole] = "_active";
     roles[EnumRole] = "_enum";
     return roles;
-}
-
-QString SimScaleModel::get_name_for_option(const SimOption::Name option) const {
-    if (option == SimOption::Name::ScaleAgility)
-        return "Agility";
-    if (option == SimOption::Name::ScaleStrength)
-        return "Strength";
-    if (option == SimOption::Name::ScaleHitChance)
-        return "Hit %";
-    if (option == SimOption::Name::ScaleCritChance)
-        return "Crit %";
-    if (option == SimOption::Name::ScaleMeleeAP)
-        return "Melee Attack Power";
-    if (option == SimOption::Name::ScaleWeaponSkill)
-        return "Weapon Skill";
-
-    return "<unset scale name>";
 }

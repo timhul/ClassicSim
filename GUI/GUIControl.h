@@ -27,6 +27,7 @@
 #include "ProcBreakdownModel.h"
 #include "ResourceBreakdownModel.h"
 #include "SimScaleModel.h"
+#include "ScaleResultModel.h"
 
 class CharacterEncoder;
 class CharacterDecoder;
@@ -187,6 +188,7 @@ public:
     MeleeDamageAvoidanceBreakdownModel* get_dmg_breakdown_avoidance_model() const;
     ProcBreakdownModel* get_proc_breakdown_model() const;
     ResourceBreakdownModel* get_resource_breakdown_model() const;
+    ScaleResultModel* get_scale_result_model() const;
     /* End of Statistics */
 
     /* Target */
@@ -345,6 +347,7 @@ private:
     ProcBreakdownModel* proc_breakdown_model;
     ResourceBreakdownModel* resource_breakdown_model;
     SimScaleModel* sim_scale_model;
+    ScaleResultModel* scale_result_model;
     double last_quick_sim_result;
     bool sim_in_progress;
 };

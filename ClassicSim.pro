@@ -262,7 +262,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/AngerManagementTalent.cpp \
     Character/Class/Warrior/Spells/AngerManagement.cpp \
     GUI/Models/Statistics/DebuffBreakdownModel.cpp \
-    GUI/Models/SimScaleModel.cpp
+    GUI/Models/SimScaleModel.cpp \
+    GUI/Models/Statistics/ScaleResultModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -526,7 +527,8 @@ HEADERS += \
     Character/Class/Warrior/Spells/AngerManagement.h \
     GUI/Models/Statistics/DebuffBreakdownModel.h \
     GUI/SimOption.h \
-    GUI/Models/SimScaleModel.h
+    GUI/Models/SimScaleModel.h \
+    GUI/Models/Statistics/ScaleResultModel.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \
