@@ -288,7 +288,7 @@ bool RotationFileReader::add_logical_connective(Sentence* sentence, const QStrin
 }
 
 bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& compare_operation) {
-    QSet<QString> cmp_by_float = {"greater", "less"};
+    QSet<QString> cmp_by_float = {"greater", "geq", "eq", "leq", "less"};
     QSet<QString> cmp_by_bool = {"is"};
 
     QStringList cmp_operation_split = compare_operation.split(' ', QString::SkipEmptyParts);
@@ -324,9 +324,8 @@ bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& comp
             return true;
         }
 
-        // [greater/less] [0-9]  
-        sentence->mathematical_symbol = cmp == "greater" ? Comparators::greater :
-                                                           Comparators::less;
+        // [greater/geq/eq/leq/less] [0-9]
+        sentence->mathematical_symbol = get_comparator_from_string(cmp);
         sentence->compared_value_type = CompareValueTypes::float_val;
         sentence->compared_value = cmp_operation_split.takeFirst();
         return true;
@@ -347,4 +346,21 @@ bool RotationFileReader::add_let(Sentence* sentence, QStringList &let_list) {
     sentence->compared_value = let_list[2].split(' ', QString::SkipEmptyParts).takeLast();
 
     return true;
+}
+
+int RotationFileReader::get_comparator_from_string(const QString& comparator) const {
+    if (comparator == "greater")
+        return Comparators::greater;
+    if (comparator == "geq")
+        return Comparators::geq;
+    if (comparator == "eq")
+        return Comparators::eq;
+    if (comparator == "leq")
+        return Comparators::leq;
+    if (comparator == "less")
+        return Comparators::less;
+
+    qDebug() << "Could not find comparator for" << comparator;
+    assert(false);
+    return -1;
 }

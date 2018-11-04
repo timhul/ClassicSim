@@ -28,6 +28,8 @@ private:
     bool add_logical_connective(Sentence* sentence, const QString& logical_connective);
     bool add_compare_operation(Sentence* sentence, QString &compare_operation);
     bool add_let(Sentence* sentence, QStringList& let_list);
+
+    int get_comparator_from_string(const QString& comparator) const;
 };
 
 #endif // ROTATIONFILEREADER_H
