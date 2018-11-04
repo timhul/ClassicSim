@@ -28,6 +28,7 @@ public:
     void set_num_threads(const int);
 
     void add_sim_option(SimOption::Name);
+    void set_sim_options(QSet<SimOption::Name>);
     void remove_sim_option(SimOption::Name);
     bool option_active(SimOption::Name) const;
     QSet<SimOption::Name> get_active_options() const;

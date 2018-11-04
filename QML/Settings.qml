@@ -7,8 +7,11 @@ Rectangle {
     color: "transparent"
 
     Column {
-        anchors.fill: parent
-        anchors.margins: 40
+        id: textFieldEntries
+        width: parent.width / 2 - x
+        height: parent.height - x
+        x: 40
+        y: x
         spacing: 10
 
         SettingsTextFieldEntry {
@@ -53,6 +56,32 @@ Rectangle {
             unitText: "threads"
 
             onAcceptedInput: settings.setNumThreads(value)
+        }
+    }
+
+    ListView {
+        id: scaleModel
+        anchors {
+            left: textFieldEntries.right
+            top: parent.top
+            topMargin: 40
+            bottom: parent.bottom
+        }
+
+        boundsBehavior: Flickable.StopAtBounds
+
+        implicitHeight: contentHeight
+
+        model: simScaleModel
+        delegate: RectangleBorders {
+            rectColor: _active ? "#134f00" : root.darkDarkGray
+            height: 30
+            width: 150
+            TextSmall {
+                text: _name
+            }
+
+            onRectangleClicked: simScaleModel.toggleOption(_enum)
         }
     }
 }

@@ -65,6 +65,7 @@ GUIControl::GUIControl(QObject* parent) :
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
 
     this->sim_control = new SimControl(sim_settings, number_cruncher);
+    this->sim_scale_model = new SimScaleModel(sim_settings);
     races.insert("Dwarf", new Dwarf());
     races.insert("Gnome", new Gnome());
     races.insert("Human", new Human());
@@ -162,6 +163,7 @@ GUIControl::~GUIControl() {
     delete thread_pool;
     delete sim_control;
     delete sim_settings;
+    delete sim_scale_model;
     delete number_cruncher;
     delete buff_breakdown_model;
     delete debuff_breakdown_model;
@@ -755,6 +757,10 @@ void GUIControl::setNumThreads(const int threads) {
 void GUIControl::selectRuleset(const int ruleset) {
     sim_settings->use_ruleset(static_cast<Ruleset>(ruleset), current_char);
     statsChanged();
+}
+
+SimScaleModel* GUIControl::get_sim_scale_model() const {
+    return this->sim_scale_model;
 }
 
 QString GUIControl::get_mainhand_icon() const {

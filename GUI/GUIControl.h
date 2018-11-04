@@ -26,6 +26,7 @@
 #include "DebuffBreakdownModel.h"
 #include "ProcBreakdownModel.h"
 #include "ResourceBreakdownModel.h"
+#include "SimScaleModel.h"
 
 class CharacterEncoder;
 class CharacterDecoder;
@@ -206,7 +207,6 @@ public:
     /* End of Rotation */
 
      /* SimSettings */
-     SimSettings* get_sim_settings() const;
      Q_PROPERTY(int combatLength READ get_combat_length NOTIFY combatLengthChanged)
      Q_PROPERTY(int combatIterationsFullSim READ get_combat_iterations_full_sim NOTIFY combatIterationsChanged)
      Q_PROPERTY(int combatIterationsQuickSim READ get_combat_iterations_quick_sim NOTIFY combatIterationsChanged)
@@ -226,6 +226,10 @@ public:
      Q_INVOKABLE void runFullSim();
      Q_SIGNAL void simResultUpdated(QString value, QString change, bool positive);
      /* End of SimSettings */
+
+     /* Sim Scale Options */
+     SimScaleModel* get_sim_scale_model() const;
+     /* End of Sim Scale Options */
 
      Q_SLOT void compile_thread_results();
 
@@ -340,6 +344,7 @@ private:
     MeleeDamageAvoidanceBreakdownModel* damage_avoidance_breakdown_model;
     ProcBreakdownModel* proc_breakdown_model;
     ResourceBreakdownModel* resource_breakdown_model;
+    SimScaleModel* sim_scale_model;
     double last_quick_sim_result;
     bool sim_in_progress;
 };

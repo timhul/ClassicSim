@@ -3,11 +3,12 @@
 #include <QQuickImageProvider>
 #include <QQmlContext>
 
+#include "AvailableFactions.h"
+#include "EnchantName.h"
 #include "GUIControl.h"
 #include "PieChart.h"
 #include "PieChartModel.h"
-#include "EnchantName.h"
-#include "AvailableFactions.h"
+#include "SimOption.h"
 
 int main(int argc, char *argv[])
 {
@@ -41,6 +42,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("meleeAvoidanceBreakdownModel", gui_control->get_dmg_breakdown_avoidance_model());
     context->setContextProperty("procBreakdownModel", gui_control->get_proc_breakdown_model());
     context->setContextProperty("resourceBreakdownModel", gui_control->get_resource_breakdown_model());
+    context->setContextProperty("simScaleModel", gui_control->get_sim_scale_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 
@@ -48,6 +50,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
     qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
+    qmlRegisterType<SimOption>("SimOption", 1, 0, "SimOption");
     qmlRegisterType<BuffBreakdownSorting>("BuffBreakdownSorting", 1, 0, "BuffBreakdownSorting");
     qmlRegisterType<MeleeDamageBreakdownSorting>("MeleeDamageBreakdownSorting", 1, 0, "MeleeDamageBreakdownSorting");
     qmlRegisterType<MeleeDamageAvoidanceBreakdownSorting>("MeleeDamageAvoidanceBreakdownSorting", 1, 0, "MeleeDamageAvoidanceBreakdownSorting");

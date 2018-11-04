@@ -85,6 +85,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
 
     local_sim_settings->set_combat_iterations_full_sim(iterations);
     local_sim_settings->set_combat_iterations_quick_sim(iterations);
+    local_sim_settings->set_sim_options(global_sim_settings->get_active_options());
 
     equip_gear(decoder);
     invest_talent_points(decoder);
