@@ -27,6 +27,7 @@ void Engine::run() {
 }
 
 void Engine::prepare() {
+    reset();
     timer->start();
     processed_events_of_type.clear();
 }

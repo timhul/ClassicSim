@@ -35,9 +35,9 @@ void SimControl::run_full_sim(Character* pchar) {
 
 void SimControl::run_sim(Character* pchar, const int combat_length, const int iterations) {
     pchar->get_statistics()->prepare_statistics();
-    pchar->get_engine()->prepare();
     pchar->get_combat_roll()->drop_tables();
     pchar->prepare_set_of_combat_iterations();
+    pchar->get_engine()->prepare();
 
     for (int i = 0; i < iterations; ++i) {
         auto* start_event = new EncounterStart(pchar);
