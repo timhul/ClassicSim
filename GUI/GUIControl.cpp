@@ -121,6 +121,7 @@ GUIControl::GUIControl(QObject* parent) :
     rotation_model->set_information_index(0);
     rotation_model->select_rotation();
     buff_breakdown_model = new BuffBreakdownModel(number_cruncher);
+    debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
     damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
     damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
     proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
@@ -162,6 +163,7 @@ GUIControl::~GUIControl() {
     delete sim_settings;
     delete number_cruncher;
     delete buff_breakdown_model;
+    delete debuff_breakdown_model;
     delete damage_breakdown_model;
     delete damage_avoidance_breakdown_model;
     delete proc_breakdown_model;
@@ -600,6 +602,10 @@ BuffBreakdownModel* GUIControl::get_buff_breakdown_model() const {
     return this->buff_breakdown_model;
 }
 
+DebuffBreakdownModel* GUIControl::get_debuff_breakdown_model() const {
+    return this->debuff_breakdown_model;
+}
+
 MeleeDamageBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
     return this->damage_breakdown_model;
 }
@@ -689,6 +695,7 @@ void GUIControl::runFullSim() {
 void GUIControl::compile_thread_results() {
     number_cruncher->print();
     buff_breakdown_model->update_statistics();
+    debuff_breakdown_model->update_statistics();
     damage_breakdown_model->update_statistics();
     damage_avoidance_breakdown_model->update_statistics();
     proc_breakdown_model->update_statistics();

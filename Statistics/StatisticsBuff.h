@@ -12,12 +12,13 @@ bool avg_uptime(StatisticsBuff* lhs, StatisticsBuff* rhs);
 
 class StatisticsBuff {
 public:
-    StatisticsBuff(const QString& name, const QString& icon);
+    StatisticsBuff(const QString& name, const QString& icon, const bool debuff);
 
     void reset();
 
     QString get_name() const;
     QString get_icon() const;
+    bool is_debuff() const;
 
     void add_uptime(const double);
     void add_uptime_for_encounter(const double);
@@ -31,6 +32,7 @@ public:
 private:
     const QString name;
     const QString icon;
+    const bool debuff;
     double min_uptime;
     double max_uptime;
     double avg_uptime;

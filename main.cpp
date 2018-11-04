@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("debuffModel", gui_control->get_debuff_model());
     context->setContextProperty("rotationModel", gui_control->get_rotation_model());
     context->setContextProperty("buffBreakdownModel", gui_control->get_buff_breakdown_model());
+    context->setContextProperty("debuffBreakdownModel", gui_control->get_debuff_breakdown_model());
     context->setContextProperty("meleeDamageBreakdownModel", gui_control->get_dmg_breakdown_model());
     context->setContextProperty("meleeAvoidanceBreakdownModel", gui_control->get_dmg_breakdown_avoidance_model());
     context->setContextProperty("procBreakdownModel", gui_control->get_proc_breakdown_model());

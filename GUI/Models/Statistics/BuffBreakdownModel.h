@@ -25,7 +25,7 @@ class BuffBreakdownModel : public QAbstractListModel
     Q_OBJECT
 public:
     BuffBreakdownModel(NumberCruncher* statistics_source, QObject *parent = nullptr);
-    ~BuffBreakdownModel();
+    virtual ~BuffBreakdownModel();
 
     Q_INVOKABLE void selectSort(const int method);
 
@@ -39,7 +39,6 @@ public:
 
 protected:
     QHash<int, QByteArray> roleNames() const;
-private:
     NumberCruncher* statistics_source;
     QHash<BuffBreakdownSorting::Methods, bool> sorting_methods;
     QList<StatisticsBuff*> buff_stats;
@@ -47,6 +46,7 @@ private:
 
     void select_new_method(const BuffBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;
+    virtual void add_statistics();
 };
 
 #endif // BUFFBREAKDOWNMODEL_H

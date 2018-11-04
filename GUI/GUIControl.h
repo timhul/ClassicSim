@@ -23,6 +23,7 @@
 #include "MeleeDamageBreakdownModel.h"
 #include "MeleeDamageAvoidanceBreakdownModel.h"
 #include "BuffBreakdownModel.h"
+#include "DebuffBreakdownModel.h"
 #include "ProcBreakdownModel.h"
 #include "ResourceBreakdownModel.h"
 
@@ -180,6 +181,7 @@ public:
     Q_INVOKABLE QString getEntryIcon(const int index) const;
 
     BuffBreakdownModel* get_buff_breakdown_model() const;
+    DebuffBreakdownModel* get_debuff_breakdown_model() const;
     MeleeDamageBreakdownModel* get_dmg_breakdown_model() const;
     MeleeDamageAvoidanceBreakdownModel* get_dmg_breakdown_avoidance_model() const;
     ProcBreakdownModel* get_proc_breakdown_model() const;
@@ -333,6 +335,7 @@ private:
     DebuffModel* debuff_model;
     RotationModel* rotation_model;
     BuffBreakdownModel* buff_breakdown_model;
+    DebuffBreakdownModel* debuff_breakdown_model;
     MeleeDamageBreakdownModel* damage_breakdown_model;
     MeleeDamageAvoidanceBreakdownModel* damage_avoidance_breakdown_model;
     ProcBreakdownModel* proc_breakdown_model;

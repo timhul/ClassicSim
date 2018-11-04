@@ -8,6 +8,7 @@
 
 class BuffBreakdownModel;
 class ClassStatistics;
+class DebuffBreakdownModel;
 class MeleeDamageBreakdownModel;
 class MeleeDamageAvoidanceBreakdownModel;
 class ProcBreakdownModel;
@@ -31,6 +32,7 @@ public:
 
 private:
     friend class BuffBreakdownModel;
+    friend class DebuffBreakdownModel;
     friend class MeleeDamageBreakdownModel;
     friend class MeleeDamageAvoidanceBreakdownModel;
     friend class ProcBreakdownModel;
@@ -45,7 +47,7 @@ private:
     void merge_spell_stats(QList<StatisticsSpell*>& vec);
     void merge_spell_entry(const QString& name, const QString &icon, long long int total_damage_dealt, QList<StatisticsSpell*>& vec);
 
-    void merge_buff_stats(QList<StatisticsBuff*>& vec);
+    void merge_buff_stats(QList<StatisticsBuff*>& vec, const bool include_debuffs);
     void merge_buff_entry(const QString& name, const QString &icon, QList<StatisticsBuff*>& vec);
 
     void merge_proc_stats(QList<StatisticsProc*>& vec);

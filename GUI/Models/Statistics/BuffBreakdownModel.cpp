@@ -81,12 +81,16 @@ void BuffBreakdownModel::update_statistics() {
     }
 
     beginInsertRows(QModelIndex(), 0, rowCount());
-    statistics_source->merge_buff_stats(buff_stats);
+    add_statistics();
     endInsertRows();
 
     layoutAboutToBeChanged();
     std::sort(buff_stats.begin(), buff_stats.end(), avg_uptime);
     layoutChanged();
+}
+
+void BuffBreakdownModel::add_statistics() {
+    statistics_source->merge_buff_stats(buff_stats, false);
 }
 
 int BuffBreakdownModel::rowCount(const QModelIndex & parent) const {

@@ -33,10 +33,10 @@ StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, cons
     return spell_statistics[name];
 }
 
-StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name, const QString& icon) {
+StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name, const QString& icon, const bool debuff) {
     assert(!buff_statistics.contains(name));
 
-    buff_statistics[name] = new StatisticsBuff(name, icon);
+    buff_statistics[name] = new StatisticsBuff(name, icon, debuff);
     return buff_statistics[name];
 }
 

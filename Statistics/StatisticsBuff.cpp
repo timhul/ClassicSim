@@ -27,9 +27,10 @@ bool avg_uptime(StatisticsBuff* lhs, StatisticsBuff* rhs) {
     return lhs_uptime > rhs_uptime;
 }
 
-StatisticsBuff::StatisticsBuff(const QString &name, const QString &icon) :
+StatisticsBuff::StatisticsBuff(const QString &name, const QString &icon, const bool debuff) :
     name(name),
     icon(icon),
+    debuff(debuff),
     min_uptime(std::numeric_limits<double>::max()),
     max_uptime(std::numeric_limits<double>::min()),
     avg_uptime(0),
@@ -49,6 +50,10 @@ QString StatisticsBuff::get_name() const {
 
 QString StatisticsBuff::get_icon() const {
     return this->icon;
+}
+
+bool StatisticsBuff::is_debuff() const {
+    return this->debuff;
 }
 
 void StatisticsBuff::add_uptime(const double uptime) {

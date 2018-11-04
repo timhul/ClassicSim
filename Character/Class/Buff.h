@@ -21,13 +21,17 @@ namespace Hidden {
     static const bool No = false;
 }
 
+namespace Debuff {
+    static const bool Yes = true;
+    static const bool No = false;
+}
+
 static const QString NO_ICON = "no-icon";
 
 class Buff {
 public:
     Buff(Character* pchar, const QString& name, const QString &icon, const int duration, const int base_charges);
     virtual ~Buff();
-
 
     QString get_name() const;
     QString get_icon() const;
@@ -46,6 +50,7 @@ public:
 
     bool is_enabled() const;
     bool is_hidden() const;
+    bool is_debuff() const;
 
     void set_instance_id(const int);
     int get_instance_id() const;
@@ -69,6 +74,7 @@ protected:
     bool enabled;
     double uptime{};
     bool hidden;
+    bool debuff;
 
     int instance_id;
 

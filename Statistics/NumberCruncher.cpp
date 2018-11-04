@@ -73,7 +73,7 @@ void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon,
     vec.append(result);
 }
 
-void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec) {
+void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec, const bool include_debuffs) {
     QMutexLocker lock(&mutex);
 
     assert(class_stats.contains(SimOption::NoScale));
@@ -83,7 +83,7 @@ void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec) {
         QMap<QString, StatisticsBuff*>::const_iterator it = cstats->buff_statistics.constBegin();
         auto end = cstats->buff_statistics.constEnd();
         while (it != end) {
-            if (handled_entries.contains(it.key())) {
+            if (handled_entries.contains(it.key()) || (it.value()->is_debuff() != include_debuffs)) {
                 ++it;
                 continue;
             }
@@ -95,13 +95,16 @@ void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec) {
 }
 
 void NumberCruncher::merge_buff_entry(const QString& name, const QString &icon, QList<StatisticsBuff*>& vec) {
-    auto* result = new StatisticsBuff(name, icon);
+    auto* result = new StatisticsBuff(name, icon, false);
     for (auto & cstats : class_stats[SimOption::NoScale]) {
         if (!cstats->buff_statistics.contains(name))
             continue;
 
         result->add(cstats->buff_statistics[name]);
     }
+
+    if (result->get_avg_uptime() < 0.0000001)
+        return;
 
     vec.append(result);
 }

@@ -239,6 +239,39 @@ Rectangle {
                 maxuptime: _maxuptime
             }
         }
+
+        StatisticsHeader {
+            id: headerDebuffUptimes
+            title: "Debuff Uptimes"
+            anchors.top: buffBreakdownTable.bottom
+        }
+
+        StatisticsBuffBreakdownSorting {
+            id: debuffBreakdownSorting
+            anchors.top: headerDebuffUptimes.bottom
+        }
+
+        ListView {
+            id: debuffBreakdownTable
+            anchors {
+                top: debuffBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: debuffBreakdownModel
+            delegate: StatisticsEntryBuffBreakdown {
+                name: _name
+                iconurl: _icon
+                avguptime: _avguptime
+                minuptime: _minuptime
+                maxuptime: _maxuptime
+            }
+        }
     }
 
     ScrollView {

@@ -15,6 +15,7 @@ Buff::Buff(Character* pchar, const QString& name, const QString& icon, const int
     base_charges(base_charges),
     enabled(false),
     hidden(false),
+    debuff(false),
     instance_id(BuffStatus::INACTIVE)
 {
     initialize();
@@ -146,6 +147,10 @@ bool Buff::is_hidden() const {
     return hidden;
 }
 
+bool Buff::is_debuff() const {
+    return debuff;
+}
+
 void Buff::set_instance_id(const int instance_id) {
     this->instance_id = instance_id;
 }
@@ -174,7 +179,7 @@ void Buff::prepare_set_of_combat_iterations() {
     if (this->is_hidden())
         return;
 
-    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon);
+    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon, debuff);
 }
 
 void Buff::buff_effect_when_refreshed() {
