@@ -12,6 +12,7 @@ namespace BuiltinVariables {
     static const int TimeRemainingEncounter = 1;
     static const int TimeRemainingExecute = 2;
     static const int SwingTimer = 3;
+    static const int MeleeAP = 4;
 }
 
 

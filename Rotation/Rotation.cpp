@@ -146,6 +146,8 @@ int Rotation::get_builtin_variable(const QString& var_name) const {
         return BuiltinVariables::TimeRemainingExecute;
     if (var_name == "time_since_swing")
         return BuiltinVariables::SwingTimer;
+    if (var_name == "melee_ap")
+        return BuiltinVariables::MeleeAP;
 
     return BuiltinVariables::Undefined;
 }

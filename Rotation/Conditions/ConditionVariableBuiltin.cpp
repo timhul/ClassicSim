@@ -40,6 +40,8 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
         double delta = pchar->get_stats()->get_mh_wpn_speed() - pchar->get_spells()->get_mh_attack()->get_cooldown_remaining();
         return delta < 0.4;
     }
+    case BuiltinVariables::MeleeAP:
+        return cmp_values(pchar->get_stats()->get_melee_ap());
     default:
         assert(false);
         return false;
