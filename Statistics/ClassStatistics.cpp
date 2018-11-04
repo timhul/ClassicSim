@@ -8,7 +8,7 @@
 
 ClassStatistics::ClassStatistics(SimSettings* sim_settings) :
     sim_settings(sim_settings),
-    option(SimOption::NoScale),
+    option(SimOption::Name::NoScale),
     combat_iterations(0),
     combat_length(0)
 {}
@@ -17,12 +17,12 @@ ClassStatistics::~ClassStatistics() {
     delete_maps();
 }
 
-void ClassStatistics::set_sim_option(const SimOption option) {
-    assert(this->option == SimOption::NoScale);
+void ClassStatistics::set_sim_option(const SimOption::Name option) {
+    assert(this->option == SimOption::Name::NoScale);
     this->option = option;
 }
 
-SimOption ClassStatistics::get_sim_option() const {
+SimOption::Name ClassStatistics::get_sim_option() const {
     return this->option;
 }
 

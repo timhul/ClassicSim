@@ -523,7 +523,8 @@ HEADERS += \
     Character/EnabledProcs.h \
     Character/Class/Warrior/TalentTrees/Arms/AngerManagementTalent.h \
     Character/Class/Warrior/Spells/AngerManagement.h \
-    GUI/Models/Statistics/DebuffBreakdownModel.h
+    GUI/Models/Statistics/DebuffBreakdownModel.h \
+    GUI/SimOption.h
 
 INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Event \

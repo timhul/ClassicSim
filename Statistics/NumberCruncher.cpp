@@ -15,7 +15,7 @@ NumberCruncher::~NumberCruncher() {
 void NumberCruncher::reset() {
     QMutexLocker lock(&mutex);
 
-    QMap<SimOption, QVector<ClassStatistics*>>::const_iterator it = class_stats.constBegin();
+    QMap<SimOption::Name, QVector<ClassStatistics*>>::const_iterator it = class_stats.constBegin();
     auto end = class_stats.constEnd();
     while(it != end) {
         for (auto & class_stats_instance : it.value())
@@ -26,7 +26,7 @@ void NumberCruncher::reset() {
     class_stats.clear();
 }
 
-void NumberCruncher::add_class_statistic(SimOption key, ClassStatistics* cstat) {
+void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* cstat) {
     QMutexLocker lock(&mutex);
     if (!class_stats.contains(key))
         class_stats.insert(key, QVector<ClassStatistics*>({}));
@@ -37,15 +37,15 @@ void NumberCruncher::add_class_statistic(SimOption key, ClassStatistics* cstat) 
 void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::NoScale));
+    assert(class_stats.contains(SimOption::Name::NoScale));
 
     long long int total_damage_dealt = 0;
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         total_damage_dealt += cstats->get_total_damage_dealt();
     }
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsSpell*>::const_iterator it = cstats->spell_statistics.constBegin();
         auto end = cstats->spell_statistics.constEnd();
         while (it != end) {
@@ -62,7 +62,7 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
 
 void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, QList<StatisticsSpell *> &vec) {
     StatisticsSpell* result = new StatisticsSpell(name, icon);
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->spell_statistics.contains(name))
             continue;
 
@@ -76,10 +76,10 @@ void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon,
 void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec, const bool include_debuffs) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::NoScale));
+    assert(class_stats.contains(SimOption::Name::NoScale));
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsBuff*>::const_iterator it = cstats->buff_statistics.constBegin();
         auto end = cstats->buff_statistics.constEnd();
         while (it != end) {
@@ -96,7 +96,7 @@ void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec, const bool in
 
 void NumberCruncher::merge_buff_entry(const QString& name, const QString &icon, QList<StatisticsBuff*>& vec) {
     auto* result = new StatisticsBuff(name, icon, false);
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->buff_statistics.contains(name))
             continue;
 
@@ -112,10 +112,10 @@ void NumberCruncher::merge_buff_entry(const QString& name, const QString &icon, 
 void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::NoScale));
+    assert(class_stats.contains(SimOption::Name::NoScale));
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsProc*>::const_iterator it = cstats->proc_statistics.constBegin();
         auto end = cstats->proc_statistics.constEnd();
         while (it != end) {
@@ -132,7 +132,7 @@ void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
 
 void NumberCruncher::merge_proc_entry(const QString& name, const QString &icon, QList<StatisticsProc*>& vec) {
     auto* result = new StatisticsProc(name, icon);
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->proc_statistics.contains(name))
             continue;
 
@@ -145,10 +145,10 @@ void NumberCruncher::merge_proc_entry(const QString& name, const QString &icon, 
 void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::NoScale));
+    assert(class_stats.contains(SimOption::Name::NoScale));
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsResource*>::const_iterator it = cstats->resource_statistics.constBegin();
         auto end = cstats->resource_statistics.constEnd();
         while (it != end) {
@@ -165,7 +165,7 @@ void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
 
 void NumberCruncher::merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec) {
     auto* result = new StatisticsResource(name, icon);
-    for (auto & cstats : class_stats[SimOption::NoScale]) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->resource_statistics.contains(name))
             continue;
 
@@ -182,22 +182,22 @@ void NumberCruncher::print() {
 }
 
 void NumberCruncher::calculate_stat_weights() const {
-    QMap<SimOption, double> dps_per_option;
+    QMap<SimOption::Name, double> dps_per_option;
 
-    QMap<SimOption, QVector<ClassStatistics*>>::const_iterator it = class_stats.constBegin();
+    QMap<SimOption::Name, QVector<ClassStatistics*>>::const_iterator it = class_stats.constBegin();
     auto end = class_stats.constEnd();
     while(it != end) {
         dps_per_option.insert(it.key(), get_dps_for_option(it.key()));
         ++it;
     }
 
-    assert(dps_per_option.contains(SimOption::NoScale));
+    assert(dps_per_option.contains(SimOption::Name::NoScale));
 
-    double base_value = dps_per_option.take(SimOption::NoScale);
+    double base_value = dps_per_option.take(SimOption::Name::NoScale);
 
-    QMap<SimOption, QString> percentage_increases;
+    QMap<SimOption::Name, QString> percentage_increases;
 
-    QMap<SimOption, double>::const_iterator dps_it = dps_per_option.constBegin();
+    QMap<SimOption::Name, double>::const_iterator dps_it = dps_per_option.constBegin();
     auto dps_end = dps_per_option.constEnd();
     while(dps_it != dps_end) {
         double percentage_diff = (dps_it.value() - base_value) / base_value;
@@ -209,11 +209,11 @@ void NumberCruncher::calculate_stat_weights() const {
     qDebug() << "percentage increases per stat" << percentage_increases;
 }
 
-double NumberCruncher::get_total_dps(SimOption option) const {
+double NumberCruncher::get_total_dps(SimOption::Name option) const {
     return get_dps_for_option(option);
 }
 
-double NumberCruncher::get_dps_for_option(SimOption option) const {
+double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
     assert(class_stats.contains(option));
 
     QVector<double> dps;

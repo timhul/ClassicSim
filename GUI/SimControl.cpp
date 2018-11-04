@@ -17,15 +17,15 @@ SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
 void SimControl::run_quick_sim(Character* pchar) {
     run_sim(pchar, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_quick_sim());
 
-    scaler->add_class_statistic(SimOption::NoScale, pchar->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->relinquish_ownership_of_statistics());
 }
 
 void SimControl::run_full_sim(Character* pchar) {
     run_sim(pchar, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
 
-    scaler->add_class_statistic(SimOption::NoScale, pchar->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->relinquish_ownership_of_statistics());
 
-    QSet<SimOption> options = sim_settings->get_active_options();
+    QSet<SimOption::Name> options = sim_settings->get_active_options();
     for (auto & option : options) {
         qDebug() << "Running sim with option" << option;
         run_sim_with_option(pchar, option, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
@@ -51,7 +51,7 @@ void SimControl::run_sim(Character* pchar, const int combat_length, const int it
     pchar->get_engine()->reset();
 }
 
-void SimControl::run_sim_with_option(Character* pchar, SimOption option, const int combat_length, const int iterations) {
+void SimControl::run_sim_with_option(Character* pchar, SimOption::Name option, const int combat_length, const int iterations) {
     add_option(pchar, option);
 
     run_sim(pchar, combat_length, iterations);
@@ -59,27 +59,27 @@ void SimControl::run_sim_with_option(Character* pchar, SimOption option, const i
     remove_option(pchar, option);
 }
 
-void SimControl::add_option(Character* pchar, SimOption option) {
+void SimControl::add_option(Character* pchar, SimOption::Name option) {
     switch (option) {
-    case SimOption::NoScale:
+    case SimOption::Name::NoScale:
         break;
-    case SimOption::ScaleAgility:
+    case SimOption::Name::ScaleAgility:
         pchar->get_stats()->increase_agility(10);
         pchar->get_statistics()->set_sim_option(option);;
         break;
-    case SimOption::ScaleStrength:
+    case SimOption::Name::ScaleStrength:
         pchar->get_stats()->increase_strength(10);
         pchar->get_statistics()->set_sim_option(option);
         break;
-    case SimOption::ScaleMeleeAP:
+    case SimOption::Name::ScaleMeleeAP:
         pchar->get_stats()->increase_melee_ap(10);
         pchar->get_statistics()->set_sim_option(option);
         break;
-    case SimOption::ScaleHitChance:
+    case SimOption::Name::ScaleHitChance:
         pchar->get_stats()->increase_hit(0.01);
         pchar->get_statistics()->set_sim_option(option);
         break;
-    case SimOption::ScaleCritChance:
+    case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->increase_crit(0.01);
         pchar->get_statistics()->set_sim_option(option);
         break;
@@ -88,23 +88,23 @@ void SimControl::add_option(Character* pchar, SimOption option) {
     }
 }
 
-void SimControl::remove_option(Character* pchar, SimOption option) {
+void SimControl::remove_option(Character* pchar, SimOption::Name option) {
     switch (option) {
-    case SimOption::NoScale:
+    case SimOption::Name::NoScale:
         break;
-    case SimOption::ScaleAgility:
+    case SimOption::Name::ScaleAgility:
         pchar->get_stats()->decrease_agility(10);
         break;
-    case SimOption::ScaleStrength:
+    case SimOption::Name::ScaleStrength:
         pchar->get_stats()->decrease_strength(10);
         break;
-    case SimOption::ScaleMeleeAP:
+    case SimOption::Name::ScaleMeleeAP:
         pchar->get_stats()->decrease_melee_ap(10);
         break;
-    case SimOption::ScaleHitChance:
+    case SimOption::Name::ScaleHitChance:
         pchar->get_stats()->decrease_hit(0.01);
         break;
-    case SimOption::ScaleCritChance:
+    case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->decrease_crit(0.01);
         break;
     default:

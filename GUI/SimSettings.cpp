@@ -10,7 +10,7 @@ SimSettings::SimSettings() :
     num_threads(QThread::idealThreadCount()),
     ruleset_control(new RulesetControl())
 {
-    sim_options = QSet<SimOption>({SimOption::ScaleStrength, SimOption::ScaleCritChance, SimOption::ScaleHitChance});
+    sim_options = QSet<SimOption::Name>({SimOption::Name::ScaleStrength, SimOption::Name::ScaleCritChance, SimOption::Name::ScaleHitChance});
 }
 
 SimSettings::~SimSettings() {
@@ -56,21 +56,21 @@ void SimSettings::set_num_threads(const int num_threads) {
     this->num_threads = num_threads;
 }
 
-void SimSettings::add_sim_option(SimOption option) {
-    assert(option != SimOption::NoScale);
+void SimSettings::add_sim_option(SimOption::Name option) {
+    assert(option != SimOption::Name::NoScale);
     sim_options.insert(option);
 }
 
-void SimSettings::remove_sim_option(SimOption option) {
+void SimSettings::remove_sim_option(SimOption::Name option) {
     if (sim_options.contains(option))
         sim_options.remove(option);
 }
 
-bool SimSettings::option_active(SimOption option) const {
+bool SimSettings::option_active(SimOption::Name option) const {
     return sim_options.contains(option);
 }
 
-QSet<SimOption> SimSettings::get_active_options() const {
+QSet<SimOption::Name> SimSettings::get_active_options() const {
     return sim_options;
 }
 

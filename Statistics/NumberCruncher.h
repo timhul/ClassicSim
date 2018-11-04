@@ -4,6 +4,8 @@
 #include <QMap>
 #include <QMutexLocker>
 #include <QVector>
+
+#include "SimOption.h"
 #include "SimSettings.h"
 
 class BuffBreakdownModel;
@@ -23,10 +25,10 @@ class NumberCruncher {
 public:
     ~NumberCruncher();
 
-    void add_class_statistic(SimOption, ClassStatistics*);
+    void add_class_statistic(SimOption::Name, ClassStatistics*);
     void reset();
 
-    double get_total_dps(SimOption) const;
+    double get_total_dps(SimOption::Name) const;
     static double delta(double lhs, double rhs);
     void print();
 
@@ -39,9 +41,9 @@ private:
     friend class ResourceBreakdownModel;
 
     QMutex mutex;
-    QMap<SimOption, QVector<ClassStatistics*>> class_stats;
+    QMap<SimOption::Name, QVector<ClassStatistics*>> class_stats;
 
-    double get_dps_for_option(SimOption) const;
+    double get_dps_for_option(SimOption::Name) const;
     void calculate_stat_weights() const;
 
     void merge_spell_stats(QList<StatisticsSpell*>& vec);

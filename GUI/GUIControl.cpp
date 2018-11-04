@@ -37,6 +37,7 @@
 
 #include "SimulationThreadPool.h"
 #include "SimControl.h"
+#include "SimOption.h"
 #include "SimSettings.h"
 #include "NumberCruncher.h"
 #include "Rulesets.h"
@@ -700,7 +701,7 @@ void GUIControl::compile_thread_results() {
     damage_avoidance_breakdown_model->update_statistics();
     proc_breakdown_model->update_statistics();
     resource_breakdown_model->update_statistics();
-    update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::NoScale));
+    update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::Name::NoScale));
     number_cruncher->reset();
     sim_in_progress = false;
     simProgressChanged();

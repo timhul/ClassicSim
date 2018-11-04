@@ -17,9 +17,9 @@ private:
     SimSettings* sim_settings;
     NumberCruncher* scaler;
 
-    void add_option(Character*, SimOption);
-    void remove_option(Character*, SimOption);
-    void run_sim_with_option(Character*, SimOption, const int combat_length, const int iterations);
+    void add_option(Character*, SimOption::Name);
+    void remove_option(Character*, SimOption::Name);
+    void run_sim_with_option(Character*, SimOption::Name, const int combat_length, const int iterations);
 
     void run_sim(Character*, const int combat_length, const int iterations);
 

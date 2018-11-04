@@ -4,6 +4,7 @@
 #include <QVariantList>
 #include <QMap>
 
+#include "SimOption.h"
 #include "SimSettings.h"
 
 class NumberCruncher;
@@ -34,14 +35,14 @@ public:
 
     void prepare_statistics();
 
-    void set_sim_option(const SimOption);
-    SimOption get_sim_option() const;
+    void set_sim_option(const SimOption::Name);
+    SimOption::Name get_sim_option() const;
 
 protected:
     friend class NumberCruncher;
 
     SimSettings* sim_settings;
-    SimOption option;
+    SimOption::Name option;
     int combat_iterations;
     int combat_length;
     QMap<QString, StatisticsSpell*> spell_statistics;

@@ -4,19 +4,10 @@
 #include <QSet>
 
 #include "Rulesets.h"
+#include "SimOption.h"
 
 class Character;
 class RulesetControl;
-
-enum SimOption {
-    NoScale = -1,
-    ScaleAgility,
-    ScaleStrength,
-    ScaleHitChance,
-    ScaleCritChance,
-    ScaleMeleeAP,
-    ScaleWeaponSkill
-};
 
 class SimSettings {
 public:
@@ -36,10 +27,10 @@ public:
     int get_num_threads_max() const;
     void set_num_threads(const int);
 
-    void add_sim_option(SimOption);
-    void remove_sim_option(SimOption);
-    bool option_active(SimOption) const;
-    QSet<SimOption> get_active_options() const;
+    void add_sim_option(SimOption::Name);
+    void remove_sim_option(SimOption::Name);
+    bool option_active(SimOption::Name) const;
+    QSet<SimOption::Name> get_active_options() const;
 
     void use_ruleset(const Ruleset, Character*);
     Ruleset get_ruleset() const;
@@ -57,7 +48,7 @@ private:
     double execute_threshold;
     RulesetControl* ruleset_control;
 
-    QSet<SimOption> sim_options;
+    QSet<SimOption::Name> sim_options;
 };
 
 #endif // SIMSETTINGS_H
