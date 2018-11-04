@@ -43,7 +43,6 @@ public:
 
     void given_deep_wounds_enabled();
 
-    void given_0_of_3_deep_wounds();
     void given_1_of_3_deep_wounds();
     void given_2_of_3_deep_wounds();
     void given_3_of_3_deep_wounds();

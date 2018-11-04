@@ -9,7 +9,7 @@ class TestSpellWarrior: public TestSpellDamage {
 public:
     TestSpellWarrior(EquipmentDb* equipment_db, QString spell_under_test);
 
-    void set_up() override;
+    void set_up(const bool prepare_combat_iterations = true) override;
     void tear_down() override;
 
     virtual void test_stance_cooldown() = 0;

@@ -18,13 +18,15 @@ TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_unde
     warrior(nullptr)
 {}
 
-void TestSpellWarrior::set_up() {
+void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
     set_up_general();
     warrior = new Warrior(race, equipment_db, sim_settings);
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;
-    warrior->prepare_set_of_combat_iterations();
+
+    if (prepare_combat_iterations)
+        pchar->prepare_set_of_combat_iterations();
 }
 
 void TestSpellWarrior::tear_down() {

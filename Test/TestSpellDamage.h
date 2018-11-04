@@ -11,9 +11,9 @@ public:
 
     virtual ~TestSpellDamage();
 
-    void run_mandatory_tests();
+    void run_mandatory_tests(const bool prepare_combat_iterations = true);
 
-    virtual void set_up() = 0;
+    virtual void set_up(const bool prepare_combat_iterations = true) = 0;
     virtual void tear_down() = 0;
 
     virtual void test_name_correct() = 0;

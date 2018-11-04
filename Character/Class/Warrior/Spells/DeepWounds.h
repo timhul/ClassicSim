@@ -5,11 +5,13 @@
 #include "TalentRequirer.h"
 #include <QVector>
 
+class Buff;
 class Warrior;
 
 class DeepWounds: public Spell, public TalentRequirer {
 public:
     DeepWounds(Character* pchar);
+    ~DeepWounds() override;
 
     void perform_periodic() override;
 
@@ -18,6 +20,7 @@ private:
     friend class DeepWoundsTalent;
 
     Warrior* warr;
+    Buff* buff;
     double wpn_percent;
     double previous_tick_rest;
     QVector<int> stacks;
@@ -28,6 +31,9 @@ private:
 
     void increase_talent_rank_effect(const QString& talent_name) override;
     void decrease_talent_rank_effect(const QString& talent_name) override;
+
+    void enable_spell_effect() override;
+    void disable_spell_effect() override;
 };
 
 #endif // DEEPWOUNDS_H

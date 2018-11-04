@@ -17,69 +17,70 @@ TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
 {}
 
 void TestDeepWounds::test_all() {
-    run_mandatory_tests();
+    const bool prepare_combat_iterations = false;
+    run_mandatory_tests(prepare_combat_iterations);
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_critical_mh_attack_applies_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_critical_oh_attack_applies_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_critical_bloodthirst_applies_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_critical_whirlwind_applies_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_critical_heroic_strike_applies_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_critical_overpower_applies_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_regular_hit_mh_attack_does_not_apply_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_regular_hit_oh_attack_does_not_apply_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_regular_hit_bloodthirst_does_not_apply_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_regular_hit_whirlwind_does_not_apply_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_regular_hit_heroic_strike_does_not_apply_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_regular_hit_overpower_does_not_apply_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_damage_of_1_of_3_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_damage_of_2_of_3_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_damage_of_3_of_3_deep_wounds();
     tear_down();
 
-    set_up();
+    set_up(prepare_combat_iterations);
     test_damage_stacks_when_multiple_crits_occur();
     tear_down();
 }
@@ -335,23 +336,22 @@ void TestDeepWounds::given_deep_wounds_enabled() {
     given_1_of_3_deep_wounds();
 }
 
-void TestDeepWounds::given_0_of_3_deep_wounds() {
-    assert(!deep_wounds()->is_enabled());
-}
-
 void TestDeepWounds::given_1_of_3_deep_wounds() {
     assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeepWounds::given_2_of_3_deep_wounds() {
     assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
     assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeepWounds::given_3_of_3_deep_wounds() {
     assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
     assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
     assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeepWounds::given_no_previous_deep_wounds_damage_dealt() {
