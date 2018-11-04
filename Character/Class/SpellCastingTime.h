@@ -10,6 +10,7 @@ public:
                      Character* pchar,
                      bool restricted_by_gcd,
                      double cooldown,
+                     const Resource resource_type,
                      int resource_cost,
                      int casting_time_ms);
 

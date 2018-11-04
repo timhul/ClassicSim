@@ -10,9 +10,10 @@ MainhandAttack::MainhandAttack(Character* pchar) :
     Spell("Mainhand Attack",
           "Assets/items/Inv_axe_01.png",
           pchar,
-          false,
+          RestrictedByGcd::No,
           (pchar->get_equipment()->get_mainhand() != nullptr) ? pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() :
                                                                 10000,
+          Resource::Rage,
           0)
 {
     this->pchar = pchar;

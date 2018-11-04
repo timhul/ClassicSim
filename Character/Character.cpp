@@ -35,6 +35,9 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
     ability_crit_dmg_mod(2.0),
     spell_crit_dmg_mod(1.5),
     clvl(1),
+    mana(0),
+    rage(0),
+    energy(0),
     melee_attacking(false),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard),
@@ -424,7 +427,16 @@ bool Character::has_offhand() const {
     return cstats->get_equipment()->get_offhand() != nullptr;
 }
 
-unsigned Character::get_resource_level() const {
+unsigned Character::get_resource_level(const Resource resource) const {
+    switch (resource) {
+    case Resource::Mana:
+        return this->mana;
+    case Resource::Rage:
+        return this->rage;
+    case Resource::Energy:
+        return this->energy;
+    }
+
     return 0;
 }
 
@@ -450,6 +462,12 @@ void Character::gain_energy(const unsigned) {
 
 void Character::lose_energy(const unsigned) {
 
+}
+
+void Character::reset_resource() {
+    this->mana = 0;
+    this->rage = 0;
+    this->energy = 0;
 }
 
 void Character::increase_mh_flat_damage_bonus(const unsigned change) {

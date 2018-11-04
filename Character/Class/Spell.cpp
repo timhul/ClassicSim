@@ -12,8 +12,9 @@ Spell::Spell(const QString& name,
              const QString& icon,
              Character* pchar,
              bool restricted_by_gcd,
-             double cooldown, int
-             resource_cost) :
+             double cooldown,
+             const Resource resource_type,
+             int resource_cost) :
     name(name),
     icon(icon),
     pchar(pchar),
@@ -23,6 +24,7 @@ Spell::Spell(const QString& name,
     restricted_by_gcd(restricted_by_gcd),
     cooldown(cooldown),
     last_used(0 - cooldown),
+    resource_type(resource_type),
     resource_cost(resource_cost),
     spell_rank(0),
     instance_id(SpellStatus::INACTIVE),
@@ -71,7 +73,7 @@ void Spell::disable_spell_effect() {
 }
 
 bool Spell::is_available() const {
-    return enabled && is_ready() && static_cast<int>(pchar->get_resource_level()) >= this->resource_cost;
+    return enabled && is_ready() && static_cast<int>(pchar->get_resource_level(resource_type)) >= this->resource_cost;
 }
 
 bool Spell::is_enabled() const {
@@ -106,7 +108,7 @@ void Spell::decrease_spell_rank() {
 }
 
 void Spell::perform() {
-    assert(static_cast<int>(pchar->get_resource_level()) >= resource_cost);
+    assert(static_cast<int>(pchar->get_resource_level(resource_type)) >= resource_cost);
     last_used = engine->get_current_priority();
     this->spell_effect();
 }

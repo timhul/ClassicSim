@@ -31,8 +31,6 @@ private:
     RogueSpells* rogue_spells;
 
     void initialize_talents() override;
-
-    void reset_resource() override;
     void reset_spells() override;
 };
 

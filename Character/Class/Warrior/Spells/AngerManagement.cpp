@@ -8,7 +8,7 @@
 #include "StatisticsResource.h"
 
 AngerManagement::AngerManagement(Character* pchar) :
-    Spell("Anger Management", "Assets/warrior/arms/tier3/anger_management.png", pchar, RestrictedByGcd::No, 0, 0),
+    Spell("Anger Management", "Assets/warrior/arms/tier3/anger_management.png", pchar, RestrictedByGcd::No, 0.0, Resource::Rage, 0),
     TalentRequirer(1, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {}

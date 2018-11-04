@@ -13,7 +13,7 @@ PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
                                                      double tick_until,
                                                      QMap<Resource, unsigned> resource_gains)
     :
-      Spell(name, icon, pchar, restricted_by_gcd, cooldown, 0),
+      Spell(name, icon, pchar, restricted_by_gcd, cooldown, Resource::Rage, 0),
       tick_rate(tick_rate),
       tick_until(tick_until),
       resource_gains(resource_gains)

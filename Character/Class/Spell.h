@@ -1,14 +1,17 @@
 #ifndef SPELL_H
 #define SPELL_H
 
+#include <algorithm>
+#include "assert.h"
+
 #include <QString>
 #include <QVector>
-#include <algorithm>
-#include "Engine.h"
+
+#include "AttackResult.h"
 #include "CombatRoll.h"
 #include "CooldownReady.h"
-#include "AttackResult.h"
-#include "assert.h"
+#include "Engine.h"
+#include "Resource.h"
 
 class Character;
 class StatisticsSpell;
@@ -30,6 +33,7 @@ public:
           Character* pchar,
           bool restricted_by_gcd,
           double cooldown,
+          const Resource resource_type,
           int resource_cost);
 
     virtual ~Spell();
@@ -77,6 +81,7 @@ protected:
     bool restricted_by_gcd;
     double cooldown;
     double last_used;
+    const Resource resource_type;
     int resource_cost;
     int spell_rank;
     int instance_id;

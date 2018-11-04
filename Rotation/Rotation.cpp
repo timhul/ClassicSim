@@ -79,6 +79,7 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
         case ConditionTypes::ResourceCondition:
             condition = new ConditionResource(this->pchar,
                                               sentence->mathematical_symbol,
+                                              get_resource_from_string(sentence->type_value),
                                               sentence->compared_value.toDouble());
             break;
         case ConditionTypes::VariableBuiltinCondition:
@@ -150,6 +151,19 @@ int Rotation::get_builtin_variable(const QString& var_name) const {
         return BuiltinVariables::MeleeAP;
 
     return BuiltinVariables::Undefined;
+}
+
+Resource Rotation::get_resource_from_string(const QString& resource) const {
+    if (resource == "Mana")
+        return Resource::Mana;
+    if (resource == "Rage")
+        return Resource::Rage;
+    if (resource == "Energy")
+        return Resource::Energy;
+
+    qDebug() << "Failed to find resource for" << resource;
+    assert(false);
+    return Resource::Rage;
 }
 
 void Rotation::dump() {

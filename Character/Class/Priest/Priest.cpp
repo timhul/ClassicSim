@@ -93,10 +93,6 @@ QVector<int> Priest::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Priest::reset_resource() {
-
-}
-
 void Priest::reset_spells() {
 
 }

@@ -94,10 +94,6 @@ QVector<int> Druid::get_weapon_proficiencies_for_slot(const int slot) const {
     }
 }
 
-void Druid::reset_resource() {
-
-}
-
 void Druid::reset_spells() {
 
 }

@@ -49,7 +49,6 @@ public:
     void increase_stance_rage_remainder();
     void decrease_stance_rage_remainder();
     unsigned get_stance_remainder() const;
-    unsigned get_resource_level() const override;
     unsigned get_curr_rage() const;
     void gain_rage(const unsigned) override;
     void lose_rage(const unsigned) override;
@@ -85,7 +84,6 @@ public:
     void melee_oh_yellow_critical_effect() override;
 
 private:
-    unsigned rage;
     int stance;
     unsigned stance_rage_remainder;
     double next_stance_cd;
@@ -106,7 +104,6 @@ private:
     void initialize_talents() override;
     void new_stance_effect();
 
-    void reset_resource() override;
     void reset_spells() override;
 };
 

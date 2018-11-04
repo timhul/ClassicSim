@@ -140,7 +140,7 @@ public:
     bool has_mainhand() const;
     bool has_offhand() const;
 
-    virtual unsigned get_resource_level() const;
+    unsigned get_resource_level(const Resource resource) const;
 
     void reset();
     void prepare_set_of_combat_iterations();
@@ -183,6 +183,9 @@ protected:
     double spell_crit_dmg_mod;
 
     int clvl;
+    unsigned mana;
+    unsigned rage;
+    unsigned energy;
     bool melee_attacking;
     double next_gcd;
     double next_trinket_cd;
@@ -196,7 +199,7 @@ protected:
     double get_normalized_dmg(const unsigned, const Weapon*);
     double get_non_normalized_dmg(const unsigned, const double);
 
-    virtual void reset_resource() = 0;
+    void reset_resource();
     virtual void reset_spells() = 0;
 
 private:

@@ -4,6 +4,8 @@
 #include <QMap>
 #include <QVector>
 
+#include "Resource.h"
+
 class RotationExecutor;
 class Character;
 class Buff;
@@ -41,6 +43,8 @@ protected:
     QMap<QString, QString> defined_variables;
     QMap<QString, QString> prerequisites;
     QVector<RotationExecutor*> rotation_executors;
+
+    Resource get_resource_from_string(const QString& resource) const;
 };
 
 #endif // ROTATION_H

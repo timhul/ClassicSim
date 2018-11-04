@@ -8,7 +8,7 @@
 #include "OverpowerBuff.h"
 
 MortalStrike::MortalStrike(Character* pchar) :
-    Spell("Mortal Strike", "Assets/warrior/arms/tier7/Ability_warrior_savageblow.png", pchar, RestrictedByGcd::Yes, 6.0, 30),
+    Spell("Mortal Strike", "Assets/warrior/arms/tier7/Ability_warrior_savageblow.png", pchar, RestrictedByGcd::Yes, 6.0, Resource::Rage, 30),
     TalentRequirer(1, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {

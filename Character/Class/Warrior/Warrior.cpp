@@ -264,10 +264,6 @@ double Warrior::stance_cooldown() const {
     return 1.0;
 }
 
-unsigned Warrior::get_resource_level() const {
-    return get_curr_rage();
-}
-
 unsigned Warrior::get_curr_rage() const {
     return this->rage;
 }
@@ -403,10 +399,6 @@ void Warrior::initialize_talents() {
     for (int i = 0; i < 3; ++i) {
         talents->add_talent_tree(new Arms(this), new Fury(this), new Protection(this));
     }
-}
-
-void Warrior::reset_resource() {
-    rage = 0;
 }
 
 void Warrior::reset_spells() {
