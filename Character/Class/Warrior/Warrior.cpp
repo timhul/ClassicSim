@@ -60,8 +60,8 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     cstats->increase_stamina(get_stamina_modifier() + 88);
     cstats->increase_intellect(get_intellect_modifier() + 10);
     cstats->increase_spirit(get_spirit_modifier() + 25);
-    cstats->get_stats()->set_melee_ap_per_agi(0);
-    cstats->get_stats()->set_melee_ap_per_str(2);
+    cstats->get_stats()->set_melee_ap_per_agi(get_ap_per_agi());
+    cstats->get_stats()->set_melee_ap_per_str(get_ap_per_strength());
     this->rage = 0;
     this->stance = WarriorStances::Battle;
     this->stance_rage_remainder = 0;
@@ -242,11 +242,11 @@ QVector<int> Warrior::get_weapon_proficiencies_for_slot(const int slot) const {
                              WeaponTypes::TWOHAND_MACE, WeaponTypes::TWOHAND_SWORD});
     case EquipmentSlot::OFFHAND:
         return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST,
-                            WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::CASTER_OFFHAND,
-                            WeaponTypes::SHIELD});
+                             WeaponTypes::MACE, WeaponTypes::SWORD, WeaponTypes::CASTER_OFFHAND,
+                             WeaponTypes::SHIELD});
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
-                            WeaponTypes::THROWN});
+                             WeaponTypes::THROWN});
     default:
         assert(false);
         return QVector<int>();
@@ -287,6 +287,9 @@ void Warrior::new_stance_effect() {
     switch (this->stance) {
     case WarriorStances::Berserker:
         berserker_stance_buff->apply_buff();
+        break;
+    case WarriorStances::Defensive:
+        defensive_stance_buff->apply_buff();
         break;
     }
 
