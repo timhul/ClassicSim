@@ -119,12 +119,109 @@ Rectangle {
 
         StatisticsHeader {
             id: headerDistribution
-            title: "Distributions"
+            title: "DPS Distribution"
+        }
+
+        Row {
+            id: dpsDistributionDesc
+
+            height: 30
+            width: parent.width
+
+            anchors.top: headerDistribution.bottom
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: "Min DPS"
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: "Max DPS"
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: "Standard Deviation"
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: "± (95% CI)"
+                }
+            }
+        }
+
+        Row {
+            id: dpsDistribution
+            height: 30
+            width: parent.width
+
+            anchors.top: dpsDistributionDesc.bottom
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: settings.minDps
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: settings.maxDps
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: settings.dpsStdDev
+                }
+            }
+
+            RectangleBorders {
+                height: parent.height
+                width: 150
+
+                TextSmall {
+                    text: settings.dpsConfInterval
+                }
+            }
+        }
+
+        StatisticsHeader {
+            id: statWeightHeader
+            title: "Stat Weights"
+
+            anchors.top: dpsDistribution.bottom
+            anchors.topMargin: 20
         }
 
         StatisticsScaleResultSorting {
             id: scaleResultSorting
-            anchors.top: headerDistribution.bottom
+            anchors.top: statWeightHeader.bottom
         }
 
         ListView {

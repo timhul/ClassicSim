@@ -34,6 +34,8 @@ public:
     double get_total_dps(SimOption::Name) const;
     static double delta(double lhs, double rhs);
 
+    ScaleResult* get_dps_distribution() const;
+
 private:
     friend class BuffBreakdownModel;
     friend class DebuffBreakdownModel;
@@ -47,6 +49,7 @@ private:
     QMap<SimOption::Name, QVector<ClassStatistics*>> class_stats;
 
     double get_dps_for_option(SimOption::Name) const;
+    QPair<double, double> get_min_max_dps_for_option(SimOption::Name) const;
     void calculate_stat_weights(QList<ScaleResult*>& list);
 
     void merge_spell_stats(QList<StatisticsSpell*>& vec);
@@ -68,11 +71,15 @@ private:
 class ScaleResult {
 public:
     ScaleResult(SimOption::Name option,
+                double min_dps,
+                double max_dps,
                 double absolute_value,
                 double relative_value,
                 double standard_deviation,
                 double confidence_interval) :
         option(option),
+        min_dps(min_dps),
+        max_dps(max_dps),
         absolute_value(absolute_value),
         relative_value(relative_value),
         standard_deviation(standard_deviation),
@@ -80,6 +87,8 @@ public:
     {}
 
     const SimOption::Name option;
+    const double min_dps;
+    const double max_dps;
     const double absolute_value;
     const double relative_value;
     const double standard_deviation;

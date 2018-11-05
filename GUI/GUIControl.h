@@ -182,6 +182,10 @@ public:
     ResourceBreakdownModel* get_resource_breakdown_model() const;
     ScaleResultModel* get_scale_result_model() const;
     Q_SLOT void compile_thread_results();
+    Q_PROPERTY(QString minDps READ get_min_dps NOTIFY statisticsReady)
+    Q_PROPERTY(QString maxDps READ get_max_dps NOTIFY statisticsReady)
+    Q_PROPERTY(QString dpsStdDev READ get_standard_deviation NOTIFY statisticsReady)
+    Q_PROPERTY(QString dpsConfInterval READ get_confidence_interval NOTIFY statisticsReady)
     /* End of Statistics */
 
     /* Target */
@@ -310,6 +314,11 @@ private:
 
     QString get_sim_progress_string() const;
 
+    QString get_min_dps() const;
+    QString get_max_dps() const;
+    QString get_standard_deviation() const;
+    QString get_confidence_interval() const;
+
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;
     CharacterDecoder* character_decoder;
@@ -336,6 +345,7 @@ private:
     ResourceBreakdownModel* resource_breakdown_model;
     SimScaleModel* sim_scale_model;
     ScaleResultModel* scale_result_model;
+    ScaleResult* dps_distribution;
     double last_quick_sim_result;
     bool sim_in_progress;
 };

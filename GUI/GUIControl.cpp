@@ -58,6 +58,7 @@ GUIControl::GUIControl(QObject* parent) :
     number_cruncher(new NumberCruncher()),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
+    dps_distribution(nullptr),
     last_quick_sim_result(0.0),
     sim_in_progress(false)
 {
@@ -694,9 +695,39 @@ void GUIControl::compile_thread_results() {
     proc_breakdown_model->update_statistics();
     resource_breakdown_model->update_statistics();
     update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::Name::NoScale));
+    dps_distribution = number_cruncher->get_dps_distribution();
     number_cruncher->reset();
     sim_in_progress = false;
     simProgressChanged();
+    statisticsReady();
+}
+
+QString GUIControl::get_min_dps() const {
+    if (dps_distribution == nullptr)
+        return "0.0";
+
+    return QString::number(dps_distribution->min_dps, 'f', 2);
+}
+
+QString GUIControl::get_max_dps() const {
+    if (dps_distribution == nullptr)
+        return "0.0";
+
+    return QString::number(dps_distribution->max_dps, 'f', 2);
+}
+
+QString GUIControl::get_standard_deviation() const {
+    if (dps_distribution == nullptr)
+        return "0.0";
+
+    return QString::number(dps_distribution->standard_deviation, 'f', 2);
+}
+
+QString GUIControl::get_confidence_interval() const {
+    if (dps_distribution == nullptr)
+        return "0.0";
+
+    return QString::number(dps_distribution->confidence_interval, 'f', 2);
 }
 
 int GUIControl::get_combat_iterations_full_sim() const {

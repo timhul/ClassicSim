@@ -199,13 +199,32 @@ void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {
         double standard_deviation = get_standard_deviation_for_option(dps_it.key());
         double confidence_interval = get_confidence_interval_for_option(dps_it.key(), standard_deviation);
 
-        list.append(new ScaleResult(dps_it.key(), absolute_diff, relative_diff, standard_deviation, confidence_interval));
+        list.append(new ScaleResult(dps_it.key(), 0.0, 0.0, absolute_diff, relative_diff, standard_deviation, confidence_interval));
         ++dps_it;
     }
 }
 
 double NumberCruncher::get_total_dps(SimOption::Name option) const {
     return get_dps_for_option(option);
+}
+
+QPair<double, double> NumberCruncher::get_min_max_dps_for_option(SimOption::Name option) const {
+    assert(class_stats.contains(option));
+
+    double min_dps = std::numeric_limits<double>::max();
+    double max_dps = std::numeric_limits<double>::min();
+
+    for (auto & class_stat : class_stats[option]) {
+        for (auto dps : class_stat->dps_for_iterations) {
+            if (dps < min_dps)
+                min_dps = dps;
+
+            if (dps > max_dps)
+                max_dps = dps;
+        }
+    }
+
+    return QPair<double, double>(min_dps, max_dps);
 }
 
 double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
@@ -227,6 +246,14 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
 
 double NumberCruncher::delta(double lhs, double rhs) {
     return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
+}
+
+ScaleResult* NumberCruncher::get_dps_distribution() const {
+    double standard_deviation = get_standard_deviation_for_option(SimOption::Name::NoScale);
+    double confidence_interval = get_confidence_interval_for_option(SimOption::Name::NoScale, standard_deviation);
+    QPair<double, double> dps = get_min_max_dps_for_option(SimOption::Name::NoScale);
+
+    return new ScaleResult(SimOption::Name::NoScale, dps.first, dps.second, 0.0, 0.0, standard_deviation, confidence_interval);
 }
 
 double NumberCruncher::get_standard_deviation_for_option(SimOption::Name option) const {
