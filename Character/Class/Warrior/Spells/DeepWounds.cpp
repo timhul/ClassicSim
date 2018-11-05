@@ -8,7 +8,7 @@ DeepWounds::DeepWounds(Character* pchar) :
     TalentRequirer(3, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar)),
     buff(new NoEffectBuff(pchar,
-                          BuffDuration::PERMANENT,
+                          12.0,
                           "Deep Wounds",
                           "Assets/warrior/arms/tier3/Ability_backstab.png",
                           Hidden::No,
