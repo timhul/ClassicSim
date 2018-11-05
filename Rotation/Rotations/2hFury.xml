@@ -77,7 +77,7 @@
 		or variable "time_remaining_execute" greater 180
 	</cast_if>
 
-	<!-- Always cast Execute if available, unless melee AP is >= 2000 and BT soon off cd. -->
+	<!-- Always cast Execute if available, unless melee AP is > 2000 and BT soon off cd. -->
 	<cast_if name="Execute">
 		variable "melee_ap" leq 2000
 		or spell "Bloodthirst" greater 1.0
