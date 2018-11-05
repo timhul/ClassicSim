@@ -8,7 +8,7 @@ For information regarding new features / bug fixes in upcoming release, check [N
 
 # Licensing
 
-Licensing information can be found in LICENSE.md.
+Licensing information can be found in [LICENSE.md](https://github.com/timhul/ClassicSim/blob/master/LICENSE).
 
 # Downloads
 
@@ -47,22 +47,6 @@ Slayer's Crest, Jom Gabbar, Kiss of the Spider).
 
 # Release notes
 
-Release notes for each release.
-
-## v0.1-alpha-2 (not yet released)
-
-### New features/improvements/bug fixes
-
-* Full sim with stat weight calculations.
-* Debuff uptime statistics.
-* Use-trinkets now available to be equipped and used in rotations.
-* Rend and Anger Management added. Arms/Fury now fully supported for single-target damage.
-* Fury rotations now cast Bloodthirst over Execute if above 2k melee AP.
-
-### Restrictions
-
-No new restrictions; delivered features or bug fixes are expected to be complete.
-
 ## v0.1-alpha-1 (released 2018-10-27):
 
 Initial release:
@@ -85,32 +69,8 @@ Initial release:
 
 # Future work
 
-The timeframe for any of these are not set in stone.
-
-## Near, near future
-
-This is defined as "likely to be in the next release". Releases are currently expected to be produced about every 2
-weeks, or whenever an exciting new feature is available.
-
-* Use-trinkets supported (DONE)
-* Full support for Arms/Fury when simulating single-target damage (DONE)
-* Full stat weight calculations w/ confidence intervals (DONE)
-* DPS distribution w/ standard deviation
-
-## Near future:
-
-This is defined as "won't be in the next release, but probably in the release after". Estimated time is around 4+ weeks.
-
-* Rotation possible to view and edit directly in the tool
-* More melee classes support
-* Removing character level 60 restriction
-
-## Long-term future (2 months+)
-
-* Caster classes
-* TPS
-* Tanking
-* Healing
+See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information regarding the
+upcoming releases.
 
 # Anticipated questions and answers
 
