@@ -34,6 +34,10 @@ void TestRend::test_all() {
     set_up();
     test_damage_of_3_of_3_improved_rend();
     tear_down();
+
+    set_up();
+    test_dodge_applies_overpower_buff();
+    tear_down();
 }
 
 Rend* TestRend::rend() {
@@ -125,8 +129,8 @@ void TestRend::test_damage_of_0_of_3_improved_rend() {
 
     when_rend_is_performed();
 
-    // total_rend_damage = base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value * improved_rend_percent
-    // [162] = 147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000 * 1.0
+    // total_rend_damage = (base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value) * improved_rend_percent
+    // [162] = (147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000) * 1.0
     then_rend_damage_dealt_is(162);
     then_damage_is_dealt_over_21_seconds();
 }
@@ -140,8 +144,8 @@ void TestRend::test_damage_of_1_of_3_improved_rend() {
 
     when_rend_is_performed();
 
-    // total_rend_damage = base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value * improved_rend_percent
-    // [186] = 147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000 * 1.15
+    // total_rend_damage = (base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value) * improved_rend_percent
+    // [186] = (147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000) * 1.15
     then_rend_damage_dealt_is(186);
     then_damage_is_dealt_over_21_seconds();
 }
@@ -155,8 +159,8 @@ void TestRend::test_damage_of_2_of_3_improved_rend() {
 
     when_rend_is_performed();
 
-    // total_rend_damage = base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value * improved_rend_percent
-    // [202] = 147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000 * 1.25
+    // total_rend_damage = (base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value) * improved_rend_percent
+    // [202] = (147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000) * 1.25
     then_rend_damage_dealt_is(202);
     then_damage_is_dealt_over_21_seconds();
 }
@@ -170,10 +174,18 @@ void TestRend::test_damage_of_3_of_3_improved_rend() {
 
     when_rend_is_performed();
 
-    // total_rend_damage = base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value * improved_rend_percent
-    // [219] = 147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000 * 1.35
+    // total_rend_damage = (base_rend_damage + (avg_mh_wpn_dmg + (mh_wpn_speed * melee_ap / 14)) * duration * magic_value) * improved_rend_percent
+    // [219] = (147 + (100 + (2.6 * 1000 / 14)) * 21 * 743/300000) * 1.35
     then_rend_damage_dealt_is(219);
     then_damage_is_dealt_over_21_seconds();
+}
+
+void TestRend::test_dodge_applies_overpower_buff() {
+    given_a_guaranteed_melee_ability_dodge();
+
+    when_rend_is_performed();
+
+    then_overpower_is_active();
 }
 
 void TestRend::given_0_of_3_improved_rend() {

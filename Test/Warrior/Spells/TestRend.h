@@ -26,6 +26,7 @@ public:
     void test_damage_of_1_of_3_improved_rend();
     void test_damage_of_2_of_3_improved_rend();
     void test_damage_of_3_of_3_improved_rend();
+    void test_dodge_applies_overpower_buff();
 
     void given_0_of_3_improved_rend();
     void given_1_of_3_improved_rend();
