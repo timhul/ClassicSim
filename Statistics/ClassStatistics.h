@@ -19,11 +19,6 @@ public:
     ClassStatistics(SimSettings* settings);
     virtual ~ClassStatistics();
 
-    Q_INVOKABLE virtual int getNumStatisticsRows() const = 0;
-    Q_INVOKABLE virtual QVariantList getTableInfo(const int index) const = 0;
-    Q_INVOKABLE virtual QVariantList getChartInfo(const int index) const = 0;
-    Q_INVOKABLE virtual QString getEntryIcon(const int index) const = 0;
-
     StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon);
     StatisticsBuff* get_buff_statistics(const QString& name, const QString &icon, const bool debuff);
     StatisticsResource* get_resource_statistics(const QString& name, const QString& icon);
@@ -57,15 +52,7 @@ protected:
 
     QVector<double> dps_for_iterations;
 
-    QVariantList get_damage_breakdown_table() const;
-    QVariantList get_damage_breakdown_chart() const;
-
-    QVariantList get_buff_uptime_table() const;
-    virtual QVariantList get_resource_gain_table() const;
-    QVariantList get_proc_table() const;
-
     void delete_maps();
-
 };
 
 #endif // CLASSSTATISTICS_H

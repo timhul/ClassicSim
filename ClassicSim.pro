@@ -139,7 +139,6 @@ SOURCES += main.cpp \
     Statistics/Charts/PieChart.cpp \
     GUI/Models/PieChartModel.cpp \
     Statistics/ClassStatistics.cpp \
-    Statistics/Class/WarriorStatistics.cpp \
     Faction/Faction.cpp \
     Target/Target.cpp \
     Statistics/StatisticsSpell.cpp \
@@ -192,14 +191,6 @@ SOURCES += main.cpp \
     Character/Class/Mage/MageSpells.cpp \
     Character/Class/Hunter/HunterSpells.cpp \
     Character/Class/Druid/DruidSpells.cpp \
-    Statistics/Class/WarlockStatistics.cpp \
-    Statistics/Class/ShamanStatistics.cpp \
-    Statistics/Class/RogueStatistics.cpp \
-    Statistics/Class/PriestStatistics.cpp \
-    Statistics/Class/PaladinStatistics.cpp \
-    Statistics/Class/MageStatistics.cpp \
-    Statistics/Class/HunterStatistics.cpp \
-    Statistics/Class/DruidStatistics.cpp \
     CombatRoll/AttackTable.cpp \
     Character/Race/Race.cpp \
     GUI/Models/ActiveItemStatFilterModel.cpp \
@@ -396,7 +387,6 @@ HEADERS += \
     Character/Class/Warrior/WarriorSpells.h \
     Statistics/Charts/PieChart.h \
     GUI/Models/PieChartModel.h \
-    Statistics/Class/WarriorStatistics.h \
     Statistics/ClassStatistics.h \
     Faction/Faction.h \
     Statistics/StatisticsSpell.h \
@@ -451,14 +441,6 @@ HEADERS += \
     Character/Class/Mage/MageSpells.h \
     Character/Class/Hunter/HunterSpells.h \
     Character/Class/Druid/DruidSpells.h \
-    Statistics/Class/WarlockStatistics.h \
-    Statistics/Class/ShamanStatistics.h \
-    Statistics/Class/RogueStatistics.h \
-    Statistics/Class/PriestStatistics.h \
-    Statistics/Class/PaladinStatistics.h \
-    Statistics/Class/MageStatistics.h \
-    Statistics/Class/HunterStatistics.h \
-    Statistics/Class/DruidStatistics.h \
     Equipment/Item/ItemStatsEnum.h \
     GUI/Models/ActiveItemStatFilterModel.h \
     GUI/Models/AvailableItemStatFilterModel.h \
@@ -563,7 +545,6 @@ INCLUDEPATH = C:\C++\ClassicSim\Engine \
     C:\C++\ClassicSim\Target \
     C:\C++\ClassicSim\Statistics \
     C:\C++\ClassicSim\Statistics\Charts \
-    C:\C++\ClassicSim\Statistics\Class \
     C:\C++\ClassicSim\Mechanics \
     C:\C++\ClassicSim\Test \
     C:\C++\ClassicSim\Test\General\Procs \

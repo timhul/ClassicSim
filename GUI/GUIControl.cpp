@@ -587,22 +587,6 @@ void GUIControl::setBuffSetup(const int buff_index) {
     Q_EMIT externalDebuffsChanged();
 }
 
-int GUIControl::getNumStatisticsRows() const {
-    return current_char->get_statistics()->getNumStatisticsRows();
-}
-
-QVariantList GUIControl::getChartInfo(const int index) const {
-    return current_char->get_statistics()->getChartInfo(index);
-}
-
-QVariantList GUIControl::getTableInfo(const int index) const {
-    return current_char->get_statistics()->getTableInfo(index);
-}
-
-QString GUIControl::getEntryIcon(const int index) const {
-    return current_char->get_statistics()->getEntryIcon(index);
-}
-
 BuffBreakdownModel* GUIControl::get_buff_breakdown_model() const {
     return this->buff_breakdown_model;
 }

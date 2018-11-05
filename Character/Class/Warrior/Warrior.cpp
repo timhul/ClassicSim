@@ -16,7 +16,6 @@
 #include "EnabledBuffs.h"
 #include "WarriorSpells.h"
 #include "CharacterStats.h"
-#include "WarriorStatistics.h"
 #include "Race.h"
 #include "Weapon.h"
 #include <QDebug>
@@ -67,7 +66,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->stance = WarriorStances::Battle;
     this->stance_rage_remainder = 0;
     this->next_stance_cd = 0.0;
-    this->statistics = new WarriorStatistics(sim_settings);
 
     this->warr_spells = new WarriorSpells(this);
     this->spells = dynamic_cast<Spells*>(warr_spells);
@@ -104,7 +102,6 @@ Warrior::~Warrior() {
 
     delete cstats;
     delete warr_spells;
-    delete statistics;
     // TODO: Create a WarriorProcs class.
     delete unbridled_wrath;
     delete sword_spec;
@@ -405,10 +402,4 @@ void Warrior::reset_class_specific() {
     // TODO: Consider adding pre-run actions for stance
     switch_to_battle_stance();
     this->next_stance_cd = 0.0 - stance_cooldown();
-}
-
-ClassStatistics* Warrior::relinquish_ownership_of_statistics() {
-    ClassStatistics* tmp = this->statistics;
-    this->statistics = new WarriorStatistics(sim_settings);
-    return tmp;
 }

@@ -1,7 +1,6 @@
 
 #include "Hunter.h"
 #include "HunterSpells.h"
-#include "HunterStatistics.h"
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -11,7 +10,6 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
-    this->statistics = new HunterStatistics(sim_settings);
 
     this->hunter_spells = new HunterSpells(this);
     this->spells = dynamic_cast<Spells*>(hunter_spells);
@@ -20,7 +18,6 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
 Hunter::~Hunter()
 {
     delete hunter_spells;
-    delete statistics;
 }
 
 QString Hunter::get_name() const {

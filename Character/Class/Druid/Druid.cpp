@@ -1,7 +1,6 @@
 
 #include "Druid.h"
 #include "DruidSpells.h"
-#include "DruidStatistics.h"
 #include "Race.h"
 #include "Weapon.h"
 
@@ -9,7 +8,6 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     Character(race, equipment_db, sim_settings) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
-    this->statistics = new DruidStatistics(sim_settings);
 
     this->druid_spells = new DruidSpells(this);
     this->spells = dynamic_cast<Spells*>(druid_spells);
@@ -18,7 +16,6 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 Druid::~Druid()
 {
     delete druid_spells;
-    delete statistics;
 }
 
 QString Druid::get_name() const {

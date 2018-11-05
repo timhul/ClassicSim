@@ -1,7 +1,6 @@
 
 #include "Shaman.h"
 #include "ShamanSpells.h"
-#include "ShamanStatistics.h"
 #include "Weapon.h"
 
 Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings) :
@@ -9,7 +8,6 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
-    this->statistics = new ShamanStatistics(sim_settings);
 
     this->shaman_spells = new ShamanSpells(this);
     this->spells = dynamic_cast<Spells*>(shaman_spells);
@@ -18,7 +16,6 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
 Shaman::~Shaman()
 {
     delete shaman_spells;
-    delete statistics;
 }
 
 QString Shaman::get_name() const {

@@ -1,7 +1,6 @@
 
 #include "Priest.h"
 #include "PriestSpells.h"
-#include "PriestStatistics.h"
 #include "Weapon.h"
 
 Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
@@ -11,7 +10,6 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings)
     available_races.append("Night Elf");
     available_races.append("Troll");
     available_races.append("Undead");
-    this->statistics = new PriestStatistics(sim_settings);
 
     this->priest_spells = new PriestSpells(this);
     this->spells = dynamic_cast<Spells*>(priest_spells);
@@ -20,7 +18,6 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings)
 Priest::~Priest()
 {
     delete priest_spells;
-    delete statistics;
 }
 
 QString Priest::get_name() const {

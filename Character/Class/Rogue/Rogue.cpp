@@ -1,7 +1,6 @@
 
 #include "Rogue.h"
 #include "RogueSpells.h"
-#include "RogueStatistics.h"
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -13,7 +12,6 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     available_races.append("Orc");
     available_races.append("Troll");
     available_races.append("Undead");
-    this->statistics = new RogueStatistics(sim_settings);
 
     this->rogue_spells = new RogueSpells(this);
     this->spells = dynamic_cast<Spells*>(rogue_spells);
@@ -24,7 +22,6 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 Rogue::~Rogue()
 {
     delete rogue_spells;
-    delete statistics;
 }
 
 QString Rogue::get_name() const {

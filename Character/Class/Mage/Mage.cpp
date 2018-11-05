@@ -1,7 +1,6 @@
 
 #include "Mage.h"
 #include "MageSpells.h"
-#include "MageStatistics.h"
 #include "Weapon.h"
 
 Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
@@ -10,7 +9,6 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
     available_races.append("Human");
     available_races.append("Troll");
     available_races.append("Undead");
-    this->statistics = new MageStatistics(sim_settings);
 
     this->mage_spells = new MageSpells(this);
     this->spells = dynamic_cast<Spells*>(mage_spells);
@@ -19,7 +17,6 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
 Mage::~Mage()
 {
     delete mage_spells;
-    delete statistics;
 }
 
 QString Mage::get_name() const {

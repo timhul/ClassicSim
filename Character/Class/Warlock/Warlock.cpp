@@ -1,7 +1,6 @@
 
 #include "Warlock.h"
 #include "WarlockSpells.h"
-#include "WarlockStatistics.h"
 #include "Weapon.h"
 
 Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -10,7 +9,6 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     available_races.append("Human");
     available_races.append("Orc");
     available_races.append("Undead");
-    this->statistics = new WarlockStatistics(sim_settings);
 
     this->warlock_spells = new WarlockSpells(this);
     this->spells = dynamic_cast<Spells*>(warlock_spells);
@@ -19,7 +17,6 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
 Warlock::~Warlock()
 {
     delete warlock_spells;
-    delete statistics;
 }
 
 QString Warlock::get_name() const {

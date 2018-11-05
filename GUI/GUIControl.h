@@ -56,7 +56,6 @@ public:
     Q_INVOKABLE void selectFaction(const int faction);
 
     Q_INVOKABLE bool raceAvailable(const QString& race_name);
-
     /* End of Character */
 
     /* Talents */
@@ -110,7 +109,6 @@ public:
     Q_PROPERTY(int attackPower READ get_attack_power NOTIFY statsChanged)
     Q_PROPERTY(int wpnSkillMh READ get_mainhand_wpn_skill NOTIFY statsChanged)
     Q_PROPERTY(int wpnSkillOh READ get_offhand_wpn_skill NOTIFY statsChanged)
-
     /* End of Stats */
 
     /* Equipment */
@@ -173,15 +171,9 @@ public:
     Q_INVOKABLE void selectDebuff(const QString& debuff);
     Q_INVOKABLE bool debuffActive(const QString& debuff) const;
     Q_INVOKABLE void setBuffSetup(const int buff_index);
-
     /* End of Buffs and debuffs */
 
     /* Statistics */
-    Q_INVOKABLE int getNumStatisticsRows() const;
-    Q_INVOKABLE QVariantList getChartInfo(const int index) const;
-    Q_INVOKABLE QVariantList getTableInfo(const int index) const;
-    Q_INVOKABLE QString getEntryIcon(const int index) const;
-
     BuffBreakdownModel* get_buff_breakdown_model() const;
     DebuffBreakdownModel* get_debuff_breakdown_model() const;
     MeleeDamageBreakdownModel* get_dmg_breakdown_model() const;
@@ -189,6 +181,7 @@ public:
     ProcBreakdownModel* get_proc_breakdown_model() const;
     ResourceBreakdownModel* get_resource_breakdown_model() const;
     ScaleResultModel* get_scale_result_model() const;
+    Q_SLOT void compile_thread_results();
     /* End of Statistics */
 
     /* Target */
@@ -227,13 +220,8 @@ public:
      Q_INVOKABLE void runQuickSim();
      Q_INVOKABLE void runFullSim();
      Q_SIGNAL void simResultUpdated(QString value, QString change, bool positive);
-     /* End of SimSettings */
-
-     /* Sim Scale Options */
      SimScaleModel* get_sim_scale_model() const;
-     /* End of Sim Scale Options */
-
-     Q_SLOT void compile_thread_results();
+     /* End of SimSettings */
 
 Q_SIGNALS:
     void classChanged();

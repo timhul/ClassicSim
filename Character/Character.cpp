@@ -29,7 +29,7 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
     target(new Target(63)),
     faction(new Faction()),
     talents(new Talents()),
-    statistics(nullptr),
+    statistics(new ClassStatistics(sim_settings)),
     current_rotation(nullptr),
     sim_settings(sim_settings),
     ability_crit_dmg_mod(2.0),
@@ -60,6 +60,7 @@ Character::~Character() {
     delete talents;
     delete enabled_procs;
     delete enabled_buffs;
+    delete statistics;
 }
 
 Race* Character::get_race() {
@@ -173,7 +174,9 @@ ClassStatistics* Character::get_statistics() const {
 }
 
 ClassStatistics* Character::relinquish_ownership_of_statistics() {
-    return this->statistics;
+    ClassStatistics* tmp = this->statistics;
+    this->statistics = new ClassStatistics(sim_settings);
+    return tmp;
 }
 
 EnabledProcs* Character::get_enabled_procs() const {

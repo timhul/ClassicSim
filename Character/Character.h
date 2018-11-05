@@ -74,7 +74,7 @@ public:
     Spells* get_spells(void) const;
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
-    virtual ClassStatistics* relinquish_ownership_of_statistics(void); // mark pure virtual
+    ClassStatistics* relinquish_ownership_of_statistics(void);
     EnabledProcs* get_enabled_procs() const;
     SimSettings* get_sim_settings() const;
 
