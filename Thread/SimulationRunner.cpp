@@ -93,6 +93,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     setup_target(decoder);
     select_rotation(decoder);
     apply_enchants(decoder);
+    apply_ruleset(decoder);
 
     CharacterEncoder encoder(pchar);
     if (encoder.get_current_setup_string() != this->setup_string)
@@ -266,6 +267,10 @@ void SimulationRunner::apply_enchants(CharacterDecoder& decoder) {
 
     if (pchar->get_equipment()->get_ranged())
         pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_key("RANGED_ENCHANT")), pchar);
+}
+
+void SimulationRunner::apply_ruleset(CharacterDecoder& decoder) {
+    pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_key("RULESET").toInt()), pchar);
 }
 
 void SimulationRunner::setup_target(CharacterDecoder& decoder) {

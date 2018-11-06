@@ -61,6 +61,7 @@ private:
     void add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position);
     void apply_external_buffs(CharacterDecoder& decoder);
     void apply_enchants(CharacterDecoder& decoder);
+    void apply_ruleset(CharacterDecoder& decoder);
     void setup_target(CharacterDecoder& decoder);
     void select_rotation(CharacterDecoder& decoder);
     void exit_thread(QString err);

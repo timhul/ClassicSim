@@ -8,6 +8,7 @@
 #include "Weapon.h"
 #include "Race.h"
 #include "CharacterEncoding.h"
+#include "SimSettings.h"
 #include "Target.h"
 #include <QDebug>
 
@@ -49,6 +50,8 @@ QString CharacterEncoder::get_current_setup_string() {
     key_val("ROTATION", pchar->get_current_rotation_name());
 
     add_enchants();
+
+    key_val("RULESET", QString::number(pchar->get_sim_settings()->get_ruleset()));
 
     return pchar_str;
 }
