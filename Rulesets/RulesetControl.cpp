@@ -26,6 +26,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
         break;
     case Ruleset::Loatheb:
         pchar->get_stats()->decrease_crit(1.0);
+        pchar->get_combat_roll()->drop_tables();
         break;
     }
 
@@ -39,6 +40,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
         break;
     case Ruleset::Loatheb:
         pchar->get_stats()->increase_crit(1.0);
+        pchar->get_combat_roll()->drop_tables();
         break;
     }
 }

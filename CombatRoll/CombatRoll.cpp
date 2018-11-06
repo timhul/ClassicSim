@@ -7,6 +7,7 @@
 #include "AttackTable.h"
 #include "WhiteHitTable.h"
 #include "MeleeSpecialTable.h"
+#include "SimSettings.h"
 #include "Target.h"
 #include "Random.h"
 #include <QDebug>
@@ -77,13 +78,16 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     if (miss_chance < 0)
         miss_chance = 0;
 
+    double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
+                0 : get_glancing_blow_chance();
+
     auto* table = new WhiteHitTable(
                 this->random,
                 wpn_skill,
                 miss_chance,
                 mechanics->get_dodge_chance(wpn_skill),
                 mechanics->get_parry_chance(wpn_skill),
-                get_glancing_blow_chance(),
+                glancing_blow_chance,
                 mechanics->get_block_chance());
 
     auto_attack_tables[wpn_skill] = table;

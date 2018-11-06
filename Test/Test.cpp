@@ -124,20 +124,23 @@ void Test::test_random() {
 
 void Test::test_combat_roll_melee_hit_result() {
     Race* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* pchar = new Warrior(race, equipment_db, sim_settings);
     pchar->get_equipment()->set_mainhand("Frostbite");
 
     for(int i = 0; i < 30; ++i) {
         pchar->get_combat_roll()->get_melee_hit_result(300);
     }
 
+    delete sim_settings;
     delete race;
     delete pchar;
 }
 
 void Test::test_combat_roll_creation() {
     auto* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* pchar = new Warrior(race, equipment_db, sim_settings);
     pchar->get_equipment()->set_mainhand("Frostbite");
 
     pchar->get_combat_roll()->get_white_hit_table(300);
@@ -146,6 +149,7 @@ void Test::test_combat_roll_creation() {
     pchar->get_combat_roll()->get_white_hit_table(315);
     pchar->get_combat_roll()->get_white_hit_table(300);
 
+    delete sim_settings;
     delete race;
     delete pchar;
 }
@@ -246,7 +250,8 @@ void Test::test_white_hit_table() {
 
 void Test::test_white_hit_table_update() {
     Race* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* pchar = new Warrior(race, equipment_db, sim_settings);
     pchar->get_equipment()->set_mainhand("Frostbite");
     pchar->get_equipment()->set_offhand("Vis'kag the Bloodletter");
 
@@ -273,6 +278,7 @@ void Test::test_white_hit_table_update() {
     assert(table->get_outcome(7986, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
 
+    delete sim_settings;
     delete race;
     delete pchar;
 }
