@@ -12,7 +12,12 @@ Licensing information can be found in [LICENSE.md](https://github.com/timhul/Cla
 
 # Downloads
 
-Releases are available at [the ClassicSim website](https://classicsim.org).
+Releases are available at [the ClassicSim website](https://classicsim.org/?C=M;O=D).
+
+# Future work
+
+See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information regarding the
+upcoming releases.
 
 # Features of this tool
 
@@ -28,6 +33,7 @@ These are some of the features of this tool:
 
 # Known issues
 
+* Most procs have a 5% placeholder proc rate (you can change the 'rate' attribute in the .xml files)
 * Item lists are incomplete (these are manually added for now)
 * Some MC items have the wrong patch availability (a number of items in MC were added after 1.0)
 * Tooltip for Protection talent Improved Shield Block is incorrect
@@ -38,6 +44,12 @@ These are some of the features of this tool:
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.1-alpha-2 (released 2018-11-08):
+
 * Full sim with stat weight calculations.
 * Debuff uptime statistics.
 * Use trinkets supported in rotation (Diamond Flask, Zandalarian Hero Medallion, Earthstrike, Badge of the Swarmguard,
@@ -45,7 +57,9 @@ Slayer's Crest, Jom Gabbar, Kiss of the Spider).
 * Rend and Anger Management added. Arms/Fury now fully supported for single-target damage.
 * Fury rotations now cast Bloodthirst over Execute if above 2k melee AP.
 
-# Release notes
+### Restrictions
+
+No new restrictions; all delivered features, improvements, and bug fixes are expected to be complete.
 
 ## v0.1-alpha-1 (released 2018-10-27):
 
@@ -66,11 +80,6 @@ Initial release:
 * Rotations must be viewed in the actual .xml files instead of within the application
 * Only single target simulation available
 * and more..
-
-# Future work
-
-See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information regarding the
-upcoming releases.
 
 # Anticipated questions and answers
 
