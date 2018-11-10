@@ -18,9 +18,14 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
 #include <cstdint>
 #include "xoroshiro128plus.h"
 
-// Windows-specific
-#include <intrin.h>
-#define _rdtsc() __rdtsc()
+#if defined(_MSC_VER)
+    /* Microsoft C/C++-compatible compiler */
+    #include <intrin.h>
+    #define _rdtsc() __rdtsc()
+#elif defined(__GNUC__)
+    /* GCC-compatible compiler */
+    #include <x86intrin.h>
+#endif
 
 static inline uint64_t rotl(const uint64_t x, int k) {
     return (x << k) | (x >> (64 - k));
