@@ -1,8 +1,9 @@
+#include <QDebug>
+#include <math.h>
 
 #include "BattleShoutBuff.h"
-#include "Warrior.h"
 #include "CharacterStats.h"
-#include <QDebug>
+#include "Warrior.h"
 
 BattleShoutBuff::BattleShoutBuff(Character* pchar):
     Buff(pchar, "Battle Shout", "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png",  120, 0),
