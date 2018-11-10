@@ -56,6 +56,7 @@ None (available release is up to date with the latest on master).
 Slayer's Crest, Jom Gabbar, Kiss of the Spider).
 * Rend and Anger Management added. Arms/Fury now fully supported for single-target damage.
 * Fury rotations now cast Bloodthirst over Execute if above 2k melee AP.
+* Loatheb ruleset now has no glancing blows.
 
 ### Restrictions
 
