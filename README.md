@@ -44,7 +44,9 @@ These are some of the features of this tool:
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+* Felstriker buff duration fixed (duration was missing due to including old .xml-file).
+* For contributors: the .pro file now has relative INCLUDEPATHs; project directory structure no longer forced.
+* For contributors: it is now possible to build on Linux (Ubuntu 18.04).
 
 # Release notes
 
