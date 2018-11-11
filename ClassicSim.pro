@@ -254,7 +254,10 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/AngerManagement.cpp \
     GUI/Models/Statistics/DebuffBreakdownModel.cpp \
     GUI/Models/SimScaleModel.cpp \
-    GUI/Models/Statistics/ScaleResultModel.cpp
+    GUI/Models/Statistics/ScaleResultModel.cpp \
+    Character/Class/Rogue/TalentTrees/Assassination.cpp \
+    Character/Class/Rogue/TalentTrees/Combat.cpp \
+    Character/Class/Rogue/TalentTrees/Subtlety.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -510,7 +513,10 @@ HEADERS += \
     GUI/Models/Statistics/DebuffBreakdownModel.h \
     GUI/SimOption.h \
     GUI/Models/SimScaleModel.h \
-    GUI/Models/Statistics/ScaleResultModel.h
+    GUI/Models/Statistics/ScaleResultModel.h \
+    Character/Class/Rogue/TalentTrees/Assassination.h \
+    Character/Class/Rogue/TalentTrees/Combat.h \
+    Character/Class/Rogue/TalentTrees/Subtlety.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -530,6 +536,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Warrior/TalentTrees/Arms \
     $$PWD/Character/Class/Priest \
     $$PWD/Character/Class/Rogue \
+    $$PWD/Character/Class/Rogue/TalentTrees \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
     $$PWD/Character/Class/Hunter \
@@ -580,4 +587,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-	
+

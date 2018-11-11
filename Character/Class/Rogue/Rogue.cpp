@@ -1,6 +1,10 @@
 
+#include "Assassination.h"
+#include "Combat.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
+#include "Subtlety.h"
+#include "Talents.h"
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -17,6 +21,8 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     this->spells = dynamic_cast<Spells*>(rogue_spells);
 
     spells->activate_racials();
+
+    initialize_talents();
 }
 
 Rogue::~Rogue()
@@ -73,7 +79,9 @@ double Rogue::global_cooldown() const {
 }
 
 void Rogue::initialize_talents() {
-
+    for (int i = 0; i < 3; ++i) {
+        talents->add_talent_tree(new Assassination(this), new Combat(this), new Subtlety(this));
+    }
 }
 
 int Rogue::get_highest_possible_armor_type() const {
