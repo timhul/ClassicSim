@@ -15,6 +15,7 @@ Rectangle {
     Connections {
         target: talents
         onTalentsUpdated: update()
+        onClassChanged: classChange()
     }
 
     onVisibleChanged: {
@@ -23,12 +24,31 @@ Rectangle {
         }
     }
 
+    function classChange() {
+        if (talents.showPosition(treePos, talentPos) === false) {
+            icon.visible = false
+            border.visible = false
+            ttRect.visible = false
+            return
+        }
+
+        icon.visible = true
+        border.visible = true
+        icon.source = talents.getIcon(treePos, talentPos)
+        ttTitle.text = talents.getTalentName(treePos, talentPos)
+
+        update()
+        bottomArrow.updateBottomArrow()
+        rightArrow.updateRightArrow()
+    }
+
     function update() {
         rank.text = talents.getRank(treePos, talentPos)
         rank.color = talents.isMaxed(treePos, talentPos) ? talentMaxed :
                                                            talentAvailable
         unavailable.visible = icon.visible && !talents.isAvailable(treePos, talentPos)
-        bottomArrowDark.visible = bottomArrow.visible && (!talents.bottomChildAvailable(treePos, talentPos) || (!talents.hasTalentPointsRemaining() && !talents.bottomChildActive(treePos, talentPos)))
+        bottomArrow.updateBottomArrow()
+        rightArrow.updateRightArrow()
         border.color = unavailable.visible ? root.gray :
                                              talents.isMaxed(treePos, talentPos) ? talentMaxed :
                                                                                   talentAvailable
@@ -363,6 +383,18 @@ Rectangle {
 
     Image {
         id: bottomArrow
+
+        function updateBottomArrow() {
+            visible = talents.showBottomArrow(treePos, talentPos)
+            bottomArrowDark.visible = visible && (!talents.bottomChildAvailable(treePos, talentPos) || (!talents.hasTalentPointsRemaining() && !talents.bottomChildActive(treePos, talentPos)))
+
+            if (visible === false)
+                return
+
+            bottomArrowType = talents.getBottomArrow(treePos, talentPos)
+            source = getArrowIcon(bottomArrowType)
+        }
+
         property string bottomArrowType: talents.getBottomArrow(treePos, talentPos)
         source: getArrowIcon(bottomArrowType)
         height: {
@@ -389,6 +421,52 @@ Rectangle {
         visible: bottomArrow.visible && (!talents.bottomChildAvailable(treePos, talentPos) || (!talents.hasTalentPointsRemaining() && !talents.bottomChildActive(treePos, talentPos)))
         anchors.fill: bottomArrow
         source: bottomArrow
+        hue: 0.0
+        saturation: 0.0
+        lightness: 0.0
+    }
+
+    Image {
+        id: rightArrow
+
+        function updateRightArrow() {
+            visible = talents.showRightArrow(treePos, talentPos)
+            rightArrowDark.visible = visible && (!talents.rightChildAvailable(treePos, talentPos) || (!talents.hasTalentPointsRemaining() && !talents.rightChildActive(treePos, talentPos)))
+
+            if (visible === false)
+                return
+
+            rightArrowType = talents.getRightArrow(treePos, talentPos)
+            source = getArrowIcon(rightArrowType)
+        }
+
+        property string rightArrowType: talents.getRightArrow(treePos, talentPos)
+        source: getArrowIcon(rightArrowType)
+        height: parent.height * 0.73
+        width: height /*{
+            switch (rightArrowType) {
+            case "HOOK":
+                return parent.height * 0.2
+            case "VERTICAL1":
+                return parent.height * 1.20
+            case "VERTICAL2":
+                return parent.height * 2.4
+            }
+        }*/
+
+        visible: talents.showRightArrow(treePos, talentPos)
+
+        anchors {
+            left: border.right
+        }
+        y: height / 2
+    }
+
+    Colorize {
+        id: rightArrowDark
+        visible: rightArrow.visible && (!talents.rightChildAvailable(treePos, talentPos) || (!talents.hasTalentPointsRemaining() && !talents.rightChildActive(treePos, talentPos)))
+        anchors.fill: rightArrow
+        source: rightArrow
         hue: 0.0
         saturation: 0.0
         lightness: 0.0

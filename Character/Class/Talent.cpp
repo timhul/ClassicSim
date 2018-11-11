@@ -92,7 +92,7 @@ QString Talent::get_arrow_identifier(const QString& target_position) const {
     int delta = target_row - own_row;
 
     if (own_column == target_column) {
-        switch(delta) {
+        switch (delta) {
         case 1:
             return "VERTICAL0";
         case 2:
@@ -100,18 +100,18 @@ QString Talent::get_arrow_identifier(const QString& target_position) const {
         case 3:
             return "VERTICAL2";
         default:
-            qDebug() << "Talent::get_arrow_identifier unexpected delta" << delta;
+            qDebug() << "Talent::get_arrow_identifier unexpected delta" << delta << "for target position" << target_position;
             return "";
         }
     }
     else {
-        switch(delta) {
+        switch (delta) {
         case 0:
             return "RIGHT";
         case 1:
             return "HOOK";
         default:
-            qDebug() << "Talent::get_arrow_identifier unexpected delta" << delta;
+            qDebug() << "Talent::get_arrow_identifier unexpected delta" << delta << "for target position" << target_position;
             return "";
         }
     }
@@ -179,7 +179,7 @@ bool Talent::has_bottom_child() const {
 
 bool Talent::any_child_active() const {
     return ((right_child != nullptr && right_child->is_active())
-            || (right_child != nullptr && bottom_child->is_active()));
+            || (bottom_child != nullptr && bottom_child->is_active()));
 }
 
 Talent* Talent::get_parent() const {
