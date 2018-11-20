@@ -77,7 +77,7 @@ void TestBerserkerStance::test_stance_cooldown() {
 }
 
 void TestBerserkerStance::test_resource_cost() {
-    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     assert(berserker_stance()->is_available());
 }
 

@@ -27,10 +27,10 @@ void AngerManagement::spell_effect() {
 }
 
 void AngerManagement::perform_periodic() {
-    unsigned rage_before_am_tick = warr->get_curr_rage();
+    unsigned rage_before_am_tick = warr->get_resource_level(resource_type);
     warr->gain_rage(1);
 
-    if (rage_before_am_tick < warr->get_curr_rage())
+    if (rage_before_am_tick < warr->get_resource_level(resource_type))
         statistics_resource->add_resource_gain(ResourceType::Rage, 1);
 
     auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 3.0);

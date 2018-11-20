@@ -133,12 +133,12 @@ void TestSpellWarrior::given_warrior_is_on_gcd() {
 }
 
 void TestSpellWarrior::given_warrior_is_on_gcd(Spell *spell) {
-    unsigned rage_before = warrior->get_curr_rage();
+    unsigned rage_before = warrior->get_resource_level(ResourceType::Rage);
     warrior->gain_rage(100 - rage_before);
 
     spell->perform();
 
-    int rage_delta = static_cast<int>(warrior->get_curr_rage()) - static_cast<int>(rage_before);
+    int rage_delta = static_cast<int>(warrior->get_resource_level(ResourceType::Rage)) - static_cast<int>(rage_before);
 
     if (rage_delta < 0)
         warrior->gain_rage(static_cast<unsigned>(rage_delta * -1));
@@ -149,8 +149,8 @@ void TestSpellWarrior::given_warrior_is_on_gcd(Spell *spell) {
 }
 
 void TestSpellWarrior::given_warrior_has_rage(const unsigned rage) {
-    if (warrior->get_curr_rage() > 0)
-        warrior->lose_rage(warrior->get_curr_rage());
+    if (warrior->get_resource_level(ResourceType::Rage) > 0)
+        warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     then_warrior_has_rage(rage);
 }
@@ -168,9 +168,9 @@ void TestSpellWarrior::when_switching_to_defensive_stance() {
 }
 
 void TestSpellWarrior::then_warrior_has_rage(const unsigned rage) {
-    if (rage != warrior->get_curr_rage())
-        qDebug() << spell_under_test << "expected" << rage << "rage but has" << warrior->get_curr_rage();
-    assert(warrior->get_curr_rage() == rage);
+    if (rage != warrior->get_resource_level(ResourceType::Rage))
+        qDebug() << spell_under_test << "expected" << rage << "rage but has" << warrior->get_resource_level(ResourceType::Rage);
+    assert(warrior->get_resource_level(ResourceType::Rage) == rage);
 }
 
 void TestSpellWarrior::then_overpower_is_active() {

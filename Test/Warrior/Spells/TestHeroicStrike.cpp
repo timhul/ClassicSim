@@ -244,11 +244,11 @@ void TestHeroicStrike::when_heroic_strike_is_performed() {
 }
 
 void TestHeroicStrike::then_heroic_strike_costs(const unsigned rage) {
-    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     assert(heroic_strike()->is_available());
 
-    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage - 1);
     assert(!heroic_strike()->is_available());
 }

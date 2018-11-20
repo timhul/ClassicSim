@@ -20,10 +20,10 @@ UnbridledWrath::UnbridledWrath(Character* pchar) :
 UnbridledWrath::~UnbridledWrath() = default;
 
 void UnbridledWrath::proc_effect() {
-    unsigned rage = warr->get_curr_rage();
+    unsigned rage = warr->get_resource_level(resource_type);
     warr->gain_rage(1);
 
-    if (warr->get_curr_rage() != rage)
+    if (warr->get_resource_level(resource_type) != rage)
         statistics_resource->add_resource_gain(ResourceType::Rage, 1);
 }
 

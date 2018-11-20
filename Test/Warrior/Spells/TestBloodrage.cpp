@@ -75,7 +75,7 @@ void TestBloodrage::test_stance_cooldown() {
 }
 
 void TestBloodrage::test_resource_cost() {
-    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     assert(bloodrage()->is_available());
 }
 
@@ -100,7 +100,7 @@ void TestBloodrage::when_bloodrage_is_performed() {
 }
 
 void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const unsigned expected_rage_gain) {
-    unsigned prev = warrior->get_curr_rage();
+    unsigned prev = warrior->get_resource_level(ResourceType::Rage);
     while (!pchar->get_engine()->get_queue()->empty()) {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
@@ -114,5 +114,5 @@ void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const unsigned expected
         delete event;
     }
 
-    assert(warrior->get_curr_rage() - prev == expected_rage_gain);
+    assert(warrior->get_resource_level(ResourceType::Rage) - prev == expected_rage_gain);
 }

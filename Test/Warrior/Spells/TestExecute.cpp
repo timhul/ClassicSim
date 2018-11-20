@@ -552,13 +552,13 @@ void TestExecute::given_target_not_in_execute_range() {
 }
 
 void TestExecute::when_execute_is_performed_with_rage(const int rage) {
-    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     execute()->perform();
 }
 
 bool TestExecute::execute_available_with_rage(const int rage) {
-    warrior->lose_rage(warrior->get_curr_rage());
+    warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     return execute()->is_available();
 }

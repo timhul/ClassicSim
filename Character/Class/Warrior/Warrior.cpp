@@ -258,10 +258,6 @@ double Warrior::stance_cooldown() const {
     return 1.0;
 }
 
-unsigned Warrior::get_curr_rage() const {
-    return this->rage->current;
-}
-
 unsigned Warrior::get_resource_level(const ResourceType) const {
     return this->rage->current;
 }
