@@ -1,4 +1,4 @@
-
+#include "Mana.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
 #include "Weapon.h"
@@ -10,11 +10,15 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
 
     this->paladin_spells = new PaladinSpells(this);
     this->spells = dynamic_cast<Spells*>(paladin_spells);
+
+    this->mana = new class Mana(this);
+    this->resource = this->mana;
 }
 
 Paladin::~Paladin()
 {
     delete paladin_spells;
+    delete mana;
 }
 
 QString Paladin::get_name() const {
@@ -67,6 +71,10 @@ double Paladin::global_cooldown() const {
 
 void Paladin::initialize_talents() {
 
+}
+
+unsigned Paladin::get_resource_level(const ResourceType) const {
+    return mana->current;
 }
 
 int Paladin::get_highest_possible_armor_type() const {

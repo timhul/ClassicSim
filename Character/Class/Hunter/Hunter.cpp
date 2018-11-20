@@ -1,6 +1,6 @@
-
 #include "Hunter.h"
 #include "HunterSpells.h"
+#include "Mana.h"
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -13,11 +13,15 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
 
     this->hunter_spells = new HunterSpells(this);
     this->spells = dynamic_cast<Spells*>(hunter_spells);
+
+    this->mana = new class Mana(this);
+    this->resource = this->mana;
 }
 
 Hunter::~Hunter()
 {
     delete hunter_spells;
+    delete mana;
 }
 
 QString Hunter::get_name() const {
@@ -70,6 +74,10 @@ double Hunter::global_cooldown() const {
 
 void Hunter::initialize_talents() {
 
+}
+
+unsigned Hunter::get_resource_level(const ResourceType) const {
+    return mana->current;
 }
 
 int Hunter::get_highest_possible_armor_type() const {

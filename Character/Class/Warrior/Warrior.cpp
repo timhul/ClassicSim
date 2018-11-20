@@ -17,6 +17,7 @@
 #include "WarriorSpells.h"
 #include "CharacterStats.h"
 #include "Race.h"
+#include "Rage.h"
 #include "Weapon.h"
 #include <QDebug>
 
@@ -62,7 +63,8 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     cstats->increase_spirit(get_spirit_modifier() + 25);
     cstats->get_stats()->set_melee_ap_per_agi(get_ap_per_agi());
     cstats->get_stats()->set_melee_ap_per_str(get_ap_per_strength());
-    this->rage = 0;
+    this->rage = new class Rage();
+    this->resource = this->rage;
     this->stance = WarriorStances::Battle;
     this->stance_rage_remainder = 0;
     this->next_stance_cd = 0.0;
@@ -115,6 +117,7 @@ Warrior::~Warrior() {
     delete heroic_strike_buff;
     delete overpower_buff;
     delete recklessness_buff;
+    delete rage;
 }
 
 QString Warrior::get_name() const {
@@ -162,17 +165,11 @@ int Warrior::get_ap_per_agi() const {
 }
 
 void Warrior::gain_rage(const unsigned gained_rage) {
-    this->rage += gained_rage;
-
-    // TODO: Add statistics for rage lost due to overcapping.
-    if (this->rage > 100)
-        rage = 100;
+    this->rage->gain_resource(gained_rage);
 }
 
 void Warrior::lose_rage(const unsigned lost_rage) {
-    assert(lost_rage > 0);
-    assert(this->rage >= lost_rage);
-    this->rage -= lost_rage;
+    this->rage->lose_resource(lost_rage);
 }
 
 unsigned Warrior::rage_gained_from_dd(const unsigned damage_dealt) const {
@@ -262,7 +259,11 @@ double Warrior::stance_cooldown() const {
 }
 
 unsigned Warrior::get_curr_rage() const {
-    return this->rage;
+    return this->rage->current;
+}
+
+unsigned Warrior::get_resource_level(const ResourceType) const {
+    return this->rage->current;
 }
 
 void Warrior::increase_stance_rage_remainder() {
@@ -293,8 +294,8 @@ void Warrior::new_stance_effect() {
         break;
     }
 
-    if (rage > stance_rage_remainder)
-        rage = stance_rage_remainder;
+    if (this->rage->current > stance_rage_remainder)
+        this->rage->current = stance_rage_remainder;
 
     if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
         this->next_gcd = engine->get_current_priority() + 0.5;

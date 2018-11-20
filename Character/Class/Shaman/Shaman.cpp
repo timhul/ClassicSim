@@ -1,4 +1,4 @@
-
+#include "Mana.h"
 #include "Shaman.h"
 #include "ShamanSpells.h"
 #include "Weapon.h"
@@ -11,11 +11,15 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
 
     this->shaman_spells = new ShamanSpells(this);
     this->spells = dynamic_cast<Spells*>(shaman_spells);
+
+    this->mana = new class Mana(this);
+    this->resource = this->mana;
 }
 
 Shaman::~Shaman()
 {
     delete shaman_spells;
+    delete mana;
 }
 
 QString Shaman::get_name() const {
@@ -68,6 +72,10 @@ double Shaman::global_cooldown() const {
 
 void Shaman::initialize_talents() {
 
+}
+
+unsigned Shaman::get_resource_level(const ResourceType) const {
+    return mana->current;
 }
 
 int Shaman::get_highest_possible_armor_type() const {

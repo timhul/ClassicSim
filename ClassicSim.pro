@@ -257,7 +257,12 @@ SOURCES += main.cpp \
     GUI/Models/Statistics/ScaleResultModel.cpp \
     Character/Class/Rogue/TalentTrees/Assassination.cpp \
     Character/Class/Rogue/TalentTrees/Combat.cpp \
-    Character/Class/Rogue/TalentTrees/Subtlety.cpp
+    Character/Class/Rogue/TalentTrees/Subtlety.cpp \
+    Character/Class/General/Spells/EnergyTick.cpp \
+    Character/Class/Rage.cpp \
+    Character/Class/Energy.cpp \
+    Character/Class/Mana.cpp \
+    Character/Class/General/Spells/ManaTick.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -516,7 +521,12 @@ HEADERS += \
     GUI/Models/Statistics/ScaleResultModel.h \
     Character/Class/Rogue/TalentTrees/Assassination.h \
     Character/Class/Rogue/TalentTrees/Combat.h \
-    Character/Class/Rogue/TalentTrees/Subtlety.h
+    Character/Class/Rogue/TalentTrees/Subtlety.h \
+    Character/Class/General/Spells/EnergyTick.h \
+    Character/Class/Rage.h \
+    Character/Energy.h \
+    Character/Class/Mana.h \
+    Character/Class/General/Spells/ManaTick.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

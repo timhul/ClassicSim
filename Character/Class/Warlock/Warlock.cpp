@@ -1,4 +1,4 @@
-
+#include "Mana.h"
 #include "Warlock.h"
 #include "WarlockSpells.h"
 #include "Weapon.h"
@@ -12,11 +12,15 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
 
     this->warlock_spells = new WarlockSpells(this);
     this->spells = dynamic_cast<Spells*>(warlock_spells);
+
+    this->mana = new class Mana(this);
+    this->resource = this->mana;
 }
 
 Warlock::~Warlock()
 {
     delete warlock_spells;
+    delete mana;
 }
 
 QString Warlock::get_name() const {
@@ -69,6 +73,10 @@ double Warlock::global_cooldown() const {
 
 void Warlock::initialize_talents() {
 
+}
+
+unsigned Warlock::get_resource_level(const ResourceType) const {
+    return mana->current;
 }
 
 int Warlock::get_highest_possible_armor_type() const {

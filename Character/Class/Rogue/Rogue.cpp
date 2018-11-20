@@ -1,6 +1,7 @@
 
 #include "Assassination.h"
 #include "Combat.h"
+#include "Energy.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "Subtlety.h"
@@ -8,7 +9,9 @@
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, equipment_db, sim_settings) {
+    Character(race, equipment_db, sim_settings),
+    combo_points(0)
+{
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");
@@ -19,6 +22,8 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 
     this->rogue_spells = new RogueSpells(this);
     this->spells = dynamic_cast<Spells*>(rogue_spells);
+    this->energy = new class Energy(this);
+    this->resource = this->energy;
 
     spells->activate_racials();
 
@@ -28,6 +33,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 Rogue::~Rogue()
 {
     delete rogue_spells;
+    delete energy;
 }
 
 QString Rogue::get_name() const {
@@ -78,6 +84,37 @@ double Rogue::global_cooldown() const {
     return 1.0;
 }
 
+unsigned Rogue::get_resource_level(const ResourceType) const {
+    return this->energy->current;
+}
+
+void Rogue::spend_combo_points() {
+    combo_points = 0;
+}
+
+void Rogue::gain_combo_points(const unsigned combo_points) {
+    this->combo_points += combo_points;
+
+    if (this->combo_points > 5)
+        this->combo_points = 5;
+}
+
+void Rogue::enter_stealth() {
+    if (is_stealthed())
+        return;
+
+    stop_attack();
+    stealthed = true;
+}
+
+void Rogue::exit_stealth() {
+    stealthed = false;
+}
+
+bool Rogue::is_stealthed() const {
+    return this->stealthed;
+}
+
 void Rogue::initialize_talents() {
     for (int i = 0; i < 3; ++i) {
         talents->add_talent_tree(new Assassination(this), new Combat(this), new Subtlety(this));
@@ -106,5 +143,5 @@ QVector<int> Rogue::get_weapon_proficiencies_for_slot(const int slot) const {
 }
 
 void Rogue::reset_class_specific() {
-
+    combo_points = 0;
 }

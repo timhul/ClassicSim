@@ -1,4 +1,4 @@
-
+#include "Mana.h"
 #include "Priest.h"
 #include "PriestSpells.h"
 #include "Weapon.h"
@@ -13,11 +13,15 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings)
 
     this->priest_spells = new PriestSpells(this);
     this->spells = dynamic_cast<Spells*>(priest_spells);
+
+    this->mana = new class Mana(this);
+    this->resource = this->mana;
 }
 
 Priest::~Priest()
 {
     delete priest_spells;
+    delete mana;
 }
 
 QString Priest::get_name() const {
@@ -70,6 +74,10 @@ double Priest::global_cooldown() const {
 
 void Priest::initialize_talents() {
 
+}
+
+unsigned Priest::get_resource_level(const ResourceType) const {
+    return mana->current;
 }
 
 int Priest::get_highest_possible_armor_type() const {

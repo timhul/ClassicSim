@@ -27,8 +27,11 @@ public:
     int get_highest_possible_armor_type() const override;
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
+    unsigned get_resource_level(const ResourceType) const override;
+
 private:
     PriestSpells* priest_spells;
+    class Mana* mana;
 
     void initialize_talents() override;
     void reset_class_specific() override;

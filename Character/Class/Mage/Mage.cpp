@@ -1,6 +1,6 @@
-
 #include "Mage.h"
 #include "MageSpells.h"
+#include "Mana.h"
 #include "Weapon.h"
 
 Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
@@ -12,11 +12,15 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
 
     this->mage_spells = new MageSpells(this);
     this->spells = dynamic_cast<Spells*>(mage_spells);
+
+    this->mana = new class Mana(this);
+    this->resource = this->mana;
 }
 
 Mage::~Mage()
 {
     delete mage_spells;
+    delete mana;
 }
 
 QString Mage::get_name() const {
@@ -69,6 +73,10 @@ double Mage::global_cooldown() const {
 
 void Mage::initialize_talents() {
 
+}
+
+unsigned Mage::get_resource_level(const ResourceType) const {
+    return mana->current;
 }
 
 int Mage::get_highest_possible_armor_type() const {

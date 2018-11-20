@@ -3,6 +3,7 @@
 
 #include "Character.h"
 
+class Energy;
 class RogueSpells;
 
 
@@ -27,8 +28,20 @@ public:
     int get_highest_possible_armor_type() const override;
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
+    unsigned get_resource_level(const ResourceType) const override;
+
+    void spend_combo_points();
+    void gain_combo_points(const unsigned);
+    void enter_stealth();
+    void exit_stealth();
+    bool is_stealthed() const;
+
 private:
     RogueSpells* rogue_spells;
+    class Energy* energy;
+
+    unsigned combo_points;
+    bool stealthed;
 
     void initialize_talents() override;
     void reset_class_specific() override;

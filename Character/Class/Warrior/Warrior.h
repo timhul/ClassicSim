@@ -3,17 +3,18 @@
 
 #include "Character.h"
 
-class Flurry;
-class SwordSpecialization;
-class UnbridledWrath;
+class BattleShoutBuff;
 class BattleStanceBuff;
 class BerserkerStanceBuff;
-class DefensiveStanceBuff;
-class HeroicStrikeBuff;
-class BattleShoutBuff;
 class DeathWishBuff;
+class DefensiveStanceBuff;
+class Flurry;
+class HeroicStrikeBuff;
 class OverpowerBuff;
+class Rage;
+class SwordSpecialization;
 class RecklessnessBuff;
+class UnbridledWrath;
 class WarriorSpells;
 
 namespace WarriorStances {
@@ -49,6 +50,7 @@ public:
     void increase_stance_rage_remainder();
     void decrease_stance_rage_remainder();
     unsigned get_stance_remainder() const;
+    unsigned get_resource_level(const ResourceType) const override;
     unsigned get_curr_rage() const;
     void gain_rage(const unsigned) override;
     void lose_rage(const unsigned) override;
@@ -86,6 +88,7 @@ private:
     unsigned stance_rage_remainder;
     double next_stance_cd;
     double rage_conversion_value{};
+    class Rage* rage;
     Flurry* flurry;
     SwordSpecialization* sword_spec;
     UnbridledWrath* unbridled_wrath;

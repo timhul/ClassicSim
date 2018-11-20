@@ -5,6 +5,9 @@
 
 class DruidSpells;
 
+class Energy;
+class Mana;
+class Rage;
 
 class Druid: public Character {
 public:
@@ -27,11 +30,18 @@ public:
     int get_highest_possible_armor_type() const override;
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
+    unsigned get_resource_level(const ResourceType) const override;
+
 private:
     DruidSpells* druid_spells;
 
+    class Energy* energy;
+    class Mana* mana;
+    class Rage* rage;
+
     void initialize_talents() override;
     void reset_class_specific() override;
+    void reset_resource() override;
 };
 
 #endif // DRUID_H

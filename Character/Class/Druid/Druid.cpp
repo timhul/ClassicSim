@@ -1,7 +1,9 @@
-
 #include "Druid.h"
 #include "DruidSpells.h"
+#include "Energy.h"
+#include "Mana.h"
 #include "Race.h"
+#include "Rage.h"
 #include "Weapon.h"
 
 Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -11,10 +13,16 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 
     this->druid_spells = new DruidSpells(this);
     this->spells = dynamic_cast<Spells*>(druid_spells);
+
+    this->energy = new class Energy(this);
+    this->mana = new class Mana(this);
+    this->rage = new class Rage();
 }
 
 Druid::~Druid()
 {
+    delete energy;
+    delete rage;
     delete druid_spells;
 }
 
@@ -71,6 +79,20 @@ void Druid::initialize_talents() {
 
 }
 
+unsigned Druid::get_resource_level(const ResourceType resource_type) const {
+    switch (resource_type) {
+    case ResourceType::Mana:
+        return mana->current;
+    case ResourceType::Rage:
+        return rage->current;
+    case ResourceType::Energy:
+        return energy->current;
+    }
+
+    assert(false);
+    return 0;
+}
+
 int Druid::get_highest_possible_armor_type() const {
     return ArmorTypes::LEATHER;
 }
@@ -89,6 +111,12 @@ QVector<int> Druid::get_weapon_proficiencies_for_slot(const int slot) const {
         assert(false);
         return QVector<int>();
     }
+}
+
+void Druid::reset_resource() {
+    energy->reset_resource();
+    rage->reset_resource();
+    mana->reset_resource();
 }
 
 void Druid::reset_class_specific() {
