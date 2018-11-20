@@ -5,7 +5,7 @@
 #include "Warrior.h"
 
 Rend::Rend(Character* pchar) :
-    Spell("Rend", "Assets/warrior/arms/tier1/Ability_gouge.png", pchar, RestrictedByGcd::Yes, 0, Resource::Rage, 10),
+    Spell("Rend", "Assets/warrior/arms/tier1/Ability_gouge.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
     TalentRequirer(3, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar)),
     buff(new NoEffectBuff(pchar, 21, "Rend", "Assets/warrior/arms/tier1/Ability_gouge.png", Hidden::No, Debuff::Yes)),

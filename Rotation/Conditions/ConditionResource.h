@@ -8,14 +8,14 @@ class Character;
 
 class ConditionResource : public Condition {
 public:
-    ConditionResource(Character* pchar, const int comparator, const Resource resource_type, const double cmp_value);
+    ConditionResource(Character* pchar, const int comparator, const ResourceType resource_type, const double cmp_value);
 
     bool condition_fulfilled() const override;
 
 private:
     const Character* pchar;
     const int comparator;
-    const Resource resource_type;
+    const ResourceType resource_type;
     const double cmp_value;
 };
 

@@ -3,7 +3,7 @@
 #include "Warrior.h"
 
 BerserkerRage::BerserkerRage(Character* pchar) :
-    Spell("Berserker Rage", "Assets/warrior/fury/tier6/Spell_nature_ancestralguardian.png", pchar, RestrictedByGcd::No, 30, Resource::Rage, 0),
+    Spell("Berserker Rage", "Assets/warrior/fury/tier6/Spell_nature_ancestralguardian.png", pchar, RestrictedByGcd::No, 30, ResourceType::Rage, 0),
     TalentRequirer(2, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {

@@ -4,7 +4,7 @@
 #include "RecklessnessBuff.h"
 
 Recklessness::Recklessness(Character* pchar) :
-    Spell("Recklessness", "Assets/warrior/Ability_criticalstrike.png", pchar, RestrictedByGcd::Yes, 1800.0, Resource::Rage, 0)
+    Spell("Recklessness", "Assets/warrior/Ability_criticalstrike.png", pchar, RestrictedByGcd::Yes, 1800.0, ResourceType::Rage, 0)
 {}
 
 void Recklessness::spell_effect() {

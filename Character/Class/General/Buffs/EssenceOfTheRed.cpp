@@ -11,10 +11,10 @@ EssenceOfTheRed::EssenceOfTheRed(Character* pchar):
                                         "Assets/buffs/Spell_fire_lavaspawn.png",
                                         pchar,
                                         false, 0.0, 1.0, duration,
-                                        QMap<Resource, unsigned>({{Resource::Mana, 500},
-                                                                  {Resource::Rage, 20},
-                                                                  {Resource::Energy, 50}
-                                                                 })
+                                        QMap<ResourceType, unsigned>({{ResourceType::Mana, 500},
+                                                                      {ResourceType::Rage, 20},
+                                                                      {ResourceType::Energy, 50}
+                                                                     })
                                         ))
 {}
 

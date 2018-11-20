@@ -13,7 +13,7 @@ OffhandAttack::OffhandAttack(Character* pchar) :
           RestrictedByGcd::No,
           (pchar->get_equipment()->get_offhand() != nullptr) ? pchar->get_equipment()->get_offhand()->get_base_weapon_speed() :
                                                                 10000,
-          Resource::Rage,
+          ResourceType::Rage,
           0),
     offhand_penalty(0.5)
 {

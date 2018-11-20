@@ -34,7 +34,7 @@ QString StatisticsResource::get_icon() const {
     return this->icon;
 }
 
-void StatisticsResource::add_resource_gain(const Resource resource, const unsigned gain) {
+void StatisticsResource::add_resource_gain(const ResourceType resource, const unsigned gain) {
     if (!resource_gain.contains(resource))
         resource_gain[resource] = 0;
 
@@ -42,19 +42,19 @@ void StatisticsResource::add_resource_gain(const Resource resource, const unsign
 }
 
 unsigned StatisticsResource::get_mana_gain() const {
-   return resource_gain[Resource::Mana];
+   return resource_gain[ResourceType::Mana];
 }
 
 unsigned StatisticsResource::get_rage_gain() const {
-   return resource_gain[Resource::Rage];
+   return resource_gain[ResourceType::Rage];
 }
 
 unsigned StatisticsResource::get_energy_gain() const {
-   return resource_gain[Resource::Energy];
+   return resource_gain[ResourceType::Energy];
 }
 
 void StatisticsResource::add(const StatisticsResource* other) {
-    QMap<Resource, unsigned>::const_iterator it = other->resource_gain.constBegin();
+    QMap<ResourceType, unsigned>::const_iterator it = other->resource_gain.constBegin();
     auto end = other->resource_gain.constEnd();
     while (it != end) {
         if (!this->resource_gain.contains(it.key()))

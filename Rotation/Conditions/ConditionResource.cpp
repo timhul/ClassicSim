@@ -2,7 +2,7 @@
 #include "ConditionResource.h"
 #include "Character.h"
 
-ConditionResource::ConditionResource(Character* pchar, const int comparator, const Resource resource_type, const double cmp_value) :
+ConditionResource::ConditionResource(Character* pchar, const int comparator, const ResourceType resource_type, const double cmp_value) :
     pchar(pchar),
     comparator(comparator),
     resource_type(resource_type),

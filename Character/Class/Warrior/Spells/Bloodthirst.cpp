@@ -8,7 +8,7 @@
 #include "OverpowerBuff.h"
 
 Bloodthirst::Bloodthirst(Character* pchar) :
-    Spell("Bloodthirst", "Assets/warrior/fury/tier7/Spell_nature_bloodlust.png", pchar, RestrictedByGcd::Yes, 6.0, Resource::Rage, 30),
+    Spell("Bloodthirst", "Assets/warrior/fury/tier7/Spell_nature_bloodlust.png", pchar, RestrictedByGcd::Yes, 6.0, ResourceType::Rage, 30),
     TalentRequirer(1, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {

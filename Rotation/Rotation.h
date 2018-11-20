@@ -44,7 +44,7 @@ protected:
     QMap<QString, QString> prerequisites;
     QVector<RotationExecutor*> rotation_executors;
 
-    Resource get_resource_from_string(const QString& resource) const;
+    ResourceType get_resource_from_string(const QString& resource) const;
 };
 
 #endif // ROTATION_H

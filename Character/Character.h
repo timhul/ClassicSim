@@ -140,7 +140,7 @@ public:
     bool has_mainhand() const;
     bool has_offhand() const;
 
-    unsigned get_resource_level(const Resource resource) const;
+    unsigned get_resource_level(const ResourceType resource) const;
 
     void reset();
     void prepare_set_of_combat_iterations();

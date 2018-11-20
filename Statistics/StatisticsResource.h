@@ -21,7 +21,7 @@ public:
 
     QString get_name() const;
     QString get_icon() const;
-    void add_resource_gain(const Resource, const unsigned);
+    void add_resource_gain(const ResourceType, const unsigned);
     unsigned get_mana_gain() const;
     unsigned get_rage_gain() const;
     unsigned get_energy_gain() const;
@@ -32,7 +32,7 @@ protected:
 private:
     const QString name;
     const QString icon;
-    QMap<Resource, unsigned> resource_gain;
+    QMap<ResourceType, unsigned> resource_gain;
 };
 
 #endif // STATISTICSRESOURCE_H

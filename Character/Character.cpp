@@ -430,13 +430,13 @@ bool Character::has_offhand() const {
     return cstats->get_equipment()->get_offhand() != nullptr;
 }
 
-unsigned Character::get_resource_level(const Resource resource) const {
+unsigned Character::get_resource_level(const ResourceType resource) const {
     switch (resource) {
-    case Resource::Mana:
+    case ResourceType::Mana:
         return this->mana;
-    case Resource::Rage:
+    case ResourceType::Rage:
         return this->rage;
-    case Resource::Energy:
+    case ResourceType::Energy:
         return this->energy;
     }
 

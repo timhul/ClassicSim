@@ -11,9 +11,9 @@ PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
                                                      double cooldown,
                                                      double tick_rate,
                                                      double tick_until,
-                                                     QMap<Resource, unsigned> resource_gains)
+                                                     QMap<ResourceType, unsigned> resource_gains)
     :
-      Spell(name, icon, pchar, restricted_by_gcd, cooldown, Resource::Rage, 0),
+      Spell(name, icon, pchar, restricted_by_gcd, cooldown, ResourceType::Rage, 0),
       tick_rate(tick_rate),
       tick_until(tick_until),
       resource_gains(resource_gains)
@@ -30,19 +30,19 @@ void PeriodicResourceGainSpell::spell_effect() {
 }
 
 void PeriodicResourceGainSpell::perform_periodic() {
-    QMap<Resource, unsigned>::const_iterator it = resource_gains.constBegin();
+    QMap<ResourceType, unsigned>::const_iterator it = resource_gains.constBegin();
     auto end = resource_gains.constEnd();
 
     while (it != end) {
         // TODO: Save statistics for resource gains
         switch (it.key()) {
-        case Resource::Mana:
+        case ResourceType::Mana:
             pchar->gain_mana(it.value());
             break;
-        case Resource::Energy:
+        case ResourceType::Energy:
             pchar->gain_energy(it.value());
             break;
-        case Resource::Rage:
+        case ResourceType::Rage:
             pchar->gain_rage(it.value());
             break;
         }

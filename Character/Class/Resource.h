@@ -1,7 +1,7 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-enum Resource {
+enum ResourceType {
     Mana = 0,
     Rage = 1,
     Energy = 2

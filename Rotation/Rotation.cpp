@@ -153,17 +153,17 @@ int Rotation::get_builtin_variable(const QString& var_name) const {
     return BuiltinVariables::Undefined;
 }
 
-Resource Rotation::get_resource_from_string(const QString& resource) const {
+ResourceType Rotation::get_resource_from_string(const QString& resource) const {
     if (resource == "Mana")
-        return Resource::Mana;
+        return ResourceType::Mana;
     if (resource == "Rage")
-        return Resource::Rage;
+        return ResourceType::Rage;
     if (resource == "Energy")
-        return Resource::Energy;
+        return ResourceType::Energy;
 
     qDebug() << "Failed to find resource for" << resource;
     assert(false);
-    return Resource::Rage;
+    return ResourceType::Rage;
 }
 
 void Rotation::dump() {

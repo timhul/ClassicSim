@@ -16,7 +16,7 @@ Slam::Slam(Character* pchar) :
     SpellCastingTime("Slam", "Assets/warrior/fury/tier5/Ability_warrior_decisivestrike.png",
                      pchar, RestrictedByGcd::Yes,
                      0.0,
-                     Resource::Rage,
+                     ResourceType::Rage,
                      15,
                      1500),
     TalentRequirer(5, DisabledAtZero::No),

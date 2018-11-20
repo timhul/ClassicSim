@@ -10,7 +10,7 @@
 #include "CharacterStats.h"
 
 HeroicStrike::HeroicStrike(Character* pchar) :
-    Spell("Heroic Strike", "Assets/warrior/arms/tier1/Ability_rogue_ambush.png", pchar, RestrictedByGcd::No, 0, Resource::Rage, 15),
+    Spell("Heroic Strike", "Assets/warrior/arms/tier1/Ability_rogue_ambush.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 15),
     TalentRequirer(3, DisabledAtZero::No),
     warr(dynamic_cast<Warrior*>(pchar))
 {

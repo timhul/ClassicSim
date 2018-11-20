@@ -16,14 +16,14 @@ public:
                               double cooldown,
                               double tick_rate,
                               double tick_until,
-                              QMap<Resource, unsigned> resource_gains);
+                              QMap<ResourceType, unsigned> resource_gains);
 
     void perform_periodic() override;
 
 private:
     double tick_rate;
     double tick_until;
-    QMap<Resource, unsigned> resource_gains;
+    QMap<ResourceType, unsigned> resource_gains;
 
     void spell_effect() override;
 

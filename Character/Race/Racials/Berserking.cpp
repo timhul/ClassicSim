@@ -5,7 +5,7 @@
 #include "Character.h"
 
 Berserking::Berserking(Character* pchar) :
-    Spell("Berserking", "Assets/Racial_troll_berserk.png", pchar, RestrictedByGcd::Yes, 180, Resource::Rage, 0),
+    Spell("Berserking", "Assets/Racial_troll_berserk.png", pchar, RestrictedByGcd::Yes, 180, ResourceType::Rage, 0),
     buff(new BerserkingBuff(pchar))
 {
     this->enabled = false;

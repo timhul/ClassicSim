@@ -33,7 +33,7 @@ public:
           Character* pchar,
           bool restricted_by_gcd,
           double cooldown,
-          const Resource resource_type,
+          const ResourceType resource_type,
           int resource_cost);
 
     virtual ~Spell();
@@ -81,7 +81,7 @@ protected:
     bool restricted_by_gcd;
     double cooldown;
     double last_used;
-    const Resource resource_type;
+    const ResourceType resource_type;
     int resource_cost;
     int spell_rank;
     int instance_id;

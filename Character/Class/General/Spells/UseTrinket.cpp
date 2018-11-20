@@ -11,7 +11,7 @@ UseTrinket::UseTrinket(Character* pchar,
                        const int cooldown,
                        Buff* buff,
                        Proc *proc) :
-    Spell(name, icon, pchar, RestrictedByGcd::No, cooldown, Resource::Rage, 0),
+    Spell(name, icon, pchar, RestrictedByGcd::No, cooldown, ResourceType::Rage, 0),
     buff(buff),
     proc(proc)
 {

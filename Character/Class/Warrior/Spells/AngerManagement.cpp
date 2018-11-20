@@ -8,7 +8,7 @@
 #include "StatisticsResource.h"
 
 AngerManagement::AngerManagement(Character* pchar) :
-    Spell("Anger Management", "Assets/warrior/arms/tier3/anger_management.png", pchar, RestrictedByGcd::No, 0.0, Resource::Rage, 0),
+    Spell("Anger Management", "Assets/warrior/arms/tier3/anger_management.png", pchar, RestrictedByGcd::No, 0.0, ResourceType::Rage, 0),
     TalentRequirer(1, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
@@ -31,7 +31,7 @@ void AngerManagement::perform_periodic() {
     warr->gain_rage(1);
 
     if (rage_before_am_tick < warr->get_curr_rage())
-        statistics_resource->add_resource_gain(Resource::Rage, 1);
+        statistics_resource->add_resource_gain(ResourceType::Rage, 1);
 
     auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 3.0);
     this->engine->add_event(new_event);

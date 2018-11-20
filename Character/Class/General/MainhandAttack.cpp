@@ -13,7 +13,7 @@ MainhandAttack::MainhandAttack(Character* pchar) :
           RestrictedByGcd::No,
           (pchar->get_equipment()->get_mainhand() != nullptr) ? pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() :
                                                                 10000,
-          Resource::Rage,
+          ResourceType::Rage,
           0)
 {
     this->pchar = pchar;
