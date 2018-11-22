@@ -14,11 +14,6 @@ Licensing information can be found in [LICENSE.md](https://github.com/timhul/Cla
 
 Releases are available at [the ClassicSim website](https://classicsim.org/?C=M;O=D).
 
-# Future work
-
-See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information regarding the
-upcoming releases.
-
 # Features of this tool
 
 These are some of the features of this tool:
@@ -30,6 +25,16 @@ These are some of the features of this tool:
 * Equipment sheet (with full stat filter support)
 * Data-driven rotations
 * Statistics
+
+# Mechanic implementation details
+
+Interested in how certain mechanics are currently implemented? Check
+[Mechanics Details](https://github.com/timhul/ClassicSim/wiki/Mechanics-Details) in the wiki.
+
+# Future work
+
+See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information regarding the
+upcoming releases.
 
 # Known issues
 
@@ -94,9 +99,8 @@ A: For me it is an ode to vanilla.
 Q: Only a single class? WTF!
 
 A: The intent of the current release is to show all the supporting systems that are shared between classes (talent
-calculator, world buffs, etc). The base for all classes are created, expanding the classes is mechanically
-time-consuming but in most cases not particularly difficult with a framework in place (although some refactoring will
-be required in a few places).
+calculator, world buffs, etc). See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for
+information when specific classes/specs are planned to be supported.
 
 Q: Only Windows support? And 32-bit?
 
@@ -104,20 +108,22 @@ A: I plan to make a Linux release available, it is all a matter of priority. Com
 Creator on Windows out of the box (at least not in the open-source version). If you know more about this feel free to
 contact me!
 
-Q: (not really a question) Nothing happens when I click "Click me!"
+Q: (not really a question) Nothing happens when I click "Click me!" / "Run Full Sim".
 
 A: Make sure you have equipped a mainhand weapon.
 
 Q: How many iterations are being run?
 
-A: In the current release only the Quick Sim option is available. By default it runs 1000 iterations, although this
-value can be modified under Settings.
+A: Clicking the "Click me!" button in the top-right corner runs the quick sim, which by default runs 1000 iterations.
+Clicking the bottom-left "Run Full Sim" button runs the full sim, which by default runs 10000 iterations. Both of these
+can be changed under "Settings".
 
 Q: How is this or that mechanic implemented?
 
-A: A lot of scouring the forums. Since we have yet no way of knowing before the demo how some mechanics work, the main
-focus have been to make sure the mechanics are easily updated. Check Mechanics/ in the repository link for at least how
-some of the mechanics work if you are really interested.
+A: A lot of scouring the forums. The demo showed how some mechanics work but we know for a fact their work is not yet
+complete. So far the main focus have been to make sure the mechanics are easily updated. Check
+[Mechanics Details](https://github.com/timhul/ClassicSim/wiki/Mechanics-Details) in the wiki for fairly detailed
+information regarding how the more obvious mechanics are implemented.
 
 Q (not really a question): This mechanic is implemented incorrectly!
 
