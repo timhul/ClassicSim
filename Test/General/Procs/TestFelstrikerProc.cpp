@@ -54,7 +54,7 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
     assert_melee_special_table_can_only_crit(mh_wpn_skill);
     assert_melee_special_table_can_only_crit(oh_wpn_skill);
 
-    then_next_event_is("BuffRemoval", "3.000", true);
+    then_next_event_is("BuffRemoval", "3.000", RUN_EVENT);
 
     assert(delta(crit_before_buff, pchar->get_stats()->get_mh_crit_chance()) < 0.0001);
 }

@@ -56,13 +56,13 @@ void TestRend::test_spell_cooldown() {
     when_rend_is_performed();
 
     then_next_event_is("CooldownReady", "1.500");
-    then_next_event_is("DotTick", "3.000", true);
+    then_next_event_is("DotTick", "3.000", RUN_EVENT);
     assert(rend()->is_available());
-    then_next_event_is("DotTick", "6.000", true);
-    then_next_event_is("DotTick", "9.000", true);
-    then_next_event_is("DotTick", "12.000", true);
-    then_next_event_is("DotTick", "15.000", true);
-    then_next_event_is("DotTick", "18.000", true);
+    then_next_event_is("DotTick", "6.000", RUN_EVENT);
+    then_next_event_is("DotTick", "9.000", RUN_EVENT);
+    then_next_event_is("DotTick", "12.000", RUN_EVENT);
+    then_next_event_is("DotTick", "15.000", RUN_EVENT);
+    then_next_event_is("DotTick", "18.000", RUN_EVENT);
 }
 
 void TestRend::test_incurs_global_cooldown() {

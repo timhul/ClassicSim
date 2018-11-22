@@ -17,8 +17,7 @@ class Race;
 class Character;
 class SimSettings;
 
-static const bool ACT_EVENT = true;
-static const bool DO_NOT_ACT_EVENT = false;
+static const bool RUN_EVENT = true;
 
 class TestSpell : public TestUtils {
 public:

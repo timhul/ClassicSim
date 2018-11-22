@@ -42,89 +42,89 @@ void TestEnergy::test_energy_ticks_up_after_use() {
     then_rogue_has_energy(25);
     ignored_events = {"PlayerAction"};
 
-    then_next_event_is("ResourceGain", "2.000", ACT_EVENT);
+    then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
     then_rogue_has_energy(45);
 
-    then_next_event_is("ResourceGain", "4.000", ACT_EVENT);
+    then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
     then_rogue_has_energy(65);
 
-    then_next_event_is("ResourceGain", "6.000", ACT_EVENT);
+    then_next_event_is("ResourceGain", "6.000", RUN_EVENT);
     then_rogue_has_energy(85);
 
-    then_next_event_is("ResourceGain", "8.000", ACT_EVENT);
+    then_next_event_is("ResourceGain", "8.000", RUN_EVENT);
     then_rogue_has_energy(100);
 
-    then_next_event_is("ResourceGain", "10.000", ACT_EVENT);
+    then_next_event_is("ResourceGain", "10.000", RUN_EVENT);
     then_rogue_has_energy(100);
 }
 
 void TestEnergy::test_energy_tick_adds_player_action_event() {
     rogue->lose_energy(75);
-    then_next_event_is("ResourceGain", "2.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "2.100", DO_NOT_ACT_EVENT);
-    then_next_event_is("ResourceGain", "4.000", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "2.100");
+    then_next_event_is("ResourceGain", "4.000");
 }
 
 void TestEnergy::test_losing_energy_while_non_max_does_not_change_energy_tick_timer() {
     rogue->lose_energy(75);
 
-    then_next_event_is("ResourceGain", "2.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "2.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "2.100");
     then_rogue_has_energy(45);
 
-    then_next_event_is("ResourceGain", "4.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "4.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "4.100");
     then_rogue_has_energy(65);
 
     given_engine_priority_at(5.0);
     rogue->lose_energy(60);
     then_rogue_has_energy(5);
 
-    then_next_event_is("ResourceGain", "6.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "6.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "6.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "6.100");
     then_rogue_has_energy(25);
 
-    then_next_event_is("ResourceGain", "8.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "8.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "8.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "8.100");
     then_rogue_has_energy(45);
 
-    then_next_event_is("ResourceGain", "10.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "10.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "10.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "10.100");
     then_rogue_has_energy(65);
 
-    then_next_event_is("ResourceGain", "12.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "12.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "12.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "12.100");
     then_rogue_has_energy(85);
 
-    then_next_event_is("ResourceGain", "14.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "14.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "14.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "14.100");
     then_rogue_has_energy(100);
 
-    then_next_event_is("ResourceGain", "16.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "16.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "16.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "16.100");
     then_rogue_has_energy(100);
 }
 
 void TestEnergy::test_energy_tick_timer_is_pushed_forward_if_completed_before_losing_energy_again() {
     rogue->lose_energy(10);
 
-    then_next_event_is("ResourceGain", "2.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "2.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "2.100");
     then_rogue_has_energy(100);
 
-    then_next_event_is("ResourceGain", "4.000", ACT_EVENT);
-    then_next_event_is("PlayerAction", "4.100", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "4.100");
     then_rogue_has_energy(100);
 
     given_engine_priority_at(7.5);
     rogue->lose_energy(10);
 
-    then_next_event_is("ResourceGain", "9.500", ACT_EVENT);
-    then_next_event_is("PlayerAction", "9.600", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "9.500", RUN_EVENT);
+    then_next_event_is("PlayerAction", "9.600");
     then_rogue_has_energy(100);
 
-    then_next_event_is("ResourceGain", "11.500", ACT_EVENT);
-    then_next_event_is("PlayerAction", "11.600", DO_NOT_ACT_EVENT);
+    then_next_event_is("ResourceGain", "11.500", RUN_EVENT);
+    then_next_event_is("PlayerAction", "11.600");
     then_rogue_has_energy(100);
 }
 

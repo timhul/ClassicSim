@@ -258,8 +258,8 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
 
     pchar->start_attack();
 
-    then_next_event_is("MainhandMeleeHit", "0.000", true);
-    then_next_event_is("OffhandMeleeHit", "0.000", true);
+    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
+    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
     then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "0.100");
 
@@ -269,11 +269,11 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
     slam()->perform();
     assert(!pchar->is_melee_attacking());
 
-    then_next_event_is("MainhandMeleeHit", "2.000", true);
-    then_next_event_is("CastComplete", "2.300", true);
+    then_next_event_is("MainhandMeleeHit", "2.000", RUN_EVENT);
+    then_next_event_is("CastComplete", "2.300", RUN_EVENT);
     then_next_event_is("PlayerAction", "2.400");
     then_next_event_is("CooldownReady", "2.500");
-    then_next_event_is("OffhandMeleeHit", "3.000", true);
+    then_next_event_is("OffhandMeleeHit", "3.000", RUN_EVENT);
     then_next_event_is("MainhandMeleeHit", "4.300");
     then_next_event_is("OffhandMeleeHit", "5.300");
 }
