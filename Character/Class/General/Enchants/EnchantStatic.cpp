@@ -3,14 +3,32 @@
 #include "CharacterStats.h"
 #include "EnchantStatic.h"
 
-EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar) :
+EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, int enchant_slot) :
     Enchant(enchant_name, get_name_from_enum(enchant_name), get_effect_from_enum(enchant_name)),
     enchant_name(enchant_name),
-    pchar(pchar)
+    pchar(pchar),
+    enchant_slot(enchant_slot)
 {
     switch (enchant_name) {
+    case EnchantName::SuperiorStriking:
+        if (enchant_slot == EnchantSlot::MAINHAND)
+            pchar->increase_mh_flat_damage_bonus(5);
+        else if (enchant_slot == EnchantSlot::OFFHAND)
+            pchar->increase_oh_flat_damage_bonus(5);
+        else
+            assert(false);
+        break;
+    case EnchantName::EnchantWeaponAgility:
+        pchar->get_stats()->increase_agility(15);
+        break;
+    case EnchantName::EnchantWeaponStrength:
+        pchar->get_stats()->increase_strength(15);
+        break;
     case EnchantName::EnchantBracerSuperiorStrength:
         pchar->get_stats()->increase_strength(9);
+        break;
+    case EnchantName::EnchantGlovesSuperiorAgility:
+        pchar->get_stats()->increase_agility(15);
         break;
     case EnchantName::EnchantGlovesGreaterStrength:
         pchar->get_stats()->increase_strength(7);
@@ -23,6 +41,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar) :
         break;
     case EnchantName::Enchant2HWeaponAgility:
         pchar->get_stats()->increase_agility(25);
+        break;
+    case EnchantName::Enchant2HWeaponSuperiorImpact:
+        pchar->increase_mh_flat_damage_bonus(9);
         break;
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->increase_haste(1);
@@ -65,8 +86,25 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar) :
 
 EnchantStatic::~EnchantStatic() {
     switch (enchant_name) {
+    case EnchantName::SuperiorStriking:
+        if (enchant_slot == EnchantSlot::MAINHAND)
+            pchar->decrease_mh_flat_damage_bonus(5);
+        else if (enchant_slot == EnchantSlot::OFFHAND)
+            pchar->decrease_oh_flat_damage_bonus(5);
+        else
+            assert(false);
+        break;
+    case EnchantName::EnchantWeaponAgility:
+        pchar->get_stats()->decrease_agility(15);
+        break;
+    case EnchantName::EnchantWeaponStrength:
+        pchar->get_stats()->decrease_strength(15);
+        break;
     case EnchantName::EnchantBracerSuperiorStrength:
         pchar->get_stats()->decrease_strength(9);
+        break;
+    case EnchantName::EnchantGlovesSuperiorAgility:
+        pchar->get_stats()->decrease_agility(15);
         break;
     case EnchantName::EnchantGlovesGreaterStrength:
         pchar->get_stats()->decrease_strength(7);
@@ -79,6 +117,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::Enchant2HWeaponAgility:
         pchar->get_stats()->decrease_agility(25);
+        break;
+    case EnchantName::Enchant2HWeaponSuperiorImpact:
+        pchar->decrease_mh_flat_damage_bonus(9);
         break;
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->decrease_haste(1);
@@ -121,8 +162,16 @@ EnchantStatic::~EnchantStatic() {
 
 QString get_name_from_enum(EnchantName::Name enchant_name) {
     switch (enchant_name) {
+    case EnchantName::SuperiorStriking:
+        return "Superior Striking";
+    case EnchantName::EnchantWeaponAgility:
+        return "Agility";
+    case EnchantName::EnchantWeaponStrength:
+        return "Strength";
     case EnchantName::EnchantBracerSuperiorStrength:
         return "Superior Strength";
+    case EnchantName::EnchantGlovesSuperiorAgility:
+        return "Superior Agility";
     case EnchantName::EnchantGlovesGreaterStrength:
         return "Greater Strength";
     case EnchantName::EnchantGlovesMinorHaste:
@@ -131,6 +180,8 @@ QString get_name_from_enum(EnchantName::Name enchant_name) {
         return "Iron Counterweight";
     case EnchantName::Enchant2HWeaponAgility:
         return "2H Weapon Agility";
+    case EnchantName::Enchant2HWeaponSuperiorImpact:
+        return "2H Weapon Superior Impact";
     case EnchantName::ArcanumOfRapidity:
         return "Arcanum of Rapidity";
     case EnchantName::LesserArcanumOfVoracity:
@@ -157,8 +208,16 @@ QString get_name_from_enum(EnchantName::Name enchant_name) {
 
 QString get_effect_from_enum(EnchantName::Name enchant_name) {
     switch (enchant_name) {
+    case EnchantName::SuperiorStriking:
+        return "+5 Damage";
+    case EnchantName::EnchantWeaponAgility:
+        return "+15 Agility";
+    case EnchantName::EnchantWeaponStrength:
+        return "+15 Strength";
     case EnchantName::EnchantBracerSuperiorStrength:
         return "+9 Strength";
+    case EnchantName::EnchantGlovesSuperiorAgility:
+        return "+15 Agility";
     case EnchantName::EnchantGlovesGreaterStrength:
         return "+7 Strength";
     case EnchantName::EnchantGlovesMinorHaste:
@@ -167,6 +226,8 @@ QString get_effect_from_enum(EnchantName::Name enchant_name) {
         return "+3% Attack Speed";
     case EnchantName::Enchant2HWeaponAgility:
         return "+25 Agility";
+    case EnchantName::Enchant2HWeaponSuperiorImpact:
+        return "+9 Damage";
     case EnchantName::ArcanumOfRapidity:
         return "+1% Haste";
     case EnchantName::LesserArcanumOfVoracity:

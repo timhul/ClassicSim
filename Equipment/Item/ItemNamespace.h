@@ -85,6 +85,7 @@ namespace ArmorTypes {
 namespace EnchantSlot {
     static const int MAINHAND = 0;
     static const int OFFHAND = 1;
+    static const int NON_WEAPON = 2;
 }
 
 #endif // ITEMNAMESPACE_H

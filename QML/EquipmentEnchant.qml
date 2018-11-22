@@ -217,6 +217,21 @@ Rectangle {
             name: "Fiery Weapon"
             enumvalue: EnchantName.FieryWeapon
         }
+
+        ListElement {
+            name: "Enchant Weapon - Strength"
+            enumvalue: EnchantName.EnchantWeaponStrength
+        }
+
+        ListElement {
+            name: "Enchant Weapon - Agility"
+            enumvalue: EnchantName.EnchantWeaponAgility
+        }
+
+        ListElement {
+            name: "Enchant Weapon - Superior Striking"
+            enumvalue: EnchantName.SuperiorStriking
+        }
     }
 
     ListModel {
@@ -272,6 +287,26 @@ Rectangle {
         ListElement {
             name: "Fiery Weapon"
             enumvalue: EnchantName.FieryWeapon
+        }
+
+        ListElement {
+            name: "Enchant Weapon - Strength"
+            enumvalue: EnchantName.EnchantWeaponStrength
+        }
+
+        ListElement {
+            name: "Enchant Weapon - Agility"
+            enumvalue: EnchantName.EnchantWeaponAgility
+        }
+
+        ListElement {
+            name: "Enchant Weapon - Superior Striking"
+            enumvalue: EnchantName.SuperiorStriking
+        }
+
+        ListElement {
+            name: "Enchant 2H - Superior Impact"
+            enumvalue: EnchantName.Enchant2HWeaponSuperiorImpact
         }
     }
 
@@ -332,6 +367,11 @@ Rectangle {
 
     ListModel {
         id: enchantGlovesModel
+
+        ListElement {
+            name: "Enchant Gloves - Superior Agility"
+            enumvalue: EnchantName.EnchantGlovesSuperiorAgility
+        }
 
         ListElement {
             name: "Enchant Gloves - Greater Strength"

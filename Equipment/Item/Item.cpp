@@ -140,7 +140,7 @@ void Item::apply_enchant(EnchantName::Name enchant_name, Character* pchar) {
         return;
 
     delete enchant;
-    enchant = new EnchantStatic(enchant_name, pchar);
+    enchant = new EnchantStatic(enchant_name, pchar, EnchantSlot::NON_WEAPON);
 }
 
 void Item::clear_enchant() {

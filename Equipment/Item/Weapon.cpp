@@ -86,7 +86,7 @@ void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, con
         enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
         break;
     default:
-        enchant = new EnchantStatic(enchant_name, pchar);
+        enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
     }
 }
 
@@ -103,7 +103,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::ElementalSharpeningStone:
-        temporary_enchant = new EnchantStatic(enchant_name, pchar);
+        temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     default:
         assert(false);
