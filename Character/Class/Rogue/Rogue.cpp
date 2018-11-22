@@ -96,6 +96,10 @@ void Rogue::lose_energy(const unsigned energy) {
     this->energy->lose_resource(energy);
 }
 
+unsigned Rogue::get_combo_points() const {
+    return this->combo_points;
+}
+
 void Rogue::spend_combo_points() {
     combo_points = 0;
 }

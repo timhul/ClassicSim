@@ -1,4 +1,4 @@
-
+#include "TestBackstab.h"
 #include "TestRogue.h"
 #include "TestEnergy.h"
 
@@ -16,6 +16,7 @@ void TestRogue::test_all() {
     test_basic_properties();
 
     TestEnergy(equipment_db).test_all();
+    TestBackstab(equipment_db).test_all();
 }
 
 void TestRogue::test_basic_properties() {

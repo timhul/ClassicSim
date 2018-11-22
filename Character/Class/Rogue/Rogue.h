@@ -32,6 +32,7 @@ public:
     void gain_energy(const unsigned) override;
     void lose_energy(const unsigned) override;
 
+    unsigned get_combo_points() const;
     void spend_combo_points();
     void gain_combo_points(const unsigned);
     void enter_stealth();

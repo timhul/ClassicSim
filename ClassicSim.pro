@@ -257,13 +257,16 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Assassination.cpp \
     Character/Class/Rogue/TalentTrees/Combat.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety.cpp \
+    Character/Class/Rogue/Spells/Backstab.cpp \
     Character/Class/General/Spells/EnergyTick.cpp \
     Character/Class/Rage.cpp \
     Character/Class/Energy.cpp \
     Character/Class/Mana.cpp \
     Character/Class/General/Spells/ManaTick.cpp \
     Test/Rogue/TestRogue.cpp \
-    Test/Rogue/TestEnergy.cpp
+    Test/Rogue/TestEnergy.cpp \
+    Test/Rogue/TestSpellRogue.cpp \
+    Test/Rogue/Spells/TestBackstab.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -522,13 +525,16 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Assassination.h \
     Character/Class/Rogue/TalentTrees/Combat.h \
     Character/Class/Rogue/TalentTrees/Subtlety.h \
+    Character/Class/Rogue/Spells/Backstab.h \
     Character/Class/General/Spells/EnergyTick.h \
     Character/Class/Rage.h \
     Character/Energy.h \
     Character/Class/Mana.h \
     Character/Class/General/Spells/ManaTick.h \
     Test/Rogue/TestRogue.h \
-    Test/Rogue/TestEnergy.h
+    Test/Rogue/TestEnergy.h \
+    Test/Rogue/TestSpellRogue.h \
+    Test/Rogue/Spells/TestBackstab.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -548,6 +554,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Warrior/TalentTrees/Arms \
     $$PWD/Character/Class/Priest \
     $$PWD/Character/Class/Rogue \
+    $$PWD/Character/Class/Rogue/Spells \
     $$PWD/Character/Class/Rogue/TalentTrees \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
@@ -573,6 +580,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Warrior/Procs \
     $$PWD/Test/Warrior/Talents \
     $$PWD/Test/Rogue \
+    $$PWD/Test/Rogue/Spells \
     $$PWD/Character/Class/General \
     $$PWD/Character/Class/General/Enchants \
     $$PWD/Character/Class/General/Buffs \
