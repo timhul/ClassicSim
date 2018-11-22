@@ -51,6 +51,7 @@ public:
     void given_310_weapon_skill_oh();
     void given_315_weapon_skill_oh();
     void given_a_mainhand_weapon_with_100_min_max_dmg();
+    void given_a_mainhand_dagger_with_100_min_max_dmg();
     void given_a_mainhand_weapon_with_3_speed();
     void given_a_mainhand_weapon_with_2_speed();
     void given_a_twohand_weapon_with_100_min_max_dmg();
@@ -65,6 +66,26 @@ public:
     void given_engine_priority_at(const double priority);
     void given_engine_priority_pushed_forward(const double priority);
     void given_event_is_ignored(QString event);
+    void given_1h_axe_equipped_in_mainhand(Character* pchar);
+    void given_1h_mace_equipped_in_mainhand(Character* pchar);
+    void given_1h_sword_equipped_in_mainhand(Character* pchar);
+    void given_fist_weapon_equipped_in_mainhand(Character* pchar);
+    void given_dagger_equipped_in_mainhand(Character* pchar);
+
+    void given_no_mainhand(Character* pchar);
+    void given_no_offhand(Character* pchar);
+
+    void given_1h_axe_equipped_in_offhand(Character* pchar);
+    void given_1h_mace_equipped_in_offhand(Character* pchar);
+    void given_1h_sword_equipped_in_offhand(Character* pchar);
+    void given_fist_weapon_equipped_in_offhand(Character* pchar);
+    void given_dagger_equipped_in_offhand(Character* pchar);
+
+    void given_2h_axe_equipped(Character* pchar);
+    void given_2h_mace_equipped(Character* pchar);
+    void given_2h_sword_equipped(Character* pchar);
+    void given_polearm_equipped(Character* pchar);
+    void given_staff_equipped(Character* pchar);
 
     void when_running_queued_events_until(const double priority);
 

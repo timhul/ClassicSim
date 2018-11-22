@@ -1,14 +1,12 @@
 #ifndef TESTTWOHANDEDWEAPONSPECIALIZATION_H
 #define TESTTWOHANDEDWEAPONSPECIALIZATION_H
 
-#include "TestWarriorUtils.h"
+#include "TestSpell.h"
 
-class EquipmentDb;
-class Race;
 class TwoHandedWeaponSpecialization;
 class Warrior;
 
-class TestTwoHandedWeaponSpecialization : public TestWarriorUtils {
+class TestTwoHandedWeaponSpecialization : public TestSpell {
 public:
     TestTwoHandedWeaponSpecialization(EquipmentDb* equipment_db);
 
@@ -21,10 +19,8 @@ public:
     void test_damage_added_per_rank();
 
 private:
-    EquipmentDb* equipment_db;
     Warrior* warrior;
     TwoHandedWeaponSpecialization* talent;
-    Race* race;
 
     void set_up();
     void tear_down();

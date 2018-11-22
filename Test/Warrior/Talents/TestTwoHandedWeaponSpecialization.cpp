@@ -8,7 +8,7 @@
 #include "Orc.h"
 
 TestTwoHandedWeaponSpecialization::TestTwoHandedWeaponSpecialization(EquipmentDb* equipment_db) :
-    equipment_db(equipment_db),
+    TestSpell(equipment_db, "Two-hand Specialization"),
     warrior(nullptr)
 {}
 
@@ -46,63 +46,63 @@ void TestTwoHandedWeaponSpecialization::test_basic_properties() {
 }
 
 void TestTwoHandedWeaponSpecialization::test_damage_modified_when_using_2handers() {
-    given_warrior_has_no_mainhand(warrior);
-    given_warrior_has_no_offhand(warrior);
+    given_no_mainhand(warrior);
+    given_no_offhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
     assert(talent->increment_rank());
 
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_2h_axe_equipped(warrior);
+    given_2h_axe_equipped(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.01) < 0.0001);
-    given_warrior_has_no_mainhand(warrior);
+    given_no_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_2h_sword_equipped(warrior);
+    given_2h_sword_equipped(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.01) < 0.0001);
-    given_warrior_has_no_mainhand(warrior);
+    given_no_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_2h_mace_equipped(warrior);
+    given_2h_mace_equipped(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.01) < 0.0001);
-    given_warrior_has_no_mainhand(warrior);
+    given_no_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_polearm_equipped(warrior);
+    given_polearm_equipped(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.01) < 0.0001);
-    given_warrior_has_no_mainhand(warrior);
+    given_no_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_staff_equipped(warrior);
+    given_staff_equipped(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.01) < 0.0001);
-    given_warrior_has_no_mainhand(warrior);
+    given_no_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 }
 
 void TestTwoHandedWeaponSpecialization::test_damage_not_modified_when_not_using_2handers() {
     assert(talent->increment_rank());
-    given_warrior_has_2h_axe_equipped(warrior);
+    given_2h_axe_equipped(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.01) < 0.0001);
 
-    given_warrior_has_1h_axe_equipped_in_mainhand(warrior);
+    given_1h_axe_equipped_in_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_1h_mace_equipped_in_mainhand(warrior);
+    given_1h_mace_equipped_in_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_1h_sword_equipped_in_mainhand(warrior);
+    given_1h_sword_equipped_in_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_dagger_equipped_in_mainhand(warrior);
+    given_dagger_equipped_in_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
-    given_warrior_has_fist_weapon_equipped_in_mainhand(warrior);
+    given_fist_weapon_equipped_in_mainhand(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 }
 
 void TestTwoHandedWeaponSpecialization::test_damage_added_per_rank() {
-    given_warrior_has_2h_axe_equipped(warrior);
+    given_2h_axe_equipped(warrior);
     assert(delta(warrior->get_stats()->get_total_phys_dmg_mod(), 1.0) < 0.0001);
 
     assert(talent->increment_rank());

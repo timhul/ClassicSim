@@ -204,7 +204,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Procs/SwordSpecialization.cpp \
     Test/Warrior/Procs/TestSwordSpecialization.cpp \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp \
-    Test/Warrior/TestWarriorUtils.cpp \
     Character/Class/Warrior/Spells/MortalStrike.cpp \
     Test/Warrior/Spells/TestMortalStrike.cpp \
     Character/Class/Warrior/Spells/Slam.cpp \
@@ -463,7 +462,6 @@ HEADERS += \
     Character/Class/Warrior/Procs/SwordSpecialization.h \
     Test/Warrior/Procs/TestSwordSpecialization.h \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.h \
-    Test/Warrior/TestWarriorUtils.h \
     Test/TestUtils.h \
     Character/Class/Warrior/Spells/MortalStrike.h \
     Test/Warrior/Spells/TestMortalStrike.h \

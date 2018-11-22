@@ -2,11 +2,10 @@
 #define TESTSWORDSPECIALIZATION_H
 
 #include "TestProcWarrior.h"
-#include "TestWarriorUtils.h"
 
 class SwordSpecialization;
 
-class TestSwordSpecialization: public TestProcWarrior, public TestWarriorUtils {
+class TestSwordSpecialization: public TestProcWarrior {
 public:
     TestSwordSpecialization(EquipmentDb *equipment_db);
 
