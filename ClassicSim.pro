@@ -268,7 +268,10 @@ SOURCES += main.cpp \
     Test/Rogue/TestSpellRogue.cpp \
     Test/Rogue/Spells/TestBackstab.cpp \
     Character/Class/Rogue/Spells/Eviscerate.cpp \
-    Test/Rogue/Spells/TestEviscerate.cpp
+    Test/Rogue/Spells/TestEviscerate.cpp \
+    Character/Class/Rogue/Spells/SliceAndDice.cpp \
+    Character/Class/Rogue/Buffs/SliceAndDiceBuff.cpp \
+    Test/Rogue/Spells/TestSliceAndDice.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -538,7 +541,10 @@ HEADERS += \
     Test/Rogue/TestSpellRogue.h \
     Test/Rogue/Spells/TestBackstab.h \
     Character/Class/Rogue/Spells/Eviscerate.h \
-    Test/Rogue/Spells/TestEviscerate.h
+    Test/Rogue/Spells/TestEviscerate.h \
+    Character/Class/Rogue/Spells/SliceAndDice.h \
+    Character/Class/Rogue/Buffs/SliceAndDiceBuff.h \
+    Test/Rogue/Spells/TestSliceAndDice.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -558,6 +564,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Warrior/TalentTrees/Arms \
     $$PWD/Character/Class/Priest \
     $$PWD/Character/Class/Rogue \
+    $$PWD/Character/Class/Rogue/Buffs \
     $$PWD/Character/Class/Rogue/Spells \
     $$PWD/Character/Class/Rogue/TalentTrees \
     $$PWD/Character/Class/Mage \

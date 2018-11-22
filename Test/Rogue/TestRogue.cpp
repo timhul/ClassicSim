@@ -2,6 +2,7 @@
 #include "TestRogue.h"
 #include "TestEnergy.h"
 #include "TestEviscerate.h"
+#include "TestSliceAndDice.h"
 
 #include "Rogue.h"
 #include "Orc.h"
@@ -19,6 +20,7 @@ void TestRogue::test_all() {
     TestEnergy(equipment_db).test_all();
     TestBackstab(equipment_db).test_all();
     TestEviscerate(equipment_db).test_all();
+    TestSliceAndDice(equipment_db).test_all();
 }
 
 void TestRogue::test_basic_properties() {
