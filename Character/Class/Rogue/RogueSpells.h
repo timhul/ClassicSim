@@ -4,6 +4,7 @@
 #include "Spells.h"
 
 class Backstab;
+class Eviscerate;
 class OffhandAttack;
 class Rogue;
 
@@ -13,10 +14,12 @@ public:
     virtual ~RogueSpells() override;
 
     Backstab* get_backstab() const;
+    Eviscerate* get_eviscerate() const;
 
 private:
     Rogue* rogue;
     Backstab* backstab;
+    Eviscerate* eviscerate;
 };
 
 #endif // ROGUESPELLS_H

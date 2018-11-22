@@ -266,7 +266,9 @@ SOURCES += main.cpp \
     Test/Rogue/TestRogue.cpp \
     Test/Rogue/TestEnergy.cpp \
     Test/Rogue/TestSpellRogue.cpp \
-    Test/Rogue/Spells/TestBackstab.cpp
+    Test/Rogue/Spells/TestBackstab.cpp \
+    Character/Class/Rogue/Spells/Eviscerate.cpp \
+    Test/Rogue/Spells/TestEviscerate.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -534,7 +536,9 @@ HEADERS += \
     Test/Rogue/TestRogue.h \
     Test/Rogue/TestEnergy.h \
     Test/Rogue/TestSpellRogue.h \
-    Test/Rogue/Spells/TestBackstab.h
+    Test/Rogue/Spells/TestBackstab.h \
+    Character/Class/Rogue/Spells/Eviscerate.h \
+    Test/Rogue/Spells/TestEviscerate.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

@@ -20,6 +20,7 @@ public:
     void given_rogue_in_stealth();
     void given_rogue_not_in_stealth();
     void given_rogue_has_energy(const unsigned);
+    void given_rogue_has_combo_points(const unsigned);
 
     void then_rogue_has_energy(const unsigned) const;
     void then_rogue_has_combo_points(const unsigned) const;

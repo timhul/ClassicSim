@@ -1,3 +1,4 @@
+#include <cassert>
 
 #include "Random.h"
 
@@ -9,6 +10,12 @@ Random::Random(const unsigned min_range, const unsigned max_range):
 
 Random::~Random() {
     delete xoroshiro;
+}
+
+void Random::set_new_range(const unsigned min_range, const unsigned max_range) {
+    assert(min_range <= max_range);
+    this->min_range = min_range;
+    this->modulo = max_range - min_range;
 }
 
 void Random::set_gen_from_seed(const unsigned long long seed) {

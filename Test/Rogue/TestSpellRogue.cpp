@@ -68,6 +68,12 @@ void TestSpellRogue::given_rogue_has_energy(const unsigned energy) {
     then_rogue_has_energy(energy);
 }
 
+void TestSpellRogue::given_rogue_has_combo_points(const unsigned combo_points) {
+    rogue->spend_combo_points();
+    rogue->gain_combo_points(combo_points);
+    assert(rogue->get_combo_points() == combo_points);
+}
+
 void TestSpellRogue::then_rogue_has_energy(const unsigned energy) const {
     if (energy != rogue->get_resource_level(ResourceType::Energy))
         qDebug() << spell_under_test << "Expected" << energy << "energy but actually has" << rogue->get_resource_level(ResourceType::Energy);

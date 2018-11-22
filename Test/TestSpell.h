@@ -89,6 +89,7 @@ public:
     void when_running_queued_events_until(const double priority);
 
     void then_damage_dealt_is(const int damage);
+    void then_damage_dealt_is_in_range(const int min, const int max);
     void then_next_event_is(const QString &name);
     void then_next_event_is(const QString &name, const QString &priority, bool act_event = false);
 

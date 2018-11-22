@@ -696,6 +696,16 @@ void TestSpell::then_damage_dealt_is(const int damage) {
     assert(pchar->get_statistics()->get_total_damage_dealt() == damage);
 }
 
+void TestSpell::then_damage_dealt_is_in_range(const int min, const int max) {
+    assert(min < max);
+    const int damage_dealt = pchar->get_statistics()->get_total_damage_dealt();
+
+    if (damage_dealt < min || damage_dealt > max)
+        qDebug() << spell_under_test << "then_damage_dealt_is_in_range() assertion failed, expected range"
+                 << min << "-" << max << "but got" << damage_dealt;
+    assert(damage_dealt >= min && damage_dealt <= max);
+}
+
 void TestSpell::then_next_event_is(const QString &name) {
     Event* event = pchar->get_engine()->get_queue()->get_next();
     pchar->get_engine()->set_current_priority(event);
