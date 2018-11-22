@@ -17,6 +17,9 @@ class Race;
 class Character;
 class SimSettings;
 
+static const bool ACT_EVENT = true;
+static const bool DO_NOT_ACT_EVENT = false;
+
 class TestSpell : public TestUtils {
 public:
     TestSpell(EquipmentDb *equipment_db, QString spell_under_test);
