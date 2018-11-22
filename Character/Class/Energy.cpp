@@ -10,8 +10,8 @@ Energy::Energy(Character* pchar) :
     pchar(pchar),
     energy_per_tick(20)
 {
-    this->current = 0;
     this->max = 100;
+    this->current = max;
     this->energy_tick = new EnergyTick(pchar, this);
 }
 
@@ -36,7 +36,6 @@ void Energy::tick_energy() {
         return;
 
     gain_resource(energy_per_tick);
-    pchar->add_player_reaction_event();
 
     add_next_tick();
 }

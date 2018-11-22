@@ -88,6 +88,14 @@ unsigned Rogue::get_resource_level(const ResourceType) const {
     return this->energy->current;
 }
 
+void Rogue::gain_energy(const unsigned energy) {
+    this->energy->gain_resource(energy);
+}
+
+void Rogue::lose_energy(const unsigned energy) {
+    this->energy->lose_resource(energy);
+}
+
 void Rogue::spend_combo_points() {
     combo_points = 0;
 }

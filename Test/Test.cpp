@@ -45,6 +45,7 @@
 #include <QDebug>
 
 #include "TestWarrior.h"
+#include "TestRogue.h"
 #include "TestCharacterStats.h"
 #include "TestFelstrikerProc.h"
 
@@ -88,7 +89,10 @@ void Test::test_all() {
     TestFelstrikerProc(equipment_db).test_all();
 
     qDebug() << "test_warrior";
-    test_warrior();
+    TestWarrior().test_all();
+
+    qDebug() << "test_rogue";
+    TestRogue().test_all();
 }
 
 void Test::test_queue() {
@@ -414,8 +418,4 @@ void Test::test_character_creation() {
     delete paladin;
 
     delete race;
-}
-
-void Test::test_warrior() {
-    TestWarrior().test_all();
 }

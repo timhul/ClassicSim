@@ -262,7 +262,9 @@ SOURCES += main.cpp \
     Character/Class/Rage.cpp \
     Character/Class/Energy.cpp \
     Character/Class/Mana.cpp \
-    Character/Class/General/Spells/ManaTick.cpp
+    Character/Class/General/Spells/ManaTick.cpp \
+    Test/Rogue/TestRogue.cpp \
+    Test/Rogue/TestEnergy.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -526,7 +528,9 @@ HEADERS += \
     Character/Class/Rage.h \
     Character/Energy.h \
     Character/Class/Mana.h \
-    Character/Class/General/Spells/ManaTick.h
+    Character/Class/General/Spells/ManaTick.h \
+    Test/Rogue/TestRogue.h \
+    Test/Rogue/TestEnergy.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -570,6 +574,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Warrior/Buffs \
     $$PWD/Test/Warrior/Procs \
     $$PWD/Test/Warrior/Talents \
+    $$PWD/Test/Rogue \
     $$PWD/Character/Class/General \
     $$PWD/Character/Class/General/Enchants \
     $$PWD/Character/Class/General/Buffs \

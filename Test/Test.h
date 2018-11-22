@@ -30,7 +30,6 @@ private:
     void test_combat_roll_creation();
     void test_combat_roll_melee_hit_result();
     void test_random();
-    void test_warrior();
 };
 
 
