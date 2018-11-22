@@ -1,11 +1,11 @@
-
-#include "ConditionVariableBuiltin.h"
 #include "Character.h"
 #include "CharacterStats.h"
-#include "Spells.h"
+#include "ConditionVariableBuiltin.h"
 #include "Engine.h"
 #include "MainhandAttack.h"
+#include "Rogue.h"
 #include "SimSettings.h"
+#include "Spells.h"
 
 ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const int builtin,
@@ -42,6 +42,8 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
     }
     case BuiltinVariables::MeleeAP:
         return cmp_values(pchar->get_stats()->get_melee_ap());
+    case BuiltinVariables::ComboPoints:
+        return cmp_values(dynamic_cast<Rogue*>(pchar)->get_combo_points());
     default:
         assert(false);
         return false;

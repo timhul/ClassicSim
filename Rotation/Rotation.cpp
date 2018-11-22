@@ -149,6 +149,8 @@ int Rotation::get_builtin_variable(const QString& var_name) const {
         return BuiltinVariables::SwingTimer;
     if (var_name == "melee_ap")
         return BuiltinVariables::MeleeAP;
+    if (var_name == "combo_points")
+        return BuiltinVariables::ComboPoints;
 
     return BuiltinVariables::Undefined;
 }
