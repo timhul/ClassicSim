@@ -2,6 +2,7 @@
 #include "Eviscerate.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
+#include "OffhandMeleeHit.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SliceAndDice.h"
@@ -24,6 +25,27 @@ RogueSpells::RogueSpells(Rogue* rogue) :
 }
 
 RogueSpells::~RogueSpells() = default;
+
+void RogueSpells::oh_auto_attack(const int iteration) {
+    if (!oh_attack->attack_is_valid(iteration))
+        return;
+
+    if (!pchar->is_melee_attacking())
+        return;
+
+    oh_attack->perform();
+
+    add_next_oh_attack();
+}
+
+void RogueSpells::add_next_oh_attack() {
+    auto* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
+    rogue->get_engine()->add_event(new_event);
+}
+
+OffhandAttack* RogueSpells::get_oh_attack() const {
+    return oh_attack;
+}
 
 Backstab* RogueSpells::get_backstab() const {
     return this->backstab;

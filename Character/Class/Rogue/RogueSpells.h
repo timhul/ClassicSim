@@ -14,6 +14,10 @@ public:
     RogueSpells(Rogue *rogue);
     virtual ~RogueSpells() override;
 
+    void oh_auto_attack(const int) override;
+    void add_next_oh_attack(void) override;
+    OffhandAttack* get_oh_attack() const override;
+
     Backstab* get_backstab() const;
     Eviscerate* get_eviscerate() const;
     SliceAndDice* get_slice_and_dice() const;
