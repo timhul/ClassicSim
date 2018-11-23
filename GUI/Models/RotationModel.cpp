@@ -29,6 +29,7 @@ void RotationModel::set_character(Character* pchar) {
     this->pchar = pchar;
     information_index = -1;
     addRotations();
+    select_rotation();
 }
 
 void RotationModel::addRotations() {

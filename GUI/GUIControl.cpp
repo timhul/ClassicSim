@@ -54,6 +54,8 @@
 GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
     equipment_db(new EquipmentDb()),
+    character_encoder(new CharacterEncoder()),
+    character_decoder(new CharacterDecoder()),
     sim_settings(new SimSettings()),
     number_cruncher(new NumberCruncher()),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
@@ -96,9 +98,6 @@ GUIControl::GUIControl(QObject* parent) :
     set_character(chars["Warrior"]);
 
     // TODO: Handle switching pchar
-    character_encoder = new CharacterEncoder(current_char);
-    character_decoder = new CharacterDecoder();
-    // TODO: Handle switching pchar
     buff_model = new BuffModel(current_char->get_enabled_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_enabled_buffs()->get_general_buffs());
 
@@ -121,8 +120,6 @@ GUIControl::GUIControl(QObject* parent) :
     setSlot("TRINKET1", "Blackhand's Breadth");
     setSlot("TRINKET2", "Hand of Justice");
 
-    rotation_model->set_information_index(0);
-    rotation_model->select_rotation();
     buff_breakdown_model = new BuffBreakdownModel(number_cruncher);
     debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
     damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
@@ -181,6 +178,9 @@ void GUIControl::set_character(Character* pchar) {
     current_char = pchar;
     item_type_filter_model->set_character(current_char);
     rotation_model->set_character(current_char);
+    selectInformationRotation(0);
+    rotation_model->select_rotation();
+    character_encoder->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -189,7 +189,8 @@ void GUIControl::selectClass(const QString& class_name) {
         return;
     }
 
-    if (class_name != "Warrior") {
+    QSet<QString> supported = {"Warrior", "Rogue"};
+    if (!supported.contains(class_name)) {
         qDebug() << QString("Class %1 not implemented").arg(class_name);
         return;
     }
