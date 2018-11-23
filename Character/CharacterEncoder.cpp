@@ -12,11 +12,17 @@
 #include "Target.h"
 #include <QDebug>
 
-CharacterEncoder::CharacterEncoder(Character* pchar):
+CharacterEncoder::CharacterEncoder(Character *pchar):
     pchar(pchar)
 {}
 
+void CharacterEncoder::set_character(Character* pchar) {
+    this->pchar = pchar;
+}
+
 QString CharacterEncoder::get_current_setup_string() {
+    assert(pchar != nullptr);
+
     this->pchar_str = "";
 
     key_val("RACE", pchar->get_race()->get_name());

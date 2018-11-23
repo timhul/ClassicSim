@@ -8,8 +8,9 @@ class Item;
 
 class CharacterEncoder {
 public:
-    CharacterEncoder(Character* pchar);
+    CharacterEncoder(Character* pchar = nullptr);
 
+    void set_character(Character* pchar);
     QString get_current_setup_string();
 
 protected:
