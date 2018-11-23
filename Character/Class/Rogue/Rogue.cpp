@@ -26,6 +26,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     this->resource = this->energy;
 
     spells->activate_racials();
+    set_clvl(60);
 
     initialize_talents();
 }
