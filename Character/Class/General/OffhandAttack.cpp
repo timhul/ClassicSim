@@ -22,12 +22,16 @@ OffhandAttack::OffhandAttack(Character* pchar) :
     iteration = 0;
 }
 
-void OffhandAttack::spell_effect() {
-    complete_swing();
-    calculate_damage();
+void OffhandAttack::extra_attack() {
+    calculate_damage(false);
 }
 
-void OffhandAttack::calculate_damage() {
+void OffhandAttack::spell_effect() {
+    complete_swing();
+    calculate_damage(true);
+}
+
+void OffhandAttack::calculate_damage(const bool run_procs) {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
     const int result = roll->get_melee_hit_result(oh_wpn_skill);
 
@@ -48,18 +52,20 @@ void OffhandAttack::calculate_damage() {
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;
-        pchar->melee_oh_white_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+
+        pchar->melee_oh_white_critical_effect(run_procs);
         return;
     }
+
+    pchar->melee_oh_white_hit_effect(run_procs);
+
     if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(oh_wpn_skill);
-        pchar->melee_oh_white_hit_effect();
         add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         return;
     }
 
-    pchar->melee_oh_white_hit_effect();
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 
@@ -105,6 +111,3 @@ void OffhandAttack::reset_effect() {
     next_expected_use = 0;
 }
 
-void OffhandAttack::extra_attack() {
-    calculate_damage();
-}

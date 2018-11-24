@@ -21,7 +21,7 @@ private:
     QVector<double> talent_ranks;
 
     void spell_effect() override;
-    void calculate_damage() override;
+    void calculate_damage(const bool) override;
 
     void increase_talent_rank_effect(const QString& talent_name) override;
     void decrease_talent_rank_effect(const QString& talent_name) override;

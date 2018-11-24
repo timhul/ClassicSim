@@ -73,14 +73,14 @@ public:
     OverpowerBuff* get_overpower_buff() const;
     RecklessnessBuff* get_recklessness_buff() const;
 
-    void melee_mh_white_hit_effect() override;
-    void melee_mh_yellow_hit_effect() override;
-    void melee_mh_white_critical_effect() override;
-    void melee_mh_yellow_critical_effect() override;
-    void melee_oh_white_hit_effect() override;
-    void melee_oh_yellow_hit_effect() override;
-    void melee_oh_white_critical_effect() override;
-    void melee_oh_yellow_critical_effect() override;
+    void melee_mh_white_hit_effect(const bool = true) override;
+    void melee_mh_yellow_hit_effect(const bool = true) override;
+    void melee_mh_white_critical_effect(const bool = true) override;
+    void melee_mh_yellow_critical_effect(const bool = true) override;
+    void melee_oh_white_hit_effect(const bool = true) override;
+    void melee_oh_yellow_hit_effect(const bool = true) override;
+    void melee_oh_white_critical_effect(const bool = true) override;
+    void melee_oh_yellow_critical_effect(const bool = true) override;
 
 private:
     int stance;

@@ -24,15 +24,15 @@ void OffhandAttackWarrior::decrease_talent_rank_effect(const QString&) {
 }
 
 void OffhandAttackWarrior::extra_attack() {
-    calculate_damage();
+    calculate_damage(false);
 }
 
 void OffhandAttackWarrior::spell_effect() {
     complete_swing();
-    calculate_damage();
+    calculate_damage(true);
 }
 
-void OffhandAttackWarrior::calculate_damage() {
+void OffhandAttackWarrior::calculate_damage(const bool run_procs) {
     const int oh_wpn_skill = warr->get_oh_wpn_skill();
     int result = roll->get_melee_hit_result(oh_wpn_skill, pchar->get_stats()->get_oh_crit_chance());
 
@@ -67,27 +67,29 @@ void OffhandAttackWarrior::calculate_damage() {
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * 2);
-        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(round(damage_dealt)));
-        warr->melee_oh_white_critical_effect();
-        // TODO: Save statistics for resource gains
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(round(damage_dealt)));
+        // TODO: Save statistics for resource gains
         warr->gain_rage(rage_gained);
+
+        warr->melee_oh_white_critical_effect(run_procs);
         return;
     }
+
+    warr->melee_oh_white_hit_effect(run_procs);
+
     if (result == AttackResult::GLANCING) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(oh_wpn_skill));
-        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
-        warr->melee_oh_white_hit_effect();
-        // TODO: Save statistics for resource gains
         add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
+        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
+        // TODO: Save statistics for resource gains
         warr->gain_rage(rage_gained);
         return;
     }
 
-    warr->melee_oh_white_hit_effect();
     damage_dealt = round(damage_dealt);
+    add_hit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
     const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
     // TODO: Save statistics for resource gains
-    add_hit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
     warr->gain_rage(rage_gained);
 }

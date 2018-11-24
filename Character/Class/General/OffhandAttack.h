@@ -26,7 +26,7 @@ protected:
     virtual void spell_effect() override;
     void reset_effect() override;
 
-    virtual void calculate_damage();
+    virtual void calculate_damage(const bool);
 
 private:
 };

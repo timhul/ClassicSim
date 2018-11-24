@@ -227,36 +227,44 @@ bool Character::action_ready() const {
     return delta < 0.0001;
 }
 
-void Character::melee_mh_white_hit_effect() {
-    run_mh_white_specific_proc_effects();
+void Character::melee_mh_white_hit_effect(const bool run_procs) {
+    if (run_procs)
+        run_mh_white_specific_proc_effects();
 }
 
-void Character::melee_mh_yellow_hit_effect() {
-    run_mh_yellow_specific_proc_effects();
+void Character::melee_mh_yellow_hit_effect(const bool run_procs) {
+    if (run_procs)
+        run_mh_yellow_specific_proc_effects();
 }
 
-void Character::melee_mh_white_critical_effect() {
-    run_mh_white_specific_proc_effects();
+void Character::melee_mh_white_critical_effect(const bool run_procs) {
+    if (run_procs)
+        run_mh_white_specific_proc_effects();
 }
 
-void Character::melee_mh_yellow_critical_effect() {
-    run_mh_yellow_specific_proc_effects();
+void Character::melee_mh_yellow_critical_effect(const bool run_procs) {
+    if (run_procs)
+        run_mh_yellow_specific_proc_effects();
 }
 
-void Character::melee_oh_white_hit_effect() {
-    run_oh_white_specific_proc_effects();
+void Character::melee_oh_white_hit_effect(const bool run_procs) {
+    if (run_procs)
+        run_oh_white_specific_proc_effects();
 }
 
-void Character::melee_oh_yellow_hit_effect() {
-    run_oh_yellow_specific_proc_effects();
+void Character::melee_oh_yellow_hit_effect(const bool run_procs) {
+    if (run_procs)
+        run_oh_yellow_specific_proc_effects();
 }
 
-void Character::melee_oh_white_critical_effect() {
-    run_oh_white_specific_proc_effects();
+void Character::melee_oh_white_critical_effect(const bool run_procs) {
+    if (run_procs)
+        run_oh_white_specific_proc_effects();
 }
 
-void Character::melee_oh_yellow_critical_effect() {
-    run_oh_yellow_specific_proc_effects();
+void Character::melee_oh_yellow_critical_effect(const bool run_procs) {
+    if (run_procs)
+        run_oh_yellow_specific_proc_effects();
 }
 
 

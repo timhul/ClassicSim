@@ -91,24 +91,17 @@ public:
     void start_trinket_cooldown(const double);
     bool on_trinket_cooldown() const;
 
-    virtual void melee_mh_white_hit_effect();
-    virtual void melee_mh_yellow_hit_effect();
-    virtual void melee_mh_white_critical_effect();
-    virtual void melee_mh_yellow_critical_effect();
-    virtual void melee_oh_white_hit_effect();
-    virtual void melee_oh_yellow_hit_effect();
-    virtual void melee_oh_white_critical_effect();
-    virtual void melee_oh_yellow_critical_effect();
+    virtual void melee_mh_white_hit_effect(const bool = true);
+    virtual void melee_mh_yellow_hit_effect(const bool = true);
+    virtual void melee_mh_white_critical_effect(const bool = true);
+    virtual void melee_mh_yellow_critical_effect(const bool = true);
+    virtual void melee_oh_white_hit_effect(const bool = true);
+    virtual void melee_oh_yellow_hit_effect(const bool = true);
+    virtual void melee_oh_white_critical_effect(const bool = true);
+    virtual void melee_oh_yellow_critical_effect(const bool = true);
 
     virtual void spell_hit_effect();
     virtual void spell_critical_effect();
-
-    void run_mh_white_specific_proc_effects();
-    void run_mh_yellow_specific_proc_effects();
-    void run_oh_white_specific_proc_effects();
-    void run_oh_yellow_specific_proc_effects();
-    void run_ranged_white_specific_proc_effects();
-    void run_ranged_yellow_specific_proc_effects();
 
     void run_extra_mh_attack();
     void run_extra_oh_attack();
@@ -197,10 +190,15 @@ protected:
     double get_normalized_dmg(const unsigned, const Weapon*);
     double get_non_normalized_dmg(const unsigned, const double);
 
+    void run_mh_white_specific_proc_effects();
+    void run_mh_yellow_specific_proc_effects();
+    void run_oh_white_specific_proc_effects();
+    void run_oh_yellow_specific_proc_effects();
+    void run_ranged_white_specific_proc_effects();
+    void run_ranged_yellow_specific_proc_effects();
+
     virtual void reset_resource();
     virtual void reset_class_specific() = 0;
-
-private:
 };
 
 #endif // CHARACTER_H

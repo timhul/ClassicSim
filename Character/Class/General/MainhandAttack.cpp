@@ -21,12 +21,16 @@ MainhandAttack::MainhandAttack(Character* pchar) :
     iteration = 0;
 }
 
-void MainhandAttack::spell_effect() {
-    complete_swing();
-    calculate_damage();
+void MainhandAttack::extra_attack() {
+    calculate_damage(false);
 }
 
-void MainhandAttack::calculate_damage() {
+void MainhandAttack::spell_effect() {
+    complete_swing();
+    calculate_damage(true);
+}
+
+void MainhandAttack::calculate_damage(const bool run_procs) {
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     const int result = roll->get_melee_hit_result(mh_wpn_skill);
 
@@ -47,18 +51,19 @@ void MainhandAttack::calculate_damage() {
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;
-        pchar->melee_mh_white_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+        pchar->melee_mh_white_critical_effect(run_procs);
         return;
     }
+
+    pchar->melee_mh_white_hit_effect(run_procs);
+
     if (result == AttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
-        pchar->melee_mh_white_hit_effect();
         add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         return;
     }
 
-    pchar->melee_mh_white_hit_effect();
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 
@@ -91,9 +96,6 @@ void MainhandAttack::reset_swingtimer() {
     next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_mh_wpn_speed();
 }
 
-void MainhandAttack::extra_attack() {
-    calculate_damage();
-}
 
 bool MainhandAttack::attack_is_valid(const int iteration) const {
     return this->iteration == iteration;

@@ -17,7 +17,7 @@ private:
     Warrior* warr;
 
     void spell_effect() override;
-    void calculate_damage() override;
+    void calculate_damage(const bool) override;
 };
 
 #endif // MAINHANDATTACKWARRIOR_H
