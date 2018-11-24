@@ -50,7 +50,11 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * More enchants (all superior versions for physical DPS now available)
+* Fix melee AP double dip from STR/AGI gained via buffs / base stats (i.e. not including equipment)
 * Felstriker buff duration fixed (duration was missing due to including old .xml-file).
+* Extra attacks no longer trigger new proc checks.
+* Extra attacks no longer consume Flurry charges.
+* Using an Alliance race with Blessings enabled is once again possible to simulate.
 * For contributors: the .pro file now has relative INCLUDEPATHs; project directory structure no longer forced.
 * For contributors: it is now possible to build on Linux (Ubuntu 18.04) using the directions in the Wiki.
 
