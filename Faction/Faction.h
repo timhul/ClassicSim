@@ -6,9 +6,12 @@
 
 #include "AvailableFactions.h"
 
+class Race;
+
+
 class Faction {
 public:
-    Faction();
+    Faction(Race*);
 
     int get_faction() const;
     AvailableFactions::Name get_faction_as_enum() const;

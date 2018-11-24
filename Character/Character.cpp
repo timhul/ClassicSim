@@ -27,7 +27,7 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
     race(race),
     engine(new Engine()),
     target(new Target(63)),
-    faction(new Faction()),
+    faction(new Faction(race)),
     talents(new Talents()),
     statistics(new ClassStatistics(sim_settings)),
     current_rotation(nullptr),
