@@ -351,10 +351,10 @@ bool Warrior::in_defensive_stance() const {
 }
 
 void Warrior::melee_mh_white_hit_effect(const bool run_procs) {
-    flurry->use_charge();
-
-    if (run_procs)
+    if (run_procs) {
+        flurry->use_charge();
         run_mh_white_specific_proc_effects();
+    }
 }
 
 void Warrior::melee_mh_yellow_hit_effect(const bool run_procs) {
@@ -379,10 +379,10 @@ void Warrior::melee_mh_yellow_critical_effect(const bool run_procs) {
 }
 
 void Warrior::melee_oh_white_hit_effect(const bool run_procs) {
-    flurry->use_charge();
-
-    if (run_procs)
+    if (run_procs) {
+        flurry->use_charge();
         run_oh_white_specific_proc_effects();
+    }
 }
 
 void Warrior::melee_oh_yellow_hit_effect(const bool run_procs) {
