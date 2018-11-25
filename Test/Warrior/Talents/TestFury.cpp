@@ -120,7 +120,31 @@ void TestFury::test_clearing_tree_after_filling() {
 }
 
 void TestFury::test_refilling_tree_after_switching_talent_setup() {
+    assert(tree_has_points(0));
+    spec_dw_fury();
+    assert(tree_has_points(34));
 
+    switch_to_setup(1);
+    assert(tree_has_points(0));
+    spec_dw_fury();
+    assert(tree_has_points(34));
+
+    switch_to_setup(2);
+    assert(tree_has_points(0));
+    spec_dw_fury();
+    assert(tree_has_points(34));
+}
+
+void TestFury::spec_dw_fury() {
+    assert(increment_talent_num_times("Cruelty", 5));
+    assert(increment_talent_num_times("UW", 5));
+    assert(increment_talent_num_times("Imp BS", 5));
+    assert(increment_talent_num_times("DW Spec", 5));
+    assert(increment_talent_num_times("Enrage", 5));
+    assert(increment_talent_num_times("Flurry", 5));
+    assert(increment_talent_num_times("Imp Execute", 2));
+    assert(increment("Death Wish"));
+    assert(increment("BT"));
 }
 
 QString TestFury::get_position(const QString& name) const {

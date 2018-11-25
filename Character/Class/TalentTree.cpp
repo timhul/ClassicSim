@@ -307,12 +307,12 @@ void TalentTree::clear_tree() {
 void TalentTree::remove_rank_effects() {
     QMap<QString, TalentStorage*>::const_iterator it = talents.constBegin();
     auto end = talents.constEnd();
-    while(it != end) {
+    while (it != end) {
         int curr_points_in_talent = it.value()->talent->get_current_rank();
         talents[it.key()]->points_for_setup = curr_points_in_talent;
-        for (int i = 0; i < curr_points_in_talent; ++i) {
-            it.value()->talent->decrement_rank();
-        }
+        for (int i = 0; i < curr_points_in_talent; ++i)
+            it.value()->talent->force_clear_rank();
+
         ++it;
     }
 }

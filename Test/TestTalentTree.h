@@ -38,6 +38,7 @@ protected:
     bool decrement(const QString& name);
     void clear_tree();
     bool tree_has_points(const int points);
+    void switch_to_setup(const int index);
 };
 
 #endif // TESTTALENTTREE_H

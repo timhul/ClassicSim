@@ -49,6 +49,10 @@ bool TestTalentTree::tree_has_points(const int points) {
     return points == pchar->get_talents()->get_tree_points(tree_pos);
 }
 
+void TestTalentTree::switch_to_setup(const int index) {
+    pchar->get_talents()->set_current_index(index);
+}
+
 bool TestTalentTree::increment_talent_num_times(const QString& name, int num_times) {
     QString spell = get_position(name);
     bool success = true;
