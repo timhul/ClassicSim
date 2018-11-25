@@ -32,8 +32,9 @@ public:
 
     ItemTypeFilterModel(QObject *parent = nullptr);
 
-    bool get_filter_active(const int filter) const;
-    void toggle_single_filter(const int filter);
+    bool get_item_type_valid(const int item_type) const;
+    bool get_filter_active(const int item_type) const;
+    void toggle_single_filter(const int item_type);
     void clear_filters_and_select_single_filter(const int);
     void set_item_slot(const int equipment_slot);
     void select_range_of_filters(const int filter);

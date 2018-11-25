@@ -33,9 +33,21 @@ void ItemTypeFilterModel::set_character(Character *pchar) {
     set_item_slot(equipment_slot);
 }
 
-bool ItemTypeFilterModel::get_filter_active(const int filter) const {
+bool ItemTypeFilterModel::get_item_type_valid(const int item_type) const {
+    if (item_type_filters[equipment_slot].empty())
+        return true;
+
     for (const auto & i : item_type_filters[equipment_slot]) {
-        if (i.item_type == filter) {
+        if (i.item_type == item_type)
+            return true;
+    }
+
+    return false;
+}
+
+bool ItemTypeFilterModel::get_filter_active(const int item_type) const {
+    for (const auto & i : item_type_filters[equipment_slot]) {
+        if (i.item_type == item_type) {
             return i.active;
         }
     }
@@ -43,16 +55,16 @@ bool ItemTypeFilterModel::get_filter_active(const int filter) const {
     return false;
 }
 
-void ItemTypeFilterModel::toggle_single_filter(const int filter) {
+void ItemTypeFilterModel::toggle_single_filter(const int item_type) {
     for (int i = 0; i < item_type_filters[equipment_slot].size(); ++i) {
-        if (item_type_filters[equipment_slot][i].item_type == filter) {
+        if (item_type_filters[equipment_slot][i].item_type == item_type) {
             item_type_filters[equipment_slot][i].active = !item_type_filters[equipment_slot][i].active;
             last_toggled = i;
             return;
         }
     }
 
-    qDebug() << "ItemTypeFilterModel::toggle_single_filter: could not find filter" << filter;
+    qDebug() << "ItemTypeFilterModel::toggle_single_filter: could not find filter" << item_type;
 }
 
 void ItemTypeFilterModel::select_range_of_filters(const int filter) {

@@ -150,6 +150,9 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
     QVector<Item*> wpns = db->get_slot_items(slot);
 
     for (auto & wpn : wpns) {
+        if (!item_type_filter_model->get_item_type_valid(wpn->get_item_type()))
+            continue;
+
         if (item_type_filter_model->get_filter_active(wpn->get_item_type()))
             continue;
 

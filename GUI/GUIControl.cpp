@@ -177,6 +177,8 @@ void GUIControl::set_character(Character* pchar) {
     sim_settings->use_ruleset(Ruleset::Standard, current_char);
     current_char = pchar;
     item_type_filter_model->set_character(current_char);
+    item_model->update_items();
+    weapon_model->update_items();
     rotation_model->set_character(current_char);
     selectInformationRotation(0);
     rotation_model->select_rotation();

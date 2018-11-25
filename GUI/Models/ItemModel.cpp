@@ -118,6 +118,9 @@ void ItemModel::addItems(const EquipmentDb* db) {
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);
 
     for (auto & tmp_item : tmp_items) {
+        if (!item_type_filter_model->get_item_type_valid(tmp_item->get_item_type()))
+            continue;
+
         if (item_type_filter_model->get_filter_active(tmp_item->get_item_type()))
             continue;
 
