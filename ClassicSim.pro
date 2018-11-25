@@ -272,7 +272,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/Spells/SliceAndDice.cpp \
     Character/Class/Rogue/Buffs/SliceAndDiceBuff.cpp \
     Test/Rogue/Spells/TestSliceAndDice.cpp \
-    Test/AttackTables/TestAttackTables.cpp
+    Test/AttackTables/TestAttackTables.cpp \
+    Test/TestTalentTree.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -546,7 +547,8 @@ HEADERS += \
     Character/Class/Rogue/Spells/SliceAndDice.h \
     Character/Class/Rogue/Buffs/SliceAndDiceBuff.h \
     Test/Rogue/Spells/TestSliceAndDice.h \
-    Test/AttackTables/TestAttackTables.h
+    Test/AttackTables/TestAttackTables.h \
+    Test/TestTalentTree.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

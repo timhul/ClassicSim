@@ -1,36 +1,21 @@
 #ifndef TESTFURY_H
 #define TESTFURY_H
 
-#include <QString>
+#include "TestTalentTree.h"
 
-class EquipmentDb;
-class Fury;
-class Orc;
-class Warrior;
-
-class TestFury {
+class TestFury: public TestTalentTree {
 public:
     TestFury(EquipmentDb* equipment_db);
 
-    void test_all();
-
 private:
-    EquipmentDb* equipment_db;
-    Fury* fury;
-    Orc* race;
-    Warrior* warrior;
+    void set_up() override;
+    void tear_down() override;
 
-    void set_up();
-    void tear_down();
+    void test_spending_talent_points() override;
+    void test_clearing_tree_after_filling() override;
+    void test_refilling_tree_after_switching_talent_setup() override;
 
-    void test_fury_talents();
-    void test_clear_tree();
-
-    QString get_position(const QString& name);
-
-    bool increment_talent_num_times(const QString& name, int num_times);
-    bool increment(const QString& name);
-    bool decrement(const QString& name);
+    QString get_position(const QString& name) const override;
 };
 
 #endif // TESTFURY_H

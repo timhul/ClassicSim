@@ -1,35 +1,22 @@
-
-#include "TestFury.h"
-#include "Fury.h"
-#include "Warrior.h"
 #include "Orc.h"
+#include "TestFury.h"
+#include "Warrior.h"
 
 TestFury::TestFury(EquipmentDb* equipment_db):
-    equipment_db(equipment_db)
+    TestTalentTree(equipment_db, "MID")
 {}
 
 void TestFury::set_up() {
     race = new Orc();
-    warrior = new Warrior(race, equipment_db, nullptr);
-    fury = new Fury(warrior);
+    pchar = new Warrior(race, equipment_db, nullptr);
 }
 
 void TestFury::tear_down() {
-    delete warrior;
-    delete fury;
+    delete pchar;
+    delete race;
 }
 
-void TestFury::test_all() {
-    set_up();
-    test_fury_talents();
-    tear_down();
-
-    set_up();
-    test_clear_tree();
-    tear_down();
-}
-
-void TestFury::test_fury_talents() {
+void TestFury::test_spending_talent_points() {
     assert(!decrement("Cruelty"));
 
     assert(increment_talent_num_times("Cruelty", 5));
@@ -119,7 +106,7 @@ void TestFury::test_fury_talents() {
     assert(decrement("BT"));
 }
 
-void TestFury::test_clear_tree() {
+void TestFury::test_clearing_tree_after_filling() {
     assert(increment_talent_num_times("BV", 5));
     assert(increment_talent_num_times("Cruelty", 5));
     assert(increment_talent_num_times("UW", 5));
@@ -129,29 +116,14 @@ void TestFury::test_clear_tree() {
     assert(increment("Death Wish"));
     assert(increment("BT"));
 
-    fury->clear_tree();
+    clear_tree();
 }
 
-bool TestFury::increment(const QString& name) {
-    return fury->increment_rank(get_position(name));
+void TestFury::test_refilling_tree_after_switching_talent_setup() {
+
 }
 
-bool TestFury::decrement(const QString& name) {
-    return fury->decrement_rank(get_position(name));
-}
-
-bool TestFury::increment_talent_num_times(const QString& name, int num_times) {
-    QString spell = get_position(name);
-    bool success = true;
-    for (int i = 0; i < num_times; ++i) {
-        if (!fury->increment_rank(spell))
-            success = false;
-    }
-
-    return success;
-}
-
-QString TestFury::get_position(const QString& name) {
+QString TestFury::get_position(const QString& name) const {
     if (name == "BV")
         return "1ML";
     else if (name == "Cruelty")

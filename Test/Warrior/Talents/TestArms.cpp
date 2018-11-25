@@ -1,35 +1,23 @@
-
-#include "TestArms.h"
 #include "Arms.h"
-#include "Warrior.h"
 #include "Orc.h"
+#include "TestArms.h"
+#include "Warrior.h"
 
 TestArms::TestArms(EquipmentDb* equipment_db):
-    equipment_db(equipment_db)
+    TestTalentTree(equipment_db, "LEFT")
 {}
 
 void TestArms::set_up() {
     race = new Orc();
-    warrior = new Warrior(race, equipment_db, nullptr);
-    arms = new Arms(warrior);
+    pchar = new Warrior(race, equipment_db, nullptr);
 }
 
 void TestArms::tear_down() {
-    delete warrior;
-    delete arms;
+    delete pchar;
+    delete race;
 }
 
-void TestArms::test_all() {
-    set_up();
-    test_clear_tree();
-    tear_down();
-
-    set_up();
-    test_arms_talents();
-    tear_down();
-}
-
-void TestArms::test_arms_talents() {
+void TestArms::test_spending_talent_points() {
     assert(!decrement("Deflection"));
 
     assert(increment_talent_num_times("Deflection", 5));
@@ -125,7 +113,7 @@ void TestArms::test_arms_talents() {
     assert(increment("Two-Handed Weapon Specialization"));
     assert(!increment("Mortal Strike"));
     assert(increment("Two-Handed Weapon Specialization"));
-    assert(arms->get_total_points() == 30);
+    assert(tree_has_points(30));
     assert(increment("Mortal Strike"));
 
     // Assert cannot remove parent (Sweeping Strikes) when child (MS) is active although points allow
@@ -141,7 +129,7 @@ void TestArms::test_arms_talents() {
     assert(decrement("Mortal Strike"));
 }
 
-void TestArms::test_clear_tree() {
+void TestArms::test_clearing_tree_after_filling() {
     assert(increment_talent_num_times("Deflection", 5));
     assert(increment_talent_num_times("Improved Rend", 3));
     assert(increment_talent_num_times("Tactical Mastery", 5));
@@ -155,29 +143,14 @@ void TestArms::test_clear_tree() {
 
     assert(!decrement("Two-Handed Weapon Specialization"));
 
-    arms->clear_tree();
+    clear_tree();
 }
 
-bool TestArms::increment(const QString& name) {
-    return arms->increment_rank(get_position(name));
+void TestArms::test_refilling_tree_after_switching_talent_setup() {
+
 }
 
-bool TestArms::decrement(const QString& name) {
-    return arms->decrement_rank(get_position(name));
-}
-
-bool TestArms::increment_talent_num_times(const QString& name, int num_times) {
-    QString spell = get_position(name);
-    bool success = true;
-    for (int i = 0; i < num_times; ++i) {
-        if (!arms->increment_rank(spell))
-            success = false;
-    }
-
-    return success;
-}
-
-QString TestArms::get_position(const QString& name) {
+QString TestArms::get_position(const QString& name) const {
     if (name == "Improved Heroic Strike")
         return "1LL";
     else if (name == "Deflection")
