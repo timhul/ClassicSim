@@ -17,9 +17,6 @@ protected:
 private:
     EquipmentDb* equipment_db;
 
-    void test_special_hit_table();
-    void test_white_hit_table();
-    void test_white_hit_table_update();
     void test_character_creation();
     void test_equipment_creation();
     void test_queue();

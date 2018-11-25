@@ -1,5 +1,5 @@
-
-#include "Test.h"
+#include <cassert>
+#include <QDebug>
 
 #include "EncounterStart.h"
 #include "EncounterEnd.h"
@@ -41,13 +41,12 @@
 
 #include "WarriorSpells.h"
 
-#include <cassert>
-#include <QDebug>
-
-#include "TestWarrior.h"
-#include "TestRogue.h"
+#include "Test.h"
+#include "TestAttackTables.h"
 #include "TestCharacterStats.h"
 #include "TestFelstrikerProc.h"
+#include "TestRogue.h"
+#include "TestWarrior.h"
 
 Test::Test() :
     equipment_db(new EquipmentDb())
@@ -62,12 +61,6 @@ void Test::test_all() {
     test_character_creation();
     qDebug() << "test_equipment_creation";
     test_equipment_creation();
-    qDebug() << "test_white_hit_table";
-    test_white_hit_table();
-    qDebug() << "test_white_hit_table_update";
-    test_white_hit_table_update();
-    qDebug() << "test_special_hit_table";
-    test_special_hit_table();
     qDebug() << "test_mechanics_glancing_rate";
     test_mechanics_glancing_rate();
     qDebug() << "test_mechanics_glancing_dmg_penalty";
@@ -85,6 +78,7 @@ void Test::test_all() {
     qDebug() << "test_queue";
     test_queue();
 
+    TestAttackTables().test_all();
     TestCharacterStats().test_all();
     TestFelstrikerProc(equipment_db).test_all();
 
@@ -229,79 +223,6 @@ void Test::test_mechanics_dw_white_miss() {
 
     delete mechanics;
     delete target;
-}
-
-void Test::test_white_hit_table() {
-    auto* random = new Random(0, 9999);
-    auto* table = new WhiteHitTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
-    assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
-    assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
-    delete table;
-
-    table = new WhiteHitTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
-    assert(table->get_outcome(0, 0.0) == AttackResult::MISS);
-    assert(table->get_outcome(1, 0.0) == AttackResult::DODGE);
-    assert(table->get_outcome(2, 0.0) == AttackResult::PARRY);
-    assert(table->get_outcome(3, 0.0) == AttackResult::GLANCING);
-    assert(table->get_outcome(4, 0.0) == AttackResult::BLOCK);
-    assert(table->get_outcome(5, 0.0001) == AttackResult::CRITICAL);
-    assert(table->get_outcome(6, 0.0001) == AttackResult::HIT);
-    assert(table->get_outcome(9999, 0.0) == AttackResult::HIT);
-    assert(table->get_outcome(6, 1.0) == AttackResult::CRITICAL);
-    delete random;
-    delete table;
-}
-
-void Test::test_white_hit_table_update() {
-    Race* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* pchar = new Warrior(race, equipment_db, sim_settings);
-    pchar->get_equipment()->set_mainhand("Frostbite");
-    pchar->get_equipment()->set_offhand("Vis'kag the Bloodletter");
-
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(300);
-
-    table->dump_table();
-    assert(table->get_outcome(0, 0.0001) == AttackResult::MISS);
-    assert(table->get_outcome(2799, 0.0001) == AttackResult::MISS);
-    assert(table->get_outcome(2800, 0.0001) == AttackResult::DODGE);
-    assert(table->get_outcome(3299, 0.0001) == AttackResult::DODGE);
-    assert(table->get_outcome(3300, 0.0001) == AttackResult::GLANCING);
-    assert(table->get_outcome(7299, 0.0001) == AttackResult::GLANCING);
-    assert(table->get_outcome(7300, 0.0001) == AttackResult::CRITICAL);
-    // Note: This will fail when changing base agility or agi needed per crit.
-    assert(table->get_outcome(7984, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
-    assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
-
-    pchar->get_stats()->increase_crit(0.0001);
-    assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
-    assert(table->get_outcome(7986, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::HIT);
-
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_crit(0.9999);
-    assert(table->get_outcome(7986, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == AttackResult::CRITICAL);
-
-    delete sim_settings;
-    delete race;
-    delete pchar;
-}
-
-void Test::test_special_hit_table() {
-    auto* random = new Random(0, 9999);
-    auto* table = new MeleeSpecialTable(random, 300, 0.0, 0.0, 0.0, 0.0);
-    assert(table->get_outcome(0, 0.0) == AttackResult::HIT);
-    delete table;
-
-    table = new MeleeSpecialTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001);
-    assert(table->get_outcome(0, 1.0) == AttackResult::MISS);
-    assert(table->get_outcome(1, 1.0) == AttackResult::DODGE);
-    assert(table->get_outcome(2, 1.0) == AttackResult::PARRY);
-    assert(table->get_outcome(3, 1.0) == AttackResult::BLOCK_CRITICAL);
-    assert(table->get_outcome(4, 1.0) == AttackResult::CRITICAL);
-    assert(table->get_outcome(9999, 1.0) == AttackResult::CRITICAL);
-    delete table;
-    delete random;
 }
 
 void Test::test_equipment_creation() {
