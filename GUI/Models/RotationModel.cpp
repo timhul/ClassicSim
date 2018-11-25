@@ -50,21 +50,13 @@ void RotationModel::addRotations() {
     rotation_file_reader.add_rotations(new_rotations);
 
     for (auto & rotation : new_rotations) {
-        if (rotation == nullptr) {
-            delete rotation;
-            continue;
-        }
-
         if (!rotations.contains(rotation->get_class()))
             rotations.insert(rotation->get_class(), QVector<Rotation*>({}));
 
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         rotations[rotation->get_class()].append(rotation);
 
-        if (rotation->get_class() == pchar->get_name()) {
-            if (rotation->get_name() == pchar->get_current_rotation_name())
-                information_index = rotations[rotation->get_class()].size() - 1;
-        }
+        information_index = 0;
 
         endInsertRows();
     }
@@ -74,10 +66,7 @@ void RotationModel::select_rotation() {
     if (information_index < 0 || information_index >= rowCount())
         return;
 
-    if (rotations[pchar->get_name()][information_index]->get_name() == pchar->get_current_rotation_name())
-        return;
-
-    return pchar->set_rotation(rotations[pchar->get_name()][information_index]);
+    pchar->set_rotation(rotations[pchar->get_name()][information_index]);
 }
 
 bool RotationModel::set_information_index(const int index) {
