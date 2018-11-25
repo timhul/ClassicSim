@@ -17,7 +17,7 @@ public:
     int get_intellect() const;
     int get_spirit() const;
 
-    int get_melee_ap_str_excluded() const;
+    int get_melee_ap_attrs_excluded() const;
     int get_melee_ap_total() const;
 
     void increase_base_melee_ap(const int increase);

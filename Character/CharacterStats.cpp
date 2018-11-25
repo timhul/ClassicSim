@@ -343,10 +343,10 @@ void CharacterStats::decrease_spirit(const int decrease) {
 }
 
 int CharacterStats::get_melee_ap() const {
-    int eq_melee_ap = equipment->get_stats()->get_melee_ap_str_excluded();
+    int stat_melee_ap = equipment->get_stats()->get_melee_ap_attrs_excluded() + base_stats->get_melee_ap_attrs_excluded();
     int attributes_ap = get_strength() * pchar->get_ap_per_strength() + get_agility() * pchar->get_ap_per_agi();
     int target_ap = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    return base_stats->get_melee_ap_total() + eq_melee_ap + attributes_ap + target_ap;
+    return stat_melee_ap + attributes_ap + target_ap;
 }
 
 void CharacterStats::increase_melee_ap(const int increase) {

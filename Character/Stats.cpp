@@ -86,7 +86,7 @@ void Stats::add(const Stats* rhs) {
     increase_spell_hit(rhs->get_spell_hit_chance());
     increase_spell_crit(rhs->get_spell_crit_chance());
 
-    increase_base_melee_ap(rhs->get_melee_ap_str_excluded());
+    increase_base_melee_ap(rhs->get_melee_ap_attrs_excluded());
     increase_base_ranged_ap(rhs->get_ranged_ap_agi_excluded());
 
     increase_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
@@ -120,7 +120,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_spell_hit(rhs->get_spell_hit_chance());
     decrease_spell_crit(rhs->get_spell_crit_chance());
 
-    decrease_base_melee_ap(rhs->get_melee_ap_str_excluded());
+    decrease_base_melee_ap(rhs->get_melee_ap_attrs_excluded());
     decrease_base_ranged_ap(rhs->get_ranged_ap_agi_excluded());
 
     decrease_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
@@ -338,7 +338,7 @@ void Stats::decrease_sword_skill(const int decrease) {
     sword_skill -= decrease;
 }
 
-int Stats::get_melee_ap_str_excluded() const {
+int Stats::get_melee_ap_attrs_excluded() const {
     return melee_ap;
 }
 
