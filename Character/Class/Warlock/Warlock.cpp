@@ -1,14 +1,21 @@
-#include "Mana.h"
 #include "Warlock.h"
+
+#include "CharacterStats.h"
+#include "EnabledBuffs.h"
+#include "EnabledProcs.h"
+#include "Equipment.h"
+#include "Mana.h"
 #include "WarlockSpells.h"
 #include "Weapon.h"
 
 Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, equipment_db, sim_settings) {
+    Character(race, sim_settings) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Orc");
     available_races.append("Undead");
+
+    this->cstats = new CharacterStats(this, equipment_db);
 
     this->warlock_spells = new WarlockSpells(this);
     this->spells = dynamic_cast<Spells*>(warlock_spells);
@@ -19,6 +26,11 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
 
 Warlock::~Warlock()
 {
+    cstats->get_equipment()->unequip_all();
+    enabled_buffs->clear_all();
+    enabled_procs->clear_all();
+
+    delete cstats;
     delete warlock_spells;
     delete mana;
 }

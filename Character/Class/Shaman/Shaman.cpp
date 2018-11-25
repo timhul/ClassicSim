@@ -1,13 +1,17 @@
-#include "Mana.h"
 #include "Shaman.h"
+
+#include "CharacterStats.h"
+#include "Mana.h"
 #include "ShamanSpells.h"
 #include "Weapon.h"
 
 Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings) :
-    Character(race, equipment_db, sim_settings) {
+    Character(race, sim_settings) {
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
+
+    this->cstats = new CharacterStats(this, equipment_db);
 
     this->shaman_spells = new ShamanSpells(this);
     this->spells = dynamic_cast<Spells*>(shaman_spells);

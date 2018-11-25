@@ -1,15 +1,20 @@
+#include "Rogue.h"
 
 #include "Assassination.h"
+#include "CharacterStats.h"
 #include "Combat.h"
+#include "EnabledBuffs.h"
+#include "EnabledProcs.h"
+#include "Equipment.h"
 #include "Energy.h"
-#include "Rogue.h"
 #include "RogueSpells.h"
+#include "Stats.h"
 #include "Subtlety.h"
 #include "Talents.h"
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, equipment_db, sim_settings),
+    Character(race, sim_settings),
     combo_points(0)
 {
     available_races.append("Dwarf");
@@ -20,19 +25,26 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     available_races.append("Troll");
     available_races.append("Undead");
 
+    set_clvl(60);
+    this->cstats = new CharacterStats(this, equipment_db);
+
     this->rogue_spells = new RogueSpells(this);
     this->spells = dynamic_cast<Spells*>(rogue_spells);
     this->energy = new class Energy(this);
     this->resource = this->energy;
 
     spells->activate_racials();
-    set_clvl(60);
 
     initialize_talents();
 }
 
 Rogue::~Rogue()
 {
+    cstats->get_equipment()->unequip_all();
+    enabled_buffs->clear_all();
+    enabled_procs->clear_all();
+
+    delete cstats;
     delete rogue_spells;
     delete energy;
 }

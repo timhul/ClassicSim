@@ -17,6 +17,15 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     sword_skill_bonus(0)
 {
     this->base_stats = new Stats();
+    base_stats->set_melee_ap_per_agi(pchar->get_ap_per_agi());
+    base_stats->set_melee_ap_per_str(pchar->get_ap_per_strength());
+
+    increase_strength(pchar->get_strength_modifier());
+    increase_agility(pchar->get_agility_modifier());
+    increase_stamina(pchar->get_stamina_modifier());
+    increase_intellect(pchar->get_intellect_modifier());
+    increase_spirit(pchar->get_spirit_modifier());
+
     this->total_phys_dmg_mod = 1.0;
     this->attack_speed_mod = 1.0;
     this->physical_damage_taken_mod = 1.0;

@@ -23,12 +23,13 @@
 #include "Target.h"
 #include "Weapon.h"
 
-Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
+Character::Character(Race* race, SimSettings *sim_settings) :
     race(race),
     engine(new Engine()),
     target(new Target(63)),
     faction(new Faction(race)),
     talents(new Talents()),
+    cstats(nullptr),
     statistics(new ClassStatistics(sim_settings)),
     current_rotation(nullptr),
     sim_settings(sim_settings),
@@ -44,7 +45,6 @@ Character::Character(Race* race, EquipmentDb* equipment_db, SimSettings *sim_set
     ranged_flat_dmg_bonus(0)
 {
     this->roll = new CombatRoll(this);
-    this->cstats = new CharacterStats(this, equipment_db);
     this->enabled_procs = new EnabledProcs(this, faction);
     this->enabled_buffs = new EnabledBuffs(this, faction);
     this->next_gcd = 0 - this->global_cooldown();

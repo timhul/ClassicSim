@@ -1,15 +1,22 @@
-#include "Mana.h"
 #include "Priest.h"
+
+#include "CharacterStats.h"
+#include "EnabledBuffs.h"
+#include "EnabledProcs.h"
+#include "Equipment.h"
+#include "Mana.h"
 #include "PriestSpells.h"
 #include "Weapon.h"
 
 Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
-    Character(race, equipment_db, sim_settings) {
+    Character(race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");
     available_races.append("Troll");
     available_races.append("Undead");
+
+    this->cstats = new CharacterStats(this, equipment_db);
 
     this->priest_spells = new PriestSpells(this);
     this->spells = dynamic_cast<Spells*>(priest_spells);
@@ -20,6 +27,11 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings)
 
 Priest::~Priest()
 {
+    cstats->get_equipment()->unequip_all();
+    enabled_buffs->clear_all();
+    enabled_procs->clear_all();
+
+    delete cstats;
     delete priest_spells;
     delete mana;
 }

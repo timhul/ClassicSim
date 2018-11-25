@@ -1,18 +1,25 @@
-
 #include "TestCharacterStats.h"
+
 #include "CharacterStats.h"
+#include "Orc.h"
+#include "Warrior.h"
 
 TestCharacterStats::TestCharacterStats() :
     TestCharacter(),
-    cstats(nullptr)
+    pchar(nullptr),
+    cstats(nullptr),
+    race(nullptr)
 {}
 
 void TestCharacterStats::set_up() {
-    cstats = new CharacterStats(nullptr, nullptr);
+    race = new Orc();
+    pchar = new Warrior(race, equipment_db, nullptr);
+    cstats = pchar->get_stats();
 }
 
 void TestCharacterStats::tear_down() {
-    delete cstats;
+    delete pchar;
+    delete race;
 }
 
 void TestCharacterStats::test_all() {

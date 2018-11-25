@@ -15,7 +15,9 @@ SliceAndDice::SliceAndDice(Character* pchar) :
 }
 
 SliceAndDice::~SliceAndDice() {
-    buff->disable_buff();
+    if (buff->is_enabled())
+        buff->disable_buff();
+
     delete buff;
 }
 

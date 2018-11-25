@@ -1,15 +1,22 @@
 #include "Hunter.h"
+
+#include "CharacterStats.h"
+#include "EnabledBuffs.h"
+#include "EnabledProcs.h"
+#include "Equipment.h"
 #include "HunterSpells.h"
 #include "Mana.h"
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, equipment_db, sim_settings) {
+    Character(race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
+
+    this->cstats = new CharacterStats(this, equipment_db);
 
     this->hunter_spells = new HunterSpells(this);
     this->spells = dynamic_cast<Spells*>(hunter_spells);
@@ -20,6 +27,11 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
 
 Hunter::~Hunter()
 {
+    cstats->get_equipment()->unequip_all();
+    enabled_buffs->clear_all();
+    enabled_procs->clear_all();
+
+    delete cstats;
     delete hunter_spells;
     delete mana;
 }

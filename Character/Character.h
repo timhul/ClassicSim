@@ -30,7 +30,7 @@ class Weapon;
 
 class Character {
 public:
-    Character(Race*, EquipmentDb *equipment_db, SimSettings* sim_settings);
+    Character(Race*, SimSettings* sim_settings);
     virtual ~Character();
 
     Race* get_race(void);

@@ -1,12 +1,19 @@
-#include "Mana.h"
 #include "Paladin.h"
+
+#include "CharacterStats.h"
+#include "EnabledBuffs.h"
+#include "EnabledProcs.h"
+#include "Equipment.h"
+#include "Mana.h"
 #include "PaladinSpells.h"
 #include "Weapon.h"
 
 Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, equipment_db, sim_settings) {
+    Character(race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Human");
+
+    this->cstats = new CharacterStats(this, equipment_db);
 
     this->paladin_spells = new PaladinSpells(this);
     this->spells = dynamic_cast<Spells*>(paladin_spells);
@@ -17,6 +24,11 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
 
 Paladin::~Paladin()
 {
+    cstats->get_equipment()->unequip_all();
+    enabled_buffs->clear_all();
+    enabled_procs->clear_all();
+
+    delete cstats;
     delete paladin_spells;
     delete mana;
 }

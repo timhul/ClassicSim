@@ -3,7 +3,10 @@
 
 #include "TestCharacter.h"
 
+class Character;
 class CharacterStats;
+class Race;
+
 
 class TestCharacterStats : TestCharacter {
 public:
@@ -14,7 +17,9 @@ public:
     void test_all() override;
 
 private:
+    Character* pchar;
     CharacterStats* cstats;
+    Race* race;
 
     void test_basic_properties() override;
 
