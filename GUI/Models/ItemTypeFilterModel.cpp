@@ -9,21 +9,27 @@ ItemTypeFilterModel::ItemTypeFilterModel(QObject *parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
       last_toggled(-1)
-{}
-
-void ItemTypeFilterModel::set_character(Character *pchar) {
-    this->pchar = pchar;
-
+{
     assert(EquipmentSlot::MAINHAND == 0);
     assert(EquipmentSlot::TRINKET2 == 16);
+    for (int i = 0; i < 16; ++i)
+        item_type_filters.append(QList<ItemTypeFilter>());
+}
+
+void ItemTypeFilterModel::set_character(Character *pchar) {
+    beginResetModel();
+    for (auto & list : item_type_filters)
+        list.clear();
+    endResetModel();
+
+    this->pchar = pchar;
+
     for (int i = 0; i < 16; ++i) {
         equipment_slot = i;
-        item_type_filters.append(QList<ItemTypeFilter>());
         add_item_type_filters();
     }
 
     equipment_slot = ItemSlots::MAINHAND;
-
     set_item_slot(equipment_slot);
 }
 
