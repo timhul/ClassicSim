@@ -23,7 +23,7 @@ CombatRoll::~CombatRoll() {
     delete random;
 
     drop_tables();
-    
+
     delete mechanics;
 }
 
@@ -79,7 +79,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
         miss_chance = 0;
 
     double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
-                0 : get_glancing_blow_chance();
+                0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
     auto* table = new WhiteHitTable(
                 this->random,
@@ -125,10 +125,6 @@ double CombatRoll::get_white_miss_chance(const int wpn_skill) {
 
 double CombatRoll::get_yellow_miss_chance(const int wpn_skill) {
     return mechanics->get_yellow_miss_chance(wpn_skill);
-}
-
-double CombatRoll::get_glancing_blow_chance() {
-    return mechanics->get_glancing_blow_chance(pchar->get_clvl());
 }
 
 double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {

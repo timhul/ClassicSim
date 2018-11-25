@@ -36,7 +36,6 @@ public:
 
     double get_white_miss_chance(const int);
     double get_yellow_miss_chance(const int wpn_skill);
-    double get_glancing_blow_chance();
     double get_glancing_blow_dmg_penalty(const int);
 
     void update_miss_chance(const double hit);
