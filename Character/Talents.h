@@ -29,8 +29,8 @@ public:
     bool has_talent_points_remaining() const;
     QString get_rank(const QString& tree_position, const QString& talent_position) const;
     QString get_max_rank(const QString& tree_position, const QString& talent_position) const;
-    void increment_rank(const QString& tree_position, const QString& talent_position);
-    void decrement_rank(const QString& tree_position, const QString& talent_position);
+    bool increment_rank(const QString& tree_position, const QString& talent_position);
+    bool decrement_rank(const QString& tree_position, const QString& talent_position);
     QString get_requirements(const QString& tree_position, const QString& talent_position) const;
     QString get_current_rank_description(const QString& tree_position, const QString& talent_position) const;
     QString get_next_rank_description(const QString& tree_position, const QString& talent_position) const;

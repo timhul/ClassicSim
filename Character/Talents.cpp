@@ -161,38 +161,44 @@ QString Talents::get_max_rank(const QString& tree_position, const QString& talen
     return QString::number(talent_trees[current_index][tree_position]->get_max_rank(talent_position));
 }
 
-void Talents::increment_rank(const QString& tree_position, const QString& talent_position) {
+bool Talents::increment_rank(const QString& tree_position, const QString& talent_position) {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::increment_rank could not find tree position" << tree_position;
-        return;
+        return false;
     }
 
     assert(talent_points_remaining[current_index] >= 0);
 
     if (talent_points_remaining[current_index] == 0)
-        return;
+        return false;
 
     if (talent_trees[current_index][tree_position]->increment_rank(talent_position)) {
         --talent_points_remaining[current_index];
+        return true;
     }
+
+    return false;
 }
 
-void Talents::decrement_rank(const QString& tree_position, const QString& talent_position) {
+bool Talents::decrement_rank(const QString& tree_position, const QString& talent_position) {
     assert(current_index >= 0 && current_index < talent_trees.size());
     if (!talent_trees[current_index].contains(tree_position)) {
         qDebug() << "Talents::decrement_rank could not find tree position" << tree_position;
-        return;
+        return false;
     }
 
     assert(talent_points_remaining[current_index] >= 0);
 
     if (talent_points_remaining[current_index] == 51)
-        return;
+        return false;
 
     if (talent_trees[current_index][tree_position]->decrement_rank(talent_position)) {
         ++talent_points_remaining[current_index];
+        return true;
     }
+
+    return false;
 }
 
 QString Talents::get_requirements(const QString& tree_position, const QString& talent_position) const {
