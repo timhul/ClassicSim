@@ -12,10 +12,13 @@ RotationModel::RotationModel(Character *pchar, QObject *parent)
 {}
 
 RotationModel::~RotationModel() {
-    for (auto & vectors : rotations.values()) {
-        for (auto & i : vectors) {
+    QMap<QString, QVector<Rotation*>>::iterator it = rotations.begin();
+    auto end = rotations.end();
+    while(it != end) {
+        for (auto & i : it.value())
             delete i;
-        }
+
+        ++it;
     }
 }
 
@@ -35,10 +38,13 @@ void RotationModel::set_character(Character* pchar) {
 void RotationModel::addRotations() {
     if (!rotations.empty()) {
         beginResetModel();
-        for (auto & vectors : rotations.values()) {
-            for (auto & i : vectors) {
+        QMap<QString, QVector<Rotation*>>::iterator it = rotations.begin();
+        auto end = rotations.end();
+        while(it != end) {
+            for (auto & i : it.value())
                 delete i;
-            }
+
+            ++it;
         }
 
         rotations.clear();
