@@ -1,8 +1,9 @@
-
 #include "Enchant.h"
 
-Enchant::Enchant(const EnchantName::Name enum_name, const QString &name, const QString &effect_string) :
-    enum_name(enum_name), name(name), effect(effect_string)
+#include <utility>
+
+Enchant::Enchant(const EnchantName::Name enum_name, QString name, QString effect_string) :
+    enum_name(enum_name), name(std::move(name)), effect(std::move(effect_string))
 {}
 
 Enchant::~Enchant() = default;

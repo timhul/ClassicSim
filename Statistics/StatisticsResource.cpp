@@ -1,5 +1,6 @@
-
 #include "StatisticsResource.h"
+
+#include <utility>
 
 bool name(StatisticsResource* lhs, StatisticsResource* rhs) {
     return lhs->get_name() < rhs->get_name();
@@ -17,9 +18,9 @@ bool energy_gain(StatisticsResource* lhs, StatisticsResource* rhs) {
     return lhs->get_energy_gain() > rhs->get_energy_gain();
 }
 
-StatisticsResource::StatisticsResource(const QString& name, const QString& icon) :
-    name(name),
-    icon(icon)
+StatisticsResource::StatisticsResource(QString  name, QString  icon) :
+    name(std::move(name)),
+    icon(std::move(icon))
 {}
 
 void StatisticsResource::reset() {

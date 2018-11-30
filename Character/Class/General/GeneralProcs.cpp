@@ -8,8 +8,5 @@ GeneralProcs::GeneralProcs(Character* pchar, Faction* faction) :
     faction(faction)
 {}
 
-GeneralProcs::~GeneralProcs()
-{}
-
 void GeneralProcs::switch_faction() const {
 }

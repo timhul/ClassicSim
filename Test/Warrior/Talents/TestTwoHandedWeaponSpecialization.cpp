@@ -9,7 +9,8 @@
 
 TestTwoHandedWeaponSpecialization::TestTwoHandedWeaponSpecialization(EquipmentDb* equipment_db) :
     TestSpell(equipment_db, "Two-hand Specialization"),
-    warrior(nullptr)
+    warrior(nullptr),
+    talent(nullptr)
 {}
 
 void TestTwoHandedWeaponSpecialization::set_up() {

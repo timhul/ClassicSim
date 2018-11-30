@@ -10,7 +10,7 @@ class TalentTree;
 
 class TestTalentTree {
 public:
-    TestTalentTree(EquipmentDb* equipment_db, const QString& tree_pos);
+    TestTalentTree(EquipmentDb* equipment_db, QString  tree_pos);
     virtual ~TestTalentTree() = default;
 
     void test_all();

@@ -1,9 +1,11 @@
-
-#include "Character.h"
 #include "TestSpellDamage.h"
 
+#include <utility>
+
+#include "Character.h"
+
 TestSpellDamage::TestSpellDamage(EquipmentDb* equipment_db, QString spell_under_test):
-    TestSpell(equipment_db, spell_under_test),
+    TestSpell(equipment_db, std::move(spell_under_test)),
     has_run_mandatory_tests(false)
 {}
 

@@ -29,7 +29,7 @@ SimulationThreadPool::~SimulationThreadPool() {
 void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim, int iterations) {
     assert(running_threads == 0);
 
-    int iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
+    auto iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
 
     for (auto & thread : thread_pool) {
         if (!active_thread_ids.contains(thread.first))
@@ -84,13 +84,13 @@ void SimulationThreadPool::remove_threads(const int num_to_remove) {
 }
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {
-    SimulationRunner* runner = new SimulationRunner(thread_id, equipment_db, sim_settings, scaler);
+    auto* runner = new SimulationRunner(thread_id, equipment_db, sim_settings, scaler);
     auto* thread = new QThread(runner);
 
-    connect(this, SIGNAL (start_simulation(unsigned, QString, bool, int)), runner, SLOT (run_sim(unsigned, QString, bool, int)));
-    connect(runner, SIGNAL (error(QString, QString)), this, SLOT (error_string(QString, QString)));
-    connect(runner, SIGNAL (result()), this, SLOT (thread_finished()));
-    connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
+    connect(this, SIGNAL(start_simulation(uint,QString,bool,int)), runner, SLOT(run_sim(uint,QString,bool,int)));
+    connect(runner, SIGNAL(error(QString,QString)), this, SLOT(error_string(QString,QString)));
+    connect(runner, SIGNAL(result()), this, SLOT(thread_finished()));
+    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
 
     thread_pool.append(QPair<unsigned, QThread*>(thread_id, thread));
     active_thread_ids.append(thread_id);

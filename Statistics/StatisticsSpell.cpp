@@ -1,4 +1,3 @@
-
 #include "StatisticsSpell.h"
 
 #include <utility>
@@ -165,9 +164,9 @@ bool max_dpet(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_max_dpet() > rhs->get_max_dpet();
 }
 
-StatisticsSpell::StatisticsSpell(const QString& name, const QString& icon):
-    name(name),
-    icon(icon),
+StatisticsSpell::StatisticsSpell(QString  name, QString  icon):
+    name(std::move(name)),
+    icon(std::move(icon)),
     percentage_of_total_damage_done(0.0),
     min_dpr(std::numeric_limits<double>::max()),
     max_dpr(std::numeric_limits<double>::min()),

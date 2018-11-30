@@ -4,7 +4,8 @@
 
 Flurry::Flurry(Character* pchar):
     Buff(pchar, "Flurry", "Assets/warrior/fury/tier6/Ability_ghoulfrenzy.png", 15.0, 3),
-    TalentRequirer(5, DisabledAtZero::Yes)
+    TalentRequirer(5, DisabledAtZero::Yes),
+    attack_speed_increase(0)
 {
     rank_talents = {0, 10, 15, 20, 25, 30};
 }

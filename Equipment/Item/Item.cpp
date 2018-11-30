@@ -28,7 +28,7 @@ Item::Item(QString _name,
     info(std::move(_info)),
     procs_map(std::move(_procs)),
     use_map(std::move(_use)),
-    stats_key_value_pairs(_stats),
+    stats_key_value_pairs(std::move(std::move(_stats))),
     stats(new Stats()),
     enchant(nullptr)
 {
@@ -89,7 +89,7 @@ int Item::get_item_type() const {
     return this->item_type;
 }
 
-int Item::get_weapon_slot(void) const {
+int Item::get_weapon_slot() const {
     return WeaponSlots::NON_WEAPON;
 }
 

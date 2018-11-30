@@ -1,4 +1,3 @@
-
 #include "SimulationRunner.h"
 
 #include <utility>
@@ -60,16 +59,13 @@ SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db
     thread_id(thread_id)
 {}
 
-SimulationRunner::~SimulationRunner() {
-}
-
 void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
         emit finished();
         return;
     }
 
-    this->setup_string = setup_string;
+    this->setup_string = std::move(setup_string);
     this->full_sim = full_sim;
 
     CharacterDecoder decoder;
@@ -340,6 +336,6 @@ void SimulationRunner::setup_pchar(CharacterDecoder& decoder) {
         delete race;
 }
 
-EnchantName::Name SimulationRunner::get_enum_val(QString enum_val_as_string) {
+EnchantName::Name SimulationRunner::get_enum_val(const QString& enum_val_as_string) {
     return static_cast<EnchantName::Name>(enum_val_as_string.toInt());
 }

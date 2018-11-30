@@ -10,7 +10,7 @@ EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int 
     Enchant(enchant, get_name_from_enum_weapon(enchant), get_effect_from_enum_weapon(enchant)),
     pchar(pchar)
 {
-    QString identifier = slot == EnchantSlot::MAINHAND ? "(MH)" : "(OH)";
+    QString identifier = slot == EnchantSlot::MAINHAND ? QString("(MH)") : QString("(OH)");
 
     switch (enchant) {
     case EnchantName::Crusader:

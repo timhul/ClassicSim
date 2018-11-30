@@ -1,8 +1,10 @@
-
 #include "PeriodicResourceGainSpell.h"
+
+#include <utility>
+
 #include "Character.h"
-#include "ResourceGain.h"
 #include "Engine.h"
+#include "ResourceGain.h"
 
 PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
                                                      const QString& icon,
@@ -16,7 +18,7 @@ PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
       Spell(name, icon, pchar, restricted_by_gcd, cooldown, ResourceType::Rage, 0),
       tick_rate(tick_rate),
       tick_until(tick_until),
-      resource_gains(resource_gains)
+      resource_gains(std::move(resource_gains))
 {}
 
 void PeriodicResourceGainSpell::spell_effect() {

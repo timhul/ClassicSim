@@ -22,7 +22,7 @@ static const bool RUN_EVENT = true;
 class TestSpell : public TestUtils {
 public:
     TestSpell(EquipmentDb *equipment_db, QString spell_under_test);
-    ~TestSpell();
+    ~TestSpell() = default;
 
     void set_up_general();
     void tear_down_general();
@@ -64,7 +64,7 @@ public:
     void given_target_has_0_armor();
     void given_engine_priority_at(const double priority);
     void given_engine_priority_pushed_forward(const double priority);
-    void given_event_is_ignored(QString event);
+    void given_event_is_ignored(const QString& event);
     void given_1h_axe_equipped_in_mainhand(Character* pchar);
     void given_1h_mace_equipped_in_mainhand(Character* pchar);
     void given_1h_sword_equipped_in_mainhand(Character* pchar);

@@ -153,39 +153,39 @@ void TestArms::test_refilling_tree_after_switching_talent_setup() {
 QString TestArms::get_position(const QString& name) const {
     if (name == "Improved Heroic Strike")
         return "1LL";
-    else if (name == "Deflection")
+    if (name == "Deflection")
         return "1ML";
-    else if (name == "Improved Rend")
+    if (name == "Improved Rend")
         return "1MR";
-    else if (name == "Improved Charge")
+    if (name == "Improved Charge")
         return "2LL";
-    else if (name == "Tactical Mastery")
+    if (name == "Tactical Mastery")
         return "2ML";
-    else if (name == "Improved Thunder Clap")
+    if (name == "Improved Thunder Clap")
         return "2RR";
-    else if (name == "Improved Overpower")
+    if (name == "Improved Overpower")
         return "3LL";
-    else if (name == "Anger Management")
+    if (name == "Anger Management")
         return "3ML";
-    else if (name == "Deep Wounds")
+    if (name == "Deep Wounds")
         return "3MR";
-    else if (name == "Two-Handed Weapon Specialization")
+    if (name == "Two-Handed Weapon Specialization")
         return "4ML";
-    else if (name == "Impale")
+    if (name == "Impale")
         return "4MR";
-    else if (name == "Axe Specialization")
+    if (name == "Axe Specialization")
         return "5LL";
-    else if (name == "Sweeping Strikes")
+    if (name == "Sweeping Strikes")
         return "5ML";
-    else if (name == "Mace Specialization")
+    if (name == "Mace Specialization")
         return "5MR";
-    else if (name == "Sword Specialization")
+    if (name == "Sword Specialization")
         return "5RR";
-    else if (name == "Polearm Specialization")
+    if (name == "Polearm Specialization")
         return "6LL";
-    else if (name == "Improved Hamstring")
+    if (name == "Improved Hamstring")
         return "6MR";
-    else if (name == "Mortal Strike")
+    if (name == "Mortal Strike")
         return "7ML";
 
     assert(false);

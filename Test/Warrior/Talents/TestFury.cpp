@@ -150,37 +150,37 @@ void TestFury::spec_dw_fury() {
 QString TestFury::get_position(const QString& name) const {
     if (name == "BV")
         return "1ML";
-    else if (name == "Cruelty")
+    if (name == "Cruelty")
         return "1MR";
-    else if (name == "Imp Demo")
+    if (name == "Imp Demo")
         return "2ML";
-    else if (name == "UW")
+    if (name == "UW")
         return "2MR";
-    else if (name == "Imp Cleave")
+    if (name == "Imp Cleave")
         return "3LL";
-    else if (name == "Piercing Howl")
+    if (name == "Piercing Howl")
         return "3ML";
-    else if (name == "Blood Craze")
+    if (name == "Blood Craze")
         return "3MR";
-    else if (name == "Imp BS")
+    if (name == "Imp BS")
         return "3RR";
-    else if (name == "DW Spec")
+    if (name == "DW Spec")
         return "4LL";
-    else if (name == "Imp Execute")
+    if (name == "Imp Execute")
         return "4ML";
-    else if (name == "Enrage")
+    if (name == "Enrage")
         return "4MR";
-    else if (name == "Imp Slam")
+    if (name == "Imp Slam")
         return "5LL";
-    else if (name == "Death Wish")
+    if (name == "Death Wish")
         return "5ML";
-    else if (name == "Imp Intercept")
+    if (name == "Imp Intercept")
         return "5RR";
-    else if (name == "Imp Zerker Rage")
+    if (name == "Imp Zerker Rage")
         return "6LL";
-    else if (name == "Flurry")
+    if (name == "Flurry")
         return "6MR";
-    else if (name == "BT")
+    if (name == "BT")
         return "7ML";
 
     assert(false);

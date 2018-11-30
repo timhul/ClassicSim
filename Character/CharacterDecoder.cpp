@@ -1,10 +1,7 @@
+#include <QDebug>
 
 #include "CharacterDecoder.h"
 #include "CharacterEncoding.h"
-#include <QDebug>
-
-CharacterDecoder::CharacterDecoder()
-{}
 
 void CharacterDecoder::initialize(const QString& setup_string) {
     if (!setup_map.empty()) {

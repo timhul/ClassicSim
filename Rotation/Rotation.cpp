@@ -1,19 +1,21 @@
+#include "Rotation.h"
+
+#include <QDebug>
+#include <utility>
 
 #include "Character.h"
 #include "EnabledBuffs.h"
-#include "Spells.h"
-#include "Rotation.h"
-#include "RotationExecutor.h"
 #include "ConditionBuff.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
 #include "ConditionVariableAssign.h"
 #include "ConditionVariableBuiltin.h"
-
-#include <QDebug>
+#include "RotationExecutor.h"
+#include "Spells.h"
 
 Rotation::Rotation(QString class_name) :
-    class_name(class_name)
+    pchar(nullptr),
+    class_name(std::move(class_name))
 {}
 
 Rotation::~Rotation() {
@@ -32,17 +34,17 @@ void Rotation::perform_rotation() const {
 void Rotation::link_spells(Character* pchar) {
     this->pchar = pchar;
 
-    for (int i = 0; i < rotation_executors.size(); ++i) {
-        QString spell_name = rotation_executors[i]->get_spell_name();
+    for (auto & executor : rotation_executors) {
+        QString spell_name = executor->get_spell_name();
 
         Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
-        rotation_executors[i]->set_spell(spell);
+        executor->set_spell(spell);
 
         if (spell == nullptr)
             continue;
 
-        if (!this->add_conditionals(rotation_executors[i]))
-            rotation_executors[i]->set_spell(nullptr);
+        if (!this->add_conditionals(executor))
+            executor->set_spell(nullptr);
     }
 }
 

@@ -10,7 +10,8 @@
 AngerManagement::AngerManagement(Character* pchar) :
     Spell("Anger Management", "Assets/warrior/arms/tier3/anger_management.png", pchar, RestrictedByGcd::No, 0.0, ResourceType::Rage, 0),
     TalentRequirer(1, DisabledAtZero::Yes),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(dynamic_cast<Warrior*>(pchar)),
+    statistics_resource(nullptr)
 {}
 
 void AngerManagement::increase_talent_rank_effect(const QString&) {

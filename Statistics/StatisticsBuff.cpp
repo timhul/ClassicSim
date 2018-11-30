@@ -1,6 +1,7 @@
-
 #include "StatisticsBuff.h"
+
 #include <QDebug>
+#include <utility>
 
 bool name(StatisticsBuff* lhs, StatisticsBuff* rhs) {
     return lhs->get_name() < rhs->get_name();
@@ -27,9 +28,9 @@ bool avg_uptime(StatisticsBuff* lhs, StatisticsBuff* rhs) {
     return lhs_uptime > rhs_uptime;
 }
 
-StatisticsBuff::StatisticsBuff(const QString &name, const QString &icon, const bool debuff) :
-    name(name),
-    icon(icon),
+StatisticsBuff::StatisticsBuff(QString name, QString icon, const bool debuff) :
+    name(std::move(name)),
+    icon(std::move(icon)),
     debuff(debuff),
     min_uptime(std::numeric_limits<double>::max()),
     max_uptime(std::numeric_limits<double>::min()),

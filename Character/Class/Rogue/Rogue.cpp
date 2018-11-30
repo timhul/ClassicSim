@@ -15,7 +15,8 @@
 
 Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     Character(race, sim_settings),
-    combo_points(0)
+    combo_points(0),
+    stealthed(false)
 {
     available_races.append("Dwarf");
     available_races.append("Gnome");

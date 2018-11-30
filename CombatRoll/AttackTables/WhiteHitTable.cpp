@@ -16,7 +16,8 @@ WhiteHitTable::WhiteHitTable(Random *random,
     dodge(dodge),
     parry(parry),
     glancing(glancing),
-    block(block)
+    block(block),
+    critical(0)
 {
     update_ranges();
 }

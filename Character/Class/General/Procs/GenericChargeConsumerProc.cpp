@@ -19,10 +19,6 @@ GenericChargeConsumerProc::GenericChargeConsumerProc(
     assert(!proc_sources.empty());
 }
 
-GenericChargeConsumerProc::~GenericChargeConsumerProc() {
-
-}
-
 void GenericChargeConsumerProc::proc_effect() {
     buff->use_charge();
 }

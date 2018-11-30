@@ -6,8 +6,6 @@
 
 class TestAttackTables : TestCharacter {
 public:
-    TestAttackTables();
-
     void test_all() override;
 
 private:

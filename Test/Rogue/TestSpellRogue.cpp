@@ -9,7 +9,7 @@
 #include "TestSpellRogue.h"
 
 TestSpellRogue::TestSpellRogue(EquipmentDb *equipment_db, const QString& spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test)),
+    TestSpellDamage(equipment_db, spell_under_test),
     rogue(nullptr)
 {}
 

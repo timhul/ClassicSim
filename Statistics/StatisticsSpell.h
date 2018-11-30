@@ -56,7 +56,7 @@ public:
         Crit
     };
 
-    StatisticsSpell(const QString& name, const QString& icon);
+    StatisticsSpell(QString  name, QString  icon);
     ~StatisticsSpell();
 
     void reset();

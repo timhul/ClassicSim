@@ -1,22 +1,24 @@
-
 #include "Spell.h"
+
+#include <utility>
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
-#include "Target.h"
-#include "StatisticsSpell.h"
 #include "Mechanics.h"
 #include "Spells.h"
+#include "StatisticsSpell.h"
+#include "Target.h"
 
-Spell::Spell(const QString& name,
-             const QString& icon,
+Spell::Spell(QString  name,
+             QString  icon,
              Character* pchar,
              bool restricted_by_gcd,
              double cooldown,
              const ResourceType resource_type,
              int resource_cost) :
-    name(name),
-    icon(icon),
+    name(std::move(name)),
+    icon(std::move(icon)),
     pchar(pchar),
     engine(pchar->get_engine()),
     roll(pchar->get_combat_roll()),
@@ -30,9 +32,6 @@ Spell::Spell(const QString& name,
     instance_id(SpellStatus::INACTIVE),
     enabled(true)
 {}
-
-Spell::~Spell() {
-}
 
 QString Spell::get_name() const {
     return this->name;

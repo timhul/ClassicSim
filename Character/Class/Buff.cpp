@@ -1,4 +1,7 @@
 #include "Buff.h"
+
+#include <utility>
+
 #include "BuffRemoval.h"
 #include "Character.h"
 #include "ClassStatistics.h"
@@ -6,11 +9,11 @@
 #include "Engine.h"
 #include "StatisticsBuff.h"
 
-Buff::Buff(Character* pchar, const QString& name, const QString& icon, const int duration, const int base_charges):
+Buff::Buff(Character* pchar, QString  name, QString  icon, const int duration, const int base_charges):
     pchar(pchar),
     statistics_buff(nullptr),
-    name(name),
-    icon(icon),
+    name(std::move(name)),
+    icon(std::move(icon)),
     duration(duration),
     base_charges(base_charges),
     enabled(false),
@@ -19,9 +22,6 @@ Buff::Buff(Character* pchar, const QString& name, const QString& icon, const int
     instance_id(BuffStatus::INACTIVE)
 {
     initialize();
-}
-
-Buff::~Buff() {
 }
 
 QString Buff::get_name() const {

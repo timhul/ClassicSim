@@ -1,4 +1,3 @@
-
 #include "StatisticsProc.h"
 
 #include <utility>
@@ -21,9 +20,9 @@ bool num_procs(StatisticsProc* lhs, StatisticsProc* rhs) {
     return lhs_procs != rhs_procs ? lhs_procs > rhs_procs : name(lhs, rhs);
 }
 
-StatisticsProc::StatisticsProc(const QString& name, const QString &icon) :
-    name(name),
-    icon(icon),
+StatisticsProc::StatisticsProc(QString  name, QString icon) :
+    name(std::move(name)),
+    icon(std::move(icon)),
     attempts(0),
     proc_counter(0)
 {}

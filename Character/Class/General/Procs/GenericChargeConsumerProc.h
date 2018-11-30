@@ -13,7 +13,6 @@ public:
                               const QVector<ProcInfo::Source>& proc_sources,
                               const double proc_rate,
                               Buff *buff);
-    ~GenericChargeConsumerProc() override;
 
 private:
     Buff* buff;

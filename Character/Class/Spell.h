@@ -28,15 +28,15 @@ namespace RestrictedByGcd {
 
 class Spell {
 public:
-    Spell(const QString& name,
-          const QString& icon,
+    Spell(QString  name,
+          QString  icon,
           Character* pchar,
           bool restricted_by_gcd,
           double cooldown,
           const ResourceType resource_type,
           int resource_cost);
 
-    virtual ~Spell();
+    virtual ~Spell() = default;
 
     QString get_name() const;
     double get_base_cooldown();

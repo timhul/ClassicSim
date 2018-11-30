@@ -29,10 +29,6 @@ TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
     spell_under_test(std::move(spell_under_test))
 {}
 
-TestSpell::~TestSpell() {
-
-}
-
 void TestSpell::set_up_general() {
     race = new Orc();
     sim_settings = new SimSettings();
@@ -668,7 +664,7 @@ void TestSpell::given_engine_priority_pushed_forward(const double priority) {
     delete event;
 }
 
-void TestSpell::given_event_is_ignored(QString event) {
+void TestSpell::given_event_is_ignored(const QString& event) {
     ignored_events.insert(event);
 }
 

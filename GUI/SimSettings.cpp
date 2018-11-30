@@ -8,6 +8,7 @@ SimSettings::SimSettings() :
     combat_iterations_quick_sim(1000),
     combat_iterations_full_sim(10000),
     num_threads(QThread::idealThreadCount()),
+    execute_threshold(0.2),
     ruleset_control(new RulesetControl())
 {}
 
@@ -59,7 +60,7 @@ void SimSettings::add_sim_option(SimOption::Name option) {
     sim_options.insert(option);
 }
 
-void SimSettings::set_sim_options(QSet<SimOption::Name> options) {
+void SimSettings::set_sim_options(const QSet<SimOption::Name>& options) {
     assert(!options.contains(SimOption::Name::NoScale));
     sim_options = options;
 }

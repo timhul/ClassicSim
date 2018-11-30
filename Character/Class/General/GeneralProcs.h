@@ -10,7 +10,6 @@ class Faction;
 class GeneralProcs {
 public:
     GeneralProcs(Character* pchar, Faction* faction);
-    ~GeneralProcs();
 
     void switch_faction() const;
 

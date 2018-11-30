@@ -5,7 +5,6 @@
 #include "Warrior.h"
 
 TestCharacterStats::TestCharacterStats() :
-    TestCharacter(),
     pchar(nullptr),
     cstats(nullptr),
     race(nullptr)

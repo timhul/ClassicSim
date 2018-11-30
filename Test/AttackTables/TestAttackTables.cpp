@@ -11,10 +11,6 @@
 #include "Warrior.h"
 #include "WhiteHitTable.h"
 
-TestAttackTables::TestAttackTables() :
-    TestCharacter()
-{}
-
 void TestAttackTables::test_all() {
     test_basic_properties();
 

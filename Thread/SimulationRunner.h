@@ -27,7 +27,7 @@ public:
                      SimSettings* sim_settings,
                      NumberCruncher* scaler,
                      QObject* parent = nullptr);
-    ~SimulationRunner();
+    ~SimulationRunner() = default;
 
 public slots:
     void run_sim(unsigned thread_id, QString setup_string, bool full_sim, int iterations);
@@ -66,7 +66,7 @@ private:
     void select_rotation(CharacterDecoder& decoder);
     void exit_thread(QString err);
 
-    EnchantName::Name get_enum_val(QString enum_val_as_string);
+    EnchantName::Name get_enum_val(const QString& enum_val_as_string);
 };
 
 #endif // SIMULATIONRUNNER_H

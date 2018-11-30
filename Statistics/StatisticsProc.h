@@ -11,7 +11,7 @@ bool num_procs(StatisticsProc* lhs, StatisticsProc* rhs);
 
 class StatisticsProc {
 public:
-    StatisticsProc(const QString &name, const QString& icon);
+    StatisticsProc(QString name, QString  icon);
 
     void reset();
 

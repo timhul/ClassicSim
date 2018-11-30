@@ -61,7 +61,7 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
 }
 
 void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, QList<StatisticsSpell *> &vec) {
-    StatisticsSpell* result = new StatisticsSpell(name, icon);
+    auto* result = new StatisticsSpell(name, icon);
     for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->spell_statistics.contains(name))
             continue;
@@ -224,7 +224,7 @@ QPair<double, double> NumberCruncher::get_min_max_dps_for_option(SimOption::Name
         }
     }
 
-    return QPair<double, double>(min_dps, max_dps);
+    return {min_dps, max_dps};
 }
 
 double NumberCruncher::get_dps_for_option(SimOption::Name option) const {

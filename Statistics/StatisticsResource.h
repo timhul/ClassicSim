@@ -15,7 +15,7 @@ bool energy_gain(StatisticsResource* lhs, StatisticsResource* rhs);
 
 class StatisticsResource {
 public:
-    StatisticsResource(const QString& name, const QString& icon);
+    StatisticsResource(QString  name, QString  icon);
 
     void reset();
 
