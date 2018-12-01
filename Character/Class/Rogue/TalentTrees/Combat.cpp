@@ -7,6 +7,7 @@
 #include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
 #include "ImprovedBackstab.h"
+#include "MaceSpecialization.h"
 #include "Precision.h"
 #include "SwordSpecializationTalentRogue.h"
 #include "Talent.h"
@@ -34,7 +35,7 @@ Combat::Combat(Character *pchar) :
                                   {"4MR", new DualWieldSpecializationRogue(pchar, this)}};
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {{"5LL", new GenericTalent(pchar, this, "Mace Specialization", "5LL", "Assets/items/Inv_mace_01.png", 5, "Increases your skill with Maces by %1, and gives you a %2% chance to stun your target for 3 sec with a mace.", QVector<QPair<int, int>>{QPair<int, int>(1, 1), QPair<int, int>(1, 1)})},
+    QMap<QString, Talent*> tier5 {{"5LL", new MaceSpecialization(pchar, this)},
                                   {"5ML", new BladeFlurryTalent(pchar, this)},
                                   {"5MR", new SwordSpecializationTalentRogue(pchar, this)},
                                   {"5RR", new FistWeaponSpecialization(pchar, this)}};
