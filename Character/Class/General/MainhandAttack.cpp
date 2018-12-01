@@ -32,7 +32,7 @@ void MainhandAttack::spell_effect() {
 
 void MainhandAttack::calculate_damage(const bool run_procs) {
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
-    const int result = roll->get_melee_hit_result(mh_wpn_skill);
+    const int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());
 
     if (result == AttackResult::MISS) {
         increment_miss();

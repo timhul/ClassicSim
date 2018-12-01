@@ -18,7 +18,7 @@ public:
     CombatRoll(Character* pchar);
     ~CombatRoll();
 
-    int get_melee_hit_result(const int, const double = 0.0);
+    int get_melee_hit_result(const int, const double);
     int get_melee_ability_result(const int,
                                  const double,
                                  const bool include_dodge = true,

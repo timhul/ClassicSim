@@ -33,7 +33,7 @@ void OffhandAttack::spell_effect() {
 
 void OffhandAttack::calculate_damage(const bool run_procs) {
     const int oh_wpn_skill = pchar->get_oh_wpn_skill();
-    const int result = roll->get_melee_hit_result(oh_wpn_skill);
+    const int result = roll->get_melee_hit_result(oh_wpn_skill, pchar->get_stats()->get_oh_crit_chance());
 
     if (result == AttackResult::MISS) {
         increment_miss();

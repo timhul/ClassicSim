@@ -126,8 +126,8 @@ void Test::test_combat_roll_melee_hit_result() {
     auto* pchar = new Warrior(race, equipment_db, sim_settings);
     pchar->get_equipment()->set_mainhand("Frostbite");
 
-    for(int i = 0; i < 30; ++i) {
-        pchar->get_combat_roll()->get_melee_hit_result(300);
+    for (int i = 0; i < 30; ++i) {
+        pchar->get_combat_roll()->get_melee_hit_result(300, pchar->get_stats()->get_mh_crit_chance());
     }
 
     delete sim_settings;
