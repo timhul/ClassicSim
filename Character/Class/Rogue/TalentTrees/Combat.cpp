@@ -1,4 +1,6 @@
 #include "Combat.h"
+
+#include "AdrenalineRushTalent.h"
 #include "GenericTalent.h"
 #include "Talent.h"
 
@@ -35,7 +37,7 @@ Combat::Combat(Character *pchar) :
                                   {"6MR", new GenericTalent(pchar, this, "Aggression", "6MR", "Assets/ability/Ability_racial_avatar.png", 3, "Increases the damage of your Sinister Strike and Eviscerate abilities by %1%.", QVector<QPair<int, int>>{QPair<int, int>(2, 2)})}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new GenericTalent(pchar, this, "Adrenaline Rush", "7ML", "Assets/spell/Spell_shadow_shadowworddominate.png", 1, "Increases your Energy regeneration rate by 100% for 15 sec.", QVector<QPair<int, int>>())}};
+    QMap<QString, Talent*> tier7 {{"7ML", new AdrenalineRushTalent(pchar, this)}};
     add_talents(tier7);
 
     talents["2ML"]->talent->set_bottom_child(talents["3ML"]->talent);

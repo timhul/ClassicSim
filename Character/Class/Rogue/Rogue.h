@@ -39,6 +39,8 @@ public:
     void exit_stealth();
     bool is_stealthed() const;
 
+    class Energy* get_energy() const;
+
 private:
     RogueSpells* rogue_spells;
     class Energy* energy;

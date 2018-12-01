@@ -3,6 +3,7 @@
 
 #include "Spells.h"
 
+class AdrenalineRush;
 class Backstab;
 class Eviscerate;
 class OffhandAttack;
@@ -18,12 +19,14 @@ public:
     void add_next_oh_attack(void) override;
     OffhandAttack* get_oh_attack() const override;
 
+    AdrenalineRush* get_adrenaline_rush() const;
     Backstab* get_backstab() const;
     Eviscerate* get_eviscerate() const;
     SliceAndDice* get_slice_and_dice() const;
 
 private:
     Rogue* rogue;
+    AdrenalineRush* adrenaline_rush;
     Backstab* backstab;
     Eviscerate* eviscerate;
     SliceAndDice* slice_and_dice;

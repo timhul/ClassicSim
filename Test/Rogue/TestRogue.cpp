@@ -1,23 +1,25 @@
-#include "TestBackstab.h"
 #include "TestRogue.h"
-#include "TestEnergy.h"
-#include "TestEviscerate.h"
-#include "TestSliceAndDice.h"
-
-#include "Rogue.h"
-#include "Orc.h"
 
 #include "Engine.h"
 #include "Equipment.h"
-#include "Target.h"
 #include "CombatRoll.h"
 #include "Faction.h"
 #include "ItemNamespace.h"
+#include "Orc.h"
+#include "Rogue.h"
+#include "Target.h"
+#include "TestAdrenalineRush.h"
+#include "TestBackstab.h"
+#include "TestEnergy.h"
+#include "TestEviscerate.h"
+#include "TestSliceAndDice.h"
 
 void TestRogue::test_all() {
     test_basic_properties();
 
     TestEnergy(equipment_db).test_all();
+
+    TestAdrenalineRush(equipment_db).test_all();
     TestBackstab(equipment_db).test_all();
     TestEviscerate(equipment_db).test_all();
     TestSliceAndDice(equipment_db).test_all();

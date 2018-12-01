@@ -273,7 +273,11 @@ SOURCES += main.cpp \
     Character/Class/Rogue/Buffs/SliceAndDiceBuff.cpp \
     Test/Rogue/Spells/TestSliceAndDice.cpp \
     Test/AttackTables/TestAttackTables.cpp \
-    Test/TestTalentTree.cpp
+    Test/TestTalentTree.cpp \
+    Character/Class/Rogue/Spells/AdrenalineRush.cpp \
+    Character/Class/Rogue/TalentTrees/Combat/AdrenalineRushTalent.cpp \
+    Character/Class/Rogue/Buffs/AdrenalineRushBuff.cpp \
+    Test/Rogue/Spells/TestAdrenalineRush.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -548,7 +552,11 @@ HEADERS += \
     Character/Class/Rogue/Buffs/SliceAndDiceBuff.h \
     Test/Rogue/Spells/TestSliceAndDice.h \
     Test/AttackTables/TestAttackTables.h \
-    Test/TestTalentTree.h
+    Test/TestTalentTree.h \
+    Character/Class/Rogue/Spells/AdrenalineRush.h \
+    Character/Class/Rogue/TalentTrees/Combat/AdrenalineRushTalent.h \
+    Character/Class/Rogue/Buffs/AdrenalineRushBuff.h \
+    Test/Rogue/Spells/TestAdrenalineRush.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -571,6 +579,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Rogue/Buffs \
     $$PWD/Character/Class/Rogue/Spells \
     $$PWD/Character/Class/Rogue/TalentTrees \
+    $$PWD/Character/Class/Rogue/TalentTrees/Combat \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
     $$PWD/Character/Class/Hunter \

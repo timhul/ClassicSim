@@ -1,10 +1,12 @@
+#include "RogueSpells.h"
+
+#include "AdrenalineRush.h"
 #include "Backstab.h"
 #include "Eviscerate.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
 #include "OffhandMeleeHit.h"
 #include "Rogue.h"
-#include "RogueSpells.h"
 #include "SliceAndDice.h"
 
 RogueSpells::RogueSpells(Rogue* rogue) :
@@ -13,12 +15,14 @@ RogueSpells::RogueSpells(Rogue* rogue) :
 {
     this->mh_attack = new MainhandAttack(rogue);
     this->oh_attack = new OffhandAttack(rogue);
+    this->adrenaline_rush = new AdrenalineRush(rogue);
     this->backstab = new Backstab(rogue);
     this->eviscerate = new Eviscerate(rogue);
     this->slice_and_dice = new SliceAndDice(rogue);
 
     spells.append(mh_attack);
     spells.append(oh_attack);
+    spells.append(adrenaline_rush);
     spells.append(backstab);
     spells.append(eviscerate);
     spells.append(slice_and_dice);
@@ -45,6 +49,10 @@ void RogueSpells::add_next_oh_attack() {
 
 OffhandAttack* RogueSpells::get_oh_attack() const {
     return oh_attack;
+}
+
+AdrenalineRush* RogueSpells::get_adrenaline_rush() const {
+    return this->adrenaline_rush;
 }
 
 Backstab* RogueSpells::get_backstab() const {

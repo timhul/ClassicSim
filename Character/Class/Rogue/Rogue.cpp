@@ -150,6 +150,10 @@ bool Rogue::is_stealthed() const {
     return this->stealthed;
 }
 
+class Energy* Rogue::get_energy() const {
+    return this->energy;
+}
+
 void Rogue::initialize_talents() {
     for (int i = 0; i < 3; ++i) {
         talents->add_talent_tree(new Assassination(this), new Combat(this), new Subtlety(this));
