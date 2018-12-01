@@ -8,7 +8,7 @@ DeathWish::DeathWish(Character* pchar) :
     TalentRequirer(1, DisabledAtZero::Yes),
     warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->enabled = false; //  remove this once switching default argument to enabled=false
+    this->enabled = false;
 }
 
 void DeathWish::spell_effect() {
