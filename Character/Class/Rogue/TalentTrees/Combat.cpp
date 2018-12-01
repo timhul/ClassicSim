@@ -3,6 +3,7 @@
 #include "AdrenalineRushTalent.h"
 #include "BladeFlurryTalent.h"
 #include "GenericTalent.h"
+#include "Precision.h"
 #include "Talent.h"
 
 Combat::Combat(Character *pchar) :
@@ -15,7 +16,7 @@ Combat::Combat(Character *pchar) :
 
     QMap<QString, Talent*> tier2 {{"2LL", new GenericTalent(pchar, this, "Improved Backstab", "2LL", "Assets/ability/Ability_backstab.png", 3, "Increases the critical strike chance of your Backstab ability by %1%.", QVector<QPair<int, int>>{QPair<int, int>(10, 10)})},
                                   {"2ML", new GenericTalent(pchar, this, "Deflection", "2ML", "Assets/ability/Ability_parry.png", 5, "Increases your Parry chance by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
-                                  {"2MR", new GenericTalent(pchar, this, "Precision", "2MR","Assets/ability/Ability_marksmanship.png", 5, "Increases your chance to hit with melee weapons by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})}};
+                                  {"2MR", new Precision(pchar, this)}};
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new GenericTalent(pchar, this, "Endurance", "3LL", "Assets/spell/Spell_shadow_shadowward.png", 2, "Reduces the cooldown of your Sprint and Evasion abilities by %1 sec.", QVector<QPair<int, int>>{QPair<int, int>(45, 45)})},
