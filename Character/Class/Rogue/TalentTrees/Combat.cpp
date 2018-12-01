@@ -11,6 +11,7 @@
 #include "Precision.h"
 #include "SwordSpecializationTalentRogue.h"
 #include "Talent.h"
+#include "WeaponExpertise.h"
 
 Combat::Combat(Character *pchar) :
     TalentTree("Combat", "Assets/rogue/rogue_combat.jpg")
@@ -41,7 +42,7 @@ Combat::Combat(Character *pchar) :
                                   {"5RR", new FistWeaponSpecialization(pchar, this)}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6ML", new GenericTalent(pchar, this, "Weapon Expertise", "6ML", "Assets/spell/Spell_holy_blessingofstrength.png", 2, "Increases your skill with Sword, Fist and Dagger weapons by %1.", QVector<QPair<int, int>>{QPair<int, int>(3, 2)})},
+    QMap<QString, Talent*> tier6 {{"6ML", new WeaponExpertise(pchar, this)},
                                   {"6MR", new GenericTalent(pchar, this, "Aggression", "6MR", "Assets/ability/Ability_racial_avatar.png", 3, "Increases the damage of your Sinister Strike and Eviscerate abilities by %1%.", QVector<QPair<int, int>>{QPair<int, int>(2, 2)})}};
     add_talents(tier6);
 
