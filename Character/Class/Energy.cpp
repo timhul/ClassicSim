@@ -8,7 +8,8 @@
 
 Energy::Energy(Character* pchar) :
     pchar(pchar),
-    energy_per_tick(20)
+    energy_per_tick(20),
+    ticking(false)
 {
     this->max = 100;
     this->current = max;
@@ -27,13 +28,17 @@ void Energy::gain_resource(const unsigned energy) {
 }
 
 void Energy::add_next_tick() {
+    ticking = true;
+
     auto* event = new ResourceGain(pchar, energy_tick, pchar->get_engine()->get_current_priority() + 2.0);
     pchar->get_engine()->add_event(event);
 }
 
 void Energy::tick_energy() {
-    if (current == max)
+    if (current == max) {
+        ticking = false;
         return;
+    }
 
     gain_resource(energy_per_tick);
 
@@ -41,7 +46,7 @@ void Energy::tick_energy() {
 }
 
 void Energy::lose_resource(const unsigned energy) {
-    if (current == max)
+    if (ticking == false && current == max)
         add_next_tick();
 
     assert(current >= energy);
@@ -58,5 +63,6 @@ void Energy::decrease_energy_per_tick() {
 
 void Energy::reset_resource() {
     current = max;
+    ticking = false;
     energy_per_tick = 20;
 }

@@ -19,6 +19,7 @@ private:
     void test_energy_tick_adds_player_action_event();
     void test_losing_energy_while_non_max_does_not_change_energy_tick_timer();
     void test_energy_tick_timer_is_pushed_forward_if_completed_before_losing_energy_again();
+    void test_only_single_resource_gain_is_queued();
     void then_rogue_has_energy(const unsigned) const;
 
     Rogue* rogue;

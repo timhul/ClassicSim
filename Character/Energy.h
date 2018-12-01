@@ -28,6 +28,7 @@ private:
 
     void add_next_tick();
     unsigned energy_per_tick;
+    bool ticking;
 };
 
 #endif // ENERGY_H
