@@ -1,19 +1,19 @@
-
 #include "SwordSpecialization.h"
-#include "Warrior.h"
+
+#include "Character.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
-#include "Weapon.h"
 #include "ItemNamespace.h"
 #include "ProcInfo.h"
+#include "Weapon.h"
 
 SwordSpecialization::SwordSpecialization(Character* pchar) :
-    Proc("Sword Specialization", "Assets/warrior/arms/tier5/Inv_sword_27.png", 0.0, 0, QVector<Proc*>(),
+    Proc("Sword Specialization", "Assets/items/Inv_sword_27.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
          pchar),
     TalentRequirer(5, DisabledAtZero::Yes),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(pchar)
 {
     this->enabled = false;
     this->talent_ranks = {0, 1, 2, 3, 4, 5};

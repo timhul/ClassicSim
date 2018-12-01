@@ -4,7 +4,7 @@
 #include "Proc.h"
 #include "TalentRequirer.h"
 
-class Warrior;
+class Character;
 class Weapon;
 
 class SwordSpecialization: public Proc, public TalentRequirer {
@@ -18,8 +18,9 @@ public:
 protected:
 private:
     friend class SwordSpecializationTalent;
+    friend class SwordSpecializationTalentRogue;
 
-    Warrior* warr;
+    Character* warr;
 
     bool weapon_is_sword(Weapon*) const;
 

@@ -10,6 +10,7 @@
 #include "RogueSpells.h"
 #include "Stats.h"
 #include "Subtlety.h"
+#include "SwordSpecialization.h"
 #include "Talents.h"
 #include "Weapon.h"
 
@@ -45,6 +46,8 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 
     spells->activate_racials();
 
+    this->sword_spec = new SwordSpecialization(this);
+
     initialize_talents();
 }
 
@@ -57,6 +60,7 @@ Rogue::~Rogue()
     delete cstats;
     delete rogue_spells;
     delete energy;
+    delete sword_spec;
 }
 
 QString Rogue::get_name() const {
@@ -152,6 +156,10 @@ bool Rogue::is_stealthed() const {
 
 class Energy* Rogue::get_energy() const {
     return this->energy;
+}
+
+SwordSpecialization* Rogue::get_sword_spec() const {
+    return this->sword_spec;
 }
 
 void Rogue::initialize_talents() {

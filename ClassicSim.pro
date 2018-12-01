@@ -286,7 +286,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Combat/ImprovedBackstab.cpp \
     Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.cpp \
     Character/Class/Rogue/TalentTrees/Combat/DualWieldSpecializationRogue.cpp \
-    Character/Class/Rogue/Spells/OffhandAttackRogue.cpp
+    Character/Class/Rogue/Spells/OffhandAttackRogue.cpp \
+    Character/Class/Rogue/TalentTrees/Combat/SwordSpecializationTalentRogue.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -574,7 +575,8 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Combat/ImprovedBackstab.h \
     Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.h \
     Character/Class/Rogue/TalentTrees/Combat/DualWieldSpecializationRogue.h \
-    Character/Class/Rogue/Spells/OffhandAttackRogue.h
+    Character/Class/Rogue/Spells/OffhandAttackRogue.h \
+    Character/Class/Rogue/TalentTrees/Combat/SwordSpecializationTalentRogue.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
