@@ -1,6 +1,7 @@
 #include "Combat.h"
 
 #include "AdrenalineRushTalent.h"
+#include "BladeFlurryTalent.h"
 #include "GenericTalent.h"
 #include "Talent.h"
 
@@ -28,7 +29,7 @@ Combat::Combat(Character *pchar) :
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new GenericTalent(pchar, this, "Mace Specialization", "5LL", "Assets/items/Inv_mace_01.png", 5, "Increases your skill with Maces by %1, and gives you a %2% chance to stun your target for 3 sec with a mace.", QVector<QPair<int, int>>{QPair<int, int>(1, 1), QPair<int, int>(1, 1)})},
-                                  {"5ML", new GenericTalent(pchar, this, "Blade Flurry", "5ML", "Assets/ability/Ability_warrior_punishingblow.png", 1, "Increases your attack speed by 20%. In addition, attacks strike an additional nearby opponent. Lasts 15 sec.", QVector<QPair<int, int>>())},
+                                  {"5ML", new BladeFlurryTalent(pchar, this)},
                                   {"5MR", new GenericTalent(pchar, this, "Sword Specialization", "5MR", "Assets/items/Inv_sword_27.png", 5, "Gives you a %1% chance to get an extra attack on the same target after dealing damage with your Sword.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
                                   {"5RR", new GenericTalent(pchar, this, "Fist Weapon Specialization", "5RR", "Assets/items/Inv_gauntlets_04.png", 5, "Increases your chance to get a critical strike with Fist Weapons by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})}};
     add_talents(tier5);

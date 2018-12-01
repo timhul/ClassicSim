@@ -2,6 +2,7 @@
 
 #include "AdrenalineRush.h"
 #include "Backstab.h"
+#include "BladeFlurry.h"
 #include "Eviscerate.h"
 #include "MainhandAttack.h"
 #include "OffhandAttack.h"
@@ -16,6 +17,7 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     this->mh_attack = new MainhandAttack(rogue);
     this->oh_attack = new OffhandAttack(rogue);
     this->adrenaline_rush = new AdrenalineRush(rogue);
+    this->blade_flurry = new BladeFlurry(rogue);
     this->backstab = new Backstab(rogue);
     this->eviscerate = new Eviscerate(rogue);
     this->slice_and_dice = new SliceAndDice(rogue);
@@ -23,6 +25,7 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     spells.append(mh_attack);
     spells.append(oh_attack);
     spells.append(adrenaline_rush);
+    spells.append(blade_flurry);
     spells.append(backstab);
     spells.append(eviscerate);
     spells.append(slice_and_dice);
@@ -57,6 +60,10 @@ AdrenalineRush* RogueSpells::get_adrenaline_rush() const {
 
 Backstab* RogueSpells::get_backstab() const {
     return this->backstab;
+}
+
+BladeFlurry* RogueSpells::get_blade_flurry() const {
+    return this->blade_flurry;
 }
 
 Eviscerate* RogueSpells::get_eviscerate() const {

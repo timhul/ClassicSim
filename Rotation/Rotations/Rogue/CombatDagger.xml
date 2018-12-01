@@ -11,6 +11,10 @@
 	<cast_if name="Adrenaline Rush">
 		resource "Energy" leq 60
 	</cast_if>
+	
+	<cast_if name="Blade Flurry">
+		resource "Energy" leq 60
+	</cast_if>
 
 	<cast_if name="Backstab">
 		variable "combo_points" less 5

@@ -10,6 +10,7 @@
 #include "Target.h"
 #include "TestAdrenalineRush.h"
 #include "TestBackstab.h"
+#include "TestBladeFlurry.h"
 #include "TestEnergy.h"
 #include "TestEviscerate.h"
 #include "TestSliceAndDice.h"
@@ -21,6 +22,7 @@ void TestRogue::test_all() {
 
     TestAdrenalineRush(equipment_db).test_all();
     TestBackstab(equipment_db).test_all();
+    TestBladeFlurry(equipment_db).test_all();
     TestEviscerate(equipment_db).test_all();
     TestSliceAndDice(equipment_db).test_all();
 }

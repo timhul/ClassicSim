@@ -277,7 +277,11 @@ SOURCES += main.cpp \
     Character/Class/Rogue/Spells/AdrenalineRush.cpp \
     Character/Class/Rogue/TalentTrees/Combat/AdrenalineRushTalent.cpp \
     Character/Class/Rogue/Buffs/AdrenalineRushBuff.cpp \
-    Test/Rogue/Spells/TestAdrenalineRush.cpp
+    Test/Rogue/Spells/TestAdrenalineRush.cpp \
+    Character/Class/Rogue/Spells/BladeFlurry.cpp \
+    Character/Class/Rogue/TalentTrees/Combat/BladeFlurryTalent.cpp \
+    Character/Class/Rogue/Buffs/BladeFlurryBuff.cpp \
+    Test/Rogue/Spells/TestBladeFlurry.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -556,7 +560,11 @@ HEADERS += \
     Character/Class/Rogue/Spells/AdrenalineRush.h \
     Character/Class/Rogue/TalentTrees/Combat/AdrenalineRushTalent.h \
     Character/Class/Rogue/Buffs/AdrenalineRushBuff.h \
-    Test/Rogue/Spells/TestAdrenalineRush.h
+    Test/Rogue/Spells/TestAdrenalineRush.h \
+    Character/Class/Rogue/Spells/BladeFlurry.h \
+    Character/Class/Rogue/TalentTrees/Combat/BladeFlurryTalent.h \
+    Character/Class/Rogue/Buffs/BladeFlurryBuff.h \
+    Test/Rogue/Spells/TestBladeFlurry.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
