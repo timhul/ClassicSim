@@ -6,8 +6,12 @@
 
 Backstab::Backstab(Character* pchar) :
     Spell("Backstab", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 60),
+    TalentRequirer(3, DisabledAtZero::No),
     rogue(dynamic_cast<Rogue*>(pchar))
-{}
+{
+    talent_ranks = {0.0, 0.1, 0.2, 0.3};
+    crit_modifier = talent_ranks[curr_talent_rank];
+}
 
 bool Backstab::is_ready_spell_specific() const {
     return rogue->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::DAGGER;
@@ -16,7 +20,7 @@ bool Backstab::is_ready_spell_specific() const {
 void Backstab::spell_effect() {
     rogue->exit_stealth();
 
-    const int result = roll->get_melee_ability_result(rogue->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
+    const int result = roll->get_melee_ability_result(rogue->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance() + crit_modifier);
 
     add_gcd_event();
 
@@ -50,4 +54,12 @@ void Backstab::spell_effect() {
 
     rogue->lose_energy(static_cast<unsigned>(resource_cost));
     rogue->gain_combo_points(1);
+}
+
+void Backstab::increase_talent_rank_effect(const QString&) {
+    crit_modifier = talent_ranks[curr_talent_rank];
+}
+
+void Backstab::decrease_talent_rank_effect(const QString&) {
+    crit_modifier = talent_ranks[curr_talent_rank];
 }

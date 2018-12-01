@@ -282,7 +282,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Combat/BladeFlurryTalent.cpp \
     Character/Class/Rogue/Buffs/BladeFlurryBuff.cpp \
     Test/Rogue/Spells/TestBladeFlurry.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/Precision.cpp
+    Character/Class/Rogue/TalentTrees/Combat/Precision.cpp \
+    Character/Class/Rogue/TalentTrees/Combat/ImprovedBackstab.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -566,7 +567,8 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Combat/BladeFlurryTalent.h \
     Character/Class/Rogue/Buffs/BladeFlurryBuff.h \
     Test/Rogue/Spells/TestBladeFlurry.h \
-    Character/Class/Rogue/TalentTrees/Combat/Precision.h
+    Character/Class/Rogue/TalentTrees/Combat/Precision.h \
+    Character/Class/Rogue/TalentTrees/Combat/ImprovedBackstab.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
