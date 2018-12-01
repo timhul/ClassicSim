@@ -49,6 +49,12 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.1-alpha-3 (released 2018-12-01):
+
 * Rudimentary Rogue support (Combat Dagger rotation with Backstab, SnD, Eviscerate available).
 * More enchants (all superior versions for physical DPS now available).
 * Fix melee AP double dip from STR/AGI gained via buffs / base stats (i.e. not including equipment).
@@ -63,10 +69,9 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 ## Restrictions
 
 * Only the following rogue spells are available: Backstab, SnD, Eviscerate.
+* Only the following rogue talents have an effect on the character: Adrenaline Rush.
 * Some rogue talents have wrong tooltips.
 * Rogue has likely incorrect base stat values as they were borrowed from Warrior (changing STR to AGI).
-
-# Release notes
 
 ## v0.1-alpha-2 (released 2018-11-08):
 
@@ -108,11 +113,10 @@ Q: Why do this..?
 
 A: For me it is an ode to vanilla.
 
-Q: Only a single class? WTF!
+Q: When is class X or specialization Y supported?
 
-A: The intent of the current release is to show all the supporting systems that are shared between classes (talent
-calculator, world buffs, etc). See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for
-information when specific classes/specs are planned to be supported.
+A: See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information when specific
+classes/specs are planned to be supported.
 
 Q: Only Windows support? And 32-bit?
 
