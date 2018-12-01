@@ -5,7 +5,7 @@
 #include "BladeFlurry.h"
 #include "Eviscerate.h"
 #include "MainhandAttack.h"
-#include "OffhandAttack.h"
+#include "OffhandAttackRogue.h"
 #include "OffhandMeleeHit.h"
 #include "Rogue.h"
 #include "SliceAndDice.h"
@@ -15,7 +15,7 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     rogue(rogue)
 {
     this->mh_attack = new MainhandAttack(rogue);
-    this->oh_attack = new OffhandAttack(rogue);
+    this->oh_attack = new OffhandAttackRogue(rogue);
     this->adrenaline_rush = new AdrenalineRush(rogue);
     this->blade_flurry = new BladeFlurry(rogue);
     this->backstab = new Backstab(rogue);

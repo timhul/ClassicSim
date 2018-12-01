@@ -2,6 +2,7 @@
 
 #include "AdrenalineRushTalent.h"
 #include "BladeFlurryTalent.h"
+#include "DualWieldSpecializationRogue.h"
 #include "DaggerSpecialization.h"
 #include "GenericTalent.h"
 #include "ImprovedBackstab.h"
@@ -28,7 +29,7 @@ Combat::Combat(Character *pchar) :
 
     QMap<QString, Talent*> tier4 {{"4LL", new GenericTalent(pchar, this, "Improved Kick", "4LL", "Assets/ability/Ability_kick.png", 2, "Gives your Kick ability a %1% chance to silence the target for 2 sec.", QVector<QPair<int, int>>{QPair<int, int>(50, 50)})},
                                   {"4ML", new DaggerSpecialization(pchar, this)},
-                                  {"4MR", new GenericTalent(pchar, this, "Dual Wield Specialization", "4MR", "Assets/ability/Ability_dualwield.png", 5, "Increases the damage done by your offhand weapon by %1%.", QVector<QPair<int, int>>{QPair<int, int>(10, 10)})}};
+                                  {"4MR", new DualWieldSpecializationRogue(pchar, this)}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new GenericTalent(pchar, this, "Mace Specialization", "5LL", "Assets/items/Inv_mace_01.png", 5, "Increases your skill with Maces by %1, and gives you a %2% chance to stun your target for 3 sec with a mace.", QVector<QPair<int, int>>{QPair<int, int>(1, 1), QPair<int, int>(1, 1)})},
