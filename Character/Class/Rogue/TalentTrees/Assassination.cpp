@@ -1,13 +1,14 @@
 #include "Assassination.h"
 
 #include "GenericTalent.h"
+#include "ImprovedEviscerate.h"
 #include "Malice.h"
 #include "Talent.h"
 
 Assassination::Assassination(Character *pchar) :
     TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg")
 {
-    QMap<QString, Talent*> tier1 {{"1LL", new GenericTalent(pchar, this, "Improved Eviscerate", "1LL", "Assets/ability/Ability_rogue_eviscerate.png", 3, "Increases the damage done by your Eviscerate ability by %1%.", QVector<QPair<int, int>>{QPair<int, int>(5, 5)})},
+    QMap<QString, Talent*> tier1 {{"1LL", new ImprovedEviscerate(pchar, this)},
                                   {"1ML", new GenericTalent(pchar, this, "Remorseless Attacks", "1ML", "Assets/ability/Ability_fiegndead.png", 2, "After killing an opponent that yields experience or honor, gives you a %1 increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike. Lasts 20 sec.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})},
                                   {"1MR", new Malice(pchar, this)}};
     add_talents(tier1);

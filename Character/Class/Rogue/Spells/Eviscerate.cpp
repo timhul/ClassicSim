@@ -7,8 +7,10 @@
 
 Eviscerate::Eviscerate(Character* pchar) :
     Spell("Eviscerate", "Assets/ability/Ability_rogue_eviscerate.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 35),
+    TalentRequirer(3, DisabledAtZero::No),
     rogue(dynamic_cast<Rogue*>(pchar)),
-    evisc_range(new Random(904, 1012))
+    evisc_range(new Random(904, 1012)),
+    total_dmg_modifier(1.0)
 {
     this->damage_ranges_per_combo_point = {
         QPair<unsigned, unsigned>(224, 332),
@@ -17,6 +19,9 @@ Eviscerate::Eviscerate(Character* pchar) :
         QPair<unsigned, unsigned>(734, 842),
         QPair<unsigned, unsigned>(904, 1012),
     };
+
+    this->imp_evisc_modifiers = {1.0, 1.05, 1.10, 1.15};
+    this->imp_evisc_modifier = imp_evisc_modifiers[curr_talent_rank];
 }
 
 Eviscerate::~Eviscerate() {
@@ -52,7 +57,7 @@ void Eviscerate::spell_effect() {
 
     set_evisc_range();
     double ap_modifier = rogue->get_stats()->get_melee_ap() * (rogue->get_combo_points() * 0.03);
-    double damage_dealt = damage_after_modifiers(evisc_range->get_roll() + ap_modifier);
+    double damage_dealt = damage_after_modifiers((evisc_range->get_roll() + ap_modifier) * total_dmg_modifier);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod());
@@ -76,4 +81,22 @@ void Eviscerate::set_evisc_range() {
     unsigned max = damage_ranges_per_combo_point[index].second;
 
     evisc_range->set_new_range(min, max);
+}
+
+void Eviscerate::update_dmg_modifier() {
+    this->total_dmg_modifier = 1 * imp_evisc_modifier;
+}
+
+void Eviscerate::increase_talent_rank_effect(const QString& talent_name) {
+    if (talent_name == "Improved Eviscerate")
+        imp_evisc_modifier = imp_evisc_modifiers[curr_talent_rank];
+
+    update_dmg_modifier();
+}
+
+void Eviscerate::decrease_talent_rank_effect(const QString& talent_name) {
+    if (talent_name == "Improved Eviscerate")
+        imp_evisc_modifier = imp_evisc_modifiers[curr_talent_rank];
+
+    update_dmg_modifier();
 }

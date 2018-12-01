@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     Eviscerate* eviscerate();
 
     void test_name_correct() override;
@@ -32,9 +33,19 @@ public:
     void test_crit_dmg_4_combo_points();
     void test_crit_dmg_5_combo_points();
 
-    void when_eviscerate_is_performed();
+    void test_hit_dmg_5_combo_points_with_1_of_3_imp_evisc();
+    void test_hit_dmg_5_combo_points_with_2_of_3_imp_evisc();
+    void test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc();
 
-private:
+    void test_crit_dmg_5_combo_points_with_1_of_3_imp_evisc();
+    void test_crit_dmg_5_combo_points_with_2_of_3_imp_evisc();
+    void test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc();
+
+    void given_1_of_3_imp_eviscerate();
+    void given_2_of_3_imp_eviscerate();
+    void given_3_of_3_imp_eviscerate();
+
+    void when_eviscerate_is_performed();
 };
 
 #endif // TESTEVISCERATE_H
