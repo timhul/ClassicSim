@@ -4,6 +4,7 @@
 #include "BladeFlurryTalent.h"
 #include "DualWieldSpecializationRogue.h"
 #include "DaggerSpecialization.h"
+#include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
 #include "ImprovedBackstab.h"
 #include "Precision.h"
@@ -36,7 +37,7 @@ Combat::Combat(Character *pchar) :
     QMap<QString, Talent*> tier5 {{"5LL", new GenericTalent(pchar, this, "Mace Specialization", "5LL", "Assets/items/Inv_mace_01.png", 5, "Increases your skill with Maces by %1, and gives you a %2% chance to stun your target for 3 sec with a mace.", QVector<QPair<int, int>>{QPair<int, int>(1, 1), QPair<int, int>(1, 1)})},
                                   {"5ML", new BladeFlurryTalent(pchar, this)},
                                   {"5MR", new SwordSpecializationTalentRogue(pchar, this)},
-                                  {"5RR", new GenericTalent(pchar, this, "Fist Weapon Specialization", "5RR", "Assets/items/Inv_gauntlets_04.png", 5, "Increases your chance to get a critical strike with Fist Weapons by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})}};
+                                  {"5RR", new FistWeaponSpecialization(pchar, this)}};
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6ML", new GenericTalent(pchar, this, "Weapon Expertise", "6ML", "Assets/spell/Spell_holy_blessingofstrength.png", 2, "Increases your skill with Sword, Fist and Dagger weapons by %1.", QVector<QPair<int, int>>{QPair<int, int>(3, 2)})},
