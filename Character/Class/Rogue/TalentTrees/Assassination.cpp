@@ -1,5 +1,7 @@
 #include "Assassination.h"
+
 #include "GenericTalent.h"
+#include "Malice.h"
 #include "Talent.h"
 
 Assassination::Assassination(Character *pchar) :
@@ -7,7 +9,7 @@ Assassination::Assassination(Character *pchar) :
 {
     QMap<QString, Talent*> tier1 {{"1LL", new GenericTalent(pchar, this, "Improved Eviscerate", "1LL", "Assets/ability/Ability_rogue_eviscerate.png", 3, "Increases the damage done by your Eviscerate ability by %1%.", QVector<QPair<int, int>>{QPair<int, int>(5, 5)})},
                                   {"1ML", new GenericTalent(pchar, this, "Remorseless Attacks", "1ML", "Assets/ability/Ability_fiegndead.png", 2, "After killing an opponent that yields experience or honor, gives you a %1 increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike. Lasts 20 sec.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})},
-                                  {"1MR", new GenericTalent(pchar, this, "Malice", "1MR", "Assets/ability/Ability_racial_bloodrage.png", 5, "Increases your critical strike chance by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})}};
+                                  {"1MR", new Malice(pchar, this)}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new GenericTalent(pchar, this, "Ruthlessness", "2LL", "Assets/ability/Ability_druid_disembowel.png", 3, "Gives your finishing moves a %1% chance to add a combo point to your target.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})},

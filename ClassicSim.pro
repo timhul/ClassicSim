@@ -290,7 +290,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Combat/SwordSpecializationTalentRogue.cpp \
     Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.cpp \
     Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.cpp
+    Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.cpp \
+    Character/Class/Rogue/TalentTrees/Assassination/Malice.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -582,7 +583,8 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Combat/SwordSpecializationTalentRogue.h \
     Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.h \
     Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.h \
-    Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.h
+    Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.h \
+    Character/Class/Rogue/TalentTrees/Assassination/Malice.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -605,6 +607,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Rogue/Buffs \
     $$PWD/Character/Class/Rogue/Spells \
     $$PWD/Character/Class/Rogue/TalentTrees \
+    $$PWD/Character/Class/Rogue/TalentTrees/Assassination \
     $$PWD/Character/Class/Rogue/TalentTrees/Combat \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
