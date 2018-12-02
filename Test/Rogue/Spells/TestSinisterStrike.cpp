@@ -1,6 +1,7 @@
 #include "TestSinisterStrike.h"
 
 #include "Equipment.h"
+#include "ImprovedSinisterStrike.h"
 #include "Queue.h"
 #include "RogueSpells.h"
 #include "SinisterStrike.h"
@@ -26,6 +27,14 @@ void TestSinisterStrike::test_all() {
 
     set_up();
     test_crit_dmg();
+    tear_down();
+
+    set_up();
+    test_resource_cost_1_of_2_imp_ss();
+    tear_down();
+
+    set_up();
+    test_resource_cost_2_of_2_imp_ss();
     tear_down();
 }
 
@@ -123,6 +132,39 @@ void TestSinisterStrike::test_crit_dmg() {
     // [Damage] = (base_dmg + normalized_wpn_speed * AP / 14 + flat_damage_bonus) * crit_dmg_modifier
     // [579] = (100 + 2.4 * 1000 / 14 + 68) * 2.0
     then_damage_dealt_is(679);
+}
+
+void TestSinisterStrike::test_resource_cost_1_of_2_imp_ss() {
+    given_1h_sword_equipped_in_mainhand(pchar);
+    ImprovedSinisterStrike(rogue, nullptr).increment_rank();
+    given_a_guaranteed_melee_ability_hit();
+
+    given_rogue_has_energy(42);
+    when_sinister_strike_is_performed();
+    then_rogue_has_energy(0);
+
+    given_engine_priority_at(1.01);
+
+    given_rogue_has_energy(52);
+    when_sinister_strike_is_performed();
+    then_rogue_has_energy(10);
+}
+
+void TestSinisterStrike::test_resource_cost_2_of_2_imp_ss() {
+    given_1h_sword_equipped_in_mainhand(pchar);
+    ImprovedSinisterStrike(rogue, nullptr).increment_rank();
+    ImprovedSinisterStrike(rogue, nullptr).increment_rank();
+    given_a_guaranteed_melee_ability_hit();
+
+    given_rogue_has_energy(40);
+    when_sinister_strike_is_performed();
+    then_rogue_has_energy(0);
+
+    given_engine_priority_at(1.01);
+
+    given_rogue_has_energy(50);
+    when_sinister_strike_is_performed();
+    then_rogue_has_energy(10);
 }
 
 void TestSinisterStrike::when_sinister_strike_is_performed() {

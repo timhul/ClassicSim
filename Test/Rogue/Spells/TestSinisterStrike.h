@@ -22,6 +22,8 @@ public:
 
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_resource_cost_1_of_2_imp_ss();
+    void test_resource_cost_2_of_2_imp_ss();
 
     void when_sinister_strike_is_performed();
 

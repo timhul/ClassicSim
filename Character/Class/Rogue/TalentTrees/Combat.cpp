@@ -7,6 +7,7 @@
 #include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
 #include "ImprovedBackstab.h"
+#include "ImprovedSinisterStrike.h"
 #include "MaceSpecialization.h"
 #include "Precision.h"
 #include "SwordSpecializationTalentRogue.h"
@@ -17,7 +18,7 @@ Combat::Combat(Character *pchar) :
     TalentTree("Combat", "Assets/rogue/rogue_combat.jpg")
 {
     QMap<QString, Talent*> tier1 {{"1LL", new GenericTalent(pchar, this, "Improved Gouge", "1LL", "Assets/ability/Ability_gouge.png", 3, "Increases the effect duration of your Gouge ability by %1 sec.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
-                                  {"1ML", new GenericTalent(pchar, this, "Improved Sinister Strike", "1ML", "Assets/spell/Spell_shadow_ritualofsacrifice.png", 2, "Reduces the Energy cost of your Sinister Strike ability by %1.", QVector<QPair<int, int>>{QPair<int, int>(3, 2)})},
+                                  {"1ML", new ImprovedSinisterStrike(pchar, this)},
                                   {"1MR", new GenericTalent(pchar, this, "Lightning Reflexes", "1MR", "Assets/spell/Spell_nature_invisibility.png", 5, "Increases your Dodge chance by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})}};
     add_talents(tier1);
 
