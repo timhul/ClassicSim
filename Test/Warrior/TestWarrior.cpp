@@ -71,10 +71,10 @@ void TestWarrior::test_basic_properties() {
     assert(warr->get_name() == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");
     assert(warr->get_highest_possible_armor_type() == ArmorTypes::PLATE);
-    assert(delta(1.5, warr->global_cooldown()) < 0.0001);
-    assert(delta(1.0, warr->stance_cooldown()) < 0.0001);
-    assert(delta(2.0, warr->get_ability_crit_dmg_mod()) < 0.0001);
-    assert(delta(1.5, warr->get_spell_crit_dmg_mod()) < 0.0001);
+    assert(almost_equal(1.5, warr->global_cooldown()));
+    assert(almost_equal(1.0, warr->stance_cooldown()));
+    assert(almost_equal(2.0, warr->get_ability_crit_dmg_mod()));
+    assert(almost_equal(1.5, warr->get_spell_crit_dmg_mod()));
 
     delete race;
     delete warr;

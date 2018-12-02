@@ -92,7 +92,7 @@ void TestSlam::test_obeys_global_cooldown() {
     given_warrior_is_on_gcd();
 
     assert(!slam()->is_available());
-    assert(delta(slam()->get_cooldown_remaining(), 0) < 0.0001);
+    assert(almost_equal(slam()->get_cooldown_remaining(), 0));
 }
 
 void TestSlam::test_is_ready_conditions() {
@@ -205,20 +205,20 @@ void TestSlam::test_dodge_applies_overpower_buff() {
 }
 
 void TestSlam::test_cast_time_with_0_of_5_improved_slam() {
-    assert(delta(slam()->get_cast_time(), 1.5) < 0.0001);
+    assert(almost_equal(slam()->get_cast_time(), 1.5));
 }
 
 void TestSlam::test_cast_time_with_1_of_5_improved_slam() {
     ImprovedSlam(pchar, nullptr).increment_rank();
 
-    assert(delta(slam()->get_cast_time(), 1.4) < 0.0001);
+    assert(almost_equal(slam()->get_cast_time(), 1.4));
 }
 
 void TestSlam::test_cast_time_with_2_of_5_improved_slam() {
     ImprovedSlam(pchar, nullptr).increment_rank();
     ImprovedSlam(pchar, nullptr).increment_rank();
 
-    assert(delta(slam()->get_cast_time(), 1.3) < 0.0001);
+    assert(almost_equal(slam()->get_cast_time(), 1.3));
 }
 
 void TestSlam::test_cast_time_with_3_of_5_improved_slam() {
@@ -226,7 +226,7 @@ void TestSlam::test_cast_time_with_3_of_5_improved_slam() {
     ImprovedSlam(pchar, nullptr).increment_rank();
     ImprovedSlam(pchar, nullptr).increment_rank();
 
-    assert(delta(slam()->get_cast_time(), 1.2) < 0.0001);
+    assert(almost_equal(slam()->get_cast_time(), 1.2));
 }
 
 void TestSlam::test_cast_time_with_4_of_5_improved_slam() {
@@ -235,7 +235,7 @@ void TestSlam::test_cast_time_with_4_of_5_improved_slam() {
     ImprovedSlam(pchar, nullptr).increment_rank();
     ImprovedSlam(pchar, nullptr).increment_rank();
 
-    assert(delta(slam()->get_cast_time(), 1.1) < 0.0001);
+    assert(almost_equal(slam()->get_cast_time(), 1.1));
 }
 
 void TestSlam::test_cast_time_with_5_of_5_improved_slam() {
@@ -245,7 +245,7 @@ void TestSlam::test_cast_time_with_5_of_5_improved_slam() {
     ImprovedSlam(pchar, nullptr).increment_rank();
     ImprovedSlam(pchar, nullptr).increment_rank();
 
-    assert(delta(slam()->get_cast_time(), 1.0) < 0.0001);
+    assert(almost_equal(slam()->get_cast_time(), 1.0));
 }
 
 void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {

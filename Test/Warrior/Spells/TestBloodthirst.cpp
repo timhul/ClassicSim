@@ -63,7 +63,7 @@ void TestBloodthirst::test_obeys_global_cooldown() {
     given_warrior_is_on_gcd();
 
     assert(!bloodthirst()->is_available());
-    assert(delta(bloodthirst()->get_cooldown_remaining(), 0) < 0.0001);
+    assert(almost_equal(bloodthirst()->get_cooldown_remaining(), 0));
 }
 
 void TestBloodthirst::test_is_ready_conditions() {

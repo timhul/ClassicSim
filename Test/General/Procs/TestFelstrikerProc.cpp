@@ -56,7 +56,7 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
 
     then_next_event_is("BuffRemoval", "3.000", RUN_EVENT);
 
-    assert(delta(crit_before_buff, pchar->get_stats()->get_mh_crit_chance()) < 0.0001);
+    assert(almost_equal(crit_before_buff, pchar->get_stats()->get_mh_crit_chance()));
 }
 
 void TestFelstrikerProc::given_felstriker_equipped_in_mainhand() {

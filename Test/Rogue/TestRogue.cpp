@@ -36,9 +36,9 @@ void TestRogue::test_basic_properties() {
     assert(rogue->get_name() == "Rogue");
     assert(rogue->get_race()->get_name() == "Orc");
     assert(rogue->get_highest_possible_armor_type() == ArmorTypes::LEATHER);
-    assert(delta(1.0, rogue->global_cooldown()) < 0.0001);
-    assert(delta(2.0, rogue->get_ability_crit_dmg_mod()) < 0.0001);
-    assert(delta(1.5, rogue->get_spell_crit_dmg_mod()) < 0.0001);
+    assert(almost_equal(1.0, rogue->global_cooldown()));
+    assert(almost_equal(2.0, rogue->get_ability_crit_dmg_mod()));
+    assert(almost_equal(1.5, rogue->get_spell_crit_dmg_mod()));
 
     delete race;
     delete rogue;

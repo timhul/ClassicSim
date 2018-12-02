@@ -65,7 +65,7 @@ void TestMortalStrike::test_obeys_global_cooldown() {
     given_warrior_is_on_gcd();
 
     assert(!mortal_strike()->is_available());
-    assert(delta(mortal_strike()->get_cooldown_remaining(), 0) < 0.0001);
+    assert(almost_equal(mortal_strike()->get_cooldown_remaining(), 0));
 }
 
 void TestMortalStrike::test_is_ready_conditions() {
