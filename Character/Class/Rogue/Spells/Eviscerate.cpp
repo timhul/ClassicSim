@@ -7,7 +7,10 @@
 
 Eviscerate::Eviscerate(Character* pchar) :
     Spell("Eviscerate", "Assets/ability/Ability_rogue_eviscerate.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 35),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Eviscerate", 3, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*>{
+                   new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
+                   new TalentRequirerInfo("Improved Eviscerate", 3, DisabledAtZero::No)
+                   }),
     rogue(dynamic_cast<Rogue*>(pchar)),
     evisc_range(new Random(904, 1012)),
     total_dmg_modifier(1.0)
@@ -19,6 +22,9 @@ Eviscerate::Eviscerate(Character* pchar) :
         QPair<unsigned, unsigned>(734, 842),
         QPair<unsigned, unsigned>(904, 1012),
     };
+
+    this->aggression_modifiers = {1.0, 1.02, 1.04, 1.06};
+    this->aggression_modifier = aggression_modifiers[0];
 
     this->imp_evisc_modifiers = {1.0, 1.05, 1.10, 1.15};
     this->imp_evisc_modifier = imp_evisc_modifiers[0];
@@ -84,12 +90,14 @@ void Eviscerate::set_evisc_range() {
 }
 
 void Eviscerate::update_dmg_modifier() {
-    this->total_dmg_modifier = 1 * imp_evisc_modifier;
+    this->total_dmg_modifier = 1 * imp_evisc_modifier * aggression_modifier;
 }
 
 void Eviscerate::increase_talent_rank_effect(const int curr, const QString& talent_name) {
     if (talent_name == "Improved Eviscerate")
         imp_evisc_modifier = imp_evisc_modifiers[curr];
+    else if (talent_name == "Aggression")
+        aggression_modifier = aggression_modifiers[curr];
 
     update_dmg_modifier();
 }
@@ -97,6 +105,8 @@ void Eviscerate::increase_talent_rank_effect(const int curr, const QString& tale
 void Eviscerate::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
     if (talent_name == "Improved Eviscerate")
         imp_evisc_modifier = imp_evisc_modifiers[curr];
+    else if (talent_name == "Aggression")
+        aggression_modifier = aggression_modifiers[curr];
 
     update_dmg_modifier();
 }

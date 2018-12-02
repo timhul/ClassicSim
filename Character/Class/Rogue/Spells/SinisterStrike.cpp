@@ -6,7 +6,10 @@
 
 SinisterStrike::SinisterStrike(Character* pchar) :
     Spell("Sinister Strike", "Assets/spell/Spell_shadow_ritualofsacrifice.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 45),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Sinister Strike", 2, DisabledAtZero::No)}),
+    TalentRequirer(QVector<TalentRequirerInfo*>{
+                   new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
+                   new TalentRequirerInfo("Improved Sinister Strike", 2, DisabledAtZero::No)
+                   }),
     rogue(dynamic_cast<Rogue*>(pchar)),
     aggression_modifier(1.0)
 {

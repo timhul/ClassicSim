@@ -41,9 +41,24 @@ private:
     void test_crit_dmg_5_combo_points_with_2_of_3_imp_evisc();
     void test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc();
 
+    void test_hit_dmg_5_combo_points_with_1_of_3_aggression();
+    void test_hit_dmg_5_combo_points_with_2_of_3_aggression();
+    void test_hit_dmg_5_combo_points_with_3_of_3_aggression();
+
+    void test_crit_dmg_5_combo_points_with_1_of_3_aggression();
+    void test_crit_dmg_5_combo_points_with_2_of_3_aggression();
+    void test_crit_dmg_5_combo_points_with_3_of_3_aggression();
+
+    void test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression();
+    void test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression();
+
     void given_1_of_3_imp_eviscerate();
     void given_2_of_3_imp_eviscerate();
     void given_3_of_3_imp_eviscerate();
+
+    void given_1_of_3_aggression();
+    void given_2_of_3_aggression();
+    void given_3_of_3_aggression();
 
     void when_eviscerate_is_performed();
 };

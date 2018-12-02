@@ -295,7 +295,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedEviscerate.cpp \
     Character/Class/Rogue/Spells/SinisterStrike.cpp \
     Test/Rogue/Spells/TestSinisterStrike.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.cpp
+    Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.cpp \
+    Character/Class/Rogue/TalentTrees/Combat/Aggression.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -592,7 +593,8 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedEviscerate.h \
     Character/Class/Rogue/Spells/SinisterStrike.h \
     Test/Rogue/Spells/TestSinisterStrike.h \
-    Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.h
+    Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.h \
+    Character/Class/Rogue/TalentTrees/Combat/Aggression.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

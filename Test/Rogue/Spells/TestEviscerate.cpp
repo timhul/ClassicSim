@@ -1,5 +1,6 @@
 #include "TestEviscerate.h"
 
+#include "Aggression.h"
 #include "Equipment.h"
 #include "Eviscerate.h"
 #include "ImprovedEviscerate.h"
@@ -83,6 +84,38 @@ void TestEviscerate::test_all() {
 
     set_up();
     test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_combo_points_with_1_of_3_aggression();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_combo_points_with_2_of_3_aggression();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_combo_points_with_3_of_3_aggression();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_combo_points_with_1_of_3_aggression();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_combo_points_with_2_of_3_aggression();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_combo_points_with_3_of_3_aggression();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression();
     tear_down();
 }
 
@@ -443,6 +476,136 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc() {
     then_damage_dealt_is_in_range(2424, 2673);
 }
 
+void TestEviscerate::test_hit_dmg_5_combo_points_with_1_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_hit();
+    given_1000_melee_ap();
+    given_1_of_3_aggression();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression
+    // [1075-1185] = ([904-1012] + 1000 * 5 * 0.03) * 1.02
+    then_damage_dealt_is_in_range(1075, 1185);
+}
+
+void TestEviscerate::test_crit_dmg_5_combo_points_with_1_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_1_of_3_aggression();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * crit_dmg_modifier
+    // [2150-2370] = ([904-1012] + 1000 * 5 * 0.03) * 1.02 * 2.0
+    then_damage_dealt_is_in_range(2150, 2370);
+}
+
+void TestEviscerate::test_hit_dmg_5_combo_points_with_2_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_hit();
+    given_1000_melee_ap();
+    given_2_of_3_aggression();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression
+    // [1096-1208] = ([904-1012] + 1000 * 5 * 0.03) * 1.04
+    then_damage_dealt_is_in_range(1096, 1208);
+}
+
+void TestEviscerate::test_crit_dmg_5_combo_points_with_2_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_2_of_3_aggression();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * crit_dmg_modifier
+    // [2192-2417] = ([904-1012] + 1000 * 5 * 0.03) * 1.04 * 2.0
+    then_damage_dealt_is_in_range(2192, 2417);
+}
+
+void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_hit();
+    given_1000_melee_ap();
+    given_3_of_3_aggression();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression
+    // [1117-1232] = ([904-1012] + 1000 * 5 * 0.03) * 1.06
+    then_damage_dealt_is_in_range(1117, 1232);
+}
+
+void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_3_of_3_aggression();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * crit_dmg_modifier
+    // [2234-2463] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 2.0
+    then_damage_dealt_is_in_range(2234, 2463);
+}
+
+void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_hit();
+    given_1000_melee_ap();
+    given_3_of_3_aggression();
+    given_3_of_3_imp_eviscerate();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * imp_evisc
+    // [1285-1416] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 1.15
+    then_damage_dealt_is_in_range(1285, 1416);
+}
+
+void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression() {
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_3_of_3_aggression();
+    given_3_of_3_imp_eviscerate();
+    given_no_previous_damage_dealt();
+    given_rogue_has_combo_points(5);
+
+    when_eviscerate_is_performed();
+
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * imp_evisc * crit_dmg_modifier
+    // [2570-2833] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 1.15 * 2.0
+    then_damage_dealt_is_in_range(2570, 2833);
+}
+
 void TestEviscerate::given_1_of_3_imp_eviscerate() {
     ImprovedEviscerate(rogue, nullptr).increment_rank();
 }
@@ -456,6 +619,21 @@ void TestEviscerate::given_3_of_3_imp_eviscerate() {
     ImprovedEviscerate(rogue, nullptr).increment_rank();
     ImprovedEviscerate(rogue, nullptr).increment_rank();
     ImprovedEviscerate(rogue, nullptr).increment_rank();
+}
+
+void TestEviscerate::given_1_of_3_aggression() {
+    Aggression(rogue, nullptr).increment_rank();
+}
+
+void TestEviscerate::given_2_of_3_aggression() {
+    Aggression(rogue, nullptr).increment_rank();
+    Aggression(rogue, nullptr).increment_rank();
+}
+
+void TestEviscerate::given_3_of_3_aggression() {
+    Aggression(rogue, nullptr).increment_rank();
+    Aggression(rogue, nullptr).increment_rank();
+    Aggression(rogue, nullptr).increment_rank();
 }
 
 void TestEviscerate::when_eviscerate_is_performed() {

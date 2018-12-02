@@ -1,6 +1,7 @@
 #include "Combat.h"
 
 #include "AdrenalineRushTalent.h"
+#include "Aggression.h"
 #include "BladeFlurryTalent.h"
 #include "DualWieldSpecializationRogue.h"
 #include "DaggerSpecialization.h"
@@ -44,7 +45,7 @@ Combat::Combat(Character *pchar) :
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6ML", new WeaponExpertise(pchar, this)},
-                                  {"6MR", new GenericTalent(pchar, this, "Aggression", "6MR", "Assets/ability/Ability_racial_avatar.png", 3, "Increases the damage of your Sinister Strike and Eviscerate abilities by %1%.", QVector<QPair<int, int>>{QPair<int, int>(2, 2)})}};
+                                  {"6MR", new Aggression(pchar, this)}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new AdrenalineRushTalent(pchar, this)}};
