@@ -27,6 +27,7 @@ private:
     void test_physical_damage_multipliers_stacks_multiplicatively();
     void test_physical_damage_taken_multipliers_stacks_multiplicatively();
     void test_spell_damage_taken_multipliers_stacks_multiplicatively();
+    void test_damage_bonuses_vs_creature_type();
 };
 
 #endif // TESTCHARACTERSTATS_H

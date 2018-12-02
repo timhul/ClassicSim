@@ -41,6 +41,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_spell_damage_taken_multipliers_stacks_multiplicatively();
     tear_down();
+
+    set_up();
+    test_damage_bonuses_vs_creature_type();
+    tear_down();
 }
 
 void TestCharacterStats::test_basic_properties() {
@@ -168,4 +172,21 @@ void TestCharacterStats::test_spell_damage_taken_multipliers_stacks_multiplicati
     cstats->remove_spell_damage_taken_mod(-50);
     // 1.00 = 1.0
     assert(almost_equal(cstats->get_spell_damage_taken_mod(), 1.00));
+}
+
+void TestCharacterStats::test_damage_bonuses_vs_creature_type() {
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
+    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Beast);
+
+    cstats->increase_dmg_vs_type(Target::CreatureType::Beast, 0.01);
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.01));
+
+    cstats->increase_dmg_vs_type(Target::CreatureType::Beast, 0.1);
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.11));
+
+    cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, 0.05);
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.06));
+
+    cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, 0.06);
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
 }

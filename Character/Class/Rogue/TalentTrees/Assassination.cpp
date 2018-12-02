@@ -4,6 +4,7 @@
 #include "ImprovedEviscerate.h"
 #include "ImprovedSliceAndDice.h"
 #include "Malice.h"
+#include "Murder.h"
 #include "Talent.h"
 
 Assassination::Assassination(Character *pchar) :
@@ -15,7 +16,7 @@ Assassination::Assassination(Character *pchar) :
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new GenericTalent(pchar, this, "Ruthlessness", "2LL", "Assets/ability/Ability_druid_disembowel.png", 3, "Gives your finishing moves a %1% chance to add a combo point to your target.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})},
-                                  {"2ML", new GenericTalent(pchar, this, "Murder", "2ML", "Assets/spell/Spell_shadow_deathscream.png", 2, "Increases all damage caused against Humanoid, Giant, Beast and Dragonkin targets by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
+                                  {"2ML", new Murder(pchar, this)},
                                   {"2RR", new ImprovedSliceAndDice(pchar, this)}};
     add_talents(tier2);
 

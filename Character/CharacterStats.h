@@ -78,6 +78,9 @@ public:
     void increase_ap_vs_type(const Target::CreatureType, const int);
     void decrease_ap_vs_type(const Target::CreatureType, const int);
 
+    void increase_dmg_vs_type(const Target::CreatureType, const double);
+    void decrease_dmg_vs_type(const Target::CreatureType, const double);
+
     virtual void increase_hit(double);
     virtual void decrease_hit(double);
 
@@ -122,6 +125,7 @@ protected:
     QVector<int> total_stat_mod_changes;
     QHash<int, double> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
+    QHash<int, double> damage_bonuses_per_monster_type;
 
     int axe_skill_bonus;
     int dagger_skill_bonus;

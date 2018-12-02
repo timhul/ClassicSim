@@ -48,6 +48,15 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0.0);
     this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_MACE, 0.0);
     this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_SWORD, 0.0);
+
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Beast, 0);
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Demon, 0);
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Dragonkin, 0);
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Elemental, 0);
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Giant, 0);
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Humanoid, 0);
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Mechanical, 0);
+    this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Undead, 0);
 }
 
 CharacterStats::~CharacterStats() {
@@ -391,12 +400,22 @@ void CharacterStats::decrease_ap_vs_type(const Target::CreatureType target_type,
     base_stats->decrease_ranged_ap_against_type(target_type, value);
 }
 
+void CharacterStats::increase_dmg_vs_type(const Target::CreatureType target_type, const double value) {
+    damage_bonuses_per_monster_type[target_type] += value;
+}
+
+void CharacterStats::decrease_dmg_vs_type(const Target::CreatureType target_type, const double value) {
+    damage_bonuses_per_monster_type[target_type] -= value;
+}
+
 double CharacterStats::get_total_phys_dmg_mod() const {
     double dmg_bonus_from_wpn_type = 1.0;
     if (equipment->get_mainhand() != nullptr)
         dmg_bonus_from_wpn_type += double(damage_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()]) / 100;
 
-    return total_phys_dmg_mod * dmg_bonus_from_wpn_type;
+    double dmg_bonus_from_monster_type = 1.0 + damage_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
+
+    return total_phys_dmg_mod * dmg_bonus_from_wpn_type * dmg_bonus_from_monster_type;
 }
 
 double CharacterStats::get_attack_speed_mod() const {
