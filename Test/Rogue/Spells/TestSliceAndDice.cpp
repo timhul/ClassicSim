@@ -1,8 +1,10 @@
+#include "SliceAndDice.h"
+
 #include "Backstab.h"
 #include "Equipment.h"
+#include "ImprovedSliceAndDice.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
-#include "SliceAndDice.h"
 #include "TestSliceAndDice.h"
 #include "WarriorSpells.h"
 
@@ -39,6 +41,18 @@ void TestSliceAndDice::test_all() {
 
     set_up();
     test_duration_and_attack_speed_with_5_combo_points();
+    tear_down();
+
+    set_up();
+    test_duration_and_attack_speed_with_5_combo_points_and_1_of_3_imp_snd();
+    tear_down();
+
+    set_up();
+    test_duration_and_attack_speed_with_5_combo_points_and_2_of_3_imp_snd();
+    tear_down();
+
+    set_up();
+    test_duration_and_attack_speed_with_5_combo_points_and_3_of_3_imp_snd();
     tear_down();
 }
 
@@ -231,6 +245,69 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "21.000");
+}
+
+void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_of_3_imp_snd() {
+    given_1_of_3_imp_snd();
+    given_a_mainhand_weapon_with_2_speed();
+    given_rogue_has_combo_points(5);
+    rogue->start_attack();
+
+    when_slice_and_dice_is_performed();
+
+    then_next_event_is("MainhandMeleeHit", "0.000");
+    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
+    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("MainhandMeleeHit", "1.538");
+    then_next_event_is("ResourceGain", "2.000");
+    then_next_event_is("BuffRemoval", "24.000");
+}
+
+void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_of_3_imp_snd() {
+    given_2_of_3_imp_snd();
+    given_a_mainhand_weapon_with_2_speed();
+    given_rogue_has_combo_points(5);
+    rogue->start_attack();
+
+    when_slice_and_dice_is_performed();
+
+    then_next_event_is("MainhandMeleeHit", "0.000");
+    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
+    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("MainhandMeleeHit", "1.538");
+    then_next_event_is("ResourceGain", "2.000");
+    then_next_event_is("BuffRemoval", "27.000");
+}
+
+void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_of_3_imp_snd() {
+    given_3_of_3_imp_snd();
+    given_a_mainhand_weapon_with_2_speed();
+    given_rogue_has_combo_points(5);
+    rogue->start_attack();
+
+    when_slice_and_dice_is_performed();
+
+    then_next_event_is("MainhandMeleeHit", "0.000");
+    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
+    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("MainhandMeleeHit", "1.538");
+    then_next_event_is("ResourceGain", "2.000");
+    then_next_event_is("BuffRemoval", "30.000");
+}
+
+void TestSliceAndDice::given_1_of_3_imp_snd() {
+    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+}
+
+void TestSliceAndDice::given_2_of_3_imp_snd() {
+    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+}
+
+void TestSliceAndDice::given_3_of_3_imp_snd() {
+    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
 }
 
 void TestSliceAndDice::when_slice_and_dice_is_performed() {

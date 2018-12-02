@@ -2,6 +2,7 @@
 
 #include "GenericTalent.h"
 #include "ImprovedEviscerate.h"
+#include "ImprovedSliceAndDice.h"
 #include "Malice.h"
 #include "Talent.h"
 
@@ -15,7 +16,7 @@ Assassination::Assassination(Character *pchar) :
 
     QMap<QString, Talent*> tier2 {{"2LL", new GenericTalent(pchar, this, "Ruthlessness", "2LL", "Assets/ability/Ability_druid_disembowel.png", 3, "Gives your finishing moves a %1% chance to add a combo point to your target.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})},
                                   {"2ML", new GenericTalent(pchar, this, "Murder", "2ML", "Assets/spell/Spell_shadow_deathscream.png", 2, "Increases all damage caused against Humanoid, Giant, Beast and Dragonkin targets by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
-                                  {"2RR", new GenericTalent(pchar, this, "Improved Slice and Dice", "2RR","Assets/ability/Ability_rogue_slicedice.png", 3, "Increases the duration of your Slice and Dice ability by %1%.", QVector<QPair<int, int>>{QPair<int, int>(15, 15)})}};
+                                  {"2RR", new ImprovedSliceAndDice(pchar, this)}};
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new GenericTalent(pchar, this, "Relentless Strikes", "3LL", "Assets/ability/Ability_warrior_decisivestrike.png", 1, "Your finishing moves have a 20% chance per combo point to restore 25 Energy.", QVector<QPair<int, int>>())},

@@ -8,6 +8,7 @@
 
 SliceAndDice::SliceAndDice(Character* pchar) :
     Spell("Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 25),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slice And Dice", 3, DisabledAtZero::No)}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     buff(new SliceAndDiceBuff(rogue))
 {
@@ -35,4 +36,12 @@ void SliceAndDice::spell_effect() {
 
     rogue->lose_energy(static_cast<unsigned>(resource_cost));
     rogue->spend_combo_points();
+}
+
+void SliceAndDice::increase_talent_rank_effect(const int curr, const QString&) {
+    buff->change_duration_modifier(curr);
+}
+
+void SliceAndDice::decrease_talent_rank_effect(const int curr, const QString&) {
+    buff->change_duration_modifier(curr);
 }
