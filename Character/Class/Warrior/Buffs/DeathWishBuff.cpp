@@ -5,7 +5,7 @@
 
 DeathWishBuff::DeathWishBuff(Character* pchar):
     Buff(pchar, "Death Wish", "Assets/warrior/fury/tier5/Spell_shadow_deathpact.png", 30, 0),
-    TalentRequirer(1, DisabledAtZero::Yes)
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Death Wish", 1, DisabledAtZero::Yes)})
 {}
 
 void DeathWishBuff::buff_effect_when_applied() {
@@ -20,8 +20,8 @@ void DeathWishBuff::buff_effect_when_removed() {
     dynamic_cast<Warrior*>(pchar)->get_stats()->remove_spell_damage_taken_mod(20);
 }
 
-void DeathWishBuff::increase_talent_rank_effect(const QString&) {
+void DeathWishBuff::increase_talent_rank_effect(const int, const QString&) {
 }
 
-void DeathWishBuff::decrease_talent_rank_effect(const QString&) {
+void DeathWishBuff::decrease_talent_rank_effect(const int, const QString&) {
 }

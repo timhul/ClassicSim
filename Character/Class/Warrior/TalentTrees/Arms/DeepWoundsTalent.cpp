@@ -15,9 +15,9 @@ DeepWoundsTalent::DeepWoundsTalent(Character *pchar, TalentTree* tree) :
 DeepWoundsTalent::~DeepWoundsTalent() = default;
 
 void DeepWoundsTalent::apply_rank_effect() {
-    deep_wounds->increase_talent_rank(deep_wounds);
+    deep_wounds->increase_talent_rank(deep_wounds, name);
 }
 
 void DeepWoundsTalent::remove_rank_effect() {
-    deep_wounds->decrease_talent_rank(deep_wounds);
+    deep_wounds->decrease_talent_rank(deep_wounds, name);
 }

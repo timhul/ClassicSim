@@ -15,9 +15,9 @@ ImprovedSlam::ImprovedSlam(Character *pchar, TalentTree* tree) :
 ImprovedSlam::~ImprovedSlam() = default;
 
 void ImprovedSlam::apply_rank_effect() {
-    slam->increase_talent_rank(slam);
+    slam->increase_talent_rank(slam, name);
 }
 
 void ImprovedSlam::remove_rank_effect() {
-    slam->decrease_talent_rank(slam);
+    slam->decrease_talent_rank(slam, name);
 }

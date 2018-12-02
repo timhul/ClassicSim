@@ -16,9 +16,9 @@ ImprovedExecute::ImprovedExecute(Character *pchar, TalentTree* tree) :
 ImprovedExecute::~ImprovedExecute() = default;
 
 void ImprovedExecute::apply_rank_effect() {
-    execute->increase_talent_rank(execute);
+    execute->increase_talent_rank(execute, name);
 }
 
 void ImprovedExecute::remove_rank_effect() {
-    execute->decrease_talent_rank(execute);
+    execute->decrease_talent_rank(execute, name);
 }

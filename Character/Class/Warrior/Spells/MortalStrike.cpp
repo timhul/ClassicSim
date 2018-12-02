@@ -9,7 +9,7 @@
 
 MortalStrike::MortalStrike(Character* pchar) :
     Spell("Mortal Strike", "Assets/warrior/arms/tier7/Ability_warrior_savageblow.png", pchar, RestrictedByGcd::Yes, 6.0, ResourceType::Rage, 30),
-    TalentRequirer(1, DisabledAtZero::Yes),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Mortal Strike", 1, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->enabled = false;
@@ -53,8 +53,8 @@ void MortalStrike::spell_effect() {
     warr->lose_rage(static_cast<unsigned>(resource_cost));
 }
 
-void MortalStrike::increase_talent_rank_effect(const QString&) {
+void MortalStrike::increase_talent_rank_effect(const int, const QString&) {
 }
 
-void MortalStrike::decrease_talent_rank_effect(const QString&) {
+void MortalStrike::decrease_talent_rank_effect(const int, const QString&) {
 }

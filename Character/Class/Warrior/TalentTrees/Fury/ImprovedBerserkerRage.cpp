@@ -15,9 +15,9 @@ ImprovedBerserkerRage::ImprovedBerserkerRage(Character *pchar, TalentTree* tree)
 ImprovedBerserkerRage::~ImprovedBerserkerRage() = default;
 
 void ImprovedBerserkerRage::apply_rank_effect() {
-    berserker_rage->increase_talent_rank(berserker_rage);
+    berserker_rage->increase_talent_rank(berserker_rage, name);
 }
 
 void ImprovedBerserkerRage::remove_rank_effect() {
-    berserker_rage->decrease_talent_rank(berserker_rage);
+    berserker_rage->decrease_talent_rank(berserker_rage, name);
 }

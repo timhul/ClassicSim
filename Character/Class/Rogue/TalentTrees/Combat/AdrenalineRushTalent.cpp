@@ -14,9 +14,9 @@ AdrenalineRushTalent::AdrenalineRushTalent(Character *pchar, TalentTree* tree) :
 }
 
 void AdrenalineRushTalent::apply_rank_effect() {
-    adrenaline_rush->increase_talent_rank(adrenaline_rush);
+    adrenaline_rush->increase_talent_rank(adrenaline_rush, name);
 }
 
 void AdrenalineRushTalent::remove_rank_effect() {
-    adrenaline_rush->decrease_talent_rank(adrenaline_rush);
+    adrenaline_rush->decrease_talent_rank(adrenaline_rush, name);
 }

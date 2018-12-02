@@ -15,9 +15,9 @@ FlurryTalent::FlurryTalent(Character *pchar, TalentTree* tree) :
 FlurryTalent::~FlurryTalent() = default;
 
 void FlurryTalent::apply_rank_effect() {
-    flurry->increase_talent_rank(flurry);
+    flurry->increase_talent_rank(flurry, name);
 }
 
 void FlurryTalent::remove_rank_effect() {
-    flurry->decrease_talent_rank(flurry);
+    flurry->decrease_talent_rank(flurry, name);
 }

@@ -5,7 +5,7 @@
 
 AdrenalineRush::AdrenalineRush(Character* pchar) :
     Spell("Adrenaline Rush", "Assets/spell/Spell_shadow_shadowworddominate.png", pchar, RestrictedByGcd::Yes, 300, ResourceType::Energy, 0),
-    TalentRequirer(1, DisabledAtZero::Yes),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Adrenaline Rush", 1, DisabledAtZero::Yes)}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     ar_buff(new AdrenalineRushBuff(pchar))
 {
@@ -24,10 +24,10 @@ void AdrenalineRush::spell_effect() {
     add_gcd_event();
 }
 
-void AdrenalineRush::increase_talent_rank_effect(const QString&) {
+void AdrenalineRush::increase_talent_rank_effect(const int, const QString&) {
     ar_buff->enable_buff();
 }
 
-void AdrenalineRush::decrease_talent_rank_effect(const QString&) {
+void AdrenalineRush::decrease_talent_rank_effect(const int, const QString&) {
     ar_buff->disable_buff();
 }

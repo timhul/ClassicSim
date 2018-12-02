@@ -6,11 +6,11 @@
 
 Backstab::Backstab(Character* pchar) :
     Spell("Backstab", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 60),
-    TalentRequirer(3, DisabledAtZero::No),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Backstab", 3, DisabledAtZero::No)}),
     rogue(dynamic_cast<Rogue*>(pchar))
 {
     talent_ranks = {0.0, 0.1, 0.2, 0.3};
-    crit_modifier = talent_ranks[curr_talent_rank];
+    crit_modifier = talent_ranks[0];
 }
 
 bool Backstab::is_ready_spell_specific() const {
@@ -56,10 +56,10 @@ void Backstab::spell_effect() {
     rogue->gain_combo_points(1);
 }
 
-void Backstab::increase_talent_rank_effect(const QString&) {
-    crit_modifier = talent_ranks[curr_talent_rank];
+void Backstab::increase_talent_rank_effect(const int curr, const QString&) {
+    crit_modifier = talent_ranks[curr];
 }
 
-void Backstab::decrease_talent_rank_effect(const QString&) {
-    crit_modifier = talent_ranks[curr_talent_rank];
+void Backstab::decrease_talent_rank_effect(const int curr, const QString&) {
+    crit_modifier = talent_ranks[curr];
 }

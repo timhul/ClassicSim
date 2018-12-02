@@ -19,18 +19,18 @@ Slam::Slam(Character* pchar) :
                      ResourceType::Rage,
                      15,
                      1500),
-    TalentRequirer(5, DisabledAtZero::No),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
 }
 
-void Slam::increase_talent_rank_effect(const QString&) {
-    casting_time_ms = talent_ranks[curr_talent_rank];
+void Slam::increase_talent_rank_effect(const int curr, const QString&) {
+    casting_time_ms = talent_ranks[curr];
 }
 
-void Slam::decrease_talent_rank_effect(const QString&) {
-    casting_time_ms = talent_ranks[curr_talent_rank];
+void Slam::decrease_talent_rank_effect(const int curr, const QString&) {
+    casting_time_ms = talent_ranks[curr];
 }
 
 void Slam::spell_effect() {

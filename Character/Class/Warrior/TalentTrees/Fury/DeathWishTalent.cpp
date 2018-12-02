@@ -18,11 +18,11 @@ DeathWishTalent::DeathWishTalent(Character *pchar, TalentTree* tree) :
 DeathWishTalent::~DeathWishTalent() = default;
 
 void DeathWishTalent::apply_rank_effect() {
-    death_wish->increase_talent_rank(death_wish);
-    death_wish_buff->increase_talent_rank(death_wish_buff);
+    death_wish->increase_talent_rank(death_wish, name);
+    death_wish_buff->increase_talent_rank(death_wish_buff, name);
 }
 
 void DeathWishTalent::remove_rank_effect() {
-    death_wish->decrease_talent_rank(death_wish);
-    death_wish_buff->decrease_talent_rank(death_wish_buff);
+    death_wish->decrease_talent_rank(death_wish, name);
+    death_wish_buff->decrease_talent_rank(death_wish_buff, name);
 }

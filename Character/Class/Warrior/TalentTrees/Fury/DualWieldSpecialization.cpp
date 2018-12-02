@@ -15,9 +15,9 @@ DualWieldSpecialization::DualWieldSpecialization(Character *pchar, TalentTree* t
 DualWieldSpecialization::~DualWieldSpecialization() = default;
 
 void DualWieldSpecialization::apply_rank_effect() {
-    oh_attack->increase_talent_rank(oh_attack);
+    oh_attack->increase_talent_rank(oh_attack, name);
 }
 
 void DualWieldSpecialization::remove_rank_effect() {
-    oh_attack->decrease_talent_rank(oh_attack);
+    oh_attack->decrease_talent_rank(oh_attack, name);
 }

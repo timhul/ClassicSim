@@ -5,7 +5,7 @@
 
 BladeFlurry::BladeFlurry(Character* pchar) :
     Spell("Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", pchar, RestrictedByGcd::Yes, 120, ResourceType::Energy, 0),
-    TalentRequirer(1, DisabledAtZero::Yes),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Blade Flurry", 1, DisabledAtZero::Yes)}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     bf_buff(new BladeFlurryBuff(pchar))
 {
@@ -24,10 +24,10 @@ void BladeFlurry::spell_effect() {
     add_gcd_event();
 }
 
-void BladeFlurry::increase_talent_rank_effect(const QString&) {
+void BladeFlurry::increase_talent_rank_effect(const int, const QString&) {
     bf_buff->enable_buff();
 }
 
-void BladeFlurry::decrease_talent_rank_effect(const QString&) {
+void BladeFlurry::decrease_talent_rank_effect(const int, const QString&) {
     bf_buff->disable_buff();
 }

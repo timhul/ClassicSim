@@ -16,9 +16,9 @@ BloodthirstTalent::BloodthirstTalent(Character *pchar, TalentTree* tree) :
 BloodthirstTalent::~BloodthirstTalent() = default;
 
 void BloodthirstTalent::apply_rank_effect() {
-    bloodthirst->increase_talent_rank(bloodthirst);
+    bloodthirst->increase_talent_rank(bloodthirst, name);
 }
 
 void BloodthirstTalent::remove_rank_effect() {
-    bloodthirst->decrease_talent_rank(bloodthirst);
+    bloodthirst->decrease_talent_rank(bloodthirst, name);
 }

@@ -9,7 +9,7 @@
 
 Bloodthirst::Bloodthirst(Character* pchar) :
     Spell("Bloodthirst", "Assets/warrior/fury/tier7/Spell_nature_bloodlust.png", pchar, RestrictedByGcd::Yes, 6.0, ResourceType::Rage, 30),
-    TalentRequirer(1, DisabledAtZero::Yes),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Bloodthirst", 1, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->enabled = false;
@@ -53,8 +53,8 @@ void Bloodthirst::spell_effect() {
     warr->lose_rage(static_cast<unsigned>(resource_cost));
 }
 
-void Bloodthirst::increase_talent_rank_effect(const QString&) {
+void Bloodthirst::increase_talent_rank_effect(const int, const QString&) {
 }
 
-void Bloodthirst::decrease_talent_rank_effect(const QString&) {
+void Bloodthirst::decrease_talent_rank_effect(const int, const QString&) {
 }

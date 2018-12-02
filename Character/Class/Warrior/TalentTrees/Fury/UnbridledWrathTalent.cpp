@@ -14,9 +14,9 @@ UnbridledWrathTalent::UnbridledWrathTalent(Character *pchar, TalentTree* tree) :
 UnbridledWrathTalent::~UnbridledWrathTalent() = default;
 
 void UnbridledWrathTalent::apply_rank_effect() {
-    unbridled_wrath->increase_talent_rank(unbridled_wrath);
+    unbridled_wrath->increase_talent_rank(unbridled_wrath, name);
 }
 
 void UnbridledWrathTalent::remove_rank_effect() {
-    unbridled_wrath->decrease_talent_rank(unbridled_wrath);
+    unbridled_wrath->decrease_talent_rank(unbridled_wrath, name);
 }

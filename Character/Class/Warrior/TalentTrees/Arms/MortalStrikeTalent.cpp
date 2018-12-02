@@ -16,9 +16,9 @@ MortalStrikeTalent::MortalStrikeTalent(Character *pchar, TalentTree* tree) :
 MortalStrikeTalent::~MortalStrikeTalent() = default;
 
 void MortalStrikeTalent::apply_rank_effect() {
-    mortal_strike->increase_talent_rank(mortal_strike);
+    mortal_strike->increase_talent_rank(mortal_strike, name);
 }
 
 void MortalStrikeTalent::remove_rank_effect() {
-    mortal_strike->decrease_talent_rank(mortal_strike);
+    mortal_strike->decrease_talent_rank(mortal_strike, name);
 }

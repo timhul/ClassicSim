@@ -21,8 +21,8 @@ private:
     void spell_effect() override;
     bool is_ready_spell_specific() const override;
 
-    void increase_talent_rank_effect(const QString& talent_name) override;
-    void decrease_talent_rank_effect(const QString& talent_name) override;
+    void increase_talent_rank_effect(const int curr, const QString& talent_name) override;
+    void decrease_talent_rank_effect(const int curr, const QString& talent_name) override;
 };
 
 #endif // BACKSTAB_H

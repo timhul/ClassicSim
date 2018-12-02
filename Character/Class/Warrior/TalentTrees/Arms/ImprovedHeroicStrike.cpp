@@ -15,9 +15,9 @@ ImprovedHeroicStrike::ImprovedHeroicStrike(Character *pchar, TalentTree* tree) :
 ImprovedHeroicStrike::~ImprovedHeroicStrike() = default;
 
 void ImprovedHeroicStrike::apply_rank_effect() {
-    heroic_strike->increase_talent_rank(heroic_strike);
+    heroic_strike->increase_talent_rank(heroic_strike, name);
 }
 
 void ImprovedHeroicStrike::remove_rank_effect() {
-    heroic_strike->decrease_talent_rank(heroic_strike);
+    heroic_strike->decrease_talent_rank(heroic_strike, name);
 }

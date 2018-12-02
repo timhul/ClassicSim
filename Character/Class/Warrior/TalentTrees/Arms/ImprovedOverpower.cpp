@@ -15,9 +15,9 @@ ImprovedOverpower::ImprovedOverpower(Character *pchar, TalentTree* tree) :
 ImprovedOverpower::~ImprovedOverpower() = default;
 
 void ImprovedOverpower::apply_rank_effect() {
-    overpower->increase_talent_rank(overpower);
+    overpower->increase_talent_rank(overpower, name);
 }
 
 void ImprovedOverpower::remove_rank_effect() {
-    overpower->decrease_talent_rank(overpower);
+    overpower->decrease_talent_rank(overpower, name);
 }

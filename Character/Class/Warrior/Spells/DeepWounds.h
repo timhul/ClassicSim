@@ -29,8 +29,8 @@ private:
     void spell_effect() override;
     void reset_effect() override;
 
-    void increase_talent_rank_effect(const QString& talent_name) override;
-    void decrease_talent_rank_effect(const QString& talent_name) override;
+    void increase_talent_rank_effect(const int curr, const QString& talent_name) override;
+    void decrease_talent_rank_effect(const int curr, const QString& talent_name) override;
 
     void enable_spell_effect() override;
     void disable_spell_effect() override;

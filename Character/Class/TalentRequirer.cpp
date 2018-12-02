@@ -1,77 +1,97 @@
-
 #include "TalentRequirer.h"
-#include "Buff.h"
-#include "Spell.h"
-#include "Proc.h"
+
 #include <cassert>
 
-TalentRequirer::TalentRequirer(const int max_talent_rank, const bool disabled_at_zero):
-    curr_talent_rank(0),
-    max_talent_rank(max_talent_rank),
-    disabled_at_zero(disabled_at_zero)
+#include "Buff.h"
+#include "Proc.h"
+#include "Spell.h"
+
+TalentRequirer::TalentRequirer(const QVector<TalentRequirerInfo *> &talent_info)
 {
-    assert(max_talent_rank > 0 && max_talent_rank <= 10); // TODO: should be 5, refactor when BS done
+    assert(!talent_info.empty());
+
+    for (auto & info : talent_info) {
+        assert(!this->talent_info.contains(info->name));
+        this->talent_info[info->name] = info;
+    }
 }
 
-void TalentRequirer::increase_talent_rank(Buff* buff, const QString &talent_name) {
-    ++curr_talent_rank;
-    assert(curr_talent_rank <= max_talent_rank);
+TalentRequirer::~TalentRequirer() {
+    for (auto & info : this->talent_info)
+        delete info;
+}
 
-    increase_talent_rank_effect(talent_name);
+void TalentRequirer::increase_talent_rank(Buff* buff, const QString &talent) {
+    assert(talent_info.contains(talent));
 
-    if (curr_talent_rank == 1 && disabled_at_zero)
+    ++talent_info[talent]->curr;
+    assert(talent_info[talent]->curr <= talent_info[talent]->max);
+
+    increase_talent_rank_effect(talent_info[talent]->curr, talent);
+
+    if (talent_info[talent]->curr == 1 && talent_info[talent]->disabled_at_zero)
         buff->enable_buff();
 }
 
-void TalentRequirer::decrease_talent_rank(Buff* buff, const QString &talent_name) {
-    --curr_talent_rank;
-    assert(curr_talent_rank >= 0);
+void TalentRequirer::decrease_talent_rank(Buff* buff, const QString &talent) {
+    assert(talent_info.contains(talent));
 
-    decrease_talent_rank_effect(talent_name);
+    --talent_info[talent]->curr;
+    assert(talent_info[talent]->curr >= 0);
 
-    if (curr_talent_rank == 0 && disabled_at_zero)
+    decrease_talent_rank_effect(talent_info[talent]->curr, talent);
+
+    if (talent_info[talent]->curr == 0 && talent_info[talent]->disabled_at_zero)
         buff->disable_buff();
 }
 
-void TalentRequirer::increase_talent_rank(Spell* spell, const QString& talent_name) {
-    ++curr_talent_rank;
-    assert(curr_talent_rank <= max_talent_rank);
+void TalentRequirer::increase_talent_rank(Spell* spell, const QString& talent) {
+    assert(talent_info.contains(talent));
 
-    increase_talent_rank_effect(talent_name);
+    ++talent_info[talent]->curr;
+    assert(talent_info[talent]->curr <= talent_info[talent]->max);
 
-    if (curr_talent_rank == 1 && disabled_at_zero)
+    increase_talent_rank_effect(talent_info[talent]->curr, talent);
+
+    if (talent_info[talent]->curr == 1 && talent_info[talent]->disabled_at_zero)
         spell->enable();
 }
 
-void TalentRequirer::decrease_talent_rank(Spell* spell, const QString &talent_name) {
-    --curr_talent_rank;
-    assert(curr_talent_rank >= 0);
+void TalentRequirer::decrease_talent_rank(Spell* spell, const QString &talent) {
+    assert(talent_info.contains(talent));
 
-    decrease_talent_rank_effect(talent_name);
+    --talent_info[talent]->curr;
+    assert(talent_info[talent]->curr >= 0);
 
-    if (curr_talent_rank == 0 && disabled_at_zero)
+    decrease_talent_rank_effect(talent_info[talent]->curr, talent);
+
+    if (talent_info[talent]->curr == 0 && talent_info[talent]->disabled_at_zero)
         spell->disable();
 }
 
-void TalentRequirer::increase_talent_rank(Proc* proc, const QString& talent_name) {
-    ++curr_talent_rank;
-    assert(curr_talent_rank <= max_talent_rank);
+void TalentRequirer::increase_talent_rank(Proc* proc, const QString& talent) {
+    assert(talent_info.contains(talent));
 
-    increase_talent_rank_effect(talent_name);
+    ++talent_info[talent]->curr;
+    assert(talent_info[talent]->curr <= talent_info[talent]->max);
 
-    if (curr_talent_rank == 1 && disabled_at_zero) {
+    increase_talent_rank_effect(talent_info[talent]->curr, talent);
+
+    if (talent_info[talent]->curr == 1 && talent_info[talent]->disabled_at_zero) {
         proc->enable();
         proc->enable_proc();
     }
 }
 
-void TalentRequirer::decrease_talent_rank(Proc* proc, const QString &talent_name) {
-    --curr_talent_rank;
-    assert(curr_talent_rank >= 0);
+void TalentRequirer::decrease_talent_rank(Proc* proc, const QString &talent) {
+    assert(talent_info.contains(talent));
 
-    decrease_talent_rank_effect(talent_name);
+    --talent_info[talent]->curr;
+    assert(talent_info[talent]->curr >= 0);
 
-    if (curr_talent_rank == 0 && disabled_at_zero) {
+    decrease_talent_rank_effect(talent_info[talent]->curr, talent);
+
+    if (talent_info[talent]->curr == 0 && talent_info[talent]->disabled_at_zero) {
         proc->disable_proc();
         proc->disable();
     }

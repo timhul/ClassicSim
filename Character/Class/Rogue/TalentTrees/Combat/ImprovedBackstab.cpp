@@ -13,9 +13,9 @@ ImprovedBackstab::ImprovedBackstab(Character *pchar, TalentTree* tree) :
 }
 
 void ImprovedBackstab::apply_rank_effect() {
-    backstab->increase_talent_rank(backstab);
+    backstab->increase_talent_rank(backstab, name);
 }
 
 void ImprovedBackstab::remove_rank_effect() {
-    backstab->decrease_talent_rank(backstab);
+    backstab->decrease_talent_rank(backstab, name);
 }

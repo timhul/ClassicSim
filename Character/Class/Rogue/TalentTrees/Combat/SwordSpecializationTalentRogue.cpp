@@ -14,9 +14,9 @@ SwordSpecializationTalentRogue::SwordSpecializationTalentRogue(Character *pchar,
 SwordSpecializationTalentRogue::~SwordSpecializationTalentRogue() = default;
 
 void SwordSpecializationTalentRogue::apply_rank_effect() {
-    sword_spec->increase_talent_rank(sword_spec);
+    sword_spec->increase_talent_rank(sword_spec, name);
 }
 
 void SwordSpecializationTalentRogue::remove_rank_effect() {
-    sword_spec->decrease_talent_rank(sword_spec);
+    sword_spec->decrease_talent_rank(sword_spec, name);
 }

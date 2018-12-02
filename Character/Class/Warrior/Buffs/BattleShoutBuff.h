@@ -25,11 +25,9 @@ private:
     int base_duration;
     int base_attack_power;
     int modified_by_talents_attack_power;
-    int rank_booming_voice;
-    int rank_imp_shout;
 
-    void increase_talent_rank_effect(const QString& talent_name) override;
-    void decrease_talent_rank_effect(const QString& talent_name) override;
+    void increase_talent_rank_effect(const int curr, const QString& talent_name) override;
+    void decrease_talent_rank_effect(const int curr, const QString& talent_name) override;
 };
 
 #endif // BATTLESHOUTBUFF_H

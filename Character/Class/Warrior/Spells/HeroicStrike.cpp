@@ -11,7 +11,7 @@
 
 HeroicStrike::HeroicStrike(Character* pchar) :
     Spell("Heroic Strike", "Assets/warrior/arms/tier1/Ability_rogue_ambush.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 15),
-    TalentRequirer(3, DisabledAtZero::No),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};
@@ -62,10 +62,10 @@ void HeroicStrike::spell_effect() {
     warr->get_hs_buff()->apply_buff();
 }
 
-void HeroicStrike::increase_talent_rank_effect(const QString&) {
-    resource_cost = talent_ranks[curr_talent_rank];
+void HeroicStrike::increase_talent_rank_effect(const int curr, const QString&) {
+    resource_cost = talent_ranks[curr];
 }
 
-void HeroicStrike::decrease_talent_rank_effect(const QString&) {
-    resource_cost = talent_ranks[curr_talent_rank];
+void HeroicStrike::decrease_talent_rank_effect(const int curr, const QString&) {
+    resource_cost = talent_ranks[curr];
 }

@@ -6,11 +6,11 @@
 
 Overpower::Overpower(Character* pchar) :
     Spell("Overpower", "Assets/warrior/arms/tier3/Inv_sword_05.png", pchar, RestrictedByGcd::Yes, 5.0, ResourceType::Rage, 5),
-    TalentRequirer(2, DisabledAtZero::No),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->talent_ranks = {0.0, 0.25, 0.5};
-    crit_mod = talent_ranks[curr_talent_rank];
+    crit_mod = talent_ranks[0];
 }
 
 bool Overpower::is_ready_spell_specific() const {
@@ -49,10 +49,10 @@ void Overpower::spell_effect() {
     }
 }
 
-void Overpower::increase_talent_rank_effect(const QString&) {
-    crit_mod = talent_ranks[curr_talent_rank];
+void Overpower::increase_talent_rank_effect(const int curr, const QString&) {
+    crit_mod = talent_ranks[curr];
 }
 
-void Overpower::decrease_talent_rank_effect(const QString&) {
-    crit_mod = talent_ranks[curr_talent_rank];
+void Overpower::decrease_talent_rank_effect(const int curr, const QString&) {
+    crit_mod = talent_ranks[curr];
 }

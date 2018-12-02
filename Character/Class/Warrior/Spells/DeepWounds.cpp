@@ -5,7 +5,7 @@
 
 DeepWounds::DeepWounds(Character* pchar) :
     Spell("Deep Wounds", "Assets/warrior/arms/tier3/Ability_backstab.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 0),
-    TalentRequirer(3, DisabledAtZero::Yes),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     buff(new NoEffectBuff(pchar,
                           12.0,
@@ -18,7 +18,7 @@ DeepWounds::DeepWounds(Character* pchar) :
 
     this->previous_tick_rest = 0;
     this->talent_ranks = {0.0, 0.2, 0.4, 0.6};
-    wpn_percent = talent_ranks[curr_talent_rank];
+    wpn_percent = talent_ranks[0];
 }
 
 DeepWounds::~DeepWounds() {
@@ -76,12 +76,12 @@ void DeepWounds::reset_effect() {
     previous_tick_rest = 0;
 }
 
-void DeepWounds::increase_talent_rank_effect(const QString&) {
-    wpn_percent = talent_ranks[curr_talent_rank];
+void DeepWounds::increase_talent_rank_effect(const int curr, const QString&) {
+    wpn_percent = talent_ranks[curr];
 }
 
-void DeepWounds::decrease_talent_rank_effect(const QString&) {
-    wpn_percent = talent_ranks[curr_talent_rank];
+void DeepWounds::decrease_talent_rank_effect(const int curr, const QString&) {
+    wpn_percent = talent_ranks[curr];
 }
 
 void DeepWounds::enable_spell_effect() {

@@ -12,7 +12,7 @@ SwordSpecialization::SwordSpecialization(Character* pchar) :
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
          pchar),
-    TalentRequirer(5, DisabledAtZero::Yes),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Sword Specialization", 5, DisabledAtZero::Yes)}),
     warr(pchar)
 {
     this->enabled = false;
@@ -25,12 +25,12 @@ void SwordSpecialization::proc_effect() {
     warr->run_extra_mh_attack();
 }
 
-void SwordSpecialization::increase_talent_rank_effect(const QString&) {
-    proc_range = talent_ranks[curr_talent_rank] * 100;
+void SwordSpecialization::increase_talent_rank_effect(const int curr, const QString&) {
+    proc_range = talent_ranks[curr] * 100;
 }
 
-void SwordSpecialization::decrease_talent_rank_effect(const QString&) {
-    proc_range = talent_ranks[curr_talent_rank] * 100;
+void SwordSpecialization::decrease_talent_rank_effect(const int curr, const QString&) {
+    proc_range = talent_ranks[curr] * 100;
 }
 
 bool SwordSpecialization::proc_specific_conditions_fulfilled() const {

@@ -8,19 +8,19 @@
 
 OffhandAttackWarrior::OffhandAttackWarrior(Character* pchar) :
     OffhandAttack(pchar),
-    TalentRequirer(5, DisabledAtZero::No),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Dual Wield Specialization", 5, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
-    offhand_penalty = talent_ranks[curr_talent_rank];
+    offhand_penalty = talent_ranks[0];
 }
 
-void OffhandAttackWarrior::increase_talent_rank_effect(const QString&) {
-    offhand_penalty = talent_ranks[curr_talent_rank];
+void OffhandAttackWarrior::increase_talent_rank_effect(const int curr, const QString&) {
+    offhand_penalty = talent_ranks[curr];
 }
 
-void OffhandAttackWarrior::decrease_talent_rank_effect(const QString&) {
-    offhand_penalty = talent_ranks[curr_talent_rank];
+void OffhandAttackWarrior::decrease_talent_rank_effect(const int curr, const QString&) {
+    offhand_penalty = talent_ranks[curr];
 }
 
 void OffhandAttackWarrior::extra_attack() {

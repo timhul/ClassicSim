@@ -15,9 +15,9 @@ DualWieldSpecializationRogue::DualWieldSpecializationRogue(Character *pchar, Tal
 DualWieldSpecializationRogue::~DualWieldSpecializationRogue() = default;
 
 void DualWieldSpecializationRogue::apply_rank_effect() {
-    oh_attack->increase_talent_rank(oh_attack);
+    oh_attack->increase_talent_rank(oh_attack, name);
 }
 
 void DualWieldSpecializationRogue::remove_rank_effect() {
-    oh_attack->decrease_talent_rank(oh_attack);
+    oh_attack->decrease_talent_rank(oh_attack, name);
 }

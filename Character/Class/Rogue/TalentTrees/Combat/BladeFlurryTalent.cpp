@@ -14,9 +14,9 @@ BladeFlurryTalent::BladeFlurryTalent(Character *pchar, TalentTree* tree) :
 }
 
 void BladeFlurryTalent::apply_rank_effect() {
-    blade_flurry->increase_talent_rank(blade_flurry);
+    blade_flurry->increase_talent_rank(blade_flurry, name);
 }
 
 void BladeFlurryTalent::remove_rank_effect() {
-    blade_flurry->decrease_talent_rank(blade_flurry);
+    blade_flurry->decrease_talent_rank(blade_flurry, name);
 }

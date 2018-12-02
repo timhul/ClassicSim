@@ -20,8 +20,8 @@ private:
 
     void spell_effect() override;
 
-    void increase_talent_rank_effect(const QString& talent_name) override;
-    void decrease_talent_rank_effect(const QString& talent_name) override;
+    void increase_talent_rank_effect(const int curr, const QString& talent_name) override;
+    void decrease_talent_rank_effect(const int curr, const QString& talent_name) override;
 
     void complete_cast_effect() override;
 };

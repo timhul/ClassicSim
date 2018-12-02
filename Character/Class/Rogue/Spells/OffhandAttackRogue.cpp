@@ -2,15 +2,15 @@
 
 OffhandAttackRogue::OffhandAttackRogue(Character* pchar) :
     OffhandAttack(pchar),
-    TalentRequirer(5, DisabledAtZero::No)
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Dual Wield Specialization", 5, DisabledAtZero::No)})
 {
     talent_ranks = {0.5, 0.55, 0.6, 0.65, 0.7, 0.75};
 }
 
-void OffhandAttackRogue::increase_talent_rank_effect(const QString&) {
-    offhand_penalty = talent_ranks[curr_talent_rank];
+void OffhandAttackRogue::increase_talent_rank_effect(const int curr, const QString&) {
+    offhand_penalty = talent_ranks[curr];
 }
 
-void OffhandAttackRogue::decrease_talent_rank_effect(const QString&) {
-    offhand_penalty = talent_ranks[curr_talent_rank];
+void OffhandAttackRogue::decrease_talent_rank_effect(const int curr, const QString&) {
+    offhand_penalty = talent_ranks[curr];
 }

@@ -15,9 +15,9 @@ ImprovedRend::ImprovedRend(Character *pchar, TalentTree* tree) :
 ImprovedRend::~ImprovedRend() = default;
 
 void ImprovedRend::apply_rank_effect() {
-    rend->increase_talent_rank(rend);
+    rend->increase_talent_rank(rend, name);
 }
 
 void ImprovedRend::remove_rank_effect() {
-    rend->decrease_talent_rank(rend);
+    rend->decrease_talent_rank(rend, name);
 }

@@ -9,7 +9,7 @@
 
 Execute::Execute(Character* pchar) :
     Spell("Execute", "Assets/warrior/fury/tier4/Inv_sword_48.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 15),
-    TalentRequirer(2, DisabledAtZero::No),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Execute", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     execute_threshold(0.2)
 {
@@ -73,12 +73,12 @@ void Execute::spell_effect() {
     warr->lose_rage(warr->get_resource_level(resource_type));
 }
 
-void Execute::increase_talent_rank_effect(const QString&) {
-    resource_cost = talent_ranks[curr_talent_rank];
+void Execute::increase_talent_rank_effect(const int curr, const QString&) {
+    resource_cost = talent_ranks[curr];
 }
 
-void Execute::decrease_talent_rank_effect(const QString&) {
-    resource_cost = talent_ranks[curr_talent_rank];
+void Execute::decrease_talent_rank_effect(const int curr, const QString&) {
+    resource_cost = talent_ranks[curr];
 }
 
 void Execute::set_execute_threshold(const double execute_threshold) {

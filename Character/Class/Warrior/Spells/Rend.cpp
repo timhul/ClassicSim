@@ -6,7 +6,7 @@
 
 Rend::Rend(Character* pchar) :
     Spell("Rend", "Assets/warrior/arms/tier1/Ability_gouge.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
-    TalentRequirer(3, DisabledAtZero::No),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Rend", 3, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     buff(new NoEffectBuff(pchar, 21, "Rend", "Assets/warrior/arms/tier1/Ability_gouge.png", Hidden::No, Debuff::Yes)),
     damage_remaining(0),
@@ -16,7 +16,7 @@ Rend::Rend(Character* pchar) :
     num_ticks_left(0)
 {
     this->talent_ranks = {1.0, 1.15, 1.25, 1.35};
-    talent_modifier = talent_ranks[curr_talent_rank];
+    talent_modifier = talent_ranks[0];
     buff->enable_buff();
 }
 
@@ -82,12 +82,12 @@ void Rend::reset_effect() {
     num_ticks_left = 0;
 }
 
-void Rend::increase_talent_rank_effect(const QString&) {
-    talent_modifier = talent_ranks[curr_talent_rank];
+void Rend::increase_talent_rank_effect(const int curr, const QString&) {
+    talent_modifier = talent_ranks[curr];
 }
 
-void Rend::decrease_talent_rank_effect(const QString&) {
-    talent_modifier = talent_ranks[curr_talent_rank];
+void Rend::decrease_talent_rank_effect(const int curr, const QString&) {
+    talent_modifier = talent_ranks[curr];
 }
 
 bool Rend::is_ready_spell_specific() const {
