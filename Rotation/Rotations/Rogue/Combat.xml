@@ -23,8 +23,6 @@
 	<cast_if name="Eviscerate">
 		variable "combo_points" eq 5
 		and buff "Slice and Dice" greater 8
-		or variable "combo_points" eq 5
-		and resource "Energy" greater 50
 	</cast_if>
 
 	<cast_if name="Kiss of the Spider">
