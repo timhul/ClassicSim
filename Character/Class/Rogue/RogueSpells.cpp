@@ -8,6 +8,7 @@
 #include "OffhandAttackRogue.h"
 #include "OffhandMeleeHit.h"
 #include "Rogue.h"
+#include "SinisterStrike.h"
 #include "SliceAndDice.h"
 
 RogueSpells::RogueSpells(Rogue* rogue) :
@@ -20,6 +21,7 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     this->blade_flurry = new BladeFlurry(rogue);
     this->backstab = new Backstab(rogue);
     this->eviscerate = new Eviscerate(rogue);
+    this->sinister_strike = new SinisterStrike(rogue);
     this->slice_and_dice = new SliceAndDice(rogue);
 
     spells.append(mh_attack);
@@ -28,6 +30,7 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     spells.append(blade_flurry);
     spells.append(backstab);
     spells.append(eviscerate);
+    spells.append(sinister_strike);
     spells.append(slice_and_dice);
 }
 
@@ -68,6 +71,10 @@ BladeFlurry* RogueSpells::get_blade_flurry() const {
 
 Eviscerate* RogueSpells::get_eviscerate() const {
     return this->eviscerate;
+}
+
+SinisterStrike* RogueSpells::get_sinister_strike() const {
+    return this->sinister_strike;
 }
 
 SliceAndDice* RogueSpells::get_slice_and_dice() const {

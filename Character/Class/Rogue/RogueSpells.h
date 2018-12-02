@@ -9,6 +9,7 @@ class BladeFlurry;
 class Eviscerate;
 class OffhandAttack;
 class Rogue;
+class SinisterStrike;
 class SliceAndDice;
 
 class RogueSpells: public Spells {
@@ -24,6 +25,7 @@ public:
     Backstab* get_backstab() const;
     BladeFlurry* get_blade_flurry() const;
     Eviscerate* get_eviscerate() const;
+    SinisterStrike* get_sinister_strike() const;
     SliceAndDice* get_slice_and_dice() const;
 
 private:
@@ -32,6 +34,7 @@ private:
     Backstab* backstab;
     BladeFlurry* blade_flurry;
     Eviscerate* eviscerate;
+    SinisterStrike* sinister_strike;
     SliceAndDice* slice_and_dice;
 };
 
