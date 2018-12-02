@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<rotation class="Rogue" name="Combat">
+	<description>
+	A rotation for Combat (non-dagger) rogues.
+	</description>
+
+	<cast_if name="Slice and Dice">
+		buff "Slice and Dice" less 3
+	</cast_if>
+	
+	<cast_if name="Adrenaline Rush">
+		resource "Energy" leq 60
+	</cast_if>
+	
+	<cast_if name="Blade Flurry">
+		resource "Energy" leq 60
+	</cast_if>
+
+	<cast_if name="Sinister Strike">
+		variable "combo_points" less 5
+	</cast_if>
+
+	<cast_if name="Eviscerate">
+		variable "combo_points" eq 5
+		and buff "Slice and Dice" greater 8
+		or variable "combo_points" eq 5
+		and resource "Energy" greater 50
+	</cast_if>
+
+	<cast_if name="Kiss of the Spider">
+		 variable "time_remaining_execute" greater 120
+		 or variable "time_remaining_execute" less 0
+	</cast_if>
+
+	<cast_if name="Jom Gabbar">
+		variable "time_remaining_execute" greater 120
+		or variable "time_remaining_execute" less 0
+	</cast_if>
+
+	<cast_if name="Badge of the Swarmguard">
+		variable "time_remaining_execute" greater 120
+		or variable "time_remaining_execute" less 0
+	</cast_if>
+
+	<cast_if name="Slayer's Crest">
+		variable "time_remaining_execute" greater 120
+		or variable "time_remaining_execute" less 0
+	</cast_if>
+
+	<cast_if name="Earthstrike">
+		variable "time_remaining_execute" greater 120
+		or variable "time_remaining_execute" less 0
+	</cast_if>
+
+	<cast_if name="Zandalarian Hero Medallion">
+		variable "time_remaining_execute" greater 120
+		or variable "time_remaining_execute" less 0
+	</cast_if>
+	
+	<cast_if name="Blood Fury">
+		variable "time_remaining_execute" less 0
+		and resource "Energy" less 50
+		or variable "time_remaining_execute" greater 120
+	</cast_if>
+
+	<cast_if name="Berserking">
+		variable "time_remaining_execute" less 0
+		and resource "Energy" less 50
+		or variable "time_remaining_execute" greater 180
+	</cast_if>
+</rotation>
