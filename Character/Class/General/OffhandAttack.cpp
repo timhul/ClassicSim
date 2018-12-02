@@ -48,7 +48,7 @@ void OffhandAttack::calculate_damage(const bool run_procs) {
         return;
     }
 
-    double damage_dealt = pchar->get_random_non_normalized_oh_dmg() * offhand_penalty;
+    double damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_oh_dmg() * offhand_penalty);
 
     if (result == AttackResult::CRITICAL) {
         damage_dealt *= 2;
