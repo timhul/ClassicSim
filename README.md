@@ -49,7 +49,11 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+* Sinister Strike added; regular Combat rotation added to use it.
+* Combat talents now implemented (those that are directly damage increasing in a target dummy environment)
+* Few Assassination talents now implemented (Imp SnD, Malice, Murder)
+* Update rogue white hit spells such that they use the new-ish way of calculating target armor and crit chance. This
+fixes the bug that rogue white hits (1) could not crit, (2) ignored target armor.
 
 # Release notes
 
