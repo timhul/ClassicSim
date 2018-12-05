@@ -10,6 +10,7 @@
 #include "RelentlessStrikes.h"
 #include "RogueSpells.h"
 #include "Ruthlessness.h"
+#include "SealFate.h"
 #include "Stats.h"
 #include "Subtlety.h"
 #include "SwordSpecialization.h"
@@ -50,6 +51,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 
     this->relentless_strikes = new RelentlessStrikes(this);
     this->ruthlessness = new Ruthlessness(this);
+    this->seal_fate = new SealFate(this);
     this->sword_spec = new SwordSpecialization(this);
 
     initialize_talents();
@@ -66,6 +68,7 @@ Rogue::~Rogue()
     delete energy;
     delete relentless_strikes;
     delete ruthlessness;
+    delete seal_fate;
     delete sword_spec;
 }
 
@@ -170,6 +173,10 @@ RelentlessStrikes* Rogue::get_relentless_strikes() const {
 
 Ruthlessness* Rogue::get_ruthlessness() const {
     return this->ruthlessness;
+}
+
+SealFate* Rogue::get_seal_fate() const {
+    return this->seal_fate;
 }
 
 SwordSpecialization* Rogue::get_sword_spec() const {

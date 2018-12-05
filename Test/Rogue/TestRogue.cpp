@@ -14,6 +14,7 @@
 #include "TestEnergy.h"
 #include "TestEviscerate.h"
 #include "TestRelentlessStrikes.h"
+#include "TestSealFate.h"
 #include "TestSinisterStrike.h"
 #include "TestSliceAndDice.h"
 
@@ -30,6 +31,7 @@ void TestRogue::test_all() {
     TestSliceAndDice(equipment_db).test_all();
 
     TestRelentlessStrikes(equipment_db).test_all();
+    TestSealFate(equipment_db).test_all();
 }
 
 void TestRogue::test_basic_properties() {

@@ -7,6 +7,7 @@ class Energy;
 class RogueSpells;
 class RelentlessStrikes;
 class Ruthlessness;
+class SealFate;
 class SwordSpecialization;
 
 
@@ -45,6 +46,7 @@ public:
     class Energy* get_energy() const;
     RelentlessStrikes* get_relentless_strikes() const;
     Ruthlessness* get_ruthlessness() const;
+    SealFate* get_seal_fate() const;
     SwordSpecialization* get_sword_spec() const;
 
 private:
@@ -52,6 +54,7 @@ private:
     class Energy* energy;
     RelentlessStrikes* relentless_strikes;
     Ruthlessness* ruthlessness;
+    SealFate* seal_fate;
     SwordSpecialization* sword_spec;
 
     unsigned combo_points;

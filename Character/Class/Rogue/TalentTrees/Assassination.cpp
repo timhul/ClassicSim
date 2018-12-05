@@ -7,6 +7,7 @@
 #include "Murder.h"
 #include "RelentlessStrikesTalent.h"
 #include "RuthlessnessTalent.h"
+#include "SealFateTalent.h"
 #include "Talent.h"
 
 Assassination::Assassination(Character *pchar) :
@@ -35,7 +36,7 @@ Assassination::Assassination(Character *pchar) :
                                   {"5MR", new GenericTalent(pchar, this, "Improved Kidney Shot", "5MR", "Assets/ability/Ability_rogue_kidneyshot.png", 3, "While affected by your Kidney Shot ability, the target receives an additional %1% damage from all sources.", QVector<QPair<int, int>>{QPair<int, int>(3, 3)})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6ML", new GenericTalent(pchar, this, "Seal Fate", "6ML", "Assets/spell/Spell_shadow_chilltouch.png", 5, "Your critical strikes from abilities that add combo points have a %1% chance to add an additional combo point.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})}};
+    QMap<QString, Talent*> tier6 {{"6ML", new SealFateTalent(pchar, this)}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new GenericTalent(pchar, this, "Vigor", "7ML", "Assets/spell/Spell_nature_earthbindtotem.png", 1, "Increases your maximum Energy by 10.", QVector<QPair<int, int>>())}};
