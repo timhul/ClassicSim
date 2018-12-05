@@ -3,6 +3,7 @@
 #include "Eviscerate.h"
 #include "Random.h"
 #include "Rogue.h"
+#include "Ruthlessness.h"
 #include "Weapon.h"
 
 Eviscerate::Eviscerate(Character* pchar) :
@@ -77,6 +78,11 @@ void Eviscerate::spell_effect() {
 
     rogue->lose_energy(static_cast<unsigned>(resource_cost));
     rogue->spend_combo_points();
+
+    if (rogue->get_ruthlessness()->is_enabled()) {
+        rogue->get_ruthlessness()->set_current_proc_source(ProcInfo::Source::MainhandSpell);
+        rogue->get_ruthlessness()->perform();
+    }
 }
 
 void Eviscerate::set_evisc_range() {

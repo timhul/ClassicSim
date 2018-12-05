@@ -5,6 +5,7 @@
 
 class Energy;
 class RogueSpells;
+class Ruthlessness;
 class SwordSpecialization;
 
 
@@ -41,11 +42,13 @@ public:
     bool is_stealthed() const;
 
     class Energy* get_energy() const;
+    Ruthlessness* get_ruthlessness() const;
     SwordSpecialization* get_sword_spec() const;
 
 private:
     RogueSpells* rogue_spells;
     class Energy* energy;
+    Ruthlessness* ruthlessness;
     SwordSpecialization* sword_spec;
 
     unsigned combo_points;

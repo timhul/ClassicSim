@@ -2,6 +2,7 @@
 #include "Equipment.h"
 #include "Random.h"
 #include "Rogue.h"
+#include "Ruthlessness.h"
 #include "SliceAndDice.h"
 #include "SliceAndDiceBuff.h"
 #include "Weapon.h"
@@ -36,6 +37,11 @@ void SliceAndDice::spell_effect() {
 
     rogue->lose_energy(static_cast<unsigned>(resource_cost));
     rogue->spend_combo_points();
+
+    if (rogue->get_ruthlessness()->is_enabled()) {
+        rogue->get_ruthlessness()->set_current_proc_source(ProcInfo::Source::MainhandSpell);
+        rogue->get_ruthlessness()->perform();
+    }
 }
 
 void SliceAndDice::increase_talent_rank_effect(const int curr, const QString&) {

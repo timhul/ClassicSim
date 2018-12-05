@@ -298,7 +298,9 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.cpp \
     Character/Class/Rogue/TalentTrees/Combat/Aggression.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedSliceAndDice.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/Murder.cpp
+    Character/Class/Rogue/TalentTrees/Assassination/Murder.cpp \
+    Character/Class/Rogue/Procs/Ruthlessness.cpp \
+    Character/Class/Rogue/TalentTrees/Assassination/RuthlessnessTalent.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -598,7 +600,9 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.h \
     Character/Class/Rogue/TalentTrees/Combat/Aggression.h \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedSliceAndDice.h \
-    Character/Class/Rogue/TalentTrees/Assassination/Murder.h
+    Character/Class/Rogue/TalentTrees/Assassination/Murder.h \
+    Character/Class/Rogue/Procs/Ruthlessness.h \
+    Character/Class/Rogue/TalentTrees/Assassination/RuthlessnessTalent.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -619,6 +623,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Priest \
     $$PWD/Character/Class/Rogue \
     $$PWD/Character/Class/Rogue/Buffs \
+    $$PWD/Character/Class/Rogue/Procs \
     $$PWD/Character/Class/Rogue/Spells \
     $$PWD/Character/Class/Rogue/TalentTrees \
     $$PWD/Character/Class/Rogue/TalentTrees/Assassination \

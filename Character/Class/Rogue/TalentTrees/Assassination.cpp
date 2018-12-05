@@ -5,6 +5,7 @@
 #include "ImprovedSliceAndDice.h"
 #include "Malice.h"
 #include "Murder.h"
+#include "RuthlessnessTalent.h"
 #include "Talent.h"
 
 Assassination::Assassination(Character *pchar) :
@@ -15,7 +16,7 @@ Assassination::Assassination(Character *pchar) :
                                   {"1MR", new Malice(pchar, this)}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2LL", new GenericTalent(pchar, this, "Ruthlessness", "2LL", "Assets/ability/Ability_druid_disembowel.png", 3, "Gives your finishing moves a %1% chance to add a combo point to your target.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})},
+    QMap<QString, Talent*> tier2 {{"2LL", new RuthlessnessTalent(pchar, this)},
                                   {"2ML", new Murder(pchar, this)},
                                   {"2RR", new ImprovedSliceAndDice(pchar, this)}};
     add_talents(tier2);
