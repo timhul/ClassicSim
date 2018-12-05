@@ -5,6 +5,7 @@
 #include "ImprovedSliceAndDice.h"
 #include "Malice.h"
 #include "Murder.h"
+#include "RelentlessStrikesTalent.h"
 #include "RuthlessnessTalent.h"
 #include "Talent.h"
 
@@ -21,7 +22,7 @@ Assassination::Assassination(Character *pchar) :
                                   {"2RR", new ImprovedSliceAndDice(pchar, this)}};
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", new GenericTalent(pchar, this, "Relentless Strikes", "3LL", "Assets/ability/Ability_warrior_decisivestrike.png", 1, "Your finishing moves have a 20% chance per combo point to restore 25 Energy.", QVector<QPair<int, int>>())},
+    QMap<QString, Talent*> tier3 {{"3LL", new RelentlessStrikesTalent(pchar, this)},
                                   {"3ML", new GenericTalent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<int, int>>{QPair<int, int>(25, 25)})},
                                   {"3MR", new GenericTalent(pchar, this, "Lethality", "3MR", "Assets/ability/Ability_criticalstrike.png", 5, "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, and Hemorrhage abilities by %1%.", QVector<QPair<int, int>>{QPair<int, int>(6, 6)})}};
     add_talents(tier3);

@@ -7,6 +7,7 @@
 #include "EnabledProcs.h"
 #include "Equipment.h"
 #include "Energy.h"
+#include "RelentlessStrikes.h"
 #include "RogueSpells.h"
 #include "Ruthlessness.h"
 #include "Stats.h"
@@ -47,6 +48,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 
     spells->activate_racials();
 
+    this->relentless_strikes = new RelentlessStrikes(this);
     this->ruthlessness = new Ruthlessness(this);
     this->sword_spec = new SwordSpecialization(this);
 
@@ -62,6 +64,7 @@ Rogue::~Rogue()
     delete cstats;
     delete rogue_spells;
     delete energy;
+    delete relentless_strikes;
     delete ruthlessness;
     delete sword_spec;
 }
@@ -159,6 +162,10 @@ bool Rogue::is_stealthed() const {
 
 class Energy* Rogue::get_energy() const {
     return this->energy;
+}
+
+RelentlessStrikes* Rogue::get_relentless_strikes() const {
+    return this->relentless_strikes;
 }
 
 Ruthlessness* Rogue::get_ruthlessness() const {
