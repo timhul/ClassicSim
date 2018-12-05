@@ -110,7 +110,9 @@ void TestSealFate::given_5_of_5_seal_fate() {
 }
 
 void TestSealFate::test_proc_sources_are_valid() {
-    assert(seal_fate()->procs_from_source(ProcInfo::Source::MainhandSpell));
+    assert(seal_fate()->procs_from_source(ProcInfo::Source::Manual));
+
+    assert(!seal_fate()->procs_from_source(ProcInfo::Source::MainhandSpell));
     assert(!seal_fate()->procs_from_source(ProcInfo::Source::MainhandSwing));
     assert(!seal_fate()->procs_from_source(ProcInfo::Source::OffhandSpell));
     assert(!seal_fate()->procs_from_source(ProcInfo::Source::OffhandSwing));

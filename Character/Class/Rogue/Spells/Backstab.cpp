@@ -49,10 +49,8 @@ void Backstab::spell_effect() {
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
 
-        if (rogue->get_seal_fate()->is_enabled()) {
-            rogue->get_seal_fate()->set_current_proc_source(ProcInfo::Source::MainhandSpell);
+        if (rogue->get_seal_fate()->is_enabled())
             rogue->get_seal_fate()->perform();
-        }
     }
     else if (result == AttackResult::HIT) {
         rogue->melee_mh_yellow_hit_effect();

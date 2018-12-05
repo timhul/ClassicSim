@@ -67,7 +67,9 @@ void TestRelentlessStrikes::given_1_of_1_relentless_strikes() {
 }
 
 void TestRelentlessStrikes::test_proc_sources_are_valid() {
-    assert(relentless_strikes()->procs_from_source(ProcInfo::Source::MainhandSpell));
+    assert(relentless_strikes()->procs_from_source(ProcInfo::Source::Manual));
+
+    assert(!relentless_strikes()->procs_from_source(ProcInfo::Source::MainhandSpell));
     assert(!relentless_strikes()->procs_from_source(ProcInfo::Source::MainhandSwing));
     assert(!relentless_strikes()->procs_from_source(ProcInfo::Source::OffhandSpell));
     assert(!relentless_strikes()->procs_from_source(ProcInfo::Source::OffhandSwing));

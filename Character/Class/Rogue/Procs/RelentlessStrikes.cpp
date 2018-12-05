@@ -5,7 +5,7 @@
 
 RelentlessStrikes::RelentlessStrikes(Character* pchar) :
     Proc("Relentless Strikes", "Assets/ability/Ability_warrior_decisivestrike.png", 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell}),
+         QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Relentless Strikes", 1, DisabledAtZero::Yes)}),
     rogue(dynamic_cast<Rogue*>(pchar))

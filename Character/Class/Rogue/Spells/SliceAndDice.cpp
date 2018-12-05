@@ -40,16 +40,13 @@ void SliceAndDice::spell_effect() {
 
     if (rogue->get_relentless_strikes()->is_enabled()) {
         rogue->get_relentless_strikes()->set_current_combo_points(rogue->get_combo_points());
-        rogue->get_relentless_strikes()->set_current_proc_source(ProcInfo::Source::MainhandSpell);
         rogue->get_relentless_strikes()->perform();
     }
 
     rogue->spend_combo_points();
 
-    if (rogue->get_ruthlessness()->is_enabled()) {
-        rogue->get_ruthlessness()->set_current_proc_source(ProcInfo::Source::MainhandSpell);
+    if (rogue->get_ruthlessness()->is_enabled())
         rogue->get_ruthlessness()->perform();
-    }
 }
 
 void SliceAndDice::increase_talent_rank_effect(const int curr, const QString&) {

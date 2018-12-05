@@ -17,6 +17,8 @@ EnabledProcs::~EnabledProcs()
 }
 
 void EnabledProcs::run_proc_effects(ProcInfo::Source source) {
+    assert(source != ProcInfo::Source::Manual);
+
     for (auto & proc : enabled_procs) {
         if (proc->procs_from_source(source)) {
             proc->set_current_proc_source(source);

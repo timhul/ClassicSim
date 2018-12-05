@@ -5,7 +5,7 @@
 
 Ruthlessness::Ruthlessness(Character* pchar) :
     Proc("Ruthlessness", "Assets/ability/Ability_druid_disembowel.png", 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell}),
+         QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Ruthlessness", 3, DisabledAtZero::Yes)}),
     rogue(dynamic_cast<Rogue*>(pchar))

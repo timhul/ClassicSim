@@ -5,7 +5,7 @@
 
 SealFate::SealFate(Character* pchar) :
     Proc("Seal Fate", "Assets/spell/Spell_shadow_chilltouch.png", 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell}),
+         QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Seal Fate", 5, DisabledAtZero::Yes)}),
     rogue(dynamic_cast<Rogue*>(pchar))
