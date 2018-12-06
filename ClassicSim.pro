@@ -308,7 +308,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/Procs/SealFate.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/SealFateTalent.cpp \
     Test/Rogue/Procs/TestSealFate.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/Lethality.cpp
+    Character/Class/Rogue/TalentTrees/Assassination/Lethality.cpp \
+    Character/Class/Rogue/TalentTrees/Assassination/Vigor.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -618,7 +619,8 @@ HEADERS += \
     Character/Class/Rogue/Procs/SealFate.h \
     Character/Class/Rogue/TalentTrees/Assassination/SealFateTalent.h \
     Test/Rogue/Procs/TestSealFate.h \
-    Character/Class/Rogue/TalentTrees/Assassination/Lethality.h
+    Character/Class/Rogue/TalentTrees/Assassination/Lethality.h \
+    Character/Class/Rogue/TalentTrees/Assassination/Vigor.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

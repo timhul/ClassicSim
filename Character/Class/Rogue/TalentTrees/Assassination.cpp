@@ -10,6 +10,7 @@
 #include "RuthlessnessTalent.h"
 #include "SealFateTalent.h"
 #include "Talent.h"
+#include "Vigor.h"
 
 Assassination::Assassination(Character *pchar) :
     TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg")
@@ -40,7 +41,7 @@ Assassination::Assassination(Character *pchar) :
     QMap<QString, Talent*> tier6 {{"6ML", new SealFateTalent(pchar, this)}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new GenericTalent(pchar, this, "Vigor", "7ML", "Assets/spell/Spell_nature_earthbindtotem.png", 1, "Increases your maximum Energy by 10.", QVector<QPair<int, int>>())}};
+    QMap<QString, Talent*> tier7 {{"7ML", new Vigor(pchar, this)}};
     add_talents(tier7);
 
     talents["1MR"]->talent->set_bottom_child(talents["3MR"]->talent);

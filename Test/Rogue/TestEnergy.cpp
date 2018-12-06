@@ -1,5 +1,7 @@
-#include "Rogue.h"
 #include "TestEnergy.h"
+
+#include "Rogue.h"
+#include "Vigor.h"
 
 TestEnergy::TestEnergy(EquipmentDb* equipment_db) :
     TestSpell(equipment_db, "Energy"),
@@ -37,6 +39,10 @@ void TestEnergy::test_all() {
 
     set_up();
     test_only_single_resource_gain_is_queued();
+    tear_down();
+
+    set_up();
+    test_vigor_changes_max_energy();
     tear_down();
 }
 
@@ -142,6 +148,17 @@ void TestEnergy::test_only_single_resource_gain_is_queued() {
     then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
     then_next_event_is("ResourceGain", "6.000", RUN_EVENT);
     then_next_event_is("ResourceGain", "8.000", RUN_EVENT);
+}
+
+void TestEnergy::test_vigor_changes_max_energy() {
+    auto vigor = Vigor(rogue, nullptr);
+    then_rogue_has_energy(100);
+
+    assert(vigor.increment_rank());
+    then_rogue_has_energy(110);
+
+    assert(vigor.decrement_rank());
+    then_rogue_has_energy(100);
 }
 
 void TestEnergy::then_rogue_has_energy(const unsigned energy) const {
