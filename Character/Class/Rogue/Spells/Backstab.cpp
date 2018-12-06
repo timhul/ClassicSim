@@ -8,11 +8,16 @@
 
 Backstab::Backstab(Character* pchar) :
     Spell("Backstab", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 60),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Backstab", 3, DisabledAtZero::No)}),
-    rogue(dynamic_cast<Rogue*>(pchar))
+    TalentRequirer(QVector<TalentRequirerInfo*>{
+                   new TalentRequirerInfo("Improved Backstab", 3, DisabledAtZero::No),
+                   new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)
+                   }),
+    rogue(dynamic_cast<Rogue*>(pchar)),
+    improved_bs(0.0),
+    lethality(1.0)
 {
-    talent_ranks = {0.0, 0.1, 0.2, 0.3};
-    crit_modifier = talent_ranks[0];
+    imp_bs_ranks = {0.0, 0.1, 0.2, 0.3};
+    lethality_ranks = {1.0, 1.06, 1.12, 1.18, 1.24, 1.30};
 }
 
 bool Backstab::is_ready_spell_specific() const {
@@ -22,7 +27,7 @@ bool Backstab::is_ready_spell_specific() const {
 void Backstab::spell_effect() {
     rogue->exit_stealth();
 
-    const int result = roll->get_melee_ability_result(rogue->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance() + crit_modifier);
+    const int result = roll->get_melee_ability_result(rogue->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance() + improved_bs);
 
     add_gcd_event();
 
@@ -45,7 +50,7 @@ void Backstab::spell_effect() {
     double damage_dealt = damage_after_modifiers(rogue->get_random_normalized_mh_dmg() * 1.5 + 165.0);
 
     if (result == AttackResult::CRITICAL) {
-        damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod());
+        damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod() * lethality);
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
 
@@ -61,10 +66,16 @@ void Backstab::spell_effect() {
     rogue->gain_combo_points(1);
 }
 
-void Backstab::increase_talent_rank_effect(const int curr, const QString&) {
-    crit_modifier = talent_ranks[curr];
+void Backstab::increase_talent_rank_effect(const int curr, const QString& talent_name) {
+    if (talent_name == "Improved Backstab")
+        improved_bs = imp_bs_ranks[curr];
+    else if (talent_name == "Lethality")
+        lethality = lethality_ranks[curr];
 }
 
-void Backstab::decrease_talent_rank_effect(const int curr, const QString&) {
-    crit_modifier = talent_ranks[curr];
+void Backstab::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
+    if (talent_name == "Improved Backstab")
+        improved_bs = imp_bs_ranks[curr];
+    else if (talent_name == "Lethality")
+        lethality = lethality_ranks[curr];
 }

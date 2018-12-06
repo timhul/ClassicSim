@@ -15,6 +15,9 @@ public:
     virtual void test_combo_points() = 0;
     virtual void test_stealth() = 0;
 
+protected:
+    Rogue* rogue;
+
     void given_rogue_is_on_gcd(Spell *spell);
     void given_rogue_is_on_gcd();
     void given_rogue_in_stealth();
@@ -25,8 +28,11 @@ public:
     void then_rogue_has_energy(const unsigned) const;
     void then_rogue_has_combo_points(const unsigned) const;
 
-protected:
-    Rogue* rogue;
+    void given_1_of_5_lethality();
+    void given_2_of_5_lethality();
+    void given_3_of_5_lethality();
+    void given_4_of_5_lethality();
+    void given_5_of_5_lethality();
 };
 
 #endif // TESTSPELLROGUE_H

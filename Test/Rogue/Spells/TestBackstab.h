@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     Backstab* backstab();
 
     void test_name_correct() override;
@@ -22,10 +23,14 @@ public:
 
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_hit_dmg_5_of_5_lethality();
+    void test_crit_dmg_1_of_5_lethality();
+    void test_crit_dmg_2_of_5_lethality();
+    void test_crit_dmg_3_of_5_lethality();
+    void test_crit_dmg_4_of_5_lethality();
+    void test_crit_dmg_5_of_5_lethality();
 
     void when_backstab_is_performed();
-
-private:
 };
 
 #endif // TESTBACKSTAB_H

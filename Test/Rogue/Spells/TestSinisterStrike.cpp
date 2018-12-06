@@ -36,6 +36,30 @@ void TestSinisterStrike::test_all() {
     set_up();
     test_resource_cost_2_of_2_imp_ss();
     tear_down();
+
+    set_up();
+    test_hit_dmg_5_of_5_lethality();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_1_of_5_lethality();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_2_of_5_lethality();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_3_of_5_lethality();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_4_of_5_lethality();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_of_5_lethality();
+    tear_down();
 }
 
 SinisterStrike *TestSinisterStrike::sinister_strike() {
@@ -130,8 +154,88 @@ void TestSinisterStrike::test_crit_dmg() {
     when_sinister_strike_is_performed();
 
     // [Damage] = (base_dmg + normalized_wpn_speed * AP / 14 + flat_damage_bonus) * crit_dmg_modifier
-    // [579] = (100 + 2.4 * 1000 / 14 + 68) * 2.0
+    // [679] = (100 + 2.4 * 1000 / 14 + 68) * 2.0
     then_damage_dealt_is(679);
+}
+
+void TestSinisterStrike::test_hit_dmg_5_of_5_lethality() {
+    given_5_of_5_lethality();
+    test_hit_dmg();
+}
+
+void TestSinisterStrike::test_crit_dmg_1_of_5_lethality() {
+    given_1_of_5_lethality();
+    given_target_has_0_armor();
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_sinister_strike_is_performed();
+
+    // [Damage] = (base_dmg + normalized_wpn_speed * AP / 14 + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [720] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.06
+    then_damage_dealt_is(720);
+}
+
+void TestSinisterStrike::test_crit_dmg_2_of_5_lethality() {
+    given_2_of_5_lethality();
+    given_target_has_0_armor();
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_sinister_strike_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [760] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.12
+    then_damage_dealt_is(760);
+}
+
+void TestSinisterStrike::test_crit_dmg_3_of_5_lethality() {
+    given_3_of_5_lethality();
+    given_target_has_0_armor();
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_sinister_strike_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [801] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.18
+    then_damage_dealt_is(801);
+}
+
+void TestSinisterStrike::test_crit_dmg_4_of_5_lethality() {
+    given_4_of_5_lethality();
+    given_target_has_0_armor();
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_sinister_strike_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [842] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.24
+    then_damage_dealt_is(842);
+}
+
+void TestSinisterStrike::test_crit_dmg_5_of_5_lethality() {
+    given_5_of_5_lethality();
+    given_target_has_0_armor();
+    given_a_mainhand_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_sinister_strike_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [883] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.30
+    then_damage_dealt_is(883);
 }
 
 void TestSinisterStrike::test_resource_cost_1_of_2_imp_ss() {

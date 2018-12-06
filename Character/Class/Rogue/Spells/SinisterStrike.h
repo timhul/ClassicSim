@@ -14,11 +14,14 @@ protected:
 private:
     friend class Aggression;
     friend class ImprovedSinisterStrike;
+    friend class Lethality;
 
     Rogue* rogue;
-    double aggression_modifier;
+    double aggression;
+    double lethality;
     QVector<int> imp_ss_ranks;
     QVector<double> aggression_ranks;
+    QVector<double> lethality_ranks;
 
     void spell_effect() override;
 

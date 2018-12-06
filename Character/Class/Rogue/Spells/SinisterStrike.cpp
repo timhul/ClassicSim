@@ -10,13 +10,16 @@ SinisterStrike::SinisterStrike(Character* pchar) :
     Spell("Sinister Strike", "Assets/spell/Spell_shadow_ritualofsacrifice.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 45),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Improved Sinister Strike", 2, DisabledAtZero::No)
+                   new TalentRequirerInfo("Improved Sinister Strike", 2, DisabledAtZero::No),
+                   new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No)
                    }),
     rogue(dynamic_cast<Rogue*>(pchar)),
-    aggression_modifier(1.0)
+    aggression(1.0),
+    lethality(1.0)
 {
     imp_ss_ranks = {45, 42, 40};
     aggression_ranks = {1.0, 1.02, 1.04, 1.06};
+    lethality_ranks = {1.0, 1.06, 1.12, 1.18, 1.24, 1.30};
 }
 
 void SinisterStrike::spell_effect() {
@@ -43,10 +46,10 @@ void SinisterStrike::spell_effect() {
     }
 
     double base_dmg = rogue->get_random_normalized_mh_dmg() + 68.0;
-    double damage_dealt = damage_after_modifiers(base_dmg * aggression_modifier);
+    double damage_dealt = damage_after_modifiers(base_dmg * aggression);
 
     if (result == AttackResult::CRITICAL) {
-        damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod());
+        damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod() * lethality);
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
 
@@ -68,12 +71,16 @@ void SinisterStrike::increase_talent_rank_effect(const int curr, const QString& 
     if (talent_name == "Improved Sinister Strike")
         resource_cost = imp_ss_ranks[curr];
     else if (talent_name == "Aggression")
-        aggression_modifier = aggression_ranks[curr];
+        aggression = aggression_ranks[curr];
+    else if (talent_name == "Lethality")
+        lethality = lethality_ranks[curr];
 }
 
 void SinisterStrike::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
     if (talent_name == "Improved Sinister Strike")
         resource_cost = imp_ss_ranks[curr];
     else if (talent_name == "Aggression")
-        aggression_modifier = aggression_ranks[curr];
+        aggression = aggression_ranks[curr];
+    else if (talent_name == "Lethality")
+        lethality = lethality_ranks[curr];
 }

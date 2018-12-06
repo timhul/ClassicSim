@@ -3,6 +3,7 @@
 #include "GenericTalent.h"
 #include "ImprovedEviscerate.h"
 #include "ImprovedSliceAndDice.h"
+#include "Lethality.h"
 #include "Malice.h"
 #include "Murder.h"
 #include "RelentlessStrikesTalent.h"
@@ -25,7 +26,7 @@ Assassination::Assassination(Character *pchar) :
 
     QMap<QString, Talent*> tier3 {{"3LL", new RelentlessStrikesTalent(pchar, this)},
                                   {"3ML", new GenericTalent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<int, int>>{QPair<int, int>(25, 25)})},
-                                  {"3MR", new GenericTalent(pchar, this, "Lethality", "3MR", "Assets/ability/Ability_criticalstrike.png", 5, "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, and Hemorrhage abilities by %1%.", QVector<QPair<int, int>>{QPair<int, int>(6, 6)})}};
+                                  {"3MR", new Lethality(pchar, this)}};
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new GenericTalent(pchar, this, "Vile Poisons", "4ML", "Assets/ability/Ability_rogue_feigndeath.png", 5, "Increases the damage dealt by your poisons by %1% and gives your poisons an additional %2% chance to resist dispel effects.", QVector<QPair<int, int>>{QPair<int, int>(4, 4), QPair<int, int>(8, 8)})},

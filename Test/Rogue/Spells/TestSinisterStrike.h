@@ -24,6 +24,12 @@ public:
     void test_crit_dmg();
     void test_resource_cost_1_of_2_imp_ss();
     void test_resource_cost_2_of_2_imp_ss();
+    void test_hit_dmg_5_of_5_lethality();
+    void test_crit_dmg_1_of_5_lethality();
+    void test_crit_dmg_2_of_5_lethality();
+    void test_crit_dmg_3_of_5_lethality();
+    void test_crit_dmg_4_of_5_lethality();
+    void test_crit_dmg_5_of_5_lethality();
 
     void when_sinister_strike_is_performed();
 
