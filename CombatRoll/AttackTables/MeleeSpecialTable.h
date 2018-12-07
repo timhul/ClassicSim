@@ -1,11 +1,11 @@
 #ifndef MELEESPECIALTABLE_H
 #define MELEESPECIALTABLE_H
 
-#include "AttackTable.h"
+#include "PhysicalAttackTable.h"
 #include "AttackResult.h"
 #include "Random.h"
 
-class MeleeSpecialTable: public AttackTable {
+class MeleeSpecialTable: public PhysicalAttackTable {
 public:
     MeleeSpecialTable(Random* _rand,
                       const int wpn_skill,

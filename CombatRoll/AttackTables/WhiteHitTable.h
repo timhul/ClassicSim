@@ -1,11 +1,11 @@
 #ifndef WHITEHITTABLE_H
 #define WHITEHITTABLE_H
 
-#include "AttackTable.h"
+#include "PhysicalAttackTable.h"
 
 class Random;
 
-class WhiteHitTable: public AttackTable {
+class WhiteHitTable: public PhysicalAttackTable {
 public:
     WhiteHitTable(Random* random,
                   const int wpn_skill,

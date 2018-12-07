@@ -191,7 +191,6 @@ SOURCES += main.cpp \
     Character/Class/Mage/MageSpells.cpp \
     Character/Class/Hunter/HunterSpells.cpp \
     Character/Class/Druid/DruidSpells.cpp \
-    CombatRoll/AttackTable.cpp \
     Character/Race/Race.cpp \
     GUI/Models/ActiveItemStatFilterModel.cpp \
     GUI/Models/AvailableItemStatFilterModel.cpp \
@@ -342,7 +341,7 @@ HEADERS += \
     Equipment/Item/Item.h \
     Target/Target.h \
     CombatRoll/AttackResult.h \
-    CombatRoll/AttackTable.h \
+    CombatRoll/PhysicalAttackTable.h \
     CombatRoll/CombatRoll.h \
     CombatRoll/AttackTables/WhiteHitTable.h \
     CombatRoll/Random.h \

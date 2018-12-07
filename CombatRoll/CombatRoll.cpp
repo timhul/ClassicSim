@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 #include "Mechanics.h"
 #include "AttackResult.h"
-#include "AttackTable.h"
+#include "PhysicalAttackTable.h"
 #include "WhiteHitTable.h"
 #include "MeleeSpecialTable.h"
 #include "SimSettings.h"
