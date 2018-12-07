@@ -7,7 +7,7 @@
 #include <QString>
 #include <QVector>
 
-#include "AttackResult.h"
+#include "PhysicalAttackResult.h"
 #include "CombatRoll.h"
 #include "CooldownReady.h"
 #include "Engine.h"

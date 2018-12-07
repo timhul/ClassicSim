@@ -29,18 +29,18 @@ void Rend::spell_effect() {
 
     add_gcd_event();
 
-    if (result == AttackResult::MISS) {
+    if (result == PhysicalAttackResult::MISS) {
         increment_miss();
         warr->lose_rage(static_cast<unsigned>(resource_cost));
         return;
     }
-    if (result == AttackResult::DODGE) {
+    if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
-    if (result == AttackResult::PARRY) {
+    if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;

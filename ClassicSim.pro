@@ -340,7 +340,6 @@ HEADERS += \
     Equipment/Equipment.h \
     Equipment/Item/Item.h \
     Target/Target.h \
-    CombatRoll/AttackResult.h \
     CombatRoll/PhysicalAttackTable.h \
     CombatRoll/CombatRoll.h \
     CombatRoll/AttackTables/WhiteHitTable.h \
@@ -619,7 +618,8 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Assassination/SealFateTalent.h \
     Test/Rogue/Procs/TestSealFate.h \
     Character/Class/Rogue/TalentTrees/Assassination/Lethality.h \
-    Character/Class/Rogue/TalentTrees/Assassination/Vigor.h
+    Character/Class/Rogue/TalentTrees/Assassination/Vigor.h \
+    CombatRoll/PhysicalAttackResult.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

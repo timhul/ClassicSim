@@ -3,7 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Mechanics.h"
-#include "AttackResult.h"
+#include "PhysicalAttackResult.h"
 #include "PhysicalAttackTable.h"
 #include "WhiteHitTable.h"
 #include "MeleeSpecialTable.h"
@@ -50,17 +50,17 @@ int CombatRoll::get_melee_ability_result(const int wpn_skill,
 
 int CombatRoll::get_ranged_hit_result(const int) {
     // CSIM-73: Remove hardcoded critical result
-    return AttackResult::CRITICAL;
+    return PhysicalAttackResult::CRITICAL;
 }
 
 int CombatRoll::get_ranged_ability_result(const int) {
     // CSIM-73: Remove hardcoded critical result
-    return AttackResult::CRITICAL;
+    return PhysicalAttackResult::CRITICAL;
 }
 
 int CombatRoll::get_spell_ability_result() {
     // CSIM-60: Remove hardcoded critical result
-    return AttackResult::CRITICAL;
+    return PhysicalAttackResult::CRITICAL;
 }
 
 Mechanics* CombatRoll::get_mechanics() const {

@@ -34,22 +34,22 @@ void MainhandAttack::calculate_damage(const bool run_procs) {
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     const int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());
 
-    if (result == AttackResult::MISS) {
+    if (result == PhysicalAttackResult::MISS) {
         increment_miss();
         return;
     }
-    if (result == AttackResult::DODGE) {
+    if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         return;
     }
-    if (result == AttackResult::PARRY) {
+    if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         return;
     }
 
     double damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_mh_dmg());
 
-    if (result == AttackResult::CRITICAL) {
+    if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= 2;
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         pchar->melee_mh_white_critical_effect(run_procs);
@@ -58,7 +58,7 @@ void MainhandAttack::calculate_damage(const bool run_procs) {
 
     pchar->melee_mh_white_hit_effect(run_procs);
 
-    if (result == AttackResult::GLANCING) {
+    if (result == PhysicalAttackResult::GLANCING) {
         damage_dealt *= roll->get_glancing_blow_dmg_penalty(mh_wpn_skill);
         add_glancing_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         return;

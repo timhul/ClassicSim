@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <QMap>
-#include "AttackResult.h"
+#include "PhysicalAttackResult.h"
 
 class Character;
 class Target;

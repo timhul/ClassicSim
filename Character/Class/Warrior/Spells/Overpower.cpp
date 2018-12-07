@@ -31,19 +31,19 @@ void Overpower::spell_effect() {
     add_spell_cd_event();
     warr->lose_rage(resource_cost);
 
-    if (result == AttackResult::MISS) {
+    if (result == PhysicalAttackResult::MISS) {
         increment_miss();
         return;
     }
 
     double damage_dealt = damage_after_modifiers(warr->get_random_normalized_mh_dmg() + 35);
 
-    if (result == AttackResult::CRITICAL) {
+    if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= warr->get_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
-    else if (result == AttackResult::HIT) {
+    else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }

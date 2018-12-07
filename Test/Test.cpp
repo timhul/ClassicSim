@@ -30,7 +30,7 @@
 #include "WhiteHitTable.h"
 #include "MeleeSpecialTable.h"
 #include "CombatRoll.h"
-#include "AttackResult.h"
+#include "PhysicalAttackResult.h"
 #include "Random.h"
 #include "Mechanics.h"
 #include "Target.h"

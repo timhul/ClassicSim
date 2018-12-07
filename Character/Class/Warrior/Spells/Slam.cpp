@@ -49,18 +49,18 @@ void Slam::complete_cast_effect() {
     pchar->get_spells()->get_oh_attack()->reset_swingtimer();
     pchar->start_attack();
 
-    if (result == AttackResult::MISS) {
+    if (result == PhysicalAttackResult::MISS) {
         increment_miss();
         warr->lose_rage(static_cast<unsigned>(resource_cost));
         return;
     }
-    if (result == AttackResult::DODGE) {
+    if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
-    if (result == AttackResult::PARRY) {
+    if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
@@ -68,12 +68,12 @@ void Slam::complete_cast_effect() {
 
     double damage_dealt = damage_after_modifiers(warr->get_random_normalized_mh_dmg() + 87);
 
-    if (result == AttackResult::CRITICAL) {
+    if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= warr->get_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, double(casting_time_ms) / 1000);
     }
-    else if (result == AttackResult::HIT) {
+    else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, double(casting_time_ms) / 1000);
     }

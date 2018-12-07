@@ -2,7 +2,7 @@
 #define PHYSICALATTACKTABLE_H
 
 #include <math.h>
-#include "AttackResult.h"
+#include "PhysicalAttackResult.h"
 
 class PhysicalAttackTable {
 public:

@@ -51,32 +51,32 @@ int WhiteHitTable::get_outcome(const unsigned roll,
     unsigned range = 0;
 
     if (include_miss && roll < this->miss_range)
-        return AttackResult::MISS;
+        return PhysicalAttackResult::MISS;
     range += include_miss ? miss_range : 0;
 
     if (include_dodge && roll < (range + this->dodge_range))
-        return AttackResult::DODGE;
+        return PhysicalAttackResult::DODGE;
     range += include_dodge ? dodge_range : 0;
 
     if (include_parry && roll < (range + this->parry_range))
-        return AttackResult::PARRY;
+        return PhysicalAttackResult::PARRY;
     range += include_parry ? parry_range : 0;
 
     if (roll < (range + this->glancing_range))
-        return AttackResult::GLANCING;
+        return PhysicalAttackResult::GLANCING;
     range += glancing_range;
 
     if (include_block && roll < (range + this->block_range)) {
         if (random->get_roll() < range + static_cast<unsigned>(round(crit_chance * 10000)))
-            return AttackResult::BLOCK_CRITICAL;
-        return AttackResult::BLOCK;
+            return PhysicalAttackResult::BLOCK_CRITICAL;
+        return PhysicalAttackResult::BLOCK;
     }
     range += include_block ? block_range : 0;
 
     if (roll < (range + static_cast<unsigned>(round(crit_chance * 10000))))
-        return AttackResult::CRITICAL;
+        return PhysicalAttackResult::CRITICAL;
 
-    return AttackResult::HIT;
+    return PhysicalAttackResult::HIT;
 }
 
 void WhiteHitTable::dump_table() {

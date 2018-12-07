@@ -41,18 +41,18 @@ void Execute::spell_effect() {
     add_gcd_event();
 
     // CSIM-70: Investigate Execute rage loss on miss/dodge/parry
-    if (result == AttackResult::MISS) {
+    if (result == PhysicalAttackResult::MISS) {
         increment_miss();
         warr->lose_rage(static_cast<unsigned>(resource_cost));
         return;
     }
-    if (result == AttackResult::DODGE) {
+    if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
-    if (result == AttackResult::PARRY) {
+    if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
@@ -61,11 +61,11 @@ void Execute::spell_effect() {
     double damage_dealt = initial_dmg + (warr->get_resource_level(resource_type) - resource_cost) * dmg_per_rage_converted;
     damage_dealt = damage_after_modifiers(damage_dealt);
 
-    if (result == AttackResult::CRITICAL) {
+    if (result == PhysicalAttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_ability_crit_dmg_mod())), int(warr->get_resource_level(resource_type)), pchar->global_cooldown());
     }
-    else if (result == AttackResult::HIT) {
+    else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), int(warr->get_resource_level(resource_type)), pchar->global_cooldown());
     }

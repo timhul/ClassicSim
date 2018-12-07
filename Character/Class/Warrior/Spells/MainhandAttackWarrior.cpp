@@ -24,36 +24,36 @@ void MainhandAttackWarrior::calculate_damage(const bool run_procs) {
     const int mh_wpn_skill = warr->get_mh_wpn_skill();
     int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());
 
-    if (result == AttackResult::MISS) {
+    if (result == PhysicalAttackResult::MISS) {
         increment_miss();
         return;
     }
 
     pchar->add_player_reaction_event();
 
-    if (result == AttackResult::DODGE) {
+    if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
         return;
     }
-    if (result == AttackResult::PARRY) {
+    if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
         return;
     }
-    if (result == AttackResult::BLOCK || result == AttackResult::BLOCK_CRITICAL) {
+    if (result == PhysicalAttackResult::BLOCK || result == PhysicalAttackResult::BLOCK_CRITICAL) {
         increment_full_block();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
         return;
     }
 
     if (warr->get_recklessness_buff()->is_active())
-        result = AttackResult::CRITICAL;
+        result = PhysicalAttackResult::CRITICAL;
 
     double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_mh_dmg());
 
-    if (result == AttackResult::CRITICAL) {
+    if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * 2);
         add_crit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
         const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
@@ -66,7 +66,7 @@ void MainhandAttackWarrior::calculate_damage(const bool run_procs) {
 
     warr->melee_mh_white_hit_effect(run_procs);
 
-    if (result == AttackResult::GLANCING) {
+    if (result == PhysicalAttackResult::GLANCING) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
         add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
         const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));

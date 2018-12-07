@@ -47,17 +47,17 @@ void Eviscerate::spell_effect() {
 
     add_gcd_event();
 
-    if (result == AttackResult::MISS) {
+    if (result == PhysicalAttackResult::MISS) {
         increment_miss();
         rogue->lose_energy(static_cast<unsigned>(resource_cost));
         return;
     }
-    if (result == AttackResult::DODGE) {
+    if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         rogue->lose_energy(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
-    if (result == AttackResult::PARRY) {
+    if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         rogue->lose_energy(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
@@ -67,12 +67,12 @@ void Eviscerate::spell_effect() {
     double ap_modifier = rogue->get_stats()->get_melee_ap() * (rogue->get_combo_points() * 0.03);
     double damage_dealt = damage_after_modifiers((evisc_range->get_roll() + ap_modifier) * total_dmg_modifier);
 
-    if (result == AttackResult::CRITICAL) {
+    if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod());
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
-    else if (result == AttackResult::HIT) {
+    else if (result == PhysicalAttackResult::HIT) {
         rogue->melee_mh_yellow_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
