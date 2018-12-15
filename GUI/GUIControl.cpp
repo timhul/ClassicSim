@@ -58,6 +58,7 @@ GUIControl::GUIControl(QObject* parent) :
     dps_distribution(nullptr),
     mh_temporary_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Temporary)),
     oh_temporary_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Temporary)),
+    head_legs_enchants(new EnchantModel(EquipmentSlot::HEAD, EnchantModel::Permanent)),
     last_quick_sim_result(0.0),
     sim_in_progress(false)
 {
@@ -170,6 +171,7 @@ GUIControl::~GUIControl() {
     delete scale_result_model;
     delete mh_temporary_enchants;
     delete oh_temporary_enchants;
+    delete head_legs_enchants;
 }
 
 void GUIControl::set_character(Character* pchar) {
@@ -184,6 +186,7 @@ void GUIControl::set_character(Character* pchar) {
     character_encoder->set_character(current_char);
     mh_temporary_enchants->set_character(current_char);
     oh_temporary_enchants->set_character(current_char);
+    head_legs_enchants->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -1128,6 +1131,10 @@ EnchantModel* GUIControl::get_mh_temporary_enchant_model() const {
 
 EnchantModel* GUIControl::get_oh_temporary_enchant_model() const {
     return this->oh_temporary_enchants;
+}
+
+EnchantModel* GUIControl::get_head_legs_enchant_model() const {
+    return this->head_legs_enchants;
 }
 
 void GUIControl::setSlot(const QString& slot_string, const QString& item) {

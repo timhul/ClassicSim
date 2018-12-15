@@ -48,7 +48,19 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->increase_haste(1);
         break;
-    case EnchantName::LesserArcanumOfVoracity:
+    case EnchantName::LesserArcanumOfVoracityAgility:
+        pchar->get_stats()->increase_agility(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracityIntellect:
+        pchar->get_stats()->increase_intellect(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracitySpirit:
+        pchar->get_stats()->increase_spirit(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracityStamina:
+        pchar->get_stats()->increase_stamina(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracityStrength:
         pchar->get_stats()->increase_strength(8);
         break;
     case EnchantName::EnchantCloakLesserAgility:
@@ -124,7 +136,19 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->decrease_haste(1);
         break;
-    case EnchantName::LesserArcanumOfVoracity:
+    case EnchantName::LesserArcanumOfVoracityAgility:
+        pchar->get_stats()->decrease_agility(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracityIntellect:
+        pchar->get_stats()->decrease_intellect(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracitySpirit:
+        pchar->get_stats()->decrease_spirit(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracityStamina:
+        pchar->get_stats()->decrease_stamina(8);
+        break;
+    case EnchantName::LesserArcanumOfVoracityStrength:
         pchar->get_stats()->decrease_strength(8);
         break;
     case EnchantName::EnchantCloakLesserAgility:

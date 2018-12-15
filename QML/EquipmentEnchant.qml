@@ -127,7 +127,7 @@ Rectangle {
                 return enchant1HWeaponModel
         case "HEAD":
         case "LEGS":
-            return enchantHeadLegsModel
+            return headLegsEnchantModel
         case "SHOULDERS":
             return enchantShoulderModel
         case "BACK":
@@ -272,20 +272,6 @@ Rectangle {
         ListElement {
             _name: "Enchant 2H - Superior Impact"
             _enum: EnchantName.Enchant2HWeaponSuperiorImpact
-        }
-    }
-
-    ListModel {
-        id: enchantHeadLegsModel
-
-        ListElement {
-            _name: "Arcanum of Rapidity"
-            _enum: EnchantName.ArcanumOfRapidity
-        }
-
-        ListElement {
-            _name: "Lesser Arcanum of Voracity"
-            _enum: EnchantName.LesserArcanumOfVoracity
         }
     }
 

@@ -11,6 +11,9 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
     case EquipmentSlot::MAINHAND:
     case EquipmentSlot::OFFHAND:
         return { EnchantName::Name::Crusader, EnchantName::Name::FieryWeapon };
+    case EquipmentSlot::HEAD:
+    case EquipmentSlot::LEGS:
+        return { EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityStrength };
     }
 
     assert(false);

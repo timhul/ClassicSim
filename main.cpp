@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("scaleResultModel", gui_control->get_scale_result_model());
     context->setContextProperty("mhTempEnchantModel", gui_control->get_mh_temporary_enchant_model());
     context->setContextProperty("ohTempEnchantModel", gui_control->get_oh_temporary_enchant_model());
+    context->setContextProperty("headLegsEnchantModel", gui_control->get_head_legs_enchant_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 

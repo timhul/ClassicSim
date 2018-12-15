@@ -151,6 +151,7 @@ public:
     Q_INVOKABLE void clearTemporaryEnchant(const QString& slot_string);
     EnchantModel* get_mh_temporary_enchant_model() const;
     EnchantModel* get_oh_temporary_enchant_model() const;
+    EnchantModel* get_head_legs_enchant_model() const;
     /* End of Equipment */
 
     /* ItemModel */
@@ -350,6 +351,7 @@ private:
     ScaleResult* dps_distribution;
     EnchantModel* mh_temporary_enchants;
     EnchantModel* oh_temporary_enchants;
+    EnchantModel* head_legs_enchants;
     double last_quick_sim_result;
     bool sim_in_progress;
 };

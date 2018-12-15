@@ -24,7 +24,11 @@ public:
         EnchantGlovesGreaterStrength,
         EnchantGlovesMinorHaste,
         ArcanumOfRapidity,
-        LesserArcanumOfVoracity,
+        LesserArcanumOfVoracityAgility,
+        LesserArcanumOfVoracityIntellect,
+        LesserArcanumOfVoracitySpirit,
+        LesserArcanumOfVoracityStamina,
+        LesserArcanumOfVoracityStrength,
         EnchantCloakLesserAgility,
         ZandalarSignetOfMight,
         MightOfTheScourge,
@@ -71,7 +75,11 @@ public:
             return "2H Weapon Superior Impact";
         case EnchantName::ArcanumOfRapidity:
             return "Arcanum of Rapidity";
-        case EnchantName::LesserArcanumOfVoracity:
+        case EnchantName::LesserArcanumOfVoracityAgility:
+        case EnchantName::LesserArcanumOfVoracityIntellect:
+        case EnchantName::LesserArcanumOfVoracitySpirit:
+        case EnchantName::LesserArcanumOfVoracityStamina:
+        case EnchantName::LesserArcanumOfVoracityStrength:
             return "Lesser Arcanum of Voracity";
         case EnchantName::EnchantCloakLesserAgility:
             return "Lesser Agility";
@@ -128,7 +136,15 @@ public:
             return "+9 Damage";
         case EnchantName::ArcanumOfRapidity:
             return "+1% Haste";
-        case EnchantName::LesserArcanumOfVoracity:
+        case EnchantName::LesserArcanumOfVoracityAgility:
+            return "+8 Agility";
+        case EnchantName::LesserArcanumOfVoracityIntellect:
+            return "+8 Intellect";
+        case EnchantName::LesserArcanumOfVoracitySpirit:
+            return "+8 Spirit";
+        case EnchantName::LesserArcanumOfVoracityStamina:
+            return "+8 Stamina";
+        case EnchantName::LesserArcanumOfVoracityStrength:
             return "+8 Strength";
         case EnchantName::EnchantCloakLesserAgility:
             return "+3 Agility";
