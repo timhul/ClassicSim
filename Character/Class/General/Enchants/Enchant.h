@@ -6,7 +6,7 @@
 
 class Enchant {
 public:
-    Enchant(const EnchantName::Name enum_name, QString  name, QString  effect);
+    Enchant(const EnchantName::Name enum_name, QString name, QString effect);
     virtual ~Enchant();
 
     EnchantName::Name get_enum_name() const;

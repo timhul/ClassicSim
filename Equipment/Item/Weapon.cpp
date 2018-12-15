@@ -1,10 +1,11 @@
-
 #include "Weapon.h"
+
+#include <utility>
+
 #include "Enchant.h"
 #include "EnchantProc.h"
 #include "EnchantStatic.h"
-
-#include <utility>
+#include "InstantPoison.h"
 
 Weapon::Weapon(QString name, int type, int weapon_slot, unsigned min, unsigned max, double speed,
        QVector<QPair<QString, QString> > stats,
@@ -97,6 +98,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     delete temporary_enchant;
 
     int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
+    QString weapon_side = mainhand ? "MH" : "OH";
 
     switch (enchant_name) {
     case EnchantName::WindfuryTotem:
@@ -105,6 +107,8 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     case EnchantName::ElementalSharpeningStone:
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
+    case EnchantName::InstantPoison:
+        temporary_enchant = new InstantPoison(pchar, weapon_side, enchant_slot);
     default:
         assert(false);
     }

@@ -17,6 +17,7 @@ public:
         IronCounterweight,
         Enchant2HWeaponAgility,
         Enchant2HWeaponSuperiorImpact,
+        InstantPoison,
         WindfuryTotem,
         EnchantBracerSuperiorStrength,
         EnchantGlovesSuperiorAgility,
