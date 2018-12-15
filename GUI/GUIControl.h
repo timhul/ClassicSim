@@ -152,6 +152,12 @@ public:
     EnchantModel* get_mh_temporary_enchant_model() const;
     EnchantModel* get_oh_temporary_enchant_model() const;
     EnchantModel* get_head_legs_enchant_model() const;
+    EnchantModel* get_shoulder_enchant_model() const;
+    EnchantModel* get_back_enchant_model() const;
+    EnchantModel* get_wrist_enchant_model() const;
+    EnchantModel* get_gloves_enchant_model() const;
+    EnchantModel* get_chest_enchant_model() const;
+    EnchantModel* get_boots_enchant_model() const;
     /* End of Equipment */
 
     /* ItemModel */
@@ -352,6 +358,12 @@ private:
     EnchantModel* mh_temporary_enchants;
     EnchantModel* oh_temporary_enchants;
     EnchantModel* head_legs_enchants;
+    EnchantModel* shoulder_enchants;
+    EnchantModel* back_enchants;
+    EnchantModel* wrist_enchants;
+    EnchantModel* gloves_enchants;
+    EnchantModel* chest_enchants;
+    EnchantModel* boots_enchants;
     double last_quick_sim_result;
     bool sim_in_progress;
 };

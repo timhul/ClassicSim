@@ -129,17 +129,17 @@ Rectangle {
         case "LEGS":
             return headLegsEnchantModel
         case "SHOULDERS":
-            return enchantShoulderModel
+            return shoulderEnchantModel
         case "BACK":
-            return enchantBackModel
+            return backEnchantModel
         case "CHEST":
-            return enchantChestModel
+            return chestEnchantModel
         case "WRIST":
-            return enchantWristModel
+            return wristEnchantModel
         case "GLOVES":
-            return enchantGlovesModel
+            return glovesEnchantModel
         case "BOOTS":
-            return enchantBootsModel
+            return bootsEnchantModel
         }
 
         return enchant2HWeaponModel
@@ -272,80 +272,6 @@ Rectangle {
         ListElement {
             _name: "Enchant 2H - Superior Impact"
             _enum: EnchantName.Enchant2HWeaponSuperiorImpact
-        }
-    }
-
-    ListModel {
-        id: enchantShoulderModel
-
-        ListElement {
-            _name: "Zandalar Signet of Might"
-            _enum: EnchantName.ZandalarSignetOfMight
-        }
-
-        ListElement {
-            _name: "Might of the Scourge"
-            _enum: EnchantName.MightOfTheScourge
-        }
-    }
-
-    ListModel {
-        id: enchantBackModel
-
-        ListElement {
-            _name: "Enchant Cloak - Lesser Agility"
-            _enum: EnchantName.EnchantCloakLesserAgility
-        }
-    }
-
-    ListModel {
-        id: enchantChestModel
-
-        ListElement {
-            _name: "Enchant Chest - Greater Stats"
-            _enum: EnchantName.EnchantChestGreaterStats
-        }
-    }
-
-    ListModel {
-        id: enchantWristModel
-
-        ListElement {
-            _name: "Enchant Bracer - Superior Strength"
-            _enum: EnchantName.EnchantBracerSuperiorStrength
-        }
-    }
-
-    ListModel {
-        id: enchantGlovesModel
-
-        ListElement {
-            _name: "Enchant Gloves - Superior Agility"
-            _enum: EnchantName.EnchantGlovesSuperiorAgility
-        }
-
-        ListElement {
-            _name: "Enchant Gloves - Greater Strength"
-            _enum: EnchantName.EnchantGlovesGreaterStrength
-        }
-
-        ListElement {
-            _name: "Enchant Gloves - Minor Haste"
-            _enum: EnchantName.EnchantGlovesMinorHaste
-        }
-    }
-
-    ListModel {
-        id: enchantBootsModel
-
-        ListElement {
-            _name: "Enchant Boots - Minor Speed"
-            _enum: EnchantName.EnchantBootsMinorSpeed
-        }
-
-        ListElement {
-            _name: "Enchant Boots - Greater Agility"
-            _enum: EnchantName.EnchantBootsGreaterAgility
         }
     }
 }

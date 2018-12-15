@@ -14,6 +14,22 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
         return { EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityStrength };
+    case EquipmentSlot::SHOULDERS:
+        return { EnchantName::Name::MightOfTheScourge, EnchantName::Name::ZandalarSignetOfMight };
+    case EquipmentSlot::BACK:
+        return { EnchantName::Name::EnchantCloakLesserAgility };
+    case EquipmentSlot::WRIST:
+        return { EnchantName::Name::EnchantBracerSuperiorStrength };
+    case EquipmentSlot::GLOVES:
+        return {
+            EnchantName::Name::EnchantGlovesSuperiorAgility,
+            EnchantName::Name::EnchantGlovesMinorHaste,
+            EnchantName::Name::EnchantGlovesGreaterStrength
+        };
+    case EquipmentSlot::CHEST:
+        return { EnchantName::Name::EnchantChestGreaterStats };
+    case EquipmentSlot::BOOTS:
+        return { EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsGreaterAgility };
     }
 
     assert(false);

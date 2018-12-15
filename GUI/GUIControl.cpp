@@ -59,6 +59,12 @@ GUIControl::GUIControl(QObject* parent) :
     mh_temporary_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Temporary)),
     oh_temporary_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Temporary)),
     head_legs_enchants(new EnchantModel(EquipmentSlot::HEAD, EnchantModel::Permanent)),
+    shoulder_enchants(new EnchantModel(EquipmentSlot::SHOULDERS, EnchantModel::Permanent)),
+    back_enchants(new EnchantModel(EquipmentSlot::BACK, EnchantModel::Permanent)),
+    wrist_enchants(new EnchantModel(EquipmentSlot::WRIST, EnchantModel::Permanent)),
+    gloves_enchants(new EnchantModel(EquipmentSlot::GLOVES, EnchantModel::Permanent)),
+    chest_enchants(new EnchantModel(EquipmentSlot::CHEST, EnchantModel::Permanent)),
+    boots_enchants(new EnchantModel(EquipmentSlot::BOOTS, EnchantModel::Permanent)),
     last_quick_sim_result(0.0),
     sim_in_progress(false)
 {
@@ -172,6 +178,12 @@ GUIControl::~GUIControl() {
     delete mh_temporary_enchants;
     delete oh_temporary_enchants;
     delete head_legs_enchants;
+    delete shoulder_enchants;
+    delete back_enchants;
+    delete wrist_enchants;
+    delete gloves_enchants;
+    delete chest_enchants;
+    delete boots_enchants;
 }
 
 void GUIControl::set_character(Character* pchar) {
@@ -187,6 +199,12 @@ void GUIControl::set_character(Character* pchar) {
     mh_temporary_enchants->set_character(current_char);
     oh_temporary_enchants->set_character(current_char);
     head_legs_enchants->set_character(current_char);
+    shoulder_enchants->set_character(current_char);
+    back_enchants->set_character(current_char);
+    wrist_enchants->set_character(current_char);
+    gloves_enchants->set_character(current_char);
+    chest_enchants->set_character(current_char);
+    boots_enchants->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -1135,6 +1153,30 @@ EnchantModel* GUIControl::get_oh_temporary_enchant_model() const {
 
 EnchantModel* GUIControl::get_head_legs_enchant_model() const {
     return this->head_legs_enchants;
+}
+
+EnchantModel* GUIControl::get_shoulder_enchant_model() const {
+    return this->shoulder_enchants;
+}
+
+EnchantModel* GUIControl::get_back_enchant_model() const {
+    return this->back_enchants;
+}
+
+EnchantModel* GUIControl::get_wrist_enchant_model() const {
+    return this->wrist_enchants;
+}
+
+EnchantModel* GUIControl::get_gloves_enchant_model() const {
+    return this->gloves_enchants;
+}
+
+EnchantModel* GUIControl::get_chest_enchant_model() const {
+    return this->chest_enchants;
+}
+
+EnchantModel* GUIControl::get_boots_enchant_model() const {
+    return this->boots_enchants;
 }
 
 void GUIControl::setSlot(const QString& slot_string, const QString& item) {

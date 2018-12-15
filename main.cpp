@@ -48,6 +48,12 @@ int main(int argc, char *argv[])
     context->setContextProperty("mhTempEnchantModel", gui_control->get_mh_temporary_enchant_model());
     context->setContextProperty("ohTempEnchantModel", gui_control->get_oh_temporary_enchant_model());
     context->setContextProperty("headLegsEnchantModel", gui_control->get_head_legs_enchant_model());
+    context->setContextProperty("shoulderEnchantModel", gui_control->get_shoulder_enchant_model());
+    context->setContextProperty("backEnchantModel", gui_control->get_back_enchant_model());
+    context->setContextProperty("wristEnchantModel", gui_control->get_wrist_enchant_model());
+    context->setContextProperty("glovesEnchantModel", gui_control->get_gloves_enchant_model());
+    context->setContextProperty("chestEnchantModel", gui_control->get_chest_enchant_model());
+    context->setContextProperty("bootsEnchantModel", gui_control->get_boots_enchant_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 
