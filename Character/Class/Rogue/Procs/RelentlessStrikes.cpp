@@ -2,6 +2,7 @@
 
 #include "ProcInfo.h"
 #include "Rogue.h"
+#include "StatisticsResource.h"
 
 RelentlessStrikes::RelentlessStrikes(Character* pchar) :
     Proc("Relentless Strikes", "Assets/ability/Ability_warrior_decisivestrike.png", 0.0, 0, QVector<Proc*>(),
@@ -19,7 +20,12 @@ RelentlessStrikes::RelentlessStrikes(Character* pchar) :
 RelentlessStrikes::~RelentlessStrikes() = default;
 
 void RelentlessStrikes::proc_effect() {
+    unsigned before_gain = rogue->get_resource_level(ResourceType::Energy);
+
     rogue->gain_energy(25);
+
+    unsigned delta = rogue->get_resource_level(ResourceType::Energy) - before_gain;
+    statistics_resource->add_resource_gain(ResourceType::Energy, delta);
 }
 
 void RelentlessStrikes::set_current_combo_points(const unsigned combo_points) {
