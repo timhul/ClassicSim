@@ -8,9 +8,6 @@
 
 class Character;
 
-QString get_name_from_enum(EnchantName::Name);
-QString get_effect_from_enum(EnchantName::Name);
-
 class EnchantStatic : public Enchant {
 public:
     EnchantStatic(EnchantName::Name enchant_name, Character* pchar, int enchant_slot);

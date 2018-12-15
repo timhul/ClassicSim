@@ -14,7 +14,7 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
     Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>(),
          pchar),
-    Enchant(EnchantName::InstantPoison, "Instant Poison", "Instant Poison"),
+    Enchant(EnchantName::InstantPoison),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Vile Poisons", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Improved Poisons", 5, DisabledAtZero::No)

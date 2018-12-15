@@ -2,8 +2,10 @@
 
 #include <utility>
 
-Enchant::Enchant(const EnchantName::Name enum_name, QString name, QString effect_string) :
-    enum_name(enum_name), name(std::move(name)), effect(std::move(effect_string))
+Enchant::Enchant(const EnchantName::Name enum_name) :
+    enum_name(enum_name),
+    name(EnchantName::get_name(enum_name)),
+    effect(EnchantName::get_effect(enum_name))
 {}
 
 Enchant::~Enchant() = default;
