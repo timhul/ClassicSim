@@ -312,7 +312,11 @@ SOURCES += main.cpp \
     CombatRoll/AttackTables/MagicAttackTable.cpp \
     Test/TestMechanics.cpp \
     Character/Class/Rogue/Procs/InstantPoison.cpp \
-    Character/Class/Rogue/Procs/InstantPoisonBuff.cpp
+    Character/Class/Rogue/Procs/InstantPoisonBuff.cpp \
+    GUI/Models/EnchantModel.cpp \
+    Character/CharacterEnchants.cpp \
+    Character/Class/Warrior/WarriorEnchants.cpp \
+    Character/Class/Rogue/RogueEnchants.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -628,7 +632,11 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Assassination/Vigor.h \
     Test/TestMechanics.h \
     Character/Class/Rogue/Procs/InstantPoison.h \
-    Character/Class/Rogue/Procs/InstantPoisonBuff.h
+    Character/Class/Rogue/Procs/InstantPoisonBuff.h \
+    GUI/Models/EnchantModel.h \
+    Character/CharacterEnchants.h \
+    Character/Class/Warrior/WarriorEnchants.h \
+    Character/Class/Rogue/RogueEnchants.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

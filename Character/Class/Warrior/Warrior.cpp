@@ -1,24 +1,26 @@
 #include "Warrior.h"
-#include "Talents.h"
 
-#include "MainhandAttackWarrior.h"
-#include "OffhandAttackWarrior.h"
-#include "MainhandMeleeHit.h"
-#include "OffhandMeleeHit.h"
-#include "CombatRoll.h"
-#include "Equipment.h"
+#include <QDebug>
+
 #include "Arms.h"
-#include "Fury.h"
-#include "Protection.h"
-#include "Stats.h"
+#include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "EnabledProcs.h"
 #include "EnabledBuffs.h"
-#include "WarriorSpells.h"
-#include "CharacterStats.h"
+#include "Equipment.h"
+#include "Fury.h"
+#include "MainhandAttackWarrior.h"
+#include "MainhandMeleeHit.h"
+#include "OffhandAttackWarrior.h"
+#include "OffhandMeleeHit.h"
+#include "Protection.h"
 #include "Race.h"
 #include "Rage.h"
+#include "Stats.h"
+#include "Talents.h"
+#include "WarriorEnchants.h"
+#include "WarriorSpells.h"
 #include "Weapon.h"
-#include <QDebug>
 
 #include "Flurry.h"
 #include "SwordSpecialization.h"
@@ -43,6 +45,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     available_races.append("Tauren");
     available_races.append("Troll");
     available_races.append("Undead");
+    this->available_enchants = new WarriorEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -102,6 +105,7 @@ Warrior::~Warrior() {
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete warr_spells;
     // TODO: Create a WarriorProcs class.

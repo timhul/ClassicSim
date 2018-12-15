@@ -1,5 +1,7 @@
-
 #include "GUIControl.h"
+
+#include <QDebug>
+#include <utility>
 
 #include "Dwarf.h"
 #include "Gnome.h"
@@ -20,36 +22,29 @@
 #include "Warlock.h"
 #include "Warrior.h"
 
-#include "Spells.h"
-
-#include "EncounterStart.h"
-#include "EncounterEnd.h"
-
-#include "Weapon.h"
-#include "WeaponModel.h"
-#include "Equipment.h"
-#include "EquipmentDb.h"
-
-#include "CharacterEncoder.h"
+#include "BuffModel.h"
 #include "CharacterDecoder.h"
+#include "CharacterEncoder.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
-
-#include "SimulationThreadPool.h"
+#include "EnabledBuffs.h"
+#include "EnchantModel.h"
+#include "EncounterEnd.h"
+#include "EncounterStart.h"
+#include "Equipment.h"
+#include "EquipmentDb.h"
+#include "GeneralBuffs.h"
+#include "NumberCruncher.h"
+#include "Rotation.h"
+#include "RotationFileReader.h"
+#include "Rulesets.h"
 #include "SimControl.h"
 #include "SimOption.h"
 #include "SimSettings.h"
-#include "NumberCruncher.h"
-#include "Rulesets.h"
-
-#include "EnabledBuffs.h"
-#include "BuffModel.h"
-#include "GeneralBuffs.h"
-#include "RotationFileReader.h"
-#include "Rotation.h"
-
-#include <QDebug>
-#include <utility>
+#include "SimulationThreadPool.h"
+#include "Spells.h"
+#include "Weapon.h"
+#include "WeaponModel.h"
 
 GUIControl::GUIControl(QObject* parent) :
     QObject(parent),
@@ -61,6 +56,8 @@ GUIControl::GUIControl(QObject* parent) :
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
     dps_distribution(nullptr),
+    mh_temporary_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Temporary)),
+    oh_temporary_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Temporary)),
     last_quick_sim_result(0.0),
     sim_in_progress(false)
 {
@@ -171,6 +168,8 @@ GUIControl::~GUIControl() {
     delete proc_breakdown_model;
     delete resource_breakdown_model;
     delete scale_result_model;
+    delete mh_temporary_enchants;
+    delete oh_temporary_enchants;
 }
 
 void GUIControl::set_character(Character* pchar) {
@@ -183,6 +182,8 @@ void GUIControl::set_character(Character* pchar) {
     selectInformationRotation(0);
     rotation_model->select_rotation();
     character_encoder->set_character(current_char);
+    mh_temporary_enchants->set_character(current_char);
+    oh_temporary_enchants->set_character(current_char);
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -259,6 +260,7 @@ void GUIControl::selectFaction(const int faction) {
     }
 
     buff_model->switch_faction();
+    mh_temporary_enchants->set_character(current_char);
     statsChanged();
 }
 
@@ -1118,6 +1120,14 @@ void GUIControl::clearTemporaryEnchant(const QString& slot_string) {
 
     enchantChanged();
     statsChanged();
+}
+
+EnchantModel* GUIControl::get_mh_temporary_enchant_model() const {
+    return this->mh_temporary_enchants;
+}
+
+EnchantModel* GUIControl::get_oh_temporary_enchant_model() const {
+    return this->oh_temporary_enchants;
 }
 
 void GUIControl::setSlot(const QString& slot_string, const QString& item) {

@@ -31,12 +31,12 @@
 
 class CharacterEncoder;
 class CharacterDecoder;
+class EnchantModel;
 class EquipmentDb;
 class SimControl;
 class SimSettings;
 class SimulationThreadPool;
 class NumberCruncher;
-
 
 class GUIControl: public QObject {
     Q_OBJECT
@@ -149,6 +149,8 @@ public:
     Q_INVOKABLE void applyTemporaryEnchant(const QString& slot_string, const int enchant_name);
     Q_INVOKABLE void clearEnchant(const QString& slot_string);
     Q_INVOKABLE void clearTemporaryEnchant(const QString& slot_string);
+    EnchantModel* get_mh_temporary_enchant_model() const;
+    EnchantModel* get_oh_temporary_enchant_model() const;
     /* End of Equipment */
 
     /* ItemModel */
@@ -346,6 +348,8 @@ private:
     SimScaleModel* sim_scale_model;
     ScaleResultModel* scale_result_model;
     ScaleResult* dps_distribution;
+    EnchantModel* mh_temporary_enchants;
+    EnchantModel* oh_temporary_enchants;
     double last_quick_sim_result;
     bool sim_in_progress;
 };

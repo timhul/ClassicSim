@@ -5,6 +5,7 @@
 
 #include "AvailableFactions.h"
 #include "EnchantName.h"
+#include "EnchantModel.h"
 #include "GUIControl.h"
 #include "PieChart.h"
 #include "PieChartModel.h"
@@ -44,6 +45,8 @@ int main(int argc, char *argv[])
     context->setContextProperty("resourceBreakdownModel", gui_control->get_resource_breakdown_model());
     context->setContextProperty("simScaleModel", gui_control->get_sim_scale_model());
     context->setContextProperty("scaleResultModel", gui_control->get_scale_result_model());
+    context->setContextProperty("mhTempEnchantModel", gui_control->get_mh_temporary_enchant_model());
+    context->setContextProperty("ohTempEnchantModel", gui_control->get_oh_temporary_enchant_model());
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 

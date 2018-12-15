@@ -8,6 +8,7 @@
 #include "Equipment.h"
 #include "Energy.h"
 #include "RelentlessStrikes.h"
+#include "RogueEnchants.h"
 #include "RogueSpells.h"
 #include "Ruthlessness.h"
 #include "SealFate.h"
@@ -29,6 +30,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     available_races.append("Orc");
     available_races.append("Troll");
     available_races.append("Undead");
+    available_enchants = new RogueEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -63,6 +65,7 @@ Rogue::~Rogue()
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete rogue_spells;
     delete energy;

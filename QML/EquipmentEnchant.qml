@@ -116,16 +116,13 @@ Rectangle {
         switch (slot) {
         case "MAINHAND":
             if (temporaryEnchant === true) {
-                if (character.isHorde)
-                    return enchantTemporaryMHWeaponModelHorde
-                else
-                    return enchantTemporaryMHWeaponModelAlliance
+                return mhTempEnchantModel
             }
             else
                 return equipment.has2HWeapon ? enchant2HWeaponModel : enchant1HWeaponModel
         case "OFFHAND":
             if (temporaryEnchant === true)
-                return enchantTemporaryOHWeaponModel
+                return ohTempEnchantModel
             else
                 return enchant1HWeaponModel
         case "HEAD":
@@ -179,11 +176,11 @@ Rectangle {
 
             onRectangleClicked: {
                 listView.visible = false
-                console.log("Clicked", name)
+                console.log("Clicked", _name)
                 if (temporaryEnchant)
-                    equipment.applyTemporaryEnchant(slot, enumvalue)
+                    equipment.applyTemporaryEnchant(slot, _enum)
                 else
-                    equipment.applyEnchant(slot, enumvalue)
+                    equipment.applyEnchant(slot, _enum)
             }
             onRectangleRightClicked: {
                 listView.visible = false
@@ -191,7 +188,7 @@ Rectangle {
 
             Text {
                 anchors.fill: parent
-                text: name
+                text: _name
 
                 font {
                     family: "Arial"
@@ -209,60 +206,28 @@ Rectangle {
         id: enchant1HWeaponModel
 
         ListElement {
-            name: "Crusader"
-            enumvalue: EnchantName.Crusader
+            _name: "Crusader"
+            _enum: EnchantName.Crusader
         }
 
         ListElement {
-            name: "Fiery Weapon"
-            enumvalue: EnchantName.FieryWeapon
+            _name: "Fiery Weapon"
+            _enum: EnchantName.FieryWeapon
         }
 
         ListElement {
-            name: "Enchant Weapon - Strength"
-            enumvalue: EnchantName.EnchantWeaponStrength
+            _name: "Enchant Weapon - Strength"
+            _enum: EnchantName.EnchantWeaponStrength
         }
 
         ListElement {
-            name: "Enchant Weapon - Agility"
-            enumvalue: EnchantName.EnchantWeaponAgility
+            _name: "Enchant Weapon - Agility"
+            _enum: EnchantName.EnchantWeaponAgility
         }
 
         ListElement {
-            name: "Enchant Weapon - Superior Striking"
-            enumvalue: EnchantName.SuperiorStriking
-        }
-    }
-
-    ListModel {
-        id: enchantTemporaryMHWeaponModelHorde
-
-        ListElement {
-            name: "Windfury Totem"
-            enumvalue: EnchantName.WindfuryTotem
-        }
-
-        ListElement {
-            name: "Elemental Sharpening Stone"
-            enumvalue: EnchantName.ElementalSharpeningStone
-        }
-    }
-
-    ListModel {
-        id: enchantTemporaryMHWeaponModelAlliance
-
-        ListElement {
-            name: "Elemental Sharpening Stone"
-            enumvalue: EnchantName.ElementalSharpeningStone
-        }
-    }
-
-    ListModel {
-        id: enchantTemporaryOHWeaponModel
-
-        ListElement {
-            name: "Elemental Sharpening Stone"
-            enumvalue: EnchantName.ElementalSharpeningStone
+            _name: "Enchant Weapon - Superior Striking"
+            _enum: EnchantName.SuperiorStriking
         }
     }
 
@@ -270,43 +235,43 @@ Rectangle {
         id: enchant2HWeaponModel
 
         ListElement {
-            name: "Iron Counterweight"
-            enumvalue: EnchantName.IronCounterweight
+            _name: "Iron Counterweight"
+            _enum: EnchantName.IronCounterweight
         }
 
         ListElement {
-            name: "Enchant 2H Weapon - Agility"
-            enumvalue: EnchantName.Enchant2HWeaponAgility
+            _name: "Enchant 2H Weapon - Agility"
+            _enum: EnchantName.Enchant2HWeaponAgility
         }
 
         ListElement {
-            name: "Crusader"
-            enumvalue: EnchantName.Crusader
+            _name: "Crusader"
+            _enum: EnchantName.Crusader
         }
 
         ListElement {
-            name: "Fiery Weapon"
-            enumvalue: EnchantName.FieryWeapon
+            _name: "Fiery Weapon"
+            _enum: EnchantName.FieryWeapon
         }
 
         ListElement {
-            name: "Enchant Weapon - Strength"
-            enumvalue: EnchantName.EnchantWeaponStrength
+            _name: "Enchant Weapon - Strength"
+            _enum: EnchantName.EnchantWeaponStrength
         }
 
         ListElement {
-            name: "Enchant Weapon - Agility"
-            enumvalue: EnchantName.EnchantWeaponAgility
+            _name: "Enchant Weapon - Agility"
+            _enum: EnchantName.EnchantWeaponAgility
         }
 
         ListElement {
-            name: "Enchant Weapon - Superior Striking"
-            enumvalue: EnchantName.SuperiorStriking
+            _name: "Enchant Weapon - Superior Striking"
+            _enum: EnchantName.SuperiorStriking
         }
 
         ListElement {
-            name: "Enchant 2H - Superior Impact"
-            enumvalue: EnchantName.Enchant2HWeaponSuperiorImpact
+            _name: "Enchant 2H - Superior Impact"
+            _enum: EnchantName.Enchant2HWeaponSuperiorImpact
         }
     }
 
@@ -314,13 +279,13 @@ Rectangle {
         id: enchantHeadLegsModel
 
         ListElement {
-            name: "Arcanum of Rapidity"
-            enumvalue: EnchantName.ArcanumOfRapidity
+            _name: "Arcanum of Rapidity"
+            _enum: EnchantName.ArcanumOfRapidity
         }
 
         ListElement {
-            name: "Lesser Arcanum of Voracity"
-            enumvalue: EnchantName.LesserArcanumOfVoracity
+            _name: "Lesser Arcanum of Voracity"
+            _enum: EnchantName.LesserArcanumOfVoracity
         }
     }
 
@@ -328,13 +293,13 @@ Rectangle {
         id: enchantShoulderModel
 
         ListElement {
-            name: "Zandalar Signet of Might"
-            enumvalue: EnchantName.ZandalarSignetOfMight
+            _name: "Zandalar Signet of Might"
+            _enum: EnchantName.ZandalarSignetOfMight
         }
 
         ListElement {
-            name: "Might of the Scourge"
-            enumvalue: EnchantName.MightOfTheScourge
+            _name: "Might of the Scourge"
+            _enum: EnchantName.MightOfTheScourge
         }
     }
 
@@ -342,8 +307,8 @@ Rectangle {
         id: enchantBackModel
 
         ListElement {
-            name: "Enchant Cloak - Lesser Agility"
-            enumvalue: EnchantName.EnchantCloakLesserAgility
+            _name: "Enchant Cloak - Lesser Agility"
+            _enum: EnchantName.EnchantCloakLesserAgility
         }
     }
 
@@ -351,8 +316,8 @@ Rectangle {
         id: enchantChestModel
 
         ListElement {
-            name: "Enchant Chest - Greater Stats"
-            enumvalue: EnchantName.EnchantChestGreaterStats
+            _name: "Enchant Chest - Greater Stats"
+            _enum: EnchantName.EnchantChestGreaterStats
         }
     }
 
@@ -360,8 +325,8 @@ Rectangle {
         id: enchantWristModel
 
         ListElement {
-            name: "Enchant Bracer - Superior Strength"
-            enumvalue: EnchantName.EnchantBracerSuperiorStrength
+            _name: "Enchant Bracer - Superior Strength"
+            _enum: EnchantName.EnchantBracerSuperiorStrength
         }
     }
 
@@ -369,18 +334,18 @@ Rectangle {
         id: enchantGlovesModel
 
         ListElement {
-            name: "Enchant Gloves - Superior Agility"
-            enumvalue: EnchantName.EnchantGlovesSuperiorAgility
+            _name: "Enchant Gloves - Superior Agility"
+            _enum: EnchantName.EnchantGlovesSuperiorAgility
         }
 
         ListElement {
-            name: "Enchant Gloves - Greater Strength"
-            enumvalue: EnchantName.EnchantGlovesGreaterStrength
+            _name: "Enchant Gloves - Greater Strength"
+            _enum: EnchantName.EnchantGlovesGreaterStrength
         }
 
         ListElement {
-            name: "Enchant Gloves - Minor Haste"
-            enumvalue: EnchantName.EnchantGlovesMinorHaste
+            _name: "Enchant Gloves - Minor Haste"
+            _enum: EnchantName.EnchantGlovesMinorHaste
         }
     }
 
@@ -388,13 +353,13 @@ Rectangle {
         id: enchantBootsModel
 
         ListElement {
-            name: "Enchant Boots - Minor Speed"
-            enumvalue: EnchantName.EnchantBootsMinorSpeed
+            _name: "Enchant Boots - Minor Speed"
+            _enum: EnchantName.EnchantBootsMinorSpeed
         }
 
         ListElement {
-            name: "Enchant Boots - Greater Agility"
-            enumvalue: EnchantName.EnchantBootsGreaterAgility
+            _name: "Enchant Boots - Greater Agility"
+            _enum: EnchantName.EnchantBootsGreaterAgility
         }
     }
 }

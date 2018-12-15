@@ -10,6 +10,7 @@
 
 class BerserkingBuff;
 class BloodFuryBuff;
+class CharacterEnchants;
 class CharacterStats;
 class ClassStatistics;
 class CombatRoll;
@@ -72,6 +73,7 @@ public:
     Talents* get_talents(void) const;
     EnabledBuffs* get_enabled_buffs(void) const;
     Spells* get_spells(void) const;
+    CharacterEnchants* get_enchants(void) const;
     CharacterStats* get_stats(void) const;
     ClassStatistics* get_statistics(void) const;
     ClassStatistics* relinquish_ownership_of_statistics(void);
@@ -163,6 +165,7 @@ protected:
     CombatRoll* roll;
     Faction* faction;
     Talents* talents;
+    CharacterEnchants* available_enchants;
     CharacterStats* cstats;
     EnabledProcs* enabled_procs;
     EnabledBuffs* enabled_buffs;

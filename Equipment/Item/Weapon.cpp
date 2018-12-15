@@ -109,6 +109,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         break;
     case EnchantName::InstantPoison:
         temporary_enchant = new InstantPoison(pchar, weapon_side, enchant_slot);
+        break;
     default:
         assert(false);
     }

@@ -29,6 +29,7 @@ Character::Character(Race* race, SimSettings *sim_settings) :
     target(new Target(63)),
     faction(new Faction(race)),
     talents(new Talents()),
+    available_enchants(nullptr),
     cstats(nullptr),
     statistics(new ClassStatistics(sim_settings)),
     current_rotation(nullptr),
@@ -161,6 +162,10 @@ EnabledBuffs* Character::get_enabled_buffs() const {
 
 Spells* Character::get_spells() const {
     return this->spells;
+}
+
+CharacterEnchants* Character::get_enchants(void) const {
+    return this->available_enchants;
 }
 
 CharacterStats* Character::get_stats() const {
