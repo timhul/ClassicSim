@@ -1,17 +1,19 @@
 #ifndef COMBATROLL_H
 #define COMBATROLL_H
 
+#include <QMap>
 #include <stdlib.h>
 #include <math.h>
-#include <QMap>
-#include "PhysicalAttackResult.h"
+
+#include "MagicSchools.h"
 
 class Character;
+class MagicAttackTable;
+class MeleeSpecialTable;
+class Mechanics;
 class Target;
 class Random;
 class WhiteHitTable;
-class MeleeSpecialTable;
-class Mechanics;
 
 class CombatRoll {
 public:
@@ -27,10 +29,12 @@ public:
                                  const bool include_miss = true);
     int get_ranged_hit_result(const int);
     int get_ranged_ability_result(const int);
-    int get_spell_ability_result(void);
+    int get_spell_ability_result(const MagicSchool, const double);
+    int get_spell_resist_result(const MagicSchool);
 
     WhiteHitTable* get_white_hit_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);
+    MagicAttackTable* get_magic_attack_table(const MagicSchool);
 
     Mechanics* get_mechanics() const;
 
@@ -39,15 +43,13 @@ public:
     double get_glancing_blow_dmg_penalty(const int);
 
     void update_miss_chance(const double hit);
-    void update_spell_crit_chance(const double critical);
-    void update_spell_miss_chance(const double hit);
+    void update_spell_miss_chance(const double spell_hit);
 
     void dump_tables();
     void drop_tables();
 
     void set_new_seed(const unsigned seed);
 
-protected:
 private:
     Character* pchar;
     Target* target;
@@ -56,7 +58,7 @@ private:
 
     QMap<int, WhiteHitTable*> auto_attack_tables;
     QMap<int, MeleeSpecialTable*> melee_special_tables;
+    QMap<MagicSchool, MagicAttackTable*> magic_attack_tables;
 };
-
 
 #endif // COMBATROLL_H

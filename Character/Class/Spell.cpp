@@ -174,6 +174,25 @@ double Spell::damage_after_modifiers(const double damage) const {
     return damage * pchar->get_stats()->get_total_phys_dmg_mod() * armor_reduction;
 }
 
+double Spell::get_partial_resist_dmg_modifier(const int resist_result) const {
+    switch (resist_result) {
+    case MagicResistResult::FULL_RESIST:
+        return 0.0;
+    case MagicResistResult::PARTIAL_RESIST_75:
+        return 0.25;
+    case MagicResistResult::PARTIAL_RESIST_50:
+        return 0.5;
+    case MagicResistResult::PARTIAL_RESIST_25:
+        return 0.75;
+    case MagicResistResult::NO_RESIST:
+        return 1.0;
+    default:
+        assert(false);
+    }
+
+    return 0.0;
+}
+
 void Spell::reset() {
     last_used = 0 - cooldown;
     reset_effect();

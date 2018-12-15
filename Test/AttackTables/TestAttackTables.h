@@ -13,6 +13,7 @@ private:
     void test_white_hit_table();
     void test_white_hit_table_update();
     void test_special_hit_table();
+    void test_magic_attack_table();
 };
 
 #endif // TESTATTACKTABLES_H

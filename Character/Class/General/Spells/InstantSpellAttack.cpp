@@ -21,18 +21,23 @@ InstantSpellAttack::~InstantSpellAttack() {
 }
 
 void InstantSpellAttack::spell_effect() {
-    // CSIM-60: Add spell attack table and use it here
-    const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(),
-                                                      pchar->get_stats()->get_mh_crit_chance());
+    const int hit_roll = roll->get_spell_ability_result(school, pchar->get_stats()->get_spell_crit_chance());
+    const int resist_roll = roll->get_spell_resist_result(school);
+
+    if (hit_roll == MagicAttackResult::MISS)
+        return increment_miss();
+    if (resist_roll == MagicResistResult::FULL_RESIST)
+        return increment_full_resist();
 
     unsigned damage_dealt = random->get_roll();
+    const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
 
-    if (result == PhysicalAttackResult::CRITICAL) {
+    if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect();
-        add_crit_dmg(static_cast<int>(damage_dealt * pchar->get_spell_crit_dmg_mod()), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
     }
-    else if (result == PhysicalAttackResult::HIT) {
+    else {
         pchar->spell_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+        add_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod)), resource_cost, 0);
     }
 }

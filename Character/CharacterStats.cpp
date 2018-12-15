@@ -476,12 +476,10 @@ void CharacterStats::decrease_spell_hit(double decrease) {
 
 void CharacterStats::increase_spell_crit(double increase) {
     base_stats->increase_spell_crit(increase);
-    pchar->get_combat_roll()->update_spell_crit_chance(get_spell_crit_chance());
 }
 
 void CharacterStats::decrease_spell_crit(double decrease) {
     base_stats->decrease_spell_crit(decrease);
-    pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
 }
 
 void CharacterStats::increase_total_phys_dmg_mod(const int increase) {

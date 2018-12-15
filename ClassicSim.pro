@@ -308,7 +308,9 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/SealFateTalent.cpp \
     Test/Rogue/Procs/TestSealFate.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/Lethality.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/Vigor.cpp
+    Character/Class/Rogue/TalentTrees/Assassination/Vigor.cpp \
+    CombatRoll/AttackTables/MagicAttackTable.cpp \
+    Test/TestMechanics.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -341,6 +343,9 @@ HEADERS += \
     Equipment/Item/Item.h \
     Target/Target.h \
     CombatRoll/PhysicalAttackTable.h \
+    CombatRoll/PhysicalAttackResult.h \
+    CombatRoll/MagicAttackResult.h \
+    CombatRoll/AttackTables/MagicAttackTable.h \
     CombatRoll/CombatRoll.h \
     CombatRoll/AttackTables/WhiteHitTable.h \
     CombatRoll/Random.h \
@@ -619,7 +624,7 @@ HEADERS += \
     Test/Rogue/Procs/TestSealFate.h \
     Character/Class/Rogue/TalentTrees/Assassination/Lethality.h \
     Character/Class/Rogue/TalentTrees/Assassination/Vigor.h \
-    CombatRoll/PhysicalAttackResult.h
+    Test/TestMechanics.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

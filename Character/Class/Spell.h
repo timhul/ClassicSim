@@ -7,10 +7,11 @@
 #include <QString>
 #include <QVector>
 
-#include "PhysicalAttackResult.h"
 #include "CombatRoll.h"
 #include "CooldownReady.h"
 #include "Engine.h"
+#include "PhysicalAttackResult.h"
+#include "MagicAttackResult.h"
 #include "Resource.h"
 
 class Character;
@@ -105,6 +106,7 @@ protected:
     void add_crit_dmg(const int, const int resource_cost, const double execution_time);
 
     double damage_after_modifiers(const double damage) const;
+    double get_partial_resist_dmg_modifier(const int resist_result) const;
 };
 
 #endif // SPELL_H

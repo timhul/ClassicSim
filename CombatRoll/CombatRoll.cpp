@@ -1,16 +1,16 @@
-
 #include "CombatRoll.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
+#include "MagicAttackTable.h"
 #include "Mechanics.h"
+#include "MeleeSpecialTable.h"
 #include "PhysicalAttackResult.h"
 #include "PhysicalAttackTable.h"
-#include "WhiteHitTable.h"
-#include "MeleeSpecialTable.h"
+#include "Random.h"
 #include "SimSettings.h"
 #include "Target.h"
-#include "Random.h"
-#include <QDebug>
+#include "WhiteHitTable.h"
 
 CombatRoll::CombatRoll(Character *pchar):
     pchar(pchar),
@@ -58,9 +58,20 @@ int CombatRoll::get_ranged_ability_result(const int) {
     return PhysicalAttackResult::CRITICAL;
 }
 
-int CombatRoll::get_spell_ability_result() {
-    // CSIM-60: Remove hardcoded critical result
-    return PhysicalAttackResult::CRITICAL;
+int CombatRoll::get_spell_ability_result(const MagicSchool school, const double crit_mod) {
+    const unsigned roll = random->get_roll();
+
+    MagicAttackTable* attack_table = get_magic_attack_table(school);
+
+    return attack_table->get_hit_outcome(roll, crit_mod);
+}
+
+int CombatRoll::get_spell_resist_result(const MagicSchool school) {
+    const unsigned roll = random->get_roll();
+
+    MagicAttackTable* attack_table = get_magic_attack_table(school);
+
+    return attack_table->get_resist_outcome(roll);
 }
 
 Mechanics* CombatRoll::get_mechanics() const {
@@ -96,9 +107,6 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
 }
 
 MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
-    assert(this->pchar != nullptr);
-    assert(this->mechanics != nullptr);
-
     if (melee_special_tables.contains(wpn_skill))
         return melee_special_tables[wpn_skill];
 
@@ -114,6 +122,18 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
                                         mechanics->get_block_chance());
     melee_special_tables[wpn_skill] = table;
 
+    return table;
+}
+
+MagicAttackTable* CombatRoll::get_magic_attack_table(const MagicSchool school) {
+    if (magic_attack_tables.contains(school))
+        return magic_attack_tables[school];
+
+    auto* table = new MagicAttackTable(mechanics, random,
+                                       pchar->get_clvl(),
+                                       pchar->get_stats()->get_spell_hit_chance(),
+                                       target->get_resistance(school));
+    magic_attack_tables[school] = table;
     return table;
 }
 
@@ -153,12 +173,14 @@ void CombatRoll::update_miss_chance(const double hit) {
     }
 }
 
-void CombatRoll::update_spell_crit_chance(const double) {
-    // CSIM-60 Implement spell attack rolls
-}
-
-void CombatRoll::update_spell_miss_chance(const double) {
-    // CSIM-60 Implement spell attack rolls
+void CombatRoll::update_spell_miss_chance(const double spell_hit) {
+    const int clvl = pchar->get_clvl();
+    QMap<MagicSchool, MagicAttackTable*>::const_iterator it_magic = magic_attack_tables.constBegin();
+    auto end_magic = magic_attack_tables.constEnd();
+    while (it_magic != end_magic) {
+        it_magic.value()->update_miss_chance(clvl, spell_hit);
+        ++it_magic;
+    }
 }
 
 void CombatRoll::dump_tables() {
@@ -192,8 +214,16 @@ void CombatRoll::drop_tables() {
         ++it_special;
     }
 
+    QMap<MagicSchool, MagicAttackTable*>::const_iterator it_magic = magic_attack_tables.constBegin();
+    auto end_magic = magic_attack_tables.constEnd();
+    while(it_magic != end_magic) {
+        delete it_magic.value();
+        ++it_magic;
+    }
+
     auto_attack_tables.clear();
     melee_special_tables.clear();
+    magic_attack_tables.clear();
 }
 
 void CombatRoll::set_new_seed(const unsigned seed) {

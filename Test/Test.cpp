@@ -27,13 +27,8 @@
 #include "Equipment.h"
 #include "EquipmentDb.h"
 #include "Weapon.h"
-#include "WhiteHitTable.h"
-#include "MeleeSpecialTable.h"
 #include "CombatRoll.h"
-#include "PhysicalAttackResult.h"
 #include "Random.h"
-#include "Mechanics.h"
-#include "Target.h"
 #include "Talents.h"
 #include "Faction.h"
 #include "ItemNamespace.h"
@@ -45,6 +40,7 @@
 #include "TestAttackTables.h"
 #include "TestCharacterStats.h"
 #include "TestFelstrikerProc.h"
+#include "TestMechanics.h"
 #include "TestRogue.h"
 #include "TestWarrior.h"
 
@@ -61,14 +57,6 @@ void Test::test_all() {
     test_character_creation();
     qDebug() << "test_equipment_creation";
     test_equipment_creation();
-    qDebug() << "test_mechanics_glancing_rate";
-    test_mechanics_glancing_rate();
-    qDebug() << "test_mechanics_glancing_dmg_penalty";
-    test_mechanics_glancing_dmg_penalty();
-    qDebug() << "test_mechanics_dw_white_miss";
-    test_mechanics_dw_white_miss();
-    qDebug() << "test_mechanics_dodge";
-    test_mechanics_dodge();
     qDebug() << "test_combat_roll_creation";
     test_combat_roll_creation();
     qDebug() << "test_random";
@@ -78,6 +66,7 @@ void Test::test_all() {
     qDebug() << "test_queue";
     test_queue();
 
+    TestMechanics().test_all();
     TestAttackTables().test_all();
     TestCharacterStats().test_all();
     TestFelstrikerProc(equipment_db).test_all();
@@ -150,79 +139,6 @@ void Test::test_combat_roll_creation() {
     delete sim_settings;
     delete race;
     delete pchar;
-}
-
-void Test::test_mechanics_dodge() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
-
-    assert(fabs(0.05 - mechanics->get_dodge_chance(300)) < 0.001);
-    assert(fabs(0.05 - mechanics->get_dodge_chance(315)) < 0.001);
-
-    target->set_lvl(60);
-    assert(fabs(0.044 - mechanics->get_dodge_chance(315)) < 0.001);
-
-    delete mechanics;
-    delete target;
-}
-
-void Test::test_mechanics_glancing_rate() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
-
-    assert(fabs(6.3 - mechanics->get_glancing_blow_chance(1)) < 0.001);
-
-    assert(fabs(0.4 -  mechanics->get_glancing_blow_chance(60)) < 0.001);
-
-    target->set_lvl(62);
-    assert(fabs(0.3 - mechanics->get_glancing_blow_chance(60)) < 0.001);
-
-    target->set_lvl(61);
-    assert(fabs(0.2 - mechanics->get_glancing_blow_chance(60)) < 0.001);
-
-    target->set_lvl(60);
-    assert(fabs(0.1 - mechanics->get_glancing_blow_chance(60)) < 0.001);
-
-    target->set_lvl(59);
-    assert(fabs(0.0 - mechanics->get_glancing_blow_chance(60)) < 0.001);
-
-    delete mechanics;
-    delete target;
-}
-
-void Test::test_mechanics_glancing_dmg_penalty() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
-
-    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(5)) < 0.001);
-
-    assert(fabs(0.7 - mechanics->get_glancing_blow_dmg_penalty(300)) < 0.001);
-    assert(fabs(0.85 - mechanics->get_glancing_blow_dmg_penalty(305)) < 0.001);
-    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(310)) < 0.001);
-    assert(fabs(1.0 - mechanics->get_glancing_blow_dmg_penalty(10000)) < 0.001);
-
-    delete mechanics;
-    delete target;
-}
-
-void Test::test_mechanics_dw_white_miss() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
-
-    assert(fabs(0.28 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
-    assert(fabs(0.24 - mechanics->get_dw_white_miss_chance(315)) < 0.001);
-
-    target->set_lvl(62);
-    assert(fabs(0.25 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
-
-    target->set_lvl(61);
-    assert(fabs(0.245 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
-
-    target->set_lvl(60);
-    assert(fabs(0.24 - mechanics->get_dw_white_miss_chance(300)) < 0.001);
-
-    delete mechanics;
-    delete target;
 }
 
 void Test::test_equipment_creation() {

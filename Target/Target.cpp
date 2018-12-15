@@ -55,6 +55,10 @@ void Target::decrease_armor(const int armor) {
     this->target_armor -= armor;
 }
 
+int Target::get_resistance(const MagicSchool) const {
+    return 70;
+}
+
 Target::CreatureType Target::get_creature_type() const {
     return this->target_type;
 }
