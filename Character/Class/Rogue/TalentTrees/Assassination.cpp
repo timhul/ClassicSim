@@ -2,6 +2,7 @@
 
 #include "GenericTalent.h"
 #include "ImprovedEviscerate.h"
+#include "ImprovedPoisons.h"
 #include "ImprovedSliceAndDice.h"
 #include "Lethality.h"
 #include "Malice.h"
@@ -32,7 +33,7 @@ Assassination::Assassination(Character *pchar) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new VilePoisons(pchar, this)},
-                                  {"4MR", new GenericTalent(pchar, this, "Improved Poisons", "4MR", "Assets/ability/Ability_poisons.png", 5, "Increases the chance to apply poisons to your target by %1%.", QVector<QPair<int, int>>{QPair<int, int>(2, 2)})}};
+                                  {"4MR", new ImprovedPoisons(pchar, this)}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5ML", new GenericTalent(pchar, this, "Cold Blood", "5ML", "Assets/spell/Spell_ice_lament.png", 1, "When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, or Eviscerate by 100%.", QVector<QPair<int, int>>())},
