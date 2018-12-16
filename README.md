@@ -38,20 +38,22 @@ upcoming releases.
 
 # Known issues
 
-* Most procs have a 5% placeholder proc rate (you can change the 'rate' attribute in the .xml files)
+* Most procs have a placeholder proc rate (majority at 5%, you can change the 'rate' attribute in the .xml files)
 * Item lists are incomplete (these are manually added for now)
 * Some MC items have the wrong patch availability (a number of items in MC were added after 1.0)
 * Tooltip for Protection talent Improved Shield Block is incorrect
 * Rotations need to define a variable to be parsed correctly
-* Fiery Weapon rolls on melee hit table rather than spell table
+* Fiery Weapon rolls on melee hit table rather than spell table (fixed in 0.1.0-alpha-4)
 
 # Next release
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * Sinister Strike added; regular Combat rotation added to use it.
-* Combat talents now implemented (those that are directly damage increasing in a target dummy environment)
-* Few Assassination talents now implemented (Imp SnD, Malice, Murder)
+* Combat talents now implemented (those that are directly damage increasing in a target dummy environment).
+* Assassination talents mostly implemented (missing Cold Blood, Imp EA, Imp KS, Remorseless Attacks).
+* Few Subtletly talents now implemented (Opportunity).
+* Poisons are available to be applied as temporary enchants.
 * Update rogue white hit spells such that they use the new-ish way of calculating target armor and crit chance. This
 fixes the bug that rogue white hits (1) could not crit, (2) ignored target armor.
 
