@@ -365,5 +365,10 @@
         <file>QML/Assets/spell/Spell_shadow_lifedrain.png</file>
         <file>QML/Assets/spell/Spell_shadow_possession.png</file>
         <file>QML/Assets/spell/Spell_shadow_summonsuccubus.png</file>
+        <file>QML/Assets/items/Inv_knife_1h_stratholme_d_03.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_33.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_35.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_37.png</file>
+        <file>QML/Assets/items/Inv_knife_1h_stratholme_d_01.png</file>
     </qresource>
 </RCC>
