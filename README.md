@@ -49,6 +49,12 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.1-alpha-4 (released 2018-12-16):
+
 * Sinister Strike added; regular Combat rotation added to use it.
 * Combat talents now implemented (those that are directly damage increasing in a target dummy environment).
 * Assassination talents mostly implemented (missing Cold Blood, Imp EA, Imp KS, Remorseless Attacks).
@@ -56,8 +62,6 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Poisons are available to be applied as temporary enchants.
 * Update rogue white hit spells such that they use the new-ish way of calculating target armor and crit chance. This
 fixes the bug that rogue white hits (1) could not crit, (2) ignored target armor.
-
-# Release notes
 
 ## v0.1-alpha-3 (released 2018-12-01):
 
