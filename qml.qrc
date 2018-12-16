@@ -370,5 +370,24 @@
         <file>QML/Assets/items/Inv_weapon_shortblade_35.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_37.png</file>
         <file>QML/Assets/items/Inv_knife_1h_stratholme_d_01.png</file>
+        <file>QML/Assets/items/Inv_belt_03.png</file>
+        <file>QML/Assets/items/Inv_belt_09.png</file>
+        <file>QML/Assets/items/Inv_belt_14.png</file>
+        <file>QML/Assets/items/Inv_belt_15.png</file>
+        <file>QML/Assets/items/Inv_belt_16.png</file>
+        <file>QML/Assets/items/Inv_belt_17.png</file>
+        <file>QML/Assets/items/Inv_belt_19.png</file>
+        <file>QML/Assets/items/Inv_belt_20.png</file>
+        <file>QML/Assets/items/Inv_belt_21.png</file>
+        <file>QML/Assets/items/Inv_belt_22.png</file>
+        <file>QML/Assets/items/Inv_belt_23.png</file>
+        <file>QML/Assets/items/Inv_belt_24.png</file>
+        <file>QML/Assets/items/Inv_belt_25.png</file>
+        <file>QML/Assets/items/Inv_belt_26.png</file>
+        <file>QML/Assets/items/Inv_belt_27.png</file>
+        <file>QML/Assets/items/Inv_belt_28.png</file>
+        <file>QML/Assets/items/Inv_belt_30.png</file>
+        <file>QML/Assets/items/Inv_belt_31.png</file>
+        <file>QML/Assets/items/Inv_belt_32.png</file>
     </qresource>
 </RCC>
