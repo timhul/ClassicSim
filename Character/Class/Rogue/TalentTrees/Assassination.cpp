@@ -11,6 +11,7 @@
 #include "SealFateTalent.h"
 #include "Talent.h"
 #include "Vigor.h"
+#include "VilePoisons.h"
 
 Assassination::Assassination(Character *pchar) :
     TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg")
@@ -30,7 +31,7 @@ Assassination::Assassination(Character *pchar) :
                                   {"3MR", new Lethality(pchar, this)}};
     add_talents(tier3);
 
-    QMap<QString, Talent*> tier4 {{"4ML", new GenericTalent(pchar, this, "Vile Poisons", "4ML", "Assets/ability/Ability_rogue_feigndeath.png", 5, "Increases the damage dealt by your poisons by %1% and gives your poisons an additional %2% chance to resist dispel effects.", QVector<QPair<int, int>>{QPair<int, int>(4, 4), QPair<int, int>(8, 8)})},
+    QMap<QString, Talent*> tier4 {{"4ML", new VilePoisons(pchar, this)},
                                   {"4MR", new GenericTalent(pchar, this, "Improved Poisons", "4MR", "Assets/ability/Ability_poisons.png", 5, "Increases the chance to apply poisons to your target by %1%.", QVector<QPair<int, int>>{QPair<int, int>(2, 2)})}};
     add_talents(tier4);
 

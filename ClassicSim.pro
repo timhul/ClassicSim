@@ -316,7 +316,8 @@ SOURCES += main.cpp \
     GUI/Models/EnchantModel.cpp \
     Character/CharacterEnchants.cpp \
     Character/Class/Warrior/WarriorEnchants.cpp \
-    Character/Class/Rogue/RogueEnchants.cpp
+    Character/Class/Rogue/RogueEnchants.cpp \
+    Character/Class/Rogue/TalentTrees/Assassination/VilePoisons.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -636,7 +637,8 @@ HEADERS += \
     GUI/Models/EnchantModel.h \
     Character/CharacterEnchants.h \
     Character/Class/Warrior/WarriorEnchants.h \
-    Character/Class/Rogue/RogueEnchants.h
+    Character/Class/Rogue/RogueEnchants.h \
+    Character/Class/Rogue/TalentTrees/Assassination/VilePoisons.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
