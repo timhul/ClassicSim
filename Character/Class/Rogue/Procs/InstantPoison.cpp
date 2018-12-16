@@ -26,8 +26,8 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
     base_proc_range(2000),
     vile_poisons(1.0)
 {
+    this->enabled = false;
     this->instant_poison_buff = new InstantPoisonBuff(pchar, this, weapon_side);
-    this->instant_poison_buff->enable_buff();
 
     proc_range = base_proc_range;
 
@@ -44,21 +44,31 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
     default:
         assert(false);
     }
-
-    rogue->get_spells()->add_spell(this);
-    dynamic_cast<RogueSpells*>(rogue->get_spells())->add_pre_combat_spell(this);
 }
 
 InstantPoison::~InstantPoison() {
-    rogue->get_spells()->remove_spell(this);
-    dynamic_cast<RogueSpells*>(rogue->get_spells())->remove_pre_combat_spell(this);
-    instant_poison_buff->cancel_buff();
-    instant_poison_buff->disable_buff();
+    disable();
     delete instant_poison_buff;
 }
 
 void InstantPoison::perform_pre_combat() {
     instant_poison_buff->apply_buff();
+}
+
+void InstantPoison::enable_spell_effect() {
+    instant_poison_buff->enable_buff();
+    rogue->get_spells()->add_spell(this);
+    dynamic_cast<RogueSpells*>(rogue->get_spells())->add_pre_combat_spell(this);
+}
+
+void InstantPoison::disable_spell_effect() {
+    rogue->get_spells()->remove_spell(this);
+    dynamic_cast<RogueSpells*>(rogue->get_spells())->remove_pre_combat_spell(this);
+
+    if (instant_poison_buff->is_enabled()) {
+        instant_poison_buff->cancel_buff();
+        instant_poison_buff->disable_buff();
+    }
 }
 
 void InstantPoison::proc_effect() {

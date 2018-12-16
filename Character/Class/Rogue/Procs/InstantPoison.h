@@ -30,6 +30,8 @@ private:
     QVector<unsigned> improved_poisons_proc_range_increases;
 
     void proc_effect() override;
+    void enable_spell_effect() override;
+    void disable_spell_effect() override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 
     void increase_talent_rank_effect(const int curr, const QString& talent_name) override;

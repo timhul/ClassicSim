@@ -6,6 +6,7 @@
 #include "EnchantProc.h"
 #include "EnchantStatic.h"
 #include "InstantPoison.h"
+#include "Rogue.h"
 
 Weapon::Weapon(QString name, int type, int weapon_slot, unsigned min, unsigned max, double speed,
        QVector<QPair<QString, QString> > stats,
@@ -35,7 +36,7 @@ Weapon::Weapon(const Weapon* weapon):
 
 Weapon::~Weapon() {
     delete random;
-    delete temporary_enchant;
+    clear_temporary_enchant();
 }
 
 int Weapon::get_weapon_slot() const {
@@ -95,7 +96,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     if (enchant_name == EnchantName::NoEnchant)
         return;
 
-    delete temporary_enchant;
+    clear_temporary_enchant();
 
     int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
     QString weapon_side = mainhand ? "MH" : "OH";
@@ -108,7 +109,9 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::InstantPoison:
-        temporary_enchant = new InstantPoison(pchar, weapon_side, enchant_slot);
+        temporary_enchant = mainhand ? dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison() :
+                                       dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison();
+        dynamic_cast<InstantPoison*>(temporary_enchant)->enable();
         break;
     default:
         assert(false);
@@ -116,7 +119,16 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
 }
 
 void Weapon::clear_temporary_enchant() {
-    delete temporary_enchant;
+    EnchantName::Name enchant = get_temporary_enchant_enum_value();
+
+    switch (enchant) {
+    case EnchantName::InstantPoison:
+        dynamic_cast<InstantPoison*>(temporary_enchant)->disable();
+        break;
+    default:
+        delete temporary_enchant;
+    }
+
     temporary_enchant = nullptr;
 }
 

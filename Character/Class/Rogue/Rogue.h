@@ -4,6 +4,7 @@
 #include "Character.h"
 
 class Energy;
+class InstantPoison;
 class RogueSpells;
 class RelentlessStrikes;
 class Ruthlessness;
@@ -44,6 +45,8 @@ public:
     bool is_stealthed() const;
 
     class Energy* get_energy() const;
+    InstantPoison* get_mh_instant_poison() const;
+    InstantPoison* get_oh_instant_poison() const;
     RelentlessStrikes* get_relentless_strikes() const;
     Ruthlessness* get_ruthlessness() const;
     SealFate* get_seal_fate() const;
@@ -52,6 +55,8 @@ public:
 private:
     RogueSpells* rogue_spells;
     class Energy* energy;
+    InstantPoison* mh_instant_poison;
+    InstantPoison* oh_instant_poison;
     RelentlessStrikes* relentless_strikes;
     Ruthlessness* ruthlessness;
     SealFate* seal_fate;

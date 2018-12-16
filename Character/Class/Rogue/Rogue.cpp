@@ -7,6 +7,7 @@
 #include "EnabledProcs.h"
 #include "Equipment.h"
 #include "Energy.h"
+#include "InstantPoison.h"
 #include "RelentlessStrikes.h"
 #include "RogueEnchants.h"
 #include "RogueSpells.h"
@@ -51,6 +52,8 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
 
     spells->activate_racials();
 
+    this->mh_instant_poison = new InstantPoison(this, "MH", EnchantSlot::MAINHAND);
+    this->oh_instant_poison = new InstantPoison(this, "OH", EnchantSlot::OFFHAND);
     this->relentless_strikes = new RelentlessStrikes(this);
     this->ruthlessness = new Ruthlessness(this);
     this->seal_fate = new SealFate(this);
@@ -67,6 +70,8 @@ Rogue::~Rogue()
 
     delete available_enchants;
     delete cstats;
+    delete mh_instant_poison;
+    delete oh_instant_poison;
     delete rogue_spells;
     delete energy;
     delete relentless_strikes;
@@ -168,6 +173,14 @@ bool Rogue::is_stealthed() const {
 
 class Energy* Rogue::get_energy() const {
     return this->energy;
+}
+
+InstantPoison* Rogue::get_mh_instant_poison() const {
+    return this->mh_instant_poison;
+}
+
+InstantPoison* Rogue::get_oh_instant_poison() const {
+    return this->oh_instant_poison;
 }
 
 RelentlessStrikes* Rogue::get_relentless_strikes() const {

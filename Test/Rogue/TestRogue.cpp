@@ -4,6 +4,7 @@
 #include "Equipment.h"
 #include "CombatRoll.h"
 #include "Faction.h"
+#include "InstantPoison.h"
 #include "ItemNamespace.h"
 #include "Orc.h"
 #include "Rogue.h"
@@ -44,6 +45,9 @@ void TestRogue::test_basic_properties() {
     assert(almost_equal(1.0, rogue->global_cooldown()));
     assert(almost_equal(2.0, rogue->get_ability_crit_dmg_mod()));
     assert(almost_equal(1.5, rogue->get_spell_crit_dmg_mod()));
+
+    rogue->get_mh_instant_poison()->enable();
+    rogue->get_oh_instant_poison()->enable();
 
     delete race;
     delete rogue;
