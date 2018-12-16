@@ -389,5 +389,12 @@
         <file>QML/Assets/items/Inv_belt_30.png</file>
         <file>QML/Assets/items/Inv_belt_31.png</file>
         <file>QML/Assets/items/Inv_belt_32.png</file>
+        <file>QML/Assets/items/Inv_pants_02.png</file>
+        <file>QML/Assets/items/Inv_pants_06.png</file>
+        <file>QML/Assets/items/Inv_pants_12.png</file>
+        <file>QML/Assets/items/Inv_pants_leather_07.png</file>
+        <file>QML/Assets/items/Inv_pants_leather_09.png</file>
+        <file>QML/Assets/items/Inv_pants_leather_11.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_05.png</file>
     </qresource>
 </RCC>

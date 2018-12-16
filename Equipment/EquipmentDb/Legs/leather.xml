@@ -14,4 +14,122 @@
 			</source>
 		</patch>
 	</legs>
+
+	<legs name="Plaguehound Leggings">
+		<patch name="1.4.0">
+			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_12.png"/>
+			<stats>
+				<stat type="ARMOR" value="152"/>
+				<stat type="AGILITY" value="30"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Stratholme.
+			</source>
+		</patch>
+	</legs>
+
+	<legs name="Nightslayer Pants">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="175"/>
+				<stat type="AGILITY" value="33"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="SHADOW_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Magmadar in Molten Core.
+			</source>
+		</patch>
+	</legs>
+
+	<legs name="Dark Heart Pants">
+		<patch name="1.8.0">
+			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_leather_11.png"/>
+			<stats>
+				<stat type="ARMOR" value="296"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="ATTACK_POWER" value="48"/>
+			</stats>
+			<source>
+			Drops from Lethon (world boss in The Hinterlands).
+			</source>
+		</patch>
+	</legs>
+
+	<legs name="Bloodfang Pants">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="197"/>
+				<stat type="AGILITY" value="37"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="STRENGTH" value="11"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="ARCANE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+	</legs>
+
+	<legs name="Deathdealer's Leggings">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_leather_07.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="207"/>
+				<stat type="AGILITY" value="38"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="STAMINA" value="25"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drop from Ouro in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</legs>
+
+	<legs name="Leggings of Apocalypse">
+		<patch name="1.11.0">
+			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_leather_09.png"/>
+			<stats>
+				<stat type="ARMOR" value="211"/>
+				<stat type="AGILITY" value="31"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Four Horsemen in Naxxramas.
+			</source>
+		</patch>
+	</legs>
+
+	<legs name="Bonescythe Legplates">
+		<patch name="1.11.0">
+			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_plate_05.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="221"/>
+				<stat type="AGILITY" value="32"/>
+				<stat type="STAMINA" value="25"/>
+				<stat type="STRENGTH" value="31"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
+			</source>
+		</patch>
+	</legs>
 </items>
