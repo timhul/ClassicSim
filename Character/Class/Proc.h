@@ -7,7 +7,6 @@
 class EnabledProcs;
 class StatisticsProc;
 class StatisticsBuff;
-class StatisticsResource;
 
 class Proc: public Spell {
 public:
@@ -38,7 +37,6 @@ protected:
     QVector<ProcInfo::Source> proc_sources;
     ProcInfo::Source curr_proc_source{};
     StatisticsProc* statistics_proc;
-    StatisticsResource* statistics_resource;
 
     unsigned proc_range;
 

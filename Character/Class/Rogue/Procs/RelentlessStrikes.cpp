@@ -1,5 +1,6 @@
 #include "RelentlessStrikes.h"
 
+#include "ClassStatistics.h"
 #include "ProcInfo.h"
 #include "Rogue.h"
 #include "StatisticsResource.h"
@@ -9,6 +10,7 @@ RelentlessStrikes::RelentlessStrikes(Character* pchar) :
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Relentless Strikes", 1, DisabledAtZero::Yes)}),
+    statistics_resource(nullptr),
     rogue(dynamic_cast<Rogue*>(pchar))
 {
     this->enabled = false;
@@ -40,4 +42,8 @@ void RelentlessStrikes::increase_talent_rank_effect(const int curr, const QStrin
 void RelentlessStrikes::decrease_talent_rank_effect(const int curr, const QString&) {
     proc_range = talent_ranks[curr];
     combo_proc_percent = talent_ranks[curr];
+}
+
+void RelentlessStrikes::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
 }

@@ -1,8 +1,9 @@
-
 #include "UnbridledWrath.h"
-#include "Warrior.h"
-#include "StatisticsResource.h"
+
+#include "ClassStatistics.h"
 #include "ProcInfo.h"
+#include "StatisticsResource.h"
+#include "Warrior.h"
 
 UnbridledWrath::UnbridledWrath(Character* pchar) :
     Proc("Unbridled Wrath", "Assets/warrior/fury/tier2/Spell_nature_stoneclawtotem.png", 0.0, 0, QVector<Proc*>(),
@@ -10,6 +11,7 @@ UnbridledWrath::UnbridledWrath(Character* pchar) :
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Unbridled Wrath", 5, DisabledAtZero::Yes)}),
+    statistics_resource(nullptr),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->enabled = false;
@@ -33,4 +35,8 @@ void UnbridledWrath::increase_talent_rank_effect(const int curr, const QString&)
 
 void UnbridledWrath::decrease_talent_rank_effect(const int curr, const QString&) {
     proc_range = talent_ranks[curr];
+}
+
+void UnbridledWrath::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
 }

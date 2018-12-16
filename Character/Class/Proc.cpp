@@ -21,8 +21,7 @@ Proc::Proc(const QString& name,
     procs(pchar->get_enabled_procs()),
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),
-    statistics_proc(nullptr),
-    statistics_resource(nullptr)
+    statistics_proc(nullptr)
 {
     this->proc_range = static_cast<unsigned>(round(proc_rate * 10000));
     this->linked_procs = linked_procs;
@@ -67,7 +66,6 @@ bool Proc::procs_from_source(ProcInfo::Source source) const {
 
 void Proc::prepare_set_of_combat_iterations() {
     this->statistics_proc = pchar->get_statistics()->get_proc_statistics(name, icon);
-    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
     prepare_set_of_combat_iterations_spell_specific();
 }
 
