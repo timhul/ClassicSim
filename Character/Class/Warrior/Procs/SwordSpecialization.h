@@ -21,6 +21,7 @@ private:
     friend class SwordSpecializationTalentRogue;
 
     Character* warr;
+    QVector<unsigned> talent_ranks;
 
     bool weapon_is_sword(Weapon*) const;
 

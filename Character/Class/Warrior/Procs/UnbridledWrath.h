@@ -18,6 +18,7 @@ private:
     friend class UnbridledWrathTalent;
 
     Warrior* warr;
+    QVector<unsigned> talent_ranks;
 
     void increase_talent_rank_effect(const int curr, const QString& talent_name) override;
     void decrease_talent_rank_effect(const int curr, const QString& talent_name) override;

@@ -34,7 +34,6 @@ public:
 protected:
     EnabledProcs* procs;
     Random* random;
-    QVector<unsigned> talent_ranks;
     QVector<Proc*> linked_procs;
     QVector<ProcInfo::Source> proc_sources;
     ProcInfo::Source curr_proc_source{};
