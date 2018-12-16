@@ -226,3 +226,7 @@ void Spell::reset_effect() {
 void Spell::perform_periodic() {
 
 }
+
+void Spell::perform_pre_combat() {
+
+}

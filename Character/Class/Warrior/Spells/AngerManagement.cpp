@@ -1,11 +1,11 @@
-
 #include "AngerManagement.h"
+
 #include "ClassStatistics.h"
-#include "Warrior.h"
-#include "WarriorSpells.h"
 #include "Resource.h"
 #include "ResourceGain.h"
 #include "StatisticsResource.h"
+#include "Warrior.h"
+#include "WarriorSpells.h"
 
 AngerManagement::AngerManagement(Character* pchar) :
     Spell("Anger Management", "Assets/warrior/arms/tier3/anger_management.png", pchar, RestrictedByGcd::No, 0.0, ResourceType::Rage, 0),
@@ -23,6 +23,10 @@ void AngerManagement::decrease_talent_rank_effect(const int, const QString&) {
 }
 
 void AngerManagement::spell_effect() {
+    assert(false);
+}
+
+void AngerManagement::perform_pre_combat() {
     auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 1.5);
     this->engine->add_event(new_event);
 }

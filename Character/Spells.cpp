@@ -98,7 +98,7 @@ void Spells::remove_pre_combat_spell(Spell* spell) {
 
 void Spells::run_pre_combat_spells() {
     for (auto & spell : pre_combat_spells)
-        spell->perform();
+        spell->perform_pre_combat();
 }
 
 Spell* Spells::get_spell_by_name(const QString& spell_name) const {

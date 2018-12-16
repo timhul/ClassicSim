@@ -12,8 +12,8 @@ public:
     AngerManagement(Character* pchar);
 
     void perform_periodic() override;
+    void perform_pre_combat() override;
 
-protected:
 private:
     friend class AngerManagementTalent;
 
