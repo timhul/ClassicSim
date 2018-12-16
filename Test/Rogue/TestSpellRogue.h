@@ -33,6 +33,12 @@ protected:
     void given_3_of_5_lethality();
     void given_4_of_5_lethality();
     void given_5_of_5_lethality();
+
+    void given_1_of_5_opportunity();
+    void given_2_of_5_opportunity();
+    void given_3_of_5_opportunity();
+    void given_4_of_5_opportunity();
+    void given_5_of_5_opportunity();
 };
 
 #endif // TESTSPELLROGUE_H

@@ -30,6 +30,14 @@ private:
     void test_crit_dmg_4_of_5_lethality();
     void test_crit_dmg_5_of_5_lethality();
 
+    void test_hit_dmg_1_of_5_opportunity();
+    void test_hit_dmg_5_of_5_opportunity();
+    void test_crit_dmg_1_of_5_opportunity();
+    void test_crit_dmg_5_of_5_opportunity();
+
+    void test_hit_dmg_both_5_of_5_lethality_and_opportunity();
+    void test_crit_dmg_both_5_of_5_lethality_and_opportunity();
+
     void when_backstab_is_performed();
 };
 

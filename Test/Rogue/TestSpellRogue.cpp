@@ -5,6 +5,7 @@
 #include "Backstab.h"
 #include "Equipment.h"
 #include "Lethality.h"
+#include "Opportunity.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SimSettings.h"
@@ -109,6 +110,41 @@ void TestSpellRogue::given_5_of_5_lethality() {
     assert(lethality.increment_rank());
     assert(lethality.increment_rank());
     assert(lethality.increment_rank());
+}
+
+void TestSpellRogue::given_1_of_5_opportunity() {
+    auto opportunity = Opportunity(rogue, nullptr);
+    assert(opportunity.increment_rank());
+}
+
+void TestSpellRogue::given_2_of_5_opportunity() {
+    auto opportunity = Opportunity(rogue, nullptr);
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+}
+
+void TestSpellRogue::given_3_of_5_opportunity() {
+    auto opportunity = Opportunity(rogue, nullptr);
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+}
+
+void TestSpellRogue::given_4_of_5_opportunity() {
+    auto opportunity = Opportunity(rogue, nullptr);
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+}
+
+void TestSpellRogue::given_5_of_5_opportunity() {
+    auto opportunity = Opportunity(rogue, nullptr);
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
+    assert(opportunity.increment_rank());
 }
 
 void TestSpellRogue::then_rogue_has_energy(const unsigned energy) const {

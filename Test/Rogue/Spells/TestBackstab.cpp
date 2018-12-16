@@ -50,6 +50,30 @@ void TestBackstab::test_all() {
     set_up();
     test_crit_dmg_5_of_5_lethality();
     tear_down();
+
+    set_up();
+    test_hit_dmg_1_of_5_opportunity();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_of_5_opportunity();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_1_of_5_opportunity();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_of_5_opportunity();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_both_5_of_5_lethality_and_opportunity();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_both_5_of_5_lethality_and_opportunity();
+    tear_down();
 }
 
 Backstab* TestBackstab::backstab() {
@@ -265,6 +289,87 @@ void TestBackstab::test_crit_dmg_5_of_5_lethality() {
     // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
     // [1293] = ((100 + 1.7 * 1000 / 14) * 1.5 + 165) * 2.0 * 1.30
     then_damage_dealt_is(1293);
+}
+
+void TestBackstab::test_hit_dmg_1_of_5_opportunity() {
+    given_1_of_5_opportunity();
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_hit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_backstab_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * opportunity
+    // [517] = ((100 + 1.7 * 1000 / 14) * 1.5 + 165) * 1.04
+    then_damage_dealt_is(517);
+}
+
+void TestBackstab::test_hit_dmg_5_of_5_opportunity() {
+    given_5_of_5_opportunity();
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_hit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_backstab_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * opportunity
+    // [597] = ((100 + 1.7 * 1000 / 14) * 1.5 + 165) * 1.20
+    then_damage_dealt_is(597);
+}
+
+void TestBackstab::test_crit_dmg_1_of_5_opportunity() {
+    given_1_of_5_opportunity();
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_backstab_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * opportunity
+    // [1034] = ((100 + 1.7 * 1000 / 14) * 1.5 + 165) * 2.0 * 1.04
+    then_damage_dealt_is(1034);
+}
+
+void TestBackstab::test_crit_dmg_5_of_5_opportunity() {
+    given_5_of_5_opportunity();
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_backstab_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * opportunity
+    // [1193] = ((100 + 1.7 * 1000 / 14) * 1.5 + 165) * 2.0 * 1.20
+    then_damage_dealt_is(1193);
+}
+
+void TestBackstab::test_hit_dmg_both_5_of_5_lethality_and_opportunity() {
+    given_5_of_5_lethality();
+    test_hit_dmg_5_of_5_opportunity();
+}
+
+void TestBackstab::test_crit_dmg_both_5_of_5_lethality_and_opportunity() {
+    given_5_of_5_lethality();
+    given_5_of_5_opportunity();
+    given_target_has_0_armor();
+    given_a_mainhand_dagger_with_100_min_max_dmg();
+    given_a_guaranteed_melee_ability_crit();
+    given_1000_melee_ap();
+    given_no_previous_damage_dealt();
+
+    when_backstab_is_performed();
+
+    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * opportunity * lethality
+    // [1551] = ((100 + 1.7 * 1000 / 14) * 1.5 + 165) * 2.0 * 1.20 * 1.30
+    then_damage_dealt_is(1551);
 }
 
 void TestBackstab::when_backstab_is_performed() {

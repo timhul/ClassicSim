@@ -1,12 +1,14 @@
-#include "GenericTalent.h"
 #include "Subtlety.h"
+
+#include "GenericTalent.h"
+#include "Opportunity.h"
 #include "Talent.h"
 
 Subtlety::Subtlety(Character *pchar) :
     TalentTree("Subtlety", "Assets/rogue/rogue_subtlety.jpg")
 {
     QMap<QString, Talent*> tier1 {{"1ML", new GenericTalent(pchar, this, "Master of Deception", "1ML", "Assets/spell/Spell_shadow_charm.png", 5, "Reduces the chance enemies have to detect you while in Stealth mode.", QVector<QPair<int, int>>{})},
-                                  {"1MR", new GenericTalent(pchar, this, "Opportunity", "1MR", "Assets/ability/Ability_warrior_warcry.png", 5, "Increases the damage dealt when striking from behind with your Backstab, Garrote, or Ambush abilities by %1%.", QVector<QPair<int, int>>{QPair<int, int>(4, 4)})}};
+                                  {"1MR", new Opportunity(pchar, this)}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new GenericTalent(pchar, this, "Sleight of Hand", "2LL", "Assets/ability/Ability_rogue_feint.png", 2, "Reduces the chance you are critically hit by melee and ranged attacks by %1% and increases the threat reduction of your Feint ability by %2%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1), QPair<int, int>(10, 10)})},

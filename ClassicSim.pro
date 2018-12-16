@@ -318,7 +318,8 @@ SOURCES += main.cpp \
     Character/Class/Warrior/WarriorEnchants.cpp \
     Character/Class/Rogue/RogueEnchants.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/VilePoisons.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/ImprovedPoisons.cpp
+    Character/Class/Rogue/TalentTrees/Assassination/ImprovedPoisons.cpp \
+    Character/Class/Rogue/TalentTrees/Subtlety/Opportunity.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -640,7 +641,8 @@ HEADERS += \
     Character/Class/Warrior/WarriorEnchants.h \
     Character/Class/Rogue/RogueEnchants.h \
     Character/Class/Rogue/TalentTrees/Assassination/VilePoisons.h \
-    Character/Class/Rogue/TalentTrees/Assassination/ImprovedPoisons.h
+    Character/Class/Rogue/TalentTrees/Assassination/ImprovedPoisons.h \
+    Character/Class/Rogue/TalentTrees/Subtlety/Opportunity.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -666,6 +668,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Rogue/TalentTrees \
     $$PWD/Character/Class/Rogue/TalentTrees/Assassination \
     $$PWD/Character/Class/Rogue/TalentTrees/Combat \
+    $$PWD/Character/Class/Rogue/TalentTrees/Subtlety \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
     $$PWD/Character/Class/Hunter \

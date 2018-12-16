@@ -14,12 +14,15 @@ protected:
 private:
     friend class ImprovedBackstab;
     friend class Lethality;
+    friend class Opportunity;
 
     Rogue* rogue;
     double improved_bs;
     double lethality;
+    double opportunity;
     QVector<double> imp_bs_ranks;
     QVector<double> lethality_ranks;
+    QVector<double> opportunity_ranks;
 
     void spell_effect() override;
     bool is_ready_spell_specific() const override;
