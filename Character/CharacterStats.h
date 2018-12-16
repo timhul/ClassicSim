@@ -114,6 +114,9 @@ public:
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
 
+    void increase_dodge(const double);
+    void decrease_dodge(const double);
+
 protected:
     Character* pchar;
     Equipment* equipment;

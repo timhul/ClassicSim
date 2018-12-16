@@ -524,6 +524,14 @@ double CharacterStats::get_oh_wpn_speed() {
                                   300;
 }
 
+void CharacterStats::increase_dodge(const double dodge) {
+    base_stats->increase_dodge(dodge);
+}
+
+void CharacterStats::decrease_dodge(const double dodge) {
+    base_stats->decrease_dodge(dodge);
+}
+
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {
     effects.append(add_value);
 

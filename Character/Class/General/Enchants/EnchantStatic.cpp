@@ -63,6 +63,11 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::LesserArcanumOfVoracityStrength:
         pchar->get_stats()->increase_strength(8);
         break;
+    case EnchantName::DeathsEmbrace:
+        pchar->get_stats()->increase_melee_ap(28);
+        pchar->get_stats()->increase_ranged_ap(28);
+        pchar->get_stats()->increase_dodge(0.01);
+        break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->increase_agility(3);
         break;
@@ -150,6 +155,11 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::LesserArcanumOfVoracityStrength:
         pchar->get_stats()->decrease_strength(8);
+        break;
+    case EnchantName::DeathsEmbrace:
+        pchar->get_stats()->decrease_melee_ap(28);
+        pchar->get_stats()->decrease_ranged_ap(28);
+        pchar->get_stats()->decrease_dodge(0.01);
         break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->decrease_agility(3);

@@ -29,6 +29,7 @@ public:
         LesserArcanumOfVoracitySpirit,
         LesserArcanumOfVoracityStamina,
         LesserArcanumOfVoracityStrength,
+        DeathsEmbrace,
         EnchantCloakLesserAgility,
         ZandalarSignetOfMight,
         MightOfTheScourge,
@@ -81,6 +82,8 @@ public:
         case EnchantName::LesserArcanumOfVoracityStamina:
         case EnchantName::LesserArcanumOfVoracityStrength:
             return "Lesser Arcanum of Voracity";
+        case EnchantName::DeathsEmbrace:
+            return "Death's Embrace";
         case EnchantName::EnchantCloakLesserAgility:
             return "Lesser Agility";
         case EnchantName::ZandalarSignetOfMight:
@@ -146,6 +149,8 @@ public:
             return "+8 Stamina";
         case EnchantName::LesserArcanumOfVoracityStrength:
             return "+8 Strength";
+        case EnchantName::DeathsEmbrace:
+            return "+28 Attack and\n1% Dodge";
         case EnchantName::EnchantCloakLesserAgility:
             return "+3 Agility";
         case EnchantName::ZandalarSignetOfMight:

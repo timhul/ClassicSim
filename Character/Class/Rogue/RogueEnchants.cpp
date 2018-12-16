@@ -19,7 +19,11 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
         };
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
-        return { EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityAgility };
+        return {
+            EnchantName::Name::ArcanumOfRapidity,
+            EnchantName::Name::LesserArcanumOfVoracityAgility,
+            EnchantName::Name::DeathsEmbrace
+        };
     case EquipmentSlot::SHOULDERS:
         return { EnchantName::Name::MightOfTheScourge, EnchantName::Name::ZandalarSignetOfMight };
     case EquipmentSlot::BACK:
