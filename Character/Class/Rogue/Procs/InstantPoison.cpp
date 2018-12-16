@@ -1,6 +1,7 @@
 #include "InstantPoison.h"
 
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "EnchantName.h"
 #include "ItemNamespace.h"
 #include "InstantPoisonBuff.h"
@@ -8,6 +9,7 @@
 #include "ProcInfo.h"
 #include "Random.h"
 #include "Rogue.h"
+#include "RogueSpells.h"
 #include "StatisticsResource.h"
 
 InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const int weapon) :
@@ -21,7 +23,8 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
                    }),
     dmg_roll(new Random(112, 149)),
     rogue(dynamic_cast<Rogue*>(pchar)),
-    base_proc_range(2000)
+    base_proc_range(2000),
+    vile_poisons(1.0)
 {
     this->instant_poison_buff = new InstantPoisonBuff(pchar, this, weapon_side);
     this->instant_poison_buff->enable_buff();
@@ -31,8 +34,6 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
     vile_poisons_modifiers = {1.0, 1.04, 1.08, 1.12, 1.16, 1.20};
     improved_poisons_proc_range_increases = {0, 200, 400, 600, 800, 1000};
 
-    assert(weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND);
-
     switch (weapon) {
     case EnchantSlot::MAINHAND:
         proc_sources.append({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing});
@@ -40,13 +41,24 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
     case EnchantSlot::OFFHAND:
         proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
         break;
+    default:
+        assert(false);
     }
+
+    rogue->get_spells()->add_spell(this);
+    dynamic_cast<RogueSpells*>(rogue->get_spells())->add_pre_combat_spell(this);
 }
 
 InstantPoison::~InstantPoison() {
+    rogue->get_spells()->remove_spell(this);
+    dynamic_cast<RogueSpells*>(rogue->get_spells())->remove_pre_combat_spell(this);
     instant_poison_buff->cancel_buff();
     instant_poison_buff->disable_buff();
     delete instant_poison_buff;
+}
+
+void InstantPoison::perform_pre_combat() {
+    instant_poison_buff->apply_buff();
 }
 
 void InstantPoison::proc_effect() {
@@ -87,6 +99,6 @@ void InstantPoison::decrease_talent_rank_effect(const int curr, const QString& t
         vile_poisons = vile_poisons_modifiers[curr];
 }
 
-void InstantPoison::prepare_set_of_combat_iterations() {
-    instant_poison_buff->apply_buff();
+void InstantPoison::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(Spell::name, icon);
 }

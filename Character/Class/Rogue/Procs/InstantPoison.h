@@ -13,7 +13,7 @@ public:
     InstantPoison(Character* pchar, const QString &weapon_side, const int weapon);
     ~InstantPoison() override;
 
-    void prepare_set_of_combat_iterations() override;
+    void perform_pre_combat() override;
 
 private:
     friend class ImprovedPoisons;
@@ -30,6 +30,7 @@ private:
     QVector<unsigned> improved_poisons_proc_range_increases;
 
     void proc_effect() override;
+    void prepare_set_of_combat_iterations_spell_specific() override;
 
     void increase_talent_rank_effect(const int curr, const QString& talent_name) override;
     void decrease_talent_rank_effect(const int curr, const QString& talent_name) override;
