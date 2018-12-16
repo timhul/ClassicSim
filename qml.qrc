@@ -396,5 +396,11 @@
         <file>QML/Assets/items/Inv_pants_leather_09.png</file>
         <file>QML/Assets/items/Inv_pants_leather_11.png</file>
         <file>QML/Assets/items/Inv_pants_plate_05.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_17.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_19.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_21.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_22.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_23.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_28.png</file>
     </qresource>
 </RCC>
