@@ -4,6 +4,7 @@
 #include <QVector>
 
 #include "EnchantName.h"
+#include "ItemNamespace.h"
 
 class CharacterEnchants {
 public:

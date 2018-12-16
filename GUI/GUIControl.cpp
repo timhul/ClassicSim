@@ -56,7 +56,9 @@ GUIControl::GUIControl(QObject* parent) :
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
     dps_distribution(nullptr),
+    mh_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Permanent)),
     mh_temporary_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Temporary)),
+    oh_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Permanent)),
     oh_temporary_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Temporary)),
     head_legs_enchants(new EnchantModel(EquipmentSlot::HEAD, EnchantModel::Permanent)),
     shoulder_enchants(new EnchantModel(EquipmentSlot::SHOULDERS, EnchantModel::Permanent)),
@@ -175,7 +177,9 @@ GUIControl::~GUIControl() {
     delete proc_breakdown_model;
     delete resource_breakdown_model;
     delete scale_result_model;
+    delete mh_enchants;
     delete mh_temporary_enchants;
+    delete oh_enchants;
     delete oh_temporary_enchants;
     delete head_legs_enchants;
     delete shoulder_enchants;
@@ -196,7 +200,10 @@ void GUIControl::set_character(Character* pchar) {
     selectInformationRotation(0);
     rotation_model->select_rotation();
     character_encoder->set_character(current_char);
+
+    mh_enchants->set_character(current_char);
     mh_temporary_enchants->set_character(current_char);
+    oh_enchants->set_character(current_char);
     oh_temporary_enchants->set_character(current_char);
     head_legs_enchants->set_character(current_char);
     shoulder_enchants->set_character(current_char);
@@ -912,13 +919,6 @@ QString GUIControl::get_trinket2_icon() const {
     return "";
 }
 
-bool GUIControl::has_2h_weapon() const {
-    if (current_char->get_equipment()->get_mainhand() == nullptr)
-        return false;
-
-    return current_char->get_equipment()->get_mainhand()->is_2hand();
-}
-
 void GUIControl::selectSlot(const QString& slot_string) {
     int slot = get_slot_int(slot_string);
 
@@ -1143,8 +1143,16 @@ void GUIControl::clearTemporaryEnchant(const QString& slot_string) {
     statsChanged();
 }
 
+EnchantModel* GUIControl::get_mh_enchant_model() const {
+    return this->mh_enchants;
+}
+
 EnchantModel* GUIControl::get_mh_temporary_enchant_model() const {
     return this->mh_temporary_enchants;
+}
+
+EnchantModel* GUIControl::get_oh_enchant_model() const {
+    return this->oh_enchants;
 }
 
 EnchantModel* GUIControl::get_oh_temporary_enchant_model() const {
@@ -1181,8 +1189,10 @@ EnchantModel* GUIControl::get_boots_enchant_model() const {
 
 void GUIControl::setSlot(const QString& slot_string, const QString& item) {
     // CSIM-79: Replace with switch on slot as int.
-    if (slot_string == "MAINHAND")
+    if (slot_string == "MAINHAND") {
         current_char->get_equipment()->set_mainhand(item);
+        mh_enchants->set_character(current_char);
+    }
     if (slot_string == "OFFHAND")
         current_char->get_equipment()->set_offhand(item);
     if (slot_string == "RANGED")

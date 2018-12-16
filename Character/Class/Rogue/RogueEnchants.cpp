@@ -10,7 +10,13 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND:
     case EquipmentSlot::OFFHAND:
-        return { EnchantName::Name::Crusader, EnchantName::Name::FieryWeapon };
+        return {
+            EnchantName::Name::Crusader,
+            EnchantName::Name::FieryWeapon,
+            EnchantName::Name::EnchantWeaponStrength,
+            EnchantName::Name::SuperiorStriking,
+            EnchantName::Name::EnchantWeaponAgility
+        };
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
         return { EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityAgility };

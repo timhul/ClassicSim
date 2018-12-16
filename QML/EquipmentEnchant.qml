@@ -119,12 +119,12 @@ Rectangle {
                 return mhTempEnchantModel
             }
             else
-                return equipment.has2HWeapon ? enchant2HWeaponModel : enchant1HWeaponModel
+                return mhEnchantModel
         case "OFFHAND":
             if (temporaryEnchant === true)
                 return ohTempEnchantModel
             else
-                return enchant1HWeaponModel
+                return ohEnchantModel
         case "HEAD":
         case "LEGS":
             return headLegsEnchantModel
@@ -142,7 +142,7 @@ Rectangle {
             return bootsEnchantModel
         }
 
-        return enchant2HWeaponModel
+        return mhEnchantModel
     }
 
     ListView {
@@ -199,79 +199,6 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
-        }
-    }
-
-    ListModel {
-        id: enchant1HWeaponModel
-
-        ListElement {
-            _name: "Crusader"
-            _enum: EnchantName.Crusader
-        }
-
-        ListElement {
-            _name: "Fiery Weapon"
-            _enum: EnchantName.FieryWeapon
-        }
-
-        ListElement {
-            _name: "Enchant Weapon - Strength"
-            _enum: EnchantName.EnchantWeaponStrength
-        }
-
-        ListElement {
-            _name: "Enchant Weapon - Agility"
-            _enum: EnchantName.EnchantWeaponAgility
-        }
-
-        ListElement {
-            _name: "Enchant Weapon - Superior Striking"
-            _enum: EnchantName.SuperiorStriking
-        }
-    }
-
-    ListModel {
-        id: enchant2HWeaponModel
-
-        ListElement {
-            _name: "Iron Counterweight"
-            _enum: EnchantName.IronCounterweight
-        }
-
-        ListElement {
-            _name: "Enchant 2H Weapon - Agility"
-            _enum: EnchantName.Enchant2HWeaponAgility
-        }
-
-        ListElement {
-            _name: "Crusader"
-            _enum: EnchantName.Crusader
-        }
-
-        ListElement {
-            _name: "Fiery Weapon"
-            _enum: EnchantName.FieryWeapon
-        }
-
-        ListElement {
-            _name: "Enchant Weapon - Strength"
-            _enum: EnchantName.EnchantWeaponStrength
-        }
-
-        ListElement {
-            _name: "Enchant Weapon - Agility"
-            _enum: EnchantName.EnchantWeaponAgility
-        }
-
-        ListElement {
-            _name: "Enchant Weapon - Superior Striking"
-            _enum: EnchantName.SuperiorStriking
-        }
-
-        ListElement {
-            _name: "Enchant 2H - Superior Impact"
-            _enum: EnchantName.Enchant2HWeaponSuperiorImpact
         }
     }
 }

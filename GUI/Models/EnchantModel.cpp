@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "CharacterEnchants.h"
+#include "ItemNamespace.h"
 
 EnchantModel::EnchantModel(const int equipment_slot, const bool permanent, QObject *parent) :
     QAbstractListModel(parent),

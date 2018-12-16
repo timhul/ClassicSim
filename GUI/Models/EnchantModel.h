@@ -22,13 +22,14 @@ public:
 
     EnchantModel(const int equipment_slot, const bool permanent, QObject *parent = nullptr);
 
-    void set_character(Character*);
+    void set_character(Character* pchar);
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
 private:
     const int equipment_slot;
     const bool permanent;
+
     QHash<int, QByteArray> roleNames() const;
     QVector<EnchantName::Name> enchants;
 };

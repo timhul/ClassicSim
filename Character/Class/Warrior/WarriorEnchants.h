@@ -15,6 +15,8 @@ public:
 
 private:
     Warrior* warrior;
+
+    bool has_2hand() const;
 };
 
 #endif // WARRIORENCHANTS_H

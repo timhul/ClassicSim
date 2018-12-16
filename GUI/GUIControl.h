@@ -138,7 +138,6 @@ public:
 
     Q_INVOKABLE void setEquipmentSetup(const int equipment_index);
 
-    Q_PROPERTY(bool has2HWeapon READ has_2h_weapon NOTIFY equipmentChanged)
     Q_SIGNAL void enchantChanged();
     Q_INVOKABLE bool hasItemEquipped(const QString& slot_string) const;
     Q_INVOKABLE bool hasEnchant(const QString& slot_string) const;
@@ -149,7 +148,9 @@ public:
     Q_INVOKABLE void applyTemporaryEnchant(const QString& slot_string, const int enchant_name);
     Q_INVOKABLE void clearEnchant(const QString& slot_string);
     Q_INVOKABLE void clearTemporaryEnchant(const QString& slot_string);
+    EnchantModel* get_mh_enchant_model() const;
     EnchantModel* get_mh_temporary_enchant_model() const;
+    EnchantModel* get_oh_enchant_model() const;
     EnchantModel* get_oh_temporary_enchant_model() const;
     EnchantModel* get_head_legs_enchant_model() const;
     EnchantModel* get_shoulder_enchant_model() const;
@@ -312,8 +313,6 @@ private:
     QString get_trinket1_icon() const;
     QString get_trinket2_icon() const;
 
-    bool has_2h_weapon() const;
-
     QString get_capitalized_string(const QString&) const;
     void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);
     void set_class_restriction_tooltip(Item *&item, QString &restriction);
@@ -355,7 +354,9 @@ private:
     SimScaleModel* sim_scale_model;
     ScaleResultModel* scale_result_model;
     ScaleResult* dps_distribution;
+    EnchantModel* mh_enchants;
     EnchantModel* mh_temporary_enchants;
+    EnchantModel* oh_enchants;
     EnchantModel* oh_temporary_enchants;
     EnchantModel* head_legs_enchants;
     EnchantModel* shoulder_enchants;
