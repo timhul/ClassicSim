@@ -407,5 +407,13 @@
         <file>QML/Assets/items/Inv_boots_chain_04.png</file>
         <file>QML/Assets/items/Inv_boots_plate_06.png</file>
         <file>QML/Assets/items/Inv_boots_wolf.png</file>
+        <file>QML/Assets/items/Inv_bracer_02.png</file>
+        <file>QML/Assets/items/Inv_bracer_03.png</file>
+        <file>QML/Assets/items/Inv_bracer_05.png</file>
+        <file>QML/Assets/items/Inv_bracer_06.png</file>
+        <file>QML/Assets/items/Inv_bracer_08.png</file>
+        <file>QML/Assets/items/Inv_bracer_09.png</file>
+        <file>QML/Assets/items/Inv_bracer_15.png</file>
+        <file>QML/Assets/items/Inv_bracer_12.png</file>
     </qresource>
 </RCC>
