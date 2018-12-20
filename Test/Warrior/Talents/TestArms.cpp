@@ -147,7 +147,33 @@ void TestArms::test_clearing_tree_after_filling() {
 }
 
 void TestArms::test_refilling_tree_after_switching_talent_setup() {
+    assert(tree_has_points(0));
+    spec_ms();
+    assert(tree_has_points(31));
 
+    switch_to_setup(1);
+    assert(tree_has_points(0));
+    spec_ms();
+    assert(tree_has_points(31));
+
+    switch_to_setup(2);
+    assert(tree_has_points(0));
+    spec_ms();
+    assert(tree_has_points(31));
+}
+
+void TestArms::spec_ms() {
+    assert(increment("Improved Rend", 3));
+    assert(increment("Deflection", 3));
+    assert(increment("Tactical Mastery", 5));
+    assert(increment("Improved Overpower", 2));
+    assert(increment("Anger Management", 1));
+    assert(increment("Deep Wounds", 3));
+    assert(increment("Impale", 2));
+    assert(increment("Two-Handed Weapon Specialization", 5));
+    assert(increment("Sweeping Strikes", 1));
+    assert(increment("Sword Specialization", 5));
+    assert(increment("Mortal Strike", 1));
 }
 
 QString TestArms::get_position(const QString& name) const {
