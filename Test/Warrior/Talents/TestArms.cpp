@@ -20,7 +20,7 @@ void TestArms::tear_down() {
 void TestArms::test_spending_talent_points() {
     assert(!decrement("Deflection"));
 
-    assert(increment_talent_num_times("Deflection", 5));
+    assert(increment("Deflection", 5));
     // 5 points
     assert(!increment("Deflection"));
     assert(decrement("Deflection"));
@@ -38,7 +38,7 @@ void TestArms::test_spending_talent_points() {
     assert(decrement("Improved Rend"));
     // 5 Deflection 1 Imp TC.
 
-    assert(increment_talent_num_times("Tactical Mastery", 4));
+    assert(increment("Tactical Mastery", 4));
 
     // Assert cannot spend points into Deep Wounds if 3/3 Imp Rend is missing
     assert(!increment("Deep Wounds"));
@@ -57,8 +57,8 @@ void TestArms::test_spending_talent_points() {
     assert(!decrement("Improved Rend"));
 
 
-    assert(increment_talent_num_times("Improved Overpower", 2));
-    assert(increment_talent_num_times("Impale", 2));
+    assert(increment("Improved Overpower", 2));
+    assert(increment("Impale", 2));
     assert(!decrement("Deep Wounds"));
 
     assert(increment("Sweeping Strikes"));
@@ -105,7 +105,7 @@ void TestArms::test_spending_talent_points() {
     assert(increment("Impale"));
     assert(decrement("Two-Handed Weapon Specialization"));
 
-    assert(increment_talent_num_times("Axe Specialization", 5));
+    assert(increment("Axe Specialization", 5));
     assert(increment("Two-Handed Weapon Specialization"));
     assert(!increment("Mortal Strike"));
     assert(increment("Two-Handed Weapon Specialization"));
@@ -130,14 +130,14 @@ void TestArms::test_spending_talent_points() {
 }
 
 void TestArms::test_clearing_tree_after_filling() {
-    assert(increment_talent_num_times("Deflection", 5));
-    assert(increment_talent_num_times("Improved Rend", 3));
-    assert(increment_talent_num_times("Tactical Mastery", 5));
-    assert(increment_talent_num_times("Deep Wounds", 3));
+    assert(increment("Deflection", 5));
+    assert(increment("Improved Rend", 3));
+    assert(increment("Tactical Mastery", 5));
+    assert(increment("Deep Wounds", 3));
     assert(increment("Anger Management"));
-    assert(increment_talent_num_times("Impale", 2));
-    assert(increment_talent_num_times("Two-Handed Weapon Specialization", 5));
-    assert(increment_talent_num_times("Axe Specialization", 5));
+    assert(increment("Impale", 2));
+    assert(increment("Two-Handed Weapon Specialization", 5));
+    assert(increment("Axe Specialization", 5));
     assert(increment("Sweeping Strikes"));
     assert(increment("Mortal Strike"));
 

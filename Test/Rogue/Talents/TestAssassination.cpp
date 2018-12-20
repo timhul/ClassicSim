@@ -21,7 +21,7 @@ void TestAssassination::tear_down() {
 void TestAssassination::test_spending_talent_points() {
     assert(!decrement("Malice"));
 
-    assert(increment_talent_num_times("Malice", 5));
+    assert(increment("Malice", 5));
     // 5 points
     assert(!increment("Malice"));
     assert(decrement("Malice"));
@@ -38,13 +38,13 @@ void TestAssassination::test_spending_talent_points() {
     assert(increment("Malice"));
     assert(decrement("Improved Eviscerate"));
     assert(decrement("Murder"));
-    assert(decrement_talent_num_times("Malice", 5));
+    assert(decrement("Malice", 5));
 
     // 0 points spent, make Lethality "available" via other talents
-    assert(increment_talent_num_times("Improved Eviscerate", 3));
-    assert(increment_talent_num_times("Remorseless Attacks", 2));
-    assert(increment_talent_num_times("Ruthlessness", 3));
-    assert(increment_talent_num_times("Murder", 2));
+    assert(increment("Improved Eviscerate", 3));
+    assert(increment("Remorseless Attacks", 2));
+    assert(increment("Ruthlessness", 3));
+    assert(increment("Murder", 2));
 
     // Assert cannot spend points into Lethality if 5/5 Malice is missing
     assert(!increment("Lethality"));
@@ -71,8 +71,8 @@ void TestAssassination::test_spending_talent_points() {
     assert(!decrement("Malice"));
 
     // 20 points spent, shift around points in T1 into T4 for assertions.
-    assert(increment_talent_num_times("Vile Poisons", 3));
-    assert(decrement_talent_num_times("Improved Eviscerate", 3));
+    assert(increment("Vile Poisons", 3));
+    assert(decrement("Improved Eviscerate", 3));
     assert(tree_has_points(20));
 
     assert(increment("Cold Blood"));
@@ -120,8 +120,8 @@ void TestAssassination::test_spending_talent_points() {
     assert(decrement("Improved Poisons"));
 
     // Assert cannot remove parent (Cold Blood) when child (Seal Fate) is active although points allow
-    assert(increment_talent_num_times("Improved Poisons", 5));
-    assert(increment_talent_num_times("Vile Poisons", 2));
+    assert(increment("Improved Poisons", 5));
+    assert(increment("Vile Poisons", 2));
     assert(tree_has_points(28));
     assert(increment("Seal Fate"));
     assert(!decrement("Cold Blood"));
@@ -138,17 +138,17 @@ void TestAssassination::test_spending_talent_points() {
 }
 
 void TestAssassination::test_clearing_tree_after_filling() {
-    assert(increment_talent_num_times("Improved Eviscerate", 3));
-    assert(increment_talent_num_times("Malice", 5));
-    assert(increment_talent_num_times("Ruthlessness", 3));
-    assert(increment_talent_num_times("Murder", 2));
-    assert(increment_talent_num_times("Improved Slice and Dice", 3));
-    assert(increment_talent_num_times("Relentless Strikes", 1));
-    assert(increment_talent_num_times("Lethality", 5));
-    assert(increment_talent_num_times("Improved Poisons", 5));
-    assert(increment_talent_num_times("Vile Poisons", 5));
+    assert(increment("Improved Eviscerate", 3));
+    assert(increment("Malice", 5));
+    assert(increment("Ruthlessness", 3));
+    assert(increment("Murder", 2));
+    assert(increment("Improved Slice and Dice", 3));
+    assert(increment("Relentless Strikes", 1));
+    assert(increment("Lethality", 5));
+    assert(increment("Improved Poisons", 5));
+    assert(increment("Vile Poisons", 5));
     assert(increment("Cold Blood"));
-    assert(increment_talent_num_times("Seal Fate", 5));
+    assert(increment("Seal Fate", 5));
     assert(increment("Vigor"));
 
     assert(!decrement("Cold Blood"));
@@ -173,15 +173,15 @@ void TestAssassination::test_refilling_tree_after_switching_talent_setup() {
 }
 
 void TestAssassination::spec_seal_fate() {
-    assert(increment_talent_num_times("Malice", 5));
-    assert(increment_talent_num_times("Ruthlessness", 3));
-    assert(increment_talent_num_times("Murder", 2));
-    assert(increment_talent_num_times("Improved Slice and Dice", 3));
-    assert(increment_talent_num_times("Relentless Strikes", 1));
-    assert(increment_talent_num_times("Lethality", 5));
-    assert(increment_talent_num_times("Improved Poisons", 5));
-    assert(increment_talent_num_times("Cold Blood", 1));
-    assert(increment_talent_num_times("Seal Fate", 5));
+    assert(increment("Malice", 5));
+    assert(increment("Ruthlessness", 3));
+    assert(increment("Murder", 2));
+    assert(increment("Improved Slice and Dice", 3));
+    assert(increment("Relentless Strikes", 1));
+    assert(increment("Lethality", 5));
+    assert(increment("Improved Poisons", 5));
+    assert(increment("Cold Blood", 1));
+    assert(increment("Seal Fate", 5));
 }
 
 QString TestAssassination::get_position(const QString& name) const {

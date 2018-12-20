@@ -19,7 +19,7 @@ void TestFury::tear_down() {
 void TestFury::test_spending_talent_points() {
     assert(!decrement("Cruelty"));
 
-    assert(increment_talent_num_times("Cruelty", 5));
+    assert(increment("Cruelty", 5));
     // 5 points
     assert(!increment("Cruelty"));
     assert(decrement("Cruelty"));
@@ -37,9 +37,9 @@ void TestFury::test_spending_talent_points() {
     assert(decrement("BV"));
     // 5 Cruelty 1 UW.
 
-    assert(increment_talent_num_times("UW", 4));
-    assert(increment_talent_num_times("Imp BS", 5));
-    assert(increment_talent_num_times("Enrage", 5));
+    assert(increment("UW", 4));
+    assert(increment("Imp BS", 5));
+    assert(increment("Enrage", 5));
     assert(increment("Death Wish"));
 
     // Cannot decrement lower tiers
@@ -84,9 +84,9 @@ void TestFury::test_spending_talent_points() {
     assert(increment("Enrage"));
     assert(decrement("Imp Execute"));
 
-    assert(increment_talent_num_times("DW Spec", 5));
-    assert(increment_talent_num_times("Flurry", 5));
-    assert(increment_talent_num_times("Imp Execute", 2));
+    assert(increment("DW Spec", 5));
+    assert(increment("Flurry", 5));
+    assert(increment("Imp Execute", 2));
     assert(increment("BT"));
 
     // Assert cannot remove parent (Death Wish) when child (BT) is active although points allow (34 spent)
@@ -107,12 +107,12 @@ void TestFury::test_spending_talent_points() {
 }
 
 void TestFury::test_clearing_tree_after_filling() {
-    assert(increment_talent_num_times("BV", 5));
-    assert(increment_talent_num_times("Cruelty", 5));
-    assert(increment_talent_num_times("UW", 5));
-    assert(increment_talent_num_times("Imp BS", 5));
-    assert(increment_talent_num_times("Enrage", 5));
-    assert(increment_talent_num_times("Flurry", 5));
+    assert(increment("BV", 5));
+    assert(increment("Cruelty", 5));
+    assert(increment("UW", 5));
+    assert(increment("Imp BS", 5));
+    assert(increment("Enrage", 5));
+    assert(increment("Flurry", 5));
     assert(increment("Death Wish"));
     assert(increment("BT"));
 
@@ -136,13 +136,13 @@ void TestFury::test_refilling_tree_after_switching_talent_setup() {
 }
 
 void TestFury::spec_dw_fury() {
-    assert(increment_talent_num_times("Cruelty", 5));
-    assert(increment_talent_num_times("UW", 5));
-    assert(increment_talent_num_times("Imp BS", 5));
-    assert(increment_talent_num_times("DW Spec", 5));
-    assert(increment_talent_num_times("Enrage", 5));
-    assert(increment_talent_num_times("Flurry", 5));
-    assert(increment_talent_num_times("Imp Execute", 2));
+    assert(increment("Cruelty", 5));
+    assert(increment("UW", 5));
+    assert(increment("Imp BS", 5));
+    assert(increment("DW Spec", 5));
+    assert(increment("Enrage", 5));
+    assert(increment("Flurry", 5));
+    assert(increment("Imp Execute", 2));
     assert(increment("Death Wish"));
     assert(increment("BT"));
 }

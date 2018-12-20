@@ -35,14 +35,6 @@ void TestTalentTree::run_extra_tests() {
 
 }
 
-bool TestTalentTree::increment(const QString& name) {
-    return pchar->get_talents()->increment_rank(tree_pos, get_position(name));
-}
-
-bool TestTalentTree::decrement(const QString& name) {
-    return pchar->get_talents()->decrement_rank(tree_pos, get_position(name));
-}
-
 void TestTalentTree::clear_tree() {
     pchar->get_talents()->clear_tree(tree_pos);
 }
@@ -55,7 +47,7 @@ void TestTalentTree::switch_to_setup(const int index) {
     pchar->get_talents()->set_current_index(index);
 }
 
-bool TestTalentTree::increment_talent_num_times(const QString& name, int num_times) {
+bool TestTalentTree::increment(const QString& name, int num_times) {
     QString spell = get_position(name);
     bool success = true;
     for (int i = 0; i < num_times; ++i) {
@@ -66,7 +58,7 @@ bool TestTalentTree::increment_talent_num_times(const QString& name, int num_tim
     return success;
 }
 
-bool TestTalentTree::decrement_talent_num_times(const QString& name, int num_times) {
+bool TestTalentTree::decrement(const QString& name, int num_times) {
     QString spell = get_position(name);
     bool success = true;
     for (int i = 0; i < num_times; ++i) {
