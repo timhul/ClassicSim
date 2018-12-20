@@ -60,23 +60,22 @@
 			</source>
 		</patch>
 	</helm>
-	
+
 	<helm name="Circlet of Restless Dreams">
 		<patch name="1.8.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_01.png"/>
+			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_17.png"/>
 			<stats>
-				<stat type="ARMOR" value="164"/>
-				<stat type="STRENGTH" value="21"/>
-				<stat type="AGILITY" value="24"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="ARMOR" value="175"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="STAMINA" value="38"/>
+				<stat type="DAGGER_SKILL" value="6"/>
 			</stats>
 			<source>
 			Drops from Emeriss (world boss).
 			</source>
 		</patch>
 	</helm>
-	
+
 	<helm name="Southwind Helm">
 		<patch name="1.9.0">
 			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>

@@ -423,5 +423,6 @@
         <file>QML/Assets/items/Inv_chest_leather_08.png</file>
         <file>QML/Assets/items/Inv_chest_leather_10.png</file>
         <file>QML/Assets/items/Inv_chest_plate02.png</file>
+        <file>QML/Assets/items/Inv_helmet_17.png</file>
     </qresource>
 </RCC>
