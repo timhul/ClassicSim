@@ -38,6 +38,7 @@
 
 #include "Test.h"
 #include "TestAttackTables.h"
+#include "TestConditionVariableBuiltin.h"
 #include "TestCharacterStats.h"
 #include "TestFelstrikerProc.h"
 #include "TestMechanics.h"
@@ -76,6 +77,8 @@ void Test::test_all() {
 
     qDebug() << "test_rogue";
     TestRogue().test_all();
+
+    TestConditionVariableBuiltin().test_all();
 }
 
 void Test::test_queue() {

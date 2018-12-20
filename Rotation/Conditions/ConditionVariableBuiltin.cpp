@@ -53,15 +53,25 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
 bool ConditionVariableBuiltin::cmp_values(const double lhs_value) const {
     switch (comparator) {
     case Comparators::less:
-    case Comparators::leq:
         return lhs_value < rhs_value;
+    case Comparators::leq:
+        return almost_equal(lhs_value, rhs_value) || lhs_value < rhs_value;
     case Comparators::eq:
-        return (lhs_value - rhs_value) < 0.000001;
+        return almost_equal(lhs_value, rhs_value);
     case Comparators::geq:
+        return almost_equal(lhs_value, rhs_value) || lhs_value > rhs_value;
     case Comparators::greater:
         return lhs_value > rhs_value;
     default:
         assert(false);
         return false;
     }
+}
+
+double ConditionVariableBuiltin::delta(double lhs, double rhs) {
+    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
+}
+
+bool ConditionVariableBuiltin::almost_equal(double lhs, double rhs) {
+    return delta(lhs, rhs) < 0.000001;
 }
