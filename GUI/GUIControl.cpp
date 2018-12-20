@@ -107,9 +107,6 @@ GUIControl::GUIControl(QObject* parent) :
     buff_model = new BuffModel(current_char->get_enabled_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_enabled_buffs()->get_general_buffs());
 
-    item_model->update_items();
-    weapon_model->update_items();
-
     setSlot("MAINHAND", "Arcanite Reaper");
     setSlot("HEAD", "Lionheart Helm");
     setSlot("NECK", "Mark of Fordring");
@@ -194,8 +191,8 @@ void GUIControl::set_character(Character* pchar) {
     sim_settings->use_ruleset(Ruleset::Standard, current_char);
     current_char = pchar;
     item_type_filter_model->set_character(current_char);
-    item_model->update_items();
-    weapon_model->update_items();
+    item_model->set_character(current_char);
+    weapon_model->set_character(current_char);
     rotation_model->set_character(current_char);
     selectInformationRotation(0);
     rotation_model->select_rotation();
@@ -289,6 +286,8 @@ void GUIControl::selectFaction(const int faction) {
 
     buff_model->switch_faction();
     mh_temporary_enchants->set_character(current_char);
+    item_model->update_items();
+    weapon_model->update_items();
     statsChanged();
 }
 

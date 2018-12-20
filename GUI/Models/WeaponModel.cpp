@@ -1,23 +1,27 @@
-
 #include "WeaponModel.h"
-#include "Weapon.h"
-#include "EquipmentDb.h"
-#include "ActiveItemStatFilterModel.h"
-#include "ItemTypeFilterModel.h"
+
 #include <QVersionNumber>
+
+#include "ActiveItemStatFilterModel.h"
+#include "Character.h"
+#include "EquipmentDb.h"
+#include "Faction.h"
+#include "ItemTypeFilterModel.h"
+#include "Weapon.h"
 
 WeaponModel::WeaponModel(EquipmentDb* db,
                          ItemTypeFilterModel* item_type_filter_model,
                          ActiveItemStatFilterModel* item_stat_filter_model,
-                         QObject *parent)
-    : QAbstractListModel(parent)
+                         QObject *parent) :
+    QAbstractListModel(parent),
+    slot(ItemSlots::MAINHAND),
+    pchar(nullptr),
+    db(db),
+    item_type_filter_model(item_type_filter_model),
+    item_stat_filter_model(item_stat_filter_model)
 {
-    this->db = db;
-    this->item_stat_filter_model = item_stat_filter_model;
-    this->item_type_filter_model = item_type_filter_model;
-    this->slot = ItemSlots::MAINHAND;
-
     this->current_sorting_method = WeaponSorting::Methods::ByIlvl;
+
     this->sorting_methods.insert(WeaponSorting::Methods::ByIlvl, true);
     this->sorting_methods.insert(WeaponSorting::Methods::ByName, false);
     this->sorting_methods.insert(WeaponSorting::Methods::ByDps, false);
@@ -68,6 +72,11 @@ bool item_type(Weapon* lhs, Weapon* rhs) {
     auto rhs_itemtype = rhs->get_weapon_type();
 
     return lhs_itemtype == rhs_itemtype ? ilvl(lhs, rhs) : lhs_itemtype > rhs_itemtype;
+}
+
+void WeaponModel::set_character(Character* pchar) {
+    this->pchar = pchar;
+    update_items();
 }
 
 void WeaponModel::set_patch(const QString &patch) {
@@ -147,6 +156,9 @@ void WeaponModel::update_items() {
 
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     for (auto & wpn : wpns) {
+        if (!wpn->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
+            continue;
+
         if (!item_type_filter_model->get_item_type_valid(wpn->get_item_type()))
             continue;
 

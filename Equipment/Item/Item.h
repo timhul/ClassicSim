@@ -1,15 +1,17 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <assert.h>
 #include <QString>
 #include <QMap>
 #include <QVector>
-#include <assert.h>
+
+#include "AvailableFactions.h"
+#include "EnchantName.h"
 #include "ItemNamespace.h"
 #include "ItemStatsEnum.h"
-#include "ProcInfo.h"
-#include "EnchantName.h"
 #include "MagicSchools.h"
+#include "ProcInfo.h"
 
 class Enchant;
 class Stats;
@@ -55,12 +57,15 @@ public:
     QString get_enchant_effect() const;
     EnchantName::Name get_enchant_enum_value() const;
 
+    bool available_for_faction(AvailableFactions::Name faction) const;
+
 protected:
     QString name;
     QString patch;
     QString source;
     QString quality;
     QString icon;
+    AvailableFactions::Name valid_faction;
     QMap<QString, QString> info;
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;

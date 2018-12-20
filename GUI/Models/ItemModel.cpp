@@ -1,23 +1,25 @@
-
 #include "ItemModel.h"
-#include "ItemTypeFilterModel.h"
+
 #include "ActiveItemStatFilterModel.h"
-#include "Item.h"
+#include "Character.h"
 #include "EquipmentDb.h"
-#include <QDebug>
+#include "Faction.h"
+#include "ItemTypeFilterModel.h"
+#include "Item.h"
 
 ItemModel::ItemModel(EquipmentDb* db,
                      ItemTypeFilterModel* item_type_filter_model,
                      ActiveItemStatFilterModel* item_stat_filter_model,
-                     QObject *parent)
-    : QAbstractListModel(parent)
+                     QObject *parent) :
+    QAbstractListModel(parent),
+    slot(ItemSlots::MAINHAND),
+    pchar(nullptr),
+    db(db),
+    item_type_filter_model(item_type_filter_model),
+    item_stat_filter_model(item_stat_filter_model)
 {
-    this->db = db;
-    this->item_type_filter_model = item_type_filter_model;
-    this->item_stat_filter_model = item_stat_filter_model;
-    this->slot = ItemSlots::MAINHAND;
-
     this->current_sorting_method = ItemSorting::Methods::ByIlvl;
+
     this->sorting_methods.insert(ItemSorting::Methods::ByIlvl, true);
     this->sorting_methods.insert(ItemSorting::Methods::ByName, false);
     this->sorting_methods.insert(ItemSorting::Methods::ByPatch, false);
@@ -47,6 +49,11 @@ bool item_type(Item* lhs, Item* rhs) {
     auto rhs_itemtype = rhs->get_item_type();
 
     return lhs_itemtype == rhs_itemtype ? ilvl(lhs, rhs) : lhs_itemtype > rhs_itemtype;
+}
+
+void ItemModel::set_character(Character* pchar) {
+    this->pchar = pchar;
+    update_items();
 }
 
 void ItemModel::set_patch(const QString &patch) {
@@ -115,6 +122,9 @@ void ItemModel::update_items() {
 
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     for (auto & tmp_item : tmp_items) {
+        if (!tmp_item->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
+            continue;
+
         if (!item_type_filter_model->get_item_type_valid(tmp_item->get_item_type()))
             continue;
 

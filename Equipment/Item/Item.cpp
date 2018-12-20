@@ -32,6 +32,16 @@ Item::Item(QString _name,
     stats(new Stats()),
     enchant(nullptr)
 {
+    QString faction = get_value("faction");
+    if (faction != "") {
+        if (faction != "ALLIANCE" && faction != "HORDE")
+            qDebug() << name << "has incorrect faction value" << faction;
+        valid_faction = faction == "ALLIANCE" ? AvailableFactions::Alliance :
+                                                AvailableFactions::Horde;
+    }
+    else
+        valid_faction = AvailableFactions::Neutral;
+
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
@@ -50,6 +60,8 @@ Item::Item(const Item* item) :
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
+    set_class_restrictions(info);
+    set_faction();
     this->icon = QString("Assets/items/%1").arg(info["icon"]);
 }
 
@@ -158,6 +170,11 @@ QString Item::get_enchant_effect() const {
 
 EnchantName::Name Item::get_enchant_enum_value() const {
     return enchant != nullptr ? enchant->get_enum_name() : EnchantName::NoEnchant;
+}
+
+bool Item::available_for_faction(AvailableFactions::Name faction) const {
+    return valid_faction == AvailableFactions::Neutral ? true :
+                                                         valid_faction == faction;
 }
 
 void Item::set_uses(Character *pchar) {

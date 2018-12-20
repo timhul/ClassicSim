@@ -2,15 +2,15 @@
 #define WEAPONMODEL_H
 
 #include <QAbstractListModel>
-#include <QStringList>
 #include <QHash>
+#include <QStringList>
 
-class Weapon;
-class EquipmentDb;
 class ActiveItemStatFilterModel;
+class Character;
+class EquipmentDb;
 class ItemTypeFilterModel;
 class SortingMethod;
-
+class Weapon;
 
 class WeaponSorting : public QObject {
     Q_OBJECT
@@ -45,6 +45,7 @@ public:
 
     WeaponModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject *parent = nullptr);
 
+    void set_character(Character* pchar);
     void set_patch(const QString &patch);
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);
@@ -64,9 +65,10 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 private:
     int slot;
+    Character* pchar;
     EquipmentDb* db;
-    ActiveItemStatFilterModel* item_stat_filter_model;
     ItemTypeFilterModel* item_type_filter_model;
+    ActiveItemStatFilterModel* item_stat_filter_model;
     QHash<WeaponSorting::Methods, bool> sorting_methods;
     QList<Weapon*> melee_weapons;
     WeaponSorting::Methods current_sorting_method;
