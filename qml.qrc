@@ -415,5 +415,13 @@
         <file>QML/Assets/items/Inv_bracer_09.png</file>
         <file>QML/Assets/items/Inv_bracer_15.png</file>
         <file>QML/Assets/items/Inv_bracer_12.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_13.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_07.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_45.png</file>
+        <file>QML/Assets/items/Inv_chest_leather_02.png</file>
+        <file>QML/Assets/items/Inv_chest_leather_07.png</file>
+        <file>QML/Assets/items/Inv_chest_leather_08.png</file>
+        <file>QML/Assets/items/Inv_chest_leather_10.png</file>
+        <file>QML/Assets/items/Inv_chest_plate02.png</file>
     </qresource>
 </RCC>

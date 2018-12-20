@@ -29,4 +29,200 @@
 			</source>
 		</patch>
 	</chest>
+
+	<chest name="Shadowcraft Tunic">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_leather_07.png"/>
+			<stats>
+				<stat type="ARMOR" value="176"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="13"/>
+				<stat type="SPIRIT" value="12"/>
+			</stats>
+			<source>
+			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Breastplate of Bloodthirst">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_chain_13.png"/>
+			<stats>
+				<stat type="ARMOR" value="190"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires expensive and time-consuming materials.
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Nightslayer Chestpiece">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="200"/>
+				<stat type="AGILITY" value="29"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Golemagg the Incinerator in Molten Core.
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Bloodfang Chestpiece">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="225"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="STRENGTH" value="12"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="NATURE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops in Molten Core until 1.4.0. After that it is moved to Blackwing Lair.
+			</source>
+		</patch>
+
+		<patch name="1.6.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="225"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="STRENGTH" value="12"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="NATURE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Nefarian in Blackwing Lair.
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Malfurion's Blessed Bulwark">
+		<patch name="1.6.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
+			<stats>
+				<stat type="ARMOR" value="392"/>
+				<stat type="STRENGTH" value="40"/>
+				<stat type="STAMINA" value="22"/>
+			</stats>
+			<source>
+			Drops from Ebonroc in Blackwing Lair.
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Primal Batskin Jerkin">
+		<patch name="1.7.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_leather_03.png"/>
+			<stats>
+				<stat type="ARMOR" value="181"/>
+				<stat type="AGILITY" value="32"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Crafted by leatherworkers (300 skill). Pattern requires Revered with Zandalar Tribe.
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Zandalar Madcap's Tunic">
+		<patch name="1.7.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_leather_10.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="197"/>
+				<stat type="STAMINA" value="19"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="ATTACK_POWER" value="44"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drop from Zul'Gurub and Revered with Zandalar Tribe.
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Vest of Swift Execution">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_chest_cloth_45.png"/>
+			<stats>
+				<stat type="ARMOR" value="229"/>
+				<stat type="AGILITY" value="41"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="STAMINA" value="20"/>
+			</stats>
+			<source>
+			Drops from Lord Kri (bug trio) in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Deathdealer's Vest">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
+			<stats>
+				<stat type="ARMOR" value="253"/>
+				<stat type="AGILITY" value="37"/>
+				<stat type="STRENGTH" value="19"/>
+				<stat type="STAMINA" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Ghoul Skin Tunic">
+		<patch name="1.11.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_chest_leather_02.png"/>
+			<stats>
+				<stat type="ARMOR" value="411"/>
+				<stat type="STRENGTH" value="40"/>
+				<stat type="STAMINA" value="22"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Naxxramas.
+			</source>
+		</patch>
+	</chest>
+
+	<chest name="Bonescythe Breastplate">
+		<patch name="1.11.0">
+			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_plate02.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="262"/>
+				<stat type="STAMINA" value="29"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+				<stat type="ATTACK_POWER" value="80"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
+			</source>
+		</patch>
+	</chest>
 </items>
