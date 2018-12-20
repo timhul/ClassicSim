@@ -376,27 +376,27 @@ const Stats* Item::get_stats() const {
 
 void Item::set_stat(const QString& key, const QString &value) {
     if (key == "STRENGTH") {
-        this->stats->increase_str(value.toInt());
+        this->stats->increase_strength(value.toInt());
         base_tooltip_stats.append(QString("+%1 Strength").arg(value));
         this->item_stat_values.insert(ItemStats::Strength, value.toInt());
     }
     else if (key == "AGILITY") {
-        this->stats->increase_agi(value.toInt());
+        this->stats->increase_agility(value.toInt());
         base_tooltip_stats.append(QString("+%1 Agility").arg(value));
         this->item_stat_values.insert(ItemStats::Agility, value.toInt());
     }
     else if (key == "STAMINA") {
-        this->stats->increase_stam(value.toInt());
+        this->stats->increase_stamina(value.toInt());
         base_tooltip_stats.append(QString("+%1 Stamina").arg(value));
         this->item_stat_values.insert(ItemStats::Stamina, value.toInt());
     }
     else if (key == "INTELLECT") {
-        this->stats->increase_int(value.toInt());
+        this->stats->increase_intellect(value.toInt());
         base_tooltip_stats.append(QString("+%1 Intellect").arg(value));
         this->item_stat_values.insert(ItemStats::Intellect, value.toInt());
     }
     else if (key == "SPIRIT") {
-        this->stats->increase_spi(value.toInt());
+        this->stats->increase_spirit(value.toInt());
         base_tooltip_stats.append(QString("+%1 Spirit").arg(value));
         this->item_stat_values.insert(ItemStats::Spirit, value.toInt());
     }

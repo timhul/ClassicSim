@@ -321,47 +321,47 @@ void CharacterStats::decrease_haste(const int decrease) {
 }
 
 void CharacterStats::increase_strength(const int increase) {
-    base_stats->increase_str(increase);
+    base_stats->increase_strength(increase);
 }
 
 void CharacterStats::decrease_strength(const int decrease) {
-    base_stats->decrease_str(decrease);
+    base_stats->decrease_strength(decrease);
 }
 
 void CharacterStats::increase_agility(const int increase) {
-    base_stats->increase_agi(increase);
+    base_stats->increase_agility(increase);
 }
 
 void CharacterStats::decrease_agility(const int decrease) {
-    base_stats->decrease_agi(decrease);
+    base_stats->decrease_agility(decrease);
 }
 
 void CharacterStats::increase_stamina(const int increase) {
-    base_stats->increase_stam(increase);
+    base_stats->increase_stamina(increase);
 }
 
 void CharacterStats::decrease_stamina(const int decrease) {
-    base_stats->decrease_stam(decrease);
+    base_stats->decrease_stamina(decrease);
 }
 
 void CharacterStats::increase_intellect(const int increase) {
-    base_stats->increase_int(increase);
+    base_stats->increase_intellect(increase);
 }
 
 void CharacterStats::decrease_intellect(const int decrease) {
-    base_stats->decrease_int(decrease);
+    base_stats->decrease_intellect(decrease);
 }
 
 void CharacterStats::increase_spirit(const int increase) {
-    base_stats->increase_spi(increase);
+    base_stats->increase_spirit(increase);
 }
 
 void CharacterStats::decrease_spirit(const int decrease) {
-    base_stats->decrease_spi(decrease);
+    base_stats->decrease_spirit(decrease);
 }
 
 int CharacterStats::get_melee_ap() const {
-    int stat_melee_ap = equipment->get_stats()->get_melee_ap_attrs_excluded() + base_stats->get_melee_ap_attrs_excluded();
+    int stat_melee_ap = equipment->get_stats()->get_base_melee_ap() + base_stats->get_base_melee_ap();
     int attributes_ap = get_strength() * pchar->get_ap_per_strength() + get_agility() * pchar->get_ap_per_agi();
     int target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     int target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
@@ -377,7 +377,7 @@ void CharacterStats::decrease_melee_ap(const int decrease) {
 }
 
 int CharacterStats::get_ranged_ap() const {
-    int stat_ranged_ap = equipment->get_stats()->get_ranged_ap_agi_excluded() + base_stats->get_ranged_ap_agi_excluded();
+    int stat_ranged_ap = equipment->get_stats()->get_base_ranged_ap() + base_stats->get_base_ranged_ap();
     int attributes_ap = get_agility() * pchar->get_ap_per_agi();
     int target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     int target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());

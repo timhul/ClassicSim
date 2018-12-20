@@ -66,11 +66,11 @@ Stats::Stats()
 Stats::~Stats() = default;
 
 void Stats::add(const Stats* rhs) {
-    increase_str(rhs->get_strength());
-    increase_agi(rhs->get_agility());
-    increase_stam(rhs->get_stamina());
-    increase_int(rhs->get_intellect());
-    increase_spi(rhs->get_spirit());
+    increase_strength(rhs->get_strength());
+    increase_agility(rhs->get_agility());
+    increase_stamina(rhs->get_stamina());
+    increase_intellect(rhs->get_intellect());
+    increase_spirit(rhs->get_spirit());
 
     // CSIM-72: Add getters to add/remove defensive stats.
 
@@ -86,8 +86,8 @@ void Stats::add(const Stats* rhs) {
     increase_spell_hit(rhs->get_spell_hit_chance());
     increase_spell_crit(rhs->get_spell_crit_chance());
 
-    increase_base_melee_ap(rhs->get_melee_ap_attrs_excluded());
-    increase_base_ranged_ap(rhs->get_ranged_ap_agi_excluded());
+    increase_base_melee_ap(rhs->get_base_melee_ap());
+    increase_base_ranged_ap(rhs->get_base_ranged_ap());
 
     increase_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
     increase_melee_ap_against_type(Target::CreatureType::Demon, rhs->get_melee_ap_against_type(Target::CreatureType::Demon));
@@ -100,11 +100,11 @@ void Stats::add(const Stats* rhs) {
 }
 
 void Stats::remove(const Stats* rhs) {
-    decrease_str(rhs->get_strength());
-    decrease_agi(rhs->get_agility());
-    decrease_stam(rhs->get_stamina());
-    decrease_int(rhs->get_intellect());
-    decrease_spi(rhs->get_spirit());
+    decrease_strength(rhs->get_strength());
+    decrease_agility(rhs->get_agility());
+    decrease_stamina(rhs->get_stamina());
+    decrease_intellect(rhs->get_intellect());
+    decrease_spirit(rhs->get_spirit());
 
     // CSIM-72: Add getters to add/remove defensive stats.
 
@@ -120,8 +120,8 @@ void Stats::remove(const Stats* rhs) {
     decrease_spell_hit(rhs->get_spell_hit_chance());
     decrease_spell_crit(rhs->get_spell_crit_chance());
 
-    decrease_base_melee_ap(rhs->get_melee_ap_attrs_excluded());
-    decrease_base_ranged_ap(rhs->get_ranged_ap_agi_excluded());
+    decrease_base_melee_ap(rhs->get_base_melee_ap());
+    decrease_base_ranged_ap(rhs->get_base_ranged_ap());
 
     decrease_melee_ap_against_type(Target::CreatureType::Beast, rhs->get_melee_ap_against_type(Target::CreatureType::Beast));
     decrease_melee_ap_against_type(Target::CreatureType::Demon, rhs->get_melee_ap_against_type(Target::CreatureType::Demon));
@@ -153,43 +153,43 @@ int Stats::get_spirit() const {
     return int(double(SPI) * spi_multiplier);
 }
 
-void Stats::increase_str(const int increase) {
+void Stats::increase_strength(const int increase) {
     STR += increase;
 }
 
-void Stats::decrease_str(const int decrease) {
+void Stats::decrease_strength(const int decrease) {
     STR -= decrease;
 }
 
-void Stats::increase_agi(const int increase) {
+void Stats::increase_agility(const int increase) {
     AGI += increase;
 }
 
-void Stats::decrease_agi(const int decrease) {
+void Stats::decrease_agility(const int decrease) {
     AGI -= decrease;
 }
 
-void Stats::increase_stam(const int increase) {
+void Stats::increase_stamina(const int increase) {
     STAM += increase;
 }
 
-void Stats::decrease_stam(const int decrease) {
+void Stats::decrease_stamina(const int decrease) {
     STAM -= decrease;
 }
 
-void Stats::increase_int(const int increase) {
+void Stats::increase_intellect(const int increase) {
     INT += increase;
 }
 
-void Stats::decrease_int(const int decrease) {
+void Stats::decrease_intellect(const int decrease) {
     INT -= decrease;
 }
 
-void Stats::increase_spi(const int increase) {
+void Stats::increase_spirit(const int increase) {
     SPI += increase;
 }
 
-void Stats::decrease_spi(const int decrease) {
+void Stats::decrease_spirit(const int decrease) {
     SPI -= decrease;
 }
 
@@ -338,12 +338,8 @@ void Stats::decrease_sword_skill(const int decrease) {
     sword_skill -= decrease;
 }
 
-int Stats::get_melee_ap_attrs_excluded() const {
+int Stats::get_base_melee_ap() const {
     return melee_ap;
-}
-
-int Stats::get_melee_ap_total() const {
-    return melee_ap + STR * melee_ap_per_str + AGI * melee_ap_per_agi;
 }
 
 void Stats::increase_base_melee_ap(const int increase) {
@@ -354,12 +350,8 @@ void Stats::decrease_base_melee_ap(const int decrease) {
     melee_ap -= decrease;
 }
 
-int Stats::get_ranged_ap_agi_excluded() const {
+int Stats::get_base_ranged_ap() const {
     return ranged_ap;
-}
-
-int Stats::get_ranged_ap_total() const {
-    return ranged_ap + AGI * ranged_ap_per_agi;
 }
 
 void Stats::increase_base_ranged_ap(const int increase) {

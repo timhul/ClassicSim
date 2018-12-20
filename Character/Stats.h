@@ -11,38 +11,33 @@ public:
     void add(const Stats*);
     void remove(const Stats*);
 
-    int get_strength() const;
-    int get_agility() const;
-    int get_stamina() const;
-    int get_intellect() const;
-    int get_spirit() const;
-
-    int get_melee_ap_attrs_excluded() const;
-    int get_melee_ap_total() const;
-
+    int get_base_melee_ap() const;
     void increase_base_melee_ap(const int increase);
     void decrease_base_melee_ap(const int decrease);
 
-    int get_ranged_ap_agi_excluded() const;
-    int get_ranged_ap_total() const;
-
+    int get_base_ranged_ap() const;
     void increase_base_ranged_ap(const int);
     void decrease_base_ranged_ap(const int);
 
-    void increase_str(const int increase);
-    void decrease_str(const int decrease);
+    int get_strength() const;
+    void increase_strength(const int increase);
+    void decrease_strength(const int decrease);
 
-    void increase_agi(const int);
-    void decrease_agi(const int);
+    int get_agility() const;
+    void increase_agility(const int);
+    void decrease_agility(const int);
 
-    void increase_stam(const int);
-    void decrease_stam(const int);
+    int get_stamina() const;
+    void increase_stamina(const int);
+    void decrease_stamina(const int);
 
-    void increase_int(const int);
-    void decrease_int(const int);
+    int get_intellect() const;
+    void increase_intellect(const int);
+    void decrease_intellect(const int);
 
-    void increase_spi(const int);
-    void decrease_spi(const int);
+    int get_spirit() const;
+    void increase_spirit(const int);
+    void decrease_spirit(const int);
 
     void increase_armor(const int);
     void decrease_armor(const int);
