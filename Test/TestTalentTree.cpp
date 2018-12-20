@@ -65,3 +65,14 @@ bool TestTalentTree::increment_talent_num_times(const QString& name, int num_tim
 
     return success;
 }
+
+bool TestTalentTree::decrement_talent_num_times(const QString& name, int num_times) {
+    QString spell = get_position(name);
+    bool success = true;
+    for (int i = 0; i < num_times; ++i) {
+        if (!pchar->get_talents()->decrement_rank(tree_pos, spell))
+            success = false;
+    }
+
+    return success;
+}

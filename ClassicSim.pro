@@ -320,7 +320,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/VilePoisons.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedPoisons.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety/Opportunity.cpp \
-    Test/Rotation/TestConditionVariableBuiltin.cpp
+    Test/Rotation/TestConditionVariableBuiltin.cpp \
+    Test/Rogue/Talents/TestAssassination.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -644,7 +645,8 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Assassination/VilePoisons.h \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedPoisons.h \
     Character/Class/Rogue/TalentTrees/Subtlety/Opportunity.h \
-    Test/Rotation/TestConditionVariableBuiltin.h
+    Test/Rotation/TestConditionVariableBuiltin.h \
+    Test/Rogue/Talents/TestAssassination.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -698,6 +700,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Rogue \
     $$PWD/Test/Rogue/Procs \
     $$PWD/Test/Rogue/Spells \
+    $$PWD/Test/Rogue/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Character/Class/General \
     $$PWD/Character/Class/General/Enchants \

@@ -33,9 +33,10 @@ protected:
 
     virtual QString get_position(const QString& name) const = 0;
 
-    bool increment_talent_num_times(const QString& name, int num_times);
     bool increment(const QString& name);
+    bool increment_talent_num_times(const QString& name, int num_times);
     bool decrement(const QString& name);
+    bool decrement_talent_num_times(const QString& name, int num_times);
     void clear_tree();
     bool tree_has_points(const int points);
     void switch_to_setup(const int index);
