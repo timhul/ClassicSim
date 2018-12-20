@@ -32,19 +32,11 @@ Item::Item(QString _name,
     stats(new Stats()),
     enchant(nullptr)
 {
-    QString faction = get_value("faction");
-    if (faction != "") {
-        if (faction != "ALLIANCE" && faction != "HORDE")
-            qDebug() << name << "has incorrect faction value" << faction;
-        valid_faction = faction == "ALLIANCE" ? AvailableFactions::Alliance :
-                                                AvailableFactions::Horde;
-    }
-    else
-        valid_faction = AvailableFactions::Neutral;
-
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
     set_item_type(info);
+    set_class_restrictions(info);
+    set_faction();
     this->icon = QString("Assets/items/%1").arg(info["icon"]);
 }
 
@@ -91,6 +83,40 @@ void Item::set_item_type(const QMap<QString, QString>& info) {
     }
 
     item_type = get_type_int(info["type"]);
+}
+
+void Item::set_faction() {
+    QString faction = get_value("faction");
+    if (faction != "") {
+        if (faction != "ALLIANCE" && faction != "HORDE")
+            qDebug() << name << "has incorrect faction value" << faction;
+        valid_faction = faction == "ALLIANCE" ? AvailableFactions::Alliance :
+                                                AvailableFactions::Horde;
+    }
+    else
+        valid_faction = AvailableFactions::Neutral;
+}
+
+void Item::set_class_restrictions(const QMap<QString, QString>& info) {
+    QString base_str = "RESTRICTED_TO_%1";
+    if (info.contains(base_str.arg("DRUID")))
+        class_restrictions.insert("DRUID");
+    if (info.contains(base_str.arg("HUNTER")))
+        class_restrictions.insert("HUNTER");
+    if (info.contains(base_str.arg("MAGE")))
+        class_restrictions.insert("MAGE");
+    if (info.contains(base_str.arg("PALADIN")))
+        class_restrictions.insert("PALADIN");
+    if (info.contains(base_str.arg("PRIEST")))
+        class_restrictions.insert("PRIEST");
+    if (info.contains(base_str.arg("ROGUE")))
+        class_restrictions.insert("ROGUE");
+    if (info.contains(base_str.arg("SHAMAN")))
+        class_restrictions.insert("SHAMAN");
+    if (info.contains(base_str.arg("WARLOCK")))
+        class_restrictions.insert("WARLOCK");
+    if (info.contains(base_str.arg("WARRIOR")))
+        class_restrictions.insert("WARRIOR");
 }
 
 int Item::get_item_slot() const {
@@ -175,6 +201,10 @@ EnchantName::Name Item::get_enchant_enum_value() const {
 bool Item::available_for_faction(AvailableFactions::Name faction) const {
     return valid_faction == AvailableFactions::Neutral ? true :
                                                          valid_faction == faction;
+}
+
+bool Item::available_for_class(const QString& class_name) const {
+    return class_restrictions.empty() || class_restrictions.contains(class_name.toUpper());
 }
 
 void Item::set_uses(Character *pchar) {

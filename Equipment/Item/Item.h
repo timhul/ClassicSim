@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <QString>
 #include <QMap>
+#include <QSet>
 #include <QVector>
 
 #include "AvailableFactions.h"
@@ -58,6 +59,7 @@ public:
     EnchantName::Name get_enchant_enum_value() const;
 
     bool available_for_faction(AvailableFactions::Name faction) const;
+    bool available_for_class(const QString& class_name) const;
 
 protected:
     QString name;
@@ -66,6 +68,7 @@ protected:
     QString quality;
     QString icon;
     AvailableFactions::Name valid_faction;
+    QSet<QString> class_restrictions;
     QMap<QString, QString> info;
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;
@@ -85,6 +88,8 @@ protected:
     int item_type{};
     void set_item_slot(const QMap<QString, QString>& info);
     void set_item_type(const QMap<QString, QString>& info);
+    void set_class_restrictions(const QMap<QString, QString>& info);
+    void set_faction();
     int get_type_int(const QString& type_string);
     void unsupported_stat(const QString& stat);
     QString get_tooltip(const QVector<QString>&) const;

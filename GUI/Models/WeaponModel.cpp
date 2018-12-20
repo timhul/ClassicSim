@@ -159,6 +159,9 @@ void WeaponModel::update_items() {
         if (!wpn->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
             continue;
 
+        if (!wpn->available_for_class(pchar->get_name()))
+            continue;
+
         if (!item_type_filter_model->get_item_type_valid(wpn->get_item_type()))
             continue;
 
