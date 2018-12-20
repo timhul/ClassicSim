@@ -50,11 +50,11 @@ void TestArms::test_spending_talent_points() {
 
     // Assert cannot remove points from Improved Rend once points are spent in Deep Wounds
     assert(increment("Deep Wounds"));
-    assert(!increment("Improved Rend"));
+    assert(!decrement("Improved Rend"));
     assert(increment("Deep Wounds"));
-    assert(!increment("Improved Rend"));
+    assert(!decrement("Improved Rend"));
     assert(increment("Deep Wounds"));
-    assert(!increment("Improved Rend"));
+    assert(!decrement("Improved Rend"));
 
 
     assert(increment_talent_num_times("Improved Overpower", 2));
