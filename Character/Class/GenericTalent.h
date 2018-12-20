@@ -16,6 +16,16 @@ public:
                   const int max_points,
                   const QString &rank_description,
                   const QVector<QPair<int, int>>& format_values);
+
+    GenericTalent(Character *pchar,
+                  TalentTree *tree,
+                  const QString &name,
+                  const QString &position,
+                  const QString &icon,
+                  const int max_points,
+                  const QString &rank_description,
+                  const QVector<QPair<double, double>>& format_values);
+
     ~GenericTalent() override;
 
     void apply_rank_effect() override;

@@ -215,6 +215,19 @@ void Talent::initialize_rank_descriptions(const QString &base_str, const QVector
     rank_descriptions[0] = rank_descriptions[1];
 }
 
+void Talent::initialize_rank_descriptions(const QString &base_str, const QVector<QPair<double, double>> &format_values) {
+    for (int i = 0; i < max_points; ++i) {
+        QString format_str = base_str;
+        for (auto format_value : format_values) {
+            format_str = format_str.arg(format_value.first + i * format_value.second);
+        }
+
+        rank_descriptions.insert(i + 1, format_str);
+    }
+
+    rank_descriptions[0] = rank_descriptions[1];
+}
+
 void Talent::set_parent(Talent* parent) {
     this->parent = parent;
 }

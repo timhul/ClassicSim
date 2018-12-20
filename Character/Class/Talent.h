@@ -63,6 +63,7 @@ protected:
 
     void initialize_rank_descriptions(const QString &base_str, const int base_value, const int increase);
     void initialize_rank_descriptions(const QString &base_str, const QVector<QPair<int, int> > &format_values);
+    void initialize_rank_descriptions(const QString &base_str, const QVector<QPair<double, double> > &format_values);
 
     virtual void apply_rank_effect() = 0;
     virtual void remove_rank_effect() = 0;

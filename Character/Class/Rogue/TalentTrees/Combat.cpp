@@ -18,7 +18,7 @@
 Combat::Combat(Character *pchar) :
     TalentTree("Combat", "Assets/rogue/rogue_combat.jpg")
 {
-    QMap<QString, Talent*> tier1 {{"1LL", new GenericTalent(pchar, this, "Improved Gouge", "1LL", "Assets/ability/Ability_gouge.png", 3, "Increases the effect duration of your Gouge ability by %1 sec.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})},
+    QMap<QString, Talent*> tier1 {{"1LL", new GenericTalent(pchar, this, "Improved Gouge", "1LL", "Assets/ability/Ability_gouge.png", 3, "Increases the effect duration of your Gouge ability by %1 sec.", QVector<QPair<double, double>>{{0.5, 0.5}})},
                                   {"1ML", new ImprovedSinisterStrike(pchar, this)},
                                   {"1MR", new GenericTalent(pchar, this, "Lightning Reflexes", "1MR", "Assets/spell/Spell_nature_invisibility.png", 5, "Increases your Dodge chance by %1%.", QVector<QPair<int, int>>{QPair<int, int>(1, 1)})}};
     add_talents(tier1);
