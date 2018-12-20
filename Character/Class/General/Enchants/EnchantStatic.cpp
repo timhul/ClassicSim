@@ -95,6 +95,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName:: ElementalSharpeningStone:
         pchar->get_stats()->increase_crit(0.02);
         break;
+    case EnchantName::ConsecratedSharpeningStone:
+        pchar->get_stats()->increase_ap_vs_type(Target::CreatureType::Undead, 100);
+        break;
     default:
         assert(false);
         break;
@@ -187,6 +190,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName:: ElementalSharpeningStone:
         pchar->get_stats()->decrease_crit(0.02);
+        break;
+    case EnchantName::ConsecratedSharpeningStone:
+        pchar->get_stats()->decrease_ap_vs_type(Target::CreatureType::Undead, 100);
         break;
     default:
         assert(false);

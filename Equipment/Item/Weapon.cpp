@@ -106,6 +106,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::ElementalSharpeningStone:
+    case EnchantName::ConsecratedSharpeningStone:
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::InstantPoison:

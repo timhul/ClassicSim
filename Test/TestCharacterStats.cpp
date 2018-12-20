@@ -45,6 +45,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_damage_bonuses_vs_creature_type();
     tear_down();
+
+    set_up();
+    test_ap_bonuses_vs_creature_type();
+    tear_down();
 }
 
 void TestCharacterStats::test_basic_properties() {
@@ -189,4 +193,18 @@ void TestCharacterStats::test_damage_bonuses_vs_creature_type() {
 
     cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, 0.06);
     assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
+}
+
+void TestCharacterStats::test_ap_bonuses_vs_creature_type() {
+    const int base_melee_ap = cstats->get_melee_ap();
+    const int base_ranged_ap = cstats->get_ranged_ap();
+    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Beast);
+
+    cstats->increase_ap_vs_type(Target::CreatureType::Beast, 100);
+    assert(base_melee_ap + 100 == cstats->get_melee_ap());
+    assert(base_ranged_ap + 100 == cstats->get_ranged_ap());
+
+    cstats->decrease_ap_vs_type(Target::CreatureType::Beast, 100);
+    assert(base_melee_ap == cstats->get_melee_ap());
+    assert(base_ranged_ap == cstats->get_ranged_ap());
 }

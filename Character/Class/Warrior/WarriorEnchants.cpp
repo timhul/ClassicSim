@@ -41,13 +41,23 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
     }
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
-        return { EnchantName::Name::ArcanumOfRapidity, EnchantName::Name::LesserArcanumOfVoracityStrength };
+        return {
+            EnchantName::Name::ArcanumOfRapidity,
+            EnchantName::Name::LesserArcanumOfVoracityStrength
+        };
     case EquipmentSlot::SHOULDERS:
-        return { EnchantName::Name::MightOfTheScourge, EnchantName::Name::ZandalarSignetOfMight };
+        return {
+            EnchantName::Name::MightOfTheScourge,
+            EnchantName::Name::ZandalarSignetOfMight
+        };
     case EquipmentSlot::BACK:
-        return { EnchantName::Name::EnchantCloakLesserAgility };
+        return {
+            EnchantName::Name::EnchantCloakLesserAgility
+        };
     case EquipmentSlot::WRIST:
-        return { EnchantName::Name::EnchantBracerSuperiorStrength };
+        return {
+            EnchantName::Name::EnchantBracerSuperiorStrength
+        };
     case EquipmentSlot::GLOVES:
         return {
             EnchantName::Name::EnchantGlovesSuperiorAgility,
@@ -55,9 +65,14 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
             EnchantName::Name::EnchantGlovesGreaterStrength
         };
     case EquipmentSlot::CHEST:
-        return { EnchantName::Name::EnchantChestGreaterStats };
+        return {
+            EnchantName::Name::EnchantChestGreaterStats
+        };
     case EquipmentSlot::BOOTS:
-        return { EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsGreaterAgility };
+        return {
+            EnchantName::Name::EnchantBootsMinorSpeed,
+            EnchantName::Name::EnchantBootsGreaterAgility
+        };
     }
 
     assert(false);
@@ -67,13 +82,19 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
 QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
-        QVector<EnchantName::Name> enchants { EnchantName::ElementalSharpeningStone };
+        QVector<EnchantName::Name> enchants {
+            EnchantName::ElementalSharpeningStone,
+            EnchantName::ConsecratedSharpeningStone
+        };
         if (warrior->get_faction()->is_horde())
             enchants.prepend(EnchantName::WindfuryTotem);
         return enchants;
     }
     case EquipmentSlot::OFFHAND:
-        return { EnchantName::ElementalSharpeningStone };
+        return {
+            EnchantName::ElementalSharpeningStone,
+            EnchantName::ConsecratedSharpeningStone
+        };
     }
 
     assert(false);

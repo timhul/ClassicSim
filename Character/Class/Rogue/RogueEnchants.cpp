@@ -25,11 +25,18 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
             EnchantName::Name::DeathsEmbrace
         };
     case EquipmentSlot::SHOULDERS:
-        return { EnchantName::Name::MightOfTheScourge, EnchantName::Name::ZandalarSignetOfMight };
+        return {
+            EnchantName::Name::MightOfTheScourge,
+            EnchantName::Name::ZandalarSignetOfMight
+        };
     case EquipmentSlot::BACK:
-        return { EnchantName::Name::EnchantCloakLesserAgility };
+        return {
+            EnchantName::Name::EnchantCloakLesserAgility
+        };
     case EquipmentSlot::WRIST:
-        return { EnchantName::Name::EnchantBracerSuperiorStrength };
+        return {
+            EnchantName::Name::EnchantBracerSuperiorStrength
+        };
     case EquipmentSlot::GLOVES:
         return {
             EnchantName::Name::EnchantGlovesSuperiorAgility,
@@ -37,9 +44,14 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
             EnchantName::Name::EnchantGlovesGreaterStrength
         };
     case EquipmentSlot::CHEST:
-        return { EnchantName::Name::EnchantChestGreaterStats };
+        return {
+            EnchantName::Name::EnchantChestGreaterStats
+        };
     case EquipmentSlot::BOOTS:
-        return { EnchantName::Name::EnchantBootsMinorSpeed, EnchantName::Name::EnchantBootsGreaterAgility };
+        return {
+            EnchantName::Name::EnchantBootsMinorSpeed,
+            EnchantName::Name::EnchantBootsGreaterAgility
+        };
     }
 
     assert(false);
@@ -49,13 +61,21 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
 QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
-        QVector<EnchantName::Name> enchants { EnchantName::ElementalSharpeningStone, EnchantName::InstantPoison };
+        QVector<EnchantName::Name> enchants {
+            EnchantName::ElementalSharpeningStone,
+            EnchantName::ConsecratedSharpeningStone,
+            EnchantName::InstantPoison
+        };
         if (rogue->get_faction()->is_horde())
             enchants.prepend(EnchantName::WindfuryTotem);
         return enchants;
     }
     case EquipmentSlot::OFFHAND:
-        return { EnchantName::ElementalSharpeningStone, EnchantName::InstantPoison };
+        return {
+            EnchantName::ElementalSharpeningStone,
+            EnchantName::ConsecratedSharpeningStone,
+            EnchantName::InstantPoison
+        };
     }
 
     assert(false);
