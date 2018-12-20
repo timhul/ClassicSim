@@ -1,5 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
+	<boots name="Shadowcraft Boots">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_08.png"/>
+			<stats>
+				<stat type="ARMOR" value="115"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="STAMINA" value="9"/>
+			</stats>
+			<source>
+			Drops from Rattleegore in Scholomance.
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Pads of the Dread Wolf">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_boots_wolf.png"/>
+			<stats>
+				<stat type="ARMOR" value="116"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="ATTACK_POWER" value="40"/>
+			</stats>
+			<source>
+			Drops from Halycon in Lower Blackrock Spire (LBRS).
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Nightslayer Boots">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="138"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="SHADOW_RESISTANCE" value="7"/>
+			</stats>
+			<source>
+			Drops from Shazzrah in Molten Core.
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Bloodfang Boots">
+		<patch name="1.0.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="154"/>
+				<stat type="AGILITY" value="25"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="STRENGTH" value="6"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops in Molten Core until 1.4.0. After that it is moved to Blackwing Lair.
+			</source>
+		</patch>
+
+		<patch name="1.6.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="154"/>
+				<stat type="AGILITY" value="25"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="STRENGTH" value="6"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Broodlord Lashlayer in Blackwing Lair.
+			</source>
+		</patch>
+	</boots>
+
 	<boots name="Boots of the Shadow Flame">
 		<patch name="1.6.0">
 			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
@@ -11,6 +89,118 @@
 			</stats>
 			<source>
 			Drops from Nefarian in Blackwing Lair.
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Blooddrenched Footpads">
+		<patch name="1.8.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_boots_chain_04.png"/>
+			<stats>
+				<stat type="ARMOR" value="129"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from High Priest Venoxis in Zul'Gurub.
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Boots of the Vanguard">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<stats>
+				<stat type="ARMOR" value="138"/>
+				<stat type="AGILITY" value="22"/>
+				<stat type="STAMINA" value="11"/>
+				<stat type="STRENGTH" value="22"/>
+			</stats>
+			<source>
+			Drops from General Rajaxx in Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Hive Tunneler's Boots">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_04.png"/>
+			<stats>
+				<stat type="ARMOR" value="216"/>
+				<stat type="STAMINA" value="30"/>
+				<stat type="AGILITY" value="17"/>
+				<stat type="STRENGTH" value="10"/>
+			</stats>
+			<source>
+			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Drudge Boots">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<stats>
+				<stat type="ARMOR" value="156"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="AGILITY" value="17"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="NATURE_RESISTANCE" value="20"/>
+			</stats>
+			<source>
+			Quest reward. Part of the Scarab Lord quest chain.
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Deathdealer's Boots">
+		<patch name="1.9.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="158"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STRENGTH" value="14"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</boots>
+
+	<boots name="Boots of Displacement">
+		<patch name="1.11.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<stats>
+				<stat type="ARMOR" value="166"/>
+				<stat type="AGILITY" value="33"/>
+				<stat type="STAMINA" value="21"/>
+			</stats>
+			<source>
+			Drops from Gothik the Harvester in Naxxramas.
+			</source>
+			<special_equip_effect>
+			Equip: Increases your effective stealth level.
+			</special_equip_effect>
+		</patch>
+	</boots>
+
+	<boots name="Bonescythe Sabatons">
+		<patch name="1.11.0">
+			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_plate_06.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="171"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="64"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
 			</source>
 		</patch>
 	</boots>

@@ -402,5 +402,10 @@
         <file>QML/Assets/items/Inv_gauntlets_22.png</file>
         <file>QML/Assets/items/Inv_gauntlets_23.png</file>
         <file>QML/Assets/items/Inv_gauntlets_28.png</file>
+        <file>QML/Assets/items/Inv_boots_04.png</file>
+        <file>QML/Assets/items/Inv_boots_08.png</file>
+        <file>QML/Assets/items/Inv_boots_chain_04.png</file>
+        <file>QML/Assets/items/Inv_boots_plate_06.png</file>
+        <file>QML/Assets/items/Inv_boots_wolf.png</file>
     </qresource>
 </RCC>
