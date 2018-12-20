@@ -49,10 +49,6 @@ bool item_type(Item* lhs, Item* rhs) {
     return lhs_itemtype == rhs_itemtype ? ilvl(lhs, rhs) : lhs_itemtype > rhs_itemtype;
 }
 
-void ItemModel::update_items() {
-    addItems(this->db);
-}
-
 void ItemModel::set_patch(const QString &patch) {
     db->set_patch(patch);
     update_items();
@@ -108,7 +104,7 @@ void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
 }
 
 
-void ItemModel::addItems(const EquipmentDb* db) {
+void ItemModel::update_items() {
     if (!items.empty()) {
         beginResetModel();
         items.clear();
@@ -117,6 +113,7 @@ void ItemModel::addItems(const EquipmentDb* db) {
 
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);
 
+    beginInsertRows(QModelIndex(), rowCount(), rowCount());
     for (auto & tmp_item : tmp_items) {
         if (!item_type_filter_model->get_item_type_valid(tmp_item->get_item_type()))
             continue;
@@ -125,19 +122,13 @@ void ItemModel::addItems(const EquipmentDb* db) {
             continue;
 
         if (item_stat_filter_model->item_passes_active_stat_filters(tmp_item))
-            addItem(tmp_item);
+            items << tmp_item;
     }
+    endInsertRows();
 
     layoutAboutToBeChanged();
     std::sort(items.begin(), items.end(), ilvl);
     layoutChanged();
-}
-
-void ItemModel::addItem(Item* item)
-{
-    beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    items << item;
-    endInsertRows();
 }
 
 int ItemModel::rowCount(const QModelIndex & parent) const {

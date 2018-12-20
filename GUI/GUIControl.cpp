@@ -107,8 +107,8 @@ GUIControl::GUIControl(QObject* parent) :
     buff_model = new BuffModel(current_char->get_enabled_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_enabled_buffs()->get_general_buffs());
 
-    item_model->addItems(equipment_db);
-    weapon_model->addWeapons(equipment_db);
+    item_model->update_items();
+    weapon_model->update_items();
 
     setSlot("MAINHAND", "Arcanite Reaper");
     setSlot("HEAD", "Lionheart Helm");

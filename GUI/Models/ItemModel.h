@@ -4,9 +4,9 @@
 #include <QAbstractListModel>
 #include <QStringList>
 
-class Item;
-class EquipmentDb;
 class ActiveItemStatFilterModel;
+class EquipmentDb;
+class Item;
 class ItemTypeFilterModel;
 
 class ItemSorting : public QObject {
@@ -38,16 +38,12 @@ public:
 
     ItemModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject *parent = nullptr);
 
+    void update_items();
     void set_patch(const QString &patch);
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);
-    void update_items();
-
-    void addItems(const EquipmentDb *db);
-    void addItem(Item* item);
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
-
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
 signals:

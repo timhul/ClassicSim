@@ -70,10 +70,6 @@ bool item_type(Weapon* lhs, Weapon* rhs) {
     return lhs_itemtype == rhs_itemtype ? ilvl(lhs, rhs) : lhs_itemtype > rhs_itemtype;
 }
 
-void WeaponModel::update_items() {
-    addWeapons(this->db);
-}
-
 void WeaponModel::set_patch(const QString &patch) {
     db->set_patch(patch);
     update_items();
@@ -140,7 +136,7 @@ void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
     Q_EMIT sortingMethodChanged();
 }
 
-void WeaponModel::addWeapons(const EquipmentDb* db) {
+void WeaponModel::update_items() {
     if (!melee_weapons.empty()) {
         beginResetModel();
         melee_weapons.clear();
@@ -149,6 +145,7 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
 
     QVector<Item*> wpns = db->get_slot_items(slot);
 
+    beginInsertRows(QModelIndex(), rowCount(), rowCount());
     for (auto & wpn : wpns) {
         if (!item_type_filter_model->get_item_type_valid(wpn->get_item_type()))
             continue;
@@ -157,19 +154,13 @@ void WeaponModel::addWeapons(const EquipmentDb* db) {
             continue;
 
         if (item_stat_filter_model->item_passes_active_stat_filters(wpn))
-            addWeapon(dynamic_cast<Weapon*>(wpn));
+            melee_weapons << dynamic_cast<Weapon*>(wpn);
     }
+    endInsertRows();
 
     layoutAboutToBeChanged();
     std::sort(melee_weapons.begin(), melee_weapons.end(), ilvl);
     layoutChanged();
-}
-
-void WeaponModel::addWeapon(Weapon* weapon)
-{
-    beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    melee_weapons << weapon;
-    endInsertRows();
 }
 
 int WeaponModel::rowCount(const QModelIndex & parent) const {

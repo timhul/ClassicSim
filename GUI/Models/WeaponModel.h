@@ -49,17 +49,12 @@ public:
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);
 
-    Q_PROPERTY(int currentSortingMethod READ get_current_sorting_method NOTIFY sortingMethodChanged)
-
-    void addWeapons(const EquipmentDb *db);
-    void addWeapon(Weapon *weapon);
-
     void update_items();
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
-
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
+    Q_PROPERTY(int currentSortingMethod READ get_current_sorting_method NOTIFY sortingMethodChanged)
     int get_current_sorting_method() const;
 
 signals:
