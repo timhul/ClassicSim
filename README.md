@@ -36,21 +36,12 @@ Interested in how certain mechanics are currently implemented? Check
 See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information regarding the
 upcoming releases.
 
-# Known issues
-
-* Most procs have a placeholder proc rate (majority at 5%, you can change the 'rate' attribute in the .xml files)
-* Item lists are incomplete (these are manually added for now)
-* Some MC items have the wrong patch availability (a number of items in MC were added after 1.0)
-* Tooltip for Protection talent Improved Shield Block is incorrect
-* Rotations need to define a variable to be parsed correctly
-* Fiery Weapon rolls on melee hit table rather than spell table (fixed in 0.1.0-alpha-4)
-
 # Next release
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 - Fix bug which caused rogues to evaluate 1 CP Eviscerate as a valid rotational choice.
-- Many leather items added.
+- Many leather items and several daggers added.
 - Consecrated Sharpening Stones added.
 
 # Release notes
@@ -129,6 +120,10 @@ Q: When is class X or specialization Y supported?
 
 A: See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information when specific
 classes/specs are planned to be supported.
+
+Q: What is the proc rate of Ironfoe or <infamous proc>?
+A: Most procs have a placeholder proc rate (majority at 5%, you can change the 'rate' attribute in the .xml files).
+Ironfoe has at the time of writing a 2.7% proc rate.
 
 Q: Only Windows support? And 32-bit?
 
