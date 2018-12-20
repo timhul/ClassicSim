@@ -49,7 +49,9 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+- Fix bug which caused rogues to evaluate 1 CP Eviscerate as a valid rotational choice.
+- Many leather items added.
+- Consecrated Sharpening Stones added.
 
 # Release notes
 
