@@ -1,5 +1,5 @@
-
 #include "TestMainhandAttackWarrior.h"
+
 #include "Equipment.h"
 #include "MainhandAttackWarrior.h"
 

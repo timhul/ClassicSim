@@ -1,5 +1,5 @@
-
 #include "TestBloodrage.h"
+
 #include "Bloodrage.h"
 #include "Queue.h"
 

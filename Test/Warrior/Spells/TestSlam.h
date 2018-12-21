@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     Slam* slam();
 
     void test_name_correct() override;
@@ -35,8 +36,6 @@ public:
     void test_auto_attacks_cancelled_during_slam_cast();
 
     void when_slam_is_performed();
-
-private:
 };
 
 #endif // TESTSLAM_H

@@ -11,6 +11,7 @@ public:
 
     void test_all();
 
+private:
     Execute* execute();
 
     void test_name_correct() override;
@@ -62,8 +63,6 @@ public:
 
     void when_execute_is_performed_with_rage(const int rage);
     bool execute_available_with_rage(const int rage);
-
-private:
 };
 
 #endif // TESTEXECUTE_H

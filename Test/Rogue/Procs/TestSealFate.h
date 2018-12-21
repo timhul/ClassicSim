@@ -11,6 +11,9 @@ public:
 
     void test_all();
 
+private:
+    SealFate* seal_fate();
+
     void test_name_correct();
     void test_proc_range_1_of_5_seal_fate();
     void test_proc_range_2_of_5_seal_fate();
@@ -24,9 +27,6 @@ public:
     void given_3_of_5_seal_fate();
     void given_4_of_5_seal_fate();
     void given_5_of_5_seal_fate();
-
-private:
-    SealFate* seal_fate();
 };
 
 #endif // TESTSEALFATE_H

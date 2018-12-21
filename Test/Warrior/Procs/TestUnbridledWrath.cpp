@@ -1,10 +1,10 @@
-
 #include "TestUnbridledWrath.h"
-#include "Warrior.h"
+
 #include "EnabledProcs.h"
+#include "ProcInfo.h"
 #include "UnbridledWrath.h"
 #include "UnbridledWrathTalent.h"
-#include "ProcInfo.h"
+#include "Warrior.h"
 
 TestUnbridledWrath::TestUnbridledWrath(EquipmentDb* equipment_db) :
     TestProcWarrior(equipment_db, "Unbridled Wrath")

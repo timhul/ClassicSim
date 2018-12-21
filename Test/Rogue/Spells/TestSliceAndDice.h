@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     SliceAndDice* slice_and_dice();
 
     void test_name_correct() override;
@@ -35,8 +36,6 @@ public:
     void given_3_of_3_imp_snd();
 
     void when_slice_and_dice_is_performed();
-
-private:
 };
 
 #endif // TESTSLICEANDDICE_H

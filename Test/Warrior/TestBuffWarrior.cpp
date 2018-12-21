@@ -1,9 +1,8 @@
-
 #include "TestBuffWarrior.h"
 
-#include "Warrior.h"
-
 #include <utility>
+
+#include "Warrior.h"
 
 TestBuffWarrior::TestBuffWarrior(EquipmentDb* equipment_db, QString buff_under_test) :
     TestBuff(equipment_db, std::move(buff_under_test))

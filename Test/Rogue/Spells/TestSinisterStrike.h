@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     SinisterStrike* sinister_strike();
 
     void test_name_correct() override;
@@ -32,8 +33,6 @@ public:
     void test_crit_dmg_5_of_5_lethality();
 
     void when_sinister_strike_is_performed();
-
-private:
 };
 
 #endif // TESTSINISTERSTRIKE_H

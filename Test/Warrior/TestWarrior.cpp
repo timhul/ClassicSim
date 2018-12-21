@@ -1,4 +1,3 @@
-
 #include "TestWarrior.h"
 
 #include "Warrior.h"

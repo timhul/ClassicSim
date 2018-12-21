@@ -1,5 +1,5 @@
-
 #include "TestMortalStrike.h"
+
 #include "MortalStrike.h"
 #include "Queue.h"
 

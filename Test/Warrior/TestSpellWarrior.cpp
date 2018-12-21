@@ -1,17 +1,18 @@
-
 #include "TestSpellWarrior.h"
 
+#include <utility>
+
+#include <QDebug>
+
+#include "Equipment.h"
 #include "Impale.h"
+#include "OverpowerBuff.h"
+#include "SimSettings.h"
 #include "Spell.h"
 #include "TacticalMastery.h"
-#include "OverpowerBuff.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
-#include "SimSettings.h"
-#include "Equipment.h"
-#include <QDebug>
-#include <utility>
 
 TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
     TestSpellDamage(equipment_db, std::move(spell_under_test)),

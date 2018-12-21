@@ -1,10 +1,9 @@
-
 #include "TestProcWarrior.h"
 
-#include "Warrior.h"
-#include "Proc.h"
-
 #include <utility>
+
+#include "Proc.h"
+#include "Warrior.h"
 
 TestProcWarrior::TestProcWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
     TestProc(equipment_db, std::move(spell_under_test))

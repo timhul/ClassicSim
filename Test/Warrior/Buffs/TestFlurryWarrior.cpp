@@ -1,19 +1,19 @@
-
 #include "TestFlurryWarrior.h"
+
+#include "Bloodthirst.h"
+#include "Equipment.h"
 #include "Flurry.h"
 #include "FlurryTalent.h"
-#include "WarriorSpells.h"
-#include "MainhandAttackWarrior.h"
-#include "OffhandAttackWarrior.h"
-#include "MainhandMeleeHit.h"
-#include "OffhandMeleeHit.h"
-#include "Bloodthirst.h"
-#include "Whirlwind.h"
 #include "HeroicStrike.h"
-#include "Overpower.h"
+#include "MainhandAttackWarrior.h"
+#include "MainhandMeleeHit.h"
 #include "MortalStrike.h"
+#include "OffhandAttackWarrior.h"
+#include "OffhandMeleeHit.h"
+#include "Overpower.h"
 #include "Spell.h"
-#include "Equipment.h"
+#include "WarriorSpells.h"
+#include "Whirlwind.h"
 
 TestFlurryWarrior::TestFlurryWarrior(EquipmentDb* equipment_db) :
     TestBuffWarrior(equipment_db, "FlurryWarrior")

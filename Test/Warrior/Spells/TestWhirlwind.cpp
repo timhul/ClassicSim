@@ -1,10 +1,10 @@
-
 #include "TestWhirlwind.h"
-#include "Whirlwind.h"
-#include "WarriorSpells.h"
+
+#include "Equipment.h"
 #include "Execute.h"
 #include "Queue.h"
-#include "Equipment.h"
+#include "WarriorSpells.h"
+#include "Whirlwind.h"
 
 TestWhirlwind::TestWhirlwind(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Whirlwind")

@@ -1,9 +1,9 @@
-
 #include "TestDeathWish.h"
+
+#include "CharacterStats.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
 #include "DeathWishTalent.h"
-#include "CharacterStats.h"
 
 TestDeathWish::TestDeathWish(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Death Wish")

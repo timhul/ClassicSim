@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     Bloodthirst* bloodthirst();
 
     void test_name_correct() override;
@@ -26,8 +27,6 @@ public:
     void test_dodge_applies_overpower_buff();
 
     void when_bloodthirst_is_performed();
-
-private:
 };
 
 #endif // TESTBLOODTHIRST_H

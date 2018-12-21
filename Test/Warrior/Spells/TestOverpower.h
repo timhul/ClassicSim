@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     Overpower* overpower();
 
     void test_name_correct() override;
@@ -33,7 +34,6 @@ public:
     void when_overpower_buff_is_applied();
 
     void then_overpower_is_inactive();
-private:
 };
 
 #endif // TESTOVERPOWER_H

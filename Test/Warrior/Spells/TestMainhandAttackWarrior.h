@@ -11,6 +11,7 @@ public:
 
     void test_all();
 
+private:
     MainhandAttackWarrior* mh_attack();
 
     void test_name_correct() override;
@@ -38,8 +39,6 @@ public:
     void when_decreasing_attack_speed(const int change);
 
     void then_next_expected_use_is(const double next_expected_use);
-
-private:
 };
 
 #endif // TESTMAINHANDATTACKWARRIOR_H

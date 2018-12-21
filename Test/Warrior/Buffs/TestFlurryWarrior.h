@@ -12,6 +12,7 @@ public:
 
     void test_all();
 
+private:
     void test_name_correct();
     void test_has_15_second_duration();
     void test_has_3_charges();
@@ -64,8 +65,6 @@ public:
 
     void then_flurry_is_active();
     void then_flurry_is_not_active();
-
-private:
 };
 
 #endif // TESTFLURRYWARRIOR_H

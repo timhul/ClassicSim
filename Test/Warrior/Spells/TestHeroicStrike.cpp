@@ -1,10 +1,10 @@
-
 #include "TestHeroicStrike.h"
+
+#include "Equipment.h"
 #include "HeroicStrike.h"
 #include "HeroicStrikeBuff.h"
 #include "ImprovedHeroicStrike.h"
 #include "WarriorSpells.h"
-#include "Equipment.h"
 
 TestHeroicStrike::TestHeroicStrike(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Heroic Strike")

@@ -1,12 +1,11 @@
-
 #include "TestRecklessness.h"
-#include "Recklessness.h"
-#include "Queue.h"
+
+#include "CharacterStats.h"
 #include "Equipment.h"
 #include "MainhandAttackWarrior.h"
+#include "Queue.h"
+#include "Recklessness.h"
 #include "Whirlwind.h"
-#include "CharacterStats.h"
-#include <QDebug>
 
 TestRecklessness::TestRecklessness(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Recklessness")

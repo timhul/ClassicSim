@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     Bloodrage* bloodrage();
 
     void test_name_correct() override;
@@ -25,8 +26,6 @@ public:
     void when_bloodrage_is_performed();
 
     void then_periodic_bloodrage_rage_gain_is(const unsigned expected_rage_gain);
-
-private:
 };
 
 #endif // TESTBLOODRAGE_H

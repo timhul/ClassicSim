@@ -12,6 +12,7 @@ public:
 
     void test_all();
 
+private:
     Rend* rend();
 
     void test_name_correct() override;
@@ -42,8 +43,6 @@ public:
     void then_rend_is_applied();
     void then_rend_is_not_applied();
     void then_damage_is_dealt_over_21_seconds();
-
-private:
 };
 
 #endif // TESTREND_H

@@ -1,11 +1,11 @@
-
 #include "TestSlam.h"
-#include "Slam.h"
-#include "Queue.h"
+
+#include "Equipment.h"
 #include "ImprovedSlam.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
-#include "Equipment.h"
+#include "Queue.h"
+#include "Slam.h"
 
 TestSlam::TestSlam(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Slam")

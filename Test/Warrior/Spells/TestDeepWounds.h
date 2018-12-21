@@ -11,6 +11,7 @@ public:
 
     void test_all();
 
+private:
     DeepWounds* deep_wounds();
 
     void test_name_correct() override;
@@ -56,8 +57,6 @@ public:
     void then_deep_wounds_is_applied();
     void then_deep_wounds_is_not_applied();
     void then_damage_is_dealt_over_12_seconds();
-
-private:
 };
 
 #endif // TESTDEEPWOUNDS_H

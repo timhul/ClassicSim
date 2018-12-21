@@ -1,16 +1,16 @@
-
 #include "TestDeepWounds.h"
-#include "DeepWounds.h"
-#include "MainhandAttackWarrior.h"
-#include "OffhandAttackWarrior.h"
+
 #include "Bloodthirst.h"
-#include "Whirlwind.h"
-#include "HeroicStrike.h"
-#include "Overpower.h"
-#include "Queue.h"
 #include "ClassStatistics.h"
+#include "DeepWounds.h"
 #include "DeepWoundsTalent.h"
 #include "Equipment.h"
+#include "HeroicStrike.h"
+#include "MainhandAttackWarrior.h"
+#include "OffhandAttackWarrior.h"
+#include "Overpower.h"
+#include "Queue.h"
+#include "Whirlwind.h"
 
 TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Deep Wounds")

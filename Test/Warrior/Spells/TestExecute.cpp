@@ -1,18 +1,15 @@
-
 #include "TestExecute.h"
-#include "Execute.h"
-#include "ImprovedExecute.h"
-#include "Impale.h"
 
-#include "Target.h"
-#include "Orc.h"
-
-#include "Engine.h"
-#include "Queue.h"
-#include "Equipment.h"
-#include "Target.h"
 #include "CombatRoll.h"
+#include "Engine.h"
+#include "Equipment.h"
+#include "Execute.h"
+#include "Impale.h"
+#include "ImprovedExecute.h"
 #include "MeleeSpecialTable.h"
+#include "Orc.h"
+#include "Queue.h"
+#include "Target.h"
 
 TestExecute::TestExecute(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Execute")

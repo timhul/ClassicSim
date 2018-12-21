@@ -1,16 +1,16 @@
-
 #include "TestRend.h"
-#include "Rend.h"
+
+#include "Bloodthirst.h"
+#include "ClassStatistics.h"
+#include "Equipment.h"
+#include "HeroicStrike.h"
+#include "ImprovedRend.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
-#include "Bloodthirst.h"
-#include "Whirlwind.h"
-#include "HeroicStrike.h"
 #include "Overpower.h"
 #include "Queue.h"
-#include "ClassStatistics.h"
-#include "ImprovedRend.h"
-#include "Equipment.h"
+#include "Rend.h"
+#include "Whirlwind.h"
 
 TestRend::TestRend(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Rend")

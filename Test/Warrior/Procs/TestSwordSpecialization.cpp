@@ -1,13 +1,13 @@
-
 #include "TestSwordSpecialization.h"
+
+#include "CharacterStats.h"
+#include "EnabledProcs.h"
+#include "Equipment.h"
+#include "ProcInfo.h"
 #include "SwordSpecialization.h"
 #include "SwordSpecializationTalent.h"
 #include "Warrior.h"
-#include "CharacterStats.h"
-#include "Equipment.h"
 #include "Weapon.h"
-#include "EnabledProcs.h"
-#include "ProcInfo.h"
 
 TestSwordSpecialization::TestSwordSpecialization(EquipmentDb* equipment_db) :
     TestProcWarrior(equipment_db, "Sword Specalization")

@@ -1,8 +1,9 @@
-#include "Backstab.h"
-#include "WarriorSpells.h"
-#include "Queue.h"
 #include "TestBackstab.h"
+
+#include "Backstab.h"
 #include "Equipment.h"
+#include "Queue.h"
+#include "WarriorSpells.h"
 
 TestBackstab::TestBackstab(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Backstab")

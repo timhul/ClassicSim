@@ -11,6 +11,7 @@ public:
 
     void test_all();
 
+private:
     DeathWish* death_wish();
 
     void test_name_correct() override;
@@ -27,8 +28,6 @@ public:
     void given_death_wish_is_not_enabled();
 
     void when_death_wish_is_performed();
-
-private:
 };
 
 #endif // TESTDEATHWISH_H

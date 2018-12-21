@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     Recklessness* recklessness();
 
     void test_name_correct() override;
@@ -37,8 +38,6 @@ public:
     void when_recklessness_is_performed();
     void when_reck_and_mh_attack_is_performed();
     void when_reck_and_whirlwind_is_performed();
-
-private:
 };
 
 #endif // TESTRECKLESSNESS_H

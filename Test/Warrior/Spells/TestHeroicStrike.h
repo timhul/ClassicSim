@@ -11,6 +11,7 @@ public:
 
     void test_all();
 
+private:
     HeroicStrike* heroic_strike();
 
     void test_name_correct() override;
@@ -41,8 +42,6 @@ public:
     void when_heroic_strike_is_performed();
 
     void then_heroic_strike_costs(const unsigned rage);
-
-private:
 };
 
 #endif // TESTHEROICSTRIKE_H

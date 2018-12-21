@@ -9,6 +9,7 @@ public:
 
     void test_all();
 
+private:
     BerserkerStance* berserker_stance();
 
     void test_name_correct() override;
@@ -31,8 +32,6 @@ public:
     void test_rage_is_not_increased_by_switching_stances_with_5_of_5_tactical_mastery();
 
     void when_berserker_stance_is_performed();
-
-private:
 };
 
 #endif // TESTBERSERKERSTANCE_H

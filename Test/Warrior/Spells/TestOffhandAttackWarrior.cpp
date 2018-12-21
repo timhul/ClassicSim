@@ -1,9 +1,9 @@
-
 #include "TestOffhandAttackWarrior.h"
+
 #include "DualWieldSpecialization.h"
+#include "Equipment.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
-#include "Equipment.h"
 
 TestOffhandAttackWarrior::TestOffhandAttackWarrior(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "OffhandAttackWarrior")

@@ -1,11 +1,11 @@
-
 #include "TestTwoHandedWeaponSpecialization.h"
-#include "TwoHandedWeaponSpecialization.h"
-#include "Warrior.h"
+
 #include "CharacterStats.h"
 #include "Equipment.h"
-#include "Weapon.h"
 #include "Orc.h"
+#include "TwoHandedWeaponSpecialization.h"
+#include "Warrior.h"
+#include "Weapon.h"
 
 TestTwoHandedWeaponSpecialization::TestTwoHandedWeaponSpecialization(EquipmentDb* equipment_db) :
     TestSpell(equipment_db, "Two-hand Specialization"),
