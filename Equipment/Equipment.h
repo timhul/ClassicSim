@@ -82,6 +82,7 @@ public:
     void clear_relic();
 
     void clear_items_not_available_on_patch();
+    void clear_items_not_available_for_faction();
     EquipmentDb *get_db() const;
 
     void equip(QVector<Item *> &current, Item*& next, const int eq_slot);

@@ -274,6 +274,8 @@ void GUIControl::selectFaction(const int faction) {
             wpn->clear_windfury();
     }
 
+    current_char->get_equipment()->clear_items_not_available_for_faction();
+
     buff_model->switch_faction();
     mh_temporary_enchants->set_character(current_char);
     item_model->update_items();
@@ -283,6 +285,7 @@ void GUIControl::selectFaction(const int faction) {
     statsChanged();
     factionChanged();
     enchantChanged();
+    equipmentChanged();
 }
 
 bool GUIControl::raceAvailable(const QString& race_name) {

@@ -1,11 +1,14 @@
-
 #include "Equipment.h"
-#include "EquipmentDb.h"
-#include "Item.h"
-#include "Weapon.h"
-#include "Stats.h"
+
 #include <cassert>
 #include <QSet>
+
+#include "Character.h"
+#include "EquipmentDb.h"
+#include "Faction.h"
+#include "Item.h"
+#include "Stats.h"
+#include "Weapon.h"
 
 Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
     db(equipment_db),
@@ -707,6 +710,67 @@ void Equipment::clear_items_not_available_on_patch() {
         if (!db->item_valid_for_current_patch(get_relic()->get_value("patch")))
             clear_relic();
     }
+}
+
+void Equipment::clear_items_not_available_for_faction() {
+    const AvailableFactions::Name faction = pchar->get_faction()->get_faction_as_enum();
+
+    if (get_mainhand() && !get_mainhand()->available_for_faction(faction))
+        clear_mainhand();
+
+    if (get_offhand() && !get_offhand()->available_for_faction(faction))
+        clear_offhand();
+
+    if (get_ranged() && !get_ranged()->available_for_faction(faction))
+        clear_ranged();
+
+    if (get_head() && !get_head()->available_for_faction(faction))
+        clear_head();
+
+    if (get_neck() && !get_neck()->available_for_faction(faction))
+        clear_neck();
+
+    if (get_shoulders() && !get_shoulders()->available_for_faction(faction))
+        clear_shoulders();
+
+    if (get_back() && !get_back()->available_for_faction(faction))
+        clear_back();
+
+    if (get_chest() && !get_chest()->available_for_faction(faction))
+        clear_chest();
+
+    if (get_wrist() && !get_wrist()->available_for_faction(faction))
+        clear_wrist();
+
+    if (get_gloves() && !get_gloves()->available_for_faction(faction))
+        clear_gloves();
+
+    if (get_belt() && !get_belt()->available_for_faction(faction))
+        clear_belt();
+
+    if (get_legs() && !get_legs()->available_for_faction(faction))
+        clear_legs();
+
+    if (get_boots() && !get_boots()->available_for_faction(faction))
+        clear_boots();
+
+    if (get_ring1() && !get_ring1()->available_for_faction(faction))
+        clear_ring1();
+
+    if (get_ring2() && !get_ring2()->available_for_faction(faction))
+        clear_ring2();
+
+    if (get_trinket1() && !get_trinket1()->available_for_faction(faction))
+        clear_trinket1();
+
+    if (get_trinket2() && !get_trinket2()->available_for_faction(faction))
+        clear_trinket2();
+
+    if (get_caster_offhand() && !get_caster_offhand()->available_for_faction(faction))
+        clear_caster_offhand();
+
+    if (get_relic() && !get_relic()->available_for_faction(faction))
+        clear_relic();
 }
 
 EquipmentDb* Equipment::get_db() const {
