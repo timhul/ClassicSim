@@ -4,6 +4,7 @@
 #include "Backstab.h"
 #include "BladeFlurry.h"
 #include "Eviscerate.h"
+#include "Hemorrhage.h"
 #include "MainhandAttack.h"
 #include "OffhandAttackRogue.h"
 #include "OffhandMeleeHit.h"
@@ -21,17 +22,19 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     this->blade_flurry = new BladeFlurry(rogue);
     this->backstab = new Backstab(rogue);
     this->eviscerate = new Eviscerate(rogue);
+    this->hemorrhage = new Hemorrhage(rogue);
     this->sinister_strike = new SinisterStrike(rogue);
     this->slice_and_dice = new SliceAndDice(rogue);
 
-    spells.append(mh_attack);
-    spells.append(oh_attack);
-    spells.append(adrenaline_rush);
-    spells.append(blade_flurry);
-    spells.append(backstab);
-    spells.append(eviscerate);
-    spells.append(sinister_strike);
-    spells.append(slice_and_dice);
+    add_spell(mh_attack, NO_RELINK);
+    add_spell(oh_attack, NO_RELINK);
+    add_spell(adrenaline_rush, NO_RELINK);
+    add_spell(blade_flurry, NO_RELINK);
+    add_spell(backstab, NO_RELINK);
+    add_spell(eviscerate, NO_RELINK);
+    add_spell(hemorrhage, NO_RELINK);
+    add_spell(sinister_strike, NO_RELINK);
+    add_spell(slice_and_dice, NO_RELINK);
 }
 
 RogueSpells::~RogueSpells() = default;
@@ -71,6 +74,10 @@ BladeFlurry* RogueSpells::get_blade_flurry() const {
 
 Eviscerate* RogueSpells::get_eviscerate() const {
     return this->eviscerate;
+}
+
+Hemorrhage* RogueSpells::get_hemorrhage() const {
+    return this->hemorrhage;
 }
 
 SinisterStrike* RogueSpells::get_sinister_strike() const {

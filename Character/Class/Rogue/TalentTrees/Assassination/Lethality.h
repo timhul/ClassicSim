@@ -4,6 +4,7 @@
 #include "Talent.h"
 
 class Backstab;
+class Hemorrhage;
 class SinisterStrike;
 class TalentTree;
 
@@ -13,6 +14,7 @@ public:
 
 private:
     Backstab* backstab;
+    Hemorrhage* hemorrhage;
     SinisterStrike* sinister_strike;
 
     void apply_rank_effect() override;

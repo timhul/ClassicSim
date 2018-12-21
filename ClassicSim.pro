@@ -325,7 +325,10 @@ SOURCES += main.cpp \
     Test/Rogue/Talents/TestCombat.cpp \
     Test/Rogue/Talents/TestSubtlety.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.cpp \
-    Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.cpp
+    Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.cpp \
+    Character/Class/Rogue/TalentTrees/Subtlety/HemorrhageTalent.cpp \
+    Character/Class/Rogue/Spells/Hemorrhage.cpp \
+    Test/Rogue/Spells/TestHemorrhage.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -654,7 +657,10 @@ HEADERS += \
     Test/Rogue/Talents/TestCombat.h \
     Test/Rogue/Talents/TestSubtlety.h \
     Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.h \
-    Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.h
+    Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.h \
+    Character/Class/Rogue/TalentTrees/Subtlety/HemorrhageTalent.h \
+    Character/Class/Rogue/Spells/Hemorrhage.h \
+    Test/Rogue/Spells/TestHemorrhage.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

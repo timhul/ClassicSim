@@ -2,6 +2,7 @@
 
 #include "Deadliness.h"
 #include "GenericTalent.h"
+#include "HemorrhageTalent.h"
 #include "Opportunity.h"
 #include "SerratedBlades.h"
 #include "Talent.h"
@@ -31,7 +32,7 @@ Subtlety::Subtlety(Character *pchar) :
     QMap<QString, Talent*> tier5 {{"5LL", new GenericTalent(pchar, this, "Heightened Senses", "5LL", "Assets/ability/Ability_ambush.png", 2, "Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by %1%.", QVector<QPair<int, int>>{{2, 2}})},
                                   {"5ML", new GenericTalent(pchar, this, "Preparation", "5ML", "Assets/spell/Spell_shadow_antishadow.png", 1, "When activated, this ability immediately finishes the cooldown on your other Rogue abilities.", QVector<QPair<int, int>>())},
                                   {"5MR", new GenericTalent(pchar, this, "Dirty Deeds", "5MR", "Assets/spell/Spell_shadow_summonsuccubus.png", 2, "Reduces the Energy cost of your Cheap Shot and Garrote abilities by %1.", QVector<QPair<int, int>>{{10, 10}})},
-                                  {"5RR", new GenericTalent(pchar, this, "Hemorrhage", "5RR", "Assets/spell/Spell_shadow_lifedrain.png", 1, "An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by up to 3. Lasts 30 charges or 15 sec. Awards 1 combo point.", QVector<QPair<int, int>>{})}};
+                                  {"5RR", new HemorrhageTalent(pchar, this)}};
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6MR", new Deadliness(pchar, this)}};
