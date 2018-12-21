@@ -21,6 +21,7 @@
 
 #include "TestAssassination.h"
 #include "TestCombat.h"
+#include "TestSubtlety.h"
 
 void TestRogue::test_all() {
     test_basic_properties();
@@ -39,6 +40,7 @@ void TestRogue::test_all() {
 
     TestAssassination(equipment_db).test_all();
     TestCombat(equipment_db).test_all();
+    TestSubtlety(equipment_db).test_all();
 }
 
 void TestRogue::test_basic_properties() {
