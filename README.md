@@ -40,9 +40,12 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-- Fix bug which caused rogues to evaluate 1 CP Eviscerate as a valid rotational choice.
+- Hemorrhage with basic rotation added.
+- More Subtletly talents added (Deadliness, Serrated Blades).
+- Items not available for class or faction now filtered.
 - Many leather items and several daggers added.
 - Consecrated Sharpening Stones added.
+- Fix bug which caused rogues to evaluate 1 CP Eviscerate as a valid rotational choice.
 
 # Release notes
 
