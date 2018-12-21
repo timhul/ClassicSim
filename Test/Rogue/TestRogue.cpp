@@ -20,6 +20,7 @@
 #include "TestSliceAndDice.h"
 
 #include "TestAssassination.h"
+#include "TestCombat.h"
 
 void TestRogue::test_all() {
     test_basic_properties();
@@ -37,6 +38,7 @@ void TestRogue::test_all() {
     TestSealFate(equipment_db).test_all();
 
     TestAssassination(equipment_db).test_all();
+    TestCombat(equipment_db).test_all();
 }
 
 void TestRogue::test_basic_properties() {
