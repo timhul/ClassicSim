@@ -188,7 +188,7 @@ void TestSinisterStrike::test_crit_dmg_2_of_5_lethality() {
 
     when_sinister_strike_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [Damage] = (base_dmg + normalized_wpn_speed * AP / 14 + flat_damage_bonus) * crit_dmg_modifier * lethality
     // [760] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.12
     then_damage_dealt_is(760);
 }
@@ -203,7 +203,7 @@ void TestSinisterStrike::test_crit_dmg_3_of_5_lethality() {
 
     when_sinister_strike_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [Damage] = (base_dmg + normalized_wpn_speed * AP / 14 + flat_damage_bonus) * crit_dmg_modifier * lethality
     // [801] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.18
     then_damage_dealt_is(801);
 }
@@ -218,7 +218,7 @@ void TestSinisterStrike::test_crit_dmg_4_of_5_lethality() {
 
     when_sinister_strike_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [Damage] = (base_dmg + normalized_wpn_speed * AP / 14 + flat_damage_bonus) * crit_dmg_modifier * lethality
     // [842] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.24
     then_damage_dealt_is(842);
 }
@@ -233,7 +233,7 @@ void TestSinisterStrike::test_crit_dmg_5_of_5_lethality() {
 
     when_sinister_strike_is_performed();
 
-    // [Damage] = ((base_dmg + normalized_wpn_speed * AP / 14) * 150% + flat_damage_bonus) * crit_dmg_modifier * lethality
+    // [Damage] = (base_dmg + normalized_wpn_speed * AP / 14 + flat_damage_bonus) * crit_dmg_modifier * lethality
     // [883] = (100 + 2.4 * 1000 / 14 + 68) * 2.0 * 1.30
     then_damage_dealt_is(883);
 }
