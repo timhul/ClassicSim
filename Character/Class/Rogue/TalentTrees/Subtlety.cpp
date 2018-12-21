@@ -1,5 +1,6 @@
 #include "Subtlety.h"
 
+#include "Deadliness.h"
 #include "GenericTalent.h"
 #include "Opportunity.h"
 #include "SerratedBlades.h"
@@ -33,7 +34,7 @@ Subtlety::Subtlety(Character *pchar) :
                                   {"5RR", new GenericTalent(pchar, this, "Hemorrhage", "5RR", "Assets/spell/Spell_shadow_lifedrain.png", 1, "An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by up to 3. Lasts 30 charges or 15 sec. Awards 1 combo point.", QVector<QPair<int, int>>{})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new GenericTalent(pchar, this, "Deadliness", "6MR", "Assets/items/Inv_weapon_crossbow_11.png", 5, "Increases your Attack Power by %1%.", QVector<QPair<int, int>>{{2, 2}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", new Deadliness(pchar, this)}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new GenericTalent(pchar, this, "Premeditation", "7ML", "Assets/spell/Spell_shadow_possession.png", 1, "When used, adds 2 combo points to your target. You must add to or use those combo points within 10 sec or the combo points are lost.", QVector<QPair<int, int>>())}};

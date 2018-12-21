@@ -49,6 +49,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_ap_bonuses_vs_creature_type();
     tear_down();
+
+    set_up();
+    test_ap_multipliers();
+    tear_down();
 }
 
 void TestCharacterStats::test_basic_properties() {
@@ -207,4 +211,17 @@ void TestCharacterStats::test_ap_bonuses_vs_creature_type() {
     cstats->decrease_ap_vs_type(Target::CreatureType::Beast, 100);
     assert(base_melee_ap == cstats->get_melee_ap());
     assert(base_ranged_ap == cstats->get_ranged_ap());
+}
+
+void TestCharacterStats::test_ap_multipliers() {
+    const int base_melee_ap = cstats->get_melee_ap();
+    const int base_ranged_ap = cstats->get_ranged_ap();
+
+    cstats->add_ap_multiplier(100);
+    assert(cstats->get_melee_ap() == base_melee_ap * 2);
+    assert(cstats->get_ranged_ap() == base_ranged_ap * 2);
+
+    cstats->remove_ap_multiplier(100);
+    assert(cstats->get_melee_ap() == base_melee_ap);
+    assert(cstats->get_ranged_ap() == base_ranged_ap);
 }

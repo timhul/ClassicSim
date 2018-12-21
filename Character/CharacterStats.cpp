@@ -1,10 +1,10 @@
-
 #include "CharacterStats.h"
+
 #include "Character.h"
-#include "Equipment.h"
-#include "Stats.h"
-#include "Race.h"
 #include "CombatRoll.h"
+#include "Equipment.h"
+#include "Race.h"
+#include "Stats.h"
 #include "Target.h"
 #include "Weapon.h"
 
@@ -14,7 +14,13 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     axe_skill_bonus(0),
     dagger_skill_bonus(0),
     mace_skill_bonus(0),
-    sword_skill_bonus(0)
+    sword_skill_bonus(0),
+    attack_speed_mod(1.0),
+    total_phys_dmg_mod(1.0),
+    physical_damage_taken_mod(1.0),
+    spell_damage_taken_mod(1.0),
+    total_stat_mod(1.0),
+    total_ap_mod(1.0)
 {
     this->base_stats = new Stats();
     base_stats->set_melee_ap_per_agi(pchar->get_ap_per_agi());
@@ -25,12 +31,6 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     increase_stamina(pchar->get_stamina_modifier());
     increase_intellect(pchar->get_intellect_modifier());
     increase_spirit(pchar->get_spirit_modifier());
-
-    this->total_phys_dmg_mod = 1.0;
-    this->attack_speed_mod = 1.0;
-    this->physical_damage_taken_mod = 1.0;
-    this->spell_damage_taken_mod = 1.0;
-    this->total_stat_mod = 1.0;
 
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0.0);
@@ -365,7 +365,7 @@ int CharacterStats::get_melee_ap() const {
     int attributes_ap = get_strength() * pchar->get_ap_per_strength() + get_agility() * pchar->get_ap_per_agi();
     int target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     int target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    return stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base;
+    return static_cast<int>(round(total_ap_mod * (stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base)));
 }
 
 void CharacterStats::increase_melee_ap(const int increase) {
@@ -381,7 +381,7 @@ int CharacterStats::get_ranged_ap() const {
     int attributes_ap = get_agility() * pchar->get_ap_per_agi();
     int target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     int target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    return stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base;
+    return static_cast<int>(round(total_ap_mod * (stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base)));
 }
 
 void CharacterStats::increase_ranged_ap(const int increase) {
@@ -514,6 +514,14 @@ void CharacterStats::add_total_stat_mod(const int mod) {
 
 void CharacterStats::remove_total_stat_mod(const int mod) {
     remove_multiplicative_effect(total_stat_mod_changes, mod, total_stat_mod);
+}
+
+void CharacterStats::add_ap_multiplier(const int mod) {
+    add_multiplicative_effect(ap_total_multipliers, mod, total_ap_mod);
+}
+
+void CharacterStats::remove_ap_multiplier(const int mod) {
+    remove_multiplicative_effect(ap_total_multipliers, mod, total_ap_mod);
 }
 
 double CharacterStats::get_mh_wpn_speed() {

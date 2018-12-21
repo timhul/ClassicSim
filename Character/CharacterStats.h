@@ -111,6 +111,9 @@ public:
     void add_total_stat_mod(const int);
     void remove_total_stat_mod(const int);
 
+    void add_ap_multiplier(const int);
+    void remove_ap_multiplier(const int);
+
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
 
@@ -126,6 +129,7 @@ protected:
     QVector<int> phys_damage_taken_changes;
     QVector<int> spell_damage_taken_changes;
     QVector<int> total_stat_mod_changes;
+    QVector<int> ap_total_multipliers;
     QHash<int, double> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
     QHash<int, double> damage_bonuses_per_monster_type;
@@ -142,6 +146,7 @@ protected:
     double physical_damage_taken_mod;
     double spell_damage_taken_mod;
     double total_stat_mod;
+    double total_ap_mod;
 
     void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
     void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);

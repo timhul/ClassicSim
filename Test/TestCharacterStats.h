@@ -29,6 +29,7 @@ private:
     void test_spell_damage_taken_multipliers_stacks_multiplicatively();
     void test_damage_bonuses_vs_creature_type();
     void test_ap_bonuses_vs_creature_type();
+    void test_ap_multipliers();
 };
 
 #endif // TESTCHARACTERSTATS_H
