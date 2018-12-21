@@ -323,7 +323,8 @@ SOURCES += main.cpp \
     Test/Rotation/TestConditionVariableBuiltin.cpp \
     Test/Rogue/Talents/TestAssassination.cpp \
     Test/Rogue/Talents/TestCombat.cpp \
-    Test/Rogue/Talents/TestSubtlety.cpp
+    Test/Rogue/Talents/TestSubtlety.cpp \
+    Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -650,7 +651,8 @@ HEADERS += \
     Test/Rotation/TestConditionVariableBuiltin.h \
     Test/Rogue/Talents/TestAssassination.h \
     Test/Rogue/Talents/TestCombat.h \
-    Test/Rogue/Talents/TestSubtlety.h
+    Test/Rogue/Talents/TestSubtlety.h \
+    Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

@@ -2,6 +2,7 @@
 
 #include "GenericTalent.h"
 #include "Opportunity.h"
+#include "SerratedBlades.h"
 #include "Talent.h"
 
 Subtlety::Subtlety(Character *pchar) :
@@ -23,7 +24,7 @@ Subtlety::Subtlety(Character *pchar) :
 
     QMap<QString, Talent*> tier4 {{"4LL", new GenericTalent(pchar, this, "Setup", "4LL", "Assets/spell/Spell_nature_mirrorimage.png", 3, "Gives you a %1% chance to add a combo point to your target after dodging their attack or fully resisting one of their spells.", QVector<QPair<int, int>>{QPair<int, int>(15, 15)})},
                                   {"4ML", new GenericTalent(pchar, this, "Improved Sap", "4ML", "Assets/ability/Ability_sap.png", 3, "Gives you a %1% chance to return to stealth mode after using your Sap ability.", QVector<QPair<int, int>>{QPair<int, int>(30, 30)})},
-                                  {"4MR", new GenericTalent(pchar, this, "Serrated Blades", "4MR", "Assets/items/Inv_sword_17.png", 3, "Causes your attacks to ignore 0 of your target's Armor and increases the damage dealt by your Rupture ability by %1%. The amount of Armor reduced increases with your level.", QVector<QPair<int, int>>{QPair<int, int>(10, 10)})}};
+                                  {"4MR", new SerratedBlades(pchar, this)}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new GenericTalent(pchar, this, "Heightened Senses", "5LL", "Assets/ability/Ability_ambush.png", 2, "Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by %1%.", QVector<QPair<int, int>>{QPair<int, int>(2, 2)})},
