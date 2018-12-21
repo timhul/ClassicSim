@@ -90,7 +90,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.cpp \
     Character/Class/Warrior/Spells/DeepWounds.cpp \
     Event/Events/DotTick.cpp \
-    Character/Class/Warrior/Buffs/HeroicStrikeBuff.cpp \
     Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.cpp \
     Character/Class/Warrior/Procs/UnbridledWrath.cpp \
     Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.cpp \
@@ -416,7 +415,6 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.h \
     Character/Class/Warrior/Spells/DeepWounds.h \
     Event/Events/DotTick.h \
-    Character/Class/Warrior/Buffs/HeroicStrikeBuff.h \
     Character/Class/Warrior/Procs/UnbridledWrath.h \
     Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.h \
     Character/Class/Warrior/TalentTrees/Fury/DeathWishTalent.h \

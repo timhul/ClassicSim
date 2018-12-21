@@ -30,7 +30,6 @@ class OffhandAttackWarrior;
 class WarriorSpells: public Spells {
 public:
     WarriorSpells(Warrior *warr);
-    ~WarriorSpells() override;
 
     void mh_auto_attack(const int) override;
     void oh_auto_attack(const int) override;

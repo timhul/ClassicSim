@@ -2,7 +2,7 @@
 
 #include "Equipment.h"
 #include "HeroicStrike.h"
-#include "HeroicStrikeBuff.h"
+#include "NoEffectBuff.h"
 #include "ImprovedHeroicStrike.h"
 #include "WarriorSpells.h"
 
@@ -226,14 +226,14 @@ void TestHeroicStrike::given_3_of_3_improved_hs() {
     assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
 }
 
-void TestHeroicStrike::given_user_has_activated_heroic_strike() {
-    warrior->get_hs_buff()->apply_buff();
-    assert(warrior->get_hs_buff()->is_active());
+void TestHeroicStrike::given_heroic_strike_is_queued() {
+    heroic_strike()->perform();
+    assert(heroic_strike()->is_queued());
 }
 
-void TestHeroicStrike::given_user_has_not_activate_heroic_strike() {
-    warrior->get_hs_buff()->cancel_buff();
-    assert(!warrior->get_hs_buff()->is_active());
+void TestHeroicStrike::given_heroic_strike_is_not_queued() {
+    heroic_strike()->cancel();
+    assert(!heroic_strike()->is_queued());
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {

@@ -1,9 +1,10 @@
 #ifndef SLAM_H
 #define SLAM_H
 
+#include <QVector>
+
 #include "SpellCastingTime.h"
 #include "TalentRequirer.h"
-#include <QVector>
 
 class Warrior;
 

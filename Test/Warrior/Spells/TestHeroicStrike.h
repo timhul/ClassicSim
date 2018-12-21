@@ -36,8 +36,8 @@ private:
     void given_1_of_3_improved_hs();
     void given_2_of_3_improved_hs();
     void given_3_of_3_improved_hs();
-    void given_user_has_activated_heroic_strike();
-    void given_user_has_not_activate_heroic_strike();
+    void given_heroic_strike_is_queued();
+    void given_heroic_strike_is_not_queued();
 
     void when_heroic_strike_is_performed();
 

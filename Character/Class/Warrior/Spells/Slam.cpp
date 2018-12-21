@@ -1,16 +1,17 @@
-
 #include "Slam.h"
-#include "Warrior.h"
-#include "WarriorSpells.h"
-#include "MainhandAttack.h"
-#include "OffhandAttack.h"
+
+#include "CastComplete.h"
 #include "CharacterStats.h"
 #include "CooldownReady.h"
-#include "Flurry.h"
 #include "DeepWounds.h"
+#include "Flurry.h"
+#include "HeroicStrike.h"
+#include "MainhandAttack.h"
+#include "NoEffectBuff.h"
+#include "OffhandAttack.h"
 #include "OverpowerBuff.h"
-#include "CastComplete.h"
-#include "HeroicStrikeBuff.h"
+#include "Warrior.h"
+#include "WarriorSpells.h"
 
 Slam::Slam(Character* pchar) :
     SpellCastingTime("Slam", "Assets/warrior/fury/tier5/Ability_warrior_decisivestrike.png",
@@ -38,7 +39,7 @@ void Slam::spell_effect() {
     add_gcd_event();
 
     pchar->stop_attack();
-    warr->get_hs_buff()->cancel_buff();
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->get_heroic_strike()->cancel();
 }
 
 void Slam::complete_cast_effect() {

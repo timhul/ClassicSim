@@ -26,12 +26,12 @@
 #include "SwordSpecialization.h"
 #include "UnbridledWrath.h"
 
+#include "BattleShoutBuff.h"
 #include "BattleStanceBuff.h"
 #include "BerserkerStanceBuff.h"
 #include "DefensiveStanceBuff.h"
-#include "HeroicStrikeBuff.h"
 #include "DeathWishBuff.h"
-#include "BattleShoutBuff.h"
+#include "NoEffectBuff.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 
@@ -80,7 +80,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->battle_stance_buff = new BattleStanceBuff(this);
     this->berserker_stance_buff = new BerserkerStanceBuff(this);
     this->defensive_stance_buff = new DefensiveStanceBuff(this);
-    this->heroic_strike_buff = new HeroicStrikeBuff(this);
     this->death_wish_buff = new DeathWishBuff(this);
     this->overpower_buff = new OverpowerBuff(this);
     this->recklessness_buff = new RecklessnessBuff(this);
@@ -88,7 +87,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     battle_stance_buff->enable_buff();
     berserker_stance_buff->enable_buff();
     defensive_stance_buff->enable_buff();
-    heroic_strike_buff->enable_buff();
     overpower_buff->enable_buff();
     recklessness_buff->enable_buff();
 
@@ -118,7 +116,6 @@ Warrior::~Warrior() {
     delete defensive_stance_buff;
     delete death_wish_buff;
     delete flurry;
-    delete heroic_strike_buff;
     delete overpower_buff;
     delete recklessness_buff;
     delete rage;
@@ -200,10 +197,6 @@ BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {
 
 DefensiveStanceBuff* Warrior::get_defensive_stance_buff() const {
     return this->defensive_stance_buff;
-}
-
-HeroicStrikeBuff* Warrior::get_hs_buff() const {
-    return this->heroic_strike_buff;
 }
 
 SwordSpecialization* Warrior::get_sword_spec() const {

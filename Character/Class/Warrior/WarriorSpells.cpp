@@ -28,7 +28,7 @@
 #include "OffhandAttackWarrior.h"
 
 #include "Flurry.h"
-#include "HeroicStrikeBuff.h"
+#include "NoEffectBuff.h"
 #include "UnbridledWrath.h"
 #include "DeathWishBuff.h"
 #include "BattleShoutBuff.h"
@@ -81,8 +81,6 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell(warr_oh_attack, NO_RELINK);
 }
 
-WarriorSpells::~WarriorSpells() = default;
-
 void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!warr_mh_attack->attack_is_valid(iteration))
         return;
@@ -90,12 +88,12 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!pchar->is_melee_attacking())
         return;
 
-    if (warr->get_hs_buff()->is_active() && heroic_strike->is_available()) {
+    if (heroic_strike->is_queued() && heroic_strike->is_available()) {
         heroic_strike->calculate_damage();
     }
     else {
-        if (warr->get_hs_buff()->is_active())
-            warr->get_hs_buff()->use_charge();
+        if (heroic_strike->is_queued())
+            heroic_strike->cancel();
 
         warr_mh_attack->perform();
     }
