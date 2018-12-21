@@ -230,6 +230,7 @@ void GUIControl::selectClass(const QString& class_name) {
     rotationChanged();
     equipmentChanged();
     enchantChanged();
+    factionChanged();
 }
 
 void GUIControl::selectRace(const QString& race_name) {
@@ -252,7 +253,20 @@ void GUIControl::selectFaction(const int faction) {
     if (this->current_char->get_faction()->get_faction() == faction)
         return;
 
-    this->current_char->get_faction()->switch_faction();
+    if (current_char->get_name() == "Shaman" || current_char->get_name() == "Paladin") {
+        const AvailableFactions::Name target_faction = current_char->get_faction()->get_faction_as_enum();
+        set_character(chars["Warrior"]);
+
+        if (current_char->get_faction()->get_faction_as_enum() != target_faction)
+            current_char->switch_faction();
+
+        reset_race(current_char);
+        classChanged();
+    }
+    else {
+        current_char->switch_faction();
+        reset_race(current_char);
+    }
 
     if (current_char->get_faction()->is_alliance()) {
         Weapon* wpn = current_char->get_equipment()->get_mainhand();
@@ -260,35 +274,15 @@ void GUIControl::selectFaction(const int faction) {
             wpn->clear_windfury();
     }
 
-    QMap<QString, Character*>::const_iterator it_chars = chars.constBegin();
-    auto end_chars = chars.constEnd();
-    while(it_chars != end_chars) {
-        it_chars.value()->switch_faction();
-        reset_race(it_chars.value());
-
-        if (it_chars.value()->get_faction()->is_alliance()) {
-            Weapon* wpn = it_chars.value()->get_equipment()->get_mainhand();
-            if (wpn != nullptr)
-                wpn->clear_windfury();
-        }
-
-        ++it_chars;
-    }
-
-    factionChanged();
-    enchantChanged();
-
-    if (current_char->get_name() == "Shaman" || current_char->get_name() == "Paladin") {
-        set_character(chars["Warrior"]);
-        reset_race(current_char);
-        classChanged();
-    }
-
     buff_model->switch_faction();
     mh_temporary_enchants->set_character(current_char);
     item_model->update_items();
     weapon_model->update_items();
+
+    raceChanged();
     statsChanged();
+    factionChanged();
+    enchantChanged();
 }
 
 bool GUIControl::raceAvailable(const QString& race_name) {

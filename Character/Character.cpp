@@ -95,6 +95,7 @@ QString Character::get_current_rotation_name() const {
 }
 
 void Character::switch_faction() {
+    faction->switch_faction();
     enabled_procs->switch_faction();
     enabled_buffs->switch_faction();
 }
