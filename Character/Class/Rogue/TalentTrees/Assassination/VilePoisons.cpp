@@ -9,7 +9,7 @@ VilePoisons::VilePoisons(Character* pchar, TalentTree* tree) :
     oh_instant_poison(dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison())
 {
     QString base_str = "Increases the damage dealt by your poisons by %1% and gives your poisons an additional %2% chance to resist dispel effects.";
-    initialize_rank_descriptions(base_str, QVector<QPair<int, int>>{QPair<int, int>(4, 4), QPair<int, int>(8, 8)});
+    initialize_rank_descriptions(base_str, QVector<QPair<int, int>>{{4, 4}, {8, 8}});
 }
 
 void VilePoisons::apply_rank_effect() {

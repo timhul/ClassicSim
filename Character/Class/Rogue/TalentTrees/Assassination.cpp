@@ -18,7 +18,7 @@ Assassination::Assassination(Character *pchar) :
     TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg")
 {
     QMap<QString, Talent*> tier1 {{"1LL", new ImprovedEviscerate(pchar, this)},
-                                  {"1ML", new GenericTalent(pchar, this, "Remorseless Attacks", "1ML", "Assets/ability/Ability_fiegndead.png", 2, "After killing an opponent that yields experience or honor, gives you a %1 increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike. Lasts 20 sec.", QVector<QPair<int, int>>{QPair<int, int>(20, 20)})},
+                                  {"1ML", new GenericTalent(pchar, this, "Remorseless Attacks", "1ML", "Assets/ability/Ability_fiegndead.png", 2, "After killing an opponent that yields experience or honor, gives you a %1 increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike. Lasts 20 sec.", QVector<QPair<int, int>>{{20, 20}})},
                                   {"1MR", new Malice(pchar, this)}};
     add_talents(tier1);
 
@@ -28,7 +28,7 @@ Assassination::Assassination(Character *pchar) :
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new RelentlessStrikesTalent(pchar, this)},
-                                  {"3ML", new GenericTalent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<int, int>>{QPair<int, int>(25, 25)})},
+                                  {"3ML", new GenericTalent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<int, int>>{{25, 25}})},
                                   {"3MR", new Lethality(pchar, this)}};
     add_talents(tier3);
 
@@ -37,7 +37,7 @@ Assassination::Assassination(Character *pchar) :
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5ML", new GenericTalent(pchar, this, "Cold Blood", "5ML", "Assets/spell/Spell_ice_lament.png", 1, "When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, or Eviscerate by 100%.", QVector<QPair<int, int>>())},
-                                  {"5MR", new GenericTalent(pchar, this, "Improved Kidney Shot", "5MR", "Assets/ability/Ability_rogue_kidneyshot.png", 3, "While affected by your Kidney Shot ability, the target receives an additional %1% damage from all sources.", QVector<QPair<int, int>>{QPair<int, int>(3, 3)})}};
+                                  {"5MR", new GenericTalent(pchar, this, "Improved Kidney Shot", "5MR", "Assets/ability/Ability_rogue_kidneyshot.png", 3, "While affected by your Kidney Shot ability, the target receives an additional %1% damage from all sources.", QVector<QPair<int, int>>{{3, 3}})}};
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6ML", new SealFateTalent(pchar, this)}};
