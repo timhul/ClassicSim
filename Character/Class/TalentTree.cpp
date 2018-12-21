@@ -1,8 +1,8 @@
-
 #include "TalentTree.h"
-#include "Talent.h"
-#include <QDebug>
+
 #include <utility>
+
+#include "Talent.h"
 
 TalentStorage::~TalentStorage() {
     delete talent;

@@ -1,4 +1,3 @@
-
 #include "Talents.h"
 
 #include <QDebug>

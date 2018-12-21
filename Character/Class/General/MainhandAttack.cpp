@@ -1,10 +1,9 @@
-
 #include "MainhandAttack.h"
+
 #include "Equipment.h"
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Weapon.h"
-#include <QDebug>
 
 MainhandAttack::MainhandAttack(Character* pchar) :
     Spell("Mainhand Attack",

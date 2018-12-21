@@ -1,7 +1,6 @@
 #include "BattleShoutBuff.h"
 
 #include <cmath>
-#include <QDebug>
 
 #include "CharacterStats.h"
 #include "Warrior.h"

@@ -1,9 +1,9 @@
-
 #include "ArmorPenetrationBuff.h"
+
+#include <cassert>
+
 #include "Character.h"
 #include "Target.h"
-#include <cassert>
-#include <QDebug>
 
 ArmorPenetrationBuff::ArmorPenetrationBuff(Character* pchar,
                                            const QString& name,

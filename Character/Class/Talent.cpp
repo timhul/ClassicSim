@@ -1,7 +1,8 @@
-
 #include "Talent.h"
+
 #include <QDebug>
 #include <utility>
+
 #include "Character.h"
 #include "TalentTree.h"
 

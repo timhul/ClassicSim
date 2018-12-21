@@ -1,7 +1,8 @@
-
 #include "WhiteHitTable.h"
-#include "Random.h"
+
 #include <QDebug>
+
+#include "Random.h"
 
 WhiteHitTable::WhiteHitTable(Random *random,
                              const int wpn_skill,

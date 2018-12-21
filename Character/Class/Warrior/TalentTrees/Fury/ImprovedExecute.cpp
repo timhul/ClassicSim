@@ -1,9 +1,8 @@
-
 #include "ImprovedExecute.h"
+
 #include "Execute.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
-#include <QDebug>
 
 ImprovedExecute::ImprovedExecute(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Improved Execute", "4ML", "Assets/warrior/fury/tier4/Inv_sword_48.png", 2),

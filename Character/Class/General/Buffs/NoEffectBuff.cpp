@@ -1,7 +1,6 @@
-
 #include "NoEffectBuff.h"
+
 #include <cassert>
-#include <QDebug>
 
 NoEffectBuff::NoEffectBuff(Character* pchar, const int duration, const QString &name, const QString &icon, const bool hidden, const bool debuff):
     Buff(pchar, name, icon, duration, 0),

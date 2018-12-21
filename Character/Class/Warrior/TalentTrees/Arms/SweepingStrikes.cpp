@@ -1,6 +1,4 @@
-
 #include "SweepingStrikes.h"
-#include <QDebug>
 
 SweepingStrikes::SweepingStrikes(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Sweeping Strikes", "5ML", "Assets/ability/Ability_rogue_slicedice.png", 1)

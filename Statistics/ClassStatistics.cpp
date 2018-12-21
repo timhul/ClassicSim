@@ -4,7 +4,6 @@
 #include "StatisticsBuff.h"
 #include "StatisticsResource.h"
 #include "StatisticsProc.h"
-#include <QDebug>
 
 ClassStatistics::ClassStatistics(SimSettings* sim_settings) :
     sim_settings(sim_settings),

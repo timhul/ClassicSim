@@ -1,10 +1,9 @@
-
 #include "OffhandAttack.h"
-#include "Equipment.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
+#include "Equipment.h"
 #include "Weapon.h"
-#include <QDebug>
 
 OffhandAttack::OffhandAttack(Character* pchar) :
     Spell("Offhand Attack",

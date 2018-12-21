@@ -1,5 +1,5 @@
-
 #include "MeleeSpecialTable.h"
+
 #include <QDebug>
 
 MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
