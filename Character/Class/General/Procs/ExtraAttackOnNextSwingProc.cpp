@@ -1,10 +1,9 @@
-
 #include "ExtraAttackOnNextSwingProc.h"
+
 #include "Character.h"
-#include "StatisticsResource.h"
-#include "ProcInfo.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingBuff.h"
+#include "ProcInfo.h"
 
 ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Character* pchar,
                                                        const QString& proc_name,
@@ -21,13 +20,20 @@ ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Character* pchar,
 {
     assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
     extra_attack_instant_proc->set_extra_attack_buff(extra_attack_buff);
+    extra_attack_buff->enable_buff();
 }
 
 ExtraAttackOnNextSwingProc::~ExtraAttackOnNextSwingProc() {
+    extra_attack_buff->disable_buff();
+    extra_attack_instant_proc->disable_proc();
     delete extra_attack_instant_proc;
     delete extra_attack_buff;
 }
 
 void ExtraAttackOnNextSwingProc::proc_effect() {
     extra_attack_buff->apply_buff();
+}
+
+void ExtraAttackOnNextSwingProc::prepare_set_of_combat_iterations_spell_specific() {
+    extra_attack_instant_proc->prepare_set_of_combat_iterations();
 }

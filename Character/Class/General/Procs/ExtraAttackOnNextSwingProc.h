@@ -18,10 +18,11 @@ public:
 
     void proc_effect() override;
 
-protected:
 private:
     ExtraAttackInstantProc* extra_attack_instant_proc;
     ExtraAttackOnNextSwingBuff* extra_attack_buff;
+
+    void prepare_set_of_combat_iterations_spell_specific() override;
 };
 
 #endif // EXTRAATTACKONNEXTSWINGPROC_H

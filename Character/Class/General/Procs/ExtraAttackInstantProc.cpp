@@ -1,9 +1,8 @@
-
 #include "ExtraAttackInstantProc.h"
+
 #include "Character.h"
-#include "StatisticsResource.h"
-#include "ProcInfo.h"
 #include "ExtraAttackOnNextSwingBuff.h"
+#include "ProcInfo.h"
 
 ExtraAttackInstantProc::ExtraAttackInstantProc(Character* pchar,
                                                const QString& proc_name,
@@ -35,7 +34,7 @@ void ExtraAttackInstantProc::proc_from_next_swing_effect() {
     assert(extra_attack_buff->is_active());
 
     while (extra_attack_buff->is_active()) {
-        run_extra_attacks();
+        pchar->run_extra_mh_attack();
         extra_attack_buff->use_charge();
     }
 }
@@ -44,12 +43,5 @@ void ExtraAttackInstantProc::proc_from_instant_effect() {
     assert(extra_attack_buff == nullptr);
 
     for (int i = 0; i < num_attacks; ++i)
-        run_extra_attacks();
-}
-
-void ExtraAttackInstantProc::run_extra_attacks() {
-    if (curr_proc_source == ProcInfo::Source::MainhandSwing || curr_proc_source == ProcInfo::Source::MainhandSpell)
         pchar->run_extra_mh_attack();
-    else if (curr_proc_source == ProcInfo::Source::OffhandSwing || curr_proc_source == ProcInfo::Source::OffhandSpell)
-        pchar->run_extra_oh_attack();
 }
