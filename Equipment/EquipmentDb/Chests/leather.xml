@@ -180,6 +180,7 @@
 	<chest name="Deathdealer's Vest">
 		<patch name="1.9.0">
 			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
+			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="253"/>
 				<stat type="AGILITY" value="37"/>
