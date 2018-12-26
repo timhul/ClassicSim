@@ -124,9 +124,9 @@ Q: When is class X or specialization Y supported?
 A: See [the Release Roadmap](https://github.com/timhul/ClassicSim/wiki/Release-Roadmap) for information when specific
 classes/specs are planned to be supported.
 
-Q: What is the proc rate of Ironfoe or <infamous proc>?
-A: Most procs have a placeholder proc rate (majority at 5%, you can change the 'rate' attribute in the .xml files).
-Ironfoe has at the time of writing a 2.7% proc rate.
+Q: What is the proc chance of Ironfoe or other procs?
+A: Ironfoe has at the time of writing a 2.7% proc chance. Most procs have a placeholder proc chance at 5%, but you can
+change the 'rate' attribute in the .xml files. Try a 100% proc rate Ironfoe!
 
 Q: Only Windows support? And 32-bit?
 
