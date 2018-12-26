@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>	
-	<melee_weapon name="Striker's Mark">
+	<melee_weapon id="17069">
 		<patch name="1.0.0">
-			<info type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_weapon_bow_08.png"/>
+			<info name="Striker's Mark" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_weapon_bow_08.png"/>
 			<dmg_range min="69" max="129" speed="2.5"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="22"/>
@@ -13,5 +13,4 @@
 			</source>
 		</patch>
 	</melee_weapon>
-
 </weapons>

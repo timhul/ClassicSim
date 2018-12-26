@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon name="Arlokk's Grasp">
+	<melee_weapon id="19910">
 		<patch name="1.7.0">
-			<info type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
+			<info name="Arlokk's Grasp" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
 			<dmg_range min="41" max="85" speed="1.5"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -17,9 +17,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Thekal's Grasp">
+	<melee_weapon id="19896">
 		<patch name="1.7.0">
-			<info type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
+			<info name="Thekal's Grasp" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
 			<dmg_range min="72" max="135" speed="2.2"/>
 			<stats>
 				<stat type="STAMINA" value="13"/>
@@ -31,9 +31,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Eskhandar's Right Claw">
+	<melee_weapon id="18203">
 		<patch name="1.3.0">
-			<info type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
+			<info name="Eskhandar's Right Claw" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
 			<dmg_range min="50" max="94" speed="1.5"/>
 			<stats>
 				<stat type="AGILITY" value="4"/>
@@ -47,10 +47,10 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
-	<melee_weapon name="Eskhandar's Left Claw">
+
+	<melee_weapon id="18202">
 		<patch name="1.8.0">
-			<info type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
+			<info name="Eskhandar's Left Claw" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
 			<dmg_range min="50" max="94" speed="1.5"/>
 			<stats>
 				<stat type="AGILITY" value="4"/>
@@ -64,10 +64,10 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
-	<melee_weapon name="Claw of the Black Drake">
+
+	<melee_weapon id="19365">
 		<patch name="1.6.0">
-			<info type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
+			<info name="Claw of the Black Drake" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
 			<dmg_range min="102" max="191" speed="2.6"/>
 			<stats>
 				<stat type="STRENGTH" value="13"/>
@@ -80,9 +80,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Silithid Claw">
+	<melee_weapon id="21673">
 		<patch name="1.9.0">
-			<info type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
+			<info name="Silithid Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
 			<dmg_range min="64" max="120" speed="1.6"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -94,9 +94,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="High Warlord's Right Claw">
+	<melee_weapon id="18844">
 		<patch name="1.5.0">
-			<info type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
+			<info name="High Warlord's Right Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -108,10 +108,10 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
-	<melee_weapon name="Grand Marshal's Right Hand Blade">
+
+	<melee_weapon id="18843">
 		<patch name="1.5.0">
-			<info type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_shortblade_07.png"/>
+			<info name="Grand Marshal's Right Hand Blade" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_shortblade_07.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -124,9 +124,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="High Warlord's Razor Claw">
+	<melee_weapon id="18848">
 		<patch name="1.5.0">
-			<info type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
+			<info name="High Warlord's Razor Claw" type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -138,10 +138,10 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
-	<melee_weapon name="Grand Marshal's Razor Hand Blade">
+
+	<melee_weapon id="18847">
 		<patch name="1.5.0">
-			<info type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Ability_rogue_rupture.png"/>
+			<info name="Grand Marshal's Razor Hand Blade" type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Ability_rogue_rupture.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -153,10 +153,10 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
-	<melee_weapon name="Claw of the Frost Wyrm">
+
+	<melee_weapon id="23242">
 		<patch name="1.11.0">
-			<info type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_weapon_hand_03.png"/>
+			<info name="Claw of the Frost Wyrm" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_weapon_hand_03.png"/>
 			<dmg_range min="75" max="140" speed="1.5"/>
 			<stats>
 				<stat type="STAMINA" value="8"/>

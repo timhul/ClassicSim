@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<belt name="Marksman's Girdle">
+	<belt id="22232">
 		<patch name="1.0.0">
-			<info type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
+			<info name="Marksman's Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
 			<stats>
 				<stat type="ARMOR" value="202"/>
 				<stat type="AGILITY" value="21"/>

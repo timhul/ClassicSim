@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<legs name="Scaled Sand Reaver Leggings">
+	<legs id="21651">
 		<patch name="1.9.0">
-			<info type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_pants_mail_10.png"/>
+			<info name="Scaled Sand Reaver Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_pants_mail_10.png"/>
 			<stats>
 				<stat type="ARMOR" value="427"/>
 				<stat type="STAMINA" value="23"/>

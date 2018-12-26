@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<shoulders name="Truestrike Shoulders">
+	<shoulders id="12927">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
+			<info name="Truestrike Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
 			<stats>
 				<stat type="ARMOR" value="129"/>
 				<stat type="HIT_CHANCE" value="0.02"/>

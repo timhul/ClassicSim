@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<ring name="Blackstone Ring">
+	<ring id="17713">
 		<patch name="1.2.0">
-			<info type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
+			<info name="Blackstone Ring" type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
 			<stats>
 				<stat type="STAMINA" value="6"/>
 				<stat type="ATTACK_POWER" value="20"/>
@@ -14,9 +14,9 @@
 		</patch>
 	</ring>
 
-	<ring name="Painweaver Band">
+	<ring id="13098">
 		<patch name="1.0.0">
-			<info type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_18.png"/>
+			<info name="Painweaver Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_18.png"/>
 			<stats>
 				<stat type="STAMINA" value="7"/>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -27,10 +27,10 @@
 			</source>
 		</patch>
 	</ring>
-	
-	<ring name="Quick Strike Ring">
+
+	<ring id="18821">
 		<patch name="1.0.0">
-			<info type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
+			<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
 			<stats>
 				<stat type="STAMINA" value="8"/>
 				<stat type="STRENGTH" value="5"/>
@@ -42,10 +42,10 @@
 			</source>
 		</patch>
 	</ring>
-	
-	<ring name="Band of Accuria">
+
+	<ring id="17063">
 		<patch name="1.0.0">
-			<info type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
+			<info name="Band of Accuria" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
 			<stats>
 				<stat type="STAMINA" value="10"/>
 				<stat type="AGILITY" value="16"/>
@@ -56,10 +56,10 @@
 			</source>
 		</patch>
 	</ring>
-	
-	<ring name="Master Dragonslayer's Ring">
+
+	<ring id="19384">
 		<patch name="1.6.0">
-			<info type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
+			<info name="Master Dragonslayer's Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
 			<stats>
 				<stat type="STAMINA" value="14"/>
 				<stat type="ATTACK_POWER" value="48"/>
@@ -70,10 +70,10 @@
 			</source>
 		</patch>
 	</ring>
-	
-	<ring name="Band of Unnatural Forces">
+
+	<ring id="23038">
 		<patch name="1.11.0">
-			<info type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
+			<info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
 				<stat type="HIT_CHANCE" value="0.01"/>

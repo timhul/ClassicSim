@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<chest name="Warforged Chestplate">
+	<chest id="11195">
 		<patch name="1.0.0">
-			<info type="PLATE" slot="CHEST" unique="no" req_lvl="40" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
+			<info name="Warforged Chestplate" type="PLATE" slot="CHEST" unique="no" req_lvl="40" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
 			<stats>
 				<stat type="ARMOR" value="543"/>
 				<stat type="STRENGTH" value="24"/>
@@ -13,10 +13,10 @@
 			</source>
 		</patch>
 	</chest>
-	
-	<chest name="Plated Abomination Ribcage">
+
+	<chest id="23000">
 		<patch name="1.11.0">
-			<info type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
+			<info name="Plated Abomination Ribcage" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
 			<stats>
 				<stat type="ARMOR" value="953"/>
 				<stat type="STRENGTH" value="45"/>

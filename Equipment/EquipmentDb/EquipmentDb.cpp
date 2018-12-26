@@ -1,11 +1,10 @@
-
 #include "EquipmentDb.h"
-#include "ItemFileReader.h"
+
 #include <QDebug>
 #include <QDir>
 
+#include "ItemFileReader.h"
 #include "Weapon.h"
-
 
 EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)

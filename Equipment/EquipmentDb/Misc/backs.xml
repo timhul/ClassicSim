@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<cloak name="Cape of the Black Baron">
+	<cloak id="13340">
 		<patch name="1.0.0">
-			<info type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
+			<info name="Cape of the Black Baron" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
 			<stats>
 				<stat type="AGILITY" value="15"/>
 				<stat type="ATTACK_POWER" value="20"/>
@@ -12,10 +12,10 @@
 			</source>
 		</patch>
 	</cloak>
-	
-	<cloak name="Onyxia Scale Cloak">
+
+	<cloak id="15138">
 		<patch name="1.0.0">
-			<info type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_05.png"/>
+			<info name="Onyxia Scale Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_05.png"/>
 			<stats>
 				<stat type="STAMINA" value="7"/>
 				<stat type="FIRE_RESISTANCE" value="16"/>
@@ -28,10 +28,10 @@
 			</special_equip_effect>
 		</patch>
 	</cloak>
-	
-	<cloak name="Drape of Unyielding Strength">
+
+	<cloak id="21394">
 		<patch name="1.9.0">
-			<info type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
+			<info name="Drape of Unyielding Strength" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
 			<class_restriction class="WARRIOR"/>
 			<stats>
 				<stat type="ARMOR" value="52"/>
@@ -45,10 +45,10 @@
 			</source>
 		</patch>
 	</cloak>
-	
-	<cloak name="Cloak of Concentrated Hatred">
+
+	<cloak id="21701">
 		<patch name="1.9.0">
-			<info type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
+			<info name="Cloak of Concentrated Hatred" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
 			<stats>
 				<stat type="ARMOR" value="56"/>
 				<stat type="AGILITY" value="16"/>
@@ -61,10 +61,10 @@
 			</source>
 		</patch>
 	</cloak>
-	
-	<cloak name="Shroud of Dominion">
+
+	<cloak id="23405">
 		<patch name="1.11.0">
-			<info type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
+			<info name="Shroud of Dominion" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
 			<stats>
 				<stat type="ARMOR" value="68"/>	
 				<stat type="STAMINA" value="11"/>

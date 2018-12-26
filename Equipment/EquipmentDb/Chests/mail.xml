@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<chest name="Deathdealer Breastplate">
+	<chest id="11926">
 		<patch name="1.0.0">
-			<info type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_chest_chain_07.png"/>
+			<info name="Deathdealer Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_chest_chain_07.png"/>
 			<stats>
 				<stat type="ARMOR" value="338"/>
 				<stat type="STAMINA" value="8"/>
@@ -13,7 +13,5 @@
 			Drops from the Seven Dwarves in Blackrock Depths.
 			</source>
 		</patch>
-	</chest>
-	
-	
+	</chest>	
 </items>

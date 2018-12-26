@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>	
-	<melee_weapon name="Earthshaker">
+	<melee_weapon id="17073">
 		<patch name="1.0.0">
-			<info type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_04.png"/>
+			<info name="Earthshaker" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_04.png"/>
 			<dmg_range min="175" max="263" speed="3.5"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="22"/>

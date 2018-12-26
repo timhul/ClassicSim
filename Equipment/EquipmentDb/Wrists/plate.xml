@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<wrist name="Battleborn Armbraces">
+	<wrist id="12936">
 		<patch name="1.0.0">
-			<info type="PLATE" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
+			<info name="Battleborn Armbraces" type="PLATE" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
 			<stats>
 				<stat type="ARMOR" value="287"/>
 				<stat type="HIT_CHANCE" value="0.01"/>
@@ -13,10 +13,10 @@
 			</source>
 		</patch>
 	</wrist>
-	
-	<wrist name="Wristguards of Vengeance">
+
+	<wrist id="22936">
 		<patch name="1.11.0">
-			<info type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
+			<info name="Wristguards of Vengeance" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
 			<stats>
 				<stat type="ARMOR" value="407"/>
 				<stat type="STRENGTH" value="24"/>

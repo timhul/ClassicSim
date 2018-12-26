@@ -1,19 +1,20 @@
-
 #include "WeaponFileReader.h"
-#include "Weapon.h"
+
 #include <QDebug>
+
+#include "Weapon.h"
 
 void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
     while (reader.readNextStartElement()) {
         if (reader.name() == "melee_weapon" || reader.name() == "ranged_weapon") {
             QString classification = reader.name().toString();
 
-            if (!reader.attributes().hasAttribute("name")) {
-                qDebug() << "Missing name attribute on weapon element";
+            if (!reader.attributes().hasAttribute("id")) {
+                qDebug() << "Missing id attribute on weapon element";
                 reader.skipCurrentElement();
                 continue;
             }
-            QString name = reader.attributes().value("name").toString();
+            QString id = reader.attributes().value("id").toString();
 
             while (reader.readNextStartElement()) {
                 if (reader.name() != "patch") {
@@ -25,7 +26,7 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
                 QVector<QPair<QString, QString>> stats;
                 QVector<QMap<QString, QString>> procs;
                 item_map["classification"] = classification;
-                item_map["name"] = name;
+                item_map["id"] = id;
                 item_map["patch"] = reader.attributes().value("name").toString();
 
                 while (reader.readNextStartElement()) {
@@ -102,25 +103,25 @@ void WeaponFileReader::create_weapon(QVector<Item*> &items,
     Weapon* weapon = nullptr;
 
     if (info["slot"] == "1H")
-        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
+        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "MH")
-        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
+        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "OH")
-        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
+        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "2H")
-        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
+        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
     else if (info["slot"] == "RANGED")
-        weapon = new Weapon(item_map["name"], get_weapon_type(info["type"]), WeaponSlots::RANGED,
+        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::RANGED,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
 
     if (weapon != nullptr)
         items.append(weapon);
 
-    QVector<QString> handled_keys = {"name", "type", "min", "max", "speed"};
+    QVector<QString> handled_keys = {"id", "type", "min", "max", "speed"};
 
     for (const auto & handled_key : handled_keys) {
         item_map.remove(handled_key);

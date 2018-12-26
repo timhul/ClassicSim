@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon name="Bonereaver's Edge">
+	<melee_weapon id="17076">
 		<patch name="1.0.0">
-			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
 			<dmg_range min="206" max="310" speed="3.4"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -18,9 +18,9 @@
 			Drops from Ragnaros in Molten Core.
 			</source>
 		</patch>
-		
+
 		<patch name="1.7.0">
-			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
 			<dmg_range min="206" max="310" speed="3.4"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -36,9 +36,9 @@
 			Drops from Ragnaros in Molten Core.
 			</source>
 		</patch>
-		
+
 		<patch name="1.10.0">
-			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
 			<dmg_range min="206" max="310" speed="3.4"/>
 			<stats>
 				<stat type="STAMINA" value="16"/>
@@ -55,9 +55,9 @@
 			Drops from Ragnaros in Molten Core.
 			</source>
 		</patch>
-		
+
 		<patch name="1.12.0">
-			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
 			<dmg_range min="206" max="310" speed="3.4"/>
 			<stats>
 				<stat type="STAMINA" value="16"/>
@@ -76,9 +76,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Ashkandi, Greatsword of the Brotherhood">
+	<melee_weapon id="19364">
 		<patch name="1.6.0">
-			<info type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
+			<info name="Ashkandi, Greatsword of the Brotherhood" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
 			<dmg_range min="229" max="344" speed="3.5"/>
 			<stats>
 				<stat type="STAMINA" value="33"/>

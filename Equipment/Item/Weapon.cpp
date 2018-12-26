@@ -1,6 +1,7 @@
 #include "Weapon.h"
 
 #include <utility>
+#include <QDebug>
 
 #include "Enchant.h"
 #include "EnchantProc.h"
@@ -12,7 +13,7 @@ Weapon::Weapon(QString name, int type, int weapon_slot, unsigned min, unsigned m
        QVector<QPair<QString, QString> > stats,
        QMap<QString, QString> info,
        QVector<QMap<QString, QString>> procs):
-    Item(std::move(name), std::move(stats), std::move(info), std::move(procs)),
+    Item(name, std::move(stats), std::move(info), std::move(procs)),
     random(new Random(min, max)),
     weapon_type(type),
     weapon_slot(weapon_slot),

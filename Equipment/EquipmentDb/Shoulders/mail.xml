@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<shoulders name="Black Dragonscale Shoulders">
+	<shoulders id="15051">
 		<patch name="1.0.0">
-			<info type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_shoulder_01.png"/>
+			<info name="Black Dragonscale Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_shoulder_01.png"/>
 			<stats>
 				<stat type="ARMOR" value="266"/>
 				<stat type="STAMINA" value="9"/>

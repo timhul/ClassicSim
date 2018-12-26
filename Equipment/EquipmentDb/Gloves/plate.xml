@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<gloves name="Gauntlets of Might">
+	<gloves id="16863">
 		<patch name="1.0.0">
-			<info type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+			<info name="Gauntlets of Might" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
 			<class_restriction class="WARRIOR"/>
 			<stats>
 				<stat type="ARMOR" value="468"/>
@@ -18,9 +18,9 @@
 		</patch>
 	</gloves>
 
-	<gloves name="Flameguard Gauntlets">
+	<gloves id="19143">
 		<patch name="1.0.0">
-			<info type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
+			<info name="Flameguard Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
 			<stats>
 				<stat type="ARMOR" value="488"/>
 				<stat type="STAMINA" value="13"/>
@@ -32,10 +32,10 @@
 			</source>
 		</patch>
 	</gloves>
-	
-	<gloves name="Gauntlets of Annihilation">
+
+	<gloves id="21581">
 		<patch name="1.9.0">
-			<info type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
+			<info name="Gauntlets of Annihilation" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
 			<stats>
 				<stat type="ARMOR" value="615"/>
 				<stat type="STRENGTH" value="35"/>

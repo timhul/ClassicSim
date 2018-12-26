@@ -1,9 +1,10 @@
-
 #include "ItemFileReader.h"
-#include "WeaponFileReader.h"
-#include "Item.h"
+
 #include <QDebug>
 #include <QDir>
+
+#include "Item.h"
+#include "WeaponFileReader.h"
 
 ItemFileReader::ItemFileReader(QObject* parent):
     QObject(parent)
@@ -32,12 +33,14 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
     while (reader.readNextStartElement()) {
         QString classification = reader.name().toString();
 
-        if (!reader.attributes().hasAttribute("name")) {
-            qDebug() << "Missing name attribute";
+        if (!reader.attributes().hasAttribute("id")) {
+            qDebug() << "Missing id attribute";
+            for (auto & attr : reader.attributes().toList())
+                qDebug() << attr.name() << attr.value();
             reader.skipCurrentElement();
             continue;
         }
-        QString name = reader.attributes().value("name").toString();
+        QString id = reader.attributes().value("id").toString();
 
         while (reader.readNextStartElement()) {
             if (reader.name() != "patch") {
@@ -50,7 +53,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
             QVector<QMap<QString, QString>> procs;
             QVector<QMap<QString, QString>> uses;
             item_map["classification"] = classification;
-            item_map["name"] = name;
+            item_map["id"] = id;
             item_map["patch"] = reader.attributes().value("name").toString();
 
             while (reader.readNextStartElement()) {
@@ -92,7 +95,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
 }
 
 void ItemFileReader::info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item) {
-    QVector<QString> mandatory_attrs = {"type", "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
+    QVector<QString> mandatory_attrs = {"name", "type", "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
     QVector<QString> optional_attrs = {"faction", "icon"};
 
     for (const auto & mandatory_attr : mandatory_attrs)
@@ -176,7 +179,7 @@ void ItemFileReader::create_item(QVector<Item*> &items,
                                  QVector<QPair<QString, QString>> &stats,
                                  QVector<QMap<QString, QString>> &procs,
                                  QVector<QMap<QString, QString>> &uses) {
-    QVector<QString> mandatory_attrs = {"name", "classification", "patch", "type", "slot",
+    QVector<QString> mandatory_attrs = {"id", "name", "classification", "patch", "type", "slot",
                                         "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
     bool missing_attrs = false;
@@ -193,9 +196,9 @@ void ItemFileReader::create_item(QVector<Item*> &items,
     QMap<QString, QString> info;
     extract_info(item_map, info);
 
-    items.append(new Item(item_map["name"], stats, info, procs, uses));
+    items.append(new Item(info["name"], stats, info, procs, uses));
 
-    QVector<QString> handled_keys = {"name"};
+    QVector<QString> handled_keys = {"id"};
 
     for (const auto & handled_key : handled_keys) {
         item_map.remove(handled_key);
@@ -203,7 +206,7 @@ void ItemFileReader::create_item(QVector<Item*> &items,
 }
 
 void ItemFileReader::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
-    QVector<QString> keys = {"patch", "type", "slot", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source", "icon",
+    QVector<QString> keys = {"name", "patch", "type", "slot", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source", "icon",
                              "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
                              "RESTRICTED_TO_ROGUE", "flavour_text", "special_equip_effect"};
 
@@ -222,7 +225,7 @@ void ItemFileReader::warn_remaining_keys(QMap<QString, QString> &item) {
     QMap<QString, QString>::const_iterator it = item.constBegin();
     auto end = item.constEnd();
     while(it != end) {
-        qDebug() << "Warning: Unhandled key" << it.value();
+        qDebug() << "Warning: Unhandled key" << QString("%1: %2").arg(it.key(), it.value());
         ++it;
     }
 }

@@ -1,3 +1,5 @@
+#include "Item.h"
+
 #include <QDebug>
 #include <utility>
 
@@ -12,7 +14,6 @@
 #include "GenericStatBuff.h"
 #include "GenericChargeConsumerProc.h"
 #include "InstantSpellProc.h"
-#include "Item.h"
 #include "NoEffectBuff.h"
 #include "JomGabbar.h"
 #include "Stats.h"
@@ -24,7 +25,7 @@ Item::Item(QString _name,
            QMap<QString, QString> _info,
            QVector<QMap<QString, QString>> _procs,
            QVector<QMap<QString, QString>> _use):
-    name(std::move(_name)),
+    name(_name),
     info(std::move(_info)),
     procs_map(std::move(_procs)),
     use_map(std::move(_use)),

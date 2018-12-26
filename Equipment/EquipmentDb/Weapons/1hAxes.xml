@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon name="Flurry Axe">
+	<melee_weapon id="871">
 		<patch name="1.0.0">
-			<info type="AXE" slot="1H" unique="no" req_lvl="42" item_lvl="47" quality="EPIC" boe="yes" icon="Inv_axe_17.png"/>
+			<info name="Flurry Axe" type="AXE" slot="1H" unique="no" req_lvl="42" item_lvl="47" quality="EPIC" boe="yes" icon="Inv_axe_17.png"/>
 			<dmg_range min="37" max="69" speed="1.5"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -17,9 +17,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Axe of the Deep Woods">
+	<melee_weapon id="811">
 		<patch name="1.0.0">
-			<info type="AXE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="yes" icon="Inv_axe_07.png"/>
+			<info name="Axe of the Deep Woods" type="AXE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="yes" icon="Inv_axe_07.png"/>
 			<dmg_range min="78" max="146" speed="2.7"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -34,9 +34,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Frostbite">
+	<melee_weapon id="19103">
 		<patch name="1.5.0">
-			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no" icon="Inv_axe_22.png"/>
+			<info name="Frostbite" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no" icon="Inv_axe_22.png"/>
 			<dmg_range min="80" max="150" speed="2.7"/>
 			<stats>
 				<stat type="STRENGTH" value="15"/>
@@ -47,9 +47,9 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Zulian Hacker">
+	<melee_weapon id="19921">
 		<patch name="1.7.0">
-			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_08.png"/>
+			<info name="Zulian Hacker" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_08.png"/>
 			<dmg_range min="71" max="134" speed="2.4"/>
 			<stats>
 				<stat type="AXE_SKILL" value="2"/>
@@ -62,9 +62,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Dark Iron Destroyer">
+	<melee_weapon id="17016">
 		<patch name="1.0.0">
-			<info type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_12.png"/>
+			<info name="Dark Iron Destroyer" type="AXE" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_12.png"/>
 			<dmg_range min="71" max="134" speed="2.4"/>
 			<stats>
 				<stat type="STRENGTH" value="10"/>
@@ -76,9 +76,9 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Ancient Hakkari Manslayer">
+	<melee_weapon id="19852">
 		<patch name="1.7.0">
-			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_axe_35.png"/>
+			<info name="Ancient Hakkari Manslayer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_axe_35.png"/>
 			<dmg_range min="69" max="130" speed="2.0"/>
 			<proc>
 				<spell name="SHADOW_ATTACK" min="48" max="54" instant="yes" rate="0.06" internal_cd="0"/>
@@ -92,10 +92,10 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Sickle of Unyielding Strength">
+	<melee_weapon id="21392">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
-			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
+			<info name="Sickle of Unyielding Strength" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
 			<class_restriction class="WARRIOR"/>
 			<dmg_range min="75" max="141" speed="2.1"/>
 			<stats>
@@ -110,10 +110,10 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Scythe of the Unseen Path">
+	<melee_weapon id="21401">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
-			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
+			<info name="Scythe of the Unseen Path" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
 			<class_restriction class="HUNTER"/>
 			<dmg_range min="86" max="161" speed="2.4"/>
 			<stats>
@@ -126,9 +126,9 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Doom's Edge">
+	<melee_weapon id="19362">
 		<patch name="1.6.0">
-			<info type="AXE"  slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
+			<info name="Doom's Edge" type="AXE"  slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
 			<dmg_range min="83" max="154" speed="2.3"/>
 			<stats>
 				<stat type="AGILITY" value="16"/>
@@ -141,9 +141,9 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Deathbringer">
+	<melee_weapon id="17068">
 		<patch name="1.0.0">
-			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
+			<info name="Deathbringer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
 			<dmg_range min="114" max="213" speed="2.9"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -158,9 +158,9 @@
 		</patch>
 	</melee_weapon>	
 	
-	<melee_weapon name="High Warlord's Cleaver">
+	<melee_weapon id="18828">
 		<patch name="1.5.0">
-			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
+			<info name="High Warlord's Cleaver" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -173,9 +173,9 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Grand Marshal's Handaxe">
+	<melee_weapon id="18827">
 		<patch name="1.5.0">
-			<info type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_24.png"/>
+			<info name="Grand Marshal's Handaxe" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_24.png"/>
 			<dmg_range min="138" max="207" speed="2.9"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="28"/>
@@ -188,10 +188,10 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Blessed Qiraji War Axe">
+	<melee_weapon id="21242">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
-			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_axe_26.png"/>
+			<info name="Blessed Qiraji War Axe" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_axe_26.png"/>
 			<dmg_range min="110" max="205" speed="2.6"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="14"/>
@@ -208,9 +208,9 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Crul'shorukh, Edge of Chaos">
+	<melee_weapon id="19363">
 		<patch name="1.6.0">
-			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_axe_12.png"/>
+			<info name="Crul'shorukh, Edge of Chaos" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_axe_12.png"/>
 			<dmg_range min="101" max="188" speed="2.3"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="36"/>
@@ -222,9 +222,9 @@
 		</patch>
 	</melee_weapon>
 	
-	<melee_weapon name="Hatchet of Sundered Bone">
+	<melee_weapon id="22816">
 		<patch name="1.11.0">
-			<info type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_axe_08.png"/>
+			<info name="Hatchet of Sundered Bone" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_axe_08.png"/>
 			<dmg_range min="119" max="221" speed="2.6"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="36"/>

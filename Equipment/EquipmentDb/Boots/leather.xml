@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<boots name="Shadowcraft Boots">
+	<boots id="16711">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Shadowcraft Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_08.png"/>
 			<stats>
 				<stat type="ARMOR" value="115"/>
 				<stat type="AGILITY" value="21"/>
@@ -14,9 +14,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Pads of the Dread Wolf">
+	<boots id="13210">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_boots_wolf.png"/>
+			<info name="Pads of the Dread Wolf" type="LEATHER" slot="BOOTS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_boots_wolf.png"/>
 			<stats>
 				<stat type="ARMOR" value="116"/>
 				<stat type="STAMINA" value="14"/>
@@ -28,9 +28,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Nightslayer Boots">
+	<boots id="16824">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Nightslayer Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="138"/>
@@ -44,9 +44,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Bloodfang Boots">
+	<boots id="16906">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Bloodfang Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="154"/>
@@ -62,7 +62,7 @@
 		</patch>
 
 		<patch name="1.6.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Bloodfang Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="154"/>
@@ -78,9 +78,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Boots of the Shadow Flame">
+	<boots id="19381">
 		<patch name="1.6.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
+			<info name="Boots of the Shadow Flame" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_cloth_05.png"/>
 			<stats>
 				<stat type="ARMOR" value="286"/>
 				<stat type="STAMINA" value="22"/>
@@ -93,9 +93,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Blooddrenched Footpads">
+	<boots id="19906">
 		<patch name="1.8.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_boots_chain_04.png"/>
+			<info name="Blooddrenched Footpads" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_boots_chain_04.png"/>
 			<stats>
 				<stat type="ARMOR" value="129"/>
 				<stat type="AGILITY" value="21"/>
@@ -108,9 +108,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Boots of the Vanguard">
+	<boots id="21493">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Boots of the Vanguard" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 			<stats>
 				<stat type="ARMOR" value="138"/>
 				<stat type="AGILITY" value="22"/>
@@ -123,9 +123,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Hive Tunneler's Boots">
+	<boots id="21645">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_04.png"/>
+			<info name="Hive Tunneler's Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_04.png"/>
 			<stats>
 				<stat type="ARMOR" value="216"/>
 				<stat type="STAMINA" value="30"/>
@@ -138,9 +138,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Drudge Boots">
+	<boots id="21532">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Drudge Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 			<stats>
 				<stat type="ARMOR" value="156"/>
 				<stat type="STAMINA" value="20"/>
@@ -154,9 +154,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Deathdealer's Boots">
+	<boots id="21359">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Deathdealer's Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="158"/>
@@ -171,9 +171,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Boots of Displacement">
+	<boots id="23073">
 		<patch name="1.11.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+			<info name="Boots of Displacement" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
 			<stats>
 				<stat type="ARMOR" value="166"/>
 				<stat type="AGILITY" value="33"/>
@@ -188,9 +188,9 @@
 		</patch>
 	</boots>
 
-	<boots name="Bonescythe Sabatons">
+	<boots id="22480">
 		<patch name="1.11.0">
-			<info type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_plate_06.png"/>
+			<info name="Bonescythe Sabatons" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_plate_06.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="171"/>

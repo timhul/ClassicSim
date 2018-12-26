@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<amulet name="Mark of Fordring">
+	<amulet id="15411">
 		<patch name="1.0.0">
-			<info type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
+			<info name="Mark of Fordring" type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
 				<stat type="ATTACK_POWER" value="26"/>
@@ -12,10 +12,10 @@
 			</source>
 		</patch>
 	</amulet>
-	
-	<amulet name="Onyxia Tooth Pendant">
+
+	<amulet id="18404">
 		<patch name="1.0.0">
-			<info type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+			<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
 			<stats>
 				<stat type="AGILITY" value="12"/>
 				<stat type="STAMINA" value="9"/>
@@ -28,10 +28,10 @@
 			</source>
 		</patch>
 	</amulet>
-	
-	<amulet name="Barbed Choker">
+
+	<amulet id="21664">
 		<patch name="1.9.0">
-			<info type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
+			<info name="Barbed Choker" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
 			<stats>
 				<stat type="STAMINA" value="10"/>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -42,10 +42,10 @@
 			</source>
 		</patch>
 	</amulet>
-	
-	<amulet name="Stormrage's Talisman of Seething">
+
+	<amulet id="23053">
 		<patch name="1.11.0">
-			<info type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>
+			<info name="Stormrage's Talisman of Seething" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>
 			<stats>
 				<stat type="STAMINA" value="12"/>
 				<stat type="CRIT_CHANCE" value="0.02"/>

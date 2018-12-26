@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<helm name="Shadowcraft Cap">
+	<helm id="16707">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
+			<info name="Shadowcraft Cap" type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
 			<stats>
 				<stat type="ARMOR" value="141"/>
 				<stat type="AGILITY" value="20"/>
@@ -16,9 +16,9 @@
 		</patch>
 	</helm>
 
-	<helm name="Eye of Rend">
+	<helm id="12587">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_46.png"/>
+			<info name="Eye of Rend" type="LEATHER" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_46.png"/>
 			<stats>
 				<stat type="ARMOR" value="143"/>
 				<stat type="STAMINA" value="7"/>
@@ -31,9 +31,9 @@
 		</patch>
 	</helm>
 
-	<helm name="Foror's Eyepatch">
+	<helm id="19945">
 		<patch name="1.7.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
+			<info name="Foror's Eyepatch" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
 			<stats>
 				<stat type="ARMOR" value="160"/>
 				<stat type="STAMINA" value="19"/>
@@ -46,9 +46,9 @@
 		</patch>
 	</helm>
 
-	<helm name="Blooddrenched Mask">
+	<helm id="22718">
 		<patch name="1.7.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
+			<info name="Blooddrenched Mask" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
 			<stats>
 				<stat type="ARMOR" value="153"/>
 				<stat type="AGILITY" value="22"/>
@@ -61,9 +61,9 @@
 		</patch>
 	</helm>
 
-	<helm name="Circlet of Restless Dreams">
+	<helm id="20623">
 		<patch name="1.8.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_17.png"/>
+			<info name="Circlet of Restless Dreams" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_17.png"/>
 			<stats>
 				<stat type="ARMOR" value="175"/>
 				<stat type="AGILITY" value="21"/>
@@ -76,9 +76,9 @@
 		</patch>
 	</helm>
 
-	<helm name="Southwind Helm">
+	<helm id="21455">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
+			<info name="Southwind Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
 			<stats>
 				<stat type="ARMOR" value="164"/>
 				<stat type="STRENGTH" value="21"/>
@@ -91,10 +91,10 @@
 			</source>
 		</patch>
 	</helm>	
-	
-	<helm name="Guise of the Devourer">
+
+	<helm id="21693">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
+			<info name="Guise of the Devourer" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
 			<stats>
 				<stat type="ARMOR" value="250"/>
 				<stat type="STAMINA" value="36"/>

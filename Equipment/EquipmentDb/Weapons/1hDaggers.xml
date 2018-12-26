@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon name="Heartseeker">
+	<melee_weapon id="12783">
 		<patch name="1.0.0">
-			<info type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_17.png"/>
+			<info name="Heartseeker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_17.png"/>
 			<dmg_range min="49" max="92" speed="1.7"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -14,9 +14,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Alcor's Sunrazor">
+	<melee_weapon id="14555">
 		<patch name="1.0.0">
-			<info type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_sword_34.png"/>
+			<info name="Alcor's Sunrazor" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_sword_34.png"/>
 			<dmg_range min="41" max="77" speed="1.3"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -30,7 +30,7 @@
 			</source>
 		</patch>
 		<patch name="1.9.0">
-			<info type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_34.png"/>
+			<info name="Alcor's Sunrazor" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_34.png"/>
 			<dmg_range min="41" max="77" speed="1.3"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -45,9 +45,23 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Felstriker">
+	<melee_weapon id="12590">
 		<patch name="1.0.0">
-			<info type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_25.png"/>
+			<info name="Deathstriker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_25.png"/>
+			<dmg_range min="54" max="101" speed="1.7"/>
+			<proc>
+				<!-- TODO: Find actual proc rate. -->
+				<spell name="FELSTRIKER_PROC" duration="3" instant="yes" rate="0.04" internal_cd="0"/>
+			</proc>
+			<special_equip_effect>
+			Chance on hit: All attacks are guaranteed to land and will be critical strikes for the next 3 sec.
+			</special_equip_effect>
+			<source>
+			Drops from Rend Blackhand in Upper Blackrock Spire (UBRS).
+			</source>
+		</patch>
+		<patch name="1.3.0">
+			<info name="Felstriker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_25.png"/>
 			<dmg_range min="54" max="101" speed="1.7"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -62,9 +76,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Perdition's Blade">
+	<melee_weapon id="18816">
 		<patch name="1.4.0">
-			<info type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
+			<info name="Perdition's Blade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
 			<dmg_range min="73" max="137" speed="1.8"/>
 			<proc>
 				<!-- TODO: Find actual proc rate. -->
@@ -79,9 +93,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Blessed Qiraji Pugio">
+	<melee_weapon id="21244">
 		<patch name="1.9.0">
-			<info type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_35.png"/>
+			<info name="Blessed Qiraji Pugio" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_35.png"/>
 			<dmg_range min="72" max="134" speed="1.7"/>
 			<stats>
 				<stat type="STAMINA" value="7"/>
@@ -98,9 +112,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Maexxna's Fang">
+	<melee_weapon id="22804">
 		<patch name="1.11.0">
-			<info type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_01.png"/>
+			<info name="Maexxna's Fang" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_01.png"/>
 			<dmg_range min="94" max="141" speed="1.8"/>
 			<stats>
 				<stat type="STAMINA" value="8"/>
@@ -113,9 +127,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Harbinger of Doom">
+	<melee_weapon id="23044">
 		<patch name="1.11.0">
-			<info type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_03.png"/>
+			<info name="Harbinger of Doom" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_03.png"/>
 			<dmg_range min="83" max="126" speed="1.6"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>
@@ -129,9 +143,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Death's Sting">
+	<melee_weapon id="21126">
 		<patch name="1.9.0">
-			<info type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_33.png"/>
+			<info name="Death's Sting" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_33.png"/>
 			<dmg_range min="95" max="144" speed="1.8"/>
 			<stats>
 				<stat type="ATTACK_POWER" value="38"/>
@@ -144,9 +158,9 @@
 		</patch>
 	</melee_weapon>
 
-	<melee_weapon name="Kingsfall">
+	<melee_weapon id="22802">
 		<patch name="1.11.0">
-			<info type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_37.png"/>
+			<info name="Kingsfall" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_37.png"/>
 			<dmg_range min="105" max="158" speed="1.8"/>
 			<stats>
 				<stat type="CRIT_CHANCE" value="0.01"/>

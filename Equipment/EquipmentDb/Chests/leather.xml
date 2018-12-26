@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<chest name="Tombstone Breastplate">
+	<chest id="13944">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
+			<info name="Tombstone Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
 			<stats>
 				<stat type="ARMOR" value="174"/>
 				<stat type="STAMINA" value="10"/>
@@ -15,9 +15,9 @@
 		</patch>
 	</chest>
 	
-	<chest name="Cadaverous Armor">
+	<chest id="14637">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_03.png"/>
+			<info name="Cadaverous Armor" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_03.png"/>
 			<stats>
 				<stat type="ARMOR" value="172"/>
 				<stat type="STRENGTH" value="8"/>
@@ -30,9 +30,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Shadowcraft Tunic">
+	<chest id="16721">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_leather_07.png"/>
+			<info name="Shadowcraft Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_leather_07.png"/>
 			<stats>
 				<stat type="ARMOR" value="176"/>
 				<stat type="AGILITY" value="26"/>
@@ -45,9 +45,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Breastplate of Bloodthirst">
+	<chest id="12757">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_chain_13.png"/>
+			<info name="Breastplate of Bloodthirst" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_chain_13.png"/>
 			<stats>
 				<stat type="ARMOR" value="190"/>
 				<stat type="STAMINA" value="20"/>
@@ -61,9 +61,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Nightslayer Chestpiece">
+	<chest id="16820">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
+			<info name="Nightslayer Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="200"/>
@@ -79,9 +79,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Bloodfang Chestpiece">
+	<chest id="16905">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
+			<info name="Bloodfang Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="225"/>
@@ -99,7 +99,7 @@
 		</patch>
 
 		<patch name="1.6.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
+			<info name="Bloodfang Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="225"/>
@@ -117,9 +117,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Malfurion's Blessed Bulwark">
+	<chest id="19405">
 		<patch name="1.6.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
+			<info name="Malfurion's Blessed Bulwark" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 			<stats>
 				<stat type="ARMOR" value="392"/>
 				<stat type="STRENGTH" value="40"/>
@@ -131,9 +131,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Primal Batskin Jerkin">
+	<chest id="19685">
 		<patch name="1.7.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_leather_03.png"/>
+			<info name="Primal Batskin Jerkin" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_leather_03.png"/>
 			<stats>
 				<stat type="ARMOR" value="181"/>
 				<stat type="AGILITY" value="32"/>
@@ -146,9 +146,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Zandalar Madcap's Tunic">
+	<chest id="19834">
 		<patch name="1.7.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_leather_10.png"/>
+			<info name="Zandalar Madcap's Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_leather_10.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="197"/>
@@ -162,9 +162,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Vest of Swift Execution">
+	<chest id="21680">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_chest_cloth_45.png"/>
+			<info name="Vest of Swift Execution" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_chest_cloth_45.png"/>
 			<stats>
 				<stat type="ARMOR" value="229"/>
 				<stat type="AGILITY" value="41"/>
@@ -177,9 +177,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Deathdealer's Vest">
+	<chest id="21364">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
+			<info name="Deathdealer's Vest" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="253"/>
@@ -195,9 +195,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Ghoul Skin Tunic">
+	<chest id="23226">
 		<patch name="1.11.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_chest_leather_02.png"/>
+			<info name="Ghoul Skin Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_chest_leather_02.png"/>
 			<stats>
 				<stat type="ARMOR" value="411"/>
 				<stat type="STRENGTH" value="40"/>
@@ -210,9 +210,9 @@
 		</patch>
 	</chest>
 
-	<chest name="Bonescythe Breastplate">
+	<chest id="22476">
 		<patch name="1.11.0">
-			<info type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_plate02.png"/>
+			<info name="Bonescythe Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_plate02.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="262"/>

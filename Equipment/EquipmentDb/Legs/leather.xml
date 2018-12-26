@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<legs name="Devilsaur Leggings">
+	<legs id="15062">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_pants_wolf.png"/>
+			<info name="Devilsaur Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_pants_wolf.png"/>
 			<stats>
 				<stat type="ARMOR" value="148"/>
 				<stat type="STAMINA" value="12"/>
@@ -15,9 +15,9 @@
 		</patch>
 	</legs>
 
-	<legs name="Plaguehound Leggings">
+	<legs id="18736">
 		<patch name="1.4.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_12.png"/>
+			<info name="Plaguehound Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_12.png"/>
 			<stats>
 				<stat type="ARMOR" value="152"/>
 				<stat type="AGILITY" value="30"/>
@@ -30,9 +30,9 @@
 		</patch>
 	</legs>
 
-	<legs name="Nightslayer Pants">
+	<legs id="16822">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
+			<info name="Nightslayer Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="175"/>
@@ -48,9 +48,9 @@
 		</patch>
 	</legs>
 
-	<legs name="Dark Heart Pants">
+	<legs id="20627">
 		<patch name="1.8.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_leather_11.png"/>
+			<info name="Dark Heart Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_leather_11.png"/>
 			<stats>
 				<stat type="ARMOR" value="296"/>
 				<stat type="STAMINA" value="20"/>
@@ -63,9 +63,9 @@
 		</patch>
 	</legs>
 
-	<legs name="Bloodfang Pants">
+	<legs id="16909">
 		<patch name="1.0.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
+			<info name="Bloodfang Pants" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="197"/>
@@ -82,9 +82,9 @@
 		</patch>
 	</legs>
 
-	<legs name="Deathdealer's Leggings">
+	<legs id="21362">
 		<patch name="1.9.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_leather_07.png"/>
+			<info name="Deathdealer's Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_leather_07.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="207"/>
@@ -99,9 +99,9 @@
 		</patch>
 	</legs>
 
-	<legs name="Leggings of Apocalypse">
+	<legs id="23071">
 		<patch name="1.11.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_leather_09.png"/>
+			<info name="Leggings of Apocalypse" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_leather_09.png"/>
 			<stats>
 				<stat type="ARMOR" value="211"/>
 				<stat type="AGILITY" value="31"/>
@@ -115,9 +115,9 @@
 		</patch>
 	</legs>
 
-	<legs name="Bonescythe Legplates">
+	<legs id="22477">
 		<patch name="1.11.0">
-			<info type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_plate_05.png"/>
+			<info name="Bonescythe Legplates" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_plate_05.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="221"/>

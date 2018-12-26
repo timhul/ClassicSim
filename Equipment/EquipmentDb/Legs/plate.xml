@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>	
-	<legs name="Titanic Leggings">
+	<legs id="22385">
 		<patch name="1.6.0">
-			<info type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
+			<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
 			<stats>
 				<stat type="ARMOR" value="598"/>
 				<stat type="STRENGTH" value="30"/>
@@ -14,10 +14,10 @@
 			</source>
 		</patch>
 	</legs>
-	
-	<legs name="Legplates of Carnage">
+
+	<legs id="23068">
 		<patch name="1.11.0">
-			<info type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
+			<info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
 			<stats>
 				<stat type="ARMOR" value="815"/>
 				<stat type="STRENGTH" value="42"/>
