@@ -2,6 +2,7 @@
 
 #include "Bloodthirst.h"
 #include "ClassStatistics.h"
+#include "Engine.h"
 #include "Equipment.h"
 #include "HeroicStrike.h"
 #include "ImprovedRend.h"

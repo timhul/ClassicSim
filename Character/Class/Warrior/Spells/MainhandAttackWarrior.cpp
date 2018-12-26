@@ -1,10 +1,11 @@
-
 #include "MainhandAttackWarrior.h"
-#include "Warrior.h"
+
+#include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
-#include "CharacterStats.h"
+#include "Warrior.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Character* pchar) :
     MainhandAttack(pchar),

@@ -1,10 +1,11 @@
-
 #include "OffhandAttackWarrior.h"
-#include "Warrior.h"
+
+#include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "DeepWounds.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
-#include "CharacterStats.h"
+#include "Warrior.h"
 
 OffhandAttackWarrior::OffhandAttackWarrior(Character* pchar) :
     OffhandAttack(pchar),

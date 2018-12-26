@@ -1,7 +1,8 @@
-
 #include "Bloodrage.h"
-#include "Warrior.h"
+
+#include "Engine.h"
 #include "ResourceGain.h"
+#include "Warrior.h"
 
 Bloodrage::Bloodrage(Character* pchar) :
     Spell("Bloodrage", "Assets/warrior/protection/tier2/Ability_racial_bloodrage.png", pchar, RestrictedByGcd::No, 60, ResourceType::Rage, 0),

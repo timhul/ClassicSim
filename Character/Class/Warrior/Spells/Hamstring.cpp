@@ -1,10 +1,11 @@
-
 #include "Hamstring.h"
-#include "Warrior.h"
-#include "Flurry.h"
-#include "DeepWounds.h"
-#include "OverpowerBuff.h"
+
 #include "CharacterStats.h"
+#include "CombatRoll.h"
+#include "DeepWounds.h"
+#include "Flurry.h"
+#include "OverpowerBuff.h"
+#include "Warrior.h"
 
 Hamstring::Hamstring(Character* pchar) :
     Spell("Hamstring", "Assets/warrior/arms/tier6/Ability_shockwave.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
@@ -18,18 +19,18 @@ void Hamstring::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(resource_cost);
+        warr->lose_rage(static_cast<unsigned>(resource_cost));
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();
-        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
+        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
-        warr->lose_rage(static_cast<int>(round(resource_cost * 0.25)));
+        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
 
@@ -45,5 +46,5 @@ void Hamstring::spell_effect() {
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
 
-    warr->lose_rage(resource_cost);
+    warr->lose_rage(static_cast<unsigned>(resource_cost));
 }

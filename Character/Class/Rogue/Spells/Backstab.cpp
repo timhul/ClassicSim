@@ -1,6 +1,7 @@
 #include "Backstab.h"
 
 #include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "Equipment.h"
 #include "Rogue.h"
 #include "SealFate.h"

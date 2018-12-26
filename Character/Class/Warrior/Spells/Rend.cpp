@@ -1,7 +1,10 @@
+#include "Rend.h"
+
+#include "CombatRoll.h"
 #include "DotTick.h"
+#include "Engine.h"
 #include "NoEffectBuff.h"
 #include "OverpowerBuff.h"
-#include "Rend.h"
 #include "Warrior.h"
 
 Rend::Rend(Character* pchar) :

@@ -1,6 +1,7 @@
 #include "Hemorrhage.h"
 
 #include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "Rogue.h"
 
 Hemorrhage::Hemorrhage(Character* pchar) :

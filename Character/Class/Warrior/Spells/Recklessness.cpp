@@ -1,7 +1,7 @@
-
 #include "Recklessness.h"
-#include "Warrior.h"
+
 #include "RecklessnessBuff.h"
+#include "Warrior.h"
 
 Recklessness::Recklessness(Character* pchar) :
     Spell("Recklessness", "Assets/warrior/Ability_criticalstrike.png", pchar, RestrictedByGcd::Yes, 1800.0, ResourceType::Rage, 0)

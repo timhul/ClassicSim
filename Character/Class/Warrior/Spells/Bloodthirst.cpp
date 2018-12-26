@@ -1,11 +1,12 @@
-
 #include "Bloodthirst.h"
-#include "Warrior.h"
+
 #include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "CooldownReady.h"
-#include "Flurry.h"
 #include "DeepWounds.h"
+#include "Flurry.h"
 #include "OverpowerBuff.h"
+#include "Warrior.h"
 
 Bloodthirst::Bloodthirst(Character* pchar) :
     Spell("Bloodthirst", "Assets/warrior/fury/tier7/Spell_nature_bloodlust.png", pchar, RestrictedByGcd::Yes, 6.0, ResourceType::Rage, 30),

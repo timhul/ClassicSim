@@ -1,15 +1,16 @@
+#include "Spells.h"
 
 #include "BloodFury.h"
 #include "Berserking.h"
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
+#include "Engine.h"
 #include "MainhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "OffhandAttack.h"
 #include "OffhandMeleeHit.h"
 #include "Race.h"
-#include "Spells.h"
 #include "Target.h"
 
 Spells::Spells(Character* pchar) :

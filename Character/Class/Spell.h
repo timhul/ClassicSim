@@ -2,19 +2,18 @@
 #define SPELL_H
 
 #include <algorithm>
-#include "assert.h"
-
+#include <cassert>
 #include <QString>
 #include <QVector>
 
-#include "CombatRoll.h"
-#include "CooldownReady.h"
-#include "Engine.h"
 #include "PhysicalAttackResult.h"
 #include "MagicAttackResult.h"
 #include "Resource.h"
 
 class Character;
+class CombatRoll;
+class CooldownReady;
+class Engine;
 class StatisticsSpell;
 
 namespace SpellStatus {
@@ -29,8 +28,8 @@ namespace RestrictedByGcd {
 
 class Spell {
 public:
-    Spell(QString  name,
-          QString  icon,
+    Spell(QString name,
+          QString icon,
           Character* pchar,
           bool restricted_by_gcd,
           double cooldown,
@@ -40,16 +39,18 @@ public:
     virtual ~Spell() = default;
 
     QString get_name() const;
+
     double get_base_cooldown();
+    double get_cooldown_remaining() const;
     double get_last_used();
     double get_next_use() const;
+
     bool is_ready() const;
     virtual bool is_available() const;
-    bool is_enabled() const;
+
     void enable();
     void disable();
-
-    double get_cooldown_remaining() const;
+    bool is_enabled() const;
 
     virtual void increase_spell_rank();
     virtual void decrease_spell_rank();
@@ -94,7 +95,6 @@ protected:
 
     void increment_miss();
     void increment_full_resist();
-
     void increment_dodge();
     void increment_parry();
     void increment_full_block();

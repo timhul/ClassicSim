@@ -1,6 +1,7 @@
 #include "HeroicStrike.h"
 
 #include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "DeepWounds.h"
 #include "Flurry.h"
 #include "MainhandAttackWarrior.h"

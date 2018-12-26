@@ -1,37 +1,34 @@
-
 #include "WarriorSpells.h"
+
 #include "Warrior.h"
-
-#include "MainhandMeleeHit.h"
-#include "OffhandMeleeHit.h"
-
 #include "AngerManagement.h"
 #include "BattleShout.h"
+#include "BattleShoutBuff.h"
 #include "BattleStance.h"
 #include "BerserkerRage.h"
 #include "BerserkerStance.h"
 #include "Bloodrage.h"
 #include "Bloodthirst.h"
 #include "DeathWish.h"
+#include "DeathWishBuff.h"
 #include "DeepWounds.h"
+#include "Engine.h"
 #include "Execute.h"
+#include "Flurry.h"
 #include "Hamstring.h"
 #include "HeroicStrike.h"
 #include "Overpower.h"
+#include "MainhandAttackWarrior.h"
+#include "MainhandMeleeHit.h"
 #include "MortalStrike.h"
+#include "NoEffectBuff.h"
+#include "OffhandAttackWarrior.h"
+#include "OffhandMeleeHit.h"
 #include "Recklessness.h"
 #include "Rend.h"
 #include "Slam.h"
-#include "Whirlwind.h"
-
-#include "MainhandAttackWarrior.h"
-#include "OffhandAttackWarrior.h"
-
-#include "Flurry.h"
-#include "NoEffectBuff.h"
 #include "UnbridledWrath.h"
-#include "DeathWishBuff.h"
-#include "BattleShoutBuff.h"
+#include "Whirlwind.h"
 
 WarriorSpells::WarriorSpells(Warrior* pchar) :
     Spells(pchar),

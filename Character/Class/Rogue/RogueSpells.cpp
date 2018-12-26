@@ -3,6 +3,7 @@
 #include "AdrenalineRush.h"
 #include "Backstab.h"
 #include "BladeFlurry.h"
+#include "Engine.h"
 #include "Eviscerate.h"
 #include "Hemorrhage.h"
 #include "MainhandAttack.h"

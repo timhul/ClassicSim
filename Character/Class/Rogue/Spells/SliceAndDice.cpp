@@ -1,10 +1,11 @@
+#include "SliceAndDice.h"
+
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Random.h"
 #include "Rogue.h"
 #include "RelentlessStrikes.h"
 #include "Ruthlessness.h"
-#include "SliceAndDice.h"
 #include "SliceAndDiceBuff.h"
 #include "Weapon.h"
 

@@ -1,6 +1,7 @@
 #include "AngerManagement.h"
 
 #include "ClassStatistics.h"
+#include "Engine.h"
 #include "Resource.h"
 #include "ResourceGain.h"
 #include "StatisticsResource.h"

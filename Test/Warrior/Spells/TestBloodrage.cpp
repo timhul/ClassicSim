@@ -1,6 +1,7 @@
 #include "TestBloodrage.h"
 
 #include "Bloodrage.h"
+#include "Engine.h"
 #include "Queue.h"
 
 TestBloodrage::TestBloodrage(EquipmentDb *equipment_db) :

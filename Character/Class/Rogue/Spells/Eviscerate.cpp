@@ -1,6 +1,8 @@
-#include "CharacterStats.h"
-#include "Equipment.h"
 #include "Eviscerate.h"
+
+#include "CharacterStats.h"
+#include "CombatRoll.h"
+#include "Equipment.h"
 #include "Random.h"
 #include "RelentlessStrikes.h"
 #include "Rogue.h"

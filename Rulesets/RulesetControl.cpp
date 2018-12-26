@@ -1,13 +1,15 @@
+#include "RulesetControl.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "EnabledBuffs.h"
+#include "Execute.h"
+#include "EssenceOfTheRed.h"
+#include "GeneralBuffs.h"
+#include "SimSettings.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
-#include "Execute.h"
-#include "GeneralBuffs.h"
-#include "EssenceOfTheRed.h"
-#include "SimSettings.h"
-#include "RulesetControl.h"
 
 RulesetControl::RulesetControl() :
     active_ruleset(Ruleset::Standard)

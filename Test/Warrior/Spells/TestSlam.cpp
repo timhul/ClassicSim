@@ -1,5 +1,6 @@
 #include "TestSlam.h"
 
+#include "Engine.h"
 #include "Equipment.h"
 #include "ImprovedSlam.h"
 #include "MainhandAttackWarrior.h"

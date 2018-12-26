@@ -2,6 +2,8 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include "CombatRoll.h"
+#include "Engine.h"
 #include "Equipment.h"
 #include "Weapon.h"
 

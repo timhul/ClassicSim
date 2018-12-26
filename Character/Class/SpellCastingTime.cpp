@@ -1,6 +1,7 @@
-
 #include "SpellCastingTime.h"
+
 #include "CastComplete.h"
+#include "Engine.h"
 
 SpellCastingTime::SpellCastingTime(const QString& name,
                                    const QString &icon,

@@ -1,11 +1,11 @@
-
 #include "MortalStrike.h"
-#include "Warrior.h"
+
 #include "CharacterStats.h"
-#include "CooldownReady.h"
-#include "Flurry.h"
+#include "CombatRoll.h"
 #include "DeepWounds.h"
+#include "Flurry.h"
 #include "OverpowerBuff.h"
+#include "Warrior.h"
 
 MortalStrike::MortalStrike(Character* pchar) :
     Spell("Mortal Strike", "Assets/warrior/arms/tier7/Ability_warrior_savageblow.png", pchar, RestrictedByGcd::Yes, 6.0, ResourceType::Rage, 30),

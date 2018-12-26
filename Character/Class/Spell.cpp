@@ -5,13 +5,16 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
+#include "CombatRoll.h"
+#include "CooldownReady.h"
+#include "Engine.h"
 #include "Mechanics.h"
 #include "Spells.h"
 #include "StatisticsSpell.h"
 #include "Target.h"
 
-Spell::Spell(QString  name,
-             QString  icon,
+Spell::Spell(QString name,
+             QString icon,
              Character* pchar,
              bool restricted_by_gcd,
              double cooldown,

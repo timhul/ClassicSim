@@ -5,6 +5,7 @@
 #include "ProcInfo.h"
 
 class EnabledProcs;
+class Random;
 class StatisticsProc;
 class StatisticsBuff;
 

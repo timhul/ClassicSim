@@ -1,8 +1,9 @@
-
 #include "Overpower.h"
-#include "Warrior.h"
-#include "OverpowerBuff.h"
+
 #include "CharacterStats.h"
+#include "CombatRoll.h"
+#include "OverpowerBuff.h"
+#include "Warrior.h"
 
 Overpower::Overpower(Character* pchar) :
     Spell("Overpower", "Assets/warrior/arms/tier3/Inv_sword_05.png", pchar, RestrictedByGcd::Yes, 5.0, ResourceType::Rage, 5),
@@ -29,7 +30,7 @@ void Overpower::spell_effect() {
     warr->get_overpower_buff()->cancel_buff();
     add_gcd_event();
     add_spell_cd_event();
-    warr->lose_rage(resource_cost);
+    warr->lose_rage(static_cast<unsigned>(resource_cost));
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

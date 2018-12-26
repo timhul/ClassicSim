@@ -4,6 +4,7 @@
 #include "ClassStatistics.h"
 #include "DeepWounds.h"
 #include "DeepWoundsTalent.h"
+#include "Engine.h"
 #include "Equipment.h"
 #include "HeroicStrike.h"
 #include "MainhandAttackWarrior.h"

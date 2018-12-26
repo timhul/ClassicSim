@@ -1,11 +1,13 @@
-
 #include "Execute.h"
-#include "Warrior.h"
-#include "Flurry.h"
-#include "DeepWounds.h"
-#include "OverpowerBuff.h"
+
 #include "CharacterStats.h"
+#include "CombatRoll.h"
+#include "DeepWounds.h"
+#include "Engine.h"
+#include "Flurry.h"
+#include "OverpowerBuff.h"
 #include "SimSettings.h"
+#include "Warrior.h"
 
 Execute::Execute(Character* pchar) :
     Spell("Execute", "Assets/warrior/fury/tier4/Inv_sword_48.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 15),

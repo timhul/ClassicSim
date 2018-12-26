@@ -1,7 +1,8 @@
-
 #include "InstantSpellAttack.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "Random.h"
 
 InstantSpellAttack::InstantSpellAttack(Character* pchar,

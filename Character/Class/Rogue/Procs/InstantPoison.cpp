@@ -2,6 +2,7 @@
 
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
+#include "CombatRoll.h"
 #include "EnchantName.h"
 #include "ItemNamespace.h"
 #include "InstantPoisonBuff.h"
