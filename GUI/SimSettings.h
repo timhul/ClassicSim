@@ -2,6 +2,7 @@
 #define SIMSETTINGS_H
 
 #include <QSet>
+#include <QVersionNumber>
 
 #include "Rulesets.h"
 #include "SimOption.h"
@@ -13,6 +14,9 @@ class SimSettings {
 public:
     SimSettings();
     ~SimSettings();
+
+    QString get_patch() const;
+    void set_patch(const QString& patch);
 
     void set_combat_length(const int);
     void set_combat_iterations_full_sim(const int);
@@ -41,6 +45,7 @@ public:
     void reset_execute_threshold();
 
 private:
+    QVersionNumber current_patch;
     int combat_length;
 
     int combat_iterations_quick_sim;

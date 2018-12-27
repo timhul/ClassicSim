@@ -26,6 +26,7 @@ QString CharacterEncoder::get_current_setup_string() {
 
     this->pchar_str = "";
 
+    key_val("PATCH", pchar->get_sim_settings()->get_patch());
     key_val("RACE", pchar->get_race()->get_name());
     key_val("CLASS", pchar->get_name());
 

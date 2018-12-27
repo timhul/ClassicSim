@@ -4,6 +4,7 @@
 #include <QThread>
 
 SimSettings::SimSettings() :
+    current_patch(QVersionNumber::fromString("1.12.1")),
     combat_length(300),
     combat_iterations_quick_sim(1000),
     combat_iterations_full_sim(10000),
@@ -14,6 +15,14 @@ SimSettings::SimSettings() :
 
 SimSettings::~SimSettings() {
     delete ruleset_control;
+}
+
+QString SimSettings::get_patch() const {
+    return this->current_patch.toString();
+}
+
+void SimSettings::set_patch(const QString& patch) {
+    current_patch = QVersionNumber::fromString(patch);
 }
 
 int SimSettings::get_combat_iterations_quick_sim() const {
