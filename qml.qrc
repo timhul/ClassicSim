@@ -424,5 +424,11 @@
         <file>QML/Assets/items/Inv_chest_leather_10.png</file>
         <file>QML/Assets/items/Inv_chest_plate02.png</file>
         <file>QML/Assets/items/Inv_helmet_17.png</file>
+        <file>QML/Assets/items/Inv_shoulder_03.png</file>
+        <file>QML/Assets/items/Inv_shoulder_07.png</file>
+        <file>QML/Assets/items/Inv_shoulder_08.png</file>
+        <file>QML/Assets/items/Inv_shoulder_25.png</file>
+        <file>QML/Assets/items/Inv_shoulder_29.png</file>
+        <file>QML/Assets/items/Inv_shoulder_30.png</file>
     </qresource>
 </RCC>
