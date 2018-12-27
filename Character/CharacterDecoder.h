@@ -14,7 +14,7 @@ public:
 
     QString get_class();
     QString get_race();
-    QString get_key(const QString& key);
+    QString get_value(const QString& key);
     QVector<QPair<QString, QString>> get_key_val_pairs(const QString& key);
 
     void dump();

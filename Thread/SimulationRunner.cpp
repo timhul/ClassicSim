@@ -79,7 +79,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     if (pchar == nullptr)
         return exit_thread("Pchar nullptr: " + decoder.get_class());
 
-    local_sim_settings->set_patch(decoder.get_key("PATCH"));
+    local_sim_settings->set_patch(decoder.get_value("PATCH"));
     local_sim_settings->set_combat_iterations_full_sim(iterations);
     local_sim_settings->set_combat_iterations_quick_sim(iterations);
     local_sim_settings->set_sim_options(global_sim_settings->get_active_options());
@@ -135,71 +135,71 @@ void SimulationRunner::setup_race(CharacterDecoder& decoder) {
 
 void SimulationRunner::equip_gear(CharacterDecoder& decoder) {
     bool key_converted;
-    int item = decoder.get_key("MAINHAND").toInt(&key_converted);
+    int item = decoder.get_value("MAINHAND").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_mainhand(item);
 
-    item = decoder.get_key("OFFHAND").toInt(&key_converted);
+    item = decoder.get_value("OFFHAND").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_offhand(item);
 
-    item = decoder.get_key("RANGED").toInt(&key_converted);
+    item = decoder.get_value("RANGED").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_ranged(item);
 
-    item = decoder.get_key("HEAD").toInt(&key_converted);
+    item = decoder.get_value("HEAD").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_head(item);
 
-    item = decoder.get_key("NECK").toInt(&key_converted);
+    item = decoder.get_value("NECK").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_neck(item);
 
-    item = decoder.get_key("SHOULDERS").toInt(&key_converted);
+    item = decoder.get_value("SHOULDERS").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_shoulders(item);
 
-    item = decoder.get_key("BACK").toInt(&key_converted);
+    item = decoder.get_value("BACK").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_back(item);
 
-    item = decoder.get_key("CHEST").toInt(&key_converted);
+    item = decoder.get_value("CHEST").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_chest(item);
 
-    item = decoder.get_key("WRIST").toInt(&key_converted);
+    item = decoder.get_value("WRIST").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_wrist(item);
 
-    item = decoder.get_key("GLOVES").toInt(&key_converted);
+    item = decoder.get_value("GLOVES").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_gloves(item);
 
-    item = decoder.get_key("BELT").toInt(&key_converted);
+    item = decoder.get_value("BELT").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_belt(item);
 
-    item = decoder.get_key("LEGS").toInt(&key_converted);
+    item = decoder.get_value("LEGS").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_legs(item);
 
-    item = decoder.get_key("BOOTS").toInt(&key_converted);
+    item = decoder.get_value("BOOTS").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_boots(item);
 
-    item = decoder.get_key("RING1").toInt(&key_converted);
+    item = decoder.get_value("RING1").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_ring1(item);
 
-    item = decoder.get_key("RING2").toInt(&key_converted);
+    item = decoder.get_value("RING2").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_ring2(item);
 
-    item = decoder.get_key("TRINKET1").toInt(&key_converted);
+    item = decoder.get_value("TRINKET1").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_trinket1(item);
 
-    item = decoder.get_key("TRINKET2").toInt(&key_converted);
+    item = decoder.get_value("TRINKET2").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_trinket2(item);
 }
@@ -230,51 +230,51 @@ void SimulationRunner::apply_external_buffs(CharacterDecoder& decoder) {
 
 void SimulationRunner::apply_enchants(CharacterDecoder& decoder) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
-        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_key("MH_ENCHANT")), pchar, true);
-        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_key("MH_TEMPORARY_ENCHANT")), pchar, true);
+        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, true);
+        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar, true);
     }
 
     if (pchar->get_equipment()->get_offhand() != nullptr) {
-        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_key("OH_ENCHANT")), pchar, false);
-        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_key("OH_TEMPORARY_ENCHANT")), pchar, false);
+        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT")), pchar, false);
+        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar, false);
     }
 
     if (pchar->get_equipment()->get_head() != nullptr)
-        pchar->get_equipment()->get_head()->apply_enchant(get_enum_val(decoder.get_key("HEAD_ENCHANT")), pchar);
+        pchar->get_equipment()->get_head()->apply_enchant(get_enum_val(decoder.get_value("HEAD_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_shoulders() != nullptr)
-        pchar->get_equipment()->get_shoulders()->apply_enchant(get_enum_val(decoder.get_key("SHOULDER_ENCHANT")), pchar);
+        pchar->get_equipment()->get_shoulders()->apply_enchant(get_enum_val(decoder.get_value("SHOULDER_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_back() != nullptr)
-        pchar->get_equipment()->get_back()->apply_enchant(get_enum_val(decoder.get_key("BACK_ENCHANT")), pchar);
+        pchar->get_equipment()->get_back()->apply_enchant(get_enum_val(decoder.get_value("BACK_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_chest() != nullptr)
-        pchar->get_equipment()->get_chest()->apply_enchant(get_enum_val(decoder.get_key("CHEST_ENCHANT")), pchar);
+        pchar->get_equipment()->get_chest()->apply_enchant(get_enum_val(decoder.get_value("CHEST_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_wrist() != nullptr)
-        pchar->get_equipment()->get_wrist()->apply_enchant(get_enum_val(decoder.get_key("WRIST_ENCHANT")), pchar);
+        pchar->get_equipment()->get_wrist()->apply_enchant(get_enum_val(decoder.get_value("WRIST_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_gloves() != nullptr)
-        pchar->get_equipment()->get_gloves()->apply_enchant(get_enum_val(decoder.get_key("GLOVES_ENCHANT")), pchar);
+        pchar->get_equipment()->get_gloves()->apply_enchant(get_enum_val(decoder.get_value("GLOVES_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_legs() != nullptr)
-        pchar->get_equipment()->get_legs()->apply_enchant(get_enum_val(decoder.get_key("LEGS_ENCHANT")), pchar);
+        pchar->get_equipment()->get_legs()->apply_enchant(get_enum_val(decoder.get_value("LEGS_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_boots() != nullptr)
-        pchar->get_equipment()->get_boots()->apply_enchant(get_enum_val(decoder.get_key("BOOTS_ENCHANT")), pchar);
+        pchar->get_equipment()->get_boots()->apply_enchant(get_enum_val(decoder.get_value("BOOTS_ENCHANT")), pchar);
 
     if (pchar->get_equipment()->get_ranged())
-        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_key("RANGED_ENCHANT")), pchar);
+        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_value("RANGED_ENCHANT")), pchar);
 }
 
 void SimulationRunner::apply_ruleset(CharacterDecoder& decoder) {
-    pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_key("RULESET").toInt()), pchar);
+    pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_value("RULESET").toInt()), pchar);
 }
 
 void SimulationRunner::setup_target(CharacterDecoder& decoder) {
-    pchar->get_target()->set_creature_type(decoder.get_key("TARGET_TYPE"));
-    pchar->get_target()->set_lvl(decoder.get_key("TARGET_LVL").toInt());
-    pchar->get_target()->set_armor(decoder.get_key("TARGET_ARMOR").toInt());
+    pchar->get_target()->set_creature_type(decoder.get_value("TARGET_TYPE"));
+    pchar->get_target()->set_lvl(decoder.get_value("TARGET_LVL").toInt());
+    pchar->get_target()->set_armor(decoder.get_value("TARGET_ARMOR").toInt());
 }
 
 void SimulationRunner::select_rotation(CharacterDecoder& decoder) {
@@ -282,7 +282,7 @@ void SimulationRunner::select_rotation(CharacterDecoder& decoder) {
     QVector<Rotation*> new_rotations;
     rotation_file_reader.add_rotations(new_rotations);
 
-    QString rotation_name = decoder.get_key("ROTATION");
+    QString rotation_name = decoder.get_value("ROTATION");
 
     for (auto & rotation : new_rotations) {
         if (rotation == nullptr)

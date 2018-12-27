@@ -45,16 +45,16 @@ void CharacterDecoder::parse_list(QString& string_list) {
     }
 }
 
-QString CharacterDecoder::get_key(const QString& key) {
+QString CharacterDecoder::get_value(const QString& key) {
     return setup_map.take(key);
 }
 
 QString CharacterDecoder::get_race() {
-    return get_key("RACE");
+    return get_value("RACE");
 }
 
 QString CharacterDecoder::get_class() {
-    return get_key("CLASS");
+    return get_value("CLASS");
 }
 
 QPair<QString, QString> CharacterDecoder::get_key_val(const QString& key_val_string) const {
