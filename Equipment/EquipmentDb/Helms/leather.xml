@@ -31,6 +31,43 @@
 		</patch>
 	</helm>
 
+	<helm id="16821">
+		<patch name="1.0.0">
+			<info name="Nightslayer Cover" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="163"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STAMINA" value="19"/>
+				<stat type="STRENGTH" value="6"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Garr in Molten Core.
+			</source>
+		</patch>
+	</helm>
+
+	<helm id="16908">
+		<patch name="1.0.0">
+			<info name="Bloodfang Hood" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="183"/>
+				<stat type="AGILITY" value="27"/>
+				<stat type="STAMINA" value="25"/>
+				<stat type="STRENGTH" value="19"/>
+				<stat type="FROST_RESISTANCE" value="10"/>
+				<stat type="SHADOW_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Onyxia.
+			</source>
+		</patch>
+	</helm>
+
 	<helm id="19945">
 		<patch name="1.7.0">
 			<info name="Foror's Eyepatch" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
@@ -106,5 +143,56 @@
 			Drops from bug trio in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</helm>	
+	</helm>
+
+	<helm id="21360">
+		<patch name="1.9.0">
+			<info name="Deathdealer's Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="192"/>
+				<stat type="AGILITY" value="29"/>
+				<stat type="STRENGTH" value="25"/>
+				<stat type="STAMINA" value="27"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drop from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</helm>
+
+	<helm id="23020">
+		<patch name="1.11.0">
+			<info name="Polar Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
+			<stats>
+				<stat type="ARMOR" value="196"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="AGILITY" value="18"/>
+				<stat type="FROST_RESISTANCE" value="44"/>
+			</stats>
+			<source>
+			Drops from Gothik the Harvester in Naxxramas.
+			</source>
+		</patch>
+	</helm>
+
+	<helm id="22478">
+		<patch name="1.11.0">
+			<info name="Bonescythe Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="ARMOR" value="205"/>
+				<stat type="AGILITY" value="30"/>
+				<stat type="STAMINA" value="29"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
+			</source>
+		</patch>
+	</helm>
 </items>
