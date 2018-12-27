@@ -116,7 +116,7 @@ void Equipment::change_setup(const int index) {
     setup_index = index;
 
     add_proc_effects_from_current_setup();
-    clear_items_not_available_on_patch();
+    reequip_items();
 }
 
 void Equipment::unequip_all() {
@@ -615,100 +615,119 @@ void Equipment::clear_relic() {
     unequip(relic);
 }
 
-void Equipment::clear_items_not_available_on_patch() {
+void Equipment::reequip_items() {
     if (get_mainhand()) {
-        if (!db->item_valid_for_current_patch(get_mainhand()->get_value("patch")))
-            clear_mainhand();
+        int item_id = get_mainhand()->get_item_id();
+        clear_mainhand();
+        set_mainhand(item_id);
     }
 
     if (get_offhand()) {
-        if (!db->item_valid_for_current_patch(get_offhand()->get_value("patch")))
-            clear_offhand();
+        int item_id = get_offhand()->get_item_id();
+        clear_offhand();
+        set_offhand(item_id);
     }
 
     if (get_ranged()) {
-        if (!db->item_valid_for_current_patch(get_ranged()->get_value("patch")))
-            clear_ranged();
+        int item_id = get_ranged()->get_item_id();
+        clear_ranged();
+        set_ranged(item_id);
     }
 
     if (get_head()) {
-        if (!db->item_valid_for_current_patch(get_head()->get_value("patch")))
-            clear_head();
+        int item_id = get_head()->get_item_id();
+        clear_head();
+        set_head(item_id);
     }
 
     if (get_neck()) {
-        if (!db->item_valid_for_current_patch(get_neck()->get_value("patch")))
-            clear_neck();
+        int item_id = get_neck()->get_item_id();
+        clear_neck();
+        set_neck(item_id);
     }
 
     if (get_shoulders()) {
-        if (!db->item_valid_for_current_patch(get_shoulders()->get_value("patch")))
-            clear_shoulders();
+        int item_id = get_shoulders()->get_item_id();
+        clear_shoulders();
+        set_shoulders(item_id);
     }
 
     if (get_back()) {
-        if (!db->item_valid_for_current_patch(get_back()->get_value("patch")))
-            clear_back();
+        int item_id = get_back()->get_item_id();
+        clear_back();
+        set_back(item_id);
     }
 
     if (get_chest()) {
-        if (!db->item_valid_for_current_patch(get_chest()->get_value("patch")))
-            clear_chest();
+        int item_id = get_chest()->get_item_id();
+        clear_chest();
+        set_chest(item_id);
     }
 
     if (get_wrist()) {
-        if (!db->item_valid_for_current_patch(get_wrist()->get_value("patch")))
-            clear_wrist();
+        int item_id = get_wrist()->get_item_id();
+        clear_wrist();
+        set_wrist(item_id);
     }
 
     if (get_gloves()) {
-        if (!db->item_valid_for_current_patch(get_gloves()->get_value("patch")))
-            clear_gloves();
+        int item_id = get_gloves()->get_item_id();
+        clear_gloves();
+        set_gloves(item_id);
     }
 
     if (get_belt()) {
-        if (!db->item_valid_for_current_patch(get_belt()->get_value("patch")))
-            clear_belt();
+        int item_id = get_belt()->get_item_id();
+        clear_belt();
+        set_belt(item_id);
     }
 
     if (get_legs()) {
-        if (!db->item_valid_for_current_patch(get_legs()->get_value("patch")))
-            clear_legs();
+        int item_id = get_legs()->get_item_id();
+        clear_legs();
+        set_legs(item_id);
     }
 
     if (get_boots()) {
-        if (!db->item_valid_for_current_patch(get_boots()->get_value("patch")))
-            clear_boots();
+        int item_id = get_boots()->get_item_id();
+        clear_boots();
+        set_boots(item_id);
     }
 
     if (get_ring1()) {
-        if (!db->item_valid_for_current_patch(get_ring1()->get_value("patch")))
-            clear_ring1();
+        int item_id = get_ring1()->get_item_id();
+        clear_ring1();
+        set_ring1(item_id);
     }
 
     if (get_ring2()) {
-        if (!db->item_valid_for_current_patch(get_ring2()->get_value("patch")))
-            clear_ring2();
+        int item_id = get_ring2()->get_item_id();
+        clear_ring2();
+        set_ring2(item_id);
     }
 
     if (get_trinket1()) {
-        if (!db->item_valid_for_current_patch(get_trinket1()->get_value("patch")))
-            clear_trinket1();
+        int item_id = get_trinket1()->get_item_id();
+        clear_trinket1();
+        set_trinket1(item_id);
     }
 
     if (get_trinket2()) {
-        if (!db->item_valid_for_current_patch(get_trinket2()->get_value("patch")))
-            clear_trinket2();
+        int item_id = get_trinket2()->get_item_id();
+        clear_trinket2();
+        set_trinket2(item_id);
     }
 
     if (get_caster_offhand()) {
-        if (!db->item_valid_for_current_patch(get_caster_offhand()->get_value("patch")))
-            clear_caster_offhand();
+        int item_id = get_caster_offhand()->get_item_id();
+        clear_caster_offhand();
+        set_caster_offhand(item_id);
     }
 
     if (get_relic()) {
-        if (!db->item_valid_for_current_patch(get_relic()->get_value("patch")))
-            clear_relic();
+        int item_id = get_relic()->get_item_id();
+        clear_relic();
+        set_relic(item_id);
     }
 }
 

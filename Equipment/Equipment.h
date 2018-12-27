@@ -81,7 +81,7 @@ public:
     void clear_caster_offhand();
     void clear_relic();
 
-    void clear_items_not_available_on_patch();
+    void reequip_items();
     void clear_items_not_available_for_faction();
     EquipmentDb *get_db() const;
 

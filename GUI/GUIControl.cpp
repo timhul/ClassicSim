@@ -1264,7 +1264,7 @@ void GUIControl::setPatch(const QString& patch) {
     item_model->set_patch(patch);
     buff_model->set_patch(patch);
 
-    current_char->get_stats()->get_equipment()->clear_items_not_available_on_patch();
+    current_char->get_stats()->get_equipment()->reequip_items();
     equipmentChanged();
     statsChanged();
     enchantChanged();
