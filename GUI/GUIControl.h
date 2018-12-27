@@ -133,7 +133,7 @@ public:
     Q_INVOKABLE QVariantList getTooltip(const QString &slot_string);
 
     Q_INVOKABLE void selectSlot(const QString& slot_string);
-    Q_INVOKABLE void setSlot(const QString& slot_string, const QString& item);
+    Q_INVOKABLE void setSlot(const QString& slot_string, const int item_id);
     Q_INVOKABLE void clearSlot(const QString& slot_string);
 
     Q_INVOKABLE void setEquipmentSetup(const int equipment_index);

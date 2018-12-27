@@ -199,84 +199,84 @@ const Stats* Equipment::get_stats() const {
     return this->stats_from_equipped_gear[setup_index];
 }
 
-Weapon* Equipment::get_mainhand() {
+Weapon* Equipment::get_mainhand() const {
     return mainhand[setup_index];
 }
 
-Weapon* Equipment::get_offhand() {
+Weapon* Equipment::get_offhand() const {
     return offhand[setup_index];
 }
 
-Item* Equipment::get_ranged() {
+Item* Equipment::get_ranged() const {
     return ranged[setup_index];
 }
 
-Item* Equipment::get_head() {
+Item* Equipment::get_head() const {
     return head[setup_index];
 }
 
-Item* Equipment::get_neck() {
+Item* Equipment::get_neck() const {
     return neck[setup_index];
 }
 
-Item* Equipment::get_shoulders() {
+Item* Equipment::get_shoulders() const {
     return shoulders[setup_index];
 }
 
-Item* Equipment::get_back() {
+Item* Equipment::get_back() const {
     return back[setup_index];
 }
 
-Item* Equipment::get_chest() {
+Item* Equipment::get_chest() const {
     return chest[setup_index];
 }
 
-Item* Equipment::get_wrist() {
+Item* Equipment::get_wrist() const {
     return wrist[setup_index];
 }
 
-Item* Equipment::get_gloves() {
+Item* Equipment::get_gloves() const {
     return gloves[setup_index];
 }
 
-Item* Equipment::get_belt() {
+Item* Equipment::get_belt() const {
     return belt[setup_index];
 }
 
-Item* Equipment::get_legs() {
+Item* Equipment::get_legs() const {
     return legs[setup_index];
 }
 
-Item* Equipment::get_boots() {
+Item* Equipment::get_boots() const {
     return boots[setup_index];
 }
 
-Item* Equipment::get_ring1() {
+Item* Equipment::get_ring1() const {
     return ring1[setup_index];
 }
 
-Item* Equipment::get_ring2() {
+Item* Equipment::get_ring2() const {
     return ring2[setup_index];
 }
 
-Item* Equipment::get_trinket1() {
+Item* Equipment::get_trinket1() const {
     return trinket1[setup_index];
 }
 
-Item* Equipment::get_trinket2() {
+Item* Equipment::get_trinket2() const {
     return trinket2[setup_index];
 }
 
-Item* Equipment::get_caster_offhand() {
+Item* Equipment::get_caster_offhand() const {
     return caster_offhand[setup_index];
 }
 
-Item* Equipment::get_relic() {
+Item* Equipment::get_relic() const {
     return relic[setup_index];
 }
 
-void Equipment::set_mainhand(const QString &name) {
-    Weapon* weapon = db->get_melee_weapon(name);
+void Equipment::set_mainhand(const int item_id) {
+    Weapon* weapon = db->get_melee_weapon(item_id);
 
     if (weapon == nullptr)
         return;
@@ -293,18 +293,18 @@ void Equipment::set_mainhand(const QString &name) {
     if (weapon->get_weapon_slot() == WeaponSlots::TWOHAND)
         unequip(offhand);
     else if (weapon->get_value("unique") == "yes") {
-        if (get_offhand() != nullptr && get_offhand()->get_name() == weapon->get_name()) {
+        if (get_offhand() != nullptr && get_offhand()->get_item_id() == weapon->get_item_id()) {
             unequip(offhand);
             if (get_mainhand() != nullptr)
-                set_offhand(get_mainhand()->get_name());
+                set_offhand(get_mainhand()->get_item_id());
         }
     }
 
     equip(mainhand, weapon, EquipmentSlot::MAINHAND);
 }
 
-void Equipment::set_offhand(const QString &name) {
-    Weapon* weapon = db->get_melee_weapon(name);
+void Equipment::set_offhand(const int item_id) {
+    Weapon* weapon = db->get_melee_weapon(item_id);
 
     if (weapon == nullptr)
         return;
@@ -321,7 +321,7 @@ void Equipment::set_offhand(const QString &name) {
         if (get_mainhand()->get_weapon_slot() == WeaponSlots::TWOHAND)
             unequip(mainhand);
         else if (weapon->get_value("unique") == "yes") {
-            if (get_mainhand()->get_name() == weapon->get_name())
+            if (get_mainhand()->get_item_id() == weapon->get_item_id())
                 unequip(mainhand);
         }
     }
@@ -329,8 +329,8 @@ void Equipment::set_offhand(const QString &name) {
     equip(offhand, weapon, EquipmentSlot::OFFHAND);
 }
 
-void Equipment::set_ranged(const QString &name) {
-    Item* item = db->get_ranged(name);
+void Equipment::set_ranged(const int item_id) {
+    Item* item = db->get_ranged(item_id);
 
     if (item == nullptr)
         return;
@@ -340,8 +340,8 @@ void Equipment::set_ranged(const QString &name) {
     equip(ranged, item, EquipmentSlot::RANGED);
 }
 
-void Equipment::set_head(const QString &name) {
-    Item* item = db->get_head(name);
+void Equipment::set_head(const int item_id) {
+    Item* item = db->get_head(item_id);
 
     if (item == nullptr)
         return;
@@ -350,8 +350,8 @@ void Equipment::set_head(const QString &name) {
     equip(head, item, EquipmentSlot::HEAD);
 }
 
-void Equipment::set_neck(const QString &name) {
-    Item* item = db->get_neck(name);
+void Equipment::set_neck(const int item_id) {
+    Item* item = db->get_neck(item_id);
 
     if (item == nullptr)
         return;
@@ -360,8 +360,8 @@ void Equipment::set_neck(const QString &name) {
     equip(neck, item, EquipmentSlot::NECK);
 }
 
-void Equipment::set_shoulders(const QString &name) {
-    Item* item = db->get_shoulders(name);
+void Equipment::set_shoulders(const int item_id) {
+    Item* item = db->get_shoulders(item_id);
 
     if (item == nullptr)
         return;
@@ -370,8 +370,8 @@ void Equipment::set_shoulders(const QString &name) {
     equip(shoulders, item, EquipmentSlot::SHOULDERS);
 }
 
-void Equipment::set_back(const QString &name) {
-    Item* item = db->get_back(name);
+void Equipment::set_back(const int item_id) {
+    Item* item = db->get_back(item_id);
 
     if (item == nullptr)
         return;
@@ -380,8 +380,8 @@ void Equipment::set_back(const QString &name) {
     equip(back, item, EquipmentSlot::BACK);
 }
 
-void Equipment::set_chest(const QString &name) {
-    Item* item = db->get_chest(name);
+void Equipment::set_chest(const int item_id) {
+    Item* item = db->get_chest(item_id);
 
     if (item == nullptr)
         return;
@@ -390,8 +390,8 @@ void Equipment::set_chest(const QString &name) {
     equip(chest, item, EquipmentSlot::CHEST);
 }
 
-void Equipment::set_wrist(const QString &name) {
-    Item* item = db->get_wrist(name);
+void Equipment::set_wrist(const int item_id) {
+    Item* item = db->get_wrist(item_id);
 
     if (item == nullptr)
         return;
@@ -400,8 +400,8 @@ void Equipment::set_wrist(const QString &name) {
     equip(wrist, item, EquipmentSlot::WRIST);
 }
 
-void Equipment::set_gloves(const QString &name) {
-    Item* item = db->get_gloves(name);
+void Equipment::set_gloves(const int item_id) {
+    Item* item = db->get_gloves(item_id);
 
     if (item == nullptr)
         return;
@@ -410,8 +410,8 @@ void Equipment::set_gloves(const QString &name) {
     equip(gloves, item, EquipmentSlot::GLOVES);
 }
 
-void Equipment::set_belt(const QString &name) {
-    Item* item = db->get_belt(name);
+void Equipment::set_belt(const int item_id) {
+    Item* item = db->get_belt(item_id);
 
     if (item == nullptr)
         return;
@@ -420,8 +420,8 @@ void Equipment::set_belt(const QString &name) {
     equip(belt, item, EquipmentSlot::BELT);
 }
 
-void Equipment::set_legs(const QString &name) {
-    Item* item = db->get_legs(name);
+void Equipment::set_legs(const int item_id) {
+    Item* item = db->get_legs(item_id);
 
     if (item == nullptr)
         return;
@@ -430,8 +430,8 @@ void Equipment::set_legs(const QString &name) {
     equip(legs, item, EquipmentSlot::LEGS);
 }
 
-void Equipment::set_boots(const QString &name) {
-    Item* item = db->get_boots(name);
+void Equipment::set_boots(const int item_id) {
+    Item* item = db->get_boots(item_id);
 
     if (item == nullptr)
         return;
@@ -440,8 +440,8 @@ void Equipment::set_boots(const QString &name) {
     equip(boots, item, EquipmentSlot::BOOTS);
 }
 
-void Equipment::set_ring1(const QString &name) {
-    Item* item = db->get_ring(name);
+void Equipment::set_ring1(const int item_id) {
+    Item* item = db->get_ring(item_id);
 
     if (item == nullptr)
         return;
@@ -449,18 +449,18 @@ void Equipment::set_ring1(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::RING);
 
     if (item->get_value("unique") == "yes") {
-        if (get_ring2() != nullptr && get_ring2()->get_name() == item->get_name()) {
+        if (get_ring2() != nullptr && get_ring2()->get_item_id() == item->get_item_id()) {
             unequip(ring2);
             if (get_ring1() != nullptr)
-                set_ring2(get_ring1()->get_name());
+                set_ring2(get_ring1()->get_item_id());
         }
     }
 
     equip(ring1, item, EquipmentSlot::RING1);
 }
 
-void Equipment::set_ring2(const QString &name) {
-    Item* item = db->get_ring(name);
+void Equipment::set_ring2(const int item_id) {
+    Item* item = db->get_ring(item_id);
 
     if (item == nullptr)
         return;
@@ -468,18 +468,18 @@ void Equipment::set_ring2(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::RING);
 
     if (item->get_value("unique") == "yes") {
-        if (get_ring1() != nullptr && get_ring1()->get_name() == item->get_name()) {
+        if (get_ring1() != nullptr && get_ring1()->get_item_id() == item->get_item_id()) {
             unequip(ring1);
             if (get_ring2() != nullptr)
-                set_ring1(get_ring2()->get_name());
+                set_ring1(get_ring2()->get_item_id());
         }
     }
 
     equip(ring2, item, EquipmentSlot::RING2);
 }
 
-void Equipment::set_trinket1(const QString &name) {
-    Item* item = db->get_trinket(name);
+void Equipment::set_trinket1(const int item_id) {
+    Item* item = db->get_trinket(item_id);
 
     if (item == nullptr)
         return;
@@ -487,18 +487,18 @@ void Equipment::set_trinket1(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::TRINKET);
 
     if (item->get_value("unique") == "yes") {
-        if (get_trinket2() != nullptr && get_trinket2()->get_name() == item->get_name()) {
+        if (get_trinket2() != nullptr && get_trinket2()->get_item_id() == item->get_item_id()) {
             unequip(trinket2);
             if (get_trinket1() != nullptr)
-                set_trinket2(get_trinket1()->get_name());
+                set_trinket2(get_trinket1()->get_item_id());
         }
     }
 
     equip(trinket1, item, EquipmentSlot::TRINKET1);
 }
 
-void Equipment::set_trinket2(const QString &name) {
-    Item* item = db->get_trinket(name);
+void Equipment::set_trinket2(const int item_id) {
+    Item* item = db->get_trinket(item_id);
 
     if (item == nullptr)
         return;
@@ -506,19 +506,19 @@ void Equipment::set_trinket2(const QString &name) {
     assert(item->get_item_slot() == ItemSlots::TRINKET);
 
     if (item->get_value("unique") == "yes") {
-        if (get_trinket1() != nullptr && get_trinket1()->get_name() == item->get_name()) {
+        if (get_trinket1() != nullptr && get_trinket1()->get_item_id() == item->get_item_id()) {
             unequip(trinket1);
             if (get_trinket2() != nullptr)
-                set_trinket1(get_trinket2()->get_name());
+                set_trinket1(get_trinket2()->get_item_id());
         }
     }
 
     equip(trinket2, item, EquipmentSlot::TRINKET2);
 }
 
-void Equipment::set_caster_offhand(const QString &name) {
+void Equipment::set_caster_offhand(const int item_id) {
     // CSIM-74: Get caster offhand.
-    Item* item = db->get_ranged(name);
+    Item* item = db->get_ranged(item_id);
 
     if (item == nullptr)
         return;
@@ -528,8 +528,8 @@ void Equipment::set_caster_offhand(const QString &name) {
     equip(caster_offhand, item, EquipmentSlot::RANGED);
 }
 
-void Equipment::set_relic(const QString &name) {
-    Item* item = db->get_ranged(name);
+void Equipment::set_relic(const int item_id) {
+    Item* item = db->get_ranged(item_id);
 
     if (item == nullptr)
         return;

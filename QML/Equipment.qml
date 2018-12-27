@@ -79,18 +79,19 @@ Rectangle {
                         clip: true
 
                         delegate: ItemEntryWeapon {
-                            entryName: name
-                            entrySpeed: speed
-                            entryDps: dps
-                            entryPatch: patch
-                            entrySource: source
-                            entryType: type
-                            entryReq: req_lvl
-                            entryItemlvl: item_lvl
-                            entryQuality: quality
-                            entryIcon: icon
+                            itemid: _itemid
+                            entryName: _name
+                            entrySpeed: _speed
+                            entryDps: _dps
+                            entryPatch: _patch
+                            entrySource: _source
+                            entryType: _type
+                            entryReq: _reqlvl
+                            entryItemlvl: _itemlvl
+                            entryQuality: _quality
+                            entryIcon: _icon
 
-                            onEntryClicked: equipment.setSlot(eqRect.state, entryName)
+                            onEntryClicked: equipment.setSlot(eqRect.state, itemid)
                         }
                     }
                 }
@@ -107,16 +108,17 @@ Rectangle {
                         clip: true
 
                         delegate: ItemEntry {
-                            entryName: name
-                            entryPatch: patch
-                            entrySource: source
-                            entryType: type
-                            entryReq: req_lvl
-                            entryItemlvl: item_lvl
-                            entryQuality: quality
-                            entryIcon: icon
+                            itemid: _itemid
+                            entryName: _name
+                            entryPatch: _patch
+                            entrySource: _source
+                            entryType: _type
+                            entryReq: _reqlvl
+                            entryItemlvl: _itemlvl
+                            entryQuality: _quality
+                            entryIcon: _icon
 
-                            onEntryClicked: equipment.setSlot(eqRect.state, entryName)
+                            onEntryClicked: equipment.setSlot(eqRect.state, itemid)
                         }
                     }
                 }

@@ -9,11 +9,11 @@
 #include "InstantPoison.h"
 #include "Rogue.h"
 
-Weapon::Weapon(QString name, int type, int weapon_slot, unsigned min, unsigned max, double speed,
-       QVector<QPair<QString, QString> > stats,
-       QMap<QString, QString> info,
-       QVector<QMap<QString, QString>> procs):
-    Item(name, std::move(stats), std::move(info), std::move(procs)),
+Weapon::Weapon(QString name, int item_id, int type, int weapon_slot, unsigned min, unsigned max, double speed,
+               QMap<QString, QString> info,
+               QVector<QPair<QString, QString> > stats,
+               QVector<QMap<QString, QString>> procs):
+    Item(name, item_id, std::move(info), std::move(stats), std::move(procs)),
     random(new Random(min, max)),
     weapon_type(type),
     weapon_slot(weapon_slot),

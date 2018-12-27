@@ -13,6 +13,7 @@
 #include "SimSettings.h"
 #include "Target.h"
 #include "Warrior.h"
+#include "Weapon.h"
 #include "WhiteHitTable.h"
 
 void TestAttackTables::test_all() {
@@ -52,8 +53,10 @@ void TestAttackTables::test_white_hit_table_update() {
     Race* race = new Orc();
     auto* sim_settings = new SimSettings();
     auto* pchar = new Warrior(race, equipment_db, sim_settings);
-    pchar->get_equipment()->set_mainhand("Frostbite");
-    pchar->get_equipment()->set_offhand("Vis'kag the Bloodletter");
+    pchar->get_equipment()->set_mainhand(19103);
+    pchar->get_equipment()->set_offhand(17075);
+    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
+    assert(pchar->get_equipment()->get_offhand()->get_name() == "Vis'kag the Bloodletter");
 
     WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(300);
 

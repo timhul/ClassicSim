@@ -8,9 +8,9 @@
 
 class Weapon: public Item {
 public:
-    Weapon(QString name, int type, int weapon_slot, unsigned min, unsigned max, double speed,
-           QVector<QPair<QString, QString>> stats = {},
+    Weapon(QString name, int item_id, int type, int weapon_slot, unsigned min, unsigned max, double speed,
            QMap<QString, QString> info = {},
+           QVector<QPair<QString, QString>> stats = {},
            QVector<QMap<QString, QString>> procs = {});
     Weapon(const Weapon* weapon);
 

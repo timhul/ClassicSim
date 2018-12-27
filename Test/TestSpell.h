@@ -132,6 +132,17 @@ protected:
     void assert_melee_auto_table_can_only_dodge(const int wpn_skill);
     void assert_melee_auto_table_can_only_parry(const int wpn_skill);
     void assert_melee_auto_table_can_only_block(const int wpn_skill);
+
+private:
+    void create_100_dmg_1h();
+    void create_100_dmg_dagger();
+    void create_100_dmg_2h();
+    void create_3_speed();
+    void create_2_speed();
+    void create_axe();
+    void create_5_sword_skill_ring();
+    void create_10_sword_skill_ring();
+    void create_15_sword_skill_ring();
 };
 
 #endif // TESTSPELL_H

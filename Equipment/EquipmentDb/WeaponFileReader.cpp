@@ -103,20 +103,20 @@ void WeaponFileReader::create_weapon(QVector<Item*> &items,
     Weapon* weapon = nullptr;
 
     if (info["slot"] == "1H")
-        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
+        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "MH")
-        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
+        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "OH")
-        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
+        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "2H")
-        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
+        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "RANGED")
-        weapon = new Weapon(info["name"], get_weapon_type(info["type"]), WeaponSlots::RANGED,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), stats, info, procs);
+        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::RANGED,
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
 
     if (weapon != nullptr)
         items.append(weapon);

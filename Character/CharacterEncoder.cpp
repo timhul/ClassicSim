@@ -1,5 +1,7 @@
-
 #include "CharacterEncoder.h"
+
+#include <QDebug>
+
 #include "Character.h"
 #include "EnabledBuffs.h"
 #include "Equipment.h"
@@ -10,7 +12,6 @@
 #include "CharacterEncoding.h"
 #include "SimSettings.h"
 #include "Target.h"
-#include <QDebug>
 
 CharacterEncoder::CharacterEncoder(Character *pchar):
     pchar(pchar)
@@ -66,7 +67,7 @@ void CharacterEncoder::add_item(const QString& key, Item* item) {
     if (item == nullptr)
         return;
 
-    key_val(key, item->get_name());
+    key_val(key, QString::number(item->get_item_id()));
 }
 
 void CharacterEncoder::add_vector_values_only(const QString& name, const QVector<QString>& vec) {

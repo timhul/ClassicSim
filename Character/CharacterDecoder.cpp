@@ -1,6 +1,7 @@
+#include "CharacterDecoder.h"
+
 #include <QDebug>
 
-#include "CharacterDecoder.h"
 #include "CharacterEncoding.h"
 
 void CharacterDecoder::initialize(const QString& setup_string) {

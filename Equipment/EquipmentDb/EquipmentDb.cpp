@@ -59,80 +59,80 @@ void EquipmentDb::add_ring(Item* ring) {
     current_patch_rings.append(ring);
 }
 
-Weapon* EquipmentDb::get_melee_weapon(const QString &name) {
+Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
     for (auto & current_patch_mh_slot_item : current_patch_mh_slot_items) {
-        if (name == current_patch_mh_slot_item->get_name())
+        if (item_id == current_patch_mh_slot_item->get_item_id())
             return new Weapon(dynamic_cast<Weapon*>(current_patch_mh_slot_item));
     }
 
     // CSIM-74: How to handle caster offhands?
     for (auto & current_patch_oh_slot_item : current_patch_oh_slot_items) {
-        if (name == current_patch_oh_slot_item->get_name())
+        if (item_id == current_patch_oh_slot_item->get_item_id())
             return new Weapon(dynamic_cast<Weapon*>(current_patch_oh_slot_item));
     }
 
     return nullptr;
 }
 
-Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const QString &name) {
+Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) const {
     for (auto item : item_list) {
-        if (name == item->get_name())
+        if (item_id == item->get_item_id())
             return new Item(item);
     }
 
     return nullptr;
 }
 
-Item* EquipmentDb::get_ranged(const QString &name) {
-    return get_item(current_patch_ranged_items, name);
+Item* EquipmentDb::get_ranged(const int item_id) const {
+    return get_item(current_patch_ranged_items, item_id);
 }
 
-Item* EquipmentDb::get_head(const QString &name) {
-    return get_item(current_patch_helms, name);
+Item* EquipmentDb::get_head(const int item_id) const {
+    return get_item(current_patch_helms, item_id);
 }
 
-Item* EquipmentDb::get_neck(const QString &name) {
-    return get_item(current_patch_amulets, name);
+Item* EquipmentDb::get_neck(const int item_id) const {
+    return get_item(current_patch_amulets, item_id);
 }
 
-Item* EquipmentDb::get_shoulders(const QString &name) {
-    return get_item(current_patch_shoulders, name);
+Item* EquipmentDb::get_shoulders(const int item_id) const {
+    return get_item(current_patch_shoulders, item_id);
 }
 
-Item* EquipmentDb::get_back(const QString &name) {
-    return get_item(current_patch_backs, name);
+Item* EquipmentDb::get_back(const int item_id) const {
+    return get_item(current_patch_backs, item_id);
 }
 
-Item* EquipmentDb::get_chest(const QString &name) {
-    return get_item(current_patch_chests, name);
+Item* EquipmentDb::get_chest(const int item_id) const {
+    return get_item(current_patch_chests, item_id);
 }
 
-Item* EquipmentDb::get_wrist(const QString &name) {
-    return get_item(current_patch_wrists, name);
+Item* EquipmentDb::get_wrist(const int item_id) const {
+    return get_item(current_patch_wrists, item_id);
 }
 
-Item* EquipmentDb::get_gloves(const QString &name) {
-    return get_item(current_patch_gloves, name);
+Item* EquipmentDb::get_gloves(const int item_id) const {
+    return get_item(current_patch_gloves, item_id);
 }
 
-Item* EquipmentDb::get_belt(const QString &name) {
-    return get_item(current_patch_belts, name);
+Item* EquipmentDb::get_belt(const int item_id) const {
+    return get_item(current_patch_belts, item_id);
 }
 
-Item* EquipmentDb::get_legs(const QString &name) {
-    return get_item(current_patch_legs, name);
+Item* EquipmentDb::get_legs(const int item_id) const {
+    return get_item(current_patch_legs, item_id);
 }
 
-Item* EquipmentDb::get_boots(const QString &name) {
-    return get_item(current_patch_boots, name);
+Item* EquipmentDb::get_boots(const int item_id) const {
+    return get_item(current_patch_boots, item_id);
 }
 
-Item* EquipmentDb::get_ring(const QString &name) {
-    return get_item(current_patch_rings, name);
+Item* EquipmentDb::get_ring(const int item_id) const {
+    return get_item(current_patch_rings, item_id);
 }
 
-Item* EquipmentDb::get_trinket(const QString &name) {
-    return get_item(current_patch_trinkets, name);
+Item* EquipmentDb::get_trinket(const int item_id) const {
+    return get_item(current_patch_trinkets, item_id);
 }
 
 const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
@@ -192,32 +192,28 @@ void EquipmentDb::set_patch(const QString &patch) {
     set_patch_for_slot(trinkets, current_patch_trinkets);
 }
 
-void EquipmentDb::set_patch_for_slot(QVector<Item *> &total_slot_items, QVector<Item*> &patch_slot_items) {
+void EquipmentDb::set_patch_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &patch_slot_items) {
     patch_slot_items.clear();
-    QMap<QString, Item*> tmp_names;
+    QMap<int, Item*> tmp_items;
 
-    for (auto & total_slot_item : total_slot_items) {
-        if (item_valid_for_current_patch(total_slot_item->get_value("patch"))) {
-            if (tmp_names.contains(total_slot_item->get_name())) {
-                QString curr_tmp_patch = tmp_names[total_slot_item->get_name()]->get_value("patch");
-                QString contender_patch = total_slot_item->get_value("patch");
+    for (auto & item : total_slot_items) {
+        if (item_valid_for_current_patch(item->get_value("patch"))) {
+            if (tmp_items.contains(item->get_item_id())) {
+                QString curr_tmp_patch = tmp_items[item->get_item_id()]->get_value("patch");
+                QString contender_patch = item->get_value("patch");
 
                 if (QVersionNumber::fromString(contender_patch) < QVersionNumber::fromString(curr_tmp_patch))
                     continue;
             }
-            tmp_names[total_slot_item->get_name()] = total_slot_item;
+            tmp_items[item->get_item_id()] = item;
         }
     }
 
-    QMap<QString, Item*>::const_iterator it = tmp_names.constBegin();
-    auto end = tmp_names.constEnd();
-    while(it != end) {
-        patch_slot_items.append(it.value());
-        ++it;
-    }
+    for (auto & item : tmp_items)
+        patch_slot_items.append(item);
 }
 
-bool EquipmentDb::item_valid_for_current_patch(const QString &item_patch) {
+bool EquipmentDb::item_valid_for_current_patch(const QString &item_patch) const {
     return current_patch >= QVersionNumber::fromString(item_patch);
 }
 

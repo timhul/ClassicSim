@@ -1,9 +1,10 @@
-
 #include "ItemTypeFilterModel.h"
-#include "Item.h"
-#include "EquipmentDb.h"
-#include "Character.h"
+
 #include <QDebug>
+
+#include "Character.h"
+#include "EquipmentDb.h"
+#include "Item.h"
 
 ItemTypeFilterModel::ItemTypeFilterModel(QObject *parent)
     : QAbstractListModel(parent),

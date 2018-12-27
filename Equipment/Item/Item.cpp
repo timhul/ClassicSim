@@ -20,18 +20,20 @@
 #include "Target.h"
 #include "UseTrinket.h"
 
-Item::Item(QString _name,
-           QVector<QPair<QString, QString>> _stats,
+Item::Item(QString name,
+           int item_id,
            QMap<QString, QString> _info,
+           QVector<QPair<QString, QString>> _stats,
            QVector<QMap<QString, QString>> _procs,
            QVector<QMap<QString, QString>> _use):
-    name(_name),
+    name(name),
     info(std::move(_info)),
     procs_map(std::move(_procs)),
     use_map(std::move(_use)),
-    stats_key_value_pairs(std::move(std::move(_stats))),
+    stats_key_value_pairs(std::move(_stats)),
     stats(new Stats()),
-    enchant(nullptr)
+    enchant(nullptr),
+    item_id(item_id)
 {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
@@ -48,7 +50,8 @@ Item::Item(const Item* item) :
     use_map(item->use_map),
     stats_key_value_pairs(item->stats_key_value_pairs),
     stats(new Stats()),
-    enchant(nullptr)
+    enchant(nullptr),
+    item_id(item->item_id)
 {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
@@ -168,6 +171,10 @@ QString Item::get_weapon_side_name(const int eq_slot) const {
     default:
         return name;
     }
+}
+
+int Item::get_item_id() const {
+    return this->item_id;
 }
 
 bool Item::has_enchant() const {

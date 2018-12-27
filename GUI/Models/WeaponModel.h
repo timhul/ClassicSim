@@ -31,7 +31,8 @@ class WeaponModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum WeaponRoles {
-        NameRole = Qt::UserRole + 1,
+        IdRole = Qt::UserRole + 1,
+        NameRole,
         SpeedRole,
         DpsRole,
         PatchRole,

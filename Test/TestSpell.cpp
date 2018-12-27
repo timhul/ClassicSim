@@ -1,4 +1,3 @@
-
 #include "TestSpell.h"
 
 #include <utility>
@@ -352,55 +351,121 @@ void TestSpell::assert_melee_auto_table_can_only_block(const int wpn_skill) {
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
 }
 
-void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
-    if (equipment_db->get_melee_weapon("Test 100 dmg") == nullptr) {
-        Weapon* wpn = new Weapon("Test 100 dmg", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.6);
-        equipment_db->add_melee_weapon(wpn);
-    }
+void TestSpell::create_100_dmg_1h() {
+    if (equipment_db->get_melee_weapon(TestUtils::Test100Dmg) != nullptr)
+        return;
 
-    pchar->get_equipment()->set_mainhand("Test 100 dmg");
+    Weapon* wpn = new Weapon("Test 100 dmg", TestUtils::Test100Dmg, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.6);
+    equipment_db->add_melee_weapon(wpn);
+}
+
+void TestSpell::create_100_dmg_dagger() {
+    if (equipment_db->get_melee_weapon(TestUtils::Test100DmgDagger) != nullptr)
+        return;
+
+    Weapon* wpn = new Weapon("Test 100 dmg Dagger", TestUtils::Test100DmgDagger, WeaponTypes::DAGGER, WeaponSlots::ONEHAND, 100, 100, 2.0);
+    equipment_db->add_melee_weapon(wpn);
+}
+
+void TestSpell::create_100_dmg_2h() {
+    if (equipment_db->get_melee_weapon(TestUtils::Test100Dmg2h) != nullptr)
+        return;
+
+    Weapon* wpn = new Weapon("Test 100 dmg 2h", TestUtils::Test100Dmg2h, WeaponTypes::TWOHAND_SWORD, WeaponSlots::TWOHAND, 100, 100, 3.5);
+    equipment_db->add_melee_weapon(wpn);
+}
+
+void TestSpell::create_3_speed() {
+    if (equipment_db->get_melee_weapon(TestUtils::Test3Speed) != nullptr)
+        return;
+
+    Weapon* wpn = new Weapon("Test 3 Speed", TestUtils::Test3Speed, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 3.0);
+    equipment_db->add_melee_weapon(wpn);
+}
+
+void TestSpell::create_2_speed() {
+    if (equipment_db->get_melee_weapon(TestUtils::Test2Speed) != nullptr)
+        return;
+
+    Weapon* wpn = new Weapon("Test 2 Speed", TestUtils::Test2Speed, WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.0);
+    equipment_db->add_melee_weapon(wpn);
+}
+
+void TestSpell::create_axe() {
+    if (equipment_db->get_melee_weapon(TestUtils::TestAxe) != nullptr)
+        return;
+
+    Weapon* wpn = new Weapon("Test Axe", TestUtils::TestAxe, WeaponTypes::AXE, WeaponSlots::ONEHAND, 100, 100, 2.0);
+    equipment_db->add_melee_weapon(wpn);
+}
+
+void TestSpell::create_5_sword_skill_ring() {
+    if (equipment_db->get_ring(TestUtils::Test5SwordSkill) != nullptr)
+        return;
+
+    QMap<QString, QString> info = {{"slot", "RING"}};
+    QVector<QPair<QString, QString>> stats = {{"SWORD_SKILL", "5"}};
+
+    Item* ring = new Item("Test +5 Sword Skill", TestUtils::Test5SwordSkill, info, stats);
+    equipment_db->add_ring(ring);
+}
+
+void TestSpell::create_10_sword_skill_ring() {
+    if (equipment_db->get_ring(TestUtils::Test10SwordSkill) != nullptr)
+        return;
+
+    QMap<QString, QString> info = {{"slot", "RING"}};
+    QVector<QPair<QString, QString>> stats = {{"SWORD_SKILL", "10"}};
+
+    Item* ring = new Item("Test +10 Sword Skill", TestUtils::Test10SwordSkill, info, stats);
+    equipment_db->add_ring(ring);
+}
+
+void TestSpell::create_15_sword_skill_ring() {
+    if (equipment_db->get_ring(TestUtils::Test15SwordSkill) != nullptr)
+        return;
+
+    QMap<QString, QString> info = {{"slot", "RING"}};
+    QVector<QPair<QString, QString>> stats = {{"SWORD_SKILL", "15"}};
+
+    Item* ring = new Item("Test +15 Sword Skill", TestUtils::Test15SwordSkill, info, stats);
+    equipment_db->add_ring(ring);
+}
+
+void TestSpell::given_a_mainhand_weapon_with_100_min_max_dmg() {
+    create_100_dmg_1h();
+
+    pchar->get_equipment()->set_mainhand(TestUtils::Test100Dmg);
     assert(pchar->get_equipment()->get_mainhand()->get_min_dmg() == 100);
     assert(pchar->get_equipment()->get_mainhand()->get_max_dmg() == 100);
 }
 
 void TestSpell::given_a_mainhand_dagger_with_100_min_max_dmg() {
-    if (equipment_db->get_melee_weapon("Test 100 dmg Dagger") == nullptr) {
-        Weapon* wpn = new Weapon("Test 100 dmg Dagger", WeaponTypes::DAGGER, WeaponSlots::ONEHAND, 100, 100, 2.0);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_100_dmg_dagger();
 
-    pchar->get_equipment()->set_mainhand("Test 100 dmg Dagger");
+    pchar->get_equipment()->set_mainhand(TestUtils::Test100DmgDagger);
     assert(pchar->get_equipment()->get_mainhand()->get_min_dmg() == 100);
     assert(pchar->get_equipment()->get_mainhand()->get_max_dmg() == 100);
 }
 
 void TestSpell::given_a_mainhand_weapon_with_3_speed() {
-    if (equipment_db->get_melee_weapon("Test 3 Speed") == nullptr) {
-        Weapon* wpn = new Weapon("Test 3 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 3.0);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_3_speed();
 
-    pchar->get_equipment()->set_mainhand("Test 3 Speed");
+    pchar->get_equipment()->set_mainhand(TestUtils::Test3Speed);
     assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 3);
 }
 
 void TestSpell::given_a_mainhand_weapon_with_2_speed() {
-    if (equipment_db->get_melee_weapon("Test 2 Speed") == nullptr) {
-        Weapon* wpn = new Weapon("Test 2 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.0);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_2_speed();
 
-    pchar->get_equipment()->set_mainhand("Test 2 Speed");
+    pchar->get_equipment()->set_mainhand(TestUtils::Test2Speed);
     assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 2);
 }
 
 void TestSpell::given_a_twohand_weapon_with_100_min_max_dmg() {
-    if (equipment_db->get_melee_weapon("Test 100 dmg 2h") == nullptr) {
-        Weapon* wpn = new Weapon("Test 100 dmg 2h", WeaponTypes::TWOHAND_SWORD, WeaponSlots::TWOHAND, 100, 100, 3.5);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_100_dmg_2h();
 
-    pchar->get_equipment()->set_mainhand("Test 100 dmg 2h");
+    pchar->get_equipment()->set_mainhand(TestUtils::Test100Dmg2h);
     assert(pchar->get_equipment()->get_mainhand()->get_min_dmg() == 100);
     assert(pchar->get_equipment()->get_mainhand()->get_max_dmg() == 100);
 }
@@ -410,47 +475,29 @@ void TestSpell::given_300_weapon_skill_mh() {
 }
 
 void TestSpell::given_305_weapon_skill_mh() {
-    if (equipment_db->get_ring("Test +5 Sword Skill") == nullptr) {
-        QMap<QString, QString> info = {{"slot", "RING"}};
-        QVector<QPair<QString, QString>> stats;
-        stats.append(QPair<QString, QString>("SWORD_SKILL", "5"));
+    create_5_sword_skill_ring();
 
-        Item* ring = new Item("Test +5 Sword Skill", stats, info);
-        equipment_db->add_ring(ring);
-    }
+    pchar->get_equipment()->set_ring1(TestUtils::Test5SwordSkill);
 
-    pchar->get_equipment()->set_ring1("Test +5 Sword Skill");
-
+    assert(pchar->get_equipment()->get_ring1() != nullptr);
     assert(pchar->get_mh_wpn_skill() == 305);
 }
 
 void TestSpell::given_310_weapon_skill_mh() {
-    if (equipment_db->get_ring("Test +10 Sword Skill") == nullptr) {
-        QMap<QString, QString> info = {{"slot", "RING"}};
-        QVector<QPair<QString, QString>> stats;
-        stats.append(QPair<QString, QString>("SWORD_SKILL", "10"));
+    create_10_sword_skill_ring();
 
-        Item* ring = new Item("Test +10 Sword Skill", stats, info);
-        equipment_db->add_ring(ring);
-    }
+    pchar->get_equipment()->set_ring1(TestUtils::Test10SwordSkill);
 
-    pchar->get_equipment()->set_ring1("Test +10 Sword Skill");
-
+    assert(pchar->get_equipment()->get_ring1() != nullptr);
     assert(pchar->get_mh_wpn_skill() == 310);
 }
 
 void TestSpell::given_315_weapon_skill_mh() {
-    if (equipment_db->get_ring("Test +15 Sword Skill") == nullptr) {
-        QMap<QString, QString> info = {{"slot", "RING"}};
-        QVector<QPair<QString, QString>> stats;
-        stats.append(QPair<QString, QString>("SWORD_SKILL", "15"));
+    create_15_sword_skill_ring();
 
-        Item* ring = new Item("Test +15 Sword Skill", stats, info);
-        equipment_db->add_ring(ring);
-    }
+    pchar->get_equipment()->set_ring1(TestUtils::Test15SwordSkill);
 
-    pchar->get_equipment()->set_ring1("Test +15 Sword Skill");
-
+    assert(pchar->get_equipment()->get_ring1() != nullptr);
     assert(pchar->get_mh_wpn_skill() == 315);
 }
 
@@ -459,47 +506,29 @@ void TestSpell::given_300_weapon_skill_oh() {
 }
 
 void TestSpell::given_305_weapon_skill_oh() {
-    if (equipment_db->get_ring("Test +5 Sword Skill") == nullptr) {
-        QMap<QString, QString> info = {{"slot", "RING"}};
-        QVector<QPair<QString, QString>> stats;
-        stats.append(QPair<QString, QString>("SWORD_SKILL", "5"));
+    create_5_sword_skill_ring();
+    qDebug() << "equipping";
+    pchar->get_equipment()->set_ring1(TestUtils::Test5SwordSkill);
 
-        Item* ring = new Item("Test +5 Sword Skill", stats, info);
-        equipment_db->add_ring(ring);
-    }
-
-    pchar->get_equipment()->set_ring1("Test +5 Sword Skill");
-
+    assert(pchar->get_equipment()->get_ring1() != nullptr);
     assert(pchar->get_oh_wpn_skill() == 305);
 }
 
 void TestSpell::given_310_weapon_skill_oh() {
-    if (equipment_db->get_ring("Test +10 Sword Skill") == nullptr) {
-        QMap<QString, QString> info = {{"slot", "RING"}};
-        QVector<QPair<QString, QString>> stats;
-        stats.append(QPair<QString, QString>("SWORD_SKILL", "10"));
+    create_10_sword_skill_ring();
 
-        Item* ring = new Item("Test +10 Sword Skill", stats, info);
-        equipment_db->add_ring(ring);
-    }
+    pchar->get_equipment()->set_ring1(TestUtils::Test10SwordSkill);
 
-    pchar->get_equipment()->set_ring1("Test +10 Sword Skill");
-
+    assert(pchar->get_equipment()->get_ring1() != nullptr);
     assert(pchar->get_oh_wpn_skill() == 310);
 }
 
 void TestSpell::given_315_weapon_skill_oh() {
-    if (equipment_db->get_ring("Test +15 Sword Skill") == nullptr) {
-        QMap<QString, QString> info = {{"slot", "RING"}};
-        QVector<QPair<QString, QString>> stats;
-        stats.append(QPair<QString, QString>("SWORD_SKILL", "15"));
+    create_15_sword_skill_ring();
 
-        Item* ring = new Item("Test +15 Sword Skill", stats, info);
-        equipment_db->add_ring(ring);
-    }
+    pchar->get_equipment()->set_ring1(TestUtils::Test15SwordSkill);
 
-    pchar->get_equipment()->set_ring1("Test +15 Sword Skill");
-
+    assert(pchar->get_equipment()->get_ring1() != nullptr);
     assert(pchar->get_oh_wpn_skill() == 315);
 }
 
@@ -514,43 +543,31 @@ void TestSpell::given_no_offhand() {
 }
 
 void TestSpell::given_an_offhand_weapon_with_100_min_max_dmg() {
-    if (equipment_db->get_melee_weapon("Test 100 dmg") == nullptr) {
-        Weapon* wpn = new Weapon("Test 100 dmg", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.6);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_100_dmg_1h();
 
-    pchar->get_equipment()->set_offhand("Test 100 dmg");
+    pchar->get_equipment()->set_offhand(TestUtils::Test100Dmg);
     assert(pchar->get_equipment()->get_offhand()->get_min_dmg() == 100);
     assert(pchar->get_equipment()->get_offhand()->get_max_dmg() == 100);
 }
 
 void TestSpell::given_an_offhand_weapon_with_3_speed() {
-    if (equipment_db->get_melee_weapon("Test 3 Speed") == nullptr) {
-        Weapon* wpn = new Weapon("Test 3 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 3.0);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_3_speed();
 
-    pchar->get_equipment()->set_offhand("Test 3 Speed");
+    pchar->get_equipment()->set_offhand(TestUtils::Test3Speed);
     assert(int(pchar->get_equipment()->get_offhand()->get_base_weapon_speed()) == 3);
 }
 
 void TestSpell::given_an_offhand_weapon_with_2_speed() {
-    if (equipment_db->get_melee_weapon("Test 2 Speed") == nullptr) {
-        Weapon* wpn = new Weapon("Test 2 Speed", WeaponTypes::SWORD, WeaponSlots::ONEHAND, 100, 100, 2.0);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_2_speed();
 
-    pchar->get_equipment()->set_offhand("Test 2 Speed");
+    pchar->get_equipment()->set_offhand(TestUtils::Test2Speed);
     assert(int(pchar->get_equipment()->get_offhand()->get_base_weapon_speed()) == 2);
 }
 
 void TestSpell::given_an_offhand_axe() {
-    if (equipment_db->get_melee_weapon("Test Axe") == nullptr) {
-        Weapon* wpn = new Weapon("Test Axe", WeaponTypes::AXE, WeaponSlots::ONEHAND, 100, 100, 2.0);
-        equipment_db->add_melee_weapon(wpn);
-    }
+    create_axe();
 
-    pchar->get_equipment()->set_offhand("Test Axe");
+    pchar->get_equipment()->set_offhand(TestUtils::TestAxe);
     assert(int(pchar->get_equipment()->get_offhand()->get_weapon_type_string() == "Axe"));
 }
 
@@ -565,27 +582,32 @@ void TestSpell::given_target_has_0_armor() {
 }
 
 void TestSpell:: given_1h_axe_equipped_in_mainhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Zulian Hacker");
+    pchar->get_stats()->get_equipment()->set_mainhand(19921);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Zulian Hacker");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::AXE);
 }
 
 void TestSpell:: given_1h_mace_equipped_in_mainhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Anubisath Warhammer");
+    pchar->get_stats()->get_equipment()->set_mainhand(21837);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Anubisath Warhammer");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::MACE);
 }
 
 void TestSpell:: given_1h_sword_equipped_in_mainhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Skullforge Reaver");
+    pchar->get_stats()->get_equipment()->set_mainhand(13361);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Skullforge Reaver");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::SWORD);
 }
 
 void TestSpell:: given_fist_weapon_equipped_in_mainhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Claw of the Black Drake");
+    pchar->get_stats()->get_equipment()->set_mainhand(19365);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Claw of the Black Drake");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::FIST);
 }
 
 void TestSpell:: given_dagger_equipped_in_mainhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Heartseeker");
+    pchar->get_stats()->get_equipment()->set_mainhand(12783);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Heartseeker");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::DAGGER);
 }
 
@@ -595,27 +617,32 @@ void TestSpell:: given_no_mainhand(Character* pchar) {
 }
 
 void TestSpell:: given_1h_axe_equipped_in_offhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_offhand("Zulian Hacker");
+    pchar->get_stats()->get_equipment()->set_offhand(19921);
+    assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Zulian Hacker");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::AXE);
 }
 
 void TestSpell:: given_1h_mace_equipped_in_offhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_offhand("Anubisath Warhammer");
+    pchar->get_stats()->get_equipment()->set_offhand(21837);
+    assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Anubisath Warhammer");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::MACE);
 }
 
 void TestSpell:: given_1h_sword_equipped_in_offhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_offhand("Skullforge Reaver");
+    pchar->get_stats()->get_equipment()->set_offhand(13361);
+    assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Skullforge Reaver");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::SWORD);
 }
 
 void TestSpell:: given_fist_weapon_equipped_in_offhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_offhand("Arlokk's Grasp");
+    pchar->get_stats()->get_equipment()->set_offhand(19910);
+    assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Arlokk's Grasp");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::FIST);
 }
 
 void TestSpell:: given_dagger_equipped_in_offhand(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_offhand("Heartseeker");
+    pchar->get_stats()->get_equipment()->set_offhand(12783);
+    assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Heartseeker");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::DAGGER);
 }
 
@@ -625,27 +652,32 @@ void TestSpell:: given_no_offhand(Character* pchar) {
 }
 
 void TestSpell:: given_2h_axe_equipped(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Arcanite Reaper");
+    pchar->get_stats()->get_equipment()->set_mainhand(12784);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Arcanite Reaper");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_AXE);
 }
 
 void TestSpell:: given_2h_mace_equipped(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Earthshaker");
+    pchar->get_stats()->get_equipment()->set_mainhand(17073);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Earthshaker");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_MACE);
 }
 
 void TestSpell:: given_2h_sword_equipped(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Ashkandi, Greatsword of the Brotherhood");
+    pchar->get_stats()->get_equipment()->set_mainhand(19364);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Ashkandi, Greatsword of the Brotherhood");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_SWORD);
 }
 
 void TestSpell:: given_polearm_equipped(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Barb of the Sand Reaver");
+    pchar->get_stats()->get_equipment()->set_mainhand(21635);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Barb of the Sand Reaver");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::POLEARM);
 }
 
 void TestSpell:: given_staff_equipped(Character* pchar) {
-    pchar->get_stats()->get_equipment()->set_mainhand("Resurgence Rod");
+    pchar->get_stats()->get_equipment()->set_mainhand(17743);
+    assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Resurgence Rod");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::STAFF);
 }
 

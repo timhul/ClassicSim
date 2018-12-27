@@ -189,6 +189,8 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
 
     const Weapon* weapon = melee_weapons[index.row()];
 
+    if (role == IdRole)
+        return weapon->get_item_id();
     if (role == NameRole)
         return weapon->get_name();
     if (role == SpeedRole)
@@ -215,15 +217,16 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
 
 QHash<int, QByteArray> WeaponModel::roleNames() const {
     QHash<int, QByteArray> roles;
-    roles[NameRole] = "name";
-    roles[SpeedRole] = "speed";
-    roles[DpsRole] = "dps";
-    roles[PatchRole] = "patch";
-    roles[SourceRole] = "source";
-    roles[TypeRole] = "type";
-    roles[ReqLvlRole] = "req_lvl";
-    roles[ItemLvlRole] = "item_lvl";
-    roles[QualityRole] = "quality";
-    roles[IconRole] = "icon";
+    roles[IdRole] = "_itemid";
+    roles[NameRole] = "_name";
+    roles[SpeedRole] = "_speed";
+    roles[DpsRole] = "_dps";
+    roles[PatchRole] = "_patch";
+    roles[SourceRole] = "_source";
+    roles[TypeRole] = "_type";
+    roles[ReqLvlRole] = "_reqlvl";
+    roles[ItemLvlRole] = "_itemlvl";
+    roles[QualityRole] = "_quality";
+    roles[IconRole] = "_icon";
     return roles;
 }

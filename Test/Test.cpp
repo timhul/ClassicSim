@@ -85,8 +85,10 @@ void Test::test_queue() {
     Race* race = new Orc();
     auto* sim_settings = new SimSettings();
     auto* pchar = new Warrior(race, equipment_db, sim_settings);
-    pchar->get_equipment()->set_mainhand("Frostbite");
-    pchar->get_equipment()->set_offhand("Vis'kag the Bloodletter");
+    pchar->get_equipment()->set_mainhand(19103);
+    pchar->get_equipment()->set_offhand(17075);
+    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
+    assert(pchar->get_equipment()->get_offhand()->get_name() == "Vis'kag the Bloodletter");
     pchar->set_clvl(60);
     pchar->prepare_set_of_combat_iterations();
     auto* start_event = new EncounterStart(pchar);
@@ -116,7 +118,8 @@ void Test::test_combat_roll_melee_hit_result() {
     Race* race = new Orc();
     auto* sim_settings = new SimSettings();
     auto* pchar = new Warrior(race, equipment_db, sim_settings);
-    pchar->get_equipment()->set_mainhand("Frostbite");
+    pchar->get_equipment()->set_mainhand(19103);
+    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
 
     for (int i = 0; i < 30; ++i) {
         pchar->get_combat_roll()->get_melee_hit_result(300, pchar->get_stats()->get_mh_crit_chance());
@@ -131,7 +134,8 @@ void Test::test_combat_roll_creation() {
     auto* race = new Orc();
     auto* sim_settings = new SimSettings();
     auto* pchar = new Warrior(race, equipment_db, sim_settings);
-    pchar->get_equipment()->set_mainhand("Frostbite");
+    pchar->get_equipment()->set_mainhand(19103);
+    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
 
     pchar->get_combat_roll()->get_white_hit_table(300);
     pchar->get_combat_roll()->get_white_hit_table(300);
@@ -146,9 +150,10 @@ void Test::test_combat_roll_creation() {
 
 void Test::test_equipment_creation() {
     auto* equipment = new Equipment(equipment_db, nullptr);
-    equipment->set_mainhand("Frostbite");
+    equipment->set_mainhand(19103);
     Weapon* mh = equipment->get_mainhand();
 
+    assert(mh != nullptr);
     assert(mh->get_name() == "Frostbite");
     assert(mh->get_weapon_type() == WeaponTypes::AXE);
     assert(mh->get_min_dmg() == 80);

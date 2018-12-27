@@ -110,7 +110,6 @@ void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
     Q_EMIT sortingMethodChanged();
 }
 
-
 void ItemModel::update_items() {
     if (!items.empty()) {
         beginResetModel();
@@ -155,6 +154,8 @@ QVariant ItemModel::data(const QModelIndex & index, int role) const {
 
     const Item* item = items[index.row()];
 
+    if (role == IdRole)
+        return item->get_item_id();
     if (role == NameRole)
         return item->get_name();
     if (role == PatchRole)
@@ -177,13 +178,14 @@ QVariant ItemModel::data(const QModelIndex & index, int role) const {
 
 QHash<int, QByteArray> ItemModel::roleNames() const {
     QHash<int, QByteArray> roles;
-    roles[NameRole] = "name";
-    roles[PatchRole] = "patch";
-    roles[SourceRole] = "source";
-    roles[TypeRole] = "type";
-    roles[ReqLvlRole] = "req_lvl";
-    roles[ItemLvlRole] = "item_lvl";
-    roles[QualityRole] = "quality";
-    roles[IconRole] = "icon";
+    roles[IdRole] = "_itemid";
+    roles[NameRole] = "_name";
+    roles[PatchRole] = "_patch";
+    roles[SourceRole] = "_source";
+    roles[TypeRole] = "_type";
+    roles[ReqLvlRole] = "_reqlvl";
+    roles[ItemLvlRole] = "_itemlvl";
+    roles[QualityRole] = "_quality";
+    roles[IconRole] = "_icon";
     return roles;
 }

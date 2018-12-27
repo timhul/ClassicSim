@@ -27,7 +27,8 @@ class ItemModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum ItemRoles {
-        NameRole = Qt::UserRole + 1,
+        IdRole = Qt::UserRole + 1,
+        NameRole,
         PatchRole,
         SourceRole,
         TypeRole,

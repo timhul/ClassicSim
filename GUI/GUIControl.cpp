@@ -107,22 +107,6 @@ GUIControl::GUIControl(QObject* parent) :
     buff_model = new BuffModel(current_char->get_enabled_buffs()->get_general_buffs());
     debuff_model = new DebuffModel(current_char->get_enabled_buffs()->get_general_buffs());
 
-    setSlot("MAINHAND", "Arcanite Reaper");
-    setSlot("HEAD", "Lionheart Helm");
-    setSlot("NECK", "Mark of Fordring");
-    setSlot("SHOULDERS", "Truestrike Shoulders");
-    setSlot("BACK", "Cape of the Black Baron");
-    setSlot("CHEST", "Tombstone Breastplate");
-    setSlot("WRIST", "Battleborn Armbraces");
-    setSlot("GLOVES", "Devilsaur Gauntlets");
-    setSlot("BELT", "Marksman's Girdle");
-    setSlot("LEGS", "Devilsaur Leggings");
-    setSlot("BOOTS", "Windreaver Greaves");
-    setSlot("RING1", "Painweaver Band");
-    setSlot("RING2", "Blackstone Ring");
-    setSlot("TRINKET1", "Blackhand's Breadth");
-    setSlot("TRINKET2", "Hand of Justice");
-
     buff_breakdown_model = new BuffBreakdownModel(number_cruncher);
     debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
     damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
@@ -1183,44 +1167,44 @@ EnchantModel* GUIControl::get_boots_enchant_model() const {
     return this->boots_enchants;
 }
 
-void GUIControl::setSlot(const QString& slot_string, const QString& item) {
+void GUIControl::setSlot(const QString& slot_string, const int item_id) {
     // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND") {
-        current_char->get_equipment()->set_mainhand(item);
+        current_char->get_equipment()->set_mainhand(item_id);
         mh_enchants->set_character(current_char);
     }
     if (slot_string == "OFFHAND")
-        current_char->get_equipment()->set_offhand(item);
+        current_char->get_equipment()->set_offhand(item_id);
     if (slot_string == "RANGED")
-        current_char->get_equipment()->set_ranged(item);
+        current_char->get_equipment()->set_ranged(item_id);
     if (slot_string == "HEAD")
-        current_char->get_equipment()->set_head(item);
+        current_char->get_equipment()->set_head(item_id);
     if (slot_string == "NECK")
-        current_char->get_equipment()->set_neck(item);
+        current_char->get_equipment()->set_neck(item_id);
     if (slot_string == "SHOULDERS")
-        current_char->get_equipment()->set_shoulders(item);
+        current_char->get_equipment()->set_shoulders(item_id);
     if (slot_string == "BACK")
-        current_char->get_equipment()->set_back(item);
+        current_char->get_equipment()->set_back(item_id);
     if (slot_string == "CHEST")
-        current_char->get_equipment()->set_chest(item);
+        current_char->get_equipment()->set_chest(item_id);
     if (slot_string == "WRIST")
-        current_char->get_equipment()->set_wrist(item);
+        current_char->get_equipment()->set_wrist(item_id);
     if (slot_string == "GLOVES")
-        current_char->get_equipment()->set_gloves(item);
+        current_char->get_equipment()->set_gloves(item_id);
     if (slot_string == "BELT")
-        current_char->get_equipment()->set_belt(item);
+        current_char->get_equipment()->set_belt(item_id);
     if (slot_string == "LEGS")
-        current_char->get_equipment()->set_legs(item);
+        current_char->get_equipment()->set_legs(item_id);
     if (slot_string == "BOOTS")
-        current_char->get_equipment()->set_boots(item);
+        current_char->get_equipment()->set_boots(item_id);
     if (slot_string == "RING1")
-        current_char->get_equipment()->set_ring1(item);
+        current_char->get_equipment()->set_ring1(item_id);
     if (slot_string == "RING2")
-        current_char->get_equipment()->set_ring2(item);
+        current_char->get_equipment()->set_ring2(item_id);
     if (slot_string == "TRINKET1")
-        current_char->get_equipment()->set_trinket1(item);
+        current_char->get_equipment()->set_trinket1(item_id);
     if (slot_string == "TRINKET2")
-        current_char->get_equipment()->set_trinket2(item);
+        current_char->get_equipment()->set_trinket2(item_id);
 
     equipmentChanged();
     statsChanged();

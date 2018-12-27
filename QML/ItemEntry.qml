@@ -6,6 +6,7 @@ RectangleBorders {
 
     signal entryClicked();
 
+    property int itemid
     property string entryName
     property string entryQuality
     property string entryPatch

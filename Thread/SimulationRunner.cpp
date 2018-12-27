@@ -133,72 +133,73 @@ void SimulationRunner::setup_race(CharacterDecoder& decoder) {
 }
 
 void SimulationRunner::equip_gear(CharacterDecoder& decoder) {
-    QString item = decoder.get_key("MAINHAND");
-    if (item != "")
+    bool key_converted;
+    int item = decoder.get_key("MAINHAND").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_mainhand(item);
 
-    item = decoder.get_key("OFFHAND");
-    if (item != "")
+    item = decoder.get_key("OFFHAND").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_offhand(item);
 
-    item = decoder.get_key("RANGED");
-    if (item != "")
+    item = decoder.get_key("RANGED").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_ranged(item);
 
-    item = decoder.get_key("HEAD");
-    if (item != "")
+    item = decoder.get_key("HEAD").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_head(item);
 
-    item = decoder.get_key("NECK");
-    if (item != "")
+    item = decoder.get_key("NECK").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_neck(item);
 
-    item = decoder.get_key("SHOULDERS");
-    if (item != "")
+    item = decoder.get_key("SHOULDERS").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_shoulders(item);
 
-    item = decoder.get_key("BACK");
-    if (item != "")
+    item = decoder.get_key("BACK").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_back(item);
 
-    item = decoder.get_key("CHEST");
-    if (item != "")
+    item = decoder.get_key("CHEST").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_chest(item);
 
-    item = decoder.get_key("WRIST");
-    if (item != "")
+    item = decoder.get_key("WRIST").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_wrist(item);
 
-    item = decoder.get_key("GLOVES");
-    if (item != "")
+    item = decoder.get_key("GLOVES").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_gloves(item);
 
-    item = decoder.get_key("BELT");
-    if (item != "")
+    item = decoder.get_key("BELT").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_belt(item);
 
-    item = decoder.get_key("LEGS");
-    if (item != "")
+    item = decoder.get_key("LEGS").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_legs(item);
 
-    item = decoder.get_key("BOOTS");
-    if (item != "")
+    item = decoder.get_key("BOOTS").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_boots(item);
 
-    item = decoder.get_key("RING1");
-    if (item != "")
+    item = decoder.get_key("RING1").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_ring1(item);
 
-    item = decoder.get_key("RING2");
-    if (item != "")
+    item = decoder.get_key("RING2").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_ring2(item);
 
-    item = decoder.get_key("TRINKET1");
-    if (item != "")
+    item = decoder.get_key("TRINKET1").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_trinket1(item);
 
-    item = decoder.get_key("TRINKET2");
-    if (item != "")
+    item = decoder.get_key("TRINKET2").toInt(&key_converted);
+    if (key_converted)
         pchar->get_equipment()->set_trinket2(item);
 }
 

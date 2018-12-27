@@ -24,11 +24,12 @@ int get_slot_int(const QString& slot_string);
 
 class Item {
 public:
-    Item(QString _name,
-         QVector<QPair<QString, QString>> _stats,
-         QMap<QString, QString> _info,
-         QVector<QMap<QString, QString>> _procs = {},
-         QVector<QMap<QString, QString>> _use = {});
+    Item(QString name,
+         int item_id,
+         QMap<QString, QString> info,
+         QVector<QPair<QString, QString>> stats,
+         QVector<QMap<QString, QString>> procs = {},
+         QVector<QMap<QString, QString>> use = {});
     Item(const Item* item);
     virtual ~Item();
 
@@ -44,6 +45,7 @@ public:
     QString get_base_stat_tooltip() const;
     QString get_equip_effect_tooltip() const;
     QString get_weapon_side_name(const int eq_slot) const;
+    int get_item_id() const;
 
     const Stats* get_stats() const;
     void set_stat(const QString& key, const QString& value);
@@ -86,6 +88,7 @@ protected:
 
     int slot{};
     int item_type{};
+    const int item_id;
     void set_item_slot(const QMap<QString, QString>& info);
     void set_item_type(const QMap<QString, QString>& info);
     void set_class_restrictions(const QMap<QString, QString>& info);
