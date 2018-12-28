@@ -44,7 +44,8 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 - More Subtletly talents added (Deadliness, Serrated Blades).
 - Items not available for class or faction now filtered.
 - Many leather items and several daggers added.
-- Consecrated Sharpening Stones added.
+- Dense and Consecrated Sharpening Stones added.
+- Add base melee AP and melee critical strike chance to rogues.
 - Fix bug which caused rogues to evaluate 1 CP Eviscerate as a valid rotational choice.
 
 # Release notes
