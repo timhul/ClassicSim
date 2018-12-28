@@ -1168,10 +1168,13 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id) {
     // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND") {
         current_char->get_equipment()->set_mainhand(item_id);
-        mh_enchants->set_character(current_char);
+        mh_enchants->update_enchants();
+        mh_temporary_enchants->update_enchants();
     }
-    if (slot_string == "OFFHAND")
+    if (slot_string == "OFFHAND") {
         current_char->get_equipment()->set_offhand(item_id);
+        oh_temporary_enchants->update_enchants();
+    }
     if (slot_string == "RANGED")
         current_char->get_equipment()->set_ranged(item_id);
     if (slot_string == "HEAD")

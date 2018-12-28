@@ -4,7 +4,8 @@
 #include "Rogue.h"
 
 RogueEnchants::RogueEnchants(Rogue* rogue) :
-    rogue(rogue) {}
+    CharacterEnchants(rogue)
+{}
 
 QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
@@ -66,16 +67,21 @@ QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int 
             EnchantName::ConsecratedSharpeningStone,
             EnchantName::InstantPoison
         };
-        if (rogue->get_faction()->is_horde())
+        if (has_sharp_weapon(equipment_slot))
+            enchants.prepend(EnchantName::DenseSharpeningStone);
+        if (pchar->get_faction()->is_horde())
             enchants.prepend(EnchantName::WindfuryTotem);
         return enchants;
     }
     case EquipmentSlot::OFFHAND:
-        return {
-            EnchantName::ElementalSharpeningStone,
+        QVector<EnchantName::Name> enchants {
             EnchantName::ConsecratedSharpeningStone,
+            EnchantName::ElementalSharpeningStone,
             EnchantName::InstantPoison
         };
+        if (has_sharp_weapon(equipment_slot))
+            enchants.prepend(EnchantName::DenseSharpeningStone);
+        return enchants;
     }
 
     assert(false);

@@ -6,6 +6,7 @@
 
 EnchantModel::EnchantModel(const int equipment_slot, const bool permanent, QObject *parent) :
     QAbstractListModel(parent),
+    pchar(nullptr),
     equipment_slot(equipment_slot),
     permanent(permanent)
 {}
@@ -16,6 +17,11 @@ int EnchantModel::rowCount(const QModelIndex & parent) const {
 }
 
 void EnchantModel::set_character(Character* pchar) {
+    this->pchar = pchar;
+    update_enchants();
+}
+
+void EnchantModel::update_enchants() {
     beginResetModel();
     enchants.clear();
     enchants = permanent ? pchar->get_enchants()->get_available_enchants(equipment_slot) :

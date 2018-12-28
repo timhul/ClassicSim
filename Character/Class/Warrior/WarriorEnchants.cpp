@@ -6,7 +6,8 @@
 #include "Weapon.h"
 
 WarriorEnchants::WarriorEnchants(Warrior* warrior) :
-    warrior(warrior) {}
+    CharacterEnchants(warrior)
+{}
 
 QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
@@ -86,24 +87,22 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
             EnchantName::ElementalSharpeningStone,
             EnchantName::ConsecratedSharpeningStone
         };
-        if (warrior->get_faction()->is_horde())
+        if (has_sharp_weapon(equipment_slot))
+            enchants.prepend(EnchantName::DenseSharpeningStone);
+        if (pchar->get_faction()->is_horde())
             enchants.prepend(EnchantName::WindfuryTotem);
         return enchants;
     }
     case EquipmentSlot::OFFHAND:
-        return {
+        QVector<EnchantName::Name> enchants {
             EnchantName::ElementalSharpeningStone,
             EnchantName::ConsecratedSharpeningStone
         };
+        if (has_sharp_weapon(equipment_slot))
+            enchants.prepend(EnchantName::DenseSharpeningStone);
+        return enchants;
     }
 
     assert(false);
     return {};
-}
-
-bool WarriorEnchants::has_2hand() const {
-    if (warrior->get_equipment()->get_mainhand() == nullptr)
-        return false;
-
-    return warrior->get_equipment()->get_mainhand()->is_2hand();
 }

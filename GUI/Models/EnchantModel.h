@@ -23,10 +23,13 @@ public:
     EnchantModel(const int equipment_slot, const bool permanent, QObject *parent = nullptr);
 
     void set_character(Character* pchar);
+    void update_enchants();
+
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
 private:
+    Character* pchar;
     const int equipment_slot;
     const bool permanent;
 

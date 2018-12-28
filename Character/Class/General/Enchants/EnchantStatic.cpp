@@ -98,6 +98,14 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::ConsecratedSharpeningStone:
         pchar->get_stats()->increase_ap_vs_type(Target::CreatureType::Undead, 100);
         break;
+    case EnchantName::DenseSharpeningStone:
+        if (enchant_slot == EnchantSlot::MAINHAND)
+            pchar->increase_mh_flat_damage_bonus(8);
+        else if (enchant_slot == EnchantSlot::OFFHAND)
+            pchar->increase_oh_flat_damage_bonus(8);
+        else
+            assert(false);
+        break;
     default:
         assert(false);
         break;
@@ -193,6 +201,14 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::ConsecratedSharpeningStone:
         pchar->get_stats()->decrease_ap_vs_type(Target::CreatureType::Undead, 100);
+        break;
+    case EnchantName::DenseSharpeningStone:
+        if (enchant_slot == EnchantSlot::MAINHAND)
+            pchar->decrease_mh_flat_damage_bonus(8);
+        else if (enchant_slot == EnchantSlot::OFFHAND)
+            pchar->decrease_oh_flat_damage_bonus(8);
+        else
+            assert(false);
         break;
     default:
         assert(false);

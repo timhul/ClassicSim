@@ -37,7 +37,8 @@ public:
         EnchantBootsMinorSpeed,
         EnchantBootsGreaterAgility,
         ElementalSharpeningStone,
-        ConsecratedSharpeningStone
+        ConsecratedSharpeningStone,
+        DenseSharpeningStone
     };
 
     Q_ENUMS(Name)
@@ -101,6 +102,8 @@ public:
             return "Elemental Sharpening Stone";
         case EnchantName::ConsecratedSharpeningStone:
             return "Consecrated Sharpening Stone";
+        case EnchantName::DenseSharpeningStone:
+            return "Dense Sharpening Stone";
         }
 
         assert(false);
@@ -170,6 +173,8 @@ public:
             return "+2% Crit";
         case EnchantName::ConsecratedSharpeningStone:
             return "+100 AP\nvs Undead";
+        case EnchantName::DenseSharpeningStone:
+            return "+8 Damage";
         }
 
         assert(false);
