@@ -44,6 +44,8 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     cstats->increase_stamina(88);
     cstats->increase_intellect(10);
     cstats->increase_spirit(25);
+    cstats->increase_melee_ap(160);
+    cstats->increase_crit(0.03);
 
     this->rogue_spells = new RogueSpells(this);
     this->spells = dynamic_cast<Spells*>(rogue_spells);
