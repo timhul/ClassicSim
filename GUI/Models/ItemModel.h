@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include <QStringList>
+#include <QVersionNumber>
 
 class ActiveItemStatFilterModel;
 class Character;
@@ -42,7 +43,7 @@ public:
 
     void update_items();
     void set_character(Character* pchar);
-    void set_patch(const QString &patch);
+    void set_patch(const QVersionNumber patch);
 
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);

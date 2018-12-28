@@ -1,5 +1,6 @@
 #include "SimulationRunner.h"
 
+#include <QVersionNumber>
 #include <utility>
 
 #include "CharacterEncoder.h"
@@ -79,7 +80,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     if (pchar == nullptr)
         return exit_thread("Pchar nullptr: " + decoder.get_class());
 
-    local_sim_settings->set_patch(decoder.get_value("PATCH"));
+    local_sim_settings->set_patch(QVersionNumber::fromString(decoder.get_value("PATCH")));
     local_sim_settings->set_combat_iterations_full_sim(iterations);
     local_sim_settings->set_combat_iterations_quick_sim(iterations);
     local_sim_settings->set_sim_options(global_sim_settings->get_active_options());

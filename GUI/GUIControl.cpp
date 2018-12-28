@@ -1258,9 +1258,9 @@ void GUIControl::setEquipmentSetup(const int equipment_index) {
 
 void GUIControl::setPatch(const QString& patch_str) {
     QVersionNumber patch = QVersionNumber::fromString(patch_str);
-    sim_settings->set_patch(patch_str);
-    weapon_model->set_patch(patch_str);
-    item_model->set_patch(patch_str);
+    sim_settings->set_patch(patch);
+    weapon_model->set_patch(patch);
+    item_model->set_patch(patch);
     buff_model->set_patch(patch);
     debuff_model->set_patch(patch);
 

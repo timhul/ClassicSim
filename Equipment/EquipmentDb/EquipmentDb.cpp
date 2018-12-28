@@ -2,6 +2,7 @@
 
 #include <QDebug>
 #include <QDir>
+#include <QVersionNumber>
 
 #include "ItemFileReader.h"
 #include "Weapon.h"
@@ -10,7 +11,7 @@ EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)
 {
     read_equipment_files();
-    set_patch("1.12.1");
+    set_patch(QVersionNumber::fromString("1.12.1"));
 
     all_slots_items = {
         &mh_slot_items,
@@ -172,8 +173,8 @@ const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
     return current_patch_amulets;
 }
 
-void EquipmentDb::set_patch(const QString &patch) {
-    this->current_patch = QVersionNumber::fromString(patch);
+void EquipmentDb::set_patch(const QVersionNumber patch) {
+    this->current_patch = patch;
 
     set_patch_for_slot(mh_slot_items, current_patch_mh_slot_items);
     set_patch_for_slot(oh_slot_items, current_patch_oh_slot_items);

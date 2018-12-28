@@ -21,8 +21,8 @@ QVersionNumber SimSettings::get_patch() const {
     return this->current_patch;
 }
 
-void SimSettings::set_patch(const QString& patch) {
-    current_patch = QVersionNumber::fromString(patch);
+void SimSettings::set_patch(const QVersionNumber patch) {
+    current_patch = patch;
 }
 
 int SimSettings::get_combat_iterations_quick_sim() const {
