@@ -17,8 +17,8 @@ SimSettings::~SimSettings() {
     delete ruleset_control;
 }
 
-QString SimSettings::get_patch() const {
-    return this->current_patch.toString();
+QVersionNumber SimSettings::get_patch() const {
+    return this->current_patch;
 }
 
 void SimSettings::set_patch(const QString& patch) {

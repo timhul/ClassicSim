@@ -15,7 +15,7 @@ public:
     SimSettings();
     ~SimSettings();
 
-    QString get_patch() const;
+    QVersionNumber get_patch() const;
     void set_patch(const QString& patch);
 
     void set_combat_length(const int);

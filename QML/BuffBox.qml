@@ -4,8 +4,8 @@ RectangleBorders {
     property string buffName
     property string buffIcon
     property string buffText
+    property bool buffActive
     property bool isBuff: true
-    property bool selected: false
     property color selectedColor: "#173117"
     property color selectedHighlightColor: "#134f00"
 
@@ -14,24 +14,11 @@ RectangleBorders {
     height: 60
     width: 250
 
-    rectColor: selected === true ? selectedColor : root.darkDarkGray
-    rectColorHighlighted: selected === true ? selectedHighlightColor : root.darkGray
+    rectColor: buffActive === true ? selectedColor : root.darkDarkGray
+    rectColorHighlighted: buffActive === true ? selectedHighlightColor : root.darkGray
     outerBorderColor: root.darkGray
     onRectangleClicked: buffClicked()
     onRectangleRightClicked: buffClicked()
-
-    Connections {
-        target: settings
-        onExternalBuffsChanged: {
-            if (isBuff)
-                selected = settings.buffActive(buffName)
-        }
-        onExternalDebuffsChanged: {
-            if (isBuff === false) {
-                selected = settings.debuffActive(buffName)
-            }
-        }
-    }
 
     Row {
         id: row

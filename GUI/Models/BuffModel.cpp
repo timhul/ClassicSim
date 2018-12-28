@@ -1,39 +1,52 @@
-
 #include "BuffModel.h"
-#include "GeneralBuffs.h"
+
+#include "Character.h"
+#include "EnabledBuffs.h"
 #include "ExternalBuff.h"
+#include "Faction.h"
+#include "GeneralBuffs.h"
 
-BuffModel::BuffModel(GeneralBuffs* general_buffs, QObject *parent)
+BuffModel::BuffModel(const QVersionNumber patch, QObject* parent)
     : QAbstractListModel(parent),
-      general_buffs(general_buffs),
-      patch("1.0.0")
-{
-    addBuffs();
+      pchar(nullptr),
+      patch(patch)
+{}
+
+void BuffModel::set_character(Character* pchar) {
+    this->pchar = pchar;
+    update_buffs();
 }
 
-void BuffModel::set_patch(const QString &patch) {
-    QString patch_split = patch.split(' ').first();
-    this->patch = patch_split;
-    addBuffs();
+void BuffModel::set_patch(const QVersionNumber &patch) {
+    this->patch = patch;
+    update_buffs();
 }
 
-void BuffModel::switch_faction() {
-    general_buffs->switch_faction();
-    addBuffs();
+void BuffModel::toggle_buff(const QString& name) {
+    QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_buffs();
+    for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs[i]->get_name() != name)
+            continue;
+
+        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(name);
+
+        dataChanged(createIndex(i, 0), createIndex(i, 0), {ActiveRole});
+        break;
+    }
 }
 
-void BuffModel::addBuffs() {
+void BuffModel::update_buffs() {
     if (!external_buffs.empty()) {
         beginResetModel();
         external_buffs.clear();
         endResetModel();
     }
 
-    QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
+    QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_buffs();
     for (auto buff : buffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
-        if (buff->valid_for_patch(this->patch))
+        if (buff->valid_for_patch(this->patch.toString()))
             external_buffs << buff;
         endInsertRows();
     }
@@ -56,6 +69,8 @@ QVariant BuffModel::data(const QModelIndex & index, int role) const {
         return buff->get_icon();
     if (role == DescriptionRole)
         return buff->get_description();
+    if (role == ActiveRole)
+        return pchar->get_enabled_buffs()->get_general_buffs()->buff_active(buff->get_name());
 
     return QVariant();
 }
@@ -65,5 +80,6 @@ QHash<int, QByteArray> BuffModel::roleNames() const {
     roles[NameRole] = "name";
     roles[IconRole] = "icon";
     roles[DescriptionRole] = "description";
+    roles[ActiveRole] = "_active";
     return roles;
 }

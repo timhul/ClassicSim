@@ -248,8 +248,6 @@ Q_SIGNALS:
     void statisticsCleared();
     void statisticsReady();
     void creatureTypeChanged();
-    void externalBuffsChanged();
-    void externalDebuffsChanged();
     void filtersUpdated();
     void equipmentSlotSelected();
     void rotationChanged();

@@ -92,6 +92,8 @@ void EnabledBuffs::clear_all() {
 }
 
 void EnabledBuffs::switch_faction() {
+    general_buffs->switch_faction();
+
     if (faction->is_alliance()) {
         for (auto & horde_only_buff : horde_only_buffs) {
             remove_buff(horde_only_buff);

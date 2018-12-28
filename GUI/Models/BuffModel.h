@@ -3,9 +3,10 @@
 
 #include <QAbstractListModel>
 #include <QStringList>
+#include <QVersionNumber>
 
+class Character;
 class ExternalBuff;
-class GeneralBuffs;
 
 class BuffModel : public QAbstractListModel
 {
@@ -14,25 +15,26 @@ public:
     enum BuffRoles {
         NameRole = Qt::UserRole + 1,
         IconRole,
-        DescriptionRole
+        DescriptionRole,
+        ActiveRole
     };
 
-    BuffModel(GeneralBuffs* general_buffs, QObject *parent = nullptr);
+    BuffModel(const QVersionNumber patch, QObject *parent = nullptr);
 
-    void set_patch(const QString &patch);
-    void addBuffs();
-    void switch_faction();
+    void set_character(Character* pchar);
+    void set_patch(const QVersionNumber &patch);
+    void toggle_buff(const QString& name);
+    void update_buffs();
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
 private:
-    QHash<int, QByteArray> roleNames() const;
-
-    GeneralBuffs* general_buffs;
+    Character* pchar;
     QList<ExternalBuff*> external_buffs;
+    QVersionNumber patch;
 
-    QString patch;
+    QHash<int, QByteArray> roleNames() const;
 };
 
 #endif // BUFFMODEL_H

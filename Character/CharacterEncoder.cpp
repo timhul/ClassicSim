@@ -3,15 +3,15 @@
 #include <QDebug>
 
 #include "Character.h"
+#include "CharacterEncoding.h"
 #include "EnabledBuffs.h"
 #include "Equipment.h"
 #include "Item.h"
-#include "Talents.h"
-#include "Weapon.h"
 #include "Race.h"
-#include "CharacterEncoding.h"
 #include "SimSettings.h"
+#include "Talents.h"
 #include "Target.h"
+#include "Weapon.h"
 
 CharacterEncoder::CharacterEncoder(Character *pchar):
     pchar(pchar)
@@ -26,7 +26,7 @@ QString CharacterEncoder::get_current_setup_string() {
 
     this->pchar_str = "";
 
-    key_val("PATCH", pchar->get_sim_settings()->get_patch());
+    key_val("PATCH", pchar->get_sim_settings()->get_patch().toString());
     key_val("RACE", pchar->get_race()->get_name());
     key_val("CLASS", pchar->get_name());
 

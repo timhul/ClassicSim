@@ -3,9 +3,10 @@
 
 #include <QAbstractListModel>
 #include <QStringList>
+#include <QVersionNumber>
 
+class Character;
 class ExternalBuff;
-class GeneralBuffs;
 
 class DebuffModel : public QAbstractListModel
 {
@@ -14,24 +15,26 @@ public:
     enum DebuffRoles {
         NameRole = Qt::UserRole + 1,
         IconRole,
-        DescriptionRole
+        DescriptionRole,
+        ActiveRole
     };
 
-    DebuffModel(GeneralBuffs* general_debuffs, QObject *parent = nullptr);
+    DebuffModel(const QVersionNumber patch, QObject *parent = nullptr);
 
-    void set_patch(const QString &patch);
-    void addDebuffs();
+    void set_character(Character* pchar);
+    void set_patch(const QVersionNumber &patch);
+    void toggle_debuff(const QString& name);
+    void update_debuffs();
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
 private:
-    QHash<int, QByteArray> roleNames() const;
-
-    GeneralBuffs* general_debuffs;
+    Character* pchar;
     QList<ExternalBuff*> external_debuffs;
+    QVersionNumber patch;
 
-    QString patch;
+    QHash<int, QByteArray> roleNames() const;
 };
 
 #endif // DEBUFFMODEL_H

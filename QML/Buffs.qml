@@ -22,6 +22,7 @@ Rectangle {
                 buffName: name
                 buffIcon: icon
                 buffText: name + "\n" + description
+                buffActive: _active
 
                 onBuffClicked: settings.selectBuff(name)
             }
@@ -43,6 +44,7 @@ Rectangle {
                 buffName: name
                 buffIcon: icon
                 buffText: name + "\n" + description
+                buffActive: _active
                 selectedColor: "#8c5c15"
                 selectedHighlightColor: "#ff6600"
 

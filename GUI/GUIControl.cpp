@@ -90,6 +90,8 @@ GUIControl::GUIControl(QObject* parent) :
     active_stat_filter_model->set_weapon_model(weapon_model);
     available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
     rotation_model = new RotationModel(current_char);
+    buff_model = new BuffModel(sim_settings->get_patch());
+    debuff_model = new DebuffModel(sim_settings->get_patch());
 
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], equipment_db, sim_settings)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], equipment_db, sim_settings)));
@@ -102,10 +104,6 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], equipment_db, sim_settings)));
 
     set_character(chars["Warrior"]);
-
-    // TODO: Handle switching pchar
-    buff_model = new BuffModel(current_char->get_enabled_buffs()->get_general_buffs());
-    debuff_model = new DebuffModel(current_char->get_enabled_buffs()->get_general_buffs());
 
     buff_breakdown_model = new BuffBreakdownModel(number_cruncher);
     debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
@@ -181,6 +179,8 @@ void GUIControl::set_character(Character* pchar) {
     selectInformationRotation(0);
     rotation_model->select_rotation();
     character_encoder->set_character(current_char);
+    buff_model->set_character(current_char);
+    debuff_model->set_character(current_char);
 
     mh_enchants->set_character(current_char);
     mh_temporary_enchants->set_character(current_char);
@@ -193,6 +193,14 @@ void GUIControl::set_character(Character* pchar) {
     gloves_enchants->set_character(current_char);
     chest_enchants->set_character(current_char);
     boots_enchants->set_character(current_char);
+
+    raceChanged();
+    classChanged();
+    statsChanged();
+    rotationChanged();
+    equipmentChanged();
+    enchantChanged();
+    factionChanged();
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -208,13 +216,6 @@ void GUIControl::selectClass(const QString& class_name) {
     }
 
     set_character(chars[class_name]);
-    raceChanged();
-    classChanged();
-    statsChanged();
-    rotationChanged();
-    equipmentChanged();
-    enchantChanged();
-    factionChanged();
 }
 
 void GUIControl::selectRace(const QString& race_name) {
@@ -245,7 +246,6 @@ void GUIControl::selectFaction(const int faction) {
             current_char->switch_faction();
 
         reset_race(current_char);
-        classChanged();
     }
     else {
         current_char->switch_faction();
@@ -260,7 +260,8 @@ void GUIControl::selectFaction(const int faction) {
 
     current_char->get_equipment()->clear_items_not_available_for_faction();
 
-    buff_model->switch_faction();
+    buff_model->update_buffs();
+    debuff_model->update_debuffs();
     mh_temporary_enchants->set_character(current_char);
     item_model->update_items();
     weapon_model->update_items();
@@ -576,9 +577,8 @@ DebuffModel* GUIControl::get_debuff_model() const {
 }
 
 void GUIControl::selectBuff(const QString& buff) {
-    current_char->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(buff);
+    buff_model->toggle_buff(buff);
     Q_EMIT statsChanged();
-    Q_EMIT externalBuffsChanged();
 }
 
 bool GUIControl::buffActive(const QString& buff) const {
@@ -586,8 +586,7 @@ bool GUIControl::buffActive(const QString& buff) const {
 }
 
 void GUIControl::selectDebuff(const QString& debuff) {
-    current_char->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(debuff);
-    Q_EMIT externalDebuffsChanged();
+    debuff_model->toggle_debuff(debuff);
 }
 
 bool GUIControl::debuffActive(const QString& debuff) const {
@@ -596,9 +595,8 @@ bool GUIControl::debuffActive(const QString& debuff) const {
 
 void GUIControl::setBuffSetup(const int buff_index) {
     current_char->get_enabled_buffs()->get_general_buffs()->change_setup(buff_index);
-    Q_EMIT statsChanged();
-    Q_EMIT externalBuffsChanged();
-    Q_EMIT externalDebuffsChanged();
+    buff_model->update_buffs();
+    debuff_model->update_debuffs();
 }
 
 BuffBreakdownModel* GUIControl::get_buff_breakdown_model() const {
@@ -1259,11 +1257,13 @@ void GUIControl::setEquipmentSetup(const int equipment_index) {
     enchantChanged();
 }
 
-void GUIControl::setPatch(const QString& patch) {
-    sim_settings->set_patch(patch);
-    weapon_model->set_patch(patch);
-    item_model->set_patch(patch);
+void GUIControl::setPatch(const QString& patch_str) {
+    QVersionNumber patch = QVersionNumber::fromString(patch_str);
+    sim_settings->set_patch(patch_str);
+    weapon_model->set_patch(patch_str);
+    item_model->set_patch(patch_str);
     buff_model->set_patch(patch);
+    debuff_model->set_patch(patch);
 
     current_char->get_stats()->get_equipment()->reequip_items();
     equipmentChanged();
