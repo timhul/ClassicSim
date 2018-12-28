@@ -55,6 +55,7 @@ GUIControl::GUIControl(QObject* parent) :
     number_cruncher(new NumberCruncher()),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
+    rotation_model(new RotationModel()),
     dps_distribution(nullptr),
     mh_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Permanent)),
     mh_temporary_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Temporary)),
@@ -75,6 +76,21 @@ GUIControl::GUIControl(QObject* parent) :
 
     this->sim_control = new SimControl(sim_settings, number_cruncher);
     this->sim_scale_model = new SimScaleModel(sim_settings);
+    item_model = new ItemModel(equipment_db, item_type_filter_model, active_stat_filter_model);
+    weapon_model = new WeaponModel(equipment_db, item_type_filter_model, active_stat_filter_model);
+    active_stat_filter_model->set_item_model(item_model);
+    active_stat_filter_model->set_weapon_model(weapon_model);
+    available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
+    buff_model = new BuffModel(sim_settings->get_patch());
+    debuff_model = new DebuffModel(sim_settings->get_patch());
+    buff_breakdown_model = new BuffBreakdownModel(number_cruncher);
+    debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
+    damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
+    damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
+    proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
+    resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
+    scale_result_model = new ScaleResultModel(number_cruncher);
+
     races.insert("Dwarf", new Dwarf());
     races.insert("Gnome", new Gnome());
     races.insert("Human", new Human());
@@ -83,15 +99,6 @@ GUIControl::GUIControl(QObject* parent) :
     races.insert("Tauren", new Tauren());
     races.insert("Troll", new Troll());
     races.insert("Undead", new Undead());
-
-    item_model = new ItemModel(equipment_db, item_type_filter_model, active_stat_filter_model);
-    weapon_model = new WeaponModel(equipment_db, item_type_filter_model, active_stat_filter_model);
-    active_stat_filter_model->set_item_model(item_model);
-    active_stat_filter_model->set_weapon_model(weapon_model);
-    available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
-    rotation_model = new RotationModel(current_char);
-    buff_model = new BuffModel(sim_settings->get_patch());
-    debuff_model = new DebuffModel(sim_settings->get_patch());
 
     chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], equipment_db, sim_settings)));
     chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], equipment_db, sim_settings)));
@@ -104,14 +111,6 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], equipment_db, sim_settings)));
 
     set_character(chars["Warrior"]);
-
-    buff_breakdown_model = new BuffBreakdownModel(number_cruncher);
-    debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
-    damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
-    damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
-    proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
-    resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
-    scale_result_model = new ScaleResultModel(number_cruncher);
 }
 
 GUIControl::~GUIControl() {

@@ -19,7 +19,7 @@ public:
         DescriptionRole
     };
 
-    RotationModel(Character* pchar, QObject *parent = nullptr);
+    RotationModel(QObject *parent = nullptr);
     ~RotationModel();
 
     void set_patch(const QString &patch);

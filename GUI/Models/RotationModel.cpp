@@ -4,9 +4,9 @@
 #include "Rotation.h"
 #include "RotationFileReader.h"
 
-RotationModel::RotationModel(Character *pchar, QObject *parent)
+RotationModel::RotationModel(QObject *parent)
     : QAbstractListModel(parent),
-      pchar(pchar),
+      pchar(nullptr),
       patch("1.0.0"),
       information_index(-1)
 {}
