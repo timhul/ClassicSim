@@ -85,42 +85,41 @@ public:
     void clear_items_not_available_for_faction();
     EquipmentDb *get_db() const;
 
-    void equip(QVector<Item *> &current, Item*& next, const int eq_slot);
-    void unequip(QVector<Item *> &item);
+    void equip(Item*& current, Item* next, const int eq_slot);
+    void unequip(Item*& item, const int eq_slot);
 
-    void equip(QVector<Weapon *> &current, Weapon*& next, const int eq_slot);
-    void unequip(QVector<Weapon *> &weapon);
+    void equip(Weapon*& current, Weapon* next, const int eq_slot);
+    void unequip(Weapon*& weapon, const int eq_slot);
 
-protected:
 private:
     int setup_index;
     EquipmentDb* db;
     Character* pchar;
     QVector<Stats*> stats_from_equipped_gear;
-    QVector<Weapon*> mainhand;
-    QVector<Weapon*> offhand;
-    QVector<Item*> ranged;
-    QVector<Item*> head;
-    QVector<Item*> neck;
-    QVector<Item*> shoulders;
-    QVector<Item*> back;
-    QVector<Item*> chest;
-    QVector<Item*> wrist;
-    QVector<Item*> gloves;
-    QVector<Item*> belt;
-    QVector<Item*> legs;
-    QVector<Item*> boots;
-    QVector<Item*> ring1;
-    QVector<Item*> ring2;
-    QVector<Item*> trinket1;
-    QVector<Item*> trinket2;
-    QVector<Item*> caster_offhand;
-    QVector<Item*> relic;
+    QVector<QVector<int>> item_setups;
+    Weapon* mainhand;
+    Weapon* offhand;
+    Item* ranged;
+    Item* head;
+    Item* neck;
+    Item* shoulders;
+    Item* back;
+    Item* chest;
+    Item* wrist;
+    Item* gloves;
+    Item* belt;
+    Item* legs;
+    Item* boots;
+    Item* ring1;
+    Item* ring2;
+    Item* trinket1;
+    Item* trinket2;
+    Item* caster_offhand;
+    Item* relic;
 
-    void add_proc_effects_from_current_setup();
-    void remove_proc_effects_from_current_setup();
-    void add_proc_effect_from_item(Item*, const int eq_slot);
-    void remove_proc_effect_from_item(Item*);
+    static const int NO_EQUIPPED_ITEM = -1;
+
+    int get_stored_item_id_for_slot(const int equipment_slot) const;
 };
 
 #endif // EQUIPMENT_H

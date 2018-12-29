@@ -30,6 +30,8 @@ public:
     Item* get_boots(const int item_id) const;
     Item* get_ring(const int item_id) const;
     Item* get_trinket(const int item_id) const;
+    Item* get_caster_offhand(const int item_id) const;
+    Item* get_relic(const int item_id) const;
 
     void set_patch(const QVersionNumber current_patch);
     bool item_valid_for_current_patch(const QString &item_patch) const;

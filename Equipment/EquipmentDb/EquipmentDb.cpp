@@ -136,6 +136,16 @@ Item* EquipmentDb::get_trinket(const int item_id) const {
     return get_item(current_patch_trinkets, item_id);
 }
 
+Item* EquipmentDb::get_caster_offhand(const int) const {
+    // CSIM-74: Get caster offhand.
+    return nullptr;
+}
+
+Item* EquipmentDb::get_relic(const int) const {
+    // CSIM-74: Get relic.
+    return nullptr;
+}
+
 const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
     case ItemSlots::MAINHAND:
