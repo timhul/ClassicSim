@@ -1,6 +1,11 @@
 #include "SetBonusControl.h"
 
+#include "Backstab.h"
+#include "Hemorrhage.h"
+#include "Rogue.h"
+#include "RogueSpells.h"
 #include "SetBonusFileReader.h"
+#include "SinisterStrike.h"
 
 SetBonusControl::SetBonusControl(EquipmentDb* equipment_db, Character* pchar) :
     equipment_db(equipment_db),
@@ -19,11 +24,13 @@ void SetBonusControl::equip_item(const int item_id) {
 
     if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
-        case 2:
-        case 4:
-        case 6:
-        case 8:
+        case 4: {
+            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            spells->get_backstab()->activate_set_bonus(set_name, num_pieces);
+            spells->get_hemorrhage()->activate_set_bonus(set_name, num_pieces);
+            spells->get_sinister_strike()->activate_set_bonus(set_name, num_pieces);
             break;
+        }
         }
     }
 }
@@ -32,16 +39,19 @@ void SetBonusControl::unequip_item(const int item_id) {
     if (!current_set_items.contains(item_id))
         return;
 
-    QString set_name = current_set_items.take(item_id);
+    QString set_name = current_set_items[item_id];
     int num_pieces = get_num_equipped_pieces_for_set(set_name);
+    current_set_items.take(item_id);
 
     if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
-        case 2:
-        case 4:
-        case 6:
-        case 8:
+        case 4: {
+            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            spells->get_backstab()->deactivate_set_bonus(set_name, num_pieces);
+            spells->get_hemorrhage()->deactivate_set_bonus(set_name, num_pieces);
+            spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
             break;
+        }
         }
     }
 }

@@ -329,7 +329,8 @@ SOURCES += main.cpp \
     Character/Class/Rogue/Spells/Hemorrhage.cpp \
     Test/Rogue/Spells/TestHemorrhage.cpp \
     Equipment/EquipmentDb/SetBonusFileReader.cpp \
-    Equipment/SetBonusControl.cpp
+    Equipment/SetBonusControl.cpp \
+    Character/Class/SetBonusRequirer.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -662,7 +663,8 @@ HEADERS += \
     Character/Class/Rogue/Spells/Hemorrhage.h \
     Test/Rogue/Spells/TestHemorrhage.h \
     Equipment/EquipmentDb/SetBonusFileReader.h \
-    Equipment/SetBonusControl.h
+    Equipment/SetBonusControl.h \
+    Character/Class/SetBonusRequirer.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
