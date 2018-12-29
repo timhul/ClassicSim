@@ -15,11 +15,11 @@ AngerManagement::AngerManagement(Character* pchar) :
     statistics_resource(nullptr)
 {}
 
-void AngerManagement::increase_talent_rank_effect(const int, const QString&) {
+void AngerManagement::increase_talent_rank_effect(const QString&, const int) {
     dynamic_cast<WarriorSpells*>(warr->get_spells())->add_pre_combat_spell(this);
 }
 
-void AngerManagement::decrease_talent_rank_effect(const int, const QString&) {
+void AngerManagement::decrease_talent_rank_effect(const QString&, const int) {
     dynamic_cast<WarriorSpells*>(warr->get_spells())->remove_pre_combat_spell(this);
 }
 

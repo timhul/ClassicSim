@@ -27,11 +27,11 @@ Slam::Slam(Character* pchar) :
     talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
 }
 
-void Slam::increase_talent_rank_effect(const int curr, const QString&) {
+void Slam::increase_talent_rank_effect(const QString&, const int curr) {
     casting_time_ms = talent_ranks[curr];
 }
 
-void Slam::decrease_talent_rank_effect(const int curr, const QString&) {
+void Slam::decrease_talent_rank_effect(const QString&, const int curr) {
     casting_time_ms = talent_ranks[curr];
 }
 

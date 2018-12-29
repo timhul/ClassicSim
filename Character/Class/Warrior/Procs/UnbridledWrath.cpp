@@ -29,11 +29,11 @@ void UnbridledWrath::proc_effect() {
         statistics_resource->add_resource_gain(ResourceType::Rage, 1);
 }
 
-void UnbridledWrath::increase_talent_rank_effect(const int curr, const QString&) {
+void UnbridledWrath::increase_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
 }
 
-void UnbridledWrath::decrease_talent_rank_effect(const int curr, const QString&) {
+void UnbridledWrath::decrease_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
 }
 

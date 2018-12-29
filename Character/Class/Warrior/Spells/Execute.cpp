@@ -75,11 +75,11 @@ void Execute::spell_effect() {
     warr->lose_rage(warr->get_resource_level(resource_type));
 }
 
-void Execute::increase_talent_rank_effect(const int curr, const QString&) {
+void Execute::increase_talent_rank_effect(const QString&, const int curr) {
     resource_cost = talent_ranks[curr];
 }
 
-void Execute::decrease_talent_rank_effect(const int curr, const QString&) {
+void Execute::decrease_talent_rank_effect(const QString&, const int curr) {
     resource_cost = talent_ranks[curr];
 }
 

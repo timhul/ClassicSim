@@ -25,11 +25,11 @@ void SwordSpecialization::proc_effect() {
     warr->run_extra_mh_attack();
 }
 
-void SwordSpecialization::increase_talent_rank_effect(const int curr, const QString&) {
+void SwordSpecialization::increase_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr] * 100;
 }
 
-void SwordSpecialization::decrease_talent_rank_effect(const int curr, const QString&) {
+void SwordSpecialization::decrease_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr] * 100;
 }
 

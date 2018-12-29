@@ -106,7 +106,7 @@ void Eviscerate::update_dmg_modifier() {
     this->total_dmg_modifier = 1 * imp_evisc_modifier * aggression_modifier;
 }
 
-void Eviscerate::increase_talent_rank_effect(const int curr, const QString& talent_name) {
+void Eviscerate::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Eviscerate")
         imp_evisc_modifier = imp_evisc_modifiers[curr];
     else if (talent_name == "Aggression")
@@ -115,7 +115,7 @@ void Eviscerate::increase_talent_rank_effect(const int curr, const QString& tale
     update_dmg_modifier();
 }
 
-void Eviscerate::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
+void Eviscerate::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Eviscerate")
         imp_evisc_modifier = imp_evisc_modifiers[curr];
     else if (talent_name == "Aggression")

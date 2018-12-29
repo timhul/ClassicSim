@@ -53,8 +53,8 @@ void MortalStrike::spell_effect() {
     warr->lose_rage(static_cast<unsigned>(resource_cost));
 }
 
-void MortalStrike::increase_talent_rank_effect(const int, const QString&) {
+void MortalStrike::increase_talent_rank_effect(const QString&, const int) {
 }
 
-void MortalStrike::decrease_talent_rank_effect(const int, const QString&) {
+void MortalStrike::decrease_talent_rank_effect(const QString&, const int) {
 }

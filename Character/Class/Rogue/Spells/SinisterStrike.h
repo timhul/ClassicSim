@@ -29,8 +29,8 @@ private:
 
     void spell_effect() override;
 
-    void increase_talent_rank_effect(const int curr, const QString& talent_name) override;
-    void decrease_talent_rank_effect(const int curr, const QString& talent_name) override;
+    void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
+    void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
     void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 

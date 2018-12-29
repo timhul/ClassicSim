@@ -50,10 +50,10 @@ void Overpower::spell_effect() {
     }
 }
 
-void Overpower::increase_talent_rank_effect(const int curr, const QString&) {
+void Overpower::increase_talent_rank_effect(const QString&, const int curr) {
     crit_mod = talent_ranks[curr];
 }
 
-void Overpower::decrease_talent_rank_effect(const int curr, const QString&) {
+void Overpower::decrease_talent_rank_effect(const QString&, const int curr) {
     crit_mod = talent_ranks[curr];
 }

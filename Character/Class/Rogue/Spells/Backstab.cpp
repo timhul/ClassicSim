@@ -77,7 +77,7 @@ void Backstab::spell_effect() {
     }
 }
 
-void Backstab::increase_talent_rank_effect(const int curr, const QString& talent_name) {
+void Backstab::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Backstab")
         improved_bs = imp_bs_ranks[curr];
     else if (talent_name == "Lethality")
@@ -86,7 +86,7 @@ void Backstab::increase_talent_rank_effect(const int curr, const QString& talent
         opportunity = opportunity_ranks[curr];
 }
 
-void Backstab::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
+void Backstab::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Backstab")
         improved_bs = imp_bs_ranks[curr];
     else if (talent_name == "Lethality")

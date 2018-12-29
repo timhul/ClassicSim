@@ -16,11 +16,11 @@ OffhandAttackWarrior::OffhandAttackWarrior(Character* pchar) :
     offhand_penalty = talent_ranks[0];
 }
 
-void OffhandAttackWarrior::increase_talent_rank_effect(const int curr, const QString&) {
+void OffhandAttackWarrior::increase_talent_rank_effect(const QString&, const int curr) {
     offhand_penalty = talent_ranks[curr];
 }
 
-void OffhandAttackWarrior::decrease_talent_rank_effect(const int curr, const QString&) {
+void OffhandAttackWarrior::decrease_talent_rank_effect(const QString&, const int curr) {
     offhand_penalty = talent_ranks[curr];
 }
 

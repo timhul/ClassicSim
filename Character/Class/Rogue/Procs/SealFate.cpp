@@ -21,10 +21,10 @@ void SealFate::proc_effect() {
     rogue->gain_combo_points(1);
 }
 
-void SealFate::increase_talent_rank_effect(const int curr, const QString&) {
+void SealFate::increase_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
 }
 
-void SealFate::decrease_talent_rank_effect(const int curr, const QString&) {
+void SealFate::decrease_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
 }

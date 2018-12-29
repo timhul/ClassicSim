@@ -18,10 +18,10 @@ void Flurry::buff_effect_when_removed() {
     pchar->decrease_attack_speed(attack_speed_increase);
 }
 
-void Flurry::increase_talent_rank_effect(const int curr, const QString&) {
+void Flurry::increase_talent_rank_effect(const QString&, const int curr) {
     attack_speed_increase = rank_talents[curr];
 }
 
-void Flurry::decrease_talent_rank_effect(const int curr, const QString&) {
+void Flurry::decrease_talent_rank_effect(const QString&, const int curr) {
     attack_speed_increase = rank_talents[curr];
 }

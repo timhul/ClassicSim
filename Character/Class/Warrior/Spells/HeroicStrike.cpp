@@ -77,10 +77,10 @@ void HeroicStrike::spell_effect() {
     hs_buff->apply_buff();
 }
 
-void HeroicStrike::increase_talent_rank_effect(const int curr, const QString&) {
+void HeroicStrike::increase_talent_rank_effect(const QString&, const int curr) {
     resource_cost = talent_ranks[curr];
 }
 
-void HeroicStrike::decrease_talent_rank_effect(const int curr, const QString&) {
+void HeroicStrike::decrease_talent_rank_effect(const QString&, const int curr) {
     resource_cost = talent_ranks[curr];
 }

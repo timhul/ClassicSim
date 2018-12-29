@@ -7,10 +7,10 @@ OffhandAttackRogue::OffhandAttackRogue(Character* pchar) :
     talent_ranks = {0.5, 0.55, 0.6, 0.65, 0.7, 0.75};
 }
 
-void OffhandAttackRogue::increase_talent_rank_effect(const int curr, const QString&) {
+void OffhandAttackRogue::increase_talent_rank_effect(const QString&, const int curr) {
     offhand_penalty = talent_ranks[curr];
 }
 
-void OffhandAttackRogue::decrease_talent_rank_effect(const int curr, const QString&) {
+void OffhandAttackRogue::decrease_talent_rank_effect(const QString&, const int curr) {
     offhand_penalty = talent_ranks[curr];
 }

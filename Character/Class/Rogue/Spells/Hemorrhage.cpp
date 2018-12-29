@@ -64,12 +64,12 @@ void Hemorrhage::spell_effect() {
     }
 }
 
-void Hemorrhage::increase_talent_rank_effect(const int curr, const QString& talent_name) {
+void Hemorrhage::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Lethality")
         lethality = lethality_ranks[curr];
 }
 
-void Hemorrhage::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
+void Hemorrhage::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Lethality")
         lethality = lethality_ranks[curr];
 }

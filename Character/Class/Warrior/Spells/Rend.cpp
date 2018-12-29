@@ -85,11 +85,11 @@ void Rend::reset_effect() {
     num_ticks_left = 0;
 }
 
-void Rend::increase_talent_rank_effect(const int curr, const QString&) {
+void Rend::increase_talent_rank_effect(const QString&, const int curr) {
     talent_modifier = talent_ranks[curr];
 }
 
-void Rend::decrease_talent_rank_effect(const int curr, const QString&) {
+void Rend::decrease_talent_rank_effect(const QString&, const int curr) {
     talent_modifier = talent_ranks[curr];
 }
 

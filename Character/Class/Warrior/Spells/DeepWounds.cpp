@@ -78,11 +78,11 @@ void DeepWounds::reset_effect() {
     previous_tick_rest = 0;
 }
 
-void DeepWounds::increase_talent_rank_effect(const int curr, const QString&) {
+void DeepWounds::increase_talent_rank_effect(const QString&, const int curr) {
     wpn_percent = talent_ranks[curr];
 }
 
-void DeepWounds::decrease_talent_rank_effect(const int curr, const QString&) {
+void DeepWounds::decrease_talent_rank_effect(const QString&, const int curr) {
     wpn_percent = talent_ranks[curr];
 }
 

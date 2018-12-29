@@ -47,8 +47,8 @@ protected:
     void increase_talent_rank(Proc* proc, const QString &talent);
     void decrease_talent_rank(Proc* proc, const QString &talent);
 
-    virtual void increase_talent_rank_effect(const int curr, const QString& talent_name) = 0;
-    virtual void decrease_talent_rank_effect(const int curr, const QString& talent_name) = 0;
+    virtual void increase_talent_rank_effect(const QString& talent_name, const int curr) = 0;
+    virtual void decrease_talent_rank_effect(const QString& talent_name, const int curr) = 0;
 };
 
 

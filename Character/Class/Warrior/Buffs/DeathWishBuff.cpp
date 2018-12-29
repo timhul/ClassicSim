@@ -20,8 +20,8 @@ void DeathWishBuff::buff_effect_when_removed() {
     dynamic_cast<Warrior*>(pchar)->get_stats()->remove_spell_damage_taken_mod(20);
 }
 
-void DeathWishBuff::increase_talent_rank_effect(const int, const QString&) {
+void DeathWishBuff::increase_talent_rank_effect(const QString&, const int) {
 }
 
-void DeathWishBuff::decrease_talent_rank_effect(const int, const QString&) {
+void DeathWishBuff::decrease_talent_rank_effect(const QString&, const int) {
 }

@@ -50,10 +50,10 @@ void SliceAndDice::spell_effect() {
         rogue->get_ruthlessness()->perform();
 }
 
-void SliceAndDice::increase_talent_rank_effect(const int curr, const QString&) {
+void SliceAndDice::increase_talent_rank_effect(const QString&, const int curr) {
     buff->change_duration_modifier(curr);
 }
 
-void SliceAndDice::decrease_talent_rank_effect(const int curr, const QString&) {
+void SliceAndDice::decrease_talent_rank_effect(const QString&, const int curr) {
     buff->change_duration_modifier(curr);
 }

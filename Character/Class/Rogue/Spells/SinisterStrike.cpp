@@ -75,7 +75,7 @@ void SinisterStrike::spell_effect() {
     }
 }
 
-void SinisterStrike::increase_talent_rank_effect(const int curr, const QString& talent_name) {
+void SinisterStrike::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Sinister Strike")
         resource_cost = imp_ss_ranks[curr];
     else if (talent_name == "Aggression")
@@ -84,7 +84,7 @@ void SinisterStrike::increase_talent_rank_effect(const int curr, const QString& 
         lethality = lethality_ranks[curr];
 }
 
-void SinisterStrike::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
+void SinisterStrike::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Sinister Strike")
         resource_cost = imp_ss_ranks[curr];
     else if (talent_name == "Aggression")

@@ -54,8 +54,8 @@ void Bloodthirst::spell_effect() {
     warr->lose_rage(static_cast<unsigned>(resource_cost));
 }
 
-void Bloodthirst::increase_talent_rank_effect(const int, const QString&) {
+void Bloodthirst::increase_talent_rank_effect(const QString&, const int) {
 }
 
-void Bloodthirst::decrease_talent_rank_effect(const int, const QString&) {
+void Bloodthirst::decrease_talent_rank_effect(const QString&, const int) {
 }

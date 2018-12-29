@@ -21,10 +21,10 @@ void Ruthlessness::proc_effect() {
     rogue->gain_combo_points(1);
 }
 
-void Ruthlessness::increase_talent_rank_effect(const int curr, const QString&) {
+void Ruthlessness::increase_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
 }
 
-void Ruthlessness::decrease_talent_rank_effect(const int curr, const QString&) {
+void Ruthlessness::decrease_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
 }

@@ -96,14 +96,14 @@ void InstantPoison::proc_effect() {
     }
 }
 
-void InstantPoison::increase_talent_rank_effect(const int curr, const QString& talent_name) {
+void InstantPoison::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Poisons")
         proc_range = base_proc_range + improved_poisons_proc_range_increases[curr];
     else if (talent_name == "Vile Poisons")
         vile_poisons = vile_poisons_modifiers[curr];
 }
 
-void InstantPoison::decrease_talent_rank_effect(const int curr, const QString& talent_name) {
+void InstantPoison::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Poisons")
         proc_range = base_proc_range + improved_poisons_proc_range_increases[curr];
     else if (talent_name == "Vile Poisons")

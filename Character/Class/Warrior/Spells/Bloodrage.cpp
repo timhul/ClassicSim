@@ -19,11 +19,11 @@ bool Bloodrage::is_ready_spell_specific() const {
     return !warr->in_defensive_stance();
 }
 
-void Bloodrage::increase_talent_rank_effect(const int curr, const QString&) {
+void Bloodrage::increase_talent_rank_effect(const QString&, const int curr) {
     this->immediate_rage_gain = talent_ranks[curr];
 }
 
-void Bloodrage::decrease_talent_rank_effect(const int curr, const QString&) {
+void Bloodrage::decrease_talent_rank_effect(const QString&, const int curr) {
     this->immediate_rage_gain = talent_ranks[curr];
 }
 

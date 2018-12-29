@@ -24,10 +24,10 @@ void BladeFlurry::spell_effect() {
     add_gcd_event();
 }
 
-void BladeFlurry::increase_talent_rank_effect(const int, const QString&) {
+void BladeFlurry::increase_talent_rank_effect(const QString&, const int) {
     bf_buff->enable_buff();
 }
 
-void BladeFlurry::decrease_talent_rank_effect(const int, const QString&) {
+void BladeFlurry::decrease_talent_rank_effect(const QString&, const int) {
     bf_buff->disable_buff();
 }

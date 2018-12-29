@@ -34,12 +34,12 @@ void RelentlessStrikes::set_current_combo_points(const unsigned combo_points) {
     proc_range = combo_proc_percent * combo_points;
 }
 
-void RelentlessStrikes::increase_talent_rank_effect(const int curr, const QString&) {
+void RelentlessStrikes::increase_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
     combo_proc_percent = talent_ranks[curr];
 }
 
-void RelentlessStrikes::decrease_talent_rank_effect(const int curr, const QString&) {
+void RelentlessStrikes::decrease_talent_rank_effect(const QString&, const int curr) {
     proc_range = talent_ranks[curr];
     combo_proc_percent = talent_ranks[curr];
 }

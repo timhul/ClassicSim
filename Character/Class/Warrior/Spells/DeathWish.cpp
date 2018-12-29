@@ -20,8 +20,8 @@ void DeathWish::spell_effect() {
     warr->lose_rage(static_cast<unsigned>(resource_cost));
 }
 
-void DeathWish::increase_talent_rank_effect(const int, const QString&) {
+void DeathWish::increase_talent_rank_effect(const QString&, const int) {
 }
 
-void DeathWish::decrease_talent_rank_effect(const int, const QString&) {
+void DeathWish::decrease_talent_rank_effect(const QString&, const int) {
 }

@@ -24,10 +24,10 @@ void AdrenalineRush::spell_effect() {
     add_gcd_event();
 }
 
-void AdrenalineRush::increase_talent_rank_effect(const int, const QString&) {
+void AdrenalineRush::increase_talent_rank_effect(const QString&, const int) {
     ar_buff->enable_buff();
 }
 
-void AdrenalineRush::decrease_talent_rank_effect(const int, const QString&) {
+void AdrenalineRush::decrease_talent_rank_effect(const QString&, const int) {
     ar_buff->disable_buff();
 }

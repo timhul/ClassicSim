@@ -21,10 +21,10 @@ void BerserkerRage::spell_effect() {
     warr->gain_rage(rage_gain);
 }
 
-void BerserkerRage::increase_talent_rank_effect(const int curr, const QString&) {
+void BerserkerRage::increase_talent_rank_effect(const QString&, const int curr) {
     rage_gain = talent_ranks[curr];
 }
 
-void BerserkerRage::decrease_talent_rank_effect(const int curr, const QString&) {
+void BerserkerRage::decrease_talent_rank_effect(const QString&, const int curr) {
     rage_gain = talent_ranks[curr];
 }
