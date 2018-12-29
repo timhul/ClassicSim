@@ -327,7 +327,9 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety/HemorrhageTalent.cpp \
     Character/Class/Rogue/Spells/Hemorrhage.cpp \
-    Test/Rogue/Spells/TestHemorrhage.cpp
+    Test/Rogue/Spells/TestHemorrhage.cpp \
+    Equipment/EquipmentDb/SetBonusFileReader.cpp \
+    Equipment/SetBonusControl.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -658,7 +660,9 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.h \
     Character/Class/Rogue/TalentTrees/Subtlety/HemorrhageTalent.h \
     Character/Class/Rogue/Spells/Hemorrhage.h \
-    Test/Rogue/Spells/TestHemorrhage.h
+    Test/Rogue/Spells/TestHemorrhage.h \
+    Equipment/EquipmentDb/SetBonusFileReader.h \
+    Equipment/SetBonusControl.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

@@ -6,6 +6,7 @@
 
 class Character;
 class Item;
+class SetBonusControl;
 class Stats;
 class EquipmentDb;
 class Weapon;
@@ -95,6 +96,7 @@ private:
     int setup_index;
     EquipmentDb* db;
     Character* pchar;
+    SetBonusControl* set_bonuses;
     QVector<Stats*> stats_from_equipped_gear;
     QVector<QVector<int>> item_setups;
     Weapon* mainhand;

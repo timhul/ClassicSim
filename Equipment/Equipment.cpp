@@ -7,12 +7,14 @@
 #include "EquipmentDb.h"
 #include "Faction.h"
 #include "Item.h"
+#include "SetBonusControl.h"
 #include "Stats.h"
 #include "Weapon.h"
 
 Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
     db(equipment_db),
-    pchar(pchar)
+    pchar(pchar),
+    set_bonuses(new SetBonusControl(equipment_db, pchar))
 {
     setup_index = 0;
 
@@ -72,6 +74,8 @@ Equipment::~Equipment() {
     for (auto & i : stats_from_equipped_gear) {
         delete i;
     }
+
+    delete set_bonuses;
 }
 
 void Equipment::change_setup(const int index) {
@@ -723,12 +727,14 @@ void Equipment::equip(Item*& current, Item* next, const int eq_slot) {
     current->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
     item_setups[setup_index][eq_slot] = current->get_item_id();
+    set_bonuses->equip_item(current->get_item_id());
 }
 
 void Equipment::unequip(Item*& item, const int eq_slot) {
     if (item == nullptr)
         return;
 
+    set_bonuses->unequip_item(item->get_item_id());
     item->remove_equip_effect();
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
@@ -744,12 +750,14 @@ void Equipment::equip(Weapon*& current, Weapon *next, const int eq_slot) {
     current->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
     item_setups[setup_index][eq_slot] = current->get_item_id();
+    set_bonuses->equip_item(current->get_item_id());
 }
 
 void Equipment::unequip(Weapon*& item, const int eq_slot) {
     if (item == nullptr)
         return;
 
+    set_bonuses->unequip_item(item->get_item_id());
     item->remove_equip_effect();
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
