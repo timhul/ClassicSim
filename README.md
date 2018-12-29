@@ -40,6 +40,12 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.1 (released 2018-12-29):
+
 - Hemorrhage with basic rotation added.
 - More Subtletly talents added (Deadliness, Serrated Blades).
 - Items not available for class or faction now filtered.
@@ -47,8 +53,6 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 - Dense and Consecrated Sharpening Stones added.
 - Add base melee AP and melee critical strike chance to rogues.
 - Fix bug which caused rogues to evaluate 1 CP Eviscerate as a valid rotational choice.
-
-# Release notes
 
 ## v0.1-alpha-4 (released 2018-12-16):
 
