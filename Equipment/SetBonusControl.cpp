@@ -1,6 +1,7 @@
 #include "SetBonusControl.h"
 
 #include "Backstab.h"
+#include "EquipmentDb.h"
 #include "Hemorrhage.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
@@ -54,6 +55,50 @@ void SetBonusControl::unequip_item(const int item_id) {
         }
         }
     }
+}
+
+bool SetBonusControl::is_set_item(const int item_id) const {
+    return possible_set_items.contains(item_id);
+}
+
+QString SetBonusControl::get_set_name(const int item_id) const {
+    assert(possible_set_items.contains(item_id));
+
+    return possible_set_items[item_id];
+}
+
+QVector<QPair<QString, bool>> SetBonusControl::get_item_names_in_set(const int item_id) const {
+    assert(possible_set_items.contains(item_id));
+
+    QVector<QPair<QString, bool>> item_names_and_equipped;
+
+    QString set_name = get_set_name(item_id);
+    QMap<int, QString>::const_iterator it = possible_set_items.constBegin();
+    auto end = possible_set_items.constEnd();
+    while (it != end) {
+        if (it.value() == set_name) {
+            item_names_and_equipped.append({equipment_db->get_name_for_item_id(it.key()),
+                                            current_set_items.contains(it.key())});
+        }
+
+        ++it;
+    }
+
+    return item_names_and_equipped;
+}
+
+QVector<QPair<QString, bool>> SetBonusControl::get_set_bonus_tooltips(const int item_id) const {
+    assert(possible_set_items.contains(item_id));
+    QString set_name = get_set_name(item_id);
+    assert(set_bonus_tooltips.contains(set_name));
+
+    int num_equipped = get_num_equipped_pieces_for_set(set_name);
+
+    QVector<QPair<QString, bool>> tooltips_and_active;
+    for (auto & tooltip : set_bonus_tooltips[set_name])
+        tooltips_and_active.append({tooltip.second, tooltip.first <= num_equipped});
+
+    return tooltips_and_active;
 }
 
 int SetBonusControl::get_num_equipped_pieces_for_set(const QString& set_name) const {

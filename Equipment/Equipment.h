@@ -84,7 +84,7 @@ public:
 
     void reequip_items();
     void clear_items_not_available_for_faction();
-    EquipmentDb *get_db() const;
+    SetBonusControl* get_set_bonus_control() const;
 
     void equip(Item*& current, Item* next, const int eq_slot);
     void unequip(Item*& item, const int eq_slot);

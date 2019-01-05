@@ -38,6 +38,7 @@
 #include "Rotation.h"
 #include "RotationFileReader.h"
 #include "Rulesets.h"
+#include "SetBonusControl.h"
 #include "SimControl.h"
 #include "SimOption.h"
 #include "SimSettings.h"
@@ -1360,6 +1361,8 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         QVariant(item->get_value("flavour_text"))
     };
 
+    set_set_bonus_tooltip(item, tooltip_info);
+
     return tooltip_info;
 }
 
@@ -1392,6 +1395,36 @@ void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction
         else
             restriction += ", ";
         restriction += i;
+    }
+}
+
+void GUIControl::set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const {
+    SetBonusControl* set_bonuses = current_char->get_equipment()->get_set_bonus_control();
+    const int item_id = item->get_item_id();
+
+    if (!set_bonuses->is_set_item(item_id)) {
+        tooltip.append(false);
+        return;
+    }
+    tooltip.append(true);
+
+    QString set_name = set_bonuses->get_set_name(item_id);
+    QVector<QPair<QString, bool>> item_names_in_set = set_bonuses->get_item_names_in_set(item_id);
+
+    int num_equipped_set_items = set_bonuses->get_num_equipped_pieces_for_set(set_name);
+    tooltip.append(QString("%1 (%2/%3)").arg(set_name).arg(num_equipped_set_items).arg(item_names_in_set.size()));
+
+    tooltip.append(item_names_in_set.size());
+    for (auto & item_name : item_names_in_set) {
+        QString font_color = item_name.second ? "#ffd100" : "#727171";
+        tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color).arg(item_name.first));
+    }
+
+    QVector<QPair<QString, bool>> set_bonus_tooltips = set_bonuses->get_set_bonus_tooltips(item_id);
+    tooltip.append(set_bonus_tooltips.size());
+    for (auto & bonus_tooltip : set_bonus_tooltips) {
+        QString font_color = bonus_tooltip.second ? "#1eff00" : "#727171";
+        tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color).arg(bonus_tooltip.first));
     }
 }
 

@@ -50,12 +50,18 @@ void EquipmentDb::delete_items(QVector<Item *>* list) {
         delete i;
 }
 
+void EquipmentDb::add_item_id(Item* item) {
+    item_id_to_item[item->get_item_id()] = item;
+}
+
 void EquipmentDb::add_melee_weapon(Weapon* wpn) {
+    add_item_id(wpn);
     mh_slot_items.append(wpn);
     current_patch_mh_slot_items.append(wpn);
 }
 
 void EquipmentDb::add_ring(Item* ring) {
+    add_item_id(ring);
     rings.append(ring);
     current_patch_rings.append(ring);
 }
@@ -183,6 +189,12 @@ const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
     return current_patch_amulets;
 }
 
+QString EquipmentDb::get_name_for_item_id(const int item_id) const {
+    assert(item_id_to_item.contains(item_id));
+
+    return item_id_to_item[item_id]->get_name();
+}
+
 void EquipmentDb::set_patch(const QVersionNumber patch) {
     this->current_patch = patch;
 
@@ -288,23 +300,33 @@ void EquipmentDb::read_equipment_files() {
     set_items(items, boots, ItemSlots::BOOTS);
     set_items(items, rings, ItemSlots::RING);
     set_items(items, trinkets, ItemSlots::TRINKET);
+
+    for (auto & item : items) {
+        qDebug() << "Failed to classify slot for" << item->get_name();
+        delete item;
+    }
 }
 
 void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
+    Item* item = nullptr;
     for (int i = 0; i < mixed_items.size(); ++i) {
         switch (mixed_items[i]->get_weapon_slot()) {
         case WeaponSlots::NON_WEAPON:
             break;
         case WeaponSlots::MAINHAND:
         case WeaponSlots::TWOHAND:
-            mh_slot_items.append(mixed_items.takeAt(i));
+            item = mixed_items.takeAt(i);
+            mh_slot_items.append(item);
+            add_item_id(item);
             --i;
             break;
         case WeaponSlots::ONEHAND:
             mh_slot_items.append(mixed_items.at(i));
             // C++17 [[clang::fallthrough]];
         case WeaponSlots::OFFHAND:
-            oh_slot_items.append(new Weapon(dynamic_cast<Weapon*>(mixed_items.takeAt(i))));
+            item = mixed_items.takeAt(i);
+            oh_slot_items.append(new Weapon(dynamic_cast<Weapon*>(item)));
+            add_item_id(item);
             --i;
             break;
         }
@@ -312,9 +334,12 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
 }
 
 void EquipmentDb::set_items(QVector<Item*> &mixed_items, QVector<Item*> &sorted, const int slot) {
+    Item* item = nullptr;
     for (int i = 0; i < mixed_items.size(); ++i) {
         if (mixed_items[i]->get_item_slot() == slot) {
-            sorted.append(mixed_items.takeAt(i));
+            item = mixed_items.takeAt(i);
+            add_item_id(item);
+            sorted.append(item);
             --i;
         }
     }

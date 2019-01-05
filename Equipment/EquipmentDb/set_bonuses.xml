@@ -12,16 +12,16 @@
 		<item_id value="23060"/>
 
 		<bonus value="2">
-		Your normal melee swings have a chance to Invigorate you, healing you for 90 to 111.
+		(2) Set: Your normal melee swings have a chance to Invigorate you, healing you for 90 to 111.
 		</bonus>
 		<bonus value="4">
-		Your Backstab, Sinister Strike, and Hemorrhage critical hits cause you to regain 5 energy.
+		(4) Set: Your Backstab, Sinister Strike, and Hemorrhage critical hits cause you to regain 5 energy.
 		</bonus>
 		<bonus value="6">
-		Reduces the threat from your Backstab, Sinister Strike, Hemorrhage, and Eviscerate abilities.
+		(6) Set: Reduces the threat from your Backstab, Sinister Strike, Hemorrhage, and Eviscerate abilities.
 		</bonus>
 		<bonus value="8">
-		Your Eviscerate has a chance per combo point to reveal a flaw in your opponent's armor,
+		(8) Set: Your Eviscerate has a chance per combo point to reveal a flaw in your opponent's armor,
 		granting a 100% critical hit chance for your next Backstab, Sinister Strike, or Hemorrhage.
 		</bonus>
 	</set>

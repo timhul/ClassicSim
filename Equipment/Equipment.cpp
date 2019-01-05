@@ -715,8 +715,8 @@ void Equipment::clear_items_not_available_for_faction() {
         clear_relic();
 }
 
-EquipmentDb* Equipment::get_db() const {
-    return this->db;
+SetBonusControl* Equipment::get_set_bonus_control() const {
+    return this->set_bonuses;
 }
 
 void Equipment::equip(Item*& current, Item* next, const int eq_slot) {

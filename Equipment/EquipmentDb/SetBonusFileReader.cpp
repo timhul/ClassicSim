@@ -5,7 +5,7 @@
 
 void SetBonusFileReader::read_set_bonuses(const QString &path,
                                           QMap<int, QString>& possible_set_items,
-                                          QMap<QString, QMap<int, QString>>& set_bonus_tooltips) {
+                                          QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips) {
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file" << path << ":" << file.errorString();
@@ -26,7 +26,7 @@ void SetBonusFileReader::read_set_bonuses(const QString &path,
 
 void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
                                                 QMap<int, QString>& possible_set_items,
-                                                QMap<QString, QMap<int, QString>>& set_bonus_tooltips) {
+                                                QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips) {
     while (reader.readNextStartElement()) {
         if (!reader.attributes().hasAttribute("name")) {
             qDebug() << "Missing name attribute for <set> element";
@@ -68,14 +68,21 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
                 if (!set_bonus_tooltips.contains(set_name))
                     set_bonus_tooltips[set_name] = {};
 
-                if (set_bonus_tooltips[set_name].contains(num_items)) {
-                    qDebug() << QString("Specified <bonus> value '%1' more than once in <set> '%2'").arg(num_items).arg(set_name);
+                bool duplicate = false;
+                for (auto & bonus_info : set_bonus_tooltips[set_name]) {
+                    if (bonus_info.first == num_items) {
+                        qDebug() << QString("Specified <bonus> value '%1' more than once in <set> '%2'").arg(num_items).arg(set_name);
+                        duplicate = true;
+                        break;
+                    }
+                }
+                if (duplicate) {
                     reader.skipCurrentElement();
                     continue;
                 }
 
                 QString tooltip = reader.readElementText().simplified();
-                set_bonus_tooltips[set_name][num_items] = tooltip;
+                set_bonus_tooltips[set_name].append({num_items, tooltip});
             }
             else
                 reader.skipCurrentElement();

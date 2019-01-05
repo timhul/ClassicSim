@@ -2,6 +2,7 @@
 #define EQUIPMENTDB_H
 
 #include <QFile>
+#include <QMap>
 #include <QObject>
 #include <QVector>
 #include <QVersionNumber>
@@ -38,6 +39,8 @@ public:
 
     const QVector<Item*>& get_slot_items(const int slot) const;
 
+    QString get_name_for_item_id(const int item_id) const;
+
     void add_melee_weapon(Weapon* wpn);
     void add_ring(Item* ring);
 
@@ -50,6 +53,7 @@ private:
     void set_weapons(QVector<Item*> &mixed_items);
     void set_items(QVector<Item*> &mixed_items, QVector<Item *> &sorted, const int slot);
     void delete_items(QVector<Item*>*);
+    void add_item_id(Item* item);
 
     QVector<Item*> mh_slot_items;
     QVector<Item*> current_patch_mh_slot_items;
@@ -97,6 +101,8 @@ private:
     QVector<Item*> current_patch_trinkets;
 
     QVector<QVector<Item*>*> all_slots_items;
+
+    QMap<int, Item*> item_id_to_item;
 };
 
 #endif // EQUIPMENTDB_H

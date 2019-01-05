@@ -48,6 +48,37 @@ RectangleBorders {
 
         ttFlavourText.text = tooltipInfo[14];
 
+        if (tooltipInfo[15] === false) {
+            ttSetName.text = ""
+            ttSetItems.text = ""
+            ttSetBonuses.text = ""
+            ttRect.height = getTooltipHeight()
+            return
+        }
+
+        ttSetName.text = tooltipInfo[16]
+        var numSetPieces = tooltipInfo[17]
+        var offset = 18
+        var setPiecesText = " "
+        for (var i = 0; i < numSetPieces; ++i) {
+            setPiecesText += tooltipInfo[i + offset]
+            if (i + 1 !== numSetPieces)
+                setPiecesText += "<br> "
+        }
+        ttSetItems.text = setPiecesText
+
+        offset += numSetPieces
+
+        var numSetBonuses = tooltipInfo[offset]
+        offset++
+        var setBonusText = ""
+        for (i = 0; i < numSetBonuses; ++i) {
+            setBonusText += tooltipInfo[i + offset]
+            if (i + 1 !== numSetBonuses)
+                setBonusText += "<br>"
+        }
+        ttSetBonuses.text = setBonusText
+
         ttRect.height = getTooltipHeight()
     }
 
@@ -64,6 +95,9 @@ RectangleBorders {
         height += ttLevelRequirement.contentHeight
         height += ttEquipEffect.text !== "" ? ttEquipEffect.contentHeight : 0
         height += ttFlavourText.text !== "" ? ttFlavourText.contentHeight : 0
+        height += ttSetName.text !== "" ? ttSetName.contentHeight + 15 : 0
+        height += ttSetItems.text !== "" ? ttSetItems.contentHeight + 5 : 0
+        height += ttSetBonuses.text !== "" ? ttSetBonuses.contentHeight + 15 : 0
 
         height += 20
         return height
@@ -413,6 +447,77 @@ RectangleBorders {
         wrapMode: Text.WordWrap
 
         color: "#ffd100"
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttSetName
+
+        anchors {
+            top: ttEquipEffect.text !== "" ? ttEquipEffect.bottom :
+                                             ttLevelRequirement.bottom
+            topMargin: 15
+            left: ttRect.left
+            leftMargin: 10
+        }
+
+        font {
+            family: "Arial"
+            pointSize: 9
+        }
+
+        width: Text.width < 280 ? Text.width:
+                                  280
+        visible: ttRect.visible && text !== ""
+        wrapMode: Text.WordWrap
+        color: "#ffd100"
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttSetItems
+
+        anchors {
+            top: ttSetName.bottom
+            topMargin: 5
+            left: ttRect.left
+            leftMargin: 10
+        }
+
+        font {
+            family: "Arial"
+            pointSize: 9
+        }
+
+        width: Text.width < 280 ? Text.width:
+                                  280
+        visible: ttRect.visible && text !== ""
+        wrapMode: Text.WordWrap
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: ttSetBonuses
+
+        anchors {
+            top: ttSetItems.bottom
+            topMargin: 15
+            left: ttRect.left
+            leftMargin: 10
+        }
+
+        font {
+            family: "Arial"
+            pointSize: 9
+        }
+
+        width: Text.width < 280 ? Text.width:
+                                  280
+        visible: ttRect.visible && text !== ""
+        wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
     }
