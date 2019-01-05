@@ -46,7 +46,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="19921">
 		<patch name="1.7.0">
 			<info name="Zulian Hacker" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_axe_08.png"/>
@@ -75,7 +75,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="19852">
 		<patch name="1.7.0">
 			<info name="Ancient Hakkari Manslayer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_axe_35.png"/>
@@ -91,7 +91,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="21392">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
@@ -109,7 +109,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="21401">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
@@ -125,7 +125,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="19362">
 		<patch name="1.6.0">
 			<info name="Doom's Edge" type="AXE"  slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
@@ -140,7 +140,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="17068">
 		<patch name="1.0.0">
 			<info name="Deathbringer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
@@ -156,8 +156,8 @@
 			Drops from Onyxia in Onyxia's Lair.
 			</source>
 		</patch>
-	</melee_weapon>	
-	
+	</melee_weapon>
+
 	<melee_weapon id="18828">
 		<patch name="1.5.0">
 			<info name="High Warlord's Cleaver" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_02.png"/>
@@ -172,7 +172,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="18827">
 		<patch name="1.5.0">
 			<info name="Grand Marshal's Handaxe" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_24.png"/>
@@ -187,7 +187,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="21242">
 		<patch name="1.9.0">
 			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
@@ -207,7 +207,7 @@
 			</flavour_text>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="19363">
 		<patch name="1.6.0">
 			<info name="Crul'shorukh, Edge of Chaos" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_axe_12.png"/>
@@ -221,7 +221,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="22816">
 		<patch name="1.11.0">
 			<info name="Hatchet of Sundered Bone" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_axe_08.png"/>

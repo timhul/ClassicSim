@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<shoulders id="15051">
 		<patch name="1.0.0">
 			<info name="Black Dragonscale Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_shoulder_01.png"/>

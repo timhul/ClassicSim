@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<chest id="13944">
 		<patch name="1.0.0">
 			<info name="Tombstone Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
@@ -14,7 +14,7 @@
 			</source>
 		</patch>
 	</chest>
-	
+
 	<chest id="14637">
 		<patch name="1.0.0">
 			<info name="Cadaverous Armor" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_03.png"/>

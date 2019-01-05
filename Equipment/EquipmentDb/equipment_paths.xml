@@ -11,40 +11,40 @@
 	<file path="Weapons/Polearms.xml"/>
 	<file path="Weapons/Staves.xml"/>
 	<file path="Weapons/Ranged.xml"/>
-	
+
 	<file path="Misc/neck.xml"/>
 	<file path="Misc/rings.xml"/>
 	<file path="Misc/trinkets.xml"/>
 	<file path="Misc/backs.xml"/>
-	
+
 	<file path="Helms/plate.xml"/>
 	<file path="Helms/mail.xml"/>
-	<file path="Helms/leather.xml"/>	
-	
+	<file path="Helms/leather.xml"/>
+
 	<file path="Chests/plate.xml"/>
 	<file path="Chests/mail.xml"/>
 	<file path="Chests/leather.xml"/>
-	
+
 	<file path="Wrists/plate.xml"/>
 	<file path="Wrists/mail.xml"/>
 	<file path="Wrists/leather.xml"/>
-	
+
 	<file path="Gloves/plate.xml"/>
 	<file path="Gloves/mail.xml"/>
 	<file path="Gloves/leather.xml"/>
-	
+
 	<file path="Belts/plate.xml"/>
 	<file path="Belts/mail.xml"/>
 	<file path="Belts/leather.xml"/>
-	
+
 	<file path="Legs/plate.xml"/>
 	<file path="Legs/mail.xml"/>
 	<file path="Legs/leather.xml"/>
-	
+
 	<file path="Boots/plate.xml"/>
 	<file path="Boots/mail.xml"/>
 	<file path="Boots/leather.xml"/>
-	
+
 	<file path="Shoulders/plate.xml"/>
 	<file path="Shoulders/mail.xml"/>
 	<file path="Shoulders/leather.xml"/>

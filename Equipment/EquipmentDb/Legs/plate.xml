@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<legs id="22385">
 		<patch name="1.6.0">
 			<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>

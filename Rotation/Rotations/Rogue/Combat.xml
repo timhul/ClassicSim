@@ -7,11 +7,11 @@
 	<cast_if name="Slice and Dice">
 		buff "Slice and Dice" less 3
 	</cast_if>
-	
+
 	<cast_if name="Adrenaline Rush">
 		resource "Energy" leq 60
 	</cast_if>
-	
+
 	<cast_if name="Blade Flurry">
 		resource "Energy" leq 60
 	</cast_if>
@@ -54,7 +54,7 @@
 		variable "time_remaining_execute" greater 120
 		or variable "time_remaining_execute" less 0
 	</cast_if>
-	
+
 	<cast_if name="Blood Fury">
 		variable "time_remaining_execute" less 0
 		and resource "Energy" less 50

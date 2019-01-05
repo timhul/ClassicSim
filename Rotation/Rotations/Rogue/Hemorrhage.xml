@@ -11,7 +11,7 @@
 	<cast_if name="Slice and Dice">
 		buff "Slice and Dice" less 3
 	</cast_if>
-	
+
 	<cast_if name="Hemorrhage">
 		variable "combo_points" less 5
 	</cast_if>
@@ -50,7 +50,7 @@
 		variable "time_remaining_execute" greater 120
 		or variable "time_remaining_execute" less 0
 	</cast_if>
-	
+
 	<cast_if name="Blood Fury">
 		variable "time_remaining_execute" less 0
 		and resource "Energy" less 50

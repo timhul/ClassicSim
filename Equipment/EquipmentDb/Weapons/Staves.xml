@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<weapons>	
+<weapons>
 	<melee_weapon id="17743">
 		<patch name="1.2.0">
 			<info name="Resurgence Rod" type="STAFF" slot="2H" unique="no" req_lvl="45" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_goldfeathered_01.png"/>

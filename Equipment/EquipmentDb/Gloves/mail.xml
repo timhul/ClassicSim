@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<gloves id="14551">
 		<patch name="1.0.0">
 			<info name="Edgemaster's Handguards" type="MAIL" slot="GLOVES" unique="no" req_lvl="44" item_lvl="49" quality="EPIC" boe="yes" icon="Inv_gauntlets_30.png"/>
@@ -13,5 +13,5 @@
 			World drop.
 			</source>
 		</patch>
-	</gloves>	
+	</gloves>
 </items>

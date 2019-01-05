@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<boots id="19387">
 		<patch name="1.6.0">
 			<info name="Chromatic Boots" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>

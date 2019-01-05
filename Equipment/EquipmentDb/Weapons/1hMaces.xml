@@ -32,7 +32,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="11684">
 		<patch name="1.0.0">
 			<info name="Ironfoe" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
@@ -62,7 +62,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="22384">
 		<patch name="1.10.0">
 			<info name="Persuader" type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_hammer_08.png"/>
@@ -76,7 +76,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="17112">
 		<patch name="1.3.0">
 			<info name="Empyrean Demolisher" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
@@ -90,7 +90,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="19170">
 		<patch name="1.6.0">
 			<info name="Ebon Hand" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
@@ -111,7 +111,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="21837">
 		<patch name="1.9.0">
 			<info name="Anubisath Warhammer" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_hammer_11.png"/>
@@ -126,7 +126,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="21715">
 		<patch name="1.9.0">
 			<info name="Sand Polished Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_mace_24.png"/>
@@ -141,7 +141,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="19335">
 		<patch name="1.6.0">
 			<info name="Spineshatter" type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_06.png"/>
@@ -156,7 +156,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="18866">
 		<patch name="1.5.0">
 			<info name="High Warlord's Bludgeon" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_hammer_20.png"/>
@@ -171,7 +171,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="18865">
 		<patch name="1.5.0">
 			<info name="Grand Marshal's Punisher" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_mace_13.png"/>
@@ -186,7 +186,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="22808">
 		<patch name="1.11.0">
 			<info name="The Castigator" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_1h_stratholme_d_01.png"/>
@@ -202,7 +202,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="23221">
 		<patch name="1.11.0">
 			<info name="Misplaced Servo Arm" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_28.png"/>

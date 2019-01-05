@@ -66,7 +66,7 @@
 		<patch name="1.11.0">
 			<info name="Shroud of Dominion" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
 			<stats>
-				<stat type="ARMOR" value="68"/>	
+				<stat type="ARMOR" value="68"/>
 				<stat type="STAMINA" value="11"/>
 				<stat type="CRIT_CHANCE" value="0.01"/>
 				<stat type="ATTACK_POWER" value="50"/>

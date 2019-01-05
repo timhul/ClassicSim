@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<belt id="22232">
 		<patch name="1.0.0">
 			<info name="Marksman's Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
@@ -12,5 +12,5 @@
 			Drops from Urok Doomhowl in Lower Blackrock Spire.
 			</source>
 		</patch>
-	</belt>		
+	</belt>
 </items>

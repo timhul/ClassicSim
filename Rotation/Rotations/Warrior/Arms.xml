@@ -7,13 +7,13 @@
 		<let variable="dumping_rage_before_stancing" equal="false"/>
 		<let variable="execute_dagger_switch" equal="false"/>
 	</define_vars>
-	
+
 	<prerequisites>
 		<talent name="Mortal Strike"/>
 		<patch_at_least name="1.0.0"/>
 		<patch_at_most name="1.12.1"/>
 	</prerequisites>
-	
+
 	<cast_if name="Battle Shout">
 		buff "Battle Shout" less 5
 		or variable "time_remaining_execute" less 10
@@ -60,7 +60,7 @@
 		variable "time_remaining_execute" less 0
 		or variable "time_remaining_encounter" less 20
 	</cast_if>
-	
+
 	<cast_if name="Blood Fury">
 		variable "time_remaining_execute" less 0
 		and resource "Rage" less 50
@@ -72,19 +72,19 @@
 		and resource "Rage" less 50
 		or variable "time_remaining_execute" greater 180
 	</cast_if>
-	
+
 	<cast_if name="Overpower"/>
-	
+
 	<cast_if name="Mortal Strike">
 		variable "time_remaining_execute" greater 0
 	</cast_if>
 
 	<cast_if name="Execute"/>
-	
+
 	<cast_if name="Whirlwind">
 		spell "Mortal Strike" greater 1.5
 	</cast_if>
-	
+
 	<cast_if name="Slam">
 		variable "time_since_swing" less 3
 		and spell "Whirlwind" greater 1.5
@@ -100,7 +100,7 @@
 		and buff "Battle Stance" is false
 		and spell "Mainhand Attack" less 1.5
 	</cast_if>
-	
+
 	<!-- Switch to Battle Stance -->
 	<cast_if name="Battle Stance">
 		variable "time_remaining_execute" greater 5

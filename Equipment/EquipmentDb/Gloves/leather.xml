@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<gloves id="15063">
 		<patch name="1.0.0">
 			<info name="Devilsaur Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_gauntlets_26.png"/>

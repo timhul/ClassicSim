@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<shoulders id="12927">
 		<patch name="1.0.0">
 			<info name="Truestrike Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>

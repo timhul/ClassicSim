@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<wrist id="12966">
 		<patch name="1.0.0">
 			<info name="Blackmist Armguards" type="LEATHER" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
@@ -30,7 +30,7 @@
 			</source>
 		</patch>
 	</wrist>
-	
+
 	<wrist id="19146">
 		<patch name="1.0.0">
 			<info name="Wristguards of Stability" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_04.png"/>

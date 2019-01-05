@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<items>	
+<items>
 	<wrist id="17714">
 		<patch name="1.2.0">
 			<info name="Bracers of the Stone Princess" type="MAIL" slot="WRIST" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>
