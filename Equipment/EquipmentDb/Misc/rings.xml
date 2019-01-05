@@ -84,4 +84,20 @@
 			</source>
 		</patch>
 	</ring>
+
+	<ring id="23060">
+		<patch name="1.11.0">
+			<info name="Bonescythe Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
+			<class_restriction class="ROGUE"/>
+			<stats>
+				<stat type="STAMINA" value="10"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STRENGTH" value="20"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Kel'Thuzad in Naxxramas.
+			</source>
+		</patch>
+	</ring>
 </items>
