@@ -40,7 +40,8 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+- Use Berserker Rage in rotations (when rotations were made data-driven Berserker Rage was left out).
+- Add Bonescythe 4/8 set bonus and show set piece information in item tooltips.
 
 # Release notes
 
