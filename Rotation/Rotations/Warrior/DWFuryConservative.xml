@@ -63,7 +63,11 @@
 		<patch_at_least name="1.5.0"/>
 		<patch_at_most name="1.12.1"/>
 	</prerequisites>
-	
+
+	<cast_if name="Berserker Rage"/>
+		resource "Rage" less 50
+	</cast_if>
+
 	<cast_if name="Battle Shout">
 		buff "Battle Shout" less 3
 		or variable "time_remaining_execute" less 10

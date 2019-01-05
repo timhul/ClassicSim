@@ -4,6 +4,7 @@
 #include "Spell.h"
 #include "TalentRequirer.h"
 
+class StatisticsResource;
 class Warrior;
 
 class BerserkerRage: public Spell, public TalentRequirer {
@@ -15,6 +16,7 @@ private:
     friend class ImprovedBerserkerRage;
 
     Warrior* warr;
+    StatisticsResource* statistics_resource;
     QVector<unsigned> talent_ranks;
     unsigned rage_gain;
 
@@ -23,6 +25,8 @@ private:
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
+
+    void prepare_set_of_combat_iterations_spell_specific() override;
 };
 
 #endif // BERSERKERRAGE_H
