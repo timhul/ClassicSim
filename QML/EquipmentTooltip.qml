@@ -406,8 +406,9 @@ RectangleBorders {
             pointSize: 9
         }
 
-        width: ttRect.width
-        height: text !== "" ? 10 : 0
+        width: Text.width < 280 ? Text.width:
+                                  280
+
         visible: ttRect.visible && text !== ""
         wrapMode: Text.WordWrap
 
