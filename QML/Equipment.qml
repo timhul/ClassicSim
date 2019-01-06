@@ -232,7 +232,8 @@ Rectangle {
 
                 anchors {
                     left: headSlot.right
-                    bottom: headSlot.top
+                    top: headSlot.top
+                    topMargin: height > 450 ? 450 - height : 0
                 }
             }
 
@@ -294,7 +295,8 @@ Rectangle {
 
                 anchors {
                     left: shoulderSlot.right
-                    bottom: shoulderSlot.top
+                    top: shoulderSlot.top
+                    topMargin: height > 348 ? 348 - height : 0
                 }
             }
 
@@ -358,7 +360,8 @@ Rectangle {
 
                 anchors {
                     left: chestSlot.right
-                    bottom: chestSlot.top
+                    top: chestSlot.top
+                    topMargin: height > 246 ? 246 - height : 0
                 }
             }
 
@@ -413,6 +416,7 @@ Rectangle {
                 anchors {
                     left: wristSlot.right
                     bottom: wristSlot.top
+                    bottomMargin: height > 450 ? 450 - height : 0
                 }
             }
 
@@ -455,8 +459,9 @@ Rectangle {
                         slotString: parent.slotString
 
                         anchors {
-                            bottom: parent.top
                             left: parent.right
+                            top: parent.top
+                            topMargin: height > 450 ? 450 - height : 0
                         }
                     }
                 }
@@ -478,8 +483,9 @@ Rectangle {
                         slotString: parent.slotString
 
                         anchors {
-                            bottom: parent.top
                             left: parent.right
+                            top: parent.top
+                            topMargin: height > 399 ? 399 - height : 0
                         }
                     }
                 }
@@ -503,8 +509,9 @@ Rectangle {
                         slotString: parent.slotString
 
                         anchors {
-                            bottom: parent.top
                             left: parent.right
+                            top: parent.top
+                            topMargin: height > 348 ? 348 - height : 0
                         }
                     }
                 }
@@ -528,8 +535,9 @@ Rectangle {
                         slotString: parent.slotString
 
                         anchors {
-                            bottom: parent.top
                             left: parent.right
+                            top: parent.top
+                            topMargin: height > 297 ? 297 - height : 0
                         }
                     }
                 }
@@ -551,8 +559,9 @@ Rectangle {
                         slotString: parent.slotString
 
                         anchors {
-                            bottom: parent.top
                             left: parent.right
+                            top: parent.top
+                            topMargin: height > 246 ? 246 - height : 0
                         }
                     }
                 }
@@ -574,8 +583,9 @@ Rectangle {
                         slotString: parent.slotString
 
                         anchors {
-                            bottom: parent.top
                             left: parent.right
+                            top: parent.top
+                            topMargin: height > 195 ? 195 - height : 0
                         }
                     }
                 }
