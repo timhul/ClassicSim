@@ -15,7 +15,7 @@
 		</patch>
 	</legs>
 
-	<chest id="21332">
+	<legs id="21332">
 		<patch name="1.9.0">
 			<info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -31,7 +31,23 @@
 			Quest reward. Requires drops from Ouro in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</chest>
+	</legs>
+
+	<legs id="22873">
+		<patch name="1.11.0">
+			<info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="618"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="STRENGTH" value="12"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
+			</source>
+		</patch>
+	</legs>
 
 	<legs id="23068">
 		<patch name="1.11.0">

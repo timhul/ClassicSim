@@ -33,4 +33,20 @@
 			</source>
 		</patch>
 	</shoulders>
+
+	<shoulders id="23243">
+		<patch name="1.11.0">
+			<info name="Champion's Plate Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_shoulder_11.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="552"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="STRENGTH" value="17"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Champion (rank 10).
+			</source>
+		</patch>
+	</shoulders>
 </items>

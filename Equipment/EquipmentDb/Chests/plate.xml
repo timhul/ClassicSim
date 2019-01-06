@@ -31,6 +31,22 @@
 		</patch>
 	</chest>
 
+	<chest id="22872">
+		<patch name="1.11.0">
+			<info name="Legionnaire's Plate Hauberk" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_plate16.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="706"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Legionnaire (rank 8).
+			</source>
+		</patch>
+	</chest>
+
 	<chest id="23000">
 		<patch name="1.11.0">
 			<info name="Plated Abomination Ribcage" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>

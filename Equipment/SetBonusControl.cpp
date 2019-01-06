@@ -92,6 +92,17 @@ void SetBonusControl::equip_item(const int item_id) {
         case 3:
             auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
             spells->get_slice_and_dice()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
+    }
+    else if (set_name == "Champion's Battlearmor") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->increase_melee_ap(40);
+            break;
+        case 6:
+            pchar->get_stats()->increase_stamina(20);
+            break;
         }
     }
 }
@@ -167,6 +178,17 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 3:
             auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
             spells->get_slice_and_dice()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
+    }
+    else if (set_name == "Champion's Battlearmor") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->decrease_melee_ap(40);
+            break;
+        case 6:
+            pchar->get_stats()->decrease_stamina(20);
+            break;
         }
     }
 }

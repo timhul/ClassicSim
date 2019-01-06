@@ -16,7 +16,7 @@
 		</patch>
 	</boots>
 
-	<chest id="21333">
+	<boots id="21333">
 		<patch name="1.9.0">
 			<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -31,5 +31,21 @@
 			Quest reward. Requires drops from bosses in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</chest>
+	</boots>
+
+	<boots id="22858">
+		<patch name="1.11.0">
+			<info name="Blood Guard's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_09.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="472"/>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="STAMINA" value="23"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
+			</source>
+		</patch>
+	</boots>
 </items>
