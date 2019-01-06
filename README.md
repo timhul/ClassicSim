@@ -41,7 +41,9 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 - Use Berserker Rage in rotations (when rotations were made data-driven Berserker Rage was left out).
-- Add Bonescythe 4/8 set bonus and show set piece information in item tooltips.
+- Set bonus information now displayed in item tooltips.
+- Add many set bonuses to existing items.
+- Bloodfang Bracers are now bracers rather than gloves.
 
 # Release notes
 
