@@ -93,6 +93,22 @@
 		</patch>
 	</melee_weapon>
 
+	<melee_weapon id="21404">
+		<patch name="1.9.0">
+			<info name="Dagger of Veiled Shadows" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
+			<class_restriction class="ROGUE"/>
+			<dmg_range min="65" max="121" speed="1.8"/>
+			<stats>
+				<stat type="AGILITY" value="15"/>
+				<stat type="STRENGTH" value="7"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.
+			</source>
+		</patch>
+	</melee_weapon>
+
 	<melee_weapon id="21244">
 		<patch name="1.9.0">
 			<info name="Blessed Qiraji Pugio" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_35.png"/>

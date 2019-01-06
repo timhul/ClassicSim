@@ -12,6 +12,7 @@
 SliceAndDice::SliceAndDice(Character* pchar) :
     Spell("Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 25),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slice And Dice", 3, DisabledAtZero::No)}),
+    SetBonusRequirer({"Emblems of Veiled Shadows"}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     buff(new SliceAndDiceBuff(rogue))
 {
@@ -56,4 +57,28 @@ void SliceAndDice::increase_talent_rank_effect(const QString&, const int curr) {
 
 void SliceAndDice::decrease_talent_rank_effect(const QString&, const int curr) {
     buff->change_duration_modifier(curr);
+}
+
+void SliceAndDice::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Emblems of Veiled Shadows") {
+        switch (set_bonus) {
+        case 3:
+            resource_cost -= 10;
+            break;
+        default:
+            assert(false);
+        }
+    }
+}
+
+void SliceAndDice::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Emblems of Veiled Shadows") {
+        switch (set_bonus) {
+        case 3:
+            resource_cost += 10;
+            break;
+        default:
+            assert(false);
+        }
+    }
 }

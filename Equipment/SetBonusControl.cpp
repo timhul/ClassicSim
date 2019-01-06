@@ -8,6 +8,7 @@
 #include "RogueSpells.h"
 #include "SetBonusFileReader.h"
 #include "SinisterStrike.h"
+#include "SliceAndDice.h"
 
 SetBonusControl::SetBonusControl(EquipmentDb* equipment_db, Character* pchar) :
     equipment_db(equipment_db),
@@ -42,6 +43,13 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Emblems of Veiled Shadows") {
+        switch (num_pieces) {
+        case 3:
+            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            spells->get_slice_and_dice()->activate_set_bonus(set_name, num_pieces);
+        }
+    }
 }
 
 void SetBonusControl::unequip_item(const int item_id) {
@@ -68,6 +76,13 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 2:
             pchar->get_stats()->decrease_hit(0.02);
             break;
+        }
+    }
+    else if (set_name == "Emblems of Veiled Shadows") {
+        switch (num_pieces) {
+        case 3:
+            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            spells->get_slice_and_dice()->deactivate_set_bonus(set_name, num_pieces);
         }
     }
 }

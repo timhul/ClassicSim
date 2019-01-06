@@ -19,6 +19,16 @@
 		</bonus>
 	</set>
 
+	<set name="Emblems of Veiled Shadows">
+		<item_id value="21405"/>
+		<item_id value="21406"/>
+		<item_id value="21404"/>
+
+		<bonus value="3">
+		(3) Set: -10 energy cost for your Slice and Dice ability.
+		</bonus>
+	</set>
+
 	<set name="Bonescythe Armor">
 		<item_id value="22483"/>
 		<item_id value="22476"/>
