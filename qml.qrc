@@ -434,5 +434,8 @@
         <file>QML/Assets/items/Inv_jewelry_ring_51naxxramas.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_03.png</file>
         <file>QML/Assets/items/Inv_misc_cape_19.png</file>
+        <file>QML/Assets/items/Inv_boots_plate_05.png</file>
+        <file>QML/Assets/items/Inv_chest_plate12.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_03.png</file>
     </qresource>
 </RCC>

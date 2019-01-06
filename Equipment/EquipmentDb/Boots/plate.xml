@@ -15,4 +15,21 @@
 			</source>
 		</patch>
 	</boots>
+
+	<chest id="21333">
+		<patch name="1.9.0">
+			<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="604"/>
+				<stat type="AGILITY" value="17"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="DEFENSE" value="4"/>
+			</stats>
+			<source>
+			Quest reward. Requires drops from bosses in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</chest>
 </items>

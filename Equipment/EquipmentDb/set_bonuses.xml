@@ -37,6 +37,21 @@
 		</bonus>
 	</set>
 
+	<set name="Conqueror's Battlegear">
+		<item_id value="21331"/>
+		<item_id value="21329"/>
+		<item_id value="21333"/>
+		<item_id value="21332"/>
+		<item_id value="21330"/>
+
+		<bonus value="3">
+		(3) Set: Decreases the rage cost of all Warrior shouts by 35%.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Increase the Slow effect and damage of Thunder Clap by 50%.
+		</bonus>
+	</set>
+
 	<set name="Emblems of Veiled Shadows">
 		<item_id value="21405"/>
 		<item_id value="21406"/>

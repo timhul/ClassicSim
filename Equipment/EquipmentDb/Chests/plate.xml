@@ -14,6 +14,23 @@
 		</patch>
 	</chest>
 
+	<chest id="21331">
+		<patch name="1.9.0">
+			<info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="985"/>
+				<stat type="AGILITY" value="24"/>
+				<stat type="STRENGTH" value="34"/>
+				<stat type="STAMINA" value="38"/>
+				<stat type="DEFENSE" value="6"/>
+			</stats>
+			<source>
+			Quest reward. Requires drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</chest>
+
 	<chest id="23000">
 		<patch name="1.11.0">
 			<info name="Plated Abomination Ribcage" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>

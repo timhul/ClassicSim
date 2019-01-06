@@ -15,6 +15,24 @@
 		</patch>
 	</legs>
 
+	<chest id="21332">
+		<patch name="1.9.0">
+			<info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="796"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="STRENGTH" value="33"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="DEFENSE" value="6"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires drops from Ouro in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</chest>
+
 	<legs id="23068">
 		<patch name="1.11.0">
 			<info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
