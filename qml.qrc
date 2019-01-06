@@ -432,5 +432,6 @@
         <file>QML/Assets/items/Inv_shoulder_30.png</file>
         <file>QML/Assets/items/Inv_helmet_04.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_51naxxramas.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_03.png</file>
     </qresource>
 </RCC>

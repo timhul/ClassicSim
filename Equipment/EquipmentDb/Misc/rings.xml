@@ -71,6 +71,21 @@
 		</patch>
 	</ring>
 
+	<ring id="21393">
+		<patch name="1.9.0">
+			<info name="Signet of Unyielding Strength" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="STRENGTH" value="11"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Honored with Cenarion Hold.
+			</source>
+		</patch>
+	</ring>
+
 	<ring id="23038">
 		<patch name="1.11.0">
 			<info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>

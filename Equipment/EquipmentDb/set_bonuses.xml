@@ -9,6 +9,16 @@
 		</bonus>
 	</set>
 
+	<set name="Battlegear of Unyielding Strength">
+		<item_id value="21394"/>
+		<item_id value="21392"/>
+		<item_id value="21393"/>
+
+		<bonus value="3">
+		(3) Set: -2 rage cost to Intercept.
+		</bonus>
+	</set>
+
 	<set name="Bonescythe Armor">
 		<item_id value="22483"/>
 		<item_id value="22476"/>
