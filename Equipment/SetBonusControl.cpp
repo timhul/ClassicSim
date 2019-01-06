@@ -5,6 +5,7 @@
 #include "Energy.h"
 #include "EquipmentDb.h"
 #include "Hemorrhage.h"
+#include "InstantPoison.h"
 #include "ItemNamespace.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
@@ -32,6 +33,15 @@ void SetBonusControl::equip_item(const int item_id) {
         case 5:
             dynamic_cast<Rogue*>(pchar)->get_energy()->max += 10;
             break;
+        }
+    }
+    else if (set_name == "Bloodfang Armor") {
+        switch (num_pieces) {
+        case 3: {
+            dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison()->activate_set_bonus(set_name, num_pieces);
+            dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
         }
     }
     else if (set_name == "Bonescythe Armor") {
@@ -89,6 +99,15 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 5:
             dynamic_cast<Rogue*>(pchar)->get_energy()->max -= 10;
             break;
+        }
+    }
+    else if (set_name == "Bloodfang Armor") {
+        switch (num_pieces) {
+        case 3: {
+            dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
+            dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
         }
     }
     else if (set_name == "Bonescythe Armor") {

@@ -68,6 +68,28 @@
 		</bonus>
 	</set>
 
+	<set name="Bloodfang Armor">
+		<item_id value="16910"/>
+		<item_id value="16906"/>
+		<item_id value="16911"/>
+		<item_id value="16905"/>
+		<item_id value="16907"/>
+		<item_id value="16908"/>
+		<item_id value="16909"/>
+		<item_id value="16832"/>
+
+		<bonus value="3">
+		(3) Set: Increases the chance to apply poisons to your target by 5%.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Improves the threat reduction of Feint by 25%.
+		</bonus>
+		<bonus value="8">
+		(8) Set: Gives the Rogue a chance to inflict 283 to 318 damage on the target and heal the Rogue
+		for 50 health every 1 sec. for 6 sec. on a melee hit.
+		</bonus>
+	</set>
+
 	<set name="Bonescythe Armor">
 		<item_id value="22483"/>
 		<item_id value="22476"/>

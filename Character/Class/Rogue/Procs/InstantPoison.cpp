@@ -22,6 +22,7 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
                    new TalentRequirerInfo("Vile Poisons", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Improved Poisons", 5, DisabledAtZero::No)
                    }),
+    SetBonusRequirer({"Bloodfang Armor"}),
     dmg_roll(new Random(112, 149)),
     rogue(dynamic_cast<Rogue*>(pchar)),
     base_proc_range(2000),
@@ -33,7 +34,7 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
     proc_range = base_proc_range;
 
     vile_poisons_modifiers = {1.0, 1.04, 1.08, 1.12, 1.16, 1.20};
-    improved_poisons_proc_range_increases = {0, 200, 400, 600, 800, 1000};
+    improved_poisons_increase = 200;
 
     switch (weapon) {
     case EnchantSlot::MAINHAND:
@@ -98,16 +99,40 @@ void InstantPoison::proc_effect() {
 
 void InstantPoison::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Poisons")
-        proc_range = base_proc_range + improved_poisons_proc_range_increases[curr];
+        proc_range += improved_poisons_increase;
     else if (talent_name == "Vile Poisons")
         vile_poisons = vile_poisons_modifiers[curr];
 }
 
 void InstantPoison::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Poisons")
-        proc_range = base_proc_range + improved_poisons_proc_range_increases[curr];
+        proc_range -= improved_poisons_increase;
     else if (talent_name == "Vile Poisons")
         vile_poisons = vile_poisons_modifiers[curr];
+}
+
+void InstantPoison::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Bloodfang Armor") {
+        switch (set_bonus) {
+        case 3:
+            proc_range += 500;
+            break;
+        default:
+            assert(false);
+        }
+    }
+}
+
+void InstantPoison::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Bloodfang Armor") {
+        switch (set_bonus) {
+        case 3:
+            proc_range -= 500;
+            break;
+        default:
+            assert(false);
+        }
+    }
 }
 
 void InstantPoison::prepare_set_of_combat_iterations_spell_specific() {

@@ -3,12 +3,13 @@
 
 #include "Enchant.h"
 #include "Proc.h"
+#include "SetBonusRequirer.h"
 #include "TalentRequirer.h"
 
 class Random;
 class Rogue;
 
-class InstantPoison: public Proc, public Enchant, public TalentRequirer {
+class InstantPoison: public Proc, public Enchant, public TalentRequirer, public SetBonusRequirer {
 public:
     InstantPoison(Character* pchar, const QString &weapon_side, const int weapon);
     ~InstantPoison() override;
@@ -23,11 +24,11 @@ private:
     Random* dmg_roll;
     Rogue* rogue;
 
-    const unsigned base_proc_range;
+    unsigned base_proc_range;
 
     double vile_poisons;
     QVector<double> vile_poisons_modifiers;
-    QVector<unsigned> improved_poisons_proc_range_increases;
+    unsigned improved_poisons_increase;
 
     void proc_effect() override;
     void enable_spell_effect() override;
@@ -36,6 +37,8 @@ private:
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
+    void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
+    void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
 
 #endif // INSTANTPOISON_H
