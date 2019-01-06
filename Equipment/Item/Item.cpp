@@ -62,10 +62,7 @@ Item::Item(const Item* item) :
 }
 
 Item::~Item() {
-    for (auto & proc : active_procs) {
-        proc->disable_proc();
-        delete proc;
-    }
+    remove_equip_effect();
 
     delete stats;
     delete enchant;

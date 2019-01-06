@@ -735,7 +735,6 @@ void Equipment::unequip(Item*& item, const int eq_slot) {
         return;
 
     set_bonuses->unequip_item(item->get_item_id());
-    item->remove_equip_effect();
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
@@ -758,7 +757,6 @@ void Equipment::unequip(Weapon*& item, const int eq_slot) {
         return;
 
     set_bonuses->unequip_item(item->get_item_id());
-    item->remove_equip_effect();
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
