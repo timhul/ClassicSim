@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<boots id="19387">
+	<item id="19387">
 		<patch name="1.6.0">
 			<info name="Chromatic Boots" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
 			<stats>
@@ -14,9 +14,9 @@
 			Drops from Chromaggus in Blackwing Lair.
 			</source>
 		</patch>
-	</boots>
+	</item>
 
-	<boots id="21333">
+	<item id="21333">
 		<patch name="1.9.0">
 			<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -31,9 +31,9 @@
 			Quest reward. Requires drops from bosses in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</boots>
+	</item>
 
-	<boots id="22858">
+	<item id="22858">
 		<patch name="1.11.0">
 			<info name="Blood Guard's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_09.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -47,5 +47,5 @@
 			Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
 			</source>
 		</patch>
-	</boots>
+	</item>
 </items>

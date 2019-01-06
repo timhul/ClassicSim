@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<shoulders id="12927">
+	<item id="12927">
 		<patch name="1.0.0">
 			<info name="Truestrike Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
 			<stats>
@@ -12,9 +12,9 @@
 			Drops from Pyroguard Emberseer in Upper Blackrock Spire.
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="16708">
+	<item id="16708">
 		<patch name="1.0.0">
 			<info name="Shadowcraft Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_07.png"/>
 			<stats>
@@ -26,9 +26,9 @@
 			Drops from Cannon Master Willey in Stratholme Living.
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="16823">
+	<item id="16823">
 		<patch name="1.0.0">
 			<info name="Nightslayer Shoulder Pads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
 			<class_restriction class="ROGUE"/>
@@ -44,9 +44,9 @@
 			Drops from Sulfuron Harbinger in Molten Core.
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="16832">
+	<item id="16832">
 		<patch name="1.0.0">
 			<info name="Bloodfang Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
 			<class_restriction class="ROGUE"/>
@@ -78,9 +78,9 @@
 			Drops from Chromaggus in Blackwing Lair.
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="19389">
+	<item id="19389">
 		<patch name="1.6.0">
 			<info name="Taut Dragonhide Shoulderpads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_08.png"/>
 			<stats>
@@ -95,9 +95,9 @@
 			"The hides of several different dragon flights appear to be stitched together, comprising the top of the shoulders."
 			</flavour_text>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="19835">
+	<item id="19835">
 		<patch name="1.7.0">
 			<info name="Zandalar Madcap's Mantle" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
 			<class_restriction class="ROGUE"/>
@@ -112,9 +112,9 @@
 			Quest reward. Requires boss drop available from multiple bosses in Zul'Gurub (ZG).
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="20633">
+	<item id="20633">
 		<patch name="1.8.0">
 			<info name="Unnatural Leather Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
 			<stats>
@@ -128,9 +128,9 @@
 			Drops from Taerar (dragon world boss in Duskwood).
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="21474">
+	<item id="21474">
 		<patch name="1.9.0">
 			<info name="Chitinous Shoulderguards" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_shoulder_29.png"/>
 			<stats>
@@ -143,9 +143,9 @@
 			Drops from Moam in Temple of Ahn'Qiraj (AQ20).
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="21665">
+	<item id="21665">
 		<patch name="1.9.0">
 			<info name="Mantle of Wicked Revenge" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_30.png"/>
 			<stats>
@@ -158,9 +158,9 @@
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="21361">
+	<item id="21361">
 		<patch name="1.9.0">
 			<info name="Deathdealer's Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_03.png"/>
 			<class_restriction class="ROGUE"/>
@@ -175,9 +175,9 @@
 			Quest reward. Requires boss drops from Viscidus / Princess Huhuran in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="22479">
+	<item id="22479">
 		<patch name="1.11.0">
 			<info name="Bonescythe Pauldrons" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
 			<class_restriction class="ROGUE"/>
@@ -193,5 +193,5 @@
 			Quest reward. Requires boss drops from Naxxramas.
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 </items>

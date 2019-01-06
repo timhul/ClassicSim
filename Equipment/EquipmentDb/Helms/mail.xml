@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<helm id="18421">
+	<item id="18421">
 		<patch name="1.0.0">
 			<info name="Backwood Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>
 			<stats>
@@ -15,9 +15,9 @@
 			Drops from Balnazzar in Stratholme Living.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="13359">
+	<item id="13359">
 		<patch name="1.0.0">
 			<info name="Crown of Tyranny" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_03.png"/>
 			<stats>
@@ -30,9 +30,9 @@
 			Drops from Balnazzar in Stratholme Living.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="19875">
+	<item id="19875">
 		<patch name="1.7.0">
 			<info name="Bloodstained Coif" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_39.png"/>
 			<stats>
@@ -46,9 +46,9 @@
 			Drops from Jin'do the Hexxer in Zul'Gurub.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="18817">
+	<item id="18817">
 		<patch name="1.0.0">
 			<info name="Crown of Destruction" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
 			<stats>
@@ -64,5 +64,5 @@
 			Drops from Ragnaros in Molten Core.
 			</source>
 		</patch>
-	</helm>
+	</item>
 </items>

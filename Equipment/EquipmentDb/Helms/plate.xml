@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<helm id="12640">
+	<item id="12640">
 		<patch name="1.5.0">
 			<info name="Lionheart Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="yes" icon="Inv_helmet_36.png"/>
 			<stats>
@@ -13,9 +13,9 @@
 			Crafted by blacksmiths. Plans drop from world bosses and Ragnaros, Nefarian, Onyxia.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="14866">
+	<item id="14866">
 		<patch name="1.0.0">
 			<info name="Warleader's Crown" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="UNCOMMON" boe="yes" icon="Inv_helmet_19.png"/>
 			<stats>
@@ -28,9 +28,9 @@
 			World drop.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16727">
+	<item id="16727">
 		<patch name="1.0.0">
 			<info name="Lightforge Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_08.png"/>
 			<stats>
@@ -45,9 +45,9 @@
 			Drops from Darkmaster Gandling in Scholomance.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16731">
+	<item id="16731">
 		<patch name="1.0.0">
 			<info name="Helm of Valor" type="PLATE" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_02.png"/>
 			<stats>
@@ -61,9 +61,9 @@
 			Drops from Darkmaster Gandling in Scholomance.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="23314">
+	<item id="23314">
 		<patch name="1.5.0">
 			<info name="Lieutenant's Commander's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -78,9 +78,9 @@
 			May be purchased upon reaching Lieutenant Commander (rank 10). Alliance only.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="22411">
+	<item id="22411">
 		<patch name="1.0.0">
 			<info name="Helm of the Executioner" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
 			<stats>
@@ -93,9 +93,9 @@
 			Drops from Baron Rivendare in Stratholme Undead.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="18718">
+	<item id="18718">
 		<patch name="1.0.0">
 			<info name="Grand Crusader's Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
 			<stats>
@@ -109,9 +109,9 @@
 			Drops from Balnazzar in Stratholme Living.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="20551">
+	<item id="20551">
 		<patch name="1.8.0">
 			<info name="Darkrune Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_10.png"/>
 			<stats>
@@ -124,9 +124,9 @@
 			Crafted by blacksmiths. Drops from bag awarded via repeatable quest in Silithus.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="23244">
+	<item id="23244">
 		<patch name="1.5.0">
 			<info name="Champion's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -141,9 +141,9 @@
 			May be purchased upon reaching Champion (rank 10). Horde only.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="14979">
+	<item id="14979">
 		<patch name="1.0.0">
 			<info name="Exalted Helmet" type="PLATE" slot="HEAD" unique="no" req_lvl="59" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_helmet_10.png"/>
 			<stats>
@@ -154,9 +154,9 @@
 			World drop.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="20263">
+	<item id="20263">
 		<patch name="1.7.0">
 			<info name="Gurubashi Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_helmet_25.png"/>
 			<stats>
@@ -169,9 +169,9 @@
 			Drops from trash mobs in Zul'Gurub.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16866">
+	<item id="16866">
 		<patch name="1.0.0">
 			<info name="Helm of Might" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_helmet_09.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -187,9 +187,9 @@
 			Drops from Garr in Molten Core.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="19148">
+	<item id="19148">
 		<patch name="1.6.0">
 			<info name="Dark Iron Helm" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_22.png"/>
 			<stats>
@@ -201,9 +201,9 @@
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="21460">
+	<item id="21460">
 		<patch name="1.9.0">
 			<info name="Helm of Domination" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_09.png"/>
 			<stats>
@@ -218,9 +218,9 @@
 			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16542">
+	<item id="16542">
 		<patch name="1.5.0">
 			<info name="Warlord's Plate Headpiece" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -234,9 +234,9 @@
 			May be purchased upon reaching Warlord (rank 13). Horde only.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="19372">
+	<item id="19372">
 		<patch name="1.6.0">
 			<info name="Helm of Endless Rage" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_helmet_10.png"/>
 			<stats>
@@ -249,9 +249,9 @@
 			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16478">
+	<item id="16478">
 		<patch name="1.5.0">
 			<info name="Field Marshal's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -266,9 +266,9 @@
 			May be purchased upon reaching Field Marshal (rank 13). Alliance only.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16963">
+	<item id="16963">
 		<patch name="1.0.0">
 			<info name="Helm of Wrath" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_71.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -284,9 +284,9 @@
 			Drops from Onyxia in Onyxia's Lair.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="21329">
+	<item id="21329">
 		<patch name="1.9.0">
 			<info name="Conqueror's Crown" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_72.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -301,9 +301,9 @@
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="23244">
+	<item id="23244">
 		<patch name="1.11.0">
 			<info name="Champion's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -318,9 +318,9 @@
 			Purchased with Honor Points and marks of honor. Requires Champion (rank 10).
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="23019">
+	<item id="23019">
 		<patch name="1.11.0">
 			<info name="Icebane Helmet" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
 			<stats>
@@ -334,9 +334,9 @@
 			Drops from Heigan the Unclean in Naxxramas.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="22418">
+	<item id="22418">
 		<patch name="1.11.0">
 			<info name="Dreadnaught Helmet" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -351,5 +351,5 @@
 			Quest reward. Requires boss drop from Thaddius in Naxxramas.
 			</source>
 		</patch>
-	</helm>
+	</item>
 </items>

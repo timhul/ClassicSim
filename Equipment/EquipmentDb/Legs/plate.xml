@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<legs id="22385">
+	<item id="22385">
 		<patch name="1.6.0">
 			<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
 			<stats>
@@ -13,9 +13,9 @@
 			Crafted by blacksmiths. Plans mainly drop from world bosses and Nefarian, Onyxia, Ragnaros.
 			</source>
 		</patch>
-	</legs>
+	</item>
 
-	<legs id="21332">
+	<item id="21332">
 		<patch name="1.9.0">
 			<info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -31,9 +31,9 @@
 			Quest reward. Requires drops from Ouro in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</legs>
+	</item>
 
-	<legs id="22873">
+	<item id="22873">
 		<patch name="1.11.0">
 			<info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -47,9 +47,9 @@
 			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
 			</source>
 		</patch>
-	</legs>
+	</item>
 
-	<legs id="23068">
+	<item id="23068">
 		<patch name="1.11.0">
 			<info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
 			<stats>
@@ -62,5 +62,5 @@
 			Drops from Heigan the Unclean in Naxxramas.
 			</source>
 		</patch>
-	</legs>
+	</item>
 </items>

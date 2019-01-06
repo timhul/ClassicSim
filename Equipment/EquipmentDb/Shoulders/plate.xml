@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<shoulders id="19394">
+	<item id="19394">
 		<patch name="1.6.0">
 			<info name="Drake Talon Pauldrons" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
 			<stats>
@@ -14,9 +14,9 @@
 			Drops from Ebonroc, Flamegor, and Firemaw in Blackwing Lair.
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="21330">
+	<item id="21330">
 		<patch name="1.9.0">
 			<info name="Conqueror's Spaulders" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_35.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -32,9 +32,9 @@
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 
-	<shoulders id="23243">
+	<item id="23243">
 		<patch name="1.11.0">
 			<info name="Champion's Plate Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_shoulder_11.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -48,5 +48,5 @@
 			Purchased with Honor Points and Arathi Basin marks. Requires Champion (rank 10).
 			</source>
 		</patch>
-	</shoulders>
+	</item>
 </items>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<ring id="17713">
+	<item id="17713">
 		<patch name="1.2.0">
 			<info name="Blackstone Ring" type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
 			<stats>
@@ -12,9 +12,9 @@
 			Drops from Princess Theradras in Maraudon.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="13098">
+	<item id="13098">
 		<patch name="1.0.0">
 			<info name="Painweaver Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_18.png"/>
 			<stats>
@@ -26,9 +26,9 @@
 			Drops from General Drakkisath in Upper Blackrock Spire.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="18821">
+	<item id="18821">
 		<patch name="1.0.0">
 			<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
 			<stats>
@@ -41,9 +41,9 @@
 			Drops from multiple bosses in Molten Core.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="17063">
+	<item id="17063">
 		<patch name="1.0.0">
 			<info name="Band of Accuria" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
 			<stats>
@@ -55,9 +55,9 @@
 			Drops from Ragnaros in Molten Core.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="19384">
+	<item id="19384">
 		<patch name="1.6.0">
 			<info name="Master Dragonslayer's Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
 			<stats>
@@ -69,9 +69,9 @@
 			Quest reward. Requires Head of Nefarian from Blackwing Lair.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="21393">
+	<item id="21393">
 		<patch name="1.9.0">
 			<info name="Signet of Unyielding Strength" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
 			<class_restriction class="WARRIOR"/>
@@ -84,9 +84,9 @@
 			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Honored with Cenarion Hold.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="21405">
+	<item id="21405">
 		<patch name="1.9.0">
 			<info name="Band of Veiled Shadows" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
 			<class_restriction class="ROGUE"/>
@@ -99,9 +99,9 @@
 			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Honored with Cenarion Hold.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="23038">
+	<item id="23038">
 		<patch name="1.11.0">
 			<info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 			<stats>
@@ -113,9 +113,9 @@
 			Drops from Loatheb in Naxxramas.
 			</source>
 		</patch>
-	</ring>
+	</item>
 
-	<ring id="23060">
+	<item id="23060">
 		<patch name="1.11.0">
 			<info name="Bonescythe Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
 			<class_restriction class="ROGUE"/>
@@ -129,5 +129,5 @@
 			Drops from Kel'Thuzad in Naxxramas.
 			</source>
 		</patch>
-	</ring>
+	</item>
 </items>

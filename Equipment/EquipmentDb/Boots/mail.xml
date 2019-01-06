@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<boots id="13967">
+	<item id="13967">
 		<patch name="1.0.0">
 			<info name="Windreaver Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_plate_04.png"/>
 			<stats>
@@ -12,5 +12,5 @@
 			Drops from Kirtonos the Herald in Scholomance.
 			</source>
 		</patch>
-	</boots>
+	</item>
 </items>

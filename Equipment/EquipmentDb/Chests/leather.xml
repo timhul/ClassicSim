@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<chest id="13944">
+	<item id="13944">
 		<patch name="1.0.0">
 			<info name="Tombstone Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
 			<stats>
@@ -13,9 +13,9 @@
 			Drops from Darkmaster Gandling in Scholomance.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="14637">
+	<item id="14637">
 		<patch name="1.0.0">
 			<info name="Cadaverous Armor" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_03.png"/>
 			<stats>
@@ -28,9 +28,9 @@
 			Drops by several bosses in Scholomance.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="16721">
+	<item id="16721">
 		<patch name="1.0.0">
 			<info name="Shadowcraft Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_leather_07.png"/>
 			<stats>
@@ -43,9 +43,9 @@
 			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="12757">
+	<item id="12757">
 		<patch name="1.0.0">
 			<info name="Breastplate of Bloodthirst" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_chain_13.png"/>
 			<stats>
@@ -59,9 +59,9 @@
 			Quest reward. Requires expensive and time-consuming materials.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="16820">
+	<item id="16820">
 		<patch name="1.0.0">
 			<info name="Nightslayer Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 			<class_restriction class="ROGUE"/>
@@ -77,9 +77,9 @@
 			Drops from Golemagg the Incinerator in Molten Core.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="16905">
+	<item id="16905">
 		<patch name="1.0.0">
 			<info name="Bloodfang Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 			<class_restriction class="ROGUE"/>
@@ -115,9 +115,9 @@
 			Drops from Nefarian in Blackwing Lair.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="19405">
+	<item id="19405">
 		<patch name="1.6.0">
 			<info name="Malfurion's Blessed Bulwark" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 			<stats>
@@ -129,9 +129,9 @@
 			Drops from Ebonroc in Blackwing Lair.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="19685">
+	<item id="19685">
 		<patch name="1.7.0">
 			<info name="Primal Batskin Jerkin" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_leather_03.png"/>
 			<stats>
@@ -144,9 +144,9 @@
 			Crafted by leatherworkers (300 skill). Pattern requires Revered with Zandalar Tribe.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="19834">
+	<item id="19834">
 		<patch name="1.7.0">
 			<info name="Zandalar Madcap's Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_leather_10.png"/>
 			<class_restriction class="ROGUE"/>
@@ -160,9 +160,9 @@
 			Quest reward. Requires boss drop from Zul'Gurub and Revered with Zandalar Tribe.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="21680">
+	<item id="21680">
 		<patch name="1.9.0">
 			<info name="Vest of Swift Execution" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_chest_cloth_45.png"/>
 			<stats>
@@ -175,9 +175,9 @@
 			Drops from Lord Kri (bug trio) in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="21364">
+	<item id="21364">
 		<patch name="1.9.0">
 			<info name="Deathdealer's Vest" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 			<class_restriction class="ROGUE"/>
@@ -193,9 +193,9 @@
 			Quest reward. Requires boss drops Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="23226">
+	<item id="23226">
 		<patch name="1.11.0">
 			<info name="Ghoul Skin Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_chest_leather_02.png"/>
 			<stats>
@@ -208,9 +208,9 @@
 			Drops from trash mobs in Naxxramas.
 			</source>
 		</patch>
-	</chest>
+	</item>
 
-	<chest id="22476">
+	<item id="22476">
 		<patch name="1.11.0">
 			<info name="Bonescythe Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_plate02.png"/>
 			<class_restriction class="ROGUE"/>
@@ -225,5 +225,5 @@
 			Quest reward. Requires boss drops from Naxxramas.
 			</source>
 		</patch>
-	</chest>
+	</item>
 </items>

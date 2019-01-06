@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<helm id="16707">
+	<item id="16707">
 		<patch name="1.0.0">
 			<info name="Shadowcraft Cap" type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
 			<stats>
@@ -14,9 +14,9 @@
 			Drops from Darkmaster Gandling in Scholomance.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="12587">
+	<item id="12587">
 		<patch name="1.0.0">
 			<info name="Eye of Rend" type="LEATHER" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_46.png"/>
 			<stats>
@@ -29,9 +29,9 @@
 			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16821">
+	<item id="16821">
 		<patch name="1.0.0">
 			<info name="Nightslayer Cover" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
 			<class_restriction class="ROGUE"/>
@@ -47,9 +47,9 @@
 			Drops from Garr in Molten Core.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="16908">
+	<item id="16908">
 		<patch name="1.0.0">
 			<info name="Bloodfang Hood" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
 			<class_restriction class="ROGUE"/>
@@ -66,9 +66,9 @@
 			Drops from Onyxia.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="19945">
+	<item id="19945">
 		<patch name="1.7.0">
 			<info name="Foror's Eyepatch" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
 			<stats>
@@ -81,9 +81,9 @@
 			Drops from Gahz'ranka in Zul'Gurub.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="22718">
+	<item id="22718">
 		<patch name="1.7.0">
 			<info name="Blooddrenched Mask" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
 			<stats>
@@ -96,9 +96,9 @@
 			Drops from High Priest(ess) bosses in Zul'Gurub.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="20623">
+	<item id="20623">
 		<patch name="1.8.0">
 			<info name="Circlet of Restless Dreams" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_17.png"/>
 			<stats>
@@ -111,9 +111,9 @@
 			Drops from Emeriss (world boss).
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="21455">
+	<item id="21455">
 		<patch name="1.9.0">
 			<info name="Southwind Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
 			<stats>
@@ -127,9 +127,9 @@
 			Drops from Moam in Ruins of Ahn'Qiraj (AQ20).
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="21693">
+	<item id="21693">
 		<patch name="1.9.0">
 			<info name="Guise of the Devourer" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
 			<stats>
@@ -143,9 +143,9 @@
 			Drops from bug trio in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="21360">
+	<item id="21360">
 		<patch name="1.9.0">
 			<info name="Deathdealer's Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
 			<class_restriction class="ROGUE"/>
@@ -161,9 +161,9 @@
 			Quest reward. Requires boss drop from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="23020">
+	<item id="23020">
 		<patch name="1.11.0">
 			<info name="Polar Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
 			<stats>
@@ -176,9 +176,9 @@
 			Drops from Gothik the Harvester in Naxxramas.
 			</source>
 		</patch>
-	</helm>
+	</item>
 
-	<helm id="22478">
+	<item id="22478">
 		<patch name="1.11.0">
 			<info name="Bonescythe Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
 			<class_restriction class="ROGUE"/>
@@ -194,5 +194,5 @@
 			Quest reward. Requires boss drops from Naxxramas.
 			</source>
 		</patch>
-	</helm>
+	</item>
 </items>

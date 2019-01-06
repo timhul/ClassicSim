@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<belt id="13959000">
+	<item id="13959000">
 		<patch name="1.0.0">
 			<info name="Omokk's Girth Restrainer" type="PLATE" slot="BELT" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_13.png"/>
 			<stats>
@@ -13,9 +13,9 @@
 			Quest reward. Part of Onyxia quest chain. Requires LBRS.
 			</source>
 		</patch>
-	</belt>
+	</item>
 
-	<belt id="13959001">
+	<item id="13959001">
 		<patch name="1.0.0">
 			<info name="Omokk's Girth Restrainer" type="PLATE" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_13.png"/>
 			<stats>
@@ -28,9 +28,9 @@
 			Quest reward. Part of Onyxia quest chain. Requires LBRS.
 			</source>
 		</patch>
-	</belt>
+	</item>
 
-	<belt id="19137">
+	<item id="19137">
 		<patch name="1.0.0">
 			<info name="Onslaught Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_belt_29.png"/>
 			<stats>
@@ -44,9 +44,9 @@
 			Drops from Ragnaros in Molten Core.
 			</source>
 		</patch>
-	</belt>
+	</item>
 
-	<belt id="23219">
+	<item id="23219">
 		<patch name="1.11.0">
 			<info name="Girdle of the Mentor" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_belt_13.png"/>
 			<stats>
@@ -61,5 +61,5 @@
 			Drops from Instructor Razuvious in Naxxramas.
 			</source>
 		</patch>
-	</belt>
+	</item>
 </items>

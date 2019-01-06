@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<amulet id="15411">
+	<item id="15411">
 		<patch name="1.0.0">
 			<info name="Mark of Fordring" type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
 			<stats>
@@ -11,9 +11,9 @@
 			Quest chain reward. Started by Tirion Fordring in Eastern Plaguelands.
 			</source>
 		</patch>
-	</amulet>
+	</item>
 
-	<amulet id="18404">
+	<item id="18404">
 		<patch name="1.0.0">
 			<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
 			<stats>
@@ -27,9 +27,9 @@
 			Quest reward from turning in Head of Onyxia.
 			</source>
 		</patch>
-	</amulet>
+	</item>
 
-	<amulet id="21664">
+	<item id="21664">
 		<patch name="1.9.0">
 			<info name="Barbed Choker" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
 			<stats>
@@ -41,9 +41,9 @@
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
-	</amulet>
+	</item>
 
-	<amulet id="23053">
+	<item id="23053">
 		<patch name="1.11.0">
 			<info name="Stormrage's Talisman of Seething" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>
 			<stats>
@@ -55,5 +55,5 @@
 			Drops from Kel'Thuzad in Naxxramas.
 			</source>
 		</patch>
-	</amulet>
+	</item>
 </items>
