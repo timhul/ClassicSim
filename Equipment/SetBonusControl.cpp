@@ -1,6 +1,7 @@
 #include "SetBonusControl.h"
 
 #include "Backstab.h"
+#include "CharacterStats.h"
 #include "EquipmentDb.h"
 #include "Hemorrhage.h"
 #include "Rogue.h"
@@ -34,6 +35,13 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
+    else if (set_name == "Devilsaur Armor") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->increase_hit(0.02);
+            break;
+        }
+    }
 }
 
 void SetBonusControl::unequip_item(const int item_id) {
@@ -53,6 +61,13 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
+        }
+    }
+    else if (set_name == "Devilsaur Armor") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->decrease_hit(0.02);
+            break;
         }
     }
 }
