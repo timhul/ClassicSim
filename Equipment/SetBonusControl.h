@@ -27,6 +27,9 @@ private:
     QMap<int, QString> current_set_items;
     QMap<int, QString> possible_set_items;
     QMap<QString, QVector<QPair<int, QString>>> set_bonus_tooltips;
+
+    void activate_warrior_pvp_set_bonuses(const int num_pieces);
+    void deactivate_warrior_pvp_set_bonuses(const int num_pieces);
 };
 
 #endif // SETBONUSCONTROL_H

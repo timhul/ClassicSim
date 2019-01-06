@@ -305,6 +305,23 @@
 
 	<item id="23244">
 		<patch name="1.11.0">
+			<info name="Lieutenant Commander's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_09.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="598"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="STRENGTH" value="21"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and marks of honor. Requires Lieutenant Commander (rank 10).
+			</source>
+		</patch>
+	</item>
+
+	<item id="23244">
+		<patch name="1.11.0">
 			<info name="Champion's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
 			<class_restriction class="WARRIOR"/>
 			<stats>
