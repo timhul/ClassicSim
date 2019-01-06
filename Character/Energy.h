@@ -21,6 +21,7 @@ public:
 
     friend class Druid;
     friend class Rogue;
+    friend class SetBonusControl;
     friend class Vigor;
 
 private:

@@ -2,6 +2,7 @@
 
 #include "Backstab.h"
 #include "CharacterStats.h"
+#include "Energy.h"
 #include "EquipmentDb.h"
 #include "Hemorrhage.h"
 #include "ItemNamespace.h"
@@ -26,7 +27,14 @@ void SetBonusControl::equip_item(const int item_id) {
     current_set_items[item_id] = set_name;
     int num_pieces = get_num_equipped_pieces_for_set(set_name);
 
-    if (set_name == "Bonescythe Armor") {
+    if (set_name == "Nightslayer Armor") {
+        switch (num_pieces) {
+        case 5:
+            dynamic_cast<Rogue*>(pchar)->get_energy()->max += 10;
+            break;
+        }
+    }
+    else if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
         case 4: {
             auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
@@ -76,7 +84,14 @@ void SetBonusControl::unequip_item(const int item_id) {
     int num_pieces = get_num_equipped_pieces_for_set(set_name);
     current_set_items.take(item_id);
 
-    if (set_name == "Bonescythe Armor") {
+    if (set_name == "Nightslayer Armor") {
+        switch (num_pieces) {
+        case 5:
+            dynamic_cast<Rogue*>(pchar)->get_energy()->max -= 10;
+            break;
+        }
+    }
+    else if (set_name == "Bonescythe Armor") {
         switch (num_pieces) {
         case 4: {
             auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
