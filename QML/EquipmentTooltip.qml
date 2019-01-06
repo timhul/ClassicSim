@@ -352,7 +352,7 @@ RectangleBorders {
         id: ttClassRestrictions
 
         anchors {
-            top: ttDurability.bottom
+            top: ttDurability.visible ? ttDurability.bottom : ttBaseStats.bottom
             topMargin: 5
             left: ttRect.left
             leftMargin: 10
