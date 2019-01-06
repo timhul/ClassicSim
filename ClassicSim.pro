@@ -41,7 +41,7 @@ SOURCES += main.cpp \
     Equipment/Equipment.cpp \
     CombatRoll/CombatRoll.cpp \
     CombatRoll/AttackTables/WhiteHitTable.cpp \
-    Character/Class/Spell.cpp \
+    Spells/Spell.cpp \
     Character/Class/Warrior/Spells/Bloodthirst.cpp \
     Event/Events/OffhandMeleeHit.cpp \
     Event/Events/MainhandMeleeHit.cpp \
@@ -54,7 +54,7 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Recklessness.cpp \
     CombatRoll/AttackTables/MeleeSpecialTable.cpp \
     Mechanics/Mechanics.cpp \
-    Character/Class/Buff.cpp \
+    Spells/Buff.cpp \
     Character/Class/Warrior/Buffs/Flurry.cpp \
     Event/Events/BuffRemoval.cpp \
     Character/Class/TalentTree.cpp \
@@ -126,10 +126,10 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Bloodrage.cpp \
     Event/Events/ResourceGain.cpp \
     Test/Warrior/Spells/TestBloodrage.cpp \
-    Character/Class/Proc.cpp \
+    Spells/Proc.cpp \
     Character/Class/General/Enchants/WindfuryTotemAttack.cpp \
     Character/Class/General/Enchants/Crusader.cpp \
-    Character/Class/ProcPPM.cpp \
+    Spells/ProcPPM.cpp \
     Character/Class/General/Buffs/HolyStrength.cpp \
     Character/Class/General/Enchants/FieryWeapon.cpp \
     Character/Spells.cpp \
@@ -157,7 +157,7 @@ SOURCES += main.cpp \
     Thread/SimulationRunner.cpp \
     Character/Class/General/GeneralBuffs.cpp \
     GUI/Models/BuffModel.cpp \
-    Character/Class/ExternalBuff.cpp \
+    Spells/ExternalBuff.cpp \
     Rotation/RotationFileReader.cpp \
     Rotation/Rotation.cpp \
     Rotation/Condition.cpp \
@@ -209,7 +209,7 @@ SOURCES += main.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
     Character/Class/TalentRequirer.cpp \
     Character/Class/Warrior/Buffs/BattleStanceBuff.cpp \
-    Character/Class/SpellCastingTime.cpp \
+    Spells/SpellCastingTime.cpp \
     Test/Warrior/Talents/TestFury.cpp \
     GUI/Models/RotationModel.cpp \
     Test/Warrior/Talents/TestArms.cpp \
@@ -226,7 +226,7 @@ SOURCES += main.cpp \
     Test/General/Procs/TestFelstrikerProc.cpp \
     Character/Class/General/Procs/FelstrikerProc.cpp \
     Character/Class/General/Buffs/FelstrikerBuff.cpp \
-    Character/Class/SharedBuff.cpp \
+    Spells/SharedBuff.cpp \
     Character/Class/General/Buffs/EssenceOfTheRed.cpp \
     Character/Class/General/Spells/PeriodicResourceGainSpell.cpp \
     Rulesets/RulesetControl.cpp \
@@ -330,8 +330,8 @@ SOURCES += main.cpp \
     Test/Rogue/Spells/TestHemorrhage.cpp \
     Equipment/EquipmentDb/SetBonusFileReader.cpp \
     Equipment/SetBonusControl.cpp \
-    Character/Class/SetBonusRequirer.cpp \
-    Character/Class/ItemModificationRequirer.cpp
+    Spells/SetBonusRequirer.cpp \
+    Spells/ItemModificationRequirer.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -370,7 +370,7 @@ HEADERS += \
     CombatRoll/CombatRoll.h \
     CombatRoll/AttackTables/WhiteHitTable.h \
     CombatRoll/Random.h \
-    Character/Class/Spell.h \
+    Spells/Spell.h \
     Character/Class/Warrior/Spells/Bloodthirst.h \
     Event/Events/OffhandMeleeHit.h \
     Event/Events/MainhandMeleeHit.h \
@@ -383,7 +383,7 @@ HEADERS += \
     Character/Class/Warrior/Spells/Recklessness.h \
     CombatRoll/AttackTables/MeleeSpecialTable.h \
     Mechanics/Mechanics.h \
-    Character/Class/Buff.h \
+    Spells/Buff.h \
     Character/Class/Warrior/Buffs/Flurry.h \
     Event/Events/BuffRemoval.h \
     Character/Class/TalentTree.h \
@@ -454,10 +454,10 @@ HEADERS += \
     Event/Events/ResourceGain.h \
     Character/Class/Warrior/Spells/Bloodrage.h \
     Test/Warrior/Spells/TestBloodrage.h \
-    Character/Class/Proc.h \
+    Spells/Proc.h \
     Character/Class/General/Enchants/WindfuryTotemAttack.h \
     Character/Class/General/Enchants/Crusader.h \
-    Character/Class/ProcPPM.h \
+    Spells/ProcPPM.h \
     Character/Class/General/Buffs/HolyStrength.h \
     Character/Class/General/Enchants/FieryWeapon.h \
     Character/Spells.h \
@@ -471,7 +471,7 @@ HEADERS += \
     Statistics/StatisticsBuff.h \
     Statistics/StatisticsResource.h \
     Statistics/StatisticsProc.h \
-    Character/Class/ProcInfo.h \
+    Spells/ProcInfo.h \
     Test/Warrior/Procs/TestUnbridledWrath.h \
     Test/Warrior/TestProcWarrior.h \
     Test/TestProc.h \
@@ -486,7 +486,7 @@ HEADERS += \
     Thread/SimulationRunner.h \
     Character/Class/General/GeneralBuffs.h \
     GUI/Models/BuffModel.h \
-    Character/Class/ExternalBuff.h \
+    Spells/ExternalBuff.h \
     Rotation/RotationFileReader.h \
     Rotation/Rotation.h \
     Rotation/Condition.h \
@@ -539,7 +539,7 @@ HEADERS += \
     Test/Warrior/Spells/TestSlam.h \
     Character/Class/TalentRequirer.h \
     Character/Class/Warrior/Buffs/BattleStanceBuff.h \
-    Character/Class/SpellCastingTime.h \
+    Spells/SpellCastingTime.h \
     Test/Warrior/Talents/TestFury.h \
     GUI/Models/RotationModel.h \
     Test/Warrior/Talents/TestArms.h \
@@ -558,7 +558,7 @@ HEADERS += \
     Test/General/Procs/TestFelstrikerProc.h \
     Character/Class/General/Procs/FelstrikerProc.h \
     Character/Class/General/Buffs/FelstrikerBuff.h \
-    Character/Class/SharedBuff.h \
+    Spells/SharedBuff.h \
     Character/Class/General/Buffs/EssenceOfTheRed.h \
     Character/Class/Resource.h \
     Character/Class/General/Spells/PeriodicResourceGainSpell.h \
@@ -594,7 +594,7 @@ HEADERS += \
     Character/Class/Rogue/Spells/Backstab.h \
     Character/Class/General/Spells/EnergyTick.h \
     Character/Class/Rage.h \
-    Character/Energy.h \
+    Character/Class/Energy.h \
     Character/Class/Mana.h \
     Character/Class/General/Spells/ManaTick.h \
     Test/Rogue/TestRogue.h \
@@ -665,8 +665,8 @@ HEADERS += \
     Test/Rogue/Spells/TestHemorrhage.h \
     Equipment/EquipmentDb/SetBonusFileReader.h \
     Equipment/SetBonusControl.h \
-    Character/Class/SetBonusRequirer.h \
-    Character/Class/ItemModificationRequirer.h
+    Spells/SetBonusRequirer.h \
+    Spells/ItemModificationRequirer.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -706,6 +706,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/CombatRoll/AttackTables \
     $$PWD/CombatRoll/xorshift \
     $$PWD/Target \
+    $$PWD/Spells \
     $$PWD/Statistics \
     $$PWD/Statistics/Charts \
     $$PWD/Mechanics \
