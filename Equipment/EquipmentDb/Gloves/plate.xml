@@ -71,6 +71,80 @@
 		</patch>
 	</item>
 
+	<item id="16484">
+		<patch name="1.4.0">
+			<info name="Marshal's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="461"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="AGILITY" value="15"/>
+			</stats>
+			<modifies name="Hamstring"/>
+			<special_equip_effect>
+			Passive: Hamstring Rage cost reduced by 3.
+			</special_equip_effect>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Marshal (rank 12).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Marshal's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="532"/>
+				<stat type="STRENGTH" value="20"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<modifies name="Hamstring"/>
+			<special_equip_effect>
+			Equip: Hamstring Rage cost reduced by 3.
+			</special_equip_effect>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Marshal (rank 12).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16548">
+		<patch name="1.4.0">
+			<info name="General's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_10.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="461"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="AGILITY" value="15"/>
+			</stats>
+			<modifies name="Hamstring"/>
+			<special_equip_effect>
+			Passive: Hamstring Rage cost reduced by 3.
+			</special_equip_effect>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires General (rank 12).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="General's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_10.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="532"/>
+				<stat type="STRENGTH" value="20"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<modifies name="Hamstring"/>
+			<special_equip_effect>
+			Equip: Hamstring Rage cost reduced by 3.
+			</special_equip_effect>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires General (rank 12).
+			</source>
+		</patch>
+	</item>
+
 	<item id="21581">
 		<patch name="1.9.0">
 			<info name="Gauntlets of Annihilation" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
