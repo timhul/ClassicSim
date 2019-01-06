@@ -455,8 +455,9 @@ RectangleBorders {
         id: ttSetName
 
         anchors {
-            top: ttEquipEffect.text !== "" ? ttEquipEffect.bottom :
-                                             ttLevelRequirement.bottom
+            top: ttFlavourText.text !== "" ? ttFlavourText.bottom :
+                                             ttEquipEffect.text !== "" ? ttEquipEffect.bottom :
+                                                                         ttLevelRequirement.bottom
             topMargin: 15
             left: ttRect.left
             leftMargin: 10

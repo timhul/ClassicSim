@@ -18,6 +18,15 @@
 		</bonus>
 	</set>
 
+	<set name="The Twin Blades of Hakkari">
+		<item_id value="19865"/>
+		<item_id value="19866"/>
+
+		<bonus value="2">
+		(2) Set: Increased Swords +6.
+		</bonus>
+	</set>
+
 	<set name="Battlegear of Unyielding Strength">
 		<item_id value="21394"/>
 		<item_id value="21392"/>

@@ -4,6 +4,7 @@
 #include "CharacterStats.h"
 #include "EquipmentDb.h"
 #include "Hemorrhage.h"
+#include "ItemNamespace.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SetBonusFileReader.h"
@@ -51,6 +52,13 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "The Twin Blades of Hakkari") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->increase_wpn_skill(WeaponTypes::SWORD, 6);
+            break;
+        }
+    }
     else if (set_name == "Emblems of Veiled Shadows") {
         switch (num_pieces) {
         case 3:
@@ -91,6 +99,13 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 2:
             pchar->get_stats()->decrease_melee_ap(50);
             pchar->get_stats()->decrease_ranged_ap(50);
+            break;
+        }
+    }
+    else if (set_name == "The Twin Blades of Hakkari") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->decrease_wpn_skill(WeaponTypes::SWORD, 6);
             break;
         }
     }
