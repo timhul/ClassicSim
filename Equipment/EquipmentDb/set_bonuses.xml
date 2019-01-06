@@ -90,6 +90,21 @@
 		</bonus>
 	</set>
 
+	<set name="Deathdealer's Embrace">
+		<item_id value="21359"/>
+		<item_id value="21360"/>
+		<item_id value="21361"/>
+		<item_id value="21362"/>
+		<item_id value="21364"/>
+
+		<bonus value="3">
+		(3) Set: Reduces the cooldown of your Evasion ability by -1 min.
+		</bonus>
+		<bonus value="5">
+		(5) Set: 15% increased damage to your Eviscerate ability.
+		</bonus>
+	</set>
+
 	<set name="Bonescythe Armor">
 		<item_id value="22483"/>
 		<item_id value="22476"/>

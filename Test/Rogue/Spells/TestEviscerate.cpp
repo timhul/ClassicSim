@@ -4,6 +4,7 @@
 #include "Equipment.h"
 #include "Eviscerate.h"
 #include "ImprovedEviscerate.h"
+#include "Item.h"
 #include "Queue.h"
 #include "WarriorSpells.h"
 
@@ -111,11 +112,11 @@ void TestEviscerate::test_all() {
     tear_down();
 
     set_up();
-    test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression();
+    test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression_and_5_pc_deathdealer();
     tear_down();
 
     set_up();
-    test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression();
+    test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression_and_5_pc_deathdealer();
     tear_down();
 }
 
@@ -572,8 +573,9 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_aggression() {
     then_damage_dealt_is_in_range(2234, 2463);
 }
 
-void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression() {
+void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression_and_5_pc_deathdealer() {
     given_target_has_0_armor();
+    given_5_pc_deathdealer();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
@@ -584,13 +586,14 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_
 
     when_eviscerate_is_performed();
 
-    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * imp_evisc
-    // [1285-1416] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 1.15
-    then_damage_dealt_is_in_range(1285, 1416);
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * imp_evisc * deathdealer_5pc
+    // [1478-1629] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 1.15 * 1.15
+    then_damage_dealt_is_in_range(1478, 1629);
 }
 
-void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression() {
+void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression_and_5_pc_deathdealer() {
     given_target_has_0_armor();
+    given_5_pc_deathdealer();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
@@ -601,9 +604,9 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of
 
     when_eviscerate_is_performed();
 
-    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * imp_evisc * crit_dmg_modifier
-    // [2570-2833] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 1.15 * 2.0
-    then_damage_dealt_is_in_range(2570, 2833);
+    // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * imp_evisc * deathdealer_5pc * crit_dmg_modifier
+    // [2955-3257] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 1.15 * 1.15 * 2.0
+    then_damage_dealt_is_in_range(2955, 3257);
 }
 
 void TestEviscerate::given_1_of_3_imp_eviscerate() {
@@ -634,6 +637,28 @@ void TestEviscerate::given_3_of_3_aggression() {
     Aggression(rogue, nullptr).increment_rank();
     Aggression(rogue, nullptr).increment_rank();
     Aggression(rogue, nullptr).increment_rank();
+}
+
+void TestEviscerate::given_5_pc_deathdealer() {
+    pchar->get_equipment()->set_chest(21364);
+    assert(pchar->get_equipment()->get_chest() != nullptr);
+    assert(pchar->get_equipment()->get_chest()->get_name() == "Deathdealer's Vest");
+
+    pchar->get_equipment()->set_boots(21359);
+    assert(pchar->get_equipment()->get_boots() != nullptr);
+    assert(pchar->get_equipment()->get_boots()->get_name() == "Deathdealer's Boots");
+
+    pchar->get_equipment()->set_head(21360);
+    assert(pchar->get_equipment()->get_head() != nullptr);
+    assert(pchar->get_equipment()->get_head()->get_name() == "Deathdealer's Helm");
+
+    pchar->get_equipment()->set_shoulders(21361);
+    assert(pchar->get_equipment()->get_shoulders() != nullptr);
+    assert(pchar->get_equipment()->get_shoulders()->get_name() == "Deathdealer's Spaulders");
+
+    pchar->get_equipment()->set_legs(21362);
+    assert(pchar->get_equipment()->get_legs() != nullptr);
+    assert(pchar->get_equipment()->get_legs()->get_name() == "Deathdealer's Leggings");
 }
 
 void TestEviscerate::when_eviscerate_is_performed() {

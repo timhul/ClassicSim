@@ -4,6 +4,7 @@
 #include "CharacterStats.h"
 #include "Energy.h"
 #include "EquipmentDb.h"
+#include "Eviscerate.h"
 #include "Hemorrhage.h"
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
@@ -40,6 +41,15 @@ void SetBonusControl::equip_item(const int item_id) {
         case 3: {
             dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison()->activate_set_bonus(set_name, num_pieces);
             dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
+    else if (set_name == "Deathdealer's Embrace") {
+        switch (num_pieces) {
+        case 5: {
+            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            spells->get_eviscerate()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         }
@@ -106,6 +116,15 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 3: {
             dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
             dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
+    else if (set_name == "Deathdealer's Embrace") {
+        switch (num_pieces) {
+        case 5: {
+            auto* spells = dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells());
+            spells->get_eviscerate()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         }

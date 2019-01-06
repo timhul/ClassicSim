@@ -15,8 +15,10 @@ Eviscerate::Eviscerate(Character* pchar) :
                    new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Improved Eviscerate", 3, DisabledAtZero::No)
                    }),
+    SetBonusRequirer({"Deathdealer's Embrace"}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     evisc_range(new Random(904, 1012)),
+    deathdealer_modifier(1.0),
     total_dmg_modifier(1.0)
 {
     this->damage_ranges_per_combo_point = {
@@ -103,7 +105,7 @@ void Eviscerate::set_evisc_range() {
 }
 
 void Eviscerate::update_dmg_modifier() {
-    this->total_dmg_modifier = 1 * imp_evisc_modifier * aggression_modifier;
+    this->total_dmg_modifier = 1 * imp_evisc_modifier * aggression_modifier * deathdealer_modifier;
 }
 
 void Eviscerate::increase_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -122,4 +124,28 @@ void Eviscerate::decrease_talent_rank_effect(const QString& talent_name, const i
         aggression_modifier = aggression_modifiers[curr];
 
     update_dmg_modifier();
+}
+
+void Eviscerate::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Deathdealer's Embrace") {
+        switch (set_bonus) {
+        case 5:
+            deathdealer_modifier = 1.15;
+            break;
+        default:
+            assert(false);
+        }
+    }
+}
+
+void Eviscerate::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Deathdealer's Embrace") {
+        switch (set_bonus) {
+        case 5:
+            deathdealer_modifier = 1.0;
+            break;
+        default:
+            assert(false);
+        }
+    }
 }
