@@ -29,7 +29,8 @@ public:
          QMap<QString, QString> info,
          QVector<QPair<QString, QString>> stats,
          QVector<QMap<QString, QString>> procs = {},
-         QVector<QMap<QString, QString>> use = {});
+         QVector<QMap<QString, QString>> use = {},
+         QVector<QString> spell_modifications = {});
     Item(const Item* item);
     virtual ~Item();
 
@@ -64,6 +65,7 @@ public:
     bool available_for_class(const QString& class_name) const;
 
 protected:
+    Character* pchar;
     QString name;
     QString patch;
     QString source;
@@ -79,12 +81,14 @@ protected:
     QVector<QPair<QString, QString>> stats_key_value_pairs;
     QVector<Proc*> active_procs;
     QVector<Spell*> use_spells;
+    QVector<QString> spell_modifications;
     QMap<ItemStats, int> item_stat_values;
     Stats* stats;
     Enchant* enchant;
 
-    void set_uses(Character *pchar);
-    void set_procs(Character *pchar, const int eq_slot);
+    void set_uses();
+    void set_procs(const int eq_slot);
+    void call_item_modifications(const bool activate = true) const;
 
     int slot{};
     int item_type{};

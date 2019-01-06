@@ -14,8 +14,10 @@
 #include "GenericStatBuff.h"
 #include "GenericChargeConsumerProc.h"
 #include "InstantSpellProc.h"
+#include "ItemModificationRequirer.h"
 #include "NoEffectBuff.h"
 #include "JomGabbar.h"
+#include "Spells.h"
 #include "Stats.h"
 #include "Target.h"
 #include "UseTrinket.h"
@@ -25,12 +27,15 @@ Item::Item(QString name,
            QMap<QString, QString> _info,
            QVector<QPair<QString, QString>> _stats,
            QVector<QMap<QString, QString>> _procs,
-           QVector<QMap<QString, QString>> _use):
+           QVector<QMap<QString, QString>> _use,
+           QVector<QString> _spell_modifications):
+    pchar(nullptr),
     name(name),
     info(std::move(_info)),
     procs_map(std::move(_procs)),
     use_map(std::move(_use)),
     stats_key_value_pairs(std::move(_stats)),
+    spell_modifications(std::move(_spell_modifications)),
     stats(new Stats()),
     enchant(nullptr),
     item_id(item_id)
@@ -44,11 +49,13 @@ Item::Item(QString name,
 }
 
 Item::Item(const Item* item) :
+    pchar(item->pchar),
     name(item->name),
     info(item->info),
     procs_map(item->procs_map),
     use_map(item->use_map),
     stats_key_value_pairs(item->stats_key_value_pairs),
+    spell_modifications(item->spell_modifications),
     stats(new Stats()),
     enchant(nullptr),
     item_id(item->item_id)
@@ -135,8 +142,11 @@ int Item::get_weapon_slot() const {
 void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
     assert(active_procs.empty());
 
-    set_uses(pchar);
-    set_procs(pchar, eq_slot);
+    this->pchar = pchar;
+
+    set_uses();
+    set_procs(eq_slot);
+    call_item_modifications();
 }
 
 void Item::remove_equip_effect() {
@@ -145,14 +155,30 @@ void Item::remove_equip_effect() {
         delete spell;
     }
 
-    use_spells.clear();
-
     for (auto & proc : active_procs) {
         proc->disable_proc();
         delete proc;
     }
 
-    active_procs.clear();
+    if (pchar != nullptr)
+        call_item_modifications(false);
+}
+
+void Item::call_item_modifications(const bool activate) const {
+    for (auto & spell_name : spell_modifications) {
+        Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
+        if (spell == nullptr)
+            continue;
+
+        auto spell_modded_by_item = dynamic_cast<ItemModificationRequirer*>(spell);
+        if (spell_modded_by_item == nullptr)
+            continue;
+
+        if (activate)
+            spell_modded_by_item->activate_item_modification(this->item_id);
+        else
+            spell_modded_by_item->deactivate_item_modification(this->item_id);
+    }
 }
 
 QString Item::get_name() const {
@@ -212,7 +238,7 @@ bool Item::available_for_class(const QString& class_name) const {
     return class_restrictions.empty() || class_restrictions.contains(class_name.toUpper());
 }
 
-void Item::set_uses(Character *pchar) {
+void Item::set_uses() {
     for (auto & use : use_map) {
         QString use_name = use["name"];
         Spell* spell = nullptr;
@@ -279,7 +305,7 @@ void Item::set_uses(Character *pchar) {
         use->enable();
 }
 
-void Item::set_procs(Character* pchar, const int eq_slot) {
+void Item::set_procs(const int eq_slot) {
     for (auto & i : procs_map) {
         QString proc_name = i["name"];
         QString instant = i["instant"].toLower();

@@ -9,6 +9,7 @@
 
 Hamstring::Hamstring(Character* pchar) :
     Spell("Hamstring", "Assets/warrior/arms/tier6/Ability_shockwave.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
+    ItemModificationRequirer({22868}),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 
@@ -47,4 +48,24 @@ void Hamstring::spell_effect() {
     }
 
     warr->lose_rage(static_cast<unsigned>(resource_cost));
+}
+
+void Hamstring::activate_item_effect(const int item_id) {
+    switch (item_id) {
+    case 22868:
+        resource_cost -= 3;
+        break;
+    default:
+        assert(false);
+    }
+}
+
+void Hamstring::deactivate_item_effect(const int item_id) {
+    switch (item_id) {
+    case 22868:
+        resource_cost += 3;
+        break;
+    default:
+        assert(false);
+    }
 }

@@ -33,6 +33,25 @@
 		</patch>
 	</gloves>
 
+	<gloves id="22868">
+		<patch name="1.11.0">
+			<info name="Blood Guard's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_26.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="429"/>
+				<stat type="STRENGTH" value="17"/>
+				<stat type="STAMINA" value="17"/>
+			</stats>
+			<modifies name="Hamstring"/>
+			<special_equip_effect>
+			Equip: Hamstring Rage cost reduced by 3.
+			</special_equip_effect>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Blood Guard (rank 7).
+			</source>
+		</patch>
+	</gloves>
+
 	<gloves id="21581">
 		<patch name="1.9.0">
 			<info name="Gauntlets of Annihilation" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
