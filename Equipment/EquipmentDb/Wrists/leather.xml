@@ -92,7 +92,7 @@
 
 	<wrist id="16911">
 		<patch name="1.0.0">
-			<info name="Bloodfang Bracers" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+			<info name="Bloodfang Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="98"/>
@@ -106,7 +106,7 @@
 		</patch>
 
 		<patch name="1.6.0">
-			<info name="Bloodfang Bracers" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+			<info name="Bloodfang Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
 			<class_restriction class="ROGUE"/>
 			<stats>
 				<stat type="ARMOR" value="98"/>
