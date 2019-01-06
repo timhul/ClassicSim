@@ -13,7 +13,7 @@
 		<patch_at_most name="1.12.1"/>
 	</prerequisites>
 
-	<cast_if name="Berserker Rage"/>
+	<cast_if name="Berserker Rage">
 		resource "Rage" less 50
 	</cast_if>
 
