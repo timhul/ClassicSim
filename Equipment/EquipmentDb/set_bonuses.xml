@@ -46,6 +46,25 @@
 		</bonus>
 	</set>
 
+	<set name="Field Marshal's Battlegear">
+		<item_id value="16477"/>
+		<item_id value="16478"/>
+		<item_id value="16480"/>
+		<item_id value="16483"/>
+		<item_id value="16484"/>
+		<item_id value="16479"/>
+
+		<bonus value="2">
+		(2) Set: +20 Stamina.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Intercept ability by 5 sec.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +40 Attack Power.
+		</bonus>
+	</set>
+
 	<set name="Champion's Battlearmor">
 		<item_id value="22868"/>
 		<item_id value="22858"/>
@@ -62,6 +81,25 @@
 		</bonus>
 		<bonus value="6">
 		(6) Set: +20 Stamina.
+		</bonus>
+	</set>
+
+	<set name="Warlord's Battlegear">
+		<item_id value="16541"/>
+		<item_id value="16542"/>
+		<item_id value="16544"/>
+		<item_id value="16545"/>
+		<item_id value="16548"/>
+		<item_id value="16543"/>
+
+		<bonus value="2">
+		(2) Set: +20 Stamina.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Intercept ability by 5 sec.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +40 Attack Power.
 		</bonus>
 	</set>
 

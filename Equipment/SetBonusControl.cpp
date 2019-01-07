@@ -95,10 +95,14 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
-    else if (set_name == "Champion's Battlearmor")
-        activate_warrior_pvp_set_bonuses(num_pieces);
     else if (set_name == "Lieutenant Commander's Battlearmor")
-        activate_warrior_pvp_set_bonuses(num_pieces);
+        activate_warrior_r10_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Field Marshal's Battlegear")
+        activate_warrior_r13_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Champion's Battlearmor")
+        activate_warrior_r10_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Warlord's Battlegear")
+        activate_warrior_r13_pvp_set_bonuses(num_pieces);
 }
 
 void SetBonusControl::unequip_item(const int item_id) {
@@ -175,10 +179,14 @@ void SetBonusControl::unequip_item(const int item_id) {
             break;
         }
     }
-    else if (set_name == "Champion's Battlearmor")
-        deactivate_warrior_pvp_set_bonuses(num_pieces);
     else if (set_name == "Lieutenant Commander's Battlearmor")
-        deactivate_warrior_pvp_set_bonuses(num_pieces);
+        deactivate_warrior_r10_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Field Marshal's Battlegear")
+        deactivate_warrior_r13_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Champion's Battlearmor")
+        deactivate_warrior_r10_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Warlord's Battlegear")
+        deactivate_warrior_r13_pvp_set_bonuses(num_pieces);
 }
 
 bool SetBonusControl::is_set_item(const int item_id) const {
@@ -235,7 +243,7 @@ int SetBonusControl::get_num_equipped_pieces_for_set(const QString& set_name) co
     return num_set_pieces;
 }
 
-void SetBonusControl::activate_warrior_pvp_set_bonuses(const int num_pieces) {
+void SetBonusControl::activate_warrior_r10_pvp_set_bonuses(const int num_pieces) {
     switch (num_pieces) {
     case 2:
         pchar->get_stats()->increase_melee_ap(40);
@@ -246,7 +254,7 @@ void SetBonusControl::activate_warrior_pvp_set_bonuses(const int num_pieces) {
     }
 }
 
-void SetBonusControl::deactivate_warrior_pvp_set_bonuses(const int num_pieces) {
+void SetBonusControl::deactivate_warrior_r10_pvp_set_bonuses(const int num_pieces) {
     switch (num_pieces) {
     case 2:
         pchar->get_stats()->decrease_melee_ap(40);
@@ -257,3 +265,24 @@ void SetBonusControl::deactivate_warrior_pvp_set_bonuses(const int num_pieces) {
     }
 }
 
+void SetBonusControl::activate_warrior_r13_pvp_set_bonuses(const int num_pieces) {
+    switch (num_pieces) {
+    case 2:
+        pchar->get_stats()->increase_stamina(20);
+        break;
+    case 6:
+        pchar->get_stats()->increase_melee_ap(40);
+        break;
+    }
+}
+
+void SetBonusControl::deactivate_warrior_r13_pvp_set_bonuses(const int num_pieces) {
+    switch (num_pieces) {
+    case 2:
+        pchar->get_stats()->decrease_stamina(20);
+        break;
+    case 6:
+        pchar->get_stats()->decrease_melee_ap(40);
+        break;
+    }
+}

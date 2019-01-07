@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="16480">
+		<patch name="1.4.0">
+			<info name="Field Marshal's Plate Shoulderguards" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_20.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="553"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="AGILITY" value="11"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Field Marshal's Plate Shoulderguards" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_20.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="626"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16544">
+		<patch name="1.4.0">
+			<info name="Warlord's Plate Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_11.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="553"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="AGILITY" value="11"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Warlord's Plate Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_11.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="626"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+	</item>
+
 	<item id="19394">
 		<patch name="1.6.0">
 			<info name="Drake Talon Pauldrons" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>

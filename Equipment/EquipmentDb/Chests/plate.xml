@@ -14,6 +14,68 @@
 		</patch>
 	</item>
 
+	<item id="16477">
+		<patch name="1.4.0">
+			<info name="Field Marshal's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_plate03.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="738"/>
+				<stat type="STAMINA" value="35"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="AGILITY" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Field Marshal's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_plate03.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="875"/>
+				<stat type="STAMINA" value="33"/>
+				<stat type="STRENGTH" value="16"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16541">
+		<patch name="1.4.0">
+			<info name="Warlord's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_plate16.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="738"/>
+				<stat type="STAMINA" value="35"/>
+				<stat type="STRENGTH" value="13"/>
+				<stat type="AGILITY" value="13"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Warlord's Plate Armor" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_plate16.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="875"/>
+				<stat type="STAMINA" value="33"/>
+				<stat type="STRENGTH" value="16"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+	</item>
+
 	<item id="21331">
 		<patch name="1.9.0">
 			<info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>

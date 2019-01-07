@@ -441,5 +441,7 @@
         <file>QML/Assets/items/Inv_chest_plate16.png</file>
         <file>QML/Assets/items/Inv_shoulder_11.png</file>
         <file>QML/Assets/items/Inv_gauntlets_29.png</file>
+        <file>QML/Assets/items/Inv_chest_plate03.png</file>
+        <file>QML/Assets/items/Inv_shoulder_20.png</file>
     </qresource>
 </RCC>
