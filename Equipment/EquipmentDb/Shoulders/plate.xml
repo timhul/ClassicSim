@@ -76,6 +76,39 @@
 		</patch>
 	</item>
 
+	<item id="20057">
+		<patch name="1.7.0">
+			<info name="Highlander's Plate Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
+			<class_restriction class="WARRIOR"/>
+			<class_restriction class="PALADIN"/>
+			<stats>
+				<stat type="ARMOR" value="553"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="AGILITY" value="17"/>
+			</stats>
+			<source>
+			Requires Exalted with League of Arathor (Arathi Basin faction).
+			</source>
+		</patch>
+	</item>
+
+	<item id="20212">
+		<patch name="1.7.0">
+			<info name="Defiler's Plate Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
+			<class_restriction class="WARRIOR"/>
+			<stats>
+				<stat type="ARMOR" value="553"/>
+				<stat type="STRENGTH" value="18"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="AGILITY" value="17"/>
+			</stats>
+			<source>
+			Requires Exalted with The Defilers (Arathi Basin faction).
+			</source>
+		</patch>
+	</item>
+
 	<item id="21330">
 		<patch name="1.9.0">
 			<info name="Conqueror's Spaulders" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_35.png"/>

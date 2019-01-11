@@ -27,6 +27,32 @@
 		</bonus>
 	</set>
 
+	<set name="The Highlander's Resolution">
+		<item_id value="20041"/>
+		<item_id value="20048"/>
+		<item_id value="20057"/>
+
+		<bonus value="2">
+		(2) Set: +5 Stamina.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Improves your chance to get a critical strike by 1%.
+		</bonus>
+	</set>
+	
+	<set name="The Defiler's Resolution">
+		<item_id value="20204"/>
+		<item_id value="20208"/>
+		<item_id value="20212"/>
+
+		<bonus value="2">
+		(2) Set: +5 Stamina.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Improves your chance to get a critical strike by 1%.
+		</bonus>
+	</set>
+
 	<set name="Lieutenant Commander's Battlearmor">
 		<item_id value="23300"/>
 		<item_id value="23301"/>

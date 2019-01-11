@@ -95,14 +95,12 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
-    else if (set_name == "Lieutenant Commander's Battlearmor")
+    else if (set_name == "Lieutenant Commander's Battlearmor" || set_name == "Champion's Battlearmor")
         activate_warrior_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Battlegear")
+    else if (set_name == "Field Marshal's Battlegear" || set_name == "Warlord's Battlegear")
         activate_warrior_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Champion's Battlearmor")
-        activate_warrior_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Warlord's Battlegear")
-        activate_warrior_r13_pvp_set_bonuses(num_pieces);
+    else if (set_name == "The Highlander's Resolution" || set_name == "The Defiler's Resolution")
+        activate_arathi_basin_strength_set_bonuses(num_pieces);
 }
 
 void SetBonusControl::unequip_item(const int item_id) {
@@ -179,14 +177,12 @@ void SetBonusControl::unequip_item(const int item_id) {
             break;
         }
     }
-    else if (set_name == "Lieutenant Commander's Battlearmor")
+    else if (set_name == "Lieutenant Commander's Battlearmor" || set_name == "Champion's Battlearmor")
         deactivate_warrior_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Field Marshal's Battlegear")
+    else if (set_name == "Field Marshal's Battlegear" || set_name == "Warlord's Battlegear")
         deactivate_warrior_r13_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Champion's Battlearmor")
-        deactivate_warrior_r10_pvp_set_bonuses(num_pieces);
-    else if (set_name == "Warlord's Battlegear")
-        deactivate_warrior_r13_pvp_set_bonuses(num_pieces);
+    else if (set_name == "The Highlander's Resolution" || set_name == "The Defiler's Resolution")
+        deactivate_arathi_basin_strength_set_bonuses(num_pieces);
 }
 
 bool SetBonusControl::is_set_item(const int item_id) const {
@@ -286,3 +282,26 @@ void SetBonusControl::deactivate_warrior_r13_pvp_set_bonuses(const int num_piece
         break;
     }
 }
+
+void SetBonusControl::activate_arathi_basin_strength_set_bonuses(const int num_pieces) {
+    switch (num_pieces) {
+    case 2:
+        pchar->get_stats()->increase_stamina(5);
+        break;
+    case 3:
+        pchar->get_stats()->increase_crit(0.01);
+        break;
+    }
+}
+
+void SetBonusControl::deactivate_arathi_basin_strength_set_bonuses(const int num_pieces) {
+    switch (num_pieces) {
+    case 2:
+        pchar->get_stats()->decrease_stamina(5);
+        break;
+    case 3:
+        pchar->get_stats()->decrease_crit(0.01);
+        break;
+    }
+}
+
