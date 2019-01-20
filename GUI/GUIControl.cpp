@@ -79,6 +79,7 @@ GUIControl::GUIControl(QObject* parent) :
     sim_settings(new SimSettings()),
     number_cruncher(new NumberCruncher()),
     supported_classes({"Warrior", "Rogue"}),
+    current_char(nullptr),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
     rotation_model(new RotationModel()),
@@ -1470,6 +1471,10 @@ void GUIControl::changeActiveWindow(const QString& active_window) {
     this->active_window = active_window;
 }
 
+int GUIControl::getMinorVersion() const {
+    return sim_settings->get_patch().minorVersion();
+}
+
 Character* GUIControl::load_character(const QString& class_name) {
     QFile file(QString("Saves/%1-setup.xml").arg(class_name));
 
@@ -1573,9 +1578,21 @@ void GUIControl::save_gui_settings() {
         stream.setAutoFormatting(true);
         stream.writeStartDocument();
         stream.writeStartElement("settings");
+
         stream.writeTextElement("class", current_char->get_name());
         stream.writeTextElement("race", current_char->get_race()->get_name());
         stream.writeTextElement("window", active_window);
+        stream.writeTextElement("num_iterations_quick_sim", QString("%1").arg(sim_settings->get_combat_iterations_quick_sim()));
+        stream.writeTextElement("num_iterations_full_sim", QString("%1").arg(sim_settings->get_combat_iterations_full_sim()));
+        stream.writeTextElement("combat_length", QString("%1").arg(sim_settings->get_combat_length()));
+        stream.writeTextElement("patch", sim_settings->get_patch().toString());
+        stream.writeTextElement("ruleset", QString("%1").arg(sim_settings->get_ruleset()));
+        stream.writeTextElement("threads", QString("%1").arg(sim_settings->get_num_threads_current()));
+
+        QSet<SimOption::Name> options = sim_settings->get_active_options();
+        for (auto & option : options)
+            stream.writeTextElement("sim_option", QString("%1").arg(option));
+
         stream.writeEndElement();
         stream.writeEndDocument();
         file.close();
@@ -1589,16 +1606,33 @@ void GUIControl::load_gui_settings() {
         QXmlStreamReader reader(&file);
         reader.readNextStartElement();
 
-        reader.readNextStartElement();
-        set_character(chars[reader.readElementText().trimmed()]);
-
-        reader.readNextStartElement();
-        selectRace(reader.readElementText().trimmed());
-
-        reader.readNextStartElement();
-        active_window = reader.readElementText().trimmed();
+        while (reader.readNextStartElement())
+            activate_gui_setting(reader.name(), reader.readElementText().trimmed());
     }
-    else {
+
+    if (current_char == nullptr)
         set_character(chars["Warrior"]);
-    }
+}
+
+void GUIControl::activate_gui_setting(const QStringRef& name, const QString& value) {
+    if (name == "class")
+        set_character(chars[value]);
+    else if (name == "race")
+        selectRace(value);
+    else if (name == "window")
+        active_window = value;
+    else if (name == "num_iterations_quick_sim")
+        sim_settings->set_combat_iterations_quick_sim(value.toInt());
+    else if (name == "num_iterations_full_sim")
+        sim_settings->set_combat_iterations_full_sim(value.toInt());
+    else if (name == "combat_length")
+        sim_settings->set_combat_length(value.toInt());
+    else if (name == "patch")
+        sim_settings->set_patch(QVersionNumber::fromString(value));
+    else if (name == "ruleset")
+        sim_settings->use_ruleset(static_cast<Ruleset>(value.toInt()), current_char);
+    else if (name == "threads")
+        sim_settings->set_num_threads(value.toInt());
+    else if (name == "sim_option")
+        sim_settings->add_sim_option(static_cast<SimOption::Name>(value.toInt()));
 }

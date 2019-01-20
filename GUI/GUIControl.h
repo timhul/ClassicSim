@@ -245,6 +245,7 @@ public:
      /* GUI initialization */
      Q_INVOKABLE QString getStartWindow() const;
      Q_INVOKABLE void changeActiveWindow(const QString& active_window);
+     Q_INVOKABLE int getMinorVersion() const;
      /* End of GUI initialization */
 
 Q_SIGNALS:
@@ -342,6 +343,7 @@ private:
 
     void save_gui_settings();
     void load_gui_settings();
+    void activate_gui_setting(const QStringRef &name, const QString& value);
 
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;
@@ -353,7 +355,7 @@ private:
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     QSet<QString> supported_classes;
-    Character* current_char{};
+    Character* current_char;
     ItemModel* item_model;
     ActiveItemStatFilterModel* active_stat_filter_model;
     AvailableItemStatFilterModel* available_stat_filter_model;

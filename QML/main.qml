@@ -128,7 +128,7 @@ Window {
             "1.11.0 (Naxxramas)",
             "1.12.1"]
 
-        currentIndex: 12
+        currentIndex: settings.getMinorVersion()
 
         onActivated: settings.setPatch(currentText)
     }
