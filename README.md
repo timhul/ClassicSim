@@ -40,12 +40,17 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-- Use Berserker Rage in rotations (when rotations were made data-driven Berserker Rage was left out).
-- Set bonus information now displayed in item tooltips.
-- Add many set bonuses to existing items.
-- Bloodfang Bracers are now bracers rather than gloves.
+None (available release is up to date with the latest on master).
 
 # Release notes
+
+## v0.2-alpha-1 (released 2019-01-20):
+
+- Set bonus information now displayed in item tooltips.
+- Many set bonuses added to existing items.
+- New set items added.
+- Berserker Rage used in rotations again.
+- Bloodfang Bracers are now bracers rather than gloves.
 
 ## v0.1 (released 2018-12-29):
 
