@@ -40,7 +40,7 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+- User setup saved on exit and loaded on boot.
 
 # Release notes
 
