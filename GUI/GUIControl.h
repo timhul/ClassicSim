@@ -1,42 +1,44 @@
 #ifndef GUICONTROL_H
 #define GUICONTROL_H
 
+#include <QMap>
 #include <QObject>
+#include <QVariant>
 
-#include "Engine.h"
-#include "Test.h"
-#include "Target.h"
-#include "CombatRoll.h"
-#include "Talents.h"
-#include "Character.h"
-#include "Race.h"
-#include "ItemModel.h"
-#include "WeaponModel.h"
-#include "BuffModel.h"
-#include "DebuffModel.h"
-#include "ActiveItemStatFilterModel.h"
-#include "AvailableItemStatFilterModel.h"
-#include "ItemTypeFilterModel.h"
-#include "RotationModel.h"
-#include "Faction.h"
 #include "EnchantName.h"
-#include "MeleeDamageBreakdownModel.h"
-#include "MeleeDamageAvoidanceBreakdownModel.h"
-#include "BuffBreakdownModel.h"
-#include "DebuffBreakdownModel.h"
-#include "ProcBreakdownModel.h"
-#include "ResourceBreakdownModel.h"
-#include "SimScaleModel.h"
-#include "ScaleResultModel.h"
 
-class CharacterEncoder;
+class ActiveItemStatFilterModel;
+class AvailableItemStatFilterModel;
+class BuffBreakdownModel;
+class BuffModel;
+class Character;
 class CharacterDecoder;
+class CharacterEncoder;
+class CombatRoll;
+class DebuffBreakdownModel;
+class DebuffModel;
 class EnchantModel;
+class Engine;
 class EquipmentDb;
+class Item;
+class ItemModel;
+class ItemTypeFilterModel;
+class MeleeDamageAvoidanceBreakdownModel;
+class MeleeDamageBreakdownModel;
+class NumberCruncher;
+class ProcBreakdownModel;
+class Race;
+class ResourceBreakdownModel;
+class RotationModel;
+class ScaleResult;
+class ScaleResultModel;
 class SimControl;
+class SimScaleModel;
 class SimSettings;
 class SimulationThreadPool;
-class NumberCruncher;
+class Talents;
+class Target;
+class WeaponModel;
 
 class GUIControl: public QObject {
     Q_OBJECT

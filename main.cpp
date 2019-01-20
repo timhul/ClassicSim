@@ -1,15 +1,31 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
-#include <QQuickImageProvider>
 #include <QQmlContext>
+#include <QQuickImageProvider>
 
+#include "ActiveItemStatFilterModel.h"
 #include "AvailableFactions.h"
-#include "EnchantName.h"
+#include "AvailableItemStatFilterModel.h"
+#include "BuffModel.h"
+#include "DebuffBreakdownModel.h"
+#include "DebuffModel.h"
 #include "EnchantModel.h"
+#include "EnchantName.h"
 #include "GUIControl.h"
+#include "ItemModel.h"
+#include "ItemTypeFilterModel.h"
+#include "MeleeDamageAvoidanceBreakdownModel.h"
+#include "MeleeDamageBreakdownModel.h"
 #include "PieChart.h"
 #include "PieChartModel.h"
+#include "ProcBreakdownModel.h"
+#include "ResourceBreakdownModel.h"
+#include "RotationModel.h"
+#include "ScaleResultModel.h"
 #include "SimOption.h"
+#include "SimScaleModel.h"
+#include "Test.h"
+#include "WeaponModel.h"
 
 int main(int argc, char *argv[])
 {
