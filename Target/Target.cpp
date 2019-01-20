@@ -6,7 +6,7 @@
 
 Target::Target(int target_lvl):
     target_lvl(target_lvl),
-    target_armor(Mechanics(nullptr).get_boss_base_armor()),
+    target_armor(Mechanics::get_boss_base_armor()),
     target_type(CreatureType::Beast)
 {
     creature_type_strings = {{CreatureType::Beast, "Beast"},

@@ -86,15 +86,9 @@ void TestMechanics::test_dw_white_miss() {
 }
 
 void TestMechanics::test_full_resistance_chance() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
-
-    assert(almost_equal(0.0, mechanics->get_full_resist_chance(0)));
-    assert(almost_equal(0.005, mechanics->get_full_resist_chance(75)));
-    assert(almost_equal(0.01, mechanics->get_full_resist_chance(150)));
-    assert(almost_equal(0.04, mechanics->get_full_resist_chance(200)));
-    assert(almost_equal(0.25, mechanics->get_full_resist_chance(300)));
-
-    delete mechanics;
-    delete target;
+    assert(almost_equal(0.0, Mechanics::get_full_resist_chance(0)));
+    assert(almost_equal(0.005, Mechanics::get_full_resist_chance(75)));
+    assert(almost_equal(0.01, Mechanics::get_full_resist_chance(150)));
+    assert(almost_equal(0.04, Mechanics::get_full_resist_chance(200)));
+    assert(almost_equal(0.25, Mechanics::get_full_resist_chance(300)));
 }

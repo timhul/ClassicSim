@@ -62,11 +62,11 @@ double Mechanics::get_block_chance() const {
     return 0.0;
 }
 
-int Mechanics::get_boss_base_armor() const {
+int Mechanics::get_boss_base_armor() {
     return 4960;
 }
 
-double Mechanics::get_reduction_from_armor(const int armor, const int clvl) const {
+double Mechanics::get_reduction_from_armor(const int armor, const int clvl) {
     return armor / (armor + 400 + 85 * (clvl + 4.5 * (clvl - 60)));
 }
 
@@ -111,7 +111,7 @@ double Mechanics::get_spell_miss_chance_from_lvl_diff(const int clvl, const doub
     return std::max(0.01, lvl_diff_penalty - spell_hit);
 }
 
-double Mechanics::get_full_resist_chance(const int t_resistance) const {
+double Mechanics::get_full_resist_chance(const int t_resistance) {
     // Piecewise-linear function that implements the following resistance table:
     //
     // Target resistance | 0-150 | 150-200 | 200-300 |
@@ -136,7 +136,7 @@ double Mechanics::get_linear_increase_in_range(const int x_min,
                                                const double y_min,
                                                const int x_max,
                                                const double y_max,
-                                               const int x_curr) const
+                                               const int x_curr)
 {
     assert(x_curr >= x_min);
     assert(x_curr <= x_max);
@@ -149,7 +149,7 @@ double Mechanics::get_linear_increase_in_range(const int x_min,
     return (x_curr - x_min) * k + y_min;
 }
 
-double Mechanics::get_partial_75_chance(const int t_resistance) const {
+double Mechanics::get_partial_75_chance(const int t_resistance) {
     // Piecewise-linear function that implements the following resistance table:
     //
     // Target resistance |  0-20 | 20-50 | 50-80 | 80-100 | 100-120 | 120-150 | 150-200 | 200-300 |
@@ -185,7 +185,7 @@ double Mechanics::get_partial_75_chance(const int t_resistance) const {
     return 0.55;
 }
 
-double Mechanics::get_partial_50_chance(const int t_resistance) const {
+double Mechanics::get_partial_50_chance(const int t_resistance) {
     // Piecewise-linear function that implements the following resistance table:
     //
     // Target resistance |  0-10 | 10-20 | 20-30 | 30-40 | 40-50 | 50-60 |  60-70  | 70-80  |
@@ -242,7 +242,7 @@ double Mechanics::get_partial_50_chance(const int t_resistance) const {
     return 0.16;
 }
 
-double Mechanics::get_partial_25_chance(const int t_resistance) const {
+double Mechanics::get_partial_25_chance(const int t_resistance) {
     // Piecewise-linear function that implements the following resistance table:
     //
     // Target resistance |  0-10 | 10-20  | 20-30   | 30-40   | 40-50  | 50-60   |  60-70 | 70-80  |

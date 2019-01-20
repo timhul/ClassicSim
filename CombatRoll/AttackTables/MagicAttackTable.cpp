@@ -53,8 +53,8 @@ void MagicAttackTable::update_miss_chance(const int clvl, const double spell_hit
 void MagicAttackTable::update_target_resistance(const int target_resistance) {
     assert(target_resistance >= 0);
 
-    full_resist = static_cast<unsigned>(round(mechanics->get_full_resist_chance(target_resistance) * 10000));
-    partial_75 = full_resist + static_cast<unsigned>(round(mechanics->get_partial_75_chance(target_resistance) * 10000));
-    partial_50 = partial_75 + static_cast<unsigned>(round(mechanics->get_partial_50_chance(target_resistance) * 10000));
-    partial_25 = partial_50 + static_cast<unsigned>(round(mechanics->get_partial_25_chance(target_resistance) * 10000));
+    full_resist = static_cast<unsigned>(round(Mechanics::get_full_resist_chance(target_resistance) * 10000));
+    partial_75 = full_resist + static_cast<unsigned>(round(Mechanics::get_partial_75_chance(target_resistance) * 10000));
+    partial_50 = partial_75 + static_cast<unsigned>(round(Mechanics::get_partial_50_chance(target_resistance) * 10000));
+    partial_25 = partial_50 + static_cast<unsigned>(round(Mechanics::get_partial_25_chance(target_resistance) * 10000));
 }
