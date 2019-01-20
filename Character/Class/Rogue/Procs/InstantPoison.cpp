@@ -14,7 +14,7 @@
 #include "StatisticsResource.h"
 
 InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const int weapon) :
-    Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.0, 0, QVector<Proc*>(),
+    Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.2, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>(),
          pchar),
     Enchant(EnchantName::InstantPoison),
@@ -25,13 +25,10 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
     SetBonusRequirer({"Bloodfang Armor"}),
     dmg_roll(new Random(112, 149)),
     rogue(dynamic_cast<Rogue*>(pchar)),
-    base_proc_range(2000),
     vile_poisons(1.0)
 {
     this->enabled = false;
     this->instant_poison_buff = new InstantPoisonBuff(pchar, this, weapon_side);
-
-    proc_range = base_proc_range;
 
     vile_poisons_modifiers = {1.0, 1.04, 1.08, 1.12, 1.16, 1.20};
     improved_poisons_increase = 200;

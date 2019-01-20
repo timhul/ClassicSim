@@ -24,8 +24,6 @@ private:
     Random* dmg_roll;
     Rogue* rogue;
 
-    unsigned base_proc_range;
-
     double vile_poisons;
     QVector<double> vile_poisons_modifiers;
     unsigned improved_poisons_increase;
