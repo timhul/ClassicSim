@@ -1,7 +1,8 @@
-
 #include "Target.h"
-#include "Mechanics.h"
+
 #include <QDebug>
+
+#include "Mechanics.h"
 
 Target::Target(int target_lvl):
     target_lvl(target_lvl),
@@ -9,13 +10,13 @@ Target::Target(int target_lvl):
     target_type(CreatureType::Beast)
 {
     creature_type_strings = {{CreatureType::Beast, "Beast"},
-                           {CreatureType::Demon, "Demon"},
-                           {CreatureType::Dragonkin, "Dragonkin"},
-                           {CreatureType::Elemental, "Elemental"},
-                           {CreatureType::Giant, "Giant"},
-                           {CreatureType::Humanoid, "Humanoid"},
-                           {CreatureType::Mechanical, "Mechanical"},
-                           {CreatureType::Undead, "Undead"}};
+                             {CreatureType::Demon, "Demon"},
+                             {CreatureType::Dragonkin, "Dragonkin"},
+                             {CreatureType::Elemental, "Elemental"},
+                             {CreatureType::Giant, "Giant"},
+                             {CreatureType::Humanoid, "Humanoid"},
+                             {CreatureType::Mechanical, "Mechanical"},
+                             {CreatureType::Undead, "Undead"}};
 
     string_to_creature_type = {{"Beast", CreatureType::Beast},
                                {"Demon", CreatureType::Demon},
