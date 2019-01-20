@@ -105,7 +105,7 @@
 				<stat type="DEFENSE" value="4"/>
 			</stats>
 			<source>
-			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss and trash drops from Ruins of Ahn'Qiraj, and Exalted with Cenarion Circle.
+			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.
 			</source>
 		</patch>
 	</melee_weapon>
@@ -121,7 +121,7 @@
 				<stat type="STAMINA" value="9"/>
 			</stats>
 			<source>
-			Reward from quest outside of Ruins of Ahn'Qiraj. Requires boss and trash drops from Ruins of Ahn'Qiraj (AQ20), and Exalted with Cenarion Circle.
+			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.
 			</source>
 		</patch>
 	</melee_weapon>

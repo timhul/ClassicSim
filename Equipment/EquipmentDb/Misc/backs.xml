@@ -41,7 +41,7 @@
 				<stat type="HIT_CHANCE" value="0.01"/>
 			</stats>
 			<source>
-			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20).
+			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
 			</source>
 		</patch>
 	</item>
@@ -57,7 +57,7 @@
 				<stat type="HIT_CHANCE" value="0.01"/>
 			</stats>
 			<source>
-			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20).
+			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
 			</source>
 		</patch>
 	</item>
