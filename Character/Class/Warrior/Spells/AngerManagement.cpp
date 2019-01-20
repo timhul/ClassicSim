@@ -9,7 +9,7 @@
 #include "WarriorSpells.h"
 
 AngerManagement::AngerManagement(Character* pchar) :
-    Spell("Anger Management", "Assets/warrior/arms/tier3/anger_management.png", pchar, RestrictedByGcd::No, 0.0, ResourceType::Rage, 0),
+    Spell("Anger Management", "Assets/spell/Spell_holy_blessingofstamina.png", pchar, RestrictedByGcd::No, 0.0, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Anger Management", 1, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     statistics_resource(nullptr)

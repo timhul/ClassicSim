@@ -6,7 +6,7 @@
 #include "WarriorSpells.h"
 
 DeathWishTalent::DeathWishTalent(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Death Wish", "5ML", "Assets/warrior/fury/tier5/Spell_shadow_deathpact.png", 1),
+    Talent(pchar, tree, "Death Wish", "5ML", "Assets/spell/Spell_shadow_deathpact.png", 1),
     death_wish(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_death_wish()),
     death_wish_buff(dynamic_cast<Warrior*>(pchar)->get_death_wish_buff())
 {

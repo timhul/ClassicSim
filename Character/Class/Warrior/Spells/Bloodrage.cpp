@@ -5,7 +5,7 @@
 #include "Warrior.h"
 
 Bloodrage::Bloodrage(Character* pchar) :
-    Spell("Bloodrage", "Assets/warrior/protection/tier2/Ability_racial_bloodrage.png", pchar, RestrictedByGcd::No, 60, ResourceType::Rage, 0),
+    Spell("Bloodrage", "Assets/ability/Ability_racial_bloodrage.png", pchar, RestrictedByGcd::No, 60, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Bloodrage", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {

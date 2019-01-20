@@ -5,7 +5,7 @@
 #include "WarriorSpells.h"
 
 ImprovedRend::ImprovedRend(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Improved Rend", "1MR", "Assets/warrior/arms/tier1/Ability_gouge.png", 3),
+    Talent(pchar, tree, "Improved Rend", "1MR", "Assets/ability/Ability_gouge.png", 3),
     rend(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_rend())
 {
     QString base_str = "Increases the bleed damage done by your Rend ability by %1%.";

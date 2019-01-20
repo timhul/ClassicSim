@@ -8,54 +8,6 @@
         <file>QML/Assets/warrior/warrior_arms.jpg</file>
         <file>QML/Assets/warrior/warrior_protection.jpg</file>
         <file>QML/TalentTree.qml</file>
-        <file>QML/Assets/warrior/arms/tier1/Ability_gouge.png</file>
-        <file>QML/Assets/warrior/arms/tier1/Ability_parry.png</file>
-        <file>QML/Assets/warrior/arms/tier1/Ability_rogue_ambush.png</file>
-        <file>QML/Assets/warrior/arms/tier2/Ability_warrior_charge.png</file>
-        <file>QML/Assets/warrior/arms/tier2/Spell_nature_enchantarmor.png</file>
-        <file>QML/Assets/warrior/arms/tier2/Spell_nature_thunderclap.png</file>
-        <file>QML/Assets/warrior/arms/tier3/Ability_backstab.png</file>
-        <file>QML/Assets/warrior/arms/tier3/anger_management.png</file>
-        <file>QML/Assets/warrior/arms/tier3/Inv_sword_05.png</file>
-        <file>QML/Assets/warrior/arms/tier4/Ability_searingarrow.png</file>
-        <file>QML/Assets/warrior/arms/tier4/Inv_axe_09.png</file>
-        <file>QML/Assets/warrior/arms/tier6/Ability_shockwave.png</file>
-        <file>QML/Assets/warrior/arms/tier6/Inv_weapon_halbard_01.png</file>
-        <file>QML/Assets/warrior/arms/tier7/Ability_warrior_savageblow.png</file>
-        <file>QML/Assets/warrior/fury/tier1/Ability_rogue_eviscerate.png</file>
-        <file>QML/Assets/warrior/fury/tier1/Spell_nature_purge.png</file>
-        <file>QML/Assets/warrior/fury/tier2/Ability_warrior_warcry.png</file>
-        <file>QML/Assets/warrior/fury/tier2/Spell_nature_stoneclawtotem.png</file>
-        <file>QML/Assets/warrior/fury/tier3/Ability_warrior_battleshout.png</file>
-        <file>QML/Assets/warrior/fury/tier3/Ability_warrior_cleave.png</file>
-        <file>QML/Assets/warrior/fury/tier3/Spell_shadow_deathscream.png</file>
-        <file>QML/Assets/warrior/fury/tier3/Spell_shadow_summonimp.png</file>
-        <file>QML/Assets/warrior/fury/tier4/Ability_dualwield.png</file>
-        <file>QML/Assets/warrior/fury/tier4/Inv_sword_48.png</file>
-        <file>QML/Assets/warrior/fury/tier4/Spell_shadow_unholyfrenzy.png</file>
-        <file>QML/Assets/warrior/fury/tier5/Ability_rogue_sprint.png</file>
-        <file>QML/Assets/warrior/fury/tier5/Ability_warrior_decisivestrike.png</file>
-        <file>QML/Assets/warrior/fury/tier5/Spell_shadow_deathpact.png</file>
-        <file>QML/Assets/warrior/fury/tier6/Ability_ghoulfrenzy.png</file>
-        <file>QML/Assets/warrior/fury/tier6/Spell_nature_ancestralguardian.png</file>
-        <file>QML/Assets/warrior/fury/tier7/Spell_nature_bloodlust.png</file>
-        <file>QML/Assets/warrior/protection/tier1/Inv_shield_06.png</file>
-        <file>QML/Assets/warrior/protection/tier1/Spell_nature_mirrorimage.png</file>
-        <file>QML/Assets/warrior/protection/tier2/Ability_racial_bloodrage.png</file>
-        <file>QML/Assets/warrior/protection/tier2/Spell_holy_devotion.png</file>
-        <file>QML/Assets/warrior/protection/tier2/Spell_magic_magearmor.png</file>
-        <file>QML/Assets/warrior/protection/tier3/Ability_defend.png</file>
-        <file>QML/Assets/warrior/protection/tier3/Ability_warrior_innerrage.png</file>
-        <file>QML/Assets/warrior/protection/tier3/Ability_warrior_revenge.png</file>
-        <file>QML/Assets/warrior/protection/tier3/Spell_holy_ashestoashes.png</file>
-        <file>QML/Assets/warrior/protection/tier4/Ability_warrior_disarm.png</file>
-        <file>QML/Assets/warrior/protection/tier4/Ability_warrior_sunder.png</file>
-        <file>QML/Assets/warrior/protection/tier4/Spell_nature_reincarnation.png</file>
-        <file>QML/Assets/warrior/protection/tier5/Ability_thunderbolt.png</file>
-        <file>QML/Assets/warrior/protection/tier5/Ability_warrior_shieldbash.png</file>
-        <file>QML/Assets/warrior/protection/tier5/Ability_warrior_shieldwall.png</file>
-        <file>QML/Assets/warrior/protection/tier6/Inv_sword_20.png</file>
-        <file>QML/Assets/warrior/protection/tier7/Inv_shield_05.png</file>
         <file>QML/TalentBox.qml</file>
         <file>QML/Assets/talents/arrow-hook.png</file>
         <file>QML/Assets/talents/arrow-horizontal-0.png</file>
@@ -275,8 +227,6 @@
         <file>QML/Assets/misc/Spell_holy_greaterheal.png</file>
         <file>QML/Assets/races/Racial_orc_berserkerstrength.png</file>
         <file>QML/Assets/races/Racial_troll_berserk.png</file>
-        <file>QML/Assets/warrior/Ability_criticalstrike.png</file>
-        <file>QML/Assets/warrior/Ability_whirlwind.png</file>
         <file>QML/Assets/warrior/warrior_arms_old.jpg</file>
         <file>QML/StatisticsEntryBuffBreakdown.qml</file>
         <file>QML/StatisticsBuffBreakdownSorting.qml</file>
@@ -443,5 +393,40 @@
         <file>QML/Assets/items/Inv_gauntlets_29.png</file>
         <file>QML/Assets/items/Inv_chest_plate03.png</file>
         <file>QML/Assets/items/Inv_shoulder_20.png</file>
+        <file>QML/Assets/ability/Ability_defend.png</file>
+        <file>QML/Assets/ability/Ability_ghoulfrenzy.png</file>
+        <file>QML/Assets/ability/Ability_searingarrow.png</file>
+        <file>QML/Assets/ability/Ability_shockwave.png</file>
+        <file>QML/Assets/ability/Ability_thunderbolt.png</file>
+        <file>QML/Assets/ability/Ability_warrior_battleshout.png</file>
+        <file>QML/Assets/ability/Ability_warrior_charge.png</file>
+        <file>QML/Assets/ability/Ability_warrior_cleave.png</file>
+        <file>QML/Assets/ability/Ability_warrior_disarm.png</file>
+        <file>QML/Assets/ability/Ability_warrior_innerrage.png</file>
+        <file>QML/Assets/ability/Ability_warrior_revenge.png</file>
+        <file>QML/Assets/ability/Ability_warrior_savageblow.png</file>
+        <file>QML/Assets/ability/Ability_warrior_shieldbash.png</file>
+        <file>QML/Assets/ability/Ability_warrior_shieldwall.png</file>
+        <file>QML/Assets/ability/Ability_warrior_sunder.png</file>
+        <file>QML/Assets/ability/Ability_whirlwind.png</file>
+        <file>QML/Assets/items/Inv_shield_05.png</file>
+        <file>QML/Assets/items/Inv_shield_06.png</file>
+        <file>QML/Assets/items/Inv_sword_20.png</file>
+        <file>QML/Assets/items/Inv_weapon_halbard_01.png</file>
+        <file>QML/Assets/misc/anger_management.png</file>
+        <file>QML/Assets/spell/Spell_holy_ashestoashes.png</file>
+        <file>QML/Assets/spell/Spell_holy_devotion.png</file>
+        <file>QML/Assets/spell/Spell_magic_magearmor.png</file>
+        <file>QML/Assets/spell/Spell_nature_ancestralguardian.png</file>
+        <file>QML/Assets/spell/Spell_nature_bloodlust.png</file>
+        <file>QML/Assets/spell/Spell_nature_enchantarmor.png</file>
+        <file>QML/Assets/spell/Spell_nature_purge.png</file>
+        <file>QML/Assets/spell/Spell_nature_reincarnation.png</file>
+        <file>QML/Assets/spell/Spell_nature_stoneclawtotem.png</file>
+        <file>QML/Assets/spell/Spell_nature_thunderclap.png</file>
+        <file>QML/Assets/spell/Spell_shadow_deathpact.png</file>
+        <file>QML/Assets/spell/Spell_shadow_summonimp.png</file>
+        <file>QML/Assets/spell/Spell_shadow_unholyfrenzy.png</file>
+        <file>QML/Assets/spell/Spell_holy_blessingofstamina.png</file>
     </qresource>
 </RCC>

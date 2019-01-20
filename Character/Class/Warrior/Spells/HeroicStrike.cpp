@@ -11,7 +11,7 @@
 #include "WarriorSpells.h"
 
 HeroicStrike::HeroicStrike(Character* pchar) :
-    Spell("Heroic Strike", "Assets/warrior/arms/tier1/Ability_rogue_ambush.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 15),
+    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     hs_buff(new NoEffectBuff(pchar, BuffDuration::PERMANENT))

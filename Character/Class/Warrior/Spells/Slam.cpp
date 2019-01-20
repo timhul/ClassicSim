@@ -15,7 +15,7 @@
 #include "WarriorSpells.h"
 
 Slam::Slam(Character* pchar) :
-    SpellCastingTime("Slam", "Assets/warrior/fury/tier5/Ability_warrior_decisivestrike.png",
+    SpellCastingTime("Slam", "Assets/ability/Ability_warrior_decisivestrike.png",
                      pchar, RestrictedByGcd::Yes,
                      0.0,
                      ResourceType::Rage,

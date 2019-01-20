@@ -10,7 +10,7 @@
 #include "Warrior.h"
 
 Execute::Execute(Character* pchar) :
-    Spell("Execute", "Assets/warrior/fury/tier4/Inv_sword_48.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 15),
+    Spell("Execute", "Assets/items/Inv_sword_48.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Execute", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     execute_threshold(0.2)

@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 BoomingVoice::BoomingVoice(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Booming Voice", "1ML", "Assets/warrior/fury/tier1/Spell_nature_purge.png", 5),
+    Talent(pchar, tree, "Booming Voice", "1ML", "Assets/spell/Spell_nature_purge.png", 5),
     battle_shout_buff(dynamic_cast<Warrior*>(pchar)->get_battle_shout_buff())
 {
     QString base_str = "Increases the area of effect and duration of your Battle Shout and Demoralizing Shout by %1%.";

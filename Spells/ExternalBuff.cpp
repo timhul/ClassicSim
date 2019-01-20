@@ -216,7 +216,7 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
     switch (name) {
     case ExternalBuffName::BattleShout:
         return new ExternalBuff(pchar, "Improved Battle Shout", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png",
+                                name, AvailableFactions::Neutral, "Assets/ability/Ability_warrior_battleshout.png",
                                 "+232 attack power",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::RallyingCryOfTheDragonslayer:
@@ -311,7 +311,7 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::SunderArmor:
         return new ExternalBuff(pchar, "Sunder Armor", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/warrior/protection/tier4/Ability_warrior_sunder.png",
+                                name, AvailableFactions::Neutral, "Assets/ability/Ability_warrior_sunder.png",
                                 "Reduces target armor by 2250.",
                                 QVersionNumber::fromString("1.0.0"));
     }

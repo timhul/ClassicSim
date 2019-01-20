@@ -3,7 +3,7 @@
 #include "Character.h"
 
 Impale::Impale(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Impale", "4MR", "Assets/warrior/arms/tier4/Ability_searingarrow.png", 2)
+    Talent(pchar, tree, "Impale", "4MR", "Assets/ability/Ability_searingarrow.png", 2)
 {
     QString base_str = "Increases the critical strike damage bonus of your abilities in Battle, Defensive, and Berserker stance by %1%.";
     initialize_rank_descriptions(base_str, 10, 10);

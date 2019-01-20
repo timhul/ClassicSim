@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 UnbridledWrathTalent::UnbridledWrathTalent(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Unbridled Wrath", "2MR", "Assets/warrior/fury/tier2/Spell_nature_stoneclawtotem.png", 5),
+    Talent(pchar, tree, "Unbridled Wrath", "2MR", "Assets/spell/Spell_nature_stoneclawtotem.png", 5),
     unbridled_wrath(dynamic_cast<Warrior*>(pchar)->get_unbridled_wrath())
 {
     QString base_str = "Gives you a %1% chance to generate an additional Rage point when you deal melee damage with a weapon.";

@@ -5,7 +5,7 @@
 #include "WarriorSpells.h"
 
 BloodthirstTalent::BloodthirstTalent(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Bloodthirst", "7ML", "Assets/warrior/fury/tier7/Spell_nature_bloodlust.png", 1),
+    Talent(pchar, tree, "Bloodthirst", "7ML", "Assets/spell/Spell_nature_bloodlust.png", 1),
     bloodthirst(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_bloodthirst())
 {
     QString base_str = "Instantly attack the target causing damage equal to 45% of your attack power. In addition, the next 5 successful melee attacks will restore 10 health. This effect lasts 8 sec.";

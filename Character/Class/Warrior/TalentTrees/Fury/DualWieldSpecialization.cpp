@@ -5,7 +5,7 @@
 #include "WarriorSpells.h"
 
 DualWieldSpecialization::DualWieldSpecialization(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Dual Wield Specialization", "4LL", "Assets/warrior/fury/tier4/Ability_dualwield.png", 5),
+    Talent(pchar, tree, "Dual Wield Specialization", "4LL", "Assets/ability/Ability_dualwield.png", 5),
     oh_attack(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_oh_attack_warrior())
 {
     QString base_str = "Increases the damage done by your offhand weapon by %1%.";

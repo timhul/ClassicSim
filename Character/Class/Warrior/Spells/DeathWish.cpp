@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 DeathWish::DeathWish(Character* pchar) :
-    Spell("Death Wish", "Assets/warrior/fury/tier6/Spell_shadow_deathpact.png", pchar, RestrictedByGcd::Yes, 180, ResourceType::Rage, 10),
+    Spell("Death Wish", "Assets/spell/Spell_shadow_deathpact.png", pchar, RestrictedByGcd::Yes, 180, ResourceType::Rage, 10),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Death Wish", 1, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {

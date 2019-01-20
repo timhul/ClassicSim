@@ -3,7 +3,7 @@
 #include "Warrior.h"
 
 TacticalMastery::TacticalMastery(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Tactical Mastery", "2ML", "Assets/warrior/arms/tier2/Spell_nature_enchantarmor.png", 5),
+    Talent(pchar, tree, "Tactical Mastery", "2ML", "Assets/spell/Spell_nature_enchantarmor.png", 5),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     QString base_str = "You retain up to %1 of your rage points when you change stances.";

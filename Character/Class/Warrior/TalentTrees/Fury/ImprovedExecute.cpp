@@ -5,7 +5,7 @@
 #include "WarriorSpells.h"
 
 ImprovedExecute::ImprovedExecute(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Improved Execute", "4ML", "Assets/warrior/fury/tier4/Inv_sword_48.png", 2),
+    Talent(pchar, tree, "Improved Execute", "4ML", "Assets/items/Inv_sword_48.png", 2),
     execute(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_execute())
 {
     QString base_str = "Reduces the rage cost of your Execute abillity by %1.";

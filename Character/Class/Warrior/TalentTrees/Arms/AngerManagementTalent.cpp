@@ -6,7 +6,7 @@
 #include "WarriorSpells.h"
 
 AngerManagementTalent::AngerManagementTalent(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Anger Management", "3ML", "Assets/warrior/arms/tier3/anger_management.png", 1),
+    Talent(pchar, tree, "Anger Management", "3ML", "Assets/spell/Spell_holy_blessingofstamina.png", 1),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     QString base_str = "Increases the time required for your rage to decay while out of combat by 30%.";

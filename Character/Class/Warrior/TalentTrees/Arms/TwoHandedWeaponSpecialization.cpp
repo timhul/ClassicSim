@@ -5,7 +5,7 @@
 #include "ItemNamespace.h"
 
 TwoHandedWeaponSpecialization::TwoHandedWeaponSpecialization(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Two-Handed Weapon Specialization", "4ML", "Assets/warrior/arms/tier4/Inv_axe_09.png", 5)
+    Talent(pchar, tree, "Two-Handed Weapon Specialization", "4ML", "Assets/items/Inv_axe_09.png", 5)
 {
     QString base_str = "Increases the damage you deal with two-handed melee weapons by %1%.";
     initialize_rank_descriptions(base_str, 1, 1);

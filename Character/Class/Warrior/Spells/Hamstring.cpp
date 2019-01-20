@@ -8,7 +8,7 @@
 #include "Warrior.h"
 
 Hamstring::Hamstring(Character* pchar) :
-    Spell("Hamstring", "Assets/warrior/arms/tier6/Ability_shockwave.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
+    Spell("Hamstring", "Assets/ability/Ability_shockwave.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
     ItemModificationRequirer({16484, 16548, 22868, 23286}),
     warr(dynamic_cast<Warrior*>(pchar))
 {}

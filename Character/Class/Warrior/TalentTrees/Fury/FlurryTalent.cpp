@@ -5,7 +5,7 @@
 #include "TalentRequirer.h"
 
 FlurryTalent::FlurryTalent(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Flurry", "6MR", "Assets/warrior/fury/tier6/Ability_ghoulfrenzy.png", 5),
+    Talent(pchar, tree, "Flurry", "6MR", "Assets/ability/Ability_ghoulfrenzy.png", 5),
     flurry(dynamic_cast<Warrior*>(pchar)->get_flurry())
 {
     QString base_str = "Increases your attack speed by %1% for your next 3 swings after dealing a melee critical strike.";

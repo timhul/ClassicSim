@@ -5,7 +5,7 @@
 #include "WarriorSpells.h"
 
 DeepWoundsTalent::DeepWoundsTalent(Character *pchar, TalentTree* tree) :
-    Talent(pchar, tree, "Deep Wounds", "3MR", "Assets/warrior/arms/tier3/Ability_backstab.png", 3),
+    Talent(pchar, tree, "Deep Wounds", "3MR", "Assets/ability/Ability_backstab.png", 3),
     deep_wounds( dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_deep_wounds())
 {
     QString base_str = "Your critical strikes cause the opponent to bleed, dealing %1% of your melee weapon's average damage over 12 sec.";

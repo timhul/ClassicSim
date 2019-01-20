@@ -6,7 +6,7 @@
 #include "Warrior.h"
 
 Overpower::Overpower(Character* pchar) :
-    Spell("Overpower", "Assets/warrior/arms/tier3/Inv_sword_05.png", pchar, RestrictedByGcd::Yes, 5.0, ResourceType::Rage, 5),
+    Spell("Overpower", "Assets/items/Inv_sword_05.png", pchar, RestrictedByGcd::Yes, 5.0, ResourceType::Rage, 5),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {

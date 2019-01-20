@@ -6,13 +6,13 @@
 #include "Warrior.h"
 
 DeepWounds::DeepWounds(Character* pchar) :
-    Spell("Deep Wounds", "Assets/warrior/arms/tier3/Ability_backstab.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 0),
+    Spell("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     buff(new NoEffectBuff(pchar,
                           12.0,
                           "Deep Wounds",
-                          "Assets/warrior/arms/tier3/Ability_backstab.png",
+                          "Assets/ability/Ability_backstab.png",
                           Hidden::No,
                           Debuff::Yes))
 {

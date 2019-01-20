@@ -6,7 +6,7 @@
 #include "Warrior.h"
 
 UnbridledWrath::UnbridledWrath(Character* pchar) :
-    Proc("Unbridled Wrath", "Assets/warrior/fury/tier2/Spell_nature_stoneclawtotem.png", 0.0, 0, QVector<Proc*>(),
+    Proc("Unbridled Wrath", "Assets/spell/Spell_nature_stoneclawtotem.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
          pchar),
