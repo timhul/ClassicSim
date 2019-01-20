@@ -92,5 +92,9 @@ int main(int argc, char *argv[])
     if (qml_engine.rootObjects().isEmpty())
         return -1;
 
-    return QApplication::exec();
+    int return_code = app.exec();
+
+    gui_control->save_all_setups();
+
+    return return_code;
 }

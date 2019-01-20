@@ -46,6 +46,8 @@ public:
     GUIControl(QObject* parent = nullptr);
     ~GUIControl();
 
+    void save_all_setups() const;
+
     /* Character */
     Q_PROPERTY(QString classColor READ get_class_color NOTIFY classChanged)
     Q_PROPERTY(QString className READ get_class_name NOTIFY classChanged)
@@ -327,6 +329,10 @@ private:
     QString get_max_dps() const;
     QString get_standard_deviation() const;
     QString get_confidence_interval() const;
+
+    Character* load_character(const QString& class_name);
+    Character* get_new_character(const QString& class_name);
+    void save_user_setup(Character* pchar = nullptr) const;
 
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;

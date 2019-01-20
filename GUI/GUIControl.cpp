@@ -1,6 +1,8 @@
 #include "GUIControl.h"
 
 #include <QDebug>
+#include <QDir>
+#include <QFile>
 #include <utility>
 
 #include "ActiveItemStatFilterModel.h"
@@ -10,6 +12,7 @@
 #include "Character.h"
 #include "CharacterDecoder.h"
 #include "CharacterEncoder.h"
+#include "CharacterLoader.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
@@ -120,15 +123,15 @@ GUIControl::GUIControl(QObject* parent) :
     races.insert("Troll", new Troll());
     races.insert("Undead", new Undead());
 
-    chars.insert("Druid", dynamic_cast<Character*>(new Druid(races["Night Elf"], equipment_db, sim_settings)));
-    chars.insert("Hunter", dynamic_cast<Character*>(new Hunter(races["Dwarf"], equipment_db, sim_settings)));
-    chars.insert("Mage", dynamic_cast<Character*>(new Mage(races["Gnome"], equipment_db, sim_settings)));
-    chars.insert("Paladin", dynamic_cast<Character*>(new Paladin(races["Human"], equipment_db, sim_settings)));
-    chars.insert("Priest", dynamic_cast<Character*>(new Priest(races["Undead"], equipment_db, sim_settings)));
-    chars.insert("Rogue", dynamic_cast<Character*>(new Rogue(races["Troll"], equipment_db, sim_settings)));
-    chars.insert("Shaman", dynamic_cast<Character*>(new Shaman(races["Tauren"], equipment_db, sim_settings)));
-    chars.insert("Warlock", dynamic_cast<Character*>(new Warlock(races["Orc"], equipment_db, sim_settings)));
-    chars.insert("Warrior", dynamic_cast<Character*>(new Warrior(races["Orc"], equipment_db, sim_settings)));
+    chars.insert("Druid", load_character("Druid"));
+    chars.insert("Hunter", load_character("Hunter"));
+    chars.insert("Mage", load_character("Mage"));
+    chars.insert("Paladin", load_character("Paladin"));
+    chars.insert("Priest", load_character("Priest"));
+    chars.insert("Rogue", load_character("Rogue"));
+    chars.insert("Shaman", load_character("Shaman"));
+    chars.insert("Warlock", load_character("Warlock"));
+    chars.insert("Warrior", load_character("Warrior"));
 
     set_character(chars["Warrior"]);
 }
@@ -616,6 +619,7 @@ void GUIControl::setBuffSetup(const int buff_index) {
     current_char->get_enabled_buffs()->get_general_buffs()->change_setup(buff_index);
     buff_model->update_buffs();
     debuff_model->update_debuffs();
+    Q_EMIT statsChanged();
 }
 
 BuffBreakdownModel* GUIControl::get_buff_breakdown_model() const {
@@ -1453,4 +1457,68 @@ QString GUIControl::get_capitalized_string(const QString& string) const {
 
 QString GUIControl::get_sim_progress_string() const {
     return sim_in_progress ? "Running..." : "Click me!";
+}
+
+Character* GUIControl::load_character(const QString& class_name) {
+    QFile file(QString("Saves/%1.SETUP").arg(class_name));
+
+    if (file.open(QIODevice::ReadOnly)) {
+        QTextStream stream(&file);
+        QString setup_string_from_file(stream.readAll());
+
+        CharacterDecoder decoder;
+        decoder.initialize(setup_string_from_file);
+        CharacterLoader loader(equipment_db, sim_settings, decoder);
+        loader.initialize();
+        if (loader.successful()) {
+            Character* pchar = loader.relinquish_ownership_of_pchar();
+            pchar->set_race(races[pchar->get_race()->get_name()]);
+            return pchar;
+        }
+
+        qDebug() << "Loading character unsuccessful:" << loader.get_error();
+    }
+
+    return get_new_character(class_name);
+}
+
+Character* GUIControl::get_new_character(const QString& class_name) {
+    if (class_name == "Druid")
+        return new Druid(races["Night Elf"], equipment_db, sim_settings);
+    if (class_name == "Hunter")
+        return new Hunter(races["Dwarf"], equipment_db, sim_settings);
+    if (class_name == "Mage")
+        return new Mage(races["Gnome"], equipment_db, sim_settings);
+    if (class_name == "Paladin")
+        return new Paladin(races["Human"], equipment_db, sim_settings);
+    if (class_name == "Priest")
+        return new Priest(races["Undead"], equipment_db, sim_settings);
+    if (class_name == "Rogue")
+        return new Rogue(races["Troll"], equipment_db, sim_settings);
+    if (class_name == "Shaman")
+        return new Shaman(races["Tauren"], equipment_db, sim_settings);
+    if (class_name == "Warlock")
+        return new Warlock(races["Orc"], equipment_db, sim_settings);
+    if (class_name == "Warrior")
+        return new Warrior(races["Orc"], equipment_db, sim_settings);
+
+    assert(false);
+    return nullptr;
+}
+
+void GUIControl::save_all_setups() const {
+    save_user_setup();
+}
+
+void GUIControl::save_user_setup(Character* pchar) const {
+    if (pchar == nullptr)
+        pchar = current_char;
+
+    QFile file(QString("Saves/%1.SETUP").arg(pchar->get_name()));
+
+    if (file.open(QIODevice::ReadWrite)) {
+        QTextStream stream(&file);
+        stream << CharacterEncoder(pchar).get_current_setup_string();
+        file.close();
+    }
 }
