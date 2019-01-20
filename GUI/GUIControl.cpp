@@ -76,6 +76,7 @@ GUIControl::GUIControl(QObject* parent) :
     character_decoder(new CharacterDecoder()),
     sim_settings(new SimSettings()),
     number_cruncher(new NumberCruncher()),
+    supported_classes({"Warrior", "Rogue"}),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
     rotation_model(new RotationModel()),
@@ -231,8 +232,7 @@ void GUIControl::selectClass(const QString& class_name) {
         return;
     }
 
-    QSet<QString> supported = {"Warrior", "Rogue"};
-    if (!supported.contains(class_name)) {
+    if (!supported_classes.contains(class_name)) {
         qDebug() << QString("Class %1 not implemented").arg(class_name);
         return;
     }
@@ -1506,8 +1506,14 @@ Character* GUIControl::get_new_character(const QString& class_name) {
     return nullptr;
 }
 
-void GUIControl::save_all_setups() const {
-    save_user_setup();
+void GUIControl::save_all_setups() {
+    for (auto * pchar : chars) {
+        if (!supported_classes.contains(pchar->get_name()))
+            continue;
+
+        set_character(pchar);
+        save_user_setup(pchar);
+    }
 }
 
 void GUIControl::save_user_setup(Character* pchar) const {

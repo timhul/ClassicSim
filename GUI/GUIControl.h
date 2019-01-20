@@ -3,6 +3,7 @@
 
 #include <QMap>
 #include <QObject>
+#include <QSet>
 #include <QVariant>
 
 #include "EnchantName.h"
@@ -46,7 +47,7 @@ public:
     GUIControl(QObject* parent = nullptr);
     ~GUIControl();
 
-    void save_all_setups() const;
+    void save_all_setups();
 
     /* Character */
     Q_PROPERTY(QString classColor READ get_class_color NOTIFY classChanged)
@@ -343,6 +344,7 @@ private:
     NumberCruncher* number_cruncher;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
+    QSet<QString> supported_classes;
     Character* current_char{};
     ItemModel* item_model;
     ActiveItemStatFilterModel* active_stat_filter_model;
