@@ -332,7 +332,10 @@ SOURCES += main.cpp \
     Equipment/SetBonusControl.cpp \
     Spells/SetBonusRequirer.cpp \
     Spells/ItemModificationRequirer.cpp \
-    Character/CharacterLoader.cpp
+    Character/CharacterLoader.cpp \
+    Character/Class/Hunter/TalentTrees/BeastMastery.cpp \
+    Character/Class/Hunter/TalentTrees/Marksmanship.cpp \
+    Character/Class/Hunter/TalentTrees/Survival.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -668,7 +671,10 @@ HEADERS += \
     Equipment/SetBonusControl.h \
     Spells/SetBonusRequirer.h \
     Spells/ItemModificationRequirer.h \
-    Character/CharacterLoader.h
+    Character/CharacterLoader.h \
+    Character/Class/Hunter/TalentTrees/BeastMastery.h \
+    Character/Class/Hunter/TalentTrees/Marksmanship.h \
+    Character/Class/Hunter/TalentTrees/Survival.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -698,6 +704,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
     $$PWD/Character/Class/Hunter \
+    $$PWD/Character/Class/Hunter/TalentTrees \
     $$PWD/Character/Class/Warlock \
     $$PWD/Character/Class/Shaman \
     $$PWD/Character/Class/Paladin \

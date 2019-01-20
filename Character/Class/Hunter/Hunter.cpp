@@ -1,11 +1,15 @@
 #include "Hunter.h"
 
+#include "BeastMastery.h"
 #include "CharacterStats.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
 #include "HunterSpells.h"
 #include "Mana.h"
+#include "Marksmanship.h"
+#include "Survival.h"
+#include "Talents.h"
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -23,6 +27,8 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
 
     this->mana = new class Mana(this);
     this->resource = this->mana;
+
+    initialize_talents();
 }
 
 Hunter::~Hunter()
@@ -81,7 +87,9 @@ double Hunter::global_cooldown() const {
 }
 
 void Hunter::initialize_talents() {
-
+    for (int i = 0; i < 3; ++i) {
+        talents->add_talent_tree(new BeastMastery(this), new Marksmanship(this), new Survival(this));
+    }
 }
 
 unsigned Hunter::get_resource_level(const ResourceType) const {

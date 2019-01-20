@@ -413,7 +413,6 @@
         <file>QML/Assets/items/Inv_shield_06.png</file>
         <file>QML/Assets/items/Inv_sword_20.png</file>
         <file>QML/Assets/items/Inv_weapon_halbard_01.png</file>
-        <file>QML/Assets/misc/anger_management.png</file>
         <file>QML/Assets/spell/Spell_holy_ashestoashes.png</file>
         <file>QML/Assets/spell/Spell_holy_devotion.png</file>
         <file>QML/Assets/spell/Spell_magic_magearmor.png</file>
@@ -428,5 +427,41 @@
         <file>QML/Assets/spell/Spell_shadow_summonimp.png</file>
         <file>QML/Assets/spell/Spell_shadow_unholyfrenzy.png</file>
         <file>QML/Assets/spell/Spell_holy_blessingofstamina.png</file>
+        <file>QML/Assets/ability/Ability_bullrush.png</file>
+        <file>QML/Assets/ability/Ability_devour.png</file>
+        <file>QML/Assets/ability/Ability_druid_dash.png</file>
+        <file>QML/Assets/ability/Ability_druid_demoralizingroar.png</file>
+        <file>QML/Assets/ability/Ability_druid_ferociousbite.png</file>
+        <file>QML/Assets/ability/Ability_ensnare.png</file>
+        <file>QML/Assets/ability/Ability_eyeoftheowl.png</file>
+        <file>QML/Assets/ability/Ability_golemstormbolt.png</file>
+        <file>QML/Assets/ability/Ability_hunter_aspectofthemonkey.png</file>
+        <file>QML/Assets/ability/Ability_hunter_beastsoothe.png</file>
+        <file>QML/Assets/ability/Ability_hunter_criticalshot.png</file>
+        <file>QML/Assets/ability/Ability_hunter_mendpet.png</file>
+        <file>QML/Assets/ability/Ability_hunter_quickshot.png</file>
+        <file>QML/Assets/ability/Ability_hunter_snipershot.png</file>
+        <file>QML/Assets/ability/Ability_impalingbolt.png</file>
+        <file>QML/Assets/ability/Ability_mount_jungletiger.png</file>
+        <file>QML/Assets/ability/Ability_piercedamage.png</file>
+        <file>QML/Assets/ability/Ability_rogue_trip.png</file>
+        <file>QML/Assets/ability/Ability_townwatch.png</file>
+        <file>QML/Assets/ability/Ability_trueshot.png</file>
+        <file>QML/Assets/ability/Ability_upgrademoonglaive.png</file>
+        <file>QML/Assets/hunter/hunter_beastmastery.jpg</file>
+        <file>QML/Assets/hunter/hunter_marksmanship.jpg</file>
+        <file>QML/Assets/hunter/hunter_survival.jpg</file>
+        <file>QML/Assets/items/Inv_misc_head_dragon_black.png</file>
+        <file>QML/Assets/items/Inv_misc_pelt_bear_03.png</file>
+        <file>QML/Assets/items/Inv_spear_02.png</file>
+        <file>QML/Assets/items/Inv_spear_07.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_06.png</file>
+        <file>QML/Assets/spell/Spell_frost_stun.png</file>
+        <file>QML/Assets/spell/Spell_frost_wizardmark.png</file>
+        <file>QML/Assets/spell/Spell_holy_prayerofhealing.png</file>
+        <file>QML/Assets/spell/Spell_nature_ravenform.png</file>
+        <file>QML/Assets/spell/Spell_nature_stranglevines.png</file>
+        <file>QML/Assets/spell/Spell_nature_timestop.png</file>
+        <file>QML/Assets/spell/Spell_shadow_twilight.png</file>
     </qresource>
 </RCC>
