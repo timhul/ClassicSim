@@ -1475,6 +1475,10 @@ int GUIControl::getMinorVersion() const {
     return sim_settings->get_patch().minorVersion();
 }
 
+int GUIControl::getCurrentRuleset() const {
+    return sim_settings->get_ruleset();
+}
+
 Character* GUIControl::load_character(const QString& class_name) {
     QFile file(QString("Saves/%1-setup.xml").arg(class_name));
 

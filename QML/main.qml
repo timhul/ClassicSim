@@ -175,7 +175,7 @@ Window {
             "Loatheb"
         ]
 
-        currentIndex: 0
+        currentIndex: settings.getCurrentRuleset()
 
         onActivated: settings.selectRuleset(currentIndex)
     }

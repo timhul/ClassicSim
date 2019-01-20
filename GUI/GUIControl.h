@@ -246,6 +246,7 @@ public:
      Q_INVOKABLE QString getStartWindow() const;
      Q_INVOKABLE void changeActiveWindow(const QString& active_window);
      Q_INVOKABLE int getMinorVersion() const;
+     Q_INVOKABLE int getCurrentRuleset() const;
      /* End of GUI initialization */
 
 Q_SIGNALS:
