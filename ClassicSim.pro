@@ -331,7 +331,8 @@ SOURCES += main.cpp \
     Equipment/EquipmentDb/SetBonusFileReader.cpp \
     Equipment/SetBonusControl.cpp \
     Spells/SetBonusRequirer.cpp \
-    Spells/ItemModificationRequirer.cpp
+    Spells/ItemModificationRequirer.cpp \
+    Character/CharacterLoader.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -666,7 +667,8 @@ HEADERS += \
     Equipment/EquipmentDb/SetBonusFileReader.h \
     Equipment/SetBonusControl.h \
     Spells/SetBonusRequirer.h \
-    Spells/ItemModificationRequirer.h
+    Spells/ItemModificationRequirer.h \
+    Character/CharacterLoader.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
