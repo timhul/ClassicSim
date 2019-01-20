@@ -13,6 +13,11 @@ RectangleBorders {
 
     visible: character.raceAvailable(raceName)
 
+    Connections {
+        target: settings
+        onClassChanged: visible = character.raceAvailable(raceName)
+    }
+
     Image {
         id: icon
         source: raceIcon
