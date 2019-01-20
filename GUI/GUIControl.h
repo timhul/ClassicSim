@@ -47,7 +47,7 @@ public:
     GUIControl(QObject* parent = nullptr);
     ~GUIControl();
 
-    void save_all_setups();
+    void save_settings();
 
     /* Character */
     Q_PROPERTY(QString classColor READ get_class_color NOTIFY classChanged)
@@ -242,6 +242,11 @@ public:
      SimScaleModel* get_sim_scale_model() const;
      /* End of SimSettings */
 
+     /* GUI initialization */
+     Q_INVOKABLE QString getStartWindow() const;
+     Q_INVOKABLE void changeActiveWindow(const QString& active_window);
+     /* End of GUI initialization */
+
 Q_SIGNALS:
     void classChanged();
     void raceChanged();
@@ -333,7 +338,10 @@ private:
 
     Character* load_character(const QString& class_name);
     Character* get_new_character(const QString& class_name);
-    void save_user_setup(Character* pchar = nullptr);
+    void save_user_setup(Character* pchar);
+
+    void save_gui_settings();
+    void load_gui_settings();
 
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;
@@ -376,6 +384,7 @@ private:
     EnchantModel* boots_enchants;
     double last_quick_sim_result;
     bool sim_in_progress;
+    QString active_window;
 };
 
 #endif // GUICONTROL_H

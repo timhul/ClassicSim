@@ -265,14 +265,14 @@ Window {
         choiceSelectedBackgroundColor: darkDarkGray
         fontColor: gold
 
-        state: "TALENTS"
+        state: settings.getStartWindow()
 
-        onTalentsClicked: state = "TALENTS"
-        onEquipmentClicked: state = "EQUIPMENT"
-        onBuffsClicked: state = "BUFFS"
-        onRotationClicked: state = "ROTATION"
-        onSettingsClicked: state = "SETTINGS"
-        onStatisticsClicked: state = "STATISTICS"
+        onTalentsClicked: { state = "TALENTS"; settings.changeActiveWindow(state) }
+        onEquipmentClicked: { state = "EQUIPMENT"; settings.changeActiveWindow(state) }
+        onBuffsClicked: { state = "BUFFS"; settings.changeActiveWindow(state) }
+        onRotationClicked: { state = "ROTATION"; settings.changeActiveWindow(state) }
+        onSettingsClicked: { state = "SETTINGS"; settings.changeActiveWindow(state) }
+        onStatisticsClicked: { state = "STATISTICS"; settings.changeActiveWindow(state) }
     }
 
     Rectangle {

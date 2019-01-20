@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
 
     int return_code = app.exec();
 
-    gui_control->save_all_setups();
+    gui_control->save_settings();
 
     return return_code;
 }

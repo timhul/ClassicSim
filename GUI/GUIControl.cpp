@@ -95,7 +95,8 @@ GUIControl::GUIControl(QObject* parent) :
     chest_enchants(new EnchantModel(EquipmentSlot::CHEST, EnchantModel::Permanent)),
     boots_enchants(new EnchantModel(EquipmentSlot::BOOTS, EnchantModel::Permanent)),
     last_quick_sim_result(0.0),
-    sim_in_progress(false)
+    sim_in_progress(false),
+    active_window("EQUIPMENT")
 {
     thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
@@ -136,7 +137,7 @@ GUIControl::GUIControl(QObject* parent) :
     chars.insert("Warlock", load_character("Warlock"));
     chars.insert("Warrior", load_character("Warrior"));
 
-    set_character(chars["Warrior"]);
+    load_gui_settings();
 }
 
 GUIControl::~GUIControl() {
@@ -1461,6 +1462,14 @@ QString GUIControl::get_sim_progress_string() const {
     return sim_in_progress ? "Running..." : "Click me!";
 }
 
+QString GUIControl::getStartWindow() const {
+    return active_window;
+}
+
+void GUIControl::changeActiveWindow(const QString& active_window) {
+    this->active_window = active_window;
+}
+
 Character* GUIControl::load_character(const QString& class_name) {
     QFile file(QString("Saves/%1-setup.xml").arg(class_name));
 
@@ -1516,7 +1525,9 @@ Character* GUIControl::get_new_character(const QString& class_name) {
     return nullptr;
 }
 
-void GUIControl::save_all_setups() {
+void GUIControl::save_settings() {
+    save_gui_settings();
+
     for (auto * pchar : chars) {
         if (!supported_classes.contains(pchar->get_name()))
             continue;
@@ -1550,5 +1561,44 @@ void GUIControl::save_user_setup(Character* pchar) {
         stream.writeEndElement();
         stream.writeEndDocument();
         file.close();
+    }
+}
+
+void GUIControl::save_gui_settings() {
+    QFile file("Saves/GUI-setup.xml");
+    file.remove();
+
+    if (file.open(QIODevice::ReadWrite)) {
+        QXmlStreamWriter stream(&file);
+        stream.setAutoFormatting(true);
+        stream.writeStartDocument();
+        stream.writeStartElement("settings");
+        stream.writeTextElement("class", current_char->get_name());
+        stream.writeTextElement("race", current_char->get_race()->get_name());
+        stream.writeTextElement("window", active_window);
+        stream.writeEndElement();
+        stream.writeEndDocument();
+        file.close();
+    }
+}
+
+void GUIControl::load_gui_settings() {
+    QFile file("Saves/GUI-setup.xml");
+
+    if (file.open(QIODevice::ReadOnly)) {
+        QXmlStreamReader reader(&file);
+        reader.readNextStartElement();
+
+        reader.readNextStartElement();
+        set_character(chars[reader.readElementText().trimmed()]);
+
+        reader.readNextStartElement();
+        selectRace(reader.readElementText().trimmed());
+
+        reader.readNextStartElement();
+        active_window = reader.readElementText().trimmed();
+    }
+    else {
+        set_character(chars["Warrior"]);
     }
 }
