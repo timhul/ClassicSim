@@ -130,6 +130,18 @@ QVector<QString> EnabledBuffs::get_active_external_buffs() {
     return active_external_buffs;
 }
 
+QVector<QString> EnabledBuffs::get_active_external_debuffs() {
+    QVector<ExternalBuff*> debuffs = general_buffs->get_external_debuffs();
+    QVector<QString> active_external_debuffs;
+
+    for (auto & debuff : debuffs) {
+        if (debuff->is_active())
+            active_external_debuffs.append(debuff->get_name());
+    }
+
+    return active_external_debuffs;
+}
+
 void EnabledBuffs::prepare_set_of_combat_iterations() {
     for (auto & buff : enabled_buffs)
         buff->prepare_set_of_combat_iterations();

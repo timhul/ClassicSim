@@ -51,9 +51,9 @@ QString CharacterEncoder::get_current_setup_string() {
     QVector<QPair<QString, QVector<QPair<QString, QString>>>> setup = pchar->get_talents()->get_current_talent_setup();
     add_vector(setup);
     add_vector_values_only("BUFFS", pchar->get_enabled_buffs()->get_active_external_buffs());
+    add_vector_values_only("DEBUFFS", pchar->get_enabled_buffs()->get_active_external_debuffs());
     key_val("TARGET_LVL", QString::number(pchar->get_target()->get_lvl()));
     key_val("TARGET_TYPE", pchar->get_target()->get_creature_type_string());
-    key_val("TARGET_ARMOR", QString::number(pchar->get_target()->get_armor()));
 
     key_val("ROTATION", pchar->get_current_rotation_name());
 

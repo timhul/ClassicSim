@@ -71,6 +71,7 @@ void CharacterLoader::initialize_existing(Character* pchar) {
     equip_gear(decoder, pchar);
     invest_talent_points(decoder, pchar);
     apply_external_buffs(decoder, pchar);
+    apply_external_debuffs(decoder, pchar);
     setup_target(decoder, pchar);
     select_rotation(decoder, pchar);
     apply_enchants(decoder, pchar);
@@ -214,6 +215,14 @@ void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder, Character*
     }
 }
 
+void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Character* pchar) {
+    QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("DEBUFFS");
+
+    for (auto & buff : buffs) {
+        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(buff.first);
+    }
+}
+
 void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
         pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, true);
@@ -260,7 +269,6 @@ void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar)
 void CharacterLoader::setup_target(CharacterDecoder& decoder, Character* pchar) {
     pchar->get_target()->set_creature_type(decoder.get_value("TARGET_TYPE"));
     pchar->get_target()->set_lvl(decoder.get_value("TARGET_LVL").toInt());
-    pchar->get_target()->set_armor(decoder.get_value("TARGET_ARMOR").toInt());
 }
 
 void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pchar) {

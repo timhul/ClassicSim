@@ -40,6 +40,7 @@ private:
     void invest_talent_points(CharacterDecoder& decoder, Character* pchar);
     void add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position, Character* pchar);
     void apply_external_buffs(CharacterDecoder& decoder, Character* pchar);
+    void apply_external_debuffs(CharacterDecoder& decoder, Character* pchar);
     void apply_enchants(CharacterDecoder& decoder, Character* pchar);
     void apply_ruleset(CharacterDecoder& decoder, Character* pchar);
     void setup_target(CharacterDecoder& decoder, Character* pchar);
