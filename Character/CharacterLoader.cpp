@@ -38,7 +38,6 @@
 CharacterLoader::CharacterLoader(EquipmentDb *equipment_db,
                                  SimSettings *sim_settings,
                                  CharacterDecoder& decoder) :
-    pchar(nullptr),
     race(nullptr),
     equipment_db(equipment_db),
     sim_settings(sim_settings),
@@ -47,26 +46,35 @@ CharacterLoader::CharacterLoader(EquipmentDb *equipment_db,
 {}
 
 CharacterLoader::~CharacterLoader() {
-    delete pchar;
     delete race;
 }
 
-void CharacterLoader::initialize() {
+Character* CharacterLoader::initialize_new() {
     setup_race(decoder);
-    if (race == nullptr)
-        return fail("Failed to setup race");
+    if (race == nullptr) {
+        fail("Failed to setup race");
+        return nullptr;
+    }
 
-    setup_pchar(decoder);
-    if (pchar == nullptr)
-        return fail("Failed to setup class");
+    Character* pchar = setup_pchar(decoder);
+    if (pchar == nullptr) {
+        fail("Failed to setup class");
+        return nullptr;
+    }
 
-    equip_gear(decoder);
-    invest_talent_points(decoder);
-    apply_external_buffs(decoder);
-    setup_target(decoder);
-    select_rotation(decoder);
-    apply_enchants(decoder);
-    apply_ruleset(decoder);
+    initialize_existing(pchar);
+
+    return pchar;
+}
+
+void CharacterLoader::initialize_existing(Character* pchar) {
+    equip_gear(decoder, pchar);
+    invest_talent_points(decoder, pchar);
+    apply_external_buffs(decoder, pchar);
+    setup_target(decoder, pchar);
+    select_rotation(decoder, pchar);
+    apply_enchants(decoder, pchar);
+    apply_ruleset(decoder, pchar);
 
     success = true;
 }
@@ -82,12 +90,6 @@ QString CharacterLoader::get_error() const {
 void CharacterLoader::fail(QString error) {
     this->success = false;
     this->error = error;
-}
-
-Character* CharacterLoader::relinquish_ownership_of_pchar() {
-    Character* tmp = pchar;
-    pchar = nullptr;
-    return tmp;
 }
 
 Race* CharacterLoader::relinquish_ownership_of_race() {
@@ -117,7 +119,7 @@ void CharacterLoader::setup_race(CharacterDecoder& decoder) {
         race = new Undead();
 }
 
-void CharacterLoader::equip_gear(CharacterDecoder& decoder) {
+void CharacterLoader::equip_gear(CharacterDecoder& decoder, Character* pchar) {
     bool key_converted;
     int item = decoder.get_value("MAINHAND").toInt(&key_converted);
     if (key_converted)
@@ -188,13 +190,13 @@ void CharacterLoader::equip_gear(CharacterDecoder& decoder) {
         pchar->get_equipment()->set_trinket2(item);
 }
 
-void CharacterLoader::invest_talent_points(CharacterDecoder &decoder) {
-    add_points_to_talent_tree(decoder, "LEFT");
-    add_points_to_talent_tree(decoder, "MID");
-    add_points_to_talent_tree(decoder, "RIGHT");
+void CharacterLoader::invest_talent_points(CharacterDecoder &decoder, Character* pchar) {
+    add_points_to_talent_tree(decoder, "LEFT", pchar);
+    add_points_to_talent_tree(decoder, "MID", pchar);
+    add_points_to_talent_tree(decoder, "RIGHT", pchar);
 }
 
-void CharacterLoader::add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position) {
+void CharacterLoader::add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position, Character* pchar) {
     QVector<QPair<QString, QString>> invested_talents = decoder.get_key_val_pairs(tree_position);
 
     for (auto & invested_talent : invested_talents) {
@@ -204,7 +206,7 @@ void CharacterLoader::add_points_to_talent_tree(CharacterDecoder &decoder, const
     }
 }
 
-void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder) {
+void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder, Character* pchar) {
     QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("BUFFS");
 
     for (auto & buff : buffs) {
@@ -212,7 +214,7 @@ void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder) {
     }
 }
 
-void CharacterLoader::apply_enchants(CharacterDecoder& decoder) {
+void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
         pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, true);
         pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar, true);
@@ -251,17 +253,17 @@ void CharacterLoader::apply_enchants(CharacterDecoder& decoder) {
         pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_value("RANGED_ENCHANT")), pchar);
 }
 
-void CharacterLoader::apply_ruleset(CharacterDecoder& decoder) {
+void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar) {
     pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_value("RULESET").toInt()), pchar);
 }
 
-void CharacterLoader::setup_target(CharacterDecoder& decoder) {
+void CharacterLoader::setup_target(CharacterDecoder& decoder, Character* pchar) {
     pchar->get_target()->set_creature_type(decoder.get_value("TARGET_TYPE"));
     pchar->get_target()->set_lvl(decoder.get_value("TARGET_LVL").toInt());
     pchar->get_target()->set_armor(decoder.get_value("TARGET_ARMOR").toInt());
 }
 
-void CharacterLoader::select_rotation(CharacterDecoder& decoder) {
+void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pchar) {
     RotationFileReader rotation_file_reader;
     QVector<Rotation*> new_rotations;
     rotation_file_reader.add_rotations(new_rotations);
@@ -284,8 +286,10 @@ void CharacterLoader::select_rotation(CharacterDecoder& decoder) {
         fail("Failed to set rotation to " + rotation_name);
 }
 
-void CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
+Character* CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
     QString pchar_string = decoder.get_class();
+
+    Character* pchar = nullptr;
 
     if (pchar_string == "Druid")
         pchar = dynamic_cast<Character*>(new Druid(race, equipment_db, sim_settings));
@@ -308,6 +312,8 @@ void CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
 
     if (pchar == nullptr)
         delete race;
+
+    return pchar;
 }
 
 EnchantName::Name CharacterLoader::get_enum_val(const QString& enum_val_as_string) {

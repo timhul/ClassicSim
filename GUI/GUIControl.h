@@ -333,7 +333,7 @@ private:
 
     Character* load_character(const QString& class_name);
     Character* get_new_character(const QString& class_name);
-    void save_user_setup(Character* pchar = nullptr) const;
+    void save_user_setup(Character* pchar = nullptr);
 
     EquipmentDb* equipment_db;
     CharacterEncoder* character_encoder;

@@ -3,6 +3,8 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
 #include <utility>
 
 #include "ActiveItemStatFilterModel.h"
@@ -1460,26 +1462,34 @@ QString GUIControl::get_sim_progress_string() const {
 }
 
 Character* GUIControl::load_character(const QString& class_name) {
-    QFile file(QString("Saves/%1.SETUP").arg(class_name));
+    QFile file(QString("Saves/%1-setup.xml").arg(class_name));
+
+    Character* pchar = get_new_character(class_name);
 
     if (file.open(QIODevice::ReadOnly)) {
-        QTextStream stream(&file);
-        QString setup_string_from_file(stream.readAll());
+        QXmlStreamReader reader(&file);
 
-        CharacterDecoder decoder;
-        decoder.initialize(setup_string_from_file);
-        CharacterLoader loader(equipment_db, sim_settings, decoder);
-        loader.initialize();
-        if (loader.successful()) {
-            Character* pchar = loader.relinquish_ownership_of_pchar();
-            pchar->set_race(races[pchar->get_race()->get_name()]);
-            return pchar;
+        reader.readNextStartElement();
+        for (int i = 0; i < 3; ++i) {
+            reader.readNextStartElement();
+
+            CharacterDecoder decoder;
+            decoder.initialize(reader.readElementText().trimmed());
+            CharacterLoader loader(equipment_db, sim_settings, decoder);
+
+            pchar->get_stats()->get_equipment()->change_setup(i);
+            pchar->get_talents()->set_current_index(i);
+            pchar->get_enabled_buffs()->get_general_buffs()->change_setup(i);
+
+            loader.initialize_existing(pchar);
         }
-
-        qDebug() << "Loading character unsuccessful:" << loader.get_error();
     }
 
-    return get_new_character(class_name);
+    pchar->get_stats()->get_equipment()->change_setup(0);
+    pchar->get_talents()->set_current_index(0);
+    pchar->get_enabled_buffs()->get_general_buffs()->change_setup(0);
+
+    return pchar;
 }
 
 Character* GUIControl::get_new_character(const QString& class_name) {
@@ -1516,15 +1526,29 @@ void GUIControl::save_all_setups() {
     }
 }
 
-void GUIControl::save_user_setup(Character* pchar) const {
+void GUIControl::save_user_setup(Character* pchar) {
     if (pchar == nullptr)
         pchar = current_char;
 
-    QFile file(QString("Saves/%1.SETUP").arg(pchar->get_name()));
+    QFile file(QString("Saves/%1-setup.xml").arg(pchar->get_name()));
+    file.remove();
 
     if (file.open(QIODevice::ReadWrite)) {
-        QTextStream stream(&file);
-        stream << CharacterEncoder(pchar).get_current_setup_string();
+        QXmlStreamWriter stream(&file);
+        stream.setAutoFormatting(true);
+        stream.writeStartDocument();
+        stream.writeStartElement("setups");
+
+        for (int i = 0; i < 3; ++i) {
+            pchar->get_stats()->get_equipment()->change_setup(i);
+            pchar->get_talents()->set_current_index(i);
+            pchar->get_enabled_buffs()->get_general_buffs()->change_setup(i);
+
+            stream.writeTextElement("setup_string", CharacterEncoder(pchar).get_current_setup_string());
+        }
+
+        stream.writeEndElement();
+        stream.writeEndDocument();
         file.close();
     }
 }

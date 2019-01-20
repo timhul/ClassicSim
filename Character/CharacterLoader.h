@@ -16,15 +16,14 @@ public:
     CharacterLoader(EquipmentDb* equipment_db, SimSettings* sim_settings, CharacterDecoder &decoder);
     ~CharacterLoader();
 
-    void initialize();
+    Character* initialize_new();
+    void initialize_existing(Character* pchar);
     bool successful() const;
     QString get_error() const;
 
-    Character* relinquish_ownership_of_pchar();
     Race* relinquish_ownership_of_race();
 
 private:
-    Character* pchar;
     Race* race;
     EquipmentDb* equipment_db;
     SimSettings* sim_settings;
@@ -36,15 +35,15 @@ private:
     void fail(QString error);
 
     void setup_race(CharacterDecoder& decoder);
-    void setup_pchar(CharacterDecoder& decoder);
-    void equip_gear(CharacterDecoder& decoder);
-    void invest_talent_points(CharacterDecoder& decoder);
-    void add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position);
-    void apply_external_buffs(CharacterDecoder& decoder);
-    void apply_enchants(CharacterDecoder& decoder);
-    void apply_ruleset(CharacterDecoder& decoder);
-    void setup_target(CharacterDecoder& decoder);
-    void select_rotation(CharacterDecoder& decoder);
+    Character* setup_pchar(CharacterDecoder& decoder);
+    void equip_gear(CharacterDecoder& decoder, Character* pchar);
+    void invest_talent_points(CharacterDecoder& decoder, Character* pchar);
+    void add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position, Character* pchar);
+    void apply_external_buffs(CharacterDecoder& decoder, Character* pchar);
+    void apply_enchants(CharacterDecoder& decoder, Character* pchar);
+    void apply_ruleset(CharacterDecoder& decoder, Character* pchar);
+    void setup_target(CharacterDecoder& decoder, Character* pchar);
+    void select_rotation(CharacterDecoder& decoder, Character* pchar);
     EnchantName::Name get_enum_val(const QString& enum_val_as_string);
 };
 

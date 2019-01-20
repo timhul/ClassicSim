@@ -44,12 +44,11 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     local_sim_settings->set_combat_length(global_sim_settings->get_combat_length());
 
     CharacterLoader loader(equipment_db, local_sim_settings, decoder);
-    loader.initialize();
+    pchar = loader.initialize_new();
 
     if (!loader.successful())
         exit_thread(loader.get_error());
 
-    pchar = loader.relinquish_ownership_of_pchar();
     race = loader.relinquish_ownership_of_race();
 
     CharacterEncoder encoder(pchar);
