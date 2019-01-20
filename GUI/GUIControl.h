@@ -247,6 +247,7 @@ public:
      Q_INVOKABLE void changeActiveWindow(const QString& active_window);
      Q_INVOKABLE int getMinorVersion() const;
      Q_INVOKABLE int getCurrentRuleset() const;
+     Q_INVOKABLE int getCurrentCreatureType() const;
      /* End of GUI initialization */
 
 Q_SIGNALS:

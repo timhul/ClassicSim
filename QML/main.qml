@@ -154,7 +154,7 @@ Window {
             "Undead"
         ]
 
-        currentIndex: 0
+        currentIndex: settings.getCurrentCreatureType()
 
         onActivated: settings.setCreatureType(currentText)
     }

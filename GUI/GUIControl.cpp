@@ -1479,6 +1479,10 @@ int GUIControl::getCurrentRuleset() const {
     return sim_settings->get_ruleset();
 }
 
+int GUIControl::getCurrentCreatureType() const {
+    return current_char->get_target()->get_creature_type();
+}
+
 Character* GUIControl::load_character(const QString& class_name) {
     QFile file(QString("Saves/%1-setup.xml").arg(class_name));
 
@@ -1591,6 +1595,7 @@ void GUIControl::save_gui_settings() {
         stream.writeTextElement("combat_length", QString("%1").arg(sim_settings->get_combat_length()));
         stream.writeTextElement("patch", sim_settings->get_patch().toString());
         stream.writeTextElement("ruleset", QString("%1").arg(sim_settings->get_ruleset()));
+        stream.writeTextElement("target_creature_type", current_char->get_target()->get_creature_type_string());
         stream.writeTextElement("threads", QString("%1").arg(sim_settings->get_num_threads_current()));
 
         QSet<SimOption::Name> options = sim_settings->get_active_options();
@@ -1635,6 +1640,8 @@ void GUIControl::activate_gui_setting(const QStringRef& name, const QString& val
         sim_settings->set_patch(QVersionNumber::fromString(value));
     else if (name == "ruleset")
         sim_settings->use_ruleset(static_cast<Ruleset>(value.toInt()), current_char);
+    else if (name == "target_creature_type" && current_char != nullptr)
+        current_char->get_target()->set_creature_type(value);
     else if (name == "threads")
         sim_settings->set_num_threads(value.toInt());
     else if (name == "sim_option")
