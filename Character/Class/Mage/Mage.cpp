@@ -9,7 +9,7 @@
 #include "Weapon.h"
 
 Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
-    Character(race, sim_settings) {
+    Character("Mage", race, sim_settings) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Troll");
@@ -33,10 +33,6 @@ Mage::~Mage()
     delete cstats;
     delete mage_spells;
     delete mana;
-}
-
-QString Mage::get_name() const {
-    return "Mage";
 }
 
 QString Mage::get_class_color() const {

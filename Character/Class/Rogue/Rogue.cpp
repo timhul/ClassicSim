@@ -5,8 +5,8 @@
 #include "Combat.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
-#include "Equipment.h"
 #include "Energy.h"
+#include "Equipment.h"
 #include "InstantPoison.h"
 #include "RelentlessStrikes.h"
 #include "RogueEnchants.h"
@@ -20,7 +20,7 @@
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, sim_settings),
+    Character("Rogue", race, sim_settings),
     combo_points(0),
     stealthed(false)
 {
@@ -80,10 +80,6 @@ Rogue::~Rogue()
     delete ruthlessness;
     delete seal_fate;
     delete sword_spec;
-}
-
-QString Rogue::get_name() const {
-    return "Rogue";
 }
 
 QString Rogue::get_class_color() const {

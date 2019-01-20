@@ -23,7 +23,8 @@
 #include "Target.h"
 #include "Weapon.h"
 
-Character::Character(Race* race, SimSettings *sim_settings) :
+Character::Character(const QString class_name, Race* race, SimSettings *sim_settings) :
+    class_name(std::move(class_name)),
     race(race),
     engine(new Engine()),
     target(new Target(63)),
@@ -60,6 +61,10 @@ Character::~Character() {
     delete enabled_procs;
     delete enabled_buffs;
     delete statistics;
+}
+
+QString Character::get_name() const {
+    return this->class_name;
 }
 
 Race* Character::get_race() {

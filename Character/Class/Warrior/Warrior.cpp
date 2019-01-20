@@ -3,42 +3,40 @@
 #include <QDebug>
 
 #include "Arms.h"
+#include "BattleShoutBuff.h"
+#include "BattleStanceBuff.h"
+#include "BerserkerStanceBuff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "CooldownReady.h"
-#include "EnabledProcs.h"
+#include "DeathWishBuff.h"
+#include "DefensiveStanceBuff.h"
 #include "EnabledBuffs.h"
+#include "EnabledProcs.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "Flurry.h"
 #include "Fury.h"
 #include "MainhandAttackWarrior.h"
 #include "MainhandMeleeHit.h"
+#include "NoEffectBuff.h"
 #include "OffhandAttackWarrior.h"
 #include "OffhandMeleeHit.h"
+#include "OverpowerBuff.h"
 #include "Protection.h"
 #include "Race.h"
 #include "Rage.h"
+#include "RecklessnessBuff.h"
 #include "Stats.h"
+#include "SwordSpecialization.h"
 #include "Talents.h"
+#include "UnbridledWrath.h"
 #include "WarriorEnchants.h"
 #include "WarriorSpells.h"
 #include "Weapon.h"
 
-#include "Flurry.h"
-#include "SwordSpecialization.h"
-#include "UnbridledWrath.h"
-
-#include "BattleShoutBuff.h"
-#include "BattleStanceBuff.h"
-#include "BerserkerStanceBuff.h"
-#include "DefensiveStanceBuff.h"
-#include "DeathWishBuff.h"
-#include "NoEffectBuff.h"
-#include "OverpowerBuff.h"
-#include "RecklessnessBuff.h"
-
 Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings) :
-    Character(race, sim_settings) {
+    Character("Warrior", race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");
@@ -121,10 +119,6 @@ Warrior::~Warrior() {
     delete overpower_buff;
     delete recklessness_buff;
     delete rage;
-}
-
-QString Warrior::get_name() const {
-    return "Warrior";
 }
 
 QString Warrior::get_class_color() const {

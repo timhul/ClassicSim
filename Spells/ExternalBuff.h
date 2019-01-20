@@ -1,30 +1,32 @@
 #ifndef EXTERNALBUFF_H
 #define EXTERNALBUFF_H
 
-#include "Buff.h"
 #include "AvailableFactions.h"
+#include "Buff.h"
+
 #include <QVersionNumber>
 
 enum ExternalBuffName {
-    RallyingCryOfTheDragonslayer = 0,
-    SpiritOfZandalar,
-    SongflowerSerenade,
-    ElixirOfTheMongoose,
-    ElixirOfBruteForce,
-    ElixirOfGiants,
-    WinterfallFirewater,
-    JujuPower,
-    MarkOfTheWild,
-    ScrollOfStrengthIV,
-    SmokedDesertDumplings,
-    ROIDS,
+    Annihilator = 0,
+    BattleShout,
     BlessingOfKings,
     BlessingOfMight,
+    CurseOfRecklessness,
+    ElixirOfBruteForce,
+    ElixirOfGiants,
+    ElixirOfTheMongoose,
+    FaerieFire,
+    JujuPower,
+    MarkOfTheWild,
+    ROIDS,
+    RallyingCryOfTheDragonslayer,
+    ScrollOfStrengthIV,
+    SmokedDesertDumplings,
+    SongflowerSerenade,
+    SpiritOfZandalar,
     StrengthOfEarthTotem,
     SunderArmor,
-    FaerieFire,
-    CurseOfRecklessness,
-    Annihilator
+    WinterfallFirewater,
 };
 
 class ExternalBuff;

@@ -1,12 +1,16 @@
 #include "Shaman.h"
 
 #include "CharacterStats.h"
+#include "EnabledBuffs.h"
+#include "EnabledProcs.h"
+#include "Equipment.h"
+#include "GeneralBuffs.h"
 #include "Mana.h"
 #include "ShamanSpells.h"
 #include "Weapon.h"
 
 Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings) :
-    Character(race, sim_settings) {
+    Character("Shaman", race, sim_settings) {
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
@@ -22,12 +26,12 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
 
 Shaman::~Shaman()
 {
+    cstats->get_equipment()->unequip_all();
+    enabled_buffs->clear_all();
+    enabled_procs->clear_all();
+
     delete shaman_spells;
     delete mana;
-}
-
-QString Shaman::get_name() const {
-    return "Shaman";
 }
 
 QString Shaman::get_class_color() const {

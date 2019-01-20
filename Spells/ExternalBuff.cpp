@@ -1,10 +1,10 @@
-
 #include "ExternalBuff.h"
+
+#include <utility>
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Target.h"
-
-#include <utility>
 
 ExternalBuff::ExternalBuff(Character* pchar,
                            const QString& name,
@@ -58,6 +58,9 @@ ExternalBuffName ExternalBuff::get_enum_value() const {
 
 void ExternalBuff::buff_effect_when_applied() {
     switch (buff_name) {
+    case ExternalBuffName::BattleShout:
+        pchar->get_stats()->increase_melee_ap(232);
+        break;
     case ExternalBuffName::RallyingCryOfTheDragonslayer:
         pchar->get_stats()->increase_spell_crit(0.10);
         pchar->get_stats()->increase_crit(0.05);
@@ -133,6 +136,9 @@ void ExternalBuff::buff_effect_when_applied() {
 
 void ExternalBuff::buff_effect_when_removed() {
     switch (buff_name) {
+    case ExternalBuffName::BattleShout:
+        pchar->get_stats()->decrease_melee_ap(232);
+        break;
     case ExternalBuffName::RallyingCryOfTheDragonslayer:
         pchar->get_stats()->decrease_spell_crit(0.10);
         pchar->get_stats()->decrease_crit(0.05);
@@ -208,6 +214,11 @@ void ExternalBuff::buff_effect_when_removed() {
 
 ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* pchar) {
     switch (name) {
+    case ExternalBuffName::BattleShout:
+        return new ExternalBuff(pchar, "Improved Battle Shout", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/warrior/fury/tier3/Ability_warrior_battleshout.png",
+                                "+232 attack power",
+                                QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::RallyingCryOfTheDragonslayer:
         return new ExternalBuff(pchar, "Rallying Cry of the Dragonslayer", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/buffs/Inv_misc_head_dragon_01.png",

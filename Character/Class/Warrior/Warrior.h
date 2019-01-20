@@ -27,7 +27,6 @@ public:
     Warrior(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings);
     ~Warrior() override;
 
-    QString get_name() const override;
     QString get_class_color() const override;
     int get_strength_modifier() const override;
     int get_agility_modifier() const override;

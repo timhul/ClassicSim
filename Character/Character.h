@@ -31,11 +31,11 @@ class Weapon;
 
 class Character {
 public:
-    Character(Race*, SimSettings* sim_settings);
+    Character(const QString class_name, Race* race, SimSettings* sim_settings);
     virtual ~Character();
 
+    QString get_name() const;
     Race* get_race(void);
-    virtual QString get_name() const = 0;
     bool race_available(Race*) const;
     void set_race(Race* race);
     void set_rotation(Rotation*);
@@ -159,6 +159,7 @@ public:
     void dump();
 
 protected:
+    QString class_name;
     Race* race;
     Engine* engine;
     Target* target;

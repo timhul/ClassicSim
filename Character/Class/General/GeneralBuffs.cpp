@@ -1,8 +1,8 @@
-
 #include "GeneralBuffs.h"
+
 #include "Character.h"
-#include "ExternalBuff.h"
 #include "EssenceOfTheRed.h"
+#include "ExternalBuff.h"
 #include "Faction.h"
 
 GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
@@ -17,12 +17,15 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
 
     for (int i = 0; i < 3; ++i) {
         this->external_buffs.append(QVector<QPair<bool, ExternalBuff*>>());
+
+        if (pchar->get_name() != "Warrior")
+            this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::BattleShout, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::MarkOfTheWild, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfBruteForce, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfGiants, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfTheMongoose, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::WinterfallFirewater, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::JujuPower, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::MarkOfTheWild, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ScrollOfStrengthIV, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SmokedDesertDumplings, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ROIDS, pchar)));

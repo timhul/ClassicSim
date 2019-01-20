@@ -9,7 +9,7 @@
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, sim_settings) {
+    Character("Hunter", race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
     available_races.append("Orc");
@@ -34,10 +34,6 @@ Hunter::~Hunter()
     delete cstats;
     delete hunter_spells;
     delete mana;
-}
-
-QString Hunter::get_name() const {
-    return "Hunter";
 }
 
 QString Hunter::get_class_color() const {

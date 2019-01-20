@@ -9,7 +9,7 @@
 #include "Weapon.h"
 
 Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
-    Character(race, sim_settings) {
+    Character("Priest", race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");
@@ -34,10 +34,6 @@ Priest::~Priest()
     delete cstats;
     delete priest_spells;
     delete mana;
-}
-
-QString Priest::get_name() const {
-    return "Priest";
 }
 
 QString Priest::get_class_color() const {

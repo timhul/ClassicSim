@@ -11,8 +11,9 @@
 #include "Rage.h"
 #include "Weapon.h"
 
+
 Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, sim_settings) {
+    Character("Druid", race, sim_settings) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
 
@@ -36,10 +37,6 @@ Druid::~Druid()
     delete energy;
     delete rage;
     delete druid_spells;
-}
-
-QString Druid::get_name() const {
-    return "Druid";
 }
 
 QString Druid::get_class_color() const {

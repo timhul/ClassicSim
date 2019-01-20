@@ -9,7 +9,7 @@
 #include "Weapon.h"
 
 Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, sim_settings) {
+    Character("Warlock", race, sim_settings) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Orc");
@@ -33,10 +33,6 @@ Warlock::~Warlock()
     delete cstats;
     delete warlock_spells;
     delete mana;
-}
-
-QString Warlock::get_name() const {
-    return "Warlock";
 }
 
 QString Warlock::get_class_color() const {

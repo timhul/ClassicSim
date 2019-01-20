@@ -9,7 +9,7 @@
 #include "Weapon.h"
 
 Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character(race, sim_settings) {
+    Character("Paladin", race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Human");
 
@@ -31,10 +31,6 @@ Paladin::~Paladin()
     delete cstats;
     delete paladin_spells;
     delete mana;
-}
-
-QString Paladin::get_name() const {
-    return "Paladin";
 }
 
 QString Paladin::get_class_color() const {
