@@ -335,7 +335,11 @@ SOURCES += main.cpp \
     Character/CharacterLoader.cpp \
     Character/Class/Hunter/TalentTrees/BeastMastery.cpp \
     Character/Class/Hunter/TalentTrees/Marksmanship.cpp \
-    Character/Class/Hunter/TalentTrees/Survival.cpp
+    Character/Class/Hunter/TalentTrees/Survival.cpp \
+    Test/Hunter/Talents/TestBeastMastery.cpp \
+    Test/Hunter/Talents/TestMarksmanship.cpp \
+    Test/Hunter/Talents/TestSurvival.cpp \
+    Test/Hunter/TestHunter.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -674,7 +678,11 @@ HEADERS += \
     Character/CharacterLoader.h \
     Character/Class/Hunter/TalentTrees/BeastMastery.h \
     Character/Class/Hunter/TalentTrees/Marksmanship.h \
-    Character/Class/Hunter/TalentTrees/Survival.h
+    Character/Class/Hunter/TalentTrees/Survival.h \
+    Test/Hunter/Talents/TestBeastMastery.h \
+    Test/Hunter/Talents/TestMarksmanship.h \
+    Test/Hunter/Talents/TestSurvival.h \
+    Test/Hunter/TestHunter.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -731,6 +739,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Rogue/Procs \
     $$PWD/Test/Rogue/Spells \
     $$PWD/Test/Rogue/Talents \
+    $$PWD/Test/Hunter \
+    $$PWD/Test/Hunter/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Character/Class/General \
     $$PWD/Character/Class/General/Enchants \

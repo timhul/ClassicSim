@@ -1,49 +1,47 @@
+#include "Test.h"
+
 #include <cassert>
 #include <QDebug>
 
-#include "EncounterStart.h"
-#include "EncounterEnd.h"
-#include "Human.h"
-#include "Dwarf.h"
-#include "NightElf.h"
-#include "Gnome.h"
-#include "Orc.h"
-#include "Undead.h"
-#include "Tauren.h"
-#include "Troll.h"
-
-#include "Warrior.h"
-#include "Priest.h"
-#include "Rogue.h"
-#include "Mage.h"
-#include "Druid.h"
-#include "Hunter.h"
-#include "Warlock.h"
-#include "Shaman.h"
-#include "Paladin.h"
-
 #include "Character.h"
 #include "CharacterStats.h"
+#include "CombatRoll.h"
+#include "Druid.h"
+#include "Dwarf.h"
+#include "EncounterEnd.h"
+#include "EncounterStart.h"
 #include "Equipment.h"
 #include "EquipmentDb.h"
-#include "Weapon.h"
-#include "CombatRoll.h"
-#include "Random.h"
-#include "Talents.h"
 #include "Faction.h"
+#include "Gnome.h"
+#include "Human.h"
+#include "Hunter.h"
 #include "ItemNamespace.h"
+#include "Mage.h"
+#include "NightElf.h"
+#include "Orc.h"
+#include "Paladin.h"
+#include "Priest.h"
+#include "Random.h"
+#include "Rogue.h"
+#include "Shaman.h"
 #include "SimSettings.h"
-
-#include "WarriorSpells.h"
-
-#include "Test.h"
+#include "Talents.h"
+#include "Tauren.h"
 #include "TestAttackTables.h"
-#include "TestConditionVariableBuiltin.h"
 #include "TestCharacterStats.h"
+#include "TestConditionVariableBuiltin.h"
 #include "TestFelstrikerProc.h"
+#include "TestHunter.h"
 #include "TestMechanics.h"
 #include "TestRogue.h"
 #include "TestWarrior.h"
+#include "Troll.h"
+#include "Undead.h"
+#include "Warlock.h"
+#include "Warrior.h"
+#include "WarriorSpells.h"
+#include "Weapon.h"
 
 Test::Test() :
     equipment_db(new EquipmentDb())
@@ -77,6 +75,9 @@ void Test::test_all() {
 
     qDebug() << "test_rogue";
     TestRogue().test_all();
+
+    qDebug() << "test_hunter";
+    TestHunter().test_all();
 
     TestConditionVariableBuiltin().test_all();
 }

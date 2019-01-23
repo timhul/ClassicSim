@@ -4,7 +4,7 @@
 #include "Talent.h"
 
 BeastMastery::BeastMastery(Character *pchar) :
-    TalentTree("BeastMastery", "Assets/hunter/hunter_beastmastery.jpg")
+    TalentTree("Beast Mastery", "Assets/hunter/hunter_beastmastery.jpg")
 {
     QMap<QString, Talent*> tier1 {{"1ML", new GenericTalent(pchar, this, "Improved Aspect of the Hawk", "1ML", "Assets/spell/Spell_nature_ravenform.png", 5, "While Aspect of the Hawk is active, all normal ranged attacks have a %1% chance of increasing ranged attack speed by 30% for 12 sec.", QVector<QPair<int, int>>{{1, 1}})},
                                   {"1MR", new GenericTalent(pchar, this, "Endurance Training", "1MR", "Assets/spell/Spell_nature_reincarnation.png", 5, "Increases the Health of your pets by %1%.", QVector<QPair<int, int>>{{3, 3}})}};
