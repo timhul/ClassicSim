@@ -28,7 +28,7 @@ Rectangle {
         if (talents.showPosition(treePos, talentPos) === false) {
             icon.visible = false
             border.visible = false
-            ttRect.visible = false
+            highlight.visible = false
             return
         }
 
