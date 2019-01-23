@@ -4,7 +4,6 @@
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
-#include "GeneralBuffs.h"
 #include "Mana.h"
 #include "ShamanSpells.h"
 #include "Weapon.h"
