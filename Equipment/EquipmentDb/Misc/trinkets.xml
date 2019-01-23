@@ -63,6 +63,19 @@
 		</patch>
 	</item>
 
+	<item id="19120">
+		<patch name="1.5.0">
+			<info name="Rune of the Guard Captain" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="46" item_lvl="51" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_misc_rune_07.png"/>
+			<stats>
+				<stat type="ATTACK_POWER" value="20"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires killing elite mobs (level 47-50) in The Hinterlands.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19406">
 		<patch name="1.6.0">
 			<info name="Drake Fang Talisman" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_bone_06.png"/>

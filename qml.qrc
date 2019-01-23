@@ -463,5 +463,6 @@
         <file>QML/Assets/spell/Spell_nature_stranglevines.png</file>
         <file>QML/Assets/spell/Spell_nature_timestop.png</file>
         <file>QML/Assets/spell/Spell_shadow_twilight.png</file>
+        <file>QML/Assets/items/Inv_misc_rune_07.png</file>
     </qresource>
 </RCC>
