@@ -262,25 +262,9 @@
         <file>QML/Assets/ability/Ability_warrior_decisivestrike.png</file>
         <file>QML/Assets/ability/Ability_warrior_riposte.png</file>
         <file>QML/Assets/ability/Ability_warrior_warcry.png</file>
-        <file>QML/Assets/rogue/Ability_backstab.png</file>
-        <file>QML/Assets/rogue/Ability_criticalstrike.png</file>
-        <file>QML/Assets/rogue/Ability_dualwield.png</file>
-        <file>QML/Assets/rogue/Ability_gouge.png</file>
-        <file>QML/Assets/rogue/Ability_parry.png</file>
-        <file>QML/Assets/rogue/Ability_racial_bloodrage.png</file>
-        <file>QML/Assets/rogue/Ability_rogue_ambush.png</file>
-        <file>QML/Assets/rogue/Ability_rogue_eviscerate.png</file>
-        <file>QML/Assets/rogue/Ability_rogue_slicedice.png</file>
-        <file>QML/Assets/rogue/Ability_warrior_decisivestrike.png</file>
-        <file>QML/Assets/rogue/Ability_warrior_warcry.png</file>
-        <file>QML/Assets/rogue/Inv_mace_01.png</file>
-        <file>QML/Assets/rogue/Inv_sword_27.png</file>
         <file>QML/Assets/rogue/rogue_assassination.jpg</file>
         <file>QML/Assets/rogue/rogue_combat.jpg</file>
         <file>QML/Assets/rogue/rogue_subtlety.jpg</file>
-        <file>QML/Assets/rogue/Spell_holy_blessingofstrength.png</file>
-        <file>QML/Assets/rogue/Spell_nature_mirrorimage.png</file>
-        <file>QML/Assets/rogue/Spell_shadow_deathscream.png</file>
         <file>QML/Assets/spell/Spell_holy_blessingofstrength.png</file>
         <file>QML/Assets/spell/Spell_ice_lament.png</file>
         <file>QML/Assets/spell/Spell_nature_earthbindtotem.png</file>
