@@ -36,7 +36,8 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
         };
     case EquipmentSlot::WRIST:
         return {
-            EnchantName::Name::EnchantBracerSuperiorStrength
+            EnchantName::Name::EnchantBracerSuperiorStrength,
+            EnchantName::Name::EnchantBracerMinorAgility
         };
     case EquipmentSlot::GLOVES:
         return {
