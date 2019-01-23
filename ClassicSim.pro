@@ -339,7 +339,8 @@ SOURCES += main.cpp \
     Test/Hunter/Talents/TestBeastMastery.cpp \
     Test/Hunter/Talents/TestMarksmanship.cpp \
     Test/Hunter/Talents/TestSurvival.cpp \
-    Test/Hunter/TestHunter.cpp
+    Test/Hunter/TestHunter.cpp \
+    Character/Class/Hunter/HunterEnchants.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -682,7 +683,8 @@ HEADERS += \
     Test/Hunter/Talents/TestBeastMastery.h \
     Test/Hunter/Talents/TestMarksmanship.h \
     Test/Hunter/Talents/TestSurvival.h \
-    Test/Hunter/TestHunter.h
+    Test/Hunter/TestHunter.h \
+    Character/Class/Hunter/HunterEnchants.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

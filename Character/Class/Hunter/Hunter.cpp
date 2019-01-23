@@ -5,6 +5,7 @@
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
+#include "HunterEnchants.h"
 #include "HunterSpells.h"
 #include "Mana.h"
 #include "Marksmanship.h"
@@ -19,6 +20,7 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
+    available_enchants = new HunterEnchants(this);
 
     this->cstats = new CharacterStats(this, equipment_db);
 
@@ -37,6 +39,7 @@ Hunter::~Hunter()
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete hunter_spells;
     delete mana;

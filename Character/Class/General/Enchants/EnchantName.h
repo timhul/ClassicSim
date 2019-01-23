@@ -17,8 +17,10 @@ public:
         IronCounterweight,
         Enchant2HWeaponAgility,
         Enchant2HWeaponSuperiorImpact,
+        FalconsCall,
         InstantPoison,
         WindfuryTotem,
+        EnchantBracerMinorAgility,
         EnchantBracerSuperiorStrength,
         EnchantGlovesSuperiorAgility,
         EnchantGlovesGreaterStrength,
@@ -62,6 +64,8 @@ public:
             return "Agility";
         case EnchantName::EnchantWeaponStrength:
             return "Strength";
+        case EnchantName::EnchantBracerMinorAgility:
+            return "Minor Agility";
         case EnchantName::EnchantBracerSuperiorStrength:
             return "Superior Strength";
         case EnchantName::EnchantGlovesSuperiorAgility:
@@ -86,6 +90,8 @@ public:
             return "Lesser Arcanum of Voracity";
         case EnchantName::DeathsEmbrace:
             return "Death's Embrace";
+        case EnchantName::FalconsCall:
+            return "Falcon's Call";
         case EnchantName::EnchantCloakLesserAgility:
             return "Lesser Agility";
         case EnchantName::ZandalarSignetOfMight:
@@ -129,6 +135,8 @@ public:
             return "+15 Agility";
         case EnchantName::EnchantWeaponStrength:
             return "+15 Strength";
+        case EnchantName::EnchantBracerMinorAgility:
+            return "+1 Agility";
         case EnchantName::EnchantBracerSuperiorStrength:
             return "+9 Strength";
         case EnchantName::EnchantGlovesSuperiorAgility:
@@ -157,6 +165,8 @@ public:
             return "+8 Strength";
         case EnchantName::DeathsEmbrace:
             return "+28 Attack and\n1% Dodge";
+        case EnchantName::FalconsCall:
+            return "+24 Ranged Attack Power\n10 Stamina, +1% Hit";
         case EnchantName::EnchantCloakLesserAgility:
             return "+3 Agility";
         case EnchantName::ZandalarSignetOfMight:

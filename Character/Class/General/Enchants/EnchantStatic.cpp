@@ -24,6 +24,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::EnchantWeaponStrength:
         pchar->get_stats()->increase_strength(15);
         break;
+    case EnchantName::EnchantBracerMinorAgility:
+        pchar->get_stats()->increase_agility(1);
+        break;
     case EnchantName::EnchantBracerSuperiorStrength:
         pchar->get_stats()->increase_strength(9);
         break;
@@ -67,6 +70,11 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         pchar->get_stats()->increase_melee_ap(28);
         pchar->get_stats()->increase_ranged_ap(28);
         pchar->get_stats()->increase_dodge(0.01);
+        break;
+    case EnchantName::FalconsCall:
+        pchar->get_stats()->increase_ranged_ap(24);
+        pchar->get_stats()->increase_stamina(10);
+        pchar->get_stats()->increase_hit(0.01);
         break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->increase_agility(3);
@@ -128,6 +136,9 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::EnchantWeaponStrength:
         pchar->get_stats()->decrease_strength(15);
         break;
+    case EnchantName::EnchantBracerMinorAgility:
+        pchar->get_stats()->decrease_agility(1);
+        break;
     case EnchantName::EnchantBracerSuperiorStrength:
         pchar->get_stats()->decrease_strength(9);
         break;
@@ -171,6 +182,11 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_melee_ap(28);
         pchar->get_stats()->decrease_ranged_ap(28);
         pchar->get_stats()->decrease_dodge(0.01);
+        break;
+    case EnchantName::FalconsCall:
+        pchar->get_stats()->decrease_ranged_ap(24);
+        pchar->get_stats()->decrease_stamina(10);
+        pchar->get_stats()->decrease_hit(0.01);
         break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->decrease_agility(3);
