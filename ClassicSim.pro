@@ -66,8 +66,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
     Character/Talents.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.cpp \
-    Character/Class/Warrior/TalentTrees/Fury/ImprovedDemoralizingShout.cpp \
-    Character/Class/Warrior/TalentTrees/Fury/ImprovedCleave.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.cpp \
     Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.cpp \
@@ -398,8 +396,6 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Arms/Impale.h \
     Character/Talents.h \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.h \
-    Character/Class/Warrior/TalentTrees/Fury/ImprovedDemoralizingShout.h \
-    Character/Class/Warrior/TalentTrees/Fury/ImprovedCleave.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.h \
     Character/Class/Warrior/TalentTrees/Fury/DualWieldSpecialization.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.h \

@@ -9,8 +9,6 @@
 #include "GenericTalent.h"
 #include "ImprovedBattleShout.h"
 #include "ImprovedBerserkerRage.h"
-#include "ImprovedCleave.h"
-#include "ImprovedDemoralizingShout.h"
 #include "ImprovedExecute.h"
 #include "ImprovedSlam.h"
 #include "Talent.h"
@@ -19,17 +17,15 @@
 Fury::Fury(Character *pchar) :
     TalentTree("Fury", "Assets/warrior/warrior_fury.jpg")
 {
-    QString base_url = "Assets/";
-
     QMap<QString, Talent*> tier1 {{"1ML", new BoomingVoice(pchar, this)},
                                   {"1MR", new Cruelty(pchar, this)}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2ML", new ImprovedDemoralizingShout(pchar, this)},
+    QMap<QString, Talent*> tier2 {{"2ML", new GenericTalent(pchar, this, "Improved Demoralizing Shout", "2ML", base_url + "ability/Ability_warrior_warcry.png", 5, "Increases the melee attack power reduction of your Demoralizing Shout by %1%.", QVector<QPair<int, int>>{{8, 8}})},
                                   {"2MR", new UnbridledWrathTalent(pchar, this)}};
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", new ImprovedCleave(pchar, this)},
+    QMap<QString, Talent*> tier3 {{"3LL", new GenericTalent(pchar, this, "Improved Cleave", "3LL", base_url + "ability/Ability_warrior_cleave.png", 3, "Increases the bonus damage done by your Cleave ability by %1%.", QVector<QPair<int, int>>{{40, 40}})},
                                   {"3ML", new GenericTalent(pchar, this, "Piercing Howl", "3ML", base_url + "spell/Spell_shadow_deathscream.png", 1, "Causes all enemies near the warrior to be dazed, reducing movement speed by 50% for 6 sec.", QVector<QPair<int, int>>())},
                                   {"3MR", new GenericTalent(pchar, this, "Blood Craze", "3MR", base_url + "spell/Spell_shadow_summonimp.png", 3, "Regenerates %1% of your total Health over 6 sec after being the victim of a critical strike.", QVector<QPair<int, int>>{{1, 1}})},
                                   {"3RR", new ImprovedBattleShout(pchar, this)}};
