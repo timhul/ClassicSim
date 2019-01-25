@@ -97,7 +97,7 @@ GUIControl::GUIControl(QObject* parent) :
     boots_enchants(new EnchantModel(EquipmentSlot::BOOTS, EnchantModel::Permanent)),
     last_quick_sim_result(0.0),
     sim_in_progress(false),
-    active_window("EQUIPMENT")
+    active_window("TALENTS")
 {
     thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
