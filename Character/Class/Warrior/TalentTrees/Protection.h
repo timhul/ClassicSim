@@ -3,12 +3,15 @@
 
 #include "TalentTree.h"
 
+class Warrior;
+
 class Protection: public TalentTree {
 public:
-    Protection(Character *pchar);
-    ~Protection() override;
+    Protection(Warrior *pchar);
 
+    Talent* get_improved_shield_block();
 private:
+    Warrior* warrior;
 };
 
 #endif // PROTECTION_H
