@@ -4,13 +4,13 @@
 #include "BoomingVoice.h"
 #include "Cruelty.h"
 #include "DeathWishTalent.h"
-#include "DualWieldSpecialization.h"
 #include "FlurryTalent.h"
 #include "GenericTalent.h"
 #include "ImprovedBattleShout.h"
 #include "ImprovedBerserkerRage.h"
 #include "ImprovedExecute.h"
 #include "ImprovedSlam.h"
+#include "OffhandAttackWarrior.h"
 #include "Talent.h"
 #include "UnbridledWrath.h"
 #include "Warrior.h"
@@ -35,7 +35,7 @@ Fury::Fury(Warrior* pchar) :
                                   {"3RR", new ImprovedBattleShout(pchar, this)}};
     add_talents(tier3);
 
-    QMap<QString, Talent*> tier4 {{"4LL", new DualWieldSpecialization(pchar, this)},
+    QMap<QString, Talent*> tier4 {{"4LL", get_dual_wield_specialization()},
                                   {"4ML", new ImprovedExecute(pchar, this)},
                                   {"4MR", new GenericTalent(pchar, this, "Enrage", "4MR", base_url + "spell/Spell_shadow_unholyfrenzy.png", 5, "Gives you a %1% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier4);
@@ -67,6 +67,17 @@ Talent* Fury::get_unbridled_wrath() {
                                 "Assets/spell/Spell_nature_stoneclawtotem.png", 5, rank_descriptions,
                                 {},
                                 QVector<Proc*>{warrior->get_unbridled_wrath()});
+
+    return talent;
+}
+
+Talent* Fury::get_dual_wield_specialization() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the damage done by your offhand weapon by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{5, 5}});
+    Talent* talent = new Talent(warrior, this, "Dual Wield Specialization", "4LL",
+                                "Assets/ability/Ability_dualwield.png", 5, rank_descriptions,
+                                QVector<Spell*>{spells->get_oh_attack_warrior()});
 
     return talent;
 }

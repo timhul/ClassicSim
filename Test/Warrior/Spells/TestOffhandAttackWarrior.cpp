@@ -1,9 +1,10 @@
 #include "TestOffhandAttackWarrior.h"
 
-#include "DualWieldSpecialization.h"
 #include "Equipment.h"
+#include "Fury.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
+#include "Talent.h"
 
 TestOffhandAttackWarrior::TestOffhandAttackWarrior(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "OffhandAttackWarrior")
@@ -448,33 +449,53 @@ void TestOffhandAttackWarrior::given_0_of_5_dual_wield_specialization() {
 }
 
 void TestOffhandAttackWarrior::given_1_of_5_dual_wield_specialization() {
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
+    Talent* talent = Fury(warrior).get_dual_wield_specialization();
+
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestOffhandAttackWarrior::given_2_of_5_dual_wield_specialization() {
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
+    Talent* talent = Fury(warrior).get_dual_wield_specialization();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestOffhandAttackWarrior::given_3_of_5_dual_wield_specialization() {
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
+    Talent* talent = Fury(warrior).get_dual_wield_specialization();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestOffhandAttackWarrior::given_4_of_5_dual_wield_specialization() {
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
+    Talent* talent = Fury(warrior).get_dual_wield_specialization();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestOffhandAttackWarrior::given_5_of_5_dual_wield_specialization() {
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
-    assert(DualWieldSpecialization(pchar, nullptr).increment_rank());
+    Talent* talent = Fury(warrior).get_dual_wield_specialization();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestOffhandAttackWarrior::when_mh_attack_is_performed() {

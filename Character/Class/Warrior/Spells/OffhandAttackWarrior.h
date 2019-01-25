@@ -13,10 +13,7 @@ public:
 
     void extra_attack() override;
 
-protected:
 private:
-    friend class DualWieldSpecialization;
-
     Warrior* warr;
     QVector<double> talent_ranks;
 

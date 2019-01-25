@@ -11,6 +11,7 @@ public:
     Fury(Warrior* pchar);
 
     Talent* get_unbridled_wrath();
+    Talent* get_dual_wield_specialization();
 
 private:
     Warrior* warrior;
