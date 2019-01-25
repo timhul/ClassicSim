@@ -8,7 +8,7 @@ Murder::Murder(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Murder", "2ML", "Assets/spell/Spell_shadow_deathscream.png", 2)
 {
     QString base_str = "Increases all damage caused against Humanoid, Giant, Beast and Dragonkin targets by %1%.";
-    initialize_rank_descriptions(base_str, 1, 1);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{1, 1}});
 }
 
 Murder::~Murder() = default;

@@ -1,16 +1,17 @@
 #include "TestRend.h"
 
+#include "Arms.h"
 #include "Bloodthirst.h"
 #include "ClassStatistics.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "HeroicStrike.h"
-#include "ImprovedRend.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
 #include "Overpower.h"
 #include "Queue.h"
 #include "Rend.h"
+#include "Talent.h"
 #include "Whirlwind.h"
 
 TestRend::TestRend(EquipmentDb *equipment_db) :
@@ -193,18 +194,30 @@ void TestRend::given_0_of_3_improved_rend() {
 }
 
 void TestRend::given_1_of_3_improved_rend() {
-    assert(ImprovedRend(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_improved_rend();
+
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestRend::given_2_of_3_improved_rend() {
-    assert(ImprovedRend(pchar, nullptr).increment_rank());
-    assert(ImprovedRend(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_improved_rend();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestRend::given_3_of_3_improved_rend() {
-    assert(ImprovedRend(pchar, nullptr).increment_rank());
-    assert(ImprovedRend(pchar, nullptr).increment_rank());
-    assert(ImprovedRend(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_improved_rend();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestRend::given_no_previous_rend_damage_dealt() {

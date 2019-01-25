@@ -9,7 +9,7 @@ ImprovedSlam::ImprovedSlam(Character *pchar, TalentTree* tree) :
     slam(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_slam())
 {
     QString base_str = "Decreases the casting time of your Slam ability by 0.%1 sec.";
-    initialize_rank_descriptions(base_str, 1, 1);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{1, 1}});
 }
 
 ImprovedSlam::~ImprovedSlam() = default;

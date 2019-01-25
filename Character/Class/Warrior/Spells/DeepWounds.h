@@ -15,10 +15,7 @@ public:
 
     void perform_periodic() override;
 
-protected:
 private:
-    friend class DeepWoundsTalent;
-
     Warrior* warr;
     Buff* buff;
     double wpn_percent;

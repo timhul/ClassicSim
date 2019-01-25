@@ -9,7 +9,7 @@ DualWieldSpecializationRogue::DualWieldSpecializationRogue(Character *pchar, Tal
     oh_attack(dynamic_cast<OffhandAttackRogue*>(dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells())->get_oh_attack()))
 {
     QString base_str = "Increases the damage done by your offhand weapon by %1%.";
-    initialize_rank_descriptions(base_str, 10, 10);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{10, 10}});
 }
 
 DualWieldSpecializationRogue::~DualWieldSpecializationRogue() = default;

@@ -1,9 +1,10 @@
 #include "TestHeroicStrike.h"
 
+#include "Arms.h"
 #include "Equipment.h"
 #include "HeroicStrike.h"
 #include "NoEffectBuff.h"
-#include "ImprovedHeroicStrike.h"
+#include "Talent.h"
 #include "WarriorSpells.h"
 
 TestHeroicStrike::TestHeroicStrike(EquipmentDb *equipment_db) :
@@ -125,19 +126,22 @@ void TestHeroicStrike::test_3_of_3_improved_hs_reduces_rage_cost() {
 }
 
 void TestHeroicStrike::test_removing_points_in_improved_hs_increases_rage_cost() {
-    ImprovedHeroicStrike improved_heroic_strike(pchar, nullptr);
-    assert(improved_heroic_strike.increment_rank());
-    assert(improved_heroic_strike.increment_rank());
-    assert(improved_heroic_strike.increment_rank());
+    Talent* improved_heroic_strike = Arms(warrior).get_improved_heroic_strike();
 
-    assert(improved_heroic_strike.decrement_rank());
+    assert(improved_heroic_strike->increment_rank());
+    assert(improved_heroic_strike->increment_rank());
+    assert(improved_heroic_strike->increment_rank());
+
+    assert(improved_heroic_strike->decrement_rank());
     then_heroic_strike_costs(13);
 
-    assert(improved_heroic_strike.decrement_rank());
+    assert(improved_heroic_strike->decrement_rank());
     then_heroic_strike_costs(14);
 
-    assert(improved_heroic_strike.decrement_rank());
+    assert(improved_heroic_strike->decrement_rank());
     then_heroic_strike_costs(15);
+
+    delete improved_heroic_strike;
 }
 
 void TestHeroicStrike::test_hit_dmg() {
@@ -212,18 +216,30 @@ void TestHeroicStrike::given_0_of_3_improved_hs() {
 }
 
 void TestHeroicStrike::given_1_of_3_improved_hs() {
-    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_improved_heroic_strike();
+
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestHeroicStrike::given_2_of_3_improved_hs() {
-    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
-    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_improved_heroic_strike();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestHeroicStrike::given_3_of_3_improved_hs() {
-    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
-    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
-    assert(ImprovedHeroicStrike(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_improved_heroic_strike();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestHeroicStrike::given_heroic_strike_is_queued() {

@@ -9,7 +9,7 @@ Opportunity::Opportunity(Character* pchar, TalentTree* tree) :
     backstab(dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells())->get_backstab())
 {
     QString base_str = "Increases the damage dealt when striking from behind with your Backstab, Garrote, or Ambush abilities by %1%.";
-    initialize_rank_descriptions(base_str, 4, 4);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{4, 4}});
 }
 
 void Opportunity::apply_rank_effect() {

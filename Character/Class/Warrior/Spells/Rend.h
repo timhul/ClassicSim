@@ -15,8 +15,6 @@ public:
 
 protected:
 private:
-    friend class ImprovedRend;
-
     Warrior* warr;
     Buff* buff;
     double talent_modifier;

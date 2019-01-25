@@ -9,7 +9,7 @@ ImprovedExecute::ImprovedExecute(Character *pchar, TalentTree* tree) :
     execute(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_execute())
 {
     QString base_str = "Reduces the rage cost of your Execute abillity by %1.";
-    initialize_rank_descriptions(base_str, 2, 3);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{2, 3}});
 }
 
 ImprovedExecute::~ImprovedExecute() = default;

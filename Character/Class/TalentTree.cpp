@@ -11,6 +11,7 @@ TalentStorage::~TalentStorage() {
 TalentTree::TalentTree(QString name_, QString background_) :
     name(std::move(name_)),
     background(std::move(background_)),
+    base_url("Assets/"),
     total_spent_points(0),
     talents(QMap<QString, TalentStorage*>())
 {

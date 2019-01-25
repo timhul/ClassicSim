@@ -18,8 +18,6 @@ public:
 
 protected:
 private:
-    friend class ImprovedHeroicStrike;
-
     Warrior* warr;
     NoEffectBuff* hs_buff;
     QVector<int> spell_ranks;

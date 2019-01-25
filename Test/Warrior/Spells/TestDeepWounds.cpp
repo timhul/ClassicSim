@@ -1,9 +1,9 @@
 #include "TestDeepWounds.h"
 
+#include "Arms.h"
 #include "Bloodthirst.h"
 #include "ClassStatistics.h"
 #include "DeepWounds.h"
-#include "DeepWoundsTalent.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "HeroicStrike.h"
@@ -11,6 +11,7 @@
 #include "OffhandAttackWarrior.h"
 #include "Overpower.h"
 #include "Queue.h"
+#include "Talent.h"
 #include "Whirlwind.h"
 
 TestDeepWounds::TestDeepWounds(EquipmentDb *equipment_db) :
@@ -338,20 +339,35 @@ void TestDeepWounds::given_deep_wounds_enabled() {
 }
 
 void TestDeepWounds::given_1_of_3_deep_wounds() {
-    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_deep_wounds();
+
+    talent->increment_rank();
+
+    delete talent;
+
     pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeepWounds::given_2_of_3_deep_wounds() {
-    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
-    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_deep_wounds();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+
     pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeepWounds::given_3_of_3_deep_wounds() {
-    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
-    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
-    assert(DeepWoundsTalent(pchar, nullptr).increment_rank());
+    Talent* talent = Arms(warrior).get_deep_wounds();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+
     pchar->prepare_set_of_combat_iterations();
 }
 

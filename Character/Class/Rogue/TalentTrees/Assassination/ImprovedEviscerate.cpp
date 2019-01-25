@@ -9,7 +9,7 @@ ImprovedEviscerate::ImprovedEviscerate(Character *pchar, TalentTree* tree) :
     eviscerate(dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells())->get_eviscerate())
 {
     QString base_str = "Increases the damage done by your Eviscerate ability by %1%.";
-    initialize_rank_descriptions(base_str, 5, 5);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{5, 5}});
 }
 
 void ImprovedEviscerate::apply_rank_effect() {

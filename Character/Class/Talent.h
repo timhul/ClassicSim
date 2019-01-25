@@ -1,16 +1,28 @@
 #ifndef TALENT_H
 #define TALENT_H
 
-#include <QString>
 #include <QMap>
+#include <QString>
+#include <QVector>
 #include <assert.h>
 
+class Buff;
 class Character;
+class Spell;
+class TalentRequirer;
 class TalentTree;
 
 class Talent {
 public:
-    Talent(Character* pchar_, TalentTree *tree_, QString  name_, QString  position_, QString icon_, const int max_points_);
+    Talent(Character* pchar_,
+           TalentTree *tree_,
+           QString name_,
+           QString position_,
+           QString icon_,
+           const int max_points_,
+           QMap<int, QString> rank_descriptions = {},
+           QVector<Spell *> affected_spells = {}
+           );
     virtual ~Talent();
 
     QString get_name() const;
@@ -43,6 +55,9 @@ public:
     void set_bottom_child(Talent*);
     void set_right_child(Talent*);
 
+    static void initialize_rank_descriptions(QMap<int, QString>& description_map, const QString &base_str, const int format_points, const QVector<QPair<int, int> > &format_values);
+    static void initialize_rank_descriptions(QMap<int, QString>& description_map, const QString &base_str, const int format_points, const QVector<QPair<double, double> > &format_values);
+
 protected:
     Character* pchar;
     TalentTree* tree;
@@ -51,6 +66,7 @@ protected:
     const QString icon;
     const int max_points;
     int curr_points;
+    QVector<Spell*> affected_spells;
 
     Talent* parent;
     Talent* right_child;
@@ -61,12 +77,8 @@ protected:
     bool any_child_active() const;
     QString get_arrow_identifier(const QString& target_position) const;
 
-    void initialize_rank_descriptions(const QString &base_str, const int base_value, const int increase);
-    void initialize_rank_descriptions(const QString &base_str, const QVector<QPair<int, int> > &format_values);
-    void initialize_rank_descriptions(const QString &base_str, const QVector<QPair<double, double> > &format_values);
-
-    virtual void apply_rank_effect() = 0;
-    virtual void remove_rank_effect() = 0;
+    virtual void apply_rank_effect();
+    virtual void remove_rank_effect();
 
 private:
 

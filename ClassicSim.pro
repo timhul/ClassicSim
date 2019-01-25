@@ -63,7 +63,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury.cpp \
     Character/Class/Warrior/TalentTrees/Protection.cpp \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.cpp \
     Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
     Character/Talents.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.cpp \
@@ -78,16 +77,11 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.cpp \
     Character/Class/GenericTalent.cpp \
     GUI/GUIControl.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/ImprovedHeroicStrike.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/ImprovedOverpower.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
     Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.cpp \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.cpp \
     Character/Stats.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.cpp \
     Character/Class/Warrior/Spells/DeepWounds.cpp \
     Event/Events/DotTick.cpp \
     Character/Class/Warrior/TalentTrees/Fury/UnbridledWrathTalent.cpp \
@@ -401,7 +395,6 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury.h \
     Character/Class/Warrior/TalentTrees/Protection.h \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.h \
-    Character/Class/Warrior/TalentTrees/Arms/ImprovedRend.h \
     Character/Class/Warrior/TalentTrees/Arms/Impale.h \
     Character/Talents.h \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.h \
@@ -416,16 +409,11 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/BloodthirstTalent.h \
     Character/Class/GenericTalent.h \
     GUI/GUIControl.h \
-    Character/Class/Warrior/TalentTrees/Arms/ImprovedHeroicStrike.h \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
-    Character/Class/Warrior/TalentTrees/Arms/ImprovedOverpower.h \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
     Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.h \
-    Character/Class/Warrior/TalentTrees/Arms/SweepingStrikes.h \
     Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.h \
-    Character/Class/Warrior/TalentTrees/Arms/MortalStrikeTalent.h \
     Character/Stats.h \
-    Character/Class/Warrior/TalentTrees/Arms/DeepWoundsTalent.h \
     Character/Class/Warrior/Spells/DeepWounds.h \
     Event/Events/DotTick.h \
     Character/Class/Warrior/Procs/UnbridledWrath.h \

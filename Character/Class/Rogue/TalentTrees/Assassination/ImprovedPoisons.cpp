@@ -9,7 +9,7 @@ ImprovedPoisons::ImprovedPoisons(Character* pchar, TalentTree* tree) :
     oh_instant_poison(dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison())
 {
     QString base_str = "Increases the chance to apply poisons to your target by %1%.";
-    initialize_rank_descriptions(base_str, 2, 2);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{5, 5}});
 }
 
 void ImprovedPoisons::apply_rank_effect() {

@@ -9,7 +9,7 @@ ImprovedSinisterStrike::ImprovedSinisterStrike(Character *pchar, TalentTree* tre
     sinister_strike(dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells())->get_sinister_strike())
 {
     QString base_str = "Reduces the Energy cost of your Sinister Strike ability by %1.";
-    initialize_rank_descriptions(base_str, 3, 2);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{3, 2}});
 }
 
 void ImprovedSinisterStrike::apply_rank_effect() {

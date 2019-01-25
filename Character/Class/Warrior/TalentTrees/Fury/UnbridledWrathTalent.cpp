@@ -8,7 +8,7 @@ UnbridledWrathTalent::UnbridledWrathTalent(Character *pchar, TalentTree* tree) :
     unbridled_wrath(dynamic_cast<Warrior*>(pchar)->get_unbridled_wrath())
 {
     QString base_str = "Gives you a %1% chance to generate an additional Rage point when you deal melee damage with a weapon.";
-    initialize_rank_descriptions(base_str, 8, 8);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{8, 8}});
 }
 
 UnbridledWrathTalent::~UnbridledWrathTalent() = default;

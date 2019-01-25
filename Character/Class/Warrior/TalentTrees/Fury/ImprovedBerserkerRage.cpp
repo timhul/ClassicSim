@@ -9,7 +9,7 @@ ImprovedBerserkerRage::ImprovedBerserkerRage(Character *pchar, TalentTree* tree)
     berserker_rage(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_berserker_rage())
 {
     QString base_str = "The Berserker Rage ability will generate %1 rage when used.";
-    initialize_rank_descriptions(base_str, 5, 5);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{5, 5}});
 }
 
 ImprovedBerserkerRage::~ImprovedBerserkerRage() = default;

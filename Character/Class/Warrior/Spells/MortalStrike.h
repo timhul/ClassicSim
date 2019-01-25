@@ -12,8 +12,6 @@ public:
 
 protected:
 private:
-    friend class MortalStrikeTalent;
-
     Warrior* warr;
 
     void spell_effect() override;

@@ -4,9 +4,18 @@
 #include <utility>
 
 #include "Character.h"
+#include "Spell.h"
+#include "TalentRequirer.h"
 #include "TalentTree.h"
 
-Talent::Talent(Character *pchar_, TalentTree *tree_, QString name_, QString  position_, QString icon_, const int max_points_) :
+Talent::Talent(Character *pchar_,
+               TalentTree *tree_,
+               QString name_,
+               QString position_,
+               QString icon_,
+               const int max_points_,
+               QMap<int, QString> rank_descriptions,
+               QVector<Spell*> affected_spells_) :
     pchar(pchar_),
     tree(tree_),
     name(std::move(name_)),
@@ -14,14 +23,26 @@ Talent::Talent(Character *pchar_, TalentTree *tree_, QString name_, QString  pos
     icon(std::move(icon_)),
     max_points(max_points_),
     curr_points(0),
+    affected_spells(std::move(affected_spells_)),
     parent(nullptr),
     right_child(nullptr),
-    bottom_child(nullptr)
+    bottom_child(nullptr),
+    rank_descriptions(rank_descriptions)
 {
     assert(max_points > 0 && max_points <= 5);
 }
 
 Talent::~Talent() = default;
+
+void Talent::apply_rank_effect() {
+    for (auto * spell : affected_spells)
+        dynamic_cast<TalentRequirer*>(spell)->increase_talent_rank(spell, name);
+}
+
+void Talent::remove_rank_effect() {
+    for (auto * spell : affected_spells)
+        dynamic_cast<TalentRequirer*>(spell)->decrease_talent_rank(spell, name);
+}
 
 QString Talent::get_name() const {
     return name;
@@ -195,38 +216,30 @@ Talent* Talent::get_right_child() const {
     return right_child;
 }
 
-void Talent::initialize_rank_descriptions(const QString &base_str, const int base_value, const int increase) {
-    for (int i = 0; i < max_points; ++i) {
-        rank_descriptions.insert(i + 1, base_str.arg(base_value + i * increase));
-    }
-
-    rank_descriptions[0] = rank_descriptions[1];
-}
-
-void Talent::initialize_rank_descriptions(const QString &base_str, const QVector<QPair<int, int>> &format_values) {
-    for (int i = 0; i < max_points; ++i) {
+void Talent::initialize_rank_descriptions(QMap<int, QString>& description_map, const QString& base_str, const int format_points, const QVector<QPair<int, int>>& format_values) {
+    for (int i = 0; i < format_points; ++i) {
         QString format_str = base_str;
         for (auto format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);
         }
 
-        rank_descriptions.insert(i + 1, format_str);
+        description_map.insert(i + 1, format_str);
     }
 
-    rank_descriptions[0] = rank_descriptions[1];
+    description_map[0] = description_map[1];
 }
 
-void Talent::initialize_rank_descriptions(const QString &base_str, const QVector<QPair<double, double>> &format_values) {
-    for (int i = 0; i < max_points; ++i) {
+void Talent::initialize_rank_descriptions(QMap<int, QString>& description_map, const QString& base_str, const int format_points, const QVector<QPair<double, double>>& format_values) {
+    for (int i = 0; i < format_points; ++i) {
         QString format_str = base_str;
         for (auto format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);
         }
 
-        rank_descriptions.insert(i + 1, format_str);
+        description_map.insert(i + 1, format_str);
     }
 
-    rank_descriptions[0] = rank_descriptions[1];
+    description_map[0] = description_map[1];
 }
 
 void Talent::set_parent(Talent* parent) {

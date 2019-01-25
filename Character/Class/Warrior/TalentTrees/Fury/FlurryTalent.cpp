@@ -9,7 +9,7 @@ FlurryTalent::FlurryTalent(Character *pchar, TalentTree* tree) :
     flurry(dynamic_cast<Warrior*>(pchar)->get_flurry())
 {
     QString base_str = "Increases your attack speed by %1% for your next 3 swings after dealing a melee critical strike.";
-    initialize_rank_descriptions(base_str, 10, 5);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{10, 5}});
 }
 
 FlurryTalent::~FlurryTalent() = default;

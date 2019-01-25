@@ -8,7 +8,7 @@ SealFateTalent::SealFateTalent(Character *pchar, TalentTree* tree) :
     seal_fate(dynamic_cast<Rogue*>(pchar)->get_seal_fate())
 {
     QString base_str = "Your critical strikes from abilities that add combo points have a %1% chance to add an additional combo point.";
-    initialize_rank_descriptions(base_str, 20, 20);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{20, 20}});
 }
 
 void SealFateTalent::apply_rank_effect() {

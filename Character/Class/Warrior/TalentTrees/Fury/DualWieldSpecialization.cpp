@@ -9,7 +9,7 @@ DualWieldSpecialization::DualWieldSpecialization(Character *pchar, TalentTree* t
     oh_attack(dynamic_cast<WarriorSpells*>(dynamic_cast<Warrior*>(pchar)->get_spells())->get_oh_attack_warrior())
 {
     QString base_str = "Increases the damage done by your offhand weapon by %1%.";
-    initialize_rank_descriptions(base_str, 5, 5);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{5, 5}});
 }
 
 DualWieldSpecialization::~DualWieldSpecialization() = default;

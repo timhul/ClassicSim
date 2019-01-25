@@ -8,7 +8,7 @@ BoomingVoice::BoomingVoice(Character *pchar, TalentTree* tree) :
     battle_shout_buff(dynamic_cast<Warrior*>(pchar)->get_battle_shout_buff())
 {
     QString base_str = "Increases the area of effect and duration of your Battle Shout and Demoralizing Shout by %1%.";
-    initialize_rank_descriptions(base_str, 10, 10);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{10, 10}});
 }
 
 BoomingVoice::~BoomingVoice() = default;

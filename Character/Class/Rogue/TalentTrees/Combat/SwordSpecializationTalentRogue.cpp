@@ -8,7 +8,7 @@ SwordSpecializationTalentRogue::SwordSpecializationTalentRogue(Character *pchar,
     sword_spec(dynamic_cast<Rogue*>(pchar)->get_sword_spec())
 {
     QString base_str = "Gives you a %1% chance to get an extra attack on the same target after dealing damage with your Sword.";
-    initialize_rank_descriptions(base_str, 1, 1);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{1, 1}});
 }
 
 SwordSpecializationTalentRogue::~SwordSpecializationTalentRogue() = default;

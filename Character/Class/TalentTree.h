@@ -94,6 +94,7 @@ public:
 protected:
     const QString name;
     const QString background;
+    const QString base_url;
     int total_spent_points;
 
     QMap<QString, TalentStorage*> talents;

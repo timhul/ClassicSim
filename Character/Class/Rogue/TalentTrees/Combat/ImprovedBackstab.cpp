@@ -9,7 +9,7 @@ ImprovedBackstab::ImprovedBackstab(Character *pchar, TalentTree* tree) :
     backstab(dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells())->get_backstab())
 {
     QString base_str = "Increases the critical strike chance of your Backstab ability by %1%.";
-    initialize_rank_descriptions(base_str, 10, 10);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{10, 10}});
 }
 
 void ImprovedBackstab::apply_rank_effect() {

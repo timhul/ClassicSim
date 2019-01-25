@@ -12,8 +12,6 @@ public:
 
 protected:
 private:
-    friend class ImprovedOverpower;
-
     Warrior* warr;
     QVector<double> talent_ranks;
     double crit_mod;

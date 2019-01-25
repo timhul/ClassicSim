@@ -6,7 +6,7 @@ ImprovedDemoralizingShout::ImprovedDemoralizingShout(Character *pchar, TalentTre
     Talent(pchar, tree, "Improved Demoralizing Shout", "2ML", "Assets/ability/Ability_warrior_warcry.png", 5)
 {
     QString base_str = "Increases the melee attack power reduction of your Demoralizing Shout by %1%.";
-    initialize_rank_descriptions(base_str, 8, 8);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{8, 8}});
 }
 
 ImprovedDemoralizingShout::~ImprovedDemoralizingShout() = default;

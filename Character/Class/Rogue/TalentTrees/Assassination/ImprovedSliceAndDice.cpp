@@ -9,7 +9,7 @@ ImprovedSliceAndDice::ImprovedSliceAndDice(Character *pchar, TalentTree* tree) :
     slice_and_dice(dynamic_cast<RogueSpells*>(dynamic_cast<Rogue*>(pchar)->get_spells())->get_slice_and_dice())
 {
     QString base_str = "Increases the duration of your Slice and Dice ability by %1%.";
-    initialize_rank_descriptions(base_str, 15, 15);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{15, 15}});
 }
 
 void ImprovedSliceAndDice::apply_rank_effect() {

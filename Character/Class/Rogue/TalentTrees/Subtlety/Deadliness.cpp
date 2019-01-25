@@ -7,7 +7,7 @@ Deadliness::Deadliness(Character* pchar, TalentTree* tree) :
     Talent(pchar, tree, "Deadliness", "6MR", "Assets/items/Inv_weapon_crossbow_11.png", 5)
 {
     QString base_str = "Increases your Attack Power by %1%.";
-    initialize_rank_descriptions(base_str, 2, 2);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{2, 2}});
 
     this->ap_multipliers = {0, 2, 4, 6, 8, 10};
 }

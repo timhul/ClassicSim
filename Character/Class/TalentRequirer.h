@@ -36,6 +36,7 @@ public:
     virtual ~TalentRequirer();
 
 protected:
+    friend class Talent;
     QMap<QString, TalentRequirerInfo*> talent_info;
 
     void increase_talent_rank(Buff* buff, const QString &talent);

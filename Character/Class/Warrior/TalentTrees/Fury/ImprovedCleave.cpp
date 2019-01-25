@@ -6,7 +6,7 @@ ImprovedCleave::ImprovedCleave(Character *pchar, TalentTree* tree) :
     Talent(pchar, tree, "Improved Cleave", "3LL", "Assets/ability/Ability_warrior_cleave.png", 3)
 {
     QString base_str = "Increases the bonus damage done by your Cleave ability by %1%.";
-    initialize_rank_descriptions(base_str, 40, 40);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{40, 40}});
 }
 
 ImprovedCleave::~ImprovedCleave() = default;

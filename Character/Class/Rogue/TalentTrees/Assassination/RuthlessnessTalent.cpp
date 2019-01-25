@@ -8,7 +8,7 @@ RuthlessnessTalent::RuthlessnessTalent(Character *pchar, TalentTree* tree) :
     ruthlessness(dynamic_cast<Rogue*>(pchar)->get_ruthlessness())
 {
     QString base_str = "Gives your finishing moves a %1% chance to add a combo point to your target.";
-    initialize_rank_descriptions(base_str, 20, 20);
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{20, 20}});
 }
 
 void RuthlessnessTalent::apply_rank_effect() {

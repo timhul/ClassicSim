@@ -1,5 +1,5 @@
-
 #include "GenericTalent.h"
+
 #include "Character.h"
 #include "TalentTree.h"
 
@@ -7,7 +7,7 @@ GenericTalent::GenericTalent(Character *pchar, TalentTree* tree, const QString &
     Talent(pchar, tree, name, position, icon, max_points)
 {
     if (!format_values.empty()) {
-        initialize_rank_descriptions(rank_description, format_values);
+        initialize_rank_descriptions(rank_descriptions, rank_description, max_points, format_values);
     }
     else {
         rank_descriptions.insert(0, rank_description);
@@ -19,7 +19,7 @@ GenericTalent::GenericTalent(Character *pchar, TalentTree* tree, const QString &
     Talent(pchar, tree, name, position, icon, max_points)
 {
     if (!format_values.empty()) {
-        initialize_rank_descriptions(rank_description, format_values);
+        initialize_rank_descriptions(rank_descriptions, rank_description, max_points, format_values);
     }
     else {
         rank_descriptions.insert(0, rank_description);
