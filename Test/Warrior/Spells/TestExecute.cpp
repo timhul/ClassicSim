@@ -4,8 +4,8 @@
 #include "Engine.h"
 #include "Equipment.h"
 #include "Execute.h"
+#include "Fury.h"
 #include "Impale.h"
-#include "ImprovedExecute.h"
 #include "MeleeSpecialTable.h"
 #include "Orc.h"
 #include "Queue.h"
@@ -200,46 +200,46 @@ void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
-    assert(ImprovedExecute(pchar, nullptr).increment_rank());
+    given_1_of_2_improved_execute();
 
     assert(execute_available_with_rage(13));
     assert(!execute_available_with_rage(12));
 }
 
 void TestExecute::test_2_of_2_improved_execute_reduces_rage_cost() {
-    ImprovedExecute improved_execute(pchar, nullptr);
     given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
-    assert(improved_execute.increment_rank());
-    assert(improved_execute.increment_rank());
+    given_2_of_2_improved_execute();
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
 }
 
 void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost() {
-    ImprovedExecute improved_execute(pchar, nullptr);
+    Talent* improved_execute = Fury(warrior).get_improved_execute();
     given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
 
-    assert(improved_execute.increment_rank());
-    assert(improved_execute.increment_rank());
+    assert(improved_execute->increment_rank());
+    assert(improved_execute->increment_rank());
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
 
-    assert(improved_execute.decrement_rank());
+    assert(improved_execute->decrement_rank());
 
     assert(execute_available_with_rage(13));
     assert(!execute_available_with_rage(12));
 
-    assert(improved_execute.decrement_rank());
+    assert(improved_execute->decrement_rank());
 
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
+
+    delete improved_execute;
 }
 
 void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
@@ -518,15 +518,23 @@ void TestExecute::given_0_of_2_improved_execute() {
 }
 
 void TestExecute::given_1_of_2_improved_execute() {
-    assert(ImprovedExecute(pchar, nullptr).increment_rank());
+    Talent* talent = Fury(warrior).get_improved_execute();
+
+    talent->increment_rank();
+
+    delete talent;
 
     assert(execute_available_with_rage(13));
     assert(!execute_available_with_rage(12));
 }
 
 void TestExecute::given_2_of_2_improved_execute() {
-    assert(ImprovedExecute(pchar, nullptr).increment_rank());
-    assert(ImprovedExecute(pchar, nullptr).increment_rank());
+    Talent* talent = Fury(warrior).get_improved_execute();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
@@ -548,13 +556,13 @@ void TestExecute::given_target_not_in_execute_range() {
     given_engine_priority_at(0.0);
 }
 
-void TestExecute::when_execute_is_performed_with_rage(const int rage) {
+void TestExecute::when_execute_is_performed_with_rage(const unsigned rage) {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     execute()->perform();
 }
 
-bool TestExecute::execute_available_with_rage(const int rage) {
+bool TestExecute::execute_available_with_rage(const unsigned rage) {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     return execute()->is_available();

@@ -4,11 +4,11 @@
 #include "BoomingVoice.h"
 #include "Cruelty.h"
 #include "DeathWishTalent.h"
+#include "Execute.h"
 #include "FlurryTalent.h"
 #include "GenericTalent.h"
 #include "ImprovedBattleShout.h"
 #include "ImprovedBerserkerRage.h"
-#include "ImprovedExecute.h"
 #include "ImprovedSlam.h"
 #include "OffhandAttackWarrior.h"
 #include "Talent.h"
@@ -36,7 +36,7 @@ Fury::Fury(Warrior* pchar) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4LL", get_dual_wield_specialization()},
-                                  {"4ML", new ImprovedExecute(pchar, this)},
+                                  {"4ML", get_improved_execute()},
                                   {"4MR", new GenericTalent(pchar, this, "Enrage", "4MR", base_url + "spell/Spell_shadow_unholyfrenzy.png", 5, "Gives you a %1% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier4);
 
@@ -78,6 +78,17 @@ Talent* Fury::get_dual_wield_specialization() {
     Talent* talent = new Talent(warrior, this, "Dual Wield Specialization", "4LL",
                                 "Assets/ability/Ability_dualwield.png", 5, rank_descriptions,
                                 QVector<Spell*>{spells->get_oh_attack_warrior()});
+
+    return talent;
+}
+
+Talent* Fury::get_improved_execute() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Reduces the rage cost of your Execute ability by %1.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<int, int>>{{2, 3}});
+    Talent* talent = new Talent(warrior, this, "Improved Execute", "4ML",
+                                "Assets/items/Inv_sword_48.png", 2, rank_descriptions,
+                                QVector<Spell*>{spells->get_execute()});
 
     return talent;
 }

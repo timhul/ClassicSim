@@ -13,10 +13,7 @@ public:
     void set_execute_threshold(const double);
     void reset_execute_threshold();
 
-protected:
 private:
-    friend class ImprovedExecute;
-
     Warrior* warr;
     QVector<QPair<int, int>> spell_ranks;
     QVector<int> talent_ranks;

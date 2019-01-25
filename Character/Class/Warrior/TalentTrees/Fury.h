@@ -12,6 +12,7 @@ public:
 
     Talent* get_unbridled_wrath();
     Talent* get_dual_wield_specialization();
+    Talent* get_improved_execute();
 
 private:
     Warrior* warrior;

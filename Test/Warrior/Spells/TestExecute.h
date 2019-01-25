@@ -61,8 +61,8 @@ private:
     void given_target_in_execute_range();
     void given_target_not_in_execute_range();
 
-    void when_execute_is_performed_with_rage(const int rage);
-    bool execute_available_with_rage(const int rage);
+    void when_execute_is_performed_with_rage(const unsigned rage);
+    bool execute_available_with_rage(const unsigned rage);
 };
 
 #endif // TESTEXECUTE_H

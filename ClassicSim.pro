@@ -67,7 +67,6 @@ SOURCES += main.cpp \
     Character/Talents.cpp \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.cpp \
-    Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.cpp \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.cpp \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.cpp \
@@ -395,7 +394,6 @@ HEADERS += \
     Character/Talents.h \
     Character/Class/Warrior/TalentTrees/Fury/BoomingVoice.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBattleShout.h \
-    Character/Class/Warrior/TalentTrees/Fury/ImprovedExecute.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedSlam.h \
     Character/Class/Warrior/TalentTrees/Fury/ImprovedBerserkerRage.h \
     Character/Class/Warrior/TalentTrees/Fury/FlurryTalent.h \
