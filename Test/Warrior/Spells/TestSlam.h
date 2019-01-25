@@ -36,6 +36,12 @@ private:
     void test_auto_attacks_cancelled_during_slam_cast();
 
     void when_slam_is_performed();
+
+    void given_1_of_5_improved_slam();
+    void given_2_of_5_improved_slam();
+    void given_3_of_5_improved_slam();
+    void given_4_of_5_improved_slam();
+    void given_5_of_5_improved_slam();
 };
 
 #endif // TESTSLAM_H

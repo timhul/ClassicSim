@@ -2,11 +2,12 @@
 
 #include "Engine.h"
 #include "Equipment.h"
-#include "ImprovedSlam.h"
+#include "Fury.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
 #include "Queue.h"
 #include "Slam.h"
+#include "Talent.h"
 
 TestSlam::TestSlam(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Slam")
@@ -78,7 +79,7 @@ void TestSlam::test_spell_cooldown() {
 }
 
 void TestSlam::test_incurs_global_cooldown() {
-    ImprovedSlam(pchar, nullptr).increment_rank();
+    given_1_of_5_improved_slam();
 
     slam()->perform();
 
@@ -210,48 +211,37 @@ void TestSlam::test_cast_time_with_0_of_5_improved_slam() {
 }
 
 void TestSlam::test_cast_time_with_1_of_5_improved_slam() {
-    ImprovedSlam(pchar, nullptr).increment_rank();
+    given_1_of_5_improved_slam();
 
     assert(almost_equal(slam()->get_cast_time(), 1.4));
 }
 
 void TestSlam::test_cast_time_with_2_of_5_improved_slam() {
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
+    given_2_of_5_improved_slam();
 
     assert(almost_equal(slam()->get_cast_time(), 1.3));
 }
 
 void TestSlam::test_cast_time_with_3_of_5_improved_slam() {
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
+    given_3_of_5_improved_slam();
 
     assert(almost_equal(slam()->get_cast_time(), 1.2));
 }
 
 void TestSlam::test_cast_time_with_4_of_5_improved_slam() {
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
+    given_4_of_5_improved_slam();
 
     assert(almost_equal(slam()->get_cast_time(), 1.1));
 }
 
 void TestSlam::test_cast_time_with_5_of_5_improved_slam() {
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
+    given_5_of_5_improved_slam();
 
     assert(almost_equal(slam()->get_cast_time(), 1.0));
 }
 
 void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
-    ImprovedSlam(pchar, nullptr).increment_rank();
-    ImprovedSlam(pchar, nullptr).increment_rank();
+    given_2_of_5_improved_slam();
     given_warrior_has_rage(100);
     given_a_mainhand_weapon_with_2_speed();
     given_an_offhand_weapon_with_3_speed();
@@ -277,6 +267,56 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
     then_next_event_is("OffhandMeleeHit", "3.000", RUN_EVENT);
     then_next_event_is("MainhandMeleeHit", "4.300");
     then_next_event_is("OffhandMeleeHit", "5.300");
+}
+
+void TestSlam::given_1_of_5_improved_slam() {
+    Talent* talent = Fury(warrior).get_improved_slam();
+
+    talent->increment_rank();
+
+    delete talent;
+}
+
+void TestSlam::given_2_of_5_improved_slam() {
+    Talent* talent = Fury(warrior).get_improved_slam();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+}
+
+void TestSlam::given_3_of_5_improved_slam() {
+    Talent* talent = Fury(warrior).get_improved_slam();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+}
+
+void TestSlam::given_4_of_5_improved_slam() {
+    Talent* talent = Fury(warrior).get_improved_slam();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+}
+
+void TestSlam::given_5_of_5_improved_slam() {
+    Talent* talent = Fury(warrior).get_improved_slam();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestSlam::when_slam_is_performed() {

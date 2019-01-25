@@ -9,8 +9,8 @@
 #include "GenericTalent.h"
 #include "ImprovedBattleShout.h"
 #include "ImprovedBerserkerRage.h"
-#include "ImprovedSlam.h"
 #include "OffhandAttackWarrior.h"
+#include "Slam.h"
 #include "Talent.h"
 #include "UnbridledWrath.h"
 #include "Warrior.h"
@@ -40,7 +40,7 @@ Fury::Fury(Warrior* pchar) :
                                   {"4MR", new GenericTalent(pchar, this, "Enrage", "4MR", base_url + "spell/Spell_shadow_unholyfrenzy.png", 5, "Gives you a %1% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {{"5LL", new ImprovedSlam(pchar, this)},
+    QMap<QString, Talent*> tier5 {{"5LL", get_improved_slam()},
                                   {"5ML", new DeathWishTalent(pchar, this)},
                                   {"5RR", new GenericTalent(pchar, this, "Improved Intercept", "5RR", base_url + "ability/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier5);
@@ -89,6 +89,17 @@ Talent* Fury::get_improved_execute() {
     Talent* talent = new Talent(warrior, this, "Improved Execute", "4ML",
                                 "Assets/items/Inv_sword_48.png", 2, rank_descriptions,
                                 QVector<Spell*>{spells->get_execute()});
+
+    return talent;
+}
+
+Talent* Fury::get_improved_slam() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Decreases the casting time of your Slam ability by 0.%1 sec.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{1, 1}});
+    Talent* talent = new Talent(warrior, this, "Improved Slam", "5LL",
+                                "Assets/ability/Ability_warrior_decisivestrike.png", 5, rank_descriptions,
+                                QVector<Spell*>{spells->get_slam()});
 
     return talent;
 }

@@ -12,10 +12,7 @@ class Slam: public SpellCastingTime, public TalentRequirer {
 public:
     Slam(Character* pchar);
 
-protected:
 private:
-    friend class ImprovedSlam;
-
     Warrior* warr;
     QVector<int> talent_ranks;
 
