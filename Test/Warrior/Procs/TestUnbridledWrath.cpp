@@ -1,9 +1,10 @@
 #include "TestUnbridledWrath.h"
 
 #include "EnabledProcs.h"
+#include "Fury.h"
 #include "ProcInfo.h"
+#include "Talent.h"
 #include "UnbridledWrath.h"
-#include "UnbridledWrathTalent.h"
 #include "Warrior.h"
 
 TestUnbridledWrath::TestUnbridledWrath(EquipmentDb* equipment_db) :
@@ -79,38 +80,53 @@ void TestUnbridledWrath::test_proc_range_for_5_of_5_unbridled_wrath() {
 }
 
 void TestUnbridledWrath::given_1_of_5_unbridled_wrath() {
-    UnbridledWrathTalent uw(warrior, nullptr);
-    assert(uw.increment_rank());
+    Talent* talent = Fury(warrior).get_unbridled_wrath();
+
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestUnbridledWrath::given_2_of_5_unbridled_wrath() {
-    UnbridledWrathTalent uw(warrior, nullptr);
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
+    Talent* talent = Fury(warrior).get_unbridled_wrath();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestUnbridledWrath::given_3_of_5_unbridled_wrath() {
-    UnbridledWrathTalent uw(warrior, nullptr);
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
+    Talent* talent = Fury(warrior).get_unbridled_wrath();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestUnbridledWrath::given_4_of_5_unbridled_wrath() {
-    UnbridledWrathTalent uw(warrior, nullptr);
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
+    Talent* talent = Fury(warrior).get_unbridled_wrath();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestUnbridledWrath::given_5_of_5_unbridled_wrath() {
-    UnbridledWrathTalent uw(warrior, nullptr);
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
-    assert(uw.increment_rank());
+    Talent* talent = Fury(warrior).get_unbridled_wrath();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestUnbridledWrath::test_proc_sources_are_valid() {

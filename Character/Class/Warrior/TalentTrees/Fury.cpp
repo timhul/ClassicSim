@@ -12,17 +12,21 @@
 #include "ImprovedExecute.h"
 #include "ImprovedSlam.h"
 #include "Talent.h"
-#include "UnbridledWrathTalent.h"
+#include "UnbridledWrath.h"
+#include "Warrior.h"
+#include "WarriorSpells.h"
 
-Fury::Fury(Character *pchar) :
-    TalentTree("Fury", "Assets/warrior/warrior_fury.jpg")
+Fury::Fury(Warrior* pchar) :
+    TalentTree("Fury", "Assets/warrior/warrior_fury.jpg"),
+    warrior(pchar),
+    spells(dynamic_cast<WarriorSpells*>(pchar->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1ML", new BoomingVoice(pchar, this)},
                                   {"1MR", new Cruelty(pchar, this)}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2ML", new GenericTalent(pchar, this, "Improved Demoralizing Shout", "2ML", base_url + "ability/Ability_warrior_warcry.png", 5, "Increases the melee attack power reduction of your Demoralizing Shout by %1%.", QVector<QPair<int, int>>{{8, 8}})},
-                                  {"2MR", new UnbridledWrathTalent(pchar, this)}};
+                                  {"2MR", get_unbridled_wrath()}};
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new GenericTalent(pchar, this, "Improved Cleave", "3LL", base_url + "ability/Ability_warrior_cleave.png", 3, "Increases the bonus damage done by your Cleave ability by %1%.", QVector<QPair<int, int>>{{40, 40}})},
@@ -55,4 +59,14 @@ Fury::Fury(Character *pchar) :
     talents["6MR"]->talent->set_parent(talents["4MR"]->talent);
 }
 
-Fury::~Fury() = default;
+Talent* Fury::get_unbridled_wrath() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Gives you a %1% chance to generate an additional Rage point when you deal melee damage with a weapon.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{8, 8}});
+    Talent* talent = new Talent(warrior, this, "Unbridled Wrath", "2MR",
+                                "Assets/spell/Spell_nature_stoneclawtotem.png", 5, rank_descriptions,
+                                {},
+                                QVector<Proc*>{warrior->get_unbridled_wrath()});
+
+    return talent;
+}

@@ -4,7 +4,7 @@
 #include <utility>
 
 #include "Character.h"
-#include "Spell.h"
+#include "Proc.h"
 #include "TalentRequirer.h"
 #include "TalentTree.h"
 
@@ -15,7 +15,8 @@ Talent::Talent(Character *pchar_,
                QString icon_,
                const int max_points_,
                QMap<int, QString> rank_descriptions,
-               QVector<Spell*> affected_spells_) :
+               QVector<Spell*> affected_spells_,
+               QVector<Proc*> affected_procs_) :
     pchar(pchar_),
     tree(tree_),
     name(std::move(name_)),
@@ -24,6 +25,7 @@ Talent::Talent(Character *pchar_,
     max_points(max_points_),
     curr_points(0),
     affected_spells(std::move(affected_spells_)),
+    affected_procs(std::move(affected_procs_)),
     parent(nullptr),
     right_child(nullptr),
     bottom_child(nullptr),
@@ -37,11 +39,17 @@ Talent::~Talent() = default;
 void Talent::apply_rank_effect() {
     for (auto * spell : affected_spells)
         dynamic_cast<TalentRequirer*>(spell)->increase_talent_rank(spell, name);
+
+    for (auto * proc : affected_procs)
+        dynamic_cast<TalentRequirer*>(proc)->increase_talent_rank(proc, name);
 }
 
 void Talent::remove_rank_effect() {
     for (auto * spell : affected_spells)
         dynamic_cast<TalentRequirer*>(spell)->decrease_talent_rank(spell, name);
+
+    for (auto * proc : affected_procs)
+        dynamic_cast<TalentRequirer*>(proc)->decrease_talent_rank(proc, name);
 }
 
 QString Talent::get_name() const {

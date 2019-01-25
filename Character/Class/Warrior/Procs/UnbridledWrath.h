@@ -14,10 +14,7 @@ public:
 
     void proc_effect() override;
 
-protected:
 private:
-    friend class UnbridledWrathTalent;
-
     StatisticsResource* statistics_resource;
     Warrior* warr;
     QVector<unsigned> talent_ranks;

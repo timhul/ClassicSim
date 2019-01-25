@@ -8,6 +8,7 @@
 
 class Buff;
 class Character;
+class Proc;
 class Spell;
 class TalentRequirer;
 class TalentTree;
@@ -21,7 +22,8 @@ public:
            QString icon_,
            const int max_points_,
            QMap<int, QString> rank_descriptions = {},
-           QVector<Spell *> affected_spells = {}
+           QVector<Spell*> affected_spells = {},
+           QVector<Proc*> affected_procs = {}
            );
     virtual ~Talent();
 
@@ -67,6 +69,7 @@ protected:
     const int max_points;
     int curr_points;
     QVector<Spell*> affected_spells;
+    QVector<Proc*> affected_procs;
 
     Talent* parent;
     Talent* right_child;

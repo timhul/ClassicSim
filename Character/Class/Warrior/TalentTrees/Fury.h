@@ -8,11 +8,12 @@ class WarriorSpells;
 
 class Fury: public TalentTree {
 public:
-    Fury(Character *pchar);
-    ~Fury() override;
+    Fury(Warrior* pchar);
+
+    Talent* get_unbridled_wrath();
 
 private:
-    Warrior* warr;
+    Warrior* warrior;
     WarriorSpells* spells;
 };
 
