@@ -14,8 +14,6 @@ public:
     void buff_effect_when_removed() override;
 
 private:
-    friend class BoomingVoice;
-
     QVector<int> spell_ranks;
     QVector<double> ranks_booming_voice;
     QVector<double> ranks_imp_shout;

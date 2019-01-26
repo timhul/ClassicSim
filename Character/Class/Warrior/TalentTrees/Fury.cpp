@@ -3,7 +3,6 @@
 #include "BattleShoutBuff.h"
 #include "BerserkerRage.h"
 #include "Bloodthirst.h"
-#include "BoomingVoice.h"
 #include "Cruelty.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
@@ -22,7 +21,7 @@ Fury::Fury(Warrior* pchar) :
     warrior(pchar),
     spells(dynamic_cast<WarriorSpells*>(pchar->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1ML", new BoomingVoice(pchar, this)},
+    QMap<QString, Talent*> tier1 {{"1ML", get_booming_voice()},
                                   {"1MR", new Cruelty(pchar, this)}};
     add_talents(tier1);
 
@@ -58,6 +57,18 @@ Fury::Fury(Warrior* pchar) :
 
     talents["4MR"]->talent->set_bottom_child(talents["6MR"]->talent);
     talents["6MR"]->talent->set_parent(talents["4MR"]->talent);
+}
+
+Talent* Fury::get_booming_voice() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the area of effect and duration of your Battle Shout and Demoralizing Shout by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{10, 10}});
+    Talent* talent = new Talent(warrior, this, "Booming Voice", "1ML",
+                                "Assets/spell/Spell_nature_purge.png", 5, rank_descriptions,
+                                {},
+                                QVector<Buff*>{warrior->get_battle_shout_buff()});
+
+    return talent;
 }
 
 Talent* Fury::get_unbridled_wrath() {
