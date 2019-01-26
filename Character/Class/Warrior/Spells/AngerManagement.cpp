@@ -13,7 +13,9 @@ AngerManagement::AngerManagement(Character* pchar) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Anger Management", 1, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     statistics_resource(nullptr)
-{}
+{
+    this->enabled = false;
+}
 
 void AngerManagement::increase_talent_rank_effect(const QString&, const int) {
     dynamic_cast<WarriorSpells*>(warr->get_spells())->add_pre_combat_spell(this);

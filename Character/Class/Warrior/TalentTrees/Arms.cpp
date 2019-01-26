@@ -2,7 +2,7 @@
 
 #include <QVector>
 
-#include "AngerManagementTalent.h"
+#include "AngerManagement.h"
 #include "AxeSpecialization.h"
 #include "DeepWounds.h"
 #include "GenericTalent.h"
@@ -35,7 +35,7 @@ Arms::Arms(Warrior* pchar) :
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", get_improved_overpower()},
-                                  {"3ML", new AngerManagementTalent(pchar, this)},
+                                  {"3ML", get_anger_management()},
                                   {"3MR", get_deep_wounds()}};
     add_talents(tier3);
 
@@ -106,6 +106,18 @@ Talent* Arms::get_improved_overpower() {
     Talent* talent = new Talent(warr, this, "Improved Overpower", "3LL",
                                 "Assets/items/Inv_sword_05.png", 2, rank_descriptions,
                                 QVector<Spell*>{spells->get_overpower()});
+
+    return talent;
+}
+
+Talent* Arms::get_anger_management() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the time required for your rage to decay while out of combat by 30%.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(warr, this, "Anger Management", "3ML",
+                                "Assets/spell/Spell_holy_blessingofstamina.png", 1, rank_descriptions,
+                                QVector<Spell*>{spells->get_anger_management()});
 
     return talent;
 }

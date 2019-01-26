@@ -14,6 +14,7 @@ public:
     Talent* get_improved_heroic_strike();
     Talent* get_improved_rend();
     Talent* get_improved_overpower();
+    Talent* get_anger_management();
     Talent* get_deep_wounds();
     Talent* get_mortal_strike();
 

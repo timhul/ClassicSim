@@ -15,8 +15,6 @@ public:
     void perform_pre_combat() override;
 
 private:
-    friend class AngerManagementTalent;
-
     Warrior* warr;
     StatisticsResource* statistics_resource;
 

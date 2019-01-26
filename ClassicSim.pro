@@ -229,7 +229,6 @@ SOURCES += main.cpp \
     Test/Warrior/Spells/TestRend.cpp \
     Character/EnabledBuffs.cpp \
     Character/EnabledProcs.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/AngerManagementTalent.cpp \
     Character/Class/Warrior/Spells/AngerManagement.cpp \
     GUI/Models/Statistics/DebuffBreakdownModel.cpp \
     GUI/Models/SimScaleModel.cpp \
@@ -555,7 +554,6 @@ HEADERS += \
     Test/Warrior/Spells/TestRend.h \
     Character/EnabledBuffs.h \
     Character/EnabledProcs.h \
-    Character/Class/Warrior/TalentTrees/Arms/AngerManagementTalent.h \
     Character/Class/Warrior/Spells/AngerManagement.h \
     GUI/Models/Statistics/DebuffBreakdownModel.h \
     GUI/SimOption.h \
