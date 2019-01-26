@@ -9,10 +9,7 @@ class Flurry: public Buff, public TalentRequirer {
 public:
     Flurry(Character* pchar);
 
-protected:
 private:
-    friend class FlurryTalent;
-
     QVector<int> rank_talents;
     int attack_speed_increase;
 

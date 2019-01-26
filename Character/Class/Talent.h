@@ -23,6 +23,7 @@ public:
            const int max_points_,
            QMap<int, QString> rank_descriptions = {},
            QVector<Spell*> affected_spells = {},
+           QVector<Buff*> affected_buffs = {},
            QVector<Proc*> affected_procs = {}
            );
     virtual ~Talent();
@@ -69,6 +70,7 @@ protected:
     const int max_points;
     int curr_points;
     QVector<Spell*> affected_spells;
+    QVector<Buff*> affected_buffs;
     QVector<Proc*> affected_procs;
 
     Talent* parent;

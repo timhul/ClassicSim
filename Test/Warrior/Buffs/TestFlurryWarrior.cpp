@@ -3,7 +3,7 @@
 #include "Bloodthirst.h"
 #include "Equipment.h"
 #include "Flurry.h"
-#include "FlurryTalent.h"
+#include "Fury.h"
 #include "HeroicStrike.h"
 #include "MainhandAttackWarrior.h"
 #include "MainhandMeleeHit.h"
@@ -12,6 +12,7 @@
 #include "OffhandMeleeHit.h"
 #include "Overpower.h"
 #include "Spell.h"
+#include "Talent.h"
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
 
@@ -516,37 +517,62 @@ void TestFlurryWarrior::when_flurry_is_removed() {
 }
 
 void TestFlurryWarrior::given_1_of_5_flurry() {
-    FlurryTalent(pchar, nullptr).increment_rank();
+    Talent* talent = Fury(warrior).get_flurry_talent();
+
+    talent->increment_rank();
+
+    delete talent;
+
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_2_of_5_flurry() {
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
+    Talent* talent = Fury(warrior).get_flurry_talent();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_3_of_5_flurry() {
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
+    Talent* talent = Fury(warrior).get_flurry_talent();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_4_of_5_flurry() {
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
+    Talent* talent = Fury(warrior).get_flurry_talent();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_5_of_5_flurry() {
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
-    FlurryTalent(pchar, nullptr).increment_rank();
+    Talent* talent = Fury(warrior).get_flurry_talent();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
+
     warrior->prepare_set_of_combat_iterations();
 }
 

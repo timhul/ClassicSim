@@ -5,7 +5,7 @@
 #include "Cruelty.h"
 #include "DeathWishTalent.h"
 #include "Execute.h"
-#include "FlurryTalent.h"
+#include "Flurry.h"
 #include "GenericTalent.h"
 #include "ImprovedBattleShout.h"
 #include "ImprovedBerserkerRage.h"
@@ -46,7 +46,7 @@ Fury::Fury(Warrior* pchar) :
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6LL", new ImprovedBerserkerRage(pchar, this)},
-                                  {"6MR", new FlurryTalent(pchar, this)}};
+                                  {"6MR", get_flurry_talent()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", get_bloodthirst()}};
@@ -65,6 +65,7 @@ Talent* Fury::get_unbridled_wrath() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{8, 8}});
     Talent* talent = new Talent(warrior, this, "Unbridled Wrath", "2MR",
                                 "Assets/spell/Spell_nature_stoneclawtotem.png", 5, rank_descriptions,
+                                {},
                                 {},
                                 QVector<Proc*>{warrior->get_unbridled_wrath()});
 
@@ -100,6 +101,18 @@ Talent* Fury::get_improved_slam() {
     Talent* talent = new Talent(warrior, this, "Improved Slam", "5LL",
                                 "Assets/ability/Ability_warrior_decisivestrike.png", 5, rank_descriptions,
                                 QVector<Spell*>{spells->get_slam()});
+
+    return talent;
+}
+
+Talent* Fury::get_flurry_talent() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases your attack speed by %1% for your next 3 swings after dealing a melee critical strike.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{10, 5}});
+    Talent* talent = new Talent(warrior, this, "Flurry", "6MR",
+                                "Assets/ability/Ability_ghoulfrenzy.png", 5, rank_descriptions,
+                                {},
+                                QVector<Buff*>{warrior->get_flurry()});
 
     return talent;
 }
