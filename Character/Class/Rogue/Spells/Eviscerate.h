@@ -17,7 +17,6 @@ public:
 
 private:
     friend class Aggression;
-    friend class ImprovedEviscerate;
 
     Rogue* rogue;
     Random* evisc_range;

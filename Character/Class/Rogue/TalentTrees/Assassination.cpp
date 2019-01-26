@@ -1,23 +1,27 @@
 #include "Assassination.h"
 
+#include "Eviscerate.h"
 #include "GenericTalent.h"
-#include "ImprovedEviscerate.h"
 #include "ImprovedPoisons.h"
 #include "ImprovedSliceAndDice.h"
 #include "Lethality.h"
 #include "Malice.h"
 #include "Murder.h"
 #include "RelentlessStrikesTalent.h"
+#include "Rogue.h"
+#include "RogueSpells.h"
 #include "RuthlessnessTalent.h"
 #include "SealFateTalent.h"
 #include "Talent.h"
 #include "Vigor.h"
 #include "VilePoisons.h"
 
-Assassination::Assassination(Character *pchar) :
-    TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg")
+Assassination::Assassination(Rogue* pchar) :
+    TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg"),
+    rogue(pchar),
+    spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1LL", new ImprovedEviscerate(pchar, this)},
+    QMap<QString, Talent*> tier1 {{"1LL", get_improved_eviscerate()},
                                   {"1ML", new GenericTalent(pchar, this, "Remorseless Attacks", "1ML", "Assets/ability/Ability_fiegndead.png", 2, "After killing an opponent that yields experience or honor, gives you a %1 increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike. Lasts 20 sec.", QVector<QPair<int, int>>{{20, 20}})},
                                   {"1MR", new Malice(pchar, this)}};
     add_talents(tier1);
@@ -53,4 +57,13 @@ Assassination::Assassination(Character *pchar) :
     talents["6ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Assassination::~Assassination() = default;
+Talent* Assassination::get_improved_eviscerate() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the damage done by your Eviscerate ability by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<int, int>>{{5, 5}});
+    Talent* talent = new Talent(rogue, this, "Improved Eviscerate", "1LL",
+                                "Assets/ability/Ability_rogue_eviscerate.png", 3, rank_descriptions,
+                                QVector<Spell*>{spells->get_eviscerate()});
+
+    return talent;
+}

@@ -3,12 +3,18 @@
 
 #include "TalentTree.h"
 
+class Rogue;
+class RogueSpells;
+
 class Assassination: public TalentTree {
 public:
-    Assassination(Character *pchar);
-    ~Assassination() override;
+    Assassination(Rogue* pchar);
+
+    Talent* get_improved_eviscerate();
 
 private:
+    Rogue* rogue;
+    RogueSpells* spells;
 };
 
 #endif // ASSASSINATION_H

@@ -1,11 +1,12 @@
 #include "TestEviscerate.h"
 
 #include "Aggression.h"
+#include "Assassination.h"
 #include "Equipment.h"
 #include "Eviscerate.h"
-#include "ImprovedEviscerate.h"
 #include "Item.h"
 #include "Queue.h"
+#include "Talent.h"
 #include "WarriorSpells.h"
 
 TestEviscerate::TestEviscerate(EquipmentDb *equipment_db) :
@@ -610,18 +611,30 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of
 }
 
 void TestEviscerate::given_1_of_3_imp_eviscerate() {
-    ImprovedEviscerate(rogue, nullptr).increment_rank();
+    Talent* talent = Assassination(rogue).get_improved_eviscerate();
+
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestEviscerate::given_2_of_3_imp_eviscerate() {
-    ImprovedEviscerate(rogue, nullptr).increment_rank();
-    ImprovedEviscerate(rogue, nullptr).increment_rank();
+    Talent* talent = Assassination(rogue).get_improved_eviscerate();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestEviscerate::given_3_of_3_imp_eviscerate() {
-    ImprovedEviscerate(rogue, nullptr).increment_rank();
-    ImprovedEviscerate(rogue, nullptr).increment_rank();
-    ImprovedEviscerate(rogue, nullptr).increment_rank();
+    Talent* talent = Assassination(rogue).get_improved_eviscerate();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestEviscerate::given_1_of_3_aggression() {
