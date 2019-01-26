@@ -3,7 +3,6 @@
 #include "Eviscerate.h"
 #include "GenericTalent.h"
 #include "ImprovedPoisons.h"
-#include "ImprovedSliceAndDice.h"
 #include "Lethality.h"
 #include "Malice.h"
 #include "Murder.h"
@@ -12,6 +11,7 @@
 #include "RogueSpells.h"
 #include "Ruthlessness.h"
 #include "SealFateTalent.h"
+#include "SliceAndDice.h"
 #include "Talent.h"
 #include "Vigor.h"
 #include "VilePoisons.h"
@@ -28,7 +28,7 @@ Assassination::Assassination(Rogue* pchar) :
 
     QMap<QString, Talent*> tier2 {{"2LL", get_ruthlessness()},
                                   {"2ML", new Murder(pchar, this)},
-                                  {"2RR", new ImprovedSliceAndDice(pchar, this)}};
+                                  {"2RR", get_improved_slice_and_dice()}};
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new RelentlessStrikesTalent(pchar, this)},
@@ -77,6 +77,17 @@ Talent* Assassination::get_ruthlessness() {
                                 {},
                                 {},
                                 QVector<Proc*>{rogue->get_ruthlessness()});
+
+    return talent;
+}
+
+Talent* Assassination::get_improved_slice_and_dice() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the duration of your Slice and Dice ability by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<int, int>>{{15, 15}});
+    Talent* talent = new Talent(rogue, this, "Improved Slice And Dice", "2RR",
+                                "Assets/ability/Ability_rogue_slicedice.png", 3, rank_descriptions,
+                                QVector<Spell*>{spells->get_slice_and_dice()});
 
     return talent;
 }

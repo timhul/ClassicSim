@@ -13,10 +13,7 @@ public:
     SliceAndDice(Character* pchar);
     ~SliceAndDice() override;
 
-protected:
 private:
-    friend class ImprovedSliceAndDice;
-
     Rogue* rogue;
     SliceAndDiceBuff* buff;
 

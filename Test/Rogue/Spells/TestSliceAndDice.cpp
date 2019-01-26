@@ -1,10 +1,11 @@
 #include "SliceAndDice.h"
 
+#include "Assassination.h"
 #include "Backstab.h"
 #include "Equipment.h"
-#include "ImprovedSliceAndDice.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
+#include "Talent.h"
 #include "TestSliceAndDice.h"
 #include "WarriorSpells.h"
 
@@ -296,18 +297,30 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_
 }
 
 void TestSliceAndDice::given_1_of_3_imp_snd() {
-    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+    Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
+
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestSliceAndDice::given_2_of_3_imp_snd() {
-    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
-    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+    Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
+
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestSliceAndDice::given_3_of_3_imp_snd() {
-    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
-    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
-    ImprovedSliceAndDice(rogue, nullptr).increment_rank();
+    Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
+
+    talent->increment_rank();
+    talent->increment_rank();
+    talent->increment_rank();
+
+    delete talent;
 }
 
 void TestSliceAndDice::when_slice_and_dice_is_performed() {
