@@ -15,6 +15,7 @@ public:
     Talent* get_improved_execute();
     Talent* get_improved_slam();
     Talent* get_death_wish();
+    Talent* get_improved_berserker_rage();
     Talent* get_flurry_talent();
     Talent* get_bloodthirst();
 

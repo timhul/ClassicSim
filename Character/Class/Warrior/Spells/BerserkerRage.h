@@ -11,10 +11,7 @@ class BerserkerRage: public Spell, public TalentRequirer {
 public:
     BerserkerRage(Character* pchar);
 
-protected:
 private:
-    friend class ImprovedBerserkerRage;
-
     Warrior* warr;
     StatisticsResource* statistics_resource;
     QVector<unsigned> talent_ranks;

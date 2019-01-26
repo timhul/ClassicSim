@@ -1,5 +1,6 @@
 #include "Fury.h"
 
+#include "BerserkerRage.h"
 #include "Bloodthirst.h"
 #include "BoomingVoice.h"
 #include "Cruelty.h"
@@ -9,7 +10,6 @@
 #include "Flurry.h"
 #include "GenericTalent.h"
 #include "ImprovedBattleShout.h"
-#include "ImprovedBerserkerRage.h"
 #include "OffhandAttackWarrior.h"
 #include "Slam.h"
 #include "Talent.h"
@@ -46,7 +46,7 @@ Fury::Fury(Warrior* pchar) :
                                   {"5RR", new GenericTalent(pchar, this, "Improved Intercept", "5RR", base_url + "ability/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6LL", new ImprovedBerserkerRage(pchar, this)},
+    QMap<QString, Talent*> tier6 {{"6LL", get_improved_berserker_rage()},
                                   {"6MR", get_flurry_talent()}};
     add_talents(tier6);
 
@@ -115,6 +115,17 @@ Talent* Fury::get_death_wish() {
                                 "Assets/spell/Spell_shadow_deathpact.png", 1, rank_descriptions,
                                 QVector<Spell*>{spells->get_death_wish()},
                                 QVector<Buff*>{warrior->get_death_wish_buff()});
+
+    return talent;
+}
+
+Talent* Fury::get_improved_berserker_rage() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "The Berserker Rage ability will generate %1 rage when used.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<int, int>>{{5, 5}});
+    Talent* talent = new Talent(warrior, this, "Improved Berserker Rage", "6LL",
+                                "Assets/spell/Spell_nature_ancestralguardian.png", 2, rank_descriptions,
+                                QVector<Spell*>{spells->get_berserker_rage()});
 
     return talent;
 }
