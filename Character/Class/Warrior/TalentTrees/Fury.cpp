@@ -1,6 +1,6 @@
 #include "Fury.h"
 
-#include "BloodthirstTalent.h"
+#include "Bloodthirst.h"
 #include "BoomingVoice.h"
 #include "Cruelty.h"
 #include "DeathWishTalent.h"
@@ -49,7 +49,7 @@ Fury::Fury(Warrior* pchar) :
                                   {"6MR", new FlurryTalent(pchar, this)}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new BloodthirstTalent(pchar, this)}};
+    QMap<QString, Talent*> tier7 {{"7ML", get_bloodthirst()}};
     add_talents(tier7);
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
@@ -100,6 +100,18 @@ Talent* Fury::get_improved_slam() {
     Talent* talent = new Talent(warrior, this, "Improved Slam", "5LL",
                                 "Assets/ability/Ability_warrior_decisivestrike.png", 5, rank_descriptions,
                                 QVector<Spell*>{spells->get_slam()});
+
+    return talent;
+}
+
+Talent* Fury::get_bloodthirst() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Instantly attack the target causing damage equal to 45% of your attack power. In addition, the next 5 successful melee attacks will restore 10 health. This effect lasts 8 sec.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(warrior, this, "Bloodthirst", "7ML",
+                                "Assets/spell/Spell_nature_bloodlust.png", 1, rank_descriptions,
+                                QVector<Spell*>{spells->get_bloodthirst()});
 
     return talent;
 }

@@ -10,10 +10,7 @@ class Bloodthirst: public Spell, public TalentRequirer {
 public:
     Bloodthirst(Character* pchar);
 
-protected:
 private:
-    friend class BloodthirstTalent;
-
     Warrior* warr;
 
     void spell_effect() override;
