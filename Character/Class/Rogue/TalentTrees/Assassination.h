@@ -11,6 +11,7 @@ public:
     Assassination(Rogue* pchar);
 
     Talent* get_improved_eviscerate();
+    Talent* get_ruthlessness();
 
 private:
     Rogue* rogue;

@@ -10,7 +10,7 @@
 #include "RelentlessStrikesTalent.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
-#include "RuthlessnessTalent.h"
+#include "Ruthlessness.h"
 #include "SealFateTalent.h"
 #include "Talent.h"
 #include "Vigor.h"
@@ -26,7 +26,7 @@ Assassination::Assassination(Rogue* pchar) :
                                   {"1MR", new Malice(pchar, this)}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2LL", new RuthlessnessTalent(pchar, this)},
+    QMap<QString, Talent*> tier2 {{"2LL", get_ruthlessness()},
                                   {"2ML", new Murder(pchar, this)},
                                   {"2RR", new ImprovedSliceAndDice(pchar, this)}};
     add_talents(tier2);
@@ -64,6 +64,19 @@ Talent* Assassination::get_improved_eviscerate() {
     Talent* talent = new Talent(rogue, this, "Improved Eviscerate", "1LL",
                                 "Assets/ability/Ability_rogue_eviscerate.png", 3, rank_descriptions,
                                 QVector<Spell*>{spells->get_eviscerate()});
+
+    return talent;
+}
+
+Talent* Assassination::get_ruthlessness() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Gives your finishing moves a %1% chance to add a combo point to your target.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<int, int>>{{20, 20}});
+    Talent* talent = new Talent(rogue, this, "Ruthlessness", "2LL",
+                                "Assets/ability/Ability_druid_disembowel.png", 3, rank_descriptions,
+                                {},
+                                {},
+                                QVector<Proc*>{rogue->get_ruthlessness()});
 
     return talent;
 }

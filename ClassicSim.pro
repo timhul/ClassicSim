@@ -278,7 +278,6 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedSliceAndDice.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/Murder.cpp \
     Character/Class/Rogue/Procs/Ruthlessness.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/RuthlessnessTalent.cpp \
     Character/Class/Rogue/Procs/RelentlessStrikes.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/RelentlessStrikesTalent.cpp \
     Test/Rogue/Procs/TestRelentlessStrikes.cpp \
@@ -603,7 +602,6 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Assassination/ImprovedSliceAndDice.h \
     Character/Class/Rogue/TalentTrees/Assassination/Murder.h \
     Character/Class/Rogue/Procs/Ruthlessness.h \
-    Character/Class/Rogue/TalentTrees/Assassination/RuthlessnessTalent.h \
     Character/Class/Rogue/Procs/RelentlessStrikes.h \
     Character/Class/Rogue/TalentTrees/Assassination/RelentlessStrikesTalent.h \
     Test/Rogue/Procs/TestRelentlessStrikes.h \

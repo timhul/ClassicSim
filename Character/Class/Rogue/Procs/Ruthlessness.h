@@ -13,10 +13,7 @@ public:
 
     void proc_effect() override;
 
-protected:
 private:
-    friend class RuthlessnessTalent;
-
     Rogue* rogue;
     QVector<unsigned> talent_ranks;
 
