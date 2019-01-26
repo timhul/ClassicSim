@@ -11,6 +11,7 @@ public:
     Fury(Warrior* pchar);
 
     Talent* get_unbridled_wrath();
+    Talent* get_improved_battle_shout();
     Talent* get_dual_wield_specialization();
     Talent* get_improved_execute();
     Talent* get_improved_slam();

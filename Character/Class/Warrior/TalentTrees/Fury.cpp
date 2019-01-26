@@ -1,5 +1,6 @@
 #include "Fury.h"
 
+#include "BattleShoutBuff.h"
 #include "BerserkerRage.h"
 #include "Bloodthirst.h"
 #include "BoomingVoice.h"
@@ -9,7 +10,6 @@
 #include "Execute.h"
 #include "Flurry.h"
 #include "GenericTalent.h"
-#include "ImprovedBattleShout.h"
 #include "OffhandAttackWarrior.h"
 #include "Slam.h"
 #include "Talent.h"
@@ -33,7 +33,7 @@ Fury::Fury(Warrior* pchar) :
     QMap<QString, Talent*> tier3 {{"3LL", new GenericTalent(pchar, this, "Improved Cleave", "3LL", base_url + "ability/Ability_warrior_cleave.png", 3, "Increases the bonus damage done by your Cleave ability by %1%.", QVector<QPair<int, int>>{{40, 40}})},
                                   {"3ML", new GenericTalent(pchar, this, "Piercing Howl", "3ML", base_url + "spell/Spell_shadow_deathscream.png", 1, "Causes all enemies near the warrior to be dazed, reducing movement speed by 50% for 6 sec.", QVector<QPair<int, int>>())},
                                   {"3MR", new GenericTalent(pchar, this, "Blood Craze", "3MR", base_url + "spell/Spell_shadow_summonimp.png", 3, "Regenerates %1% of your total Health over 6 sec after being the victim of a critical strike.", QVector<QPair<int, int>>{{1, 1}})},
-                                  {"3RR", new ImprovedBattleShout(pchar, this)}};
+                                  {"3RR", get_improved_battle_shout()}};
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4LL", get_dual_wield_specialization()},
@@ -69,6 +69,18 @@ Talent* Fury::get_unbridled_wrath() {
                                 {},
                                 {},
                                 QVector<Proc*>{warrior->get_unbridled_wrath()});
+
+    return talent;
+}
+
+Talent* Fury::get_improved_battle_shout() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the melee attack power bonus of your Battle Shout by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{5, 5}});
+    Talent* talent = new Talent(warrior, this, "Improved Battle Shout", "3RR",
+                                "Assets/ability/Ability_warrior_battleshout.png", 5, rank_descriptions,
+                                {},
+                                QVector<Buff*>{warrior->get_battle_shout_buff()});
 
     return talent;
 }

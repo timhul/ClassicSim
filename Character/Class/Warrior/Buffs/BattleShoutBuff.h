@@ -13,9 +13,7 @@ public:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 
-protected:
 private:
-    friend class ImprovedBattleShout;
     friend class BoomingVoice;
 
     QVector<int> spell_ranks;
