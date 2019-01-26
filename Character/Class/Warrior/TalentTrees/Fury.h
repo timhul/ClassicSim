@@ -14,6 +14,7 @@ public:
     Talent* get_dual_wield_specialization();
     Talent* get_improved_execute();
     Talent* get_improved_slam();
+    Talent* get_death_wish();
     Talent* get_flurry_talent();
     Talent* get_bloodthirst();
 

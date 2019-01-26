@@ -3,7 +3,8 @@
 #include "Bloodthirst.h"
 #include "BoomingVoice.h"
 #include "Cruelty.h"
-#include "DeathWishTalent.h"
+#include "DeathWish.h"
+#include "DeathWishBuff.h"
 #include "Execute.h"
 #include "Flurry.h"
 #include "GenericTalent.h"
@@ -41,7 +42,7 @@ Fury::Fury(Warrior* pchar) :
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", get_improved_slam()},
-                                  {"5ML", new DeathWishTalent(pchar, this)},
+                                  {"5ML", get_death_wish()},
                                   {"5RR", new GenericTalent(pchar, this, "Improved Intercept", "5RR", base_url + "ability/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier5);
 
@@ -101,6 +102,19 @@ Talent* Fury::get_improved_slam() {
     Talent* talent = new Talent(warrior, this, "Improved Slam", "5LL",
                                 "Assets/ability/Ability_warrior_decisivestrike.png", 5, rank_descriptions,
                                 QVector<Spell*>{spells->get_slam()});
+
+    return talent;
+}
+
+Talent* Fury::get_death_wish() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "When activated, increases your physical damage by 20% and makes you immune to Fear effects, but lowers your armor and all resistances by 20%. Lasts 30 sec.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(warrior, this, "Death Wish", "5ML",
+                                "Assets/spell/Spell_shadow_deathpact.png", 1, rank_descriptions,
+                                QVector<Spell*>{spells->get_death_wish()},
+                                QVector<Buff*>{warrior->get_death_wish_buff()});
 
     return talent;
 }

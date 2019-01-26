@@ -10,10 +10,7 @@ class DeathWish: public Spell, public TalentRequirer {
 public:
     DeathWish(Character* pchar);
 
-protected:
 private:
-    friend class DeathWishTalent;
-
     Warrior* warr;
 
     void spell_effect() override;
