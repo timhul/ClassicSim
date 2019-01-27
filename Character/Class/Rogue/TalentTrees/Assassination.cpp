@@ -1,9 +1,10 @@
 #include "Assassination.h"
 
+#include "Backstab.h"
 #include "Eviscerate.h"
 #include "GenericTalent.h"
+#include "Hemorrhage.h"
 #include "ImprovedPoisons.h"
-#include "Lethality.h"
 #include "Malice.h"
 #include "Murder.h"
 #include "RelentlessStrikes.h"
@@ -11,6 +12,7 @@
 #include "RogueSpells.h"
 #include "Ruthlessness.h"
 #include "SealFateTalent.h"
+#include "SinisterStrike.h"
 #include "SliceAndDice.h"
 #include "Talent.h"
 #include "Vigor.h"
@@ -33,7 +35,7 @@ Assassination::Assassination(Rogue* pchar) :
 
     QMap<QString, Talent*> tier3 {{"3LL", get_relentless_strikes()},
                                   {"3ML", new GenericTalent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<int, int>>{{25, 25}})},
-                                  {"3MR", new Lethality(pchar, this)}};
+                                  {"3MR", get_lethality()}};
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new VilePoisons(pchar, this)},
@@ -102,6 +104,19 @@ Talent* Assassination::get_relentless_strikes() {
                                 {},
                                 {},
                                 QVector<Proc*>{rogue->get_relentless_strikes()});
+
+    return talent;
+}
+
+Talent* Assassination::get_lethality() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, and Hemorrhage abilities by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{6, 6}});
+    Talent* talent = new Talent(rogue, this, "Lethality", "3MR",
+                                "Assets/ability/Ability_criticalstrike.png", 5, rank_descriptions,
+                                QVector<Spell*>{spells->get_backstab(),
+                                                spells->get_hemorrhage(),
+                                                spells->get_sinister_strike()});
 
     return talent;
 }

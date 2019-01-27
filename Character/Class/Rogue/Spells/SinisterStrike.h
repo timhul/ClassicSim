@@ -12,11 +12,9 @@ class SinisterStrike: public Spell, public TalentRequirer, public SetBonusRequir
 public:
     SinisterStrike(Character* pchar);
 
-protected:
 private:
     friend class Aggression;
     friend class ImprovedSinisterStrike;
-    friend class Lethality;
 
     Rogue* rogue;
     StatisticsResource* statistics_resource;

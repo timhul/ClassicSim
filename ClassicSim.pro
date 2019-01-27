@@ -283,7 +283,6 @@ SOURCES += main.cpp \
     Character/Class/Rogue/Procs/SealFate.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/SealFateTalent.cpp \
     Test/Rogue/Procs/TestSealFate.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/Lethality.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/Vigor.cpp \
     CombatRoll/AttackTables/MagicAttackTable.cpp \
     Test/TestMechanics.cpp \
@@ -605,7 +604,6 @@ HEADERS += \
     Character/Class/Rogue/Procs/SealFate.h \
     Character/Class/Rogue/TalentTrees/Assassination/SealFateTalent.h \
     Test/Rogue/Procs/TestSealFate.h \
-    Character/Class/Rogue/TalentTrees/Assassination/Lethality.h \
     Character/Class/Rogue/TalentTrees/Assassination/Vigor.h \
     Test/TestMechanics.h \
     Character/Class/Rogue/Procs/InstantPoison.h \

@@ -12,10 +12,8 @@ class Hemorrhage: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     Hemorrhage(Character* pchar);
 
-protected:
 private:
     friend class HemorrhageTalent;
-    friend class Lethality;
 
     Rogue* rogue;
     StatisticsResource* statistics_resource;

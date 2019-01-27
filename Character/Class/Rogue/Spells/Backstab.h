@@ -12,10 +12,8 @@ class Backstab: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     Backstab(Character* pchar);
 
-protected:
 private:
     friend class ImprovedBackstab;
-    friend class Lethality;
     friend class Opportunity;
 
     Rogue* rogue;

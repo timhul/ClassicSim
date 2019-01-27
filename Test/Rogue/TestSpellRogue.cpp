@@ -2,14 +2,15 @@
 
 #include <QDebug>
 
+#include "Assassination.h"
 #include "Backstab.h"
 #include "Equipment.h"
-#include "Lethality.h"
 #include "Opportunity.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SimSettings.h"
 #include "Spell.h"
+#include "Talent.h"
 
 TestSpellRogue::TestSpellRogue(EquipmentDb *equipment_db, const QString& spell_under_test) :
     TestSpellDamage(equipment_db, spell_under_test),
@@ -78,38 +79,53 @@ void TestSpellRogue::given_rogue_has_combo_points(const unsigned combo_points) {
 }
 
 void TestSpellRogue::given_1_of_5_lethality() {
-    auto lethality = Lethality(rogue, nullptr);
-    assert(lethality.increment_rank());
+    Talent* talent = Assassination(rogue).get_lethality();
+
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_2_of_5_lethality() {
-    auto lethality = Lethality(rogue, nullptr);
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
+    Talent* talent = Assassination(rogue).get_lethality();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_3_of_5_lethality() {
-    auto lethality = Lethality(rogue, nullptr);
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
+    Talent* talent = Assassination(rogue).get_lethality();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_4_of_5_lethality() {
-    auto lethality = Lethality(rogue, nullptr);
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
+    Talent* talent = Assassination(rogue).get_lethality();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_5_of_5_lethality() {
-    auto lethality = Lethality(rogue, nullptr);
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
-    assert(lethality.increment_rank());
+    Talent* talent = Assassination(rogue).get_lethality();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_1_of_5_opportunity() {
