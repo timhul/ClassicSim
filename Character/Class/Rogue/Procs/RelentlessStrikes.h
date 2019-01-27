@@ -15,10 +15,7 @@ public:
     void proc_effect() override;
     void set_current_combo_points(const unsigned);
 
-protected:
 private:
-    friend class RelentlessStrikesTalent;
-
     StatisticsResource* statistics_resource;
     Rogue* rogue;
     unsigned combo_proc_percent;

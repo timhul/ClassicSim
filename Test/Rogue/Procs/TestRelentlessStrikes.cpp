@@ -1,10 +1,11 @@
 #include "TestRelentlessStrikes.h"
 
+#include "Assassination.h"
 #include "EnabledProcs.h"
 #include "ProcInfo.h"
 #include "RelentlessStrikes.h"
-#include "RelentlessStrikesTalent.h"
 #include "Rogue.h"
+#include "Talent.h"
 
 TestRelentlessStrikes::TestRelentlessStrikes(EquipmentDb* equipment_db) :
     TestProcRogue(equipment_db, "Relentless Strikes")
@@ -62,8 +63,11 @@ void TestRelentlessStrikes::test_proc_range() {
 }
 
 void TestRelentlessStrikes::given_1_of_1_relentless_strikes() {
-    RelentlessStrikesTalent relentless_strikes_talent(rogue, nullptr);
-    assert(relentless_strikes_talent.increment_rank());
+    Talent* talent = Assassination(rogue).get_relentless_strikes();
+
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestRelentlessStrikes::test_proc_sources_are_valid() {

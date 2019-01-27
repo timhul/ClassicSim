@@ -6,7 +6,7 @@
 #include "Lethality.h"
 #include "Malice.h"
 #include "Murder.h"
-#include "RelentlessStrikesTalent.h"
+#include "RelentlessStrikes.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "Ruthlessness.h"
@@ -31,7 +31,7 @@ Assassination::Assassination(Rogue* pchar) :
                                   {"2RR", get_improved_slice_and_dice()}};
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", new RelentlessStrikesTalent(pchar, this)},
+    QMap<QString, Talent*> tier3 {{"3LL", get_relentless_strikes()},
                                   {"3ML", new GenericTalent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<int, int>>{{25, 25}})},
                                   {"3MR", new Lethality(pchar, this)}};
     add_talents(tier3);
@@ -88,6 +88,20 @@ Talent* Assassination::get_improved_slice_and_dice() {
     Talent* talent = new Talent(rogue, this, "Improved Slice And Dice", "2RR",
                                 "Assets/ability/Ability_rogue_slicedice.png", 3, rank_descriptions,
                                 QVector<Spell*>{spells->get_slice_and_dice()});
+
+    return talent;
+}
+
+Talent* Assassination::get_relentless_strikes() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Your finishing moves have a 20% chance per combo point to restore 25 Energy.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(rogue, this, "Relentless Strikes", "3LL",
+                                "Assets/ability/Ability_warrior_decisivestrike.png", 1, rank_descriptions,
+                                {},
+                                {},
+                                QVector<Proc*>{rogue->get_relentless_strikes()});
 
     return talent;
 }
