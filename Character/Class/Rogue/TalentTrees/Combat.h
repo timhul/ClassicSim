@@ -13,6 +13,7 @@ public:
     Talent* get_improved_sinister_strike();
     Talent* get_blade_flurry();
     Talent* get_sword_spec();
+    Talent* get_aggression();
     Talent* get_adrenaline_rush();
 
 private:

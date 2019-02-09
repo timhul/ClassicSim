@@ -13,8 +13,6 @@ public:
     SinisterStrike(Character* pchar);
 
 private:
-    friend class Aggression;
-
     Rogue* rogue;
     StatisticsResource* statistics_resource;
     double aggression;

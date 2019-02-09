@@ -16,8 +16,6 @@ public:
     ~Eviscerate() override;
 
 private:
-    friend class Aggression;
-
     Rogue* rogue;
     Random* evisc_range;
     QVector<QPair<unsigned, unsigned>> damage_ranges_per_combo_point;

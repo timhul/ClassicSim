@@ -1,10 +1,10 @@
 #include "Combat.h"
 
 #include "AdrenalineRush.h"
-#include "Aggression.h"
 #include "BladeFlurry.h"
 #include "DaggerSpecialization.h"
 #include "DualWieldSpecializationRogue.h"
+#include "Eviscerate.h"
 #include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
 #include "ImprovedBackstab.h"
@@ -49,7 +49,7 @@ Combat::Combat(Character *pchar) :
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6ML", new WeaponExpertise(pchar, this)},
-                                  {"6MR", new Aggression(pchar, this)}};
+                                  {"6MR", get_aggression()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", get_adrenaline_rush()}};
@@ -96,6 +96,18 @@ Talent* Combat::get_sword_spec() {
                                 "Assets/items/Inv_sword_27.png", 5, rank_descriptions,
                                 {}, {},
                                 QVector<Proc*>{rogue->get_sword_spec()});
+
+    return talent;
+}
+
+Talent* Combat::get_aggression() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the damage of your Sinister Strike and Eviscerate abilities by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<int, int>>{{2, 2}});
+    Talent* talent = new Talent(rogue, this, "Aggression", "6MR",
+                                "Assets/ability/Ability_racial_avatar.png", 3, rank_descriptions,
+                                QVector<Spell*>{spells->get_eviscerate(),
+                                                spells->get_sinister_strike()});
 
     return talent;
 }

@@ -1,7 +1,7 @@
 #include "TestEviscerate.h"
 
-#include "Aggression.h"
 #include "Assassination.h"
+#include "Combat.h"
 #include "Equipment.h"
 #include "Eviscerate.h"
 #include "Item.h"
@@ -638,18 +638,30 @@ void TestEviscerate::given_3_of_3_imp_eviscerate() {
 }
 
 void TestEviscerate::given_1_of_3_aggression() {
-    Aggression(rogue, nullptr).increment_rank();
+    Talent* talent = Combat(rogue).get_aggression();
+
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestEviscerate::given_2_of_3_aggression() {
-    Aggression(rogue, nullptr).increment_rank();
-    Aggression(rogue, nullptr).increment_rank();
+    Talent* talent = Combat(rogue).get_aggression();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestEviscerate::given_3_of_3_aggression() {
-    Aggression(rogue, nullptr).increment_rank();
-    Aggression(rogue, nullptr).increment_rank();
-    Aggression(rogue, nullptr).increment_rank();
+    Talent* talent = Combat(rogue).get_aggression();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestEviscerate::given_5_pc_deathdealer() {
