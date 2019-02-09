@@ -13,7 +13,7 @@
 #include "Precision.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
-#include "SwordSpecializationTalentRogue.h"
+#include "SwordSpecialization.h"
 #include "Talent.h"
 #include "WeaponExpertise.h"
 
@@ -44,7 +44,7 @@ Combat::Combat(Character *pchar) :
 
     QMap<QString, Talent*> tier5 {{"5LL", new MaceSpecialization(pchar, this)},
                                   {"5ML", new BladeFlurryTalent(pchar, this)},
-                                  {"5MR", new SwordSpecializationTalentRogue(pchar, this)},
+                                  {"5MR", get_sword_spec()},
                                   {"5RR", new FistWeaponSpecialization(pchar, this)}};
     add_talents(tier5);
 
@@ -63,6 +63,18 @@ Combat::Combat(Character *pchar) :
 
     talents["5ML"]->talent->set_bottom_child(talents["6ML"]->talent);
     talents["6ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* Combat::get_sword_spec() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Gives you a %1% chance to get an extra attack on the same target after dealing damage with your Sword.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{1, 1}});
+    Talent* talent = new Talent(rogue, this, "Sword Specialization", "5MR",
+                                "Assets/items/Inv_sword_27.png", 5, rank_descriptions,
+                                {}, {},
+                                QVector<Proc*>{rogue->get_sword_spec()});
+
+    return talent;
 }
 
 Talent* Combat::get_adrenaline_rush() {

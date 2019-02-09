@@ -15,10 +15,9 @@ public:
     void proc_effect() override;
 
     bool proc_specific_conditions_fulfilled() const override;
-protected:
+
 private:
     friend class SwordSpecializationTalent;
-    friend class SwordSpecializationTalentRogue;
 
     Character* warr;
     QVector<unsigned> talent_ranks;

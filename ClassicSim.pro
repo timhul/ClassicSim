@@ -265,7 +265,6 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.cpp \
     Character/Class/Rogue/TalentTrees/Combat/DualWieldSpecializationRogue.cpp \
     Character/Class/Rogue/Spells/OffhandAttackRogue.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/SwordSpecializationTalentRogue.cpp \
     Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.cpp \
     Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.cpp \
     Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.cpp \
@@ -582,7 +581,6 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.h \
     Character/Class/Rogue/TalentTrees/Combat/DualWieldSpecializationRogue.h \
     Character/Class/Rogue/Spells/OffhandAttackRogue.h \
-    Character/Class/Rogue/TalentTrees/Combat/SwordSpecializationTalentRogue.h \
     Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.h \
     Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.h \
     Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.h \
