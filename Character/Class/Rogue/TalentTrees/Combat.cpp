@@ -8,11 +8,11 @@
 #include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
 #include "ImprovedBackstab.h"
-#include "ImprovedSinisterStrike.h"
 #include "MaceSpecialization.h"
 #include "Precision.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
+#include "SinisterStrike.h"
 #include "SwordSpecialization.h"
 #include "Talent.h"
 #include "WeaponExpertise.h"
@@ -23,7 +23,7 @@ Combat::Combat(Character *pchar) :
     spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1LL", new GenericTalent(pchar, this, "Improved Gouge", "1LL", "Assets/ability/Ability_gouge.png", 3, "Increases the effect duration of your Gouge ability by %1 sec.", QVector<QPair<double, double>>{{0.5, 0.5}})},
-                                  {"1ML", new ImprovedSinisterStrike(pchar, this)},
+                                  {"1ML", get_improved_sinister_strike()},
                                   {"1MR", new GenericTalent(pchar, this, "Lightning Reflexes", "1MR", "Assets/spell/Spell_nature_invisibility.png", 5, "Increases your Dodge chance by %1%.", QVector<QPair<int, int>>{{1, 1}})}};
     add_talents(tier1);
 
@@ -63,6 +63,17 @@ Combat::Combat(Character *pchar) :
 
     talents["5ML"]->talent->set_bottom_child(talents["6ML"]->talent);
     talents["6ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* Combat::get_improved_sinister_strike() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Reduces the Energy cost of your Sinister Strike ability by %1.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<int, int>>{{3, 2}});
+    Talent* talent = new Talent(rogue, this, "Improved Sinister Strike", "1ML",
+                                "Assets/spell/Spell_shadow_ritualofsacrifice.png", 2, rank_descriptions,
+                                QVector<Spell*>{spells->get_sinister_strike()});
+
+    return talent;
 }
 
 Talent* Combat::get_blade_flurry() {

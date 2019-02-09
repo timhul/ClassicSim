@@ -14,7 +14,6 @@ public:
 
 private:
     friend class Aggression;
-    friend class ImprovedSinisterStrike;
 
     Rogue* rogue;
     StatisticsResource* statistics_resource;

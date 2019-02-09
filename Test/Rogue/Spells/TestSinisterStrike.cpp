@@ -1,10 +1,11 @@
 #include "TestSinisterStrike.h"
 
+#include "Combat.h"
 #include "Equipment.h"
-#include "ImprovedSinisterStrike.h"
 #include "Queue.h"
 #include "RogueSpells.h"
 #include "SinisterStrike.h"
+#include "Talent.h"
 
 TestSinisterStrike::TestSinisterStrike(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Sinister Strike")
@@ -240,7 +241,7 @@ void TestSinisterStrike::test_crit_dmg_5_of_5_lethality() {
 
 void TestSinisterStrike::test_resource_cost_1_of_2_imp_ss() {
     given_1h_sword_equipped_in_mainhand(pchar);
-    ImprovedSinisterStrike(rogue, nullptr).increment_rank();
+    given_1_of_2_improved_ss();
     given_a_guaranteed_melee_ability_hit();
 
     given_rogue_has_energy(42);
@@ -256,8 +257,7 @@ void TestSinisterStrike::test_resource_cost_1_of_2_imp_ss() {
 
 void TestSinisterStrike::test_resource_cost_2_of_2_imp_ss() {
     given_1h_sword_equipped_in_mainhand(pchar);
-    ImprovedSinisterStrike(rogue, nullptr).increment_rank();
-    ImprovedSinisterStrike(rogue, nullptr).increment_rank();
+    given_2_of_2_improved_ss();
     given_a_guaranteed_melee_ability_hit();
 
     given_rogue_has_energy(40);
@@ -269,6 +269,23 @@ void TestSinisterStrike::test_resource_cost_2_of_2_imp_ss() {
     given_rogue_has_energy(50);
     when_sinister_strike_is_performed();
     then_rogue_has_energy(10);
+}
+
+void TestSinisterStrike::given_1_of_2_improved_ss() {
+    Talent* talent = Combat(rogue).get_improved_sinister_strike();
+
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSinisterStrike::given_2_of_2_improved_ss() {
+    Talent* talent = Combat(rogue).get_improved_sinister_strike();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSinisterStrike::when_sinister_strike_is_performed() {

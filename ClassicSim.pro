@@ -270,7 +270,6 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/Malice.cpp \
     Character/Class/Rogue/Spells/SinisterStrike.cpp \
     Test/Rogue/Spells/TestSinisterStrike.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.cpp \
     Character/Class/Rogue/TalentTrees/Combat/Aggression.cpp \
     Character/Class/Rogue/TalentTrees/Assassination/Murder.cpp \
     Character/Class/Rogue/Procs/Ruthlessness.cpp \
@@ -585,7 +584,6 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Assassination/Malice.h \
     Character/Class/Rogue/Spells/SinisterStrike.h \
     Test/Rogue/Spells/TestSinisterStrike.h \
-    Character/Class/Rogue/TalentTrees/Combat/ImprovedSinisterStrike.h \
     Character/Class/Rogue/TalentTrees/Combat/Aggression.h \
     Character/Class/Rogue/TalentTrees/Assassination/Murder.h \
     Character/Class/Rogue/Procs/Ruthlessness.h \
