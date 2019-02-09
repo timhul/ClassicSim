@@ -1,10 +1,11 @@
 #include "TestSealFate.h"
 
+#include "Assassination.h"
 #include "EnabledProcs.h"
 #include "ProcInfo.h"
 #include "Rogue.h"
 #include "SealFate.h"
-#include "SealFateTalent.h"
+#include "Talent.h"
 
 TestSealFate::TestSealFate(EquipmentDb* equipment_db) :
     TestProcRogue(equipment_db, "Seal Fate")
@@ -79,34 +80,53 @@ void TestSealFate::test_proc_range_5_of_5_seal_fate() {
 }
 
 void TestSealFate::given_1_of_5_seal_fate() {
-    SealFateTalent relentless_strikes_talent(rogue, nullptr);
-    assert(relentless_strikes_talent.increment_rank());
+    Talent* talent = Assassination(rogue).get_seal_fate();
+
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSealFate::given_2_of_5_seal_fate() {
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
+    Talent* talent = Assassination(rogue).get_seal_fate();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSealFate::given_3_of_5_seal_fate() {
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
+    Talent* talent = Assassination(rogue).get_seal_fate();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSealFate::given_4_of_5_seal_fate() {
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
+    Talent* talent = Assassination(rogue).get_seal_fate();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSealFate::given_5_of_5_seal_fate() {
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
-    given_1_of_5_seal_fate();
+    Talent* talent = Assassination(rogue).get_seal_fate();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSealFate::test_proc_sources_are_valid() {

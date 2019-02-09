@@ -11,7 +11,7 @@
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "Ruthlessness.h"
-#include "SealFateTalent.h"
+#include "SealFate.h"
 #include "SinisterStrike.h"
 #include "SliceAndDice.h"
 #include "Talent.h"
@@ -45,7 +45,7 @@ Assassination::Assassination(Rogue* pchar) :
                                   {"5MR", new GenericTalent(pchar, this, "Improved Kidney Shot", "5MR", "Assets/ability/Ability_rogue_kidneyshot.png", 3, "While affected by your Kidney Shot ability, the target receives an additional %1% damage from all sources.", QVector<QPair<int, int>>{{3, 3}})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6ML", new SealFateTalent(pchar, this)}};
+    QMap<QString, Talent*> tier6 {{"6ML", get_seal_fate()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Vigor(pchar, this)}};
@@ -140,6 +140,17 @@ Talent* Assassination::get_improved_poisons() {
                                 "Assets/ability/Ability_poisons.png", 5, rank_descriptions,
                                 QVector<Spell*>{rogue->get_mh_instant_poison(),
                                                 rogue->get_oh_instant_poison()});
+
+    return talent;
+}
+
+Talent* Assassination::get_seal_fate() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Your critical strikes from abilities that add combo points have a %1% chance to add an additional combo point.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{20, 20}});
+    Talent* talent = new Talent(rogue, this, "Seal Fate", "6ML",
+                                "Assets/spell/Spell_shadow_chilltouch.png", 5, rank_descriptions,
+                                QVector<Spell*>{rogue->get_seal_fate()});
 
     return talent;
 }
