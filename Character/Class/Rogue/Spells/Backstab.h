@@ -13,7 +13,6 @@ public:
     Backstab(Character* pchar);
 
 private:
-    friend class ImprovedBackstab;
     friend class Opportunity;
 
     Rogue* rogue;

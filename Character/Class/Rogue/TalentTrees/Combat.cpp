@@ -1,13 +1,13 @@
 #include "Combat.h"
 
 #include "AdrenalineRush.h"
+#include "Backstab.h"
 #include "BladeFlurry.h"
 #include "DaggerSpecialization.h"
 #include "DualWieldSpecializationRogue.h"
 #include "Eviscerate.h"
 #include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
-#include "ImprovedBackstab.h"
 #include "MaceSpecialization.h"
 #include "Precision.h"
 #include "Rogue.h"
@@ -27,7 +27,7 @@ Combat::Combat(Character *pchar) :
                                   {"1MR", new GenericTalent(pchar, this, "Lightning Reflexes", "1MR", "Assets/spell/Spell_nature_invisibility.png", 5, "Increases your Dodge chance by %1%.", QVector<QPair<int, int>>{{1, 1}})}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2LL", new ImprovedBackstab(pchar, this)},
+    QMap<QString, Talent*> tier2 {{"2LL", get_improved_backstab()},
                                   {"2ML", new GenericTalent(pchar, this, "Deflection", "2ML", "Assets/ability/Ability_parry.png", 5, "Increases your Parry chance by %1%.", QVector<QPair<int, int>>{{1, 1}})},
                                   {"2MR", new Precision(pchar, this)}};
     add_talents(tier2);
@@ -72,6 +72,17 @@ Talent* Combat::get_improved_sinister_strike() {
     Talent* talent = new Talent(rogue, this, "Improved Sinister Strike", "1ML",
                                 "Assets/spell/Spell_shadow_ritualofsacrifice.png", 2, rank_descriptions,
                                 QVector<Spell*>{spells->get_sinister_strike()});
+
+    return talent;
+}
+
+Talent* Combat::get_improved_backstab() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the critical strike chance of your Backstab ability by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<int, int>>{{10, 10}});
+    Talent* talent = new Talent(rogue, this, "Improved Backstab", "2LL",
+                                "Assets/ability/Ability_backstab.png", 3, rank_descriptions,
+                                QVector<Spell*>{spells->get_backstab()});
 
     return talent;
 }
