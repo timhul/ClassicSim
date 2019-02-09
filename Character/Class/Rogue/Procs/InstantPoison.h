@@ -17,8 +17,6 @@ public:
     void perform_pre_combat() override;
 
 private:
-    friend class ImprovedPoisons;
-
     Buff* instant_poison_buff;
     Random* dmg_roll;
     Rogue* rogue;

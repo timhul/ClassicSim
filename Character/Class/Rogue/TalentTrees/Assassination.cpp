@@ -4,7 +4,6 @@
 #include "Eviscerate.h"
 #include "GenericTalent.h"
 #include "Hemorrhage.h"
-#include "ImprovedPoisons.h"
 #include "InstantPoison.h"
 #include "Malice.h"
 #include "Murder.h"
@@ -39,7 +38,7 @@ Assassination::Assassination(Rogue* pchar) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", get_vile_poisons()},
-                                  {"4MR", new ImprovedPoisons(pchar, this)}};
+                                  {"4MR", get_improved_poisons()}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5ML", new GenericTalent(pchar, this, "Cold Blood", "5ML", "Assets/spell/Spell_ice_lament.png", 1, "When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, or Eviscerate by 100%.", QVector<QPair<int, int>>())},
@@ -127,6 +126,18 @@ Talent* Assassination::get_vile_poisons() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{4, 4}, {8, 8}});
     Talent* talent = new Talent(rogue, this, "Vile Poisons", "4ML",
                                 "Assets/ability/Ability_rogue_feigndeath.png", 5, rank_descriptions,
+                                QVector<Spell*>{rogue->get_mh_instant_poison(),
+                                                rogue->get_oh_instant_poison()});
+
+    return talent;
+}
+
+Talent* Assassination::get_improved_poisons() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the chance to apply poisons to your target by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{2, 2}});
+    Talent* talent = new Talent(rogue, this, "Improved Poisons", "4MR",
+                                "Assets/ability/Ability_poisons.png", 5, rank_descriptions,
                                 QVector<Spell*>{rogue->get_mh_instant_poison(),
                                                 rogue->get_oh_instant_poison()});
 
