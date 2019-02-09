@@ -18,7 +18,6 @@ public:
 
 private:
     friend class ImprovedPoisons;
-    friend class VilePoisons;
 
     Buff* instant_poison_buff;
     Random* dmg_roll;

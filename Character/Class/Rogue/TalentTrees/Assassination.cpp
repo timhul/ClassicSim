@@ -5,6 +5,7 @@
 #include "GenericTalent.h"
 #include "Hemorrhage.h"
 #include "ImprovedPoisons.h"
+#include "InstantPoison.h"
 #include "Malice.h"
 #include "Murder.h"
 #include "RelentlessStrikes.h"
@@ -16,7 +17,6 @@
 #include "SliceAndDice.h"
 #include "Talent.h"
 #include "Vigor.h"
-#include "VilePoisons.h"
 
 Assassination::Assassination(Rogue* pchar) :
     TalentTree("Assassination", "Assets/rogue/rogue_assassination.jpg"),
@@ -38,7 +38,7 @@ Assassination::Assassination(Rogue* pchar) :
                                   {"3MR", get_lethality()}};
     add_talents(tier3);
 
-    QMap<QString, Talent*> tier4 {{"4ML", new VilePoisons(pchar, this)},
+    QMap<QString, Talent*> tier4 {{"4ML", get_vile_poisons()},
                                   {"4MR", new ImprovedPoisons(pchar, this)}};
     add_talents(tier4);
 
@@ -117,6 +117,18 @@ Talent* Assassination::get_lethality() {
                                 QVector<Spell*>{spells->get_backstab(),
                                                 spells->get_hemorrhage(),
                                                 spells->get_sinister_strike()});
+
+    return talent;
+}
+
+Talent* Assassination::get_vile_poisons() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the damage dealt by your poisons by %1% and gives your poisons an additional %2% chance to resist dispel effects.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{4, 4}, {8, 8}});
+    Talent* talent = new Talent(rogue, this, "Vile Poisons", "4ML",
+                                "Assets/ability/Ability_rogue_feigndeath.png", 5, rank_descriptions,
+                                QVector<Spell*>{rogue->get_mh_instant_poison(),
+                                                rogue->get_oh_instant_poison()});
 
     return talent;
 }

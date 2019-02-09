@@ -15,6 +15,7 @@ public:
     Talent* get_improved_slice_and_dice();
     Talent* get_relentless_strikes();
     Talent* get_lethality();
+    Talent* get_vile_poisons();
 
 private:
     Rogue* rogue;
