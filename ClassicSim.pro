@@ -261,7 +261,6 @@ SOURCES += main.cpp \
     Test/Rogue/Spells/TestBladeFlurry.cpp \
     Character/Class/Rogue/TalentTrees/Combat/Precision.cpp \
     Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/DualWieldSpecializationRogue.cpp \
     Character/Class/Rogue/Spells/OffhandAttackRogue.cpp \
     Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.cpp \
     Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.cpp \
@@ -573,7 +572,6 @@ HEADERS += \
     Test/Rogue/Spells/TestBladeFlurry.h \
     Character/Class/Rogue/TalentTrees/Combat/Precision.h \
     Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.h \
-    Character/Class/Rogue/TalentTrees/Combat/DualWieldSpecializationRogue.h \
     Character/Class/Rogue/Spells/OffhandAttackRogue.h \
     Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.h \
     Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.h \

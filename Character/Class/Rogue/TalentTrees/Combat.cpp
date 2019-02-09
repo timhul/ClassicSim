@@ -4,11 +4,11 @@
 #include "Backstab.h"
 #include "BladeFlurry.h"
 #include "DaggerSpecialization.h"
-#include "DualWieldSpecializationRogue.h"
 #include "Eviscerate.h"
 #include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
 #include "MaceSpecialization.h"
+#include "OffhandAttackRogue.h"
 #include "Precision.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
@@ -39,7 +39,7 @@ Combat::Combat(Character *pchar) :
 
     QMap<QString, Talent*> tier4 {{"4LL", new GenericTalent(pchar, this, "Improved Kick", "4LL", "Assets/ability/Ability_kick.png", 2, "Gives your Kick ability a %1% chance to silence the target for 2 sec.", QVector<QPair<int, int>>{{50, 50}})},
                                   {"4ML", new DaggerSpecialization(pchar, this)},
-                                  {"4MR", new DualWieldSpecializationRogue(pchar, this)}};
+                                  {"4MR", get_dual_wield_spec()}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new MaceSpecialization(pchar, this)},
@@ -83,6 +83,17 @@ Talent* Combat::get_improved_backstab() {
     Talent* talent = new Talent(rogue, this, "Improved Backstab", "2LL",
                                 "Assets/ability/Ability_backstab.png", 3, rank_descriptions,
                                 QVector<Spell*>{spells->get_backstab()});
+
+    return talent;
+}
+
+Talent* Combat::get_dual_wield_spec() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the damage done by your offhand weapon by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{10, 10}});
+    Talent* talent = new Talent(rogue, this, "Dual Wield Specialization", "4MR",
+                                "Assets/ability/Ability_dualwield.png", 5, rank_descriptions,
+                                QVector<Spell*>{spells->get_oh_attack()});
 
     return talent;
 }
