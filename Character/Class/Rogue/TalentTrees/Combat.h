@@ -3,12 +3,18 @@
 
 #include "TalentTree.h"
 
+class Rogue;
+class RogueSpells;
+
 class Combat: public TalentTree {
 public:
     Combat(Character *pchar);
-    ~Combat() override;
+
+    Talent* get_adrenaline_rush();
 
 private:
+    Rogue* rogue;
+    RogueSpells* spells;
 };
 
 #endif // COMBAT_H

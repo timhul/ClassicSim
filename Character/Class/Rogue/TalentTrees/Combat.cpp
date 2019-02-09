@@ -1,22 +1,26 @@
 #include "Combat.h"
 
-#include "AdrenalineRushTalent.h"
+#include "AdrenalineRush.h"
 #include "Aggression.h"
 #include "BladeFlurryTalent.h"
-#include "DualWieldSpecializationRogue.h"
 #include "DaggerSpecialization.h"
+#include "DualWieldSpecializationRogue.h"
 #include "FistWeaponSpecialization.h"
 #include "GenericTalent.h"
 #include "ImprovedBackstab.h"
 #include "ImprovedSinisterStrike.h"
 #include "MaceSpecialization.h"
 #include "Precision.h"
+#include "Rogue.h"
+#include "RogueSpells.h"
 #include "SwordSpecializationTalentRogue.h"
 #include "Talent.h"
 #include "WeaponExpertise.h"
 
 Combat::Combat(Character *pchar) :
-    TalentTree("Combat", "Assets/rogue/rogue_combat.jpg")
+    TalentTree("Combat", "Assets/rogue/rogue_combat.jpg"),
+    rogue(dynamic_cast<Rogue*>(pchar)),
+    spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1LL", new GenericTalent(pchar, this, "Improved Gouge", "1LL", "Assets/ability/Ability_gouge.png", 3, "Increases the effect duration of your Gouge ability by %1 sec.", QVector<QPair<double, double>>{{0.5, 0.5}})},
                                   {"1ML", new ImprovedSinisterStrike(pchar, this)},
@@ -48,7 +52,7 @@ Combat::Combat(Character *pchar) :
                                   {"6MR", new Aggression(pchar, this)}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new AdrenalineRushTalent(pchar, this)}};
+    QMap<QString, Talent*> tier7 {{"7ML", get_adrenaline_rush()}};
     add_talents(tier7);
 
     talents["2ML"]->talent->set_bottom_child(talents["3ML"]->talent);
@@ -61,4 +65,14 @@ Combat::Combat(Character *pchar) :
     talents["6ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Combat::~Combat() = default;
+Talent* Combat::get_adrenaline_rush() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases your Energy regeneration rate by 100% for 15 sec.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(rogue, this, "Adrenaline Rush", "7ML",
+                                "Assets/spell/Spell_shadow_shadowworddominate.png", 1, rank_descriptions,
+                                QVector<Spell*>{spells->get_adrenaline_rush()});
+
+    return talent;
+}

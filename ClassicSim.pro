@@ -254,7 +254,6 @@ SOURCES += main.cpp \
     Test/AttackTables/TestAttackTables.cpp \
     Test/TestTalentTree.cpp \
     Character/Class/Rogue/Spells/AdrenalineRush.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/AdrenalineRushTalent.cpp \
     Character/Class/Rogue/Buffs/AdrenalineRushBuff.cpp \
     Test/Rogue/Spells/TestAdrenalineRush.cpp \
     Character/Class/Rogue/Spells/BladeFlurry.cpp \
@@ -572,7 +571,6 @@ HEADERS += \
     Test/AttackTables/TestAttackTables.h \
     Test/TestTalentTree.h \
     Character/Class/Rogue/Spells/AdrenalineRush.h \
-    Character/Class/Rogue/TalentTrees/Combat/AdrenalineRushTalent.h \
     Character/Class/Rogue/Buffs/AdrenalineRushBuff.h \
     Test/Rogue/Spells/TestAdrenalineRush.h \
     Character/Class/Rogue/Spells/BladeFlurry.h \

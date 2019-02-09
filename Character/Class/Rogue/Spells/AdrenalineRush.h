@@ -12,10 +12,7 @@ public:
     AdrenalineRush(Character* pchar);
     ~AdrenalineRush() override;
 
-protected:
 private:
-    friend class AdrenalineRushTalent;
-
     Rogue* rogue;
     AdrenalineRushBuff* ar_buff;
 

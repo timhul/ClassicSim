@@ -1,11 +1,12 @@
 #include "TestAdrenalineRush.h"
 
 #include "AdrenalineRush.h"
-#include "AdrenalineRushTalent.h"
 #include "Backstab.h"
+#include "Combat.h"
 #include "Equipment.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
+#include "Talent.h"
 #include "WarriorSpells.h"
 
 TestAdrenalineRush::TestAdrenalineRush(EquipmentDb *equipment_db) :
@@ -159,6 +160,11 @@ void TestAdrenalineRush::when_adrenaline_rush_is_performed() {
 }
 
 void TestAdrenalineRush::given_1_of_1_adrenaline_rush() {
-    AdrenalineRushTalent(rogue, nullptr).increment_rank();
+    Talent* talent = Combat(rogue).get_adrenaline_rush();
+
+    assert(talent->increment_rank());
+
     rogue->prepare_set_of_combat_iterations();
+
+    delete talent;
 }
