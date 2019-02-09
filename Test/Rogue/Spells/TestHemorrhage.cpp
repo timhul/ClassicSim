@@ -2,9 +2,10 @@
 
 #include "Equipment.h"
 #include "Hemorrhage.h"
-#include "HemorrhageTalent.h"
 #include "Queue.h"
 #include "RogueSpells.h"
+#include "Subtlety.h"
+#include "Talent.h"
 
 TestHemorrhage::TestHemorrhage(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Hemorrhage")
@@ -256,5 +257,9 @@ void TestHemorrhage::when_hemorrhage_is_performed() {
 }
 
 void TestHemorrhage::given_hemorrhage_is_enabled() {
-    HemorrhageTalent(rogue, nullptr).increment_rank();
+    Talent* talent = Subtlety(rogue).get_hemorrhage();
+
+    assert(talent->increment_rank());
+
+    delete talent;
 }

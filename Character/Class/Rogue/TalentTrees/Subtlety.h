@@ -11,6 +11,7 @@ public:
     Subtlety(Character *pchar);
 
     Talent* get_opportunity();
+    Talent* get_hemorrhage();
 
 private:
     Rogue* rogue;

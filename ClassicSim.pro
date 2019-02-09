@@ -290,7 +290,6 @@ SOURCES += main.cpp \
     Test/Rogue/Talents/TestSubtlety.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.cpp \
-    Character/Class/Rogue/TalentTrees/Subtlety/HemorrhageTalent.cpp \
     Character/Class/Rogue/Spells/Hemorrhage.cpp \
     Test/Rogue/Spells/TestHemorrhage.cpp \
     Equipment/EquipmentDb/SetBonusFileReader.cpp \
@@ -599,7 +598,6 @@ HEADERS += \
     Test/Rogue/Talents/TestSubtlety.h \
     Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.h \
     Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.h \
-    Character/Class/Rogue/TalentTrees/Subtlety/HemorrhageTalent.h \
     Character/Class/Rogue/Spells/Hemorrhage.h \
     Test/Rogue/Spells/TestHemorrhage.h \
     Equipment/EquipmentDb/SetBonusFileReader.h \

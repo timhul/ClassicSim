@@ -13,8 +13,6 @@ public:
     Hemorrhage(Character* pchar);
 
 private:
-    friend class HemorrhageTalent;
-
     Rogue* rogue;
     StatisticsResource* statistics_resource;
     double lethality;
