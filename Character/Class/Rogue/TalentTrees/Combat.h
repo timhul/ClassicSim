@@ -10,6 +10,7 @@ class Combat: public TalentTree {
 public:
     Combat(Character *pchar);
 
+    Talent* get_blade_flurry();
     Talent* get_sword_spec();
     Talent* get_adrenaline_rush();
 

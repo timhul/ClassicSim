@@ -12,10 +12,7 @@ public:
     BladeFlurry(Character* pchar);
     ~BladeFlurry() override;
 
-protected:
 private:
-    friend class BladeFlurryTalent;
-
     Rogue* rogue;
     BladeFlurryBuff* bf_buff;
 

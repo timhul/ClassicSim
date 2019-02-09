@@ -1,11 +1,12 @@
 #include "TestBladeFlurry.h"
 
-#include "BladeFlurry.h"
-#include "BladeFlurryTalent.h"
 #include "Backstab.h"
+#include "BladeFlurry.h"
+#include "Combat.h"
 #include "Equipment.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
+#include "Talent.h"
 #include "WarriorSpells.h"
 
 TestBladeFlurry::TestBladeFlurry(EquipmentDb *equipment_db) :
@@ -143,6 +144,11 @@ void TestBladeFlurry::when_blade_flurry_is_performed() {
 }
 
 void TestBladeFlurry::given_1_of_1_blade_flurry() {
-    BladeFlurryTalent(rogue, nullptr).increment_rank();
+    Talent* talent = Combat(rogue).get_blade_flurry();
+
+    assert(talent->increment_rank());
+
     rogue->prepare_set_of_combat_iterations();
+
+    delete talent;
 }

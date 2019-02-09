@@ -2,7 +2,7 @@
 
 #include "AdrenalineRush.h"
 #include "Aggression.h"
-#include "BladeFlurryTalent.h"
+#include "BladeFlurry.h"
 #include "DaggerSpecialization.h"
 #include "DualWieldSpecializationRogue.h"
 #include "FistWeaponSpecialization.h"
@@ -43,7 +43,7 @@ Combat::Combat(Character *pchar) :
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new MaceSpecialization(pchar, this)},
-                                  {"5ML", new BladeFlurryTalent(pchar, this)},
+                                  {"5ML", get_blade_flurry()},
                                   {"5MR", get_sword_spec()},
                                   {"5RR", new FistWeaponSpecialization(pchar, this)}};
     add_talents(tier5);
@@ -63,6 +63,18 @@ Combat::Combat(Character *pchar) :
 
     talents["5ML"]->talent->set_bottom_child(talents["6ML"]->talent);
     talents["6ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* Combat::get_blade_flurry() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases your attack speed by 20%. In addition, attacks strike an additional nearby opponent. Lasts 15 sec.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(rogue, this, "Blade Flurry", "5ML",
+                                "Assets/ability/Ability_warrior_punishingblow.png", 1, rank_descriptions,
+                                QVector<Spell*>{spells->get_blade_flurry()});
+
+    return talent;
 }
 
 Talent* Combat::get_sword_spec() {

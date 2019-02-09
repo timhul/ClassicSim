@@ -257,7 +257,6 @@ SOURCES += main.cpp \
     Character/Class/Rogue/Buffs/AdrenalineRushBuff.cpp \
     Test/Rogue/Spells/TestAdrenalineRush.cpp \
     Character/Class/Rogue/Spells/BladeFlurry.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/BladeFlurryTalent.cpp \
     Character/Class/Rogue/Buffs/BladeFlurryBuff.cpp \
     Test/Rogue/Spells/TestBladeFlurry.cpp \
     Character/Class/Rogue/TalentTrees/Combat/Precision.cpp \
@@ -573,7 +572,6 @@ HEADERS += \
     Character/Class/Rogue/Buffs/AdrenalineRushBuff.h \
     Test/Rogue/Spells/TestAdrenalineRush.h \
     Character/Class/Rogue/Spells/BladeFlurry.h \
-    Character/Class/Rogue/TalentTrees/Combat/BladeFlurryTalent.h \
     Character/Class/Rogue/Buffs/BladeFlurryBuff.h \
     Test/Rogue/Spells/TestBladeFlurry.h \
     Character/Class/Rogue/TalentTrees/Combat/Precision.h \
