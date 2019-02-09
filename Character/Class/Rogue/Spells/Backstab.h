@@ -13,8 +13,6 @@ public:
     Backstab(Character* pchar);
 
 private:
-    friend class Opportunity;
-
     Rogue* rogue;
     StatisticsResource* statistics_resource;
     double improved_bs;

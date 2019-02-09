@@ -5,11 +5,11 @@
 #include "Assassination.h"
 #include "Backstab.h"
 #include "Equipment.h"
-#include "Opportunity.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SimSettings.h"
 #include "Spell.h"
+#include "Subtlety.h"
 #include "Talent.h"
 
 TestSpellRogue::TestSpellRogue(EquipmentDb *equipment_db, const QString& spell_under_test) :
@@ -129,38 +129,53 @@ void TestSpellRogue::given_5_of_5_lethality() {
 }
 
 void TestSpellRogue::given_1_of_5_opportunity() {
-    auto opportunity = Opportunity(rogue, nullptr);
-    assert(opportunity.increment_rank());
+    Talent* talent = Subtlety(rogue).get_opportunity();
+
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_2_of_5_opportunity() {
-    auto opportunity = Opportunity(rogue, nullptr);
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
+    Talent* talent = Subtlety(rogue).get_opportunity();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_3_of_5_opportunity() {
-    auto opportunity = Opportunity(rogue, nullptr);
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
+    Talent* talent = Subtlety(rogue).get_opportunity();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_4_of_5_opportunity() {
-    auto opportunity = Opportunity(rogue, nullptr);
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
+    Talent* talent = Subtlety(rogue).get_opportunity();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::given_5_of_5_opportunity() {
-    auto opportunity = Opportunity(rogue, nullptr);
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
-    assert(opportunity.increment_rank());
+    Talent* talent = Subtlety(rogue).get_opportunity();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpellRogue::then_rogue_has_energy(const unsigned energy) const {

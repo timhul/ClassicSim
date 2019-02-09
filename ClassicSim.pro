@@ -284,7 +284,6 @@ SOURCES += main.cpp \
     Character/CharacterEnchants.cpp \
     Character/Class/Warrior/WarriorEnchants.cpp \
     Character/Class/Rogue/RogueEnchants.cpp \
-    Character/Class/Rogue/TalentTrees/Subtlety/Opportunity.cpp \
     Test/Rotation/TestConditionVariableBuiltin.cpp \
     Test/Rogue/Talents/TestAssassination.cpp \
     Test/Rogue/Talents/TestCombat.cpp \
@@ -594,7 +593,6 @@ HEADERS += \
     Character/CharacterEnchants.h \
     Character/Class/Warrior/WarriorEnchants.h \
     Character/Class/Rogue/RogueEnchants.h \
-    Character/Class/Rogue/TalentTrees/Subtlety/Opportunity.h \
     Test/Rotation/TestConditionVariableBuiltin.h \
     Test/Rogue/Talents/TestAssassination.h \
     Test/Rogue/Talents/TestCombat.h \

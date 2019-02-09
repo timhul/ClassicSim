@@ -3,12 +3,18 @@
 
 #include "TalentTree.h"
 
+class Rogue;
+class RogueSpells;
+
 class Subtlety: public TalentTree {
 public:
     Subtlety(Character *pchar);
-    ~Subtlety() override;
+
+    Talent* get_opportunity();
 
 private:
+    Rogue* rogue;
+    RogueSpells* spells;
 };
 
 #endif // SUBTLETY_H

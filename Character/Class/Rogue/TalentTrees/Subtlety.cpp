@@ -1,17 +1,21 @@
 #include "Subtlety.h"
 
+#include "Backstab.h"
 #include "Deadliness.h"
 #include "GenericTalent.h"
 #include "HemorrhageTalent.h"
-#include "Opportunity.h"
+#include "Rogue.h"
+#include "RogueSpells.h"
 #include "SerratedBlades.h"
 #include "Talent.h"
 
 Subtlety::Subtlety(Character *pchar) :
-    TalentTree("Subtlety", "Assets/rogue/rogue_subtlety.jpg")
+    TalentTree("Subtlety", "Assets/rogue/rogue_subtlety.jpg"),
+    rogue(dynamic_cast<Rogue*>(pchar)),
+    spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1ML", new GenericTalent(pchar, this, "Master of Deception", "1ML", "Assets/spell/Spell_shadow_charm.png", 5, "Reduces the chance enemies have to detect you while in Stealth mode.", QVector<QPair<int, int>>{})},
-                                  {"1MR", new Opportunity(pchar, this)}};
+                                  {"1MR", get_opportunity()}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new GenericTalent(pchar, this, "Sleight of Hand", "2LL", "Assets/ability/Ability_rogue_feint.png", 2, "Reduces the chance you are critically hit by melee and ranged attacks by %1% and increases the threat reduction of your Feint ability by %2%.", QVector<QPair<int, int>>{{1, 1}, {10, 10}})},
@@ -48,4 +52,13 @@ Subtlety::Subtlety(Character *pchar) :
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Subtlety::~Subtlety() = default;
+Talent* Subtlety::get_opportunity() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Increases the damage dealt when striking from behind with your Backstab, Garrote, or Ambush abilities by %1%.";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{4, 4}});
+    Talent* talent = new Talent(rogue, this, "Opportunity", "1MR",
+                                "Assets/ability/Ability_warrior_warcry.png", 5, rank_descriptions,
+                                QVector<Spell*>{spells->get_backstab()});
+
+    return talent;
+}
