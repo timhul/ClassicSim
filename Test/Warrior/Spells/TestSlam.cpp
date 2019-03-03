@@ -272,7 +272,7 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
 void TestSlam::given_1_of_5_improved_slam() {
     Talent* talent = Fury(warrior).get_improved_slam();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -280,8 +280,8 @@ void TestSlam::given_1_of_5_improved_slam() {
 void TestSlam::given_2_of_5_improved_slam() {
     Talent* talent = Fury(warrior).get_improved_slam();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -289,9 +289,9 @@ void TestSlam::given_2_of_5_improved_slam() {
 void TestSlam::given_3_of_5_improved_slam() {
     Talent* talent = Fury(warrior).get_improved_slam();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -299,10 +299,10 @@ void TestSlam::given_3_of_5_improved_slam() {
 void TestSlam::given_4_of_5_improved_slam() {
     Talent* talent = Fury(warrior).get_improved_slam();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -310,11 +310,11 @@ void TestSlam::given_4_of_5_improved_slam() {
 void TestSlam::given_5_of_5_improved_slam() {
     Talent* talent = Fury(warrior).get_improved_slam();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }

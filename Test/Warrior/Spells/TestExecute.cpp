@@ -520,7 +520,7 @@ void TestExecute::given_0_of_2_improved_execute() {
 void TestExecute::given_1_of_2_improved_execute() {
     Talent* talent = Fury(warrior).get_improved_execute();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 
@@ -531,8 +531,8 @@ void TestExecute::given_1_of_2_improved_execute() {
 void TestExecute::given_2_of_2_improved_execute() {
     Talent* talent = Fury(warrior).get_improved_execute();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 

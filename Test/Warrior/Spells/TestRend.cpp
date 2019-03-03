@@ -196,7 +196,7 @@ void TestRend::given_0_of_3_improved_rend() {
 void TestRend::given_1_of_3_improved_rend() {
     Talent* talent = Arms(warrior).get_improved_rend();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -204,8 +204,8 @@ void TestRend::given_1_of_3_improved_rend() {
 void TestRend::given_2_of_3_improved_rend() {
     Talent* talent = Arms(warrior).get_improved_rend();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -213,9 +213,9 @@ void TestRend::given_2_of_3_improved_rend() {
 void TestRend::given_3_of_3_improved_rend() {
     Talent* talent = Arms(warrior).get_improved_rend();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }

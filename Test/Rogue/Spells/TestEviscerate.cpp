@@ -613,7 +613,7 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of
 void TestEviscerate::given_1_of_3_imp_eviscerate() {
     Talent* talent = Assassination(rogue).get_improved_eviscerate();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -621,8 +621,8 @@ void TestEviscerate::given_1_of_3_imp_eviscerate() {
 void TestEviscerate::given_2_of_3_imp_eviscerate() {
     Talent* talent = Assassination(rogue).get_improved_eviscerate();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -630,9 +630,9 @@ void TestEviscerate::given_2_of_3_imp_eviscerate() {
 void TestEviscerate::given_3_of_3_imp_eviscerate() {
     Talent* talent = Assassination(rogue).get_improved_eviscerate();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }

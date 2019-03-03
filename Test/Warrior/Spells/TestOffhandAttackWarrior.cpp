@@ -451,7 +451,7 @@ void TestOffhandAttackWarrior::given_0_of_5_dual_wield_specialization() {
 void TestOffhandAttackWarrior::given_1_of_5_dual_wield_specialization() {
     Talent* talent = Fury(warrior).get_dual_wield_specialization();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -459,8 +459,8 @@ void TestOffhandAttackWarrior::given_1_of_5_dual_wield_specialization() {
 void TestOffhandAttackWarrior::given_2_of_5_dual_wield_specialization() {
     Talent* talent = Fury(warrior).get_dual_wield_specialization();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -468,9 +468,9 @@ void TestOffhandAttackWarrior::given_2_of_5_dual_wield_specialization() {
 void TestOffhandAttackWarrior::given_3_of_5_dual_wield_specialization() {
     Talent* talent = Fury(warrior).get_dual_wield_specialization();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -478,10 +478,10 @@ void TestOffhandAttackWarrior::given_3_of_5_dual_wield_specialization() {
 void TestOffhandAttackWarrior::given_4_of_5_dual_wield_specialization() {
     Talent* talent = Fury(warrior).get_dual_wield_specialization();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -489,11 +489,11 @@ void TestOffhandAttackWarrior::given_4_of_5_dual_wield_specialization() {
 void TestOffhandAttackWarrior::given_5_of_5_dual_wield_specialization() {
     Talent* talent = Fury(warrior).get_dual_wield_specialization();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }

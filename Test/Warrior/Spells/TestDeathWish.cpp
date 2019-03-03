@@ -108,7 +108,7 @@ void TestDeathWish::test_dmg_mod_reduced_after_buff_expires() {
 void TestDeathWish::given_death_wish_is_enabled() {
     Talent* talent = Fury(warrior).get_death_wish();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 

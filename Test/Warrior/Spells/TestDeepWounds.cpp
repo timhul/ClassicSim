@@ -341,7 +341,7 @@ void TestDeepWounds::given_deep_wounds_enabled() {
 void TestDeepWounds::given_1_of_3_deep_wounds() {
     Talent* talent = Arms(warrior).get_deep_wounds();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 
@@ -351,8 +351,8 @@ void TestDeepWounds::given_1_of_3_deep_wounds() {
 void TestDeepWounds::given_2_of_3_deep_wounds() {
     Talent* talent = Arms(warrior).get_deep_wounds();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 
@@ -362,9 +362,9 @@ void TestDeepWounds::given_2_of_3_deep_wounds() {
 void TestDeepWounds::given_3_of_3_deep_wounds() {
     Talent* talent = Arms(warrior).get_deep_wounds();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 

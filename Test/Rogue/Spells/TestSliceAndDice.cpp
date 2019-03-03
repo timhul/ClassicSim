@@ -299,7 +299,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_
 void TestSliceAndDice::given_1_of_3_imp_snd() {
     Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -307,8 +307,8 @@ void TestSliceAndDice::given_1_of_3_imp_snd() {
 void TestSliceAndDice::given_2_of_3_imp_snd() {
     Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -316,9 +316,9 @@ void TestSliceAndDice::given_2_of_3_imp_snd() {
 void TestSliceAndDice::given_3_of_3_imp_snd() {
     Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }

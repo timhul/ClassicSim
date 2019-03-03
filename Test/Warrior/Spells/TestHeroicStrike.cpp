@@ -218,7 +218,7 @@ void TestHeroicStrike::given_0_of_3_improved_hs() {
 void TestHeroicStrike::given_1_of_3_improved_hs() {
     Talent* talent = Arms(warrior).get_improved_heroic_strike();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -226,8 +226,8 @@ void TestHeroicStrike::given_1_of_3_improved_hs() {
 void TestHeroicStrike::given_2_of_3_improved_hs() {
     Talent* talent = Arms(warrior).get_improved_heroic_strike();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }
@@ -235,9 +235,9 @@ void TestHeroicStrike::given_2_of_3_improved_hs() {
 void TestHeroicStrike::given_3_of_3_improved_hs() {
     Talent* talent = Arms(warrior).get_improved_heroic_strike();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 }

@@ -519,7 +519,7 @@ void TestFlurryWarrior::when_flurry_is_removed() {
 void TestFlurryWarrior::given_1_of_5_flurry() {
     Talent* talent = Fury(warrior).get_flurry_talent();
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
 
     delete talent;
 
@@ -529,8 +529,8 @@ void TestFlurryWarrior::given_1_of_5_flurry() {
 void TestFlurryWarrior::given_2_of_5_flurry() {
     Talent* talent = Fury(warrior).get_flurry_talent();
 
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 
@@ -540,9 +540,9 @@ void TestFlurryWarrior::given_2_of_5_flurry() {
 void TestFlurryWarrior::given_3_of_5_flurry() {
     Talent* talent = Fury(warrior).get_flurry_talent();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 
@@ -552,10 +552,10 @@ void TestFlurryWarrior::given_3_of_5_flurry() {
 void TestFlurryWarrior::given_4_of_5_flurry() {
     Talent* talent = Fury(warrior).get_flurry_talent();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 
@@ -565,11 +565,11 @@ void TestFlurryWarrior::given_4_of_5_flurry() {
 void TestFlurryWarrior::given_5_of_5_flurry() {
     Talent* talent = Fury(warrior).get_flurry_talent();
 
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
-    talent->increment_rank();
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
 
     delete talent;
 
