@@ -18,7 +18,7 @@ public:
     ~EquipmentDb();
 
     Weapon* get_melee_weapon(const int item_id) const;
-    Item* get_ranged(const int item_id) const;
+    Weapon* get_ranged(const int item_id) const;
     Item* get_head(const int item_id) const;
     Item* get_neck(const int item_id) const;
     Item* get_shoulders(const int item_id) const;

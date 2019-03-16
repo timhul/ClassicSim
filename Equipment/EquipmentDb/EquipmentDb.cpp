@@ -90,8 +90,13 @@ Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) 
     return nullptr;
 }
 
-Item* EquipmentDb::get_ranged(const int item_id) const {
-    return get_item(current_patch_ranged_items, item_id);
+Weapon *EquipmentDb::get_ranged(const int item_id) const {
+    for (auto & current_patch_ranged_slot_item : current_patch_ranged_items) {
+        if (item_id == current_patch_ranged_slot_item->get_item_id())
+            return new Weapon(dynamic_cast<Weapon*>(current_patch_ranged_slot_item));
+    }
+
+    return nullptr;
 }
 
 Item* EquipmentDb::get_head(const int item_id) const {
@@ -287,7 +292,6 @@ void EquipmentDb::read_equipment_files() {
     }
 
     set_weapons(items);
-    set_items(items, ranged_items, ItemSlots::RANGED);
     set_items(items, helms, ItemSlots::HEAD);
     set_items(items, amulets, ItemSlots::NECK);
     set_items(items, shoulders, ItemSlots::SHOULDERS);
@@ -328,6 +332,10 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
             oh_slot_items.append(new Weapon(dynamic_cast<Weapon*>(item)));
             add_item_id(item);
             --i;
+            break;
+        case WeaponSlots::RANGED:
+            item = mixed_items.takeAt(i);
+            ranged_items.append(new Weapon(dynamic_cast<Weapon*>(item)));
             break;
         }
     }

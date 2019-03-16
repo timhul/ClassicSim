@@ -24,7 +24,7 @@ public:
     const Stats* get_stats() const;
     Weapon* get_mainhand() const;
     Weapon* get_offhand() const;
-    Item* get_ranged() const;
+    Weapon* get_ranged() const;
     Item* get_head() const;
     Item* get_neck() const;
     Item* get_shoulders() const;
@@ -101,7 +101,7 @@ private:
     QVector<QVector<int>> item_setups;
     Weapon* mainhand;
     Weapon* offhand;
-    Item* ranged;
+    Weapon* ranged;
     Item* head;
     Item* neck;
     Item* shoulders;

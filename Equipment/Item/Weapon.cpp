@@ -75,32 +75,44 @@ bool Weapon::has_temporary_enchant() const {
     return temporary_enchant != nullptr;
 }
 
-void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, const bool mainhand) {
+void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, const int weapon_slot) {
     if (enchant_name == EnchantName::NoEnchant)
         return;
 
     delete enchant;
 
-    int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
-
-    switch (enchant_name) {
-    case EnchantName::Crusader:
-    case EnchantName::FieryWeapon:
-        enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
-        break;
-    default:
-        enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
+    if (weapon_slot == WeaponSlots::MAINHAND || weapon_slot == WeaponSlots::OFFHAND) {
+        int enchant_slot = weapon_slot == WeaponSlots::MAINHAND ? EnchantSlot::MAINHAND :
+                                                                  EnchantSlot::OFFHAND;
+        switch (enchant_name) {
+        case EnchantName::Crusader:
+        case EnchantName::FieryWeapon:
+            enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
+            break;
+        default:
+            enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
+        }
+    }
+    else if (weapon_slot == WeaponSlots::RANGED) {
+        ;
+    }
+    else {
+        assert(false);
     }
 }
 
-void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *pchar, const bool mainhand) {
+void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *pchar, const int weapon_slot) {
     if (enchant_name == EnchantName::NoEnchant)
         return;
 
     clear_temporary_enchant();
 
-    int enchant_slot = mainhand ? EnchantSlot::MAINHAND : EnchantSlot::OFFHAND;
-    QString weapon_side = mainhand ? "MH" : "OH";
+    if (!(weapon_slot == WeaponSlots::MAINHAND || weapon_slot == WeaponSlots::OFFHAND))
+        assert(false);
+
+    int enchant_slot = weapon_slot == WeaponSlots::MAINHAND ? EnchantSlot::MAINHAND :
+                                                              EnchantSlot::OFFHAND;
+    QString weapon_side = weapon_slot ? "MH" : "OH";
 
     switch (enchant_name) {
     case EnchantName::WindfuryTotem:
@@ -112,8 +124,8 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::InstantPoison:
-        temporary_enchant = mainhand ? dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison() :
-                                       dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison();
+        temporary_enchant = weapon_slot == WeaponSlots::MAINHAND ? dynamic_cast<Rogue*>(pchar)->get_mh_instant_poison() :
+                                                                   dynamic_cast<Rogue*>(pchar)->get_oh_instant_poison();
         dynamic_cast<InstantPoison*>(temporary_enchant)->enable();
         break;
     default:

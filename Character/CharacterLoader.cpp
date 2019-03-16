@@ -225,14 +225,17 @@ void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Characte
 
 void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
-        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, true);
-        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar, true);
+        pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, WeaponSlots::MAINHAND);
+        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar, WeaponSlots::MAINHAND);
     }
 
     if (pchar->get_equipment()->get_offhand() != nullptr) {
-        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT")), pchar, false);
-        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar, false);
+        pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT")), pchar, WeaponSlots::OFFHAND);
+        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar, WeaponSlots::OFFHAND);
     }
+
+    if (pchar->get_equipment()->get_ranged() != nullptr)
+        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_value("RANGED_ENCHANT")), pchar, WeaponSlots::RANGED);
 
     if (pchar->get_equipment()->get_head() != nullptr)
         pchar->get_equipment()->get_head()->apply_enchant(get_enum_val(decoder.get_value("HEAD_ENCHANT")), pchar);
@@ -257,9 +260,6 @@ void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar
 
     if (pchar->get_equipment()->get_boots() != nullptr)
         pchar->get_equipment()->get_boots()->apply_enchant(get_enum_val(decoder.get_value("BOOTS_ENCHANT")), pchar);
-
-    if (pchar->get_equipment()->get_ranged())
-        pchar->get_equipment()->get_ranged()->apply_enchant(get_enum_val(decoder.get_value("RANGED_ENCHANT")), pchar);
 }
 
 void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar) {

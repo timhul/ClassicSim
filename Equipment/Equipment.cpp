@@ -133,7 +133,7 @@ Weapon* Equipment::get_offhand() const {
     return offhand;
 }
 
-Item* Equipment::get_ranged() const {
+Weapon* Equipment::get_ranged() const {
     return ranged;
 }
 
@@ -256,14 +256,14 @@ void Equipment::set_offhand(const int item_id) {
 }
 
 void Equipment::set_ranged(const int item_id) {
-    Item* item = db->get_ranged(item_id);
+    Weapon* weapon = db->get_ranged(item_id);
 
-    if (item == nullptr)
+    if (weapon  == nullptr)
         return;
 
-    assert(item->get_item_slot() == ItemSlots::RANGED);
+    assert(weapon ->get_item_slot() == ItemSlots::RANGED);
     assert(get_relic() == nullptr);
-    equip(ranged, item, EquipmentSlot::RANGED);
+    equip(ranged, weapon, EquipmentSlot::RANGED);
 }
 
 void Equipment::set_head(const int item_id) {
