@@ -3,13 +3,13 @@
 #include <utility>
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "CooldownReady.h"
 #include "Engine.h"
 #include "Mechanics.h"
-#include "Spells.h"
 #include "StatisticsSpell.h"
 #include "Target.h"
 

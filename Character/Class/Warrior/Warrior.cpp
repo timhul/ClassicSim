@@ -73,7 +73,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->next_stance_cd = 0.0;
 
     this->warr_spells = new WarriorSpells(this);
-    this->spells = dynamic_cast<Spells*>(warr_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(warr_spells);
 
     this->flurry = new Flurry(this);
     this->battle_shout_buff = new BattleShoutBuff(this);

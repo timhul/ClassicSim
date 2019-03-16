@@ -1,4 +1,4 @@
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 #include "BloodFury.h"
 #include "Berserking.h"
@@ -13,7 +13,7 @@
 #include "Race.h"
 #include "Target.h"
 
-Spells::Spells(Character* pchar) :
+CharacterSpells::CharacterSpells(Character* pchar) :
     pchar(pchar),
     next_instance_id(SpellStatus::INITIAL_ID)
 {
@@ -22,7 +22,7 @@ Spells::Spells(Character* pchar) :
     spells = {berserking, blood_fury};
 }
 
-Spells::~Spells()
+CharacterSpells::~CharacterSpells()
 {
     for (auto & spell : spells)
         delete spell;
@@ -31,7 +31,7 @@ Spells::~Spells()
     pre_combat_spells.clear();
 }
 
-void Spells::activate_racials() {
+void CharacterSpells::activate_racials() {
     switch (pchar->get_race()->get_race_int()) {
     case Races::Orc:
         blood_fury->enable();
@@ -44,7 +44,7 @@ void Spells::activate_racials() {
     }
 }
 
-void Spells::deactivate_racials() {
+void CharacterSpells::deactivate_racials() {
     switch (pchar->get_race()->get_race_int()) {
     case Races::Orc:
         blood_fury->disable();
@@ -57,7 +57,7 @@ void Spells::deactivate_racials() {
     }
 }
 
-void Spells::add_spell(Spell* spell, bool relink) {
+void CharacterSpells::add_spell(Spell* spell, bool relink) {
     if (spell->get_instance_id() == SpellStatus::INACTIVE) {
         spell->set_instance_id(next_instance_id);
         ++next_instance_id;
@@ -69,7 +69,7 @@ void Spells::add_spell(Spell* spell, bool relink) {
         pchar->relink_spells();
 }
 
-void Spells::remove_spell(Spell* spell) {
+void CharacterSpells::remove_spell(Spell* spell) {
     for (auto & i : spells) {
         if (i->get_instance_id() == spell->get_instance_id()) {
             spells.removeOne(i);
@@ -79,7 +79,7 @@ void Spells::remove_spell(Spell* spell) {
     pchar->relink_spells();
 }
 
-void Spells::add_pre_combat_spell(Spell* spell) {
+void CharacterSpells::add_pre_combat_spell(Spell* spell) {
     if (spell->get_instance_id() == SpellStatus::INACTIVE) {
         spell->set_instance_id(next_instance_id);
         ++next_instance_id;
@@ -88,7 +88,7 @@ void Spells::add_pre_combat_spell(Spell* spell) {
     pre_combat_spells.append(spell);
 }
 
-void Spells::remove_pre_combat_spell(Spell* spell) {
+void CharacterSpells::remove_pre_combat_spell(Spell* spell) {
     for (auto & i : pre_combat_spells) {
         if (i->get_instance_id() == spell->get_instance_id()) {
             pre_combat_spells.removeOne(i);
@@ -97,12 +97,12 @@ void Spells::remove_pre_combat_spell(Spell* spell) {
     }
 }
 
-void Spells::run_pre_combat_spells() {
+void CharacterSpells::run_pre_combat_spells() {
     for (auto & spell : pre_combat_spells)
         spell->perform_pre_combat();
 }
 
-Spell* Spells::get_spell_by_name(const QString& spell_name) const {
+Spell* CharacterSpells::get_spell_by_name(const QString& spell_name) const {
     for (auto & spell : spells) {
         if (spell->get_name() == spell_name)
             return spell;
@@ -111,12 +111,12 @@ Spell* Spells::get_spell_by_name(const QString& spell_name) const {
     return nullptr;
 }
 
-void Spells::reset() {
+void CharacterSpells::reset() {
     for (auto & spell : spells)
         spell->reset();
 }
 
-void Spells::start_attack() {
+void CharacterSpells::start_attack() {
     add_next_mh_attack();
 
     if (pchar->is_dual_wielding()) {
@@ -124,7 +124,7 @@ void Spells::start_attack() {
     }
 }
 
-void Spells::mh_auto_attack(const int iteration) {
+void CharacterSpells::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;
 
@@ -136,37 +136,37 @@ void Spells::mh_auto_attack(const int iteration) {
     add_next_mh_attack();
 }
 
-void Spells::add_next_mh_attack() {
+void CharacterSpells::add_next_mh_attack() {
     auto* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
     pchar->get_engine()->add_event(new_event);
 }
 
-void Spells::oh_auto_attack(const int) {
+void CharacterSpells::oh_auto_attack(const int) {
     assert(false);
 }
 
-void Spells::add_next_oh_attack() {
+void CharacterSpells::add_next_oh_attack() {
     assert(false);
 }
 
-MainhandAttack* Spells::get_mh_attack() const {
+MainhandAttack* CharacterSpells::get_mh_attack() const {
     return this->mh_attack;
 }
 
-OffhandAttack* Spells::get_oh_attack() const {
+OffhandAttack* CharacterSpells::get_oh_attack() const {
     assert(false);
     return nullptr;
 }
 
-Berserking* Spells::get_berserking() const {
+Berserking* CharacterSpells::get_berserking() const {
     return this->berserking;
 }
 
-BloodFury* Spells::get_blood_fury() const {
+BloodFury* CharacterSpells::get_blood_fury() const {
     return this->blood_fury;
 }
 
-void Spells::prepare_set_of_combat_iterations() {
+void CharacterSpells::prepare_set_of_combat_iterations() {
     for (auto & spell : spells)
         spell->prepare_set_of_combat_iterations();
 }

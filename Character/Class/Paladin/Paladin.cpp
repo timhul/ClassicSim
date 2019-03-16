@@ -16,7 +16,7 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     this->cstats = new CharacterStats(this, equipment_db);
 
     this->paladin_spells = new PaladinSpells(this);
-    this->spells = dynamic_cast<Spells*>(paladin_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(paladin_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

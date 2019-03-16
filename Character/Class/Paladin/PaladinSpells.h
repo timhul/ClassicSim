@@ -1,11 +1,11 @@
 #ifndef PALADINSPELLS_H
 #define PALADINSPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Paladin;
 
-class PaladinSpells: public Spells {
+class PaladinSpells: public CharacterSpells {
 public:
     PaladinSpells(Paladin *paladin);
     virtual ~PaladinSpells() override;

@@ -6,7 +6,7 @@
 
 
 DruidSpells::DruidSpells(Druid* druid) :
-    Spells(druid),
+    CharacterSpells(druid),
     druid(druid)
 {
     this->mh_attack = new MainhandAttack(druid);

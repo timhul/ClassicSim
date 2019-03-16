@@ -1,11 +1,11 @@
 #ifndef SHAMANSPELLS_H
 #define SHAMANSPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Shaman;
 
-class ShamanSpells: public Spells {
+class ShamanSpells: public CharacterSpells {
 public:
     ShamanSpells(Shaman *shaman);
     virtual ~ShamanSpells() override;

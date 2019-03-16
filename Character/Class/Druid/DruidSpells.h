@@ -1,11 +1,11 @@
 #ifndef DRUIDSPELLS_H
 #define DRUIDSPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Druid;
 
-class DruidSpells: public Spells {
+class DruidSpells: public CharacterSpells {
 public:
     DruidSpells(Druid *druid);
     virtual ~DruidSpells() override;

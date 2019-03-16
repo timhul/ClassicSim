@@ -1,7 +1,7 @@
 #ifndef ROGUESPELLS_H
 #define ROGUESPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class AdrenalineRush;
 class Backstab;
@@ -13,7 +13,7 @@ class Rogue;
 class SinisterStrike;
 class SliceAndDice;
 
-class RogueSpells: public Spells {
+class RogueSpells: public CharacterSpells {
 public:
     RogueSpells(Rogue *rogue);
     virtual ~RogueSpells() override;

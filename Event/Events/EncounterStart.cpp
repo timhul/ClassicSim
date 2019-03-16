@@ -1,7 +1,7 @@
-
 #include "EncounterStart.h"
+
 #include "Character.h"
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 EncounterStart::EncounterStart(Character* pchar) {
     this->pchar = pchar;

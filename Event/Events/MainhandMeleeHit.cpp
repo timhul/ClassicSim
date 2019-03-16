@@ -1,8 +1,8 @@
-
 #include "MainhandMeleeHit.h"
-#include "Spells.h"
 
-MainhandMeleeHit::MainhandMeleeHit(Spells* spells, const double next_timestamp, const int iteration) {
+#include "CharacterSpells.h"
+
+MainhandMeleeHit::MainhandMeleeHit(CharacterSpells* spells, const double next_timestamp, const int iteration) {
     this->spells = spells;
     this->priority = next_timestamp;
     this->name = "MainhandMeleeHit";

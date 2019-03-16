@@ -4,7 +4,7 @@
 #include "FelstrikerProc.h"
 #include "GeneralBuffs.h"
 #include "ProcInfo.h"
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 FelstrikerProc::FelstrikerProc(Character* pchar,
                                const QString& name,

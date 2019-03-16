@@ -6,7 +6,7 @@
 
 
 PaladinSpells::PaladinSpells(Paladin* paladin) :
-    Spells(paladin),
+    CharacterSpells(paladin),
     paladin(paladin)
 {
     this->mh_attack = new MainhandAttack(paladin);

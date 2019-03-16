@@ -114,7 +114,6 @@ SOURCES += main.cpp \
     Spells/ProcPPM.cpp \
     Character/Common/Buffs/HolyStrength.cpp \
     Character/Common/Enchants/FieryWeapon.cpp \
-    Character/Spells.cpp \
     Character/CharacterStats.cpp \
     Character/Class/Warrior/WarriorSpells.cpp \
     Statistics/Charts/PieChart.cpp \
@@ -304,7 +303,8 @@ SOURCES += main.cpp \
     Test/Hunter/Talents/TestMarksmanship.cpp \
     Test/Hunter/Talents/TestSurvival.cpp \
     Test/Hunter/TestHunter.cpp \
-    Character/Class/Hunter/HunterEnchants.cpp
+    Character/Class/Hunter/HunterEnchants.cpp \
+    Character/CharacterSpells.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -415,7 +415,6 @@ HEADERS += \
     Spells/ProcPPM.h \
     Character/Common/Buffs/HolyStrength.h \
     Character/Common/Enchants/FieryWeapon.h \
-    Character/Spells.h \
     Character/CharacterStats.h \
     Character/Class/Warrior/WarriorSpells.h \
     Statistics/Charts/PieChart.h \
@@ -612,7 +611,8 @@ HEADERS += \
     Test/Hunter/Talents/TestMarksmanship.h \
     Test/Hunter/Talents/TestSurvival.h \
     Test/Hunter/TestHunter.h \
-    Character/Class/Hunter/HunterEnchants.h
+    Character/Class/Hunter/HunterEnchants.h \
+    Character/CharacterSpells.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

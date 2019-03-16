@@ -14,7 +14,7 @@
 #include "SliceAndDice.h"
 
 RogueSpells::RogueSpells(Rogue* rogue) :
-    Spells(rogue),
+    CharacterSpells(rogue),
     rogue(rogue)
 {
     this->mh_attack = new MainhandAttack(rogue);

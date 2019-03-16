@@ -1,11 +1,11 @@
 #ifndef PRIESTSPELLS_H
 #define PRIESTSPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Priest;
 
-class PriestSpells: public Spells {
+class PriestSpells: public CharacterSpells {
 public:
     PriestSpells(Priest *priest);
     virtual ~PriestSpells() override;

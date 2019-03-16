@@ -1,7 +1,7 @@
 
 #include "UseTrinket.h"
 #include "Character.h"
-#include "Spells.h"
+#include "CharacterSpells.h"
 #include "Buff.h"
 #include "Proc.h"
 

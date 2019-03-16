@@ -18,7 +18,7 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
     this->cstats = new CharacterStats(this, equipment_db);
 
     this->mage_spells = new MageSpells(this);
-    this->spells = dynamic_cast<Spells*>(mage_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(mage_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

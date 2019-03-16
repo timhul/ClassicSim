@@ -1,7 +1,7 @@
 #ifndef WARRIORSPELLS_H
 #define WARRIORSPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Warrior;
 
@@ -27,7 +27,7 @@ class Whirlwind;
 class MainhandAttackWarrior;
 class OffhandAttackWarrior;
 
-class WarriorSpells: public Spells {
+class WarriorSpells: public CharacterSpells {
 public:
     WarriorSpells(Warrior *warr);
 

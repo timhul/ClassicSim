@@ -12,10 +12,10 @@ class OffhandAttack;
 
 static const bool NO_RELINK = false;
 
-class Spells {
+class CharacterSpells {
 public:
-    Spells(Character* pchar);
-    virtual ~Spells();
+    CharacterSpells(Character* pchar);
+    virtual ~CharacterSpells();
 
     void activate_racials();
     void deactivate_racials();

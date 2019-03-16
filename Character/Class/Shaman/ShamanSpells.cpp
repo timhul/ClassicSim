@@ -6,7 +6,7 @@
 
 
 ShamanSpells::ShamanSpells(Shaman* shaman) :
-    Spells(shaman),
+    CharacterSpells(shaman),
     shaman(shaman)
 {
     this->mh_attack = new MainhandAttack(shaman);

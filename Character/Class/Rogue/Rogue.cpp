@@ -48,7 +48,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     cstats->increase_crit(0.03);
 
     this->rogue_spells = new RogueSpells(this);
-    this->spells = dynamic_cast<Spells*>(rogue_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(rogue_spells);
     this->energy = new class Energy(this);
     this->resource = this->energy;
 

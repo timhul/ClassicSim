@@ -6,7 +6,7 @@
 
 
 MageSpells::MageSpells(Mage* mage) :
-    Spells(mage),
+    CharacterSpells(mage),
     mage(mage)
 {
     this->mh_attack = new MainhandAttack(mage);

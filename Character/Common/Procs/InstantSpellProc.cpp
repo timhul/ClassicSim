@@ -3,7 +3,7 @@
 #include "InstantSpellAttack.h"
 #include "Character.h"
 #include "ProcInfo.h"
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 InstantSpellProc::InstantSpellProc(Character* pchar,
                                    const QString& proc_name,

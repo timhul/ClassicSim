@@ -1,6 +1,8 @@
+#include "Character.h"
+
 #include <QDebug>
 
-#include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
@@ -17,7 +19,6 @@
 #include "Rotation.h"
 #include "RulesetControl.h"
 #include "SimSettings.h"
-#include "Spells.h"
 #include "Stats.h"
 #include "Talents.h"
 #include "Target.h"
@@ -32,6 +33,7 @@ Character::Character(const QString class_name, Race* race, SimSettings *sim_sett
     talents(new Talents()),
     available_enchants(nullptr),
     cstats(nullptr),
+    spells(nullptr),
     statistics(new ClassStatistics(sim_settings)),
     current_rotation(nullptr),
     sim_settings(sim_settings),
@@ -166,7 +168,7 @@ EnabledBuffs* Character::get_enabled_buffs() const {
     return this->enabled_buffs;
 }
 
-Spells* Character::get_spells() const {
+CharacterSpells* Character::get_spells() const {
     return this->spells;
 }
 

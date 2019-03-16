@@ -4,14 +4,14 @@
 #include <utility>
 
 #include "Character.h"
-#include "EnabledBuffs.h"
+#include "CharacterSpells.h"
 #include "ConditionBuff.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
 #include "ConditionVariableAssign.h"
 #include "ConditionVariableBuiltin.h"
+#include "EnabledBuffs.h"
 #include "RotationExecutor.h"
-#include "Spells.h"
 
 Rotation::Rotation(QString class_name) :
     pchar(nullptr),

@@ -6,7 +6,7 @@
 
 
 WarlockSpells::WarlockSpells(Warlock* warlock) :
-    Spells(warlock),
+    CharacterSpells(warlock),
     warlock(warlock)
 {
     this->mh_attack = new MainhandAttack(warlock);

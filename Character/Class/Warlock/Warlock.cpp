@@ -18,7 +18,7 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     this->cstats = new CharacterStats(this, equipment_db);
 
     this->warlock_spells = new WarlockSpells(this);
-    this->spells = dynamic_cast<Spells*>(warlock_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(warlock_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

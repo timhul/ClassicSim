@@ -31,7 +31,7 @@
 #include "Whirlwind.h"
 
 WarriorSpells::WarriorSpells(Warrior* pchar) :
-    Spells(pchar),
+    CharacterSpells(pchar),
     warr(pchar)
 {
     this->anger_management = new AngerManagement(pchar);

@@ -3,7 +3,7 @@
 #include "InstantSpellAttack.h"
 #include "ItemNamespace.h"
 #include "Character.h"
-#include "Spells.h"
+#include "CharacterSpells.h"
 #include "MagicSchools.h"
 
 FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, const int weapon) :

@@ -1,11 +1,12 @@
-#include "Character.h"
-#include "CharacterStats.h"
 #include "ConditionVariableBuiltin.h"
+
+#include "Character.h"
+#include "CharacterSpells.h"
+#include "CharacterStats.h"
 #include "Engine.h"
 #include "MainhandAttack.h"
 #include "Rogue.h"
 #include "SimSettings.h"
-#include "Spells.h"
 
 ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const int builtin,

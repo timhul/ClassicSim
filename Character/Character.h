@@ -11,6 +11,7 @@
 class BerserkingBuff;
 class BloodFuryBuff;
 class CharacterEnchants;
+class CharacterSpells;
 class CharacterStats;
 class ClassStatistics;
 class CombatRoll;
@@ -23,7 +24,6 @@ class Faction;
 class Race;
 class Rotation;
 class SimSettings;
-class Spells;
 class Stats;
 class Talents;
 class Target;
@@ -34,19 +34,28 @@ public:
     Character(const QString class_name, Race* race, SimSettings* sim_settings);
     virtual ~Character();
 
-    QString get_name() const;
+    CharacterEnchants* get_enchants(void) const;
+    CharacterSpells* get_spells(void) const;
+    CharacterStats* get_stats(void) const;
+    ClassStatistics* get_statistics(void) const;
+    ClassStatistics* relinquish_ownership_of_statistics(void);
+    CombatRoll* get_combat_roll(void) const;
+    EnabledBuffs* get_enabled_buffs(void) const;
+    EnabledProcs* get_enabled_procs() const;
+    Engine* get_engine(void) const;
+    Equipment* get_equipment(void) const;
+    Faction* get_faction(void) const;
     Race* get_race(void);
-    bool race_available(Race*) const;
-    void set_race(Race* race);
-    void set_rotation(Rotation*);
-    void relink_spells();
-    QString get_current_rotation_name() const;
-    void perform_rotation();
     Rotation* get_rotation();
-    void change_target_creature_type(const QString& creature_type);
-    void run_pre_combat_actions();
+    SimSettings* get_sim_settings() const;
+    Talents* get_talents(void) const;
+    Target* get_target(void) const;
 
-    void switch_faction();
+    void set_race(Race* race);
+    bool race_available(Race*) const;
+
+    QString get_name() const;
+    virtual QString get_class_color() const = 0;
 
     virtual int get_highest_possible_armor_type() const = 0;
     virtual QVector<int> get_weapon_proficiencies_for_slot(const int) const = 0;
@@ -61,24 +70,18 @@ public:
     virtual int get_ap_per_strength() const = 0;
     virtual int get_ap_per_agi() const = 0;
 
-    virtual QString get_class_color() const = 0;
+    void set_rotation(Rotation*);
+    void relink_spells();
+    QString get_current_rotation_name() const;
+    void perform_rotation();
+
+    void change_target_creature_type(const QString& creature_type);
+    void run_pre_combat_actions();
+
+    void switch_faction();
 
     int get_clvl(void) const;
     virtual void set_clvl(const int);
-    Engine* get_engine(void) const;
-    Target* get_target(void) const;
-    CombatRoll* get_combat_roll(void) const;
-    Faction* get_faction(void) const;
-    Equipment* get_equipment(void) const;
-    Talents* get_talents(void) const;
-    EnabledBuffs* get_enabled_buffs(void) const;
-    Spells* get_spells(void) const;
-    CharacterEnchants* get_enchants(void) const;
-    CharacterStats* get_stats(void) const;
-    ClassStatistics* get_statistics(void) const;
-    ClassStatistics* relinquish_ownership_of_statistics(void);
-    EnabledProcs* get_enabled_procs() const;
-    SimSettings* get_sim_settings() const;
 
     void add_player_reaction_event();
 
@@ -170,7 +173,7 @@ protected:
     CharacterStats* cstats;
     EnabledProcs* enabled_procs;
     EnabledBuffs* enabled_buffs;
-    Spells* spells{};
+    CharacterSpells* spells;
     ClassStatistics* statistics;
     Rotation* current_rotation;
     SimSettings* sim_settings;

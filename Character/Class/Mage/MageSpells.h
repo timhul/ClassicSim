@@ -1,11 +1,11 @@
 #ifndef MAGESPELLS_H
 #define MAGESPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Mage;
 
-class MageSpells: public Spells {
+class MageSpells: public CharacterSpells {
 public:
     MageSpells(Mage *mage);
     virtual ~MageSpells() override;

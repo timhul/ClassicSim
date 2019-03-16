@@ -2,7 +2,7 @@
 #include "GenericChargeConsumerProc.h"
 #include "Character.h"
 #include "ProcInfo.h"
-#include "Spells.h"
+#include "CharacterSpells.h"
 #include "Buff.h"
 #include "EnabledProcs.h"
 

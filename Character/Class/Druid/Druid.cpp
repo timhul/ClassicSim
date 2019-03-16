@@ -20,7 +20,7 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     this->cstats = new CharacterStats(this, equipment_db);
 
     this->druid_spells = new DruidSpells(this);
-    this->spells = dynamic_cast<Spells*>(druid_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(druid_spells);
 
     this->energy = new class Energy(this);
     this->mana = new class Mana(this);

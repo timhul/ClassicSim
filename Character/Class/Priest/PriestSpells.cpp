@@ -6,7 +6,7 @@
 
 
 PriestSpells::PriestSpells(Priest* priest) :
-    Spells(priest),
+    CharacterSpells(priest),
     priest(priest)
 {
     this->mh_attack = new MainhandAttack(priest);

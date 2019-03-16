@@ -17,7 +17,7 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
     this->cstats = new CharacterStats(this, equipment_db);
 
     this->shaman_spells = new ShamanSpells(this);
-    this->spells = dynamic_cast<Spells*>(shaman_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(shaman_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

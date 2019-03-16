@@ -1,11 +1,11 @@
 #ifndef WARLOCKSPELLS_H
 #define WARLOCKSPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Warlock;
 
-class WarlockSpells: public Spells {
+class WarlockSpells: public CharacterSpells {
 public:
     WarlockSpells(Warlock *warlock);
     virtual ~WarlockSpells() override;

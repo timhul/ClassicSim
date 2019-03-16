@@ -25,7 +25,7 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
     this->cstats = new CharacterStats(this, equipment_db);
 
     this->hunter_spells = new HunterSpells(this);
-    this->spells = dynamic_cast<Spells*>(hunter_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(hunter_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

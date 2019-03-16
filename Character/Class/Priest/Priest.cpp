@@ -19,7 +19,7 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings)
     this->cstats = new CharacterStats(this, equipment_db);
 
     this->priest_spells = new PriestSpells(this);
-    this->spells = dynamic_cast<Spells*>(priest_spells);
+    this->spells = dynamic_cast<CharacterSpells*>(priest_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;

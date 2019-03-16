@@ -1,12 +1,10 @@
-
 #include "HunterSpells.h"
-#include "Hunter.h"
 
+#include "Hunter.h"
 #include "MainhandAttack.h"
 
-
 HunterSpells::HunterSpells(Hunter* hunter) :
-    Spells(hunter),
+    CharacterSpells(hunter),
     hunter(hunter)
 {
     this->mh_attack = new MainhandAttack(hunter);

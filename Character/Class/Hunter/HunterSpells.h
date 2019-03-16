@@ -1,11 +1,11 @@
 #ifndef HUNTERSPELLS_H
 #define HUNTERSPELLS_H
 
-#include "Spells.h"
+#include "CharacterSpells.h"
 
 class Hunter;
 
-class HunterSpells: public Spells {
+class HunterSpells: public CharacterSpells {
 public:
     HunterSpells(Hunter *hunter);
     virtual ~HunterSpells() override;
