@@ -65,7 +65,7 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
     Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
     Character/Talents.cpp \
-    Character/Class/GenericTalent.cpp \
+    Character/GenericTalent.cpp \
     GUI/GUIControl.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
@@ -93,8 +93,8 @@ SOURCES += main.cpp \
     Test/Warrior/TestSpellWarrior.cpp \
     Test/Warrior/Spells/TestHeroicStrike.cpp \
     Test/Warrior/Spells/TestBloodthirst.cpp \
-    Character/Class/General/MainhandAttack.cpp \
-    Character/Class/General/OffhandAttack.cpp \
+    Character/Common/Spells/MainhandAttack.cpp \
+    Character/Common/Spells/OffhandAttack.cpp \
     Character/Class/Warrior/Spells/MainhandAttackWarrior.cpp \
     Character/Class/Warrior/Spells/OffhandAttackWarrior.cpp \
     Test/Warrior/Spells/TestMainhandAttackWarrior.cpp \
@@ -109,11 +109,11 @@ SOURCES += main.cpp \
     Event/Events/ResourceGain.cpp \
     Test/Warrior/Spells/TestBloodrage.cpp \
     Spells/Proc.cpp \
-    Character/Class/General/Enchants/WindfuryTotemAttack.cpp \
-    Character/Class/General/Enchants/Crusader.cpp \
+    Character/Common/Enchants/WindfuryTotemAttack.cpp \
+    Character/Common/Enchants/Crusader.cpp \
     Spells/ProcPPM.cpp \
-    Character/Class/General/Buffs/HolyStrength.cpp \
-    Character/Class/General/Enchants/FieryWeapon.cpp \
+    Character/Common/Buffs/HolyStrength.cpp \
+    Character/Common/Enchants/FieryWeapon.cpp \
     Character/Spells.cpp \
     Character/CharacterStats.cpp \
     Character/Class/Warrior/WarriorSpells.cpp \
@@ -129,15 +129,15 @@ SOURCES += main.cpp \
     Test/Warrior/Procs/TestUnbridledWrath.cpp \
     Test/Warrior/TestProcWarrior.cpp \
     Test/TestProc.cpp \
-    Character/Class/General/Procs/ExtraAttackOnNextSwingProc.cpp \
-    Character/Class/General/Buffs/ExtraAttackOnNextSwingBuff.cpp \
-    Character/Class/General/Procs/ExtraAttackInstantProc.cpp \
-    Character/Class/General/GeneralProcs.cpp \
+    Character/Common/Procs/ExtraAttackOnNextSwingProc.cpp \
+    Character/Common/Buffs/ExtraAttackOnNextSwingBuff.cpp \
+    Character/Common/Procs/ExtraAttackInstantProc.cpp \
+    Character/Common/GeneralProcs.cpp \
     Character/CharacterDecoder.cpp \
     Character/CharacterEncoder.cpp \
     Thread/SimulationThreadPool.cpp \
     Thread/SimulationRunner.cpp \
-    Character/Class/General/GeneralBuffs.cpp \
+    Character/Common/GeneralBuffs.cpp \
     GUI/Models/BuffModel.cpp \
     Spells/ExternalBuff.cpp \
     Rotation/RotationFileReader.cpp \
@@ -198,19 +198,19 @@ SOURCES += main.cpp \
     GUI/SimSettings.cpp \
     GUI/SimControl.cpp \
     Statistics/NumberCruncher.cpp \
-    Character/Class/General/Enchants/Enchant.cpp \
-    Character/Class/General/Enchants/EnchantStatic.cpp \
-    Character/Class/General/Enchants/EnchantProc.cpp \
-    Character/Class/General/Buffs/ArmorPenetrationBuff.cpp \
-    Character/Class/General/Procs/ArmorPenetrationProc.cpp \
-    Character/Class/General/Spells/InstantSpellAttack.cpp \
-    Character/Class/General/Procs/InstantSpellProc.cpp \
+    Character/Common/Enchants/Enchant.cpp \
+    Character/Common/Enchants/EnchantStatic.cpp \
+    Character/Common/Enchants/EnchantProc.cpp \
+    Character/Common/Buffs/ArmorPenetrationBuff.cpp \
+    Character/Common/Procs/ArmorPenetrationProc.cpp \
+    Character/Common/Spells/InstantSpellAttack.cpp \
+    Character/Common/Procs/InstantSpellProc.cpp \
     Test/General/Procs/TestFelstrikerProc.cpp \
-    Character/Class/General/Procs/FelstrikerProc.cpp \
-    Character/Class/General/Buffs/FelstrikerBuff.cpp \
+    Character/Common/Procs/FelstrikerProc.cpp \
+    Character/Common/Buffs/FelstrikerBuff.cpp \
     Spells/SharedBuff.cpp \
-    Character/Class/General/Buffs/EssenceOfTheRed.cpp \
-    Character/Class/General/Spells/PeriodicResourceGainSpell.cpp \
+    Character/Common/Buffs/EssenceOfTheRed.cpp \
+    Character/Common/Spells/PeriodicResourceGainSpell.cpp \
     Rulesets/RulesetControl.cpp \
     GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.cpp \
     GUI/Models/Statistics/MeleeDamageBreakdownModel.cpp \
@@ -218,13 +218,13 @@ SOURCES += main.cpp \
     GUI/Models/Statistics/BuffBreakdownModel.cpp \
     GUI/Models/Statistics/ProcBreakdownModel.cpp \
     GUI/Models/Statistics/ResourceBreakdownModel.cpp \
-    Character/Class/General/Buffs/GenericStatBuff.cpp \
-    Character/Class/General/Buffs/JomGabbar.cpp \
+    Character/Common/Buffs/GenericStatBuff.cpp \
+    Character/Common/Buffs/JomGabbar.cpp \
     Event/Events/PeriodicRefreshBuff.cpp \
-    Character/Class/General/Buffs/FlatWeaponDamageBuff.cpp \
-    Character/Class/General/Procs/GenericChargeConsumerProc.cpp \
-    Character/Class/General/Spells/UseTrinket.cpp \
-    Character/Class/General/Buffs/NoEffectBuff.cpp \
+    Character/Common/Buffs/FlatWeaponDamageBuff.cpp \
+    Character/Common/Procs/GenericChargeConsumerProc.cpp \
+    Character/Common/Spells/UseTrinket.cpp \
+    Character/Common/Buffs/NoEffectBuff.cpp \
     Character/Class/Warrior/Spells/Rend.cpp \
     Test/Warrior/Spells/TestRend.cpp \
     Character/EnabledBuffs.cpp \
@@ -237,11 +237,11 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Combat.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety.cpp \
     Character/Class/Rogue/Spells/Backstab.cpp \
-    Character/Class/General/Spells/EnergyTick.cpp \
+    Character/Common/Spells/EnergyTick.cpp \
     Character/Class/Rage.cpp \
     Character/Class/Energy.cpp \
     Character/Class/Mana.cpp \
-    Character/Class/General/Spells/ManaTick.cpp \
+    Character/Common/Spells/ManaTick.cpp \
     Test/Rogue/TestRogue.cpp \
     Test/Rogue/TestEnergy.cpp \
     Test/Rogue/TestSpellRogue.cpp \
@@ -367,7 +367,7 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.h \
     Character/Class/Warrior/TalentTrees/Arms/Impale.h \
     Character/Talents.h \
-    Character/Class/GenericTalent.h \
+    Character/GenericTalent.h \
     GUI/GUIControl.h \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
@@ -394,8 +394,8 @@ HEADERS += \
     Test/Warrior/TestSpellWarrior.h \
     Test/Warrior/Spells/TestHeroicStrike.h \
     Test/Warrior/Spells/TestBloodthirst.h \
-    Character/Class/General/MainhandAttack.h \
-    Character/Class/General/OffhandAttack.h \
+    Character/Common/Spells/MainhandAttack.h \
+    Character/Common/Spells/OffhandAttack.h \
     Character/Class/Warrior/Spells/MainhandAttackWarrior.h \
     Character/Class/Warrior/Spells/OffhandAttackWarrior.h \
     Test/Warrior/Spells/TestMainhandAttackWarrior.h \
@@ -410,11 +410,11 @@ HEADERS += \
     Character/Class/Warrior/Spells/Bloodrage.h \
     Test/Warrior/Spells/TestBloodrage.h \
     Spells/Proc.h \
-    Character/Class/General/Enchants/WindfuryTotemAttack.h \
-    Character/Class/General/Enchants/Crusader.h \
+    Character/Common/Enchants/WindfuryTotemAttack.h \
+    Character/Common/Enchants/Crusader.h \
     Spells/ProcPPM.h \
-    Character/Class/General/Buffs/HolyStrength.h \
-    Character/Class/General/Enchants/FieryWeapon.h \
+    Character/Common/Buffs/HolyStrength.h \
+    Character/Common/Enchants/FieryWeapon.h \
     Character/Spells.h \
     Character/CharacterStats.h \
     Character/Class/Warrior/WarriorSpells.h \
@@ -430,16 +430,16 @@ HEADERS += \
     Test/Warrior/Procs/TestUnbridledWrath.h \
     Test/Warrior/TestProcWarrior.h \
     Test/TestProc.h \
-    Character/Class/General/Procs/ExtraAttackOnNextSwingProc.h \
-    Character/Class/General/Buffs/ExtraAttackOnNextSwingBuff.h \
-    Character/Class/General/Procs/ExtraAttackInstantProc.h \
-    Character/Class/General/GeneralProcs.h \
+    Character/Common/Procs/ExtraAttackOnNextSwingProc.h \
+    Character/Common/Buffs/ExtraAttackOnNextSwingBuff.h \
+    Character/Common/Procs/ExtraAttackInstantProc.h \
+    Character/Common/GeneralProcs.h \
     Character/CharacterEncoding.h \
     Character/CharacterDecoder.h \
     Character/CharacterEncoder.h \
     Thread/SimulationThreadPool.h \
     Thread/SimulationRunner.h \
-    Character/Class/General/GeneralBuffs.h \
+    Character/Common/GeneralBuffs.h \
     GUI/Models/BuffModel.h \
     Spells/ExternalBuff.h \
     Rotation/RotationFileReader.h \
@@ -501,22 +501,22 @@ HEADERS += \
     GUI/SimSettings.h \
     GUI/SimControl.h \
     Statistics/NumberCruncher.h \
-    Character/Class/General/Enchants/Enchant.h \
-    Character/Class/General/Enchants/EnchantStatic.h \
-    Character/Class/General/Enchants/EnchantProc.h \
-    Character/Class/General/Enchants/EnchantName.h \
-    Character/Class/General/Buffs/ArmorPenetrationBuff.h \
-    Character/Class/General/Procs/ArmorPenetrationProc.h \
-    Character/Class/General/Spells/InstantSpellAttack.h \
-    Character/Class/General/Procs/InstantSpellProc.h \
+    Character/Common/Enchants/Enchant.h \
+    Character/Common/Enchants/EnchantStatic.h \
+    Character/Common/Enchants/EnchantProc.h \
+    Character/Common/Enchants/EnchantName.h \
+    Character/Common/Buffs/ArmorPenetrationBuff.h \
+    Character/Common/Procs/ArmorPenetrationProc.h \
+    Character/Common/Spells/InstantSpellAttack.h \
+    Character/Common/Procs/InstantSpellProc.h \
     Character/Class/MagicSchools.h \
     Test/General/Procs/TestFelstrikerProc.h \
-    Character/Class/General/Procs/FelstrikerProc.h \
-    Character/Class/General/Buffs/FelstrikerBuff.h \
+    Character/Common/Procs/FelstrikerProc.h \
+    Character/Common/Buffs/FelstrikerBuff.h \
     Spells/SharedBuff.h \
-    Character/Class/General/Buffs/EssenceOfTheRed.h \
+    Character/Common/Buffs/EssenceOfTheRed.h \
     Character/Class/Resource.h \
-    Character/Class/General/Spells/PeriodicResourceGainSpell.h \
+    Character/Common/Spells/PeriodicResourceGainSpell.h \
     Rulesets/Rulesets.h \
     Rulesets/RulesetControl.h \
     Faction/AvailableFactions.h \
@@ -526,13 +526,13 @@ HEADERS += \
     GUI/Models/Statistics/BuffBreakdownModel.h \
     GUI/Models/Statistics/ProcBreakdownModel.h \
     GUI/Models/Statistics/ResourceBreakdownModel.h \
-    Character/Class/General/Buffs/GenericStatBuff.h \
-    Character/Class/General/Buffs/JomGabbar.h \
+    Character/Common/Buffs/GenericStatBuff.h \
+    Character/Common/Buffs/JomGabbar.h \
     Event/Events/PeriodicRefreshBuff.h \
-    Character/Class/General/Buffs/FlatWeaponDamageBuff.h \
-    Character/Class/General/Procs/GenericChargeConsumerProc.h \
-    Character/Class/General/Spells/UseTrinket.h \
-    Character/Class/General/Buffs/NoEffectBuff.h \
+    Character/Common/Buffs/FlatWeaponDamageBuff.h \
+    Character/Common/Procs/GenericChargeConsumerProc.h \
+    Character/Common/Spells/UseTrinket.h \
+    Character/Common/Buffs/NoEffectBuff.h \
     Character/Class/Warrior/Spells/Rend.h \
     Test/Warrior/Spells/TestRend.h \
     Character/EnabledBuffs.h \
@@ -546,11 +546,11 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Combat.h \
     Character/Class/Rogue/TalentTrees/Subtlety.h \
     Character/Class/Rogue/Spells/Backstab.h \
-    Character/Class/General/Spells/EnergyTick.h \
+    Character/Common/Spells/EnergyTick.h \
     Character/Class/Rage.h \
     Character/Class/Energy.h \
     Character/Class/Mana.h \
-    Character/Class/General/Spells/ManaTick.h \
+    Character/Common/Spells/ManaTick.h \
     Test/Rogue/TestRogue.h \
     Test/Rogue/TestEnergy.h \
     Test/Rogue/TestSpellRogue.h \
@@ -672,11 +672,11 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Hunter \
     $$PWD/Test/Hunter/Talents \
     $$PWD/Test/Rotation \
-    $$PWD/Character/Class/General \
-    $$PWD/Character/Class/General/Enchants \
-    $$PWD/Character/Class/General/Buffs \
-    $$PWD/Character/Class/General/Spells \
-    $$PWD/Character/Class/General/Procs \
+    $$PWD/Character/Common \
+    $$PWD/Character/Common/Enchants \
+    $$PWD/Character/Common/Buffs \
+    $$PWD/Character/Common/Spells \
+    $$PWD/Character/Common/Procs \
     $$PWD/GUI \
     $$PWD/GUI/Models \
     $$PWD/GUI/Models/Statistics \
