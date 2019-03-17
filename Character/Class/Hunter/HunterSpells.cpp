@@ -1,6 +1,6 @@
 #include "HunterSpells.h"
 
-#include "AutoShoot.h"
+#include "AutoShot.h"
 #include "Hunter.h"
 #include "MainhandAttack.h"
 #include "MultiShot.h"
@@ -10,19 +10,19 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     hunter(hunter)
 {
     this->mh_attack = new MainhandAttack(hunter);
-    this->auto_shoot = new AutoShoot(hunter);
+    this->auto_shot = new AutoShot(hunter);
     this->multi_shot = new MultiShot(hunter);
 
     spells.append(mh_attack);
-    spells.append(auto_shoot);
+    spells.append(auto_shot);
     spells.append(multi_shot);
 }
 
 void HunterSpells::add_next_ranged_attack() {
 }
 
-AutoShoot* HunterSpells::get_auto_shoot() const {
-    return this->auto_shoot;
+AutoShot* HunterSpells::get_auto_shot() const {
+    return this->auto_shot;
 }
 
 MultiShot* HunterSpells::get_multi_shot() const {

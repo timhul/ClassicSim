@@ -275,7 +275,7 @@ void Item::set_uses() {
             proc_sources.append(ProcInfo::Source::MainhandSpell);
             proc_sources.append(ProcInfo::Source::OffhandSwing);
             proc_sources.append(ProcInfo::Source::OffhandSpell);
-            proc_sources.append(ProcInfo::Source::RangedAutoShoot);
+            proc_sources.append(ProcInfo::Source::RangedAutoShot);
             proc_sources.append(ProcInfo::Source::RangedSpell);
             Buff* buff = new FlatWeaponDamageBuff(pchar, name, icon, 20, 20, AffectedWeaponSide::All, 2);
             Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
@@ -288,7 +288,7 @@ void Item::set_uses() {
             proc_sources.append(ProcInfo::Source::MainhandSpell);
             proc_sources.append(ProcInfo::Source::OffhandSwing);
             proc_sources.append(ProcInfo::Source::OffhandSpell);
-            proc_sources.append(ProcInfo::Source::RangedAutoShoot);
+            proc_sources.append(ProcInfo::Source::RangedAutoShot);
             proc_sources.append(ProcInfo::Source::RangedSpell);
             auto* proc = new ArmorPenetrationProc(pchar, name, icon, proc_sources, proc_rate, 200, 6, 30, REFRESH_DOES_NOT_EXTEND_DURATION);
             auto* buff = new NoEffectBuff(pchar, 30);

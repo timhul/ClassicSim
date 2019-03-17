@@ -12,12 +12,12 @@ public:
 
     void add_next_ranged_attack() override;
 
-    AutoShoot* get_auto_shoot() const override;
+    AutoShot* get_auto_shot() const override;
     MultiShot* get_multi_shot() const;
 
 private:
     Hunter* hunter;
-    AutoShoot* auto_shoot;
+    AutoShot* auto_shot;
     MultiShot* multi_shot;
 };
 

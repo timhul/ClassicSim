@@ -9,7 +9,7 @@ enum Source {
     OffhandSwing,
     MainhandSpell,
     OffhandSpell,
-    RangedAutoShoot,
+    RangedAutoShot,
     RangedSpell,
     Manual
 };

@@ -162,7 +162,7 @@ OffhandAttack* CharacterSpells::get_oh_attack() const {
     return nullptr;
 }
 
-AutoShoot* CharacterSpells::get_auto_shoot() const {
+AutoShot* CharacterSpells::get_auto_shot() const {
     return nullptr;
 }
 

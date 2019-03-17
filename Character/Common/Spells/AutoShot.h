@@ -1,11 +1,11 @@
-#ifndef AUTOSHOOT_H
-#define AUTOSHOOT_H
+#ifndef AUTOSHOT_H
+#define AUTOSHOT_H
 
 #include "Spell.h"
 
-class AutoShoot: public Spell {
+class AutoShot: public Spell {
 public:
-    AutoShoot(Character* pchar);
+    AutoShot(Character* pchar);
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);
@@ -31,4 +31,4 @@ protected:
 private:
 };
 
-#endif // AUTOSHOOT_H
+#endif // AUTOSHOT_H

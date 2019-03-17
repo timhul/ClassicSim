@@ -304,13 +304,13 @@ SOURCES += main.cpp \
     Test/Hunter/TestHunter.cpp \
     Character/Class/Hunter/HunterEnchants.cpp \
     Character/CharacterSpells.cpp \
-    Character/Common/Spells/AutoShoot.cpp \
     CombatRoll/AttackTables/MeleeWhiteHitTable.cpp \
     CombatRoll/AttackTables/RangedWhiteHitTable.cpp \
-    Test/Hunter/Spells/TestAutoShoot.cpp \
     Test/Hunter/TestSpellHunter.cpp \
     Character/Class/Hunter/Spells/MultiShot.cpp \
-    Test/Hunter/Spells/TestMultiShot.cpp
+    Test/Hunter/Spells/TestMultiShot.cpp \
+    Character/Common/Spells/AutoShot.cpp \
+    Test/Hunter/Spells/TestAutoShot.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -617,13 +617,13 @@ HEADERS += \
     Test/Hunter/TestHunter.h \
     Character/Class/Hunter/HunterEnchants.h \
     Character/CharacterSpells.h \
-    Character/Common/Spells/AutoShoot.h \
     CombatRoll/AttackTables/MeleeWhiteHitTable.h \
     CombatRoll/AttackTables/RangedWhiteHitTable.h \
-    Test/Hunter/Spells/TestAutoShoot.h \
     Test/Hunter/TestSpellHunter.h \
     Character/Class/Hunter/Spells/MultiShot.h \
-    Test/Hunter/Spells/TestMultiShot.h
+    Test/Hunter/Spells/TestMultiShot.h \
+    Character/Common/Spells/AutoShot.h \
+    Test/Hunter/Spells/TestAutoShot.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

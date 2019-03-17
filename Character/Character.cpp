@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-#include "AutoShoot.h"
+#include "AutoShot.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
@@ -316,7 +316,7 @@ void Character::run_oh_yellow_specific_proc_effects() {
 }
 
 void Character::run_ranged_white_specific_proc_effects() {
-    enabled_procs->run_proc_effects(ProcInfo::Source::RangedAutoShoot);
+    enabled_procs->run_proc_effects(ProcInfo::Source::RangedAutoShot);
 }
 
 void Character::run_ranged_yellow_specific_proc_effects() {
@@ -456,9 +456,9 @@ void Character::increase_ranged_attack_speed(unsigned increase) {
     cstats->increase_ranged_attack_speed(increase);
     double increase_double = double(increase) / 100;
 
-    AutoShoot* auto_shoot = spells->get_auto_shoot();
-    if (auto_shoot != nullptr) {
-        auto_shoot->update_next_expected_use(increase_double);
+    AutoShot* auto_shot = spells->get_auto_shot();
+    if (auto_shot != nullptr) {
+        auto_shot->update_next_expected_use(increase_double);
         spells->add_next_ranged_attack();
     }
 }
@@ -467,9 +467,9 @@ void Character::decrease_ranged_attack_speed(unsigned decrease) {
     cstats->decrease_ranged_attack_speed(decrease);
     double decrease_double = double(decrease) / 100;
 
-    AutoShoot* auto_shoot = spells->get_auto_shoot();
-    if (auto_shoot != nullptr) {
-        auto_shoot->update_next_expected_use(-decrease_double);
+    AutoShot* auto_shot = spells->get_auto_shot();
+    if (auto_shot != nullptr) {
+        auto_shot->update_next_expected_use(-decrease_double);
         spells->add_next_ranged_attack();
     }
 }

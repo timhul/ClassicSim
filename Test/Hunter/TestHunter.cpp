@@ -3,7 +3,7 @@
 #include "Hunter.h"
 #include "ItemNamespace.h"
 #include "Orc.h"
-#include "TestAutoShoot.h"
+#include "TestAutoShot.h"
 #include "TestBeastMastery.h"
 #include "TestMarksmanship.h"
 #include "TestMultiShot.h"
@@ -12,7 +12,7 @@
 void TestHunter::test_all() {
     test_basic_properties();
 
-    TestAutoShoot(equipment_db).test_all();
+    TestAutoShot(equipment_db).test_all();
     TestMultiShot(equipment_db).test_all();
 
     TestBeastMastery(equipment_db).test_all();

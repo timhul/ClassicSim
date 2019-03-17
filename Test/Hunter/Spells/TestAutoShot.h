@@ -1,18 +1,18 @@
-#ifndef TESTAUTOSHOOT_H
-#define TESTAUTOSHOOT_H
+#ifndef TESTAUTOSHOT_H
+#define TESTAUTOSHOT_H
 
 #include "TestSpellHunter.h"
 
-class AutoShoot;
+class AutoShot;
 
-class TestAutoShoot: public TestSpellHunter {
+class TestAutoShot: public TestSpellHunter {
 public:
-    TestAutoShoot(EquipmentDb *equipment_db);
+    TestAutoShot(EquipmentDb *equipment_db);
 
     void test_all();
 
 private:
-    AutoShoot* auto_shoot();
+    AutoShot* auto_shot();
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -27,7 +27,7 @@ private:
     void test_mid_swing_haste_increase_updates_attack_speed();
     void test_mid_swing_haste_decrease_updates_attack_speed();
 
-    void when_auto_shoot_is_performed();
+    void when_auto_shot_is_performed();
     void when_changing_to_2_speed();
     void when_increasing_attack_speed(const unsigned change);
     void when_decreasing_attack_speed(const unsigned change);
@@ -35,4 +35,4 @@ private:
     void then_next_expected_use_is(const double next_expected_use);
 };
 
-#endif // TESTAUTOSHOOT_H
+#endif // TESTAUTOSHOT_H

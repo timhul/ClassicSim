@@ -1,4 +1,4 @@
-#include "AutoShoot.h"
+#include "AutoShot.h"
 
 #include "Character.h"
 #include "CharacterStats.h"
@@ -7,8 +7,8 @@
 #include "Equipment.h"
 #include "Weapon.h"
 
-AutoShoot::AutoShoot(Character* pchar) :
-    Spell("Auto-Shoot",
+AutoShot::AutoShot(Character* pchar) :
+    Spell("Auto Shot",
           "Assets/items/Inv_weapon_bow_11.png",
           pchar,
           RestrictedByGcd::No,
@@ -23,12 +23,12 @@ AutoShoot::AutoShoot(Character* pchar) :
     iteration = 0;
 }
 
-void AutoShoot::spell_effect() {
+void AutoShot::spell_effect() {
     complete_shot();
     calculate_damage(true);
 }
 
-void AutoShoot::calculate_damage(const bool run_procs) {
+void AutoShot::calculate_damage(const bool run_procs) {
     const int wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
 
@@ -54,11 +54,11 @@ void AutoShoot::calculate_damage(const bool run_procs) {
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 
-double AutoShoot::get_next_expected_use() const {
+double AutoShot::get_next_expected_use() const {
     return next_expected_use;
 }
 
-void AutoShoot::update_next_expected_use(const double haste_change) {
+void AutoShot::update_next_expected_use(const double haste_change) {
     assert(haste_change > 0.001 || haste_change < -0.001);
 
     double curr_time = pchar->get_engine()->get_current_priority();
@@ -74,33 +74,33 @@ void AutoShoot::update_next_expected_use(const double haste_change) {
     next_expected_use = curr_time + remainder_after_haste_change;
 }
 
-void AutoShoot::pause_shot() {
+void AutoShot::pause_shot() {
     paused = true;
 }
 
-void AutoShoot::continue_shot(const double offset) {
+void AutoShot::continue_shot(const double offset) {
     paused = false;
     next_expected_use += offset;
 }
 
-void AutoShoot::complete_shot() {
+void AutoShot::complete_shot() {
     last_used = engine->get_current_priority();
     next_expected_use = last_used + pchar->get_stats()->get_ranged_wpn_speed();
 }
 
-void AutoShoot::reset_shot_timer() {
+void AutoShot::reset_shot_timer() {
     next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_ranged_wpn_speed();
 }
 
-bool AutoShoot::attack_is_valid(const int iteration) const {
+bool AutoShot::attack_is_valid(const int iteration) const {
     return this->iteration == iteration;
 }
 
-int AutoShoot::get_next_iteration() {
+int AutoShot::get_next_iteration() {
     return ++iteration;
 }
 
-void AutoShoot::reset_effect() {
+void AutoShot::reset_effect() {
     next_expected_use = 0;
     paused = false;
 }

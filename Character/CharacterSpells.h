@@ -3,7 +3,7 @@
 
 #include <QVector>
 
-class AutoShoot;
+class AutoShot;
 class Berserking;
 class BloodFury;
 class Character;
@@ -43,7 +43,7 @@ public:
 
     virtual MainhandAttack* get_mh_attack() const;
     virtual OffhandAttack* get_oh_attack() const;
-    virtual AutoShoot* get_auto_shoot() const;
+    virtual AutoShot* get_auto_shot() const;
 
     Berserking* get_berserking() const;
     BloodFury* get_blood_fury() const;
