@@ -1,11 +1,11 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include <assert.h>
-#include <QString>
 #include <QMap>
 #include <QSet>
+#include <QString>
 #include <QVector>
+#include <assert.h>
 
 #include "AvailableFactions.h"
 #include "EnchantName.h"
@@ -14,11 +14,11 @@
 #include "MagicSchools.h"
 #include "ProcInfo.h"
 
-class Enchant;
-class Stats;
 class Character;
+class Enchant;
 class Proc;
 class Spell;
+class Stats;
 
 int get_slot_int(const QString& slot_string);
 
@@ -34,7 +34,8 @@ public:
     Item(const Item* item);
     virtual ~Item();
 
-    virtual int get_item_slot(void) const;
+    int get_item_id() const;
+    int get_item_slot(void) const;
     int get_item_type(void) const;
     virtual int get_weapon_slot(void) const;
 
@@ -46,7 +47,6 @@ public:
     QString get_base_stat_tooltip() const;
     QString get_equip_effect_tooltip() const;
     QString get_weapon_side_name(const int eq_slot) const;
-    int get_item_id() const;
 
     const Stats* get_stats() const;
     void set_stat(const QString& key, const QString& value);
@@ -90,8 +90,8 @@ protected:
     void set_procs(const int eq_slot);
     void call_item_modifications(const bool activate = true) const;
 
-    int slot{};
-    int item_type{};
+    int slot;
+    int item_type;
     const int item_id;
     void set_item_slot(const QMap<QString, QString>& info);
     void set_item_type(const QMap<QString, QString>& info);
@@ -103,8 +103,6 @@ protected:
 
     void add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot);
     MagicSchool get_magic_school(const QString& name);
-
-private:
 };
 
 #endif // ITEM_H

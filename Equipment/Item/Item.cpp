@@ -38,6 +38,8 @@ Item::Item(QString name,
     spell_modifications(std::move(_spell_modifications)),
     stats(new Stats()),
     enchant(nullptr),
+    slot(-1),
+    item_type(-1),
     item_id(item_id)
 {
     set_stats(stats_key_value_pairs);
@@ -76,7 +78,6 @@ Item::~Item() {
 }
 
 void Item::set_item_slot(const QMap<QString, QString>& info) {
-    slot = -1;
     if (!info.contains("slot")) {
         return;
     }
@@ -85,7 +86,6 @@ void Item::set_item_slot(const QMap<QString, QString>& info) {
 }
 
 void Item::set_item_type(const QMap<QString, QString>& info) {
-    item_type = -1;
     if (!info.contains("type")) {
         return;
     }
