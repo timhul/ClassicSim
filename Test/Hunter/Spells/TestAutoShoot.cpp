@@ -49,6 +49,9 @@ void TestAutoShoot::test_spell_cooldown() {
 }
 
 void TestAutoShoot::test_obeys_global_cooldown() {
+    given_hunter_is_on_gcd();
+
+    assert(auto_shoot()->is_available());
 }
 
 void TestAutoShoot::test_resource_cost() {
@@ -101,7 +104,7 @@ void TestAutoShoot::test_crit_dmg() {
 
     when_auto_shoot_is_performed();
 
-    // [Damage] = base_dmg + (wpn_speed * AP / 14) * crit_dmg_modifier
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * crit_dmg_modifier
     // [571] = (100 + (2.6 * 1000 / 14)) * 2.0
     then_damage_dealt_is(571);
 }
@@ -141,11 +144,11 @@ void TestAutoShoot::when_changing_to_2_speed() {
     given_a_ranged_weapon_with_2_speed();
 }
 
-void TestAutoShoot::when_increasing_attack_speed(const int change) {
+void TestAutoShoot::when_increasing_attack_speed(const unsigned change) {
     hunter->increase_ranged_attack_speed(change);
 }
 
-void TestAutoShoot::when_decreasing_attack_speed(const int change) {
+void TestAutoShoot::when_decreasing_attack_speed(const unsigned change) {
     hunter->decrease_ranged_attack_speed(change);
 }
 

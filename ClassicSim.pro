@@ -308,7 +308,9 @@ SOURCES += main.cpp \
     CombatRoll/AttackTables/MeleeWhiteHitTable.cpp \
     CombatRoll/AttackTables/RangedWhiteHitTable.cpp \
     Test/Hunter/Spells/TestAutoShoot.cpp \
-    Test/Hunter/TestSpellHunter.cpp
+    Test/Hunter/TestSpellHunter.cpp \
+    Character/Class/Hunter/Spells/MultiShot.cpp \
+    Test/Hunter/Spells/TestMultiShot.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -619,7 +621,9 @@ HEADERS += \
     CombatRoll/AttackTables/MeleeWhiteHitTable.h \
     CombatRoll/AttackTables/RangedWhiteHitTable.h \
     Test/Hunter/Spells/TestAutoShoot.h \
-    Test/Hunter/TestSpellHunter.h
+    Test/Hunter/TestSpellHunter.h \
+    Character/Class/Hunter/Spells/MultiShot.h \
+    Test/Hunter/Spells/TestMultiShot.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -649,6 +653,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
     $$PWD/Character/Class/Hunter \
+    $$PWD/Character/Class/Hunter/Spells \
     $$PWD/Character/Class/Hunter/TalentTrees \
     $$PWD/Character/Class/Warlock \
     $$PWD/Character/Class/Shaman \

@@ -27,6 +27,8 @@ public:
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
     unsigned get_resource_level(const ResourceType) const override;
+    void gain_mana(const unsigned value) override;
+    void lose_mana(const unsigned value) override;
 
 private:
     HunterSpells* hunter_spells;

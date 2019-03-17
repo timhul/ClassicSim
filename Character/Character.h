@@ -123,6 +123,7 @@ public:
     double get_random_normalized_oh_dmg();
     double get_random_non_normalized_oh_dmg();
 
+    double get_random_normalized_ranged_dmg();
     double get_random_non_normalized_ranged_dmg();
 
     int get_mh_wpn_skill() const;

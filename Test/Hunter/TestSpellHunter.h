@@ -14,6 +14,7 @@ public:
 
     void given_hunter_has_mana(const unsigned mana);
     void then_hunter_has_mana(const unsigned mana);
+    void given_hunter_is_on_gcd();
 
 protected:
     Hunter* hunter;

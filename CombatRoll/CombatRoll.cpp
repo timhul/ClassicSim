@@ -56,9 +56,8 @@ int CombatRoll::get_ranged_hit_result(const int wpn_skill, const double crit_cha
     return attack_table->get_outcome(roll, crit_chance);
 }
 
-int CombatRoll::get_ranged_ability_result(const int) {
-    // CSIM-73: Remove hardcoded critical result
-    return PhysicalAttackResult::CRITICAL;
+int CombatRoll::get_ranged_ability_result(const int wpn_skill, const double crit_chance) {
+    return get_ranged_hit_result(wpn_skill, crit_chance);
 }
 
 int CombatRoll::get_spell_ability_result(const MagicSchool school, const double crit_mod) {

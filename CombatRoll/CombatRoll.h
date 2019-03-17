@@ -29,7 +29,7 @@ public:
                                  const bool include_block = true,
                                  const bool include_miss = true);
     int get_ranged_hit_result(const int wpn_skill, const double crit_chance);
-    int get_ranged_ability_result(const int);
+    int get_ranged_ability_result(const int wpn_skill, const double crit_chance);
     int get_spell_ability_result(const MagicSchool, const double);
     int get_spell_resist_result(const MagicSchool);
 

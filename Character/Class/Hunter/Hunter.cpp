@@ -99,6 +99,14 @@ unsigned Hunter::get_resource_level(const ResourceType) const {
     return mana->current;
 }
 
+void Hunter::gain_mana(const unsigned value) {
+    mana->gain_resource(value);
+}
+
+void Hunter::lose_mana(const unsigned value) {
+    mana->lose_resource(value);
+}
+
 int Hunter::get_highest_possible_armor_type() const {
     return ArmorTypes::MAIL;
 }

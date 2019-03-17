@@ -6,12 +6,14 @@
 #include "TestAutoShoot.h"
 #include "TestBeastMastery.h"
 #include "TestMarksmanship.h"
+#include "TestMultiShot.h"
 #include "TestSurvival.h"
 
 void TestHunter::test_all() {
     test_basic_properties();
 
     TestAutoShoot(equipment_db).test_all();
+    TestMultiShot(equipment_db).test_all();
 
     TestBeastMastery(equipment_db).test_all();
     TestMarksmanship(equipment_db).test_all();

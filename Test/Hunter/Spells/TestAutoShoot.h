@@ -29,8 +29,8 @@ private:
 
     void when_auto_shoot_is_performed();
     void when_changing_to_2_speed();
-    void when_increasing_attack_speed(const int change);
-    void when_decreasing_attack_speed(const int change);
+    void when_increasing_attack_speed(const unsigned change);
+    void when_decreasing_attack_speed(const unsigned change);
 
     void then_next_expected_use_is(const double next_expected_use);
 };

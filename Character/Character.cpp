@@ -363,6 +363,11 @@ double Character::get_random_non_normalized_oh_dmg() {
                                   oh->get_base_weapon_speed());
 }
 
+double Character::get_random_normalized_ranged_dmg() {
+    Weapon* ranged = cstats->get_equipment()->get_ranged();
+    return get_normalized_dmg(ranged->get_random_dmg(), ranged);
+}
+
 double Character::get_random_non_normalized_ranged_dmg() {
     Weapon* ranged = cstats->get_equipment()->get_ranged();
     return get_non_normalized_dmg(ranged->get_random_dmg(), cstats->get_ranged_ap(), ranged->get_base_weapon_speed());
