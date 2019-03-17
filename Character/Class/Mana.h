@@ -15,6 +15,7 @@ public:
     void lose_resource(const unsigned) override;
     void reset_resource() override;
 
+    unsigned get_max_mana() const;
     void tick_mana();
 
     friend class Druid;
