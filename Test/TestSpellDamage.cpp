@@ -14,6 +14,7 @@ TestSpellDamage::~TestSpellDamage() {
 }
 
 void TestSpellDamage::run_mandatory_tests(const bool prepare_combat_iterations) {
+    qDebug() << "Running mandatory tests for" << spell_under_test;
     set_up(prepare_combat_iterations);
     test_name_correct();
     tear_down();
