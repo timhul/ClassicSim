@@ -4,7 +4,6 @@
 #include <QFile>
 #include <QXmlStreamReader>
 #include <QMap>
-#include <QDebug>
 #include <QVector>
 
 class Rotation;

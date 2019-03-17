@@ -1,7 +1,5 @@
 #include "CharacterEncoder.h"
 
-#include <QDebug>
-
 #include "Character.h"
 #include "CharacterEncoding.h"
 #include "EnabledBuffs.h"

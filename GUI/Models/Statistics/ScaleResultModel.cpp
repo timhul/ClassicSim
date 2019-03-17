@@ -1,9 +1,8 @@
+#include "ScaleResultModel.h"
 
 #include "NumberCruncher.h"
-#include "ScaleResultModel.h"
 #include "SimOption.h"
 #include "StatisticsProc.h"
-#include <QDebug>
 
 bool option(ScaleResult* lhs, ScaleResult* rhs) {
     return get_name_for_option(lhs->option) < get_name_for_option(rhs->option);

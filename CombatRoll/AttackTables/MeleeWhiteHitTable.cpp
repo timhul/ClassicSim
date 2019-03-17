@@ -1,6 +1,7 @@
 #include "MeleeWhiteHitTable.h"
 
-#include <QDebug>
+#include <cassert>
+#include <math.h>
 
 #include "Random.h"
 
@@ -78,15 +79,6 @@ int MeleeWhiteHitTable::get_outcome(const unsigned roll,
         return PhysicalAttackResult::CRITICAL;
 
     return PhysicalAttackResult::HIT;
-}
-
-void MeleeWhiteHitTable::dump_table() {
-    qDebug() << QString("------ WHITE HIT TABLE %1 WEAPON SKILL ------").arg(wpn_skill);
-    qDebug() << "MISS RANGE " << miss_range;
-    qDebug() << "DODGE RANGE " << dodge_range;
-    qDebug() << "PARRY RANGE " << parry_range;
-    qDebug() << "GLANCING RANGE " << glancing_range;
-    qDebug() << "BLOCK RANGE " << block_range;
 }
 
 void MeleeWhiteHitTable::update_miss_chance(const double miss) {

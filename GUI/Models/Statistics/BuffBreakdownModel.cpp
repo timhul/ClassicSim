@@ -1,8 +1,7 @@
+#include "BuffBreakdownModel.h"
 
 #include "NumberCruncher.h"
-#include "BuffBreakdownModel.h"
 #include "StatisticsBuff.h"
-#include <QDebug>
 
 BuffBreakdownModel::BuffBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
     : QAbstractListModel(parent),

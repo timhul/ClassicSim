@@ -1,7 +1,6 @@
 #include "Weapon.h"
 
 #include <utility>
-#include <QDebug>
 
 #include "Enchant.h"
 #include "EnchantProc.h"

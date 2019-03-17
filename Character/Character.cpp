@@ -1,7 +1,5 @@
 #include "Character.h"
 
-#include <QDebug>
-
 #include "AutoShot.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
@@ -89,7 +87,6 @@ void Character::set_race(Race* race) {
 void Character::set_rotation(Rotation* rotation) {
     current_rotation = rotation;
     current_rotation->link_spells(this);
-    qDebug() << "Successfully set rotation" << current_rotation->get_name();
 }
 
 void Character::relink_spells() {
@@ -584,21 +581,4 @@ void Character::prepare_set_of_combat_iterations() {
 
 void Character::run_pre_combat_actions() {
     spells->run_pre_combat_spells();
-}
-
-void Character::dump() {
-    qDebug() << "--------------------------------------";
-    qDebug() << get_name();
-    qDebug() << "STRENGTH" << cstats->get_strength();
-    qDebug() << "AGILITY" << cstats->get_agility();
-    qDebug() << "STAMINA" << cstats->get_stamina();
-    qDebug() << "INTELLECT" << cstats->get_intellect();
-    qDebug() << "SPIRIT" << cstats->get_spirit();
-    qDebug() << "MH Wpn skill" << cstats->get_mh_wpn_skill();
-    qDebug() << "OH Wpn skill" << cstats->get_oh_wpn_skill();
-    qDebug() << "MH DPS" << (cstats->get_equipment()->get_mainhand() != nullptr ? QString::number(cstats->get_equipment()->get_mainhand()->get_wpn_dps()) : "No MH");
-    qDebug() << "OH DPS" << (cstats->get_equipment()->get_offhand() != nullptr ? QString::number(cstats->get_equipment()->get_offhand()->get_wpn_dps()) : "No OH");
-    qDebug() << "Hit chance" << cstats->get_hit_chance();
-    qDebug() << "Crit chance" << cstats->get_mh_crit_chance();
-    qDebug() << "--------------------------------------";
 }

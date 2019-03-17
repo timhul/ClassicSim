@@ -47,7 +47,6 @@ public:
     void update_miss_chance(const double hit);
     void update_spell_miss_chance(const double spell_hit);
 
-    void dump_tables();
     void drop_tables();
 
     void set_new_seed(const unsigned seed);

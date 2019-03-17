@@ -1,8 +1,7 @@
+#include "MeleeDamageBreakdownModel.h"
 
 #include "NumberCruncher.h"
-#include "MeleeDamageBreakdownModel.h"
 #include "StatisticsSpell.h"
-#include <QDebug>
 
 MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
     : QAbstractListModel(parent),

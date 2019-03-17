@@ -1,7 +1,5 @@
 #include "Warrior.h"
 
-#include <QDebug>
-
 #include "Arms.h"
 #include "BattleShoutBuff.h"
 #include "BattleStanceBuff.h"

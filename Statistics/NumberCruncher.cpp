@@ -1,12 +1,12 @@
-
 #include "NumberCruncher.h"
+
+#include <cassert>
+
 #include "ClassStatistics.h"
 #include "StatisticsBuff.h"
 #include "StatisticsProc.h"
 #include "StatisticsResource.h"
 #include "StatisticsSpell.h"
-#include <cassert>
-#include <QDebug>
 
 NumberCruncher::~NumberCruncher() {
     reset();

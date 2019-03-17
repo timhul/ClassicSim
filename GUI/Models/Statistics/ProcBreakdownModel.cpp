@@ -1,8 +1,7 @@
+#include "ProcBreakdownModel.h"
 
 #include "NumberCruncher.h"
-#include "ProcBreakdownModel.h"
 #include "StatisticsProc.h"
-#include <QDebug>
 
 ProcBreakdownModel::ProcBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
     : QAbstractListModel(parent),

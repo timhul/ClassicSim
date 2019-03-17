@@ -1,6 +1,5 @@
 #include "StatisticsBuff.h"
 
-#include <QDebug>
 #include <utility>
 
 bool name(StatisticsBuff* lhs, StatisticsBuff* rhs) {

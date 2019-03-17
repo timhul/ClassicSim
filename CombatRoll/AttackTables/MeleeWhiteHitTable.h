@@ -21,7 +21,7 @@ public:
                     const bool include_parry = true,
                     const bool include_block = true,
                     const bool include_miss = true);
-    void dump_table(void);
+
     void update_miss_chance(const double miss);
     void update_dodge_chance(const double dodge);
     void update_parry_chance(const double parry);

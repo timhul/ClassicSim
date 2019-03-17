@@ -208,22 +208,6 @@ void CombatRoll::update_spell_miss_chance(const double spell_hit) {
     }
 }
 
-void CombatRoll::dump_tables() {
-    QMap<int, MeleeWhiteHitTable*>::const_iterator it_auto = melee_white_tables.constBegin();
-    auto end_auto = melee_white_tables.constEnd();
-    while(it_auto != end_auto) {
-        it_auto.value()->dump_table();
-        ++it_auto;
-    }
-
-    QMap<int, MeleeSpecialTable*>::const_iterator it_special = melee_special_tables.constBegin();
-    auto end_special = melee_special_tables.constEnd();
-    while(it_special != end_special) {
-        it_special.value()->dump_table();
-        ++it_special;
-    }
-}
-
 void CombatRoll::drop_tables() {
     QMap<int, MeleeWhiteHitTable*>::const_iterator it_auto = melee_white_tables.constBegin();
     auto end_auto = melee_white_tables.constEnd();

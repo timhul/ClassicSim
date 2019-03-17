@@ -1,6 +1,7 @@
 #include "MeleeSpecialTable.h"
 
-#include <QDebug>
+#include <cassert>
+#include <math.h>
 
 #include "Random.h"
 
@@ -69,14 +70,6 @@ int MeleeSpecialTable::get_outcome(const unsigned roll,
         return PhysicalAttackResult::CRITICAL;
 
     return PhysicalAttackResult::HIT;
-}
-
-void MeleeSpecialTable::dump_table() {
-    qDebug() << QString("------ SPECIAL ATTACK TABLE %1 WEAPON SKILL ------").arg(wpn_skill);
-    qDebug() << "MISS RANGE " << miss_range;
-    qDebug() << "DODGE RANGE " << dodge_range;
-    qDebug() << "PARRY RANGE " << parry_range;
-    qDebug() << "BLOCK RANGE " << block_range;
 }
 
 void MeleeSpecialTable::update_miss_chance(const double miss) {

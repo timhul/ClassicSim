@@ -1,8 +1,7 @@
+#include "ResourceBreakdownModel.h"
 
 #include "NumberCruncher.h"
-#include "ResourceBreakdownModel.h"
 #include "StatisticsResource.h"
-#include <QDebug>
 
 ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
     : QAbstractListModel(parent),

@@ -169,8 +169,6 @@ public:
     void increase_ranged_flat_damage_bonus(const unsigned);
     void decrease_ranged_flat_damage_bonus(const unsigned);
 
-    void dump();
-
 protected:
     QString class_name;
     Race* race;
