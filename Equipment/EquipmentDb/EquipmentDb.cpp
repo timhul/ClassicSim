@@ -60,6 +60,12 @@ void EquipmentDb::add_melee_weapon(Weapon* wpn) {
     current_patch_mh_slot_items.append(wpn);
 }
 
+void EquipmentDb::add_ranged(Weapon* wpn) {
+    add_item_id(wpn);
+    ranged_items.append(wpn);
+    current_patch_ranged_items.append(wpn);
+}
+
 void EquipmentDb::add_ring(Item* ring) {
     add_item_id(ring);
     rings.append(ring);

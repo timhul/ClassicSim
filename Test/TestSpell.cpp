@@ -13,12 +13,13 @@
 #include "Item.h"
 #include "MainhandMeleeHit.h"
 #include "MeleeSpecialTable.h"
-#include "Weapon.h"
+#include "MeleeWhiteHitTable.h"
 #include "Orc.h"
-#include "Stats.h"
+#include "RangedWhiteHitTable.h"
 #include "SimSettings.h"
+#include "Stats.h"
 #include "Target.h"
-#include "WhiteHitTable.h"
+#include "Weapon.h"
 
 TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
     equipment_db(equipment_db),
@@ -109,6 +110,26 @@ void TestSpell::given_a_guaranteed_melee_ability_block() {
     set_melee_special_table_for_block(pchar->get_oh_wpn_skill());
 }
 
+void TestSpell::given_a_guaranteed_ranged_white_hit() {
+    set_ranged_auto_table_for_hit(pchar->get_ranged_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_ranged_white_crit() {
+    set_ranged_auto_table_for_crit(pchar->get_ranged_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_ranged_white_miss() {
+    set_ranged_auto_table_for_miss(pchar->get_ranged_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_ranged_white_dodge() {
+    set_ranged_auto_table_for_dodge(pchar->get_ranged_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_ranged_white_block() {
+    set_ranged_auto_table_for_block(pchar->get_ranged_wpn_skill());
+}
+
 void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
     MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
     table->update_miss_chance(0.0);
@@ -177,7 +198,7 @@ void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -190,7 +211,7 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -204,7 +225,7 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -215,7 +236,7 @@ void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(1.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -226,7 +247,7 @@ void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(1.0);
     table->update_parry_chance(0.0);
@@ -237,7 +258,7 @@ void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(1.0);
@@ -248,7 +269,7 @@ void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
 }
 
 void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
     table->update_miss_chance(0.0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
@@ -258,6 +279,58 @@ void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
 
     assert_melee_auto_table_can_only_block(wpn_skill);
+}
+
+void TestSpell::set_ranged_auto_table_for_hit(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_block_chance(0.0);
+
+    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+
+    assert_ranged_auto_table_can_only_hit(wpn_skill);
+}
+
+void TestSpell::set_ranged_auto_table_for_crit(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_block_chance(0.0);
+
+    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->increase_crit(1.0);
+
+    assert_ranged_auto_table_can_only_crit(wpn_skill);
+}
+
+void TestSpell::set_ranged_auto_table_for_miss(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+    table->update_miss_chance(1.0);
+    table->update_dodge_chance(0.0);
+    table->update_block_chance(0.0);
+
+    assert_ranged_auto_table_can_only_miss(wpn_skill);
+}
+
+void TestSpell::set_ranged_auto_table_for_dodge(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(1.0);
+    table->update_block_chance(0.0);
+
+    assert_ranged_auto_table_can_only_dodge(wpn_skill);
+}
+
+void TestSpell::set_ranged_auto_table_for_block(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+    table->update_miss_chance(0.0);
+    table->update_dodge_chance(0.0);
+    table->update_block_chance(1.0);
+
+    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+
+    assert_ranged_auto_table_can_only_block(wpn_skill);
 }
 
 void TestSpell::assert_melee_special_table_can_only_hit(const int wpn_skill) {
@@ -303,49 +376,84 @@ void TestSpell::assert_melee_special_table_can_only_block(const int wpn_skill) {
 }
 
 void TestSpell::assert_melee_auto_table_can_only_hit(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_glance(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::GLANCING);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::GLANCING);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_crit(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_miss(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_dodge(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_parry(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_block(const int wpn_skill) {
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
+}
+
+void TestSpell::assert_ranged_auto_table_can_only_hit(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+}
+
+void TestSpell::assert_ranged_auto_table_can_only_crit(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+}
+
+void TestSpell::assert_ranged_auto_table_can_only_miss(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
+}
+
+void TestSpell::assert_ranged_auto_table_can_only_dodge(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
+
+    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
+}
+
+void TestSpell::assert_ranged_auto_table_can_only_block(const int wpn_skill) {
+    RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
@@ -373,6 +481,33 @@ void TestSpell::create_100_dmg_2h() {
 
     Weapon* wpn = new Weapon("Test 100 dmg 2h", TestUtils::Test100Dmg2h, WeaponTypes::TWOHAND_SWORD, WeaponSlots::TWOHAND, 100, 100, 3.5);
     equipment_db->add_melee_weapon(wpn);
+}
+
+void TestSpell::create_100_dmg_ranged() {
+    if (equipment_db->get_ranged(TestUtils::Test100DmgRanged) != nullptr)
+        return;
+
+    QMap<QString, QString> info = {{"slot", "RANGED"}};
+    Weapon* wpn = new Weapon("Test 100 dmg Ranged", TestUtils::Test100DmgRanged, WeaponTypes::BOW, WeaponSlots::RANGED, 100, 100, 2.6, info);
+    equipment_db->add_ranged(wpn);
+}
+
+void TestSpell::create_3_speed_ranged() {
+    if (equipment_db->get_ranged(TestUtils::Test3SpeedRanged) != nullptr)
+        return;
+
+    QMap<QString, QString> info = {{"slot", "RANGED"}};
+    Weapon* wpn = new Weapon("Test 3 Speed Ranged", TestUtils::Test3SpeedRanged, WeaponTypes::BOW, WeaponSlots::RANGED, 100, 100, 3.0, info);
+    equipment_db->add_ranged(wpn);
+}
+
+void TestSpell::create_2_speed_ranged() {
+    if (equipment_db->get_ranged(TestUtils::Test2SpeedRanged) != nullptr)
+        return;
+
+    QMap<QString, QString> info = {{"slot", "RANGED"}};
+    Weapon* wpn = new Weapon("Test 2 Speed Ranged", TestUtils::Test2SpeedRanged, WeaponTypes::BOW, WeaponSlots::RANGED, 100, 100, 2.0, info);
+    equipment_db->add_ranged(wpn);
 }
 
 void TestSpell::create_3_speed() {
@@ -452,14 +587,14 @@ void TestSpell::given_a_mainhand_weapon_with_3_speed() {
     create_3_speed();
 
     pchar->get_equipment()->set_mainhand(TestUtils::Test3Speed);
-    assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 3);
+    assert(almost_equal(3.0, pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()));
 }
 
 void TestSpell::given_a_mainhand_weapon_with_2_speed() {
     create_2_speed();
 
     pchar->get_equipment()->set_mainhand(TestUtils::Test2Speed);
-    assert(int(pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()) == 2);
+    assert(almost_equal(2.0, pchar->get_equipment()->get_mainhand()->get_base_weapon_speed()));
 }
 
 void TestSpell::given_a_twohand_weapon_with_100_min_max_dmg() {
@@ -468,6 +603,28 @@ void TestSpell::given_a_twohand_weapon_with_100_min_max_dmg() {
     pchar->get_equipment()->set_mainhand(TestUtils::Test100Dmg2h);
     assert(pchar->get_equipment()->get_mainhand()->get_min_dmg() == 100);
     assert(pchar->get_equipment()->get_mainhand()->get_max_dmg() == 100);
+}
+
+void TestSpell::given_a_ranged_weapon_with_100_min_max_dmg() {
+    create_100_dmg_ranged();
+
+    pchar->get_equipment()->set_ranged(TestUtils::Test100DmgRanged);
+    assert(pchar->get_equipment()->get_ranged()->get_min_dmg() == 100);
+    assert(pchar->get_equipment()->get_ranged()->get_max_dmg() == 100);
+}
+
+void TestSpell::given_a_ranged_weapon_with_3_speed() {
+    create_3_speed_ranged();
+
+    pchar->get_equipment()->set_ranged(TestUtils::Test3SpeedRanged);
+    assert(almost_equal(3.0, pchar->get_equipment()->get_ranged()->get_base_weapon_speed()));
+}
+
+void TestSpell::given_a_ranged_weapon_with_2_speed() {
+    create_2_speed_ranged();
+
+    pchar->get_equipment()->set_ranged(TestUtils::Test2SpeedRanged);
+    assert(almost_equal(2.0, pchar->get_equipment()->get_ranged()->get_base_weapon_speed()));
 }
 
 void TestSpell::given_300_weapon_skill_mh() {
@@ -574,6 +731,11 @@ void TestSpell::given_an_offhand_axe() {
 void TestSpell::given_1000_melee_ap() {
     pchar->get_stats()->increase_melee_ap(1000 - pchar->get_stats()->get_melee_ap());
     assert(pchar->get_stats()->get_melee_ap() == 1000);
+}
+
+void TestSpell::given_1000_ranged_ap() {
+    pchar->get_stats()->increase_ranged_ap(1000 - pchar->get_stats()->get_ranged_ap());
+    assert(pchar->get_stats()->get_ranged_ap() == 1000);
 }
 
 void TestSpell::given_target_has_0_armor() {

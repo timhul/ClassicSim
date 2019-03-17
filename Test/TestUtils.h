@@ -3,11 +3,11 @@
 
 class TestUtils {
 public:
-    double delta(double lhs, double rhs) {
+    static double delta(double lhs, double rhs) {
         return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
     }
 
-    bool almost_equal(double lhs, double rhs) {
+    static bool almost_equal(double lhs, double rhs) {
         return delta(lhs, rhs) < 0.0001;
     }
 
@@ -20,7 +20,10 @@ public:
         TestAxe,
         Test5SwordSkill,
         Test10SwordSkill,
-        Test15SwordSkill
+        Test15SwordSkill,
+        Test100DmgRanged,
+        Test3SpeedRanged,
+        Test2SpeedRanged
     };
 };
 

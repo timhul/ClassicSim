@@ -1,7 +1,7 @@
 #include "CharacterSpells.h"
 
-#include "BloodFury.h"
 #include "Berserking.h"
+#include "BloodFury.h"
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
@@ -149,12 +149,20 @@ void CharacterSpells::add_next_oh_attack() {
     assert(false);
 }
 
+void CharacterSpells::add_next_ranged_attack() {
+    assert(false);
+}
+
 MainhandAttack* CharacterSpells::get_mh_attack() const {
     return this->mh_attack;
 }
 
 OffhandAttack* CharacterSpells::get_oh_attack() const {
     assert(false);
+    return nullptr;
+}
+
+AutoShoot* CharacterSpells::get_auto_shoot() const {
     return nullptr;
 }
 

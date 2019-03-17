@@ -2,6 +2,7 @@
 
 #include <QDebug>
 
+#include "AutoShoot.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
@@ -280,6 +281,15 @@ void Character::melee_oh_yellow_critical_effect(const bool run_procs) {
         run_oh_yellow_specific_proc_effects();
 }
 
+void Character::ranged_white_hit_effect(const bool run_procs) {
+    if (run_procs)
+        run_ranged_white_specific_proc_effects();
+}
+
+void Character::ranged_white_critical_effect(const bool run_procs) {
+    if (run_procs)
+        run_ranged_yellow_specific_proc_effects();
+}
 
 void Character::spell_hit_effect() {
 
@@ -336,7 +346,9 @@ double Character::get_random_normalized_mh_dmg() {
 
 double Character::get_random_non_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
-    return get_non_normalized_dmg(mh->get_random_dmg() + mh_flat_dmg_bonus, mh->get_base_weapon_speed());
+    return get_non_normalized_dmg(mh->get_random_dmg() + mh_flat_dmg_bonus,
+                                  cstats->get_melee_ap(),
+                                  mh->get_base_weapon_speed());
 }
 
 double Character::get_random_normalized_oh_dmg() {
@@ -346,21 +358,30 @@ double Character::get_random_normalized_oh_dmg() {
 
 double Character::get_random_non_normalized_oh_dmg() {
     Weapon* oh = cstats->get_equipment()->get_offhand();
-    return get_non_normalized_dmg(oh->get_random_dmg() + oh_flat_dmg_bonus, oh->get_base_weapon_speed());
+    return get_non_normalized_dmg(oh->get_random_dmg() + oh_flat_dmg_bonus,
+                                  cstats->get_melee_ap(),
+                                  oh->get_base_weapon_speed());
+}
+
+double Character::get_random_non_normalized_ranged_dmg() {
+    Weapon* ranged = cstats->get_equipment()->get_ranged();
+    return get_non_normalized_dmg(ranged->get_random_dmg(), cstats->get_ranged_ap(), ranged->get_base_weapon_speed());
 }
 
 unsigned Character::get_avg_mh_damage() {
     if (!has_mainhand())
         return static_cast<unsigned>(round(get_normalized_dmg(1, nullptr)));
 
+    int attack_power = cstats->get_melee_ap();
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     auto avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg() + mh_flat_dmg_bonus) / 2);
-    return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, mh->get_base_weapon_speed())));
+    return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, attack_power, mh->get_base_weapon_speed())));
 }
 
 double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon) {
+    int attack_power = cstats->get_melee_ap();
     if (weapon == nullptr)
-        return get_non_normalized_dmg(damage, 2.0);
+        return get_non_normalized_dmg(damage, attack_power, 2.0);
 
     double normalized_wpn_speed = -1;
 
@@ -375,16 +396,17 @@ double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon
         break;
     case WeaponSlots::RANGED:
         normalized_wpn_speed = 2.8;
+        attack_power = cstats->get_ranged_ap();
         break;
     default:
         assert(false);
     }
 
-    return get_non_normalized_dmg(damage, normalized_wpn_speed);
+    return get_non_normalized_dmg(damage, attack_power, normalized_wpn_speed);
 }
 
-double Character::get_non_normalized_dmg(const unsigned damage, const double wpn_speed) {
-    return damage + (wpn_speed * cstats->get_melee_ap() / 14);
+double Character::get_non_normalized_dmg(const unsigned damage, const int attack_power, const double wpn_speed) {
+    return damage + (wpn_speed * attack_power / 14);
 }
 
 int Character::get_mh_wpn_skill() const {
@@ -395,8 +417,8 @@ int Character::get_oh_wpn_skill() const {
     return cstats->get_oh_wpn_skill();
 }
 
-int Character::get_wpn_skill(Weapon* weapon) const {
-    return cstats->get_wpn_skill(weapon);
+int Character::get_ranged_wpn_skill() const {
+    return cstats->get_ranged_wpn_skill();
 }
 
 void Character::increase_attack_speed(int increase) {
@@ -410,6 +432,12 @@ void Character::increase_attack_speed(int increase) {
         spells->get_oh_attack()->update_next_expected_use(increase_double);
         spells->add_next_oh_attack();
     }
+
+    AutoShoot* auto_shoot = spells->get_auto_shoot();
+    if (auto_shoot != nullptr) {
+        auto_shoot->update_next_expected_use(increase_double);
+        spells->add_next_ranged_attack();
+    }
 }
 
 void Character::decrease_attack_speed(int decrease) {
@@ -422,6 +450,12 @@ void Character::decrease_attack_speed(int decrease) {
     if (cstats->get_equipment()->is_dual_wielding()) {
         spells->get_oh_attack()->update_next_expected_use(-decrease_double);
         spells->add_next_oh_attack();
+    }
+
+    AutoShoot* auto_shoot = spells->get_auto_shoot();
+    if (auto_shoot != nullptr) {
+        auto_shoot->update_next_expected_use(-decrease_double);
+        spells->add_next_ranged_attack();
     }
 }
 
@@ -447,6 +481,10 @@ bool Character::has_mainhand() const {
 
 bool Character::has_offhand() const {
     return cstats->get_equipment()->get_offhand() != nullptr;
+}
+
+bool Character::has_ranged() const {
+    return cstats->get_equipment()->get_ranged() != nullptr;
 }
 
 void Character::gain_mana(const unsigned) {

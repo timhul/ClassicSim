@@ -3,12 +3,13 @@
 
 #include <QVector>
 
+class AutoShoot;
 class Berserking;
 class BloodFury;
 class Character;
-class Spell;
 class MainhandAttack;
 class OffhandAttack;
+class Spell;
 
 static const bool NO_RELINK = false;
 
@@ -36,11 +37,13 @@ public:
     virtual void oh_auto_attack(const int);
     virtual void add_next_mh_attack(void);
     virtual void add_next_oh_attack(void);
+    virtual void add_next_ranged_attack(void);
 
     void prepare_set_of_combat_iterations();
 
     virtual MainhandAttack* get_mh_attack() const;
     virtual OffhandAttack* get_oh_attack() const;
+    virtual AutoShoot* get_auto_shoot() const;
 
     Berserking* get_berserking() const;
     BloodFury* get_blood_fury() const;

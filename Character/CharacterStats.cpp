@@ -130,6 +130,17 @@ double CharacterStats::get_oh_crit_chance() const {
     return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;;
 }
 
+double CharacterStats::get_ranged_crit_chance() const {
+    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
+    const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
+
+    double crit_from_wpn_type = 0.0;
+    if (equipment->get_ranged() != nullptr)
+        crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_ranged()->get_weapon_type()];
+
+    return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;
+}
+
 double CharacterStats::get_spell_hit_chance() const {
     return base_stats->get_spell_hit_chance() + equipment->get_stats()->get_spell_hit_chance();
 }
@@ -185,6 +196,10 @@ int CharacterStats::get_mh_wpn_skill() const {
 
 int CharacterStats::get_oh_wpn_skill() const {
     return get_wpn_skill(equipment->get_offhand());
+}
+
+int CharacterStats::get_ranged_wpn_skill() const {
+    return get_wpn_skill(equipment->get_ranged());
 }
 
 int CharacterStats::get_wpn_skill(Weapon* weapon) const {
@@ -532,6 +547,11 @@ double CharacterStats::get_mh_wpn_speed() {
 double CharacterStats::get_oh_wpn_speed() {
     return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / attack_speed_mod :
                                   300;
+}
+
+double CharacterStats::get_ranged_wpn_speed() {
+    return pchar->has_ranged() ? equipment->get_ranged()->get_base_weapon_speed() / attack_speed_mod :
+                                 300;
 }
 
 void CharacterStats::increase_dodge(const double dodge) {

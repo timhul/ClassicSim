@@ -42,6 +42,7 @@ public:
     QString get_name_for_item_id(const int item_id) const;
 
     void add_melee_weapon(Weapon* wpn);
+    void add_ranged(Weapon* wpn);
     void add_ring(Item* ring);
 
 private:

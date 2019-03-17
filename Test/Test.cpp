@@ -159,11 +159,19 @@ void Test::test_equipment_creation() {
     assert(mh->get_weapon_type() == WeaponTypes::AXE);
     assert(mh->get_min_dmg() == 80);
     assert(mh->get_max_dmg() == 150);
-    assert(mh->get_base_weapon_speed() - 2.7 < 0.01);
+    assert(TestUtils::almost_equal(2.7, mh->get_base_weapon_speed()));
+
+    equipment->set_ranged(17069);
+    Weapon* ranged = equipment->get_ranged();
+    assert(ranged != nullptr);
+    assert(ranged->get_name() == "Striker's Mark");
+    assert(ranged->get_weapon_type() == WeaponTypes::BOW);
+    assert(ranged->get_min_dmg() == 69);
+    assert(ranged->get_max_dmg() == 129);
+    assert(TestUtils::almost_equal(2.5, ranged->get_base_weapon_speed()));
 
     delete equipment;
 }
-
 
 void Test::test_character_creation() {
     Race* race = new Human();

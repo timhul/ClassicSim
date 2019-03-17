@@ -3,7 +3,7 @@
 #include "CombatRoll.h"
 #include "FelstrikerBuff.h"
 #include "MeleeSpecialTable.h"
-#include "WhiteHitTable.h"
+#include "MeleeWhiteHitTable.h"
 
 FelstrikerBuff::FelstrikerBuff(Character* pchar, const int duration):
     SharedBuff(pchar, "Felstriker", "Assets/items/Inv_weapon_shortblade_25.png", duration, 0)
@@ -30,7 +30,7 @@ void FelstrikerBuff::set_tables_for_guaranteed_hit(const int wpn_skill) {
     special_table->update_parry_chance(0.0);
     special_table->update_block_chance(0.0);
 
-    WhiteHitTable* white_table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* white_table = pchar->get_combat_roll()->get_white_hit_table(wpn_skill);
 
     white_table->update_miss_chance(0.0);
     white_table->update_dodge_chance(0.0);

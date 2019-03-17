@@ -1,10 +1,10 @@
-#include "WhiteHitTable.h"
+#include "MeleeWhiteHitTable.h"
 
 #include <QDebug>
 
 #include "Random.h"
 
-WhiteHitTable::WhiteHitTable(Random *random,
+MeleeWhiteHitTable::MeleeWhiteHitTable(Random *random,
                              const int wpn_skill,
                              const double miss,
                              const double dodge,
@@ -23,11 +23,11 @@ WhiteHitTable::WhiteHitTable(Random *random,
     update_ranges();
 }
 
-int WhiteHitTable::get_wpn_skill() {
+int MeleeWhiteHitTable::get_wpn_skill() {
     return wpn_skill;
 }
 
-void WhiteHitTable::update_ranges() {
+void MeleeWhiteHitTable::update_ranges() {
     assert(int(round(miss * 10000)) >= 0);
     assert(int(round(dodge * 10000)) >= 0);
     assert(int(round(parry * 10000)) >= 0);
@@ -41,7 +41,7 @@ void WhiteHitTable::update_ranges() {
     this->block_range = static_cast<unsigned>(round(block * 10000));
 }
 
-int WhiteHitTable::get_outcome(const unsigned roll,
+int MeleeWhiteHitTable::get_outcome(const unsigned roll,
                                const double crit_chance,
                                const bool include_dodge,
                                const bool include_parry,
@@ -80,7 +80,7 @@ int WhiteHitTable::get_outcome(const unsigned roll,
     return PhysicalAttackResult::HIT;
 }
 
-void WhiteHitTable::dump_table() {
+void MeleeWhiteHitTable::dump_table() {
     qDebug() << QString("------ WHITE HIT TABLE %1 WEAPON SKILL ------").arg(wpn_skill);
     qDebug() << "MISS RANGE " << miss_range;
     qDebug() << "DODGE RANGE " << dodge_range;
@@ -89,27 +89,27 @@ void WhiteHitTable::dump_table() {
     qDebug() << "BLOCK RANGE " << block_range;
 }
 
-void WhiteHitTable::update_miss_chance(const double miss) {
+void MeleeWhiteHitTable::update_miss_chance(const double miss) {
     this->miss = miss;
     update_ranges();
 }
 
-void WhiteHitTable::update_dodge_chance(const double dodge) {
+void MeleeWhiteHitTable::update_dodge_chance(const double dodge) {
     this->dodge = dodge;
     update_ranges();
 }
 
-void WhiteHitTable::update_parry_chance(const double parry) {
+void MeleeWhiteHitTable::update_parry_chance(const double parry) {
     this->parry = parry;
     update_ranges();
 }
 
-void WhiteHitTable::update_glancing_chance(const double glancing) {
+void MeleeWhiteHitTable::update_glancing_chance(const double glancing) {
     this->glancing = glancing;
     update_ranges();
 }
 
-void WhiteHitTable::update_block_chance(const double block) {
+void MeleeWhiteHitTable::update_block_chance(const double block) {
     this->block = block;
     update_ranges();
 }

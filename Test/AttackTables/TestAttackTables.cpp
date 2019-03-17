@@ -8,13 +8,13 @@
 #include "MagicAttackTable.h"
 #include "Mechanics.h"
 #include "MeleeSpecialTable.h"
+#include "MeleeWhiteHitTable.h"
 #include "Orc.h"
 #include "Race.h"
 #include "SimSettings.h"
 #include "Target.h"
 #include "Warrior.h"
 #include "Weapon.h"
-#include "WhiteHitTable.h"
 
 void TestAttackTables::test_all() {
     test_basic_properties();
@@ -30,12 +30,12 @@ void TestAttackTables::test_basic_properties() {
 
 void TestAttackTables::test_white_hit_table() {
     auto* random = new Random(0, 9999);
-    auto* table = new WhiteHitTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
+    auto* table = new MeleeWhiteHitTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(9999, 0.0) == PhysicalAttackResult::HIT);
     delete table;
 
-    table = new WhiteHitTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
+    table = new MeleeWhiteHitTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
     assert(table->get_outcome(0, 0.0) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(1, 0.0) == PhysicalAttackResult::DODGE);
     assert(table->get_outcome(2, 0.0) == PhysicalAttackResult::PARRY);
@@ -58,7 +58,7 @@ void TestAttackTables::test_white_hit_table_update() {
     assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
     assert(pchar->get_equipment()->get_offhand()->get_name() == "Vis'kag the Bloodletter");
 
-    WhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(300);
+    MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_white_hit_table(300);
 
     assert(table->get_outcome(0, 0.0001) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(2799, 0.0001) == PhysicalAttackResult::MISS);

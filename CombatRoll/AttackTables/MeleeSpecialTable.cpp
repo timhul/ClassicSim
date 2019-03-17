@@ -2,6 +2,8 @@
 
 #include <QDebug>
 
+#include "Random.h"
+
 MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
                                      const int wpn_skill,
                                      const double miss,

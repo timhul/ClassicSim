@@ -3,7 +3,6 @@
 
 #include "TestCharacter.h"
 
-
 class TestAttackTables : TestCharacter {
 public:
     void test_all() override;

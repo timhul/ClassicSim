@@ -1,13 +1,13 @@
-#ifndef WHITEHITTABLE_H
-#define WHITEHITTABLE_H
+#ifndef MELEEWHITEHITTABLE_H
+#define MELEEWHITEHITTABLE_H
 
-#include "PhysicalAttackTable.h"
+#include "PhysicalAttackResult.h"
 
 class Random;
 
-class WhiteHitTable: public PhysicalAttackTable {
+class MeleeWhiteHitTable {
 public:
-    WhiteHitTable(Random* random,
+    MeleeWhiteHitTable(Random* random,
                   const int wpn_skill,
                   const double miss,
                   const double dodge,
@@ -20,9 +20,9 @@ public:
                     const bool include_dodge = true,
                     const bool include_parry = true,
                     const bool include_block = true,
-                    const bool include_miss = true) override;
-    void dump_table(void) override;
-    void update_miss_chance(const double miss) override;
+                    const bool include_miss = true);
+    void dump_table(void);
+    void update_miss_chance(const double miss);
     void update_dodge_chance(const double dodge);
     void update_parry_chance(const double parry);
     void update_glancing_chance(const double glancing);
@@ -32,7 +32,6 @@ public:
 
     void update_ranges();
 
-protected:
 private:
     Random* random;
     const int wpn_skill;
@@ -52,4 +51,4 @@ private:
     unsigned block_range{};
 };
 
-#endif // WHITEHITTABLE_H
+#endif // MELEEWHITEHITTABLE_H

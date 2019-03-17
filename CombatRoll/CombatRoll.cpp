@@ -5,12 +5,12 @@
 #include "MagicAttackTable.h"
 #include "Mechanics.h"
 #include "MeleeSpecialTable.h"
+#include "MeleeWhiteHitTable.h"
 #include "PhysicalAttackResult.h"
-#include "PhysicalAttackTable.h"
 #include "Random.h"
+#include "RangedWhiteHitTable.h"
 #include "SimSettings.h"
 #include "Target.h"
-#include "WhiteHitTable.h"
 
 CombatRoll::CombatRoll(Character *pchar):
     pchar(pchar),
@@ -30,7 +30,7 @@ CombatRoll::~CombatRoll() {
 int CombatRoll::get_melee_hit_result(const int wpn_skill, const double crit_mod) {
     const unsigned roll = random->get_roll();
 
-    WhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
 
     return attack_table->get_outcome(roll, crit_mod);
 }
@@ -48,9 +48,12 @@ int CombatRoll::get_melee_ability_result(const int wpn_skill,
     return attack_table->get_outcome(roll, crit_mod, include_dodge, include_parry, include_block, include_miss);
 }
 
-int CombatRoll::get_ranged_hit_result(const int) {
-    // CSIM-73: Remove hardcoded critical result
-    return PhysicalAttackResult::CRITICAL;
+int CombatRoll::get_ranged_hit_result(const int wpn_skill, const double crit_chance) {
+    const unsigned roll = random->get_roll();
+
+    RangedWhiteHitTable* attack_table = this->get_ranged_white_table(wpn_skill);
+
+    return attack_table->get_outcome(roll, crit_chance);
 }
 
 int CombatRoll::get_ranged_ability_result(const int) {
@@ -78,12 +81,12 @@ Mechanics* CombatRoll::get_mechanics() const {
     return this->mechanics;
 }
 
-WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
+MeleeWhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     assert(this->pchar != nullptr);
     assert(this->mechanics != nullptr);
 
-    if (auto_attack_tables.contains(wpn_skill))
-        return auto_attack_tables[wpn_skill];
+    if (melee_white_tables.contains(wpn_skill))
+        return melee_white_tables[wpn_skill];
 
     double miss_chance = get_white_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
     if (miss_chance < 0)
@@ -92,7 +95,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
     double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
                 0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
 
-    auto* table = new WhiteHitTable(
+    auto* table = new MeleeWhiteHitTable(
                 this->random,
                 wpn_skill,
                 miss_chance,
@@ -101,7 +104,7 @@ WhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
                 glancing_blow_chance,
                 mechanics->get_block_chance());
 
-    auto_attack_tables[wpn_skill] = table;
+    melee_white_tables[wpn_skill] = table;
 
     return table;
 }
@@ -121,6 +124,29 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
                                         mechanics->get_parry_chance(wpn_skill),
                                         mechanics->get_block_chance());
     melee_special_tables[wpn_skill] = table;
+
+    return table;
+}
+
+RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const int wpn_skill) {
+    assert(this->pchar != nullptr);
+    assert(this->mechanics != nullptr);
+
+    if (ranged_white_tables.contains(wpn_skill))
+        return ranged_white_tables[wpn_skill];
+
+    double miss_chance = get_white_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
+    if (miss_chance < 0)
+        miss_chance = 0;
+
+    auto* table = new RangedWhiteHitTable(
+                this->random,
+                wpn_skill,
+                miss_chance,
+                mechanics->get_dodge_chance(wpn_skill),
+                mechanics->get_block_chance());
+
+    ranged_white_tables[wpn_skill] = table;
 
     return table;
 }
@@ -152,8 +178,8 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
 }
 
 void CombatRoll::update_miss_chance(const double hit) {
-    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
-    auto end_auto = auto_attack_tables.constEnd();
+    QMap<int, MeleeWhiteHitTable*>::const_iterator it_auto = melee_white_tables.constBegin();
+    auto end_auto = melee_white_tables.constEnd();
     while(it_auto != end_auto) {
         double new_miss_chance = get_white_miss_chance(it_auto.value()->get_wpn_skill()) - hit;
         if (new_miss_chance < 0)
@@ -184,8 +210,8 @@ void CombatRoll::update_spell_miss_chance(const double spell_hit) {
 }
 
 void CombatRoll::dump_tables() {
-    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
-    auto end_auto = auto_attack_tables.constEnd();
+    QMap<int, MeleeWhiteHitTable*>::const_iterator it_auto = melee_white_tables.constBegin();
+    auto end_auto = melee_white_tables.constEnd();
     while(it_auto != end_auto) {
         it_auto.value()->dump_table();
         ++it_auto;
@@ -200,8 +226,8 @@ void CombatRoll::dump_tables() {
 }
 
 void CombatRoll::drop_tables() {
-    QMap<int, WhiteHitTable*>::const_iterator it_auto = auto_attack_tables.constBegin();
-    auto end_auto = auto_attack_tables.constEnd();
+    QMap<int, MeleeWhiteHitTable*>::const_iterator it_auto = melee_white_tables.constBegin();
+    auto end_auto = melee_white_tables.constEnd();
     while(it_auto != end_auto) {
         delete it_auto.value();
         ++it_auto;
@@ -214,6 +240,13 @@ void CombatRoll::drop_tables() {
         ++it_special;
     }
 
+    auto it_start_ranged_white = ranged_white_tables.constBegin();
+    auto it_end_ranged_white = ranged_white_tables.constEnd();
+    while(it_start_ranged_white != it_end_ranged_white) {
+        delete it_start_ranged_white.value();
+        ++it_start_ranged_white;
+    }
+
     QMap<MagicSchool, MagicAttackTable*>::const_iterator it_magic = magic_attack_tables.constBegin();
     auto end_magic = magic_attack_tables.constEnd();
     while(it_magic != end_magic) {
@@ -221,8 +254,9 @@ void CombatRoll::drop_tables() {
         ++it_magic;
     }
 
-    auto_attack_tables.clear();
+    melee_white_tables.clear();
     melee_special_tables.clear();
+    ranged_white_tables.clear();
     magic_attack_tables.clear();
 }
 

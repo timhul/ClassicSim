@@ -105,6 +105,9 @@ public:
     virtual void melee_oh_white_critical_effect(const bool = true);
     virtual void melee_oh_yellow_critical_effect(const bool = true);
 
+    virtual void ranged_white_hit_effect(const bool = true);
+    virtual void ranged_white_critical_effect(const bool = true);
+
     virtual void spell_hit_effect();
     virtual void spell_critical_effect();
 
@@ -120,9 +123,11 @@ public:
     double get_random_normalized_oh_dmg();
     double get_random_non_normalized_oh_dmg();
 
+    double get_random_non_normalized_ranged_dmg();
+
     int get_mh_wpn_skill() const;
     int get_oh_wpn_skill() const;
-    int get_wpn_skill(Weapon*) const;
+    int get_ranged_wpn_skill() const;
 
     unsigned get_avg_mh_damage();
 
@@ -137,6 +142,7 @@ public:
 
     bool has_mainhand() const;
     bool has_offhand() const;
+    bool has_ranged() const;
 
     virtual unsigned get_resource_level(const ResourceType) const = 0;
 
@@ -195,7 +201,7 @@ protected:
     virtual void initialize_talents() = 0;
 
     double get_normalized_dmg(const unsigned, const Weapon*);
-    double get_non_normalized_dmg(const unsigned, const double);
+    double get_non_normalized_dmg(const unsigned damage, const int attack_power, const double wpn_speed);
 
     void run_mh_white_specific_proc_effects();
     void run_mh_yellow_specific_proc_effects();

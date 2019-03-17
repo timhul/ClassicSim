@@ -2,18 +2,19 @@
 #define COMBATROLL_H
 
 #include <QMap>
-#include <stdlib.h>
 #include <math.h>
+#include <stdlib.h>
 
 #include "MagicSchools.h"
 
 class Character;
 class MagicAttackTable;
-class MeleeSpecialTable;
 class Mechanics;
-class Target;
+class MeleeSpecialTable;
+class MeleeWhiteHitTable;
 class Random;
-class WhiteHitTable;
+class RangedWhiteHitTable;
+class Target;
 
 class CombatRoll {
 public:
@@ -27,13 +28,14 @@ public:
                                  const bool include_parry = true,
                                  const bool include_block = true,
                                  const bool include_miss = true);
-    int get_ranged_hit_result(const int);
+    int get_ranged_hit_result(const int wpn_skill, const double crit_chance);
     int get_ranged_ability_result(const int);
     int get_spell_ability_result(const MagicSchool, const double);
     int get_spell_resist_result(const MagicSchool);
 
-    WhiteHitTable* get_white_hit_table(const int);
+    MeleeWhiteHitTable* get_white_hit_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);
+    RangedWhiteHitTable* get_ranged_white_table(const int);
     MagicAttackTable* get_magic_attack_table(const MagicSchool);
 
     Mechanics* get_mechanics() const;
@@ -56,8 +58,9 @@ private:
     Random* random;
     Mechanics* mechanics;
 
-    QMap<int, WhiteHitTable*> auto_attack_tables;
+    QMap<int, MeleeWhiteHitTable*> melee_white_tables;
     QMap<int, MeleeSpecialTable*> melee_special_tables;
+    QMap<int, RangedWhiteHitTable*> ranged_white_tables;
     QMap<MagicSchool, MagicAttackTable*> magic_attack_tables;
 };
 

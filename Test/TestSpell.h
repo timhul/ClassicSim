@@ -1,21 +1,21 @@
 #ifndef TESTSPELL_H
 #define TESTSPELL_H
 
-#include <QString>
 #include <QDebug>
 #include <QSet>
+#include <QString>
 
 #include "TestUtils.h"
 
+class Character;
+class CombatRoll;
 class Engine;
 class Equipment;
 class EquipmentDb;
-class CombatRoll;
 class Faction;
-class Target;
 class Race;
-class Character;
 class SimSettings;
+class Target;
 
 static const bool RUN_EVENT = true;
 
@@ -41,6 +41,11 @@ public:
     void given_a_guaranteed_melee_ability_dodge();
     void given_a_guaranteed_melee_ability_parry();
     void given_a_guaranteed_melee_ability_block();
+    void given_a_guaranteed_ranged_white_hit();
+    void given_a_guaranteed_ranged_white_crit();
+    void given_a_guaranteed_ranged_white_miss();
+    void given_a_guaranteed_ranged_white_dodge();
+    void given_a_guaranteed_ranged_white_block();
     void given_300_weapon_skill_mh();
     void given_305_weapon_skill_mh();
     void given_310_weapon_skill_mh();
@@ -60,7 +65,11 @@ public:
     void given_an_offhand_weapon_with_3_speed();
     void given_an_offhand_weapon_with_2_speed();
     void given_an_offhand_axe();
+    void given_a_ranged_weapon_with_100_min_max_dmg();
+    void given_a_ranged_weapon_with_3_speed();
+    void given_a_ranged_weapon_with_2_speed();
     void given_1000_melee_ap();
+    void given_1000_ranged_ap();
     void given_target_has_0_armor();
     void given_engine_priority_at(const double priority);
     void given_engine_priority_pushed_forward(const double priority);
@@ -118,6 +127,12 @@ protected:
     void set_melee_auto_table_for_parry(const int wpn_skill);
     void set_melee_auto_table_for_block(const int wpn_skill);
 
+    void set_ranged_auto_table_for_hit(const int wpn_skill);
+    void set_ranged_auto_table_for_crit(const int wpn_skill);
+    void set_ranged_auto_table_for_miss(const int wpn_skill);
+    void set_ranged_auto_table_for_dodge(const int wpn_skill);
+    void set_ranged_auto_table_for_block(const int wpn_skill);
+
     void assert_melee_special_table_can_only_hit(const int wpn_skill);
     void assert_melee_special_table_can_only_crit(const int wpn_skill);
     void assert_melee_special_table_can_only_miss(const int wpn_skill);
@@ -133,10 +148,19 @@ protected:
     void assert_melee_auto_table_can_only_parry(const int wpn_skill);
     void assert_melee_auto_table_can_only_block(const int wpn_skill);
 
+    void assert_ranged_auto_table_can_only_hit(const int wpn_skill);
+    void assert_ranged_auto_table_can_only_crit(const int wpn_skill);
+    void assert_ranged_auto_table_can_only_miss(const int wpn_skill);
+    void assert_ranged_auto_table_can_only_dodge(const int wpn_skill);
+    void assert_ranged_auto_table_can_only_block(const int wpn_skill);
+
 private:
     void create_100_dmg_1h();
     void create_100_dmg_dagger();
     void create_100_dmg_2h();
+    void create_100_dmg_ranged();
+    void create_3_speed_ranged();
+    void create_2_speed_ranged();
     void create_3_speed();
     void create_2_speed();
     void create_axe();

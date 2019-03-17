@@ -30,6 +30,7 @@ public:
     double get_hit_chance(void) const;
     double get_mh_crit_chance(void) const;
     double get_oh_crit_chance(void) const;
+    double get_ranged_crit_chance(void) const;
     double get_spell_hit_chance(void) const;
     double get_spell_crit_chance(void) const;
 
@@ -40,8 +41,7 @@ public:
 
     int get_mh_wpn_skill() const;
     int get_oh_wpn_skill() const;
-    int get_wpn_skill(Weapon*) const;
-    int get_ranged_wpn_skill();
+    int get_ranged_wpn_skill() const;
 
     void increase_wpn_skill(const int, const int);
     void decrease_wpn_skill(const int, const int);
@@ -116,6 +116,7 @@ public:
 
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
+    double get_ranged_wpn_speed();
 
     void increase_dodge(const double);
     void decrease_dodge(const double);
@@ -152,6 +153,8 @@ protected:
     void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
     void recalculate_multiplicative_effects(QVector<int>& effects, double& modifier);
     Target::CreatureType get_type_for_stat(const ItemStats);
+
+    int get_wpn_skill(Weapon*) const;
 
 private:
 };

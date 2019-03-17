@@ -40,7 +40,6 @@ SOURCES += main.cpp \
     Test/Test.cpp \
     Equipment/Equipment.cpp \
     CombatRoll/CombatRoll.cpp \
-    CombatRoll/AttackTables/WhiteHitTable.cpp \
     Spells/Spell.cpp \
     Character/Class/Warrior/Spells/Bloodthirst.cpp \
     Event/Events/OffhandMeleeHit.cpp \
@@ -304,7 +303,12 @@ SOURCES += main.cpp \
     Test/Hunter/Talents/TestSurvival.cpp \
     Test/Hunter/TestHunter.cpp \
     Character/Class/Hunter/HunterEnchants.cpp \
-    Character/CharacterSpells.cpp
+    Character/CharacterSpells.cpp \
+    Character/Common/Spells/AutoShoot.cpp \
+    CombatRoll/AttackTables/MeleeWhiteHitTable.cpp \
+    CombatRoll/AttackTables/RangedWhiteHitTable.cpp \
+    Test/Hunter/Spells/TestAutoShoot.cpp \
+    Test/Hunter/TestSpellHunter.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -336,12 +340,10 @@ HEADERS += \
     Equipment/Equipment.h \
     Equipment/Item/Item.h \
     Target/Target.h \
-    CombatRoll/PhysicalAttackTable.h \
     CombatRoll/PhysicalAttackResult.h \
     CombatRoll/MagicAttackResult.h \
     CombatRoll/AttackTables/MagicAttackTable.h \
     CombatRoll/CombatRoll.h \
-    CombatRoll/AttackTables/WhiteHitTable.h \
     CombatRoll/Random.h \
     Spells/Spell.h \
     Character/Class/Warrior/Spells/Bloodthirst.h \
@@ -612,7 +614,12 @@ HEADERS += \
     Test/Hunter/Talents/TestSurvival.h \
     Test/Hunter/TestHunter.h \
     Character/Class/Hunter/HunterEnchants.h \
-    Character/CharacterSpells.h
+    Character/CharacterSpells.h \
+    Character/Common/Spells/AutoShoot.h \
+    CombatRoll/AttackTables/MeleeWhiteHitTable.h \
+    CombatRoll/AttackTables/RangedWhiteHitTable.h \
+    Test/Hunter/Spells/TestAutoShoot.h \
+    Test/Hunter/TestSpellHunter.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -670,6 +677,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Rogue/Spells \
     $$PWD/Test/Rogue/Talents \
     $$PWD/Test/Hunter \
+    $$PWD/Test/Hunter/Spells \
     $$PWD/Test/Hunter/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Character/Common \
