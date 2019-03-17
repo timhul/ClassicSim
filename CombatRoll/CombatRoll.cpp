@@ -30,7 +30,7 @@ CombatRoll::~CombatRoll() {
 int CombatRoll::get_melee_hit_result(const int wpn_skill, const double crit_mod) {
     const unsigned roll = random->get_roll();
 
-    MeleeWhiteHitTable* attack_table = this->get_white_hit_table(wpn_skill);
+    MeleeWhiteHitTable* attack_table = this->get_melee_white_table(wpn_skill);
 
     return attack_table->get_outcome(roll, crit_mod);
 }
@@ -81,7 +81,7 @@ Mechanics* CombatRoll::get_mechanics() const {
     return this->mechanics;
 }
 
-MeleeWhiteHitTable* CombatRoll::get_white_hit_table(const int wpn_skill) {
+MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const int wpn_skill) {
     assert(this->pchar != nullptr);
     assert(this->mechanics != nullptr);
 

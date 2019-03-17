@@ -138,11 +138,11 @@ void Test::test_combat_roll_creation() {
     pchar->get_equipment()->set_mainhand(19103);
     assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
 
-    pchar->get_combat_roll()->get_white_hit_table(300);
-    pchar->get_combat_roll()->get_white_hit_table(300);
-    pchar->get_combat_roll()->get_white_hit_table(315);
-    pchar->get_combat_roll()->get_white_hit_table(315);
-    pchar->get_combat_roll()->get_white_hit_table(300);
+    pchar->get_combat_roll()->get_melee_white_table(300);
+    pchar->get_combat_roll()->get_melee_white_table(300);
+    pchar->get_combat_roll()->get_melee_white_table(315);
+    pchar->get_combat_roll()->get_melee_white_table(315);
+    pchar->get_combat_roll()->get_melee_white_table(300);
 
     delete sim_settings;
     delete race;

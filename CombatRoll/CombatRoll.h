@@ -33,7 +33,7 @@ public:
     int get_spell_ability_result(const MagicSchool, const double);
     int get_spell_resist_result(const MagicSchool);
 
-    MeleeWhiteHitTable* get_white_hit_table(const int);
+    MeleeWhiteHitTable* get_melee_white_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);
     RangedWhiteHitTable* get_ranged_white_table(const int);
     MagicAttackTable* get_magic_attack_table(const MagicSchool);
