@@ -13,9 +13,11 @@ BerserkingBuff::BerserkingBuff(Character* pchar):
 void BerserkingBuff::buff_effect_when_applied() {
     curr_buff = random->get_roll();
     assert(curr_buff >= 10 && curr_buff <= 30);
-    pchar->increase_attack_speed(static_cast<int>(curr_buff));
+    pchar->increase_melee_attack_speed(static_cast<int>(curr_buff));
+    pchar->increase_ranged_attack_speed(static_cast<int>(curr_buff));
 }
 
 void BerserkingBuff::buff_effect_when_removed() {
-    pchar->decrease_attack_speed(static_cast<int>(curr_buff));
+    pchar->decrease_melee_attack_speed(static_cast<int>(curr_buff));
+    pchar->decrease_ranged_attack_speed(static_cast<int>(curr_buff));
 }

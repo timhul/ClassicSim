@@ -421,8 +421,8 @@ int Character::get_ranged_wpn_skill() const {
     return cstats->get_ranged_wpn_skill();
 }
 
-void Character::increase_attack_speed(int increase) {
-    cstats->increase_haste(increase);
+void Character::increase_melee_attack_speed(int increase) {
+    cstats->increase_melee_attack_speed(increase);
     double increase_double = double(increase) / 100;
 
     spells->get_mh_attack()->update_next_expected_use(increase_double);
@@ -432,16 +432,10 @@ void Character::increase_attack_speed(int increase) {
         spells->get_oh_attack()->update_next_expected_use(increase_double);
         spells->add_next_oh_attack();
     }
-
-    AutoShoot* auto_shoot = spells->get_auto_shoot();
-    if (auto_shoot != nullptr) {
-        auto_shoot->update_next_expected_use(increase_double);
-        spells->add_next_ranged_attack();
-    }
 }
 
-void Character::decrease_attack_speed(int decrease) {
-    cstats->decrease_haste(decrease);
+void Character::decrease_melee_attack_speed(int decrease) {
+    cstats->decrease_melee_attack_speed(decrease);
     double decrease_double = double(decrease) / 100;
 
     spells->get_mh_attack()->update_next_expected_use(-decrease_double);
@@ -451,6 +445,22 @@ void Character::decrease_attack_speed(int decrease) {
         spells->get_oh_attack()->update_next_expected_use(-decrease_double);
         spells->add_next_oh_attack();
     }
+}
+
+void Character::increase_ranged_attack_speed(int increase) {
+    cstats->increase_ranged_attack_speed(increase);
+    double increase_double = double(increase) / 100;
+
+    AutoShoot* auto_shoot = spells->get_auto_shoot();
+    if (auto_shoot != nullptr) {
+        auto_shoot->update_next_expected_use(increase_double);
+        spells->add_next_ranged_attack();
+    }
+}
+
+void Character::decrease_ranged_attack_speed(int decrease) {
+    cstats->decrease_ranged_attack_speed(decrease);
+    double decrease_double = double(decrease) / 100;
 
     AutoShoot* auto_shoot = spells->get_auto_shoot();
     if (auto_shoot != nullptr) {

@@ -514,11 +514,11 @@ void TestOffhandAttackWarrior::when_changing_to_2_speed() {
 }
 
 void TestOffhandAttackWarrior::when_increasing_attack_speed(const int change) {
-    warrior->increase_attack_speed(change);
+    warrior->increase_melee_attack_speed(change);
 }
 
 void TestOffhandAttackWarrior::when_decreasing_attack_speed(const int change) {
-    warrior->decrease_attack_speed(change);
+    warrior->decrease_melee_attack_speed(change);
 }
 
 void TestOffhandAttackWarrior::then_next_expected_use_is(const double next_expected_use) {

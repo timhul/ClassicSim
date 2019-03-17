@@ -37,10 +37,10 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         pchar->get_stats()->increase_strength(7);
         break;
     case EnchantName::EnchantGlovesMinorHaste:
-        pchar->get_stats()->increase_haste(1);
+        pchar->get_stats()->increase_melee_attack_speed(1);
         break;
     case EnchantName::IronCounterweight:
-        pchar->get_stats()->increase_haste(3);
+        pchar->get_stats()->increase_melee_attack_speed(3);
         break;
     case EnchantName::Enchant2HWeaponAgility:
         pchar->get_stats()->increase_agility(25);
@@ -49,7 +49,7 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         pchar->increase_mh_flat_damage_bonus(9);
         break;
     case EnchantName::ArcanumOfRapidity:
-        pchar->get_stats()->increase_haste(1);
+        pchar->get_stats()->increase_melee_attack_speed(1);
         break;
     case EnchantName::LesserArcanumOfVoracityAgility:
         pchar->get_stats()->increase_agility(8);
@@ -149,10 +149,10 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_strength(7);
         break;
     case EnchantName::EnchantGlovesMinorHaste:
-        pchar->get_stats()->decrease_haste(1);
+        pchar->get_stats()->decrease_melee_attack_speed(1);
         break;
     case EnchantName::IronCounterweight:
-        pchar->get_stats()->decrease_haste(3);
+        pchar->get_stats()->decrease_melee_attack_speed(3);
         break;
     case EnchantName::Enchant2HWeaponAgility:
         pchar->get_stats()->decrease_agility(25);
@@ -161,7 +161,7 @@ EnchantStatic::~EnchantStatic() {
         pchar->decrease_mh_flat_damage_bonus(9);
         break;
     case EnchantName::ArcanumOfRapidity:
-        pchar->get_stats()->decrease_haste(1);
+        pchar->get_stats()->decrease_melee_attack_speed(1);
         break;
     case EnchantName::LesserArcanumOfVoracityAgility:
         pchar->get_stats()->decrease_agility(8);

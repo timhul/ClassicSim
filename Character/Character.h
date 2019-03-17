@@ -131,8 +131,11 @@ public:
 
     unsigned get_avg_mh_damage();
 
-    void increase_attack_speed(int);
-    void decrease_attack_speed(int);
+    void increase_melee_attack_speed(int);
+    void decrease_melee_attack_speed(int);
+
+    void increase_ranged_attack_speed(int);
+    void decrease_ranged_attack_speed(int);
 
     void increase_ability_crit_dmg_mod(double);
     void decrease_ability_crit_dmg_mod(double);

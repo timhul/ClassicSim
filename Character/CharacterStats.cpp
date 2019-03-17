@@ -15,7 +15,8 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     dagger_skill_bonus(0),
     mace_skill_bonus(0),
     sword_skill_bonus(0),
-    attack_speed_mod(1.0),
+    melee_attack_speed_mod(1.0),
+    ranged_attack_speed_mod(1.0),
     total_phys_dmg_mod(1.0),
     physical_damage_taken_mod(1.0),
     spell_damage_taken_mod(1.0),
@@ -259,7 +260,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const int value) {
     case ItemStats::CritChance:
         return increase_crit(static_cast<double>(value) / 100);
     case ItemStats::AttackSpeedPercent:
-        return pchar->increase_attack_speed(value);
+        return pchar->increase_melee_attack_speed(value);
     case ItemStats::AttackPower:
         increase_melee_ap(value);
         return increase_ranged_ap(value);
@@ -309,7 +310,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const int value) {
     case ItemStats::CritChance:
         return decrease_crit(static_cast<double>(value) / 100);
     case ItemStats::AttackSpeedPercent:
-        return pchar->decrease_attack_speed(value);
+        return pchar->decrease_melee_attack_speed(value);
     case ItemStats::AttackPower:
         decrease_melee_ap(value);
         return decrease_ranged_ap(value);
@@ -327,12 +328,20 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const int value) {
     }
 }
 
-void CharacterStats::increase_haste(const int increase) {
-    add_multiplicative_effect(attack_speed_buffs, increase, attack_speed_mod);
+void CharacterStats::increase_melee_attack_speed(const int increase) {
+    add_multiplicative_effect(attack_speed_buffs, increase, melee_attack_speed_mod);
 }
 
-void CharacterStats::decrease_haste(const int decrease) {
-    remove_multiplicative_effect(attack_speed_buffs, decrease, attack_speed_mod);
+void CharacterStats::decrease_melee_attack_speed(const int decrease) {
+    remove_multiplicative_effect(attack_speed_buffs, decrease, melee_attack_speed_mod);
+}
+
+void CharacterStats::increase_ranged_attack_speed(const int increase) {
+    add_multiplicative_effect(attack_speed_buffs, increase, ranged_attack_speed_mod);
+}
+
+void CharacterStats::decrease_ranged_attack_speed(const int decrease) {
+    remove_multiplicative_effect(attack_speed_buffs, decrease, ranged_attack_speed_mod);
 }
 
 void CharacterStats::increase_strength(const int increase) {
@@ -435,8 +444,12 @@ double CharacterStats::get_total_phys_dmg_mod() const {
     return total_phys_dmg_mod * dmg_bonus_from_wpn_type * dmg_bonus_from_monster_type;
 }
 
-double CharacterStats::get_attack_speed_mod() const {
-    return attack_speed_mod;
+double CharacterStats::get_melee_attack_speed_mod() const {
+    return melee_attack_speed_mod;
+}
+
+double CharacterStats::get_ranged_attack_speed_mod() const {
+    return ranged_attack_speed_mod;
 }
 
 double CharacterStats::get_physical_damage_taken_mod() const {
@@ -540,17 +553,17 @@ void CharacterStats::remove_ap_multiplier(const int mod) {
 }
 
 double CharacterStats::get_mh_wpn_speed() {
-    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / attack_speed_mod :
-                                   2.0 / attack_speed_mod;
+    return pchar->has_mainhand() ? equipment->get_mainhand()->get_base_weapon_speed() / melee_attack_speed_mod :
+                                   2.0 / melee_attack_speed_mod;
 }
 
 double CharacterStats::get_oh_wpn_speed() {
-    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / attack_speed_mod :
+    return pchar->has_offhand() ? equipment->get_offhand()->get_base_weapon_speed() / melee_attack_speed_mod :
                                   300;
 }
 
 double CharacterStats::get_ranged_wpn_speed() {
-    return pchar->has_ranged() ? equipment->get_ranged()->get_base_weapon_speed() / attack_speed_mod :
+    return pchar->has_ranged() ? equipment->get_ranged()->get_base_weapon_speed() / ranged_attack_speed_mod :
                                  300;
 }
 

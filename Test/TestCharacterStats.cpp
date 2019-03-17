@@ -57,43 +57,43 @@ void TestCharacterStats::test_all() {
 
 void TestCharacterStats::test_basic_properties() {
     assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
-    assert(almost_equal(cstats->get_attack_speed_mod(), 1.0));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.0));
     assert(almost_equal(cstats->get_physical_damage_taken_mod(), 1.0));
     assert(almost_equal(cstats->get_spell_damage_taken_mod(), 1.0));
 }
 
 void TestCharacterStats::test_attack_speed_multipliers_stacks_multiplicatively() {
-    cstats->increase_haste(10);
+    cstats->increase_melee_attack_speed(10);
     // 1.1 = 1.0 * 1.1
-    assert(almost_equal(cstats->get_attack_speed_mod(), 1.10));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.10));
 
-    cstats->increase_haste(20);
+    cstats->increase_melee_attack_speed(20);
     // 1.32 = 1.0 * 1.1 * 1.2
-    assert(almost_equal(cstats->get_attack_speed_mod(), 1.32));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.32));
 
-    cstats->increase_haste(50);
+    cstats->increase_melee_attack_speed(50);
     // 1.98 = 1.0 * 1.1 * 1.2 * 1.5
-    assert(almost_equal(cstats->get_attack_speed_mod(), 1.98));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.98));
 
-    cstats->increase_haste(100);
+    cstats->increase_melee_attack_speed(100);
     // 3.96 = 1.0 * 1.1 * 1.2 * 1.5 * 2
-    assert(almost_equal(cstats->get_attack_speed_mod(), 3.96));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 3.96));
 
-    cstats->decrease_haste(20);
+    cstats->decrease_melee_attack_speed(20);
     // 3.30 = 1.0 * 1.1 * 1.5 * 2
-    assert(almost_equal(cstats->get_attack_speed_mod(), 3.30));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 3.30));
 
-    cstats->decrease_haste(10);
+    cstats->decrease_melee_attack_speed(10);
     // 3.00 = 1.0 * 1.5 * 2
-    assert(almost_equal(cstats->get_attack_speed_mod(), 3.00));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 3.00));
 
-    cstats->decrease_haste(100);
+    cstats->decrease_melee_attack_speed(100);
     // 1.50 = 1.0 * 1.5
-    assert(almost_equal(cstats->get_attack_speed_mod(), 1.50));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.50));
 
-    cstats->decrease_haste(50);
+    cstats->decrease_melee_attack_speed(50);
     // 1.00 = 1.0
-    assert(almost_equal(cstats->get_attack_speed_mod(), 1.00));
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.00));
 }
 
 void TestCharacterStats::test_physical_damage_multipliers_stacks_multiplicatively() {

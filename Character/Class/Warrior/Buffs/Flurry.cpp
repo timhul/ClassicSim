@@ -11,11 +11,11 @@ Flurry::Flurry(Character* pchar):
 }
 
 void Flurry::buff_effect_when_applied() {
-    pchar->increase_attack_speed(attack_speed_increase);
+    pchar->increase_melee_attack_speed(attack_speed_increase);
 }
 
 void Flurry::buff_effect_when_removed() {
-    pchar->decrease_attack_speed(attack_speed_increase);
+    pchar->decrease_melee_attack_speed(attack_speed_increase);
 }
 
 void Flurry::increase_talent_rank_effect(const QString&, const int curr) {

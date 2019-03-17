@@ -22,11 +22,6 @@ public:
     Equipment* get_equipment(void) const;
     Stats* get_stats(void) const;
 
-    int get_strength() const;
-    int get_agility() const;
-    int get_stamina() const;
-    int get_intellect() const;
-    int get_spirit() const;
     double get_hit_chance(void) const;
     double get_mh_crit_chance(void) const;
     double get_oh_crit_chance(void) const;
@@ -35,7 +30,6 @@ public:
     double get_spell_crit_chance(void) const;
 
     double get_total_phys_dmg_mod() const;
-    double get_attack_speed_mod() const;
     double get_physical_damage_taken_mod() const;
     double get_spell_damage_taken_mod() const;
 
@@ -49,21 +43,31 @@ public:
     void increase_stat(const ItemStats, const int);
     void decrease_stat(const ItemStats, const int);
 
-    void increase_haste(const int);
-    void decrease_haste(const int);
+    double get_melee_attack_speed_mod() const;
+    void increase_melee_attack_speed(const int);
+    void decrease_melee_attack_speed(const int);
 
+    double get_ranged_attack_speed_mod() const;
+    void increase_ranged_attack_speed(const int);
+    void decrease_ranged_attack_speed(const int);
+
+    int get_strength() const;
     void increase_strength(const int);
     void decrease_strength(const int);
 
+    int get_agility() const;
     void increase_agility(const int);
     void decrease_agility(const int);
 
+    int get_stamina() const;
     void increase_stamina(const int);
     void decrease_stamina(const int);
 
+    int get_intellect() const;
     void increase_intellect(const int);
     void decrease_intellect(const int);
 
+    int get_spirit() const;
     void increase_spirit(const int);
     void decrease_spirit(const int);
 
@@ -142,7 +146,8 @@ protected:
 
     int ranged_ap{};
     double melee_ability_crit_mod{};
-    double attack_speed_mod;
+    double melee_attack_speed_mod;
+    double ranged_attack_speed_mod;
     double total_phys_dmg_mod;
     double physical_damage_taken_mod;
     double spell_damage_taken_mod;

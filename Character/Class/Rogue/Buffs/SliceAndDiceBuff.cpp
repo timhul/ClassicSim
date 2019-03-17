@@ -10,11 +10,11 @@ SliceAndDiceBuff::SliceAndDiceBuff(Character* pchar):
 }
 
 void SliceAndDiceBuff::buff_effect_when_applied() {
-    pchar->increase_attack_speed(30);
+    pchar->increase_melee_attack_speed(30);
 }
 
 void SliceAndDiceBuff::buff_effect_when_removed() {
-    pchar->decrease_attack_speed(30);
+    pchar->decrease_melee_attack_speed(30);
 }
 
 void SliceAndDiceBuff::change_duration_modifier(const int curr) {

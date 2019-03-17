@@ -14,9 +14,9 @@ BladeFlurryBuff::~BladeFlurryBuff() {
 }
 
 void BladeFlurryBuff::buff_effect_when_applied() {
-    rogue->increase_attack_speed(20);
+    rogue->increase_melee_attack_speed(20);
 }
 
 void BladeFlurryBuff::buff_effect_when_removed() {
-    rogue->decrease_attack_speed(20);
+    rogue->decrease_melee_attack_speed(20);
 }

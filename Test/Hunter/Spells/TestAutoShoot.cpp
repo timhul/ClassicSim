@@ -142,11 +142,11 @@ void TestAutoShoot::when_changing_to_2_speed() {
 }
 
 void TestAutoShoot::when_increasing_attack_speed(const int change) {
-    hunter->increase_attack_speed(change);
+    hunter->increase_ranged_attack_speed(change);
 }
 
 void TestAutoShoot::when_decreasing_attack_speed(const int change) {
-    hunter->decrease_attack_speed(change);
+    hunter->decrease_ranged_attack_speed(change);
 }
 
 void TestAutoShoot::then_next_expected_use_is(const double next_expected_use) {
