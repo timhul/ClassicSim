@@ -133,63 +133,63 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 }
 
-int Stats::get_strength() const {
+unsigned Stats::get_strength() const {
     return STR;
 }
 
-int Stats::get_agility() const {
+unsigned Stats::get_agility() const {
     return AGI;
 }
 
-int Stats::get_stamina() const {
+unsigned Stats::get_stamina() const {
     return STAM;
 }
 
-int Stats::get_intellect() const {
-    return int(double(INT) * int_multiplier);
+unsigned Stats::get_intellect() const {
+    return static_cast<unsigned>(round(INT * int_multiplier));
 }
 
-int Stats::get_spirit() const {
-    return int(double(SPI) * spi_multiplier);
+unsigned Stats::get_spirit() const {
+    return static_cast<unsigned>(round(SPI * spi_multiplier));
 }
 
-void Stats::increase_strength(const int increase) {
+void Stats::increase_strength(const unsigned increase) {
     STR += increase;
 }
 
-void Stats::decrease_strength(const int decrease) {
+void Stats::decrease_strength(const unsigned decrease) {
     STR -= decrease;
 }
 
-void Stats::increase_agility(const int increase) {
+void Stats::increase_agility(const unsigned increase) {
     AGI += increase;
 }
 
-void Stats::decrease_agility(const int decrease) {
+void Stats::decrease_agility(const unsigned decrease) {
     AGI -= decrease;
 }
 
-void Stats::increase_stamina(const int increase) {
+void Stats::increase_stamina(const unsigned increase) {
     STAM += increase;
 }
 
-void Stats::decrease_stamina(const int decrease) {
+void Stats::decrease_stamina(const unsigned decrease) {
     STAM -= decrease;
 }
 
-void Stats::increase_intellect(const int increase) {
+void Stats::increase_intellect(const unsigned increase) {
     INT += increase;
 }
 
-void Stats::decrease_intellect(const int decrease) {
+void Stats::decrease_intellect(const unsigned decrease) {
     INT -= decrease;
 }
 
-void Stats::increase_spirit(const int increase) {
+void Stats::increase_spirit(const unsigned increase) {
     SPI += increase;
 }
 
-void Stats::decrease_spirit(const int decrease) {
+void Stats::decrease_spirit(const unsigned decrease) {
     SPI -= decrease;
 }
 
@@ -338,27 +338,29 @@ void Stats::decrease_sword_skill(const int decrease) {
     sword_skill -= decrease;
 }
 
-int Stats::get_base_melee_ap() const {
+unsigned Stats::get_base_melee_ap() const {
     return melee_ap;
 }
 
-void Stats::increase_base_melee_ap(const int increase) {
+void Stats::increase_base_melee_ap(const unsigned increase) {
     melee_ap += increase;
 }
 
-void Stats::decrease_base_melee_ap(const int decrease) {
+void Stats::decrease_base_melee_ap(const unsigned decrease) {
+    assert(melee_ap >= decrease);
     melee_ap -= decrease;
 }
 
-int Stats::get_base_ranged_ap() const {
+unsigned Stats::get_base_ranged_ap() const {
     return ranged_ap;
 }
 
-void Stats::increase_base_ranged_ap(const int increase) {
+void Stats::increase_base_ranged_ap(const unsigned increase) {
     ranged_ap += increase;
 }
 
-void Stats::decrease_base_ranged_ap(const int decrease) {
+void Stats::decrease_base_ranged_ap(const unsigned decrease) {
+    assert(ranged_ap >= decrease);
     ranged_ap -= decrease;
 }
 
@@ -382,11 +384,11 @@ double Stats::get_attack_speed() const {
     return percent_attack_speed;
 }
 
-void Stats::set_melee_ap_per_str(const int value) {
+void Stats::set_melee_ap_per_str(const unsigned value) {
     melee_ap_per_str = value;
 }
 
-void Stats::set_melee_ap_per_agi(const int value) {
+void Stats::set_melee_ap_per_agi(const unsigned value) {
     melee_ap_per_agi = value;
 }
 
@@ -450,26 +452,26 @@ void Stats::decrease_attack_speed(const double value) {
     percent_attack_speed -= value;
 }
 
-void Stats::increase_melee_ap_against_type(const Target::CreatureType type, const int increase) {
+void Stats::increase_melee_ap_against_type(const Target::CreatureType type, const unsigned increase) {
     melee_ap_against_creature[type] += increase;
 }
 
-void Stats::decrease_melee_ap_against_type(const Target::CreatureType type, const int decrease) {
+void Stats::decrease_melee_ap_against_type(const Target::CreatureType type, const unsigned decrease) {
     melee_ap_against_creature[type] -= decrease;
 }
 
-int Stats::get_melee_ap_against_type(const Target::CreatureType type) const {
+unsigned Stats::get_melee_ap_against_type(const Target::CreatureType type) const {
     return melee_ap_against_creature[type];
 }
 
-void Stats::increase_ranged_ap_against_type(const Target::CreatureType type, const int increase) {
+void Stats::increase_ranged_ap_against_type(const Target::CreatureType type, const unsigned increase) {
     ranged_ap_against_creature[type] += increase;
 }
 
-void Stats::decrease_ranged_ap_against_type(const Target::CreatureType type, const int decrease) {
+void Stats::decrease_ranged_ap_against_type(const Target::CreatureType type, const unsigned decrease) {
     ranged_ap_against_creature[type] -= decrease;
 }
 
-int Stats::get_ranged_ap_against_type(const Target::CreatureType type) const {
+unsigned Stats::get_ranged_ap_against_type(const Target::CreatureType type) const {
     return ranged_ap_against_creature[type];
 }

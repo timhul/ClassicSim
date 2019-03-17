@@ -39,23 +39,23 @@ QString Mage::get_class_color() const {
     return "#69CCF0";
 }
 
-int Mage::get_strength_modifier() const {
+unsigned Mage::get_strength_modifier() const {
     return 0;
 }
 
-int Mage::get_agility_modifier() const {
+unsigned Mage::get_agility_modifier() const {
     return 0;
 }
 
-int Mage::get_stamina_modifier() const {
+unsigned Mage::get_stamina_modifier() const {
     return 0;
 }
 
-int Mage::get_intellect_modifier() const {
+unsigned Mage::get_intellect_modifier() const {
     return 3;
 }
 
-int Mage::get_spirit_modifier() const {
+unsigned Mage::get_spirit_modifier() const {
     return 2;
 }
 
@@ -67,11 +67,11 @@ double Mage::get_int_needed_for_one_percent_spell_crit() const {
     return 59.5;
 }
 
-int Mage::get_ap_per_strength() const {
+unsigned Mage::get_ap_per_strength() const {
     return 1;
 }
 
-int Mage::get_ap_per_agi() const {
+unsigned Mage::get_ap_per_agi() const {
     return 1;
 }
 

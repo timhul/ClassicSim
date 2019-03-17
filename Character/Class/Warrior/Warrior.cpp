@@ -125,23 +125,23 @@ QString Warrior::get_class_color() const {
     return "#C79C6E";
 }
 
-int Warrior::get_strength_modifier() const {
+unsigned Warrior::get_strength_modifier() const {
     return 3;
 }
 
-int Warrior::get_agility_modifier() const {
+unsigned Warrior::get_agility_modifier() const {
     return 0;
 }
 
-int Warrior::get_stamina_modifier() const {
+unsigned Warrior::get_stamina_modifier() const {
     return 2;
 }
 
-int Warrior::get_intellect_modifier() const {
+unsigned Warrior::get_intellect_modifier() const {
     return 0;
 }
 
-int Warrior::get_spirit_modifier() const {
+unsigned Warrior::get_spirit_modifier() const {
     return 0;
 }
 
@@ -153,11 +153,11 @@ double Warrior::get_int_needed_for_one_percent_spell_crit() const {
     return std::numeric_limits<double>::max();
 }
 
-int Warrior::get_ap_per_strength() const {
+unsigned Warrior::get_ap_per_strength() const {
     return 2;
 }
 
-int Warrior::get_ap_per_agi() const {
+unsigned Warrior::get_ap_per_agi() const {
     return 0;
 }
 

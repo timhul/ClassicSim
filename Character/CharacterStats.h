@@ -40,47 +40,47 @@ public:
     void increase_wpn_skill(const int, const int);
     void decrease_wpn_skill(const int, const int);
 
-    void increase_stat(const ItemStats, const int);
-    void decrease_stat(const ItemStats, const int);
+    void increase_stat(const ItemStats, const unsigned);
+    void decrease_stat(const ItemStats, const unsigned);
 
     double get_melee_attack_speed_mod() const;
-    void increase_melee_attack_speed(const int);
-    void decrease_melee_attack_speed(const int);
+    void increase_melee_attack_speed(const unsigned);
+    void decrease_melee_attack_speed(const unsigned);
 
     double get_ranged_attack_speed_mod() const;
-    void increase_ranged_attack_speed(const int);
-    void decrease_ranged_attack_speed(const int);
+    void increase_ranged_attack_speed(const unsigned);
+    void decrease_ranged_attack_speed(const unsigned);
 
-    int get_strength() const;
-    void increase_strength(const int);
-    void decrease_strength(const int);
+    unsigned get_strength() const;
+    void increase_strength(const unsigned);
+    void decrease_strength(const unsigned);
 
-    int get_agility() const;
-    void increase_agility(const int);
-    void decrease_agility(const int);
+    unsigned get_agility() const;
+    void increase_agility(const unsigned);
+    void decrease_agility(const unsigned);
 
-    int get_stamina() const;
-    void increase_stamina(const int);
-    void decrease_stamina(const int);
+    unsigned get_stamina() const;
+    void increase_stamina(const unsigned);
+    void decrease_stamina(const unsigned);
 
-    int get_intellect() const;
-    void increase_intellect(const int);
-    void decrease_intellect(const int);
+    unsigned get_intellect() const;
+    void increase_intellect(const unsigned);
+    void decrease_intellect(const unsigned);
 
-    int get_spirit() const;
-    void increase_spirit(const int);
-    void decrease_spirit(const int);
+    unsigned get_spirit() const;
+    void increase_spirit(const unsigned);
+    void decrease_spirit(const unsigned);
 
-    int get_melee_ap() const;
-    void increase_melee_ap(const int);
-    void decrease_melee_ap(const int);
+    unsigned get_melee_ap() const;
+    void increase_melee_ap(const unsigned);
+    void decrease_melee_ap(const unsigned);
 
-    int get_ranged_ap() const;
-    void increase_ranged_ap(const int);
-    void decrease_ranged_ap(const int);
+    unsigned get_ranged_ap() const;
+    void increase_ranged_ap(const unsigned);
+    void decrease_ranged_ap(const unsigned);
 
-    void increase_ap_vs_type(const Target::CreatureType, const int);
-    void decrease_ap_vs_type(const Target::CreatureType, const int);
+    void increase_ap_vs_type(const Target::CreatureType, const unsigned);
+    void decrease_ap_vs_type(const Target::CreatureType, const unsigned);
 
     void increase_dmg_vs_type(const Target::CreatureType, const double);
     void decrease_dmg_vs_type(const Target::CreatureType, const double);
@@ -125,7 +125,7 @@ public:
     void increase_dodge(const double);
     void decrease_dodge(const double);
 
-protected:
+private:
     Character* pchar;
     Equipment* equipment;
     Stats* base_stats;
@@ -144,7 +144,6 @@ protected:
     int mace_skill_bonus;
     int sword_skill_bonus;
 
-    int ranged_ap{};
     double melee_ability_crit_mod{};
     double melee_attack_speed_mod;
     double ranged_attack_speed_mod;
@@ -160,8 +159,6 @@ protected:
     Target::CreatureType get_type_for_stat(const ItemStats);
 
     int get_wpn_skill(Weapon*) const;
-
-private:
 };
 
 #endif // CHARACTERSTATS_H

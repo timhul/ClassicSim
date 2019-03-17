@@ -40,23 +40,23 @@ QString Priest::get_class_color() const {
     return "#FFFFFF";
 }
 
-int Priest::get_strength_modifier() const {
+unsigned Priest::get_strength_modifier() const {
     return 0;
 }
 
-int Priest::get_agility_modifier() const {
+unsigned Priest::get_agility_modifier() const {
     return 0;
 }
 
-int Priest::get_stamina_modifier() const {
+unsigned Priest::get_stamina_modifier() const {
     return 0;
 }
 
-int Priest::get_intellect_modifier() const {
+unsigned Priest::get_intellect_modifier() const {
     return 2;
 }
 
-int Priest::get_spirit_modifier() const {
+unsigned Priest::get_spirit_modifier() const {
     return 3;
 }
 
@@ -68,11 +68,11 @@ double Priest::get_int_needed_for_one_percent_spell_crit() const {
     return 59.2;
 }
 
-int Priest::get_ap_per_strength() const {
+unsigned Priest::get_ap_per_strength() const {
     return 1;
 }
 
-int Priest::get_ap_per_agi() const {
+unsigned Priest::get_ap_per_agi() const {
     return 1;
 }
 

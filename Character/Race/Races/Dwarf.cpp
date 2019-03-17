@@ -9,23 +9,23 @@ QString Dwarf::get_name() const {
     return "Dwarf";
 }
 
-int Dwarf::get_base_strength() const {
+unsigned Dwarf::get_base_strength() const {
     return 22;
 }
 
-int Dwarf::get_base_agility() const {
+unsigned Dwarf::get_base_agility() const {
     return 16;
 }
 
-int Dwarf::get_base_stamina() const {
+unsigned Dwarf::get_base_stamina() const {
     return 23;
 }
 
-int Dwarf::get_base_intellect() const {
+unsigned Dwarf::get_base_intellect() const {
     return 19;
 }
 
-int Dwarf::get_base_spirit() const {
+unsigned Dwarf::get_base_spirit() const {
     return 19;
 }
 

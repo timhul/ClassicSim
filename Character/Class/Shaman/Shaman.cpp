@@ -37,23 +37,23 @@ QString Shaman::get_class_color() const {
     return "#0070DE";
 }
 
-int Shaman::get_strength_modifier() const {
+unsigned Shaman::get_strength_modifier() const {
     return 1;
 }
 
-int Shaman::get_agility_modifier() const {
+unsigned Shaman::get_agility_modifier() const {
     return 0;
 }
 
-int Shaman::get_stamina_modifier() const {
+unsigned Shaman::get_stamina_modifier() const {
     return 1;
 }
 
-int Shaman::get_intellect_modifier() const {
+unsigned Shaman::get_intellect_modifier() const {
     return 1;
 }
 
-int Shaman::get_spirit_modifier() const {
+unsigned Shaman::get_spirit_modifier() const {
     return 2;
 }
 
@@ -65,11 +65,11 @@ double Shaman::get_int_needed_for_one_percent_spell_crit() const {
     return 59.5;
 }
 
-int Shaman::get_ap_per_strength() const {
+unsigned Shaman::get_ap_per_strength() const {
     return 1;
 }
 
-int Shaman::get_ap_per_agi() const {
+unsigned Shaman::get_ap_per_agi() const {
     return 1;
 }
 

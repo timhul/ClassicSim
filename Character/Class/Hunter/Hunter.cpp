@@ -49,23 +49,23 @@ QString Hunter::get_class_color() const {
     return "#ABD473";
 }
 
-int Hunter::get_strength_modifier() const {
+unsigned Hunter::get_strength_modifier() const {
     return 0;
 }
 
-int Hunter::get_agility_modifier() const {
+unsigned Hunter::get_agility_modifier() const {
     return 3;
 }
 
-int Hunter::get_stamina_modifier() const {
+unsigned Hunter::get_stamina_modifier() const {
     return 1;
 }
 
-int Hunter::get_intellect_modifier() const {
+unsigned Hunter::get_intellect_modifier() const {
     return 0;
 }
 
-int Hunter::get_spirit_modifier() const {
+unsigned Hunter::get_spirit_modifier() const {
     return 1;
 }
 
@@ -77,11 +77,11 @@ double Hunter::get_int_needed_for_one_percent_spell_crit() const {
     return std::numeric_limits<double>::max();
 }
 
-int Hunter::get_ap_per_strength() const {
+unsigned Hunter::get_ap_per_strength() const {
     return 1;
 }
 
-int Hunter::get_ap_per_agi() const {
+unsigned Hunter::get_ap_per_agi() const {
     return 1;
 }
 

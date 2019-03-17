@@ -9,23 +9,23 @@ QString Tauren::get_name() const {
     return "Tauren";
 }
 
-int Tauren::get_base_strength() const {
+unsigned Tauren::get_base_strength() const {
     return 25;
 }
 
-int Tauren::get_base_agility() const {
+unsigned Tauren::get_base_agility() const {
     return 15;
 }
 
-int Tauren::get_base_stamina() const {
+unsigned Tauren::get_base_stamina() const {
     return 22;
 }
 
-int Tauren::get_base_intellect() const {
+unsigned Tauren::get_base_intellect() const {
     return 15;
 }
 
-int Tauren::get_base_spirit() const {
+unsigned Tauren::get_base_spirit() const {
     return 22;
 }
 

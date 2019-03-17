@@ -372,14 +372,14 @@ unsigned Character::get_avg_mh_damage() {
     if (!has_mainhand())
         return static_cast<unsigned>(round(get_normalized_dmg(1, nullptr)));
 
-    int attack_power = cstats->get_melee_ap();
+    unsigned attack_power = cstats->get_melee_ap();
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     auto avg_dmg = static_cast<unsigned>(round(mh->get_min_dmg() + mh->get_max_dmg() + mh_flat_dmg_bonus) / 2);
     return static_cast<unsigned>(round(get_non_normalized_dmg(avg_dmg, attack_power, mh->get_base_weapon_speed())));
 }
 
 double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon) {
-    int attack_power = cstats->get_melee_ap();
+    unsigned attack_power = cstats->get_melee_ap();
     if (weapon == nullptr)
         return get_non_normalized_dmg(damage, attack_power, 2.0);
 
@@ -405,7 +405,7 @@ double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon
     return get_non_normalized_dmg(damage, attack_power, normalized_wpn_speed);
 }
 
-double Character::get_non_normalized_dmg(const unsigned damage, const int attack_power, const double wpn_speed) {
+double Character::get_non_normalized_dmg(const unsigned damage, const unsigned attack_power, const double wpn_speed) {
     return damage + (wpn_speed * attack_power / 14);
 }
 
@@ -421,7 +421,7 @@ int Character::get_ranged_wpn_skill() const {
     return cstats->get_ranged_wpn_skill();
 }
 
-void Character::increase_melee_attack_speed(int increase) {
+void Character::increase_melee_attack_speed(unsigned increase) {
     cstats->increase_melee_attack_speed(increase);
     double increase_double = double(increase) / 100;
 
@@ -434,7 +434,7 @@ void Character::increase_melee_attack_speed(int increase) {
     }
 }
 
-void Character::decrease_melee_attack_speed(int decrease) {
+void Character::decrease_melee_attack_speed(unsigned decrease) {
     cstats->decrease_melee_attack_speed(decrease);
     double decrease_double = double(decrease) / 100;
 
@@ -447,7 +447,7 @@ void Character::decrease_melee_attack_speed(int decrease) {
     }
 }
 
-void Character::increase_ranged_attack_speed(int increase) {
+void Character::increase_ranged_attack_speed(unsigned increase) {
     cstats->increase_ranged_attack_speed(increase);
     double increase_double = double(increase) / 100;
 
@@ -458,7 +458,7 @@ void Character::increase_ranged_attack_speed(int increase) {
     }
 }
 
-void Character::decrease_ranged_attack_speed(int decrease) {
+void Character::decrease_ranged_attack_speed(unsigned decrease) {
     cstats->decrease_ranged_attack_speed(decrease);
     double decrease_double = double(decrease) / 100;
 

@@ -86,23 +86,23 @@ QString Rogue::get_class_color() const {
     return "#FFF569";
 }
 
-int Rogue::get_strength_modifier() const {
+unsigned Rogue::get_strength_modifier() const {
     return 1;
 }
 
-int Rogue::get_agility_modifier() const {
+unsigned Rogue::get_agility_modifier() const {
     return 3;
 }
 
-int Rogue::get_stamina_modifier() const {
+unsigned Rogue::get_stamina_modifier() const {
     return 1;
 }
 
-int Rogue::get_intellect_modifier() const {
+unsigned Rogue::get_intellect_modifier() const {
     return 0;
 }
 
-int Rogue::get_spirit_modifier() const {
+unsigned Rogue::get_spirit_modifier() const {
     return 0;
 }
 
@@ -114,11 +114,11 @@ double Rogue::get_int_needed_for_one_percent_spell_crit() const {
     return std::numeric_limits<double>::max();
 }
 
-int Rogue::get_ap_per_strength() const {
+unsigned Rogue::get_ap_per_strength() const {
     return 1;
 }
 
-int Rogue::get_ap_per_agi() const {
+unsigned Rogue::get_ap_per_agi() const {
     return 1;
 }
 

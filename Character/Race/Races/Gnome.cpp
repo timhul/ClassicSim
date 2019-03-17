@@ -9,23 +9,23 @@ QString Gnome::get_name() const {
     return "Gnome";
 }
 
-int Gnome::get_base_strength() const {
+unsigned Gnome::get_base_strength() const {
     return 15;
 }
 
-int Gnome::get_base_agility() const {
+unsigned Gnome::get_base_agility() const {
     return 23;
 }
 
-int Gnome::get_base_stamina() const {
+unsigned Gnome::get_base_stamina() const {
     return 19;
 }
 
-int Gnome::get_base_intellect() const {
+unsigned Gnome::get_base_intellect() const {
     return 23;
 }
 
-int Gnome::get_base_spirit() const {
+unsigned Gnome::get_base_spirit() const {
     return 20;
 }
 

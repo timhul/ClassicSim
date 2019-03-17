@@ -9,23 +9,23 @@ QString Troll::get_name() const {
     return "Troll";
 }
 
-int Troll::get_base_strength() const {
+unsigned Troll::get_base_strength() const {
     return 21;
 }
 
-int Troll::get_base_agility() const {
+unsigned Troll::get_base_agility() const {
     return 22;
 }
 
-int Troll::get_base_stamina() const {
+unsigned Troll::get_base_stamina() const {
     return 21;
 }
 
-int Troll::get_base_intellect() const {
+unsigned Troll::get_base_intellect() const {
     return 16;
 }
 
-int Troll::get_base_spirit() const {
+unsigned Troll::get_base_spirit() const {
     return 21;
 }
 

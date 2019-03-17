@@ -11,33 +11,33 @@ public:
     void add(const Stats*);
     void remove(const Stats*);
 
-    int get_base_melee_ap() const;
-    void increase_base_melee_ap(const int increase);
-    void decrease_base_melee_ap(const int decrease);
+    unsigned get_base_melee_ap() const;
+    void increase_base_melee_ap(const unsigned increase);
+    void decrease_base_melee_ap(const unsigned decrease);
 
-    int get_base_ranged_ap() const;
-    void increase_base_ranged_ap(const int);
-    void decrease_base_ranged_ap(const int);
+    unsigned get_base_ranged_ap() const;
+    void increase_base_ranged_ap(const unsigned);
+    void decrease_base_ranged_ap(const unsigned);
 
-    int get_strength() const;
-    void increase_strength(const int increase);
-    void decrease_strength(const int decrease);
+    unsigned get_strength() const;
+    void increase_strength(const unsigned increase);
+    void decrease_strength(const unsigned decrease);
 
-    int get_agility() const;
-    void increase_agility(const int);
-    void decrease_agility(const int);
+    unsigned get_agility() const;
+    void increase_agility(const unsigned);
+    void decrease_agility(const unsigned);
 
-    int get_stamina() const;
-    void increase_stamina(const int);
-    void decrease_stamina(const int);
+    unsigned get_stamina() const;
+    void increase_stamina(const unsigned);
+    void decrease_stamina(const unsigned);
 
-    int get_intellect() const;
-    void increase_intellect(const int);
-    void decrease_intellect(const int);
+    unsigned get_intellect() const;
+    void increase_intellect(const unsigned);
+    void decrease_intellect(const unsigned);
 
-    int get_spirit() const;
-    void increase_spirit(const int);
-    void decrease_spirit(const int);
+    unsigned get_spirit() const;
+    void increase_spirit(const unsigned);
+    void decrease_spirit(const unsigned);
 
     void increase_armor(const int);
     void decrease_armor(const int);
@@ -111,8 +111,8 @@ public:
     double get_mh_wpn_speed() const;
     double get_oh_wpn_speed() const;
 
-    void set_melee_ap_per_str(const int value);
-    void set_melee_ap_per_agi(const int value);
+    void set_melee_ap_per_str(const unsigned value);
+    void set_melee_ap_per_agi(const unsigned value);
 
     void set_str_multiplier(const double value);
     void set_agi_multiplier(const double value);
@@ -120,20 +120,20 @@ public:
     void set_spi_multiplier(const double value);
     void set_int_multiplier(const double value);
 
-    void increase_melee_ap_against_type(const Target::CreatureType, const int);
-    void decrease_melee_ap_against_type(const Target::CreatureType, const int);
-    int get_melee_ap_against_type(const Target::CreatureType) const;
+    void increase_melee_ap_against_type(const Target::CreatureType, const unsigned);
+    void decrease_melee_ap_against_type(const Target::CreatureType, const unsigned);
+    unsigned get_melee_ap_against_type(const Target::CreatureType) const;
 
-    void increase_ranged_ap_against_type(const Target::CreatureType, const int);
-    void decrease_ranged_ap_against_type(const Target::CreatureType, const int);
-    int get_ranged_ap_against_type(const Target::CreatureType) const;
+    void increase_ranged_ap_against_type(const Target::CreatureType, const unsigned);
+    void decrease_ranged_ap_against_type(const Target::CreatureType, const unsigned);
+    unsigned get_ranged_ap_against_type(const Target::CreatureType) const;
 
 private:
-    int STR;
-    int AGI;
-    int STAM;
-    int INT;
-    int SPI;
+    unsigned STR;
+    unsigned AGI;
+    unsigned STAM;
+    unsigned INT;
+    unsigned SPI;
 
     int armor;
     int defense;
@@ -152,19 +152,19 @@ private:
     int mace_skill;
     int sword_skill;
 
-    int melee_ap;
-    int melee_ap_per_str;
-    int melee_ap_per_agi;
-    int ranged_ap;
-    int ranged_ap_per_agi;
+    unsigned melee_ap;
+    unsigned melee_ap_per_str;
+    unsigned melee_ap_per_agi;
+    unsigned ranged_ap;
+    unsigned ranged_ap_per_agi;
     double percent_hit;
     double percent_crit;
     double percent_spell_hit;
     double percent_spell_crit;
     double percent_attack_speed;
 
-    QMap<Target::CreatureType, int> melee_ap_against_creature;
-    QMap<Target::CreatureType, int> ranged_ap_against_creature;
+    QMap<Target::CreatureType, unsigned> melee_ap_against_creature;
+    QMap<Target::CreatureType, unsigned> ranged_ap_against_creature;
 
     double str_multiplier;
     double agi_multiplier;

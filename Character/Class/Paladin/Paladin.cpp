@@ -37,23 +37,23 @@ QString Paladin::get_class_color() const {
     return "#F58CBA";
 }
 
-int Paladin::get_strength_modifier() const {
+unsigned Paladin::get_strength_modifier() const {
     return 2;
 }
 
-int Paladin::get_agility_modifier() const {
+unsigned Paladin::get_agility_modifier() const {
     return 0;
 }
 
-int Paladin::get_stamina_modifier() const {
+unsigned Paladin::get_stamina_modifier() const {
     return 2;
 }
 
-int Paladin::get_intellect_modifier() const {
+unsigned Paladin::get_intellect_modifier() const {
     return 0;
 }
 
-int Paladin::get_spirit_modifier() const {
+unsigned Paladin::get_spirit_modifier() const {
     return 1;
 }
 
@@ -65,11 +65,11 @@ double Paladin::get_int_needed_for_one_percent_spell_crit() const {
     return 54;
 }
 
-int Paladin::get_ap_per_strength() const {
+unsigned Paladin::get_ap_per_strength() const {
     return 1;
 }
 
-int Paladin::get_ap_per_agi() const {
+unsigned Paladin::get_ap_per_agi() const {
     return 1;
 }
 

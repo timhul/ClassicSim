@@ -39,23 +39,23 @@ QString Warlock::get_class_color() const {
     return "#9482C9";
 }
 
-int Warlock::get_strength_modifier() const {
+unsigned Warlock::get_strength_modifier() const {
     return 0;
 }
 
-int Warlock::get_agility_modifier() const {
+unsigned Warlock::get_agility_modifier() const {
     return 0;
 }
 
-int Warlock::get_stamina_modifier() const {
+unsigned Warlock::get_stamina_modifier() const {
     return 1;
 }
 
-int Warlock::get_intellect_modifier() const {
+unsigned Warlock::get_intellect_modifier() const {
     return 2;
 }
 
-int Warlock::get_spirit_modifier() const {
+unsigned Warlock::get_spirit_modifier() const {
     return 2;
 }
 
@@ -67,11 +67,11 @@ double Warlock::get_int_needed_for_one_percent_spell_crit() const {
     return 60.6;
 }
 
-int Warlock::get_ap_per_strength() const {
+unsigned Warlock::get_ap_per_strength() const {
     return 1;
 }
 
-int Warlock::get_ap_per_agi() const {
+unsigned Warlock::get_ap_per_agi() const {
     return 1;
 }
 

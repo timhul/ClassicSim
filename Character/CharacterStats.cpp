@@ -73,34 +73,34 @@ Stats* CharacterStats::get_stats() const {
     return this->base_stats;
 }
 
-int CharacterStats::get_strength() const {
-    return static_cast<int>(round(total_stat_mod * (base_stats->get_strength() +
-                                                    equipment->get_stats()->get_strength() +
-                                                    pchar->get_race()->get_base_strength())));
+unsigned CharacterStats::get_strength() const {
+    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_strength() +
+                                                         equipment->get_stats()->get_strength() +
+                                                         pchar->get_race()->get_base_strength())));
 }
 
-int CharacterStats::get_agility() const {
-    return static_cast<int>(round(total_stat_mod * (base_stats->get_agility() +
-                                                    equipment->get_stats()->get_agility() +
-                                                    pchar->get_race()->get_base_agility())));
+unsigned CharacterStats::get_agility() const {
+    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_agility() +
+                                                         equipment->get_stats()->get_agility() +
+                                                         pchar->get_race()->get_base_agility())));
 }
 
-int CharacterStats::get_stamina() const {
-    return static_cast<int>(round(total_stat_mod * (base_stats->get_stamina() +
-                                                    equipment->get_stats()->get_stamina() +
-                                                    pchar->get_race()->get_base_stamina())));
+unsigned CharacterStats::get_stamina() const {
+    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_stamina() +
+                                                         equipment->get_stats()->get_stamina() +
+                                                         pchar->get_race()->get_base_stamina())));
 }
 
-int CharacterStats::get_intellect() const {
-    return static_cast<int>(round(total_stat_mod * (base_stats->get_intellect() +
-                                                    equipment->get_stats()->get_intellect() +
-                                                    pchar->get_race()->get_base_intellect())));
+unsigned CharacterStats::get_intellect() const {
+    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_intellect() +
+                                                         equipment->get_stats()->get_intellect() +
+                                                         pchar->get_race()->get_base_intellect())));
 }
 
-int CharacterStats::get_spirit() const {
-    return static_cast<int>(round(total_stat_mod * (base_stats->get_spirit() +
-                                                    equipment->get_stats()->get_spirit() +
-                                                    pchar->get_race()->get_base_spirit())));
+unsigned CharacterStats::get_spirit() const {
+    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_spirit() +
+                                                         equipment->get_stats()->get_spirit() +
+                                                         pchar->get_race()->get_base_spirit())));
 }
 
 double CharacterStats::get_hit_chance() const {
@@ -228,7 +228,7 @@ int CharacterStats::get_wpn_skill(Weapon* weapon) const {
     return pchar->get_clvl() * 5 + skill_bonus;
 }
 
-void CharacterStats::increase_stat(const ItemStats stat_type, const int value) {
+void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned value) {
     switch (stat_type) {
     case ItemStats::Agility:
         return increase_agility(value);
@@ -278,7 +278,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const int value) {
     }
 }
 
-void CharacterStats::decrease_stat(const ItemStats stat_type, const int value) {
+void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned value) {
     switch (stat_type) {
     case ItemStats::Agility:
         return decrease_agility(value);
@@ -328,100 +328,100 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const int value) {
     }
 }
 
-void CharacterStats::increase_melee_attack_speed(const int increase) {
-    add_multiplicative_effect(attack_speed_buffs, increase, melee_attack_speed_mod);
+void CharacterStats::increase_melee_attack_speed(const unsigned increase) {
+    add_multiplicative_effect(attack_speed_buffs, static_cast<int>(increase), melee_attack_speed_mod);
 }
 
-void CharacterStats::decrease_melee_attack_speed(const int decrease) {
-    remove_multiplicative_effect(attack_speed_buffs, decrease, melee_attack_speed_mod);
+void CharacterStats::decrease_melee_attack_speed(const unsigned decrease) {
+    remove_multiplicative_effect(attack_speed_buffs, static_cast<int>(decrease), melee_attack_speed_mod);
 }
 
-void CharacterStats::increase_ranged_attack_speed(const int increase) {
-    add_multiplicative_effect(attack_speed_buffs, increase, ranged_attack_speed_mod);
+void CharacterStats::increase_ranged_attack_speed(const unsigned increase) {
+    add_multiplicative_effect(attack_speed_buffs, static_cast<int>(increase), ranged_attack_speed_mod);
 }
 
-void CharacterStats::decrease_ranged_attack_speed(const int decrease) {
-    remove_multiplicative_effect(attack_speed_buffs, decrease, ranged_attack_speed_mod);
+void CharacterStats::decrease_ranged_attack_speed(const unsigned decrease) {
+    remove_multiplicative_effect(attack_speed_buffs, static_cast<int>(decrease), ranged_attack_speed_mod);
 }
 
-void CharacterStats::increase_strength(const int increase) {
+void CharacterStats::increase_strength(const unsigned increase) {
     base_stats->increase_strength(increase);
 }
 
-void CharacterStats::decrease_strength(const int decrease) {
+void CharacterStats::decrease_strength(const unsigned decrease) {
     base_stats->decrease_strength(decrease);
 }
 
-void CharacterStats::increase_agility(const int increase) {
+void CharacterStats::increase_agility(const unsigned increase) {
     base_stats->increase_agility(increase);
 }
 
-void CharacterStats::decrease_agility(const int decrease) {
+void CharacterStats::decrease_agility(const unsigned decrease) {
     base_stats->decrease_agility(decrease);
 }
 
-void CharacterStats::increase_stamina(const int increase) {
+void CharacterStats::increase_stamina(const unsigned increase) {
     base_stats->increase_stamina(increase);
 }
 
-void CharacterStats::decrease_stamina(const int decrease) {
+void CharacterStats::decrease_stamina(const unsigned decrease) {
     base_stats->decrease_stamina(decrease);
 }
 
-void CharacterStats::increase_intellect(const int increase) {
+void CharacterStats::increase_intellect(const unsigned increase) {
     base_stats->increase_intellect(increase);
 }
 
-void CharacterStats::decrease_intellect(const int decrease) {
+void CharacterStats::decrease_intellect(const unsigned decrease) {
     base_stats->decrease_intellect(decrease);
 }
 
-void CharacterStats::increase_spirit(const int increase) {
+void CharacterStats::increase_spirit(const unsigned increase) {
     base_stats->increase_spirit(increase);
 }
 
-void CharacterStats::decrease_spirit(const int decrease) {
+void CharacterStats::decrease_spirit(const unsigned decrease) {
     base_stats->decrease_spirit(decrease);
 }
 
-int CharacterStats::get_melee_ap() const {
-    int stat_melee_ap = equipment->get_stats()->get_base_melee_ap() + base_stats->get_base_melee_ap();
-    int attributes_ap = get_strength() * pchar->get_ap_per_strength() + get_agility() * pchar->get_ap_per_agi();
-    int target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    int target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    return static_cast<int>(round(total_ap_mod * (stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base)));
+unsigned CharacterStats::get_melee_ap() const {
+    unsigned stat_melee_ap = equipment->get_stats()->get_base_melee_ap() + base_stats->get_base_melee_ap();
+    unsigned attributes_ap = get_strength() * pchar->get_ap_per_strength() + get_agility() * pchar->get_ap_per_agi();
+    unsigned target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
+    unsigned target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
+    return static_cast<unsigned>(round(total_ap_mod * (stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base)));
 }
 
-void CharacterStats::increase_melee_ap(const int increase) {
+void CharacterStats::increase_melee_ap(const unsigned increase) {
     base_stats->increase_base_melee_ap(increase);
 }
 
-void CharacterStats::decrease_melee_ap(const int decrease) {
+void CharacterStats::decrease_melee_ap(const unsigned decrease) {
     base_stats->decrease_base_melee_ap(decrease);
 }
 
-int CharacterStats::get_ranged_ap() const {
-    int stat_ranged_ap = equipment->get_stats()->get_base_ranged_ap() + base_stats->get_base_ranged_ap();
-    int attributes_ap = get_agility() * pchar->get_ap_per_agi();
-    int target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    int target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    return static_cast<int>(round(total_ap_mod * (stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base)));
+unsigned CharacterStats::get_ranged_ap() const {
+    unsigned stat_ranged_ap = equipment->get_stats()->get_base_ranged_ap() + base_stats->get_base_ranged_ap();
+    unsigned attributes_ap = get_agility() * pchar->get_ap_per_agi();
+    unsigned target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
+    unsigned target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
+    return static_cast<unsigned>(round(total_ap_mod * (stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base)));
 }
 
-void CharacterStats::increase_ranged_ap(const int increase) {
+void CharacterStats::increase_ranged_ap(const unsigned increase) {
     base_stats->increase_base_ranged_ap(increase);
 }
 
-void CharacterStats::decrease_ranged_ap(const int decrease) {
+void CharacterStats::decrease_ranged_ap(const unsigned decrease) {
     base_stats->decrease_base_ranged_ap(decrease);
 }
 
-void CharacterStats::increase_ap_vs_type(const Target::CreatureType target_type, const int value) {
+void CharacterStats::increase_ap_vs_type(const Target::CreatureType target_type, const unsigned value) {
     base_stats->increase_melee_ap_against_type(target_type, value);
     base_stats->increase_ranged_ap_against_type(target_type, value);
 }
 
-void CharacterStats::decrease_ap_vs_type(const Target::CreatureType target_type, const int value) {
+void CharacterStats::decrease_ap_vs_type(const Target::CreatureType target_type, const unsigned value) {
     base_stats->decrease_melee_ap_against_type(target_type, value);
     base_stats->decrease_ranged_ap_against_type(target_type, value);
 }

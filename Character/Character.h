@@ -60,15 +60,15 @@ public:
     virtual int get_highest_possible_armor_type() const = 0;
     virtual QVector<int> get_weapon_proficiencies_for_slot(const int) const = 0;
 
-    virtual int get_strength_modifier() const = 0;
-    virtual int get_agility_modifier() const = 0;
-    virtual int get_stamina_modifier() const = 0;
-    virtual int get_intellect_modifier() const = 0;
-    virtual int get_spirit_modifier() const = 0;
+    virtual unsigned get_strength_modifier() const = 0;
+    virtual unsigned get_agility_modifier() const = 0;
+    virtual unsigned get_stamina_modifier() const = 0;
+    virtual unsigned get_intellect_modifier() const = 0;
+    virtual unsigned get_spirit_modifier() const = 0;
     virtual double get_agi_needed_for_one_percent_phys_crit() const = 0;
     virtual double get_int_needed_for_one_percent_spell_crit() const = 0;
-    virtual int get_ap_per_strength() const = 0;
-    virtual int get_ap_per_agi() const = 0;
+    virtual unsigned get_ap_per_strength() const = 0;
+    virtual unsigned get_ap_per_agi() const = 0;
 
     void set_rotation(Rotation*);
     void relink_spells();
@@ -131,11 +131,11 @@ public:
 
     unsigned get_avg_mh_damage();
 
-    void increase_melee_attack_speed(int);
-    void decrease_melee_attack_speed(int);
+    void increase_melee_attack_speed(unsigned);
+    void decrease_melee_attack_speed(unsigned);
 
-    void increase_ranged_attack_speed(int);
-    void decrease_ranged_attack_speed(int);
+    void increase_ranged_attack_speed(unsigned);
+    void decrease_ranged_attack_speed(unsigned);
 
     void increase_ability_crit_dmg_mod(double);
     void decrease_ability_crit_dmg_mod(double);
@@ -204,7 +204,7 @@ protected:
     virtual void initialize_talents() = 0;
 
     double get_normalized_dmg(const unsigned, const Weapon*);
-    double get_non_normalized_dmg(const unsigned damage, const int attack_power, const double wpn_speed);
+    double get_non_normalized_dmg(const unsigned damage, const unsigned attack_power, const double wpn_speed);
 
     void run_mh_white_specific_proc_effects();
     void run_mh_yellow_specific_proc_effects();

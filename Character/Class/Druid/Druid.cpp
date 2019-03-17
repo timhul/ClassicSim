@@ -43,23 +43,23 @@ QString Druid::get_class_color() const {
     return "#FF7D0A";
 }
 
-int Druid::get_strength_modifier() const {
+unsigned Druid::get_strength_modifier() const {
     return 1;
 }
 
-int Druid::get_agility_modifier() const {
+unsigned Druid::get_agility_modifier() const {
     return 0;
 }
 
-int Druid::get_stamina_modifier() const {
+unsigned Druid::get_stamina_modifier() const {
     return 0;
 }
 
-int Druid::get_intellect_modifier() const {
+unsigned Druid::get_intellect_modifier() const {
     return 2;
 }
 
-int Druid::get_spirit_modifier() const {
+unsigned Druid::get_spirit_modifier() const {
     return 2;
 }
 
@@ -71,11 +71,11 @@ double Druid::get_int_needed_for_one_percent_spell_crit() const {
     return 60.0;
 }
 
-int Druid::get_ap_per_strength() const {
+unsigned Druid::get_ap_per_strength() const {
     return 1;
 }
 
-int Druid::get_ap_per_agi() const {
+unsigned Druid::get_ap_per_agi() const {
     return 1;
 }
 

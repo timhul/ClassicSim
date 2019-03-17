@@ -9,23 +9,23 @@ QString Human::get_name() const {
     return "Human";
 }
 
-int Human::get_base_strength() const {
+unsigned Human::get_base_strength() const {
     return 20;
 }
 
-int Human::get_base_agility() const {
+unsigned Human::get_base_agility() const {
     return 20;
 }
 
-int Human::get_base_stamina() const {
+unsigned Human::get_base_stamina() const {
     return 20;
 }
 
-int Human::get_base_intellect() const {
+unsigned Human::get_base_intellect() const {
     return 20;
 }
 
-int Human::get_base_spirit() const {
+unsigned Human::get_base_spirit() const {
     return 20;
 }
 

@@ -9,23 +9,23 @@ QString Undead::get_name() const {
     return "Undead";
 }
 
-int Undead::get_base_strength() const {
+unsigned Undead::get_base_strength() const {
     return 19;
 }
 
-int Undead::get_base_agility() const {
+unsigned Undead::get_base_agility() const {
     return 18;
 }
 
-int Undead::get_base_stamina() const {
+unsigned Undead::get_base_stamina() const {
     return 21;
 }
 
-int Undead::get_base_intellect() const {
+unsigned Undead::get_base_intellect() const {
     return 18;
 }
 
-int Undead::get_base_spirit() const {
+unsigned Undead::get_base_spirit() const {
     return 25;
 }
 

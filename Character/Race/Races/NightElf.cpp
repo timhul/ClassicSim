@@ -9,23 +9,23 @@ QString NightElf::get_name() const {
     return "Night Elf";
 }
 
-int NightElf::get_base_strength() const {
+unsigned NightElf::get_base_strength() const {
     return 17;
 }
 
-int NightElf::get_base_agility() const {
+unsigned NightElf::get_base_agility() const {
     return 25;
 }
 
-int NightElf::get_base_stamina() const {
+unsigned NightElf::get_base_stamina() const {
     return 19;
 }
 
-int NightElf::get_base_intellect() const {
+unsigned NightElf::get_base_intellect() const {
     return 20;
 }
 
-int NightElf::get_base_spirit() const {
+unsigned NightElf::get_base_spirit() const {
     return 20;
 }
 

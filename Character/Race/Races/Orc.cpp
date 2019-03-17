@@ -9,23 +9,23 @@ QString Orc::get_name() const {
     return "Orc";
 }
 
-int Orc::get_base_strength() const {
+unsigned Orc::get_base_strength() const {
     return 23;
 }
 
-int Orc::get_base_agility() const {
+unsigned Orc::get_base_agility() const {
     return 17;
 }
 
-int Orc::get_base_stamina() const {
+unsigned Orc::get_base_stamina() const {
     return 22;
 }
 
-int Orc::get_base_intellect() const {
+unsigned Orc::get_base_intellect() const {
     return 17;
 }
 
-int Orc::get_base_spirit() const {
+unsigned Orc::get_base_spirit() const {
     return 23;
 }
 
