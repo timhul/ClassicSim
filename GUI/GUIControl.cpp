@@ -497,23 +497,23 @@ bool GUIControl::get_is_horde() const {
     return this->current_char->get_faction()->is_horde();
 }
 
-int GUIControl::get_strength() const {
+unsigned GUIControl::get_strength() const {
     return current_char->get_stats()->get_strength();
 }
 
-int GUIControl::get_agility() const {
+unsigned GUIControl::get_agility() const {
     return current_char->get_stats()->get_agility();
 }
 
-int GUIControl::get_stamina() const {
+unsigned GUIControl::get_stamina() const {
     return current_char->get_stats()->get_stamina();
 }
 
-int GUIControl::get_intellect() const {
+unsigned GUIControl::get_intellect() const {
     return current_char->get_stats()->get_intellect();
 }
 
-int GUIControl::get_spirit() const {
+unsigned GUIControl::get_spirit() const {
     return current_char->get_stats()->get_spirit();
 }
 

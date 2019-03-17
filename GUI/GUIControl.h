@@ -103,11 +103,11 @@ public:
     /* End of Talents */
 
     /* Stats */
-    Q_PROPERTY(int strength READ get_strength NOTIFY statsChanged)
-    Q_PROPERTY(int agility READ get_agility NOTIFY statsChanged)
-    Q_PROPERTY(int stamina READ get_stamina NOTIFY statsChanged)
-    Q_PROPERTY(int intellect READ get_intellect NOTIFY statsChanged)
-    Q_PROPERTY(int spirit READ get_spirit NOTIFY statsChanged)
+    Q_PROPERTY(unsigned strength READ get_strength NOTIFY statsChanged)
+    Q_PROPERTY(unsigned agility READ get_agility NOTIFY statsChanged)
+    Q_PROPERTY(unsigned stamina READ get_stamina NOTIFY statsChanged)
+    Q_PROPERTY(unsigned intellect READ get_intellect NOTIFY statsChanged)
+    Q_PROPERTY(unsigned spirit READ get_spirit NOTIFY statsChanged)
 
     Q_PROPERTY(QString critChance READ get_crit_chance NOTIFY statsChanged)
     Q_PROPERTY(QString hitChance READ get_hit_chance NOTIFY statsChanged)
@@ -282,11 +282,11 @@ private:
     QString getMidBackgroundImage() const;
     QString getRightBackgroundImage() const;
 
-    int get_strength() const;
-    int get_agility() const;
-    int get_stamina() const;
-    int get_intellect() const;
-    int get_spirit() const;
+    unsigned get_strength() const;
+    unsigned get_agility() const;
+    unsigned get_stamina() const;
+    unsigned get_intellect() const;
+    unsigned get_spirit() const;
 
     QString get_crit_chance() const;
     QString get_hit_chance() const;
