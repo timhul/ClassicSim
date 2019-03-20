@@ -88,7 +88,7 @@ void TestMultiShot::test_crit_dmg() {
     when_multi_shot_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
-    // [900] = (100 + (2.8 * 1000 / 14)) * 2.0
+    // [900] = (100 + (2.8 * 1000 / 14) + 150) * 2.0
     then_damage_dealt_is(900);
 }
 
