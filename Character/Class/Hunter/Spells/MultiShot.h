@@ -10,7 +10,7 @@ public:
 private:
     QVector<double> talent_ranks;
 
-    virtual void spell_effect() override;
+    void spell_effect() override;
 };
 
 #endif // MULTISHOT_H
