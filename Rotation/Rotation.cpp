@@ -27,7 +27,7 @@ Rotation::~Rotation() {
 }
 
 void Rotation::perform_rotation() const {
-    for (auto executor : rotation_executors)
+    for (auto & executor : rotation_executors)
         executor->attempt_cast();
 }
 
