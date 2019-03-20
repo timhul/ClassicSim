@@ -71,7 +71,7 @@ void TestHemorrhage::test_incurs_global_cooldown() {
     given_hemorrhage_is_enabled();
     when_hemorrhage_is_performed();
 
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestHemorrhage::test_obeys_global_cooldown() {

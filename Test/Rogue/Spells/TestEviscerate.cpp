@@ -136,7 +136,7 @@ void TestEviscerate::test_spell_cooldown() {
 void TestEviscerate::test_incurs_global_cooldown() {
     when_eviscerate_is_performed();
 
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestEviscerate::test_obeys_global_cooldown() {

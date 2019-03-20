@@ -92,7 +92,7 @@ void TestBackstab::test_spell_cooldown() {
 void TestBackstab::test_incurs_global_cooldown() {
     when_backstab_is_performed();
 
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestBackstab::test_obeys_global_cooldown() {

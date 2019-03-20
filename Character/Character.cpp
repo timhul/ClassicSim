@@ -197,7 +197,7 @@ SimSettings* Character::get_sim_settings() const {
 }
 
 void Character::add_player_reaction_event() {
-    auto* new_event = new PlayerAction(current_rotation, engine->get_current_priority() + 0.1);
+    auto* new_event = new PlayerAction(this, engine->get_current_priority() + 0.1);
     engine->add_event(new_event);
 }
 

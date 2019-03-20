@@ -6,7 +6,6 @@
 #include "BerserkerStanceBuff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "CooldownReady.h"
 #include "DeathWishBuff.h"
 #include "DefensiveStanceBuff.h"
 #include "EnabledBuffs.h"
@@ -21,6 +20,7 @@
 #include "OffhandAttackWarrior.h"
 #include "OffhandMeleeHit.h"
 #include "OverpowerBuff.h"
+#include "PlayerAction.h"
 #include "Protection.h"
 #include "Race.h"
 #include "Rage.h"
@@ -286,8 +286,7 @@ void Warrior::new_stance_effect() {
 
     if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
         this->next_gcd = engine->get_current_priority() + 0.5;
-        auto* new_event = new CooldownReady(this->get_rotation(), next_gcd);
-        engine->add_event(new_event);
+        engine->add_event(new PlayerAction(this, next_gcd));
     }
 
     this->next_stance_cd = engine->get_current_priority() + stance_cooldown();

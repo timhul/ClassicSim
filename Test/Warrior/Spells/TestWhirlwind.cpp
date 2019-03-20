@@ -48,14 +48,14 @@ void TestWhirlwind::test_spell_cooldown() {
 
     when_whirlwind_is_performed();
 
-    then_next_event_is("CooldownReady", "1.500");
-    then_next_event_is("CooldownReady", "10.000");
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("PlayerAction", "10.000");
 }
 
 void TestWhirlwind::test_incurs_global_cooldown() {
     when_whirlwind_is_performed();
 
-    then_next_event_is("CooldownReady", QString::number(warrior->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
 void TestWhirlwind::test_obeys_global_cooldown() {

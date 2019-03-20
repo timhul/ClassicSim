@@ -44,7 +44,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/Bloodthirst.cpp \
     Event/Events/OffhandMeleeHit.cpp \
     Event/Events/MainhandMeleeHit.cpp \
-    Event/Events/CooldownReady.cpp \
     Character/Class/Warrior/Spells/Whirlwind.cpp \
     Character/Class/Warrior/Spells/Execute.cpp \
     Character/Class/Warrior/Spells/HeroicStrike.cpp \
@@ -353,7 +352,6 @@ HEADERS += \
     Character/Class/Warrior/Spells/Bloodthirst.h \
     Event/Events/OffhandMeleeHit.h \
     Event/Events/MainhandMeleeHit.h \
-    Event/Events/CooldownReady.h \
     Character/Class/Warrior/Spells/Whirlwind.h \
     Character/Class/Warrior/Spells/Execute.h \
     Character/Class/Warrior/Spells/HeroicStrike.h \

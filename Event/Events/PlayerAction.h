@@ -3,16 +3,16 @@
 
 #include "Event.h"
 
-class Rotation;
+class Character;
 
 class PlayerAction: public Event {
 public:
-    PlayerAction(Rotation* rotation, const double);
+    PlayerAction(Character* pchar, const double);
 
     virtual void act(void) override;
-protected:
+
 private:
-    Rotation* rotation;
+    Character* pchar;
 };
 
 #endif // PLAYERACTION_H

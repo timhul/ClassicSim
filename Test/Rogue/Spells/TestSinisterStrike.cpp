@@ -78,7 +78,7 @@ void TestSinisterStrike::test_spell_cooldown() {
 void TestSinisterStrike::test_incurs_global_cooldown() {
     when_sinister_strike_is_performed();
 
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestSinisterStrike::test_obeys_global_cooldown() {

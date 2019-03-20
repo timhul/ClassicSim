@@ -45,7 +45,7 @@ void TestAdrenalineRush::test_incurs_global_cooldown() {
     given_1_of_1_adrenaline_rush();
     when_adrenaline_rush_is_performed();
 
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestAdrenalineRush::test_obeys_global_cooldown() {
@@ -115,7 +115,6 @@ void TestAdrenalineRush::test_tick_rate_over_entire_duration() {
 
     when_adrenaline_rush_is_performed();
 
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
     then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
     then_rogue_has_energy(40);
 

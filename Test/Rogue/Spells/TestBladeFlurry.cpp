@@ -46,7 +46,7 @@ void TestBladeFlurry::test_incurs_global_cooldown() {
     when_blade_flurry_is_performed();
 
     then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestBladeFlurry::test_obeys_global_cooldown() {
@@ -120,7 +120,6 @@ void TestBladeFlurry::test_attack_speed() {
     rogue->start_attack();
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
     then_next_event_is("MainhandMeleeHit", "1.667", RUN_EVENT);
     then_next_event_is("MainhandMeleeHit", "3.333", RUN_EVENT);
     then_next_event_is("MainhandMeleeHit", "5.000", RUN_EVENT);

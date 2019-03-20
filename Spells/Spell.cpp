@@ -7,9 +7,9 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
-#include "CooldownReady.h"
 #include "Engine.h"
 #include "Mechanics.h"
+#include "PlayerAction.h"
 #include "StatisticsSpell.h"
 #include "Target.h"
 
@@ -117,15 +117,13 @@ void Spell::perform() {
 
 void Spell::add_spell_cd_event() const {
     double cooldown_ready = engine->get_current_priority() + cooldown;
-    auto* new_event = new CooldownReady(pchar->get_rotation(), cooldown_ready);
-    engine->add_event(new_event);
+    engine->add_event(new PlayerAction(pchar, cooldown_ready));
 }
 
 void Spell::add_gcd_event() const {
     pchar->start_global_cooldown();
     double gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
-    auto* new_event = new CooldownReady(pchar->get_rotation(), gcd_ready);
-    engine->add_event(new_event);
+    engine->add_event(new PlayerAction(pchar, gcd_ready));
 }
 
 void Spell::increment_miss() {

@@ -75,7 +75,7 @@ void TestSliceAndDice::test_incurs_global_cooldown() {
     when_slice_and_dice_is_performed();
 
     then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("CooldownReady", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestSliceAndDice::test_obeys_global_cooldown() {
@@ -182,7 +182,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "9.000");
@@ -197,7 +197,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "12.000");
@@ -212,7 +212,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "15.000");
@@ -227,7 +227,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "18.000");
@@ -242,7 +242,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "21.000");
@@ -258,7 +258,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "24.000");
@@ -274,7 +274,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "27.000");
@@ -290,7 +290,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("CooldownReady", "1.000");
+    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "30.000");
