@@ -39,6 +39,10 @@ public:
     virtual void add_next_oh_attack(void);
     virtual void add_next_ranged_attack(void);
 
+    bool cast_in_progress() const;
+    unsigned start_cast();
+    void complete_cast(const unsigned cast_id);
+
     void prepare_set_of_combat_iterations();
 
     virtual MainhandAttack* get_mh_attack() const;
@@ -50,6 +54,8 @@ public:
 
 protected:
     Character* pchar;
+    bool cast_is_in_progress;
+    unsigned id_of_cast_in_progress;
     QVector<Spell*> spells;
     QVector<Spell*> pre_combat_spells;
 

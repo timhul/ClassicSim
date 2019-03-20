@@ -16,15 +16,13 @@ AimedShot::AimedShot(Character* pchar) :
 {}
 
 void AimedShot::spell_effect() {
-    start_cast();
     add_gcd_event();
+    start_cast();
 }
 
 void AimedShot::complete_cast_effect() {
     const int wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_ability_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
-
-    add_gcd_event();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

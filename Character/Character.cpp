@@ -106,7 +106,7 @@ void Character::switch_faction() {
 }
 
 void Character::perform_rotation() {
-    if (current_rotation == nullptr)
+    if (current_rotation == nullptr || spells->cast_in_progress())
         return;
 
     this->current_rotation->perform_rotation();
@@ -235,7 +235,7 @@ bool Character::on_trinket_cooldown() const {
 bool Character::action_ready() const {
     // Allow some rounding errors (this could effectively speed up gcd by 1/10000ths of a second).
     double delta = next_gcd - engine->get_current_priority();
-    return delta < 0.0001;
+    return delta < 0.0001 && !spells->cast_in_progress();
 }
 
 void Character::melee_mh_white_hit_effect(const bool run_procs) {

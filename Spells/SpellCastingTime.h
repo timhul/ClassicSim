@@ -12,20 +12,19 @@ public:
                      double cooldown,
                      const ResourceType resource_type,
                      int resource_cost,
-                     int casting_time_ms);
+                     unsigned casting_time_ms);
 
     double get_cast_time() const;
 
     void complete_cast();
 
 protected:
-    int casting_time_ms;
-    bool cast_in_progress;
+    unsigned casting_time_ms;
+    unsigned cast_id;
 
     void start_cast();
 
-    virtual bool is_ready_spell_specific() const override;
-
+    virtual void reset_effect();
     virtual void complete_cast_effect() = 0;
 };
 

@@ -15,6 +15,8 @@
 
 CharacterSpells::CharacterSpells(Character* pchar) :
     pchar(pchar),
+    cast_is_in_progress(false),
+    id_of_cast_in_progress(0),
     next_instance_id(SpellStatus::INITIAL_ID)
 {
     berserking = new Berserking(pchar);
@@ -42,6 +44,27 @@ void CharacterSpells::activate_racials() {
             pchar->get_stats()->increase_total_phys_dmg_mod(5);
         break;
     }
+}
+
+bool CharacterSpells::cast_in_progress() const {
+    return this->cast_is_in_progress;
+}
+
+unsigned CharacterSpells::start_cast() {
+    assert(!cast_is_in_progress);
+
+    cast_is_in_progress = true;
+
+    return ++id_of_cast_in_progress;
+}
+
+void CharacterSpells::complete_cast(const unsigned cast_id) {
+    assert(cast_is_in_progress);
+    assert(id_of_cast_in_progress == cast_id);
+
+    cast_is_in_progress = false;
+
+    pchar->add_player_reaction_event();
 }
 
 void CharacterSpells::deactivate_racials() {
@@ -112,6 +135,9 @@ Spell* CharacterSpells::get_spell_by_name(const QString& spell_name) const {
 }
 
 void CharacterSpells::reset() {
+    cast_is_in_progress = false;
+    id_of_cast_in_progress = 0;
+
     for (auto & spell : spells)
         spell->reset();
 }
@@ -175,6 +201,9 @@ BloodFury* CharacterSpells::get_blood_fury() const {
 }
 
 void CharacterSpells::prepare_set_of_combat_iterations() {
+    cast_is_in_progress = false;
+    id_of_cast_in_progress = 0;
+
     for (auto & spell : spells)
         spell->prepare_set_of_combat_iterations();
 }

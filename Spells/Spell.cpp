@@ -56,6 +56,9 @@ bool Spell::is_ready() const {
     if (restricted_by_gcd && pchar->on_global_cooldown())
         return false;
 
+    if (pchar->get_spells()->cast_in_progress())
+        return false;
+
     if (!is_ready_spell_specific())
         return false;
 

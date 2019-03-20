@@ -35,8 +35,8 @@ void Slam::decrease_talent_rank_effect(const QString&, const int curr) {
 }
 
 void Slam::spell_effect() {
-    start_cast();
     add_gcd_event();
+    start_cast();
 
     pchar->stop_attack();
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_heroic_strike()->cancel();
@@ -45,7 +45,6 @@ void Slam::spell_effect() {
 void Slam::complete_cast_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
-    pchar->add_player_reaction_event();
     pchar->get_spells()->get_mh_attack()->reset_swingtimer();
     pchar->get_spells()->get_oh_attack()->reset_swingtimer();
     pchar->start_attack();
