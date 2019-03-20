@@ -4,6 +4,7 @@
 #include "TestSpellHunter.h"
 
 class AimedShot;
+class MultiShot;
 
 class TestAimedShot: public TestSpellHunter {
 public:
@@ -13,6 +14,7 @@ public:
 
 private:
     AimedShot* aimed_shot();
+    MultiShot* multi_shot();
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -23,6 +25,8 @@ private:
 
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_aimed_shot_adds_player_action_event_on_completion();
+    void test_aimed_shot_cast_in_progress_blocks_other_spells();
 
     void when_aimed_shot_is_performed();
 };

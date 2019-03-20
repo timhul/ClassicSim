@@ -2,6 +2,7 @@
 
 #include "AimedShot.h"
 #include "Equipment.h"
+#include "MultiShot.h"
 
 TestAimedShot::TestAimedShot(EquipmentDb *equipment_db) :
     TestSpellHunter(equipment_db, "Aimed Shot")
@@ -17,11 +18,24 @@ void TestAimedShot::test_all() {
     set_up();
     test_crit_dmg();
     tear_down();
+
+    set_up();
+    test_aimed_shot_adds_player_action_event_on_completion();
+    tear_down();
+
+    set_up();
+    test_aimed_shot_cast_in_progress_blocks_other_spells();
+    tear_down();
 }
 
 AimedShot* TestAimedShot::aimed_shot() {
     auto* spells = dynamic_cast<HunterSpells*>(hunter->get_spells());
     return spells->get_aimed_shot();
+}
+
+MultiShot* TestAimedShot::multi_shot() {
+    auto* spells = dynamic_cast<HunterSpells*>(hunter->get_spells());
+    return spells->get_multi_shot();
 }
 
 void TestAimedShot::test_name_correct() {
@@ -98,6 +112,23 @@ void TestAimedShot::test_crit_dmg() {
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1800] = (100 + (2.8 * 1000 / 14) + 600) * 2.0
     then_damage_dealt_is(1800);
+}
+
+void TestAimedShot::test_aimed_shot_adds_player_action_event_on_completion() {
+    when_aimed_shot_is_performed();
+
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "3.100");
+}
+
+void TestAimedShot::test_aimed_shot_cast_in_progress_blocks_other_spells() {
+    assert(multi_shot()->is_available());
+    when_aimed_shot_is_performed();
+    given_engine_priority_pushed_forward(2.0);
+    given_hunter_has_mana(310);
+
+    assert(!multi_shot()->is_available());
 }
 
 void TestAimedShot::when_aimed_shot_is_performed() {
