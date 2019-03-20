@@ -45,7 +45,6 @@ public:
     double get_last_used();
     double get_next_use() const;
 
-    bool is_ready() const;
     virtual bool is_available() const;
 
     void enable();
@@ -67,6 +66,7 @@ public:
     void set_instance_id(const int);
 
 protected:
+    bool is_ready() const;
     virtual void spell_effect() = 0;
     virtual void enable_spell_effect();
     virtual void disable_spell_effect();

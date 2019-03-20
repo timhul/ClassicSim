@@ -114,7 +114,7 @@ void TestDeepWounds::test_incurs_global_cooldown() {
 
     when_mh_attack_is_performed();
 
-    assert(deep_wounds()->is_ready());
+    assert(deep_wounds()->is_available());
 }
 
 void TestDeepWounds::test_obeys_global_cooldown() {
