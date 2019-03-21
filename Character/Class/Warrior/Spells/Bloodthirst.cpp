@@ -2,7 +2,6 @@
 
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "CooldownReady.h"
 #include "DeepWounds.h"
 #include "Flurry.h"
 #include "OverpowerBuff.h"
