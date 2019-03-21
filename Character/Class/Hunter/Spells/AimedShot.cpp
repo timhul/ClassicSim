@@ -21,6 +21,7 @@ void AimedShot::spell_effect() {
 }
 
 void AimedShot::complete_cast_effect() {
+    pchar->lose_mana(static_cast<unsigned>(resource_cost));
     const int wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_ability_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
 
@@ -33,7 +34,6 @@ void AimedShot::complete_cast_effect() {
         return;
     }
 
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
     double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 600);
 
     if (result == PhysicalAttackResult::CRITICAL) {
