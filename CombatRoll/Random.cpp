@@ -1,6 +1,6 @@
-#include <cassert>
-
 #include "Random.h"
+
+#include "Utils/Check.h"
 
 Random::Random(const unsigned min_range, const unsigned max_range):
     min_range(min_range),
@@ -13,7 +13,7 @@ Random::~Random() {
 }
 
 void Random::set_new_range(const unsigned min_range, const unsigned max_range) {
-    assert(min_range <= max_range);
+    check((min_range <= max_range), "Min must be <= max");
     this->min_range = min_range;
     this->modulo = max_range - min_range;
 }

@@ -5,6 +5,7 @@
 #include <QVersionNumber>
 
 #include "ItemFileReader.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 EquipmentDb::EquipmentDb(QObject* parent):
@@ -201,7 +202,7 @@ const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
 }
 
 QString EquipmentDb::get_name_for_item_id(const int item_id) const {
-    assert(item_id_to_item.contains(item_id));
+    check((item_id_to_item.contains(item_id)), QString("Unknown item id '%1'").arg(item_id).toStdString());
 
     return item_id_to_item[item_id]->get_name();
 }

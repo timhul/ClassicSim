@@ -7,6 +7,7 @@
 #include "RelentlessStrikes.h"
 #include "Rogue.h"
 #include "Ruthlessness.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Eviscerate::Eviscerate(Character* pchar) :
@@ -96,7 +97,7 @@ void Eviscerate::spell_effect() {
 
 void Eviscerate::set_evisc_range() {
     int index = static_cast<int>(rogue->get_combo_points()) - 1;
-    assert(index >= 0 && index <= damage_ranges_per_combo_point.size() -1);
+    check((index >= 0 && index <= damage_ranges_per_combo_point.size() -1), "Index out of range");
 
     unsigned min = damage_ranges_per_combo_point[index].first;
     unsigned max = damage_ranges_per_combo_point[index].second;
@@ -133,7 +134,7 @@ void Eviscerate::activate_set_bonus_effect(const QString& set_name, const int se
             deathdealer_modifier = 1.15;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }
@@ -145,7 +146,7 @@ void Eviscerate::deactivate_set_bonus_effect(const QString& set_name, const int 
             deathdealer_modifier = 1.0;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }

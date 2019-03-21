@@ -12,6 +12,7 @@
 #include "PlayerAction.h"
 #include "StatisticsSpell.h"
 #include "Target.h"
+#include "Utils/Check.h"
 
 Spell::Spell(QString name,
              QString icon,
@@ -86,7 +87,7 @@ bool Spell::is_enabled() const {
 }
 
 void Spell::enable() {
-    assert(enabled == false);
+    check(!enabled, QString("Tried to enable an already enabled spell '%1'").arg(name).toStdString());
     enabled = true;
     enable_spell_effect();
 }
@@ -113,7 +114,8 @@ void Spell::decrease_spell_rank() {
 }
 
 void Spell::perform() {
-    assert(static_cast<int>(pchar->get_resource_level(resource_type)) >= resource_cost);
+    check((static_cast<int>(pchar->get_resource_level(resource_type)) >= resource_cost),
+          QString("Tried to perform '%1' but has unsufficient resource").arg(name).toStdString());
     last_used = engine->get_current_priority();
     this->spell_effect();
 }
@@ -191,10 +193,9 @@ double Spell::get_partial_resist_dmg_modifier(const int resist_result) const {
     case MagicResistResult::NO_RESIST:
         return 1.0;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
+        return 0.0;
     }
-
-    return 0.0;
 }
 
 void Spell::reset() {

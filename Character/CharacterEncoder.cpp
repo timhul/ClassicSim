@@ -9,6 +9,7 @@
 #include "SimSettings.h"
 #include "Talents.h"
 #include "Target.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 CharacterEncoder::CharacterEncoder(Character *pchar):
@@ -20,7 +21,7 @@ void CharacterEncoder::set_character(Character* pchar) {
 }
 
 QString CharacterEncoder::get_current_setup_string() {
-    assert(pchar != nullptr);
+    check((pchar != nullptr), "pchar nullptr");
 
     this->pchar_str = "";
 

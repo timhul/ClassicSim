@@ -1,7 +1,7 @@
-#include <cassert>
-
 #include "Faction.h"
+
 #include "Race.h"
+#include "Utils/Check.h"
 
 Faction::Faction(Race* race) :
     alliance_races({"Dwarf", "Gnome", "Human", "Night Elf"}),
@@ -12,7 +12,8 @@ Faction::Faction(Race* race) :
     current_faction = alliance_races.contains(race->get_name()) ? AvailableFactions::Alliance :
                                                                   AvailableFactions::Horde;
 
-    assert(alliance_races.contains(race->get_name()) || horde_races.contains(race->get_name()));
+    check((alliance_races.contains(race->get_name()) || horde_races.contains(race->get_name())),
+          QString("Race '%1' missing faction").arg(race->get_name()).toStdString());
 }
 
 int Faction::get_faction() const {

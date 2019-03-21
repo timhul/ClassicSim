@@ -2,6 +2,7 @@
 
 #include "Faction.h"
 #include "Hunter.h"
+#include "Utils/Check.h"
 
 HunterEnchants::HunterEnchants(Hunter* hunter) :
     CharacterEnchants(hunter)
@@ -56,7 +57,7 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
         };
     }
 
-    assert(false);
+    check(false, "Reached end of switch");
     return {};
 }
 
@@ -85,6 +86,6 @@ QVector<EnchantName::Name> HunterEnchants::get_available_temp_enchants(const int
         return enchants;
     }
 
-    assert(false);
+    check(false, "Reached end of switch");
     return {};
 }

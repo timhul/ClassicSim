@@ -1,10 +1,10 @@
-#include <cassert>
+#include "Energy.h"
 
 #include "Character.h"
-#include "Energy.h"
 #include "EnergyTick.h"
 #include "Engine.h"
 #include "ResourceGain.h"
+#include "Utils/Check.h"
 
 Energy::Energy(Character* pchar) :
     pchar(pchar),
@@ -49,7 +49,7 @@ void Energy::lose_resource(const unsigned energy) {
     if (ticking == false && current == max)
         add_next_tick();
 
-    assert(current >= energy);
+    check((current >= energy), "Underflow decrease");
     current -= energy;
 }
 

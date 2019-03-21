@@ -5,6 +5,7 @@
 #include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 AutoShot::AutoShot(Character* pchar) :
@@ -59,8 +60,6 @@ double AutoShot::get_next_expected_use() const {
 }
 
 void AutoShot::update_next_expected_use(const double haste_change) {
-    assert(haste_change > 0.001 || haste_change < -0.001);
-
     double curr_time = pchar->get_engine()->get_current_priority();
     double remainder_after_haste_change = (next_expected_use - curr_time);
 

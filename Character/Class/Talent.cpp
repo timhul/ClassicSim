@@ -8,6 +8,7 @@
 #include "Proc.h"
 #include "TalentRequirer.h"
 #include "TalentTree.h"
+#include "Utils/Check.h"
 
 Talent::Talent(Character *pchar_,
                TalentTree *tree_,
@@ -34,7 +35,7 @@ Talent::Talent(Character *pchar_,
     bottom_child(nullptr),
     rank_descriptions(rank_descriptions)
 {
-    assert(max_points > 0 && max_points <= 5);
+    check((max_points > 0 && max_points <= 5), "Number of talent points not possible");
 }
 
 Talent::~Talent() = default;

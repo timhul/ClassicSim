@@ -3,6 +3,7 @@
 #include <utility>
 
 #include "Talent.h"
+#include "Utils/Check.h"
 
 TalentStorage::~TalentStorage() {
     delete talent;
@@ -75,7 +76,7 @@ QString TalentTree::get_next_rank_description(const QString &position) const {
 
 void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
     for (auto it : new_talents.toStdMap()) {
-        assert(!talents.contains(it.first));
+        check(!talents.contains(it.first), "Attempted to insert talent twice");
         talents.insert(it.first, new TalentStorage(it.second));
     }
 }

@@ -7,6 +7,7 @@
 #include "EnchantStatic.h"
 #include "InstantPoison.h"
 #include "Rogue.h"
+#include "Utils/Check.h"
 
 Weapon::Weapon(QString name, int item_id, int type, int weapon_slot, unsigned min, unsigned max, double speed,
                QMap<QString, QString> info,
@@ -57,8 +58,7 @@ unsigned Weapon::get_max_dmg() const {
 
 unsigned Weapon::get_random_dmg() const {
     const unsigned roll = random->get_roll();
-    assert(roll >= min_dmg);
-    assert(roll <= max_dmg);
+    check((roll >= min_dmg && roll <= max_dmg), "Weapon damage roll outside range");
     return roll;
 }
 
@@ -96,7 +96,7 @@ void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, con
         ;
     }
     else {
-        assert(false);
+        check(false, "Tried to apply weapon enchant on unsupported slot");
     }
 }
 
@@ -107,7 +107,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     clear_temporary_enchant();
 
     if (!(weapon_slot == WeaponSlots::MAINHAND || weapon_slot == WeaponSlots::OFFHAND))
-        assert(false);
+        check(false, "Tried to apply temporary weapon enchant on unsupported slot");
 
     int enchant_slot = weapon_slot == WeaponSlots::MAINHAND ? EnchantSlot::MAINHAND :
                                                               EnchantSlot::OFFHAND;
@@ -128,7 +128,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         dynamic_cast<InstantPoison*>(temporary_enchant)->enable();
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
     }
 }
 

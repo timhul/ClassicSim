@@ -1,10 +1,11 @@
-
 #include "ActiveItemStatFilterModel.h"
+
+#include "Character.h"
+#include "EquipmentDb.h"
 #include "Item.h"
 #include "ItemModel.h"
+#include "Utils/Check.h"
 #include "WeaponModel.h"
-#include "EquipmentDb.h"
-#include "Character.h"
 
 bool ItemStatFilter::item_passes_filter(const Item *item) const {
     int item_stat_value = item->get_stat_value_via_flag(this->item_stat_flag);
@@ -21,7 +22,7 @@ bool ItemStatFilter::item_passes_filter(const Item *item) const {
     case StatComparator::GEQ:
         return item_stat_value >= cmp_value;
     default:
-        assert(false);
+        check(false, "Unknown stat comparator");
         return false;
     }
 }
@@ -39,6 +40,7 @@ QString ItemStatFilter::get_comparator_string() const {
     case StatComparator::GEQ:
         return ">=";
     default:
+        check(false, "Unknown stat comparator");
         return "";
     }
 }

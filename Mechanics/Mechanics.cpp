@@ -1,6 +1,7 @@
-
 #include "Mechanics.h"
+
 #include "Target.h"
+#include "Utils/Check.h"
 
 Mechanics::Mechanics(Target* target):
     target(target)
@@ -118,7 +119,7 @@ double Mechanics::get_full_resist_chance(const int t_resistance) {
     // % Occurance       | 0-1 % |  1-4 %  |  4-25 % |
     //
     // This formula only serves as an initial approximation and is likely incorrect.
-    assert(t_resistance >= 0);
+    check((t_resistance >= 0), "Target resistance must be a positive value");
 
     if (t_resistance < 150)
         return get_linear_increase_in_range(0, 0.0, 150, 0.01, t_resistance);
@@ -138,8 +139,8 @@ double Mechanics::get_linear_increase_in_range(const int x_min,
                                                const double y_max,
                                                const int x_curr)
 {
-    assert(x_curr >= x_min);
-    assert(x_curr <= x_max);
+    check((x_curr >= x_min), "x_curr < x_min");
+    check((x_curr <= x_max), "x_curr > x_max");
 
     int x_delta = x_max - x_min;
 
@@ -156,7 +157,7 @@ double Mechanics::get_partial_75_chance(const int t_resistance) {
     // % Occurance       | 0-1 % | 1-2 % | 2-3 % | 3-4 %  |  4-6 %  |  6-11 % | 11-23 % |  23-55% |
     //
     // This formula only serves as an initial approximation and is likely incorrect.
-    assert(t_resistance >= 0);
+    check((t_resistance >= 0), "Target resistance must be a positive value");
 
     if (t_resistance < 20)
         return get_linear_increase_in_range(0, 0.0, 20, 0.01, t_resistance);
@@ -195,7 +196,7 @@ double Mechanics::get_partial_50_chance(const int t_resistance) {
     // % Occurance       | 15-17% | 17-19%  | 19-24 % | 24-37 % | 37-48 % | 48-16 % |
     //
     // This formula only serves as an initial approximation and is likely incorrect.
-    assert(t_resistance >= 0);
+    check((t_resistance >= 0), "Target resistance must be a positive value");
 
     if (t_resistance < 10)
         return get_linear_increase_in_range(0, 0.0, 10, 0.02, t_resistance);
@@ -252,7 +253,7 @@ double Mechanics::get_partial_25_chance(const int t_resistance) {
     // % Occurance       | 41-45% | 45-47%  | 47-49 % | 49-39 % | 39-21 % | 21-3 %  |
     //
     // This formula only serves as an initial approximation and is likely incorrect.
-    assert(t_resistance >= 0);
+    check((t_resistance >= 0), "Target resistance must be a positive value");
 
     if (t_resistance < 10)
         return get_linear_increase_in_range(0, 0.0, 10, 0.06, t_resistance);

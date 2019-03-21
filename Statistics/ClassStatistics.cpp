@@ -1,9 +1,10 @@
-
 #include "ClassStatistics.h"
-#include "StatisticsSpell.h"
+
 #include "StatisticsBuff.h"
-#include "StatisticsResource.h"
 #include "StatisticsProc.h"
+#include "StatisticsResource.h"
+#include "StatisticsSpell.h"
+#include "Utils/Check.h"
 
 ClassStatistics::ClassStatistics(SimSettings* sim_settings) :
     sim_settings(sim_settings),
@@ -18,7 +19,6 @@ ClassStatistics::~ClassStatistics() {
 }
 
 void ClassStatistics::set_sim_option(const SimOption::Name option) {
-    assert(this->option == SimOption::Name::NoScale);
     this->option = option;
 }
 
@@ -27,28 +27,28 @@ SimOption::Name ClassStatistics::get_sim_option() const {
 }
 
 StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, const QString& icon) {
-    assert(!spell_statistics.contains(name));
+    check(!spell_statistics.contains(name), QString("'%1' has already initialized spell statistics").arg(name).toStdString());
 
     spell_statistics[name] = new StatisticsSpell(name, icon);
     return spell_statistics[name];
 }
 
 StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name, const QString& icon, const bool debuff) {
-    assert(!buff_statistics.contains(name));
+    check(!buff_statistics.contains(name), QString("'%1' has already initialized buff statistics").arg(name).toStdString());
 
     buff_statistics[name] = new StatisticsBuff(name, icon, debuff);
     return buff_statistics[name];
 }
 
 StatisticsResource *ClassStatistics::get_resource_statistics(const QString& name, const QString& icon) {
-    assert(!resource_statistics.contains(name));
+    check(!resource_statistics.contains(name), QString("'%1' has already initialized resource statistics").arg(name).toStdString());
 
     resource_statistics[name] = new StatisticsResource(name, icon);
     return resource_statistics[name];
 }
 
 StatisticsProc *ClassStatistics::get_proc_statistics(const QString& name, const QString& icon) {
-    assert(!proc_statistics.contains(name));
+    check(!proc_statistics.contains(name), QString("'%1' has already initialized proc statistics").arg(name).toStdString());
 
     proc_statistics[name] = new StatisticsProc(name, icon);
     return proc_statistics[name];
@@ -56,7 +56,7 @@ StatisticsProc *ClassStatistics::get_proc_statistics(const QString& name, const 
 
 void ClassStatistics::finish_combat_iteration() {
     int damage_dealt_this_iteration = get_total_damage_dealt() - damage_dealt_previous_iterations;
-    assert(damage_dealt_this_iteration >= 0);
+    check((damage_dealt_this_iteration >= 0), "Damage dealt must be a positive value");
 
     dps_for_iterations.append(static_cast<double>(damage_dealt_this_iteration) / combat_length);
     damage_dealt_previous_iterations += damage_dealt_this_iteration;

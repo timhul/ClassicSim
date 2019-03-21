@@ -1,10 +1,11 @@
-
 #include "GenericChargeConsumerProc.h"
-#include "Character.h"
-#include "ProcInfo.h"
-#include "CharacterSpells.h"
+
 #include "Buff.h"
+#include "Character.h"
+#include "CharacterSpells.h"
 #include "EnabledProcs.h"
+#include "ProcInfo.h"
+#include "Utils/Check.h"
 
 GenericChargeConsumerProc::GenericChargeConsumerProc(
         Character* pchar,
@@ -16,7 +17,7 @@ GenericChargeConsumerProc::GenericChargeConsumerProc(
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
     buff(buff)
 {
-    assert(!proc_sources.empty());
+    check(!proc_sources.empty(), "Must specify at least one proc source");
 }
 
 void GenericChargeConsumerProc::proc_effect() {

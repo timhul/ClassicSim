@@ -4,6 +4,7 @@
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingBuff.h"
 #include "ProcInfo.h"
+#include "Utils/Check.h"
 
 ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Character* pchar,
                                                        const QString& proc_name,
@@ -18,7 +19,8 @@ ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Character* pchar,
                                                          proc_sources, 1.0, num_attacks)),
     extra_attack_buff(new ExtraAttackOnNextSwingBuff(pchar, extra_attack_instant_proc, num_attacks))
 {
-    assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
+    check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
+          "No valid proc sources found");
     extra_attack_instant_proc->set_extra_attack_buff(extra_attack_buff);
     extra_attack_buff->enable_buff();
 }

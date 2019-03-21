@@ -1,6 +1,7 @@
-
 #include "ConditionSpell.h"
+
 #include "Spell.h"
+#include "Utils/Check.h"
 
 ConditionSpell::ConditionSpell(Spell *spell, const int comparator, const double cmp_value) :
     spell(spell),
@@ -20,8 +21,8 @@ bool ConditionSpell::condition_fulfilled() const {
     case Comparators::geq:
     case Comparators::greater:
         return cooldown > cmp_value;
+    default:
+        check(false, "Reached end of switch");
+        return false;
     }
-
-    assert(false);
-    return false;
 }

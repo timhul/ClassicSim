@@ -6,6 +6,7 @@
 #include "Race.h"
 #include "Stats.h"
 #include "Target.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
@@ -173,20 +174,20 @@ void CharacterStats::increase_wpn_skill(const int weapon_type, const int increas
 void CharacterStats::decrease_wpn_skill(const int weapon_type, const int decrease) {
     switch (weapon_type) {
     case WeaponTypes::AXE:
+        check((axe_skill_bonus >= decrease), "Underflow decrease");
         axe_skill_bonus -= decrease;
-        assert(axe_skill_bonus >= 0);
         break;
     case WeaponTypes::DAGGER:
+        check((dagger_skill_bonus >= decrease), "Underflow decrease");
         dagger_skill_bonus -= decrease;
-        assert(dagger_skill_bonus >= 0);
         break;
     case WeaponTypes::MACE:
+        check((mace_skill_bonus >= decrease), "Underflow decrease");
         mace_skill_bonus -= decrease;
-        assert(mace_skill_bonus >= 0);
         break;
     case WeaponTypes::SWORD:
+        check((sword_skill_bonus >= decrease), "Underflow decrease");
         sword_skill_bonus -= decrease;
-        assert(sword_skill_bonus >= 0);
         break;
     }
 }
@@ -582,7 +583,7 @@ void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_va
 }
 
 void CharacterStats::remove_multiplicative_effect(QVector<int>& effects, int remove_value, double &modifier) {
-    assert(effects.removeOne(remove_value));
+    check(effects.removeOne(remove_value), "Failed to remove multiplicative effect");
 
     recalculate_multiplicative_effects(effects, modifier);
 }
@@ -594,7 +595,7 @@ void CharacterStats::recalculate_multiplicative_effects(QVector<int>& effects, d
         modifier = modifier * coefficient;
     }
 
-    assert(modifier > 0);
+    check((modifier > 0), "Modifier negative");
 }
 
 Target::CreatureType CharacterStats::get_type_for_stat(const ItemStats stats) {
@@ -616,7 +617,7 @@ Target::CreatureType CharacterStats::get_type_for_stat(const ItemStats stats) {
     case ItemStats::APVersusUndead:
         return Target::CreatureType::Undead;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return Target::CreatureType::Beast;
     }
 }

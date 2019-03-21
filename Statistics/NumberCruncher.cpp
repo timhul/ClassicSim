@@ -1,12 +1,11 @@
 #include "NumberCruncher.h"
 
-#include <cassert>
-
 #include "ClassStatistics.h"
 #include "StatisticsBuff.h"
 #include "StatisticsProc.h"
 #include "StatisticsResource.h"
 #include "StatisticsSpell.h"
+#include "Utils/Check.h"
 
 NumberCruncher::~NumberCruncher() {
     reset();
@@ -37,7 +36,7 @@ void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* c
 void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::Name::NoScale));
+    check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     long long int total_damage_dealt = 0;
     for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
@@ -76,7 +75,7 @@ void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon,
 void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec, const bool include_debuffs) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::Name::NoScale));
+    check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     QSet<QString> handled_entries;
     for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
@@ -112,7 +111,7 @@ void NumberCruncher::merge_buff_entry(const QString& name, const QString &icon, 
 void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::Name::NoScale));
+    check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     QSet<QString> handled_entries;
     for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
@@ -145,7 +144,7 @@ void NumberCruncher::merge_proc_entry(const QString& name, const QString &icon, 
 void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
     QMutexLocker lock(&mutex);
 
-    assert(class_stats.contains(SimOption::Name::NoScale));
+    check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     QSet<QString> handled_entries;
     for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
@@ -187,7 +186,7 @@ void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {
         ++it;
     }
 
-    assert(dps_per_option.contains(SimOption::Name::NoScale));
+    check(dps_per_option.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     double base_value = dps_per_option.take(SimOption::Name::NoScale);
 
@@ -209,7 +208,7 @@ double NumberCruncher::get_total_dps(SimOption::Name option) const {
 }
 
 QPair<double, double> NumberCruncher::get_min_max_dps_for_option(SimOption::Name option) const {
-    assert(class_stats.contains(option));
+    check(class_stats.contains(option), "Missing option for requested calculation");
 
     double min_dps = std::numeric_limits<double>::max();
     double max_dps = std::numeric_limits<double>::min();
@@ -228,7 +227,7 @@ QPair<double, double> NumberCruncher::get_min_max_dps_for_option(SimOption::Name
 }
 
 double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
-    assert(class_stats.contains(option));
+    check(class_stats.contains(option), "Missing option for requested calculation");
 
     QVector<double> dps;
     for (auto & class_stat : class_stats[option]) {
@@ -257,7 +256,7 @@ ScaleResult* NumberCruncher::get_dps_distribution() const {
 }
 
 double NumberCruncher::get_standard_deviation_for_option(SimOption::Name option) const {
-    assert(class_stats.contains(option));
+    check(class_stats.contains(option), "Missing option for requested calculation");
 
     double mean = get_dps_for_option(option);
     double variance = 0;
@@ -273,7 +272,7 @@ double NumberCruncher::get_standard_deviation_for_option(SimOption::Name option)
 }
 
 double NumberCruncher::get_confidence_interval_for_option(SimOption::Name option, const double standard_deviation) const {
-    assert(class_stats.contains(option));
+    check(class_stats.contains(option), "Missing option for requested calculation");
 
     double z_value = 1.960;
 

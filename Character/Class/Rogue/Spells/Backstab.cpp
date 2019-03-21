@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "Rogue.h"
 #include "SealFate.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Backstab::Backstab(Character* pchar) :
@@ -102,7 +103,7 @@ void Backstab::activate_set_bonus_effect(const QString& set_name, const int set_
             bonescythe_energy = 5;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }
@@ -114,7 +115,7 @@ void Backstab::deactivate_set_bonus_effect(const QString& set_name, const int se
             bonescythe_energy = 0;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }

@@ -4,6 +4,7 @@
 #include "EssenceOfTheRed.h"
 #include "ExternalBuff.h"
 #include "Faction.h"
+#include "Utils/Check.h"
 
 GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     pchar(pchar),
@@ -134,7 +135,7 @@ void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bo
         if (i.second->is_active()) {
             i.first = false;
             i.second->cancel_buff();
-            assert(!i.second->is_active());
+            check(!i.second->is_active(), "Failed to deactivate buff after cancel");
         }
         else {
             i.first = true;

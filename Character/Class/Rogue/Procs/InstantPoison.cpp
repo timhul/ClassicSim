@@ -4,14 +4,15 @@
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "EnchantName.h"
-#include "ItemNamespace.h"
 #include "InstantPoisonBuff.h"
+#include "ItemNamespace.h"
 #include "MagicSchools.h"
 #include "ProcInfo.h"
 #include "Random.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "StatisticsResource.h"
+#include "Utils/Check.h"
 
 InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const int weapon) :
     Proc("Instant Poison " + weapon_side, "Assets/ability/Ability_poisons.png", 0.2, 0, QVector<Proc*>(),
@@ -41,7 +42,7 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
         proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
     }
 }
 
@@ -115,7 +116,7 @@ void InstantPoison::activate_set_bonus_effect(const QString& set_name, const int
             proc_range += 500;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }
@@ -127,7 +128,7 @@ void InstantPoison::deactivate_set_bonus_effect(const QString& set_name, const i
             proc_range -= 500;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }

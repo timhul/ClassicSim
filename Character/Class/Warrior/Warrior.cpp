@@ -29,6 +29,7 @@
 #include "SwordSpecialization.h"
 #include "Talents.h"
 #include "UnbridledWrath.h"
+#include "Utils/Check.h"
 #include "WarriorEnchants.h"
 #include "WarriorSpells.h"
 #include "Weapon.h"
@@ -236,7 +237,7 @@ QVector<int> Warrior::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
                              WeaponTypes::THROWN});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }
@@ -255,11 +256,11 @@ unsigned Warrior::get_resource_level(const ResourceType) const {
 
 void Warrior::increase_stance_rage_remainder() {
     this->stance_rage_remainder += 5;
-    assert(stance_rage_remainder <= 25);
+    check((stance_rage_remainder <= 25), "Stance rage remainder too high");
 }
 
 void Warrior::decrease_stance_rage_remainder() {
-    assert(stance_rage_remainder >= 5);
+    check((stance_rage_remainder >= 5), "Underflow decrease");
     this->stance_rage_remainder -= 5;
 }
 

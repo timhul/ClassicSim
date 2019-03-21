@@ -11,6 +11,7 @@
 #include "Marksmanship.h"
 #include "Survival.h"
 #include "Talents.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -134,7 +135,7 @@ QVector<int> Hunter::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }

@@ -3,6 +3,8 @@
 
 #include <QObject>
 
+#include "Utils/Check.h"
+
 class EnchantName : public QObject {
     Q_OBJECT
 
@@ -48,7 +50,7 @@ public:
     static QString get_name(Name enchant) {
         switch (enchant) {
         case EnchantName::NoEnchant:
-            assert(false);
+            check(false, "Requested enchant name for EnchantName::NoEnchant");
             return "no enchant";
         case EnchantName::Crusader:
             return "Crusader";
@@ -112,14 +114,14 @@ public:
             return "Dense Sharpening Stone";
         }
 
-        assert(false);
+        check(false, "Reached end of switch");
         return "";
     }
 
     static QString get_effect(Name enchant) {
         switch (enchant) {
         case EnchantName::NoEnchant:
-            assert(false);
+            check(false, "Requested tooltip effect for EnchantName::NoEnchant");
             return "no enchant";
         case EnchantName::Crusader:
             return "Crusader";
@@ -187,7 +189,7 @@ public:
             return "+8 Damage";
         }
 
-        assert(false);
+        check(false, "Reached end of switch");
         return "";
     }
 };

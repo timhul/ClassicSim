@@ -1,9 +1,8 @@
 #include "ArmorPenetrationBuff.h"
 
-#include <cassert>
-
 #include "Character.h"
 #include "Target.h"
+#include "Utils/Check.h"
 
 ArmorPenetrationBuff::ArmorPenetrationBuff(Character* pchar,
                                            const QString& name,
@@ -20,7 +19,7 @@ ArmorPenetrationBuff::ArmorPenetrationBuff(Character* pchar,
 
 void ArmorPenetrationBuff::buff_effect_when_applied() {
     ++current_stacks;
-    assert(current_stacks <= max_stacks);
+    check((current_stacks <= max_stacks), "Armor penetration has higher than max allowed stack");
 
     pchar->get_target()->decrease_armor(reduction_per_stack);
 }

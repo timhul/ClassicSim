@@ -2,7 +2,6 @@
 #define BUFF_H
 
 #include <QString>
-#include <assert.h>
 
 class Character;
 class StatisticsBuff;

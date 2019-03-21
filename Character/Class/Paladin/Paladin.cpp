@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "Mana.h"
 #include "PaladinSpells.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -100,7 +101,7 @@ QVector<int> Paladin::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::LIBRAM});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }

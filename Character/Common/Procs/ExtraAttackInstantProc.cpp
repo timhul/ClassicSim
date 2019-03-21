@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "ExtraAttackOnNextSwingBuff.h"
 #include "ProcInfo.h"
+#include "Utils/Check.h"
 
 ExtraAttackInstantProc::ExtraAttackInstantProc(Character* pchar,
                                                const QString& proc_name,
@@ -13,7 +14,8 @@ ExtraAttackInstantProc::ExtraAttackInstantProc(Character* pchar,
     extra_attack_buff(nullptr),
     num_attacks(num_attacks)
 {
-    assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
+    check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
+          "No valid proc sources found");
 }
 
 ExtraAttackInstantProc::~ExtraAttackInstantProc() = default;
@@ -30,8 +32,8 @@ void ExtraAttackInstantProc::set_extra_attack_buff(ExtraAttackOnNextSwingBuff* b
 }
 
 void ExtraAttackInstantProc::proc_from_next_swing_effect() {
-    assert(extra_attack_buff != nullptr);
-    assert(extra_attack_buff->is_active());
+    check((extra_attack_buff != nullptr), "extra_attack_buff is nullptr");
+    check(extra_attack_buff->is_active(), "extra_attack_buff is not active");
 
     while (extra_attack_buff->is_active()) {
         pchar->run_extra_mh_attack();
@@ -40,7 +42,7 @@ void ExtraAttackInstantProc::proc_from_next_swing_effect() {
 }
 
 void ExtraAttackInstantProc::proc_from_instant_effect() {
-    assert(extra_attack_buff == nullptr);
+    check((extra_attack_buff != nullptr), "extra_attack_buff is nullptr");
 
     for (int i = 0; i < num_attacks; ++i)
         pchar->run_extra_mh_attack();

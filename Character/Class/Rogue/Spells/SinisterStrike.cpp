@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "Rogue.h"
 #include "SealFate.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 SinisterStrike::SinisterStrike(Character* pchar) :
@@ -100,7 +101,7 @@ void SinisterStrike::activate_set_bonus_effect(const QString& set_name, const in
             bonescythe_energy = 5;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }
@@ -112,7 +113,7 @@ void SinisterStrike::deactivate_set_bonus_effect(const QString& set_name, const 
             bonescythe_energy = 0;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }

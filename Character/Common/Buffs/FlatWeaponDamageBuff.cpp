@@ -1,7 +1,8 @@
-
 #include "FlatWeaponDamageBuff.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
+#include "Utils/Check.h"
 
 FlatWeaponDamageBuff::FlatWeaponDamageBuff(Character* pchar,
                                            const QString &name,
@@ -59,9 +60,9 @@ void FlatWeaponDamageBuff::buff_effect_when_removed() {
 }
 
 void FlatWeaponDamageBuff::charge_change_effect() {
-    assert(base_charges > 0);
-    assert(current_charges > 0);
-    assert(active_bonus >= bonus);
+    check((base_charges > 0), "Base charges was zero while a charge was consumed");
+    check((base_charges > 0), "Current charges was zero while a charge was consumed");
+    check((active_bonus >= bonus), "Underflow decrease");
 
     active_bonus -= bonus;
 

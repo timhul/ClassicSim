@@ -1534,7 +1534,7 @@ Character* GUIControl::get_new_character(const QString& class_name) {
     if (class_name == "Warrior")
         return new Warrior(races["Orc"], equipment_db, sim_settings);
 
-    assert(false);
+    check(false, QString("Unknown class '%1'").arg(class_name).toStdString());
     return nullptr;
 }
 

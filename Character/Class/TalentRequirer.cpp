@@ -1,17 +1,16 @@
 #include "TalentRequirer.h"
 
-#include <cassert>
-
 #include "Buff.h"
 #include "Proc.h"
 #include "Spell.h"
+#include "Utils/Check.h"
 
 TalentRequirer::TalentRequirer(const QVector<TalentRequirerInfo *> &talent_info)
 {
-    assert(!talent_info.empty());
+    check(!talent_info.empty(), "talent_info empty");
 
     for (auto & info : talent_info) {
-        assert(!this->talent_info.contains(info->name));
+        check(!this->talent_info.contains(info->name), "talent_info does not contain name");
         this->talent_info[info->name] = info;
     }
 }
@@ -22,10 +21,10 @@ TalentRequirer::~TalentRequirer() {
 }
 
 void TalentRequirer::increase_talent_rank(Buff* buff, const QString &talent) {
-    assert(talent_info.contains(talent));
+    check(talent_info.contains(talent), "talent_info does not contain talent");
 
     ++talent_info[talent]->curr;
-    assert(talent_info[talent]->curr <= talent_info[talent]->max);
+    check((talent_info[talent]->curr <= talent_info[talent]->max), "Cannot increment talent above its max");
 
     increase_talent_rank_effect(talent, talent_info[talent]->curr);
 
@@ -34,10 +33,10 @@ void TalentRequirer::increase_talent_rank(Buff* buff, const QString &talent) {
 }
 
 void TalentRequirer::decrease_talent_rank(Buff* buff, const QString &talent) {
-    assert(talent_info.contains(talent));
+    check(talent_info.contains(talent), "talent_info does not contain talent");
 
     --talent_info[talent]->curr;
-    assert(talent_info[talent]->curr >= 0);
+    check((talent_info[talent]->curr >= 0), "Cannot decrement talent below 0");
 
     decrease_talent_rank_effect(talent, talent_info[talent]->curr);
 
@@ -46,10 +45,10 @@ void TalentRequirer::decrease_talent_rank(Buff* buff, const QString &talent) {
 }
 
 void TalentRequirer::increase_talent_rank(Spell* spell, const QString& talent) {
-    assert(talent_info.contains(talent));
+    check(talent_info.contains(talent), "talent_info does not contain talent");
 
     ++talent_info[talent]->curr;
-    assert(talent_info[talent]->curr <= talent_info[talent]->max);
+    check((talent_info[talent]->curr <= talent_info[talent]->max), "Cannot increment talent above its max");
 
     increase_talent_rank_effect(talent, talent_info[talent]->curr);
 
@@ -58,10 +57,10 @@ void TalentRequirer::increase_talent_rank(Spell* spell, const QString& talent) {
 }
 
 void TalentRequirer::decrease_talent_rank(Spell* spell, const QString &talent) {
-    assert(talent_info.contains(talent));
+    check(talent_info.contains(talent), "talent_info does not contain talent");
 
     --talent_info[talent]->curr;
-    assert(talent_info[talent]->curr >= 0);
+    check((talent_info[talent]->curr >= 0), "Cannot decrement talent below 0");
 
     decrease_talent_rank_effect(talent, talent_info[talent]->curr);
 
@@ -70,10 +69,10 @@ void TalentRequirer::decrease_talent_rank(Spell* spell, const QString &talent) {
 }
 
 void TalentRequirer::increase_talent_rank(Proc* proc, const QString& talent) {
-    assert(talent_info.contains(talent));
+    check(talent_info.contains(talent), "talent_info does not contain talent");
 
     ++talent_info[talent]->curr;
-    assert(talent_info[talent]->curr <= talent_info[talent]->max);
+    check((talent_info[talent]->curr <= talent_info[talent]->max), "Cannot increment talent above its max");
 
     increase_talent_rank_effect(talent, talent_info[talent]->curr);
 
@@ -84,10 +83,10 @@ void TalentRequirer::increase_talent_rank(Proc* proc, const QString& talent) {
 }
 
 void TalentRequirer::decrease_talent_rank(Proc* proc, const QString &talent) {
-    assert(talent_info.contains(talent));
+    check(talent_info.contains(talent), "talent_info does not contain talent");
 
     --talent_info[talent]->curr;
-    assert(talent_info[talent]->curr >= 0);
+    check((talent_info[talent]->curr >= 0), "Cannot decrement talent below 0");
 
     decrease_talent_rank_effect(talent, talent_info[talent]->curr);
 

@@ -4,6 +4,7 @@
 #include "Engine.h"
 #include "NoEffectBuff.h"
 #include "Warrior.h"
+#include "Utils/Check.h"
 
 DeepWounds::DeepWounds(Character* pchar) :
     Spell("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 0),
@@ -31,7 +32,7 @@ DeepWounds::~DeepWounds() {
 }
 
 void DeepWounds::perform_periodic() {
-    assert(!stacks.empty());
+    check(!stacks.empty(), "No deep wounds stacks to consume");
 
     double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * wpn_percent) / 6);
 
@@ -41,7 +42,7 @@ void DeepWounds::perform_periodic() {
     previous_tick_rest = damage_dealt - round(damage_dealt);
 
     for (int & stack : stacks) {
-        assert(stack > 0);
+        check((stack > 0), "Deep wounds encountered empty stack");
         --stack;
     }
 

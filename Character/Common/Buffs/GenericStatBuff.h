@@ -2,6 +2,7 @@
 #define ATTACKPOWERBUFF_H
 
 #include "Buff.h"
+
 #include "ItemStatsEnum.h"
 
 class GenericStatBuff: public Buff {
@@ -11,11 +12,11 @@ public:
                     const QString& icon,
                     const int duration,
                     const ItemStats stat_type,
-                    const int stat_value);
+                    const unsigned stat_value);
 
 private:
     ItemStats stat_type;
-    int stat_value;
+    unsigned stat_value;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

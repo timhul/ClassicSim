@@ -1,7 +1,9 @@
-
 #include "SimSettings.h"
-#include "RulesetControl.h"
+
 #include <QThread>
+
+#include "RulesetControl.h"
+#include "Utils/Check.h"
 
 SimSettings::SimSettings() :
     current_patch(QVersionNumber::fromString("1.12.1")),
@@ -65,12 +67,12 @@ void SimSettings::set_num_threads(const int num_threads) {
 }
 
 void SimSettings::add_sim_option(SimOption::Name option) {
-    assert(option != SimOption::Name::NoScale);
+    check((option != SimOption::Name::NoScale), "Cannot add NoScale as sim option");
     sim_options.insert(option);
 }
 
 void SimSettings::set_sim_options(const QSet<SimOption::Name>& options) {
-    assert(!options.contains(SimOption::Name::NoScale));
+    check(!options.contains(SimOption::Name::NoScale), "Cannot add NoScale as sim option");
     sim_options = options;
 }
 

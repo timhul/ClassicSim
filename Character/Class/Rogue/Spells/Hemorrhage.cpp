@@ -4,6 +4,7 @@
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "Rogue.h"
+#include "Utils/Check.h"
 
 Hemorrhage::Hemorrhage(Character* pchar) :
     Spell("Hemorrhage", "Assets/spell/Spell_shadow_lifedrain.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 35),
@@ -81,7 +82,7 @@ void Hemorrhage::activate_set_bonus_effect(const QString& set_name, const int se
             bonescythe_energy = 5;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }
@@ -93,7 +94,7 @@ void Hemorrhage::deactivate_set_bonus_effect(const QString& set_name, const int 
             bonescythe_energy = 0;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }

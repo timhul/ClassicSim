@@ -1,9 +1,9 @@
-
 #include "ProcPPM.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
-#include <cassert>
 #include "ItemNamespace.h"
+#include "Utils/Check.h"
 
 ProcPPM::ProcPPM(const QString& name,
                  const QString& icon,
@@ -17,7 +17,7 @@ ProcPPM::ProcPPM(const QString& name,
     proc_rate_base(ppm * 100 / 60),
     weapon(wpn)
 {
-    assert(weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND);
+    check((weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND), "Tried setting ProcPPM on non MH/OH");
 }
 
 ProcPPM::~ProcPPM() = default;
@@ -29,9 +29,7 @@ unsigned ProcPPM::get_proc_range() const {
     case EnchantSlot::OFFHAND:
         return static_cast<unsigned>(round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100));
     default:
-        assert(false);
+        check(false, "Reached end of switch");
+        return 0;
     }
-
-    return 0;
 }
-

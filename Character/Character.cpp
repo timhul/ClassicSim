@@ -21,6 +21,7 @@
 #include "Stats.h"
 #include "Talents.h"
 #include "Target.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Character::Character(const QString class_name, Race* race, SimSettings *sim_settings) :
@@ -77,7 +78,7 @@ bool Character::race_available(Race* race) const {
 }
 
 void Character::set_race(Race* race) {
-    assert(race_available(race));
+    check(race_available(race), "Race not available");
 
     spells->deactivate_racials();
     this->race = race;
@@ -212,7 +213,7 @@ void Character::stop_attack() {
 }
 
 void Character::start_global_cooldown() {
-    assert(action_ready());
+    check(action_ready(), "Action not ready");
     this->next_gcd = engine->get_current_priority() + global_cooldown();
 }
 
@@ -401,7 +402,7 @@ double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon
         attack_power = cstats->get_ranged_ap();
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
     }
 
     return get_non_normalized_dmg(damage, attack_power, normalized_wpn_speed);
@@ -532,8 +533,7 @@ void Character::increase_mh_flat_damage_bonus(const unsigned change) {
 }
 
 void Character::decrease_mh_flat_damage_bonus(const unsigned change) {
-
-    assert(change <= mh_flat_dmg_bonus);
+    check((mh_flat_dmg_bonus >= change), "Underflow decrease");
     this->mh_flat_dmg_bonus -= change;
 }
 
@@ -542,7 +542,7 @@ void Character::increase_oh_flat_damage_bonus(const unsigned change) {
 }
 
 void Character::decrease_oh_flat_damage_bonus(const unsigned change) {
-    assert(change <= oh_flat_dmg_bonus);
+    check((oh_flat_dmg_bonus >= change), "Underflow decrease");
     this->oh_flat_dmg_bonus -= change;
 }
 
@@ -551,7 +551,7 @@ void Character::increase_ranged_flat_damage_bonus(const unsigned change) {
 }
 
 void Character::decrease_ranged_flat_damage_bonus(const unsigned change) {
-    assert(change <= ranged_flat_dmg_bonus);
+    check((ranged_flat_dmg_bonus >= change), "Underflow decrease");
     this->ranged_flat_dmg_bonus -= change;
 }
 

@@ -11,6 +11,7 @@
 #include "RangedWhiteHitTable.h"
 #include "SimSettings.h"
 #include "Target.h"
+#include "Utils/Check.h"
 
 CombatRoll::CombatRoll(Character *pchar):
     pchar(pchar),
@@ -81,8 +82,8 @@ Mechanics* CombatRoll::get_mechanics() const {
 }
 
 MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const int wpn_skill) {
-    assert(this->pchar != nullptr);
-    assert(this->mechanics != nullptr);
+    check((pchar != nullptr), "pchar nullptr");
+    check((mechanics != nullptr), "mechanics nullptr");
 
     if (melee_white_tables.contains(wpn_skill))
         return melee_white_tables[wpn_skill];
@@ -128,8 +129,8 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
 }
 
 RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const int wpn_skill) {
-    assert(this->pchar != nullptr);
-    assert(this->mechanics != nullptr);
+    check((pchar != nullptr), "pchar nullptr");
+    check((mechanics != nullptr), "mechanics nullptr");
 
     if (ranged_white_tables.contains(wpn_skill))
         return ranged_white_tables[wpn_skill];

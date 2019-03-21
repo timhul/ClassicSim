@@ -1,8 +1,10 @@
-#include "Character.h"
 #include "Crusader.h"
+
+#include "Character.h"
 #include "EnabledBuffs.h"
 #include "HolyStrength.h"
 #include "ItemNamespace.h"
+#include "Utils/Check.h"
 
 Crusader::Crusader(Character* pchar, const QString& weapon_identifier, const int weapon) :
     ProcPPM("Holy Strength " + weapon_identifier, "Assets/buffs/Spell_holy_blessingofstrength.png", weapon, 1.0, 0.0, QVector<Proc*>(),
@@ -10,8 +12,6 @@ Crusader::Crusader(Character* pchar, const QString& weapon_identifier, const int
             pchar),
     holy_strength(new HolyStrength(pchar, weapon_identifier))
 {
-    assert(weapon == EnchantSlot::MAINHAND || weapon == EnchantSlot::OFFHAND);
-
     switch (weapon) {
     case EnchantSlot::MAINHAND:
         proc_sources.append({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing});
@@ -19,6 +19,8 @@ Crusader::Crusader(Character* pchar, const QString& weapon_identifier, const int
     case EnchantSlot::OFFHAND:
         proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
         break;
+    default:
+        check(false, "Reached end of switch");
     }
 
     holy_strength->enable_buff();

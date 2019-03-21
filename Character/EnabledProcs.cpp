@@ -1,8 +1,10 @@
-#include "Character.h"
 #include "EnabledProcs.h"
+
+#include "Character.h"
 #include "Faction.h"
 #include "GeneralProcs.h"
 #include "Proc.h"
+#include "Utils/Check.h"
 
 EnabledProcs::EnabledProcs(Character* pchar, Faction* faction) :
     pchar(pchar),
@@ -17,7 +19,7 @@ EnabledProcs::~EnabledProcs()
 }
 
 void EnabledProcs::run_proc_effects(ProcInfo::Source source) {
-    assert(source != ProcInfo::Source::Manual);
+    check((source != ProcInfo::Source::Manual), "Cannot run proc effects on manually triggered proc");
 
     for (auto & proc : enabled_procs) {
         if (proc->procs_from_source(source)) {

@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "Mana.h"
 #include "PriestSpells.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
@@ -101,7 +102,7 @@ QVector<int> Priest::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::WAND});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }

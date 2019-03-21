@@ -1,5 +1,6 @@
-
 #include "Stats.h"
+
+#include "Utils/Check.h"
 
 Stats::Stats()
 {
@@ -347,7 +348,7 @@ void Stats::increase_base_melee_ap(const unsigned increase) {
 }
 
 void Stats::decrease_base_melee_ap(const unsigned decrease) {
-    assert(melee_ap >= decrease);
+    check((melee_ap >= decrease), "Underflow decrease");
     melee_ap -= decrease;
 }
 
@@ -360,7 +361,7 @@ void Stats::increase_base_ranged_ap(const unsigned increase) {
 }
 
 void Stats::decrease_base_ranged_ap(const unsigned decrease) {
-    assert(ranged_ap >= decrease);
+    check((ranged_ap >= decrease), "Underflow decrease");
     ranged_ap -= decrease;
 }
 

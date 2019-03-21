@@ -4,10 +4,11 @@
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "EnabledBuffs.h"
-#include "Execute.h"
 #include "EssenceOfTheRed.h"
+#include "Execute.h"
 #include "GeneralBuffs.h"
 #include "SimSettings.h"
+#include "Utils/Check.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
@@ -50,7 +51,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
 void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_settings) {
     Buff* buff = pchar->get_enabled_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
 
-    assert(buff != nullptr);
+    check((buff != nullptr), "buff nullptr");
 
     if (!buff->is_enabled())
         buff->enable_buff();
@@ -67,7 +68,7 @@ void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_
 void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_settings) {
     Buff* buff = pchar->get_enabled_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
 
-    assert(buff != nullptr);
+    check((buff != nullptr), "buff nullptr");
 
     if (buff->is_enabled())
         buff->disable_buff();

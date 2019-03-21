@@ -2,7 +2,6 @@
 #define SPELL_H
 
 #include <algorithm>
-#include <cassert>
 #include <QString>
 #include <QVector>
 

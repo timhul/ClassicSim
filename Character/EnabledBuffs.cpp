@@ -1,10 +1,12 @@
+#include "EnabledBuffs.h"
+
 #include "Character.h"
 #include "ClassStatistics.h"
-#include "EnabledBuffs.h"
+#include "ExternalBuff.h"
 #include "Faction.h"
 #include "GeneralBuffs.h"
-#include "ExternalBuff.h"
 #include "SharedBuff.h"
+#include "Utils/Check.h"
 
 EnabledBuffs::EnabledBuffs(Character* pchar, Faction* faction) :
     pchar(pchar),
@@ -19,7 +21,7 @@ EnabledBuffs::~EnabledBuffs()
 }
 
 void EnabledBuffs::add_buff(Buff* buff) {
-    assert(buff->is_enabled());
+    check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->get_name()).toStdString());
     enabled_buffs.append(buff);
 
     if (buff->get_instance_id() == BuffStatus::INACTIVE) {
@@ -29,7 +31,7 @@ void EnabledBuffs::add_buff(Buff* buff) {
 }
 
 void EnabledBuffs::remove_buff(Buff* buff) {
-    assert(buff->is_enabled());
+    check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->get_name()).toStdString());
     for (int i = 0; i < enabled_buffs.size(); ++i) {
         if (enabled_buffs.at(i)->get_instance_id() == buff->get_instance_id())
             return enabled_buffs.removeAt(i);
@@ -73,7 +75,7 @@ void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
         return;
     }
 
-    assert(false);
+    check(false, "Failed to find buff to return");
 }
 
 void EnabledBuffs::reset() {

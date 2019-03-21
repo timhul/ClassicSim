@@ -5,6 +5,7 @@
 #include "Resource.h"
 #include "ResourceGain.h"
 #include "StatisticsResource.h"
+#include "Utils/Check.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
@@ -26,7 +27,7 @@ void AngerManagement::decrease_talent_rank_effect(const QString&, const int) {
 }
 
 void AngerManagement::spell_effect() {
-    assert(false);
+    check(false, "Not implemented");
 }
 
 void AngerManagement::perform_pre_combat() {

@@ -17,6 +17,7 @@
 #include "Subtlety.h"
 #include "SwordSpecialization.h"
 #include "Talents.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -219,7 +220,7 @@ QVector<int> Rogue::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
                             WeaponTypes::THROWN});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }

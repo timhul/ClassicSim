@@ -4,6 +4,7 @@
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "ItemNamespace.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 CharacterEnchants::CharacterEnchants(Character* pchar) :
@@ -20,7 +21,7 @@ bool CharacterEnchants::has_sharp_weapon(const int equipment_slot) const {
         wpn = pchar->get_stats()->get_equipment()->get_offhand();
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
     }
 
     if (wpn == nullptr)

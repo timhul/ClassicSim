@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "Mana.h"
 #include "ShamanSpells.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings) :
@@ -101,7 +102,7 @@ QVector<int> Shaman::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::TOTEM});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }

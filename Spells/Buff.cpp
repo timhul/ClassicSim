@@ -8,6 +8,7 @@
 #include "EnabledBuffs.h"
 #include "Engine.h"
 #include "StatisticsBuff.h"
+#include "Utils/Check.h"
 
 Buff::Buff(Character* pchar, QString  name, QString  icon, const int duration, const int base_charges):
     pchar(pchar),
@@ -92,7 +93,7 @@ void Buff::use_charge() {
     if (!is_active())
         return;
 
-    assert(this->current_charges > 0);
+    check((this->current_charges > 0), "Attempted to use charge but has no charges");
 
     if (--this->current_charges == 0)
         force_remove_buff();
@@ -160,14 +161,14 @@ int Buff::get_instance_id() const {
 }
 
 void Buff::enable_buff() {
-    assert(!enabled);
+    check(!enabled, QString("Tried to enable an already enabled buff '%1'").arg(name).toStdString());
 
     this->enabled = true;
     pchar->get_enabled_buffs()->add_buff(this);
 }
 
 void Buff::disable_buff() {
-    assert(enabled);
+    check(enabled, QString("Tried to disabled an already disabled buff '%1'").arg(name).toStdString());
 
     pchar->get_enabled_buffs()->remove_buff(this);
     this->enabled = false;

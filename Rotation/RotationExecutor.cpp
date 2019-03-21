@@ -1,10 +1,11 @@
-
 #include "RotationExecutor.h"
-#include "Condition.h"
-#include "Spell.h"
 
 #include <QDebug>
 #include <utility>
+
+#include "Condition.h"
+#include "Spell.h"
+#include "Utils/Check.h"
 
 RotationExecutor::RotationExecutor(QString name) :
     spell_name(std::move(name)),
@@ -66,7 +67,7 @@ Spell* RotationExecutor::get_spell() const {
 
 void RotationExecutor::set_spell(Spell* spell) {
     if (spell != nullptr)
-        assert(spell_name == spell->get_name());
+        check((spell_name == spell->get_name()), "Mismatched spell name when setting spell");
 
     this->spell = spell;
 }

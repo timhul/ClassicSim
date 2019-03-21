@@ -13,6 +13,7 @@
 #include "SetBonusFileReader.h"
 #include "SinisterStrike.h"
 #include "SliceAndDice.h"
+#include "Utils/Check.h"
 
 SetBonusControl::SetBonusControl(EquipmentDb* equipment_db, Character* pchar) :
     equipment_db(equipment_db),
@@ -190,13 +191,13 @@ bool SetBonusControl::is_set_item(const int item_id) const {
 }
 
 QString SetBonusControl::get_set_name(const int item_id) const {
-    assert(possible_set_items.contains(item_id));
+    check(possible_set_items.contains(item_id), QString("Unknown item id '%1'").arg(item_id).toStdString());
 
     return possible_set_items[item_id];
 }
 
 QVector<QPair<QString, bool>> SetBonusControl::get_item_names_in_set(const int item_id) const {
-    assert(possible_set_items.contains(item_id));
+    check(possible_set_items.contains(item_id), QString("Unknown item id '%1'").arg(item_id).toStdString());
 
     QVector<QPair<QString, bool>> item_names_and_equipped;
 
@@ -216,9 +217,9 @@ QVector<QPair<QString, bool>> SetBonusControl::get_item_names_in_set(const int i
 }
 
 QVector<QPair<QString, bool>> SetBonusControl::get_set_bonus_tooltips(const int item_id) const {
-    assert(possible_set_items.contains(item_id));
+    check(possible_set_items.contains(item_id), QString("Unknown item id '%1'").arg(item_id).toStdString());
     QString set_name = get_set_name(item_id);
-    assert(set_bonus_tooltips.contains(set_name));
+    check(set_bonus_tooltips.contains(set_name), QString("Unknown set '%1'").arg(set_name).toStdString());
 
     int num_equipped = get_num_equipped_pieces_for_set(set_name);
 

@@ -12,6 +12,7 @@
 #include "OffhandMeleeHit.h"
 #include "Race.h"
 #include "Target.h"
+#include "Utils/Check.h"
 
 CharacterSpells::CharacterSpells(Character* pchar) :
     pchar(pchar),
@@ -51,7 +52,7 @@ bool CharacterSpells::cast_in_progress() const {
 }
 
 unsigned CharacterSpells::start_cast() {
-    assert(!cast_is_in_progress);
+    check(!cast_is_in_progress, "Cast in progress when starting new cast");
 
     cast_is_in_progress = true;
 
@@ -59,8 +60,8 @@ unsigned CharacterSpells::start_cast() {
 }
 
 void CharacterSpells::complete_cast(const unsigned cast_id) {
-    assert(cast_is_in_progress);
-    assert(id_of_cast_in_progress == cast_id);
+    check(cast_is_in_progress, "Cast not in progress when completing cast");
+    check((id_of_cast_in_progress == cast_id), "Mismatched cast id");
 
     cast_is_in_progress = false;
 
@@ -168,15 +169,15 @@ void CharacterSpells::add_next_mh_attack() {
 }
 
 void CharacterSpells::oh_auto_attack(const int) {
-    assert(false);
+    check(false, "Not implemented");
 }
 
 void CharacterSpells::add_next_oh_attack() {
-    assert(false);
+    check(false, "Not implemented");
 }
 
 void CharacterSpells::add_next_ranged_attack() {
-    assert(false);
+    check(false, "Not implemented");
 }
 
 MainhandAttack* CharacterSpells::get_mh_attack() const {
@@ -184,7 +185,7 @@ MainhandAttack* CharacterSpells::get_mh_attack() const {
 }
 
 OffhandAttack* CharacterSpells::get_oh_attack() const {
-    assert(false);
+    check(false, "Not implemented");
     return nullptr;
 }
 

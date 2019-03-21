@@ -5,6 +5,7 @@
 #include "DeepWounds.h"
 #include "Flurry.h"
 #include "OverpowerBuff.h"
+#include "Utils/Check.h"
 #include "Warrior.h"
 
 Hamstring::Hamstring(Character* pchar) :
@@ -59,7 +60,7 @@ void Hamstring::activate_item_effect(const int item_id) {
         resource_cost -= 3;
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
     }
 }
 
@@ -72,6 +73,6 @@ void Hamstring::deactivate_item_effect(const int item_id) {
         resource_cost += 3;
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
     }
 }

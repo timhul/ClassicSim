@@ -1,9 +1,10 @@
-
 #include "InstantSpellProc.h"
-#include "InstantSpellAttack.h"
+
 #include "Character.h"
-#include "ProcInfo.h"
 #include "CharacterSpells.h"
+#include "InstantSpellAttack.h"
+#include "ProcInfo.h"
+#include "Utils/Check.h"
 
 InstantSpellProc::InstantSpellProc(Character* pchar,
                                    const QString& proc_name,
@@ -16,7 +17,8 @@ InstantSpellProc::InstantSpellProc(Character* pchar,
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
     spell(new InstantSpellAttack(pchar, proc_name, icon, school, min_damage, max_damage))
 {
-    assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
+    check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
+          "No valid proc sources found");
     pchar->get_spells()->add_spell(spell);
 }
 

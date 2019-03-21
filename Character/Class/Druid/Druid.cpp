@@ -9,6 +9,7 @@
 #include "Mana.h"
 #include "Race.h"
 #include "Rage.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 
@@ -98,7 +99,7 @@ unsigned Druid::get_resource_level(const ResourceType resource_type) const {
         return energy->current;
     }
 
-    assert(false);
+    check(false, "Failed to determine resource type");
     return 0;
 }
 
@@ -117,7 +118,7 @@ QVector<int> Druid::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::IDOL});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }

@@ -4,6 +4,7 @@
 #include "Crusader.h"
 #include "FieryWeapon.h"
 #include "ItemNamespace.h"
+#include "Utils/Check.h"
 #include "WindfuryTotemAttack.h"
 
 EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int slot) :
@@ -23,7 +24,7 @@ EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int 
         proc = new WindfuryTotemAttack(pchar);
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
     }
 
     proc->enable_proc();

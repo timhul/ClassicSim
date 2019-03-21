@@ -7,6 +7,7 @@
 #include "MainhandAttack.h"
 #include "Rogue.h"
 #include "SimSettings.h"
+#include "Utils/Check.h"
 
 ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const int builtin,
@@ -46,7 +47,7 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
     case BuiltinVariables::ComboPoints:
         return cmp_values(dynamic_cast<Rogue*>(pchar)->get_combo_points());
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return false;
     }
 }
@@ -64,7 +65,7 @@ bool ConditionVariableBuiltin::cmp_values(const double lhs_value) const {
     case Comparators::greater:
         return lhs_value > rhs_value;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return false;
     }
 }

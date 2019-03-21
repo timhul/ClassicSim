@@ -1,5 +1,7 @@
-#include "Mana.h"
 #include "ManaTick.h"
+
+#include "Mana.h"
+#include "Utils/Check.h"
 
 ManaTick::ManaTick(Character* pchar, class Mana* mana)
     :
@@ -8,7 +10,7 @@ ManaTick::ManaTick(Character* pchar, class Mana* mana)
 {}
 
 void ManaTick::spell_effect() {
-    assert(false);
+    check(false, "Not implemented");
 }
 
 void ManaTick::perform_periodic() {

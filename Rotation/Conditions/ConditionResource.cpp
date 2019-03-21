@@ -1,6 +1,7 @@
-
 #include "ConditionResource.h"
+
 #include "Character.h"
+#include "Utils/Check.h"
 
 ConditionResource::ConditionResource(Character* pchar, const int comparator, const ResourceType resource_type, const double cmp_value) :
     pchar(pchar),
@@ -21,8 +22,8 @@ bool ConditionResource::condition_fulfilled() const {
     case Comparators::geq:
     case Comparators::greater:
         return resource > cmp_value;
+    default:
+        check(false, "Reached end of switch");
+        return false;
     }
-
-    assert(false);
-    return false;
 }

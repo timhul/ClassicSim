@@ -12,6 +12,7 @@
 #include "ConditionVariableBuiltin.h"
 #include "EnabledBuffs.h"
 #include "RotationExecutor.h"
+#include "Utils/Check.h"
 
 Rotation::Rotation(QString class_name) :
     pchar(nullptr),
@@ -56,7 +57,7 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
         Sentence* sentence = executor->sentences[i];
 
         if (sentence->logical_connective == LogicalConnectives::OR) {
-            assert(condition_group_to_add.empty() == false);
+            check((condition_group_to_add.empty() == false), "Cannot use OR conditional at start");
             executor->add_condition(condition_group_to_add);
             condition_group_to_add.clear();
         }
@@ -166,7 +167,7 @@ ResourceType Rotation::get_resource_from_string(const QString& resource) const {
         return ResourceType::Energy;
 
     qDebug() << "Failed to find resource for" << resource;
-    assert(false);
+    check(false, QString("Failed to find resource for '%1'").arg(resource).toStdString());
     return ResourceType::Rage;
 }
 

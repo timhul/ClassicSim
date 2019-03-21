@@ -2,6 +2,7 @@
 
 #include "Faction.h"
 #include "Rogue.h"
+#include "Utils/Check.h"
 
 RogueEnchants::RogueEnchants(Rogue* rogue) :
     CharacterEnchants(rogue)
@@ -56,7 +57,7 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
         };
     }
 
-    assert(false);
+    check(false, "Reached end of switch");
     return {};
 }
 
@@ -85,6 +86,6 @@ QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int 
         return enchants;
     }
 
-    assert(false);
+    check(false, "Reached end of switch");
     return {};
 }

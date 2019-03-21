@@ -1,6 +1,6 @@
-#include <cassert>
-
 #include "Rage.h"
+
+#include "Utils/Check.h"
 
 Rage::Rage()
 {
@@ -16,7 +16,7 @@ void Rage::gain_resource(const unsigned rage) {
 }
 
 void Rage::lose_resource(const unsigned rage) {
-    assert(current >= rage);
+    check((current >= rage), "Underflow decrease");
     current -= rage;
 }
 

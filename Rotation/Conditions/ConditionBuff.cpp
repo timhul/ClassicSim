@@ -1,7 +1,7 @@
-
 #include "ConditionBuff.h"
 
 #include "Buff.h"
+#include "Utils/Check.h"
 
 ConditionBuff::ConditionBuff(Buff* buff, const int comparator, const double cmp_value) :
     buff(buff),
@@ -23,8 +23,8 @@ bool ConditionBuff::condition_fulfilled() const {
         return !buff->is_active();
     case Comparators::true_val:
         return buff->is_active();
+    default:
+        check(false, "Reached end of switch");
+        return false;
     }
-
-    assert(false);
-    return false;
 }

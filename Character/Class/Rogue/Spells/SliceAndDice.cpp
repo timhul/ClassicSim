@@ -3,10 +3,11 @@
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Random.h"
-#include "Rogue.h"
 #include "RelentlessStrikes.h"
+#include "Rogue.h"
 #include "Ruthlessness.h"
 #include "SliceAndDiceBuff.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 SliceAndDice::SliceAndDice(Character* pchar) :
@@ -66,7 +67,7 @@ void SliceAndDice::activate_set_bonus_effect(const QString& set_name, const int 
             resource_cost -= 10;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }
@@ -78,7 +79,7 @@ void SliceAndDice::deactivate_set_bonus_effect(const QString& set_name, const in
             resource_cost += 10;
             break;
         default:
-            assert(false);
+            check(false, "Reached end of switch");
         }
     }
 }

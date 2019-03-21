@@ -1,5 +1,7 @@
-#include "Energy.h"
 #include "EnergyTick.h"
+
+#include "Energy.h"
+#include "Utils/Check.h"
 
 EnergyTick::EnergyTick(Character* pchar, class Energy* energy)
     :
@@ -8,7 +10,7 @@ EnergyTick::EnergyTick(Character* pchar, class Energy* energy)
 {}
 
 void EnergyTick::spell_effect() {
-    assert(false);
+    check(false, "Not implemented");
 }
 
 void EnergyTick::perform_periodic() {

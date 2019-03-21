@@ -1,11 +1,13 @@
-
 #include "SimulationThreadPool.h"
-#include "SimulationRunner.h"
-#include "SimSettings.h"
-#include "Random.h"
-#include <climits>
+
 #include <QDebug>
 #include <QThread>
+#include <climits>
+
+#include "Random.h"
+#include "SimSettings.h"
+#include "SimulationRunner.h"
+#include "Utils/Check.h"
 
 SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
@@ -27,7 +29,7 @@ SimulationThreadPool::~SimulationThreadPool() {
 }
 
 void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim, int iterations) {
-    assert(running_threads == 0);
+    check((running_threads == 0), "Cannot run sim while threads are still running");
 
     auto iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
 
@@ -39,7 +41,7 @@ void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim, i
         ++running_threads;
     }
 
-    assert(running_threads > 0);
+    check((running_threads > 0), "Failed to start threads");
 }
 
 bool SimulationThreadPool::sim_running() const {
@@ -60,7 +62,7 @@ void SimulationThreadPool::scale_number_of_threads() {
     else
         add_threads(thread_diff);
 
-    assert(active_thread_ids.size() == sim_settings->get_num_threads_current());
+    check((active_thread_ids.size() == sim_settings->get_num_threads_current()), "Failed to scale number of threads");
 }
 
 void SimulationThreadPool::add_threads(const int num_to_add) {
@@ -74,13 +76,13 @@ void SimulationThreadPool::add_threads(const int num_to_add) {
 }
 
 void SimulationThreadPool::remove_threads(const int num_to_remove) {
-    assert(num_to_remove < active_thread_ids.size());
+    check((num_to_remove < active_thread_ids.size()), "Must not remove all threads");
 
     for (int i = 0; i < num_to_remove; ++i) {
         inactive_thread_ids.append(active_thread_ids.takeLast());
     }
 
-    assert(!active_thread_ids.empty());
+    check(!active_thread_ids.empty(), "All threads were removed in previous operation");
 }
 
 void SimulationThreadPool::setup_thread(const unsigned thread_id) {

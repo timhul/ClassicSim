@@ -5,7 +5,6 @@
 #include <QSet>
 #include <QString>
 #include <QVector>
-#include <assert.h>
 
 #include "AvailableFactions.h"
 #include "EnchantName.h"

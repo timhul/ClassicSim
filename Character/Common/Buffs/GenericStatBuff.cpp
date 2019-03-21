@@ -1,15 +1,14 @@
-
 #include "GenericStatBuff.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
-#include <cassert>
 
 GenericStatBuff::GenericStatBuff(Character* pchar,
                                  const QString& name,
                                  const QString& icon,
                                  const int duration,
                                  const ItemStats stat_type,
-                                 const int value):
+                                 const unsigned value):
     Buff(pchar, name, icon, duration, 0),
     stat_type(stat_type),
     stat_value(value)

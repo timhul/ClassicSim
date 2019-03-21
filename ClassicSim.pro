@@ -625,7 +625,8 @@ HEADERS += \
     Character/Common/Spells/AutoShot.h \
     Test/Hunter/Spells/TestAutoShot.h \
     Character/Class/Hunter/Spells/AimedShot.h \
-    Test/Hunter/Spells/TestAimedShot.h
+    Test/Hunter/Spells/TestAimedShot.h \
+    Utils/Check.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

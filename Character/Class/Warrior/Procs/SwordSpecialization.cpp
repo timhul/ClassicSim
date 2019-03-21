@@ -5,6 +5,7 @@
 #include "Equipment.h"
 #include "ItemNamespace.h"
 #include "ProcInfo.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 SwordSpecialization::SwordSpecialization(Character* pchar) :
@@ -34,14 +35,17 @@ void SwordSpecialization::decrease_talent_rank_effect(const QString&, const int 
 }
 
 bool SwordSpecialization::proc_specific_conditions_fulfilled() const {
-    if (curr_proc_source == ProcInfo::Source::MainhandSpell || curr_proc_source == ProcInfo::Source::MainhandSwing)
+    switch (curr_proc_source) {
+    case ProcInfo::Source::MainhandSpell:
+    case ProcInfo::Source::MainhandSwing:
         return weapon_is_sword(warr->get_stats()->get_equipment()->get_mainhand());
-
-    if (curr_proc_source == ProcInfo::Source::OffhandSpell || curr_proc_source == ProcInfo::Source::OffhandSwing)
+    case ProcInfo::Source::OffhandSpell:
+    case ProcInfo::Source::OffhandSwing:
         return weapon_is_sword(warr->get_stats()->get_equipment()->get_offhand());
-
-    assert(false);
-    return false;
+    default:
+        check(false, "Reached end of switch");
+        return false;
+    }
 }
 
 bool SwordSpecialization::weapon_is_sword(Weapon* weapon) const {

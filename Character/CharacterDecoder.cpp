@@ -3,6 +3,7 @@
 #include <QDebug>
 
 #include "CharacterEncoding.h"
+#include "Utils/Check.h"
 
 void CharacterDecoder::initialize(const QString& setup_string) {
     if (!setup_map.empty()) {
@@ -33,7 +34,7 @@ void CharacterDecoder::initialize(const QString& setup_string) {
 void CharacterDecoder::parse_list(QString& string_list) {
     QStringList list_elements = string_list.split(Encoding::LIST_INITIALIZER);
     QString list_name = list_elements.takeFirst();
-    assert(list_elements.size() == 1);
+    check((list_elements.size() == 1), "Unexpected list size");
     list_elements[0] = list_elements[0].remove(Encoding::LIST_END);
 
     setup_lists.insert(list_name, QVector<QPair<QString, QString>>());

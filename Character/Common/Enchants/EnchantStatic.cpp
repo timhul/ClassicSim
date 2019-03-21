@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include "Utils/Check.h"
 
 EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, int enchant_slot) :
     Enchant(enchant_name),
@@ -16,7 +17,7 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         else if (enchant_slot == EnchantSlot::OFFHAND)
             pchar->increase_oh_flat_damage_bonus(5);
         else
-            assert(false);
+            check(false, "Unhandled case in switch");
         break;
     case EnchantName::EnchantWeaponAgility:
         pchar->get_stats()->increase_agility(15);
@@ -112,10 +113,10 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         else if (enchant_slot == EnchantSlot::OFFHAND)
             pchar->increase_oh_flat_damage_bonus(8);
         else
-            assert(false);
+            check(false, "Unhandled case in switch");
         break;
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         break;
     }
 }
@@ -127,8 +128,6 @@ EnchantStatic::~EnchantStatic() {
             pchar->decrease_mh_flat_damage_bonus(5);
         else if (enchant_slot == EnchantSlot::OFFHAND)
             pchar->decrease_oh_flat_damage_bonus(5);
-        else
-            assert(false);
         break;
     case EnchantName::EnchantWeaponAgility:
         pchar->get_stats()->decrease_agility(15);
@@ -223,11 +222,8 @@ EnchantStatic::~EnchantStatic() {
             pchar->decrease_mh_flat_damage_bonus(8);
         else if (enchant_slot == EnchantSlot::OFFHAND)
             pchar->decrease_oh_flat_damage_bonus(8);
-        else
-            assert(false);
         break;
     default:
-        assert(false);
         break;
     }
 }

@@ -1,11 +1,11 @@
-#include <cassert>
+#include "Mana.h"
 
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Engine.h"
-#include "Mana.h"
 #include "ManaTick.h"
 #include "ResourceGain.h"
+#include "Utils/Check.h"
 
 Mana::Mana(Character* pchar) :
     pchar(pchar),
@@ -50,7 +50,7 @@ void Mana::lose_resource(const unsigned mana) {
     if (current == max)
         add_next_tick();
 
-    assert(current >= mana);
+    check((current >= mana), "Underflow decrease");
     current -= mana;
 }
 

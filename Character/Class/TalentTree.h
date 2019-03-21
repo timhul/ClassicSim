@@ -4,7 +4,6 @@
 #include <QString>
 #include <QMap>
 #include <QVector>
-#include <cassert>
 
 class Character;
 class Talent;

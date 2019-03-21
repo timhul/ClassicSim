@@ -1,11 +1,12 @@
-
 #include "RotationFileReader.h"
-#include "Rotation.h"
-#include "RotationExecutor.h"
-#include "Condition.h"
 
 #include <QDebug>
 #include <QDir>
+
+#include "Condition.h"
+#include "Rotation.h"
+#include "RotationExecutor.h"
+#include "Utils/Check.h"
 
 void RotationFileReader::add_rotations(QVector<Rotation*> & rotations) {
     QFile paths_file("rotation_paths.xml");
@@ -360,7 +361,6 @@ int RotationFileReader::get_comparator_from_string(const QString& comparator) co
     if (comparator == "less")
         return Comparators::less;
 
-    qDebug() << "Could not find comparator for" << comparator;
-    assert(false);
+    check(false, QString("Could not find comparator for '%1'").arg(comparator).toStdString());
     return -1;
 }

@@ -21,6 +21,7 @@
 #include "Stats.h"
 #include "Target.h"
 #include "UseTrinket.h"
+#include "Utils/Check.h"
 
 Item::Item(QString name,
            int item_id,
@@ -140,7 +141,7 @@ int Item::get_weapon_slot() const {
 }
 
 void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
-    assert(active_procs.empty());
+    check(active_procs.empty(), "Procs already active on applying equip effect");
 
     this->pchar = pchar;
 
@@ -254,8 +255,7 @@ void Item::set_uses() {
                 stat_type = ItemStats::Strength;
             else {
                 stat_type = ItemStats::Armor;
-                qDebug() << "unsupported stat use type" << type;
-                assert(false);
+                check(false, QString("Unsupported stat use type '%1'").arg(type).toStdString());
             }
 
             int duration = use["duration"].toInt();
@@ -435,7 +435,7 @@ MagicSchool Item::get_magic_school(const QString& name) {
     if (name.startsWith("HOLY_"))
         return MagicSchool::Holy;
 
-    assert(false);
+    check(false, QString("Unknown magic school '%1'").arg(name).toStdString());
     return MagicSchool::Physical;
 }
 

@@ -1,9 +1,9 @@
 #include "MeleeSpecialTable.h"
 
-#include <cassert>
 #include <math.h>
 
 #include "Random.h"
+#include "Utils/Check.h"
 
 MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
                                      const int wpn_skill,
@@ -22,10 +22,10 @@ MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
 }
 
 void MeleeSpecialTable::update_ranges() {
-    assert(int(round(miss * 10000)) >= 0);
-    assert(int(round(dodge * 10000)) >= 0);
-    assert(int(round(parry * 10000)) >= 0);
-    assert(int(round(block * 10000)) >= 0);
+    check((int(round(miss * 10000)) >= 0), "Range must be positive value");
+    check((int(round(dodge * 10000)) >= 0), "Range must be positive value");
+    check((int(round(parry * 10000)) >= 0), "Range must be positive value");
+    check((int(round(block * 10000)) >= 0), "Range must be positive value");
 
     this->miss_range = static_cast<unsigned>(round(miss * 10000));
     this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
@@ -43,7 +43,7 @@ int MeleeSpecialTable::get_outcome(const unsigned roll,
                                    const bool include_parry,
                                    const bool include_block,
                                    const bool include_miss) {
-    assert(roll < 10000);
+    check((roll < 10000), "Roll outside range");
 
     unsigned range = 0;
 

@@ -2,6 +2,7 @@
 
 #include "Equipment.h"
 #include "Faction.h"
+#include "Utils/Check.h"
 #include "Warrior.h"
 #include "Weapon.h"
 
@@ -76,7 +77,7 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
         };
     }
 
-    assert(false);
+    check(false, "Reached end of switch");
     return {};
 }
 
@@ -103,6 +104,6 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
         return enchants;
     }
 
-    assert(false);
+    check(false, "Reached end of switch");
     return {};
 }

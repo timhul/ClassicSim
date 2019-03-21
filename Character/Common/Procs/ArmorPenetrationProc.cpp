@@ -1,8 +1,9 @@
-
 #include "ArmorPenetrationProc.h"
+
 #include "ArmorPenetrationBuff.h"
 #include "Character.h"
 #include "ProcInfo.h"
+#include "Utils/Check.h"
 
 ArmorPenetrationProc::ArmorPenetrationProc(Character* pchar,
                                            const QString& proc_name,
@@ -18,9 +19,10 @@ ArmorPenetrationProc::ArmorPenetrationProc(Character* pchar,
     proc_requirement_buff(nullptr),
     armor_penetration_buff(new ArmorPenetrationBuff(pchar, proc_name, icon, reduction, max_stacks, duration))
 {
-    assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
+    check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
+          "No valid proc sources found");
 
-    assert(max_stacks > 0);
+    check((max_stacks > 0), "Max stacks must be a positive non-zero value");
     armor_penetration_buff->enable_buff();
 }
 

@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "MageSpells.h"
 #include "Mana.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
@@ -100,7 +101,7 @@ QVector<int> Mage::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::WAND});
     default:
-        assert(false);
+        check(false, "Reached end of switch");
         return QVector<int>();
     }
 }

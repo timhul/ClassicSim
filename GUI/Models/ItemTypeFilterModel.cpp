@@ -5,14 +5,15 @@
 #include "Character.h"
 #include "EquipmentDb.h"
 #include "Item.h"
+#include "Utils/Check.h"
 
 ItemTypeFilterModel::ItemTypeFilterModel(QObject *parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
       last_toggled(-1)
 {
-    assert(EquipmentSlot::MAINHAND == 0);
-    assert(EquipmentSlot::TRINKET2 == 16);
+    check((EquipmentSlot::MAINHAND == 0), "Update EquipmentSlot::MAINHAND value");
+    check((EquipmentSlot::TRINKET2 == 16), "Update EquipmentSlot::TRINKET2 value");
     for (int i = 0; i < 16; ++i)
         item_type_filters.append(QList<ItemTypeFilter>());
 }

@@ -4,7 +4,6 @@
 #include <QMap>
 #include <QString>
 #include <QVector>
-#include <assert.h>
 
 class Buff;
 class Character;

@@ -1,10 +1,12 @@
+#include "FelstrikerProc.h"
+
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "EnabledBuffs.h"
 #include "FelstrikerBuff.h"
-#include "FelstrikerProc.h"
 #include "GeneralBuffs.h"
 #include "ProcInfo.h"
-#include "CharacterSpells.h"
+#include "Utils/Check.h"
 
 FelstrikerProc::FelstrikerProc(Character* pchar,
                                const QString& name,
@@ -13,7 +15,8 @@ FelstrikerProc::FelstrikerProc(Character* pchar,
                                const int duration) :
     Proc(name, "Assets/items/Inv_weapon_shortblade_25.png", proc_rate, 0, QVector<Proc*>(), proc_sources, pchar)
 {
-    assert(proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing));
+    check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
+          "No valid proc sources found");
 
     SharedBuff* buff = pchar->get_enabled_buffs()->use_shared_buff("Felstriker");
     if (buff == nullptr) {
