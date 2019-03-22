@@ -80,7 +80,7 @@ void Test::test_all() {
     TestHunter(equipment_db).test_all();
 
     qDebug() << "test condition variable builtin";
-    TestConditionVariableBuiltin().test_all();
+    TestConditionVariableBuiltin(equipment_db).test_all();
 }
 
 void Test::test_queue() {

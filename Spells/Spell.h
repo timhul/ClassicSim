@@ -74,7 +74,7 @@ protected:
     virtual bool is_ready_spell_specific() const;
 
     const QString name;
-    const QString icon;
+    QString icon;
     Character* pchar;
     Engine* engine;
     CombatRoll* roll;

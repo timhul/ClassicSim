@@ -10,11 +10,10 @@
 
 AutoShot::AutoShot(Character* pchar) :
     Spell("Auto Shot",
-          "Assets/items/Inv_weapon_bow_11.png",
+          "",
           pchar,
           RestrictedByGcd::No,
-          (pchar->get_equipment()->get_ranged() != nullptr) ? pchar->get_equipment()->get_ranged()->get_base_weapon_speed() :
-                                                              10000,
+          0,
           ResourceType::Mana,
           0),
     paused(false)
@@ -102,4 +101,14 @@ int AutoShot::get_next_iteration() {
 void AutoShot::reset_effect() {
     next_expected_use = 0;
     paused = false;
+}
+
+void AutoShot::prepare_set_of_combat_iterations_spell_specific() {
+    if (pchar->get_equipment()->get_ranged() == nullptr)
+        return;
+
+    this->icon = "Assets/items/" + pchar->get_equipment()->get_ranged()->get_value("icon");
+    this->cooldown = pchar->get_stats()->get_ranged_wpn_speed();
+
+    reset();
 }

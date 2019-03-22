@@ -1,5 +1,8 @@
 #include "ConditionVariableBuiltin.h"
 
+#include <math.h>
+
+#include "AutoShot.h"
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
@@ -41,6 +44,11 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
     case BuiltinVariables::SwingTimer: {
         double delta = pchar->get_stats()->get_mh_wpn_speed() - pchar->get_spells()->get_mh_attack()->get_cooldown_remaining();
         return delta < 0.4;
+    }
+    case BuiltinVariables::AutoShotTimer: {
+        auto* auto_shot = pchar->get_spells()->get_auto_shot();
+        double delta = pchar->get_engine()->get_current_priority() - std::max(auto_shot->get_last_used(), 0.0);
+        return cmp_values(delta);
     }
     case BuiltinVariables::MeleeAP:
         return cmp_values(pchar->get_stats()->get_melee_ap());
@@ -87,6 +95,8 @@ BuiltinVariables ConditionVariableBuiltin::get_builtin_variable(const QString& v
         return BuiltinVariables::TimeRemainingExecute;
     if (var_name == "time_since_swing")
         return BuiltinVariables::SwingTimer;
+    if (var_name == "time_since_auto_shot")
+        return BuiltinVariables::AutoShotTimer;
     if (var_name == "melee_ap")
         return BuiltinVariables::MeleeAP;
     if (var_name == "combo_points")

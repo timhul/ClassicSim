@@ -12,6 +12,7 @@ enum BuiltinVariables {
     TimeRemainingEncounter,
     TimeRemainingExecute,
     SwingTimer,
+    AutoShotTimer,
     MeleeAP,
     ComboPoints
 };

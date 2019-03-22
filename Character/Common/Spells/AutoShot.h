@@ -17,7 +17,7 @@ public:
     void complete_shot();
     void reset_shot_timer();
 
-protected:
+private:
     bool paused;
     double next_expected_use;
     int iteration;
@@ -28,7 +28,7 @@ protected:
 
     virtual void calculate_damage(const bool);
 
-private:
+    void prepare_set_of_combat_iterations_spell_specific() override;
 };
 
 #endif // AUTOSHOT_H

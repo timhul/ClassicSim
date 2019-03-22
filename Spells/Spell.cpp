@@ -204,8 +204,8 @@ void Spell::reset() {
 }
 
 void Spell::prepare_set_of_combat_iterations() {
-    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name, icon);
     prepare_set_of_combat_iterations_spell_specific();
+    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name, icon);
 }
 
 StatisticsSpell* Spell::get_statistics_for_spell() const {
