@@ -10,7 +10,7 @@
 #include "Utils/Check.h"
 
 ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
-                                                   const int builtin,
+                                                   const BuiltinVariables builtin,
                                                    const int comparator,
                                                    const double cmp_value) :
     pchar(pchar),
@@ -76,4 +76,21 @@ double ConditionVariableBuiltin::delta(double lhs, double rhs) {
 
 bool ConditionVariableBuiltin::almost_equal(double lhs, double rhs) {
     return delta(lhs, rhs) < 0.000001;
+}
+
+BuiltinVariables ConditionVariableBuiltin::get_builtin_variable(const QString& var_name) {
+    if (var_name == "target_health")
+        return BuiltinVariables::TargetHealth;
+    if (var_name == "time_remaining_encounter")
+        return BuiltinVariables::TimeRemainingEncounter;
+    if (var_name == "time_remaining_execute")
+        return BuiltinVariables::TimeRemainingExecute;
+    if (var_name == "time_since_swing")
+        return BuiltinVariables::SwingTimer;
+    if (var_name == "melee_ap")
+        return BuiltinVariables::MeleeAP;
+    if (var_name == "combo_points")
+        return BuiltinVariables::ComboPoints;
+
+    return BuiltinVariables::Undefined;
 }

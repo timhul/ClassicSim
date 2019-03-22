@@ -6,9 +6,9 @@
 
 #include "Resource.h"
 
-class RotationExecutor;
-class Character;
 class Buff;
+class Character;
+class RotationExecutor;
 class Spell;
 
 class Rotation {
@@ -33,9 +33,7 @@ public:
 
     void dump();
 
-protected:
-    int get_builtin_variable(const QString& var_name) const;
-
+private:
     Character* pchar;
     QString class_name;
     QString name;

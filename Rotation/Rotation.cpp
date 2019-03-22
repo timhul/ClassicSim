@@ -86,10 +86,10 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
                                               sentence->compared_value.toDouble());
             break;
         case ConditionTypes::VariableBuiltinCondition:
-            if (get_builtin_variable(sentence->type_value) == BuiltinVariables::Undefined)
+            if (ConditionVariableBuiltin::get_builtin_variable(sentence->type_value) == BuiltinVariables::Undefined)
                 break;
             condition = new ConditionVariableBuiltin(this->pchar,
-                                                     get_builtin_variable(sentence->type_value),
+                                                     ConditionVariableBuiltin::get_builtin_variable(sentence->type_value),
                                                      sentence->mathematical_symbol,
                                                      sentence->compared_value.toDouble());
             break;
@@ -139,23 +139,6 @@ QString Rotation::get_name() const {
 
 QString Rotation::get_description() const {
     return this->description;
-}
-
-int Rotation::get_builtin_variable(const QString& var_name) const {
-    if (var_name == "target_health")
-        return BuiltinVariables::TargetHealth;
-    if (var_name == "time_remaining_encounter")
-        return BuiltinVariables::TimeRemainingEncounter;
-    if (var_name == "time_remaining_execute")
-        return BuiltinVariables::TimeRemainingExecute;
-    if (var_name == "time_since_swing")
-        return BuiltinVariables::SwingTimer;
-    if (var_name == "melee_ap")
-        return BuiltinVariables::MeleeAP;
-    if (var_name == "combo_points")
-        return BuiltinVariables::ComboPoints;
-
-    return BuiltinVariables::Undefined;
 }
 
 ResourceType Rotation::get_resource_from_string(const QString& resource) const {

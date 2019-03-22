@@ -6,31 +6,30 @@
 class Character;
 class Engine;
 
-namespace BuiltinVariables {
-    static const int Undefined = -1;
-    static const int TargetHealth = 0;
-    static const int TimeRemainingEncounter = 1;
-    static const int TimeRemainingExecute = 2;
-    static const int SwingTimer = 3;
-    static const int MeleeAP = 4;
-    static const int ComboPoints = 5;
-}
-
+enum BuiltinVariables {
+    Undefined = -1,
+    TargetHealth,
+    TimeRemainingEncounter,
+    TimeRemainingExecute,
+    SwingTimer,
+    MeleeAP,
+    ComboPoints
+};
 
 class ConditionVariableBuiltin : public Condition {
 public:
     ConditionVariableBuiltin(Character*,
-                             const int builtin,
+                             const BuiltinVariables builtin,
                              const int comparator,
                              const double rhs_value);
 
-
     bool condition_fulfilled() const override;
+    static BuiltinVariables get_builtin_variable(const QString& var_name);
 
 private:
     Character* pchar;
     Engine* engine;
-    const int builtin;
+    const BuiltinVariables builtin;
     const int comparator;
     const double rhs_value;
 
