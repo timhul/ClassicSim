@@ -43,7 +43,7 @@ void TestAimedShot::test_name_correct() {
 }
 
 void TestAimedShot::test_spell_cooldown() {
-    assert(almost_equal(0.0, aimed_shot()->get_base_cooldown()));
+    assert(almost_equal(10.0, aimed_shot()->get_base_cooldown()));
 }
 
 void TestAimedShot::test_obeys_global_cooldown() {
@@ -94,7 +94,7 @@ void TestAimedShot::test_hit_dmg() {
     when_aimed_shot_is_performed();
     when_running_queued_events_until(3.01);
 
-    // [Damage] = base_dmg + (wpn_speed * AP / 14) + flat_dmg_bonus
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus
     // [900] = 100 + (2.8 * 1000 / 14) + 600
     then_damage_dealt_is(900);
 }
@@ -109,7 +109,7 @@ void TestAimedShot::test_crit_dmg() {
     when_aimed_shot_is_performed();
     when_running_queued_events_until(3.01);
 
-    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1800] = (100 + (2.8 * 1000 / 14) + 600) * 2.0
     then_damage_dealt_is(1800);
 }

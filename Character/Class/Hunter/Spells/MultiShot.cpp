@@ -9,7 +9,7 @@ MultiShot::MultiShot(Character* pchar) :
           "Assets/ability/Ability_upgrademoonglaive.png",
           pchar,
           RestrictedByGcd::Yes,
-          0,
+          10.0,
           ResourceType::Mana,
           230)
 {}

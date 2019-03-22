@@ -29,7 +29,7 @@ void TestMultiShot::test_name_correct() {
 }
 
 void TestMultiShot::test_spell_cooldown() {
-    assert(almost_equal(0.0, multi_shot()->get_base_cooldown()));
+    assert(almost_equal(10.0, multi_shot()->get_base_cooldown()));
 }
 
 void TestMultiShot::test_obeys_global_cooldown() {
@@ -73,7 +73,7 @@ void TestMultiShot::test_hit_dmg() {
 
     when_multi_shot_is_performed();
 
-    // [Damage] = base_dmg + (wpn_speed * AP / 14) + flat_dmg_bonus
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus
     // [300] = 100 + (2.8 * 1000 / 14) + 150
     then_damage_dealt_is(450);
 }
@@ -87,7 +87,7 @@ void TestMultiShot::test_crit_dmg() {
 
     when_multi_shot_is_performed();
 
-    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [900] = (100 + (2.8 * 1000 / 14) + 150) * 2.0
     then_damage_dealt_is(900);
 }

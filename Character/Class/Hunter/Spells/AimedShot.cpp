@@ -9,7 +9,7 @@ AimedShot::AimedShot(Character* pchar) :
                      "Assets/items/Inv_spear_07.png",
                      pchar,
                      RestrictedByGcd::Yes,
-                     0,
+                     10.0,
                      ResourceType::Mana,
                      310,
                      3000)
