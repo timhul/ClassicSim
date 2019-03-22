@@ -42,8 +42,9 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
         return cmp_values(remaining_execute_time);
     }
     case BuiltinVariables::SwingTimer: {
-        double delta = pchar->get_stats()->get_mh_wpn_speed() - pchar->get_spells()->get_mh_attack()->get_cooldown_remaining();
-        return delta < 0.4;
+        auto* mh_attack =  pchar->get_spells()->get_mh_attack();
+        double delta = pchar->get_engine()->get_current_priority() - std::max(mh_attack->get_last_used(), 0.0);
+        return cmp_values(delta);
     }
     case BuiltinVariables::AutoShotTimer: {
         auto* auto_shot = pchar->get_spells()->get_auto_shot();

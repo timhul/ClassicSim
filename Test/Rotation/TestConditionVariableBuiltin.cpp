@@ -8,16 +8,19 @@
 #include "Engine.h"
 #include "Equipment.h"
 #include "Hunter.h"
+#include "MainhandAttackWarrior.h"
 #include "Orc.h"
 #include "PlayerAction.h"
 #include "Rogue.h"
 #include "SimSettings.h"
+#include "Warrior.h"
 #include "Weapon.h"
 
 TestConditionVariableBuiltin::TestConditionVariableBuiltin(EquipmentDb* equipment_db):
     TestObject(equipment_db),
     hunter(nullptr),
     rogue(nullptr),
+    warrior(nullptr),
     race(nullptr),
     sim_settings(nullptr)
 {}
@@ -51,6 +54,14 @@ void TestConditionVariableBuiltin::test_all() {
 
     set_up_hunter();
     test_auto_shot_timer_greater();
+    tear_down();
+
+    set_up_warrior();
+    test_swing_timer_less();
+    tear_down();
+
+    set_up_warrior();
+    test_swing_timer_greater();
     tear_down();
 }
 
@@ -243,6 +254,82 @@ void TestConditionVariableBuiltin::test_auto_shot_timer_greater() {
     assert(condition300ms.condition_fulfilled());
 }
 
+void TestConditionVariableBuiltin::test_swing_timer_less() {
+    warrior->get_equipment()->set_mainhand(19364);
+    assert(warrior->get_equipment()->get_mainhand()->get_name() == "Ashkandi, Greatsword of the Brotherhood");
+    MainhandAttack* mh_attack = warrior->get_spells()->get_mh_attack();
+    mh_attack->prepare_set_of_combat_iterations();
+
+    ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparators::less, 0.2);
+    ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparators::less, 0.3);
+
+    assert(mh_attack->is_available());
+    assert(condition200ms.condition_fulfilled());
+    assert(condition300ms.condition_fulfilled());
+
+    mh_attack->perform();
+    assert(condition200ms.condition_fulfilled());
+    assert(condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.1);
+    assert(condition200ms.condition_fulfilled());
+    assert(condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.19);
+    assert(condition200ms.condition_fulfilled());
+    assert(condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.21);
+    assert(!condition200ms.condition_fulfilled());
+    assert(condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.29);
+    assert(!condition200ms.condition_fulfilled());
+    assert(condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.31);
+    assert(!condition200ms.condition_fulfilled());
+    assert(!condition300ms.condition_fulfilled());
+}
+
+void TestConditionVariableBuiltin::test_swing_timer_greater() {
+    warrior->get_equipment()->set_mainhand(19364);
+    assert(warrior->get_equipment()->get_mainhand()->get_name() == "Ashkandi, Greatsword of the Brotherhood");
+    MainhandAttack* mh_attack = warrior->get_spells()->get_mh_attack();
+    mh_attack->prepare_set_of_combat_iterations();
+
+    ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparators::greater, 0.2);
+    ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparators::greater, 0.3);
+
+    assert(mh_attack->is_available());
+    assert(!condition200ms.condition_fulfilled());
+    assert(!condition300ms.condition_fulfilled());
+
+    mh_attack->perform();
+    assert(!condition200ms.condition_fulfilled());
+    assert(!condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.1);
+    assert(!condition200ms.condition_fulfilled());
+    assert(!condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.19);
+    assert(!condition200ms.condition_fulfilled());
+    assert(!condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.21);
+    assert(condition200ms.condition_fulfilled());
+    assert(!condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.29);
+    assert(condition200ms.condition_fulfilled());
+    assert(!condition300ms.condition_fulfilled());
+
+    set_event_priority(warrior->get_engine(), 0.31);
+    assert(condition200ms.condition_fulfilled());
+    assert(condition300ms.condition_fulfilled());
+}
+
 void TestConditionVariableBuiltin::set_up_rogue() {
     this->race = new Orc();
     this->sim_settings = new SimSettings();
@@ -255,14 +342,22 @@ void TestConditionVariableBuiltin::set_up_hunter() {
     this->hunter = new Hunter(race, equipment_db, sim_settings);
 }
 
+void TestConditionVariableBuiltin::set_up_warrior() {
+    this->race = new Orc();
+    this->sim_settings = new SimSettings();
+    this->warrior = new Warrior(race, equipment_db, sim_settings);
+}
+
 void TestConditionVariableBuiltin::tear_down() {
     delete rogue;
     delete hunter;
+    delete warrior;
     delete race;
     delete sim_settings;
 
     rogue = nullptr;
     hunter = nullptr;
+    warrior = nullptr;
 }
 
 void TestConditionVariableBuiltin::set_event_priority(Engine* engine, const double priority) {

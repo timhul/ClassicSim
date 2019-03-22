@@ -10,6 +10,7 @@ class Hunter;
 class Race;
 class Rogue;
 class SimSettings;
+class Warrior;
 
 class TestConditionVariableBuiltin : TestObject {
 public:
@@ -28,13 +29,18 @@ private:
     void test_auto_shot_timer_less();
     void test_auto_shot_timer_greater();
 
+    void test_swing_timer_less();
+    void test_swing_timer_greater();
+
     Hunter* hunter;
     Rogue* rogue;
+    Warrior* warrior;
     Race* race;
     SimSettings* sim_settings;
 
     void set_up_rogue();
     void set_up_hunter();
+    void set_up_warrior();
 
     void tear_down();
 
