@@ -12,8 +12,7 @@ OffhandAttack::OffhandAttack(Character* pchar) :
           "Assets/items/Inv_sword_04.png",
           pchar,
           RestrictedByGcd::No,
-          (pchar->get_equipment()->get_offhand() != nullptr) ? pchar->get_equipment()->get_offhand()->get_base_weapon_speed() :
-                                                                10000,
+          0,
           ResourceType::Rage,
           0),
     offhand_penalty(0.5)
@@ -110,3 +109,12 @@ void OffhandAttack::reset_effect() {
     next_expected_use = 0;
 }
 
+void OffhandAttack::prepare_set_of_combat_iterations_spell_specific() {
+    if (pchar->get_equipment()->get_offhand() == nullptr)
+        return;
+
+    this->icon = "Assets/items/" + pchar->get_equipment()->get_offhand()->get_value("icon");
+    this->cooldown = pchar->get_stats()->get_oh_wpn_speed();
+
+    reset();
+}

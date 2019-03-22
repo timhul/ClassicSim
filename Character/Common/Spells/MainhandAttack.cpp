@@ -9,11 +9,10 @@
 
 MainhandAttack::MainhandAttack(Character* pchar) :
     Spell("Mainhand Attack",
-          "Assets/items/Inv_axe_01.png",
+          "",
           pchar,
           RestrictedByGcd::No,
-          (pchar->get_equipment()->get_mainhand() != nullptr) ? pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() :
-                                                                10000,
+          0,
           ResourceType::Rage,
           0)
 {
@@ -95,7 +94,6 @@ void MainhandAttack::reset_swingtimer() {
     next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_mh_wpn_speed();
 }
 
-
 bool MainhandAttack::attack_is_valid(const int iteration) const {
     return this->iteration == iteration;
 }
@@ -106,4 +104,14 @@ int MainhandAttack::get_next_iteration() {
 
 void MainhandAttack::reset_effect() {
     next_expected_use = 0;
+}
+
+void MainhandAttack::prepare_set_of_combat_iterations_spell_specific() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        return;
+
+    this->icon = "Assets/items/" + pchar->get_equipment()->get_mainhand()->get_value("icon");
+    this->cooldown = pchar->get_stats()->get_mh_wpn_speed();
+
+    reset();
 }

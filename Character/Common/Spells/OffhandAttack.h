@@ -29,6 +29,7 @@ protected:
     virtual void calculate_damage(const bool);
 
 private:
+    void prepare_set_of_combat_iterations_spell_specific() override;
 };
 
 #endif // OFFHANDATTACK_H
