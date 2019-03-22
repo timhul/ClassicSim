@@ -3,6 +3,8 @@
 
 #include "TestUtils.h"
 
+#include <QDebug>
+
 class EquipmentDb;
 
 class TestObject : public TestUtils {
