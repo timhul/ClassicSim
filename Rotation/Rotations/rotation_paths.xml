@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<paths>
+	<file path="Rotations/Warrior/DWFury.xml"/>
+	<file path="Rotations/Warrior/DWFuryConservative.xml"/>
+	<file path="Rotations/Warrior/2hFury.xml"/>
+	<file path="Rotations/Warrior/Arms.xml"/>
+
+	<file path="Rotations/Rogue/Combat.xml"/>
+	<file path="Rotations/Rogue/CombatDagger.xml"/>
+	<file path="Rotations/Rogue/Hemorrhage.xml"/>
+	
+	<file path="Rotations/Hunter/Marksmanship.xml"/>
+</paths>
