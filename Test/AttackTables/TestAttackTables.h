@@ -1,14 +1,16 @@
 #ifndef TESTATTACKTABLES_H
 #define TESTATTACKTABLES_H
 
-#include "TestCharacter.h"
+#include "TestObject.h"
 
-class TestAttackTables : TestCharacter {
+class TestAttackTables : TestObject {
 public:
+    TestAttackTables(EquipmentDb* equipment_db);
+
     void test_all() override;
 
 private:
-    void test_basic_properties() override;
+    void test_values_after_initialization() override;
     void test_white_hit_table();
     void test_white_hit_table_update();
     void test_special_hit_table();

@@ -1,17 +1,19 @@
 #ifndef TESTHUNTER_H
 #define TESTHUNTER_H
 
-#include "TestCharacter.h"
+#include "TestObject.h"
 #include "TestUtils.h"
 
 class EquipmentDb;
 
-class TestHunter : public TestCharacter {
+class TestHunter : public TestObject {
 public:
+    TestHunter(EquipmentDb* equipment_db);
+
     void test_all() override;
 
 private:
-    void test_basic_properties() override;
+    void test_values_after_initialization() override;
 };
 
 #endif // TESTHUNTER_H

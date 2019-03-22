@@ -10,8 +10,12 @@
 #include "TestMultiShot.h"
 #include "TestSurvival.h"
 
+TestHunter::TestHunter(EquipmentDb* equipment_db):
+    TestObject(equipment_db)
+{}
+
 void TestHunter::test_all() {
-    test_basic_properties();
+    test_values_after_initialization();
 
     TestAimedShot(equipment_db).test_all();
     TestAutoShot(equipment_db).test_all();
@@ -22,7 +26,7 @@ void TestHunter::test_all() {
     TestSurvival(equipment_db).test_all();
 }
 
-void TestHunter::test_basic_properties() {
+void TestHunter::test_values_after_initialization() {
     Race* race = new Orc();
     auto* hunter = new Hunter(race, equipment_db, nullptr);
 

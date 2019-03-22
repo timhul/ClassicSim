@@ -34,8 +34,12 @@
 #include "TestArms.h"
 #include "TestFury.h"
 
+TestWarrior::TestWarrior(EquipmentDb* equipment_db):
+    TestObject(equipment_db)
+{}
+
 void TestWarrior::test_all() {
-    test_basic_properties();
+    test_values_after_initialization();
 
     TestExecute(equipment_db).test_all();
     TestHeroicStrike(equipment_db).test_all();
@@ -63,7 +67,7 @@ void TestWarrior::test_all() {
     TestFury(equipment_db).test_all();
 }
 
-void TestWarrior::test_basic_properties() {
+void TestWarrior::test_values_after_initialization() {
     Race* race = new Orc();
     auto* warr = new Warrior(race, equipment_db, nullptr);
 

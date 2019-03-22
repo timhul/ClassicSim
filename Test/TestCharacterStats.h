@@ -1,14 +1,14 @@
 #ifndef TESTCHARACTERSTATS_H
 #define TESTCHARACTERSTATS_H
 
-#include "TestCharacter.h"
+#include "TestObject.h"
 
 class Character;
 class CharacterStats;
 class Race;
 
 
-class TestCharacterStats : TestCharacter {
+class TestCharacterStats : TestObject {
 public:
     TestCharacterStats();
 
@@ -21,7 +21,7 @@ private:
     CharacterStats* cstats;
     Race* race;
 
-    void test_basic_properties() override;
+    void test_values_after_initialization() override;
 
     void test_attack_speed_multipliers_stacks_multiplicatively();
     void test_physical_damage_multipliers_stacks_multiplicatively();

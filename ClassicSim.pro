@@ -172,7 +172,6 @@ SOURCES += main.cpp \
     Character/Race/Race.cpp \
     GUI/Models/ActiveItemStatFilterModel.cpp \
     GUI/Models/AvailableItemStatFilterModel.cpp \
-    Test/TestCharacter.cpp \
     Test/TestSpellDamage.cpp \
     Character/Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
     Test/Warrior/Spells/TestDeathWish.cpp \
@@ -311,7 +310,8 @@ SOURCES += main.cpp \
     Character/Common/Spells/AutoShot.cpp \
     Test/Hunter/Spells/TestAutoShot.cpp \
     Character/Class/Hunter/Spells/AimedShot.cpp \
-    Test/Hunter/Spells/TestAimedShot.cpp
+    Test/Hunter/Spells/TestAimedShot.cpp \
+    Test/TestObject.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -480,7 +480,6 @@ HEADERS += \
     Equipment/Item/ItemStatsEnum.h \
     GUI/Models/ActiveItemStatFilterModel.h \
     GUI/Models/AvailableItemStatFilterModel.h \
-    Test/TestCharacter.h \
     Test/TestSpellDamage.h \
     Character/Class/Warrior/Buffs/DefensiveStanceBuff.h \
     Test/Warrior/Spells/TestDeathWish.h \
@@ -626,7 +625,8 @@ HEADERS += \
     Test/Hunter/Spells/TestAutoShot.h \
     Character/Class/Hunter/Spells/AimedShot.h \
     Test/Hunter/Spells/TestAimedShot.h \
-    Utils/Check.h
+    Utils/Check.h \
+    Test/TestObject.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

@@ -24,8 +24,12 @@
 #include "TestCombat.h"
 #include "TestSubtlety.h"
 
+TestRogue::TestRogue(EquipmentDb* equipment_db):
+    TestObject(equipment_db)
+{}
+
 void TestRogue::test_all() {
-    test_basic_properties();
+    test_values_after_initialization();
 
     TestEnergy(equipment_db).test_all();
 
@@ -45,7 +49,7 @@ void TestRogue::test_all() {
     TestSubtlety(equipment_db).test_all();
 }
 
-void TestRogue::test_basic_properties() {
+void TestRogue::test_values_after_initialization() {
     Race* race = new Orc();
     auto* rogue = new Rogue(race, equipment_db, nullptr);
 

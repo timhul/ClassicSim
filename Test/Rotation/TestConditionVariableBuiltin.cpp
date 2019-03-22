@@ -7,8 +7,12 @@
 #include "Rogue.h"
 #include "SimSettings.h"
 
+TestConditionVariableBuiltin::TestConditionVariableBuiltin():
+    TestObject(nullptr)
+{}
+
 void TestConditionVariableBuiltin::test_all() {
-    test_basic_properties();
+    test_values_after_initialization();
 
     test_combo_points_less();
     test_combo_points_leq();
@@ -17,7 +21,7 @@ void TestConditionVariableBuiltin::test_all() {
     test_combo_points_greater();
 }
 
-void TestConditionVariableBuiltin::test_basic_properties() {
+void TestConditionVariableBuiltin::test_values_after_initialization() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_less() {

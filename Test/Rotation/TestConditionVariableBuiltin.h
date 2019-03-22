@@ -1,17 +1,18 @@
 #ifndef TESTCONDITIONVARIABLEBUILTIN_H
 #define TESTCONDITIONVARIABLEBUILTIN_H
 
-#include "TestCharacter.h"
+#include "TestObject.h"
 
 class ConditionVariableBuiltin;
 class Rogue;
 
-class TestConditionVariableBuiltin : TestCharacter {
+class TestConditionVariableBuiltin : TestObject {
 public:
+    TestConditionVariableBuiltin();
     void test_all() override;
 
 private:
-    void test_basic_properties() override;
+    void test_values_after_initialization() override;
     void test_combo_points_less();
     void test_combo_points_leq();
     void test_combo_points_equal();

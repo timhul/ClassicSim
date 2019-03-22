@@ -66,19 +66,20 @@ void Test::test_all() {
     test_queue();
 
     TestMechanics().test_all();
-    TestAttackTables().test_all();
+    TestAttackTables(equipment_db).test_all();
     TestCharacterStats().test_all();
     TestFelstrikerProc(equipment_db).test_all();
 
     qDebug() << "test_warrior";
-    TestWarrior().test_all();
+    TestWarrior(equipment_db).test_all();
 
     qDebug() << "test_rogue";
-    TestRogue().test_all();
+    TestRogue(equipment_db).test_all();
 
     qDebug() << "test_hunter";
-    TestHunter().test_all();
+    TestHunter(equipment_db).test_all();
 
+    qDebug() << "test condition variable builtin";
     TestConditionVariableBuiltin().test_all();
 }
 

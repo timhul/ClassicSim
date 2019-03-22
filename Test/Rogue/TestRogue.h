@@ -1,17 +1,19 @@
 #ifndef TESTROGUE_H
 #define TESTROGUE_H
 
-#include "TestCharacter.h"
+#include "TestObject.h"
 #include "TestUtils.h"
 
 class EquipmentDb;
 
-class TestRogue : public TestCharacter {
+class TestRogue : public TestObject {
 public:
+    TestRogue(EquipmentDb* equipment_db);
+
     void test_all() override;
 
 private:
-    void test_basic_properties() override;
+    void test_values_after_initialization() override;
 };
 
 #endif // TESTROGUE_H

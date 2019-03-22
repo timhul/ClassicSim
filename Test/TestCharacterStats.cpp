@@ -5,6 +5,7 @@
 #include "Warrior.h"
 
 TestCharacterStats::TestCharacterStats() :
+    TestObject(nullptr),
     pchar(nullptr),
     cstats(nullptr),
     race(nullptr)
@@ -23,7 +24,7 @@ void TestCharacterStats::tear_down() {
 
 void TestCharacterStats::test_all() {
     set_up();
-    test_basic_properties();
+    test_values_after_initialization();
     tear_down();
 
     set_up();
@@ -55,7 +56,7 @@ void TestCharacterStats::test_all() {
     tear_down();
 }
 
-void TestCharacterStats::test_basic_properties() {
+void TestCharacterStats::test_values_after_initialization() {
     assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
     assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.0));
     assert(almost_equal(cstats->get_physical_damage_taken_mod(), 1.0));
