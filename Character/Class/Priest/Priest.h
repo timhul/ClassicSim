@@ -9,7 +9,7 @@ class PriestSpells;
 class Priest: public Character {
 public:
     Priest(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings);
-    virtual ~Priest() override;
+    ~Priest() override;
 
     QString get_class_color() const override;
     unsigned get_strength_modifier() const override;

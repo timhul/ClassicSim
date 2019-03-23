@@ -8,7 +8,7 @@ class Shaman;
 class ShamanSpells: public CharacterSpells {
 public:
     ShamanSpells(Shaman *shaman);
-    virtual ~ShamanSpells() override;
+    ~ShamanSpells() override;
 
 private:
     Shaman* shaman;

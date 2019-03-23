@@ -8,7 +8,7 @@ class Paladin;
 class PaladinSpells: public CharacterSpells {
 public:
     PaladinSpells(Paladin *paladin);
-    virtual ~PaladinSpells() override;
+    ~PaladinSpells() override;
 
 private:
     Paladin* paladin;

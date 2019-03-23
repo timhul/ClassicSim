@@ -14,7 +14,7 @@ class Spell;
 class Rotation {
 public:
     Rotation(QString class_name);
-    virtual ~Rotation();
+    ~Rotation();
 
     void perform_rotation() const;
 

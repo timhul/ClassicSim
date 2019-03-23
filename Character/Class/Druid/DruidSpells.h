@@ -8,7 +8,7 @@ class Druid;
 class DruidSpells: public CharacterSpells {
 public:
     DruidSpells(Druid *druid);
-    virtual ~DruidSpells() override;
+    ~DruidSpells() override;
 
 private:
     Druid* druid;

@@ -15,7 +15,7 @@ class SwordSpecialization;
 class Rogue: public Character {
 public:
     Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
-    virtual ~Rogue() override;
+    ~Rogue() override;
 
     QString get_class_color() const override;
     unsigned get_strength_modifier() const override;

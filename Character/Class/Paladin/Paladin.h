@@ -9,7 +9,7 @@ class PaladinSpells;
 class Paladin: public Character {
 public:
     Paladin(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
-    virtual ~Paladin() override;
+    ~Paladin() override;
 
     QString get_class_color() const override;
     unsigned get_strength_modifier() const override;

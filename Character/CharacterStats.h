@@ -17,7 +17,7 @@ class Weapon;
 class CharacterStats {
 public:
     CharacterStats(Character*, EquipmentDb* equipment_db);
-    virtual ~CharacterStats();
+    ~CharacterStats();
 
     Equipment* get_equipment(void) const;
     Stats* get_stats(void) const;
@@ -85,11 +85,11 @@ public:
     void increase_dmg_vs_type(const Target::CreatureType, const double);
     void decrease_dmg_vs_type(const Target::CreatureType, const double);
 
-    virtual void increase_hit(double);
-    virtual void decrease_hit(double);
+    void increase_hit(double);
+    void decrease_hit(double);
 
-    virtual void increase_crit(double);
-    virtual void decrease_crit(double);
+    void increase_crit(double);
+    void decrease_crit(double);
 
     void increase_crit_for_weapon_type(const int, const double);
     void decrease_crit_for_weapon_type(const int, const double);
@@ -97,11 +97,11 @@ public:
     void increase_total_phys_dmg_for_weapon_type(const int, const int);
     void decrease_total_phys_dmg_for_weapon_type(const int, const int);
 
-    virtual void increase_spell_hit(double);
-    virtual void decrease_spell_hit(double);
+    void increase_spell_hit(double);
+    void decrease_spell_hit(double);
 
-    virtual void increase_spell_crit(double);
-    virtual void decrease_spell_crit(double);
+    void increase_spell_crit(double);
+    void decrease_spell_crit(double);
 
     void increase_total_phys_dmg_mod(const int);
     void decrease_total_phys_dmg_mod(const int);

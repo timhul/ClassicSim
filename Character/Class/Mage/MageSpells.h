@@ -8,7 +8,7 @@ class Mage;
 class MageSpells: public CharacterSpells {
 public:
     MageSpells(Mage *mage);
-    virtual ~MageSpells() override;
+    ~MageSpells() override;
 
 private:
     Mage* mage;

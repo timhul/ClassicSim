@@ -9,7 +9,7 @@ class MageSpells;
 class Mage: public Character {
 public:
     Mage(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings);
-    virtual ~Mage() override;
+    ~Mage() override;
 
     QString get_class_color() const override;
     unsigned get_strength_modifier() const override;

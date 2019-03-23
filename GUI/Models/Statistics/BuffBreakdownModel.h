@@ -25,7 +25,7 @@ class BuffBreakdownModel : public QAbstractListModel
     Q_OBJECT
 public:
     BuffBreakdownModel(NumberCruncher* statistics_source, QObject *parent = nullptr);
-    virtual ~BuffBreakdownModel();
+    ~BuffBreakdownModel();
 
     Q_INVOKABLE void selectSort(const int method);
 

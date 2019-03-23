@@ -9,7 +9,7 @@ class ShamanSpells;
 class Shaman: public Character {
 public:
     Shaman(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings);
-    virtual ~Shaman() override;
+    ~Shaman() override;
 
     QString get_class_color() const override;
     unsigned get_strength_modifier() const override;

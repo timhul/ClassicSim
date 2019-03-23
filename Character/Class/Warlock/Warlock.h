@@ -9,7 +9,7 @@ class WarlockSpells;
 class Warlock: public Character {
 public:
     Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
-    virtual ~Warlock() override;
+    ~Warlock() override;
 
     QString get_class_color() const override;
     unsigned get_strength_modifier() const override;

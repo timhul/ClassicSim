@@ -12,7 +12,7 @@ class Rage;
 class Druid: public Character {
 public:
     Druid(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
-    virtual ~Druid() override;
+    ~Druid() override;
 
     QString get_class_color() const override;
     unsigned get_strength_modifier() const override;

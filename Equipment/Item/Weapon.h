@@ -14,7 +14,7 @@ public:
            QVector<QMap<QString, QString>> procs = {});
     Weapon(const Weapon* weapon);
 
-    virtual ~Weapon() override;
+    ~Weapon() override;
 
     int get_weapon_slot() const override;
     int get_weapon_type() const;

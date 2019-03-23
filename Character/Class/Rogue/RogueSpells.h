@@ -16,7 +16,7 @@ class SliceAndDice;
 class RogueSpells: public CharacterSpells {
 public:
     RogueSpells(Rogue *rogue);
-    virtual ~RogueSpells() override;
+    ~RogueSpells() override;
 
     void oh_auto_attack(const int) override;
     void add_next_oh_attack(void) override;

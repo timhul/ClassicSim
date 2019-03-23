@@ -17,7 +17,7 @@ class StatisticsProc;
 class ClassStatistics {
 public:
     ClassStatistics(SimSettings* settings);
-    virtual ~ClassStatistics();
+    ~ClassStatistics();
 
     StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon);
     StatisticsBuff* get_buff_statistics(const QString& name, const QString &icon, const bool debuff);
