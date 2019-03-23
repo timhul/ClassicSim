@@ -41,11 +41,11 @@ QString Spell::get_name() const {
     return this->name;
 }
 
-double Spell::get_base_cooldown() {
+double Spell::get_base_cooldown() const {
     return this->cooldown;
 }
 
-double Spell::get_last_used() {
+double Spell::get_last_used() const {
     return this->last_used;
 }
 

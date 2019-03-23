@@ -39,12 +39,11 @@ public:
 
     QString get_name() const;
 
-    double get_base_cooldown();
+    double get_base_cooldown() const;
     double get_cooldown_remaining() const;
-    double get_last_used();
+    double get_last_used() const;
     double get_next_use() const;
-
-    virtual bool is_available() const;
+    bool is_available() const;
 
     void enable();
     void disable();
@@ -89,8 +88,8 @@ protected:
     int instance_id;
     bool enabled;
 
-    void add_spell_cd_event(void) const;
-    void add_gcd_event(void) const;
+    void add_spell_cd_event() const;
+    void add_gcd_event() const;
 
     void increment_miss();
     void increment_full_resist();
