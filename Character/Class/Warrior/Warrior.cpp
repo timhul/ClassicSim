@@ -49,21 +49,13 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    // CSIM-67: Investigate whether base stats below are the same for all melee classes.
-    // Character sheet implies 3% base crit.
-    // Crit without gear and no crit from base agil = 3 - (clvl * 5 - wpn-skill) * 0.04
-    this->cstats->increase_crit(0.03);
-    // Character sheet implies -17 base melee ap at 1: 26 STR -> 35 Melee AP = -17 base melee ap.
-    // Character sheet implies 160 base melee ap at 60: 123 STR -> 406 Melee AP = 160 base melee ap.
-    this->cstats->get_stats()->increase_base_melee_ap(160);
-
-    // CSIM-68: Constants added as a hack for now, these are the gains from 1-60.
-    // This essentially forces a clvl of 60 for stats to be accurate for warrior.
-    cstats->increase_strength(97);
-    cstats->increase_agility(60);
-    cstats->increase_stamina(88);
-    cstats->increase_intellect(10);
-    cstats->increase_spirit(25);
+    cstats->increase_agility(80);
+    cstats->increase_intellect(30);
+    cstats->increase_spirit(45);
+    cstats->increase_stamina(110);
+    cstats->increase_strength(120);
+    cstats->increase_crit(0.03);
+    cstats->increase_melee_ap(160);
 
     this->rage = new class Rage();
     this->resource = this->rage;

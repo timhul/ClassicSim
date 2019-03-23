@@ -16,13 +16,21 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     available_races.append("Orc");
     available_races.append("Undead");
 
+    set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
+
+    cstats->increase_agility(50);
+    cstats->increase_strength(45);
+    cstats->increase_stamina(65);
+    cstats->increase_intellect(115);
+    cstats->increase_spirit(120);
 
     this->warlock_spells = new WarlockSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(warlock_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;
+    mana->set_base_mana(1373);
 }
 
 Warlock::~Warlock()

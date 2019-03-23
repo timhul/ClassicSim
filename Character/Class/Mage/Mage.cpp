@@ -16,13 +16,21 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
     available_races.append("Troll");
     available_races.append("Undead");
 
+    set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
+
+    cstats->increase_agility(35);
+    cstats->increase_strength(25);
+    cstats->increase_stamina(45);
+    cstats->increase_intellect(125);
+    cstats->increase_spirit(120);
 
     this->mage_spells = new MageSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(mage_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;
+    mana->set_base_mana(1273);
 }
 
 Mage::~Mage()

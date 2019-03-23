@@ -17,13 +17,21 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings)
     available_races.append("Troll");
     available_races.append("Undead");
 
+    set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
+
+    cstats->increase_agility(40);
+    cstats->increase_strength(35);
+    cstats->increase_stamina(50);
+    cstats->increase_intellect(120);
+    cstats->increase_spirit(125);
 
     this->priest_spells = new PriestSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(priest_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;
+    mana->set_base_mana(1436);
 }
 
 Priest::~Priest()

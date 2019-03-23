@@ -15,13 +15,21 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
     available_races.append("Tauren");
     available_races.append("Troll");
 
+    set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
+
+    cstats->increase_agility(50);
+    cstats->increase_strength(90);
+    cstats->increase_stamina(95);
+    cstats->increase_intellect(85);
+    cstats->increase_spirit(100);
 
     this->shaman_spells = new ShamanSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(shaman_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;
+    mana->set_base_mana(1520);
 }
 
 Shaman::~Shaman()

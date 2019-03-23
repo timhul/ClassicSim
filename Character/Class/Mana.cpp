@@ -9,6 +9,7 @@
 
 Mana::Mana(Character* pchar) :
     pchar(pchar),
+    base_mana(0),
     mana_per_tick(0)
 {
     this->max = get_max_mana();
@@ -20,12 +21,17 @@ Mana::~Mana() {
     delete mana_tick;
 }
 
-unsigned Mana::get_max_mana() const {
-    return pchar->get_stats()->get_intellect() * 15;
+void Mana::set_base_mana(const unsigned base_mana) {
+    this->base_mana = base_mana;
+    reset_resource();
 }
 
-void Mana::gain_resource(const unsigned Mana) {
-    current += Mana;
+unsigned Mana::get_max_mana() const {
+    return base_mana + pchar->get_stats()->get_intellect() * 15;
+}
+
+void Mana::gain_resource(const unsigned mana) {
+    current += mana;
 
     if (current > max)
         current = max;

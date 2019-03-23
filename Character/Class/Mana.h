@@ -15,6 +15,7 @@ public:
     void lose_resource(const unsigned) override;
     void reset_resource() override;
 
+    void set_base_mana(const unsigned base_mana);
     unsigned get_max_mana() const;
     void tick_mana();
 
@@ -29,9 +30,10 @@ public:
 private:
     Character* pchar;
     ManaTick* mana_tick;
+    unsigned base_mana;
+    unsigned mana_per_tick;
 
     void add_next_tick();
-    unsigned mana_per_tick;
 };
 
 #endif // MANA_H

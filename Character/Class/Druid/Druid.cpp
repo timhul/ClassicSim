@@ -18,14 +18,22 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     available_races.append("Night Elf");
     available_races.append("Tauren");
 
+    set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
+
+    cstats->increase_agility(60);
+    cstats->increase_strength(65);
+    cstats->increase_stamina(70);
+    cstats->increase_intellect(100);
+    cstats->increase_spirit(110);
 
     this->druid_spells = new DruidSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(druid_spells);
 
     this->energy = new class Energy(this);
-    this->mana = new class Mana(this);
     this->rage = new class Rage();
+    this->mana = new class Mana(this);
+    mana->set_base_mana(1244);
 }
 
 Druid::~Druid()

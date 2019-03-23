@@ -14,13 +14,21 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     available_races.append("Dwarf");
     available_races.append("Human");
 
+    set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
+
+    cstats->increase_agility(40);
+    cstats->increase_strength(35);
+    cstats->increase_stamina(50);
+    cstats->increase_intellect(120);
+    cstats->increase_spirit(125);
 
     this->paladin_spells = new PaladinSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(paladin_spells);
 
     this->mana = new class Mana(this);
     this->resource = this->mana;
+    mana->set_base_mana(1436);
 }
 
 Paladin::~Paladin()

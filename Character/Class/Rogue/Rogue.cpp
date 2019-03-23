@@ -37,16 +37,13 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    // CSIM-68: Constants added as a hack for now, these are the gains for Warrior, with
-    // priority shifted around to fit rogue (e.g. highest gain is STR for warrior, change to AGI instead).
-    // This essentially forces a clvl of 60 for stats to be somewhat accurate.
-    cstats->increase_agility(97);
-    cstats->increase_strength(60);
-    cstats->increase_stamina(88);
-    cstats->increase_intellect(10);
-    cstats->increase_spirit(25);
-    cstats->increase_melee_ap(160);
+    cstats->increase_agility(130);
+    cstats->increase_strength(80);
+    cstats->increase_stamina(80);
+    cstats->increase_intellect(35);
+    cstats->increase_spirit(50);
     cstats->increase_crit(0.03);
+    cstats->increase_melee_ap(160);
 
     this->rogue_spells = new RogueSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(rogue_spells);
