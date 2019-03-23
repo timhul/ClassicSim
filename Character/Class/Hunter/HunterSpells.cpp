@@ -6,6 +6,7 @@
 #include "Hunter.h"
 #include "MainhandAttack.h"
 #include "MultiShot.h"
+#include "OffhandAttack.h"
 #include "RangedHit.h"
 
 HunterSpells::HunterSpells(Hunter* hunter) :
@@ -16,14 +17,19 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->auto_shot = new AutoShot(hunter);
     this->mh_attack = new MainhandAttack(hunter);
     this->multi_shot = new MultiShot(hunter);
+    this->oh_attack = new OffhandAttack(hunter);
 
     spells.append(aimed_shot);
     spells.append(auto_shot);
     spells.append(mh_attack);
     spells.append(multi_shot);
+    spells.append(oh_attack);
 }
 
 void HunterSpells::add_next_ranged_attack() {
+    if (attack_mode != AttackMode::RangedAttack)
+        return;
+
     auto* new_event = new RangedHit(this, auto_shot->get_next_expected_use(), auto_shot->get_next_iteration());
     hunter->get_engine()->add_event(new_event);
 }
@@ -40,6 +46,26 @@ void HunterSpells::ranged_auto_attack(const int iteration) {
     add_next_ranged_attack();
 }
 
+void HunterSpells::add_next_oh_attack() {
+    if (attack_mode != AttackMode::MeleeAttack)
+        return;
+
+    auto* new_event = new RangedHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
+    hunter->get_engine()->add_event(new_event);
+}
+
+void HunterSpells::oh_auto_attack(const int iteration) {
+    if (!oh_attack->attack_is_valid(iteration))
+        return;
+
+    if (!is_melee_attacking())
+        return;
+
+    oh_attack->perform();
+
+    add_next_oh_attack();
+}
+
 AimedShot* HunterSpells::get_aimed_shot() const {
     return this->aimed_shot;
 }
@@ -50,4 +76,8 @@ AutoShot* HunterSpells::get_auto_shot() const {
 
 MultiShot* HunterSpells::get_multi_shot() const {
     return this->multi_shot;
+}
+
+OffhandAttack* HunterSpells::get_oh_attack() const {
+    return oh_attack;
 }

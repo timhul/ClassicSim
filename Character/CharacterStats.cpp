@@ -261,6 +261,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::CritChance:
         return increase_crit(static_cast<double>(value) / 100);
     case ItemStats::AttackSpeedPercent:
+        pchar->increase_ranged_attack_speed(value);
         return pchar->increase_melee_attack_speed(value);
     case ItemStats::AttackPower:
         increase_melee_ap(value);
@@ -311,6 +312,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::CritChance:
         return decrease_crit(static_cast<double>(value) / 100);
     case ItemStats::AttackSpeedPercent:
+        pchar->decrease_ranged_attack_speed(value);
         return pchar->decrease_melee_attack_speed(value);
     case ItemStats::AttackPower:
         decrease_melee_ap(value);

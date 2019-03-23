@@ -12,11 +12,14 @@ public:
     HunterSpells(Hunter *hunter);
 
     void add_next_ranged_attack() override;
+    void add_next_oh_attack() override;
+    void oh_auto_attack(const int) override;
     void ranged_auto_attack(const int iteration) override;
 
     AimedShot* get_aimed_shot() const;
     AutoShot* get_auto_shot() const override;
     MultiShot* get_multi_shot() const;
+    OffhandAttack* get_oh_attack() const override;
 
 private:
     Hunter* hunter;
