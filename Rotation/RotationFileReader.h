@@ -12,23 +12,20 @@ class Sentence;
 
 class RotationFileReader {
 public:
-    RotationFileReader()
-    {}
-
-    void add_rotations(QVector<Rotation*>&);
+    static void add_rotations(QVector<Rotation*>&);
 
 private:
-    Rotation* parse_rotation_file(const QString& path);
-    void rotation_file_handler(QXmlStreamReader &reader, Rotation *rotation);
-    bool rotation_executor_handler(QXmlStreamReader &reader, RotationExecutor* executor);
+    static Rotation* parse_rotation_file(const QString& path);
+    static void rotation_file_handler(QXmlStreamReader &reader, Rotation *rotation);
+    static bool rotation_executor_handler(QXmlStreamReader &reader, RotationExecutor* executor);
 
-    bool evaluate_condition();
-    bool add_type(Sentence* sentence, const QString& type_string);
-    bool add_logical_connective(Sentence* sentence, const QString& logical_connective);
-    bool add_compare_operation(Sentence* sentence, QString &compare_operation);
-    bool add_let(Sentence* sentence, QStringList& let_list);
+    static bool evaluate_condition();
+    static bool add_type(Sentence* sentence, const QString& type_string);
+    static bool add_logical_connective(Sentence* sentence, const QString& logical_connective);
+    static bool add_compare_operation(Sentence* sentence, QString &compare_operation);
+    static bool add_let(Sentence* sentence, QStringList& let_list);
 
-    int get_comparator_from_string(const QString& comparator) const;
+    static int get_comparator_from_string(const QString& comparator);
 };
 
 #endif // ROTATIONFILEREADER_H

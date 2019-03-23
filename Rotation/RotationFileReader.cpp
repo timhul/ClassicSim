@@ -180,7 +180,7 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
             return false;
     }
     else {
-        if (!this->add_type(sentence, quotation_split.takeFirst()))
+        if (!add_type(sentence, quotation_split.takeFirst()))
             return false;
 
         // Take TYPE_VALUE
@@ -229,13 +229,13 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
             return false;
         }
 
-        if (!this->add_logical_connective(sentence, logical_connective_split.takeFirst())) {
+        if (!add_logical_connective(sentence, logical_connective_split.takeFirst())) {
             delete sentence;
             return false;
         }
 
         // Take TYPE
-        if (!this->add_type(sentence, logical_connective_split.takeFirst())) {
+        if (!add_type(sentence, logical_connective_split.takeFirst())) {
             delete sentence;
             return false;
         }
@@ -349,7 +349,7 @@ bool RotationFileReader::add_let(Sentence* sentence, QStringList &let_list) {
     return true;
 }
 
-int RotationFileReader::get_comparator_from_string(const QString& comparator) const {
+int RotationFileReader::get_comparator_from_string(const QString& comparator) {
     if (comparator == "greater")
         return Comparators::greater;
     if (comparator == "geq")

@@ -272,9 +272,8 @@ void CharacterLoader::setup_target(CharacterDecoder& decoder, Character* pchar) 
 }
 
 void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pchar) {
-    RotationFileReader rotation_file_reader;
     QVector<Rotation*> new_rotations;
-    rotation_file_reader.add_rotations(new_rotations);
+    RotationFileReader::add_rotations(new_rotations);
 
     QString rotation_name = decoder.get_value("ROTATION");
 

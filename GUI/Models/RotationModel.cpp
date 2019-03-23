@@ -51,9 +51,8 @@ void RotationModel::addRotations() {
         endResetModel();
     }
 
-    RotationFileReader rotation_file_reader;
     QVector<Rotation*> new_rotations;
-    rotation_file_reader.add_rotations(new_rotations);
+    RotationFileReader::add_rotations(new_rotations);
 
     for (auto & rotation : new_rotations) {
         if (!rotations.contains(rotation->get_class()))
