@@ -60,31 +60,20 @@ void Test::test_all() {
     test_equipment_creation();
     qDebug() << "test_combat_roll_creation";
     test_combat_roll_creation();
-    qDebug() << "test_random";
-    test_random();
-    qDebug() << "test_combat_roll_melee_hit_result";
-    test_combat_roll_melee_hit_result();
     qDebug() << "test_queue";
     test_queue();
 
     TestMechanics().test_all();
     TestAttackTables(equipment_db).test_all();
     TestCharacterStats().test_all();
-    TestFelstrikerProc(equipment_db).test_all();
+    TestConditionVariableBuiltin(equipment_db).test_all();
+    TestRotationFileReader().test_all();
 
-    qDebug() << "test_warrior";
     TestWarrior(equipment_db).test_all();
-
-    qDebug() << "test_rogue";
     TestRogue(equipment_db).test_all();
-
-    qDebug() << "test_hunter";
     TestHunter(equipment_db).test_all();
 
-    qDebug() << "test condition variable builtin";
-    TestConditionVariableBuiltin(equipment_db).test_all();
-
-    TestRotationFileReader().test_all();
+    TestFelstrikerProc(equipment_db).test_all();
 }
 
 void Test::test_queue() {
@@ -103,37 +92,10 @@ void Test::test_queue() {
     pchar->get_engine()->add_event(end_event);
     pchar->get_engine()->add_event(start_event);
     pchar->get_engine()->run();
-    pchar->get_engine()->dump();
 
     delete pchar;
     delete race;
     delete sim_settings;
-}
-
-void Test::test_random() {
-    auto* random = new Random(0, 9999);
-
-    for (int i = 0; i < 10; ++i) {
-        qDebug() << "Random rolling " << random->get_roll();
-    }
-
-    delete random;
-}
-
-void Test::test_combat_roll_melee_hit_result() {
-    Race* race = new Orc();
-    auto* sim_settings = new SimSettings();
-    auto* pchar = new Warrior(race, equipment_db, sim_settings);
-    pchar->get_equipment()->set_mainhand(19103);
-    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
-
-    for (int i = 0; i < 30; ++i) {
-        pchar->get_combat_roll()->get_melee_hit_result(300, pchar->get_stats()->get_mh_crit_chance());
-    }
-
-    delete sim_settings;
-    delete race;
-    delete pchar;
 }
 
 void Test::test_combat_roll_creation() {
