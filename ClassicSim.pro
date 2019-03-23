@@ -628,7 +628,8 @@ HEADERS += \
     Test/Hunter/Spells/TestAimedShot.h \
     Utils/Check.h \
     Test/TestObject.h \
-    Test/Rotation/TestRotationFileReader.h
+    Test/Rotation/TestRotationFileReader.h \
+    Character/Common/AttackMode.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

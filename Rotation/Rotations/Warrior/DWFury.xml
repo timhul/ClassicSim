@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<rotation class="Warrior" name="DW Fury High Rage">
+<rotation class="Warrior" name="DW Fury High Rage" attack_mode="melee">
 	<description>
 	A rotation for dual-wield fury that does not attempt to dump rage before switching to Battle Stance for Overpower.
 	</description>

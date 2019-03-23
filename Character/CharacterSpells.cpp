@@ -173,6 +173,11 @@ bool CharacterSpells::is_melee_attacking() const {
     return attack_mode == AttackMode::MeleeAttack && attack_mode_active;
 }
 
+void CharacterSpells::set_attack_mode(const AttackMode attack_mode) {
+    check(!attack_mode_active, "Attack mode active when setting new attack mode");
+    this->attack_mode = attack_mode;
+}
+
 void CharacterSpells::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;

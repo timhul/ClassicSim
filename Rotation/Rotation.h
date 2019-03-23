@@ -4,6 +4,7 @@
 #include <QMap>
 #include <QVector>
 
+#include "AttackMode.h"
 #include "Resource.h"
 
 class Buff;
@@ -23,10 +24,12 @@ public:
     void add_variable(const QString& var, const QString& value);
     void add_prerequisite(const QString& key, const QString& value);
     void add_executor(RotationExecutor* executor);
+    bool try_set_attack_mode(const QString& value);
 
     QString get_class() const;
     QString get_name() const;
     QString get_description() const;
+    AttackMode get_attack_mode() const;
 
     void link_spells(Character *pchar);
     bool add_conditionals(RotationExecutor*);
@@ -40,6 +43,7 @@ private:
     QString class_name;
     QString name;
     QString description;
+    AttackMode attack_mode;
     QMap<QString, QString> defined_variables;
     QMap<QString, QString> prerequisites;
 

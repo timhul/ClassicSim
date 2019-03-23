@@ -3,6 +3,7 @@
 #include <utility>
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
@@ -742,104 +743,116 @@ void TestSpell::given_target_has_0_armor() {
     assert(pchar->get_target()->get_armor() == 0);
 }
 
-void TestSpell:: given_1h_axe_equipped_in_mainhand(Character* pchar) {
+void TestSpell::given_1h_axe_equipped_in_mainhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(19921);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Zulian Hacker");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::AXE);
 }
 
-void TestSpell:: given_1h_mace_equipped_in_mainhand(Character* pchar) {
+void TestSpell::given_1h_mace_equipped_in_mainhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(21837);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Anubisath Warhammer");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::MACE);
 }
 
-void TestSpell:: given_1h_sword_equipped_in_mainhand(Character* pchar) {
+void TestSpell::given_1h_sword_equipped_in_mainhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(13361);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Skullforge Reaver");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::SWORD);
 }
 
-void TestSpell:: given_fist_weapon_equipped_in_mainhand(Character* pchar) {
+void TestSpell::given_fist_weapon_equipped_in_mainhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(19365);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Claw of the Black Drake");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::FIST);
 }
 
-void TestSpell:: given_dagger_equipped_in_mainhand(Character* pchar) {
+void TestSpell::given_dagger_equipped_in_mainhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(12783);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Heartseeker");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::DAGGER);
 }
 
-void TestSpell:: given_no_mainhand(Character* pchar) {
+void TestSpell::given_no_mainhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->clear_mainhand();
     assert(pchar->get_stats()->get_equipment()->get_mainhand() == nullptr);
 }
 
-void TestSpell:: given_1h_axe_equipped_in_offhand(Character* pchar) {
+void TestSpell::given_1h_axe_equipped_in_offhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_offhand(19921);
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Zulian Hacker");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::AXE);
 }
 
-void TestSpell:: given_1h_mace_equipped_in_offhand(Character* pchar) {
+void TestSpell::given_1h_mace_equipped_in_offhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_offhand(21837);
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Anubisath Warhammer");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::MACE);
 }
 
-void TestSpell:: given_1h_sword_equipped_in_offhand(Character* pchar) {
+void TestSpell::given_1h_sword_equipped_in_offhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_offhand(13361);
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Skullforge Reaver");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::SWORD);
 }
 
-void TestSpell:: given_fist_weapon_equipped_in_offhand(Character* pchar) {
+void TestSpell::given_fist_weapon_equipped_in_offhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_offhand(19910);
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Arlokk's Grasp");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::FIST);
 }
 
-void TestSpell:: given_dagger_equipped_in_offhand(Character* pchar) {
+void TestSpell::given_dagger_equipped_in_offhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_offhand(12783);
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_name() == "Heartseeker");
     assert(pchar->get_stats()->get_equipment()->get_offhand()->get_weapon_type() == WeaponTypes::DAGGER);
 }
 
-void TestSpell:: given_no_offhand(Character* pchar) {
+void TestSpell::given_no_offhand(Character* pchar) {
     pchar->get_stats()->get_equipment()->clear_offhand();
     assert(pchar->get_stats()->get_equipment()->get_offhand() == nullptr);
 }
 
-void TestSpell:: given_2h_axe_equipped(Character* pchar) {
+void TestSpell::given_2h_axe_equipped(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(12784);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Arcanite Reaper");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_AXE);
 }
 
-void TestSpell:: given_2h_mace_equipped(Character* pchar) {
+void TestSpell::given_2h_mace_equipped(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(17073);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Earthshaker");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_MACE);
 }
 
-void TestSpell:: given_2h_sword_equipped(Character* pchar) {
+void TestSpell::given_2h_sword_equipped(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(19364);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Ashkandi, Greatsword of the Brotherhood");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::TWOHAND_SWORD);
 }
 
-void TestSpell:: given_polearm_equipped(Character* pchar) {
+void TestSpell::given_polearm_equipped(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(21635);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Barb of the Sand Reaver");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::POLEARM);
 }
 
-void TestSpell:: given_staff_equipped(Character* pchar) {
+void TestSpell::given_staff_equipped(Character* pchar) {
     pchar->get_stats()->get_equipment()->set_mainhand(17743);
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_name() == "Resurgence Rod");
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::STAFF);
+}
+
+void TestSpell::given_in_melee_attack_mode() {
+    pchar->get_spells()->set_attack_mode(AttackMode::MeleeAttack);
+}
+
+void TestSpell::given_in_ranged_attack_mode() {
+    pchar->get_spells()->set_attack_mode(AttackMode::RangedAttack);
+}
+
+void TestSpell::given_in_magic_attack_mode() {
+    pchar->get_spells()->set_attack_mode(AttackMode::MagicAttack);
 }
 
 void TestSpell::given_engine_priority_at(const double priority) {

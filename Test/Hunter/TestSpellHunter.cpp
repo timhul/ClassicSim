@@ -18,6 +18,7 @@ void TestSpellHunter::set_up(const bool prepare_combat_iterations) {
     hunter = new Hunter(race, equipment_db, sim_settings);
     hunter->set_clvl(60);
     pchar = hunter;
+    given_in_ranged_attack_mode();
 
     if (prepare_combat_iterations)
         pchar->prepare_set_of_combat_iterations();

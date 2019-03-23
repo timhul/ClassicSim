@@ -87,6 +87,7 @@ void Character::set_race(Race* race) {
 void Character::set_rotation(Rotation* rotation) {
     current_rotation = rotation;
     current_rotation->link_spells(this);
+    spells->set_attack_mode(current_rotation->get_attack_mode());
 }
 
 void Character::relink_spells() {

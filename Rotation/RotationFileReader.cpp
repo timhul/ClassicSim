@@ -86,6 +86,9 @@ Rotation* RotationFileReader::parse_rotation_file(const QString& path) {
 void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotation* rotation) {
     rotation->set_name(reader.attributes().value("name").toString());
 
+    if (!rotation->try_set_attack_mode(reader.attributes().value("attack_mode").toString()))
+        qDebug() << "Failed to set attack mode for" << rotation->get_name();
+
     while (reader.readNextStartElement()) {
         if (reader.name() == "description") {
             rotation->set_description(reader.readElementText().simplified());

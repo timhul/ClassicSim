@@ -95,6 +95,10 @@ public:
     void given_polearm_equipped(Character* pchar);
     void given_staff_equipped(Character* pchar);
 
+    void given_in_melee_attack_mode();
+    void given_in_ranged_attack_mode();
+    void given_in_magic_attack_mode();
+
     void when_running_queued_events_until(const double priority);
 
     void then_damage_dealt_is(const int damage);

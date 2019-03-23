@@ -3,6 +3,8 @@
 
 #include <QVector>
 
+#include "AttackMode.h"
+
 class AutoShot;
 class Berserking;
 class BloodFury;
@@ -12,12 +14,6 @@ class OffhandAttack;
 class Spell;
 
 static const bool NO_RELINK = false;
-
-enum AttackMode {
-    MeleeAttack = 0,
-    RangedAttack,
-    MagicAttack
-};
 
 class CharacterSpells {
 public:
@@ -41,6 +37,8 @@ public:
     void start_attack();
     void stop_attack();
     bool is_melee_attacking() const;
+
+    void set_attack_mode(const AttackMode attack_mode);
 
     virtual void mh_auto_attack(const int);
     virtual void oh_auto_attack(const int);

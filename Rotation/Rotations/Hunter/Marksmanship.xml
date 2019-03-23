@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<rotation class="Hunter" name="Aimed/Multi-Shot">
+<rotation class="Hunter" name="Aimed/Multi-Shot" attack_mode="ranged">
 	<description>
 	A rotation for Markmanship hunters that cycles Aimed Shot and Multi-Shot close to the auto shot timer.
 	</description>

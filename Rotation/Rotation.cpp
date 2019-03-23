@@ -16,7 +16,8 @@
 
 Rotation::Rotation(QString class_name) :
     pchar(nullptr),
-    class_name(std::move(class_name))
+    class_name(std::move(class_name)),
+    attack_mode(AttackMode::MeleeAttack)
 {}
 
 Rotation::~Rotation() {
@@ -117,6 +118,19 @@ void Rotation::set_description(const QString& desc) {
     this->description = desc;
 }
 
+bool Rotation::try_set_attack_mode(const QString& value) {
+    if (value == "melee")
+        attack_mode = AttackMode::MeleeAttack;
+    else if (value == "ranged")
+        attack_mode = AttackMode::RangedAttack;
+    else if (value == "magic")
+        attack_mode = AttackMode::MagicAttack;
+    else
+        return false;
+
+    return true;
+}
+
 void Rotation::add_variable(const QString& var, const QString& value) {
     this->defined_variables.insert(var, value);
 }
@@ -139,6 +153,10 @@ QString Rotation::get_name() const {
 
 QString Rotation::get_description() const {
     return this->description;
+}
+
+AttackMode Rotation::get_attack_mode() const {
+    return this->attack_mode;
 }
 
 ResourceType Rotation::get_resource_from_string(const QString& resource) const {
