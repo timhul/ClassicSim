@@ -11,6 +11,7 @@
 #include "Rogue.h"
 #include "SimSettings.h"
 #include "Utils/Check.h"
+#include "Utils/CompareDouble.h"
 
 ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const BuiltinVariables builtin,
@@ -77,14 +78,6 @@ bool ConditionVariableBuiltin::cmp_values(const double lhs_value) const {
         check(false, "Reached end of switch");
         return false;
     }
-}
-
-double ConditionVariableBuiltin::delta(double lhs, double rhs) {
-    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
-}
-
-bool ConditionVariableBuiltin::almost_equal(double lhs, double rhs) {
-    return delta(lhs, rhs) < 0.000001;
 }
 
 BuiltinVariables ConditionVariableBuiltin::get_builtin_variable(const QString& var_name) {

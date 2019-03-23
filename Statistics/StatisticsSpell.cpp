@@ -2,6 +2,8 @@
 
 #include <utility>
 
+#include "Utils/CompareDouble.h"
+
 bool name(StatisticsSpell* lhs, StatisticsSpell* rhs) {
     return lhs->get_name() < rhs->get_name();
 }
@@ -602,8 +604,4 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
     this->dpet_set = this->dpet_set ? true : other->dpet_set;
 
     this->damage_dealt_successes += other->damage_dealt_successes;
-}
-
-double StatisticsSpell::delta(double lhs, double rhs) {
-    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
 }

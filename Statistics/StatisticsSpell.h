@@ -168,8 +168,6 @@ private:
     QMap<Outcome, int> damage;
     QMap<Outcome, int> min_damage;
     QMap<Outcome, int> max_damage;
-
-    double delta(double lhs, double rhs);
 };
 
 #endif // STATISTICSSPELL_H

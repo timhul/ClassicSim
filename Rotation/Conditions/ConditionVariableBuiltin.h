@@ -34,9 +34,6 @@ public:
     const double rhs_value;
 
     bool cmp_values(const double lhs_value) const;
-
-    static double delta(double lhs, double rhs);
-    static bool almost_equal(double lhs, double rhs);
 };
 
 #endif // CONDITIONBUILTIN_H

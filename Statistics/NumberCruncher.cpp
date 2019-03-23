@@ -243,10 +243,6 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
     return dps_sum;
 }
 
-double NumberCruncher::delta(double lhs, double rhs) {
-    return (lhs - rhs) < 0 ?  (lhs - rhs) * - 1 : (lhs - rhs);
-}
-
 ScaleResult* NumberCruncher::get_dps_distribution() const {
     double standard_deviation = get_standard_deviation_for_option(SimOption::Name::NoScale);
     double confidence_interval = get_confidence_interval_for_option(SimOption::Name::NoScale, standard_deviation);

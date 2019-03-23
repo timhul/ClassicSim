@@ -5,6 +5,7 @@
 #include "EquipmentDb.h"
 #include "Faction.h"
 #include "ItemTypeFilterModel.h"
+#include "Utils/CompareDouble.h"
 #include "Weapon.h"
 
 WeaponModel::WeaponModel(EquipmentDb* db,
@@ -30,11 +31,6 @@ WeaponModel::WeaponModel(EquipmentDb* db,
 
 bool name(Weapon* lhs, Weapon* rhs) {
     return lhs->get_name() < rhs->get_name();
-}
-
-double delta(double first, double second) {
-    first = first - second;
-    return first < 0 ? first * -1 : first;
 }
 
 bool ilvl(Weapon* lhs, Weapon* rhs) {

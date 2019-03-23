@@ -32,7 +32,6 @@ public:
     void reset();
 
     double get_total_dps(SimOption::Name) const;
-    static double delta(double lhs, double rhs);
 
     ScaleResult* get_dps_distribution() const;
 
