@@ -176,6 +176,8 @@ void CharacterSpells::start_attack() {
     switch (attack_mode) {
     case AttackMode::MeleeAttack:
         return start_melee_attack();
+    case AttackMode::RangedAttack:
+        return add_next_ranged_attack();
     default:
         return;
     }
@@ -195,6 +197,10 @@ void CharacterSpells::stop_attack() {
 
 bool CharacterSpells::is_melee_attacking() const {
     return attack_mode == AttackMode::MeleeAttack && attack_mode_active;
+}
+
+bool CharacterSpells::is_ranged_attacking() const {
+    return attack_mode == AttackMode::RangedAttack && attack_mode_active;
 }
 
 void CharacterSpells::set_attack_mode(const AttackMode attack_mode) {
@@ -227,6 +233,10 @@ void CharacterSpells::add_next_oh_attack() {
     check(false, "Not implemented");
 }
 
+void CharacterSpells::ranged_auto_attack(const int) {
+    check(false, "Not implemented");
+}
+
 void CharacterSpells::add_next_ranged_attack() {
     check(false, "Not implemented");
 }
@@ -255,6 +265,7 @@ BloodFury* CharacterSpells::get_blood_fury() const {
 void CharacterSpells::prepare_set_of_combat_iterations() {
     cast_is_in_progress = false;
     id_of_cast_in_progress = 0;
+    attack_mode_active = false;
 
     for (auto & spell : spells)
         spell->prepare_set_of_combat_iterations();

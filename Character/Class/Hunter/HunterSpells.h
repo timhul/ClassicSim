@@ -12,6 +12,7 @@ public:
     HunterSpells(Hunter *hunter);
 
     void add_next_ranged_attack() override;
+    void ranged_auto_attack(const int iteration) override;
 
     AimedShot* get_aimed_shot() const;
     AutoShot* get_auto_shot() const override;

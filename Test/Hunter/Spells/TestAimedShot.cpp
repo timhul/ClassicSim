@@ -92,7 +92,8 @@ void TestAimedShot::test_hit_dmg() {
     given_no_previous_damage_dealt();
 
     when_aimed_shot_is_performed();
-    when_running_queued_events_until(3.01);
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
 
     // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus
     // [900] = 100 + (2.8 * 1000 / 14) + 600
@@ -107,7 +108,8 @@ void TestAimedShot::test_crit_dmg() {
     given_no_previous_damage_dealt();
 
     when_aimed_shot_is_performed();
-    when_running_queued_events_until(3.01);
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1800] = (100 + (2.8 * 1000 / 14) + 600) * 2.0
@@ -119,6 +121,7 @@ void TestAimedShot::test_aimed_shot_adds_player_action_event_on_completion() {
 
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is("RangedHit", "3.000");
     then_next_event_is("PlayerAction", "3.100");
 }
 

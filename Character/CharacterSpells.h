@@ -38,6 +38,7 @@ public:
     void start_attack();
     void stop_attack();
     bool is_melee_attacking() const;
+    bool is_ranged_attacking() const;
 
     void set_attack_mode(const AttackMode attack_mode);
     Rotation* get_rotation();
@@ -45,8 +46,9 @@ public:
     void relink_spells();
     void perform_rotation();
 
-    virtual void mh_auto_attack(const int);
-    virtual void oh_auto_attack(const int);
+    virtual void mh_auto_attack(const int iteration);
+    virtual void oh_auto_attack(const int iteration);
+    virtual void ranged_auto_attack(const int iteration);
     virtual void add_next_mh_attack();
     virtual void add_next_oh_attack();
     virtual void add_next_ranged_attack();

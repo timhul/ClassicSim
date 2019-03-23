@@ -15,8 +15,7 @@ AutoShot::AutoShot(Character* pchar) :
           RestrictedByGcd::No,
           0,
           ResourceType::Mana,
-          0),
-    paused(false)
+          0)
 {
     this->pchar = pchar;
     next_expected_use = 0;
@@ -72,13 +71,9 @@ void AutoShot::update_next_expected_use(const double haste_change) {
     next_expected_use = curr_time + remainder_after_haste_change;
 }
 
-void AutoShot::pause_shot() {
-    paused = true;
-}
-
-void AutoShot::continue_shot(const double offset) {
-    paused = false;
-    next_expected_use += offset;
+void AutoShot::continue_shot() {
+    if (engine->get_current_priority() > next_expected_use)
+        next_expected_use = engine->get_current_priority();
 }
 
 void AutoShot::complete_shot() {
@@ -100,7 +95,6 @@ int AutoShot::get_next_iteration() {
 
 void AutoShot::reset_effect() {
     next_expected_use = 0;
-    paused = false;
 }
 
 void AutoShot::prepare_set_of_combat_iterations_spell_specific() {

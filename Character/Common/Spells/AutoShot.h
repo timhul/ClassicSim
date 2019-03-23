@@ -12,13 +12,11 @@ public:
     bool attack_is_valid(const int) const;
     int get_next_iteration();
 
-    void pause_shot();
-    void continue_shot(const double offset);
+    void continue_shot();
     void complete_shot();
     void reset_shot_timer();
 
 private:
-    bool paused;
     double next_expected_use;
     int iteration;
     QVector<double> talent_ranks;

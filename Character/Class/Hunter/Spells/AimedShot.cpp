@@ -1,5 +1,6 @@
 #include "AimedShot.h"
 
+#include "AutoShot.h"
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
@@ -23,6 +24,7 @@ void AimedShot::spell_effect() {
 }
 
 void AimedShot::complete_cast_effect() {
+    pchar->get_spells()->get_auto_shot()->continue_shot();
     pchar->get_spells()->start_attack();
 
     pchar->lose_mana(static_cast<unsigned>(resource_cost));

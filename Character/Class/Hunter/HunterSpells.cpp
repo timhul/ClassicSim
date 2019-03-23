@@ -2,9 +2,11 @@
 
 #include "AimedShot.h"
 #include "AutoShot.h"
+#include "Engine.h"
 #include "Hunter.h"
 #include "MainhandAttack.h"
 #include "MultiShot.h"
+#include "RangedHit.h"
 
 HunterSpells::HunterSpells(Hunter* hunter) :
     CharacterSpells(hunter),
@@ -22,6 +24,20 @@ HunterSpells::HunterSpells(Hunter* hunter) :
 }
 
 void HunterSpells::add_next_ranged_attack() {
+    auto* new_event = new RangedHit(this, auto_shot->get_next_expected_use(), auto_shot->get_next_iteration());
+    hunter->get_engine()->add_event(new_event);
+}
+
+void HunterSpells::ranged_auto_attack(const int iteration) {
+    if (!auto_shot->attack_is_valid(iteration))
+        return;
+
+    if (!is_ranged_attacking())
+        return;
+
+    auto_shot->perform();
+
+    add_next_ranged_attack();
 }
 
 AimedShot* HunterSpells::get_aimed_shot() const {
