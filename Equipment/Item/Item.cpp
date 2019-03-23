@@ -493,6 +493,7 @@ void Item::set_stat(const QString& key, const QString &value) {
     }
     else if (key == "ATTACK_POWER") {
         this->stats->increase_base_melee_ap(value.toUInt());
+        this->stats->increase_base_ranged_ap(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power.").arg(value));
         this->item_stat_values.insert(ItemStats::AttackPower, value.toInt());
     }
