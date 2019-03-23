@@ -135,7 +135,7 @@ RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const int wpn_skill) {
     if (ranged_white_tables.contains(wpn_skill))
         return ranged_white_tables[wpn_skill];
 
-    double miss_chance = get_white_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
+    double miss_chance = get_yellow_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
     if (miss_chance < 0)
         miss_chance = 0;
 
