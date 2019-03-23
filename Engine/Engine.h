@@ -10,12 +10,12 @@ public:
     Engine();
     ~Engine();
 
-    void run(void);
-    void dump(void);
-    void reset(void);
-    void prepare(void);
-    void end_combat(void);
-    double get_current_priority(void) const;
+    void run();
+    void dump();
+    void reset();
+    void prepare();
+    void end_combat();
+    double get_current_priority() const;
     void set_current_priority(Event*);
     void add_event(Event*);
 

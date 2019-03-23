@@ -19,15 +19,15 @@ public:
     CharacterStats(Character*, EquipmentDb* equipment_db);
     ~CharacterStats();
 
-    Equipment* get_equipment(void) const;
-    Stats* get_stats(void) const;
+    Equipment* get_equipment() const;
+    Stats* get_stats() const;
 
-    double get_hit_chance(void) const;
-    double get_mh_crit_chance(void) const;
-    double get_oh_crit_chance(void) const;
-    double get_ranged_crit_chance(void) const;
-    double get_spell_hit_chance(void) const;
-    double get_spell_crit_chance(void) const;
+    double get_hit_chance() const;
+    double get_mh_crit_chance() const;
+    double get_oh_crit_chance() const;
+    double get_ranged_crit_chance() const;
+    double get_spell_hit_chance() const;
+    double get_spell_crit_chance() const;
 
     double get_total_phys_dmg_mod() const;
     double get_physical_damage_taken_mod() const;

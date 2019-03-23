@@ -9,7 +9,7 @@ class BuffRemoval: public Event {
 public:
     BuffRemoval(Buff* buff, const double timestamp, const int iteration);
 
-    void act(void) override;
+    void act() override;
 
 private:
     Buff* buff;

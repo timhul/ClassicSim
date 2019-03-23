@@ -10,7 +10,7 @@ class ResourceGain: public Event {
 public:
     ResourceGain(Character* pchar, Spell* spell, const double timestamp);
 
-    void act(void) override;
+    void act() override;
 
 private:
     Character* pchar;

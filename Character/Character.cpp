@@ -171,7 +171,7 @@ CharacterSpells* Character::get_spells() const {
     return this->spells;
 }
 
-CharacterEnchants* Character::get_enchants(void) const {
+CharacterEnchants* Character::get_enchants() const {
     return this->available_enchants;
 }
 

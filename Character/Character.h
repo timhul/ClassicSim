@@ -34,22 +34,22 @@ public:
     Character(const QString class_name, Race* race, SimSettings* sim_settings);
     virtual ~Character();
 
-    CharacterEnchants* get_enchants(void) const;
-    CharacterSpells* get_spells(void) const;
-    CharacterStats* get_stats(void) const;
-    ClassStatistics* get_statistics(void) const;
-    ClassStatistics* relinquish_ownership_of_statistics(void);
-    CombatRoll* get_combat_roll(void) const;
-    EnabledBuffs* get_enabled_buffs(void) const;
+    CharacterEnchants* get_enchants() const;
+    CharacterSpells* get_spells() const;
+    CharacterStats* get_stats() const;
+    ClassStatistics* get_statistics() const;
+    ClassStatistics* relinquish_ownership_of_statistics();
+    CombatRoll* get_combat_roll() const;
+    EnabledBuffs* get_enabled_buffs() const;
     EnabledProcs* get_enabled_procs() const;
-    Engine* get_engine(void) const;
-    Equipment* get_equipment(void) const;
-    Faction* get_faction(void) const;
-    Race* get_race(void);
+    Engine* get_engine() const;
+    Equipment* get_equipment() const;
+    Faction* get_faction() const;
+    Race* get_race();
     Rotation* get_rotation();
     SimSettings* get_sim_settings() const;
-    Talents* get_talents(void) const;
-    Target* get_target(void) const;
+    Talents* get_talents() const;
+    Target* get_target() const;
 
     void set_race(Race* race);
     bool race_available(Race*) const;
@@ -80,16 +80,16 @@ public:
 
     void switch_faction();
 
-    int get_clvl(void) const;
+    int get_clvl() const;
     virtual void set_clvl(const int);
 
     void add_player_reaction_event();
 
-    bool is_dual_wielding(void);
-    bool is_melee_attacking(void) const;
-    void start_attack(void);
-    void stop_attack(void);
-    bool action_ready(void) const;
+    bool is_dual_wielding();
+    bool is_melee_attacking() const;
+    void start_attack();
+    void stop_attack();
+    bool action_ready() const;
     void start_global_cooldown();
     virtual double global_cooldown() const;
     virtual bool on_global_cooldown() const;

@@ -9,7 +9,7 @@ class PlayerAction: public Event {
 public:
     PlayerAction(Character* pchar, const double timestamp);
 
-    void act(void) override;
+    void act() override;
 
 private:
     Character* pchar;

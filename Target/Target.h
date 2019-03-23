@@ -21,10 +21,10 @@ public:
 
     Target(int target_lvl);
 
-    int get_lvl(void) const;
+    int get_lvl() const;
     void set_lvl(int);
 
-    int get_defense(void) const;
+    int get_defense() const;
 
     int get_armor() const;
     void set_armor(const int);

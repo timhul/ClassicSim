@@ -19,7 +19,7 @@ public:
     ~RogueSpells() override;
 
     void oh_auto_attack(const int) override;
-    void add_next_oh_attack(void) override;
+    void add_next_oh_attack() override;
     OffhandAttack* get_oh_attack() const override;
 
     AdrenalineRush* get_adrenaline_rush() const;

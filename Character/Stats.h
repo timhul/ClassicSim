@@ -88,23 +88,23 @@ public:
     void increase_sword_skill(const int);
     void decrease_sword_skill(const int);
 
-    double get_hit_chance(void) const;
+    double get_hit_chance() const;
     void increase_hit(const double value);
     void decrease_hit(const double value);
 
-    double get_crit_chance(void) const;
+    double get_crit_chance() const;
     void increase_crit(const double value);
     void decrease_crit(const double value);
 
-    double get_spell_hit_chance(void) const;
+    double get_spell_hit_chance() const;
     void increase_spell_hit(const double value);
     void decrease_spell_hit(const double value);
 
-    double get_spell_crit_chance(void) const;
+    double get_spell_crit_chance() const;
     void increase_spell_crit(const double value);
     void decrease_spell_crit(const double value);
 
-    double get_attack_speed(void) const;
+    double get_attack_speed() const;
     void increase_attack_speed(const double value);
     void decrease_attack_speed(const double value);
 

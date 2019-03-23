@@ -18,7 +18,7 @@ public:
     double get_glancing_blow_chance(const int) const;
     double get_dodge_chance(const int) const;
     double get_parry_chance(const int) const;
-    double get_block_chance(void) const;
+    double get_block_chance() const;
 
     double get_glancing_blow_dmg_penalty(const int) const;
 

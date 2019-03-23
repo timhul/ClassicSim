@@ -11,10 +11,10 @@ public:
     friend bool operator>=(const Event&, const Event&);
 
     virtual ~Event() {}
-    virtual void act(void) = 0;
-    virtual QString get_name(void) const;
+    virtual void act() = 0;
+    virtual QString get_name() const;
 
-    double get_priority(void) const;
+    double get_priority() const;
 protected:
     double priority;
     QString name;

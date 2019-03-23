@@ -9,7 +9,7 @@ class EncounterStart: public Event {
 public:
     EncounterStart(Character* pchar);
 
-    void act(void) override;
+    void act() override;
 
 private:
     Character* pchar;

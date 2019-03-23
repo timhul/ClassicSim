@@ -10,7 +10,7 @@ class PeriodicRefreshBuff: public Event {
 public:
     PeriodicRefreshBuff(Character* pchar, Buff* buff, const double timestamp);
 
-    void act(void) override;
+    void act() override;
 
 private:
     Character* pchar;

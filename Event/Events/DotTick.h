@@ -9,7 +9,7 @@ class DotTick: public Event {
 public:
     DotTick(Spell* spell, double timestamp);
 
-    void act(void) override;
+    void act() override;
 
 private:
     Spell* spell;

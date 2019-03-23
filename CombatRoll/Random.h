@@ -11,7 +11,7 @@ public:
 
     void set_new_range(const unsigned min_range, const unsigned max_range);
     void set_gen_from_seed(const unsigned long long seed);
-    unsigned get_roll(void);
+    unsigned get_roll();
 protected:
 private:
     uint64_t min_range;

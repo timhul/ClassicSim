@@ -33,8 +33,8 @@ public:
 
     void mh_auto_attack(const int) override;
     void oh_auto_attack(const int) override;
-    void add_next_mh_attack(void) override;
-    void add_next_oh_attack(void) override;
+    void add_next_mh_attack() override;
+    void add_next_oh_attack() override;
 
     MainhandAttack* get_mh_attack() const override;
     OffhandAttack* get_oh_attack() const override;

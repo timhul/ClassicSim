@@ -9,7 +9,7 @@ class OffhandMeleeHit: public Event {
 public:
     OffhandMeleeHit(CharacterSpells*, const double timestamp, const int iteration);
 
-    void act(void) override;
+    void act() override;
 
 private:
     CharacterSpells* spells;

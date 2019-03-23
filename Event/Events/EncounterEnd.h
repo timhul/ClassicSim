@@ -10,7 +10,7 @@ class EncounterEnd: public Event {
 public:
     EncounterEnd(Engine*, Character* pchar, int combat_length);
 
-    void act(void) override;
+    void act() override;
 
 private:
     Engine* engine;

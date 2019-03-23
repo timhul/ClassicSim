@@ -8,11 +8,11 @@ class Queue {
 public:
     ~Queue();
 
-    Event* get_next(void);
+    Event* get_next();
     void push(Event*);
-    bool empty(void);
-    void pop(void);
-    void clear(void);
+    bool empty();
+    void pop();
+    void clear();
 
 protected:
 

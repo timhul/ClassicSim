@@ -35,9 +35,9 @@ public:
     virtual void start_attack();
     virtual void mh_auto_attack(const int);
     virtual void oh_auto_attack(const int);
-    virtual void add_next_mh_attack(void);
-    virtual void add_next_oh_attack(void);
-    virtual void add_next_ranged_attack(void);
+    virtual void add_next_mh_attack();
+    virtual void add_next_oh_attack();
+    virtual void add_next_ranged_attack();
 
     bool cast_in_progress() const;
     unsigned start_cast();
