@@ -4,14 +4,17 @@
 #include "Spell.h"
 #include "TalentRequirer.h"
 
+class DeathWishBuff;
 class Warrior;
 
 class DeathWish: public Spell, public TalentRequirer {
 public:
     DeathWish(Character* pchar);
+    ~DeathWish() override;
 
 private:
     Warrior* warr;
+    DeathWishBuff* death_wish_buff;
 
     void spell_effect() override;
 

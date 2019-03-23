@@ -136,8 +136,7 @@ Talent* Fury::get_death_wish() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(warrior, this, "Death Wish", "5ML",
                                 "Assets/spell/Spell_shadow_deathpact.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_death_wish()},
-                                QVector<Buff*>{warrior->get_death_wish_buff()});
+                                QVector<Spell*>{spells->get_death_wish()});
 
     return talent;
 }

@@ -11,9 +11,9 @@ TestDeathWish::TestDeathWish(EquipmentDb *equipment_db) :
 {}
 
 void TestDeathWish::test_all() {
-    run_mandatory_tests();
+    run_mandatory_tests(false);
 
-    set_up();
+    set_up(false);
     test_dmg_mod_reduced_after_buff_expires();
     tear_down();
 }
@@ -28,7 +28,6 @@ void TestDeathWish::test_name_correct() {
 
 void TestDeathWish::test_spell_cooldown() {
     given_death_wish_is_enabled();
-    given_a_guaranteed_melee_ability_hit();
     assert(QString::number(death_wish()->get_base_cooldown(), 'f', 3) == "180.000");
 
     when_death_wish_is_performed();
@@ -49,6 +48,8 @@ void TestDeathWish::test_obeys_global_cooldown() {
 }
 
 void TestDeathWish::test_incurs_global_cooldown() {
+    given_death_wish_is_enabled();
+
     when_death_wish_is_performed();
 
     then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
@@ -77,6 +78,7 @@ void TestDeathWish::test_is_ready_conditions() {
 }
 
 void TestDeathWish::test_stance_cooldown() {
+    given_death_wish_is_enabled();
     given_warrior_in_berserker_stance();
     assert(death_wish()->is_available());
 
@@ -113,15 +115,13 @@ void TestDeathWish::given_death_wish_is_enabled() {
     delete talent;
 
     assert(death_wish()->is_enabled());
-    assert(warrior->get_death_wish_buff()->is_enabled());
+    pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeathWish::given_death_wish_is_not_enabled() {
     assert(!death_wish()->is_enabled());
-    assert(!warrior->get_death_wish_buff()->is_enabled());
 }
 
 void TestDeathWish::when_death_wish_is_performed() {
-    warrior->get_death_wish_buff()->prepare_set_of_combat_iterations();
     death_wish()->perform();
 }

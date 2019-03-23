@@ -6,7 +6,6 @@
 class BattleShoutBuff;
 class BattleStanceBuff;
 class BerserkerStanceBuff;
-class DeathWishBuff;
 class DefensiveStanceBuff;
 class Flurry;
 class OverpowerBuff;
@@ -66,7 +65,6 @@ public:
     BerserkerStanceBuff* get_berserker_stance_buff() const;
     DefensiveStanceBuff* get_defensive_stance_buff() const;
     BattleShoutBuff* get_battle_shout_buff() const;
-    DeathWishBuff* get_death_wish_buff() const;
     OverpowerBuff* get_overpower_buff() const;
     RecklessnessBuff* get_recklessness_buff() const;
 
@@ -91,7 +89,6 @@ private:
     BattleStanceBuff* battle_stance_buff;
     BerserkerStanceBuff* berserker_stance_buff;
     DefensiveStanceBuff* defensive_stance_buff;
-    DeathWishBuff* death_wish_buff;
     BattleShoutBuff* battle_shout_buff;
     OverpowerBuff* overpower_buff;
     RecklessnessBuff* recklessness_buff;

@@ -6,7 +6,6 @@
 #include "BerserkerStanceBuff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DeathWishBuff.h"
 #include "DefensiveStanceBuff.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
@@ -71,7 +70,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->battle_stance_buff = new BattleStanceBuff(this);
     this->berserker_stance_buff = new BerserkerStanceBuff(this);
     this->defensive_stance_buff = new DefensiveStanceBuff(this);
-    this->death_wish_buff = new DeathWishBuff(this);
     this->overpower_buff = new OverpowerBuff(this);
     this->recklessness_buff = new RecklessnessBuff(this);
     battle_shout_buff->enable_buff();
@@ -105,7 +103,6 @@ Warrior::~Warrior() {
     delete battle_stance_buff;
     delete berserker_stance_buff;
     delete defensive_stance_buff;
-    delete death_wish_buff;
     delete flurry;
     delete overpower_buff;
     delete recklessness_buff;
@@ -192,10 +189,6 @@ SwordSpecialization* Warrior::get_sword_spec() const {
 
 UnbridledWrath* Warrior::get_unbridled_wrath() const {
     return this->unbridled_wrath;
-}
-
-DeathWishBuff* Warrior::get_death_wish_buff() const {
-    return this->death_wish_buff;
 }
 
 OverpowerBuff* Warrior::get_overpower_buff() const {
