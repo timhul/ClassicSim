@@ -4,6 +4,7 @@
 #include "TestUtils.h"
 
 #include <QDebug>
+#include <cassert>
 
 class EquipmentDb;
 

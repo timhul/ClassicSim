@@ -1,7 +1,5 @@
 #include "TestAttackTables.h"
 
-#include <cassert>
-
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "Equipment.h"

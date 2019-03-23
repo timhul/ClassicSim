@@ -1,7 +1,7 @@
 #include "Test.h"
 
-#include <cassert>
 #include <QDebug>
+#include <cassert>
 
 #include "Character.h"
 #include "CharacterStats.h"

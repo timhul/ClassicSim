@@ -1,7 +1,5 @@
 #include "TestConditionVariableBuiltin.h"
 
-#include <cassert>
-
 #include "AutoShot.h"
 #include "CharacterSpells.h"
 #include "ConditionVariableBuiltin.h"
