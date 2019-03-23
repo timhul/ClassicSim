@@ -44,7 +44,6 @@ protected:
     void spell_effect() override;
     virtual void proc_effect() = 0;
     virtual bool proc_specific_conditions_fulfilled() const;
-private:
 };
 
 #endif // PROC_H
