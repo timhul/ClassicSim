@@ -376,7 +376,7 @@ void Equipment::set_ring1(const int item_id) {
 
     if (item->get_value("unique") == "yes") {
         if (get_ring2() != nullptr && get_ring2()->get_item_id() == item->get_item_id()) {
-            clear_ring1();
+            clear_ring2();
             if (get_ring1() != nullptr)
                 set_ring2(get_ring1()->get_item_id());
         }
