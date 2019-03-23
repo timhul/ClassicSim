@@ -46,7 +46,6 @@ public:
                  QVersionNumber min_patch);
     virtual ~ExternalBuff();
 
-    QString get_icon() const;
     QString get_description() const;
     bool valid_for_patch(const QString& patch) const;
     bool valid_for_faction(AvailableFactions::Name faction) const;
@@ -58,11 +57,8 @@ protected:
 
     const ExternalBuffName buff_name;
     AvailableFactions::Name faction;
-    const QString icon;
     const QString description;
     const QVersionNumber min_patch;
-
-private:
 };
 
 #endif // EXTERNALBUFF_H

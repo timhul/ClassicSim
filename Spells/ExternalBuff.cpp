@@ -18,7 +18,6 @@ ExternalBuff::ExternalBuff(Character* pchar,
     Buff(pchar, name, icon, dur, base_charges),
     buff_name(buff_name),
     faction(faction),
-    icon(std::move(icon)),
     description(std::move(description)),
     min_patch(std::move(min_patch))
 {
@@ -29,10 +28,6 @@ ExternalBuff::ExternalBuff(Character* pchar,
 ExternalBuff::~ExternalBuff() {
     if (this->is_active())
         cancel_buff();
-}
-
-QString ExternalBuff::get_icon() const {
-    return this->icon;
 }
 
 QString ExternalBuff::get_description() const {
