@@ -1,13 +1,13 @@
-
 #include "PeriodicRefreshBuff.h"
-#include "Buff.h"
-#include "Engine.h"
-#include "Character.h"
 
-PeriodicRefreshBuff::PeriodicRefreshBuff(Character* pchar, Buff* buff, const double priority) {
+#include "Buff.h"
+#include "Character.h"
+#include "Engine.h"
+
+PeriodicRefreshBuff::PeriodicRefreshBuff(Character* pchar, Buff* buff, const double timestamp) {
     this->pchar = pchar;
     this->buff = buff;
-    this->priority = priority;
+    this->priority = timestamp;
     this->name = "PeriodicRefreshBuff";
 }
 

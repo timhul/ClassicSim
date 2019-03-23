@@ -8,10 +8,10 @@ class Spell;
 
 class ResourceGain: public Event {
 public:
-    ResourceGain(Character*, Spell*, const double);
+    ResourceGain(Character* pchar, Spell* spell, const double timestamp);
 
-    virtual void act(void) override;
-protected:
+    void act(void) override;
+
 private:
     Character* pchar;
     Spell* spell;

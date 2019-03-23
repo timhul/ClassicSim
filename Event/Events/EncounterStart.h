@@ -7,10 +7,10 @@ class Character;
 
 class EncounterStart: public Event {
 public:
-    EncounterStart(Character *pchar);
+    EncounterStart(Character* pchar);
 
-    virtual void act(void) override;
-protected:
+    void act(void) override;
+
 private:
     Character* pchar;
 };

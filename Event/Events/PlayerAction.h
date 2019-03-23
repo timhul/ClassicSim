@@ -7,9 +7,9 @@ class Character;
 
 class PlayerAction: public Event {
 public:
-    PlayerAction(Character* pchar, const double);
+    PlayerAction(Character* pchar, const double timestamp);
 
-    virtual void act(void) override;
+    void act(void) override;
 
 private:
     Character* pchar;

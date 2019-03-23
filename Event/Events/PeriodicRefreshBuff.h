@@ -1,21 +1,20 @@
-#ifndef PERIODICAPPLYBUFF_H
-#define PERIODICAPPLYBUFF_H
+#ifndef PERIODICREFRESHBUFF_H
+#define PERIODICREFRESHBUFF_H
 
 #include "Event.h"
 
 class Buff;
 class Character;
 
-
 class PeriodicRefreshBuff: public Event {
 public:
-    PeriodicRefreshBuff(Character*, Buff*, const double);
+    PeriodicRefreshBuff(Character* pchar, Buff* buff, const double timestamp);
 
-    virtual void act(void) override;
-protected:
+    void act(void) override;
+
 private:
     Character* pchar;
     Buff* buff;
 };
 
-#endif // PERIODICAPPLYBUFF_H
+#endif // PERIODICREFRESHBUFF_H

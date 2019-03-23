@@ -10,6 +10,7 @@
 #include "Dwarf.h"
 #include "EncounterEnd.h"
 #include "EncounterStart.h"
+#include "Engine.h"
 #include "Equipment.h"
 #include "EquipmentDb.h"
 #include "Faction.h"

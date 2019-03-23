@@ -2,16 +2,16 @@
 #define ENCOUNTEREND_H
 
 #include "Event.h"
-#include "Engine.h"
 
 class Character;
+class Engine;
 
 class EncounterEnd: public Event {
 public:
     EncounterEnd(Engine*, Character* pchar, int combat_length);
 
-    virtual void act(void) override;
-protected:
+    void act(void) override;
+
 private:
     Engine* engine;
     Character* pchar;

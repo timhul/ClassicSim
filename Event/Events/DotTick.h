@@ -7,10 +7,10 @@ class Spell;
 
 class DotTick: public Event {
 public:
-    DotTick(Spell *spell, double priority);
+    DotTick(Spell* spell, double timestamp);
 
-    virtual void act(void) override;
-protected:
+    void act(void) override;
+
 private:
     Spell* spell;
 };

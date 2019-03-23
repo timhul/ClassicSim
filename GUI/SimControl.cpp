@@ -1,14 +1,16 @@
+#include "SimControl.h"
+
+#include <QDebug>
 
 #include "Character.h"
-#include "ClassStatistics.h"
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "EncounterEnd.h"
 #include "EncounterStart.h"
-#include "SimControl.h"
-#include "NumberCruncher.h"
+#include "Engine.h"
 #include "ItemNamespace.h"
-#include <QDebug>
+#include "NumberCruncher.h"
 
 SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
     sim_settings(sim_settings),

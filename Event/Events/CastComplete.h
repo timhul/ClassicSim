@@ -7,10 +7,10 @@ class SpellCastingTime;
 
 class CastComplete: public Event {
 public:
-    CastComplete(SpellCastingTime *, const double);
+    CastComplete(SpellCastingTime* spell, const double timestamp);
 
-    virtual void act(void) override;
-protected:
+    void act(void) override;
+
 private:
     SpellCastingTime* spell;
 };

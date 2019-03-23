@@ -2,9 +2,9 @@
 
 #include "Character.h"
 
-PlayerAction::PlayerAction(Character* pchar, const double priority) {
+PlayerAction::PlayerAction(Character* pchar, const double timestamp) {
     this->pchar = pchar;
-    this->priority = priority;
+    this->priority = timestamp;
     this->name = "PlayerAction";
 }
 

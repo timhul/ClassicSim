@@ -1,10 +1,10 @@
-
 #include "DotTick.h"
+
 #include "Spell.h"
 
-DotTick::DotTick(Spell* spell, double priority) {
+DotTick::DotTick(Spell* spell, double timestamp) {
     this->spell = spell;
-    this->priority = priority;
+    this->priority = timestamp;
     this->name = "DotTick";
 }
 

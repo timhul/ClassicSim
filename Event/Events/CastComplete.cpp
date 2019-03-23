@@ -1,11 +1,11 @@
-
 #include "CastComplete.h"
-#include "SpellCastingTime.h"
-#include "Engine.h"
 
-CastComplete::CastComplete(SpellCastingTime *spell, const double priority) {
+#include "Engine.h"
+#include "SpellCastingTime.h"
+
+CastComplete::CastComplete(SpellCastingTime *spell, const double timestamp) {
     this->spell = spell;
-    this->priority = priority;
+    this->priority = timestamp;
     this->name = "CastComplete";
 }
 

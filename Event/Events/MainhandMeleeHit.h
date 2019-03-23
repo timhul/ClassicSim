@@ -7,10 +7,10 @@ class CharacterSpells;
 
 class MainhandMeleeHit: public Event {
 public:
-    MainhandMeleeHit(CharacterSpells*, const double, const int);
+    MainhandMeleeHit(CharacterSpells*, const double timestamp, const int iteration);
 
-    virtual void act(void) override;
-protected:
+    void act(void) override;
+
 private:
     CharacterSpells* spells;
     int iteration;

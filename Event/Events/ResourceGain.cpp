@@ -1,13 +1,13 @@
-
 #include "ResourceGain.h"
-#include "Spell.h"
-#include "Engine.h"
-#include "Character.h"
 
-ResourceGain::ResourceGain(Character* pchar, Spell *spell, const double priority) {
+#include "Character.h"
+#include "Engine.h"
+#include "Spell.h"
+
+ResourceGain::ResourceGain(Character* pchar, Spell *spell, const double timestamp) {
     this->pchar = pchar;
     this->spell = spell;
-    this->priority = priority;
+    this->priority = timestamp;
     this->name = "ResourceGain";
 }
 
