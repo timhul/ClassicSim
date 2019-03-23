@@ -28,6 +28,12 @@ private:
     void test_aimed_shot_adds_player_action_event_on_completion();
     void test_aimed_shot_cast_in_progress_blocks_other_spells();
 
+    void test_mana_cost_1_of_5_efficiency();
+    void test_mana_cost_2_of_5_efficiency();
+    void test_mana_cost_3_of_5_efficiency();
+    void test_mana_cost_4_of_5_efficiency();
+    void test_mana_cost_5_of_5_efficiency();
+
     void given_aimed_shot_is_enabled();
     void when_aimed_shot_is_performed();
 };

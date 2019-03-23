@@ -9,15 +9,21 @@ class TestSpellHunter: public TestSpellDamage {
 public:
     TestSpellHunter(EquipmentDb* equipment_db, QString spell_under_test);
 
+protected:
+    Hunter* hunter;
+
     void set_up(const bool prepare_combat_iterations = true) override;
     void tear_down() override;
 
+    void given_hunter_is_on_gcd();
+    void given_1_of_5_efficiency();
+    void given_2_of_5_efficiency();
+    void given_3_of_5_efficiency();
+    void given_4_of_5_efficiency();
+    void given_5_of_5_efficiency();
+
     void given_hunter_has_mana(const unsigned mana);
     void then_hunter_has_mana(const unsigned mana);
-    void given_hunter_is_on_gcd();
-
-protected:
-    Hunter* hunter;
 };
 
 #endif // TESTSPELLHUNTER_H

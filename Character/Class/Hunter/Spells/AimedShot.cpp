@@ -15,9 +15,14 @@ AimedShot::AimedShot(Character* pchar) :
                      ResourceType::Mana,
                      310,
                      3000),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes)})
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
+                                                new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No)})
 {
     this->enabled = false;
+    resource_base = resource_cost;
+    efficiency_ranks = {
+        1.0, 0.98, 0.96, 0.94, 0.92, 0.90
+    };
 }
 
 void AimedShot::spell_effect() {
@@ -56,9 +61,12 @@ void AimedShot::complete_cast_effect() {
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 
-void AimedShot::increase_talent_rank_effect(const QString&, const int) {
+void AimedShot::increase_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Efficiency")
+        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
 }
 
-void AimedShot::decrease_talent_rank_effect(const QString&, const int) {
+void AimedShot::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Efficiency")
+        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
 }
-

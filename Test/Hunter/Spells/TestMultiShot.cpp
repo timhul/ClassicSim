@@ -17,6 +17,26 @@ void TestMultiShot::test_all() {
     set_up();
     test_crit_dmg();
     tear_down();
+
+    set_up();
+    test_mana_cost_1_of_5_efficiency();
+    tear_down();
+
+    set_up();
+    test_mana_cost_2_of_5_efficiency();
+    tear_down();
+
+    set_up();
+    test_mana_cost_3_of_5_efficiency();
+    tear_down();
+
+    set_up();
+    test_mana_cost_4_of_5_efficiency();
+    tear_down();
+
+    set_up();
+    test_mana_cost_5_of_5_efficiency();
+    tear_down();
 }
 
 MultiShot* TestMultiShot::multi_shot() {
@@ -90,6 +110,81 @@ void TestMultiShot::test_crit_dmg() {
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [900] = (100 + (2.8 * 1000 / 14) + 150) * 2.0
     then_damage_dealt_is(900);
+}
+
+void TestMultiShot::test_mana_cost_1_of_5_efficiency() {
+    given_1_of_5_efficiency();
+    given_hunter_has_mana(225);
+    assert(multi_shot()->is_available());
+
+    given_hunter_has_mana(224);
+    assert(!multi_shot()->is_available());
+
+    given_hunter_has_mana(225);
+
+    when_multi_shot_is_performed();
+
+    then_hunter_has_mana(0);
+}
+
+void TestMultiShot::test_mana_cost_2_of_5_efficiency() {
+    given_2_of_5_efficiency();
+    given_hunter_has_mana(221);
+    assert(multi_shot()->is_available());
+
+    given_hunter_has_mana(220);
+    assert(!multi_shot()->is_available());
+
+    given_hunter_has_mana(221);
+
+    when_multi_shot_is_performed();
+
+    then_hunter_has_mana(0);
+}
+
+void TestMultiShot::test_mana_cost_3_of_5_efficiency() {
+    given_3_of_5_efficiency();
+    given_hunter_has_mana(216);
+    assert(multi_shot()->is_available());
+
+    given_hunter_has_mana(215);
+    assert(!multi_shot()->is_available());
+
+    given_hunter_has_mana(216);
+
+    when_multi_shot_is_performed();
+
+    then_hunter_has_mana(0);
+}
+
+void TestMultiShot::test_mana_cost_4_of_5_efficiency() {
+    given_4_of_5_efficiency();
+    given_hunter_has_mana(212);
+    assert(multi_shot()->is_available());
+
+    given_hunter_has_mana(211);
+    assert(!multi_shot()->is_available());
+
+    given_hunter_has_mana(212);
+
+    when_multi_shot_is_performed();
+
+    then_hunter_has_mana(0);
+}
+
+void TestMultiShot::test_mana_cost_5_of_5_efficiency() {
+    given_5_of_5_efficiency();
+    given_hunter_has_mana(207);
+    assert(multi_shot()->is_available());
+
+    given_hunter_has_mana(206);
+    assert(!multi_shot()->is_available());
+
+    given_hunter_has_mana(207);
+
+    when_multi_shot_is_performed();
+
+    then_hunter_has_mana(0);
 }
 
 void TestMultiShot::when_multi_shot_is_performed() {

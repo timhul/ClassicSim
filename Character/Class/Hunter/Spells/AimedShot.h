@@ -10,6 +10,8 @@ public:
 
 private:
     QVector<double> talent_ranks;
+    double resource_base;
+    QVector<double> efficiency_ranks;
 
     void spell_effect() override;
     void complete_cast_effect() override;

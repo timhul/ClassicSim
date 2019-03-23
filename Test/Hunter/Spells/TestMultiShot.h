@@ -24,6 +24,12 @@ private:
     void test_hit_dmg();
     void test_crit_dmg();
 
+    void test_mana_cost_1_of_5_efficiency();
+    void test_mana_cost_2_of_5_efficiency();
+    void test_mana_cost_3_of_5_efficiency();
+    void test_mana_cost_4_of_5_efficiency();
+    void test_mana_cost_5_of_5_efficiency();
+
     void when_multi_shot_is_performed();
 };
 

@@ -4,6 +4,7 @@
 #include "GenericTalent.h"
 #include "Hunter.h"
 #include "HunterSpells.h"
+#include "MultiShot.h"
 #include "Talent.h"
 
 Marksmanship::Marksmanship(Hunter* hunter) :
@@ -12,7 +13,7 @@ Marksmanship::Marksmanship(Hunter* hunter) :
     spells(dynamic_cast<HunterSpells*>(hunter->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1ML", new GenericTalent(hunter, this, "Improved Concussive Shot", "1ML", "Assets/spell/Spell_frost_stun.png", 5, "Gives your Concussive Shot a %1% chance to stun the target for 3 sec.", QVector<QPair<int, int>>{{4, 4}})},
-                                  {"1MR", new GenericTalent(hunter, this, "Efficiency", "1MR", "Assets/spell/Spell_frost_wizardmark.png", 5, "Reduces the Mana cost of your Shots and Stings by %1%", QVector<QPair<int, int>>{{2, 2}})}};
+                                  {"1MR", get_efficiency()}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2ML", new GenericTalent(hunter, this, "Improved Hunter's Mark", "2ML", "Assets/ability/Ability_hunter_snipershot.png", 5, "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by %1%.", QVector<QPair<int, int>>{{3, 3}})},
@@ -44,6 +45,17 @@ Marksmanship::Marksmanship(Hunter* hunter) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* Marksmanship::get_efficiency() {
+    QMap<int, QString> rank_descriptions;
+    QString base_str = "Reduces the Mana cost of your Shots and Stings by %1%";
+    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{2, 2}});
+    auto* talent = new Talent(hunter, this, "Efficiency", "1MR",
+                              "Assets/spell/Spell_frost_wizardmark.png", 5, rank_descriptions,
+                              QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
+
+    return talent;
 }
 
 Talent* Marksmanship::get_aimed_shot() {

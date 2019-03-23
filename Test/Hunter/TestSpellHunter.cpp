@@ -5,8 +5,10 @@
 
 #include "Equipment.h"
 #include "HunterSpells.h"
+#include "Marksmanship.h"
 #include "MultiShot.h"
 #include "Spell.h"
+#include "Talent.h"
 
 TestSpellHunter::TestSpellHunter(EquipmentDb *equipment_db, QString spell_under_test) :
     TestSpellDamage(equipment_db, std::move(spell_under_test)),
@@ -59,4 +61,54 @@ void TestSpellHunter::given_hunter_is_on_gcd() {
         hunter->lose_mana(static_cast<unsigned>(resource_delta));
 
     assert(hunter->on_global_cooldown());
+}
+
+void TestSpellHunter::given_1_of_5_efficiency() {
+    Talent* talent = Marksmanship(hunter).get_efficiency();
+
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_2_of_5_efficiency() {
+    Talent* talent = Marksmanship(hunter).get_efficiency();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_3_of_5_efficiency() {
+    Talent* talent = Marksmanship(hunter).get_efficiency();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_4_of_5_efficiency() {
+    Talent* talent = Marksmanship(hunter).get_efficiency();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_5_of_5_efficiency() {
+    Talent* talent = Marksmanship(hunter).get_efficiency();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
 }

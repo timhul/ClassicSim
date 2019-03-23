@@ -11,8 +11,14 @@ MultiShot::MultiShot(Character* pchar) :
           RestrictedByGcd::Yes,
           10.0,
           ResourceType::Mana,
-          230)
-{}
+          230),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No)})
+{
+    resource_base = resource_cost;
+    efficiency_ranks = {
+        1.0, 0.98, 0.96, 0.94, 0.92, 0.90
+    };
+}
 
 void MultiShot::spell_effect() {
     const int wpn_skill = pchar->get_ranged_wpn_skill();
@@ -41,4 +47,14 @@ void MultiShot::spell_effect() {
 
     pchar->ranged_white_hit_effect(true);
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+}
+
+void MultiShot::increase_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Efficiency")
+        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
+}
+
+void MultiShot::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Efficiency")
+        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
 }

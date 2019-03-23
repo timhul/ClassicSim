@@ -12,6 +12,7 @@ public:
     Marksmanship(Hunter* pchar);
     ~Marksmanship() override = default;
 
+    Talent* get_efficiency();
     Talent* get_aimed_shot();
 
 private:
