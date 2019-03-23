@@ -260,52 +260,8 @@ Rectangle {
         visible: parent.state === "DAMAGE_BREAKDOWN"
 
         StatisticsHeader {
-            id: headerOutcomes
-            title: "Ability Outcomes"
-        }
-
-        StatisticsMeleeDamageAvoidanceBreakdownSorting {
-            id: damageBreakdownSorting
-            anchors.top: headerOutcomes.bottom
-        }
-
-        ListView {
-            id: damageAvoidanceBreakdownTable
-            anchors {
-                top: damageBreakdownSorting.bottom
-                left: parent.left
-                right: parent.right
-            }
-
-            boundsBehavior: Flickable.StopAtBounds
-
-            implicitHeight: contentHeight
-
-            model: meleeAvoidanceBreakdownModel
-            delegate: StatisticsEntryMeleeDamageAvoidanceBreakdown {
-                name: _name
-                iconurl: _icon
-                totalattempts: _totalattempts
-                numhits: _numhits
-                hitpercent: _hitpercent
-                numcrits: _numcrits
-                critpercent: _critpercent
-                numglances: _numglances
-                glancepercent: _glancepercent
-                nummisses: _nummisses
-                misspercent: _misspercent
-                numdodges: _numdodges
-                dodgepercent: _dodgepercent
-                numparries: _numparries
-                parrypercent: _parrypercent
-            }
-        }
-
-        StatisticsHeader {
             id: headerMeleeDmgBreakdown
             title: "Ability Damage Breakdown"
-
-            anchors.top: damageAvoidanceBreakdownTable.bottom
         }
 
         StatisticsMeleeDamageBreakdownSorting {
@@ -350,6 +306,50 @@ Rectangle {
                 mindpet: _mindpet
                 avgdpet: _avgdpet
                 maxdpet: _maxdpet
+            }
+        }
+
+        StatisticsHeader {
+            id: headerOutcomes
+            title: "Ability Outcomes"
+
+            anchors.top: damageBreakdownTable.bottom
+        }
+
+        StatisticsMeleeDamageAvoidanceBreakdownSorting {
+            id: damageBreakdownSorting
+            anchors.top: headerOutcomes.bottom
+        }
+
+        ListView {
+            id: damageAvoidanceBreakdownTable
+            anchors {
+                top: damageBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: meleeAvoidanceBreakdownModel
+            delegate: StatisticsEntryMeleeDamageAvoidanceBreakdown {
+                name: _name
+                iconurl: _icon
+                totalattempts: _totalattempts
+                numhits: _numhits
+                hitpercent: _hitpercent
+                numcrits: _numcrits
+                critpercent: _critpercent
+                numglances: _numglances
+                glancepercent: _glancepercent
+                nummisses: _nummisses
+                misspercent: _misspercent
+                numdodges: _numdodges
+                dodgepercent: _dodgepercent
+                numparries: _numparries
+                parrypercent: _parrypercent
             }
         }
     }
