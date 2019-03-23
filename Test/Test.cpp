@@ -35,6 +35,7 @@
 #include "TestHunter.h"
 #include "TestMechanics.h"
 #include "TestRogue.h"
+#include "TestRotationFileReader.h"
 #include "TestWarrior.h"
 #include "Troll.h"
 #include "Undead.h"
@@ -81,6 +82,8 @@ void Test::test_all() {
 
     qDebug() << "test condition variable builtin";
     TestConditionVariableBuiltin(equipment_db).test_all();
+
+    TestRotationFileReader().test_all();
 }
 
 void Test::test_queue() {

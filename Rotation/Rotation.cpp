@@ -20,22 +20,22 @@ Rotation::Rotation(QString class_name) :
 {}
 
 Rotation::~Rotation() {
-    for (auto & executor : rotation_executors) {
+    for (auto & executor : executors) {
         delete executor;
     }
 
-    rotation_executors.clear();
+    executors.clear();
 }
 
 void Rotation::perform_rotation() const {
-    for (auto & executor : rotation_executors)
+    for (auto & executor : executors)
         executor->attempt_cast();
 }
 
 void Rotation::link_spells(Character* pchar) {
     this->pchar = pchar;
 
-    for (auto & executor : rotation_executors) {
+    for (auto & executor : executors) {
         QString spell_name = executor->get_spell_name();
 
         Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
@@ -126,7 +126,7 @@ void Rotation::add_prerequisite(const QString& key, const QString& value) {
 }
 
 void Rotation::add_executor(RotationExecutor* executor) {
-    this->rotation_executors.append(executor);
+    this->executors.append(executor);
 }
 
 QString Rotation::get_class() const {
@@ -161,7 +161,7 @@ void Rotation::dump() {
     qDebug() << "defined_variables" << defined_variables;
     qDebug() << "prerequisites" << prerequisites;
     qDebug() << "executors:";
-    for (auto & executor : rotation_executors) {
+    for (auto & executor : executors) {
         executor->dump();
     }
 }

@@ -42,6 +42,11 @@ public:
     int compared_value_type;
     QString compared_value;
 
+    QString logical_connective_as_string() const;
+    QString condition_type_as_string() const;
+    QString mathematical_symbol_as_string() const;
+    QString compared_value_type_as_string() const;
+
     void dump() const;
 };
 

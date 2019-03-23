@@ -11,7 +11,6 @@ public:
 
     bool condition_fulfilled() const override;
 
-private:
     Buff* buff;
     const int comparator;
     const double cmp_value;

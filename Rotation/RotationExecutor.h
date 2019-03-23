@@ -3,7 +3,6 @@
 
 #include <QMap>
 #include <QVector>
-
 #include <functional>
 
 class Condition;

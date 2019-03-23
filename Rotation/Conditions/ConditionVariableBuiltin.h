@@ -19,7 +19,7 @@ enum BuiltinVariables {
 
 class ConditionVariableBuiltin : public Condition {
 public:
-    ConditionVariableBuiltin(Character*,
+    ConditionVariableBuiltin(Character* pchar,
                              const BuiltinVariables builtin,
                              const int comparator,
                              const double rhs_value);
@@ -27,7 +27,6 @@ public:
     bool condition_fulfilled() const override;
     static BuiltinVariables get_builtin_variable(const QString& var_name);
 
-private:
     Character* pchar;
     Engine* engine;
     const BuiltinVariables builtin;

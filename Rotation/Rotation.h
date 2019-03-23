@@ -31,6 +31,8 @@ public:
     void link_spells(Character *pchar);
     bool add_conditionals(RotationExecutor*);
 
+    QVector<RotationExecutor*> executors;
+
     void dump();
 
 private:
@@ -40,7 +42,6 @@ private:
     QString description;
     QMap<QString, QString> defined_variables;
     QMap<QString, QString> prerequisites;
-    QVector<RotationExecutor*> rotation_executors;
 
     ResourceType get_resource_from_string(const QString& resource) const;
 };

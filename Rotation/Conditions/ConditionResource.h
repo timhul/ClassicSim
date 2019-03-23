@@ -2,6 +2,7 @@
 #define CONDITIONRESOURCE_H
 
 #include "Condition.h"
+
 #include "Resource.h"
 
 class Character;
@@ -12,7 +13,6 @@ public:
 
     bool condition_fulfilled() const override;
 
-private:
     const Character* pchar;
     const int comparator;
     const ResourceType resource_type;
