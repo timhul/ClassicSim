@@ -49,7 +49,6 @@ void RotationFileReader::add_rotations(QVector<Rotation*> & rotations) {
         qDebug() << "Failed to find rotation files in rotation_paths.xml";
 
     for (auto & path : equipment_file_paths) {
-        qDebug() << "Parsing rotation file" << path;
         Rotation* rotation = parse_rotation_file(path);
         if (rotation != nullptr)
             rotations.append(rotation);

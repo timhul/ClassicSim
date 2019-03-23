@@ -664,7 +664,6 @@ void TestSpell::given_300_weapon_skill_oh() {
 
 void TestSpell::given_305_weapon_skill_oh() {
     create_5_sword_skill_ring();
-    qDebug() << "equipping";
     pchar->get_equipment()->set_ring1(TestUtils::Test5SwordSkill);
 
     assert(pchar->get_equipment()->get_ring1() != nullptr);
