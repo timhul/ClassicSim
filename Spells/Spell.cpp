@@ -122,13 +122,13 @@ void Spell::perform() {
 
 void Spell::add_spell_cd_event() const {
     double cooldown_ready = engine->get_current_priority() + cooldown;
-    engine->add_event(new PlayerAction(pchar, cooldown_ready));
+    engine->add_event(new PlayerAction(pchar->get_spells(), cooldown_ready));
 }
 
 void Spell::add_gcd_event() const {
     pchar->start_global_cooldown();
     double gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
-    engine->add_event(new PlayerAction(pchar, gcd_ready));
+    engine->add_event(new PlayerAction(pchar->get_spells(), gcd_ready));
 }
 
 void Spell::increment_miss() {

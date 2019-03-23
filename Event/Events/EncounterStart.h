@@ -3,16 +3,16 @@
 
 #include "Event.h"
 
-class Character;
+class CharacterSpells;
 
 class EncounterStart: public Event {
 public:
-    EncounterStart(Character* pchar);
+    EncounterStart(CharacterSpells* spells);
 
     void act() override;
 
 private:
-    Character* pchar;
+    CharacterSpells* spells;
 };
 
 #endif // ENCOUNTERSTART_H

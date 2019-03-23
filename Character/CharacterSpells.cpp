@@ -11,11 +11,13 @@
 #include "OffhandAttack.h"
 #include "OffhandMeleeHit.h"
 #include "Race.h"
+#include "Rotation.h"
 #include "Target.h"
 #include "Utils/Check.h"
 
 CharacterSpells::CharacterSpells(Character* pchar) :
     pchar(pchar),
+    rotation(nullptr),
     cast_is_in_progress(false),
     id_of_cast_in_progress(0),
     attack_mode(AttackMode::MeleeAttack),
@@ -36,17 +38,26 @@ CharacterSpells::~CharacterSpells()
     pre_combat_spells.clear();
 }
 
-void CharacterSpells::activate_racials() {
-    switch (pchar->get_race()->get_race_int()) {
-    case Races::Orc:
-        blood_fury->enable();
-        break;
-    case Races::Troll:
-        berserking->enable();
-        if (pchar->get_target()->get_creature_type() == Target::CreatureType::Beast)
-            pchar->get_stats()->increase_total_phys_dmg_mod(5);
-        break;
-    }
+void CharacterSpells::set_rotation(Rotation* rotation) {
+    this->rotation = rotation;
+    this->rotation->link_spells(pchar);
+    set_attack_mode(this->rotation->get_attack_mode());
+}
+
+void CharacterSpells::relink_spells() {
+    if (rotation != nullptr)
+        rotation->link_spells(pchar);
+}
+
+void CharacterSpells::perform_rotation() {
+    if (rotation == nullptr || cast_is_in_progress)
+        return;
+
+    this->rotation->perform_rotation();
+}
+
+Rotation* CharacterSpells::get_rotation() {
+    return this->rotation;
 }
 
 bool CharacterSpells::cast_in_progress() const {
@@ -68,6 +79,19 @@ void CharacterSpells::complete_cast(const unsigned cast_id) {
     cast_is_in_progress = false;
 
     pchar->add_player_reaction_event();
+}
+
+void CharacterSpells::activate_racials() {
+    switch (pchar->get_race()->get_race_int()) {
+    case Races::Orc:
+        blood_fury->enable();
+        break;
+    case Races::Troll:
+        berserking->enable();
+        if (pchar->get_target()->get_creature_type() == Target::CreatureType::Beast)
+            pchar->get_stats()->increase_total_phys_dmg_mod(5);
+        break;
+    }
 }
 
 void CharacterSpells::deactivate_racials() {
@@ -92,7 +116,7 @@ void CharacterSpells::add_spell(Spell* spell, bool relink) {
     spells.append(spell);
 
     if (relink)
-        pchar->relink_spells();
+        relink_spells();
 }
 
 void CharacterSpells::remove_spell(Spell* spell) {
@@ -102,7 +126,7 @@ void CharacterSpells::remove_spell(Spell* spell) {
             break;
         }
     }
-    pchar->relink_spells();
+    relink_spells();
 }
 
 void CharacterSpells::add_pre_combat_spell(Spell* spell) {

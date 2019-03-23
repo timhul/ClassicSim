@@ -1,13 +1,13 @@
 #include "PlayerAction.h"
 
-#include "Character.h"
+#include "CharacterSpells.h"
 
-PlayerAction::PlayerAction(Character* pchar, const double timestamp) {
-    this->pchar = pchar;
+PlayerAction::PlayerAction(CharacterSpells* pchar, const double timestamp) {
+    this->spells = pchar;
     this->priority = timestamp;
     this->name = "PlayerAction";
 }
 
 void PlayerAction::act() {
-    pchar->perform_rotation();
+    spells->perform_rotation();
 }

@@ -15,7 +15,6 @@
 #include "PlayerAction.h"
 #include "ProcInfo.h"
 #include "Race.h"
-#include "Rotation.h"
 #include "RulesetControl.h"
 #include "SimSettings.h"
 #include "Stats.h"
@@ -35,7 +34,6 @@ Character::Character(QString class_name, Race* race, SimSettings *sim_settings) 
     cstats(nullptr),
     spells(nullptr),
     statistics(new ClassStatistics(sim_settings)),
-    current_rotation(nullptr),
     sim_settings(sim_settings),
     resource(nullptr),
     ability_crit_dmg_mod(2.0),
@@ -84,43 +82,16 @@ void Character::set_race(Race* race) {
     spells->activate_racials();
 }
 
-void Character::set_rotation(Rotation* rotation) {
-    current_rotation = rotation;
-    current_rotation->link_spells(this);
-    spells->set_attack_mode(current_rotation->get_attack_mode());
-}
-
-void Character::relink_spells() {
-    if (current_rotation != nullptr)
-        current_rotation->link_spells(this);
-}
-
-QString Character::get_current_rotation_name() const {
-    return current_rotation != nullptr ? current_rotation->get_name() :
-                                         "No rotation selected";
+void Character::change_target_creature_type(const QString &creature_type) {
+    spells->deactivate_racials();
+    target->set_creature_type(creature_type);
+    spells->activate_racials();
 }
 
 void Character::switch_faction() {
     faction->switch_faction();
     enabled_procs->switch_faction();
     enabled_buffs->switch_faction();
-}
-
-void Character::perform_rotation() {
-    if (current_rotation == nullptr || spells->cast_in_progress())
-        return;
-
-    this->current_rotation->perform_rotation();
-}
-
-Rotation* Character::get_rotation() {
-    return this->current_rotation;
-}
-
-void Character::change_target_creature_type(const QString &creature_type) {
-    spells->deactivate_racials();
-    target->set_creature_type(creature_type);
-    spells->activate_racials();
 }
 
 int Character::get_clvl() const {
@@ -194,7 +165,7 @@ SimSettings* Character::get_sim_settings() const {
 }
 
 void Character::add_player_reaction_event() {
-    auto* new_event = new PlayerAction(this, engine->get_current_priority() + 0.1);
+    auto* new_event = new PlayerAction(spells, engine->get_current_priority() + 0.1);
     engine->add_event(new_event);
 }
 
@@ -562,8 +533,4 @@ void Character::prepare_set_of_combat_iterations() {
     spells->prepare_set_of_combat_iterations();
     enabled_buffs->prepare_set_of_combat_iterations();
     enabled_procs->prepare_set_of_combat_iterations();
-}
-
-void Character::run_pre_combat_actions() {
-    spells->run_pre_combat_spells();
 }

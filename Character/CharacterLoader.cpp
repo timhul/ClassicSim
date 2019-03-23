@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "CharacterDecoder.h"
+#include "CharacterSpells.h"
 #include "CombatRoll.h"
 #include "Druid.h"
 #include "Dwarf.h"
@@ -286,10 +287,10 @@ void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pcha
             continue;
         }
 
-        pchar->set_rotation(rotation);
+        pchar->get_spells()->set_rotation(rotation);
     }
 
-    if (pchar->get_current_rotation_name() != rotation_name)
+    if (pchar->get_spells()->get_rotation() == nullptr || pchar->get_spells()->get_rotation()->get_name() != rotation_name)
         fail("Failed to set rotation to " + rotation_name);
 }
 

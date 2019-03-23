@@ -3,16 +3,16 @@
 
 #include "Event.h"
 
-class Character;
+class CharacterSpells;
 
 class PlayerAction: public Event {
 public:
-    PlayerAction(Character* pchar, const double timestamp);
+    PlayerAction(CharacterSpells* spells, const double timestamp);
 
     void act() override;
 
 private:
-    Character* pchar;
+    CharacterSpells* spells;
 };
 
 #endif // PLAYERACTION_H

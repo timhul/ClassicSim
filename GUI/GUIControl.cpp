@@ -671,12 +671,11 @@ void GUIControl::selectInformationRotation(const int index) {
 }
 
 QString GUIControl::get_curr_rotation_name() const {
-    return current_char->get_current_rotation_name();
+    return current_char->get_spells()->get_rotation()->get_name();
 }
 
 QString GUIControl::get_curr_rotation_description() const {
-    return current_char->get_rotation() != nullptr ? current_char->get_rotation()->get_description() :
-                                                     "";
+    return current_char->get_spells()->get_rotation()->get_description();
 }
 
 QString GUIControl::get_information_rotation_name() const {

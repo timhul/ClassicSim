@@ -2,10 +2,12 @@
 
 #include "Character.h"
 #include "CharacterEncoding.h"
+#include "CharacterSpells.h"
 #include "EnabledBuffs.h"
 #include "Equipment.h"
 #include "Item.h"
 #include "Race.h"
+#include "Rotation.h"
 #include "SimSettings.h"
 #include "Talents.h"
 #include "Target.h"
@@ -54,7 +56,7 @@ QString CharacterEncoder::get_current_setup_string() {
     key_val("TARGET_LVL", QString::number(pchar->get_target()->get_lvl()));
     key_val("TARGET_TYPE", pchar->get_target()->get_creature_type_string());
 
-    key_val("ROTATION", pchar->get_current_rotation_name());
+    key_val("ROTATION", pchar->get_spells()->get_rotation()->get_name());
 
     add_enchants();
 

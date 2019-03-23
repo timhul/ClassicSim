@@ -1,6 +1,7 @@
-
 #include "RotationModel.h"
+
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "Rotation.h"
 #include "RotationFileReader.h"
 
@@ -71,7 +72,7 @@ void RotationModel::select_rotation() {
     if (information_index < 0 || information_index >= rowCount())
         return;
 
-    pchar->set_rotation(rotations[pchar->get_name()][information_index]);
+    pchar->get_spells()->set_rotation(rotations[pchar->get_name()][information_index]);
 }
 
 bool RotationModel::set_information_index(const int index) {

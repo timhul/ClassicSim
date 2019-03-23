@@ -46,7 +46,6 @@ public:
     Equipment* get_equipment() const;
     Faction* get_faction() const;
     Race* get_race();
-    Rotation* get_rotation();
     SimSettings* get_sim_settings() const;
     Talents* get_talents() const;
     Target* get_target() const;
@@ -70,13 +69,7 @@ public:
     virtual unsigned get_ap_per_strength() const = 0;
     virtual unsigned get_ap_per_agi() const = 0;
 
-    void set_rotation(Rotation*);
-    void relink_spells();
-    QString get_current_rotation_name() const;
-    void perform_rotation();
-
     void change_target_creature_type(const QString& creature_type);
-    void run_pre_combat_actions();
 
     void switch_faction();
 
@@ -180,7 +173,6 @@ protected:
     EnabledBuffs* enabled_buffs;
     CharacterSpells* spells;
     ClassStatistics* statistics;
-    Rotation* current_rotation;
     SimSettings* sim_settings;
     Resource* resource;
 

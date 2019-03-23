@@ -287,7 +287,7 @@ void Warrior::new_stance_effect() {
 
     if ((engine->get_current_priority() + 0.5) > this->next_gcd) {
         this->next_gcd = engine->get_current_priority() + 0.5;
-        engine->add_event(new PlayerAction(this, next_gcd));
+        engine->add_event(new PlayerAction(spells, next_gcd));
     }
 
     this->next_stance_cd = engine->get_current_priority() + stance_cooldown();

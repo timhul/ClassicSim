@@ -1,16 +1,15 @@
 #include "EncounterStart.h"
 
-#include "Character.h"
 #include "CharacterSpells.h"
 
-EncounterStart::EncounterStart(Character* pchar) {
-    this->pchar = pchar;
+EncounterStart::EncounterStart(CharacterSpells* spells) {
+    this->spells = spells;
     this->priority = 0.0;
     this->name = "EncounterStart";
 }
 
 void EncounterStart::act() {
-    pchar->run_pre_combat_actions();
-    pchar->get_spells()->start_attack();
-    pchar->perform_rotation();
+    spells->run_pre_combat_spells();
+    spells->start_attack();
+    spells->perform_rotation();
 }

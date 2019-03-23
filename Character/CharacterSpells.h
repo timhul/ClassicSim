@@ -11,6 +11,7 @@ class BloodFury;
 class Character;
 class MainhandAttack;
 class OffhandAttack;
+class Rotation;
 class Spell;
 
 static const bool NO_RELINK = false;
@@ -39,6 +40,10 @@ public:
     bool is_melee_attacking() const;
 
     void set_attack_mode(const AttackMode attack_mode);
+    Rotation* get_rotation();
+    void set_rotation(Rotation*);
+    void relink_spells();
+    void perform_rotation();
 
     virtual void mh_auto_attack(const int);
     virtual void oh_auto_attack(const int);
@@ -61,6 +66,7 @@ public:
 
 protected:
     Character* pchar;
+    Rotation* rotation;
     bool cast_is_in_progress;
     unsigned id_of_cast_in_progress;
     AttackMode attack_mode;
