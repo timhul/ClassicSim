@@ -260,7 +260,7 @@ void Item::set_uses() {
             }
 
             int duration = use["duration"].toInt();
-            int value = use["value"].toInt();
+            unsigned value = use["value"].toUInt();
             int cooldown = use["cooldown"].toInt();
 
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
@@ -455,27 +455,27 @@ const Stats* Item::get_stats() const {
 
 void Item::set_stat(const QString& key, const QString &value) {
     if (key == "STRENGTH") {
-        this->stats->increase_strength(value.toInt());
+        this->stats->increase_strength(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Strength").arg(value));
         this->item_stat_values.insert(ItemStats::Strength, value.toInt());
     }
     else if (key == "AGILITY") {
-        this->stats->increase_agility(value.toInt());
+        this->stats->increase_agility(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Agility").arg(value));
         this->item_stat_values.insert(ItemStats::Agility, value.toInt());
     }
     else if (key == "STAMINA") {
-        this->stats->increase_stamina(value.toInt());
+        this->stats->increase_stamina(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Stamina").arg(value));
         this->item_stat_values.insert(ItemStats::Stamina, value.toInt());
     }
     else if (key == "INTELLECT") {
-        this->stats->increase_intellect(value.toInt());
+        this->stats->increase_intellect(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Intellect").arg(value));
         this->item_stat_values.insert(ItemStats::Intellect, value.toInt());
     }
     else if (key == "SPIRIT") {
-        this->stats->increase_spirit(value.toInt());
+        this->stats->increase_spirit(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Spirit").arg(value));
         this->item_stat_values.insert(ItemStats::Spirit, value.toInt());
     }
@@ -492,27 +492,27 @@ void Item::set_stat(const QString& key, const QString &value) {
         this->item_stat_values.insert(ItemStats::HitChance, static_cast<int>(value.toDouble() * 100));
     }
     else if (key == "ATTACK_POWER") {
-        this->stats->increase_base_melee_ap(value.toInt());
+        this->stats->increase_base_melee_ap(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power.").arg(value));
         this->item_stat_values.insert(ItemStats::AttackPower, value.toInt());
     }
     else if (key == "ATTACK_POWER_BEAST") {
-        this->stats->increase_melee_ap_against_type(Target::CreatureType::Beast, value.toInt());
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Beast, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Beasts.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusBeast, value.toInt());
     }
     else if (key == "ATTACK_POWER_DEMON") {
-        this->stats->increase_melee_ap_against_type(Target::CreatureType::Demon, value.toInt());
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Demon, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Demons.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusDemon, value.toInt());
     }
     else if (key == "ATTACK_POWER_DRAGONKIN") {
-        this->stats->increase_melee_ap_against_type(Target::CreatureType::Dragonkin, value.toInt());
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Dragonkin, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Dragonkin.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusDragonkin, value.toInt());
     }
     else if (key == "ATTACK_POWER_UNDEAD") {
-        this->stats->increase_melee_ap_against_type(Target::CreatureType::Undead, value.toInt());
+        this->stats->increase_melee_ap_against_type(Target::CreatureType::Undead, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Undead.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusUndead, value.toInt());
     }
