@@ -16,7 +16,7 @@ public:
     ~SimSettings();
 
     QVersionNumber get_patch() const;
-    void set_patch(const QVersionNumber patch);
+    void set_patch(const QVersionNumber& patch);
 
     void set_combat_length(const int);
     void set_combat_iterations_full_sim(const int);

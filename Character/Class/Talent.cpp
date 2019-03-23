@@ -33,7 +33,7 @@ Talent::Talent(Character *pchar_,
     parent(nullptr),
     right_child(nullptr),
     bottom_child(nullptr),
-    rank_descriptions(rank_descriptions)
+    rank_descriptions(std::move(rank_descriptions))
 {
     check((max_points > 0 && max_points <= 5), "Number of talent points not possible");
 }

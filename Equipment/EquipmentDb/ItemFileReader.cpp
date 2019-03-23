@@ -35,7 +35,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
 
         if (!reader.attributes().hasAttribute("id")) {
             qDebug() << "Missing id attribute";
-            for (auto & attr : reader.attributes().toList())
+            for (auto & attr : reader.attributes())
                 qDebug() << attr.name() << attr.value();
             reader.skipCurrentElement();
             continue;

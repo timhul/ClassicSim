@@ -6,7 +6,7 @@
 
 class SetBonusRequirer {
 public:
-    SetBonusRequirer(const QSet<QString> &set_names);
+    SetBonusRequirer(QSet<QString> set_names);
     virtual ~SetBonusRequirer() = default;
 
     void activate_set_bonus(const QString& set_name, const int num_pieces);

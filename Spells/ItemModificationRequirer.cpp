@@ -2,8 +2,8 @@
 
 #include "Utils/Check.h"
 
-ItemModificationRequirer::ItemModificationRequirer(const QSet<int>& items) :
-    item_ids(items)
+ItemModificationRequirer::ItemModificationRequirer(QSet<int> items) :
+    item_ids(std::move(items))
 {}
 
 void ItemModificationRequirer::activate_item_modification(const int item_id) {

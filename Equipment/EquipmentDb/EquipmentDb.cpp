@@ -207,7 +207,7 @@ QString EquipmentDb::get_name_for_item_id(const int item_id) const {
     return item_id_to_item[item_id]->get_name();
 }
 
-void EquipmentDb::set_patch(const QVersionNumber patch) {
+void EquipmentDb::set_patch(const QVersionNumber& patch) {
     this->current_patch = patch;
 
     set_patch_for_slot(mh_slot_items, current_patch_mh_slot_items);

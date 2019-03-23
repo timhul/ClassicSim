@@ -6,7 +6,7 @@
 #include "Faction.h"
 #include "GeneralBuffs.h"
 
-DebuffModel::DebuffModel(const QVersionNumber patch, QObject* parent)
+DebuffModel::DebuffModel(const QVersionNumber& patch, QObject* parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
       patch(patch)

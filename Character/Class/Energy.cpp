@@ -46,7 +46,7 @@ void Energy::tick_energy() {
 }
 
 void Energy::lose_resource(const unsigned energy) {
-    if (ticking == false && current == max)
+    if (!ticking && current == max)
         add_next_tick();
 
     check((current >= energy), "Underflow decrease");

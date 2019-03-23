@@ -30,7 +30,7 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
     while (reader.readNextStartElement()) {
         if (!reader.attributes().hasAttribute("name")) {
             qDebug() << "Missing name attribute for <set> element";
-            for (auto & attr : reader.attributes().toList())
+            for (auto & attr : reader.attributes())
                 qDebug() << attr.name() << attr.value();
             reader.skipCurrentElement();
             continue;

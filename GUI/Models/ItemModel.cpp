@@ -56,7 +56,7 @@ void ItemModel::set_character(Character* pchar) {
     update_items();
 }
 
-void ItemModel::set_patch(const QVersionNumber patch) {
+void ItemModel::set_patch(const QVersionNumber& patch) {
     db->set_patch(patch);
     update_items();
 }

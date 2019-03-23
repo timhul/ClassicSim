@@ -2,8 +2,8 @@
 
 #include "Utils/Check.h"
 
-SetBonusRequirer::SetBonusRequirer(const QSet<QString>& talent_info) :
-    set_names(talent_info)
+SetBonusRequirer::SetBonusRequirer(QSet<QString> talent_info) :
+    set_names(std::move(talent_info))
 {}
 
 void SetBonusRequirer::activate_set_bonus(const QString& set_name, const int num_pieces) {

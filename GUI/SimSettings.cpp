@@ -23,7 +23,7 @@ QVersionNumber SimSettings::get_patch() const {
     return this->current_patch;
 }
 
-void SimSettings::set_patch(const QVersionNumber patch) {
+void SimSettings::set_patch(const QVersionNumber& patch) {
     current_patch = patch;
 }
 

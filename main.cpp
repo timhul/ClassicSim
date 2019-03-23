@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
     if (qml_engine.rootObjects().isEmpty())
         return -1;
 
-    int return_code = app.exec();
+    int return_code = QApplication::exec();
 
     gui_control->save_settings();
 

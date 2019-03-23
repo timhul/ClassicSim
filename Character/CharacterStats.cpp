@@ -42,14 +42,14 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::CROSSBOW, 0.0);
     this->crit_bonuses_per_weapon_type.insert(WeaponTypes::GUN, 0.0);
 
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0.0);
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::FIST, 0.0);
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::MACE, 0.0);
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::SWORD, 0.0);
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0.0);
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_MACE, 0.0);
-    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_SWORD, 0.0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::FIST, 0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::MACE, 0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::SWORD, 0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_MACE, 0);
+    this->damage_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_SWORD, 0);
 
     this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Beast, 0);
     this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Demon, 0);

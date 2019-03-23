@@ -31,7 +31,7 @@ class Weapon;
 
 class Character {
 public:
-    Character(const QString class_name, Race* race, SimSettings* sim_settings);
+    Character(QString class_name, Race* race, SimSettings* sim_settings);
     virtual ~Character();
 
     CharacterEnchants* get_enchants() const;

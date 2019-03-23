@@ -11,7 +11,7 @@ DeepWounds::DeepWounds(Character* pchar) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     buff(new NoEffectBuff(pchar,
-                          12.0,
+                          12,
                           "Deep Wounds",
                           "Assets/ability/Ability_backstab.png",
                           Hidden::No,

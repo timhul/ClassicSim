@@ -88,7 +88,7 @@ QString CharacterLoader::get_error() const {
     return this->error;
 }
 
-void CharacterLoader::fail(QString error) {
+void CharacterLoader::fail(const QString& error) {
     this->success = false;
     this->error = error;
 }

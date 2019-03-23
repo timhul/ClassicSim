@@ -1,6 +1,6 @@
 #include "RangedWhiteHitTable.h"
 
-#include <math.h>
+#include <cmath>
 
 #include "Random.h"
 #include "Utils/Check.h"

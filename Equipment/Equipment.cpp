@@ -24,8 +24,8 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
     }
 
     item_setups = {QVector<int>(), QVector<int>(), QVector<int>()};
-    for (int i = 0; i < item_setups.size(); ++i) {
-        item_setups[i] = {
+    for (auto & setup : item_setups) {
+        setup = {
             NO_EQUIPPED_ITEM,
             NO_EQUIPPED_ITEM,
             NO_EQUIPPED_ITEM,

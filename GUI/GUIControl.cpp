@@ -1444,14 +1444,14 @@ void GUIControl::set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const 
     tooltip.append(item_names_in_set.size());
     for (auto & item_name : item_names_in_set) {
         QString font_color = item_name.second ? "#ffd100" : "#727171";
-        tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color).arg(item_name.first));
+        tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color, item_name.first));
     }
 
     QVector<QPair<QString, bool>> set_bonus_tooltips = set_bonuses->get_set_bonus_tooltips(item_id);
     tooltip.append(set_bonus_tooltips.size());
     for (auto & bonus_tooltip : set_bonus_tooltips) {
         QString font_color = bonus_tooltip.second ? "#1eff00" : "#727171";
-        tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color).arg(bonus_tooltip.first));
+        tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color, bonus_tooltip.first));
     }
 }
 

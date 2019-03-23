@@ -153,7 +153,7 @@ void TestRotationFileReader::verify_executor_names(Rotation* rotation, QVector<Q
 
     for (int i = 0; i < executor_names.size(); ++i)
         check((executor_names[i] == rotation->executors[i]->get_spell_name()),
-              QString("Unexpected executor, expected '%1' got '%2").arg(executor_names[i]).arg(rotation->executors[i]->get_spell_name()).toStdString());
+              QString("Unexpected executor, expected '%1' got '%2").arg(executor_names[i], rotation->executors[i]->get_spell_name()).toStdString());
 }
 
 Rotation* TestRotationFileReader::get_rotation(const QString& name) const {

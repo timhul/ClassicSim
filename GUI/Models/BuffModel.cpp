@@ -6,7 +6,7 @@
 #include "Faction.h"
 #include "GeneralBuffs.h"
 
-BuffModel::BuffModel(const QVersionNumber patch, QObject* parent)
+BuffModel::BuffModel(const QVersionNumber& patch, QObject* parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
       patch(patch)

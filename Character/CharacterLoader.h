@@ -32,7 +32,7 @@ private:
     bool success;
     QString error;
 
-    void fail(QString error);
+    void fail(const QString& error);
 
     void setup_race(CharacterDecoder& decoder);
     Character* setup_pchar(CharacterDecoder& decoder);

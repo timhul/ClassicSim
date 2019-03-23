@@ -1,6 +1,6 @@
 #include "ConditionVariableBuiltin.h"
 
-#include <math.h>
+#include <cmath>
 
 #include "AutoShot.h"
 #include "Character.h"

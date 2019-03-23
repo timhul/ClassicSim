@@ -13,7 +13,7 @@ Weapon::Weapon(QString name, int item_id, int type, int weapon_slot, unsigned mi
                QMap<QString, QString> info,
                QVector<QPair<QString, QString> > stats,
                QVector<QMap<QString, QString>> procs):
-    Item(name, item_id, std::move(info), std::move(stats), std::move(procs)),
+    Item(std::move(name), item_id, std::move(info), std::move(stats), std::move(procs)),
     random(new Random(min, max)),
     weapon_type(type),
     weapon_slot(weapon_slot),
@@ -111,8 +111,6 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
 
     int enchant_slot = weapon_slot == WeaponSlots::MAINHAND ? EnchantSlot::MAINHAND :
                                                               EnchantSlot::OFFHAND;
-    QString weapon_side = weapon_slot ? "MH" : "OH";
-
     switch (enchant_name) {
     case EnchantName::WindfuryTotem:
         temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_slot);

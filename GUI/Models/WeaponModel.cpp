@@ -77,7 +77,7 @@ void WeaponModel::set_character(Character* pchar) {
     update_items();
 }
 
-void WeaponModel::set_patch(const QVersionNumber patch) {
+void WeaponModel::set_patch(const QVersionNumber& patch) {
     db->set_patch(patch);
     update_items();
 }

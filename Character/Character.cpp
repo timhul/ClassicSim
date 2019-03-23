@@ -24,7 +24,7 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Character::Character(const QString class_name, Race* race, SimSettings *sim_settings) :
+Character::Character(QString class_name, Race* race, SimSettings *sim_settings) :
     class_name(std::move(class_name)),
     race(race),
     engine(new Engine()),

@@ -19,7 +19,7 @@ public:
         ActiveRole
     };
 
-    BuffModel(const QVersionNumber patch, QObject *parent = nullptr);
+    BuffModel(const QVersionNumber& patch, QObject *parent = nullptr);
 
     void set_character(Character* pchar);
     void set_patch(const QVersionNumber &patch);

@@ -5,7 +5,7 @@
 
 class ItemModificationRequirer {
 public:
-    ItemModificationRequirer(const QSet<int>& item_ids);
+    ItemModificationRequirer(QSet<int> item_ids);
     virtual ~ItemModificationRequirer() = default;
 
     void activate_item_modification(const int item_id);

@@ -75,7 +75,7 @@ QString TalentTree::get_next_rank_description(const QString &position) const {
 }
 
 void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
-    for (auto it : new_talents.toStdMap()) {
+    for (auto & it : new_talents.toStdMap()) {
         check(!talents.contains(it.first), "Attempted to insert talent twice");
         talents.insert(it.first, new TalentStorage(it.second));
     }

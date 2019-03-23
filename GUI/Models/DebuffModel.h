@@ -19,7 +19,7 @@ public:
         ActiveRole
     };
 
-    DebuffModel(const QVersionNumber patch, QObject *parent = nullptr);
+    DebuffModel(const QVersionNumber& patch, QObject *parent = nullptr);
 
     void set_character(Character* pchar);
     void set_patch(const QVersionNumber &patch);
