@@ -313,7 +313,9 @@ SOURCES += main.cpp \
     Test/Hunter/Spells/TestAimedShot.cpp \
     Test/TestObject.cpp \
     Test/Rotation/TestRotationFileReader.cpp \
-    Event/Events/RangedHit.cpp
+    Event/Events/RangedHit.cpp \
+    Test/TestMana.cpp \
+    Utils/CompareDouble.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -631,7 +633,9 @@ HEADERS += \
     Test/TestObject.h \
     Test/Rotation/TestRotationFileReader.h \
     Character/Common/AttackMode.h \
-    Event/Events/RangedHit.h
+    Event/Events/RangedHit.h \
+    Test/TestMana.h \
+    Utils/CompareDouble.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

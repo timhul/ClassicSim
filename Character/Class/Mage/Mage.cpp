@@ -68,6 +68,10 @@ unsigned Mage::get_spirit_modifier() const {
     return 2;
 }
 
+unsigned Mage::get_mp5_from_spirit() const {
+    return 13 + static_cast<unsigned>(round(cstats->get_spirit() / 4));
+}
+
 double Mage::get_agi_needed_for_one_percent_phys_crit() const {
     return std::numeric_limits<double>::max();
 }

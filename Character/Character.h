@@ -68,6 +68,7 @@ public:
     virtual double get_int_needed_for_one_percent_spell_crit() const = 0;
     virtual unsigned get_ap_per_strength() const = 0;
     virtual unsigned get_ap_per_agi() const = 0;
+    virtual unsigned get_mp5_from_spirit() const;
 
     void change_target_creature_type(const QString& creature_type);
 

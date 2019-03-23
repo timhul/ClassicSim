@@ -19,6 +19,7 @@ public:
     unsigned get_spirit_modifier() const override;
     double get_agi_needed_for_one_percent_phys_crit() const override;
     double get_int_needed_for_one_percent_spell_crit() const override;
+    unsigned get_mp5_from_spirit() const override;
     double global_cooldown() const override;
 
     unsigned get_ap_per_strength() const override;

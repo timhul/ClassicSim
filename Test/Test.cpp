@@ -34,12 +34,14 @@
 #include "TestConditionVariableBuiltin.h"
 #include "TestFelstrikerProc.h"
 #include "TestHunter.h"
+#include "TestMana.h"
 #include "TestMechanics.h"
 #include "TestRogue.h"
 #include "TestRotationFileReader.h"
 #include "TestWarrior.h"
 #include "Troll.h"
 #include "Undead.h"
+#include "Utils/CompareDouble.h"
 #include "Warlock.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
@@ -68,6 +70,7 @@ void Test::test_all() {
     TestCharacterStats().test_all();
     TestConditionVariableBuiltin(equipment_db).test_all();
     TestRotationFileReader().test_all();
+    TestMana(equipment_db).test_all();
 
     TestWarrior(equipment_db).test_all();
     TestRogue(equipment_db).test_all();
@@ -126,7 +129,7 @@ void Test::test_equipment_creation() {
     assert(mh->get_weapon_type() == WeaponTypes::AXE);
     assert(mh->get_min_dmg() == 80);
     assert(mh->get_max_dmg() == 150);
-    assert(TestUtils::almost_equal(2.7, mh->get_base_weapon_speed()));
+    assert(almost_equal(2.7, mh->get_base_weapon_speed()));
 
     equipment->set_ranged(17069);
     Weapon* ranged = equipment->get_ranged();
@@ -135,7 +138,7 @@ void Test::test_equipment_creation() {
     assert(ranged->get_weapon_type() == WeaponTypes::BOW);
     assert(ranged->get_min_dmg() == 69);
     assert(ranged->get_max_dmg() == 129);
-    assert(TestUtils::almost_equal(2.5, ranged->get_base_weapon_speed()));
+    assert(almost_equal(2.5, ranged->get_base_weapon_speed()));
 
     delete equipment;
 }

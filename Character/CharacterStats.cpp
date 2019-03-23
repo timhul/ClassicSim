@@ -576,6 +576,10 @@ void CharacterStats::decrease_dodge(const double dodge) {
     base_stats->decrease_dodge(dodge);
 }
 
+unsigned CharacterStats::get_mp5() const {
+    return 0;
+}
+
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {
     effects.append(add_value);
 

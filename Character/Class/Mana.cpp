@@ -6,11 +6,12 @@
 #include "ManaTick.h"
 #include "ResourceGain.h"
 #include "Utils/Check.h"
+#include "Utils/CompareDouble.h"
 
 Mana::Mana(Character* pchar) :
     pchar(pchar),
     base_mana(0),
-    mana_per_tick(0)
+    last_use_of_mana(0)
 {
     this->max = get_max_mana();
     this->current = max;
@@ -46,7 +47,11 @@ void Mana::tick_mana() {
     if (current == max)
         return;
 
-    gain_resource(mana_per_tick);
+    gain_resource(pchar->get_stats()->get_mp5());
+
+    if (lhs_almost_equal_or_less(5.0, pchar->get_engine()->get_current_priority() - last_use_of_mana))
+        gain_resource(pchar->get_mp5_from_spirit());
+
     pchar->add_player_reaction_event();
 
     add_next_tick();
@@ -58,10 +63,11 @@ void Mana::lose_resource(const unsigned mana) {
 
     check((current >= mana), "Underflow decrease");
     current -= mana;
+    last_use_of_mana = pchar->get_engine()->get_current_priority();
 }
 
 void Mana::reset_resource() {
     max = get_max_mana();
     current = max;
-    mana_per_tick = 0;
+    last_use_of_mana = 0;
 }

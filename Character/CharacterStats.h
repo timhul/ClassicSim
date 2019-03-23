@@ -125,6 +125,8 @@ public:
     void increase_dodge(const double);
     void decrease_dodge(const double);
 
+    unsigned get_mp5() const;
+
 private:
     Character* pchar;
     Equipment* equipment;

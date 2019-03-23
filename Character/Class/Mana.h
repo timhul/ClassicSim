@@ -32,6 +32,7 @@ private:
     ManaTick* mana_tick;
     unsigned base_mana;
     unsigned mana_per_tick;
+    double last_use_of_mana;
 
     void add_next_tick();
 };
