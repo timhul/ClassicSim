@@ -158,7 +158,7 @@ void Rogue::enter_stealth() {
     if (is_stealthed())
         return;
 
-    stop_attack();
+    spells->stop_attack();
     stealthed = true;
 }
 

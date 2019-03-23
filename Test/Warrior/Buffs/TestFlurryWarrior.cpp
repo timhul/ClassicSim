@@ -160,7 +160,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied()
     given_a_guaranteed_white_crit();
     given_1_of_5_flurry();
 
-    warrior->start_attack();
+    warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
@@ -176,7 +176,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied()
     given_a_guaranteed_white_crit();
     given_2_of_5_flurry();
 
-    warrior->start_attack();
+    warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
@@ -192,7 +192,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied()
     given_a_guaranteed_white_crit();
     given_3_of_5_flurry();
 
-    warrior->start_attack();
+    warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
@@ -208,7 +208,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied()
     given_a_guaranteed_white_crit();
     given_4_of_5_flurry();
 
-    warrior->start_attack();
+    warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
@@ -224,7 +224,7 @@ void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied()
     given_a_guaranteed_white_crit();
     given_5_of_5_flurry();
 
-    warrior->start_attack();
+    warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);

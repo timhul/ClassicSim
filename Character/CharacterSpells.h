@@ -13,6 +13,12 @@ class Spell;
 
 static const bool NO_RELINK = false;
 
+enum AttackMode {
+    MeleeAttack = 0,
+    RangedAttack,
+    MagicAttack
+};
+
 class CharacterSpells {
 public:
     CharacterSpells(Character* pchar);
@@ -32,7 +38,10 @@ public:
 
     void reset();
 
-    virtual void start_attack();
+    void start_attack();
+    void stop_attack();
+    bool is_melee_attacking() const;
+
     virtual void mh_auto_attack(const int);
     virtual void oh_auto_attack(const int);
     virtual void add_next_mh_attack();
@@ -56,6 +65,9 @@ protected:
     Character* pchar;
     bool cast_is_in_progress;
     unsigned id_of_cast_in_progress;
+    AttackMode attack_mode;
+    bool attack_mode_active;
+    int next_instance_id;
     QVector<Spell*> spells;
     QVector<Spell*> pre_combat_spells;
 
@@ -65,9 +77,8 @@ protected:
     Berserking* berserking;
     BloodFury* blood_fury;
 
-    int next_instance_id;
-
 private:
+    void start_melee_attack();
 };
 
 #endif // SPELLS_H

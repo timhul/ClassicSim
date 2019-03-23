@@ -44,7 +44,7 @@ void RogueSpells::oh_auto_attack(const int iteration) {
     if (!oh_attack->attack_is_valid(iteration))
         return;
 
-    if (!pchar->is_melee_attacking())
+    if (!is_melee_attacking())
         return;
 
     oh_attack->perform();

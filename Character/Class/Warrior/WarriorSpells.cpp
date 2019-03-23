@@ -82,7 +82,7 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!warr_mh_attack->attack_is_valid(iteration))
         return;
 
-    if (!pchar->is_melee_attacking())
+    if (!is_melee_attacking())
         return;
 
     if (heroic_strike->is_queued() && heroic_strike->is_available()) {
@@ -102,7 +102,7 @@ void WarriorSpells::oh_auto_attack(const int iteration) {
     if (!warr_oh_attack->attack_is_valid(iteration))
         return;
 
-    if (!pchar->is_melee_attacking())
+    if (!is_melee_attacking())
         return;
 
     warr_oh_attack->perform();

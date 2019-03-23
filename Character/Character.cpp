@@ -41,7 +41,6 @@ Character::Character(QString class_name, Race* race, SimSettings *sim_settings) 
     ability_crit_dmg_mod(2.0),
     spell_crit_dmg_mod(1.5),
     clvl(1),
-    melee_attacking(false),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard),
     mh_flat_dmg_bonus(0),
@@ -135,10 +134,6 @@ bool Character::is_dual_wielding() {
     return cstats->get_equipment()->is_dual_wielding();
 }
 
-bool Character::is_melee_attacking() const {
-    return melee_attacking;
-}
-
 Engine* Character::get_engine() const {
     return this->engine;
 }
@@ -200,16 +195,6 @@ SimSettings* Character::get_sim_settings() const {
 void Character::add_player_reaction_event() {
     auto* new_event = new PlayerAction(this, engine->get_current_priority() + 0.1);
     engine->add_event(new_event);
-}
-
-void Character::start_attack() {
-    this->melee_attacking = true;
-
-    spells->start_attack();
-}
-
-void Character::stop_attack() {
-    this->melee_attacking = false;
 }
 
 void Character::start_global_cooldown() {
@@ -558,7 +543,6 @@ void Character::decrease_ranged_flat_damage_bonus(const unsigned change) {
 void Character::reset() {
     reset_class_specific();
 
-    melee_attacking = false;
     next_gcd = 0 - this->global_cooldown();
     next_trinket_cd = -1;
 

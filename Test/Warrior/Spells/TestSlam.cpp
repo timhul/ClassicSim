@@ -247,7 +247,7 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
     given_an_offhand_weapon_with_3_speed();
     given_a_guaranteed_white_hit();
 
-    pchar->start_attack();
+    pchar->get_spells()->start_attack();
 
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
     then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
@@ -256,9 +256,9 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
 
     given_engine_priority_at(1.0);
 
-    assert(pchar->is_melee_attacking());
+    assert(pchar->get_spells()->is_melee_attacking());
     slam()->perform();
-    assert(!pchar->is_melee_attacking());
+    assert(!pchar->get_spells()->is_melee_attacking());
 
     then_next_event_is("MainhandMeleeHit", "2.000", RUN_EVENT);
     then_next_event_is("CastComplete", "2.300", RUN_EVENT);

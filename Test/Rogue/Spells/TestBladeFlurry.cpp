@@ -117,7 +117,7 @@ void TestBladeFlurry::test_attack_speed() {
 
     when_blade_flurry_is_performed();
 
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
     then_next_event_is("MainhandMeleeHit", "1.667", RUN_EVENT);

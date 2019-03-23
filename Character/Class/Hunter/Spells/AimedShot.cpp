@@ -1,6 +1,7 @@
 #include "AimedShot.h"
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 
@@ -16,11 +17,14 @@ AimedShot::AimedShot(Character* pchar) :
 {}
 
 void AimedShot::spell_effect() {
+    pchar->get_spells()->stop_attack();
     add_gcd_event();
     start_cast();
 }
 
 void AimedShot::complete_cast_effect() {
+    pchar->get_spells()->start_attack();
+
     pchar->lose_mana(static_cast<unsigned>(resource_cost));
     const int wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_ability_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());

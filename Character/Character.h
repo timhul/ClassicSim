@@ -86,9 +86,6 @@ public:
     void add_player_reaction_event();
 
     bool is_dual_wielding();
-    bool is_melee_attacking() const;
-    void start_attack();
-    void stop_attack();
     bool action_ready() const;
     void start_global_cooldown();
     virtual double global_cooldown() const;
@@ -192,7 +189,6 @@ protected:
     double spell_crit_dmg_mod;
 
     int clvl;
-    bool melee_attacking;
     double next_gcd;
     double next_trinket_cd;
     Ruleset ruleset;

@@ -176,7 +176,7 @@ void TestSliceAndDice::test_stealth() {
 void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(1);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 
@@ -191,7 +191,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
 void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(2);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 
@@ -206,7 +206,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
 void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(3);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 
@@ -221,7 +221,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
 void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(4);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 
@@ -236,7 +236,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 
@@ -252,7 +252,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_
     given_1_of_3_imp_snd();
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 
@@ -268,7 +268,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_
     given_2_of_3_imp_snd();
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 
@@ -284,7 +284,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_
     given_3_of_3_imp_snd();
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
-    rogue->start_attack();
+    rogue->get_spells()->start_attack();
 
     when_slice_and_dice_is_performed();
 

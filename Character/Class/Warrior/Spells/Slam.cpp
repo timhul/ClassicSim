@@ -38,7 +38,7 @@ void Slam::spell_effect() {
     add_gcd_event();
     start_cast();
 
-    pchar->stop_attack();
+    pchar->get_spells()->stop_attack();
     dynamic_cast<WarriorSpells*>(warr->get_spells())->get_heroic_strike()->cancel();
 }
 
@@ -47,7 +47,7 @@ void Slam::complete_cast_effect() {
 
     pchar->get_spells()->get_mh_attack()->reset_swingtimer();
     pchar->get_spells()->get_oh_attack()->reset_swingtimer();
-    pchar->start_attack();
+    pchar->get_spells()->start_attack();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

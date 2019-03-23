@@ -18,6 +18,8 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     pchar(pchar),
     cast_is_in_progress(false),
     id_of_cast_in_progress(0),
+    attack_mode(AttackMode::MeleeAttack),
+    attack_mode_active(false),
     next_instance_id(SpellStatus::INITIAL_ID)
 {
     berserking = new Berserking(pchar);
@@ -138,12 +140,24 @@ Spell* CharacterSpells::get_spell_by_name(const QString& spell_name) const {
 void CharacterSpells::reset() {
     cast_is_in_progress = false;
     id_of_cast_in_progress = 0;
+    attack_mode_active = false;
 
     for (auto & spell : spells)
         spell->reset();
 }
 
 void CharacterSpells::start_attack() {
+    attack_mode_active = true;
+
+    switch (attack_mode) {
+    case AttackMode::MeleeAttack:
+        return start_melee_attack();
+    default:
+        return;
+    }
+}
+
+void CharacterSpells::start_melee_attack() {
     add_next_mh_attack();
 
     if (pchar->is_dual_wielding()) {
@@ -151,11 +165,19 @@ void CharacterSpells::start_attack() {
     }
 }
 
+void CharacterSpells::stop_attack() {
+    attack_mode_active = false;
+}
+
+bool CharacterSpells::is_melee_attacking() const {
+    return attack_mode == AttackMode::MeleeAttack && attack_mode_active;
+}
+
 void CharacterSpells::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;
 
-    if (!pchar->is_melee_attacking())
+    if (!is_melee_attacking())
         return;
 
     mh_attack->perform();
