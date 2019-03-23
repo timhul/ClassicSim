@@ -2,7 +2,9 @@
 
 #include "AimedShot.h"
 #include "Equipment.h"
+#include "Marksmanship.h"
 #include "MultiShot.h"
+#include "Talent.h"
 
 TestAimedShot::TestAimedShot(EquipmentDb *equipment_db) :
     TestSpellHunter(equipment_db, "Aimed Shot")
@@ -47,6 +49,8 @@ void TestAimedShot::test_spell_cooldown() {
 }
 
 void TestAimedShot::test_obeys_global_cooldown() {
+    given_aimed_shot_is_enabled();
+    assert(aimed_shot()->is_available());
     given_hunter_is_on_gcd();
     given_hunter_has_mana(310);
 
@@ -54,6 +58,7 @@ void TestAimedShot::test_obeys_global_cooldown() {
 }
 
 void TestAimedShot::test_resource_cost() {
+    given_aimed_shot_is_enabled();
     given_hunter_has_mana(310);
     assert(aimed_shot()->is_available());
 
@@ -69,6 +74,7 @@ void TestAimedShot::test_resource_cost() {
 }
 
 void TestAimedShot::test_is_ready_conditions() {
+    given_aimed_shot_is_enabled();
     when_aimed_shot_is_performed();
     given_engine_priority_pushed_forward(2.0);
     given_hunter_has_mana(310);
@@ -77,6 +83,7 @@ void TestAimedShot::test_is_ready_conditions() {
 }
 
 void TestAimedShot::test_incurs_global_cooldown() {
+    given_aimed_shot_is_enabled();
     assert(hunter->action_ready());
 
     when_aimed_shot_is_performed();
@@ -90,6 +97,7 @@ void TestAimedShot::test_hit_dmg() {
     given_a_guaranteed_ranged_white_hit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
 
     when_aimed_shot_is_performed();
     then_next_event_is("PlayerAction", "1.500");
@@ -106,6 +114,7 @@ void TestAimedShot::test_crit_dmg() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
 
     when_aimed_shot_is_performed();
     then_next_event_is("PlayerAction", "1.500");
@@ -117,6 +126,7 @@ void TestAimedShot::test_crit_dmg() {
 }
 
 void TestAimedShot::test_aimed_shot_adds_player_action_event_on_completion() {
+    given_aimed_shot_is_enabled();
     when_aimed_shot_is_performed();
 
     then_next_event_is("PlayerAction", "1.500");
@@ -127,11 +137,22 @@ void TestAimedShot::test_aimed_shot_adds_player_action_event_on_completion() {
 
 void TestAimedShot::test_aimed_shot_cast_in_progress_blocks_other_spells() {
     assert(multi_shot()->is_available());
+    given_aimed_shot_is_enabled();
     when_aimed_shot_is_performed();
     given_engine_priority_pushed_forward(2.0);
     given_hunter_has_mana(310);
 
     assert(!multi_shot()->is_available());
+}
+
+void TestAimedShot::given_aimed_shot_is_enabled() {
+    Talent* talent = Marksmanship(hunter).get_aimed_shot();
+
+    assert(talent->increment_rank());
+
+    delete talent;
+
+    assert(aimed_shot()->is_enabled());
 }
 
 void TestAimedShot::when_aimed_shot_is_performed() {

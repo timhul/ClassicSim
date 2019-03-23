@@ -2,8 +2,9 @@
 #define AIMEDSHOT_H
 
 #include "SpellCastingTime.h"
+#include "TalentRequirer.h"
 
-class AimedShot: public SpellCastingTime {
+class AimedShot: public SpellCastingTime, public TalentRequirer {
 public:
     AimedShot(Character* pchar);
 
@@ -12,6 +13,9 @@ private:
 
     void spell_effect() override;
     void complete_cast_effect() override;
+
+    void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
+    void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
 
 

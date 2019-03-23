@@ -14,8 +14,11 @@ AimedShot::AimedShot(Character* pchar) :
                      10.0,
                      ResourceType::Mana,
                      310,
-                     3000)
-{}
+                     3000),
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes)})
+{
+    this->enabled = false;
+}
 
 void AimedShot::spell_effect() {
     pchar->get_spells()->stop_attack();
@@ -52,3 +55,10 @@ void AimedShot::complete_cast_effect() {
     pchar->ranged_white_hit_effect(true);
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
+
+void AimedShot::increase_talent_rank_effect(const QString&, const int) {
+}
+
+void AimedShot::decrease_talent_rank_effect(const QString&, const int) {
+}
+

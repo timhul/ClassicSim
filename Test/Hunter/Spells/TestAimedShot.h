@@ -28,6 +28,7 @@ private:
     void test_aimed_shot_adds_player_action_event_on_completion();
     void test_aimed_shot_cast_in_progress_blocks_other_spells();
 
+    void given_aimed_shot_is_enabled();
     void when_aimed_shot_is_performed();
 };
 

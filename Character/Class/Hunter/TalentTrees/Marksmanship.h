@@ -3,12 +3,20 @@
 
 #include "TalentTree.h"
 
+class Hunter;
+class HunterSpells;
+class Talent;
+
 class Marksmanship: public TalentTree {
 public:
-    Marksmanship(Character *pchar);
-    ~Marksmanship() override;
+    Marksmanship(Hunter* pchar);
+    ~Marksmanship() override = default;
+
+    Talent* get_aimed_shot();
 
 private:
+    Hunter* hunter;
+    HunterSpells* spells;
 };
 
 #endif // MARKSMANSHIP_H
