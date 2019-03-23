@@ -78,7 +78,7 @@ GUIControl::GUIControl(QObject* parent) :
     character_decoder(new CharacterDecoder()),
     sim_settings(new SimSettings()),
     number_cruncher(new NumberCruncher()),
-    supported_classes({"Warrior", "Rogue"}),
+    supported_classes({"Warrior", "Rogue", "Hunter"}),
     current_char(nullptr),
     active_stat_filter_model(new ActiveItemStatFilterModel()),
     item_type_filter_model(new ItemTypeFilterModel()),
