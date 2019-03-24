@@ -7,18 +7,11 @@
 TalentStatIncrease::TalentStatIncrease(Character *pchar, TalentTree* tree,
                                        QString name, QString location, QString icon, int max_points,
                                        QString rank_description, QVector<QPair<int, int>> format_values,
-                                       QVector<QPair<int, TalentStat> > affected_stats) :
+                                       QVector<QPair<TalentStat, unsigned>> affected_stats) :
     Talent(pchar, tree, name, location, icon, max_points, rank_description, format_values),
-    cstats(pchar->get_stats())
-{
-    for (auto & affected_stat_pair: affected_stats) {
-        check((affected_stat_pair.first < format_values.size()),
-              QString("Out of range when constructing '%1'").arg(name).toStdString());
-
-        this->affected_stats.append({affected_stat_pair.second,
-                                     static_cast<unsigned>(format_values[affected_stat_pair.first].second)});
-    }
-}
+    cstats(pchar->get_stats()),
+    affected_stats(std::move(affected_stats))
+{}
 
 void TalentStatIncrease::apply_rank_effect() {
     for (auto & affected_stat_pair: affected_stats) {

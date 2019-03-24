@@ -54,12 +54,12 @@ public:
                        int max_points,
                        QString rank_description,
                        QVector<QPair<int, int>> format_values,
-                       QVector<QPair<int, TalentStat>> affected_stats);
+                       QVector<QPair<TalentStat, unsigned>> affected_stats);
     ~TalentStatIncrease() override = default;
 
 private:
-    QVector<QPair<TalentStat, unsigned>> affected_stats;
     CharacterStats* cstats;
+    QVector<QPair<TalentStat, unsigned>> affected_stats;
 
     void apply_rank_effect() override;
     void remove_rank_effect() override;
