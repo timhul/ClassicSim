@@ -80,7 +80,7 @@ void SimControl::add_option(Character* pchar, SimOption::Name option) {
         pchar->get_stats()->increase_melee_hit(1);
         break;
     case SimOption::Name::ScaleCritChance:
-        pchar->get_stats()->increase_crit(0.01);
+        pchar->get_stats()->increase_melee_crit(100);
         break;
     case SimOption::Name::ScaleAxeSkill:
         pchar->get_stats()->increase_wpn_skill(WeaponTypes::AXE, 1);
@@ -116,7 +116,7 @@ void SimControl::remove_option(Character* pchar, SimOption::Name option) {
         pchar->get_stats()->decrease_melee_hit(1);
         break;
     case SimOption::Name::ScaleCritChance:
-        pchar->get_stats()->decrease_crit(0.01);
+        pchar->get_stats()->decrease_melee_crit(100);
         break;
     case SimOption::Name::ScaleAxeSkill:
         pchar->get_stats()->decrease_wpn_skill(WeaponTypes::AXE, 1);

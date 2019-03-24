@@ -104,50 +104,50 @@ unsigned CharacterStats::get_spirit() const {
                                                          pchar->get_race()->get_base_spirit())));
 }
 
-double CharacterStats::get_melee_hit_chance() const {
+unsigned CharacterStats::get_melee_hit_chance() const {
     return base_stats->get_melee_hit_chance() + equipment->get_stats()->get_melee_hit_chance();
 }
 
-double CharacterStats::get_mh_crit_chance() const {
-    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
-    const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
+unsigned CharacterStats::get_mh_crit_chance() const {
+    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
+    const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
 
     double crit_from_wpn_type = 0.0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;
+    return equip_effect + crit_from_agi + static_cast<unsigned>(crit_from_wpn_type * 10000);
 }
 
-double CharacterStats::get_oh_crit_chance() const {
+unsigned CharacterStats::get_oh_crit_chance() const {
     double crit_from_wpn_type = 0.0;
     if (equipment->get_offhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
     else
-        return 0.0;
+        return 0;
 
-    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
-    const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
+    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
+    const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
 
-    return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;;
+    return equip_effect + crit_from_agi + static_cast<unsigned>(crit_from_wpn_type * 10000);
 }
 
-double CharacterStats::get_ranged_hit_chance() const {
+unsigned CharacterStats::get_ranged_hit_chance() const {
     return base_stats->get_ranged_hit_chance() + equipment->get_stats()->get_ranged_hit_chance();
 }
 
-double CharacterStats::get_ranged_crit_chance() const {
-    const double equip_effect = base_stats->get_crit_chance() + equipment->get_stats()->get_crit_chance();
-    const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
+unsigned CharacterStats::get_ranged_crit_chance() const {
+    const unsigned equip_effect = base_stats->get_ranged_crit_chance() + equipment->get_stats()->get_ranged_crit_chance();
+    const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
 
     double crit_from_wpn_type = 0.0;
-    if (equipment->get_ranged() != nullptr)
-        crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_ranged()->get_weapon_type()];
+    if (equipment->get_mainhand() != nullptr)
+        crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;
+    return equip_effect + crit_from_agi + static_cast<unsigned>(crit_from_wpn_type * 10000);
 }
 
-double CharacterStats::get_spell_hit_chance() const {
+unsigned CharacterStats::get_spell_hit_chance() const {
     return base_stats->get_spell_hit_chance() + equipment->get_stats()->get_spell_hit_chance();
 }
 
@@ -261,9 +261,11 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::SkillSword:
         return;
     case ItemStats::HitChance:
+        increase_ranged_hit(value);
         return increase_melee_hit(value);
     case ItemStats::CritChance:
-        return increase_crit(static_cast<double>(value) / 100);
+        increase_ranged_crit(value);
+        return increase_melee_crit(value);
     case ItemStats::AttackSpeedPercent:
         pchar->increase_ranged_attack_speed(value);
         return pchar->increase_melee_attack_speed(value);
@@ -312,9 +314,11 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::SkillSword:
         return;
     case ItemStats::HitChance:
+        decrease_ranged_hit(value);
         return decrease_melee_hit(value);
     case ItemStats::CritChance:
-        return decrease_crit(static_cast<double>(value) / 100);
+        decrease_ranged_crit(value);
+        return decrease_melee_crit(value);
     case ItemStats::AttackSpeedPercent:
         pchar->decrease_ranged_attack_speed(value);
         return pchar->decrease_melee_attack_speed(value);
@@ -468,31 +472,39 @@ double CharacterStats::get_spell_damage_taken_mod() const {
 }
 
 void CharacterStats::increase_melee_hit(const unsigned increase) {
-    base_stats->increase_melee_hit(static_cast<double>(increase) / 100);
+    base_stats->increase_melee_hit(increase);
     pchar->get_combat_roll()->update_melee_miss_chance(get_melee_hit_chance());
 }
 
 void CharacterStats::decrease_melee_hit(const unsigned decrease) {
-    base_stats->decrease_melee_hit(static_cast<double>(decrease) / 100);
+    base_stats->decrease_melee_hit(decrease);
     pchar->get_combat_roll()->update_melee_miss_chance(get_melee_hit_chance());
 }
 
-void CharacterStats::increase_crit(double increase) {
-    base_stats->increase_crit(increase);
+void CharacterStats::increase_melee_crit(const unsigned increase) {
+    base_stats->increase_melee_crit(increase);
 }
 
-void CharacterStats::decrease_crit(double decrease) {
-    base_stats->decrease_crit(decrease);
+void CharacterStats::decrease_melee_crit(const unsigned decrease) {
+    base_stats->decrease_melee_crit(decrease);
 }
 
 void CharacterStats::increase_ranged_hit(const unsigned increase) {
-    base_stats->increase_ranged_hit(static_cast<double>(increase) / 100);
+    base_stats->increase_ranged_hit(increase);
     pchar->get_combat_roll()->update_ranged_miss_chance(get_melee_hit_chance());
 }
 
 void CharacterStats::decrease_ranged_hit(const unsigned decrease) {
-    base_stats->decrease_ranged_hit(static_cast<double>(decrease) / 100);
+    base_stats->decrease_ranged_hit(decrease);
     pchar->get_combat_roll()->update_ranged_miss_chance(get_melee_hit_chance());
+}
+
+void CharacterStats::increase_ranged_crit(const unsigned increase) {
+    base_stats->increase_ranged_crit(increase);
+}
+
+void CharacterStats::decrease_ranged_crit(const unsigned decrease) {
+    base_stats->decrease_ranged_crit(decrease);
 }
 
 void CharacterStats::increase_crit_for_weapon_type(const int weapon_type, const double increase) {
@@ -511,21 +523,21 @@ void CharacterStats::decrease_total_phys_dmg_for_weapon_type(const int weapon_ty
     damage_bonuses_per_weapon_type[weapon_type] -= decrease;
 }
 
-void CharacterStats::increase_spell_hit(double increase) {
+void CharacterStats::increase_spell_hit(const unsigned increase) {
     base_stats->increase_spell_hit(increase);
     pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
 }
 
-void CharacterStats::decrease_spell_hit(double decrease) {
+void CharacterStats::decrease_spell_hit(const unsigned decrease) {
     base_stats->decrease_spell_hit(decrease);
     pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
 }
 
-void CharacterStats::increase_spell_crit(double increase) {
+void CharacterStats::increase_spell_crit(const unsigned increase) {
     base_stats->increase_spell_crit(increase);
 }
 
-void CharacterStats::decrease_spell_crit(double decrease) {
+void CharacterStats::decrease_spell_crit(const unsigned decrease) {
     base_stats->decrease_spell_crit(decrease);
 }
 

@@ -38,7 +38,7 @@ int MeleeSpecialTable::get_wpn_skill() {
 }
 
 int MeleeSpecialTable::get_outcome(const unsigned roll,
-                                   const double crit_chance,
+                                   const unsigned crit_chance,
                                    const bool include_dodge,
                                    const bool include_parry,
                                    const bool include_block,
@@ -66,7 +66,7 @@ int MeleeSpecialTable::get_outcome(const unsigned roll,
     }
     range += include_block ? block_range : 0;
 
-    if (random->get_roll() < static_cast<unsigned>((round(crit_chance * 10000))))
+    if (random->get_roll() < crit_chance)
         return PhysicalAttackResult::CRITICAL;
 
     return PhysicalAttackResult::HIT;

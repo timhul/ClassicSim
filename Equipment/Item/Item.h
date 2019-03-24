@@ -51,7 +51,7 @@ public:
     void set_stat(const QString& key, const QString& value);
     void set_stats(const QVector<QPair<QString, QString>> &stats);
 
-    int get_stat_value_via_flag(const ItemStats) const;
+    unsigned get_stat_value_via_flag(const ItemStats) const;
 
     bool has_enchant() const;
     void apply_enchant(EnchantName::Name enchant_name, Character *pchar);
@@ -81,7 +81,7 @@ protected:
     QVector<Proc*> active_procs;
     QVector<Spell*> use_spells;
     QVector<QString> spell_modifications;
-    QMap<ItemStats, int> item_stat_values;
+    QMap<ItemStats, unsigned> item_stat_values;
     Stats* stats;
     Enchant* enchant;
 

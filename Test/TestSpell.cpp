@@ -138,7 +138,7 @@ void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
 
     assert_melee_special_table_can_only_hit(wpn_skill);
 }
@@ -150,8 +150,8 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_crit(1.0);
+    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->increase_melee_crit(10000);
 
     assert_melee_special_table_can_only_crit(wpn_skill);
 }
@@ -193,7 +193,7 @@ void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(1.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
 
     assert_melee_special_table_can_only_block(wpn_skill);
 }
@@ -206,7 +206,7 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
 
     assert_melee_auto_table_can_only_hit(wpn_skill);
 }
@@ -219,8 +219,8 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_crit(1.0);
+    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->increase_melee_crit(10000);
 
     assert_melee_auto_table_can_only_crit(wpn_skill);
 }
@@ -277,7 +277,7 @@ void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
     table->update_block_chance(1.0);
     table->update_glancing_chance(0.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
 
     assert_melee_auto_table_can_only_block(wpn_skill);
 }
@@ -288,7 +288,7 @@ void TestSpell::set_ranged_auto_table_for_hit(const int wpn_skill) {
     table->update_dodge_chance(0.0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->decrease_ranged_crit(pchar->get_stats()->get_ranged_crit_chance());
 
     assert_ranged_auto_table_can_only_hit(wpn_skill);
 }
@@ -299,8 +299,8 @@ void TestSpell::set_ranged_auto_table_for_crit(const int wpn_skill) {
     table->update_dodge_chance(0.0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_crit(1.0);
+    pchar->get_stats()->decrease_ranged_crit(pchar->get_stats()->get_ranged_crit_chance());
+    pchar->get_stats()->increase_ranged_crit(10000);
 
     assert_ranged_auto_table_can_only_crit(wpn_skill);
 }
@@ -329,7 +329,7 @@ void TestSpell::set_ranged_auto_table_for_block(const int wpn_skill) {
     table->update_dodge_chance(0.0);
     table->update_block_chance(1.0);
 
-    pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->decrease_ranged_crit(pchar->get_stats()->get_ranged_crit_chance());
 
     assert_ranged_auto_table_can_only_block(wpn_skill);
 }
@@ -428,36 +428,36 @@ void TestSpell::assert_melee_auto_table_can_only_block(const int wpn_skill) {
 void TestSpell::assert_ranged_auto_table_can_only_hit(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::HIT);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_crit(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::CRITICAL);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_miss(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
+    assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::MISS);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::MISS);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_dodge(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::DODGE);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_block(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
 
-    assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
-    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
+    assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::BLOCK);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::BLOCK);
 }
 
 void TestSpell::create_100_dmg_1h() {

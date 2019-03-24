@@ -88,29 +88,33 @@ public:
     void increase_sword_skill(const int);
     void decrease_sword_skill(const int);
 
-    double get_melee_hit_chance() const;
-    void increase_melee_hit(const double value);
-    void decrease_melee_hit(const double value);
+    unsigned get_melee_hit_chance() const;
+    void increase_melee_hit(const unsigned value);
+    void decrease_melee_hit(const unsigned value);
 
-    double get_ranged_hit_chance() const;
-    void increase_ranged_hit(const double value);
-    void decrease_ranged_hit(const double value);
+    unsigned get_ranged_hit_chance() const;
+    void increase_ranged_hit(const unsigned value);
+    void decrease_ranged_hit(const unsigned value);
 
-    double get_crit_chance() const;
-    void increase_crit(const double value);
-    void decrease_crit(const double value);
+    unsigned get_melee_crit_chance() const;
+    void increase_melee_crit(const unsigned value);
+    void decrease_melee_crit(const unsigned value);
 
-    double get_spell_hit_chance() const;
-    void increase_spell_hit(const double value);
-    void decrease_spell_hit(const double value);
+    unsigned get_ranged_crit_chance() const;
+    void increase_ranged_crit(const unsigned value);
+    void decrease_ranged_crit(const unsigned value);
 
-    double get_spell_crit_chance() const;
-    void increase_spell_crit(const double value);
-    void decrease_spell_crit(const double value);
+    unsigned get_spell_hit_chance() const;
+    void increase_spell_hit(const unsigned value);
+    void decrease_spell_hit(const unsigned value);
 
-    double get_attack_speed() const;
-    void increase_attack_speed(const double value);
-    void decrease_attack_speed(const double value);
+    unsigned get_spell_crit_chance() const;
+    void increase_spell_crit(const unsigned value);
+    void decrease_spell_crit(const unsigned value);
+
+    unsigned get_attack_speed() const;
+    void increase_attack_speed(const unsigned value);
+    void decrease_attack_speed(const unsigned value);
 
     double get_mh_wpn_speed() const;
     double get_oh_wpn_speed() const;
@@ -161,12 +165,13 @@ private:
     unsigned melee_ap_per_agi;
     unsigned ranged_ap;
     unsigned ranged_ap_per_agi;
-    double percent_melee_hit;
-    double percent_ranged_hit;
-    double percent_crit;
-    double percent_spell_hit;
-    double percent_spell_crit;
-    double percent_attack_speed;
+    unsigned melee_hit;
+    unsigned melee_crit;
+    unsigned ranged_hit;
+    unsigned ranged_crit;
+    unsigned spell_hit;
+    unsigned spell_crit;
+    unsigned attack_speed;
 
     QMap<Target::CreatureType, unsigned> melee_ap_against_creature;
     QMap<Target::CreatureType, unsigned> ranged_ap_against_creature;

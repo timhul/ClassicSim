@@ -49,7 +49,7 @@ int CombatRoll::get_melee_ability_result(const int wpn_skill,
     return attack_table->get_outcome(roll, crit_mod, include_dodge, include_parry, include_block, include_miss);
 }
 
-int CombatRoll::get_ranged_hit_result(const int wpn_skill, const double crit_chance) {
+int CombatRoll::get_ranged_hit_result(const int wpn_skill, const unsigned crit_chance) {
     const unsigned roll = random->get_roll();
 
     RangedWhiteHitTable* attack_table = this->get_ranged_white_table(wpn_skill);
@@ -57,11 +57,11 @@ int CombatRoll::get_ranged_hit_result(const int wpn_skill, const double crit_cha
     return attack_table->get_outcome(roll, crit_chance);
 }
 
-int CombatRoll::get_ranged_ability_result(const int wpn_skill, const double crit_chance) {
+int CombatRoll::get_ranged_ability_result(const int wpn_skill, const unsigned crit_chance) {
     return get_ranged_hit_result(wpn_skill, crit_chance);
 }
 
-int CombatRoll::get_spell_ability_result(const MagicSchool school, const double crit_mod) {
+int CombatRoll::get_spell_ability_result(const MagicSchool school, const unsigned crit_mod) {
     const unsigned roll = random->get_roll();
 
     MagicAttackTable* attack_table = get_magic_attack_table(school);
@@ -177,7 +177,7 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
     return mechanics->get_glancing_blow_dmg_penalty(wpn_skill);
 }
 
-void CombatRoll::update_melee_miss_chance(const double hit) {
+void CombatRoll::update_melee_miss_chance(const unsigned hit) {
     QMap<int, MeleeWhiteHitTable*>::const_iterator it_auto = melee_white_tables.constBegin();
     auto end_auto = melee_white_tables.constEnd();
     while(it_auto != end_auto) {
@@ -199,7 +199,7 @@ void CombatRoll::update_melee_miss_chance(const double hit) {
     }
 }
 
-void CombatRoll::update_ranged_miss_chance(const double hit) {
+void CombatRoll::update_ranged_miss_chance(const unsigned hit) {
     QMap<int, RangedWhiteHitTable*>::const_iterator it = ranged_white_tables.constBegin();
     auto end = ranged_white_tables.constEnd();
     while(it != end) {
@@ -211,7 +211,7 @@ void CombatRoll::update_ranged_miss_chance(const double hit) {
     }
 }
 
-void CombatRoll::update_spell_miss_chance(const double spell_hit) {
+void CombatRoll::update_spell_miss_chance(const unsigned spell_hit) {
     const int clvl = pchar->get_clvl();
     QMap<MagicSchool, MagicAttackTable*>::const_iterator it_magic = magic_attack_tables.constBegin();
     auto end_magic = magic_attack_tables.constEnd();

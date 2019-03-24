@@ -29,7 +29,7 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->increase_melee_hit(change);
             continue;
         case MeleeCrit:
-            cstats->increase_crit(change);
+            cstats->increase_melee_crit(change);
             continue;
         case MeleeCritDmgBonus:
             pchar->increase_ability_crit_dmg_mod(change);
@@ -38,7 +38,7 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->increase_ranged_hit(change);
             continue;
         case RangedCrit:
-            cstats->increase_crit(change);
+            cstats->increase_ranged_crit(change);
             continue;
         case RangedCritDmgBonus:
         case RangedDmgMod:
@@ -93,7 +93,7 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->decrease_melee_hit(change);
             continue;
         case MeleeCrit:
-            cstats->decrease_crit(change);
+            cstats->decrease_melee_crit(change);
             continue;
         case MeleeCritDmgBonus:
             pchar->decrease_ability_crit_dmg_mod(change);
@@ -102,7 +102,7 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->decrease_ranged_hit(change);
             continue;
         case RangedCrit:
-            cstats->decrease_crit(change);
+            cstats->decrease_ranged_crit(change);
             continue;
         case RangedCritDmgBonus:
         case RangedDmgMod:

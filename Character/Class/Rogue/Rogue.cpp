@@ -42,7 +42,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     cstats->increase_stamina(60);
     cstats->increase_intellect(15);
     cstats->increase_spirit(30);
-    cstats->increase_crit(0.03);
+    cstats->increase_melee_crit(300);
     cstats->increase_melee_ap(160);
 
     this->rogue_spells = new RogueSpells(this);

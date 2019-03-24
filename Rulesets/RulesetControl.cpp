@@ -28,7 +28,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
         remove_vaelastrasz_ruleset(pchar, sim_settings);
         break;
     case Ruleset::Loatheb:
-        pchar->get_stats()->decrease_crit(1.0);
+        pchar->get_stats()->decrease_melee_crit(10000);
         pchar->get_combat_roll()->drop_tables();
         break;
     }
@@ -42,7 +42,7 @@ void RulesetControl::use_ruleset(Ruleset ruleset, Character* pchar, SimSettings*
         use_vaelastrasz_ruleset(pchar, sim_settings);
         break;
     case Ruleset::Loatheb:
-        pchar->get_stats()->increase_crit(1.0);
+        pchar->get_stats()->increase_melee_crit(10000);
         pchar->get_combat_roll()->drop_tables();
         break;
     }

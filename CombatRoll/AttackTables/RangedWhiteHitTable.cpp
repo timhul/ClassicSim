@@ -35,7 +35,7 @@ void RangedWhiteHitTable::update_ranges() {
 }
 
 int RangedWhiteHitTable::get_outcome(const unsigned roll,
-                                     const double crit_chance,
+                                     const unsigned crit_chance,
                                      const bool include_dodge,
                                      const bool include_block,
                                      const bool include_miss) {
@@ -52,13 +52,13 @@ int RangedWhiteHitTable::get_outcome(const unsigned roll,
     range += include_dodge ? dodge_range : 0;
 
     if (include_block && roll < (range + this->block_range)) {
-        if (random->get_roll() < range + static_cast<unsigned>(round(crit_chance * 10000)))
+        if (random->get_roll() < range + crit_chance)
             return PhysicalAttackResult::BLOCK_CRITICAL;
         return PhysicalAttackResult::BLOCK;
     }
     range += include_block ? block_range : 0;
 
-    if (roll < (range + static_cast<unsigned>(round(crit_chance * 10000))))
+    if (roll < range + crit_chance)
         return PhysicalAttackResult::CRITICAL;
 
     return PhysicalAttackResult::HIT;

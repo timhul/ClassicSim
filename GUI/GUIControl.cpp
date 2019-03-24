@@ -521,20 +521,17 @@ QString GUIControl::get_crit_chance() const {
     auto mh_crit = current_char->get_stats()->get_mh_crit_chance();
     auto oh_crit = current_char->get_stats()->get_oh_crit_chance();
 
-    if (oh_crit > 0.0001) {
-        auto delta = (mh_crit - oh_crit) < 0 ? (mh_crit - oh_crit) * -1 : mh_crit - oh_crit;
-
-        if (delta > 0.001) {
-            QString format = "%1% / %2";
-            return format.arg(QString::number(mh_crit * 100, 'f', 2), QString::number(oh_crit * 100, 'f', 2));
-        }
+    if (oh_crit > 0 && mh_crit != oh_crit) {
+        QString format = "%1% / %2";
+        return format.arg(QString::number(static_cast<double>(mh_crit) / 100, 'f', 2),
+                          QString::number(static_cast<double>(oh_crit) / 100, 'f', 2));
     }
 
-    return QString::number(mh_crit * 100, 'f', 2);
+    return QString::number(static_cast<double>(mh_crit) / 100, 'f', 2);
 }
 
 QString GUIControl::get_hit_chance() const {
-    return QString::number(current_char->get_stats()->get_melee_hit_chance() * 100, 'f', 2);
+    return QString::number(current_char->get_stats()->get_melee_hit_chance() / 100, 'f', 2);
 }
 
 int GUIControl::get_attack_power() const {

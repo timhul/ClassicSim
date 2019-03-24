@@ -27,12 +27,13 @@ Stats::Stats()
     this->mace_skill = 0;
     this->sword_skill = 0;
 
-    this->percent_melee_hit = 0.0;
-    this->percent_ranged_hit = 0.0;
-    this->percent_crit = 0.0;
-    this->percent_spell_hit = 0.0;
-    this->percent_spell_crit = 0.0;
-    this->percent_attack_speed = 0.0;
+    this->melee_hit = 0;
+    this->melee_crit = 0;
+    this->ranged_hit = 0;
+    this->ranged_crit = 0;
+    this->spell_hit = 0;
+    this->spell_crit = 0;
+    this->attack_speed = 0.0;
     this->str_multiplier = 1.0;
     this->agi_multiplier = 1.0;
     this->stam_multiplier = 1.0;
@@ -82,8 +83,9 @@ void Stats::add(const Stats* rhs) {
     increase_sword_skill(rhs->get_sword_skill());
 
     increase_melee_hit(rhs->get_melee_hit_chance());
+    increase_melee_crit(rhs->get_melee_crit_chance());
     increase_ranged_hit(rhs->get_ranged_hit_chance());
-    increase_crit(rhs->get_crit_chance());
+    increase_ranged_crit(rhs->get_ranged_crit_chance());
     increase_attack_speed(rhs->get_attack_speed());
 
     increase_spell_hit(rhs->get_spell_hit_chance());
@@ -117,8 +119,9 @@ void Stats::remove(const Stats* rhs) {
     decrease_sword_skill(rhs->get_sword_skill());
 
     decrease_melee_hit(rhs->get_melee_hit_chance());
+    decrease_melee_crit(rhs->get_melee_crit_chance());
     decrease_ranged_hit(rhs->get_ranged_hit_chance());
-    decrease_crit(rhs->get_crit_chance());
+    decrease_ranged_crit(rhs->get_ranged_crit_chance());
     decrease_attack_speed(rhs->get_attack_speed());
 
     decrease_spell_hit(rhs->get_spell_hit_chance());
@@ -368,28 +371,32 @@ void Stats::decrease_base_ranged_ap(const unsigned decrease) {
     ranged_ap -= decrease;
 }
 
-double Stats::get_melee_hit_chance() const {
-    return percent_melee_hit;
+unsigned Stats::get_melee_hit_chance() const {
+    return melee_hit;
 }
 
-double Stats::get_ranged_hit_chance() const {
-    return percent_ranged_hit;
+unsigned Stats::get_ranged_hit_chance() const {
+    return ranged_hit;
 }
 
-double Stats::get_crit_chance() const {
-    return percent_crit;
+unsigned Stats::get_melee_crit_chance() const {
+    return melee_crit;
 }
 
-double Stats::get_spell_hit_chance() const {
-    return percent_spell_hit;
+unsigned Stats::get_ranged_crit_chance() const {
+    return ranged_crit;
 }
 
-double Stats::get_spell_crit_chance() const {
-    return percent_spell_crit;
+unsigned Stats::get_spell_hit_chance() const {
+    return spell_hit;
 }
 
-double Stats::get_attack_speed() const {
-    return percent_attack_speed;
+unsigned Stats::get_spell_crit_chance() const {
+    return spell_crit;
+}
+
+unsigned Stats::get_attack_speed() const {
+    return attack_speed;
 }
 
 void Stats::set_melee_ap_per_str(const unsigned value) {
@@ -420,52 +427,60 @@ void Stats::set_int_multiplier(const double value) {
     int_multiplier = value;
 }
 
-void Stats::increase_crit(const double value) {
-    percent_crit += value;
+void Stats::increase_melee_crit(const unsigned value) {
+    melee_crit += value;
 }
 
-void Stats::decrease_crit(const double value) {
-    percent_crit -= value;
+void Stats::decrease_melee_crit(const unsigned value) {
+    melee_crit -= value;
 }
 
-void Stats::increase_melee_hit(const double value) {
-    percent_melee_hit += value;
+void Stats::increase_melee_hit(const unsigned value) {
+    melee_hit += value;
 }
 
-void Stats::decrease_melee_hit(const double value) {
-    percent_melee_hit -= value;
+void Stats::decrease_melee_hit(const unsigned value) {
+    melee_hit -= value;
 }
 
-void Stats::increase_ranged_hit(const double value) {
-    percent_ranged_hit += value;
+void Stats::increase_ranged_hit(const unsigned value) {
+    ranged_hit += value;
 }
 
-void Stats::decrease_ranged_hit(const double value) {
-    percent_ranged_hit -= value;
+void Stats::decrease_ranged_hit(const unsigned value) {
+    ranged_hit -= value;
 }
 
-void Stats::increase_spell_hit(const double value) {
-    percent_spell_hit += value;
+void Stats::increase_ranged_crit(const unsigned value) {
+    ranged_crit += value;
 }
 
-void Stats::decrease_spell_hit(const double value) {
-    percent_spell_hit -= value;
+void Stats::decrease_ranged_crit(const unsigned value) {
+    ranged_crit -= value;
 }
 
-void Stats::increase_spell_crit(const double value) {
-    percent_spell_crit += value;
+void Stats::increase_spell_hit(const unsigned value) {
+    spell_hit += value;
 }
 
-void Stats::decrease_spell_crit(const double value) {
-    percent_spell_crit -= value;
+void Stats::decrease_spell_hit(const unsigned value) {
+    spell_hit -= value;
 }
 
-void Stats::increase_attack_speed(const double value) {
-    percent_attack_speed += value;
+void Stats::increase_spell_crit(const unsigned value) {
+    spell_crit += value;
 }
 
-void Stats::decrease_attack_speed(const double value) {
-    percent_attack_speed -= value;
+void Stats::decrease_spell_crit(const unsigned value) {
+    spell_crit -= value;
+}
+
+void Stats::increase_attack_speed(const unsigned value) {
+    attack_speed += value;
+}
+
+void Stats::decrease_attack_speed(const unsigned value) {
+    attack_speed -= value;
 }
 
 void Stats::increase_melee_ap_against_type(const Target::CreatureType type, const unsigned increase) {

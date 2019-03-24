@@ -8,7 +8,7 @@
 #include "WeaponModel.h"
 
 bool ItemStatFilter::item_passes_filter(const Item *item) const {
-    int item_stat_value = item->get_stat_value_via_flag(this->item_stat_flag);
+    int item_stat_value = static_cast<int>(item->get_stat_value_via_flag(this->item_stat_flag));
 
     switch(comparator) {
     case StatComparator::Less:

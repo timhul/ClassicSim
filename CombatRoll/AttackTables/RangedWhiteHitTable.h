@@ -14,7 +14,7 @@ public:
                         const double block);
 
     int get_outcome(const unsigned roll,
-                    const double crit_chance,
+                    const unsigned crit_chance,
                     const bool include_dodge = true,
                     const bool include_block = true,
                     const bool include_miss = true);

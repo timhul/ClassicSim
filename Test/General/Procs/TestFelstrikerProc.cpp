@@ -46,7 +46,7 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
     set_melee_special_table_for_miss(mh_wpn_skill);
     set_melee_special_table_for_miss(oh_wpn_skill);
 
-    const double crit_before_buff = pchar->get_stats()->get_mh_crit_chance();
+    const unsigned crit_before_buff = pchar->get_stats()->get_mh_crit_chance();
     buff->apply_buff();
 
     assert_melee_auto_table_can_only_crit(mh_wpn_skill);
@@ -56,7 +56,7 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
 
     then_next_event_is("BuffRemoval", "3.000", RUN_EVENT);
 
-    assert(almost_equal(crit_before_buff, pchar->get_stats()->get_mh_crit_chance()));
+    assert(crit_before_buff == pchar->get_stats()->get_mh_crit_chance());
 }
 
 void TestFelstrikerProc::given_felstriker_equipped_in_mainhand() {

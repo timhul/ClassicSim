@@ -13,9 +13,9 @@ Cruelty::Cruelty(Character *pchar, TalentTree* tree) :
 Cruelty::~Cruelty() = default;
 
 void Cruelty::apply_rank_effect() {
-    pchar->get_stats()->increase_crit(0.01);
+    pchar->get_stats()->increase_melee_crit(100);
 }
 
 void Cruelty::remove_rank_effect() {
-    pchar->get_stats()->decrease_crit(0.01);
+    pchar->get_stats()->decrease_melee_crit(100);
 }

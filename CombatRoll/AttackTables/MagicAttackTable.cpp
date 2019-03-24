@@ -22,7 +22,7 @@ int MagicAttackTable::get_hit_outcome(const unsigned roll, const double crit_cha
     if (roll < miss_range)
         return MagicAttackResult::MISS;
 
-    if (random->get_roll() < static_cast<unsigned>(round(crit_chance * 10000)))
+    if (random->get_roll() < crit_chance)
         return MagicAttackResult::CRITICAL;
 
     return MagicAttackResult::HIT;

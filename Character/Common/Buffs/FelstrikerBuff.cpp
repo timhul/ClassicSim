@@ -10,14 +10,14 @@ FelstrikerBuff::FelstrikerBuff(Character* pchar, const int duration):
 {}
 
 void FelstrikerBuff::buff_effect_when_applied() {
-    pchar->get_stats()->increase_crit(1.0);
+    pchar->get_stats()->increase_melee_crit(10000);
 
     set_tables_for_guaranteed_hit(pchar->get_mh_wpn_skill());
     set_tables_for_guaranteed_hit(pchar->get_oh_wpn_skill());
 }
 
 void FelstrikerBuff::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_crit(1.0);
+    pchar->get_stats()->decrease_melee_crit(10000);
 
     pchar->get_combat_roll()->drop_tables();
 }

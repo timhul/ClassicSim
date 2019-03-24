@@ -457,144 +457,149 @@ void Item::set_stat(const QString& key, const QString &value) {
     if (key == "STRENGTH") {
         this->stats->increase_strength(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Strength").arg(value));
-        this->item_stat_values.insert(ItemStats::Strength, value.toInt());
+        this->item_stat_values.insert(ItemStats::Strength, value.toUInt());
     }
     else if (key == "AGILITY") {
         this->stats->increase_agility(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Agility").arg(value));
-        this->item_stat_values.insert(ItemStats::Agility, value.toInt());
+        this->item_stat_values.insert(ItemStats::Agility, value.toUInt());
     }
     else if (key == "STAMINA") {
         this->stats->increase_stamina(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Stamina").arg(value));
-        this->item_stat_values.insert(ItemStats::Stamina, value.toInt());
+        this->item_stat_values.insert(ItemStats::Stamina, value.toUInt());
     }
     else if (key == "INTELLECT") {
         this->stats->increase_intellect(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Intellect").arg(value));
-        this->item_stat_values.insert(ItemStats::Intellect, value.toInt());
+        this->item_stat_values.insert(ItemStats::Intellect, value.toUInt());
     }
     else if (key == "SPIRIT") {
         this->stats->increase_spirit(value.toUInt());
         base_tooltip_stats.append(QString("+%1 Spirit").arg(value));
-        this->item_stat_values.insert(ItemStats::Spirit, value.toInt());
+        this->item_stat_values.insert(ItemStats::Spirit, value.toUInt());
     }
     else if (key == "CRIT_CHANCE") {
-        this->stats->increase_crit(value.toDouble());
-        QString number = QString::number(value.toDouble() * 100);
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->stats->increase_melee_crit(attack_table_value);
+        this->stats->increase_ranged_crit(attack_table_value);
+        QString number = QString::number(display_value);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike by %1%.").arg(number));
-        this->item_stat_values.insert(ItemStats::CritChance, static_cast<int>(value.toDouble() * 100));
+        this->item_stat_values.insert(ItemStats::CritChance, display_value);
     }
     else if (key == "HIT_CHANCE") {
-        this->stats->increase_melee_hit(value.toDouble());
-        this->stats->increase_ranged_hit(value.toDouble());
-        QString number = QString::number(value.toDouble() * 100);
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->stats->increase_melee_hit(attack_table_value);
+        this->stats->increase_ranged_hit(attack_table_value);
+        QString number = QString::number(display_value);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit by %1%.").arg(number));
-        this->item_stat_values.insert(ItemStats::HitChance, static_cast<int>(value.toDouble() * 100));
+        this->item_stat_values.insert(ItemStats::HitChance, display_value);
     }
     else if (key == "ATTACK_POWER") {
         this->stats->increase_base_melee_ap(value.toUInt());
         this->stats->increase_base_ranged_ap(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power.").arg(value));
-        this->item_stat_values.insert(ItemStats::AttackPower, value.toInt());
+        this->item_stat_values.insert(ItemStats::AttackPower, value.toUInt());
     }
     else if (key == "ATTACK_POWER_BEAST") {
         this->stats->increase_melee_ap_against_type(Target::CreatureType::Beast, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Beasts.").arg(value));
-        this->item_stat_values.insert(ItemStats::APVersusBeast, value.toInt());
+        this->item_stat_values.insert(ItemStats::APVersusBeast, value.toUInt());
     }
     else if (key == "ATTACK_POWER_DEMON") {
         this->stats->increase_melee_ap_against_type(Target::CreatureType::Demon, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Demons.").arg(value));
-        this->item_stat_values.insert(ItemStats::APVersusDemon, value.toInt());
+        this->item_stat_values.insert(ItemStats::APVersusDemon, value.toUInt());
     }
     else if (key == "ATTACK_POWER_DRAGONKIN") {
         this->stats->increase_melee_ap_against_type(Target::CreatureType::Dragonkin, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Dragonkin.").arg(value));
-        this->item_stat_values.insert(ItemStats::APVersusDragonkin, value.toInt());
+        this->item_stat_values.insert(ItemStats::APVersusDragonkin, value.toUInt());
     }
     else if (key == "ATTACK_POWER_UNDEAD") {
         this->stats->increase_melee_ap_against_type(Target::CreatureType::Undead, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Undead.").arg(value));
-        this->item_stat_values.insert(ItemStats::APVersusUndead, value.toInt());
+        this->item_stat_values.insert(ItemStats::APVersusUndead, value.toUInt());
     }
     else if (key == "AXE_SKILL") {
         this->stats->increase_axe_skill(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Axes +%1.").arg(value));
-        this->item_stat_values.insert(ItemStats::SkillAxe, value.toInt());
+        this->item_stat_values.insert(ItemStats::SkillAxe, value.toUInt());
     }
     else if (key == "DAGGER_SKILL") {
         this->stats->increase_dagger_skill(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Daggers +%1.").arg(value));
-        this->item_stat_values.insert(ItemStats::SkillDagger, value.toInt());
+        this->item_stat_values.insert(ItemStats::SkillDagger, value.toUInt());
     }
     else if (key == "MACE_SKILL") {
         this->stats->increase_mace_skill(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Maces +%1.").arg(value));
-        this->item_stat_values.insert(ItemStats::SkillMace, value.toInt());
+        this->item_stat_values.insert(ItemStats::SkillMace, value.toUInt());
     }
     else if (key == "SWORD_SKILL") {
         this->stats->increase_sword_skill(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Swords +%1.").arg(value));
-        this->item_stat_values.insert(ItemStats::SkillSword, value.toInt());
+        this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
     }
     else if (key == "ARMOR") {
         this->stats->increase_armor(value.toInt());
         base_tooltip_stats.append(QString("%1 Armor").arg(value));
-        this->item_stat_values.insert(ItemStats::Armor, value.toInt());
+        this->item_stat_values.insert(ItemStats::Armor, value.toUInt());
     }
     else if (key == "DEFENSE") {
         this->stats->increase_defense(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Defense +%1.").arg(value));
-        this->item_stat_values.insert(ItemStats::Defense, value.toInt());
+        this->item_stat_values.insert(ItemStats::Defense, value.toUInt());
     }
     else if (key == "DODGE_CHANCE") {
         this->stats->increase_dodge(value.toDouble());
         QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to dodge an attack by %1%.").arg(number));
-        this->item_stat_values.insert(ItemStats::DodgeChance, static_cast<int>(value.toDouble() * 100));
+        this->item_stat_values.insert(ItemStats::DodgeChance, static_cast<unsigned>(value.toDouble() * 100));
     }
     else if (key == "PARRY_CHANCE") {
         this->stats->increase_parry(value.toDouble());
         QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to parry an attack by %1%.").arg(number));
-        this->item_stat_values.insert(ItemStats::ParryChance, static_cast<int>(value.toDouble() * 100));
+        this->item_stat_values.insert(ItemStats::ParryChance, static_cast<unsigned>(value.toDouble() * 100));
     }
     else if (key == "ARCANE_RESISTANCE") {
         this->stats->increase_arcane_resistance(value.toInt());
         base_tooltip_stats.append(QString("+%1 Arcane Resistance").arg(value));
-        this->item_stat_values.insert(ItemStats::ResistanceArcane, value.toInt());
+        this->item_stat_values.insert(ItemStats::ResistanceArcane, value.toUInt());
     }
     else if (key == "FIRE_RESISTANCE") {
         this->stats->increase_fire_resistance(value.toInt());
         base_tooltip_stats.append(QString("+%1 Fire Resistance").arg(value));
-        this->item_stat_values.insert(ItemStats::ResistanceFire, value.toInt());
+        this->item_stat_values.insert(ItemStats::ResistanceFire, value.toUInt());
     }
     else if (key == "FROST_RESISTANCE") {
         this->stats->increase_frost_resistance(value.toInt());
         base_tooltip_stats.append(QString("+%1 Frost Resistance").arg(value));
-        this->item_stat_values.insert(ItemStats::ResistanceFrost, value.toInt());
+        this->item_stat_values.insert(ItemStats::ResistanceFrost, value.toUInt());
     }
     else if (key == "HOLY_RESISTANCE") {
         this->stats->increase_holy_resistance(value.toInt());
         base_tooltip_stats.append(QString("+%1 Holy Resistance").arg(value));
-        this->item_stat_values.insert(ItemStats::ResistanceHoly, value.toInt());
+        this->item_stat_values.insert(ItemStats::ResistanceHoly, value.toUInt());
     }
     else if (key == "NATURE_RESISTANCE") {
         this->stats->increase_nature_resistance(value.toInt());
         base_tooltip_stats.append(QString("+%1 Nature Resistance").arg(value));
-        this->item_stat_values.insert(ItemStats::ResistanceNature, value.toInt());
+        this->item_stat_values.insert(ItemStats::ResistanceNature, value.toUInt());
     }
     else if (key == "SHADOW_RESISTANCE") {
         this->stats->increase_shadow_resistance(value.toInt());
         base_tooltip_stats.append(QString("+%1 Shadow Resistance").arg(value));
-        this->item_stat_values.insert(ItemStats::ResistanceShadow, value.toInt());
+        this->item_stat_values.insert(ItemStats::ResistanceShadow, value.toUInt());
     }
     else
         unsupported_stat(key);
 }
 
-int Item::get_stat_value_via_flag(const ItemStats item_stat_flag) const {
+unsigned Item::get_stat_value_via_flag(const ItemStats item_stat_flag) const {
     if (!item_stat_values.contains(item_stat_flag))
         return 0;
 

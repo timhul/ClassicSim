@@ -22,14 +22,6 @@ public:
     Equipment* get_equipment() const;
     Stats* get_stats() const;
 
-    double get_melee_hit_chance() const;
-    double get_mh_crit_chance() const;
-    double get_oh_crit_chance() const;
-    double get_ranged_hit_chance() const;
-    double get_ranged_crit_chance() const;
-    double get_spell_hit_chance() const;
-    double get_spell_crit_chance() const;
-
     double get_total_phys_dmg_mod() const;
     double get_physical_damage_taken_mod() const;
     double get_spell_damage_taken_mod() const;
@@ -86,14 +78,22 @@ public:
     void increase_dmg_vs_type(const Target::CreatureType, const double);
     void decrease_dmg_vs_type(const Target::CreatureType, const double);
 
+    unsigned get_melee_hit_chance() const;
     void increase_melee_hit(const unsigned);
     void decrease_melee_hit(const unsigned);
 
-    void increase_crit(double);
-    void decrease_crit(double);
+    unsigned get_mh_crit_chance() const;
+    unsigned get_oh_crit_chance() const;
+    void increase_melee_crit(const unsigned);
+    void decrease_melee_crit(const unsigned);
 
+    unsigned get_ranged_hit_chance() const;
     void increase_ranged_hit(const unsigned);
     void decrease_ranged_hit(const unsigned);
+
+    unsigned get_ranged_crit_chance() const;
+    void increase_ranged_crit(const unsigned);
+    void decrease_ranged_crit(const unsigned);
 
     void increase_crit_for_weapon_type(const int, const double);
     void decrease_crit_for_weapon_type(const int, const double);
@@ -101,11 +101,13 @@ public:
     void increase_total_phys_dmg_for_weapon_type(const int, const int);
     void decrease_total_phys_dmg_for_weapon_type(const int, const int);
 
-    void increase_spell_hit(double);
-    void decrease_spell_hit(double);
+    unsigned get_spell_hit_chance() const;
+    void increase_spell_hit(const unsigned);
+    void decrease_spell_hit(const unsigned);
 
-    void increase_spell_crit(double);
-    void decrease_spell_crit(double);
+    double get_spell_crit_chance() const;
+    void increase_spell_crit(const unsigned);
+    void decrease_spell_crit(const unsigned);
 
     void increase_total_phys_dmg_mod(const int);
     void decrease_total_phys_dmg_mod(const int);
