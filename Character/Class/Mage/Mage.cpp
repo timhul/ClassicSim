@@ -19,11 +19,11 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(35);
-    cstats->increase_strength(25);
-    cstats->increase_stamina(45);
-    cstats->increase_intellect(125);
-    cstats->increase_spirit(120);
+    cstats->increase_agility(15);
+    cstats->increase_strength(5);
+    cstats->increase_stamina(25);
+    cstats->increase_intellect(105);
+    cstats->increase_spirit(100);
 
     this->mage_spells = new MageSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(mage_spells);

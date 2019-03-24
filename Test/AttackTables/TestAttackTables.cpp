@@ -71,12 +71,12 @@ void TestAttackTables::test_white_hit_table_update() {
     assert(table->get_outcome(7299, 0.0001) == PhysicalAttackResult::GLANCING);
     assert(table->get_outcome(7300, 0.0001) == PhysicalAttackResult::CRITICAL);
     // Note: This will fail when changing base agility or agi needed per crit.
-    assert(table->get_outcome(8084, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(8085, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(7984, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
 
     pchar->get_stats()->increase_crit(0.0001);
-    assert(table->get_outcome(8085, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(8086, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(7986, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
 
     pchar->get_stats()->decrease_crit(pchar->get_stats()->get_mh_crit_chance());
     pchar->get_stats()->increase_crit(0.9999);

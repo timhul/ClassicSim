@@ -19,11 +19,11 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(50);
-    cstats->increase_strength(45);
-    cstats->increase_stamina(65);
-    cstats->increase_intellect(115);
-    cstats->increase_spirit(120);
+    cstats->increase_agility(30);
+    cstats->increase_strength(25);
+    cstats->increase_stamina(45);
+    cstats->increase_intellect(95);
+    cstats->increase_spirit(100);
 
     this->warlock_spells = new WarlockSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(warlock_spells);

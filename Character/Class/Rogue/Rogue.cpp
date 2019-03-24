@@ -37,11 +37,11 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(130);
-    cstats->increase_strength(80);
-    cstats->increase_stamina(80);
-    cstats->increase_intellect(35);
-    cstats->increase_spirit(50);
+    cstats->increase_agility(110);
+    cstats->increase_strength(60);
+    cstats->increase_stamina(60);
+    cstats->increase_intellect(15);
+    cstats->increase_spirit(30);
     cstats->increase_crit(0.03);
     cstats->increase_melee_ap(160);
 

@@ -48,11 +48,11 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(80);
-    cstats->increase_intellect(30);
-    cstats->increase_spirit(45);
-    cstats->increase_stamina(110);
-    cstats->increase_strength(120);
+    cstats->increase_agility(60);
+    cstats->increase_intellect(10);
+    cstats->increase_spirit(25);
+    cstats->increase_stamina(90);
+    cstats->increase_strength(100);
     cstats->increase_crit(0.03);
     cstats->increase_melee_ap(160);
 

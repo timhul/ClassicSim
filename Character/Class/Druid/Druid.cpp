@@ -21,11 +21,11 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(60);
-    cstats->increase_strength(65);
-    cstats->increase_stamina(70);
-    cstats->increase_intellect(100);
-    cstats->increase_spirit(110);
+    cstats->increase_agility(40);
+    cstats->increase_strength(45);
+    cstats->increase_stamina(50);
+    cstats->increase_intellect(80);
+    cstats->increase_spirit(90);
 
     this->druid_spells = new DruidSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(druid_spells);

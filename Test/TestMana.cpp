@@ -46,9 +46,9 @@ void TestMana::test_mana_gain_when_tick_is_outside_5sr() {
 
     unsigned gain_from_tick = pchar->get_resource_level(ResourceType::Mana) - mana_before_tick;
     // [Mana gain] = base_mp5 + mp5_from_spirit
-    // 33 = 15 + (94 / 5)
-    assert(pchar->get_stats()->get_spirit() == 94);
-    assert(gain_from_tick == 33);
+    // 29 = 15 + (74 / 5)
+    assert(pchar->get_stats()->get_spirit() == 74);
+    assert(gain_from_tick == 29);
 }
 
 void TestMana::spend_mana() {

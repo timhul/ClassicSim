@@ -26,11 +26,11 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
 
-    cstats->increase_agility(120);
-    cstats->increase_strength(55);
-    cstats->increase_stamina(90);
-    cstats->increase_intellect(65);
-    cstats->increase_spirit(70);
+    cstats->increase_agility(100);
+    cstats->increase_strength(35);
+    cstats->increase_stamina(70);
+    cstats->increase_intellect(45);
+    cstats->increase_spirit(50);
     cstats->increase_crit(0.03);
     cstats->increase_ranged_ap(160);
 
