@@ -47,24 +47,15 @@ Marksmanship::Marksmanship(Hunter* hunter) :
 }
 
 Talent* Marksmanship::get_efficiency() {
-    QMap<int, QString> rank_descriptions;
-    QString base_str = "Reduces the Mana cost of your Shots and Stings by %1%";
-    Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<int, int>>{{2, 2}});
-    auto* talent = new Talent(hunter, this, "Efficiency", "1MR",
-                              "Assets/spell/Spell_frost_wizardmark.png", 5, rank_descriptions,
-                              QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
-
-    return talent;
+    return get_new_talent(hunter, "Efficiency", "1MR", "Assets/spell/Spell_frost_wizardmark.png",
+                          5, "Reduces the Mana cost of your Shots and Stings by %1%",
+                          QVector<QPair<int, int>>{{2, 2}},
+                          QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
 }
 
 Talent* Marksmanship::get_aimed_shot() {
-    QMap<int, QString> rank_descriptions;
-    QString base_str = "An aimed shot that increases ranged damage by 70.";
-    rank_descriptions.insert(0, base_str);
-    rank_descriptions.insert(1, base_str);
-    auto* talent = new Talent(hunter, this, "Aimed Shot", "3LL",
-                              "Assets/items/Inv_spear_07.png", 1, rank_descriptions,
-                              QVector<Spell*>{spells->get_aimed_shot()});
-
-    return talent;
+    return get_new_talent(hunter, "Aimed Shot", "3LL", "Assets/items/Inv_spear_07.png",
+                          1, "An aimed shot that increases ranged damage by 600.",
+                          QVector<QPair<int, int>>{},
+                          QVector<Spell*>{spells->get_aimed_shot()});
 }

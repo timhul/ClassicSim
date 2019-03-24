@@ -353,3 +353,21 @@ QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
 
     return talent_tree_setup;
 }
+
+Talent* TalentTree::get_new_talent(Character* pchar, QString name, QString location, QString icon, int max_points, QString rank_str,
+                                   QVector<QPair<int, int>> format_values,
+                                   QVector<Spell*> affected_spells,
+                                   QVector<Buff*> affected_buffs,
+                                   QVector<Proc*> affected_procs
+                                   )
+{
+    QMap<int, QString> rank_descriptions;
+    if (max_points > 1)
+        Talent::initialize_rank_descriptions(rank_descriptions, rank_str, max_points, format_values);
+    else {
+        rank_descriptions.insert(0, rank_str);
+        rank_descriptions.insert(1, rank_str);
+    }
+    return new Talent(pchar, this, name, location, icon, max_points, rank_descriptions,
+                      affected_spells, affected_buffs, affected_procs);
+}

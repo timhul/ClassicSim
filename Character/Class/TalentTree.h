@@ -1,13 +1,15 @@
 #ifndef TALENTTREE_H
 #define TALENTTREE_H
 
-#include <QString>
 #include <QMap>
+#include <QString>
 #include <QVector>
 
+class Buff;
 class Character;
+class Proc;
+class Spell;
 class Talent;
-
 
 class TalentTier {
 public:
@@ -105,6 +107,13 @@ protected:
     int get_points_spent_up_to_tier(const int tier) const;
 
     TalentTier* get_tier(const int tier) const;
+
+    Talent* get_new_talent(Character* pchar, QString name, QString location, QString icon, int max_points, QString rank_str,
+                           QVector<QPair<int, int>> format_values,
+                           QVector<Spell*> affected_spells = {},
+                           QVector<Buff*> affected_buffs = {},
+                           QVector<Proc*> affected_procs = {}
+                           );
 
 private:
 };
