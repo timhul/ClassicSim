@@ -40,11 +40,15 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.2-alpha-2 (released 2019-03-24):
+
 - Rudimentary Hunter support (Aimed Shot / Multi-Shot rotation).
 - User setup saved on exit and loaded on boot.
 - Battle Shout now selectable as external buff for non-Warriors.
-
-# Release notes
 
 ## v0.2-alpha-1 (released 2019-01-20):
 
