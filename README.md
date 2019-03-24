@@ -40,7 +40,8 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+* Added player reaction to auto shot to improve the flow of Hunter AS/MS rotation.
+* More Hunter talents available (Mortal Shots, Lethal Shots, Surefooted).
 
 # Release notes
 
@@ -49,6 +50,15 @@ None (available release is up to date with the latest on master).
 - Rudimentary Hunter support (Aimed Shot / Multi-Shot rotation).
 - User setup saved on exit and loaded on boot.
 - Battle Shout now selectable as external buff for non-Warriors.
+
+## Restrictions
+
+* Crash if simming Hunter with a mainhand equipped but no bow.
+* Only Aimed Shot/Multi-Shot available for hunter rotation.
+* Only Efficiency and Aimed Shot available as implemented talents.
+* Only a single bow available for selection.
+* Ammunition not available for selection.
+* No mp5 gear is available for selection.
 
 ## v0.2-alpha-1 (released 2019-01-20):
 
