@@ -28,6 +28,8 @@ void AutoShot::spell_effect() {
 }
 
 void AutoShot::calculate_damage(const bool run_procs) {
+    pchar->add_player_reaction_event();
+
     const int wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
 
