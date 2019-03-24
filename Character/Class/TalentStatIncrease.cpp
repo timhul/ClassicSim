@@ -5,8 +5,10 @@
 #include "Utils/Check.h"
 
 TalentStatIncrease::TalentStatIncrease(Character *pchar, TalentTree* tree,
-                                       QString name, QString location, QString icon, int max_points,
-                                       QString rank_description, QVector<QPair<int, int>> format_values,
+                                       const QString& name, const QString& location,
+                                       const QString& icon, const int max_points,
+                                       const QString& rank_description,
+                                       const QVector<QPair<int, int>>& format_values,
                                        QVector<QPair<TalentStat, unsigned>> affected_stats) :
     Talent(pchar, tree, name, location, icon, max_points, rank_description, format_values),
     cstats(pchar->get_stats()),

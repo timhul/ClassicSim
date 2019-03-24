@@ -354,11 +354,12 @@ QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
     return talent_tree_setup;
 }
 
-Talent* TalentTree::get_new_talent(Character* pchar, QString name, QString location, QString icon, int max_points, QString rank_str,
-                                   QVector<QPair<int, int>> format_values,
-                                   QVector<Spell*> affected_spells,
-                                   QVector<Buff*> affected_buffs,
-                                   QVector<Proc*> affected_procs
+Talent* TalentTree::get_new_talent(Character* pchar, const QString &name, const QString &location,
+                                   const QString &icon, const int max_points, const QString &rank_str,
+                                   const QVector<QPair<int, int>>& format_values,
+                                   const QVector<Spell*>& affected_spells,
+                                   const QVector<Buff*>& affected_buffs,
+                                   const QVector<Proc*>& affected_procs
                                    )
 {
     QMap<int, QString> rank_descriptions;
