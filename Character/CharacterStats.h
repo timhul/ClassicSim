@@ -109,6 +109,14 @@ public:
     void increase_spell_crit(const unsigned);
     void decrease_spell_crit(const unsigned);
 
+    double get_melee_ability_crit_dmg_mod() const;
+    void increase_melee_ability_crit_dmg_mod(double);
+    void decrease_melee_ability_crit_dmg_mod(double);
+
+    double get_spell_crit_dmg_mod() const;
+    void increase_spell_crit_dmg_mod(double);
+    void decrease_spell_crit_dmg_mod(double);
+
     void increase_total_phys_dmg_mod(const int);
     void decrease_total_phys_dmg_mod(const int);
 
@@ -152,7 +160,8 @@ private:
     int mace_skill_bonus;
     int sword_skill_bonus;
 
-    double melee_ability_crit_mod{};
+    double spell_crit_dmg_mod;
+    double melee_ability_crit_dmg_mod;
     double melee_attack_speed_mod;
     double ranged_attack_speed_mod;
     double total_phys_dmg_mod;

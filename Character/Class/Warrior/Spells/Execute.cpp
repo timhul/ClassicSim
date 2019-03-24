@@ -66,7 +66,7 @@ void Execute::spell_effect() {
 
     if (result == PhysicalAttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_ability_crit_dmg_mod())), int(warr->get_resource_level(resource_type)), pchar->global_cooldown());
+        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), int(warr->get_resource_level(resource_type)), pchar->global_cooldown());
     }
     else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();

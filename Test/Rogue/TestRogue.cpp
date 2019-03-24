@@ -1,8 +1,9 @@
 #include "TestRogue.h"
 
+#include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"
-#include "CombatRoll.h"
 #include "Faction.h"
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
@@ -10,8 +11,10 @@
 #include "Rogue.h"
 #include "Target.h"
 #include "TestAdrenalineRush.h"
+#include "TestAssassination.h"
 #include "TestBackstab.h"
 #include "TestBladeFlurry.h"
+#include "TestCombat.h"
 #include "TestEnergy.h"
 #include "TestEviscerate.h"
 #include "TestHemorrhage.h"
@@ -19,9 +22,6 @@
 #include "TestSealFate.h"
 #include "TestSinisterStrike.h"
 #include "TestSliceAndDice.h"
-
-#include "TestAssassination.h"
-#include "TestCombat.h"
 #include "TestSubtlety.h"
 
 TestRogue::TestRogue(EquipmentDb* equipment_db):
@@ -57,8 +57,8 @@ void TestRogue::test_values_after_initialization() {
     assert(rogue->get_race()->get_name() == "Orc");
     assert(rogue->get_highest_possible_armor_type() == ArmorTypes::LEATHER);
     assert(almost_equal(1.0, rogue->global_cooldown()));
-    assert(almost_equal(2.0, rogue->get_ability_crit_dmg_mod()));
-    assert(almost_equal(1.5, rogue->get_spell_crit_dmg_mod()));
+    assert(almost_equal(2.0, rogue->get_stats()->get_melee_ability_crit_dmg_mod()));
+    assert(almost_equal(1.5, rogue->get_stats()->get_spell_crit_dmg_mod()));
 
     rogue->get_mh_instant_poison()->enable();
     rogue->get_oh_instant_poison()->enable();

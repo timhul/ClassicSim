@@ -36,8 +36,6 @@ Character::Character(QString class_name, Race* race, SimSettings *sim_settings) 
     statistics(new ClassStatistics(sim_settings)),
     sim_settings(sim_settings),
     resource(nullptr),
-    ability_crit_dmg_mod(2.0),
-    spell_crit_dmg_mod(1.5),
     clvl(1),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard),
@@ -286,14 +284,6 @@ void Character::run_extra_oh_attack() {
     spells->get_oh_attack()->extra_attack();
 }
 
-double Character::get_ability_crit_dmg_mod() const {
-    return ability_crit_dmg_mod;
-}
-
-double Character::get_spell_crit_dmg_mod() const {
-    return spell_crit_dmg_mod;
-}
-
 double Character::get_random_normalized_mh_dmg() {
     Weapon* mh = cstats->get_equipment()->get_mainhand();
     return get_normalized_dmg(mh->get_random_dmg() + mh_flat_dmg_bonus, mh);
@@ -427,22 +417,6 @@ void Character::decrease_ranged_attack_speed(unsigned decrease) {
         auto_shot->update_next_expected_use(-decrease_double);
         spells->add_next_ranged_attack();
     }
-}
-
-void Character::increase_ability_crit_dmg_mod(double increase) {
-    ability_crit_dmg_mod += increase;
-}
-
-void Character::decrease_ability_crit_dmg_mod(double decrease) {
-    ability_crit_dmg_mod -= decrease;
-}
-
-void Character::increase_spell_crit_dmg_mod(double increase) {
-    spell_crit_dmg_mod += increase;
-}
-
-void Character::decrease_spell_crit_dmg_mod(double decrease) {
-    spell_crit_dmg_mod -= decrease;
 }
 
 bool Character::has_mainhand() const {

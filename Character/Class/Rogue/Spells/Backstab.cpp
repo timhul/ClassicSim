@@ -62,7 +62,7 @@ void Backstab::spell_effect() {
     double damage_dealt = damage_after_modifiers(rogue->get_random_normalized_mh_dmg() * 1.5 + 165.0);
 
     if (result == PhysicalAttackResult::CRITICAL) {
-        damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod() * lethality * opportunity);
+        damage_dealt = round(damage_dealt * rogue->get_stats()->get_melee_ability_crit_dmg_mod() * lethality * opportunity);
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
 

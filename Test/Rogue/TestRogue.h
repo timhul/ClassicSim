@@ -2,7 +2,6 @@
 #define TESTROGUE_H
 
 #include "TestObject.h"
-#include "TestUtils.h"
 
 class EquipmentDb;
 

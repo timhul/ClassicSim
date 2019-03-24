@@ -16,6 +16,8 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     dagger_skill_bonus(0),
     mace_skill_bonus(0),
     sword_skill_bonus(0),
+    melee_ability_crit_dmg_mod(2.0),
+    spell_crit_dmg_mod(1.5),
     melee_attack_speed_mod(1.0),
     ranged_attack_speed_mod(1.0),
     total_phys_dmg_mod(1.0),
@@ -539,6 +541,30 @@ void CharacterStats::increase_spell_crit(const unsigned increase) {
 
 void CharacterStats::decrease_spell_crit(const unsigned decrease) {
     base_stats->decrease_spell_crit(decrease);
+}
+
+double CharacterStats::get_melee_ability_crit_dmg_mod() const {
+    return melee_ability_crit_dmg_mod;
+}
+
+void CharacterStats::increase_melee_ability_crit_dmg_mod(double increase) {
+    melee_ability_crit_dmg_mod += increase;
+}
+
+void CharacterStats::decrease_melee_ability_crit_dmg_mod(double decrease) {
+    melee_ability_crit_dmg_mod -= decrease;
+}
+
+double CharacterStats::get_spell_crit_dmg_mod() const {
+    return spell_crit_dmg_mod;
+}
+
+void CharacterStats::increase_spell_crit_dmg_mod(double increase) {
+    spell_crit_dmg_mod += increase;
+}
+
+void CharacterStats::decrease_spell_crit_dmg_mod(double decrease) {
+    spell_crit_dmg_mod -= decrease;
 }
 
 void CharacterStats::increase_total_phys_dmg_mod(const int increase) {

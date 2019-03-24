@@ -35,7 +35,7 @@ void InstantSpellAttack::spell_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
     }
     else {
         pchar->spell_hit_effect();

@@ -58,7 +58,7 @@ void SinisterStrike::spell_effect() {
     double damage_dealt = damage_after_modifiers(base_dmg * aggression);
 
     if (result == PhysicalAttackResult::CRITICAL) {
-        damage_dealt = round(damage_dealt * rogue->get_ability_crit_dmg_mod() * lethality);
+        damage_dealt = round(damage_dealt * rogue->get_stats()->get_melee_ability_crit_dmg_mod() * lethality);
         rogue->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
 

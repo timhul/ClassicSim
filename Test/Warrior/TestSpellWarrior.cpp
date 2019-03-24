@@ -1,9 +1,9 @@
 #include "TestSpellWarrior.h"
 
+#include <QDebug>
 #include <utility>
 
-#include <QDebug>
-
+#include "CharacterStats.h"
 #include "Equipment.h"
 #include "Impale.h"
 #include "OverpowerBuff.h"
@@ -36,20 +36,20 @@ void TestSpellWarrior::tear_down() {
 }
 
 void TestSpellWarrior::given_0_of_2_impale() {
-    assert(QString::number(warrior->get_ability_crit_dmg_mod(), 'f', 3) == "2.000");
+    assert(QString::number(warrior->get_stats()->get_melee_ability_crit_dmg_mod(), 'f', 3) == "2.000");
 }
 
 void TestSpellWarrior::given_1_of_2_impale() {
     Impale impale(warrior, nullptr);
     assert(impale.increment_rank());
-    assert(QString::number(warrior->get_ability_crit_dmg_mod(), 'f', 3) == "2.100");
+    assert(QString::number(warrior->get_stats()->get_melee_ability_crit_dmg_mod(), 'f', 3) == "2.100");
 }
 
 void TestSpellWarrior::given_2_of_2_impale() {
     Impale impale(warrior, nullptr);
     assert(impale.increment_rank());
     assert(impale.increment_rank());
-    assert(QString::number(warrior->get_ability_crit_dmg_mod(), 'f', 3) == "2.200");
+    assert(QString::number(warrior->get_stats()->get_melee_ability_crit_dmg_mod(), 'f', 3) == "2.200");
 }
 
 void TestSpellWarrior::given_0_of_5_tactical_mastery() {

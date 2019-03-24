@@ -69,7 +69,7 @@ void Slam::complete_cast_effect() {
     double damage_dealt = damage_after_modifiers(warr->get_random_normalized_mh_dmg() + 87);
 
     if (result == PhysicalAttackResult::CRITICAL) {
-        damage_dealt *= warr->get_ability_crit_dmg_mod();
+        damage_dealt *= warr->get_stats()->get_melee_ability_crit_dmg_mod();
         warr->melee_mh_yellow_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, double(casting_time_ms) / 1000);
     }

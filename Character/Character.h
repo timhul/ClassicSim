@@ -105,9 +105,6 @@ public:
     void run_extra_mh_attack();
     void run_extra_oh_attack();
 
-    double get_ability_crit_dmg_mod() const;
-    double get_spell_crit_dmg_mod() const;
-
     double get_random_normalized_mh_dmg();
     double get_random_non_normalized_mh_dmg();
 
@@ -128,12 +125,6 @@ public:
 
     void increase_ranged_attack_speed(unsigned);
     void decrease_ranged_attack_speed(unsigned);
-
-    void increase_ability_crit_dmg_mod(double);
-    void decrease_ability_crit_dmg_mod(double);
-
-    void increase_spell_crit_dmg_mod(double);
-    void decrease_spell_crit_dmg_mod(double);
 
     bool has_mainhand() const;
     bool has_offhand() const;
@@ -178,8 +169,6 @@ protected:
     Resource* resource;
 
     QVector<QString> available_races;
-    double ability_crit_dmg_mod;
-    double spell_crit_dmg_mod;
 
     int clvl;
     double next_gcd;

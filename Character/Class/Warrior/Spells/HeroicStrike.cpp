@@ -63,7 +63,7 @@ void HeroicStrike::calculate_damage() {
 
     if (result == PhysicalAttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_ability_crit_dmg_mod())), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), resource_cost, 0);
     }
     else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();

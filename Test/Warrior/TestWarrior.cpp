@@ -1,38 +1,35 @@
 #include "TestWarrior.h"
 
-#include "Warrior.h"
-#include "Orc.h"
-
+#include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"
-#include "Target.h"
-#include "CombatRoll.h"
 #include "Faction.h"
 #include "ItemNamespace.h"
-#include "TestExecute.h"
-#include "TestHeroicStrike.h"
-#include "TestBloodthirst.h"
-#include "TestMainhandAttackWarrior.h"
-#include "TestOffhandAttackWarrior.h"
-#include "TestWhirlwind.h"
-#include "TestOverpower.h"
-#include "TestFlurryWarrior.h"
-#include "TestDeepWounds.h"
-#include "TestBloodrage.h"
-#include "TestRecklessness.h"
-#include "TestBerserkerStance.h"
-#include "TestDeathWish.h"
-#include "TestMortalStrike.h"
-#include "TestSlam.h"
-#include "TestRend.h"
-
-#include "TestSwordSpecialization.h"
-#include "TestUnbridledWrath.h"
-
-#include "TestTwoHandedWeaponSpecialization.h"
-
+#include "Orc.h"
+#include "Target.h"
 #include "TestArms.h"
+#include "TestBerserkerStance.h"
+#include "TestBloodrage.h"
+#include "TestBloodthirst.h"
+#include "TestDeathWish.h"
+#include "TestDeepWounds.h"
+#include "TestExecute.h"
+#include "TestFlurryWarrior.h"
 #include "TestFury.h"
+#include "TestHeroicStrike.h"
+#include "TestMainhandAttackWarrior.h"
+#include "TestMortalStrike.h"
+#include "TestOffhandAttackWarrior.h"
+#include "TestOverpower.h"
+#include "TestRecklessness.h"
+#include "TestRend.h"
+#include "TestSlam.h"
+#include "TestSwordSpecialization.h"
+#include "TestTwoHandedWeaponSpecialization.h"
+#include "TestUnbridledWrath.h"
+#include "TestWhirlwind.h"
+#include "Warrior.h"
 
 TestWarrior::TestWarrior(EquipmentDb* equipment_db):
     TestObject(equipment_db)
@@ -76,8 +73,8 @@ void TestWarrior::test_values_after_initialization() {
     assert(warr->get_highest_possible_armor_type() == ArmorTypes::PLATE);
     assert(almost_equal(1.5, warr->global_cooldown()));
     assert(almost_equal(1.0, warr->stance_cooldown()));
-    assert(almost_equal(2.0, warr->get_ability_crit_dmg_mod()));
-    assert(almost_equal(1.5, warr->get_spell_crit_dmg_mod()));
+    assert(almost_equal(2.0, warr->get_stats()->get_melee_ability_crit_dmg_mod()));
+    assert(almost_equal(1.5, warr->get_stats()->get_spell_crit_dmg_mod()));
 
     delete race;
     delete warr;
