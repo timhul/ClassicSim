@@ -25,7 +25,7 @@ Marksmanship::Marksmanship(Hunter* hunter) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new Talent(hunter, this, "Improved Serpent Sting", "4ML", "Assets/ability/Ability_hunter_quickshot.png", 5, "Increases the damage done by your Serpent Sting by %1%.", QVector<QPair<int, int>>{{2, 2}})},
-                                  {"4MR", new Talent(hunter, this, "Mortal Shots", "4MR", "Assets/ability/Ability_piercedamage.png", 5, "Increases your ranged weapon critical strike damage bonus by %1%.", QVector<QPair<int, int>>{{6, 6}})}};
+                                  {"4MR", get_mortal_shots()}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new Talent(hunter, this, "Scatter Shot", "5LL", "Assets/ability/Ability_golemstormbolt.png", 1, "A short-range shot that deals 50% weapon damage and disorients the target for 4 sec. Any damage caused will remove the effect. Turns off your attack when used.", QVector<QPair<int, int>>())},
@@ -65,4 +65,11 @@ Talent* Marksmanship::get_aimed_shot() {
                           1, "An aimed shot that increases ranged damage by 600.",
                           QVector<QPair<int, int>>{},
                           QVector<Spell*>{spells->get_aimed_shot()});
+}
+
+Talent* Marksmanship::get_mortal_shots() {
+    return new TalentStatIncrease(hunter, this, "Mortal Shots", "4MR", "Assets/ability/Ability_piercedamage.png",
+                                  5, "Increases your ranged weapon critical strike damage bonus by %1%.",
+                                  QVector<QPair<int, int>>{{6, 6}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::RangedCritDmgBonus, 6}});
 }

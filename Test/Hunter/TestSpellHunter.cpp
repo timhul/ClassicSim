@@ -112,3 +112,52 @@ void TestSpellHunter::given_5_of_5_efficiency() {
 
     delete talent;
 }
+
+void TestSpellHunter::given_1_of_5_mortal_shots() {
+    Talent* talent = Marksmanship(hunter).get_mortal_shots();
+
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_2_of_5_mortal_shots() {
+    Talent* talent = Marksmanship(hunter).get_mortal_shots();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    delete talent;
+}
+
+void TestSpellHunter::given_3_of_5_mortal_shots() {
+    Talent* talent = Marksmanship(hunter).get_mortal_shots();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_4_of_5_mortal_shots() {
+    Talent* talent = Marksmanship(hunter).get_mortal_shots();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_5_of_5_mortal_shots() {
+    Talent* talent = Marksmanship(hunter).get_mortal_shots();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}

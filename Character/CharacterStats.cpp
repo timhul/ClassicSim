@@ -17,6 +17,7 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     mace_skill_bonus(0),
     sword_skill_bonus(0),
     melee_ability_crit_dmg_mod(2.0),
+    ranged_ability_crit_dmg_mod(2.0),
     spell_crit_dmg_mod(1.5),
     melee_attack_speed_mod(1.0),
     ranged_attack_speed_mod(1.0),
@@ -553,6 +554,18 @@ void CharacterStats::increase_melee_ability_crit_dmg_mod(double increase) {
 
 void CharacterStats::decrease_melee_ability_crit_dmg_mod(double decrease) {
     melee_ability_crit_dmg_mod -= decrease;
+}
+
+double CharacterStats::get_ranged_ability_crit_dmg_mod() const {
+    return ranged_ability_crit_dmg_mod;
+}
+
+void CharacterStats::increase_ranged_ability_crit_dmg_mod(double increase) {
+    ranged_ability_crit_dmg_mod += increase;
+}
+
+void CharacterStats::decrease_ranged_ability_crit_dmg_mod(double decrease) {
+    ranged_ability_crit_dmg_mod -= decrease;
 }
 
 double CharacterStats::get_spell_crit_dmg_mod() const {

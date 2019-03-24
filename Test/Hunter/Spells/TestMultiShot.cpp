@@ -15,7 +15,27 @@ void TestMultiShot::test_all() {
     tear_down();
 
     set_up();
-    test_crit_dmg();
+    test_crit_dmg_0_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_1_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_2_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_3_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_4_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_of_5_mortal_shots();
     tear_down();
 
     set_up();
@@ -98,7 +118,7 @@ void TestMultiShot::test_hit_dmg() {
     then_damage_dealt_is(450);
 }
 
-void TestMultiShot::test_crit_dmg() {
+void TestMultiShot::test_crit_dmg_0_of_5_mortal_shots() {
     given_target_has_0_armor();
     given_a_ranged_weapon_with_100_min_max_dmg();
     given_a_guaranteed_ranged_white_crit();
@@ -110,6 +130,81 @@ void TestMultiShot::test_crit_dmg() {
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [900] = (100 + (2.8 * 1000 / 14) + 150) * 2.0
     then_damage_dealt_is(900);
+}
+
+void TestMultiShot::test_crit_dmg_1_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_1_of_5_mortal_shots();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [927] = (100 + (2.8 * 1000 / 14) + 150) * 2.06
+    then_damage_dealt_is(927);
+}
+
+void TestMultiShot::test_crit_dmg_2_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_5_mortal_shots();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [954] = (100 + (2.8 * 1000 / 14) + 150) * 2.12
+    then_damage_dealt_is(954);
+}
+
+void TestMultiShot::test_crit_dmg_3_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_3_of_5_mortal_shots();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [981] = (100 + (2.8 * 1000 / 14) + 150) * 2.18
+    then_damage_dealt_is(981);
+}
+
+void TestMultiShot::test_crit_dmg_4_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_4_of_5_mortal_shots();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [1008] = (100 + (2.8 * 1000 / 14) + 150) * 2.24
+    then_damage_dealt_is(1008);
+}
+
+void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_5_of_5_mortal_shots();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [1035] = (100 + (2.8 * 1000 / 14) + 150) * 2.30
+    then_damage_dealt_is(1035);
 }
 
 void TestMultiShot::test_mana_cost_1_of_5_efficiency() {

@@ -36,6 +36,8 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->increase_ranged_crit(change);
             continue;
         case RangedCritDmgBonus:
+            cstats->increase_ranged_ability_crit_dmg_mod(static_cast<double>(change) / 100);
+            continue;
         case RangedDmgMod:
             continue;
         case DmgModAgainstBeast:
@@ -100,6 +102,8 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->decrease_ranged_crit(change);
             continue;
         case RangedCritDmgBonus:
+            cstats->decrease_ranged_ability_crit_dmg_mod(static_cast<double>(change) / 100);
+            continue;
         case RangedDmgMod:
             continue;
         case DmgModAgainstBeast:

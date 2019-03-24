@@ -24,7 +24,12 @@ private:
     void test_is_ready_conditions() override;
 
     void test_hit_dmg();
-    void test_crit_dmg();
+    void test_crit_dmg_0_of_5_mortal_shots();
+    void test_crit_dmg_1_of_5_mortal_shots();
+    void test_crit_dmg_2_of_5_mortal_shots();
+    void test_crit_dmg_3_of_5_mortal_shots();
+    void test_crit_dmg_4_of_5_mortal_shots();
+    void test_crit_dmg_5_of_5_mortal_shots();
     void test_aimed_shot_adds_player_action_event_on_completion();
     void test_aimed_shot_cast_in_progress_blocks_other_spells();
 

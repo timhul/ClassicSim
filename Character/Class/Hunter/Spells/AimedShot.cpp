@@ -51,7 +51,7 @@ void AimedShot::complete_cast_effect() {
     double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 600);
 
     if (result == PhysicalAttackResult::CRITICAL) {
-        damage_dealt *= 2;
+        damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         pchar->ranged_white_critical_effect(true);
         return;

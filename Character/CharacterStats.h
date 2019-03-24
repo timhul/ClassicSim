@@ -113,6 +113,10 @@ public:
     void increase_melee_ability_crit_dmg_mod(double);
     void decrease_melee_ability_crit_dmg_mod(double);
 
+    double get_ranged_ability_crit_dmg_mod() const;
+    void increase_ranged_ability_crit_dmg_mod(double);
+    void decrease_ranged_ability_crit_dmg_mod(double);
+
     double get_spell_crit_dmg_mod() const;
     void increase_spell_crit_dmg_mod(double);
     void decrease_spell_crit_dmg_mod(double);
@@ -160,8 +164,9 @@ private:
     int mace_skill_bonus;
     int sword_skill_bonus;
 
-    double spell_crit_dmg_mod;
     double melee_ability_crit_dmg_mod;
+    double ranged_ability_crit_dmg_mod;
+    double spell_crit_dmg_mod;
     double melee_attack_speed_mod;
     double ranged_attack_speed_mod;
     double total_phys_dmg_mod;

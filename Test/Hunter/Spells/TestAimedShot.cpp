@@ -18,7 +18,27 @@ void TestAimedShot::test_all() {
     tear_down();
 
     set_up();
-    test_crit_dmg();
+    test_crit_dmg_0_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_1_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_2_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_3_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_4_of_5_mortal_shots();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_of_5_mortal_shots();
     tear_down();
 
     set_up();
@@ -128,7 +148,7 @@ void TestAimedShot::test_hit_dmg() {
     then_damage_dealt_is(900);
 }
 
-void TestAimedShot::test_crit_dmg() {
+void TestAimedShot::test_crit_dmg_0_of_5_mortal_shots() {
     given_target_has_0_armor();
     given_a_ranged_weapon_with_100_min_max_dmg();
     given_a_guaranteed_ranged_white_crit();
@@ -143,6 +163,96 @@ void TestAimedShot::test_crit_dmg() {
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1800] = (100 + (2.8 * 1000 / 14) + 600) * 2.0
     then_damage_dealt_is(1800);
+}
+
+void TestAimedShot::test_crit_dmg_1_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_1_of_5_mortal_shots();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [1854] = (100 + (2.8 * 1000 / 14) + 600) * 2.06
+    then_damage_dealt_is(1854);
+}
+
+void TestAimedShot::test_crit_dmg_2_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_2_of_5_mortal_shots();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [1908] = (100 + (2.8 * 1000 / 14) + 600) * 2.12
+    then_damage_dealt_is(1908);
+}
+
+void TestAimedShot::test_crit_dmg_3_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_3_of_5_mortal_shots();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [1962] = (100 + (2.8 * 1000 / 14) + 600) * 2.18
+    then_damage_dealt_is(1962);
+}
+
+void TestAimedShot::test_crit_dmg_4_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_4_of_5_mortal_shots();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [2016] = (100 + (2.8 * 1000 / 14) + 600) * 2.24
+    then_damage_dealt_is(2016);
+}
+
+void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_5_of_5_mortal_shots();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
+    // [2070] = (100 + (2.8 * 1000 / 14) + 600) * 2.30
+    then_damage_dealt_is(2070);
 }
 
 void TestAimedShot::test_aimed_shot_adds_player_action_event_on_completion() {

@@ -24,6 +24,11 @@ private:
     void test_changing_weapons_changes_cooldown();
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_crit_dmg_not_affected_by_1_of_5_mortal_shots();
+    void test_crit_dmg_not_affected_by_2_of_5_mortal_shots();
+    void test_crit_dmg_not_affected_by_3_of_5_mortal_shots();
+    void test_crit_dmg_not_affected_by_4_of_5_mortal_shots();
+    void test_crit_dmg_not_affected_by_5_of_5_mortal_shots();
     void test_mid_swing_haste_increase_updates_attack_speed();
     void test_mid_swing_haste_decrease_updates_attack_speed();
 

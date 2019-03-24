@@ -15,6 +15,7 @@ public:
     Talent* get_efficiency();
     Talent* get_lethal_shots();
     Talent* get_aimed_shot();
+    Talent* get_mortal_shots();
 
 private:
     Hunter* hunter;
