@@ -4,7 +4,7 @@
 #include "Hunter.h"
 #include "HunterSpells.h"
 #include "MultiShot.h"
-#include "Talent.h"
+#include "TalentStatIncrease.h"
 
 Marksmanship::Marksmanship(Hunter* hunter) :
     TalentTree("Marksmanship", "Assets/hunter/hunter_marksmanship.jpg"),
@@ -16,7 +16,7 @@ Marksmanship::Marksmanship(Hunter* hunter) :
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2ML", new Talent(hunter, this, "Improved Hunter's Mark", "2ML", "Assets/ability/Ability_hunter_snipershot.png", 5, "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by %1%.", QVector<QPair<int, int>>{{3, 3}})},
-                                  {"2MR", new Talent(hunter, this, "Lethal Shots", "2MR", "Assets/ability/Ability_searingarrow.png", 5, "Increases your critical strike chance with ranged weapons by %1%.", QVector<QPair<int, int>>{{1, 1}})}};
+                                  {"2MR", get_lethal_shots()}};
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", get_aimed_shot()},
@@ -51,6 +51,13 @@ Talent* Marksmanship::get_efficiency() {
                           5, "Reduces the Mana cost of your Shots and Stings by %1%",
                           QVector<QPair<int, int>>{{2, 2}},
                           QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
+}
+
+Talent* Marksmanship::get_lethal_shots() {
+    return new TalentStatIncrease(hunter, this, "Lethal Shots", "2MR", "Assets/ability/Ability_searingarrow.png",
+                                  5, "Increases your critical strike chance with ranged weapons by %1%.",
+                                  QVector<QPair<int, int>>{{1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::RangedCrit, 100}});
 }
 
 Talent* Marksmanship::get_aimed_shot() {
