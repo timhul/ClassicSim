@@ -63,7 +63,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
     Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
     Character/Talents.cpp \
-    Character/GenericTalent.cpp \
     GUI/GUIControl.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
@@ -375,7 +374,6 @@ HEADERS += \
     Character/Class/Warrior/TalentTrees/Fury/Cruelty.h \
     Character/Class/Warrior/TalentTrees/Arms/Impale.h \
     Character/Talents.h \
-    Character/GenericTalent.h \
     GUI/GUIControl.h \
     Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
     Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \

@@ -38,7 +38,43 @@ Talent::Talent(Character *pchar_,
     check((max_points > 0 && max_points <= 5), "Number of talent points not possible");
 }
 
-Talent::~Talent() = default;
+Talent::Talent(Character *pchar,
+               TalentTree* tree,
+               const QString &name,
+               const QString &position,
+               const QString &icon,
+               const int max_points,
+               const QString &rank_description,
+               const QVector<QPair<int, int>>& format_values) :
+    Talent(pchar, tree, name, position, icon, max_points)
+{
+    if (!format_values.empty()) {
+        initialize_rank_descriptions(rank_descriptions, rank_description, max_points, format_values);
+    }
+    else {
+        rank_descriptions.insert(0, rank_description);
+        rank_descriptions.insert(1, rank_description);
+    }
+}
+
+Talent::Talent(Character *pchar,
+               TalentTree* tree,
+               const QString &name,
+               const QString &position,
+               const QString &icon,
+               const int max_points,
+               const QString &rank_description,
+               const QVector<QPair<double, double>>& format_values) :
+    Talent(pchar, tree, name, position, icon, max_points)
+{
+    if (!format_values.empty()) {
+        initialize_rank_descriptions(rank_descriptions, rank_description, max_points, format_values);
+    }
+    else {
+        rank_descriptions.insert(0, rank_description);
+        rank_descriptions.insert(1, rank_description);
+    }
+}
 
 void Talent::apply_rank_effect() {
     for (auto * spell : affected_spells)

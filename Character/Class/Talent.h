@@ -25,7 +25,26 @@ public:
            QVector<Buff*> affected_buffs = {},
            QVector<Proc*> affected_procs = {}
            );
-    virtual ~Talent();
+
+    Talent(Character *pchar,
+           TalentTree *tree,
+           const QString &name,
+           const QString &position,
+           const QString &icon,
+           const int max_points,
+           const QString &rank_description,
+           const QVector<QPair<int, int>>& format_values);
+
+    Talent(Character *pchar,
+           TalentTree *tree,
+           const QString &name,
+           const QString &position,
+           const QString &icon,
+           const int max_points,
+           const QString &rank_description,
+           const QVector<QPair<double, double>>& format_values);
+
+    virtual ~Talent() = default;
 
     QString get_name() const;
     QString get_icon() const;

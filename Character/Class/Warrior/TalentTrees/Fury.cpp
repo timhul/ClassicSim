@@ -8,7 +8,6 @@
 #include "DeathWishBuff.h"
 #include "Execute.h"
 #include "Flurry.h"
-#include "GenericTalent.h"
 #include "OffhandAttackWarrior.h"
 #include "Slam.h"
 #include "Talent.h"
@@ -25,24 +24,24 @@ Fury::Fury(Warrior* pchar) :
                                   {"1MR", new Cruelty(pchar, this)}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2ML", new GenericTalent(pchar, this, "Improved Demoralizing Shout", "2ML", base_url + "ability/Ability_warrior_warcry.png", 5, "Increases the melee attack power reduction of your Demoralizing Shout by %1%.", QVector<QPair<int, int>>{{8, 8}})},
+    QMap<QString, Talent*> tier2 {{"2ML", new Talent(pchar, this, "Improved Demoralizing Shout", "2ML", base_url + "ability/Ability_warrior_warcry.png", 5, "Increases the melee attack power reduction of your Demoralizing Shout by %1%.", QVector<QPair<int, int>>{{8, 8}})},
                                   {"2MR", get_unbridled_wrath()}};
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", new GenericTalent(pchar, this, "Improved Cleave", "3LL", base_url + "ability/Ability_warrior_cleave.png", 3, "Increases the bonus damage done by your Cleave ability by %1%.", QVector<QPair<int, int>>{{40, 40}})},
-                                  {"3ML", new GenericTalent(pchar, this, "Piercing Howl", "3ML", base_url + "spell/Spell_shadow_deathscream.png", 1, "Causes all enemies near the warrior to be dazed, reducing movement speed by 50% for 6 sec.", QVector<QPair<int, int>>())},
-                                  {"3MR", new GenericTalent(pchar, this, "Blood Craze", "3MR", base_url + "spell/Spell_shadow_summonimp.png", 3, "Regenerates %1% of your total Health over 6 sec after being the victim of a critical strike.", QVector<QPair<int, int>>{{1, 1}})},
+    QMap<QString, Talent*> tier3 {{"3LL", new Talent(pchar, this, "Improved Cleave", "3LL", base_url + "ability/Ability_warrior_cleave.png", 3, "Increases the bonus damage done by your Cleave ability by %1%.", QVector<QPair<int, int>>{{40, 40}})},
+                                  {"3ML", new Talent(pchar, this, "Piercing Howl", "3ML", base_url + "spell/Spell_shadow_deathscream.png", 1, "Causes all enemies near the warrior to be dazed, reducing movement speed by 50% for 6 sec.", QVector<QPair<int, int>>())},
+                                  {"3MR", new Talent(pchar, this, "Blood Craze", "3MR", base_url + "spell/Spell_shadow_summonimp.png", 3, "Regenerates %1% of your total Health over 6 sec after being the victim of a critical strike.", QVector<QPair<int, int>>{{1, 1}})},
                                   {"3RR", get_improved_battle_shout()}};
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4LL", get_dual_wield_specialization()},
                                   {"4ML", get_improved_execute()},
-                                  {"4MR", new GenericTalent(pchar, this, "Enrage", "4MR", base_url + "spell/Spell_shadow_unholyfrenzy.png", 5, "Gives you a %1% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.", QVector<QPair<int, int>>{{5, 5}})}};
+                                  {"4MR", new Talent(pchar, this, "Enrage", "4MR", base_url + "spell/Spell_shadow_unholyfrenzy.png", 5, "Gives you a %1% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", get_improved_slam()},
                                   {"5ML", get_death_wish()},
-                                  {"5RR", new GenericTalent(pchar, this, "Improved Intercept", "5RR", base_url + "ability/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<int, int>>{{5, 5}})}};
+                                  {"5RR", new Talent(pchar, this, "Improved Intercept", "5RR", base_url + "ability/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<int, int>>{{5, 5}})}};
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6LL", get_improved_berserker_rage()},
