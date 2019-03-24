@@ -104,8 +104,8 @@ unsigned CharacterStats::get_spirit() const {
                                                          pchar->get_race()->get_base_spirit())));
 }
 
-double CharacterStats::get_hit_chance() const {
-    return base_stats->get_hit_chance() + equipment->get_stats()->get_hit_chance();
+double CharacterStats::get_melee_hit_chance() const {
+    return base_stats->get_melee_hit_chance() + equipment->get_stats()->get_melee_hit_chance();
 }
 
 double CharacterStats::get_mh_crit_chance() const {
@@ -130,6 +130,10 @@ double CharacterStats::get_oh_crit_chance() const {
     const auto crit_from_agi = double(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit();
 
     return equip_effect + crit_from_agi / 100 + crit_from_wpn_type;;
+}
+
+double CharacterStats::get_ranged_hit_chance() const {
+    return base_stats->get_ranged_hit_chance() + equipment->get_stats()->get_ranged_hit_chance();
 }
 
 double CharacterStats::get_ranged_crit_chance() const {
@@ -257,7 +261,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::SkillSword:
         return;
     case ItemStats::HitChance:
-        return increase_hit(static_cast<double>(value) / 100);
+        return increase_melee_hit(value);
     case ItemStats::CritChance:
         return increase_crit(static_cast<double>(value) / 100);
     case ItemStats::AttackSpeedPercent:
@@ -308,7 +312,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::SkillSword:
         return;
     case ItemStats::HitChance:
-        return decrease_hit(static_cast<double>(value) / 100);
+        return decrease_melee_hit(value);
     case ItemStats::CritChance:
         return decrease_crit(static_cast<double>(value) / 100);
     case ItemStats::AttackSpeedPercent:
@@ -463,14 +467,14 @@ double CharacterStats::get_spell_damage_taken_mod() const {
     return spell_damage_taken_mod;
 }
 
-void CharacterStats::increase_hit(double increase) {
-    base_stats->increase_hit(increase);
-    pchar->get_combat_roll()->update_miss_chance(get_hit_chance());
+void CharacterStats::increase_melee_hit(const unsigned increase) {
+    base_stats->increase_melee_hit(static_cast<double>(increase) / 100);
+    pchar->get_combat_roll()->update_melee_miss_chance(get_melee_hit_chance());
 }
 
-void CharacterStats::decrease_hit(double decrease) {
-    base_stats->decrease_hit(decrease);
-    pchar->get_combat_roll()->update_miss_chance(get_hit_chance());
+void CharacterStats::decrease_melee_hit(const unsigned decrease) {
+    base_stats->decrease_melee_hit(static_cast<double>(decrease) / 100);
+    pchar->get_combat_roll()->update_melee_miss_chance(get_melee_hit_chance());
 }
 
 void CharacterStats::increase_crit(double increase) {
@@ -479,6 +483,16 @@ void CharacterStats::increase_crit(double increase) {
 
 void CharacterStats::decrease_crit(double decrease) {
     base_stats->decrease_crit(decrease);
+}
+
+void CharacterStats::increase_ranged_hit(const unsigned increase) {
+    base_stats->increase_ranged_hit(static_cast<double>(increase) / 100);
+    pchar->get_combat_roll()->update_ranged_miss_chance(get_melee_hit_chance());
+}
+
+void CharacterStats::decrease_ranged_hit(const unsigned decrease) {
+    base_stats->decrease_ranged_hit(static_cast<double>(decrease) / 100);
+    pchar->get_combat_roll()->update_ranged_miss_chance(get_melee_hit_chance());
 }
 
 void CharacterStats::increase_crit_for_weapon_type(const int weapon_type, const double increase) {

@@ -27,7 +27,8 @@ Stats::Stats()
     this->mace_skill = 0;
     this->sword_skill = 0;
 
-    this->percent_hit = 0.0;
+    this->percent_melee_hit = 0.0;
+    this->percent_ranged_hit = 0.0;
     this->percent_crit = 0.0;
     this->percent_spell_hit = 0.0;
     this->percent_spell_crit = 0.0;
@@ -80,7 +81,8 @@ void Stats::add(const Stats* rhs) {
     increase_mace_skill(rhs->get_mace_skill());
     increase_sword_skill(rhs->get_sword_skill());
 
-    increase_hit(rhs->get_hit_chance());
+    increase_melee_hit(rhs->get_melee_hit_chance());
+    increase_ranged_hit(rhs->get_ranged_hit_chance());
     increase_crit(rhs->get_crit_chance());
     increase_attack_speed(rhs->get_attack_speed());
 
@@ -114,7 +116,8 @@ void Stats::remove(const Stats* rhs) {
     decrease_mace_skill(rhs->get_mace_skill());
     decrease_sword_skill(rhs->get_sword_skill());
 
-    decrease_hit(rhs->get_hit_chance());
+    decrease_melee_hit(rhs->get_melee_hit_chance());
+    decrease_ranged_hit(rhs->get_ranged_hit_chance());
     decrease_crit(rhs->get_crit_chance());
     decrease_attack_speed(rhs->get_attack_speed());
 
@@ -365,8 +368,12 @@ void Stats::decrease_base_ranged_ap(const unsigned decrease) {
     ranged_ap -= decrease;
 }
 
-double Stats::get_hit_chance() const {
-    return percent_hit;
+double Stats::get_melee_hit_chance() const {
+    return percent_melee_hit;
+}
+
+double Stats::get_ranged_hit_chance() const {
+    return percent_ranged_hit;
 }
 
 double Stats::get_crit_chance() const {
@@ -421,12 +428,20 @@ void Stats::decrease_crit(const double value) {
     percent_crit -= value;
 }
 
-void Stats::increase_hit(const double value) {
-    percent_hit += value;
+void Stats::increase_melee_hit(const double value) {
+    percent_melee_hit += value;
 }
 
-void Stats::decrease_hit(const double value) {
-    percent_hit -= value;
+void Stats::decrease_melee_hit(const double value) {
+    percent_melee_hit -= value;
+}
+
+void Stats::increase_ranged_hit(const double value) {
+    percent_ranged_hit += value;
+}
+
+void Stats::decrease_ranged_hit(const double value) {
+    percent_ranged_hit -= value;
 }
 
 void Stats::increase_spell_hit(const double value) {

@@ -88,9 +88,13 @@ public:
     void increase_sword_skill(const int);
     void decrease_sword_skill(const int);
 
-    double get_hit_chance() const;
-    void increase_hit(const double value);
-    void decrease_hit(const double value);
+    double get_melee_hit_chance() const;
+    void increase_melee_hit(const double value);
+    void decrease_melee_hit(const double value);
+
+    double get_ranged_hit_chance() const;
+    void increase_ranged_hit(const double value);
+    void decrease_ranged_hit(const double value);
 
     double get_crit_chance() const;
     void increase_crit(const double value);
@@ -157,7 +161,8 @@ private:
     unsigned melee_ap_per_agi;
     unsigned ranged_ap;
     unsigned ranged_ap_per_agi;
-    double percent_hit;
+    double percent_melee_hit;
+    double percent_ranged_hit;
     double percent_crit;
     double percent_spell_hit;
     double percent_spell_crit;

@@ -44,7 +44,8 @@ public:
     double get_yellow_miss_chance(const int wpn_skill);
     double get_glancing_blow_dmg_penalty(const int);
 
-    void update_miss_chance(const double hit);
+    void update_melee_miss_chance(const double hit);
+    void update_ranged_miss_chance(const double hit);
     void update_spell_miss_chance(const double spell_hit);
 
     void drop_tables();

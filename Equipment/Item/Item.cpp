@@ -486,7 +486,8 @@ void Item::set_stat(const QString& key, const QString &value) {
         this->item_stat_values.insert(ItemStats::CritChance, static_cast<int>(value.toDouble() * 100));
     }
     else if (key == "HIT_CHANCE") {
-        this->stats->increase_hit(value.toDouble());
+        this->stats->increase_melee_hit(value.toDouble());
+        this->stats->increase_ranged_hit(value.toDouble());
         QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit by %1%.").arg(number));
         this->item_stat_values.insert(ItemStats::HitChance, static_cast<int>(value.toDouble() * 100));

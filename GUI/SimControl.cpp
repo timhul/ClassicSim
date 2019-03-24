@@ -77,7 +77,7 @@ void SimControl::add_option(Character* pchar, SimOption::Name option) {
         pchar->get_stats()->increase_melee_ap(10);
         break;
     case SimOption::Name::ScaleHitChance:
-        pchar->get_stats()->increase_hit(0.01);
+        pchar->get_stats()->increase_melee_hit(1);
         break;
     case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->increase_crit(0.01);
@@ -113,7 +113,7 @@ void SimControl::remove_option(Character* pchar, SimOption::Name option) {
         pchar->get_stats()->decrease_melee_ap(10);
         break;
     case SimOption::Name::ScaleHitChance:
-        pchar->get_stats()->decrease_hit(0.01);
+        pchar->get_stats()->decrease_melee_hit(1);
         break;
     case SimOption::Name::ScaleCritChance:
         pchar->get_stats()->decrease_crit(0.01);

@@ -22,9 +22,10 @@ public:
     Equipment* get_equipment() const;
     Stats* get_stats() const;
 
-    double get_hit_chance() const;
+    double get_melee_hit_chance() const;
     double get_mh_crit_chance() const;
     double get_oh_crit_chance() const;
+    double get_ranged_hit_chance() const;
     double get_ranged_crit_chance() const;
     double get_spell_hit_chance() const;
     double get_spell_crit_chance() const;
@@ -85,11 +86,14 @@ public:
     void increase_dmg_vs_type(const Target::CreatureType, const double);
     void decrease_dmg_vs_type(const Target::CreatureType, const double);
 
-    void increase_hit(double);
-    void decrease_hit(double);
+    void increase_melee_hit(const unsigned);
+    void decrease_melee_hit(const unsigned);
 
     void increase_crit(double);
     void decrease_crit(double);
+
+    void increase_ranged_hit(const unsigned);
+    void decrease_ranged_hit(const unsigned);
 
     void increase_crit_for_weapon_type(const int, const double);
     void decrease_crit_for_weapon_type(const int, const double);

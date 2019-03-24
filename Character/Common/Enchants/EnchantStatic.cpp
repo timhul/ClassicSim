@@ -75,7 +75,8 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::FalconsCall:
         pchar->get_stats()->increase_ranged_ap(24);
         pchar->get_stats()->increase_stamina(10);
-        pchar->get_stats()->increase_hit(0.01);
+        pchar->get_stats()->increase_melee_hit(1);
+        pchar->get_stats()->increase_ranged_hit(1);
         break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->increase_agility(3);
@@ -185,7 +186,8 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::FalconsCall:
         pchar->get_stats()->decrease_ranged_ap(24);
         pchar->get_stats()->decrease_stamina(10);
-        pchar->get_stats()->decrease_hit(0.01);
+        pchar->get_stats()->decrease_melee_hit(1);
+        pchar->get_stats()->decrease_ranged_hit(1);
         break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->decrease_agility(3);

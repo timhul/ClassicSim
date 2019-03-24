@@ -88,7 +88,7 @@ MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const int wpn_skill) {
     if (melee_white_tables.contains(wpn_skill))
         return melee_white_tables[wpn_skill];
 
-    double miss_chance = get_white_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
+    double miss_chance = get_white_miss_chance(wpn_skill) - pchar->get_stats()->get_melee_hit_chance();
     if (miss_chance < 0)
         miss_chance = 0;
 
@@ -113,7 +113,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
     if (melee_special_tables.contains(wpn_skill))
         return melee_special_tables[wpn_skill];
 
-    double miss_chance = get_yellow_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
+    double miss_chance = get_yellow_miss_chance(wpn_skill) - pchar->get_stats()->get_melee_hit_chance();
     if (miss_chance < 0)
         miss_chance = 0;
 
@@ -135,7 +135,7 @@ RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const int wpn_skill) {
     if (ranged_white_tables.contains(wpn_skill))
         return ranged_white_tables[wpn_skill];
 
-    double miss_chance = get_yellow_miss_chance(wpn_skill) - pchar->get_stats()->get_hit_chance();
+    double miss_chance = get_yellow_miss_chance(wpn_skill) - pchar->get_stats()->get_ranged_hit_chance();
     if (miss_chance < 0)
         miss_chance = 0;
 
@@ -177,7 +177,7 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
     return mechanics->get_glancing_blow_dmg_penalty(wpn_skill);
 }
 
-void CombatRoll::update_miss_chance(const double hit) {
+void CombatRoll::update_melee_miss_chance(const double hit) {
     QMap<int, MeleeWhiteHitTable*>::const_iterator it_auto = melee_white_tables.constBegin();
     auto end_auto = melee_white_tables.constEnd();
     while(it_auto != end_auto) {
@@ -196,6 +196,18 @@ void CombatRoll::update_miss_chance(const double hit) {
             new_miss_chance = 0.0;
         it_special.value()->update_miss_chance(new_miss_chance);
         ++it_special;
+    }
+}
+
+void CombatRoll::update_ranged_miss_chance(const double hit) {
+    QMap<int, RangedWhiteHitTable*>::const_iterator it = ranged_white_tables.constBegin();
+    auto end = ranged_white_tables.constEnd();
+    while(it != end) {
+        double new_miss_chance = get_yellow_miss_chance(it.value()->get_wpn_skill()) - hit;
+        if (new_miss_chance < 0)
+            new_miss_chance = 0.0;
+        it.value()->update_miss_chance(new_miss_chance);
+        ++it;
     }
 }
 
