@@ -3,12 +3,19 @@
 
 #include "TalentTree.h"
 
+class Hunter;
+class HunterSpells;
+
 class Survival: public TalentTree {
 public:
-    Survival(Character *pchar);
-    ~Survival() override;
+    Survival(Hunter* pchar);
+    ~Survival() override = default;
+
+    Talent* get_surefooted();
 
 private:
+    Hunter* hunter;
+    HunterSpells* spells;
 };
 
 #endif // SURVIVAL_H

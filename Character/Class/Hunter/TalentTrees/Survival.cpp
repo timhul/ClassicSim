@@ -1,9 +1,13 @@
 #include "Survival.h"
 
-#include "Talent.h"
+#include "Hunter.h"
+#include "HunterSpells.h"
+#include "TalentStatIncrease.h"
 
-Survival::Survival(Character *pchar) :
-    TalentTree("Survival", "Assets/hunter/hunter_survival.jpg")
+Survival::Survival(Hunter* pchar) :
+    TalentTree("Survival", "Assets/hunter/hunter_survival.jpg"),
+    hunter(pchar),
+    spells(dynamic_cast<HunterSpells*>(hunter->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1LL", new Talent(pchar, this, "Monster Slaying", "1LL", "Assets/items/Inv_misc_head_dragon_black.png", 3, "Increases all damage caused against Beasts, Giants and Dragonkin targets by %1% and increases critical damage caused against Beasts, Giants and Dragonkin targets by an additional %2%.", QVector<QPair<int, int>>{{1, 1}, {1, 1}})},
                                   {"1ML", new Talent(pchar, this, "Humanoid Slaying", "1ML", "Assets/spell/Spell_holy_prayerofhealing.png", 3, "Increases all damage caused against Humanoid targets by %1% and increases critical damage caused against Humanoid targets by an additional %2%.", QVector<QPair<int, int>>{{1, 1}, {1, 1}})},
@@ -21,7 +25,7 @@ Survival::Survival(Character *pchar) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4LL", new Talent(pchar, this, "Trap Mastery", "4LL", "Assets/ability/Ability_ensnare.png", 2, "Decreases the chance enemies will resist trap effects by %1%.", QVector<QPair<int, int>>{{5, 5}})},
-                                  {"4ML", new Talent(pchar, this, "Surefooted", "4ML", "Assets/ability/Ability_kick.png", 3, "Increases hit chance by %1% and increases the chance movement impairing effects will be resisted by an additional %2%.", QVector<QPair<int, int>>{{1, 1}, {5, 5}})},
+                                  {"4ML", get_surefooted()},
                                   {"4RR", new Talent(pchar, this, "Improved Feign Death", "4RR", "Assets/ability/Ability_rogue_feigndeath.png", 2, "Reduces the chance your Feign Death ability will be resisted by %1%.", QVector<QPair<int, int>>{{2, 2}})}};
     add_talents(tier4);
 
@@ -42,4 +46,9 @@ Survival::Survival(Character *pchar) :
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Survival::~Survival() = default;
+Talent* Survival::get_surefooted() {
+    return new TalentStatIncrease(hunter, this, "Surefooted", "4ML", "Assets/ability/Ability_kick.png",
+                                  3, "Increases hit chance by %1% and increases the chance movement impairing effects will be resisted by an additional %2%.",
+                                  QVector<QPair<int, int>>{{1, 1}, {5, 5}},
+                                  QVector<QPair<int, TalentStat>>{{0, TalentStat::MeleeHit}, {0, TalentStat::RangedHit}});
+}

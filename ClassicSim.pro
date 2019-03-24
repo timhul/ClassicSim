@@ -314,7 +314,8 @@ SOURCES += main.cpp \
     Test/Rotation/TestRotationFileReader.cpp \
     Event/Events/RangedHit.cpp \
     Test/TestMana.cpp \
-    Utils/CompareDouble.cpp
+    Utils/CompareDouble.cpp \
+    Character/Class/TalentStatIncrease.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -633,7 +634,8 @@ HEADERS += \
     Character/Common/AttackMode.h \
     Event/Events/RangedHit.h \
     Test/TestMana.h \
-    Utils/CompareDouble.h
+    Utils/CompareDouble.h \
+    Character/Class/TalentStatIncrease.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
