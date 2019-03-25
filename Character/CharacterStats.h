@@ -78,6 +78,9 @@ public:
     void increase_dmg_vs_type(const Target::CreatureType, const double);
     void decrease_dmg_vs_type(const Target::CreatureType, const double);
 
+    void increase_crit_dmg_vs_type(const Target::CreatureType target_type, const unsigned value);
+    void decrease_crit_dmg_vs_type(const Target::CreatureType target_type, const unsigned value);
+
     unsigned get_melee_hit_chance() const;
     void increase_melee_hit(const unsigned);
     void decrease_melee_hit(const unsigned);
@@ -157,7 +160,8 @@ private:
     QVector<int> ap_total_multipliers;
     QHash<int, double> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
-    QHash<int, double> damage_bonuses_per_monster_type;
+    QHash<Target::CreatureType, double> damage_bonuses_per_monster_type;
+    QHash<Target::CreatureType, double> crit_dmg_bonuses_per_monster_type;
 
     int axe_skill_bonus;
     int dagger_skill_bonus;

@@ -16,12 +16,17 @@ AimedShot::AimedShot(Character* pchar) :
                      310,
                      3000),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
-                                                new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No)})
+                                                new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
+                                                new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)})
 {
     this->enabled = false;
     resource_base = resource_cost;
     efficiency_ranks = {
         1.0, 0.98, 0.96, 0.94, 0.92, 0.90
+    };
+    mortal_shots_bonus = 0.0;
+    mortal_shots_ranks = {
+        0.0, 0.06, 0.12, 0.18, 0.24, 0.30
     };
 }
 
@@ -51,7 +56,7 @@ void AimedShot::complete_cast_effect() {
     double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 600);
 
     if (result == PhysicalAttackResult::CRITICAL) {
-        damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod();
+        damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         pchar->ranged_white_critical_effect(true);
         return;
@@ -64,9 +69,13 @@ void AimedShot::complete_cast_effect() {
 void AimedShot::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Efficiency")
         resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
+    if (talent_name == "Mortal Shots")
+        mortal_shots_bonus = mortal_shots_ranks[curr];
 }
 
 void AimedShot::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Efficiency")
         resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
+    if (talent_name == "Mortal Shots")
+        mortal_shots_bonus = mortal_shots_ranks[curr];
 }

@@ -36,29 +36,34 @@ void TalentStatIncrease::apply_rank_effect() {
         case RangedCrit:
             cstats->increase_ranged_crit(change);
             continue;
-        case RangedCritDmgBonus:
-            cstats->increase_ranged_ability_crit_dmg_mod(static_cast<double>(change) / 100);
-            continue;
         case RangedDmgMod:
             cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::BOW, static_cast<int>(change));
             cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::GUN, static_cast<int>(change));
             continue;
         case DmgModAgainstBeast:
-            cstats->increase_dmg_vs_type(Target::CreatureType::Beast, change);
+            cstats->increase_dmg_vs_type(Target::CreatureType::Beast, static_cast<double>(change) / 100);
             continue;
         case DmgModAgainstDragonkin:
-            cstats->increase_dmg_vs_type(Target::CreatureType::Dragonkin, change);
+            cstats->increase_dmg_vs_type(Target::CreatureType::Dragonkin, static_cast<double>(change) / 100);
             continue;
         case DmgModAgainstGiant:
-            cstats->increase_dmg_vs_type(Target::CreatureType::Giant, change);
+            cstats->increase_dmg_vs_type(Target::CreatureType::Giant, static_cast<double>(change) / 100);
             continue;
         case DmgModAgainstHumanoid:
-            cstats->increase_dmg_vs_type(Target::CreatureType::Humanoid, change);
+            cstats->increase_dmg_vs_type(Target::CreatureType::Humanoid, static_cast<double>(change) / 100);
             continue;
         case CritDmgModAgainstBeast:
+            cstats->increase_crit_dmg_vs_type(Target::CreatureType::Beast, change);
+            continue;
         case CritDmgModAgainstDragonkin:
+            cstats->increase_crit_dmg_vs_type(Target::CreatureType::Dragonkin, change);
+            continue;
         case CritDmgModAgainstGiant:
+            cstats->increase_crit_dmg_vs_type(Target::CreatureType::Giant, change);
+            continue;
         case CritDmgModAgainstHumanoid:
+            cstats->increase_crit_dmg_vs_type(Target::CreatureType::Humanoid, change);
+            continue;
         case AgilityMod:
         case StrengthMod:
         case IntellectMod:
@@ -104,29 +109,34 @@ void TalentStatIncrease::remove_rank_effect() {
         case RangedCrit:
             cstats->decrease_ranged_crit(change);
             continue;
-        case RangedCritDmgBonus:
-            cstats->decrease_ranged_ability_crit_dmg_mod(static_cast<double>(change) / 100);
-            continue;
         case RangedDmgMod:
             cstats->decrease_total_phys_dmg_for_weapon_type(WeaponTypes::BOW, static_cast<int>(change));
             cstats->decrease_total_phys_dmg_for_weapon_type(WeaponTypes::GUN, static_cast<int>(change));
             continue;
         case DmgModAgainstBeast:
-            cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, change);
+            cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, static_cast<double>(change) / 100);
             continue;
         case DmgModAgainstDragonkin:
-            cstats->decrease_dmg_vs_type(Target::CreatureType::Dragonkin, change);
+            cstats->decrease_dmg_vs_type(Target::CreatureType::Dragonkin, static_cast<double>(change) / 100);
             continue;
         case DmgModAgainstGiant:
-            cstats->decrease_dmg_vs_type(Target::CreatureType::Giant, change);
+            cstats->decrease_dmg_vs_type(Target::CreatureType::Giant, static_cast<double>(change) / 100);
             continue;
         case DmgModAgainstHumanoid:
-            cstats->decrease_dmg_vs_type(Target::CreatureType::Humanoid, change);
+            cstats->decrease_dmg_vs_type(Target::CreatureType::Humanoid, static_cast<double>(change) / 100);
             continue;
         case CritDmgModAgainstBeast:
+            cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Beast, change);
+            continue;
         case CritDmgModAgainstDragonkin:
+            cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Dragonkin, change);
+            continue;
         case CritDmgModAgainstGiant:
+            cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Giant, change);
+            continue;
         case CritDmgModAgainstHumanoid:
+            cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Humanoid, change);
+            continue;
         case AgilityMod:
         case StrengthMod:
         case IntellectMod:

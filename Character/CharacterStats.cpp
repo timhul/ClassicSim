@@ -63,6 +63,15 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Humanoid, 0);
     this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Mechanical, 0);
     this->damage_bonuses_per_monster_type.insert(Target::CreatureType::Undead, 0);
+
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Beast, 0);
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Demon, 0);
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Dragonkin, 0);
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Elemental, 0);
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Giant, 0);
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Humanoid, 0);
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Mechanical, 0);
+    this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Undead, 0);
 }
 
 CharacterStats::~CharacterStats() {
@@ -449,6 +458,14 @@ void CharacterStats::decrease_dmg_vs_type(const Target::CreatureType target_type
     damage_bonuses_per_monster_type[target_type] -= value;
 }
 
+void CharacterStats::increase_crit_dmg_vs_type(const Target::CreatureType target_type, const unsigned value) {
+    crit_dmg_bonuses_per_monster_type[target_type] += static_cast<double>(value) / 100;
+}
+
+void CharacterStats::decrease_crit_dmg_vs_type(const Target::CreatureType target_type, const unsigned value) {
+    crit_dmg_bonuses_per_monster_type[target_type] -= static_cast<double>(value) / 100;
+}
+
 double CharacterStats::get_total_phys_dmg_mod() const {
     double dmg_bonus_from_wpn_type = 1.0;
 
@@ -559,7 +576,7 @@ void CharacterStats::decrease_spell_crit(const unsigned decrease) {
 }
 
 double CharacterStats::get_melee_ability_crit_dmg_mod() const {
-    return melee_ability_crit_dmg_mod;
+    return melee_ability_crit_dmg_mod + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
 void CharacterStats::increase_melee_ability_crit_dmg_mod(double increase) {
@@ -571,7 +588,7 @@ void CharacterStats::decrease_melee_ability_crit_dmg_mod(double decrease) {
 }
 
 double CharacterStats::get_ranged_ability_crit_dmg_mod() const {
-    return ranged_ability_crit_dmg_mod;
+    return ranged_ability_crit_dmg_mod + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
 void CharacterStats::increase_ranged_ability_crit_dmg_mod(double increase) {
@@ -583,7 +600,7 @@ void CharacterStats::decrease_ranged_ability_crit_dmg_mod(double decrease) {
 }
 
 double CharacterStats::get_spell_crit_dmg_mod() const {
-    return spell_crit_dmg_mod;
+    return spell_crit_dmg_mod  + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
 void CharacterStats::increase_spell_crit_dmg_mod(double increase) {

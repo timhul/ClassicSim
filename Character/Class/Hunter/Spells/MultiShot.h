@@ -12,6 +12,8 @@ private:
     QVector<double> talent_ranks;
     double resource_base;
     QVector<double> efficiency_ranks;
+    double mortal_shots_bonus;
+    QVector<double> mortal_shots_ranks;
 
     void spell_effect() override;
 

@@ -855,6 +855,16 @@ void TestSpell::given_in_magic_attack_mode() {
     pchar->get_spells()->set_attack_mode(AttackMode::MagicAttack);
 }
 
+void TestSpell::given_target_is_beast() {
+    pchar->get_target()->set_creature_type("Beast");
+    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Beast);
+}
+
+void TestSpell::given_target_is_humanoid() {
+    pchar->get_target()->set_creature_type("Humanoid");
+    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Humanoid);
+}
+
 void TestSpell::given_engine_priority_at(const double priority) {
     if (priority < pchar->get_engine()->get_current_priority())
         pchar->get_engine()->reset();

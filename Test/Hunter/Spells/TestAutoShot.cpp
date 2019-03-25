@@ -47,6 +47,18 @@ void TestAutoShot::test_all() {
     tear_down();
 
     set_up();
+    test_crit_dmg_1_of_3_monster_slaying();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_2_of_3_monster_slaying();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_3_of_3_monster_slaying();
+    tear_down();
+
+    set_up();
     test_mid_swing_haste_increase_updates_attack_speed();
     tear_down();
 
@@ -146,6 +158,54 @@ void TestAutoShot::test_crit_dmg() {
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * crit_dmg_modifier
     // [571] = (100 + (2.6 * 1000 / 14)) * 2.0
     then_damage_dealt_is(571);
+}
+
+void TestAutoShot::test_crit_dmg_1_of_3_monster_slaying() {
+    given_target_is_beast();
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_1_of_3_monster_slaying();
+
+    when_auto_shot_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * crit_dmg_modifier * total_phys_modifier
+    // [580] = (100 + (2.6 * 1000 / 14)) * 2.01 * 1.01
+    then_damage_dealt_is(580);
+}
+
+void TestAutoShot::test_crit_dmg_2_of_3_monster_slaying() {
+    given_target_is_beast();
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_3_monster_slaying();
+
+    when_auto_shot_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * crit_dmg_modifier * total_phys_modifier
+    // [589] = (100 + (2.6 * 1000 / 14)) * 2.02 * 1.02
+    then_damage_dealt_is(589);
+}
+
+void TestAutoShot::test_crit_dmg_3_of_3_monster_slaying() {
+    given_target_is_beast();
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_3_of_3_monster_slaying();
+
+    when_auto_shot_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * crit_dmg_modifier * total_phys_modifier
+    // [597] = (100 + (2.6 * 1000 / 14)) * 2.03 * 1.03
+    then_damage_dealt_is(597);
 }
 
 void TestAutoShot::test_crit_dmg_not_affected_by_1_of_5_mortal_shots() {

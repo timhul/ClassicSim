@@ -34,6 +34,10 @@ protected:
     void given_4_of_5_ranged_weapon_specialization();
     void given_5_of_5_ranged_weapon_specialization();
 
+    void given_1_of_3_monster_slaying();
+    void given_2_of_3_monster_slaying();
+    void given_3_of_3_monster_slaying();
+
     void given_hunter_has_mana(const unsigned mana);
     void then_hunter_has_mana(const unsigned mana);
 };

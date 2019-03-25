@@ -99,6 +99,9 @@ public:
     void given_in_ranged_attack_mode();
     void given_in_magic_attack_mode();
 
+    void given_target_is_beast();
+    void given_target_is_humanoid();
+
     void when_running_queued_events_until(const double priority);
 
     void then_damage_dealt_is(const int damage);

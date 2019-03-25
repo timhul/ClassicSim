@@ -9,7 +9,7 @@ Survival::Survival(Hunter* pchar) :
     hunter(pchar),
     spells(dynamic_cast<HunterSpells*>(hunter->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1LL", new Talent(pchar, this, "Monster Slaying", "1LL", "Assets/items/Inv_misc_head_dragon_black.png", 3, "Increases all damage caused against Beasts, Giants and Dragonkin targets by %1% and increases critical damage caused against Beasts, Giants and Dragonkin targets by an additional %2%.", QVector<QPair<int, int>>{{1, 1}, {1, 1}})},
+    QMap<QString, Talent*> tier1 {{"1LL", get_monster_slaying()},
                                   {"1ML", new Talent(pchar, this, "Humanoid Slaying", "1ML", "Assets/spell/Spell_holy_prayerofhealing.png", 3, "Increases all damage caused against Humanoid targets by %1% and increases critical damage caused against Humanoid targets by an additional %2%.", QVector<QPair<int, int>>{{1, 1}, {1, 1}})},
                                   {"1MR", new Talent(pchar, this, "Deflection", "1MR", "Assets/ability/Ability_parry.png", 5, "Increases your Parry chance by %1%.", QVector<QPair<int, int>>{{1, 1}})}};
     add_talents(tier1);
@@ -44,6 +44,20 @@ Survival::Survival(Hunter* pchar) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* Survival::get_monster_slaying() {
+    return new TalentStatIncrease(hunter, this, "Monster Slaying", "1LL", "Assets/items/Inv_misc_head_dragon_black.png",
+                                  3, "Increases all damage caused against Beasts, Giants and Dragonkin targets by %1% and increases critical damage caused against Beasts, Giants and Dragonkin targets by an additional %2%.",
+                                  QVector<QPair<int, int>>{{1, 1}, {1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{
+                                      {TalentStat::DmgModAgainstBeast, 1},
+                                      {TalentStat::CritDmgModAgainstBeast, 1},
+                                      {TalentStat::DmgModAgainstGiant, 1},
+                                      {TalentStat::CritDmgModAgainstGiant, 1},
+                                      {TalentStat::DmgModAgainstDragonkin, 1},
+                                      {TalentStat::CritDmgModAgainstDragonkin, 1},
+                                  });
 }
 
 Talent* Survival::get_surefooted() {

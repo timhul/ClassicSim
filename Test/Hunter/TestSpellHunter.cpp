@@ -8,6 +8,7 @@
 #include "Marksmanship.h"
 #include "MultiShot.h"
 #include "Spell.h"
+#include "Survival.h"
 #include "Talent.h"
 
 TestSpellHunter::TestSpellHunter(EquipmentDb *equipment_db, QString spell_under_test) :
@@ -204,6 +205,32 @@ void TestSpellHunter::given_5_of_5_ranged_weapon_specialization() {
 
     assert(talent->increment_rank());
     assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_1_of_3_monster_slaying() {
+    Talent* talent = Survival(hunter).get_monster_slaying();
+
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_2_of_3_monster_slaying() {
+    Talent* talent = Survival(hunter).get_monster_slaying();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    delete talent;
+}
+
+void TestSpellHunter::given_3_of_3_monster_slaying() {
+    Talent* talent = Survival(hunter).get_monster_slaying();
+
     assert(talent->increment_rank());
     assert(talent->increment_rank());
     assert(talent->increment_rank());

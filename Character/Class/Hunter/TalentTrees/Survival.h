@@ -11,6 +11,7 @@ public:
     Survival(Hunter* pchar);
     ~Survival() override = default;
 
+    Talent* get_monster_slaying();
     Talent* get_surefooted();
 
 private:

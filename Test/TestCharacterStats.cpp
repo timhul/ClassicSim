@@ -61,6 +61,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_physical_damage_mod_depends_on_attack_mode();
     tear_down();
+
+    set_up();
+    test_crit_dmg_mod_affected_by_creature_type();
+    tear_down();
 }
 
 void TestCharacterStats::test_values_after_initialization() {
@@ -252,4 +256,26 @@ void TestCharacterStats::test_physical_damage_mod_depends_on_attack_mode() {
 
     pchar->get_spells()->set_attack_mode(AttackMode::MagicAttack);
     assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
+}
+
+void TestCharacterStats::test_crit_dmg_mod_affected_by_creature_type() {
+    assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.0));
+    assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.5));
+    assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
+
+    cstats->increase_crit_dmg_vs_type(Target::CreatureType::Beast, 1);
+    pchar->get_target()->set_creature_type("Humanoid");
+    assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.0));
+    assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.5));
+    assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
+
+    pchar->get_target()->set_creature_type("Beast");
+    assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.01));
+    assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.51));
+    assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.01));
+
+    cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Beast, 1);
+    assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.0));
+    assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.5));
+    assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
 }

@@ -68,10 +68,10 @@ Talent* Marksmanship::get_aimed_shot() {
 }
 
 Talent* Marksmanship::get_mortal_shots() {
-    return new TalentStatIncrease(hunter, this, "Mortal Shots", "4MR", "Assets/ability/Ability_piercedamage.png",
+    return get_new_talent(hunter, "Mortal Shots", "4MR", "Assets/ability/Ability_piercedamage.png",
                                   5, "Increases your ranged weapon critical strike damage bonus by %1%.",
                                   QVector<QPair<int, int>>{{6, 6}},
-                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::RangedCritDmgBonus, 6}});
+                                  QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
 }
 
 Talent* Marksmanship::get_ranged_weapon_specialization() {

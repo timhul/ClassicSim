@@ -25,11 +25,15 @@ private:
     void test_hit_dmg_0_of_5_ranged_weapon_specialization();
     void test_hit_dmg_5_of_5_ranged_weapon_specialization();
     void test_crit_dmg();
+    void test_crit_dmg_1_of_3_monster_slaying();
+    void test_crit_dmg_2_of_3_monster_slaying();
+    void test_crit_dmg_3_of_3_monster_slaying();
     void test_crit_dmg_not_affected_by_1_of_5_mortal_shots();
     void test_crit_dmg_not_affected_by_2_of_5_mortal_shots();
     void test_crit_dmg_not_affected_by_3_of_5_mortal_shots();
     void test_crit_dmg_not_affected_by_4_of_5_mortal_shots();
     void test_crit_dmg_not_affected_by_5_of_5_mortal_shots();
+
     void test_mid_swing_haste_increase_updates_attack_speed();
     void test_mid_swing_haste_decrease_updates_attack_speed();
 
