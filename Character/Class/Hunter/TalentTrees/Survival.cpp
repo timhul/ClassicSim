@@ -29,7 +29,7 @@ Survival::Survival(Hunter* pchar) :
                                   {"4RR", new Talent(pchar, this, "Improved Feign Death", "4RR", "Assets/ability/Ability_rogue_feigndeath.png", 2, "Reduces the chance your Feign Death ability will be resisted by %1%.", QVector<QPair<int, int>>{{2, 2}})}};
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {{"5ML", new Talent(pchar, this, "Killer Instinct", "5ML", "Assets/spell/Spell_holy_blessingofstamina.png", 3, "Increases your critical strike chance with all attacks by %1%.", QVector<QPair<int, int>>{{3, 3}})},
+    QMap<QString, Talent*> tier5 {{"5ML", get_killer_instinct()},
                                   {"5MR", new Talent(pchar, this, "Counterattack", "5MR", "Assets/ability/Ability_warrior_challange.png", 1, "A strike that becomes active after parrying an opponent's attack. This attack deals 40 damage and immobilizes the target for 5 sec. Counterattack cannot be blocked, dodged, or parried.", QVector<QPair<int, int>>())}};
     add_talents(tier5);
 
@@ -75,4 +75,11 @@ Talent* Survival::get_surefooted() {
                                   3, "Increases hit chance by %1% and increases the chance movement impairing effects will be resisted by an additional %2%.",
                                   QVector<QPair<int, int>>{{1, 1}, {5, 5}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeHit, 1}, {TalentStat::RangedHit, 1}});
+}
+
+Talent* Survival::get_killer_instinct() {
+    return new TalentStatIncrease(hunter, this, "Killer Instinct", "5ML", "Assets/spell/Spell_holy_blessingofstamina.png",
+                                  3, "Increases your critical strike chance with all attacks by %1%.",
+                                  QVector<QPair<int, int>>{{1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeCrit, 100}, {TalentStat::RangedCrit, 100}});
 }

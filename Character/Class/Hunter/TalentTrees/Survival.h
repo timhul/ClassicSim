@@ -14,6 +14,7 @@ public:
     Talent* get_monster_slaying();
     Talent* get_humanoid_slaying();
     Talent* get_surefooted();
+    Talent* get_killer_instinct();
 
 private:
     Hunter* hunter;
