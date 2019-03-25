@@ -15,7 +15,11 @@ void TestAutoShot::test_all() {
     tear_down();
 
     set_up();
-    test_hit_dmg();
+    test_hit_dmg_0_of_5_ranged_weapon_specialization();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_of_5_ranged_weapon_specialization();
     tear_down();
 
     set_up();
@@ -101,7 +105,7 @@ void TestAutoShot::test_incurs_global_cooldown() {
     assert(hunter->action_ready());
 }
 
-void TestAutoShot::test_hit_dmg() {
+void TestAutoShot::test_hit_dmg_0_of_5_ranged_weapon_specialization() {
     given_target_has_0_armor();
     given_a_ranged_weapon_with_100_min_max_dmg();
     given_a_guaranteed_ranged_white_hit();
@@ -113,6 +117,21 @@ void TestAutoShot::test_hit_dmg() {
     // [Damage] = base_dmg + (wpn_speed * AP / 14)
     // [286] = 100 + (2.6 * 1000 / 14)
     then_damage_dealt_is(286);
+}
+
+void TestAutoShot::test_hit_dmg_5_of_5_ranged_weapon_specialization() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_hit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_5_of_5_ranged_weapon_specialization();
+
+    when_auto_shot_is_performed();
+
+    // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * total_phys_modifier
+    // [300] = (100 + (2.6 * 1000 / 14) * 1.05
+    then_damage_dealt_is(300);
 }
 
 void TestAutoShot::test_crit_dmg() {

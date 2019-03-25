@@ -1,11 +1,14 @@
 #include "TestCharacterStats.h"
 
 #include "CharacterStats.h"
+#include "CharacterSpells.h"
+#include "Equipment.h"
 #include "Orc.h"
 #include "Warrior.h"
+#include "Weapon.h"
 
-TestCharacterStats::TestCharacterStats() :
-    TestObject(nullptr),
+TestCharacterStats::TestCharacterStats(EquipmentDb* equipment_db) :
+    TestObject(equipment_db),
     pchar(nullptr),
     cstats(nullptr),
     race(nullptr)
@@ -53,6 +56,10 @@ void TestCharacterStats::test_all() {
 
     set_up();
     test_ap_multipliers();
+    tear_down();
+
+    set_up();
+    test_physical_damage_mod_depends_on_attack_mode();
     tear_down();
 }
 
@@ -225,4 +232,24 @@ void TestCharacterStats::test_ap_multipliers() {
     cstats->remove_ap_multiplier(100);
     assert(cstats->get_melee_ap() == base_melee_ap);
     assert(cstats->get_ranged_ap() == base_ranged_ap);
+}
+
+void TestCharacterStats::test_physical_damage_mod_depends_on_attack_mode() {
+    pchar->get_equipment()->set_mainhand(19362);
+    assert(pchar->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::AXE);
+    pchar->get_equipment()->set_ranged(17069);
+    assert(pchar->get_equipment()->get_ranged()->get_weapon_type() == WeaponTypes::BOW);
+
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
+    cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::AXE, 10);
+    cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::BOW, 20);
+
+    pchar->get_spells()->set_attack_mode(AttackMode::MeleeAttack);
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.1));
+
+    pchar->get_spells()->set_attack_mode(AttackMode::RangedAttack);
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.2));
+
+    pchar->get_spells()->set_attack_mode(AttackMode::MagicAttack);
+    assert(almost_equal(cstats->get_total_phys_dmg_mod(), 1.0));
 }

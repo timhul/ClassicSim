@@ -14,7 +14,11 @@ void TestAimedShot::test_all() {
     run_mandatory_tests();
 
     set_up();
-    test_hit_dmg();
+    test_hit_dmg_0_of_5_ranged_weapon_specialization();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_of_5_ranged_weapon_specialization();
     tear_down();
 
     set_up();
@@ -131,7 +135,7 @@ void TestAimedShot::test_incurs_global_cooldown() {
     assert(!hunter->action_ready());
 }
 
-void TestAimedShot::test_hit_dmg() {
+void TestAimedShot::test_hit_dmg_0_of_5_ranged_weapon_specialization() {
     given_target_has_0_armor();
     given_a_ranged_weapon_with_100_min_max_dmg();
     given_a_guaranteed_ranged_white_hit();
@@ -146,6 +150,24 @@ void TestAimedShot::test_hit_dmg() {
     // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus
     // [900] = 100 + (2.8 * 1000 / 14) + 600
     then_damage_dealt_is(900);
+}
+
+void TestAimedShot::test_hit_dmg_5_of_5_ranged_weapon_specialization() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_hit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_5_of_5_ranged_weapon_specialization();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus) * total_phys_modifier
+    // [945] = (100 + (2.8 * 1000 / 14) + 600) * 1.05
+    then_damage_dealt_is(945);
 }
 
 void TestAimedShot::test_crit_dmg_0_of_5_mortal_shots() {

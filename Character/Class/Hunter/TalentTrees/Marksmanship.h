@@ -16,6 +16,7 @@ public:
     Talent* get_lethal_shots();
     Talent* get_aimed_shot();
     Talent* get_mortal_shots();
+    Talent* get_ranged_weapon_specialization();
 
 private:
     Hunter* hunter;

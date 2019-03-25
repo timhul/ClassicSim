@@ -41,6 +41,7 @@ public:
     bool is_ranged_attacking() const;
 
     void set_attack_mode(const AttackMode attack_mode);
+    AttackMode get_attack_mode() const;
     Rotation* get_rotation();
     void set_rotation(Rotation*);
     void relink_spells();

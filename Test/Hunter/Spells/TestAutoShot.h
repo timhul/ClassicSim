@@ -22,7 +22,8 @@ private:
     void test_is_ready_conditions() override;
 
     void test_changing_weapons_changes_cooldown();
-    void test_hit_dmg();
+    void test_hit_dmg_0_of_5_ranged_weapon_specialization();
+    void test_hit_dmg_5_of_5_ranged_weapon_specialization();
     void test_crit_dmg();
     void test_crit_dmg_not_affected_by_1_of_5_mortal_shots();
     void test_crit_dmg_not_affected_by_2_of_5_mortal_shots();

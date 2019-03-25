@@ -67,7 +67,7 @@ void Test::test_all() {
 
     TestMechanics().test_all();
     TestAttackTables(equipment_db).test_all();
-    TestCharacterStats().test_all();
+    TestCharacterStats(equipment_db).test_all();
     TestConditionVariableBuiltin(equipment_db).test_all();
     TestRotationFileReader().test_all();
     TestMana(equipment_db).test_all();

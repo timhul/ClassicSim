@@ -208,6 +208,10 @@ void CharacterSpells::set_attack_mode(const AttackMode attack_mode) {
     this->attack_mode = attack_mode;
 }
 
+AttackMode CharacterSpells::get_attack_mode() const {
+    return this->attack_mode;
+}
+
 void CharacterSpells::mh_auto_attack(const int iteration) {
     if (!mh_attack->attack_is_valid(iteration))
         return;

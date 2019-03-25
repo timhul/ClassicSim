@@ -98,8 +98,8 @@ public:
     void increase_crit_for_weapon_type(const int, const double);
     void decrease_crit_for_weapon_type(const int, const double);
 
-    void increase_total_phys_dmg_for_weapon_type(const int, const int);
-    void decrease_total_phys_dmg_for_weapon_type(const int, const int);
+    void increase_total_phys_dmg_for_weapon_type(const int weapon_type, const int increase);
+    void decrease_total_phys_dmg_for_weapon_type(const int weapon_type, const int decrease);
 
     unsigned get_spell_hit_chance() const;
     void increase_spell_hit(const unsigned);

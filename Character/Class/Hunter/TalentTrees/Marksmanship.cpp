@@ -33,7 +33,7 @@ Marksmanship::Marksmanship(Hunter* hunter) :
                                   {"5MR", new Talent(hunter, this, "Improved Scorpid Sting", "5MR", "Assets/ability/Ability_hunter_criticalshot.png", 3, "Reduces the Stamina of targets affected by your Scorpid Sting by %1% of the amount of Strength reduced.", QVector<QPair<int, int>>{{10, 10}})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(hunter, this, "Ranged Weapon Specialization", "6MR", "Assets/items/Inv_weapon_rifle_06.png", 5, "Increases the damage you deal with ranged weapons by %1%.", QVector<QPair<int, int>>{{1, 1}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", get_ranged_weapon_specialization()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(hunter, this, "Trueshot Aura", "7ML", "Assets/ability/Ability_trueshot.png", 1, "Increases the attack power of party members within 45 yards by 50. Lasts 30 min.", QVector<QPair<int, int>>())}};
@@ -72,4 +72,11 @@ Talent* Marksmanship::get_mortal_shots() {
                                   5, "Increases your ranged weapon critical strike damage bonus by %1%.",
                                   QVector<QPair<int, int>>{{6, 6}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::RangedCritDmgBonus, 6}});
+}
+
+Talent* Marksmanship::get_ranged_weapon_specialization() {
+    return new TalentStatIncrease(hunter, this, "Ranged Weapon Specialization", "6MR", "Assets/items/Inv_weapon_rifle_06.png",
+                                  5, "Increases the damage you deal with ranged weapons by %1%.",
+                                  QVector<QPair<int, int>>{{1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::RangedDmgMod, 1}});
 }

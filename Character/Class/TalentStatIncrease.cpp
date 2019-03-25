@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include "ItemNamespace.h"
 #include "Utils/Check.h"
 
 TalentStatIncrease::TalentStatIncrease(Character *pchar, TalentTree* tree,
@@ -39,6 +40,8 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->increase_ranged_ability_crit_dmg_mod(static_cast<double>(change) / 100);
             continue;
         case RangedDmgMod:
+            cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::BOW, static_cast<int>(change));
+            cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::GUN, static_cast<int>(change));
             continue;
         case DmgModAgainstBeast:
             cstats->increase_dmg_vs_type(Target::CreatureType::Beast, change);
@@ -105,6 +108,8 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->decrease_ranged_ability_crit_dmg_mod(static_cast<double>(change) / 100);
             continue;
         case RangedDmgMod:
+            cstats->decrease_total_phys_dmg_for_weapon_type(WeaponTypes::BOW, static_cast<int>(change));
+            cstats->decrease_total_phys_dmg_for_weapon_type(WeaponTypes::GUN, static_cast<int>(change));
             continue;
         case DmgModAgainstBeast:
             cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, change);

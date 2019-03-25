@@ -10,7 +10,7 @@ class Race;
 
 class TestCharacterStats : TestObject {
 public:
-    TestCharacterStats();
+    TestCharacterStats(EquipmentDb* equipment_db);
 
     void set_up();
     void tear_down();
@@ -30,6 +30,7 @@ private:
     void test_damage_bonuses_vs_creature_type();
     void test_ap_bonuses_vs_creature_type();
     void test_ap_multipliers();
+    void test_physical_damage_mod_depends_on_attack_mode();
 };
 
 #endif // TESTCHARACTERSTATS_H

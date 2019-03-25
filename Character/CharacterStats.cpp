@@ -1,6 +1,7 @@
 #include "CharacterStats.h"
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
 #include "Race.h"
@@ -450,8 +451,21 @@ void CharacterStats::decrease_dmg_vs_type(const Target::CreatureType target_type
 
 double CharacterStats::get_total_phys_dmg_mod() const {
     double dmg_bonus_from_wpn_type = 1.0;
-    if (equipment->get_mainhand() != nullptr)
-        dmg_bonus_from_wpn_type += double(damage_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()]) / 100;
+
+    Weapon* weapon = nullptr;
+    switch (pchar->get_spells()->get_attack_mode()) {
+    case MeleeAttack:
+        weapon = equipment->get_mainhand();
+        break;
+    case RangedAttack:
+        weapon = equipment->get_ranged();
+        break;
+    case MagicAttack:
+        break;
+    }
+
+    if (weapon != nullptr)
+        dmg_bonus_from_wpn_type += double(damage_bonuses_per_weapon_type[weapon->get_weapon_type()]) / 100;
 
     double dmg_bonus_from_monster_type = 1.0 + damage_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 

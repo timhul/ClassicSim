@@ -28,6 +28,12 @@ protected:
     void given_4_of_5_mortal_shots();
     void given_5_of_5_mortal_shots();
 
+    void given_1_of_5_ranged_weapon_specialization();
+    void given_2_of_5_ranged_weapon_specialization();
+    void given_3_of_5_ranged_weapon_specialization();
+    void given_4_of_5_ranged_weapon_specialization();
+    void given_5_of_5_ranged_weapon_specialization();
+
     void given_hunter_has_mana(const unsigned mana);
     void then_hunter_has_mana(const unsigned mana);
 };
