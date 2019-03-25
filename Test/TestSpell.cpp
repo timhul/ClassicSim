@@ -865,6 +865,61 @@ void TestSpell::given_target_is_humanoid() {
     assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Humanoid);
 }
 
+void TestSpell::given_character_has_agility(const int value) {
+    int delta = static_cast<int>(pchar->get_stats()->get_agility()) - value;
+
+    if (delta < 0)
+        pchar->get_stats()->increase_agility(static_cast<unsigned>(-delta));
+    else
+        pchar->get_stats()->decrease_agility(static_cast<unsigned>(delta));
+
+    assert(pchar->get_stats()->get_agility() == static_cast<unsigned>(value));
+}
+
+void TestSpell::given_character_has_intellect(const int value) {
+    int delta = static_cast<int>(pchar->get_stats()->get_intellect()) - value;
+
+    if (delta < 0)
+        pchar->get_stats()->increase_intellect(static_cast<unsigned>(-delta));
+    else
+        pchar->get_stats()->decrease_intellect(static_cast<unsigned>(delta));
+
+    assert(pchar->get_stats()->get_intellect() == static_cast<unsigned>(value));
+}
+
+void TestSpell::given_character_has_spirit(const int value) {
+    int delta = static_cast<int>(pchar->get_stats()->get_spirit()) - value;
+
+    if (delta < 0)
+        pchar->get_stats()->increase_spirit(static_cast<unsigned>(-delta));
+    else
+        pchar->get_stats()->decrease_spirit(static_cast<unsigned>(delta));
+
+    assert(pchar->get_stats()->get_spirit() == static_cast<unsigned>(value));
+}
+
+void TestSpell::given_character_has_stamina(const int value) {
+    int delta = static_cast<int>(pchar->get_stats()->get_stamina()) - value;
+
+    if (delta < 0)
+        pchar->get_stats()->increase_stamina(static_cast<unsigned>(-delta));
+    else
+        pchar->get_stats()->decrease_stamina(static_cast<unsigned>(delta));
+
+    assert(pchar->get_stats()->get_stamina() == static_cast<unsigned>(value));
+}
+
+void TestSpell::given_character_has_strength(const int value) {
+    int delta = static_cast<int>(pchar->get_stats()->get_strength()) - value;
+
+    if (delta < 0)
+        pchar->get_stats()->increase_strength(static_cast<unsigned>(-delta));
+    else
+        pchar->get_stats()->decrease_strength(static_cast<unsigned>(delta));
+
+    assert(pchar->get_stats()->get_strength() == static_cast<unsigned>(value));
+}
+
 void TestSpell::given_engine_priority_at(const double priority) {
     if (priority < pchar->get_engine()->get_current_priority())
         pchar->get_engine()->reset();

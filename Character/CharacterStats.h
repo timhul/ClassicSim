@@ -139,6 +139,21 @@ public:
     void add_ap_multiplier(const int);
     void remove_ap_multiplier(const int);
 
+    void add_agility_mod(const int);
+    void remove_agility_mod(const int);
+
+    void add_intellect_mod(const int);
+    void remove_intellect_mod(const int);
+
+    void add_spirit_mod(const int);
+    void remove_spirit_mod(const int);
+
+    void add_stamina_mod(const int);
+    void remove_stamina_mod(const int);
+
+    void add_strength_mod(const int);
+    void remove_strength_mod(const int);
+
     double get_mh_wpn_speed();
     double get_oh_wpn_speed();
     double get_ranged_wpn_speed();
@@ -156,8 +171,12 @@ private:
     QVector<int> phys_dmg_buffs;
     QVector<int> phys_damage_taken_changes;
     QVector<int> spell_damage_taken_changes;
-    QVector<int> total_stat_mod_changes;
     QVector<int> ap_total_multipliers;
+    QVector<int> agility_mod_changes;
+    QVector<int> intellect_mod_changes;
+    QVector<int> spirit_mod_changes;
+    QVector<int> stamina_mod_changes;
+    QVector<int> strength_mod_changes;
     QHash<int, double> crit_bonuses_per_weapon_type;
     QHash<int, int> damage_bonuses_per_weapon_type;
     QHash<Target::CreatureType, double> damage_bonuses_per_monster_type;
@@ -176,8 +195,12 @@ private:
     double total_phys_dmg_mod;
     double physical_damage_taken_mod;
     double spell_damage_taken_mod;
-    double total_stat_mod;
     double total_ap_mod;
+    double agility_mod;
+    double intellect_mod;
+    double spirit_mod;
+    double stamina_mod;
+    double strength_mod;
 
     void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
     void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);

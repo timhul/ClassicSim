@@ -7,6 +7,7 @@
 #include "TestAimedShot.h"
 #include "TestAutoShot.h"
 #include "TestBeastMastery.h"
+#include "TestHunterTalentStatIncrease.h"
 #include "TestMarksmanship.h"
 #include "TestMultiShot.h"
 #include "TestSurvival.h"
@@ -21,6 +22,7 @@ void TestHunter::test_all() {
     TestAimedShot(equipment_db).test_all();
     TestAutoShot(equipment_db).test_all();
     TestMultiShot(equipment_db).test_all();
+    TestHunterTalentStatIncrease(equipment_db).test_all();
 
     TestBeastMastery(equipment_db).test_all();
     TestMarksmanship(equipment_db).test_all();

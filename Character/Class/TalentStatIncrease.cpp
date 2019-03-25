@@ -65,8 +65,20 @@ void TalentStatIncrease::apply_rank_effect() {
             cstats->increase_crit_dmg_vs_type(Target::CreatureType::Humanoid, change);
             continue;
         case AgilityMod:
+            if (curr_points != 1)
+                cstats->remove_agility_mod((curr_points - 1) * static_cast<int>(change));
+            cstats->add_agility_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
         case StrengthMod:
+            if (curr_points != 1)
+                cstats->remove_strength_mod((curr_points - 1) * static_cast<int>(change));
+            cstats->add_strength_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
         case IntellectMod:
+            if (curr_points != 1)
+                cstats->remove_intellect_mod((curr_points - 1) * static_cast<int>(change));
+            cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
         case OneHandMeleeDmg:
         case TwoHandMeleeDmg:
         case Defense:
@@ -138,8 +150,17 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Humanoid, change);
             continue;
         case AgilityMod:
+            cstats->remove_agility_mod((curr_points + 1) * static_cast<int>(change));
+            cstats->add_agility_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
         case StrengthMod:
+            cstats->remove_strength_mod((curr_points + 1) * static_cast<int>(change));
+            cstats->add_strength_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
         case IntellectMod:
+            cstats->remove_intellect_mod((curr_points + 1) * static_cast<int>(change));
+            cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
+            continue;
         case OneHandMeleeDmg:
         case TwoHandMeleeDmg:
         case Defense:

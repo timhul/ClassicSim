@@ -33,7 +33,7 @@ Survival::Survival(Hunter* pchar) :
                                   {"5MR", new Talent(pchar, this, "Counterattack", "5MR", "Assets/ability/Ability_warrior_challange.png", 1, "A strike that becomes active after parrying an opponent's attack. This attack deals 40 damage and immobilizes the target for 5 sec. Counterattack cannot be blocked, dodged, or parried.", QVector<QPair<int, int>>())}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(pchar, this, "Lightning Reflexes", "6MR", "Assets/spell/Spell_nature_invisibility.png", 5, "Increases your Agility by %1%.", QVector<QPair<int, int>>{{3, 3}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", get_lightning_reflexes()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(pchar, this, "Wyvern Sting", "7ML", "Assets/items/Inv_spear_02.png", 1, "A stinging shot that puts the target to sleep for 12 sec. Any damage will cancel the effect. When the target wakes up, the Sting causes (100.2% of Spell Power) Nature damage over 12 sec. Only usable out of combat. Only one Sting per Hunter can be active on the target at a time.", QVector<QPair<int, int>>())}};
@@ -82,4 +82,10 @@ Talent* Survival::get_killer_instinct() {
                                   3, "Increases your critical strike chance with all attacks by %1%.",
                                   QVector<QPair<int, int>>{{1, 1}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeCrit, 100}, {TalentStat::RangedCrit, 100}});
+}
+
+Talent* Survival::get_lightning_reflexes() {
+    return new TalentStatIncrease(hunter, this, "Lightning Reflexes", "6MR", "Assets/spell/Spell_nature_invisibility.png",
+                                  5, "Increases your Agility by %1%.", QVector<QPair<int, int>>{{3, 3}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::AgilityMod, 3}});
 }

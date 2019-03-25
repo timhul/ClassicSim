@@ -315,7 +315,8 @@ SOURCES += main.cpp \
     Event/Events/RangedHit.cpp \
     Test/TestMana.cpp \
     Utils/CompareDouble.cpp \
-    Character/Class/TalentStatIncrease.cpp
+    Character/Class/TalentStatIncrease.cpp \
+    Test/Hunter/Talents/TestHunterTalentStatIncrease.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -635,7 +636,8 @@ HEADERS += \
     Event/Events/RangedHit.h \
     Test/TestMana.h \
     Utils/CompareDouble.h \
-    Character/Class/TalentStatIncrease.h
+    Character/Class/TalentStatIncrease.h \
+    Test/Hunter/Talents/TestHunterTalentStatIncrease.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

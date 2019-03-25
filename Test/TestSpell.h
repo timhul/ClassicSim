@@ -102,6 +102,12 @@ public:
     void given_target_is_beast();
     void given_target_is_humanoid();
 
+    void given_character_has_agility(const int value);
+    void given_character_has_intellect(const int value);
+    void given_character_has_spirit(const int value);
+    void given_character_has_stamina(const int value);
+    void given_character_has_strength(const int value);
+
     void when_running_queued_events_until(const double priority);
 
     void then_damage_dealt_is(const int damage);

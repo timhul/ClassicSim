@@ -25,8 +25,12 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     total_phys_dmg_mod(1.0),
     physical_damage_taken_mod(1.0),
     spell_damage_taken_mod(1.0),
-    total_stat_mod(1.0),
-    total_ap_mod(1.0)
+    total_ap_mod(1.0),
+    agility_mod(1.0),
+    intellect_mod(1.0),
+    spirit_mod(1.0),
+    stamina_mod(1.0),
+    strength_mod(1.0)
 {
     this->base_stats = new Stats();
     base_stats->set_melee_ap_per_agi(pchar->get_ap_per_agi());
@@ -88,33 +92,38 @@ Stats* CharacterStats::get_stats() const {
 }
 
 unsigned CharacterStats::get_strength() const {
-    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_strength() +
-                                                         equipment->get_stats()->get_strength() +
-                                                         pchar->get_race()->get_base_strength())));
+    return static_cast<unsigned>(round(strength_mod *
+                                       (base_stats->get_strength() +
+                                        equipment->get_stats()->get_strength() +
+                                        pchar->get_race()->get_base_strength())));
 }
 
 unsigned CharacterStats::get_agility() const {
-    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_agility() +
-                                                         equipment->get_stats()->get_agility() +
-                                                         pchar->get_race()->get_base_agility())));
+    return static_cast<unsigned>(round(agility_mod *
+                                       (base_stats->get_agility() +
+                                        equipment->get_stats()->get_agility() +
+                                        pchar->get_race()->get_base_agility())));
 }
 
 unsigned CharacterStats::get_stamina() const {
-    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_stamina() +
-                                                         equipment->get_stats()->get_stamina() +
-                                                         pchar->get_race()->get_base_stamina())));
+    return static_cast<unsigned>(round(stamina_mod *
+                                       (base_stats->get_stamina() +
+                                        equipment->get_stats()->get_stamina() +
+                                        pchar->get_race()->get_base_stamina())));
 }
 
 unsigned CharacterStats::get_intellect() const {
-    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_intellect() +
-                                                         equipment->get_stats()->get_intellect() +
-                                                         pchar->get_race()->get_base_intellect())));
+    return static_cast<unsigned>(round(intellect_mod *
+                                       (base_stats->get_intellect() +
+                                        equipment->get_stats()->get_intellect() +
+                                        pchar->get_race()->get_base_intellect())));
 }
 
 unsigned CharacterStats::get_spirit() const {
-    return static_cast<unsigned>(round(total_stat_mod * (base_stats->get_spirit() +
-                                                         equipment->get_stats()->get_spirit() +
-                                                         pchar->get_race()->get_base_spirit())));
+    return static_cast<unsigned>(round(spirit_mod *
+                                       (base_stats->get_spirit() +
+                                        equipment->get_stats()->get_spirit() +
+                                        pchar->get_race()->get_base_spirit())));
 }
 
 unsigned CharacterStats::get_melee_hit_chance() const {
@@ -636,11 +645,19 @@ void CharacterStats::remove_spell_damage_taken_mod(const int mod) {
 }
 
 void CharacterStats::add_total_stat_mod(const int mod) {
-    add_multiplicative_effect(total_stat_mod_changes, mod, total_stat_mod);
+    add_agility_mod(mod);
+    add_intellect_mod(mod);
+    add_spirit_mod(mod);
+    add_stamina_mod(mod);
+    add_strength_mod(mod);
 }
 
 void CharacterStats::remove_total_stat_mod(const int mod) {
-    remove_multiplicative_effect(total_stat_mod_changes, mod, total_stat_mod);
+    remove_agility_mod(mod);
+    remove_intellect_mod(mod);
+    remove_spirit_mod(mod);
+    remove_stamina_mod(mod);
+    remove_strength_mod(mod);
 }
 
 void CharacterStats::add_ap_multiplier(const int mod) {
@@ -649,6 +666,46 @@ void CharacterStats::add_ap_multiplier(const int mod) {
 
 void CharacterStats::remove_ap_multiplier(const int mod) {
     remove_multiplicative_effect(ap_total_multipliers, mod, total_ap_mod);
+}
+
+void CharacterStats::add_agility_mod(const int mod) {
+    add_multiplicative_effect(agility_mod_changes, mod, agility_mod);
+}
+
+void CharacterStats::remove_agility_mod(const int mod) {
+    remove_multiplicative_effect(agility_mod_changes, mod, agility_mod);
+}
+
+void CharacterStats::add_intellect_mod(const int mod) {
+    add_multiplicative_effect(intellect_mod_changes, mod, intellect_mod);
+}
+
+void CharacterStats::remove_intellect_mod(const int mod) {
+    remove_multiplicative_effect(intellect_mod_changes, mod, intellect_mod);
+}
+
+void CharacterStats::add_spirit_mod(const int mod) {
+    add_multiplicative_effect(spirit_mod_changes, mod, spirit_mod);
+}
+
+void CharacterStats::remove_spirit_mod(const int mod) {
+    remove_multiplicative_effect(spirit_mod_changes, mod, spirit_mod);
+}
+
+void CharacterStats::add_stamina_mod(const int mod) {
+    add_multiplicative_effect(stamina_mod_changes, mod, stamina_mod);
+}
+
+void CharacterStats::remove_stamina_mod(const int mod) {
+    remove_multiplicative_effect(stamina_mod_changes, mod, stamina_mod);
+}
+
+void CharacterStats::add_strength_mod(const int mod) {
+    add_multiplicative_effect(strength_mod_changes, mod, strength_mod);
+}
+
+void CharacterStats::remove_strength_mod(const int mod) {
+    remove_multiplicative_effect(strength_mod_changes, mod, strength_mod);
 }
 
 double CharacterStats::get_mh_wpn_speed() {
