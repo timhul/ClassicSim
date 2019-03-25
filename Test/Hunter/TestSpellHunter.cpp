@@ -237,3 +237,29 @@ void TestSpellHunter::given_3_of_3_monster_slaying() {
 
     delete talent;
 }
+
+void TestSpellHunter::given_1_of_3_humanoid_slaying() {
+    Talent* talent = Survival(hunter).get_humanoid_slaying();
+
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_2_of_3_humanoid_slaying() {
+    Talent* talent = Survival(hunter).get_humanoid_slaying();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    delete talent;
+}
+
+void TestSpellHunter::given_3_of_3_humanoid_slaying() {
+    Talent* talent = Survival(hunter).get_humanoid_slaying();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}

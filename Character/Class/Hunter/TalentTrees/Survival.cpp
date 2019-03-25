@@ -10,7 +10,7 @@ Survival::Survival(Hunter* pchar) :
     spells(dynamic_cast<HunterSpells*>(hunter->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1LL", get_monster_slaying()},
-                                  {"1ML", new Talent(pchar, this, "Humanoid Slaying", "1ML", "Assets/spell/Spell_holy_prayerofhealing.png", 3, "Increases all damage caused against Humanoid targets by %1% and increases critical damage caused against Humanoid targets by an additional %2%.", QVector<QPair<int, int>>{{1, 1}, {1, 1}})},
+                                  {"1ML", get_humanoid_slaying()},
                                   {"1MR", new Talent(pchar, this, "Deflection", "1MR", "Assets/ability/Ability_parry.png", 5, "Increases your Parry chance by %1%.", QVector<QPair<int, int>>{{1, 1}})}};
     add_talents(tier1);
 
@@ -57,6 +57,16 @@ Talent* Survival::get_monster_slaying() {
                                       {TalentStat::CritDmgModAgainstGiant, 1},
                                       {TalentStat::DmgModAgainstDragonkin, 1},
                                       {TalentStat::CritDmgModAgainstDragonkin, 1},
+                                  });
+}
+
+Talent* Survival::get_humanoid_slaying() {
+    return new TalentStatIncrease(hunter, this, "Humanoid Slaying", "1ML", "Assets/spell/Spell_holy_prayerofhealing.png",
+                                  3, "Increases all damage caused against Humanoid targets by %1% and increases critical damage caused against Humanoid targets by an additional %2%.",
+                                  QVector<QPair<int, int>>{{1, 1}, {1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{
+                                      {TalentStat::DmgModAgainstHumanoid, 1},
+                                      {TalentStat::CritDmgModAgainstHumanoid, 1},
                                   });
 }
 

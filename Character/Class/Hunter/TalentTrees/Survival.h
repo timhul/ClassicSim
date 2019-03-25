@@ -12,6 +12,7 @@ public:
     ~Survival() override = default;
 
     Talent* get_monster_slaying();
+    Talent* get_humanoid_slaying();
     Talent* get_surefooted();
 
 private:

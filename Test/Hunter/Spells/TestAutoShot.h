@@ -28,6 +28,9 @@ private:
     void test_crit_dmg_1_of_3_monster_slaying();
     void test_crit_dmg_2_of_3_monster_slaying();
     void test_crit_dmg_3_of_3_monster_slaying();
+    void test_crit_dmg_1_of_3_humanoid_slaying();
+    void test_crit_dmg_2_of_3_humanoid_slaying();
+    void test_crit_dmg_3_of_3_humanoid_slaying();
     void test_crit_dmg_not_affected_by_1_of_5_mortal_shots();
     void test_crit_dmg_not_affected_by_2_of_5_mortal_shots();
     void test_crit_dmg_not_affected_by_3_of_5_mortal_shots();

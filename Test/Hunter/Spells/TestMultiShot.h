@@ -32,6 +32,9 @@ private:
     void test_crit_dmg_5_of_5_mortal_shots_1_of_3_monster_slaying();
     void test_crit_dmg_5_of_5_mortal_shots_2_of_3_monster_slaying();
     void test_crit_dmg_5_of_5_mortal_shots_3_of_3_monster_slaying();
+    void test_crit_dmg_5_of_5_mortal_shots_1_of_3_humanoid_slaying();
+    void test_crit_dmg_5_of_5_mortal_shots_2_of_3_humanoid_slaying();
+    void test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying();
 
     void test_mana_cost_1_of_5_efficiency();
     void test_mana_cost_2_of_5_efficiency();

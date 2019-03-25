@@ -58,6 +58,18 @@ void TestAimedShot::test_all() {
     tear_down();
 
     set_up();
+    test_crit_dmg_5_of_5_mortal_shots_1_of_3_humanoid_slaying();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_of_5_mortal_shots_2_of_3_humanoid_slaying();
+    tear_down();
+
+    set_up();
+    test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying();
+    tear_down();
+
+    set_up();
     test_aimed_shot_adds_player_action_event_on_completion();
     tear_down();
 
@@ -339,6 +351,66 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_monster_slaying() {
     given_aimed_shot_is_enabled();
     given_5_of_5_mortal_shots();
     given_3_of_3_monster_slaying();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
+    // [2160] = (100 + (2.8 * 1000 / 14) + 600) * 2.33 * 1.03
+    then_damage_dealt_is(2160);
+}
+
+void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_1_of_3_humanoid_slaying() {
+    given_target_has_0_armor();
+    given_target_is_humanoid();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_5_of_5_mortal_shots();
+    given_1_of_3_humanoid_slaying();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
+    // [2100] = (100 + (2.8 * 1000 / 14) + 600) * 2.31 * 1.01
+    then_damage_dealt_is(2100);
+}
+
+void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_2_of_3_humanoid_slaying() {
+    given_target_has_0_armor();
+    given_target_is_humanoid();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_5_of_5_mortal_shots();
+    given_2_of_3_humanoid_slaying();
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
+    // [2130] = (100 + (2.8 * 1000 / 14) + 600) * 2.32 * 1.02
+    then_damage_dealt_is(2130);
+}
+
+void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying() {
+    given_target_has_0_armor();
+    given_target_is_humanoid();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_crit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    given_5_of_5_mortal_shots();
+    given_3_of_3_humanoid_slaying();
 
     when_aimed_shot_is_performed();
     then_next_event_is("PlayerAction", "1.500");

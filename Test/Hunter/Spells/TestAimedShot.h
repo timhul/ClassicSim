@@ -34,6 +34,9 @@ private:
     void test_crit_dmg_5_of_5_mortal_shots_1_of_3_monster_slaying();
     void test_crit_dmg_5_of_5_mortal_shots_2_of_3_monster_slaying();
     void test_crit_dmg_5_of_5_mortal_shots_3_of_3_monster_slaying();
+    void test_crit_dmg_5_of_5_mortal_shots_1_of_3_humanoid_slaying();
+    void test_crit_dmg_5_of_5_mortal_shots_2_of_3_humanoid_slaying();
+    void test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying();
 
     void test_aimed_shot_adds_player_action_event_on_completion();
     void test_aimed_shot_cast_in_progress_blocks_other_spells();
