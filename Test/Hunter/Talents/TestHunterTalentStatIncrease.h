@@ -18,7 +18,9 @@ private:
     void test_resource_cost() override;
     void test_is_ready_conditions() override;
 
+    void test_surefooted();
     void test_lightning_reflexes();
+    void test_killer_instinct();
 };
 
 #endif // TESTHUNTERTALENTSTATINCREASE_H
