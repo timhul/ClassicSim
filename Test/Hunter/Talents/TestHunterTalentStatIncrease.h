@@ -21,6 +21,7 @@ private:
     void test_surefooted();
     void test_lightning_reflexes();
     void test_killer_instinct();
+    void test_trueshot_aura();
 };
 
 #endif // TESTHUNTERTALENTSTATINCREASE_H

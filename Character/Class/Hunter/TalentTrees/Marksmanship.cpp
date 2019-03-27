@@ -36,7 +36,7 @@ Marksmanship::Marksmanship(Hunter* hunter) :
     QMap<QString, Talent*> tier6 {{"6MR", get_ranged_weapon_specialization()}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new Talent(hunter, this, "Trueshot Aura", "7ML", "Assets/ability/Ability_trueshot.png", 1, "Increases the attack power of party members within 45 yards by 50. Lasts 30 min.", QVector<QPair<int, int>>())}};
+    QMap<QString, Talent*> tier7 {{"7ML", get_trueshot_aura()}};
     add_talents(tier7);
 
     talents["2MR"]->talent->set_bottom_child(talents["4MR"]->talent);
@@ -86,4 +86,11 @@ Talent* Marksmanship::get_ranged_weapon_specialization() {
                                   5, "Increases the damage you deal with ranged weapons by %1%.",
                                   QVector<QPair<int, int>>{{1, 1}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::RangedDmgMod, 1}});
+}
+
+Talent* Marksmanship::get_trueshot_aura() {
+    return new TalentStatIncrease(hunter, this, "Trueshot Aura", "7ML", "Assets/ability/Ability_trueshot.png",
+                                  1, "Increases the attack power of party members within 45 yards by 50. Lasts 30 min.",
+                                  QVector<QPair<int, int>>(),
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::AttackPower, 50}});
 }

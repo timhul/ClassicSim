@@ -10,6 +10,7 @@ enum TalentStat {
     RangedHit,
     RangedCrit,
     RangedDmgMod,
+    AttackPower,
     DmgModAgainstBeast,
     DmgModAgainstDragonkin,
     DmgModAgainstGiant,

@@ -1,6 +1,7 @@
 #include "TestHunterTalentStatIncrease.h"
 
 #include "CharacterStats.h"
+#include "Marksmanship.h"
 #include "Survival.h"
 #include "Talent.h"
 
@@ -21,6 +22,10 @@ void TestHunterTalentStatIncrease::test_all() {
 
     set_up();
     test_lightning_reflexes();
+    tear_down();
+
+    set_up();
+    test_trueshot_aura();
     tear_down();
 }
 
@@ -121,6 +126,22 @@ void TestHunterTalentStatIncrease::test_killer_instinct() {
     assert(talent->decrement_rank());
     assert(melee_crit_initial == pchar->get_stats()->get_mh_crit_chance());
     assert(ranged_crit_initial == pchar->get_stats()->get_ranged_crit_chance());
+
+    delete talent;
+}
+
+void TestHunterTalentStatIncrease::test_trueshot_aura() {
+    Talent* talent = Marksmanship(hunter).get_trueshot_aura();
+    unsigned melee_ap_initial = pchar->get_stats()->get_melee_ap();
+    unsigned ranged_ap_initial = pchar->get_stats()->get_ranged_ap();
+
+    assert(talent->increment_rank());
+    assert(melee_ap_initial + 50 == pchar->get_stats()->get_melee_ap());
+    assert(ranged_ap_initial + 50 == pchar->get_stats()->get_ranged_ap());
+
+    assert(talent->decrement_rank());
+    assert(melee_ap_initial == pchar->get_stats()->get_melee_ap());
+    assert(ranged_ap_initial == pchar->get_stats()->get_ranged_ap());
 
     delete talent;
 }
