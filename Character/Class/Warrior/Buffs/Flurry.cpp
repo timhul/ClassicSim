@@ -1,5 +1,5 @@
-
 #include "Flurry.h"
+
 #include "Warrior.h"
 
 Flurry::Flurry(Character* pchar):
