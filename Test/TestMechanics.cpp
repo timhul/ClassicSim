@@ -1,9 +1,12 @@
 #include "TestMechanics.h"
 
+#include <QDebug>
+
 #include "Mechanics.h"
 #include "Target.h"
 
 void TestMechanics::test_all() {
+    qDebug() << "TestMechanics";
     test_dodge_from_wpn_skill_diff();
     test_dw_white_miss();
     test_glancing_blow_rate();

@@ -24,6 +24,7 @@ TestConditionVariableBuiltin::TestConditionVariableBuiltin(EquipmentDb* equipmen
 {}
 
 void TestConditionVariableBuiltin::test_all() {
+    qDebug() << "TestConditionVariableBuiltin";
     test_values_after_initialization();
 
     set_up_rogue();

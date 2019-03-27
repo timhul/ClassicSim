@@ -26,6 +26,7 @@ void TestCharacterStats::tear_down() {
 }
 
 void TestCharacterStats::test_all() {
+    qDebug() << "TestCharacterStats";
     set_up();
     test_values_after_initialization();
     tear_down();
