@@ -16,6 +16,7 @@
 #include "MeleeSpecialTable.h"
 #include "MeleeWhiteHitTable.h"
 #include "Orc.h"
+#include "Queue.h"
 #include "RangedWhiteHitTable.h"
 #include "SimSettings.h"
 #include "Stats.h"
