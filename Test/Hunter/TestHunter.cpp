@@ -38,6 +38,7 @@ void TestHunter::test_values_after_initialization() {
     assert(hunter->get_highest_possible_armor_type() == ArmorTypes::MAIL);
     assert(almost_equal(1.5, hunter->global_cooldown()));
     assert(almost_equal(2.0, hunter->get_stats()->get_melee_ability_crit_dmg_mod()));
+    assert(almost_equal(2.0, hunter->get_stats()->get_ranged_ability_crit_dmg_mod()));
     assert(almost_equal(1.5, hunter->get_stats()->get_spell_crit_dmg_mod()));
 
     delete race;
