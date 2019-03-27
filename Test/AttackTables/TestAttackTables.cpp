@@ -71,7 +71,6 @@ void TestAttackTables::test_white_hit_table_update() {
     assert(table->get_outcome(7300, 1) == PhysicalAttackResult::CRITICAL);
     // Note: This will fail when changing base agility or agi needed per crit.
     assert(table->get_outcome(7984, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    qDebug() << "here";
     assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::CRITICAL);
     assert(table->get_outcome(7986, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::HIT);
