@@ -14,6 +14,8 @@ private:
     QVector<double> efficiency_ranks;
     double mortal_shots_bonus;
     QVector<double> mortal_shots_ranks;
+    double barrage_mod;
+    QVector<double> barrage_ranks;
 
     void spell_effect() override;
 

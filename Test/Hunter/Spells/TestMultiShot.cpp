@@ -19,6 +19,18 @@ void TestMultiShot::test_all() {
     tear_down();
 
     set_up();
+    test_hit_dmg_1_of_3_barrage();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_2_of_3_barrage();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_3_of_3_barrage();
+    tear_down();
+
+    set_up();
     test_crit_dmg_0_of_5_mortal_shots();
     tear_down();
 
@@ -159,6 +171,51 @@ void TestMultiShot::test_hit_dmg_5_of_5_ranged_weapon_specialization() {
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus) * total_phys_modifier
     // [473] = (100 + (2.8 * 1000 / 14) + 150) * 1.05
     then_damage_dealt_is(473);
+}
+
+void TestMultiShot::test_hit_dmg_1_of_3_barrage() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_hit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_1_of_3_barrage();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus) * barrage_mod
+    // [473] = (100 + (2.8 * 1000 / 14) + 150) * 1.05
+    then_damage_dealt_is(473);
+}
+
+void TestMultiShot::test_hit_dmg_2_of_3_barrage() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_hit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_2_of_3_barrage();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus) * barrage_mod
+    // [495] = (100 + (2.8 * 1000 / 14) + 150) * 1.10
+    then_damage_dealt_is(495);
+}
+
+void TestMultiShot::test_hit_dmg_3_of_3_barrage() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_hit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_3_of_3_barrage();
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus) * barrage_mod
+    // [518] = (100 + (2.8 * 1000 / 14) + 150) * 1.15
+    then_damage_dealt_is(518);
 }
 
 void TestMultiShot::test_crit_dmg_0_of_5_mortal_shots() {

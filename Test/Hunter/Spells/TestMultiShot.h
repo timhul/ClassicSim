@@ -23,6 +23,9 @@ private:
 
     void test_hit_dmg_0_of_5_ranged_weapon_specialization();
     void test_hit_dmg_5_of_5_ranged_weapon_specialization();
+    void test_hit_dmg_1_of_3_barrage();
+    void test_hit_dmg_2_of_3_barrage();
+    void test_hit_dmg_3_of_3_barrage();
     void test_crit_dmg_0_of_5_mortal_shots();
     void test_crit_dmg_1_of_5_mortal_shots();
     void test_crit_dmg_2_of_5_mortal_shots();

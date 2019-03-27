@@ -263,3 +263,29 @@ void TestSpellHunter::given_3_of_3_humanoid_slaying() {
 
     delete talent;
 }
+
+void TestSpellHunter::given_1_of_3_barrage() {
+    Talent* talent = Marksmanship(hunter).get_barrage();
+
+    assert(talent->increment_rank());
+
+    delete talent;
+}
+
+void TestSpellHunter::given_2_of_3_barrage() {
+    Talent* talent = Marksmanship(hunter).get_barrage();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    delete talent;
+}
+
+void TestSpellHunter::given_3_of_3_barrage() {
+    Talent* talent = Marksmanship(hunter).get_barrage();
+
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+    assert(talent->increment_rank());
+
+    delete talent;
+}

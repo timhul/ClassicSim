@@ -13,7 +13,8 @@ MultiShot::MultiShot(Character* pchar) :
           ResourceType::Mana,
           230),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
-                                                new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)})
+                                                new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
+                                                new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)})
 {
     resource_base = resource_cost;
     efficiency_ranks = {
@@ -22,6 +23,10 @@ MultiShot::MultiShot(Character* pchar) :
     mortal_shots_bonus = 0.0;
     mortal_shots_ranks = {
         0.0, 0.06, 0.12, 0.18, 0.24, 0.30
+    };
+    barrage_mod = 1.0;
+    barrage_ranks = {
+        1.0, 1.05, 1.10, 1.15
     };
 }
 
@@ -41,7 +46,7 @@ void MultiShot::spell_effect() {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150);
+    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150) * barrage_mod;
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
@@ -59,6 +64,8 @@ void MultiShot::increase_talent_rank_effect(const QString& talent_name, const in
         resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
     if (talent_name == "Mortal Shots")
         mortal_shots_bonus = mortal_shots_ranks[curr];
+    if (talent_name == "Barrage")
+        barrage_mod = barrage_ranks[curr];
 }
 
 void MultiShot::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -66,4 +73,6 @@ void MultiShot::decrease_talent_rank_effect(const QString& talent_name, const in
         resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
     if (talent_name == "Mortal Shots")
         mortal_shots_bonus = mortal_shots_ranks[curr];
+    if (talent_name == "Barrage")
+        barrage_mod = barrage_ranks[curr];
 }
