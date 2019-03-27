@@ -169,17 +169,6 @@ unsigned CharacterStats::get_ranged_crit_chance() const {
     return equip_effect + crit_from_agi + static_cast<unsigned>(crit_from_wpn_type * 10000);
 }
 
-unsigned CharacterStats::get_spell_hit_chance() const {
-    return base_stats->get_spell_hit_chance() + equipment->get_stats()->get_spell_hit_chance();
-}
-
-double CharacterStats::get_spell_crit_chance() const {
-    const double equip_effect = base_stats->get_spell_crit_chance()  + equipment->get_stats()->get_spell_crit_chance();
-    const auto crit_from_int = double(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit();
-
-    return equip_effect + crit_from_int / 100;
-}
-
 void CharacterStats::increase_wpn_skill(const int weapon_type, const int increase) {
     switch (weapon_type) {
     case WeaponTypes::AXE:
@@ -566,6 +555,10 @@ void CharacterStats::decrease_total_phys_dmg_for_weapon_type(const int weapon_ty
     damage_bonuses_per_weapon_type[weapon_type] -= decrease;
 }
 
+unsigned CharacterStats::get_spell_hit_chance() const {
+    return base_stats->get_spell_hit_chance() + equipment->get_stats()->get_spell_hit_chance();
+}
+
 void CharacterStats::increase_spell_hit(const unsigned increase) {
     base_stats->increase_spell_hit(increase);
     pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
@@ -574,6 +567,13 @@ void CharacterStats::increase_spell_hit(const unsigned increase) {
 void CharacterStats::decrease_spell_hit(const unsigned decrease) {
     base_stats->decrease_spell_hit(decrease);
     pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
+}
+
+unsigned CharacterStats::get_spell_crit_chance() const {
+    const unsigned equip_effect = base_stats->get_spell_crit_chance()  + equipment->get_stats()->get_spell_crit_chance();
+    const auto crit_from_int = static_cast<unsigned>(round(static_cast<double>(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit() * 100));
+
+    return equip_effect + crit_from_int;
 }
 
 void CharacterStats::increase_spell_crit(const unsigned increase) {

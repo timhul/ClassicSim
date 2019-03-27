@@ -108,7 +108,7 @@ public:
     void increase_spell_hit(const unsigned);
     void decrease_spell_hit(const unsigned);
 
-    double get_spell_crit_chance() const;
+    unsigned get_spell_crit_chance() const;
     void increase_spell_crit(const unsigned);
     void decrease_spell_crit(const unsigned);
 
