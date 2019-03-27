@@ -4,6 +4,7 @@
 #include "ConditionBuff.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
+#include "Hunter.h"
 #include "Orc.h"
 #include "Rotation.h"
 #include "RotationExecutor.h"
@@ -16,6 +17,7 @@ TestRotationFileReader::TestRotationFileReader() :
     TestObject(nullptr),
     race(nullptr),
     sim_settings(nullptr),
+    hunter(nullptr),
     warrior(nullptr)
 {}
 
@@ -27,6 +29,10 @@ void TestRotationFileReader::test_all() {
 
     set_up_warrior();
     test_warrior_dw_fury();
+    tear_down();
+
+    set_up_hunter();
+    test_hunter_aimed_shot_multi_shot();
     tear_down();
 }
 
@@ -123,6 +129,28 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     verify_resource_condition(resource_condition, 50.0, Comparators::greater, ResourceType::Rage);
 }
 
+void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
+    Rotation* rotation = get_rotation("Aimed/Multi-Shot");
+
+    assert(rotation->executors.size() == 11);
+
+    QVector<QString> expected_executor_names = {
+        "Kiss of the Spider",
+        "Jom Gabbar",
+        "Badge of the Swarmguard",
+        "Slayer's Crest",
+        "Earthstrike",
+        "Zandalarian Hero Medallion",
+        "Blood Fury",
+        "Berserking",
+        "Aimed Shot",
+        "Multi-Shot",
+        "Hunter's Mark"
+    };
+
+    verify_executor_names(rotation, expected_executor_names);
+}
+
 void TestRotationFileReader::verify_resource_condition(ConditionResource* condition, const double cmp_value,
                                                        const int comparator, const ResourceType resource_type) {
     assert(condition != nullptr);
@@ -173,10 +201,18 @@ void TestRotationFileReader::set_up_warrior() {
     this->warrior = new Warrior(race, equipment_db, sim_settings);
 }
 
+void TestRotationFileReader::set_up_hunter() {
+    this->race = new Orc();
+    this->sim_settings = new SimSettings();
+    this->hunter = new Hunter(race, equipment_db, sim_settings);
+}
+
 void TestRotationFileReader::tear_down() {
+    delete hunter;
     delete warrior;
     delete race;
     delete sim_settings;
 
+    hunter = nullptr;
     warrior = nullptr;
 }

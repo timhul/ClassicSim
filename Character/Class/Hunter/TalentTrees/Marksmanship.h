@@ -13,6 +13,7 @@ public:
     ~Marksmanship() override = default;
 
     Talent* get_efficiency();
+    Talent* get_improved_hunters_mark();
     Talent* get_lethal_shots();
     Talent* get_aimed_shot();
     Talent* get_mortal_shots();

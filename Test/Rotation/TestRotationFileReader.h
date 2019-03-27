@@ -10,6 +10,7 @@
 
 class ConditionBuff;
 class ConditionResource;
+class Hunter;
 class Race;
 class Rotation;
 class SimSettings;
@@ -25,9 +26,11 @@ private:
     void test_values_after_initialization() override;
 
     void test_warrior_dw_fury();
+    void test_hunter_aimed_shot_multi_shot();
 
     Race* race;
     SimSettings* sim_settings;
+    Hunter* hunter;
     Warrior* warrior;
     QVector<Rotation*> rotations;
 
@@ -42,6 +45,7 @@ private:
     Rotation* get_rotation(const QString& name) const;
 
     void set_up_warrior();
+    void set_up_hunter();
     void tear_down();
 };
 

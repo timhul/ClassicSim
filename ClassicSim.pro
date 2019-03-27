@@ -316,7 +316,9 @@ SOURCES += main.cpp \
     Test/TestMana.cpp \
     Utils/CompareDouble.cpp \
     Character/Class/TalentStatIncrease.cpp \
-    Test/Hunter/Talents/TestHunterTalentStatIncrease.cpp
+    Test/Hunter/Talents/TestHunterTalentStatIncrease.cpp \
+    Character/Class/Hunter/Spells/HuntersMark.cpp \
+    Character/Class/Hunter/Buffs/HuntersMarkBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -637,7 +639,9 @@ HEADERS += \
     Test/TestMana.h \
     Utils/CompareDouble.h \
     Character/Class/TalentStatIncrease.h \
-    Test/Hunter/Talents/TestHunterTalentStatIncrease.h
+    Test/Hunter/Talents/TestHunterTalentStatIncrease.h \
+    Character/Class/Hunter/Spells/HuntersMark.h \
+    Character/Class/Hunter/Buffs/HuntersMarkBuff.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -667,6 +671,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Mage \
     $$PWD/Character/Class/Druid \
     $$PWD/Character/Class/Hunter \
+    $$PWD/Character/Class/Hunter/Buffs \
     $$PWD/Character/Class/Hunter/Spells \
     $$PWD/Character/Class/Hunter/TalentTrees \
     $$PWD/Character/Class/Warlock \

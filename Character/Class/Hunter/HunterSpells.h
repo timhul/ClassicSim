@@ -5,6 +5,7 @@
 
 class AimedShot;
 class Hunter;
+class HuntersMark;
 class MultiShot;
 
 class HunterSpells: public CharacterSpells {
@@ -18,6 +19,7 @@ public:
 
     AimedShot* get_aimed_shot() const;
     AutoShot* get_auto_shot() const override;
+    HuntersMark* get_hunters_mark() const;
     MultiShot* get_multi_shot() const;
     OffhandAttack* get_oh_attack() const override;
 
@@ -25,6 +27,7 @@ private:
     Hunter* hunter;
     AimedShot* aimed_shot;
     AutoShot* auto_shot;
+    HuntersMark* hunters_mark;
     MultiShot* multi_shot;
 };
 

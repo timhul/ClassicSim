@@ -3,6 +3,8 @@
 #include "AimedShot.h"
 #include "Hunter.h"
 #include "HunterSpells.h"
+#include "HuntersMark.h"
+#include "HuntersMarkBuff.h"
 #include "MultiShot.h"
 #include "TalentStatIncrease.h"
 
@@ -15,7 +17,7 @@ Marksmanship::Marksmanship(Hunter* hunter) :
                                   {"1MR", get_efficiency()}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2ML", new Talent(hunter, this, "Improved Hunter's Mark", "2ML", "Assets/ability/Ability_hunter_snipershot.png", 5, "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by %1%.", QVector<QPair<int, int>>{{3, 3}})},
+    QMap<QString, Talent*> tier2 {{"2ML", get_improved_hunters_mark()},
                                   {"2MR", get_lethal_shots()}};
     add_talents(tier2);
 
@@ -51,6 +53,14 @@ Talent* Marksmanship::get_efficiency() {
                           5, "Reduces the Mana cost of your Shots and Stings by %1%",
                           QVector<QPair<int, int>>{{2, 2}},
                           QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
+}
+
+Talent* Marksmanship::get_improved_hunters_mark() {
+    return get_new_talent(hunter, "Improved Hunter's Mark", "2ML", "Assets/ability/Ability_hunter_snipershot.png",
+                          5, "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by %1%.",
+                          QVector<QPair<int, int>>{{3, 3}},
+                          {},
+                          QVector<Buff*>{spells->get_hunters_mark()->get_hunters_mark_buff()});
 }
 
 Talent* Marksmanship::get_lethal_shots() {

@@ -4,6 +4,7 @@
 #include "AutoShot.h"
 #include "Engine.h"
 #include "Hunter.h"
+#include "HuntersMark.h"
 #include "MainhandAttack.h"
 #include "MultiShot.h"
 #include "OffhandAttack.h"
@@ -15,12 +16,14 @@ HunterSpells::HunterSpells(Hunter* hunter) :
 {
     this->aimed_shot = new AimedShot(hunter);
     this->auto_shot = new AutoShot(hunter);
+    this->hunters_mark = new HuntersMark(hunter);
     this->mh_attack = new MainhandAttack(hunter);
     this->multi_shot = new MultiShot(hunter);
     this->oh_attack = new OffhandAttack(hunter);
 
     spells.append(aimed_shot);
     spells.append(auto_shot);
+    spells.append(hunters_mark);
     spells.append(mh_attack);
     spells.append(multi_shot);
     spells.append(oh_attack);
@@ -72,6 +75,10 @@ AimedShot* HunterSpells::get_aimed_shot() const {
 
 AutoShot* HunterSpells::get_auto_shot() const {
     return this->auto_shot;
+}
+
+HuntersMark* HunterSpells::get_hunters_mark() const {
+    return this->hunters_mark;
 }
 
 MultiShot* HunterSpells::get_multi_shot() const {

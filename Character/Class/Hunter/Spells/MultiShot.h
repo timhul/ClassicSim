@@ -9,7 +9,6 @@ public:
     MultiShot(Character* pchar);
 
 private:
-    QVector<double> talent_ranks;
     double resource_base;
     QVector<double> efficiency_ranks;
     double mortal_shots_bonus;
