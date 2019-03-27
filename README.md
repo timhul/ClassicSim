@@ -41,8 +41,8 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * Added player reaction to auto shot to improve the flow of Hunter AS/MS rotation.
-* More Hunter talents available (Mortal Shots, Lethal Shots, Surefooted, Ranged Weapon Specialization, Monster Slaying,
-Humanoid Slaying, Killer Instinct, Lightning Reflexes).
+* Many Marksmanship/Survival talents now implemented.
+* Usage of Hunter's Mark.
 
 # Release notes
 
