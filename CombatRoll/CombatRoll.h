@@ -21,9 +21,9 @@ public:
     CombatRoll(Character* pchar);
     ~CombatRoll();
 
-    int get_melee_hit_result(const int, const double);
-    int get_melee_ability_result(const int,
-                                 const double,
+    int get_melee_hit_result(const int wpn_skill, const unsigned crit_mod);
+    int get_melee_ability_result(const int wpn_skill,
+                                 const unsigned crit_mod,
                                  const bool include_dodge = true,
                                  const bool include_parry = true,
                                  const bool include_block = true,
@@ -44,8 +44,8 @@ public:
     double get_yellow_miss_chance(const int wpn_skill);
     double get_glancing_blow_dmg_penalty(const int);
 
-    void update_melee_miss_chance(const unsigned hit);
-    void update_ranged_miss_chance(const unsigned hit);
+    void update_melee_miss_chance();
+    void update_ranged_miss_chance();
     void update_spell_miss_chance(const unsigned spell_hit);
 
     void drop_tables();

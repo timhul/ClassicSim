@@ -7,33 +7,20 @@
 
 MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
                                      const int wpn_skill,
-                                     const double miss,
+                                     const unsigned miss,
                                      const double dodge,
                                      const double parry,
                                      const double block):
     random(_rand),
     wpn_skill(wpn_skill),
-    miss(miss),
-    dodge(dodge),
-    parry(parry),
-    block(block)
+    miss_range(miss)
 {
-    update_ranges();
+    update_dodge_chance(dodge);
+    update_parry_chance(parry);
+    update_block_chance(block);
 }
 
-void MeleeSpecialTable::update_ranges() {
-    check((int(round(miss * 10000)) >= 0), "Range must be positive value");
-    check((int(round(dodge * 10000)) >= 0), "Range must be positive value");
-    check((int(round(parry * 10000)) >= 0), "Range must be positive value");
-    check((int(round(block * 10000)) >= 0), "Range must be positive value");
-
-    this->miss_range = static_cast<unsigned>(round(miss * 10000));
-    this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
-    this->parry_range = static_cast<unsigned>(round(parry * 10000));
-    this->block_range = static_cast<unsigned>(round(block * 10000));
-}
-
-int MeleeSpecialTable::get_wpn_skill() {
+int MeleeSpecialTable::get_wpn_skill() const {
     return wpn_skill;
 }
 
@@ -72,22 +59,18 @@ int MeleeSpecialTable::get_outcome(const unsigned roll,
     return PhysicalAttackResult::HIT;
 }
 
-void MeleeSpecialTable::update_miss_chance(const double miss) {
-    this->miss = miss;
-    update_ranges();
+void MeleeSpecialTable::update_miss_chance(const unsigned miss) {
+    this->miss_range = miss;
 }
 
 void MeleeSpecialTable::update_dodge_chance(const double dodge) {
-    this->dodge = dodge;
-    update_ranges();
+    this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
 }
 
 void MeleeSpecialTable::update_parry_chance(const double parry) {
-    this->parry = parry;
-    update_ranges();
+    this->parry_range = static_cast<unsigned>(round(parry * 10000));
 }
 
 void MeleeSpecialTable::update_block_chance(const double block) {
-    this->block = block;
-    update_ranges();
+    this->block_range = static_cast<unsigned>(round(block * 10000));
 }

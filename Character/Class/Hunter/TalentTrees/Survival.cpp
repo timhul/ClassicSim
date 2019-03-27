@@ -74,7 +74,7 @@ Talent* Survival::get_surefooted() {
     return new TalentStatIncrease(hunter, this, "Surefooted", "4ML", "Assets/ability/Ability_kick.png",
                                   3, "Increases hit chance by %1% and increases the chance movement impairing effects will be resisted by an additional %2%.",
                                   QVector<QPair<int, int>>{{1, 1}, {5, 5}},
-                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeHit, 1}, {TalentStat::RangedHit, 1}});
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeHit, 100}, {TalentStat::RangedHit, 100}});
 }
 
 Talent* Survival::get_killer_instinct() {

@@ -6,40 +6,24 @@
 #include "Utils/Check.h"
 
 MeleeWhiteHitTable::MeleeWhiteHitTable(Random *random,
-                             const int wpn_skill,
-                             const double miss,
-                             const double dodge,
-                             const double parry,
-                             const double glancing,
-                             const double block) :
+                                       const int wpn_skill,
+                                       const unsigned miss,
+                                       const double dodge,
+                                       const double parry,
+                                       const double glancing,
+                                       const double block) :
     random(random),
     wpn_skill(wpn_skill),
-    miss(miss),
-    dodge(dodge),
-    parry(parry),
-    glancing(glancing),
-    block(block),
-    critical(0)
+    miss_range(miss)
 {
-    update_ranges();
+    update_dodge_chance(dodge);
+    update_parry_chance(parry);
+    update_glancing_chance(glancing);
+    update_block_chance(block);
 }
 
-int MeleeWhiteHitTable::get_wpn_skill() {
+int MeleeWhiteHitTable::get_wpn_skill() const {
     return wpn_skill;
-}
-
-void MeleeWhiteHitTable::update_ranges() {
-    check((int(round(miss * 10000)) >= 0), "Range must be positive value");
-    check((int(round(dodge * 10000)) >= 0), "Range must be positive value");
-    check((int(round(parry * 10000)) >= 0), "Range must be positive value");
-    check((int(round(block * 10000)) >= 0), "Range must be positive value");
-    check((int(round(glancing * 10000)) >= 0), "Range must be positive value");
-
-    this->miss_range = static_cast<unsigned>(round(miss * 10000));
-    this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
-    this->parry_range = static_cast<unsigned>(round(parry * 10000));
-    this->glancing_range = static_cast<unsigned>(round(glancing * 10000));
-    this->block_range = static_cast<unsigned>(round(block * 10000));
 }
 
 int MeleeWhiteHitTable::get_outcome(const unsigned roll,
@@ -81,27 +65,22 @@ int MeleeWhiteHitTable::get_outcome(const unsigned roll,
     return PhysicalAttackResult::HIT;
 }
 
-void MeleeWhiteHitTable::update_miss_chance(const double miss) {
-    this->miss = miss;
-    update_ranges();
+void MeleeWhiteHitTable::update_miss_chance(const unsigned miss) {
+    this->miss_range = miss;
 }
 
 void MeleeWhiteHitTable::update_dodge_chance(const double dodge) {
-    this->dodge = dodge;
-    update_ranges();
+    this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
 }
 
 void MeleeWhiteHitTable::update_parry_chance(const double parry) {
-    this->parry = parry;
-    update_ranges();
+    this->parry_range = static_cast<unsigned>(round(parry * 10000));
 }
 
 void MeleeWhiteHitTable::update_glancing_chance(const double glancing) {
-    this->glancing = glancing;
-    update_ranges();
+    this->glancing_range = static_cast<unsigned>(round(glancing * 10000));
 }
 
 void MeleeWhiteHitTable::update_block_chance(const double block) {
-    this->block = block;
-    update_ranges();
+    this->block_range = static_cast<unsigned>(round(block * 10000));
 }

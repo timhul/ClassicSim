@@ -4,7 +4,7 @@
 #include "Random.h"
 #include "Utils/Check.h"
 
-MagicAttackTable::MagicAttackTable(Mechanics* mechanics, Random* random, const int clvl, const double spell_hit, const int target_res) :
+MagicAttackTable::MagicAttackTable(Mechanics* mechanics, Random* random, const int clvl, const unsigned spell_hit, const int target_res) :
     mechanics(mechanics),
     random(random),
     miss_range(0),
@@ -44,8 +44,8 @@ int MagicAttackTable::get_resist_outcome(const unsigned roll) const {
     return MagicResistResult::NO_RESIST;
 }
 
-void MagicAttackTable::update_miss_chance(const int clvl, const double spell_hit) {
-    double miss_chance = mechanics->get_spell_miss_chance_from_lvl_diff(clvl, spell_hit);
+void MagicAttackTable::update_miss_chance(const int clvl, const unsigned spell_hit) {
+    double miss_chance = mechanics->get_spell_miss_chance_from_lvl_diff(clvl, static_cast<double>(spell_hit) / 10000);
     this->miss_range = static_cast<unsigned>(round(miss_chance * 10000));
 }
 

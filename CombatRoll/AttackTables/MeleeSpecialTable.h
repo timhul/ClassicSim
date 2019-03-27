@@ -9,7 +9,7 @@ class MeleeSpecialTable {
 public:
     MeleeSpecialTable(Random* _rand,
                       const int wpn_skill,
-                      const double miss,
+                      const unsigned miss_range,
                       const double dodge,
                       const double parry,
                       const double block);
@@ -21,28 +21,21 @@ public:
                     const bool include_block = true,
                     const bool include_miss = true);
 
-    void update_miss_chance(const double miss);
+    void update_miss_chance(const unsigned miss_range);
     void update_dodge_chance(const double dodge);
     void update_parry_chance(const double parry);
     void update_block_chance(const double block);
 
-    int get_wpn_skill();
-
-    void update_ranges();
+    int get_wpn_skill() const;
 
 private:
     Random* random;
     const int wpn_skill;
 
-    double miss;
-    double dodge;
-    double parry;
-    double block;
-
-    unsigned miss_range{};
-    unsigned dodge_range{};
-    unsigned parry_range{};
-    unsigned block_range{};
+    unsigned miss_range;
+    unsigned dodge_range;
+    unsigned parry_range;
+    unsigned block_range;
 };
 
 #endif // MELEESPECIALTABLE_H

@@ -516,12 +516,12 @@ double CharacterStats::get_spell_damage_taken_mod() const {
 
 void CharacterStats::increase_melee_hit(const unsigned increase) {
     base_stats->increase_melee_hit(increase);
-    pchar->get_combat_roll()->update_melee_miss_chance(get_melee_hit_chance());
+    pchar->get_combat_roll()->update_melee_miss_chance();
 }
 
 void CharacterStats::decrease_melee_hit(const unsigned decrease) {
     base_stats->decrease_melee_hit(decrease);
-    pchar->get_combat_roll()->update_melee_miss_chance(get_melee_hit_chance());
+    pchar->get_combat_roll()->update_melee_miss_chance();
 }
 
 void CharacterStats::increase_melee_crit(const unsigned increase) {
@@ -534,12 +534,12 @@ void CharacterStats::decrease_melee_crit(const unsigned decrease) {
 
 void CharacterStats::increase_ranged_hit(const unsigned increase) {
     base_stats->increase_ranged_hit(increase);
-    pchar->get_combat_roll()->update_ranged_miss_chance(get_melee_hit_chance());
+    pchar->get_combat_roll()->update_ranged_miss_chance();
 }
 
 void CharacterStats::decrease_ranged_hit(const unsigned decrease) {
     base_stats->decrease_ranged_hit(decrease);
-    pchar->get_combat_roll()->update_ranged_miss_chance(get_melee_hit_chance());
+    pchar->get_combat_roll()->update_ranged_miss_chance();
 }
 
 void CharacterStats::increase_ranged_crit(const unsigned increase) {

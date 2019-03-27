@@ -67,24 +67,24 @@ void TestHunterTalentStatIncrease::test_surefooted() {
     unsigned ranged_hit_initial = pchar->get_stats()->get_ranged_hit_chance();
 
     assert(talent->increment_rank());
-    assert(melee_hit_initial + 1 == pchar->get_stats()->get_melee_hit_chance());
-    assert(ranged_hit_initial + 1 == pchar->get_stats()->get_ranged_hit_chance());
+    assert(melee_hit_initial + 100 == pchar->get_stats()->get_melee_hit_chance());
+    assert(ranged_hit_initial + 100 == pchar->get_stats()->get_ranged_hit_chance());
 
     assert(talent->increment_rank());
-    assert(melee_hit_initial + 2 == pchar->get_stats()->get_melee_hit_chance());
-    assert(ranged_hit_initial + 2 == pchar->get_stats()->get_ranged_hit_chance());
+    assert(melee_hit_initial + 200 == pchar->get_stats()->get_melee_hit_chance());
+    assert(ranged_hit_initial + 200 == pchar->get_stats()->get_ranged_hit_chance());
 
     assert(talent->increment_rank());
-    assert(melee_hit_initial + 3 == pchar->get_stats()->get_melee_hit_chance());
-    assert(ranged_hit_initial + 3 == pchar->get_stats()->get_ranged_hit_chance());
+    assert(melee_hit_initial + 300 == pchar->get_stats()->get_melee_hit_chance());
+    assert(ranged_hit_initial + 300 == pchar->get_stats()->get_ranged_hit_chance());
 
     assert(talent->decrement_rank());
-    assert(melee_hit_initial + 2 == pchar->get_stats()->get_melee_hit_chance());
-    assert(ranged_hit_initial + 2 == pchar->get_stats()->get_ranged_hit_chance());
+    assert(melee_hit_initial + 200 == pchar->get_stats()->get_melee_hit_chance());
+    assert(ranged_hit_initial + 200 == pchar->get_stats()->get_ranged_hit_chance());
 
     assert(talent->decrement_rank());
-    assert(melee_hit_initial + 1 == pchar->get_stats()->get_melee_hit_chance());
-    assert(ranged_hit_initial + 1 == pchar->get_stats()->get_ranged_hit_chance());
+    assert(melee_hit_initial + 100 == pchar->get_stats()->get_melee_hit_chance());
+    assert(ranged_hit_initial + 100 == pchar->get_stats()->get_ranged_hit_chance());
 
     assert(talent->decrement_rank());
     assert(melee_hit_initial == pchar->get_stats()->get_melee_hit_chance());

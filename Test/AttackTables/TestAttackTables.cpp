@@ -33,12 +33,12 @@ void TestAttackTables::test_values_after_initialization() {
 
 void TestAttackTables::test_white_hit_table() {
     auto* random = new Random(0, 9999);
-    auto* table = new MeleeWhiteHitTable(random, 300, 0.0, 0.0, 0.0, 0.0, 0.0);
+    auto* table = new MeleeWhiteHitTable(random, 300, 0, 0.0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(9999, 0.0) == PhysicalAttackResult::HIT);
     delete table;
 
-    table = new MeleeWhiteHitTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001, 0.0001);
+    table = new MeleeWhiteHitTable(random, 300, 1, 0.0001, 0.0001, 0.0001, 0.0001);
     assert(table->get_outcome(0, 0) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(1, 0) == PhysicalAttackResult::DODGE);
     assert(table->get_outcome(2, 0) == PhysicalAttackResult::PARRY);
@@ -88,11 +88,11 @@ void TestAttackTables::test_white_hit_table_update() {
 
 void TestAttackTables::test_special_hit_table() {
     auto* random = new Random(0, 9999);
-    auto* table = new MeleeSpecialTable(random, 300, 0.0, 0.0, 0.0, 0.0);
+    auto* table = new MeleeSpecialTable(random, 300, 0, 0.0, 0.0, 0.0);
     assert(table->get_outcome(0, 0.0) == PhysicalAttackResult::HIT);
     delete table;
 
-    table = new MeleeSpecialTable(random, 300, 0.0001, 0.0001, 0.0001, 0.0001);
+    table = new MeleeSpecialTable(random, 300, 1, 0.0001, 0.0001, 0.0001);
     assert(table->get_outcome(0, 10000) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(1, 10000) == PhysicalAttackResult::DODGE);
     assert(table->get_outcome(2, 10000) == PhysicalAttackResult::PARRY);

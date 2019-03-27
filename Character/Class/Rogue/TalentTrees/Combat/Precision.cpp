@@ -13,9 +13,9 @@ Precision::Precision(Character *pchar, TalentTree* tree) :
 Precision::~Precision() = default;
 
 void Precision::apply_rank_effect() {
-    pchar->get_stats()->increase_melee_hit(1);
+    pchar->get_stats()->increase_melee_hit(100);
 }
 
 void Precision::remove_rank_effect() {
-    pchar->get_stats()->decrease_melee_hit(1);
+    pchar->get_stats()->decrease_melee_hit(100);
 }

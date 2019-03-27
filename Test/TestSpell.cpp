@@ -133,7 +133,7 @@ void TestSpell::given_a_guaranteed_ranged_white_block() {
 
 void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
     MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -145,7 +145,7 @@ void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
 
 void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
     MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -158,7 +158,7 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
 
 void TestSpell::set_melee_special_table_for_miss(const int wpn_skill) {
     MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
-    table->update_miss_chance(1.0);
+    table->update_miss_chance(10000);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -168,7 +168,7 @@ void TestSpell::set_melee_special_table_for_miss(const int wpn_skill) {
 
 void TestSpell::set_melee_special_table_for_dodge(const int wpn_skill) {
     MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(1.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -178,7 +178,7 @@ void TestSpell::set_melee_special_table_for_dodge(const int wpn_skill) {
 
 void TestSpell::set_melee_special_table_for_parry(const int wpn_skill) {
     MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(1.0);
     table->update_block_chance(0.0);
@@ -188,7 +188,7 @@ void TestSpell::set_melee_special_table_for_parry(const int wpn_skill) {
 
 void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
     MeleeSpecialTable* table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(1.0);
@@ -200,7 +200,7 @@ void TestSpell::set_melee_special_table_for_block(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -213,7 +213,7 @@ void TestSpell::set_melee_auto_table_for_hit(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -227,7 +227,7 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -238,7 +238,7 @@ void TestSpell::set_melee_auto_table_for_glancing(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(wpn_skill);
-    table->update_miss_chance(1.0);
+    table->update_miss_chance(10000);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -249,7 +249,7 @@ void TestSpell::set_melee_auto_table_for_miss(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(1.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
@@ -260,7 +260,7 @@ void TestSpell::set_melee_auto_table_for_dodge(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(1.0);
     table->update_block_chance(0.0);
@@ -271,7 +271,7 @@ void TestSpell::set_melee_auto_table_for_parry(const int wpn_skill) {
 
 void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_parry_chance(0.0);
     table->update_block_chance(1.0);
@@ -284,7 +284,7 @@ void TestSpell::set_melee_auto_table_for_block(const int wpn_skill) {
 
 void TestSpell::set_ranged_auto_table_for_hit(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_block_chance(0.0);
 
@@ -295,7 +295,7 @@ void TestSpell::set_ranged_auto_table_for_hit(const int wpn_skill) {
 
 void TestSpell::set_ranged_auto_table_for_crit(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_block_chance(0.0);
 
@@ -307,7 +307,7 @@ void TestSpell::set_ranged_auto_table_for_crit(const int wpn_skill) {
 
 void TestSpell::set_ranged_auto_table_for_miss(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
-    table->update_miss_chance(1.0);
+    table->update_miss_chance(10000);
     table->update_dodge_chance(0.0);
     table->update_block_chance(0.0);
 
@@ -316,7 +316,7 @@ void TestSpell::set_ranged_auto_table_for_miss(const int wpn_skill) {
 
 void TestSpell::set_ranged_auto_table_for_dodge(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(1.0);
     table->update_block_chance(0.0);
 
@@ -325,7 +325,7 @@ void TestSpell::set_ranged_auto_table_for_dodge(const int wpn_skill) {
 
 void TestSpell::set_ranged_auto_table_for_block(const int wpn_skill) {
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
-    table->update_miss_chance(0.0);
+    table->update_miss_chance(0);
     table->update_dodge_chance(0.0);
     table->update_block_chance(1.0);
 

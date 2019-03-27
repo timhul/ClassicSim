@@ -7,31 +7,19 @@
 
 RangedWhiteHitTable::RangedWhiteHitTable(Random *random,
                                          const int wpn_skill,
-                                         const double miss,
+                                         const unsigned miss,
                                          const double dodge,
                                          const double block) :
     random(random),
     wpn_skill(wpn_skill),
-    miss(miss),
-    dodge(dodge),
-    block(block),
-    critical(0)
+    miss_range(miss)
 {
-    update_ranges();
+    update_dodge_chance(dodge);
+    update_block_chance(block);
 }
 
-int RangedWhiteHitTable::get_wpn_skill() {
+int RangedWhiteHitTable::get_wpn_skill() const {
     return wpn_skill;
-}
-
-void RangedWhiteHitTable::update_ranges() {
-    check((int(round(miss * 10000)) >= 0), "Range must be positive value");
-    check((int(round(dodge * 10000)) >= 0), "Range must be positive value");
-    check((int(round(block * 10000)) >= 0), "Range must be positive value");
-
-    this->miss_range = static_cast<unsigned>(round(miss * 10000));
-    this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
-    this->block_range = static_cast<unsigned>(round(block * 10000));
 }
 
 int RangedWhiteHitTable::get_outcome(const unsigned roll,
@@ -64,17 +52,14 @@ int RangedWhiteHitTable::get_outcome(const unsigned roll,
     return PhysicalAttackResult::HIT;
 }
 
-void RangedWhiteHitTable::update_miss_chance(const double miss) {
-    this->miss = miss;
-    update_ranges();
+void RangedWhiteHitTable::update_miss_chance(const unsigned miss) {
+    this->miss_range = miss;
 }
 
 void RangedWhiteHitTable::update_dodge_chance(const double dodge) {
-    this->dodge = dodge;
-    update_ranges();
+    this->dodge_range = static_cast<unsigned>(round(dodge * 10000));
 }
 
 void RangedWhiteHitTable::update_block_chance(const double block) {
-    this->block = block;
-    update_ranges();
+    this->block_range = static_cast<unsigned>(round(block * 10000));
 }

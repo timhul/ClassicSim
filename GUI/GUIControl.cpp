@@ -531,7 +531,7 @@ QString GUIControl::get_crit_chance() const {
 }
 
 QString GUIControl::get_hit_chance() const {
-    return QString::number(current_char->get_stats()->get_melee_hit_chance() / 100, 'f', 2);
+    return QString::number(static_cast<double>(current_char->get_stats()->get_melee_hit_chance() / 100), 'f', 2);
 }
 
 int GUIControl::get_attack_power() const {

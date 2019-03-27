@@ -69,7 +69,8 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Devilsaur Armor") {
         switch (num_pieces) {
         case 2:
-            pchar->get_stats()->increase_melee_hit(2);
+            pchar->get_stats()->increase_melee_hit(200);
+            pchar->get_stats()->increase_ranged_hit(200);
             break;
         }
     }
@@ -151,7 +152,8 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Devilsaur Armor") {
         switch (num_pieces) {
         case 2:
-            pchar->get_stats()->decrease_melee_hit(2);
+            pchar->get_stats()->decrease_melee_hit(200);
+            pchar->get_stats()->decrease_ranged_hit(200);
             break;
         }
     }
