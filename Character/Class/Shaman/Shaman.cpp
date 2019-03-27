@@ -67,7 +67,7 @@ unsigned Shaman::get_spirit_modifier() const {
 }
 
 unsigned Shaman::get_mp5_from_spirit() const {
-    return 15 + static_cast<unsigned>(round(cstats->get_spirit() / 5));
+    return 15 + static_cast<unsigned>(round(static_cast<double>(cstats->get_spirit()) / 5));
 }
 
 double Shaman::get_agi_needed_for_one_percent_phys_crit() const {

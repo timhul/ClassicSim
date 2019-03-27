@@ -81,7 +81,7 @@ unsigned Hunter::get_spirit_modifier() const {
 }
 
 unsigned Hunter::get_mp5_from_spirit() const {
-    return 15 + static_cast<unsigned>(round(cstats->get_spirit() / 5));
+    return 15 + static_cast<unsigned>(round(static_cast<double>(cstats->get_spirit()) / 5));
 }
 
 double Hunter::get_agi_needed_for_one_percent_phys_crit() const {
