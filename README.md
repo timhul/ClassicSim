@@ -41,7 +41,8 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * Added player reaction to auto shot to improve the flow of Hunter AS/MS rotation.
-* More Hunter talents available (Mortal Shots, Lethal Shots, Surefooted).
+* More Hunter talents available (Mortal Shots, Lethal Shots, Surefooted, Ranged Weapon Specialization, Monster Slaying,
+Humanoid Slaying, Killer Instinct, Lightning Reflexes).
 
 # Release notes
 
@@ -59,6 +60,7 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Only a single bow available for selection.
 * Ammunition not available for selection.
 * No mp5 gear is available for selection.
+* No pet.
 
 ## v0.2-alpha-1 (released 2019-01-20):
 
