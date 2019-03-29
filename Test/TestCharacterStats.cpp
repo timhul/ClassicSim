@@ -36,6 +36,10 @@ void TestCharacterStats::test_all() {
     tear_down();
 
     set_up();
+    test_melee_and_ranged_attack_speed_modifiers_are_independent();
+    tear_down();
+
+    set_up();
     test_physical_damage_multipliers_stacks_multiplicatively();
     tear_down();
 
@@ -279,4 +283,24 @@ void TestCharacterStats::test_crit_dmg_mod_affected_by_creature_type() {
     assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.0));
     assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.5));
     assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
+}
+
+void TestCharacterStats::test_melee_and_ranged_attack_speed_modifiers_are_independent()
+{
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.0));
+    assert(almost_equal(cstats->get_ranged_attack_speed_mod(), 1.0));
+
+    cstats->increase_melee_attack_speed(30);
+    cstats->increase_ranged_attack_speed(20);
+
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.3));
+    assert(almost_equal(cstats->get_ranged_attack_speed_mod(), 1.2));
+
+    cstats->decrease_melee_attack_speed(30);
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.0));
+    assert(almost_equal(cstats->get_ranged_attack_speed_mod(), 1.2));
+
+    cstats->decrease_ranged_attack_speed(20);
+    assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.0));
+    assert(almost_equal(cstats->get_ranged_attack_speed_mod(), 1.0));
 }

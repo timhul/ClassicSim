@@ -167,7 +167,8 @@ private:
     Character* pchar;
     Equipment* equipment;
     Stats* base_stats;
-    QVector<int> attack_speed_buffs;
+    QVector<int> melee_attack_speed_buffs;
+    QVector<int> ranged_attack_speed_buffs;
     QVector<int> phys_dmg_buffs;
     QVector<int> phys_damage_taken_changes;
     QVector<int> spell_damage_taken_changes;

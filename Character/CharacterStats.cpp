@@ -351,19 +351,19 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
 }
 
 void CharacterStats::increase_melee_attack_speed(const unsigned increase) {
-    add_multiplicative_effect(attack_speed_buffs, static_cast<int>(increase), melee_attack_speed_mod);
+    add_multiplicative_effect(melee_attack_speed_buffs, static_cast<int>(increase), melee_attack_speed_mod);
 }
 
 void CharacterStats::decrease_melee_attack_speed(const unsigned decrease) {
-    remove_multiplicative_effect(attack_speed_buffs, static_cast<int>(decrease), melee_attack_speed_mod);
+    remove_multiplicative_effect(melee_attack_speed_buffs, static_cast<int>(decrease), melee_attack_speed_mod);
 }
 
 void CharacterStats::increase_ranged_attack_speed(const unsigned increase) {
-    add_multiplicative_effect(attack_speed_buffs, static_cast<int>(increase), ranged_attack_speed_mod);
+    add_multiplicative_effect(ranged_attack_speed_buffs, static_cast<int>(increase), ranged_attack_speed_mod);
 }
 
 void CharacterStats::decrease_ranged_attack_speed(const unsigned decrease) {
-    remove_multiplicative_effect(attack_speed_buffs, static_cast<int>(decrease), ranged_attack_speed_mod);
+    remove_multiplicative_effect(ranged_attack_speed_buffs, static_cast<int>(decrease), ranged_attack_speed_mod);
 }
 
 void CharacterStats::increase_strength(const unsigned increase) {
