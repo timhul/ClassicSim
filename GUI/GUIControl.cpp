@@ -701,7 +701,13 @@ void GUIControl::calculate_displayed_dps_value() {
 }
 
 void GUIControl::runQuickSim() {
-    if (sim_in_progress || current_char->get_equipment()->get_mainhand() == nullptr)
+    if (sim_in_progress)
+        return;
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack &&
+            current_char->get_equipment()->get_mainhand() == nullptr)
+        return;
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::RangedAttack &&
+            current_char->get_equipment()->get_ranged() == nullptr)
         return;
 
     sim_in_progress = true;
@@ -711,7 +717,13 @@ void GUIControl::runQuickSim() {
 }
 
 void GUIControl::runFullSim() {
-    if (sim_in_progress || current_char->get_equipment()->get_mainhand() == nullptr)
+    if (sim_in_progress)
+        return;
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::MeleeAttack &&
+            current_char->get_equipment()->get_mainhand() == nullptr)
+        return;
+    if (current_char->get_spells()->get_attack_mode() == AttackMode::RangedAttack &&
+            current_char->get_equipment()->get_ranged() == nullptr)
         return;
 
     sim_in_progress = true;
