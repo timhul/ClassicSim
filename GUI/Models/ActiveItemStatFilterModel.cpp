@@ -8,7 +8,7 @@
 #include "WeaponModel.h"
 
 bool ItemStatFilter::item_passes_filter(const Item *item) const {
-    int item_stat_value = static_cast<int>(item->get_stat_value_via_flag(this->item_stat_flag));
+    unsigned item_stat_value = item->get_stat_value_via_flag(this->item_stat_flag);
 
     switch(comparator) {
     case StatComparator::Less:
@@ -117,11 +117,11 @@ void ActiveItemStatFilterModel::clearFilters() {
     update_affected_models();
 }
 
-void ActiveItemStatFilterModel::changeComparator(const int item_stat_flag_int, const int comparator) {
-    if (comparator < StatComparator::Less || comparator > StatComparator::GEQ)
+void ActiveItemStatFilterModel::changeComparator(const unsigned item_stat_flag_unsigned, const unsigned comparator) {
+    if (comparator > StatComparator::GEQ)
         return;
 
-    auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_int);
+    auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
     for (auto & active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();
@@ -133,11 +133,8 @@ void ActiveItemStatFilterModel::changeComparator(const int item_stat_flag_int, c
     }
 }
 
-void ActiveItemStatFilterModel::changeCompareValue(const int item_stat_flag_int, const int cmp_value) {
-    if (cmp_value < 0)
-        return;
-
-    auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_int);
+void ActiveItemStatFilterModel::changeCompareValue(const unsigned item_stat_flag_unsigned, const unsigned cmp_value) {
+    auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
     for (auto & active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();

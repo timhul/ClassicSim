@@ -12,11 +12,11 @@ class WeaponModel;
 
 
 namespace StatComparator {
-    static const int Less = 0;
-    static const int LEQ = 1;
-    static const int Equal = 2;
-    static const int Greater = 3;
-    static const int GEQ = 4;
+    static const unsigned Less = 0;
+    static const unsigned LEQ = 1;
+    static const unsigned Equal = 2;
+    static const unsigned Greater = 3;
+    static const unsigned GEQ = 4;
 };
 
 class ItemStatFilter
@@ -31,8 +31,8 @@ public:
 
     ItemStats item_stat_flag;
     QString description;
-    int comparator;
-    int cmp_value;
+    unsigned comparator;
+    unsigned cmp_value;
 
     QString get_comparator_string() const;
 };
@@ -60,8 +60,8 @@ public:
     void add_filter(const ItemStats, const QString&);
     Q_INVOKABLE void removeFilter(const int);
     Q_INVOKABLE void clearFilters();
-    Q_INVOKABLE void changeComparator(const int, const int);
-    Q_INVOKABLE void changeCompareValue(const int, const int);
+    Q_INVOKABLE void changeComparator(const unsigned item_stat_flag_unsigned, const unsigned comparator);
+    Q_INVOKABLE void changeCompareValue(const unsigned item_stat_flag_unsigned, const unsigned cmp_value);
 
     Q_INVOKABLE
 
