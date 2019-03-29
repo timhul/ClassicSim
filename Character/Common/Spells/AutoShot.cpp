@@ -74,11 +74,6 @@ void AutoShot::update_next_expected_use(const double haste_change) {
     next_expected_use = curr_time + remainder_after_haste_change;
 }
 
-void AutoShot::continue_shot() {
-    if (engine->get_current_priority() > next_expected_use)
-        next_expected_use = engine->get_current_priority();
-}
-
 void AutoShot::complete_shot() {
     last_used = engine->get_current_priority();
     next_expected_use = last_used + pchar->get_stats()->get_ranged_wpn_speed();

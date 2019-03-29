@@ -12,8 +12,6 @@ public:
     bool attack_is_valid(const int) const;
     int get_next_iteration();
 
-    void continue_shot();
-    void complete_shot();
     void reset_shot_timer();
 
 private:
@@ -25,6 +23,7 @@ private:
     void reset_effect() override;
 
     virtual void calculate_damage(const bool);
+    void complete_shot();
 
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
