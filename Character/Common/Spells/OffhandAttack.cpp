@@ -70,7 +70,8 @@ void OffhandAttack::calculate_damage(const bool run_procs) {
 }
 
 double OffhandAttack::get_next_expected_use() const {
-    return next_expected_use;
+    double curr_time = pchar->get_engine()->get_current_priority();
+    return next_expected_use > curr_time ? next_expected_use : curr_time;
 }
 
 void OffhandAttack::update_next_expected_use(const double haste_change) {
