@@ -48,8 +48,6 @@ void TestRotationFileReader::test_values_after_initialization() {
 void TestRotationFileReader::test_warrior_dw_fury() {
     Rotation* rotation = get_rotation("DW Fury High Rage");
 
-    assert(rotation->executors.size() == 21);
-
     QVector<QString> expected_executor_names = {
         "Berserker Rage",
         "Battle Shout",
@@ -73,6 +71,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
         "Battle Stance",
         "Berserker Stance"
     };
+    assert(rotation->executors.size() == expected_executor_names.size());
 
     verify_executor_names(rotation, expected_executor_names);
 
@@ -132,9 +131,8 @@ void TestRotationFileReader::test_warrior_dw_fury() {
 void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
     Rotation* rotation = get_rotation("Aimed/Multi-Shot");
 
-    assert(rotation->executors.size() == 12);
-
     QVector<QString> expected_executor_names = {
+        "Rapid Fire",
         "Kiss of the Spider",
         "Jom Gabbar",
         "Badge of the Swarmguard",
@@ -148,6 +146,7 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
         "Hunter's Mark",
         "Aspect of the Hawk"
     };
+    assert(rotation->executors.size() == expected_executor_names.size());
 
     verify_executor_names(rotation, expected_executor_names);
 }

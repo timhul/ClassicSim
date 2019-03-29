@@ -4,6 +4,11 @@
 	A rotation for Markmanship hunters that cycles Aimed Shot and Multi-Shot close to the auto shot timer.
 	</description>
 
+	<cast_if name="Rapid Fire">
+		variable "time_remaining_encounter" greater 300
+		or variable "time_remaining_execute" less 0
+	</cast_if>
+
 	<cast_if name="Kiss of the Spider">
 		 variable "time_remaining_execute" greater 120
 		 or variable "time_remaining_execute" less 0
@@ -36,13 +41,11 @@
 
 	<cast_if name="Blood Fury">
 		variable "time_remaining_execute" less 0
-		and resource "Energy" less 50
 		or variable "time_remaining_execute" greater 120
 	</cast_if>
 
 	<cast_if name="Berserking">
 		variable "time_remaining_execute" less 0
-		and resource "Energy" less 50
 		or variable "time_remaining_execute" greater 180
 	</cast_if>
 

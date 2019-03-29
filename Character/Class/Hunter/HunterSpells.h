@@ -8,6 +8,7 @@ class AspectOfTheHawk;
 class Hunter;
 class HuntersMark;
 class MultiShot;
+class RapidFire;
 
 class HunterSpells: public CharacterSpells {
 public:
@@ -24,6 +25,7 @@ public:
     HuntersMark* get_hunters_mark() const;
     MultiShot* get_multi_shot() const;
     OffhandAttack* get_oh_attack() const override;
+    RapidFire* get_rapid_fire() const;
 
 private:
     Hunter* hunter;
@@ -32,6 +34,7 @@ private:
     AutoShot* auto_shot;
     HuntersMark* hunters_mark;
     MultiShot* multi_shot;
+    RapidFire* rapid_fire;
 };
 
 #endif // HUNTERSPELLS_H

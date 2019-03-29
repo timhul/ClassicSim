@@ -10,6 +10,7 @@
 #include "MultiShot.h"
 #include "OffhandAttack.h"
 #include "RangedHit.h"
+#include "RapidFire.h"
 
 HunterSpells::HunterSpells(Hunter* hunter) :
     CharacterSpells(hunter),
@@ -22,6 +23,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->mh_attack = new MainhandAttack(hunter);
     this->multi_shot = new MultiShot(hunter);
     this->oh_attack = new OffhandAttack(hunter);
+    this->rapid_fire = new RapidFire(hunter);
 
     spells.append(aimed_shot);
     spells.append(aspect_of_the_hawk);
@@ -30,6 +32,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     spells.append(mh_attack);
     spells.append(multi_shot);
     spells.append(oh_attack);
+    spells.append(rapid_fire);
 }
 
 void HunterSpells::add_next_ranged_attack() {
@@ -93,5 +96,9 @@ MultiShot* HunterSpells::get_multi_shot() const {
 }
 
 OffhandAttack* HunterSpells::get_oh_attack() const {
-    return oh_attack;
+    return this->oh_attack;
+}
+
+RapidFire *HunterSpells::get_rapid_fire() const {
+    return this->rapid_fire;
 }
