@@ -98,6 +98,8 @@ public:
 
     virtual void ranged_white_hit_effect(const bool = true);
     virtual void ranged_white_critical_effect(const bool = true);
+    virtual void ranged_yellow_hit_effect(const bool = true);
+    virtual void ranged_yellow_critical_effect(const bool = true);
 
     virtual void spell_hit_effect();
     virtual void spell_critical_effect();

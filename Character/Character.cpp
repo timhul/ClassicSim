@@ -241,6 +241,16 @@ void Character::ranged_white_hit_effect(const bool run_procs) {
 
 void Character::ranged_white_critical_effect(const bool run_procs) {
     if (run_procs)
+        run_ranged_white_specific_proc_effects();
+}
+
+void Character::ranged_yellow_hit_effect(const bool run_procs) {
+    if (run_procs)
+        run_ranged_yellow_specific_proc_effects();
+}
+
+void Character::ranged_yellow_critical_effect(const bool run_procs) {
+    if (run_procs)
         run_ranged_yellow_specific_proc_effects();
 }
 

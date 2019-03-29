@@ -318,7 +318,11 @@ SOURCES += main.cpp \
     Character/Class/TalentStatIncrease.cpp \
     Test/Hunter/Talents/TestHunterTalentStatIncrease.cpp \
     Character/Class/Hunter/Spells/HuntersMark.cpp \
-    Character/Class/Hunter/Buffs/HuntersMarkBuff.cpp
+    Character/Class/Hunter/Buffs/HuntersMarkBuff.cpp \
+    Character/Class/Hunter/Spells/AspectOfTheHawk.cpp \
+    Character/Class/Hunter/Buffs/AspectOfTheHawkBuff.cpp \
+    Character/Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.cpp \
+    Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -641,7 +645,11 @@ HEADERS += \
     Character/Class/TalentStatIncrease.h \
     Test/Hunter/Talents/TestHunterTalentStatIncrease.h \
     Character/Class/Hunter/Spells/HuntersMark.h \
-    Character/Class/Hunter/Buffs/HuntersMarkBuff.h
+    Character/Class/Hunter/Buffs/HuntersMarkBuff.h \
+    Character/Class/Hunter/Spells/AspectOfTheHawk.h \
+    Character/Class/Hunter/Buffs/AspectOfTheHawkBuff.h \
+    Character/Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.h \
+    Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -672,6 +680,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Druid \
     $$PWD/Character/Class/Hunter \
     $$PWD/Character/Class/Hunter/Buffs \
+    $$PWD/Character/Class/Hunter/Procs \
     $$PWD/Character/Class/Hunter/Spells \
     $$PWD/Character/Class/Hunter/TalentTrees \
     $$PWD/Character/Class/Warlock \

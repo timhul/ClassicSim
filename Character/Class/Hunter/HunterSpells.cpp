@@ -1,6 +1,7 @@
 #include "HunterSpells.h"
 
 #include "AimedShot.h"
+#include "AspectOfTheHawk.h"
 #include "AutoShot.h"
 #include "Engine.h"
 #include "Hunter.h"
@@ -15,6 +16,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     hunter(hunter)
 {
     this->aimed_shot = new AimedShot(hunter);
+    this->aspect_of_the_hawk = new AspectOfTheHawk(hunter);
     this->auto_shot = new AutoShot(hunter);
     this->hunters_mark = new HuntersMark(hunter);
     this->mh_attack = new MainhandAttack(hunter);
@@ -22,6 +24,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->oh_attack = new OffhandAttack(hunter);
 
     spells.append(aimed_shot);
+    spells.append(aspect_of_the_hawk);
     spells.append(auto_shot);
     spells.append(hunters_mark);
     spells.append(mh_attack);
@@ -71,6 +74,10 @@ void HunterSpells::oh_auto_attack(const int iteration) {
 
 AimedShot* HunterSpells::get_aimed_shot() const {
     return this->aimed_shot;
+}
+
+AspectOfTheHawk* HunterSpells::get_aspect_of_the_hawk() const {
+    return this->aspect_of_the_hawk;
 }
 
 AutoShot* HunterSpells::get_auto_shot() const {

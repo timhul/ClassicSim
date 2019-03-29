@@ -132,7 +132,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
 void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
     Rotation* rotation = get_rotation("Aimed/Multi-Shot");
 
-    assert(rotation->executors.size() == 11);
+    assert(rotation->executors.size() == 12);
 
     QVector<QString> expected_executor_names = {
         "Kiss of the Spider",
@@ -145,7 +145,8 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
         "Berserking",
         "Aimed Shot",
         "Multi-Shot",
-        "Hunter's Mark"
+        "Hunter's Mark",
+        "Aspect of the Hawk"
     };
 
     verify_executor_names(rotation, expected_executor_names);
