@@ -1368,6 +1368,10 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
     else if (slot == "2H")
         set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
+    else if (slot == "RANGED") {
+        if (current_char->get_name() == "Hunter" || current_char->get_name() == "Warrior" || current_char->get_name() == "Rogue")
+            set_weapon_tooltip(item, slot, "Ranged", dmg_range, weapon_speed, dps);
+    }
     else if (slot == "RING")
         slot = "Finger";
     else
