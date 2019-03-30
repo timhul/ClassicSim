@@ -343,6 +343,8 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
         case WeaponSlots::RANGED:
             item = mixed_items.takeAt(i);
             ranged_items.append(new Weapon(dynamic_cast<Weapon*>(item)));
+            add_item_id(item);
+            --i;
             break;
         }
     }
