@@ -270,6 +270,9 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::SkillDagger:
     case ItemStats::SkillMace:
     case ItemStats::SkillSword:
+    case ItemStats::SkillBow:
+    case ItemStats::SkillCrossbow:
+    case ItemStats::SkillGun:
         return;
     case ItemStats::HitChance:
         increase_ranged_hit(value);
@@ -323,6 +326,9 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::SkillDagger:
     case ItemStats::SkillMace:
     case ItemStats::SkillSword:
+    case ItemStats::SkillBow:
+    case ItemStats::SkillCrossbow:
+    case ItemStats::SkillGun:
         return;
     case ItemStats::HitChance:
         decrease_ranged_hit(value);

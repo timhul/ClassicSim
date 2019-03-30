@@ -26,6 +26,9 @@ Stats::Stats()
     this->dagger_skill = 0;
     this->mace_skill = 0;
     this->sword_skill = 0;
+    this->bow_skill = 0;
+    this->crossbow_skill = 0;
+    this->gun_skill = 0;
 
     this->melee_hit = 0;
     this->melee_crit = 0;
@@ -81,6 +84,9 @@ void Stats::add(const Stats* rhs) {
     increase_dagger_skill(rhs->get_dagger_skill());
     increase_mace_skill(rhs->get_mace_skill());
     increase_sword_skill(rhs->get_sword_skill());
+    increase_bow_skill(rhs->get_bow_skill());
+    increase_crossbow_skill(rhs->get_crossbow_skill());
+    increase_gun_skill(rhs->get_gun_skill());
 
     increase_melee_hit(rhs->get_melee_hit_chance());
     increase_melee_crit(rhs->get_melee_crit_chance());
@@ -117,6 +123,9 @@ void Stats::remove(const Stats* rhs) {
     decrease_dagger_skill(rhs->get_dagger_skill());
     decrease_mace_skill(rhs->get_mace_skill());
     decrease_sword_skill(rhs->get_sword_skill());
+    decrease_bow_skill(rhs->get_bow_skill());
+    decrease_crossbow_skill(rhs->get_crossbow_skill());
+    decrease_gun_skill(rhs->get_gun_skill());
 
     decrease_melee_hit(rhs->get_melee_hit_chance());
     decrease_melee_crit(rhs->get_melee_crit_chance());
@@ -302,23 +311,15 @@ int Stats::get_axe_skill() const {
     return axe_skill;
 }
 
-int Stats::get_dagger_skill() const {
-    return dagger_skill;
-}
-
-int Stats::get_mace_skill() const {
-    return mace_skill;
-}
-
-int Stats::get_sword_skill() const {
-    return sword_skill;
-}
-
 void Stats::increase_axe_skill(const int increase) {
     axe_skill += increase;
 }
 void Stats::decrease_axe_skill(const int decrease) {
     axe_skill -= decrease;
+}
+
+int Stats::get_dagger_skill() const {
+    return dagger_skill;
 }
 
 void Stats::increase_dagger_skill(const int increase) {
@@ -329,6 +330,10 @@ void Stats::decrease_dagger_skill(const int decrease) {
     dagger_skill -= decrease;
 }
 
+int Stats::get_mace_skill() const {
+    return mace_skill;
+}
+
 void Stats::increase_mace_skill(const int increase) {
     mace_skill += increase;
 }
@@ -337,12 +342,52 @@ void Stats::decrease_mace_skill(const int decrease) {
     mace_skill -= decrease;
 }
 
+int Stats::get_sword_skill() const {
+    return sword_skill;
+}
+
 void Stats::increase_sword_skill(const int increase) {
     sword_skill += increase;
 }
 
 void Stats::decrease_sword_skill(const int decrease) {
     sword_skill -= decrease;
+}
+
+int Stats::get_bow_skill() const {
+    return bow_skill;
+}
+
+void Stats::increase_bow_skill(const int increase) {
+    bow_skill += increase;
+}
+
+void Stats::decrease_bow_skill(const int decrease) {
+    bow_skill -= decrease;
+}
+
+int Stats::get_crossbow_skill() const {
+    return crossbow_skill;
+}
+
+void Stats::increase_crossbow_skill(const int increase) {
+    crossbow_skill += increase;
+}
+
+void Stats::decrease_crossbow_skill(const int decrease) {
+    crossbow_skill -= decrease;
+}
+
+int Stats::get_gun_skill() const {
+    return gun_skill;
+}
+
+void Stats::increase_gun_skill(const int increase) {
+    gun_skill += increase;
+}
+
+void Stats::decrease_gun_skill(const int decrease) {
+    gun_skill -= decrease;
 }
 
 unsigned Stats::get_base_melee_ap() const {

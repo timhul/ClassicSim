@@ -88,6 +88,18 @@ public:
     void increase_sword_skill(const int);
     void decrease_sword_skill(const int);
 
+    int get_bow_skill() const;
+    void increase_bow_skill(const int);
+    void decrease_bow_skill(const int);
+
+    int get_crossbow_skill() const;
+    void increase_crossbow_skill(const int);
+    void decrease_crossbow_skill(const int);
+
+    int get_gun_skill() const;
+    void increase_gun_skill(const int);
+    void decrease_gun_skill(const int);
+
     unsigned get_melee_hit_chance() const;
     void increase_melee_hit(const unsigned value);
     void decrease_melee_hit(const unsigned value);
@@ -159,6 +171,9 @@ private:
     int dagger_skill;
     int mace_skill;
     int sword_skill;
+    int bow_skill;
+    int crossbow_skill;
+    int gun_skill;
 
     unsigned melee_ap;
     unsigned melee_ap_per_str;
