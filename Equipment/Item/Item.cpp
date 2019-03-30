@@ -503,6 +503,11 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power.").arg(value));
         this->item_stat_values.insert(ItemStats::AttackPower, value.toUInt());
     }
+    else if (key == "RANGED_ATTACK_POWER") {
+        this->stats->increase_base_ranged_ap(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: +%1 Ranged Attack Power.").arg(value));
+        this->item_stat_values.insert(ItemStats::RangedAttackPower, value.toUInt());
+    }
     else if (key == "ATTACK_POWER_BEAST") {
         this->stats->increase_melee_ap_against_type(Target::CreatureType::Beast, value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Beasts.").arg(value));

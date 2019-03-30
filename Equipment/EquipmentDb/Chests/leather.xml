@@ -29,6 +29,23 @@
 			</source>
 		</patch>
 	</item>
+	
+	<item id="12603">
+		<patch name="1.0.0">
+			<info name="Nightbrace Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_plate06.png"/>
+			<stats>
+				<stat type="ARMOR" value="172"/>
+				<stat type="AGILITY" value="5"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="SHADOW_RESISTANCE" value="10"/>
+				<stat type="ATTACK_POWER" value="50"/>
+			</stats>
+			<source>
+			Drops from Solakar Flamewreath in Upper Blackrock Spire (UBRS).
+			</source>
+		</patch>
+	</item>
 
 	<item id="16721">
 		<patch name="1.0.0">
@@ -141,7 +158,7 @@
 				<stat type="HIT_CHANCE" value="0.01"/>
 			</stats>
 			<source>
-			Crafted by leatherworkers (300 skill). Pattern requires Revered with Zandalar Tribe.
+			Crafted by Leatherworkers (300 skill). Pattern requires Revered with Zandalar Tribe.
 			</source>
 		</patch>
 	</item>

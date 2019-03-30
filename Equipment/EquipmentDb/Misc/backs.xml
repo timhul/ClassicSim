@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="13397">
+		<patch name="1.0.0">
+			<info name="Stoneskin Gargoyle Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
+			<stats>
+				<stat type="ARMOR" value="43"/>
+				<stat type="AGILITY" value="8"/>
+				<stat type="STRENGTH" value="7"/>
+				<stat type="STAMINA" value="14"/>
+			</stats>
+			<source>
+			Drops from Stonespine in Stratholme Undead.
+			</source>
+		</patch>
+	</item>
+
 	<item id="13340">
 		<patch name="1.0.0">
 			<info name="Cape of the Black Baron" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
@@ -9,6 +24,20 @@
 			</stats>
 			<source>
 			Drops from Baron Rivendare in Stratholme Undead.
+			</source>
+		</patch>
+	</item>
+
+	<item id="22269">
+		<patch name="1.0.0">
+			<info name="Shadow Prowler's Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
+			<stats>
+				<stat type="ARMOR" value="45"/>
+				<stat type="AGILITY" value="17"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
 			</source>
 		</patch>
 	</item>

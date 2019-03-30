@@ -449,5 +449,23 @@
         <file>QML/Assets/spell/Spell_shadow_twilight.png</file>
         <file>QML/Assets/items/Inv_misc_rune_07.png</file>
         <file>QML/Assets/ability/Ability_hunter_runningshot.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_11.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_27.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_15.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_12.png</file>
+        <file>QML/Assets/items/Inv_chest_plate06.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_14.png</file>
+        <file>QML/Assets/items/Inv_misc_gem_sapphire_01.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_05.png</file>
+        <file>QML/Assets/items/Inv_misc_bandana_01.png</file>
+        <file>QML/Assets/items/Inv_belt_12.png</file>
+        <file>QML/Assets/items/Inv_belt_10.png</file>
+        <file>QML/Assets/items/Inv_belt_34.png</file>
+        <file>QML/Assets/items/Inv_pants_03.png</file>
+        <file>QML/Assets/items/Inv_boots_02.png</file>
+        <file>QML/Assets/items/Inv_shoulder_15.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_13.png</file>
+        <file>QML/Assets/items/Inv_jewelry_talisman_10.png</file>
+        <file>QML/Assets/items/Inv_misc_eye_01.png</file>
     </qresource>
 </RCC>

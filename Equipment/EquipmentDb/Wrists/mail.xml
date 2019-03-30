@@ -14,4 +14,37 @@
 			</source>
 		</patch>
 	</wrist>
+
+	<wrist id="13211">
+		<patch name="1.0.0">
+			<info name="Slashclaw Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
+			<stats>
+				<stat type="ARMOR" value="155"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="AGILITY" value="7"/>
+				<stat type="STAMINA" value="7"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Halycon in Lower Blackrock Spire (LBRS).
+			</source>
+		</patch>
+	</wrist>
+
+	<wrist id="18296">
+		<patch name="1.3.0">
+			<info name="Marksman Bands" type="MAIL" slot="WRIST" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_bracer_06.png"/>
+			<stats>
+				<stat type="ARMOR" value="146"/>
+				<stat type="AGILITY" value="12"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="BOW_SKILL" value="2"/>
+				<stat type="CROSSBOW_SKILL" value="2"/>
+				<stat type="GUN_SKILL" value="2"/>
+			</stats>
+			<source>
+			Rare drop from Satyr trash mobs in Dire Maul.
+			</source>
+		</patch>
+	</wrist>
 </items>

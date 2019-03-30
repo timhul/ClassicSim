@@ -10,7 +10,21 @@
 				<stat type="ATTACK_POWER" value="40"/>
 			</stats>
 			<source>
-			Crafted by leatherworkers. Pattern drops in Blackrock Depths.
+			Crafted by Leatherworkers. Pattern drops in Blackrock Depths.
+			</source>
+		</patch>
+	</item>
+
+	<item id="19691">
+		<patch name="1.7.0">
+			<info name="Bloodsoul Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_shoulder_15.png"/>
+			<stats>
+				<stat type="ARMOR" value="286"/>
+				<stat type="AGILITY" value="24"/>
+				<stat type="STAMINA" value="10"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths (300 skill). Pattern requires Honored with Zandalar Tribe.
 			</source>
 		</patch>
 	</item>

@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="13404">
+		<patch name="1.0.0">
+			<info name="Mask of the Unforgiven" type="LEATHER" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_misc_bandana_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="132"/>
+				<stat type="STAMINA" value="12"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from The Unforgiven in Stratholme Undead.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16707">
 		<patch name="1.0.0">
 			<info name="Shadowcraft Cap" type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>

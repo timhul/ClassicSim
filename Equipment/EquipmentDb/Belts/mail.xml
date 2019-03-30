@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="18393">
+		<patch name="1.3.0">
+			<info name="Warpwood Binding" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_34.png"/>
+			<stats>
+				<stat type="ARMOR" value="202"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Tendris Warpwood in Dire Maul.
+			</source>
+		</patch>
+	</item>
+
+	<item id="22207">
+		<patch name="1.10.0">
+			<info name="Sash of the Grand Hunt" type="MAIL" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
+			<stats>
+				<stat type="ARMOR" value="199"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="INTELLECT" value="6"/>
+				<stat type="BOW_SKILL" value="2"/>
+				<stat type="GUN_SKILL" value="2"/>
+				<stat type="CROSSBOW_SKILL" value="2"/>
+			</stats>
+			<source>
+			Drops from Emperor Dagran Thaurissian in Blackrock Depths.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22232">
-		<patch name="1.0.0">
+		<patch name="1.10.0">
 			<info name="Marksman's Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
 			<stats>
 				<stat type="ARMOR" value="202"/>

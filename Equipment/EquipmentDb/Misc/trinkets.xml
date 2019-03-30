@@ -63,6 +63,23 @@
 		</patch>
 	</item>
 
+	<item id="18473">
+		<patch name="1.3.0">
+			<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="RANGED_ATTACK_POWER" value="48"/>
+			</stats>
+			<source>
+			Quest reward. Requires BoE quest item that drops from Dire Maul thrash.
+			</source>
+			<flavour_text>
+			"Blessed by the Shen'dralar Ancients."
+			</flavour_text>
+		</patch>
+	</item>
+
 	<item id="19120">
 		<patch name="1.5.0">
 			<info name="Rune of the Guard Captain" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="46" item_lvl="51" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_misc_rune_07.png"/>
@@ -87,6 +104,24 @@
 			<source>
 			Drops from Ebonroc in Blackwing Lair.
 			</source>
+		</patch>
+	</item>
+
+	<item id="19991">
+		<patch name="1.7.0">
+			<info name="Devilsaur Eye" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+			</stats>
+			<uses>
+				<use name="DEVILSAUR_EYE"/>
+			</uses>
+			<source>
+			Quest reward. Requires Sunken Temple.
+			</source>
+			<special_equip_effect>
+			Use: Increases your attack power by 150 and your chance to hit by 2%. Effect lasts for 20 sec. (cooldown 2 min)
+			</special_equip_effect>
 		</patch>
 	</item>
 

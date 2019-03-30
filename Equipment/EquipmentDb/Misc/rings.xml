@@ -23,7 +23,20 @@
 				<stat type="ATTACK_POWER" value="16"/>
 			</stats>
 			<source>
-			Drops from General Drakkisath in Upper Blackrock Spire.
+			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+			</source>
+		</patch>
+	</item>
+
+	<item id="18500">
+		<patch name="1.3.0">
+			<info name="Tarnished Elven Ring" type="RING" slot="RING" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_13.png"/>
+			<stats>
+				<stat type="AGILITY" value="15"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Tribute chest in Dire Maul.
 			</source>
 		</patch>
 	</item>

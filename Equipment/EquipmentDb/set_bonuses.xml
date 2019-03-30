@@ -18,6 +18,33 @@
 		</bonus>
 	</set>
 
+	<set name="Black Dragon Mail">
+		<item_id value="16984"/>
+		<item_id value="15050"/>
+		<item_id value="15052"/>
+		<item_id value="15051"/>
+
+		<bonus value="2">
+		(2) Set: Improves your chance to hit by 1%.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Improves your chance to get a critical strike by 2%.
+		</bonus>
+		<bonus value="4">
+		(4) Set: +10 Fire Resistance.
+		</bonus>
+	</set>
+
+	<set name="Bloodsoul Embrace">
+		<item_id value="19690"/>
+		<item_id value="19691"/>
+		<item_id value="19692"/>
+
+		<bonus value="3">
+		(3) Set: Restores 12 mana per 5 sec.
+		</bonus>
+	</set>
+
 	<set name="The Twin Blades of Hakkari">
 		<item_id value="19865"/>
 		<item_id value="19866"/>
@@ -39,7 +66,7 @@
 		(3) Set: Improves your chance to get a critical strike by 1%.
 		</bonus>
 	</set>
-	
+
 	<set name="The Defiler's Resolution">
 		<item_id value="20204"/>
 		<item_id value="20208"/>

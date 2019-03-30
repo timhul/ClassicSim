@@ -15,6 +15,20 @@
 		</patch>
 	</item>
 
+	<item id="13395">
+		<patch name="1.0.0">
+			<info name="Skul's Fingerbone Claws" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_gauntlets_27.png"/>
+			<stats>
+				<stat type="ARMOR" value="105"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="ATTACK_POWER" value="40"/>
+			</stats>
+			<source>
+			Drops from Skul in Stratholme.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16826">
 		<patch name="1.0.0">
 			<info name="Nightslayer Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>

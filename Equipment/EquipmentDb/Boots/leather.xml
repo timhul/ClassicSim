@@ -9,7 +9,22 @@
 				<stat type="STAMINA" value="9"/>
 			</stats>
 			<source>
-			Drops from Rattleegore in Scholomance.
+			Drops from Rattlegore in Scholomance.
+			</source>
+		</patch>
+	</item>
+
+	<item id="12553">
+		<patch name="1.0.0">
+			<info name="Swiftwalker Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_02.png"/>
+			<stats>
+				<stat type="ARMOR" value="115"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="STAMINA" value="7"/>
+				<stat type="STRENGTH" value="4"/>
+			</stats>
+			<source>
+			Drops from Princess Moira Bronzebeard in Blackrock Depths.
 			</source>
 		</patch>
 	</item>

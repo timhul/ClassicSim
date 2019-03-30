@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="11686">
+		<patch name="1.0.0">
+			<info name="Girdle of Beastial Fury" type="LEATHER" slot="BELT" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_belt_12.png"/>
+			<stats>
+				<stat type="ARMOR" value="89"/>
+				<stat type="STRENGTH" value="8"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="ATTACK_POWER" value="30"/>
+			</stats>
+			<source>
+			Drops from Eviscerator in Blackrock Depths.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16713">
 		<patch name="1.0.0">
 			<info name="Shadowcraft Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_03.png"/>
@@ -12,6 +27,36 @@
 			</stats>
 			<source>
 			Drops from trash mobs in Upper and Lower Blackrock Spire (UBRS/LBRS).
+			</source>
+		</patch>
+	</item>
+
+	<item id="13252">
+		<patch name="1.0.0">
+			<info name="Cloudrunner Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="185"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="STRENGTH" value="14"/>
+			</stats>
+			<source>
+			Drops from Quartermaster Zigris in Lower Blackrock Spire (LBRS).
+			</source>
+		</patch>
+	</item>
+
+	<item id="14502">
+		<patch name="1.0.0">
+			<info name="Frostbite Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="98"/>
+				<stat type="STRENGTH" value="5"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="FROST_RESISTANCE" value="10"/>
+			</stats>
+			<source>
+			Drops from Ras Frostwhisper in Scholomance.
 			</source>
 		</patch>
 	</item>

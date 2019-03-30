@@ -31,6 +31,21 @@
 		</patch>
 	</wrist>
 
+	<wrist id="19687">
+		<patch name="1.7.0">
+			<info name="Primal Batskin Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_bracer_07.png"/>
+			<stats>
+				<stat type="ARMOR" value="79"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="STAMINA" value="7"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Crafted by Leatherworkers (300 skill). Pattern requires Friendly with Zandalar Tribe.
+			</source>
+		</patch>
+	</wrist>
+
 	<wrist id="19146">
 		<patch name="1.0.0">
 			<info name="Wristguards of Stability" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_04.png"/>

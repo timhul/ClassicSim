@@ -14,4 +14,66 @@
 			</source>
 		</patch>
 	</item>
+
+	<item id="13963000">
+		<patch name="1.0.0">
+			<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_15.png"/>
+			<stats>
+				<stat type="ARMOR" value="221"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Quest reward. Part of Onyxia quest chain. Requires LBRS.
+			</source>
+		</patch>
+	</item>
+
+	<item id="13963001">
+		<patch name="1.0.0">
+			<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_15.png"/>
+			<stats>
+				<stat type="ARMOR" value="221"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Quest reward. Part of Onyxia quest chain. Requires LBRS.
+			</source>
+		</patch>
+	</item>
+
+	<item id="19692">
+		<patch name="1.7.0">
+			<info name="Bloodsoul Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
+			<stats>
+				<stat type="ARMOR" value="238"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="AGILITY" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths (300 skill). Pattern requires Friendly with Zandalar Tribe.
+			</source>
+		</patch>
+	</item>
+
+	<item id="22194">
+		<patch name="1.10.0">
+			<info name="Black Grasp of the Destroyer" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_31.png"/>
+			<stats>
+				<stat type="ARMOR" value="279"/>
+				<stat type="ATTACK_POWER" value="28"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<special_equip_effect>
+			Equip: On successful melee or ranged attack gain 8 mana and if possible drain 8 mana from the target.
+			</special_equip_effect>
+			<source>
+			Crafted by Blacksmiths. Recipe from Moam in AQ20 and requires material from AQ20/AQ40.
+			</source>
+		</patch>
+	</item>
 </items>
