@@ -13,7 +13,7 @@ public:
                            const QVector<ProcInfo::Source>& proc_sources,
                            const double proc_rate,
                            const int num_attacks);
-    ~ExtraAttackInstantProc() override;
+    ~ExtraAttackInstantProc() override = default;
 
     void proc_effect() override;
     void set_extra_attack_buff(ExtraAttackOnNextSwingBuff* buff);

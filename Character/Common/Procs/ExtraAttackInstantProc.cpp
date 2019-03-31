@@ -18,8 +18,6 @@ ExtraAttackInstantProc::ExtraAttackInstantProc(Character* pchar,
           "No valid proc sources found");
 }
 
-ExtraAttackInstantProc::~ExtraAttackInstantProc() = default;
-
 void ExtraAttackInstantProc::proc_effect() {
     if (extra_attack_buff != nullptr)
         proc_from_next_swing_effect();
@@ -42,7 +40,7 @@ void ExtraAttackInstantProc::proc_from_next_swing_effect() {
 }
 
 void ExtraAttackInstantProc::proc_from_instant_effect() {
-    check((extra_attack_buff != nullptr), "extra_attack_buff is nullptr");
+    check((extra_attack_buff == nullptr), "extra_attack_buff should be nullptr");
 
     for (int i = 0; i < num_attacks; ++i)
         pchar->run_extra_mh_attack();
