@@ -49,11 +49,12 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
 
 Hunter::~Hunter()
 {
+    delete pet;
+
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
-    delete pet;
     delete available_enchants;
     delete cstats;
     delete hunter_spells;
