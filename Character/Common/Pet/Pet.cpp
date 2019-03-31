@@ -14,6 +14,7 @@
 
 Pet::Pet(Character* pchar, const QString &name, double attack_speed, double base_dps) :
     pchar(pchar),
+    resource(nullptr),
     name(name),
     base_attack_speed(attack_speed),
     base_dps(base_dps),
@@ -41,8 +42,8 @@ QString Pet::get_name() const {
     return this->name;
 }
 
-unsigned Pet::get_focus() const {
-    return 100;
+void Pet::lose_resource(const unsigned loss) {
+    this->resource->lose_resource(loss);
 }
 
 void Pet::start_attack() {
@@ -61,6 +62,10 @@ void Pet::add_gcd_event() {
     next_gcd =  pchar->get_engine()->get_current_priority() + global_cooldown;
     auto* new_event = new PetAction(this, next_gcd);
     pchar->get_engine()->add_event(new_event);
+}
+
+void Pet::add_pet_reaction() {
+    pchar->get_engine()->add_event(new PetAction(this, pchar->get_engine()->get_current_priority() + 0.1));
 }
 
 bool Pet::action_ready() {
@@ -123,6 +128,11 @@ unsigned Pet::get_max_dmg() const {
 void Pet::reset() {
     this->is_attacking = false;
     this->next_gcd = 0.0;
+    this->resource->reset_resource();
+}
+
+Resource *Pet::get_resource() {
+    return this->resource;
 }
 
 void Pet::add_next_auto_attack() {

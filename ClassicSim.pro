@@ -331,7 +331,8 @@ SOURCES += main.cpp \
     Character/Common/Pet/Species/Cat.cpp \
     Character/Common/Pet/Spells/PetAutoAttack.cpp \
     Event/Events/PetMeleeHit.cpp \
-    Character/Common/Pet/Spells/Claw.cpp
+    Character/Common/Pet/Spells/Claw.cpp \
+    Character/Class/Focus.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -667,7 +668,8 @@ HEADERS += \
     Character/Common/Pet/Species/Cat.h \
     Character/Common/Pet/Spells/PetAutoAttack.h \
     Event/Events/PetMeleeHit.h \
-    Character/Common/Pet/Spells/Claw.h
+    Character/Common/Pet/Spells/Claw.h \
+    Character/Class/Focus.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

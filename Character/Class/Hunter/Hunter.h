@@ -30,6 +30,10 @@ public:
     unsigned get_resource_level(const ResourceType) const override;
     void gain_mana(const unsigned value) override;
     void lose_mana(const unsigned value) override;
+    void gain_focus(const unsigned value) override;
+    void lose_focus(const unsigned value) override;
+
+    void add_pet_reaction_event() override;
 
     Pet* get_pet() const;
 

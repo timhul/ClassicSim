@@ -5,6 +5,7 @@
 
 class Character;
 class PetAutoAttack;
+class Resource;
 class Spell;
 
 class Pet {
@@ -13,11 +14,14 @@ public:
     virtual ~Pet();
 
     QString get_name() const;
-    unsigned get_focus() const;
 
+    virtual unsigned get_resource_level() const = 0;
     virtual void use_focus() = 0;
+    void lose_resource(const unsigned loss);
+
     void start_attack();
     void add_gcd_event();
+    void add_pet_reaction();
     bool action_ready();
     void auto_attack(const int iteration);
 
@@ -35,9 +39,11 @@ public:
     unsigned get_max_dmg() const;
 
     void reset();
+    Resource* get_resource();
 
 protected:
     Character* pchar;
+    Resource* resource;
     const QString name;
     const double base_attack_speed;
     const double base_dps;

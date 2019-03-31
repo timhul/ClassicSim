@@ -167,6 +167,10 @@ void Character::add_player_reaction_event() {
     engine->add_event(new_event);
 }
 
+void Character::add_pet_reaction_event() {
+
+}
+
 void Character::start_global_cooldown() {
     check(action_ready(), "Action not ready");
     this->next_gcd = engine->get_current_priority() + global_cooldown();
@@ -462,6 +466,16 @@ void Character::gain_energy(const unsigned) {
 }
 
 void Character::lose_energy(const unsigned) {
+
+}
+
+void Character::gain_focus(const unsigned)
+{
+
+}
+
+void Character::lose_focus(const unsigned)
+{
 
 }
 

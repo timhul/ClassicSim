@@ -13,7 +13,7 @@ Claw::Claw(Character* pchar, Pet* pet) :
           RestrictedByGcd::No,
           0,
           ResourceType::Focus,
-          0),
+          25),
     pet(pet),
     dmg_roll(new Random(43, 60))
 {
@@ -32,16 +32,21 @@ void Claw::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
+        pet->lose_resource(static_cast<unsigned>(resource_cost));
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
+        pet->lose_resource(static_cast<unsigned>(resource_cost * 0.25));
         return;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
+        pet->lose_resource(static_cast<unsigned>(resource_cost * 0.25));
         return;
     }
+
+    pet->lose_resource(static_cast<unsigned>(resource_cost));
 
     double damage_dealt = damage_after_modifiers(dmg_roll->get_roll()) * pet->get_damage_modifier();
 

@@ -119,7 +119,7 @@ unsigned Hunter::get_resource_level(const ResourceType resource_type) const {
     case ResourceType::Mana:
         return mana->current;
     case ResourceType::Focus:
-        return pet->get_focus();
+        return pet->get_resource_level();
     default:
         return 0;
     }
@@ -133,7 +133,20 @@ void Hunter::lose_mana(const unsigned value) {
     mana->lose_resource(value);
 }
 
-Pet *Hunter::get_pet() const {
+void Hunter::gain_focus(const unsigned value) {
+    pet->get_resource()->gain_resource(value);
+    pet->add_pet_reaction();
+}
+
+void Hunter::lose_focus(const unsigned value) {
+    pet->get_resource()->lose_resource(value);
+}
+
+void Hunter::add_pet_reaction_event() {
+    pet->add_pet_reaction();
+}
+
+Pet* Hunter::get_pet() const {
     return this->pet;
 }
 
