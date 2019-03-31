@@ -221,6 +221,8 @@ void GUIControl::set_character(Character* pchar) {
     chest_enchants->set_character(current_char);
     boots_enchants->set_character(current_char);
 
+    selectDisplayStat(get_attack_mode_as_string());
+
     raceChanged();
     classChanged();
     statsChanged();
@@ -473,6 +475,29 @@ void GUIControl::setTalentSetup(const int talent_index) {
     Q_EMIT statsChanged();
 }
 
+QString GUIControl::get_stats_type_to_display() const {
+    return stats_type_to_display;
+}
+
+QString GUIControl::get_attack_mode_as_string() const {
+    switch (current_char->get_spells()->get_attack_mode()) {
+    case MeleeAttack:
+        return "MELEE";
+    case RangedAttack:
+        return "RANGED";
+    case MagicAttack:
+        return "SPELL";
+    }
+
+    return "<unknown";
+}
+
+void GUIControl::selectDisplayStat(const QString &attack_mode) {
+    stats_type_to_display = attack_mode;
+
+    Q_EMIT displayStatsTypeChanged();
+}
+
 int GUIControl::get_talent_points_remaining() const {
     return current_char->get_talents()->get_talent_points_remaining();
 }
@@ -517,7 +542,7 @@ unsigned GUIControl::get_spirit() const {
     return current_char->get_stats()->get_spirit();
 }
 
-QString GUIControl::get_crit_chance() const {
+QString GUIControl::get_melee_crit_chance() const {
     auto mh_crit = current_char->get_stats()->get_mh_crit_chance();
     auto oh_crit = current_char->get_stats()->get_oh_crit_chance();
 
@@ -530,12 +555,24 @@ QString GUIControl::get_crit_chance() const {
     return QString::number(static_cast<double>(mh_crit) / 100, 'f', 2);
 }
 
-QString GUIControl::get_hit_chance() const {
+QString GUIControl::get_melee_hit_chance() const {
     return QString::number(static_cast<double>(current_char->get_stats()->get_melee_hit_chance() / 100), 'f', 2);
 }
 
-int GUIControl::get_attack_power() const {
+QString GUIControl::get_ranged_crit_chance() const {
+    return QString::number(static_cast<double>(current_char->get_stats()->get_ranged_crit_chance()) / 100, 'f', 2);
+}
+
+QString GUIControl::get_ranged_hit_chance() const {
+    return QString::number(static_cast<double>(current_char->get_stats()->get_ranged_hit_chance() / 100), 'f', 2);
+}
+
+unsigned GUIControl::get_melee_attack_power() const {
     return current_char->get_stats()->get_melee_ap();
+}
+
+unsigned GUIControl::get_ranged_attack_power() const {
+    return current_char->get_stats()->get_ranged_ap();
 }
 
 int GUIControl::get_mainhand_wpn_skill() const {
@@ -544,6 +581,10 @@ int GUIControl::get_mainhand_wpn_skill() const {
 
 int GUIControl::get_offhand_wpn_skill() const {
     return current_char->get_oh_wpn_skill();
+}
+
+int GUIControl::get_ranged_wpn_skill() const {
+    return current_char->get_ranged_wpn_skill();
 }
 
 ItemModel* GUIControl::get_item_model() const {

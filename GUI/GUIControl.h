@@ -109,11 +109,21 @@ public:
     Q_PROPERTY(unsigned intellect READ get_intellect NOTIFY statsChanged)
     Q_PROPERTY(unsigned spirit READ get_spirit NOTIFY statsChanged)
 
-    Q_PROPERTY(QString critChance READ get_crit_chance NOTIFY statsChanged)
-    Q_PROPERTY(QString hitChance READ get_hit_chance NOTIFY statsChanged)
-    Q_PROPERTY(int attackPower READ get_attack_power NOTIFY statsChanged)
+    Q_PROPERTY(QString meleeCritChance READ get_melee_crit_chance NOTIFY statsChanged)
+    Q_PROPERTY(QString meleeHitChance READ get_melee_hit_chance NOTIFY statsChanged)
+    Q_PROPERTY(int meleeAttackPower READ get_melee_attack_power NOTIFY statsChanged)
     Q_PROPERTY(int wpnSkillMh READ get_mainhand_wpn_skill NOTIFY statsChanged)
     Q_PROPERTY(int wpnSkillOh READ get_offhand_wpn_skill NOTIFY statsChanged)
+    Q_PROPERTY(QString rangedCritChance READ get_ranged_crit_chance NOTIFY statsChanged)
+    Q_PROPERTY(QString rangedHitChance READ get_ranged_hit_chance NOTIFY statsChanged)
+    Q_PROPERTY(int rangedAttackPower READ get_ranged_attack_power NOTIFY statsChanged)
+    Q_PROPERTY(int wpnSkillRanged READ get_ranged_wpn_skill NOTIFY statsChanged)
+    Q_PROPERTY(QString displayStatsType READ get_stats_type_to_display NOTIFY displayStatsTypeChanged)
+    Q_SIGNAL void displayStatsTypeChanged();
+    QString get_stats_type_to_display() const;
+    QString get_attack_mode_as_string() const;
+    int get_ranged_wpn_skill() const;
+    Q_INVOKABLE void selectDisplayStat(const QString& attack_mode);
     /* End of Stats */
 
     /* Equipment */
@@ -288,10 +298,13 @@ private:
     unsigned get_intellect() const;
     unsigned get_spirit() const;
 
-    QString get_crit_chance() const;
-    QString get_hit_chance() const;
+    QString get_melee_crit_chance() const;
+    QString get_melee_hit_chance() const;
+    QString get_ranged_crit_chance() const;
+    QString get_ranged_hit_chance() const;
 
-    int get_attack_power() const;
+    unsigned get_melee_attack_power() const;
+    unsigned get_ranged_attack_power() const;
     int get_mainhand_wpn_skill() const;
     int get_offhand_wpn_skill() const;
 
@@ -389,6 +402,7 @@ private:
     double last_quick_sim_result;
     bool sim_in_progress;
     QString active_window;
+    QString stats_type_to_display;
 };
 
 #endif // GUICONTROL_H
