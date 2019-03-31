@@ -52,11 +52,11 @@ void TestRend::test_name_correct() {
 
 void TestRend::test_spell_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    given_warrior_has_rage(20);
     assert(QString::number(rend()->get_base_cooldown(), 'f', 3) == "0.000");
 
     when_rend_is_performed();
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("DotTick", "3.000", RUN_EVENT);
     assert(rend()->is_available());
@@ -69,16 +69,16 @@ void TestRend::test_spell_cooldown() {
 
 void TestRend::test_incurs_global_cooldown() {
     given_a_guaranteed_melee_ability_hit();
-    given_warrior_has_rage(100);
 
+    assert(warrior->action_ready());
     when_rend_is_performed();
     assert(warrior->on_global_cooldown());
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
 void TestRend::test_obeys_global_cooldown() {
-    given_warrior_has_rage(100);
     assert(rend()->is_available());
 
     given_warrior_is_on_gcd();

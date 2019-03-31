@@ -13,6 +13,4 @@ ResourceGain::ResourceGain(Character* pchar, Spell *spell, const double timestam
 
 void ResourceGain::act() {
     spell->perform_periodic();
-    pchar->add_player_reaction_event();
-    pchar->add_pet_reaction_event();
 }

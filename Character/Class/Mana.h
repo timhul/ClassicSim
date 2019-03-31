@@ -1,23 +1,19 @@
 #ifndef MANA_H
 #define MANA_H
 
-#include "Resource.h"
+#include "RegeneratingResource.h"
 
 class Character;
-class ManaTick;
 
-class Mana: public Resource {
+class Mana: public RegeneratingResource {
 public:
     Mana(Character*);
-    ~Mana() override;
-
-    void gain_resource(const unsigned) override;
-    void lose_resource(const unsigned) override;
-    void reset_resource() override;
 
     void set_base_mana(const unsigned base_mana);
-    unsigned get_max_mana() const;
-    void tick_mana();
+    unsigned get_max_resource() const override;
+    unsigned get_resource_per_tick() override;
+    ResourceType get_resource_type() const override;
+    double get_tick_rate() const override;
 
     friend class Druid;
     friend class Hunter;
@@ -28,13 +24,15 @@ public:
     friend class Warlock;
 
 private:
-    Character* pchar;
-    ManaTick* mana_tick;
     unsigned base_mana;
     unsigned mana_per_tick;
     double last_use_of_mana;
+    double remainder;
 
     void add_next_tick();
+
+    void reset_effect() override;
+    void lose_resource_effect() override;
 };
 
 #endif // MANA_H

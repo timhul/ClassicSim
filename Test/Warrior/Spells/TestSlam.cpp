@@ -83,6 +83,7 @@ void TestSlam::test_incurs_global_cooldown() {
 
     slam()->perform();
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("CastComplete", "1.400");
     then_next_event_is("PlayerAction", "1.500");
 }
@@ -242,7 +243,6 @@ void TestSlam::test_cast_time_with_5_of_5_improved_slam() {
 
 void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
     given_2_of_5_improved_slam();
-    given_warrior_has_rage(100);
     given_a_mainhand_weapon_with_2_speed();
     given_an_offhand_weapon_with_3_speed();
     given_a_guaranteed_white_hit();
@@ -251,6 +251,7 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
 
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
     then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "0.100");
 

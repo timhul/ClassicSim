@@ -21,6 +21,7 @@ void TestEnergy::tear_down() {
 }
 
 void TestEnergy::test_all() {
+    qDebug() << "TestEnergy";
     set_up();
     test_energy_ticks_up_after_use();
     tear_down();
@@ -70,6 +71,7 @@ void TestEnergy::test_energy_ticks_up_after_use() {
 
 void TestEnergy::test_energy_tick_adds_player_action_event() {
     rogue->lose_energy(75);
+
     then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
     then_next_event_is("PlayerAction", "2.100");
     then_next_event_is("ResourceGain", "4.000");
@@ -111,7 +113,6 @@ void TestEnergy::test_losing_energy_while_non_max_does_not_change_energy_tick_ti
     then_rogue_has_energy(100);
 
     then_next_event_is("ResourceGain", "16.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "16.100");
     then_rogue_has_energy(100);
 }
 
@@ -123,7 +124,6 @@ void TestEnergy::test_energy_tick_timer_is_pushed_forward_if_completed_before_lo
     then_rogue_has_energy(100);
 
     then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "4.100");
     then_rogue_has_energy(100);
 
     given_engine_priority_at(7.5);
@@ -134,7 +134,6 @@ void TestEnergy::test_energy_tick_timer_is_pushed_forward_if_completed_before_lo
     then_rogue_has_energy(100);
 
     then_next_event_is("ResourceGain", "11.500", RUN_EVENT);
-    then_next_event_is("PlayerAction", "11.600");
     then_rogue_has_energy(100);
 }
 

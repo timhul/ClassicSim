@@ -42,8 +42,6 @@ void OffhandAttackWarrior::calculate_damage(const bool run_procs) {
         return;
     }
 
-    pchar->add_player_reaction_event();
-
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();

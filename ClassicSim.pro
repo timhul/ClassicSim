@@ -232,11 +232,9 @@ SOURCES += main.cpp \
     Character/Class/Rogue/TalentTrees/Combat.cpp \
     Character/Class/Rogue/TalentTrees/Subtlety.cpp \
     Character/Class/Rogue/Spells/Backstab.cpp \
-    Character/Common/Spells/EnergyTick.cpp \
     Character/Class/Rage.cpp \
     Character/Class/Energy.cpp \
     Character/Class/Mana.cpp \
-    Character/Common/Spells/ManaTick.cpp \
     Test/Rogue/TestRogue.cpp \
     Test/Rogue/TestEnergy.cpp \
     Test/Rogue/TestSpellRogue.cpp \
@@ -332,7 +330,9 @@ SOURCES += main.cpp \
     Character/Common/Pet/Spells/PetAutoAttack.cpp \
     Event/Events/PetMeleeHit.cpp \
     Character/Common/Pet/Spells/Claw.cpp \
-    Character/Class/Focus.cpp
+    Character/Class/Focus.cpp \
+    Character/Class/RegeneratingResource.cpp \
+    Character/Common/Spells/ResourceTick.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -568,11 +568,9 @@ HEADERS += \
     Character/Class/Rogue/TalentTrees/Combat.h \
     Character/Class/Rogue/TalentTrees/Subtlety.h \
     Character/Class/Rogue/Spells/Backstab.h \
-    Character/Common/Spells/EnergyTick.h \
     Character/Class/Rage.h \
     Character/Class/Energy.h \
     Character/Class/Mana.h \
-    Character/Common/Spells/ManaTick.h \
     Test/Rogue/TestRogue.h \
     Test/Rogue/TestEnergy.h \
     Test/Rogue/TestSpellRogue.h \
@@ -669,7 +667,9 @@ HEADERS += \
     Character/Common/Pet/Spells/PetAutoAttack.h \
     Event/Events/PetMeleeHit.h \
     Character/Common/Pet/Spells/Claw.h \
-    Character/Class/Focus.h
+    Character/Class/Focus.h \
+    Character/Class/RegeneratingResource.h \
+    Character/Common/Spells/ResourceTick.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

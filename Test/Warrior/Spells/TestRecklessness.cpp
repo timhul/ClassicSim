@@ -90,6 +90,7 @@ void TestRecklessness::test_spell_cooldown() {
 
     when_recklessness_is_performed();
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("BuffRemoval", "15.000");
     then_next_event_is("PlayerAction", "1800.000");
@@ -150,9 +151,11 @@ void TestRecklessness::test_crit_reduced_after_buff_expires() {
 }
 
 void TestRecklessness::test_incurs_global_cooldown() {
+    assert(warrior->action_ready());
+
     when_recklessness_is_performed();
 
-    then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
+    assert(!warrior->action_ready());
 }
 
 void TestRecklessness::test_resource_cost() {
@@ -311,12 +314,14 @@ void TestRecklessness::when_recklessness_is_performed() {
 
 void TestRecklessness::when_reck_and_mh_attack_is_performed() {
     when_recklessness_is_performed();
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
     dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_mh_attack()->perform();
 }
 
 void TestRecklessness::when_reck_and_whirlwind_is_performed() {
     when_recklessness_is_performed();
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
     dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind()->perform();
 }

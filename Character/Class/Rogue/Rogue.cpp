@@ -130,6 +130,7 @@ unsigned Rogue::get_resource_level(const ResourceType) const {
 
 void Rogue::gain_energy(const unsigned energy) {
     this->energy->gain_resource(energy);
+    add_player_reaction_event();
 }
 
 void Rogue::lose_energy(const unsigned energy) {

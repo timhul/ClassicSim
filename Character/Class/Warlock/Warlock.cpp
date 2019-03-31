@@ -68,8 +68,8 @@ unsigned Warlock::get_spirit_modifier() const {
     return 2;
 }
 
-unsigned Warlock::get_mp5_from_spirit() const {
-    return 8 + static_cast<unsigned>(round(static_cast<double>(cstats->get_spirit()) / 4));
+double Warlock::get_mp5_from_spirit() const {
+    return 8 + static_cast<double>(cstats->get_spirit()) / 4;
 }
 
 double Warlock::get_agi_needed_for_one_percent_phys_crit() const {

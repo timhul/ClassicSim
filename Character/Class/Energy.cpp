@@ -1,56 +1,35 @@
 #include "Energy.h"
 
-#include "Character.h"
-#include "EnergyTick.h"
-#include "Engine.h"
-#include "ResourceGain.h"
-#include "Utils/Check.h"
-
 Energy::Energy(Character* pchar) :
-    pchar(pchar),
+    RegeneratingResource(pchar),
     energy_per_tick(20),
-    ticking(false)
+    max_energy_bonus(0)
 {
-    this->max = 100;
-    this->current = max;
-    this->energy_tick = new EnergyTick(pchar, this);
+    reset_resource();
 }
 
-Energy::~Energy() {
-    delete energy_tick;
+unsigned Energy::get_max_resource() const {
+    return 100 + max_energy_bonus;
 }
 
-void Energy::gain_resource(const unsigned energy) {
-    current += energy;
-
-    if (current > max)
-        current = max;
+unsigned Energy::get_resource_per_tick() {
+    return energy_per_tick;
 }
 
-void Energy::add_next_tick() {
-    ticking = true;
-
-    auto* event = new ResourceGain(pchar, energy_tick, pchar->get_engine()->get_current_priority() + 2.0);
-    pchar->get_engine()->add_event(event);
+ResourceType Energy::get_resource_type() const {
+    return ResourceType::Energy;
 }
 
-void Energy::tick_energy() {
-    if (current == max) {
-        ticking = false;
-        return;
-    }
-
-    gain_resource(energy_per_tick);
-
-    add_next_tick();
+double Energy::get_tick_rate() const {
+    return 2.0;
 }
 
-void Energy::lose_resource(const unsigned energy) {
-    if (!ticking && current == max)
-        add_next_tick();
+void Energy::reset_effect() {
+    energy_per_tick = 20;
+}
 
-    check((current >= energy), "Underflow decrease");
-    current -= energy;
+void Energy::lose_resource_effect() {
+
 }
 
 void Energy::increase_energy_per_tick() {
@@ -58,11 +37,5 @@ void Energy::increase_energy_per_tick() {
 }
 
 void Energy::decrease_energy_per_tick() {
-    energy_per_tick = 20;
-}
-
-void Energy::reset_resource() {
-    current = max;
-    ticking = false;
     energy_per_tick = 20;
 }

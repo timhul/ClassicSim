@@ -32,6 +32,7 @@ void TestDeathWish::test_spell_cooldown() {
 
     when_death_wish_is_performed();
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("BuffRemoval", "30.000");
     then_next_event_is("PlayerAction", "180.000");
@@ -52,6 +53,7 @@ void TestDeathWish::test_incurs_global_cooldown() {
 
     when_death_wish_is_performed();
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 

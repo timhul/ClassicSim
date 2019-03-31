@@ -479,9 +479,9 @@ void Character::lose_focus(const unsigned)
 
 }
 
-unsigned Character::get_mp5_from_spirit() const {
+double Character::get_mp5_from_spirit() const {
     check(false, "Not implemented");
-    return 0;
+    return 0.0;
 }
 
 void Character::reset_resource() {

@@ -151,6 +151,7 @@ unsigned Warrior::get_ap_per_agi() const {
 
 void Warrior::gain_rage(const unsigned gained_rage) {
     this->rage->gain_resource(gained_rage);
+    add_player_reaction_event();
 }
 
 void Warrior::lose_rage(const unsigned lost_rage) {

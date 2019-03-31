@@ -1,21 +1,21 @@
 #ifndef ENERGY_H
 #define ENERGY_H
 
-#include "Resource.h"
+#include "RegeneratingResource.h"
 
 class Character;
-class EnergyTick;
 
-class Energy: public Resource {
+class Energy: public RegeneratingResource {
 public:
     Energy(Character*);
-    ~Energy() override;
 
-    void gain_resource(const unsigned) override;
-    void lose_resource(const unsigned) override;
-    void reset_resource() override;
+    friend class Cat;
 
-    void tick_energy();
+    unsigned get_max_resource() const override;
+    unsigned get_resource_per_tick() override;
+    ResourceType get_resource_type() const override;
+    double get_tick_rate() const override;
+
     void increase_energy_per_tick();
     void decrease_energy_per_tick();
 
@@ -25,12 +25,11 @@ public:
     friend class Vigor;
 
 private:
-    Character* pchar;
-    EnergyTick* energy_tick;
+    void reset_effect() override;
+    void lose_resource_effect() override;
 
-    void add_next_tick();
     unsigned energy_per_tick;
-    bool ticking;
+    unsigned max_energy_bonus;
 };
 
 #endif // ENERGY_H

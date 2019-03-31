@@ -84,8 +84,8 @@ unsigned Hunter::get_spirit_modifier() const {
     return 1;
 }
 
-unsigned Hunter::get_mp5_from_spirit() const {
-    return 15 + static_cast<unsigned>(round(static_cast<double>(cstats->get_spirit()) / 5));
+double Hunter::get_mp5_from_spirit() const {
+    return 15 + static_cast<double>(cstats->get_spirit()) / 5;
 }
 
 double Hunter::get_agi_needed_for_one_percent_phys_crit() const {
@@ -127,6 +127,7 @@ unsigned Hunter::get_resource_level(const ResourceType resource_type) const {
 
 void Hunter::gain_mana(const unsigned value) {
     mana->gain_resource(value);
+    add_player_reaction_event();
 }
 
 void Hunter::lose_mana(const unsigned value) {

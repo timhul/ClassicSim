@@ -15,11 +15,11 @@ Vigor::Vigor(Character *pchar, TalentTree* tree) :
 Vigor::~Vigor() = default;
 
 void Vigor::apply_rank_effect() {
-    rogue->get_energy()->max += 10;
+    rogue->get_energy()->max_energy_bonus += 10;
     rogue->get_energy()->reset_resource();
 }
 
 void Vigor::remove_rank_effect() {
-    rogue->get_energy()->max -= 10;
+    rogue->get_energy()->max_energy_bonus -= 10;
     rogue->get_energy()->reset_resource();
 }

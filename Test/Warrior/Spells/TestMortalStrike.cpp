@@ -46,15 +46,17 @@ void TestMortalStrike::test_spell_cooldown() {
 
     when_mortal_strike_is_performed();
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("PlayerAction", "6.000");
 }
 
 void TestMortalStrike::test_incurs_global_cooldown() {
     given_a_twohand_weapon_with_100_min_max_dmg();
+    assert(warrior->action_ready());
     when_mortal_strike_is_performed();
 
-    then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
+    assert(!warrior->action_ready());
 }
 
 void TestMortalStrike::test_obeys_global_cooldown() {

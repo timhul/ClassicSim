@@ -45,14 +45,17 @@ void TestBloodthirst::test_spell_cooldown() {
 
     when_bloodthirst_is_performed();
 
+    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("PlayerAction", "6.000");
 }
 
 void TestBloodthirst::test_incurs_global_cooldown() {
+    assert(warrior->action_ready());
+
     when_bloodthirst_is_performed();
 
-    then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
+    assert(!warrior->action_ready());
 }
 
 void TestBloodthirst::test_obeys_global_cooldown() {

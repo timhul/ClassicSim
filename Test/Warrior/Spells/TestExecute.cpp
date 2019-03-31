@@ -120,9 +120,11 @@ void TestExecute::test_spell_cooldown() {
 }
 
 void TestExecute::test_incurs_global_cooldown() {
+    assert(warrior->action_ready());
+
     when_execute_is_performed_with_rage(100);
 
-    then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
+    assert(!warrior->action_ready());
 }
 
 void TestExecute::test_obeys_global_cooldown() {
