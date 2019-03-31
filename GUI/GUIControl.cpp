@@ -1363,7 +1363,7 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
     if (slot == "1H")
         set_weapon_tooltip(item, slot, "One-hand", dmg_range, weapon_speed, dps);
     else if (slot == "MH")
-        set_weapon_tooltip(item, slot, "Mainhand", dmg_range, weapon_speed, dps);
+        set_weapon_tooltip(item, slot, "Main Hand", dmg_range, weapon_speed, dps);
     else if (slot == "OH")
         set_weapon_tooltip(item, slot, "Offhand", dmg_range, weapon_speed, dps);
     else if (slot == "2H")
@@ -1374,8 +1374,16 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
     }
     else if (slot == "RING")
         slot = "Finger";
+    else if (slot == "GLOVES")
+        slot = "Hands";
+    else if (slot == "BELT")
+        slot = "Waist";
+    else if (slot == "BOOTS")
+        slot = "Feet";
+    else if (slot == "SHOULDERS")
+        slot = "Shoulder";
     else
-        slot = get_capitalized_string(slot);
+        slot = get_initial_upper_case_rest_lower_case(slot);
 
     QString class_restriction = "";
     set_class_restriction_tooltip(item, class_restriction);
@@ -1388,7 +1396,7 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         QVariant(boe_string),
         QVariant(unique),
         QVariant(slot),
-        QVariant(get_capitalized_string(item->get_value("type"))),
+        QVariant(get_initial_upper_case_rest_lower_case(item->get_value("type"))),
         QVariant(dmg_range),
         QVariant(weapon_speed),
         QVariant(dps),
@@ -1467,7 +1475,7 @@ void GUIControl::set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const 
     }
 }
 
-QString GUIControl::get_capitalized_string(const QString& string) const {
+QString GUIControl::get_initial_upper_case_rest_lower_case(const QString& string) const {
     return QString(string[0]) + QString(string.right(string.size() - 1)).toLower();
 }
 

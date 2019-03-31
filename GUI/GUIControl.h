@@ -324,7 +324,7 @@ private:
     QString get_trinket1_icon() const;
     QString get_trinket2_icon() const;
 
-    QString get_capitalized_string(const QString&) const;
+    QString get_initial_upper_case_rest_lower_case(const QString&) const;
     void set_weapon_tooltip(Item *&item, QString &slot, QString type, QString& dmg_range, QString& wpn_speed, QString &dps);
     void set_class_restriction_tooltip(Item *&item, QString &restriction);
     void set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const;
