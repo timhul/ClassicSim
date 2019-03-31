@@ -41,8 +41,10 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * Added player reaction to auto shot to improve the flow of Hunter AS/MS rotation.
-* Many Marksmanship/Survival talents now implemented.
-* Usage of Hunter's Mark.
+* All DPS increasing talents except pet/Arcane Shot/Serpent Sting boosts now available for Hunter.
+* Usage of Hunter's Mark/Rapid Fire/Aspect of the Hawk.
+* Many pre-raid Hunter items added.
+* Fix crash if simming Hunter with a mainhand equipped but no ranged weapon.
 
 # Release notes
 
@@ -54,7 +56,7 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 
 ## Restrictions
 
-* Crash if simming Hunter with a mainhand equipped but no bow.
+* Crash if simming Hunter with a mainhand equipped but no ranged weapon.
 * Only Aimed Shot/Multi-Shot available for hunter rotation.
 * Only Efficiency and Aimed Shot available as implemented talents.
 * Only a single bow available for selection.
