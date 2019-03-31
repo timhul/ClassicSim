@@ -343,7 +343,7 @@ void Item::set_procs(const int eq_slot) {
         Proc* proc = nullptr;
 
         if (proc_name == "EXTRA_ATTACK") {
-            add_default_melee_proc_sources(proc_sources, eq_slot);
+            add_default_proc_sources(proc_sources, eq_slot);
 
             if (instant == "yes") {
                 proc = new ExtraAttackInstantProc(pchar,
@@ -363,7 +363,7 @@ void Item::set_procs(const int eq_slot) {
             }
         }
         else if (proc_name == "ARMOR_PENETRATION") {
-            add_default_melee_proc_sources(proc_sources, eq_slot);
+            add_default_proc_sources(proc_sources, eq_slot);
 
             int reduction = i["value"].toInt();
             int max_stacks = i["max_stacks"].toInt();
@@ -380,7 +380,7 @@ void Item::set_procs(const int eq_slot) {
         }
 
         else if (direct_spell_damage_procs.contains(proc_name)) {
-            add_default_melee_proc_sources(proc_sources, eq_slot);
+            add_default_proc_sources(proc_sources, eq_slot);
 
             unsigned min = i["min"].toUInt();
             unsigned max = i["max"].toUInt();
@@ -395,7 +395,7 @@ void Item::set_procs(const int eq_slot) {
         }
 
         else if (proc_name == "FELSTRIKER_PROC") {
-            add_default_melee_proc_sources(proc_sources, eq_slot);
+            add_default_proc_sources(proc_sources, eq_slot);
 
             proc = new FelstrikerProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, i["duration"].toInt());
         }
@@ -407,7 +407,7 @@ void Item::set_procs(const int eq_slot) {
     }
 }
 
-void Item::add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot) {
+void Item::add_default_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot) {
     switch (eq_slot) {
     case EquipmentSlot::MAINHAND:
         proc_sources.append(ProcInfo::Source::MainhandSwing);
@@ -416,6 +416,10 @@ void Item::add_default_melee_proc_sources(QVector<ProcInfo::Source>& proc_source
     case EquipmentSlot::OFFHAND:
         proc_sources.append(ProcInfo::Source::OffhandSwing);
         proc_sources.append(ProcInfo::Source::OffhandSpell);
+        break;
+    case EquipmentSlot::RANGED:
+        proc_sources.append(ProcInfo::Source::RangedAutoShot);
+        proc_sources.append(ProcInfo::Source::RangedSpell);
         break;
     default:
         proc_sources.append(ProcInfo::Source::MainhandSwing);

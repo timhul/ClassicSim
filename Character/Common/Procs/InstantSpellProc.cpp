@@ -17,8 +17,7 @@ InstantSpellProc::InstantSpellProc(Character* pchar,
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
     spell(new InstantSpellAttack(pchar, proc_name, icon, school, min_damage, max_damage))
 {
-    check((proc_sources.contains(ProcInfo::Source::MainhandSwing) || proc_sources.contains(ProcInfo::Source::OffhandSwing)),
-          "No valid proc sources found");
+    check(!proc_sources.empty(), "No valid proc sources found");
     pchar->get_spells()->add_spell(spell);
 }
 
