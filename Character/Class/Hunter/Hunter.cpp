@@ -133,7 +133,7 @@ QVector<int> Hunter::get_weapon_proficiencies_for_slot(const int slot) const {
                              WeaponTypes::SWORD, WeaponTypes::POLEARM, WeaponTypes::STAFF,
                              WeaponTypes::TWOHAND_AXE, WeaponTypes::TWOHAND_SWORD});
     case EquipmentSlot::OFFHAND:
-        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST});
+        return QVector<int>({WeaponTypes::AXE, WeaponTypes::DAGGER, WeaponTypes::FIST, WeaponTypes::SWORD,});
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN});
     default:
