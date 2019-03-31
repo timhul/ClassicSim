@@ -34,8 +34,9 @@ public:
     unsigned get_spirit_modifier() const override;
     double get_agi_needed_for_one_percent_phys_crit() const override;
     double get_int_needed_for_one_percent_spell_crit() const override;
-    unsigned get_ap_per_strength() const override;
-    unsigned get_ap_per_agi() const override;
+    unsigned get_melee_ap_per_strength() const override;
+    unsigned get_melee_ap_per_agi() const override;
+    unsigned get_ranged_ap_per_agi() const override;
     void set_clvl(const int) override;
 
     int get_highest_possible_armor_type() const override;

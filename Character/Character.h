@@ -66,8 +66,9 @@ public:
     virtual unsigned get_spirit_modifier() const = 0;
     virtual double get_agi_needed_for_one_percent_phys_crit() const = 0;
     virtual double get_int_needed_for_one_percent_spell_crit() const = 0;
-    virtual unsigned get_ap_per_strength() const = 0;
-    virtual unsigned get_ap_per_agi() const = 0;
+    virtual unsigned get_melee_ap_per_strength() const = 0;
+    virtual unsigned get_melee_ap_per_agi() const = 0;
+    virtual unsigned get_ranged_ap_per_agi() const = 0;
     virtual double get_mp5_from_spirit() const;
 
     void change_target_creature_type(const QString& creature_type);

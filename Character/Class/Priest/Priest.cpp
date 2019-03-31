@@ -81,12 +81,16 @@ double Priest::get_int_needed_for_one_percent_spell_crit() const {
     return 59.2;
 }
 
-unsigned Priest::get_ap_per_strength() const {
+unsigned Priest::get_melee_ap_per_strength() const {
     return 1;
 }
 
-unsigned Priest::get_ap_per_agi() const {
+unsigned Priest::get_melee_ap_per_agi() const {
     return 1;
+}
+
+unsigned Priest::get_ranged_ap_per_agi() const {
+    return 0;
 }
 
 double Priest::global_cooldown() const {

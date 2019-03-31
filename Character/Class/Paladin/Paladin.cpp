@@ -78,12 +78,16 @@ double Paladin::get_int_needed_for_one_percent_spell_crit() const {
     return 54;
 }
 
-unsigned Paladin::get_ap_per_strength() const {
+unsigned Paladin::get_melee_ap_per_strength() const {
     return 1;
 }
 
-unsigned Paladin::get_ap_per_agi() const {
+unsigned Paladin::get_melee_ap_per_agi() const {
     return 1;
+}
+
+unsigned Paladin::get_ranged_ap_per_agi() const {
+    return 0;
 }
 
 double Paladin::global_cooldown() const {

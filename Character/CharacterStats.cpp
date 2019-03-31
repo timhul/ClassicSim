@@ -33,8 +33,6 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     strength_mod(1.0)
 {
     this->base_stats = new Stats();
-    base_stats->set_melee_ap_per_agi(pchar->get_ap_per_agi());
-    base_stats->set_melee_ap_per_str(pchar->get_ap_per_strength());
 
     increase_strength(pchar->get_strength_modifier());
     increase_agility(pchar->get_agility_modifier());
@@ -414,7 +412,7 @@ void CharacterStats::decrease_spirit(const unsigned decrease) {
 
 unsigned CharacterStats::get_melee_ap() const {
     unsigned stat_melee_ap = equipment->get_stats()->get_base_melee_ap() + base_stats->get_base_melee_ap();
-    unsigned attributes_ap = get_strength() * pchar->get_ap_per_strength() + get_agility() * pchar->get_ap_per_agi();
+    unsigned attributes_ap = get_strength() * pchar->get_melee_ap_per_strength() + get_agility() * pchar->get_melee_ap_per_agi();
     unsigned target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     unsigned target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
     return static_cast<unsigned>(round(total_ap_mod * (stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base)));
@@ -430,9 +428,9 @@ void CharacterStats::decrease_melee_ap(const unsigned decrease) {
 
 unsigned CharacterStats::get_ranged_ap() const {
     unsigned stat_ranged_ap = equipment->get_stats()->get_base_ranged_ap() + base_stats->get_base_ranged_ap();
-    unsigned attributes_ap = get_agility() * pchar->get_ap_per_agi();
-    unsigned target_ap_eq = equipment->get_stats()->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
-    unsigned target_ap_base = base_stats->get_melee_ap_against_type(pchar->get_target()->get_creature_type());
+    unsigned attributes_ap = get_agility() * pchar->get_ranged_ap_per_agi();
+    unsigned target_ap_eq = equipment->get_stats()->get_ranged_ap_against_type(pchar->get_target()->get_creature_type());
+    unsigned target_ap_base = base_stats->get_ranged_ap_against_type(pchar->get_target()->get_creature_type());
     return static_cast<unsigned>(round(total_ap_mod * (stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base)));
 }
 

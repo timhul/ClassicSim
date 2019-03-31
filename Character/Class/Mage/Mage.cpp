@@ -80,12 +80,16 @@ double Mage::get_int_needed_for_one_percent_spell_crit() const {
     return 59.5;
 }
 
-unsigned Mage::get_ap_per_strength() const {
+unsigned Mage::get_melee_ap_per_strength() const {
     return 1;
 }
 
-unsigned Mage::get_ap_per_agi() const {
+unsigned Mage::get_melee_ap_per_agi() const {
     return 1;
+}
+
+unsigned Mage::get_ranged_ap_per_agi() const {
+    return 0;
 }
 
 double Mage::global_cooldown() const {

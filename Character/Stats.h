@@ -131,9 +131,6 @@ public:
     double get_mh_wpn_speed() const;
     double get_oh_wpn_speed() const;
 
-    void set_melee_ap_per_str(const unsigned value);
-    void set_melee_ap_per_agi(const unsigned value);
-
     void set_str_multiplier(const double value);
     void set_agi_multiplier(const double value);
     void set_stam_multiplier(const double value);
@@ -180,10 +177,7 @@ private:
     int gun_skill;
 
     unsigned melee_ap;
-    unsigned melee_ap_per_str;
-    unsigned melee_ap_per_agi;
     unsigned ranged_ap;
-    unsigned ranged_ap_per_agi;
     unsigned melee_hit;
     unsigned melee_crit;
     unsigned ranged_hit;

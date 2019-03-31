@@ -84,12 +84,16 @@ double Druid::get_int_needed_for_one_percent_spell_crit() const {
     return 60.0;
 }
 
-unsigned Druid::get_ap_per_strength() const {
+unsigned Druid::get_melee_ap_per_strength() const {
     return 1;
 }
 
-unsigned Druid::get_ap_per_agi() const {
+unsigned Druid::get_melee_ap_per_agi() const {
     return 1;
+}
+
+unsigned Druid::get_ranged_ap_per_agi() const {
+    return 0;
 }
 
 double Druid::global_cooldown() const {

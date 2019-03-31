@@ -97,12 +97,16 @@ double Hunter::get_int_needed_for_one_percent_spell_crit() const {
     return std::numeric_limits<double>::max();
 }
 
-unsigned Hunter::get_ap_per_strength() const {
+unsigned Hunter::get_melee_ap_per_strength() const {
     return 1;
 }
 
-unsigned Hunter::get_ap_per_agi() const {
+unsigned Hunter::get_melee_ap_per_agi() const {
     return 1;
+}
+
+unsigned Hunter::get_ranged_ap_per_agi() const {
+    return 2;
 }
 
 double Hunter::global_cooldown() const {

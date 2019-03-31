@@ -22,8 +22,9 @@ public:
     double get_mp5_from_spirit() const override;
     double global_cooldown() const override;
 
-    unsigned get_ap_per_strength() const override;
-    unsigned get_ap_per_agi() const override;
+    unsigned get_melee_ap_per_strength() const override;
+    unsigned get_melee_ap_per_agi() const override;
+    unsigned get_ranged_ap_per_agi() const override;
     int get_highest_possible_armor_type() const override;
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 

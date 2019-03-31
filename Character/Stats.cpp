@@ -26,10 +26,7 @@ Stats::Stats() :
     crossbow_skill(0),
     gun_skill(0),
     melee_ap(0),
-    melee_ap_per_str(1),
-    melee_ap_per_agi(1),
     ranged_ap(0),
-    ranged_ap_per_agi(2),
     melee_hit(0),
     melee_crit(0),
     ranged_hit(0),
@@ -440,14 +437,6 @@ unsigned Stats::get_spell_crit_chance() const {
 
 unsigned Stats::get_attack_speed() const {
     return attack_speed;
-}
-
-void Stats::set_melee_ap_per_str(const unsigned value) {
-    melee_ap_per_str = value;
-}
-
-void Stats::set_melee_ap_per_agi(const unsigned value) {
-    melee_ap_per_agi = value;
 }
 
 void Stats::set_str_multiplier(const double value) {
