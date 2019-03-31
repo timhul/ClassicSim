@@ -14,6 +14,20 @@
 		</patch>
 	</melee_weapon>
 
+	<melee_weapon id="5267">
+		<patch name="1.0.0">
+			<info name="Scarlet Kris" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_03.png"/>
+			<dmg_range min="43" max="81" speed="1.5"/>
+			<stats>
+				<stat type="AGILITY" value="10"/>
+				<stat type="STAMINA" value="10"/>
+			</stats>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</melee_weapon>
+
 	<melee_weapon id="14555">
 		<patch name="1.0.0">
 			<info name="Alcor's Sunrazor" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_sword_34.png"/>

@@ -17,6 +17,20 @@
 		</patch>
 	</melee_weapon>
 
+	<melee_weapon id="10837">
+		<patch name="1.0.0">
+			<info name="Tooth of Eranikus" type="AXE" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="no" icon="Inv_axe_07.png"/>
+			<dmg_range min="62" max="116" speed="2.4"/>
+			<stats>
+				<stat type="STRENGTH" value="6"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Shade of Eranikus in Sunken Temple.
+			</source>
+		</patch>
+	</melee_weapon>
+
 	<melee_weapon id="811">
 		<patch name="1.0.0">
 			<info name="Axe of the Deep Woods" type="AXE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="yes" icon="Inv_axe_07.png"/>

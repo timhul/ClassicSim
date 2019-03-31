@@ -467,5 +467,14 @@
         <file>QML/Assets/items/Inv_jewelry_ring_13.png</file>
         <file>QML/Assets/items/Inv_jewelry_talisman_10.png</file>
         <file>QML/Assets/items/Inv_misc_eye_01.png</file>
+        <file>QML/Assets/items/Inv_weapon_crossbow_04.png</file>
+        <file>QML/Assets/items/Inv_weapon_crossbow_07.png</file>
+        <file>QML/Assets/items/Inv_weapon_crossbow_08.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_03.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_05.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_09.png</file>
+        <file>QML/Assets/items/Inv_sword_42.png</file>
+        <file>QML/Assets/items/Inv_sword_46.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_03.png</file>
     </qresource>
 </RCC>

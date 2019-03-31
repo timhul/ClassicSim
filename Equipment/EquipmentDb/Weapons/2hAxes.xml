@@ -13,4 +13,19 @@
 			</source>
 		</patch>
 	</melee_weapon>
+
+	<melee_weapon id="11931">
+		<patch name="1.0.0">
+			<info name="Dreadforge Retaliator" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_axe_22.png"/>
+			<dmg_range min="149" max="225" speed="3.7"/>
+			<stats>
+				<stat type="PARRY_CHANCE" value="0.01"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="30"/>
+			</stats>
+			<source>
+			Drops from Emperor Dagran Thaurissian in Blackrock Depths.
+			</source>
+		</patch>
+	</melee_weapon>
 </weapons>

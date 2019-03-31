@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="13056">
+		<patch name="1.0.0">
+			<info name="Frenzied Striker" type="POLEARM" slot="2H" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_spear_07.png"/>
+			<dmg_range min="108" max="162" speed="2.8"/>
+			<stats>
+				<stat type="PARRY_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			World drop.
+			</source>
+		</patch>
+	</melee_weapon>
+
 	<melee_weapon id="21635">
 		<patch name="1.9.0">
 			<info name="Barb of the Sand Reaver" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_halberd_ahnqiraj.png"/>
