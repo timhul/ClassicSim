@@ -2,54 +2,48 @@
 
 #include "Utils/Check.h"
 
-Stats::Stats()
+Stats::Stats() :
+    STR(0),
+    AGI(0),
+    STAM(0),
+    INT(0),
+    SPI(0),
+    armor(0),
+    defense(0),
+    dodge_chance(0.0),
+    parry_chance(0.0),
+    arcane_res(0),
+    fire_res(0),
+    frost_res(0),
+    holy_res(0),
+    nature_res(0),
+    shadow_res(0),
+    axe_skill(0),
+    dagger_skill(0),
+    mace_skill(0),
+    sword_skill(0),
+    bow_skill(0),
+    crossbow_skill(0),
+    gun_skill(0),
+    melee_ap(0),
+    melee_ap_per_str(1),
+    melee_ap_per_agi(1),
+    ranged_ap(0),
+    ranged_ap_per_agi(2),
+    melee_hit(0),
+    melee_crit(0),
+    ranged_hit(0),
+    ranged_crit(0),
+    spell_hit(0),
+    spell_crit(0),
+    attack_speed(0.0),
+    mp5(0),
+    str_multiplier(1.0),
+    agi_multiplier(1.0),
+    stam_multiplier(1.0),
+    spi_multiplier(1.0),
+    int_multiplier(1.0)
 {
-    this->STR = 0;
-    this->AGI = 0;
-    this->STAM = 0;
-    this->INT = 0;
-    this->SPI = 0;
-
-    this->armor = 0;
-    this->defense = 0;
-    this->dodge_chance = 0.0;
-    this->parry_chance = 0.0;
-
-    this->arcane_res = 0;
-    this->fire_res = 0;
-    this->frost_res = 0;
-    this->holy_res = 0;
-    this->nature_res = 0;
-    this->shadow_res = 0;
-
-    this->axe_skill = 0;
-    this->dagger_skill = 0;
-    this->mace_skill = 0;
-    this->sword_skill = 0;
-    this->bow_skill = 0;
-    this->crossbow_skill = 0;
-    this->gun_skill = 0;
-
-    this->melee_hit = 0;
-    this->melee_crit = 0;
-    this->ranged_hit = 0;
-    this->ranged_crit = 0;
-    this->spell_hit = 0;
-    this->spell_crit = 0;
-    this->attack_speed = 0.0;
-    this->str_multiplier = 1.0;
-    this->agi_multiplier = 1.0;
-    this->stam_multiplier = 1.0;
-    this->spi_multiplier = 1.0;
-    this->int_multiplier = 1.0;
-
-    this->melee_ap = 0;
-    this->melee_ap_per_str = 1;
-    this->melee_ap_per_agi = 1;
-
-    this->ranged_ap = 0;
-    this->ranged_ap_per_agi = 2;
-
     this->melee_ap_against_creature[Target::CreatureType::Beast] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Demon] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Dragonkin] = 0;
@@ -108,6 +102,8 @@ void Stats::add(const Stats* rhs) {
     increase_melee_ap_against_type(Target::CreatureType::Humanoid, rhs->get_melee_ap_against_type(Target::CreatureType::Humanoid));
     increase_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
     increase_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
+
+    increase_mp5(rhs->get_mp5());
 }
 
 void Stats::remove(const Stats* rhs) {
@@ -147,6 +143,8 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_ap_against_type(Target::CreatureType::Humanoid, rhs->get_melee_ap_against_type(Target::CreatureType::Humanoid));
     decrease_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
     decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
+
+    decrease_mp5(rhs->get_mp5());
 }
 
 unsigned Stats::get_strength() const {
@@ -550,4 +548,17 @@ void Stats::decrease_ranged_ap_against_type(const Target::CreatureType type, con
 
 unsigned Stats::get_ranged_ap_against_type(const Target::CreatureType type) const {
     return ranged_ap_against_creature[type];
+}
+
+unsigned Stats::get_mp5() const {
+    return mp5;
+}
+
+void Stats::increase_mp5(const unsigned increase) {
+    mp5 += increase;
+}
+
+void Stats::decrease_mp5(const unsigned decrease) {
+    check((decrease <= mp5), "Underflow decrease mp5");
+    mp5 -= decrease;
 }

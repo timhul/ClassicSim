@@ -148,6 +148,10 @@ public:
     void decrease_ranged_ap_against_type(const Target::CreatureType, const unsigned);
     unsigned get_ranged_ap_against_type(const Target::CreatureType) const;
 
+    unsigned get_mp5() const;
+    void increase_mp5(const unsigned increase);
+    void decrease_mp5(const unsigned decrease);
+
 private:
     unsigned STR;
     unsigned AGI;
@@ -187,6 +191,8 @@ private:
     unsigned spell_hit;
     unsigned spell_crit;
     unsigned attack_speed;
+
+    unsigned mp5;
 
     QMap<Target::CreatureType, unsigned> melee_ap_against_creature;
     QMap<Target::CreatureType, unsigned> ranged_ap_against_creature;

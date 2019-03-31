@@ -120,6 +120,10 @@ public:
     void increase_ranged_ability_crit_dmg_mod(double);
     void decrease_ranged_ability_crit_dmg_mod(double);
 
+    unsigned get_mp5() const;
+    void increase_mp5(const unsigned increase);
+    void decrease_mp5(const unsigned decrease);
+
     double get_spell_crit_dmg_mod() const;
     void increase_spell_crit_dmg_mod(double);
     void decrease_spell_crit_dmg_mod(double);
@@ -161,8 +165,6 @@ public:
     void increase_dodge(const double);
     void decrease_dodge(const double);
 
-    unsigned get_mp5() const;
-
 private:
     Character* pchar;
     Equipment* equipment;
@@ -187,6 +189,8 @@ private:
     int dagger_skill_bonus;
     int mace_skill_bonus;
     int sword_skill_bonus;
+
+    unsigned mp5;
 
     double melee_ability_crit_dmg_mod;
     double ranged_ability_crit_dmg_mod;

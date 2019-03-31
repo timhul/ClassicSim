@@ -738,7 +738,15 @@ void CharacterStats::decrease_dodge(const double dodge) {
 }
 
 unsigned CharacterStats::get_mp5() const {
-    return 0;
+    return base_stats->get_mp5() + equipment->get_stats()->get_mp5();
+}
+
+void CharacterStats::increase_mp5(const unsigned increase) {
+    base_stats->increase_mp5(increase);
+}
+
+void CharacterStats::decrease_mp5(const unsigned decrease) {
+    base_stats->decrease_mp5(decrease);
 }
 
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {

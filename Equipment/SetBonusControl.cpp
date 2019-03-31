@@ -74,6 +74,14 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Dal'Rend's Arms") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->increase_melee_ap(50);
+            pchar->get_stats()->increase_ranged_ap(50);
+            break;
+        }
+    }
     else if (set_name == "Black Dragon Mail") {
         switch (num_pieces) {
         case 2:
@@ -86,11 +94,10 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
-    else if (set_name == "Dal'Rend's Arms") {
+    else if (set_name == "Bloodsoul Embrace") {
         switch (num_pieces) {
-        case 2:
-            pchar->get_stats()->increase_melee_ap(50);
-            pchar->get_stats()->increase_ranged_ap(50);
+        case 3:
+            pchar->get_stats()->increase_mp5(12);
             break;
         }
     }
@@ -186,6 +193,13 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 3:
             pchar->get_stats()->decrease_melee_crit(200);
             pchar->get_stats()->decrease_ranged_crit(200);
+            break;
+        }
+    }
+    else if (set_name == "Bloodsoul Embrace") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->decrease_mp5(12);
             break;
         }
     }
