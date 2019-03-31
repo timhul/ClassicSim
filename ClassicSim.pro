@@ -324,7 +324,8 @@ SOURCES += main.cpp \
     Character/Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.cpp \
     Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.cpp \
     Character/Class/Hunter/Spells/RapidFire.cpp \
-    Character/Class/Hunter/Buffs/RapidFireBuff.cpp
+    Character/Class/Hunter/Buffs/RapidFireBuff.cpp \
+    Character/Common/Buffs/DevilsaurEye.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -653,7 +654,8 @@ HEADERS += \
     Character/Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.h \
     Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.h \
     Character/Class/Hunter/Spells/RapidFire.h \
-    Character/Class/Hunter/Buffs/RapidFireBuff.h
+    Character/Class/Hunter/Buffs/RapidFireBuff.h \
+    Character/Common/Buffs/DevilsaurEye.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

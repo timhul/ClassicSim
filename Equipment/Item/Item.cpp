@@ -7,6 +7,7 @@
 #include "ArmorPenetrationProc.h"
 #include "Character.h"
 #include "CharacterSpells.h"
+#include "DevilsaurEye.h"
 #include "EnchantStatic.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
@@ -265,6 +266,10 @@ void Item::set_uses() {
 
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
             spell = new UseTrinket(pchar, name, icon, cooldown, buff);
+        }
+        else if (use_name == "DEVILSAUR_EYE") {
+            Buff* buff = new DevilsaurEye(pchar);
+            spell = new UseTrinket(pchar, name, icon, 120, buff);
         }
         else if (use_name == "JOM_GABBAR") {
             Buff* buff = new JomGabbar(pchar);

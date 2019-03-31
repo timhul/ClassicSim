@@ -138,6 +138,7 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
         "Badge of the Swarmguard",
         "Slayer's Crest",
         "Earthstrike",
+        "Devilsaur Eye",
         "Zandalarian Hero Medallion",
         "Blood Fury",
         "Berserking",
