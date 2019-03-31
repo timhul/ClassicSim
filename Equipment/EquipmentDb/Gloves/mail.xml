@@ -68,6 +68,9 @@
 				<stat type="ATTACK_POWER" value="28"/>
 				<stat type="CRIT_CHANCE" value="0.01"/>
 			</stats>
+			<proc>
+				<spell name="BLACK_GRASP_OF_THE_DESTROYER" min="8" max="8" instant="yes" rate="1.0" internal_cd="0"/>
+			</proc>
 			<special_equip_effect>
 			Equip: On successful melee or ranged attack gain 8 mana and if possible drain 8 mana from the target.
 			</special_equip_effect>

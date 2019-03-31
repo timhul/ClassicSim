@@ -18,6 +18,7 @@
 #include "InstantSpellProc.h"
 #include "ItemModificationRequirer.h"
 #include "JomGabbar.h"
+#include "ManaDrainProc.h"
 #include "NoEffectBuff.h"
 #include "Stats.h"
 #include "Target.h"
@@ -398,6 +399,20 @@ void Item::set_procs(const int eq_slot) {
             add_default_proc_sources(proc_sources, eq_slot);
 
             proc = new FelstrikerProc(pchar, get_weapon_side_name(eq_slot), proc_sources, proc_rate, i["duration"].toInt());
+        }
+
+        else if (proc_name == "BLACK_GRASP_OF_THE_DESTROYER") {
+            proc_sources = {
+                ProcInfo::Source::MainhandSwing,
+                ProcInfo::Source::MainhandSpell,
+                ProcInfo::Source::OffhandSwing,
+                ProcInfo::Source::OffhandSpell,
+                ProcInfo::Source::RangedAutoShot,
+                ProcInfo::Source::RangedSpell
+            };
+
+            proc = new ManaDrainProc(pchar, "Black Grasp of the Destroyer", "Assets/items/Inv_gauntlets_31.png",
+                                     proc_sources, i["rate"].toDouble(), i["min"].toUInt(), i["max"].toUInt());
         }
 
         if (proc != nullptr) {
