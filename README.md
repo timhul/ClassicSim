@@ -40,11 +40,17 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+* Pet (Cat) has been added.
 * Added player reaction to auto shot to improve the flow of Hunter AS/MS rotation.
 * All DPS increasing talents except pet/Arcane Shot/Serpent Sting boosts now available for Hunter.
 * Usage of Hunter's Mark/Rapid Fire/Aspect of the Hawk.
 * Many pre-raid Hunter items added.
 * Fix crash if simming Hunter with a mainhand equipped but no ranged weapon.
+
+## Restrictions
+
+* Pet inherits dual-wield miss penalty from Hunter.
+* Only Cat is available to use as pet.
 
 # Release notes
 
