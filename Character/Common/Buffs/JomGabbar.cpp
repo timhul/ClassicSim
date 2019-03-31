@@ -1,9 +1,10 @@
+#include "JomGabbar.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "EnabledBuffs.h"
 #include "Engine.h"
 #include "PeriodicRefreshBuff.h"
-#include "JomGabbar.h"
 
 JomGabbar::JomGabbar(Character* pchar):
     Buff(pchar, "Jom Gabbar", "Assets/items/Inv_misc_enggizmos_19.png", 20, 0),
@@ -21,7 +22,7 @@ void JomGabbar::buff_effect_when_applied() {
 }
 
 void JomGabbar::buff_effect_when_removed() {
-    int reduction = curr_stacks * 65;
+    unsigned reduction = curr_stacks * 65;
 
     pchar->get_stats()->decrease_melee_ap(reduction);
     pchar->get_stats()->decrease_ranged_ap(reduction);

@@ -8,8 +8,8 @@ public:
     JomGabbar(Character* pchar);
 
 private:
-    int curr_stacks;
-    const int max_stacks;
+    unsigned curr_stacks;
+    const unsigned max_stacks;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

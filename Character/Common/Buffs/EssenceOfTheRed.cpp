@@ -1,9 +1,9 @@
-
 #include "EssenceOfTheRed.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
-#include "ResourceGain.h"
 #include "PeriodicResourceGainSpell.h"
+#include "ResourceGain.h"
 
 EssenceOfTheRed::EssenceOfTheRed(Character* pchar):
     Buff(pchar, "Essence of the Red", "Assets/buffs/Spell_fire_lavaspawn.png", 180, 0),

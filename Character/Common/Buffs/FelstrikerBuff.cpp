@@ -1,7 +1,8 @@
+#include "FelstrikerBuff.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "FelstrikerBuff.h"
 #include "MeleeSpecialTable.h"
 #include "MeleeWhiteHitTable.h"
 

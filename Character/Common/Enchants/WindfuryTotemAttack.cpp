@@ -1,5 +1,5 @@
-
 #include "WindfuryTotemAttack.h"
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ProcInfo.h"
