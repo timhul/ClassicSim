@@ -11,5 +11,6 @@ EncounterStart::EncounterStart(CharacterSpells* spells) {
 void EncounterStart::act() {
     spells->run_pre_combat_spells();
     spells->start_attack();
+    spells->start_pet_attack();
     spells->perform_rotation();
 }

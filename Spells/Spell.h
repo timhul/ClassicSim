@@ -43,6 +43,7 @@ public:
     double get_cooldown_remaining() const;
     double get_last_used() const;
     double get_next_use() const;
+    double get_resource_cost() const;
     bool is_available() const;
 
     void enable();

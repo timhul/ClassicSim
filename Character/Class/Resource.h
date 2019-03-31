@@ -3,8 +3,9 @@
 
 enum ResourceType {
     Mana = 0,
-    Rage = 1,
-    Energy = 2
+    Rage,
+    Energy,
+    Focus
 };
 
 class Resource {

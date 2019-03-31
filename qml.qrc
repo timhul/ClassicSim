@@ -476,5 +476,6 @@
         <file>QML/Assets/items/Inv_sword_42.png</file>
         <file>QML/Assets/items/Inv_sword_46.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_03.png</file>
+        <file>QML/Assets/ability/Ability_druid_rake.png</file>
     </qresource>
 </RCC>

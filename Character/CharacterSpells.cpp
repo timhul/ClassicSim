@@ -191,6 +191,10 @@ void CharacterSpells::start_melee_attack() {
     }
 }
 
+void CharacterSpells::start_pet_attack() {
+
+}
+
 void CharacterSpells::stop_attack() {
     attack_mode_active = false;
 }

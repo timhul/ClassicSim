@@ -53,6 +53,10 @@ double Spell::get_next_use() const {
     return last_used + cooldown;
 }
 
+double Spell::get_resource_cost() const {
+    return this->resource_cost;
+}
+
 bool Spell::is_ready() const {
     if (restricted_by_gcd && pchar->on_global_cooldown())
         return false;

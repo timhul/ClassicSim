@@ -1,6 +1,7 @@
 #include "Hunter.h"
 
 #include "BeastMastery.h"
+#include "Cat.h"
 #include "CharacterStats.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
@@ -41,6 +42,8 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
     this->resource = this->mana;
     mana->set_base_mana(1720);
 
+    this->pet = new Cat(this);
+
     initialize_talents();
 }
 
@@ -50,6 +53,7 @@ Hunter::~Hunter()
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete pet;
     delete available_enchants;
     delete cstats;
     delete hunter_spells;
@@ -110,8 +114,15 @@ void Hunter::initialize_talents() {
     }
 }
 
-unsigned Hunter::get_resource_level(const ResourceType) const {
-    return mana->current;
+unsigned Hunter::get_resource_level(const ResourceType resource_type) const {
+    switch (resource_type) {
+    case ResourceType::Mana:
+        return mana->current;
+    case ResourceType::Focus:
+        return pet->get_focus();
+    default:
+        return 0;
+    }
 }
 
 void Hunter::gain_mana(const unsigned value) {
@@ -120,6 +131,10 @@ void Hunter::gain_mana(const unsigned value) {
 
 void Hunter::lose_mana(const unsigned value) {
     mana->lose_resource(value);
+}
+
+Pet *Hunter::get_pet() const {
+    return this->pet;
 }
 
 int Hunter::get_highest_possible_armor_type() const {
@@ -143,5 +158,5 @@ QVector<int> Hunter::get_weapon_proficiencies_for_slot(const int slot) const {
 }
 
 void Hunter::reset_class_specific() {
-
+    pet->reset();
 }

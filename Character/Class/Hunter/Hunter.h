@@ -4,7 +4,7 @@
 #include "Character.h"
 
 class HunterSpells;
-
+class Pet;
 
 class Hunter: public Character {
 public:
@@ -31,9 +31,12 @@ public:
     void gain_mana(const unsigned value) override;
     void lose_mana(const unsigned value) override;
 
+    Pet* get_pet() const;
+
 private:
     HunterSpells* hunter_spells;
     class Mana* mana;
+    Pet* pet;
 
     void initialize_talents() override;
     void reset_class_specific() override;

@@ -22,6 +22,10 @@ public:
     Equipment* get_equipment() const;
     Stats* get_stats() const;
 
+    static void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
+    static void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
+    static void recalculate_multiplicative_effects(QVector<int>& effects, double& modifier);
+
     double get_total_phys_dmg_mod() const;
     double get_physical_damage_taken_mod() const;
     double get_spell_damage_taken_mod() const;
@@ -207,9 +211,6 @@ private:
     double stamina_mod;
     double strength_mod;
 
-    void add_multiplicative_effect(QVector<int>& effects, int add_value, double& modifier);
-    void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
-    void recalculate_multiplicative_effects(QVector<int>& effects, double& modifier);
     Target::CreatureType get_type_for_stat(const ItemStats);
 
     int get_wpn_skill(Weapon*) const;

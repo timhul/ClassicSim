@@ -9,6 +9,7 @@
 #include "MainhandAttack.h"
 #include "MultiShot.h"
 #include "OffhandAttack.h"
+#include "Pet.h"
 #include "RangedHit.h"
 #include "RapidFire.h"
 
@@ -33,6 +34,10 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     spells.append(multi_shot);
     spells.append(oh_attack);
     spells.append(rapid_fire);
+}
+
+void HunterSpells::start_pet_attack() {
+    hunter->get_pet()->start_attack();
 }
 
 void HunterSpells::add_next_ranged_attack() {

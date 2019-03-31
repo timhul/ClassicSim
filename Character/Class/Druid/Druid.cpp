@@ -109,10 +109,9 @@ unsigned Druid::get_resource_level(const ResourceType resource_type) const {
         return rage->current;
     case ResourceType::Energy:
         return energy->current;
+    default:
+        return 0;
     }
-
-    check(false, "Failed to determine resource type");
-    return 0;
 }
 
 int Druid::get_highest_possible_armor_type() const {

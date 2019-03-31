@@ -1,0 +1,145 @@
+#include "Pet.h"
+
+#include <cmath>
+
+#include "Character.h"
+#include "CharacterSpells.h"
+#include "CharacterStats.h"
+#include "Engine.h"
+#include "PetAction.h"
+#include "PetAutoAttack.h"
+#include "PetMeleeHit.h"
+#include "Spell.h"
+#include "Utils/CompareDouble.h"
+
+Pet::Pet(Character* pchar, const QString &name, double attack_speed, double base_dps) :
+    pchar(pchar),
+    name(name),
+    base_attack_speed(attack_speed),
+    base_dps(base_dps),
+    min(static_cast<unsigned>(round(base_dps * base_attack_speed * 0.9))),
+    max(static_cast<unsigned>(round(base_dps * base_attack_speed * 1.1))),
+    global_cooldown(1.5),
+    next_gcd(0.0),
+    is_attacking(false),
+    crit_chance(500),
+    attack_speed_modifier(1.0),
+    damage_modifier(1.0),
+    pet_auto_attack(nullptr)
+{}
+
+Pet::~Pet() {
+    remove_spells();
+
+    for (auto & spell: spells)
+        delete spell;
+
+    delete pet_auto_attack;
+}
+
+QString Pet::get_name() const {
+    return this->name;
+}
+
+unsigned Pet::get_focus() const {
+    return 100;
+}
+
+void Pet::start_attack() {
+    if (is_attacking)
+        return;
+
+    this->is_attacking = true;
+
+    pet_auto_attack->perform();
+    add_next_auto_attack();
+
+    use_focus();
+}
+
+void Pet::add_gcd_event() {
+    next_gcd =  pchar->get_engine()->get_current_priority() + global_cooldown;
+    auto* new_event = new PetAction(this, next_gcd);
+    pchar->get_engine()->add_event(new_event);
+}
+
+bool Pet::action_ready() {
+    return lhs_almost_equal_or_less(next_gcd, pchar->get_engine()->get_current_priority());
+}
+
+void Pet::auto_attack(const int iteration) {
+    if (!pet_auto_attack->attack_is_valid(iteration))
+        return;
+
+    pet_auto_attack->perform();
+
+    add_next_auto_attack();
+}
+
+double Pet::get_attack_speed() const {
+    return base_attack_speed / this->attack_speed_modifier;
+}
+
+void Pet::increase_attack_speed(const unsigned increase) {
+    CharacterStats::add_multiplicative_effect(attack_speed_modifiers, static_cast<int>(increase), attack_speed_modifier);
+
+    double increase_double = double(increase) / 100;
+    pet_auto_attack->update_next_expected_use(increase_double);
+    add_next_auto_attack();
+}
+
+void Pet::decrease_attack_speed(const unsigned decrease) {
+    CharacterStats::remove_multiplicative_effect(attack_speed_modifiers, static_cast<int>(decrease), attack_speed_modifier);
+
+    double decrease_double = double(decrease) / 100;
+    pet_auto_attack->update_next_expected_use(-decrease_double);
+    add_next_auto_attack();
+}
+
+double Pet::get_damage_modifier() const {
+    return this->damage_modifier;
+}
+
+void Pet::increase_damage_modifier(const unsigned increase) {
+    CharacterStats::add_multiplicative_effect(damage_modifiers, static_cast<int>(increase), damage_modifier);
+}
+
+void Pet::decrease_damage_modifier(const unsigned decrease) {
+    CharacterStats::remove_multiplicative_effect(damage_modifiers, static_cast<int>(decrease), damage_modifier);
+}
+
+unsigned Pet::get_crit_chance() const {
+    return this->crit_chance;
+}
+
+unsigned Pet::get_min_dmg() const {
+    return this->min;
+}
+
+unsigned Pet::get_max_dmg() const {
+    return this->max;
+}
+
+void Pet::reset() {
+    this->is_attacking = false;
+    this->next_gcd = 0.0;
+}
+
+void Pet::add_next_auto_attack() {
+    auto* new_event = new PetMeleeHit(this, pet_auto_attack->get_next_iteration(), pet_auto_attack->get_next_expected_use());
+    pchar->get_engine()->add_event(new_event);
+}
+
+void Pet::add_spells() {
+    pchar->get_spells()->add_spell(pet_auto_attack, NO_RELINK);
+
+    for (auto & spell : spells)
+        pchar->get_spells()->add_spell(spell, NO_RELINK);
+}
+
+void Pet::remove_spells() {
+    pchar->get_spells()->remove_spell(pet_auto_attack);
+
+    for (auto & spell : spells)
+        pchar->get_spells()->remove_spell(spell);
+}

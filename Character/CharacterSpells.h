@@ -37,6 +37,7 @@ public:
 
     void start_attack();
     void stop_attack();
+    virtual void start_pet_attack();
     bool is_melee_attacking() const;
     bool is_ranged_attacking() const;
 

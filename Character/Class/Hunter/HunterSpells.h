@@ -14,6 +14,7 @@ class HunterSpells: public CharacterSpells {
 public:
     HunterSpells(Hunter *hunter);
 
+    void start_pet_attack() override;
     void add_next_ranged_attack() override;
     void add_next_oh_attack() override;
     void oh_auto_attack(const int) override;

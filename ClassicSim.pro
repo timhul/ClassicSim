@@ -325,7 +325,13 @@ SOURCES += main.cpp \
     Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.cpp \
     Character/Class/Hunter/Spells/RapidFire.cpp \
     Character/Class/Hunter/Buffs/RapidFireBuff.cpp \
-    Character/Common/Buffs/DevilsaurEye.cpp
+    Character/Common/Buffs/DevilsaurEye.cpp \
+    Character/Common/Pet/Pet.cpp \
+    Event/Events/PetAction.cpp \
+    Character/Common/Pet/Species/Cat.cpp \
+    Character/Common/Pet/Spells/PetAutoAttack.cpp \
+    Event/Events/PetMeleeHit.cpp \
+    Character/Common/Pet/Spells/Claw.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -655,7 +661,13 @@ HEADERS += \
     Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.h \
     Character/Class/Hunter/Spells/RapidFire.h \
     Character/Class/Hunter/Buffs/RapidFireBuff.h \
-    Character/Common/Buffs/DevilsaurEye.h
+    Character/Common/Buffs/DevilsaurEye.h \
+    Character/Common/Pet/Pet.h \
+    Event/Events/PetAction.h \
+    Character/Common/Pet/Species/Cat.h \
+    Character/Common/Pet/Spells/PetAutoAttack.h \
+    Event/Events/PetMeleeHit.h \
+    Character/Common/Pet/Spells/Claw.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -724,6 +736,9 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Common/Buffs \
     $$PWD/Character/Common/Spells \
     $$PWD/Character/Common/Procs \
+    $$PWD/Character/Common/Pet \
+    $$PWD/Character/Common/Pet/Species \
+    $$PWD/Character/Common/Pet/Spells \
     $$PWD/GUI \
     $$PWD/GUI/Models \
     $$PWD/GUI/Models/Statistics \
