@@ -298,19 +298,19 @@ void EquipmentDb::read_equipment_files() {
         ItemFileReader().read_items(items, equipment_file_path);
     }
 
-    set_weapons(items);
-    set_items(items, helms, ItemSlots::HEAD);
-    set_items(items, amulets, ItemSlots::NECK);
-    set_items(items, shoulders, ItemSlots::SHOULDERS);
-    set_items(items, backs, ItemSlots::BACK);
-    set_items(items, chests, ItemSlots::CHEST);
-    set_items(items, wrists, ItemSlots::WRIST);
-    set_items(items, gloves, ItemSlots::GLOVES);
-    set_items(items, belts, ItemSlots::BELT);
-    set_items(items, legs, ItemSlots::LEGS);
-    set_items(items, boots, ItemSlots::BOOTS);
-    set_items(items, rings, ItemSlots::RING);
-    set_items(items, trinkets, ItemSlots::TRINKET);
+    take_weapons_from_given_items(items);
+    take_items_of_slot_from_given_items(items, helms, ItemSlots::HEAD);
+    take_items_of_slot_from_given_items(items, amulets, ItemSlots::NECK);
+    take_items_of_slot_from_given_items(items, shoulders, ItemSlots::SHOULDERS);
+    take_items_of_slot_from_given_items(items, backs, ItemSlots::BACK);
+    take_items_of_slot_from_given_items(items, chests, ItemSlots::CHEST);
+    take_items_of_slot_from_given_items(items, wrists, ItemSlots::WRIST);
+    take_items_of_slot_from_given_items(items, gloves, ItemSlots::GLOVES);
+    take_items_of_slot_from_given_items(items, belts, ItemSlots::BELT);
+    take_items_of_slot_from_given_items(items, legs, ItemSlots::LEGS);
+    take_items_of_slot_from_given_items(items, boots, ItemSlots::BOOTS);
+    take_items_of_slot_from_given_items(items, rings, ItemSlots::RING);
+    take_items_of_slot_from_given_items(items, trinkets, ItemSlots::TRINKET);
 
     for (auto & item : items) {
         qDebug() << "Failed to classify slot for" << item->get_name();
@@ -318,7 +318,7 @@ void EquipmentDb::read_equipment_files() {
     }
 }
 
-void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
+void EquipmentDb::take_weapons_from_given_items(QVector<Item*> &mixed_items) {
     Item* item = nullptr;
     for (int i = 0; i < mixed_items.size(); ++i) {
         switch (mixed_items[i]->get_weapon_slot()) {
@@ -350,7 +350,7 @@ void EquipmentDb::set_weapons(QVector<Item*> &mixed_items) {
     }
 }
 
-void EquipmentDb::set_items(QVector<Item*> &mixed_items, QVector<Item*> &sorted, const int slot) {
+void EquipmentDb::take_items_of_slot_from_given_items(QVector<Item*> &mixed_items, QVector<Item*> &sorted, const int slot) {
     Item* item = nullptr;
     for (int i = 0; i < mixed_items.size(); ++i) {
         if (mixed_items[i]->get_item_slot() == slot) {

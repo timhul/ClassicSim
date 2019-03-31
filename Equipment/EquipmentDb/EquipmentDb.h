@@ -51,8 +51,8 @@ private:
     void read_equipment_files();
     void set_patch_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &patch_slot_items);
     Item* get_item(const QVector<Item*> &list, const int item_id) const;
-    void set_weapons(QVector<Item*> &mixed_items);
-    void set_items(QVector<Item*> &mixed_items, QVector<Item *> &sorted, const int slot);
+    void take_weapons_from_given_items(QVector<Item*> &mixed_items);
+    void take_items_of_slot_from_given_items(QVector<Item*> &mixed_items, QVector<Item *> &sorted, const int slot);
     void delete_items(QVector<Item*>*);
     void add_item_id(Item* item);
 
