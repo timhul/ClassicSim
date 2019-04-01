@@ -68,6 +68,7 @@ void TestHemorrhage::test_spell_cooldown() {
 }
 
 void TestHemorrhage::test_incurs_global_cooldown() {
+    given_a_guaranteed_melee_ability_hit();
     given_hemorrhage_is_enabled();
     when_hemorrhage_is_performed();
 

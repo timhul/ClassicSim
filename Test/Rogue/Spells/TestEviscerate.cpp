@@ -134,6 +134,7 @@ void TestEviscerate::test_spell_cooldown() {
 }
 
 void TestEviscerate::test_incurs_global_cooldown() {
+    given_a_guaranteed_melee_ability_hit();
     when_eviscerate_is_performed();
 
     then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
