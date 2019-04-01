@@ -58,6 +58,7 @@ void ExternalBuff::buff_effect_when_applied() {
         break;
     case ExternalBuffName::RallyingCryOfTheDragonslayer:
         pchar->get_stats()->increase_spell_crit(1000);
+        pchar->get_stats()->increase_ranged_crit(500);
         pchar->get_stats()->increase_melee_crit(500);
         pchar->get_stats()->increase_melee_ap(140);
         break;
@@ -66,6 +67,7 @@ void ExternalBuff::buff_effect_when_applied() {
         break;
     case ExternalBuffName::SongflowerSerenade:
         pchar->get_stats()->increase_melee_crit(500);
+        pchar->get_stats()->increase_ranged_crit(500);
         pchar->get_stats()->increase_agility(15);
         pchar->get_stats()->increase_strength(15);
         pchar->get_stats()->increase_stamina(15);
@@ -136,6 +138,7 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::RallyingCryOfTheDragonslayer:
         pchar->get_stats()->decrease_spell_crit(1000);
+        pchar->get_stats()->decrease_ranged_crit(500);
         pchar->get_stats()->decrease_melee_crit(500);
         pchar->get_stats()->decrease_melee_ap(140);
         break;
@@ -144,6 +147,7 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::SongflowerSerenade:
         pchar->get_stats()->decrease_melee_crit(500);
+        pchar->get_stats()->decrease_ranged_crit(500);
         pchar->get_stats()->decrease_agility(15);
         pchar->get_stats()->decrease_strength(15);
         pchar->get_stats()->decrease_stamina(15);
