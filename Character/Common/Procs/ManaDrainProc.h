@@ -9,12 +9,12 @@ class StatisticsResource;
 class ManaDrainProc: public Proc {
 public:
     ManaDrainProc(Character* pchar,
-                     const QString& proc_name,
-                     const QString &icon,
-                     const QVector<ProcInfo::Source>& proc_sources,
-                     const double proc_rate,
-                     const unsigned min_drain,
-                     const unsigned max_drain);
+                  const QString& proc_name,
+                  const QString &icon,
+                  const QVector<ProcInfo::Source>& proc_sources,
+                  const double proc_rate,
+                  const unsigned min_drain,
+                  const unsigned max_drain);
     ~ManaDrainProc() override;
 
 private:

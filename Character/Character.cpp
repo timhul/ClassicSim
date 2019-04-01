@@ -469,13 +469,11 @@ void Character::lose_energy(const unsigned) {
 
 }
 
-void Character::gain_focus(const unsigned)
-{
+void Character::gain_focus(const unsigned) {
 
 }
 
-void Character::lose_focus(const unsigned)
-{
+void Character::lose_focus(const unsigned) {
 
 }
 
