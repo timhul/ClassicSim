@@ -206,7 +206,7 @@
 			<info name="Exalted Helmet" type="PLATE" slot="HEAD" unique="no" req_lvl="59" item_lvl="64" quality="UNCOMMON" boe="yes" icon="Inv_helmet_10.png"/>
 			<stats>
 				<stat type="ARMOR" value="492"/>
-				<stat type="RANDOM_AFFIX" value="0"/>
+				<!-- <stat type="RANDOM_AFFIX" value="0"/> -->
 			</stats>
 			<source>
 			World drop.

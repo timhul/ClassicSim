@@ -67,8 +67,7 @@
 			<dmg_range min="71" max="134" speed="2.4"/>
 			<stats>
 				<stat type="AXE_SKILL" value="2"/>
-				<!-- TODO: Support selection of which affix. -->
-				<stat type="RANDOM_AFFIX" value="0"/>
+				<!-- <stat type="RANDOM_AFFIX" value="0"/> -->
 			</stats>
 			<source>
 			Random drop from trash in Zul'Gurub.
