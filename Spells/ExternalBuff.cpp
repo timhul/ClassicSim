@@ -232,72 +232,72 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::RallyingCryOfTheDragonslayer:
         return new ExternalBuff(pchar, "Rallying Cry of the Dragonslayer", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_misc_head_dragon_01.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_head_dragon_01.png",
                                 "+10% Spell crit, +5% melee/ranged crit, +140 attack power",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::SpiritOfZandalar:
         return new ExternalBuff(pchar, "Spirit of Zandalar", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Ability_creature_poison_05.png",
+                                name, AvailableFactions::Neutral, "Assets/ability/Ability_creature_poison_05.png",
                                 "Increases movement speed by 10% and all stats by 15%",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::SongflowerSerenade:
         return new ExternalBuff(pchar, "Songflower Serenade", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Spell_holy_mindvision.png",
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_holy_mindvision.png",
                                 "+5% Crit, +15 all attributes",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::ElixirOfTheMongoose:
         return new ExternalBuff(pchar, "Elixir of the Mongoose", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_potion_32.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_32.png",
                                 "+25 Agility, +%2 Critical Strike",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::ElixirOfBruteForce:
         return new ExternalBuff(pchar, "Elixir of Brute Force", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_potion_40.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_40.png",
                                 "+18 Strength and Stamina",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::ElixirOfGiants:
         return new ExternalBuff(pchar, "Elixir of Giants", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_potion_61.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_61.png",
                                 "+25 Strength",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::WinterfallFirewater:
         return new ExternalBuff(pchar, "Winterfall Firewater", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_potion_92.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_92.png",
                                 "+35 Melee attack power",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::JujuPower:
         return new ExternalBuff(pchar, "Juju Power", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_misc_monsterscales_11.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_monsterscales_11.png",
                                 "+30 Strength",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::MarkOfTheWild:
         return new ExternalBuff(pchar, "Mark of the Wild", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Spell_nature_regeneration.png",
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_nature_regeneration.png",
                                 "+16 all attributes, +384 armor, +27 all resistances",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::ScrollOfStrengthIV:
         return new ExternalBuff(pchar, "Scroll of Strength IV", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_scroll_02.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_scroll_02.png",
                                 "+17 Strength",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::SmokedDesertDumplings:
         return new ExternalBuff(pchar, "Smoked Desert Dumplings", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_misc_food_64.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_food_64.png",
                                 "+20 Strength",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::ROIDS:
         return new ExternalBuff(pchar, "R.O.I.D.S", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Inv_stone_15.png",
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_stone_15.png",
                                 "+25 Strength",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::BlessingOfKings:
         return new ExternalBuff(pchar, "Greater Blessing of Kings", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Alliance, "Assets/buffs/Spell_magic_greaterblessingofkings.png",
+                                name, AvailableFactions::Alliance, "Assets/spell/Spell_magic_greaterblessingofkings.png",
                                 "Increases total stats by 10%",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::BlessingOfMight:
         return new ExternalBuff(pchar, "Greater Blessing of Might", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Alliance, "Assets/buffs/Spell_holy_greaterblessingofkings.png",
+                                name, AvailableFactions::Alliance, "Assets/spell/Spell_holy_greaterblessingofkings.png",
                                 "Increases melee attack power by 185",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::BlessingOfWisdom:
@@ -307,7 +307,7 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::StrengthOfEarthTotem:
         return new ExternalBuff(pchar, "Strength of Earth Totem", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Horde, "Assets/buffs/Spell_nature_earthbindtotem.png",
+                                name, AvailableFactions::Horde, "Assets/spell/Spell_nature_earthbindtotem.png",
                                 "+77 Strength",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::ManaSpringTotem:
@@ -322,12 +322,12 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::CurseOfRecklessness:
         return new ExternalBuff(pchar, "Curse of Recklessness", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Spell_shadow_unholystrength.png",
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_shadow_unholystrength.png",
                                 "Reduces target armor by 640.",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::FaerieFire:
         return new ExternalBuff(pchar, "Faerie Fire", BuffDuration::PERMANENT, 0,
-                                name, AvailableFactions::Neutral, "Assets/buffs/Spell_nature_faeriefire.png",
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_nature_faeriefire.png",
                                 "Reduces target armor by 505.",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::SunderArmor:
