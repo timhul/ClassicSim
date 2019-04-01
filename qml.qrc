@@ -480,5 +480,7 @@
         <file>QML/AttackModeChoice.qml</file>
         <file>QML/CharacterStatsMelee.qml</file>
         <file>QML/CharacterStatsRanged.qml</file>
+        <file>QML/Assets/spell/Spell_holy_greaterblessingofwisdom.png</file>
+        <file>QML/Assets/spell/Spell_nature_manaregentotem.png</file>
     </qresource>
 </RCC>

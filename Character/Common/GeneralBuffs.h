@@ -47,6 +47,8 @@ private:
     void activate_buffs_for_current_setup();
     void activate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec);
     void deactivate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec);
+
+    bool character_is_mana_user() const;
 };
 
 #endif // GENERALBUFFS_H

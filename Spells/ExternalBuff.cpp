@@ -113,8 +113,14 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::BlessingOfMight:
         pchar->get_stats()->increase_melee_ap(185);
         break;
+    case ExternalBuffName::BlessingOfWisdom:
+        pchar->get_stats()->increase_mp5(33);
+        break;
     case ExternalBuffName::StrengthOfEarthTotem:
         pchar->get_stats()->increase_strength(77);
+        break;
+    case ExternalBuffName::ManaSpringTotem:
+        pchar->get_stats()->increase_mp5(25);
         break;
     case ExternalBuffName::Annihilator:
         pchar->get_target()->decrease_armor(600);
@@ -193,8 +199,14 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::BlessingOfMight:
         pchar->get_stats()->decrease_melee_ap(185);
         break;
+    case ExternalBuffName::BlessingOfWisdom:
+        pchar->get_stats()->decrease_mp5(33);
+        break;
     case ExternalBuffName::StrengthOfEarthTotem:
         pchar->get_stats()->decrease_strength(77);
+        break;
+    case ExternalBuffName::ManaSpringTotem:
+        pchar->get_stats()->decrease_mp5(25);
         break;
     case ExternalBuffName::Annihilator:
         pchar->get_target()->increase_armor(600);
@@ -288,10 +300,20 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
                                 name, AvailableFactions::Alliance, "Assets/buffs/Spell_holy_greaterblessingofkings.png",
                                 "Increases melee attack power by 185",
                                 QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::BlessingOfWisdom:
+        return new ExternalBuff(pchar, "Greater Blessing of Wisdom", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Alliance, "Assets/spell/Spell_holy_greaterblessingofwisdom.png",
+                                "Restores 33 mana every 5 seconds.",
+                                QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::StrengthOfEarthTotem:
         return new ExternalBuff(pchar, "Strength of Earth Totem", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Horde, "Assets/buffs/Spell_nature_earthbindtotem.png",
                                 "+77 Strength",
+                                QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::ManaSpringTotem:
+        return new ExternalBuff(pchar, "Mana Spring Totem", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Horde, "Assets/spell/Spell_nature_manaregentotem.png",
+                                "Restores 10 mana every 2 seconds.",
                                 QVersionNumber::fromString("1.0.0"));
     case ExternalBuffName::Annihilator:
         return new ExternalBuff(pchar, "Annihilator Proc", BuffDuration::PERMANENT, 0,

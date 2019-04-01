@@ -1,5 +1,7 @@
 #include "GeneralBuffs.h"
 
+#include <QSet>
+
 #include "Character.h"
 #include "EssenceOfTheRed.h"
 #include "ExternalBuff.h"
@@ -13,8 +15,12 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
 {
     this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfKings, pchar));
     this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfMight, pchar));
+    if (character_is_mana_user())
+        this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfWisdom, pchar));
 
     this->horde_only_buffs.append(get_external_buff_by_name(ExternalBuffName::StrengthOfEarthTotem, pchar));
+    if (character_is_mana_user())
+        this->horde_only_buffs.append(get_external_buff_by_name(ExternalBuffName::ManaSpringTotem, pchar));
 
     for (int i = 0; i < 3; ++i) {
         this->external_buffs.append(QVector<QPair<bool, ExternalBuff*>>());
@@ -203,4 +209,10 @@ void GeneralBuffs::deactivate_externals(const QVector<QVector<QPair<bool, Extern
         if (i.second->is_active())
             i.second->cancel_buff();
     }
+}
+
+bool GeneralBuffs::character_is_mana_user() const {
+    QSet<QString> mana_users = {"Druid", "Hunter", "Mage", "Paladin", "Priest", "Shaman", "Warlock"};
+
+    return mana_users.contains(pchar->get_name());
 }
