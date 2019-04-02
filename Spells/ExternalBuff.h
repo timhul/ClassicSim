@@ -17,6 +17,7 @@ enum ExternalBuffName {
     ElixirOfGiants,
     ElixirOfTheMongoose,
     FaerieFire,
+    GrilledSquid,
     JujuPower,
     ManaSpringTotem,
     MarkOfTheWild,

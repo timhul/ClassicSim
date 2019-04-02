@@ -134,6 +134,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::SunderArmor:
         pchar->get_target()->decrease_armor(2250);
         break;
+    case ExternalBuffName::GrilledSquid:
+        pchar->get_stats()->increase_agility(10);
+        break;
     }
 }
 
@@ -219,6 +222,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::SunderArmor:
         pchar->get_target()->increase_armor(2250);
+        break;
+    case ExternalBuffName::GrilledSquid:
+        pchar->get_stats()->decrease_agility(10);
         break;
     }
 }
@@ -334,6 +340,11 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Sunder Armor", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/ability/Ability_warrior_sunder.png",
                                 "Reduces target armor by 2250.",
+                                QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::GrilledSquid:
+        return new ExternalBuff(pchar, "Grilled Squid", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_fish_13.png",
+                                "+10 Agility",
                                 QVersionNumber::fromString("1.0.0"));
     }
 
