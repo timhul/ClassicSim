@@ -17,7 +17,8 @@ AimedShot::AimedShot(Character* pchar) :
                      3000),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
-                                                new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)})
+                                                new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),
+    base_casting_time_ms(3000)
 {
     this->enabled = false;
     resource_base = resource_cost;
@@ -33,6 +34,7 @@ AimedShot::AimedShot(Character* pchar) :
 void AimedShot::spell_effect() {
     pchar->get_spells()->stop_attack();
     add_gcd_event();
+    casting_time_ms = static_cast<unsigned>(round(base_casting_time_ms / pchar->get_stats()->get_ranged_attack_speed_mod()));
     start_cast();
 }
 

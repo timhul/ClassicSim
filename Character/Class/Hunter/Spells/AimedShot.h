@@ -9,6 +9,7 @@ public:
     AimedShot(Character* pchar);
 
 private:
+    const unsigned base_casting_time_ms;
     QVector<double> talent_ranks;
     double resource_base;
     QVector<double> efficiency_ranks;
