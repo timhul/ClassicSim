@@ -30,6 +30,8 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
     this->mana = new class Mana(this);
     this->resource = this->mana;
     mana->set_base_mana(1520);
+
+    shaman_spells->activate_racials();
 }
 
 Shaman::~Shaman()

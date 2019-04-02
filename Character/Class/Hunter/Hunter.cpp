@@ -45,6 +45,8 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings)
     this->pet = new Cat(this);
 
     initialize_talents();
+
+    hunter_spells->activate_racials();
 }
 
 Hunter::~Hunter()

@@ -29,6 +29,8 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     this->mana = new class Mana(this);
     this->resource = this->mana;
     mana->set_base_mana(1436);
+
+    paladin_spells->activate_racials();
 }
 
 Paladin::~Paladin()

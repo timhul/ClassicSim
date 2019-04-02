@@ -31,6 +31,8 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
     this->mana = new class Mana(this);
     this->resource = this->mana;
     mana->set_base_mana(1273);
+
+    mage_spells->activate_racials();
 }
 
 Mage::~Mage()

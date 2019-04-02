@@ -31,6 +31,8 @@ Warlock::Warlock(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     this->mana = new class Mana(this);
     this->resource = this->mana;
     mana->set_base_mana(1373);
+
+    warlock_spells->activate_racials();
 }
 
 Warlock::~Warlock()

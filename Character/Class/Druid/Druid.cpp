@@ -34,6 +34,8 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
     this->rage = new class Rage();
     this->mana = new class Mana(this);
     mana->set_base_mana(1244);
+
+    druid_spells->activate_racials();
 }
 
 Druid::~Druid()
