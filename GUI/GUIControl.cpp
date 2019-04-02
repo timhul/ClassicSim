@@ -1682,6 +1682,13 @@ void GUIControl::load_gui_settings() {
 
     if (current_char == nullptr)
         set_character(chars["Warrior"]);
+
+    if (!current_char->get_faction()->get_faction_races().contains(current_char->get_race()->get_name())) {
+        QString name = current_char->get_race()->get_name();
+        selectFaction(current_char->get_faction()->is_alliance() ? AvailableFactions::Name::Horde :
+                                                                   AvailableFactions::Name::Alliance);
+        selectRace(name);
+    }
 }
 
 void GUIControl::activate_gui_setting(const QStringRef& name, const QString& value) {
