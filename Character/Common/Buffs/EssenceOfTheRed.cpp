@@ -6,9 +6,9 @@
 #include "ResourceGain.h"
 
 EssenceOfTheRed::EssenceOfTheRed(Character* pchar):
-    Buff(pchar, "Essence of the Red", "Assets/buffs/Spell_fire_lavaspawn.png", 180, 0),
+    Buff(pchar, "Essence of the Red", "Assets/spell/Spell_fire_lavaspawn.png", 180, 0),
     spell(new PeriodicResourceGainSpell(name,
-                                        "Assets/buffs/Spell_fire_lavaspawn.png",
+                                        "Assets/spell/Spell_fire_lavaspawn.png",
                                         pchar,
                                         false, 0.0, 1.0, duration,
                                         QMap<ResourceType, unsigned>({{ResourceType::Mana, 500},
