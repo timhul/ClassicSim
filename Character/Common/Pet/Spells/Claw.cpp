@@ -26,7 +26,7 @@ Claw::~Claw() {
 
 void Claw::spell_effect() {
     const int wpn_skill = pchar->get_clvl() * 5;
-    const int result = roll->get_melee_ability_result(wpn_skill, pet->get_crit_chance());
+    const int result = roll->get_pet_ability_result(wpn_skill, pet->get_crit_chance());
 
     pet->add_gcd_event();
 

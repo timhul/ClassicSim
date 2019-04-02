@@ -34,7 +34,7 @@ void PetAutoAttack::spell_effect() {
 
 void PetAutoAttack::calculate_damage() {
     const int wpn_skill = pchar->get_clvl() * 5;
-    const int result = roll->get_melee_hit_result(wpn_skill, pet->get_crit_chance());
+    const int result = roll->get_pet_hit_result(wpn_skill, pet->get_crit_chance());
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

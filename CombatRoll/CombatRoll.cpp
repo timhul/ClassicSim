@@ -77,6 +77,22 @@ int CombatRoll::get_spell_resist_result(const MagicSchool school) {
     return attack_table->get_resist_outcome(roll);
 }
 
+int CombatRoll::get_pet_hit_result(const int wpn_skill, const unsigned crit_mod) {
+    const unsigned roll = random->get_roll();
+
+    MeleeWhiteHitTable* attack_table = this->get_pet_white_table(wpn_skill);
+
+    return attack_table->get_outcome(roll, crit_mod);
+}
+
+int CombatRoll::get_pet_ability_result(const int wpn_skill, const unsigned crit_mod) {
+    const unsigned roll = random->get_roll();
+
+    MeleeSpecialTable* attack_table = this->get_pet_ability_table(wpn_skill);
+
+    return attack_table->get_outcome(roll, crit_mod, true, true, true, true);
+}
+
 Mechanics* CombatRoll::get_mechanics() const {
     return this->mechanics;
 }
@@ -160,6 +176,46 @@ MagicAttackTable* CombatRoll::get_magic_attack_table(const MagicSchool school) {
     return table;
 }
 
+MeleeWhiteHitTable *CombatRoll::get_pet_white_table(const int wpn_skill) {
+    if (pet_white_tables.contains(wpn_skill))
+        return pet_white_tables[wpn_skill];
+
+    unsigned miss_chance = static_cast<unsigned>(round(mechanics->get_2h_white_miss_chance(wpn_skill) * 10000));
+
+    double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
+                0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
+
+    auto* table = new MeleeWhiteHitTable(
+                this->random,
+                wpn_skill,
+                miss_chance,
+                mechanics->get_dodge_chance(wpn_skill),
+                mechanics->get_parry_chance(wpn_skill),
+                glancing_blow_chance,
+                mechanics->get_block_chance());
+
+    pet_white_tables[wpn_skill] = table;
+
+    return table;
+}
+
+MeleeSpecialTable *CombatRoll::get_pet_ability_table(const int wpn_skill) {
+    if (pet_special_tables.contains(wpn_skill))
+        return pet_special_tables[wpn_skill];
+
+    unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(wpn_skill) * 10000));
+
+    auto* table = new MeleeSpecialTable(this->random,
+                                        wpn_skill,
+                                        miss_chance,
+                                        mechanics->get_dodge_chance(wpn_skill),
+                                        mechanics->get_parry_chance(wpn_skill),
+                                        mechanics->get_block_chance());
+    pet_special_tables[wpn_skill] = table;
+
+    return table;
+}
+
 double CombatRoll::get_white_miss_chance(const int wpn_skill) {
     if (pchar->is_dual_wielding())
         return mechanics->get_dw_white_miss_chance(wpn_skill);
@@ -220,10 +276,18 @@ void CombatRoll::drop_tables() {
     for (auto & table: magic_attack_tables)
         delete table;
 
+    for (auto & table: pet_white_tables)
+        delete table;
+
+    for (auto & table: pet_special_tables)
+        delete table;
+
     melee_white_tables.clear();
     melee_special_tables.clear();
     ranged_white_tables.clear();
     magic_attack_tables.clear();
+    pet_white_tables.clear();
+    pet_special_tables.clear();
 }
 
 void CombatRoll::set_new_seed(const unsigned seed) {

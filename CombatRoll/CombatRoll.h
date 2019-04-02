@@ -32,11 +32,15 @@ public:
     int get_ranged_ability_result(const int wpn_skill, const unsigned crit_chance);
     int get_spell_ability_result(const MagicSchool, const unsigned);
     int get_spell_resist_result(const MagicSchool);
+    int get_pet_hit_result(const int wpn_skill, const unsigned crit_mod);
+    int get_pet_ability_result(const int wpn_skill, const unsigned crit_mod);
 
     MeleeWhiteHitTable* get_melee_white_table(const int);
     MeleeSpecialTable* get_melee_special_table(const int);
     RangedWhiteHitTable* get_ranged_white_table(const int);
     MagicAttackTable* get_magic_attack_table(const MagicSchool);
+    MeleeWhiteHitTable* get_pet_white_table(const int wpn_skill);
+    MeleeSpecialTable* get_pet_ability_table(const int wpn_skill);
 
     Mechanics* get_mechanics() const;
 
@@ -62,6 +66,8 @@ private:
     QMap<int, MeleeSpecialTable*> melee_special_tables;
     QMap<int, RangedWhiteHitTable*> ranged_white_tables;
     QMap<MagicSchool, MagicAttackTable*> magic_attack_tables;
+    QMap<int, MeleeWhiteHitTable*> pet_white_tables;
+    QMap<int, MeleeSpecialTable*> pet_special_tables;
 };
 
 #endif // COMBATROLL_H
