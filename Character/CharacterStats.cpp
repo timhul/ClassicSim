@@ -239,13 +239,13 @@ int CharacterStats::get_wpn_skill(Weapon* weapon) const {
         skill_bonus += pchar->get_race()->get_mace_bonus() + equipment->get_stats()->get_mace_skill() + mace_skill_bonus;
         break;
     case WeaponTypes::BOW:
-        skill_bonus += equipment->get_stats()->get_bow_skill();
+        skill_bonus += pchar->get_race()->get_bow_bonus() + equipment->get_stats()->get_bow_skill();
         break;
     case WeaponTypes::CROSSBOW:
         skill_bonus += equipment->get_stats()->get_crossbow_skill();
         break;
     case WeaponTypes::GUN:
-        skill_bonus += equipment->get_stats()->get_gun_skill();
+        skill_bonus += pchar->get_race()->get_gun_bonus() + equipment->get_stats()->get_gun_skill();
         break;
     }
     return pchar->get_clvl() * 5 + skill_bonus;
