@@ -57,7 +57,7 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
         };
     }
 
-    check(false, "Reached end of switch");
+    check(false, "HunterEnchants::get_available_enchants reached end of switch");
     return {};
 }
 
@@ -67,7 +67,8 @@ QVector<EnchantName::Name> HunterEnchants::get_available_temp_enchants(const int
         QVector<EnchantName::Name> enchants {
             EnchantName::ElementalSharpeningStone,
             EnchantName::ConsecratedSharpeningStone,
-            EnchantName::InstantPoison
+            EnchantName::LesserManaOil,
+            EnchantName::BrilliantManaOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
@@ -79,13 +80,14 @@ QVector<EnchantName::Name> HunterEnchants::get_available_temp_enchants(const int
         QVector<EnchantName::Name> enchants {
             EnchantName::ConsecratedSharpeningStone,
             EnchantName::ElementalSharpeningStone,
-            EnchantName::InstantPoison
+            EnchantName::LesserManaOil,
+            EnchantName::BrilliantManaOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
         return enchants;
     }
 
-    check(false, "Reached end of switch");
+    check(false, "HunterEnchants::get_available_temp_enchants reached end of switch");
     return {};
 }

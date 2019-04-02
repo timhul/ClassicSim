@@ -42,7 +42,9 @@ public:
         EnchantBootsGreaterAgility,
         ElementalSharpeningStone,
         ConsecratedSharpeningStone,
-        DenseSharpeningStone
+        DenseSharpeningStone,
+        LesserManaOil,
+        BrilliantManaOil
     };
 
     Q_ENUMS(Name)
@@ -112,9 +114,13 @@ public:
             return "Consecrated Sharpening Stone";
         case EnchantName::DenseSharpeningStone:
             return "Dense Sharpening Stone";
+        case EnchantName::LesserManaOil:
+            return "Lesser Mana Oil";
+        case EnchantName::BrilliantManaOil:
+            return "Brilliant Mana Oil";
         }
 
-        check(false, "Reached end of switch");
+        check(false, "EnchantName::get_name reached end of switch");
         return "";
     }
 
@@ -187,9 +193,13 @@ public:
             return "+100 AP\nvs Undead";
         case EnchantName::DenseSharpeningStone:
             return "+8 Damage";
+        case EnchantName::LesserManaOil:
+            return "+8 mp5";
+        case EnchantName::BrilliantManaOil:
+            return "+12m5/+25 Heal";
         }
 
-        check(false, "Reached end of switch");
+        check(false, "EnchantName::get_effect reached end of switch");
         return "";
     }
 };

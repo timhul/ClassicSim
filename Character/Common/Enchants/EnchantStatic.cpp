@@ -116,8 +116,14 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         else
             check(false, "Unhandled case in switch");
         break;
+    case EnchantName::LesserManaOil:
+        pchar->get_stats()->increase_mp5(8);
+        break;
+    case EnchantName::BrilliantManaOil:
+        pchar->get_stats()->increase_mp5(12);
+        break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "EnchantStatic constructor reached end of switch");
         break;
     }
 }
@@ -224,6 +230,12 @@ EnchantStatic::~EnchantStatic() {
             pchar->decrease_mh_flat_damage_bonus(8);
         else if (enchant_slot == EnchantSlot::OFFHAND)
             pchar->decrease_oh_flat_damage_bonus(8);
+        break;
+    case EnchantName::LesserManaOil:
+        pchar->get_stats()->decrease_mp5(8);
+        break;
+    case EnchantName::BrilliantManaOil:
+        pchar->get_stats()->decrease_mp5(12);
         break;
     default:
         break;

@@ -118,6 +118,8 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     case EnchantName::ConsecratedSharpeningStone:
     case EnchantName::DenseSharpeningStone:
     case EnchantName::ElementalSharpeningStone:
+    case EnchantName::LesserManaOil:
+    case EnchantName::BrilliantManaOil:
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::InstantPoison:
@@ -126,7 +128,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         dynamic_cast<InstantPoison*>(temporary_enchant)->enable();
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "Weapon::apply_temporary_enchant reached end of switch");
     }
 }
 
