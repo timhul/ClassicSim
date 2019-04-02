@@ -36,6 +36,7 @@ Character::Character(QString class_name, Race* race, SimSettings *sim_settings) 
     statistics(new ClassStatistics(sim_settings)),
     sim_settings(sim_settings),
     resource(nullptr),
+    pet(nullptr),
     clvl(1),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard),
@@ -118,6 +119,10 @@ CombatRoll* Character::get_combat_roll() const {
 
 Faction* Character::get_faction() const {
     return this->faction;
+}
+
+Pet *Character::get_pet() const {
+    return pet;
 }
 
 Equipment* Character::get_equipment() const {

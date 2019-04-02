@@ -154,10 +154,6 @@ void Hunter::add_pet_reaction_event() {
     pet->add_pet_reaction();
 }
 
-Pet* Hunter::get_pet() const {
-    return this->pet;
-}
-
 int Hunter::get_highest_possible_armor_type() const {
     return ArmorTypes::MAIL;
 }

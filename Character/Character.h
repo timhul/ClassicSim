@@ -21,6 +21,7 @@ class Engine;
 class Equipment;
 class EquipmentDb;
 class Faction;
+class Pet;
 class Race;
 class Rotation;
 class SimSettings;
@@ -45,6 +46,7 @@ public:
     Engine* get_engine() const;
     Equipment* get_equipment() const;
     Faction* get_faction() const;
+    Pet* get_pet() const;
     Race* get_race();
     SimSettings* get_sim_settings() const;
     Talents* get_talents() const;
@@ -173,6 +175,7 @@ protected:
     ClassStatistics* statistics;
     SimSettings* sim_settings;
     Resource* resource;
+    Pet* pet;
 
     QVector<QString> available_races;
 

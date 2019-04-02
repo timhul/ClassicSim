@@ -36,12 +36,9 @@ public:
 
     void add_pet_reaction_event() override;
 
-    Pet* get_pet() const;
-
 private:
     HunterSpells* hunter_spells;
     class Mana* mana;
-    Pet* pet;
 
     void initialize_talents() override;
     void reset_class_specific() override;

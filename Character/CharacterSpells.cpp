@@ -10,6 +10,7 @@
 #include "MainhandMeleeHit.h"
 #include "OffhandAttack.h"
 #include "OffhandMeleeHit.h"
+#include "Pet.h"
 #include "Race.h"
 #include "Rotation.h"
 #include "Target.h"
@@ -85,11 +86,12 @@ void CharacterSpells::activate_racials() {
     switch (pchar->get_race()->get_race_int()) {
     case Races::Orc:
         blood_fury->enable();
+        if (pchar->get_pet())
+            pchar->get_pet()->increase_damage_modifier(5);
         break;
     case Races::Troll:
         berserking->enable();
-        if (pchar->get_target()->get_creature_type() == Target::CreatureType::Beast)
-            pchar->get_stats()->increase_total_phys_dmg_mod(5);
+        pchar->get_stats()->increase_dmg_vs_type(Target::CreatureType::Beast, 0.05);
         break;
     }
 }
@@ -98,11 +100,12 @@ void CharacterSpells::deactivate_racials() {
     switch (pchar->get_race()->get_race_int()) {
     case Races::Orc:
         blood_fury->disable();
+        if (pchar->get_pet())
+            pchar->get_pet()->decrease_damage_modifier(5);
         break;
     case Races::Troll:
         berserking->disable();
-        if (pchar->get_target()->get_creature_type() == Target::CreatureType::Beast)
-            pchar->get_stats()->decrease_total_phys_dmg_mod(5);
+        pchar->get_stats()->decrease_dmg_vs_type(Target::CreatureType::Beast, 0.05);
         break;
     }
 }
