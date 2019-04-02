@@ -9,8 +9,6 @@ class Energy: public RegeneratingResource {
 public:
     Energy(Character*);
 
-    friend class Cat;
-
     unsigned get_max_resource() const override;
     unsigned get_resource_per_tick() override;
     ResourceType get_resource_type() const override;
