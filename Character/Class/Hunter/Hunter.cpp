@@ -171,7 +171,7 @@ QVector<int> Hunter::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN});
     default:
-        check(false, "Reached end of switch");
+        check(false, "Hunter::get_weapon_proficiencies_for_slot reached end of switch");
         return QVector<int>();
     }
 }

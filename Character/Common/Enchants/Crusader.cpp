@@ -20,7 +20,7 @@ Crusader::Crusader(Character* pchar, const QString& weapon_identifier, const int
         proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "Crusader constructor reached end of switch");
     }
 
     holy_strength->enable_buff();

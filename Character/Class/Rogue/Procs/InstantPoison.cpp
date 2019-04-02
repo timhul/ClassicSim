@@ -42,7 +42,7 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
         proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "InstantPoison constructor reached end of switch");
     }
 }
 
@@ -116,7 +116,7 @@ void InstantPoison::activate_set_bonus_effect(const QString& set_name, const int
             proc_range += 500;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "InstantPoison::activate_set_bonus_effect reached end of switch");
         }
     }
 }
@@ -128,7 +128,7 @@ void InstantPoison::deactivate_set_bonus_effect(const QString& set_name, const i
             proc_range -= 500;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "InstantPoison::deactivate_set_bonus_effect reached end of switch");
         }
     }
 }

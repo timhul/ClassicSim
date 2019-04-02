@@ -77,7 +77,7 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
         };
     }
 
-    check(false, "Reached end of switch");
+    check(false, "WarriorEnchants::get_available_enchants reached end of switch");
     return {};
 }
 
@@ -104,6 +104,6 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
         return enchants;
     }
 
-    check(false, "Reached end of switch");
+    check(false, "WarriorEnchants::get_available_temp_enchants reached end of switch");
     return {};
 }

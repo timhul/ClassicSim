@@ -57,7 +57,7 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
     case BuiltinVariables::ComboPoints:
         return cmp_values(dynamic_cast<Rogue*>(pchar)->get_combo_points());
     default:
-        check(false, "Reached end of switch");
+        check(false, "ConditionVariableBuiltin::condition_fulfilled reached end of switch");
         return false;
     }
 }
@@ -75,7 +75,7 @@ bool ConditionVariableBuiltin::cmp_values(const double lhs_value) const {
     case Comparators::greater:
         return lhs_value > rhs_value;
     default:
-        check(false, "Reached end of switch");
+        check(false, "ConditionVariableBuiltin::cmp_values reached end of switch");
         return false;
     }
 }

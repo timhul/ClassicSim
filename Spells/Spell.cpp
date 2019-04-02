@@ -197,7 +197,7 @@ double Spell::get_partial_resist_dmg_modifier(const int resist_result) const {
     case MagicResistResult::NO_RESIST:
         return 1.0;
     default:
-        check(false, "Reached end of switch");
+        check(false, "Spell::get_partial_resist_dmg_modifier reached end of switch");
         return 0.0;
     }
 }

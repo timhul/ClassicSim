@@ -21,7 +21,7 @@ bool CharacterEnchants::has_sharp_weapon(const int equipment_slot) const {
         wpn = pchar->get_stats()->get_equipment()->get_offhand();
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "CharacterEnchants::has_sharp_weapon reached end of switch");
     }
 
     if (wpn == nullptr)

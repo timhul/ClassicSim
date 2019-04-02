@@ -24,7 +24,7 @@ bool ConditionBuff::condition_fulfilled() const {
     case Comparators::true_val:
         return buff->is_active();
     default:
-        check(false, "Reached end of switch");
+        check(false, "ConditionBuff::condition_fulfilled reached end of switch");
         return false;
     }
 }

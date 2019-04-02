@@ -23,7 +23,7 @@ bool ConditionResource::condition_fulfilled() const {
     case Comparators::greater:
         return resource > cmp_value;
     default:
-        check(false, "Reached end of switch");
+        check(false, "ConditionResource::condition_fulfilled reached end of switch");
         return false;
     }
 }

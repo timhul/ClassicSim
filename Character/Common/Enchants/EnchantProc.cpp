@@ -24,7 +24,7 @@ EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int 
         proc = new WindfuryTotemAttack(pchar);
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "EnchantProc constructor reached end of switch");
     }
 
     proc->enable_proc();

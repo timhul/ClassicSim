@@ -117,7 +117,7 @@ QVector<int> Paladin::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::LIBRAM});
     default:
-        check(false, "Reached end of switch");
+        check(false, "Paladin::get_weapon_proficiencies_for_slot reached end of switch");
         return QVector<int>();
     }
 }

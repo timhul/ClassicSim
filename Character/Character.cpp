@@ -363,7 +363,7 @@ double Character::get_normalized_dmg(const unsigned damage, const Weapon* weapon
         attack_power = cstats->get_ranged_ap();
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "Character::get_normalized_dmg reached end of switch");
     }
 
     return get_non_normalized_dmg(damage, attack_power, normalized_wpn_speed);

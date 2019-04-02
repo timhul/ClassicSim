@@ -43,7 +43,7 @@ bool SwordSpecialization::proc_specific_conditions_fulfilled() const {
     case ProcInfo::Source::OffhandSwing:
         return weapon_is_sword(warr->get_stats()->get_equipment()->get_offhand());
     default:
-        check(false, "Reached end of switch");
+        check(false, "SwordSpecialization::proc_specific_conditions_fulfilled reached end of switch");
         return false;
     }
 }

@@ -82,7 +82,7 @@ void Hemorrhage::activate_set_bonus_effect(const QString& set_name, const int se
             bonescythe_energy = 5;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "Hemorrhage::activate_set_bonus_effect reached end of switch");
         }
     }
 }
@@ -94,7 +94,7 @@ void Hemorrhage::deactivate_set_bonus_effect(const QString& set_name, const int 
             bonescythe_energy = 0;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "Hemorrhage::deactivate_set_bonus_effect reached end of switch");
         }
     }
 }

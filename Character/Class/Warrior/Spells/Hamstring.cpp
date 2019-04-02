@@ -60,7 +60,7 @@ void Hamstring::activate_item_effect(const int item_id) {
         resource_cost -= 3;
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "Hamstring::activate_item_effect reached end of switch");
     }
 }
 
@@ -73,6 +73,6 @@ void Hamstring::deactivate_item_effect(const int item_id) {
         resource_cost += 3;
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "Hamstring::deactivate_item_effect reached end of switch");
     }
 }

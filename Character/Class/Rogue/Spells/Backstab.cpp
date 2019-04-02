@@ -103,7 +103,7 @@ void Backstab::activate_set_bonus_effect(const QString& set_name, const int set_
             bonescythe_energy = 5;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "Backstab::activate_set_bonus_effect reached end of switch");
         }
     }
 }
@@ -115,7 +115,7 @@ void Backstab::deactivate_set_bonus_effect(const QString& set_name, const int se
             bonescythe_energy = 0;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "Backstab::deactivate_set_bonus_effect reached end of switch");
         }
     }
 }

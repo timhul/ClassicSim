@@ -134,7 +134,7 @@ void Eviscerate::activate_set_bonus_effect(const QString& set_name, const int se
             deathdealer_modifier = 1.15;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "Eviscerate::activate_set_bonus_effect reached end of switch");
         }
     }
 }
@@ -146,7 +146,7 @@ void Eviscerate::deactivate_set_bonus_effect(const QString& set_name, const int 
             deathdealer_modifier = 1.0;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "Eviscerate::deactivate_set_bonus_effect reached end of switch");
         }
     }
 }

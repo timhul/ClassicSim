@@ -57,7 +57,7 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
         };
     }
 
-    check(false, "Reached end of switch");
+    check(false, "RogueEnchants::get_available_enchants reached end of switch");
     return {};
 }
 
@@ -86,6 +86,6 @@ QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int 
         return enchants;
     }
 
-    check(false, "Reached end of switch");
+    check(false, "RogueEnchants::get_available_temp_enchants reached end of switch");
     return {};
 }

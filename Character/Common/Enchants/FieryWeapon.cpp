@@ -20,7 +20,7 @@ FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, con
         proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
         break;
     default:
-        check(false, "Reached end of switch");
+        check(false, "FieryWeapon constructor reached end of switch");
     }
 
     pchar->get_spells()->add_spell(fiery_weapon_attack);

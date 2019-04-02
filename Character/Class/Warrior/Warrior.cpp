@@ -227,7 +227,7 @@ QVector<int> Warrior::get_weapon_proficiencies_for_slot(const int slot) const {
         return QVector<int>({WeaponTypes::BOW, WeaponTypes::CROSSBOW, WeaponTypes::GUN,
                              WeaponTypes::THROWN});
     default:
-        check(false, "Reached end of switch");
+        check(false, "Warrior::get_weapon_proficiencies_for_slot reached end of switch");
         return QVector<int>();
     }
 }

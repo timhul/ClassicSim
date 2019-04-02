@@ -22,7 +22,7 @@ bool ConditionSpell::condition_fulfilled() const {
     case Comparators::greater:
         return cooldown > cmp_value;
     default:
-        check(false, "Reached end of switch");
+        check(false, "ConditionSpell::condition_fulfilled reached end of switch");
         return false;
     }
 }

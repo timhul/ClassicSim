@@ -29,7 +29,7 @@ unsigned ProcPPM::get_proc_range() const {
     case EnchantSlot::OFFHAND:
         return static_cast<unsigned>(round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100));
     default:
-        check(false, "Reached end of switch");
+        check(false, "ProcPPM::get_proc_range reached end of switch");
         return 0;
     }
 }

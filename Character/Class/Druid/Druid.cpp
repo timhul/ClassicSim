@@ -133,7 +133,7 @@ QVector<int> Druid::get_weapon_proficiencies_for_slot(const int slot) const {
     case EquipmentSlot::RANGED:
         return QVector<int>({WeaponTypes::IDOL});
     default:
-        check(false, "Reached end of switch");
+        check(false, "Druid::get_weapon_proficiencies_for_slot reached end of switch");
         return QVector<int>();
     }
 }

@@ -67,7 +67,7 @@ void SliceAndDice::activate_set_bonus_effect(const QString& set_name, const int 
             resource_cost -= 10;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "SliceAndDice::activate_set_bonus_effect reached end of switch");
         }
     }
 }
@@ -79,7 +79,7 @@ void SliceAndDice::deactivate_set_bonus_effect(const QString& set_name, const in
             resource_cost += 10;
             break;
         default:
-            check(false, "Reached end of switch");
+            check(false, "SliceAndDice::deactivate_set_bonus_effect reached end of switch");
         }
     }
 }

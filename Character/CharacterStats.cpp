@@ -797,7 +797,7 @@ Target::CreatureType CharacterStats::get_type_for_stat(const ItemStats stats) {
     case ItemStats::APVersusUndead:
         return Target::CreatureType::Undead;
     default:
-        check(false, "Reached end of switch");
+        check(false, "CharacterStats::get_type_for_stat reached end of switch");
         return Target::CreatureType::Beast;
     }
 }
