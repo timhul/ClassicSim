@@ -47,6 +47,8 @@ void PeriodicResourceGainSpell::perform_periodic() {
         case ResourceType::Rage:
             pchar->gain_rage(it.value());
             break;
+        case ResourceType::Focus:
+            break;
         }
         ++it;
     }
