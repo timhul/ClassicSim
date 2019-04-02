@@ -4,7 +4,7 @@
 #include "Hunter.h"
 #include "HunterSpells.h"
 #include "ImprovedAspectOfTheHawkProc.h"
-#include "Talent.h"
+#include "TalentStatIncrease.h"
 
 BeastMastery::BeastMastery(Hunter* hunter) :
     TalentTree("Beast Mastery", "Assets/hunter/hunter_beastmastery.jpg"),
@@ -23,7 +23,7 @@ BeastMastery::BeastMastery(Hunter* hunter) :
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(hunter, this, "Pathfinding", "3LL", "Assets/ability/Ability_mount_jungletiger.png", 2, "Increases the speed bonus of your Aspect of the Cheetah and Aspect of the Pack by %1%.", QVector<QPair<int, int>>{{3, 3}})},
                                   {"3ML", new Talent(hunter, this, "Bestial Swiftness", "3ML", "Assets/ability/Ability_druid_dash.png", 1, "Increases the outdoor movement speed of your pets by 30%.", QVector<QPair<int, int>>())},
-                                  {"3MR", new Talent(hunter, this, "Unleashed Fury", "3MR", "Assets/ability/Ability_bullrush.png", 5, "Increases the damage done by your pets by %1%.", QVector<QPair<int, int>>{{4, 4}})}};
+                                  {"3MR", get_unleashed_fury()}};
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new Talent(hunter, this, "Improved Mend Pet", "4ML", "Assets/ability/Ability_hunter_mendpet.png", 2, "Gives the Mend Pet spell a %1% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.", QVector<QPair<int, int>>{{15, 35}})},
@@ -55,4 +55,10 @@ Talent* BeastMastery::get_improved_aspect_of_the_hawk() {
                           {},
                           {},
                           QVector<Proc*>{spells->get_aspect_of_the_hawk()->get_improved_aspect_of_the_hawk_proc()});
+}
+
+Talent *BeastMastery::get_unleashed_fury() {
+    return new TalentStatIncrease(hunter, this, "Unleashed Fury", "3MR", "Assets/ability/Ability_bullrush.png",
+                                  5, "Increases the damage done by your pets by %1%.", QVector<QPair<int, int>>{{4, 4}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetDmgMod, 4}});
 }

@@ -10,6 +10,7 @@ enum TalentStat {
     RangedHit,
     RangedCrit,
     RangedDmgMod,
+    PetDmgMod,
     AttackPower,
     DmgModAgainstBeast,
     DmgModAgainstDragonkin,
@@ -38,7 +39,7 @@ enum TalentStat {
     TargetResistanceReduction,
     MaxManaMod,
     BaseManaRegenWhileCasting,
-    SpellDmgMod
+    SpellDmgMod,
 };
 
 class CharacterStats;

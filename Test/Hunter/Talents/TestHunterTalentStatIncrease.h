@@ -22,6 +22,7 @@ private:
     void test_lightning_reflexes();
     void test_killer_instinct();
     void test_trueshot_aura();
+    void test_unleashed_fury();
 };
 
 #endif // TESTHUNTERTALENTSTATINCREASE_H

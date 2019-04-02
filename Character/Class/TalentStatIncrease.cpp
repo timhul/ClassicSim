@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ItemNamespace.h"
+#include "Pet.h"
 #include "Utils/Check.h"
 
 TalentStatIncrease::TalentStatIncrease(Character *pchar, TalentTree* tree,
@@ -39,6 +40,11 @@ void TalentStatIncrease::apply_rank_effect() {
         case RangedDmgMod:
             cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::BOW, static_cast<int>(change));
             cstats->increase_total_phys_dmg_for_weapon_type(WeaponTypes::GUN, static_cast<int>(change));
+            continue;
+        case PetDmgMod:
+            if (curr_points != 1)
+                pchar->get_pet()->decrease_damage_modifier(static_cast<unsigned>(curr_points - 1) * change);
+            pchar->get_pet()->increase_damage_modifier(change * static_cast<unsigned>(curr_points));
             continue;
         case AttackPower:
             cstats->increase_melee_ap(change);
@@ -128,6 +134,10 @@ void TalentStatIncrease::remove_rank_effect() {
         case RangedDmgMod:
             cstats->decrease_total_phys_dmg_for_weapon_type(WeaponTypes::BOW, static_cast<int>(change));
             cstats->decrease_total_phys_dmg_for_weapon_type(WeaponTypes::GUN, static_cast<int>(change));
+            continue;
+        case PetDmgMod:
+            pchar->get_pet()->decrease_damage_modifier(((static_cast<unsigned>(curr_points) + 1) * change));
+            pchar->get_pet()->increase_damage_modifier(change * static_cast<unsigned>(curr_points));
             continue;
         case AttackPower:
             cstats->decrease_melee_ap(change);

@@ -1,7 +1,9 @@
 #include "TestHunterTalentStatIncrease.h"
 
+#include "BeastMastery.h"
 #include "CharacterStats.h"
 #include "Marksmanship.h"
+#include "Pet.h"
 #include "Survival.h"
 #include "Talent.h"
 
@@ -26,6 +28,10 @@ void TestHunterTalentStatIncrease::test_all() {
 
     set_up();
     test_trueshot_aura();
+    tear_down();
+
+    set_up();
+    test_unleashed_fury();
     tear_down();
 }
 
@@ -142,6 +148,65 @@ void TestHunterTalentStatIncrease::test_trueshot_aura() {
     assert(talent->decrement_rank());
     assert(melee_ap_initial == pchar->get_stats()->get_melee_ap());
     assert(ranged_ap_initial == pchar->get_stats()->get_ranged_ap());
+
+    delete talent;
+}
+
+void TestHunterTalentStatIncrease::test_unleashed_fury() {
+    Talent* talent = BeastMastery(hunter).get_unleashed_fury();
+    Pet* pet = hunter->get_pet();
+
+    assert(almost_equal(1.05, pet->get_damage_modifier()));
+
+    assert(talent->increment_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.092 = 1 * 1.05 * 1.04
+    assert(almost_equal(1.092, pet->get_damage_modifier()));
+
+    assert(talent->increment_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.134 = 1 * 1.05 * 1.08
+    assert(almost_equal(1.134, pet->get_damage_modifier()));
+
+    assert(talent->increment_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.176 = 1 * 1.05 * 1.12
+    assert(almost_equal(1.176, pet->get_damage_modifier()));
+
+    assert(talent->increment_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.218 = 1 * 1.05 * 1.16
+    assert(almost_equal(1.218, pet->get_damage_modifier()));
+
+    assert(talent->increment_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.26 = 1 * 1.05 * 1.20
+    assert(almost_equal(1.26, pet->get_damage_modifier()));
+
+    assert(talent->decrement_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.218 = 1 * 1.05 * 1.16
+    assert(almost_equal(1.218, pet->get_damage_modifier()));
+
+    assert(talent->decrement_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.176 = 1 * 1.05 * 1.12
+    assert(almost_equal(1.176, pet->get_damage_modifier()));
+
+    assert(talent->decrement_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.134 = 1 * 1.05 * 1.08
+    assert(almost_equal(1.134, pet->get_damage_modifier()));
+
+    assert(talent->decrement_rank());
+    // DmgMod = base * orc_racial * unleashed_fury
+    // 1.092 = 1 * 1.05 * 1.04
+    assert(almost_equal(1.092, pet->get_damage_modifier()));
+
+    assert(talent->decrement_rank());
+    // DmgMod = base * orc_racial
+    // 1.05 = 1 * 1.05
+    assert(almost_equal(1.05, pet->get_damage_modifier()));
 
     delete talent;
 }
