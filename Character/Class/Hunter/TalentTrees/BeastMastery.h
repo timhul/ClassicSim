@@ -14,6 +14,7 @@ public:
     Talent* get_improved_aspect_of_the_hawk();
     Talent* get_unleashed_fury();
     Talent* get_ferocity();
+    Talent* get_bestial_discipline();
 
 private:
     Hunter* hunter;

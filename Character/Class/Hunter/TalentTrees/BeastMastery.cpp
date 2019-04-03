@@ -32,7 +32,7 @@ BeastMastery::BeastMastery(Hunter* hunter) :
 
     QMap<QString, Talent*> tier5 {{"5LL", new Talent(hunter, this, "Spirit Bond", "5LL", "Assets/ability/Ability_druid_demoralizingroar.png", 2, "While your pet is active, you and your pet will regenerate %1% of total health every 10 sec.", QVector<QPair<int, int>>{{1, 1}})},
                                   {"5ML", new Talent(hunter, this, "Intimidation", "5ML", "Assets/ability/Ability_devour.png", 1, "Command your pet to intimidate the target on the next successful melee attack, causing a high amount of threat and stunning the target for 3 sec.", QVector<QPair<int, int>>())},
-                                  {"5RR", new Talent(hunter, this, "Bestial Discipline", "5RR", "Assets/items/Spell_nature_abolishmagic.png", 2, "Increases the Focus regeneration of your pets by %1%.", QVector<QPair<int, int>>{{10, 10}})}};
+                                  {"5RR", get_bestial_discipline()}};
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6MR", new Talent(hunter, this, "Frenzy", "6MR", "Assets/items/Inv_misc_monsterclaw_03.png", 5, "Gives your pet a %1% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.", QVector<QPair<int, int>>{{20, 20}})}};
@@ -67,4 +67,10 @@ Talent *BeastMastery::get_ferocity() {
     return new TalentStatIncrease(hunter, this, "Ferocity", "4MR", "Assets/items/Inv_misc_monsterclaw_04.png",
                                   5, "Increases the critical strike chance of your pets by %1%.", QVector<QPair<int, int>>{{3, 3}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetCritChance, 300}});
+}
+
+Talent *BeastMastery::get_bestial_discipline() {
+    return new TalentStatIncrease(hunter, this, "Bestial Discipline", "5RR", "Assets/items/Spell_nature_abolishmagic.png",
+                                  2, "Increases the Focus regeneration of your pets by %1%.", QVector<QPair<int, int>>{{10, 10}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetFocusGain, 0}});
 }

@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include "Focus.h"
 #include "ItemNamespace.h"
 #include "Pet.h"
 #include "Utils/Check.h"
@@ -48,6 +49,9 @@ void TalentStatIncrease::apply_rank_effect() {
             continue;
         case PetCritChance:
             pchar->get_pet()->increase_crit_chance(change);
+            continue;
+        case PetFocusGain:
+            dynamic_cast<class Focus*>(pchar->get_pet()->get_resource())->increase_focus_gain();
             continue;
         case AttackPower:
             cstats->increase_melee_ap(change);
@@ -144,6 +148,9 @@ void TalentStatIncrease::remove_rank_effect() {
             continue;
         case PetCritChance:
             pchar->get_pet()->decrease_crit_chance(change);
+            continue;
+        case PetFocusGain:
+            dynamic_cast<class Focus*>(pchar->get_pet()->get_resource())->decrease_focus_gain();
             continue;
         case AttackPower:
             cstats->decrease_melee_ap(change);
