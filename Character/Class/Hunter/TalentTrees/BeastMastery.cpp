@@ -27,7 +27,7 @@ BeastMastery::BeastMastery(Hunter* hunter) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new Talent(hunter, this, "Improved Mend Pet", "4ML", "Assets/ability/Ability_hunter_mendpet.png", 2, "Gives the Mend Pet spell a %1% chance of cleansing 1 Curse, Disease, Magic or Poison effect from the pet each tick.", QVector<QPair<int, int>>{{15, 35}})},
-                                  {"4MR", new Talent(hunter, this, "Ferocity", "4MR", "Assets/items/Inv_misc_monsterclaw_04.png", 5, "Increases the critical strike chance of your pets by %1%.", QVector<QPair<int, int>>{{3, 3}})}};
+                                  {"4MR", get_ferocity()}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", new Talent(hunter, this, "Spirit Bond", "5LL", "Assets/ability/Ability_druid_demoralizingroar.png", 2, "While your pet is active, you and your pet will regenerate %1% of total health every 10 sec.", QVector<QPair<int, int>>{{1, 1}})},
@@ -57,8 +57,14 @@ Talent* BeastMastery::get_improved_aspect_of_the_hawk() {
                           QVector<Proc*>{spells->get_aspect_of_the_hawk()->get_improved_aspect_of_the_hawk_proc()});
 }
 
-Talent *BeastMastery::get_unleashed_fury() {
+Talent* BeastMastery::get_unleashed_fury() {
     return new TalentStatIncrease(hunter, this, "Unleashed Fury", "3MR", "Assets/ability/Ability_bullrush.png",
                                   5, "Increases the damage done by your pets by %1%.", QVector<QPair<int, int>>{{4, 4}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetDmgMod, 4}});
+}
+
+Talent *BeastMastery::get_ferocity() {
+    return new TalentStatIncrease(hunter, this, "Ferocity", "4MR", "Assets/items/Inv_misc_monsterclaw_04.png",
+                                  5, "Increases the critical strike chance of your pets by %1%.", QVector<QPair<int, int>>{{3, 3}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetCritChance, 300}});
 }

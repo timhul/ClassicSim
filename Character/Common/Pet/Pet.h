@@ -34,6 +34,8 @@ public:
     void decrease_damage_modifier(const unsigned decrease);
 
     unsigned get_crit_chance() const;
+    void increase_crit_chance(const unsigned increase);
+    void decrease_crit_chance(const unsigned decrease);
 
     unsigned get_min_dmg() const;
     unsigned get_max_dmg() const;

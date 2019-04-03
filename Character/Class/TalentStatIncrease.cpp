@@ -46,6 +46,9 @@ void TalentStatIncrease::apply_rank_effect() {
                 pchar->get_pet()->decrease_damage_modifier(static_cast<unsigned>(curr_points - 1) * change);
             pchar->get_pet()->increase_damage_modifier(change * static_cast<unsigned>(curr_points));
             continue;
+        case PetCritChance:
+            pchar->get_pet()->increase_crit_chance(change);
+            continue;
         case AttackPower:
             cstats->increase_melee_ap(change);
             cstats->increase_ranged_ap(change);
@@ -138,6 +141,9 @@ void TalentStatIncrease::remove_rank_effect() {
         case PetDmgMod:
             pchar->get_pet()->decrease_damage_modifier(((static_cast<unsigned>(curr_points) + 1) * change));
             pchar->get_pet()->increase_damage_modifier(change * static_cast<unsigned>(curr_points));
+            continue;
+        case PetCritChance:
+            pchar->get_pet()->decrease_crit_chance(change);
             continue;
         case AttackPower:
             cstats->decrease_melee_ap(change);

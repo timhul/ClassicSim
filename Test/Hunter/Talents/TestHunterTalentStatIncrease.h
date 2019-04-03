@@ -23,6 +23,7 @@ private:
     void test_killer_instinct();
     void test_trueshot_aura();
     void test_unleashed_fury();
+    void test_ferocity();
 };
 
 #endif // TESTHUNTERTALENTSTATINCREASE_H

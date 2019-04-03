@@ -11,6 +11,7 @@ enum TalentStat {
     RangedCrit,
     RangedDmgMod,
     PetDmgMod,
+    PetCritChance,
     AttackPower,
     DmgModAgainstBeast,
     DmgModAgainstDragonkin,

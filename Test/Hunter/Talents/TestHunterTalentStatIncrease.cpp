@@ -33,6 +33,10 @@ void TestHunterTalentStatIncrease::test_all() {
     set_up();
     test_unleashed_fury();
     tear_down();
+
+    set_up();
+    test_ferocity();
+    tear_down();
 }
 
 void TestHunterTalentStatIncrease::test_lightning_reflexes() {
@@ -207,6 +211,45 @@ void TestHunterTalentStatIncrease::test_unleashed_fury() {
     // DmgMod = base * orc_racial
     // 1.05 = 1 * 1.05
     assert(almost_equal(1.05, pet->get_damage_modifier()));
+
+    delete talent;
+}
+
+void TestHunterTalentStatIncrease::test_ferocity() {
+    Talent* talent = BeastMastery(hunter).get_ferocity();
+    Pet* pet = hunter->get_pet();
+
+    assert(pet->get_crit_chance() == 500);
+
+    assert(talent->increment_rank());
+    assert(pet->get_crit_chance() == 800);
+
+    assert(talent->increment_rank());
+    assert(pet->get_crit_chance() == 1100);
+
+    assert(talent->increment_rank());
+    assert(pet->get_crit_chance() == 1400);
+
+    assert(talent->increment_rank());
+    assert(pet->get_crit_chance() == 1700);
+
+    assert(talent->increment_rank());
+    assert(pet->get_crit_chance() == 2000);
+
+    assert(talent->decrement_rank());
+    assert(pet->get_crit_chance() == 1700);
+
+    assert(talent->decrement_rank());
+    assert(pet->get_crit_chance() == 1400);
+
+    assert(talent->decrement_rank());
+    assert(pet->get_crit_chance() == 1100);
+
+    assert(talent->decrement_rank());
+    assert(pet->get_crit_chance() == 800);
+
+    assert(talent->decrement_rank());
+    assert(pet->get_crit_chance() == 500);
 
     delete talent;
 }

@@ -117,6 +117,14 @@ unsigned Pet::get_crit_chance() const {
     return this->crit_chance;
 }
 
+void Pet::increase_crit_chance(const unsigned increase) {
+    this->crit_chance += increase;
+}
+
+void Pet::decrease_crit_chance(const unsigned decrease) {
+    this->crit_chance -= decrease;
+}
+
 unsigned Pet::get_min_dmg() const {
     return this->min;
 }
