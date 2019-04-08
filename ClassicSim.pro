@@ -333,7 +333,9 @@ SOURCES += main.cpp \
     Character/Class/Focus.cpp \
     Character/Class/RegeneratingResource.cpp \
     Character/Common/Spells/ResourceTick.cpp \
-    Character/Common/Procs/ManaDrainProc.cpp
+    Character/Common/Procs/ManaDrainProc.cpp \
+    Character/Class/Hunter/Spells/BestialWrath.cpp \
+    Character/Class/Hunter/Buffs/BestialWrathBuff.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -671,7 +673,9 @@ HEADERS += \
     Character/Class/Focus.h \
     Character/Class/RegeneratingResource.h \
     Character/Common/Spells/ResourceTick.h \
-    Character/Common/Procs/ManaDrainProc.h
+    Character/Common/Procs/ManaDrainProc.h \
+    Character/Class/Hunter/Spells/BestialWrath.h \
+    Character/Class/Hunter/Buffs/BestialWrathBuff.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

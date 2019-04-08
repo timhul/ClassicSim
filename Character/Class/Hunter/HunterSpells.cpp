@@ -3,6 +3,7 @@
 #include "AimedShot.h"
 #include "AspectOfTheHawk.h"
 #include "AutoShot.h"
+#include "BestialWrath.h"
 #include "Engine.h"
 #include "Hunter.h"
 #include "HuntersMark.h"
@@ -20,6 +21,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->aimed_shot = new AimedShot(hunter);
     this->aspect_of_the_hawk = new AspectOfTheHawk(hunter);
     this->auto_shot = new AutoShot(hunter);
+    this->bestial_wrath = new BestialWrath(hunter, "Cat");
     this->hunters_mark = new HuntersMark(hunter);
     this->mh_attack = new MainhandAttack(hunter);
     this->multi_shot = new MultiShot(hunter);
@@ -29,6 +31,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     spells.append(aimed_shot);
     spells.append(aspect_of_the_hawk);
     spells.append(auto_shot);
+    spells.append(bestial_wrath);
     spells.append(hunters_mark);
     spells.append(mh_attack);
     spells.append(multi_shot);
@@ -90,6 +93,10 @@ AspectOfTheHawk* HunterSpells::get_aspect_of_the_hawk() const {
 
 AutoShot* HunterSpells::get_auto_shot() const {
     return this->auto_shot;
+}
+
+BestialWrath *HunterSpells::get_bestial_wrath() const {
+    return this->bestial_wrath;
 }
 
 HuntersMark* HunterSpells::get_hunters_mark() const {

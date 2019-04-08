@@ -54,6 +54,8 @@
 		or variable "time_remaining_execute" greater 180
 	</cast_if>
 
+	<cast_if name="Bestial Wrath"/>
+
 	<cast_if name="Aimed Shot">
 		variable "time_since_auto_shot" less 0.3
 	</cast_if>

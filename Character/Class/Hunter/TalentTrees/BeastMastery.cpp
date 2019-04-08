@@ -1,6 +1,7 @@
 #include "BeastMastery.h"
 
 #include "AspectOfTheHawk.h"
+#include "BestialWrath.h"
 #include "Hunter.h"
 #include "HunterSpells.h"
 #include "ImprovedAspectOfTheHawkProc.h"
@@ -38,7 +39,7 @@ BeastMastery::BeastMastery(Hunter* hunter) :
     QMap<QString, Talent*> tier6 {{"6MR", new Talent(hunter, this, "Frenzy", "6MR", "Assets/items/Inv_misc_monsterclaw_03.png", 5, "Gives your pet a %1% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.", QVector<QPair<int, int>>{{20, 20}})}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new Talent(hunter, this, "Bestial Wrath", "7ML", "Assets/ability/Ability_druid_ferociousbite.png", 1, "Send your pet into a rage causing 50% additional damage for 18 sec. While enraged, the beast does not feel pity or remorse or fear and it cannot be stopped unless killed.", QVector<QPair<int, int>>())}};
+    QMap<QString, Talent*> tier7 {{"7ML", get_bestial_wrath()}};
     add_talents(tier7);
 
     talents["4MR"]->talent->set_bottom_child(talents["6MR"]->talent);
@@ -63,14 +64,21 @@ Talent* BeastMastery::get_unleashed_fury() {
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetDmgMod, 4}});
 }
 
-Talent *BeastMastery::get_ferocity() {
+Talent* BeastMastery::get_ferocity() {
     return new TalentStatIncrease(hunter, this, "Ferocity", "4MR", "Assets/items/Inv_misc_monsterclaw_04.png",
                                   5, "Increases the critical strike chance of your pets by %1%.", QVector<QPair<int, int>>{{3, 3}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetCritChance, 300}});
 }
 
-Talent *BeastMastery::get_bestial_discipline() {
+Talent* BeastMastery::get_bestial_discipline() {
     return new TalentStatIncrease(hunter, this, "Bestial Discipline", "5RR", "Assets/items/Spell_nature_abolishmagic.png",
                                   2, "Increases the Focus regeneration of your pets by %1%.", QVector<QPair<int, int>>{{10, 10}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetFocusGain, 0}});
+}
+
+Talent* BeastMastery::get_bestial_wrath() {
+    return get_new_talent(hunter, "Bestial Wrath", "7ML", "Assets/ability/Ability_druid_ferociousbite.png",
+                          1, "Send your pet into a rage causing 50% additional damage for 18 sec. While enraged, the beast does not feel pity or remorse or fear and it cannot be stopped unless killed.",
+                          QVector<QPair<int, int>>(),
+                          QVector<Spell*>{spells->get_bestial_wrath()});
 }

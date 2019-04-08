@@ -142,6 +142,7 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
         "Zandalarian Hero Medallion",
         "Blood Fury",
         "Berserking",
+        "Bestial Wrath",
         "Aimed Shot",
         "Multi-Shot",
         "Hunter's Mark",
