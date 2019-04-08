@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<projectiles>
+	<projectile id="12654">
+		<patch name="1.0.0">
+			<info name="Doomshot" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Ability_hunter_criticalshot.png"/>
+			<dps value="20.0"/>
+			<source>
+			Drops from Shadow Hunter Vosh'gajin in Lower Blackrock Spire (LBRS).
+			</source>
+		</patch>
+	</projectile>
+</projectiles>

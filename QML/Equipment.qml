@@ -427,8 +427,11 @@ Rectangle {
 
                 x: 307
                 y: 400
+                state: eqRect.state
+                slotString: "PROJECTILE"
+                iconSource: equipment.projectileIcon
 
-                onSelectItem: console.log("Selecting ammo")
+                onSelectItem: eqRect.state = "PROJECTILE"
             }
 
             Column {

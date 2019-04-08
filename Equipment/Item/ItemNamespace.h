@@ -19,6 +19,7 @@ namespace ItemSlots {
     static const int TRINKET = 14;
     static const int CASTER_OFFHAND = 15;
     static const int RELIC = 16;
+    static const int PROJECTILE = 17;
 }
 
 namespace EquipmentSlot {
@@ -39,6 +40,7 @@ namespace EquipmentSlot {
     static const int RING2 = 14;
     static const int TRINKET1 = 15;
     static const int TRINKET2 = 16;
+    static const int PROJECTILE = 17;
 }
 
 namespace WeaponTypes {
@@ -87,6 +89,11 @@ namespace EnchantSlot {
     static const int OFFHAND = 1;
     static const int RANGED = 2;
     static const int NON_WEAPON = 3;
+}
+
+namespace ProjectileTypes {
+    static const int ARROW = 0;
+    static const int BULLET = 1;
 }
 
 #endif // ITEMNAMESPACE_H

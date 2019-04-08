@@ -5,6 +5,7 @@
 #include <QVersionNumber>
 
 #include "ItemFileReader.h"
+#include "Projectile.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
@@ -29,7 +30,8 @@ EquipmentDb::EquipmentDb(QObject* parent):
         &legs,
         &boots,
         &rings,
-        &trinkets
+        &trinkets,
+        &projectiles
     };
 }
 
@@ -164,6 +166,15 @@ Item* EquipmentDb::get_relic(const int) const {
     return nullptr;
 }
 
+Projectile* EquipmentDb::get_projectile(const int item_id) const {
+    for (auto & current_patch_projectile : current_patch_projectiles) {
+        if (item_id == current_patch_projectile->get_item_id())
+            return new Projectile(dynamic_cast<Projectile*>(current_patch_projectile));
+    }
+
+    return nullptr;
+}
+
 const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
     case ItemSlots::MAINHAND:
@@ -196,6 +207,8 @@ const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
         return current_patch_rings;
     case ItemSlots::TRINKET:
         return current_patch_trinkets;
+    case ItemSlots::PROJECTILE:
+        return current_patch_projectiles;
     }
 
     return current_patch_amulets;
@@ -225,6 +238,7 @@ void EquipmentDb::set_patch(const QVersionNumber& patch) {
     set_patch_for_slot(boots, current_patch_boots);
     set_patch_for_slot(rings, current_patch_rings);
     set_patch_for_slot(trinkets, current_patch_trinkets);
+    set_patch_for_slot(projectiles, current_patch_projectiles);
 }
 
 void EquipmentDb::set_patch_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &patch_slot_items) {
@@ -311,6 +325,7 @@ void EquipmentDb::read_equipment_files() {
     take_items_of_slot_from_given_items(items, boots, ItemSlots::BOOTS);
     take_items_of_slot_from_given_items(items, rings, ItemSlots::RING);
     take_items_of_slot_from_given_items(items, trinkets, ItemSlots::TRINKET);
+    take_items_of_slot_from_given_items(items, projectiles, ItemSlots::PROJECTILE);
 
     for (auto & item : items) {
         qDebug() << "Failed to classify slot for" << item->get_name();

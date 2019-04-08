@@ -4,6 +4,7 @@
 #include <QDir>
 
 #include "Item.h"
+#include "ProjectileFileReader.h"
 #include "WeaponFileReader.h"
 
 ItemFileReader::ItemFileReader(QObject* parent):
@@ -22,8 +23,12 @@ void ItemFileReader::read_items(QVector<Item *> &items, const QString &path) {
     if (reader.readNextStartElement()) {
         if (reader.name() == "items")
             item_file_handler(reader, items);
-        if (reader.name() == "weapons")
+        else if (reader.name() == "weapons")
             WeaponFileReader().weapon_file_handler(reader, items);
+        else if (reader.name() == "projectiles")
+            ProjectileFileReader().file_handler(reader, items);
+        else
+            qDebug() << QString("%1 - no appropriate handler for start element %2").arg(__func__).arg(reader.name());
     }
 
     file.close();

@@ -712,6 +712,8 @@ int get_slot_int(const QString& slot_string) {
         return ItemSlots::CASTER_OFFHAND;
     if (slot_string == "RELIC")
         return ItemSlots::RELIC;
+    if (slot_string == "PROJECTILE")
+        return ItemSlots::PROJECTILE;
 
     return -1;
 }

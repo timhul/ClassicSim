@@ -16,6 +16,7 @@
 	<file path="Misc/rings.xml"/>
 	<file path="Misc/trinkets.xml"/>
 	<file path="Misc/backs.xml"/>
+	<file path="Misc/projectiles.xml"/>
 
 	<file path="Helms/plate.xml"/>
 	<file path="Helms/mail.xml"/>

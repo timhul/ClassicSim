@@ -46,6 +46,7 @@
 #include "Paladin.h"
 #include "Priest.h"
 #include "ProcBreakdownModel.h"
+#include "Projectile.h"
 #include "Race.h"
 #include "ResourceBreakdownModel.h"
 #include "Rogue.h"
@@ -973,10 +974,16 @@ QString GUIControl::get_trinket2_icon() const {
     return "";
 }
 
+QString GUIControl::get_projectile_icon() const {
+    if (current_char->get_equipment()->get_projectile() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_projectile()->get_value("icon");
+    return "";
+}
+
 void GUIControl::selectSlot(const QString& slot_string) {
     int slot = get_slot_int(slot_string);
 
-    if (slot == -1)
+    if (slot == -1 || (slot == ItemSlots::PROJECTILE && current_char->get_name() != "Hunter"))
         return;
 
     item_type_filter_model->set_item_slot(slot);
@@ -1282,6 +1289,8 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id) {
         current_char->get_equipment()->set_trinket1(item_id);
     if (slot_string == "TRINKET2")
         current_char->get_equipment()->set_trinket2(item_id);
+    if (slot_string == "PROJECTILE")
+        current_char->get_equipment()->set_projectile(item_id);
 
     equipmentChanged();
     statsChanged();
@@ -1323,6 +1332,8 @@ void GUIControl::clearSlot(const QString& slot_string) {
         current_char->get_equipment()->clear_trinket1();
     if (slot_string == "TRINKET2")
         current_char->get_equipment()->clear_trinket2();
+    if (slot_string == "PROJECTILE")
+        current_char->get_equipment()->clear_projectile();
 
     equipmentChanged();
     statsChanged();

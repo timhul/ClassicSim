@@ -5,10 +5,11 @@
 #include <QVector>
 
 class Character;
+class EquipmentDb;
 class Item;
+class Projectile;
 class SetBonusControl;
 class Stats;
-class EquipmentDb;
 class Weapon;
 
 class Equipment {
@@ -41,6 +42,7 @@ public:
     Item* get_trinket2() const;
     Item* get_caster_offhand() const;
     Item* get_relic() const;
+    Projectile* get_projectile() const;
 
     void set_mainhand(const int item_id);
     void set_offhand(const int item_id);
@@ -61,6 +63,7 @@ public:
     void set_trinket2(const int item_id);
     void set_caster_offhand(const int item_id);
     void set_relic(const int item_id);
+    void set_projectile(const int item_id);
 
     void clear_mainhand();
     void clear_offhand();
@@ -81,6 +84,7 @@ public:
     void clear_trinket2();
     void clear_caster_offhand();
     void clear_relic();
+    void clear_projectile();
 
     void reequip_items();
     void clear_items_not_available_for_faction();
@@ -91,6 +95,9 @@ public:
 
     void equip(Weapon*& current, Weapon* next, const int eq_slot);
     void unequip(Weapon*& weapon, const int eq_slot);
+
+    void equip(Projectile*& current, Projectile* next, const int eq_slot);
+    void unequip(Projectile*& current, const int eq_slot);
 
 private:
     int setup_index;
@@ -118,6 +125,7 @@ private:
     Item* trinket2;
     Item* caster_offhand;
     Item* relic;
+    Projectile* projectile;
 
     static const int NO_EQUIPPED_ITEM = -1;
 

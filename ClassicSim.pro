@@ -337,7 +337,9 @@ SOURCES += main.cpp \
     Character/Class/Hunter/Spells/BestialWrath.cpp \
     Character/Class/Hunter/Buffs/BestialWrathBuff.cpp \
     Character/Class/Hunter/Buffs/FrenzyBuff.cpp \
-    Character/Class/Hunter/Procs/FrenzyProc.cpp
+    Character/Class/Hunter/Procs/FrenzyProc.cpp \
+    Equipment/EquipmentDb/ProjectileFileReader.cpp \
+    Equipment/Item/Projectile.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -679,7 +681,9 @@ HEADERS += \
     Character/Class/Hunter/Spells/BestialWrath.h \
     Character/Class/Hunter/Buffs/BestialWrathBuff.h \
     Character/Class/Hunter/Buffs/FrenzyBuff.h \
-    Character/Class/Hunter/Procs/FrenzyProc.h
+    Character/Class/Hunter/Procs/FrenzyProc.h \
+    Equipment/EquipmentDb/ProjectileFileReader.h \
+    Equipment/Item/Projectile.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

@@ -6,6 +6,7 @@
 #include "EquipmentDb.h"
 #include "Faction.h"
 #include "Item.h"
+#include "Projectile.h"
 #include "SetBonusControl.h"
 #include "Stats.h"
 #include "Utils/Check.h"
@@ -42,7 +43,8 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
             NO_EQUIPPED_ITEM,
             NO_EQUIPPED_ITEM,
             NO_EQUIPPED_ITEM,
-            NO_EQUIPPED_ITEM
+            NO_EQUIPPED_ITEM,
+            NO_EQUIPPED_ITEM,
         };
     }
     check((stats_from_equipped_gear.size() == item_setups.size()), "Different size vectors");
@@ -66,6 +68,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
     trinket2 = nullptr;
     caster_offhand = nullptr;
     relic = nullptr;
+    projectile = nullptr;
 }
 
 Equipment::~Equipment() {
@@ -111,6 +114,7 @@ void Equipment::unequip_all() {
     clear_trinket2();
     clear_caster_offhand();
     clear_relic();
+    clear_projectile();
 }
 
 int Equipment::get_stored_item_id_for_slot(const int equipment_slot) const {
@@ -199,6 +203,10 @@ Item* Equipment::get_caster_offhand() const {
 
 Item* Equipment::get_relic() const {
     return relic;
+}
+
+Projectile* Equipment::get_projectile() const {
+    return projectile;
 }
 
 void Equipment::set_mainhand(const int item_id) {
@@ -462,6 +470,16 @@ void Equipment::set_relic(const int item_id) {
     equip(relic, item, EquipmentSlot::RANGED);
 }
 
+void Equipment::set_projectile(const int item_id) {
+    Projectile* item = db->get_projectile(item_id);
+
+    if (item == nullptr)
+        return;
+
+    check((item->get_item_slot() == ItemSlots::PROJECTILE), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    equip(projectile, item, EquipmentSlot::PROJECTILE);
+}
+
 void Equipment::clear_mainhand() {
     unequip(mainhand, EquipmentSlot::MAINHAND);
 }
@@ -536,6 +554,10 @@ void Equipment::clear_caster_offhand() {
 
 void Equipment::clear_relic() {
     unequip(relic, EquipmentSlot::RANGED);
+}
+
+void Equipment::clear_projectile() {
+    unequip(projectile, EquipmentSlot::PROJECTILE);
 }
 
 void Equipment::reequip_items() {
@@ -652,6 +674,12 @@ void Equipment::reequip_items() {
         clear_relic();
         set_relic(item_id);
     }
+
+    item_id = get_stored_item_id_for_slot(EquipmentSlot::PROJECTILE);
+    if (item_id != NO_EQUIPPED_ITEM) {
+        clear_projectile();
+        set_projectile(item_id);
+    }
 }
 
 void Equipment::clear_items_not_available_for_faction() {
@@ -713,6 +741,9 @@ void Equipment::clear_items_not_available_for_faction() {
 
     if (get_relic() && !get_relic()->available_for_faction(faction))
         clear_relic();
+
+    if (get_projectile() && !get_projectile()->available_for_faction(faction))
+        clear_projectile();
 }
 
 SetBonusControl* Equipment::get_set_bonus_control() const {
@@ -758,6 +789,22 @@ void Equipment::unequip(Weapon*& item, const int eq_slot) {
 
     set_bonuses->unequip_item(item->get_item_id());
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
+    item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
+    delete item;
+    item = nullptr;
+}
+
+void Equipment::equip(Projectile*& current, Projectile* next, const int eq_slot) {
+    check((next != nullptr), "next nullptr");
+
+    unequip(current, eq_slot);
+    current = next;
+}
+
+void Equipment::unequip(Projectile*& item, const int eq_slot) {
+    if (item == nullptr)
+        return;
+
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
     item = nullptr;

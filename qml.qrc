@@ -481,5 +481,6 @@
         <file>QML/Assets/spell/Spell_nature_windfury.png</file>
         <file>QML/Assets/spell/Spell_shadow_unholystrength.png</file>
         <file>QML/Assets/misc/Inv_misc_fish_13.png</file>
+        <file>QML/Assets/items/Ability_hunter_criticalshot.png</file>
     </qresource>
 </RCC>

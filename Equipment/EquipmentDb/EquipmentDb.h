@@ -9,6 +9,7 @@
 #include <QXmlStreamReader>
 
 class Item;
+class Projectile;
 class Weapon;
 
 class EquipmentDb: public QObject {
@@ -33,6 +34,7 @@ public:
     Item* get_trinket(const int item_id) const;
     Item* get_caster_offhand(const int item_id) const;
     Item* get_relic(const int item_id) const;
+    Projectile* get_projectile(const int item_id) const;
 
     void set_patch(const QVersionNumber& current_patch);
     bool item_valid_for_current_patch(const QString &item_patch) const;
@@ -100,6 +102,9 @@ private:
 
     QVector<Item*> trinkets;
     QVector<Item*> current_patch_trinkets;
+
+    QVector<Item*> projectiles;
+    QVector<Item*> current_patch_projectiles;
 
     QVector<QVector<Item*>*> all_slots_items;
 

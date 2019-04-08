@@ -13,8 +13,8 @@ ItemTypeFilterModel::ItemTypeFilterModel(QObject *parent)
       last_toggled(-1)
 {
     check((EquipmentSlot::MAINHAND == 0), "Update EquipmentSlot::MAINHAND value");
-    check((EquipmentSlot::TRINKET2 == 16), "Update EquipmentSlot::TRINKET2 value");
-    for (int i = 0; i < 16; ++i)
+    check((EquipmentSlot::PROJECTILE == 17), "Update EquipmentSlot::AMMO value");
+    for (int i = 0; i < EquipmentSlot::PROJECTILE + 1; ++i)
         item_type_filters.append(QList<ItemTypeFilter>());
 }
 
@@ -26,7 +26,7 @@ void ItemTypeFilterModel::set_character(Character *pchar) {
 
     this->pchar = pchar;
 
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 0; i < EquipmentSlot::PROJECTILE + 1; ++i) {
         equipment_slot = i;
         add_item_type_filters();
     }
