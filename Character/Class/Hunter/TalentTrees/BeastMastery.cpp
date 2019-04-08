@@ -2,9 +2,11 @@
 
 #include "AspectOfTheHawk.h"
 #include "BestialWrath.h"
+#include "FrenzyProc.h"
 #include "Hunter.h"
 #include "HunterSpells.h"
 #include "ImprovedAspectOfTheHawkProc.h"
+#include "Pet.h"
 #include "TalentStatIncrease.h"
 
 BeastMastery::BeastMastery(Hunter* hunter) :
@@ -36,7 +38,7 @@ BeastMastery::BeastMastery(Hunter* hunter) :
                                   {"5RR", get_bestial_discipline()}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(hunter, this, "Frenzy", "6MR", "Assets/items/Inv_misc_monsterclaw_03.png", 5, "Gives your pet a %1% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.", QVector<QPair<int, int>>{{20, 20}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", get_frenzy()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", get_bestial_wrath()}};
@@ -74,6 +76,15 @@ Talent* BeastMastery::get_bestial_discipline() {
     return new TalentStatIncrease(hunter, this, "Bestial Discipline", "5RR", "Assets/items/Spell_nature_abolishmagic.png",
                                   2, "Increases the Focus regeneration of your pets by %1%.", QVector<QPair<int, int>>{{10, 10}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::PetFocusGain, 0}});
+}
+
+Talent* BeastMastery::get_frenzy() {
+    return get_new_talent(hunter, "Frenzy", "6MR", "Assets/items/Inv_misc_monsterclaw_03.png",
+                          5, "Gives your pet a %1% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.",
+                          QVector<QPair<int, int>>{{20, 20}},
+                          QVector<Spell*>{},
+                          QVector<Buff*>{},
+                          QVector<Proc*>{hunter->get_pet()->get_frenzy_proc()});
 }
 
 Talent* BeastMastery::get_bestial_wrath() {

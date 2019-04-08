@@ -4,6 +4,7 @@
 #include <QVector>
 
 class Character;
+class FrenzyProc;
 class PetAutoAttack;
 class Resource;
 class Spell;
@@ -40,8 +41,11 @@ public:
     unsigned get_min_dmg() const;
     unsigned get_max_dmg() const;
 
+    void melee_critical_effect();
+
     void reset();
     Resource* get_resource();
+    FrenzyProc* get_frenzy_proc();
 
 protected:
     Character* pchar;
@@ -63,6 +67,7 @@ protected:
     QVector<int> damage_modifiers;
 
     PetAutoAttack* pet_auto_attack;
+    FrenzyProc* frenzy_proc;
     QVector<Spell*> spells;
 
     void add_next_auto_attack();

@@ -15,6 +15,7 @@ public:
     Talent* get_unleashed_fury();
     Talent* get_ferocity();
     Talent* get_bestial_discipline();
+    Talent* get_frenzy();
     Talent* get_bestial_wrath();
 
 private:

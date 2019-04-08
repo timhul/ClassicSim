@@ -53,6 +53,7 @@ void Claw::spell_effect() {
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= 2;
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+        pet->melee_critical_effect();
         return;
     }
 

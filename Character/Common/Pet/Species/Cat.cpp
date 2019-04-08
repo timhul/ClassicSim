@@ -2,6 +2,7 @@
 
 #include "Claw.h"
 #include "Focus.h"
+#include "FrenzyProc.h"
 #include "Hunter.h"
 #include "PetAutoAttack.h"
 #include "Utils/Check.h"
@@ -13,6 +14,7 @@ Cat::Cat(Hunter* hunter) :
     resource = focus;
 
     claw = new Claw(hunter, this);
+    frenzy_proc = new FrenzyProc(pchar, this);
     pet_auto_attack = new PetAutoAttack(hunter, this, "Assets/items/Inv_misc_monsterclaw_03.png");
 
     spells.append(claw);
