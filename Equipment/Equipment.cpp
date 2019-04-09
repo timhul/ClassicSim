@@ -799,6 +799,7 @@ void Equipment::equip(Projectile*& current, Projectile* next, const int eq_slot)
 
     unequip(current, eq_slot);
     current = next;
+    item_setups[setup_index][eq_slot] = current->get_item_id();
 }
 
 void Equipment::unequip(Projectile*& item, const int eq_slot) {

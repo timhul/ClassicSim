@@ -190,6 +190,10 @@ void CharacterLoader::equip_gear(CharacterDecoder& decoder, Character* pchar) {
     item = decoder.get_value("TRINKET2").toInt(&key_converted);
     if (key_converted)
         pchar->get_equipment()->set_trinket2(item);
+
+    item = decoder.get_value("PROJECTILE").toInt(&key_converted);
+    if (key_converted)
+        pchar->get_equipment()->set_projectile(item);
 }
 
 void CharacterLoader::invest_talent_points(CharacterDecoder &decoder, Character* pchar) {
