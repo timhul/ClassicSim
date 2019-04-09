@@ -1398,6 +1398,8 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         item = current_char->get_equipment()->get_trinket1();
     if (slot_string == "TRINKET2")
         item = current_char->get_equipment()->get_trinket2();
+    if (slot_string == "PROJECTILE")
+        item = current_char->get_equipment()->get_projectile();
 
     if (item == nullptr)
         return QVariantList();
@@ -1424,6 +1426,8 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         if (current_char->get_name() == "Hunter" || current_char->get_name() == "Warrior" || current_char->get_name() == "Rogue")
             set_weapon_tooltip(item, slot, "Ranged", dmg_range, weapon_speed, dps);
     }
+    else if (slot == "PROJECTILE")
+        set_projectile_tooltip(item, slot, dps);
     else if (slot == "RING")
         slot = "Finger";
     else if (slot == "GLOVES")
@@ -1471,6 +1475,13 @@ void GUIControl::set_weapon_tooltip(Item*& item, QString& slot, QString type, QS
     dmg_range = QString("%1 - %2 Damage").arg(QString::number(wpn->get_min_dmg()), QString::number(wpn->get_max_dmg()));
     dps = QString("(%1 damage per second)").arg(QString::number(wpn->get_wpn_dps(), 'f', 1));
     wpn_speed = "Speed " + QString::number(wpn->get_base_weapon_speed(), 'f', 2);
+}
+
+void GUIControl::set_projectile_tooltip(Item* item, QString& slot, QString& dps) {
+    slot = get_initial_upper_case_rest_lower_case(slot);
+
+    auto* projectile = dynamic_cast<Projectile*>(item);
+    dps = QString("Adds %1 damage per second").arg(QString::number(projectile->get_projectile_dps(), 'f', 1));
 }
 
 void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction) {

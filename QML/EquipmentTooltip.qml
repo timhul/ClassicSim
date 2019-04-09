@@ -2,9 +2,8 @@ import QtQuick 2.0
 
 RectangleBorders {
     property string slotString
-    property bool showTypeInTooltip: slotString !== "NECK" && slotString !== "RING1" && slotString !== "RING2"
-                                     && slotString !== "TRINKET1" && slotString !== "TRINKET2"
-    property bool showDurabilityInTooltip: showTypeInTooltip
+    property bool showDurabilityInTooltip: hasDurability()
+    property bool showTypeInTooltip: showDurabilityInTooltip
     property bool slotEquipped: false
 
     id: ttRect
@@ -14,6 +13,19 @@ RectangleBorders {
     Connections {
         target: equipment
         onEquipmentChanged: updateTooltip()
+    }
+
+    function hasDurability() {
+        switch (slotString) {
+        case "NECK":
+        case "RING1":
+        case "RING2":
+        case "TRINKET1":
+        case "TRINKET2":
+            return false;
+        default:
+            return true;
+        }
     }
 
     function updateTooltip() {

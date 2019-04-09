@@ -432,6 +432,20 @@ Rectangle {
                 iconSource: equipment.projectileIcon
 
                 onSelectItem: eqRect.state = "PROJECTILE"
+
+                onShowTooltip: ammoTT.visible = ammoTT.slotEquipped
+                onHideTooltip: ammoTT.visible = false
+            }
+
+            EquipmentTooltipProjectile {
+                id: ammoTT
+                z: 10
+
+                anchors {
+                    left: ammoSlot.right
+                    bottom: ammoSlot.top
+                    bottomMargin: height > 450 ? 450 - height : 0
+                }
             }
 
             Column {
