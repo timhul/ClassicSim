@@ -11,6 +11,10 @@ void TestMultiShot::test_all() {
     run_mandatory_tests();
 
     set_up();
+    test_dmg_affected_by_projectile_bonus();
+    tear_down();
+
+    set_up();
     test_hit_dmg_0_of_5_ranged_weapon_specialization();
     tear_down();
 
@@ -142,6 +146,21 @@ void TestMultiShot::test_incurs_global_cooldown() {
     when_multi_shot_is_performed();
 
     assert(!hunter->action_ready());
+}
+
+void TestMultiShot::test_dmg_affected_by_projectile_bonus() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_hit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    hunter->set_projectile_dps(20.0);
+
+    when_multi_shot_is_performed();
+
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + (projectile_dps * normalized_wpn_speed)
+    // [506] = 100 + (2.8 * 1000 / 14) + 150 + (20.0 * 2.6)
+    then_damage_dealt_is(506);
 }
 
 void TestMultiShot::test_hit_dmg_0_of_5_ranged_weapon_specialization() {

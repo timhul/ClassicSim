@@ -1,26 +1,25 @@
 #include "AutoShot.h"
 
-#include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "Hunter.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-AutoShot::AutoShot(Character* pchar) :
+AutoShot::AutoShot(Hunter* pchar) :
     Spell("Auto Shot",
           "",
           pchar,
           RestrictedByGcd::No,
           0,
           ResourceType::Mana,
-          0)
-{
-    this->pchar = pchar;
-    next_expected_use = 0;
-    iteration = 0;
-}
+          0),
+    hunter(pchar),
+    next_expected_use(0),
+    iteration(0)
+{}
 
 void AutoShot::spell_effect() {
     complete_shot();
@@ -42,7 +41,7 @@ void AutoShot::calculate_damage(const bool run_procs) {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_ranged_dmg());
+    double damage_dealt = damage_after_modifiers(pchar->get_random_non_normalized_ranged_dmg() + hunter->get_non_normalized_projectile_dmg_bonus());
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod();

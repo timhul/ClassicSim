@@ -21,6 +21,7 @@ private:
     void test_resource_cost() override;
     void test_is_ready_conditions() override;
 
+    void test_dmg_affected_by_projectile_bonus();
     void test_hit_dmg_0_of_5_ranged_weapon_specialization();
     void test_hit_dmg_5_of_5_ranged_weapon_specialization();
     void test_hit_dmg_1_of_3_barrage();

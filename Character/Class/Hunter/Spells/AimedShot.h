@@ -4,11 +4,14 @@
 #include "SpellCastingTime.h"
 #include "TalentRequirer.h"
 
+class Hunter;
+
 class AimedShot: public SpellCastingTime, public TalentRequirer {
 public:
-    AimedShot(Character* pchar);
+    AimedShot(Hunter* pchar);
 
 private:
+    Hunter* hunter;
     const unsigned base_casting_time_ms;
     QVector<double> talent_ranks;
     double resource_base;

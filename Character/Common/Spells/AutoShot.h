@@ -3,9 +3,11 @@
 
 #include "Spell.h"
 
+class Hunter;
+
 class AutoShot: public Spell {
 public:
-    AutoShot(Character* pchar);
+    AutoShot(Hunter* pchar);
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);
@@ -15,6 +17,7 @@ public:
     void reset_shot_timer();
 
 private:
+    Hunter* hunter;
     double next_expected_use;
     int iteration;
     QVector<double> talent_ranks;

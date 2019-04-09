@@ -15,6 +15,10 @@ void TestAimedShot::test_all() {
     run_mandatory_tests();
 
     set_up();
+    test_dmg_affected_by_projectile_bonus();
+    tear_down();
+
+    set_up();
     test_hit_dmg_0_of_5_ranged_weapon_specialization();
     tear_down();
 
@@ -153,6 +157,24 @@ void TestAimedShot::test_is_ready_conditions() {
     given_hunter_has_mana(310);
 
     assert(!aimed_shot()->is_available());
+}
+
+void TestAimedShot::test_dmg_affected_by_projectile_bonus() {
+    given_target_has_0_armor();
+    given_a_ranged_weapon_with_100_min_max_dmg();
+    given_a_guaranteed_ranged_white_hit();
+    given_1000_ranged_ap();
+    given_no_previous_damage_dealt();
+    given_aimed_shot_is_enabled();
+    hunter->set_projectile_dps(20.0);
+
+    when_aimed_shot_is_performed();
+    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+
+    // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus + (projectile_dps * normalized_wpn_speed)
+    // [956] = 100 + (2.8 * 1000 / 14) + 600 + (20 * 2.8)
+    then_damage_dealt_is(956);
 }
 
 void TestAimedShot::test_incurs_global_cooldown() {

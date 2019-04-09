@@ -1,10 +1,10 @@
 #include "MultiShot.h"
 
-#include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "Hunter.h"
 
-MultiShot::MultiShot(Character* pchar) :
+MultiShot::MultiShot(Hunter* pchar) :
     Spell("Multi-Shot",
           "Assets/ability/Ability_upgrademoonglaive.png",
           pchar,
@@ -14,7 +14,8 @@ MultiShot::MultiShot(Character* pchar) :
           230),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
-                                                new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)})
+                                                new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
+    hunter(pchar)
 {
     resource_base = resource_cost;
     efficiency_ranks = {
@@ -46,7 +47,7 @@ void MultiShot::spell_effect() {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150) * barrage_mod;
+    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150 + hunter->get_normalized_projectile_dmg_bonus()) * barrage_mod;
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;

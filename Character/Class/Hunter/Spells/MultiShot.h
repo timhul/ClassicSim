@@ -4,11 +4,14 @@
 #include "Spell.h"
 #include "TalentRequirer.h"
 
+class Hunter;
+
 class MultiShot: public Spell, public TalentRequirer {
 public:
-    MultiShot(Character* pchar);
+    MultiShot(Hunter *pchar);
 
 private:
+    Hunter* hunter;
     double resource_base;
     QVector<double> efficiency_ranks;
     double mortal_shots_bonus;

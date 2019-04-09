@@ -1,12 +1,12 @@
 #include "AimedShot.h"
 
 #include "AutoShot.h"
-#include "Character.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "Hunter.h"
 
-AimedShot::AimedShot(Character* pchar) :
+AimedShot::AimedShot(Hunter* pchar) :
     SpellCastingTime("Aimed Shot",
                      "Assets/items/Inv_spear_07.png",
                      pchar,
@@ -18,6 +18,7 @@ AimedShot::AimedShot(Character* pchar) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),
+    hunter(pchar),
     base_casting_time_ms(3000)
 {
     this->enabled = false;
@@ -54,7 +55,7 @@ void AimedShot::complete_cast_effect() {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 600);
+    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 600 + hunter->get_normalized_projectile_dmg_bonus());
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;

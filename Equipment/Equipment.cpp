@@ -5,6 +5,7 @@
 #include "Character.h"
 #include "EquipmentDb.h"
 #include "Faction.h"
+#include "Hunter.h"
 #include "Item.h"
 #include "Projectile.h"
 #include "SetBonusControl.h"
@@ -800,12 +801,14 @@ void Equipment::equip(Projectile*& current, Projectile* next, const int eq_slot)
     unequip(current, eq_slot);
     current = next;
     item_setups[setup_index][eq_slot] = current->get_item_id();
+    dynamic_cast<Hunter*>(pchar)->set_projectile_dps(current->get_projectile_dps());
 }
 
 void Equipment::unequip(Projectile*& item, const int eq_slot) {
     if (item == nullptr)
         return;
 
+    dynamic_cast<Hunter*>(pchar)->set_projectile_dps(0.0);
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
     item = nullptr;

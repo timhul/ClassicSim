@@ -16,7 +16,8 @@
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character("Hunter", race, sim_settings) {
+    Character("Hunter", race, sim_settings),
+    projectile_dps(0.0) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
     available_races.append("Orc");
@@ -152,6 +153,18 @@ void Hunter::lose_focus(const unsigned value) {
 
 void Hunter::add_pet_reaction_event() {
     pet->add_pet_reaction();
+}
+
+double Hunter::get_non_normalized_projectile_dmg_bonus() const {
+    return this->projectile_dps * cstats->get_ranged_wpn_speed();
+}
+
+double Hunter::get_normalized_projectile_dmg_bonus() const {
+    return this->projectile_dps * 2.8;
+}
+
+void Hunter::set_projectile_dps(const double dps) {
+    this->projectile_dps = dps;
 }
 
 int Hunter::get_highest_possible_armor_type() const {

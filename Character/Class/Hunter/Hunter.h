@@ -35,10 +35,14 @@ public:
     void lose_focus(const unsigned value) override;
 
     void add_pet_reaction_event() override;
+    double get_non_normalized_projectile_dmg_bonus() const;
+    double get_normalized_projectile_dmg_bonus() const;
+    void set_projectile_dps(const double);
 
 private:
     HunterSpells* hunter_spells;
     class Mana* mana;
+    double projectile_dps;
 
     void initialize_talents() override;
     void reset_class_specific() override;
