@@ -5,6 +5,8 @@
 
 #include "Item.h"
 
+class Weapon;
+
 class Projectile: public Item {
 public:
     Projectile(QString name, int item_id, int type, double dps,
@@ -16,6 +18,7 @@ public:
     int get_projectile_type() const;
     double get_projectile_dps() const;
     QString get_projectile_type_string() const;
+    bool valid_for_weapon(Weapon* weapon) const;
 
 private:
     int projectile_type;

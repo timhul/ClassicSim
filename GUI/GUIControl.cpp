@@ -1259,8 +1259,13 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id) {
         current_char->get_equipment()->set_offhand(item_id);
         oh_temporary_enchants->update_enchants();
     }
-    if (slot_string == "RANGED")
+    if (slot_string == "RANGED") {
         current_char->get_equipment()->set_ranged(item_id);
+
+        Projectile* projectile = current_char->get_equipment()->get_projectile();
+        if (projectile && !projectile->valid_for_weapon(current_char->get_equipment()->get_ranged()))
+            current_char->get_equipment()->clear_projectile();
+    }
     if (slot_string == "HEAD")
         current_char->get_equipment()->set_head(item_id);
     if (slot_string == "NECK")
