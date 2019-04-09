@@ -20,23 +20,8 @@ Projectile::Projectile(const Projectile* projectile):
     this->dps = projectile->dps;
 }
 
-int Projectile::get_projectile_type() const {
-    return projectile_type;
-}
-
 double Projectile::get_projectile_dps() const {
     return dps;
-}
-
-QString Projectile::get_projectile_type_string() const {
-    switch (projectile_type) {
-    case ProjectileTypes::ARROW:
-        return "Arrow";
-    case ProjectileTypes::BULLET:
-        return "Bullet";
-    default:
-        return "Unknown";
-    }
 }
 
 bool Projectile::valid_for_weapon(Weapon* weapon) const {

@@ -15,9 +15,7 @@ public:
                QVector<QMap<QString, QString>> procs = {});
     Projectile(const Projectile* projectile);
 
-    int get_projectile_type() const;
     double get_projectile_dps() const;
-    QString get_projectile_type_string() const;
     bool valid_for_weapon(Weapon* weapon) const;
 
 private:
