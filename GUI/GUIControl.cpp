@@ -1294,8 +1294,13 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id) {
         current_char->get_equipment()->set_trinket1(item_id);
     if (slot_string == "TRINKET2")
         current_char->get_equipment()->set_trinket2(item_id);
-    if (slot_string == "PROJECTILE")
+    if (slot_string == "PROJECTILE") {
         current_char->get_equipment()->set_projectile(item_id);
+
+        Projectile* projectile = current_char->get_equipment()->get_projectile();
+        if (projectile && !projectile->valid_for_weapon(current_char->get_equipment()->get_ranged()))
+            current_char->get_equipment()->clear_ranged();
+    }
 
     equipmentChanged();
     statsChanged();
