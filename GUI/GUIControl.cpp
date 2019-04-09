@@ -1403,7 +1403,7 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         return QVariantList();
 
     QString boe_string = item->get_value("boe") == "yes" ? "Binds when equipped" :
-                                                          "Binds when picked up";
+                                                           "Binds when picked up";
     QString unique = item->get_value("unique") == "yes" ? "Unique" :
                                                           "";
 

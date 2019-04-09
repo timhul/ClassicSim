@@ -3,9 +3,9 @@
 #include <utility>
 
 Projectile::Projectile(QString name, int item_id, int type, double dps,
-               QMap<QString, QString> info,
-               QVector<QPair<QString, QString> > stats,
-               QVector<QMap<QString, QString>> procs):
+                       QMap<QString, QString> info,
+                       QVector<QPair<QString, QString> > stats,
+                       QVector<QMap<QString, QString>> procs):
     Item(std::move(name), item_id, std::move(info), std::move(stats), std::move(procs)),
     projectile_type(type),
     dps(dps)
