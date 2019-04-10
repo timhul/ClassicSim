@@ -1,8 +1,8 @@
-
 #include "UseTrinket.h"
+
+#include "Buff.h"
 #include "Character.h"
 #include "CharacterSpells.h"
-#include "Buff.h"
 #include "Proc.h"
 
 UseTrinket::UseTrinket(Character* pchar,

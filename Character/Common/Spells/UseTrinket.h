@@ -16,7 +16,6 @@ public:
                Proc* proc = nullptr);
     ~UseTrinket() override;
 
-protected:
 private:
     Buff* buff;
     Proc* proc;
