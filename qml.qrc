@@ -483,5 +483,12 @@
         <file>QML/Assets/misc/Inv_misc_fish_13.png</file>
         <file>QML/Assets/items/Ability_hunter_criticalshot.png</file>
         <file>QML/EquipmentTooltipProjectile.qml</file>
+        <file>QML/Assets/items/Inv_ammo_bullet_02.png</file>
+        <file>QML/Assets/items/Inv_ammo_arrow_01.png</file>
+        <file>QML/Assets/items/Inv_ammo_arrow_02.png</file>
+        <file>QML/Assets/items/Inv_ammo_bullet_01.png</file>
+        <file>QML/Assets/items/Inv_ammo_bullet_03.png</file>
+        <file>QML/Assets/items/Spell_frost_frostblast.png</file>
+        <file>QML/Assets/items/Spell_frost_iceshard.png</file>
     </qresource>
 </RCC>
