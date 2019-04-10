@@ -93,7 +93,7 @@ void Weapon::apply_enchant(EnchantName::Name enchant_name, Character *pchar, con
         }
     }
     else if (weapon_slot == WeaponSlots::RANGED) {
-        ;
+        enchant = new EnchantStatic(enchant_name, pchar, EnchantSlot::RANGED);
     }
     else {
         check(false, "Tried to apply weapon enchant on unsupported slot");

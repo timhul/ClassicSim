@@ -41,6 +41,8 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_enchants(const int equ
             EnchantName::Name::EnchantWeaponAgility
         };
     }
+    case EquipmentSlot::RANGED:
+        return {};
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
         return {

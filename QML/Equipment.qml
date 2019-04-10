@@ -717,9 +717,8 @@ Rectangle {
 
                 EquipmentSlotBox {
                     id: rangedSlot
-                    // Re-add once ranged enchants are available
-                    // enchantOrientation: "BELOW"
-                    // enchantLayoutDirection: "UP"
+                    enchantOrientation: "BELOW"
+                    enchantLayoutDirection: "UP"
                     z: 1
 
                     state: eqRect.state

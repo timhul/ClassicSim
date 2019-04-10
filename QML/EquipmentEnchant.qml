@@ -125,6 +125,8 @@ Rectangle {
                 return ohTempEnchantModel
             else
                 return ohEnchantModel
+        case "RANGED":
+            return rangedEnchantModel
         case "HEAD":
         case "LEGS":
             return headLegsEnchantModel

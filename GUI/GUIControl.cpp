@@ -89,6 +89,7 @@ GUIControl::GUIControl(QObject* parent) :
     mh_temporary_enchants(new EnchantModel(EquipmentSlot::MAINHAND, EnchantModel::Temporary)),
     oh_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Permanent)),
     oh_temporary_enchants(new EnchantModel(EquipmentSlot::OFFHAND, EnchantModel::Temporary)),
+    ranged_enchants(new EnchantModel(EquipmentSlot::RANGED, EnchantModel::Permanent)),
     head_legs_enchants(new EnchantModel(EquipmentSlot::HEAD, EnchantModel::Permanent)),
     shoulder_enchants(new EnchantModel(EquipmentSlot::SHOULDERS, EnchantModel::Permanent)),
     back_enchants(new EnchantModel(EquipmentSlot::BACK, EnchantModel::Permanent)),
@@ -188,6 +189,7 @@ GUIControl::~GUIControl() {
     delete mh_temporary_enchants;
     delete oh_enchants;
     delete oh_temporary_enchants;
+    delete ranged_enchants;
     delete head_legs_enchants;
     delete shoulder_enchants;
     delete back_enchants;
@@ -214,6 +216,7 @@ void GUIControl::set_character(Character* pchar) {
     mh_temporary_enchants->set_character(current_char);
     oh_enchants->set_character(current_char);
     oh_temporary_enchants->set_character(current_char);
+    ranged_enchants->set_character(current_char);
     head_legs_enchants->set_character(current_char);
     shoulder_enchants->set_character(current_char);
     back_enchants->set_character(current_char);
@@ -1218,6 +1221,10 @@ EnchantModel* GUIControl::get_oh_enchant_model() const {
 
 EnchantModel* GUIControl::get_oh_temporary_enchant_model() const {
     return this->oh_temporary_enchants;
+}
+
+EnchantModel* GUIControl::get_ranged_enchant_model() const {
+    return this->ranged_enchants;
 }
 
 EnchantModel* GUIControl::get_head_legs_enchant_model() const {

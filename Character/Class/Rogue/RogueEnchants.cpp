@@ -19,6 +19,8 @@ QVector<EnchantName::Name> RogueEnchants::get_available_enchants(const int equip
             EnchantName::Name::SuperiorStriking,
             EnchantName::Name::EnchantWeaponAgility
         };
+    case EquipmentSlot::RANGED:
+        return {};
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
         return {

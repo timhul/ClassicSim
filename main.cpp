@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("mhTempEnchantModel", gui_control->get_mh_temporary_enchant_model());
     context->setContextProperty("ohEnchantModel", gui_control->get_oh_enchant_model());
     context->setContextProperty("ohTempEnchantModel", gui_control->get_oh_temporary_enchant_model());
+    context->setContextProperty("rangedEnchantModel", gui_control->get_ranged_enchant_model());
     context->setContextProperty("headLegsEnchantModel", gui_control->get_head_legs_enchant_model());
     context->setContextProperty("shoulderEnchantModel", gui_control->get_shoulder_enchant_model());
     context->setContextProperty("backEnchantModel", gui_control->get_back_enchant_model());

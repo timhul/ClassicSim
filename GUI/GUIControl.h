@@ -168,6 +168,7 @@ public:
     EnchantModel* get_mh_temporary_enchant_model() const;
     EnchantModel* get_oh_enchant_model() const;
     EnchantModel* get_oh_temporary_enchant_model() const;
+    EnchantModel* get_ranged_enchant_model() const;
     EnchantModel* get_head_legs_enchant_model() const;
     EnchantModel* get_shoulder_enchant_model() const;
     EnchantModel* get_back_enchant_model() const;
@@ -395,6 +396,7 @@ private:
     EnchantModel* mh_temporary_enchants;
     EnchantModel* oh_enchants;
     EnchantModel* oh_temporary_enchants;
+    EnchantModel* ranged_enchants;
     EnchantModel* head_legs_enchants;
     EnchantModel* shoulder_enchants;
     EnchantModel* back_enchants;

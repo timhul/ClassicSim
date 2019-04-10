@@ -49,6 +49,12 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::Enchant2HWeaponSuperiorImpact:
         pchar->increase_mh_flat_damage_bonus(9);
         break;
+    case EnchantName::Biznicks247x128Accurascope:
+        pchar->get_stats()->increase_ranged_hit(300);
+        break;
+    case EnchantName::SniperScope:
+        pchar->increase_ranged_flat_damage_bonus(7);
+        break;
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->increase_melee_attack_speed(1);
         break;
@@ -165,6 +171,12 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::Enchant2HWeaponSuperiorImpact:
         pchar->decrease_mh_flat_damage_bonus(9);
+        break;
+    case EnchantName::Biznicks247x128Accurascope:
+        pchar->get_stats()->decrease_ranged_hit(300);
+        break;
+    case EnchantName::SniperScope:
+        pchar->decrease_ranged_flat_damage_bonus(7);
         break;
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->decrease_melee_attack_speed(1);

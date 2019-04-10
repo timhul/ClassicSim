@@ -19,6 +19,11 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
             EnchantName::Name::SuperiorStriking,
             EnchantName::Name::EnchantWeaponAgility
         };
+    case EquipmentSlot::RANGED:
+        return {
+            EnchantName::Name::Biznicks247x128Accurascope,
+            EnchantName::Name::SniperScope,
+        };
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
         return {

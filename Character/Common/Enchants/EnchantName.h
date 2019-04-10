@@ -19,6 +19,8 @@ public:
         IronCounterweight,
         Enchant2HWeaponAgility,
         Enchant2HWeaponSuperiorImpact,
+        Biznicks247x128Accurascope,
+        SniperScope,
         FalconsCall,
         InstantPoison,
         WindfuryTotem,
@@ -84,6 +86,10 @@ public:
             return "2H Weapon Agility";
         case EnchantName::Enchant2HWeaponSuperiorImpact:
             return "2H Weapon Superior Impact";
+        case EnchantName::Biznicks247x128Accurascope:
+            return "Biznicks 247x128 Accurascope";
+        case EnchantName::SniperScope:
+            return "Sniper Scope";
         case EnchantName::ArcanumOfRapidity:
             return "Arcanum of Rapidity";
         case EnchantName::LesserArcanumOfVoracityAgility:
@@ -159,6 +165,10 @@ public:
             return "+25 Agility";
         case EnchantName::Enchant2HWeaponSuperiorImpact:
             return "+9 Damage";
+        case EnchantName::Biznicks247x128Accurascope:
+            return "+3% Ranged Hit";
+        case EnchantName::SniperScope:
+            return "+7 Damage";
         case EnchantName::ArcanumOfRapidity:
             return "+1% Haste";
         case EnchantName::LesserArcanumOfVoracityAgility:
