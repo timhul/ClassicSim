@@ -133,6 +133,17 @@ unsigned Hunter::get_resource_level(const ResourceType resource_type) const {
     }
 }
 
+unsigned Hunter::get_max_resource_level(const ResourceType resource_type) const {
+    switch (resource_type) {
+    case ResourceType::Mana:
+        return mana->max;
+    case ResourceType::Focus:
+        check(false, QString("%1 Focus not available for max resource level").arg(__func__).toStdString());
+    default:
+        return 0;
+    }
+}
+
 void Hunter::gain_mana(const unsigned value) {
     mana->gain_resource(value);
     add_player_reaction_event();

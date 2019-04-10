@@ -49,6 +49,7 @@ public:
     void decrease_stance_rage_remainder();
     unsigned get_stance_remainder() const;
     unsigned get_resource_level(const ResourceType) const override;
+    unsigned get_max_resource_level(const ResourceType) const override;
     void gain_rage(const unsigned) override;
     void lose_rage(const unsigned) override;
     unsigned rage_gained_from_dd(const unsigned) const;

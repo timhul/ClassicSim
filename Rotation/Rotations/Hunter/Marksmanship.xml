@@ -71,4 +71,6 @@
 	<cast_if name="Aspect of the Hawk">
 		buff "Aspect of the Hawk" less 10
 	</cast_if>
+
+	<cast_if name="Mana Potion"/>
 </rotation>

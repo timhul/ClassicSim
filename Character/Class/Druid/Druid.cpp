@@ -120,6 +120,19 @@ unsigned Druid::get_resource_level(const ResourceType resource_type) const {
     }
 }
 
+unsigned Druid::get_max_resource_level(const ResourceType resource_type) const {
+    switch (resource_type) {
+    case ResourceType::Mana:
+        return mana->max;
+    case ResourceType::Rage:
+        return rage->max;
+    case ResourceType::Energy:
+        return energy->max;
+    default:
+        return 0;
+    }
+}
+
 int Druid::get_highest_possible_armor_type() const {
     return ArmorTypes::LEATHER;
 }

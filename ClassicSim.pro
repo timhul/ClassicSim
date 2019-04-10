@@ -339,7 +339,8 @@ SOURCES += main.cpp \
     Character/Class/Hunter/Buffs/FrenzyBuff.cpp \
     Character/Class/Hunter/Procs/FrenzyProc.cpp \
     Equipment/EquipmentDb/ProjectileFileReader.cpp \
-    Equipment/Item/Projectile.cpp
+    Equipment/Item/Projectile.cpp \
+    Character/Common/Spells/ManaPotion.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -683,7 +684,8 @@ HEADERS += \
     Character/Class/Hunter/Buffs/FrenzyBuff.h \
     Character/Class/Hunter/Procs/FrenzyProc.h \
     Equipment/EquipmentDb/ProjectileFileReader.h \
-    Equipment/Item/Projectile.h
+    Equipment/Item/Projectile.h \
+    Character/Common/Spells/ManaPotion.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

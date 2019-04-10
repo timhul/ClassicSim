@@ -8,6 +8,7 @@ class AspectOfTheHawk;
 class BestialWrath;
 class Hunter;
 class HuntersMark;
+class ManaPotion;
 class MultiShot;
 class RapidFire;
 
@@ -26,6 +27,7 @@ public:
     AutoShot* get_auto_shot() const override;
     BestialWrath* get_bestial_wrath() const;
     HuntersMark* get_hunters_mark() const;
+    ManaPotion* get_mana_potion() const;
     MultiShot* get_multi_shot() const;
     OffhandAttack* get_oh_attack() const override;
     RapidFire* get_rapid_fire() const;
@@ -37,6 +39,7 @@ private:
     AutoShot* auto_shot;
     BestialWrath* bestial_wrath;
     HuntersMark* hunters_mark;
+    ManaPotion* mana_potion;
     MultiShot* multi_shot;
     RapidFire* rapid_fire;
 };

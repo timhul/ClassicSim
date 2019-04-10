@@ -137,6 +137,7 @@ public:
     bool has_ranged() const;
 
     virtual unsigned get_resource_level(const ResourceType) const = 0;
+    virtual unsigned get_max_resource_level(const ResourceType) const = 0;
 
     void reset();
     void prepare_set_of_combat_iterations();

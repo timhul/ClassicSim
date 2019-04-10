@@ -106,6 +106,10 @@ unsigned Mage::get_resource_level(const ResourceType) const {
     return mana->current;
 }
 
+unsigned Mage::get_max_resource_level(const ResourceType) const {
+    return mana->max;
+}
+
 int Mage::get_highest_possible_armor_type() const {
     return ArmorTypes::CLOTH;
 }

@@ -490,5 +490,6 @@
         <file>QML/Assets/items/Inv_ammo_bullet_03.png</file>
         <file>QML/Assets/items/Spell_frost_frostblast.png</file>
         <file>QML/Assets/items/Spell_frost_iceshard.png</file>
+        <file>QML/Assets/misc/Inv_potion_76.png</file>
     </qresource>
 </RCC>

@@ -104,6 +104,10 @@ unsigned Paladin::get_resource_level(const ResourceType) const {
     return mana->current;
 }
 
+unsigned Paladin::get_max_resource_level(const ResourceType) const {
+    return mana->max;
+}
+
 int Paladin::get_highest_possible_armor_type() const {
     return ArmorTypes::PLATE;
 }

@@ -244,6 +244,10 @@ unsigned Warrior::get_resource_level(const ResourceType) const {
     return this->rage->current;
 }
 
+unsigned Warrior::get_max_resource_level(const ResourceType) const {
+    return this->rage->max;
+}
+
 void Warrior::increase_stance_rage_remainder() {
     this->stance_rage_remainder += 5;
     check((stance_rage_remainder <= 25), "Stance rage remainder too high");

@@ -8,6 +8,7 @@
 #include "Hunter.h"
 #include "HuntersMark.h"
 #include "MainhandAttack.h"
+#include "ManaPotion.h"
 #include "MultiShot.h"
 #include "OffhandAttack.h"
 #include "Pet.h"
@@ -23,6 +24,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->auto_shot = new AutoShot(hunter);
     this->bestial_wrath = new BestialWrath(hunter, "Cat");
     this->hunters_mark = new HuntersMark(hunter);
+    this->mana_potion = new ManaPotion(hunter);
     this->mh_attack = new MainhandAttack(hunter);
     this->multi_shot = new MultiShot(hunter);
     this->oh_attack = new OffhandAttack(hunter);
@@ -33,6 +35,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     spells.append(auto_shot);
     spells.append(bestial_wrath);
     spells.append(hunters_mark);
+    spells.append(mana_potion);
     spells.append(mh_attack);
     spells.append(multi_shot);
     spells.append(oh_attack);
@@ -95,12 +98,16 @@ AutoShot* HunterSpells::get_auto_shot() const {
     return this->auto_shot;
 }
 
-BestialWrath *HunterSpells::get_bestial_wrath() const {
+BestialWrath* HunterSpells::get_bestial_wrath() const {
     return this->bestial_wrath;
 }
 
 HuntersMark* HunterSpells::get_hunters_mark() const {
     return this->hunters_mark;
+}
+
+ManaPotion* HunterSpells::get_mana_potion() const {
+    return this->mana_potion;
 }
 
 MultiShot* HunterSpells::get_multi_shot() const {
@@ -111,6 +118,6 @@ OffhandAttack* HunterSpells::get_oh_attack() const {
     return this->oh_attack;
 }
 
-RapidFire *HunterSpells::get_rapid_fire() const {
+RapidFire* HunterSpells::get_rapid_fire() const {
     return this->rapid_fire;
 }

@@ -146,7 +146,8 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
         "Aimed Shot",
         "Multi-Shot",
         "Hunter's Mark",
-        "Aspect of the Hawk"
+        "Aspect of the Hawk",
+        "Mana Potion",
     };
     assert(rotation->executors.size() == expected_executor_names.size());
 

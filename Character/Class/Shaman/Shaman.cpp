@@ -104,6 +104,10 @@ unsigned Shaman::get_resource_level(const ResourceType) const {
     return mana->current;
 }
 
+unsigned Shaman::get_max_resource_level(const ResourceType) const {
+    return mana->max;
+}
+
 int Shaman::get_highest_possible_armor_type() const {
     return ArmorTypes::MAIL;
 }

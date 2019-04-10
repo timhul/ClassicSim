@@ -132,6 +132,10 @@ unsigned Rogue::get_resource_level(const ResourceType) const {
     return this->energy->current;
 }
 
+unsigned Rogue::get_max_resource_level(const ResourceType) const {
+    return this->energy->max;
+}
+
 void Rogue::gain_energy(const unsigned energy) {
     this->energy->gain_resource(energy);
     add_player_reaction_event();

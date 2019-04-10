@@ -29,6 +29,7 @@ public:
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
     unsigned get_resource_level(const ResourceType) const override;
+    unsigned get_max_resource_level(const ResourceType) const override;
 
 private:
     MageSpells* mage_spells;

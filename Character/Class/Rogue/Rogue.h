@@ -34,6 +34,7 @@ public:
     QVector<int> get_weapon_proficiencies_for_slot(const int slot) const override;
 
     unsigned get_resource_level(const ResourceType) const override;
+    unsigned get_max_resource_level(const ResourceType) const override;
     void gain_energy(const unsigned) override;
     void lose_energy(const unsigned) override;
 
