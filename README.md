@@ -1,4 +1,4 @@
-# Introduction 
+# Introduction
 
 This is an event-driven gameplay simulator for World of Warcraft Classic written in C++. It is called "ClassicSim", or
 CSIM for short. Its purpose is to provide feedback to a user regarding the value of equipment, talents, consumables,
@@ -40,18 +40,23 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-* Pet (Cat) has been added.
-* Added player reaction to auto shot to improve the flow of Hunter AS/MS rotation.
-* All DPS increasing talents except most pet/Arcane Shot/Serpent Sting boosts now available for Hunter.
+* All DPS increasing talents except melee/Arcane Shot/Serpent Sting boosts now available for Hunter.
+* Pet (Cat) has been added. It is fully affected by Beast Mastery talents.
+* Many Hunter items added (including all relevant ranged weapons).
+* Projectiles can now be equipped.
 * Usage of Hunter's Mark/Rapid Fire/Aspect of the Hawk.
-* Many pre-raid Hunter items added.
 * Lesser/Brilliant Mana Oil available as temporary enchants.
+* Sniper scopes available as enchants for Hunters.
 * Blessing of Wisdom/Mana Spring Totem and Grilled Squid available as external buffs.
+* Quiver bonus is hardcoded as a 15% ranged attack speed increase.
+* Added player reaction to auto shot to improve the flow of Hunter AS/MS rotation.
 * Fix crash if simming Hunter with a mainhand equipped but no ranged weapon.
 
 ## Restrictions
 
 * Only Cat is available to use as pet.
+* It is not possible to simulate without 15% quiver bonus for Hunter.
+* Sorting projectiles on type does not work.
 
 # Release notes
 
