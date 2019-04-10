@@ -304,7 +304,7 @@ SOURCES += main.cpp \
     Test/Hunter/TestSpellHunter.cpp \
     Character/Class/Hunter/Spells/MultiShot.cpp \
     Test/Hunter/Spells/TestMultiShot.cpp \
-    Character/Common/Spells/AutoShot.cpp \
+    Character/Class/Hunter/Spells/AutoShot.cpp \
     Test/Hunter/Spells/TestAutoShot.cpp \
     Character/Class/Hunter/Spells/AimedShot.cpp \
     Test/Hunter/Spells/TestAimedShot.cpp \
@@ -647,7 +647,7 @@ HEADERS += \
     Test/Hunter/TestSpellHunter.h \
     Character/Class/Hunter/Spells/MultiShot.h \
     Test/Hunter/Spells/TestMultiShot.h \
-    Character/Common/Spells/AutoShot.h \
+    Character/Class/Hunter/Spells/AutoShot.h \
     Test/Hunter/Spells/TestAutoShot.h \
     Character/Class/Hunter/Spells/AimedShot.h \
     Test/Hunter/Spells/TestAimedShot.h \
