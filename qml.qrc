@@ -491,5 +491,20 @@
         <file>QML/Assets/items/Spell_frost_frostblast.png</file>
         <file>QML/Assets/items/Spell_frost_iceshard.png</file>
         <file>QML/Assets/misc/Inv_potion_76.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_01.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_09.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_13.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_14.png</file>
+        <file>QML/Assets/items/Inv_weapon_crossbow_09.png</file>
+        <file>QML/Assets/items/Inv_weapon_crossbow_12.png</file>
+        <file>QML/Assets/items/Inv_weapon_crossbow_06.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_02.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_10.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_11.png</file>
+        <file>QML/Assets/items/Inv_waepon_bow_zulgrub_d_01.png</file>
+        <file>QML/Assets/items/Inv_waepon_bow_zulgrub_d_02.png</file>
+        <file>QML/Assets/items/Inv_weapon_bow_12.png</file>
+        <file>QML/Assets/items/Inv_weapon_crossbow_10.png</file>
+        <file>QML/Assets/items/Inv_weapon_rifle_08.png</file>
     </qresource>
 </RCC>
