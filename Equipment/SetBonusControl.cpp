@@ -6,8 +6,12 @@
 #include "EquipmentDb.h"
 #include "Eviscerate.h"
 #include "Hemorrhage.h"
+#include "Hunter.h"
+#include "HunterSpells.h"
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
+#include "RapidFire.h"
+#include "RapidFireBuff.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SetBonusFileReader.h"
@@ -62,6 +66,15 @@ void SetBonusControl::equip_item(const int item_id) {
             spells->get_backstab()->activate_set_bonus(set_name, num_pieces);
             spells->get_hemorrhage()->activate_set_bonus(set_name, num_pieces);
             spells->get_sinister_strike()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
+    else if (set_name == "Cryptstalker Armor") {
+        switch (num_pieces) {
+        case 2: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_rapid_fire()->get_rapid_fire_buff()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         }
@@ -164,6 +177,15 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_backstab()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_hemorrhage()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
+    else if (set_name == "Cryptstalker Armor") {
+        switch (num_pieces) {
+        case 2: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_rapid_fire()->get_rapid_fire_buff()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         }

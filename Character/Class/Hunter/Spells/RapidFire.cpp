@@ -8,7 +8,7 @@ RapidFire::RapidFire(Character* pchar) :
           "Assets/ability/Ability_hunter_runningshot.png",
           pchar,
           RestrictedByGcd::Yes,
-          0.0,
+          300.0,
           ResourceType::Mana,
           100),
     rapid_fire(new RapidFireBuff(pchar))
@@ -21,6 +21,10 @@ RapidFire::~RapidFire() {
         rapid_fire->disable_buff();
 
     delete rapid_fire;
+}
+
+RapidFireBuff* RapidFire::get_rapid_fire_buff() const {
+    return this->rapid_fire;
 }
 
 void RapidFire::spell_effect() {

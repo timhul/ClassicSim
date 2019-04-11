@@ -3,13 +3,14 @@
 
 #include "Spell.h"
 
-class Buff;
 class RapidFireBuff;
 
 class RapidFire: public Spell {
 public:
     RapidFire(Character *pchar);
     ~RapidFire() override;
+
+    RapidFireBuff* get_rapid_fire_buff() const;
 
 private:
     RapidFireBuff* rapid_fire;
