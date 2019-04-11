@@ -23,6 +23,10 @@ FrenzyProc::FrenzyProc(Character* pchar, Pet* pet) :
 FrenzyProc::~FrenzyProc() {
     if (frenzy_buff->is_enabled())
         frenzy_buff->disable_buff();
+    if (is_enabled()) {
+        disable();
+        disable_proc();
+    }
 
     delete frenzy_buff;
 }
