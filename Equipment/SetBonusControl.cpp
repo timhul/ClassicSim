@@ -93,6 +93,12 @@ void SetBonusControl::equip_item(const int item_id) {
             spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
             break;
         }
+        case 8: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_aimed_shot()->activate_set_bonus(set_name, num_pieces);
+            spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
         }
     }
     else if (set_name == "Devilsaur Armor") {
@@ -213,6 +219,12 @@ void SetBonusControl::unequip_item(const int item_id) {
             auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
             spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_auto_shot()->deactivate_set_bonus(set_name, num_pieces);
+            spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        case 8: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }

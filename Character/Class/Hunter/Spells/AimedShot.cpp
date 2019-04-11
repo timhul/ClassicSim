@@ -107,6 +107,9 @@ void AimedShot::activate_set_bonus_effect(const QString& set_name, const int set
         case 6:
             adrenaline_rush = 50;
             break;
+        case 8:
+            resource_cost -= 20;
+            break;
         default:
             check(false, "AimedShot::activate_set_bonus_effect reached end of switch");
         }
@@ -118,6 +121,9 @@ void AimedShot::deactivate_set_bonus_effect(const QString& set_name, const int s
         switch (set_bonus) {
         case 6:
             adrenaline_rush = 0;
+            break;
+        case 8:
+            resource_cost += 20;
             break;
         default:
             check(false, "AimedShot::activate_set_bonus_effect reached end of switch");

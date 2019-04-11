@@ -103,6 +103,9 @@ void MultiShot::activate_set_bonus_effect(const QString& set_name, const int set
         case 6:
             adrenaline_rush = 50;
             break;
+        case 8:
+            resource_cost -= 20;
+            break;
         default:
             check(false, "MultiShot::activate_set_bonus_effect reached end of switch");
         }
@@ -114,6 +117,9 @@ void MultiShot::deactivate_set_bonus_effect(const QString& set_name, const int s
         switch (set_bonus) {
         case 6:
             adrenaline_rush = 0;
+            break;
+        case 8:
+            resource_cost += 20;
             break;
         default:
             check(false, "MultiShot::activate_set_bonus_effect reached end of switch");
