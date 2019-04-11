@@ -1,8 +1,11 @@
 #include "MultiShot.h"
 
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "Hunter.h"
+#include "StatisticsResource.h"
+#include "Utils/Check.h"
 
 MultiShot::MultiShot(Hunter* pchar) :
     Spell("Multi-Shot",
@@ -15,6 +18,7 @@ MultiShot::MultiShot(Hunter* pchar) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
+    SetBonusRequirer({"Cryptstalker Armor"}),
     hunter(pchar)
 {
     resource_base = resource_cost;
@@ -53,11 +57,26 @@ void MultiShot::spell_effect() {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         pchar->ranged_yellow_critical_effect(true);
+        add_adrenaline_rush_statistics();
         return;
     }
 
     pchar->ranged_yellow_hit_effect(true);
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+}
+
+void MultiShot::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics("Multi-Shot", icon);
+}
+
+void MultiShot::add_adrenaline_rush_statistics() {
+    const unsigned before_gain = hunter->get_resource_level(ResourceType::Mana);
+    hunter->gain_mana(adrenaline_rush);
+
+    const unsigned delta = hunter->get_resource_level(ResourceType::Mana) - before_gain;
+
+    if (delta > 0)
+        statistics_resource->add_resource_gain(ResourceType::Mana, delta);
 }
 
 void MultiShot::increase_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -76,4 +95,28 @@ void MultiShot::decrease_talent_rank_effect(const QString& talent_name, const in
         mortal_shots_bonus = mortal_shots_ranks[curr];
     if (talent_name == "Barrage")
         barrage_mod = barrage_ranks[curr];
+}
+
+void MultiShot::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Cryptstalker Armor") {
+        switch (set_bonus) {
+        case 6:
+            adrenaline_rush = 50;
+            break;
+        default:
+            check(false, "MultiShot::activate_set_bonus_effect reached end of switch");
+        }
+    }
+}
+
+void MultiShot::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Cryptstalker Armor") {
+        switch (set_bonus) {
+        case 6:
+            adrenaline_rush = 0;
+            break;
+        default:
+            check(false, "MultiShot::activate_set_bonus_effect reached end of switch");
+        }
+    }
 }

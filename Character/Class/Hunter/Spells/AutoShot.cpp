@@ -1,10 +1,12 @@
 #include "AutoShot.h"
 
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "Hunter.h"
+#include "StatisticsResource.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
@@ -16,6 +18,7 @@ AutoShot::AutoShot(Hunter* pchar) :
           0,
           ResourceType::Mana,
           0),
+    SetBonusRequirer({"Cryptstalker Armor"}),
     hunter(pchar),
     next_expected_use(0),
     iteration(0)
@@ -47,6 +50,7 @@ void AutoShot::calculate_damage(const bool run_procs) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         pchar->ranged_white_critical_effect(run_procs);
+        add_adrenaline_rush_statistics();
         return;
     }
 
@@ -78,6 +82,27 @@ void AutoShot::complete_shot() {
     next_expected_use = last_used + pchar->get_stats()->get_ranged_wpn_speed();
 }
 
+void AutoShot::prepare_set_of_combat_iterations_spell_specific() {
+    if (pchar->get_equipment()->get_ranged() == nullptr)
+        return;
+
+    this->icon = "Assets/items/" + pchar->get_equipment()->get_ranged()->get_value("icon");
+    this->cooldown = pchar->get_stats()->get_ranged_wpn_speed();
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics("Auto Shot", icon);
+
+    reset();
+}
+
+void AutoShot::add_adrenaline_rush_statistics() {
+    const unsigned before_gain = hunter->get_resource_level(ResourceType::Mana);
+    hunter->gain_mana(adrenaline_rush);
+
+    const unsigned delta = hunter->get_resource_level(ResourceType::Mana) - before_gain;
+
+    if (delta > 0)
+        statistics_resource->add_resource_gain(ResourceType::Mana, delta);
+}
+
 void AutoShot::reset_shot_timer() {
     next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_ranged_wpn_speed();
 }
@@ -94,12 +119,26 @@ void AutoShot::reset_effect() {
     next_expected_use = 0;
 }
 
-void AutoShot::prepare_set_of_combat_iterations_spell_specific() {
-    if (pchar->get_equipment()->get_ranged() == nullptr)
-        return;
+void AutoShot::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Cryptstalker Armor") {
+        switch (set_bonus) {
+        case 6:
+            adrenaline_rush = 50;
+            break;
+        default:
+            check(false, "AutoShot::activate_set_bonus_effect reached end of switch");
+        }
+    }
+}
 
-    this->icon = "Assets/items/" + pchar->get_equipment()->get_ranged()->get_value("icon");
-    this->cooldown = pchar->get_stats()->get_ranged_wpn_speed();
-
-    reset();
+void AutoShot::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Cryptstalker Armor") {
+        switch (set_bonus) {
+        case 6:
+            adrenaline_rush = 0;
+            break;
+        default:
+            check(false, "AutoShot::activate_set_bonus_effect reached end of switch");
+        }
+    }
 }

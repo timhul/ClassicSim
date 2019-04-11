@@ -1,5 +1,7 @@
 #include "SetBonusControl.h"
 
+#include "AimedShot.h"
+#include "AutoShot.h"
 #include "Backstab.h"
 #include "CharacterStats.h"
 #include "Energy.h"
@@ -10,6 +12,7 @@
 #include "HunterSpells.h"
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
+#include "MultiShot.h"
 #include "Pet.h"
 #include "RapidFire.h"
 #include "RapidFireBuff.h"
@@ -83,6 +86,13 @@ void SetBonusControl::equip_item(const int item_id) {
             pchar->get_stats()->increase_ranged_ap(50);
             dynamic_cast<Hunter*>(pchar)->get_pet()->increase_attack_power(50);
             break;
+        case 6: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_aimed_shot()->activate_set_bonus(set_name, num_pieces);
+            spells->get_auto_shot()->activate_set_bonus(set_name, num_pieces);
+            spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
         }
     }
     else if (set_name == "Devilsaur Armor") {
@@ -199,6 +209,13 @@ void SetBonusControl::unequip_item(const int item_id) {
             pchar->get_stats()->decrease_ranged_ap(50);
             dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_attack_power(50);
             break;
+        case 6: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_aimed_shot()->deactivate_set_bonus(set_name, num_pieces);
+            spells->get_auto_shot()->deactivate_set_bonus(set_name, num_pieces);
+            spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
         }
     }
     else if (set_name == "Devilsaur Armor") {

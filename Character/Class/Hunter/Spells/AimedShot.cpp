@@ -3,8 +3,11 @@
 #include "AutoShot.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "Hunter.h"
+#include "StatisticsResource.h"
+#include "Utils/Check.h"
 
 AimedShot::AimedShot(Hunter* pchar) :
     SpellCastingTime("Aimed Shot",
@@ -18,6 +21,7 @@ AimedShot::AimedShot(Hunter* pchar) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),
+    SetBonusRequirer({"Cryptstalker Armor"}),
     hunter(pchar),
     base_casting_time_ms(3000)
 {
@@ -61,11 +65,26 @@ void AimedShot::complete_cast_effect() {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
         pchar->ranged_yellow_critical_effect(true);
+        add_adrenaline_rush_statistics();
         return;
     }
 
     pchar->ranged_yellow_hit_effect(true);
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+}
+
+void AimedShot::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics("Aimed Shot", icon);
+}
+
+void AimedShot::add_adrenaline_rush_statistics() {
+    const unsigned before_gain = hunter->get_resource_level(ResourceType::Mana);
+    hunter->gain_mana(adrenaline_rush);
+
+    const unsigned delta = hunter->get_resource_level(ResourceType::Mana) - before_gain;
+
+    if (delta > 0)
+        statistics_resource->add_resource_gain(ResourceType::Mana, delta);
 }
 
 void AimedShot::increase_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -80,4 +99,28 @@ void AimedShot::decrease_talent_rank_effect(const QString& talent_name, const in
         resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
     if (talent_name == "Mortal Shots")
         mortal_shots_bonus = mortal_shots_ranks[curr];
+}
+
+void AimedShot::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Cryptstalker Armor") {
+        switch (set_bonus) {
+        case 6:
+            adrenaline_rush = 50;
+            break;
+        default:
+            check(false, "AimedShot::activate_set_bonus_effect reached end of switch");
+        }
+    }
+}
+
+void AimedShot::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Cryptstalker Armor") {
+        switch (set_bonus) {
+        case 6:
+            adrenaline_rush = 0;
+            break;
+        default:
+            check(false, "AimedShot::activate_set_bonus_effect reached end of switch");
+        }
+    }
 }

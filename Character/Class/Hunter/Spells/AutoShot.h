@@ -1,11 +1,13 @@
 #ifndef AUTOSHOT_H
 #define AUTOSHOT_H
 
+#include "SetBonusRequirer.h"
 #include "Spell.h"
 
 class Hunter;
+class StatisticsResource;
 
-class AutoShot: public Spell {
+class AutoShot: public Spell, public SetBonusRequirer {
 public:
     AutoShot(Hunter* pchar);
 
@@ -18,17 +20,23 @@ public:
 
 private:
     Hunter* hunter;
+    StatisticsResource* statistics_resource {nullptr};
     double next_expected_use;
+    unsigned adrenaline_rush {0};
     int iteration;
     QVector<double> talent_ranks;
 
     virtual void spell_effect() override;
     void reset_effect() override;
+    void prepare_set_of_combat_iterations_spell_specific() override;
+
+    void add_adrenaline_rush_statistics();
 
     virtual void calculate_damage(const bool);
     void complete_shot();
 
-    void prepare_set_of_combat_iterations_spell_specific() override;
+    void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
+    void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
 
 #endif // AUTOSHOT_H
