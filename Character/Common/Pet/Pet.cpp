@@ -10,6 +10,7 @@
 #include "PetAction.h"
 #include "PetAutoAttack.h"
 #include "PetMeleeHit.h"
+#include "Random.h"
 #include "Spell.h"
 #include "Utils/CompareDouble.h"
 
@@ -19,8 +20,9 @@ Pet::Pet(Character* pchar, const QString &name, double attack_speed, double base
     name(name),
     base_attack_speed(attack_speed),
     base_dps(base_dps),
-    min(static_cast<unsigned>(round(base_dps * base_attack_speed * 0.9))),
-    max(static_cast<unsigned>(round(base_dps * base_attack_speed * 1.1))),
+    min(static_cast<unsigned>(round((base_dps + attack_power / 14 * base_attack_speed) * 0.9))),
+    max(static_cast<unsigned>(round((base_dps + attack_power / 14 * base_attack_speed) * 1.1))),
+    normalized_dmg_roll(new Random(min, max)),
     global_cooldown(1.5),
     next_gcd(0.0),
     is_attacking(false),
@@ -39,6 +41,7 @@ Pet::~Pet() {
 
     delete pet_auto_attack;
     delete frenzy_proc;
+    delete normalized_dmg_roll;
 }
 
 QString Pet::get_name() const {
@@ -136,6 +139,28 @@ unsigned Pet::get_max_dmg() const {
     return this->max;
 }
 
+void Pet::increase_attack_power(const unsigned increase) {
+    attack_power += increase;
+
+    min = static_cast<unsigned>(round((base_dps + attack_power / 14 * base_attack_speed) * 0.9));
+    max = static_cast<unsigned>(round((base_dps + attack_power / 14 * base_attack_speed) * 1.1));
+
+    normalized_dmg_roll->set_new_range(min, max);
+}
+
+void Pet::decrease_attack_power(const unsigned decrease) {
+    attack_power -= decrease;
+
+    min = static_cast<unsigned>(round((base_dps + attack_power / 14 * base_attack_speed) * 0.9));
+    max = static_cast<unsigned>(round((base_dps + attack_power / 14 * base_attack_speed) * 1.1));
+
+    normalized_dmg_roll->set_new_range(min, max);
+}
+
+unsigned Pet::get_random_normalized_dmg() {
+    return normalized_dmg_roll->get_roll();
+}
+
 void Pet::melee_critical_effect() {
     if (frenzy_proc->is_enabled())
         frenzy_proc->perform();
@@ -147,7 +172,7 @@ void Pet::reset() {
     this->resource->reset_resource();
 }
 
-Resource *Pet::get_resource() {
+Resource* Pet::get_resource() {
     return this->resource;
 }
 

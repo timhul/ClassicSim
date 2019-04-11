@@ -8,7 +8,7 @@
 #include "Utils/Check.h"
 
 Cat::Cat(Hunter* hunter) :
-    Pet(hunter, "Cat", 1.5, 64.7)
+    Pet(hunter, "Cat", 1.5, 37.7)
 {
     focus = new class Focus(hunter);
     resource = focus;

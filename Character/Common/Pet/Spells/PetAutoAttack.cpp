@@ -5,7 +5,6 @@
 #include "CombatRoll.h"
 #include "Engine.h"
 #include "Pet.h"
-#include "Random.h"
 
 PetAutoAttack::PetAutoAttack(Character* pchar, Pet* pet, const QString& icon) :
     Spell(QString("Melee Hit (%1)").arg(pet->get_name()),
@@ -15,16 +14,11 @@ PetAutoAttack::PetAutoAttack(Character* pchar, Pet* pet, const QString& icon) :
           0,
           ResourceType::Focus,
           0),
-    pet(pet),
-    dmg_roll(new Random(pet->get_min_dmg(), pet->get_max_dmg()))
+    pet(pet)
 {
     this->pchar = pchar;
     next_expected_use = 0;
     iteration = 0;
-}
-
-PetAutoAttack::~PetAutoAttack() {
-    delete dmg_roll;
 }
 
 void PetAutoAttack::spell_effect() {
@@ -49,7 +43,7 @@ void PetAutoAttack::calculate_damage() {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(dmg_roll->get_roll()) * pet->get_damage_modifier();
+    double damage_dealt = damage_after_modifiers(pet->get_random_normalized_dmg()) * pet->get_damage_modifier();
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= 2;

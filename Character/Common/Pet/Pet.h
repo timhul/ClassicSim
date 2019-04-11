@@ -6,6 +6,7 @@
 class Character;
 class FrenzyProc;
 class PetAutoAttack;
+class Random;
 class Resource;
 class Spell;
 
@@ -41,6 +42,11 @@ public:
     unsigned get_min_dmg() const;
     unsigned get_max_dmg() const;
 
+    void increase_attack_power(const unsigned increase);
+    void decrease_attack_power(const unsigned decrease);
+
+    unsigned get_random_normalized_dmg();
+
     void melee_critical_effect();
 
     void reset();
@@ -48,13 +54,15 @@ public:
     FrenzyProc* get_frenzy_proc();
 
 protected:
+    unsigned attack_power {252};
     Character* pchar;
     Resource* resource;
     const QString name;
     const double base_attack_speed;
     const double base_dps;
-    const unsigned min;
-    const unsigned max;
+    unsigned min;
+    unsigned max;
+    Random* normalized_dmg_roll;
     const double global_cooldown;
     double next_gcd;
     bool is_attacking;

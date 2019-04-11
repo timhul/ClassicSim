@@ -10,6 +10,7 @@
 #include "HunterSpells.h"
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
+#include "Pet.h"
 #include "RapidFire.h"
 #include "RapidFireBuff.h"
 #include "Rogue.h"
@@ -77,6 +78,11 @@ void SetBonusControl::equip_item(const int item_id) {
             spells->get_rapid_fire()->get_rapid_fire_buff()->activate_set_bonus(set_name, num_pieces);
             break;
         }
+        case 4:
+            pchar->get_stats()->increase_melee_ap(50);
+            pchar->get_stats()->increase_ranged_ap(50);
+            dynamic_cast<Hunter*>(pchar)->get_pet()->increase_attack_power(50);
+            break;
         }
     }
     else if (set_name == "Devilsaur Armor") {
@@ -188,6 +194,11 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_rapid_fire()->get_rapid_fire_buff()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
+        case 4:
+            pchar->get_stats()->decrease_melee_ap(50);
+            pchar->get_stats()->decrease_ranged_ap(50);
+            dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_attack_power(50);
+            break;
         }
     }
     else if (set_name == "Devilsaur Armor") {
