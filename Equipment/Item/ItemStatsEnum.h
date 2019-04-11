@@ -37,7 +37,8 @@ enum class ItemStats {
     APVersusMechanical,
     APVersusUndead,
     MeleeAttackPower,
-    RangedAttackPower
+    RangedAttackPower,
+    ManaPer5,
 };
 
 #endif // ITEMSTATS_H

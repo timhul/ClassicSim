@@ -275,4 +275,28 @@
 		</bonus>
 	</set>
 
+	<set name="Cryptstalker Armor">
+		<item_id value="22440"/>
+		<item_id value="22442"/>
+		<item_id value="22441"/>
+		<item_id value="22438"/>
+		<item_id value="22437"/>
+		<item_id value="22439"/>
+		<item_id value="22436"/>
+		<item_id value="22443"/>
+		<item_id value="23067"/>
+
+		<bonus value="2">
+		(2) Set: Increases the duration of your Rapid Fire by 4 secs.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Increases Attack Power by 50 for both you and your pet.
+		</bonus>
+		<bonus value="6">
+		(6) Set: Your ranged critical hits cause an Adrenaline Rush, granting you 50 mana.
+		</bonus>
+		<bonus value="8">
+		(8) Set: Reduces the mana cost of your Multi-Shot and Aimed Shot by 20.
+		</bonus>
+	</set>
 </sets>

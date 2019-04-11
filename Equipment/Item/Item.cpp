@@ -587,6 +587,11 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Guns +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillGun, value.toUInt());
     }
+    else if (key == "MANA_PER_5") {
+        this->stats->increase_mp5(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Restores %1 mana per 5 sec.").arg(value));
+        this->item_stat_values.insert(ItemStats::ManaPer5, value.toUInt());
+    }
     else if (key == "ARMOR") {
         this->stats->increase_armor(value.toInt());
         base_tooltip_stats.append(QString("%1 Armor").arg(value));

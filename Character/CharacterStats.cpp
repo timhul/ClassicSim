@@ -263,6 +263,8 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_stamina(value);
     case ItemStats::Strength:
         return increase_strength(value);
+    case ItemStats::ManaPer5:
+        return increase_mp5(value);
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
@@ -319,6 +321,8 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_stamina(value);
     case ItemStats::Strength:
         return decrease_strength(value);
+    case ItemStats::ManaPer5:
+        return decrease_mp5(value);
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:

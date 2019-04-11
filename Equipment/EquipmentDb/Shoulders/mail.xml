@@ -28,4 +28,21 @@
 			</source>
 		</patch>
 	</item>
+
+	<item id="22439">
+		<patch name="1.11.0">
+			<info name="Crypstalker Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="406"/>
+				<stat type="AGILITY" value="29"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
+			</source>
+		</patch>
+	</item>
 </items>

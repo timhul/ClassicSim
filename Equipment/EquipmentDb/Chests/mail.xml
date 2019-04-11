@@ -103,4 +103,23 @@
 			</source>
 		</patch>
 	</item>
+
+	<item id="22436">
+		<patch name="1.11.0">
+			<info name="Crypstalker Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="576"/>
+				<stat type="AGILITY" value="45"/>
+				<stat type="STAMINA" value="27"/>
+				<stat type="INTELLECT" value="15"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="MANA_PER_5" value="4"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
+			</source>
+		</patch>
+	</item>
 </items>

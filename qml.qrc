@@ -506,5 +506,10 @@
         <file>QML/Assets/items/Inv_weapon_bow_12.png</file>
         <file>QML/Assets/items/Inv_weapon_crossbow_10.png</file>
         <file>QML/Assets/items/Inv_weapon_rifle_08.png</file>
+        <file>QML/Assets/items/Inv_boots_chain_05.png</file>
+        <file>QML/Assets/items/Inv_gauntlets_25.png</file>
+        <file>QML/Assets/items/Inv_helmet_15.png</file>
+        <file>QML/Assets/items/Inv_pants_mail_15.png</file>
+        <file>QML/Assets/items/Inv_shoulder_14.png</file>
     </qresource>
 </RCC>

@@ -47,4 +47,20 @@
 			</source>
 		</patch>
 	</wrist>
+
+	<item id="22443">
+		<patch name="1.11.0">
+			<info name="Crypstalker Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="242"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
+			</source>
+		</patch>
+	</item>
 </items>

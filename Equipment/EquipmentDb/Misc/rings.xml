@@ -143,4 +143,18 @@
 			</source>
 		</patch>
 	</item>
+
+	<item id="23067">
+		<patch name="1.11.0">
+			<info name="Ring of the Crypstalker" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="AGILITY" value="30"/>
+				<stat type="MANA_PER_5" value="6"/>
+			</stats>
+			<source>
+			Drops from Kel'Thuzad in Naxxramas.
+			</source>
+		</patch>
+	</item>
 </items>

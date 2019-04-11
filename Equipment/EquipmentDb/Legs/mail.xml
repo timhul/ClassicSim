@@ -46,4 +46,22 @@
 			</source>
 		</patch>
 	</item>
+
+	<item id="22437">
+		<patch name="1.11.0">
+			<info name="Crypstalker Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_mail_15.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="484"/>
+				<stat type="AGILITY" value="42"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="MANA_PER_5" value="6"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Naxxramas.
+			</source>
+		</patch>
+	</item>
 </items>

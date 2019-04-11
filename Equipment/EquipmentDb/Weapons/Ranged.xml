@@ -287,7 +287,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="18855">
 		<patch name="1.4.0">
 			<info name="Grand Marshal's Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_rifle_08.png"/>
@@ -312,9 +312,7 @@
 		</patch>
 	</melee_weapon>
 
-	
-	
-		<melee_weapon id="18837">
+	<melee_weapon id="18837">
 		<patch name="1.4.0">
 			<info name="High Warlord's Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_crossbow_10.png"/>
 			<dmg_range min="90" max="135" speed="2.9"/>
@@ -361,7 +359,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
+
 	<melee_weapon id="18860">
 		<patch name="1.4.0">
 			<info name="High Warlord's Street Sweeper" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_rifle_06.png"/>
@@ -385,10 +383,7 @@
 			</source>
 		</patch>
 	</melee_weapon>
-	
-	
-	
-	
+
 	<melee_weapon id="19361">
 		<patch name="1.6.0">
 			<info name="Ashjre'thul, Crossbow of Smiting" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_09.png"/>
