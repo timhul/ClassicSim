@@ -1,6 +1,7 @@
 #include "BuffBreakdownModel.h"
 
 #include "NumberCruncher.h"
+#include "SortDirection.h"
 #include "StatisticsBuff.h"
 
 BuffBreakdownModel::BuffBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
@@ -8,10 +9,10 @@ BuffBreakdownModel::BuffBreakdownModel(NumberCruncher *statistics_source, QObjec
       statistics_source(statistics_source)
 {
     this->current_sorting_method = BuffBreakdownSorting::Methods::ByAvgUptime;
-    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByAvgUptime, true);
-    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByName, false);
-    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByMinUptime, false);
-    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByMaxUptime, false);
+    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByAvgUptime, SortDirection::Forward);
+    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByName, SortDirection::Forward);
+    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByMinUptime, SortDirection::Forward);
+    this->sorting_methods.insert(BuffBreakdownSorting::Methods::ByMaxUptime, SortDirection::Forward);
 }
 
 BuffBreakdownModel::~BuffBreakdownModel() {
@@ -47,19 +48,17 @@ void BuffBreakdownModel::selectSort(const int method) {
 }
 
 void BuffBreakdownModel::select_new_method(const BuffBreakdownSorting::Methods new_method) {
-    if (sorting_methods[new_method])
+    if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(buff_stats.begin(), buff_stats.end());
 
-    sorting_methods[new_method] = !sorting_methods[new_method];
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
+                SortDirection::Reverse: SortDirection::Forward;
     current_sorting_method = new_method;
 
-    QHash<BuffBreakdownSorting::Methods, bool>::iterator it = sorting_methods.begin();
-    while (it != sorting_methods.end()) {
-        if (it.key() != new_method) {
-            sorting_methods[it.key()] = false;
-        }
-        ++it;
-    }
+    for (auto & direction : sorting_methods)
+        direction = SortDirection::Forward;
+
+    sorting_methods[current_sorting_method] = next_sort_direction;
 
     Q_EMIT sortingMethodChanged();
 }

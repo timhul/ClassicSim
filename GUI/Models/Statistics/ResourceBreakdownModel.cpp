@@ -1,6 +1,7 @@
 #include "ResourceBreakdownModel.h"
 
 #include "NumberCruncher.h"
+#include "SortDirection.h"
 #include "StatisticsResource.h"
 
 ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
@@ -8,10 +9,10 @@ ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher *statistics_source
       statistics_source(statistics_source)
 {
     this->current_sorting_method = ResourceBreakdownSorting::Methods::ByRagePer5;
-    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByRagePer5, true);
-    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByName, false);
-    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByManaPer5, false);
-    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByEnergyPer5, false);
+    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByRagePer5, SortDirection::Forward);
+    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByName, SortDirection::Forward);
+    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByManaPer5, SortDirection::Forward);
+    this->sorting_methods.insert(ResourceBreakdownSorting::Methods::ByEnergyPer5, SortDirection::Forward);
 }
 
 ResourceBreakdownModel::~ResourceBreakdownModel() {
@@ -47,19 +48,17 @@ void ResourceBreakdownModel::selectSort(const int method) {
 }
 
 void ResourceBreakdownModel::select_new_method(const ResourceBreakdownSorting::Methods new_method) {
-    if (sorting_methods[new_method])
+    if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(resource_stats.begin(), resource_stats.end());
 
-    sorting_methods[new_method] = !sorting_methods[new_method];
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
+                SortDirection::Reverse: SortDirection::Forward;
     current_sorting_method = new_method;
 
-    QHash<ResourceBreakdownSorting::Methods, bool>::iterator it = sorting_methods.begin();
-    while (it != sorting_methods.end()) {
-        if (it.key() != new_method) {
-            sorting_methods[it.key()] = false;
-        }
-        ++it;
-    }
+    for (auto & direction : sorting_methods)
+        direction = SortDirection::Forward;
+
+    sorting_methods[current_sorting_method] = next_sort_direction;
 
     Q_EMIT sortingMethodChanged();
 }

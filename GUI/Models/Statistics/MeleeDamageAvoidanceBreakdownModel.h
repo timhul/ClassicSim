@@ -6,6 +6,7 @@
 
 class NumberCruncher;
 class StatisticsSpell;
+enum class SortDirection: int;
 
 class MeleeDamageAvoidanceBreakdownSorting : public QObject {
     Q_OBJECT
@@ -51,7 +52,7 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 private:
     NumberCruncher* statistics_source;
-    QHash<MeleeDamageAvoidanceBreakdownSorting::Methods, bool> sorting_methods;
+    QMap<MeleeDamageAvoidanceBreakdownSorting::Methods, SortDirection> sorting_methods;
     QList<StatisticsSpell*> spell_stats;
     MeleeDamageAvoidanceBreakdownSorting::Methods current_sorting_method;
 

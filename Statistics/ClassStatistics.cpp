@@ -65,12 +65,8 @@ void ClassStatistics::finish_combat_iteration() {
 int ClassStatistics::get_total_damage_dealt() const {
     int sum = 0;
 
-    QMap<QString, StatisticsSpell*>::const_iterator it = spell_statistics.constBegin();
-    auto end = spell_statistics.constEnd();
-    while(it != end) {
-        sum += it.value()->get_total_dmg_dealt();
-        ++it;
-    }
+    for (auto & spell : spell_statistics)
+        sum += spell->get_total_dmg_dealt();
 
     return sum;
 }
@@ -98,41 +94,25 @@ int ClassStatistics::get_total_attempts_for_spell(const QString& name) const {
 void ClassStatistics::prepare_statistics() {
     delete_maps();
 
+    spell_statistics.clear();
+    buff_statistics.clear();
+    resource_statistics.clear();
+    proc_statistics.clear();
+
     combat_iterations = sim_settings->get_combat_iterations_full_sim();
     combat_length = sim_settings->get_combat_length();
 }
 
 void ClassStatistics::delete_maps() {
-    QMap<QString, StatisticsSpell*>::const_iterator it_spell = spell_statistics.constBegin();
-    auto end_spell = spell_statistics.constEnd();
-    while(it_spell != end_spell) {
-        delete it_spell.value();
-        ++it_spell;
-    }
+    for (auto & i: spell_statistics)
+        delete i;
 
-    QMap<QString, StatisticsBuff*>::const_iterator it_buff = buff_statistics.constBegin();
-    auto end_buff = buff_statistics.constEnd();
-    while(it_buff != end_buff) {
-        delete it_buff.value();
-        ++it_buff;
-    }
+    for (auto & i : buff_statistics)
+        delete i;
 
-    QMap<QString, StatisticsResource*>::const_iterator it_resource = resource_statistics.constBegin();
-    auto end_resource = resource_statistics.constEnd();
-    while(it_resource != end_resource) {
-        delete it_resource.value();
-        ++it_resource;
-    }
+    for (auto & i : resource_statistics)
+        delete i;
 
-    QMap<QString, StatisticsProc*>::const_iterator it_proc = proc_statistics.constBegin();
-    auto end_proc = proc_statistics.constEnd();
-    while(it_proc != end_proc) {
-        delete it_proc.value();
-        ++it_proc;
-    }
-
-    spell_statistics.clear();
-    buff_statistics.clear();
-    resource_statistics.clear();
-    proc_statistics.clear();
+    for (auto & i : proc_statistics)
+        delete i;
 }

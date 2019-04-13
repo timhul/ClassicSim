@@ -685,7 +685,8 @@ HEADERS += \
     Character/Class/Hunter/Procs/FrenzyProc.h \
     Equipment/EquipmentDb/ProjectileFileReader.h \
     Equipment/Item/Projectile.h \
-    Character/Common/Spells/ManaPotion.h
+    Character/Common/Spells/ManaPotion.h \
+    GUI/Models/SortDirection.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

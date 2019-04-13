@@ -2,6 +2,7 @@
 
 #include "NumberCruncher.h"
 #include "SimOption.h"
+#include "SortDirection.h"
 #include "StatisticsProc.h"
 
 bool option(ScaleResult* lhs, ScaleResult* rhs) {
@@ -29,9 +30,9 @@ ScaleResultModel::ScaleResultModel(NumberCruncher *statistics_source, QObject *p
       statistics_source(statistics_source)
 {
     this->current_sorting_method = ScaleResultSorting::Methods::ByAbsoluteValue;
-    this->sorting_methods.insert(ScaleResultSorting::Methods::ByName, false);
-    this->sorting_methods.insert(ScaleResultSorting::Methods::ByAbsoluteValue, true);
-    this->sorting_methods.insert(ScaleResultSorting::Methods::ByRelativeValue, false);
+    this->sorting_methods.insert(ScaleResultSorting::Methods::ByName, SortDirection::Forward);
+    this->sorting_methods.insert(ScaleResultSorting::Methods::ByAbsoluteValue, SortDirection::Forward);
+    this->sorting_methods.insert(ScaleResultSorting::Methods::ByRelativeValue, SortDirection::Forward);
 }
 
 ScaleResultModel::~ScaleResultModel() {
@@ -70,19 +71,17 @@ void ScaleResultModel::selectSort(const int method) {
 }
 
 void ScaleResultModel::select_new_method(const ScaleResultSorting::Methods new_method) {
-    if (sorting_methods[new_method])
+    if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(scale_results.begin(), scale_results.end());
 
-    sorting_methods[new_method] = !sorting_methods[new_method];
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
+                SortDirection::Reverse: SortDirection::Forward;
     current_sorting_method = new_method;
 
-    QHash<ScaleResultSorting::Methods, bool>::iterator it = sorting_methods.begin();
-    while (it != sorting_methods.end()) {
-        if (it.key() != new_method) {
-            sorting_methods[it.key()] = false;
-        }
-        ++it;
-    }
+    for (auto & direction : sorting_methods)
+        direction = SortDirection::Forward;
+
+    sorting_methods[current_sorting_method] = next_sort_direction;
 
     Q_EMIT sortingMethodChanged();
 }

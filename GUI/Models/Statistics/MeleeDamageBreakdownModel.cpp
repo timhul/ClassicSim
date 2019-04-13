@@ -1,6 +1,7 @@
 #include "MeleeDamageBreakdownModel.h"
 
 #include "NumberCruncher.h"
+#include "SortDirection.h"
 #include "StatisticsSpell.h"
 
 MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
@@ -8,20 +9,20 @@ MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher *statistics_
       statistics_source(statistics_source)
 {
     this->current_sorting_method = MeleeDamageBreakdownSorting::Methods::ByTotalDamageAbsolute;
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByTotalDamageAbsolute, true);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByName, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinHit, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgHit, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxHit, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinCrit, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgCrit, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxCrit, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinGlance, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgGlance, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxGlance, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinDPR, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgDPR, false);
-    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxDPR, false);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByTotalDamageAbsolute, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByName, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinHit, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgHit, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxHit, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinCrit, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgCrit, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxCrit, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinGlance, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgGlance, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxGlance, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMinDPR, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByAvgDPR, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageBreakdownSorting::Methods::ByMaxDPR, SortDirection::Forward);
 }
 
 MeleeDamageBreakdownModel::~MeleeDamageBreakdownModel() {
@@ -113,19 +114,17 @@ void MeleeDamageBreakdownModel::selectSort(const int method) {
 }
 
 void MeleeDamageBreakdownModel::select_new_method(const MeleeDamageBreakdownSorting::Methods new_method) {
-    if (sorting_methods[new_method])
+    if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(spell_stats.begin(), spell_stats.end());
 
-    sorting_methods[new_method] = !sorting_methods[new_method];
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
+                SortDirection::Reverse: SortDirection::Forward;
     current_sorting_method = new_method;
 
-    QHash<MeleeDamageBreakdownSorting::Methods, bool>::iterator it = sorting_methods.begin();
-    while (it != sorting_methods.end()) {
-        if (it.key() != new_method) {
-            sorting_methods[it.key()] = false;
-        }
-        ++it;
-    }
+    for (auto & direction : sorting_methods)
+        direction = SortDirection::Forward;
+
+    sorting_methods[current_sorting_method] = next_sort_direction;
 
     Q_EMIT sortingMethodChanged();
 }

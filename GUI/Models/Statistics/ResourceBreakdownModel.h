@@ -6,6 +6,7 @@
 
 class NumberCruncher;
 class StatisticsResource;
+enum class SortDirection: int;
 
 class ResourceBreakdownSorting : public QObject {
     Q_OBJECT
@@ -41,7 +42,7 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 private:
     NumberCruncher* statistics_source;
-    QHash<ResourceBreakdownSorting::Methods, bool> sorting_methods;
+    QMap<ResourceBreakdownSorting::Methods, SortDirection> sorting_methods;
     QList<StatisticsResource*> resource_stats;
     ResourceBreakdownSorting::Methods current_sorting_method;
 

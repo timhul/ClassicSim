@@ -99,7 +99,7 @@ void ItemModel::select_new_method(const ItemSorting::Methods new_method) {
     sorting_methods[new_method] = !sorting_methods[new_method];
     current_sorting_method = new_method;
 
-    QHash<ItemSorting::Methods, bool>::iterator it = sorting_methods.begin();
+    QHash<ItemSorting::Methods, bool>::const_iterator it = sorting_methods.begin();
     while (it != sorting_methods.end()) {
         if (it.key() != new_method) {
             sorting_methods[it.key()] = false;

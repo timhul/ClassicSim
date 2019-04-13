@@ -22,20 +22,12 @@ TalentTree::TalentTree(QString name_, QString background_) :
 }
 
 TalentTree::~TalentTree() {
-    QMap<QString, TalentStorage*>::const_iterator it = talents.constBegin();
-    auto end = talents.constEnd();
-    while(it != end) {
-        delete it.value();
-        ++it;
-    }
-
-    talents.clear();
+    for (auto & talent_storage : talents)
+        delete talent_storage;
 
     for(auto & tier :  tiers) {
         delete tier;
     }
-
-    tiers.clear();
 }
 
 QString TalentTree::get_name() const {
@@ -292,14 +284,10 @@ int TalentTree::get_total_points() const {
 }
 
 void TalentTree::clear_tree() {
-    QMap<QString, TalentStorage*>::const_iterator it = talents.constBegin();
-    auto end = talents.constEnd();
-    while(it != end) {
-        it.value()->talent->force_clear_rank();
-        ++it;
-    }
+    for (auto & talent_storage : talents)
+        talent_storage->talent->force_clear_rank();
 
-    for(auto & tier : tiers) {
+    for (auto & tier : tiers) {
         tier->clear_points();
     }
 
@@ -307,26 +295,18 @@ void TalentTree::clear_tree() {
 }
 
 void TalentTree::remove_rank_effects() {
-    QMap<QString, TalentStorage*>::const_iterator it = talents.constBegin();
-    auto end = talents.constEnd();
-    while (it != end) {
-        int curr_points_in_talent = it.value()->talent->get_current_rank();
-        talents[it.key()]->points_for_setup = curr_points_in_talent;
-        for (int i = 0; i < curr_points_in_talent; ++i)
-            it.value()->talent->force_clear_rank();
-
-        ++it;
+    for (auto & talent_storage : talents) {
+        talent_storage->points_for_setup = talent_storage->talent->get_current_rank();
+        for (int i = 0; i < talent_storage->points_for_setup; ++i)
+            talent_storage->talent->force_clear_rank();
     }
 }
 
 void TalentTree::apply_rank_effects() {
-    QMap<QString, TalentStorage*>::const_iterator it = talents.constBegin();
-    auto end = talents.constEnd();
-    while(it != end) {
-        for (int i = 0; i < it.value()->points_for_setup; ++i) {
-            it.value()->talent->increment_rank();
+    for (auto & talent_storage : talents) {
+        for (int i = 0; i < talent_storage->points_for_setup; ++i) {
+            talent_storage->talent->increment_rank();
         }
-        ++it;
     }
 }
 

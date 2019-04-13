@@ -144,23 +144,11 @@ GUIControl::GUIControl(QObject* parent) :
 }
 
 GUIControl::~GUIControl() {
-    QMap<QString, Character*>::const_iterator it_chars = chars.constBegin();
-    auto end_chars = chars.constEnd();
-    while(it_chars != end_chars) {
-        delete it_chars.value();
-        ++it_chars;
-    }
+    for (auto & pchar : chars)
+        delete pchar;
 
-    chars.clear();
-
-    QMap<QString, Race*>::const_iterator it_races = races.constBegin();
-    auto end_races = races.constEnd();
-    while(it_races != end_races) {
-        delete it_races.value();
-        ++it_races;
-    }
-
-    races.clear();
+    for (auto & race : races)
+        delete race;
 
     delete equipment_db;
     delete item_model;

@@ -41,6 +41,8 @@ private:
     int information_index;
     QHash<int, QByteArray> roleNames() const;
     QMap<QString, QVector<Rotation*>> rotations;
+
+    void clear_rotations();
 };
 
 #endif // ROTATIONMODEL_H

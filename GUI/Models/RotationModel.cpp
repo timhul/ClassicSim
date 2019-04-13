@@ -13,14 +13,7 @@ RotationModel::RotationModel(QObject *parent)
 {}
 
 RotationModel::~RotationModel() {
-    QMap<QString, QVector<Rotation*>>::iterator it = rotations.begin();
-    auto end = rotations.end();
-    while(it != end) {
-        for (auto & i : it.value())
-            delete i;
-
-        ++it;
-    }
+    clear_rotations();
 }
 
 void RotationModel::set_patch(const QString &patch) {
@@ -39,16 +32,7 @@ void RotationModel::set_character(Character* pchar) {
 void RotationModel::addRotations() {
     if (!rotations.empty()) {
         beginResetModel();
-        QMap<QString, QVector<Rotation*>>::iterator it = rotations.begin();
-        auto end = rotations.end();
-        while(it != end) {
-            for (auto & i : it.value())
-                delete i;
-
-            ++it;
-        }
-
-        rotations.clear();
+        clear_rotations();
         endResetModel();
     }
 
@@ -130,4 +114,12 @@ QHash<int, QByteArray> RotationModel::roleNames() const {
     roles[DescriptionRole] = "_description";
 
     return roles;
+}
+
+void RotationModel::clear_rotations() {
+    for (auto & class_rotations: rotations)
+        for (auto & rotation : class_rotations)
+            delete rotation;
+
+    rotations.clear();
 }

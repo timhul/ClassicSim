@@ -128,7 +128,7 @@ void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
     sorting_methods[new_method] = !sorting_methods[new_method];
     current_sorting_method = new_method;
 
-    QHash<WeaponSorting::Methods, bool>::iterator it = sorting_methods.begin();
+    QHash<WeaponSorting::Methods, bool>::const_iterator it = sorting_methods.begin();
     while (it != sorting_methods.end()) {
         if (it.key() != new_method) {
             sorting_methods[it.key()] = false;

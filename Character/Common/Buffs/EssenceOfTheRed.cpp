@@ -11,10 +11,10 @@ EssenceOfTheRed::EssenceOfTheRed(Character* pchar):
                                         "Assets/spell/Spell_fire_lavaspawn.png",
                                         pchar,
                                         false, 0.0, 1.0, duration,
-                                        QMap<ResourceType, unsigned>({{ResourceType::Mana, 500},
-                                                                      {ResourceType::Rage, 20},
-                                                                      {ResourceType::Energy, 50}
-                                                                     })
+                                        QVector<QPair<ResourceType, unsigned>>({{ResourceType::Mana, 500},
+                                                                                {ResourceType::Rage, 20},
+                                                                                {ResourceType::Energy, 50}
+                                                                               })
                                         ))
 {}
 

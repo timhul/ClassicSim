@@ -14,12 +14,9 @@ NumberCruncher::~NumberCruncher() {
 void NumberCruncher::reset() {
     QMutexLocker lock(&mutex);
 
-    QMap<SimOption::Name, QVector<ClassStatistics*>>::const_iterator it = class_stats.constBegin();
-    auto end = class_stats.constEnd();
-    while(it != end) {
-        for (auto & class_stats_instance : it.value())
-            delete class_stats_instance;
-        ++it;
+    for (auto & class_stat_for_sim_option : class_stats) {
+        for (auto & class_stats_element : class_stat_for_sim_option)
+            delete class_stats_element;
     }
 
     class_stats.clear();

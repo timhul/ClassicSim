@@ -4,8 +4,7 @@
 #include "Spell.h"
 #include "Resource.h"
 
-#include <QMap>
-
+#include <QVector>
 
 class PeriodicResourceGainSpell : public Spell {
 public:
@@ -16,14 +15,14 @@ public:
                               double cooldown,
                               double tick_rate,
                               double tick_until,
-                              QMap<ResourceType, unsigned> resource_gains);
+                              QVector<QPair<ResourceType, unsigned>> resource_gains);
 
     void perform_periodic() override;
 
 private:
     double tick_rate;
     double tick_until;
-    QMap<ResourceType, unsigned> resource_gains;
+    QVector<QPair<ResourceType, unsigned>> resource_gains;
 
     void spell_effect() override;
 

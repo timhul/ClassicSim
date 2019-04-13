@@ -1,6 +1,7 @@
 #include "MeleeDamageAvoidanceBreakdownModel.h"
 
 #include "NumberCruncher.h"
+#include "SortDirection.h"
 #include "StatisticsSpell.h"
 
 MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
@@ -8,20 +9,20 @@ MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCru
       statistics_source(statistics_source)
 {
     this->current_sorting_method = MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts;
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByName, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumHits, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByHitPercent, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumCrits, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByCritPercent, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumGlances, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByGlancePercent, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumMisses, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByMissPercent, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumDodges, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByDodgePercent, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumParries, false);
-    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByParryPercent, false);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByTotalAttempts, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByName, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumHits, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByHitPercent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumCrits, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByCritPercent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumGlances, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByGlancePercent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumMisses, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByMissPercent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumDodges, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByDodgePercent, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByNumParries, SortDirection::Forward);
+    this->sorting_methods.insert(MeleeDamageAvoidanceBreakdownSorting::Methods::ByParryPercent, SortDirection::Forward);
 }
 
 MeleeDamageAvoidanceBreakdownModel::~MeleeDamageAvoidanceBreakdownModel() {
@@ -97,19 +98,17 @@ void MeleeDamageAvoidanceBreakdownModel::selectSort(const int method) {
 }
 
 void MeleeDamageAvoidanceBreakdownModel::select_new_method(const MeleeDamageAvoidanceBreakdownSorting::Methods new_method) {
-    if (sorting_methods[new_method])
+    if (sorting_methods[new_method] == SortDirection::Reverse)
         std::reverse(spell_stats.begin(), spell_stats.end());
 
-    sorting_methods[new_method] = !sorting_methods[new_method];
+    const auto next_sort_direction = sorting_methods[new_method] == SortDirection::Forward ?
+                SortDirection::Reverse: SortDirection::Forward;
     current_sorting_method = new_method;
 
-    QHash<MeleeDamageAvoidanceBreakdownSorting::Methods, bool>::iterator it = sorting_methods.begin();
-    while (it != sorting_methods.end()) {
-        if (it.key() != new_method) {
-            sorting_methods[it.key()] = false;
-        }
-        ++it;
-    }
+    for (auto & direction : sorting_methods)
+        direction = SortDirection::Forward;
+
+    sorting_methods[current_sorting_method] = next_sort_direction;
 
     Q_EMIT sortingMethodChanged();
 }

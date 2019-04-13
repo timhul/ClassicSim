@@ -11,12 +11,8 @@ Talents::Talents() :
 
 Talents::~Talents() {
     for (auto & talent_tree : talent_trees) {
-        QMap<QString, TalentTree*>::const_iterator it = talent_tree.constBegin();
-        auto end = talent_tree.constEnd();
-        while(it != end) {
-            delete it.value();
-            ++it;
-        }
+        for (auto & i : talent_tree)
+            delete i;
     }
 }
 
@@ -309,23 +305,13 @@ void Talents::set_current_index(const int index) {
     if (index < 0 || index >= talent_trees.size())
         return;
 
-    QMap<QString, TalentTree*>::const_iterator it = talent_trees[current_index].constBegin();
-    auto end = talent_trees[current_index].constEnd();
-    while(it != end) {
-        if (it.value() != nullptr)
-            it.value()->remove_rank_effects();
-        ++it;
-    }
+    for (auto & tree : talent_trees[current_index])
+            tree->remove_rank_effects();
 
     current_index = index;
-    it = talent_trees[current_index].constBegin();
-    end = talent_trees[current_index].constEnd();
 
-    while(it != end) {
-        if (it.value() != nullptr)
-            it.value()->apply_rank_effects();
-        ++it;
-    }
+    for (auto & tree : talent_trees[current_index])
+            tree->apply_rank_effects();
 }
 
 void Talents::add_talent_tree(TalentTree* left_tree, TalentTree* mid_tree, TalentTree *right_tree) {

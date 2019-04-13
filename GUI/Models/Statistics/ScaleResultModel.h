@@ -7,6 +7,7 @@
 class NumberCruncher;
 class ScaleResult;
 class StatisticsProc;
+enum class SortDirection: int;
 
 class ScaleResultSorting : public QObject {
     Q_OBJECT
@@ -42,7 +43,7 @@ protected:
     QHash<int, QByteArray> roleNames() const;
 private:
     NumberCruncher* statistics_source;
-    QHash<ScaleResultSorting::Methods, bool> sorting_methods;
+    QMap<ScaleResultSorting::Methods, SortDirection> sorting_methods;
     QList<ScaleResult*> scale_results;
     ScaleResultSorting::Methods current_sorting_method;
 
