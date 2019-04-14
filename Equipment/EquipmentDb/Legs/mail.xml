@@ -68,6 +68,27 @@
 		</patch>
 	</item>
 
+	<item id="16938">
+		<patch name="1.6.0">
+			<info name="Dragonstalker's Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_03.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="422"/>
+				<stat type="AGILITY" value="31"/>
+				<stat type="INTELLECT" value="15"/>
+				<stat type="SPIRIT" value="8"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="ARCANE_RESISTANCE" value="10"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Ragnaros in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="21651">
 		<patch name="1.9.0">
 			<info name="Scaled Sand Reaver Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_pants_mail_10.png"/>

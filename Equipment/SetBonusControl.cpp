@@ -1,6 +1,8 @@
 #include "SetBonusControl.h"
 
 #include "AimedShot.h"
+#include "AspectOfTheHawk.h"
+#include "AspectOfTheHawkBuff.h"
 #include "AutoShot.h"
 #include "Backstab.h"
 #include "CharacterStats.h"
@@ -86,6 +88,15 @@ void SetBonusControl::equip_item(const int item_id) {
         case 8: {
             auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
             spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
+    else if (set_name == "Dragonstalker Armor") {
+        switch (num_pieces) {
+        case 3: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         }
@@ -240,6 +251,15 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 8: {
             auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
+    else if (set_name == "Dragonstalker Armor") {
+        switch (num_pieces) {
+        case 3: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         }

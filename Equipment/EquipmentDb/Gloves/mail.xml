@@ -77,6 +77,25 @@
 		</patch>
 	</item>
 
+	<item id="16940">
+		<patch name="1.6.0">
+			<info name="Dragonstalker's Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="301"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="INTELLECT" value="13"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="SHADOW_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Ebonroc, Flamegor, and Firemaw in Blackwing Lair.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19692">
 		<patch name="1.7.0">
 			<info name="Bloodsoul Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>

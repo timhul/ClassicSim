@@ -81,6 +81,38 @@
 		</patch>
 	</wrist>
 
+	<item id="16935">
+		<patch name="1.0.0">
+			<info name="Dragonstalker's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="211"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="INTELLECT" value="8"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="ARCANE_RESISTANCE" value="9"/>
+			</stats>
+			<source>
+			Drops from bosses in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Dragonstalker's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="211"/>
+				<stat type="AGILITY" value="23"/>
+				<stat type="INTELLECT" value="6"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="13"/>
+			</stats>
+			<source>
+			Drops from Razorgore the Untamed.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22443">
 		<patch name="1.11.0">
 			<info name="Crypstalker Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>

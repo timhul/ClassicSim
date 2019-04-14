@@ -125,6 +125,26 @@
 		</patch>
 	</item>
 
+	<item id="16942">
+		<patch name="1.6.0">
+			<info name="Dragonstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="482"/>
+				<stat type="AGILITY" value="34"/>
+				<stat type="INTELLECT" value="14"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="17"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="NATURE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Nefarian in Blackwing Lair.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19690">
 		<patch name="1.7.0">
 			<info name="Bloodsoul Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_chest_chain_14.png"/>

@@ -49,6 +49,25 @@
 		</patch>
 	</item>
 
+	<item id="16937">
+		<patch name="1.6.0">
+			<info name="Dragonstalker's Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="362"/>
+				<stat type="AGILITY" value="23"/>
+				<stat type="INTELLECT" value="13"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Chromaggus in Blackwing Lair.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19691">
 		<patch name="1.7.0">
 			<info name="Bloodsoul Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_shoulder_15.png"/>

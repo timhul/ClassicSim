@@ -306,6 +306,28 @@
 		</bonus>
 	</set>
 
+	<set name="Dragonstalker Armor">
+		<item_id value="16936"/>
+		<item_id value="16935"/>
+		<item_id value="16942"/>
+		<item_id value="16940"/>
+		<item_id value="16941"/>
+		<item_id value="16939"/>
+		<item_id value="16938"/>
+		<item_id value="16937"/>
+
+		<bonus value="3">
+		(3) Set: Increases the Ranged Attack Power bonus of your Aspect of the Hawk by 20%.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Increases your pet's stamina by 40 and all spell resistances by 60.
+		</bonus>
+		<bonus value="8">
+		(8) Set: You have a chance whenever you deal ranged damage to apply an Expose Weakness effect to the target.
+		Expose Weakness increases the Ranged Attack Power of all attackers against that target by 450 for 7 sec.
+		</bonus>
+	</set>
+
 	<set name="Striker's Garb">
 		<item_id value="21366"/>
 		<item_id value="21365"/>

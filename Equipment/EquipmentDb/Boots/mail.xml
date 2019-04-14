@@ -75,6 +75,24 @@
 		</patch>
 	</item>
 
+	<item id="16941">
+		<patch name="1.6.0">
+			<info name="Dragonstalker's Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="332"/>
+				<stat type="AGILITY" value="30"/>
+				<stat type="INTELLECT" value="6"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+			</stats>
+			<source>
+			Drops from Broodlord Lashlayer in Blackwing Lair.
+			</source>
+		</patch>
+	</item>
+
 	<item id="21365">
 		<patch name="1.9.0">
 			<info name="Striker's Footguards" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_08.png"/>

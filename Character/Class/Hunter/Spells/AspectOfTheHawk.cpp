@@ -34,3 +34,7 @@ void AspectOfTheHawk::spell_effect() {
 Proc* AspectOfTheHawk::get_improved_aspect_of_the_hawk_proc() const {
     return this->imp_hawk_proc;
 }
+
+AspectOfTheHawkBuff* AspectOfTheHawk::get_aspect_of_the_hawk_buff() const {
+    return this->aspect_of_the_hawk_buff;
+}

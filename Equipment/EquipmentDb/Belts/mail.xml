@@ -52,6 +52,40 @@
 		</patch>
 	</item>
 
+	<item id="16936">
+		<patch name="1.0.0">
+			<info name="Dragonstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_28.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="271"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="INTELLECT" value="13"/>
+				<stat type="SPIRIT" value="11"/>
+				<stat type="STAMINA" value="12"/>
+				<stat type="DODGE_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from bosses in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Dragonstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_28.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="271"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="INTELLECT" value="13"/>
+				<stat type="SPIRIT" value="11"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="SHADOW_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22207">
 		<patch name="1.10.0">
 			<info name="Sash of the Grand Hunt" type="MAIL" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
