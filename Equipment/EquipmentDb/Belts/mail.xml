@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="16851">
+		<patch name="1.0.0">
+			<info name="Giantstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_28.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="237"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="INTELLECT" value="5"/>
+				<stat type="SPIRIT" value="12"/>
+				<stat type="STAMINA" value="11"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="NATURE_RESISTANCE" value="9"/>
+				<stat type="SHADOW_RESISTANCE" value="9"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Giantstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_28.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="237"/>
+				<stat type="AGILITY" value="18"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="SPIRIT" value="4"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="FIRE_RESISTANCE" value="7"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="18393">
 		<patch name="1.3.0">
 			<info name="Warpwood Binding" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_34.png"/>

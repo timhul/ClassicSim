@@ -17,6 +17,7 @@ private:
     StatisticsResource* statistics_resource {nullptr};
     double resource_base;
     unsigned adrenaline_rush {0};
+    double giantstalker_bonus {1.0};
     double mortal_shots_bonus;
     double barrage_mod;
     QVector<double> efficiency_ranks;

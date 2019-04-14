@@ -15,6 +15,40 @@
 		</patch>
 	</item>
 
+	<item id="16848">
+		<patch name="1.0.0">
+			<info name="Giantstalker's Epaulets" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="317"/>
+				<stat type="AGILITY" value="22"/>
+				<stat type="INTELLECT" value="5"/>
+				<stat type="SPIRIT" value="9"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Sulfuron Harbinger in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Giantstalker's Epaulets" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="317"/>
+				<stat type="AGILITY" value="24"/>
+				<stat type="INTELLECT" value="5"/>
+				<stat type="SPIRIT" value="9"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="SHADOW_RESISTANCE" value="7"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Sulfuron Harbinger in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19691">
 		<patch name="1.7.0">
 			<info name="Bloodsoul Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_shoulder_15.png"/>

@@ -81,6 +81,15 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Giantstalker Armor") {
+        switch (num_pieces) {
+        case 8: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
     else if (set_name == "Striker's Garb") {
         switch (num_pieces) {
         case 5: {
@@ -224,6 +233,15 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 3:
             dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_damage_modifier(3);
             break;
+        }
+    }
+    else if (set_name == "Giantstalker Armor") {
+        switch (num_pieces) {
+        case 8: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
         }
     }
     else if (set_name == "Striker's Garb") {

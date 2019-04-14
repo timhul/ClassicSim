@@ -31,6 +31,39 @@
 		</patch>
 	</wrist>
 
+	<item id="16850">
+		<patch name="1.0.0">
+			<info name="Giantstalker's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_bracer_17.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="185"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="INTELLECT" value="7"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="8"/>
+				<stat type="FIRE_RESISTANCE" value="8"/>
+				<stat type="FROST_RESISTANCE" value="7"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Giantstalker's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_bracer_17.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="185"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="INTELLECT" value="6"/>
+				<stat type="SPIRIT" value="5"/>
+				<stat type="STAMINA" value="11"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<wrist id="18296">
 		<patch name="1.3.0">
 			<info name="Marksman Bands" type="MAIL" slot="WRIST" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_bracer_06.png"/>

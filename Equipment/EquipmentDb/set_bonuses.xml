@@ -285,6 +285,27 @@
 		</bonus>
 	</set>
 
+	<set name="Giantstalker Armor">
+		<item_id value="16851"/>
+		<item_id value="16849"/>
+		<item_id value="16850"/>
+		<item_id value="16845"/>
+		<item_id value="16848"/>
+		<item_id value="16852"/>
+		<item_id value="16846"/>
+		<item_id value="16847"/>
+
+		<bonus value="3">
+		(3) Set: Increases the range of your Mend Pet spell by 50% and the effect by 10%. Also reduces the cost by 30%.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Increases your pet's stamina by 30 and all spell resistances by 40.
+		</bonus>
+		<bonus value="8">
+		(8) Set: Increases the damage of Multi-shot and Volley by 15%.
+		</bonus>
+	</set>
+
 	<set name="Striker's Garb">
 		<item_id value="21366"/>
 		<item_id value="21365"/>

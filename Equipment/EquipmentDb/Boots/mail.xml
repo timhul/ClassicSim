@@ -42,6 +42,39 @@
 		</patch>
 	</item>
 
+	<item id="16849">
+		<patch name="1.0.0">
+			<info name="Giantstalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="290"/>
+				<stat type="AGILITY" value="22"/>
+				<stat type="SPIRIT" value="7"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="STRENGTH" value="6"/>
+				<stat type="NATURE_RESISTANCE" value="9"/>
+				<stat type="SHADOW_RESISTANCE" value="5"/>
+			</stats>
+			<source>
+			Drops from Gehennas in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Giantstalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_chain_13.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="290"/>
+				<stat type="AGILITY" value="28"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="SHADOW_RESISTANCE" value="7"/>
+			</stats>
+			<source>
+			Drops from Gehennas in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="21365">
 		<patch name="1.9.0">
 			<info name="Striker's Footguards" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_08.png"/>

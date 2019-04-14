@@ -18,7 +18,7 @@ MultiShot::MultiShot(Hunter* pchar) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
-    SetBonusRequirer({"Cryptstalker Armor"}),
+    SetBonusRequirer({"Giantstalker Armor", "Cryptstalker Armor"}),
     hunter(pchar)
 {
     resource_base = resource_cost;
@@ -51,7 +51,7 @@ void MultiShot::spell_effect() {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150 + hunter->get_normalized_projectile_dmg_bonus()) * barrage_mod;
+    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150 + hunter->get_normalized_projectile_dmg_bonus()) * barrage_mod * giantstalker_bonus;
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
@@ -98,7 +98,16 @@ void MultiShot::decrease_talent_rank_effect(const QString& talent_name, const in
 }
 
 void MultiShot::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
-    if (set_name == "Cryptstalker Armor") {
+    if (set_name == "Giantstalker Armor") {
+        switch (set_bonus) {
+        case 8:
+            giantstalker_bonus = 1.15;
+            break;
+        default:
+            check(false, "MultiShot::activate_set_bonus_effect reached end of switch");
+        }
+    }
+    else if (set_name == "Cryptstalker Armor") {
         switch (set_bonus) {
         case 6:
             adrenaline_rush = 50;
@@ -113,7 +122,16 @@ void MultiShot::activate_set_bonus_effect(const QString& set_name, const int set
 }
 
 void MultiShot::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
-    if (set_name == "Cryptstalker Armor") {
+    if (set_name == "Giantstalker Armor") {
+        switch (set_bonus) {
+        case 8:
+            giantstalker_bonus = 1.0;
+            break;
+        default:
+            check(false, "MultiShot::deactivate_set_bonus_effect reached end of switch");
+        }
+    }
+    else if (set_name == "Cryptstalker Armor") {
         switch (set_bonus) {
         case 6:
             adrenaline_rush = 0;
@@ -122,7 +140,7 @@ void MultiShot::deactivate_set_bonus_effect(const QString& set_name, const int s
             resource_cost += 20;
             break;
         default:
-            check(false, "MultiShot::activate_set_bonus_effect reached end of switch");
+            check(false, "MultiShot::deactivate_set_bonus_effect reached end of switch");
         }
     }
 }

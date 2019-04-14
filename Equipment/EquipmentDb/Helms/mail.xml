@@ -15,6 +15,42 @@
 		</patch>
 	</item>
 
+	<item id="16846">
+		<patch name="1.0.0">
+			<info name="Giantstalker's Helmet" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="343"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="INTELLECT" value="16"/>
+				<stat type="SPIRIT" value="7"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="FIRE_RESISTANCE" value="12"/>
+				<stat type="FROST_RESISTANCE" value="12"/>
+				<stat type="ARCANE_RESISTANCE" value="8"/>
+			</stats>
+			<source>
+			Drops from Garr in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Giantstalker's Helmet" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="343"/>
+				<stat type="AGILITY" value="23"/>
+				<stat type="INTELLECT" value="15"/>
+				<stat type="SPIRIT" value="8"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Garr in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="18421">
 		<patch name="1.3.0">
 			<info name="Backwood Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>

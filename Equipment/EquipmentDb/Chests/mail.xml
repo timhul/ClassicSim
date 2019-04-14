@@ -72,6 +72,42 @@
 		</patch>
 	</item>
 
+	<item id="16845">
+		<patch name="1.0.0">
+			<info name="Giantstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="422"/>
+				<stat type="AGILITY" value="24"/>
+				<stat type="INTELLECT" value="14"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="STRENGTH" value="3"/>
+				<stat type="FIRE_RESISTANCE" value="7"/>
+				<stat type="NATURE_RESISTANCE" value="6"/>
+				<stat type="ARCANE_RESISTANCE" value="6"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Golemagg the Incinerator in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Giantstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="422"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="INTELLECT" value="11"/>
+				<stat type="STAMINA" value="23"/>
+				<stat type="FIRE_RESISTANCE" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Golemagg the Incinerator in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="18530">
 		<patch name="1.3.0">
 			<info name="Ogre Forged Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_12.png"/>

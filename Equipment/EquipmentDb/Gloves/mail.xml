@@ -45,6 +45,38 @@
 		</patch>
 	</item>
 
+	<item id="16852">
+		<patch name="1.0.0">
+			<info name="Giantstalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="264"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="SPIRIT" value="3"/>
+				<stat type="STRENGTH" value="5"/>
+				<stat type="DODGE_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Shazzrah in Molten Core.
+			</source>
+		</patch>
+		<patch name="1.6.0">
+			<info name="Giantstalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="264"/>
+				<stat type="AGILITY" value="18"/>
+				<stat type="STAMINA" value="12"/>
+				<stat type="FIRE_RESISTANCE" value="7"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Drops from Shazzrah in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19692">
 		<patch name="1.7.0">
 			<info name="Bloodsoul Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
