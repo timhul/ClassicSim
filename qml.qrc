@@ -511,5 +511,6 @@
         <file>QML/Assets/items/Inv_helmet_15.png</file>
         <file>QML/Assets/items/Inv_pants_mail_15.png</file>
         <file>QML/Assets/items/Inv_shoulder_14.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_15.png</file>
     </qresource>
 </RCC>

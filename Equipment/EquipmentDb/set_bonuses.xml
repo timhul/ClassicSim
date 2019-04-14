@@ -275,6 +275,16 @@
 		</bonus>
 	</set>
 
+	<set name="Trappings of the Unseen Path">
+		<item_id value="21403"/>
+		<item_id value="21401"/>
+		<item_id value="21402"/>
+
+		<bonus value="3">
+		(3) Set: Increases your pet's damage by 3%.
+		</bonus>
+	</set>
+
 	<set name="Cryptstalker Armor">
 		<item_id value="22440"/>
 		<item_id value="22442"/>

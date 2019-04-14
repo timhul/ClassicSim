@@ -99,6 +99,21 @@
 		</patch>
 	</item>
 
+	<item id="21402">
+		<patch name="1.9.0">
+			<info name="Signet of the Unseen Path" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="AGILITY" value="19"/>
+				<stat type="STAMINA" value="11"/>
+				<stat type="INTELLECT" value="8"/>
+			</stats>
+			<source>
+			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Honored with Cenarion Hold.
+			</source>
+		</patch>
+	</item>
+
 	<item id="21405">
 		<patch name="1.9.0">
 			<info name="Band of Veiled Shadows" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>

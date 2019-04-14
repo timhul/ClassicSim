@@ -91,6 +91,22 @@
 		</patch>
 	</item>
 
+	<item id="21403">
+		<patch name="1.9.0">
+			<info name="Cloak of the Unseen Path" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_15.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="52"/>
+				<stat type="AGILITY" value="17"/>
+				<stat type="STAMINA" value="13"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
+			</source>
+		</patch>
+	</item>
+
 	<item id="21701">
 		<patch name="1.9.0">
 			<info name="Cloak of Concentrated Hatred" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>

@@ -107,7 +107,6 @@
 
 	<melee_weapon id="21392">
 		<patch name="1.9.0">
-			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
 			<info name="Sickle of Unyielding Strength" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
 			<class_restriction class="WARRIOR"/>
 			<dmg_range min="75" max="141" speed="2.1"/>
@@ -125,13 +124,13 @@
 
 	<melee_weapon id="21401">
 		<patch name="1.9.0">
-			<!-- Not actually unique, but is a reward from a non-repeatable quest. -->
 			<info name="Scythe of the Unseen Path" type="AXE" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_axe_15.png"/>
 			<class_restriction class="HUNTER"/>
 			<dmg_range min="86" max="161" speed="2.4"/>
 			<stats>
 				<stat type="AGILITY" value="16"/>
 				<stat type="STAMINA" value="9"/>
+				<stat type="MANA_PER_5" value="3"/>
 			</stats>
 			<source>
 			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.

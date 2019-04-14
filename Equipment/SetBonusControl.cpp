@@ -74,6 +74,13 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
+    else if (set_name == "Trappings of the Unseen Path") {
+        switch (num_pieces) {
+        case 3:
+            dynamic_cast<Hunter*>(pchar)->get_pet()->increase_damage_modifier(3);
+            break;
+        }
+    }
     else if (set_name == "Cryptstalker Armor") {
         switch (num_pieces) {
         case 2: {
@@ -201,6 +208,13 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
+        }
+    }
+    else if (set_name == "Trappings of the Unseen Path") {
+        switch (num_pieces) {
+        case 3:
+            dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_damage_modifier(3);
+            break;
         }
     }
     else if (set_name == "Cryptstalker Armor") {
