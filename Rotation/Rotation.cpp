@@ -12,6 +12,7 @@
 #include "ConditionVariableBuiltin.h"
 #include "EnabledBuffs.h"
 #include "RotationExecutor.h"
+#include "Spell.h"
 #include "Utils/Check.h"
 
 Rotation::Rotation(QString class_name) :
@@ -21,32 +22,31 @@ Rotation::Rotation(QString class_name) :
 {}
 
 Rotation::~Rotation() {
-    for (auto & executor : executors) {
+    for (auto & executor : all_executors) {
         delete executor;
     }
-
-    executors.clear();
 }
 
 void Rotation::perform_rotation() const {
-    for (auto & executor : executors)
+    for (auto & executor : active_executors)
         executor->attempt_cast();
 }
 
 void Rotation::link_spells(Character* pchar) {
     this->pchar = pchar;
 
-    for (auto & executor : executors) {
-        QString spell_name = executor->get_spell_name();
+    active_executors.clear();
 
-        Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
-        executor->set_spell(spell);
+    for (auto & executor : all_executors) {
+        Spell* spell = pchar->get_spells()->get_spell_by_name(executor->get_spell_name());
 
-        if (spell == nullptr)
+        if (spell == nullptr || !spell->is_enabled())
             continue;
 
-        if (!this->add_conditionals(executor))
-            executor->set_spell(nullptr);
+        executor->set_spell(spell);
+
+        if (this->add_conditionals(executor))
+            active_executors.append(executor);
     }
 }
 
@@ -140,7 +140,7 @@ void Rotation::add_prerequisite(const QString& key, const QString& value) {
 }
 
 void Rotation::add_executor(RotationExecutor* executor) {
-    this->executors.append(executor);
+    this->all_executors.append(executor);
 }
 
 QString Rotation::get_class() const {
@@ -179,7 +179,7 @@ void Rotation::dump() {
     qDebug() << "defined_variables" << defined_variables;
     qDebug() << "prerequisites" << prerequisites;
     qDebug() << "executors:";
-    for (auto & executor : executors) {
+    for (auto & executor : all_executors) {
         executor->dump();
     }
 }

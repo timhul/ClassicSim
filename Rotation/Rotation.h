@@ -34,7 +34,8 @@ public:
     void link_spells(Character *pchar);
     bool add_conditionals(RotationExecutor*);
 
-    QVector<RotationExecutor*> executors;
+    QVector<RotationExecutor*> active_executors;
+    QVector<RotationExecutor*> all_executors;
 
     void dump();
 

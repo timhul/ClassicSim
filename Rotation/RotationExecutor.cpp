@@ -28,9 +28,6 @@ RotationExecutor::~RotationExecutor() {
 }
 
 void RotationExecutor::attempt_cast() {
-    if (spell == nullptr)
-        return;
-
     if (!spell->is_available())
         return;
 

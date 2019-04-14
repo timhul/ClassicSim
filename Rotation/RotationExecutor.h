@@ -41,7 +41,6 @@ private:
     std::function<bool()> spell_available;
 
     bool condition_group_fulfilled(const int index) const;
-
 };
 
 #endif // CASTIF_H

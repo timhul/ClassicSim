@@ -13,6 +13,7 @@ class ConditionResource;
 class Hunter;
 class Race;
 class Rotation;
+class RotationExecutor;
 class SimSettings;
 class Warrior;
 
@@ -34,7 +35,7 @@ private:
     Warrior* warrior;
     QVector<Rotation*> rotations;
 
-    void verify_executor_names(Rotation* rotation, QVector<QString> &executor_names);
+    void verify_executor_names(Rotation *rotation, QVector<RotationExecutor*> &executors, QVector<QString> &executor_names);
     void verify_resource_condition(ConditionResource* condition, const double cmp_value,
                                    const int comparator, const ResourceType resource_type);
     void verify_buff_condition(ConditionBuff* condition, const QString& name,
