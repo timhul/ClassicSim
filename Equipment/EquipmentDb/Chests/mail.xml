@@ -104,6 +104,25 @@
 		</patch>
 	</item>
 
+	<item id="21370">
+		<patch name="1.9.0">
+			<info name="Striker's Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_chain_04.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="553"/>
+				<stat type="AGILITY" value="39"/>
+				<stat type="INTELLECT" value="15"/>
+				<stat type="SPIRIT" value="7"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="SPELL_DAMAGE" value="9"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</item>
+
 	<item id="22436">
 		<patch name="1.11.0">
 			<info name="Crypstalker Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>

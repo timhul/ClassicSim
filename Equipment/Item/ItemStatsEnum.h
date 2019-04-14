@@ -39,6 +39,7 @@ enum class ItemStats {
     MeleeAttackPower,
     RangedAttackPower,
     ManaPer5,
+    SpellDamage,
 };
 
 #endif // ITEMSTATS_H

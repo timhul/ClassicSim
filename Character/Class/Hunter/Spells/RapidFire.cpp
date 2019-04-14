@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "RapidFireBuff.h"
+#include "Utils/Check.h"
 
 RapidFire::RapidFire(Character* pchar) :
     Spell("Rapid Fire",
@@ -11,6 +12,7 @@ RapidFire::RapidFire(Character* pchar) :
           300.0,
           ResourceType::Mana,
           100),
+    SetBonusRequirer({"Striker's Garb"}),
     rapid_fire(new RapidFireBuff(pchar))
 {
     rapid_fire->enable_buff();
@@ -31,4 +33,28 @@ void RapidFire::spell_effect() {
     add_gcd_event();
     pchar->lose_mana(static_cast<unsigned>(resource_cost));
     rapid_fire->apply_buff();
+}
+
+void RapidFire::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Striker's Garb") {
+        switch (set_bonus) {
+        case 5:
+             cooldown -= 120.0;
+            break;
+        default:
+            check(false, "RapidFire:activate_set_bonus_effect reached end of switch");
+        }
+    }
+}
+
+void RapidFire::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Striker's Garb") {
+        switch (set_bonus) {
+        case 5:
+             cooldown -= 120.0;
+            break;
+        default:
+            check(false, "RapidFire::deactivate_set_bonus_effect reached end of switch");
+        }
+    }
 }

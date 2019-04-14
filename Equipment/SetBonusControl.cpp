@@ -81,6 +81,15 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Striker's Garb") {
+        switch (num_pieces) {
+        case 5: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_rapid_fire()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        }
+    }
     else if (set_name == "Cryptstalker Armor") {
         switch (num_pieces) {
         case 2: {
@@ -215,6 +224,15 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 3:
             dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_damage_modifier(3);
             break;
+        }
+    }
+    else if (set_name == "Striker's Garb") {
+        switch (num_pieces) {
+        case 5: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_rapid_fire()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
         }
     }
     else if (set_name == "Cryptstalker Armor") {

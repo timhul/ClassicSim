@@ -42,6 +42,24 @@
 		</patch>
 	</item>
 
+	<item id="21365">
+		<patch name="1.9.0">
+			<info name="Striker's Footguards" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_08.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="340"/>
+				<stat type="AGILITY" value="31"/>
+				<stat type="INTELLECT" value="8"/>
+				<stat type="SPIRIT" value="6"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="SPELL_DAMAGE" value="6"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</item>
+
 	<item id="22440">
 		<patch name="1.11.0">
 			<info name="Crypstalker Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>

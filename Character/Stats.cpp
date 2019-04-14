@@ -2,45 +2,7 @@
 
 #include "Utils/Check.h"
 
-Stats::Stats() :
-    STR(0),
-    AGI(0),
-    STAM(0),
-    INT(0),
-    SPI(0),
-    armor(0),
-    defense(0),
-    dodge_chance(0.0),
-    parry_chance(0.0),
-    arcane_res(0),
-    fire_res(0),
-    frost_res(0),
-    holy_res(0),
-    nature_res(0),
-    shadow_res(0),
-    axe_skill(0),
-    dagger_skill(0),
-    mace_skill(0),
-    sword_skill(0),
-    bow_skill(0),
-    crossbow_skill(0),
-    gun_skill(0),
-    melee_ap(0),
-    ranged_ap(0),
-    melee_hit(0),
-    melee_crit(0),
-    ranged_hit(0),
-    ranged_crit(0),
-    spell_hit(0),
-    spell_crit(0),
-    attack_speed(0.0),
-    mp5(0),
-    str_multiplier(1.0),
-    agi_multiplier(1.0),
-    stam_multiplier(1.0),
-    spi_multiplier(1.0),
-    int_multiplier(1.0)
-{
+Stats::Stats() {
     this->melee_ap_against_creature[Target::CreatureType::Beast] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Demon] = 0;
     this->melee_ap_against_creature[Target::CreatureType::Dragonkin] = 0;
@@ -101,6 +63,7 @@ void Stats::add(const Stats* rhs) {
     increase_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 
     increase_mp5(rhs->get_mp5());
+    increase_spell_damage(rhs->get_spell_damage());
 }
 
 void Stats::remove(const Stats* rhs) {
@@ -142,6 +105,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 
     decrease_mp5(rhs->get_mp5());
+    decrease_spell_damage(rhs->get_spell_damage());
 }
 
 unsigned Stats::get_strength() const {
@@ -550,4 +514,17 @@ void Stats::increase_mp5(const unsigned increase) {
 void Stats::decrease_mp5(const unsigned decrease) {
     check((decrease <= mp5), "Underflow decrease mp5");
     mp5 -= decrease;
+}
+
+unsigned Stats::get_spell_damage() const {
+    return spell_damage;
+}
+
+void Stats::increase_spell_damage(const unsigned increase) {
+    spell_damage += increase;
+}
+
+void Stats::decrease_spell_damage(const unsigned decrease) {
+    check((decrease <= spell_damage), "Underflow decrease spell_damage");
+    spell_damage -= decrease;
 }

@@ -128,6 +128,10 @@ public:
     void increase_mp5(const unsigned increase);
     void decrease_mp5(const unsigned decrease);
 
+    unsigned get_spell_damage() const;
+    void increase_spell_damage(const unsigned increase);
+    void decrease_spell_damage(const unsigned decrease);
+
     double get_spell_crit_dmg_mod() const;
     void increase_spell_crit_dmg_mod(double);
     void decrease_spell_crit_dmg_mod(double);

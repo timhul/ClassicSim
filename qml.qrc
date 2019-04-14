@@ -512,5 +512,10 @@
         <file>QML/Assets/items/Inv_pants_mail_15.png</file>
         <file>QML/Assets/items/Inv_shoulder_14.png</file>
         <file>QML/Assets/items/Inv_misc_cape_15.png</file>
+        <file>QML/Assets/items/Inv_boots_chain_08.png</file>
+        <file>QML/Assets/items/Inv_chest_chain_04.png</file>
+        <file>QML/Assets/items/Inv_helmet_73.png</file>
+        <file>QML/Assets/items/Inv_pants_mail_11.png</file>
+        <file>QML/Assets/items/Inv_shoulder_36.png</file>
     </qresource>
 </RCC>

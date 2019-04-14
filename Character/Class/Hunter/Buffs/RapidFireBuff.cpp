@@ -36,7 +36,7 @@ void RapidFireBuff::deactivate_set_bonus_effect(const QString& set_name, const i
             duration -= 4;
             break;
         default:
-            check(false, "RapidFireBuff::activate_set_bonus_effect reached end of switch");
+            check(false, "RapidFireBuff::deactivate_set_bonus_effect reached end of switch");
         }
     }
 }

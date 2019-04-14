@@ -29,6 +29,24 @@
 		</patch>
 	</item>
 
+	<item id="21367">
+		<patch name="1.9.0">
+			<info name="Striker's Pauldrons" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_shoulder_36.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="384"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="INTELLECT" value="11"/>
+				<stat type="SPIRIT" value="5"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="SPELL_DAMAGE" value="6"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</item>
+
 	<item id="22439">
 		<patch name="1.11.0">
 			<info name="Crypstalker Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>

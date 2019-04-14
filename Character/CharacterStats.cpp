@@ -265,6 +265,8 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_strength(value);
     case ItemStats::ManaPer5:
         return increase_mp5(value);
+    case ItemStats::SpellDamage:
+        return increase_spell_damage(value);
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
@@ -323,6 +325,8 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_strength(value);
     case ItemStats::ManaPer5:
         return decrease_mp5(value);
+    case ItemStats::SpellDamage:
+        return decrease_spell_damage(value);
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
@@ -758,6 +762,18 @@ void CharacterStats::increase_mp5(const unsigned increase) {
 
 void CharacterStats::decrease_mp5(const unsigned decrease) {
     base_stats->decrease_mp5(decrease);
+}
+
+unsigned CharacterStats::get_spell_damage() const {
+    return base_stats->get_spell_damage() + equipment->get_stats()->get_spell_damage();
+}
+
+void CharacterStats::increase_spell_damage(const unsigned increase) {
+    base_stats->increase_spell_damage(increase);
+}
+
+void CharacterStats::decrease_spell_damage(const unsigned decrease) {
+    base_stats->decrease_spell_damage(decrease);
 }
 
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {

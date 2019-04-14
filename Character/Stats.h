@@ -149,53 +149,58 @@ public:
     void increase_mp5(const unsigned increase);
     void decrease_mp5(const unsigned decrease);
 
+    unsigned get_spell_damage() const;
+    void increase_spell_damage(const unsigned increase);
+    void decrease_spell_damage(const unsigned decrease);
+
 private:
-    unsigned STR;
-    unsigned AGI;
-    unsigned STAM;
-    unsigned INT;
-    unsigned SPI;
+    unsigned STR {0};
+    unsigned AGI {0};
+    unsigned STAM {0};
+    unsigned INT {0};
+    unsigned SPI {0};
 
-    int armor;
-    int defense;
-    double dodge_chance;
-    double parry_chance;
+    int armor {0};
+    int defense {0};
+    double dodge_chance {0.0};
+    double parry_chance {0.0};
 
-    int arcane_res;
-    int fire_res;
-    int frost_res;
-    int holy_res;
-    int nature_res;
-    int shadow_res;
+    int arcane_res {0};
+    int fire_res {0};
+    int frost_res {0};
+    int holy_res {0};
+    int nature_res {0};
+    int shadow_res {0};
 
-    int axe_skill;
-    int dagger_skill;
-    int mace_skill;
-    int sword_skill;
-    int bow_skill;
-    int crossbow_skill;
-    int gun_skill;
+    int axe_skill {0};
+    int dagger_skill {0};
+    int mace_skill {0};
+    int sword_skill {0};
+    int bow_skill {0};
+    int crossbow_skill {0};
+    int gun_skill {0};
 
-    unsigned melee_ap;
-    unsigned ranged_ap;
-    unsigned melee_hit;
-    unsigned melee_crit;
-    unsigned ranged_hit;
-    unsigned ranged_crit;
-    unsigned spell_hit;
-    unsigned spell_crit;
-    unsigned attack_speed;
+    unsigned melee_ap {0};
+    unsigned ranged_ap {0};
+    unsigned melee_hit {0};
+    unsigned melee_crit {0};
+    unsigned ranged_hit {0};
+    unsigned ranged_crit {0};
+    unsigned spell_hit {0};
+    unsigned spell_crit {0};
+    unsigned attack_speed {0};
 
-    unsigned mp5;
+    unsigned mp5 {0};
+    unsigned spell_damage {0};
 
     QMap<Target::CreatureType, unsigned> melee_ap_against_creature;
     QMap<Target::CreatureType, unsigned> ranged_ap_against_creature;
 
-    double str_multiplier;
-    double agi_multiplier;
-    double stam_multiplier;
-    double spi_multiplier;
-    double int_multiplier;
+    double str_multiplier {1.0};
+    double agi_multiplier {1.0};
+    double stam_multiplier {1.0};
+    double spi_multiplier {1.0};
+    double int_multiplier {1.0};
 };
 
 #endif // STATS_H

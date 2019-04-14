@@ -285,6 +285,21 @@
 		</bonus>
 	</set>
 
+	<set name="Striker's Garb">
+		<item_id value="21366"/>
+		<item_id value="21365"/>
+		<item_id value="21370"/>
+		<item_id value="21368"/>
+		<item_id value="21367"/>
+
+		<bonus value="3">
+		(3) Set: Reduces the cost of your Arcane Shots by 10%.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Reduces the cooldown of your Rapid Fire by 2 minutes.
+		</bonus>
+	</set>
+
 	<set name="Cryptstalker Armor">
 		<item_id value="22440"/>
 		<item_id value="22442"/>
