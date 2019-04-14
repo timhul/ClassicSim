@@ -40,11 +40,17 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.2-alpha-3 (released 2019-04-14):
+
 * All DPS increasing talents except melee/Arcane Shot/Serpent Sting boosts now available for Hunter.
 * Pet (Cat) has been added. It is fully affected by Beast Mastery talents.
-* Many Hunter items added (including all relevant ranged weapons).
+* Many Hunter-relevant items and sets added.
 * Projectiles can now be equipped.
-* Usage of Hunter's Mark/Rapid Fire/Aspect of the Hawk.
+* Usage of Hunter's Mark/Rapid Fire/Aspect of the Hawk/Bestial Wrath.
 * Lesser/Brilliant Mana Oil available as temporary enchants.
 * Sniper scopes available as enchants for Hunters.
 * Blessing of Wisdom/Mana Spring Totem and Grilled Squid available as external buffs.
@@ -57,8 +63,6 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Only Cat is available to use as pet.
 * It is not possible to simulate without 15% quiver bonus for Hunter.
 * Sorting projectiles on type does not work.
-
-# Release notes
 
 ## v0.2-alpha-2 (released 2019-03-24):
 
