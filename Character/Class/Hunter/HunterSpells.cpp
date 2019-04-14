@@ -5,6 +5,7 @@
 #include "AutoShot.h"
 #include "BestialWrath.h"
 #include "Engine.h"
+#include "ExposeWeaknessProc.h"
 #include "Hunter.h"
 #include "HuntersMark.h"
 #include "MainhandAttack.h"
@@ -23,6 +24,7 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->aspect_of_the_hawk = new AspectOfTheHawk(hunter);
     this->auto_shot = new AutoShot(hunter);
     this->bestial_wrath = new BestialWrath(hunter, "Cat");
+    this->expose_weakness_proc = new ExposeWeaknessProc(hunter);
     this->hunters_mark = new HuntersMark(hunter);
     this->mana_potion = new ManaPotion(hunter);
     this->mh_attack = new MainhandAttack(hunter);
@@ -40,6 +42,10 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     spells.append(multi_shot);
     spells.append(oh_attack);
     spells.append(rapid_fire);
+}
+
+HunterSpells::~HunterSpells() {
+    delete expose_weakness_proc;
 }
 
 void HunterSpells::start_pet_attack() {
@@ -100,6 +106,10 @@ AutoShot* HunterSpells::get_auto_shot() const {
 
 BestialWrath* HunterSpells::get_bestial_wrath() const {
     return this->bestial_wrath;
+}
+
+ExposeWeaknessProc* HunterSpells::get_expose_weakness_proc() const {
+    return this->expose_weakness_proc;
 }
 
 HuntersMark* HunterSpells::get_hunters_mark() const {

@@ -6,6 +6,7 @@
 class AimedShot;
 class AspectOfTheHawk;
 class BestialWrath;
+class ExposeWeaknessProc;
 class Hunter;
 class HuntersMark;
 class ManaPotion;
@@ -15,6 +16,7 @@ class RapidFire;
 class HunterSpells: public CharacterSpells {
 public:
     HunterSpells(Hunter *hunter);
+    ~HunterSpells() override;
 
     void start_pet_attack() override;
     void add_next_ranged_attack() override;
@@ -26,6 +28,7 @@ public:
     AspectOfTheHawk* get_aspect_of_the_hawk() const;
     AutoShot* get_auto_shot() const override;
     BestialWrath* get_bestial_wrath() const;
+    ExposeWeaknessProc* get_expose_weakness_proc() const;
     HuntersMark* get_hunters_mark() const;
     ManaPotion* get_mana_potion() const;
     MultiShot* get_multi_shot() const;
@@ -38,6 +41,7 @@ private:
     AspectOfTheHawk* aspect_of_the_hawk;
     AutoShot* auto_shot;
     BestialWrath* bestial_wrath;
+    ExposeWeaknessProc* expose_weakness_proc;
     HuntersMark* hunters_mark;
     ManaPotion* mana_potion;
     MultiShot* multi_shot;

@@ -9,6 +9,7 @@
 #include "Energy.h"
 #include "EquipmentDb.h"
 #include "Eviscerate.h"
+#include "ExposeWeaknessProc.h"
 #include "Hemorrhage.h"
 #include "Hunter.h"
 #include "HunterSpells.h"
@@ -97,6 +98,11 @@ void SetBonusControl::equip_item(const int item_id) {
         case 3: {
             auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
             spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->activate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        case 8: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_expose_weakness_proc()->activate_set_bonus(set_name, num_pieces);
             break;
         }
         }
@@ -260,6 +266,11 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 3: {
             auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
             spells->get_aspect_of_the_hawk()->get_aspect_of_the_hawk_buff()->deactivate_set_bonus(set_name, num_pieces);
+            break;
+        }
+        case 8: {
+            auto* spells = dynamic_cast<HunterSpells*>(dynamic_cast<Hunter*>(pchar)->get_spells());
+            spells->get_expose_weakness_proc()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
         }
