@@ -342,7 +342,8 @@ SOURCES += main.cpp \
     Equipment/Item/Projectile.cpp \
     Character/Common/Spells/ManaPotion.cpp \
     Character/Class/Hunter/Procs/ExposeWeaknessProc.cpp \
-    Character/Class/Hunter/Buffs/ExposeWeaknessBuff.cpp
+    Character/Class/Hunter/Buffs/ExposeWeaknessBuff.cpp \
+    Character/Class/Hunter/HunterPet.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -690,7 +691,8 @@ HEADERS += \
     Character/Common/Spells/ManaPotion.h \
     GUI/Models/SortDirection.h \
     Character/Class/Hunter/Procs/ExposeWeaknessProc.h \
-    Character/Class/Hunter/Buffs/ExposeWeaknessBuff.h
+    Character/Class/Hunter/Buffs/ExposeWeaknessBuff.h \
+    Character/Class/Hunter/HunterPet.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

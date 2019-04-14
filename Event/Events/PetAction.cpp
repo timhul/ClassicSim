@@ -9,5 +9,5 @@ PetAction::PetAction(Pet* pet, const double timestamp) {
 }
 
 void PetAction::act() {
-    pet->use_focus();
+    pet->use_resource();
 }

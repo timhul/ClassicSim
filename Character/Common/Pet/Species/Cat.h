@@ -1,21 +1,18 @@
 #ifndef CAT_H
 #define CAT_H
 
-#include "Pet.h"
+#include "HunterPet.h"
 
 class Claw;
 class Hunter;
 
-class Cat: public Pet {
+class Cat: public HunterPet {
 public:
-    Cat(Hunter *pchar);
-    ~Cat() override;
+    Cat(Hunter* pchar);
 
-    unsigned get_resource_level() const override;
-    void use_focus() override;
+    void use_resource() override;
 
 private:
-    class Focus* focus;
     Claw* claw;
 };
 

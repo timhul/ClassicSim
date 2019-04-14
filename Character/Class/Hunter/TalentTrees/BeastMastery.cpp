@@ -4,9 +4,9 @@
 #include "BestialWrath.h"
 #include "FrenzyProc.h"
 #include "Hunter.h"
+#include "HunterPet.h"
 #include "HunterSpells.h"
 #include "ImprovedAspectOfTheHawkProc.h"
-#include "Pet.h"
 #include "TalentStatIncrease.h"
 
 BeastMastery::BeastMastery(Hunter* hunter) :
@@ -84,7 +84,7 @@ Talent* BeastMastery::get_frenzy() {
                           QVector<QPair<int, int>>{{20, 20}},
                           QVector<Spell*>{},
                           QVector<Buff*>{},
-                          QVector<Proc*>{hunter->get_pet()->get_frenzy_proc()});
+                          QVector<Proc*>{dynamic_cast<HunterPet*>(hunter->get_pet())->get_frenzy_proc()});
 }
 
 Talent* BeastMastery::get_bestial_wrath() {

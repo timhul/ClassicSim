@@ -6,7 +6,6 @@
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "Engine.h"
-#include "FrenzyProc.h"
 #include "PetAction.h"
 #include "PetAutoAttack.h"
 #include "PetMeleeHit.h"
@@ -29,8 +28,7 @@ Pet::Pet(Character* pchar, const QString &name, double attack_speed, double base
     crit_chance(500),
     attack_speed_modifier(1.0),
     damage_modifier(1.0),
-    pet_auto_attack(nullptr),
-    frenzy_proc(nullptr)
+    pet_auto_attack(nullptr)
 {}
 
 Pet::~Pet() {
@@ -40,7 +38,6 @@ Pet::~Pet() {
         delete spell;
 
     delete pet_auto_attack;
-    delete frenzy_proc;
     delete normalized_dmg_roll;
 }
 
@@ -61,7 +58,7 @@ void Pet::start_attack() {
     pet_auto_attack->perform();
     add_next_auto_attack();
 
-    use_focus();
+    use_resource();
 }
 
 void Pet::add_gcd_event() {
@@ -162,8 +159,7 @@ unsigned Pet::get_random_normalized_dmg() {
 }
 
 void Pet::melee_critical_effect() {
-    if (frenzy_proc->is_enabled())
-        frenzy_proc->perform();
+
 }
 
 void Pet::reset() {
@@ -174,10 +170,6 @@ void Pet::reset() {
 
 Resource* Pet::get_resource() {
     return this->resource;
-}
-
-FrenzyProc* Pet::get_frenzy_proc() {
-    return this->frenzy_proc;
 }
 
 void Pet::add_next_auto_attack() {

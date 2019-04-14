@@ -9,7 +9,7 @@ class Focus: public RegeneratingResource {
 public:
     Focus(Character*);
 
-    friend class Cat;
+    friend class HunterPet;
     friend class TalentStatIncrease;
 
     unsigned get_max_resource() const override;

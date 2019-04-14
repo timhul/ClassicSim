@@ -4,7 +4,6 @@
 #include "Character.h"
 
 class HunterSpells;
-class Pet;
 
 class Hunter: public Character {
 public:

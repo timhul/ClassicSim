@@ -4,7 +4,6 @@
 #include <QVector>
 
 class Character;
-class FrenzyProc;
 class PetAutoAttack;
 class Random;
 class Resource;
@@ -18,7 +17,7 @@ public:
     QString get_name() const;
 
     virtual unsigned get_resource_level() const = 0;
-    virtual void use_focus() = 0;
+    virtual void use_resource() = 0;
     void lose_resource(const unsigned loss);
 
     void start_attack();
@@ -47,11 +46,10 @@ public:
 
     unsigned get_random_normalized_dmg();
 
-    void melee_critical_effect();
+    virtual void melee_critical_effect();
 
     void reset();
     Resource* get_resource();
-    FrenzyProc* get_frenzy_proc();
 
 protected:
     unsigned attack_power {252};
@@ -75,7 +73,6 @@ protected:
     QVector<int> damage_modifiers;
 
     PetAutoAttack* pet_auto_attack;
-    FrenzyProc* frenzy_proc;
     QVector<Spell*> spells;
 
     void add_next_auto_attack();
