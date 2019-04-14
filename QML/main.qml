@@ -178,6 +178,11 @@ Window {
         currentIndex: settings.getCurrentRuleset()
 
         onActivated: settings.selectRuleset(currentIndex)
+
+        Connections {
+            target: settings
+            onClassChanged: ruleset.currentIndex = settings.getCurrentRuleset()
+        }
     }
 
     RectangleBorders {
