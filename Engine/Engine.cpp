@@ -24,9 +24,14 @@ void Engine::run() {
     }
 }
 
-void Engine::prepare() {
+void Engine::prepare_set_of_iterations() {
     reset();
     timer->start();
+}
+
+void Engine::prepare_iteration(const double start_at) {
+    queue->clear();
+    current_prio = start_at;
 }
 
 void Engine::reset() {
@@ -38,7 +43,6 @@ void Engine::reset() {
 
 void Engine::end_combat() {
     queue->clear();
-    current_prio = -1;
 }
 
 double Engine::get_current_priority() const {

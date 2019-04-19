@@ -4,6 +4,12 @@
 	A rotation for Markmanship hunters that cycles Aimed Shot and Multi-Shot close to the auto shot timer.
 	</description>
 
+	<precombat_actions>
+		<spell name="Aspect of the Hawk"/>
+		<spell name="Hunter's Mark"/>
+		<precast_spell name="Aimed Shot"/>
+	</precombat_actions>
+
 	<cast_if name="Rapid Fire">
 		variable "time_remaining_encounter" greater 300
 		or variable "time_remaining_execute" less 0

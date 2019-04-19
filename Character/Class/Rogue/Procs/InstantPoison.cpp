@@ -51,19 +51,19 @@ InstantPoison::~InstantPoison() {
     delete instant_poison_buff;
 }
 
-void InstantPoison::perform_pre_combat() {
+void InstantPoison::perform_start_of_combat() {
     instant_poison_buff->apply_buff();
 }
 
 void InstantPoison::enable_spell_effect() {
     instant_poison_buff->enable_buff();
     rogue->get_spells()->add_spell(this);
-    dynamic_cast<RogueSpells*>(rogue->get_spells())->add_pre_combat_spell(this);
+    dynamic_cast<RogueSpells*>(rogue->get_spells())->add_start_of_combat_spell(this);
 }
 
 void InstantPoison::disable_spell_effect() {
     rogue->get_spells()->remove_spell(this);
-    dynamic_cast<RogueSpells*>(rogue->get_spells())->remove_pre_combat_spell(this);
+    dynamic_cast<RogueSpells*>(rogue->get_spells())->remove_start_of_combat_spell(this);
 
     if (instant_poison_buff->is_enabled()) {
         instant_poison_buff->cancel_buff();

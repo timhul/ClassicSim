@@ -56,7 +56,7 @@ public:
 
     void perform();
     virtual void perform_periodic();
-    virtual void perform_pre_combat();
+    virtual void perform_start_of_combat();
 
     void reset();
     virtual void prepare_set_of_combat_iterations();

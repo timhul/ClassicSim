@@ -27,9 +27,9 @@ public:
     void add_spell(Spell* spell, bool relink=true);
     void remove_spell(Spell* spell);
 
-    void add_pre_combat_spell(Spell* spell);
-    void remove_pre_combat_spell(Spell* spell);
-    void run_pre_combat_spells();
+    void add_start_of_combat_spell(Spell* spell);
+    void remove_start_of_combat_spell(Spell* spell);
+    void run_start_of_combat_spells();
 
     Spell* get_spell_by_name(const QString& spell_name) const;
 
@@ -77,7 +77,7 @@ protected:
     bool attack_mode_active;
     int next_instance_id;
     QVector<Spell*> spells;
-    QVector<Spell*> pre_combat_spells;
+    QVector<Spell*> start_of_combat_spells;
 
     MainhandAttack* mh_attack{};
     OffhandAttack* oh_attack{};

@@ -53,7 +53,7 @@ void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_
 
     check((buff != nullptr), "buff nullptr");
     buff->enable_buff();
-    pchar->get_enabled_buffs()->add_pre_combat_buff(buff);
+    pchar->get_enabled_buffs()->add_start_of_combat_buff(buff);
 
     auto* warr = dynamic_cast<Warrior*>(pchar);
     if (warr != nullptr)
@@ -67,7 +67,7 @@ void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* s
 
     check((buff != nullptr), "buff nullptr");
 
-    pchar->get_enabled_buffs()->remove_pre_combat_buff(buff);
+    pchar->get_enabled_buffs()->remove_start_of_combat_buff(buff);
     buff->disable_buff();
 
     auto* warr = dynamic_cast<Warrior*>(pchar);

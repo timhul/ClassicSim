@@ -36,7 +36,7 @@ CharacterSpells::~CharacterSpells()
         delete spell;
 
     spells.clear();
-    pre_combat_spells.clear();
+    start_of_combat_spells.clear();
 }
 
 void CharacterSpells::set_rotation(Rotation* rotation) {
@@ -132,27 +132,27 @@ void CharacterSpells::remove_spell(Spell* spell) {
     relink_spells();
 }
 
-void CharacterSpells::add_pre_combat_spell(Spell* spell) {
+void CharacterSpells::add_start_of_combat_spell(Spell* spell) {
     if (spell->get_instance_id() == SpellStatus::INACTIVE) {
         spell->set_instance_id(next_instance_id);
         ++next_instance_id;
     }
 
-    pre_combat_spells.append(spell);
+    start_of_combat_spells.append(spell);
 }
 
-void CharacterSpells::remove_pre_combat_spell(Spell* spell) {
-    for (auto & i : pre_combat_spells) {
+void CharacterSpells::remove_start_of_combat_spell(Spell* spell) {
+    for (auto & i : start_of_combat_spells) {
         if (i->get_instance_id() == spell->get_instance_id()) {
-            pre_combat_spells.removeOne(i);
+            start_of_combat_spells.removeOne(i);
             return;
         }
     }
 }
 
-void CharacterSpells::run_pre_combat_spells() {
-    for (auto & spell : pre_combat_spells)
-        spell->perform_pre_combat();
+void CharacterSpells::run_start_of_combat_spells() {
+    for (auto & spell : start_of_combat_spells)
+        spell->perform_start_of_combat();
 }
 
 Spell* CharacterSpells::get_spell_by_name(const QString& spell_name) const {

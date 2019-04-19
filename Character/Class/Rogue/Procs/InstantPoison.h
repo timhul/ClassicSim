@@ -14,7 +14,7 @@ public:
     InstantPoison(Character* pchar, const QString &weapon_side, const int weapon);
     ~InstantPoison() override;
 
-    void perform_pre_combat() override;
+    void perform_start_of_combat() override;
 
 private:
     Buff* instant_poison_buff;

@@ -122,8 +122,8 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotatio
         }
 
         if (reader.name() == "prerequisites") {
+            QSet<QString> elements = {"talent", "patch_at_least", "patch_at_most"};
             while (reader.readNextStartElement()) {
-                QSet<QString> elements = {"talent", "patch_at_least", "patch_at_most"};
                 if (!elements.contains(reader.name().toString())) {
                     qDebug() << "<prerequisites> missing any of elements" << elements;
                     reader.skipCurrentElement();
@@ -138,6 +138,30 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotatio
                                            reader.attributes().value("name").toString());
                 reader.skipCurrentElement();
             }
+            continue;
+        }
+
+        if (reader.name() == "precombat_actions") {
+            QSet<QString> elements = {"spell", "precast_spell"};
+            while (reader.readNextStartElement()) {
+                QString element_name = reader.name().toString();
+                if (!elements.contains(element_name)) {
+                    qDebug() << "<precombat_actions> has unknown element" << element_name;
+                    reader.skipCurrentElement();
+                    continue;
+                }
+                if (!reader.attributes().hasAttribute("name")) {
+                    qDebug() << "<precombat_actions> element" << element_name << "missing 'name' attribute'";
+                    reader.skipCurrentElement();
+                    continue;
+                }
+                if (element_name == "spell")
+                    rotation->add_precombat_spell(reader.attributes().value("name").toString());
+                else
+                    rotation->add_precast_spell(reader.attributes().value("name").toString());
+                reader.skipCurrentElement();
+            }
+
             continue;
         }
 

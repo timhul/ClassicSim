@@ -134,6 +134,9 @@ void Spell::add_spell_cd_event() const {
 }
 
 void Spell::add_gcd_event() const {
+    if (engine->get_current_priority() < 0)
+        return;
+
     pchar->start_global_cooldown();
     double gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
     engine->add_event(new PlayerAction(pchar->get_spells(), gcd_ready));
@@ -240,6 +243,6 @@ void Spell::perform_periodic() {
 
 }
 
-void Spell::perform_pre_combat() {
+void Spell::perform_start_of_combat() {
 
 }

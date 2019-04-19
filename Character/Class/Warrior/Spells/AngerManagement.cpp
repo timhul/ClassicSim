@@ -19,18 +19,18 @@ AngerManagement::AngerManagement(Character* pchar) :
 }
 
 void AngerManagement::increase_talent_rank_effect(const QString&, const int) {
-    dynamic_cast<WarriorSpells*>(warr->get_spells())->add_pre_combat_spell(this);
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->add_start_of_combat_spell(this);
 }
 
 void AngerManagement::decrease_talent_rank_effect(const QString&, const int) {
-    dynamic_cast<WarriorSpells*>(warr->get_spells())->remove_pre_combat_spell(this);
+    dynamic_cast<WarriorSpells*>(warr->get_spells())->remove_start_of_combat_spell(this);
 }
 
 void AngerManagement::spell_effect() {
     check(false, "Not implemented");
 }
 
-void AngerManagement::perform_pre_combat() {
+void AngerManagement::perform_start_of_combat() {
     auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 1.5);
     this->engine->add_event(new_event);
 }

@@ -12,7 +12,7 @@ public:
     AngerManagement(Character* pchar);
 
     void perform_periodic() override;
-    void perform_pre_combat() override;
+    void perform_start_of_combat() override;
 
 private:
     Warrior* warr;

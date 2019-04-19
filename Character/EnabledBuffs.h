@@ -30,9 +30,9 @@ public:
     void clear_all();
     void prepare_set_of_combat_iterations();
 
-    void add_pre_combat_buff(Buff* buff);
-    void remove_pre_combat_buff(Buff* buff);
-    void apply_pre_combat_buffs();
+    void add_start_of_combat_buff(Buff* buff);
+    void remove_start_of_combat_buff(Buff* buff);
+    void apply_start_of_combat_buffs();
 
 private:
     Character* pchar;
@@ -42,7 +42,7 @@ private:
 
     GeneralBuffs* general_buffs;
 
-    QVector<Buff*> pre_combat_buffs;
+    QVector<Buff*> start_of_combat_buffs;
     QVector<Buff*> enabled_buffs;
     QVector<Buff*> alliance_only_buffs;
     QVector<Buff*> horde_only_buffs;

@@ -11,8 +11,8 @@ EncounterStart::EncounterStart(CharacterSpells* spells, EnabledBuffs* buffs) {
 }
 
 void EncounterStart::act() {
-    buffs->apply_pre_combat_buffs();
-    spells->run_pre_combat_spells();
+    buffs->apply_start_of_combat_buffs();
+    spells->run_start_of_combat_spells();
     spells->start_attack();
     spells->start_pet_attack();
     spells->perform_rotation();

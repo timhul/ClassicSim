@@ -14,6 +14,12 @@
 		<patch_at_most name="1.12.1"/>
 	</prerequisites>
 
+	<precombat_actions>
+		<spell name="Bloodrage"/>
+		<spell name="Battle Shout"/>
+		<spell name="Berserker Stance"/>
+	</precombat_actions>
+
 	<cast_if name="Battle Shout">
 		buff "Battle Shout" less 5
 		or variable "time_remaining_execute" less 10

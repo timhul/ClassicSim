@@ -41,13 +41,13 @@ void EnabledBuffs::remove_buff(Buff* buff) {
     remove_buff(buff, enabled_buffs);
 }
 
-void EnabledBuffs::add_pre_combat_buff(Buff* buff) {
+void EnabledBuffs::add_start_of_combat_buff(Buff* buff) {
     check(buff->is_enabled(), QString("Expected pre-combat buff '%1' to be enabled").arg(buff->get_name()).toStdString());
-    pre_combat_buffs.append(buff);
+    start_of_combat_buffs.append(buff);
 }
 
-void EnabledBuffs::remove_pre_combat_buff(Buff *buff) {
-    remove_buff(buff, pre_combat_buffs);
+void EnabledBuffs::remove_start_of_combat_buff(Buff *buff) {
+    remove_buff(buff, start_of_combat_buffs);
 }
 
 Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
@@ -102,12 +102,12 @@ void EnabledBuffs::clear_all() {
         buff->disable_buff();
     }
 
-    pre_combat_buffs.clear();
+    start_of_combat_buffs.clear();
     general_buffs->clear_all();
 }
 
-void EnabledBuffs::apply_pre_combat_buffs() {
-    for (auto & buff : pre_combat_buffs)
+void EnabledBuffs::apply_start_of_combat_buffs() {
+    for (auto & buff : start_of_combat_buffs)
         buff->apply_buff();
 }
 

@@ -3,6 +3,7 @@
 #include <QDebug>
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
@@ -11,6 +12,8 @@
 #include "Engine.h"
 #include "ItemNamespace.h"
 #include "NumberCruncher.h"
+#include "Rotation.h"
+#include "SpellCastingTime.h"
 
 SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
     sim_settings(sim_settings),
@@ -40,14 +43,18 @@ void SimControl::run_sim(Character* pchar, const int combat_length, const int it
     pchar->get_statistics()->prepare_statistics();
     pchar->get_combat_roll()->drop_tables();
     pchar->prepare_set_of_combat_iterations();
-    pchar->get_engine()->prepare();
+    pchar->get_engine()->prepare_set_of_iterations();
 
     for (int i = 0; i < iterations; ++i) {
-        auto* start_event = new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs());
-        auto* end_event = new EncounterEnd(pchar->get_engine(), pchar, combat_length);
+        Rotation* rotation = pchar->get_spells()->get_rotation();
 
-        pchar->get_engine()->add_event(end_event);
-        pchar->get_engine()->add_event(start_event);
+        pchar->get_engine()->prepare_iteration(-rotation->get_time_required_to_run_precombat());
+        rotation->run_precombat_actions();
+        if (rotation->precast_spell != nullptr)
+            rotation->precast_spell->perform();
+
+        pchar->get_engine()->add_event(new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs()));
+        pchar->get_engine()->add_event(new EncounterEnd(pchar->get_engine(), pchar, combat_length));
         pchar->get_engine()->run();
         pchar->get_statistics()->finish_combat_iteration();
     }

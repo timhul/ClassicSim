@@ -13,6 +13,7 @@
 #include "EnabledBuffs.h"
 #include "RotationExecutor.h"
 #include "Spell.h"
+#include "SpellCastingTime.h"
 #include "Utils/Check.h"
 
 Rotation::Rotation(QString class_name) :
@@ -25,6 +26,11 @@ Rotation::~Rotation() {
     for (auto & executor : all_executors) {
         delete executor;
     }
+}
+
+void Rotation::run_precombat_actions() {
+    for (auto & spell : precombat_spells)
+        spell->perform();
 }
 
 void Rotation::perform_rotation() const {
@@ -47,6 +53,31 @@ void Rotation::link_spells(Character* pchar) {
 
         if (this->add_conditionals(executor))
             active_executors.append(executor);
+    }
+
+    link_precast_spell();
+    link_precombat_spells();
+}
+
+void Rotation::link_precast_spell() {
+    SpellCastingTime* spell = dynamic_cast<SpellCastingTime*>(pchar->get_spells()->get_spell_by_name(precast_spell_name));
+
+    if (spell == nullptr)
+        return;
+
+    precast_spell = spell;
+}
+
+void Rotation::link_precombat_spells() {
+    precombat_spells.clear();
+
+    for (auto & spell_name : precombat_spell_names) {
+        Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
+
+        if (spell == nullptr || !spell->is_enabled())
+            continue;
+
+        precombat_spells.append(spell);
     }
 }
 
@@ -114,6 +145,10 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
     return true;
 }
 
+double Rotation::get_time_required_to_run_precombat() {
+    return precast_spell ? precast_spell->get_cast_time() : pchar->global_cooldown();
+}
+
 void Rotation::set_name(const QString& name) {
     this->name = name;
 }
@@ -141,6 +176,14 @@ void Rotation::add_variable(const QString& var, const QString& value) {
 
 void Rotation::add_prerequisite(const QString& key, const QString& value) {
     this->prerequisites.insert(key, value);
+}
+
+void Rotation::add_precombat_spell(const QString &spell_name) {
+    this->precombat_spell_names.append(spell_name);
+}
+
+void Rotation::add_precast_spell(const QString &spell_name) {
+    this->precast_spell_name = spell_name;
 }
 
 void Rotation::add_executor(RotationExecutor* executor) {

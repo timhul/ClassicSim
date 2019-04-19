@@ -13,6 +13,12 @@
 		<patch_at_most name="1.12.1"/>
 	</prerequisites>
 
+	<precombat_actions>
+		<spell name="Bloodrage"/>
+		<spell name="Battle Shout"/>
+		<spell name="Berserker Stance"/>
+	</precombat_actions>
+
 	<cast_if name="Berserker Rage">
 		resource "Rage" less 50
 	</cast_if>
