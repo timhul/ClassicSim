@@ -69,6 +69,7 @@ bool RotationModel::set_information_index(const int index) {
 
     layoutAboutToBeChanged();
     information_index = index;
+    rotations[pchar->get_name()][information_index]->link_spells(pchar);
     rotation_conditions_model->set_rotation(rotations[pchar->get_name()][information_index]);
     layoutChanged();
     return true;
