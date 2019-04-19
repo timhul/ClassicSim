@@ -52,11 +52,8 @@ void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_
     Buff* buff = pchar->get_enabled_buffs()->get_general_buffs()->get_general_buff_by_name("Essence of the Red");
 
     check((buff != nullptr), "buff nullptr");
-
-    if (!buff->is_enabled())
-        buff->enable_buff();
-
-    buff->apply_buff();
+    buff->enable_buff();
+    pchar->get_enabled_buffs()->add_pre_combat_buff(buff);
 
     auto* warr = dynamic_cast<Warrior*>(pchar);
     if (warr != nullptr)
@@ -70,8 +67,8 @@ void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* s
 
     check((buff != nullptr), "buff nullptr");
 
-    if (buff->is_enabled())
-        buff->disable_buff();
+    pchar->get_enabled_buffs()->remove_pre_combat_buff(buff);
+    buff->disable_buff();
 
     auto* warr = dynamic_cast<Warrior*>(pchar);
     if (warr != nullptr)

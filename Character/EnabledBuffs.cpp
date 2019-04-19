@@ -15,9 +15,16 @@ EnabledBuffs::EnabledBuffs(Character* pchar, Faction* faction) :
     general_buffs(new GeneralBuffs(pchar, faction))
 {}
 
-EnabledBuffs::~EnabledBuffs()
-{
+EnabledBuffs::~EnabledBuffs() {
     delete general_buffs;
+}
+
+void EnabledBuffs::remove_buff(Buff* buff, QVector<Buff*>& buffs) {
+    check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->get_name()).toStdString());
+    for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs.at(i)->get_instance_id() == buff->get_instance_id())
+            return buffs.removeAt(i);
+    }
 }
 
 void EnabledBuffs::add_buff(Buff* buff) {
@@ -31,11 +38,16 @@ void EnabledBuffs::add_buff(Buff* buff) {
 }
 
 void EnabledBuffs::remove_buff(Buff* buff) {
-    check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->get_name()).toStdString());
-    for (int i = 0; i < enabled_buffs.size(); ++i) {
-        if (enabled_buffs.at(i)->get_instance_id() == buff->get_instance_id())
-            return enabled_buffs.removeAt(i);
-    }
+    remove_buff(buff, enabled_buffs);
+}
+
+void EnabledBuffs::add_pre_combat_buff(Buff* buff) {
+    check(buff->is_enabled(), QString("Expected pre-combat buff '%1' to be enabled").arg(buff->get_name()).toStdString());
+    pre_combat_buffs.append(buff);
+}
+
+void EnabledBuffs::remove_pre_combat_buff(Buff *buff) {
+    remove_buff(buff, pre_combat_buffs);
 }
 
 Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
@@ -47,7 +59,7 @@ Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
     return nullptr;
 }
 
-SharedBuff *EnabledBuffs::use_shared_buff(const QString& name) const {
+SharedBuff* EnabledBuffs::use_shared_buff(const QString& name) const {
     for (auto & buff : enabled_buffs) {
         if (buff->get_name() == name) {
             auto* uniq_buff = dynamic_cast<SharedBuff*>(buff);
@@ -90,29 +102,31 @@ void EnabledBuffs::clear_all() {
         buff->disable_buff();
     }
 
+    pre_combat_buffs.clear();
     general_buffs->clear_all();
+}
+
+void EnabledBuffs::apply_pre_combat_buffs() {
+    for (auto & buff : pre_combat_buffs)
+        buff->apply_buff();
 }
 
 void EnabledBuffs::switch_faction() {
     general_buffs->switch_faction();
 
     if (faction->is_alliance()) {
-        for (auto & horde_only_buff : horde_only_buffs) {
+        for (auto & horde_only_buff : horde_only_buffs)
             remove_buff(horde_only_buff);
-        }
 
-        for (auto & alliance_only_buff : alliance_only_buffs) {
+        for (auto & alliance_only_buff : alliance_only_buffs)
             add_buff(alliance_only_buff);
-        }
     }
     else {
-        for (auto & alliance_only_buff : alliance_only_buffs) {
+        for (auto & alliance_only_buff : alliance_only_buffs)
             remove_buff(alliance_only_buff);
-        }
 
-        for (auto & horde_only_buff : horde_only_buffs) {
+        for (auto & horde_only_buff : horde_only_buffs)
             add_buff(horde_only_buff);
-        }
     }
 }
 

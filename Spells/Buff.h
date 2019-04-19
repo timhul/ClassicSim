@@ -84,6 +84,7 @@ protected:
     virtual void buff_effect_when_refreshed();
     virtual void reset_effect();
     virtual void charge_change_effect();
+    virtual void prepare_set_of_combat_iterations_spell_specific();
 };
 
 #endif // BUFF_H

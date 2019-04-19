@@ -181,6 +181,7 @@ void Buff::prepare_set_of_combat_iterations() {
         return;
 
     this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon, debuff);
+    prepare_set_of_combat_iterations_spell_specific();
 }
 
 void Buff::buff_effect_when_refreshed() {
@@ -192,5 +193,9 @@ void Buff::reset_effect() {
 }
 
 void Buff::charge_change_effect() {
+
+}
+
+void Buff::prepare_set_of_combat_iterations_spell_specific() {
 
 }

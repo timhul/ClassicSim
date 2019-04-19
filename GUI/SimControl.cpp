@@ -43,7 +43,7 @@ void SimControl::run_sim(Character* pchar, const int combat_length, const int it
     pchar->get_engine()->prepare();
 
     for (int i = 0; i < iterations; ++i) {
-        auto* start_event = new EncounterStart(pchar->get_spells());
+        auto* start_event = new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs());
         auto* end_event = new EncounterEnd(pchar->get_engine(), pchar, combat_length);
 
         pchar->get_engine()->add_event(end_event);

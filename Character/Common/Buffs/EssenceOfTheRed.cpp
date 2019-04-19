@@ -28,3 +28,7 @@ void EssenceOfTheRed::buff_effect_when_applied() {
 
 void EssenceOfTheRed::buff_effect_when_removed() {
 }
+
+void EssenceOfTheRed::prepare_set_of_combat_iterations_spell_specific() {
+    spell->prepare_set_of_combat_iterations();
+}
