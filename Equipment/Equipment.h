@@ -4,6 +4,8 @@
 #include <QString>
 #include <QVector>
 
+#include "EnchantName.h"
+
 class Character;
 class EquipmentDb;
 class Item;
@@ -104,8 +106,6 @@ private:
     EquipmentDb* db;
     Character* pchar;
     SetBonusControl* set_bonuses;
-    QVector<Stats*> stats_from_equipped_gear;
-    QVector<QVector<int>> item_setups;
     Weapon* mainhand;
     Weapon* offhand;
     Weapon* ranged;
@@ -127,9 +127,18 @@ private:
     Item* relic;
     Projectile* projectile;
 
+    QVector<Stats*> stats_from_equipped_gear;
+    QVector<QVector<int>> item_setups;
+    QVector<QVector<EnchantName::Name>> item_enchants;
+    QVector<QVector<EnchantName::Name>> item_temp_enchants;
+
     static const int NO_EQUIPPED_ITEM = -1;
 
     int get_stored_item_id_for_slot(const int equipment_slot) const;
+    void apply_current_enchants();
+    void store_current_enchants();
+    EnchantName::Name get_current_enchant_enum_value(Item* item) const;
+    EnchantName::Name get_current_temp_enchant_enum_value(Weapon* weapon) const;
 };
 
 #endif // EQUIPMENT_H

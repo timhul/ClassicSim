@@ -25,7 +25,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
         i = new Stats();
     }
 
-    item_setups = {QVector<int>(), QVector<int>(), QVector<int>()};
+    item_setups = {{}, {}, {}};
     for (auto & setup : item_setups) {
         setup = {
             NO_EQUIPPED_ITEM,
@@ -49,6 +49,40 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
         };
     }
     check((stats_from_equipped_gear.size() == item_setups.size()), "Different size vectors");
+
+    item_enchants = {{}, {}, {}};
+    for (auto & setup : item_enchants) {
+        setup = {
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+        };
+    }
+    check((stats_from_equipped_gear.size() == item_enchants.size()), "Different size vectors");
+
+    item_temp_enchants = {{}, {}, {}};
+    for (auto & setup : item_temp_enchants) {
+        setup = {
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+            EnchantName::NoEnchant,
+        };
+    }
 
     mainhand = nullptr;
     offhand = nullptr;
@@ -87,12 +121,14 @@ void Equipment::change_setup(const int index) {
         return;
 
     QVector<int> preserved_setup = item_setups[setup_index];
+    store_current_enchants();
     unequip_all();
     item_setups[setup_index] = preserved_setup;
 
     setup_index = index;
 
     reequip_items();
+    apply_current_enchants();
 }
 
 void Equipment::unequip_all() {
@@ -120,6 +156,65 @@ void Equipment::unequip_all() {
 
 int Equipment::get_stored_item_id_for_slot(const int equipment_slot) const {
     return item_setups[setup_index][equipment_slot];
+}
+
+void Equipment::apply_current_enchants() {
+    if (get_mainhand())
+        get_mainhand()->apply_enchant(item_enchants[setup_index][EquipmentSlot::MAINHAND], pchar, WeaponSlots::MAINHAND);
+    if (get_mainhand())
+        get_mainhand()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::MAINHAND], pchar, WeaponSlots::MAINHAND);
+    if (get_offhand())
+        get_offhand()->apply_enchant(item_enchants[setup_index][EquipmentSlot::OFFHAND], pchar, WeaponSlots::OFFHAND);
+    if (get_offhand())
+        get_offhand()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::OFFHAND], pchar, WeaponSlots::OFFHAND);
+    if (get_ranged())
+        get_ranged()->apply_enchant(item_enchants[setup_index][EquipmentSlot::RANGED], pchar, WeaponSlots::RANGED);
+    if (get_ranged())
+        get_ranged()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::RANGED], pchar, WeaponSlots::RANGED);
+    if (get_head())
+        get_head()->apply_enchant(item_enchants[setup_index][EquipmentSlot::HEAD], pchar);
+    if (get_shoulders())
+        get_shoulders()->apply_enchant(item_enchants[setup_index][EquipmentSlot::SHOULDERS], pchar);
+    if (get_back())
+        get_back()->apply_enchant(item_enchants[setup_index][EquipmentSlot::BACK], pchar);
+    if (get_chest())
+        get_chest()->apply_enchant(item_enchants[setup_index][EquipmentSlot::CHEST], pchar);
+    if (get_wrist())
+        get_wrist()->apply_enchant(item_enchants[setup_index][EquipmentSlot::WRIST], pchar);
+    if (get_gloves())
+        get_gloves()->apply_enchant(item_enchants[setup_index][EquipmentSlot::GLOVES], pchar);
+    if (get_legs())
+        get_legs()->apply_enchant(item_enchants[setup_index][EquipmentSlot::LEGS], pchar);
+    if (get_boots())
+        get_boots()->apply_enchant(item_enchants[setup_index][EquipmentSlot::BOOTS], pchar);
+}
+
+void Equipment::store_current_enchants() {
+    item_enchants[setup_index][EquipmentSlot::MAINHAND] = get_current_enchant_enum_value(get_mainhand());
+    item_enchants[setup_index][EquipmentSlot::OFFHAND] = get_current_enchant_enum_value(get_offhand());
+    item_enchants[setup_index][EquipmentSlot::RANGED] = get_current_enchant_enum_value(get_ranged());
+    item_enchants[setup_index][EquipmentSlot::HEAD] = get_current_enchant_enum_value(get_head());
+    item_enchants[setup_index][EquipmentSlot::NECK] = get_current_enchant_enum_value(get_neck());
+    item_enchants[setup_index][EquipmentSlot::SHOULDERS] = get_current_enchant_enum_value(get_shoulders());
+    item_enchants[setup_index][EquipmentSlot::BACK] = get_current_enchant_enum_value(get_back());
+    item_enchants[setup_index][EquipmentSlot::CHEST] = get_current_enchant_enum_value(get_chest());
+    item_enchants[setup_index][EquipmentSlot::WRIST] = get_current_enchant_enum_value(get_wrist());
+    item_enchants[setup_index][EquipmentSlot::GLOVES] = get_current_enchant_enum_value(get_gloves());
+    item_enchants[setup_index][EquipmentSlot::BELT] = get_current_enchant_enum_value(get_belt());
+    item_enchants[setup_index][EquipmentSlot::LEGS] = get_current_enchant_enum_value(get_legs());
+    item_enchants[setup_index][EquipmentSlot::BOOTS] = get_current_enchant_enum_value(get_boots());
+
+    item_temp_enchants[setup_index][EquipmentSlot::MAINHAND] = get_current_temp_enchant_enum_value(get_mainhand());
+    item_temp_enchants[setup_index][EquipmentSlot::OFFHAND] = get_current_temp_enchant_enum_value(get_offhand());
+    item_temp_enchants[setup_index][EquipmentSlot::RANGED] = get_current_temp_enchant_enum_value(get_ranged());
+}
+
+EnchantName::Name Equipment::get_current_enchant_enum_value(Item* item) const {
+    return item ? item->get_enchant_enum_value() : EnchantName::NoEnchant;
+}
+
+EnchantName::Name Equipment::get_current_temp_enchant_enum_value(Weapon* weapon) const {
+    return weapon ? weapon->get_temporary_enchant_enum_value() : EnchantName::NoEnchant;
 }
 
 bool Equipment::is_dual_wielding() {

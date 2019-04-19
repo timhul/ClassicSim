@@ -21,14 +21,16 @@ Rectangle {
             else
                 visible = (slotString === "MAINHAND" || slotString === "OFFHAND") && equipment.hasItemEquipped(slot)
         }
-        onEnchantChanged: {
-            hasEnchant = temporaryEnchant ? equipment.hasTemporaryEnchant(slot) : equipment.hasEnchant(slot)
+        onEnchantChanged: setEffectText()
+    }
 
-            if (temporaryEnchant)
-                effectText.text = hasEnchant ? equipment.getTemporaryEnchantEffect(slot) : ""
-            else
-                effectText.text = hasEnchant ? equipment.getEnchantEffect(slot) : ""
-        }
+    function setEffectText() {
+        hasEnchant = temporaryEnchant ? equipment.hasTemporaryEnchant(slot) : equipment.hasEnchant(slot)
+
+        if (temporaryEnchant)
+            effectText.text = hasEnchant ? equipment.getTemporaryEnchantEffect(slot) : ""
+        else
+            effectText.text = hasEnchant ? equipment.getEnchantEffect(slot) : ""
     }
 
     Component.onCompleted: setAnchors()
@@ -76,7 +78,7 @@ Rectangle {
         id: effectText
         visible: text != ""
 
-        text: ""
+        text: setEffectText()
 
         elide: slot === "MAINHAND" ? Text.ElideRight : Text.ElideNone
 
