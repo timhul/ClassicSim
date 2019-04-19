@@ -1,12 +1,14 @@
 import QtQuick 2.0
 
 Text {
+    property bool anchorParent: true
+    property int pointSize: 9
     font {
         family: "Arial"
-        pointSize: 9
+        pointSize: pointSize
     }
 
-    anchors.fill: parent
+    anchors.fill: anchorParent ? parent : undefined
 
     color: "white"
     horizontalAlignment: Text.AlignHCenter

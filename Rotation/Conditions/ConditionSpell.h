@@ -10,10 +10,10 @@ public:
     ConditionSpell(Spell* spell, const int comparator, const double cmp_value);
 
     bool condition_fulfilled() const override;
+    QString condition_description() const override;
 
 private:
     Spell* spell;
-    const int comparator;
     const double cmp_value;
 };
 

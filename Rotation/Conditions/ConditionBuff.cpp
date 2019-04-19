@@ -4,8 +4,8 @@
 #include "Utils/Check.h"
 
 ConditionBuff::ConditionBuff(Buff* buff, const int comparator, const double cmp_value) :
+    Condition(comparator),
     buff(buff),
-    comparator(comparator),
     cmp_value(cmp_value)
 {}
 
@@ -27,4 +27,8 @@ bool ConditionBuff::condition_fulfilled() const {
         check(false, "ConditionBuff::condition_fulfilled reached end of switch");
         return false;
     }
+}
+
+QString ConditionBuff::condition_description() const {
+    return QString("%1 buff remaining %2 %3 seconds").arg(buff->get_name()).arg(comparator_as_string()).arg(QString::number(cmp_value, 'f', 1));
 }

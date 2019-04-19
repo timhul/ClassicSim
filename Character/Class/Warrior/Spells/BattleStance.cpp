@@ -3,7 +3,7 @@
 #include "Warrior.h"
 
 BattleStance::BattleStance(Character* pchar) :
-    Spell("Battle Stance", "Assets/cross.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Rage, 0),
+    Spell("Battle Stance", "Assets/ability/Ability_warrior_offensivestance.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Rage, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 

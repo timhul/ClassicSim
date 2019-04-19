@@ -7,6 +7,7 @@
 
 class Character;
 class Rotation;
+class RotationConditionsModel;
 
 class RotationModel : public QAbstractListModel
 {
@@ -31,6 +32,7 @@ public:
 
     QString get_rotation_information_name() const;
     QString get_rotation_information_description() const;
+    RotationConditionsModel* get_rotation_conditions_model() const;
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
@@ -41,6 +43,7 @@ private:
     int information_index;
     QHash<int, QByteArray> roleNames() const;
     QMap<QString, QVector<Rotation*>> rotations;
+    RotationConditionsModel* rotation_conditions_model;
 
     void clear_rotations();
 };

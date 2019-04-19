@@ -3,7 +3,6 @@
 
 #include <QString>
 
-
 namespace Comparators {
     static const int less = 0;
     static const int leq = 1;
@@ -32,7 +31,6 @@ namespace LogicalConnectives {
     static const int OR = 1;
 }
 
-
 class Sentence {
 public:
     int logical_connective;
@@ -50,12 +48,18 @@ public:
     void dump() const;
 };
 
-
 class Condition {
 public:
-    virtual ~Condition();
+    Condition(int comparator);
+    virtual ~Condition() = default;
 
     virtual bool condition_fulfilled() const = 0;
+    virtual QString condition_description() const = 0;
+
+    const int comparator;
+
+protected:
+    QString comparator_as_string() const;
 };
 
 #endif // CONDITION_H

@@ -41,6 +41,10 @@ QString Spell::get_name() const {
     return this->name;
 }
 
+QString Spell::get_icon() const {
+    return this->icon;
+}
+
 double Spell::get_base_cooldown() const {
     return this->cooldown;
 }

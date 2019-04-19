@@ -3,16 +3,20 @@
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "Rotation.h"
+#include "RotationConditionsModel.h"
 #include "RotationFileReader.h"
 
 RotationModel::RotationModel(QObject *parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
       patch("1.0.0"),
-      information_index(-1)
+      information_index(-1),
+      rotation_conditions_model(new RotationConditionsModel())
 {}
 
 RotationModel::~RotationModel() {
+    delete rotation_conditions_model;
+
     clear_rotations();
 }
 
@@ -65,6 +69,7 @@ bool RotationModel::set_information_index(const int index) {
 
     layoutAboutToBeChanged();
     information_index = index;
+    rotation_conditions_model->set_rotation(rotations[pchar->get_name()][information_index]);
     layoutChanged();
     return true;
 }
@@ -81,6 +86,10 @@ QString RotationModel::get_rotation_information_description() const {
         return "";
 
     return rotations[pchar->get_name()][information_index]->get_description();
+}
+
+RotationConditionsModel* RotationModel::get_rotation_conditions_model() const {
+    return this->rotation_conditions_model;
 }
 
 int RotationModel::rowCount(const QModelIndex & parent) const {

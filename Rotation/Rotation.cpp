@@ -53,9 +53,8 @@ void Rotation::link_spells(Character* pchar) {
 bool Rotation::add_conditionals(RotationExecutor * executor) {
     QVector<Condition*> condition_group_to_add;
 
-    for (int i = 0; i < executor->sentences.size(); ++i) {
+    for (auto & sentence : executor->sentences) {
         Condition* condition = nullptr;
-        Sentence* sentence = executor->sentences[i];
 
         if (sentence->logical_connective == LogicalConnectives::OR) {
             check((condition_group_to_add.empty() == false), "Cannot use OR conditional at start");

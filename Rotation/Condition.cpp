@@ -1,9 +1,6 @@
-
 #include "Condition.h"
 
 #include <QDebug>
-
-Condition::~Condition() = default;
 
 QString Sentence::logical_connective_as_string() const {
     switch (logical_connective) {
@@ -72,4 +69,25 @@ void Sentence::dump() const {
     qDebug() << "mathematical symbol" << mathematical_symbol_as_string();
     qDebug() << "compared_value_type" << compared_value_type_as_string();
     qDebug() << "compared_value" << compared_value;
+}
+
+Condition::Condition(int comparator):
+    comparator(comparator)
+{}
+
+QString Condition::comparator_as_string() const {
+    switch (comparator) {
+    case Comparators::eq:
+        return "==";
+    case Comparators::geq:
+        return ">=";
+    case Comparators::leq:
+        return "<=";
+    case Comparators::less:
+        return "<";
+    case Comparators::greater:
+        return ">";
+    default:
+        return "<unknown comparator>";
+    }
 }

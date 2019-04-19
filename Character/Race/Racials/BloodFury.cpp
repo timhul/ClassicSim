@@ -5,7 +5,7 @@
 #include "Character.h"
 
 BloodFury::BloodFury(Character* pchar) :
-    Spell("Blood Fury", "Assets/Racial_orc_berserkerstrength.png", pchar, RestrictedByGcd::Yes, 120, ResourceType::Rage, 0),
+    Spell("Blood Fury", "Assets/races/Racial_orc_berserkerstrength.png", pchar, RestrictedByGcd::Yes, 120, ResourceType::Rage, 0),
     buff(new BloodFuryBuff(pchar))
 {
     this->enabled = false;

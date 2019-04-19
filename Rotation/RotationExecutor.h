@@ -23,6 +23,7 @@ public:
     void attempt_cast();
 
     QString get_spell_name() const;
+    QString get_conditions_string() const;
 
     Spell* get_spell() const;
     void set_spell(Spell*);

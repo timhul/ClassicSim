@@ -10,10 +10,10 @@ public:
     ConditionVariableAssign(VariableAssign* variable, const int comparator, const bool cmp_value);
 
     bool condition_fulfilled() const override;
+    QString condition_description() const override;
 
 private:
     const VariableAssign* variable;
-    const int comparator;
     const bool cmp_value;
 };
 

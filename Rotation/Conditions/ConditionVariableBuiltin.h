@@ -25,12 +25,13 @@ public:
                              const double rhs_value);
 
     bool condition_fulfilled() const override;
+    QString condition_description() const override;
+
     static BuiltinVariables get_builtin_variable(const QString& var_name);
 
     Character* pchar;
     Engine* engine;
     const BuiltinVariables builtin;
-    const int comparator;
     const double rhs_value;
 
     bool cmp_values(const double lhs_value) const;

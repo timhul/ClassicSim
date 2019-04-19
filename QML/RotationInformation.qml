@@ -1,71 +1,76 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
 
 RectangleBorders {
     height: parent.height
-    width: 450
+    width: 800
 
-    Column {
-        anchors.fill: parent
-        anchors.margins: 5
+    Text {
+        id: rotationName
 
-        spacing: 20
+        text: character.rotationInfoName
 
-        Text {
-            id: rotationName
+        width: parent.width
+        height: 30
 
-            text: character.rotationInfoName
+        elide: Text.ElideRight
 
-            width: parent.width
-            height: 30
-
-            elide: Text.ElideRight
-
-            font {
-                family: "Arial"
-                pointSize: 12
-            }
-
-            color: "white"
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
+        font {
+            family: "Arial"
+            pointSize: 12
         }
 
-        Text {
-            id: rotationDescription
+        color: "white"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
 
-            text: character.rotationInfoDesc
-            width: parent.width
+    Text {
+        id: rotationDescription
 
-            anchors.margins: 40
+        text: character.rotationInfoDesc
+        width: parent.width
 
-            font {
-                family: "Arial"
-                pointSize: 10
-            }
-
-            color: "white"
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            wrapMode: Text.WordWrap
+        anchors {
+            top: rotationName.bottom
+            topMargin: 10
+            leftMargin: 40
+            rightMargin: 40
         }
 
-        Text {
-            id: underConstruction
+        font {
+            family: "Arial"
+            pointSize: 10
+        }
 
-            text: "UNDER CONSTRUCTION: Check Rotations/*.xml files meanwhile to see the details of each rotation."
-            width: parent.width
+        color: "white"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        wrapMode: Text.WordWrap
+    }
 
-            anchors.margins: 40
+    RectangleBorders {
+        width: parent.width
+        anchors.top: rotationDescription.bottom
+        anchors.bottom: parent.bottom
 
-            font {
-                family: "Arial"
-                pointSize: 13
+        ScrollView {
+            anchors.fill: parent
+
+            ListView {
+                id: rotationConditions
+
+                boundsBehavior: Flickable.StopAtBounds
+
+                clip: true
+                model: rotationConditionsModel
+
+                delegate: RotationSpellConditions {
+                    spellName: _name
+                    spellIcon: _icon
+                    spellConditions: _conditions
+                }
             }
-
-            color: "gray"
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            wrapMode: Text.WordWrap
         }
     }
 }

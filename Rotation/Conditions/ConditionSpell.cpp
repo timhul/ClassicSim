@@ -4,8 +4,8 @@
 #include "Utils/Check.h"
 
 ConditionSpell::ConditionSpell(Spell *spell, const int comparator, const double cmp_value) :
+    Condition(comparator),
     spell(spell),
-    comparator(comparator),
     cmp_value(cmp_value)
 {}
 
@@ -25,4 +25,8 @@ bool ConditionSpell::condition_fulfilled() const {
         check(false, "ConditionSpell::condition_fulfilled reached end of switch");
         return false;
     }
+}
+
+QString ConditionSpell::condition_description() const {
+    return QString("%1 cooldown %2 %3 seconds").arg(spell->get_name()).arg(comparator_as_string()).arg(QString::number(cmp_value, 'f', 1));
 }

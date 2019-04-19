@@ -38,6 +38,7 @@ public:
     virtual ~Spell() = default;
 
     QString get_name() const;
+    QString get_icon() const;
 
     double get_base_cooldown() const;
     double get_cooldown_remaining() const;

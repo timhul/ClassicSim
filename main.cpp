@@ -20,6 +20,7 @@
 #include "PieChartModel.h"
 #include "ProcBreakdownModel.h"
 #include "ResourceBreakdownModel.h"
+#include "RotationConditionsModel.h"
 #include "RotationModel.h"
 #include "ScaleResultModel.h"
 #include "SimOption.h"
@@ -53,6 +54,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("buffModel", gui_control->get_buff_model());
     context->setContextProperty("debuffModel", gui_control->get_debuff_model());
     context->setContextProperty("rotationModel", gui_control->get_rotation_model());
+    context->setContextProperty("rotationConditionsModel", gui_control->get_rotation_model()->get_rotation_conditions_model());
     context->setContextProperty("buffBreakdownModel", gui_control->get_buff_breakdown_model());
     context->setContextProperty("debuffBreakdownModel", gui_control->get_debuff_breakdown_model());
     context->setContextProperty("meleeDamageBreakdownModel", gui_control->get_dmg_breakdown_model());

@@ -58,6 +58,19 @@ QString RotationExecutor::get_spell_name() const {
     return this->spell_name;
 }
 
+QString RotationExecutor::get_conditions_string() const {
+    QStringList condition_descriptions;
+    for (int i = 0; i < condition_groups.size(); ++i) {
+        for (auto & condition : condition_groups[i])
+            condition_descriptions << condition->condition_description();
+
+        if (i + 1 < condition_groups.size())
+            condition_descriptions << "OR";
+    }
+
+    return condition_descriptions.join("\n");
+}
+
 Spell* RotationExecutor::get_spell() const {
     return this->spell;
 }

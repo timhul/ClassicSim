@@ -17,10 +17,10 @@ ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const BuiltinVariables builtin,
                                                    const int comparator,
                                                    const double cmp_value) :
+    Condition(comparator),
     pchar(pchar),
     engine(pchar->get_engine()),
     builtin(builtin),
-    comparator(comparator),
     rhs_value(cmp_value)
 {}
 
@@ -60,6 +60,25 @@ bool ConditionVariableBuiltin::condition_fulfilled() const {
         check(false, "ConditionVariableBuiltin::condition_fulfilled reached end of switch");
         return false;
     }
+}
+
+QString ConditionVariableBuiltin::condition_description() const {
+    if (builtin == BuiltinVariables::TargetHealth)
+        return QString("Target Health %1 %2%").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 1));
+    if (builtin == BuiltinVariables::TimeRemainingEncounter)
+        return QString("Time Remaining Encounter %1 %2 seconds").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 1));
+    if (builtin == BuiltinVariables::TimeRemainingExecute)
+        return QString("Time Remaining Until Execute %1 %2 seconds").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 1));
+    if (builtin == BuiltinVariables::SwingTimer)
+        return QString("Time Since Mainhand Swing %1 %2 seconds").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 1));
+    if (builtin == BuiltinVariables::AutoShotTimer)
+        return QString("Time Since Auto Shot %1 %2 seconds").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 1));
+    if (builtin == BuiltinVariables::MeleeAP)
+        return QString("Melee Attack Power %1 %2").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 0));
+    if (builtin == BuiltinVariables::ComboPoints)
+        return QString("Combo Points %1 %2").arg(comparator_as_string()).arg(QString::number(rhs_value, 'f', 0));
+
+    return "<builtin variable is missing condition description>";
 }
 
 bool ConditionVariableBuiltin::cmp_values(const double lhs_value) const {
