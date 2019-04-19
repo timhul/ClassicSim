@@ -20,6 +20,7 @@ void NumberCruncher::reset() {
     }
 
     class_stats.clear();
+    time_in_combat = 0;
 }
 
 void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* cstat) {
@@ -28,6 +29,8 @@ void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* c
         class_stats.insert(key, QVector<ClassStatistics*>({}));
 
     class_stats[key].append(cstat);
+
+    time_in_combat += cstat->combat_length * cstat->combat_iterations;
 }
 
 void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
@@ -160,7 +163,7 @@ void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
 }
 
 void NumberCruncher::merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec) {
-    auto* result = new StatisticsResource(name, icon);
+    auto* result = new StatisticsResource(name, icon, time_in_combat);
     for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->resource_statistics.contains(name))
             continue;

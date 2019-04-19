@@ -7,20 +7,21 @@ bool name(StatisticsResource* lhs, StatisticsResource* rhs) {
 }
 
 bool mana_gain(StatisticsResource* lhs, StatisticsResource* rhs) {
-    return lhs->get_mana_gain() > rhs->get_mana_gain();
+    return lhs->get_mana_gain_per_5() > rhs->get_mana_gain_per_5();
 }
 
 bool rage_gain(StatisticsResource* lhs, StatisticsResource* rhs) {
-    return lhs->get_rage_gain() > rhs->get_rage_gain();
+    return lhs->get_rage_gain_per_5() > rhs->get_rage_gain_per_5();
 }
 
 bool energy_gain(StatisticsResource* lhs, StatisticsResource* rhs) {
-    return lhs->get_energy_gain() > rhs->get_energy_gain();
+    return lhs->get_energy_gain_per_5() > rhs->get_energy_gain_per_5();
 }
 
-StatisticsResource::StatisticsResource(QString  name, QString  icon) :
+StatisticsResource::StatisticsResource(QString name, QString icon, const int time_in_combat) :
     name(std::move(name)),
-    icon(std::move(icon))
+    icon(std::move(icon)),
+    time_in_combat(time_in_combat)
 {}
 
 void StatisticsResource::reset() {
@@ -42,16 +43,16 @@ void StatisticsResource::add_resource_gain(const ResourceType resource, const un
     resource_gain[resource] += gain;
 }
 
-unsigned StatisticsResource::get_mana_gain() const {
-   return resource_gain[ResourceType::Mana];
+double StatisticsResource::get_mana_gain_per_5() const {
+   return static_cast<double>(resource_gain[ResourceType::Mana]) / time_in_combat * 5;
 }
 
-unsigned StatisticsResource::get_rage_gain() const {
-   return resource_gain[ResourceType::Rage];
+double StatisticsResource::get_rage_gain_per_5() const {
+   return static_cast<double>(resource_gain[ResourceType::Rage]) / time_in_combat * 5;
 }
 
-unsigned StatisticsResource::get_energy_gain() const {
-   return resource_gain[ResourceType::Energy];
+double StatisticsResource::get_energy_gain_per_5() const {
+   return static_cast<double>(resource_gain[ResourceType::Energy]) / time_in_combat * 5;
 }
 
 void StatisticsResource::add(const StatisticsResource* other) {

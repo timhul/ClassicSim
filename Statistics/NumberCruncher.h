@@ -43,6 +43,7 @@ private:
     friend class ProcBreakdownModel;
     friend class ScaleResultModel;
     friend class ResourceBreakdownModel;
+    int time_in_combat {0};
 
     QMutex mutex;
     QMap<SimOption::Name, QVector<ClassStatistics*>> class_stats;

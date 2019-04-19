@@ -43,7 +43,7 @@ StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name, const 
 StatisticsResource *ClassStatistics::get_resource_statistics(const QString& name, const QString& icon) {
     check(!resource_statistics.contains(name), QString("'%1' has already initialized resource statistics").arg(name).toStdString());
 
-    resource_statistics[name] = new StatisticsResource(name, icon);
+    resource_statistics[name] = new StatisticsResource(name, icon, combat_length * combat_iterations);
     return resource_statistics[name];
 }
 

@@ -47,7 +47,7 @@ RectangleBorders {
                                                                                 root.darkDarkGray
 
             TextSmall {
-                text: "Rage gain"
+                text: "Rage gain per 5s"
             }
         }
 
@@ -64,7 +64,7 @@ RectangleBorders {
                                                                                 root.darkDarkGray
 
             TextSmall {
-                text: "Energy gain"
+                text: "Energy gain per 5s"
             }
         }
 
@@ -81,7 +81,7 @@ RectangleBorders {
                                                                                 root.darkDarkGray
 
             TextSmall {
-                text: "Mana gain"
+                text: "Mana gain per 5s"
             }
         }
     }

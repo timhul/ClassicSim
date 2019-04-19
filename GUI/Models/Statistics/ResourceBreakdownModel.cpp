@@ -3,6 +3,7 @@
 #include "NumberCruncher.h"
 #include "SortDirection.h"
 #include "StatisticsResource.h"
+#include "Utils/CompareDouble.h"
 
 ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher *statistics_source, QObject *parent)
     : QAbstractListModel(parent),
@@ -84,8 +85,8 @@ void ResourceBreakdownModel::update_statistics() {
 
     QList<StatisticsResource*>::iterator it = resource_stats.begin();
     while (it != resource_stats.end()) {
-        unsigned resource_gains = (*it)->get_rage_gain() + (*it)->get_energy_gain() + (*it)->get_mana_gain();
-        if (resource_gains == 0) {
+        double resource_gains = (*it)->get_rage_gain_per_5() + (*it)->get_energy_gain_per_5() + (*it)->get_mana_gain_per_5();
+        if (almost_equal(resource_gains, 0)) {
             delete *it;
             it = resource_stats.erase(it);
         }
@@ -114,11 +115,11 @@ QVariant ResourceBreakdownModel::data(const QModelIndex & index, int role) const
     if (role == ResourceBreakdownSorting::Icon)
         return resource_stat->get_icon();
     if (role == ResourceBreakdownSorting::ByManaPer5)
-        return resource_stat->get_mana_gain();
+        return QString::number(resource_stat->get_mana_gain_per_5(), 'f', 2);
     if (role == ResourceBreakdownSorting::ByRagePer5)
-        return resource_stat->get_rage_gain();
+        return QString::number(resource_stat->get_rage_gain_per_5(), 'f', 2);
     if (role == ResourceBreakdownSorting::ByEnergyPer5)
-        return resource_stat->get_energy_gain();
+        return QString::number(resource_stat->get_energy_gain_per_5(), 'f', 2);
 
     return QVariant();
 }
