@@ -51,6 +51,11 @@ void Rotation::link_spells(Character* pchar) {
 }
 
 bool Rotation::add_conditionals(RotationExecutor * executor) {
+    for (auto & group : executor->condition_groups)
+        for (auto & condition : group)
+            delete condition;
+    executor->condition_groups.clear();
+
     QVector<Condition*> condition_group_to_add;
 
     for (auto & sentence : executor->sentences) {
