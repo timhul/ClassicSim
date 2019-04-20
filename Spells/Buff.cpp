@@ -116,6 +116,9 @@ double Buff::time_left() const {
     if (!is_active())
         return 0;
 
+    if (duration == BuffDuration::PERMANENT)
+        return std::numeric_limits<double>::max();
+
     return this->refreshed + this->duration - pchar->get_engine()->get_current_priority();
 }
 
