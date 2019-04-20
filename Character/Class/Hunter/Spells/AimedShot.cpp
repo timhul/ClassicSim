@@ -14,7 +14,7 @@ AimedShot::AimedShot(Hunter* pchar) :
                      "Assets/items/Inv_spear_07.png",
                      pchar,
                      RestrictedByGcd::Yes,
-                     10.0,
+                     6.0,
                      ResourceType::Mana,
                      310,
                      3000),
@@ -45,6 +45,7 @@ void AimedShot::spell_effect() {
 
 void AimedShot::complete_cast_effect() {
     pchar->get_spells()->start_attack();
+    add_spell_cd_event();
 
     pchar->lose_mana(static_cast<unsigned>(resource_cost));
     const int wpn_skill = pchar->get_ranged_wpn_skill();

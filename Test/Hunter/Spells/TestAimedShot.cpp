@@ -122,7 +122,7 @@ void TestAimedShot::test_name_correct() {
 }
 
 void TestAimedShot::test_spell_cooldown() {
-    assert(almost_equal(10.0, aimed_shot()->get_base_cooldown()));
+    assert(almost_equal(6.0, aimed_shot()->get_base_cooldown()));
 }
 
 void TestAimedShot::test_obeys_global_cooldown() {
