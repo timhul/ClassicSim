@@ -78,14 +78,14 @@ void TestBerserkerStance::test_stance_cooldown() {
 
 void TestBerserkerStance::test_resource_cost() {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
-    assert(berserker_stance()->is_available());
+    assert(berserker_stance()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBerserkerStance::test_is_ready_conditions() {
     assert(!warrior->on_global_cooldown());
     assert(!warrior->on_stance_cooldown());
 
-    assert(berserker_stance()->is_available());
+    assert(berserker_stance()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBerserkerStance::test_incurs_global_cooldown() {
@@ -101,11 +101,11 @@ void TestBerserkerStance::test_incurs_global_cooldown() {
 }
 
 void TestBerserkerStance::test_obeys_global_cooldown() {
-    assert(berserker_stance()->is_available());
+    assert(berserker_stance()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(!berserker_stance()->is_available());
+    assert(berserker_stance()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestBerserkerStance::test_does_not_incur_extra_global_cooldown_if_gcd_longer_than_half_second() {

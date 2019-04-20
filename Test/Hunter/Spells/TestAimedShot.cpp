@@ -127,20 +127,20 @@ void TestAimedShot::test_spell_cooldown() {
 
 void TestAimedShot::test_obeys_global_cooldown() {
     given_aimed_shot_is_enabled();
-    assert(aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
     given_hunter_is_on_gcd();
     given_hunter_has_mana(310);
 
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestAimedShot::test_resource_cost() {
     given_aimed_shot_is_enabled();
     given_hunter_has_mana(310);
-    assert(aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(309);
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(310);
 
@@ -156,7 +156,7 @@ void TestAimedShot::test_is_ready_conditions() {
     given_engine_priority_pushed_forward(2.0);
     given_hunter_has_mana(310);
 
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::CastInProgress);
 }
 
 void TestAimedShot::test_dmg_affected_by_projectile_bonus() {
@@ -459,23 +459,23 @@ void TestAimedShot::test_aimed_shot_adds_player_action_event_on_completion() {
 }
 
 void TestAimedShot::test_aimed_shot_cast_in_progress_blocks_other_spells() {
-    assert(multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::Available);
     given_aimed_shot_is_enabled();
     when_aimed_shot_is_performed();
     given_engine_priority_pushed_forward(2.0);
     given_hunter_has_mana(310);
 
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::CastInProgress);
 }
 
 void TestAimedShot::test_mana_cost_1_of_5_efficiency() {
     given_aimed_shot_is_enabled();
     given_1_of_5_efficiency();
     given_hunter_has_mana(304);
-    assert(aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(303);
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(304);
 
@@ -489,10 +489,10 @@ void TestAimedShot::test_mana_cost_2_of_5_efficiency() {
     given_aimed_shot_is_enabled();
     given_2_of_5_efficiency();
     given_hunter_has_mana(298);
-    assert(aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(297);
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(298);
 
@@ -506,10 +506,10 @@ void TestAimedShot::test_mana_cost_3_of_5_efficiency() {
     given_aimed_shot_is_enabled();
     given_3_of_5_efficiency();
     given_hunter_has_mana(291);
-    assert(aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(290);
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(291);
 
@@ -523,10 +523,10 @@ void TestAimedShot::test_mana_cost_4_of_5_efficiency() {
     given_aimed_shot_is_enabled();
     given_4_of_5_efficiency();
     given_hunter_has_mana(285);
-    assert(aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(284);
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(285);
 
@@ -540,10 +540,10 @@ void TestAimedShot::test_mana_cost_5_of_5_efficiency() {
     given_aimed_shot_is_enabled();
     given_5_of_5_efficiency();
     given_hunter_has_mana(279);
-    assert(aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(278);
-    assert(!aimed_shot()->is_available());
+    assert(aimed_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(279);
 

@@ -50,11 +50,11 @@ void TestAdrenalineRush::test_incurs_global_cooldown() {
 
 void TestAdrenalineRush::test_obeys_global_cooldown() {
     given_1_of_1_adrenaline_rush();
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_is_on_gcd();
 
-    assert(!adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestAdrenalineRush::test_is_ready_conditions() {
@@ -64,7 +64,7 @@ void TestAdrenalineRush::test_is_ready_conditions() {
 void TestAdrenalineRush::test_resource_cost() {
     given_1_of_1_adrenaline_rush();
     given_rogue_has_energy(0);
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     when_adrenaline_rush_is_performed();
 
@@ -75,22 +75,22 @@ void TestAdrenalineRush::test_combo_points() {
     given_1_of_1_adrenaline_rush();
 
     given_rogue_has_combo_points(0);
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(1);
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(2);
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(3);
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(4);
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(5);
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     when_adrenaline_rush_is_performed();
     then_rogue_has_combo_points(5);
@@ -99,9 +99,9 @@ void TestAdrenalineRush::test_combo_points() {
 void TestAdrenalineRush::test_stealth() {
     given_1_of_1_adrenaline_rush();
     given_rogue_not_in_stealth();
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
     given_rogue_in_stealth();
-    assert(adrenaline_rush()->is_available());
+    assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 
     when_adrenaline_rush_is_performed();
 

@@ -89,26 +89,26 @@ void TestSlam::test_incurs_global_cooldown() {
 
 void TestSlam::test_obeys_global_cooldown() {
     given_warrior_has_rage(100);
-    assert(slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(!slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::OnGCD);
     assert(almost_equal(slam()->get_cooldown_remaining(), 0));
 }
 
 void TestSlam::test_is_ready_conditions() {
     given_warrior_in_battle_stance();
     given_warrior_has_rage(100);
-    assert(slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
-    assert(slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_defensive_stance();
     given_warrior_has_rage(100);
-    assert(slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestSlam::test_resource_cost() {
@@ -122,20 +122,20 @@ void TestSlam::test_resource_cost() {
 
 void TestSlam::test_stance_cooldown() {
     given_warrior_has_rage(100);
-    assert(slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::Available);
 
     when_switching_to_berserker_stance();
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);
-    assert(slam()->is_available());
+    assert(slam()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestSlam::test_hit_dmg() {

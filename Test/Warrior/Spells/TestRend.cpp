@@ -58,7 +58,7 @@ void TestRend::test_spell_cooldown() {
 
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("DotTick", "3.000", RUN_EVENT);
-    assert(rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::Available);
     then_next_event_is("DotTick", "6.000", RUN_EVENT);
     then_next_event_is("DotTick", "9.000", RUN_EVENT);
     then_next_event_is("DotTick", "12.000", RUN_EVENT);
@@ -77,19 +77,19 @@ void TestRend::test_incurs_global_cooldown() {
 }
 
 void TestRend::test_obeys_global_cooldown() {
-    assert(rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(!rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestRend::test_resource_cost() {
     given_warrior_has_rage(9);
-    assert(!rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_warrior_has_rage(10);
-    assert(rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::Available);
 
     given_a_guaranteed_melee_ability_hit();
 
@@ -101,15 +101,15 @@ void TestRend::test_resource_cost() {
 void TestRend::test_is_ready_conditions() {
     given_warrior_in_defensive_stance();
     given_warrior_has_rage(100);
-    assert(rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_battle_stance();
     given_warrior_has_rage(100);
-    assert(rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
-    assert(!rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::SpellSpecific);
 }
 
 void TestRend::test_stance_cooldown() {
@@ -117,7 +117,7 @@ void TestRend::test_stance_cooldown() {
 
     assert(warrior->on_stance_cooldown() == true);
 
-    assert(!rend()->is_available());
+    assert(rend()->get_spell_status() == SpellStatus::SpellSpecific);
 }
 
 void TestRend::test_damage_of_0_of_3_improved_rend() {

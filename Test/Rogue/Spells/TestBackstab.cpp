@@ -100,52 +100,52 @@ void TestBackstab::test_obeys_global_cooldown() {
     given_dagger_equipped_in_mainhand(rogue);
 
     given_rogue_has_energy(100);
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_is_on_gcd();
 
     given_rogue_has_energy(100);
-    assert(!backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestBackstab::test_is_ready_conditions() {
     given_no_offhand(rogue);
     given_1h_mace_equipped_in_mainhand(rogue);
-    assert(!backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_1h_mace_equipped_in_offhand(rogue);
-    assert(!backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_1h_sword_equipped_in_mainhand(rogue);
-    assert(!backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_1h_sword_equipped_in_offhand(rogue);
-    assert(!backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_fist_weapon_equipped_in_mainhand(rogue);
-    assert(!backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_fist_weapon_equipped_in_offhand(rogue);
-    assert(!backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_dagger_equipped_in_mainhand(rogue);
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 
     given_dagger_equipped_in_mainhand(rogue);
     given_no_offhand();
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 
     given_1h_mace_equipped_in_offhand(rogue);
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 
     given_1h_sword_equipped_in_offhand(rogue);
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 
     given_fist_weapon_equipped_in_offhand(rogue);
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 
     given_dagger_equipped_in_offhand(rogue);
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBackstab::test_resource_cost() {
@@ -176,9 +176,9 @@ void TestBackstab::test_combo_points() {
 void TestBackstab::test_stealth() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_rogue_not_in_stealth();
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
     given_rogue_in_stealth();
-    assert(backstab()->is_available());
+    assert(backstab()->get_spell_status() == SpellStatus::Available);
 
     when_backstab_is_performed();
 

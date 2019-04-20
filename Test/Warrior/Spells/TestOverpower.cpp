@@ -70,11 +70,11 @@ void TestOverpower::test_incurs_global_cooldown() {
 void TestOverpower::test_obeys_global_cooldown() {
     given_warrior_has_rage(100);
     when_overpower_buff_is_applied();
-    assert(overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(!overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 
@@ -91,42 +91,42 @@ void TestOverpower::test_is_ready_conditions() {
     given_warrior_in_battle_stance();
     given_no_overpower_buff();
     given_warrior_has_rage(100);
-    assert(!overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_warrior_in_berserker_stance();
     when_overpower_buff_is_applied();
     given_warrior_has_rage(100);
-    assert(!overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_warrior_in_defensive_stance();
     when_overpower_buff_is_applied();
     given_warrior_has_rage(100);
-    assert(!overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_warrior_in_battle_stance();
     when_overpower_buff_is_applied();
     given_warrior_has_rage(100);
-    assert(overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestOverpower::test_stance_cooldown() {
     given_warrior_in_berserker_stance();
     when_overpower_buff_is_applied();
     given_warrior_has_rage(100);
-    assert(overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::Available);
 
     when_switching_to_battle_stance();
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);
-    assert(overpower()->is_available());
+    assert(overpower()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestOverpower::test_hit_dmg() {

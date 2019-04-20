@@ -73,11 +73,11 @@ void TestHeroicStrike::test_incurs_global_cooldown() {
 
 void TestHeroicStrike::test_obeys_global_cooldown() {
     given_warrior_has_rage(100);
-    assert(heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestHeroicStrike::test_resource_cost() {
@@ -87,15 +87,15 @@ void TestHeroicStrike::test_resource_cost() {
 void TestHeroicStrike::test_is_ready_conditions() {
     given_warrior_in_battle_stance();
     given_warrior_has_rage(100);
-    assert(heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
-    assert(heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_defensive_stance();
     given_warrior_has_rage(100);
-    assert(heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestHeroicStrike::test_stance_cooldown() {
@@ -104,7 +104,7 @@ void TestHeroicStrike::test_stance_cooldown() {
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
 
-    assert(heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestHeroicStrike::test_1_of_3_improved_hs_reduces_rage_cost() {
@@ -262,9 +262,9 @@ void TestHeroicStrike::when_heroic_strike_is_performed() {
 void TestHeroicStrike::then_heroic_strike_costs(const unsigned rage) {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
-    assert(heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage - 1);
-    assert(!heroic_strike()->is_available());
+    assert(heroic_strike()->get_spell_status() == SpellStatus::InsufficientResources);
 }

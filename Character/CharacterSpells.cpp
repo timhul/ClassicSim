@@ -23,7 +23,7 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     id_of_cast_in_progress(0),
     attack_mode(AttackMode::MeleeAttack),
     attack_mode_active(false),
-    next_instance_id(SpellStatus::INITIAL_ID)
+    next_instance_id(SpellID::INITIAL_ID)
 {
     berserking = new Berserking(pchar);
     blood_fury = new BloodFury(pchar);
@@ -111,7 +111,7 @@ void CharacterSpells::deactivate_racials() {
 }
 
 void CharacterSpells::add_spell(Spell* spell, bool relink) {
-    if (spell->get_instance_id() == SpellStatus::INACTIVE) {
+    if (spell->get_instance_id() == SpellID::INACTIVE) {
         spell->set_instance_id(next_instance_id);
         ++next_instance_id;
     }
@@ -133,7 +133,7 @@ void CharacterSpells::remove_spell(Spell* spell) {
 }
 
 void CharacterSpells::add_start_of_combat_spell(Spell* spell) {
-    if (spell->get_instance_id() == SpellStatus::INACTIVE) {
+    if (spell->get_instance_id() == SpellID::INACTIVE) {
         spell->set_instance_id(next_instance_id);
         ++next_instance_id;
     }

@@ -78,21 +78,21 @@ void TestHemorrhage::test_incurs_global_cooldown() {
 void TestHemorrhage::test_obeys_global_cooldown() {
     given_hemorrhage_is_enabled();
     given_rogue_has_energy(100);
-    assert(hemo()->is_available());
+    assert(hemo()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_is_on_gcd();
 
     given_rogue_has_energy(100);
-    assert(!hemo()->is_available());
+    assert(hemo()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestHemorrhage::test_is_ready_conditions() {
     given_rogue_has_energy(100);
-    assert(!hemo()->is_available());
+    assert(hemo()->get_spell_status() == SpellStatus::NotEnabled);
 
     given_hemorrhage_is_enabled();
 
-    assert(hemo()->is_available());
+    assert(hemo()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestHemorrhage::test_resource_cost() {
@@ -126,9 +126,9 @@ void TestHemorrhage::test_stealth() {
     given_hemorrhage_is_enabled();
     given_1h_sword_equipped_in_mainhand(pchar);
     given_rogue_not_in_stealth();
-    assert(hemo()->is_available());
+    assert(hemo()->get_spell_status() == SpellStatus::Available);
     given_rogue_in_stealth();
-    assert(hemo()->is_available());
+    assert(hemo()->get_spell_status() == SpellStatus::Available);
 
     when_hemorrhage_is_performed();
 

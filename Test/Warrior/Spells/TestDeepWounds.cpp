@@ -114,22 +114,22 @@ void TestDeepWounds::test_incurs_global_cooldown() {
 
     when_mh_attack_is_performed();
 
-    assert(deep_wounds()->is_available());
+    assert(deep_wounds()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestDeepWounds::test_obeys_global_cooldown() {
     given_deep_wounds_enabled();
-    assert(deep_wounds()->is_available());
+    assert(deep_wounds()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(deep_wounds()->is_available());
+    assert(deep_wounds()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestDeepWounds::test_resource_cost() {
     given_deep_wounds_enabled();
     given_warrior_has_rage(0);
-    assert(deep_wounds()->is_available());
+    assert(deep_wounds()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestDeepWounds::test_critical_mh_attack_applies_deep_wounds() {
@@ -154,7 +154,7 @@ void TestDeepWounds::test_stance_cooldown() {
 
     assert(warrior->on_stance_cooldown() == true);
 
-    assert(deep_wounds()->is_available());
+    assert(deep_wounds()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestDeepWounds::test_critical_oh_attack_applies_deep_wounds() {

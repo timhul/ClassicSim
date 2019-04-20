@@ -85,7 +85,7 @@ void WarriorSpells::mh_auto_attack(const int iteration) {
     if (!is_melee_attacking())
         return;
 
-    if (heroic_strike->is_queued() && heroic_strike->is_available()) {
+    if (heroic_strike->is_queued() && heroic_strike->get_spell_status() == SpellStatus::Available) {
         heroic_strike->calculate_damage();
     }
     else {

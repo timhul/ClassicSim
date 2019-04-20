@@ -186,7 +186,7 @@ void TestConditionVariableBuiltin::test_auto_shot_timer_less() {
     ConditionVariableBuiltin condition200ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::less, 0.2);
     ConditionVariableBuiltin condition300ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::less, 0.3);
 
-    assert(auto_shot->is_available());
+    assert(auto_shot->get_spell_status() == SpellStatus::Available);
     assert(condition200ms.condition_fulfilled());
     assert(condition300ms.condition_fulfilled());
 
@@ -224,7 +224,7 @@ void TestConditionVariableBuiltin::test_auto_shot_timer_greater() {
     ConditionVariableBuiltin condition200ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::greater, 0.2);
     ConditionVariableBuiltin condition300ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::greater, 0.3);
 
-    assert(auto_shot->is_available());
+    assert(auto_shot->get_spell_status() == SpellStatus::Available);
     assert(!condition200ms.condition_fulfilled());
     assert(!condition300ms.condition_fulfilled());
 
@@ -262,7 +262,7 @@ void TestConditionVariableBuiltin::test_swing_timer_less() {
     ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparators::less, 0.2);
     ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparators::less, 0.3);
 
-    assert(mh_attack->is_available());
+    assert(mh_attack->get_spell_status() == SpellStatus::Available);
     assert(condition200ms.condition_fulfilled());
     assert(condition300ms.condition_fulfilled());
 
@@ -300,7 +300,7 @@ void TestConditionVariableBuiltin::test_swing_timer_greater() {
     ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparators::greater, 0.2);
     ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparators::greater, 0.3);
 
-    assert(mh_attack->is_available());
+    assert(mh_attack->get_spell_status() == SpellStatus::Available);
     assert(!condition200ms.condition_fulfilled());
     assert(!condition300ms.condition_fulfilled());
 

@@ -60,20 +60,20 @@ void TestBloodthirst::test_incurs_global_cooldown() {
 void TestBloodthirst::test_obeys_global_cooldown() {
     bloodthirst()->enable();
     given_warrior_has_rage(100);
-    assert(bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(!bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::OnGCD);
     assert(almost_equal(bloodthirst()->get_cooldown_remaining(), 0));
 }
 
 void TestBloodthirst::test_is_ready_conditions() {
     given_warrior_has_rage(100);
-    assert(!bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::NotEnabled);
 
     bloodthirst()->enable();
-    assert(bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBloodthirst::test_resource_cost() {
@@ -87,20 +87,20 @@ void TestBloodthirst::test_resource_cost() {
 
 void TestBloodthirst::test_stance_cooldown() {
     given_warrior_has_rage(100);
-    assert(bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::Available);
 
     when_switching_to_berserker_stance();
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);
-    assert(bloodthirst()->is_available());
+    assert(bloodthirst()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBloodthirst::test_hit_dmg() {

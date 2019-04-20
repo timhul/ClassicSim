@@ -28,7 +28,7 @@ RotationExecutor::~RotationExecutor() {
 }
 
 void RotationExecutor::attempt_cast() {
-    if (!spell->is_available())
+    if (spell->get_spell_status() != SpellStatus::Available)
         return;
 
     if (condition_groups.empty()) {

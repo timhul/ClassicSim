@@ -51,11 +51,11 @@ void TestBladeFlurry::test_incurs_global_cooldown() {
 
 void TestBladeFlurry::test_obeys_global_cooldown() {
     given_1_of_1_blade_flurry();
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_is_on_gcd();
 
-    assert(!blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestBladeFlurry::test_is_ready_conditions() {
@@ -65,7 +65,7 @@ void TestBladeFlurry::test_is_ready_conditions() {
 void TestBladeFlurry::test_resource_cost() {
     given_1_of_1_blade_flurry();
     given_rogue_has_energy(0);
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     when_blade_flurry_is_performed();
 
@@ -76,22 +76,22 @@ void TestBladeFlurry::test_combo_points() {
     given_1_of_1_blade_flurry();
 
     given_rogue_has_combo_points(0);
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(1);
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(2);
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(3);
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(4);
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(5);
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     when_blade_flurry_is_performed();
     then_rogue_has_combo_points(5);
@@ -100,9 +100,9 @@ void TestBladeFlurry::test_combo_points() {
 void TestBladeFlurry::test_stealth() {
     given_1_of_1_blade_flurry();
     given_rogue_not_in_stealth();
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
     given_rogue_in_stealth();
-    assert(blade_flurry()->is_available());
+    assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 
     when_blade_flurry_is_performed();
 

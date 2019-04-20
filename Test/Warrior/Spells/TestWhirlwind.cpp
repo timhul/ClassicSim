@@ -63,11 +63,11 @@ void TestWhirlwind::test_incurs_global_cooldown() {
 void TestWhirlwind::test_obeys_global_cooldown() {
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
-    assert(whirlwind()->is_available());
+    assert(whirlwind()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd(dynamic_cast<WarriorSpells*>(pchar->get_spells())->get_execute());
 
-    assert(!whirlwind()->is_available());
+    assert(whirlwind()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestWhirlwind::test_is_ready_conditions() {
@@ -76,20 +76,20 @@ void TestWhirlwind::test_is_ready_conditions() {
 
 void TestWhirlwind::test_stance_cooldown() {
     given_warrior_has_rage(100);
-    assert(whirlwind()->is_available());
+    assert(whirlwind()->get_spell_status() == SpellStatus::Available);
 
     when_switching_to_berserker_stance();
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!whirlwind()->is_available());
+    assert(whirlwind()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!whirlwind()->is_available());
+    assert(whirlwind()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);
-    assert(whirlwind()->is_available());
+    assert(whirlwind()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestWhirlwind::test_resource_cost() {

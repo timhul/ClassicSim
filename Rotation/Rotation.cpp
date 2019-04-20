@@ -30,7 +30,7 @@ Rotation::~Rotation() {
 
 void Rotation::run_precombat_actions() {
     for (auto & spell : precombat_spells) {
-        if (spell->is_available())
+        if (spell->get_spell_status() == SpellStatus::Available)
             spell->perform();
     }
 }

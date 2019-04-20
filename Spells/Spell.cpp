@@ -33,7 +33,7 @@ Spell::Spell(QString name,
     resource_type(resource_type),
     resource_cost(resource_cost),
     spell_rank(0),
-    instance_id(SpellStatus::INACTIVE),
+    instance_id(SpellID::INACTIVE),
     enabled(true)
 {}
 
@@ -61,19 +61,6 @@ double Spell::get_resource_cost() const {
     return this->resource_cost;
 }
 
-bool Spell::is_ready() const {
-    if (restricted_by_gcd && pchar->on_global_cooldown())
-        return false;
-
-    if (pchar->get_spells()->cast_in_progress())
-        return false;
-
-    if (!is_ready_spell_specific())
-        return false;
-
-    return (get_next_use() - engine->get_current_priority()) < 0.0001;
-}
-
 bool Spell::is_ready_spell_specific() const {
     return true;
 }
@@ -86,8 +73,26 @@ void Spell::disable_spell_effect() {
 
 }
 
-bool Spell::is_available() const {
-    return enabled && is_ready() && static_cast<int>(pchar->get_resource_level(resource_type)) >= this->resource_cost;
+SpellStatus Spell::get_spell_status() const {
+    if (!enabled)
+        return SpellStatus::NotEnabled;
+
+    if (restricted_by_gcd && pchar->on_global_cooldown())
+        return SpellStatus::OnGCD;
+
+    if (pchar->get_spells()->cast_in_progress())
+        return SpellStatus::CastInProgress;
+
+    if (!is_ready_spell_specific())
+        return SpellStatus::SpellSpecific;
+
+    if ((get_next_use() - engine->get_current_priority()) > 0.0001)
+        return SpellStatus::OnCooldown;
+
+    if (static_cast<int>(pchar->get_resource_level(resource_type)) < this->resource_cost)
+        return SpellStatus::InsufficientResources;
+
+    return SpellStatus::Available;
 }
 
 bool Spell::is_enabled() const {

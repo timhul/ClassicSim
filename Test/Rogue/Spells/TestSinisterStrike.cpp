@@ -84,12 +84,12 @@ void TestSinisterStrike::test_incurs_global_cooldown() {
 
 void TestSinisterStrike::test_obeys_global_cooldown() {
     given_rogue_has_energy(100);
-    assert(sinister_strike()->is_available());
+    assert(sinister_strike()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_is_on_gcd();
 
     given_rogue_has_energy(100);
-    assert(!sinister_strike()->is_available());
+    assert(sinister_strike()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestSinisterStrike::test_is_ready_conditions() {
@@ -123,9 +123,9 @@ void TestSinisterStrike::test_combo_points() {
 void TestSinisterStrike::test_stealth() {
     given_1h_sword_equipped_in_mainhand(pchar);
     given_rogue_not_in_stealth();
-    assert(sinister_strike()->is_available());
+    assert(sinister_strike()->get_spell_status() == SpellStatus::Available);
     given_rogue_in_stealth();
-    assert(sinister_strike()->is_available());
+    assert(sinister_strike()->get_spell_status() == SpellStatus::Available);
 
     when_sinister_strike_is_performed();
 

@@ -119,15 +119,15 @@ void TestMultiShot::test_spell_cooldown() {
 void TestMultiShot::test_obeys_global_cooldown() {
     given_hunter_is_on_gcd();
 
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestMultiShot::test_resource_cost() {
     given_hunter_has_mana(230);
-    assert(multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(229);
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(230);
 
@@ -431,10 +431,10 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying() 
 void TestMultiShot::test_mana_cost_1_of_5_efficiency() {
     given_1_of_5_efficiency();
     given_hunter_has_mana(225);
-    assert(multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(224);
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(225);
 
@@ -446,10 +446,10 @@ void TestMultiShot::test_mana_cost_1_of_5_efficiency() {
 void TestMultiShot::test_mana_cost_2_of_5_efficiency() {
     given_2_of_5_efficiency();
     given_hunter_has_mana(221);
-    assert(multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(220);
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(221);
 
@@ -461,10 +461,10 @@ void TestMultiShot::test_mana_cost_2_of_5_efficiency() {
 void TestMultiShot::test_mana_cost_3_of_5_efficiency() {
     given_3_of_5_efficiency();
     given_hunter_has_mana(216);
-    assert(multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(215);
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(216);
 
@@ -476,10 +476,10 @@ void TestMultiShot::test_mana_cost_3_of_5_efficiency() {
 void TestMultiShot::test_mana_cost_4_of_5_efficiency() {
     given_4_of_5_efficiency();
     given_hunter_has_mana(212);
-    assert(multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(211);
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(212);
 
@@ -491,10 +491,10 @@ void TestMultiShot::test_mana_cost_4_of_5_efficiency() {
 void TestMultiShot::test_mana_cost_5_of_5_efficiency() {
     given_5_of_5_efficiency();
     given_hunter_has_mana(207);
-    assert(multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
     given_hunter_has_mana(206);
-    assert(!multi_shot()->is_available());
+    assert(multi_shot()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_hunter_has_mana(207);
 

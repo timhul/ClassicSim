@@ -143,32 +143,32 @@ void TestEviscerate::test_incurs_global_cooldown() {
 void TestEviscerate::test_obeys_global_cooldown() {
     given_rogue_has_energy(100);
     given_rogue_has_combo_points(1);
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_is_on_gcd();
 
     given_rogue_has_energy(100);
-    assert(!eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestEviscerate::test_is_ready_conditions() {
     given_rogue_has_combo_points(0);
-    assert(!eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_rogue_has_combo_points(1);
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(2);
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(3);
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(4);
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(5);
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestEviscerate::test_resource_cost() {
@@ -223,10 +223,10 @@ void TestEviscerate::test_stealth() {
     given_rogue_has_combo_points(1);
 
     given_rogue_not_in_stealth();
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_in_stealth();
-    assert(eviscerate()->is_available());
+    assert(eviscerate()->get_spell_status() == SpellStatus::Available);
 
     when_eviscerate_is_performed();
 

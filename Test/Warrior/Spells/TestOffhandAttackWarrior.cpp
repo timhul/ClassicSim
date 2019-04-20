@@ -112,16 +112,16 @@ void TestOffhandAttackWarrior::test_spell_cooldown() {
 }
 
 void TestOffhandAttackWarrior::test_obeys_global_cooldown() {
-    assert(oh_attack()->is_available());
+    assert(oh_attack()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(oh_attack()->is_available());
+    assert(oh_attack()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestOffhandAttackWarrior::test_resource_cost() {
     given_warrior_has_rage(0);
-    assert(oh_attack()->is_available());
+    assert(oh_attack()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestOffhandAttackWarrior::test_is_ready_conditions() {
@@ -133,7 +133,7 @@ void TestOffhandAttackWarrior::test_stance_cooldown() {
 
     assert(warrior->on_stance_cooldown() == true);
 
-    assert(oh_attack()->is_available());
+    assert(oh_attack()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestOffhandAttackWarrior::test_changing_weapons_changes_cooldown() {

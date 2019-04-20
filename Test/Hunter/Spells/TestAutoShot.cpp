@@ -103,12 +103,12 @@ void TestAutoShot::test_spell_cooldown() {
 void TestAutoShot::test_obeys_global_cooldown() {
     given_hunter_is_on_gcd();
 
-    assert(auto_shot()->is_available());
+    assert(auto_shot()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestAutoShot::test_resource_cost() {
     given_hunter_has_mana(0);
-    assert(auto_shot()->is_available());
+    assert(auto_shot()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestAutoShot::test_is_ready_conditions() {

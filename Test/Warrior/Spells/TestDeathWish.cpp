@@ -40,11 +40,11 @@ void TestDeathWish::test_spell_cooldown() {
 void TestDeathWish::test_obeys_global_cooldown() {
     given_death_wish_is_enabled();
     given_warrior_has_rage(100);
-    assert(death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(!death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestDeathWish::test_incurs_global_cooldown() {
@@ -68,32 +68,32 @@ void TestDeathWish::test_is_ready_conditions() {
     given_death_wish_is_not_enabled();
     given_warrior_has_rage(0);
     assert(warrior->action_ready());
-    assert(!death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::NotEnabled);
 
     given_warrior_has_rage(100);
-    assert(!death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::NotEnabled);
 
     given_death_wish_is_enabled();
-    assert(death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestDeathWish::test_stance_cooldown() {
     given_death_wish_is_enabled();
     given_warrior_in_berserker_stance();
-    assert(death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_battle_stance();
     when_switching_to_berserker_stance();
     assert(warrior->on_stance_cooldown() == true);
-    assert(!death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);
-    assert(death_wish()->is_available());
+    assert(death_wish()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestDeathWish::test_dmg_mod_reduced_after_buff_expires() {

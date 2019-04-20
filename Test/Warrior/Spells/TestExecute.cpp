@@ -130,11 +130,11 @@ void TestExecute::test_incurs_global_cooldown() {
 void TestExecute::test_obeys_global_cooldown() {
     given_target_in_execute_range();
     given_warrior_has_rage(100);
-    assert(execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(!execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestExecute::test_resource_cost() {
@@ -154,47 +154,47 @@ void TestExecute::test_is_ready_conditions() {
     given_warrior_has_rage(0);
 
     assert(warrior->action_ready());
-    assert(!execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_target_in_execute_range();
-    assert(!execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_target_not_in_execute_range();
     given_warrior_has_rage(100);
-    assert(!execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_target_in_execute_range();
     given_warrior_in_defensive_stance();
     given_warrior_has_rage(100);
-    assert(!execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
-    assert(execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_battle_stance();
     given_warrior_has_rage(100);
-    assert(execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestExecute::test_stance_cooldown() {
     given_warrior_in_battle_stance();
     given_target_in_execute_range();
     given_warrior_has_rage(100);
-    assert(execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::Available);
 
     when_switching_to_berserker_stance();
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);
-    assert(execute()->is_available());
+    assert(execute()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestExecute::test_1_of_2_improved_execute_reduces_rage_cost() {
@@ -567,5 +567,5 @@ void TestExecute::when_execute_is_performed_with_rage(const unsigned rage) {
 bool TestExecute::execute_available_with_rage(const unsigned rage) {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
-    return execute()->is_available();
+    return execute()->get_spell_status() == SpellStatus::Available;
 }

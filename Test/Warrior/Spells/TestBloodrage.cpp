@@ -39,45 +39,45 @@ void TestBloodrage::test_incurs_global_cooldown() {
 }
 
 void TestBloodrage::test_obeys_global_cooldown() {
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
 
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBloodrage::test_is_ready_conditions() {
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_defensive_stance();
-    assert(!bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_warrior_in_battle_stance();
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_berserker_stance();
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBloodrage::test_stance_cooldown() {
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     when_switching_to_berserker_stance();
     assert(warrior->on_stance_cooldown() == true);
-    assert(!bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(!bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBloodrage::test_resource_cost() {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
-    assert(bloodrage()->is_available());
+    assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestBloodrage::test_gain_10_rage_immediately() {

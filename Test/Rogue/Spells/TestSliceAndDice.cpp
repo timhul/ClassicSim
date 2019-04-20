@@ -83,32 +83,32 @@ void TestSliceAndDice::test_obeys_global_cooldown() {
     given_rogue_has_combo_points(1);
 
     given_rogue_has_energy(100);
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_is_on_gcd();
 
     given_rogue_has_energy(100);
-    assert(!slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::OnGCD);
 }
 
 void TestSliceAndDice::test_is_ready_conditions() {
     given_rogue_has_combo_points(0);
-    assert(!slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::SpellSpecific);
 
     given_rogue_has_combo_points(1);
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(2);
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(3);
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(4);
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
 
     given_rogue_has_combo_points(5);
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestSliceAndDice::test_resource_cost() {
@@ -164,9 +164,9 @@ void TestSliceAndDice::test_combo_points() {
 void TestSliceAndDice::test_stealth() {
     given_rogue_has_combo_points(1);
     given_rogue_not_in_stealth();
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
     given_rogue_in_stealth();
-    assert(slice_and_dice()->is_available());
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);
 
     when_slice_and_dice_is_performed();
 
