@@ -4,14 +4,12 @@
 #include "Spell.h"
 
 class BerserkingBuff;
-class Character;
 
 class Berserking: public Spell {
 public:
     Berserking(Character* pchar);
     ~Berserking() override;
 
-protected:
 private:
     BerserkingBuff* buff;
 
