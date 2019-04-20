@@ -4,7 +4,9 @@
 #include "Engine.h"
 #include "Spell.h"
 
-ResourceGain::ResourceGain(Character* pchar, Spell *spell, const double timestamp) {
+ResourceGain::ResourceGain(Character* pchar, Spell *spell, const double timestamp):
+    Event(Events::ResourceGain)
+{
     this->pchar = pchar;
     this->spell = spell;
     this->priority = timestamp;

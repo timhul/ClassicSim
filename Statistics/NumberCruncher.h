@@ -18,6 +18,7 @@ class ResourceBreakdownModel;
 class ScaleResult;
 class ScaleResultModel;
 class StatisticsBuff;
+class StatisticsEngine;
 class StatisticsProc;
 class StatisticsResource;
 class StatisticsSpell;
@@ -38,6 +39,7 @@ public:
 private:
     friend class BuffBreakdownModel;
     friend class DebuffBreakdownModel;
+    friend class EngineBreakdownModel;
     friend class MeleeDamageBreakdownModel;
     friend class MeleeDamageAvoidanceBreakdownModel;
     friend class ProcBreakdownModel;
@@ -63,6 +65,8 @@ private:
 
     void merge_resource_stats(QList<StatisticsResource*>& vec);
     void merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec);
+
+    void merge_engine_stats(StatisticsEngine* statistics_engine);
 
     double get_standard_deviation_for_option(SimOption::Name) const;
     double get_confidence_interval_for_option(SimOption::Name, const double) const;

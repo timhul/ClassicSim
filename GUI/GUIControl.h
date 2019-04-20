@@ -20,6 +20,7 @@ class DebuffBreakdownModel;
 class DebuffModel;
 class EnchantModel;
 class Engine;
+class EngineBreakdownModel;
 class EquipmentDb;
 class Item;
 class ItemModel;
@@ -203,6 +204,7 @@ public:
     /* Statistics */
     BuffBreakdownModel* get_buff_breakdown_model() const;
     DebuffBreakdownModel* get_debuff_breakdown_model() const;
+    EngineBreakdownModel* get_engine_breakdown_model() const;
     MeleeDamageBreakdownModel* get_dmg_breakdown_model() const;
     MeleeDamageAvoidanceBreakdownModel* get_dmg_breakdown_avoidance_model() const;
     ProcBreakdownModel* get_proc_breakdown_model() const;
@@ -213,6 +215,8 @@ public:
     Q_PROPERTY(QString maxDps READ get_max_dps NOTIFY statisticsReady)
     Q_PROPERTY(QString dpsStdDev READ get_standard_deviation NOTIFY statisticsReady)
     Q_PROPERTY(QString dpsConfInterval READ get_confidence_interval NOTIFY statisticsReady)
+    Q_PROPERTY(QString engineHandledEventsPerSecond READ get_handled_events_per_second NOTIFY statisticsReady)
+    QString get_handled_events_per_second() const;
     /* End of Statistics */
 
     /* Target */
@@ -385,6 +389,7 @@ private:
     RotationModel* rotation_model;
     BuffBreakdownModel* buff_breakdown_model;
     DebuffBreakdownModel* debuff_breakdown_model;
+    EngineBreakdownModel* engine_breakdown_model;
     MeleeDamageBreakdownModel* damage_breakdown_model;
     MeleeDamageAvoidanceBreakdownModel* damage_avoidance_breakdown_model;
     ProcBreakdownModel* proc_breakdown_model;
@@ -404,7 +409,8 @@ private:
     EnchantModel* gloves_enchants;
     EnchantModel* chest_enchants;
     EnchantModel* boots_enchants;
-    double last_quick_sim_result;
+    double last_quick_sim_result {0.0};
+    double last_engine_handled_events_per_second {0.0};
     bool sim_in_progress;
     QString active_window;
     QString stats_type_to_display;

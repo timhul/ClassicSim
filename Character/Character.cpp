@@ -536,6 +536,8 @@ void Character::reset() {
 }
 
 void Character::prepare_set_of_combat_iterations() {
+    statistics->prepare_statistics();
+    engine->prepare_set_of_iterations(statistics->get_engine_statistics());
     this->ruleset = sim_settings->get_ruleset();
     sim_settings->use_ruleset(this->ruleset, this);
     spells->prepare_set_of_combat_iterations();

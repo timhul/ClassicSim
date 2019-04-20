@@ -56,7 +56,6 @@ void TestRend::test_spell_cooldown() {
 
     when_rend_is_performed();
 
-    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "1.500");
     then_next_event_is("DotTick", "3.000", RUN_EVENT);
     assert(rend()->is_available());
@@ -74,7 +73,6 @@ void TestRend::test_incurs_global_cooldown() {
     when_rend_is_performed();
     assert(warrior->on_global_cooldown());
 
-    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 

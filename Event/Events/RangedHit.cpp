@@ -2,7 +2,9 @@
 
 #include "CharacterSpells.h"
 
-RangedHit::RangedHit(CharacterSpells* spells, const double next_timestamp, const int iteration) {
+RangedHit::RangedHit(CharacterSpells* spells, const double next_timestamp, const int iteration):
+    Event(Events::RangedHit)
+{
     this->spells = spells;
     this->priority = next_timestamp;
     this->name = "RangedHit";

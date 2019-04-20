@@ -103,12 +103,29 @@ Rectangle {
 
             rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
         }
+
+        RectangleBorders {
+            height: 30
+            width: 150
+            property string activeState: "ENGINE_BREAKDOWN"
+
+            TextSmall {
+                text: "Internal Engine"
+                color: statisticsRect.state === parent.activeState ? "black" : "white"
+            }
+
+            onRectangleClicked: statisticsRect.state = activeState
+            onRectangleRightClicked: statisticsRect.state = activeState
+
+            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+        }
     }
 
     ScrollView {
         anchors {
             top: changeStatistics.bottom
             left: parent.left
+            leftMargin: 30
             right: parent.right
             bottom: parent.bottom
         }
@@ -251,6 +268,7 @@ Rectangle {
         anchors {
             top: changeStatistics.bottom
             left: parent.left
+            leftMargin: 30
             right: parent.right
             bottom: parent.bottom
         }
@@ -358,6 +376,7 @@ Rectangle {
         anchors {
             top: changeStatistics.bottom
             left: parent.left
+            leftMargin: 30
             right: parent.right
             bottom: parent.bottom
         }
@@ -436,6 +455,7 @@ Rectangle {
         anchors {
             top: changeStatistics.bottom
             left: parent.left
+            leftMargin: 30
             right: parent.right
             bottom: parent.bottom
         }
@@ -480,6 +500,7 @@ Rectangle {
         anchors {
             top: changeStatistics.bottom
             left: parent.left
+            leftMargin: 30
             right: parent.right
             bottom: parent.bottom
         }
@@ -517,6 +538,66 @@ Rectangle {
                 mp5: _mp5
                 rp5: _rp5
                 ep5: _ep5
+            }
+        }
+    }
+
+    ScrollView {
+        anchors {
+            top: changeStatistics.bottom
+            left: parent.left
+            leftMargin: 30
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+
+        visible: parent.state === "ENGINE_BREAKDOWN"
+
+        StatisticsHeader {
+            id: headerEngine
+            title: "Engine information"
+        }
+
+        TextSmall {
+            id: eventsHandledPerSecondText
+            anchorParent: false
+            pointSize: 15
+
+            anchors {
+                top: headerEngine.bottom
+                topMargin: 15
+                left: parent.left
+            }
+
+            text: statistics.engineHandledEventsPerSecond + " events handled / second"
+        }
+
+        StatisticsEngineBreakdownSorting {
+            id: engineBreakdownSorting
+            anchors.top: eventsHandledPerSecondText.bottom
+            anchors.topMargin: 10
+        }
+
+        ListView {
+            id: engineBreakdownTable
+            anchors {
+                top: engineBreakdownSorting.bottom
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: engineBreakdownModel
+            delegate: StatisticsEntryEngineBreakdown {
+                event: _event
+                percentage: _percentage
+                total: _total
+                permin: _permin
             }
         }
     }

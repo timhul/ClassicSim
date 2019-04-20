@@ -83,7 +83,6 @@ void TestSlam::test_incurs_global_cooldown() {
 
     slam()->perform();
 
-    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("CastComplete", "1.400");
     then_next_event_is("PlayerAction", "1.500");
 }
@@ -251,7 +250,6 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
 
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
     then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "0.100");
     then_next_event_is("PlayerAction", "0.100");
 

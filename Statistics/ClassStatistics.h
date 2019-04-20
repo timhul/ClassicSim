@@ -11,6 +11,7 @@
 class NumberCruncher;
 class StatisticsSpell;
 class StatisticsBuff;
+class StatisticsEngine;
 class StatisticsResource;
 class StatisticsProc;
 
@@ -23,6 +24,7 @@ public:
     StatisticsBuff* get_buff_statistics(const QString& name, const QString &icon, const bool debuff);
     StatisticsResource* get_resource_statistics(const QString& name, const QString& icon);
     StatisticsProc* get_proc_statistics(const QString& name, const QString &icon);
+    StatisticsEngine* get_engine_statistics();
     int get_total_damage_dealt() const;
     double get_total_dps() const;
 
@@ -36,7 +38,7 @@ public:
     void set_sim_option(const SimOption::Name);
     SimOption::Name get_sim_option() const;
 
-protected:
+private:
     friend class NumberCruncher;
 
     SimSettings* sim_settings;
@@ -45,6 +47,7 @@ protected:
     int combat_length;
     int damage_dealt_previous_iterations;
 
+    StatisticsEngine* engine_statistics {nullptr};
     QMap<QString, StatisticsSpell*> spell_statistics;
     QMap<QString, StatisticsBuff*> buff_statistics;
     QMap<QString, StatisticsResource*> resource_statistics;

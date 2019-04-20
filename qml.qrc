@@ -523,5 +523,7 @@
         <file>QML/Assets/items/Inv_chest_chain_03.png</file>
         <file>QML/RotationSpellConditions.qml</file>
         <file>QML/Assets/ability/Ability_warrior_offensivestance.png</file>
+        <file>QML/StatisticsEngineBreakdownSorting.qml</file>
+        <file>QML/StatisticsEntryEngineBreakdown.qml</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@
 
 #include "ClassStatistics.h"
 #include "StatisticsBuff.h"
+#include "StatisticsEngine.h"
 #include "StatisticsProc.h"
 #include "StatisticsResource.h"
 #include "StatisticsSpell.h"
@@ -172,6 +173,11 @@ void NumberCruncher::merge_resource_entry(const QString& name, const QString &ic
     }
 
     vec.append(result);
+}
+
+void NumberCruncher::merge_engine_stats(StatisticsEngine* statistics_engine) {
+    for (auto & cstats : class_stats[SimOption::Name::NoScale])
+        statistics_engine->add(cstats->get_engine_statistics());
 }
 
 void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {

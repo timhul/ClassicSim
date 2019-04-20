@@ -923,11 +923,12 @@ void TestSpell::given_character_has_strength(const int value) {
 
 void TestSpell::given_engine_priority_at(const double priority) {
     if (priority < pchar->get_engine()->get_current_priority())
-        pchar->get_engine()->reset();
-
-    auto* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
-    pchar->get_engine()->set_current_priority(event);
-    delete event;
+        pchar->get_engine()->prepare_iteration(priority);
+    else {
+        auto* event = new MainhandMeleeHit(pchar->get_spells(), priority, 0);
+        pchar->get_engine()->set_current_priority(event);
+        delete event;
+    }
 }
 
 void TestSpell::given_engine_priority_pushed_forward(const double priority) {

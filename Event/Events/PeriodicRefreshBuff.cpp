@@ -4,7 +4,9 @@
 #include "Character.h"
 #include "Engine.h"
 
-PeriodicRefreshBuff::PeriodicRefreshBuff(Character* pchar, Buff* buff, const double timestamp) {
+PeriodicRefreshBuff::PeriodicRefreshBuff(Character* pchar, Buff* buff, const double timestamp):
+    Event(Events::PeriodicRefreshBuff)
+{
     this->pchar = pchar;
     this->buff = buff;
     this->priority = timestamp;

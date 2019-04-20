@@ -5,6 +5,7 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "Druid.h"
 #include "Dwarf.h"
@@ -88,10 +89,10 @@ void Test::test_queue() {
     assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
     assert(pchar->get_equipment()->get_offhand()->get_name() == "Vis'kag the Bloodletter");
     pchar->set_clvl(60);
-    pchar->prepare_set_of_combat_iterations();
     auto* start_event = new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs());
     auto* end_event = new EncounterEnd(pchar->get_engine(), pchar, 300);
 
+    pchar->prepare_set_of_combat_iterations();
     pchar->get_engine()->add_event(end_event);
     pchar->get_engine()->add_event(start_event);
     pchar->get_engine()->run();

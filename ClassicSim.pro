@@ -344,7 +344,9 @@ SOURCES += main.cpp \
     Character/Class/Hunter/Procs/ExposeWeaknessProc.cpp \
     Character/Class/Hunter/Buffs/ExposeWeaknessBuff.cpp \
     Character/Class/Hunter/HunterPet.cpp \
-    GUI/Models/RotationConditionsModel.cpp
+    GUI/Models/RotationConditionsModel.cpp \
+    Statistics/StatisticsEngine.cpp \
+    GUI/Models/Statistics/EngineBreakdownModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -694,7 +696,9 @@ HEADERS += \
     Character/Class/Hunter/Procs/ExposeWeaknessProc.h \
     Character/Class/Hunter/Buffs/ExposeWeaknessBuff.h \
     Character/Class/Hunter/HunterPet.h \
-    GUI/Models/RotationConditionsModel.h
+    GUI/Models/RotationConditionsModel.h \
+    Statistics/StatisticsEngine.h \
+    GUI/Models/Statistics/EngineBreakdownModel.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

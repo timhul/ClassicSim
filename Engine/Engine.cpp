@@ -2,6 +2,7 @@
 
 #include "Event.h"
 #include "Queue.h"
+#include "StatisticsEngine.h"
 #include "Utils/Check.h"
 
 Engine::Engine():
@@ -16,16 +17,19 @@ Engine::~Engine() {
 }
 
 void Engine::run() {
-    while(!queue->empty()) {
+    while (!queue->empty()) {
         Event* event = queue->get_next();
         set_current_priority(event);
+        engine_statistics->increment_event(event->event);
         event->act();
         delete event;
     }
 }
 
-void Engine::prepare_set_of_iterations() {
-    reset();
+void Engine::prepare_set_of_iterations(StatisticsEngine* engine_statistics) {
+    this->engine_statistics = engine_statistics;
+    current_prio = 0;
+    queue->clear();
     timer->start();
 }
 
@@ -35,8 +39,7 @@ void Engine::prepare_iteration(const double start_at) {
 }
 
 void Engine::reset() {
-    current_prio = -1;
-    queue->clear();
+    engine_statistics->set_elapsed(static_cast<unsigned>(timer->elapsed()));
     delete timer;
     timer = new QTime();
 }

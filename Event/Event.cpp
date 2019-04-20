@@ -1,4 +1,3 @@
-
 #include "Event.h"
 
 bool Compare::operator() (Event*& l, Event*& r) {
@@ -24,6 +23,10 @@ bool operator>=(const Event& l, const Event& r) {
 double Event::get_priority() const {
     return this->priority;
 }
+
+Event::Event(Events event_enum_val):
+    event(event_enum_val)
+{}
 
 QString Event::get_name() const {
     return this->name;

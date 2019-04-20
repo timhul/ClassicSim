@@ -2,7 +2,9 @@
 
 #include "CharacterSpells.h"
 
-PlayerAction::PlayerAction(CharacterSpells* pchar, const double timestamp) {
+PlayerAction::PlayerAction(CharacterSpells* pchar, const double timestamp):
+    Event(Events::PlayerAction)
+{
     this->spells = pchar;
     this->priority = timestamp;
     this->name = "PlayerAction";

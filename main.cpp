@@ -11,6 +11,7 @@
 #include "DebuffModel.h"
 #include "EnchantModel.h"
 #include "EnchantName.h"
+#include "EngineBreakdownModel.h"
 #include "GUIControl.h"
 #include "ItemModel.h"
 #include "ItemTypeFilterModel.h"
@@ -57,6 +58,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("rotationConditionsModel", gui_control->get_rotation_model()->get_rotation_conditions_model());
     context->setContextProperty("buffBreakdownModel", gui_control->get_buff_breakdown_model());
     context->setContextProperty("debuffBreakdownModel", gui_control->get_debuff_breakdown_model());
+    context->setContextProperty("engineBreakdownModel", gui_control->get_engine_breakdown_model());
     context->setContextProperty("meleeDamageBreakdownModel", gui_control->get_dmg_breakdown_model());
     context->setContextProperty("meleeAvoidanceBreakdownModel", gui_control->get_dmg_breakdown_avoidance_model());
     context->setContextProperty("procBreakdownModel", gui_control->get_proc_breakdown_model());
@@ -78,17 +80,18 @@ int main(int argc, char *argv[])
     context->setContextProperty("pieChart", new PieChart());
     context->setContextProperty("pieChartModel", new PieChartModel());
 
-    qmlRegisterType<WeaponSorting>("WeaponSort", 1, 0, "WeaponSort");
-    qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
-    qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
-    qmlRegisterType<SimOption>("SimOption", 1, 0, "SimOption");
     qmlRegisterType<BuffBreakdownSorting>("BuffBreakdownSorting", 1, 0, "BuffBreakdownSorting");
-    qmlRegisterType<MeleeDamageBreakdownSorting>("MeleeDamageBreakdownSorting", 1, 0, "MeleeDamageBreakdownSorting");
+    qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
+    qmlRegisterType<EngineBreakdownSorting>("EngineBreakdownSorting", 1, 0, "EngineBreakdownSorting");
+    qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");
     qmlRegisterType<MeleeDamageAvoidanceBreakdownSorting>("MeleeDamageAvoidanceBreakdownSorting", 1, 0, "MeleeDamageAvoidanceBreakdownSorting");
+    qmlRegisterType<MeleeDamageBreakdownSorting>("MeleeDamageBreakdownSorting", 1, 0, "MeleeDamageBreakdownSorting");
     qmlRegisterType<ProcBreakdownSorting>("ProcBreakdownSorting", 1, 0, "ProcBreakdownSorting");
     qmlRegisterType<ResourceBreakdownSorting>("ResourceBreakdownSorting", 1, 0, "ResourceBreakdownSorting");
     qmlRegisterType<ScaleResultSorting>("ScaleResultSorting", 1, 0, "ScaleResultSorting");
+    qmlRegisterType<SimOption>("SimOption", 1, 0, "SimOption");
+    qmlRegisterType<WeaponSorting>("WeaponSort", 1, 0, "WeaponSort");
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

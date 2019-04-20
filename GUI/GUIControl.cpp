@@ -28,6 +28,7 @@
 #include "EncounterEnd.h"
 #include "EncounterStart.h"
 #include "Engine.h"
+#include "EngineBreakdownModel.h"
 #include "Equipment.h"
 #include "EquipmentDb.h"
 #include "Faction.h"
@@ -97,7 +98,6 @@ GUIControl::GUIControl(QObject* parent) :
     gloves_enchants(new EnchantModel(EquipmentSlot::GLOVES, EnchantModel::Permanent)),
     chest_enchants(new EnchantModel(EquipmentSlot::CHEST, EnchantModel::Permanent)),
     boots_enchants(new EnchantModel(EquipmentSlot::BOOTS, EnchantModel::Permanent)),
-    last_quick_sim_result(0.0),
     sim_in_progress(false),
     active_window("TALENTS")
 {
@@ -117,6 +117,7 @@ GUIControl::GUIControl(QObject* parent) :
     debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
     damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
     damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
+    engine_breakdown_model = new EngineBreakdownModel(number_cruncher);
     proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
     resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
     scale_result_model = new ScaleResultModel(number_cruncher);
@@ -170,6 +171,7 @@ GUIControl::~GUIControl() {
     delete debuff_breakdown_model;
     delete damage_breakdown_model;
     delete damage_avoidance_breakdown_model;
+    delete engine_breakdown_model;
     delete proc_breakdown_model;
     delete resource_breakdown_model;
     delete scale_result_model;
@@ -664,6 +666,10 @@ DebuffBreakdownModel* GUIControl::get_debuff_breakdown_model() const {
     return this->debuff_breakdown_model;
 }
 
+EngineBreakdownModel* GUIControl::get_engine_breakdown_model() const {
+    return this->engine_breakdown_model;
+}
+
 MeleeDamageBreakdownModel* GUIControl::get_dmg_breakdown_model() const {
     return this->damage_breakdown_model;
 }
@@ -771,14 +777,20 @@ void GUIControl::compile_thread_results() {
     debuff_breakdown_model->update_statistics();
     damage_breakdown_model->update_statistics();
     damage_avoidance_breakdown_model->update_statistics();
+    engine_breakdown_model->update_statistics();
     proc_breakdown_model->update_statistics();
     resource_breakdown_model->update_statistics();
+    last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
     update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::Name::NoScale));
     dps_distribution = number_cruncher->get_dps_distribution();
     number_cruncher->reset();
     sim_in_progress = false;
     simProgressChanged();
     statisticsReady();
+}
+
+QString GUIControl::get_handled_events_per_second() const {
+    return QString::number(last_engine_handled_events_per_second, 'f', 0);
 }
 
 QString GUIControl::get_min_dps() const {

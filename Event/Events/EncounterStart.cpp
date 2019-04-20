@@ -3,7 +3,9 @@
 #include "CharacterSpells.h"
 #include "EnabledBuffs.h"
 
-EncounterStart::EncounterStart(CharacterSpells* spells, EnabledBuffs* buffs) {
+EncounterStart::EncounterStart(CharacterSpells* spells, EnabledBuffs* buffs):
+    Event(Events::EncounterStart)
+{
     this->spells = spells;
     this->buffs = buffs;
     this->priority = 0.0;

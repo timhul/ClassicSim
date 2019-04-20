@@ -3,7 +3,9 @@
 #include "Engine.h"
 #include "SpellCastingTime.h"
 
-CastComplete::CastComplete(SpellCastingTime *spell, const double timestamp) {
+CastComplete::CastComplete(SpellCastingTime *spell, const double timestamp):
+    Event(Events::CastComplete)
+{
     this->spell = spell;
     this->priority = timestamp;
     this->name = "CastComplete";
