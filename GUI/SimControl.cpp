@@ -48,7 +48,7 @@ void SimControl::run_sim(Character* pchar, const int combat_length, const int it
 
         pchar->get_engine()->prepare_iteration(-rotation->get_time_required_to_run_precombat());
         rotation->run_precombat_actions();
-        if (rotation->precast_spell != nullptr)
+        if (rotation->precast_spell != nullptr && rotation->precast_spell->is_enabled())
             rotation->precast_spell->perform();
 
         pchar->get_engine()->add_event(new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs()));

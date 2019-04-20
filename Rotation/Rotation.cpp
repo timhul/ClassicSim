@@ -29,8 +29,10 @@ Rotation::~Rotation() {
 }
 
 void Rotation::run_precombat_actions() {
-    for (auto & spell : precombat_spells)
-        spell->perform();
+    for (auto & spell : precombat_spells) {
+        if (spell->is_available())
+            spell->perform();
+    }
 }
 
 void Rotation::perform_rotation() const {
