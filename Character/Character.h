@@ -87,7 +87,7 @@ public:
     bool action_ready() const;
     void start_global_cooldown();
     virtual double global_cooldown() const;
-    virtual bool on_global_cooldown() const;
+    bool on_global_cooldown() const;
     void start_trinket_cooldown(const double);
     bool on_trinket_cooldown() const;
 
