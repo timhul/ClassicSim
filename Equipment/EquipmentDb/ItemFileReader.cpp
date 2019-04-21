@@ -222,7 +222,9 @@ void ItemFileReader::create_item(QVector<Item*> &items,
 void ItemFileReader::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
     QVector<QString> keys = {"id", "name", "patch", "type", "slot", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source", "icon",
                              "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
-                             "RESTRICTED_TO_ROGUE", "flavour_text", "special_equip_effect"};
+                             "RESTRICTED_TO_ROGUE", "RESTRICTED_TO_SHAMAN", "RESTRICTED_TO_DRUID",
+                             "RESTRICTED_TO_MAGE", "RESTRICTED_TO_PRIEST", "RESTRICTED_TO_WARLOCK",
+                             "flavour_text", "special_equip_effect"};
 
     extract(keys, item, info);
 }

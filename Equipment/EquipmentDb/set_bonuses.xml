@@ -80,6 +80,32 @@
 		</bonus>
 	</set>
 
+	<set name="The Highlander's Determination">
+		<item_id value="20043"/>
+		<item_id value="20050"/>
+		<item_id value="20055"/>
+
+		<bonus value="2">
+		(2) Set: +5 Stamina.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Improves your chance to get a critical strike by 1%.
+		</bonus>
+	</set>
+
+	<set name="The Defiler's Determination">
+		<item_id value="20158"/>
+		<item_id value="20154"/>
+		<item_id value="20150"/>
+
+		<bonus value="2">
+		(2) Set: +5 Stamina.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Improves your chance to get a critical strike by 1%.
+		</bonus>
+	</set>
+
 	<set name="Lieutenant Commander's Battlearmor">
 		<item_id value="23300"/>
 		<item_id value="23301"/>

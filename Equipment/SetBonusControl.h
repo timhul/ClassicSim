@@ -34,8 +34,8 @@ private:
     void activate_warrior_r13_pvp_set_bonuses(const int num_pieces);
     void deactivate_warrior_r13_pvp_set_bonuses(const int num_pieces);
 
-    void activate_arathi_basin_strength_set_bonuses(const int num_pieces);
-    void deactivate_arathi_basin_strength_set_bonuses(const int num_pieces);
+    void activate_arathi_basin_physical_set_bonuses(const int num_pieces);
+    void deactivate_arathi_basin_physical_set_bonuses(const int num_pieces);
 };
 
 #endif // SETBONUSCONTROL_H

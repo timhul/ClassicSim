@@ -98,6 +98,39 @@
 		</patch>
 	</item>
 
+	<item id="20055">
+		<patch name="1.7.0">
+			<info name="Highlander's Chain Pauldrons" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="312"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="INTELLECT" value="17"/>
+			</stats>
+			<source>
+			Requires Exalted with The League of Arathor (Arathi Basin).
+			</source>
+		</patch>
+	</item>
+	
+	<item id="20158">
+		<patch name="1.7.0">
+			<info name="Defiler's Chain Pauldrons" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
+			<class_restriction class="HUNTER"/>
+			<class_restriction class="SHAMAN"/>
+			<stats>
+				<stat type="ARMOR" value="312"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="INTELLECT" value="17"/>
+			</stats>
+			<source>
+			Requires Exalted with The Defilers (Arathi Basin).
+			</source>
+		</patch>
+	</item>
+
 	<item id="21699">
 		<patch name="1.9.0">
 			<info name="Barrage Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>

@@ -533,5 +533,6 @@
         <file>QML/Assets/items/Inv_boots_chain_11.png</file>
         <file>QML/Assets/items/Inv_pants_mail_09.png</file>
         <file>QML/Assets/items/Inv_bracer_19.png</file>
+        <file>QML/Assets/items/Inv_boots_chain_02.png</file>
     </qresource>
 </RCC>

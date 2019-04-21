@@ -1525,6 +1525,16 @@ void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction
         restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Rogue"]->get_class_color(), chars["Rogue"]->get_name()));
     if (item->get_value("RESTRICTED_TO_HUNTER") != "")
         restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Hunter"]->get_class_color(), chars["Hunter"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_SHAMAN") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Shaman"]->get_class_color(), chars["Shaman"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_DRUID") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Druid"]->get_class_color(), chars["Druid"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_MAGE") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Mage"]->get_class_color(), chars["Mage"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_PRIEST") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Priest"]->get_class_color(), chars["Priest"]->get_name()));
+    if (item->get_value("RESTRICTED_TO_WARLOCK") != "")
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Warlock"]->get_class_color(), chars["Warlock"]->get_name()));
 
     if (restrictions.empty())
         return;
