@@ -28,6 +28,7 @@ RectangleBorders {
 
         pointSize: 11
         anchorParent: false
+        elide: Text.ElideRight
 
         anchors {
             left: spellIconImage.right
@@ -37,7 +38,6 @@ RectangleBorders {
         }
 
         horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
         text: spellName
     }
 
