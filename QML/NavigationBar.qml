@@ -7,7 +7,7 @@ Rectangle {
     property color choiceBackgroundColor
     property color choiceSelectedBackgroundColor
     property string fontFamily: root.fontText
-    property string fontSize: "16"
+    property int fontSize: 16
     property color fontColor
 
     signal talentsClicked();

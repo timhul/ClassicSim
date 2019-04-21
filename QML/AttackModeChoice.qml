@@ -27,19 +27,8 @@ RectangleBorders {
             rectColor: settings.displayStatsType === "MELEE" ? root.darkGray :
                                                                root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Melee"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -54,19 +43,8 @@ RectangleBorders {
             rectColor: settings.displayStatsType === "RANGED" ? root.darkGray :
                                                                 root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Ranged"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -81,21 +59,9 @@ RectangleBorders {
             rectColor: settings.displayStatsType === "SPELL" ? root.darkGray :
                                                                root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Spell"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
     }
 }
-

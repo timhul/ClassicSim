@@ -26,19 +26,8 @@ RectangleBorders {
             rectColor: itemModel.currentSortingMethod === ItemSort.ByIlvl ? root.darkGray :
                                                                             root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "ILVL"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -53,19 +42,8 @@ RectangleBorders {
             rectColor: itemModel.currentSortingMethod === ItemSort.ByName ? root.darkGray :
                                                                             root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Name"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -80,19 +58,8 @@ RectangleBorders {
             rectColor: itemModel.currentSortingMethod === ItemSort.ByPatch ? root.darkGray :
                                                                              root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Patch"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -107,19 +74,8 @@ RectangleBorders {
             rectColor: itemModel.currentSortingMethod === ItemSort.ByItemType ? root.darkGray :
                                                                                 root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Type"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
     }

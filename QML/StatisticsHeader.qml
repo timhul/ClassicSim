@@ -6,17 +6,10 @@ Rectangle {
     width: parent.width
     property string title
 
-    Text {
+    TextSmall {
         text: title
+        pointSize: 12
 
-        font {
-            family: "Arial"
-            pointSize: 12
-        }
-
-        anchors.fill: parent
-
-        color: "white"
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignBottom
     }

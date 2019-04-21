@@ -100,18 +100,10 @@ Rectangle {
             height: rowHeight
             color: root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: parent.cellValue
-                anchors.fill: parent
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
 
                 wrapMode: Text.WordWrap
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
     }

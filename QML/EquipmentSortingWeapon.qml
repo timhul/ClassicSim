@@ -26,19 +26,8 @@ RectangleBorders {
             rectColor: weaponModel.currentSortingMethod === WeaponSort.ByIlvl ? root.darkGray :
                                                                                 root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "ILVL"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -53,19 +42,8 @@ RectangleBorders {
             rectColor: weaponModel.currentSortingMethod === WeaponSort.ByName ? root.darkGray :
                                                                                 root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Name"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -80,19 +58,8 @@ RectangleBorders {
             rectColor: weaponModel.currentSortingMethod === WeaponSort.ByDps ? root.darkGray :
                                                                                root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "DPS"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -107,19 +74,8 @@ RectangleBorders {
             rectColor: weaponModel.currentSortingMethod === WeaponSort.BySpeed ? root.darkGray :
                                                                                  root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Speed"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -134,19 +90,8 @@ RectangleBorders {
             rectColor: weaponModel.currentSortingMethod === WeaponSort.ByPatch ? root.darkGray :
                                                                                  root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Patch"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
 
@@ -161,19 +106,8 @@ RectangleBorders {
             rectColor: weaponModel.currentSortingMethod === WeaponSort.ByItemType ? root.darkGray :
                                                                                     root.darkDarkGray
 
-            Text {
+            TextSmall {
                 text: "Type"
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                anchors.fill: parent
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
     }

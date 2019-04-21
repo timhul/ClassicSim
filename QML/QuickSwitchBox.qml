@@ -10,19 +10,10 @@ RectangleBorders {
 
     rectColor: parent.state === choiceState ? root.darkDarkGray : root.darkGray
 
-    Text {
-        anchors.fill: parent
-
+    TextSmall {
         text: choiceText
         color: root.gold
-
-        font {
-            family: root.fontText
-            pointSize: 12
-        }
-
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
+        pointSize: 12
     }
 
     onRectangleClicked: {

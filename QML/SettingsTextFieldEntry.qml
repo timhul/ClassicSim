@@ -14,19 +14,13 @@ Row {
 
     signal acceptedInput(string value);
 
-    Text {
+    TextSmall {
+        anchorParent: false
         text: description
         height: 30
         width: 175
 
-        font {
-            family: "Arial"
-            pointSize: 9
-        }
-        color: "white"
-
         horizontalAlignment: Text.AlignRight
-        verticalAlignment: Text.AlignVCenter
     }
 
     RectangleBorders {
@@ -39,19 +33,9 @@ Row {
             textField.forceActiveFocus()
         }
 
-        Text {
+        TextSmall {
             text: valueText
             visible: !textField.visible
-            anchors.fill: parent
-
-            font {
-                family: "Arial"
-                pointSize: 9
-            }
-            color: "white"
-
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
         }
 
         TextField {
@@ -86,18 +70,12 @@ Row {
         }
     }
 
-    Text {
+    TextSmall {
         text: textFieldValidator.bottom + "-" + textFieldValidator.top + " " + unitText
+        anchorParent: false
         height: 30
         width: 150
 
-        font {
-            family: "Arial"
-            pointSize: 9
-        }
-        color: "white"
-
         horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
     }
 }

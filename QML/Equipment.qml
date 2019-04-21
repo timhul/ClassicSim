@@ -145,19 +145,8 @@ Rectangle {
                                 delegate: RectangleBorders {
                                     height: 30
                                     width: parent.width
-                                    Text {
+                                    TextSmall {
                                         text: description
-
-                                        font {
-                                            family: "Arial"
-                                            pointSize: 9
-                                        }
-
-                                        anchors.fill: parent
-
-                                        color: "white"
-                                        horizontalAlignment: Text.AlignHCenter
-                                        verticalAlignment: Text.AlignVCenter
                                     }
                                     onRectangleClicked: {
                                         statFilter.visible = false

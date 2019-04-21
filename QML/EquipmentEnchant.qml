@@ -74,7 +74,7 @@ Rectangle {
         }
     }
 
-    Text {
+    TextSmall {
         id: effectText
         visible: text != ""
 
@@ -82,16 +82,8 @@ Rectangle {
 
         elide: slot === "MAINHAND" ? Text.ElideRight : Text.ElideNone
 
-        font {
-            family: "Arial"
-            pointSize: 9
-        }
-
-        anchors.fill: parent
-
         color: root.qualityUncommon
         horizontalAlignment: orientation === "LEFT" ? Text.AlignRight : Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
     }
 
     MouseArea {
@@ -190,18 +182,8 @@ Rectangle {
                 listView.visible = false
             }
 
-            Text {
-                anchors.fill: parent
+            TextSmall {
                 text: _name
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
     }

@@ -41,21 +41,16 @@ RectangleBorders {
             source: buffIcon
         }
 
-        Text {
+        TextSmall {
             text: buffText
 
-            font {
-                family: "Arial"
-                pointSize: 9
-            }
+            anchorParent: false
 
             width: row.width - icon.width - 20
             height: row.height
 
             wrapMode: Text.WordWrap
-            color: "white"
             horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
         }
     }
 }

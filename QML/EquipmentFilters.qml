@@ -37,18 +37,8 @@ RectangleBorders {
             onRectangleCtrlClicked: equipment.toggleSingleFilter(item_type)
             onRectangleCtrlRightClicked: equipment.toggleSingleFilter(item_type)
 
-            Text {
-                anchors.fill: parent
+            TextSmall {
                 text: desc
-
-                font {
-                    family: "Arial"
-                    pointSize: 9
-                }
-
-                color: "white"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
             }
         }
     }
@@ -64,19 +54,8 @@ RectangleBorders {
             right: parent.right
         }
 
-        Text {
+        TextSmall {
             text: "Add stat filter"
-
-            font {
-                family: "Arial"
-                pointSize: 9
-            }
-
-            anchors.fill: parent
-
-            color: "white"
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
         }
 
         onRectangleClicked: toggleStatFilterSelection()

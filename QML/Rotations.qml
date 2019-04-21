@@ -20,7 +20,8 @@ Rectangle {
 
                 onRectangleClicked: character.selectRotation()
 
-                Text {
+                TextSmall {
+                    anchorParent: false
                     anchors {
                         fill: parent
                         leftMargin: 5
@@ -28,15 +29,6 @@ Rectangle {
                     }
 
                     text: "Select rotation"
-
-                    font {
-                        family: "Arial"
-                        pointSize: 9
-                    }
-
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
                 }
             }
 
@@ -77,7 +69,8 @@ Rectangle {
 
                     onRectangleClicked:  character.selectInformationRotation(_index)
 
-                    Text {
+                    TextSmall {
+                        anchorParent: false
                         anchors {
                             fill: parent
                             leftMargin: 5
@@ -87,15 +80,6 @@ Rectangle {
                         text: _name
 
                         elide: Text.ElideRight
-
-                        font {
-                            family: "Arial"
-                            pointSize: 9
-                        }
-
-                        color: "white"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
                     }
                 }
             }

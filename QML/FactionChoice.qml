@@ -17,20 +17,12 @@ Rectangle {
             height: sideLength
             width: sideLength
 
-            Text {
-                anchors.fill: parent
+            TextSmall {
+                pointSize: 16
 
                 text: "A"
                 color: character.isAlliance ? "blue" :
                                               root.gray
-
-                font {
-                    family: root.fontText
-                    pointSize: 16
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
             }
 
             onRectangleClicked: character.selectFaction(Faction.Alliance)
@@ -42,20 +34,12 @@ Rectangle {
             height: sideLength
             width: sideLength
 
-            Text {
-                anchors.fill: parent
+            TextSmall {
+                pointSize: 16
 
                 text: "H"
                 color: character.isHorde ? "red" :
                                            root.gray
-
-                font {
-                    family: root.fontText
-                    pointSize: 16
-                }
-
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
             }
 
             onRectangleClicked: character.selectFaction(Faction.Horde)

@@ -15,20 +15,12 @@ RectangleBorders {
     Column {
         anchors.fill: parent
 
-        Text {
+        TextSmall {
             text: filterText
-
-            font {
-                family: "Arial"
-                pointSize: 9
-            }
+            anchorParent: false
 
             height: parent.height / 2
             width: parent.width
-
-            color: "white"
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
         }
 
         Row {
@@ -39,19 +31,9 @@ RectangleBorders {
                 height: parent.height
                 width: parent.width / 2
 
-                Text {
+                TextSmall {
                     text: comparator
-
-                    font {
-                        family: "Arial"
-                        pointSize: 13
-                    }
-
-                    anchors.fill: parent
-
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+                    pointSize: 13
                 }
 
                 onRectangleClicked: comparatorListView.visible = true
@@ -72,19 +54,9 @@ RectangleBorders {
                     delegate: RectangleBorders {
                         height: 30
                         width: parent.width
-                        Text {
+                        TextSmall {
                             text: comparatorText
-
-                            font {
-                                family: "Arial"
-                                pointSize: 12
-                            }
-
-                            anchors.fill: parent
-
-                            color: "white"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
+                            pointSize: 12
                         }
                         onRectangleClicked: {
                             comparatorListView.visible = false
@@ -108,19 +80,9 @@ RectangleBorders {
 
                 onRectangleRightClicked: activeStatFilterModel.removeFilter(itemStatFlag)
 
-                Text {
+                TextSmall {
                     text: compareValue
                     visible: !statField.visible
-                    anchors.fill: parent
-
-                    font {
-                        family: "Arial"
-                        pointSize: 9
-                    }
-                    color: "white"
-
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
                 }
 
                 TextField {
