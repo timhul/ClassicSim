@@ -12,8 +12,9 @@ Whirlwind::Whirlwind(Character* pchar) :
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 
+
 bool Whirlwind::is_ready_spell_specific() const {
-    return warr->in_berserker_stance();
+    return warr->in_berserker_stance() && !warr->on_stance_cooldown();
 }
 
 void Whirlwind::spell_effect() {

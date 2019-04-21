@@ -12,6 +12,7 @@ public:
     void set_up(const bool prepare_combat_iterations = true) override;
     void tear_down() override;
 
+    void run_class_specific_tests() override;
     virtual void test_stance_cooldown() = 0;
 
     void given_0_of_2_impale();

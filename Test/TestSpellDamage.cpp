@@ -40,4 +40,10 @@ void TestSpellDamage::run_mandatory_tests(const bool prepare_combat_iterations) 
     tear_down();
 
     has_run_mandatory_tests = true;
+
+    run_class_specific_tests();
+}
+
+void TestSpellDamage::run_class_specific_tests() {
+
 }

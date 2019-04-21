@@ -15,5 +15,6 @@ void Recklessness::spell_effect() {
 }
 
 bool Recklessness::is_ready_spell_specific() const {
-    return dynamic_cast<Warrior*>(pchar)->in_berserker_stance();
+    auto* warr = dynamic_cast<Warrior*>(pchar);
+    return warr->in_berserker_stance() && !warr->on_stance_cooldown();
 }

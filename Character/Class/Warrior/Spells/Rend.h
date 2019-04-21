@@ -3,6 +3,7 @@
 
 #include "Spell.h"
 #include "TalentRequirer.h"
+
 #include <QVector>
 
 class Buff;
@@ -13,7 +14,6 @@ public:
     Rend(Character* pchar);
     ~Rend() override;
 
-protected:
 private:
     Warrior* warr;
     Buff* buff;
@@ -27,13 +27,11 @@ private:
 
     void spell_effect() override;
     void reset_effect() override;
+    bool is_ready_spell_specific() const override;
+    void perform_periodic() override;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
-
-    bool is_ready_spell_specific() const override;
-
-    void perform_periodic() override;
 };
 
 #endif // REND_H

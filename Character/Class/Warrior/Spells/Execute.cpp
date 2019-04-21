@@ -30,7 +30,7 @@ Execute::Execute(Character* pchar) :
 
 
 bool Execute::is_ready_spell_specific() const {
-    if (warr->in_defensive_stance())
+    if (warr->in_defensive_stance() || warr->on_stance_cooldown())
         return false;
 
     int combat_length = warr->get_sim_settings()->get_combat_length();

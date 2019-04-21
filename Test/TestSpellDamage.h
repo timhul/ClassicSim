@@ -12,6 +12,7 @@ public:
     virtual ~TestSpellDamage();
 
     void run_mandatory_tests(const bool prepare_combat_iterations = true);
+    virtual void run_class_specific_tests();
 
     virtual void set_up(const bool prepare_combat_iterations = true) = 0;
     virtual void tear_down() = 0;

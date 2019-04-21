@@ -80,12 +80,14 @@ void TestDeathWish::test_is_ready_conditions() {
 void TestDeathWish::test_stance_cooldown() {
     given_death_wish_is_enabled();
     given_warrior_in_berserker_stance();
+    given_warrior_has_rage(100);
     assert(death_wish()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_battle_stance();
     when_switching_to_berserker_stance();
+    given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(death_wish()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(death_wish()->get_spell_status() == SpellStatus::OnGCD);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);

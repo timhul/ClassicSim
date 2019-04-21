@@ -94,5 +94,5 @@ void Rend::decrease_talent_rank_effect(const QString&, const int curr) {
 }
 
 bool Rend::is_ready_spell_specific() const {
-    return !warr->in_berserker_stance();
+    return !warr->in_berserker_stance() && !warr->on_stance_cooldown();
 }

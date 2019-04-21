@@ -15,7 +15,7 @@ Overpower::Overpower(Character* pchar) :
 }
 
 bool Overpower::is_ready_spell_specific() const {
-    return warr->in_battle_stance() && warr->get_overpower_buff()->is_active();
+    return warr->in_battle_stance() && warr->get_overpower_buff()->is_active() && !warr->on_stance_cooldown();
 }
 
 void Overpower::spell_effect() {

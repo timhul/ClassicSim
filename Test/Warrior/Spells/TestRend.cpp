@@ -113,11 +113,22 @@ void TestRend::test_is_ready_conditions() {
 }
 
 void TestRend::test_stance_cooldown() {
-    when_switching_to_defensive_stance();
+    given_warrior_in_defensive_stance();
+    given_warrior_has_rage(100);
+    assert(rend()->get_spell_status() == SpellStatus::Available);
 
+    when_switching_to_battle_stance();
+    given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
+    assert(rend()->get_spell_status() == SpellStatus::OnGCD);
 
+    given_engine_priority_pushed_forward(0.99);
+    assert(warrior->on_stance_cooldown() == true);
     assert(rend()->get_spell_status() == SpellStatus::SpellSpecific);
+
+    given_engine_priority_pushed_forward(0.02);
+    assert(warrior->on_stance_cooldown() == false);
+    assert(rend()->get_spell_status() == SpellStatus::Available);
 }
 
 void TestRend::test_damage_of_0_of_3_improved_rend() {

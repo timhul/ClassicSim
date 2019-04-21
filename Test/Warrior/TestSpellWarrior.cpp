@@ -35,6 +35,12 @@ void TestSpellWarrior::tear_down() {
     delete warrior;
 }
 
+void TestSpellWarrior::run_class_specific_tests() {
+    set_up();
+    test_stance_cooldown();
+    tear_down();
+}
+
 void TestSpellWarrior::given_0_of_2_impale() {
     assert(QString::number(warrior->get_stats()->get_melee_ability_crit_dmg_mod(), 'f', 3) == "2.000");
 }

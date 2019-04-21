@@ -127,7 +127,7 @@ void TestSlam::test_stance_cooldown() {
     when_switching_to_berserker_stance();
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(slam()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(slam()->get_spell_status() == SpellStatus::OnGCD);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);

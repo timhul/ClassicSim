@@ -88,13 +88,14 @@ void TestMortalStrike::test_resource_cost() {
 }
 
 void TestMortalStrike::test_stance_cooldown() {
+    mortal_strike()->enable();
     given_warrior_has_rage(100);
     assert(mortal_strike()->get_spell_status() == SpellStatus::Available);
 
     when_switching_to_berserker_stance();
     given_warrior_has_rage(100);
     assert(warrior->on_stance_cooldown() == true);
-    assert(mortal_strike()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(mortal_strike()->get_spell_status() == SpellStatus::OnGCD);
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
