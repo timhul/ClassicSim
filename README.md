@@ -40,12 +40,14 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-* Conditions for rotational choices are now displayed in the GUI.
+* Conditions for rotational choices are now displayed in the GUI under Rotations.
+* Rotation and internal engine statistics now displayed in the GUI under Statistics.
 * Enchants are now stored between gear setup changes and sessions.
 * Vaelastrasz ruleset properly yields resource gains again.
 * Resource gains now displayed by gain per 5s instead of total gain.
 
-Restrictions:
+## Restrictions:
+
 * If scrolling down to the bottom of a rotation and selecting another then the new rotation is not displayed properly. Fixed by re-selecting the rotation.
 
 # Release notes
