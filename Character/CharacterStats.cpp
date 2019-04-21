@@ -267,6 +267,10 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_mp5(value);
     case ItemStats::SpellDamage:
         return increase_spell_damage(value);
+    case ItemStats::SpellCrit:
+        return increase_spell_crit(value);
+    case ItemStats::SpellHit:
+        return increase_spell_hit(value);
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
@@ -277,6 +281,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::ResistanceHoly:
     case ItemStats::ResistanceNature:
     case ItemStats::ResistanceShadow:
+    case ItemStats::ResistanceAll:
     case ItemStats::SkillAxe:
     case ItemStats::SkillDagger:
     case ItemStats::SkillMace:
@@ -327,6 +332,10 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_mp5(value);
     case ItemStats::SpellDamage:
         return decrease_spell_damage(value);
+    case ItemStats::SpellCrit:
+        return decrease_spell_crit(value);
+    case ItemStats::SpellHit:
+        return decrease_spell_hit(value);
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
@@ -337,6 +346,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::ResistanceHoly:
     case ItemStats::ResistanceNature:
     case ItemStats::ResistanceShadow:
+    case ItemStats::ResistanceAll:
     case ItemStats::SkillAxe:
     case ItemStats::SkillDagger:
     case ItemStats::SkillMace:

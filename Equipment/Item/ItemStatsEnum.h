@@ -17,6 +17,7 @@ enum class ItemStats {
     ResistanceHoly,
     ResistanceNature,
     ResistanceShadow,
+    ResistanceAll,
     SkillAxe,
     SkillDagger,
     SkillMace,
@@ -40,6 +41,8 @@ enum class ItemStats {
     RangedAttackPower,
     ManaPer5,
     SpellDamage,
+    SpellCrit,
+    SpellHit,
 };
 
 #endif // ITEMSTATS_H

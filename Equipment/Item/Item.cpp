@@ -597,6 +597,22 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage and healing done by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamage, value.toUInt());
     }
+    else if (key == "SPELL_CRIT_CHANCE") {
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->stats->increase_spell_crit(attack_table_value);
+        QString number = QString::number(display_value);
+        equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike with spells by %1%.").arg(number));
+        this->item_stat_values.insert(ItemStats::SpellCrit, display_value);
+    }
+    else if (key == "SPELL_HIT_CHANCE") {
+        const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
+        const unsigned attack_table_value = display_value * 100;
+        this->stats->increase_spell_hit(attack_table_value);
+        QString number = QString::number(display_value);
+        equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit with spells by %1%.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellHit, display_value);
+    }
     else if (key == "ARMOR") {
         this->stats->increase_armor(value.toInt());
         base_tooltip_stats.append(QString("%1 Armor").arg(value));
@@ -618,6 +634,16 @@ void Item::set_stat(const QString& key, const QString &value) {
         QString number = QString::number(value.toDouble() * 100);
         equip_effects_tooltip_stats.append(QString("Equip: Increases your chance to parry an attack by %1%.").arg(number));
         this->item_stat_values.insert(ItemStats::ParryChance, static_cast<unsigned>(value.toDouble() * 100));
+    }
+    else if (key == "ALL_RESISTANCE") {
+        this->stats->increase_arcane_resistance(value.toInt());
+        this->stats->increase_fire_resistance(value.toInt());
+        this->stats->increase_frost_resistance(value.toInt());
+        this->stats->increase_holy_resistance(value.toInt());
+        this->stats->increase_nature_resistance(value.toInt());
+        this->stats->increase_shadow_resistance(value.toInt());
+        equip_effects_tooltip_stats.append(QString("+%1 All Resistances.").arg(value));
+        this->item_stat_values.insert(ItemStats::ResistanceAll, value.toUInt());
     }
     else if (key == "ARCANE_RESISTANCE") {
         this->stats->increase_arcane_resistance(value.toInt());

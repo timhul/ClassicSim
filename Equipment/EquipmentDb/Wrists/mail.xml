@@ -113,6 +113,53 @@
 		</patch>
 	</item>
 
+	<wrist id="18812">
+		<patch name="1.4.0">
+			<info name="Wristguards of True Flight" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+			<stats>
+				<stat type="ARMOR" value="198"/>
+				<stat type="AGILITY" value="19"/>
+				<stat type="STAMINA" value="11"/>
+				<stat type="INTELLECT" value="6"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Majordomo Executus in Molten Core.
+			</source>
+		</patch>
+	</wrist>
+
+	<wrist id="19582">
+		<patch name="1.6.0">
+			<info name="Windtalker's Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_03.png"/>
+			<stats>
+				<stat type="ARMOR" value="182"/>
+				<stat type="INTELLECT" value="8"/>
+				<stat type="SPIRIT" value="7"/>
+				<stat type="STAMINA" value="8"/>
+				<stat type="ATTACK_POWER" value="38"/>
+			</stats>
+			<source>
+			Sold by Warsong Gulch quartermasters. Requires Exalted with Warsong Gulch faction.
+			</source>
+		</patch>
+	</wrist>
+
+	<wrist id="21502">
+		<patch name="1.9.0">
+			<info name="Sand Reaver Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_bracer_19.png"/>
+			<stats>
+				<stat type="ARMOR" value="181"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STAMINA" value="11"/>
+				<stat type="INTELLECT" value="7"/>
+			</stats>
+			<source>
+			Drops from Kurinaxx in Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</wrist>
+
 	<item id="22443">
 		<patch name="1.11.0">
 			<info name="Crypstalker Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>

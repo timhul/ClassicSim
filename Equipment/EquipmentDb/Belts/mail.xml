@@ -86,6 +86,44 @@
 		</patch>
 	</item>
 
+	<item id="19380">
+		<patch name="1.6.0">
+			<info name="Therazane's Link" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
+			<stats>
+				<stat type="ARMOR" value="295"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="SPIRIT" value="12"/>
+				<stat type="STAMINA" value="22"/>
+				<stat type="ATTACK_POWER" value="44"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Nefarian in Blackwing Lair.
+			</source>
+			<flavour_text>
+			"The metal is warm to the touch. The links connecting the belt together appear to be fashioned
+			out of Elementium."
+			</flavour_text>
+		</patch>
+	</item>
+
+	<item id="21463">
+		<patch name="1.9.0">
+			<info name="Ossirian's Binding" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
+			<stats>
+				<stat type="ARMOR" value="258"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STAMINA" value="19"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</item>
+
 	<item id="22207">
 		<patch name="1.10.0">
 			<info name="Sash of the Grand Hunt" type="MAIL" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
@@ -100,6 +138,21 @@
 			</stats>
 			<source>
 			Drops from Emperor Dagran Thaurissian in Blackrock Depths.
+			</source>
+		</patch>
+	</item>
+
+	<item id="22195">
+		<patch name="1.10.0">
+			<info name="Light Obsidian Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_belt_16.png"/>
+			<stats>
+				<stat type="ARMOR" value="224"/>
+				<stat type="ATTACK_POWER" value="32"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ALL_RESISTANCE" value="5"/>
+			</stats>
+			<source>
+			Crafted by Blacksmiths (300 skill). Pattern requires Honored with Cenarion Circle.
 			</source>
 		</patch>
 	</item>

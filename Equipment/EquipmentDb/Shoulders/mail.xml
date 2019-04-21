@@ -68,6 +68,22 @@
 		</patch>
 	</item>
 
+	<item id="19373">
+		<patch name="1.6.0">
+			<info name="Black Brood Pauldrons" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
+			<stats>
+				<stat type="ARMOR" value="357"/>
+				<stat type="AGILITY" value="17"/>
+				<stat type="INTELLECT" value="15"/>
+				<stat type="STAMINA" value="12"/>
+				<stat type="MANA_PER_5" value="9"/>
+			</stats>
+			<source>
+			Drops from Broodlord Lashlayer in Blackwing Lair.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19691">
 		<patch name="1.7.0">
 			<info name="Bloodsoul Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_shoulder_15.png"/>
@@ -78,6 +94,20 @@
 			</stats>
 			<source>
 			Crafted by Blacksmiths (300 skill). Pattern requires Honored with Zandalar Tribe.
+			</source>
+		</patch>
+	</item>
+
+	<item id="21699">
+		<patch name="1.9.0">
+			<info name="Barrage Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
+			<stats>
+				<stat type="ARMOR" value="348"/>
+				<stat type="AGILITY" value="29"/>
+				<stat type="STAMINA" value="22"/>
+			</stats>
+			<source>
+			Drops from The Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
 	</item>

@@ -77,6 +77,25 @@
 		</patch>
 	</item>
 
+	<item id="19157">
+		<patch name="1.6.0">
+			<info name="Chromatic Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_22.png"/>
+			<stats>
+				<stat type="ARMOR" value="279"/>
+				<stat type="FIRE_RESISTANCE" value="5"/>
+				<stat type="NATURE_RESISTANCE" value="5"/>
+				<stat type="FROST_RESISTANCE" value="5"/>
+				<stat type="SHADOW_RESISTANCE" value="5"/>
+				<stat type="ATTACK_POWER" value="44"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Crafted by Leatherworking (300 Dragonscale skill). Pattern requires Revered with Thorium Brotherhood.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16940">
 		<patch name="1.6.0">
 			<info name="Dragonstalker's Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
@@ -107,6 +126,53 @@
 			</stats>
 			<source>
 			Crafted by Blacksmiths (300 skill). Pattern requires Friendly with Zandalar Tribe.
+			</source>
+		</patch>
+	</item>
+
+	<item id="22715">
+		<patch name="1.7.0">
+			<info name="Gloves of the Tormented" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_gauntlets_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="249"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="AGILITY" value="19"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from High Priest and Priestess bosses in Zul'Gurub.
+			</source>
+		</patch>
+	</item>
+
+	<item id="21480">
+		<patch name="1.9.0">
+			<info name="Scaled Silithid Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_gauntlets_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="266"/>
+				<stat type="AGILITY" value="18"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="INTELLECT" value="8"/>
+				<stat type="SPIRIT" value="7"/>
+			</stats>
+			<source>
+			Drops from Ayamiss the Hunter in Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</item>
+
+	<item id="21599">
+		<patch name="1.9.0">
+			<info name="Vek'lor's Gloves of Devastation" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>
+			<stats>
+				<stat type="ARMOR" value="320"/>
+				<stat type="AGILITY" value="22"/>
+				<stat type="STAMINA" value="21"/>
+				<stat type="INTELLECT" value="17"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
 			</source>
 		</patch>
 	</item>

@@ -42,6 +42,21 @@
 		</patch>
 	</item>
 
+	<item id="19144">
+		<patch name="1.5.0">
+			<info name="Sabatons of the Flamewalker" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>
+			<stats>
+				<stat type="ARMOR" value="298"/>
+				<stat type="STAMINA" value="27"/>
+				<stat type="INTELLECT" value="11"/>
+				<stat type="ATTACK_POWER" value="30"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Molten Core.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16849">
 		<patch name="1.0.0">
 			<info name="Giantstalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
@@ -89,6 +104,52 @@
 			</stats>
 			<source>
 			Drops from Broodlord Lashlayer in Blackwing Lair.
+			</source>
+		</patch>
+	</item>
+
+	<item id="19919">
+		<patch name="1.7.0">
+			<info name="Bloodstained Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_boots_chain_04.png"/>
+			<stats>
+				<stat type="ARMOR" value="274"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="STAMINA" value="10"/>
+			</stats>
+			<source>
+			Drops from High Priestess Mar'li in Zul'Gurub.
+			</source>
+		</patch>
+	</item>
+
+	<item id="21497">
+		<patch name="1.9.0">
+			<info name="Boots of the Qiraji General" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_boots_chain_11.png"/>
+			<stats>
+				<stat type="ARMOR" value="285"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="11"/>
+			</stats>
+			<source>
+			Drops from General Rajaxx in Ruins of Ahn'Qiraj (AQ20).
+			</source>
+		</patch>
+	</item>
+
+	<item id="14616">
+		<patch name="1.10.0">
+			<info name="Bloodmail Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="247"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="STRENGTH" value="9"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
 			</source>
 		</patch>
 	</item>
