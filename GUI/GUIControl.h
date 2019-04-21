@@ -31,6 +31,8 @@ class NumberCruncher;
 class ProcBreakdownModel;
 class Race;
 class ResourceBreakdownModel;
+class RotationExecutorBreakdownModel;
+class RotationExecutorListModel;
 class RotationModel;
 class ScaleResult;
 class ScaleResultModel;
@@ -209,6 +211,8 @@ public:
     MeleeDamageAvoidanceBreakdownModel* get_dmg_breakdown_avoidance_model() const;
     ProcBreakdownModel* get_proc_breakdown_model() const;
     ResourceBreakdownModel* get_resource_breakdown_model() const;
+    RotationExecutorBreakdownModel* get_rotation_executor_model() const;
+    RotationExecutorListModel* get_rotation_executor_list_model() const;
     ScaleResultModel* get_scale_result_model() const;
     Q_SLOT void compile_thread_results();
     Q_PROPERTY(QString minDps READ get_min_dps NOTIFY statisticsReady)
@@ -394,6 +398,7 @@ private:
     MeleeDamageAvoidanceBreakdownModel* damage_avoidance_breakdown_model;
     ProcBreakdownModel* proc_breakdown_model;
     ResourceBreakdownModel* resource_breakdown_model;
+    RotationExecutorListModel* rotation_executor_list_model;
     SimScaleModel* sim_scale_model;
     ScaleResultModel* scale_result_model;
     ScaleResult* dps_distribution;

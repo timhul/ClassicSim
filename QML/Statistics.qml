@@ -107,6 +107,22 @@ Rectangle {
         RectangleBorders {
             height: 30
             width: 150
+            property string activeState: "ROTATION_BREAKDOWN"
+
+            TextSmall {
+                text: "Rotation Breakdown"
+                color: statisticsRect.state === parent.activeState ? "black" : "white"
+            }
+
+            onRectangleClicked: statisticsRect.state = activeState
+            onRectangleRightClicked: statisticsRect.state = activeState
+
+            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+        }
+
+        RectangleBorders {
+            height: 30
+            width: 150
             property string activeState: "ENGINE_BREAKDOWN"
 
             TextSmall {
@@ -538,6 +554,93 @@ Rectangle {
                 mp5: _mp5
                 rp5: _rp5
                 ep5: _ep5
+            }
+        }
+    }
+
+    ScrollView {
+        id: rotationScrollView
+        anchors {
+            top: changeStatistics.bottom
+            left: parent.left
+            leftMargin: 30
+            bottom: parent.bottom
+        }
+        width: 200
+
+        clip: true
+
+        visible: parent.state === "ROTATION_BREAKDOWN"
+
+        StatisticsHeader {
+            id: headerRotation
+            title: "Rotation information"
+        }
+
+        ListView {
+            id: rotationList
+            anchors {
+                top: headerRotation.bottom
+                topMargin: 10
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: rotationExecutorListModel
+            delegate: StatisticsEntryExecutorList {
+                name: _name
+                selected: _selected
+                index: _index
+            }
+        }
+    }
+
+    ScrollView {
+        anchors {
+            top: changeStatistics.bottom
+            left: rotationScrollView.right
+            leftMargin: 30
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        clip: true
+
+        visible: parent.state === "ROTATION_BREAKDOWN"
+
+        StatisticsHeader {
+            id: headerRotationExecutor
+            title: "Executor Breakdown"
+        }
+
+        StatisticsExecutorBreakdownSorting {
+            id: executorBreakdownSorting
+            anchors.top: headerRotationExecutor.bottom
+            anchors.topMargin: 10
+        }
+
+        ListView {
+            id: rotationExecutorTable
+            anchors {
+                top: executorBreakdownSorting.bottom
+                topMargin: 10
+                left: parent.left
+                right: parent.right
+            }
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            implicitHeight: contentHeight
+
+            model: rotationExecutorBreakdownModel
+            delegate: StatisticsEntryExecutorBreakdown {
+                executor: _executor
+                spellstatus: _spellstatus
+                value: _value
             }
         }
     }

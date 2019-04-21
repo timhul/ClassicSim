@@ -346,7 +346,10 @@ SOURCES += main.cpp \
     Character/Class/Hunter/HunterPet.cpp \
     GUI/Models/RotationConditionsModel.cpp \
     Statistics/StatisticsEngine.cpp \
-    GUI/Models/Statistics/EngineBreakdownModel.cpp
+    GUI/Models/Statistics/EngineBreakdownModel.cpp \
+    Statistics/StatisticsRotationExecutor.cpp \
+    GUI/Models/Statistics/RotationExecutorBreakdownModel.cpp \
+    GUI/Models/Statistics/RotationExecutorListModel.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -698,7 +701,10 @@ HEADERS += \
     Character/Class/Hunter/HunterPet.h \
     GUI/Models/RotationConditionsModel.h \
     Statistics/StatisticsEngine.h \
-    GUI/Models/Statistics/EngineBreakdownModel.h
+    GUI/Models/Statistics/EngineBreakdownModel.h \
+    Statistics/StatisticsRotationExecutor.h \
+    GUI/Models/Statistics/RotationExecutorBreakdownModel.h \
+    GUI/Models/Statistics/RotationExecutorListModel.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \

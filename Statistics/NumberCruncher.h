@@ -11,8 +11,9 @@
 class BuffBreakdownModel;
 class ClassStatistics;
 class DebuffBreakdownModel;
-class MeleeDamageBreakdownModel;
+class ExecutorOutcome;
 class MeleeDamageAvoidanceBreakdownModel;
+class MeleeDamageBreakdownModel;
 class ProcBreakdownModel;
 class ResourceBreakdownModel;
 class ScaleResult;
@@ -21,6 +22,7 @@ class StatisticsBuff;
 class StatisticsEngine;
 class StatisticsProc;
 class StatisticsResource;
+class StatisticsRotationExecutor;
 class StatisticsSpell;
 
 QString get_name_for_option(const SimOption::Name option);
@@ -40,11 +42,13 @@ private:
     friend class BuffBreakdownModel;
     friend class DebuffBreakdownModel;
     friend class EngineBreakdownModel;
-    friend class MeleeDamageBreakdownModel;
     friend class MeleeDamageAvoidanceBreakdownModel;
+    friend class MeleeDamageBreakdownModel;
     friend class ProcBreakdownModel;
-    friend class ScaleResultModel;
     friend class ResourceBreakdownModel;
+    friend class RotationExecutorBreakdownModel;
+    friend class RotationExecutorListModel;
+    friend class ScaleResultModel;
     int time_in_combat {0};
 
     QMutex mutex;
@@ -67,6 +71,7 @@ private:
     void merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec);
 
     void merge_engine_stats(StatisticsEngine* statistics_engine);
+    void merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>> &list);
 
     double get_standard_deviation_for_option(SimOption::Name) const;
     double get_confidence_interval_for_option(SimOption::Name, const double) const;

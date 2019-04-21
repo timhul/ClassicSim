@@ -9,11 +9,12 @@
 #include "SimSettings.h"
 
 class NumberCruncher;
-class StatisticsSpell;
 class StatisticsBuff;
 class StatisticsEngine;
-class StatisticsResource;
 class StatisticsProc;
+class StatisticsResource;
+class StatisticsRotationExecutor;
+class StatisticsSpell;
 
 class ClassStatistics {
 public:
@@ -24,6 +25,7 @@ public:
     StatisticsBuff* get_buff_statistics(const QString& name, const QString &icon, const bool debuff);
     StatisticsResource* get_resource_statistics(const QString& name, const QString& icon);
     StatisticsProc* get_proc_statistics(const QString& name, const QString &icon);
+    StatisticsRotationExecutor* get_executor_statistics(const QString& name);
     StatisticsEngine* get_engine_statistics();
     int get_total_damage_dealt() const;
     double get_total_dps() const;
@@ -52,10 +54,11 @@ private:
     QMap<QString, StatisticsBuff*> buff_statistics;
     QMap<QString, StatisticsResource*> resource_statistics;
     QMap<QString, StatisticsProc*> proc_statistics;
+    QList<StatisticsRotationExecutor*> rotation_executor_statistics;
 
     QVector<double> dps_for_iterations;
 
-    void delete_maps();
+    void delete_objects();
 };
 
 #endif // CLASSSTATISTICS_H

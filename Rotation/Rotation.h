@@ -20,6 +20,8 @@ public:
 
     void run_precombat_actions();
     void perform_rotation() const;
+    void prepare_set_of_combat_iterations();
+    void finish_set_of_combat_iterations();
 
     void set_name(const QString& name);
     void set_description(const QString& desc);

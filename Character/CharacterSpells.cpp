@@ -283,4 +283,7 @@ void CharacterSpells::prepare_set_of_combat_iterations() {
 
     for (auto & spell : spells)
         spell->prepare_set_of_combat_iterations();
+
+    if (rotation)
+        rotation->prepare_set_of_combat_iterations();
 }

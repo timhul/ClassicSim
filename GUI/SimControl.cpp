@@ -43,9 +43,9 @@ void SimControl::run_sim(Character* pchar, const int combat_length, const int it
     pchar->get_combat_roll()->drop_tables();
     pchar->prepare_set_of_combat_iterations();
 
-    for (int i = 0; i < iterations; ++i) {
-        Rotation* rotation = pchar->get_spells()->get_rotation();
+    Rotation* rotation = pchar->get_spells()->get_rotation();
 
+    for (int i = 0; i < iterations; ++i) {
         pchar->get_engine()->prepare_iteration(-rotation->get_time_required_to_run_precombat());
         rotation->run_precombat_actions();
         if (rotation->precast_spell != nullptr && rotation->precast_spell->is_enabled())
@@ -57,6 +57,7 @@ void SimControl::run_sim(Character* pchar, const int combat_length, const int it
         pchar->get_statistics()->finish_combat_iteration();
     }
 
+    rotation->finish_set_of_combat_iterations();
     pchar->get_engine()->reset();
 }
 

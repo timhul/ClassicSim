@@ -4,6 +4,7 @@
 #include "StatisticsEngine.h"
 #include "StatisticsProc.h"
 #include "StatisticsResource.h"
+#include "StatisticsRotationExecutor.h"
 #include "StatisticsSpell.h"
 #include "Utils/Check.h"
 
@@ -16,9 +17,7 @@ ClassStatistics::ClassStatistics(SimSettings* sim_settings) :
 {}
 
 ClassStatistics::~ClassStatistics() {
-    delete_maps();
-
-    delete engine_statistics;
+    delete_objects();
 }
 
 void ClassStatistics::set_sim_option(const SimOption::Name option) {
@@ -55,6 +54,13 @@ StatisticsProc* ClassStatistics::get_proc_statistics(const QString& name, const 
 
     proc_statistics[name] = new StatisticsProc(name, icon);
     return proc_statistics[name];
+}
+
+StatisticsRotationExecutor* ClassStatistics::get_executor_statistics(const QString& name) {
+    auto executor_statistics = new StatisticsRotationExecutor(QString("(%1) %2").arg(rotation_executor_statistics.size() + 1).arg(name));
+    rotation_executor_statistics.append(executor_statistics);
+
+    return executor_statistics;
 }
 
 StatisticsEngine* ClassStatistics::get_engine_statistics() {
@@ -99,21 +105,21 @@ int ClassStatistics::get_total_attempts_for_spell(const QString& name) const {
 }
 
 void ClassStatistics::prepare_statistics() {
-    delete engine_statistics;
-    engine_statistics = new StatisticsEngine();
-
-    delete_maps();
+    delete_objects();
 
     spell_statistics.clear();
     buff_statistics.clear();
     resource_statistics.clear();
     proc_statistics.clear();
+    rotation_executor_statistics.clear();
+
+    engine_statistics = new StatisticsEngine();
 
     combat_iterations = sim_settings->get_combat_iterations_full_sim();
     combat_length = sim_settings->get_combat_length();
 }
 
-void ClassStatistics::delete_maps() {
+void ClassStatistics::delete_objects() {
     for (auto & i: spell_statistics)
         delete i;
 
@@ -125,4 +131,9 @@ void ClassStatistics::delete_maps() {
 
     for (auto & i : proc_statistics)
         delete i;
+
+    for (auto & i: rotation_executor_statistics)
+        delete i;
+
+    delete engine_statistics;
 }

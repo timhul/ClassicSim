@@ -5,12 +5,20 @@
 
 #include "Condition.h"
 #include "Spell.h"
+#include "StatisticsRotationExecutor.h"
 #include "Utils/Check.h"
 
 RotationExecutor::RotationExecutor(QString name) :
-    spell_name(std::move(name)),
-    spell(nullptr)
-{}
+    spell_name(std::move(name))
+{
+    spell_status_statistics.insert(SpellStatus::Available, 0);
+    spell_status_statistics.insert(SpellStatus::NotEnabled, 0);
+    spell_status_statistics.insert(SpellStatus::OnGCD, 0);
+    spell_status_statistics.insert(SpellStatus::OnCooldown, 0);
+    spell_status_statistics.insert(SpellStatus::CastInProgress, 0);
+    spell_status_statistics.insert(SpellStatus::SpellSpecific, 0);
+    spell_status_statistics.insert(SpellStatus::InsufficientResources, 0);
+}
 
 RotationExecutor::~RotationExecutor() {
     for (auto & condition_group : condition_groups) {
@@ -28,20 +36,27 @@ RotationExecutor::~RotationExecutor() {
 }
 
 void RotationExecutor::attempt_cast() {
-    if (spell->get_spell_status() != SpellStatus::Available)
+    SpellStatus spell_status = spell->get_spell_status();
+
+    if (spell_status != SpellStatus::Available) {
+        ++spell_status_statistics[spell_status];
         return;
+    }
 
     if (condition_groups.empty()) {
+        ++successful_casts;
         spell->perform();
         return;
     }
 
     for (int i = 0; i < condition_groups.size(); ++i) {
         if (condition_group_fulfilled(i)) {
+            ++successful_casts;
             spell->perform();
             return;
         }
     }
+    ++no_condition_group_fulfilled;
 }
 
 bool RotationExecutor::condition_group_fulfilled(const int index) const {
@@ -80,6 +95,24 @@ void RotationExecutor::set_spell(Spell* spell) {
         check((spell_name == spell->get_name()), "Mismatched spell name when setting spell");
 
     this->spell = spell;
+}
+
+void RotationExecutor::prepare_set_of_combat_iterations(StatisticsRotationExecutor* rotation_statistics) {
+    check((this->rotation_statistics == nullptr), "Rotation statistics is not nullptr");
+    this->rotation_statistics = rotation_statistics;
+    no_condition_group_fulfilled = 0;
+    successful_casts = 0;
+
+    for (auto & status : spell_status_statistics)
+        status = 0;
+}
+
+void RotationExecutor::finish_set_of_combat_iterations() {
+    check((rotation_statistics != nullptr), "Rotation statistics nullptr");
+    rotation_statistics->add_successful_casts(successful_casts);
+    rotation_statistics->add_no_condition_group_fulfilled(no_condition_group_fulfilled);
+    rotation_statistics->add_spell_status_map(spell_status_statistics);
+    rotation_statistics = nullptr;
 }
 
 void RotationExecutor::add_sentence(Sentence* sentence) {

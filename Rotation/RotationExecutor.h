@@ -8,6 +8,8 @@
 class Condition;
 class Sentence;
 class Spell;
+class StatisticsRotationExecutor;
+enum class SpellStatus: int;
 
 class RotationExecutor {
 public:
@@ -28,18 +30,23 @@ public:
     Spell* get_spell() const;
     void set_spell(Spell*);
 
+    void prepare_set_of_combat_iterations(StatisticsRotationExecutor* rotation_statistics);
+    void finish_set_of_combat_iterations();
+
     void dump();
 
     QVector<Sentence*> sentences;
     QVector<QVector<Condition*>> condition_groups;
 
 private:
-    QString spell_name;
+    Spell* spell {nullptr};
+    StatisticsRotationExecutor* rotation_statistics {nullptr};
+    const QString spell_name;
 
+    unsigned successful_casts {0};
+    unsigned no_condition_group_fulfilled {0};
+    QMap<SpellStatus, unsigned> spell_status_statistics;
     QMap<QString, QString> variable_assignments;
-    Spell* spell;
-
-    std::function<bool()> spell_available;
 
     bool condition_group_fulfilled(const int index) const;
 };

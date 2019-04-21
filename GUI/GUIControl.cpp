@@ -52,6 +52,8 @@
 #include "ResourceBreakdownModel.h"
 #include "Rogue.h"
 #include "Rotation.h"
+#include "RotationExecutorBreakdownModel.h"
+#include "RotationExecutorListModel.h"
 #include "RotationFileReader.h"
 #include "RotationModel.h"
 #include "Rulesets.h"
@@ -120,6 +122,7 @@ GUIControl::GUIControl(QObject* parent) :
     engine_breakdown_model = new EngineBreakdownModel(number_cruncher);
     proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
     resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
+    rotation_executor_list_model = new RotationExecutorListModel(number_cruncher);
     scale_result_model = new ScaleResultModel(number_cruncher);
 
     races.insert("Dwarf", new Dwarf());
@@ -174,6 +177,7 @@ GUIControl::~GUIControl() {
     delete engine_breakdown_model;
     delete proc_breakdown_model;
     delete resource_breakdown_model;
+    delete rotation_executor_list_model;
     delete scale_result_model;
     delete mh_enchants;
     delete mh_temporary_enchants;
@@ -686,6 +690,14 @@ ResourceBreakdownModel* GUIControl::get_resource_breakdown_model() const {
     return this->resource_breakdown_model;
 }
 
+RotationExecutorBreakdownModel* GUIControl::get_rotation_executor_model() const {
+    return this->rotation_executor_list_model->executor_breakdown_model;
+}
+
+RotationExecutorListModel* GUIControl::get_rotation_executor_list_model() const {
+    return this->rotation_executor_list_model;
+}
+
 ScaleResultModel* GUIControl::get_scale_result_model() const {
     return this->scale_result_model;
 }
@@ -780,6 +792,7 @@ void GUIControl::compile_thread_results() {
     engine_breakdown_model->update_statistics();
     proc_breakdown_model->update_statistics();
     resource_breakdown_model->update_statistics();
+    rotation_executor_list_model->update_statistics();
     last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
     update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::Name::NoScale));
     dps_distribution = number_cruncher->get_dps_distribution();

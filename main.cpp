@@ -22,6 +22,8 @@
 #include "ProcBreakdownModel.h"
 #include "ResourceBreakdownModel.h"
 #include "RotationConditionsModel.h"
+#include "RotationExecutorBreakdownModel.h"
+#include "RotationExecutorListModel.h"
 #include "RotationModel.h"
 #include "ScaleResultModel.h"
 #include "SimOption.h"
@@ -63,6 +65,8 @@ int main(int argc, char *argv[])
     context->setContextProperty("meleeAvoidanceBreakdownModel", gui_control->get_dmg_breakdown_avoidance_model());
     context->setContextProperty("procBreakdownModel", gui_control->get_proc_breakdown_model());
     context->setContextProperty("resourceBreakdownModel", gui_control->get_resource_breakdown_model());
+    context->setContextProperty("rotationExecutorBreakdownModel", gui_control->get_rotation_executor_model());
+    context->setContextProperty("rotationExecutorListModel", gui_control->get_rotation_executor_list_model());
     context->setContextProperty("simScaleModel", gui_control->get_sim_scale_model());
     context->setContextProperty("scaleResultModel", gui_control->get_scale_result_model());
     context->setContextProperty("mhEnchantModel", gui_control->get_mh_enchant_model());
@@ -92,6 +96,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ScaleResultSorting>("ScaleResultSorting", 1, 0, "ScaleResultSorting");
     qmlRegisterType<SimOption>("SimOption", 1, 0, "SimOption");
     qmlRegisterType<WeaponSorting>("WeaponSort", 1, 0, "WeaponSort");
+    qmlRegisterType<RotationExecutorBreakdownSorting>("RotationExecutorBreakdownSorting", 1, 0, "RotationExecutorBreakdownSorting");
 
     qml_engine.clearComponentCache();
     qml_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));

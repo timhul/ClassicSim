@@ -525,5 +525,8 @@
         <file>QML/Assets/ability/Ability_warrior_offensivestance.png</file>
         <file>QML/StatisticsEngineBreakdownSorting.qml</file>
         <file>QML/StatisticsEntryEngineBreakdown.qml</file>
+        <file>QML/StatisticsEntryExecutorList.qml</file>
+        <file>QML/StatisticsEntryExecutorBreakdown.qml</file>
+        <file>QML/StatisticsExecutorBreakdownSorting.qml</file>
     </qresource>
 </RCC>

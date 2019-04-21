@@ -5,6 +5,7 @@
 #include "StatisticsEngine.h"
 #include "StatisticsProc.h"
 #include "StatisticsResource.h"
+#include "StatisticsRotationExecutor.h"
 #include "StatisticsSpell.h"
 #include "Utils/Check.h"
 
@@ -178,6 +179,24 @@ void NumberCruncher::merge_resource_entry(const QString& name, const QString &ic
 void NumberCruncher::merge_engine_stats(StatisticsEngine* statistics_engine) {
     for (auto & cstats : class_stats[SimOption::Name::NoScale])
         statistics_engine->add(cstats->get_engine_statistics());
+}
+
+void NumberCruncher::merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>>& list) {
+    if (class_stats[SimOption::Name::NoScale].empty())
+        return;
+
+    QList<StatisticsRotationExecutor*> merge_base = class_stats[SimOption::Name::NoScale][0]->rotation_executor_statistics;
+
+    for (int i = 1; i < class_stats[SimOption::Name::NoScale].size(); ++i) {
+        check((merge_base.size() == class_stats[SimOption::Name::NoScale][i]->rotation_executor_statistics.size()),
+                "Mismatch ClassStatistics rotation executor size");
+
+        for (int j = 0; j < class_stats[SimOption::Name::NoScale][i]->rotation_executor_statistics.size(); ++j)
+            merge_base[j]->add(class_stats[SimOption::Name::NoScale][i]->rotation_executor_statistics[j]);
+    }
+
+    for (auto & rotation_executor : merge_base)
+        list.append(rotation_executor->get_list_of_executor_outcomes());
 }
 
 void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {

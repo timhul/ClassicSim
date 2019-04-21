@@ -5,6 +5,7 @@
 
 #include "Character.h"
 #include "CharacterSpells.h"
+#include "ClassStatistics.h"
 #include "ConditionBuff.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
@@ -38,6 +39,16 @@ void Rotation::run_precombat_actions() {
 void Rotation::perform_rotation() const {
     for (auto & executor : active_executors)
         executor->attempt_cast();
+}
+
+void Rotation::prepare_set_of_combat_iterations() {
+    for (auto & executor : active_executors)
+        executor->prepare_set_of_combat_iterations(pchar->get_statistics()->get_executor_statistics(executor->get_spell_name()));
+}
+
+void Rotation::finish_set_of_combat_iterations() {
+    for (auto & executor : active_executors)
+        executor->finish_set_of_combat_iterations();
 }
 
 void Rotation::link_spells(Character* pchar) {
