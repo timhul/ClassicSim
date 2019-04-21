@@ -10,11 +10,10 @@ class Overpower: public Spell, public TalentRequirer {
 public:
     Overpower(Character* pchar);
 
-protected:
 private:
     Warrior* warr;
-    QVector<double> talent_ranks;
-    double crit_mod;
+    QVector<unsigned> talent_ranks;
+    unsigned crit_mod;
 
     bool is_ready_spell_specific() const override;
     void spell_effect() override;

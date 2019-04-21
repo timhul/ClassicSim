@@ -10,7 +10,7 @@ Overpower::Overpower(Character* pchar) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {
-    this->talent_ranks = {0.0, 0.25, 0.5};
+    this->talent_ranks = {0, 2500, 5000};
     crit_mod = talent_ranks[0];
 }
 
@@ -19,7 +19,7 @@ bool Overpower::is_ready_spell_specific() const {
 }
 
 void Overpower::spell_effect() {
-    double total_crit = pchar->get_stats()->get_mh_crit_chance() + crit_mod;
+    unsigned total_crit = pchar->get_stats()->get_mh_crit_chance() + crit_mod;
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(),
                                                       total_crit,
                                                       false,
