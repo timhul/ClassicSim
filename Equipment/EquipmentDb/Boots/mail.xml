@@ -42,6 +42,66 @@
 		</patch>
 	</item>
 
+	<item id="16462">
+		<patch name="1.4.0">
+			<info name="Marshal's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_07.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="286"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Marshal's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_07.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="361"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16569">
+		<patch name="1.4.0">
+			<info name="General's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_06.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="286"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="General's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_06.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="361"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
+			</source>
+		</patch>
+	</item>
+
 	<item id="19144">
 		<patch name="1.5.0">
 			<info name="Sabatons of the Flamewalker" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>

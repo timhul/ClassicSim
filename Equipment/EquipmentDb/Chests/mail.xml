@@ -125,6 +125,68 @@
 		</patch>
 	</item>
 
+	<item id="16466">
+		<patch name="1.4.0">
+			<info name="Field Marshal's Chain Breastplate" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_03.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="416"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="AGILITY" value="23"/>
+				<stat type="ATTACK_POWER" value="40"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Field Marshal's Chain Breastplate" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_03.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="520"/>
+				<stat type="STAMINA" value="28"/>
+				<stat type="AGILITY" value="34"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16565">
+		<patch name="1.4.0">
+			<info name="Warlord's Chain Chestpiece" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_chain_11.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="416"/>
+				<stat type="STAMINA" value="24"/>
+				<stat type="AGILITY" value="23"/>
+				<stat type="ATTACK_POWER" value="40"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Warlord's Chain Chestpiece" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_chain_11.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="520"/>
+				<stat type="STAMINA" value="28"/>
+				<stat type="AGILITY" value="34"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+	</item>
+
 	<item id="16942">
 		<patch name="1.6.0">
 			<info name="Dragonstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>

@@ -68,6 +68,70 @@
 		</patch>
 	</item>
 
+	<item id="16467">
+		<patch name="1.4.0">
+			<info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="364"/>
+				<stat type="AGILITY" value="23"/>
+				<stat type="STAMINA" value="22"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="446"/>
+				<stat type="AGILITY" value="34"/>
+				<stat type="STAMINA" value="27"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16567">
+		<patch name="1.4.0">
+			<info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="364"/>
+				<stat type="AGILITY" value="23"/>
+				<stat type="STAMINA" value="22"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires General (rank 12).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="446"/>
+				<stat type="AGILITY" value="34"/>
+				<stat type="STAMINA" value="27"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires General (rank 12).
+			</source>
+		</patch>
+	</item>
+
 	<item id="16938">
 		<patch name="1.6.0">
 			<info name="Dragonstalker's Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_03.png"/>

@@ -311,6 +311,44 @@
 		</bonus>
 	</set>
 
+	<set name="Field Marshal's Pursuit">
+		<item_id value="16466"/>
+		<item_id value="16465"/>
+		<item_id value="16468"/>
+		<item_id value="16462"/>
+		<item_id value="16463"/>
+		<item_id value="16467"/>
+
+		<bonus value="2">
+		(2) Set: +20 Stamina.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +20 Agility.
+		</bonus>
+	</set>
+	
+	<set name="Warlord's Pursuit">
+		<item_id value="16569"/>
+		<item_id value="16571"/>
+		<item_id value="16567"/>
+		<item_id value="16565"/>
+		<item_id value="16566"/>
+		<item_id value="16568"/>
+
+		<bonus value="2">
+		(2) Set: +20 Stamina.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +20 Agility.
+		</bonus>
+	</set>
+
 	<set name="Giantstalker Armor">
 		<item_id value="16851"/>
 		<item_id value="16849"/>

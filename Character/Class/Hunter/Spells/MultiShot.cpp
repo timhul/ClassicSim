@@ -19,6 +19,7 @@ MultiShot::MultiShot(Hunter* pchar) :
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
     SetBonusRequirer({"Giantstalker Armor", "Cryptstalker Armor"}),
+    ItemModificationRequirer({16463, 16571}),
     hunter(pchar)
 {
     resource_base = resource_cost;
@@ -52,7 +53,10 @@ void MultiShot::spell_effect() {
         return;
     }
 
-    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() + 150 + hunter->get_normalized_projectile_dmg_bonus()) * barrage_mod * giantstalker_bonus;
+    double damage_dealt = damage_after_modifiers(pchar->get_random_normalized_ranged_dmg() +
+                                                 150 +
+                                                 hunter->get_normalized_projectile_dmg_bonus()) *
+            barrage_mod * giantstalker_bonus * pvp_gloves_bonus;
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
@@ -143,5 +147,27 @@ void MultiShot::deactivate_set_bonus_effect(const QString& set_name, const int s
         default:
             check(false, "MultiShot::deactivate_set_bonus_effect reached end of switch");
         }
+    }
+}
+
+void MultiShot::activate_item_effect(const int item_id) {
+    switch (item_id) {
+    case 16463:
+    case 16571:
+        pvp_gloves_bonus = 1.03;
+        break;
+    default:
+        check(false, "MultiShot::activate_item_effect reached end of switch");
+    }
+}
+
+void MultiShot::deactivate_item_effect(const int item_id) {
+    switch (item_id) {
+    case 16463:
+    case 16571:
+        pvp_gloves_bonus = 1.0;
+        break;
+    default:
+        check(false, "MultiShot::deactivate_item_effect reached end of switch");
     }
 }

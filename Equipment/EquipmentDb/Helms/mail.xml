@@ -68,6 +68,70 @@
 		</patch>
 	</item>
 
+	<item id="16465">
+		<patch name="1.4.0">
+			<info name="Field Marshal's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="338"/>
+				<stat type="AGILITY" value="19"/>
+				<stat type="STAMINA" value="27"/>
+				<stat type="INTELLECT" value="17"/>
+				<stat type="SPIRIT" value="10"/>
+				<stat type="ATTACK_POWER" value="20"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Field Marshal's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="432"/>
+				<stat type="AGILITY" value="34"/>
+				<stat type="STAMINA" value="28"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16566">
+		<patch name="1.4.0">
+			<info name="Warlord's Chain Helmet" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="338"/>
+				<stat type="AGILITY" value="19"/>
+				<stat type="STAMINA" value="27"/>
+				<stat type="INTELLECT" value="17"/>
+				<stat type="SPIRIT" value="10"/>
+				<stat type="ATTACK_POWER" value="20"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Warlord's Chain Helmet" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="432"/>
+				<stat type="AGILITY" value="34"/>
+				<stat type="STAMINA" value="28"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+	</item>
+
 	<item id="16939">
 		<patch name="1.6.0">
 			<info name="Dragonstalker's Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>

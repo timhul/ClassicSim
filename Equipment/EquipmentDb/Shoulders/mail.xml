@@ -113,7 +113,7 @@
 			</source>
 		</patch>
 	</item>
-	
+
 	<item id="20158">
 		<patch name="1.7.0">
 			<info name="Defiler's Chain Pauldrons" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
@@ -159,6 +159,66 @@
 			</stats>
 			<source>
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16468">
+		<patch name="1.4.0">
+			<info name="Field Marshal's Chain Spaulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="312"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="ATTACK_POWER" value="22"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Field Marshal's Chain Spaulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_10.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="403"/>
+				<stat type="STAMINA" value="21"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+			</source>
+		</patch>
+	</item>
+
+	<item id="16568">
+		<patch name="1.4.0">
+			<info name="Warlord's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_29.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="312"/>
+				<stat type="STAMINA" value="26"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="ATTACK_POWER" value="22"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Warlord's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_29.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="403"/>
+				<stat type="STAMINA" value="21"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
 			</source>
 		</patch>
 	</item>
