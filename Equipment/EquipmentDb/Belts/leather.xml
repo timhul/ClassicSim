@@ -177,6 +177,20 @@
 		</patch>
 	</item>
 
+	<item id="14636">
+		<patch name="1.10.0">
+			<info name="Cadaverous Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_16.png"/>
+			<stats>
+				<stat type="ARMOR" value="97"/>
+				<stat type="STAMINA" value="12"/>
+				<stat type="ATTACK_POWER" value="40"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22482">
 		<patch name="1.11.0">
 			<info name="Bonescythe Waistguard" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_27.png"/>

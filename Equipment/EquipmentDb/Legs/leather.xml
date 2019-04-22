@@ -115,6 +115,20 @@
 		</patch>
 	</item>
 
+	<item id="14638">
+		<patch name="1.10.0">
+			<info name="Cadaverous Leggings" type="LEATHER" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_07.png"/>
+			<stats>
+				<stat type="ARMOR" value="150"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="ATTACK_POWER" value="52"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="23071">
 		<patch name="1.11.0">
 			<info name="Leggings of Apocalypse" type="LEATHER" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_leather_09.png"/>

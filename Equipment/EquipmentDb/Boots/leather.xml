@@ -186,6 +186,20 @@
 		</patch>
 	</item>
 
+	<item id="14641">
+		<patch name="1.10.0">
+			<info name="Cadaverous Walkers" type="LEATHER" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_05.png"/>
+			<stats>
+				<stat type="ARMOR" value="118"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="ATTACK_POWER" value="24"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="23073">
 		<patch name="1.11.0">
 			<info name="Boots of Displacement" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>

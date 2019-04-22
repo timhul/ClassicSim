@@ -198,6 +198,20 @@
 		</patch>
 	</item>
 
+	<item id="14640">
+		<patch name="1.10.0">
+			<info name="Cadaverous Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
+			<stats>
+				<stat type="ARMOR" value="107"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="ATTACK_POWER" value="44"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22481">
 		<patch name="1.11.0">
 			<info name="Bonescythe Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>

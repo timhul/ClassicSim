@@ -21,6 +21,27 @@
 		</bonus>
 	</set>
 
+	<set name="Cadaverous Garb">
+		<item_id value="14637"/>
+		<item_id value="14636"/>
+		<item_id value="14640"/>
+		<item_id value="14638"/>
+		<item_id value="14641"/>
+
+		<bonus value="2">
+		(2) Set: Increased Defense +3.
+		</bonus>
+		<bonus value="3">
+		(3) Set: +10 Attack Power.
+		</bonus>
+		<bonus value="4">
+		(4) Set: +15 All Resistances.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Improves your chance to hit by 2%.
+		</bonus>
+	</set>
+
 	<set name="Devilsaur Armor">
 		<item_id value="15063"/>
 		<item_id value="15062"/>
