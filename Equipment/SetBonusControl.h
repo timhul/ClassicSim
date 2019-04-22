@@ -5,11 +5,12 @@
 
 class Character;
 class EquipmentDb;
+class Proc;
 
 class SetBonusControl {
 public:
     SetBonusControl(EquipmentDb* equipment_db, Character* pchar);
-    ~SetBonusControl() = default;
+    ~SetBonusControl();
 
     void equip_item(const int item_id);
     void unequip_item(const int item_id);
@@ -24,6 +25,7 @@ private:
     EquipmentDb* equipment_db;
     Character* pchar;
 
+    QMap<QString, Proc*> active_procs;
     QMap<int, QString> current_set_items;
     QMap<int, QString> possible_set_items;
     QMap<QString, QVector<QPair<int, QString>>> set_bonus_tooltips;

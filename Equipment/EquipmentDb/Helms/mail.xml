@@ -15,6 +15,22 @@
 		</patch>
 	</item>
 
+	<item id="16677">
+		<patch name="1.0.0">
+			<info name="Beaststalker's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_24.png"/>
+			<stats>
+				<stat type="ARMOR" value="297"/>
+				<stat type="AGILITY" value="20"/>
+				<stat type="STAMINA" value="20"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="SPIRIT" value="6"/>
+			</stats>
+			<source>
+			Drops from Darkmaster Gandling in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16846">
 		<patch name="1.0.0">
 			<info name="Giantstalker's Helmet" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>

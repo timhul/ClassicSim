@@ -27,6 +27,20 @@
 		</patch>
 	</item>
 
+	<item id="16675">
+		<patch name="1.0.0">
+			<info name="Beaststalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_plate_07.png"/>
+			<stats>
+				<stat type="ARMOR" value="240"/>
+				<stat type="AGILITY" value="21"/>
+				<stat type="STAMINA" value="9"/>
+			</stats>
+			<source>
+			Drops from Nerub'enkan in Stratholme Undead.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16984">
 		<patch name="1.0.0">
 			<info name="Black Dragonscale Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="no" icon="Inv_boots_plate_09.png"/>

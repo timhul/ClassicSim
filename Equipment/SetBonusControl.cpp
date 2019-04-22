@@ -15,6 +15,7 @@
 #include "HunterSpells.h"
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
+#include "ManaDrainProc.h"
 #include "MultiShot.h"
 #include "Pet.h"
 #include "RapidFire.h"
@@ -31,6 +32,14 @@ SetBonusControl::SetBonusControl(EquipmentDb* equipment_db, Character* pchar) :
     pchar(pchar)
 {
     SetBonusFileReader().read_set_bonuses("set_bonuses.xml", possible_set_items, set_bonus_tooltips);
+}
+
+SetBonusControl::~SetBonusControl() {
+    for (auto & proc : active_procs) {
+        if (proc->is_enabled())
+            proc->disable_proc();
+        delete proc;
+    }
 }
 
 void SetBonusControl::equip_item(const int item_id) {
@@ -89,6 +98,23 @@ void SetBonusControl::equip_item(const int item_id) {
         switch (num_pieces) {
         case 3:
             dynamic_cast<Hunter*>(pchar)->get_pet()->increase_damage_modifier(3);
+            break;
+        }
+    }
+    else if (set_name == "Beaststalker Armor") {
+        switch (num_pieces) {
+        case 4:
+            pchar->get_stats()->increase_melee_ap(40);
+            pchar->get_stats()->increase_ranged_ap(40);
+            break;
+        case 6:
+            if (!active_procs.contains("BEASTSTALKER_DRAIN"))
+                active_procs["BEASTSTALKER_DRAIN"] = new ManaDrainProc(pchar,
+                                                                       "Beaststalker 6 set",
+                                                                       "Assets/items/Inv_belt_28.png",
+                                                                       {ProcInfo::RangedAutoShot},
+                                                                       0.04, 200, 200);
+            active_procs["BEASTSTALKER_DRAIN"]->enable_proc();
             break;
         }
     }
@@ -270,6 +296,17 @@ void SetBonusControl::unequip_item(const int item_id) {
         switch (num_pieces) {
         case 3:
             dynamic_cast<Hunter*>(pchar)->get_pet()->decrease_damage_modifier(3);
+            break;
+        }
+    }
+    else if (set_name == "Beaststalker Armor") {
+        switch (num_pieces) {
+        case 4:
+            pchar->get_stats()->decrease_melee_ap(40);
+            pchar->get_stats()->decrease_ranged_ap(40);
+            break;
+        case 6:
+            active_procs["BEASTSTALKER_DRAIN"]->disable_proc();
             break;
         }
     }

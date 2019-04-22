@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="16678">
+		<patch name="1.0.0">
+			<info name="Beaststalker's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+			<stats>
+				<stat type="ARMOR" value="315"/>
+				<stat type="AGILITY" value="26"/>
+				<stat type="SPIRIT" value="12"/>
+				<stat type="STAMINA" value="6"/>
+				<stat type="STRENGTH" value="6"/>
+			</stats>
+			<source>
+			Drops from Baron Rivendare in Stratholme Undead.
+			</source>
+		</patch>
+	</item>
+
 	<item id="15052">
 		<patch name="1.0.0">
 			<info name="Black Dragonscale Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_03.png"/>

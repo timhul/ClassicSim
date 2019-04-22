@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<wrist id="16681">
+		<patch name="1.0.0">
+			<info name="Beaststalker's Bindings" type="MAIL" slot="WRIST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_bracer_17.png"/>
+			<stats>
+				<stat type="ARMOR" value="148"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="STAMINA" value="7"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Stratholme Undead.
+			</source>
+		</patch>
+	</wrist>
+
 	<wrist id="17714">
 		<patch name="1.2.0">
 			<info name="Bracers of the Stone Princess" type="MAIL" slot="WRIST" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>

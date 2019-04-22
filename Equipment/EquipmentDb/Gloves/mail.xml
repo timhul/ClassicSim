@@ -15,6 +15,22 @@
 		</patch>
 	</item>
 
+	<item id="16676">
+		<patch name="1.0.0">
+			<info name="Beaststalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_gauntlets_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="218"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="SPIRIT" value="10"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="INTELLECT" value="9"/>
+			</stats>
+			<source>
+			Drops from War Master Voone in Lower Blackrock Spire (LBRS).
+			</source>
+		</patch>
+	</item>
+
 	<item id="13963000">
 		<patch name="1.0.0">
 			<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_15.png"/>

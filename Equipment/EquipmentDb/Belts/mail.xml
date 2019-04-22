@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="16680">
+		<patch name="1.0.0">
+			<info name="Beaststalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_28.png"/>
+			<stats>
+				<stat type="ARMOR" value="193"/>
+				<stat type="SPIRIT" value="11"/>
+				<stat type="AGILITY" value="10"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="STRENGTH" value="9"/>
+				<stat type="STAMINA" value="6"/>
+			</stats>
+			<source>
+			Drops from trash mobs in Blackrock Spire.
+			</source>
+		</patch>
+	</item>
+
 	<item id="16851">
 		<patch name="1.0.0">
 			<info name="Giantstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_28.png"/>

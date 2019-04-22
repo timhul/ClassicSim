@@ -546,5 +546,6 @@
         <file>QML/Assets/items/Inv_bracer_18.png</file>
         <file>QML/Assets/items/Inv_jewelry_necklace_19.png</file>
         <file>QML/Assets/items/Inv_jewelry_necklace_26.png</file>
+        <file>QML/Assets/items/Inv_helmet_24.png</file>
     </qresource>
 </RCC>
