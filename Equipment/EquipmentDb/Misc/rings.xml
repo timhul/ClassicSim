@@ -84,6 +84,34 @@
 		</patch>
 	</item>
 
+	<item id="19898">
+		<patch name="1.7.0">
+			<info name="Seal of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
+			<stats>
+				<stat type="STAMINA" value="8"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+				<stat type="ATTACK_POWER" value="20"/>
+			</stats>
+			<source>
+			Drops from High Priest Thekal in Zul'Gurub.
+			</source>
+		</patch>
+	</item>
+
+	<item id="19925">
+		<patch name="1.7.0">
+			<info name="Band of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
+			<stats>
+				<stat type="AGILITY" value="14"/>
+				<stat type="STAMINA" value="8"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from High Priestess Mar'li in Zul'Gurub.
+			</source>
+		</patch>
+	</item>
+
 	<item id="21393">
 		<patch name="1.9.0">
 			<info name="Signet of Unyielding Strength" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>

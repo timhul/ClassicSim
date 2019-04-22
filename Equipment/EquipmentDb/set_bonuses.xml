@@ -54,6 +54,15 @@
 		</bonus>
 	</set>
 
+	<set name="Major Mojo Infusion">
+		<item_id value="19898"/>
+		<item_id value="19925"/>
+
+		<bonus value="2">
+		(2) Set: +30 Attack Power.
+		</bonus>
+	</set>
+
 	<set name="The Highlander's Resolution">
 		<item_id value="20041"/>
 		<item_id value="20048"/>
