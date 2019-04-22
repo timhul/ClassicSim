@@ -142,6 +142,21 @@
 		</patch>
 	</item>
 
+	<item id="19953">
+		<patch name="1.7.0">
+			<info name="Renataki's Charm of Beasts" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_19.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+			</stats>
+			<source>
+			Drops from Edge of Madness bosses in Zul'Gurub.
+			</source>
+			<special_equip_effect>
+			Use: Instantly clears the cooldowns of Aimed Shot, Multi-Shot, Volley, and Arcane Shot. (cooldown 3 min)
+			</special_equip_effect>
+		</patch>
+	</item>
+
 	<item id="21180">
 		<patch name="1.9.0">
 			<info name="Earthstrike" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Spell_nature_abolishmagic.png"/>

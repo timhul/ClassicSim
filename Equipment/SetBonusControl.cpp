@@ -77,6 +77,14 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
+    else if (set_name == "Predator's Armor") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->increase_melee_ap(20);
+            pchar->get_stats()->increase_ranged_ap(20);
+            break;
+        }
+    }
     else if (set_name == "Trappings of the Unseen Path") {
         switch (num_pieces) {
         case 3:
@@ -248,6 +256,14 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
+        }
+    }
+    else if (set_name == "Predator's Armor") {
+        switch (num_pieces) {
+        case 2:
+            pchar->get_stats()->decrease_melee_ap(20);
+            pchar->get_stats()->decrease_ranged_ap(20);
+            break;
         }
     }
     else if (set_name == "Trappings of the Unseen Path") {

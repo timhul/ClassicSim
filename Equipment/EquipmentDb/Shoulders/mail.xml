@@ -189,6 +189,23 @@
 		</patch>
 	</item>
 
+	<item id="19831">
+		<patch name="1.7.0">
+			<info name="Zandalar Predator's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_shoulder_22.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="326"/>
+				<stat type="AGILITY" value="22"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="INTELLECT" value="11"/>
+				<stat type="MANA_PER_5" value="4"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drop from Zul'Gurub and Revered with Zandalar Tribe.
+			</source>
+		</patch>
+	</item>
+
 	<item id="21699">
 		<patch name="1.9.0">
 			<info name="Barrage Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>

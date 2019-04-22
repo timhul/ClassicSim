@@ -145,6 +145,23 @@
 		</patch>
 	</wrist>
 
+	<item id="19833">
+		<patch name="1.7.0">
+			<info name="Zandalar Predator's Bracers" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_bracer_18.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="172"/>
+				<stat type="INTELLECT" value="10"/>
+				<stat type="STAMINA" value="10"/>
+				<stat type="RANGED_ATTACK_POWER" value="34"/>
+				<stat type="MANA_PER_5" value="4"/>
+			</stats>
+			<source>
+			Quest reward. Requires boss drop from Zul'Gurub and Friendly with Zandalar Tribe.
+			</source>
+		</patch>
+	</item>
+
 	<wrist id="21502">
 		<patch name="1.9.0">
 			<info name="Sand Reaver Wristguards" type="MAIL" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_bracer_19.png"/>

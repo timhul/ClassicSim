@@ -301,6 +301,24 @@
 		</bonus>
 	</set>
 
+	<set name="Predator's Armor">
+		<item_id value="19621"/>
+		<item_id value="19953"/>
+		<item_id value="19833"/>
+		<item_id value="19832"/>
+		<item_id value="19831"/>
+
+		<bonus value="2">
+		(2) Set: +20 Attack Power.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Decreases the cooldown of Concussive Shot by 1 sec.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Increases the duration of Serpent Sting by 3 sec.
+		</bonus>
+	</set>
+
 	<set name="Trappings of the Unseen Path">
 		<item_id value="21403"/>
 		<item_id value="21401"/>
@@ -310,7 +328,7 @@
 		(3) Set: Increases your pet's damage by 3%.
 		</bonus>
 	</set>
-	
+
 	<set name="Lieutenant Commander's Pursuance">
 		<item_id value="23292"/>
 		<item_id value="23293"/>
