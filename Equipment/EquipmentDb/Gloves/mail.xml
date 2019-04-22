@@ -136,6 +136,7 @@
 				<stat type="STAMINA" value="16"/>
 				<stat type="AGILITY" value="18"/>
 			</stats>
+			<modifies name="Multi-Shot"/>
 			<special_equip_effect>
 			Equip: Increases the damage done by your Multi-Shot by 4%.
 			</special_equip_effect>
@@ -169,6 +170,7 @@
 				<stat type="STAMINA" value="16"/>
 				<stat type="AGILITY" value="18"/>
 			</stats>
+			<modifies name="Multi-Shot"/>
 			<special_equip_effect>
 			Equip: Increases the damage done by your Multi-Shot by 4%.
 			</special_equip_effect>
@@ -205,6 +207,7 @@
 				<stat type="INTELLECT" value="4"/>
 				<stat type="CRIT_CHANCE" value="0.01"/>
 			</stats>
+			<modifies name="Multi-Shot"/>
 			<special_equip_effect>
 			Equip: Increases the damage done by your Multi-Shot by 4%.
 			</special_equip_effect>
@@ -241,6 +244,7 @@
 				<stat type="INTELLECT" value="4"/>
 				<stat type="CRIT_CHANCE" value="0.01"/>
 			</stats>
+			<modifies name="Multi-Shot"/>
 			<special_equip_effect>
 			Equip: Increases the damage done by your Multi-Shot by 4%.
 			</special_equip_effect>
@@ -327,6 +331,25 @@
 			</stats>
 			<source>
 			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+			</source>
+		</patch>
+	</item>
+
+	<item id="22015">
+		<patch name="1.10.0">
+			<info name="Beastmaster's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="55" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="223"/>
+				<stat type="AGILITY" value="14"/>
+				<stat type="STAMINA" value="12"/>
+				<stat type="INTELLECT" value="10"/>
+			</stats>
+			<modifies name="BEASTMASTER_HUNTER_PET"/>
+			<special_equip_effect>
+			Equip: Increases your pet's critical strike chance by 2%.
+			</special_equip_effect>
+			<source>
+			Quest reward. Requires Beaststalker's Belt, Beaststalker's Gloves.
 			</source>
 		</patch>
 	</item>

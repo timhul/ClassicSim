@@ -41,6 +41,24 @@
 		</patch>
 	</item>
 
+	<item id="22061">
+		<patch name="1.10.0">
+			<info name="Beastmaster's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
+			<stats>
+				<stat type="ARMOR" value="266"/>
+				<stat type="AGILITY" value="24"/>
+				<stat type="STAMINA" value="9"/>
+			</stats>
+			<modifies name="BEASTMASTER_HUNTER_PET"/>
+			<source>
+			Quest reward. Requires Beaststalker's Boots, Beaststalker's Pants, and Beaststalker's Mantle.
+			</source>
+			<special_equip_effect>
+			Equip: Increases damage dealt by your pet by 3%.
+			</special_equip_effect>
+		</patch>
+	</item>
+
 	<item id="16984">
 		<patch name="1.0.0">
 			<info name="Black Dragonscale Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="no" icon="Inv_boots_plate_09.png"/>

@@ -283,6 +283,25 @@
 		</patch>
 	</item>
 
+	<item id="22013">
+		<patch name="1.10.0">
+			<info name="Beastmaster's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_helmet_24.png"/>
+			<stats>
+				<stat type="ARMOR" value="314"/>
+				<stat type="AGILITY" value="22"/>
+				<stat type="STAMINA" value="21"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="HIT_CHANCE" value="0.01"/>
+			</stats>
+			<special_equip_effect>
+			Equip: Increases your pet's maximum health by 3%.
+			</special_equip_effect>
+			<source>
+			Quest reward. Requires Beaststalker's Cap and Beaststalker's Tunic.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22438">
 		<patch name="1.11.0">
 			<info name="Crypstalker Headpiece" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_15.png"/>

@@ -14,6 +14,21 @@
 		</patch>
 	</wrist>
 
+	<wrist id="22011">
+		<patch name="1.10.0">
+			<info name="Beastmaster's Bindings" type="MAIL" slot="WRIST" unique="no" req_lvl="58" item_lvl="65" quality="RARE" boe="no" icon="Inv_bracer_17.png"/>
+			<stats>
+				<stat type="ARMOR" value="167"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STAMINA" value="7"/>
+				<stat type="INTELLECT" value="5"/>
+			</stats>
+			<source>
+			Quest reward. Requires Beaststalker's Bindings, gold, drops from Winterspring beasts.
+			</source>
+		</patch>
+	</wrist>
+
 	<wrist id="17714">
 		<patch name="1.2.0">
 			<info name="Bracers of the Stone Princess" type="MAIL" slot="WRIST" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>

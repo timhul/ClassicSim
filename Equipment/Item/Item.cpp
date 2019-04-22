@@ -15,6 +15,8 @@
 #include "FlatWeaponDamageBuff.h"
 #include "GenericChargeConsumerProc.h"
 #include "GenericStatBuff.h"
+#include "Hunter.h"
+#include "HunterPet.h"
 #include "InstantSpellProc.h"
 #include "ItemModificationRequirer.h"
 #include "JomGabbar.h"
@@ -39,7 +41,7 @@ Item::Item(QString name,
     procs_map(std::move(_procs)),
     use_map(std::move(_use)),
     stats_key_value_pairs(std::move(_stats)),
-    spell_modifications(std::move(_spell_modifications)),
+    item_modifications(std::move(_spell_modifications)),
     stats(new Stats()),
     enchant(nullptr),
     slot(-1),
@@ -61,7 +63,7 @@ Item::Item(const Item* item) :
     procs_map(item->procs_map),
     use_map(item->use_map),
     stats_key_value_pairs(item->stats_key_value_pairs),
-    spell_modifications(item->spell_modifications),
+    item_modifications(item->item_modifications),
     stats(new Stats()),
     enchant(nullptr),
     item_id(item->item_id)
@@ -169,20 +171,36 @@ void Item::remove_equip_effect() {
 }
 
 void Item::call_item_modifications(const bool activate) const {
-    for (auto & spell_name : spell_modifications) {
-        Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
-        if (spell == nullptr)
-            continue;
-
-        auto spell_modded_by_item = dynamic_cast<ItemModificationRequirer*>(spell);
-        if (spell_modded_by_item == nullptr)
-            continue;
-
-        if (activate)
-            spell_modded_by_item->activate_item_modification(this->item_id);
-        else
-            spell_modded_by_item->deactivate_item_modification(this->item_id);
+    for (auto & name : item_modifications) {
+        call_modifications_by_specific_name(name, activate);
+        call_spell_modifications(name, activate);
     }
+}
+
+void Item::call_modifications_by_specific_name(const QString& name, const bool activate) const {
+    if (QSet<QString>({"BEASTMASTER_HUNTER_PET"}).contains(name)) {
+        if (!dynamic_cast<Hunter*>(pchar))
+            return;
+        if (activate)
+            dynamic_cast<HunterPet*>(pchar->get_pet())->activate_item_effect(this->item_id);
+        else
+            dynamic_cast<HunterPet*>(pchar->get_pet())->deactivate_item_effect(this->item_id);
+    }
+}
+
+void Item::call_spell_modifications(const QString& spell_name, const bool activate) const {
+    Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
+    if (spell == nullptr)
+        return;
+
+    auto spell_modded_by_item = dynamic_cast<ItemModificationRequirer*>(spell);
+    if (spell_modded_by_item == nullptr)
+        return;
+
+    if (activate)
+        spell_modded_by_item->activate_item_modification(this->item_id);
+    else
+        spell_modded_by_item->deactivate_item_modification(this->item_id);
 }
 
 QString Item::get_name() const {

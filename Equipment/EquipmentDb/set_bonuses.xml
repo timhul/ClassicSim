@@ -325,6 +325,30 @@
 		</bonus>
 	</set>
 
+	<set name="Beastmaster Armor">
+		<item_id value="22010"/>
+		<item_id value="22011"/>
+		<item_id value="22061"/>
+		<item_id value="22013"/>
+		<item_id value="22015"/>
+		<item_id value="22016"/>
+		<item_id value="22017"/>
+		<item_id value="22060"/>
+
+		<bonus value="2">
+		(2) Set: +8 All Resistance.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Your normal ranged attacks have a 4% chance of restoring 200 mana.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +40 Attack Power.
+		</bonus>
+		<bonus value="8">
+		(8) Set: +200 Armor.
+		</bonus>
+	</set>
+
 	<set name="Predator's Armor">
 		<item_id value="19621"/>
 		<item_id value="19953"/>

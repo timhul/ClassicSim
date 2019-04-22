@@ -192,6 +192,21 @@
 		</patch>
 	</item>
 
+	<item id="22010">
+		<patch name="1.10.0">
+			<info name="Beastmaster's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
+			<stats>
+				<stat type="ARMOR" value="214"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="INTELLECT" value="10"/>
+			</stats>
+			<source>
+			Quest reward. Requires Beaststalker's Belt and Beaststalker's Gloves.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22207">
 		<patch name="1.10.0">
 			<info name="Sash of the Grand Hunt" type="MAIL" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_28.png"/>

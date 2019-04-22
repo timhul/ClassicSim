@@ -314,6 +314,21 @@
 		</patch>
 	</item>
 
+	<item id="22016">
+		<patch name="1.10.0">
+			<info name="Beastmaster's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
+			<stats>
+				<stat type="ARMOR" value="286"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="AGILITY" value="12"/>
+				<stat type="INTELLECT" value="10"/>
+			</stats>
+			<source>
+			Quest reward. Requires Beaststalker's Boots, Beaststalker's Pants, and Beaststalker's Mantle.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22439">
 		<patch name="1.11.0">
 			<info name="Crypstalker Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>

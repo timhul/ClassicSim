@@ -282,6 +282,21 @@
 		</patch>
 	</item>
 
+	<item id="22017">
+		<patch name="1.10.0">
+			<info name="Beastmaster's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+			<stats>
+				<stat type="ARMOR" value="339"/>
+				<stat type="AGILITY" value="28"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="INTELLECT" value="9"/>
+			</stats>
+			<source>
+			Quest reward. Requires Beaststalker's Boots, Beaststalker's Pants, and Beaststalker's Mantle.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22437">
 		<patch name="1.11.0">
 			<info name="Crypstalker Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_mail_15.png"/>

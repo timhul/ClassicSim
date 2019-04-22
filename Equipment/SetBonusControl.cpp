@@ -118,6 +118,23 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Beastmaster Armor") {
+        switch (num_pieces) {
+        case 4:
+            if (!active_procs.contains("BEASTMASTER_DRAIN"))
+                active_procs["BEASTMASTER_DRAIN"] = new ManaDrainProc(pchar,
+                                                                      "Beastmaster 4 set",
+                                                                      "Assets/items/Inv_belt_28.png",
+                                                                      {ProcInfo::RangedAutoShot},
+                                                                      0.04, 200, 200);
+            active_procs["BEASTMASTER_DRAIN"]->enable_proc();
+            break;
+        case 6:
+            pchar->get_stats()->increase_melee_ap(40);
+            pchar->get_stats()->increase_ranged_ap(40);
+            break;
+        }
+    }
     else if (set_name == "Giantstalker Armor") {
         switch (num_pieces) {
         case 8: {
@@ -307,6 +324,17 @@ void SetBonusControl::unequip_item(const int item_id) {
             break;
         case 6:
             active_procs["BEASTSTALKER_DRAIN"]->disable_proc();
+            break;
+        }
+    }
+    else if (set_name == "Beastmaster Armor") {
+        switch (num_pieces) {
+        case 4:
+            active_procs["BEASTMASTER_DRAIN"]->disable_proc();
+            break;
+        case 6:
+            pchar->get_stats()->decrease_melee_ap(40);
+            pchar->get_stats()->decrease_ranged_ap(40);
             break;
         }
     }
