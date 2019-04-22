@@ -45,6 +45,16 @@
 		</bonus>
 	</set>
 
+	<set name="Primal Batskin">
+		<item_id value="19685"/>
+		<item_id value="19687"/>
+		<item_id value="19686"/>
+
+		<bonus value="3">
+		(3) Set: Minor increase to running and swimming speed.
+		</bonus>
+	</set>
+
 	<set name="The Twin Blades of Hakkari">
 		<item_id value="19865"/>
 		<item_id value="19866"/>

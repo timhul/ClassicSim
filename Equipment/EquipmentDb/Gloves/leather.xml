@@ -120,6 +120,21 @@
 		</patch>
 	</item>
 
+	<item id="19686">
+		<patch name="1.7.0">
+			<info name="Primal Batskin Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
+			<stats>
+				<stat type="ARMOR" value="113"/>
+				<stat type="AGILITY" value="10"/>
+				<stat type="STAMINA" value="9"/>
+				<stat type="HIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Crafted by Leatherworkers (300 skill). Materials include skinning Zul'Gurub bats. Pattern requires Honored with Zandalar Tribe.
+			</source>
+		</patch>
+	</item>
+
 	<item id="19869">
 		<patch name="1.8.0">
 			<info name="Blooddrenched Grips" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
