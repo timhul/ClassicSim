@@ -38,10 +38,19 @@ upcoming releases.
 
 # Next release
 
-Upcoming features and bug fixes that are merged but not yet built and made available as a release:
+None (available release is up to date with the latest on master).
+
+## Restrictions:
+
+* If scrolling down to the bottom of a rotation and selecting another then the new rotation is not displayed properly. Fixed by re-selecting the rotation.
+
+# Release notes
+
+## v0.2 (released 2019-04-22):
 
 * Conditions for rotational choices are now displayed in the GUI under Rotations.
 * Rotation and internal engine statistics now displayed in the GUI under Statistics.
+* Hunter PvP sets and many non-set mail items added.
 * Enchants are now stored between gear setup changes and sessions.
 * Vaelastrasz ruleset properly yields resource gains again.
 * Resource gains now displayed by gain per 5s instead of total gain.
@@ -49,8 +58,6 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 ## Restrictions:
 
 * If scrolling down to the bottom of a rotation and selecting another then the new rotation is not displayed properly. Fixed by re-selecting the rotation.
-
-# Release notes
 
 ## v0.2-alpha-3 (released 2019-04-14):
 
