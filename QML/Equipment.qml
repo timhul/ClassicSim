@@ -252,7 +252,8 @@ Rectangle {
 
                 anchors {
                     left: neckSlot.right
-                    bottom: neckSlot.top
+                    top: neckSlot.top
+                    topMargin: height > 450 ? 450 - height : 0
                 }
             }
 
