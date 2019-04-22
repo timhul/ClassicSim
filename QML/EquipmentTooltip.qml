@@ -96,23 +96,28 @@ RectangleBorders {
 
     function getTooltipHeight() {
         var height = 0;
-        height += ttTitle.contentHeight
-        height += ttBind.contentHeight
-        height += ttUnique.text !== "" ? ttUnique.contentHeight : 0
-        height += ttItemSlot.contentHeight
-        height += ttWeaponDamageRange.text !== "" ? (ttWeaponDamageRange.contentHeight) * 2 : 0
-        height += showDurabilityInTooltip === true ? ttDurability.contentHeight : 0
-        height += ttBaseStats.text !== "" ? ttBaseStats.contentHeight : 0
-        height += ttClassRestrictions.text !== "" ? ttClassRestrictions.contentHeight : 0
-        height += ttLevelRequirement.contentHeight
-        height += ttEquipEffect.text !== "" ? ttEquipEffect.contentHeight : 0
-        height += ttFlavourText.text !== "" ? ttFlavourText.contentHeight : 0
-        height += ttSetName.text !== "" ? ttSetName.contentHeight + 15 : 0
-        height += ttSetItems.text !== "" ? ttSetItems.contentHeight + 5 : 0
-        height += ttSetBonuses.text !== "" ? ttSetBonuses.contentHeight + 15 : 0
+        height += getEffectiveHeight(ttTitle)
+        height += getEffectiveHeight(ttBind)
+        height += ttUnique.text !== "" ? getEffectiveHeight(ttUnique) : 0
+        height += getEffectiveHeight(ttItemSlot)
+        height += ttWeaponDamageRange.text !== "" ? getEffectiveHeight(ttWeaponDamageRange) * 2 : 0
+        height += showDurabilityInTooltip === true ? getEffectiveHeight(ttDurability) : 0
+        height += ttBaseStats.text !== "" ? getEffectiveHeight(ttBaseStats) : 0
+        height += ttClassRestrictions.text !== "" ? getEffectiveHeight(ttClassRestrictions) : 0
+        height += getEffectiveHeight(ttLevelRequirement)
+        height += ttEquipEffect.text !== "" ? getEffectiveHeight(ttEquipEffect) : 0
+        height += ttFlavourText.text !== "" ? getEffectiveHeight(ttFlavourText) : 0
+        height += ttSetName.text !== "" ? getEffectiveHeight(ttSetName) : 0
+        height += ttSetItems.text !== "" ? getEffectiveHeight(ttSetItems) : 0
+        height += ttSetBonuses.text !== "" ? getEffectiveHeight(ttSetBonuses) : 0
 
-        height += 20
+        height += 10
+
         return height
+    }
+
+    function getEffectiveHeight(obj) {
+        return obj.contentHeight + obj.anchors.topMargin - (obj.height < obj.contentHeight ? obj.contentHeight - obj.height : 0)
     }
 
     visible: false
@@ -364,7 +369,9 @@ RectangleBorders {
         id: ttClassRestrictions
 
         anchors {
-            top: ttDurability.visible ? ttDurability.bottom : ttBaseStats.bottom
+            top: ttDurability.visible ? ttDurability.bottom : ttBaseStats.visible ?
+                                            ttBaseStats.bottom :
+                                            ttItemType.bottom
             topMargin: 5
             left: ttRect.left
             leftMargin: 10
