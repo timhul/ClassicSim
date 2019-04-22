@@ -424,6 +424,23 @@
 		</patch>
 	</item>
 
+	<item id="14611">
+		<patch name="1.10.0">
+			<info name="Bloodmail Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_05.png"/>
+			<stats>
+				<stat type="ARMOR" value="360"/>
+				<stat type="STAMINA" value="15"/>
+				<stat type="INTELLECT" value="15"/>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="SPIRIT" value="10"/>
+				<stat type="DODGE_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22060">
 		<patch name="1.10.0">
 			<info name="Beastmaster's Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>

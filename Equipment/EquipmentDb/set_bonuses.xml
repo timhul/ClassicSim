@@ -18,6 +18,27 @@
 		</bonus>
 	</set>
 
+	<set name="Bloodmail Regalia">
+		<item_id value="14614"/>
+		<item_id value="14616"/>
+		<item_id value="14615"/>
+		<item_id value="14611"/>
+		<item_id value="14612"/>
+
+		<bonus value="2">
+		(2) Set: Increased Defense +3.
+		</bonus>
+		<bonus value="3">
+		(3) Set: +10 Attack Power.
+		</bonus>
+		<bonus value="4">
+		(4) Set: +15 All Resistances.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Increases your chance to parry an attack by 1%.
+		</bonus>
+	</set>
+
 	<set name="Black Dragon Mail">
 		<item_id value="16984"/>
 		<item_id value="15050"/>

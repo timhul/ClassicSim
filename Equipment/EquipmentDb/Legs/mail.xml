@@ -282,6 +282,22 @@
 		</patch>
 	</item>
 
+	<item id="14612">
+		<patch name="1.10.0">
+			<info name="Bloodmail Leguards" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+			<stats>
+				<stat type="ARMOR" value="315"/>
+				<stat type="INTELLECT" value="15"/>
+				<stat type="STAMINA" value="16"/>
+				<stat type="STRENGTH" value="15"/>
+				<stat type="AGILITY" value="12"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22017">
 		<patch name="1.10.0">
 			<info name="Beastmaster's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_03.png"/>

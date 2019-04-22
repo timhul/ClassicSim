@@ -192,6 +192,22 @@
 		</patch>
 	</item>
 
+	<item id="14614">
+		<patch name="1.10.0">
+			<info name="Bloodmail Belt" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_23.png"/>
+			<stats>
+				<stat type="ARMOR" value="202"/>
+				<stat type="STAMINA" value="11"/>
+				<stat type="INTELLECT" value="9"/>
+				<stat type="AGILITY" value="12"/>
+				<stat type="STRENGTH" value="12"/>
+			</stats>
+			<source>
+			Drops from multiple bosses in Scholomance.
+			</source>
+		</patch>
+	</item>
+
 	<item id="22010">
 		<patch name="1.10.0">
 			<info name="Beastmaster's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_28.png"/>

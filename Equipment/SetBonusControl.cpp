@@ -237,6 +237,14 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Bloodmail Regalia") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->increase_melee_ap(10);
+            pchar->get_stats()->increase_ranged_ap(10);
+            break;
+        }
+    }
     else if (set_name == "The Twin Blades of Hakkari") {
         switch (num_pieces) {
         case 2:
@@ -445,6 +453,14 @@ void SetBonusControl::unequip_item(const int item_id) {
         switch (num_pieces) {
         case 3:
             pchar->get_stats()->decrease_mp5(12);
+            break;
+        }
+    }
+    else if (set_name == "Bloodmail Regalia") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->decrease_melee_ap(10);
+            pchar->get_stats()->decrease_ranged_ap(10);
             break;
         }
     }
