@@ -19,7 +19,7 @@ MultiShot::MultiShot(Hunter* pchar) :
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
     SetBonusRequirer({"Giantstalker Armor", "Cryptstalker Armor"}),
-    ItemModificationRequirer({16463, 16571}),
+    ItemModificationRequirer({16463, 16571, 22862, 23279}),
     hunter(pchar)
 {
     resource_base = resource_cost;
@@ -154,6 +154,8 @@ void MultiShot::activate_item_effect(const int item_id) {
     switch (item_id) {
     case 16463:
     case 16571:
+    case 22862:
+    case 23279:
         pvp_gloves_bonus = 1.03;
         break;
     default:
@@ -165,6 +167,8 @@ void MultiShot::deactivate_item_effect(const int item_id) {
     switch (item_id) {
     case 16463:
     case 16571:
+    case 22862:
+    case 23279:
         pvp_gloves_bonus = 1.0;
         break;
     default:

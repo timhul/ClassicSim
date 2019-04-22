@@ -125,6 +125,68 @@
 		</patch>
 	</item>
 
+	<item id="23292">
+		<patch name="1.4.0">
+			<info name="Knight-Captain's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_04.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="370"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="ATTACK_POWER" value="26"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Captain (rank 8).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Knight-Captain's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_04.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="398"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STAMINA" value="13"/>
+				<stat type="INTELLECT" value="6"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Captain (rank 8).
+			</source>
+		</patch>
+	</item>
+
+	<item id="22874">
+		<patch name="1.4.0">
+			<info name="Legionnaire's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_chain_04.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="370"/>
+				<stat type="STAMINA" value="18"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="ATTACK_POWER" value="26"/>
+				<stat type="CRIT_CHANCE" value="0.01"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Legionnaire (rank 8).
+			</source>
+		</patch>
+		<patch name="1.11.0">
+			<info name="Legionnaire's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_chain_04.png"/>
+			<class_restriction class="HUNTER"/>
+			<stats>
+				<stat type="ARMOR" value="398"/>
+				<stat type="AGILITY" value="16"/>
+				<stat type="STAMINA" value="13"/>
+				<stat type="INTELLECT" value="6"/>
+				<stat type="CRIT_CHANCE" value="0.02"/>
+			</stats>
+			<source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Legionnaire (rank 8).
+			</source>
+		</patch>
+	</item>
+
 	<item id="16466">
 		<patch name="1.4.0">
 			<info name="Field Marshal's Chain Breastplate" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_03.png"/>

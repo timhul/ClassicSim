@@ -195,6 +195,8 @@ void SetBonusControl::equip_item(const int item_id) {
     }
     else if (set_name == "Lieutenant Commander's Battlearmor" || set_name == "Champion's Battlearmor")
         activate_warrior_r10_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Lieutenant Commander's Pursuance" || set_name == "Champion's Pursuit")
+        activate_hunter_r10_pvp_set_bonuses(num_pieces);
     else if (set_name == "Field Marshal's Battlegear" || set_name == "Warlord's Battlegear")
         activate_warrior_r13_pvp_set_bonuses(num_pieces);
     else if (set_name == "Field Marshal's Pursuit" || set_name == "Warlord's Pursuit")
@@ -366,6 +368,8 @@ void SetBonusControl::unequip_item(const int item_id) {
     }
     else if (set_name == "Lieutenant Commander's Battlearmor" || set_name == "Champion's Battlearmor")
         deactivate_warrior_r10_pvp_set_bonuses(num_pieces);
+    else if (set_name == "Lieutenant Commander's Pursuance" || set_name == "Champion's Pursuit")
+        deactivate_hunter_r10_pvp_set_bonuses(num_pieces);
     else if (set_name == "Field Marshal's Battlegear" || set_name == "Warlord's Battlegear")
         deactivate_warrior_r13_pvp_set_bonuses(num_pieces);
     else if (set_name == "Field Marshal's Pursuit" || set_name == "Warlord's Pursuit")
@@ -469,6 +473,28 @@ void SetBonusControl::deactivate_warrior_r13_pvp_set_bonuses(const int num_piece
         break;
     case 6:
         pchar->get_stats()->decrease_melee_ap(40);
+        break;
+    }
+}
+
+void SetBonusControl::activate_hunter_r10_pvp_set_bonuses(const int num_pieces) {
+    switch (num_pieces) {
+    case 2:
+        pchar->get_stats()->increase_agility(20);
+        break;
+    case 6:
+        pchar->get_stats()->increase_stamina(20);
+        break;
+    }
+}
+
+void SetBonusControl::deactivate_hunter_r10_pvp_set_bonuses(const int num_pieces) {
+    switch (num_pieces) {
+    case 2:
+        pchar->get_stats()->decrease_agility(20);
+        break;
+    case 6:
+        pchar->get_stats()->decrease_stamina(20);
         break;
     }
 }

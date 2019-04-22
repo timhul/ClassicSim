@@ -310,6 +310,44 @@
 		(3) Set: Increases your pet's damage by 3%.
 		</bonus>
 	</set>
+	
+	<set name="Lieutenant Commander's Pursuance">
+		<item_id value="23292"/>
+		<item_id value="23293"/>
+		<item_id value="23278"/>
+		<item_id value="23279"/>
+		<item_id value="23306"/>
+		<item_id value="23307"/>
+
+		<bonus value="2">
+		(2) Set: +20 Agility.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +20 Stamina.
+		</bonus>
+	</set>
+
+	<set name="Champion's Pursuit">
+		<item_id value="22843"/>
+		<item_id value="22862"/>
+		<item_id value="23251"/>
+		<item_id value="23252"/>
+		<item_id value="22874"/>
+		<item_id value="22875"/>
+
+		<bonus value="2">
+		(2) Set: +20 Agility.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Reduces the cooldown of your Concussive Shot by 1 sec.
+		</bonus>
+		<bonus value="6">
+		(6) Set: +20 Stamina.
+		</bonus>
+	</set>
 
 	<set name="Field Marshal's Pursuit">
 		<item_id value="16466"/>
@@ -329,7 +367,7 @@
 		(6) Set: +20 Agility.
 		</bonus>
 	</set>
-	
+
 	<set name="Warlord's Pursuit">
 		<item_id value="16569"/>
 		<item_id value="16571"/>
