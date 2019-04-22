@@ -41,6 +41,21 @@
 		</patch>
 	</item>
 
+	<item id="11731">
+		<patch name="1.0.0">
+			<info name="Savage Gladiator Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_boots_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="233"/>
+				<stat type="AGILITY" value="15"/>
+				<stat type="STRENGTH" value="10"/>
+				<stat type="STAMINA" value="13"/>
+			</stats>
+			<source>
+			Drops from Anub'shiah in the Arena in Blackrock Depths (BRD).
+			</source>
+		</patch>
+	</item>
+
 	<item id="22061">
 		<patch name="1.10.0">
 			<info name="Beastmaster's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>

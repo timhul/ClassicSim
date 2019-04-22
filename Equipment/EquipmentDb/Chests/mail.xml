@@ -99,7 +99,7 @@
 				<stat type="CRIT_CHANCE" value="0.02"/>
 			</stats>
 			<source>
-			Drops from Gorosh the Dervish in Blackrock Depths.
+			Drops from Gorosh the Dervish in the Arena in Blackrock Depths (BRD).
 			</source>
 		</patch>
 
@@ -112,7 +112,7 @@
 				<stat type="CRIT_CHANCE" value="0.02"/>
 			</stats>
 			<source>
-			Drops from Gorosh the Dervish in Blackrock Depths.
+			Drops from Gorosh the Dervish in the Arena in Blackrock Depths (BRD).
 			</source>
 		</patch>
 
@@ -126,7 +126,7 @@
 				<stat type="CRIT_CHANCE" value="0.02"/>
 			</stats>
 			<source>
-			Drops from Gorosh the Dervish in Blackrock Depths.
+			Drops from Gorosh the Dervish in the Arena in Blackrock Depths (BRD).
 			</source>
 		</patch>
 	</item>

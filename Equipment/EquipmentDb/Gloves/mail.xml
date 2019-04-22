@@ -31,6 +31,22 @@
 		</patch>
 	</item>
 
+	<item id="11730">
+		<patch name="1.0.0">
+			<info name="Savage Gladiator Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_gauntlets_04.png"/>
+			<stats>
+				<stat type="ARMOR" value="211"/>
+				<stat type="AGILITY" value="9"/>
+				<stat type="INTELLECT" value="12"/>
+				<stat type="STAMINA" value="14"/>
+				<stat type="STRENGTH" value="5"/>
+			</stats>
+			<source>
+			Drops from Eviscerator in the Arena in Blackrock Depths (BRD).
+			</source>
+		</patch>
+	</item>
+
 	<item id="13963000">
 		<patch name="1.0.0">
 			<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_15.png"/>

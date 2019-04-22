@@ -202,6 +202,18 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
+    else if (set_name == "The Gladiator") {
+        switch (num_pieces) {
+        case 4:
+            pchar->get_stats()->increase_melee_ap(10);
+            pchar->get_stats()->increase_ranged_ap(10);
+            break;
+        case 5:
+            pchar->get_stats()->increase_melee_crit(100);
+            pchar->get_stats()->increase_ranged_crit(100);
+            break;
+        }
+    }
     else if (set_name == "Devilsaur Armor") {
         switch (num_pieces) {
         case 2:
@@ -419,6 +431,18 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
+        }
+    }
+    else if (set_name == "The Gladiator") {
+        switch (num_pieces) {
+        case 4:
+            pchar->get_stats()->decrease_melee_ap(10);
+            pchar->get_stats()->decrease_ranged_ap(10);
+            break;
+        case 5:
+            pchar->get_stats()->decrease_melee_crit(100);
+            pchar->get_stats()->decrease_ranged_crit(100);
+            break;
         }
     }
     else if (set_name == "Devilsaur Armor") {

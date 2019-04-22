@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <sets>
+	<set name="The Gladiator">
+		<item_id value="11729"/>
+		<item_id value="11726"/>
+		<item_id value="11728"/>
+		<item_id value="11731"/>
+		<item_id value="11730"/>
+
+		<bonus value="2">
+		(2) Set: +20 Armor.
+		</bonus>
+		<bonus value="3">
+		(3) Set: Increased Defense +2.
+		</bonus>
+		<bonus value="4">
+		(4) Set: +10 Attack Power.
+		</bonus>
+		<bonus value="5">
+		(5) Set: Increases your chance to get a critical strike by 1%.
+		</bonus>
+	</set>
+
 	<set name="Devilsaur Armor">
 		<item_id value="15063"/>
 		<item_id value="15062"/>

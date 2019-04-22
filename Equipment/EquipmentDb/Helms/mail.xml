@@ -15,6 +15,20 @@
 		</patch>
 	</item>
 
+	<item id="11729">
+		<patch name="1.0.0">
+			<info name="Savage Gladiator Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
+			<stats>
+				<stat type="ARMOR" value="275"/>
+				<stat type="STAMINA" value="28"/>
+				<stat type="AGILITY" value="12"/>
+			</stats>
+			<source>
+			Drops from Hedrum the Creeper in the Arena in Blackrock Depths (BRD).
+			</source>
+		</patch>
+	</item>
+
 	<item id="16677">
 		<patch name="1.0.0">
 			<info name="Beaststalker's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_24.png"/>

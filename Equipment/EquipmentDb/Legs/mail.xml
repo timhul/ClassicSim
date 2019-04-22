@@ -16,6 +16,21 @@
 		</patch>
 	</item>
 
+	<item id="11728">
+		<patch name="1.0.0">
+			<info name="Savage Gladiator Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+			<stats>
+				<stat type="ARMOR" value="296"/>
+				<stat type="STAMINA" value="19"/>
+				<stat type="AGILITY" value="18"/>
+				<stat type="STRENGTH" value="12"/>
+			</stats>
+			<source>
+			Drops from Ok'thor the Breaker in the Arena in Blackrock Depths (BRD).
+			</source>
+		</patch>
+	</item>
+
 	<item id="15052">
 		<patch name="1.0.0">
 			<info name="Black Dragonscale Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_03.png"/>
