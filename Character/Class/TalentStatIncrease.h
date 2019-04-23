@@ -54,9 +54,9 @@ public:
                        const QString& name,
                        const QString& location,
                        const QString& icon,
-                       const int max_points,
+                       const unsigned max_points,
                        const QString& rank_description,
-                       const QVector<QPair<int, int>>& format_values,
+                       const QVector<QPair<unsigned, unsigned>>& format_values,
                        QVector<QPair<TalentStat, unsigned>> affected_stats);
     ~TalentStatIncrease() override = default;
 

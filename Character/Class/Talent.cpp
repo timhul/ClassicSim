@@ -10,23 +10,22 @@
 #include "TalentTree.h"
 #include "Utils/Check.h"
 
-Talent::Talent(Character *pchar_,
-               TalentTree *tree_,
-               QString name_,
-               QString position_,
-               QString icon_,
-               const int max_points_,
-               QMap<int, QString> rank_descriptions,
+Talent::Talent(Character* pchar,
+               TalentTree* tree,
+               const QString& name,
+               const QString& position,
+               const QString& icon,
+               const unsigned max_points,
+               QMap<unsigned, QString> rank_descriptions,
                QVector<Spell*> affected_spells_,
                QVector<Buff*> affected_buffs_,
                QVector<Proc*> affected_procs_) :
-    pchar(pchar_),
-    tree(tree_),
-    name(std::move(name_)),
-    position(std::move(position_)),
-    icon(std::move(icon_)),
-    max_points(max_points_),
-    curr_points(0),
+    pchar(pchar),
+    tree(tree),
+    name(name),
+    position(position),
+    icon(icon),
+    max_points(max_points),
     affected_spells(std::move(affected_spells_)),
     affected_buffs(std::move(affected_buffs_)),
     affected_procs(std::move(affected_procs_)),
@@ -38,14 +37,14 @@ Talent::Talent(Character *pchar_,
     check((max_points > 0 && max_points <= 5), "Number of talent points not possible");
 }
 
-Talent::Talent(Character *pchar,
+Talent::Talent(Character* pchar,
                TalentTree* tree,
-               const QString &name,
-               const QString &position,
-               const QString &icon,
-               const int max_points,
-               const QString &rank_description,
-               const QVector<QPair<int, int>>& format_values) :
+               const QString& name,
+               const QString& position,
+               const QString& icon,
+               const unsigned max_points,
+               const QString& rank_description,
+               const QVector<QPair<unsigned, unsigned>>& format_values) :
     Talent(pchar, tree, name, position, icon, max_points)
 {
     if (!format_values.empty()) {
@@ -62,7 +61,7 @@ Talent::Talent(Character *pchar,
                const QString &name,
                const QString &position,
                const QString &icon,
-               const int max_points,
+               const unsigned max_points,
                const QString &rank_description,
                const QVector<QPair<double, double>>& format_values) :
     Talent(pchar, tree, name, position, icon, max_points)
@@ -193,11 +192,11 @@ QString Talent::get_arrow_identifier(const QString& target_position) const {
     }
 }
 
-int Talent::get_current_rank() const {
+unsigned Talent::get_current_rank() const {
     return curr_points;
 }
 
-int Talent::get_max_rank() const {
+unsigned Talent::get_max_rank() const {
     return max_points;
 }
 
@@ -270,8 +269,11 @@ Talent* Talent::get_right_child() const {
     return right_child;
 }
 
-void Talent::initialize_rank_descriptions(QMap<int, QString>& description_map, const QString& base_str, const int format_points, const QVector<QPair<int, int>>& format_values) {
-    for (int i = 0; i < format_points; ++i) {
+void Talent::initialize_rank_descriptions(QMap<unsigned, QString>& description_map,
+                                          const QString& base_str,
+                                          const unsigned format_points,
+                                          const QVector<QPair<unsigned, unsigned>>& format_values) {
+    for (unsigned i = 0; i < format_points; ++i) {
         QString format_str = base_str;
         for (auto format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);
@@ -283,8 +285,11 @@ void Talent::initialize_rank_descriptions(QMap<int, QString>& description_map, c
     description_map[0] = description_map[1];
 }
 
-void Talent::initialize_rank_descriptions(QMap<int, QString>& description_map, const QString& base_str, const int format_points, const QVector<QPair<double, double>>& format_values) {
-    for (int i = 0; i < format_points; ++i) {
+void Talent::initialize_rank_descriptions(QMap<unsigned, QString>& description_map,
+                                          const QString& base_str,
+                                          const unsigned format_points,
+                                          const QVector<QPair<double, double>>& format_values) {
+    for (unsigned i = 0; i < format_points; ++i) {
         QString format_str = base_str;
         for (auto format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);

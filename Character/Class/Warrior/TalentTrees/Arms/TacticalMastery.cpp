@@ -7,7 +7,7 @@ TacticalMastery::TacticalMastery(Character *pchar, TalentTree* tree) :
     warr(dynamic_cast<Warrior*>(pchar))
 {
     QString base_str = "You retain up to %1 of your rage points when you change stances.";
-    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<int, int>>{{5, 5}});
+    initialize_rank_descriptions(rank_descriptions, base_str, max_points, QVector<QPair<unsigned, unsigned>>{{5, 5}});
 }
 
 TacticalMastery::~TacticalMastery() = default;

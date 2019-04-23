@@ -9,9 +9,9 @@
 
 TalentStatIncrease::TalentStatIncrease(Character *pchar, TalentTree* tree,
                                        const QString& name, const QString& location,
-                                       const QString& icon, const int max_points,
+                                       const QString& icon, const unsigned max_points,
                                        const QString& rank_description,
-                                       const QVector<QPair<int, int>>& format_values,
+                                       const QVector<QPair<unsigned, unsigned>>& format_values,
                                        QVector<QPair<TalentStat, unsigned>> affected_stats) :
     Talent(pchar, tree, name, location, icon, max_points, rank_description, format_values),
     cstats(pchar->get_stats()),
@@ -83,17 +83,17 @@ void TalentStatIncrease::apply_rank_effect() {
             continue;
         case AgilityMod:
             if (curr_points != 1)
-                cstats->remove_agility_mod((curr_points - 1) * static_cast<int>(change));
+                cstats->remove_agility_mod((static_cast<int>(curr_points - 1) * static_cast<int>(change)));
             cstats->add_agility_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case StrengthMod:
             if (curr_points != 1)
-                cstats->remove_strength_mod((curr_points - 1) * static_cast<int>(change));
+                cstats->remove_strength_mod(static_cast<int>(curr_points - 1) * static_cast<int>(change));
             cstats->add_strength_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case IntellectMod:
             if (curr_points != 1)
-                cstats->remove_intellect_mod((curr_points - 1) * static_cast<int>(change));
+                cstats->remove_intellect_mod(static_cast<int>(curr_points - 1) * static_cast<int>(change));
             cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case OneHandMeleeDmg:
@@ -181,15 +181,15 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Humanoid, change);
             continue;
         case AgilityMod:
-            cstats->remove_agility_mod((curr_points + 1) * static_cast<int>(change));
+            cstats->remove_agility_mod(static_cast<int>(curr_points + 1) * static_cast<int>(change));
             cstats->add_agility_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case StrengthMod:
-            cstats->remove_strength_mod((curr_points + 1) * static_cast<int>(change));
+            cstats->remove_strength_mod(static_cast<int>(curr_points + 1) * static_cast<int>(change));
             cstats->add_strength_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case IntellectMod:
-            cstats->remove_intellect_mod((curr_points + 1) * static_cast<int>(change));
+            cstats->remove_intellect_mod(static_cast<int>(curr_points + 1) * static_cast<int>(change));
             cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
         case OneHandMeleeDmg:

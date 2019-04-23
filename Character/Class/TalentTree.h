@@ -13,10 +13,6 @@ class Talent;
 
 class TalentTier {
 public:
-    TalentTier():
-        spent_points(0)
-    {}
-
     void clear_points() {
         spent_points = 0;
     }
@@ -29,25 +25,24 @@ public:
         spent_points--;
     }
 
-    int get_points() const {
+    unsigned get_points() const {
         return spent_points;
     }
 
 private:
-    int spent_points;
+    unsigned spent_points {0};
 };
 
 class TalentStorage {
 public:
     TalentStorage(Talent* talent) :
-        talent(talent),
-        points_for_setup(0)
+        talent(talent)
     {}
 
     ~TalentStorage();
 
     Talent* talent;
-    int points_for_setup;
+    unsigned points_for_setup {0};
 };
 
 
@@ -58,31 +53,31 @@ public:
 
     QString get_name() const;
     QString get_background_image() const;
-    QString get_icon(const QString &position);
-    QString get_right_arrow(const QString &position);
-    QString get_bottom_arrow(const QString &position);
+    QString get_icon(const QString& position);
+    QString get_right_arrow(const QString& position);
+    QString get_bottom_arrow(const QString& position);
 
-    bool bottom_child_is_available(const QString &position) const;
-    bool bottom_child_is_active(const QString &position) const;
-    bool right_child_is_available(const QString &position) const;
-    bool right_child_is_active(const QString &position) const;
+    bool bottom_child_is_available(const QString& position) const;
+    bool bottom_child_is_active(const QString& position) const;
+    bool right_child_is_available(const QString& position) const;
+    bool right_child_is_active(const QString& position) const;
 
-    int get_current_rank(const QString &position) const;
-    int get_max_rank(const QString &position) const;
-    bool increment_rank(const QString &position);
-    bool decrement_rank(const QString &position);
+    unsigned get_current_rank(const QString& position) const;
+    unsigned get_max_rank(const QString& position) const;
+    bool increment_rank(const QString& position);
+    bool decrement_rank(const QString& position);
 
-    QString get_talent_name(const QString &position) const;
-    QString get_requirement_string(const QString &position) const;
-    QString get_current_rank_description(const QString &position) const;
-    QString get_next_rank_description(const QString &position) const;
+    QString get_talent_name(const QString& position) const;
+    QString get_requirement_string(const QString& position) const;
+    QString get_current_rank_description(const QString& position) const;
+    QString get_next_rank_description(const QString& position) const;
 
-    bool is_active(const QString &position) const;
-    bool is_maxed(const QString &position) const;
-    bool is_available(const QString &position) const;
-    bool has_parent(const QString &position) const;
-    bool has_right_child(const QString &position) const;
-    bool has_bottom_child(const QString &position) const;
+    bool is_active(const QString& position) const;
+    bool is_maxed(const QString& position) const;
+    bool is_available(const QString& position) const;
+    bool has_parent(const QString& position) const;
+    bool has_right_child(const QString& position) const;
+    bool has_bottom_child(const QString& position) const;
 
     int get_total_points() const;
 
@@ -109,8 +104,8 @@ protected:
     TalentTier* get_tier(const int tier) const;
 
     Talent* get_new_talent(Character* pchar, const QString& name, const QString& location, const QString& icon,
-                           const int max_points, const QString& rank_str,
-                           const QVector<QPair<int, int>>& format_values,
+                           const unsigned max_points, const QString& rank_str,
+                           const QVector<QPair<unsigned, unsigned>>& format_values,
                            const QVector<Spell*>& affected_spells = {},
                            const QVector<Buff*>& affected_buffs = {},
                            const QVector<Proc*>& affected_procs = {}

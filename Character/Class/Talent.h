@@ -14,33 +14,33 @@ class TalentTree;
 
 class Talent {
 public:
-    Talent(Character* pchar_,
-           TalentTree *tree_,
-           QString name_,
-           QString position_,
-           QString icon_,
-           const int max_points_,
-           QMap<int, QString> rank_descriptions = {},
+    Talent(Character* pchar,
+           TalentTree* tree,
+           const QString& name,
+           const QString& position,
+           const QString& icon,
+           const unsigned max_points,
+           QMap<unsigned, QString> rank_descriptions = {},
            QVector<Spell*> affected_spells = {},
            QVector<Buff*> affected_buffs = {},
            QVector<Proc*> affected_procs = {}
            );
 
-    Talent(Character *pchar,
-           TalentTree *tree,
-           const QString &name,
-           const QString &position,
-           const QString &icon,
-           const int max_points,
-           const QString &rank_description,
-           const QVector<QPair<int, int>>& format_values);
+    Talent(Character* pchar,
+           TalentTree* tree,
+           const QString& name,
+           const QString& position,
+           const QString& icon,
+           const unsigned max_points,
+           const QString& rank_description,
+           const QVector<QPair<unsigned, unsigned>>& format_values);
 
     Talent(Character *pchar,
            TalentTree *tree,
            const QString &name,
            const QString &position,
            const QString &icon,
-           const int max_points,
+           const unsigned max_points,
            const QString &rank_description,
            const QVector<QPair<double, double>>& format_values);
 
@@ -55,8 +55,8 @@ public:
     QString get_requirement_string() const;
     QString get_current_rank_description() const;
     QString get_next_rank_description() const;
-    int get_current_rank() const;
-    int get_max_rank() const;
+    unsigned get_current_rank() const;
+    unsigned get_max_rank() const;
     bool increment_rank();
     bool decrement_rank();
 
@@ -76,8 +76,14 @@ public:
     void set_bottom_child(Talent*);
     void set_right_child(Talent*);
 
-    static void initialize_rank_descriptions(QMap<int, QString>& description_map, const QString &base_str, const int format_points, const QVector<QPair<int, int> > &format_values);
-    static void initialize_rank_descriptions(QMap<int, QString>& description_map, const QString &base_str, const int format_points, const QVector<QPair<double, double> > &format_values);
+    static void initialize_rank_descriptions(QMap<unsigned, QString>& description_map,
+                                             const QString& base_str,
+                                             const unsigned format_points,
+                                             const QVector<QPair<unsigned, unsigned>>& format_values);
+    static void initialize_rank_descriptions(QMap<unsigned, QString>& description_map,
+                                             const QString& base_str,
+                                             const unsigned format_points,
+                                             const QVector<QPair<double, double>>& format_values);
 
 protected:
     Character* pchar;
@@ -85,8 +91,8 @@ protected:
     const QString name;
     const QString position;
     const QString icon;
-    const int max_points;
-    int curr_points;
+    const unsigned max_points;
+    unsigned curr_points {0};
     QVector<Spell*> affected_spells;
     QVector<Buff*> affected_buffs;
     QVector<Proc*> affected_procs;
@@ -95,7 +101,7 @@ protected:
     Talent* right_child;
     Talent* bottom_child;
 
-    QMap<int, QString> rank_descriptions;
+    QMap<unsigned, QString> rank_descriptions;
 
     bool any_child_active() const;
     QString get_arrow_identifier(const QString& target_position) const;

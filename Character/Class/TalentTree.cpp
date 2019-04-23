@@ -38,28 +38,28 @@ QString TalentTree::get_background_image() const {
     return background;
 }
 
-QString TalentTree::get_talent_name(const QString &position) const {
+QString TalentTree::get_talent_name(const QString& position) const {
     if (!talents.contains(position))
         return "Missing talent!";
 
     return talents[position]->talent->get_name();
 }
 
-QString TalentTree::get_requirement_string(const QString &position) const {
+QString TalentTree::get_requirement_string(const QString& position) const {
     if (!talents.contains(position))
         return "Missing talent!";
 
     return talents[position]->talent->get_requirement_string();
 }
 
-QString TalentTree::get_current_rank_description(const QString &position) const {
+QString TalentTree::get_current_rank_description(const QString& position) const {
     if (!talents.contains(position))
         return "Missing talent!";
 
     return talents[position]->talent->get_current_rank_description();
 }
 
-QString TalentTree::get_next_rank_description(const QString &position) const {
+QString TalentTree::get_next_rank_description(const QString& position) const {
     if (!talents.contains(position))
         return "Missing talent!";
 
@@ -73,28 +73,28 @@ void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
     }
 }
 
-QString TalentTree::get_icon(const QString &position) {
+QString TalentTree::get_icon(const QString& position) {
     if (!talents.contains(position))
         return "";
 
     return talents[position]->talent->get_icon();
 }
 
-QString TalentTree::get_right_arrow(const QString &position) {
+QString TalentTree::get_right_arrow(const QString& position) {
     if (!talents.contains(position))
         return "";
 
     return talents[position]->talent->get_right_arrow_image();
 }
 
-QString TalentTree::get_bottom_arrow(const QString &position) {
+QString TalentTree::get_bottom_arrow(const QString& position) {
     if (!talents.contains(position))
         return "";
 
     return talents[position]->talent->get_bottom_arrow_image();
 }
 
-bool TalentTree::bottom_child_is_available(const QString &position) const {
+bool TalentTree::bottom_child_is_available(const QString& position) const {
     if (!talents.contains(position) || !talents[position]->talent->has_bottom_child() || !is_maxed(position)) {
         return false;
     }
@@ -104,7 +104,7 @@ bool TalentTree::bottom_child_is_available(const QString &position) const {
     return total_spent_points >= (QString(child_pos[0]).toInt() - 1) * 5;
 }
 
-bool TalentTree::bottom_child_is_active(const QString &position) const {
+bool TalentTree::bottom_child_is_active(const QString& position) const {
     if (!talents.contains(position) || !talents[position]->talent->has_bottom_child()) {
         return false;
     }
@@ -112,7 +112,7 @@ bool TalentTree::bottom_child_is_active(const QString &position) const {
     return talents[position]->talent->get_bottom_child()->is_active();
 }
 
-bool TalentTree::right_child_is_available(const QString &position) const {
+bool TalentTree::right_child_is_available(const QString& position) const {
     if (!talents.contains(position) || !talents[position]->talent->has_right_child() || !is_maxed(position))
         return false;
 
@@ -121,7 +121,7 @@ bool TalentTree::right_child_is_available(const QString &position) const {
     return total_spent_points >= (QString(child_pos[0]).toInt() - 1) * 5;
 }
 
-bool TalentTree::right_child_is_active(const QString &position) const {
+bool TalentTree::right_child_is_active(const QString& position) const {
     if (!talents.contains(position) || !talents[position]->talent->has_right_child()) {
         return false;
     }
@@ -129,21 +129,21 @@ bool TalentTree::right_child_is_active(const QString &position) const {
     return talents[position]->talent->get_right_child()->is_active();
 }
 
-int TalentTree::get_current_rank(const QString &position) const {
+unsigned TalentTree::get_current_rank(const QString& position) const {
     if (!talents.contains(position))
-        return -1;
+        return 0;
 
     return talents[position]->talent->get_current_rank();
 }
 
-int TalentTree::get_max_rank(const QString &position) const {
+unsigned TalentTree::get_max_rank(const QString& position) const {
     if (!talents.contains(position))
-        return -1;
+        return 0;
 
     return talents[position]->talent->get_max_rank();
 }
 
-bool TalentTree::increment_rank(const QString &position) {
+bool TalentTree::increment_rank(const QString& position) {
     if (!talents.contains(position) || !is_available(position))
         return false;
 
@@ -156,7 +156,7 @@ bool TalentTree::increment_rank(const QString &position) {
     return false;
 }
 
-bool TalentTree::decrement_rank(const QString &position) {
+bool TalentTree::decrement_rank(const QString& position) {
     if (!talents.contains(position))
         return false;
 
@@ -186,21 +186,21 @@ bool TalentTree::decrement_rank(const QString &position) {
     return false;
 }
 
-bool TalentTree::is_active(const QString &position) const {
+bool TalentTree::is_active(const QString& position) const {
     if (!talents.contains(position))
         return false;
 
     return talents[position]->talent->is_active();
 }
 
-bool TalentTree::is_maxed(const QString &position) const {
+bool TalentTree::is_maxed(const QString& position) const {
     if (!talents.contains(position))
         return false;
 
     return talents[position]->talent->is_maxed();
 }
 
-bool TalentTree::is_available(const QString &position) const {
+bool TalentTree::is_available(const QString& position) const {
     if (!talents.contains(position))
         return false;
 
@@ -210,21 +210,21 @@ bool TalentTree::is_available(const QString &position) const {
     return total_spent_points >= (QString(position[0]).toInt() - 1) * 5;
 }
 
-bool TalentTree::has_parent(const QString &position) const {
+bool TalentTree::has_parent(const QString& position) const {
     if (!talents.contains(position))
         return false;
 
     return talents[position]->talent->has_parent();
 }
 
-bool TalentTree::has_right_child(const QString &position) const {
+bool TalentTree::has_right_child(const QString& position) const {
     if (!talents.contains(position))
         return false;
 
     return talents[position]->talent->has_right_child();
 }
 
-bool TalentTree::has_bottom_child(const QString &position) const {
+bool TalentTree::has_bottom_child(const QString& position) const {
     if (!talents.contains(position))
         return false;
 
@@ -297,14 +297,14 @@ void TalentTree::clear_tree() {
 void TalentTree::remove_rank_effects() {
     for (auto & talent_storage : talents) {
         talent_storage->points_for_setup = talent_storage->talent->get_current_rank();
-        for (int i = 0; i < talent_storage->points_for_setup; ++i)
+        for (unsigned i = 0; i < talent_storage->points_for_setup; ++i)
             talent_storage->talent->force_clear_rank();
     }
 }
 
 void TalentTree::apply_rank_effects() {
     for (auto & talent_storage : talents) {
-        for (int i = 0; i < talent_storage->points_for_setup; ++i) {
+        for (unsigned i = 0; i < talent_storage->points_for_setup; ++i) {
             talent_storage->talent->increment_rank();
         }
     }
@@ -334,15 +334,15 @@ QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
     return talent_tree_setup;
 }
 
-Talent* TalentTree::get_new_talent(Character* pchar, const QString &name, const QString &location,
-                                   const QString &icon, const int max_points, const QString &rank_str,
-                                   const QVector<QPair<int, int>>& format_values,
+Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const QString& location,
+                                   const QString& icon, const unsigned max_points, const QString& rank_str,
+                                   const QVector<QPair<unsigned, unsigned>>& format_values,
                                    const QVector<Spell*>& affected_spells,
                                    const QVector<Buff*>& affected_buffs,
                                    const QVector<Proc*>& affected_procs
                                    )
 {
-    QMap<int, QString> rank_descriptions;
+    QMap<unsigned, QString> rank_descriptions;
     if (max_points > 1)
         Talent::initialize_rank_descriptions(rank_descriptions, rank_str, max_points, format_values);
     else {

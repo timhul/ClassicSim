@@ -9,7 +9,7 @@ class TalentTree;
 
 class Deadliness: public Talent {
 public:
-    Deadliness(Character *pchar, TalentTree* tree);
+    Deadliness(Character* pchar, TalentTree* tree);
 
 private:
     QVector<int> ap_multipliers;
