@@ -88,7 +88,7 @@ void Execute::decrease_talent_rank_effect(const QString&, const int curr) {
 }
 
 void Execute::set_execute_threshold(const double execute_threshold) {
-    check((execute_threshold > -0.0001 && execute_threshold < 1.0001), "Invalid Execute range"),
+    check((execute_threshold > -0.0001 && execute_threshold < 1.0001), "Invalid Execute range");
     this->execute_threshold = execute_threshold;
 }
 
