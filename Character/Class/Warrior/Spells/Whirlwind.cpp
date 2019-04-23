@@ -13,8 +13,13 @@ Whirlwind::Whirlwind(Character* pchar) :
 {}
 
 
-bool Whirlwind::is_ready_spell_specific() const {
-    return warr->in_berserker_stance() && !warr->on_stance_cooldown();
+SpellStatus Whirlwind::is_ready_spell_specific() const {
+    if (warr->in_battle_stance())
+        return SpellStatus::InBattleStance;
+    if (warr->in_defensive_stance())
+        return SpellStatus::InDefensiveStance;
+
+    return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
 void Whirlwind::spell_effect() {

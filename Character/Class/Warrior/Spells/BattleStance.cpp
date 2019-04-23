@@ -1,5 +1,5 @@
-
 #include "BattleStance.h"
+
 #include "Warrior.h"
 
 BattleStance::BattleStance(Character* pchar) :
@@ -7,8 +7,13 @@ BattleStance::BattleStance(Character* pchar) :
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 
-bool BattleStance::is_ready_spell_specific() const {
-    return !warr->in_battle_stance() && !warr->on_stance_cooldown();
+SpellStatus BattleStance::is_ready_spell_specific() const {
+    if (warr->in_battle_stance())
+        return SpellStatus::InBattleStance;
+    if (warr->on_stance_cooldown())
+        return SpellStatus::OnStanceCooldown;
+
+    return SpellStatus::Available;
 }
 
 void BattleStance::spell_effect() {

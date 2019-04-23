@@ -14,7 +14,13 @@ void Recklessness::spell_effect() {
     add_spell_cd_event();
 }
 
-bool Recklessness::is_ready_spell_specific() const {
+SpellStatus Recklessness::is_ready_spell_specific() const {
     auto* warr = dynamic_cast<Warrior*>(pchar);
-    return warr->in_berserker_stance() && !warr->on_stance_cooldown();
+
+    if (warr->in_battle_stance())
+        return SpellStatus::InBattleStance;
+    if (warr->in_defensive_stance())
+        return SpellStatus::InDefensiveStance;
+
+    return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }

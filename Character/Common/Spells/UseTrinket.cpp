@@ -41,6 +41,6 @@ void UseTrinket::spell_effect() {
     pchar->start_trinket_cooldown(buff->time_left());
 }
 
-bool UseTrinket::is_ready_spell_specific() const {
-    return !pchar->on_trinket_cooldown();
+SpellStatus UseTrinket::is_ready_spell_specific() const {
+    return pchar->on_trinket_cooldown() ? SpellStatus::OnTrinketCooldown : SpellStatus::Available;
 }

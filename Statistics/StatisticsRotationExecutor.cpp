@@ -62,18 +62,36 @@ QString StatisticsRotationExecutor::get_description_for_status(const SpellStatus
     switch (status) {
     case SpellStatus::Available:
         return "Available";
-    case SpellStatus::NotEnabled:
-        return "FAILURE: Not enabled";
-    case SpellStatus::OnGCD:
-        return "FAILURE: On global cooldown";
-    case SpellStatus::OnCooldown:
-        return "FAILURE: On spell cooldown";
+    case SpellStatus::BuffInactive:
+        return "FAILURE: Internal buff inactive";
     case SpellStatus::CastInProgress:
         return "FAILURE: Cast in progress";
-    case SpellStatus::SpellSpecific:
-        return "FAILURE: Spell-specific reason";
+    case SpellStatus::InBattleStance:
+        return "FAILURE: In Battle Stance";
+    case SpellStatus::InBerserkerStance:
+        return "FAILURE: In Berserker Stance";
+    case SpellStatus::InDefensiveStance:
+        return "FAILURE: In Defensive Stance";
+    case SpellStatus::IncorrectWeaponType:
+        return "FAILURE: Incorrect weapon type";
+    case SpellStatus::InsufficientComboPoints:
+        return "FAILURE: Insufficient combo points";
     case SpellStatus::InsufficientResources:
         return "FAILURE: Insufficient resources";
+    case SpellStatus::NotEnabled:
+        return "FAILURE: Not enabled";
+    case SpellStatus::NotInExecuteRange:
+        return "FAILURE: Not in execute range";
+    case SpellStatus::OnCooldown:
+        return "FAILURE: On spell cooldown";
+    case SpellStatus::OnGCD:
+        return "FAILURE: On global cooldown";
+    case SpellStatus::OnStanceCooldown:
+        return "FAILURE: On stance cooldown";
+    case SpellStatus::OnTrinketCooldown:
+        return "FAILURE: On shared trinket cooldown";
+    case SpellStatus::OvercapResource:
+        return "FAILURE: Cast would exceed resource";
     }
 
     return "<missing description for SpellStatus>";

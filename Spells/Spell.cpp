@@ -61,8 +61,8 @@ double Spell::get_resource_cost() const {
     return this->resource_cost;
 }
 
-bool Spell::is_ready_spell_specific() const {
-    return true;
+SpellStatus Spell::is_ready_spell_specific() const {
+    return SpellStatus::Available;
 }
 
 void Spell::enable_spell_effect() {
@@ -83,16 +83,13 @@ SpellStatus Spell::get_spell_status() const {
     if (pchar->get_spells()->cast_in_progress())
         return SpellStatus::CastInProgress;
 
-    if (!is_ready_spell_specific())
-        return SpellStatus::SpellSpecific;
-
     if ((get_next_use() - engine->get_current_priority()) > 0.0001)
         return SpellStatus::OnCooldown;
 
     if (static_cast<int>(pchar->get_resource_level(resource_type)) < this->resource_cost)
         return SpellStatus::InsufficientResources;
 
-    return SpellStatus::Available;
+    return is_ready_spell_specific();
 }
 
 bool Spell::is_enabled() const {

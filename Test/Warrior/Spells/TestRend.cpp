@@ -109,7 +109,7 @@ void TestRend::test_is_ready_conditions() {
 
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
-    assert(rend()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(rend()->get_spell_status() == SpellStatus::InBerserkerStance);
 }
 
 void TestRend::test_stance_cooldown() {
@@ -124,7 +124,7 @@ void TestRend::test_stance_cooldown() {
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(rend()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(rend()->get_spell_status() == SpellStatus::OnStanceCooldown);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);

@@ -14,8 +14,13 @@ BerserkerRage::BerserkerRage(Character* pchar) :
     rage_gain = talent_ranks[0];
 }
 
-bool BerserkerRage::is_ready_spell_specific() const {
-    return warr->in_berserker_stance();
+SpellStatus BerserkerRage::is_ready_spell_specific() const {
+    if (warr->in_battle_stance())
+        return SpellStatus::InBattleStance;
+    if (warr->in_defensive_stance())
+        return SpellStatus::InDefensiveStance;
+
+    return SpellStatus::Available;
 }
 
 void BerserkerRage::spell_effect() {

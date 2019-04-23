@@ -53,8 +53,8 @@ void MortalStrike::spell_effect() {
     warr->lose_rage(static_cast<unsigned>(resource_cost));
 }
 
-bool MortalStrike::is_ready_spell_specific() const {
-    return !warr->on_stance_cooldown();
+SpellStatus MortalStrike::is_ready_spell_specific() const {
+    return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
 void MortalStrike::increase_talent_rank_effect(const QString&, const int) {

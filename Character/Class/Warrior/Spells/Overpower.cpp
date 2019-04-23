@@ -14,8 +14,15 @@ Overpower::Overpower(Character* pchar) :
     crit_mod = talent_ranks[0];
 }
 
-bool Overpower::is_ready_spell_specific() const {
-    return warr->in_battle_stance() && warr->get_overpower_buff()->is_active() && !warr->on_stance_cooldown();
+SpellStatus Overpower::is_ready_spell_specific() const {
+    if (warr->in_defensive_stance())
+        return SpellStatus::InDefensiveStance;
+    if (warr->in_berserker_stance())
+        return SpellStatus::InBerserkerStance;
+    if (!warr->get_overpower_buff()->is_active())
+        return SpellStatus::BuffInactive;
+
+    return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
 void Overpower::spell_effect() {

@@ -12,12 +12,21 @@ RotationExecutor::RotationExecutor(QString name) :
     spell_name(std::move(name))
 {
     spell_status_statistics.insert(SpellStatus::Available, 0);
-    spell_status_statistics.insert(SpellStatus::NotEnabled, 0);
-    spell_status_statistics.insert(SpellStatus::OnGCD, 0);
-    spell_status_statistics.insert(SpellStatus::OnCooldown, 0);
+    spell_status_statistics.insert(SpellStatus::BuffInactive, 0);
     spell_status_statistics.insert(SpellStatus::CastInProgress, 0);
-    spell_status_statistics.insert(SpellStatus::SpellSpecific, 0);
+    spell_status_statistics.insert(SpellStatus::InBattleStance, 0);
+    spell_status_statistics.insert(SpellStatus::InBerserkerStance, 0);
+    spell_status_statistics.insert(SpellStatus::InDefensiveStance, 0);
+    spell_status_statistics.insert(SpellStatus::IncorrectWeaponType, 0);
+    spell_status_statistics.insert(SpellStatus::InsufficientComboPoints, 0);
     spell_status_statistics.insert(SpellStatus::InsufficientResources, 0);
+    spell_status_statistics.insert(SpellStatus::NotEnabled, 0);
+    spell_status_statistics.insert(SpellStatus::NotInExecuteRange, 0);
+    spell_status_statistics.insert(SpellStatus::OnCooldown, 0);
+    spell_status_statistics.insert(SpellStatus::OnGCD, 0);
+    spell_status_statistics.insert(SpellStatus::OnStanceCooldown, 0);
+    spell_status_statistics.insert(SpellStatus::OnTrinketCooldown, 0);
+    spell_status_statistics.insert(SpellStatus::OvercapResource, 0);
 }
 
 RotationExecutor::~RotationExecutor() {

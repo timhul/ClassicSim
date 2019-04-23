@@ -13,7 +13,7 @@ protected:
 private:
     Warrior* warr;
 
-    bool is_ready_spell_specific() const override;
+    SpellStatus is_ready_spell_specific() const override;
     void spell_effect() override;
 };
 

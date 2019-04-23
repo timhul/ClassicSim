@@ -53,8 +53,11 @@ void Bloodthirst::spell_effect() {
     warr->lose_rage(static_cast<unsigned>(resource_cost));
 }
 
-bool Bloodthirst::is_ready_spell_specific() const {
-    return !warr->in_defensive_stance() && !warr->on_stance_cooldown();
+SpellStatus Bloodthirst::is_ready_spell_specific() const {
+    if (warr->in_defensive_stance())
+        return SpellStatus::InDefensiveStance;
+
+    return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
 void Bloodthirst::increase_talent_rank_effect(const QString&, const int) {

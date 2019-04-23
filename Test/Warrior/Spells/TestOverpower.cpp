@@ -91,17 +91,17 @@ void TestOverpower::test_is_ready_conditions() {
     given_warrior_in_battle_stance();
     given_no_overpower_buff();
     given_warrior_has_rage(100);
-    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(overpower()->get_spell_status() == SpellStatus::BuffInactive);
 
     given_warrior_in_berserker_stance();
     when_overpower_buff_is_applied();
     given_warrior_has_rage(100);
-    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(overpower()->get_spell_status() == SpellStatus::InBerserkerStance);
 
     given_warrior_in_defensive_stance();
     when_overpower_buff_is_applied();
     given_warrior_has_rage(100);
-    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(overpower()->get_spell_status() == SpellStatus::InDefensiveStance);
 
     given_warrior_in_battle_stance();
     when_overpower_buff_is_applied();
@@ -113,7 +113,7 @@ void TestOverpower::test_stance_cooldown() {
     given_warrior_in_berserker_stance();
     when_overpower_buff_is_applied();
     given_warrior_has_rage(100);
-    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(overpower()->get_spell_status() == SpellStatus::InBerserkerStance);
 
     when_switching_to_battle_stance();
     given_warrior_has_rage(100);
@@ -122,7 +122,7 @@ void TestOverpower::test_stance_cooldown() {
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(overpower()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(overpower()->get_spell_status() == SpellStatus::OnStanceCooldown);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);

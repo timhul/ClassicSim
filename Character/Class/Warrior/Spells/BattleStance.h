@@ -14,7 +14,7 @@ private:
     Warrior* warr;
 
     void spell_effect() override;
-    bool is_ready_spell_specific() const override;
+    SpellStatus is_ready_spell_specific() const override;
 };
 
 #endif // BATTLESTANCE_H

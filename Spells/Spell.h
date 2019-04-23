@@ -27,12 +27,21 @@ namespace RestrictedByGcd {
 
 enum class SpellStatus: int {
     Available = 0,
-    NotEnabled,
-    OnGCD,
-    OnCooldown,
+    BuffInactive,
     CastInProgress,
-    SpellSpecific,
+    InBattleStance,
+    InBerserkerStance,
+    InDefensiveStance,
+    IncorrectWeaponType,
+    InsufficientComboPoints,
     InsufficientResources,
+    NotEnabled,
+    NotInExecuteRange,
+    OnCooldown,
+    OnGCD,
+    OnStanceCooldown,
+    OnTrinketCooldown,
+    OvercapResource,
 };
 
 class Spell {
@@ -81,7 +90,7 @@ protected:
     virtual void disable_spell_effect();
     virtual void reset_effect();
     virtual void prepare_set_of_combat_iterations_spell_specific();
-    virtual bool is_ready_spell_specific() const;
+    virtual SpellStatus is_ready_spell_specific() const;
 
     const QString name;
     QString icon;

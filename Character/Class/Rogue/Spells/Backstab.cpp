@@ -29,8 +29,11 @@ Backstab::Backstab(Character* pchar) :
     opportunity_ranks = {1.0, 1.04, 1.08, 1.12, 1.16, 1.20};
 }
 
-bool Backstab::is_ready_spell_specific() const {
-    return rogue->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::DAGGER;
+SpellStatus Backstab::is_ready_spell_specific() const {
+    if (rogue->get_equipment()->get_mainhand()->get_weapon_type() != WeaponTypes::DAGGER)
+        return SpellStatus::IncorrectWeaponType;
+
+    return SpellStatus::Available;
 }
 
 void Backstab::spell_effect() {

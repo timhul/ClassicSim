@@ -108,10 +108,10 @@ void TestRecklessness::test_is_ready_conditions() {
     given_warrior_has_rage(0);
     given_warrior_in_battle_stance();
     assert(warrior->action_ready());
-    assert(recklessness()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(recklessness()->get_spell_status() == SpellStatus::InBattleStance);
 
     given_warrior_has_rage(100);
-    assert(recklessness()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(recklessness()->get_spell_status() == SpellStatus::InBattleStance);
 
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
@@ -129,7 +129,7 @@ void TestRecklessness::test_stance_cooldown() {
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(recklessness()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(recklessness()->get_spell_status() == SpellStatus::OnStanceCooldown);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);

@@ -93,7 +93,7 @@ void TestSliceAndDice::test_obeys_global_cooldown() {
 
 void TestSliceAndDice::test_is_ready_conditions() {
     given_rogue_has_combo_points(0);
-    assert(slice_and_dice()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(slice_and_dice()->get_spell_status() == SpellStatus::InsufficientComboPoints);
 
     given_rogue_has_combo_points(1);
     assert(slice_and_dice()->get_spell_status() == SpellStatus::Available);

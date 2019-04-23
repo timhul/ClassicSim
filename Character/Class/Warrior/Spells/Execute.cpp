@@ -29,13 +29,16 @@ Execute::Execute(Character* pchar) :
 }
 
 
-bool Execute::is_ready_spell_specific() const {
-    if (warr->in_defensive_stance() || warr->on_stance_cooldown())
-        return false;
+SpellStatus Execute::is_ready_spell_specific() const {
+    if (warr->in_defensive_stance())
+        return SpellStatus::InDefensiveStance;
+
+    if (warr->on_stance_cooldown())
+        return SpellStatus::OnStanceCooldown;
 
     int combat_length = warr->get_sim_settings()->get_combat_length();
     double time_remaining = combat_length - warr->get_engine()->get_current_priority();
-    return time_remaining / combat_length < execute_threshold;
+    return time_remaining / combat_length < execute_threshold ? SpellStatus::Available : SpellStatus::NotInExecuteRange;
 }
 
 void Execute::spell_effect() {

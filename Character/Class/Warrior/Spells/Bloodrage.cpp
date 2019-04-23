@@ -15,8 +15,8 @@ Bloodrage::Bloodrage(Character* pchar) :
     this->periodic_rage_current = periodic_rage_base;
 }
 
-bool Bloodrage::is_ready_spell_specific() const {
-    return !warr->in_defensive_stance();
+SpellStatus Bloodrage::is_ready_spell_specific() const {
+    return warr->in_defensive_stance() ? SpellStatus::InDefensiveStance : SpellStatus::Available;
 }
 
 void Bloodrage::increase_talent_rank_effect(const QString&, const int curr) {

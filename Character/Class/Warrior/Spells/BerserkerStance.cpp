@@ -1,5 +1,5 @@
-
 #include "BerserkerStance.h"
+
 #include "Warrior.h"
 
 BerserkerStance::BerserkerStance(Character* pchar) :
@@ -7,8 +7,11 @@ BerserkerStance::BerserkerStance(Character* pchar) :
     warr(dynamic_cast<Warrior*>(pchar))
 {}
 
-bool BerserkerStance::is_ready_spell_specific() const {
-    return !warr->in_berserker_stance() && !warr->on_stance_cooldown();
+SpellStatus BerserkerStance::is_ready_spell_specific() const {
+    if (warr->in_berserker_stance())
+        return SpellStatus::InBerserkerStance;
+
+    return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
 void BerserkerStance::spell_effect() {

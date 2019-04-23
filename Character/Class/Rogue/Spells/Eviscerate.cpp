@@ -41,8 +41,8 @@ Eviscerate::~Eviscerate() {
     delete evisc_range;
 }
 
-bool Eviscerate::is_ready_spell_specific() const {
-    return rogue->get_combo_points() > 0;
+SpellStatus Eviscerate::is_ready_spell_specific() const {
+    return rogue->get_combo_points() > 0 ? SpellStatus::Available : SpellStatus::InsufficientComboPoints;
 }
 
 void Eviscerate::spell_effect() {

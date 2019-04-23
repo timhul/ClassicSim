@@ -15,7 +15,7 @@ private:
     QVector<unsigned> talent_ranks;
     unsigned crit_mod;
 
-    bool is_ready_spell_specific() const override;
+    SpellStatus is_ready_spell_specific() const override;
     void spell_effect() override;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;

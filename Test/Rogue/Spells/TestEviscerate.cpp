@@ -153,7 +153,7 @@ void TestEviscerate::test_obeys_global_cooldown() {
 
 void TestEviscerate::test_is_ready_conditions() {
     given_rogue_has_combo_points(0);
-    assert(eviscerate()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(eviscerate()->get_spell_status() == SpellStatus::InsufficientComboPoints);
 
     given_rogue_has_combo_points(1);
     assert(eviscerate()->get_spell_status() == SpellStatus::Available);

@@ -27,8 +27,8 @@ SliceAndDice::~SliceAndDice() {
     delete buff;
 }
 
-bool SliceAndDice::is_ready_spell_specific() const {
-    return rogue->get_combo_points() > 0;
+SpellStatus SliceAndDice::is_ready_spell_specific() const {
+    return rogue->get_combo_points() > 0 ? SpellStatus::Available : SpellStatus::InsufficientComboPoints;
 }
 
 void SliceAndDice::spell_effect() {

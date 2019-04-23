@@ -34,8 +34,8 @@ void Slam::decrease_talent_rank_effect(const QString&, const int curr) {
     casting_time_ms = talent_ranks[curr];
 }
 
-bool Slam::is_ready_spell_specific() const {
-    return !warr->on_stance_cooldown();
+SpellStatus Slam::is_ready_spell_specific() const {
+    return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
 }
 
 void Slam::spell_effect() {

@@ -111,22 +111,22 @@ void TestBackstab::test_obeys_global_cooldown() {
 void TestBackstab::test_is_ready_conditions() {
     given_no_offhand(rogue);
     given_1h_mace_equipped_in_mainhand(rogue);
-    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(backstab()->get_spell_status() == SpellStatus::IncorrectWeaponType);
 
     given_1h_mace_equipped_in_offhand(rogue);
-    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(backstab()->get_spell_status() == SpellStatus::IncorrectWeaponType);
 
     given_1h_sword_equipped_in_mainhand(rogue);
-    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(backstab()->get_spell_status() == SpellStatus::IncorrectWeaponType);
 
     given_1h_sword_equipped_in_offhand(rogue);
-    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(backstab()->get_spell_status() == SpellStatus::IncorrectWeaponType);
 
     given_fist_weapon_equipped_in_mainhand(rogue);
-    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(backstab()->get_spell_status() == SpellStatus::IncorrectWeaponType);
 
     given_fist_weapon_equipped_in_offhand(rogue);
-    assert(backstab()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(backstab()->get_spell_status() == SpellStatus::IncorrectWeaponType);
 
     given_dagger_equipped_in_mainhand(rogue);
     assert(backstab()->get_spell_status() == SpellStatus::Available);

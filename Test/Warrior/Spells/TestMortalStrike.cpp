@@ -99,7 +99,7 @@ void TestMortalStrike::test_stance_cooldown() {
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(mortal_strike()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(mortal_strike()->get_spell_status() == SpellStatus::OnStanceCooldown);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);

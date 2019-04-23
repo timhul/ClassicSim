@@ -76,7 +76,7 @@ void TestWhirlwind::test_is_ready_conditions() {
 
 void TestWhirlwind::test_stance_cooldown() {
     given_warrior_has_rage(100);
-    assert(whirlwind()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(whirlwind()->get_spell_status() == SpellStatus::InBattleStance);
 
     when_switching_to_berserker_stance();
     given_warrior_has_rage(100);
@@ -85,7 +85,7 @@ void TestWhirlwind::test_stance_cooldown() {
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(whirlwind()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(whirlwind()->get_spell_status() == SpellStatus::OnStanceCooldown);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);

@@ -154,19 +154,19 @@ void TestExecute::test_is_ready_conditions() {
     given_warrior_has_rage(0);
 
     assert(warrior->action_ready());
-    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(execute()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_target_in_execute_range();
     assert(execute()->get_spell_status() == SpellStatus::InsufficientResources);
 
     given_target_not_in_execute_range();
     given_warrior_has_rage(100);
-    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(execute()->get_spell_status() == SpellStatus::NotInExecuteRange);
 
     given_target_in_execute_range();
     given_warrior_in_defensive_stance();
     given_warrior_has_rage(100);
-    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(execute()->get_spell_status() == SpellStatus::InDefensiveStance);
 
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
@@ -190,7 +190,7 @@ void TestExecute::test_stance_cooldown() {
 
     given_engine_priority_pushed_forward(0.99);
     assert(warrior->on_stance_cooldown() == true);
-    assert(execute()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(execute()->get_spell_status() == SpellStatus::OnStanceCooldown);
 
     given_engine_priority_pushed_forward(0.02);
     assert(warrior->on_stance_cooldown() == false);

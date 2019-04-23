@@ -24,7 +24,7 @@ private:
     unsigned bonescythe_energy;
 
     void spell_effect() override;
-    bool is_ready_spell_specific() const override;
+    SpellStatus is_ready_spell_specific() const override;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;

@@ -24,9 +24,9 @@ void ManaPotion::spell_effect() {
     statistics_resource->add_resource_gain(ResourceType::Mana, delta);
 }
 
-bool ManaPotion::is_ready_spell_specific() const {
+SpellStatus ManaPotion::is_ready_spell_specific() const {
     const unsigned delta = pchar->get_max_resource_level(ResourceType::Mana) - pchar->get_resource_level(ResourceType::Mana);
-    return delta >= max;
+    return delta < max ? SpellStatus::OvercapResource : SpellStatus::Available;
 }
 
 void ManaPotion::prepare_set_of_combat_iterations_spell_specific() {

@@ -50,7 +50,7 @@ void TestBloodrage::test_is_ready_conditions() {
     assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_in_defensive_stance();
-    assert(bloodrage()->get_spell_status() == SpellStatus::SpellSpecific);
+    assert(bloodrage()->get_spell_status() == SpellStatus::InDefensiveStance);
 
     given_warrior_in_battle_stance();
     assert(bloodrage()->get_spell_status() == SpellStatus::Available);
