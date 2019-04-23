@@ -159,7 +159,7 @@ void TestMultiShot::test_dmg_affected_by_projectile_bonus() {
     when_multi_shot_is_performed();
 
     // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + (projectile_dps * normalized_wpn_speed)
-    // [506] = 100 + (2.8 * 1000 / 14) + 150 + (20.0 * 2.6)
+    // [506] = 100 + (2.8 * 1000 / 14) + 150 + (20.0 * 2.8)
     then_damage_dealt_is(506);
 }
 
