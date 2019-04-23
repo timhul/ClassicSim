@@ -38,11 +38,9 @@ upcoming releases.
 
 # Next release
 
+Upcoming features and bug fixes that are merged but not yet built and made available as a release:
+
 None (available release is up to date with the latest on master).
-
-## Restrictions:
-
-* If scrolling down to the bottom of a rotation and selecting another then the new rotation is not displayed properly. Fixed by re-selecting the rotation.
 
 # Release notes
 
@@ -200,7 +198,8 @@ contact me!
 
 Q: (not really a question) Nothing happens when I click "Click me!" / "Run Full Sim".
 
-A: Make sure you have equipped a mainhand weapon.
+A: Make sure you have equipped a mainhand weapon if a melee rotation is used, or a ranged weapon if a ranged rotation
+used.
 
 Q: How many iterations are being run?
 
