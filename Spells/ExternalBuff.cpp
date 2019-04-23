@@ -137,6 +137,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::GrilledSquid:
         pchar->get_stats()->increase_agility(10);
         break;
+    case ExternalBuffName::MagebloodPotion:
+        pchar->get_stats()->increase_mp5(12);
+        break;
     }
 }
 
@@ -225,6 +228,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::GrilledSquid:
         pchar->get_stats()->decrease_agility(10);
+        break;
+    case ExternalBuffName::MagebloodPotion:
+        pchar->get_stats()->decrease_mp5(12);
         break;
     }
 }
@@ -345,6 +351,11 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Grilled Squid", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_fish_13.png",
                                 "+10 Agility",
+                                QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::MagebloodPotion:
+        return new ExternalBuff(pchar, "Mageblood Potion", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_45.png",
+                                "Regenerate 12 mana per 5 sec.",
                                 QVersionNumber::fromString("1.0.0"));
     }
 

@@ -551,5 +551,6 @@
         <file>QML/Assets/items/Inv_chest_plate04.png</file>
         <file>QML/Assets/items/Inv_chest_leather_05.png</file>
         <file>QML/Assets/items/Inv_pants_07.png</file>
+        <file>QML/Assets/misc/Inv_potion_45.png</file>
     </qresource>
 </RCC>

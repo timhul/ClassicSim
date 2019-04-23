@@ -19,6 +19,7 @@ enum ExternalBuffName {
     FaerieFire,
     GrilledSquid,
     JujuPower,
+    MagebloodPotion,
     ManaSpringTotem,
     MarkOfTheWild,
     ROIDS,
