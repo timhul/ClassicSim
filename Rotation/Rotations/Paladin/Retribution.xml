@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<rotation class="Paladin" name="Retribution" attack_mode="melee">
+	<description>
+	A rotation for Retribution.
+	</description>
+
+	<cast_if name="Kiss of the Spider">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Jom Gabbar">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Badge of the Swarmguard">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Slayer's Crest">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Earthstrike">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Zandalarian Hero Medallion">
+		buff "Death Wish" is true
+	</cast_if>
+
+	<cast_if name="Diamond Flask">
+		buff "Death Wish" is true
+	</cast_if>
+</rotation>

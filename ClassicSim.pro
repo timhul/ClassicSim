@@ -349,7 +349,15 @@ SOURCES += main.cpp \
     GUI/Models/Statistics/EngineBreakdownModel.cpp \
     Statistics/StatisticsRotationExecutor.cpp \
     GUI/Models/Statistics/RotationExecutorBreakdownModel.cpp \
-    GUI/Models/Statistics/RotationExecutorListModel.cpp
+    GUI/Models/Statistics/RotationExecutorListModel.cpp \
+    Character/Class/Paladin/TalentTrees/HolyPaladin.cpp \
+    Character/Class/Paladin/TalentTrees/ProtectionPaladin.cpp \
+    Character/Class/Paladin/TalentTrees/Retribution.cpp \
+    Character/Class/Paladin/PaladinEnchants.cpp \
+    Test/Paladin/TestPaladin.cpp \
+    Test/Paladin/Talents/TestHolyPaladin.cpp \
+    Test/Paladin/Talents/TestProtectionPaladin.cpp \
+    Test/Paladin/Talents/TestRetribution.cpp
 
 HEADERS += \
     Queue/Queue.h \
@@ -704,7 +712,15 @@ HEADERS += \
     GUI/Models/Statistics/EngineBreakdownModel.h \
     Statistics/StatisticsRotationExecutor.h \
     GUI/Models/Statistics/RotationExecutorBreakdownModel.h \
-    GUI/Models/Statistics/RotationExecutorListModel.h
+    GUI/Models/Statistics/RotationExecutorListModel.h \
+    Character/Class/Paladin/TalentTrees/HolyPaladin.h \
+    Character/Class/Paladin/TalentTrees/ProtectionPaladin.h \
+    Character/Class/Paladin/TalentTrees/Retribution.h \
+    Character/Class/Paladin/PaladinEnchants.h \
+    Test/Paladin/TestPaladin.h \
+    Test/Paladin/Talents/TestHolyPaladin.h \
+    Test/Paladin/Talents/TestProtectionPaladin.h \
+    Test/Paladin/Talents/TestRetribution.h
 
 INCLUDEPATH = $$PWD/Engine \
     $$PWD/Event \
@@ -741,6 +757,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Warlock \
     $$PWD/Character/Class/Shaman \
     $$PWD/Character/Class/Paladin \
+    $$PWD/Character/Class/Paladin/TalentTrees \
     $$PWD/Equipment \
     $$PWD/Equipment/Item \
     $$PWD/Equipment/EquipmentDb \
@@ -767,6 +784,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Hunter \
     $$PWD/Test/Hunter/Spells \
     $$PWD/Test/Hunter/Talents \
+    $$PWD/Test/Paladin \
+    $$PWD/Test/Paladin/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Character/Common \
     $$PWD/Character/Common/Enchants \

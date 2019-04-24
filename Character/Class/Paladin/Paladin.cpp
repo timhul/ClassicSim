@@ -4,8 +4,13 @@
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
+#include "HolyPaladin.h"
 #include "Mana.h"
+#include "PaladinEnchants.h"
 #include "PaladinSpells.h"
+#include "ProtectionPaladin.h"
+#include "Retribution.h"
+#include "Talents.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
@@ -13,6 +18,7 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     Character("Paladin", race, sim_settings) {
     available_races.append("Dwarf");
     available_races.append("Human");
+    available_enchants = new PaladinEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -30,7 +36,7 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     this->resource = this->mana;
     mana->set_base_mana(1436);
 
-    paladin_spells->activate_racials();
+    initialize_talents();
 }
 
 Paladin::~Paladin()
@@ -39,6 +45,7 @@ Paladin::~Paladin()
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete paladin_spells;
     delete mana;
@@ -97,7 +104,9 @@ double Paladin::global_cooldown() const {
 }
 
 void Paladin::initialize_talents() {
-
+    for (int i = 0; i < 3; ++i) {
+        talents->add_talent_tree(new HolyPaladin(this), new ProtectionPaladin(this), new Retribution(this));
+    }
 }
 
 unsigned Paladin::get_resource_level(const ResourceType) const {

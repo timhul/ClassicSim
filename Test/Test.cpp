@@ -37,6 +37,7 @@
 #include "TestHunter.h"
 #include "TestMana.h"
 #include "TestMechanics.h"
+#include "TestPaladin.h"
 #include "TestRogue.h"
 #include "TestRotationFileReader.h"
 #include "TestWarrior.h"
@@ -76,6 +77,7 @@ void Test::test_all() {
     TestWarrior(equipment_db).test_all();
     TestRogue(equipment_db).test_all();
     TestHunter(equipment_db).test_all();
+    TestPaladin(equipment_db).test_all();
 
     TestFelstrikerProc(equipment_db).test_all();
 }

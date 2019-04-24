@@ -552,5 +552,37 @@
         <file>QML/Assets/items/Inv_chest_leather_05.png</file>
         <file>QML/Assets/items/Inv_pants_07.png</file>
         <file>QML/Assets/misc/Inv_potion_45.png</file>
+        <file>QML/Assets/spell/Spell_arcane_blink.png</file>
+        <file>QML/Assets/spell/Spell_holy_devotionaura.png</file>
+        <file>QML/Assets/spell/Spell_holy_fistofjustice.png</file>
+        <file>QML/Assets/spell/Spell_holy_greaterheal.png</file>
+        <file>QML/Assets/spell/Spell_holy_heal.png</file>
+        <file>QML/Assets/spell/Spell_holy_holysmite.png</file>
+        <file>QML/Assets/spell/Spell_holy_layonhands.png</file>
+        <file>QML/Assets/spell/Spell_holy_mindsooth.png</file>
+        <file>QML/Assets/spell/Spell_holy_persuitofjustice.png</file>
+        <file>QML/Assets/spell/Spell_holy_power.png</file>
+        <file>QML/Assets/spell/Spell_holy_retributionaura.png</file>
+        <file>QML/Assets/spell/Spell_holy_righteousfury.png</file>
+        <file>QML/Assets/spell/Spell_holy_sealoffury.png</file>
+        <file>QML/Assets/spell/Spell_holy_sealofmight.png</file>
+        <file>QML/Assets/spell/Spell_holy_sealofprotection.png</file>
+        <file>QML/Assets/spell/Spell_holy_sealofwisdom.png</file>
+        <file>QML/Assets/spell/Spell_holy_searinglight.png</file>
+        <file>QML/Assets/spell/Spell_holy_vindication.png</file>
+        <file>QML/Assets/spell/Spell_nature_sleep.png</file>
+        <file>QML/Assets/ability/Ability_golemthunderclap.png</file>
+        <file>QML/Assets/paladin/paladin_combat.jpg</file>
+        <file>QML/Assets/paladin/paladin_holy.jpg</file>
+        <file>QML/Assets/paladin/paladin_protection.jpg</file>
+        <file>QML/Assets/spell/Spell_holy_healingaura.png</file>
+        <file>QML/Assets/spell/Spell_holy_holybolt.png</file>
+        <file>QML/Assets/spell/Spell_holy_innerfire.png</file>
+        <file>QML/Assets/spell/Spell_holy_unyieldingfaith.png</file>
+        <file>QML/Assets/spell/Spell_frost_windwalkon.png</file>
+        <file>QML/Assets/spell/Spell_holy_auraoflight.png</file>
+        <file>QML/Assets/spell/Spell_holy_blessingofprotection.png</file>
+        <file>QML/Assets/spell/Spell_holy_eyeforaneye.png</file>
+        <file>QML/Assets/spell/Spell_nature_lightningshield.png</file>
     </qresource>
 </RCC>
