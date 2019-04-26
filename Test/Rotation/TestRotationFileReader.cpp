@@ -4,8 +4,10 @@
 #include "ConditionBuff.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
+#include "Human.h"
 #include "Hunter.h"
 #include "Orc.h"
+#include "Paladin.h"
 #include "Rotation.h"
 #include "RotationExecutor.h"
 #include "RotationFileReader.h"
@@ -14,11 +16,7 @@
 #include "Warrior.h"
 
 TestRotationFileReader::TestRotationFileReader() :
-    TestObject(nullptr),
-    race(nullptr),
-    sim_settings(nullptr),
-    hunter(nullptr),
-    warrior(nullptr)
+    TestObject(nullptr)
 {}
 
 void TestRotationFileReader::test_all() {
@@ -33,6 +31,10 @@ void TestRotationFileReader::test_all() {
 
     set_up_hunter();
     test_hunter_aimed_shot_multi_shot();
+    tear_down();
+
+    set_up_paladin();
+    test_paladin_seal_of_the_crusader();
     tear_down();
 }
 
@@ -167,6 +169,31 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
     verify_executor_names(rotation, rotation->all_executors, expected_executor_names);
 }
 
+void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
+    Rotation* rotation = get_rotation("Seal of the Crusader");
+
+    QVector<QString> expected_executor_names = {
+        "Seal of the Crusader",
+        "Kiss of the Spider",
+        "Jom Gabbar",
+        "Badge of the Swarmguard",
+        "Slayer's Crest",
+        "Earthstrike",
+        "Zandalarian Hero Medallion",
+        "Diamond Flask",
+        "Mana Potion",
+    };
+    assert(rotation->all_executors.size() == expected_executor_names.size());
+    verify_executor_names(rotation, rotation->all_executors, expected_executor_names);
+
+    QVector<QString> expected_active_executor_names = {
+        "Seal of the Crusader",
+        "Mana Potion",
+    };
+    rotation->link_spells(paladin);
+    verify_executor_names(rotation, rotation->active_executors, expected_active_executor_names);
+}
+
 void TestRotationFileReader::verify_resource_condition(ConditionResource* condition, const double cmp_value,
                                                        const int comparator, const ResourceType resource_type) {
     assert(condition != nullptr);
@@ -226,12 +253,20 @@ void TestRotationFileReader::set_up_hunter() {
     this->hunter = new Hunter(race, equipment_db, sim_settings);
 }
 
+void TestRotationFileReader::set_up_paladin() {
+    this->race = new Human();
+    this->sim_settings = new SimSettings;
+    this->paladin = new Paladin(race, equipment_db, sim_settings);
+}
+
 void TestRotationFileReader::tear_down() {
     delete hunter;
+    delete paladin;
     delete warrior;
     delete race;
     delete sim_settings;
 
     hunter = nullptr;
+    paladin = nullptr;
     warrior = nullptr;
 }

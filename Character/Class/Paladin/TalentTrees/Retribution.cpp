@@ -2,6 +2,8 @@
 
 #include "Paladin.h"
 #include "PaladinSpells.h"
+#include "SealOfTheCrusader.h"
+#include "PaladinSeal.h"
 #include "TalentStatIncrease.h"
 
 Retribution::Retribution(Paladin* paladin) :
@@ -10,11 +12,11 @@ Retribution::Retribution(Paladin* paladin) :
     spells(dynamic_cast<PaladinSpells*>(paladin->get_spells()))
 {
     QMap<QString, Talent*> tier1 {{"1ML", new Talent(paladin, this, "Improved Blessing of Might", "1ML", "Assets/spell/Spell_holy_fistofjustice.png", 5, "Increases the melee attack power bonus of your Blessing of Might by %1%.", QVector<QPair<unsigned, unsigned>>{{4, 4}})},
-                                  {"1MR", new Talent(paladin, this, "Benediction", "1MR", "Assets/spell/Spell_frost_windwalkon.png", 5, "Reduces the Mana cost of your Judgement and Seal spells by %1%.", QVector<QPair<unsigned, unsigned>>{{3, 3}})}};
+                                  {"1MR", get_benediction()}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent(paladin, this, "Improved Judgement", "2LL", "Assets/spell/Spell_holy_righteousfury.png", 2, "Decreases the cooldown of your Judgement spell by %1 sec.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
-                                  {"2ML", new Talent(paladin, this, "Improved Seal of the Crusader", "2ML", "Assets/spell/Spell_holy_holysmite.png", 3, "Increases the melee attack power bonus of your Seal of the Crusader and the Holy damage increase of your Judgement of the Crusader by %1%.", QVector<QPair<unsigned, unsigned>>{{5, 5}})},
+                                  {"2ML", get_improved_seal_of_the_crusader()},
                                   {"2MR", new Talent(paladin, this, "Deflection", "2MR", "Assets/ability/Ability_parry.png", 5, "Increases your Parry chance by %1%", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
     add_talents(tier2);
 
@@ -40,4 +42,19 @@ Retribution::Retribution(Paladin* paladin) :
 
     talents["3ML"]->talent->set_bottom_child(talents["6ML"]->talent);
     talents["6ML"]->talent->set_parent(talents["3ML"]->talent);
+}
+
+Talent* Retribution::get_benediction() {
+    return get_new_talent(paladin, "Benediction", "1MR", "Assets/spell/Spell_frost_windwalkon.png",
+                          5, "Reduces the Mana cost of your Judgement and Seal spells by %1%.",
+                          QVector<QPair<unsigned, unsigned>>{{3, 3}},
+                          QVector<Spell*>{spells->get_seal_of_the_crusader()});
+}
+
+Talent* Retribution::get_improved_seal_of_the_crusader() {
+    return get_new_talent(paladin, "Improved Seal of the Crusader", "2ML", "Assets/spell/Spell_holy_holysmite.png",
+                          3, "Increases the melee attack power bonus of your Seal of the Crusader and the Holy damage increase of your Judgement of the Crusader by %1%.",
+                          QVector<QPair<unsigned, unsigned>>{{5, 5}},
+                          {},
+                          QVector<Buff*>{spells->get_seal_of_the_crusader()->get_buff()});
 }

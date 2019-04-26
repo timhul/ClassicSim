@@ -5,8 +5,10 @@
 #include "ItemNamespace.h"
 #include "Paladin.h"
 #include "TestHolyPaladin.h"
+#include "TestMainhandAttackPaladin.h"
 #include "TestProtectionPaladin.h"
 #include "TestRetribution.h"
+#include "TestSealOfTheCrusader.h"
 
 TestPaladin::TestPaladin(EquipmentDb* equipment_db):
     TestObject(equipment_db)
@@ -18,6 +20,9 @@ void TestPaladin::test_all() {
     TestHolyPaladin(equipment_db).test_all();
     TestProtectionPaladin(equipment_db).test_all();
     TestRetribution(equipment_db).test_all();
+
+    TestMainhandAttackPaladin(equipment_db).test_all();
+    TestSealOfTheCrusader(equipment_db).test_all();
 }
 
 void TestPaladin::test_values_after_initialization() {

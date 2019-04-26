@@ -13,6 +13,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
+    Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.cpp \
+    Character/Class/Paladin/Spells/MainhandAttackPaladin.cpp \
+    Character/Class/Paladin/Spells/PaladinSeal.cpp \
+    Character/Class/Paladin/Spells/SealOfTheCrusader.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
@@ -37,6 +41,9 @@ SOURCES += main.cpp \
     Character/Class/Paladin/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
+    Test/Paladin/Spells/TestMainhandAttackPaladin.cpp \
+    Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
+    Test/Paladin/TestSpellPaladin.cpp \
     Test/Test.cpp \
     Equipment/Equipment.cpp \
     CombatRoll/CombatRoll.cpp \
@@ -360,6 +367,10 @@ SOURCES += main.cpp \
     Test/Paladin/Talents/TestRetribution.cpp
 
 HEADERS += \
+    Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.h \
+    Character/Class/Paladin/Spells/MainhandAttackPaladin.h \
+    Character/Class/Paladin/Spells/PaladinSeal.h \
+    Character/Class/Paladin/Spells/SealOfTheCrusader.h \
     Queue/Queue.h \
     Event/Event.h \
     Engine/Engine.h \
@@ -385,6 +396,9 @@ HEADERS += \
     Character/Class/Shaman/Shaman.h \
     Character/Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
+    Test/Paladin/Spells/TestMainhandAttackPaladin.h \
+    Test/Paladin/Spells/TestSealOfTheCrusader.h \
+    Test/Paladin/TestSpellPaladin.h \
     Test/Test.h \
     Equipment/Equipment.h \
     Equipment/Item/Item.h \
@@ -757,6 +771,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Warlock \
     $$PWD/Character/Class/Shaman \
     $$PWD/Character/Class/Paladin \
+    $$PWD/Character/Class/Paladin/Buffs \
+    $$PWD/Character/Class/Paladin/Spells \
     $$PWD/Character/Class/Paladin/TalentTrees \
     $$PWD/Equipment \
     $$PWD/Equipment/Item \
@@ -785,6 +801,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Hunter/Spells \
     $$PWD/Test/Hunter/Talents \
     $$PWD/Test/Paladin \
+    $$PWD/Test/Paladin/Spells \
     $$PWD/Test/Paladin/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Character/Common \

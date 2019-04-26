@@ -62,6 +62,9 @@ void RotationExecutorBreakdownModel::update_statistics() {
     beginResetModel();
     endResetModel();
 
+    if (data_source->executor_outcomes.empty())
+        return;
+
     layoutAboutToBeChanged();
     std::sort(data_source->executor_outcomes[executor_index].begin(), data_source->executor_outcomes[executor_index].end(), value);
     layoutChanged();

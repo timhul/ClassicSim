@@ -63,35 +63,37 @@ QString StatisticsRotationExecutor::get_description_for_status(const SpellStatus
     case SpellStatus::Available:
         return "Available";
     case SpellStatus::BuffInactive:
-        return "FAILURE: Internal buff inactive";
+        return "FAIL: Internal buff inactive";
     case SpellStatus::CastInProgress:
-        return "FAILURE: Cast in progress";
+        return "FAIL: Cast in progress";
     case SpellStatus::InBattleStance:
-        return "FAILURE: In Battle Stance";
+        return "FAIL: In Battle Stance";
     case SpellStatus::InBerserkerStance:
-        return "FAILURE: In Berserker Stance";
+        return "FAIL: In Berserker Stance";
     case SpellStatus::InDefensiveStance:
-        return "FAILURE: In Defensive Stance";
+        return "FAIL: In Defensive Stance";
     case SpellStatus::IncorrectWeaponType:
-        return "FAILURE: Incorrect weapon type";
+        return "FAIL: Incorrect weapon type";
     case SpellStatus::InsufficientComboPoints:
-        return "FAILURE: Insufficient combo points";
+        return "FAIL: Insufficient combo points";
     case SpellStatus::InsufficientResources:
-        return "FAILURE: Insufficient resources";
+        return "FAIL: Insufficient resources";
     case SpellStatus::NotEnabled:
-        return "FAILURE: Not enabled";
+        return "FAIL: Not enabled";
     case SpellStatus::NotInExecuteRange:
-        return "FAILURE: Not in execute range";
+        return "FAIL: Not in execute range";
     case SpellStatus::OnCooldown:
-        return "FAILURE: On spell cooldown";
+        return "FAIL: On spell cooldown";
     case SpellStatus::OnGCD:
-        return "FAILURE: On global cooldown";
+        return "FAIL: On global cooldown";
     case SpellStatus::OnStanceCooldown:
-        return "FAILURE: On stance cooldown";
+        return "FAIL: On stance cooldown";
     case SpellStatus::OnTrinketCooldown:
-        return "FAILURE: On shared trinket cooldown";
+        return "FAIL: On shared trinket cooldown";
     case SpellStatus::OvercapResource:
-        return "FAILURE: Cast would exceed resource";
+        return "FAIL: Cast would exceed resource cap";
+    case SpellStatus::DependentBuffInactive:
+        return "FAIL: Depends on inactive buff";
     }
 
     return "<missing description for SpellStatus>";

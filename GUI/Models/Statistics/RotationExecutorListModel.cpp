@@ -47,10 +47,8 @@ void RotationExecutorListModel::update_statistics() {
     statistics_source->merge_rotation_executor_stats(executor_outcomes);
     endInsertRows();
 
-    if (executor_outcomes.empty()) {
-        executor_breakdown_model->update_statistics();
-        return;
-    }
+    if (executor_outcomes.empty())
+        return executor_breakdown_model->update_statistics();
 
     layoutAboutToBeChanged();
     std::sort(executor_outcomes[executor_index].begin(), executor_outcomes[executor_index].end(), value);

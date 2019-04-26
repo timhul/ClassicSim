@@ -117,6 +117,15 @@ unsigned Paladin::get_max_resource_level(const ResourceType) const {
     return mana->max;
 }
 
+void Paladin::gain_mana(const unsigned value) {
+    mana->gain_resource(value);
+    add_player_reaction_event();
+}
+
+void Paladin::lose_mana(const unsigned value) {
+    mana->lose_resource(value);
+}
+
 int Paladin::get_highest_possible_armor_type() const {
     return ArmorTypes::PLATE;
 }

@@ -11,6 +11,9 @@ public:
     Retribution(Paladin* paladin);
     ~Retribution() override = default;
 
+    Talent* get_benediction();
+    Talent* get_improved_seal_of_the_crusader();
+
 private:
     Paladin* paladin;
     PaladinSpells* spells;

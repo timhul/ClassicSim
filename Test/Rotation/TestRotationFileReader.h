@@ -11,6 +11,7 @@
 class ConditionBuff;
 class ConditionResource;
 class Hunter;
+class Paladin;
 class Race;
 class Rotation;
 class RotationExecutor;
@@ -28,11 +29,13 @@ private:
 
     void test_warrior_dw_fury();
     void test_hunter_aimed_shot_multi_shot();
+    void test_paladin_seal_of_the_crusader();
 
-    Race* race;
-    SimSettings* sim_settings;
-    Hunter* hunter;
-    Warrior* warrior;
+    Race* race {nullptr};
+    SimSettings* sim_settings {nullptr};
+    Hunter* hunter {nullptr};
+    Paladin* paladin {nullptr};
+    Warrior* warrior {nullptr};
     QVector<Rotation*> rotations;
 
     void verify_executor_names(Rotation *rotation, QVector<RotationExecutor*> &executors, QVector<QString> &executor_names);
@@ -47,6 +50,7 @@ private:
 
     void set_up_warrior();
     void set_up_hunter();
+    void set_up_paladin();
     void tear_down();
 };
 

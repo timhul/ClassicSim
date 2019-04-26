@@ -611,7 +611,7 @@ void Item::set_stat(const QString& key, const QString &value) {
         this->item_stat_values.insert(ItemStats::ManaPer5, value.toUInt());
     }
     else if (key == "SPELL_DAMAGE") {
-        this->stats->increase_spell_damage(value.toUInt());
+        this->stats->increase_base_spell_damage(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage and healing done by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamage, value.toUInt());
     }
