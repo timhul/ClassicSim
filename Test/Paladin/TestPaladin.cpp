@@ -11,6 +11,7 @@
 #include "TestProtectionPaladin.h"
 #include "TestRetribution.h"
 #include "TestSealOfTheCrusader.h"
+#include "TestConsecration.h"
 
 TestPaladin::TestPaladin(EquipmentDb* equipment_db):
     TestObject(equipment_db)
@@ -27,6 +28,7 @@ void TestPaladin::test_all() {
     TestSealOfTheCrusader(equipment_db).test_all();
     TestJudgement(equipment_db).test_all();
     TestPaladinTalentStatIncrease(equipment_db).test_all();
+    TestConsecration(equipment_db).test_all();
 }
 
 void TestPaladin::test_values_after_initialization() {

@@ -15,6 +15,8 @@
 	<cast_if name="Seal of the Crusader">
 		buff "Seal of the Crusader" less 2
 	</cast_if>
+	
+	<cast_if name="Consecration"/>
 
 	<cast_if name="Kiss of the Spider"/>
 	<cast_if name="Jom Gabbar"/>

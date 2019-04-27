@@ -1,5 +1,6 @@
 #include "HolyPaladin.h"
 
+#include "Consecration.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
 #include "TalentStatIncrease.h"
@@ -18,7 +19,7 @@ HolyPaladin::HolyPaladin(Paladin* paladin) :
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(paladin, this, "Healing Light", "3LL", "Assets/spell/Spell_holy_holybolt.png", 3, "Increases the amount of healed by your Holy Light and Flash of Light spells by %1%.", QVector<QPair<unsigned, unsigned>>{{4, 4}})},
-                                  {"3ML", new Talent(paladin, this, "Consecration", "3ML", "Assets/spell/Spell_holy_innerfire.png", 1, "Consecrates the land beneath Paladin, doing 64 Holy damage over 8 sec to enemies who enter the area.", QVector<QPair<unsigned, unsigned>>())},
+                                  {"3ML", get_consecration()},
                                   {"3MR", new Talent(paladin, this, "Improved Lay on Hands", "3MR", "Assets/spell/Spell_holy_layonhands.png", 2, "Gives the target of your Lay on Hands spell a %1% bonus to their armor value from items for 2 min. In addition, the cooldown for your Lay on Hands spell is reduced by %2 min.", QVector<QPair<unsigned, unsigned>>{{15, 15}, {10, 10}})},
                                   {"3RR", new Talent(paladin, this, "Unyielding Faith", "3RR", "Assets/spell/Spell_holy_unyieldingfaith.png", 2, "Increases your chance to resist Fear and Disorient effects by an additional %1%.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
     add_talents(tier3);
@@ -56,4 +57,11 @@ Talent* HolyPaladin::get_divine_intellect() {
                                   5, "Increases your total Intellect by %1%.",
                                   QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::IntellectMod, 2}});
+}
+
+Talent* HolyPaladin::get_consecration() {
+    return get_new_talent(paladin, "Consecration", "3ML", "Assets/spell/Spell_holy_innerfire.png",
+                          1, "Consecrates the land beneath Paladin, doing 64 Holy damage over 8 sec to enemies who enter the area.",
+                          QVector<QPair<unsigned, unsigned>>(),
+                          QVector<Spell*>{spells->get_consecration()});
 }

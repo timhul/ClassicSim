@@ -31,7 +31,7 @@ public:
     void increase_armor(const int);
     void decrease_armor(const int);
 
-    int get_resistance(const MagicSchool) const;
+    int get_resistance(const MagicSchool school) const;
 
     CreatureType get_creature_type() const;
     QString get_creature_type_string() const;

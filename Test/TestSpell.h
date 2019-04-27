@@ -1,11 +1,13 @@
 #ifndef TESTSPELL_H
 #define TESTSPELL_H
 
+#include "TestUtils.h"
+
 #include <QDebug>
 #include <QSet>
 #include <QString>
 
-#include "TestUtils.h"
+#include "MagicSchools.h"
 
 class Character;
 class CombatRoll;
@@ -47,6 +49,7 @@ public:
     void given_a_guaranteed_ranged_white_miss();
     void given_a_guaranteed_ranged_white_dodge();
     void given_a_guaranteed_ranged_white_block();
+    void given_a_guaranteed_magic_hit(const MagicSchool school);
     void given_300_weapon_skill_mh();
     void given_305_weapon_skill_mh();
     void given_310_weapon_skill_mh();
@@ -109,6 +112,8 @@ public:
     void given_character_has_stamina(const int value);
     void given_talent_rank(Talent* talent, const unsigned num);
     void given_character_has_strength(const int value);
+
+    void given_character_has_spell_damage(const unsigned, const MagicSchool school);
 
     void when_running_queued_events_until(const double priority);
 

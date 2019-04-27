@@ -175,6 +175,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
     QVector<QString> expected_executor_names = {
         "Judgement",
         "Seal of the Crusader",
+        "Consecration",
         "Kiss of the Spider",
         "Jom Gabbar",
         "Badge of the Swarmguard",

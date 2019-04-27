@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     Character/Class/Paladin/Buffs/JudgementOfTheCrusader.cpp \
     Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.cpp \
+    Character/Class/Paladin/Spells/Consecration.cpp \
     Character/Class/Paladin/Spells/Judgement.cpp \
     Character/Class/Paladin/Spells/MainhandAttackPaladin.cpp \
     Character/Class/Paladin/Spells/PaladinSeal.cpp \
@@ -43,6 +44,7 @@ SOURCES += main.cpp \
     Character/Class/Paladin/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
+    Test/Paladin/Spells/TestConsecration.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
     Test/Paladin/Spells/TestMainhandAttackPaladin.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
@@ -373,6 +375,7 @@ SOURCES += main.cpp \
 HEADERS += \
     Character/Class/Paladin/Buffs/JudgementOfTheCrusader.h \
     Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.h \
+    Character/Class/Paladin/Spells/Consecration.h \
     Character/Class/Paladin/Spells/Judgement.h \
     Character/Class/Paladin/Spells/MainhandAttackPaladin.h \
     Character/Class/Paladin/Spells/PaladinSeal.h \
@@ -402,6 +405,7 @@ HEADERS += \
     Character/Class/Shaman/Shaman.h \
     Character/Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
+    Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \
     Test/Paladin/Spells/TestMainhandAttackPaladin.h \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \

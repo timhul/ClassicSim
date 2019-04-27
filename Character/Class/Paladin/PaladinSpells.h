@@ -4,6 +4,7 @@
 #include "CharacterSpells.h"
 
 class Buff;
+class Consecration;
 class Judgement;
 class ManaPotion;
 class Paladin;
@@ -17,6 +18,7 @@ public:
     Judgement* get_judgement() const;
     ManaPotion* get_mana_potion() const;
     PaladinSeal* get_seal_of_the_crusader() const;
+    Consecration* get_consecration() const;
 
     void apply_seal(PaladinSeal* new_seal);
     PaladinSeal* get_seal() const;
@@ -25,6 +27,7 @@ private:
     Paladin* paladin;
     PaladinSeal* current_seal {nullptr};
 
+    Consecration* consecration;
     Judgement* judgement;
     ManaPotion* mana_potion;
     SealOfTheCrusader* seal_of_the_crusader;

@@ -1,6 +1,7 @@
 #include "PaladinSpells.h"
 
 #include "Buff.h"
+#include "Consecration.h"
 #include "Judgement.h"
 #include "MainhandAttackPaladin.h"
 #include "ManaPotion.h"
@@ -12,11 +13,13 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     CharacterSpells(paladin),
     paladin(paladin)
 {
+    this->consecration = new Consecration(paladin);
     this->judgement = new Judgement(paladin);
     this->mana_potion = new ManaPotion(paladin);
     this->mh_attack = new MainhandAttackPaladin(paladin);
     this->seal_of_the_crusader = new SealOfTheCrusader(paladin);
 
+    spells.append(consecration);
     spells.append(judgement);
     spells.append(mana_potion);
     spells.append(mh_attack);
@@ -33,6 +36,10 @@ ManaPotion* PaladinSpells::get_mana_potion() const {
 
 PaladinSeal* PaladinSpells::get_seal_of_the_crusader() const {
     return this->seal_of_the_crusader;
+}
+
+Consecration* PaladinSpells::get_consecration() const {
+    return this->consecration;
 }
 
 void PaladinSpells::apply_seal(PaladinSeal* new_seal) {

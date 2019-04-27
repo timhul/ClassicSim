@@ -12,6 +12,7 @@
 #include "EquipmentDb.h"
 #include "Faction.h"
 #include "Item.h"
+#include "MagicAttackTable.h"
 #include "MainhandMeleeHit.h"
 #include "MeleeSpecialTable.h"
 #include "MeleeWhiteHitTable.h"
@@ -131,6 +132,22 @@ void TestSpell::given_a_guaranteed_ranged_white_dodge() {
 
 void TestSpell::given_a_guaranteed_ranged_white_block() {
     set_ranged_auto_table_for_block(pchar->get_ranged_wpn_skill());
+}
+
+void TestSpell::given_a_guaranteed_magic_hit(const MagicSchool school) {
+    MagicAttackTable* table = pchar->get_combat_roll()->get_magic_attack_table(school);
+    table->miss_range = 0;
+    table->partial_25 = 0;
+    table->partial_50 = 0;
+    table->partial_75 = 0;
+
+    assert(table->get_hit_outcome(0, 0.0) == MagicAttackResult::HIT);
+    assert(table->get_hit_outcome(0, 1.0) == MagicAttackResult::HIT);
+    assert(table->get_hit_outcome(9999, 0.0) == MagicAttackResult::HIT);
+    assert(table->get_hit_outcome(9999, 1.0) == MagicAttackResult::HIT);
+
+    assert(table->get_resist_outcome(0) == MagicResistResult::NO_RESIST);
+    assert(table->get_resist_outcome(9999) == MagicResistResult::NO_RESIST);
 }
 
 void TestSpell::set_melee_special_table_for_hit(const int wpn_skill) {
@@ -929,6 +946,17 @@ void TestSpell::given_character_has_strength(const int value) {
         pchar->get_stats()->decrease_strength(static_cast<unsigned>(delta));
 
     assert(pchar->get_stats()->get_strength() == static_cast<unsigned>(value));
+}
+
+void TestSpell::given_character_has_spell_damage(const unsigned value, const MagicSchool school) {
+    int delta = static_cast<int>(value) - static_cast<int>(pchar->get_stats()->get_spell_damage(school));
+
+    if (delta < 0)
+        pchar->get_stats()->increase_base_spell_damage(static_cast<unsigned>(-delta));
+    else
+        pchar->get_stats()->increase_base_spell_damage(static_cast<unsigned>(delta));
+
+    assert(pchar->get_stats()->get_spell_damage(school) == value);
 }
 
 void TestSpell::given_engine_priority_at(const double priority) {

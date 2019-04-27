@@ -13,6 +13,7 @@ public:
 
     Talent* get_divine_strength();
     Talent* get_divine_intellect();
+    Talent* get_consecration();
 
 private:
     Paladin* paladin;

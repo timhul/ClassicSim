@@ -20,6 +20,8 @@ public:
     void update_target_resistance(const int target_resistance);
 
 private:
+    friend class TestSpell;
+
     Mechanics* mechanics;
     Random* random;
 
