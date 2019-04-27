@@ -88,7 +88,7 @@ void TestBerserkerStance::test_is_ready_conditions() {
     assert(berserker_stance()->get_spell_status() == SpellStatus::Available);
 }
 
-void TestBerserkerStance::test_incurs_global_cooldown() {
+void TestBerserkerStance::test_whether_spell_causes_global_cooldown() {
     assert(warrior->on_global_cooldown() == false);
 
     when_berserker_stance_is_performed();
@@ -100,7 +100,7 @@ void TestBerserkerStance::test_incurs_global_cooldown() {
     assert(warrior->on_global_cooldown() == false);
 }
 
-void TestBerserkerStance::test_obeys_global_cooldown() {
+void TestBerserkerStance::test_how_spell_observes_global_cooldown() {
     assert(berserker_stance()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();

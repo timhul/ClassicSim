@@ -59,7 +59,7 @@ void TestOverpower::test_spell_cooldown() {
     then_next_event_is("PlayerAction", "5.000");
 }
 
-void TestOverpower::test_incurs_global_cooldown() {
+void TestOverpower::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_overpower_is_performed();
@@ -67,7 +67,7 @@ void TestOverpower::test_incurs_global_cooldown() {
     assert(!warrior->action_ready());
 }
 
-void TestOverpower::test_obeys_global_cooldown() {
+void TestOverpower::test_how_spell_observes_global_cooldown() {
     given_warrior_has_rage(100);
     when_overpower_buff_is_applied();
     assert(overpower()->get_spell_status() == SpellStatus::Available);

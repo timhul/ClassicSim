@@ -19,7 +19,7 @@ void TestRecklessness::test_all() {
     tear_down();
 
     set_up();
-    test_incurs_global_cooldown();
+    test_whether_spell_causes_global_cooldown();
     tear_down();
 
     set_up();
@@ -95,7 +95,7 @@ void TestRecklessness::test_spell_cooldown() {
     then_next_event_is("PlayerAction", "1800.000");
 }
 
-void TestRecklessness::test_obeys_global_cooldown() {
+void TestRecklessness::test_how_spell_observes_global_cooldown() {
     given_warrior_in_berserker_stance();
     assert(recklessness()->get_spell_status() == SpellStatus::Available);
 
@@ -149,7 +149,7 @@ void TestRecklessness::test_crit_reduced_after_buff_expires() {
     assert(pchar->get_stats()->get_mh_crit_chance() == 0);
 }
 
-void TestRecklessness::test_incurs_global_cooldown() {
+void TestRecklessness::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_recklessness_is_performed();

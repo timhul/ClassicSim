@@ -63,7 +63,7 @@ void TestHeroicStrike::test_spell_cooldown() {
     assert(QString::number(heroic_strike()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestHeroicStrike::test_incurs_global_cooldown() {
+void TestHeroicStrike::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_heroic_strike_is_performed();
@@ -71,7 +71,7 @@ void TestHeroicStrike::test_incurs_global_cooldown() {
     assert(warrior->action_ready());
 }
 
-void TestHeroicStrike::test_obeys_global_cooldown() {
+void TestHeroicStrike::test_how_spell_observes_global_cooldown() {
     given_warrior_has_rage(100);
     assert(heroic_strike()->get_spell_status() == SpellStatus::Available);
 

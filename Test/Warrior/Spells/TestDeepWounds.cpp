@@ -106,7 +106,7 @@ void TestDeepWounds::test_spell_cooldown() {
     assert(warrior->action_ready());
 }
 
-void TestDeepWounds::test_incurs_global_cooldown() {
+void TestDeepWounds::test_whether_spell_causes_global_cooldown() {
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
     given_1000_melee_ap();
@@ -117,7 +117,7 @@ void TestDeepWounds::test_incurs_global_cooldown() {
     assert(deep_wounds()->get_spell_status() == SpellStatus::Available);
 }
 
-void TestDeepWounds::test_obeys_global_cooldown() {
+void TestDeepWounds::test_how_spell_observes_global_cooldown() {
     given_deep_wounds_enabled();
     assert(deep_wounds()->get_spell_status() == SpellStatus::Available);
 

@@ -69,7 +69,7 @@ void TestSliceAndDice::test_spell_cooldown() {
     assert(QString::number(slice_and_dice()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestSliceAndDice::test_incurs_global_cooldown() {
+void TestSliceAndDice::test_whether_spell_causes_global_cooldown() {
     given_rogue_has_combo_points(1);
 
     when_slice_and_dice_is_performed();
@@ -78,7 +78,7 @@ void TestSliceAndDice::test_incurs_global_cooldown() {
     then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
-void TestSliceAndDice::test_obeys_global_cooldown() {
+void TestSliceAndDice::test_how_spell_observes_global_cooldown() {
     given_dagger_equipped_in_mainhand(rogue);
     given_rogue_has_combo_points(1);
 

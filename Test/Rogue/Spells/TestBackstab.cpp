@@ -89,14 +89,14 @@ void TestBackstab::test_spell_cooldown() {
     assert(QString::number(backstab()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestBackstab::test_incurs_global_cooldown() {
+void TestBackstab::test_whether_spell_causes_global_cooldown() {
     given_a_guaranteed_melee_ability_hit();
     when_backstab_is_performed();
 
     then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
-void TestBackstab::test_obeys_global_cooldown() {
+void TestBackstab::test_how_spell_observes_global_cooldown() {
     given_dagger_equipped_in_mainhand(rogue);
 
     given_rogue_has_energy(100);

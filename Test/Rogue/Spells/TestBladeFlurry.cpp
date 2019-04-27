@@ -41,7 +41,7 @@ void TestBladeFlurry::test_spell_cooldown() {
     assert(QString::number(blade_flurry()->get_base_cooldown(), 'f', 3) == "120.000");
 }
 
-void TestBladeFlurry::test_incurs_global_cooldown() {
+void TestBladeFlurry::test_whether_spell_causes_global_cooldown() {
     given_1_of_1_blade_flurry();
     when_blade_flurry_is_performed();
 
@@ -49,7 +49,7 @@ void TestBladeFlurry::test_incurs_global_cooldown() {
     then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
-void TestBladeFlurry::test_obeys_global_cooldown() {
+void TestBladeFlurry::test_how_spell_observes_global_cooldown() {
     given_1_of_1_blade_flurry();
     assert(blade_flurry()->get_spell_status() == SpellStatus::Available);
 

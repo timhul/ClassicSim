@@ -66,7 +66,7 @@ void TestRend::test_spell_cooldown() {
     then_next_event_is("DotTick", "18.000", RUN_EVENT);
 }
 
-void TestRend::test_incurs_global_cooldown() {
+void TestRend::test_whether_spell_causes_global_cooldown() {
     given_a_guaranteed_melee_ability_hit();
 
     assert(warrior->action_ready());
@@ -76,7 +76,7 @@ void TestRend::test_incurs_global_cooldown() {
     then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
-void TestRend::test_obeys_global_cooldown() {
+void TestRend::test_how_spell_observes_global_cooldown() {
     assert(rend()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();

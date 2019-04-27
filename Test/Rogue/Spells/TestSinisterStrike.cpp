@@ -75,14 +75,14 @@ void TestSinisterStrike::test_spell_cooldown() {
     assert(QString::number(sinister_strike()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestSinisterStrike::test_incurs_global_cooldown() {
+void TestSinisterStrike::test_whether_spell_causes_global_cooldown() {
     given_a_guaranteed_melee_ability_hit();
     when_sinister_strike_is_performed();
 
     then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
-void TestSinisterStrike::test_obeys_global_cooldown() {
+void TestSinisterStrike::test_how_spell_observes_global_cooldown() {
     given_rogue_has_energy(100);
     assert(sinister_strike()->get_spell_status() == SpellStatus::Available);
 

@@ -52,7 +52,7 @@ void TestWhirlwind::test_spell_cooldown() {
     then_next_event_is("PlayerAction", "10.000");
 }
 
-void TestWhirlwind::test_incurs_global_cooldown() {
+void TestWhirlwind::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_whirlwind_is_performed();
@@ -60,7 +60,7 @@ void TestWhirlwind::test_incurs_global_cooldown() {
     assert(!warrior->action_ready());
 }
 
-void TestWhirlwind::test_obeys_global_cooldown() {
+void TestWhirlwind::test_how_spell_observes_global_cooldown() {
     given_warrior_in_berserker_stance();
     given_warrior_has_rage(100);
     assert(whirlwind()->get_spell_status() == SpellStatus::Available);

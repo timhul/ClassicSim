@@ -260,7 +260,7 @@ void TestHunterTalentStatIncrease::test_name_correct() {
 void TestHunterTalentStatIncrease::test_spell_cooldown() {
 }
 
-void TestHunterTalentStatIncrease::test_obeys_global_cooldown() {
+void TestHunterTalentStatIncrease::test_how_spell_observes_global_cooldown() {
 }
 
 void TestHunterTalentStatIncrease::test_resource_cost() {
@@ -269,5 +269,5 @@ void TestHunterTalentStatIncrease::test_resource_cost() {
 void TestHunterTalentStatIncrease::test_is_ready_conditions() {
 }
 
-void TestHunterTalentStatIncrease::test_incurs_global_cooldown() {
+void TestHunterTalentStatIncrease::test_whether_spell_causes_global_cooldown() {
 }

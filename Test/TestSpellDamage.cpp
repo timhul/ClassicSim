@@ -20,11 +20,11 @@ void TestSpellDamage::run_mandatory_tests(const bool prepare_combat_iterations) 
     tear_down();
 
     set_up(prepare_combat_iterations);
-    test_obeys_global_cooldown();
+    test_how_spell_observes_global_cooldown();
     tear_down();
 
     set_up(prepare_combat_iterations);
-    test_incurs_global_cooldown();
+    test_whether_spell_causes_global_cooldown();
     tear_down();
 
     set_up(prepare_combat_iterations);

@@ -37,7 +37,7 @@ void TestDeathWish::test_spell_cooldown() {
     then_next_event_is("PlayerAction", "180.000");
 }
 
-void TestDeathWish::test_obeys_global_cooldown() {
+void TestDeathWish::test_how_spell_observes_global_cooldown() {
     given_death_wish_is_enabled();
     given_warrior_has_rage(100);
     assert(death_wish()->get_spell_status() == SpellStatus::Available);
@@ -47,7 +47,7 @@ void TestDeathWish::test_obeys_global_cooldown() {
     assert(death_wish()->get_spell_status() == SpellStatus::OnGCD);
 }
 
-void TestDeathWish::test_incurs_global_cooldown() {
+void TestDeathWish::test_whether_spell_causes_global_cooldown() {
     given_death_wish_is_enabled();
 
     when_death_wish_is_performed();

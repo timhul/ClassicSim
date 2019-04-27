@@ -78,7 +78,7 @@ void TestSlam::test_spell_cooldown() {
     assert(QString::number(slam()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestSlam::test_incurs_global_cooldown() {
+void TestSlam::test_whether_spell_causes_global_cooldown() {
     given_1_of_5_improved_slam();
 
     slam()->perform();
@@ -87,7 +87,7 @@ void TestSlam::test_incurs_global_cooldown() {
     then_next_event_is("PlayerAction", "1.500");
 }
 
-void TestSlam::test_obeys_global_cooldown() {
+void TestSlam::test_how_spell_observes_global_cooldown() {
     given_warrior_has_rage(100);
     assert(slam()->get_spell_status() == SpellStatus::Available);
 

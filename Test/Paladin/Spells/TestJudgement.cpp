@@ -85,7 +85,7 @@ void TestJudgement::test_spell_cooldown() {
     assert(almost_equal(judgement()->get_base_cooldown(), 10.0));
 }
 
-void TestJudgement::test_obeys_global_cooldown() {
+void TestJudgement::test_how_spell_observes_global_cooldown() {
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
 
@@ -124,7 +124,7 @@ void TestJudgement::test_is_ready_conditions() {
     assert(judgement()->get_spell_status() == SpellStatus::DependentBuffInactive);
 }
 
-void TestJudgement::test_incurs_global_cooldown() {
+void TestJudgement::test_whether_spell_causes_global_cooldown() {
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());

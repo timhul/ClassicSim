@@ -119,7 +119,7 @@ void TestExecute::test_spell_cooldown() {
     assert(QString::number(execute()->get_base_cooldown(), 'f', 3) == "0.000");
 }
 
-void TestExecute::test_incurs_global_cooldown() {
+void TestExecute::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_execute_is_performed_with_rage(100);
@@ -127,7 +127,7 @@ void TestExecute::test_incurs_global_cooldown() {
     assert(!warrior->action_ready());
 }
 
-void TestExecute::test_obeys_global_cooldown() {
+void TestExecute::test_how_spell_observes_global_cooldown() {
     given_target_in_execute_range();
     given_warrior_has_rage(100);
     assert(execute()->get_spell_status() == SpellStatus::Available);

@@ -100,7 +100,7 @@ void TestAutoShot::test_spell_cooldown() {
     then_next_expected_use_is(3.0);
 }
 
-void TestAutoShot::test_obeys_global_cooldown() {
+void TestAutoShot::test_how_spell_observes_global_cooldown() {
     given_hunter_is_on_gcd();
 
     assert(auto_shot()->get_spell_status() == SpellStatus::Available);
@@ -125,7 +125,7 @@ void TestAutoShot::test_changing_weapons_changes_cooldown() {
     then_next_expected_use_is(2.0);
 }
 
-void TestAutoShot::test_incurs_global_cooldown() {
+void TestAutoShot::test_whether_spell_causes_global_cooldown() {
     assert(hunter->action_ready());
 
     when_auto_shot_is_performed();

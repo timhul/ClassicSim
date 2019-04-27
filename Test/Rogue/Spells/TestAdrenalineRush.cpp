@@ -41,14 +41,14 @@ void TestAdrenalineRush::test_spell_cooldown() {
     assert(QString::number(adrenaline_rush()->get_base_cooldown(), 'f', 3) == "300.000");
 }
 
-void TestAdrenalineRush::test_incurs_global_cooldown() {
+void TestAdrenalineRush::test_whether_spell_causes_global_cooldown() {
     given_1_of_1_adrenaline_rush();
     when_adrenaline_rush_is_performed();
 
     then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
-void TestAdrenalineRush::test_obeys_global_cooldown() {
+void TestAdrenalineRush::test_how_spell_observes_global_cooldown() {
     given_1_of_1_adrenaline_rush();
     assert(adrenaline_rush()->get_spell_status() == SpellStatus::Available);
 

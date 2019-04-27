@@ -125,7 +125,7 @@ void TestAimedShot::test_spell_cooldown() {
     assert(almost_equal(6.0, aimed_shot()->get_base_cooldown()));
 }
 
-void TestAimedShot::test_obeys_global_cooldown() {
+void TestAimedShot::test_how_spell_observes_global_cooldown() {
     given_aimed_shot_is_enabled();
     assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
     given_hunter_is_on_gcd();
@@ -177,7 +177,7 @@ void TestAimedShot::test_dmg_affected_by_projectile_bonus() {
     then_damage_dealt_is(956);
 }
 
-void TestAimedShot::test_incurs_global_cooldown() {
+void TestAimedShot::test_whether_spell_causes_global_cooldown() {
     given_aimed_shot_is_enabled();
     assert(hunter->action_ready());
 

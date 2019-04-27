@@ -32,13 +32,13 @@ void TestBloodrage::test_spell_cooldown() {
     assert(QString::number(bloodrage()->get_base_cooldown(), 'f', 3) == "60.000");
 }
 
-void TestBloodrage::test_incurs_global_cooldown() {
+void TestBloodrage::test_whether_spell_causes_global_cooldown() {
     when_bloodrage_is_performed();
 
     assert(warrior->action_ready());
 }
 
-void TestBloodrage::test_obeys_global_cooldown() {
+void TestBloodrage::test_how_spell_observes_global_cooldown() {
     assert(bloodrage()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();

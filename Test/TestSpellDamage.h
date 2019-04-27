@@ -18,8 +18,8 @@ public:
     virtual void tear_down() = 0;
 
     virtual void test_name_correct() = 0;
-    virtual void test_obeys_global_cooldown() = 0;
-    virtual void test_incurs_global_cooldown() = 0;
+    virtual void test_how_spell_observes_global_cooldown() = 0;
+    virtual void test_whether_spell_causes_global_cooldown() = 0;
     virtual void test_spell_cooldown() = 0;
     virtual void test_resource_cost() = 0;
     virtual void test_is_ready_conditions() = 0;

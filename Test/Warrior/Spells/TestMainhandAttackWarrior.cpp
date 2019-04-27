@@ -68,7 +68,7 @@ void TestMainhandAttackWarrior::test_spell_cooldown() {
     then_next_expected_use_is(3.0);
 }
 
-void TestMainhandAttackWarrior::test_obeys_global_cooldown() {
+void TestMainhandAttackWarrior::test_how_spell_observes_global_cooldown() {
     assert(mh_attack()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
@@ -103,7 +103,7 @@ void TestMainhandAttackWarrior::test_changing_weapons_changes_cooldown() {
     then_next_expected_use_is(2.0);
 }
 
-void TestMainhandAttackWarrior::test_incurs_global_cooldown() {
+void TestMainhandAttackWarrior::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_mh_attack_is_performed();

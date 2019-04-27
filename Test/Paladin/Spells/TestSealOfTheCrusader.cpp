@@ -79,7 +79,7 @@ void TestSealOfTheCrusader::test_spell_cooldown() {
     assert(almost_equal(seal_of_the_crusader()->get_base_cooldown(), 0.0));
 }
 
-void TestSealOfTheCrusader::test_obeys_global_cooldown() {
+void TestSealOfTheCrusader::test_how_spell_observes_global_cooldown() {
     assert(seal_of_the_crusader()->get_spell_status() == SpellStatus::Available);
 
     given_paladin_is_on_gcd();
@@ -103,7 +103,7 @@ void TestSealOfTheCrusader::test_is_ready_conditions() {
     // No conditions not tested in other mandatory tests.
 }
 
-void TestSealOfTheCrusader::test_incurs_global_cooldown() {
+void TestSealOfTheCrusader::test_whether_spell_causes_global_cooldown() {
     assert(paladin->action_ready());
 
     when_mh_attack_is_performed();

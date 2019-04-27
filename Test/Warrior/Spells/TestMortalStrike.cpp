@@ -50,7 +50,7 @@ void TestMortalStrike::test_spell_cooldown() {
     then_next_event_is("PlayerAction", "6.000");
 }
 
-void TestMortalStrike::test_incurs_global_cooldown() {
+void TestMortalStrike::test_whether_spell_causes_global_cooldown() {
     given_a_twohand_weapon_with_100_min_max_dmg();
     assert(warrior->action_ready());
     when_mortal_strike_is_performed();
@@ -58,7 +58,7 @@ void TestMortalStrike::test_incurs_global_cooldown() {
     assert(!warrior->action_ready());
 }
 
-void TestMortalStrike::test_obeys_global_cooldown() {
+void TestMortalStrike::test_how_spell_observes_global_cooldown() {
     mortal_strike()->enable();
     given_warrior_has_rage(100);
     assert(mortal_strike()->get_spell_status() == SpellStatus::Available);

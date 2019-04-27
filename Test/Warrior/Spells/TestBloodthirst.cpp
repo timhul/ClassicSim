@@ -49,7 +49,7 @@ void TestBloodthirst::test_spell_cooldown() {
     then_next_event_is("PlayerAction", "6.000");
 }
 
-void TestBloodthirst::test_incurs_global_cooldown() {
+void TestBloodthirst::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_bloodthirst_is_performed();
@@ -57,7 +57,7 @@ void TestBloodthirst::test_incurs_global_cooldown() {
     assert(!warrior->action_ready());
 }
 
-void TestBloodthirst::test_obeys_global_cooldown() {
+void TestBloodthirst::test_how_spell_observes_global_cooldown() {
     bloodthirst()->enable();
     given_warrior_has_rage(100);
     assert(bloodthirst()->get_spell_status() == SpellStatus::Available);

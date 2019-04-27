@@ -111,7 +111,7 @@ void TestOffhandAttackWarrior::test_spell_cooldown() {
     then_next_expected_use_is(3.0);
 }
 
-void TestOffhandAttackWarrior::test_obeys_global_cooldown() {
+void TestOffhandAttackWarrior::test_how_spell_observes_global_cooldown() {
     assert(oh_attack()->get_spell_status() == SpellStatus::Available);
 
     given_warrior_is_on_gcd();
@@ -146,7 +146,7 @@ void TestOffhandAttackWarrior::test_changing_weapons_changes_cooldown() {
     then_next_expected_use_is(2.0);
 }
 
-void TestOffhandAttackWarrior::test_incurs_global_cooldown() {
+void TestOffhandAttackWarrior::test_whether_spell_causes_global_cooldown() {
     assert(warrior->action_ready());
 
     when_oh_attack_is_performed();
