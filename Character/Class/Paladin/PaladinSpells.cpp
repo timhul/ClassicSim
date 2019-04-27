@@ -1,6 +1,7 @@
 #include "PaladinSpells.h"
 
 #include "Buff.h"
+#include "Judgement.h"
 #include "MainhandAttackPaladin.h"
 #include "ManaPotion.h"
 #include "Paladin.h"
@@ -11,13 +12,19 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     CharacterSpells(paladin),
     paladin(paladin)
 {
+    this->judgement = new Judgement(paladin);
     this->mana_potion = new ManaPotion(paladin);
     this->mh_attack = new MainhandAttackPaladin(paladin);
     this->seal_of_the_crusader = new SealOfTheCrusader(paladin);
 
+    spells.append(judgement);
     spells.append(mana_potion);
     spells.append(mh_attack);
     spells.append(seal_of_the_crusader);
+}
+
+Judgement* PaladinSpells::get_judgement() const {
+    return this->judgement;
 }
 
 ManaPotion* PaladinSpells::get_mana_potion() const {

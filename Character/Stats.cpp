@@ -20,6 +20,14 @@ Stats::Stats() {
     this->ranged_ap_against_creature[Target::CreatureType::Humanoid] = 0;
     this->ranged_ap_against_creature[Target::CreatureType::Mechanical] = 0;
     this->ranged_ap_against_creature[Target::CreatureType::Undead] = 0;
+
+    this->spell_school_damage_bonus[MagicSchool::Arcane] = 0;
+    this->spell_school_damage_bonus[MagicSchool::Fire] = 0;
+    this->spell_school_damage_bonus[MagicSchool::Frost] = 0;
+    this->spell_school_damage_bonus[MagicSchool::Holy] = 0;
+    this->spell_school_damage_bonus[MagicSchool::Nature] = 0;
+    this->spell_school_damage_bonus[MagicSchool::Physical] = 0;
+    this->spell_school_damage_bonus[MagicSchool::Shadow] = 0;
 }
 
 Stats::~Stats() = default;
@@ -63,7 +71,7 @@ void Stats::add(const Stats* rhs) {
     increase_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 
     increase_mp5(rhs->get_mp5());
-    increase_spell_damage(rhs->get_spell_damage());
+    increase_base_spell_damage(rhs->get_base_spell_damage());
 }
 
 void Stats::remove(const Stats* rhs) {
@@ -105,7 +113,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 
     decrease_mp5(rhs->get_mp5());
-    decrease_spell_damage(rhs->get_spell_damage());
+    decrease_base_spell_damage(rhs->get_base_spell_damage());
 }
 
 unsigned Stats::get_strength() const {
@@ -516,15 +524,28 @@ void Stats::decrease_mp5(const unsigned decrease) {
     mp5 -= decrease;
 }
 
-unsigned Stats::get_spell_damage() const {
+unsigned Stats::get_base_spell_damage() const {
     return spell_damage;
 }
 
-void Stats::increase_spell_damage(const unsigned increase) {
+void Stats::increase_base_spell_damage(const unsigned increase) {
     spell_damage += increase;
 }
 
-void Stats::decrease_spell_damage(const unsigned decrease) {
+void Stats::decrease_base_spell_damage(const unsigned decrease) {
     check((decrease <= spell_damage), "Underflow decrease spell_damage");
     spell_damage -= decrease;
+}
+
+unsigned Stats::get_spell_damage(const MagicSchool school) const {
+    return get_base_spell_damage() + spell_school_damage_bonus[school];
+}
+
+void Stats::increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school) {
+    spell_school_damage_bonus[school] += increase;
+}
+
+void Stats::decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school) {
+    check((decrease <= spell_school_damage_bonus[school]), "Underflow decrease");
+    spell_school_damage_bonus[school] -= decrease;
 }

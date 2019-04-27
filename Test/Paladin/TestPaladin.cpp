@@ -5,6 +5,7 @@
 #include "ItemNamespace.h"
 #include "Paladin.h"
 #include "TestHolyPaladin.h"
+#include "TestJudgement.h"
 #include "TestMainhandAttackPaladin.h"
 #include "TestProtectionPaladin.h"
 #include "TestRetribution.h"
@@ -23,6 +24,7 @@ void TestPaladin::test_all() {
 
     TestMainhandAttackPaladin(equipment_db).test_all();
     TestSealOfTheCrusader(equipment_db).test_all();
+    TestJudgement(equipment_db).test_all();
 }
 
 void TestPaladin::test_values_after_initialization() {

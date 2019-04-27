@@ -1,5 +1,6 @@
 #include "SealOfTheCrusader.h"
 
+#include "JudgementOfTheCrusader.h"
 #include "SealOfTheCrusaderBuff.h"
 
 SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar) :
@@ -8,7 +9,7 @@ SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar) :
                 0,
                 ResourceType::Mana, 160,
                 new SealOfTheCrusaderBuff(pchar),
-                nullptr),
+                new JudgementOfTheCrusader(pchar)),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)})
 {}
 

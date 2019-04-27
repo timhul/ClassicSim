@@ -173,6 +173,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
     Rotation* rotation = get_rotation("Seal of the Crusader");
 
     QVector<QString> expected_executor_names = {
+        "Judgement",
         "Seal of the Crusader",
         "Kiss of the Spider",
         "Jom Gabbar",
@@ -187,6 +188,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
     verify_executor_names(rotation, rotation->all_executors, expected_executor_names);
 
     QVector<QString> expected_active_executor_names = {
+        "Judgement",
         "Seal of the Crusader",
         "Mana Potion",
     };

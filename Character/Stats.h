@@ -149,9 +149,13 @@ public:
     void increase_mp5(const unsigned increase);
     void decrease_mp5(const unsigned decrease);
 
-    unsigned get_spell_damage() const;
-    void increase_spell_damage(const unsigned increase);
-    void decrease_spell_damage(const unsigned decrease);
+    unsigned get_base_spell_damage() const;
+    void increase_base_spell_damage(const unsigned increase);
+    void decrease_base_spell_damage(const unsigned decrease);
+
+    unsigned get_spell_damage(const MagicSchool school) const;
+    void increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school);
+    void decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school);
 
 private:
     unsigned STR {0};
@@ -195,6 +199,7 @@ private:
 
     QMap<Target::CreatureType, unsigned> melee_ap_against_creature;
     QMap<Target::CreatureType, unsigned> ranged_ap_against_creature;
+    QMap<MagicSchool, unsigned> spell_school_damage_bonus;
 
     double str_multiplier {1.0};
     double agi_multiplier {1.0};

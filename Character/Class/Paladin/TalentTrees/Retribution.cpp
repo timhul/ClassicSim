@@ -1,9 +1,10 @@
 #include "Retribution.h"
 
+#include "Judgement.h"
 #include "Paladin.h"
+#include "PaladinSeal.h"
 #include "PaladinSpells.h"
 #include "SealOfTheCrusader.h"
-#include "PaladinSeal.h"
 #include "TalentStatIncrease.h"
 
 Retribution::Retribution(Paladin* paladin) :
@@ -48,7 +49,10 @@ Talent* Retribution::get_benediction() {
     return get_new_talent(paladin, "Benediction", "1MR", "Assets/spell/Spell_frost_windwalkon.png",
                           5, "Reduces the Mana cost of your Judgement and Seal spells by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{3, 3}},
-                          QVector<Spell*>{spells->get_seal_of_the_crusader()});
+                          QVector<Spell*>{
+                              spells->get_seal_of_the_crusader(),
+                              spells->get_judgement()
+                          });
 }
 
 Talent* Retribution::get_improved_seal_of_the_crusader() {
@@ -56,5 +60,8 @@ Talent* Retribution::get_improved_seal_of_the_crusader() {
                           3, "Increases the melee attack power bonus of your Seal of the Crusader and the Holy damage increase of your Judgement of the Crusader by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{5, 5}},
                           {},
-                          QVector<Buff*>{spells->get_seal_of_the_crusader()->get_buff()});
+                          QVector<Buff*>{
+                              spells->get_seal_of_the_crusader()->get_buff(),
+                              spells->get_seal_of_the_crusader()->get_judge_debuff()
+                          });
 }

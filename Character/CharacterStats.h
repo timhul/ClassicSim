@@ -128,9 +128,11 @@ public:
     void increase_mp5(const unsigned increase);
     void decrease_mp5(const unsigned decrease);
 
-    unsigned get_spell_damage() const;
-    void increase_spell_damage(const unsigned increase);
-    void decrease_spell_damage(const unsigned decrease);
+    unsigned get_spell_damage(const MagicSchool school) const;
+    void increase_base_spell_damage(const unsigned increase);
+    void increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school);
+    void decrease_base_spell_damage(const unsigned decrease);
+    void decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school);
 
     double get_spell_crit_dmg_mod() const;
     void increase_spell_crit_dmg_mod(double);

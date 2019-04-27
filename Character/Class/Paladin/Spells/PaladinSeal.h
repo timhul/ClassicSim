@@ -20,6 +20,7 @@ public:
     virtual ~PaladinSeal() override;
 
     Buff* get_buff() const;
+    Buff* get_judge_debuff() const;
 
 private:
     friend class Judgement;

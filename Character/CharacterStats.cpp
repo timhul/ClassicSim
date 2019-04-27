@@ -266,7 +266,7 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::ManaPer5:
         return increase_mp5(value);
     case ItemStats::SpellDamage:
-        return increase_spell_damage(value);
+        return increase_base_spell_damage(value);
     case ItemStats::SpellCrit:
         return increase_spell_crit(value);
     case ItemStats::SpellHit:
@@ -331,7 +331,7 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::ManaPer5:
         return decrease_mp5(value);
     case ItemStats::SpellDamage:
-        return decrease_spell_damage(value);
+        return decrease_base_spell_damage(value);
     case ItemStats::SpellCrit:
         return decrease_spell_crit(value);
     case ItemStats::SpellHit:
@@ -774,16 +774,24 @@ void CharacterStats::decrease_mp5(const unsigned decrease) {
     base_stats->decrease_mp5(decrease);
 }
 
-unsigned CharacterStats::get_spell_damage() const {
-    return base_stats->get_spell_damage() + equipment->get_stats()->get_spell_damage();
+unsigned CharacterStats::get_spell_damage(const MagicSchool school) const {
+    return base_stats->get_spell_damage(school) + equipment->get_stats()->get_spell_damage(school);
 }
 
-void CharacterStats::increase_spell_damage(const unsigned increase) {
-    base_stats->increase_spell_damage(increase);
+void CharacterStats::increase_base_spell_damage(const unsigned increase) {
+    base_stats->increase_base_spell_damage(increase);
 }
 
-void CharacterStats::decrease_spell_damage(const unsigned decrease) {
-    base_stats->decrease_spell_damage(decrease);
+void CharacterStats::increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school) {
+    base_stats->increase_spell_damage_vs_school(increase, school);
+}
+
+void CharacterStats::decrease_base_spell_damage(const unsigned decrease) {
+    base_stats->decrease_base_spell_damage(decrease);
+}
+
+void CharacterStats::decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school) {
+    base_stats->decrease_spell_damage_vs_school(decrease, school);
 }
 
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {
