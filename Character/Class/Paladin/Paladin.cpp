@@ -12,6 +12,7 @@
 #include "Retribution.h"
 #include "Talents.h"
 #include "Utils/Check.h"
+#include "Vengeance.h"
 #include "Weapon.h"
 
 Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
@@ -36,6 +37,8 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     this->resource = this->mana;
     mana->set_base_mana(1436);
 
+    this->vengeance = new Vengeance(this);
+
     initialize_talents();
 }
 
@@ -49,6 +52,7 @@ Paladin::~Paladin()
     delete cstats;
     delete paladin_spells;
     delete mana;
+    delete vengeance;
 }
 
 QString Paladin::get_class_color() const {
@@ -124,6 +128,10 @@ void Paladin::gain_mana(const unsigned value) {
 
 void Paladin::lose_mana(const unsigned value) {
     mana->lose_resource(value);
+}
+
+Buff* Paladin::get_vengeance() const {
+    return this->vengeance;
 }
 
 int Paladin::get_highest_possible_armor_type() const {

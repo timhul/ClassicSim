@@ -3,8 +3,9 @@
 
 #include "Character.h"
 
+class Buff;
 class PaladinSpells;
-
+class Vengeance;
 
 class Paladin: public Character {
 public:
@@ -33,9 +34,13 @@ public:
     void gain_mana(const unsigned value) override;
     void lose_mana(const unsigned value) override;
 
+    Buff* get_vengeance() const;
+
 private:
     PaladinSpells* paladin_spells;
     class Mana* mana;
+
+    Vengeance* vengeance;
 
     void initialize_talents() override;
     void reset_class_specific() override;

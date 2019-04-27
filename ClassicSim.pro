@@ -16,6 +16,7 @@ SOURCES += main.cpp \
     Character/Class/Paladin/Buffs/JudgementOfTheCrusader.cpp \
     Character/Class/Paladin/Buffs/SanctityAuraBuff.cpp \
     Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.cpp \
+    Character/Class/Paladin/Buffs/Vengeance.cpp \
     Character/Class/Paladin/Spells/Consecration.cpp \
     Character/Class/Paladin/Spells/Judgement.cpp \
     Character/Class/Paladin/Spells/MainhandAttackPaladin.cpp \
@@ -378,6 +379,7 @@ HEADERS += \
     Character/Class/Paladin/Buffs/JudgementOfTheCrusader.h \
     Character/Class/Paladin/Buffs/SanctityAuraBuff.h \
     Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.h \
+    Character/Class/Paladin/Buffs/Vengeance.h \
     Character/Class/Paladin/Spells/Consecration.h \
     Character/Class/Paladin/Spells/Judgement.h \
     Character/Class/Paladin/Spells/MainhandAttackPaladin.h \

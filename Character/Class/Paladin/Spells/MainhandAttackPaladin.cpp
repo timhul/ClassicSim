@@ -61,6 +61,7 @@ void MainhandAttackPaladin::calculate_damage(const bool run_procs) {
         damage_dealt = round(damage_dealt * 2);
         add_crit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
 
+        paladin->get_vengeance()->apply_buff();
         paladin->melee_mh_white_critical_effect(run_procs);
         return;
     }

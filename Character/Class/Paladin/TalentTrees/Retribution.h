@@ -17,6 +17,7 @@ public:
     Talent* get_conviction();
     Talent* get_two_handed_weapon_specialization();
     Talent* get_sanctity_aura();
+    Talent* get_vengeance();
 
 private:
     Paladin* paladin;

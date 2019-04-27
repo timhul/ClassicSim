@@ -36,7 +36,7 @@ Retribution::Retribution(Paladin* paladin) :
                                   {"5MR", get_sanctity_aura()}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6ML", new Talent(paladin, this, "Vengeance", "6ML", "Assets/ability/Ability_racial_avatar.png", 5, "Gives you a %1% bonus to Physical and Holy damage you deal for 8 sec after dealing a critical strike from a weapon swing, spell, or ability.", QVector<QPair<unsigned, unsigned>>{{3, 3}})}};
+    QMap<QString, Talent*> tier6 {{"6ML", get_vengeance()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(paladin, this, "Repentance", "7ML", "Assets/spell/Spell_holy_prayerofhealing.png", 1, "Puts the enemy target in a state of meditation, incapacitating them for up to 6 sec. Any damage caused will awaken the target. Only works against Humanoids.", QVector<QPair<unsigned, unsigned>>())}};
@@ -93,4 +93,12 @@ Talent* Retribution::get_sanctity_aura() {
                           1, "Increases Holy damage done by party members within 30 yards by 10%. Players may only have one Aura on them per Paladin at any one time.",
                           QVector<QPair<unsigned, unsigned>>(),
                           QVector<Spell*>{spells->get_sanctity_aura()});
+}
+
+Talent* Retribution::get_vengeance() {
+    return get_new_talent(paladin, "Vengeance", "6ML", "Assets/ability/Ability_racial_avatar.png",
+                          5, "Gives you a %1% bonus to Physical and Holy damage you deal for 8 sec after dealing a critical strike from a weapon swing, spell, or ability.",
+                          QVector<QPair<unsigned, unsigned>>{{3, 3}},
+                          {},
+                          QVector<Buff*>{paladin->get_vengeance()});
 }
