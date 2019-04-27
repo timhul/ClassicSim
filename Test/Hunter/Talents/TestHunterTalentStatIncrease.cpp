@@ -8,7 +8,7 @@
 #include "Talent.h"
 
 TestHunterTalentStatIncrease::TestHunterTalentStatIncrease(EquipmentDb* equipment_db) :
-    TestSpellHunter(equipment_db, "TalentStatIncrease")
+    TestSpellHunter(equipment_db, "HunterTalentStatIncrease")
 {}
 
 void TestHunterTalentStatIncrease::test_all() {
