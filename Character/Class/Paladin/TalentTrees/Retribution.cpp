@@ -5,6 +5,7 @@
 #include "PaladinSeal.h"
 #include "PaladinSpells.h"
 #include "SealOfTheCrusader.h"
+#include "SanctityAura.h"
 #include "TalentStatIncrease.h"
 
 Retribution::Retribution(Paladin* paladin) :
@@ -32,7 +33,7 @@ Retribution::Retribution(Paladin* paladin) :
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5LL", get_two_handed_weapon_specialization()},
-                                  {"5MR", new Talent(paladin, this, "Sanctity Aura", "5MR", "Assets/spell/Spell_holy_mindvision.png", 1, "Increases Holy damage done by party members within 30 yards by 10%. Players may only have one Aura on them per Paladin at any one time.", QVector<QPair<unsigned, unsigned>>())}};
+                                  {"5MR", get_sanctity_aura()}};
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6ML", new Talent(paladin, this, "Vengeance", "6ML", "Assets/ability/Ability_racial_avatar.png", 5, "Gives you a %1% bonus to Physical and Holy damage you deal for 8 sec after dealing a critical strike from a weapon swing, spell, or ability.", QVector<QPair<unsigned, unsigned>>{{3, 3}})}};
@@ -85,4 +86,11 @@ Talent* Retribution::get_two_handed_weapon_specialization() {
                                   3, "Increases the damage you deal with two-handed melee weapons by %1%.",
                                   QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::TwoHandMeleeDmg, 2}});
+}
+
+Talent* Retribution::get_sanctity_aura() {
+    return get_new_talent(paladin, "Sanctity Aura", "5MR", "Assets/spell/Spell_holy_mindvision.png",
+                          1, "Increases Holy damage done by party members within 30 yards by 10%. Players may only have one Aura on them per Paladin at any one time.",
+                          QVector<QPair<unsigned, unsigned>>(),
+                          QVector<Spell*>{spells->get_sanctity_aura()});
 }

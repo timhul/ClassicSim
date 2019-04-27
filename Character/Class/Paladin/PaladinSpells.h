@@ -9,6 +9,7 @@ class Judgement;
 class ManaPotion;
 class Paladin;
 class PaladinSeal;
+class SanctityAura;
 class SealOfTheCrusader;
 
 class PaladinSpells: public CharacterSpells {
@@ -19,6 +20,7 @@ public:
     ManaPotion* get_mana_potion() const;
     PaladinSeal* get_seal_of_the_crusader() const;
     Consecration* get_consecration() const;
+    SanctityAura* get_sanctity_aura() const;
 
     void apply_seal(PaladinSeal* new_seal);
     PaladinSeal* get_seal() const;
@@ -30,6 +32,7 @@ private:
     Consecration* consecration;
     Judgement* judgement;
     ManaPotion* mana_potion;
+    SanctityAura* sanctity_aura;
     SealOfTheCrusader* seal_of_the_crusader;
 };
 

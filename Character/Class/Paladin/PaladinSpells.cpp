@@ -7,6 +7,7 @@
 #include "ManaPotion.h"
 #include "Paladin.h"
 #include "PaladinSeal.h"
+#include "SanctityAura.h"
 #include "SealOfTheCrusader.h"
 
 PaladinSpells::PaladinSpells(Paladin* paladin) :
@@ -17,12 +18,14 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     this->judgement = new Judgement(paladin);
     this->mana_potion = new ManaPotion(paladin);
     this->mh_attack = new MainhandAttackPaladin(paladin);
+    this->sanctity_aura = new SanctityAura(paladin);
     this->seal_of_the_crusader = new SealOfTheCrusader(paladin);
 
     spells.append(consecration);
     spells.append(judgement);
     spells.append(mana_potion);
     spells.append(mh_attack);
+    spells.append(sanctity_aura);
     spells.append(seal_of_the_crusader);
 }
 
@@ -40,6 +43,10 @@ PaladinSeal* PaladinSpells::get_seal_of_the_crusader() const {
 
 Consecration* PaladinSpells::get_consecration() const {
     return this->consecration;
+}
+
+SanctityAura* PaladinSpells::get_sanctity_aura() const {
+    return this->sanctity_aura;
 }
 
 void PaladinSpells::apply_seal(PaladinSeal* new_seal) {

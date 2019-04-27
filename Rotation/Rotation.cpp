@@ -30,8 +30,12 @@ Rotation::~Rotation() {
 }
 
 void Rotation::run_precombat_actions() {
+    QSet<int> acceptable_status {
+        static_cast<int>(SpellStatus::Available),
+        static_cast<int>(SpellStatus::OnCooldown)
+    };
     for (auto & spell : precombat_spells) {
-        if (spell->get_spell_status() == SpellStatus::Available)
+        if (acceptable_status.contains(static_cast<int>(spell->get_spell_status())))
             spell->perform();
     }
 }

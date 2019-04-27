@@ -23,6 +23,7 @@ private:
     void test_is_ready_conditions() override;
 
     void test_damage();
+    void test_damage_sanctity_aura();
 
     void given_consecration_is_enabled();
     void when_consecration_is_performed();

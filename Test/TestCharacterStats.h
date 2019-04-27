@@ -33,6 +33,7 @@ private:
     void test_physical_damage_mod_depends_on_attack_mode();
     void test_crit_dmg_mod_affected_by_creature_type();
     void test_melee_and_ranged_attack_speed_modifiers_are_independent();
+    void test_spell_school_damage_mods();
 };
 
 #endif // TESTCHARACTERSTATS_H

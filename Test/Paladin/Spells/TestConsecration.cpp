@@ -5,6 +5,8 @@
 #include "Equipment.h"
 #include "HolyPaladin.h"
 #include "PaladinSpells.h"
+#include "Retribution.h"
+#include "SanctityAura.h"
 #include "Talent.h"
 
 TestConsecration::TestConsecration(EquipmentDb *equipment_db) :
@@ -16,6 +18,10 @@ void TestConsecration::test_all() {
 
     set_up(false);
     test_damage();
+    tear_down();
+
+    set_up(false);
+    test_damage_sanctity_aura();
     tear_down();
 }
 
@@ -88,6 +94,28 @@ void TestConsecration::test_damage() {
     // [Damage] = base_dmg + holy_spell_dmg * spell_coefficient
     // [417] = 384 + 100 * 0.33
     then_damage_dealt_is(417);
+}
+
+void TestConsecration::test_damage_sanctity_aura() {
+    ignored_events = {"ResourceGain", "BuffRemoval", "PlayerAction"};
+    given_character_has_spell_damage(100, MagicSchool::Holy);
+    given_a_guaranteed_magic_hit(MagicSchool::Holy);
+    given_talent_rank(Retribution(paladin).get_sanctity_aura(), 1);
+    given_consecration_is_enabled();
+
+    dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_sanctity_aura()->perform();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_consecration_is_performed();
+
+    then_next_event_is("DotTick", "3.500", RUN_EVENT);
+    then_next_event_is("DotTick", "5.500", RUN_EVENT);
+    then_next_event_is("DotTick", "7.500", RUN_EVENT);
+    then_next_event_is("DotTick", "9.500", RUN_EVENT);
+
+    // [Damage] = (base_dmg + holy_spell_dmg * spell_coefficient) * holy_dmg_mod
+    // [458] = (384 + 100 * 0.33) * 1.1
+    then_damage_dealt_is(458);
 }
 
 void TestConsecration::given_consecration_is_enabled() {

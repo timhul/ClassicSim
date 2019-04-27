@@ -27,6 +27,7 @@ RotationExecutor::RotationExecutor(QString name) :
     spell_status_statistics.insert(SpellStatus::OnStanceCooldown, 0);
     spell_status_statistics.insert(SpellStatus::OnTrinketCooldown, 0);
     spell_status_statistics.insert(SpellStatus::OvercapResource, 0);
+    spell_status_statistics.insert(SpellStatus::DependentBuffInactive, 0);
 }
 
 RotationExecutor::~RotationExecutor() {

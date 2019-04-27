@@ -74,6 +74,22 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Humanoid, 0);
     this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Mechanical, 0);
     this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Undead, 0);
+
+    this->spell_school_damage_changes.insert(MagicSchool::Arcane, {});
+    this->spell_school_damage_changes.insert(MagicSchool::Fire, {});
+    this->spell_school_damage_changes.insert(MagicSchool::Frost, {});
+    this->spell_school_damage_changes.insert(MagicSchool::Holy, {});
+    this->spell_school_damage_changes.insert(MagicSchool::Nature, {});
+    this->spell_school_damage_changes.insert(MagicSchool::Physical, {});
+    this->spell_school_damage_changes.insert(MagicSchool::Shadow, {});
+
+    this->spell_school_damage_modifiers.insert(MagicSchool::Arcane, 1.0);
+    this->spell_school_damage_modifiers.insert(MagicSchool::Fire, 1.0);
+    this->spell_school_damage_modifiers.insert(MagicSchool::Frost, 1.0);
+    this->spell_school_damage_modifiers.insert(MagicSchool::Holy, 1.0);
+    this->spell_school_damage_modifiers.insert(MagicSchool::Nature, 1.0);
+    this->spell_school_damage_modifiers.insert(MagicSchool::Physical, 1.0);
+    this->spell_school_damage_modifiers.insert(MagicSchool::Shadow, 1.0);
 }
 
 CharacterStats::~CharacterStats() {
@@ -782,16 +798,28 @@ void CharacterStats::increase_base_spell_damage(const unsigned increase) {
     base_stats->increase_base_spell_damage(increase);
 }
 
-void CharacterStats::increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school) {
-    base_stats->increase_spell_damage_vs_school(increase, school);
-}
-
 void CharacterStats::decrease_base_spell_damage(const unsigned decrease) {
     base_stats->decrease_base_spell_damage(decrease);
 }
 
+void CharacterStats::increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school) {
+    base_stats->increase_spell_damage_vs_school(increase, school);
+}
+
 void CharacterStats::decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school) {
     base_stats->decrease_spell_damage_vs_school(decrease, school);
+}
+
+double CharacterStats::get_spell_dmg_mod(const MagicSchool school) const {
+    return spell_school_damage_modifiers[school];
+}
+
+void CharacterStats::increase_spell_dmg_mod(const int increase, const MagicSchool school) {
+    add_multiplicative_effect(spell_school_damage_changes[school], increase, spell_school_damage_modifiers[school]);
+}
+
+void CharacterStats::decrease_spell_dmg_mod(const int decrease, const MagicSchool school) {
+    remove_multiplicative_effect(spell_school_damage_changes[school], decrease, spell_school_damage_modifiers[school]);
 }
 
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {

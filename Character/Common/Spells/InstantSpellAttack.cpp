@@ -32,13 +32,14 @@ void InstantSpellAttack::spell_effect() {
 
     unsigned damage_dealt = random->get_roll();
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
+    const double damage_mod =  pchar->get_stats()->get_spell_dmg_mod(school);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
     }
     else {
         pchar->spell_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod)), resource_cost, 0);
+        add_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod)), resource_cost, 0);
     }
 }

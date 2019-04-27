@@ -28,9 +28,6 @@ private:
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
-
-    void enable_spell_effect() override;
-    void disable_spell_effect() override;
 };
 
 #endif // CONSECRATION_H

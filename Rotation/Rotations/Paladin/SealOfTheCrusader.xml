@@ -5,6 +5,7 @@
 	</description>
 
 	<precombat_actions>
+		<spell name="Sanctity Aura"/>
 		<spell name="Seal of the Crusader"/>
 	</precombat_actions>
 
@@ -15,7 +16,7 @@
 	<cast_if name="Seal of the Crusader">
 		buff "Seal of the Crusader" less 2
 	</cast_if>
-	
+
 	<cast_if name="Consecration"/>
 
 	<cast_if name="Kiss of the Spider"/>

@@ -70,6 +70,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_crit_dmg_mod_affected_by_creature_type();
     tear_down();
+
+    set_up();
+    test_spell_school_damage_mods();
+    tear_down();
 }
 
 void TestCharacterStats::test_values_after_initialization() {
@@ -303,4 +307,20 @@ void TestCharacterStats::test_melee_and_ranged_attack_speed_modifiers_are_indepe
     cstats->decrease_ranged_attack_speed(20);
     assert(almost_equal(cstats->get_melee_attack_speed_mod(), 1.0));
     assert(almost_equal(cstats->get_ranged_attack_speed_mod(), 1.0));
+}
+
+void TestCharacterStats::test_spell_school_damage_mods() {
+    assert(almost_equal(cstats->get_spell_dmg_mod(MagicSchool::Holy), 1.0));
+
+    cstats->increase_spell_dmg_mod(10, MagicSchool::Holy);
+    assert(almost_equal(cstats->get_spell_dmg_mod(MagicSchool::Holy), 1.1));
+
+    cstats->increase_spell_dmg_mod(20, MagicSchool::Holy);
+    assert(almost_equal(cstats->get_spell_dmg_mod(MagicSchool::Holy), 1.32));
+
+    cstats->decrease_spell_dmg_mod(10, MagicSchool::Holy);
+    assert(almost_equal(cstats->get_spell_dmg_mod(MagicSchool::Holy), 1.2));
+
+    cstats->decrease_spell_dmg_mod(20, MagicSchool::Holy);
+    assert(almost_equal(cstats->get_spell_dmg_mod(MagicSchool::Holy), 1.0));
 }
