@@ -11,6 +11,9 @@ public:
     HolyPaladin(Paladin* paladin);
     ~HolyPaladin() override = default;
 
+    Talent* get_divine_strength();
+    Talent* get_divine_intellect();
+
 private:
     Paladin* paladin;
     PaladinSpells* spells;

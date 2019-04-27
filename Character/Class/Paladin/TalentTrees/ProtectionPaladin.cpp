@@ -13,7 +13,7 @@ ProtectionPaladin::ProtectionPaladin(Paladin* paladin) :
                                   {"1MR", new Talent(paladin, this, "Redoubt", "1MR", "Assets/ability/Ability_defend.png", 5, "Increases your chance to block attacks with your shield by %1% after being the victim of a critical strike. Lasts 10 sec or 5 blocks.", QVector<QPair<unsigned, unsigned>>{{6, 6}})}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2LL", new Talent(paladin, this, "Precision", "2LL", "Assets/ability/Ability_rogue_ambush.png", 3, "Increases your chance to hit with melee weapons by %1%.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
+    QMap<QString, Talent*> tier2 {{"2LL", get_precision()},
                                   {"2ML", new Talent(paladin, this, "Guardian's Favor", "2ML", "Assets/spell/Spell_holy_sealofprotection.png", 2, "Reduces the cooldown of your Blessing of Protection by %1 sec and increases the duration of your Blessing of Freedom by %2 sec.", QVector<QPair<unsigned, unsigned>>{{60, 60}, {3, 3}})},
                                   {"2RR", new Talent(paladin, this, "Toughness", "2RR", "Assets/spell/Spell_holy_devotion.png", 5, "Increases the armor value from items by %1%", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
     add_talents(tier2);
@@ -32,7 +32,7 @@ ProtectionPaladin::ProtectionPaladin(Paladin* paladin) :
                                   {"5MR", new Talent(paladin, this, "Reckoning", "5MR", "Assets/spell/Spell_holy_blessingofstrength.png", 5, "Gives you a %1% chance to gain an extra attack after being the victim of a critical strike.", QVector<QPair<unsigned, unsigned>>{{20, 20}})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(paladin, this, "One-Handed Weapon Specialization", "6MR", "Assets/items/Inv_sword_20.png", 5, "Increases the damage you deal with One-Handed Melee weapons by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", get_one_handed_weapon_specialization()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(paladin, this, "Holy Shield", "7ML", "Assets/spell/Spell_holy_blessingofprotection.png", 1, "Increases chance to block by 30% for 10 sec, and deals 65 Holy damage for each attack blocked while active. Damage caused by Holy Shield causes 20% additional threat. Each block expends a charge. 4 charges.", QVector<QPair<unsigned, unsigned>>())}};
@@ -43,4 +43,18 @@ ProtectionPaladin::ProtectionPaladin(Paladin* paladin) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* ProtectionPaladin::get_precision() {
+    return new TalentStatIncrease(paladin, this, "Precision", "2LL", "Assets/ability/Ability_rogue_ambush.png",
+                                  3, "Increases your chance to hit with melee weapons by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeHit, 100}, {TalentStat::RangedHit, 100}});
+}
+
+Talent* ProtectionPaladin::get_one_handed_weapon_specialization() {
+    return new TalentStatIncrease(paladin, this, "One-Handed Weapon Specialization", "6MR", "Assets/items/Inv_sword_20.png",
+                                  5, "Increases the damage you deal with One-Handed Melee weapons by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::OneHandMeleeDmg, 2}});
 }

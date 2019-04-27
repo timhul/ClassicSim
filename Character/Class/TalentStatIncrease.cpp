@@ -1,5 +1,7 @@
 #include "TalentStatIncrease.h"
 
+#include <QSet>
+
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Focus.h"
@@ -96,8 +98,34 @@ void TalentStatIncrease::apply_rank_effect() {
                 cstats->remove_intellect_mod(static_cast<int>(curr_points - 1) * static_cast<int>(change));
             cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
-        case OneHandMeleeDmg:
-        case TwoHandMeleeDmg:
+        case TwoHandMeleeDmg: {
+            auto affected_weapon_types = QSet<int>({WeaponTypes::TWOHAND_AXE,
+                                                    WeaponTypes::TWOHAND_MACE,
+                                                    WeaponTypes::TWOHAND_SWORD,
+                                                    WeaponTypes::POLEARM,
+                                                    WeaponTypes::STAFF});
+            for (auto & weapon_type : affected_weapon_types) {
+                if (curr_points != 1)
+                    pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(curr_points - 1) * static_cast<int>(change));
+
+                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(change) * static_cast<int>(curr_points));
+            }
+            continue;
+        }
+        case OneHandMeleeDmg: {
+            auto affected_weapon_types = QSet<int>({WeaponTypes::AXE,
+                                                    WeaponTypes::DAGGER,
+                                                    WeaponTypes::FIST,
+                                                    WeaponTypes::MACE,
+                                                    WeaponTypes::SWORD});
+            for (auto & weapon_type : affected_weapon_types) {
+                if (curr_points != 1)
+                    pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(curr_points - 1) * static_cast<int>(change));
+
+                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(change) * static_cast<int>(curr_points));
+            }
+            continue;
+        }
         case Defense:
         case Parry:
         case ArmorModFromItems:
@@ -192,8 +220,42 @@ void TalentStatIncrease::remove_rank_effect() {
             cstats->remove_intellect_mod(static_cast<int>(curr_points + 1) * static_cast<int>(change));
             cstats->add_intellect_mod(static_cast<int>(change) * static_cast<int>(curr_points));
             continue;
-        case OneHandMeleeDmg:
-        case TwoHandMeleeDmg:
+        case TwoHandMeleeDmg: {
+            auto affected_weapon_types = QSet<int>({WeaponTypes::TWOHAND_AXE,
+                                                    WeaponTypes::TWOHAND_MACE,
+                                                    WeaponTypes::TWOHAND_SWORD,
+                                                    WeaponTypes::POLEARM,
+                                                    WeaponTypes::STAFF});
+            int delta = static_cast<int>((curr_points + 1) * change);
+            for (auto & weapon_type : affected_weapon_types)
+                pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, delta);
+
+            if (curr_points == 0)
+                continue;
+
+            for (auto & weapon_type : affected_weapon_types)
+                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) * change));
+
+            continue;
+        }
+        case OneHandMeleeDmg: {
+            auto affected_weapon_types = QSet<int>({WeaponTypes::AXE,
+                                                    WeaponTypes::DAGGER,
+                                                    WeaponTypes::FIST,
+                                                    WeaponTypes::MACE,
+                                                    WeaponTypes::SWORD});
+            int delta = static_cast<int>((curr_points + 1) * change);
+            for (auto & weapon_type : affected_weapon_types)
+                pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, delta);
+
+            if (curr_points == 0)
+                continue;
+
+            for (auto & weapon_type : affected_weapon_types)
+                pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) * change));
+
+            continue;
+        }
         case Defense:
         case Parry:
         case ArmorModFromItems:

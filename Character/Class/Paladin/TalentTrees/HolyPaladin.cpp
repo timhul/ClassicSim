@@ -9,8 +9,8 @@ HolyPaladin::HolyPaladin(Paladin* paladin) :
     paladin(paladin),
     spells(dynamic_cast<PaladinSpells*>(paladin->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1ML", new Talent(paladin, this, "Divine Strength", "1ML", "Assets/ability/Ability_golemthunderclap.png", 5, "Increases your Strength by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
-                                  {"1MR", new Talent(paladin, this, "Divine Intellect", "1MR", "Assets/spell/Spell_nature_sleep.png", 5, "Increases your total Intellect by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
+    QMap<QString, Talent*> tier1 {{"1ML", get_divine_strength()},
+                                  {"1MR", get_divine_intellect()}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2ML", new Talent(paladin, this, "Spiritual Focus", "2ML", "Assets/spell/Spell_arcane_blink.png", 5, "Gives your Flash of Light and Holy Light spells a %1% chance to not lose casting time when you take damage.", QVector<QPair<unsigned, unsigned>>{{14, 14}})},
@@ -42,4 +42,18 @@ HolyPaladin::HolyPaladin(Paladin* paladin) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* HolyPaladin::get_divine_strength() {
+    return new TalentStatIncrease(paladin, this, "Divine Strength", "1ML", "Assets/ability/Ability_golemthunderclap.png",
+                                  5, "Increases your Strength by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::StrengthMod, 2}});
+}
+
+Talent* HolyPaladin::get_divine_intellect() {
+    return new TalentStatIncrease(paladin, this, "Divine Intellect", "1MR", "Assets/spell/Spell_nature_sleep.png",
+                                  5, "Increases your total Intellect by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::IntellectMod, 2}});
 }

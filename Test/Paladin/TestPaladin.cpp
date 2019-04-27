@@ -7,6 +7,7 @@
 #include "TestHolyPaladin.h"
 #include "TestJudgement.h"
 #include "TestMainhandAttackPaladin.h"
+#include "TestPaladinTalentStatIncrease.h"
 #include "TestProtectionPaladin.h"
 #include "TestRetribution.h"
 #include "TestSealOfTheCrusader.h"
@@ -25,6 +26,7 @@ void TestPaladin::test_all() {
     TestMainhandAttackPaladin(equipment_db).test_all();
     TestSealOfTheCrusader(equipment_db).test_all();
     TestJudgement(equipment_db).test_all();
+    TestPaladinTalentStatIncrease(equipment_db).test_all();
 }
 
 void TestPaladin::test_values_after_initialization() {

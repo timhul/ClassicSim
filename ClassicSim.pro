@@ -46,6 +46,7 @@ SOURCES += main.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
     Test/Paladin/Spells/TestMainhandAttackPaladin.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
+    Test/Paladin/Talents/TestPaladinTalentStatIncrease.cpp \
     Test/Paladin/TestSpellPaladin.cpp \
     Test/Test.cpp \
     Equipment/Equipment.cpp \
@@ -404,6 +405,7 @@ HEADERS += \
     Test/Paladin/Spells/TestJudgement.h \
     Test/Paladin/Spells/TestMainhandAttackPaladin.h \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \
+    Test/Paladin/Talents/TestPaladinTalentStatIncrease.h \
     Test/Paladin/TestSpellPaladin.h \
     Test/Test.h \
     Equipment/Equipment.h \

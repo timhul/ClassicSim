@@ -22,7 +22,7 @@ Retribution::Retribution(Paladin* paladin) :
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(paladin, this, "Vindication", "3LL", "Assets/spell/Spell_holy_vindication.png", 3, "Gives the Paladin's damaging melee attacks a chance to reduce the target's Strength and Agility by %1% for 10 sec.", QVector<QPair<unsigned, unsigned>>{{5, 5}})},
-                                  {"3ML", new Talent(paladin, this, "Conviction", "3ML", "Assets/spell/Spell_holy_retributionaura.png", 5, "Increases your chance to get a critical strike with melee weapons by %1%.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
+                                  {"3ML", get_conviction()},
                                   {"3MR", new Talent(paladin, this, "Seal of Command", "3MR", "Assets/ability/Ability_warrior_innerrage.png", 1, "Gives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage. Only one Seal can be active on the Paladin at any one time. Lasts 30 sec.\n\nUnleashing this Seal's energy will judge an enemy, instantly causing 46.5 to 55.5 Holy damage, 93 to 102 if the target is stunned or incapacitated.", QVector<QPair<unsigned, unsigned>>())},
                                   {"3RR", new Talent(paladin, this, "Pursuit of Justice", "3RR", "Assets/spell/Spell_holy_persuitofjustice.png", 2, "Increases movement and mounted movement speed by %1%. This does not stack with other movement speed increasing effects.", QVector<QPair<unsigned, unsigned>>{{4, 4}})}};
     add_talents(tier3);
@@ -31,7 +31,7 @@ Retribution::Retribution(Paladin* paladin) :
                                   {"4MR", new Talent(paladin, this, "Improved Retribution Aura", "4MR", "Assets/spell/Spell_holy_auraoflight.png", 2, "Increases the damage done by your Retribution Aura by %1%.", QVector<QPair<unsigned, unsigned>>{{25, 25}})}};
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {{"5LL", new Talent(paladin, this, "Two-Handed Weapon Specialization", "5LL", "Assets/items/Inv_hammer_04.png", 3, "Increases the damage you deal with two-handed melee weapons by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
+    QMap<QString, Talent*> tier5 {{"5LL", get_two_handed_weapon_specialization()},
                                   {"5MR", new Talent(paladin, this, "Sanctity Aura", "5MR", "Assets/spell/Spell_holy_mindvision.png", 1, "Increases Holy damage done by party members within 30 yards by 10%. Players may only have one Aura on them per Paladin at any one time.", QVector<QPair<unsigned, unsigned>>())}};
     add_talents(tier5);
 
@@ -71,4 +71,18 @@ Talent* Retribution::get_improved_seal_of_the_crusader() {
                               spells->get_seal_of_the_crusader()->get_buff(),
                               spells->get_seal_of_the_crusader()->get_judge_debuff()
                           });
+}
+
+Talent* Retribution::get_conviction() {
+    return new TalentStatIncrease(paladin, this, "Conviction", "3ML", "Assets/spell/Spell_holy_retributionaura.png",
+                                  5, "Increases your chance to get a critical strike with melee weapons by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeCrit, 100}, {TalentStat::RangedCrit, 100}});
+}
+
+Talent* Retribution::get_two_handed_weapon_specialization() {
+    return new TalentStatIncrease(paladin, this, "Two-Handed Weapon Specialization", "5LL", "Assets/items/Inv_hammer_04.png",
+                                  3, "Increases the damage you deal with two-handed melee weapons by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::TwoHandMeleeDmg, 2}});
 }
