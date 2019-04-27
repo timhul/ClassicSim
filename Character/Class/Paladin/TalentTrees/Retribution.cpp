@@ -16,7 +16,7 @@ Retribution::Retribution(Paladin* paladin) :
                                   {"1MR", get_benediction()}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2LL", new Talent(paladin, this, "Improved Judgement", "2LL", "Assets/spell/Spell_holy_righteousfury.png", 2, "Decreases the cooldown of your Judgement spell by %1 sec.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
+    QMap<QString, Talent*> tier2 {{"2LL", get_improved_judgement()},
                                   {"2ML", get_improved_seal_of_the_crusader()},
                                   {"2MR", new Talent(paladin, this, "Deflection", "2MR", "Assets/ability/Ability_parry.png", 5, "Increases your Parry chance by %1%", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
     add_talents(tier2);
@@ -53,6 +53,13 @@ Talent* Retribution::get_benediction() {
                               spells->get_seal_of_the_crusader(),
                               spells->get_judgement()
                           });
+}
+
+Talent* Retribution::get_improved_judgement() {
+    return get_new_talent(paladin, "Improved Judgement", "2LL", "Assets/spell/Spell_holy_righteousfury.png",
+                          2, "Decreases the cooldown of your Judgement spell by %1 sec.",
+                          QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                          QVector<Spell*>{spells->get_judgement()});
 }
 
 Talent* Retribution::get_improved_seal_of_the_crusader() {

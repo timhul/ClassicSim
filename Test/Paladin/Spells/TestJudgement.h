@@ -30,6 +30,9 @@ private:
     void test_resource_cost_4_of_5_benediction();
     void test_resource_cost_5_of_5_benediction();
 
+    void test_cooldown_1_of_2_improved_judgement();
+    void test_cooldown_2_of_2_improved_judgement();
+
     void test_auto_hit_refreshes_judgement_of_the_crusader();
     void test_judgement_of_the_crusader_deals_zero_damage();
     void test_judgement_of_the_crusader_holy_dmg_bonus_0_of_3_improved_sotc();
@@ -45,6 +48,7 @@ private:
 
     void given_benediction_rank(const unsigned num);
     void given_improved_sotc_rank(const unsigned num);
+    void given_improved_judgement_rank(const unsigned num);
 };
 
 #endif // TESTJUDGEMENT_H

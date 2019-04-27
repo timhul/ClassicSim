@@ -12,6 +12,7 @@ public:
     ~Retribution() override = default;
 
     Talent* get_benediction();
+    Talent* get_improved_judgement();
     Talent* get_improved_seal_of_the_crusader();
 
 private:

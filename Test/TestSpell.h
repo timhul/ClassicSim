@@ -15,6 +15,7 @@ class EquipmentDb;
 class Faction;
 class Race;
 class SimSettings;
+class Talent;
 class Target;
 
 static const bool RUN_EVENT = true;
@@ -106,6 +107,7 @@ public:
     void given_character_has_intellect(const int value);
     void given_character_has_spirit(const int value);
     void given_character_has_stamina(const int value);
+    void given_talent_rank(Talent* talent, const unsigned num);
     void given_character_has_strength(const int value);
 
     void when_running_queued_events_until(const double priority);

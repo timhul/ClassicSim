@@ -20,6 +20,7 @@
 #include "RangedWhiteHitTable.h"
 #include "SimSettings.h"
 #include "Stats.h"
+#include "Talent.h"
 #include "Target.h"
 #include "Weapon.h"
 
@@ -908,6 +909,15 @@ void TestSpell::given_character_has_stamina(const int value) {
         pchar->get_stats()->decrease_stamina(static_cast<unsigned>(delta));
 
     assert(pchar->get_stats()->get_stamina() == static_cast<unsigned>(value));
+}
+
+void TestSpell::given_talent_rank(Talent* talent, const unsigned num) {
+    assert(num > 0);
+
+    for (unsigned i = 0; i < num; ++i)
+        assert(talent->increment_rank());
+
+    delete talent;
 }
 
 void TestSpell::given_character_has_strength(const int value) {

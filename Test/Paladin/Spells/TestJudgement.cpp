@@ -38,6 +38,14 @@ void TestJudgement::test_all() {
     tear_down();
 
     set_up();
+    test_cooldown_1_of_2_improved_judgement();
+    tear_down();
+
+    set_up();
+    test_cooldown_2_of_2_improved_judgement();
+    tear_down();
+
+    set_up();
     test_auto_hit_refreshes_judgement_of_the_crusader();
     tear_down();
 
@@ -219,6 +227,16 @@ void TestJudgement::test_resource_cost_5_of_5_benediction() {
     then_paladin_has_mana(1);
 }
 
+void TestJudgement::test_cooldown_1_of_2_improved_judgement() {
+    given_improved_judgement_rank(1);
+    assert(almost_equal(judgement()->get_base_cooldown(), 9.0));
+}
+
+void TestJudgement::test_cooldown_2_of_2_improved_judgement() {
+    given_improved_judgement_rank(2);
+    assert(almost_equal(judgement()->get_base_cooldown(), 8.0));
+}
+
 void TestJudgement::test_auto_hit_refreshes_judgement_of_the_crusader() {
     given_a_mainhand_weapon_with_3_speed();
     given_a_guaranteed_white_hit();
@@ -317,25 +335,15 @@ void TestJudgement::when_seal_of_the_crusader_is_performed() {
 }
 
 void TestJudgement::given_benediction_rank(const unsigned num) {
-    assert(num > 0);
-
-    Talent* talent = Retribution(paladin).get_benediction();
-
-    for (unsigned i = 0; i < num; ++i)
-        assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Retribution(paladin).get_benediction(), num);
 }
 
 void TestJudgement::given_improved_sotc_rank(const unsigned num) {
-    assert(num > 0);
+    given_talent_rank(Retribution(paladin).get_improved_seal_of_the_crusader(), num);
+}
 
-    Talent* talent = Retribution(paladin).get_improved_seal_of_the_crusader();
-
-    for (unsigned i = 0; i < num; ++i)
-        assert(talent->increment_rank());
-
-    delete talent;
+void TestJudgement::given_improved_judgement_rank(const unsigned num) {
+    given_talent_rank(Retribution(paladin).get_improved_judgement(), num);
 }
 
 void TestJudgement::given_seal_of_the_crusader_is_active() {
