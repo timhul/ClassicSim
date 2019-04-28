@@ -9,11 +9,11 @@
 #include "Rogue.h"
 #include "Utils/Check.h"
 
-Weapon::Weapon(QString name, int item_id, int type, int weapon_slot, unsigned min, unsigned max, double speed,
+Weapon::Weapon(QString name, int item_id, Content::Phase phase, int type, int weapon_slot, unsigned min, unsigned max, double speed,
                QMap<QString, QString> info,
                QVector<QPair<QString, QString> > stats,
                QVector<QMap<QString, QString>> procs):
-    Item(std::move(name), item_id, std::move(info), std::move(stats), std::move(procs)),
+    Item(std::move(name), item_id, phase, std::move(info), std::move(stats), std::move(procs)),
     random(new Random(min, max)),
     weapon_type(type),
     weapon_slot(weapon_slot),

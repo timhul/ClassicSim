@@ -9,7 +9,7 @@ class Weapon;
 
 class Projectile: public Item {
 public:
-    Projectile(QString name, int item_id, int type, double dps,
+    Projectile(QString name, int item_id, Content::Phase phase, int type, double dps,
                QMap<QString, QString> info = {},
                QVector<QPair<QString, QString>> stats = {},
                QVector<QMap<QString, QString>> procs = {});

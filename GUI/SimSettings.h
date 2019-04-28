@@ -4,6 +4,7 @@
 #include <QSet>
 #include <QVersionNumber>
 
+#include "ContentPhase.h"
 #include "Rulesets.h"
 #include "SimOption.h"
 
@@ -15,8 +16,8 @@ public:
     SimSettings();
     ~SimSettings();
 
-    QVersionNumber get_patch() const;
-    void set_patch(const QVersionNumber& patch);
+    Content::Phase get_phase() const;
+    void set_phase(const Content::Phase phase);
 
     void set_combat_length(const int);
     void set_combat_iterations_full_sim(const int);
@@ -45,7 +46,7 @@ public:
     void reset_execute_threshold();
 
 private:
-    QVersionNumber current_patch;
+    Content::Phase current_phase;
     int combat_length;
 
     int combat_iterations_quick_sim;

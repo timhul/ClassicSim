@@ -4,11 +4,11 @@
 
 #include "Weapon.h"
 
-Projectile::Projectile(QString name, int item_id, int type, double dps,
+Projectile::Projectile(QString name, int item_id, Content::Phase phase, int type, double dps,
                        QMap<QString, QString> info,
                        QVector<QPair<QString, QString> > stats,
                        QVector<QMap<QString, QString>> procs):
-    Item(std::move(name), item_id, std::move(info), std::move(stats), std::move(procs)),
+    Item(std::move(name), item_id, phase, std::move(info), std::move(stats), std::move(procs)),
     projectile_type(type),
     dps(dps)
 {}

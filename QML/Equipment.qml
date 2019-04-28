@@ -83,7 +83,7 @@ Rectangle {
                             entryName: _name
                             entrySpeed: _speed
                             entryDps: _dps
-                            entryPatch: _patch
+                            entryPhase: _phase
                             entrySource: _source
                             entryType: _type
                             entryReq: _reqlvl
@@ -110,7 +110,7 @@ Rectangle {
                         delegate: ItemEntry {
                             itemid: _itemid
                             entryName: _name
-                            entryPatch: _patch
+                            entryPhase: _phase
                             entrySource: _source
                             entryType: _type
                             entryReq: _reqlvl

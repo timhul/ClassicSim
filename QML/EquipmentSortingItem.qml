@@ -50,16 +50,16 @@ RectangleBorders {
         RectangleBorders {
             anchors.bottom: parent.bottom
             height: sortBoxHeight
-            width: 50
+            width: 100
 
-            onRectangleClicked: itemModel.selectSort(ItemSort.ByPatch)
-            onRectangleRightClicked: itemModel.selectSort(ItemSort.ByPatch)
+            onRectangleClicked: itemModel.selectSort(ItemSort.ByPhase)
+            onRectangleRightClicked: itemModel.selectSort(ItemSort.ByPhase)
 
-            rectColor: itemModel.currentSortingMethod === ItemSort.ByPatch ? root.darkGray :
+            rectColor: itemModel.currentSortingMethod === ItemSort.ByPhase ? root.darkGray :
                                                                              root.darkDarkGray
 
             TextSmall {
-                text: "Patch"
+                text: "Phase"
             }
         }
 

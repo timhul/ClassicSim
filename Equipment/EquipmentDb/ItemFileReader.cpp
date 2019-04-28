@@ -45,61 +45,62 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
             reader.skipCurrentElement();
             continue;
         }
+        if (!reader.attributes().hasAttribute("phase")) {
+            qDebug() << "Missing phase attribute";
+            for (auto & attr : reader.attributes())
+                qDebug() << attr.name() << attr.value();
+            reader.skipCurrentElement();
+            continue;
+        }
+
         QString id = reader.attributes().value("id").toString();
 
+        QMap<QString, QString> item_map;
+        QVector<QPair<QString, QString>> stats;
+        QVector<QMap<QString, QString>> procs;
+        QVector<QMap<QString, QString>> uses;
+        QVector<QString> spell_modifications;
+        item_map["classification"] = classification;
+        item_map["id"] = id;
+        item_map["phase"] = reader.attributes().value("phase").toString();
+
         while (reader.readNextStartElement()) {
-            if (reader.name() != "patch") {
-                qDebug() << "Skipping element" << reader.name();
+            if (reader.name() == "info") {
+                info_element_reader(reader.attributes(), item_map);
                 reader.skipCurrentElement();
-                continue;
             }
-            QMap<QString, QString> item_map;
-            QVector<QPair<QString, QString>> stats;
-            QVector<QMap<QString, QString>> procs;
-            QVector<QMap<QString, QString>> uses;
-            QVector<QString> spell_modifications;
-            item_map["classification"] = classification;
-            item_map["id"] = id;
-            item_map["patch"] = reader.attributes().value("name").toString();
-
-            while (reader.readNextStartElement()) {
-                if (reader.name() == "info") {
-                    info_element_reader(reader.attributes(), item_map);
-                    reader.skipCurrentElement();
-                }
-                else if (reader.name() == "class_restriction") {
-                    class_restriction_element_reader(reader.attributes(), item_map);
-                    reader.skipCurrentElement();
-                }
-                else if (reader.name() == "stats") {
-                    stats_element_reader(reader, stats);
-                }
-                else if (reader.name() == "source") {
-                    item_map["source"] = reader.readElementText().trimmed();
-                }
-                else if (reader.name() == "proc") {
-                    proc_element_reader(reader, procs);
-                }
-                else if (reader.name() == "uses") {
-                    use_element_reader(reader, uses);
-                }
-                else if (reader.name() == "flavour_text") {
-                    item_map["flavour_text"] = reader.readElementText().simplified();
-                }
-                else if (reader.name() == "special_equip_effect") {
-                    item_map["special_equip_effect"] = reader.readElementText().simplified();
-                }
-                else if (reader.name() == "modifies") {
-                    modifies_element_reader(reader, spell_modifications);
-                }
-                else
-                    reader.skipCurrentElement();
+            else if (reader.name() == "class_restriction") {
+                class_restriction_element_reader(reader.attributes(), item_map);
+                reader.skipCurrentElement();
             }
-
-            create_item(items, item_map, stats, procs, uses, spell_modifications);
-            item_map.remove("classification");
-            warn_remaining_keys(item_map);
+            else if (reader.name() == "stats") {
+                stats_element_reader(reader, stats);
+            }
+            else if (reader.name() == "source") {
+                item_map["source"] = reader.readElementText().trimmed();
+            }
+            else if (reader.name() == "proc") {
+                proc_element_reader(reader, procs);
+            }
+            else if (reader.name() == "uses") {
+                use_element_reader(reader, uses);
+            }
+            else if (reader.name() == "flavour_text") {
+                item_map["flavour_text"] = reader.readElementText().simplified();
+            }
+            else if (reader.name() == "special_equip_effect") {
+                item_map["special_equip_effect"] = reader.readElementText().simplified();
+            }
+            else if (reader.name() == "modifies") {
+                modifies_element_reader(reader, spell_modifications);
+            }
+            else
+                reader.skipCurrentElement();
         }
+
+        create_item(items, item_map, stats, procs, uses, spell_modifications);
+        item_map.remove("classification");
+        warn_remaining_keys(item_map);
     }
 }
 
@@ -199,8 +200,8 @@ void ItemFileReader::create_item(QVector<Item*> &items,
                                  QVector<QMap<QString, QString>> &procs,
                                  QVector<QMap<QString, QString>> &uses,
                                  QVector<QString> &spell_modifications) {
-    QVector<QString> mandatory_attrs = {"id", "name", "classification", "patch", "type", "slot",
-                                        "unique", "req_lvl", "item_lvl", "quality", "boe"};
+    QVector<QString> mandatory_attrs = {"id", "phase", "name", "classification", "type",
+                                        "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
     bool missing_attrs = false;
     for (const auto & mandatory_attr : mandatory_attrs) {
@@ -216,11 +217,12 @@ void ItemFileReader::create_item(QVector<Item*> &items,
     QMap<QString, QString> info;
     extract_info(item_map, info);
 
-    items.append(new Item(info["name"], info["id"].toInt(), info, stats, procs, uses, spell_modifications));
+    items.append(new Item(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),
+                          info, stats, procs, uses, spell_modifications));
 }
 
 void ItemFileReader::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
-    QVector<QString> keys = {"id", "name", "patch", "type", "slot", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source", "icon",
+    QVector<QString> keys = {"id", "name", "phase", "type", "slot", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source", "icon",
                              "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
                              "RESTRICTED_TO_ROGUE", "RESTRICTED_TO_SHAMAN", "RESTRICTED_TO_DRUID",
                              "RESTRICTED_TO_MAGE", "RESTRICTED_TO_PRIEST", "RESTRICTED_TO_WARLOCK",

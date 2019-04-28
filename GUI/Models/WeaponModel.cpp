@@ -25,7 +25,7 @@ WeaponModel::WeaponModel(EquipmentDb* db,
     this->sorting_methods.insert(WeaponSorting::Methods::ByName, false);
     this->sorting_methods.insert(WeaponSorting::Methods::ByDps, false);
     this->sorting_methods.insert(WeaponSorting::Methods::BySpeed, false);
-    this->sorting_methods.insert(WeaponSorting::Methods::ByPatch, false);
+    this->sorting_methods.insert(WeaponSorting::Methods::ByPhase, false);
     this->sorting_methods.insert(WeaponSorting::Methods::ByItemType, false);
 }
 
@@ -54,11 +54,11 @@ bool speed(Weapon* lhs, Weapon* rhs) {
     return (delta(lhs_speed, rhs_speed)) < 0.001 ? ilvl(lhs, rhs) : lhs_speed > rhs_speed;
 }
 
-bool patch(Weapon* lhs, Weapon* rhs) {
-    auto lhs_patch = QVersionNumber::fromString(lhs->get_value("patch"));
-    auto rhs_patch = QVersionNumber::fromString(rhs->get_value("patch"));
+bool phase(Weapon* lhs, Weapon* rhs) {
+    const int lhs_phase = static_cast<int>(lhs->phase);
+    const int rhs_phase = static_cast<int>(rhs->phase);
 
-    return lhs_patch == rhs_patch ? ilvl(lhs, rhs) : lhs_patch > rhs_patch;
+    return lhs_phase == rhs_phase ? ilvl(lhs, rhs) : lhs_phase > rhs_phase;
 }
 
 bool item_type(Weapon* lhs, Weapon* rhs) {
@@ -73,8 +73,8 @@ void WeaponModel::set_character(Character* pchar) {
     update_items();
 }
 
-void WeaponModel::set_patch(const QVersionNumber& patch) {
-    db->set_patch(patch);
+void WeaponModel::set_phase(const Content::Phase phase) {
+    db->set_content_phase(phase);
     update_items();
 }
 
@@ -108,9 +108,9 @@ void WeaponModel::selectSort(const int method) {
         std::sort(melee_weapons.begin(), melee_weapons.end(), speed);
         select_new_method(WeaponSorting::Methods::BySpeed);
         break;
-    case WeaponSorting::Methods::ByPatch:
-        std::sort(melee_weapons.begin(), melee_weapons.end(), patch);
-        select_new_method(WeaponSorting::Methods::ByPatch);
+    case WeaponSorting::Methods::ByPhase:
+        std::sort(melee_weapons.begin(), melee_weapons.end(), phase);
+        select_new_method(WeaponSorting::Methods::ByPhase);
         break;
     case WeaponSorting::Methods::ByItemType:
         std::sort(melee_weapons.begin(), melee_weapons.end(), item_type);
@@ -191,8 +191,8 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
         return QString::number(weapon->get_base_weapon_speed(), 'f', 1 );
     if (role == DpsRole)
         return QString::number(weapon->get_wpn_dps(), 'f', 1 );
-    if (role == PatchRole)
-        return weapon->get_value("patch");
+    if (role == PhaseRole)
+        return Content::get_shortname_for_phase(weapon->phase);
     if (role == SourceRole)
         return weapon->get_value("source");
     if (role == TypeRole)
@@ -215,7 +215,7 @@ QHash<int, QByteArray> WeaponModel::roleNames() const {
     roles[NameRole] = "_name";
     roles[SpeedRole] = "_speed";
     roles[DpsRole] = "_dps";
-    roles[PatchRole] = "_patch";
+    roles[PhaseRole] = "_phase";
     roles[SourceRole] = "_source";
     roles[TypeRole] = "_type";
     roles[ReqLvlRole] = "_reqlvl";

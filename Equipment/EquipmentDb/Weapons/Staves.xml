@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="17743">
-		<patch name="1.2.0">
-			<info name="Resurgence Rod" type="STAFF" slot="2H" unique="no" req_lvl="45" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_goldfeathered_01.png"/>
-			<dmg_range min="139" max="209" speed="3.8"/>
-			<stats>
-				<!-- TODO: Add these to tooltip parser
-				<stat type="MP5" value="8"/>
-				<stat type="HP5" value="5"/>
-				-->
-			</stats>
-			<source>
-			Quest reward in Maraudon.
-			</source>
-		</patch>
+	<melee_weapon id="17743" phase="0">
+		<info name="Resurgence Rod" type="STAFF" slot="2H" unique="no" req_lvl="45" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_goldfeathered_01.png"/>
+		<dmg_range min="139" max="209" speed="3.8"/>
+		<stats>
+			<stat type="MANA_PER_5" value="8"/>
+			<!-- TODO: Add these to tooltip parser
+			<stat type="HP5" value="5"/>
+			-->
+		</stats>
+		<source>
+		Quest reward in Maraudon.
+		</source>
 	</melee_weapon>
 </weapons>

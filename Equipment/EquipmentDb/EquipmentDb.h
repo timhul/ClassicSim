@@ -8,6 +8,8 @@
 #include <QVersionNumber>
 #include <QXmlStreamReader>
 
+#include "ContentPhase.h"
+
 class Item;
 class Projectile;
 class Weapon;
@@ -36,8 +38,8 @@ public:
     Item* get_relic(const int item_id) const;
     Projectile* get_projectile(const int item_id) const;
 
-    void set_patch(const QVersionNumber& current_patch);
-    bool item_valid_for_current_patch(const QString &item_patch) const;
+    void set_content_phase(const Content::Phase current_phase);
+    bool item_valid_for_current_phase(const Content::Phase phase) const;
 
     const QVector<Item*>& get_slot_items(const int slot) const;
 
@@ -48,10 +50,10 @@ public:
     void add_ring(Item* ring);
 
 private:
-    QVersionNumber current_patch;
+    Content::Phase current_phase;
 
     void read_equipment_files();
-    void set_patch_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &patch_slot_items);
+    void set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &phase_slot_items);
     Item* get_item(const QVector<Item*> &list, const int item_id) const;
     void take_weapons_from_given_items(QVector<Item*> &mixed_items);
     void take_items_of_slot_from_given_items(QVector<Item*> &mixed_items, QVector<Item *> &sorted, const int slot);
@@ -59,52 +61,52 @@ private:
     void add_item_id(Item* item);
 
     QVector<Item*> mh_slot_items;
-    QVector<Item*> current_patch_mh_slot_items;
+    QVector<Item*> current_phase_mh_slot_items;
 
     QVector<Item*> oh_slot_items;
-    QVector<Item*> current_patch_oh_slot_items;
+    QVector<Item*> current_phase_oh_slot_items;
 
     QVector<Item*> ranged_items;
-    QVector<Item*> current_patch_ranged_items;
+    QVector<Item*> current_phase_ranged_items;
 
     QVector<Item*> helms;
-    QVector<Item*> current_patch_helms;
+    QVector<Item*> current_phase_helms;
 
     QVector<Item*> amulets;
-    QVector<Item*> current_patch_amulets;
+    QVector<Item*> current_phase_amulets;
 
     QVector<Item*> shoulders;
-    QVector<Item*> current_patch_shoulders;
+    QVector<Item*> current_phase_shoulders;
 
     QVector<Item*> backs;
-    QVector<Item*> current_patch_backs;
+    QVector<Item*> current_phase_backs;
 
     QVector<Item*> chests;
-    QVector<Item*> current_patch_chests;
+    QVector<Item*> current_phase_chests;
 
     QVector<Item*> wrists;
-    QVector<Item*> current_patch_wrists;
+    QVector<Item*> current_phase_wrists;
 
     QVector<Item*> gloves;
-    QVector<Item*> current_patch_gloves;
+    QVector<Item*> current_phase_gloves;
 
     QVector<Item*> belts;
-    QVector<Item*> current_patch_belts;
+    QVector<Item*> current_phase_belts;
 
     QVector<Item*> legs;
-    QVector<Item*> current_patch_legs;
+    QVector<Item*> current_phase_legs;
 
     QVector<Item*> boots;
-    QVector<Item*> current_patch_boots;
+    QVector<Item*> current_phase_boots;
 
     QVector<Item*> rings;
-    QVector<Item*> current_patch_rings;
+    QVector<Item*> current_phase_rings;
 
     QVector<Item*> trinkets;
-    QVector<Item*> current_patch_trinkets;
+    QVector<Item*> current_phase_trinkets;
 
     QVector<Item*> projectiles;
-    QVector<Item*> current_patch_projectiles;
+    QVector<Item*> current_phase_projectiles;
 
     QVector<QVector<Item*>*> all_slots_items;
 

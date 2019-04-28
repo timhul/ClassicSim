@@ -1,210 +1,170 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="11686">
-		<patch name="1.0.0">
-			<info name="Girdle of Beastial Fury" type="LEATHER" slot="BELT" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_belt_12.png"/>
-			<stats>
-				<stat type="ARMOR" value="89"/>
-				<stat type="STRENGTH" value="8"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="ATTACK_POWER" value="30"/>
-			</stats>
-			<source>
-			Drops from Eviscerator in Blackrock Depths.
-			</source>
-		</patch>
+	<item id="11686" phase="0">
+		<info name="Girdle of Beastial Fury" type="LEATHER" slot="BELT" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_belt_12.png"/>
+		<stats>
+        <stat type="ARMOR" value="89"/>
+        <stat type="STRENGTH" value="8"/>
+        <stat type="STAMINA" value="10"/>
+        <stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
+		Drops from Eviscerator in Blackrock Depths.
+		</source>
 	</item>
 
-	<item id="16713">
-		<patch name="1.0.0">
-			<info name="Shadowcraft Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="93"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="SPIRIT" value="9"/>
-				<stat type="STRENGTH" value="9"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Upper and Lower Blackrock Spire (UBRS/LBRS).
-			</source>
-		</patch>
+	<item id="16713" phase="0">
+		<info name="Shadowcraft Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_03.png"/>
+		<stats>
+        <stat type="ARMOR" value="93"/>
+        <stat type="AGILITY" value="14"/>
+        <stat type="STAMINA" value="10"/>
+        <stat type="SPIRIT" value="9"/>
+        <stat type="STRENGTH" value="9"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Upper and Lower Blackrock Spire (UBRS/LBRS).
+		</source>
 	</item>
 
-	<item id="13252">
-		<patch name="1.0.0">
-			<info name="Cloudrunner Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
-			<stats>
-				<stat type="ARMOR" value="185"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STRENGTH" value="14"/>
-			</stats>
-			<source>
-			Drops from Quartermaster Zigris in Lower Blackrock Spire (LBRS).
-			</source>
-		</patch>
+	<item id="13252" phase="0">
+		<info name="Cloudrunner Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
+		<stats>
+        <stat type="ARMOR" value="185"/>
+        <stat type="AGILITY" value="15"/>
+        <stat type="STRENGTH" value="14"/>
+		</stats>
+		<source>
+		Drops from Quartermaster Zigris in Lower Blackrock Spire (LBRS).
+		</source>
 	</item>
 
-	<item id="14502">
-		<patch name="1.0.0">
-			<info name="Frostbite Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
-			<stats>
-				<stat type="ARMOR" value="98"/>
-				<stat type="STRENGTH" value="5"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="FROST_RESISTANCE" value="10"/>
-			</stats>
-			<source>
-			Drops from Ras Frostwhisper in Scholomance.
-			</source>
-		</patch>
+	<item id="14502" phase="0">
+		<info name="Frostbite Girdle" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_10.png"/>
+		<stats>
+        <stat type="ARMOR" value="98"/>
+        <stat type="STRENGTH" value="5"/>
+        <stat type="AGILITY" value="15"/>
+        <stat type="STAMINA" value="15"/>
+        <stat type="FROST_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+		Drops from Ras Frostwhisper in Scholomance.
+		</source>
 	</item>
 
-	<item id="18505">
-		<patch name="1.3.0">
-			<info name="Mugger's Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_02.png"/>
-			<stats>
-				<stat type="ARMOR" value="98"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="DAGGER_SKILL" value="5"/>
-			</stats>
-			<source>
-			Drops from Captain Kromcrush in Dire Maul.
-			</source>
-		</patch>
+	<item id="18505" phase="1">
+		<info name="Mugger's Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_belt_02.png"/>
+		<stats>
+        <stat type="ARMOR" value="98"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="DAGGER_SKILL" value="5"/>
+		</stats>
+		<source>
+		Drops from Captain Kromcrush in Dire Maul.
+		</source>
 	</item>
 
-	<item id="16827">
-		<patch name="1.0.0">
-			<info name="Nightslayer Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_23.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="113"/>
-				<stat type="AGILITY" value="17"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="STRENGTH" value="9"/>
-				<stat type="FIRE_RESISTANCE" value="7"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Molten Core.
-			</source>
-		</patch>
+	<item id="16827" phase="0">
+		<info name="Nightslayer Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_23.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+        <stat type="ARMOR" value="113"/>
+        <stat type="AGILITY" value="17"/>
+        <stat type="STAMINA" value="18"/>
+        <stat type="STRENGTH" value="9"/>
+        <stat type="FIRE_RESISTANCE" value="7"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Molten Core.
+		</source>
 	</item>
 
-	<item id="19396">
-		<patch name="1.6.0">
-			<info name="Taut Dragonhide Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_16.png"/>
-			<stats>
-				<stat type="ARMOR" value="125"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="ATTACK_POWER" value="60"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Ebonroc/Flamegor/Firemaw in Blackwing Lair.
-			</source>
-			<flavour_text>
-			"The flesh from different dragon flights has been sewn together to make this belt."
-			</flavour_text>
-		</patch>
+	<item id="19396" phase="2">
+		<info name="Taut Dragonhide Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_16.png"/>
+		<stats>
+        <stat type="ARMOR" value="125"/>
+        <stat type="STAMINA" value="17"/>
+        <stat type="ATTACK_POWER" value="60"/>
+        <stat type="DODGE_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Ebonroc/Flamegor/Firemaw in Blackwing Lair.
+		</source>
+		<flavour_text>
+		"The flesh from different dragon flights has been sewn together to make this belt."
+		</flavour_text>
 	</item>
 
-	<item id="16910">
-		<patch name="1.0.0">
-			<info name="Bloodfang Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_23.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="126"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="STRENGTH" value="13"/>
-				<stat type="SHADOW_RESISTANCE" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops in Molten Core until 1.4.0. After that it is moved to Blackwing Lair.
-			</source>
-		</patch>
-
-		<patch name="1.6.0">
-			<info name="Bloodfang Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_23.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="126"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="STRENGTH" value="13"/>
-				<stat type="SHADOW_RESISTANCE" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
-			</source>
-		</patch>
+	<item id="16910" phase="2">
+		<info name="Bloodfang Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_23.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+        <stat type="ARMOR" value="126"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="STAMINA" value="15"/>
+        <stat type="STRENGTH" value="13"/>
+        <stat type="SHADOW_RESISTANCE" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+		</source>
 	</item>
 
-	<item id="20216">
-		<patch name="1.7.0">
-			<info name="Belt of Preserved Heads" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="no" icon="Inv_belt_14.png"/>
-			<stats>
-				<stat type="ARMOR" value="108"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STRENGTH" value="14"/>
-				<stat type="STAMINA" value="11"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Quest reward. Requires killing multiple bosses in Zul'Gurub.
-			</source>
-		</patch>
+	<item id="20216" phase="3">
+		<info name="Belt of Preserved Heads" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="no" icon="Inv_belt_14.png"/>
+		<stats>
+        <stat type="ARMOR" value="108"/>
+        <stat type="AGILITY" value="15"/>
+        <stat type="STRENGTH" value="14"/>
+        <stat type="STAMINA" value="11"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires killing multiple bosses in Zul'Gurub.
+		</source>
 	</item>
 
-	<item id="21586">
-		<patch name="1.9.0">
-			<info name="Belt of Never-ending Agony" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_26.png"/>
-			<stats>
-				<stat type="ARMOR" value="142"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="ATTACK_POWER" value="64"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+	<item id="21586" phase="4">
+		<info name="Belt of Never-ending Agony" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_26.png"/>
+		<stats>
+        <stat type="ARMOR" value="142"/>
+        <stat type="STAMINA" value="20"/>
+        <stat type="ATTACK_POWER" value="64"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
+		</source>
 	</item>
 
-	<item id="14636">
-		<patch name="1.10.0">
-			<info name="Cadaverous Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_16.png"/>
-			<stats>
-				<stat type="ARMOR" value="97"/>
-				<stat type="STAMINA" value="12"/>
-				<stat type="ATTACK_POWER" value="40"/>
-			</stats>
-			<source>
-			Drops from multiple bosses in Scholomance.
-			</source>
-		</patch>
+	<item id="14636" phase="4">
+		<info name="Cadaverous Belt" type="LEATHER" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_16.png"/>
+		<stats>
+        <stat type="ARMOR" value="97"/>
+        <stat type="STAMINA" value="12"/>
+        <stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
 	</item>
 
-	<item id="22482">
-		<patch name="1.11.0">
-			<info name="Bonescythe Waistguard" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_27.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="142"/>
-				<stat type="AGILITY" value="24"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="STRENGTH" value="23"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+	<item id="22482" phase="5">
+		<info name="Bonescythe Waistguard" type="LEATHER" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_27.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+        <stat type="ARMOR" value="142"/>
+        <stat type="AGILITY" value="24"/>
+        <stat type="STAMINA" value="20"/>
+        <stat type="STRENGTH" value="23"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
 	</item>
 </items>

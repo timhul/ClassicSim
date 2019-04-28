@@ -1,118 +1,102 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="11933">
-		<patch name="1.0.0">
-			<info name="Imperial Jewel" type="AMULET" slot="NECK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_gem_sapphire_01.png"/>
-			<stats>
-				<stat type="STAMINA" value="7"/>
-				<stat type="ATTACK_POWER" value="32"/>
-			</stats>
-			<source>
+	<item id="11933" phase="0">
+        <info name="Imperial Jewel" type="AMULET" slot="NECK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_gem_sapphire_01.png"/>
+        <stats>
+            <stat type="STAMINA" value="7"/>
+            <stat type="ATTACK_POWER" value="32"/>
+        </stats>
+        <source>
 			Drops from Empereror Dagran Thaurissian in Blackrock Depths.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="12929">
-		<patch name="1.0.0">
-			<info name="Emberfury Talisman" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_necklace_05.png"/>
-			<stats>
-				<stat type="STAMINA" value="8"/>
-				<stat type="SPIRIT" value="5"/>
-				<stat type="FIRE_RESISTANCE" value="7"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="12929" phase="0">
+        <info name="Emberfury Talisman" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_necklace_05.png"/>
+        <stats>
+            <stat type="STAMINA" value="8"/>
+            <stat type="SPIRIT" value="5"/>
+            <stat type="FIRE_RESISTANCE" value="7"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Pyroguard Emberseer in Upper Blackrock Spire (UBRS).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="17044">
-		<patch name="1.0.0">
-			<info name="Will of the Martyr" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
-			<stats>
-				<stat type="STAMINA" value="10"/>
-				<stat type="ATTACK_POWER" value="30"/>
-			</stats>
-			<source>
+	<item id="17044" phase="0">
+        <info name="Will of the Martyr" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
+        <stats>
+            <stat type="STAMINA" value="10"/>
+            <stat type="ATTACK_POWER" value="30"/>
+        </stats>
+        <source>
 			Quest reward. Requires Stratholme Living and Stratholme Undead.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="15411">
-		<patch name="1.0.0">
-			<info name="Mark of Fordring" type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
-			<stats>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="26"/>
-			</stats>
-			<source>
+	<item id="15411" phase="0">
+        <info name="Mark of Fordring" type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
+        <stats>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="26"/>
+        </stats>
+        <source>
 			Quest chain reward. Started by Tirion Fordring in Eastern Plaguelands.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18404">
-		<patch name="1.0.0">
-			<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
-			<stats>
-				<stat type="AGILITY" value="12"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="FIRE_RESISTANCE" value="10"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="18404" phase="0">
+        <info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+        <stats>
+            <stat type="AGILITY" value="12"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="FIRE_RESISTANCE" value="10"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward from turning in Head of Onyxia.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19621">
-		<patch name="1.7.0">
-			<info name="Maelstrom's Wrath" type="AMULET" slot="NECK" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_26.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="AGILITY" value="15"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="STAMINA" value="9"/>
-			</stats>
-			<source>
+	<item id="19621" phase="3">
+        <info name="Maelstrom's Wrath" type="AMULET" slot="NECK" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_26.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="AGILITY" value="15"/>
+            <stat type="INTELLECT" value="6"/>
+            <stat type="STAMINA" value="9"/>
+        </stats>
+        <source>
 			Reputation reward. Requires Exalted with Zandalar Tribe.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Equip: Decreases the cooldown of Feign Death by 2 sec.
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="21664">
-		<patch name="1.9.0">
-			<info name="Barbed Choker" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
-			<stats>
-				<stat type="STAMINA" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="44"/>
-			</stats>
-			<source>
+	<item id="21664" phase="4">
+        <info name="Barbed Choker" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
+        <stats>
+            <stat type="STAMINA" value="10"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="44"/>
+        </stats>
+        <source>
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23053">
-		<patch name="1.11.0">
-			<info name="Stormrage's Talisman of Seething" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>
-			<stats>
-				<stat type="STAMINA" value="12"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-				<stat type="ATTACK_POWER" value="26"/>
-			</stats>
-			<source>
+	<item id="23053" phase="5">
+        <info name="Stormrage's Talisman of Seething" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>
+        <stats>
+            <stat type="STAMINA" value="12"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+            <stat type="ATTACK_POWER" value="26"/>
+        </stats>
+        <source>
 			Drops from Kel'Thuzad in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

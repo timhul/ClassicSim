@@ -1,140 +1,122 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13397">
-		<patch name="1.0.0">
-			<info name="Stoneskin Gargoyle Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
-			<stats>
-				<stat type="ARMOR" value="43"/>
-				<stat type="AGILITY" value="8"/>
-				<stat type="STRENGTH" value="7"/>
-				<stat type="STAMINA" value="14"/>
-			</stats>
-			<source>
+	<item id="13397" phase="0">
+        <info name="Stoneskin Gargoyle Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
+        <stats>
+            <stat type="ARMOR" value="43"/>
+            <stat type="AGILITY" value="8"/>
+            <stat type="STRENGTH" value="7"/>
+            <stat type="STAMINA" value="14"/>
+        </stats>
+        <source>
 			Drops from Stonespine in Stratholme Undead.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="13340">
-		<patch name="1.0.0">
-			<info name="Cape of the Black Baron" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
-			<stats>
-				<stat type="AGILITY" value="15"/>
-				<stat type="ATTACK_POWER" value="20"/>
-			</stats>
-			<source>
+	<item id="13340" phase="0">
+        <info name="Cape of the Black Baron" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
+        <stats>
+            <stat type="AGILITY" value="15"/>
+            <stat type="ATTACK_POWER" value="20"/>
+        </stats>
+        <source>
 			Drops from Baron Rivendare in Stratholme Undead.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22269">
-		<patch name="1.0.0">
-			<info name="Shadow Prowler's Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
-			<stats>
-				<stat type="ARMOR" value="45"/>
-				<stat type="AGILITY" value="17"/>
-				<stat type="STAMINA" value="7"/>
-			</stats>
-			<source>
+	<item id="22269" phase="0">
+        <info name="Shadow Prowler's Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_20.png"/>
+        <stats>
+            <stat type="ARMOR" value="45"/>
+            <stat type="AGILITY" value="17"/>
+            <stat type="STAMINA" value="7"/>
+        </stats>
+        <source>
 			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="15138">
-		<patch name="1.0.0">
-			<info name="Onyxia Scale Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_05.png"/>
-			<stats>
-				<stat type="STAMINA" value="7"/>
-				<stat type="FIRE_RESISTANCE" value="16"/>
-			</stats>
-			<source>
+	<item id="15138" phase="0">
+        <info name="Onyxia Scale Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_05.png"/>
+        <stats>
+            <stat type="STAMINA" value="7"/>
+            <stat type="FIRE_RESISTANCE" value="16"/>
+        </stats>
+        <source>
 			Crafted by leatherworkers.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Equip: Protects the wearer from being fully engulfed by Shadow Flame.
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="21394">
-		<patch name="1.9.0">
-			<info name="Drape of Unyielding Strength" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="52"/>
-				<stat type="STRENGTH" value="15"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="21394" phase="4">
+        <info name="Drape of Unyielding Strength" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="52"/>
+            <stat type="STRENGTH" value="15"/>
+            <stat type="AGILITY" value="9"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21406">
-		<patch name="1.9.0">
-			<info name="Cloak of Veiled Shadows" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_19.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="52"/>
-				<stat type="STAMINA" value="11"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="21406" phase="4">
+        <info name="Cloak of Veiled Shadows" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_19.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="52"/>
+            <stat type="STAMINA" value="11"/>
+            <stat type="AGILITY" value="18"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21403">
-		<patch name="1.9.0">
-			<info name="Cloak of the Unseen Path" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_15.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="52"/>
-				<stat type="AGILITY" value="17"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="21403" phase="4">
+        <info name="Cloak of the Unseen Path" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_15.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="52"/>
+            <stat type="AGILITY" value="17"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21701">
-		<patch name="1.9.0">
-			<info name="Cloak of Concentrated Hatred" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
-			<stats>
-				<stat type="ARMOR" value="56"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="STRENGTH" value="11"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="21701" phase="4">
+        <info name="Cloak of Concentrated Hatred" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
+        <stats>
+            <stat type="ARMOR" value="56"/>
+            <stat type="AGILITY" value="16"/>
+            <stat type="STRENGTH" value="11"/>
+            <stat type="STAMINA" value="15"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23405">
-		<patch name="1.11.0">
-			<info name="Shroud of Dominion" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="68"/>
-				<stat type="STAMINA" value="11"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="50"/>
-			</stats>
-			<source>
+	<item id="23405" phase="5">
+        <info name="Shroud of Dominion" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
+        <stats>
+            <stat type="ARMOR" value="68"/>
+            <stat type="STAMINA" value="11"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="50"/>
+        </stats>
+        <source>
 			Drops from Sapphiron in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

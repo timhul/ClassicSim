@@ -228,7 +228,10 @@ public:
     Q_INVOKABLE void setCreatureType(const QString& creature_type);
     /* End of Target */
 
-    Q_INVOKABLE void setPatch(const QString& patch);
+    /* Content phase */
+    Q_INVOKABLE void setPhase(const int phase);
+    Q_INVOKABLE QString getDescriptionForPhase(const int phase);
+    /* End of Content phase */
 
     /* Rotation */
      RotationModel* get_rotation_model() const;
@@ -265,9 +268,9 @@ public:
      /* GUI initialization */
      Q_INVOKABLE QString getStartWindow() const;
      Q_INVOKABLE void changeActiveWindow(const QString& active_window);
-     Q_INVOKABLE int getMinorVersion() const;
      Q_INVOKABLE int getCurrentRuleset() const;
      Q_INVOKABLE int getCurrentCreatureType() const;
+     Q_INVOKABLE int getContentPhase() const;
      /* End of GUI initialization */
 
 Q_SIGNALS:

@@ -13,7 +13,7 @@ EquipmentDb::EquipmentDb(QObject* parent):
     QObject(parent)
 {
     read_equipment_files();
-    set_patch(QVersionNumber::fromString("1.12.1"));
+    set_content_phase(Content::Phase::Naxxramas);
 
     all_slots_items = {
         &mh_slot_items,
@@ -60,31 +60,31 @@ void EquipmentDb::add_item_id(Item* item) {
 void EquipmentDb::add_melee_weapon(Weapon* wpn) {
     add_item_id(wpn);
     mh_slot_items.append(wpn);
-    current_patch_mh_slot_items.append(wpn);
+    current_phase_mh_slot_items.append(wpn);
 }
 
 void EquipmentDb::add_ranged(Weapon* wpn) {
     add_item_id(wpn);
     ranged_items.append(wpn);
-    current_patch_ranged_items.append(wpn);
+    current_phase_ranged_items.append(wpn);
 }
 
 void EquipmentDb::add_ring(Item* ring) {
     add_item_id(ring);
     rings.append(ring);
-    current_patch_rings.append(ring);
+    current_phase_rings.append(ring);
 }
 
 Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
-    for (auto & current_patch_mh_slot_item : current_patch_mh_slot_items) {
-        if (item_id == current_patch_mh_slot_item->get_item_id())
-            return new Weapon(dynamic_cast<Weapon*>(current_patch_mh_slot_item));
+    for (auto & current_phase_mh_slot_item : current_phase_mh_slot_items) {
+        if (item_id == current_phase_mh_slot_item->get_item_id())
+            return new Weapon(dynamic_cast<Weapon*>(current_phase_mh_slot_item));
     }
 
     // CSIM-74: How to handle caster offhands?
-    for (auto & current_patch_oh_slot_item : current_patch_oh_slot_items) {
-        if (item_id == current_patch_oh_slot_item->get_item_id())
-            return new Weapon(dynamic_cast<Weapon*>(current_patch_oh_slot_item));
+    for (auto & current_phase_oh_slot_item : current_phase_oh_slot_items) {
+        if (item_id == current_phase_oh_slot_item->get_item_id())
+            return new Weapon(dynamic_cast<Weapon*>(current_phase_oh_slot_item));
     }
 
     return nullptr;
@@ -100,60 +100,60 @@ Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) 
 }
 
 Weapon *EquipmentDb::get_ranged(const int item_id) const {
-    for (auto & current_patch_ranged_slot_item : current_patch_ranged_items) {
-        if (item_id == current_patch_ranged_slot_item->get_item_id())
-            return new Weapon(dynamic_cast<Weapon*>(current_patch_ranged_slot_item));
+    for (auto & current_phase_ranged_slot_item : current_phase_ranged_items) {
+        if (item_id == current_phase_ranged_slot_item->get_item_id())
+            return new Weapon(dynamic_cast<Weapon*>(current_phase_ranged_slot_item));
     }
 
     return nullptr;
 }
 
 Item* EquipmentDb::get_head(const int item_id) const {
-    return get_item(current_patch_helms, item_id);
+    return get_item(current_phase_helms, item_id);
 }
 
 Item* EquipmentDb::get_neck(const int item_id) const {
-    return get_item(current_patch_amulets, item_id);
+    return get_item(current_phase_amulets, item_id);
 }
 
 Item* EquipmentDb::get_shoulders(const int item_id) const {
-    return get_item(current_patch_shoulders, item_id);
+    return get_item(current_phase_shoulders, item_id);
 }
 
 Item* EquipmentDb::get_back(const int item_id) const {
-    return get_item(current_patch_backs, item_id);
+    return get_item(current_phase_backs, item_id);
 }
 
 Item* EquipmentDb::get_chest(const int item_id) const {
-    return get_item(current_patch_chests, item_id);
+    return get_item(current_phase_chests, item_id);
 }
 
 Item* EquipmentDb::get_wrist(const int item_id) const {
-    return get_item(current_patch_wrists, item_id);
+    return get_item(current_phase_wrists, item_id);
 }
 
 Item* EquipmentDb::get_gloves(const int item_id) const {
-    return get_item(current_patch_gloves, item_id);
+    return get_item(current_phase_gloves, item_id);
 }
 
 Item* EquipmentDb::get_belt(const int item_id) const {
-    return get_item(current_patch_belts, item_id);
+    return get_item(current_phase_belts, item_id);
 }
 
 Item* EquipmentDb::get_legs(const int item_id) const {
-    return get_item(current_patch_legs, item_id);
+    return get_item(current_phase_legs, item_id);
 }
 
 Item* EquipmentDb::get_boots(const int item_id) const {
-    return get_item(current_patch_boots, item_id);
+    return get_item(current_phase_boots, item_id);
 }
 
 Item* EquipmentDb::get_ring(const int item_id) const {
-    return get_item(current_patch_rings, item_id);
+    return get_item(current_phase_rings, item_id);
 }
 
 Item* EquipmentDb::get_trinket(const int item_id) const {
-    return get_item(current_patch_trinkets, item_id);
+    return get_item(current_phase_trinkets, item_id);
 }
 
 Item* EquipmentDb::get_caster_offhand(const int) const {
@@ -167,9 +167,9 @@ Item* EquipmentDb::get_relic(const int) const {
 }
 
 Projectile* EquipmentDb::get_projectile(const int item_id) const {
-    for (auto & current_patch_projectile : current_patch_projectiles) {
-        if (item_id == current_patch_projectile->get_item_id())
-            return new Projectile(dynamic_cast<Projectile*>(current_patch_projectile));
+    for (auto & current_phase_projectile : current_phase_projectiles) {
+        if (item_id == current_phase_projectile->get_item_id())
+            return new Projectile(dynamic_cast<Projectile*>(current_phase_projectile));
     }
 
     return nullptr;
@@ -178,40 +178,40 @@ Projectile* EquipmentDb::get_projectile(const int item_id) const {
 const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
     case ItemSlots::MAINHAND:
-        return current_patch_mh_slot_items;
+        return current_phase_mh_slot_items;
     case ItemSlots::OFFHAND:
-        return current_patch_oh_slot_items;
+        return current_phase_oh_slot_items;
     case ItemSlots::RANGED:
-        return current_patch_ranged_items;
+        return current_phase_ranged_items;
     case ItemSlots::HEAD:
-        return current_patch_helms;
+        return current_phase_helms;
     case ItemSlots::NECK:
-        return current_patch_amulets;
+        return current_phase_amulets;
     case ItemSlots::SHOULDERS:
-        return current_patch_shoulders;
+        return current_phase_shoulders;
     case ItemSlots::BACK:
-        return current_patch_backs;
+        return current_phase_backs;
     case ItemSlots::CHEST:
-        return current_patch_chests;
+        return current_phase_chests;
     case ItemSlots::WRIST:
-        return current_patch_wrists;
+        return current_phase_wrists;
     case ItemSlots::GLOVES:
-        return current_patch_gloves;
+        return current_phase_gloves;
     case ItemSlots::BELT:
-        return current_patch_belts;
+        return current_phase_belts;
     case ItemSlots::LEGS:
-        return current_patch_legs;
+        return current_phase_legs;
     case ItemSlots::BOOTS:
-        return current_patch_boots;
+        return current_phase_boots;
     case ItemSlots::RING:
-        return current_patch_rings;
+        return current_phase_rings;
     case ItemSlots::TRINKET:
-        return current_patch_trinkets;
+        return current_phase_trinkets;
     case ItemSlots::PROJECTILE:
-        return current_patch_projectiles;
+        return current_phase_projectiles;
     }
 
-    return current_patch_amulets;
+    return current_phase_amulets;
 }
 
 QString EquipmentDb::get_name_for_item_id(const int item_id) const {
@@ -220,38 +220,38 @@ QString EquipmentDb::get_name_for_item_id(const int item_id) const {
     return item_id_to_item[item_id]->get_name();
 }
 
-void EquipmentDb::set_patch(const QVersionNumber& patch) {
-    this->current_patch = patch;
+void EquipmentDb::set_content_phase(const Content::Phase phase) {
+    this->current_phase = phase;
 
-    set_patch_for_slot(mh_slot_items, current_patch_mh_slot_items);
-    set_patch_for_slot(oh_slot_items, current_patch_oh_slot_items);
-    set_patch_for_slot(ranged_items, current_patch_ranged_items);
-    set_patch_for_slot(helms, current_patch_helms);
-    set_patch_for_slot(amulets, current_patch_amulets);
-    set_patch_for_slot(shoulders, current_patch_shoulders);
-    set_patch_for_slot(backs, current_patch_backs);
-    set_patch_for_slot(chests, current_patch_chests);
-    set_patch_for_slot(wrists, current_patch_wrists);
-    set_patch_for_slot(gloves, current_patch_gloves);
-    set_patch_for_slot(belts, current_patch_belts);
-    set_patch_for_slot(legs, current_patch_legs);
-    set_patch_for_slot(boots, current_patch_boots);
-    set_patch_for_slot(rings, current_patch_rings);
-    set_patch_for_slot(trinkets, current_patch_trinkets);
-    set_patch_for_slot(projectiles, current_patch_projectiles);
+    set_phase_for_slot(mh_slot_items, current_phase_mh_slot_items);
+    set_phase_for_slot(oh_slot_items, current_phase_oh_slot_items);
+    set_phase_for_slot(ranged_items, current_phase_ranged_items);
+    set_phase_for_slot(helms, current_phase_helms);
+    set_phase_for_slot(amulets, current_phase_amulets);
+    set_phase_for_slot(shoulders, current_phase_shoulders);
+    set_phase_for_slot(backs, current_phase_backs);
+    set_phase_for_slot(chests, current_phase_chests);
+    set_phase_for_slot(wrists, current_phase_wrists);
+    set_phase_for_slot(gloves, current_phase_gloves);
+    set_phase_for_slot(belts, current_phase_belts);
+    set_phase_for_slot(legs, current_phase_legs);
+    set_phase_for_slot(boots, current_phase_boots);
+    set_phase_for_slot(rings, current_phase_rings);
+    set_phase_for_slot(trinkets, current_phase_trinkets);
+    set_phase_for_slot(projectiles, current_phase_projectiles);
 }
 
-void EquipmentDb::set_patch_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &patch_slot_items) {
-    patch_slot_items.clear();
+void EquipmentDb::set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &phase_slot_items) {
+    phase_slot_items.clear();
     QMap<int, Item*> tmp_items;
 
     for (auto & item : total_slot_items) {
-        if (item_valid_for_current_patch(item->get_value("patch"))) {
+        if (item->valid_for_phase(current_phase)) {
             if (tmp_items.contains(item->get_item_id())) {
-                QString curr_tmp_patch = tmp_items[item->get_item_id()]->get_value("patch");
-                QString contender_patch = item->get_value("patch");
+                QString curr_tmp_phase = tmp_items[item->get_item_id()]->get_value("phase");
+                QString contender_phase = item->get_value("phase");
 
-                if (QVersionNumber::fromString(contender_patch) < QVersionNumber::fromString(curr_tmp_patch))
+                if (QVersionNumber::fromString(contender_phase) < QVersionNumber::fromString(curr_tmp_phase))
                     continue;
             }
             tmp_items[item->get_item_id()] = item;
@@ -259,11 +259,11 @@ void EquipmentDb::set_patch_for_slot(QVector<Item*> &total_slot_items, QVector<I
     }
 
     for (auto & item : tmp_items)
-        patch_slot_items.append(item);
+        phase_slot_items.append(item);
 }
 
-bool EquipmentDb::item_valid_for_current_patch(const QString &item_patch) const {
-    return current_patch >= QVersionNumber::fromString(item_patch);
+bool EquipmentDb::item_valid_for_current_phase(const Content::Phase phase) const {
+    return current_phase >= phase;
 }
 
 void EquipmentDb::read_equipment_files() {

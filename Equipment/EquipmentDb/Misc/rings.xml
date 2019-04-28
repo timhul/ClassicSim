@@ -1,203 +1,175 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="17713">
-		<patch name="1.2.0">
-			<info name="Blackstone Ring" type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
-			<stats>
-				<stat type="STAMINA" value="6"/>
-				<stat type="ATTACK_POWER" value="20"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="17713" phase="0">
+        <info name="Blackstone Ring" type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
+        <stats>
+            <stat type="STAMINA" value="6"/>
+            <stat type="ATTACK_POWER" value="20"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Princess Theradras in Maraudon.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="13098">
-		<patch name="1.0.0">
-			<info name="Painweaver Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_18.png"/>
-			<stats>
-				<stat type="STAMINA" value="7"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="16"/>
-			</stats>
-			<source>
+	<item id="13098" phase="0">
+        <info name="Painweaver Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_18.png"/>
+        <stats>
+            <stat type="STAMINA" value="7"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="16"/>
+        </stats>
+        <source>
 			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18500">
-		<patch name="1.3.0">
-			<info name="Tarnished Elven Ring" type="RING" slot="RING" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_13.png"/>
-			<stats>
-				<stat type="AGILITY" value="15"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="18500" phase="1">
+        <info name="Tarnished Elven Ring" type="RING" slot="RING" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_13.png"/>
+        <stats>
+            <stat type="AGILITY" value="15"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Tribute chest in Dire Maul.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18821">
-		<patch name="1.0.0">
-			<info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
-			<stats>
-				<stat type="STAMINA" value="8"/>
-				<stat type="STRENGTH" value="5"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="30"/>
-			</stats>
-			<source>
+	<item id="18821" phase="0">
+        <info name="Quick Strike Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_jewelry_ring_07.png"/>
+        <stats>
+            <stat type="STAMINA" value="8"/>
+            <stat type="STRENGTH" value="5"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="30"/>
+        </stats>
+        <source>
 			Drops from multiple bosses in Molten Core.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="17063">
-		<patch name="1.0.0">
-			<info name="Band of Accuria" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
-			<stats>
-				<stat type="STAMINA" value="10"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="HIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="17063" phase="0">
+        <info name="Band of Accuria" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_15.png"/>
+        <stats>
+            <stat type="STAMINA" value="10"/>
+            <stat type="AGILITY" value="16"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Drops from Ragnaros in Molten Core.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19384">
-		<patch name="1.6.0">
-			<info name="Master Dragonslayer's Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
-			<stats>
-				<stat type="STAMINA" value="14"/>
-				<stat type="ATTACK_POWER" value="48"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19384" phase="2">
+        <info name="Master Dragonslayer's Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
+        <stats>
+            <stat type="STAMINA" value="14"/>
+            <stat type="ATTACK_POWER" value="48"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires Head of Nefarian from Blackwing Lair.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19898">
-		<patch name="1.7.0">
-			<info name="Seal of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
-			<stats>
-				<stat type="STAMINA" value="8"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="20"/>
-			</stats>
-			<source>
+	<item id="19898" phase="3">
+        <info name="Seal of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
+        <stats>
+            <stat type="STAMINA" value="8"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="20"/>
+        </stats>
+        <source>
 			Drops from High Priest Thekal in Zul'Gurub.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19925">
-		<patch name="1.7.0">
-			<info name="Band of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
-			<stats>
-				<stat type="AGILITY" value="14"/>
-				<stat type="STAMINA" value="8"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19925" phase="3">
+        <info name="Band of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
+        <stats>
+            <stat type="AGILITY" value="14"/>
+            <stat type="STAMINA" value="8"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from High Priestess Mar'li in Zul'Gurub.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21393">
-		<patch name="1.9.0">
-			<info name="Signet of Unyielding Strength" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="STRENGTH" value="11"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="21393" phase="4">
+        <info name="Signet of Unyielding Strength" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="STRENGTH" value="11"/>
+            <stat type="STAMINA" value="14"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Honored with Cenarion Hold.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21402">
-		<patch name="1.9.0">
-			<info name="Signet of the Unseen Path" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="AGILITY" value="19"/>
-				<stat type="STAMINA" value="11"/>
-				<stat type="INTELLECT" value="8"/>
-			</stats>
-			<source>
+	<item id="21402" phase="4">
+        <info name="Signet of the Unseen Path" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="AGILITY" value="19"/>
+            <stat type="STAMINA" value="11"/>
+            <stat type="INTELLECT" value="8"/>
+        </stats>
+        <source>
 			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Honored with Cenarion Hold.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21405">
-		<patch name="1.9.0">
-			<info name="Band of Veiled Shadows" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="AGILITY" value="18"/>
-				<stat type="STRENGTH" value="11"/>
-				<stat type="STAMINA" value="8"/>
-			</stats>
-			<source>
+	<item id="21405" phase="4">
+        <info name="Band of Veiled Shadows" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_03.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="AGILITY" value="18"/>
+            <stat type="STRENGTH" value="11"/>
+            <stat type="STAMINA" value="8"/>
+        </stats>
+        <source>
 			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Honored with Cenarion Hold.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23038">
-		<patch name="1.11.0">
-			<info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
-			<stats>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="52"/>
-			</stats>
-			<source>
+	<item id="23038" phase="5">
+        <info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
+        <stats>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="52"/>
+        </stats>
+        <source>
 			Drops from Loatheb in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23060">
-		<patch name="1.11.0">
-			<info name="Bonescythe Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="STAMINA" value="10"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STRENGTH" value="20"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="23060" phase="5">
+        <info name="Bonescythe Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="STAMINA" value="10"/>
+            <stat type="AGILITY" value="20"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Kel'Thuzad in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23067">
-		<patch name="1.11.0">
-			<info name="Ring of the Crypstalker" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="AGILITY" value="30"/>
-				<stat type="MANA_PER_5" value="6"/>
-			</stats>
-			<source>
+	<item id="23067" phase="5">
+        <info name="Ring of the Crypstalker" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="AGILITY" value="30"/>
+            <stat type="MANA_PER_5" value="6"/>
+        </stats>
+        <source>
 			Drops from Kel'Thuzad in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

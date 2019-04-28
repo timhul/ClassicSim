@@ -23,7 +23,6 @@ public:
     RotationModel(QObject *parent = nullptr);
     ~RotationModel();
 
-    void set_patch(const QString &patch);
     void set_character(Character* pchar);
     void addRotations();
 
@@ -39,7 +38,6 @@ public:
 
 private:
     Character* pchar;
-    QString patch;
     int information_index;
     QHash<int, QByteArray> roleNames() const;
     QMap<QString, QVector<Rotation*>> rotations;

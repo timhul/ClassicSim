@@ -1,426 +1,309 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="14551">
-		<patch name="1.0.0">
-			<info name="Edgemaster's Handguards" type="MAIL" slot="GLOVES" unique="no" req_lvl="44" item_lvl="49" quality="EPIC" boe="yes" icon="Inv_gauntlets_30.png"/>
-			<stats>
-				<stat type="ARMOR" value="201"/>
-				<stat type="AXE_SKILL" value="7"/>
-				<stat type="DAGGER_SKILL" value="7"/>
-				<stat type="SWORD_SKILL" value="7"/>
-			</stats>
-			<source>
+	<item id="14551" phase="0">
+        <info name="Edgemaster's Handguards" type="MAIL" slot="GLOVES" unique="no" req_lvl="44" item_lvl="49" quality="EPIC" boe="yes" icon="Inv_gauntlets_30.png"/>
+        <stats>
+            <stat type="ARMOR" value="201"/>
+            <stat type="AXE_SKILL" value="7"/>
+            <stat type="DAGGER_SKILL" value="7"/>
+            <stat type="SWORD_SKILL" value="7"/>
+        </stats>
+        <source>
 			World drop.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16676">
-		<patch name="1.0.0">
-			<info name="Beaststalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_gauntlets_10.png"/>
-			<stats>
-				<stat type="ARMOR" value="218"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="SPIRIT" value="10"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="INTELLECT" value="9"/>
-			</stats>
-			<source>
+	<item id="16676" phase="0">
+        <info name="Beaststalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_gauntlets_10.png"/>
+        <stats>
+            <stat type="ARMOR" value="218"/>
+            <stat type="AGILITY" value="14"/>
+            <stat type="SPIRIT" value="10"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="INTELLECT" value="9"/>
+        </stats>
+        <source>
 			Drops from War Master Voone in Lower Blackrock Spire (LBRS).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="11730">
-		<patch name="1.0.0">
-			<info name="Savage Gladiator Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_gauntlets_04.png"/>
-			<stats>
-				<stat type="ARMOR" value="211"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="STRENGTH" value="5"/>
-			</stats>
-			<source>
+	<item id="11730" phase="0">
+        <info name="Savage Gladiator Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_gauntlets_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="211"/>
+            <stat type="AGILITY" value="9"/>
+            <stat type="INTELLECT" value="12"/>
+            <stat type="STAMINA" value="14"/>
+            <stat type="STRENGTH" value="5"/>
+        </stats>
+        <source>
 			Drops from Eviscerator in the Arena in Blackrock Depths (BRD).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="13963000">
-		<patch name="1.0.0">
-			<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_15.png"/>
-			<stats>
-				<stat type="ARMOR" value="221"/>
-				<stat type="STAMINA" value="6"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="HIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="13963000" phase="0">
+        <info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_15.png"/>
+        <stats>
+            <stat type="ARMOR" value="221"/>
+            <stat type="STAMINA" value="6"/>
+            <stat type="AGILITY" value="9"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Quest reward. Part of Onyxia quest chain. Requires LBRS.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="13963001">
-		<patch name="1.0.0">
-			<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_15.png"/>
-			<stats>
-				<stat type="ARMOR" value="221"/>
-				<stat type="STAMINA" value="6"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="HIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="13963001" phase="0">
+        <info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_15.png"/>
+        <stats>
+            <stat type="ARMOR" value="221"/>
+            <stat type="STAMINA" value="6"/>
+            <stat type="AGILITY" value="9"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Quest reward. Part of Onyxia quest chain. Requires LBRS.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16852">
-		<patch name="1.0.0">
-			<info name="Giantstalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="264"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="SPIRIT" value="3"/>
-				<stat type="STRENGTH" value="5"/>
-				<stat type="DODGE_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="16852" phase="0">
+        <info name="Giantstalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="264"/>
+            <stat type="AGILITY" value="18"/>
+            <stat type="STAMINA" value="12"/>
+            <stat type="FIRE_RESISTANCE" value="7"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Drops from Shazzrah in Molten Core.
-			</source>
-		</patch>
-		<patch name="1.6.0">
-			<info name="Giantstalker's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="264"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="STAMINA" value="12"/>
-				<stat type="FIRE_RESISTANCE" value="7"/>
-				<stat type="HIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Drops from Shazzrah in Molten Core.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19157">
-		<patch name="1.6.0">
-			<info name="Chromatic Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_22.png"/>
-			<stats>
-				<stat type="ARMOR" value="279"/>
-				<stat type="FIRE_RESISTANCE" value="5"/>
-				<stat type="NATURE_RESISTANCE" value="5"/>
-				<stat type="FROST_RESISTANCE" value="5"/>
-				<stat type="SHADOW_RESISTANCE" value="5"/>
-				<stat type="ATTACK_POWER" value="44"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19157" phase="0">
+        <info name="Chromatic Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_22.png"/>
+        <stats>
+            <stat type="ARMOR" value="279"/>
+            <stat type="FIRE_RESISTANCE" value="5"/>
+            <stat type="NATURE_RESISTANCE" value="5"/>
+            <stat type="FROST_RESISTANCE" value="5"/>
+            <stat type="SHADOW_RESISTANCE" value="5"/>
+            <stat type="ATTACK_POWER" value="44"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Crafted by Leatherworking (300 Dragonscale skill). Pattern requires Revered with Thorium Brotherhood.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23279">
-		<patch name="1.4.0">
-			<info name="Knight-Lieutenant's Chain Gauntlets" type="MAIL" slot="GLOVES" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_17.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="231"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="AGILITY" value="11"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Reduces the mana cost of your Arcane Shot by 15.
-			</special_equip_effect>
-			<source>
+	<item id="23279" phase="1">
+        <info name="Knight-Lieutenant's Chain Vices" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_17.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="242"/>
+            <stat type="STAMINA" value="16"/>
+            <stat type="AGILITY" value="18"/>
+        </stats>
+        <modifies name="Multi-Shot"/>
+        <special_equip_effect>
+			Equip: Increases the damage done by your Multi-Shot by 4%.
+        </special_equip_effect>
+        <source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Knight-Lieutenant (rank 7).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Knight-Lieutenant's Chain Vices" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_17.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="242"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="AGILITY" value="18"/>
-			</stats>
-			<modifies name="Multi-Shot"/>
-			<special_equip_effect>
-			Equip: Increases the damage done by your Multi-Shot by 4%.
-			</special_equip_effect>
-			<source>
-			Purchased with Honor Points and Alterac Valley marks. Requires Knight-Lieutenant (rank 7).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22862">
-		<patch name="1.4.0">
-			<info name="Blood Guard's Chain Gauntlets" type="MAIL" slot="GLOVES" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_17.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="231"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="AGILITY" value="11"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Reduces the mana cost of your Arcane Shot by 15.
-			</special_equip_effect>
-			<source>
+	<item id="22862" phase="1">
+        <info name="Blood Guard's Chain Vices" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_17.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="242"/>
+            <stat type="STAMINA" value="16"/>
+            <stat type="AGILITY" value="18"/>
+        </stats>
+        <modifies name="Multi-Shot"/>
+        <special_equip_effect>
+			Equip: Increases the damage done by your Multi-Shot by 4%.
+        </special_equip_effect>
+        <source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Blood Guard (rank 7).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Blood Guard's Chain Vices" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_17.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="242"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="AGILITY" value="18"/>
-			</stats>
-			<modifies name="Multi-Shot"/>
-			<special_equip_effect>
-			Equip: Increases the damage done by your Multi-Shot by 4%.
-			</special_equip_effect>
-			<source>
-			Purchased with Honor Points and Alterac Valley marks. Requires Blood Guard (rank 7).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16463">
-		<patch name="1.4.0">
-			<info name="Marshal's Chain Grips" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_10.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="260"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="AGILITY" value="17"/>
-				<stat type="INTELLECT" value="16"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Reduces the mana cost of your Arcane Shot by 15.
-			</special_equip_effect>
-			<source>
+	<item id="16463" phase="1">
+        <info name="Marshal's Chain Grips" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_10.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="323"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="AGILITY" value="21"/>
+            <stat type="INTELLECT" value="4"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <modifies name="Multi-Shot"/>
+        <special_equip_effect>
+			Equip: Increases the damage done by your Multi-Shot by 4%.
+        </special_equip_effect>
+        <source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Marshal's Chain Grips" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_10.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="323"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="INTELLECT" value="4"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<modifies name="Multi-Shot"/>
-			<special_equip_effect>
-			Equip: Increases the damage done by your Multi-Shot by 4%.
-			</special_equip_effect>
-			<source>
-			Purchased with Honor Points and Alterac Valley marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16571">
-		<patch name="1.4.0">
-			<info name="General's Chain Gloves" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_11.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="260"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="AGILITY" value="17"/>
-				<stat type="INTELLECT" value="16"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Reduces the mana cost of your Arcane Shot by 15.
-			</special_equip_effect>
-			<source>
-			Purchased with Honor Points and Alterac Valley marks. Requires General (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="General's Chain Gloves" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_11.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="323"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="INTELLECT" value="4"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<modifies name="Multi-Shot"/>
-			<special_equip_effect>
+	<item id="16571" phase="1">
+        <info name="General's Chain Gloves" type="MAIL" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_11.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="323"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="AGILITY" value="21"/>
+            <stat type="INTELLECT" value="4"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <modifies name="Multi-Shot"/>
+        <special_equip_effect>
 			Equip: Increases the damage done by your Multi-Shot by 4%.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Purchased with Honor Points and Alterac Valley marks. Requires General (rank 12).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16940">
-		<patch name="1.6.0">
-			<info name="Dragonstalker's Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="301"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="SPIRIT" value="6"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="SHADOW_RESISTANCE" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="16940" phase="2">
+        <info name="Dragonstalker's Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="301"/>
+            <stat type="AGILITY" value="20"/>
+            <stat type="INTELLECT" value="13"/>
+            <stat type="SPIRIT" value="6"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="SHADOW_RESISTANCE" value="10"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Ebonroc, Flamegor, and Firemaw in Blackwing Lair.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19692">
-		<patch name="1.7.0">
-			<info name="Bloodsoul Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
-			<stats>
-				<stat type="ARMOR" value="238"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="AGILITY" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19692" phase="3">
+        <info name="Bloodsoul Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
+        <stats>
+            <stat type="ARMOR" value="238"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="AGILITY" value="10"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Crafted by Blacksmiths (300 skill). Pattern requires Friendly with Zandalar Tribe.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22715">
-		<patch name="1.7.0">
-			<info name="Gloves of the Tormented" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_gauntlets_10.png"/>
-			<stats>
-				<stat type="ARMOR" value="249"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="AGILITY" value="19"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="22715" phase="3">
+        <info name="Gloves of the Tormented" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_gauntlets_10.png"/>
+        <stats>
+            <stat type="ARMOR" value="249"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="AGILITY" value="19"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from High Priest and Priestess bosses in Zul'Gurub.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21480">
-		<patch name="1.9.0">
-			<info name="Scaled Silithid Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_gauntlets_10.png"/>
-			<stats>
-				<stat type="ARMOR" value="266"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="INTELLECT" value="8"/>
-				<stat type="SPIRIT" value="7"/>
-			</stats>
-			<source>
+	<item id="21480" phase="4">
+        <info name="Scaled Silithid Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_gauntlets_10.png"/>
+        <stats>
+            <stat type="ARMOR" value="266"/>
+            <stat type="AGILITY" value="18"/>
+            <stat type="STAMINA" value="18"/>
+            <stat type="INTELLECT" value="8"/>
+            <stat type="SPIRIT" value="7"/>
+        </stats>
+        <source>
 			Drops from Ayamiss the Hunter in Ruins of Ahn'Qiraj (AQ20).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21599">
-		<patch name="1.9.0">
-			<info name="Vek'lor's Gloves of Devastation" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>
-			<stats>
-				<stat type="ARMOR" value="320"/>
-				<stat type="AGILITY" value="22"/>
-				<stat type="STAMINA" value="21"/>
-				<stat type="INTELLECT" value="17"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="21599" phase="4">
+        <info name="Vek'lor's Gloves of Devastation" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>
+        <stats>
+            <stat type="ARMOR" value="320"/>
+            <stat type="AGILITY" value="22"/>
+            <stat type="STAMINA" value="21"/>
+            <stat type="INTELLECT" value="17"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="14615">
-		<patch name="1.10.0">
-			<info name="Bloodmail Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
-			<stats>
-				<stat type="ARMOR" value="225"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="INTELLECT" value="10"/>
-				<stat type="STRENGTH" value="9"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="14615" phase="4">
+        <info name="Bloodmail Gauntlets" type="MAIL" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
+        <stats>
+            <stat type="ARMOR" value="225"/>
+            <stat type="STAMINA" value="10"/>
+            <stat type="INTELLECT" value="10"/>
+            <stat type="STRENGTH" value="9"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from multiple bosses in Scholomance.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22015">
-		<patch name="1.10.0">
-			<info name="Beastmaster's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="55" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
-			<stats>
-				<stat type="ARMOR" value="223"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="STAMINA" value="12"/>
-				<stat type="INTELLECT" value="10"/>
-			</stats>
-			<modifies name="BEASTMASTER_HUNTER_PET"/>
-			<special_equip_effect>
+	<item id="22015" phase="4">
+        <info name="Beastmaster's Gloves" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="55" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+        <stats>
+            <stat type="ARMOR" value="223"/>
+            <stat type="AGILITY" value="14"/>
+            <stat type="STAMINA" value="12"/>
+            <stat type="INTELLECT" value="10"/>
+        </stats>
+        <modifies name="BEASTMASTER_HUNTER_PET"/>
+        <special_equip_effect>
 			Equip: Increases your pet's critical strike chance by 2%.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Quest reward. Requires Beaststalker's Belt, Beaststalker's Gloves.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22194">
-		<patch name="1.10.0">
-			<info name="Black Grasp of the Destroyer" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_31.png"/>
-			<stats>
-				<stat type="ARMOR" value="279"/>
-				<stat type="ATTACK_POWER" value="28"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<proc>
-				<spell name="BLACK_GRASP_OF_THE_DESTROYER" min="8" max="8" instant="yes" rate="1.0" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
+	<item id="22194" phase="4">
+        <info name="Black Grasp of the Destroyer" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_gauntlets_31.png"/>
+        <stats>
+            <stat type="ARMOR" value="279"/>
+            <stat type="ATTACK_POWER" value="28"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <proc>
+            <spell name="BLACK_GRASP_OF_THE_DESTROYER" min="8" max="8" instant="yes" rate="1.0" internal_cd="0"/>
+        </proc>
+        <special_equip_effect>
 			Equip: On successful melee or ranged attack gain 8 mana and if possible drain 8 mana from the target.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Crafted by Blacksmiths. Recipe from Moam in AQ20 and requires material from AQ20/AQ40.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22441">
-		<patch name="1.11.0">
-			<info name="Crypstalker Handguards" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_25.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="346"/>
-				<stat type="AGILITY" value="24"/>
-				<stat type="INTELLECT" value="15"/>
-				<stat type="STAMINA" value="21"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="MANA_PER_5" value="4"/>
-			</stats>
-			<source>
+	<item id="22441" phase="5">
+        <info name="Crypstalker Handguards" type="MAIL" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_25.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="346"/>
+            <stat type="AGILITY" value="24"/>
+            <stat type="INTELLECT" value="15"/>
+            <stat type="STAMINA" value="21"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="MANA_PER_5" value="4"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

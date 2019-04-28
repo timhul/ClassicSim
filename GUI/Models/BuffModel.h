@@ -5,6 +5,8 @@
 #include <QStringList>
 #include <QVersionNumber>
 
+#include "ContentPhase.h"
+
 class Character;
 class ExternalBuff;
 
@@ -19,10 +21,10 @@ public:
         ActiveRole
     };
 
-    BuffModel(const QVersionNumber& patch, QObject *parent = nullptr);
+    BuffModel(const Content::Phase phase, QObject *parent = nullptr);
 
     void set_character(Character* pchar);
-    void set_patch(const QVersionNumber &patch);
+    void set_phase(const Content::Phase phase);
     void toggle_buff(const QString& name);
     void update_buffs();
 
@@ -32,7 +34,7 @@ public:
 private:
     Character* pchar;
     QList<ExternalBuff*> external_buffs;
-    QVersionNumber patch;
+    Content::Phase phase;
 
     QHash<int, QByteArray> roleNames() const;
 };

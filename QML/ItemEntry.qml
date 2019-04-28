@@ -9,7 +9,7 @@ RectangleBorders {
     property int itemid
     property string entryName
     property string entryQuality
-    property string entryPatch
+    property string entryPhase
     property string entrySource
     property string entryType
     property string entryReq
@@ -66,10 +66,10 @@ RectangleBorders {
         }
 
         Text {
-            id: textPatch
-            text: entryPatch
+            id: textPhase
+            text: entryPhase
 
-            width: 50
+            width: 100
             height: parent.height
 
             font {

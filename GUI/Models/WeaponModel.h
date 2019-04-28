@@ -6,6 +6,8 @@
 #include <QStringList>
 #include <QVersionNumber>
 
+#include "ContentPhase.h"
+
 class ActiveItemStatFilterModel;
 class Character;
 class EquipmentDb;
@@ -21,7 +23,7 @@ public:
         ByName,
         ByDps,
         BySpeed,
-        ByPatch,
+        ByPhase,
         ByItemType
     };
     Q_ENUMS(Methods)
@@ -36,7 +38,7 @@ public:
         NameRole,
         SpeedRole,
         DpsRole,
-        PatchRole,
+        PhaseRole,
         SourceRole,
         TypeRole,
         ReqLvlRole,
@@ -48,7 +50,7 @@ public:
     WeaponModel(EquipmentDb*, ItemTypeFilterModel*, ActiveItemStatFilterModel*, QObject *parent = nullptr);
 
     void set_character(Character* pchar);
-    void set_patch(const QVersionNumber& patch);
+    void set_phase(const Content::Phase phase);
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);
 

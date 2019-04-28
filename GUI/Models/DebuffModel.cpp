@@ -6,10 +6,10 @@
 #include "Faction.h"
 #include "GeneralBuffs.h"
 
-DebuffModel::DebuffModel(const QVersionNumber& patch, QObject* parent)
+DebuffModel::DebuffModel(const Content::Phase phase, QObject* parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
-      patch(patch)
+      phase(phase)
 {}
 
 void DebuffModel::set_character(Character* pchar) {
@@ -17,8 +17,8 @@ void DebuffModel::set_character(Character* pchar) {
     update_debuffs();
 }
 
-void DebuffModel::set_patch(const QVersionNumber &patch) {
-    this->patch = patch;
+void DebuffModel::set_phase(const Content::Phase phase) {
+    this->phase = phase;
     update_debuffs();
 }
 
@@ -45,9 +45,7 @@ void DebuffModel::update_debuffs() {
     QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_debuffs();
     for (auto buff : buffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
-
-        if (buff->valid_for_patch(this->patch.toString()))
-            external_debuffs << buff;
+        external_debuffs << buff;
         endInsertRows();
     }
 }

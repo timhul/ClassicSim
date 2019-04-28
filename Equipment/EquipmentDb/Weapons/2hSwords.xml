@@ -1,123 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="13052">
-		<patch name="1.0.0">
-			<info name="Warmonger" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="yes" icon="Inv_sword_46.png"/>
-			<dmg_range min="108" max="162" speed="3.0"/>
-			<stats>
-				<stat type="STRENGTH" value="3"/>
-				<stat type="HIT_CHANCE" value="0.03"/>
-			</stats>
-			<source>
-			World drop.
-			</source>
-		</patch>
+	<melee_weapon id="13052" phase="0">
+        <info name="Warmonger" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="yes" icon="Inv_sword_46.png"/>
+        <dmg_range min="108" max="162" speed="3.0"/>
+        <stats>
+            <stat type="STRENGTH" value="3"/>
+            <stat type="HIT_CHANCE" value="0.03"/>
+        </stats>
+        <source>
+        World drop.
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="17076">
-		<patch name="1.0.0">
-			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
-			<dmg_range min="206" max="310" speed="3.4"/>
-			<stats>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="ARMOR_PENETRATION" value="300" max_stacks="1" duration="60" rate="0.02" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
-			Chance on hit: Reduces target's armor by 300 for 60 seconds.
-			</special_equip_effect>
-			<source>
-			Drops from Ragnaros in Molten Core.
-			</source>
-		</patch>
-
-		<patch name="1.7.0">
-			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
-			<dmg_range min="206" max="310" speed="3.4"/>
-			<stats>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="ARMOR_PENETRATION" value="300" max_stacks="1" duration="10" rate="0.20" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
-			Chance on hit: Reduces target's armor by 300 for 10 seconds.
-			</special_equip_effect>
-			<source>
-			Drops from Ragnaros in Molten Core.
-			</source>
-		</patch>
-
-		<patch name="1.10.0">
-			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
-			<dmg_range min="206" max="310" speed="3.4"/>
-			<stats>
-				<stat type="STAMINA" value="16"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="ARMOR_PENETRATION" value="700" max_stacks="1" duration="10" rate="0.20" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
-			Chance on hit: Reduces target's armor by 700 for 10 seconds.
-			</special_equip_effect>
-			<source>
-			Drops from Ragnaros in Molten Core.
-			</source>
-		</patch>
-
-		<patch name="1.12.0">
-			<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
-			<dmg_range min="206" max="310" speed="3.4"/>
-			<stats>
-				<stat type="STAMINA" value="16"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="ARMOR_PENETRATION" value="700" max_stacks="3" duration="10" rate="0.20" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
-			Chance on hit: Reduces target's armor by 700 for 10 seconds. This effect stacks up to 3 times.
-			</special_equip_effect>
-			<source>
-			Drops from Ragnaros in Molten Core.
-			</source>
-		</patch>
+	<melee_weapon id="17076" phase="0">
+        <info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+        <dmg_range min="206" max="310" speed="3.4"/>
+        <stats>
+            <stat type="STAMINA" value="16"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <proc>
+            <!-- TODO: Find actual proc rate. -->
+            <spell name="ARMOR_PENETRATION" value="700" max_stacks="3" duration="10" rate="0.20" internal_cd="0"/>
+        </proc>
+        <special_equip_effect>
+        Chance on hit: Reduces target's armor by 700 for 10 seconds. This effect stacks up to 3 times.
+        </special_equip_effect>
+        <source>
+        Drops from Ragnaros in Molten Core.
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="18520">
-		<patch name="1.3.0">
-			<info name="Barbarous Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_11.png"/>
-			<dmg_range min="138" max="207" speed="3.2"/>
-			<stats>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="60"/>
-			</stats>
-			<source>
-			Drops from King Gordok in Dire Maul.
-			</source>
-		</patch>
+	<melee_weapon id="18520" phase="1">
+        <info name="Barbarous Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_11.png"/>
+        <dmg_range min="138" max="207" speed="3.2"/>
+        <stats>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="60"/>
+        </stats>
+        <source>
+        Drops from King Gordok in Dire Maul.
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="19364">
-		<patch name="1.6.0">
-			<info name="Ashkandi, Greatsword of the Brotherhood" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
-			<dmg_range min="229" max="344" speed="3.5"/>
-			<stats>
-				<stat type="STAMINA" value="33"/>
-				<stat type="ATTACK_POWER" value="86"/>
-			</stats>
-			<source>
-			Drops from Nefarian in Blackwing Lair.
-			</source>
-			<flavour_text>
-			"The initials A.L. are etched on the hilt."
-			</flavour_text>
-		</patch>
+	<melee_weapon id="19364" phase="2">
+        <info name="Ashkandi, Greatsword of the Brotherhood" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
+        <dmg_range min="229" max="344" speed="3.5"/>
+        <stats>
+            <stat type="STAMINA" value="33"/>
+            <stat type="ATTACK_POWER" value="86"/>
+        </stats>
+        <source>
+        Drops from Nefarian in Blackwing Lair.
+        </source>
+        <flavour_text>
+        "The initials A.L. are etched on the hilt."
+        </flavour_text>
 	</melee_weapon>
 </weapons>

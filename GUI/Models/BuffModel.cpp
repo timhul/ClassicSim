@@ -6,10 +6,10 @@
 #include "Faction.h"
 #include "GeneralBuffs.h"
 
-BuffModel::BuffModel(const QVersionNumber& patch, QObject* parent)
+BuffModel::BuffModel(const Content::Phase phase, QObject* parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
-      patch(patch)
+      phase(phase)
 {}
 
 void BuffModel::set_character(Character* pchar) {
@@ -17,8 +17,8 @@ void BuffModel::set_character(Character* pchar) {
     update_buffs();
 }
 
-void BuffModel::set_patch(const QVersionNumber &patch) {
-    this->patch = patch;
+void BuffModel::set_phase(const Content::Phase phase) {
+    this->phase = phase;
     update_buffs();
 }
 
@@ -45,9 +45,7 @@ void BuffModel::update_buffs() {
     QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_buffs();
     for (auto buff : buffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
-
-        if (buff->valid_for_patch(this->patch.toString()))
-            external_buffs << buff;
+        external_buffs << buff;
         endInsertRows();
     }
 }

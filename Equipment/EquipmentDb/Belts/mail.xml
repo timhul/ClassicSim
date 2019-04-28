@@ -1,291 +1,229 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16680">
-		<patch name="1.0.0">
-			<info name="Beaststalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_28.png"/>
-			<stats>
-				<stat type="ARMOR" value="193"/>
-				<stat type="SPIRIT" value="11"/>
-				<stat type="AGILITY" value="10"/>
-				<stat type="INTELLECT" value="9"/>
-				<stat type="STRENGTH" value="9"/>
-				<stat type="STAMINA" value="6"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Blackrock Spire.
-			</source>
-		</patch>
+	<item id="16680" phase="0">
+		<info name="Beaststalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_belt_28.png"/>
+		<stats>
+        <stat type="ARMOR" value="193"/>
+        <stat type="SPIRIT" value="11"/>
+        <stat type="AGILITY" value="10"/>
+        <stat type="INTELLECT" value="9"/>
+        <stat type="STRENGTH" value="9"/>
+        <stat type="STAMINA" value="6"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Blackrock Spire.
+		</source>
 	</item>
 
-	<item id="16851">
-		<patch name="1.0.0">
-			<info name="Giantstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_28.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="237"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="INTELLECT" value="5"/>
-				<stat type="SPIRIT" value="12"/>
-				<stat type="STAMINA" value="11"/>
-				<stat type="FIRE_RESISTANCE" value="10"/>
-				<stat type="NATURE_RESISTANCE" value="9"/>
-				<stat type="SHADOW_RESISTANCE" value="9"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Molten Core.
-			</source>
-		</patch>
-		<patch name="1.6.0">
-			<info name="Giantstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_28.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="237"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="INTELLECT" value="9"/>
-				<stat type="SPIRIT" value="4"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="FIRE_RESISTANCE" value="7"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Molten Core.
-			</source>
-		</patch>
+	<item id="16851" phase="0">
+		<info name="Giantstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_belt_28.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="237"/>
+        <stat type="AGILITY" value="18"/>
+        <stat type="INTELLECT" value="9"/>
+        <stat type="SPIRIT" value="4"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="FIRE_RESISTANCE" value="7"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Molten Core.
+		</source>
 	</item>
 
-	<item id="18393">
-		<patch name="1.3.0">
-			<info name="Warpwood Binding" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_34.png"/>
-			<stats>
-				<stat type="ARMOR" value="202"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="INTELLECT" value="9"/>
-				<stat type="STAMINA" value="6"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Tendris Warpwood in Dire Maul.
-			</source>
-		</patch>
+	<item id="18393" phase="1">
+		<info name="Warpwood Binding" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_34.png"/>
+		<stats>
+        <stat type="ARMOR" value="202"/>
+        <stat type="AGILITY" value="14"/>
+        <stat type="INTELLECT" value="9"/>
+        <stat type="STAMINA" value="6"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Tendris Warpwood in Dire Maul.
+		</source>
 	</item>
 
-	<item id="16936">
-		<patch name="1.0.0">
-			<info name="Dragonstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_28.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="271"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="SPIRIT" value="11"/>
-				<stat type="STAMINA" value="12"/>
-				<stat type="DODGE_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Drops from bosses in Molten Core.
-			</source>
-		</patch>
-		<patch name="1.6.0">
-			<info name="Dragonstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_28.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="271"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="SPIRIT" value="11"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="SHADOW_RESISTANCE" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
-			</source>
-		</patch>
+	<item id="16936" phase="2">
+		<info name="Dragonstalker's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_belt_28.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="271"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="INTELLECT" value="13"/>
+        <stat type="SPIRIT" value="11"/>
+        <stat type="STAMINA" value="15"/>
+        <stat type="SHADOW_RESISTANCE" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+		</source>
 	</item>
 
-	<item id="19380">
-		<patch name="1.6.0">
-			<info name="Therazane's Link" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
-			<stats>
-				<stat type="ARMOR" value="295"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="SPIRIT" value="12"/>
-				<stat type="STAMINA" value="22"/>
-				<stat type="ATTACK_POWER" value="44"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Nefarian in Blackwing Lair.
-			</source>
-			<flavour_text>
-			"The metal is warm to the touch. The links connecting the belt together appear to be fashioned
-			out of Elementium."
-			</flavour_text>
-		</patch>
+	<item id="19380" phase="2">
+		<info name="Therazane's Link" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
+		<stats>
+        <stat type="ARMOR" value="295"/>
+        <stat type="INTELLECT" value="12"/>
+        <stat type="SPIRIT" value="12"/>
+        <stat type="STAMINA" value="22"/>
+        <stat type="ATTACK_POWER" value="44"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Nefarian in Blackwing Lair.
+		</source>
+		<flavour_text>
+		"The metal is warm to the touch. The links connecting the belt together appear to be fashioned
+		out of Elementium."
+		</flavour_text>
 	</item>
 
-	<item id="20150">
-		<patch name="1.7.0">
-			<info name="Defiler's Chain Girdle" type="MAIL" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_20.png"/>
-			<class_restriction class="HUNTER"/>
-			<class_restriction class="SHAMAN"/>
-			<stats>
-				<stat type="ARMOR" value="208"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="34"/>
-			</stats>
-			<source>
-			Requires Exalted with The Defilers (Arathi Basin).
-			</source>
-		</patch>
+	<item id="20150" phase="3">
+		<info name="Defiler's Chain Girdle" type="MAIL" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_20.png"/>
+		<class_restriction class="HUNTER"/>
+		<class_restriction class="SHAMAN"/>
+		<stats>
+        <stat type="ARMOR" value="208"/>
+        <stat type="STAMINA" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="ATTACK_POWER" value="34"/>
+		</stats>
+		<source>
+		Requires Exalted with The Defilers (Arathi Basin).
+		</source>
 	</item>
 
-	<item id="20043">
-		<patch name="1.7.0">
-			<info name="Highlander's Chain Girdle" type="MAIL" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_20.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="208"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="34"/>
-			</stats>
-			<source>
-			Requires Exalted with The League of Arathor (Arathi Basin).
-			</source>
-		</patch>
+	<item id="20043" phase="3">
+		<info name="Highlander's Chain Girdle" type="MAIL" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_20.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="208"/>
+        <stat type="STAMINA" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="ATTACK_POWER" value="34"/>
+		</stats>
+		<source>
+		Requires Exalted with The League of Arathor (Arathi Basin).
+		</source>
 	</item>
 
-	<item id="19832">
-		<patch name="1.7.0">
-			<info name="Zandalar Predator's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_belt_19.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="221"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="12"/>
-				<stat type="SPIRIT" value="9"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drop from Zul'Gurub and Honored with Zandalar Tribe.
-			</source>
-		</patch>
+	<item id="19832" phase="3">
+		<info name="Zandalar Predator's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_belt_19.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="221"/>
+        <stat type="INTELLECT" value="12"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="STAMINA" value="12"/>
+        <stat type="SPIRIT" value="9"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drop from Zul'Gurub and Honored with Zandalar Tribe.
+		</source>
 	</item>
 
-	<item id="21463">
-		<patch name="1.9.0">
-			<info name="Ossirian's Binding" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
-			<stats>
-				<stat type="ARMOR" value="258"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="19"/>
-				<stat type="INTELLECT" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
-			</source>
-		</patch>
+	<item id="21463" phase="4">
+		<info name="Ossirian's Binding" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
+		<stats>
+        <stat type="ARMOR" value="258"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="STAMINA" value="19"/>
+        <stat type="INTELLECT" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
+		</source>
 	</item>
 
-	<item id="14614">
-		<patch name="1.10.0">
-			<info name="Bloodmail Belt" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_23.png"/>
-			<stats>
-				<stat type="ARMOR" value="202"/>
-				<stat type="STAMINA" value="11"/>
-				<stat type="INTELLECT" value="9"/>
-				<stat type="AGILITY" value="12"/>
-				<stat type="STRENGTH" value="12"/>
-			</stats>
-			<source>
-			Drops from multiple bosses in Scholomance.
-			</source>
-		</patch>
+	<item id="14614" phase="4">
+		<info name="Bloodmail Belt" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_23.png"/>
+		<stats>
+        <stat type="ARMOR" value="202"/>
+        <stat type="STAMINA" value="11"/>
+        <stat type="INTELLECT" value="9"/>
+        <stat type="AGILITY" value="12"/>
+        <stat type="STRENGTH" value="12"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
 	</item>
 
-	<item id="22010">
-		<patch name="1.10.0">
-			<info name="Beastmaster's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
-			<stats>
-				<stat type="ARMOR" value="214"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="INTELLECT" value="10"/>
-			</stats>
-			<source>
-			Quest reward. Requires Beaststalker's Belt and Beaststalker's Gloves.
-			</source>
-		</patch>
+	<item id="22010" phase="4">
+		<info name="Beastmaster's Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
+		<stats>
+        <stat type="ARMOR" value="214"/>
+        <stat type="AGILITY" value="16"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="INTELLECT" value="10"/>
+		</stats>
+		<source>
+		Quest reward. Requires Beaststalker's Belt and Beaststalker's Gloves.
+		</source>
 	</item>
 
-	<item id="22207">
-		<patch name="1.10.0">
-			<info name="Sash of the Grand Hunt" type="MAIL" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
-			<stats>
-				<stat type="ARMOR" value="199"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="BOW_SKILL" value="2"/>
-				<stat type="GUN_SKILL" value="2"/>
-				<stat type="CROSSBOW_SKILL" value="2"/>
-			</stats>
-			<source>
-			Drops from Emperor Dagran Thaurissian in Blackrock Depths.
-			</source>
-		</patch>
+	<item id="22207" phase="4">
+		<info name="Sash of the Grand Hunt" type="MAIL" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_28.png"/>
+		<stats>
+        <stat type="ARMOR" value="199"/>
+        <stat type="AGILITY" value="15"/>
+        <stat type="STAMINA" value="14"/>
+        <stat type="INTELLECT" value="6"/>
+        <stat type="BOW_SKILL" value="2"/>
+        <stat type="GUN_SKILL" value="2"/>
+        <stat type="CROSSBOW_SKILL" value="2"/>
+		</stats>
+		<source>
+		Drops from Emperor Dagran Thaurissian in Blackrock Depths.
+		</source>
 	</item>
 
-	<item id="22195">
-		<patch name="1.10.0">
-			<info name="Light Obsidian Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_belt_16.png"/>
-			<stats>
-				<stat type="ARMOR" value="224"/>
-				<stat type="ATTACK_POWER" value="32"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ALL_RESISTANCE" value="5"/>
-			</stats>
-			<source>
-			Crafted by Blacksmiths (300 skill). Pattern requires Honored with Cenarion Circle.
-			</source>
-		</patch>
+	<item id="22195" phase="4">
+		<info name="Light Obsidian Belt" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_belt_16.png"/>
+		<stats>
+        <stat type="ARMOR" value="224"/>
+        <stat type="ATTACK_POWER" value="32"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="ALL_RESISTANCE" value="5"/>
+		</stats>
+		<source>
+		Crafted by Blacksmiths (300 skill). Pattern requires Honored with Cenarion Circle.
+		</source>
 	</item>
 
-	<item id="22232">
-		<patch name="1.10.0">
-			<info name="Marksman's Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
-			<stats>
-				<stat type="ARMOR" value="202"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Urok Doomhowl in Lower Blackrock Spire.
-			</source>
-		</patch>
+	<item id="22232" phase="4">
+		<info name="Marksman's Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
+		<stats>
+        <stat type="ARMOR" value="202"/>
+        <stat type="AGILITY" value="21"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Urok Doomhowl in Lower Blackrock Spire.
+		</source>
 	</item>
 
-	<item id="22442">
-		<patch name="1.11.0">
-			<info name="Crypstalker Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_22.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="311"/>
-				<stat type="AGILITY" value="23"/>
-				<stat type="STAMINA" value="22"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="MANA_PER_5" value="3"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+	<item id="22442" phase="5">
+		<info name="Crypstalker Girdle" type="MAIL" slot="BELT" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_belt_22.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="311"/>
+        <stat type="AGILITY" value="23"/>
+        <stat type="STAMINA" value="22"/>
+        <stat type="INTELLECT" value="12"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="MANA_PER_5" value="3"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
 	</item>
 </items>

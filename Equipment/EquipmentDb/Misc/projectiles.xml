@@ -1,102 +1,82 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <projectiles>
-	<projectile id="11284">
-		<patch name="1.0.0">
-			<info name="Accurate Slugs" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="40" item_lvl="45" quality="COMMON" boe="yes" icon="Inv_ammo_bullet_01.png"/>
-			<dps value="13.0"/>
-			<source>
+	<projectile id="11284" phase="0">
+        <info name="Accurate Slugs" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="40" item_lvl="45" quality="COMMON" boe="yes" icon="Inv_ammo_bullet_01.png"/>
+        <dps value="13.0"/>
+        <source>
 			Sold by many vendors (Gunsmiths, General Goods vendors, and more).
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="11285">
-		<patch name="1.0.0">
-			<info name="Jagged Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="40" item_lvl="45" quality="COMMON" boe="yes" icon="Inv_weapon_shortblade_25.png"/>
-			<dps value="13.0"/>
-			<source>
+	<projectile id="11285" phase="0">
+        <info name="Jagged Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="40" item_lvl="45" quality="COMMON" boe="yes" icon="Inv_weapon_shortblade_25.png"/>
+        <dps value="13.0"/>
+        <source>
 			Sold by many vendors (Bow Merchants, General Goods vendors, Bowyers, and more).
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="10513">
-		<patch name="1.0.0">
-			<info name="Mithril Gyro-Shot" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="44" item_lvl="49" quality="UNCOMMON" boe="yes" icon="Inv_ammo_bullet_01.png"/>
-			<dps value="15.0"/>
-			<source>
+	<projectile id="10513" phase="0">
+        <info name="Mithril Gyro-Shot" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="44" item_lvl="49" quality="UNCOMMON" boe="yes" icon="Inv_ammo_bullet_01.png"/>
+        <dps value="15.0"/>
+        <source>
 			Crafted by Engineers (245).
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="11630">
-		<patch name="1.0.0">
-			<info name="Rockshard Pellets" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="no" icon="Inv_ammo_bullet_02.png"/>
-			<dps value="18.0"/>
-			<source>
+	<projectile id="11630" phase="0">
+        <info name="Rockshard Pellets" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="no" icon="Inv_ammo_bullet_02.png"/>
+        <dps value="18.0"/>
+        <source>
 			Drops from Lord Roccor in Blackrock Depths.
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="19316">
-		<patch name="1.5.0">
-			<info name="Ice Threaded Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="51" item_lvl="54" quality="UNCOMMON" boe="no" icon="Spell_frost_iceshard.png"/>
-			<dps value="16.5"/>
-			<source>
+	<projectile id="19316" phase="2">
+        <info name="Ice Threaded Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="51" item_lvl="54" quality="UNCOMMON" boe="no" icon="Spell_frost_iceshard.png"/>
+        <dps value="16.5"/>
+        <source>
 			Sold by Alterac Valley faction vendors inside and outside of battleground.
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="19317">
-		<patch name="1.5.0">
-			<info name="Ice Threaded Bullet" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="51" item_lvl="54" quality="UNCOMMON" boe="no" icon="Spell_frost_frostblast.png"/>
-			<dps value="16.5"/>
-			<source>
+	<projectile id="19317" phase="2">
+        <info name="Ice Threaded Bullet" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="51" item_lvl="54" quality="UNCOMMON" boe="no" icon="Spell_frost_frostblast.png"/>
+        <dps value="16.5"/>
+        <source>
 			Sold by Alterac Valley faction vendors inside and outside of battleground.
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="18042">
-		<patch name="1.3.0">
-			<info name="Thorium Headed Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_ammo_arrow_02.png"/>
-			<dps value="17.5"/>
-			<source>
+	<projectile id="18042" phase="0">
+        <info name="Thorium Headed Arrow" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_ammo_arrow_02.png"/>
+        <dps value="17.5"/>
+        <source>
 			Quest reward. Requires Thorium Shells x200, which are crafted by Engineers.
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="15997">
-		<patch name="1.0.0">
-			<info name="Thorium Shells" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_ammo_bullet_03.png"/>
-			<dps value="17.5"/>
-			<source>
+	<projectile id="15997" phase="0">
+        <info name="Thorium Shells" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_ammo_bullet_03.png"/>
+        <dps value="17.5"/>
+        <source>
 			Crafted by Engineers (285).
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="12654">
-		<patch name="1.0.0">
-			<info name="Doomshot" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Ability_hunter_criticalshot.png"/>
-			<dps value="20.0"/>
-			<source>
+	<projectile id="12654" phase="0">
+        <info name="Doomshot" type="ARROW" slot="PROJECTILE" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Ability_hunter_criticalshot.png"/>
+        <dps value="20.0"/>
+        <source>
 			Drops from Shadow Hunter Vosh'gajin in Lower Blackrock Spire (LBRS).
-			</source>
-		</patch>
+        </source>
 	</projectile>
 
-	<projectile id="13377">
-		<patch name="1.0.0">
-			<info name="Miniature Cannon Balls" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_ammo_bullet_02.png"/>
-			<dps value="20.5"/>
-			<source>
+	<projectile id="13377" phase="0">
+        <info name="Miniature Cannon Balls" type="BULLET" slot="PROJECTILE" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_ammo_bullet_02.png"/>
+        <dps value="20.5"/>
+        <source>
 			Drops from Cannon Master Willey in Stratholme Living.
-			</source>
-		</patch>
+        </source>
 	</projectile>
 </projectiles>

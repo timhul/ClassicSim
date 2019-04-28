@@ -1,231 +1,187 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="15063">
-		<patch name="1.0.0">
-			<info name="Devilsaur Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_gauntlets_26.png"/>
-			<stats>
-				<stat type="ARMOR" value="103"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="ATTACK_POWER" value="28"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="15063" phase="0">
+        <info name="Devilsaur Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_gauntlets_26.png"/>
+        <stats>
+            <stat type="ARMOR" value="103"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="ATTACK_POWER" value="28"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Crafted by Leatherworkers. Pattern easily obtainable (vendor) at 290 Tribal Leatherworking.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="13395">
-		<patch name="1.0.0">
-			<info name="Skul's Fingerbone Claws" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_gauntlets_27.png"/>
-			<stats>
-				<stat type="ARMOR" value="105"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="ATTACK_POWER" value="40"/>
-			</stats>
-			<source>
+	<item id="13395" phase="0">
+        <info name="Skul's Fingerbone Claws" type="LEATHER" slot="GLOVES" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_gauntlets_27.png"/>
+        <stats>
+            <stat type="ARMOR" value="105"/>
+            <stat type="STAMINA" value="10"/>
+            <stat type="ATTACK_POWER" value="40"/>
+        </stats>
+        <source>
 			Drops from Skul in Stratholme.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16826">
-		<patch name="1.0.0">
-			<info name="Nightslayer Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="125"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="STRENGTH" value="12"/>
-				<stat type="FIRE_RESISTANCE" value="7"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="16826" phase="0">
+        <info name="Nightslayer Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="125"/>
+            <stat type="AGILITY" value="18"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="STRENGTH" value="12"/>
+            <stat type="FIRE_RESISTANCE" value="7"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Gehennas in Molten Core.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16907">
-		<patch name="1.0.0">
-			<info name="Bloodfang Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="140"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="STRENGTH" value="19"/>
-				<stat type="SHADOW_RESISTANCE" value="10"/>
-			</stats>
-			<special_equip_effect>
+	<item id="16907" phase="1">
+        <info name="Bloodfang Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="140"/>
+            <stat type="AGILITY" value="20"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="STRENGTH" value="19"/>
+            <stat type="SHADOW_RESISTANCE" value="10"/>
+        </stats>
+        <special_equip_effect>
 			Equip: Immune to Disarm.
-			</special_equip_effect>
-			<source>
-			Drops in Molten Core until 1.4.0. After that it is moved to Blackwing Lair.
-			</source>
-		</patch>
-
-		<patch name="1.6.0">
-			<info name="Bloodfang Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="140"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="STRENGTH" value="19"/>
-				<stat type="SHADOW_RESISTANCE" value="10"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Immune to Disarm.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Drops from Ebonroc/Flamegor/Firemaw in Blackwing Lair.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18823">
-		<patch name="1.4.0">
-			<info name="Aged Core Leather Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_23.png"/>
-			<stats>
-				<stat type="ARMOR" value="130"/>
-				<stat type="STRENGTH" value="15"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="FIRE_RESISTANCE" value="8"/>
-				<stat type="SHADOW_RESISTANCE" value="5"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="DAGGER_SKILL" value="5"/>
-			</stats>
-			<source>
+	<item id="18823" phase="0">
+        <info name="Aged Core Leather Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_23.png"/>
+        <stats>
+            <stat type="ARMOR" value="130"/>
+            <stat type="STRENGTH" value="15"/>
+            <stat type="STAMINA" value="15"/>
+            <stat type="FIRE_RESISTANCE" value="8"/>
+            <stat type="SHADOW_RESISTANCE" value="5"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="DAGGER_SKILL" value="5"/>
+        </stats>
+        <source>
 			Drops from multiple bosses in Molten Core.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18544">
-		<patch name="1.4.0">
-			<info name="Doomhide Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_gauntlets_22.png"/>
-			<stats>
-				<stat type="ARMOR" value="133"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="FIRE_RESISTANCE" value="8"/>
-				<stat type="SHADOW_RESISTANCE" value="8"/>
-				<stat type="ATTACK_POWER" value="42"/>
-			</stats>
-			<source>
+	<item id="18544" phase="1">
+        <info name="Doomhide Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_gauntlets_22.png"/>
+        <stats>
+            <stat type="ARMOR" value="133"/>
+            <stat type="STAMINA" value="14"/>
+            <stat type="AGILITY" value="14"/>
+            <stat type="FIRE_RESISTANCE" value="8"/>
+            <stat type="SHADOW_RESISTANCE" value="8"/>
+            <stat type="ATTACK_POWER" value="42"/>
+        </stats>
+        <source>
 			Drops from Lord Kazzak (world boss in Blasted Lands).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19686">
-		<patch name="1.7.0">
-			<info name="Primal Batskin Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
-			<stats>
-				<stat type="ARMOR" value="113"/>
-				<stat type="AGILITY" value="10"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="HIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="19686" phase="3">
+        <info name="Primal Batskin Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_gauntlets_31.png"/>
+        <stats>
+            <stat type="ARMOR" value="113"/>
+            <stat type="AGILITY" value="10"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Crafted by Leatherworkers (300 skill). Materials include skinning Zul'Gurub bats. Pattern requires Honored with Zandalar Tribe.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19869">
-		<patch name="1.8.0">
-			<info name="Blooddrenched Grips" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
-			<stats>
-				<stat type="ARMOR" value="122"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="ATTACK_POWER" value="34"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19869" phase="3">
+        <info name="Blooddrenched Grips" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_gauntlets_26.png"/>
+        <stats>
+            <stat type="ARMOR" value="122"/>
+            <stat type="STAMINA" value="16"/>
+            <stat type="ATTACK_POWER" value="34"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Bloodlord Mandokir in Zul'Gurub.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21672">
-		<patch name="1.9.0">
-			<info name="Gloves of Enforcement" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
-			<stats>
-				<stat type="ARMOR" value="140"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STRENGTH" value="28"/>
-				<stat type="STAMINA" value="6"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="21672" phase="4">
+        <info name="Gloves of Enforcement" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_gauntlets_17.png"/>
+        <stats>
+            <stat type="ARMOR" value="140"/>
+            <stat type="AGILITY" value="20"/>
+            <stat type="STRENGTH" value="28"/>
+            <stat type="STAMINA" value="6"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21682">
-		<patch name="1.9.0">
-			<info name="Bile-Covered Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
-			<stats>
-				<stat type="ARMOR" value="203"/>
-				<stat type="AGILITY" value="17"/>
-				<stat type="STAMINA" value="21"/>
-				<stat type="STRENGTH" value="10"/>
-				<stat type="NATURE_RESISTANCE" value="20"/>
-			</stats>
-			<source>
+	<item id="21682" phase="4">
+        <info name="Bile-Covered Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_gauntlets_21.png"/>
+        <stats>
+            <stat type="ARMOR" value="203"/>
+            <stat type="AGILITY" value="17"/>
+            <stat type="STAMINA" value="21"/>
+            <stat type="STRENGTH" value="10"/>
+            <stat type="NATURE_RESISTANCE" value="20"/>
+        </stats>
+        <source>
 			Drops from Princess Yauj (bug trio) in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21605">
-		<patch name="1.9.0">
-			<info name="Gloves of the Hidden Temple" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_gauntlets_19.png"/>
-			<stats>
-				<stat type="ARMOR" value="248"/>
-				<stat type="STAMINA" value="22"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="STRENGTH" value="18"/>
-				<stat type="SHADOW_RESISTANCE" value="6"/>
-			</stats>
-			<source>
+	<item id="21605" phase="4">
+        <info name="Gloves of the Hidden Temple" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_gauntlets_19.png"/>
+        <stats>
+            <stat type="ARMOR" value="248"/>
+            <stat type="STAMINA" value="22"/>
+            <stat type="AGILITY" value="21"/>
+            <stat type="STRENGTH" value="18"/>
+            <stat type="SHADOW_RESISTANCE" value="6"/>
+        </stats>
+        <source>
 			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="14640">
-		<patch name="1.10.0">
-			<info name="Cadaverous Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
-			<stats>
-				<stat type="ARMOR" value="107"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="ATTACK_POWER" value="44"/>
-			</stats>
-			<source>
+	<item id="14640" phase="4">
+        <info name="Cadaverous Gloves" type="LEATHER" slot="GLOVES" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
+        <stats>
+            <stat type="ARMOR" value="107"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="ATTACK_POWER" value="44"/>
+        </stats>
+        <source>
 			Drops from multiple bosses in Scholomance.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22481">
-		<patch name="1.11.0">
-			<info name="Bonescythe Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="158"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="66"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="22481" phase="5">
+        <info name="Bonescythe Gauntlets" type="LEATHER" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_28.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="158"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="66"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

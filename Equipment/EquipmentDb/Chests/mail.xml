@@ -1,481 +1,325 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="15787">
-		<patch name="1.0.0">
-			<info name="Willow Band Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="59" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
-			<stats>
-				<stat type="ARMOR" value="317"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="AGILITY" value="20"/>
-			</stats>
-			<source>
-			Quest reward. Elite quest in Winterspring.
-			</source>
-		</patch>
+	<item id="21320" phase="0">
+		<info name="Vest of the Den Watcher" type="MAIL" slot="CHEST" unique="no" req_lvl="51" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
+		<stats>
+        <stat type="ARMOR" value="313"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+		Quest reward. Trivial quest (e.g. no dungeons required).
+		</source>
 	</item>
 
-	<item id="11926">
-		<patch name="1.0.0">
-			<info name="Deathdealer Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_chest_chain_07.png"/>
-			<stats>
-				<stat type="ARMOR" value="338"/>
-				<stat type="STAMINA" value="8"/>
-				<stat type="STRENGTH" value="8"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Drops from the Seven Dwarves in Blackrock Depths (BRD).
-			</source>
-		</patch>
+	<item id="15787" phase="0">
+		<info name="Willow Band Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="59" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
+		<stats>
+        <stat type="ARMOR" value="317"/>
+        <stat type="INTELLECT" value="6"/>
+        <stat type="STAMINA" value="10"/>
+        <stat type="AGILITY" value="20"/>
+		</stats>
+		<source>
+		Quest reward. Elite quest in Winterspring.
+		</source>
 	</item>
 
-	<item id="14536">
-		<patch name="1.0.0">
-			<info name="Bonebrace Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_chain_14.png"/>
-			<stats>
-				<stat type="ARMOR" value="360"/>
-				<stat type="SPIRIT" value="4"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="ATTACK_POWER" value="56"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Scholomance.
-			</source>
-		</patch>
-		<patch name="1.9.0">
-			<info name="Bonebrace Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_chest_chain_14.png"/>
-			<stats>
-				<stat type="ARMOR" value="360"/>
-				<stat type="SPIRIT" value="4"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="ATTACK_POWER" value="56"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Scholomance.
-			</source>
-		</patch>
+	<item id="11926" phase="0">
+		<info name="Deathdealer Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_chest_chain_07.png"/>
+		<stats>
+        <stat type="ARMOR" value="338"/>
+        <stat type="STAMINA" value="8"/>
+        <stat type="STRENGTH" value="8"/>
+        <stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from the Seven Dwarves in Blackrock Depths (BRD).
+		</source>
 	</item>
 
-	<item id="16674">
-		<patch name="1.0.0">
-			<info name="Beaststalker's Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_chain_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="370"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="SPIRIT" value="6"/>
-				<stat type="STRENGTH" value="5"/>
-			</stats>
-			<source>
-			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
-			</source>
-		</patch>
+	<item id="14536" phase="0">
+		<info name="Bonebrace Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_chest_chain_14.png"/>
+		<stats>
+        <stat type="ARMOR" value="360"/>
+        <stat type="SPIRIT" value="4"/>
+        <stat type="INTELLECT" value="13"/>
+        <stat type="ATTACK_POWER" value="56"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Scholomance.
+		</source>
 	</item>
 
-	<item id="15050">
-		<patch name="1.0.0">
-			<info name="Black Dragonscale Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_chest_plate06.png"/>
-			<stats>
-				<stat type="ARMOR" value="344"/>
-				<stat type="STAMINA" value="8"/>
-				<stat type="FIRE_RESISTANCE" value="12"/>
-				<stat type="ATTACK_POWER" value="50"/>
-			</stats>
-			<source>
-			Crafted by Leatherworkers. Pattern sold by Plugger Spazzring in Blackrock Depths.
-			</source>
-		</patch>
+	<item id="16674" phase="0">
+		<info name="Beaststalker's Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_chain_03.png"/>
+		<stats>
+        <stat type="ARMOR" value="370"/>
+        <stat type="AGILITY" value="21"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="INTELLECT" value="13"/>
+        <stat type="SPIRIT" value="6"/>
+        <stat type="STRENGTH" value="5"/>
+		</stats>
+		<source>
+		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
 	</item>
 
-	<item id="11726">
-		<patch name="1.0.0">
-			<info name="Savage Gladiator Chain" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
-			<stats>
-				<stat type="ARMOR" value="369"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="DEFENSE" value="20"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Drops from Gorosh the Dervish in the Arena in Blackrock Depths (BRD).
-			</source>
-		</patch>
-
-		<patch name="1.7.0">
-			<info name="Savage Gladiator Chain" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
-			<stats>
-				<stat type="ARMOR" value="369"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="DEFENSE" value="13"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Drops from Gorosh the Dervish in the Arena in Blackrock Depths (BRD).
-			</source>
-		</patch>
-
-		<patch name="1.10.0">
-			<info name="Savage Gladiator Chain" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
-			<stats>
-				<stat type="ARMOR" value="369"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="STRENGTH" value="13"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Drops from Gorosh the Dervish in the Arena in Blackrock Depths (BRD).
-			</source>
-		</patch>
+	<item id="15050" phase="0">
+		<info name="Black Dragonscale Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="yes" icon="Inv_chest_plate06.png"/>
+		<stats>
+        <stat type="ARMOR" value="344"/>
+        <stat type="STAMINA" value="8"/>
+        <stat type="FIRE_RESISTANCE" value="12"/>
+        <stat type="ATTACK_POWER" value="50"/>
+		</stats>
+		<source>
+		Crafted by Leatherworkers. Pattern sold by Plugger Spazzring in Blackrock Depths.
+		</source>
 	</item>
 
-	<item id="16845">
-		<patch name="1.0.0">
-			<info name="Giantstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="422"/>
-				<stat type="AGILITY" value="24"/>
-				<stat type="INTELLECT" value="14"/>
-				<stat type="STAMINA" value="23"/>
-				<stat type="STRENGTH" value="3"/>
-				<stat type="FIRE_RESISTANCE" value="7"/>
-				<stat type="NATURE_RESISTANCE" value="6"/>
-				<stat type="ARCANE_RESISTANCE" value="6"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Golemagg the Incinerator in Molten Core.
-			</source>
-		</patch>
-		<patch name="1.6.0">
-			<info name="Giantstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="422"/>
-				<stat type="AGILITY" value="26"/>
-				<stat type="INTELLECT" value="11"/>
-				<stat type="STAMINA" value="23"/>
-				<stat type="FIRE_RESISTANCE" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Golemagg the Incinerator in Molten Core.
-			</source>
-		</patch>
+	<item id="11726" phase="0">
+		<info name="Savage Gladiator Chain" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
+		<stats>
+        <stat type="ARMOR" value="369"/>
+        <stat type="STAMINA" value="13"/>
+        <stat type="AGILITY" value="14"/>
+        <stat type="STRENGTH" value="13"/>
+        <stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from Gorosh the Dervish in the Arena in Blackrock Depths (BRD).
+		</source>
 	</item>
 
-	<item id="18530">
-		<patch name="1.3.0">
-			<info name="Ogre Forged Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_12.png"/>
-			<stats>
-				<stat type="ARMOR" value="365"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="INTELLECT" value="8"/>
-				<stat type="STRENGTH" value="8"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Tribute chest in Dire Maul.
-			</source>
-		</patch>
+	<item id="16845" phase="0">
+		<info name="Giantstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="422"/>
+        <stat type="AGILITY" value="26"/>
+        <stat type="INTELLECT" value="11"/>
+        <stat type="STAMINA" value="23"/>
+        <stat type="FIRE_RESISTANCE" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Golemagg the Incinerator in Molten Core.
+		</source>
 	</item>
 
-	<item id="23292">
-		<patch name="1.4.0">
-			<info name="Knight-Captain's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_04.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="370"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="ATTACK_POWER" value="26"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Captain (rank 8).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Knight-Captain's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_04.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="398"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Captain (rank 8).
-			</source>
-		</patch>
+	<item id="18530" phase="1">
+		<info name="Ogre Forged Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_12.png"/>
+		<stats>
+        <stat type="ARMOR" value="365"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="STAMINA" value="13"/>
+        <stat type="INTELLECT" value="8"/>
+        <stat type="STRENGTH" value="8"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Tribute chest in Dire Maul.
+		</source>
 	</item>
 
-	<item id="22874">
-		<patch name="1.4.0">
-			<info name="Legionnaire's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_chain_04.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="370"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="ATTACK_POWER" value="26"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Legionnaire (rank 8).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Legionnaire's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_chain_04.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="398"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Legionnaire (rank 8).
-			</source>
-		</patch>
+	<item id="23292" phase="1">
+		<info name="Knight-Captain's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_04.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="398"/>
+        <stat type="AGILITY" value="16"/>
+        <stat type="STAMINA" value="13"/>
+        <stat type="INTELLECT" value="6"/>
+        <stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Knight-Captain (rank 8).
+		</source>
 	</item>
 
-	<item id="16466">
-		<patch name="1.4.0">
-			<info name="Field Marshal's Chain Breastplate" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="416"/>
-				<stat type="STAMINA" value="24"/>
-				<stat type="AGILITY" value="23"/>
-				<stat type="ATTACK_POWER" value="40"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Field Marshal's Chain Breastplate" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="520"/>
-				<stat type="STAMINA" value="28"/>
-				<stat type="AGILITY" value="34"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
-			</source>
-		</patch>
+	<item id="22874" phase="1">
+		<info name="Legionnaire's Chain Hauberk" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_chain_04.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="398"/>
+        <stat type="AGILITY" value="16"/>
+        <stat type="STAMINA" value="13"/>
+        <stat type="INTELLECT" value="6"/>
+        <stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Legionnaire (rank 8).
+		</source>
 	</item>
 
-	<item id="16565">
-		<patch name="1.4.0">
-			<info name="Warlord's Chain Chestpiece" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_chain_11.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="416"/>
-				<stat type="STAMINA" value="24"/>
-				<stat type="AGILITY" value="23"/>
-				<stat type="ATTACK_POWER" value="40"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Warlord's Chain Chestpiece" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_chain_11.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="520"/>
-				<stat type="STAMINA" value="28"/>
-				<stat type="AGILITY" value="34"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
-			</source>
-		</patch>
+	<item id="16466" phase="1">
+		<info name="Field Marshal's Chain Breastplate" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_chain_03.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="520"/>
+        <stat type="STAMINA" value="28"/>
+        <stat type="AGILITY" value="34"/>
+        <stat type="INTELLECT" value="12"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+		</source>
 	</item>
 
-	<item id="16942">
-		<patch name="1.6.0">
-			<info name="Dragonstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="482"/>
-				<stat type="AGILITY" value="34"/>
-				<stat type="INTELLECT" value="14"/>
-				<stat type="SPIRIT" value="6"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="FIRE_RESISTANCE" value="10"/>
-				<stat type="NATURE_RESISTANCE" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Nefarian in Blackwing Lair.
-			</source>
-		</patch>
+	<item id="16565" phase="1">
+		<info name="Warlord's Chain Chestpiece" type="MAIL" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_chain_11.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="520"/>
+        <stat type="STAMINA" value="28"/>
+        <stat type="AGILITY" value="34"/>
+        <stat type="INTELLECT" value="12"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
+		</source>
 	</item>
 
-	<item id="19690">
-		<patch name="1.7.0">
-			<info name="Bloodsoul Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_chest_chain_14.png"/>
-			<stats>
-				<stat type="ARMOR" value="381"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Crafted by Blacksmiths (300 skill). Pattern requires Revered with Zandalar Tribe.
-			</source>
-		</patch>
+	<item id="16942" phase="2">
+		<info name="Dragonstalker's Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="482"/>
+        <stat type="AGILITY" value="34"/>
+        <stat type="INTELLECT" value="14"/>
+        <stat type="SPIRIT" value="6"/>
+        <stat type="STAMINA" value="17"/>
+        <stat type="FIRE_RESISTANCE" value="10"/>
+        <stat type="NATURE_RESISTANCE" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Nefarian in Blackwing Lair.
+		</source>
 	</item>
 
-	<item id="19904">
-		<patch name="1.7.0">
-			<info name="Runed Bloodstained Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_plate08.png"/>
-			<stats>
-				<stat type="ARMOR" value="416"/>
-				<stat type="INTELLECT" value="15"/>
-				<stat type="STAMINA" value="19"/>
-				<stat type="ATTACK_POWER" value="58"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from High Priest Venoxis in Zul'Gurub.
-			</source>
-		</patch>
+	<item id="19690" phase="3">
+		<info name="Bloodsoul Breastplate" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_chest_chain_14.png"/>
+		<stats>
+        <stat type="ARMOR" value="381"/>
+        <stat type="STAMINA" value="13"/>
+        <stat type="AGILITY" value="9"/>
+        <stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Crafted by Blacksmiths (300 skill). Pattern requires Revered with Zandalar Tribe.
+		</source>
 	</item>
 
-	<item id="21320">
-		<patch name="1.9.0">
-			<info name="Vest of the Den Watcher" type="MAIL" slot="CHEST" unique="no" req_lvl="51" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
-			<stats>
-				<stat type="ARMOR" value="313"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="12"/>
-			</stats>
-			<source>
-			Quest reward. Trivial quest (e.g. no dungeons required).
-			</source>
-		</patch>
+	<item id="19904" phase="3">
+		<info name="Runed Bloodstained Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_plate08.png"/>
+		<stats>
+        <stat type="ARMOR" value="416"/>
+        <stat type="INTELLECT" value="15"/>
+        <stat type="STAMINA" value="19"/>
+        <stat type="ATTACK_POWER" value="58"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from High Priest Venoxis in Zul'Gurub.
+		</source>
 	</item>
 
-	<item id="22191">
-		<patch name="1.9.0">
-			<info name="Obsidian Mail Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="yes" icon="Inv_chest_chain_17.png"/>
-			<stats>
-				<stat type="ARMOR" value="458"/>
-				<stat type="ATTACK_POWER" value="76"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Crafted by Blacksmiths (300 skill). Requires drops/ores from Ruins of Ahn'Qiraj (AQ20).
-			</source>
-			<special_equip_effect>
-			Equip: Spell Damage received is reduced by 10.
-			</special_equip_effect>
-		</patch>
+	<item id="22191" phase="4">
+		<info name="Obsidian Mail Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="yes" icon="Inv_chest_chain_17.png"/>
+		<stats>
+        <stat type="ARMOR" value="458"/>
+        <stat type="ATTACK_POWER" value="76"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Crafted by Blacksmiths (300 skill). Requires drops/ores from Ruins of Ahn'Qiraj (AQ20).
+		</source>
+		<special_equip_effect>
+		Equip: Spell Damage received is reduced by 10.
+		</special_equip_effect>
 	</item>
 
-	<item id="21370">
-		<patch name="1.9.0">
-			<info name="Striker's Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_chain_04.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="553"/>
-				<stat type="AGILITY" value="39"/>
-				<stat type="INTELLECT" value="15"/>
-				<stat type="SPIRIT" value="7"/>
-				<stat type="STAMINA" value="26"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="SPELL_DAMAGE" value="9"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+	<item id="21370" phase="4">
+		<info name="Striker's Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_chain_04.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="553"/>
+        <stat type="AGILITY" value="39"/>
+        <stat type="INTELLECT" value="15"/>
+        <stat type="SPIRIT" value="7"/>
+        <stat type="STAMINA" value="26"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="SPELL_DAMAGE" value="9"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
 	</item>
 
-	<item id="11820">
-		<patch name="1.10.0">
-			<info name="Royal Decorated Armor" type="MAIL" slot="CHEST" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_chest_plate04.png"/>
-			<stats>
-				<stat type="ARMOR" value="344"/>
-				<stat type="STRENGTH" value="8"/>
-				<stat type="STAMINA" value="26"/>
-				<stat type="AGILITY" value="12"/>
-			</stats>
-			<source>
-			Drops from General Angerforge in Blackrock Depths (BRD).
-			</source>
-		</patch>
+	<item id="11820" phase="4">
+		<info name="Royal Decorated Armor" type="MAIL" slot="CHEST" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_chest_plate04.png"/>
+		<stats>
+        <stat type="ARMOR" value="344"/>
+        <stat type="STRENGTH" value="8"/>
+        <stat type="STAMINA" value="26"/>
+        <stat type="AGILITY" value="12"/>
+		</stats>
+		<source>
+		Drops from General Angerforge in Blackrock Depths (BRD).
+		</source>
 	</item>
 
-	<item id="14611">
-		<patch name="1.10.0">
-			<info name="Bloodmail Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_05.png"/>
-			<stats>
-				<stat type="ARMOR" value="360"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="INTELLECT" value="15"/>
-				<stat type="STRENGTH" value="10"/>
-				<stat type="SPIRIT" value="10"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from multiple bosses in Scholomance.
-			</source>
-		</patch>
+	<item id="14611" phase="4">
+		<info name="Bloodmail Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_05.png"/>
+		<stats>
+        <stat type="ARMOR" value="360"/>
+        <stat type="STAMINA" value="15"/>
+        <stat type="INTELLECT" value="15"/>
+        <stat type="STRENGTH" value="10"/>
+        <stat type="SPIRIT" value="10"/>
+        <stat type="DODGE_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
 	</item>
 
-	<item id="22060">
-		<patch name="1.10.0">
-			<info name="Beastmaster's Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="387"/>
-				<stat type="AGILITY" value="25"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Increases your pet's armor by 10%.
-			</special_equip_effect>
-			<source>
-			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
-			</source>
-		</patch>
+	<item id="22060" phase="4">
+		<info name="Beastmaster's Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_chain_03.png"/>
+		<stats>
+        <stat type="ARMOR" value="387"/>
+        <stat type="AGILITY" value="25"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="INTELLECT" value="13"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Increases your pet's armor by 10%.
+		</special_equip_effect>
+		<source>
+		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
 	</item>
 
-	<item id="22436">
-		<patch name="1.11.0">
-			<info name="Crypstalker Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="576"/>
-				<stat type="AGILITY" value="45"/>
-				<stat type="STAMINA" value="27"/>
-				<stat type="INTELLECT" value="15"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="MANA_PER_5" value="4"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+	<item id="22436" phase="5">
+		<info name="Crypstalker Tunic" type="MAIL" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_chain_15.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="576"/>
+        <stat type="AGILITY" value="45"/>
+        <stat type="STAMINA" value="27"/>
+        <stat type="INTELLECT" value="15"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="MANA_PER_5" value="4"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
 	</item>
 </items>

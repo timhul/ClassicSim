@@ -9,7 +9,6 @@
 RotationModel::RotationModel(QObject *parent)
     : QAbstractListModel(parent),
       pchar(nullptr),
-      patch("1.0.0"),
       information_index(-1),
       rotation_conditions_model(new RotationConditionsModel())
 {}
@@ -18,12 +17,6 @@ RotationModel::~RotationModel() {
     delete rotation_conditions_model;
 
     clear_rotations();
-}
-
-void RotationModel::set_patch(const QString &patch) {
-    QString patch_split = patch.split(' ').first();
-    this->patch = patch_split;
-    addRotations();
 }
 
 void RotationModel::set_character(Character* pchar) {

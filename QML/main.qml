@@ -2,6 +2,7 @@ import QtQuick 2.10
 import QtQuick.Window 2.10
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Styles 1.4
+import ContentPhase 1.0
 
 Window {
     id: root
@@ -105,7 +106,7 @@ Window {
     }
 
     ComboBox {
-        id: patchChoice
+        id: contentPhaseChoice
         anchors {
             right: continuousDpsUpdateRect.left
             rightMargin: 20
@@ -114,29 +115,22 @@ Window {
 
         width: 200
         model: [
-            "1.0.0 (Beta)",
-            "1.1.0 (US Release)",
-            "1.2.0 (Maraudon)",
-            "1.3.0 (Dire Maul)",
-            "1.4.0 (Benediction/Rhok'delar)",
-            "1.5.0 (Battlegrounds)",
-            "1.6.0 (Blackwing Lair)",
-            "1.7.0 (Zul'Gurub)",
-            "1.8.0 (Dragon World Bosses)",
-            "1.9.0 (Ahn'Qiraj)",
-            "1.10.0 (Tier 0.5)",
-            "1.11.0 (Naxxramas)",
-            "1.12.1"]
+            settings.getDescriptionForPhase(ContentPhase.MoltenCore),
+            settings.getDescriptionForPhase(ContentPhase.DireMaul),
+            settings.getDescriptionForPhase(ContentPhase.BlackwingLair),
+            settings.getDescriptionForPhase(ContentPhase.ZulGurub),
+            settings.getDescriptionForPhase(ContentPhase.AhnQiraj),
+            settings.getDescriptionForPhase(ContentPhase.Naxxramas),
+        ]
 
-        currentIndex: settings.getMinorVersion()
-
-        onActivated: settings.setPatch(currentText)
+        currentIndex: settings.getContentPhase()
+        onActivated: settings.setPhase(currentIndex)
     }
 
     ComboBox {
         id: creatureType
         anchors {
-            bottom: patchChoice.top
+            bottom: contentPhaseChoice.top
             bottomMargin: 2
             right: continuousDpsUpdateRect.left
             rightMargin: 20

@@ -11,6 +11,7 @@
 #include "ItemNamespace.h"
 #include "ItemStatsEnum.h"
 #include "MagicSchools.h"
+#include "PhaseRequirer.h"
 #include "ProcInfo.h"
 
 class Character;
@@ -21,10 +22,11 @@ class Stats;
 
 int get_slot_int(const QString& slot_string);
 
-class Item {
+class Item: public PhaseRequirer {
 public:
     Item(QString name,
          int item_id,
+         Content::Phase phase,
          QMap<QString, QString> info,
          QVector<QPair<QString, QString>> stats,
          QVector<QMap<QString, QString>> procs = {},
@@ -66,7 +68,6 @@ public:
 protected:
     Character* pchar;
     QString name;
-    QString patch;
     QString source;
     QString quality;
     QString icon;

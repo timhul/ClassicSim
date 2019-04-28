@@ -1,392 +1,273 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13967">
-		<patch name="1.0.0">
-			<info name="Windreaver Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_plate_04.png"/>
-			<stats>
-				<stat type="ARMOR" value="247"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="SPIRIT" value="7"/>
-				<stat type="STRENGTH" value="7"/>
-			</stats>
-			<source>
-			Drops from Kirtonos the Herald in Scholomance.
-			</source>
-		</patch>
-
-		<patch name="1.10.0">
-			<info name="Windreaver Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_plate_04.png"/>
-			<stats>
-				<stat type="ARMOR" value="247"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Kirtonos the Herald in Scholomance.
-			</source>
-		</patch>
+	<item id="13967" phase="0">
+		<info name="Windreaver Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_plate_04.png"/>
+		<stats>
+        <stat type="ARMOR" value="247"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Kirtonos the Herald in Scholomance.
+		</source>
 	</item>
 
-	<item id="16675">
-		<patch name="1.0.0">
-			<info name="Beaststalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_plate_07.png"/>
-			<stats>
-				<stat type="ARMOR" value="240"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="STAMINA" value="9"/>
-			</stats>
-			<source>
-			Drops from Nerub'enkan in Stratholme Undead.
-			</source>
-		</patch>
+	<item id="16675" phase="0">
+		<info name="Beaststalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_boots_plate_07.png"/>
+		<stats>
+        <stat type="ARMOR" value="240"/>
+        <stat type="AGILITY" value="21"/>
+        <stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+		Drops from Nerub'enkan in Stratholme Undead.
+		</source>
 	</item>
 
-	<item id="11731">
-		<patch name="1.0.0">
-			<info name="Savage Gladiator Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_boots_01.png"/>
-			<stats>
-				<stat type="ARMOR" value="233"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STRENGTH" value="10"/>
-				<stat type="STAMINA" value="13"/>
-			</stats>
-			<source>
-			Drops from Anub'shiah in the Arena in Blackrock Depths (BRD).
-			</source>
-		</patch>
+	<item id="11731" phase="0">
+		<info name="Savage Gladiator Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_boots_01.png"/>
+		<stats>
+        <stat type="ARMOR" value="233"/>
+        <stat type="AGILITY" value="15"/>
+        <stat type="STRENGTH" value="10"/>
+        <stat type="STAMINA" value="13"/>
+		</stats>
+		<source>
+		Drops from Anub'shiah in the Arena in Blackrock Depths (BRD).
+		</source>
 	</item>
 
-	<item id="22061">
-		<patch name="1.10.0">
-			<info name="Beastmaster's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
-			<stats>
-				<stat type="ARMOR" value="266"/>
-				<stat type="AGILITY" value="24"/>
-				<stat type="STAMINA" value="9"/>
-			</stats>
-			<modifies name="BEASTMASTER_HUNTER_PET"/>
-			<source>
-			Quest reward. Requires Beaststalker's Boots, Beaststalker's Pants, and Beaststalker's Mantle.
-			</source>
-			<special_equip_effect>
-			Equip: Increases damage dealt by your pet by 3%.
-			</special_equip_effect>
-		</patch>
+	<item id="22061" phase="0">
+		<info name="Beastmaster's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
+		<stats>
+        <stat type="ARMOR" value="266"/>
+        <stat type="AGILITY" value="24"/>
+        <stat type="STAMINA" value="9"/>
+		</stats>
+		<modifies name="BEASTMASTER_HUNTER_PET"/>
+		<source>
+		Quest reward. Requires Beaststalker's Boots, Beaststalker's Pants, and Beaststalker's Mantle.
+		</source>
+		<special_equip_effect>
+		Equip: Increases damage dealt by your pet by 3%.
+		</special_equip_effect>
 	</item>
 
-	<item id="16984">
-		<patch name="1.0.0">
-			<info name="Black Dragonscale Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="no" icon="Inv_boots_plate_09.png"/>
-			<stats>
-				<stat type="ARMOR" value="270"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="FIRE_RESISTANCE" value="24"/>
-				<stat type="ATTACK_POWER" value="28"/>
-			</stats>
-			<source>
-			Crafted by Leatherworkers. Pattern requires Honored with Thorium Brotherhood.
-			</source>
-		</patch>
+	<item id="16984" phase="0">
+		<info name="Black Dragonscale Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="no" icon="Inv_boots_plate_09.png"/>
+		<stats>
+        <stat type="ARMOR" value="270"/>
+        <stat type="STAMINA" value="10"/>
+        <stat type="FIRE_RESISTANCE" value="24"/>
+        <stat type="ATTACK_POWER" value="28"/>
+		</stats>
+		<source>
+		Crafted by Leatherworkers. Pattern requires Honored with Thorium Brotherhood.
+		</source>
 	</item>
 
-	<item id="23278">
-		<patch name="1.4.0">
-			<info name="Knight-Lieutenant's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_07.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="255"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="AGILITY" value="10"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Knight-Lieutenant's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_05.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="266"/>
-				<stat type="STAMINA" value="19"/>
-				<stat type="AGILITY" value="20"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
-			</source>
-		</patch>
+	<item id="19144" phase="0">
+		<info name="Sabatons of the Flamewalker" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>
+		<stats>
+        <stat type="ARMOR" value="298"/>
+        <stat type="STAMINA" value="27"/>
+        <stat type="INTELLECT" value="11"/>
+        <stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Molten Core.
+		</source>
 	</item>
 
-	<item id="22843">
-		<patch name="1.4.0">
-			<info name="Blood Guard's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_07.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="255"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="AGILITY" value="10"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Blood Guard's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_05.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="266"/>
-				<stat type="STAMINA" value="19"/>
-				<stat type="AGILITY" value="20"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
-			</source>
-		</patch>
+	<item id="16849" phase="0">
+		<info name="Giantstalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_chain_13.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="290"/>
+        <stat type="AGILITY" value="28"/>
+        <stat type="SPIRIT" value="6"/>
+        <stat type="STAMINA" value="14"/>
+        <stat type="SHADOW_RESISTANCE" value="7"/>
+		</stats>
+		<source>
+		Drops from Gehennas in Molten Core.
+		</source>
 	</item>
 
-	<item id="16462">
-		<patch name="1.4.0">
-			<info name="Marshal's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_07.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="286"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="STAMINA" value="26"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Marshal's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_07.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="361"/>
-				<stat type="AGILITY" value="26"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="INTELLECT" value="9"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
+	<item id="23278" phase="1">
+		<info name="Knight-Lieutenant's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_05.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="266"/>
+        <stat type="STAMINA" value="19"/>
+        <stat type="AGILITY" value="20"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
+		</source>
 	</item>
 
-	<item id="16569">
-		<patch name="1.4.0">
-			<info name="General's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_06.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="286"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="STAMINA" value="26"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="General's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_06.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="361"/>
-				<stat type="AGILITY" value="26"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="INTELLECT" value="9"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
-			</source>
-		</patch>
+	<item id="22843" phase="1">
+		<info name="Blood Guard's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_05.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="266"/>
+        <stat type="STAMINA" value="19"/>
+        <stat type="AGILITY" value="20"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
+		</source>
 	</item>
 
-	<item id="19144">
-		<patch name="1.5.0">
-			<info name="Sabatons of the Flamewalker" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>
-			<stats>
-				<stat type="ARMOR" value="298"/>
-				<stat type="STAMINA" value="27"/>
-				<stat type="INTELLECT" value="11"/>
-				<stat type="ATTACK_POWER" value="30"/>
-			</stats>
-			<source>
-			Drops from multiple bosses in Molten Core.
-			</source>
-		</patch>
+	<item id="16462" phase="1">
+		<info name="Marshal's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_07.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="361"/>
+        <stat type="AGILITY" value="26"/>
+        <stat type="STAMINA" value="20"/>
+        <stat type="INTELLECT" value="9"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
+		</source>
 	</item>
 
-	<item id="16849">
-		<patch name="1.0.0">
-			<info name="Giantstalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="290"/>
-				<stat type="AGILITY" value="22"/>
-				<stat type="SPIRIT" value="7"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="STRENGTH" value="6"/>
-				<stat type="NATURE_RESISTANCE" value="9"/>
-				<stat type="SHADOW_RESISTANCE" value="5"/>
-			</stats>
-			<source>
-			Drops from Gehennas in Molten Core.
-			</source>
-		</patch>
-		<patch name="1.6.0">
-			<info name="Giantstalker's Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_boots_chain_13.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="290"/>
-				<stat type="AGILITY" value="28"/>
-				<stat type="SPIRIT" value="6"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="SHADOW_RESISTANCE" value="7"/>
-			</stats>
-			<source>
-			Drops from Gehennas in Molten Core.
-			</source>
-		</patch>
+	<item id="16569" phase="1">
+		<info name="General's Chain Boots" type="MAIL" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_06.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="361"/>
+        <stat type="AGILITY" value="26"/>
+        <stat type="STAMINA" value="20"/>
+        <stat type="INTELLECT" value="9"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
+		</source>
 	</item>
 
-	<item id="16941">
-		<patch name="1.6.0">
-			<info name="Dragonstalker's Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="332"/>
-				<stat type="AGILITY" value="30"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="SPIRIT" value="6"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="FIRE_RESISTANCE" value="10"/>
-			</stats>
-			<source>
-			Drops from Broodlord Lashlayer in Blackwing Lair.
-			</source>
-		</patch>
+	<item id="16941" phase="2">
+		<info name="Dragonstalker's Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_boots_plate_07.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="332"/>
+        <stat type="AGILITY" value="30"/>
+        <stat type="INTELLECT" value="6"/>
+        <stat type="SPIRIT" value="6"/>
+        <stat type="STAMINA" value="15"/>
+        <stat type="FIRE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+		Drops from Broodlord Lashlayer in Blackwing Lair.
+		</source>
 	</item>
 
-	<item id="19919">
-		<patch name="1.7.0">
-			<info name="Bloodstained Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_boots_chain_04.png"/>
-			<stats>
-				<stat type="ARMOR" value="274"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="INTELLECT" value="10"/>
-				<stat type="STAMINA" value="10"/>
-			</stats>
-			<source>
-			Drops from High Priestess Mar'li in Zul'Gurub.
-			</source>
-		</patch>
+	<item id="19919" phase="3">
+		<info name="Bloodstained Greaves" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_boots_chain_04.png"/>
+		<stats>
+        <stat type="ARMOR" value="274"/>
+        <stat type="AGILITY" value="21"/>
+        <stat type="INTELLECT" value="10"/>
+        <stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
+		Drops from High Priestess Mar'li in Zul'Gurub.
+		</source>
 	</item>
 
-	<item id="20050">
-		<patch name="1.7.0">
-			<info name="Highlander's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_chain_02.png"/>
-			<stats>
-				<stat type="ARMOR" value="255"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="INTELLECT" value="8"/>
-			</stats>
-			<source>
-			Requires Exalted with The League of Arathor (Arathi Basin).
-			</source>
-			<special_equip_effect>
-			Equip: Run speed increased slightly.
-			</special_equip_effect>
-		</patch>
+	<item id="20050" phase="3">
+		<info name="Highlander's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_chain_02.png"/>
+		<stats>
+        <stat type="ARMOR" value="255"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="AGILITY" value="15"/>
+        <stat type="INTELLECT" value="8"/>
+		</stats>
+		<source>
+		Requires Exalted with The League of Arathor (Arathi Basin).
+		</source>
+		<special_equip_effect>
+		Equip: Run speed increased slightly.
+		</special_equip_effect>
 	</item>
 
-	<item id="20154">
-		<patch name="1.7.0">
-			<info name="Defiler's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_chain_02.png"/>
-			<class_restriction class="HUNTER"/>
-			<class_restriction class="SHAMAN"/>
-			<stats>
-				<stat type="ARMOR" value="255"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="INTELLECT" value="8"/>
-			</stats>
-			<source>
-			Requires Exalted with The Defilers (Arathi Basin).
-			</source>
-			<special_equip_effect>
-			Equip: Run speed increased slightly.
-			</special_equip_effect>
-		</patch>
+	<item id="20154" phase="3">
+		<info name="Defiler's Chain Greaves" type="MAIL" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_chain_02.png"/>
+		<class_restriction class="HUNTER"/>
+		<class_restriction class="SHAMAN"/>
+		<stats>
+        <stat type="ARMOR" value="255"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="AGILITY" value="15"/>
+        <stat type="INTELLECT" value="8"/>
+		</stats>
+		<source>
+		Requires Exalted with The Defilers (Arathi Basin).
+		</source>
+		<special_equip_effect>
+		Equip: Run speed increased slightly.
+		</special_equip_effect>
 	</item>
 
-	<item id="21497">
-		<patch name="1.9.0">
-			<info name="Boots of the Qiraji General" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_boots_chain_11.png"/>
-			<stats>
-				<stat type="ARMOR" value="285"/>
-				<stat type="AGILITY" value="26"/>
-				<stat type="STAMINA" value="11"/>
-			</stats>
-			<source>
-			Drops from General Rajaxx in Ruins of Ahn'Qiraj (AQ20).
-			</source>
-		</patch>
+	<item id="21497" phase="4">
+		<info name="Boots of the Qiraji General" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_boots_chain_11.png"/>
+		<stats>
+        <stat type="ARMOR" value="285"/>
+        <stat type="AGILITY" value="26"/>
+        <stat type="STAMINA" value="11"/>
+		</stats>
+		<source>
+		Drops from General Rajaxx in Ruins of Ahn'Qiraj (AQ20).
+		</source>
 	</item>
 
-	<item id="14616">
-		<patch name="1.10.0">
-			<info name="Bloodmail Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_01.png"/>
-			<stats>
-				<stat type="ARMOR" value="247"/>
-				<stat type="STAMINA" value="10"/>
-				<stat type="INTELLECT" value="10"/>
-				<stat type="STRENGTH" value="9"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from multiple bosses in Scholomance.
-			</source>
-		</patch>
+	<item id="14616" phase="4">
+		<info name="Bloodmail Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_boots_01.png"/>
+		<stats>
+        <stat type="ARMOR" value="247"/>
+        <stat type="STAMINA" value="10"/>
+        <stat type="INTELLECT" value="10"/>
+        <stat type="STRENGTH" value="9"/>
+        <stat type="AGILITY" value="9"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
 	</item>
 
-	<item id="21365">
-		<patch name="1.9.0">
-			<info name="Striker's Footguards" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_08.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="340"/>
-				<stat type="AGILITY" value="31"/>
-				<stat type="INTELLECT" value="8"/>
-				<stat type="SPIRIT" value="6"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="SPELL_DAMAGE" value="6"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+	<item id="21365" phase="4">
+		<info name="Striker's Footguards" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_08.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="340"/>
+        <stat type="AGILITY" value="31"/>
+        <stat type="INTELLECT" value="8"/>
+        <stat type="SPIRIT" value="6"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="SPELL_DAMAGE" value="6"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
 	</item>
 
-	<item id="22440">
-		<patch name="1.11.0">
-			<info name="Crypstalker Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="372"/>
-				<stat type="AGILITY" value="33"/>
-				<stat type="STAMINA" value="19"/>
-				<stat type="INTELLECT" value="8"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+	<item id="22440" phase="5">
+		<info name="Crypstalker Boots" type="MAIL" slot="BOOTS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_boots_chain_05.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+        <stat type="ARMOR" value="372"/>
+        <stat type="AGILITY" value="33"/>
+        <stat type="STAMINA" value="19"/>
+        <stat type="INTELLECT" value="8"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
 	</item>
 </items>

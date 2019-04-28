@@ -48,12 +48,10 @@ public:
                  ExternalBuffName buff_name,
                  AvailableFactions::Name faction,
                  QString icon,
-                 QString description,
-                 QVersionNumber min_patch);
+                 QString description);
     virtual ~ExternalBuff();
 
     QString get_description() const;
-    bool valid_for_patch(const QString& patch) const;
     bool valid_for_faction(AvailableFactions::Name faction) const;
     ExternalBuffName get_enum_value() const;
 
@@ -64,7 +62,6 @@ protected:
     const ExternalBuffName buff_name;
     AvailableFactions::Name faction;
     const QString description;
-    const QVersionNumber min_patch;
 };
 
 #endif // EXTERNALBUFF_H

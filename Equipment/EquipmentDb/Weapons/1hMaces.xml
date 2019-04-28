@@ -1,222 +1,194 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
-	<melee_weapon id="19104">
-		<patch name="1.5.0">
-			<info name="Stormstrike Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_hammer_21.png"/>
-			<dmg_range min="80" max="150" speed="2.7"/>
-			<stats>
-				<stat type="STRENGTH" value="15"/>
-			</stats>
-			<source>
+	<melee_weapon id="19104" phase="2">
+        <info name="Stormstrike Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_hammer_21.png"/>
+        <dmg_range min="80" max="150" speed="2.7"/>
+        <stats>
+        <stat type="STRENGTH" value="15"/>
+        </stats>
+        <source>
 			Purchased for 2400 honor points. Alliance only.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="19908">
-		<patch name="1.7.0">
-			<info name="Sceptre of Smiting" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_mace_08.png"/>
-			<dmg_range min="77" max="145" speed="2.6"/>
-			<stats>
-				<stat type="MACE_SKILL" value="2"/>
-			</stats>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="NATURE_ATTACK" min="63" max="94" instant="yes" rate="0.05" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
+	<melee_weapon id="19908" phase="3">
+        <info name="Sceptre of Smiting" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_mace_08.png"/>
+        <dmg_range min="77" max="145" speed="2.6"/>
+        <stats>
+        <stat type="MACE_SKILL" value="2"/>
+        </stats>
+        <proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="NATURE_ATTACK" min="63" max="94" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+        <special_equip_effect>
 			Chance on hit: Blasts the enemy with poison for 63 to 94 Nature damage.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Random drop from trash in Zul'Gurub.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="11684">
-		<patch name="1.0.0">
-			<info name="Ironfoe" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
-			<dmg_range min="73" max="136" speed="2.4"/>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.027" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
+	<melee_weapon id="11684" phase="0">
+        <info name="Ironfoe" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
+        <dmg_range min="73" max="136" speed="2.4"/>
+        <proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.027" internal_cd="0"/>
+        </proc>
+        <special_equip_effect>
 			Chance on hit: Grants 2 extra attacks on your next swing.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Drops from Emperor Dagran Thaurissan in Blackrock Depths.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="19961">
-		<patch name="1.7.0">
-			<info name="Gri'lek's Grinder" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_mace_04.png"/>
-			<dmg_range min="75" max="140" speed="2.4"/>
-			<stats>
-				<stat type="ATTACK_POWER_DRAGONKIN" value="48"/>
-			</stats>
-			<source>
+	<melee_weapon id="19961" phase="3">
+        <info name="Gri'lek's Grinder" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_mace_04.png"/>
+        <dmg_range min="75" max="140" speed="2.4"/>
+        <stats>
+        <stat type="ATTACK_POWER_DRAGONKIN" value="48"/>
+        </stats>
+        <source>
 			Drops from Gri'lek (Edge of Madness) in Zul'Gurub.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="22384">
-		<patch name="1.10.0">
-			<info name="Persuader" type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_hammer_08.png"/>
-			<dmg_range min="86" max="161" speed="2.7"/>
-			<stats>
-				<stat type="HIT_CHANCE" value="0.01"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<melee_weapon id="22384" phase="3">
+        <info name="Persuader" type="MACE" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_hammer_08.png"/>
+        <dmg_range min="86" max="161" speed="2.7"/>
+        <stats>
+        <stat type="HIT_CHANCE" value="0.01"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Created by Blacksmiths (plans are world drop/raid bosses).
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="17112">
-		<patch name="1.3.0">
-			<info name="Empyrean Demolisher" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
-			<dmg_range min="94" max="175" speed="2.8"/>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="ATTACK_SPEED" amount="0.2" duration="10" rate="0.05" internal_cd="0"/>
-			</proc>
-			<source>
+	<melee_weapon id="17112" phase="1">
+        <info name="Empyrean Demolisher" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
+        <dmg_range min="94" max="175" speed="2.8"/>
+        <proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="ATTACK_SPEED" amount="0.2" duration="10" rate="0.05" internal_cd="0"/>
+        </proc>
+        <source>
 			Drops from Lord Kazzak (world boss).
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="19170">
-		<patch name="1.6.0">
-			<info name="Ebon Hand" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
-			<dmg_range min="83" max="153" speed="2.3"/>
-			<stats>
-				<stat type="STAMINA" value="9"/>
-				<stat type="FIRE_RESISTANCE" value="7"/>
-			</stats>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.05" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
+	<melee_weapon id="19170" phase="3">
+        <info name="Ebon Hand" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_hammer_19.png"/>
+        <dmg_range min="83" max="153" speed="2.3"/>
+        <stats>
+        <stat type="STAMINA" value="9"/>
+        <stat type="FIRE_RESISTANCE" value="7"/>
+        </stats>
+        <proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+        <special_equip_effect>
 			Chance on hit: Sends a shadowy bolt at the enemy causing 125 to 276 Shadow damage.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="21837">
-		<patch name="1.9.0">
-			<info name="Anubisath Warhammer" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_hammer_11.png"/>
-			<dmg_range min="66" max="123" speed="1.8"/>
-			<stats>
-				<stat type="STAMINA" value="7"/>
-				<stat type="MACE_SKILL" value="4"/>
-				<stat type="ATTACK_POWER" value="32"/>
-			</stats>
-			<source>
+	<melee_weapon id="21837" phase="4">
+        <info name="Anubisath Warhammer" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_hammer_11.png"/>
+        <dmg_range min="66" max="123" speed="1.8"/>
+        <stats>
+        <stat type="STAMINA" value="7"/>
+        <stat type="MACE_SKILL" value="4"/>
+        <stat type="ATTACK_POWER" value="32"/>
+        </stats>
+        <source>
 			Random drop from trash in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="21715">
-		<patch name="1.9.0">
-			<info name="Sand Polished Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_mace_24.png"/>
-			<dmg_range min="97" max="181" speed="2.6"/>
-			<stats>
-				<stat type="STAMINA" value="9"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="20"/>
-			</stats>
-			<source>
+	<melee_weapon id="21715" phase="4">
+        <info name="Sand Polished Hammer" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_mace_24.png"/>
+        <dmg_range min="97" max="181" speed="2.6"/>
+        <stats>
+        <stat type="STAMINA" value="9"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="ATTACK_POWER" value="20"/>
+        </stats>
+        <source>
 			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="19335">
-		<patch name="1.6.0">
-			<info name="Spineshatter" type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_06.png"/>
-			<dmg_range min="99" max="184" speed="2.6"/>
-			<stats>
-				<stat type="STAMINA" value="16"/>
-				<stat type="STRENGTH" value="9"/>
-				<stat type="DEFENSE" value="5"/>
-			</stats>
-			<source>
+	<melee_weapon id="19335" phase="2">
+        <info name="Spineshatter" type="MACE" slot="MH" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_06.png"/>
+        <dmg_range min="99" max="184" speed="2.6"/>
+        <stats>
+        <stat type="STAMINA" value="16"/>
+        <stat type="STRENGTH" value="9"/>
+        <stat type="DEFENSE" value="5"/>
+        </stats>
+        <source>
 			Drops from Razorgore the Untamed in Blackwing Lair.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="18866">
-		<patch name="1.5.0">
-			<info name="High Warlord's Bludgeon" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_hammer_20.png"/>
-			<dmg_range min="138" max="207" speed="2.9"/>
-			<stats>
-				<stat type="ATTACK_POWER" value="28"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="STAMINA" value="7"/>
-			</stats>
-			<source>
+	<melee_weapon id="18866" phase="1">
+        <info name="High Warlord's Bludgeon" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_hammer_20.png"/>
+        <dmg_range min="138" max="207" speed="2.9"/>
+        <stats>
+        <stat type="ATTACK_POWER" value="28"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="STAMINA" value="7"/>
+        </stats>
+        <source>
 			May be purchased upon reaching High Warlord (rank 14). Horde only.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="18865">
-		<patch name="1.5.0">
-			<info name="Grand Marshal's Punisher" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_mace_13.png"/>
-			<dmg_range min="138" max="207" speed="2.9"/>
-			<stats>
-				<stat type="ATTACK_POWER" value="28"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="STAMINA" value="7"/>
-			</stats>
-			<source>
+	<melee_weapon id="18865" phase="1">
+        <info name="Grand Marshal's Punisher" type="MACE" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_mace_13.png"/>
+        <dmg_range min="138" max="207" speed="2.9"/>
+        <stats>
+        <stat type="ATTACK_POWER" value="28"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="STAMINA" value="7"/>
+        </stats>
+        <source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="22808">
-		<patch name="1.11.0">
-			<info name="The Castigator" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_1h_stratholme_d_01.png"/>
-			<dmg_range min="119" max="221" speed="2.6"/>
-			<stats>
-				<stat type="STAMINA" value="9"/>
-				<stat type="ATTACK_POWER" value="16"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<melee_weapon id="22808" phase="5">
+        <info name="The Castigator" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_1h_stratholme_d_01.png"/>
+        <dmg_range min="119" max="221" speed="2.6"/>
+        <stats>
+        <stat type="STAMINA" value="9"/>
+        <stat type="ATTACK_POWER" value="16"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Thaddius in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 
-	<melee_weapon id="23221">
-		<patch name="1.11.0">
-			<info name="Misplaced Servo Arm" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_28.png"/>
-			<dmg_range min="128" max="238" speed="2.8"/>
-			<proc>
-				<!-- TODO: Find actual proc rate. -->
-				<spell name="NATURE_ATTACK" min="100" max="151" instant="yes" rate="0.05" internal_cd="0"/>
-			</proc>
-			<special_equip_effect>
+	<melee_weapon id="23221" phase="5">
+        <info name="Misplaced Servo Arm" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_28.png"/>
+        <dmg_range min="128" max="238" speed="2.8"/>
+        <proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="NATURE_ATTACK" min="100" max="151" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+        <special_equip_effect>
 			Chance to discharge electricity causing 100 to 151 Nature damage to your target.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Drops from trash mobs in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</melee_weapon>
 </weapons>

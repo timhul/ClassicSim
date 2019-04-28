@@ -14,57 +14,57 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
                 reader.skipCurrentElement();
                 continue;
             }
+            if (!reader.attributes().hasAttribute("phase")) {
+                qDebug() << "Missing phase attribute";
+                for (auto & attr : reader.attributes())
+                    qDebug() << attr.name() << attr.value();
+                reader.skipCurrentElement();
+                continue;
+            }
             QString id = reader.attributes().value("id").toString();
 
+            QMap<QString, QString> item_map;
+            QVector<QPair<QString, QString>> stats;
+            QVector<QMap<QString, QString>> procs;
+            item_map["classification"] = classification;
+            item_map["id"] = id;
+            item_map["phase"] = reader.attributes().value("phase").toString();
+
             while (reader.readNextStartElement()) {
-                if (reader.name() != "patch") {
-                    qDebug() << "Skipping element" << reader.name();
+                if (reader.name() == "info") {
+                    info_element_reader(reader.attributes(), item_map);
                     reader.skipCurrentElement();
-                    continue;
                 }
-                QMap<QString, QString> item_map;
-                QVector<QPair<QString, QString>> stats;
-                QVector<QMap<QString, QString>> procs;
-                item_map["classification"] = classification;
-                item_map["id"] = id;
-                item_map["patch"] = reader.attributes().value("name").toString();
-
-                while (reader.readNextStartElement()) {
-                    if (reader.name() == "info") {
-                        info_element_reader(reader.attributes(), item_map);
-                        reader.skipCurrentElement();
-                    }
-                    else if (reader.name() == "dmg_range") {
-                        dmg_range_element_reader(reader.attributes(), item_map);
-                        reader.skipCurrentElement();
-                    }
-                    else if (reader.name() == "class_restriction") {
-                        class_restriction_element_reader(reader.attributes(), item_map);
-                        reader.skipCurrentElement();
-                    }
-                    else if (reader.name() == "stats") {
-                        stats_element_reader(reader, stats);
-                    }
-                    else if (reader.name() == "source") {
-                        item_map["source"] = reader.readElementText().trimmed();
-                    }
-                    else if (reader.name() == "proc") {
-                        proc_element_reader(reader, procs);
-                    }
-                    else if (reader.name() == "flavour_text") {
-                        item_map["flavour_text"] = reader.readElementText().simplified();
-                    }
-                    else if (reader.name() == "special_equip_effect") {
-                        item_map["special_equip_effect"] = reader.readElementText().simplified();
-                    }
-                    else
-                        reader.skipCurrentElement();
+                else if (reader.name() == "dmg_range") {
+                    dmg_range_element_reader(reader.attributes(), item_map);
+                    reader.skipCurrentElement();
                 }
-
-                create_weapon(items, item_map, stats, procs);
-                item_map.remove("classification");
-                warn_remaining_keys(item_map);
+                else if (reader.name() == "class_restriction") {
+                    class_restriction_element_reader(reader.attributes(), item_map);
+                    reader.skipCurrentElement();
+                }
+                else if (reader.name() == "stats") {
+                    stats_element_reader(reader, stats);
+                }
+                else if (reader.name() == "source") {
+                    item_map["source"] = reader.readElementText().trimmed();
+                }
+                else if (reader.name() == "proc") {
+                    proc_element_reader(reader, procs);
+                }
+                else if (reader.name() == "flavour_text") {
+                    item_map["flavour_text"] = reader.readElementText().simplified();
+                }
+                else if (reader.name() == "special_equip_effect") {
+                    item_map["special_equip_effect"] = reader.readElementText().simplified();
+                }
+                else
+                    reader.skipCurrentElement();
             }
+
+            create_weapon(items, item_map, stats, procs);
+            item_map.remove("classification");
+            warn_remaining_keys(item_map);
         }
         else {
             qDebug() << "Skipping element" << reader.name();
@@ -103,25 +103,25 @@ void WeaponFileReader::create_weapon(QVector<Item*> &items,
     Weapon* weapon = nullptr;
 
     if (info["slot"] == "1H")
-        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
+        weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "MH")
-        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
+        weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "OH")
-        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
+        weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "2H")
-        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
+        weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
     else if (info["slot"] == "RANGED")
-        weapon = new Weapon(info["name"], info["id"].toInt(), get_weapon_type(info["type"]), WeaponSlots::RANGED,
+        weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::RANGED,
                 item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs);
 
     if (weapon != nullptr)
         items.append(weapon);
 
-    QVector<QString> handled_keys = {"id", "type", "min", "max", "speed"};
+    QVector<QString> handled_keys = {"id", "phase", "type", "min", "max", "speed"};
 
     for (const auto & handled_key : handled_keys) {
         item_map.remove(handled_key);

@@ -5,6 +5,8 @@
 #include <QStringList>
 #include <QVersionNumber>
 
+#include "ContentPhase.h"
+
 class ActiveItemStatFilterModel;
 class Character;
 class EquipmentDb;
@@ -17,7 +19,7 @@ public:
     enum Methods {
         ByIlvl = 0,
         ByName,
-        ByPatch,
+        ByPhase,
         ByItemType
     };
     Q_ENUMS(Methods)
@@ -30,7 +32,7 @@ public:
     enum ItemRoles {
         IdRole = Qt::UserRole + 1,
         NameRole,
-        PatchRole,
+        PhaseRole,
         SourceRole,
         TypeRole,
         ReqLvlRole,
@@ -43,7 +45,7 @@ public:
 
     void update_items();
     void set_character(Character* pchar);
-    void set_patch(const QVersionNumber& patch);
+    void set_phase(const Content::Phase phase);
 
     Q_INVOKABLE void setSlot(const int slot);
     Q_INVOKABLE void selectSort(const int method);

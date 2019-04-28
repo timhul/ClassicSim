@@ -16,37 +16,30 @@ void ProjectileFileReader::file_handler(QXmlStreamReader &reader, QVector<Item*>
             }
             QString id = reader.attributes().value("id").toString();
 
+            QMap<QString, QString> item_map;
+            item_map["classification"] = classification;
+            item_map["id"] = id;
+            item_map["phase"] = reader.attributes().value("phase").toString();
+
             while (reader.readNextStartElement()) {
-                if (reader.name() != "patch") {
-                    qDebug() << "Skipping element" << reader.name();
+                if (reader.name() == "info") {
+                    info_element_reader(reader.attributes(), item_map);
                     reader.skipCurrentElement();
-                    continue;
                 }
-                QMap<QString, QString> item_map;
-                item_map["classification"] = classification;
-                item_map["id"] = id;
-                item_map["patch"] = reader.attributes().value("name").toString();
-
-                while (reader.readNextStartElement()) {
-                    if (reader.name() == "info") {
-                        info_element_reader(reader.attributes(), item_map);
-                        reader.skipCurrentElement();
-                    }
-                    else if (reader.name() == "dps") {
-                        dps_element_reader(reader.attributes(), item_map);
-                        reader.skipCurrentElement();
-                    }
-                    else if (reader.name() == "source") {
-                        item_map["source"] = reader.readElementText().trimmed();
-                    }
-                    else
-                        reader.skipCurrentElement();
+                else if (reader.name() == "dps") {
+                    dps_element_reader(reader.attributes(), item_map);
+                    reader.skipCurrentElement();
                 }
-
-                create_projectile(items, item_map);
-                item_map.remove("classification");
-                warn_remaining_keys(item_map);
+                else if (reader.name() == "source") {
+                    item_map["source"] = reader.readElementText().trimmed();
+                }
+                else
+                    reader.skipCurrentElement();
             }
+
+            create_projectile(items, item_map);
+            item_map.remove("classification");
+            warn_remaining_keys(item_map);
         }
         else {
             qDebug() << "Skipping element" << reader.name();
@@ -78,7 +71,8 @@ void ProjectileFileReader::create_projectile(QVector<Item*> &items, QMap<QString
     QMap<QString, QString> info;
     extract_info(item_map, info);
 
-    Projectile* projectile = new Projectile(info["name"], info["id"].toInt(), get_projectile_type(info["type"]), item_map["value"].toDouble(), info);
+    Projectile* projectile = new Projectile(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),
+            get_projectile_type(info["type"]), item_map["value"].toDouble(), info);
 
     items.append(projectile);
 

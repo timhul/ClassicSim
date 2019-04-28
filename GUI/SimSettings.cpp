@@ -6,7 +6,7 @@
 #include "Utils/Check.h"
 
 SimSettings::SimSettings() :
-    current_patch(QVersionNumber::fromString("1.12.1")),
+    current_phase(Content::Phase::Naxxramas),
     combat_length(300),
     combat_iterations_quick_sim(1000),
     combat_iterations_full_sim(10000),
@@ -19,12 +19,12 @@ SimSettings::~SimSettings() {
     delete ruleset_control;
 }
 
-QVersionNumber SimSettings::get_patch() const {
-    return this->current_patch;
+Content::Phase SimSettings::get_phase() const {
+    return this->current_phase;
 }
 
-void SimSettings::set_patch(const QVersionNumber& patch) {
-    current_patch = patch;
+void SimSettings::set_phase(const Content::Phase phase) {
+    current_phase = phase;
 }
 
 int SimSettings::get_combat_iterations_quick_sim() const {

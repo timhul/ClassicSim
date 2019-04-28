@@ -7,6 +7,7 @@
 #include "AvailableFactions.h"
 #include "AvailableItemStatFilterModel.h"
 #include "BuffModel.h"
+#include "ContentPhase.h"
 #include "DebuffBreakdownModel.h"
 #include "DebuffModel.h"
 #include "EnchantModel.h"
@@ -86,6 +87,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
     qmlRegisterType<BuffBreakdownSorting>("BuffBreakdownSorting", 1, 0, "BuffBreakdownSorting");
+    qmlRegisterType<Content>("ContentPhase", 1, 0, "ContentPhase");
     qmlRegisterType<EnchantName>("EnchantName", 1, 0, "EnchantName");
     qmlRegisterType<EngineBreakdownSorting>("EngineBreakdownSorting", 1, 0, "EngineBreakdownSorting");
     qmlRegisterType<ItemSorting>("ItemSort", 1, 0, "ItemSort");

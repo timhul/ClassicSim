@@ -1,260 +1,228 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="20130">
-		<patch name="1.0.0">
-			<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
-			<stats>
-			</stats>
-			<uses>
-				<use name="GENERIC_STAT_BUFF" type="STRENGTH" value="75" duration="60" cooldown="360"/>
-			</uses>
-			<special_equip_effect>
+	<item id="20130" phase="0">
+        <info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
+        <stats>
+        </stats>
+        <uses>
+            <use name="GENERIC_STAT_BUFF" type="STRENGTH" value="75" duration="60" cooldown="360"/>
+        </uses>
+        <special_equip_effect>
 			Use: Restores 9 health every 5 sec and increases your Strength by 75. Lasts 1 min. (cooldown 6 min)
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Quest reward. Requires running Sunken Temple.
-			</source>
-			<flavour_text>
+        </source>
+        <flavour_text>
 			"Served on the rocks."
-			</flavour_text>
-		</patch>
+        </flavour_text>
 	</item>
 
-	<item id="11815">
-		<patch name="1.0.0">
-			<info name="Hand of Justice" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_talisman_01.png"/>
-			<stats>
-				<stat type="ATTACK_POWER" value="20"/>
-			</stats>
-			<proc>
-				<spell name="EXTRA_ATTACK" amount="1" instant="yes" rate="0.02" internal_cd="0" recursive="yes"/>
-			</proc>
-			<special_equip_effect>
+	<item id="11815" phase="0">
+        <info name="Hand of Justice" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_talisman_01.png"/>
+        <stats>
+            <stat type="ATTACK_POWER" value="20"/>
+        </stats>
+        <proc>
+            <spell name="EXTRA_ATTACK" amount="1" instant="yes" rate="0.02" internal_cd="0" recursive="yes"/>
+        </proc>
+        <special_equip_effect>
 			Equip: 2% chance on melee hit to gain 1 extra attack.
-			</special_equip_effect>
-			<source>
+        </special_equip_effect>
+        <source>
 			Drops from Emperor Dagran Thaurissan in Blackrock Depths.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="13965">
-		<patch name="1.0.0">
-			<info name="Blackhand's Breadth" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_armorkit_09.png"/>
-			<stats>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="13965" phase="0">
+        <info name="Blackhand's Breadth" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_armorkit_09.png"/>
+        <stats>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Quest reward. Requires killing General Drakkisath in Upper Blackrock Spire. Prequisites requires Lower Blackrock Spire.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18537">
-		<patch name="1.3.0">
-			<info name="Counterattack Lodestone" type="TRINKET" slot="TRINKET" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_stone_02.png"/>
-			<stats>
-				<stat type="PARRY_CHANCE" value="0.01"/>
-				<stat type="ATTACK_POWER" value="22"/>
-			</stats>
-			<source>
+	<item id="18537" phase="1">
+        <info name="Counterattack Lodestone" type="TRINKET" slot="TRINKET" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_stone_02.png"/>
+        <stats>
+            <stat type="PARRY_CHANCE" value="0.01"/>
+            <stat type="ATTACK_POWER" value="22"/>
+        </stats>
+        <source>
 			Drops from Gordok Tribute chest in Dire Maul North.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18473">
-		<patch name="1.3.0">
-			<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="FIRE_RESISTANCE" value="10"/>
-				<stat type="RANGED_ATTACK_POWER" value="48"/>
-			</stats>
-			<source>
+	<item id="18473" phase="1">
+        <info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="FIRE_RESISTANCE" value="10"/>
+            <stat type="RANGED_ATTACK_POWER" value="48"/>
+        </stats>
+        <source>
 			Quest reward. Requires BoE quest item that drops from Dire Maul thrash.
-			</source>
-			<flavour_text>
+        </source>
+        <flavour_text>
 			"Blessed by the Shen'dralar Ancients."
-			</flavour_text>
-		</patch>
+        </flavour_text>
 	</item>
 
-	<item id="19120">
-		<patch name="1.5.0">
-			<info name="Rune of the Guard Captain" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="46" item_lvl="51" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_misc_rune_07.png"/>
-			<stats>
-				<stat type="ATTACK_POWER" value="20"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19120" phase="0">
+        <info name="Rune of the Guard Captain" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="46" item_lvl="51" quality="UNCOMMON" faction="HORDE" boe="no" icon="Inv_misc_rune_07.png"/>
+        <stats>
+            <stat type="ATTACK_POWER" value="20"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Quest reward. Requires killing elite mobs (level 47-50) in The Hinterlands.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19406">
-		<patch name="1.6.0">
-			<info name="Drake Fang Talisman" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_bone_06.png"/>
-			<stats>
-				<stat type="ATTACK_POWER" value="56"/>
-				<stat type="HIT_CHANCE" value="0.02"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19406" phase="2">
+        <info name="Drake Fang Talisman" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_bone_06.png"/>
+        <stats>
+            <stat type="ATTACK_POWER" value="56"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+            <stat type="DODGE_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Ebonroc in Blackwing Lair.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19991">
-		<patch name="1.7.0">
-			<info name="Devilsaur Eye" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-			</stats>
-			<uses>
-				<use name="DEVILSAUR_EYE"/>
-			</uses>
-			<source>
+	<item id="19991" phase="0">
+        <info name="Devilsaur Eye" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+        </stats>
+        <uses>
+            <use name="DEVILSAUR_EYE"/>
+        </uses>
+        <source>
 			Quest reward. Requires Sunken Temple.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Increases your attack power by 150 and your chance to hit by 2%. Effect lasts for 20 sec. (cooldown 2 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="19949">
-		<patch name="1.7.0">
-			<info name="Zandalarian Hero Medallion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
-			<stats>
-			</stats>
-			<uses>
-				<use name="ZANDALARIAN_HERO_MEDALLION"/>
-			</uses>
-			<source>
+	<item id="19949" phase="3">
+        <info name="Zandalarian Hero Medallion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
+        <stats>
+        </stats>
+        <uses>
+            <use name="ZANDALARIAN_HERO_MEDALLION"/>
+        </uses>
+        <source>
 			Quest reward. Requires boss drop from Hakkar in Zul'Gurub.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Increases your melee and ranged damage by 40 for 20 sec. Every time you hit a target, this bonus is reduced by 2. (cooldown 2 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="19953">
-		<patch name="1.7.0">
-			<info name="Renataki's Charm of Beasts" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_19.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-			</stats>
-			<source>
+	<item id="19953" phase="3">
+        <info name="Renataki's Charm of Beasts" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_19.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+        </stats>
+        <source>
 			Drops from Edge of Madness bosses in Zul'Gurub.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Instantly clears the cooldowns of Aimed Shot, Multi-Shot, Volley, and Arcane Shot. (cooldown 3 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="21180">
-		<patch name="1.9.0">
-			<info name="Earthstrike" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Spell_nature_abolishmagic.png"/>
-			<stats>
-			</stats>
-			<uses>
-				<use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="280" duration="20" cooldown="120"/>
-			</uses>
-			<source>
+	<item id="21180" phase="4">
+        <info name="Earthstrike" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Spell_nature_abolishmagic.png"/>
+        <stats>
+        </stats>
+        <uses>
+            <use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="280" duration="20" cooldown="120"/>
+        </uses>
+        <source>
 			Quest reward. Requires exalted with Cenarion Circle.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Increases your melee and ranged attack power by 280. Effect lasts for 20 sec. (cooldown 2 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="21670">
-		<patch name="1.9.0">
-			<info name="Badge of the Swarmguard" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_ahnqirajtrinket_04.png"/>
-			<stats>
-			</stats>
-			<uses>
-				<use name="BADGE_OF_THE_SWARMGUARD" value="0.8"/>
-			</uses>
-			<source>
+	<item id="21670" phase="4">
+        <info name="Badge of the Swarmguard" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_ahnqirajtrinket_04.png"/>
+        <stats>
+        </stats>
+        <uses>
+            <use name="BADGE_OF_THE_SWARMGUARD" value="0.8"/>
+        </uses>
+        <source>
 			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Gives a chance on melee or ranged attack to apply an armor penetration effect on you for 30 sec, lowering the target's physical armor by 200 to your own attacks. The armor penetration effect can be applied up to 6 rimes. (cooldown 3 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="23570">
-		<patch name="1.9.0">
-			<info name="Jom Gabbar" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_misc_enggizmos_19.png"/>
-			<stats>
-			</stats>
-			<uses>
-				<use name="JOM_GABBAR"/>
-			</uses>
-			<source>
+	<item id="23570" phase="4">
+        <info name="Jom Gabbar" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_misc_enggizmos_19.png"/>
+        <stats>
+        </stats>
+        <uses>
+            <use name="JOM_GABBAR"/>
+        </uses>
+        <source>
 			Drops from Ouro in Temple of Ahn'Qiraj (AQ40).
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Increases attack power by 65 and an additional 65 every 2 sec. Lasts 20 sec. (cooldown 2 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="23041">
-		<patch name="1.11.0">
-			<info name="Slayer's Crest" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas03.png"/>
-			<stats>
-				<stat type="ATTACK_POWER" value="64"/>
-			</stats>
-			<uses>
-				<use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="260" duration="20" cooldown="120"/>
-			</uses>
-			<source>
+	<item id="23041" phase="5">
+        <info name="Slayer's Crest" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas03.png"/>
+        <stats>
+            <stat type="ATTACK_POWER" value="64"/>
+        </stats>
+        <uses>
+            <use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="260" duration="20" cooldown="120"/>
+        </uses>
+        <source>
 			Drops from Sapphiron in Naxxramas.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Increases Attack Power by 260 for 20 sec. (cooldown 2 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="22954">
-		<patch name="1.11.0">
-			<info name="Kiss of the Spider" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas04.png"/>
-			<stats>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<uses>
-				<use name="GENERIC_STAT_BUFF" type="ATTACK_SPEED" value="20" duration="15" cooldown="120"/>
-			</uses>
-			<source>
+	<item id="22954" phase="5">
+        <info name="Kiss of the Spider" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_trinket_naxxramas04.png"/>
+        <stats>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <uses>
+            <use name="GENERIC_STAT_BUFF" type="ATTACK_SPEED" value="20" duration="15" cooldown="120"/>
+        </uses>
+        <source>
 			Drops from Maexxna in Naxxramas.
-			</source>
-			<special_equip_effect>
+        </source>
+        <special_equip_effect>
 			Use: Increases your attack speed by 20% for 15 sec. (cooldown 2 min)
-			</special_equip_effect>
-		</patch>
+        </special_equip_effect>
 	</item>
 
-	<item id="23206">
-		<patch name="1.11.0">
-			<info name="Mark of the Champion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_token_argentdawn2.png"/>
-			<stats>
-				<stat type="ATTACK_POWER_UNDEAD" value="150"/>
-				<stat type="ATTACK_POWER_DEMON" value="150"/>
-			</stats>
-			<source>
+	<item id="23206" phase="5">
+        <info name="Mark of the Champion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_token_argentdawn2.png"/>
+        <stats>
+            <stat type="ATTACK_POWER_UNDEAD" value="150"/>
+            <stat type="ATTACK_POWER_DEMON" value="150"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drop from Kel'Thuzad in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

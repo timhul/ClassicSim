@@ -19,6 +19,7 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "ContentPhase.h"
 #include "DebuffBreakdownModel.h"
 #include "DebuffModel.h"
 #include "Druid.h"
@@ -113,8 +114,8 @@ GUIControl::GUIControl(QObject* parent) :
     active_stat_filter_model->set_item_model(item_model);
     active_stat_filter_model->set_weapon_model(weapon_model);
     available_stat_filter_model = new AvailableItemStatFilterModel(active_stat_filter_model);
-    buff_model = new BuffModel(sim_settings->get_patch());
-    debuff_model = new DebuffModel(sim_settings->get_patch());
+    buff_model = new BuffModel(sim_settings->get_phase());
+    debuff_model = new DebuffModel(sim_settings->get_phase());
     buff_breakdown_model = new BuffBreakdownModel(number_cruncher);
     debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
     damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
@@ -1377,18 +1378,22 @@ void GUIControl::setEquipmentSetup(const int equipment_index) {
     enchantChanged();
 }
 
-void GUIControl::setPatch(const QString& patch_str) {
-    QVersionNumber patch = QVersionNumber::fromString(patch_str);
-    sim_settings->set_patch(patch);
-    weapon_model->set_patch(patch);
-    item_model->set_patch(patch);
-    buff_model->set_patch(patch);
-    debuff_model->set_patch(patch);
+void GUIControl::setPhase(const int phase_int) {
+    Content::Phase phase = Content::get_phase(phase_int);
+    sim_settings->set_phase(phase);
+    weapon_model->set_phase(phase);
+    item_model->set_phase(phase);
+    buff_model->set_phase(phase);
+    debuff_model->set_phase(phase);
 
     current_char->get_stats()->get_equipment()->reequip_items();
     equipmentChanged();
     statsChanged();
     enchantChanged();
+}
+
+QString GUIControl::getDescriptionForPhase(const int phase) {
+    return Content::get_description_for_phase(static_cast<Content::Phase>(phase));
 }
 
 QVariantList GUIControl::getTooltip(const QString &slot_string) {
@@ -1594,16 +1599,16 @@ void GUIControl::changeActiveWindow(const QString& active_window) {
     this->active_window = active_window;
 }
 
-int GUIControl::getMinorVersion() const {
-    return sim_settings->get_patch().minorVersion();
-}
-
 int GUIControl::getCurrentRuleset() const {
     return sim_settings->get_ruleset();
 }
 
 int GUIControl::getCurrentCreatureType() const {
     return current_char->get_target()->get_creature_type();
+}
+
+int GUIControl::getContentPhase() const {
+    return static_cast<int>(sim_settings->get_phase());
 }
 
 Character* GUIControl::load_character(const QString& class_name) {
@@ -1716,7 +1721,7 @@ void GUIControl::save_gui_settings() {
         stream.writeTextElement("num_iterations_quick_sim", QString("%1").arg(sim_settings->get_combat_iterations_quick_sim()));
         stream.writeTextElement("num_iterations_full_sim", QString("%1").arg(sim_settings->get_combat_iterations_full_sim()));
         stream.writeTextElement("combat_length", QString("%1").arg(sim_settings->get_combat_length()));
-        stream.writeTextElement("patch", sim_settings->get_patch().toString());
+        stream.writeTextElement("phase", QString::number(static_cast<int>(sim_settings->get_phase())));
         stream.writeTextElement("ruleset", QString("%1").arg(sim_settings->get_ruleset()));
         stream.writeTextElement("target_creature_type", current_char->get_target()->get_creature_type_string());
         stream.writeTextElement("threads", QString("%1").arg(sim_settings->get_num_threads_current()));
@@ -1766,8 +1771,8 @@ void GUIControl::activate_gui_setting(const QStringRef& name, const QString& val
         sim_settings->set_combat_iterations_full_sim(value.toInt());
     else if (name == "combat_length")
         sim_settings->set_combat_length(value.toInt());
-    else if (name == "patch")
-        sim_settings->set_patch(QVersionNumber::fromString(value));
+    else if (name == "phase")
+        sim_settings->set_phase(Content::get_phase(value.toInt()));
     else if (name == "ruleset")
         sim_settings->use_ruleset(static_cast<Ruleset>(value.toInt()), current_char);
     else if (name == "target_creature_type" && current_char != nullptr)

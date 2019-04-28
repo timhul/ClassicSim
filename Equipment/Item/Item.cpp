@@ -29,11 +29,13 @@
 
 Item::Item(QString name,
            int item_id,
+           Content::Phase phase,
            QMap<QString, QString> _info,
            QVector<QPair<QString, QString>> _stats,
            QVector<QMap<QString, QString>> _procs,
            QVector<QMap<QString, QString>> _use,
            QVector<QString> _spell_modifications):
+    PhaseRequirer(phase),
     pchar(nullptr),
     name(std::move(name)),
     valid_faction(AvailableFactions::Neutral),
@@ -57,6 +59,7 @@ Item::Item(QString name,
 }
 
 Item::Item(const Item* item) :
+    PhaseRequirer(item->phase),
     pchar(item->pchar),
     name(item->name),
     info(item->info),

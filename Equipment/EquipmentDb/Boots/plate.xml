@@ -1,166 +1,124 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16483">
-		<patch name="1.4.0">
-			<info name="Marshal's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="507"/>
-				<stat type="STAMINA" value="26"/>
-				<stat type="STRENGTH" value="15"/>
-				<stat type="AGILITY" value="11"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Marshal's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="592"/>
-				<stat type="STAMINA" value="23"/>
-				<stat type="STRENGTH" value="18"/>
-				<stat type="AGILITY" value="12"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
+	<item id="23287" phase="1">
+		<info name="Knight-Lieutenant's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+        <stat type="ARMOR" value="472"/>
+        <stat type="STRENGTH" value="10"/>
+        <stat type="AGILITY" value="9"/>
+        <stat type="STAMINA" value="23"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
+		</source>
 	</item>
 
-	<item id="16545">
-		<patch name="1.4.0">
-			<info name="General's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="507"/>
-				<stat type="STAMINA" value="26"/>
-				<stat type="STRENGTH" value="15"/>
-				<stat type="AGILITY" value="11"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="General's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="592"/>
-				<stat type="STAMINA" value="23"/>
-				<stat type="STRENGTH" value="18"/>
-				<stat type="AGILITY" value="12"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
-			</source>
-		</patch>
+	<item id="22858" phase="1">
+		<info name="Blood Guard's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_09.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+        <stat type="ARMOR" value="472"/>
+        <stat type="STRENGTH" value="10"/>
+        <stat type="AGILITY" value="9"/>
+        <stat type="STAMINA" value="23"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
+		</source>
 	</item>
 
-	<item id="19387">
-		<patch name="1.6.0">
-			<info name="Chromatic Boots" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
-			<stats>
-				<stat type="ARMOR" value="596"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STRENGTH" value="20"/>
-				<stat type="STAMINA" value="19"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Chromaggus in Blackwing Lair.
-			</source>
-		</patch>
+	<item id="16483" phase="1">
+		<info name="Marshal's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+        <stat type="ARMOR" value="592"/>
+        <stat type="STAMINA" value="23"/>
+        <stat type="STRENGTH" value="18"/>
+        <stat type="AGILITY" value="12"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
+		</source>
 	</item>
 
-	<item id="20048">
-		<patch name="1.7.0">
-			<info name="Highlander's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<class_restriction class="PALADIN"/>
-			<stats>
-				<stat type="ARMOR" value="452"/>
-				<stat type="STRENGTH" value="14"/>
-				<stat type="STAMINA" value="12"/>
-				<stat type="AGILITY" value="12"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Run speed increased slightly.
-			</special_equip_effect>
-			<source>
-			Requires Revered with League of Arathor (Arathi Basin faction).
-			</source>
-		</patch>
+	<item id="16545" phase="1">
+		<info name="General's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+        <stat type="ARMOR" value="592"/>
+        <stat type="STAMINA" value="23"/>
+        <stat type="STRENGTH" value="18"/>
+        <stat type="AGILITY" value="12"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
+		</source>
 	</item>
 
-	<item id="20208">
-		<patch name="1.7.0">
-			<info name="Defiler's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="452"/>
-				<stat type="STRENGTH" value="14"/>
-				<stat type="STAMINA" value="12"/>
-				<stat type="AGILITY" value="12"/>
-			</stats>
-			<special_equip_effect>
-			Equip: Run speed increased slightly.
-			</special_equip_effect>
-			<source>
-			Requires Revered with League of Arathor (Arathi Basin faction).
-			</source>
-		</patch>
+	<item id="19387" phase="2">
+		<info name="Chromatic Boots" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
+		<stats>
+        <stat type="ARMOR" value="596"/>
+        <stat type="AGILITY" value="20"/>
+        <stat type="STRENGTH" value="20"/>
+        <stat type="STAMINA" value="19"/>
+        <stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Chromaggus in Blackwing Lair.
+		</source>
 	</item>
 
-	<item id="21333">
-		<patch name="1.9.0">
-			<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="604"/>
-				<stat type="AGILITY" value="17"/>
-				<stat type="STRENGTH" value="21"/>
-				<stat type="STAMINA" value="23"/>
-				<stat type="DEFENSE" value="4"/>
-			</stats>
-			<source>
-			Quest reward. Requires drops from bosses in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+	<item id="20048"  phase="3">
+		<info name="Highlander's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_04.png"/>
+		<class_restriction class="WARRIOR"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+        <stat type="ARMOR" value="452"/>
+        <stat type="STRENGTH" value="14"/>
+        <stat type="STAMINA" value="12"/>
+        <stat type="AGILITY" value="12"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Run speed increased slightly.
+		</special_equip_effect>
+		<source>
+		Requires Revered with League of Arathor (Arathi Basin faction).
+		</source>
 	</item>
 
-	<item id="23287">
-		<patch name="1.11.0">
-			<info name="Knight-Lieutenant's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="472"/>
-				<stat type="STRENGTH" value="10"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="STAMINA" value="23"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
-			</source>
-		</patch>
+	<item id="20208" phase="3">
+		<info name="Defiler's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+        <stat type="ARMOR" value="452"/>
+        <stat type="STRENGTH" value="14"/>
+        <stat type="STAMINA" value="12"/>
+        <stat type="AGILITY" value="12"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Run speed increased slightly.
+		</special_equip_effect>
+		<source>
+		Requires Revered with League of Arathor (Arathi Basin faction).
+		</source>
 	</item>
 
-	<item id="22858">
-		<patch name="1.11.0">
-			<info name="Blood Guard's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_09.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="472"/>
-				<stat type="STRENGTH" value="10"/>
-				<stat type="AGILITY" value="9"/>
-				<stat type="STAMINA" value="23"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
-			</source>
-		</patch>
+	<item id="21333" phase="4">
+		<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+        <stat type="ARMOR" value="604"/>
+        <stat type="AGILITY" value="17"/>
+        <stat type="STRENGTH" value="21"/>
+        <stat type="STAMINA" value="23"/>
+        <stat type="DEFENSE" value="4"/>
+		</stats>
+		<source>
+		Quest reward. Requires drops from bosses in Temple of Ahn'Qiraj (AQ40).
+		</source>
 	</item>
 </items>

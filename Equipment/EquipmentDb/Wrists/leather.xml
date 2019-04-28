@@ -1,203 +1,165 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<wrist id="12966">
-		<patch name="1.0.0">
-			<info name="Blackmist Armguards" type="LEATHER" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
-			<stats>
-				<stat type="ARMOR" value="77"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="STRENGTH" value="5"/>
-				<stat type="SHADOW_RESISTANCE" value="5"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from The Beast in Upper Blackrock Spire.
-			</source>
-		</patch>
+	<wrist id="12966" phase="0">
+        <info name="Blackmist Armguards" type="LEATHER" slot="WRIST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
+        <stats>
+            <stat type="ARMOR" value="77"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="STRENGTH" value="5"/>
+            <stat type="SHADOW_RESISTANCE" value="5"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+        Drops from The Beast in Upper Blackrock Spire.
+        </source>
 	</wrist>
 
-	<wrist id="13120">
-		<patch name="1.0.0">
-			<info name="Deepfury Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="yes" icon="Inv_bracer_07.png"/>
-			<stats>
-				<stat type="ARMOR" value="69"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STAMINA" value="4"/>
-				<stat type="STRENGTH" value="4"/>
-			</stats>
-			<source>
-			World drop.
-			</source>
-		</patch>
+	<wrist id="13120" phase="0">
+        <info name="Deepfury Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="yes" icon="Inv_bracer_07.png"/>
+        <stats>
+            <stat type="ARMOR" value="69"/>
+            <stat type="AGILITY" value="15"/>
+            <stat type="STAMINA" value="4"/>
+            <stat type="STRENGTH" value="4"/>
+        </stats>
+        <source>
+        World drop.
+        </source>
 	</wrist>
 
-	<wrist id="19687">
-		<patch name="1.7.0">
-			<info name="Primal Batskin Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_bracer_07.png"/>
-			<stats>
-				<stat type="ARMOR" value="79"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="STAMINA" value="7"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Crafted by Leatherworkers (300 skill). Pattern requires Friendly with Zandalar Tribe.
-			</source>
-		</patch>
+	<wrist id="19687" phase="3">
+        <info name="Primal Batskin Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_bracer_07.png"/>
+        <stats>
+            <stat type="ARMOR" value="79"/>
+            <stat type="AGILITY" value="14"/>
+            <stat type="STAMINA" value="7"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+        Crafted by Leatherworkers (300 skill). Pattern requires Friendly with Zandalar Tribe.
+        </source>
 	</wrist>
 
-	<wrist id="19146">
-		<patch name="1.0.0">
-			<info name="Wristguards of Stability" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_04.png"/>
-			<stats>
-				<stat type="ARMOR" value="86"/>
-				<stat type="STRENGTH" value="24"/>
-				<stat type="STAMINA" value="8"/>
-			</stats>
-			<source>
-			Drops from several bosses in Molten Core.
-			</source>
-		</patch>
+	<wrist id="19146" phase="0">
+        <info name="Wristguards of Stability" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="86"/>
+            <stat type="STRENGTH" value="24"/>
+            <stat type="STAMINA" value="8"/>
+        </stats>
+        <source>
+        Drops from several bosses in Molten Core.
+        </source>
 	</wrist>
 
-	<wrist id="16825">
-		<patch name="1.0.0">
-			<info name="Nightslayer Bracelets" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_bracer_02.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="88"/>
-				<stat type="AGILITY" value="20"/>
-				<stat type="STAMINA" value="15"/>
-			</stats>
-			<source>
-			Drops from trash mobs in Molten Core.
-			</source>
-		</patch>
+	<wrist id="16825" phase="0">
+        <info name="Nightslayer Bracelets" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_bracer_02.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="88"/>
+            <stat type="AGILITY" value="20"/>
+            <stat type="STAMINA" value="15"/>
+        </stats>
+        <source>
+        Drops from trash mobs in Molten Core.
+        </source>
 	</wrist>
 
-	<wrist id="18375">
-		<patch name="1.3.0">
-			<info name="Bracers of the Eclipse" type="LEATHER" slot="WRIST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
-			<stats>
-				<stat type="ARMOR" value="76"/>
-				<stat type="AGILITY" value="10"/>
-				<stat type="STAMINA" value="9"/>
-				<stat type="ATTACK_POWER" value="24"/>
-			</stats>
-			<source>
-			Drops from Prince Tortheldrin in Dire Maul.
-			</source>
-		</patch>
+	<wrist id="18375" phase="1">
+        <info name="Bracers of the Eclipse" type="LEATHER" slot="WRIST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_bracer_07.png"/>
+        <stats>
+            <stat type="ARMOR" value="76"/>
+            <stat type="AGILITY" value="10"/>
+            <stat type="STAMINA" value="9"/>
+            <stat type="ATTACK_POWER" value="24"/>
+        </stats>
+        <source>
+        Drops from Prince Tortheldrin in Dire Maul.
+        </source>
 	</wrist>
 
-	<wrist id="19587">
-		<patch name="1.6.0">
-			<info name="Forest Stalker's Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_12.png"/>
-			<stats>
-				<stat type="ARMOR" value="86"/>
-				<stat type="AGILITY" value="19"/>
-				<stat type="STRENGTH" value="11"/>
-				<stat type="STAMINA" value="8"/>
-			</stats>
-			<source>
-			Sold by Warsong Gulch vendors (Illiyana Moonblaze for Alliance, Kelm Hargunth for Horde).
-			</source>
-		</patch>
+	<wrist id="19587" phase="2">
+        <info name="Forest Stalker's Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_12.png"/>
+        <stats>
+            <stat type="ARMOR" value="86"/>
+            <stat type="AGILITY" value="19"/>
+            <stat type="STRENGTH" value="11"/>
+            <stat type="STAMINA" value="8"/>
+        </stats>
+        <source>
+        Sold by Warsong Gulch vendors (Illiyana Moonblaze for Alliance, Kelm Hargunth for Horde).
+        </source>
 	</wrist>
 
-	<wrist id="16911">
-		<patch name="1.0.0">
-			<info name="Bloodfang Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="98"/>
-				<stat type="AGILITY" value="23"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops in Molten Core until 1.4.0. After that it is moved to Blackwing Lair.
-			</source>
-		</patch>
-
-		<patch name="1.6.0">
-			<info name="Bloodfang Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="98"/>
-				<stat type="AGILITY" value="23"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Razorgore the Untamed in Blackwing Lair.
-			</source>
-		</patch>
+	<wrist id="16911" phase="2">
+        <info name="Bloodfang Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="98"/>
+            <stat type="AGILITY" value="23"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+        Drops from Razorgore the Untamed in Blackwing Lair.
+        </source>
 	</wrist>
 
-	<wrist id="20615">
-		<patch name="1.8.0">
-			<info name="Dragonspur Wraps" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_15.png"/>
-			<stats>
-				<stat type="ARMOR" value="93"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="FIRE_RESISTANCE" value="4"/>
-				<stat type="NATURE_RESISTANCE" value="4"/>
-				<stat type="FROST_RESISTANCE" value="4"/>
-				<stat type="SHADOW_RESISTANCE" value="4"/>
-				<stat type="ARCANE_RESISTANCE" value="4"/>
-				<stat type="ATTACK_POWER" value="32"/>
-			</stats>
-			<source>
-			Drops from dragon world bosses (Emeriss, Taerar, Lethon, Ysondre).
-			</source>
-		</patch>
+	<wrist id="20615" phase="3">
+        <info name="Dragonspur Wraps" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_bracer_15.png"/>
+        <stats>
+            <stat type="ARMOR" value="93"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="FIRE_RESISTANCE" value="4"/>
+            <stat type="NATURE_RESISTANCE" value="4"/>
+            <stat type="FROST_RESISTANCE" value="4"/>
+            <stat type="SHADOW_RESISTANCE" value="4"/>
+            <stat type="ARCANE_RESISTANCE" value="4"/>
+            <stat type="ATTACK_POWER" value="32"/>
+        </stats>
+        <source>
+        Drops from dragon world bosses (Emeriss, Taerar, Lethon, Ysondre).
+        </source>
 	</wrist>
 
-	<wrist id="21491">
-		<patch name="1.9.0">
-			<info name="Scaled Bracers of the Gorger" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_bracer_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="87"/>
-				<stat type="AGILITY" value="15"/>
-				<stat type="STRENGTH" value="10"/>
-				<stat type="STAMINA" value="8"/>
-			</stats>
-			<source>
-			Drops from Buru the Gorger in Ruins of Ahn'Qiraj (AQ20).
-			</source>
-		</patch>
+	<wrist id="21491" phase="4">
+        <info name="Scaled Bracers of the Gorger" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_bracer_03.png"/>
+        <stats>
+            <stat type="ARMOR" value="87"/>
+            <stat type="AGILITY" value="15"/>
+            <stat type="STRENGTH" value="10"/>
+            <stat type="STAMINA" value="8"/>
+        </stats>
+        <source>
+        Drops from Buru the Gorger in Ruins of Ahn'Qiraj (AQ20).
+        </source>
 	</wrist>
 
-	<wrist id="21602">
-		<patch name="1.9.0">
-			<info name="Qiraji Execution Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
-			<stats>
-				<stat type="ARMOR" value="103"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="STRENGTH" value="15"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+	<wrist id="21602" phase="4">
+        <info name="Qiraji Execution Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
+        <stats>
+            <stat type="ARMOR" value="103"/>
+            <stat type="AGILITY" value="16"/>
+            <stat type="STRENGTH" value="15"/>
+            <stat type="STAMINA" value="14"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+        Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+        </source>
 	</wrist>
 
-	<wrist id="22483">
-		<patch name="1.11.0">
-			<info name="Bonescythe Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_15.png"/>
-			<class_restriction class="ROGUE"/>
-			<stats>
-				<stat type="ARMOR" value="111"/>
-				<stat type="AGILITY" value="26"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+	<wrist id="22483" phase="5">
+        <info name="Bonescythe Bracers" type="LEATHER" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_15.png"/>
+        <class_restriction class="ROGUE"/>
+        <stats>
+            <stat type="ARMOR" value="111"/>
+            <stat type="AGILITY" value="26"/>
+            <stat type="STAMINA" value="14"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+        Quest reward. Requires boss drops from Naxxramas.
+        </source>
 	</wrist>
 </items>

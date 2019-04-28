@@ -1,144 +1,102 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16479">
-		<patch name="1.4.0">
-			<info name="Marshal's Plate Legguards" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="646"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="STRENGTH" value="16"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Marshal's Plate Legguards" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="743"/>
-				<stat type="STAMINA" value="28"/>
-				<stat type="STRENGTH" value="20"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-	</item>
-
-	<item id="16543">
-		<patch name="1.4.0">
-			<info name="General's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="646"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="STRENGTH" value="16"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="General's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_04.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="743"/>
-				<stat type="STAMINA" value="28"/>
-				<stat type="STRENGTH" value="20"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-	</item>
-
-	<item id="22385">
-		<patch name="1.6.0">
-			<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
-			<stats>
-				<stat type="ARMOR" value="598"/>
-				<stat type="STRENGTH" value="30"/>
-				<stat type="HIT_CHANCE" value="0.02"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Crafted by blacksmiths. Plans mainly drop from world bosses and Nefarian, Onyxia, Ragnaros.
-			</source>
-		</patch>
-	</item>
-
-	<item id="21332">
-		<patch name="1.9.0">
-			<info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="796"/>
-				<stat type="AGILITY" value="21"/>
-				<stat type="STRENGTH" value="33"/>
-				<stat type="STAMINA" value="24"/>
-				<stat type="DEFENSE" value="6"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Quest reward. Requires drops from Ouro in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
-	</item>
-
-	<item id="23301">
-		<patch name="1.11.0">
-			<info name="Knight-Captain's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_06.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="618"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="STRENGTH" value="12"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="23301" phase="1">
+        <info name="Knight-Captain's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_06.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="618"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="STRENGTH" value="12"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22873">
-		<patch name="1.11.0">
-			<info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
-			<class_restriction class="WARRIOR"/>
-			<stats>
-				<stat type="ARMOR" value="618"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="STRENGTH" value="12"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="22873" phase="1">
+        <info name="Legionnaire's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_06.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="618"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="STRENGTH" value="12"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23068">
-		<patch name="1.11.0">
-			<info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
-			<stats>
-				<stat type="ARMOR" value="815"/>
-				<stat type="STRENGTH" value="42"/>
-				<stat type="STAMINA" value="18"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="16479" phase="1">
+        <info name="Marshal's Plate Legguards" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_04.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="743"/>
+            <stat type="STAMINA" value="28"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
+        </source>
+	</item>
+
+	<item id="16543" phase="1">
+        <info name="General's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_04.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="743"/>
+            <stat type="STAMINA" value="28"/>
+            <stat type="STRENGTH" value="20"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
+        </source>
+	</item>
+
+	<item id="22385" phase="2">
+        <info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
+        <stats>
+            <stat type="ARMOR" value="598"/>
+            <stat type="STRENGTH" value="30"/>
+            <stat type="HIT_CHANCE" value="0.02"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Crafted by blacksmiths. Plans mainly drop from world bosses and Nefarian, Onyxia, Ragnaros.
+        </source>
+	</item>
+
+	<item id="21332" phase="4">
+        <info name="Conqueror's Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_plate_03.png"/>
+        <class_restriction class="WARRIOR"/>
+        <stats>
+            <stat type="ARMOR" value="796"/>
+            <stat type="AGILITY" value="21"/>
+            <stat type="STRENGTH" value="33"/>
+            <stat type="STAMINA" value="24"/>
+            <stat type="DEFENSE" value="6"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Quest reward. Requires drops from Ouro in Temple of Ahn'Qiraj (AQ40).
+        </source>
+	</item>
+
+	<item id="23068" phase="5">
+        <info name="Legplates of Carnage" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_pants_plate_20.png"/>
+        <stats>
+            <stat type="ARMOR" value="815"/>
+            <stat type="STRENGTH" value="42"/>
+            <stat type="STAMINA" value="18"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Drops from Heigan the Unclean in Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

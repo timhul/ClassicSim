@@ -31,6 +31,8 @@ SOURCES += main.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
     Event/Events/EncounterStart.cpp \
+    Phases/ContentPhase.cpp \
+    Phases/PhaseRequirer.cpp \
     Queue/Queue.cpp \
     Character/Race/Races/Human.cpp \
     Character/Race/Races/Dwarf.cpp \
@@ -395,6 +397,8 @@ HEADERS += \
     Character/Class/Paladin/Spells/SealOfTheCrusader.h \
     Character/Common/Spells/DemonicRune.h \
     Character/Common/Spells/NightDragonsBreath.h \
+    Phases/ContentPhase.h \
+    Phases/PhaseRequirer.h \
     Queue/Queue.h \
     Event/Event.h \
     Engine/Engine.h \
@@ -849,7 +853,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Thread \
     $$PWD/Rotation \
     $$PWD/Rotation/Conditions \
-    $$PWD/Rulesets
+    $$PWD/Rulesets \
+    $$PWD/Phases
 
 RESOURCES += qml.qrc
 

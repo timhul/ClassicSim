@@ -22,7 +22,7 @@ ItemModel::ItemModel(EquipmentDb* db,
 
     this->sorting_methods.insert(ItemSorting::Methods::ByIlvl, true);
     this->sorting_methods.insert(ItemSorting::Methods::ByName, false);
-    this->sorting_methods.insert(ItemSorting::Methods::ByPatch, false);
+    this->sorting_methods.insert(ItemSorting::Methods::ByPhase, false);
     this->sorting_methods.insert(ItemSorting::Methods::ByItemType, false);
 }
 
@@ -37,11 +37,11 @@ bool ilvl(Item* lhs, Item* rhs) {
     return lhs_ilvl == rhs_ilvl ? name(lhs, rhs) : lhs_ilvl > rhs_ilvl;
 }
 
-bool patch(Item* lhs, Item* rhs) {
-    auto lhs_patch = QVersionNumber::fromString(lhs->get_value("patch"));
-    auto rhs_patch = QVersionNumber::fromString(rhs->get_value("patch"));
+bool phase(Item* lhs, Item* rhs) {
+    const int lhs_phase = static_cast<int>(lhs->phase);
+    const int rhs_phase = static_cast<int>(rhs->phase);
 
-    return lhs_patch == rhs_patch ? ilvl(lhs, rhs) : lhs_patch > rhs_patch;
+    return lhs_phase == rhs_phase ? ilvl(lhs, rhs) : lhs_phase > rhs_phase;
 }
 
 bool item_type(Item* lhs, Item* rhs) {
@@ -56,8 +56,8 @@ void ItemModel::set_character(Character* pchar) {
     update_items();
 }
 
-void ItemModel::set_patch(const QVersionNumber& patch) {
-    db->set_patch(patch);
+void ItemModel::set_phase(const Content::Phase phase) {
+    db->set_content_phase(phase);
     update_items();
 }
 
@@ -79,9 +79,9 @@ void ItemModel::selectSort(const int method) {
         std::sort(items.begin(), items.end(), name);
         select_new_method(ItemSorting::Methods::ByName);
         break;
-    case ItemSorting::Methods::ByPatch:
-        std::sort(items.begin(), items.end(), patch);
-        select_new_method(ItemSorting::Methods::ByPatch);
+    case ItemSorting::Methods::ByPhase:
+        std::sort(items.begin(), items.end(), phase);
+        select_new_method(ItemSorting::Methods::ByPhase);
         break;
     case ItemSorting::Methods::ByItemType:
         std::sort(items.begin(), items.end(), item_type);
@@ -158,8 +158,8 @@ QVariant ItemModel::data(const QModelIndex & index, int role) const {
         return item->get_item_id();
     if (role == NameRole)
         return item->get_name();
-    if (role == PatchRole)
-        return item->get_value("patch");
+    if (role == PhaseRole)
+        return Content::get_shortname_for_phase(item->phase);
     if (role == SourceRole)
         return item->get_value("source");
     if (role == TypeRole)
@@ -180,7 +180,7 @@ QHash<int, QByteArray> ItemModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[IdRole] = "_itemid";
     roles[NameRole] = "_name";
-    roles[PatchRole] = "_patch";
+    roles[PhaseRole] = "_phase";
     roles[SourceRole] = "_source";
     roles[TypeRole] = "_type";
     roles[ReqLvlRole] = "_reqlvl";

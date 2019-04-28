@@ -1,348 +1,240 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="16678">
-		<patch name="1.0.0">
-			<info name="Beaststalker's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="315"/>
-				<stat type="AGILITY" value="26"/>
-				<stat type="SPIRIT" value="12"/>
-				<stat type="STAMINA" value="6"/>
-				<stat type="STRENGTH" value="6"/>
-			</stats>
-			<source>
+	<item id="16678" phase="0">
+        <info name="Beaststalker's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+        <stats>
+            <stat type="ARMOR" value="315"/>
+            <stat type="AGILITY" value="26"/>
+            <stat type="SPIRIT" value="12"/>
+            <stat type="STAMINA" value="6"/>
+            <stat type="STRENGTH" value="6"/>
+        </stats>
+        <source>
 			Drops from Baron Rivendare in Stratholme Undead.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="11728">
-		<patch name="1.0.0">
-			<info name="Savage Gladiator Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="296"/>
-				<stat type="STAMINA" value="19"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="STRENGTH" value="12"/>
-			</stats>
-			<source>
+	<item id="11728" phase="0">
+        <info name="Savage Gladiator Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+        <stats>
+            <stat type="ARMOR" value="296"/>
+            <stat type="STAMINA" value="19"/>
+            <stat type="AGILITY" value="18"/>
+            <stat type="STRENGTH" value="12"/>
+        </stats>
+        <source>
 			Drops from Ok'thor the Breaker in the Arena in Blackrock Depths (BRD).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="15052">
-		<patch name="1.0.0">
-			<info name="Black Dragonscale Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="320"/>
-				<stat type="STAMINA" value="8"/>
-				<stat type="FIRE_RESISTANCE" value="13"/>
-				<stat type="ATTACK_POWER" value="54"/>
-			</stats>
-			<source>
+	<item id="15052" phase="0">
+        <info name="Black Dragonscale Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_pants_03.png"/>
+        <stats>
+            <stat type="ARMOR" value="320"/>
+            <stat type="STAMINA" value="8"/>
+            <stat type="FIRE_RESISTANCE" value="13"/>
+            <stat type="ATTACK_POWER" value="54"/>
+        </stats>
+        <source>
 			Crafted by Leatherworkers. Pattern drops from Anvilrage Captains in Blackrock Depths.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16847">
-		<patch name="1.0.0">
-			<info name="Giantstalker's Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="369"/>
-				<stat type="AGILITY" value="27"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="SPIRIT" value="15"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="STRENGTH" value="8"/>
-				<stat type="FROST_RESISTANCE" value="8"/>
-				<stat type="SHADOW_RESISTANCE" value="8"/>
-				<stat type="ARCANE_RESISTANCE" value="8"/>
-			</stats>
-			<source>
+	<item id="16847" phase="0">
+        <info name="Giantstalker's Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_mail_03.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="369"/>
+            <stat type="AGILITY" value="32"/>
+            <stat type="INTELLECT" value="6"/>
+            <stat type="SPIRIT" value="8"/>
+            <stat type="STAMINA" value="15"/>
+            <stat type="SHADOW_RESISTANCE" value="10"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Magmadar in Molten Core.
-			</source>
-		</patch>
-		<patch name="1.6.0">
-			<info name="Giantstalker's Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_mail_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="369"/>
-				<stat type="AGILITY" value="32"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="SPIRIT" value="8"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="SHADOW_RESISTANCE" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Drops from Magmadar in Molten Core.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="18524">
-		<patch name="1.3.0">
-			<info name="Leggings of Destruction" type="MAIL" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="324"/>
-				<stat type="AGILITY" value="14"/>
-				<stat type="INTELLECT" value="13"/>
-				<stat type="STAMINA" value="20"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="18524" phase="1">
+        <info name="Leggings of Destruction" type="MAIL" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+        <stats>
+            <stat type="ARMOR" value="324"/>
+            <stat type="AGILITY" value="14"/>
+            <stat type="INTELLECT" value="13"/>
+            <stat type="STAMINA" value="20"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from King Gordok in Dire Maul.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="23293">
-		<patch name="1.4.0">
-			<info name="Knight-Captain's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="324"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="23293" phase="2">
+        <info name="Knight-Captain's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_03.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="348"/>
+            <stat type="AGILITY" value="16"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="INTELLECT" value="6"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Knight-Captain's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="348"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22875">
-		<patch name="1.4.0">
-			<info name="Legionnaire's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="324"/>
-				<stat type="AGILITY" value="18"/>
-				<stat type="STAMINA" value="17"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="22875" phase="2">
+        <info name="Legionnaire's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_03.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="348"/>
+            <stat type="AGILITY" value="16"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="INTELLECT" value="6"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Legionnaire's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="348"/>
-				<stat type="AGILITY" value="16"/>
-				<stat type="STAMINA" value="13"/>
-				<stat type="INTELLECT" value="6"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16467">
-		<patch name="1.4.0">
-			<info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="364"/>
-				<stat type="AGILITY" value="23"/>
-				<stat type="STAMINA" value="22"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="16467" phase="2">
+        <info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="446"/>
+            <stat type="AGILITY" value="34"/>
+            <stat type="STAMINA" value="27"/>
+            <stat type="INTELLECT" value="12"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="Marshal's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_mail_17.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="446"/>
-				<stat type="AGILITY" value="34"/>
-				<stat type="STAMINA" value="27"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires Marshal (rank 12).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16567">
-		<patch name="1.4.0">
-			<info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="364"/>
-				<stat type="AGILITY" value="23"/>
-				<stat type="STAMINA" value="22"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="DODGE_CHANCE" value="0.01"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="16567" phase="2">
+        <info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="446"/>
+            <stat type="AGILITY" value="34"/>
+            <stat type="STAMINA" value="27"/>
+            <stat type="INTELLECT" value="12"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Purchased with Honor Points and Warsong Gulch marks. Requires General (rank 12).
-			</source>
-		</patch>
-		<patch name="1.11.0">
-			<info name="General's Chain Legguards" type="MAIL" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_mail_16.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="446"/>
-				<stat type="AGILITY" value="34"/>
-				<stat type="STAMINA" value="27"/>
-				<stat type="INTELLECT" value="12"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
-			Purchased with Honor Points and Warsong Gulch marks. Requires General (rank 12).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="16938">
-		<patch name="1.6.0">
-			<info name="Dragonstalker's Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_03.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="422"/>
-				<stat type="AGILITY" value="31"/>
-				<stat type="INTELLECT" value="15"/>
-				<stat type="SPIRIT" value="8"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="FIRE_RESISTANCE" value="10"/>
-				<stat type="ARCANE_RESISTANCE" value="10"/>
-				<stat type="HIT_CHANCE" value="0.01"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="16938" phase="0">
+        <info name="Dragonstalker's Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_03.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="422"/>
+            <stat type="AGILITY" value="31"/>
+            <stat type="INTELLECT" value="15"/>
+            <stat type="SPIRIT" value="8"/>
+            <stat type="STAMINA" value="16"/>
+            <stat type="FIRE_RESISTANCE" value="10"/>
+            <stat type="ARCANE_RESISTANCE" value="10"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Ragnaros in Molten Core.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="19887">
-		<patch name="1.7.0">
-			<info name="Bloodstained Legplates" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_mail_09.png"/>
-			<stats>
-				<stat type="ARMOR" value="363"/>
-				<stat type="AGILITY" value="24"/>
-				<stat type="STAMINA" value="15"/>
-				<stat type="INTELLECT" value="11"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-			</stats>
-			<source>
+	<item id="19887" phase="3">
+        <info name="Bloodstained Legplates" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_mail_09.png"/>
+        <stats>
+            <stat type="ARMOR" value="363"/>
+            <stat type="AGILITY" value="24"/>
+            <stat type="STAMINA" value="15"/>
+            <stat type="INTELLECT" value="11"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
 			Drops from Jin'do the Hexxer in Zul'Gurub.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21651">
-		<patch name="1.9.0">
-			<info name="Scaled Sand Reaver Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_pants_mail_10.png"/>
-			<stats>
-				<stat type="ARMOR" value="427"/>
-				<stat type="STAMINA" value="23"/>
-				<stat type="INTELLECT" value="10"/>
-				<stat type="ATTACK_POWER" value="62"/>
-				<stat type="CRIT_CHANCE" value="0.02"/>
-			</stats>
-			<source>
+	<item id="21651" phase="4">
+        <info name="Scaled Sand Reaver Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_pants_mail_10.png"/>
+        <stats>
+            <stat type="ARMOR" value="427"/>
+            <stat type="STAMINA" value="23"/>
+            <stat type="INTELLECT" value="10"/>
+            <stat type="ATTACK_POWER" value="62"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+        </stats>
+        <source>
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="21368">
-		<patch name="1.9.0">
-			<info name="Striker's Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_mail_11.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="448"/>
-				<stat type="AGILITY" value="36"/>
-				<stat type="INTELLECT" value="14"/>
-				<stat type="SPIRIT" value="10"/>
-				<stat type="STAMINA" value="22"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="SPELL_DAMAGE" value="9"/>
-			</stats>
-			<source>
+	<item id="21368" phase="4">
+        <info name="Striker's Leggings" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_mail_11.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="448"/>
+            <stat type="AGILITY" value="36"/>
+            <stat type="INTELLECT" value="14"/>
+            <stat type="SPIRIT" value="10"/>
+            <stat type="STAMINA" value="22"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="SPELL_DAMAGE" value="9"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="14612">
-		<patch name="1.10.0">
-			<info name="Bloodmail Leguards" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
-			<stats>
-				<stat type="ARMOR" value="315"/>
-				<stat type="INTELLECT" value="15"/>
-				<stat type="STAMINA" value="16"/>
-				<stat type="STRENGTH" value="15"/>
-				<stat type="AGILITY" value="12"/>
-			</stats>
-			<source>
+	<item id="14612" phase="4">
+        <info name="Bloodmail Leguards" type="MAIL" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+        <stats>
+            <stat type="ARMOR" value="315"/>
+            <stat type="INTELLECT" value="15"/>
+            <stat type="STAMINA" value="16"/>
+            <stat type="STRENGTH" value="15"/>
+            <stat type="AGILITY" value="12"/>
+        </stats>
+        <source>
 			Drops from multiple bosses in Scholomance.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22017">
-		<patch name="1.10.0">
-			<info name="Beastmaster's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
-			<stats>
-				<stat type="ARMOR" value="339"/>
-				<stat type="AGILITY" value="28"/>
-				<stat type="STAMINA" value="14"/>
-				<stat type="INTELLECT" value="9"/>
-			</stats>
-			<source>
+	<item id="22017" phase="4">
+        <info name="Beastmaster's Pants" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_03.png"/>
+        <stats>
+            <stat type="ARMOR" value="339"/>
+            <stat type="AGILITY" value="28"/>
+            <stat type="STAMINA" value="14"/>
+            <stat type="INTELLECT" value="9"/>
+        </stats>
+        <source>
 			Quest reward. Requires Beaststalker's Boots, Beaststalker's Pants, and Beaststalker's Mantle.
-			</source>
-		</patch>
+        </source>
 	</item>
 
-	<item id="22437">
-		<patch name="1.11.0">
-			<info name="Crypstalker Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_mail_15.png"/>
-			<class_restriction class="HUNTER"/>
-			<stats>
-				<stat type="ARMOR" value="484"/>
-				<stat type="AGILITY" value="42"/>
-				<stat type="STAMINA" value="26"/>
-				<stat type="INTELLECT" value="10"/>
-				<stat type="CRIT_CHANCE" value="0.01"/>
-				<stat type="MANA_PER_5" value="6"/>
-			</stats>
-			<source>
+	<item id="22437" phase="5">
+        <info name="Crypstalker Legguards" type="MAIL" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_mail_15.png"/>
+        <class_restriction class="HUNTER"/>
+        <stats>
+            <stat type="ARMOR" value="484"/>
+            <stat type="AGILITY" value="42"/>
+            <stat type="STAMINA" value="26"/>
+            <stat type="INTELLECT" value="10"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="MANA_PER_5" value="6"/>
+        </stats>
+        <source>
 			Quest reward. Requires boss drops from Naxxramas.
-			</source>
-		</patch>
+        </source>
 	</item>
 </items>

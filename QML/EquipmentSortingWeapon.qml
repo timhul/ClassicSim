@@ -82,16 +82,16 @@ RectangleBorders {
         RectangleBorders {
             anchors.bottom: parent.bottom
             height: sortBoxHeight
-            width: 50
+            width: 100
 
-            onRectangleClicked: weaponModel.selectSort(WeaponSort.ByPatch)
-            onRectangleRightClicked: weaponModel.selectSort(WeaponSort.ByPatch)
+            onRectangleClicked: weaponModel.selectSort(WeaponSort.ByPhase)
+            onRectangleRightClicked: weaponModel.selectSort(WeaponSort.ByPhase)
 
-            rectColor: weaponModel.currentSortingMethod === WeaponSort.ByPatch ? root.darkGray :
+            rectColor: weaponModel.currentSortingMethod === WeaponSort.ByPhase ? root.darkGray :
                                                                                  root.darkDarkGray
 
             TextSmall {
-                text: "Patch"
+                text: "Phase"
             }
         }
 
