@@ -79,4 +79,5 @@
 	</cast_if>
 
 	<cast_if name="Mana Potion"/>
+	<cast_if name="Demonic Rune"/>
 </rotation>

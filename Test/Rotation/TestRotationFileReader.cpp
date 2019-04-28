@@ -163,6 +163,7 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
         "Hunter's Mark",
         "Aspect of the Hawk",
         "Mana Potion",
+        "Demonic Rune",
     };
     assert(rotation->all_executors.size() == expected_executor_names.size());
 
@@ -184,6 +185,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
         "Zandalarian Hero Medallion",
         "Diamond Flask",
         "Mana Potion",
+        "Demonic Rune",
     };
     assert(rotation->all_executors.size() == expected_executor_names.size());
     verify_executor_names(rotation, rotation->all_executors, expected_executor_names);
@@ -192,6 +194,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
         "Judgement",
         "Seal of the Crusader",
         "Mana Potion",
+        "Demonic Rune",
     };
     rotation->link_spells(paladin);
     verify_executor_names(rotation, rotation->active_executors, expected_active_executor_names);

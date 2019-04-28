@@ -4,7 +4,6 @@
 #include "Consecration.h"
 #include "Judgement.h"
 #include "MainhandAttackPaladin.h"
-#include "ManaPotion.h"
 #include "Paladin.h"
 #include "PaladinSeal.h"
 #include "SanctityAura.h"
@@ -17,7 +16,6 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
 {
     this->consecration = new Consecration(paladin);
     this->judgement = new Judgement(paladin);
-    this->mana_potion = new ManaPotion(paladin);
     this->mh_attack = new MainhandAttackPaladin(paladin);
     this->sanctity_aura = new SanctityAura(paladin);
     this->seal_of_command = new SealOfCommand(paladin);
@@ -25,7 +23,6 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
 
     spells.append(consecration);
     spells.append(judgement);
-    spells.append(mana_potion);
     spells.append(mh_attack);
     spells.append(sanctity_aura);
     spells.append(seal_of_command);
@@ -34,10 +31,6 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
 
 Judgement* PaladinSpells::get_judgement() const {
     return this->judgement;
-}
-
-ManaPotion* PaladinSpells::get_mana_potion() const {
-    return this->mana_potion;
 }
 
 PaladinSeal* PaladinSpells::get_seal_of_the_crusader() const {

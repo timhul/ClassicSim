@@ -5,9 +5,11 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
+#include "DemonicRune.h"
 #include "Engine.h"
 #include "MainhandAttack.h"
 #include "MainhandMeleeHit.h"
+#include "ManaPotion.h"
 #include "OffhandAttack.h"
 #include "OffhandMeleeHit.h"
 #include "Pet.h"
@@ -27,7 +29,9 @@ CharacterSpells::CharacterSpells(Character* pchar) :
 {
     berserking = new Berserking(pchar);
     blood_fury = new BloodFury(pchar);
-    spells = {berserking, blood_fury};
+    demonic_rune = new DemonicRune(pchar);
+    mana_potion = new ManaPotion(pchar);
+    spells = {berserking, blood_fury, demonic_rune, mana_potion};
 }
 
 CharacterSpells::~CharacterSpells()
@@ -274,6 +278,14 @@ Berserking* CharacterSpells::get_berserking() const {
 
 BloodFury* CharacterSpells::get_blood_fury() const {
     return this->blood_fury;
+}
+
+DemonicRune* CharacterSpells::get_demonic_rune() const {
+    return this->demonic_rune;
+}
+
+ManaPotion* CharacterSpells::get_mana_potion() const {
+    return this->mana_potion;
 }
 
 void CharacterSpells::prepare_set_of_combat_iterations() {

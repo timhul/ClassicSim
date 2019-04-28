@@ -25,6 +25,7 @@ SOURCES += main.cpp \
     Character/Class/Paladin/Spells/SanctityAura.cpp \
     Character/Class/Paladin/Spells/SealOfCommand.cpp \
     Character/Class/Paladin/Spells/SealOfTheCrusader.cpp \
+    Character/Common/Spells/DemonicRune.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
@@ -391,6 +392,7 @@ HEADERS += \
     Character/Class/Paladin/Spells/SanctityAura.h \
     Character/Class/Paladin/Spells/SealOfCommand.h \
     Character/Class/Paladin/Spells/SealOfTheCrusader.h \
+    Character/Common/Spells/DemonicRune.h \
     Queue/Queue.h \
     Event/Event.h \
     Engine/Engine.h \

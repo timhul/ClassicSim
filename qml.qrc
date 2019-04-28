@@ -584,5 +584,6 @@
         <file>QML/Assets/spell/Spell_holy_blessingofprotection.png</file>
         <file>QML/Assets/spell/Spell_holy_eyeforaneye.png</file>
         <file>QML/Assets/spell/Spell_nature_lightningshield.png</file>
+        <file>QML/Assets/misc/Inv_misc_rune_04.png</file>
     </qresource>
 </RCC>

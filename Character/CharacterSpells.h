@@ -9,7 +9,9 @@ class AutoShot;
 class Berserking;
 class BloodFury;
 class Character;
+class DemonicRune;
 class MainhandAttack;
+class ManaPotion;
 class OffhandAttack;
 class Rotation;
 class Spell;
@@ -68,6 +70,9 @@ public:
     Berserking* get_berserking() const;
     BloodFury* get_blood_fury() const;
 
+    DemonicRune* get_demonic_rune() const;
+    ManaPotion* get_mana_potion() const;
+
 protected:
     Character* pchar;
     Rotation* rotation;
@@ -84,6 +89,9 @@ protected:
 
     Berserking* berserking;
     BloodFury* blood_fury;
+
+    DemonicRune* demonic_rune;
+    ManaPotion* mana_potion;
 
 private:
     void start_melee_attack();

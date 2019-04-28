@@ -9,7 +9,6 @@ class BestialWrath;
 class ExposeWeaknessProc;
 class Hunter;
 class HuntersMark;
-class ManaPotion;
 class MultiShot;
 class RapidFire;
 
@@ -30,7 +29,6 @@ public:
     BestialWrath* get_bestial_wrath() const;
     ExposeWeaknessProc* get_expose_weakness_proc() const;
     HuntersMark* get_hunters_mark() const;
-    ManaPotion* get_mana_potion() const;
     MultiShot* get_multi_shot() const;
     OffhandAttack* get_oh_attack() const override;
     RapidFire* get_rapid_fire() const;
@@ -43,7 +41,6 @@ private:
     BestialWrath* bestial_wrath;
     ExposeWeaknessProc* expose_weakness_proc;
     HuntersMark* hunters_mark;
-    ManaPotion* mana_potion;
     MultiShot* multi_shot;
     RapidFire* rapid_fire;
 };
