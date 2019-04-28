@@ -25,8 +25,6 @@ public:
 
     void set_name(const QString& name);
     void set_description(const QString& desc);
-    void add_variable(const QString& var, const QString& value);
-    void add_prerequisite(const QString& key, const QString& value);
     void add_precombat_spell(const QString& spell_name);
     void add_precast_spell(const QString& spell_name);
     void add_executor(RotationExecutor* executor);
@@ -58,8 +56,6 @@ private:
     AttackMode attack_mode;
     QVector<QString> precombat_spell_names;
     QString precast_spell_name;
-    QMap<QString, QString> defined_variables;
-    QMap<QString, QString> prerequisites;
 
     ResourceType get_resource_from_string(const QString& resource) const;
 };

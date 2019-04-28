@@ -95,52 +95,6 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotatio
             continue;
         }
 
-        if (reader.name() == "define_vars") {
-            while (reader.readNextStartElement()) {
-                if (reader.name() != "let") {
-                    qDebug() << "<define_vars> missing <let> element";
-                    reader.skipCurrentElement();
-                    continue;
-                }
-                if (!reader.attributes().hasAttribute("variable")) {
-                    qDebug() << "defined variables missing 'variable' attribute'";
-                    reader.skipCurrentElement();
-                    continue;
-                }
-                if (!reader.attributes().hasAttribute("equal")) {
-                    qDebug() << "defined variables missing 'equal' attribute'";
-                    reader.skipCurrentElement();
-                    continue;
-                }
-
-                QString var_name = reader.attributes().value("variable").toString();
-                QString var_value = reader.attributes().value("equal").toString();
-                rotation->add_variable(var_name, var_value);
-            }
-            reader.skipCurrentElement();
-            continue;
-        }
-
-        if (reader.name() == "prerequisites") {
-            QSet<QString> elements = {"talent", "patch_at_least", "patch_at_most"};
-            while (reader.readNextStartElement()) {
-                if (!elements.contains(reader.name().toString())) {
-                    qDebug() << "<prerequisites> missing any of elements" << elements;
-                    reader.skipCurrentElement();
-                    continue;
-                }
-                if (!reader.attributes().hasAttribute("name")) {
-                    qDebug() << "prerequisites missing 'name' attribute'";
-                    reader.skipCurrentElement();
-                    continue;
-                }
-                rotation->add_prerequisite(reader.name().toString(),
-                                           reader.attributes().value("name").toString());
-                reader.skipCurrentElement();
-            }
-            continue;
-        }
-
         if (reader.name() == "precombat_actions") {
             QSet<QString> elements = {"spell", "precast_spell"};
             while (reader.readNextStartElement()) {
@@ -186,7 +140,6 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
     if (expressions.empty())
         return true;
 
-    QString let_statement = "let";
     // First sentence does not have logical connective at start.
     // [TYPE] "[TYPE_VALUE]" [COMPARE_OPERATION]
     // Split into [TYPE, TYPE_VALUE, COMPARE_OPERATION]
@@ -199,27 +152,24 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
         return false;
     }
 
-    auto* sentence = new Sentence();
-    // Take TYPE or LET statement
-    if (quotation_split[0].startsWith(let_statement)) {
-        if (!add_let(sentence, quotation_split))
-            return false;
+    auto sentence = new Sentence();
+    // Take TYPE statement
+    if (!add_type(sentence, quotation_split.takeFirst())) {
+        delete sentence;
+        return false;
     }
-    else {
-        if (!add_type(sentence, quotation_split.takeFirst()))
-            return false;
 
-        // Take TYPE_VALUE
-        sentence->type_value = quotation_split.takeFirst();
+    // Take TYPE_VALUE
+    sentence->type_value = quotation_split.takeFirst();
 
-        // Take COMPARE_OPERATION
+    // Take COMPARE_OPERATION
+    if (!quotation_split.empty()) {
+        QString compare_operation = quotation_split.takeFirst();
+        add_compare_operation(sentence, compare_operation);
         if (!quotation_split.empty()) {
-            QString compare_operation = quotation_split.takeFirst();
-            add_compare_operation(sentence, compare_operation);
-            if (!quotation_split.empty()) {
-                qDebug() << "Quotation split not empty after adding compare operation" << quotation_split;
-                return false;
-            }
+            qDebug() << "Quotation split not empty after adding compare operation" << quotation_split;
+            delete sentence;
+            return false;
         }
     }
 
@@ -232,20 +182,11 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
 
         if (quotation_split.size() < 3) {
             qDebug() << "Expected quotation marks" << quotation_split;
+            delete sentence;
             return false;
         }
 
         sentence = new Sentence();
-        // Take LET statement if exists
-        if (quotation_split[0].startsWith(let_statement)) {
-            if (!add_let(sentence, quotation_split)) {
-                delete sentence;
-                return false;
-            }
-
-            executor->add_sentence(sentence);
-            continue;
-        }
 
         QStringList logical_connective_split = quotation_split.takeFirst().split(' ', QString::SkipEmptyParts);
         // Else LOGICAL CONNECTIVE
@@ -360,19 +301,6 @@ bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& comp
 
     qDebug() << "Unexpected logical operation split" << cmp_operation_split;
     return false;
-}
-
-bool RotationFileReader::add_let(Sentence* sentence, QStringList &let_list) {
-    if (let_list.size() != 3) {
-        qDebug() << "Failed to parse let statement:" << let_list;
-        return false;
-    }
-
-    sentence->condition_type = ConditionTypes::VariableAssignment;
-    sentence->type_value = let_list[1];
-    sentence->compared_value = let_list[2].split(' ', QString::SkipEmptyParts).takeLast();
-
-    return true;
 }
 
 int RotationFileReader::get_comparator_from_string(const QString& comparator) {

@@ -23,7 +23,6 @@ namespace ConditionTypes {
     static const int SpellCondition = 1;
     static const int ResourceCondition = 2;
     static const int VariableBuiltinCondition = 3;
-    static const int VariableAssignment = 4;
 }
 
 namespace LogicalConnectives {

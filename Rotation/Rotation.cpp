@@ -9,7 +9,6 @@
 #include "ConditionBuff.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
-#include "ConditionVariableAssign.h"
 #include "ConditionVariableBuiltin.h"
 #include "EnabledBuffs.h"
 #include "RotationExecutor.h"
@@ -187,14 +186,6 @@ bool Rotation::try_set_attack_mode(const QString& value) {
     return true;
 }
 
-void Rotation::add_variable(const QString& var, const QString& value) {
-    this->defined_variables.insert(var, value);
-}
-
-void Rotation::add_prerequisite(const QString& key, const QString& value) {
-    this->prerequisites.insert(key, value);
-}
-
 void Rotation::add_precombat_spell(const QString &spell_name) {
     this->precombat_spell_names.append(spell_name);
 }
@@ -240,8 +231,6 @@ void Rotation::dump() {
     qDebug() << "class" << class_name;
     qDebug() << "name" << name;
     qDebug() << "desc" << description;
-    qDebug() << "defined_variables" << defined_variables;
-    qDebug() << "prerequisites" << prerequisites;
     qDebug() << "executors:";
     for (auto & executor : all_executors) {
         executor->dump();

@@ -21,8 +21,6 @@ QString Sentence::condition_type_as_string() const  {
         return "SPELL";
     case ConditionTypes::ResourceCondition:
         return "RESOURCE";
-    case ConditionTypes::VariableAssignment:
-        return "VARIABLE ASSIGNMENT";
     case ConditionTypes::VariableBuiltinCondition:
         return "BUILTIN VARIABLE";
     default:

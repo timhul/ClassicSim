@@ -53,16 +53,6 @@
 
 	Better for lower item levels due to less rage available, and thus rage conservation is more important.
 	</description>
-	<define_vars>
-		<let variable="dumping_rage_before_stancing" equal="false"/>
-		<let variable="execute_dagger_switch" equal="false"/>
-	</define_vars>
-
-	<prerequisites>
-		<talent name="Bloodthirst"/>
-		<patch_at_least name="1.5.0"/>
-		<patch_at_most name="1.12.1"/>
-	</prerequisites>
 
 	<precombat_actions>
 		<spell name="Bloodrage"/>

@@ -165,8 +165,6 @@ SOURCES += main.cpp \
     Rotation/Conditions/ConditionSpell.cpp \
     Rotation/Conditions/ConditionBuff.cpp \
     Rotation/Conditions/ConditionResource.cpp \
-    Rotation/VariableAssign.cpp \
-    Rotation/Conditions/ConditionVariableAssign.cpp \
     Rotation/Conditions/ConditionVariableBuiltin.cpp \
     CombatRoll/xorshift/xoroshiro128plus.cpp \
     CombatRoll/Random.cpp \
@@ -542,8 +540,6 @@ HEADERS += \
     Rotation/Conditions/ConditionSpell.h \
     Rotation/Conditions/ConditionBuff.h \
     Rotation/Conditions/ConditionResource.h \
-    Rotation/VariableAssign.h \
-    Rotation/Conditions/ConditionVariableAssign.h \
     Rotation/Conditions/ConditionVariableBuiltin.h \
     CombatRoll/xorshift/xoroshiro128plus.h \
     Character/Class/Warrior/Buffs/RecklessnessBuff.h \
