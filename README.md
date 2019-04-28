@@ -41,7 +41,10 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * Paladin support (spells, talents, Seal of the Crusader and Seal of Command rotations).
+* Items now sorted according to content phases rather than original vanilla patches.
+* More necks and backs available.
 * Fix bug for Warriors using Vaelastrasz ruleset which caused Execute to not be evaluated properly.
+* Demonic Runes and Night Dragon's Breath now usable in rotations.
 * Flask of Supreme Power, Flask of Distilled Wisdom, Mageblood Potion are available to use as external buffs.
 * Mutually exclusive buff groups are now in place, selecting e.g. a flask will deactivate any other active flask effect.
 
