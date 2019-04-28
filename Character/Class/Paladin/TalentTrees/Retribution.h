@@ -15,6 +15,7 @@ public:
     Talent* get_improved_judgement();
     Talent* get_improved_seal_of_the_crusader();
     Talent* get_conviction();
+    Talent* get_seal_of_command();
     Talent* get_two_handed_weapon_specialization();
     Talent* get_sanctity_aura();
     Talent* get_vengeance();

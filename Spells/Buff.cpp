@@ -162,8 +162,10 @@ void Buff::set_instance_id(const int instance_id) {
 int Buff::get_instance_id() const {
     return this->instance_id;
 }
-
+#include <QDebug>
 void Buff::enable_buff() {
+    if (enabled)
+        qDebug() << "will fail";
     check(!enabled, QString("Tried to enable an already enabled buff '%1'").arg(name).toStdString());
 
     this->enabled = true;
@@ -171,6 +173,8 @@ void Buff::enable_buff() {
 }
 
 void Buff::disable_buff() {
+    if (!enabled)
+        qDebug() << "will fail";
     check(enabled, QString("Tried to disabled an already disabled buff '%1'").arg(name).toStdString());
 
     pchar->get_enabled_buffs()->remove_buff(this);

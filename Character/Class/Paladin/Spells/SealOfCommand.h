@@ -1,0 +1,34 @@
+#ifndef SEALOFCOMMAND_H
+#define SEALOFCOMMAND_H
+
+#include "PaladinSeal.h"
+#include "TalentRequirer.h"
+
+class Paladin;
+class Random;
+class SealOfCommandProc;
+
+class SealOfCommand: public PaladinSeal, public TalentRequirer {
+public:
+    SealOfCommand(Paladin* pchar);
+    ~SealOfCommand() override;
+
+    void refresh_seal() const override;
+
+private:
+    SealOfCommandProc* proc;
+    Random* random;
+
+    const unsigned base_min_dmg {47};
+    const unsigned base_max_dmg {56};
+    const int base_mana_cost {65};
+    const QVector<double> benediction_ranks {1.0, 0.97, 0.94, 0.91, 0.88, 0.85};
+
+    void judge_effect() override;
+    void prepare_set_of_combat_iterations_spell_specific() override;
+
+    void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
+    void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
+};
+
+#endif // SEALOFCOMMAND_H

@@ -15,20 +15,19 @@ public:
                 double cooldown,
                 const ResourceType resource_type,
                 int resource_cost,
-                Buff* seal,
-                Buff* judge_debuff);
+                Buff* seal);
     virtual ~PaladinSeal() override;
 
     Buff* get_buff() const;
-    Buff* get_judge_debuff() const;
+    virtual void refresh_seal() const = 0;
 
-private:
+protected:
     friend class Judgement;
 
     Buff* seal;
-    Buff* judge_debuff;
 
     void judge_seal();
+    virtual void judge_effect() = 0;
     void spell_effect() override final;
 };
 

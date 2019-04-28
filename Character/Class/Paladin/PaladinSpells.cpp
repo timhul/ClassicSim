@@ -8,6 +8,7 @@
 #include "Paladin.h"
 #include "PaladinSeal.h"
 #include "SanctityAura.h"
+#include "SealOfCommand.h"
 #include "SealOfTheCrusader.h"
 
 PaladinSpells::PaladinSpells(Paladin* paladin) :
@@ -19,6 +20,7 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     this->mana_potion = new ManaPotion(paladin);
     this->mh_attack = new MainhandAttackPaladin(paladin);
     this->sanctity_aura = new SanctityAura(paladin);
+    this->seal_of_command = new SealOfCommand(paladin);
     this->seal_of_the_crusader = new SealOfTheCrusader(paladin);
 
     spells.append(consecration);
@@ -26,6 +28,7 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     spells.append(mana_potion);
     spells.append(mh_attack);
     spells.append(sanctity_aura);
+    spells.append(seal_of_command);
     spells.append(seal_of_the_crusader);
 }
 
@@ -39,6 +42,10 @@ ManaPotion* PaladinSpells::get_mana_potion() const {
 
 PaladinSeal* PaladinSpells::get_seal_of_the_crusader() const {
     return this->seal_of_the_crusader;
+}
+
+PaladinSeal* PaladinSpells::get_seal_of_command() const {
+    return this->seal_of_command;
 }
 
 Consecration* PaladinSpells::get_consecration() const {

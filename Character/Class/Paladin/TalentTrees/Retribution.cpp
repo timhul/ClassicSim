@@ -24,7 +24,7 @@ Retribution::Retribution(Paladin* paladin) :
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(paladin, this, "Vindication", "3LL", "Assets/spell/Spell_holy_vindication.png", 3, "Gives the Paladin's damaging melee attacks a chance to reduce the target's Strength and Agility by %1% for 10 sec.", QVector<QPair<unsigned, unsigned>>{{5, 5}})},
                                   {"3ML", get_conviction()},
-                                  {"3MR", new Talent(paladin, this, "Seal of Command", "3MR", "Assets/ability/Ability_warrior_innerrage.png", 1, "Gives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage. Only one Seal can be active on the Paladin at any one time. Lasts 30 sec.\n\nUnleashing this Seal's energy will judge an enemy, instantly causing 46.5 to 55.5 Holy damage, 93 to 102 if the target is stunned or incapacitated.", QVector<QPair<unsigned, unsigned>>())},
+                                  {"3MR", get_seal_of_command()},
                                   {"3RR", new Talent(paladin, this, "Pursuit of Justice", "3RR", "Assets/spell/Spell_holy_persuitofjustice.png", 2, "Increases movement and mounted movement speed by %1%. This does not stack with other movement speed increasing effects.", QVector<QPair<unsigned, unsigned>>{{4, 4}})}};
     add_talents(tier3);
 
@@ -51,6 +51,7 @@ Talent* Retribution::get_benediction() {
                           5, "Reduces the Mana cost of your Judgement and Seal spells by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{3, 3}},
                           QVector<Spell*>{
+                              spells->get_seal_of_command(),
                               spells->get_seal_of_the_crusader(),
                               spells->get_judgement()
                           });
@@ -70,7 +71,7 @@ Talent* Retribution::get_improved_seal_of_the_crusader() {
                           {},
                           QVector<Buff*>{
                               spells->get_seal_of_the_crusader()->get_buff(),
-                              spells->get_seal_of_the_crusader()->get_judge_debuff()
+                              dynamic_cast<SealOfTheCrusader*>(spells->get_seal_of_the_crusader())->get_judge_debuff()
                           });
 }
 
@@ -79,6 +80,13 @@ Talent* Retribution::get_conviction() {
                                   5, "Increases your chance to get a critical strike with melee weapons by %1%.",
                                   QVector<QPair<unsigned, unsigned>>{{1, 1}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeCrit, 100}, {TalentStat::RangedCrit, 100}});
+}
+
+Talent* Retribution::get_seal_of_command() {
+    return get_new_talent(paladin, "Seal of Command", "3MR", "Assets/ability/Ability_warrior_innerrage.png",
+                          1, "Gives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage. Only one Seal can be active on the Paladin at any one time. Lasts 30 sec.\n\nUnleashing this Seal's energy will judge an enemy, instantly causing 46.5 to 55.5 Holy damage, 93 to 102 if the target is stunned or incapacitated.",
+                          QVector<QPair<unsigned, unsigned>>(),
+                          QVector<Spell*>{spells->get_seal_of_command()});
 }
 
 Talent* Retribution::get_two_handed_weapon_specialization() {

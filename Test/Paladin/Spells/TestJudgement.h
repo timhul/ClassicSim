@@ -14,6 +14,7 @@ public:
 
 private:
     MainhandAttackPaladin* mh_attack();
+    SealOfCommand* seal_of_command();
     SealOfTheCrusader* seal_of_the_crusader();
     Judgement* judgement();
 
@@ -40,15 +41,22 @@ private:
     void test_judgement_of_the_crusader_holy_dmg_bonus_2_of_3_improved_sotc();
     void test_judgement_of_the_crusader_holy_dmg_bonus_3_of_3_improved_sotc();
 
+    void test_judgement_of_command_damage();
+    void test_judgement_of_command_damage_with_sotc_and_sanctity_aura_and_vengeance();
+
     void given_seal_of_the_crusader_is_active();
     void when_mh_attack_is_performed();
     void when_judgement_is_performed();
     void when_seal_of_the_crusader_is_performed();
+    void when_seal_of_command_is_performed();
     void then_next_expected_use_is(const double next_expected_use);
 
     void given_benediction_rank(const unsigned num);
     void given_improved_sotc_rank(const unsigned num);
     void given_improved_judgement_rank(const unsigned num);
+    void given_seal_of_command_is_enabled();
+    void given_sanctity_aura_is_active();
+    void given_vengeance_is_active(const unsigned num);
 };
 
 #endif // TESTJUDGEMENT_H

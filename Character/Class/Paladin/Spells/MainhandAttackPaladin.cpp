@@ -52,8 +52,8 @@ void MainhandAttackPaladin::calculate_damage(const bool run_procs) {
     }
 
     PaladinSeal* seal = dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal();
-    if (seal != nullptr && seal->get_judge_debuff()->is_active())
-        seal->get_judge_debuff()->apply_buff();
+    if (seal != nullptr)
+        seal->refresh_seal();
 
     double damage_dealt = damage_after_modifiers(paladin->get_random_non_normalized_mh_dmg()) * sotc_penalty;
 

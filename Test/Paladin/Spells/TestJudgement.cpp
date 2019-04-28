@@ -7,8 +7,11 @@
 #include "MainhandAttackPaladin.h"
 #include "PaladinSpells.h"
 #include "Retribution.h"
+#include "SanctityAura.h"
+#include "SealOfCommand.h"
 #include "SealOfTheCrusader.h"
 #include "Talent.h"
+#include "Vengeance.h"
 
 TestJudgement::TestJudgement(EquipmentDb *equipment_db) :
     TestSpellPaladin(equipment_db, "Judgement")
@@ -68,11 +71,24 @@ void TestJudgement::test_all() {
     set_up();
     test_judgement_of_the_crusader_holy_dmg_bonus_3_of_3_improved_sotc();
     tear_down();
+
+    set_up(false);
+    test_judgement_of_command_damage();
+    tear_down();
+
+    set_up(false);
+    test_judgement_of_command_damage_with_sotc_and_sanctity_aura_and_vengeance();
+    tear_down();
 }
 
 MainhandAttackPaladin* TestJudgement::mh_attack() {
     auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
     return dynamic_cast<MainhandAttackPaladin*>(spells->get_mh_attack());
+}
+
+SealOfCommand* TestJudgement::seal_of_command() {
+    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
+    return dynamic_cast<SealOfCommand*>(spells->get_seal_of_command());
 }
 
 SealOfTheCrusader* TestJudgement::seal_of_the_crusader() {
@@ -315,6 +331,38 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_3_of_3_improve
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 161);
 }
 
+void TestJudgement::test_judgement_of_command_damage() {
+    given_seal_of_command_is_enabled();
+    given_a_guaranteed_ranged_white_hit();
+    when_seal_of_command_is_performed();
+    given_engine_priority_pushed_forward(1.5);
+    assert(paladin->action_ready());
+
+    when_judgement_is_performed();
+
+    // [Damage] = r1_joc_min <= dmg <= r1_joc_max
+    // [47-56] = 47 <= dmg <= 56
+    then_damage_dealt_is_in_range(47, 56);
+}
+
+void TestJudgement::test_judgement_of_command_damage_with_sotc_and_sanctity_aura_and_vengeance() {
+    given_sanctity_aura_is_active();
+    given_vengeance_is_active(5);
+    given_seal_of_command_is_enabled();
+    given_a_guaranteed_ranged_white_hit();
+    paladin->reset();
+    when_seal_of_command_is_performed();
+    given_engine_priority_pushed_forward(1.5);
+    assert(paladin->action_ready());
+    given_character_has_spell_damage(100, MagicSchool::Holy);
+
+    when_judgement_is_performed();
+
+    // [Damage] = ((r1_joc_min + holy_spell_dmg * 0.43) * spell_dmg_mod) <= dmg <= ((r1_joc_max + holy_spell_dmg * 0.43) * spell_dmg_mod)
+    // [114-125] = ((47 + 100 * 0.43) * 1.32) <= dmg <= ((56 + 100 * 0.43) * 1.32)
+    then_damage_dealt_is_in_range(114, 125);
+}
+
 void TestJudgement::when_mh_attack_is_performed() {
     if (pchar->get_equipment()->get_mainhand() == nullptr)
         given_a_mainhand_weapon_with_100_min_max_dmg();
@@ -334,6 +382,13 @@ void TestJudgement::when_seal_of_the_crusader_is_performed() {
     seal_of_the_crusader()->perform();
 }
 
+void TestJudgement::when_seal_of_command_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
+    seal_of_command()->perform();
+}
+
 void TestJudgement::given_benediction_rank(const unsigned num) {
     given_talent_rank(Retribution(paladin).get_benediction(), num);
 }
@@ -344,6 +399,23 @@ void TestJudgement::given_improved_sotc_rank(const unsigned num) {
 
 void TestJudgement::given_improved_judgement_rank(const unsigned num) {
     given_talent_rank(Retribution(paladin).get_improved_judgement(), num);
+}
+
+void TestJudgement::given_seal_of_command_is_enabled() {
+    given_talent_rank(Retribution(paladin).get_seal_of_command(), 1);
+    assert(seal_of_command()->is_enabled());
+    paladin->prepare_set_of_combat_iterations();
+}
+
+void TestJudgement::given_sanctity_aura_is_active() {
+    given_talent_rank(Retribution(paladin).get_sanctity_aura(), 1);
+    dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_sanctity_aura()->perform();
+    given_engine_priority_pushed_forward(1.5);
+}
+
+void TestJudgement::given_vengeance_is_active(const unsigned num) {
+    given_talent_rank(Retribution(paladin).get_vengeance(), num);
+    paladin->get_vengeance()->apply_buff();
 }
 
 void TestJudgement::given_seal_of_the_crusader_is_active() {

@@ -4,14 +4,15 @@
 #include "Human.h"
 #include "ItemNamespace.h"
 #include "Paladin.h"
+#include "TestConsecration.h"
 #include "TestHolyPaladin.h"
 #include "TestJudgement.h"
 #include "TestMainhandAttackPaladin.h"
 #include "TestPaladinTalentStatIncrease.h"
 #include "TestProtectionPaladin.h"
 #include "TestRetribution.h"
+#include "TestSealOfCommand.h"
 #include "TestSealOfTheCrusader.h"
-#include "TestConsecration.h"
 
 TestPaladin::TestPaladin(EquipmentDb* equipment_db):
     TestObject(equipment_db)
@@ -24,11 +25,12 @@ void TestPaladin::test_all() {
     TestProtectionPaladin(equipment_db).test_all();
     TestRetribution(equipment_db).test_all();
 
-    TestMainhandAttackPaladin(equipment_db).test_all();
-    TestSealOfTheCrusader(equipment_db).test_all();
-    TestJudgement(equipment_db).test_all();
-    TestPaladinTalentStatIncrease(equipment_db).test_all();
     TestConsecration(equipment_db).test_all();
+    TestJudgement(equipment_db).test_all();
+    TestMainhandAttackPaladin(equipment_db).test_all();
+    TestPaladinTalentStatIncrease(equipment_db).test_all();
+    TestSealOfCommand(equipment_db).test_all();
+    TestSealOfTheCrusader(equipment_db).test_all();
 }
 
 void TestPaladin::test_values_after_initialization() {

@@ -11,5 +11,6 @@
 
 	<file path="Rotations/Hunter/Marksmanship.xml"/>
 
+	<file path="Rotations/Paladin/SealOfCommand.xml"/>
 	<file path="Rotations/Paladin/SealOfTheCrusader.xml"/>
 </paths>

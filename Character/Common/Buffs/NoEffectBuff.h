@@ -3,6 +3,8 @@
 
 #include "Buff.h"
 
+class Proc;
+
 class NoEffectBuff: public Buff {
 public:
     NoEffectBuff(Character* pchar,
@@ -14,8 +16,13 @@ public:
 
     void link_buff_expiration(Buff* buff_to_cancel);
 
+    void link_proc_application(Proc* proc_to_apply);
+    void link_proc_expiration(Proc* proc_to_cancel);
+
 private:
-    Buff* linked_buff;
+    Buff* buff_to_cancel {nullptr};
+    Proc* proc_to_apply {nullptr};
+    Proc* proc_to_cancel {nullptr};
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

@@ -1,21 +1,35 @@
 #include "NoEffectBuff.h"
 
+#include "Proc.h"
+
 NoEffectBuff::NoEffectBuff(Character* pchar, const int duration, const QString &name, const QString &icon, const bool hidden, const bool debuff):
-    Buff(pchar, name, icon, duration, 0),
-    linked_buff(nullptr)
+    Buff(pchar, name, icon, duration, 0)
 {
     this->hidden = hidden;
     this->debuff = debuff;
 }
 
 void NoEffectBuff::link_buff_expiration(Buff* buff_to_cancel) {
-    this->linked_buff = buff_to_cancel;
+    this->buff_to_cancel = buff_to_cancel;
+}
+
+void NoEffectBuff::link_proc_application(Proc* proc_to_apply) {
+    this->proc_to_apply = proc_to_apply;
+}
+
+void NoEffectBuff::link_proc_expiration(Proc* proc_to_cancel) {
+    this->proc_to_cancel = proc_to_cancel;
 }
 
 void NoEffectBuff::buff_effect_when_applied() {
+    if (proc_to_apply)
+        proc_to_apply->enable_proc();
 }
 
 void NoEffectBuff::buff_effect_when_removed() {
-    if (linked_buff != nullptr)
-        this->linked_buff->cancel_buff();
+    if (buff_to_cancel)
+        buff_to_cancel->cancel_buff();
+
+    if (proc_to_cancel)
+        proc_to_cancel->disable_proc();
 }

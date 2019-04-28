@@ -17,11 +17,13 @@ SOURCES += main.cpp \
     Character/Class/Paladin/Buffs/SanctityAuraBuff.cpp \
     Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.cpp \
     Character/Class/Paladin/Buffs/Vengeance.cpp \
+    Character/Class/Paladin/Procs/SealOfCommandProc.cpp \
     Character/Class/Paladin/Spells/Consecration.cpp \
     Character/Class/Paladin/Spells/Judgement.cpp \
     Character/Class/Paladin/Spells/MainhandAttackPaladin.cpp \
     Character/Class/Paladin/Spells/PaladinSeal.cpp \
     Character/Class/Paladin/Spells/SanctityAura.cpp \
+    Character/Class/Paladin/Spells/SealOfCommand.cpp \
     Character/Class/Paladin/Spells/SealOfTheCrusader.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
@@ -50,6 +52,7 @@ SOURCES += main.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
     Test/Paladin/Spells/TestMainhandAttackPaladin.cpp \
+    Test/Paladin/Spells/TestSealOfCommand.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.cpp \
     Test/Paladin/TestSpellPaladin.cpp \
@@ -380,11 +383,13 @@ HEADERS += \
     Character/Class/Paladin/Buffs/SanctityAuraBuff.h \
     Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.h \
     Character/Class/Paladin/Buffs/Vengeance.h \
+    Character/Class/Paladin/Procs/SealOfCommandProc.h \
     Character/Class/Paladin/Spells/Consecration.h \
     Character/Class/Paladin/Spells/Judgement.h \
     Character/Class/Paladin/Spells/MainhandAttackPaladin.h \
     Character/Class/Paladin/Spells/PaladinSeal.h \
     Character/Class/Paladin/Spells/SanctityAura.h \
+    Character/Class/Paladin/Spells/SealOfCommand.h \
     Character/Class/Paladin/Spells/SealOfTheCrusader.h \
     Queue/Queue.h \
     Event/Event.h \
@@ -414,6 +419,7 @@ HEADERS += \
     Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \
     Test/Paladin/Spells/TestMainhandAttackPaladin.h \
+    Test/Paladin/Spells/TestSealOfCommand.h \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.h \
     Test/Paladin/TestSpellPaladin.h \
@@ -790,6 +796,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Class/Shaman \
     $$PWD/Character/Class/Paladin \
     $$PWD/Character/Class/Paladin/Buffs \
+    $$PWD/Character/Class/Paladin/Procs \
     $$PWD/Character/Class/Paladin/Spells \
     $$PWD/Character/Class/Paladin/TalentTrees \
     $$PWD/Equipment \
@@ -819,6 +826,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Hunter/Spells \
     $$PWD/Test/Hunter/Talents \
     $$PWD/Test/Paladin \
+    $$PWD/Test/Paladin/Procs \
     $$PWD/Test/Paladin/Spells \
     $$PWD/Test/Paladin/Talents \
     $$PWD/Test/Rotation \
