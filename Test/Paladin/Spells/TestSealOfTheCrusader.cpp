@@ -106,9 +106,9 @@ void TestSealOfTheCrusader::test_is_ready_conditions() {
 void TestSealOfTheCrusader::test_whether_spell_causes_global_cooldown() {
     assert(paladin->action_ready());
 
-    when_mh_attack_is_performed();
+    when_seal_of_the_crusader_is_performed();
 
-    assert(paladin->action_ready());
+    assert(!paladin->action_ready());
 }
 
 void TestSealOfTheCrusader::test_seal_of_the_crusader_lowers_damage() {
@@ -262,25 +262,11 @@ void TestSealOfTheCrusader::when_seal_of_the_crusader_is_performed() {
 }
 
 void TestSealOfTheCrusader::given_benediction_rank(const unsigned num) {
-    assert(num > 0);
-
-    Talent* talent = Retribution(paladin).get_benediction();
-
-    for (unsigned i = 0; i < num; ++i)
-        assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Retribution(paladin).get_benediction(), num);
 }
 
 void TestSealOfTheCrusader::given_improved_sotc_rank(const unsigned num) {
-    assert(num > 0);
-
-    Talent* talent = Retribution(paladin).get_improved_seal_of_the_crusader();
-
-    for (unsigned i = 0; i < num; ++i)
-        assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Retribution(paladin).get_improved_seal_of_the_crusader(), num);
 }
 
 void TestSealOfTheCrusader::given_seal_of_the_crusader_is_active() {
