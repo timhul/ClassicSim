@@ -40,7 +40,15 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+* Paladin support (spells, talents, Seal of the Crusader and Seal of Command rotations).
+* Fix bug for Warriors using Vaelastrasz ruleset which caused Execute to not be evaluated properly.
+* Flask of Supreme Power, Flask of Distilled Wisdom, Mageblood Potion are available to use as external buffs.
+* Mutually exclusive buff groups are now in place, selecting e.g. a flask will deactivate any other active flask effect.
+
+## Restrictions:
+
+* Paladins can currently equip ranged weapons.
+* No Paladin tier pieces are available.
 
 # Release notes
 
@@ -199,7 +207,7 @@ contact me!
 Q: (not really a question) Nothing happens when I click "Click me!" / "Run Full Sim".
 
 A: Make sure you have equipped a mainhand weapon if a melee rotation is used, or a ranged weapon if a ranged rotation
-used.
+is used.
 
 Q: How many iterations are being run?
 
