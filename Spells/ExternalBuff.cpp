@@ -143,6 +143,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::FlaskOfDistilledWisdom:
         pchar->increase_base_mana(2000);
         break;
+    case ExternalBuffName::FlaskOfSupremePower:
+        pchar->get_stats()->increase_base_spell_damage(150);
+        break;
     }
 }
 
@@ -237,6 +240,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::FlaskOfDistilledWisdom:
         pchar->decrease_base_mana(2000);
+        break;
+    case ExternalBuffName::FlaskOfSupremePower:
+        pchar->get_stats()->decrease_base_spell_damage(150);
         break;
     }
 }
@@ -367,6 +373,11 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Flask of Distilled Wisdom", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_97.png",
                                 "Increases maximum mana by 2000",
+                                QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::FlaskOfSupremePower:
+        return new ExternalBuff(pchar, "Flask of Supreme Power", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_41.png",
+                                "+150 Spell Damage",
                                 QVersionNumber::fromString("1.0.0"));
     }
 
