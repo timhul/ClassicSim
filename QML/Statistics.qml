@@ -8,7 +8,7 @@ Rectangle {
 
     color: "transparent"
 
-    state: "DISTRIBUTIONS"
+    state: "DAMAGE_BREAKDOWN"
 
     Row {
         id: changeStatistics
