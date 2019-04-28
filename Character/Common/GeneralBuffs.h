@@ -40,6 +40,7 @@ private:
     QVector<ExternalBuff*> horde_only_buffs;
     QVector<QVector<QPair<bool, ExternalBuff*>>> external_buffs;
     QVector<QVector<QPair<bool, ExternalBuff*>>> external_debuffs;
+    QVector<QSet<QString>> mutex_buff_groups;
 
     void toggle_external(const QString& name, QVector<QVector<QPair<bool, ExternalBuff *> > > &vec);
     bool external_buff_active(const QString& name, const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec) const;
@@ -47,6 +48,7 @@ private:
     void activate_buffs_for_current_setup();
     void activate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec);
     void deactivate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec);
+    void deactivate_mutex_buffs(const QString& name);
 
     bool character_is_mana_user() const;
 };

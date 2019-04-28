@@ -61,6 +61,10 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     }
 
     buffs.append(new EssenceOfTheRed(pchar));
+
+    mutex_buff_groups.append({"Flask of Supreme Power", "Flask of Distilled Wisdom"});
+    mutex_buff_groups.append({"Smoked Desert Dumplings", "Grilled Squid"});
+    mutex_buff_groups.append({"Juju Power", "Elixir of Giants"});
 }
 
 GeneralBuffs::~GeneralBuffs()
@@ -150,6 +154,7 @@ void GeneralBuffs::toggle_external(const QString& name, QVector<QVector<QPair<bo
         else {
             i.first = true;
             i.second->apply_buff();
+            deactivate_mutex_buffs(name);
         }
 
         break;
@@ -212,6 +217,21 @@ void GeneralBuffs::deactivate_externals(const QVector<QVector<QPair<bool, Extern
     for (auto i : vec[current_setup]) {
         if (i.second->is_active())
             i.second->cancel_buff();
+    }
+}
+
+void GeneralBuffs::deactivate_mutex_buffs(const QString& name) {
+    for (auto & mutex_group : mutex_buff_groups) {
+        if (!mutex_group.contains(name))
+            continue;
+
+        for (auto & buff : mutex_group) {
+            if (buff == name)
+                continue;
+
+            if (external_buff_active(buff, external_buffs))
+                toggle_external_buff(buff);
+        }
     }
 }
 

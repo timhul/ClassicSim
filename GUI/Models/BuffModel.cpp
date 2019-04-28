@@ -29,10 +29,10 @@ void BuffModel::toggle_buff(const QString& name) {
             continue;
 
         pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(name);
-
-        dataChanged(createIndex(i, 0), createIndex(i, 0), {ActiveRole});
         break;
     }
+
+    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void BuffModel::update_buffs() {
