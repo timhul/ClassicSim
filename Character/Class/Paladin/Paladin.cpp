@@ -130,6 +130,14 @@ void Paladin::lose_mana(const unsigned value) {
     mana->lose_resource(value);
 }
 
+void Paladin::increase_base_mana(const unsigned value) {
+    mana->base_mana += value;
+}
+
+void Paladin::decrease_base_mana(const unsigned value) {
+    mana->base_mana -= value;
+}
+
 Buff* Paladin::get_vengeance() const {
     return this->vengeance;
 }

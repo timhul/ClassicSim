@@ -484,6 +484,14 @@ void Character::lose_focus(const unsigned) {
 
 }
 
+void Character::increase_base_mana(const unsigned) {
+
+}
+
+void Character::decrease_base_mana(const unsigned) {
+
+}
+
 double Character::get_mp5_from_spirit() const {
     check(false, "Not implemented");
     return 0.0;

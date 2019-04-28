@@ -140,6 +140,9 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::MagebloodPotion:
         pchar->get_stats()->increase_mp5(12);
         break;
+    case ExternalBuffName::FlaskOfDistilledWisdom:
+        pchar->increase_base_mana(2000);
+        break;
     }
 }
 
@@ -231,6 +234,9 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::MagebloodPotion:
         pchar->get_stats()->decrease_mp5(12);
+        break;
+    case ExternalBuffName::FlaskOfDistilledWisdom:
+        pchar->decrease_base_mana(2000);
         break;
     }
 }
@@ -355,7 +361,12 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
     case ExternalBuffName::MagebloodPotion:
         return new ExternalBuff(pchar, "Mageblood Potion", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_45.png",
-                                "Regenerate 12 mana per 5 sec.",
+                                "Regenerate 12 mana per 5 sec",
+                                QVersionNumber::fromString("1.0.0"));
+    case ExternalBuffName::FlaskOfDistilledWisdom:
+        return new ExternalBuff(pchar, "Flask of Distilled Wisdom", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_97.png",
+                                "Increases maximum mana by 2000",
                                 QVersionNumber::fromString("1.0.0"));
     }
 

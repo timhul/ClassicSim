@@ -34,6 +34,9 @@ public:
     void gain_mana(const unsigned value) override;
     void lose_mana(const unsigned value) override;
 
+    void increase_base_mana(const unsigned value) override;
+    void decrease_base_mana(const unsigned value) override;
+
     Buff* get_vengeance() const;
 
 private:

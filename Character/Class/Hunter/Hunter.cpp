@@ -166,6 +166,14 @@ void Hunter::lose_focus(const unsigned value) {
     pet->get_resource()->lose_resource(value);
 }
 
+void Hunter::increase_base_mana(const unsigned value) {
+    mana->base_mana += value;
+}
+
+void Hunter::decrease_base_mana(const unsigned value) {
+    mana->base_mana -= value;
+}
+
 void Hunter::add_pet_reaction_event() {
     pet->add_pet_reaction();
 }

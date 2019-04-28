@@ -34,6 +34,9 @@ public:
     void gain_focus(const unsigned value) override;
     void lose_focus(const unsigned value) override;
 
+    void increase_base_mana(const unsigned value) override;
+    void decrease_base_mana(const unsigned value) override;
+
     void add_pet_reaction_event() override;
     double get_non_normalized_projectile_dmg_bonus() const;
     double get_normalized_projectile_dmg_bonus() const;

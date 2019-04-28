@@ -17,6 +17,7 @@ enum ExternalBuffName {
     ElixirOfGiants,
     ElixirOfTheMongoose,
     FaerieFire,
+    FlaskOfDistilledWisdom,
     GrilledSquid,
     JujuPower,
     MagebloodPotion,

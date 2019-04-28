@@ -151,6 +151,9 @@ public:
     virtual void gain_focus(const unsigned);
     virtual void lose_focus(const unsigned);
 
+    virtual void increase_base_mana(const unsigned value);
+    virtual void decrease_base_mana(const unsigned value);
+
     void increase_mh_flat_damage_bonus(const unsigned);
     void decrease_mh_flat_damage_bonus(const unsigned);
 
