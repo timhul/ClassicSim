@@ -12,6 +12,7 @@ class Character;
 class DemonicRune;
 class MainhandAttack;
 class ManaPotion;
+class NightDragonsBreath;
 class OffhandAttack;
 class Rotation;
 class Spell;
@@ -72,6 +73,7 @@ public:
 
     DemonicRune* get_demonic_rune() const;
     ManaPotion* get_mana_potion() const;
+    NightDragonsBreath* get_night_dragons_breath() const;
 
 protected:
     Character* pchar;
@@ -92,6 +94,7 @@ protected:
 
     DemonicRune* demonic_rune;
     ManaPotion* mana_potion;
+    NightDragonsBreath* night_dragons_breath;
 
 private:
     void start_melee_attack();

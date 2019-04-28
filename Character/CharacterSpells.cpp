@@ -10,6 +10,7 @@
 #include "MainhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "ManaPotion.h"
+#include "NightDragonsBreath.h"
 #include "OffhandAttack.h"
 #include "OffhandMeleeHit.h"
 #include "Pet.h"
@@ -31,7 +32,8 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     blood_fury = new BloodFury(pchar);
     demonic_rune = new DemonicRune(pchar);
     mana_potion = new ManaPotion(pchar);
-    spells = {berserking, blood_fury, demonic_rune, mana_potion};
+    night_dragons_breath = new NightDragonsBreath(pchar);
+    spells = {berserking, blood_fury, demonic_rune, mana_potion, night_dragons_breath};
 }
 
 CharacterSpells::~CharacterSpells()
@@ -286,6 +288,10 @@ DemonicRune* CharacterSpells::get_demonic_rune() const {
 
 ManaPotion* CharacterSpells::get_mana_potion() const {
     return this->mana_potion;
+}
+
+NightDragonsBreath* CharacterSpells::get_night_dragons_breath() const {
+    return this->night_dragons_breath;
 }
 
 void CharacterSpells::prepare_set_of_combat_iterations() {

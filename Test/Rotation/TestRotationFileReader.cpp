@@ -164,6 +164,7 @@ void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
         "Aspect of the Hawk",
         "Mana Potion",
         "Demonic Rune",
+        "Night Dragon's Breath",
     };
     assert(rotation->all_executors.size() == expected_executor_names.size());
 
@@ -186,6 +187,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
         "Diamond Flask",
         "Mana Potion",
         "Demonic Rune",
+        "Night Dragon's Breath",
     };
     assert(rotation->all_executors.size() == expected_executor_names.size());
     verify_executor_names(rotation, rotation->all_executors, expected_executor_names);
@@ -195,6 +197,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
         "Seal of the Crusader",
         "Mana Potion",
         "Demonic Rune",
+        "Night Dragon's Breath",
     };
     rotation->link_spells(paladin);
     verify_executor_names(rotation, rotation->active_executors, expected_active_executor_names);
