@@ -50,6 +50,148 @@
         </special_equip_effect>
 	</item>
 
+	<item id="18204" phase="0">
+        <info name="Eskhandar's Pelt" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_cape_07.png"/>
+        <stats>
+			<stat type="ARMOR" value="51"/>
+			<stat type="STAMINA" value="20"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Drops from Lord Kazzak (world boss in Blasted Lands).
+        </source>
+	</item>
+
+	<item id="17107" phase="0">
+        <info name="Dragon's Blood Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_08.png"/>
+        <stats>
+			<stat type="ARMOR" value="116"/>
+			<stat type="STAMINA" value="22"/>
+            <stat type="STRENGTH" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="5"/>
+			<stat type="SHADOW_RESISTANCE" value="5"/>
+			<stat type="ARCANE_RESISTANCE" value="5"/>
+        </stats>
+        <source>
+			Drops from Ragnaros in Molten Core.
+        </source>
+	</item>
+
+	<item id="17102" phase="0">
+        <info name="Cloak of the Shrouded Mists" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_misc_cape_17.png"/>
+        <stats>
+			<stat type="ARMOR" value="57"/>
+            <stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="FIRE_RESISTANCE" value="6"/>
+			<stat type="NATURE_RESISTANCE" value="6"/>
+        </stats>
+        <source>
+			Drops from Ragnaros in Molten Core.
+        </source>
+	</item>
+
+	<item id="18541" phase="1">
+        <info name="Puissant Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_misc_cape_06.png"/>
+        <stats>
+            <stat type="ARMOR" value="54"/>
+            <stat type="STAMINA" value="12"/>
+            <stat type="ATTACK_POWER" value="40"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Drops from Azuregos (world boss).
+        </source>
+	</item>
+
+	<item id="19436" phase="2">
+        <info name="Cloak of Draconic Might" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_misc_cape_11.png"/>
+        <stats>
+            <stat type="ARMOR" value="54"/>
+            <stat type="AGILITY" value="16"/>
+            <stat type="STRENGTH" value="16"/>
+            <stat type="STAMINA" value="4"/>
+        </stats>
+        <source>
+			Drops from trash in Blackwing Lair.
+        </source>
+	</item>
+
+	<item id="19398" phase="2">
+        <info name="Cloak of Firemaw" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_cape_18.png"/>
+        <stats>
+			<stat type="ARMOR" value="57"/>
+            <stat type="STAMINA" value="12"/>
+            <stat type="ATTACK_POWER" value="50"/>
+        </stats>
+        <source>
+			Drops from Firemaw in Blackwing Lair.
+        </source>
+	</item>
+
+	<item id="20073" phase="3">
+        <info name="Cloak of the Honor Guard" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_misc_cape_02.png"/>
+        <stats>
+			<stat type="ARMOR" value="50"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="AGILITY" value="5"/>
+			<stat type="ATTACK_POWER" value="34"/>
+        </stats>
+        <source>
+			Requires Exalted with The League of Arathor (Arathi Basin).
+        </source>
+	</item>
+
+	<item id="20068" phase="3">
+        <info name="Deathguard's Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_cape_02.png"/>
+        <stats>
+			<stat type="ARMOR" value="50"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="AGILITY" value="5"/>
+			<stat type="ATTACK_POWER" value="34"/>
+        </stats>
+        <source>
+			Requires Exalted with The Defilers (Arathi Basin).
+        </source>
+	</item>
+
+	<item id="22712" phase="3">
+        <info name="Might of the Tribe" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_misc_cape_16.png"/>
+        <stats>
+			<stat type="ARMOR" value="48"/>
+            <stat type="STAMINA" value="18"/>
+            <stat type="ATTACK_POWER" value="28"/>
+        </stats>
+        <source>
+			Drops from multiple bosses in Zul'Gurub.
+        </source>
+	</item>
+
+	<item id="19907" phase="3">
+        <info name="Zulian Tigerhide Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_misc_cape_10.png"/>
+        <stats>
+			<stat type="ARMOR" value="48"/>
+            <stat type="AGILITY" value="13"/>
+			<stat type="STAMINA" value="10"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Drops from High Priest Venoxis in Zul'Gurub.
+        </source>
+	</item>
+
+	<item id="22337" phase="4">
+        <info name="Shroud of Domination" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_19.png"/>
+        <stats>
+			<stat type="ARMOR" value="45"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="STRENGTH" value="17"/>
+        </stats>
+        <source>
+			Drops from Lord Valthalak in Upper Blackrock Spire (UBRS) during Tier 0.5 quest line.
+        </source>
+	</item>
+
 	<item id="21394" phase="4">
         <info name="Drape of Unyielding Strength" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
         <class_restriction class="WARRIOR"/>
@@ -59,6 +201,21 @@
             <stat type="AGILITY" value="9"/>
             <stat type="STAMINA" value="9"/>
             <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
+        </source>
+	</item>
+
+	<item id="21397" phase="4">
+        <info name="Cape of Eternal Justice" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_14.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="52"/>
+            <stat type="STRENGTH" value="11"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="INTELLECT" value="12"/>
+            <stat type="MANA_PER_5" value="5"/>
         </stats>
         <source>
 			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
@@ -93,6 +250,20 @@
         </source>
 	</item>
 
+	<item id="20691" phase="4">
+        <info name="Windshear Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
+        <stats>
+            <stat type="ARMOR" value="50"/>
+            <stat type="AGILITY" value="15"/>
+            <stat type="STAMINA" value="14"/>
+			<stat type="STRENGTH" value="8"/>
+            <stat type="INTELLECT" value="7"/>
+        </stats>
+        <source>
+			Drops from High Marshal Whirlaxis (summonable raid boss in Silithus).
+        </source>
+	</item>
+
 	<item id="21701" phase="4">
         <info name="Cloak of Concentrated Hatred" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_misc_cape_02.png"/>
         <stats>
@@ -104,6 +275,45 @@
         </stats>
         <source>
 			Drops from Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
+        </source>
+	</item>
+
+	<item id="21710" phase="4">
+        <info name="Cloak of the Fallen God" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_misc_cape_10.png"/>
+        <stats>
+            <stat type="ARMOR" value="66"/>
+            <stat type="AGILITY" value="26"/>
+            <stat type="STRENGTH" value="11"/>
+            <stat type="STAMINA" value="15"/>
+        </stats>
+        <source>
+			Quest reward. Requires Eye of C'Thun from C'Thun in Temple of Ahn'Qiraj (AQ40).
+        </source>
+	</item>
+
+	<item id="23127" phase="5">
+        <info name="Cloak of Revanchion" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_02.png"/>
+        <stats>
+			<stat type="ARMOR" value="45"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="AGILITY" value="10"/>
+        </stats>
+        <source>
+			Drops from Revanchion in Dire Maul during Scourge Invasion event.
+        </source>
+	</item>
+
+	<item id="23030" phase="5">
+        <info name="Cloak of the Scourge" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_01.png"/>
+        <stats>
+            <stat type="ARMOR" value="63"/>
+            <stat type="STAMINA" value="23"/>
+            <stat type="ATTACK_POWER" value="30"/>
+            <stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+			Drops from Noth the Plaguebringer in Naxxramas.
         </source>
 	</item>
 

@@ -596,5 +596,15 @@
         <file>QML/Assets/items/Inv_jewelry_necklace_22.png</file>
         <file>QML/Assets/items/Inv_jewelry_necklace_29naxxramas.png</file>
         <file>QML/Assets/items/Inv_jewelry_necklace_ahnqiraj_03.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_06.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_07.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_08.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_10.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_11.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_14.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_16.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_17.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_18.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_naxxramas_01.png</file>
     </qresource>
 </RCC>
