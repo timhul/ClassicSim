@@ -83,8 +83,12 @@ void ResourceBreakdownModel::update_statistics() {
     statistics_source->merge_resource_stats(resource_stats);
     endInsertRows();
 
+    QMap<ResourceType, double> resource_gains = {{ResourceType::Rage, 0.0}, {ResourceType::Mana, 0.0}, {ResourceType::Energy, 0.0}};
     QList<StatisticsResource*>::iterator it = resource_stats.begin();
     while (it != resource_stats.end()) {
+        resource_gains[ResourceType::Rage] += (*it)->get_rage_gain_per_5();
+        resource_gains[ResourceType::Mana] += (*it)->get_mana_gain_per_5();
+        resource_gains[ResourceType::Energy] += (*it)->get_rage_gain_per_5();
         double resource_gains = (*it)->get_rage_gain_per_5() + (*it)->get_energy_gain_per_5() + (*it)->get_mana_gain_per_5();
         if (almost_equal(resource_gains, 0)) {
             delete *it;
@@ -95,7 +99,12 @@ void ResourceBreakdownModel::update_statistics() {
     }
 
     layoutAboutToBeChanged();
-    std::sort(resource_stats.begin(), resource_stats.end(), rage_gain);
+    if (resource_gains[ResourceType::Rage] > 0.01)
+        std::sort(resource_stats.begin(), resource_stats.end(), rage_gain);
+    else if (resource_gains[ResourceType::Mana] > 0.01)
+        std::sort(resource_stats.begin(), resource_stats.end(), mana_gain);
+    else if (resource_gains[ResourceType::Energy] > 0.01)
+        std::sort(resource_stats.begin(), resource_stats.end(), energy_gain);
     layoutChanged();
 }
 
