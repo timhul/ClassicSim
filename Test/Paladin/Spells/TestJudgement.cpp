@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Judgement.h"
-#include "MainhandAttackPaladin.h"
+#include "Paladin.h"
 #include "PaladinSpells.h"
 #include "Retribution.h"
 #include "SanctityAura.h"
@@ -79,21 +79,6 @@ void TestJudgement::test_all() {
     set_up(false);
     test_judgement_of_command_damage_with_sotc_and_sanctity_aura_and_vengeance();
     tear_down();
-}
-
-MainhandAttackPaladin* TestJudgement::mh_attack() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<MainhandAttackPaladin*>(spells->get_mh_attack());
-}
-
-SealOfCommand* TestJudgement::seal_of_command() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<SealOfCommand*>(spells->get_seal_of_command());
-}
-
-SealOfTheCrusader* TestJudgement::seal_of_the_crusader() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<SealOfTheCrusader*>(spells->get_seal_of_the_crusader());
 }
 
 Judgement* TestJudgement::judgement() {
@@ -363,48 +348,14 @@ void TestJudgement::test_judgement_of_command_damage_with_sotc_and_sanctity_aura
     then_damage_dealt_is_in_range(114, 125);
 }
 
-void TestJudgement::when_mh_attack_is_performed() {
-    if (pchar->get_equipment()->get_mainhand() == nullptr)
-        given_a_mainhand_weapon_with_100_min_max_dmg();
-
-    mh_attack()->perform();
-}
-
 void TestJudgement::when_judgement_is_performed() {
     assert(judgement()->get_spell_status() == SpellStatus::Available);
     judgement()->perform();
 }
 
-void TestJudgement::when_seal_of_the_crusader_is_performed() {
-    if (pchar->get_equipment()->get_mainhand() == nullptr)
-        given_a_mainhand_weapon_with_100_min_max_dmg();
-
-    seal_of_the_crusader()->perform();
-}
-
-void TestJudgement::when_seal_of_command_is_performed() {
-    if (pchar->get_equipment()->get_mainhand() == nullptr)
-        given_a_mainhand_weapon_with_100_min_max_dmg();
-
-    seal_of_command()->perform();
-}
-
-void TestJudgement::given_benediction_rank(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_benediction(), num);
-}
-
-void TestJudgement::given_improved_sotc_rank(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_improved_seal_of_the_crusader(), num);
-}
 
 void TestJudgement::given_improved_judgement_rank(const unsigned num) {
     given_talent_rank(Retribution(paladin).get_improved_judgement(), num);
-}
-
-void TestJudgement::given_seal_of_command_is_enabled() {
-    given_talent_rank(Retribution(paladin).get_seal_of_command(), 1);
-    assert(seal_of_command()->is_enabled());
-    paladin->prepare_set_of_combat_iterations();
 }
 
 void TestJudgement::given_sanctity_aura_is_active() {
@@ -416,9 +367,4 @@ void TestJudgement::given_sanctity_aura_is_active() {
 void TestJudgement::given_vengeance_is_active(const unsigned num) {
     given_talent_rank(Retribution(paladin).get_vengeance(), num);
     paladin->get_vengeance()->apply_buff();
-}
-
-void TestJudgement::given_seal_of_the_crusader_is_active() {
-    seal_of_the_crusader()->perform();
-    assert(seal_of_the_crusader()->get_buff()->is_active());
 }

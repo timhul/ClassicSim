@@ -3,10 +3,15 @@
 #include <QDebug>
 #include <utility>
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
+#include "Retribution.h"
+#include "SealOfCommand.h"
+#include "SealOfTheCrusader.h"
 #include "SealOfTheCrusader.h"
 #include "SimSettings.h"
 #include "Spell.h"
@@ -35,6 +40,21 @@ void TestSpellPaladin::run_class_specific_tests() {
 
 }
 
+MainhandAttackPaladin* TestSpellPaladin::mh_attack() {
+    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
+    return dynamic_cast<MainhandAttackPaladin*>(spells->get_mh_attack());
+}
+
+SealOfCommand* TestSpellPaladin::seal_of_command() {
+    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
+    return dynamic_cast<SealOfCommand*>(spells->get_seal_of_command());
+}
+
+SealOfTheCrusader* TestSpellPaladin::seal_of_the_crusader() {
+    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
+    return dynamic_cast<SealOfTheCrusader*>(spells->get_seal_of_the_crusader());
+}
+
 void TestSpellPaladin::given_paladin_is_on_gcd() {
     given_paladin_is_on_gcd(dynamic_cast<PaladinSpells*>(pchar->get_spells())->get_seal_of_the_crusader());
 }
@@ -60,6 +80,52 @@ void TestSpellPaladin::given_paladin_has_mana(const unsigned mana) {
         paladin->lose_mana(paladin->get_resource_level(ResourceType::Mana));
     paladin->gain_mana(mana);
     then_paladin_has_mana(mana);
+}
+
+void TestSpellPaladin::given_benediction_rank(const unsigned num) {
+    given_talent_rank(Retribution(paladin).get_benediction(), num);
+}
+
+void TestSpellPaladin::given_improved_sotc_rank(const unsigned num) {
+    given_talent_rank(Retribution(paladin).get_improved_seal_of_the_crusader(), num);
+}
+
+void TestSpellPaladin::given_seal_of_the_crusader_is_active() {
+    seal_of_the_crusader()->perform();
+    assert(seal_of_the_crusader()->get_buff()->is_active());
+}
+
+void TestSpellPaladin::given_seal_of_command_is_enabled() {
+    given_talent_rank(Retribution(paladin).get_seal_of_command(), 1);
+    assert(seal_of_command()->is_enabled());
+    paladin->prepare_set_of_combat_iterations();
+}
+
+void TestSpellPaladin::given_seal_of_command_is_active() {
+    given_seal_of_command_is_enabled();
+    seal_of_command()->perform();
+    assert(seal_of_command()->get_buff()->is_active());
+}
+
+void TestSpellPaladin::when_mh_attack_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
+    mh_attack()->perform();
+}
+
+void TestSpellPaladin::when_seal_of_the_crusader_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
+    seal_of_the_crusader()->perform();
+}
+
+void TestSpellPaladin::when_seal_of_command_is_performed() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        given_a_mainhand_weapon_with_100_min_max_dmg();
+
+    seal_of_command()->perform();
 }
 
 void TestSpellPaladin::then_paladin_has_mana(const unsigned mana) {

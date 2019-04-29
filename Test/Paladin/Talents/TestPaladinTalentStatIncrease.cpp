@@ -2,6 +2,7 @@
 
 #include "CharacterStats.h"
 #include "HolyPaladin.h"
+#include "Paladin.h"
 #include "ProtectionPaladin.h"
 #include "Retribution.h"
 #include "Talent.h"

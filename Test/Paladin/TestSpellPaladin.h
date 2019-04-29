@@ -2,8 +2,12 @@
 #define TESTSPELLPALADIN_H
 
 #include "TestSpellDamage.h"
-#include "Paladin.h"
-#include "PaladinSpells.h"
+
+class MainhandAttackPaladin;
+class Paladin;
+class SealOfCommand;
+class SealOfTheCrusader;
+class Spell;
 
 class TestSpellPaladin: public TestSpellDamage {
 public:
@@ -17,10 +21,27 @@ protected:
 
     void run_class_specific_tests() override;
 
-    void given_paladin_is_on_gcd(Spell* spell);
-    void given_paladin_is_on_gcd();
+    MainhandAttackPaladin* mh_attack();
+    SealOfCommand* seal_of_command();
+    SealOfTheCrusader* seal_of_the_crusader();
+
+    void given_benediction_rank(const unsigned num);
+    void given_improved_judgement_rank(const unsigned num);
+    void given_improved_sotc_rank(const unsigned num);
     void given_paladin_has_mana(const unsigned mana);
+    void given_paladin_is_on_gcd();
+    void given_paladin_is_on_gcd(Spell* spell);
+    void given_sanctity_aura_is_active();
+    void given_seal_of_command_is_active();
+    void given_seal_of_command_is_enabled();
+    void given_seal_of_the_crusader_is_active();
+    void given_vengeance_is_active(const unsigned num);
+    void then_next_expected_use_is(const double next_expected_use);
     void then_paladin_has_mana(const unsigned mana);
+    void when_judgement_is_performed();
+    void when_mh_attack_is_performed();
+    void when_seal_of_command_is_performed();
+    void when_seal_of_the_crusader_is_performed();
 };
 
 #endif // TESTSPELLPALADIN_H

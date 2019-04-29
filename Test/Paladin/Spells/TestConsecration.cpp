@@ -4,6 +4,7 @@
 #include "Consecration.h"
 #include "Equipment.h"
 #include "HolyPaladin.h"
+#include "Paladin.h"
 #include "PaladinSpells.h"
 #include "Retribution.h"
 #include "SanctityAura.h"

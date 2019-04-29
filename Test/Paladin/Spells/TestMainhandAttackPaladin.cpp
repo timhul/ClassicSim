@@ -1,10 +1,7 @@
 #include "TestMainhandAttackPaladin.h"
 
-#include "Equipment.h"
 #include "MainhandAttackPaladin.h"
-#include "PaladinSpells.h"
-#include "SealOfTheCrusader.h"
-#include "SealOfTheCrusaderBuff.h"
+#include "Paladin.h"
 
 TestMainhandAttackPaladin::TestMainhandAttackPaladin(EquipmentDb *equipment_db) :
     TestSpellPaladin(equipment_db, "MainhandAttackPaladin")
@@ -52,11 +49,6 @@ void TestMainhandAttackPaladin::test_all() {
     set_up();
     test_seal_of_the_crusader_lowers_damage();
     tear_down();
-}
-
-MainhandAttackPaladin* TestMainhandAttackPaladin::mh_attack() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<MainhandAttackPaladin*>(spells->get_mh_attack());
 }
 
 void TestMainhandAttackPaladin::test_name_correct() {
@@ -234,13 +226,6 @@ void TestMainhandAttackPaladin::test_seal_of_the_crusader_lowers_damage() {
     then_damage_dealt_is(204);
 }
 
-void TestMainhandAttackPaladin::when_mh_attack_is_performed() {
-    if (pchar->get_equipment()->get_mainhand() == nullptr)
-        given_a_mainhand_weapon_with_100_min_max_dmg();
-
-    mh_attack()->perform();
-}
-
 void TestMainhandAttackPaladin::when_changing_to_2_speed() {
     given_a_mainhand_weapon_with_2_speed();
 }
@@ -255,9 +240,4 @@ void TestMainhandAttackPaladin::when_decreasing_attack_speed(const int change) {
 
 void TestMainhandAttackPaladin::then_next_expected_use_is(const double next_expected_use) {
     assert(QString::number(mh_attack()->get_next_expected_use(), 'f', 3) == QString::number(next_expected_use, 'f', 3));
-}
-
-void TestMainhandAttackPaladin::given_seal_of_the_crusader_is_active() {
-    dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal_of_the_crusader()->perform();
-    assert(dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal_of_the_crusader()->get_buff()->is_active());
 }

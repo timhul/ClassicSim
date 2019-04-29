@@ -3,9 +3,6 @@
 
 #include "TestSpellPaladin.h"
 
-class MainhandAttackPaladin;
-class SealOfTheCrusader;
-
 class TestSealOfTheCrusader: public TestSpellPaladin {
 public:
     TestSealOfTheCrusader(EquipmentDb *equipment_db);
@@ -13,9 +10,6 @@ public:
     void test_all();
 
 private:
-    MainhandAttackPaladin* mh_attack();
-    SealOfTheCrusader* seal_of_the_crusader();
-
     void test_name_correct() override;
     void test_spell_cooldown() override;
     void test_whether_spell_causes_global_cooldown() override;
@@ -34,14 +28,6 @@ private:
     void test_melee_ap_bonus_1_of_3_improved_sotc();
     void test_melee_ap_bonus_2_of_3_improved_sotc();
     void test_melee_ap_bonus_3_of_3_improved_sotc();
-
-    void given_seal_of_the_crusader_is_active();
-    void when_mh_attack_is_performed();
-    void when_seal_of_the_crusader_is_performed();
-    void then_next_expected_use_is(const double next_expected_use);
-
-    void given_benediction_rank(const unsigned num);
-    void given_improved_sotc_rank(const unsigned num);
 };
 
 #endif // TESTSEALOFTHECRUSADER_H

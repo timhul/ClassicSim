@@ -1,13 +1,9 @@
 #include "TestSealOfTheCrusader.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
-#include "Equipment.h"
-#include "MainhandAttackPaladin.h"
-#include "PaladinSpells.h"
-#include "Retribution.h"
+#include "Paladin.h"
 #include "SealOfTheCrusader.h"
-#include "SealOfTheCrusaderBuff.h"
-#include "Talent.h"
 
 TestSealOfTheCrusader::TestSealOfTheCrusader(EquipmentDb *equipment_db) :
     TestSpellPaladin(equipment_db, "Seal of the Crusader")
@@ -59,16 +55,6 @@ void TestSealOfTheCrusader::test_all() {
     set_up();
     test_melee_ap_bonus_3_of_3_improved_sotc();
     tear_down();
-}
-
-MainhandAttackPaladin* TestSealOfTheCrusader::mh_attack() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<MainhandAttackPaladin*>(spells->get_mh_attack());
-}
-
-SealOfTheCrusader* TestSealOfTheCrusader::seal_of_the_crusader() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<SealOfTheCrusader*>(spells->get_seal_of_the_crusader());
 }
 
 void TestSealOfTheCrusader::test_name_correct() {
@@ -245,31 +231,4 @@ void TestSealOfTheCrusader::test_melee_ap_bonus_3_of_3_improved_sotc() {
     when_seal_of_the_crusader_is_performed();
 
     assert(pchar->get_stats()->get_melee_ap() == 1000 + 352);
-}
-
-void TestSealOfTheCrusader::when_mh_attack_is_performed() {
-    if (pchar->get_equipment()->get_mainhand() == nullptr)
-        given_a_mainhand_weapon_with_100_min_max_dmg();
-
-    mh_attack()->perform();
-}
-
-void TestSealOfTheCrusader::when_seal_of_the_crusader_is_performed() {
-    if (pchar->get_equipment()->get_mainhand() == nullptr)
-        given_a_mainhand_weapon_with_100_min_max_dmg();
-
-    seal_of_the_crusader()->perform();
-}
-
-void TestSealOfTheCrusader::given_benediction_rank(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_benediction(), num);
-}
-
-void TestSealOfTheCrusader::given_improved_sotc_rank(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_improved_seal_of_the_crusader(), num);
-}
-
-void TestSealOfTheCrusader::given_seal_of_the_crusader_is_active() {
-    seal_of_the_crusader()->perform();
-    assert(seal_of_the_crusader()->get_buff()->is_active());
 }
