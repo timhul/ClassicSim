@@ -17,6 +17,7 @@ RectangleBorders {
 
     function hasDurability() {
         switch (slotString) {
+        case "BACK":
         case "NECK":
         case "RING1":
         case "RING2":
