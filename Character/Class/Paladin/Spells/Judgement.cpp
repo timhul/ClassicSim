@@ -24,7 +24,7 @@ SpellStatus Judgement::is_ready_spell_specific() const {
     PaladinSeal* seal = dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal();
 
     if (!seal || !seal->get_buff()->is_active())
-        return SpellStatus::DependentBuffInactive;
+        return SpellStatus::BuffInactive;
 
     return SpellStatus::Available;
 }

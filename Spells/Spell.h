@@ -42,7 +42,6 @@ enum class SpellStatus: int {
     OnStanceCooldown,
     OnTrinketCooldown,
     OvercapResource,
-    DependentBuffInactive,
 };
 
 class Spell {

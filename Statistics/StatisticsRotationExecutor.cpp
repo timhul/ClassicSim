@@ -63,7 +63,7 @@ QString StatisticsRotationExecutor::get_description_for_status(const SpellStatus
     case SpellStatus::Available:
         return "Available";
     case SpellStatus::BuffInactive:
-        return "FAIL: Internal buff inactive";
+        return "FAIL: Depends on inactive buff";
     case SpellStatus::CastInProgress:
         return "FAIL: Cast in progress";
     case SpellStatus::InBattleStance:
@@ -92,8 +92,6 @@ QString StatisticsRotationExecutor::get_description_for_status(const SpellStatus
         return "FAIL: On shared trinket cooldown";
     case SpellStatus::OvercapResource:
         return "FAIL: Cast would exceed resource cap";
-    case SpellStatus::DependentBuffInactive:
-        return "FAIL: Depends on inactive buff";
     }
 
     return "<missing description for SpellStatus>";

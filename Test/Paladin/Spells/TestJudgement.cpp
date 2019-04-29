@@ -145,7 +145,7 @@ void TestJudgement::test_is_ready_conditions() {
 
     seal_of_the_crusader()->get_buff()->cancel_buff();
 
-    assert(judgement()->get_spell_status() == SpellStatus::DependentBuffInactive);
+    assert(judgement()->get_spell_status() == SpellStatus::BuffInactive);
 }
 
 void TestJudgement::test_whether_spell_causes_global_cooldown() {
