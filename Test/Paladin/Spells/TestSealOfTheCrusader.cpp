@@ -3,6 +3,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Paladin.h"
+#include "SealOfCommand.h"
 #include "SealOfTheCrusader.h"
 
 TestSealOfTheCrusader::TestSealOfTheCrusader(EquipmentDb *equipment_db) :
@@ -54,6 +55,10 @@ void TestSealOfTheCrusader::test_all() {
 
     set_up();
     test_melee_ap_bonus_3_of_3_improved_sotc();
+    tear_down();
+
+    set_up(false);
+    test_seal_of_the_crusader_removes_active_seal_of_command();
     tear_down();
 }
 
@@ -231,4 +236,14 @@ void TestSealOfTheCrusader::test_melee_ap_bonus_3_of_3_improved_sotc() {
     when_seal_of_the_crusader_is_performed();
 
     assert(pchar->get_stats()->get_melee_ap() == 1000 + 352);
+}
+
+void TestSealOfTheCrusader::test_seal_of_the_crusader_removes_active_seal_of_command() {
+    given_seal_of_command_is_active();
+    given_engine_priority_pushed_forward(1.5);
+    assert(seal_of_command()->get_buff()->is_active());
+
+    when_seal_of_the_crusader_is_performed();
+
+    assert(!seal_of_command()->get_buff()->is_active());
 }

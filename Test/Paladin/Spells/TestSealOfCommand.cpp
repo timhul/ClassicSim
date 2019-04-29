@@ -1,7 +1,9 @@
 #include "TestSealOfCommand.h"
 
+#include "Buff.h"
 #include "Paladin.h"
 #include "SealOfCommand.h"
+#include "SealOfTheCrusader.h"
 
 TestSealOfCommand::TestSealOfCommand(EquipmentDb *equipment_db) :
     TestSpellPaladin(equipment_db, "Seal of Command")
@@ -28,6 +30,10 @@ void TestSealOfCommand::test_all() {
 
     set_up(false);
     test_resource_cost_5_of_5_benediction();
+    tear_down();
+
+    set_up(false);
+    test_seal_of_command_removes_active_seal_of_the_crusader();
     tear_down();
 }
 
@@ -147,4 +153,15 @@ void TestSealOfCommand::test_resource_cost_5_of_5_benediction() {
     given_paladin_has_mana(56);
     when_seal_of_command_is_performed();
     then_paladin_has_mana(1);
+}
+
+void TestSealOfCommand::test_seal_of_command_removes_active_seal_of_the_crusader() {
+    given_seal_of_command_is_enabled();
+    given_seal_of_the_crusader_is_active();
+    given_engine_priority_pushed_forward(1.5);
+    assert(seal_of_the_crusader()->get_buff()->is_active());
+
+    when_seal_of_command_is_performed();
+
+    assert(!seal_of_the_crusader()->get_buff()->is_active());
 }
