@@ -1,10 +1,11 @@
 #include "SealOfTheCrusader.h"
 
-#include "CombatRoll.h"
 #include "CharacterStats.h"
+#include "CombatRoll.h"
 #include "JudgementOfTheCrusader.h"
 #include "Paladin.h"
 #include "SealOfTheCrusaderBuff.h"
+#include "Utils/Check.h"
 
 SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar) :
     PaladinSeal("Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", pchar,
@@ -13,6 +14,7 @@ SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar) :
                 ResourceType::Mana, 160,
                 new SealOfTheCrusaderBuff(pchar)),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
+    ItemModificationRequirer({22401, 23203}),
     judge_debuff(new JudgementOfTheCrusader(pchar))
 {
     judge_debuff->enable_buff();
@@ -52,4 +54,30 @@ void SealOfTheCrusader::increase_talent_rank_effect(const QString&, const int cu
 
 void SealOfTheCrusader::decrease_talent_rank_effect(const QString&, const int curr) {
     resource_cost = static_cast<int>(round(base_mana_cost * benediction_ranks[curr]));
+}
+
+void SealOfTheCrusader::activate_item_effect(const int item_id) {
+    switch (item_id) {
+    case 22401:
+        resource_cost -= 20;
+        break;
+    case 23203:
+        dynamic_cast<SealOfTheCrusaderBuff*>(seal)->activate_item_modification(item_id);
+        break;
+    default:
+        check(false, "SealOfTheCrusader::activate_item_effect reached end of switch");
+    }
+}
+
+void SealOfTheCrusader::deactivate_item_effect(const int item_id) {
+    switch (item_id) {
+    case 22401:
+        resource_cost += 20;
+        break;
+    case 23203:
+        dynamic_cast<SealOfTheCrusaderBuff*>(seal)->deactivate_item_modification(item_id);
+        break;
+    default:
+        check(false, "SealOfTheCrusader::deactivate_item_effect reached end of switch");
+    }
 }

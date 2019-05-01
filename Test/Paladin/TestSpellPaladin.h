@@ -31,6 +31,8 @@ protected:
     void given_paladin_has_mana(const unsigned mana);
     void given_paladin_is_on_gcd();
     void given_paladin_is_on_gcd(Spell* spell);
+    void given_relic_equipped(const int item_id);
+    void given_no_relic_equipped();
     void given_sanctity_aura_is_active();
     void given_seal_of_command_is_active();
     void given_seal_of_command_is_enabled();

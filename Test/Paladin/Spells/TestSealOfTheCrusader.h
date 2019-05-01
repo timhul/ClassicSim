@@ -28,8 +28,9 @@ private:
     void test_melee_ap_bonus_1_of_3_improved_sotc();
     void test_melee_ap_bonus_2_of_3_improved_sotc();
     void test_melee_ap_bonus_3_of_3_improved_sotc();
-
     void test_seal_of_the_crusader_removes_active_seal_of_command();
+    void test_libram_of_fervor_increases_melee_ap_bonus();
+    void test_libram_of_hope_reduces_mana_cost();
 };
 
 #endif // TESTSEALOFTHECRUSADER_H

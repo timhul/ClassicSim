@@ -22,8 +22,8 @@ private:
     void test_resource_cost_3_of_5_benediction();
     void test_resource_cost_4_of_5_benediction();
     void test_resource_cost_5_of_5_benediction();
-
     void test_seal_of_command_removes_active_seal_of_the_crusader();
+    void test_libram_of_hope_reduces_mana_cost();
 };
 
 #endif // TESTSEALOFCOMMAND_H

@@ -997,6 +997,12 @@ QString GUIControl::get_projectile_icon() const {
     return "";
 }
 
+QString GUIControl::get_relic_icon() const {
+    if (current_char->get_equipment()->get_relic() != nullptr)
+        return "Assets/items/" + current_char->get_equipment()->get_relic()->get_value("icon");
+    return "";
+}
+
 void GUIControl::selectSlot(const QString& slot_string) {
     int slot = get_slot_int(slot_string);
 
@@ -1055,6 +1061,8 @@ bool GUIControl::hasItemEquipped(const QString& slot_string) const {
         return current_char->get_equipment()->get_trinket1() != nullptr;
     if (slot_string == "TRINKET2")
         return current_char->get_equipment()->get_trinket2() != nullptr;
+    if (slot_string == "RELIC")
+        return current_char->get_equipment()->get_relic() != nullptr;
 
     return false;
 }
@@ -1322,6 +1330,8 @@ void GUIControl::setSlot(const QString& slot_string, const int item_id) {
         if (projectile && !projectile->valid_for_weapon(current_char->get_equipment()->get_ranged()))
             current_char->get_equipment()->clear_ranged();
     }
+    if (slot_string == "RELIC")
+        current_char->get_equipment()->set_relic(item_id);
 
     equipmentChanged();
     statsChanged();
@@ -1365,6 +1375,8 @@ void GUIControl::clearSlot(const QString& slot_string) {
         current_char->get_equipment()->clear_trinket2();
     if (slot_string == "PROJECTILE")
         current_char->get_equipment()->clear_projectile();
+    if (slot_string == "RELIC")
+        current_char->get_equipment()->clear_relic();
 
     equipmentChanged();
     statsChanged();
@@ -1435,6 +1447,8 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
         item = current_char->get_equipment()->get_trinket2();
     if (slot_string == "PROJECTILE")
         item = current_char->get_equipment()->get_projectile();
+    if (slot_string == "RELIC")
+        item = current_char->get_equipment()->get_relic();
 
     if (item == nullptr)
         return QVariantList();

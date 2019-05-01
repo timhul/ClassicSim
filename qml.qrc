@@ -606,5 +606,7 @@
         <file>QML/Assets/items/Inv_misc_cape_17.png</file>
         <file>QML/Assets/items/Inv_misc_cape_18.png</file>
         <file>QML/Assets/items/Inv_misc_cape_naxxramas_01.png</file>
+        <file>QML/Assets/items/Inv_relics_libramofhope.png</file>
+        <file>QML/Assets/items/Inv_relics_libramoftruth.png</file>
     </qresource>
 </RCC>

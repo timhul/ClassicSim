@@ -1,13 +1,14 @@
 #ifndef SEALOFTHECRUSADER_H
 #define SEALOFTHECRUSADER_H
 
+#include "ItemModificationRequirer.h"
 #include "PaladinSeal.h"
 #include "TalentRequirer.h"
 
 class Paladin;
 class SealOfTheCrusaderBuff;
 
-class SealOfTheCrusader: public PaladinSeal, public TalentRequirer {
+class SealOfTheCrusader: public PaladinSeal, public TalentRequirer, public ItemModificationRequirer {
 public:
     SealOfTheCrusader(Paladin* pchar);
     ~SealOfTheCrusader() override;
@@ -25,6 +26,9 @@ private:
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
+
+    void activate_item_effect(const int item_id) override;
+    void deactivate_item_effect(const int item_id) override;
 };
 
 #endif // SEALOFTHECRUSADER_H

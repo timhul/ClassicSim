@@ -6,6 +6,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "Item.h"
 #include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
@@ -73,6 +74,17 @@ void TestSpellPaladin::given_paladin_is_on_gcd(Spell* spell) {
         paladin->lose_mana(static_cast<unsigned>(mana_delta));
 
     assert(paladin->on_global_cooldown());
+}
+
+void TestSpellPaladin::given_relic_equipped(const int item_id) {
+    paladin->get_equipment()->set_relic(item_id);
+    assert(paladin->get_equipment()->get_relic());
+    assert(paladin->get_equipment()->get_relic()->get_item_id());
+}
+
+void TestSpellPaladin::given_no_relic_equipped() {
+    paladin->get_equipment()->clear_relic();
+    assert(!paladin->get_equipment()->get_relic());
 }
 
 void TestSpellPaladin::given_paladin_has_mana(const unsigned mana) {

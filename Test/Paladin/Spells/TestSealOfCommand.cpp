@@ -35,6 +35,10 @@ void TestSealOfCommand::test_all() {
     set_up(false);
     test_seal_of_command_removes_active_seal_of_the_crusader();
     tear_down();
+
+    set_up(false);
+    test_libram_of_hope_reduces_mana_cost();
+    tear_down();
 }
 
 void TestSealOfCommand::test_name_correct() {
@@ -164,4 +168,15 @@ void TestSealOfCommand::test_seal_of_command_removes_active_seal_of_the_crusader
     when_seal_of_command_is_performed();
 
     assert(!seal_of_the_crusader()->get_buff()->is_active());
+}
+
+void TestSealOfCommand::test_libram_of_hope_reduces_mana_cost() {
+    given_seal_of_command_is_enabled();
+    const double original_mana_cost = seal_of_the_crusader()->get_resource_cost();
+
+    given_relic_equipped(22401);
+    assert(almost_equal(20.0, original_mana_cost - seal_of_the_crusader()->get_resource_cost()));
+
+    given_no_relic_equipped();
+    assert(almost_equal(0.0, original_mana_cost - seal_of_the_crusader()->get_resource_cost()));
 }

@@ -39,7 +39,6 @@ public:
     Projectile* get_projectile(const int item_id) const;
 
     void set_content_phase(const Content::Phase current_phase);
-    bool item_valid_for_current_phase(const Content::Phase phase) const;
 
     const QVector<Item*>& get_slot_items(const int slot) const;
 
@@ -107,6 +106,9 @@ private:
 
     QVector<Item*> projectiles;
     QVector<Item*> current_phase_projectiles;
+
+    QVector<Item*> relics;
+    QVector<Item*> current_phase_relics;
 
     QVector<QVector<Item*>*> all_slots_items;
 

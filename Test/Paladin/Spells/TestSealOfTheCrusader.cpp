@@ -60,6 +60,14 @@ void TestSealOfTheCrusader::test_all() {
     set_up(false);
     test_seal_of_the_crusader_removes_active_seal_of_command();
     tear_down();
+
+    set_up();
+    test_libram_of_fervor_increases_melee_ap_bonus();
+    tear_down();
+
+    set_up();
+    test_libram_of_hope_reduces_mana_cost();
+    tear_down();
 }
 
 void TestSealOfTheCrusader::test_name_correct() {
@@ -246,4 +254,26 @@ void TestSealOfTheCrusader::test_seal_of_the_crusader_removes_active_seal_of_com
     when_seal_of_the_crusader_is_performed();
 
     assert(!seal_of_command()->get_buff()->is_active());
+}
+
+void TestSealOfTheCrusader::test_libram_of_fervor_increases_melee_ap_bonus() {
+    given_relic_equipped(23203);
+    given_1000_melee_ap();
+    given_improved_sotc_rank(3);
+
+    when_seal_of_the_crusader_is_performed();
+
+    // [ap_bonus] = (base + relic_bonus) * improved_sotc_mod
+    // [407] = (306 + 48) * 1.15
+    assert(pchar->get_stats()->get_melee_ap() == 1000 + 407);
+}
+
+void TestSealOfTheCrusader::test_libram_of_hope_reduces_mana_cost() {
+    const double original_mana_cost = seal_of_the_crusader()->get_resource_cost();
+
+    given_relic_equipped(22401);
+    assert(almost_equal(20.0, original_mana_cost - seal_of_the_crusader()->get_resource_cost()));
+
+    given_no_relic_equipped();
+    assert(almost_equal(0.0, original_mana_cost - seal_of_the_crusader()->get_resource_cost()));
 }

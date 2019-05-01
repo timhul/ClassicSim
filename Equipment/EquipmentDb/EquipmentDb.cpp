@@ -31,7 +31,8 @@ EquipmentDb::EquipmentDb(QObject* parent):
         &boots,
         &rings,
         &trinkets,
-        &projectiles
+        &projectiles,
+        &relics,
     };
 }
 
@@ -99,7 +100,7 @@ Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) 
     return nullptr;
 }
 
-Weapon *EquipmentDb::get_ranged(const int item_id) const {
+Weapon* EquipmentDb::get_ranged(const int item_id) const {
     for (auto & current_phase_ranged_slot_item : current_phase_ranged_items) {
         if (item_id == current_phase_ranged_slot_item->get_item_id())
             return new Weapon(dynamic_cast<Weapon*>(current_phase_ranged_slot_item));
@@ -161,9 +162,8 @@ Item* EquipmentDb::get_caster_offhand(const int) const {
     return nullptr;
 }
 
-Item* EquipmentDb::get_relic(const int) const {
-    // CSIM-74: Get relic.
-    return nullptr;
+Item* EquipmentDb::get_relic(const int item_id) const {
+    return get_item(current_phase_relics, item_id);
 }
 
 Projectile* EquipmentDb::get_projectile(const int item_id) const {
@@ -175,7 +175,7 @@ Projectile* EquipmentDb::get_projectile(const int item_id) const {
     return nullptr;
 }
 
-const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
+const QVector<Item*> & EquipmentDb::get_slot_items(const int slot) const {
     switch (slot) {
     case ItemSlots::MAINHAND:
         return current_phase_mh_slot_items;
@@ -209,6 +209,8 @@ const QVector<Item *> & EquipmentDb::get_slot_items(const int slot) const {
         return current_phase_trinkets;
     case ItemSlots::PROJECTILE:
         return current_phase_projectiles;
+    case ItemSlots::RELIC:
+        return current_phase_relics;
     }
 
     return current_phase_amulets;
@@ -239,6 +241,7 @@ void EquipmentDb::set_content_phase(const Content::Phase phase) {
     set_phase_for_slot(rings, current_phase_rings);
     set_phase_for_slot(trinkets, current_phase_trinkets);
     set_phase_for_slot(projectiles, current_phase_projectiles);
+    set_phase_for_slot(relics, current_phase_relics);
 }
 
 void EquipmentDb::set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<Item*> &phase_slot_items) {
@@ -260,10 +263,6 @@ void EquipmentDb::set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<I
 
     for (auto & item : tmp_items)
         phase_slot_items.append(item);
-}
-
-bool EquipmentDb::item_valid_for_current_phase(const Content::Phase phase) const {
-    return current_phase >= phase;
 }
 
 void EquipmentDb::read_equipment_files() {
@@ -326,6 +325,7 @@ void EquipmentDb::read_equipment_files() {
     take_items_of_slot_from_given_items(items, rings, ItemSlots::RING);
     take_items_of_slot_from_given_items(items, trinkets, ItemSlots::TRINKET);
     take_items_of_slot_from_given_items(items, projectiles, ItemSlots::PROJECTILE);
+    take_items_of_slot_from_given_items(items, relics, ItemSlots::RELIC);
 
     for (auto & item : items) {
         qDebug() << "Failed to classify slot for" << item->get_name();

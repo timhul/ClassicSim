@@ -7,6 +7,7 @@ Rectangle {
     width: parent.width
 
     color: root.darkDarkGray
+    property bool displayRangedWeapon: settings.className === "Warrior" || settings.className === "Rogue" || settings.className === "Hunter"
 
     state: "MAINHAND"
 
@@ -67,7 +68,7 @@ Rectangle {
                     id: scrollWeapon
                     width: parent.width
 
-                    visible: eqRect.state === "MAINHAND" || eqRect.state === "OFFHAND" || eqRect.state === "RANGED"
+                    visible: eqRect.state === "MAINHAND" || eqRect.state === "OFFHAND" || (eqRect.state === "RANGED" && eqRect.displayRangedWeapon)
 
                     anchors.fill: parent
                     ScrollBar.vertical.policy: ScrollBar.AlwaysOn
@@ -712,10 +713,10 @@ Rectangle {
                     z: 1
 
                     state: eqRect.state
-                    slotString: "RANGED"
-                    iconSource: equipment.rangedIcon
+                    slotString: eqRect.displayRangedWeapon ? "RANGED" : "RELIC"
+                    iconSource: eqRect.displayRangedWeapon ? equipment.rangedIcon : equipment.relicIcon
 
-                    onSelectItem: eqRect.state = "RANGED"
+                    onSelectItem: eqRect.state = slotString
 
                     onShowTooltip: rangedTT.visible = rangedTT.slotEquipped
                     onHideTooltip: rangedTT.visible = false

@@ -23,6 +23,7 @@ RectangleBorders {
         case "RING2":
         case "TRINKET1":
         case "TRINKET2":
+        case "RELIC":
             return false;
         default:
             return true;
