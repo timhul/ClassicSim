@@ -79,12 +79,12 @@ public:
     void increment_hit();
     void increment_crit();
 
-    void add_partial_resist_dmg(const int dmg, const unsigned resource_cost, const double execution_time);
-    void add_partial_block_dmg(const int dmg, const unsigned resource_cost, const double execution_time);
-    void add_partial_block_crit_dmg(const int dmg, const unsigned resource_cost, const double execution_time);
-    void add_glancing_dmg(const int dmg, const unsigned resource_cost, const double execution_time);
-    void add_hit_dmg(const int dmg, const unsigned resource_cost, const double execution_time);
-    void add_crit_dmg(const int dmg, const unsigned resource_cost, const double execution_time);
+    void add_partial_resist_dmg(const int dmg, const double resource_cost, const double execution_time);
+    void add_partial_block_dmg(const int dmg, const double resource_cost, const double execution_time);
+    void add_partial_block_crit_dmg(const int dmg, const double resource_cost, const double execution_time);
+    void add_glancing_dmg(const int dmg, const double resource_cost, const double execution_time);
+    void add_hit_dmg(const int dmg, const double resource_cost, const double execution_time);
+    void add_crit_dmg(const int dmg, const double resource_cost, const double execution_time);
 
     int get_misses() const;
     int get_full_resists() const;
@@ -136,7 +136,6 @@ public:
 
     void add(const StatisticsSpell*);
 
-protected:
 private:
     const QString name;
     const QString icon;
@@ -157,8 +156,8 @@ private:
     int get_min_dmg(const Outcome) const;
     int get_max_dmg(const Outcome) const;
     void increment(const Outcome);
-    void add_dmg(const Outcome outcome, const int dmg, const unsigned resource_cost, const double execution_time);
-    void add_dpr(const int dmg, const unsigned resource_cost);
+    void add_dmg(const Outcome outcome, const int dmg, const double resource_cost, const double execution_time);
+    void add_dpr(const int dmg, const double resource_cost);
     void add_dpet(const int dmg, const double execution_time);
 
     QSet<Outcome> possible_attempt_outcomes;

@@ -272,7 +272,7 @@ void StatisticsSpell::increment_crit() {
     increment(Outcome::Crit);
 }
 
-void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const unsigned resource_cost, const double execution_time) {
+void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const double resource_cost, const double execution_time) {
     if (!damage.contains(outcome))
         damage[outcome] = 0;
 
@@ -289,8 +289,8 @@ void StatisticsSpell::add_dmg(const Outcome outcome, const int dmg, const unsign
     add_dpet(dmg, execution_time);
 }
 
-void StatisticsSpell::add_dpr(const int dmg, const unsigned resource_cost) {
-    if (resource_cost == 0)
+void StatisticsSpell::add_dpr(const int dmg, const double resource_cost) {
+    if (almost_equal(resource_cost, 0))
         return;
 
     dpr_set = true;
@@ -321,32 +321,32 @@ void StatisticsSpell::add_dpet(const int dmg, const double execution_time) {
     avg_dpet = avg_dpet + (damage_per_execution_time - avg_dpet) / damage_dealt_successes;
 }
 
-void StatisticsSpell::add_partial_resist_dmg(const int dmg, const unsigned resource_cost, const double execution_time) {
+void StatisticsSpell::add_partial_resist_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_partial_resist();
     add_dmg(Outcome::PartialResist, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_partial_block_dmg(const int dmg, const unsigned resource_cost, const double execution_time) {
+void StatisticsSpell::add_partial_block_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_partial_block();
     add_dmg(Outcome::PartialBlock, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_partial_block_crit_dmg(const int dmg, const unsigned resource_cost, const double execution_time) {
+void StatisticsSpell::add_partial_block_crit_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_partial_block_crit();
     add_dmg(Outcome::PartialBlockCrit, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_glancing_dmg(const int dmg, const unsigned resource_cost, const double execution_time) {
+void StatisticsSpell::add_glancing_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_glancing();
     add_dmg(Outcome::Glancing, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_hit_dmg(const int dmg, const unsigned resource_cost, const double execution_time) {
+void StatisticsSpell::add_hit_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_hit();
     add_dmg(Outcome::Hit, dmg, resource_cost, execution_time);
 }
 
-void StatisticsSpell::add_crit_dmg(const int dmg, const unsigned resource_cost, const double execution_time) {
+void StatisticsSpell::add_crit_dmg(const int dmg, const double resource_cost, const double execution_time) {
     increment_crit();
     add_dmg(Outcome::Crit, dmg, resource_cost, execution_time);
 }

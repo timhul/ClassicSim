@@ -65,12 +65,12 @@ void Rend::spell_effect() {
 }
 
 void Rend::perform_periodic() {
-    double damage_dealt = round(damage_remaining / num_ticks_left);
+    const double damage_dealt = round(damage_remaining / num_ticks_left);
     damage_remaining -= damage_dealt;
 
-    double rage_per_tick = double(resource_cost) / max_ticks;
-    double execution_time_per_tick = max_ticks / warr->global_cooldown();
-    add_hit_dmg(static_cast<int>(damage_dealt), static_cast<unsigned>(round(rage_per_tick)), execution_time_per_tick);
+    const double rage_per_tick = double(resource_cost) / max_ticks;
+    const double execution_time_per_tick = max_ticks / warr->global_cooldown();
+    add_hit_dmg(static_cast<int>(damage_dealt), rage_per_tick, execution_time_per_tick);
 
     --num_ticks_left;
 
