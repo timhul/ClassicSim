@@ -23,6 +23,7 @@
 #include "ItemModificationRequirer.h"
 #include "JomGabbar.h"
 #include "ManaDrainProc.h"
+#include "NightfallProc.h"
 #include "NoEffectBuff.h"
 #include "Stats.h"
 #include "Target.h"
@@ -353,11 +354,11 @@ void Item::set_uses() {
 
 void Item::set_procs(const int eq_slot) {
     for (auto & i : procs_map) {
-        QString proc_name = i["name"];
-        QString instant = i["instant"].toLower();
-        int amount = QString(i["amount"]).toInt();
-        double internal_cd = QString(i["internal_cd"]).toDouble();
-        double proc_rate = QString(i["rate"]).toDouble();
+        const QString proc_name = i["name"];
+        const QString instant = i["instant"].toLower();
+        const int amount = QString(i["amount"]).toInt();
+        const double internal_cd = QString(i["internal_cd"]).toDouble();
+        const double proc_rate = QString(i["rate"]).toDouble();
 
         if (amount < 0) {
             qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(amount));
@@ -422,8 +423,8 @@ void Item::set_procs(const int eq_slot) {
         else if (direct_spell_damage_procs.contains(proc_name)) {
             add_default_proc_sources(proc_sources, eq_slot);
 
-            unsigned min = i["min"].toUInt();
-            unsigned max = i["max"].toUInt();
+            const unsigned min = i["min"].toUInt();
+            const unsigned max = i["max"].toUInt();
 
             proc = new InstantSpellProc(pchar,
                                         get_weapon_side_name(eq_slot),
@@ -451,7 +452,10 @@ void Item::set_procs(const int eq_slot) {
             };
 
             proc = new ManaDrainProc(pchar, "Black Grasp of the Destroyer", "Assets/items/Inv_gauntlets_31.png",
-                                     proc_sources, i["rate"].toDouble(), i["min"].toUInt(), i["max"].toUInt());
+                                     proc_sources, proc_rate, i["min"].toUInt(), i["max"].toUInt());
+        }
+        else if (proc_name == "NIGHTFALL") {
+            proc = new NightfallProc(pchar, proc_rate);
         }
 
         if (proc != nullptr) {
