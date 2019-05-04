@@ -117,6 +117,22 @@
         </source>
 	</item>
 
+	<item id="19825" phase="3">
+        <info name="Zandalar Freethinker's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_plate07.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="738"/>
+            <stat type="STRENGTH" value="19"/>
+            <stat type="STAMINA" value="26"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="7"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+		Quest reward. Requires boss drops from Zul'Gurub and Revered with Zandalar Tribe.
+        </source>
+	</item>
+
 	<item id="21389" phase="4">
         <info name="Avenger's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate03.png"/>
         <class_restriction class="PALADIN"/>
