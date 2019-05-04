@@ -17,17 +17,8 @@ Backstab::Backstab(Character* pchar) :
                    new TalentRequirerInfo("Opportunity", 5, DisabledAtZero::No)
                    }),
     SetBonusRequirer({"Bonescythe Armor"}),
-    rogue(dynamic_cast<Rogue*>(pchar)),
-    statistics_resource(nullptr),
-    improved_bs(0.0),
-    lethality(1.0),
-    opportunity(1.0),
-    bonescythe_energy(0)
-{
-    imp_bs_ranks = {0.0, 0.1, 0.2, 0.3};
-    lethality_ranks = {1.0, 1.06, 1.12, 1.18, 1.24, 1.30};
-    opportunity_ranks = {1.0, 1.04, 1.08, 1.12, 1.16, 1.20};
-}
+    rogue(dynamic_cast<Rogue*>(pchar))
+{}
 
 SpellStatus Backstab::is_ready_spell_specific() const {
     if (rogue->get_equipment()->get_mainhand()->get_weapon_type() != WeaponTypes::DAGGER)
