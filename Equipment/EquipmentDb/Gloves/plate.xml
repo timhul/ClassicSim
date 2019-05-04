@@ -63,6 +63,24 @@
         </source>
 	</item>
 
+	<item id="23274" phase="1">
+        <info name="Knight-Lieutenant's Lamellar Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="429"/>
+            <stat type="STAMINA" value="13"/>
+            <stat type="STRENGTH" value="12"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <modifies name="Judgement of the Crusader"/>
+        <special_equip_effect>
+		Equip: Increases the Holy damage bonus of your Judgement of the Crusader by 20.
+        </special_equip_effect>
+        <source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Knight-Lieutenant (rank 7).
+        </source>
+	</item>
+
 	<item id="16484" phase="1">
         <info name="Marshal's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
         <class_restriction class="WARRIOR"/>

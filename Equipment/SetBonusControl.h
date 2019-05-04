@@ -36,6 +36,9 @@ private:
     void activate_warrior_r13_pvp_set_bonuses(const int num_pieces);
     void deactivate_warrior_r13_pvp_set_bonuses(const int num_pieces);
 
+    void activate_paladin_r10_pvp_set_bonuses(const int num_pieces);
+    void deactivate_paladin_r10_pvp_set_bonuses(const int num_pieces);
+
     void activate_hunter_r10_pvp_set_bonuses(const int num_pieces);
     void deactivate_hunter_r10_pvp_set_bonuses(const int num_pieces);
 

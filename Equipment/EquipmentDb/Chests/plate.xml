@@ -42,6 +42,21 @@
         </source>
 	</item>
 
+	<item id="23272" phase="1">
+        <info name="Knight-Captain's Lamellar Breastplate" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_chest_plate03.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="706"/>
+            <stat type="STAMINA" value="18"/>
+            <stat type="STRENGTH" value="17"/>
+            <stat type="INTELLECT" value="12"/>
+            <stat type="SPELL_DAMAGE" value="25"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Knight-Captain (rank 8).
+        </source>
+	</item>
+
 	<item id="21331" phase="4">
         <info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>
         <class_restriction class="WARRIOR"/>

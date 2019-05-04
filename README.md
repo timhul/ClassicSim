@@ -50,9 +50,6 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Mutually exclusive buff groups are now in place, selecting e.g. a flask will deactivate any other active flask effect.
 * Improved Backstab now yields the proper crit chance to Backstab.
 
-## Restrictions:
-
-* No Paladin tier pieces are available.
 
 # Release notes
 

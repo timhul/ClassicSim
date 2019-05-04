@@ -7,19 +7,19 @@
 JudgementOfTheCrusader::JudgementOfTheCrusader(Paladin* pchar):
     Buff(pchar, "Judgement of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 10, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
-    ItemModificationRequirer({23203}),
+    ItemModificationRequirer({23274, 23203}),
     paladin(dynamic_cast<Paladin*>(pchar))
 {
     this->debuff = true;
 }
 
 void JudgementOfTheCrusader::buff_effect_when_applied() {
-    pchar->get_stats()->increase_spell_damage_vs_school(static_cast<unsigned>(round((holy_damage_base + libram_of_fervor_bonus) * improved_sotc_mod)),
+    pchar->get_stats()->increase_spell_damage_vs_school(static_cast<unsigned>(round((holy_damage_base + pvp_glove_bonus + libram_of_fervor_bonus) * improved_sotc_mod)),
                                                         MagicSchool::Holy);
 }
 
 void JudgementOfTheCrusader::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_spell_damage_vs_school(static_cast<unsigned>(round((holy_damage_base + libram_of_fervor_bonus) * improved_sotc_mod)),
+    pchar->get_stats()->decrease_spell_damage_vs_school(static_cast<unsigned>(round((holy_damage_base + pvp_glove_bonus + libram_of_fervor_bonus) * improved_sotc_mod)),
                                                         MagicSchool::Holy);
 }
 
@@ -33,6 +33,9 @@ void JudgementOfTheCrusader::decrease_talent_rank_effect(const QString&, const i
 
 void JudgementOfTheCrusader::activate_item_effect(const int item_id) {
     switch (item_id) {
+    case 23274:
+        pvp_glove_bonus = 20;
+        break;
     case 23203:
         libram_of_fervor_bonus = 33;
         break;
@@ -43,8 +46,11 @@ void JudgementOfTheCrusader::activate_item_effect(const int item_id) {
 
 void JudgementOfTheCrusader::deactivate_item_effect(const int item_id) {
     switch (item_id) {
+    case 23274:
+        pvp_glove_bonus = 0;
+        break;
     case 23203:
-        libram_of_fervor_bonus = 33;
+        libram_of_fervor_bonus = 0;
         break;
     default:
         check(false, "JudgementOfTheCrusader::deactivate_item_effect reached end of switch");

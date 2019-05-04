@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="23276" phase="1">
+        <info name="Lieutenant Commander's Lamellar Headguard" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_05.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="598"/>
+            <stat type="STAMINA" value="19"/>
+            <stat type="STRENGTH" value="18"/>
+			<stat type="INTELLECT" value="12"/>
+            <stat type="SPELL_DAMAGE" value="26"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Lieutenant Commander (rank 10).
+        </source>
+	</item>
+
 	<item id="16478" phase="1">
         <info name="Field Marshal's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
         <class_restriction class="WARRIOR"/>

@@ -17,6 +17,7 @@ private:
     Paladin* paladin;
 
     unsigned libram_of_fervor_bonus {0};
+    unsigned pvp_glove_bonus {0};
     double improved_sotc_mod {1.0};
     const unsigned holy_damage_base {140};
     const QVector<double> improved_sotc_ranks {1.0, 1.05, 1.10, 1.15};

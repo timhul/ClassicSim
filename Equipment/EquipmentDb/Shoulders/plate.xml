@@ -58,6 +58,21 @@
         </source>
 	</item>
 
+	<item id="23277" phase="1">
+        <info name="Lieutenant Commander's Lamellar Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_shoulder_28.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+        <stat type="ARMOR" value="552"/>
+        <stat type="STAMINA" value="14"/>
+        <stat type="STRENGTH" value="14"/>
+        <stat type="INTELLECT" value="8"/>
+        <stat type="SPELL_DAMAGE" value="20"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Lieutenant Commander (rank 10).
+        </source>
+	</item>
+
 	<item id="19394" phase="2">
         <info name="Drake Talon Pauldrons" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
         <stats>

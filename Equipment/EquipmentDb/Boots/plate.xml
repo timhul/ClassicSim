@@ -28,6 +28,21 @@
 		</source>
 	</item>
 
+	<item id="23275" phase="1">
+		<info name="Knight-Lieutenant's Lamellar Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_boots_plate_03.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+        <stat type="ARMOR" value="472"/>
+        <stat type="STAMINA" value="12"/>
+        <stat type="STRENGTH" value="12"/>
+        <stat type="INTELLECT" value="12"/>
+		<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
+		</source>
+	</item>
+
 	<item id="16483" phase="1">
 		<info name="Marshal's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>

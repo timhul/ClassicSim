@@ -27,6 +27,21 @@
 			Purchased with Honor Points and Warsong Gulch marks. Requires Legionnaire (rank 8).
         </source>
 	</item>
+	
+	<item id="23273" phase="1">
+        <info name="Knight-Captain's Lamellar Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="618"/>
+            <stat type="STAMINA" value="17"/>
+            <stat type="STRENGTH" value="18"/>
+            <stat type="INTELLECT" value="12"/>
+            <stat type="SPELL_DAMAGE" value="25"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Warsong Gulch marks. Requires Knight-Captain (rank 8).
+        </source>
+	</item>
 
 	<item id="16479" phase="1">
         <info name="Marshal's Plate Legguards" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_04.png"/>
