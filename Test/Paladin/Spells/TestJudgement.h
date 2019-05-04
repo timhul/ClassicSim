@@ -36,6 +36,7 @@ private:
     void test_judgement_of_the_crusader_holy_dmg_bonus_1_of_3_improved_sotc();
     void test_judgement_of_the_crusader_holy_dmg_bonus_2_of_3_improved_sotc();
     void test_judgement_of_the_crusader_holy_dmg_bonus_3_of_3_improved_sotc();
+    void test_judgement_of_the_crusader_pvp_glove_bonus_increases_holy_damage_bonus();
 
     void test_judgement_of_command_damage();
     void test_judgement_of_command_damage_with_sotc_and_sanctity_aura_and_vengeance();

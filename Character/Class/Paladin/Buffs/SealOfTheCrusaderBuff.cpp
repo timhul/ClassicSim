@@ -10,7 +10,7 @@
 SealOfTheCrusaderBuff::SealOfTheCrusaderBuff(Paladin* pchar):
     Buff(pchar, "Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 30, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
-    ItemModificationRequirer({23203}),
+    ItemModificationRequirer({22401, 23203}),
     paladin(dynamic_cast<Paladin*>(pchar))
 {}
 
@@ -36,6 +36,8 @@ void SealOfTheCrusaderBuff::decrease_talent_rank_effect(const QString&, const in
 
 void SealOfTheCrusaderBuff::activate_item_effect(const int item_id) {
     switch (item_id) {
+    case 22401:
+        break;
     case 23203:
         libram_of_fervor_bonus = 48;
         break;
@@ -46,6 +48,8 @@ void SealOfTheCrusaderBuff::activate_item_effect(const int item_id) {
 
 void SealOfTheCrusaderBuff::deactivate_item_effect(const int item_id) {
     switch (item_id) {
+    case 22401:
+        break;
     case 23203:
         libram_of_fervor_bonus = 0;
         break;

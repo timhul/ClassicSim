@@ -21,6 +21,7 @@
 		World drop.
         </source>
 		<modifies name="Seal of the Crusader"/>
+		<modifies name="Judgement of the Crusader"/>
 		<special_equip_effect>
 		Equip: Increases the melee attack power bonus of your Seal of the Crusader by 48
 		and the Holy damage increase of your Judgement of the Crusader by 33.

@@ -99,6 +99,8 @@ public:
     void given_polearm_equipped(Character* pchar);
     void given_staff_equipped(Character* pchar);
 
+    void given_gloves_equipped(const int item_id);
+
     void given_in_melee_attack_mode();
     void given_in_ranged_attack_mode();
     void given_in_magic_attack_mode();

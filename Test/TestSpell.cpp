@@ -862,6 +862,11 @@ void TestSpell::given_staff_equipped(Character* pchar) {
     assert(pchar->get_stats()->get_equipment()->get_mainhand()->get_weapon_type() == WeaponTypes::STAFF);
 }
 
+void TestSpell::given_gloves_equipped(const int item_id) {
+    pchar->get_stats()->get_equipment()->set_gloves(item_id);
+    assert(pchar->get_stats()->get_equipment()->get_gloves()->get_item_id() == item_id);
+}
+
 void TestSpell::given_in_melee_attack_mode() {
     pchar->get_spells()->set_attack_mode(AttackMode::MeleeAttack);
 }

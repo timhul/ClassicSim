@@ -91,6 +91,7 @@ protected:
     void call_item_modifications(const bool activate = true) const;
     void call_modifications_by_specific_name(const QString& name, const bool activate) const;
     void call_spell_modifications(const QString& spell_name, const bool activate) const;
+    void call_buff_modifications(const QString& buff_name, const bool activate) const;
 
     int slot;
     int item_type;

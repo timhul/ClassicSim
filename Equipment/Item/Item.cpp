@@ -5,9 +5,11 @@
 
 #include "ArmorPenetrationBuff.h"
 #include "ArmorPenetrationProc.h"
+#include "Buff.h"
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "DevilsaurEye.h"
+#include "EnabledBuffs.h"
 #include "EnchantStatic.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
@@ -177,6 +179,7 @@ void Item::call_item_modifications(const bool activate) const {
     for (auto & name : item_modifications) {
         call_modifications_by_specific_name(name, activate);
         call_spell_modifications(name, activate);
+        call_buff_modifications(name, activate);
     }
 }
 
@@ -204,6 +207,21 @@ void Item::call_spell_modifications(const QString& spell_name, const bool activa
         spell_modded_by_item->activate_item_modification(this->item_id);
     else
         spell_modded_by_item->deactivate_item_modification(this->item_id);
+}
+
+void Item::call_buff_modifications(const QString& buff_name, const bool activate) const {
+    Buff* buff = pchar->get_enabled_buffs()->get_buff_by_name(buff_name);
+    if (buff == nullptr)
+        return;
+
+    auto buff_modded_by_item = dynamic_cast<ItemModificationRequirer*>(buff);
+    if (buff_modded_by_item == nullptr)
+        return;
+
+    if (activate)
+        buff_modded_by_item->activate_item_modification(this->item_id);
+    else
+        buff_modded_by_item->deactivate_item_modification(this->item_id);
 }
 
 QString Item::get_name() const {

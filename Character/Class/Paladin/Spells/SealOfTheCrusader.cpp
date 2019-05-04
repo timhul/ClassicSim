@@ -62,7 +62,6 @@ void SealOfTheCrusader::activate_item_effect(const int item_id) {
         resource_cost -= 20;
         break;
     case 23203:
-        dynamic_cast<SealOfTheCrusaderBuff*>(seal)->activate_item_modification(item_id);
         break;
     default:
         check(false, "SealOfTheCrusader::activate_item_effect reached end of switch");
@@ -75,7 +74,6 @@ void SealOfTheCrusader::deactivate_item_effect(const int item_id) {
         resource_cost += 20;
         break;
     case 23203:
-        dynamic_cast<SealOfTheCrusaderBuff*>(seal)->deactivate_item_modification(item_id);
         break;
     default:
         check(false, "SealOfTheCrusader::deactivate_item_effect reached end of switch");
