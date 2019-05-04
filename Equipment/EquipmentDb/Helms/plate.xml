@@ -15,6 +15,23 @@
         </source>
 	</item>
 
+	<item id="16474" phase="1">
+        <info name="Field Marshal's Lamellar Headguard" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="679"/>
+            <stat type="STAMINA" value="21"/>
+            <stat type="STRENGTH" value="21"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="SPELL_DAMAGE" value="25"/>
+			<stat type="MANA_PER_5" value="5"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Alterac Valley marks. Requires Field Marshal (rank 13).
+        </source>
+	</item>
+
 	<item id="16478" phase="1">
         <info name="Field Marshal's Plate Helm" type="PLATE" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
         <class_restriction class="WARRIOR"/>

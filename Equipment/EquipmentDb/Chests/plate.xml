@@ -57,6 +57,23 @@
         </source>
 	</item>
 
+	<item id="16473" phase="1">
+        <info name="Field Marshal's Lamellar Breastplate" type="PLATE" slot="CHEST" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_chest_plate03.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="835"/>
+            <stat type="STAMINA" value="21"/>
+            <stat type="STRENGTH" value="21"/>
+            <stat type="INTELLECT" value="20"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+            <stat type="SPELL_DAMAGE" value="25"/>
+			<stat type="MANA_PER_5" value="5"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+        </source>
+	</item>
+
 	<item id="21331" phase="4">
         <info name="Conqueror's Breastplate" type="PLATE" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_plate12.png"/>
         <class_restriction class="WARRIOR"/>

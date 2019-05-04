@@ -73,6 +73,22 @@
         </source>
 	</item>
 
+	<item id="16476" phase="1">
+        <info name="Field Marshal's Lamellar Shoulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_shoulder_20.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+        <stat type="ARMOR" value="626"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="STRENGTH" value="16"/>
+        <stat type="INTELLECT" value="15"/>
+        <stat type="SPELL_DAMAGE" value="19"/>
+		<stat type="MANA_PER_5" value="6"/>
+        </stats>
+        <source>
+			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
+        </source>
+	</item>
+
 	<item id="19394" phase="2">
         <info name="Drake Talon Pauldrons" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
         <stats>

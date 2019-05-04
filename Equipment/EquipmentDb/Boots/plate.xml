@@ -43,6 +43,22 @@
 		</source>
 	</item>
 
+	<item id="16472" phase="1">
+		<info name="Marshal's Lamellar Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_boots_plate_09.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+        <stat type="ARMOR" value="552"/>
+        <stat type="STAMINA" value="16"/>
+        <stat type="STRENGTH" value="15"/>
+        <stat type="INTELLECT" value="15"/>
+		<stat type="SPELL_DAMAGE" value="18"/>
+		<stat type="MANA_PER_5" value="6"/>
+		</stats>
+		<source>
+		Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
+		</source>
+	</item>
+
 	<item id="16483" phase="1">
 		<info name="Marshal's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>

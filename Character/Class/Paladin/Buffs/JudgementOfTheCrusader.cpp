@@ -7,7 +7,7 @@
 JudgementOfTheCrusader::JudgementOfTheCrusader(Paladin* pchar):
     Buff(pchar, "Judgement of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 10, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
-    ItemModificationRequirer({23274, 23203}),
+    ItemModificationRequirer({16471, 23274, 23203}),
     paladin(dynamic_cast<Paladin*>(pchar))
 {
     this->debuff = true;
@@ -33,6 +33,7 @@ void JudgementOfTheCrusader::decrease_talent_rank_effect(const QString&, const i
 
 void JudgementOfTheCrusader::activate_item_effect(const int item_id) {
     switch (item_id) {
+    case 16471:
     case 23274:
         pvp_glove_bonus = 20;
         break;
@@ -46,6 +47,7 @@ void JudgementOfTheCrusader::activate_item_effect(const int item_id) {
 
 void JudgementOfTheCrusader::deactivate_item_effect(const int item_id) {
     switch (item_id) {
+    case 16471:
     case 23274:
         pvp_glove_bonus = 0;
         break;

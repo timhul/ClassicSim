@@ -75,7 +75,11 @@ void TestJudgement::test_all() {
     tear_down();
 
     set_up();
-    test_judgement_of_the_crusader_pvp_glove_bonus_increases_holy_damage_bonus();
+    test_judgement_of_the_crusader_r10_pvp_glove_bonus_increases_holy_damage_bonus();
+    tear_down();
+
+    set_up();
+    test_judgement_of_the_crusader_r13_pvp_glove_bonus_increases_holy_damage_bonus();
     tear_down();
 
     set_up(false);
@@ -322,9 +326,23 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_3_of_3_improve
     assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 161);
 }
 
-void TestJudgement::test_judgement_of_the_crusader_pvp_glove_bonus_increases_holy_damage_bonus() {
+void TestJudgement::test_judgement_of_the_crusader_r10_pvp_glove_bonus_increases_holy_damage_bonus() {
     given_gloves_equipped(23274);
     assert(pchar->get_stats()->get_equipment()->get_gloves()->get_name() == "Knight-Lieutenant's Lamellar Gauntlets");
+    given_a_guaranteed_ranged_white_hit();
+    when_seal_of_the_crusader_is_performed();
+    given_engine_priority_pushed_forward(1.5);
+    assert(paladin->action_ready());
+
+    assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 0);
+    when_judgement_is_performed();
+
+    assert(paladin->get_stats()->get_spell_damage(MagicSchool::Holy) == 140 + 20);
+}
+
+void TestJudgement::test_judgement_of_the_crusader_r13_pvp_glove_bonus_increases_holy_damage_bonus() {
+    given_gloves_equipped(16471);
+    assert(pchar->get_stats()->get_equipment()->get_gloves()->get_name() == "Marshal's Lamellar Gloves");
     given_a_guaranteed_ranged_white_hit();
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
