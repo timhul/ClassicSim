@@ -312,6 +312,24 @@
         </source>
 	</item>
 
+	<item id="21387" phase="4">
+        <info name="Avenger's Crown" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_72.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="739"/>
+            <stat type="AGILITY" value="12"/>
+            <stat type="STRENGTH" value="20"/>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="SPIRIT" value="12"/>
+            <stat type="STAMINA" value="22"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+            <stat type="CRIT_CHANCE" value="0.01"/>
+        </stats>
+        <source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+        </source>
+	</item>
+
 	<item id="23019" phase="5">
         <info name="Icebane Helmet" type="PLATE" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
         <stats>

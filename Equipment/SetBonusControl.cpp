@@ -86,6 +86,13 @@ void SetBonusControl::equip_item(const int item_id) {
         }
         }
     }
+    else if (set_name == "Avenger's Battlegear") {
+        switch (num_pieces) {
+        case 5:
+            pchar->get_stats()->increase_base_spell_damage(71);
+            break;
+        }
+    }
     else if (set_name == "Major Mojo Infusion") {
         switch (num_pieces) {
         case 2:
@@ -339,6 +346,13 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_sinister_strike()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
+        }
+    }
+    else if (set_name == "Avenger's Battlegear") {
+        switch (num_pieces) {
+        case 5:
+            pchar->get_stats()->decrease_base_spell_damage(71);
+            break;
         }
     }
     else if (set_name == "Major Mojo Infusion") {

@@ -608,5 +608,7 @@
         <file>QML/Assets/items/Inv_misc_cape_naxxramas_01.png</file>
         <file>QML/Assets/items/Inv_relics_libramofhope.png</file>
         <file>QML/Assets/items/Inv_relics_libramoftruth.png</file>
+        <file>QML/Assets/items/Inv_boots_chain_07.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_02.png</file>
     </qresource>
 </RCC>

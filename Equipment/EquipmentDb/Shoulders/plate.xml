@@ -116,4 +116,22 @@
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
         </source>
 	</item>
+
+	<item id="21391" phase="4">
+        <info name="Avenger's Pauldrons" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_35.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+            <stat type="ARMOR" value="659"/>
+            <stat type="AGILITY" value="14"/>
+            <stat type="STRENGTH" value="18"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPIRIT" value="6"/>
+            <stat type="STAMINA" value="15"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+            <stat type="MANA_PER_5" value="3"/>
+        </stats>
+        <source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+        </source>
+	</item>
 </items>
