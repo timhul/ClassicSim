@@ -3,8 +3,8 @@
 #include "DotTick.h"
 #include "Engine.h"
 #include "NoEffectBuff.h"
-#include "Warrior.h"
 #include "Utils/Check.h"
+#include "Warrior.h"
 
 DeepWounds::DeepWounds(Character* pchar) :
     Spell("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 0),
@@ -36,8 +36,6 @@ void DeepWounds::perform_periodic() {
 
     double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * wpn_percent) / 6);
 
-    // TODO: previous_tick_rest not correctly increased/decreased by dmg increasing effects
-    // occuring since the previous tick was calculated. This effect is VERY minor.
     damage_dealt += previous_tick_rest;
     previous_tick_rest = damage_dealt - round(damage_dealt);
 
@@ -64,8 +62,6 @@ void DeepWounds::spell_effect() {
 
     buff->apply_buff();
 
-    // TODO: Assumption is that each stack ticks 6 times (i.e. every 2 seconds).
-    // After the first critical strike (T=0), the first tick comes at T=2, next at T=4, and so on.
     if (stacks.empty()) {
         auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
         this->engine->add_event(new_event);

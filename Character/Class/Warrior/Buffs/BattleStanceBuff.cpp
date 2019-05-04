@@ -1,4 +1,3 @@
-
 #include "BattleStanceBuff.h"
 
 BattleStanceBuff::BattleStanceBuff(Character* pchar):

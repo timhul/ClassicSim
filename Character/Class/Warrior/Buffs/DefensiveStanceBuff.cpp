@@ -1,7 +1,7 @@
-
 #include "DefensiveStanceBuff.h"
-#include "Warrior.h"
+
 #include "CharacterStats.h"
+#include "Warrior.h"
 
 DefensiveStanceBuff::DefensiveStanceBuff(Character* pchar):
     Buff(pchar, "Defensive Stance", NO_ICON, BuffDuration::PERMANENT, 1),

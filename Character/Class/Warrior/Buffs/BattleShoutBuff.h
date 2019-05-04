@@ -14,13 +14,13 @@ public:
     void buff_effect_when_removed() override;
 
 private:
-    QVector<int> spell_ranks;
+    QVector<unsigned> spell_ranks;
     QVector<double> ranks_booming_voice;
     QVector<double> ranks_imp_shout;
     int rank_spell;
     int base_duration;
-    int base_attack_power;
-    int modified_by_talents_attack_power;
+    unsigned base_attack_power;
+    unsigned modified_by_talents_attack_power;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;

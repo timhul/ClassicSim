@@ -1,4 +1,3 @@
-
 #include "OverpowerBuff.h"
 
 OverpowerBuff::OverpowerBuff(Character* pchar) :

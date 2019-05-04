@@ -1,7 +1,5 @@
 #include "BattleShoutBuff.h"
 
-#include <cmath>
-
 #include "CharacterStats.h"
 #include "Warrior.h"
 
@@ -33,7 +31,7 @@ void BattleShoutBuff::buff_effect_when_removed() {
 
 void BattleShoutBuff::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Battle Shout") {
-        modified_by_talents_attack_power = static_cast<int>(round(base_attack_power * ranks_imp_shout[curr]));
+        modified_by_talents_attack_power = static_cast<unsigned>(round(base_attack_power * ranks_imp_shout[curr]));
     }
     else if (talent_name == "Booming Voice") {
         duration = static_cast<int>(round(base_duration * ranks_booming_voice[curr]));
@@ -42,7 +40,7 @@ void BattleShoutBuff::increase_talent_rank_effect(const QString& talent_name, co
 
 void BattleShoutBuff::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Battle Shout") {
-        modified_by_talents_attack_power = static_cast<int>(round(base_attack_power * ranks_imp_shout[curr]));
+        modified_by_talents_attack_power = static_cast<unsigned>(round(base_attack_power * ranks_imp_shout[curr]));
     }
     else if (talent_name == "Booming Voice") {
         duration = static_cast<int>(round(base_duration * ranks_booming_voice[curr]));

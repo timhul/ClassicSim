@@ -8,9 +8,9 @@ RecklessnessBuff::RecklessnessBuff(Character* pchar):
 {}
 
 void RecklessnessBuff::buff_effect_when_applied() {
-    dynamic_cast<Warrior*>(pchar)->get_stats()->increase_melee_crit(10000);
+    pchar->get_stats()->increase_melee_crit(10000);
 }
 
 void RecklessnessBuff::buff_effect_when_removed() {
-    dynamic_cast<Warrior*>(pchar)->get_stats()->decrease_melee_crit(10000);
+    pchar->get_stats()->decrease_melee_crit(10000);
 }

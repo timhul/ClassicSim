@@ -2,7 +2,6 @@
 
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DeepWounds.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 #include "Warrior.h"
