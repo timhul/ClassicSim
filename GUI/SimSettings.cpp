@@ -104,7 +104,3 @@ double SimSettings::get_execute_threshold() const {
 void SimSettings::set_execute_threshold(const double threshold) {
     this->execute_threshold = threshold;
 }
-
-void SimSettings::reset_execute_threshold() {
-    this->execute_threshold = 0.2;
-}

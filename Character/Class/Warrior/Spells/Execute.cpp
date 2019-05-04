@@ -87,11 +87,7 @@ void Execute::decrease_talent_rank_effect(const QString&, const int curr) {
     resource_cost = talent_ranks[curr];
 }
 
-void Execute::set_execute_threshold(const double execute_threshold) {
+void Execute::prepare_set_of_combat_iterations_spell_specific() {
     check((execute_threshold > -0.0001 && execute_threshold < 1.0001), "Invalid Execute range");
-    this->execute_threshold = execute_threshold;
-}
-
-void Execute::reset_execute_threshold() {
-    this->execute_threshold = 0.2;
+    this->execute_threshold = pchar->get_sim_settings()->get_execute_threshold();
 }

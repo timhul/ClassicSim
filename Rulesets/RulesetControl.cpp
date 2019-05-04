@@ -55,10 +55,6 @@ void RulesetControl::use_vaelastrasz_ruleset(Character* pchar, SimSettings* sim_
     buff->enable_buff();
     pchar->get_enabled_buffs()->add_start_of_combat_buff(buff);
 
-    auto* warr = dynamic_cast<Warrior*>(pchar);
-    if (warr != nullptr)
-        dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->set_execute_threshold(2.0 / 3.0);
-
     sim_settings->set_execute_threshold(2.0 / 3.0);
 }
 
@@ -70,9 +66,5 @@ void RulesetControl::remove_vaelastrasz_ruleset(Character* pchar, SimSettings* s
     pchar->get_enabled_buffs()->remove_start_of_combat_buff(buff);
     buff->disable_buff();
 
-    auto* warr = dynamic_cast<Warrior*>(pchar);
-    if (warr != nullptr)
-        dynamic_cast<WarriorSpells*>(warr->get_spells())->get_execute()->reset_execute_threshold();
-
-    sim_settings->reset_execute_threshold();
+    sim_settings->set_execute_threshold(0.2);
 }

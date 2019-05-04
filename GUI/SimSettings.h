@@ -43,7 +43,6 @@ public:
 
     double get_execute_threshold() const;
     void set_execute_threshold(const double);
-    void reset_execute_threshold();
 
 private:
     Content::Phase current_phase;
