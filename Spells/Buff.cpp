@@ -10,7 +10,7 @@
 #include "StatisticsBuff.h"
 #include "Utils/Check.h"
 
-Buff::Buff(Character* pchar, QString  name, QString  icon, const int duration, const int base_charges):
+Buff::Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
     pchar(pchar),
     statistics_buff(nullptr),
     name(std::move(name)),

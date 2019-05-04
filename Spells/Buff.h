@@ -29,7 +29,7 @@ static const QString NO_ICON = "no-icon";
 
 class Buff {
 public:
-    Buff(Character* pchar, QString  name, QString icon, const int duration, const int base_charges);
+    Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges);
     virtual ~Buff() = default;
 
     QString get_name() const;
