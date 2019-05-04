@@ -197,9 +197,13 @@ public:
     /* Buffs and debuffs */
     BuffModel* get_buff_model() const;
     DebuffModel* get_debuff_model() const;
-    Q_INVOKABLE void selectBuff(const QString& buff);
+    Q_INVOKABLE void toggleSingleBuff(const QString& buff);
+    Q_INVOKABLE void clearBuffsAndSelectSingleBuff(const QString& buff);
+    Q_INVOKABLE void selectRangeOfBuffs(const QString& buff);
     Q_INVOKABLE bool buffActive(const QString& buff) const;
-    Q_INVOKABLE void selectDebuff(const QString& debuff);
+    Q_INVOKABLE void toggleSingleDebuff(const QString& debuff);
+    Q_INVOKABLE void clearDebuffsAndSelectSingleDebuff(const QString& buff);
+    Q_INVOKABLE void selectRangeOfDebuffs(const QString& buff);
     Q_INVOKABLE bool debuffActive(const QString& debuff) const;
     Q_INVOKABLE void setBuffSetup(const int buff_index);
     /* End of Buffs and debuffs */

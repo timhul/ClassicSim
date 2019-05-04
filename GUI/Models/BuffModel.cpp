@@ -13,25 +13,85 @@ BuffModel::BuffModel(const Content::Phase phase, QObject* parent)
 {}
 
 void BuffModel::set_character(Character* pchar) {
+    this->last_toggled = -1;
     this->pchar = pchar;
+    this->general_buffs = pchar->get_enabled_buffs()->get_general_buffs();
     update_buffs();
 }
 
 void BuffModel::set_phase(const Content::Phase phase) {
+    this->last_toggled = -1;
     this->phase = phase;
     update_buffs();
 }
 
-void BuffModel::toggle_buff(const QString& name) {
-    QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_buffs();
+void BuffModel::toggle_single_buff(const QString& name) {
+    QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     for (int i = 0; i < buffs.size(); ++i) {
         if (buffs[i]->get_name() != name)
             continue;
 
-        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(name);
+        general_buffs->toggle_external_buff(buffs[i]->get_name());
+        last_toggled = i;
         break;
     }
 
+    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+}
+
+void BuffModel::clear_buffs_and_select_single_buff(const QString& name) {
+    QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
+    for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs[i]->get_name() != name) {
+            if (general_buffs->buff_active(buffs[i]->get_name()))
+                general_buffs->toggle_external_buff(buffs[i]->get_name());
+
+            continue;
+        }
+
+        last_toggled = i;
+
+        if (!general_buffs->buff_active(buffs[i]->get_name()))
+            general_buffs->toggle_external_buff(buffs[i]->get_name());
+    }
+
+    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+}
+
+void BuffModel::select_range_of_buffs(const QString& name) {
+    int target_index = -1;
+
+    QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
+    for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs[i]->get_name() != name)
+            continue;
+
+        target_index = i;
+        break;
+    }
+
+    if (target_index == last_toggled || target_index == -1)
+        return;
+
+    if (last_toggled == -1) {
+        last_toggled = target_index;
+        return;
+    }
+
+    if (target_index > last_toggled) {
+        for (int i = last_toggled; i <= target_index; ++i) {
+            if (!general_buffs->buff_active(buffs[i]->get_name()))
+                general_buffs->toggle_external_buff(buffs[i]->get_name());
+        }
+    }
+    else {
+        for (int i = last_toggled; i >= target_index; --i) {
+            if (!general_buffs->buff_active(buffs[i]->get_name()))
+                general_buffs->toggle_external_buff(buffs[i]->get_name());
+        }
+    }
+
+    last_toggled = target_index;
     dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
@@ -42,7 +102,7 @@ void BuffModel::update_buffs() {
         endResetModel();
     }
 
-    QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_buffs();
+    QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     for (auto buff : buffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         external_buffs << buff;

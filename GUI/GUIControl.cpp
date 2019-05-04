@@ -639,8 +639,18 @@ DebuffModel* GUIControl::get_debuff_model() const {
     return this->debuff_model;
 }
 
-void GUIControl::selectBuff(const QString& buff) {
-    buff_model->toggle_buff(buff);
+void GUIControl::toggleSingleBuff(const QString& buff) {
+    buff_model->toggle_single_buff(buff);
+    Q_EMIT statsChanged();
+}
+
+void GUIControl::clearBuffsAndSelectSingleBuff(const QString& buff) {
+    buff_model->clear_buffs_and_select_single_buff(buff);
+    Q_EMIT statsChanged();
+}
+
+void GUIControl::selectRangeOfBuffs(const QString& buff) {
+    buff_model->select_range_of_buffs(buff);
     Q_EMIT statsChanged();
 }
 
@@ -648,8 +658,16 @@ bool GUIControl::buffActive(const QString& buff) const {
     return current_char->get_enabled_buffs()->get_general_buffs()->buff_active(buff);
 }
 
-void GUIControl::selectDebuff(const QString& debuff) {
-    debuff_model->toggle_debuff(debuff);
+void GUIControl::toggleSingleDebuff(const QString& debuff) {
+    debuff_model->toggle_single_debuff(debuff);
+}
+
+void GUIControl::clearDebuffsAndSelectSingleDebuff(const QString& debuff) {
+    debuff_model->clear_debuffs_and_select_single_debuff(debuff);
+}
+
+void GUIControl::selectRangeOfDebuffs(const QString& debuff) {
+    debuff_model->select_range_of_debuffs(debuff);
 }
 
 bool GUIControl::debuffActive(const QString& debuff) const {

@@ -9,7 +9,9 @@ RectangleBorders {
     property color selectedColor: "#173117"
     property color selectedHighlightColor: "#134f00"
 
-    signal buffClicked()
+    signal clearBuffsAndSelectSingle()
+    signal selectRangeOfBuffs()
+    signal toggleSingleBuff()
 
     height: 60
     width: 250
@@ -17,8 +19,14 @@ RectangleBorders {
     rectColor: buffActive === true ? selectedColor : root.darkDarkGray
     rectColorHighlighted: buffActive === true ? selectedHighlightColor : root.darkGray
     outerBorderColor: root.darkGray
-    onRectangleClicked: buffClicked()
-    onRectangleRightClicked: buffClicked()
+    sendShiftClick: true
+    sendCtrlClick: true
+    onRectangleClicked: clearBuffsAndSelectSingle()
+    onRectangleRightClicked: clearBuffsAndSelectSingle()
+    onRectangleShiftClicked: selectRangeOfBuffs()
+    onRectangleShiftRightClicked: selectRangeOfBuffs()
+    onRectangleCtrlClicked: toggleSingleBuff()
+    onRectangleCtrlRightClicked: toggleSingleBuff()
 
     Row {
         id: row

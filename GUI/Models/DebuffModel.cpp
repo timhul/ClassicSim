@@ -13,26 +13,86 @@ DebuffModel::DebuffModel(const Content::Phase phase, QObject* parent)
 {}
 
 void DebuffModel::set_character(Character* pchar) {
+    this->last_toggled = -1;
     this->pchar = pchar;
+    this->general_buffs = pchar->get_enabled_buffs()->get_general_buffs();
     update_debuffs();
 }
 
 void DebuffModel::set_phase(const Content::Phase phase) {
+    this->last_toggled = -1;
     this->phase = phase;
     update_debuffs();
 }
 
-void DebuffModel::toggle_debuff(const QString& name) {
+void DebuffModel::toggle_single_debuff(const QString& name) {
     QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_debuffs();
     for (int i = 0; i < buffs.size(); ++i) {
         if (buffs[i]->get_name() != name)
             continue;
 
-        pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(name);
-
-        dataChanged(createIndex(i, 0), createIndex(i, 0), {ActiveRole});
+        general_buffs->toggle_external_debuff(name);
+        last_toggled = i;
         break;
     }
+
+    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+}
+
+void DebuffModel::clear_debuffs_and_select_single_debuff(const QString& name) {
+    QVector<ExternalBuff*> buffs = general_buffs->get_external_debuffs();
+    for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs[i]->get_name() != name) {
+            if (general_buffs->debuff_active(buffs[i]->get_name()))
+                general_buffs->toggle_external_debuff(buffs[i]->get_name());
+
+            continue;
+        }
+
+        last_toggled = i;
+
+        if (!general_buffs->debuff_active(buffs[i]->get_name()))
+            general_buffs->toggle_external_debuff(name);
+    }
+
+    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
+}
+
+void DebuffModel::select_range_of_debuffs(const QString& name) {
+    int target_index = -1;
+
+    QVector<ExternalBuff*> buffs = general_buffs->get_external_debuffs();
+    for (int i = 0; i < buffs.size(); ++i) {
+        if (buffs[i]->get_name() != name)
+            continue;
+
+        target_index = i;
+        break;
+    }
+
+    if (target_index == last_toggled || target_index == -1)
+        return;
+
+    if (last_toggled == -1) {
+        last_toggled = target_index;
+        return;
+    }
+
+    if (target_index > last_toggled) {
+        for (int i = last_toggled; i <= target_index; ++i) {
+            if (!general_buffs->debuff_active(buffs[i]->get_name()))
+                general_buffs->toggle_external_debuff(buffs[i]->get_name());
+        }
+    }
+    else {
+        for (int i = last_toggled; i >= target_index; --i) {
+            if (!general_buffs->debuff_active(buffs[i]->get_name()))
+                general_buffs->toggle_external_debuff(buffs[i]->get_name());
+        }
+    }
+
+    last_toggled = target_index;
+    dataChanged(createIndex(0, 0), createIndex(rowCount(), 0), {ActiveRole});
 }
 
 void DebuffModel::update_debuffs() {
