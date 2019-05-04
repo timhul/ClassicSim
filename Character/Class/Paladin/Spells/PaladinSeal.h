@@ -14,7 +14,7 @@ public:
                 bool restricted_by_gcd,
                 double cooldown,
                 const ResourceType resource_type,
-                int resource_cost,
+                unsigned resource_cost,
                 Buff* seal);
     virtual ~PaladinSeal() override;
 

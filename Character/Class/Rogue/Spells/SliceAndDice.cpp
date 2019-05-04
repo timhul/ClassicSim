@@ -39,7 +39,7 @@ void SliceAndDice::spell_effect() {
     buff->update_duration(rogue->get_combo_points());
     buff->apply_buff();
 
-    rogue->lose_energy(static_cast<unsigned>(resource_cost));
+    rogue->lose_energy(resource_cost);
 
     if (rogue->get_relentless_strikes()->is_enabled()) {
         rogue->get_relentless_strikes()->set_current_combo_points(rogue->get_combo_points());

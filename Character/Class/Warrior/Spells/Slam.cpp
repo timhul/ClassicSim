@@ -3,8 +3,6 @@
 #include "CastComplete.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DeepWounds.h"
-#include "Flurry.h"
 #include "HeroicStrike.h"
 #include "MainhandAttack.h"
 #include "NoEffectBuff.h"
@@ -55,7 +53,7 @@ void Slam::complete_cast_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(static_cast<unsigned>(resource_cost));
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -82,5 +80,5 @@ void Slam::complete_cast_effect() {
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, double(casting_time_ms) / 1000);
     }
 
-    warr->lose_rage(static_cast<unsigned>(resource_cost));
+    warr->lose_rage(resource_cost);
 }

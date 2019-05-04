@@ -11,7 +11,7 @@ PaladinSeal::PaladinSeal(QString name,
                          bool restricted_by_gcd,
                          double cooldown,
                          const ResourceType resource_type,
-                         int resource_cost,
+                         unsigned resource_cost,
                          Buff* seal) :
     Spell(name, icon, pchar, restricted_by_gcd, cooldown, resource_type, resource_cost),
     seal(seal)
@@ -40,5 +40,5 @@ void PaladinSeal::spell_effect() {
 
     add_gcd_event();
 
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
+    pchar->lose_mana(resource_cost);
 }

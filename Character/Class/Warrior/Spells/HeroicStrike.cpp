@@ -2,8 +2,6 @@
 
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DeepWounds.h"
-#include "Flurry.h"
 #include "MainhandAttackWarrior.h"
 #include "NoEffectBuff.h"
 #include "OverpowerBuff.h"
@@ -44,7 +42,7 @@ void HeroicStrike::calculate_damage() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(static_cast<unsigned>(resource_cost));
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -70,7 +68,7 @@ void HeroicStrike::calculate_damage() {
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
     }
 
-    warr->lose_rage(static_cast<unsigned>(resource_cost));
+    warr->lose_rage(resource_cost);
 }
 
 void HeroicStrike::spell_effect() {

@@ -20,7 +20,7 @@ Spell::Spell(QString name,
              bool restricted_by_gcd,
              double cooldown,
              const ResourceType resource_type,
-             int resource_cost) :
+             unsigned resource_cost) :
     name(std::move(name)),
     icon(std::move(icon)),
     pchar(pchar),
@@ -86,7 +86,7 @@ SpellStatus Spell::get_spell_status() const {
     if ((get_next_use() - engine->get_current_priority()) > 0.0001)
         return SpellStatus::OnCooldown;
 
-    if (static_cast<int>(pchar->get_resource_level(resource_type)) < this->resource_cost)
+    if (pchar->get_resource_level(resource_type) < this->resource_cost)
         return SpellStatus::InsufficientResources;
 
     return is_ready_spell_specific();
@@ -124,7 +124,7 @@ void Spell::decrease_spell_rank() {
 }
 
 void Spell::perform() {
-    check((static_cast<int>(pchar->get_resource_level(resource_type)) >= resource_cost),
+    check((pchar->get_resource_level(resource_type) >= resource_cost),
           QString("Tried to perform '%1' but has unsufficient resource").arg(name).toStdString());
     last_used = engine->get_current_priority();
     this->spell_effect();
@@ -164,27 +164,27 @@ void Spell::increment_full_block() {
     statistics_spell->increment_full_block();
 }
 
-void Spell::add_partial_resist_dmg(const int damage, const int resource_cost, const double execution_time) {
+void Spell::add_partial_resist_dmg(const int damage, const unsigned resource_cost, const double execution_time) {
     statistics_spell->add_partial_resist_dmg(damage, resource_cost, execution_time);
 }
 
-void Spell::add_partial_block_dmg(const int damage, const int resource_cost, const double execution_time) {
+void Spell::add_partial_block_dmg(const int damage, const unsigned resource_cost, const double execution_time) {
     statistics_spell->add_partial_block_dmg(damage, resource_cost, execution_time);
 }
 
-void Spell::add_partial_block_crit_dmg(const int damage, const int resource_cost, const double execution_time) {
+void Spell::add_partial_block_crit_dmg(const int damage, const unsigned resource_cost, const double execution_time) {
     statistics_spell->add_partial_block_crit_dmg(damage, resource_cost, execution_time);
 }
 
-void Spell::add_glancing_dmg(const int damage, const int resource_cost, const double execution_time) {
+void Spell::add_glancing_dmg(const int damage, const unsigned resource_cost, const double execution_time) {
     statistics_spell->add_glancing_dmg(damage, resource_cost, execution_time);
 }
 
-void Spell::add_hit_dmg(const int damage, const int resource_cost, const double execution_time) {
+void Spell::add_hit_dmg(const int damage, const unsigned resource_cost, const double execution_time) {
     statistics_spell->add_hit_dmg(damage, resource_cost, execution_time);
 }
 
-void Spell::add_crit_dmg(const int damage, const int resource_cost, const double execution_time) {
+void Spell::add_crit_dmg(const int damage, const unsigned resource_cost, const double execution_time) {
     statistics_spell->add_crit_dmg(damage, resource_cost, execution_time);
 }
 

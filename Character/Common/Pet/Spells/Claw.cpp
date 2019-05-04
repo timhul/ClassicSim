@@ -32,7 +32,7 @@ void Claw::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        pet->lose_resource(static_cast<unsigned>(resource_cost));
+        pet->lose_resource(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -46,7 +46,7 @@ void Claw::spell_effect() {
         return;
     }
 
-    pet->lose_resource(static_cast<unsigned>(resource_cost));
+    pet->lose_resource(resource_cost);
 
     double damage_dealt = damage_after_modifiers(dmg_roll->get_roll()) * pet->get_damage_modifier();
 

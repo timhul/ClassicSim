@@ -14,7 +14,7 @@ public:
 
 private:
     Warrior* warr;
-    QVector<int> talent_ranks;
+    QVector<unsigned> talent_ranks;
 
     void spell_effect() override;
     void complete_cast_effect() override;

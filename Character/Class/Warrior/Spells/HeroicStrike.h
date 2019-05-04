@@ -16,13 +16,12 @@ public:
     void cancel();
     void calculate_damage();
 
-protected:
 private:
     Warrior* warr;
     NoEffectBuff* hs_buff;
-    QVector<int> spell_ranks;
-    QVector<int> talent_ranks;
-    int additional_dmg;
+    QVector<unsigned> spell_ranks;
+    QVector<unsigned> talent_ranks;
+    unsigned additional_dmg;
 
     void spell_effect() override;
 

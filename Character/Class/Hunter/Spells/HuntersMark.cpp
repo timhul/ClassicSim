@@ -25,7 +25,7 @@ HuntersMark::~HuntersMark() {
 
 void HuntersMark::spell_effect() {
     add_gcd_event();
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
+    pchar->lose_mana(resource_cost);
     hunters_mark->apply_buff();
 }
 

@@ -17,7 +17,7 @@ void Judgement::spell_effect() {
 
     dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal()->judge_seal();
 
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
+    pchar->lose_mana(resource_cost);
 }
 
 SpellStatus Judgement::is_ready_spell_specific() const {
@@ -31,14 +31,14 @@ SpellStatus Judgement::is_ready_spell_specific() const {
 
 void Judgement::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Benediction")
-        resource_cost = static_cast<int>(round(base_mana_cost * benediction_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
     if (talent_name == "Improved Judgement")
         cooldown = 10 - curr;
 }
 
 void Judgement::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Benediction")
-        resource_cost = static_cast<int>(round(base_mana_cost * benediction_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
     if (talent_name == "Improved Judgement")
         cooldown = 10 - curr;
 }

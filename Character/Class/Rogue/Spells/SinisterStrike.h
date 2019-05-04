@@ -17,7 +17,7 @@ private:
     StatisticsResource* statistics_resource;
     double aggression;
     double lethality;
-    QVector<int> imp_ss_ranks;
+    QVector<unsigned> imp_ss_ranks;
     QVector<double> aggression_ranks;
     QVector<double> lethality_ranks;
     unsigned bonescythe_energy;

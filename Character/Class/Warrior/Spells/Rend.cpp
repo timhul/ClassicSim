@@ -34,7 +34,7 @@ void Rend::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(static_cast<unsigned>(resource_cost));
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -49,7 +49,7 @@ void Rend::spell_effect() {
         return;
     }
 
-    warr->lose_rage(static_cast<unsigned>(resource_cost));
+    warr->lose_rage(resource_cost);
     buff->apply_buff();
 
     if (num_ticks_left == 0) {
@@ -70,7 +70,7 @@ void Rend::perform_periodic() {
 
     double rage_per_tick = double(resource_cost) / max_ticks;
     double execution_time_per_tick = max_ticks / warr->global_cooldown();
-    add_hit_dmg(static_cast<int>(damage_dealt), static_cast<int>(round(rage_per_tick)), execution_time_per_tick);
+    add_hit_dmg(static_cast<int>(damage_dealt), static_cast<unsigned>(round(rage_per_tick)), execution_time_per_tick);
 
     --num_ticks_left;
 

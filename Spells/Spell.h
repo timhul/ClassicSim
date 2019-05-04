@@ -52,7 +52,7 @@ public:
           bool restricted_by_gcd,
           double cooldown,
           const ResourceType resource_type,
-          int resource_cost);
+          unsigned resource_cost);
 
     virtual ~Spell() = default;
 
@@ -103,7 +103,7 @@ protected:
     double cooldown;
     double last_used;
     const ResourceType resource_type;
-    int resource_cost;
+    unsigned resource_cost;
     int spell_rank;
     int instance_id;
     bool enabled;
@@ -117,12 +117,12 @@ protected:
     void increment_parry();
     void increment_full_block();
 
-    void add_partial_resist_dmg(const int, const int resource_cost, const double execution_time);
-    void add_partial_block_dmg(const int, const int resource_cost, const double execution_time);
-    void add_partial_block_crit_dmg(const int, const int resource_cost, const double execution_time);
-    void add_glancing_dmg(const int, const int resource_cost, const double execution_time);
-    void add_hit_dmg(const int, const int resource_cost, const double execution_time);
-    void add_crit_dmg(const int, const int resource_cost, const double execution_time);
+    void add_partial_resist_dmg(const int damage, const unsigned resource_cost, const double execution_time);
+    void add_partial_block_dmg(const int damage, const unsigned resource_cost, const double execution_time);
+    void add_partial_block_crit_dmg(const int damage, const unsigned resource_cost, const double execution_time);
+    void add_glancing_dmg(const int damage, const unsigned resource_cost, const double execution_time);
+    void add_hit_dmg(const int damage, const unsigned resource_cost, const double execution_time);
+    void add_crit_dmg(const int damage, const unsigned resource_cost, const double execution_time);
 
     double damage_after_modifiers(const double damage) const;
     double get_partial_resist_dmg_modifier(const int resist_result) const;

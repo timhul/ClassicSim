@@ -2,8 +2,6 @@
 
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DeepWounds.h"
-#include "Flurry.h"
 #include "OverpowerBuff.h"
 #include "Warrior.h"
 
@@ -23,7 +21,7 @@ void MortalStrike::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(static_cast<unsigned>(resource_cost));
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -50,7 +48,7 @@ void MortalStrike::spell_effect() {
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
 
-    warr->lose_rage(static_cast<unsigned>(resource_cost));
+    warr->lose_rage(resource_cost);
 }
 
 SpellStatus MortalStrike::is_ready_spell_specific() const {

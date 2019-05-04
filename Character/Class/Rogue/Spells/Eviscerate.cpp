@@ -54,7 +54,7 @@ void Eviscerate::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        rogue->lose_energy(static_cast<unsigned>(resource_cost));
+        rogue->lose_energy(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -82,7 +82,7 @@ void Eviscerate::spell_effect() {
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
 
-    rogue->lose_energy(static_cast<unsigned>(resource_cost));
+    rogue->lose_energy(resource_cost);
 
     if (rogue->get_relentless_strikes()->is_enabled()) {
         rogue->get_relentless_strikes()->set_current_combo_points(rogue->get_combo_points());

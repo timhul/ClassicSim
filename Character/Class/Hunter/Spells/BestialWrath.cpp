@@ -26,7 +26,7 @@ BestialWrath::~BestialWrath() {
 
 void BestialWrath::spell_effect() {
     add_gcd_event();
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
+    pchar->lose_mana(resource_cost);
     bestial_wrath_buff->apply_buff();
 }
 

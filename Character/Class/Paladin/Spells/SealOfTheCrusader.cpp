@@ -49,11 +49,11 @@ void SealOfTheCrusader::judge_effect() {
 }
 
 void SealOfTheCrusader::increase_talent_rank_effect(const QString&, const int curr) {
-    resource_cost = static_cast<int>(round(base_mana_cost * benediction_ranks[curr]));
+    resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
 }
 
 void SealOfTheCrusader::decrease_talent_rank_effect(const QString&, const int curr) {
-    resource_cost = static_cast<int>(round(base_mana_cost * benediction_ranks[curr]));
+    resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
 }
 
 void SealOfTheCrusader::activate_item_effect(const int item_id) {

@@ -22,7 +22,7 @@ void DeathWish::spell_effect() {
     add_spell_cd_event();
     add_gcd_event();
 
-    warr->lose_rage(static_cast<unsigned>(resource_cost));
+    warr->lose_rage(resource_cost);
 }
 
 SpellStatus DeathWish::is_ready_spell_specific() const {

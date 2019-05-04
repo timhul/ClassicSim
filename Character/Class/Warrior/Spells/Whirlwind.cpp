@@ -2,8 +2,6 @@
 
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DeepWounds.h"
-#include "Flurry.h"
 #include "OverpowerBuff.h"
 #include "Warrior.h"
 
@@ -11,7 +9,6 @@ Whirlwind::Whirlwind(Character* pchar) :
     Spell("Whirlwind", "Assets/ability/Ability_whirlwind.png", pchar, RestrictedByGcd::Yes, 10.0, ResourceType::Rage, 25),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
-
 
 SpellStatus Whirlwind::is_ready_spell_specific() const {
     if (warr->in_battle_stance())
@@ -30,7 +27,7 @@ void Whirlwind::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(static_cast<unsigned>(resource_cost));
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -57,5 +54,5 @@ void Whirlwind::spell_effect() {
         add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
     }
 
-    warr->lose_rage(static_cast<unsigned>(resource_cost));
+    warr->lose_rage(resource_cost);
 }

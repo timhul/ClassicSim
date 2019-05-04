@@ -11,7 +11,7 @@ public:
                      bool restricted_by_gcd,
                      double cooldown,
                      const ResourceType resource_type,
-                     int resource_cost,
+                     unsigned resource_cost,
                      unsigned casting_time_ms);
 
     double get_cast_time() const;

@@ -37,7 +37,7 @@ void Overpower::spell_effect() {
     warr->get_overpower_buff()->cancel_buff();
     add_gcd_event();
     add_spell_cd_event();
-    warr->lose_rage(static_cast<unsigned>(resource_cost));
+    warr->lose_rage(resource_cost);
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

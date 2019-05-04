@@ -42,7 +42,7 @@ void MultiShot::spell_effect() {
 
     add_gcd_event();
     add_spell_cd_event();
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
+    pchar->lose_mana(resource_cost);
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
@@ -86,7 +86,7 @@ void MultiShot::add_adrenaline_rush_statistics() {
 
 void MultiShot::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Efficiency")
-        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(resource_base * efficiency_ranks[curr]));
     if (talent_name == "Mortal Shots")
         mortal_shots_bonus = mortal_shots_ranks[curr];
     if (talent_name == "Barrage")
@@ -95,7 +95,7 @@ void MultiShot::increase_talent_rank_effect(const QString& talent_name, const in
 
 void MultiShot::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Efficiency")
-        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(resource_base * efficiency_ranks[curr]));
     if (talent_name == "Mortal Shots")
         mortal_shots_bonus = mortal_shots_ranks[curr];
     if (talent_name == "Barrage")

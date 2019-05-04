@@ -47,7 +47,7 @@ void AimedShot::complete_cast_effect() {
     pchar->get_spells()->start_attack();
     add_spell_cd_event();
 
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
+    pchar->lose_mana(resource_cost);
     const int wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_ability_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
 
@@ -90,14 +90,14 @@ void AimedShot::add_adrenaline_rush_statistics() {
 
 void AimedShot::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Efficiency")
-        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(resource_base * efficiency_ranks[curr]));
     if (talent_name == "Mortal Shots")
         mortal_shots_bonus = mortal_shots_ranks[curr];
 }
 
 void AimedShot::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Efficiency")
-        resource_cost = static_cast<int>(round(resource_base * efficiency_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(resource_base * efficiency_ranks[curr]));
     if (talent_name == "Mortal Shots")
         mortal_shots_bonus = mortal_shots_ranks[curr];
 }

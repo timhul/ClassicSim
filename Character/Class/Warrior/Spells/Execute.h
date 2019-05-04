@@ -12,8 +12,8 @@ public:
 
 private:
     Warrior* warr;
-    QVector<QPair<int, int>> spell_ranks;
-    QVector<int> talent_ranks;
+    QVector<QPair<unsigned, unsigned>> spell_ranks;
+    QVector<unsigned> talent_ranks;
     unsigned initial_dmg;
     unsigned dmg_per_rage_converted;
     double execute_threshold;

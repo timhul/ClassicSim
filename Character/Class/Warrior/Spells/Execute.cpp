@@ -2,9 +2,7 @@
 
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DeepWounds.h"
 #include "Engine.h"
-#include "Flurry.h"
 #include "OverpowerBuff.h"
 #include "SimSettings.h"
 #include "Utils/Check.h"
@@ -28,7 +26,6 @@ Execute::Execute(Character* pchar) :
     talent_ranks = {15, 13, 10};
 }
 
-
 SpellStatus Execute::is_ready_spell_specific() const {
     if (warr->in_defensive_stance())
         return SpellStatus::InDefensiveStance;
@@ -46,10 +43,9 @@ void Execute::spell_effect() {
 
     add_gcd_event();
 
-    // CSIM-70: Investigate Execute rage loss on miss/dodge/parry
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(static_cast<unsigned>(resource_cost));
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -69,11 +65,11 @@ void Execute::spell_effect() {
 
     if (result == PhysicalAttackResult::CRITICAL) {
         warr->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), int(warr->get_resource_level(resource_type)), pchar->global_cooldown());
+        add_crit_dmg(static_cast<int>(round(damage_dealt * warr->get_stats()->get_melee_ability_crit_dmg_mod())), warr->get_resource_level(resource_type), pchar->global_cooldown());
     }
     else if (result == PhysicalAttackResult::HIT) {
         warr->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)), int(warr->get_resource_level(resource_type)), pchar->global_cooldown());
+        add_hit_dmg(static_cast<int>(round(damage_dealt)), warr->get_resource_level(resource_type), pchar->global_cooldown());
     }
 
     warr->lose_rage(warr->get_resource_level(resource_type));

@@ -11,7 +11,7 @@ SpellCastingTime::SpellCastingTime(const QString& name,
                                    bool restricted_by_gcd,
                                    double cooldown,
                                    const ResourceType resource_type,
-                                   int resource_cost,
+                                   unsigned resource_cost,
                                    unsigned casting_time) :
     Spell(name, icon, pchar, restricted_by_gcd, cooldown, resource_type, resource_cost),
     casting_time_ms(casting_time),

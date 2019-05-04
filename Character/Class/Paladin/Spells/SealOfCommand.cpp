@@ -83,7 +83,7 @@ void SealOfCommand::prepare_set_of_combat_iterations_spell_specific() {
 
 void SealOfCommand::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Benediction")
-        resource_cost = static_cast<int>(round(base_mana_cost * benediction_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
 
     if (talent_name == "Seal of Command") {
         seal->enable_buff();
@@ -93,7 +93,7 @@ void SealOfCommand::increase_talent_rank_effect(const QString& talent_name, cons
 
 void SealOfCommand::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Benediction")
-        resource_cost = static_cast<int>(round(base_mana_cost * benediction_ranks[curr]));
+        resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
 
     if (talent_name == "Seal of Command") {
         seal->disable_buff();

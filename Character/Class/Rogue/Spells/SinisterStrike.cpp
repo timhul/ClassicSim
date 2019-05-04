@@ -37,7 +37,7 @@ void SinisterStrike::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        rogue->lose_energy(static_cast<unsigned>(resource_cost));
+        rogue->lose_energy(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
@@ -51,7 +51,7 @@ void SinisterStrike::spell_effect() {
         return;
     }
 
-    rogue->lose_energy(static_cast<unsigned>(resource_cost));
+    rogue->lose_energy(resource_cost);
     rogue->gain_combo_points(1);
 
     double base_dmg = rogue->get_random_normalized_mh_dmg() + 68.0;

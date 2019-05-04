@@ -59,7 +59,7 @@ void Consecration::calculate_damage() {
 
 void Consecration::spell_effect() {
     buff->apply_buff();
-    pchar->lose_mana(static_cast<unsigned>(resource_cost));
+    pchar->lose_mana(resource_cost);
     add_gcd_event();
 
     if (ticks == 0)

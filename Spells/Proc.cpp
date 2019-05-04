@@ -1,14 +1,14 @@
-
 #include "Proc.h"
 
 #include <utility>
+
+#include "Character.h"
+#include "ClassStatistics.h"
 #include "EnabledProcs.h"
 #include "Random.h"
-#include "ClassStatistics.h"
-#include "StatisticsSpell.h"
 #include "StatisticsProc.h"
 #include "StatisticsResource.h"
-#include "Character.h"
+#include "StatisticsSpell.h"
 
 Proc::Proc(const QString& name,
            const QString &icon,
