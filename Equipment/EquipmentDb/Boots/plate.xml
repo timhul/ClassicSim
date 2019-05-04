@@ -72,6 +72,24 @@
 		</source>
 	</item>
 
+	<item id="20049"  phase="3">
+		<info name="Highlander's Lamellar Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_04.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+        <stat type="ARMOR" value="452"/>
+        <stat type="STRENGTH" value="14"/>
+        <stat type="STAMINA" value="8"/>
+        <stat type="AGILITY" value="12"/>
+		<stat type="INTELLECT" value="8"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Run speed increased slightly.
+		</special_equip_effect>
+		<source>
+		Requires Revered with League of Arathor (Arathi Basin faction).
+		</source>
+	</item>
+
 	<item id="20048"  phase="3">
 		<info name="Highlander's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="WARRIOR"/>

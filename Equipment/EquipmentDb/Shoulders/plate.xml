@@ -72,6 +72,21 @@
         </source>
 	</item>
 
+	<item id="20058" phase="3">
+        <info name="Highlander's Lamellar Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
+        <class_restriction class="PALADIN"/>
+        <stats>
+        <stat type="ARMOR" value="553"/>
+        <stat type="STRENGTH" value="18"/>
+        <stat type="STAMINA" value="15"/>
+        <stat type="AGILITY" value="17"/>
+		<stat type="INTELLECT" value="10"/>
+        </stats>
+        <source>
+		Requires Exalted with League of Arathor (Arathi Basin faction).
+        </source>
+	</item>
+
 	<item id="20057" phase="3">
         <info name="Highlander's Plate Spaulders" type="PLATE" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
         <class_restriction class="WARRIOR"/>

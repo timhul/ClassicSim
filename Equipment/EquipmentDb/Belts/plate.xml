@@ -40,12 +40,27 @@
 		</source>
 	</item>
 
+	<item id="20042" phase="3">
+		<info name="Highlander's Lamellar Girdle" type="PLATE" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_14.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+        <stat type="ARMOR" value="369"/>
+        <stat type="STRENGTH" value="15"/>
+        <stat type="STAMINA" value="6"/>
+		<stat type="INTELLECT" value="10"/>
+        <stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Requires Honored with League of Arathor (Arathi Basin faction).
+		</source>
+	</item>
+
 	<item id="20041" phase="3">
 		<info name="Highlander's Plate Girdle" type="PLATE" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_14.png"/>
 		<class_restriction class="WARRIOR"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
-        <stat type="ARMOR" value="396"/>
+        <stat type="ARMOR" value="369"/>
         <stat type="STRENGTH" value="17"/>
         <stat type="STAMINA" value="10"/>
         <stat type="CRIT_CHANCE" value="0.01"/>
@@ -59,7 +74,7 @@
 		<info name="Defiler's Plate Girdle" type="PLATE" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_14.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
-        <stat type="ARMOR" value="396"/>
+        <stat type="ARMOR" value="369"/>
         <stat type="STRENGTH" value="17"/>
         <stat type="STAMINA" value="10"/>
         <stat type="CRIT_CHANCE" value="0.01"/>

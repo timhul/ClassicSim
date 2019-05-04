@@ -300,7 +300,8 @@ void SetBonusControl::equip_item(const int item_id) {
     else if (set_name == "Field Marshal's Pursuit" || set_name == "Warlord's Pursuit")
         activate_hunter_r13_pvp_set_bonuses(num_pieces);
     else if (set_name == "The Highlander's Resolution" || set_name == "The Defiler's Resolution" ||
-             set_name == "The Highlander's Determination" || set_name == "The Defiler's Determination")
+             set_name == "The Highlander's Determination" || set_name == "The Defiler's Determination" ||
+             set_name == "The Highlander's Resolve")
         activate_arathi_basin_physical_set_bonuses(num_pieces);
 }
 
@@ -550,7 +551,8 @@ void SetBonusControl::unequip_item(const int item_id) {
     else if (set_name == "Field Marshal's Pursuit" || set_name == "Warlord's Pursuit")
         deactivate_hunter_r13_pvp_set_bonuses(num_pieces);
     else if (set_name == "The Highlander's Resolution" || set_name == "The Defiler's Resolution" ||
-             set_name == "The Highlander's Determination" || set_name == "The Defiler's Determination")
+             set_name == "The Highlander's Determination" || set_name == "The Defiler's Determination" ||
+             set_name == "The Highlander's Resolve")
         deactivate_arathi_basin_physical_set_bonuses(num_pieces);
 }
 
