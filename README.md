@@ -45,12 +45,13 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * More necks and backs available.
 * Fix bug for Warriors using Vaelastrasz ruleset which caused Execute to not be evaluated properly.
 * Demonic Runes and Night Dragon's Breath now usable in rotations.
+* Buffs and debuffs can now be range-selected with shift-click and toggled with ctrl.
 * Flask of Supreme Power, Flask of Distilled Wisdom, Mageblood Potion are available to use as external buffs.
 * Mutually exclusive buff groups are now in place, selecting e.g. a flask will deactivate any other active flask effect.
+* Improved Backstab now yields the proper crit chance to Backstab.
 
 ## Restrictions:
 
-* Paladins can currently equip ranged weapons.
 * No Paladin tier pieces are available.
 
 # Release notes
