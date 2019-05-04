@@ -4,6 +4,7 @@
 #include "Spell.h"
 #include "MainhandAttack.h"
 
+class StatisticsResource;
 class Warrior;
 
 class MainhandAttackWarrior: public MainhandAttack {
@@ -12,12 +13,15 @@ public:
 
     void extra_attack() override;
 
-protected:
 private:
     Warrior* warr;
+    StatisticsResource* statistics_resource {nullptr};
 
     void spell_effect() override;
     void calculate_damage(const bool) override;
+    void prepare_set_of_combat_iterations_spell_specific() override;
+
+    void gain_rage(const double rage_gain);
 };
 
 #endif // MAINHANDATTACKWARRIOR_H

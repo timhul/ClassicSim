@@ -1,10 +1,14 @@
 #include "MainhandAttackWarrior.h"
 
 #include "CharacterStats.h"
+#include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "Equipment.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
+#include "StatisticsResource.h"
 #include "Warrior.h"
+#include "Weapon.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Character* pchar) :
     MainhandAttack(pchar),
@@ -54,10 +58,7 @@ void MainhandAttackWarrior::calculate_damage(const bool run_procs) {
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt = round(damage_dealt * 2);
         add_crit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
-        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
-        // TODO: Save statistics for resource gains
-        warr->gain_rage(rage_gained);
-
+        gain_rage(damage_dealt);
         warr->melee_mh_white_critical_effect(run_procs);
         return;
     }
@@ -67,15 +68,34 @@ void MainhandAttackWarrior::calculate_damage(const bool run_procs) {
     if (result == PhysicalAttackResult::GLANCING) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
         add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
-        const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
-        // TODO: Save statistics for resource gains
-        warr->gain_rage(rage_gained);
+        gain_rage(damage_dealt);
         return;
     }
 
     damage_dealt = round(damage_dealt);
-    const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
     add_hit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
-    // TODO: Save statistics for resource gains
+    gain_rage(damage_dealt);
+}
+
+void MainhandAttackWarrior::prepare_set_of_combat_iterations_spell_specific() {
+    if (pchar->get_equipment()->get_mainhand() == nullptr)
+        return;
+
+    this->icon = "Assets/items/" + pchar->get_equipment()->get_mainhand()->get_value("icon");
+    this->cooldown = pchar->get_stats()->get_mh_wpn_speed();
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
+
+    reset();
+}
+
+void MainhandAttackWarrior::gain_rage(const double damage_dealt) {
+    const unsigned rage_gained = warr->rage_gained_from_dd(static_cast<unsigned>(damage_dealt));
+    const unsigned before = warr->get_resource_level(ResourceType::Rage);
+
     warr->gain_rage(rage_gained);
+
+    const unsigned gain_after_cap = warr->get_resource_level(ResourceType::Rage) - before;
+
+    if (gain_after_cap > 0)
+        statistics_resource->add_resource_gain(ResourceType::Rage, gain_after_cap);
 }
