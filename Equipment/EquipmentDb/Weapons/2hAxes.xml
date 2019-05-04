@@ -24,4 +24,125 @@
 		Drops from Emperor Dagran Thaurissian in Blackrock Depths.
 		</source>
 	</melee_weapon>
+
+	<melee_weapon id="17104" phase="0">
+		<info name="Spinal Reaper" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
+		<dmg_range min="203" max="305" speed="3.4"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="34"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Restores 150 mana or 20 rage when you kill a target that gives experience; this effect cannot occur
+		more than once every 10 seconds.
+		</special_equip_effect>
+		<source>
+		Drops from Ragnaros in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18830" phase="1">
+		<info name="Grand Marshal's Sunderer" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_axe_10.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18831" phase="1">
+		<info name="High Warlord's Battle Axe" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_axe_21.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19353" phase="2">
+		<info name="Drake Talon Cleaver" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_10.png"/>
+		<dmg_range min="199" max="300" speed="3.4"/>
+		<stats>
+			<stat type="STRENGTH" value="22"/>
+			<stat type="STAMINA" value="17"/>
+		</stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Delivers a fatal wound for 240 damage.
+		</special_equip_effect>
+		<source>
+		Drops from Ebonroc, Flamegor, and Firemaw in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19354" phase="2">
+		<info name="Draconic Avenger" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_axe_21.png"/>
+		<dmg_range min="174" max="262" speed="3.2"/>
+		<stats>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="PARRY_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21856" phase="4">
+		<info name="Neretzek, The Blood Drinker" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
+		<dmg_range min="202" max="303" speed="3.7"/>
+		<stats>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="STAMINA" value="16"/>
+		</stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="SHADOW_ATTACK" min="141" max="164" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Steals 141 to 164 life from target enemy.
+		</special_equip_effect>
+		<source>
+		Drops from trash mobs in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21134" phase="4">
+		<info name="Dark Edge of Insanity" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_axe_24.png"/>
+		<dmg_range min="242" max="364" speed="3.5"/>
+		<stats>
+			<stat type="STRENGTH" value="35"/>
+			<stat type="AGILITY" value="19"/>
+			<stat type="STAMINA" value="25"/>
+		</stats>
+		<special_equip_effect>
+		Chance on hit: Disorients the target, causing it to wander aimlessly for up to 3 sec.
+		</special_equip_effect>
+		<source>
+		Drops from C'Thun in Temple of Ahn'Qiraj.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22815" phase="5">
+		<info name="Severance" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_axe_22.png"/>
+		<dmg_range min="235" max="354" speed="3.6"/>
+		<stats>
+			<stat type="STAMINA" value="18"/>
+			<stat type="STRENGTH" value="43"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from Patchwerk in Naxxramas.
+		</source>
+	</melee_weapon>
 </weapons>

@@ -613,5 +613,7 @@
         <file>QML/Assets/items/Inv_boots_plate_03.png</file>
         <file>QML/Assets/items/Inv_shoulder_28.png</file>
         <file>QML/Assets/items/Inv_chest_plate07.png</file>
+        <file>QML/Assets/items/Inv_axe_10.png</file>
+        <file>QML/Assets/items/Inv_axe_21.png</file>
     </qresource>
 </RCC>
