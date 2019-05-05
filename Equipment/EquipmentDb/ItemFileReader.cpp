@@ -147,6 +147,7 @@ void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<
             add_attr(attrs, "amount", map);
             add_attr(attrs, "max_stacks", map);
             add_attr(attrs, "value", map);
+            add_attr(attrs, "type", map);
             procs.append(map);
         }
         reader.skipCurrentElement();

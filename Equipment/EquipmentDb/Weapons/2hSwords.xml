@@ -43,6 +43,51 @@
         </source>
 	</melee_weapon>
 
+	<melee_weapon id="18876" phase="1">
+		<info name="Grand Marshal's Claymore" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_39.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18877" phase="1">
+		<info name="High Warlord's Greatsword" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_48.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19334" phase="2">
+        <info name="The Untamed Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
+        <dmg_range min="192" max="289" speed="3.4"/>
+        <stats>
+            <stat type="AGILITY" value="22"/>
+            <stat type="STAMINA" value="16"/>
+        </stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="GENERIC_STAT_BUFF" type="STRENGTH" amount="300" instant="yes" rate="0.05" duration="8" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Increases Strength by 300 for 8 sec.
+		</special_equip_effect>
+        <source>
+        Drops from Razorgore the Untamed in Blackwing Lair.
+        </source>
+	</melee_weapon>
+
 	<melee_weapon id="19364" phase="2">
         <info name="Ashkandi, Greatsword of the Brotherhood" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
         <dmg_range min="229" max="344" speed="3.5"/>
@@ -56,6 +101,37 @@
         <flavour_text>
         "The initials A.L. are etched on the hilt."
         </flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="21679" phase="4">
+        <info name="Kalimdor's Revenge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_56.png"/>
+        <dmg_range min="209" max="315" speed="3.2"/>
+        <stats>
+            <stat type="STRENGTH" value="24"/>
+            <stat type="STAMINA" value="18"/>
+        </stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="NATURE_ATTACK" min="239" max="279" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Instantly lightning shocks the target for 239 to 278 Nature damage.
+		</special_equip_effect>
+        <source>
+        Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+        </source>
+	</melee_weapon>
+
+	<melee_weapon id="22813" phase="5">
+        <info name="Claymore of Unholy Might" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_46.png"/>
+        <dmg_range min="235" max="354" speed="3.6"/>
+        <stats>
+            <stat type="STAMINA" value="20"/>
+            <stat type="ATTACK_POWER" value="98"/>
+        </stats>
+        <source>
+        Drops from Gluth in Naxxramas.
+        </source>
 	</melee_weapon>
 
 	<melee_weapon id="22691" phase="5">

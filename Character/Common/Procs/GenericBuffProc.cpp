@@ -1,11 +1,11 @@
-#include "GenericChargeConsumerProc.h"
+#include "GenericBuffProc.h"
 
 #include "Buff.h"
 #include "EnabledProcs.h"
 #include "ProcInfo.h"
 #include "Utils/Check.h"
 
-GenericChargeConsumerProc::GenericChargeConsumerProc(
+GenericBuffProc::GenericBuffProc(
         Character* pchar,
         const QString& proc_name,
         const QString& icon,
@@ -16,12 +16,16 @@ GenericChargeConsumerProc::GenericChargeConsumerProc(
     buff(buff)
 {
     check(!proc_sources.empty(), "Must specify at least one proc source");
+    buff->enable_buff();
 }
 
-void GenericChargeConsumerProc::proc_effect() {
-    buff->use_charge();
+GenericBuffProc::~GenericBuffProc() {
+    if (buff->is_enabled())
+        buff->disable_buff();
+
+    delete buff;
 }
 
-bool GenericChargeConsumerProc::proc_specific_conditions_fulfilled() const {
-    return buff->is_active();
+void GenericBuffProc::proc_effect() {
+    buff->apply_buff();
 }

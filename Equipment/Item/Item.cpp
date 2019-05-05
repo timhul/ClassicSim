@@ -15,6 +15,7 @@
 #include "ExtraAttackOnNextSwingProc.h"
 #include "FelstrikerProc.h"
 #include "FlatWeaponDamageBuff.h"
+#include "GenericBuffProc.h"
 #include "GenericChargeConsumerProc.h"
 #include "GenericStatBuff.h"
 #include "Hunter.h"
@@ -461,6 +462,14 @@ void Item::set_procs(const int eq_slot) {
         else if (proc_name == "NIGHTFALL") {
             proc = new NightfallProc(pchar, proc_rate);
         }
+        else if (proc_name == "GENERIC_STAT_BUFF") {
+            add_default_proc_sources(proc_sources, eq_slot);
+            Buff* buff = new GenericStatBuff(pchar, name, icon,
+                                             i["duration"].toInt(),
+                                             get_valid_item_stat(i["type"]),
+                                             static_cast<unsigned>(amount));
+            proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, buff);
+        }
 
         if (proc != nullptr) {
             active_procs.append(proc);
@@ -509,6 +518,22 @@ MagicSchool Item::get_magic_school(const QString& name) {
 
     check(false, QString("Unknown magic school '%1'").arg(name).toStdString());
     return MagicSchool::Physical;
+}
+
+ItemStats Item::get_valid_item_stat(const QString& item_stat) const {
+    if (item_stat == "STRENGTH")
+        return ItemStats::Strength;
+    if (item_stat == "AGILITY")
+        return ItemStats::Agility;
+    if (item_stat == "INTELLECT")
+        return ItemStats::Intellect;
+    if (item_stat == "STAMINA")
+        return ItemStats::Stamina;
+    if (item_stat == "SPIRIT")
+        return ItemStats::Spirit;
+
+    check(false, QString("Unknown item stat '%1'").arg(item_stat).toStdString());
+    return ItemStats::Armor;
 }
 
 void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {

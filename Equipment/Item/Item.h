@@ -108,6 +108,7 @@ protected:
 
     void add_default_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot);
     MagicSchool get_magic_school(const QString& name);
+    ItemStats get_valid_item_stat(const QString& item_stat) const;
 };
 
 #endif // ITEM_H

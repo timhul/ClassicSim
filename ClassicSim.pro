@@ -26,6 +26,7 @@ SOURCES += main.cpp \
     Character/Class/Paladin/Spells/SealOfCommand.cpp \
     Character/Class/Paladin/Spells/SealOfTheCrusader.cpp \
     Character/Common/Buffs/Nightfall.cpp \
+    Character/Common/Procs/GenericBuffProc.cpp \
     Character/Common/Procs/NightfallProc.cpp \
     Character/Common/Spells/DemonicRune.cpp \
     Character/Common/Spells/NightDragonsBreath.cpp \
@@ -396,6 +397,7 @@ HEADERS += \
     Character/Class/Paladin/Spells/SealOfCommand.h \
     Character/Class/Paladin/Spells/SealOfTheCrusader.h \
     Character/Common/Buffs/Nightfall.h \
+    Character/Common/Procs/GenericBuffProc.h \
     Character/Common/Procs/NightfallProc.h \
     Character/Common/Spells/DemonicRune.h \
     Character/Common/Spells/NightDragonsBreath.h \
