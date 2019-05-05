@@ -12,6 +12,179 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="12583" phase="0">
+		<info name="Blackhand Doomsaw" type="POLEARM" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_halberd_04.png"/>
+		<dmg_range min="151" max="227" speed="3.5"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="PHYSICAL_ATTACK" min="324" max="541" instant="yes" rate="0.02" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Wounds the target for 324 to 541 damage.
+		</special_equip_effect>
+		<source>
+		Drops from Rend Blackhand in Upper Blackrock Spire (UBRS).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18725" phase="0">
+		<info name="Peacemaker" type="POLEARM" slot="2H" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_spear_07.png"/>
+		<dmg_range min="137" max="206" speed="3.4"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="54"/>
+		</stats>
+		<source>
+		Drops from Magistrate Barthilas in Stratholme Undead.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17074" phase="0">
+		<info name="Shadowstrike" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_spear_08.png"/>
+		<dmg_range min="147" max="221" speed="3.1"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="SHADOW_ATTACK" min="100" max="181" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Steals 100 to 181 life from target enemy.
+		</special_equip_effect>
+		<source>
+		Drops from Sulfuron Harbinger in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17223" phase="0">
+		<info name="Thunderstrike" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_spear_08.png"/>
+		<dmg_range min="147" max="221" speed="3.1"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="NATURE_ATTACK" min="150" max="251" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Blasts up to 3 targets for 150 to 251 Nature damage. Each target after the first takes
+		less damage.
+		</special_equip_effect>
+		<source>
+		Transformed from Shadowstrike, which drops from Sulfuron Harbinger in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19167" phase="0">
+		<info name="Blackfury" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_spear_08.png"/>
+		<dmg_range min="105" max="158" speed="2.1"/>
+		<stats>
+			<stat type="STRENGTH" value="35"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Crafted by Blacksmiths (300 skill). Requires Molten Core materials.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18869" phase="1">
+		<info name="Grand Marshal's Glaive" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_spear_08.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18871" phase="1">
+		<info name="High Warlord's Pig Sticker" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_spear_01.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19963" phase="3">
+		<info name="Pitchfork of Madness" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_spear_03.png"/>
+		<dmg_range min="163" max="246" speed="3.5"/>
+		<stats>
+			<stat type="ATTACK_POWER_DEMON" value="117"/>
+		</stats>
+		<source>
+		Drops from Renataki (Edge of Madness) in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19106" phase="2">
+		<info name="Ice Barbed Spear" type="POLEARM" slot="2H" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_spear_04.png"/>
+		<dmg_range min="155" max="233" speed="3.6"/>
+		<stats>
+			<stat type="AGILITY" value="21"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="20"/>
+		</stats>
+		<source>
+		Quest reward. Requires winning Alterac Valley.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19946" phase="3">
+		<info name="Tigule's Harpoon" type="POLEARM" slot="2H" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_spear_04.png"/>
+		<dmg_range min="154" max="232" speed="3.3"/>
+		<stats>
+			<stat type="STAMINA" value="20"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER_BEAST" value="60"/>
+		</stats>
+		<source>
+		Drops from Gahz'ranka in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19874" phase="3">
+		<info name="Halberd of Smiting" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_weapon_halberd_12.png"/>
+		<dmg_range min="175" max="263" speed="3.5"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="PHYSICAL_ATTACK" min="452" max="677" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Equip: Chance to decapitate the target on a melee swing, causing 452 to 677 damage.
+		</special_equip_effect>
+		<source>
+		Drops from Bloodlord Mandokir in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22314" phase="4">
+		<info name="Huntsman's Harpoon" type="POLEARM" slot="2H" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_spear_06.png"/>
+		<dmg_range min="150" max="226" speed="3.6"/>
+		<stats>
+			<stat type="AGILITY" value="35"/>
+		</stats>
+		<source>
+		Drops from Isalien in Dire Maul.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20660" phase="4">
+		<info name="Stonecutting Glaive" type="POLEARM" slot="2H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_spear_06.png"/>
+		<dmg_range min="152" max="228" speed="3.7"/>
+		<stats>
+			<stat type="STRENGTH" value="29"/>
+			<stat type="AGILITY" value="12"/>
+		</stats>
+		<source>
+		Drops from Hoary Templar, a summonable elite in Silithus.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="21635" phase="4">
 		<info name="Barb of the Sand Reaver" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_halberd_ahnqiraj.png"/>
 		<dmg_range min="225" max="338" speed="3.7"/>
@@ -21,6 +194,21 @@
 		</stats>
 		<source>
 		Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="23039" phase="5">
+		<info name="The Eye of Nerub" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_weapon_halberd_04.png"/>
+		<dmg_range min="251" max="378" speed="3.7"/>
+		<stats>
+			<stat type="AGILITY" value="45"/>
+			<stat type="STAMINA" value="22"/>
+			<stat type="BOW_SKILL" value="4"/>
+			<stat type="CROSSBOW_SKILL" value="4"/>
+			<stat type="GUN_SKILL" value="4"/>
+		</stats>
+		<source>
+		Drops from Loatheb in Naxxramas.
 		</source>
 	</melee_weapon>
 </weapons>

@@ -615,5 +615,12 @@
         <file>QML/Assets/items/Inv_chest_plate07.png</file>
         <file>QML/Assets/items/Inv_axe_10.png</file>
         <file>QML/Assets/items/Inv_axe_21.png</file>
+        <file>QML/Assets/items/Inv_spear_01.png</file>
+        <file>QML/Assets/items/Inv_spear_03.png</file>
+        <file>QML/Assets/items/Inv_spear_04.png</file>
+        <file>QML/Assets/items/Inv_spear_08.png</file>
+        <file>QML/Assets/items/Inv_weapon_halberd_04.png</file>
+        <file>QML/Assets/items/Inv_weapon_halberd_12.png</file>
+        <file>QML/Assets/items/Inv_spear_06.png</file>
     </qresource>
 </RCC>
