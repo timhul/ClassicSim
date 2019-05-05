@@ -507,6 +507,7 @@ Rectangle {
                 name: _name
                 iconurl: _icon
                 avgprocrate: _avgprocrate
+                effectiveppm: _effectiveppm
                 numprocs: _numprocs
             }
         }

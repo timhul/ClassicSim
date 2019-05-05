@@ -55,6 +55,23 @@ RectangleBorders {
             height: parent.height
             width: parent.percentageWidth
 
+            property int method: ProcBreakdownSorting.ByEffectivePPM
+
+            onRectangleClicked: procBreakdownModel.selectSort(method)
+            onRectangleRightClicked: procBreakdownModel.selectSort(method)
+
+            rectColor: procBreakdownModel.currentSortingMethod === method ? root.darkGray :
+                                                                            root.darkDarkGray
+
+            TextSmall {
+                text: "Effective PPM"
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
             property int method: ProcBreakdownSorting.ByNumProcs
 
             onRectangleClicked: procBreakdownModel.selectSort(method)

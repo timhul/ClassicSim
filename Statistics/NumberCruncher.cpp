@@ -132,7 +132,7 @@ void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
 }
 
 void NumberCruncher::merge_proc_entry(const QString& name, const QString &icon, QList<StatisticsProc*>& vec) {
-    auto* result = new StatisticsProc(name, icon);
+    auto* result = new StatisticsProc(name, icon, time_in_combat);
     for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->proc_statistics.contains(name))
             continue;

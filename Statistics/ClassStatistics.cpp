@@ -52,7 +52,7 @@ StatisticsResource* ClassStatistics::get_resource_statistics(const QString& name
 StatisticsProc* ClassStatistics::get_proc_statistics(const QString& name, const QString& icon) {
     check(!proc_statistics.contains(name), QString("'%1' has already initialized proc statistics").arg(name).toStdString());
 
-    proc_statistics[name] = new StatisticsProc(name, icon);
+    proc_statistics[name] = new StatisticsProc(name, icon, combat_length * combat_iterations);
     return proc_statistics[name];
 }
 

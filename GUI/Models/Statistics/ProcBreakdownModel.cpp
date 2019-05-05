@@ -10,6 +10,7 @@ ProcBreakdownModel::ProcBreakdownModel(NumberCruncher *statistics_source, QObjec
 {
     this->current_sorting_method = ProcBreakdownSorting::Methods::ByAvgProcRate;
     this->sorting_methods.insert(ProcBreakdownSorting::Methods::ByAvgProcRate, SortDirection::Forward);
+    this->sorting_methods.insert(ProcBreakdownSorting::Methods::ByEffectivePPM, SortDirection::Forward);
     this->sorting_methods.insert(ProcBreakdownSorting::Methods::ByName, SortDirection::Forward);
     this->sorting_methods.insert(ProcBreakdownSorting::Methods::ByNumProcs, SortDirection::Forward);
 }
@@ -33,6 +34,7 @@ void ProcBreakdownModel::selectSort(const int method) {
         std::sort(proc_stats.begin(), proc_stats.end(), avg_proc_rate);
         select_new_method(sorting_method);
         break;
+    case ProcBreakdownSorting::Methods::ByEffectivePPM:
     case ProcBreakdownSorting::Methods::ByNumProcs:
         std::sort(proc_stats.begin(), proc_stats.end(), num_procs);
         select_new_method(sorting_method);
@@ -99,6 +101,8 @@ QVariant ProcBreakdownModel::data(const QModelIndex & index, int role) const {
         return proc_stat->get_icon();
     if (role == ProcBreakdownSorting::ByAvgProcRate)
         return QString::number(proc_stat->get_avg_proc_rate() * 100, 'f', 2);
+    if (role == ProcBreakdownSorting::ByEffectivePPM)
+        return QString::number(proc_stat->get_effective_ppm(), 'f', 2);
     if (role == ProcBreakdownSorting::ByNumProcs)
         return proc_stat->get_procs();
 
@@ -110,6 +114,7 @@ QHash<int, QByteArray> ProcBreakdownModel::roleNames() const {
     roles[ProcBreakdownSorting::ByName] = "_name";
     roles[ProcBreakdownSorting::Icon] = "_icon";
     roles[ProcBreakdownSorting::ByAvgProcRate] = "_avgprocrate";
+    roles[ProcBreakdownSorting::ByEffectivePPM] = "_effectiveppm";
     roles[ProcBreakdownSorting::ByNumProcs] = "_numprocs";
 
     return roles;

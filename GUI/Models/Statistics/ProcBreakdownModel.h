@@ -15,7 +15,8 @@ public:
         ByName = Qt::UserRole + 1,
         Icon,
         ByAvgProcRate,
-        ByNumProcs
+        ByEffectivePPM,
+        ByNumProcs,
     };
     Q_ENUMS(Methods)
 };

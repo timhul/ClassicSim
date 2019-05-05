@@ -9,6 +9,7 @@ Rectangle {
     property url iconurl
     property string name
     property string avgprocrate
+    property string effectiveppm
     property string numprocs
 
     Row {
@@ -50,6 +51,15 @@ Rectangle {
 
             TextSmall {
                 text: avgprocrate
+            }
+        }
+
+        RectangleBorders {
+            height: parent.height
+            width: parent.percentageWidth
+
+            TextSmall {
+                text: effectiveppm
             }
         }
 

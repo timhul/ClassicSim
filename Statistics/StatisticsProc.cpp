@@ -20,11 +20,10 @@ bool num_procs(StatisticsProc* lhs, StatisticsProc* rhs) {
     return lhs_procs != rhs_procs ? lhs_procs > rhs_procs : name(lhs, rhs);
 }
 
-StatisticsProc::StatisticsProc(QString  name, QString icon) :
+StatisticsProc::StatisticsProc(QString name, QString icon, const int time_in_combat) :
     name(std::move(name)),
     icon(std::move(icon)),
-    attempts(0),
-    proc_counter(0)
+    time_in_combat(time_in_combat)
 {}
 
 void StatisticsProc::reset() {
@@ -58,6 +57,10 @@ int StatisticsProc::get_attempts() const {
 
 double StatisticsProc::get_avg_proc_rate() const {
     return static_cast<double>(proc_counter) / static_cast<double>(attempts);
+}
+
+double StatisticsProc::get_effective_ppm() const {
+    return static_cast<double>(proc_counter) / time_in_combat * 60;
 }
 
 void StatisticsProc::add(const StatisticsProc* other) {
