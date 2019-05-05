@@ -49,6 +49,9 @@
 		<special_equip_effect>
 		Chance on hit: Steals 100 to 181 life from target enemy.
 		</special_equip_effect>
+		<special_equip_effect>
+		Use: Transforms Shadowstrike into Thunderstrike. (cooldown 1 min)
+		</special_equip_effect>
 		<source>
 		Drops from Sulfuron Harbinger in Molten Core.
 		</source>
@@ -64,6 +67,9 @@
 		<special_equip_effect>
 		Chance on hit: Blasts up to 3 targets for 150 to 251 Nature damage. Each target after the first takes
 		less damage.
+		</special_equip_effect>
+		<special_equip_effect>
+		Use: Transforms Thunderstrike into Shadowstrike. (cooldown 1 min)
 		</special_equip_effect>
 		<source>
 		Transformed from Shadowstrike, which drops from Sulfuron Harbinger in Molten Core.

@@ -622,5 +622,6 @@
         <file>QML/Assets/items/Inv_weapon_halberd_04.png</file>
         <file>QML/Assets/items/Inv_weapon_halberd_12.png</file>
         <file>QML/Assets/items/Inv_spear_06.png</file>
+        <file>QML/Assets/items/Inv_sword_2h_ashbringercorrupt.png</file>
     </qresource>
 </RCC>

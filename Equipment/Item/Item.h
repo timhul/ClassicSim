@@ -31,7 +31,8 @@ public:
          QVector<QPair<QString, QString>> stats,
          QVector<QMap<QString, QString>> procs = {},
          QVector<QMap<QString, QString>> use = {},
-         QVector<QString> item_modifications = {});
+         QVector<QString> item_modifications = {},
+         QVector<QString> special_equip_effects = {});
     Item(const Item* item);
     virtual ~Item();
 
@@ -76,6 +77,7 @@ protected:
     QMap<QString, QString> info;
     QVector<QString> base_tooltip_stats;
     QVector<QString> equip_effects_tooltip_stats;
+    QVector<QString> special_equip_effects;
     QVector<QMap<QString, QString>> procs_map;
     QVector<QMap<QString, QString>> use_map;
     QVector<QPair<QString, QString>> stats_key_value_pairs;

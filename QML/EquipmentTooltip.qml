@@ -53,16 +53,9 @@ RectangleBorders {
         ttClassRestrictions.text = tooltipInfo[10];
         ttLevelRequirement.text = tooltipInfo[11];
         ttEquipEffect.text = tooltipInfo[12];
-        if (tooltipInfo[13] !== "") {
-            if (ttEquipEffect.text !== "") {
-                ttEquipEffect.text += "\n"
-            }
-            ttEquipEffect.text += tooltipInfo[13];
-        }
+        ttFlavourText.text = tooltipInfo[13];
 
-        ttFlavourText.text = tooltipInfo[14];
-
-        if (tooltipInfo[15] === false) {
+        if (tooltipInfo[14] === false) {
             ttSetName.text = ""
             ttSetItems.text = ""
             ttSetBonuses.text = ""
@@ -70,9 +63,9 @@ RectangleBorders {
             return
         }
 
-        ttSetName.text = tooltipInfo[16]
-        var numSetPieces = tooltipInfo[17]
-        var offset = 18
+        ttSetName.text = tooltipInfo[15]
+        var numSetPieces = tooltipInfo[16]
+        var offset = 17
         var setPiecesText = " "
         for (var i = 0; i < numSetPieces; ++i) {
             setPiecesText += tooltipInfo[i + offset]

@@ -11,7 +11,7 @@ ItemFileReader::ItemFileReader(QObject* parent):
     QObject(parent)
 {}
 
-void ItemFileReader::read_items(QVector<Item *> &items, const QString &path) {
+void ItemFileReader::read_items(QVector<Item *>& items, const QString &path) {
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Cannot read file" << path << ":" << file.errorString();
@@ -34,7 +34,7 @@ void ItemFileReader::read_items(QVector<Item *> &items, const QString &path) {
     file.close();
 }
 
-void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> &items) {
+void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*>& items) {
     while (reader.readNextStartElement()) {
         QString classification = reader.name().toString();
 
@@ -60,6 +60,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
         QVector<QMap<QString, QString>> procs;
         QVector<QMap<QString, QString>> uses;
         QVector<QString> spell_modifications;
+        QVector<QString> special_equip_effects;
         item_map["classification"] = classification;
         item_map["id"] = id;
         item_map["phase"] = reader.attributes().value("phase").toString();
@@ -89,7 +90,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
                 item_map["flavour_text"] = reader.readElementText().simplified();
             }
             else if (reader.name() == "special_equip_effect") {
-                item_map["special_equip_effect"] = reader.readElementText().simplified();
+                special_equip_effects.append(reader.readElementText().simplified());
             }
             else if (reader.name() == "modifies") {
                 modifies_element_reader(reader, spell_modifications);
@@ -98,13 +99,13 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*> 
                 reader.skipCurrentElement();
         }
 
-        create_item(items, item_map, stats, procs, uses, spell_modifications);
+        create_item(items, item_map, stats, procs, uses, spell_modifications, special_equip_effects);
         item_map.remove("classification");
         warn_remaining_keys(item_map);
     }
 }
 
-void ItemFileReader::info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item) {
+void ItemFileReader::info_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString>& item) {
     QVector<QString> mandatory_attrs = {"name", "type", "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
     QVector<QString> optional_attrs = {"faction", "icon"};
 
@@ -115,11 +116,11 @@ void ItemFileReader::info_element_reader(const QXmlStreamAttributes &attrs, QMap
         add_attr(attrs, optional_attr, item);
 }
 
-void ItemFileReader::class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString> &item) {
+void ItemFileReader::class_restriction_element_reader(const QXmlStreamAttributes &attrs, QMap<QString, QString>& item) {
     item["RESTRICTED_TO_" + attrs.value("class").toString()] = "true";
 }
 
-void ItemFileReader::stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>> &stats) {
+void ItemFileReader::stats_element_reader(QXmlStreamReader &reader, QVector<QPair<QString, QString>>& stats) {
     while (reader.readNextStartElement()) {
         QXmlStreamAttributes attrs = reader.attributes();
         if (reader.name() == "stat") {
@@ -129,7 +130,7 @@ void ItemFileReader::stats_element_reader(QXmlStreamReader &reader, QVector<QPai
     }
 }
 
-void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>> &procs) {
+void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& procs) {
     while (reader.readNextStartElement()) {
         QXmlStreamAttributes attrs = reader.attributes();
         if (reader.name() == "spell") {
@@ -152,7 +153,7 @@ void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<
     }
 }
 
-void ItemFileReader::use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>> &uses) {
+void ItemFileReader::use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& uses) {
     while (reader.readNextStartElement()) {
         QXmlStreamAttributes attrs = reader.attributes();
         if (reader.name() == "use") {
@@ -169,7 +170,7 @@ void ItemFileReader::use_element_reader(QXmlStreamReader &reader, QVector<QMap<Q
     }
 }
 
-void ItemFileReader::modifies_element_reader(QXmlStreamReader &reader, QVector<QString> &spell_modifications) {
+void ItemFileReader::modifies_element_reader(QXmlStreamReader &reader, QVector<QString>& spell_modifications) {
     if (!reader.attributes().hasAttribute("name")) {
         reader.skipCurrentElement();
         return;
@@ -179,14 +180,14 @@ void ItemFileReader::modifies_element_reader(QXmlStreamReader &reader, QVector<Q
     reader.skipCurrentElement();
 }
 
-void ItemFileReader::add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item) {
+void ItemFileReader::add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item) {
     add_attr(attrs, attr, item);
 
     if (!item.contains(attr))
         qDebug() << "Missing" << attr << "attribute";
 }
 
-void ItemFileReader::add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString> &item) {
+void ItemFileReader::add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item) {
     if (!attrs.hasAttribute(attr)) {
         return;
     }
@@ -194,12 +195,13 @@ void ItemFileReader::add_attr(const QXmlStreamAttributes &attrs, const QString& 
     item[attr] = attrs.value(attr).toString();
 }
 
-void ItemFileReader::create_item(QVector<Item*> &items,
-                                 QMap<QString, QString> &item_map,
-                                 QVector<QPair<QString, QString>> &stats,
-                                 QVector<QMap<QString, QString>> &procs,
-                                 QVector<QMap<QString, QString>> &uses,
-                                 QVector<QString> &spell_modifications) {
+void ItemFileReader::create_item(QVector<Item*>& items,
+                                 QMap<QString, QString>& item_map,
+                                 QVector<QPair<QString, QString>>& stats,
+                                 QVector<QMap<QString, QString>>& procs,
+                                 QVector<QMap<QString, QString>>& uses,
+                                 QVector<QString>& spell_modifications,
+                                 QVector<QString>& special_equip_effects) {
     QVector<QString> mandatory_attrs = {"id", "phase", "name", "classification", "type",
                                         "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
@@ -218,20 +220,20 @@ void ItemFileReader::create_item(QVector<Item*> &items,
     extract_info(item_map, info);
 
     items.append(new Item(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),
-                          info, stats, procs, uses, spell_modifications));
+                          info, stats, procs, uses, spell_modifications, special_equip_effects));
 }
 
-void ItemFileReader::extract_info(QMap<QString, QString> &item, QMap<QString, QString> &info) {
+void ItemFileReader::extract_info(QMap<QString, QString>& item, QMap<QString, QString>& info) {
     QVector<QString> keys = {"id", "name", "phase", "type", "slot", "boe", "item_lvl", "req_lvl", "faction", "unique", "quality", "source", "icon",
                              "RESTRICTED_TO_WARRIOR", "RESTRICTED_TO_PALADIN", "RESTRICTED_TO_HUNTER",
                              "RESTRICTED_TO_ROGUE", "RESTRICTED_TO_SHAMAN", "RESTRICTED_TO_DRUID",
                              "RESTRICTED_TO_MAGE", "RESTRICTED_TO_PRIEST", "RESTRICTED_TO_WARLOCK",
-                             "flavour_text", "special_equip_effect"};
+                             "flavour_text"};
 
     extract(keys, item, info);
 }
 
-void ItemFileReader::extract(QVector<QString> handled_keys, QMap<QString, QString> &source, QMap<QString, QString> &target) {
+void ItemFileReader::extract(QVector<QString> handled_keys, QMap<QString, QString>& source, QMap<QString, QString>& target) {
     for (const auto& key : handled_keys) {
         if (source.contains(key)) {
             target[key] = source.take(key);
@@ -239,7 +241,7 @@ void ItemFileReader::extract(QVector<QString> handled_keys, QMap<QString, QStrin
     }
 }
 
-void ItemFileReader::warn_remaining_keys(QMap<QString, QString> &item) {
+void ItemFileReader::warn_remaining_keys(QMap<QString, QString>& item) {
     QMap<QString, QString>::const_iterator it = item.constBegin();
     auto end = item.constEnd();
     while(it != end) {

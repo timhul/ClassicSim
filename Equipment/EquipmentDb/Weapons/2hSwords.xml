@@ -57,4 +57,30 @@
         "The initials A.L. are etched on the hilt."
         </flavour_text>
 	</melee_weapon>
+
+	<melee_weapon id="22691" phase="5">
+        <info name="Corrupted Ashbringer" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_sword_2h_ashbringercorrupt.png"/>
+        <dmg_range min="259" max="389" speed="3.6"/>
+        <stats>
+            <stat type="STAMINA" value="-25"/>
+            <stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+        </stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+            <spell name="SHADOW_ATTACK" min="185" max="216" instant="yes" rate="0.05" internal_cd="0"/>
+        </proc>
+		<special_equip_effect>
+		Chance on hit: Steals 185 to 216 life from target enemy.
+		</special_equip_effect>
+		<special_equip_effect>
+		Equip: Inflicts the will of the Ashbringer upon the wielder.
+		</special_equip_effect>
+        <source>
+        Drops from Four Horsemen in Naxxramas.
+        </source>
+        <flavour_text>
+        "Blade of the Scarlet Highlord."
+        </flavour_text>
+	</melee_weapon>
 </weapons>

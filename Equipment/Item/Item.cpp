@@ -37,12 +37,14 @@ Item::Item(QString name,
            QVector<QPair<QString, QString>> _stats,
            QVector<QMap<QString, QString>> _procs,
            QVector<QMap<QString, QString>> _use,
-           QVector<QString> _spell_modifications):
+           QVector<QString> _spell_modifications,
+           QVector<QString> _special_equip_effects):
     PhaseRequirer(phase),
     pchar(nullptr),
     name(std::move(name)),
     valid_faction(AvailableFactions::Neutral),
     info(std::move(_info)),
+    special_equip_effects(std::move(_special_equip_effects)),
     procs_map(std::move(_procs)),
     use_map(std::move(_use)),
     stats_key_value_pairs(std::move(_stats)),
@@ -59,6 +61,7 @@ Item::Item(QString name,
     set_class_restrictions(info);
     set_faction();
     this->icon = QString("Assets/items/%1").arg(info["icon"]);
+
 }
 
 Item::Item(const Item* item) :
@@ -66,6 +69,7 @@ Item::Item(const Item* item) :
     pchar(item->pchar),
     name(item->name),
     info(item->info),
+    special_equip_effects(item->special_equip_effects),
     procs_map(item->procs_map),
     use_map(item->use_map),
     stats_key_value_pairs(item->stats_key_value_pairs),
@@ -734,7 +738,14 @@ QString Item::get_base_stat_tooltip() const {
 }
 
 QString Item::get_equip_effect_tooltip() const {
-    return get_tooltip(equip_effects_tooltip_stats);
+    if (!equip_effects_tooltip_stats.empty() && !special_equip_effects.empty())
+        return QStringList {get_tooltip(equip_effects_tooltip_stats),
+                            get_tooltip(special_equip_effects)}.join("\n");
+
+    if (!equip_effects_tooltip_stats.empty())
+        return get_tooltip(equip_effects_tooltip_stats);
+
+    return get_tooltip(special_equip_effects);
 }
 
 QString Item::get_tooltip(const QVector<QString>& tt_strings) const {
