@@ -26,10 +26,10 @@ AutoShot::AutoShot(Hunter* pchar) :
 
 void AutoShot::spell_effect() {
     complete_shot();
-    calculate_damage(true);
+    calculate_damage();
 }
 
-void AutoShot::calculate_damage(const bool run_procs) {
+void AutoShot::calculate_damage() {
     pchar->add_player_reaction_event();
 
     const int wpn_skill = pchar->get_ranged_wpn_skill();
@@ -49,12 +49,12 @@ void AutoShot::calculate_damage(const bool run_procs) {
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod();
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
-        pchar->ranged_white_critical_effect(run_procs);
+        pchar->ranged_white_hit_effect();
         add_adrenaline_rush_statistics();
         return;
     }
 
-    pchar->ranged_white_hit_effect(run_procs);
+    pchar->ranged_white_hit_effect();
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 

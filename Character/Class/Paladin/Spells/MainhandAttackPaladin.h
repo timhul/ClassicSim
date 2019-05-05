@@ -10,7 +10,6 @@ class MainhandAttackPaladin: public MainhandAttack {
 public:
     MainhandAttackPaladin(Paladin* pchar);
 
-    void extra_attack() override;
     void apply_seal_of_the_crusader_penalty();
     void remove_seal_of_the_crusader_penalty();
 
@@ -20,7 +19,7 @@ private:
     double sotc_penalty {1.0};
 
     void spell_effect() override;
-    void calculate_damage(const bool) override;
+    int calculate_damage() override;
 };
 
 #endif // MAINHANDATTACKPALADIN_H

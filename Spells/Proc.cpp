@@ -32,16 +32,12 @@ Proc::~Proc() {
 }
 
 void Proc::spell_effect() {
-    statistics_proc->increment_attempt();
+    statistics_proc->increment_proc();
 
-    if (random->get_roll() < get_proc_range() && proc_specific_conditions_fulfilled()) {
-        proc_effect();
-        statistics_proc->increment_proc();
+    proc_effect();
 
-        for (auto & linked_proc : linked_procs) {
-            linked_proc->spell_effect();
-        }
-    }
+    for (auto & linked_proc : linked_procs)
+        linked_proc->spell_effect();
 }
 
 unsigned Proc::get_proc_range() const {
@@ -62,6 +58,12 @@ void Proc::set_current_proc_source(const ProcInfo::Source source) {
 
 bool Proc::procs_from_source(ProcInfo::Source source) const {
     return proc_sources.contains(source);
+}
+
+bool Proc::check_proc_success() const {
+    statistics_proc->increment_attempt();
+
+    return random->get_roll() < get_proc_range() && proc_specific_conditions_fulfilled();
 }
 
 void Proc::prepare_set_of_combat_iterations() {

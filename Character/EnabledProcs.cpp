@@ -22,11 +22,21 @@ void EnabledProcs::run_proc_effects(ProcInfo::Source source) {
     check((source != ProcInfo::Source::Manual), "Cannot run proc effects on manually triggered proc");
 
     for (auto & proc : enabled_procs) {
-        if (proc->procs_from_source(source)) {
-            proc->set_current_proc_source(source);
-            proc->perform();
-        }
+        if (!proc->procs_from_source(source))
+            continue;
+        if (procced_instance_ids.contains(proc->get_instance_id()))
+            continue;
+
+        proc->set_current_proc_source(source);
+
+        if (!proc->check_proc_success())
+            continue;
+
+        procced_instance_ids.insert(proc->get_instance_id());
+        proc->perform();
     }
+
+    procced_instance_ids.clear();
 }
 
 void EnabledProcs::add_proc_effect(Proc* proc) {
@@ -56,6 +66,8 @@ void EnabledProcs::clear_all() {
 void EnabledProcs::reset() {
     for (auto & proc : enabled_procs)
         proc->reset();
+
+    procced_instance_ids.clear();
 }
 
 void EnabledProcs::switch_faction() {

@@ -1,9 +1,11 @@
 #include "SwordSpecialization.h"
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "ItemNamespace.h"
+#include "MainhandAttack.h"
 #include "ProcInfo.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
@@ -23,7 +25,7 @@ SwordSpecialization::SwordSpecialization(Character* pchar) :
 SwordSpecialization::~SwordSpecialization() = default;
 
 void SwordSpecialization::proc_effect() {
-    warr->run_extra_mh_attack();
+    warr->get_spells()->get_mh_attack()->extra_attack();
 }
 
 void SwordSpecialization::increase_talent_rank_effect(const QString&, const int curr) {

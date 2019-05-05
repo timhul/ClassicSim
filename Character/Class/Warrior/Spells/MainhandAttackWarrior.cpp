@@ -9,6 +9,7 @@
 #include "StatisticsResource.h"
 #include "Warrior.h"
 #include "Weapon.h"
+#include "Flurry.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Character* pchar) :
     MainhandAttack(pchar),
@@ -16,38 +17,41 @@ MainhandAttackWarrior::MainhandAttackWarrior(Character* pchar) :
 {}
 
 void MainhandAttackWarrior::extra_attack() {
-    calculate_damage(false);
+    calculate_damage();
 }
 
 void MainhandAttackWarrior::spell_effect() {
     complete_swing();
-    calculate_damage(true);
+    const int result = calculate_damage();
+
+    if (result == PhysicalAttackResult::HIT || result == PhysicalAttackResult::GLANCING)
+        warr->get_flurry()->use_charge();
 }
 
-void MainhandAttackWarrior::calculate_damage(const bool run_procs) {
+int MainhandAttackWarrior::calculate_damage() {
     const int mh_wpn_skill = warr->get_mh_wpn_skill();
     int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        return;
+        return result;
     }
 
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         warr->get_overpower_buff()->apply_buff();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
-        return;
+        return result;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
-        return;
+        return result;
     }
     if (result == PhysicalAttackResult::BLOCK || result == PhysicalAttackResult::BLOCK_CRITICAL) {
         increment_full_block();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
-        return;
+        return result;
     }
 
     if (warr->get_recklessness_buff()->is_active())
@@ -59,22 +63,23 @@ void MainhandAttackWarrior::calculate_damage(const bool run_procs) {
         damage_dealt = round(damage_dealt * 2);
         add_crit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
         gain_rage(damage_dealt);
-        warr->melee_mh_white_critical_effect(run_procs);
-        return;
+        warr->melee_mh_white_critical_effect();
+        return result;
     }
 
-    warr->melee_mh_white_hit_effect(run_procs);
+    warr->melee_mh_white_hit_effect();
 
     if (result == PhysicalAttackResult::GLANCING) {
         damage_dealt = round(damage_dealt * roll->get_glancing_blow_dmg_penalty(mh_wpn_skill));
         add_glancing_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
         gain_rage(damage_dealt);
-        return;
+        return result;
     }
 
     damage_dealt = round(damage_dealt);
     add_hit_dmg(static_cast<int>(damage_dealt), resource_cost, 0);
     gain_rage(damage_dealt);
+    return result;
 }
 
 void MainhandAttackWarrior::prepare_set_of_combat_iterations_spell_specific() {

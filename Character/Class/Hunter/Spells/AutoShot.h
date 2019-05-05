@@ -26,13 +26,13 @@ private:
     int iteration;
     QVector<double> talent_ranks;
 
-    virtual void spell_effect() override;
+    void spell_effect() override;
     void reset_effect() override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 
     void add_adrenaline_rush_statistics();
 
-    virtual void calculate_damage(const bool);
+    void calculate_damage();
     void complete_shot();
 
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;

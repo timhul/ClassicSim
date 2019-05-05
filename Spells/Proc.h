@@ -28,6 +28,7 @@ public:
     void set_current_proc_source(const ProcInfo::Source);
 
     bool procs_from_source(ProcInfo::Source) const;
+    bool check_proc_success() const;
 
     void prepare_set_of_combat_iterations() override;
 

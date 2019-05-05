@@ -335,60 +335,32 @@ bool Warrior::in_defensive_stance() const {
     return this->stance == WarriorStances::Defensive;
 }
 
-void Warrior::melee_mh_white_hit_effect(const bool run_procs) {
-    if (run_procs) {
-        flurry->use_charge();
-        run_mh_white_specific_proc_effects();
-    }
-}
-
-void Warrior::melee_mh_yellow_hit_effect(const bool run_procs) {
-    if (run_procs)
-        run_mh_yellow_specific_proc_effects();
-}
-
-void Warrior::melee_mh_white_critical_effect(const bool run_procs) {
+void Warrior::melee_mh_white_critical_effect() {
     flurry->apply_buff();
     warr_spells->apply_deep_wounds();
 
-    if (run_procs)
-        run_mh_white_specific_proc_effects();
+    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
 }
 
-void Warrior::melee_mh_yellow_critical_effect(const bool run_procs) {
+void Warrior::melee_mh_yellow_critical_effect() {
     flurry->apply_buff();
     warr_spells->apply_deep_wounds();
 
-    if (run_procs)
-        run_mh_yellow_specific_proc_effects();
+    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
 }
 
-void Warrior::melee_oh_white_hit_effect(const bool run_procs) {
-    if (run_procs) {
-        flurry->use_charge();
-        run_oh_white_specific_proc_effects();
-    }
-}
-
-void Warrior::melee_oh_yellow_hit_effect(const bool run_procs) {
-    if (run_procs)
-        run_oh_yellow_specific_proc_effects();
-}
-
-void Warrior::melee_oh_white_critical_effect(const bool run_procs) {
+void Warrior::melee_oh_white_critical_effect() {
     flurry->apply_buff();
     warr_spells->apply_deep_wounds();
 
-    if (run_procs)
-        run_oh_white_specific_proc_effects();
+    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
 }
 
-void Warrior::melee_oh_yellow_critical_effect(const bool run_procs) {
+void Warrior::melee_oh_yellow_critical_effect() {
     flurry->apply_buff();
     warr_spells->apply_deep_wounds();
 
-    if (run_procs)
-        run_oh_yellow_specific_proc_effects();
+    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
 }
 
 void Warrior::initialize_talents() {

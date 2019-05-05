@@ -1,7 +1,9 @@
 #include "ExtraAttackInstantProc.h"
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "ExtraAttackOnNextSwingBuff.h"
+#include "MainhandAttack.h"
 #include "ProcInfo.h"
 #include "Utils/Check.h"
 
@@ -34,7 +36,7 @@ void ExtraAttackInstantProc::proc_from_next_swing_effect() {
     check(extra_attack_buff->is_active(), "extra_attack_buff is not active");
 
     while (extra_attack_buff->is_active()) {
-        pchar->run_extra_mh_attack();
+        pchar->get_spells()->get_mh_attack()->extra_attack();
         extra_attack_buff->use_charge();
     }
 }
@@ -43,5 +45,5 @@ void ExtraAttackInstantProc::proc_from_instant_effect() {
     check((extra_attack_buff == nullptr), "extra_attack_buff should be nullptr");
 
     for (int i = 0; i < num_attacks; ++i)
-        pchar->run_extra_mh_attack();
+        pchar->get_spells()->get_mh_attack()->extra_attack();
 }

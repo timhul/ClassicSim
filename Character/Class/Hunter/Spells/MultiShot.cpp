@@ -61,12 +61,12 @@ void MultiShot::spell_effect() {
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
         add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
-        pchar->ranged_yellow_critical_effect(true);
+        pchar->ranged_yellow_hit_effect();
         add_adrenaline_rush_statistics();
         return;
     }
 
-    pchar->ranged_yellow_hit_effect(true);
+    pchar->ranged_yellow_hit_effect();
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
 }
 
