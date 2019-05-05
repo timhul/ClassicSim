@@ -38,6 +38,10 @@ void SealOfCommand::refresh_seal() const {
 
 }
 
+Proc* SealOfCommand::get_proc() const {
+    return this->proc;
+}
+
 void SealOfCommand::judge_effect() {
     const int hit_roll = roll->get_ranged_ability_result(pchar->get_ranged_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Holy);

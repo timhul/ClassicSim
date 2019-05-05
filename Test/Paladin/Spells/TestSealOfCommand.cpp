@@ -1,9 +1,13 @@
 #include "TestSealOfCommand.h"
 
 #include "Buff.h"
+#include "Equipment.h"
 #include "Paladin.h"
+#include "PaladinSpells.h"
 #include "SealOfCommand.h"
+#include "SealOfCommandProc.h"
 #include "SealOfTheCrusader.h"
+#include "Weapon.h"
 
 TestSealOfCommand::TestSealOfCommand(EquipmentDb *equipment_db) :
     TestSpellPaladin(equipment_db, "Seal of Command")
@@ -39,6 +43,15 @@ void TestSealOfCommand::test_all() {
     set_up(false);
     test_libram_of_hope_reduces_mana_cost();
     tear_down();
+
+    set_up(false);
+    test_proc_rate_with_given_weapon_speed();
+    tear_down();
+}
+
+Proc* TestSealOfCommand::seal_of_command_proc() {
+    auto spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
+    return dynamic_cast<SealOfCommand*>(spells->get_seal_of_command())->get_proc();
 }
 
 void TestSealOfCommand::test_name_correct() {
@@ -179,4 +192,15 @@ void TestSealOfCommand::test_libram_of_hope_reduces_mana_cost() {
 
     given_no_relic_equipped();
     assert(almost_equal(0.0, original_mana_cost - seal_of_the_crusader()->get_resource_cost()));
+}
+
+void TestSealOfCommand::test_proc_rate_with_given_weapon_speed() {
+    given_2h_axe_equipped(paladin);
+    assert(almost_equal(3.8, paladin->get_equipment()->get_mainhand()->get_base_weapon_speed()));
+
+    // proc_rate% = ppm / (60 / wpn_speed)
+    // 44.3% ~= 7.0 / (60 / 3.8)
+
+    // Implementation specific detail: proc rate is a 10000 die roll.
+    assert(4433 == seal_of_command_proc()->get_proc_range());
 }

@@ -1,9 +1,10 @@
 #include "ProcPPM.h"
 
 #include "Character.h"
-#include "CharacterStats.h"
+#include "Equipment.h"
 #include "ItemNamespace.h"
 #include "Utils/Check.h"
+#include "Weapon.h"
 
 ProcPPM::ProcPPM(const QString& name,
                  const QString& icon,
@@ -25,9 +26,9 @@ ProcPPM::~ProcPPM() = default;
 unsigned ProcPPM::get_proc_range() const {
     switch (weapon) {
     case EnchantSlot::MAINHAND:
-        return static_cast<unsigned>(round(proc_rate_base * pchar->get_stats()->get_mh_wpn_speed() * 100));
+        return static_cast<unsigned>(round(proc_rate_base * pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() * 100));
     case EnchantSlot::OFFHAND:
-        return static_cast<unsigned>(round(proc_rate_base * pchar->get_stats()->get_oh_wpn_speed() * 100));
+        return static_cast<unsigned>(round(proc_rate_base * pchar->get_equipment()->get_mainhand()->get_base_weapon_speed() * 100));
     default:
         check(false, "ProcPPM::get_proc_range reached end of switch");
         return 0;

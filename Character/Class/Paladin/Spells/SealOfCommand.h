@@ -14,6 +14,7 @@ public:
     ~SealOfCommand() override;
 
     void refresh_seal() const override;
+    Proc* get_proc() const;
 
 private:
     SealOfCommandProc* proc;
