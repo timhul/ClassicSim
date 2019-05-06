@@ -1,8 +1,6 @@
 #include "GenericBuffProc.h"
 
 #include "Buff.h"
-#include "EnabledProcs.h"
-#include "ProcInfo.h"
 #include "Utils/Check.h"
 
 GenericBuffProc::GenericBuffProc(

@@ -4,12 +4,12 @@
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
+#include "Flurry.h"
 #include "OverpowerBuff.h"
 #include "RecklessnessBuff.h"
 #include "StatisticsResource.h"
 #include "Warrior.h"
 #include "Weapon.h"
-#include "Flurry.h"
 
 MainhandAttackWarrior::MainhandAttackWarrior(Character* pchar) :
     MainhandAttack(pchar),
