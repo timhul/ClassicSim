@@ -495,7 +495,6 @@ double StatisticsSpell::get_max_dpet() const {
     return dpet_set ? this->max_dpet : 0.0;
 }
 
-// TODO: Instead of returning int, return QSet of Outcome and build superset in Statistics.
 int StatisticsSpell::get_num_attempt_columns() const {
     int columns = 0;
 
@@ -507,7 +506,6 @@ int StatisticsSpell::get_num_attempt_columns() const {
     return columns;
 }
 
-// TODO: Instead of returning int, return QSet of Outcome and build superset in Statistics.
 int StatisticsSpell::get_num_dmg_columns() const {
     int columns = 0;
 
