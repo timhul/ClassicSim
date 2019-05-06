@@ -24,7 +24,7 @@
 #include "ItemModificationRequirer.h"
 #include "JomGabbar.h"
 #include "ManaDrainProc.h"
-#include "NightfallProc.h"
+#include "Nightfall.h"
 #include "NoEffectBuff.h"
 #include "Stats.h"
 #include "Target.h"
@@ -460,7 +460,10 @@ void Item::set_procs(const int eq_slot) {
                                      proc_sources, proc_rate, i["min"].toUInt(), i["max"].toUInt());
         }
         else if (proc_name == "NIGHTFALL") {
-            proc = new NightfallProc(pchar, proc_rate);
+            Buff* buff = new Nightfall(pchar);
+            proc = new GenericBuffProc(pchar,"Nightfall", "Assets/items/Inv_axe_12.png",
+                                       QVector<ProcInfo::Source>{ProcInfo::MainhandSpell, ProcInfo::MainhandSwing},
+                                       proc_rate, buff);
         }
         else if (proc_name == "GENERIC_STAT_BUFF") {
             add_default_proc_sources(proc_sources, eq_slot);
