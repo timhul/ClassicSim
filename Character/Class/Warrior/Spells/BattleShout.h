@@ -3,16 +3,19 @@
 
 #include "Spell.h"
 
+class BattleShoutBuff;
+class Buff;
 class Warrior;
-class WarriorSpells;
 
 class BattleShout: public Spell {
 public:
-    BattleShout(Warrior* pchar, WarriorSpells* spells);
+    BattleShout(Warrior* pchar);
+    ~BattleShout() override;
+
+    Buff* get_buff() const;
 
 private:
-    Warrior* warr;
-    WarriorSpells* spells;
+    BattleShoutBuff* buff;
 
     void spell_effect() override;
 };

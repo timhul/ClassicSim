@@ -2,19 +2,27 @@
 
 #include "BattleShoutBuff.h"
 #include "Warrior.h"
-#include "WarriorSpells.h"
 
-BattleShout::BattleShout(Warrior* pchar, WarriorSpells* spells) :
+BattleShout::BattleShout(Warrior* pchar) :
     Spell("Battle Shout", "Assets/ability/Ability_warrior_battleshout.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
-    warr(pchar),
-    spells(spells)
-{}
+    buff(new BattleShoutBuff(pchar))
+{
+    buff->enable_buff();
+}
+
+BattleShout::~BattleShout() {
+    delete buff;
+}
+
+Buff* BattleShout::get_buff() const {
+    return this->buff;
+}
 
 void BattleShout::spell_effect() {
-    spells->get_battle_shout_buff()->apply_buff();
-
     add_spell_cd_event();
     add_gcd_event();
 
-    warr->lose_rage(resource_cost);
+    buff->apply_buff();
+
+    pchar->lose_rage(resource_cost);
 }

@@ -1,8 +1,9 @@
 #include "Fury.h"
 
-#include "BattleShoutBuff.h"
+#include "BattleShout.h"
 #include "BerserkerRage.h"
 #include "Bloodthirst.h"
+#include "Buff.h"
 #include "Cruelty.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
@@ -65,7 +66,7 @@ Talent* Fury::get_booming_voice() {
     Talent* talent = new Talent(warrior, this, "Booming Voice", "1ML",
                                 "Assets/spell/Spell_nature_purge.png", 5, rank_descriptions,
                                 {},
-                                QVector<Buff*>{spells->get_battle_shout_buff()});
+                                QVector<Buff*>{spells->get_battle_shout()->get_buff()});
 
     return talent;
 }
@@ -90,7 +91,7 @@ Talent* Fury::get_improved_battle_shout() {
     Talent* talent = new Talent(warrior, this, "Improved Battle Shout", "3RR",
                                 "Assets/ability/Ability_warrior_battleshout.png", 5, rank_descriptions,
                                 {},
-                                QVector<Buff*>{spells->get_battle_shout_buff()});
+                                QVector<Buff*>{spells->get_battle_shout()->get_buff()});
 
     return talent;
 }

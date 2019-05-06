@@ -67,7 +67,6 @@ public:
     Slam* get_slam() const;
     Whirlwind* get_whirlwind() const;
 
-    Buff* get_battle_shout_buff() const;
     Buff* get_berserker_stance_buff() const;
     Buff* get_battle_stance_buff() const;
     Buff* get_overpower_buff() const;
@@ -104,7 +103,6 @@ private:
     Slam* slam;
     Whirlwind* whirlwind;
 
-    BattleShoutBuff* battle_shout_buff;
     BerserkerStanceBuff* berserker_stance_buff;
     Buff* battle_stance_buff;
     Buff* overpower_buff;

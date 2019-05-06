@@ -40,7 +40,7 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     warr(pchar)
 {
     this->anger_management = new AngerManagement(pchar);
-    this->battle_shout = new BattleShout(pchar, this);
+    this->battle_shout = new BattleShout(pchar);
     this->battle_stance = new BattleStance(pchar);
     this->berserker_rage = new BerserkerRage(pchar);
     this->berserker_stance = new BerserkerStance(pchar);
@@ -82,14 +82,12 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell(warr_mh_attack, NO_RELINK);
     add_spell(warr_oh_attack, NO_RELINK);
 
-    this->battle_shout_buff = new BattleShoutBuff(pchar);
     this->battle_stance_buff = new NoEffectBuff(pchar, BuffDuration::PERMANENT, "Battle Stance");
     this->berserker_stance_buff = new BerserkerStanceBuff(pchar);
     this->defensive_stance_buff = new DefensiveStanceBuff(pchar);
     this->flurry = new Flurry(pchar);
     this->overpower_buff = new NoEffectBuff(pchar, 5, "Overpower");
     this->recklessness_buff = new RecklessnessBuff(pchar);
-    battle_shout_buff->enable_buff();
     battle_stance_buff->enable_buff();
     berserker_stance_buff->enable_buff();
     defensive_stance_buff->enable_buff();
@@ -104,7 +102,6 @@ WarriorSpells::~WarriorSpells() {
     delete sword_spec;
     delete unbridled_wrath;
 
-    delete battle_shout_buff;
     delete battle_stance_buff;
     delete berserker_stance_buff;
     delete defensive_stance_buff;
@@ -261,10 +258,6 @@ Buff* WarriorSpells::get_defensive_stance_buff() const {
 
 Buff* WarriorSpells::get_overpower_buff() const {
     return this->overpower_buff;
-}
-
-Buff* WarriorSpells::get_battle_shout_buff() const {
-    return this->battle_shout_buff;
 }
 
 Buff* WarriorSpells::get_recklessness_buff() const {
