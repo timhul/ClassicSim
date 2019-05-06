@@ -205,7 +205,7 @@ void CharacterLoader::invest_talent_points(CharacterDecoder &decoder, Character*
 void CharacterLoader::add_points_to_talent_tree(CharacterDecoder &decoder, const QString& tree_position, Character* pchar) {
     QVector<QPair<QString, QString>> invested_talents = decoder.get_key_val_pairs(tree_position);
 
-    for (auto & invested_talent : invested_talents) {
+    for (const auto & invested_talent : invested_talents) {
         for (int points = 0; points < invested_talent.second.toInt(); ++points) {
             pchar->get_talents()->increment_rank(tree_position, invested_talent.first);
         }
@@ -215,7 +215,7 @@ void CharacterLoader::add_points_to_talent_tree(CharacterDecoder &decoder, const
 void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder, Character* pchar) {
     QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("BUFFS");
 
-    for (auto & buff : buffs) {
+    for (const auto & buff : buffs) {
         pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_buff(buff.first);
     }
 }
@@ -223,7 +223,7 @@ void CharacterLoader::apply_external_buffs(CharacterDecoder& decoder, Character*
 void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Character* pchar) {
     QVector<QPair<QString, QString>> buffs = decoder.get_key_val_pairs("DEBUFFS");
 
-    for (auto & buff : buffs) {
+    for (const auto & buff : buffs) {
         pchar->get_enabled_buffs()->get_general_buffs()->toggle_external_debuff(buff.first);
     }
 }
@@ -282,7 +282,7 @@ void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pcha
 
     QString rotation_name = decoder.get_value("ROTATION");
 
-    for (auto & rotation : new_rotations) {
+    for (const auto & rotation : new_rotations) {
         if (rotation == nullptr)
             continue;
 

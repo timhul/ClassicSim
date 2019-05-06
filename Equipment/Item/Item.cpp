@@ -167,12 +167,12 @@ void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
 }
 
 void Item::remove_equip_effect() {
-    for (auto & spell : use_spells) {
+    for (const auto & spell : use_spells) {
         spell->disable();
         delete spell;
     }
 
-    for (auto & proc : active_procs) {
+    for (const auto & proc : active_procs) {
         proc->disable_proc();
         delete proc;
     }
@@ -182,7 +182,7 @@ void Item::remove_equip_effect() {
 }
 
 void Item::call_item_modifications(const bool activate) const {
-    for (auto & name : item_modifications) {
+    for (const auto & name : item_modifications) {
         call_modifications_by_specific_name(name, activate);
         call_spell_modifications(name, activate);
         call_buff_modifications(name, activate);
@@ -288,7 +288,7 @@ bool Item::available_for_class(const QString& class_name) const {
 }
 
 void Item::set_uses() {
-    for (auto & use : use_map) {
+    for (const auto & use : use_map) {
         QString use_name = use["name"];
         Spell* spell = nullptr;
 
@@ -353,12 +353,12 @@ void Item::set_uses() {
             use_spells.append(spell);
     }
 
-    for (auto & use: use_spells)
+    for (const auto & use: use_spells)
         use->enable();
 }
 
 void Item::set_procs(const int eq_slot) {
-    for (auto & i : procs_map) {
+    for (const auto & i : procs_map) {
         const QString proc_name = i["name"];
         const QString instant = i["instant"].toLower();
         const int amount = QString(i["amount"]).toInt();
@@ -540,7 +540,7 @@ ItemStats Item::get_valid_item_stat(const QString& item_stat) const {
 }
 
 void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {
-    for (auto & stat : stats)
+    for (const auto & stat : stats)
         set_stat(stat.first, stat.second);
 }
 

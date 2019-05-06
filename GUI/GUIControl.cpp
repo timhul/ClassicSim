@@ -149,10 +149,10 @@ GUIControl::GUIControl(QObject* parent) :
 }
 
 GUIControl::~GUIControl() {
-    for (auto & pchar : chars)
+    for (const auto & pchar : chars)
         delete pchar;
 
-    for (auto & race : races)
+    for (const auto & race : races)
         delete race;
 
     delete equipment_db;
@@ -1602,14 +1602,14 @@ void GUIControl::set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const 
     tooltip.append(QString("%1 (%2/%3)").arg(set_name).arg(num_equipped_set_items).arg(item_names_in_set.size()));
 
     tooltip.append(item_names_in_set.size());
-    for (auto & item_name : item_names_in_set) {
+    for (const auto & item_name : item_names_in_set) {
         QString font_color = item_name.second ? "#ffd100" : "#727171";
         tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color, item_name.first));
     }
 
     QVector<QPair<QString, bool>> set_bonus_tooltips = set_bonuses->get_set_bonus_tooltips(item_id);
     tooltip.append(set_bonus_tooltips.size());
-    for (auto & bonus_tooltip : set_bonus_tooltips) {
+    for (const auto & bonus_tooltip : set_bonus_tooltips) {
         QString font_color = bonus_tooltip.second ? "#1eff00" : "#727171";
         tooltip.append(QString("<font color=\"%1\">%2</font>").arg(font_color, bonus_tooltip.first));
     }
@@ -1701,7 +1701,7 @@ Character* GUIControl::get_new_character(const QString& class_name) {
 void GUIControl::save_settings() {
     save_gui_settings();
 
-    for (auto * pchar : chars) {
+    for (auto & pchar : chars) {
         if (!supported_classes.contains(pchar->get_name()))
             continue;
 
@@ -1759,7 +1759,7 @@ void GUIControl::save_gui_settings() {
         stream.writeTextElement("threads", QString("%1").arg(sim_settings->get_num_threads_current()));
 
         QSet<SimOption::Name> options = sim_settings->get_active_options();
-        for (auto & option : options)
+        for (const auto & option : options)
             stream.writeTextElement("sim_option", QString("%1").arg(option));
 
         stream.writeEndElement();

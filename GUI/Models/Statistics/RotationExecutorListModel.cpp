@@ -28,8 +28,8 @@ void RotationExecutorListModel::selectExecutor(const int executor_index) {
 }
 
 void RotationExecutorListModel::delete_list() {
-    for (auto & list : executor_outcomes)
-        for (auto & outcome : list)
+    for (const auto & list : executor_outcomes)
+        for (const auto & outcome : list)
             delete outcome;
 
     executor_outcomes.clear();

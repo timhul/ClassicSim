@@ -34,7 +34,7 @@ void PeriodicResourceGainSpell::spell_effect() {
 }
 
 void PeriodicResourceGainSpell::perform_periodic() {
-    for (auto & gain : resource_gains) {
+    for (const auto & gain : resource_gains) {
         unsigned before_gain;
         unsigned delta;
         before_gain = pchar->get_resource_level(gain.first);

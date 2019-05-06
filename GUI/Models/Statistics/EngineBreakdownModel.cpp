@@ -75,7 +75,7 @@ void EngineBreakdownModel::update_statistics() {
 
     event_statistics = engine_stats->get_list_of_event_pairs();
     total_events = 0;
-    for (auto & event_pair : event_statistics)
+    for (const auto & event_pair : event_statistics)
         total_events += event_pair.second;
 
     time_in_combat = static_cast<unsigned>(statistics_source->time_in_combat);

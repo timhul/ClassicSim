@@ -26,7 +26,7 @@ MeleeDamageBreakdownModel::MeleeDamageBreakdownModel(NumberCruncher *statistics_
 }
 
 MeleeDamageBreakdownModel::~MeleeDamageBreakdownModel() {
-    for (auto & i : spell_stats)
+    for (const auto & i : spell_stats)
         delete i;
 }
 
@@ -137,7 +137,7 @@ void MeleeDamageBreakdownModel::update_statistics() {
     if (!spell_stats.empty()) {
         beginResetModel();
 
-        for (auto & i : spell_stats)
+        for (const auto & i : spell_stats)
             delete i;
 
         spell_stats.clear();

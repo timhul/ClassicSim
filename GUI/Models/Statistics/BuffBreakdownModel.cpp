@@ -16,7 +16,7 @@ BuffBreakdownModel::BuffBreakdownModel(NumberCruncher *statistics_source, QObjec
 }
 
 BuffBreakdownModel::~BuffBreakdownModel() {
-    for (auto & i : buff_stats)
+    for (const auto & i : buff_stats)
         delete i;
 }
 
@@ -71,7 +71,7 @@ void BuffBreakdownModel::update_statistics() {
     if (!buff_stats.empty()) {
         beginResetModel();
 
-        for (auto & i : buff_stats)
+        for (const auto & i : buff_stats)
             delete i;
 
         buff_stats.clear();

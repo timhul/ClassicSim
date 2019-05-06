@@ -16,7 +16,7 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
             }
             if (!reader.attributes().hasAttribute("phase")) {
                 qDebug() << "Missing phase attribute";
-                for (auto & attr : reader.attributes())
+                for (const auto & attr : reader.attributes())
                     qDebug() << attr.name() << attr.value();
                 reader.skipCurrentElement();
                 continue;

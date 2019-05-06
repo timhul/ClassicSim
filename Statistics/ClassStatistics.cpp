@@ -78,7 +78,7 @@ void ClassStatistics::finish_combat_iteration() {
 int ClassStatistics::get_total_damage_dealt() const {
     int sum = 0;
 
-    for (auto & spell : spell_statistics)
+    for (const auto & spell : spell_statistics)
         sum += spell->get_total_dmg_dealt();
 
     return sum;
@@ -120,19 +120,19 @@ void ClassStatistics::prepare_statistics() {
 }
 
 void ClassStatistics::delete_objects() {
-    for (auto & i: spell_statistics)
+    for (const auto & i: spell_statistics)
         delete i;
 
-    for (auto & i : buff_statistics)
+    for (const auto & i : buff_statistics)
         delete i;
 
-    for (auto & i : resource_statistics)
+    for (const auto & i : resource_statistics)
         delete i;
 
-    for (auto & i : proc_statistics)
+    for (const auto & i : proc_statistics)
         delete i;
 
-    for (auto & i: rotation_executor_statistics)
+    for (const auto & i: rotation_executor_statistics)
         delete i;
 
     delete engine_statistics;

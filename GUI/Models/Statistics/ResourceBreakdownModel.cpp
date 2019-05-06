@@ -17,7 +17,7 @@ ResourceBreakdownModel::ResourceBreakdownModel(NumberCruncher *statistics_source
 }
 
 ResourceBreakdownModel::~ResourceBreakdownModel() {
-    for (auto & i : resource_stats)
+    for (const auto & i : resource_stats)
         delete i;
 }
 
@@ -72,7 +72,7 @@ void ResourceBreakdownModel::update_statistics() {
     if (!resource_stats.empty()) {
         beginResetModel();
 
-        for (auto & i : resource_stats)
+        for (const auto & i : resource_stats)
             delete i;
 
         resource_stats.clear();

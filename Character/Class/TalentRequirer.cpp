@@ -9,14 +9,14 @@ TalentRequirer::TalentRequirer(const QVector<TalentRequirerInfo *> &talent_info)
 {
     check(!talent_info.empty(), "talent_info empty");
 
-    for (auto & info : talent_info) {
+    for (const auto & info : talent_info) {
         check(!this->talent_info.contains(info->name), "talent_info does not contain name");
         this->talent_info[info->name] = info;
     }
 }
 
 TalentRequirer::~TalentRequirer() {
-    for (auto & info : this->talent_info)
+    for (const auto & info : this->talent_info)
         delete info;
 }
 

@@ -120,7 +120,7 @@ void ItemModel::update_items() {
     QVector<Item*> tmp_items = db->get_slot_items(this->slot);
 
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    for (auto & tmp_item : tmp_items) {
+    for (const auto & tmp_item : tmp_items) {
         if (!tmp_item->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
             continue;
 

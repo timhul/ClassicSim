@@ -26,7 +26,7 @@ MeleeDamageAvoidanceBreakdownModel::MeleeDamageAvoidanceBreakdownModel(NumberCru
 }
 
 MeleeDamageAvoidanceBreakdownModel::~MeleeDamageAvoidanceBreakdownModel() {
-    for (auto & i : spell_stats)
+    for (const auto & i : spell_stats)
         delete i;
 }
 
@@ -121,7 +121,7 @@ void MeleeDamageAvoidanceBreakdownModel::update_statistics() {
     if (!spell_stats.empty()) {
         beginResetModel();
 
-        for (auto & i : spell_stats)
+        for (const auto & i : spell_stats)
             delete i;
 
         spell_stats.clear();

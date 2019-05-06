@@ -22,10 +22,10 @@ TalentTree::TalentTree(QString name_, QString background_) :
 }
 
 TalentTree::~TalentTree() {
-    for (auto & talent_storage : talents)
+    for (const auto & talent_storage : talents)
         delete talent_storage;
 
-    for(auto & tier :  tiers) {
+    for (const auto & tier :  tiers) {
         delete tier;
     }
 }
@@ -67,7 +67,7 @@ QString TalentTree::get_next_rank_description(const QString& position) const {
 }
 
 void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
-    for (auto & it : new_talents.toStdMap()) {
+    for (const auto & it : new_talents.toStdMap()) {
         check(!talents.contains(it.first), "Attempted to insert talent twice");
         talents.insert(it.first, new TalentStorage(it.second));
     }
@@ -284,10 +284,10 @@ int TalentTree::get_total_points() const {
 }
 
 void TalentTree::clear_tree() {
-    for (auto & talent_storage : talents)
+    for (const auto & talent_storage : talents)
         talent_storage->talent->force_clear_rank();
 
-    for (auto & tier : tiers) {
+    for (const auto & tier : tiers) {
         tier->clear_points();
     }
 
@@ -295,7 +295,7 @@ void TalentTree::clear_tree() {
 }
 
 void TalentTree::remove_rank_effects() {
-    for (auto & talent_storage : talents) {
+    for (const auto & talent_storage : talents) {
         talent_storage->points_for_setup = talent_storage->talent->get_current_rank();
         for (unsigned i = 0; i < talent_storage->points_for_setup; ++i)
             talent_storage->talent->force_clear_rank();
@@ -303,7 +303,7 @@ void TalentTree::remove_rank_effects() {
 }
 
 void TalentTree::apply_rank_effects() {
-    for (auto & talent_storage : talents) {
+    for (const auto & talent_storage : talents) {
         for (unsigned i = 0; i < talent_storage->points_for_setup; ++i) {
             talent_storage->talent->increment_rank();
         }

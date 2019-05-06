@@ -51,7 +51,7 @@ void EnabledBuffs::remove_start_of_combat_buff(Buff *buff) {
 }
 
 Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
-    for (auto & buff : enabled_buffs) {
+    for (const auto & buff : enabled_buffs) {
         if (buff->get_name() == name)
             return buff;
     }
@@ -60,7 +60,7 @@ Buff* EnabledBuffs::get_buff_by_name(const QString& name) const {
 }
 
 SharedBuff* EnabledBuffs::use_shared_buff(const QString& name) const {
-    for (auto & buff : enabled_buffs) {
+    for (const auto & buff : enabled_buffs) {
         if (buff->get_name() == name) {
             auto* uniq_buff = dynamic_cast<SharedBuff*>(buff);
             uniq_buff->increment_reference();
@@ -72,7 +72,7 @@ SharedBuff* EnabledBuffs::use_shared_buff(const QString& name) const {
 }
 
 void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
-    for (auto & buff : enabled_buffs) {
+    for (const auto & buff : enabled_buffs) {
         if (buff->get_name() != shared_buff->get_name())
             continue;
 
@@ -91,7 +91,7 @@ void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
 }
 
 void EnabledBuffs::reset() {
-    for (auto & buff : enabled_buffs)
+    for (const auto & buff : enabled_buffs)
         buff->reset();
 }
 
@@ -107,7 +107,7 @@ void EnabledBuffs::clear_all() {
 }
 
 void EnabledBuffs::apply_start_of_combat_buffs() {
-    for (auto & buff : start_of_combat_buffs)
+    for (const auto & buff : start_of_combat_buffs)
         buff->apply_buff();
 }
 
@@ -115,17 +115,17 @@ void EnabledBuffs::switch_faction() {
     general_buffs->switch_faction();
 
     if (faction->is_alliance()) {
-        for (auto & horde_only_buff : horde_only_buffs)
+        for (const auto & horde_only_buff : horde_only_buffs)
             remove_buff(horde_only_buff);
 
-        for (auto & alliance_only_buff : alliance_only_buffs)
+        for (const auto & alliance_only_buff : alliance_only_buffs)
             add_buff(alliance_only_buff);
     }
     else {
-        for (auto & alliance_only_buff : alliance_only_buffs)
+        for (const auto & alliance_only_buff : alliance_only_buffs)
             remove_buff(alliance_only_buff);
 
-        for (auto & horde_only_buff : horde_only_buffs)
+        for (const auto & horde_only_buff : horde_only_buffs)
             add_buff(horde_only_buff);
     }
 }
@@ -138,7 +138,7 @@ QVector<QString> EnabledBuffs::get_active_external_buffs() {
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
     QVector<QString> active_external_buffs;
 
-    for (auto & buff : buffs) {
+    for (const auto & buff : buffs) {
         if (buff->is_active())
             active_external_buffs.append(buff->get_name());
     }
@@ -150,7 +150,7 @@ QVector<QString> EnabledBuffs::get_active_external_debuffs() {
     QVector<ExternalBuff*> debuffs = general_buffs->get_external_debuffs();
     QVector<QString> active_external_debuffs;
 
-    for (auto & debuff : debuffs) {
+    for (const auto & debuff : debuffs) {
         if (debuff->is_active())
             active_external_debuffs.append(debuff->get_name());
     }
@@ -159,6 +159,6 @@ QVector<QString> EnabledBuffs::get_active_external_debuffs() {
 }
 
 void EnabledBuffs::prepare_set_of_combat_iterations() {
-    for (auto & buff : enabled_buffs)
+    for (const auto & buff : enabled_buffs)
         buff->prepare_set_of_combat_iterations();
 }

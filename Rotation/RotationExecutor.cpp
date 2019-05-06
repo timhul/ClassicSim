@@ -30,13 +30,13 @@ RotationExecutor::RotationExecutor(QString name) :
 }
 
 RotationExecutor::~RotationExecutor() {
-    for (auto & condition_group : condition_groups) {
-        for (auto & j : condition_group) {
+    for (const auto & condition_group : condition_groups) {
+        for (const auto & j : condition_group) {
             delete j;
         }
     }
 
-    for (auto & sentence : sentences) {
+    for (const auto & sentence : sentences) {
         delete sentence;
     }
 
@@ -85,7 +85,7 @@ QString RotationExecutor::get_spell_name() const {
 QString RotationExecutor::get_conditions_string() const {
     QStringList condition_descriptions;
     for (int i = 0; i < condition_groups.size(); ++i) {
-        for (auto & condition : condition_groups[i])
+        for (const auto & condition : condition_groups[i])
             condition_descriptions << condition->condition_description();
 
         if (i + 1 < condition_groups.size())
@@ -145,7 +145,7 @@ void RotationExecutor::dump() {
     qDebug() << "spell ptr" << spell;
     qDebug() << "variable assignments" << variable_assignments;
     qDebug() << "conditions:";
-    for (auto sentence : sentences) {
+    for (const auto sentence : sentences) {
         qDebug() << "----- sentence ------";
         sentence->dump();
     }

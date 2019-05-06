@@ -21,7 +21,7 @@ TwoHandedWeaponSpecialization::TwoHandedWeaponSpecialization(Character *pchar, T
 TwoHandedWeaponSpecialization::~TwoHandedWeaponSpecialization() = default;
 
 void TwoHandedWeaponSpecialization::apply_rank_effect() {
-    for (auto & weapon_type : affected_weapon_types) {
+    for (const auto & weapon_type : affected_weapon_types) {
         if (curr_points != 1)
             pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, talent_ranks[static_cast<int>(curr_points)  - 1]);
 
@@ -31,7 +31,7 @@ void TwoHandedWeaponSpecialization::apply_rank_effect() {
 
 void TwoHandedWeaponSpecialization::remove_rank_effect() {
     int delta = talent_ranks[static_cast<int>(curr_points) + 1] - talent_ranks[static_cast<int>(curr_points)];
-    for (auto & weapon_type : affected_weapon_types) {
+    for (const auto & weapon_type : affected_weapon_types) {
         pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, delta);
     }
 }

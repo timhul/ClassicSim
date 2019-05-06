@@ -21,7 +21,7 @@ TalentStatIncrease::TalentStatIncrease(Character *pchar, TalentTree* tree,
 {}
 
 void TalentStatIncrease::apply_rank_effect() {
-    for (auto & affected_stat_pair: affected_stats) {
+    for (const auto & affected_stat_pair: affected_stats) {
         TalentStat stat = affected_stat_pair.first;
         unsigned change = affected_stat_pair.second;
         switch (stat) {
@@ -104,7 +104,7 @@ void TalentStatIncrease::apply_rank_effect() {
                                                     WeaponTypes::TWOHAND_SWORD,
                                                     WeaponTypes::POLEARM,
                                                     WeaponTypes::STAFF});
-            for (auto & weapon_type : affected_weapon_types) {
+            for (const auto & weapon_type : affected_weapon_types) {
                 if (curr_points != 1)
                     pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(curr_points - 1) * static_cast<int>(change));
 
@@ -118,7 +118,7 @@ void TalentStatIncrease::apply_rank_effect() {
                                                     WeaponTypes::FIST,
                                                     WeaponTypes::MACE,
                                                     WeaponTypes::SWORD});
-            for (auto & weapon_type : affected_weapon_types) {
+            for (const auto & weapon_type : affected_weapon_types) {
                 if (curr_points != 1)
                     pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>(curr_points - 1) * static_cast<int>(change));
 
@@ -147,7 +147,7 @@ void TalentStatIncrease::apply_rank_effect() {
 }
 
 void TalentStatIncrease::remove_rank_effect() {
-    for (auto & affected_stat_pair: affected_stats) {
+    for (const auto & affected_stat_pair: affected_stats) {
         TalentStat stat = affected_stat_pair.first;
         unsigned change = affected_stat_pair.second;
         switch (stat) {
@@ -227,13 +227,13 @@ void TalentStatIncrease::remove_rank_effect() {
                                                     WeaponTypes::POLEARM,
                                                     WeaponTypes::STAFF});
             int delta = static_cast<int>((curr_points + 1) * change);
-            for (auto & weapon_type : affected_weapon_types)
+            for (const auto & weapon_type : affected_weapon_types)
                 pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, delta);
 
             if (curr_points == 0)
                 continue;
 
-            for (auto & weapon_type : affected_weapon_types)
+            for (const auto & weapon_type : affected_weapon_types)
                 pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) * change));
 
             continue;
@@ -245,13 +245,13 @@ void TalentStatIncrease::remove_rank_effect() {
                                                     WeaponTypes::MACE,
                                                     WeaponTypes::SWORD});
             int delta = static_cast<int>((curr_points + 1) * change);
-            for (auto & weapon_type : affected_weapon_types)
+            for (const auto & weapon_type : affected_weapon_types)
                 pchar->get_stats()->decrease_total_phys_dmg_for_weapon_type(weapon_type, delta);
 
             if (curr_points == 0)
                 continue;
 
-            for (auto & weapon_type : affected_weapon_types)
+            for (const auto & weapon_type : affected_weapon_types)
                 pchar->get_stats()->increase_total_phys_dmg_for_weapon_type(weapon_type, static_cast<int>((curr_points) * change));
 
             continue;

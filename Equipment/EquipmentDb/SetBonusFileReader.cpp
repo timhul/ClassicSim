@@ -30,7 +30,7 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
     while (reader.readNextStartElement()) {
         if (!reader.attributes().hasAttribute("name")) {
             qDebug() << "Missing name attribute for <set> element";
-            for (auto & attr : reader.attributes())
+            for (const auto & attr : reader.attributes())
                 qDebug() << attr.name() << attr.value();
             reader.skipCurrentElement();
             continue;
@@ -69,7 +69,7 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
                     set_bonus_tooltips[set_name] = {};
 
                 bool duplicate = false;
-                for (auto & bonus_info : set_bonus_tooltips[set_name]) {
+                for (const auto & bonus_info : set_bonus_tooltips[set_name]) {
                     if (bonus_info.first == num_items) {
                         qDebug() << QString("Specified <bonus> value '%1' more than once in <set> '%2'").arg(num_items).arg(set_name);
                         duplicate = true;

@@ -23,7 +23,7 @@ Rotation::Rotation(QString class_name) :
 {}
 
 Rotation::~Rotation() {
-    for (auto & executor : all_executors) {
+    for (const auto & executor : all_executors) {
         delete executor;
     }
 }
@@ -33,24 +33,24 @@ void Rotation::run_precombat_actions() {
         static_cast<int>(SpellStatus::Available),
         static_cast<int>(SpellStatus::OnCooldown)
     };
-    for (auto & spell : precombat_spells) {
+    for (const auto & spell : precombat_spells) {
         if (acceptable_status.contains(static_cast<int>(spell->get_spell_status())))
             spell->perform();
     }
 }
 
 void Rotation::perform_rotation() const {
-    for (auto & executor : active_executors)
+    for (const auto & executor : active_executors)
         executor->attempt_cast();
 }
 
 void Rotation::prepare_set_of_combat_iterations() {
-    for (auto & executor : active_executors)
+    for (const auto & executor : active_executors)
         executor->prepare_set_of_combat_iterations(pchar->get_statistics()->get_executor_statistics(executor->get_spell_name()));
 }
 
 void Rotation::finish_set_of_combat_iterations() {
-    for (auto & executor : active_executors)
+    for (const auto & executor : active_executors)
         executor->finish_set_of_combat_iterations();
 }
 
@@ -59,7 +59,7 @@ void Rotation::link_spells(Character* pchar) {
 
     active_executors.clear();
 
-    for (auto & executor : all_executors) {
+    for (const auto & executor : all_executors) {
         Spell* spell = pchar->get_spells()->get_spell_by_name(executor->get_spell_name());
 
         if (spell == nullptr || !spell->is_enabled())
@@ -87,7 +87,7 @@ void Rotation::link_precast_spell() {
 void Rotation::link_precombat_spells() {
     precombat_spells.clear();
 
-    for (auto & spell_name : precombat_spell_names) {
+    for (const auto & spell_name : precombat_spell_names) {
         Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
 
         if (spell == nullptr || !spell->is_enabled())
@@ -98,14 +98,14 @@ void Rotation::link_precombat_spells() {
 }
 
 bool Rotation::add_conditionals(RotationExecutor * executor) {
-    for (auto & group : executor->condition_groups)
-        for (auto & condition : group)
+    for (const auto & group : executor->condition_groups)
+        for (const auto & condition : group)
             delete condition;
     executor->condition_groups.clear();
 
     QVector<Condition*> condition_group_to_add;
 
-    for (auto & sentence : executor->sentences) {
+    for (const auto & sentence : executor->sentences) {
         Condition* condition = nullptr;
 
         if (sentence->logical_connective == LogicalConnectives::OR) {
@@ -232,7 +232,7 @@ void Rotation::dump() {
     qDebug() << "name" << name;
     qDebug() << "desc" << description;
     qDebug() << "executors:";
-    for (auto & executor : all_executors) {
+    for (const auto & executor : all_executors) {
         executor->dump();
     }
 }

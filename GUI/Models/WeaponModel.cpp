@@ -149,7 +149,7 @@ void WeaponModel::update_items() {
     QVector<Item*> wpns = db->get_slot_items(slot);
 
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    for (auto & wpn : wpns) {
+    for (const auto & wpn : wpns) {
         if (!wpn->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
             continue;
 

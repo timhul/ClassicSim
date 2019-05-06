@@ -232,14 +232,14 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
 
 void CombatRoll::update_melee_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
-    for (auto & table: melee_special_tables) {
+    for (const auto & table: melee_special_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->get_wpn_skill()) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
         table->update_miss_chance(miss_chance);
     }
 
-    for (auto & table: melee_white_tables) {
+    for (const auto & table: melee_white_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_white_miss_chance(table->get_wpn_skill()) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
@@ -249,7 +249,7 @@ void CombatRoll::update_melee_miss_chance() {
 
 void CombatRoll::update_ranged_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_ranged_hit_chance();
-    for (auto & table: ranged_white_tables) {
+    for (const auto & table: ranged_white_tables) {
         unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->get_wpn_skill()) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
@@ -259,27 +259,27 @@ void CombatRoll::update_ranged_miss_chance() {
 
 void CombatRoll::update_spell_miss_chance(const unsigned spell_hit) {
     const int clvl = pchar->get_clvl();
-    for (auto & table : magic_attack_tables)
+    for (const auto & table : magic_attack_tables)
         table->update_miss_chance(clvl, spell_hit);
 }
 
 void CombatRoll::drop_tables() {
-    for (auto & table : melee_white_tables)
+    for (const auto & table : melee_white_tables)
         delete table;
 
-    for (auto & table: melee_special_tables)
+    for (const auto & table: melee_special_tables)
         delete table;
 
-    for (auto & table: ranged_white_tables)
+    for (const auto & table: ranged_white_tables)
         delete table;
 
-    for (auto & table: magic_attack_tables)
+    for (const auto & table: magic_attack_tables)
         delete table;
 
-    for (auto & table: pet_white_tables)
+    for (const auto & table: pet_white_tables)
         delete table;
 
-    for (auto & table: pet_special_tables)
+    for (const auto & table: pet_special_tables)
         delete table;
 
     melee_white_tables.clear();

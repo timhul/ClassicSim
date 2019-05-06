@@ -36,7 +36,7 @@ void Proc::spell_effect() {
 
     proc_effect();
 
-    for (auto & linked_proc : linked_procs)
+    for (const auto & linked_proc : linked_procs)
         linked_proc->spell_effect();
 }
 

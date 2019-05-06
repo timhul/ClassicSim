@@ -35,7 +35,7 @@ SetBonusControl::SetBonusControl(EquipmentDb* equipment_db, Character* pchar) :
 }
 
 SetBonusControl::~SetBonusControl() {
-    for (auto & proc : active_procs) {
+    for (const auto & proc : active_procs) {
         if (proc->is_enabled())
             proc->disable_proc();
         delete proc;
@@ -602,7 +602,7 @@ QVector<QPair<QString, bool>> SetBonusControl::get_set_bonus_tooltips(const int 
     int num_equipped = get_num_equipped_pieces_for_set(set_name);
 
     QVector<QPair<QString, bool>> tooltips_and_active;
-    for (auto & tooltip : set_bonus_tooltips[set_name])
+    for (const auto & tooltip : set_bonus_tooltips[set_name])
         tooltips_and_active.append({tooltip.second, tooltip.first <= num_equipped});
 
     return tooltips_and_active;
@@ -610,7 +610,7 @@ QVector<QPair<QString, bool>> SetBonusControl::get_set_bonus_tooltips(const int 
 
 int SetBonusControl::get_num_equipped_pieces_for_set(const QString& set_name) const {
     int num_set_pieces = 0;
-    for (auto & equipped_set : current_set_items) {
+    for (const auto & equipped_set : current_set_items) {
         if (equipped_set == set_name)
             ++num_set_pieces;
     }

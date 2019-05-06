@@ -109,7 +109,7 @@ Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
 Equipment::~Equipment() {
     unequip_all();
 
-    for (auto & i : stats_from_equipped_gear) {
+    for (const auto & i : stats_from_equipped_gear) {
         delete i;
     }
 

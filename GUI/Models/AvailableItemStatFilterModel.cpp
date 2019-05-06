@@ -15,7 +15,7 @@ AvailableItemStatFilterModel::AvailableItemStatFilterModel(ActiveItemStatFilterM
 }
 
 AvailableItemStatFilterModel::~AvailableItemStatFilterModel() {
-    for (auto & filter : available_item_stat_filters) {
+    for (const auto & filter : available_item_stat_filters) {
         delete filter;
     }
 

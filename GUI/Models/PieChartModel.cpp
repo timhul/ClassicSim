@@ -48,7 +48,7 @@ QModelIndex PieChartModel::parent(const QModelIndex &) const {
 
 void PieChartModel::updateLabels() {
     double total = 0;
-    for (auto & slice : slices) {
+    for (const auto & slice : slices) {
         total += slice.second;
     }
 

@@ -24,7 +24,7 @@ SimulationThreadPool::SimulationThreadPool(EquipmentDb* equipment_db, SimSetting
 
 SimulationThreadPool::~SimulationThreadPool() {
     delete random;
-    for (auto & thread_entry : thread_pool)
+    for (const auto & thread_entry : thread_pool)
         delete thread_entry.second;
 }
 
@@ -33,7 +33,7 @@ void SimulationThreadPool::run_sim(const QString &setup_string, bool full_sim, i
 
     auto iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
 
-    for (auto & thread : thread_pool) {
+    for (const auto & thread : thread_pool) {
         if (!active_thread_ids.contains(thread.first))
             continue;
 

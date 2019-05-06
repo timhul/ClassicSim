@@ -498,7 +498,7 @@ double StatisticsSpell::get_max_dpet() const {
 int StatisticsSpell::get_num_attempt_columns() const {
     int columns = 0;
 
-    for (auto & outcome : possible_attempt_outcomes) {
+    for (const auto & outcome : possible_attempt_outcomes) {
         if (get_attempts(outcome) > 0)
             ++columns;
     }
@@ -509,7 +509,7 @@ int StatisticsSpell::get_num_attempt_columns() const {
 int StatisticsSpell::get_num_dmg_columns() const {
     int columns = 0;
 
-    for (auto & outcome : possible_success_outcomes) {
+    for (const auto & outcome : possible_success_outcomes) {
         if (get_dmg(outcome) > 0)
             ++columns;
     }
@@ -520,7 +520,7 @@ int StatisticsSpell::get_num_dmg_columns() const {
 int StatisticsSpell::get_total_dmg_dealt() const {
     int sum = 0;
 
-    for (auto & outcome : possible_success_outcomes) {
+    for (const auto & outcome : possible_success_outcomes) {
         sum += get_dmg(outcome);
     }
 
@@ -530,7 +530,7 @@ int StatisticsSpell::get_total_dmg_dealt() const {
 int StatisticsSpell::get_total_attempts_made() const {
     int sum = 0;
 
-    for (auto & outcome : possible_attempt_outcomes) {
+    for (const auto & outcome : possible_attempt_outcomes) {
         sum += get_attempts(outcome);
     }
 
@@ -546,7 +546,7 @@ void StatisticsSpell::set_percentage_of_damage_dealt(long long int total_damage_
 }
 
 void StatisticsSpell::add(const StatisticsSpell* other) {
-    for (auto & outcome : possible_attempt_outcomes) {
+    for (const auto & outcome : possible_attempt_outcomes) {
         if (!other->attempts.contains(outcome))
             continue;
 
@@ -556,7 +556,7 @@ void StatisticsSpell::add(const StatisticsSpell* other) {
         this->attempts[outcome] += other->attempts[outcome];
     }
 
-    for (auto & outcome : possible_success_outcomes) {
+    for (const auto & outcome : possible_success_outcomes) {
         if (!other->damage.contains(outcome))
             continue;
 

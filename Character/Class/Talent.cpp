@@ -76,24 +76,24 @@ Talent::Talent(Character *pchar,
 }
 
 void Talent::apply_rank_effect() {
-    for (auto * spell : affected_spells)
+    for (auto & spell : affected_spells)
         dynamic_cast<TalentRequirer*>(spell)->increase_talent_rank(spell, name);
 
-    for (auto * buff : affected_buffs)
+    for (auto & buff : affected_buffs)
         dynamic_cast<TalentRequirer*>(buff)->increase_talent_rank(buff, name);
 
-    for (auto * proc : affected_procs)
+    for (auto & proc : affected_procs)
         dynamic_cast<TalentRequirer*>(proc)->increase_talent_rank(proc, name);
 }
 
 void Talent::remove_rank_effect() {
-    for (auto * spell : affected_spells)
+    for (auto & spell : affected_spells)
         dynamic_cast<TalentRequirer*>(spell)->decrease_talent_rank(spell, name);
 
-    for (auto * buff : affected_buffs)
+    for (auto & buff : affected_buffs)
         dynamic_cast<TalentRequirer*>(buff)->decrease_talent_rank(buff, name);
 
-    for (auto * proc : affected_procs)
+    for (auto & proc : affected_procs)
         dynamic_cast<TalentRequirer*>(proc)->decrease_talent_rank(proc, name);
 }
 
@@ -275,7 +275,7 @@ void Talent::initialize_rank_descriptions(QMap<unsigned, QString>& description_m
                                           const QVector<QPair<unsigned, unsigned>>& format_values) {
     for (unsigned i = 0; i < format_points; ++i) {
         QString format_str = base_str;
-        for (auto format_value : format_values) {
+        for (const auto & format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);
         }
 
@@ -291,7 +291,7 @@ void Talent::initialize_rank_descriptions(QMap<unsigned, QString>& description_m
                                           const QVector<QPair<double, double>>& format_values) {
     for (unsigned i = 0; i < format_points; ++i) {
         QString format_str = base_str;
-        for (auto format_value : format_values) {
+        for (const auto & format_value : format_values) {
             format_str = format_str.arg(format_value.first + i * format_value.second);
         }
 

@@ -53,13 +53,13 @@ ActiveItemStatFilterModel::ActiveItemStatFilterModel(QObject *parent)
 }
 
 ActiveItemStatFilterModel::~ActiveItemStatFilterModel() {
-    for (auto & filter : active_item_stat_filters) {
+    for (const auto & filter : active_item_stat_filters) {
         delete filter;
     }
 }
 
 bool ActiveItemStatFilterModel::item_passes_active_stat_filters(const Item* item) const {
-    for (auto & filter : active_item_stat_filters) {
+    for (const auto & filter : active_item_stat_filters) {
         if (!filter->item_passes_filter(item))
             return false;
     }
@@ -81,7 +81,7 @@ void ActiveItemStatFilterModel::set_weapon_model(WeaponModel *weapon_model) {
 }
 
 void ActiveItemStatFilterModel::add_filter(const ItemStats item_stat_flag, const QString& description) {
-    for (auto & filter : active_item_stat_filters) {
+    for (const auto & filter : active_item_stat_filters) {
         if (filter->item_stat_flag == item_stat_flag)
             return;
     }
@@ -107,7 +107,7 @@ void ActiveItemStatFilterModel::removeFilter(const int item_stat_flag_int) {
 
 void ActiveItemStatFilterModel::clearFilters() {
     layoutAboutToBeChanged();
-    for (auto & filter : active_item_stat_filters) {
+    for (const auto & filter : active_item_stat_filters) {
         delete filter;
     }
 
@@ -122,7 +122,7 @@ void ActiveItemStatFilterModel::changeComparator(const unsigned item_stat_flag_u
         return;
 
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
-    for (auto & active_item_stat_filter : active_item_stat_filters) {
+    for (const auto & active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();
             active_item_stat_filter->comparator = comparator;
@@ -135,7 +135,7 @@ void ActiveItemStatFilterModel::changeComparator(const unsigned item_stat_flag_u
 
 void ActiveItemStatFilterModel::changeCompareValue(const unsigned item_stat_flag_unsigned, const unsigned cmp_value) {
     auto item_stat_flag = static_cast<ItemStats>(item_stat_flag_unsigned);
-    for (auto & active_item_stat_filter : active_item_stat_filters) {
+    for (const auto & active_item_stat_filter : active_item_stat_filters) {
         if (active_item_stat_filter->item_stat_flag == item_stat_flag) {
             layoutAboutToBeChanged();
             active_item_stat_filter->cmp_value = cmp_value;

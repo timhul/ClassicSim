@@ -38,7 +38,7 @@ CharacterSpells::CharacterSpells(Character* pchar) :
 
 CharacterSpells::~CharacterSpells()
 {
-    for (auto & spell : spells)
+    for (const auto & spell : spells)
         delete spell;
 
     spells.clear();
@@ -129,7 +129,7 @@ void CharacterSpells::add_spell(Spell* spell, bool relink) {
 }
 
 void CharacterSpells::remove_spell(Spell* spell) {
-    for (auto & i : spells) {
+    for (const auto & i : spells) {
         if (i->get_instance_id() == spell->get_instance_id()) {
             spells.removeOne(i);
             break;
@@ -148,7 +148,7 @@ void CharacterSpells::add_start_of_combat_spell(Spell* spell) {
 }
 
 void CharacterSpells::remove_start_of_combat_spell(Spell* spell) {
-    for (auto & i : start_of_combat_spells) {
+    for (const auto & i : start_of_combat_spells) {
         if (i->get_instance_id() == spell->get_instance_id()) {
             start_of_combat_spells.removeOne(i);
             return;
@@ -157,12 +157,12 @@ void CharacterSpells::remove_start_of_combat_spell(Spell* spell) {
 }
 
 void CharacterSpells::run_start_of_combat_spells() {
-    for (auto & spell : start_of_combat_spells)
+    for (const auto & spell : start_of_combat_spells)
         spell->perform_start_of_combat();
 }
 
 Spell* CharacterSpells::get_spell_by_name(const QString& spell_name) const {
-    for (auto & spell : spells) {
+    for (const auto & spell : spells) {
         if (spell->get_name() == spell_name)
             return spell;
     }
@@ -175,7 +175,7 @@ void CharacterSpells::reset() {
     id_of_cast_in_progress = 0;
     attack_mode_active = false;
 
-    for (auto & spell : spells)
+    for (const auto & spell : spells)
         spell->reset();
 }
 
@@ -299,7 +299,7 @@ void CharacterSpells::prepare_set_of_combat_iterations() {
     id_of_cast_in_progress = 0;
     attack_mode_active = false;
 
-    for (auto & spell : spells)
+    for (const auto & spell : spells)
         spell->prepare_set_of_combat_iterations();
 
     if (rotation)

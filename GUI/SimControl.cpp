@@ -32,7 +32,7 @@ void SimControl::run_full_sim(Character* pchar) {
     scaler->add_class_statistic(SimOption::Name::NoScale, pchar->relinquish_ownership_of_statistics());
 
     QSet<SimOption::Name> options = sim_settings->get_active_options();
-    for (auto & option : options) {
+    for (const auto & option : options) {
         qDebug() << "Running sim with option" << option;
         run_sim_with_option(pchar, option, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
         scaler->add_class_statistic(option, pchar->relinquish_ownership_of_statistics());

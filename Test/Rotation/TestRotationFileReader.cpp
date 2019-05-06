@@ -39,7 +39,7 @@ void TestRotationFileReader::test_all() {
 }
 
 TestRotationFileReader::~TestRotationFileReader() {
-    for (auto * rotation: rotations)
+    for (const auto & rotation: rotations)
         delete rotation;
 }
 
@@ -240,7 +240,7 @@ void TestRotationFileReader::verify_executor_names(Rotation* rotation, QVector<R
 }
 
 Rotation* TestRotationFileReader::get_rotation(const QString& name) const {
-    for (auto * rotation: rotations) {
+    for (const auto & rotation: rotations) {
         if (rotation->get_name() == name)
             return rotation;
     }

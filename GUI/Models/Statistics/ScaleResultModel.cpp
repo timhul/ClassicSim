@@ -36,7 +36,7 @@ ScaleResultModel::ScaleResultModel(NumberCruncher *statistics_source, QObject *p
 }
 
 ScaleResultModel::~ScaleResultModel() {
-    for (auto & i : scale_results)
+    for (const auto & i : scale_results)
         delete i;
 }
 
@@ -94,7 +94,7 @@ void ScaleResultModel::update_statistics() {
     if (!scale_results.empty()) {
         beginResetModel();
 
-        for (auto & i : scale_results)
+        for (const auto & i : scale_results)
             delete i;
 
         scale_results.clear();

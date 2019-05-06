@@ -16,8 +16,8 @@ NumberCruncher::~NumberCruncher() {
 void NumberCruncher::reset() {
     QMutexLocker lock(&mutex);
 
-    for (auto & class_stat_for_sim_option : class_stats) {
-        for (auto & class_stats_element : class_stat_for_sim_option)
+    for (const auto & class_stat_for_sim_option : class_stats) {
+        for (const auto & class_stats_element : class_stat_for_sim_option)
             delete class_stats_element;
     }
 
@@ -41,12 +41,12 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
     check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     long long int total_damage_dealt = 0;
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         total_damage_dealt += cstats->get_total_damage_dealt();
     }
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsSpell*>::const_iterator it = cstats->spell_statistics.constBegin();
         auto end = cstats->spell_statistics.constEnd();
         while (it != end) {
@@ -63,7 +63,7 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
 
 void NumberCruncher::merge_spell_entry(const QString& name, const QString& icon, long long total_damage_dealt, QList<StatisticsSpell *> &vec) {
     auto* result = new StatisticsSpell(name, icon);
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->spell_statistics.contains(name))
             continue;
 
@@ -80,7 +80,7 @@ void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec, const bool in
     check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsBuff*>::const_iterator it = cstats->buff_statistics.constBegin();
         auto end = cstats->buff_statistics.constEnd();
         while (it != end) {
@@ -97,7 +97,7 @@ void NumberCruncher::merge_buff_stats(QList<StatisticsBuff*>& vec, const bool in
 
 void NumberCruncher::merge_buff_entry(const QString& name, const QString &icon, QList<StatisticsBuff*>& vec) {
     auto* result = new StatisticsBuff(name, icon, false);
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->buff_statistics.contains(name))
             continue;
 
@@ -116,7 +116,7 @@ void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
     check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsProc*>::const_iterator it = cstats->proc_statistics.constBegin();
         auto end = cstats->proc_statistics.constEnd();
         while (it != end) {
@@ -133,7 +133,7 @@ void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
 
 void NumberCruncher::merge_proc_entry(const QString& name, const QString &icon, QList<StatisticsProc*>& vec) {
     auto* result = new StatisticsProc(name, icon, time_in_combat);
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->proc_statistics.contains(name))
             continue;
 
@@ -149,7 +149,7 @@ void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
     check(class_stats.contains(SimOption::Name::NoScale), "Missing baseline NoScale statistics");
 
     QSet<QString> handled_entries;
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         QMap<QString, StatisticsResource*>::const_iterator it = cstats->resource_statistics.constBegin();
         auto end = cstats->resource_statistics.constEnd();
         while (it != end) {
@@ -166,7 +166,7 @@ void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
 
 void NumberCruncher::merge_resource_entry(const QString& name, const QString &icon, QList<StatisticsResource*>& vec) {
     auto* result = new StatisticsResource(name, icon, time_in_combat);
-    for (auto & cstats : class_stats[SimOption::Name::NoScale]) {
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->resource_statistics.contains(name))
             continue;
 
@@ -177,7 +177,7 @@ void NumberCruncher::merge_resource_entry(const QString& name, const QString &ic
 }
 
 void NumberCruncher::merge_engine_stats(StatisticsEngine* statistics_engine) {
-    for (auto & cstats : class_stats[SimOption::Name::NoScale])
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale])
         statistics_engine->add(cstats->get_engine_statistics());
 }
 
@@ -195,7 +195,7 @@ void NumberCruncher::merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>
             merge_base[j]->add(class_stats[SimOption::Name::NoScale][i]->rotation_executor_statistics[j]);
     }
 
-    for (auto & rotation_executor : merge_base)
+    for (const auto & rotation_executor : merge_base)
         list.append(rotation_executor->get_list_of_executor_outcomes());
 }
 
@@ -238,8 +238,8 @@ QPair<double, double> NumberCruncher::get_min_max_dps_for_option(SimOption::Name
     double min_dps = std::numeric_limits<double>::max();
     double max_dps = std::numeric_limits<double>::min();
 
-    for (auto & class_stat : class_stats[option]) {
-        for (auto dps : class_stat->dps_for_iterations) {
+    for (const auto & class_stat : class_stats[option]) {
+        for (const auto dps : class_stat->dps_for_iterations) {
             if (dps < min_dps)
                 min_dps = dps;
 
@@ -255,12 +255,12 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
     check(class_stats.contains(option), "Missing option for requested calculation");
 
     QVector<double> dps;
-    for (auto & class_stat : class_stats[option]) {
+    for (const auto & class_stat : class_stats[option]) {
         dps.append(class_stat->get_total_dps());
     }
 
     double dps_sum = 0;
-    for (auto & value : dps)
+    for (const auto & value : dps)
         dps_sum += value;
 
     dps_sum /= dps.size();
@@ -282,8 +282,8 @@ double NumberCruncher::get_standard_deviation_for_option(SimOption::Name option)
     double mean = get_dps_for_option(option);
     double variance = 0;
     int counter = 0;
-    for (auto & class_stat : class_stats[option]) {
-        for (auto & dps : class_stat->dps_for_iterations) {
+    for (const auto & class_stat : class_stats[option]) {
+        for (const auto & dps : class_stat->dps_for_iterations) {
             ++counter;
             variance = variance + (std::pow(dps - mean, 2) - variance) / counter;
         }
@@ -298,7 +298,7 @@ double NumberCruncher::get_confidence_interval_for_option(SimOption::Name option
     double z_value = 1.960;
 
     int population = 0;
-    for (auto & class_stat : class_stats[option])
+    for (const auto & class_stat : class_stats[option])
         population += class_stat->dps_for_iterations.size();
 
     return z_value * (standard_deviation / std::sqrt(population));

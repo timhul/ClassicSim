@@ -40,14 +40,14 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*>&
 
         if (!reader.attributes().hasAttribute("id")) {
             qDebug() << "Missing id attribute";
-            for (auto & attr : reader.attributes())
+            for (const auto & attr : reader.attributes())
                 qDebug() << attr.name() << attr.value();
             reader.skipCurrentElement();
             continue;
         }
         if (!reader.attributes().hasAttribute("phase")) {
             qDebug() << "Missing phase attribute";
-            for (auto & attr : reader.attributes())
+            for (const auto & attr : reader.attributes())
                 qDebug() << attr.name() << attr.value();
             reader.skipCurrentElement();
             continue;

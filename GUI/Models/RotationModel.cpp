@@ -36,7 +36,7 @@ void RotationModel::addRotations() {
     QVector<Rotation*> new_rotations;
     RotationFileReader::add_rotations(new_rotations);
 
-    for (auto & rotation : new_rotations) {
+    for (const auto & rotation : new_rotations) {
         if (!rotations.contains(rotation->get_class()))
             rotations.insert(rotation->get_class(), QVector<Rotation*>({}));
 
@@ -120,8 +120,8 @@ QHash<int, QByteArray> RotationModel::roleNames() const {
 }
 
 void RotationModel::clear_rotations() {
-    for (auto & class_rotations: rotations)
-        for (auto & rotation : class_rotations)
+    for (const auto & class_rotations: rotations)
+        for (const auto & rotation : class_rotations)
             delete rotation;
 
     rotations.clear();

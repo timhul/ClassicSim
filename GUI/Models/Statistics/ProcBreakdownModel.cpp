@@ -16,7 +16,7 @@ ProcBreakdownModel::ProcBreakdownModel(NumberCruncher *statistics_source, QObjec
 }
 
 ProcBreakdownModel::~ProcBreakdownModel() {
-    for (auto & i : proc_stats)
+    for (const auto & i : proc_stats)
         delete i;
 }
 
@@ -68,7 +68,7 @@ void ProcBreakdownModel::update_statistics() {
     if (!proc_stats.empty()) {
         beginResetModel();
 
-        for (auto & i : proc_stats)
+        for (const auto & i : proc_stats)
             delete i;
 
         proc_stats.clear();

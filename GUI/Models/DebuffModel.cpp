@@ -103,7 +103,7 @@ void DebuffModel::update_debuffs() {
     }
 
     QVector<ExternalBuff*> buffs = pchar->get_enabled_buffs()->get_general_buffs()->get_external_debuffs();
-    for (auto buff : buffs) {
+    for (const auto buff : buffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         external_debuffs << buff;
         endInsertRows();

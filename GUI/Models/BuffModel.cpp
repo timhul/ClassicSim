@@ -103,7 +103,7 @@ void BuffModel::update_buffs() {
     }
 
     QVector<ExternalBuff*> buffs = general_buffs->get_external_buffs();
-    for (auto buff : buffs) {
+    for (const auto buff : buffs) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         external_buffs << buff;
         endInsertRows();

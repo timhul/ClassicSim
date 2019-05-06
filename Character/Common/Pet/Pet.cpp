@@ -34,7 +34,7 @@ Pet::Pet(Character* pchar, const QString &name, double attack_speed, double base
 Pet::~Pet() {
     remove_spells();
 
-    for (auto & spell: spells)
+    for (const auto & spell: spells)
         delete spell;
 
     delete pet_auto_attack;
@@ -180,13 +180,13 @@ void Pet::add_next_auto_attack() {
 void Pet::add_spells() {
     pchar->get_spells()->add_spell(pet_auto_attack, NO_RELINK);
 
-    for (auto & spell : spells)
+    for (const auto & spell : spells)
         pchar->get_spells()->add_spell(spell, NO_RELINK);
 }
 
 void Pet::remove_spells() {
     pchar->get_spells()->remove_spell(pet_auto_attack);
 
-    for (auto & spell : spells)
+    for (const auto & spell : spells)
         pchar->get_spells()->remove_spell(spell);
 }

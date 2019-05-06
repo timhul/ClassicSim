@@ -97,11 +97,11 @@ void CharacterEncoder::add_vector(QVector<QPair<QString, QVector<QPair<QString, 
     if (vec.empty())
         return;
 
-    for (auto & i : vec) {
+    for (const auto & i : vec) {
         new_element();
 
         pchar_str += i.first + QString(Encoding::LIST_INITIALIZER);
-        for (auto & j : i.second) {
+        for (const auto & j : i.second) {
             key_val_list(j.first, j.second);
         }
 

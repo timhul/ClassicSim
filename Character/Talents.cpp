@@ -10,8 +10,8 @@ Talents::Talents() :
 {}
 
 Talents::~Talents() {
-    for (auto & talent_tree : talent_trees) {
-        for (auto & i : talent_tree)
+    for (const auto & talent_tree : talent_trees) {
+        for (const auto & i : talent_tree)
             delete i;
     }
 }
@@ -305,12 +305,12 @@ void Talents::set_current_index(const int index) {
     if (index < 0 || index >= talent_trees.size())
         return;
 
-    for (auto & tree : talent_trees[current_index])
+    for (const auto & tree : talent_trees[current_index])
             tree->remove_rank_effects();
 
     current_index = index;
 
-    for (auto & tree : talent_trees[current_index])
+    for (const auto & tree : talent_trees[current_index])
             tree->apply_rank_effects();
 }
 
