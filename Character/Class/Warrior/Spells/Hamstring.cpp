@@ -1,8 +1,8 @@
 #include "Hamstring.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "OverpowerBuff.h"
 #include "Utils/Check.h"
 #include "Warrior.h"
 

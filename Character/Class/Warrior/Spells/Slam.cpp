@@ -1,5 +1,6 @@
 #include "Slam.h"
 
+#include "Buff.h"
 #include "CastComplete.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
@@ -7,7 +8,6 @@
 #include "MainhandAttack.h"
 #include "NoEffectBuff.h"
 #include "OffhandAttack.h"
-#include "OverpowerBuff.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 

@@ -176,7 +176,6 @@ SOURCES += main.cpp \
     Character/Class/Warrior/Spells/BerserkerStance.cpp \
     Character/Class/Warrior/Buffs/BerserkerStanceBuff.cpp \
     Test/Warrior/Spells/TestBerserkerStance.cpp \
-    Character/Class/Warrior/Buffs/OverpowerBuff.cpp \
     Character/Race/Racials/BloodFury.cpp \
     Character/Race/Racials/BloodFuryBuff.cpp \
     Character/Race/Racials/Berserking.cpp \
@@ -208,7 +207,6 @@ SOURCES += main.cpp \
     Event/Events/CastComplete.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
     Character/Class/TalentRequirer.cpp \
-    Character/Class/Warrior/Buffs/BattleStanceBuff.cpp \
     Spells/SpellCastingTime.cpp \
     Test/Warrior/Talents/TestFury.cpp \
     GUI/Models/RotationModel.cpp \
@@ -552,7 +550,6 @@ HEADERS += \
     Character/Class/Warrior/Spells/BerserkerStance.h \
     Character/Class/Warrior/Buffs/BerserkerStanceBuff.h \
     Test/Warrior/Spells/TestBerserkerStance.h \
-    Character/Class/Warrior/Buffs/OverpowerBuff.h \
     Character/Race/Racials/BloodFury.h \
     Character/Race/Racials/BloodFuryBuff.h \
     Character/Race/Racials/Berserking.h \
@@ -586,7 +583,6 @@ HEADERS += \
     Event/Events/CastComplete.h \
     Test/Warrior/Spells/TestSlam.h \
     Character/Class/TalentRequirer.h \
-    Character/Class/Warrior/Buffs/BattleStanceBuff.h \
     Spells/SpellCastingTime.h \
     Test/Warrior/Talents/TestFury.h \
     GUI/Models/RotationModel.h \

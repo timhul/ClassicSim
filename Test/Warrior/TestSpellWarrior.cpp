@@ -3,10 +3,10 @@
 #include <QDebug>
 #include <utility>
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Impale.h"
-#include "OverpowerBuff.h"
 #include "SimSettings.h"
 #include "Spell.h"
 #include "TacticalMastery.h"

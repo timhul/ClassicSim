@@ -2,8 +2,8 @@
 
 #include "Arms.h"
 #include "BattleShoutBuff.h"
-#include "BattleStanceBuff.h"
 #include "BerserkerStanceBuff.h"
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "DefensiveStanceBuff.h"
@@ -18,7 +18,6 @@
 #include "NoEffectBuff.h"
 #include "OffhandAttackWarrior.h"
 #include "OffhandMeleeHit.h"
-#include "OverpowerBuff.h"
 #include "PlayerAction.h"
 #include "Protection.h"
 #include "Race.h"
@@ -63,14 +62,14 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->next_stance_cd = 0.0;
 
     this->warr_spells = new WarriorSpells(this);
-    this->spells = dynamic_cast<CharacterSpells*>(warr_spells);
+    this->spells = warr_spells;
 
-    this->flurry = new Flurry(this);
     this->battle_shout_buff = new BattleShoutBuff(this);
-    this->battle_stance_buff = new BattleStanceBuff(this);
+    this->battle_stance_buff = new NoEffectBuff(this, BuffDuration::PERMANENT, "Battle Stance");
     this->berserker_stance_buff = new BerserkerStanceBuff(this);
     this->defensive_stance_buff = new DefensiveStanceBuff(this);
-    this->overpower_buff = new OverpowerBuff(this);
+    this->flurry = new Flurry(this);
+    this->overpower_buff = new NoEffectBuff(this, 5, "Overpower");
     this->recklessness_buff = new RecklessnessBuff(this);
     battle_shout_buff->enable_buff();
     battle_stance_buff->enable_buff();
@@ -176,7 +175,7 @@ Flurry* Warrior::get_flurry() const {
     return this->flurry;
 }
 
-BattleStanceBuff* Warrior::get_battle_stance_buff() const {
+Buff* Warrior::get_battle_stance_buff() const {
     return this->battle_stance_buff;
 }
 
@@ -196,7 +195,7 @@ UnbridledWrath* Warrior::get_unbridled_wrath() const {
     return this->unbridled_wrath;
 }
 
-OverpowerBuff* Warrior::get_overpower_buff() const {
+Buff* Warrior::get_overpower_buff() const {
     return this->overpower_buff;
 }
 

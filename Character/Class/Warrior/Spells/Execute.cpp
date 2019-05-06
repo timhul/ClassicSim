@@ -1,9 +1,9 @@
 #include "Execute.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "Engine.h"
-#include "OverpowerBuff.h"
 #include "SimSettings.h"
 #include "Utils/Check.h"
 #include "Warrior.h"

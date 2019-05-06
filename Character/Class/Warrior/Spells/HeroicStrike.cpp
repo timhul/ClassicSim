@@ -1,10 +1,10 @@
 #include "HeroicStrike.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "MainhandAttackWarrior.h"
 #include "NoEffectBuff.h"
-#include "OverpowerBuff.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
