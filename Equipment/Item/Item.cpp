@@ -644,6 +644,11 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: Increased Swords +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
     }
+    else if (key == "TWOHAND_SWORD_SKILL") {
+        this->stats->increase_sword_skill(value.toInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Swords +%1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
+    }
     else if (key == "BOW_SKILL") {
         this->stats->increase_bow_skill(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Bows +%1.").arg(value));
