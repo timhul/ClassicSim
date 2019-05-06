@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
 	<melee_weapon id="13052" phase="0">
-        <info name="Warmonger" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="yes" icon="Inv_sword_46.png"/>
-        <dmg_range min="108" max="162" speed="3.0"/>
-        <stats>
-            <stat type="STRENGTH" value="3"/>
-            <stat type="HIT_CHANCE" value="0.03"/>
-        </stats>
-        <source>
+		<info name="Warmonger" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="47" item_lvl="52" quality="RARE" boe="yes" icon="Inv_sword_46.png"/>
+		<dmg_range min="108" max="162" speed="3.0"/>
+		<stats>
+			<stat type="STRENGTH" value="3"/>
+			<stat type="HIT_CHANCE" value="0.03"/>
+		</stats>
+		<source>
         World drop.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18822" phase="0">
-        <info name="Obsidian Edged Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_28.png"/>
-        <dmg_range min="176" max="264" speed="3.4"/>
-        <stats>
-            <stat type="STRENGTH" value="42"/>
-            <stat type="TWOHAND_SWORD_SKILL" value="8"/>
-        </stats>
-        <source>
+		<info name="Obsidian Edged Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_28.png"/>
+		<dmg_range min="176" max="264" speed="3.4"/>
+		<stats>
+			<stat type="STRENGTH" value="42"/>
+			<stat type="TWOHAND_SWORD_SKILL" value="8"/>
+		</stats>
+		<source>
         Drops from multiple bosses in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="17076" phase="0">
-        <info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
-        <dmg_range min="206" max="310" speed="3.4"/>
-        <stats>
-            <stat type="STAMINA" value="16"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <proc>
-            <!-- TODO: Find actual proc rate. -->
-            <spell name="ARMOR_PENETRATION" value="700" max_stacks="3" duration="10" rate="0.20" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Bonereaver's Edge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_12.png"/>
+		<dmg_range min="206" max="310" speed="3.4"/>
+		<stats>
+			<stat type="STAMINA" value="16"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="ARMOR_PENETRATION" value="700" max_stacks="3" duration="10" rate="0.20" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
         Chance on hit: Reduces target's armor by 700 for 10 seconds. This effect stacks up to 3 times.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
         Drops from Ragnaros in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18520" phase="1">
-        <info name="Barbarous Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_11.png"/>
-        <dmg_range min="138" max="207" speed="3.2"/>
-        <stats>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="60"/>
-        </stats>
-        <source>
+		<info name="Barbarous Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_11.png"/>
+		<dmg_range min="138" max="207" speed="3.2"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="60"/>
+		</stats>
+		<source>
         Drops from King Gordok in Dire Maul.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18876" phase="1">
@@ -82,93 +82,93 @@
 	</melee_weapon>
 
 	<melee_weapon id="19334" phase="2">
-        <info name="The Untamed Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
-        <dmg_range min="192" max="289" speed="3.4"/>
-        <stats>
-            <stat type="AGILITY" value="22"/>
-            <stat type="STAMINA" value="16"/>
-        </stats>
+		<info name="The Untamed Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
+		<dmg_range min="192" max="289" speed="3.4"/>
+		<stats>
+			<stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="16"/>
+		</stats>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="GENERIC_STAT_BUFF" type="STRENGTH" amount="300" instant="yes" rate="0.05" duration="8" internal_cd="0"/>
-        </proc>
+			<spell name="GENERIC_STAT_BUFF" type="STRENGTH" amount="300" instant="yes" rate="0.05" duration="8" internal_cd="0"/>
+		</proc>
 		<special_equip_effect>
 		Chance on hit: Increases Strength by 300 for 8 sec.
 		</special_equip_effect>
-        <source>
+		<source>
         Drops from Razorgore the Untamed in Blackwing Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19364" phase="2">
-        <info name="Ashkandi, Greatsword of the Brotherhood" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
-        <dmg_range min="229" max="344" speed="3.5"/>
-        <stats>
-            <stat type="STAMINA" value="33"/>
-            <stat type="ATTACK_POWER" value="86"/>
-        </stats>
-        <source>
+		<info name="Ashkandi, Greatsword of the Brotherhood" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_sword_50.png"/>
+		<dmg_range min="229" max="344" speed="3.5"/>
+		<stats>
+			<stat type="STAMINA" value="33"/>
+			<stat type="ATTACK_POWER" value="86"/>
+		</stats>
+		<source>
         Drops from Nefarian in Blackwing Lair.
-        </source>
-        <flavour_text>
+		</source>
+		<flavour_text>
         "The initials A.L. are etched on the hilt."
-        </flavour_text>
+		</flavour_text>
 	</melee_weapon>
 
 	<melee_weapon id="21679" phase="4">
-        <info name="Kalimdor's Revenge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_56.png"/>
-        <dmg_range min="209" max="315" speed="3.2"/>
-        <stats>
-            <stat type="STRENGTH" value="24"/>
-            <stat type="STAMINA" value="18"/>
-        </stats>
+		<info name="Kalimdor's Revenge" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_56.png"/>
+		<dmg_range min="209" max="315" speed="3.2"/>
+		<stats>
+			<stat type="STRENGTH" value="24"/>
+			<stat type="STAMINA" value="18"/>
+		</stats>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="NATURE_ATTACK" min="239" max="279" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
+			<spell name="NATURE_ATTACK" min="239" max="279" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
 		<special_equip_effect>
 		Chance on hit: Instantly lightning shocks the target for 239 to 278 Nature damage.
 		</special_equip_effect>
-        <source>
+		<source>
         Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22813" phase="5">
-        <info name="Claymore of Unholy Might" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_46.png"/>
-        <dmg_range min="235" max="354" speed="3.6"/>
-        <stats>
-            <stat type="STAMINA" value="20"/>
-            <stat type="ATTACK_POWER" value="98"/>
-        </stats>
-        <source>
+		<info name="Claymore of Unholy Might" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_46.png"/>
+		<dmg_range min="235" max="354" speed="3.6"/>
+		<stats>
+			<stat type="STAMINA" value="20"/>
+			<stat type="ATTACK_POWER" value="98"/>
+		</stats>
+		<source>
         Drops from Gluth in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22691" phase="5">
-        <info name="Corrupted Ashbringer" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_sword_2h_ashbringercorrupt.png"/>
-        <dmg_range min="259" max="389" speed="3.6"/>
-        <stats>
-            <stat type="STAMINA" value="-25"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
+		<info name="Corrupted Ashbringer" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_sword_2h_ashbringercorrupt.png"/>
+		<dmg_range min="259" max="389" speed="3.6"/>
+		<stats>
+			<stat type="STAMINA" value="-25"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
+		</stats>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="SHADOW_ATTACK" min="185" max="216" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
+			<spell name="SHADOW_ATTACK" min="185" max="216" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
 		<special_equip_effect>
 		Chance on hit: Steals 185 to 216 life from target enemy.
 		</special_equip_effect>
 		<special_equip_effect>
 		Equip: Inflicts the will of the Ashbringer upon the wielder.
 		</special_equip_effect>
-        <source>
+		<source>
         Drops from Four Horsemen in Naxxramas.
-        </source>
-        <flavour_text>
+		</source>
+		<flavour_text>
         "Blade of the Scarlet Highlord."
-        </flavour_text>
+		</flavour_text>
 	</melee_weapon>
 </weapons>

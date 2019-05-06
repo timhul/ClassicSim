@@ -1,531 +1,531 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
 	<melee_weapon id="17705" phase="0">
-        <info name="Thrash Blade" type="SWORD" slot="1H" unique="yes" req_lvl="45" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
-        <dmg_range min="66" max="124" speed="2.7"/>
-        <proc>
+		<info name="Thrash Blade" type="SWORD" slot="1H" unique="yes" req_lvl="45" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
+		<dmg_range min="66" max="124" speed="2.7"/>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Grants an extra attack on your next swing.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Quest reward. Requires killing Princess Theradras in Maraudon.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="2244" phase="0">
-        <info name="Krol Blade" type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="EPIC" boe="yes" icon="Inv_sword_18.png"/>
-        <dmg_range min="80" max="149" speed="2.8"/>
-        <stats>
-            <stat type="STRENGTH" value="7"/>
-            <stat type="STAMINA" value="5"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Krol Blade" type="SWORD" slot="MH" unique="no" req_lvl="51" item_lvl="56" quality="EPIC" boe="yes" icon="Inv_sword_18.png"/>
+		<dmg_range min="80" max="149" speed="2.8"/>
+		<stats>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="STAMINA" value="5"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			World drop.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="13036" phase="0">
-        <info name="Assassination Blade" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_sword_42.png"/>
-        <dmg_range min="71" max="132" speed="2.7"/>
-        <stats>
-            <stat type="STRENGTH" value="3"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Assassination Blade" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_sword_42.png"/>
+		<dmg_range min="71" max="132" speed="2.7"/>
+		<stats>
+			<stat type="STRENGTH" value="3"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			World drop.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="15806" phase="0">
-        <info name="Mirah's Song" type="SWORD" slot="1H" unique="yes" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_sword_34.png"/>
-        <dmg_range min="57" max="87" speed="1.8"/>
-        <stats>
-            <stat type="AGILITY" value="9"/>
-            <stat type="STRENGTH" value="9"/>
-        </stats>
-        <source>
+		<info name="Mirah's Song" type="SWORD" slot="1H" unique="yes" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_sword_34.png"/>
+		<dmg_range min="57" max="87" speed="1.8"/>
+		<stats>
+			<stat type="AGILITY" value="9"/>
+			<stat type="STRENGTH" value="9"/>
+		</stats>
+		<source>
 			Quest reward. Requires Scholomance.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19110" phase="2">
-        <info name="Cold Forged Blade" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"  icon="Inv_sword_47.png"/>
-        <dmg_range min="75" max="140" speed="2.6"/>
-        <stats>
-            <stat type="STAMINA" value="13"/>
-            <stat type="AGILITY" value="5"/>
-        </stats>
-        <source>
+		<info name="Cold Forged Blade" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no"  icon="Inv_sword_47.png"/>
+		<dmg_range min="75" max="140" speed="2.6"/>
+		<stats>
+			<stat type="STAMINA" value="13"/>
+			<stat type="AGILITY" value="5"/>
+		</stats>
+		<source>
 			Drops from Lokholar the Ice Lord in Alterac Valley. Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="6622" phase="0">
-        <info name="Sword of Zeal" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_39.png"/>
-        <dmg_range min="81" max="151" speed="2.8"/>
-        <proc>
+		<info name="Sword of Zeal" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_39.png"/>
+		<dmg_range min="81" max="151" speed="2.8"/>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="ADDITIONAL_DMG_BUFF" min="10" max="10" duration="15" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+			<spell name="ADDITIONAL_DMG_BUFF" min="10" max="10" duration="15" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: A burst of energy fills thecaster, increasing damage by 10 and armor by 150 for 15 sec.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			World drop.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="13361" phase="0">
-        <info name="Skullforge Reaver" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_12.png"/>
-        <dmg_range min="72" max="135" speed="2.5"/>
-        <proc>
+		<info name="Skullforge Reaver" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_12.png"/>
+		<dmg_range min="72" max="135" speed="2.5"/>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="SHADOW_DOT" instant="no" amount="0"  min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+			<spell name="SHADOW_DOT" instant="no" amount="0"  min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Drains the target for 2 Shadow damage every 1 sec and transfers it to the caster. Lasts for 30 sec.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from Baron Rivendare in Stratholme Undead.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="12939" phase="0">
-        <info name="Dal'Rend's Tribal Guardian" type="SWORD" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_40.png"/>
-        <dmg_range min="52" max="97" speed="1.8"/>
-        <stats>
-            <stat type="ARMOR" value="100"/>
-            <stat type="DEFENSE" value="7"/>
-        </stats>
-        <source>
+		<info name="Dal'Rend's Tribal Guardian" type="SWORD" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_40.png"/>
+		<dmg_range min="52" max="97" speed="1.8"/>
+		<stats>
+			<stat type="ARMOR" value="100"/>
+			<stat type="DEFENSE" value="7"/>
+		</stats>
+		<source>
 			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="12940" phase="0">
-        <info name="Dal'Rend's Sacred Charge" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_43.png"/>
-        <dmg_range min="81" max="151" speed="2.8"/>
-        <stats>
-            <stat type="STRENGTH" value="4"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
+		<info name="Dal'Rend's Sacred Charge" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_43.png"/>
+		<dmg_range min="81" max="151" speed="2.8"/>
+		<stats>
+			<stat type="STRENGTH" value="4"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
 		</stats>
-        <source>
+		<source>
 			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="10847" phase="0">
-        <info name="Dragon's Call" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_sword_38.png"/>
-        <dmg_range min="72" max="135" speed="2.5"/>
-        <proc>
-				<!-- TODO: Find proc rate, how much damage the minion deals, duration, etc. -->
-            <spell name="SUMMON_NATURE_MINION" amount="1" duration="30" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Dragon's Call" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_sword_38.png"/>
+		<dmg_range min="72" max="135" speed="2.5"/>
+		<proc>
+			<!-- TODO: Find proc rate, how much damage the minion deals, duration, etc. -->
+			<spell name="SUMMON_NATURE_MINION" amount="1" duration="30" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Calls forth an Emerald Dragon Whelp to protect you in battle for a short period of time.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from Shade of Eranikus in Sunken Temple.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19554" phase="2">
-        <info name="Protector's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_sword_27.png"/>
-        <dmg_range min="78" max="146" speed="2.7"/>
-        <stats>
-            <stat type="STRENGTH" value="13"/>
-            <stat type="STAMINA" value="5"/>
-        </stats>
-        <source>
+		<info name="Protector's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_sword_27.png"/>
+		<dmg_range min="78" max="146" speed="2.7"/>
+		<stats>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="5"/>
+		</stats>
+		<source>
 			Sold by Warsong Gulch vendor Illiyana Moonblaze. Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19550" phase="2">
-        <info name="Legionnaire's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_sword_31.png"/>
-        <dmg_range min="78" max="146" speed="2.7"/>
-        <stats>
-            <stat type="STRENGTH" value="13"/>
-            <stat type="STAMINA" value="5"/>
-        </stats>
-        <source>
+		<info name="Legionnaire's Sword" type="SWORD" slot="1H" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_sword_31.png"/>
+		<dmg_range min="78" max="146" speed="2.7"/>
+		<stats>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="5"/>
+		</stats>
+		<source>
 			Sold by Warsong Gulch vendor Kelm Hargunth. Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22378" phase="4">
-        <info name="Ravenholdt Slicer" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_38.png"/>
-        <dmg_range min="83" max="156" speed="2.8"/>
-        <stats>
-            <stat type="STAMINA" value="6"/>
-            <stat type="ATTACK_POWER" value="26"/>
-        </stats>
-        <source>
+		<info name="Ravenholdt Slicer" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_38.png"/>
+		<dmg_range min="83" max="156" speed="2.8"/>
+		<stats>
+			<stat type="STAMINA" value="6"/>
+			<stat type="ATTACK_POWER" value="26"/>
+		</stats>
+		<source>
 			Reward from a quest in Silithus inn. Requires quest item from first boss in both AQ20 and ZG.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="17015" phase="4">
-        <info name="Dark Iron Reaver" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_sword_48.png"/>
-        <dmg_range min="71" max="134" speed="2.4"/>
-        <stats>
-            <stat type="STRENGTH" value="10"/>
-            <stat type="FIRE_RESISTANCE" value="6"/>
-        </stats>
-        <source>
+		<info name="Dark Iron Reaver" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_sword_48.png"/>
+		<dmg_range min="71" max="134" speed="2.4"/>
+		<stats>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="6"/>
+		</stats>
+		<source>
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19968" phase="4">
-        <info name="Fiery Retributer" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_01.png"/>
-        <dmg_range min="56" max="105" speed="1.8"/>
-        <stats>
-            <stat type="STRENGTH" value="7"/>
-            <stat type="DEFENSE" value="5"/>
-        </stats>
-        <proc>
-            <spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Fiery Retributer" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_01.png"/>
+		<dmg_range min="56" max="105" speed="1.8"/>
+		<stats>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="DEFENSE" value="5"/>
+		</stats>
+		<proc>
+			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Equip: Adds 2 fire damage to your melee attacks.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from Hazza'rah (Edge of Madness) in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19901" phase="3">
-        <info name="Zulian Slicer" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_35.png"/>
-        <dmg_range min="78" max="146" speed="2.5"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="12"/>
-        </stats>
-        <proc>
-				<!-- TODO: Find actual proc rate. -->
-            <spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Zulian Slicer" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_35.png"/>
+		<dmg_range min="78" max="146" speed="2.5"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="12"/>
+		</stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Slices the enemy for 72 to 97 Nature damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from High Priest Thekal in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="1728" phase="4">
-        <info name="Teebu's Blazing Longsword" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
-        <dmg_range min="96" max="178" speed="2.9"/>
-        <proc>
-				<!-- TODO: Find actual proc rate. -->
-            <spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Teebu's Blazing Longsword" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
+		<dmg_range min="96" max="178" speed="2.9"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Blasts a target for 150 Fire damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops randomly in selected dungeons and raids.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19866" phase="3">
-        <info name="Warblade of the Hakkari" type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
-        <dmg_range min="57" max="106" speed="1.7"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="40"/>
-        </stats>
-        <source>
+		<info name="Warblade of the Hakkari" type="SWORD" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
+		<dmg_range min="57" max="106" speed="1.7"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
 			Drops from Bloodlord Mandokir in Zul'Gurub.
-        </source>
+		</source>
 		<flavour_text>
 			"The seething flames of hatred."
 		</flavour_text>
 	</melee_weapon>
 
 	<melee_weapon id="19867" phase="3">
-        <info name="Bloodlord's Defender" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_54.png"/>
-        <dmg_range min="64" max="119" speed="1.9"/>
-        <stats>
-            <stat type="ARMOR" value="80"/>
-            <stat type="STAMINA" value="15"/>
-            <stat type="DEFENSE" value="4"/>
-        </stats>
-        <source>
+		<info name="Bloodlord's Defender" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_54.png"/>
+		<dmg_range min="64" max="119" speed="1.9"/>
+		<stats>
+			<stat type="ARMOR" value="80"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="DEFENSE" value="4"/>
+		</stats>
+		<source>
 			Drops from Bloodlord Mandokir in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19865" phase="3">
-        <info name="Warblade of the Hakkari" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
-        <dmg_range min="59" max="110" speed="1.7"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="28"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Warblade of the Hakkari" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
+		<dmg_range min="59" max="110" speed="1.7"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Hakkar in Zul'Gurub.
-        </source>
+		</source>
 		<flavour_text>
 			"Forged in..."
 		</flavour_text>
 	</melee_weapon>
 
 	<melee_weapon id="18832" phase="0">
-        <info name="Brutality Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
-        <dmg_range min="90" max="168" speed="2.5"/>
-        <stats>
-            <stat type="STRENGTH" value="9"/>
-            <stat type="AGILITY" value="9"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Brutality Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_15.png"/>
+		<dmg_range min="90" max="168" speed="2.5"/>
+		<stats>
+			<stat type="STRENGTH" value="9"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Garr in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19168" phase="3">
-        <info name="Blackguard" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_sword_39.png"/>
-        <dmg_range min="65" max="121" speed="1.8"/>
-        <stats>
-            <stat type="STAMINA" value="9"/>
-            <stat type="PARRY_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Blackguard" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_sword_39.png"/>
+		<dmg_range min="65" max="121" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Crafted by Blacksmiths with Thorium Brotherhood reputation. Requires Molten Core materials.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18348" phase="1">
-        <info name="Quel'Serrar" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_01.png"/>
-			<class_restriction class="WARRIOR"/>
-			<class_restriction class="PALADIN"/>
-        <dmg_range min="84" max="126" speed="2.0"/>
-        <stats>
-            <stat type="STAMINA" value="12"/>
-        </stats>
-			<!-- TODO: Add proc (only defensive value) -->
-        <source>
+		<info name="Quel'Serrar" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_01.png"/>
+		<class_restriction class="WARRIOR"/>
+		<class_restriction class="PALADIN"/>
+		<dmg_range min="84" max="126" speed="2.0"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<!-- TODO: Add proc (only defensive value) -->
+		<source>
 			Quest reward. Requires rare quest item Foror's Compendium of Dragonslaying from Dire Maul and an Onyxia kill.
-        </source>
-        <special_equip_effect>
+		</source>
+		<special_equip_effect>
 			Chance on hit: When active, grants the wielder 13 defense and 300 armor for 10 sec.
-        </special_equip_effect>
+		</special_equip_effect>
 		<flavour_text>
 			"The High Blade"
 		</flavour_text>
 	</melee_weapon>
 
 	<melee_weapon id="20577" phase="3">
-        <info name="Nightmare Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_44.png"/>
-        <dmg_range min="99" max="185" speed="2.7"/>
-        <stats>
-            <stat type="ARMOR" value="70"/>
-            <stat type="STAMINA" value="9"/>
-            <stat type="ATTACK_POWER" value="32"/>
-        </stats>
-        <source>
+		<info name="Nightmare Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_44.png"/>
+		<dmg_range min="99" max="185" speed="2.7"/>
+		<stats>
+			<stat type="ARMOR" value="70"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="ATTACK_POWER" value="32"/>
+		</stats>
+		<source>
 			Drops from Taerar (world boss).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19019" phase="0">
-        <info name="Thunderfury, Blessed Blade of the Windseeker" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_sword_39.png"/>
-			<class_restriction class="WARRIOR"/>
-			<class_restriction class="PALADIN"/>
-			<class_restriction class="HUNTER"/>
-			<class_restriction class="ROGUE"/>
-        <dmg_range min="44" max="115" speed="1.9"/>
-        <stats>
-            <stat type="AGILITY" value="5"/>
-            <stat type="STAMINA" value="8"/>
-            <stat type="FIRE_RESISTANCE" value="8"/>
-            <stat type="NATURE_RESISTANCE" value="9"/>
+		<info name="Thunderfury, Blessed Blade of the Windseeker" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_sword_39.png"/>
+		<class_restriction class="WARRIOR"/>
+		<class_restriction class="PALADIN"/>
+		<class_restriction class="HUNTER"/>
+		<class_restriction class="ROGUE"/>
+		<dmg_range min="44" max="115" speed="1.9"/>
+		<stats>
+			<stat type="AGILITY" value="5"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="FIRE_RESISTANCE" value="8"/>
+			<stat type="NATURE_RESISTANCE" value="9"/>
 		</stats>
-        <proc>
-            <spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0"/>
-				<!-- TODO: Find actual proc rate. -->
-            <spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<proc>
+			<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0"/>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Blasts your enemy with lightning, dealing 300  Nature damage and then jumping to additional nearby enemies.
 			Each jump reduces that victim's Nature resistance by 25. Affects 5 targets.
 			Your primary target is also consumed by a cyclone, slowing its attack speed by 20% for 12 sec.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Quest reward. Requires Left and Right Bindings of the Windseeker from Garr and Baron Geddon in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="17075" phase="0">
-        <info name="Vis'kag the Bloodletter" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
-        <dmg_range min="100" max="187" speed="2.6"/>
-        <proc>
-				<!-- TODO: Find actual proc rate. -->
-            <spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Vis'kag the Bloodletter" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
+		<dmg_range min="100" max="187" speed="2.6"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Delivers a fatal wound for 240 damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from Onyxia in Onyxia's Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19351" phase="2">
-        <info name="Maladath, Runed Blade of the Black Flight" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
-        <dmg_range min="86" max="162" speed="2.2"/>
-        <stats>
-            <stat type="PARRY_CHANCE" value="0.01"/>
-            <stat type="SWORD_SKILL" value="4"/>
-        </stats>
-        <source>
+		<info name="Maladath, Runed Blade of the Black Flight" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
+		<dmg_range min="86" max="162" speed="2.2"/>
+		<stats>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+			<stat type="SWORD_SKILL" value="4"/>
+		</stats>
+		<source>
 			Drops from Broodlord Lashlayer in Blackwing Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21520" phase="4">
-        <info name="Ravencrest's Legacy" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
-        <dmg_range min="84" max="157" speed="2.1"/>
-        <stats>
-            <stat type="STAMINA" value="14"/>
-            <stat type="STRENGTH" value="13"/>
-            <stat type="AGILITY" value="9"/>
-        </stats>
-        <source>
+		<info name="Ravencrest's Legacy" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
+		<dmg_range min="84" max="157" speed="2.1"/>
+		<stats>
+			<stat type="STAMINA" value="14"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="AGILITY" value="9"/>
+		</stats>
+		<source>
 			Quest reward from AQ40 Scepter chain.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21650" phase="4">
-        <info name="Ancient Qiraji Ripper" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_84.png"/>
-        <dmg_range min="114" max="213" speed="2.8"/>
-        <stats>
-            <stat type="STAMINA" value="11"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="20"/>
-        </stats>
-        <source>
+		<info name="Ancient Qiraji Ripper" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_84.png"/>
+		<dmg_range min="114" max="213" speed="2.8"/>
+		<stats>
+			<stat type="STAMINA" value="11"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="20"/>
+		</stats>
+		<source>
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19352" phase="2">
-        <info name="Chromatically Tempered Sword" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
-        <dmg_range min="106" max="198" speed="2.6"/>
-        <stats>
-            <stat type="AGILITY" value="14"/>
-            <stat type="STRENGTH" value="14"/>
-            <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="Chromatically Tempered Sword" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
+		<dmg_range min="106" max="198" speed="2.6"/>
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			Drops from Chromaggus in Blackwing Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="16345" phase="1">
-        <info name="High Warlord's Blade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_11.png"/>
-        <dmg_range min="138" max="207" speed="2.9"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="28"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="High Warlord's Blade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_11.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching High Warlord (rank 14). Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="12854" phase="1">
-        <info name="Grand Marshal's Longsword" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_11.png"/>
-        <dmg_range min="138" max="207" speed="2.9"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="28"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="Grand Marshal's Longsword" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_11.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23467" phase="1">
-        <info name="High Warlord's Quickblade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_05.png"/>
-        <dmg_range min="85" max="129" speed="1.8"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="28"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="High Warlord's Quickblade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_sword_05.png"/>
+		<dmg_range min="85" max="129" speed="1.8"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching High Warlord (rank 14). Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23456" phase="1">
-        <info name="Grand Marshal's Swiftblade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_05.png"/>
-        <dmg_range min="85" max="129" speed="1.8"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="28"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="Grand Marshal's Swiftblade" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_05.png"/>
+		<dmg_range min="85" max="129" speed="1.8"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22806" phase="5">
-        <info name="Widow's Remorse" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_60.png"/>
-        <dmg_range min="70" max="131" speed="1.6"/>
-        <stats>
-            <stat type="ARMOR" value="100"/>
-            <stat type="STAMINA" value="17"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Widow's Remorse" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_60.png"/>
+		<dmg_range min="70" max="131" speed="1.6"/>
+		<stats>
+			<stat type="ARMOR" value="100"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Grand Widow Faerlina in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23014" phase="5">
-        <info name="Iblis, Blade of the Fallen Seraph" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_07.png"/>
-        <dmg_range min="70" max="131" speed="1.6"/>
-        <stats>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="26"/>
-        </stats>
-        <source>
+		<info name="Iblis, Blade of the Fallen Seraph" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_sword_07.png"/>
+		<dmg_range min="70" max="131" speed="1.6"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="26"/>
+		</stats>
+		<source>
 			Drops from Instructor Razuvious in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23577" phase="5">
-        <info name="The Hungering Cold" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_62.png"/>
-        <dmg_range min="76" max="143" speed="1.5"/>
-        <stats>
-            <stat type="ARMOR" value="140"/>
-            <stat type="STAMINA" value="14"/>
-            <stat type="SWORD_SKILL" value="6"/>
-        </stats>
-        <source>
+		<info name="The Hungering Cold" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_62.png"/>
+		<dmg_range min="76" max="143" speed="1.5"/>
+		<stats>
+			<stat type="ARMOR" value="140"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SWORD_SKILL" value="6"/>
+		</stats>
+		<source>
 			Drops from Kel'Thuzad in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23054" phase="5">
-        <info name="Gressil, Dawn of Ruin" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_61.png"/>
-        <dmg_range min="138" max="257" speed="2.7"/>
-        <stats>
-            <stat type="STAMINA" value="14"/>
-            <stat type="ATTACK_POWER" value="40"/>
-        </stats>
-        <source>
+		<info name="Gressil, Dawn of Ruin" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_sword_61.png"/>
+		<dmg_range min="138" max="257" speed="2.7"/>
+		<stats>
+			<stat type="STAMINA" value="14"/>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
 			Drops from Kel'Thuzad in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 </weapons>

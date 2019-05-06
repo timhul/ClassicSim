@@ -1,155 +1,155 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
 	<melee_weapon id="12783" phase="0">
-        <info name="Heartseeker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_17.png"/>
-        <dmg_range min="49" max="92" speed="1.7"/>
-        <stats>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="STRENGTH" value="4"/>
-        </stats>
-        <source>
+		<info name="Heartseeker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_17.png"/>
+		<dmg_range min="49" max="92" speed="1.7"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STRENGTH" value="4"/>
+		</stats>
+		<source>
 			Crafted by Blacksmiths with 300 Weaponsmithing. Plans relatively low drop-rate from boss in Stratholme living.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="5267" phase="0">
-        <info name="Scarlet Kris" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_03.png"/>
-        <dmg_range min="43" max="81" speed="1.5"/>
-        <stats>
-        <stat type="AGILITY" value="10"/>
-        <stat type="STAMINA" value="10"/>
-        </stats>
-        <source>
+		<info name="Scarlet Kris" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_03.png"/>
+		<dmg_range min="43" max="81" speed="1.5"/>
+		<stats>
+			<stat type="AGILITY" value="10"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
 			World drop.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="14555" phase="0">
-        <info name="Alcor's Sunrazor" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_34.png"/>
-        <dmg_range min="41" max="77" speed="1.3"/>
-        <proc>
+		<info name="Alcor's Sunrazor" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_34.png"/>
+		<dmg_range min="41" max="77" speed="1.3"/>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="FIRE_ATTACK" min="75" max="106" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+			<spell name="FIRE_ATTACK" min="75" max="106" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Blasts a target for 75 to 106 Fire damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			World drop. BoE in 1.9.0, BoP in patches before that.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="12590" phase="0">
-        <info name="Felstriker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_25.png"/>
-        <dmg_range min="54" max="101" speed="1.7"/>
-        <proc>
+		<info name="Felstriker" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_25.png"/>
+		<dmg_range min="54" max="101" speed="1.7"/>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="FELSTRIKER_PROC" duration="3" instant="yes" rate="0.04" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+			<spell name="FELSTRIKER_PROC" duration="3" instant="yes" rate="0.04" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: All attacks are guaranteed to land and will be critical strikes for the next 3 sec.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from Rend Blackhand in Upper Blackrock Spire (UBRS).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18816" phase="0">
-        <info name="Perdition's Blade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
-        <dmg_range min="73" max="137" speed="1.8"/>
-        <proc>
-				<!-- TODO: Find actual proc rate. -->
-            <spell name="FIRE_ATTACK" min="40" max="57" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Perdition's Blade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
+		<dmg_range min="73" max="137" speed="1.8"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="FIRE_ATTACK" min="40" max="57" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Blasts a target for 40 to 57 Fire damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from Ragnaros in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21404" phase="4">
-        <info name="Dagger of Veiled Shadows" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
-        <class_restriction class="ROGUE"/>
-        <dmg_range min="65" max="121" speed="1.8"/>
-        <stats>
-        <stat type="AGILITY" value="15"/>
-        <stat type="STRENGTH" value="7"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Dagger of Veiled Shadows" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
+		<class_restriction class="ROGUE"/>
+		<dmg_range min="65" max="121" speed="1.8"/>
+		<stats>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21244" phase="4">
-        <info name="Blessed Qiraji Pugio" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_35.png"/>
-        <dmg_range min="72" max="134" speed="1.7"/>
-        <stats>
-        <stat type="STAMINA" value="7"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        <stat type="ATTACK_POWER" value="18"/>
-        </stats>
-        <source>
+		<info name="Blessed Qiraji Pugio" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_35.png"/>
+		<dmg_range min="72" max="134" speed="1.7"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="18"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-        </source>
-        <flavour_text>
+		</source>
+		<flavour_text>
 			"The weapon is infused and reinforced with Elementium."
-        </flavour_text>
+		</flavour_text>
 	</melee_weapon>
 
 	<melee_weapon id="22804" phase="5">
-        <info name="Maexxna's Fang" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_01.png"/>
-        <dmg_range min="94" max="141" speed="1.8"/>
-        <stats>
-        <stat type="STAMINA" value="8"/>
-        <stat type="ATTACK_POWER" value="36"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Maexxna's Fang" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_01.png"/>
+		<dmg_range min="94" max="141" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="ATTACK_POWER" value="36"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Maexxna in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23044" phase="5">
-        <info name="Harbinger of Doom" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_03.png"/>
-        <dmg_range min="83" max="126" speed="1.6"/>
-        <stats>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        <stat type="STAMINA" value="8"/>
-        <stat type="AGILITY" value="8"/>
-        </stats>
-        <source>
+		<info name="Harbinger of Doom" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_03.png"/>
+		<dmg_range min="83" max="126" speed="1.6"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="AGILITY" value="8"/>
+		</stats>
+		<source>
 			Drops from trash mobs in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21126" phase="4">
-        <info name="Death's Sting" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_33.png"/>
-        <dmg_range min="95" max="144" speed="1.8"/>
-        <stats>
-        <stat type="ATTACK_POWER" value="38"/>
-        <stat type="DAGGER_SKILL" value="3"/>
-        <stat type="STAMINA" value="10"/>
-        </stats>
-        <source>
+		<info name="Death's Sting" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="84" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_33.png"/>
+		<dmg_range min="95" max="144" speed="1.8"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="38"/>
+			<stat type="DAGGER_SKILL" value="3"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
 			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22802" phase="5">
-        <info name="Kingsfall" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_37.png"/>
-        <dmg_range min="105" max="158" speed="1.8"/>
-        <stats>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        <stat type="AGILITY" value="16"/>
-        </stats>
-        <source>
+		<info name="Kingsfall" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_37.png"/>
+		<dmg_range min="105" max="158" speed="1.8"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="AGILITY" value="16"/>
+		</stats>
+		<source>
 			Drops from Kel'Thuzad in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 </weapons>

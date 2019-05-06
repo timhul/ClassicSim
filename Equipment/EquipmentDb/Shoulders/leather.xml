@@ -1,159 +1,159 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="12927" phase="0">
-        <info name="Truestrike Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
-        <stats>
-            <stat type="ARMOR" value="129"/>
-            <stat type="HIT_CHANCE" value="0.02"/>
-            <stat type="ATTACK_POWER" value="24"/>
-        </stats>
-        <source>
+		<info name="Truestrike Shoulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
+		<stats>
+			<stat type="ARMOR" value="129"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="24"/>
+		</stats>
+		<source>
 			Drops from Pyroguard Emberseer in Upper Blackrock Spire.
-        </source>
+		</source>
 	</item>
 
 	<item id="16708" phase="0">
-        <info name="Shadowcraft Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_07.png"/>
-        <stats>
-            <stat type="ARMOR" value="127"/>
-            <stat type="AGILITY" value="22"/>
-            <stat type="STAMINA" value="9"/>
-        </stats>
-        <source>
+		<info name="Shadowcraft Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_07.png"/>
+		<stats>
+			<stat type="ARMOR" value="127"/>
+			<stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
 			Drops from Cannon Master Willey in Stratholme Living.
-        </source>
+		</source>
 	</item>
 
 	<item id="16823" phase="0">
-        <info name="Nightslayer Shoulder Pads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="150"/>
-            <stat type="AGILITY" value="26"/>
-            <stat type="STAMINA" value="12"/>
-            <stat type="STRENGTH" value="3"/>
-            <stat type="SHADOW_RESISTANCE" value="7"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Nightslayer Shoulder Pads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="150"/>
+			<stat type="AGILITY" value="26"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="STRENGTH" value="3"/>
+			<stat type="SHADOW_RESISTANCE" value="7"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Sulfuron Harbinger in Molten Core.
-        </source>
+		</source>
 	</item>
 
 	<item id="16832" phase="2">
-        <info name="Bloodfang Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="169"/>
-            <stat type="AGILITY" value="25"/>
-            <stat type="STAMINA" value="17"/>
-            <stat type="STRENGTH" value="6"/>
-            <stat type="FIRE_RESISTANCE" value="10"/>
-            <stat type="DODGE_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Bloodfang Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_23.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="169"/>
+			<stat type="AGILITY" value="25"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Chromaggus in Blackwing Lair.
-        </source>
+		</source>
 	</item>
 
 	<item id="19389" phase="2">
-        <info name="Taut Dragonhide Shoulderpads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_08.png"/>
-        <stats>
-            <stat type="ARMOR" value="170"/>
-            <stat type="STAMINA" value="30"/>
-            <stat type="ATTACK_POWER" value="48"/>
-        </stats>
-        <source>
+		<info name="Taut Dragonhide Shoulderpads" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="170"/>
+			<stat type="STAMINA" value="30"/>
+			<stat type="ATTACK_POWER" value="48"/>
+		</stats>
+		<source>
 			Drops from Chromaggus in Blackwing Lair.
-        </source>
-        <flavour_text>
+		</source>
+		<flavour_text>
 			"The hides of several different dragon flights appear to be stitched together, comprising the top of the shoulders."
-        </flavour_text>
+		</flavour_text>
 	</item>
 
 	<item id="19835" phase="3">
-        <info name="Zandalar Madcap's Mantle" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="140"/>
-            <stat type="AGILITY" value="20"/>
-            <stat type="STAMINA" value="12"/>
-            <stat type="STRENGTH" value="12"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Zandalar Madcap's Mantle" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="61" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="140"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drop available from multiple bosses in Zul'Gurub (ZG).
-        </source>
+		</source>
 	</item>
 
 	<item id="20633" phase="3">
-        <info name="Unnatural Leather Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
-        <stats>
-            <stat type="ARMOR" value="161"/>
-            <stat type="STAMINA" value="19"/>
-            <stat type="SPIRIT" value="8"/>
-            <stat type="NATURE_RESISTANCE" value="25"/>
-            <stat type="ATTACK_POWER" value="18"/>
-        </stats>
-        <source>
+		<info name="Unnatural Leather Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
+		<stats>
+			<stat type="ARMOR" value="161"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="NATURE_RESISTANCE" value="25"/>
+			<stat type="ATTACK_POWER" value="18"/>
+		</stats>
+		<source>
 			Drops from Taerar (dragon world boss in Duskwood).
-        </source>
+		</source>
 	</item>
 
 	<item id="21474" phase="4">
-        <info name="Chitinous Shoulderguards" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_shoulder_29.png"/>
-        <stats>
-            <stat type="ARMOR" value="151"/>
-            <stat type="AGILITY" value="25"/>
-            <stat type="STRENGTH" value="11"/>
-            <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="Chitinous Shoulderguards" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_shoulder_29.png"/>
+		<stats>
+			<stat type="ARMOR" value="151"/>
+			<stat type="AGILITY" value="25"/>
+			<stat type="STRENGTH" value="11"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			Drops from Moam in Temple of Ahn'Qiraj (AQ20).
-        </source>
+		</source>
 	</item>
 
 	<item id="21665" phase="4">
-        <info name="Mantle of Wicked Revenge" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_30.png"/>
-        <stats>
-            <stat type="ARMOR" value="170"/>
-            <stat type="AGILITY" value="30"/>
-            <stat type="STRENGTH" value="16"/>
-            <stat type="STAMINA" value="14"/>
-        </stats>
-        <source>
+		<info name="Mantle of Wicked Revenge" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_shoulder_30.png"/>
+		<stats>
+			<stat type="ARMOR" value="170"/>
+			<stat type="AGILITY" value="30"/>
+			<stat type="STRENGTH" value="16"/>
+			<stat type="STAMINA" value="14"/>
+		</stats>
+		<source>
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="21361" phase="4">
-        <info name="Deathdealer's Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_03.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="172"/>
-            <stat type="AGILITY" value="27"/>
-            <stat type="STRENGTH" value="18"/>
-            <stat type="STAMINA" value="15"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Deathdealer's Spaulders" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_03.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="172"/>
+			<stat type="AGILITY" value="27"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Viscidus / Princess Huhuran in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="22479" phase="5">
-        <info name="Bonescythe Pauldrons" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="186"/>
-            <stat type="AGILITY" value="22"/>
-            <stat type="STAMINA" value="15"/>
-            <stat type="STRENGTH" value="22"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Bonescythe Pauldrons" type="LEATHER" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_29.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="186"/>
+			<stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="STRENGTH" value="22"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Naxxramas.
-        </source>
+		</source>
 	</item>
 </items>

@@ -1,187 +1,187 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="13404" phase="0">
-        <info name="Mask of the Unforgiven" type="LEATHER" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_misc_bandana_01.png"/>
-        <stats>
-            <stat type="ARMOR" value="132"/>
-            <stat type="STAMINA" value="12"/>
-            <stat type="HIT_CHANCE" value="0.02"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Mask of the Unforgiven" type="LEATHER" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_misc_bandana_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="132"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from The Unforgiven in Stratholme Undead.
-        </source>
+		</source>
 	</item>
 
 	<item id="16707" phase="0">
-        <info name="Shadowcraft Cap" type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
-        <stats>
-            <stat type="ARMOR" value="141"/>
-            <stat type="AGILITY" value="20"/>
-            <stat type="STAMINA" value="18"/>
-            <stat type="STRENGTH" value="13"/>
-            <stat type="SPIRIT" value="5"/>
-        </stats>
-        <source>
+		<info name="Shadowcraft Cap" type="LEATHER" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
+		<stats>
+			<stat type="ARMOR" value="141"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="SPIRIT" value="5"/>
+		</stats>
+		<source>
 			Drops from Darkmaster Gandling in Scholomance.
-        </source>
+		</source>
 	</item>
 
 	<item id="12587" phase="0">
-        <info name="Eye of Rend" type="LEATHER" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_46.png"/>
-        <stats>
-            <stat type="ARMOR" value="143"/>
-            <stat type="STAMINA" value="7"/>
-            <stat type="STRENGTH" value="13"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-        </stats>
-        <source>
+		<info name="Eye of Rend" type="LEATHER" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_46.png"/>
+		<stats>
+			<stat type="ARMOR" value="143"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
 			Drops from Warchief Rend Blackhand in Upper Blackrock Spire.
-        </source>
+		</source>
 	</item>
 
 	<item id="16821" phase="0">
-        <info name="Nightslayer Cover" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="163"/>
-            <stat type="AGILITY" value="20"/>
-            <stat type="STAMINA" value="19"/>
-            <stat type="STRENGTH" value="6"/>
-            <stat type="FIRE_RESISTANCE" value="10"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-        </stats>
-        <source>
+		<info name="Nightslayer Cover" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="163"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
 			Drops from Garr in Molten Core.
-        </source>
+		</source>
 	</item>
 
 	<item id="16908" phase="0">
-        <info name="Bloodfang Hood" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="183"/>
-            <stat type="AGILITY" value="27"/>
-            <stat type="STAMINA" value="25"/>
-            <stat type="STRENGTH" value="19"/>
-            <stat type="FROST_RESISTANCE" value="10"/>
-            <stat type="SHADOW_RESISTANCE" value="10"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Bloodfang Hood" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_41.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="183"/>
+			<stat type="AGILITY" value="27"/>
+			<stat type="STAMINA" value="25"/>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Onyxia.
-        </source>
+		</source>
 	</item>
 
 	<item id="19945" phase="3">
-        <info name="Foror's Eyepatch" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
-        <stats>
-            <stat type="ARMOR" value="160"/>
-            <stat type="STAMINA" value="19"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-            <stat type="ATTACK_POWER" value="44"/>
-        </stats>
-        <source>
+		<info name="Foror's Eyepatch" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_helmet_46.png"/>
+		<stats>
+			<stat type="ARMOR" value="160"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="44"/>
+		</stats>
+		<source>
 			Drops from Gahz'ranka in Zul'Gurub.
-        </source>
+		</source>
 	</item>
 
 	<item id="22718" phase="3">
-        <info name="Blooddrenched Mask" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
-        <stats>
-            <stat type="ARMOR" value="153"/>
-            <stat type="AGILITY" value="22"/>
-            <stat type="STAMINA" value="17"/>
-            <stat type="HIT_CHANCE" value="0.02"/>
-        </stats>
-        <source>
+		<info name="Blooddrenched Mask" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_helmet_41.png"/>
+		<stats>
+			<stat type="ARMOR" value="153"/>
+			<stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
 			Drops from High Priest(ess) bosses in Zul'Gurub.
-        </source>
+		</source>
 	</item>
 
 	<item id="20623" phase="3">
-        <info name="Circlet of Restless Dreams" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_17.png"/>
-        <stats>
-            <stat type="ARMOR" value="175"/>
-            <stat type="AGILITY" value="21"/>
-            <stat type="STAMINA" value="38"/>
-            <stat type="DAGGER_SKILL" value="6"/>
-        </stats>
-        <source>
+		<info name="Circlet of Restless Dreams" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_helmet_17.png"/>
+		<stats>
+			<stat type="ARMOR" value="175"/>
+			<stat type="AGILITY" value="21"/>
+			<stat type="STAMINA" value="38"/>
+			<stat type="DAGGER_SKILL" value="6"/>
+		</stats>
+		<source>
 			Drops from Emeriss (world boss).
-        </source>
+		</source>
 	</item>
 
 	<item id="21455" phase="4">
-        <info name="Southwind Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
-        <stats>
-            <stat type="ARMOR" value="164"/>
-            <stat type="STRENGTH" value="21"/>
-            <stat type="AGILITY" value="24"/>
-            <stat type="STAMINA" value="14"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Southwind Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="164"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="AGILITY" value="24"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Moam in Ruins of Ahn'Qiraj (AQ20).
-        </source>
+		</source>
 	</item>
 
 	<item id="21693" phase="4">
-        <info name="Guise of the Devourer" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
-        <stats>
-            <stat type="ARMOR" value="250"/>
-            <stat type="STAMINA" value="36"/>
-            <stat type="AGILITY" value="19"/>
-            <stat type="STRENGTH" value="17"/>
-            <stat type="DODGE_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Guise of the Devourer" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="250"/>
+			<stat type="STAMINA" value="36"/>
+			<stat type="AGILITY" value="19"/>
+			<stat type="STRENGTH" value="17"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from bug trio in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="21360" phase="4">
-        <info name="Deathdealer's Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="192"/>
-            <stat type="AGILITY" value="29"/>
-            <stat type="STRENGTH" value="25"/>
-            <stat type="STAMINA" value="27"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Deathdealer's Helm" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="192"/>
+			<stat type="AGILITY" value="29"/>
+			<stat type="STRENGTH" value="25"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drop from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="23020" phase="5">
-        <info name="Polar Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
-        <stats>
-            <stat type="ARMOR" value="196"/>
-            <stat type="STAMINA" value="24"/>
-            <stat type="AGILITY" value="18"/>
-            <stat type="FROST_RESISTANCE" value="44"/>
-        </stats>
-        <source>
+		<info name="Polar Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="196"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="FROST_RESISTANCE" value="44"/>
+		</stats>
+		<source>
 			Drops from Gothik the Harvester in Naxxramas.
-        </source>
+		</source>
 	</item>
 
 	<item id="22478" phase="5">
-        <info name="Bonescythe Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
-        <class_restriction class="ROGUE"/>
-        <stats>
-            <stat type="ARMOR" value="205"/>
-            <stat type="AGILITY" value="30"/>
-            <stat type="STAMINA" value="29"/>
-            <stat type="STRENGTH" value="18"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-        </stats>
-        <source>
+		<info name="Bonescythe Helmet" type="LEATHER" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_58.png"/>
+		<class_restriction class="ROGUE"/>
+		<stats>
+			<stat type="ARMOR" value="205"/>
+			<stat type="AGILITY" value="30"/>
+			<stat type="STAMINA" value="29"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Naxxramas.
-        </source>
+		</source>
 	</item>
 </items>

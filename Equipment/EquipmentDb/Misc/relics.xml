@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="22401" phase="1">
-        <info name="Libram of Hope" type="RANGED" slot="RELIC" unique="yes" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_relics_libramofhope.png"/>
-        <stats/>
-        <source>
+		<info name="Libram of Hope" type="RANGED" slot="RELIC" unique="yes" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_relics_libramofhope.png"/>
+		<stats/>
+		<source>
 		Drops from Isalien in Dire Maul.
-        </source>
+		</source>
 		<modifies name="Seal of Command"/>
 		<modifies name="Seal of the Crusader"/>
 		<modifies name="Seal of Righteousness"/>
@@ -15,11 +15,11 @@
 	</item>
 
 	<item id="23203" phase="5">
-        <info name="Libram of Fervor" type="RANGED" slot="RELIC" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_relics_libramoftruth.png"/>
-        <stats/>
-        <source>
+		<info name="Libram of Fervor" type="RANGED" slot="RELIC" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_relics_libramoftruth.png"/>
+		<stats/>
+		<source>
 		World drop.
-        </source>
+		</source>
 		<modifies name="Seal of the Crusader"/>
 		<modifies name="Judgement of the Crusader"/>
 		<special_equip_effect>

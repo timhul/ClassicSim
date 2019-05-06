@@ -1,424 +1,424 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
 	<melee_weapon id="12651" phase="0">
-        <info name="Blackcrow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
-        <dmg_range min="77" max="117" speed="3.2"/>
-        // TODO: Should have a shadow damage proc like Thunderfury has nature
-        <stats>
-            <stat type="AGILITY" value="3"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Blackcrow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
+		<dmg_range min="77" max="117" speed="3.2"/>
+		<!-- TODO: Should have a shadow damage proc like Thunderfury has nature -->
+		<stats>
+			<stat type="AGILITY" value="3"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
         Drops from Shadow Hunter Vosh'gajin in Lower Blackrock Spire (LBRS).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="13040" phase="0">
-        <info name="Heartseeking Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_weapon_crossbow_04.png"/>
-        <dmg_range min="71" max="108" speed="3.1"/>
-        <stats>
-            <stat type="AGILITY" value="9"/>
-            <stat type="STAMINA" value="4"/>
-        </stats>
-        <proc>
-            <spell name="SHADOW_ATTACK" min="13" max="20" instant="yes" rate="0.06" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Heartseeking Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="51" item_lvl="56" quality="RARE" boe="yes" icon="Inv_weapon_crossbow_04.png"/>
+		<dmg_range min="71" max="108" speed="3.1"/>
+		<stats>
+			<stat type="AGILITY" value="9"/>
+			<stat type="STAMINA" value="4"/>
+		</stats>
+		<proc>
+			<spell name="SHADOW_ATTACK" min="13" max="20" instant="yes" rate="0.06" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
         Equip: Chance to strike your ranged target with a Shadowbolt for 13 to 20 Shadow damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
         World drop.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="2099" phase="0">
-        <info name="Dwarven Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="53" item_lvl="58" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
-        <dmg_range min="66" max="124" speed="2.9"/>
-        <proc>
-            <spell name="FIRE_ATTACK" min="33" max="50" instant="yes" rate="0.06" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+		<info name="Dwarven Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="53" item_lvl="58" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
+		<dmg_range min="66" max="124" speed="2.9"/>
+		<proc>
+			<spell name="FIRE_ATTACK" min="33" max="50" instant="yes" rate="0.06" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
         Equip: Chance to strike your ranged target with a Flaming Cannonbal for 33 to 50 Fire damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
         World drop.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="17072" phase="0">
-        <info name="Blastershot Launcher" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
-        <dmg_range min="73" max="136" speed="2.6"/>
-        <stats>
-            <stat type="STAMINA" value="6"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Blastershot Launcher" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
+		<dmg_range min="73" max="136" speed="2.6"/>
+		<stats>
+			<stat type="STAMINA" value="6"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
         Drops from Golemagg the Incinerator in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="16007" phase="0">
-        <info name="Flawless Arcanite Rifle" type="GUN" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_weapon_rifle_03.png"/>
-        <dmg_range min="65" max="122" speed="3.0"/>
-        <stats>
-            <stat type="GUN_SKILL" value="4"/>
-            <stat type="RANGED_ATTACK_POWER" value="10"/>
-        </stats>
-        <source>
+		<info name="Flawless Arcanite Rifle" type="GUN" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_weapon_rifle_03.png"/>
+		<dmg_range min="65" max="122" speed="3.0"/>
+		<stats>
+			<stat type="GUN_SKILL" value="4"/>
+			<stat type="RANGED_ATTACK_POWER" value="10"/>
+		</stats>
+		<source>
         Crafted by Engineers. Schematic drops from specific non-elite trolls in Eastern Plaguelands.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="17069" phase="0">
-        <info name="Striker's Mark" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_weapon_bow_08.png"/>
-        <dmg_range min="69" max="129" speed="2.5"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="22"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Striker's Mark" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_weapon_bow_08.png"/>
+		<dmg_range min="69" max="129" speed="2.5"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="22"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
         Drops from Magmadar in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18388" phase="1">
-        <info name="Stoneshatter" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_crossbow_08.png"/>
-        <dmg_range min="73" max="111" speed="2.9"/>
-        <stats>
-            <stat type="CROSSBOW_SKILL" value="4"/>
-        </stats>
-        <source>
+		<info name="Stoneshatter" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_crossbow_08.png"/>
+		<dmg_range min="73" max="111" speed="2.9"/>
+		<stats>
+			<stat type="CROSSBOW_SKILL" value="4"/>
+		</stats>
+		<source>
         Drops from Prince Thortheldrin in Dire Maul.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18282" phase="0">
-        <info name="Core Marksman Rifle" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_05.png"/>
-        <dmg_range min="64" max="120" speed="2.5"/>
-        <stats>
-            <stat type="RANGED_ATTACK_POWER" value="22"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Core Marksman Rifle" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_05.png"/>
+		<dmg_range min="64" max="120" speed="2.5"/>
+		<stats>
+			<stat type="RANGED_ATTACK_POWER" value="22"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
         Crafted by Engineers. Schematic drops in Molten Core. Requires Molten Core materials.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18738" phase="0">
-        <info name="Carapace Spine Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
-        <dmg_range min="82" max="124" speed="3.3"/>
-        <stats>
-            <stat type="STAMINA" value="9"/>
-            <stat type="AGILITY" value="4"/>
-        </stats>
-        <source>
+		<info name="Carapace Spine Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
+		<dmg_range min="82" max="124" speed="3.3"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="AGILITY" value="4"/>
+		</stats>
+		<source>
         Drops from Nerub'enkan in Stratholme Undead.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18713" phase="0">
-        <info name="Rhok'delar, Longbow of the Ancient Keepers" type="BOW" slot="RANGED" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_01.png"/>
-        <class_restriction class="HUNTER"/>
-        <dmg_range min="89" max="166" speed="2.9"/>
-        <stats>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="RANGED_ATTACK_POWER" value="17"/>
-        </stats>
-        <source>
+		<info name="Rhok'delar, Longbow of the Ancient Keepers" type="BOW" slot="RANGED" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_01.png"/>
+		<class_restriction class="HUNTER"/>
+		<dmg_range min="89" max="166" speed="2.9"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="RANGED_ATTACK_POWER" value="17"/>
+		</stats>
+		<source>
         Quest reward. Quest chain starts with drop from Majordomo Executus in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19107" phase="2">
-        <info name="Bloodseeker" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_crossbow_07.png"/>
-        <dmg_range min="85" max="128" speed="3.3"/>
-        <stats>
-            <stat type="AGILITY" value="7"/>
-            <stat type="STRENGTH" value="8"/>
-        </stats>
-        <source>
+		<info name="Bloodseeker" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_crossbow_07.png"/>
+		<dmg_range min="85" max="128" speed="3.3"/>
+		<stats>
+			<stat type="AGILITY" value="7"/>
+			<stat type="STRENGTH" value="8"/>
+		</stats>
+		<source>
         Quest reward. Requires winning Alterac Valley.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18836" phase="1">
-        <info name="Grand Marshal's Repeater" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
-        <dmg_range min="107" max="162" speed="2.9"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="RANGED_ATTACK_POWER" value="36"/>
-        </stats>
-        <source>
+		<info name="Grand Marshal's Repeater" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_crossbow_04.png"/>
+		<dmg_range min="107" max="162" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="RANGED_ATTACK_POWER" value="36"/>
+		</stats>
+		<source>
         May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18833" phase="1">
-        <info name="Grand Marshal's Bullseye" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_bow_12.png"/>
-        <dmg_range min="66" max="100" speed="1.8"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="RANGED_ATTACK_POWER" value="36"/>
-        </stats>
-        <source>
+		<info name="Grand Marshal's Bullseye" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_bow_12.png"/>
+		<dmg_range min="66" max="100" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="RANGED_ATTACK_POWER" value="36"/>
+		</stats>
+		<source>
         May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18855" phase="1">
-        <info name="Grand Marshal's Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_rifle_08.png"/>
-        <dmg_range min="107" max="162" speed="2.9"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="RANGED_ATTACK_POWER" value="36"/>
-        </stats>
-        <source>
+		<info name="Grand Marshal's Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_rifle_08.png"/>
+		<dmg_range min="107" max="162" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="RANGED_ATTACK_POWER" value="36"/>
+		</stats>
+		<source>
         May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18837" phase="1">
-        <info name="High Warlord's Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_crossbow_10.png"/>
-        <dmg_range min="107" max="162" speed="2.9"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="RANGED_ATTACK_POWER" value="36"/>
-        </stats>
-        <source>
+		<info name="High Warlord's Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_crossbow_10.png"/>
+		<dmg_range min="107" max="162" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="RANGED_ATTACK_POWER" value="36"/>
+		</stats>
+		<source>
         May be purchased upon reaching High Warlord (rank 14). Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18835" phase="1">
-        <info name="High Warlord's Recurve" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_bow_08.png"/>
-        <dmg_range min="66" max="100" speed="1.8"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="RANGED_ATTACK_POWER" value="36"/>
-        </stats>
-        <source>
+		<info name="High Warlord's Recurve" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_bow_08.png"/>
+		<dmg_range min="66" max="100" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="RANGED_ATTACK_POWER" value="36"/>
+		</stats>
+		<source>
         May be purchased upon reaching High Warlord (rank 14). Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18860" phase="1">
-        <info name="High Warlord's Street Sweeper" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_rifle_06.png"/>
-        <dmg_range min="107" max="162" speed="2.9"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="RANGED_ATTACK_POWER" value="36"/>
-        </stats>
-        <source>
+		<info name="High Warlord's Street Sweeper" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_weapon_rifle_06.png"/>
+		<dmg_range min="107" max="162" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="RANGED_ATTACK_POWER" value="36"/>
+		</stats>
+		<source>
         May be purchased upon reaching High Warlord (rank 14). Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19361" phase="2">
-        <info name="Ashjre'thul, Crossbow of Smiting" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_09.png"/>
-        <dmg_range min="124" max="186" speed="3.4"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="RANGED_ATTACK_POWER" value="36"/>
-        </stats>
-        <source>
+		<info name="Ashjre'thul, Crossbow of Smiting" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_09.png"/>
+		<dmg_range min="124" max="186" speed="3.4"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="RANGED_ATTACK_POWER" value="36"/>
+		</stats>
+		<source>
         Drops from Chromaggus in Blackwing Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19350" phase="2">
-        <info name="Heartstriker" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_09.png"/>
-        <dmg_range min="80" max="149" speed="2.6"/>
-        <stats>
-            <stat type="STAMINA" value="9"/>
-            <stat type="ATTACK_POWER" value="24"/>
-        </stats>
-        <source>
+		<info name="Heartstriker" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_bow_09.png"/>
+		<dmg_range min="80" max="149" speed="2.6"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="ATTACK_POWER" value="24"/>
+		</stats>
+		<source>
         Drops from Broodlord Lashlayer in Blackwing Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19368" phase="2">
-        <info name="Dragonbreath Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_rifle_02.png"/>
-        <dmg_range min="86" max="160" speed="2.8"/>
-        <stats>
-            <stat type="AGILITY" value="14"/>
-            <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="Dragonbreath Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_rifle_02.png"/>
+		<dmg_range min="86" max="160" speed="2.8"/>
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
         Drops from Ebonroc in Blackwing Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19853" phase="3">
-        <info name="Gurubashi Dwarf Destroyer" type="GUN" slot="RANGED" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_rifle_10.png"/>
-        <dmg_range min="76" max="142" speed="2.8"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="30"/>
-        </stats>
-        <source>
+		<info name="Gurubashi Dwarf Destroyer" type="GUN" slot="RANGED" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_rifle_10.png"/>
+		<dmg_range min="76" max="142" speed="2.8"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
         Drops from Hakkar in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="20038" phase="3">
-        <info name="Mandokir's Sting" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_waepon_bow_zulgrub_d_01.png"/>
-        <dmg_range min="68" max="127" speed="2.6"/>
-        <stats>
-            <stat type="AGILITY" value="11"/>
-            <stat type="STAMINA" value="8"/>
-        </stats>
-        <source>
+		<info name="Mandokir's Sting" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_waepon_bow_zulgrub_d_01.png"/>
+		<dmg_range min="68" max="127" speed="2.6"/>
+		<stats>
+			<stat type="AGILITY" value="11"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+		<source>
         Drops from Bloodlord Mandokir in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19993" phase="3">
-        <info name="Hoodoo Hunting Bow" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_waepon_bow_zulgrub_d_02.png"/>
-        <dmg_range min="68" max="128" speed="2.8"/>
-        <stats>
-            <stat type="AGILITY" value="10"/>
-            <stat type="STAMINA" value="4"/>
-        </stats>
-        <source>
+		<info name="Hoodoo Hunting Bow" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_waepon_bow_zulgrub_d_02.png"/>
+		<dmg_range min="68" max="128" speed="2.8"/>
+		<stats>
+			<stat type="AGILITY" value="10"/>
+			<stat type="STAMINA" value="4"/>
+		</stats>
+		<source>
         Drops from Wushoolay (Edge of Madness) in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="20722" phase="4">
-        <info name="Crystal Slugthrower" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_weapon_rifle_03.png"/>
-        <dmg_range min="65" max="122" speed="2.8"/>
-        <stats>
-            <stat type="STAMINA" value="4"/>
-            <stat type="ATTACK_POWER" value="20"/>
-        </stats>
-        <source>
+		<info name="Crystal Slugthrower" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_weapon_rifle_03.png"/>
+		<dmg_range min="65" max="122" speed="2.8"/>
+		<stats>
+			<stat type="STAMINA" value="4"/>
+			<stat type="ATTACK_POWER" value="20"/>
+		</stats>
+		<source>
         Drops from Sack of Spoils reward from Silithus group quests.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="20599" phase="4">
-        <info name="Polished Ironwood Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_11.png"/>
-        <dmg_range min="101" max="153" speed="3.1"/>
-        <stats>
-            <stat type="STAMINA" value="5"/>
-            <stat type="NATURE_RESISTANCE" value="7"/>
-            <stat type="ATTACK_POWER" value="24"/>
-        </stats>
-        <source>
+		<info name="Polished Ironwood Crossbow" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_11.png"/>
+		<dmg_range min="101" max="153" speed="3.1"/>
+		<stats>
+			<stat type="STAMINA" value="5"/>
+			<stat type="NATURE_RESISTANCE" value="7"/>
+			<stat type="ATTACK_POWER" value="24"/>
+		</stats>
+		<source>
         Drops from Emeriss (world boss).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21800" phase="4">
-        <info name="Silithid Husked Launcher" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_weapon_rifle_10.png"/>
-        <dmg_range min="68" max="128" speed="2.8"/>
-        <stats>
-            <stat type="STAMINA" value="10"/>
-            <stat type="AGILITY" value="4"/>
-        </stats>
-        <source>
+		<info name="Silithid Husked Launcher" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_weapon_rifle_10.png"/>
+		<dmg_range min="68" max="128" speed="2.8"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="AGILITY" value="4"/>
+		</stats>
+		<source>
         Drops from trash mobs in Ruins of Ahn'Qiraj (AQ20).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21478" phase="4">
-        <info name="Bow of Taut Sinew" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_bow_13.png"/>
-        <dmg_range min="59" max="111" speed="2.2"/>
-        <stats>
-            <stat type="NATURE_RESISTANCE" value="8"/>
-            <stat type="ATTACK_POWER" value="22"/>
-        </stats>
-        <source>
+		<info name="Bow of Taut Sinew" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_weapon_bow_13.png"/>
+		<dmg_range min="59" max="111" speed="2.2"/>
+		<stats>
+			<stat type="NATURE_RESISTANCE" value="8"/>
+			<stat type="ATTACK_POWER" value="22"/>
+		</stats>
+		<source>
         Drops from Ayamiss the Hunter in Ruins of Ahn'Qiraj (AQ20).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21459" phase="4">
-        <info name="Crossbow of Imminent Doom" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_06.png"/>
-        <dmg_range min="103" max="155" speed="3.1"/>
-        <stats>
-            <stat type="AGILITY" value="7"/>
-            <stat type="STAMINA" value="5"/>
-            <stat type="STRENGTH" value="5"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Crossbow of Imminent Doom" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_06.png"/>
+		<dmg_range min="103" max="155" speed="3.1"/>
+		<stats>
+			<stat type="AGILITY" value="7"/>
+			<stat type="STAMINA" value="5"/>
+			<stat type="STRENGTH" value="5"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
         Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21616" phase="4">
-        <info name="Huhuran's Stinger" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_weapon_bow_14.png"/>
-        <dmg_range min="87" max="163" speed="2.7"/>
-        <stats>
-            <stat type="AGILITY" value="18"/>
-        </stats>
-        <source>
+		<info name="Huhuran's Stinger" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_weapon_bow_14.png"/>
+		<dmg_range min="87" max="163" speed="2.7"/>
+		<stats>
+			<stat type="AGILITY" value="18"/>
+		</stats>
+		<source>
         Drops from Princess Huhuran in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23557" phase="4">
-        <info name="Larvae of the Great Worm" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_weapon_rifle_10.png"/>
-        <dmg_range min="103" max="192" speed="3.0"/>
-        <stats>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="18"/>
-        </stats>
-        <source>
+		<info name="Larvae of the Great Worm" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_weapon_rifle_10.png"/>
+		<dmg_range min="103" max="192" speed="3.0"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="18"/>
+		</stats>
+		<source>
         Drops from Ouro in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21272" phase="4">
-        <info name="Blessed Qiraji Musket" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_rifle_11.png"/>
-        <dmg_range min="86" max="160" speed="2.6"/>
-        <stats>
-            <stat type="STAMINA" value="10"/>
-            <stat type="RANGED_ATTACK_POWER" value="31"/>
-        </stats>
-        <source>
+		<info name="Blessed Qiraji Musket" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_weapon_rifle_11.png"/>
+		<dmg_range min="86" max="160" speed="2.6"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="RANGED_ATTACK_POWER" value="31"/>
+		</stats>
+		<source>
         Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-        </source>
-        <flavour_text>
+		</source>
+		<flavour_text>
         The weapon is infused and reinforced with Elementium.
-        </flavour_text>
+		</flavour_text>
 	</melee_weapon>
 
 	<melee_weapon id="22810" phase="5">
-        <info name="Toxin Injector" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_weapon_rifle_11.png"/>
-        <dmg_range min="68" max="128" speed="2.0"/>
-        <stats>
-            <stat type="STAMINA" value="10"/>
-            <stat type="ATTACK_POWER" value="28"/>
-        </stats>
-        <source>
+		<info name="Toxin Injector" type="GUN" slot="RANGED" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_weapon_rifle_11.png"/>
+		<dmg_range min="68" max="128" speed="2.0"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="ATTACK_POWER" value="28"/>
+		</stats>
+		<source>
         Drops from Grobbulus in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22811" phase="5">
-        <info name="Soulstring" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_weapon_bow_13.png"/>
-        <dmg_range min="123" max="229" speed="2.9"/>
-        <stats>
-            <stat type="STAMINA" value="6"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="16"/>
-        </stats>
-        <source>
+		<info name="Soulstring" type="BOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_weapon_bow_13.png"/>
+		<dmg_range min="123" max="229" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="6"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="16"/>
+		</stats>
+		<source>
         Drops from Four Horsemen in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22812" phase="5">
-        <info name="Nerubian Slavemaker" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_12.png"/>
-        <dmg_range min="128" max="238" speed="3.2"/>
-        <stats>
-            <stat type="ATTACK_POWER" value="24"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Nerubian Slavemaker" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_weapon_crossbow_12.png"/>
+		<dmg_range min="128" max="238" speed="3.2"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="24"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
         Drops from Kel'Thuzad in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 </weapons>

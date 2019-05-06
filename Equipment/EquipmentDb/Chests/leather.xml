@@ -3,10 +3,10 @@
 	<item id="13944" phase="0">
 		<info name="Tombstone Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_chain_17.png"/>
 		<stats>
-        <stat type="ARMOR" value="174"/>
-        <stat type="STAMINA" value="10"/>
-        <stat type="STRENGTH" value="10"/>
-        <stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ARMOR" value="174"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
 		</stats>
 		<source>
 		Drops from Darkmaster Gandling in Scholomance.
@@ -16,10 +16,10 @@
 	<item id="14637" phase="0">
 		<info name="Cadaverous Armor" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_03.png"/>
 		<stats>
-        <stat type="ARMOR" value="172"/>
-        <stat type="STRENGTH" value="8"/>
-        <stat type="AGILITY" value="8"/>
-        <stat type="ATTACK_POWER" value="60"/>
+			<stat type="ARMOR" value="172"/>
+			<stat type="STRENGTH" value="8"/>
+			<stat type="AGILITY" value="8"/>
+			<stat type="ATTACK_POWER" value="60"/>
 		</stats>
 		<source>
 		Drops by several bosses in Scholomance.
@@ -29,12 +29,12 @@
 	<item id="12603" phase="0">
 		<info name="Nightbrace Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_plate06.png"/>
 		<stats>
-        <stat type="ARMOR" value="172"/>
-        <stat type="AGILITY" value="5"/>
-        <stat type="STAMINA" value="10"/>
-        <stat type="FIRE_RESISTANCE" value="10"/>
-        <stat type="SHADOW_RESISTANCE" value="10"/>
-        <stat type="ATTACK_POWER" value="50"/>
+			<stat type="ARMOR" value="172"/>
+			<stat type="AGILITY" value="5"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="ATTACK_POWER" value="50"/>
 		</stats>
 		<source>
 		Drops from Solakar Flamewreath in Upper Blackrock Spire (UBRS).
@@ -44,10 +44,10 @@
 	<item id="16721" phase="0">
 		<info name="Shadowcraft Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_leather_07.png"/>
 		<stats>
-        <stat type="ARMOR" value="176"/>
-        <stat type="AGILITY" value="26"/>
-        <stat type="STAMINA" value="13"/>
-        <stat type="SPIRIT" value="12"/>
+			<stat type="ARMOR" value="176"/>
+			<stat type="AGILITY" value="26"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SPIRIT" value="12"/>
 		</stats>
 		<source>
 		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
@@ -57,11 +57,11 @@
 	<item id="12757" phase="0">
 		<info name="Breastplate of Bloodthirst" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_chain_13.png"/>
 		<stats>
-        <stat type="ARMOR" value="190"/>
-        <stat type="STAMINA" value="20"/>
-        <stat type="STRENGTH" value="13"/>
-        <stat type="CRIT_CHANCE" value="0.02"/>
-        <stat type="DODGE_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="190"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Quest reward. Requires expensive and time-consuming materials.
@@ -72,12 +72,12 @@
 		<info name="Nightslayer Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
-        <stat type="ARMOR" value="200"/>
-        <stat type="AGILITY" value="29"/>
-        <stat type="STAMINA" value="20"/>
-        <stat type="STRENGTH" value="10"/>
-        <stat type="FIRE_RESISTANCE" value="10"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="200"/>
+			<stat type="AGILITY" value="29"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Drops from Golemagg the Incinerator in Molten Core.
@@ -88,14 +88,14 @@
 		<info name="Bloodfang Chestpiece" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_07.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
-        <stat type="ARMOR" value="225"/>
-        <stat type="AGILITY" value="26"/>
-        <stat type="STAMINA" value="17"/>
-        <stat type="STRENGTH" value="12"/>
-        <stat type="FIRE_RESISTANCE" value="10"/>
-        <stat type="NATURE_RESISTANCE" value="10"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="HIT_CHANCE" value="0.02"/>
+			<stat type="ARMOR" value="225"/>
+			<stat type="AGILITY" value="26"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="NATURE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.02"/>
 		</stats>
 		<source>
 		Drops from Nefarian in Blackwing Lair.
@@ -105,9 +105,9 @@
 	<item id="19405" phase="2">
 		<info name="Malfurion's Blessed Bulwark" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 		<stats>
-        <stat type="ARMOR" value="392"/>
-        <stat type="STRENGTH" value="40"/>
-        <stat type="STAMINA" value="22"/>
+			<stat type="ARMOR" value="392"/>
+			<stat type="STRENGTH" value="40"/>
+			<stat type="STAMINA" value="22"/>
 		</stats>
 		<source>
 		Drops from Ebonroc in Blackwing Lair.
@@ -117,10 +117,10 @@
 	<item id="19685" phase="3">
 		<info name="Primal Batskin Jerkin" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_leather_03.png"/>
 		<stats>
-        <stat type="ARMOR" value="181"/>
-        <stat type="AGILITY" value="32"/>
-        <stat type="STAMINA" value="6"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="181"/>
+			<stat type="AGILITY" value="32"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Crafted by Leatherworkers (300 skill). Pattern requires Revered with Zandalar Tribe.
@@ -131,10 +131,10 @@
 		<info name="Zandalar Madcap's Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_leather_10.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
-        <stat type="ARMOR" value="197"/>
-        <stat type="STAMINA" value="19"/>
-        <stat type="CRIT_CHANCE" value="0.02"/>
-        <stat type="ATTACK_POWER" value="44"/>
+			<stat type="ARMOR" value="197"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="44"/>
 		</stats>
 		<source>
 		Quest reward. Requires boss drop from Zul'Gurub and Revered with Zandalar Tribe.
@@ -144,10 +144,10 @@
 	<item id="21680" phase="4">
 		<info name="Vest of Swift Execution" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_chest_cloth_45.png"/>
 		<stats>
-        <stat type="ARMOR" value="229"/>
-        <stat type="AGILITY" value="41"/>
-        <stat type="STRENGTH" value="21"/>
-        <stat type="STAMINA" value="20"/>
+			<stat type="ARMOR" value="229"/>
+			<stat type="AGILITY" value="41"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="STAMINA" value="20"/>
 		</stats>
 		<source>
 		Drops from Lord Kri (bug trio) in Temple of Ahn'Qiraj (AQ40).
@@ -158,12 +158,12 @@
 		<info name="Deathdealer's Vest" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_leather_08.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
-        <stat type="ARMOR" value="253"/>
-        <stat type="AGILITY" value="37"/>
-        <stat type="STRENGTH" value="19"/>
-        <stat type="STAMINA" value="28"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="253"/>
+			<stat type="AGILITY" value="37"/>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Quest reward. Requires boss drops Temple of Ahn'Qiraj (AQ40).
@@ -173,10 +173,10 @@
 	<item id="23226" phase="5">
 		<info name="Ghoul Skin Tunic" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_chest_leather_02.png"/>
 		<stats>
-        <stat type="ARMOR" value="411"/>
-        <stat type="STRENGTH" value="40"/>
-        <stat type="STAMINA" value="22"/>
-        <stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ARMOR" value="411"/>
+			<stat type="STRENGTH" value="40"/>
+			<stat type="STAMINA" value="22"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
 		</stats>
 		<source>
 		Drops from trash mobs in Naxxramas.
@@ -187,11 +187,11 @@
 		<info name="Bonescythe Breastplate" type="LEATHER" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_plate02.png"/>
 		<class_restriction class="ROGUE"/>
 		<stats>
-        <stat type="ARMOR" value="262"/>
-        <stat type="STAMINA" value="29"/>
-        <stat type="CRIT_CHANCE" value="0.02"/>
-        <stat type="ATTACK_POWER" value="80"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="262"/>
+			<stat type="STAMINA" value="29"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="80"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Quest reward. Requires boss drops from Naxxramas.

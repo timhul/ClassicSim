@@ -29,8 +29,8 @@
 		<info name="Nightfall" type="TWOHAND_AXE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_axe_12.png"/>
 		<dmg_range min="187" max="282" speed="3.5"/>
 		<proc>
-            <spell name="NIGHTFALL" min="0" max="0" instant="yes" rate="0.20" internal_cd="0"/>
-        </proc>
+			<spell name="NIGHTFALL" min="0" max="0" instant="yes" rate="0.20" internal_cd="0"/>
+		</proc>
 		<special_equip_effect>
 		Chance on hit: Spell damage taken by target increased by 15% for 5 sec.
 		</special_equip_effect>
@@ -89,8 +89,8 @@
 		</stats>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
+			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
 		<special_equip_effect>
 		Chance on hit: Delivers a fatal wound for 240 damage.
 		</special_equip_effect>
@@ -121,8 +121,8 @@
 		</stats>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="SHADOW_ATTACK" min="141" max="164" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
+			<spell name="SHADOW_ATTACK" min="141" max="164" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
 		<special_equip_effect>
 		Chance on hit: Steals 141 to 164 life from target enemy.
 		</special_equip_effect>

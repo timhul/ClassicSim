@@ -1,152 +1,152 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="16863" phase="0">
-        <info name="Gauntlets of Might" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
-        <class_restriction class="WARRIOR"/>
-        <stats>
-            <stat type="ARMOR" value="468"/>
-            <stat type="STAMINA" value="17"/>
-            <stat type="STRENGTH" value="22"/>
-            <stat type="FIRE_RESISTANCE" value="7"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-            <stat type="DEFENSE" value="5"/>
-        </stats>
-        <source>
+		<info name="Gauntlets of Might" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_gauntlets_10.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="468"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="STRENGTH" value="22"/>
+			<stat type="FIRE_RESISTANCE" value="7"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="DEFENSE" value="5"/>
+		</stats>
+		<source>
 			Drops from Lucifron in Molten Core.
-        </source>
+		</source>
 	</item>
 
 	<item id="19143" phase="0">
-        <info name="Flameguard Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
-        <stats>
-            <stat type="ARMOR" value="488"/>
-            <stat type="STAMINA" value="13"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="54"/>
-        </stats>
-        <source>
+		<info name="Flameguard Gauntlets" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_gauntlets_26.png"/>
+		<stats>
+			<stat type="ARMOR" value="488"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="54"/>
+		</stats>
+		<source>
 			Drops from several bosses in Molten Core.
-        </source>
+		</source>
 	</item>
 
 	<item id="23286" phase="1">
-        <info name="Knight-Lieutenant's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_26.png"/>
-        <class_restriction class="WARRIOR"/>
-        <stats>
-            <stat type="ARMOR" value="429"/>
-            <stat type="STRENGTH" value="17"/>
-            <stat type="STAMINA" value="17"/>
-        </stats>
-        <modifies name="Hamstring"/>
-        <special_equip_effect>
+		<info name="Knight-Lieutenant's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_26.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="429"/>
+			<stat type="STRENGTH" value="17"/>
+			<stat type="STAMINA" value="17"/>
+		</stats>
+		<modifies name="Hamstring"/>
+		<special_equip_effect>
 			Equip: Hamstring Rage cost reduced by 3.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Knight-Lieutenant (rank 7).
-        </source>
+		</source>
 	</item>
 
 	<item id="22868" phase="1">
-        <info name="Blood Guard's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_26.png"/>
-        <class_restriction class="WARRIOR"/>
-        <stats>
-            <stat type="ARMOR" value="429"/>
-            <stat type="STRENGTH" value="17"/>
-            <stat type="STAMINA" value="17"/>
-        </stats>
-        <modifies name="Hamstring"/>
-        <special_equip_effect>
+		<info name="Blood Guard's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_26.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="429"/>
+			<stat type="STRENGTH" value="17"/>
+			<stat type="STAMINA" value="17"/>
+		</stats>
+		<modifies name="Hamstring"/>
+		<special_equip_effect>
 			Equip: Hamstring Rage cost reduced by 3.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Blood Guard (rank 7).
-        </source>
+		</source>
 	</item>
 
 	<item id="23274" phase="1">
-        <info name="Knight-Lieutenant's Lamellar Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
-        <class_restriction class="PALADIN"/>
-        <stats>
-            <stat type="ARMOR" value="429"/>
-            <stat type="STAMINA" value="13"/>
-            <stat type="STRENGTH" value="12"/>
+		<info name="Knight-Lieutenant's Lamellar Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+			<stat type="ARMOR" value="429"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="STRENGTH" value="12"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <modifies name="Judgement of the Crusader"/>
-        <special_equip_effect>
+		</stats>
+		<modifies name="Judgement of the Crusader"/>
+		<special_equip_effect>
 		Equip: Increases the Holy damage bonus of your Judgement of the Crusader by 20.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Knight-Lieutenant (rank 7).
-        </source>
+		</source>
 	</item>
 
 	<item id="16471" phase="1">
-        <info name="Marshal's Lamellar Gloves" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_gauntlets_29.png"/>
-        <class_restriction class="PALADIN"/>
-        <stats>
-            <stat type="ARMOR" value="502"/>
-            <stat type="STRENGTH" value="18"/>
-            <stat type="STAMINA" value="17"/>
+		<info name="Marshal's Lamellar Gloves" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_gauntlets_29.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+			<stat type="ARMOR" value="502"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="STAMINA" value="17"/>
 			<stat type="INTELLECT" value="16"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <modifies name="Judgement of the Crusader"/>
-        <special_equip_effect>
+		</stats>
+		<modifies name="Judgement of the Crusader"/>
+		<special_equip_effect>
 		Equip: Increases the Holy damage bonus of your Judgement of the Crusader by 20.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Marshal (rank 12).
-        </source>
+		</source>
 	</item>
 
 	<item id="16484" phase="1">
-        <info name="Marshal's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
-        <class_restriction class="WARRIOR"/>
-        <stats>
-            <stat type="ARMOR" value="532"/>
-            <stat type="STRENGTH" value="20"/>
-            <stat type="STAMINA" value="23"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <modifies name="Hamstring"/>
-        <special_equip_effect>
+		<info name="Marshal's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_29.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="532"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<modifies name="Hamstring"/>
+		<special_equip_effect>
 			Equip: Hamstring Rage cost reduced by 3.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Marshal (rank 12).
-        </source>
+		</source>
 	</item>
 
 	<item id="16548" phase="1">
-        <info name="General's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_10.png"/>
-        <class_restriction class="WARRIOR"/>
-        <stats>
-            <stat type="ARMOR" value="532"/>
-            <stat type="STRENGTH" value="20"/>
-            <stat type="STAMINA" value="23"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <modifies name="Hamstring"/>
-        <special_equip_effect>
+		<info name="General's Plate Gauntlets" type="PLATE" slot="GLOVES" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_gauntlets_10.png"/>
+		<class_restriction class="WARRIOR"/>
+		<stats>
+			<stat type="ARMOR" value="532"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<modifies name="Hamstring"/>
+		<special_equip_effect>
 			Equip: Hamstring Rage cost reduced by 3.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires General (rank 12).
-        </source>
+		</source>
 	</item>
 
 	<item id="21581" phase="4">
-        <info name="Gauntlets of Annihilation" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
-        <stats>
-            <stat type="ARMOR" value="615"/>
-            <stat type="STRENGTH" value="35"/>
-            <stat type="STAMINA" value="15"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Gauntlets of Annihilation" type="PLATE" slot="GLOVES" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_gauntlets_31.png"/>
+		<stats>
+			<stat type="ARMOR" value="615"/>
+			<stat type="STRENGTH" value="35"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 </items>

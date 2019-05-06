@@ -1,150 +1,150 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
 	<melee_weapon id="19910" phase="3">
-        <info name="Arlokk's Grasp" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
-        <dmg_range min="41" max="85" speed="1.5"/>
-        <proc>
+		<info name="Arlokk's Grasp" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
+		<dmg_range min="41" max="85" speed="1.5"/>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.05" internal_cd="0"/>
-        </proc>
-        <special_equip_effect>
+			<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
 			Chance on hit: Sends a shadowy bolt at the enemy causing 55 to 86 Shadow damage.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Drops from High Priestess Arlokk in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19896" phase="3">
-        <info name="Thekal's Grasp" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
-        <dmg_range min="72" max="135" speed="2.2"/>
-        <stats>
-        <stat type="STAMINA" value="13"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Thekal's Grasp" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
+		<dmg_range min="72" max="135" speed="2.2"/>
+		<stats>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from High Priest Thekal in Zul'Gurub.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18203" phase="0">
-        <info name="Eskhandar's Right Claw" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
-        <dmg_range min="50" max="94" speed="1.5"/>
-        <stats>
-        <stat type="AGILITY" value="4"/>
-        </stats>
-        <proc>
+		<info name="Eskhandar's Right Claw" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
+		<dmg_range min="50" max="94" speed="1.5"/>
+		<stats>
+			<stat type="AGILITY" value="4"/>
+		</stats>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="ATTACK_SPEED" amount="0.3" duration="5" rate="0.05" internal_cd="0"/>
-        </proc>
-        <source>
+			<spell name="ATTACK_SPEED" amount="0.3" duration="5" rate="0.05" internal_cd="0"/>
+		</proc>
+		<source>
 			Drops from Magmadar in Molten Core.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18202" phase="1">
-        <info name="Eskhandar's Left Claw" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
-        <dmg_range min="50" max="94" speed="1.5"/>
-        <stats>
-        <stat type="AGILITY" value="4"/>
-        </stats>
-        <proc>
+		<info name="Eskhandar's Left Claw" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
+		<dmg_range min="50" max="94" speed="1.5"/>
+		<stats>
+			<stat type="AGILITY" value="4"/>
+		</stats>
+		<proc>
 			<!-- TODO: Find actual proc rate. -->
-            <spell name="PHYSICAL_DOT" amount="5" tick_rate="1" duration="30" rate="0.05" internal_cd="0"/>
-        </proc>
-        <source>
+			<spell name="PHYSICAL_DOT" amount="5" tick_rate="1" duration="30" rate="0.05" internal_cd="0"/>
+		</proc>
+		<source>
 			Drops from Azuregos (world boss).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="19365" phase="2">
-        <info name="Claw of the Black Drake" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
-        <dmg_range min="102" max="191" speed="2.6"/>
-        <stats>
-        <stat type="STRENGTH" value="13"/>
-        <stat type="STAMINA" value="7"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Claw of the Black Drake" type="FIST" slot="MH" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
+		<dmg_range min="102" max="191" speed="2.6"/>
+		<stats>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Firemaw in Blackwing Lair.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21673" phase="4">
-        <info name="Silithid Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
-        <dmg_range min="64" max="120" speed="1.6"/>
-        <stats>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="ATTACK_POWER" value="30"/>
-        </stats>
-        <source>
+		<info name="Silithid Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
+		<dmg_range min="64" max="120" speed="1.6"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
 			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18844" phase="1">
-        <info name="High Warlord's Right Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
-        <dmg_range min="138" max="207" speed="2.9"/>
-        <stats>
-        <stat type="ATTACK_POWER" value="28"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="High Warlord's Right Claw" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_03.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching High Warlord (rank 14). Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18843" phase="1">
-        <info name="Grand Marshal's Right Hand Blade" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_shortblade_07.png"/>
-        <dmg_range min="138" max="207" speed="2.9"/>
-        <stats>
-        <stat type="ATTACK_POWER" value="28"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="Grand Marshal's Right Hand Blade" type="FIST" slot="MH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_weapon_shortblade_07.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18848" phase="1">
-        <info name="High Warlord's Razor Claw" type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
-        <dmg_range min="138" max="207" speed="2.9"/>
-        <stats>
-        <stat type="ATTACK_POWER" value="28"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="High Warlord's Razor Claw" type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_monsterclaw_04.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching High Warlord (rank 14). Horde only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="18847" phase="1">
-        <info name="Grand Marshal's Razor Hand Blade" type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Ability_rogue_rupture.png"/>
-        <dmg_range min="138" max="207" speed="2.9"/>
-        <stats>
-        <stat type="ATTACK_POWER" value="28"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="STAMINA" value="7"/>
-        </stats>
-        <source>
+		<info name="Grand Marshal's Razor Hand Blade" type="FIST" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Ability_rogue_rupture.png"/>
+		<dmg_range min="138" max="207" speed="2.9"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="28"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
-        </source>
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="23242" phase="5">
-        <info name="Claw of the Frost Wyrm" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_weapon_hand_03.png"/>
-        <dmg_range min="75" max="140" speed="1.5"/>
-        <stats>
-        <stat type="STAMINA" value="8"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        <stat type="ATTACK_POWER" value="22"/>
-        </stats>
-        <source>
+		<info name="Claw of the Frost Wyrm" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_weapon_hand_03.png"/>
+		<dmg_range min="75" max="140" speed="1.5"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="22"/>
+		</stats>
+		<source>
 			Drops from Sapphiron in Naxxramas.
-        </source>
+		</source>
 	</melee_weapon>
 </weapons>

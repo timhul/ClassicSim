@@ -1,259 +1,259 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="11933" phase="0">
-        <info name="Imperial Jewel" type="AMULET" slot="NECK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_gem_sapphire_01.png"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="ATTACK_POWER" value="32"/>
-        </stats>
-        <source>
+		<info name="Imperial Jewel" type="AMULET" slot="NECK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_gem_sapphire_01.png"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="ATTACK_POWER" value="32"/>
+		</stats>
+		<source>
 			Drops from Empereror Dagran Thaurissian in Blackrock Depths.
-        </source>
+		</source>
 	</item>
 
 	<item id="12929" phase="0">
-        <info name="Emberfury Talisman" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_necklace_05.png"/>
-        <stats>
-            <stat type="STAMINA" value="8"/>
-            <stat type="SPIRIT" value="5"/>
-            <stat type="FIRE_RESISTANCE" value="7"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Emberfury Talisman" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_necklace_05.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="FIRE_RESISTANCE" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Pyroguard Emberseer in Upper Blackrock Spire (UBRS).
-        </source>
+		</source>
 	</item>
 
 	<item id="17044" phase="0">
-        <info name="Will of the Martyr" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
-        <stats>
-            <stat type="STAMINA" value="10"/>
-            <stat type="ATTACK_POWER" value="30"/>
-        </stats>
-        <source>
+		<info name="Will of the Martyr" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
 			Quest reward. Requires Stratholme Living and Stratholme Undead.
-        </source>
+		</source>
 	</item>
 
 	<item id="15411" phase="0">
-        <info name="Mark of Fordring" type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
-        <stats>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="26"/>
-        </stats>
-        <source>
+		<info name="Mark of Fordring" type="AMULET" slot="NECK" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="26"/>
+		</stats>
+		<source>
 			Quest chain reward. Started by Tirion Fordring in Eastern Plaguelands.
-        </source>
+		</source>
 	</item>
 
 	<item id="17111" phase="1">
-        <info name="Blazefury Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_talisman_01.png"/>
-        <stats>
-            <stat type="AGILITY" value="13"/>
+		<info name="Blazefury Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_talisman_01.png"/>
+		<stats>
+			<stat type="AGILITY" value="13"/>
 			<stat type="STAMINA" value="14"/>
 			<stat type="FIRE_RESISTANCE" value="12"/>
-        </stats>
+		</stats>
 		<proc>
-            <spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0"/>
-        </proc>
-        <source>
+			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0"/>
+		</proc>
+		<source>
 			Drops from Lord Kazzak (world boss in Blasted Lands).
-        </source>
+		</source>
 		<special_equip_effect>
 			Equip: Adds 2 fire damage to your melee attacks.
 		</special_equip_effect>
 	</item>
 
 	<item id="18205" phase="0">
-        <info name="Eskhandar's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
-        <stats>
-            <stat type="STAMINA" value="17"/>
-            <stat type="DODGE_CHANCE" value="0.01"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Eskhandar's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_belt_12.png"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="DODGE_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Onyxia.
-        </source>
+		</source>
 	</item>
 
 	<item id="18404" phase="0">
-        <info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
-        <stats>
-            <stat type="AGILITY" value="12"/>
-            <stat type="STAMINA" value="9"/>
-            <stat type="FIRE_RESISTANCE" value="10"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+		<stats>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward from turning in Head of Onyxia.
-        </source>
+		</source>
 	</item>
 
 	<item id="22150" phase="1">
-        <info name="Beads of Ogre Might" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_amulet_05.png"/>
-        <stats>
-            <stat type="STAMINA" value="7"/>
-            <stat type="ATTACK_POWER" value="24"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Beads of Ogre Might" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_amulet_05.png"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="ATTACK_POWER" value="24"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires Dire Maul.
-        </source>
+		</source>
 	</item>
 
 	<item id="19538" phase="2">
-        <info name="Sentinel's Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_jewelry_necklace_13.png"/>
-        <stats>
-            <stat type="AGILITY" value="15"/>
+		<info name="Sentinel's Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_jewelry_necklace_13.png"/>
+		<stats>
+			<stat type="AGILITY" value="15"/>
 			<stat type="STAMINA" value="10"/>
-        </stats>
-        <source>
+		</stats>
+		<source>
 			Sold by Warsong Gulch vendor Illiyana Moonblaze. Alliance only.
-        </source>
+		</source>
 	</item>
 
 	<item id="19534" phase="2">
-        <info name="Scout's Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_jewelry_necklace_14.png"/>
-        <stats>
-            <stat type="AGILITY" value="15"/>
+		<info name="Scout's Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_jewelry_necklace_14.png"/>
+		<stats>
+			<stat type="AGILITY" value="15"/>
 			<stat type="STAMINA" value="10"/>
-        </stats>
-        <source>
+		</stats>
+		<source>
 			Sold by Warsong Gulch vendor Kelm Hargunth. Horde only.
-        </source>
+		</source>
 	</item>
 
 	<item id="19491" phase="2">
-        <info name="Amulet of the Darkmoon" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_14.png"/>
-        <stats>
-            <stat type="AGILITY" value="19"/>
+		<info name="Amulet of the Darkmoon" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_14.png"/>
+		<stats>
+			<stat type="AGILITY" value="19"/>
 			<stat type="STAMINA" value="10"/>
 			<stat type="STRENGTH" value="10"/>
-        </stats>
-        <source>
+		</stats>
+		<source>
 			Quest reward. Requires Darkmoon Faire and Darkmoon Faire Prize Tickets.
-        </source>
+		</source>
 	</item>
 
 	<item id="19377" phase="2">
-        <info name="Prestor's Talisman of Connivery" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_17.png"/>
-        <stats>
-            <stat type="AGILITY" value="25"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="22"/>
-        </stats>
-        <source>
+		<info name="Prestor's Talisman of Connivery" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_17.png"/>
+		<stats>
+			<stat type="AGILITY" value="25"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="22"/>
+		</stats>
+		<source>
 			Drops from Nefarian in Blackwing Lair.
-        </source>
+		</source>
 	</item>
 
 	<item id="19621" phase="3">
-        <info name="Maelstrom's Wrath" type="AMULET" slot="NECK" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_26.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="AGILITY" value="15"/>
-            <stat type="INTELLECT" value="6"/>
-            <stat type="STAMINA" value="9"/>
-        </stats>
-        <source>
+		<info name="Maelstrom's Wrath" type="AMULET" slot="NECK" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_26.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="AGILITY" value="15"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
 			Reputation reward. Requires Exalted with Zandalar Tribe.
-        </source>
-        <special_equip_effect>
+		</source>
+		<special_equip_effect>
 			Equip: Decreases the cooldown of Feign Death by 2 sec.
-        </special_equip_effect>
+		</special_equip_effect>
 	</item>
 
 	<item id="19856" phase="3">
-        <info name="The Eye of Hakkar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_22.png"/>
-        <stats>
+		<info name="The Eye of Hakkar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_22.png"/>
+		<stats>
 			<stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="40"/>
-        </stats>
-        <source>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
 			Drops from Hakkar in Zul'Gurub.
-        </source>
+		</source>
 	</item>
 
 	<item id="22340" phase="4">
-        <info name="Pendant of Celerity" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_necklace_04.png"/>
-        <stats>
-            <stat type="AGILITY" value="15"/>
+		<info name="Pendant of Celerity" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_necklace_04.png"/>
+		<stats>
+			<stat type="AGILITY" value="15"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		</stats>
+		<source>
 			Drops from Lord Valthalak in Upper Blackrock Spire (UBRS) during Tier 0.5 quest line.
-        </source>
+		</source>
 	</item>
 
 	<item id="21809" phase="4">
-        <info name="Fury of the Forgotten Swarm" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_jewelry_necklace_14.png"/>
-        <stats>
-            <stat type="STRENGTH" value="8"/>
+		<info name="Fury of the Forgotten Swarm" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_jewelry_necklace_14.png"/>
+		<stats>
+			<stat type="STRENGTH" value="8"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		</stats>
+		<source>
 			Drops from captains spawned during General Rajaxx encounter in Ruins of Ahn'Qiraj (AQ20).
-        </source>
+		</source>
 	</item>
 
 	<item id="21505" phase="4">
-        <info name="Choker of the Shifting Sands" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_03.png"/>
-        <stats>
-            <stat type="STAMINA" value="16"/>
-            <stat type="ATTACK_POWER" value="42"/>
-        </stats>
-        <source>
+		<info name="Choker of the Shifting Sands" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_03.png"/>
+		<stats>
+			<stat type="STAMINA" value="16"/>
+			<stat type="ATTACK_POWER" value="42"/>
+		</stats>
+		<source>
 			Quest reward. Requires Head of Ossirian from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
-        </source>
+		</source>
 	</item>
 
 	<item id="21664" phase="4">
-        <info name="Barbed Choker" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
-        <stats>
-            <stat type="STAMINA" value="10"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="44"/>
-        </stats>
-        <source>
+		<info name="Barbed Choker" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="44"/>
+		</stats>
+		<source>
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="22659" phase="5">
-        <info name="Medallion of the Dawn" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_04.png"/>
-        <stats>
-            <stat type="STAMINA" value="12"/>
-            <stat type="ATTACK_POWER" value="24"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Medallion of the Dawn" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_04.png"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="ATTACK_POWER" value="24"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires Exalted with Argent Dawn.
-        </source>
+		</source>
 	</item>
 
 	<item id="23023" phase="5">
-        <info name="Sadist's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_29naxxramas.png"/>
-        <stats>
-            <stat type="STAMINA" value="24"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="20"/>
-        </stats>
-        <source>
+		<info name="Sadist's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_29naxxramas.png"/>
+		<stats>
+			<stat type="STAMINA" value="24"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="20"/>
+		</stats>
+		<source>
 			Drops from Gothik the Harvester in Naxxramas.
-        </source>
+		</source>
 	</item>
 
 	<item id="23053" phase="5">
-        <info name="Stormrage's Talisman of Seething" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>
-        <stats>
-            <stat type="STAMINA" value="12"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-            <stat type="ATTACK_POWER" value="26"/>
-        </stats>
-        <source>
+		<info name="Stormrage's Talisman of Seething" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_28naxxramas.png"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="26"/>
+		</stats>
+		<source>
 			Drops from Kel'Thuzad in Naxxramas.
-        </source>
+		</source>
 	</item>
 </items>

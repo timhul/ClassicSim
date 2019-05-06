@@ -1,231 +1,231 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="13359" phase="0">
-        <info name="Crown of Tyranny" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_03.png"/>
-        <stats>
-            <stat type="ARMOR" value="301"/>
-            <stat type="STAMINA" value="20"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="ATTACK_POWER" value="40"/>
-        </stats>
-        <source>
+		<info name="Crown of Tyranny" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_03.png"/>
+		<stats>
+			<stat type="ARMOR" value="301"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
 			Drops from Balnazzar in Stratholme Living.
-        </source>
+		</source>
 	</item>
 
 	<item id="11729" phase="0">
-        <info name="Savage Gladiator Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
-        <stats>
-            <stat type="ARMOR" value="275"/>
-            <stat type="STAMINA" value="28"/>
-            <stat type="AGILITY" value="12"/>
-        </stats>
-        <source>
+		<info name="Savage Gladiator Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_helmet_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="275"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="AGILITY" value="12"/>
+		</stats>
+		<source>
 			Drops from Hedrum the Creeper in the Arena in Blackrock Depths (BRD).
-        </source>
+		</source>
 	</item>
 
 	<item id="16677" phase="0">
-        <info name="Beaststalker's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_24.png"/>
-        <stats>
-            <stat type="ARMOR" value="297"/>
-            <stat type="AGILITY" value="20"/>
-            <stat type="STAMINA" value="20"/>
-            <stat type="INTELLECT" value="10"/>
-            <stat type="SPIRIT" value="6"/>
-        </stats>
-        <source>
+		<info name="Beaststalker's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_24.png"/>
+		<stats>
+			<stat type="ARMOR" value="297"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPIRIT" value="6"/>
+		</stats>
+		<source>
 			Drops from Darkmaster Gandling in Scholomance.
-        </source>
+		</source>
 	</item>
 
 	<item id="16846" phase="0">
-        <info name="Giantstalker's Helmet" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="343"/>
-            <stat type="AGILITY" value="23"/>
-            <stat type="INTELLECT" value="15"/>
-            <stat type="SPIRIT" value="8"/>
-            <stat type="STAMINA" value="23"/>
-            <stat type="FIRE_RESISTANCE" value="10"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Giantstalker's Helmet" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="343"/>
+			<stat type="AGILITY" value="23"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Garr in Molten Core.
-        </source>
+		</source>
 	</item>
 
 	<item id="18421" phase="1">
-        <info name="Backwood Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>
-        <stats>
-            <stat type="ARMOR" value="301"/>
-            <stat type="AGILITY" value="21"/>
-            <stat type="INTELLECT" value="9"/>
-            <stat type="SPIRIT" value="9"/>
-            <stat type="STAMINA" value="13"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Backwood Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>
+		<stats>
+			<stat type="ARMOR" value="301"/>
+			<stat type="AGILITY" value="21"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires Dire Maul West.
-        </source>
+		</source>
 	</item>
 
 	<item id="23306" phase="1">
-        <info name="Lieutenant Commander's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_21.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="337"/>
-            <stat type="AGILITY" value="18"/>
-            <stat type="STAMINA" value="14"/>
-            <stat type="INTELLECT" value="9"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-        </stats>
-        <source>
+		<info name="Lieutenant Commander's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_21.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="337"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Lieutenant Commander (rank 10).
-        </source>
+		</source>
 	</item>
 
 	<item id="23251" phase="1">
-        <info name="Champion's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_03.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="337"/>
-            <stat type="AGILITY" value="18"/>
-            <stat type="STAMINA" value="14"/>
-            <stat type="INTELLECT" value="9"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-        </stats>
-        <source>
+		<info name="Champion's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_03.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="337"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Champion (rank 10).
-        </source>
+		</source>
 	</item>
 
 	<item id="16465" phase="1">
-        <info name="Field Marshal's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="432"/>
-            <stat type="AGILITY" value="34"/>
-            <stat type="STAMINA" value="28"/>
-            <stat type="INTELLECT" value="12"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Field Marshal's Chain Helm" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_05.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="432"/>
+			<stat type="AGILITY" value="34"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Field Marshal (rank 13).
-        </source>
+		</source>
 	</item>
 
 	<item id="16566" phase="1">
-        <info name="Warlord's Chain Helmet" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="432"/>
-            <stat type="AGILITY" value="34"/>
-            <stat type="STAMINA" value="28"/>
-            <stat type="INTELLECT" value="12"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Warlord's Chain Helmet" type="MAIL" slot="HEAD" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_09.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="432"/>
+			<stat type="AGILITY" value="34"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Alterac Valley marks. Requires Warlord (rank 13).
-        </source>
+		</source>
 	</item>
 
 	<item id="16939" phase="0">
-        <info name="Dragonstalker's Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="392"/>
-            <stat type="AGILITY" value="27"/>
-            <stat type="INTELLECT" value="16"/>
-            <stat type="SPIRIT" value="8"/>
-            <stat type="STAMINA" value="26"/>
-            <stat type="FIRE_RESISTANCE" value="10"/>
-            <stat type="FROST_RESISTANCE" value="10"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Dragonstalker's Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_05.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="392"/>
+			<stat type="AGILITY" value="27"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Onyxia.
-        </source>
+		</source>
 	</item>
 
 	<item id="19875" phase="3">
-        <info name="Bloodstained Coif" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_39.png"/>
-        <stats>
-            <stat type="ARMOR" value="337"/>
-            <stat type="INTELLECT" value="14"/>
-            <stat type="STAMINA" value="14"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-            <stat type="ATTACK_POWER" value="28"/>
-        </stats>
-        <source>
+		<info name="Bloodstained Coif" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_helmet_39.png"/>
+		<stats>
+			<stat type="ARMOR" value="337"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="28"/>
+		</stats>
+		<source>
 			Drops from Jin'do the Hexxer in Zul'Gurub.
-        </source>
+		</source>
 	</item>
 
 	<item id="18817" phase="0">
-        <info name="Crown of Destruction" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
-        <stats>
-            <stat type="ARMOR" value="392"/>
-            <stat type="STAMINA" value="23"/>
-            <stat type="INTELLECT" value="9"/>
-            <stat type="SPIRIT" value="9"/>
-            <stat type="FIRE_RESISTANCE" value="10"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-            <stat type="ATTACK_POWER" value="44"/>
-        </stats>
-        <source>
+		<info name="Crown of Destruction" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="392"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="ATTACK_POWER" value="44"/>
+		</stats>
+		<source>
 			Drops from Ragnaros in Molten Core.
-        </source>
+		</source>
 	</item>
 
 	<item id="21366" phase="4">
-        <info name="Striker's Diadem" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_73.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="416"/>
-            <stat type="AGILITY" value="29"/>
-            <stat type="INTELLECT" value="18"/>
-            <stat type="SPIRIT" value="10"/>
-            <stat type="STAMINA" value="26"/>
-            <stat type="CRIT_CHANCE" value="0.01"/>
-            <stat type="SPELL_DAMAGE" value="12"/>
-        </stats>
-        <source>
+		<info name="Striker's Diadem" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_73.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="416"/>
+			<stat type="AGILITY" value="29"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="22013" phase="4">
-        <info name="Beastmaster's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_helmet_24.png"/>
-        <stats>
-            <stat type="ARMOR" value="314"/>
-            <stat type="AGILITY" value="22"/>
-            <stat type="STAMINA" value="21"/>
-            <stat type="INTELLECT" value="12"/>
-            <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <special_equip_effect>
+		<info name="Beastmaster's Cap" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_helmet_24.png"/>
+		<stats>
+			<stat type="ARMOR" value="314"/>
+			<stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<special_equip_effect>
 			Equip: Increases your pet's maximum health by 3%.
-        </special_equip_effect>
-        <source>
+		</special_equip_effect>
+		<source>
 			Quest reward. Requires Beaststalker's Cap and Beaststalker's Tunic.
-        </source>
+		</source>
 	</item>
 
 	<item id="22438" phase="5">
-        <info name="Crypstalker Headpiece" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_15.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-            <stat type="ARMOR" value="449"/>
-            <stat type="AGILITY" value="31"/>
-            <stat type="STAMINA" value="30"/>
-            <stat type="INTELLECT" value="12"/>
-            <stat type="CRIT_CHANCE" value="0.02"/>
-            <stat type="MANA_PER_5" value="3"/>
-        </stats>
-        <source>
+		<info name="Crypstalker Headpiece" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_helmet_15.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="449"/>
+			<stat type="AGILITY" value="31"/>
+			<stat type="STAMINA" value="30"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+			<stat type="MANA_PER_5" value="3"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Naxxramas.
-        </source>
+		</source>
 	</item>
 </items>

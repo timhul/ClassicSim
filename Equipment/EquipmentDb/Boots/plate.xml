@@ -4,10 +4,10 @@
 		<info name="Knight-Lieutenant's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
-        <stat type="ARMOR" value="472"/>
-        <stat type="STRENGTH" value="10"/>
-        <stat type="AGILITY" value="9"/>
-        <stat type="STAMINA" value="23"/>
+			<stat type="ARMOR" value="472"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="STAMINA" value="23"/>
 		</stats>
 		<source>
 		Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
@@ -18,10 +18,10 @@
 		<info name="Blood Guard's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
-        <stat type="ARMOR" value="472"/>
-        <stat type="STRENGTH" value="10"/>
-        <stat type="AGILITY" value="9"/>
-        <stat type="STAMINA" value="23"/>
+			<stat type="ARMOR" value="472"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="STAMINA" value="23"/>
 		</stats>
 		<source>
 		Purchased with Honor Points and Arathi Basin marks. Requires Blood Guard (rank 7).
@@ -32,11 +32,11 @@
 		<info name="Knight-Lieutenant's Lamellar Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_boots_plate_03.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
-        <stat type="ARMOR" value="472"/>
-        <stat type="STAMINA" value="12"/>
-        <stat type="STRENGTH" value="12"/>
-        <stat type="INTELLECT" value="12"/>
-		<stat type="SPELL_DAMAGE" value="15"/>
+			<stat type="ARMOR" value="472"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
 		</stats>
 		<source>
 		Purchased with Honor Points and Arathi Basin marks. Requires Knight-Lieutenant (rank 7).
@@ -47,12 +47,12 @@
 		<info name="Marshal's Lamellar Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
-        <stat type="ARMOR" value="552"/>
-        <stat type="STAMINA" value="16"/>
-        <stat type="STRENGTH" value="15"/>
-        <stat type="INTELLECT" value="15"/>
-		<stat type="SPELL_DAMAGE" value="18"/>
-		<stat type="MANA_PER_5" value="6"/>
+			<stat type="ARMOR" value="552"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+			<stat type="MANA_PER_5" value="6"/>
 		</stats>
 		<source>
 		Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
@@ -63,11 +63,11 @@
 		<info name="Marshal's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_09.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
-        <stat type="ARMOR" value="592"/>
-        <stat type="STAMINA" value="23"/>
-        <stat type="STRENGTH" value="18"/>
-        <stat type="AGILITY" value="12"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="592"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Purchased with Honor Points and Arathi Basin marks. Requires Marshal (rank 12).
@@ -78,11 +78,11 @@
 		<info name="General's Plate Boots" type="PLATE" slot="BOOTS" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
-        <stat type="ARMOR" value="592"/>
-        <stat type="STAMINA" value="23"/>
-        <stat type="STRENGTH" value="18"/>
-        <stat type="AGILITY" value="12"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="592"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Purchased with Honor Points and Arathi Basin marks. Requires General (rank 12).
@@ -92,11 +92,11 @@
 	<item id="19387" phase="2">
 		<info name="Chromatic Boots" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
 		<stats>
-        <stat type="ARMOR" value="596"/>
-        <stat type="AGILITY" value="20"/>
-        <stat type="STRENGTH" value="20"/>
-        <stat type="STAMINA" value="19"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ARMOR" value="596"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 		Drops from Chromaggus in Blackwing Lair.
@@ -107,11 +107,11 @@
 		<info name="Highlander's Lamellar Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
-        <stat type="ARMOR" value="452"/>
-        <stat type="STRENGTH" value="14"/>
-        <stat type="STAMINA" value="8"/>
-        <stat type="AGILITY" value="12"/>
-		<stat type="INTELLECT" value="8"/>
+			<stat type="ARMOR" value="452"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="INTELLECT" value="8"/>
 		</stats>
 		<special_equip_effect>
 		Equip: Run speed increased slightly.
@@ -126,10 +126,10 @@
 		<class_restriction class="WARRIOR"/>
 		<class_restriction class="PALADIN"/>
 		<stats>
-        <stat type="ARMOR" value="452"/>
-        <stat type="STRENGTH" value="14"/>
-        <stat type="STAMINA" value="12"/>
-        <stat type="AGILITY" value="12"/>
+			<stat type="ARMOR" value="452"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="AGILITY" value="12"/>
 		</stats>
 		<special_equip_effect>
 		Equip: Run speed increased slightly.
@@ -143,10 +143,10 @@
 		<info name="Defiler's Plate Greaves" type="PLATE" slot="BOOTS" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_boots_plate_04.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
-        <stat type="ARMOR" value="452"/>
-        <stat type="STRENGTH" value="14"/>
-        <stat type="STAMINA" value="12"/>
-        <stat type="AGILITY" value="12"/>
+			<stat type="ARMOR" value="452"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="AGILITY" value="12"/>
 		</stats>
 		<special_equip_effect>
 		Equip: Run speed increased slightly.
@@ -160,11 +160,11 @@
 		<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
 		<class_restriction class="WARRIOR"/>
 		<stats>
-        <stat type="ARMOR" value="604"/>
-        <stat type="AGILITY" value="17"/>
-        <stat type="STRENGTH" value="21"/>
-        <stat type="STAMINA" value="23"/>
-        <stat type="DEFENSE" value="4"/>
+			<stat type="ARMOR" value="604"/>
+			<stat type="AGILITY" value="17"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="DEFENSE" value="4"/>
 		</stats>
 		<source>
 		Quest reward. Requires drops from bosses in Temple of Ahn'Qiraj (AQ40).
@@ -172,20 +172,20 @@
 	</item>
 
 	<item id="21388" phase="4">
-        <info name="Avenger's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_07.png"/>
-        <class_restriction class="PALADIN"/>
-        <stats>
-            <stat type="ARMOR" value="604"/>
-            <stat type="AGILITY" value="13"/>
-            <stat type="STRENGTH" value="18"/>
+		<info name="Avenger's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_chain_07.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+			<stat type="ARMOR" value="604"/>
+			<stat type="AGILITY" value="13"/>
+			<stat type="STRENGTH" value="18"/>
 			<stat type="INTELLECT" value="14"/>
 			<stat type="SPIRIT" value="6"/>
-            <stat type="STAMINA" value="18"/>
+			<stat type="STAMINA" value="18"/>
 			<stat type="SPELL_DAMAGE" value="14"/>
-            <stat type="MANA_PER_5" value="4"/>
-        </stats>
-        <source>
+			<stat type="MANA_PER_5" value="4"/>
+		</stats>
+		<source>
 		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 </items>

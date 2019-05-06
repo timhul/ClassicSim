@@ -1,247 +1,247 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
 	<item id="16679" phase="0">
-        <info name="Beaststalker's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
-        <stats>
-        <stat type="ARMOR" value="266"/>
-        <stat type="STAMINA" value="17"/>
-        <stat type="AGILITY" value="11"/>
-        <stat type="INTELLECT" value="7"/>
-        <stat type="SPIRIT" value="4"/>
-        </stats>
-        <source>
+		<info name="Beaststalker's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
+		<stats>
+			<stat type="ARMOR" value="266"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="AGILITY" value="11"/>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="SPIRIT" value="4"/>
+		</stats>
+		<source>
 			Drops from Overlord Wyrmthalak in Lower Blackrock Spire (LBRS).
-        </source>
+		</source>
 	</item>
 
 	<item id="15051" phase="0">
-        <info name="Black Dragonscale Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_shoulder_01.png"/>
-        <stats>
-        <stat type="ARMOR" value="266"/>
-        <stat type="STAMINA" value="9"/>
-        <stat type="FIRE_RESISTANCE" value="6"/>
-        <stat type="ATTACK_POWER" value="40"/>
-        </stats>
-        <source>
+		<info name="Black Dragonscale Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="yes" icon="Inv_shoulder_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="266"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="FIRE_RESISTANCE" value="6"/>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
 			Crafted by Leatherworkers. Pattern drops in Blackrock Depths.
-        </source>
+		</source>
 	</item>
 
 	<item id="16848" phase="0">
-        <info name="Giantstalker's Epaulets" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_10.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="317"/>
-        <stat type="AGILITY" value="24"/>
-        <stat type="INTELLECT" value="5"/>
-        <stat type="SPIRIT" value="9"/>
-        <stat type="STAMINA" value="14"/>
-        <stat type="SHADOW_RESISTANCE" value="7"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Giantstalker's Epaulets" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_shoulder_10.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="317"/>
+			<stat type="AGILITY" value="24"/>
+			<stat type="INTELLECT" value="5"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SHADOW_RESISTANCE" value="7"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Sulfuron Harbinger in Molten Core.
-        </source>
+		</source>
 	</item>
 
 	<item id="23307" phase="1">
-        <info name="Lieutenant Commander's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_shoulder_16.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="311"/>
-        <stat type="AGILITY" value="18"/>
-        <stat type="STAMINA" value="13"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Lieutenant Commander's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_shoulder_16.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="311"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Arathi Basin marks. Requires Lieutenant Commander (rank 10).
-        </source>
+		</source>
 	</item>
 
 	<item id="23252" phase="1">
-        <info name="Champion's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="311"/>
-        <stat type="AGILITY" value="18"/>
-        <stat type="STAMINA" value="13"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Champion's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="311"/>
+			<stat type="AGILITY" value="18"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Arathi Basin marks. Requires Champion (rank 10).
-        </source>
+		</source>
 	</item>
 
 	<item id="16937" phase="2">
-        <info name="Dragonstalker's Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_10.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="362"/>
-        <stat type="AGILITY" value="23"/>
-        <stat type="INTELLECT" value="13"/>
-        <stat type="SPIRIT" value="6"/>
-        <stat type="STAMINA" value="15"/>
-        <stat type="FIRE_RESISTANCE" value="10"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Dragonstalker's Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_shoulder_10.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="362"/>
+			<stat type="AGILITY" value="23"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Drops from Chromaggus in Blackwing Lair.
-        </source>
+		</source>
 	</item>
 
 	<item id="19373" phase="2">
-        <info name="Black Brood Pauldrons" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
-        <stats>
-        <stat type="ARMOR" value="357"/>
-        <stat type="AGILITY" value="17"/>
-        <stat type="INTELLECT" value="15"/>
-        <stat type="STAMINA" value="12"/>
-        <stat type="MANA_PER_5" value="9"/>
-        </stats>
-        <source>
+		<info name="Black Brood Pauldrons" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
+		<stats>
+			<stat type="ARMOR" value="357"/>
+			<stat type="AGILITY" value="17"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="MANA_PER_5" value="9"/>
+		</stats>
+		<source>
 			Drops from Broodlord Lashlayer in Blackwing Lair.
-        </source>
+		</source>
 	</item>
 
 	<item id="19691" phase="3">
-        <info name="Bloodsoul Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_shoulder_15.png"/>
-        <stats>
-        <stat type="ARMOR" value="286"/>
-        <stat type="AGILITY" value="24"/>
-        <stat type="STAMINA" value="10"/>
-        </stats>
-        <source>
+		<info name="Bloodsoul Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_shoulder_15.png"/>
+		<stats>
+			<stat type="ARMOR" value="286"/>
+			<stat type="AGILITY" value="24"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
 			Crafted by Blacksmiths (300 skill). Pattern requires Honored with Zandalar Tribe.
-        </source>
+		</source>
 	</item>
 
 	<item id="20055" phase="3">
-        <info name="Highlander's Chain Pauldrons" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="312"/>
-        <stat type="AGILITY" value="20"/>
-        <stat type="STAMINA" value="18"/>
-        <stat type="INTELLECT" value="17"/>
-        </stats>
-        <source>
+		<info name="Highlander's Chain Pauldrons" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_01.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="312"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="17"/>
+		</stats>
+		<source>
 			Requires Exalted with The League of Arathor (Arathi Basin).
-        </source>
+		</source>
 	</item>
 
 	<item id="20158" phase="3">
-        <info name="Defiler's Chain Pauldrons" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
-        <class_restriction class="HUNTER"/>
-        <class_restriction class="SHAMAN"/>
-        <stats>
-        <stat type="ARMOR" value="312"/>
-        <stat type="AGILITY" value="20"/>
-        <stat type="STAMINA" value="18"/>
-        <stat type="INTELLECT" value="17"/>
-        </stats>
-        <source>
+		<info name="Defiler's Chain Pauldrons" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_01.png"/>
+		<class_restriction class="HUNTER"/>
+		<class_restriction class="SHAMAN"/>
+		<stats>
+			<stat type="ARMOR" value="312"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="17"/>
+		</stats>
+		<source>
 			Requires Exalted with The Defilers (Arathi Basin).
-        </source>
+		</source>
 	</item>
 
 	<item id="19831" phase="3">
-        <info name="Zandalar Predator's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_shoulder_22.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="326"/>
-        <stat type="AGILITY" value="22"/>
-        <stat type="STAMINA" value="15"/>
-        <stat type="INTELLECT" value="11"/>
-        <stat type="MANA_PER_5" value="4"/>
-        </stats>
-        <source>
+		<info name="Zandalar Predator's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_shoulder_22.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="326"/>
+			<stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="MANA_PER_5" value="4"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drop from Zul'Gurub and Revered with Zandalar Tribe.
-        </source>
+		</source>
 	</item>
 
 	<item id="21699" phase="4">
-        <info name="Barrage Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
-        <stats>
-        <stat type="ARMOR" value="348"/>
-        <stat type="AGILITY" value="29"/>
-        <stat type="STAMINA" value="22"/>
-        </stats>
-        <source>
+		<info name="Barrage Shoulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
+		<stats>
+			<stat type="ARMOR" value="348"/>
+			<stat type="AGILITY" value="29"/>
+			<stat type="STAMINA" value="22"/>
+		</stats>
+		<source>
 			Drops from The Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="21367" phase="4">
-        <info name="Striker's Pauldrons" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_shoulder_36.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="384"/>
-        <stat type="AGILITY" value="26"/>
-        <stat type="INTELLECT" value="11"/>
-        <stat type="SPIRIT" value="5"/>
-        <stat type="STAMINA" value="24"/>
-        <stat type="SPELL_DAMAGE" value="6"/>
-        </stats>
-        <source>
+		<info name="Striker's Pauldrons" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_shoulder_36.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="384"/>
+			<stat type="AGILITY" value="26"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="SPELL_DAMAGE" value="6"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
-        </source>
+		</source>
 	</item>
 
 	<item id="16468" phase="1">
-        <info name="Field Marshal's Chain Spaulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_10.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="403"/>
-        <stat type="STAMINA" value="21"/>
-        <stat type="AGILITY" value="26"/>
-        <stat type="INTELLECT" value="10"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Field Marshal's Chain Spaulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_shoulder_10.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="403"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="AGILITY" value="26"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Arathi Basin marks. Requires Field Marshal (rank 13).
-        </source>
+		</source>
 	</item>
 
 	<item id="16568" phase="1">
-        <info name="Warlord's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_29.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="403"/>
-        <stat type="STAMINA" value="21"/>
-        <stat type="AGILITY" value="26"/>
-        <stat type="INTELLECT" value="10"/>
-        <stat type="HIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Warlord's Chain Shoulders" type="MAIL" slot="SHOULDERS" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_shoulder_29.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="403"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="AGILITY" value="26"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Purchased with Honor Points and Arathi Basin marks. Requires Warlord (rank 13).
-        </source>
+		</source>
 	</item>
 
 	<item id="22016" phase="4">
-        <info name="Beastmaster's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
-        <stats>
-        <stat type="ARMOR" value="286"/>
-        <stat type="STAMINA" value="18"/>
-        <stat type="AGILITY" value="12"/>
-        <stat type="INTELLECT" value="10"/>
-        </stats>
-        <source>
+		<info name="Beastmaster's Mantle" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_shoulder_10.png"/>
+		<stats>
+			<stat type="ARMOR" value="286"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="INTELLECT" value="10"/>
+		</stats>
+		<source>
 			Quest reward. Requires Beaststalker's Boots, Beaststalker's Pants, and Beaststalker's Mantle.
-        </source>
+		</source>
 	</item>
 
 	<item id="22439" phase="5">
-        <info name="Crypstalker Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
-        <class_restriction class="HUNTER"/>
-        <stats>
-        <stat type="ARMOR" value="406"/>
-        <stat type="AGILITY" value="29"/>
-        <stat type="STAMINA" value="23"/>
-        <stat type="INTELLECT" value="10"/>
-        <stat type="CRIT_CHANCE" value="0.01"/>
-        </stats>
-        <source>
+		<info name="Crypstalker Spaulders" type="MAIL" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_14.png"/>
+		<class_restriction class="HUNTER"/>
+		<stats>
+			<stat type="ARMOR" value="406"/>
+			<stat type="AGILITY" value="29"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
 			Quest reward. Requires boss drops from Naxxramas.
-        </source>
+		</source>
 	</item>
 </items>
