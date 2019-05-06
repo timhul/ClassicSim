@@ -369,7 +369,5 @@ void Warrior::initialize_talents() {
 }
 
 void Warrior::reset_class_specific() {
-    // TODO: Consider adding pre-run actions for stance
-    switch_to_battle_stance();
     this->next_stance_cd = 0.0 - stance_cooldown();
 }
