@@ -6,10 +6,11 @@
 
 class NoEffectBuff;
 class Warrior;
+class WarriorSpells;
 
 class HeroicStrike: public Spell, public TalentRequirer {
 public:
-    HeroicStrike(Character* pchar);
+    HeroicStrike(Warrior* pchar, WarriorSpells* spells);
     ~HeroicStrike() override;
 
     bool is_queued() const;
@@ -18,6 +19,7 @@ public:
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
     NoEffectBuff* hs_buff;
     QVector<unsigned> spell_ranks;
     QVector<unsigned> talent_ranks;

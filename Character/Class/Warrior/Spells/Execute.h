@@ -5,13 +5,15 @@
 #include "TalentRequirer.h"
 
 class Warrior;
+class WarriorSpells;
 
 class Execute: public Spell, public TalentRequirer {
 public:
-    Execute(Character* pchar);
+    Execute(Warrior* pchar, WarriorSpells* spells);
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
     QVector<QPair<unsigned, unsigned>> spell_ranks;
     QVector<unsigned> talent_ranks;
     unsigned initial_dmg;

@@ -7,15 +7,17 @@
 
 class StatisticsResource;
 class Warrior;
+class WarriorSpells;
 
 class OffhandAttackWarrior: public OffhandAttack, public TalentRequirer {
 public:
-    OffhandAttackWarrior(Character* pchar);
+    OffhandAttackWarrior(Warrior* pchar, WarriorSpells* spells);
 
     void extra_attack() override;
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
     StatisticsResource* statistics_resource {nullptr};
     QVector<double> talent_ranks;
 

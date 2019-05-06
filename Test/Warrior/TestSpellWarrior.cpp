@@ -15,13 +15,13 @@
 #include "Whirlwind.h"
 
 TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_under_test) :
-    TestSpellDamage(equipment_db, std::move(spell_under_test)),
-    warrior(nullptr)
+    TestSpellDamage(equipment_db, std::move(spell_under_test))
 {}
 
 void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
     set_up_general();
     warrior = new Warrior(race, equipment_db, sim_settings);
+    spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
     warrior->set_clvl(60);
     warrior->gain_rage(100);
     pchar = warrior;
@@ -181,5 +181,5 @@ void TestSpellWarrior::then_warrior_has_rage(const unsigned rage) {
 }
 
 void TestSpellWarrior::then_overpower_is_active() {
-    assert(warrior->get_overpower_buff()->is_active());
+    assert(spells->get_overpower_buff()->is_active());
 }

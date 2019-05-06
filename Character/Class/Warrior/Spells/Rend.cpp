@@ -6,11 +6,13 @@
 #include "Engine.h"
 #include "NoEffectBuff.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
-Rend::Rend(Character* pchar) :
+Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
     Spell("Rend", "Assets/ability/Ability_gouge.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Rend", 3, DisabledAtZero::No)}),
-    warr(dynamic_cast<Warrior*>(pchar)),
+    warr(pchar),
+    spells(spells),
     buff(new NoEffectBuff(pchar, 21, "Rend", "Assets/ability/Ability_gouge.png", Hidden::No, Debuff::Yes)),
     damage_remaining(0),
     base_damage(147),
@@ -39,7 +41,7 @@ void Rend::spell_effect() {
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }

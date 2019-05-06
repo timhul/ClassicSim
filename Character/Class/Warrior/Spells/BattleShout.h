@@ -4,14 +4,15 @@
 #include "Spell.h"
 
 class Warrior;
+class WarriorSpells;
 
 class BattleShout: public Spell {
 public:
-    BattleShout(Character* pchar);
+    BattleShout(Warrior* pchar, WarriorSpells* spells);
 
-protected:
 private:
     Warrior* warr;
+    WarriorSpells* spells;
 
     void spell_effect() override;
 };

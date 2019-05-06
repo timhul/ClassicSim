@@ -12,7 +12,8 @@ public:
     void tear_down();
 
 protected:
-    Warrior* warrior{};
+    Warrior* warrior {nullptr};
+    WarriorSpells* spells {nullptr};
 };
 
 #endif // TESTBUFFWARRIOR_H

@@ -9,11 +9,13 @@
 #include "RecklessnessBuff.h"
 #include "StatisticsResource.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 #include "Weapon.h"
 
-MainhandAttackWarrior::MainhandAttackWarrior(Character* pchar) :
+MainhandAttackWarrior::MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spells) :
     MainhandAttack(pchar),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(pchar),
+    spells(spells)
 {}
 
 void MainhandAttackWarrior::extra_attack() {
@@ -25,7 +27,7 @@ void MainhandAttackWarrior::spell_effect() {
     const int result = calculate_damage();
 
     if (result == PhysicalAttackResult::HIT || result == PhysicalAttackResult::GLANCING)
-        warr->get_flurry()->use_charge();
+        spells->get_flurry()->use_charge();
 }
 
 int MainhandAttackWarrior::calculate_damage() {
@@ -39,7 +41,7 @@ int MainhandAttackWarrior::calculate_damage() {
 
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
         return result;
     }
@@ -54,7 +56,7 @@ int MainhandAttackWarrior::calculate_damage() {
         return result;
     }
 
-    if (warr->get_recklessness_buff()->is_active())
+    if (spells->get_recklessness_buff()->is_active())
         result = PhysicalAttackResult::CRITICAL;
 
     double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_mh_dmg());

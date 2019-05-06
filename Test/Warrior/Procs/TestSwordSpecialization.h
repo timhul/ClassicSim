@@ -12,7 +12,7 @@ public:
     void test_all();
 
 private:
-    SwordSpecialization* sword_spec();
+    Proc* sword_spec();
 
     void test_name_correct();
     void test_proc_range_for_1_of_5_sword_spec();

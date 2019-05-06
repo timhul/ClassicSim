@@ -65,7 +65,7 @@ Talent* Fury::get_booming_voice() {
     Talent* talent = new Talent(warrior, this, "Booming Voice", "1ML",
                                 "Assets/spell/Spell_nature_purge.png", 5, rank_descriptions,
                                 {},
-                                QVector<Buff*>{warrior->get_battle_shout_buff()});
+                                QVector<Buff*>{spells->get_battle_shout_buff()});
 
     return talent;
 }
@@ -78,7 +78,7 @@ Talent* Fury::get_unbridled_wrath() {
                                 "Assets/spell/Spell_nature_stoneclawtotem.png", 5, rank_descriptions,
                                 {},
                                 {},
-                                QVector<Proc*>{warrior->get_unbridled_wrath()});
+                                QVector<Proc*>{spells->get_unbridled_wrath()});
 
     return talent;
 }
@@ -90,7 +90,7 @@ Talent* Fury::get_improved_battle_shout() {
     Talent* talent = new Talent(warrior, this, "Improved Battle Shout", "3RR",
                                 "Assets/ability/Ability_warrior_battleshout.png", 5, rank_descriptions,
                                 {},
-                                QVector<Buff*>{warrior->get_battle_shout_buff()});
+                                QVector<Buff*>{spells->get_battle_shout_buff()});
 
     return talent;
 }
@@ -158,7 +158,7 @@ Talent* Fury::get_flurry_talent() {
     Talent* talent = new Talent(warrior, this, "Flurry", "6MR",
                                 "Assets/ability/Ability_ghoulfrenzy.png", 5, rank_descriptions,
                                 {},
-                                QVector<Buff*>{warrior->get_flurry()});
+                                QVector<Buff*>{spells->get_flurry()});
 
     return talent;
 }

@@ -5,14 +5,15 @@
 #include "TalentRequirer.h"
 
 class Warrior;
+class WarriorSpells;
 
 class MortalStrike: public Spell, public TalentRequirer {
 public:
-    MortalStrike(Character* pchar);
+    MortalStrike(Warrior* pchar, WarriorSpells* spells);
 
-protected:
 private:
     Warrior* warr;
+    WarriorSpells* spells;
 
     void spell_effect() override;
     SpellStatus is_ready_spell_specific() const override;

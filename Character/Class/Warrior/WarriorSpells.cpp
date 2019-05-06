@@ -1,33 +1,38 @@
 #include "WarriorSpells.h"
 
-#include "Warrior.h"
 #include "AngerManagement.h"
 #include "BattleShout.h"
 #include "BattleShoutBuff.h"
 #include "BattleStance.h"
 #include "BerserkerRage.h"
 #include "BerserkerStance.h"
+#include "BerserkerStanceBuff.h"
 #include "Bloodrage.h"
 #include "Bloodthirst.h"
+#include "CharacterStats.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
 #include "DeepWounds.h"
+#include "DefensiveStanceBuff.h"
 #include "Engine.h"
 #include "Execute.h"
 #include "Flurry.h"
 #include "Hamstring.h"
 #include "HeroicStrike.h"
-#include "Overpower.h"
 #include "MainhandAttackWarrior.h"
 #include "MainhandMeleeHit.h"
 #include "MortalStrike.h"
 #include "NoEffectBuff.h"
 #include "OffhandAttackWarrior.h"
 #include "OffhandMeleeHit.h"
+#include "Overpower.h"
 #include "Recklessness.h"
+#include "RecklessnessBuff.h"
 #include "Rend.h"
 #include "Slam.h"
+#include "SwordSpecialization.h"
 #include "UnbridledWrath.h"
+#include "Warrior.h"
 #include "Whirlwind.h"
 
 WarriorSpells::WarriorSpells(Warrior* pchar) :
@@ -35,26 +40,26 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     warr(pchar)
 {
     this->anger_management = new AngerManagement(pchar);
-    this->battle_shout = new BattleShout(pchar);
+    this->battle_shout = new BattleShout(pchar, this);
     this->battle_stance = new BattleStance(pchar);
     this->berserker_rage = new BerserkerRage(pchar);
     this->berserker_stance = new BerserkerStance(pchar);
     this->bloodrage = new Bloodrage(pchar);
-    this->bt = new Bloodthirst(pchar);
+    this->bt = new Bloodthirst(pchar, this);
     this->death_wish = new DeathWish(pchar);
     this->deep_wounds = new DeepWounds(pchar);
-    this->execute = new Execute(pchar);
-    this->hamstring = new Hamstring(pchar);
-    this->heroic_strike = new HeroicStrike(pchar);
-    this->overpower = new Overpower(pchar);
-    this->mortal_strike = new MortalStrike(pchar);
-    this->recklessness = new Recklessness(pchar);
-    this->rend = new Rend(pchar);
-    this->slam = new Slam(pchar);
-    this->whirlwind = new Whirlwind(pchar);
+    this->execute = new Execute(pchar, this);
+    this->hamstring = new Hamstring(pchar, this);
+    this->heroic_strike = new HeroicStrike(pchar, this);
+    this->overpower = new Overpower(pchar, this);
+    this->mortal_strike = new MortalStrike(pchar, this);
+    this->recklessness = new Recklessness(pchar, this);
+    this->rend = new Rend(pchar, this);
+    this->slam = new Slam(pchar, this);
+    this->whirlwind = new Whirlwind(pchar, this);
 
-    this->warr_mh_attack = new MainhandAttackWarrior(pchar);
-    this->warr_oh_attack = new OffhandAttackWarrior(pchar);
+    this->warr_mh_attack = new MainhandAttackWarrior(pchar, this);
+    this->warr_oh_attack = new OffhandAttackWarrior(pchar, this);
 
     add_spell(anger_management, NO_RELINK);
     add_spell(battle_shout, NO_RELINK);
@@ -76,6 +81,36 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell(whirlwind, NO_RELINK);
     add_spell(warr_mh_attack, NO_RELINK);
     add_spell(warr_oh_attack, NO_RELINK);
+
+    this->battle_shout_buff = new BattleShoutBuff(pchar);
+    this->battle_stance_buff = new NoEffectBuff(pchar, BuffDuration::PERMANENT, "Battle Stance");
+    this->berserker_stance_buff = new BerserkerStanceBuff(pchar);
+    this->defensive_stance_buff = new DefensiveStanceBuff(pchar);
+    this->flurry = new Flurry(pchar);
+    this->overpower_buff = new NoEffectBuff(pchar, 5, "Overpower");
+    this->recklessness_buff = new RecklessnessBuff(pchar);
+    battle_shout_buff->enable_buff();
+    battle_stance_buff->enable_buff();
+    berserker_stance_buff->enable_buff();
+    defensive_stance_buff->enable_buff();
+    overpower_buff->enable_buff();
+    recklessness_buff->enable_buff();
+
+    this->sword_spec = new SwordSpecialization(pchar);
+    this->unbridled_wrath = new UnbridledWrath(pchar);
+}
+
+WarriorSpells::~WarriorSpells() {
+    delete sword_spec;
+    delete unbridled_wrath;
+
+    delete battle_shout_buff;
+    delete battle_stance_buff;
+    delete berserker_stance_buff;
+    delete defensive_stance_buff;
+    delete flurry;
+    delete overpower_buff;
+    delete recklessness_buff;
 }
 
 void WarriorSpells::mh_auto_attack(const int iteration) {
@@ -206,4 +241,40 @@ Recklessness* WarriorSpells::get_recklessness() const {
 
 void WarriorSpells::apply_deep_wounds() {
     deep_wounds->perform();
+}
+
+Buff* WarriorSpells::get_flurry() const {
+    return this->flurry;
+}
+
+Buff* WarriorSpells::get_battle_stance_buff() const {
+    return this->battle_stance_buff;
+}
+
+Buff* WarriorSpells::get_berserker_stance_buff() const {
+    return this->berserker_stance_buff;
+}
+
+Buff* WarriorSpells::get_defensive_stance_buff() const {
+    return this->defensive_stance_buff;
+}
+
+Buff* WarriorSpells::get_overpower_buff() const {
+    return this->overpower_buff;
+}
+
+Buff* WarriorSpells::get_battle_shout_buff() const {
+    return this->battle_shout_buff;
+}
+
+Buff* WarriorSpells::get_recklessness_buff() const {
+    return this->recklessness_buff;
+}
+
+Proc* WarriorSpells::get_sword_spec() const {
+    return this->sword_spec;
+}
+
+Proc* WarriorSpells::get_unbridled_wrath() const {
+    return this->unbridled_wrath;
 }

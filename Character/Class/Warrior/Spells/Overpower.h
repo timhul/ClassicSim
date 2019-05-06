@@ -5,13 +5,15 @@
 #include "TalentRequirer.h"
 
 class Warrior;
+class WarriorSpells;
 
 class Overpower: public Spell, public TalentRequirer {
 public:
-    Overpower(Character* pchar);
+    Overpower(Warrior* pchar, WarriorSpells* spells);
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
     QVector<unsigned> talent_ranks;
     unsigned crit_mod;
 

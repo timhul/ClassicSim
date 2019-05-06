@@ -131,7 +131,7 @@ void TestFlurryWarrior::test_all() {
 }
 
 void TestFlurryWarrior::test_name_correct() {
-    assert(warrior->get_flurry()->get_name() == "Flurry");
+    assert(spells->get_flurry()->get_name() == "Flurry");
 }
 
 void TestFlurryWarrior::test_has_15_second_duration() {
@@ -151,7 +151,7 @@ void TestFlurryWarrior::test_has_3_charges() {
 
     when_flurry_is_applied();
 
-    then_number_of_charges_is(warrior->get_flurry(), 3);
+    then_number_of_charges_is(spells->get_flurry(), 3);
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied() {
@@ -488,11 +488,11 @@ void TestFlurryWarrior::test_regular_hit_mortal_strike_does_not_apply_flurry() {
 
 void TestFlurryWarrior::given_flurry_enabled() {
     given_1_of_5_flurry();
-    assert(warrior->get_flurry()->is_enabled());
+    assert(spells->get_flurry()->is_enabled());
 }
 
 void TestFlurryWarrior::given_flurry_not_enabled() {
-    assert(warrior->get_flurry()->is_enabled() == false);
+    assert(spells->get_flurry()->is_enabled() == false);
 }
 
 void TestFlurryWarrior::given_flurry_is_not_active() {
@@ -505,14 +505,14 @@ void TestFlurryWarrior::given_a_mainhand_and_offhand_equipped() {
 }
 
 void TestFlurryWarrior::when_flurry_is_applied() {
-    assert(warrior->get_flurry()->is_active() == false);
-    warrior->get_flurry()->apply_buff();
-    assert(warrior->get_flurry()->is_active() == true);
+    assert(spells->get_flurry()->is_active() == false);
+    spells->get_flurry()->apply_buff();
+    assert(spells->get_flurry()->is_active() == true);
 }
 
 void TestFlurryWarrior::when_flurry_is_removed() {
-    while (warrior->get_flurry()->is_active()) {
-        warrior->get_flurry()->use_charge();
+    while (spells->get_flurry()->is_active()) {
+        spells->get_flurry()->use_charge();
     }
 }
 
@@ -598,9 +598,9 @@ void TestFlurryWarrior::when_performing_attack(Spell* spell) {
 }
 
 void TestFlurryWarrior::then_flurry_is_active() {
-    assert(warrior->get_flurry()->is_active());
+    assert(spells->get_flurry()->is_active());
 }
 
 void TestFlurryWarrior::then_flurry_is_not_active() {
-    assert(!warrior->get_flurry()->is_active());
+    assert(!spells->get_flurry()->is_active());
 }

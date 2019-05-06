@@ -7,11 +7,13 @@
 #include "SimSettings.h"
 #include "Utils/Check.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
-Execute::Execute(Character* pchar) :
+Execute::Execute(Warrior* pchar, WarriorSpells* spells) :
     Spell("Execute", "Assets/items/Inv_sword_48.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Execute", 2, DisabledAtZero::No)}),
-    warr(dynamic_cast<Warrior*>(pchar)),
+    warr(pchar),
+    spells(spells),
     execute_threshold(0.2)
 {
     spell_ranks = {QPair<int, int>(125, 3),
@@ -50,7 +52,7 @@ void Execute::spell_effect() {
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }

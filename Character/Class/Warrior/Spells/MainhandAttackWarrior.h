@@ -6,15 +6,17 @@
 
 class StatisticsResource;
 class Warrior;
+class WarriorSpells;
 
 class MainhandAttackWarrior: public MainhandAttack {
 public:
-    MainhandAttackWarrior(Character *pchar);
+    MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spells);
 
     void extra_attack() override;
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
     StatisticsResource* statistics_resource {nullptr};
 
     void spell_effect() override;

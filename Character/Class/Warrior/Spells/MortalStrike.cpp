@@ -4,11 +4,13 @@
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
-MortalStrike::MortalStrike(Character* pchar) :
+MortalStrike::MortalStrike(Warrior* pchar, WarriorSpells* spells) :
     Spell("Mortal Strike", "Assets/ability/Ability_warrior_savageblow.png", pchar, RestrictedByGcd::Yes, 6.0, ResourceType::Rage, 30),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Mortal Strike", 1, DisabledAtZero::Yes)}),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(pchar),
+    spells(spells)
 {
     this->enabled = false;
 }
@@ -26,7 +28,7 @@ void MortalStrike::spell_effect() {
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }

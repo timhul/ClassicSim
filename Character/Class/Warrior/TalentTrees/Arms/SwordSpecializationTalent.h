@@ -5,10 +5,11 @@
 
 class SwordSpecialization;
 class TalentTree;
+class Warrior;
 
 class SwordSpecializationTalent: public Talent {
 public:
-    SwordSpecializationTalent(Character *pchar, TalentTree* tree);
+    SwordSpecializationTalent(Warrior* pchar, TalentTree* tree);
     ~SwordSpecializationTalent() override;
 
 private:

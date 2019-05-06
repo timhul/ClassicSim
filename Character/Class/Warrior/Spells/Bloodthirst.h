@@ -5,13 +5,15 @@
 #include "TalentRequirer.h"
 
 class Warrior;
+class WarriorSpells;
 
 class Bloodthirst: public Spell, public TalentRequirer {
 public:
-    Bloodthirst(Character* pchar);
+    Bloodthirst(Warrior* pchar, WarriorSpells* spells);
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
 
     void spell_effect() override;
     SpellStatus is_ready_spell_specific() const override;

@@ -8,10 +8,11 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-HeroicStrike::HeroicStrike(Character* pchar) :
+HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells) :
     Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
-    warr(dynamic_cast<Warrior*>(pchar)),
+    warr(pchar),
+    spells(spells),
     hs_buff(new NoEffectBuff(pchar, BuffDuration::PERMANENT))
 {
     hs_buff->enable_buff();
@@ -47,7 +48,7 @@ void HeroicStrike::calculate_damage() {
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }

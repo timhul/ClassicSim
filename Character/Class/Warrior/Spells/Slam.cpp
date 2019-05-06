@@ -11,7 +11,7 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-Slam::Slam(Character* pchar) :
+Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
     SpellCastingTime("Slam", "Assets/ability/Ability_warrior_decisivestrike.png",
                      pchar, RestrictedByGcd::Yes,
                      0.0,
@@ -19,7 +19,8 @@ Slam::Slam(Character* pchar) :
                      15,
                      1500),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(pchar),
+    spells(spells)
 {
     talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
 }
@@ -58,7 +59,7 @@ void Slam::complete_cast_effect() {
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }

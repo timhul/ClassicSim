@@ -4,11 +4,13 @@
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
-Overpower::Overpower(Character* pchar) :
+Overpower::Overpower(Warrior* pchar, WarriorSpells* spells) :
     Spell("Overpower", "Assets/items/Inv_sword_05.png", pchar, RestrictedByGcd::Yes, 5.0, ResourceType::Rage, 5),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(pchar),
+    spells(spells)
 {
     this->talent_ranks = {0, 2500, 5000};
     crit_mod = talent_ranks[0];
@@ -19,7 +21,7 @@ SpellStatus Overpower::is_ready_spell_specific() const {
         return SpellStatus::InDefensiveStance;
     if (warr->in_berserker_stance())
         return SpellStatus::InBerserkerStance;
-    if (!warr->get_overpower_buff()->is_active())
+    if (!spells->get_overpower_buff()->is_active())
         return SpellStatus::BuffInactive;
 
     return warr->on_stance_cooldown() ? SpellStatus::OnStanceCooldown : SpellStatus::Available;
@@ -34,7 +36,7 @@ void Overpower::spell_effect() {
                                                       false,
                                                       true);
 
-    warr->get_overpower_buff()->cancel_buff();
+    spells->get_overpower_buff()->cancel_buff();
     add_gcd_event();
     add_spell_cd_event();
     warr->lose_rage(resource_cost);

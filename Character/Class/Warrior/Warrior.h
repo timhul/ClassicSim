@@ -3,15 +3,7 @@
 
 #include "Character.h"
 
-class BattleShoutBuff;
-class BerserkerStanceBuff;
-class Buff;
-class DefensiveStanceBuff;
-class Flurry;
 class Rage;
-class RecklessnessBuff;
-class SwordSpecialization;
-class UnbridledWrath;
 class WarriorSpells;
 
 namespace WarriorStances {
@@ -59,16 +51,6 @@ public:
     bool in_berserker_stance() const;
     bool in_defensive_stance() const;
 
-    Flurry* get_flurry() const;
-    SwordSpecialization* get_sword_spec() const;
-    UnbridledWrath* get_unbridled_wrath() const;
-    Buff* get_battle_stance_buff() const;
-    BerserkerStanceBuff* get_berserker_stance_buff() const;
-    DefensiveStanceBuff* get_defensive_stance_buff() const;
-    BattleShoutBuff* get_battle_shout_buff() const;
-    Buff* get_overpower_buff() const;
-    RecklessnessBuff* get_recklessness_buff() const;
-
     void melee_mh_white_critical_effect() override;
     void melee_mh_yellow_critical_effect() override;
     void melee_oh_white_critical_effect() override;
@@ -81,15 +63,6 @@ private:
     double rage_conversion_value{};
     class Rage* rage;
     WarriorSpells* warr_spells;
-    BattleShoutBuff* battle_shout_buff;
-    BerserkerStanceBuff* berserker_stance_buff;
-    Buff* battle_stance_buff;
-    Buff* overpower_buff;
-    DefensiveStanceBuff* defensive_stance_buff;
-    Flurry* flurry;
-    RecklessnessBuff* recklessness_buff;
-    SwordSpecialization* sword_spec;
-    UnbridledWrath* unbridled_wrath;
 
     void initialize_talents() override;
     void new_stance_effect();

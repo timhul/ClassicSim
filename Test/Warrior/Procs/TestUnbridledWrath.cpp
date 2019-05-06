@@ -6,6 +6,7 @@
 #include "Talent.h"
 #include "UnbridledWrath.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
 TestUnbridledWrath::TestUnbridledWrath(EquipmentDb* equipment_db) :
     TestProcWarrior(equipment_db, "Unbridled Wrath")
@@ -42,11 +43,11 @@ void TestUnbridledWrath::test_all() {
 }
 
 UnbridledWrath* TestUnbridledWrath::unbridled_wrath() {
-    return warrior->get_unbridled_wrath();
+    return dynamic_cast<UnbridledWrath*>(spells->get_unbridled_wrath());
 }
 
 void TestUnbridledWrath::test_name_correct() {
-    assert(warrior->get_unbridled_wrath()->get_name() == "Unbridled Wrath");
+    assert(spells->get_unbridled_wrath()->get_name() == "Unbridled Wrath");
 }
 
 void TestUnbridledWrath::test_proc_range_for_1_of_5_unbridled_wrath() {
@@ -130,8 +131,8 @@ void TestUnbridledWrath::given_5_of_5_unbridled_wrath() {
 }
 
 void TestUnbridledWrath::test_proc_sources_are_valid() {
-    assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::MainhandSpell));
-    assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::MainhandSwing));
-    assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSpell));
-    assert(warrior->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSwing));
+    assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::MainhandSpell));
+    assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::MainhandSwing));
+    assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSpell));
+    assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSwing));
 }

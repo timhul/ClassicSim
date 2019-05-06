@@ -40,7 +40,8 @@ public:
     void then_overpower_is_active();
 
 protected:
-    Warrior* warrior;
+    Warrior* warrior {nullptr};
+    WarriorSpells* spells {nullptr};
 };
 
 #endif // TESTSPELLWARRIOR_H

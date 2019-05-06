@@ -1,32 +1,20 @@
 #include "Warrior.h"
 
 #include "Arms.h"
-#include "BattleShoutBuff.h"
-#include "BerserkerStanceBuff.h"
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
-#include "DefensiveStanceBuff.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Engine.h"
 #include "Equipment.h"
-#include "Flurry.h"
 #include "Fury.h"
-#include "MainhandAttackWarrior.h"
-#include "MainhandMeleeHit.h"
-#include "NoEffectBuff.h"
-#include "OffhandAttackWarrior.h"
-#include "OffhandMeleeHit.h"
 #include "PlayerAction.h"
 #include "Protection.h"
 #include "Race.h"
 #include "Rage.h"
-#include "RecklessnessBuff.h"
 #include "Stats.h"
-#include "SwordSpecialization.h"
 #include "Talents.h"
-#include "UnbridledWrath.h"
 #include "Utils/Check.h"
 #include "WarriorEnchants.h"
 #include "WarriorSpells.h"
@@ -64,23 +52,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->warr_spells = new WarriorSpells(this);
     this->spells = warr_spells;
 
-    this->battle_shout_buff = new BattleShoutBuff(this);
-    this->battle_stance_buff = new NoEffectBuff(this, BuffDuration::PERMANENT, "Battle Stance");
-    this->berserker_stance_buff = new BerserkerStanceBuff(this);
-    this->defensive_stance_buff = new DefensiveStanceBuff(this);
-    this->flurry = new Flurry(this);
-    this->overpower_buff = new NoEffectBuff(this, 5, "Overpower");
-    this->recklessness_buff = new RecklessnessBuff(this);
-    battle_shout_buff->enable_buff();
-    battle_stance_buff->enable_buff();
-    berserker_stance_buff->enable_buff();
-    defensive_stance_buff->enable_buff();
-    overpower_buff->enable_buff();
-    recklessness_buff->enable_buff();
-
-    this->sword_spec = new SwordSpecialization(this);
-    this->unbridled_wrath = new UnbridledWrath(this);
-
     initialize_talents();
 
     spells->activate_racials();
@@ -94,17 +65,6 @@ Warrior::~Warrior() {
     delete available_enchants;
     delete cstats;
     delete warr_spells;
-    // TODO: Create a WarriorProcs class.
-    delete unbridled_wrath;
-    delete sword_spec;
-    // TODO: Create a WarriorBuffs class.
-    delete battle_shout_buff;
-    delete battle_stance_buff;
-    delete berserker_stance_buff;
-    delete defensive_stance_buff;
-    delete flurry;
-    delete overpower_buff;
-    delete recklessness_buff;
     delete rage;
 }
 
@@ -171,42 +131,6 @@ void Warrior::set_clvl(const int clvl) {
     this->rage_conversion_value = 0.0091107836 * std::pow(clvl, 2) + 3.225598133 * clvl + 4.2652911;
 }
 
-Flurry* Warrior::get_flurry() const {
-    return this->flurry;
-}
-
-Buff* Warrior::get_battle_stance_buff() const {
-    return this->battle_stance_buff;
-}
-
-BerserkerStanceBuff* Warrior::get_berserker_stance_buff() const {
-    return this->berserker_stance_buff;
-}
-
-DefensiveStanceBuff* Warrior::get_defensive_stance_buff() const {
-    return this->defensive_stance_buff;
-}
-
-SwordSpecialization* Warrior::get_sword_spec() const {
-    return this->sword_spec;
-}
-
-UnbridledWrath* Warrior::get_unbridled_wrath() const {
-    return this->unbridled_wrath;
-}
-
-Buff* Warrior::get_overpower_buff() const {
-    return this->overpower_buff;
-}
-
-BattleShoutBuff* Warrior::get_battle_shout_buff() const {
-    return this->battle_shout_buff;
-}
-
-RecklessnessBuff* Warrior::get_recklessness_buff() const {
-    return this->recklessness_buff;
-}
-
 int Warrior::get_highest_possible_armor_type() const {
     return ArmorTypes::PLATE;
 }
@@ -268,10 +192,10 @@ bool Warrior::on_stance_cooldown() const {
 void Warrior::new_stance_effect() {
     switch (this->stance) {
     case WarriorStances::Berserker:
-        berserker_stance_buff->apply_buff();
+        warr_spells->get_berserker_stance_buff()->apply_buff();
         break;
     case WarriorStances::Defensive:
-        defensive_stance_buff->apply_buff();
+        warr_spells->get_defensive_stance_buff()->apply_buff();
         break;
     }
 
@@ -289,10 +213,10 @@ void Warrior::new_stance_effect() {
 void Warrior::switch_to_battle_stance() {
     switch (this->stance) {
     case WarriorStances::Berserker:
-        berserker_stance_buff->cancel_buff();
+        warr_spells->get_berserker_stance_buff()->cancel_buff();
         break;
     case WarriorStances::Defensive:
-        defensive_stance_buff->cancel_buff();
+        warr_spells->get_defensive_stance_buff()->cancel_buff();
         break;
     }
 
@@ -303,7 +227,7 @@ void Warrior::switch_to_battle_stance() {
 void Warrior::switch_to_berserker_stance() {
     switch (this->stance) {
     case WarriorStances::Defensive:
-        defensive_stance_buff->cancel_buff();
+        warr_spells->get_defensive_stance_buff()->cancel_buff();
         break;
     }
 
@@ -314,7 +238,7 @@ void Warrior::switch_to_berserker_stance() {
 void Warrior::switch_to_defensive_stance() {
     switch (this->stance) {
     case WarriorStances::Berserker:
-        berserker_stance_buff->cancel_buff();
+        warr_spells->get_berserker_stance_buff()->cancel_buff();
         break;
     }
 
@@ -335,28 +259,28 @@ bool Warrior::in_defensive_stance() const {
 }
 
 void Warrior::melee_mh_white_critical_effect() {
-    flurry->apply_buff();
+    warr_spells->get_flurry()->apply_buff();
     warr_spells->apply_deep_wounds();
 
     enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
 }
 
 void Warrior::melee_mh_yellow_critical_effect() {
-    flurry->apply_buff();
+    warr_spells->get_flurry()->apply_buff();
     warr_spells->apply_deep_wounds();
 
     enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
 }
 
 void Warrior::melee_oh_white_critical_effect() {
-    flurry->apply_buff();
+    warr_spells->get_flurry()->apply_buff();
     warr_spells->apply_deep_wounds();
 
     enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
 }
 
 void Warrior::melee_oh_yellow_critical_effect() {
-    flurry->apply_buff();
+    warr_spells->get_flurry()->apply_buff();
     warr_spells->apply_deep_wounds();
 
     enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);

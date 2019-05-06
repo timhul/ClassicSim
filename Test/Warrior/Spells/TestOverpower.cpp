@@ -220,8 +220,8 @@ void TestOverpower::test_overpower_miss_removes_buff() {
 }
 
 void TestOverpower::given_no_overpower_buff() {
-    warrior->get_overpower_buff()->cancel_buff();
-    assert(!warrior->get_overpower_buff()->is_active());
+    spells->get_overpower_buff()->cancel_buff();
+    assert(!spells->get_overpower_buff()->is_active());
 }
 
 void TestOverpower::when_overpower_is_performed() {
@@ -232,10 +232,10 @@ void TestOverpower::when_overpower_is_performed() {
 }
 
 void TestOverpower::when_overpower_buff_is_applied() {
-    warrior->get_overpower_buff()->apply_buff();
-    assert(warrior->get_overpower_buff()->is_active());
+    spells->get_overpower_buff()->apply_buff();
+    assert(spells->get_overpower_buff()->is_active());
 }
 
 void TestOverpower::then_overpower_is_inactive() {
-    assert(warrior->get_overpower_buff()->is_active() == false);
+    assert(spells->get_overpower_buff()->is_active() == false);
 }

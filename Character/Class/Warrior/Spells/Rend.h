@@ -8,14 +8,16 @@
 
 class Buff;
 class Warrior;
+class WarriorSpells;
 
 class Rend: public Spell, public TalentRequirer {
 public:
-    Rend(Character* pchar);
+    Rend(Warrior* pchar, WarriorSpells* spells);
     ~Rend() override;
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
     Buff* buff;
     double talent_modifier;
     double damage_remaining;

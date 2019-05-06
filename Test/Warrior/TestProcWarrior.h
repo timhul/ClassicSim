@@ -2,15 +2,17 @@
 #define TESTPROCWARRIOR_H
 
 #include "TestProc.h"
-#include "Warrior.h"
+
+class Warrior;
+class WarriorSpells;
 
 class TestProcWarrior: public TestProc {
 public:
     TestProcWarrior(EquipmentDb* equipment_db, QString proc_under_test);
 
-
 protected:
-    Warrior* warrior{};
+    Warrior* warrior {nullptr};
+    WarriorSpells* spells {nullptr};
 
     void set_up();
     void tear_down();

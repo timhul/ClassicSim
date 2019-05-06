@@ -7,13 +7,15 @@
 #include "TalentRequirer.h"
 
 class Warrior;
+class WarriorSpells;
 
 class Slam: public SpellCastingTime, public TalentRequirer {
 public:
-    Slam(Character* pchar);
+    Slam(Warrior* pchar, WarriorSpells* spells);
 
 private:
     Warrior* warr;
+    WarriorSpells* spells;
     QVector<unsigned> talent_ranks;
 
     void spell_effect() override;

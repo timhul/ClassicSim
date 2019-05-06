@@ -7,6 +7,7 @@
 #include "SwordSpecialization.h"
 #include "SwordSpecializationTalent.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 #include "Weapon.h"
 
 TestSwordSpecialization::TestSwordSpecialization(EquipmentDb* equipment_db) :
@@ -64,7 +65,7 @@ void TestSwordSpecialization::test_all() {
 }
 
 void TestSwordSpecialization::test_name_correct() {
-    assert(warrior->get_sword_spec()->get_name() == "Sword Specialization");
+    assert(spells->get_sword_spec()->get_name() == "Sword Specialization");
 }
 
 void TestSwordSpecialization::test_proc_range_for_1_of_5_sword_spec() {
@@ -334,12 +335,12 @@ void TestSwordSpecialization::test_oh_proc_conditions_fulfilled_if_using_sword_i
 }
 
 void TestSwordSpecialization::test_proc_sources_are_valid() {
-    assert(warrior->get_sword_spec()->procs_from_source(ProcInfo::Source::MainhandSpell));
-    assert(warrior->get_sword_spec()->procs_from_source(ProcInfo::Source::MainhandSwing));
-    assert(warrior->get_sword_spec()->procs_from_source(ProcInfo::Source::OffhandSpell));
-    assert(warrior->get_sword_spec()->procs_from_source(ProcInfo::Source::OffhandSwing));
+    assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::MainhandSpell));
+    assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::MainhandSwing));
+    assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::OffhandSpell));
+    assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::OffhandSwing));
 }
 
-SwordSpecialization* TestSwordSpecialization::sword_spec() {
-    return warrior->get_sword_spec();
+Proc* TestSwordSpecialization::sword_spec() {
+    return spells->get_sword_spec();
 }

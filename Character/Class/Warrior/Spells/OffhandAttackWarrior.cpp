@@ -9,12 +9,14 @@
 #include "RecklessnessBuff.h"
 #include "StatisticsResource.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 #include "Weapon.h"
 
-OffhandAttackWarrior::OffhandAttackWarrior(Character* pchar) :
+OffhandAttackWarrior::OffhandAttackWarrior(Warrior* pchar, WarriorSpells* spells) :
     OffhandAttack(pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Dual Wield Specialization", 5, DisabledAtZero::No)}),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(pchar),
+    spells(spells)
 {
     talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
     offhand_penalty = talent_ranks[0];
@@ -37,7 +39,7 @@ void OffhandAttackWarrior::spell_effect() {
     const int result = calculate_damage();
 
     if (result == PhysicalAttackResult::HIT || result == PhysicalAttackResult::GLANCING)
-        warr->get_flurry()->use_charge();
+        spells->get_flurry()->use_charge();
 }
 
 int OffhandAttackWarrior::calculate_damage() {
@@ -51,7 +53,7 @@ int OffhandAttackWarrior::calculate_damage() {
 
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->gain_rage(warr->rage_gained_from_dd(warr->get_avg_mh_damage()));
         return result;
     }
@@ -66,7 +68,7 @@ int OffhandAttackWarrior::calculate_damage() {
         return result;
     }
 
-    if (warr->get_recklessness_buff()->is_active())
+    if (spells->get_recklessness_buff()->is_active())
         result = PhysicalAttackResult::CRITICAL;
 
     double damage_dealt = damage_after_modifiers(warr->get_random_non_normalized_oh_dmg() * offhand_penalty);

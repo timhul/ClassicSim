@@ -5,11 +5,13 @@
 #include "CombatRoll.h"
 #include "Utils/Check.h"
 #include "Warrior.h"
+#include "WarriorSpells.h"
 
-Hamstring::Hamstring(Character* pchar) :
+Hamstring::Hamstring(Warrior* pchar, WarriorSpells* spells) :
     Spell("Hamstring", "Assets/ability/Ability_shockwave.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
     ItemModificationRequirer({16484, 16548, 22868, 23286}),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(pchar),
+    spells(spells)
 {}
 
 void Hamstring::spell_effect() {
@@ -24,7 +26,7 @@ void Hamstring::spell_effect() {
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        warr->get_overpower_buff()->apply_buff();
+        spells->get_overpower_buff()->apply_buff();
         warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
         return;
     }
