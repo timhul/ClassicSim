@@ -55,6 +55,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18542" phase="1">
+		<info name="Typhoon" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_41.png"/>
+		<dmg_range min="150" max="225" speed="2.9"/>
+		<stats>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="AGILITY" value="20"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="PARRY_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+        Drops from Azuregos (world boss).
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18876" phase="1">
 		<info name="Grand Marshal's Claymore" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_sword_39.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
@@ -113,6 +127,31 @@
 		<flavour_text>
         "The initials A.L. are etched on the hilt."
 		</flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="19854" phase="3">
+		<info name="Zin'rokh, Destroyer of Worlds" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_55.png"/>
+		<dmg_range min="196" max="295" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="28"/>
+			<stat type="ATTACK_POWER" value="72"/>
+		</stats>
+		<source>
+        Drops from Hakkar in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21492" phase="4">
+		<info name="Manslayer of the Qiraji" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_sword_56.png"/>
+		<dmg_range min="180" max="270" speed="3.6"/>
+		<stats>
+			<stat type="STRENGTH" value="35"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="AGILITY" value="15"/>
+		</stats>
+		<source>
+        Drops from General Rajaxx in Ruins of Ahn'Qiraj (AQ20).
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="21679" phase="4">
