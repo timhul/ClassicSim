@@ -16,6 +16,9 @@ public:
     virtual QVector<EnchantName::Name> get_available_enchants(const int equipment_slot) const = 0;
     virtual QVector<EnchantName::Name> get_available_temp_enchants(const int equipment_slot) const = 0;
 
+    bool enchant_valid(EnchantName::Name enchant_name, const int weapon_slot) const;
+    bool temp_enchant_valid(EnchantName::Name enchant_name, const int weapon_slot, const int equipment_slot) const;
+
 protected:
     Character* pchar;
 

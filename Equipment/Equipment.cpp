@@ -3,6 +3,7 @@
 #include <QSet>
 
 #include "Character.h"
+#include "CharacterEnchants.h"
 #include "EquipmentDb.h"
 #include "Faction.h"
 #include "Hunter.h"
@@ -162,15 +163,13 @@ void Equipment::apply_current_enchants() {
     if (get_mainhand())
         get_mainhand()->apply_enchant(item_enchants[setup_index][EquipmentSlot::MAINHAND], pchar, WeaponSlots::MAINHAND);
     if (get_mainhand())
-        get_mainhand()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::MAINHAND], pchar, WeaponSlots::MAINHAND);
+        get_mainhand()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::MAINHAND], pchar, EnchantSlot::MAINHAND);
     if (get_offhand())
         get_offhand()->apply_enchant(item_enchants[setup_index][EquipmentSlot::OFFHAND], pchar, WeaponSlots::OFFHAND);
     if (get_offhand())
-        get_offhand()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::OFFHAND], pchar, WeaponSlots::OFFHAND);
+        get_offhand()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::OFFHAND], pchar, EnchantSlot::OFFHAND);
     if (get_ranged())
         get_ranged()->apply_enchant(item_enchants[setup_index][EquipmentSlot::RANGED], pchar, WeaponSlots::RANGED);
-    if (get_ranged())
-        get_ranged()->apply_temporary_enchant(item_temp_enchants[setup_index][EquipmentSlot::RANGED], pchar, WeaponSlots::RANGED);
     if (get_head())
         get_head()->apply_enchant(item_enchants[setup_index][EquipmentSlot::HEAD], pchar);
     if (get_shoulders())
@@ -849,12 +848,17 @@ SetBonusControl* Equipment::get_set_bonus_control() const {
 void Equipment::equip(Item*& current, Item* next, const int eq_slot) {
     check((next != nullptr), "next nullptr");
 
+    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() :
+                                                             EnchantName::NoEnchant;
+
     unequip(current, eq_slot);
     current = next;
     current->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
     item_setups[setup_index][eq_slot] = current->get_item_id();
     set_bonuses->equip_item(current->get_item_id());
+
+    current->apply_enchant(current_enchant, pchar);
 }
 
 void Equipment::unequip(Item*& item, const int eq_slot) {
@@ -871,12 +875,26 @@ void Equipment::unequip(Item*& item, const int eq_slot) {
 void Equipment::equip(Weapon*& current, Weapon *next, const int eq_slot) {
     check((next != nullptr), "next nullptr");
 
+    EnchantName::Name current_enchant = current != nullptr ? current->get_enchant_enum_value() :
+                                                             EnchantName::NoEnchant;
+    EnchantName::Name current_temp_enchant = current != nullptr ? current->get_temporary_enchant_enum_value() :
+                                                                  EnchantName::NoEnchant;
+
     unequip(current, eq_slot);
+
     current = next;
     current->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
     item_setups[setup_index][eq_slot] = current->get_item_id();
     set_bonuses->equip_item(current->get_item_id());
+
+    if (pchar->get_enchants()->enchant_valid(current_enchant, current->get_weapon_slot()))
+        current->apply_enchant(current_enchant, pchar, current->get_weapon_slot());
+
+    int enchant_slot = eq_slot == EquipmentSlot::MAINHAND ? EnchantSlot::MAINHAND :
+                                                            EnchantSlot::OFFHAND;
+    if (pchar->get_enchants()->temp_enchant_valid(current_temp_enchant, current->get_weapon_slot(), eq_slot))
+        current->apply_temporary_enchant(current_temp_enchant, pchar, enchant_slot);
 }
 
 void Equipment::unequip(Weapon*& item, const int eq_slot) {

@@ -123,7 +123,10 @@ void Test::test_combat_roll_creation() {
 }
 
 void Test::test_equipment_creation() {
-    auto* equipment = new Equipment(equipment_db, nullptr);
+    auto* race = new Orc();
+    auto* sim_settings = new SimSettings();
+    auto* pchar = new Warrior(race, equipment_db, sim_settings);
+    auto* equipment = pchar->get_equipment();
     equipment->set_mainhand(19103);
     Weapon* mh = equipment->get_mainhand();
 
@@ -143,7 +146,9 @@ void Test::test_equipment_creation() {
     assert(ranged->get_max_dmg() == 129);
     assert(almost_equal(2.5, ranged->get_base_weapon_speed()));
 
-    delete equipment;
+    delete sim_settings;
+    delete race;
+    delete pchar;
 }
 
 void Test::test_character_creation() {

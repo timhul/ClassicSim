@@ -231,12 +231,12 @@ void CharacterLoader::apply_external_debuffs(CharacterDecoder& decoder, Characte
 void CharacterLoader::apply_enchants(CharacterDecoder& decoder, Character* pchar) {
     if (pchar->get_equipment()->get_mainhand() != nullptr) {
         pchar->get_equipment()->get_mainhand()->apply_enchant(get_enum_val(decoder.get_value("MH_ENCHANT")), pchar, WeaponSlots::MAINHAND);
-        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar, WeaponSlots::MAINHAND);
+        pchar->get_equipment()->get_mainhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("MH_TEMPORARY_ENCHANT")), pchar, EnchantSlot::MAINHAND);
     }
 
     if (pchar->get_equipment()->get_offhand() != nullptr) {
         pchar->get_equipment()->get_offhand()->apply_enchant(get_enum_val(decoder.get_value("OH_ENCHANT")), pchar, WeaponSlots::OFFHAND);
-        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar, WeaponSlots::OFFHAND);
+        pchar->get_equipment()->get_offhand()->apply_temporary_enchant(get_enum_val(decoder.get_value("OH_TEMPORARY_ENCHANT")), pchar, EnchantSlot::OFFHAND);
     }
 
     if (pchar->get_equipment()->get_ranged() != nullptr)
