@@ -7,8 +7,9 @@
 
 UnbridledWrath::UnbridledWrath(Character* pchar) :
     Proc("Unbridled Wrath", "Assets/spell/Spell_nature_stoneclawtotem.png", 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
-                                    ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
+         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell,
+                                    ProcInfo::Source::MainhandSwing,
+                                    ProcInfo::Source::OffhandSwing}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Unbridled Wrath", 5, DisabledAtZero::Yes)}),
     statistics_resource(nullptr),

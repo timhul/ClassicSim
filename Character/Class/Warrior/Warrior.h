@@ -54,7 +54,6 @@ public:
     void melee_mh_white_critical_effect() override;
     void melee_mh_yellow_critical_effect() override;
     void melee_oh_white_critical_effect() override;
-    void melee_oh_yellow_critical_effect() override;
 
 private:
     int stance;

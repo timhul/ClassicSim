@@ -17,7 +17,7 @@ Crusader::Crusader(Character* pchar, const QString& weapon_identifier, const int
         proc_sources.append({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing});
         break;
     case EnchantSlot::OFFHAND:
-        proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
+        proc_sources.append({ProcInfo::Source::OffhandSwing});
         break;
     default:
         check(false, "Crusader constructor reached end of switch");

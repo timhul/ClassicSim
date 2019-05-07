@@ -204,7 +204,7 @@ bool Character::action_ready() const {
 }
 
 void Character::melee_mh_white_hit_effect() {
-    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
+    enabled_procs->run_proc_check(ProcInfo::Source::MainhandSwing);
 }
 
 void Character::melee_mh_white_critical_effect() {
@@ -212,7 +212,7 @@ void Character::melee_mh_white_critical_effect() {
 }
 
 void Character::melee_mh_yellow_hit_effect() {
-    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
+    enabled_procs->run_proc_check(ProcInfo::Source::MainhandSpell);
 }
 
 void Character::melee_mh_yellow_critical_effect() {
@@ -220,27 +220,19 @@ void Character::melee_mh_yellow_critical_effect() {
 }
 
 void Character::melee_oh_white_hit_effect() {
-    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
+    enabled_procs->run_proc_check(ProcInfo::Source::OffhandSwing);
 }
 
 void Character::melee_oh_white_critical_effect() {
     melee_oh_white_hit_effect();
 }
 
-void Character::melee_oh_yellow_hit_effect() {
-    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
-}
-
-void Character::melee_oh_yellow_critical_effect() {
-    melee_oh_yellow_hit_effect();
-}
-
 void Character::ranged_white_hit_effect() {
-    enabled_procs->run_proc_effects(ProcInfo::Source::RangedAutoShot);
+    enabled_procs->run_proc_check(ProcInfo::Source::RangedAutoShot);
 }
 
 void Character::ranged_yellow_hit_effect() {
-    enabled_procs->run_proc_effects(ProcInfo::Source::RangedSpell);
+    enabled_procs->run_proc_check(ProcInfo::Source::RangedSpell);
 }
 
 void Character::spell_hit_effect() {

@@ -45,7 +45,7 @@ unsigned Proc::get_proc_range() const {
 }
 
 void Proc::enable_proc() {
-    procs->add_proc_effect(this);
+    procs->add_proc(this);
 }
 
 void Proc::disable_proc() {

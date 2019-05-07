@@ -39,7 +39,7 @@ InstantPoison::InstantPoison(Character* pchar, const QString& weapon_side, const
         proc_sources.append({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing});
         break;
     case EnchantSlot::OFFHAND:
-        proc_sources.append({ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing});
+        proc_sources.append({ProcInfo::Source::OffhandSwing});
         break;
     default:
         check(false, "InstantPoison constructor reached end of switch");

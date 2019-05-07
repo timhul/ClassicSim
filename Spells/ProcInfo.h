@@ -8,10 +8,9 @@ enum Source {
     MainhandSwing = 0,
     OffhandSwing,
     MainhandSpell,
-    OffhandSpell,
     RangedAutoShot,
     RangedSpell,
-    Manual
+    Manual,
 };
 
 }

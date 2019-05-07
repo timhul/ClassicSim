@@ -262,28 +262,21 @@ void Warrior::melee_mh_white_critical_effect() {
     warr_spells->get_flurry()->apply_buff();
     warr_spells->apply_deep_wounds();
 
-    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSwing);
+    enabled_procs->run_proc_check(ProcInfo::Source::MainhandSwing);
 }
 
 void Warrior::melee_mh_yellow_critical_effect() {
     warr_spells->get_flurry()->apply_buff();
     warr_spells->apply_deep_wounds();
 
-    enabled_procs->run_proc_effects(ProcInfo::Source::MainhandSpell);
+    enabled_procs->run_proc_check(ProcInfo::Source::MainhandSpell);
 }
 
 void Warrior::melee_oh_white_critical_effect() {
     warr_spells->get_flurry()->apply_buff();
     warr_spells->apply_deep_wounds();
 
-    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSwing);
-}
-
-void Warrior::melee_oh_yellow_critical_effect() {
-    warr_spells->get_flurry()->apply_buff();
-    warr_spells->apply_deep_wounds();
-
-    enabled_procs->run_proc_effects(ProcInfo::Source::OffhandSpell);
+    enabled_procs->run_proc_check(ProcInfo::Source::OffhandSwing);
 }
 
 void Warrior::initialize_talents() {

@@ -337,7 +337,6 @@ void TestSwordSpecialization::test_oh_proc_conditions_fulfilled_if_using_sword_i
 void TestSwordSpecialization::test_proc_sources_are_valid() {
     assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::MainhandSpell));
     assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::MainhandSwing));
-    assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::OffhandSpell));
     assert(spells->get_sword_spec()->procs_from_source(ProcInfo::Source::OffhandSwing));
 }
 

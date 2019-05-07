@@ -133,6 +133,5 @@ void TestUnbridledWrath::given_5_of_5_unbridled_wrath() {
 void TestUnbridledWrath::test_proc_sources_are_valid() {
     assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::MainhandSpell));
     assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::MainhandSwing));
-    assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSpell));
     assert(spells->get_unbridled_wrath()->procs_from_source(ProcInfo::Source::OffhandSwing));
 }

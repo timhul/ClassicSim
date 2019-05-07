@@ -12,8 +12,9 @@
 
 SwordSpecialization::SwordSpecialization(Character* pchar) :
     Proc("Sword Specialization", "Assets/items/Inv_sword_27.png", 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell, ProcInfo::Source::MainhandSwing,
-                                    ProcInfo::Source::OffhandSpell, ProcInfo::Source::OffhandSwing}),
+         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell,
+                                    ProcInfo::Source::MainhandSwing,
+                                    ProcInfo::Source::OffhandSwing}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Sword Specialization", 5, DisabledAtZero::Yes)}),
     warr(pchar)
@@ -41,7 +42,6 @@ bool SwordSpecialization::proc_specific_conditions_fulfilled() const {
     case ProcInfo::Source::MainhandSpell:
     case ProcInfo::Source::MainhandSwing:
         return weapon_is_sword(warr->get_stats()->get_equipment()->get_mainhand());
-    case ProcInfo::Source::OffhandSpell:
     case ProcInfo::Source::OffhandSwing:
         return weapon_is_sword(warr->get_stats()->get_equipment()->get_offhand());
     default:
