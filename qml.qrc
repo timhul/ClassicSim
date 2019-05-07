@@ -626,5 +626,16 @@
         <file>QML/Assets/items/Inv_sword_56.png</file>
         <file>QML/Assets/items/Inv_sword_28.png</file>
         <file>QML/Assets/items/Inv_sword_41.png</file>
+        <file>QML/Assets/items/Inv_mace_25.png</file>
+        <file>QML/Assets/items/Inv_mace_26.png</file>
+        <file>QML/Assets/items/Inv_hammer_03.png</file>
+        <file>QML/Assets/items/Inv_hammer_10.png</file>
+        <file>QML/Assets/items/Inv_hammer_23.png</file>
+        <file>QML/Assets/items/Inv_mace_09.png</file>
+        <file>QML/Assets/items/Inv_gizmo_02.png</file>
+        <file>QML/Assets/items/Inv_hammer_13.png</file>
+        <file>QML/Assets/items/Inv_mace_05.png</file>
+        <file>QML/Assets/items/Inv_mace_19.png</file>
+        <file>QML/Assets/items/Inv_mace_21.png</file>
     </qresource>
 </RCC>

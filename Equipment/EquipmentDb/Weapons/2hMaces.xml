@@ -10,7 +10,204 @@
 		Chance on hit: Knocks down all nearby enemies for 3 sec.
 		</special_equip_effect>
 		<source>
-		Dropped by Magmadar in Molten Core.
+		Drops from Magmadar in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18803" phase="0">
+		<info name="Finkle's Lava Dredger" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_gizmo_02.png"/>
+		<dmg_range min="155" max="234" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="25"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+			<stat type="MANA_PER_5" value="9"/>
+		</stats>
+		<flavour_text>
+		"Property of Finkle Einhorn, Grandmaster Adventurer"
+		</flavour_text>
+		<source>
+		Drops from Majordomo Executus in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18867" phase="1">
+		<info name="Grand Marshal's Battle Hammer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_hammer_03.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18868" phase="1">
+		<info name="High Warlord's Pulverizer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_hammer_10.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="23455" phase="1">
+		<info name="Grand Marshal's Demolisher" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_hammer_23.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="27"/>
+			<stat type="MANA_PER_5" value="7"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="23465" phase="1">
+		<info name="High Warlord's Destroyer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_mace_09.png"/>
+		<dmg_range min="235" max="353" speed="3.8"/>
+		<stats>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="27"/>
+			<stat type="MANA_PER_5" value="7"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19323" phase="2">
+		<info name="The Unstoppable Force" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_hammer_13.png"/>
+		<dmg_range min="175" max="292" speed="3.8"/>
+		<stats>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<special_equip_effect>
+		Chance on hit: Stuns target for 1 sec.
+		</special_equip_effect>
+		<source>
+		Purchased with gold. Requires Exalted with Alterac Valley faction.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19358" phase="2">
+		<info name="Draconic Maul" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_mace_05.png"/>
+		<dmg_range min="187" max="282" speed="3.5"/>
+		<stats>
+			<stat type="STRENGTH" value="27"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19357" phase="2">
+		<info name="Herald of Woe" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_mace_05.png"/>
+		<dmg_range min="199" max="300" speed="3.4"/>
+		<stats>
+			<stat type="STRENGTH" value="31"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="SPIRIT" value="17"/>
+			<stat type="STAMINA" value="22"/>
+		</stats>
+		<source>
+		Drops from Flamegor in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19918" phase="3">
+		<info name="Jeklik's Crusher" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_mace_19.png"/>
+		<dmg_range min="159" max="248" speed="3.6"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="PHYSICAL_ATTACK" min="200" max="221" instant="yes" rate="0.05" internal_cd="0"/>
+		</proc>
+		<special_equip_effect>
+		Chance on hit: Wounds  the target for 200 to 221 damage.
+		</special_equip_effect>
+		<source>
+		Drops from High Priestess Jeklik in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21806" phase="4">
+		<info name="Gavel of Qiraji Authority" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_hammer_04.png"/>
+		<dmg_range min="108" max="162" speed="2.2"/>
+		<stats>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPELL_DAMAGE" value="19"/>
+			<stat type="MANA_PER_5" value="6"/>
+		</stats>
+		<source>
+		Drops from captains spawned during General Rajaxx encounter in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21188" phase="4">
+		<info name="Fist of Cenarius" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_23.png"/>
+		<dmg_range min="175" max="263" speed="3.5"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="40"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Quest reward. Requires Exalted with Cenarion Circle.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21703" phase="4">
+		<info name="Hammer of Ji'zhi" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_mace_21.png"/>
+		<dmg_range min="198" max="297" speed="3.5"/>
+		<stats>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="STRENGTH" value="16"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+		</stats>
+		<source>
+		Drops from The Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22809" phase="5">
+		<info name="Maul of the Redeemed Crusader" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_26.png"/>
+		<dmg_range min="244" max="367" speed="3.6"/>
+		<stats>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="STAMINA" value="29"/>
+			<stat type="MANA_PER_5" value="8"/>
+			<stat type="SPELL_DAMAGE" value="35"/>
+		</stats>
+		<source>
+		Drops from Four Horsemen in Naxxramas.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22798" phase="5">
+		<info name="Might of Menethil" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_mace_25.png"/>
+		<dmg_range min="289" max="435" speed="3.8"/>
+		<stats>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="STAMINA" value="46"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from Kel'Thuzad in Naxxramas.
 		</source>
 	</melee_weapon>
 </weapons>
