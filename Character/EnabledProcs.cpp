@@ -18,6 +18,10 @@ EnabledProcs::~EnabledProcs()
     delete general_procs;
 }
 
+void EnabledProcs::ignore_proc_in_next_proc_check(const int instance_id) {
+    procced_instance_ids.insert(instance_id);
+}
+
 void EnabledProcs::run_proc_effects(ProcInfo::Source source) {
     check((source != ProcInfo::Source::Manual), "Cannot run proc effects on manually triggered proc");
 

@@ -4,17 +4,18 @@
 #include "ProcPPM.h"
 
 class Paladin;
+class SealOfCommand;
 
 class SealOfCommandProc: public ProcPPM {
 public:
-    SealOfCommandProc(Character* pchar);
+    SealOfCommandProc(Character* pchar, SealOfCommand* seal);
 
     void proc_effect() override;
 
 private:
-    Paladin* paladin;
+    SealOfCommand* seal;
 
-    void prepare_set_of_combat_iterations_spell_specific() override;
+    bool proc_specific_conditions_fulfilled() const override;
 };
 
 #endif // SEALOFCOMMANDPROC_H

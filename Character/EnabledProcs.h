@@ -23,6 +23,7 @@ public:
     EnabledProcs(Character* pchar, Faction* faction);
     ~EnabledProcs();
 
+    void ignore_proc_in_next_proc_check(const int instance_id);
     void run_proc_effects(ProcInfo::Source);
     void add_proc_effect(Proc* proc);
     void remove_proc_effect(const int instance_id);
