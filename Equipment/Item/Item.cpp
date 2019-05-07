@@ -14,9 +14,11 @@
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
 #include "FelstrikerProc.h"
+#include "FireballInstant.h"
 #include "FlatWeaponDamageBuff.h"
 #include "GenericBuffProc.h"
 #include "GenericChargeConsumerProc.h"
+#include "GenericSpellProc.h"
 #include "GenericStatBuff.h"
 #include "Hunter.h"
 #include "HunterPet.h"
@@ -472,6 +474,12 @@ void Item::set_procs(const int eq_slot) {
                                              get_valid_item_stat(i["type"]),
                                              static_cast<unsigned>(amount));
             proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, buff);
+        }
+        else if (proc_name == "INSTANT_FIREBALL") {
+            add_default_proc_sources(proc_sources, eq_slot);
+            Spell* spell = new FireballInstant(pchar, name,  i["min"].toUInt(), i["max"].toUInt(),
+                    i["dmg_over_duration"].toUInt(),  i["duration"].toInt());
+            proc = new GenericSpellProc(pchar, name, icon, proc_sources, proc_rate, spell);
         }
 
         if (proc != nullptr) {

@@ -31,6 +31,44 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="17193" phase="0">
+		<info name="Sulfuron Hammer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="yes" icon="Inv_hammer_unique_sulfuras.png"/>
+		<dmg_range min="176" max="295" speed="3.7"/>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="INSTANT_FIREBALL" min="83" max="102" instant="yes" rate="0.1" internal_cd="0" duration="8" dmg_over_duration="16"/>
+		</proc>
+		<special_equip_effect>
+		Chance on hit: Hurls a fiery ball that causes 83 to 102 Fire damage and an additional 16 damage over 8 sec.
+		</special_equip_effect>
+		<source>
+		Crafted by Blacksmiths (300 skill). Extremely expensive materials, and requires Molten Core drops.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17182" phase="0">
+		<info name="Sulfuras, Hand of Ragnaros" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="80" quality="LEGENDARY" boe="no" icon="Inv_hammer_unique_sulfuras.png"/>
+		<dmg_range min="223" max="372" speed="3.7"/>
+		<stats>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="FIRE_RESISTANCE" value="30"/>
+		</stats>
+		<proc>
+			<!-- TODO: Find actual proc rate. -->
+			<spell name="INSTANT_FIREBALL" min="273" max="334" instant="yes" rate="0.1" internal_cd="0" duration="10" dmg_over_duration="75"/>
+		</proc>
+		<special_equip_effect>
+		Chance on hit: Hurls a fiery ball that causes 273 to 334 Fire damage and an additional 75 damage over 10 sec.
+		</special_equip_effect>
+		<special_equip_effect>
+		Equip: Deals 5 Fire damage to anyone who strikes you with a melee attack.
+		</special_equip_effect>
+		<source>
+		Created with rare boss drop from Ragnaros and Sulfuron Hammer.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18867" phase="1">
 		<info name="Grand Marshal's Battle Hammer" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_hammer_03.png"/>
 		<dmg_range min="235" max="353" speed="3.8"/>
