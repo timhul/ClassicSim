@@ -156,6 +156,48 @@
 		</source>
 	</item>
 
+	<item id="21481" phase="4">
+		<info name="Boots of the Desert Protector" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="519"/>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="MANA_PER_5" value="4"/>
+		</stats>
+		<source>
+		Drops from Ayamiss the Hunter in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
+	<item id="21490" phase="4">
+		<info name="Slime Kickers" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_boots_plate_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="519"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Buru the Gorger in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
+	<item id="21688" phase="4">
+		<info name="Boots of the Fallen Hero" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_boots_plate_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="581"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STAMINA" value="22"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Vem (Bug Trio) in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="21333" phase="4">
 		<info name="Conqueror's Greaves" type="PLATE" slot="BOOTS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_boots_plate_05.png"/>
 		<class_restriction class="WARRIOR"/>

@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="13075" phase="0">
+		<info name="Direwing Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="575"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPIRIT" value="16"/>
+			<stat type="AGILITY" value="15"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="14554" phase="0">
+		<info name="Cloudkeeper Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="617"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="AGILITY" value="20"/>
+		</stats>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="100" duration="30" cooldown="900"/>
+		</uses>
+		<special_equip_effect>
+		Use: Increases Attack Power by 100 for 30 sec. (cooldown 15 min)
+		</special_equip_effect>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="18380" phase="1">
+		<info name="Eldritch Reinforced Legplates" type="PLATE" slot="LEGS" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_pants_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="566"/>
+			<stat type="STRENGTH" value="15"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="AGILITY" value="9"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Prince Tortheldrin in Dire Maul.
+		</source>
+	</item>
+
 	<item id="23301" phase="1">
 		<info name="Knight-Captain's Plate Leggings" type="PLATE" slot="LEGS" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_06.png"/>
 		<class_restriction class="WARRIOR"/>
@@ -89,6 +136,20 @@
 		</source>
 	</item>
 
+	<item id="19402" phase="2">
+		<info name="Legguards of the Fallen Crusader" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_pants_plate_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="740"/>
+			<stat type="STRENGTH" value="28"/>
+			<stat type="AGILITY" value="22"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="STAMINA" value="22"/>
+		</stats>
+		<source>
+		Drops from Firemaw in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="22385" phase="2">
 		<info name="Titanic Leggings" type="PLATE" slot="LEGS" unique="no" req_lvl="55" item_lvl="60" quality="EPIC" boe="yes" icon="Inv_pants_04.png"/>
 		<stats>
@@ -99,6 +160,62 @@
 		</stats>
 		<source>
 			Crafted by blacksmiths. Plans mainly drop from world bosses and Nefarian, Onyxia, Ragnaros.
+		</source>
+	</item>
+
+	<item id="22651" phase="3">
+		<info name="Outrider's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_plate_20.png"/>
+		<stats>
+			<stat type="ARMOR" value="646"/>
+			<stat type="STRENGTH" value="28"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Sold by Warsong Gulch vendor Kelm Hargunth. Requires Exalted with Warsong Outriders.
+		</source>
+	</item>
+
+	<item id="22672" phase="3">
+		<info name="Sentinel's Plate Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_20.png"/>
+		<stats>
+			<stat type="ARMOR" value="646"/>
+			<stat type="STRENGTH" value="28"/>
+			<stat type="STAMINA" value="27"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Sold by Warsong Gulch vendor Illiyana Moonblaze. Requires Exalted with Silverwing Sentinels.
+		</source>
+	</item>
+
+	<item id="22753" phase="3">
+		<info name="Sentinel's Lamellar Legguards" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_plate_15.png"/>
+		<stats>
+			<stat type="ARMOR" value="646"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+		Sold by Warsong Gulch vendor Illiyana Moonblaze. Requires Exalted with Silverwing Sentinels.
+		</source>
+	</item>
+
+	<item id="21495" phase="4">
+		<info name="Legplates of the Qiraji Command" type="PLATE" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_plate_15.png"/>
+		<stats>
+			<stat type="ARMOR" value="644"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from General Rajaxx in Ruins of Ahn'Qiraj (AQ20).
 		</source>
 	</item>
 

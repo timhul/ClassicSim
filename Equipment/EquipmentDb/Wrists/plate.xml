@@ -12,6 +12,69 @@
 		</source>
 	</wrist>
 
+	<wrist id="18533" phase="1">
+		<info name="Gordok Bracers of Power" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_bracer_14.png"/>
+		<stats>
+			<stat type="ARMOR" value="287"/>
+			<stat type="STRENGTH" value="17"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+			Drops from Tribute chest in Dire Maul.
+		</source>
+	</wrist>
+
+	<wrist id="19578" phase="3">
+		<info name="Berserker Bracers" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_bracer_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="323"/>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="AGILITY" value="8"/>
+			<stat type="STAMINA" value="11"/>
+		</stats>
+		<source>
+			Sold by Warsong Gulch vendors. Requires Exalted with Warsong Gulch faction.
+		</source>
+	</wrist>
+
+	<wrist id="21184" phase="4">
+		<info name="Deeprock Braceres" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
+		<stats>
+			<stat type="ARMOR" value="309"/>
+			<stat type="STRENGTH" value="19"/>
+			<stat type="AGILITY" value="10"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+		<source>
+			Quest reward. Requires quest grinding in Silithus.
+		</source>
+	</wrist>
+
+	<wrist id="21457" phase="4">
+		<info name="Bracers of Brutality" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_bracer_19.png"/>
+		<stats>
+			<stat type="ARMOR" value="356"/>
+			<stat type="STRENGTH" value="21"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+			Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</wrist>
+
+	<wrist id="21618" phase="4">
+		<info name="Hive Defiler's Wristguards" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_bracer_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="384"/>
+			<stat type="STRENGTH" value="23"/>
+			<stat type="AGILITY" value="18"/>
+		</stats>
+		<source>
+			Drops from Princess Huhuran in Temple of Ahn'Qiraj.
+		</source>
+	</wrist>
+
 	<wrist id="22936" phase="5">
 		<info name="Wristguards of Vengeance" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_bracer_17.png"/>
 		<stats>

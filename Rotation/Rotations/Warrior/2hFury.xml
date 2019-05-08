@@ -54,6 +54,10 @@
 	<cast_if name="Diamond Flask">
 		buff "Death Wish" is true
 	</cast_if>
+	
+	<cast_if name="Cloudkeeper Legplates">
+		buff "Death Wish" is true
+	</cast_if>
 
 	<cast_if name="Death Wish">
 		variable "time_remaining_encounter" less 33

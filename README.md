@@ -42,7 +42,7 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 
 * Paladin support (spells, talents, gear sets, Seal of the Crusader and Seal of Command rotations).
 * Items now sorted according to content phases rather than original vanilla patches.
-* More two-hand weapons, necks, and backs available.
+* More two-hand weapons, necks, backs, and plate items available.
 * Fix bug for Warriors using Vaelastrasz ruleset which caused Execute to not be evaluated properly.
 * Demonic Runes and Night Dragon's Breath now usable in rotations.
 * Buffs and debuffs can now be range-selected with shift-click and toggled with ctrl.

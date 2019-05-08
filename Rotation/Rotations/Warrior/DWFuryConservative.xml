@@ -116,6 +116,10 @@
 		buff "Death Wish" is true
 	</cast_if>
 
+	<cast_if name="Cloudkeeper Legplates">
+		buff "Death Wish" is true
+	</cast_if>
+
 	<cast_if name="Death Wish">
 		variable "time_remaining_encounter" less 33
 		or variable "time_remaining_execute" less 3

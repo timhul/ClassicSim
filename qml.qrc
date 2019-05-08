@@ -639,5 +639,9 @@
         <file>QML/Assets/items/Inv_mace_21.png</file>
         <file>QML/Assets/items/Inv_hammer_unique_sulfuras.png</file>
         <file>QML/Assets/spell/Spell_fire_flamebolt.png</file>
+        <file>QML/Assets/items/Inv_boots_plate_01.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_15.png</file>
+        <file>QML/Assets/items/Inv_pants_plate_16.png</file>
+        <file>QML/Assets/items/Inv_belt_11.png</file>
     </qresource>
 </RCC>

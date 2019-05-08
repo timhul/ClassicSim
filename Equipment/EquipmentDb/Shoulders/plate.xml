@@ -147,6 +147,20 @@
 		</source>
 	</item>
 
+	<item id="20517" phase="3">
+		<info name="Razorsteel Shoulders" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_shoulder_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="410"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="AGILITY" value="10"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires running Sunken Temple.
+		</source>
+	</item>
+
 	<item id="21330" phase="4">
 		<info name="Conqueror's Spaulders" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_shoulder_35.png"/>
 		<class_restriction class="WARRIOR"/>

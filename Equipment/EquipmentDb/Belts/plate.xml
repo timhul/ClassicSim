@@ -40,6 +40,34 @@
 		</source>
 	</item>
 
+	<item id="13502" phase="0">
+		<info name="Handcrafted Mastersmith Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_belt_23.png"/>
+		<stats>
+			<stat type="ARMOR" value="519"/>
+			<stat type="STRENGTH" value="11"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="AGILITY" value="10"/>
+		</stats>
+		<source>
+		Drops from Goraluk Anvilcrack from Lower Blackrock Spire (LBRS).
+		</source>
+	</item>
+
+	<item id="19392" phase="2">
+		<info name="Girdle of the Fallen Crusader" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_belt_11.png"/>
+		<stats>
+			<stat type="ARMOR" value="488"/>
+			<stat type="STRENGTH" value="20"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="13"/>
+			<stat type="AGILITY" value="10"/>
+		</stats>
+		<source>
+		Drops from Chromaggus in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="20042" phase="3">
 		<info name="Highlander's Lamellar Girdle" type="PLATE" slot="BELT" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_14.png"/>
 		<class_restriction class="PALADIN"/>
@@ -81,6 +109,60 @@
 		</stats>
 		<source>
 		Requires Honored with The Defilers (Arathi Basin faction).
+		</source>
+	</item>
+
+	<item id="20213" phase="3">
+		<info name="Belt of Shrunken Heads" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="no" icon="Inv_belt_13.png"/>
+		<stats>
+			<stat type="ARMOR" value="408"/>
+			<stat type="STRENGTH" value="23"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="AGILITY" value="7"/>
+		</stats>
+		<source>
+		Quest reward. Requires multiple bosses in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="22197" phase="4">
+		<info name="Heavy Obsidian Belt" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_belt_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="397"/>
+			<stat type="STRENGTH" value="25"/>
+			<stat type="ALL_RESISTANCE" value="5"/>
+		</stats>
+		<source>
+		Crafted by Blacksmiths (300 skill). Plans requires Friendly with Cenarion Circle.
+		</source>
+	</item>
+
+	<item id="21692" phase="4">
+		<info name="Triad Girdle" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_belt_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="476"/>
+			<stat type="STRENGTH" value="26"/>
+			<stat type="AGILITY" value="19"/>
+			<stat type="STAMINA" value="17"/>
+		</stats>
+		<source>
+		Drops from Bug Trio (all bosses) in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="23666" phase="5">
+		<info name="Belt of the Grand Crusader" type="PLATE" slot="BELT" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_belt_27.png"/>
+		<class_restriction class="PALADIN"/>
+		<stats>
+			<stat type="ARMOR" value="536"/>
+			<stat type="STRENGTH" value="18"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="MANA_PER_5" value="7"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Naxxramas.
 		</source>
 	</item>
 

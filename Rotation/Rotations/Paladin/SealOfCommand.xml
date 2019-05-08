@@ -32,6 +32,7 @@
 	<cast_if name="Earthstrike"/>
 	<cast_if name="Zandalarian Hero Medallion"/>
 	<cast_if name="Diamond Flask"/>
+	<cast_if name="Cloudkeeper Legplates"/>
 
 	<cast_if name="Mana Potion"/>
 	<cast_if name="Demonic Rune"/>
