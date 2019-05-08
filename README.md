@@ -40,6 +40,12 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.3-alpha-1 (released 2019-05-08):
+
 * Paladin support (spells, talents, gear sets, Seal of the Crusader and Seal of Command rotations).
 * Items now sorted according to content phases rather than original vanilla patches.
 * More two-hand weapons, necks, backs, and plate items available.
@@ -49,8 +55,6 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Flask of Supreme Power, Flask of Distilled Wisdom, Mageblood Potion are available to use as external buffs.
 * Mutually exclusive buff groups are now in place, selecting e.g. a flask will deactivate any other active flask effect.
 * Improved Backstab now yields the proper crit chance to Backstab.
-
-# Release notes
 
 ## v0.2 (released 2019-04-22):
 
