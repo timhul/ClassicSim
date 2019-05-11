@@ -57,6 +57,17 @@ Rectangle {
 
             onAcceptedInput: settings.setNumThreads(value)
         }
+
+        SettingsTextFieldEntry {
+            description: "Target armor"
+            minVal: 0
+            maxVal: 9999
+            valueText: settings.targetBaseArmor
+            placeholderText: settings.targetBaseArmor
+            unitText: "armor (" + settings.targetArmor + " after debuffs)"
+
+            onAcceptedInput: settings.setTargetBaseArmor(value)
+        }
     }
 
     ListView {

@@ -274,6 +274,7 @@ void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar)
 void CharacterLoader::setup_target(CharacterDecoder& decoder, Character* pchar) {
     pchar->get_target()->set_creature_type(decoder.get_value("TARGET_TYPE"));
     pchar->get_target()->set_lvl(decoder.get_value("TARGET_LVL").toInt());
+    pchar->get_target()->set_base_armor(decoder.get_value("TARGET_BASE_ARMOR").toInt());
 }
 
 void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pchar) {

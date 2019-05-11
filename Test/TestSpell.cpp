@@ -758,7 +758,7 @@ void TestSpell::given_1000_ranged_ap() {
 }
 
 void TestSpell::given_target_has_0_armor() {
-    pchar->get_target()->set_armor(0);
+    pchar->get_target()->set_base_armor(0);
     assert(pchar->get_target()->get_armor() == 0);
 }
 

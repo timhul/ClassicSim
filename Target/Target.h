@@ -27,9 +27,11 @@ public:
     int get_defense() const;
 
     int get_armor() const;
-    void set_armor(const int);
     void increase_armor(const int);
     void decrease_armor(const int);
+
+    int get_base_armor() const;
+    void set_base_armor(const int);
 
     int get_resistance(const MagicSchool school) const;
 
@@ -49,6 +51,7 @@ public:
 private:
     int target_lvl;
     int target_armor;
+    int base_armor;
     CreatureType target_type;
     QMap<QString, CreatureType> string_to_creature_type;
     QMap<CreatureType, QString> creature_type_strings;

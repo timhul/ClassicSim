@@ -340,6 +340,21 @@ void GUIControl::setCreatureType(const QString& creature_type) {
     statsChanged();
 }
 
+int GUIControl::get_target_armor() const {
+    return current_char->get_target()->get_armor();
+}
+
+int GUIControl::get_target_base_armor() const {
+    return current_char->get_target()->get_base_armor();
+}
+
+void GUIControl::setTargetBaseArmor(const int armor) {
+    for (const auto & pchar : chars)
+        pchar->get_target()->set_base_armor(armor);
+
+    targetUpdated();
+}
+
 QString GUIControl::getLeftBackgroundImage() const {
     return current_char->get_talents()->get_background_image("LEFT");
 }
@@ -661,14 +676,20 @@ bool GUIControl::buffActive(const QString& buff) const {
 
 void GUIControl::toggleSingleDebuff(const QString& debuff) {
     debuff_model->toggle_single_debuff(debuff);
+
+    targetUpdated();
 }
 
 void GUIControl::clearDebuffsAndSelectSingleDebuff(const QString& debuff) {
     debuff_model->clear_debuffs_and_select_single_debuff(debuff);
+
+    targetUpdated();
 }
 
 void GUIControl::selectRangeOfDebuffs(const QString& debuff) {
     debuff_model->select_range_of_debuffs(debuff);
+
+    targetUpdated();
 }
 
 bool GUIControl::debuffActive(const QString& debuff) const {

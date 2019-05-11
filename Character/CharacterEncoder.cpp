@@ -57,6 +57,7 @@ QString CharacterEncoder::get_current_setup_string() {
     add_vector_values_only("DEBUFFS", pchar->get_enabled_buffs()->get_active_external_debuffs());
     key_val("TARGET_LVL", QString::number(pchar->get_target()->get_lvl()));
     key_val("TARGET_TYPE", pchar->get_target()->get_creature_type_string());
+    key_val("TARGET_BASE_ARMOR", QString::number(pchar->get_target()->get_base_armor()));
 
     key_val("ROTATION", pchar->get_spells()->get_rotation()->get_name());
 

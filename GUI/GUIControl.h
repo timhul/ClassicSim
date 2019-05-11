@@ -230,7 +230,13 @@ public:
 
     /* Target */
     Q_PROPERTY(QString creatureType READ get_creature_type NOTIFY creatureTypeChanged)
+    Q_PROPERTY(int targetArmor READ get_target_armor NOTIFY targetUpdated)
+    Q_PROPERTY(int targetBaseArmor READ get_target_base_armor NOTIFY targetUpdated)
     Q_INVOKABLE void setCreatureType(const QString& creature_type);
+    Q_SIGNAL void targetUpdated();
+    int get_target_armor() const;
+    int get_target_base_armor() const;
+    Q_INVOKABLE void setTargetBaseArmor(const int armor);
     /* End of Target */
 
     /* Content phase */
