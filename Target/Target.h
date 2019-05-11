@@ -46,7 +46,6 @@ public:
     bool is_mechanical() const;
     bool is_undead() const;
 
-protected:
 private:
     int target_lvl;
     int target_armor;
@@ -54,6 +53,5 @@ private:
     QMap<QString, CreatureType> string_to_creature_type;
     QMap<CreatureType, QString> creature_type_strings;
 };
-
 
 #endif // TARGET_H

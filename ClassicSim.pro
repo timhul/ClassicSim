@@ -64,6 +64,7 @@ SOURCES += main.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.cpp \
     Test/Paladin/TestSpellPaladin.cpp \
+    Test/Target/TestTarget.cpp \
     Test/Test.cpp \
     Equipment/Equipment.cpp \
     CombatRoll/CombatRoll.cpp \
@@ -435,6 +436,7 @@ HEADERS += \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.h \
     Test/Paladin/TestSpellPaladin.h \
+    Test/Target/TestTarget.h \
     Test/Test.h \
     Equipment/Equipment.h \
     Equipment/Item/Item.h \

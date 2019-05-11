@@ -30,6 +30,7 @@
 #include "SimSettings.h"
 #include "Talents.h"
 #include "Tauren.h"
+#include "Test/Target/TestTarget.h"
 #include "TestAttackTables.h"
 #include "TestCharacterStats.h"
 #include "TestConditionVariableBuiltin.h"
@@ -68,6 +69,7 @@ void Test::test_all() {
     test_queue();
 
     TestMechanics().test_all();
+    TestTarget().test_all();
     TestAttackTables(equipment_db).test_all();
     TestCharacterStats(equipment_db).test_all();
     TestConditionVariableBuiltin(equipment_db).test_all();
