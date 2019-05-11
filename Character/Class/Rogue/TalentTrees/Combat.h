@@ -21,6 +21,8 @@ public:
 private:
     Rogue* rogue;
     RogueSpells* spells;
+
+    Talent* get_endurance();
 };
 
 #endif // COMBAT_H

@@ -31,7 +31,7 @@ Combat::Combat(Character *pchar) :
                                   {"2MR", new Precision(pchar, this)}};
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", new Talent(pchar, this, "Endurance", "3LL", "Assets/spell/Spell_shadow_shadowward.png", 2, "Reduces the cooldown of your Sprint and Evasion abilities by %1 sec.", QVector<QPair<unsigned, unsigned>>{{45, 45}})},
+    QMap<QString, Talent*> tier3 {{"3LL", get_endurance()},
                                   {"3ML", new Talent(pchar, this, "Riposte", "3ML", "Assets/ability/Ability_warrior_challange.png", 1, "A strike that becomes active after parrying an opponent's attack. This deals 150% weapon damage and disarms the target for 6 sec.", QVector<QPair<unsigned, unsigned>>{})},
                                   {"3RR", new Talent(pchar, this, "Improved Sprint", "3RR", "Assets/ability/Ability_rogue_sprint.png", 2, "Gives a %1% chance to remove all movement impairing effects when you activate your Sprint ability.", QVector<QPair<unsigned, unsigned>>{{50, 50}})}};
     add_talents(tier3);
@@ -141,6 +141,16 @@ Talent* Combat::get_adrenaline_rush() {
     Talent* talent = new Talent(rogue, this, "Adrenaline Rush", "7ML",
                                 "Assets/spell/Spell_shadow_shadowworddominate.png", 1, rank_descriptions,
                                 QVector<Spell*>{spells->get_adrenaline_rush()});
+
+    return talent;
+}
+
+Talent* Combat::get_endurance() {
+    QString base_str = "Reduces the cooldown of your Sprint and Evasion abilities by %1.";
+    QMap<unsigned, QString> rank_descriptions {{0, base_str.arg("45 sec")}, {1, base_str.arg("45 sec")},
+                                               {2, base_str.arg("1.5 min")}};
+    Talent* talent = new Talent(rogue, this, "Endurance", "3LL", "Assets/spell/Spell_shadow_shadowward.png", 2,
+                                rank_descriptions);
 
     return talent;
 }
