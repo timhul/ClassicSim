@@ -42,6 +42,7 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 
 * Target base armor now modifiable in Settings.
 * Button to reset defaults in Settings now available.
+* UX improvements - more obvious buttons.
 
 # Release notes
 

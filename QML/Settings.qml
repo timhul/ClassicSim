@@ -6,18 +6,20 @@ Rectangle {
 
     color: "transparent"
 
-    RectangleBorders {
+    GradientButton {
         x: textFieldEntries.x + 180
         y: 5
 
-        rectColor: root.darkDarkGray
+        gradientFrom: root.wineRed
+        gradientTo: root.darkRed
+
         height: 30
         width: 100
         TextSmall {
-            text: "Reset to default"
+            text: "Reset defaults"
         }
 
-        onRectangleClicked: settings.resetDefaultSettings()
+        onButtonClicked: settings.resetDefaultSettings()
     }
 
     Column {
@@ -98,15 +100,18 @@ Rectangle {
         implicitHeight: contentHeight
 
         model: simScaleModel
-        delegate: RectangleBorders {
-            rectColor: _active ? "#134f00" : root.darkDarkGray
+        delegate: GradientSelectedButton {
+            selected: _active
+            gradientSelectedFrom: "#1b7500"
+            gradientSelectedTo: "#134f00"
+
             height: 30
             width: 150
             TextSmall {
                 text: _name
             }
 
-            onRectangleClicked: simScaleModel.toggleOption(_enum)
+            onSelectButtonClicked: simScaleModel.toggleOption(_enum)
         }
     }
 }

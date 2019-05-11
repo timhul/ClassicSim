@@ -4,11 +4,9 @@ Rectangle {
     id: rightNavBar
 
     property int choiceHeight: 70
-    property color choiceBackgroundColor
-    property color choiceSelectedBackgroundColor
     property string fontFamily: root.fontText
     property int fontSize: 16
-    property color fontColor
+    property color fontColor: "lightgray"
 
     signal talentsClicked();
     signal equipmentClicked();
@@ -23,14 +21,15 @@ Rectangle {
     color: "transparent"
 
     Column {
-        height: chooseTalentsRect.height + chooseBuffsRect.height + statisticsRect.height +
-                chooseFullSimSettingsRect.height + chooseGearRect.height + characterStats.height
-        width: parent.width
+        anchors.fill: parent
 
-        RectangleBorders {
+        GradientSelectedButton {
             id: chooseTalentsRect
 
-            rectColor: parent.parent.state == "TALENTS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+            gradientSelectedFrom: "#4f4f4f"
+            gradientSelectedTo: "#333333"
+
+            selected: parent.parent.state === "TALENTS"
 
             height: choiceHeight
             width: parent.width
@@ -51,7 +50,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: {
+            onSelectButtonClicked: {
                 if (parent.parent.state !== "TALENTS") {
                     parent.parent.state = "TALENTS"
                     talentsClicked()
@@ -59,10 +58,13 @@ Rectangle {
             }
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             id: chooseGearRect
 
-            rectColor: parent.parent.state == "EQUIPMENT" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+            gradientSelectedFrom: "#4f4f4f"
+            gradientSelectedTo: "#333333"
+
+            selected: parent.parent.state === "EQUIPMENT"
 
             height: choiceHeight
             width: parent.width
@@ -83,7 +85,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: {
+            onSelectButtonClicked: {
                 if (parent.parent.state !== "EQUIPMENT") {
                     parent.parent.state = "EQUIPMENT"
                     equipmentClicked()
@@ -91,10 +93,13 @@ Rectangle {
             }
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             id: chooseBuffsRect
 
-            rectColor: parent.parent.state == "BUFFS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+            gradientSelectedFrom: "#4f4f4f"
+            gradientSelectedTo: "#333333"
+
+            selected: parent.parent.state === "BUFFS"
 
             height: choiceHeight
             width: parent.width
@@ -115,7 +120,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: {
+            onSelectButtonClicked: {
                 if (parent.parent.state !== "BUFFS") {
                     parent.parent.state = "BUFFS"
                     buffsClicked()
@@ -123,10 +128,13 @@ Rectangle {
             }
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             id: rotationRect
 
-            rectColor: parent.parent.state == "ROTATION" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+            gradientSelectedFrom: "#4f4f4f"
+            gradientSelectedTo: "#333333"
+
+            selected: parent.parent.state === "ROTATION"
 
             height: choiceHeight
             width: parent.width
@@ -147,7 +155,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: {
+            onSelectButtonClicked: {
                 if (parent.parent.state !== "ROTATION") {
                     parent.parent.state = "ROTATION"
                     rotationClicked()
@@ -155,10 +163,13 @@ Rectangle {
             }
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             id: statisticsRect
 
-            rectColor: parent.parent.state == "STATISTICS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+            gradientSelectedFrom: "#4f4f4f"
+            gradientSelectedTo: "#333333"
+
+            selected: parent.parent.state === "STATISTICS"
 
             height: choiceHeight
             width: parent.width
@@ -179,7 +190,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: {
+            onSelectButtonClicked: {
                 if (parent.parent.state !== "STATISTICS") {
                     parent.parent.state = "STATISTICS"
                     statisticsClicked()
@@ -187,10 +198,13 @@ Rectangle {
             }
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             id: chooseFullSimSettingsRect
 
-            rectColor: parent.parent.state == "SETTINGS" ? choiceSelectedBackgroundColor : choiceBackgroundColor
+            gradientSelectedFrom: "#4f4f4f"
+            gradientSelectedTo: "#333333"
+
+            selected: parent.parent.state === "SETTINGS"
 
             height: choiceHeight
             width: parent.width
@@ -211,7 +225,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            onRectangleClicked: {
+            onSelectButtonClicked: {
                 if (parent.parent.state !== "SETTINGS") {
                     parent.parent.state = "SETTINGS"
                     settingsClicked()

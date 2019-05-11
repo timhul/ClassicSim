@@ -24,116 +24,130 @@ Rectangle {
 
         spacing: 5
 
-        RectangleBorders {
+        GradientSelectedButton {
             height: 30
             width: 150
             property string activeState: "DISTRIBUTIONS"
+            selected: statisticsRect.state === activeState
 
             TextSmall {
                 text: "Distributions"
                 color: statisticsRect.state === parent.activeState ? "black" : "white"
             }
 
-            onRectangleClicked: statisticsRect.state = activeState
-            onRectangleRightClicked: statisticsRect.state = activeState
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
 
-            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             height: 30
             width: 150
             property string activeState: "DAMAGE_BREAKDOWN"
+            selected: statisticsRect.state === activeState
 
             TextSmall {
                 text: "Damage Breakdown"
                 color: statisticsRect.state === parent.activeState ? "black" : "white"
             }
 
-            onRectangleClicked: statisticsRect.state = activeState
-            onRectangleRightClicked: statisticsRect.state = activeState
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
 
-            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             height: 30
             width: 150
             property string activeState: "BUFF_BREAKDOWN"
+            selected: statisticsRect.state === activeState
 
             TextSmall {
                 text: "Buff Breakdown"
                 color: statisticsRect.state === parent.activeState ? "black" : "white"
             }
 
-            onRectangleClicked: statisticsRect.state = activeState
-            onRectangleRightClicked: statisticsRect.state = activeState
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
 
-            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             height: 30
             width: 150
             property string activeState: "PROC_BREAKDOWN"
+            selected: statisticsRect.state === activeState
 
             TextSmall {
                 text: "Proc Breakdown"
                 color: statisticsRect.state === parent.activeState ? "black" : "white"
             }
 
-            onRectangleClicked: statisticsRect.state = activeState
-            onRectangleRightClicked: statisticsRect.state = activeState
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
 
-            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             height: 30
             width: 150
             property string activeState: "RESOURCE_BREAKDOWN"
+            selected: statisticsRect.state === activeState
 
             TextSmall {
                 text: "Resource Breakdown"
                 color: statisticsRect.state === parent.activeState ? "black" : "white"
             }
 
-            onRectangleClicked: statisticsRect.state = activeState
-            onRectangleRightClicked: statisticsRect.state = activeState
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
 
-            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             height: 30
             width: 150
             property string activeState: "ROTATION_BREAKDOWN"
+            selected: statisticsRect.state === activeState
 
             TextSmall {
                 text: "Rotation Breakdown"
                 color: statisticsRect.state === parent.activeState ? "black" : "white"
             }
 
-            onRectangleClicked: statisticsRect.state = activeState
-            onRectangleRightClicked: statisticsRect.state = activeState
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
 
-            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
         }
 
-        RectangleBorders {
+        GradientSelectedButton {
             height: 30
             width: 150
             property string activeState: "ENGINE_BREAKDOWN"
+            selected: statisticsRect.state === activeState
 
             TextSmall {
                 text: "Internal Engine"
                 color: statisticsRect.state === parent.activeState ? "black" : "white"
             }
 
-            onRectangleClicked: statisticsRect.state = activeState
-            onRectangleRightClicked: statisticsRect.state = activeState
+            onSelectButtonClicked: statisticsRect.state = activeState
+            onSelectButtonRightClicked: statisticsRect.state = activeState
 
-            rectColor: statisticsRect.state === activeState ? "#42d4f4" : root.darkDarkGray
+            gradientSelectedFrom: "#42d4f4"
+            gradientSelectedTo: "#37b3ce"
         }
     }
 

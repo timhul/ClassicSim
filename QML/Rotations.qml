@@ -14,11 +14,11 @@ Rectangle {
             height: parent.height
             spacing: 10
 
-            RectangleBorders {
+            GradientButton {
                 width: parent.width
                 height: 30
 
-                onRectangleClicked: character.selectRotation()
+                onButtonClicked: character.selectRotation()
 
                 TextSmall {
                     anchorParent: false
@@ -62,12 +62,15 @@ Rectangle {
                 implicitHeight: contentHeight
 
                 model: rotationModel
-                delegate: RectangleBorders {
+                delegate: GradientSelectedButton {
                     height: 30
                     width: parent.width
-                    rectColor: _selected === true ? "#8c7400" : root.darkDarkGray
 
-                    onRectangleClicked:  character.selectInformationRotation(_index)
+                    selected: _selected
+                    gradientSelectedFrom: "#a88b01"
+                    gradientSelectedTo: "#7a6500"
+
+                    onSelectButtonClicked: character.selectInformationRotation(_index)
 
                     TextSmall {
                         anchorParent: false

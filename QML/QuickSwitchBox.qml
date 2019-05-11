@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-RectangleBorders {
+GradientSelectedButton {
     property string choiceText
     property string choiceState
     signal choiceClicked()
@@ -8,15 +8,21 @@ RectangleBorders {
     height: parent.height / 3
     width: parent.width
 
-    rectColor: parent.state === choiceState ? root.darkDarkGray : root.darkGray
+    selected: parent.state === choiceState
+    gradientSelectedFrom: "#4f4f4f"
+    gradientSelectedTo: "#333333"
 
     TextSmall {
         text: choiceText
-        color: root.gold
+        color: "lightgray"
         pointSize: 12
     }
 
-    onRectangleClicked: {
+    onSelectButtonClicked: {
+        parent.state = choiceState
+        choiceClicked()
+    }
+    onSelectButtonRightClicked: {
         parent.state = choiceState
         choiceClicked()
     }

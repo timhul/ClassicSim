@@ -12,30 +12,28 @@ RectangleBorders {
         implicitHeight: contentHeight
 
         model: itemTypeFilterModel
-        delegate: RectangleBorders {
+        delegate: GradientSelectedButton {
             height: 30
-            width: parent.width
-            property bool filterActive: false
-            rectColor: filterActive === true ? root.darkDarkGray : "#8c7400"
+            width: parent.width - 4
+            x: 2
+            gradientSelectedFrom: "#a88b01"
+            gradientSelectedTo: "#7a6500"
+            selected: true
 
             Connections {
                 target: equipment
-                onFiltersUpdated: {
-                    filterActive = equipment.getFilterActive(item_type)
-                }
-                onEquipmentSlotSelected: {
-                    filterActive = equipment.getFilterActive(item_type)
-                }
+                onFiltersUpdated: selected = !equipment.getFilterActive(item_type)
+                onEquipmentSlotSelected: selected = !equipment.getFilterActive(item_type)
             }
 
-            sendShiftClick: true
-            sendCtrlClick: true
-            onRectangleClicked: equipment.clearFiltersAndSelectSingle(item_type)
-            onRectangleRightClicked: equipment.clearFiltersAndSelectSingle(item_type)
-            onRectangleShiftClicked: equipment.selectRangeOfFiltersFromPrevious(item_type)
-            onRectangleShiftRightClicked: equipment.selectRangeOfFiltersFromPrevious(item_type)
-            onRectangleCtrlClicked: equipment.toggleSingleFilter(item_type)
-            onRectangleCtrlRightClicked: equipment.toggleSingleFilter(item_type)
+            sendShiftClicks: true
+            sendCtrlClicks: true
+            onSelectButtonClicked: equipment.clearFiltersAndSelectSingle(item_type)
+            onSelectButtonRightClicked: equipment.clearFiltersAndSelectSingle(item_type)
+            onSelectButtonShiftClicked: equipment.selectRangeOfFiltersFromPrevious(item_type)
+            onSelectButtonShiftRightClicked: equipment.selectRangeOfFiltersFromPrevious(item_type)
+            onSelectButtonCtrlClicked: equipment.toggleSingleFilter(item_type)
+            onSelectButtonCtrlRightClicked: equipment.toggleSingleFilter(item_type)
 
             TextSmall {
                 text: desc
@@ -43,7 +41,7 @@ RectangleBorders {
         }
     }
 
-    RectangleBorders {
+    GradientButton {
         id: addStatFilterButton
         height: 30
 
@@ -58,8 +56,8 @@ RectangleBorders {
             text: "Add stat filter"
         }
 
-        onRectangleClicked: toggleStatFilterSelection()
-        onRectangleRightClicked: activeStatFilterModel.clearFilters()
+        onButtonClicked: toggleStatFilterSelection()
+        onButtonRightClicked: activeStatFilterModel.clearFilters()
     }
 
     ListView {

@@ -18,6 +18,8 @@ Window {
     property color gray: "#727171"
     property color brightGreen: "#6cf92f"
     property color brightRed: "#fc2323"
+    property color wineRed: "#840a0a"
+    property color darkRed: "#560000"
     property color qualityPoor: "#9d9d9d"
     property color qualityCommon: "#ffffff"
     property color qualityUncommon: "#1eff00"
@@ -260,10 +262,6 @@ Window {
             right: parent.right
         }
 
-        choiceBackgroundColor: darkGray
-        choiceSelectedBackgroundColor: darkDarkGray
-        fontColor: gold
-
         state: settings.getStartWindow()
 
         onTalentsClicked: { state = "TALENTS"; settings.changeActiveWindow(state) }
@@ -329,7 +327,7 @@ Window {
         height: 125
     }
 
-    RectangleBorders {
+    GradientButton {
         id: fullSimButton
 
         anchors {
@@ -345,7 +343,8 @@ Window {
         Text {
             font {
                 family: "Arial"
-                pointSize: 9
+                pointSize: 13
+                bold: true
             }
 
             text: "Run Full Sim"
@@ -357,7 +356,7 @@ Window {
             verticalAlignment: Text.AlignVCenter
         }
 
-        onRectangleClicked: character.runFullSim()
+        onButtonClicked: character.runFullSim()
     }
 
     Text {

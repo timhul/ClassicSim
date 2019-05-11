@@ -643,5 +643,7 @@
         <file>QML/Assets/items/Inv_pants_plate_15.png</file>
         <file>QML/Assets/items/Inv_pants_plate_16.png</file>
         <file>QML/Assets/items/Inv_belt_11.png</file>
+        <file>QML/GradientButton.qml</file>
+        <file>QML/GradientSelectedButton.qml</file>
     </qresource>
 </RCC>
