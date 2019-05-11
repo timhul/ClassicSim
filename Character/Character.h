@@ -13,6 +13,7 @@ class BloodFuryBuff;
 class CharacterEnchants;
 class CharacterSpells;
 class CharacterStats;
+class CharacterTalents;
 class ClassStatistics;
 class CombatRoll;
 class EnabledBuffs;
@@ -26,7 +27,6 @@ class Race;
 class Rotation;
 class SimSettings;
 class Stats;
-class Talents;
 class Target;
 class Weapon;
 
@@ -49,7 +49,7 @@ public:
     Pet* get_pet() const;
     Race* get_race();
     SimSettings* get_sim_settings() const;
-    Talents* get_talents() const;
+    CharacterTalents* get_talents() const;
     Target* get_target() const;
 
     void set_race(Race* race);
@@ -163,7 +163,7 @@ protected:
     Target* target;
     CombatRoll* roll;
     Faction* faction;
-    Talents* talents;
+    CharacterTalents* talents;
     CharacterEnchants* available_enchants;
     CharacterStats* cstats;
     EnabledProcs* enabled_procs;

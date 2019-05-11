@@ -2,6 +2,7 @@
 
 #include "Assassination.h"
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
 #include "Combat.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
@@ -16,7 +17,6 @@
 #include "Stats.h"
 #include "Subtlety.h"
 #include "SwordSpecialization.h"
-#include "Talents.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 

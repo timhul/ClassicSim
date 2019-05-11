@@ -3,6 +3,7 @@
 #include "BeastMastery.h"
 #include "Cat.h"
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
@@ -11,7 +12,6 @@
 #include "Mana.h"
 #include "Marksmanship.h"
 #include "Survival.h"
-#include "Talents.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 

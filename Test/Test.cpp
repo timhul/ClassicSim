@@ -5,6 +5,7 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "Druid.h"
@@ -28,7 +29,6 @@
 #include "Rogue.h"
 #include "Shaman.h"
 #include "SimSettings.h"
-#include "Talents.h"
 #include "Tauren.h"
 #include "Test/Target/TestTarget.h"
 #include "TestAttackTables.h"

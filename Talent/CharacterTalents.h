@@ -5,11 +5,11 @@
 
 #include "TalentTree.h"
 
-class Talents {
+class CharacterTalents {
 public:
-    Talents();
+    CharacterTalents();
 
-    ~Talents();
+    ~CharacterTalents();
 
     QString get_background_image(const QString& tree_position) const;
     QString get_icon(const QString& tree_position, const QString& talent_position) const;

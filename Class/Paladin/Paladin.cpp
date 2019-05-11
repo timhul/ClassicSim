@@ -1,6 +1,7 @@
 #include "Paladin.h"
 
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
@@ -10,7 +11,6 @@
 #include "PaladinSpells.h"
 #include "ProtectionPaladin.h"
 #include "Retribution.h"
-#include "Talents.h"
 #include "Utils/Check.h"
 #include "Vengeance.h"
 #include "Weapon.h"

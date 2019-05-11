@@ -2,7 +2,7 @@
 #include "TestTalentTree.h"
 
 #include <utility>
-#include "Talents.h"
+#include "CharacterTalents.h"
 
 TestTalentTree::TestTalentTree(EquipmentDb* equipment_db, QString tree_pos):
     equipment_db(equipment_db),

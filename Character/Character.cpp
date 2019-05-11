@@ -3,6 +3,7 @@
 #include "AutoShot.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "EnabledBuffs.h"
@@ -18,7 +19,6 @@
 #include "RulesetControl.h"
 #include "SimSettings.h"
 #include "Stats.h"
-#include "Talents.h"
 #include "Target.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
@@ -29,7 +29,7 @@ Character::Character(QString class_name, Race* race, SimSettings *sim_settings) 
     engine(new Engine()),
     target(new Target(63)),
     faction(new Faction(race)),
-    talents(new Talents()),
+    talents(new CharacterTalents()),
     available_enchants(nullptr),
     cstats(nullptr),
     spells(nullptr),
@@ -129,7 +129,7 @@ Equipment* Character::get_equipment() const {
     return this->cstats->get_equipment();
 }
 
-Talents* Character::get_talents() const {
+CharacterTalents* Character::get_talents() const {
     return this->talents;
 }
 

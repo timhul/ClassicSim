@@ -15,6 +15,7 @@ class BuffModel;
 class Character;
 class CharacterDecoder;
 class CharacterEncoder;
+class CharacterTalents;
 class CombatRoll;
 class DebuffBreakdownModel;
 class DebuffModel;
@@ -40,7 +41,6 @@ class SimControl;
 class SimScaleModel;
 class SimSettings;
 class SimulationThreadPool;
-class Talents;
 class Target;
 class WeaponModel;
 

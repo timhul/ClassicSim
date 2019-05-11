@@ -57,6 +57,7 @@ SOURCES += main.cpp \
     Class/Paladin/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
+    Talent/CharacterTalents.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
     Test/Paladin/Spells/TestMainhandAttackPaladin.cpp \
@@ -90,7 +91,6 @@ SOURCES += main.cpp \
     Class/Warrior/TalentTrees/Protection.cpp \
     Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
     Class/Warrior/TalentTrees/Arms/Impale.cpp \
-    Talent/Talents.cpp \
     GUI/GUIControl.cpp \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
     Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
@@ -429,6 +429,7 @@ HEADERS += \
     Class/Shaman/Shaman.h \
     Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
+    Talent/CharacterTalents.h \
     Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \
     Test/Paladin/Spells/TestMainhandAttackPaladin.h \
@@ -468,7 +469,6 @@ HEADERS += \
     Class/Warrior/TalentTrees/Protection.h \
     Class/Warrior/TalentTrees/Fury/Cruelty.h \
     Class/Warrior/TalentTrees/Arms/Impale.h \
-    Talent/Talents.h \
     GUI/GUIControl.h \
     Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
     Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
