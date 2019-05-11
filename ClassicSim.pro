@@ -13,24 +13,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
-    Character/Class/Paladin/Buffs/JudgementOfTheCrusader.cpp \
-    Character/Class/Paladin/Buffs/SanctityAuraBuff.cpp \
-    Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.cpp \
-    Character/Class/Paladin/Buffs/Vengeance.cpp \
-    Character/Class/Paladin/Procs/SealOfCommandProc.cpp \
-    Character/Class/Paladin/Spells/Consecration.cpp \
-    Character/Class/Paladin/Spells/Judgement.cpp \
-    Character/Class/Paladin/Spells/MainhandAttackPaladin.cpp \
-    Character/Class/Paladin/Spells/PaladinSeal.cpp \
-    Character/Class/Paladin/Spells/SanctityAura.cpp \
-    Character/Class/Paladin/Spells/SealOfCommand.cpp \
-    Character/Class/Paladin/Spells/SealOfTheCrusader.cpp \
-    Character/Common/Buffs/Nightfall.cpp \
-    Character/Common/Procs/GenericBuffProc.cpp \
-    Character/Common/Procs/GenericSpellProc.cpp \
-    Character/Common/Spells/DemonicRune.cpp \
-    Character/Common/Spells/FireballInstant.cpp \
-    Character/Common/Spells/NightDragonsBreath.cpp \
+    Class/Paladin/Buffs/JudgementOfTheCrusader.cpp \
+    Class/Paladin/Buffs/SanctityAuraBuff.cpp \
+    Class/Paladin/Buffs/SealOfTheCrusaderBuff.cpp \
+    Class/Paladin/Buffs/Vengeance.cpp \
+    Class/Paladin/Procs/SealOfCommandProc.cpp \
+    Class/Paladin/Spells/Consecration.cpp \
+    Class/Paladin/Spells/Judgement.cpp \
+    Class/Paladin/Spells/MainhandAttackPaladin.cpp \
+    Class/Paladin/Spells/PaladinSeal.cpp \
+    Class/Paladin/Spells/SanctityAura.cpp \
+    Class/Paladin/Spells/SealOfCommand.cpp \
+    Class/Paladin/Spells/SealOfTheCrusader.cpp \
+    Class/Common/Buffs/Nightfall.cpp \
+    Class/Common/Procs/GenericBuffProc.cpp \
+    Class/Common/Procs/GenericSpellProc.cpp \
+    Class/Common/Spells/DemonicRune.cpp \
+    Class/Common/Spells/FireballInstant.cpp \
+    Class/Common/Spells/NightDragonsBreath.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
@@ -46,15 +46,15 @@ SOURCES += main.cpp \
     Character/Race/Races/Undead.cpp \
     Character/Race/Races/Tauren.cpp \
     Character/Race/Races/Troll.cpp \
-    Character/Class/Warrior/Warrior.cpp \
-    Character/Class/Priest/Priest.cpp \
-    Character/Class/Rogue/Rogue.cpp \
-    Character/Class/Mage/Mage.cpp \
-    Character/Class/Druid/Druid.cpp \
-    Character/Class/Hunter/Hunter.cpp \
-    Character/Class/Warlock/Warlock.cpp \
-    Character/Class/Shaman/Shaman.cpp \
-    Character/Class/Paladin/Paladin.cpp \
+    Class/Warrior/Warrior.cpp \
+    Class/Priest/Priest.cpp \
+    Class/Rogue/Rogue.cpp \
+    Class/Mage/Mage.cpp \
+    Class/Druid/Druid.cpp \
+    Class/Hunter/Hunter.cpp \
+    Class/Warlock/Warlock.cpp \
+    Class/Shaman/Shaman.cpp \
+    Class/Paladin/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
@@ -69,42 +69,42 @@ SOURCES += main.cpp \
     Equipment/Equipment.cpp \
     CombatRoll/CombatRoll.cpp \
     Spells/Spell.cpp \
-    Character/Class/Warrior/Spells/Bloodthirst.cpp \
+    Class/Warrior/Spells/Bloodthirst.cpp \
     Event/Events/OffhandMeleeHit.cpp \
     Event/Events/MainhandMeleeHit.cpp \
-    Character/Class/Warrior/Spells/Whirlwind.cpp \
-    Character/Class/Warrior/Spells/Execute.cpp \
-    Character/Class/Warrior/Spells/HeroicStrike.cpp \
-    Character/Class/Warrior/Spells/Overpower.cpp \
-    Character/Class/Warrior/Spells/Hamstring.cpp \
-    Character/Class/Warrior/Spells/Recklessness.cpp \
+    Class/Warrior/Spells/Whirlwind.cpp \
+    Class/Warrior/Spells/Execute.cpp \
+    Class/Warrior/Spells/HeroicStrike.cpp \
+    Class/Warrior/Spells/Overpower.cpp \
+    Class/Warrior/Spells/Hamstring.cpp \
+    Class/Warrior/Spells/Recklessness.cpp \
     CombatRoll/AttackTables/MeleeSpecialTable.cpp \
     Mechanics/Mechanics.cpp \
     Spells/Buff.cpp \
-    Character/Class/Warrior/Buffs/Flurry.cpp \
+    Class/Warrior/Buffs/Flurry.cpp \
     Event/Events/BuffRemoval.cpp \
-    Character/Class/TalentTree.cpp \
-    Character/Class/Talent.cpp \
-    Character/Class/Warrior/TalentTrees/Arms.cpp \
-    Character/Class/Warrior/TalentTrees/Fury.cpp \
-    Character/Class/Warrior/TalentTrees/Protection.cpp \
-    Character/Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/Impale.cpp \
-    Character/Talents.cpp \
+    Talent/TalentTree.cpp \
+    Talent/Talent.cpp \
+    Class/Warrior/TalentTrees/Arms.cpp \
+    Class/Warrior/TalentTrees/Fury.cpp \
+    Class/Warrior/TalentTrees/Protection.cpp \
+    Class/Warrior/TalentTrees/Fury/Cruelty.cpp \
+    Class/Warrior/TalentTrees/Arms/Impale.cpp \
+    Talent/Talents.cpp \
     GUI/GUIControl.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.cpp \
+    Class/Warrior/TalentTrees/Arms/TacticalMastery.cpp \
+    Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.cpp \
+    Class/Warrior/TalentTrees/Arms/AxeSpecialization.cpp \
+    Class/Warrior/TalentTrees/Arms/PolearmSpecialization.cpp \
     Character/Stats.cpp \
-    Character/Class/Warrior/Spells/DeepWounds.cpp \
+    Class/Warrior/Spells/DeepWounds.cpp \
     Event/Events/DotTick.cpp \
-    Character/Class/Warrior/Procs/UnbridledWrath.cpp \
-    Character/Class/Warrior/Spells/DeathWish.cpp \
-    Character/Class/Warrior/Buffs/DeathWishBuff.cpp \
-    Character/Class/Warrior/Buffs/BattleShoutBuff.cpp \
-    Character/Class/Warrior/Spells/BattleShout.cpp \
-    Character/Class/Warrior/Spells/BerserkerRage.cpp \
+    Class/Warrior/Procs/UnbridledWrath.cpp \
+    Class/Warrior/Spells/DeathWish.cpp \
+    Class/Warrior/Buffs/DeathWishBuff.cpp \
+    Class/Warrior/Buffs/BattleShoutBuff.cpp \
+    Class/Warrior/Spells/BattleShout.cpp \
+    Class/Warrior/Spells/BerserkerRage.cpp \
     Equipment/EquipmentDb/EquipmentDb.cpp \
     Equipment/Item/Item.cpp \
     GUI/Models/ItemModel.cpp \
@@ -118,10 +118,10 @@ SOURCES += main.cpp \
     Test/Warrior/TestSpellWarrior.cpp \
     Test/Warrior/Spells/TestHeroicStrike.cpp \
     Test/Warrior/Spells/TestBloodthirst.cpp \
-    Character/Common/Spells/MainhandAttack.cpp \
-    Character/Common/Spells/OffhandAttack.cpp \
-    Character/Class/Warrior/Spells/MainhandAttackWarrior.cpp \
-    Character/Class/Warrior/Spells/OffhandAttackWarrior.cpp \
+    Class/Common/Spells/MainhandAttack.cpp \
+    Class/Common/Spells/OffhandAttack.cpp \
+    Class/Warrior/Spells/MainhandAttackWarrior.cpp \
+    Class/Warrior/Spells/OffhandAttackWarrior.cpp \
     Test/Warrior/Spells/TestMainhandAttackWarrior.cpp \
     Test/Warrior/Spells/TestWhirlwind.cpp \
     Test/Warrior/Spells/TestOverpower.cpp \
@@ -130,17 +130,17 @@ SOURCES += main.cpp \
     Test/Warrior/TestBuffWarrior.cpp \
     Test/Warrior/Spells/TestOffhandAttackWarrior.cpp \
     Test/Warrior/Spells/TestDeepWounds.cpp \
-    Character/Class/Warrior/Spells/Bloodrage.cpp \
+    Class/Warrior/Spells/Bloodrage.cpp \
     Event/Events/ResourceGain.cpp \
     Test/Warrior/Spells/TestBloodrage.cpp \
     Spells/Proc.cpp \
-    Character/Common/Enchants/WindfuryTotemAttack.cpp \
-    Character/Common/Enchants/Crusader.cpp \
+    Class/Common/Enchants/WindfuryTotemAttack.cpp \
+    Class/Common/Enchants/Crusader.cpp \
     Spells/ProcPPM.cpp \
-    Character/Common/Buffs/HolyStrength.cpp \
-    Character/Common/Enchants/FieryWeapon.cpp \
+    Class/Common/Buffs/HolyStrength.cpp \
+    Class/Common/Enchants/FieryWeapon.cpp \
     Character/CharacterStats.cpp \
-    Character/Class/Warrior/WarriorSpells.cpp \
+    Class/Warrior/WarriorSpells.cpp \
     Statistics/Charts/PieChart.cpp \
     GUI/Models/PieChartModel.cpp \
     Statistics/ClassStatistics.cpp \
@@ -153,15 +153,15 @@ SOURCES += main.cpp \
     Test/Warrior/Procs/TestUnbridledWrath.cpp \
     Test/Warrior/TestProcWarrior.cpp \
     Test/TestProc.cpp \
-    Character/Common/Procs/ExtraAttackOnNextSwingProc.cpp \
-    Character/Common/Buffs/ExtraAttackOnNextSwingBuff.cpp \
-    Character/Common/Procs/ExtraAttackInstantProc.cpp \
-    Character/Common/GeneralProcs.cpp \
+    Class/Common/Procs/ExtraAttackOnNextSwingProc.cpp \
+    Class/Common/Buffs/ExtraAttackOnNextSwingBuff.cpp \
+    Class/Common/Procs/ExtraAttackInstantProc.cpp \
+    Class/Common/GeneralProcs.cpp \
     Character/CharacterDecoder.cpp \
     Character/CharacterEncoder.cpp \
     Thread/SimulationThreadPool.cpp \
     Thread/SimulationRunner.cpp \
-    Character/Common/GeneralBuffs.cpp \
+    Class/Common/GeneralBuffs.cpp \
     GUI/Models/BuffModel.cpp \
     Spells/ExternalBuff.cpp \
     Rotation/RotationFileReader.cpp \
@@ -173,11 +173,11 @@ SOURCES += main.cpp \
     Rotation/Conditions/ConditionVariableBuiltin.cpp \
     CombatRoll/xorshift/xoroshiro128plus.cpp \
     CombatRoll/Random.cpp \
-    Character/Class/Warrior/Buffs/RecklessnessBuff.cpp \
+    Class/Warrior/Buffs/RecklessnessBuff.cpp \
     Test/Warrior/Spells/TestRecklessness.cpp \
-    Character/Class/Warrior/Spells/BattleStance.cpp \
-    Character/Class/Warrior/Spells/BerserkerStance.cpp \
-    Character/Class/Warrior/Buffs/BerserkerStanceBuff.cpp \
+    Class/Warrior/Spells/BattleStance.cpp \
+    Class/Warrior/Spells/BerserkerStance.cpp \
+    Class/Warrior/Buffs/BerserkerStanceBuff.cpp \
     Test/Warrior/Spells/TestBerserkerStance.cpp \
     Character/Race/Racials/BloodFury.cpp \
     Character/Race/Racials/BloodFuryBuff.cpp \
@@ -185,31 +185,31 @@ SOURCES += main.cpp \
     Character/Race/Racials/BerserkingBuff.cpp \
     GUI/Models/DebuffModel.cpp \
     GUI/Models/ItemTypeFilterModel.cpp \
-    Character/Class/Warlock/WarlockSpells.cpp \
-    Character/Class/Shaman/ShamanSpells.cpp \
-    Character/Class/Rogue/RogueSpells.cpp \
-    Character/Class/Priest/PriestSpells.cpp \
-    Character/Class/Paladin/PaladinSpells.cpp \
-    Character/Class/Mage/MageSpells.cpp \
-    Character/Class/Hunter/HunterSpells.cpp \
-    Character/Class/Druid/DruidSpells.cpp \
+    Class/Warlock/WarlockSpells.cpp \
+    Class/Shaman/ShamanSpells.cpp \
+    Class/Rogue/RogueSpells.cpp \
+    Class/Priest/PriestSpells.cpp \
+    Class/Paladin/PaladinSpells.cpp \
+    Class/Mage/MageSpells.cpp \
+    Class/Hunter/HunterSpells.cpp \
+    Class/Druid/DruidSpells.cpp \
     Character/Race/Race.cpp \
     GUI/Models/ActiveItemStatFilterModel.cpp \
     GUI/Models/AvailableItemStatFilterModel.cpp \
     Test/TestSpellDamage.cpp \
-    Character/Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
+    Class/Warrior/Buffs/DefensiveStanceBuff.cpp \
     Test/Warrior/Spells/TestDeathWish.cpp \
     Test/TestCharacterStats.cpp \
-    Character/Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.cpp \
-    Character/Class/Warrior/Procs/SwordSpecialization.cpp \
+    Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.cpp \
+    Class/Warrior/Procs/SwordSpecialization.cpp \
     Test/Warrior/Procs/TestSwordSpecialization.cpp \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.cpp \
-    Character/Class/Warrior/Spells/MortalStrike.cpp \
+    Class/Warrior/Spells/MortalStrike.cpp \
     Test/Warrior/Spells/TestMortalStrike.cpp \
-    Character/Class/Warrior/Spells/Slam.cpp \
+    Class/Warrior/Spells/Slam.cpp \
     Event/Events/CastComplete.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
-    Character/Class/TalentRequirer.cpp \
+    Talent/TalentRequirer.cpp \
     Spells/SpellCastingTime.cpp \
     Test/Warrior/Talents/TestFury.cpp \
     GUI/Models/RotationModel.cpp \
@@ -217,19 +217,19 @@ SOURCES += main.cpp \
     GUI/SimSettings.cpp \
     GUI/SimControl.cpp \
     Statistics/NumberCruncher.cpp \
-    Character/Common/Enchants/Enchant.cpp \
-    Character/Common/Enchants/EnchantStatic.cpp \
-    Character/Common/Enchants/EnchantProc.cpp \
-    Character/Common/Buffs/ArmorPenetrationBuff.cpp \
-    Character/Common/Procs/ArmorPenetrationProc.cpp \
-    Character/Common/Spells/InstantSpellAttack.cpp \
-    Character/Common/Procs/InstantSpellProc.cpp \
+    Class/Common/Enchants/Enchant.cpp \
+    Class/Common/Enchants/EnchantStatic.cpp \
+    Class/Common/Enchants/EnchantProc.cpp \
+    Class/Common/Buffs/ArmorPenetrationBuff.cpp \
+    Class/Common/Procs/ArmorPenetrationProc.cpp \
+    Class/Common/Spells/InstantSpellAttack.cpp \
+    Class/Common/Procs/InstantSpellProc.cpp \
     Test/General/Procs/TestFelstrikerProc.cpp \
-    Character/Common/Procs/FelstrikerProc.cpp \
-    Character/Common/Buffs/FelstrikerBuff.cpp \
+    Class/Common/Procs/FelstrikerProc.cpp \
+    Class/Common/Buffs/FelstrikerBuff.cpp \
     Spells/SharedBuff.cpp \
-    Character/Common/Buffs/EssenceOfTheRed.cpp \
-    Character/Common/Spells/PeriodicResourceGainSpell.cpp \
+    Class/Common/Buffs/EssenceOfTheRed.cpp \
+    Class/Common/Spells/PeriodicResourceGainSpell.cpp \
     Rulesets/RulesetControl.cpp \
     GUI/Models/Statistics/MeleeDamageAvoidanceBreakdownModel.cpp \
     GUI/Models/Statistics/MeleeDamageBreakdownModel.cpp \
@@ -237,171 +237,171 @@ SOURCES += main.cpp \
     GUI/Models/Statistics/BuffBreakdownModel.cpp \
     GUI/Models/Statistics/ProcBreakdownModel.cpp \
     GUI/Models/Statistics/ResourceBreakdownModel.cpp \
-    Character/Common/Buffs/GenericStatBuff.cpp \
-    Character/Common/Buffs/JomGabbar.cpp \
+    Class/Common/Buffs/GenericStatBuff.cpp \
+    Class/Common/Buffs/JomGabbar.cpp \
     Event/Events/PeriodicRefreshBuff.cpp \
-    Character/Common/Buffs/FlatWeaponDamageBuff.cpp \
-    Character/Common/Procs/GenericChargeConsumerProc.cpp \
-    Character/Common/Spells/UseTrinket.cpp \
-    Character/Common/Buffs/NoEffectBuff.cpp \
-    Character/Class/Warrior/Spells/Rend.cpp \
+    Class/Common/Buffs/FlatWeaponDamageBuff.cpp \
+    Class/Common/Procs/GenericChargeConsumerProc.cpp \
+    Class/Common/Spells/UseTrinket.cpp \
+    Class/Common/Buffs/NoEffectBuff.cpp \
+    Class/Warrior/Spells/Rend.cpp \
     Test/Warrior/Spells/TestRend.cpp \
     Character/EnabledBuffs.cpp \
     Character/EnabledProcs.cpp \
-    Character/Class/Warrior/Spells/AngerManagement.cpp \
+    Class/Warrior/Spells/AngerManagement.cpp \
     GUI/Models/Statistics/DebuffBreakdownModel.cpp \
     GUI/Models/SimScaleModel.cpp \
     GUI/Models/Statistics/ScaleResultModel.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination.cpp \
-    Character/Class/Rogue/TalentTrees/Combat.cpp \
-    Character/Class/Rogue/TalentTrees/Subtlety.cpp \
-    Character/Class/Rogue/Spells/Backstab.cpp \
-    Character/Class/Rage.cpp \
-    Character/Class/Energy.cpp \
-    Character/Class/Mana.cpp \
+    Class/Rogue/TalentTrees/Assassination.cpp \
+    Class/Rogue/TalentTrees/Combat.cpp \
+    Class/Rogue/TalentTrees/Subtlety.cpp \
+    Class/Rogue/Spells/Backstab.cpp \
+    Resource/Rage.cpp \
+    Resource/Energy.cpp \
+    Resource/Mana.cpp \
     Test/Rogue/TestRogue.cpp \
     Test/Rogue/TestEnergy.cpp \
     Test/Rogue/TestSpellRogue.cpp \
     Test/Rogue/Spells/TestBackstab.cpp \
-    Character/Class/Rogue/Spells/Eviscerate.cpp \
+    Class/Rogue/Spells/Eviscerate.cpp \
     Test/Rogue/Spells/TestEviscerate.cpp \
-    Character/Class/Rogue/Spells/SliceAndDice.cpp \
-    Character/Class/Rogue/Buffs/SliceAndDiceBuff.cpp \
+    Class/Rogue/Spells/SliceAndDice.cpp \
+    Class/Rogue/Buffs/SliceAndDiceBuff.cpp \
     Test/Rogue/Spells/TestSliceAndDice.cpp \
     Test/AttackTables/TestAttackTables.cpp \
     Test/TestTalentTree.cpp \
-    Character/Class/Rogue/Spells/AdrenalineRush.cpp \
-    Character/Class/Rogue/Buffs/AdrenalineRushBuff.cpp \
+    Class/Rogue/Spells/AdrenalineRush.cpp \
+    Class/Rogue/Buffs/AdrenalineRushBuff.cpp \
     Test/Rogue/Spells/TestAdrenalineRush.cpp \
-    Character/Class/Rogue/Spells/BladeFlurry.cpp \
-    Character/Class/Rogue/Buffs/BladeFlurryBuff.cpp \
+    Class/Rogue/Spells/BladeFlurry.cpp \
+    Class/Rogue/Buffs/BladeFlurryBuff.cpp \
     Test/Rogue/Spells/TestBladeFlurry.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/Precision.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.cpp \
-    Character/Class/Rogue/Spells/OffhandAttackRogue.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.cpp \
-    Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/Malice.cpp \
-    Character/Class/Rogue/Spells/SinisterStrike.cpp \
+    Class/Rogue/TalentTrees/Combat/Precision.cpp \
+    Class/Rogue/TalentTrees/Combat/DaggerSpecialization.cpp \
+    Class/Rogue/Spells/OffhandAttackRogue.cpp \
+    Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.cpp \
+    Class/Rogue/TalentTrees/Combat/MaceSpecialization.cpp \
+    Class/Rogue/TalentTrees/Combat/WeaponExpertise.cpp \
+    Class/Rogue/TalentTrees/Assassination/Malice.cpp \
+    Class/Rogue/Spells/SinisterStrike.cpp \
     Test/Rogue/Spells/TestSinisterStrike.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/Murder.cpp \
-    Character/Class/Rogue/Procs/Ruthlessness.cpp \
-    Character/Class/Rogue/Procs/RelentlessStrikes.cpp \
+    Class/Rogue/TalentTrees/Assassination/Murder.cpp \
+    Class/Rogue/Procs/Ruthlessness.cpp \
+    Class/Rogue/Procs/RelentlessStrikes.cpp \
     Test/Rogue/Procs/TestRelentlessStrikes.cpp \
     Test/Rogue/TestProcRogue.cpp \
-    Character/Class/Rogue/Procs/SealFate.cpp \
+    Class/Rogue/Procs/SealFate.cpp \
     Test/Rogue/Procs/TestSealFate.cpp \
-    Character/Class/Rogue/TalentTrees/Assassination/Vigor.cpp \
+    Class/Rogue/TalentTrees/Assassination/Vigor.cpp \
     CombatRoll/AttackTables/MagicAttackTable.cpp \
     Test/TestMechanics.cpp \
-    Character/Class/Rogue/Procs/InstantPoison.cpp \
-    Character/Class/Rogue/Buffs/InstantPoisonBuff.cpp \
+    Class/Rogue/Procs/InstantPoison.cpp \
+    Class/Rogue/Buffs/InstantPoisonBuff.cpp \
     GUI/Models/EnchantModel.cpp \
     Character/CharacterEnchants.cpp \
-    Character/Class/Warrior/WarriorEnchants.cpp \
-    Character/Class/Rogue/RogueEnchants.cpp \
+    Class/Warrior/WarriorEnchants.cpp \
+    Class/Rogue/RogueEnchants.cpp \
     Test/Rotation/TestConditionVariableBuiltin.cpp \
     Test/Rogue/Talents/TestAssassination.cpp \
     Test/Rogue/Talents/TestCombat.cpp \
     Test/Rogue/Talents/TestSubtlety.cpp \
-    Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.cpp \
-    Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.cpp \
-    Character/Class/Rogue/Spells/Hemorrhage.cpp \
+    Class/Rogue/TalentTrees/Subtlety/SerratedBlades.cpp \
+    Class/Rogue/TalentTrees/Subtlety/Deadliness.cpp \
+    Class/Rogue/Spells/Hemorrhage.cpp \
     Test/Rogue/Spells/TestHemorrhage.cpp \
     Equipment/EquipmentDb/SetBonusFileReader.cpp \
     Equipment/SetBonusControl.cpp \
     Spells/SetBonusRequirer.cpp \
     Spells/ItemModificationRequirer.cpp \
     Character/CharacterLoader.cpp \
-    Character/Class/Hunter/TalentTrees/BeastMastery.cpp \
-    Character/Class/Hunter/TalentTrees/Marksmanship.cpp \
-    Character/Class/Hunter/TalentTrees/Survival.cpp \
+    Class/Hunter/TalentTrees/BeastMastery.cpp \
+    Class/Hunter/TalentTrees/Marksmanship.cpp \
+    Class/Hunter/TalentTrees/Survival.cpp \
     Test/Hunter/Talents/TestBeastMastery.cpp \
     Test/Hunter/Talents/TestMarksmanship.cpp \
     Test/Hunter/Talents/TestSurvival.cpp \
     Test/Hunter/TestHunter.cpp \
-    Character/Class/Hunter/HunterEnchants.cpp \
+    Class/Hunter/HunterEnchants.cpp \
     Character/CharacterSpells.cpp \
     CombatRoll/AttackTables/MeleeWhiteHitTable.cpp \
     CombatRoll/AttackTables/RangedWhiteHitTable.cpp \
     Test/Hunter/TestSpellHunter.cpp \
-    Character/Class/Hunter/Spells/MultiShot.cpp \
+    Class/Hunter/Spells/MultiShot.cpp \
     Test/Hunter/Spells/TestMultiShot.cpp \
-    Character/Class/Hunter/Spells/AutoShot.cpp \
+    Class/Hunter/Spells/AutoShot.cpp \
     Test/Hunter/Spells/TestAutoShot.cpp \
-    Character/Class/Hunter/Spells/AimedShot.cpp \
+    Class/Hunter/Spells/AimedShot.cpp \
     Test/Hunter/Spells/TestAimedShot.cpp \
     Test/TestObject.cpp \
     Test/Rotation/TestRotationFileReader.cpp \
     Event/Events/RangedHit.cpp \
     Test/TestMana.cpp \
     Utils/CompareDouble.cpp \
-    Character/Class/TalentStatIncrease.cpp \
+    Talent/TalentStatIncrease.cpp \
     Test/Hunter/Talents/TestHunterTalentStatIncrease.cpp \
-    Character/Class/Hunter/Spells/HuntersMark.cpp \
-    Character/Class/Hunter/Buffs/HuntersMarkBuff.cpp \
-    Character/Class/Hunter/Spells/AspectOfTheHawk.cpp \
-    Character/Class/Hunter/Buffs/AspectOfTheHawkBuff.cpp \
-    Character/Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.cpp \
-    Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.cpp \
-    Character/Class/Hunter/Spells/RapidFire.cpp \
-    Character/Class/Hunter/Buffs/RapidFireBuff.cpp \
-    Character/Common/Buffs/DevilsaurEye.cpp \
-    Character/Common/Pet/Pet.cpp \
+    Class/Hunter/Spells/HuntersMark.cpp \
+    Class/Hunter/Buffs/HuntersMarkBuff.cpp \
+    Class/Hunter/Spells/AspectOfTheHawk.cpp \
+    Class/Hunter/Buffs/AspectOfTheHawkBuff.cpp \
+    Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.cpp \
+    Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.cpp \
+    Class/Hunter/Spells/RapidFire.cpp \
+    Class/Hunter/Buffs/RapidFireBuff.cpp \
+    Class/Common/Buffs/DevilsaurEye.cpp \
+    Class/Common/Pet/Pet.cpp \
     Event/Events/PetAction.cpp \
-    Character/Common/Pet/Species/Cat.cpp \
-    Character/Common/Pet/Spells/PetAutoAttack.cpp \
+    Class/Common/Pet/Species/Cat.cpp \
+    Class/Common/Pet/Spells/PetAutoAttack.cpp \
     Event/Events/PetMeleeHit.cpp \
-    Character/Common/Pet/Spells/Claw.cpp \
-    Character/Class/Focus.cpp \
-    Character/Class/RegeneratingResource.cpp \
-    Character/Common/Spells/ResourceTick.cpp \
-    Character/Common/Procs/ManaDrainProc.cpp \
-    Character/Class/Hunter/Spells/BestialWrath.cpp \
-    Character/Class/Hunter/Buffs/BestialWrathBuff.cpp \
-    Character/Class/Hunter/Buffs/FrenzyBuff.cpp \
-    Character/Class/Hunter/Procs/FrenzyProc.cpp \
+    Class/Common/Pet/Spells/Claw.cpp \
+    Resource/Focus.cpp \
+    Resource/RegeneratingResource.cpp \
+    Class/Common/Spells/ResourceTick.cpp \
+    Class/Common/Procs/ManaDrainProc.cpp \
+    Class/Hunter/Spells/BestialWrath.cpp \
+    Class/Hunter/Buffs/BestialWrathBuff.cpp \
+    Class/Hunter/Buffs/FrenzyBuff.cpp \
+    Class/Hunter/Procs/FrenzyProc.cpp \
     Equipment/EquipmentDb/ProjectileFileReader.cpp \
     Equipment/Item/Projectile.cpp \
-    Character/Common/Spells/ManaPotion.cpp \
-    Character/Class/Hunter/Procs/ExposeWeaknessProc.cpp \
-    Character/Class/Hunter/Buffs/ExposeWeaknessBuff.cpp \
-    Character/Class/Hunter/HunterPet.cpp \
+    Class/Common/Spells/ManaPotion.cpp \
+    Class/Hunter/Procs/ExposeWeaknessProc.cpp \
+    Class/Hunter/Buffs/ExposeWeaknessBuff.cpp \
+    Class/Hunter/HunterPet.cpp \
     GUI/Models/RotationConditionsModel.cpp \
     Statistics/StatisticsEngine.cpp \
     GUI/Models/Statistics/EngineBreakdownModel.cpp \
     Statistics/StatisticsRotationExecutor.cpp \
     GUI/Models/Statistics/RotationExecutorBreakdownModel.cpp \
     GUI/Models/Statistics/RotationExecutorListModel.cpp \
-    Character/Class/Paladin/TalentTrees/HolyPaladin.cpp \
-    Character/Class/Paladin/TalentTrees/ProtectionPaladin.cpp \
-    Character/Class/Paladin/TalentTrees/Retribution.cpp \
-    Character/Class/Paladin/PaladinEnchants.cpp \
+    Class/Paladin/TalentTrees/HolyPaladin.cpp \
+    Class/Paladin/TalentTrees/ProtectionPaladin.cpp \
+    Class/Paladin/TalentTrees/Retribution.cpp \
+    Class/Paladin/PaladinEnchants.cpp \
     Test/Paladin/TestPaladin.cpp \
     Test/Paladin/Talents/TestHolyPaladin.cpp \
     Test/Paladin/Talents/TestProtectionPaladin.cpp \
     Test/Paladin/Talents/TestRetribution.cpp
 
 HEADERS += \
-    Character/Class/Paladin/Buffs/JudgementOfTheCrusader.h \
-    Character/Class/Paladin/Buffs/SanctityAuraBuff.h \
-    Character/Class/Paladin/Buffs/SealOfTheCrusaderBuff.h \
-    Character/Class/Paladin/Buffs/Vengeance.h \
-    Character/Class/Paladin/Procs/SealOfCommandProc.h \
-    Character/Class/Paladin/Spells/Consecration.h \
-    Character/Class/Paladin/Spells/Judgement.h \
-    Character/Class/Paladin/Spells/MainhandAttackPaladin.h \
-    Character/Class/Paladin/Spells/PaladinSeal.h \
-    Character/Class/Paladin/Spells/SanctityAura.h \
-    Character/Class/Paladin/Spells/SealOfCommand.h \
-    Character/Class/Paladin/Spells/SealOfTheCrusader.h \
-    Character/Common/Buffs/Nightfall.h \
-    Character/Common/Procs/GenericBuffProc.h \
-    Character/Common/Procs/GenericSpellProc.h \
-    Character/Common/Spells/DemonicRune.h \
-    Character/Common/Spells/FireballInstant.h \
-    Character/Common/Spells/NightDragonsBreath.h \
+    Class/Paladin/Buffs/JudgementOfTheCrusader.h \
+    Class/Paladin/Buffs/SanctityAuraBuff.h \
+    Class/Paladin/Buffs/SealOfTheCrusaderBuff.h \
+    Class/Paladin/Buffs/Vengeance.h \
+    Class/Paladin/Procs/SealOfCommandProc.h \
+    Class/Paladin/Spells/Consecration.h \
+    Class/Paladin/Spells/Judgement.h \
+    Class/Paladin/Spells/MainhandAttackPaladin.h \
+    Class/Paladin/Spells/PaladinSeal.h \
+    Class/Paladin/Spells/SanctityAura.h \
+    Class/Paladin/Spells/SealOfCommand.h \
+    Class/Paladin/Spells/SealOfTheCrusader.h \
+    Class/Common/Buffs/Nightfall.h \
+    Class/Common/Procs/GenericBuffProc.h \
+    Class/Common/Procs/GenericSpellProc.h \
+    Class/Common/Spells/DemonicRune.h \
+    Class/Common/Spells/FireballInstant.h \
+    Class/Common/Spells/NightDragonsBreath.h \
     Phases/ContentPhase.h \
     Phases/PhaseRequirer.h \
     Queue/Queue.h \
@@ -419,15 +419,15 @@ HEADERS += \
     Character/Race/Races/Undead.h \
     Character/Race/Races/Tauren.h \
     Character/Race/Races/Troll.h \
-    Character/Class/Warrior/Warrior.h \
-    Character/Class/Priest/Priest.h \
-    Character/Class/Rogue/Rogue.h \
-    Character/Class/Mage/Mage.h \
-    Character/Class/Druid/Druid.h \
-    Character/Class/Hunter/Hunter.h \
-    Character/Class/Warlock/Warlock.h \
-    Character/Class/Shaman/Shaman.h \
-    Character/Class/Paladin/Paladin.h \
+    Class/Warrior/Warrior.h \
+    Class/Priest/Priest.h \
+    Class/Rogue/Rogue.h \
+    Class/Mage/Mage.h \
+    Class/Druid/Druid.h \
+    Class/Hunter/Hunter.h \
+    Class/Warlock/Warlock.h \
+    Class/Shaman/Shaman.h \
+    Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
     Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \
@@ -447,42 +447,42 @@ HEADERS += \
     CombatRoll/CombatRoll.h \
     CombatRoll/Random.h \
     Spells/Spell.h \
-    Character/Class/Warrior/Spells/Bloodthirst.h \
+    Class/Warrior/Spells/Bloodthirst.h \
     Event/Events/OffhandMeleeHit.h \
     Event/Events/MainhandMeleeHit.h \
-    Character/Class/Warrior/Spells/Whirlwind.h \
-    Character/Class/Warrior/Spells/Execute.h \
-    Character/Class/Warrior/Spells/HeroicStrike.h \
-    Character/Class/Warrior/Spells/Overpower.h \
-    Character/Class/Warrior/Spells/Hamstring.h \
-    Character/Class/Warrior/Spells/Recklessness.h \
+    Class/Warrior/Spells/Whirlwind.h \
+    Class/Warrior/Spells/Execute.h \
+    Class/Warrior/Spells/HeroicStrike.h \
+    Class/Warrior/Spells/Overpower.h \
+    Class/Warrior/Spells/Hamstring.h \
+    Class/Warrior/Spells/Recklessness.h \
     CombatRoll/AttackTables/MeleeSpecialTable.h \
     Mechanics/Mechanics.h \
     Spells/Buff.h \
-    Character/Class/Warrior/Buffs/Flurry.h \
+    Class/Warrior/Buffs/Flurry.h \
     Event/Events/BuffRemoval.h \
-    Character/Class/TalentTree.h \
-    Character/Class/Talent.h \
-    Character/Class/Warrior/TalentTrees/Arms.h \
-    Character/Class/Warrior/TalentTrees/Fury.h \
-    Character/Class/Warrior/TalentTrees/Protection.h \
-    Character/Class/Warrior/TalentTrees/Fury/Cruelty.h \
-    Character/Class/Warrior/TalentTrees/Arms/Impale.h \
-    Character/Talents.h \
+    Talent/TalentTree.h \
+    Talent/Talent.h \
+    Class/Warrior/TalentTrees/Arms.h \
+    Class/Warrior/TalentTrees/Fury.h \
+    Class/Warrior/TalentTrees/Protection.h \
+    Class/Warrior/TalentTrees/Fury/Cruelty.h \
+    Class/Warrior/TalentTrees/Arms/Impale.h \
+    Talent/Talents.h \
     GUI/GUIControl.h \
-    Character/Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
-    Character/Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
-    Character/Class/Warrior/TalentTrees/Arms/AxeSpecialization.h \
-    Character/Class/Warrior/TalentTrees/Arms/PolearmSpecialization.h \
+    Class/Warrior/TalentTrees/Arms/TacticalMastery.h \
+    Class/Warrior/TalentTrees/Arms/TwoHandedWeaponSpecialization.h \
+    Class/Warrior/TalentTrees/Arms/AxeSpecialization.h \
+    Class/Warrior/TalentTrees/Arms/PolearmSpecialization.h \
     Character/Stats.h \
-    Character/Class/Warrior/Spells/DeepWounds.h \
+    Class/Warrior/Spells/DeepWounds.h \
     Event/Events/DotTick.h \
-    Character/Class/Warrior/Procs/UnbridledWrath.h \
-    Character/Class/Warrior/Spells/DeathWish.h \
-    Character/Class/Warrior/Buffs/DeathWishBuff.h \
-    Character/Class/Warrior/Buffs/BattleShoutBuff.h \
-    Character/Class/Warrior/Spells/BattleShout.h \
-    Character/Class/Warrior/Spells/BerserkerRage.h \
+    Class/Warrior/Procs/UnbridledWrath.h \
+    Class/Warrior/Spells/DeathWish.h \
+    Class/Warrior/Buffs/DeathWishBuff.h \
+    Class/Warrior/Buffs/BattleShoutBuff.h \
+    Class/Warrior/Spells/BattleShout.h \
+    Class/Warrior/Spells/BerserkerRage.h \
     Equipment/EquipmentDb/EquipmentDb.h \
     GUI/Models/ItemModel.h \
     GUI/Models/WeaponModel.h \
@@ -495,10 +495,10 @@ HEADERS += \
     Test/Warrior/TestSpellWarrior.h \
     Test/Warrior/Spells/TestHeroicStrike.h \
     Test/Warrior/Spells/TestBloodthirst.h \
-    Character/Common/Spells/MainhandAttack.h \
-    Character/Common/Spells/OffhandAttack.h \
-    Character/Class/Warrior/Spells/MainhandAttackWarrior.h \
-    Character/Class/Warrior/Spells/OffhandAttackWarrior.h \
+    Class/Common/Spells/MainhandAttack.h \
+    Class/Common/Spells/OffhandAttack.h \
+    Class/Warrior/Spells/MainhandAttackWarrior.h \
+    Class/Warrior/Spells/OffhandAttackWarrior.h \
     Test/Warrior/Spells/TestMainhandAttackWarrior.h \
     Test/Warrior/Spells/TestWhirlwind.h \
     Test/Warrior/Spells/TestOverpower.h \
@@ -508,16 +508,16 @@ HEADERS += \
     Test/Warrior/Spells/TestOffhandAttackWarrior.h \
     Test/Warrior/Spells/TestDeepWounds.h \
     Event/Events/ResourceGain.h \
-    Character/Class/Warrior/Spells/Bloodrage.h \
+    Class/Warrior/Spells/Bloodrage.h \
     Test/Warrior/Spells/TestBloodrage.h \
     Spells/Proc.h \
-    Character/Common/Enchants/WindfuryTotemAttack.h \
-    Character/Common/Enchants/Crusader.h \
+    Class/Common/Enchants/WindfuryTotemAttack.h \
+    Class/Common/Enchants/Crusader.h \
     Spells/ProcPPM.h \
-    Character/Common/Buffs/HolyStrength.h \
-    Character/Common/Enchants/FieryWeapon.h \
+    Class/Common/Buffs/HolyStrength.h \
+    Class/Common/Enchants/FieryWeapon.h \
     Character/CharacterStats.h \
-    Character/Class/Warrior/WarriorSpells.h \
+    Class/Warrior/WarriorSpells.h \
     Statistics/Charts/PieChart.h \
     GUI/Models/PieChartModel.h \
     Statistics/ClassStatistics.h \
@@ -530,16 +530,16 @@ HEADERS += \
     Test/Warrior/Procs/TestUnbridledWrath.h \
     Test/Warrior/TestProcWarrior.h \
     Test/TestProc.h \
-    Character/Common/Procs/ExtraAttackOnNextSwingProc.h \
-    Character/Common/Buffs/ExtraAttackOnNextSwingBuff.h \
-    Character/Common/Procs/ExtraAttackInstantProc.h \
-    Character/Common/GeneralProcs.h \
+    Class/Common/Procs/ExtraAttackOnNextSwingProc.h \
+    Class/Common/Buffs/ExtraAttackOnNextSwingBuff.h \
+    Class/Common/Procs/ExtraAttackInstantProc.h \
+    Class/Common/GeneralProcs.h \
     Character/CharacterEncoding.h \
     Character/CharacterDecoder.h \
     Character/CharacterEncoder.h \
     Thread/SimulationThreadPool.h \
     Thread/SimulationRunner.h \
-    Character/Common/GeneralBuffs.h \
+    Class/Common/GeneralBuffs.h \
     GUI/Models/BuffModel.h \
     Spells/ExternalBuff.h \
     Rotation/RotationFileReader.h \
@@ -550,11 +550,11 @@ HEADERS += \
     Rotation/Conditions/ConditionResource.h \
     Rotation/Conditions/ConditionVariableBuiltin.h \
     CombatRoll/xorshift/xoroshiro128plus.h \
-    Character/Class/Warrior/Buffs/RecklessnessBuff.h \
+    Class/Warrior/Buffs/RecklessnessBuff.h \
     Test/Warrior/Spells/TestRecklessness.h \
-    Character/Class/Warrior/Spells/BattleStance.h \
-    Character/Class/Warrior/Spells/BerserkerStance.h \
-    Character/Class/Warrior/Buffs/BerserkerStanceBuff.h \
+    Class/Warrior/Spells/BattleStance.h \
+    Class/Warrior/Spells/BerserkerStance.h \
+    Class/Warrior/Buffs/BerserkerStanceBuff.h \
     Test/Warrior/Spells/TestBerserkerStance.h \
     Character/Race/Racials/BloodFury.h \
     Character/Race/Racials/BloodFuryBuff.h \
@@ -563,32 +563,32 @@ HEADERS += \
     GUI/Models/DebuffModel.h \
     GUI/Models/ItemTypeFilterModel.h \
     Equipment/Item/ItemNamespace.h \
-    Character/Class/Warlock/WarlockSpells.h \
-    Character/Class/Shaman/ShamanSpells.h \
-    Character/Class/Rogue/RogueSpells.h \
-    Character/Class/Priest/PriestSpells.h \
-    Character/Class/Paladin/PaladinSpells.h \
-    Character/Class/Mage/MageSpells.h \
-    Character/Class/Hunter/HunterSpells.h \
-    Character/Class/Druid/DruidSpells.h \
+    Class/Warlock/WarlockSpells.h \
+    Class/Shaman/ShamanSpells.h \
+    Class/Rogue/RogueSpells.h \
+    Class/Priest/PriestSpells.h \
+    Class/Paladin/PaladinSpells.h \
+    Class/Mage/MageSpells.h \
+    Class/Hunter/HunterSpells.h \
+    Class/Druid/DruidSpells.h \
     Equipment/Item/ItemStatsEnum.h \
     GUI/Models/ActiveItemStatFilterModel.h \
     GUI/Models/AvailableItemStatFilterModel.h \
     Test/TestSpellDamage.h \
-    Character/Class/Warrior/Buffs/DefensiveStanceBuff.h \
+    Class/Warrior/Buffs/DefensiveStanceBuff.h \
     Test/Warrior/Spells/TestDeathWish.h \
     Test/TestCharacterStats.h \
-    Character/Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.h \
-    Character/Class/Warrior/Procs/SwordSpecialization.h \
+    Class/Warrior/TalentTrees/Arms/SwordSpecializationTalent.h \
+    Class/Warrior/Procs/SwordSpecialization.h \
     Test/Warrior/Procs/TestSwordSpecialization.h \
     Test/Warrior/Talents/TestTwoHandedWeaponSpecialization.h \
     Test/TestUtils.h \
-    Character/Class/Warrior/Spells/MortalStrike.h \
+    Class/Warrior/Spells/MortalStrike.h \
     Test/Warrior/Spells/TestMortalStrike.h \
-    Character/Class/Warrior/Spells/Slam.h \
+    Class/Warrior/Spells/Slam.h \
     Event/Events/CastComplete.h \
     Test/Warrior/Spells/TestSlam.h \
-    Character/Class/TalentRequirer.h \
+    Talent/TalentRequirer.h \
     Spells/SpellCastingTime.h \
     Test/Warrior/Talents/TestFury.h \
     GUI/Models/RotationModel.h \
@@ -596,22 +596,22 @@ HEADERS += \
     GUI/SimSettings.h \
     GUI/SimControl.h \
     Statistics/NumberCruncher.h \
-    Character/Common/Enchants/Enchant.h \
-    Character/Common/Enchants/EnchantStatic.h \
-    Character/Common/Enchants/EnchantProc.h \
-    Character/Common/Enchants/EnchantName.h \
-    Character/Common/Buffs/ArmorPenetrationBuff.h \
-    Character/Common/Procs/ArmorPenetrationProc.h \
-    Character/Common/Spells/InstantSpellAttack.h \
-    Character/Common/Procs/InstantSpellProc.h \
-    Character/Class/MagicSchools.h \
+    Class/Common/Enchants/Enchant.h \
+    Class/Common/Enchants/EnchantStatic.h \
+    Class/Common/Enchants/EnchantProc.h \
+    Class/Common/Enchants/EnchantName.h \
+    Class/Common/Buffs/ArmorPenetrationBuff.h \
+    Class/Common/Procs/ArmorPenetrationProc.h \
+    Class/Common/Spells/InstantSpellAttack.h \
+    Class/Common/Procs/InstantSpellProc.h \
+    Spells/MagicSchools.h \
     Test/General/Procs/TestFelstrikerProc.h \
-    Character/Common/Procs/FelstrikerProc.h \
-    Character/Common/Buffs/FelstrikerBuff.h \
+    Class/Common/Procs/FelstrikerProc.h \
+    Class/Common/Buffs/FelstrikerBuff.h \
     Spells/SharedBuff.h \
-    Character/Common/Buffs/EssenceOfTheRed.h \
-    Character/Class/Resource.h \
-    Character/Common/Spells/PeriodicResourceGainSpell.h \
+    Class/Common/Buffs/EssenceOfTheRed.h \
+    Resource/Resource.h \
+    Class/Common/Spells/PeriodicResourceGainSpell.h \
     Rulesets/Rulesets.h \
     Rulesets/RulesetControl.h \
     Faction/AvailableFactions.h \
@@ -621,150 +621,150 @@ HEADERS += \
     GUI/Models/Statistics/BuffBreakdownModel.h \
     GUI/Models/Statistics/ProcBreakdownModel.h \
     GUI/Models/Statistics/ResourceBreakdownModel.h \
-    Character/Common/Buffs/GenericStatBuff.h \
-    Character/Common/Buffs/JomGabbar.h \
+    Class/Common/Buffs/GenericStatBuff.h \
+    Class/Common/Buffs/JomGabbar.h \
     Event/Events/PeriodicRefreshBuff.h \
-    Character/Common/Buffs/FlatWeaponDamageBuff.h \
-    Character/Common/Procs/GenericChargeConsumerProc.h \
-    Character/Common/Spells/UseTrinket.h \
-    Character/Common/Buffs/NoEffectBuff.h \
-    Character/Class/Warrior/Spells/Rend.h \
+    Class/Common/Buffs/FlatWeaponDamageBuff.h \
+    Class/Common/Procs/GenericChargeConsumerProc.h \
+    Class/Common/Spells/UseTrinket.h \
+    Class/Common/Buffs/NoEffectBuff.h \
+    Class/Warrior/Spells/Rend.h \
     Test/Warrior/Spells/TestRend.h \
     Character/EnabledBuffs.h \
     Character/EnabledProcs.h \
-    Character/Class/Warrior/Spells/AngerManagement.h \
+    Class/Warrior/Spells/AngerManagement.h \
     GUI/Models/Statistics/DebuffBreakdownModel.h \
     GUI/SimOption.h \
     GUI/Models/SimScaleModel.h \
     GUI/Models/Statistics/ScaleResultModel.h \
-    Character/Class/Rogue/TalentTrees/Assassination.h \
-    Character/Class/Rogue/TalentTrees/Combat.h \
-    Character/Class/Rogue/TalentTrees/Subtlety.h \
-    Character/Class/Rogue/Spells/Backstab.h \
-    Character/Class/Rage.h \
-    Character/Class/Energy.h \
-    Character/Class/Mana.h \
+    Class/Rogue/TalentTrees/Assassination.h \
+    Class/Rogue/TalentTrees/Combat.h \
+    Class/Rogue/TalentTrees/Subtlety.h \
+    Class/Rogue/Spells/Backstab.h \
+    Resource/Rage.h \
+    Resource/Energy.h \
+    Resource/Mana.h \
     Test/Rogue/TestRogue.h \
     Test/Rogue/TestEnergy.h \
     Test/Rogue/TestSpellRogue.h \
     Test/Rogue/Spells/TestBackstab.h \
-    Character/Class/Rogue/Spells/Eviscerate.h \
+    Class/Rogue/Spells/Eviscerate.h \
     Test/Rogue/Spells/TestEviscerate.h \
-    Character/Class/Rogue/Spells/SliceAndDice.h \
-    Character/Class/Rogue/Buffs/SliceAndDiceBuff.h \
+    Class/Rogue/Spells/SliceAndDice.h \
+    Class/Rogue/Buffs/SliceAndDiceBuff.h \
     Test/Rogue/Spells/TestSliceAndDice.h \
     Test/AttackTables/TestAttackTables.h \
     Test/TestTalentTree.h \
-    Character/Class/Rogue/Spells/AdrenalineRush.h \
-    Character/Class/Rogue/Buffs/AdrenalineRushBuff.h \
+    Class/Rogue/Spells/AdrenalineRush.h \
+    Class/Rogue/Buffs/AdrenalineRushBuff.h \
     Test/Rogue/Spells/TestAdrenalineRush.h \
-    Character/Class/Rogue/Spells/BladeFlurry.h \
-    Character/Class/Rogue/Buffs/BladeFlurryBuff.h \
+    Class/Rogue/Spells/BladeFlurry.h \
+    Class/Rogue/Buffs/BladeFlurryBuff.h \
     Test/Rogue/Spells/TestBladeFlurry.h \
-    Character/Class/Rogue/TalentTrees/Combat/Precision.h \
-    Character/Class/Rogue/TalentTrees/Combat/DaggerSpecialization.h \
-    Character/Class/Rogue/Spells/OffhandAttackRogue.h \
-    Character/Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.h \
-    Character/Class/Rogue/TalentTrees/Combat/MaceSpecialization.h \
-    Character/Class/Rogue/TalentTrees/Combat/WeaponExpertise.h \
-    Character/Class/Rogue/TalentTrees/Assassination/Malice.h \
-    Character/Class/Rogue/Spells/SinisterStrike.h \
+    Class/Rogue/TalentTrees/Combat/Precision.h \
+    Class/Rogue/TalentTrees/Combat/DaggerSpecialization.h \
+    Class/Rogue/Spells/OffhandAttackRogue.h \
+    Class/Rogue/TalentTrees/Combat/FistWeaponSpecialization.h \
+    Class/Rogue/TalentTrees/Combat/MaceSpecialization.h \
+    Class/Rogue/TalentTrees/Combat/WeaponExpertise.h \
+    Class/Rogue/TalentTrees/Assassination/Malice.h \
+    Class/Rogue/Spells/SinisterStrike.h \
     Test/Rogue/Spells/TestSinisterStrike.h \
-    Character/Class/Rogue/TalentTrees/Assassination/Murder.h \
-    Character/Class/Rogue/Procs/Ruthlessness.h \
-    Character/Class/Rogue/Procs/RelentlessStrikes.h \
+    Class/Rogue/TalentTrees/Assassination/Murder.h \
+    Class/Rogue/Procs/Ruthlessness.h \
+    Class/Rogue/Procs/RelentlessStrikes.h \
     Test/Rogue/Procs/TestRelentlessStrikes.h \
     Test/Rogue/TestProcRogue.h \
-    Character/Class/Rogue/Procs/SealFate.h \
+    Class/Rogue/Procs/SealFate.h \
     Test/Rogue/Procs/TestSealFate.h \
-    Character/Class/Rogue/TalentTrees/Assassination/Vigor.h \
+    Class/Rogue/TalentTrees/Assassination/Vigor.h \
     Test/TestMechanics.h \
-    Character/Class/Rogue/Procs/InstantPoison.h \
-    Character/Class/Rogue/Buffs/InstantPoisonBuff.h \
+    Class/Rogue/Procs/InstantPoison.h \
+    Class/Rogue/Buffs/InstantPoisonBuff.h \
     GUI/Models/EnchantModel.h \
     Character/CharacterEnchants.h \
-    Character/Class/Warrior/WarriorEnchants.h \
-    Character/Class/Rogue/RogueEnchants.h \
+    Class/Warrior/WarriorEnchants.h \
+    Class/Rogue/RogueEnchants.h \
     Test/Rotation/TestConditionVariableBuiltin.h \
     Test/Rogue/Talents/TestAssassination.h \
     Test/Rogue/Talents/TestCombat.h \
     Test/Rogue/Talents/TestSubtlety.h \
-    Character/Class/Rogue/TalentTrees/Subtlety/SerratedBlades.h \
-    Character/Class/Rogue/TalentTrees/Subtlety/Deadliness.h \
-    Character/Class/Rogue/Spells/Hemorrhage.h \
+    Class/Rogue/TalentTrees/Subtlety/SerratedBlades.h \
+    Class/Rogue/TalentTrees/Subtlety/Deadliness.h \
+    Class/Rogue/Spells/Hemorrhage.h \
     Test/Rogue/Spells/TestHemorrhage.h \
     Equipment/EquipmentDb/SetBonusFileReader.h \
     Equipment/SetBonusControl.h \
     Spells/SetBonusRequirer.h \
     Spells/ItemModificationRequirer.h \
     Character/CharacterLoader.h \
-    Character/Class/Hunter/TalentTrees/BeastMastery.h \
-    Character/Class/Hunter/TalentTrees/Marksmanship.h \
-    Character/Class/Hunter/TalentTrees/Survival.h \
+    Class/Hunter/TalentTrees/BeastMastery.h \
+    Class/Hunter/TalentTrees/Marksmanship.h \
+    Class/Hunter/TalentTrees/Survival.h \
     Test/Hunter/Talents/TestBeastMastery.h \
     Test/Hunter/Talents/TestMarksmanship.h \
     Test/Hunter/Talents/TestSurvival.h \
     Test/Hunter/TestHunter.h \
-    Character/Class/Hunter/HunterEnchants.h \
+    Class/Hunter/HunterEnchants.h \
     Character/CharacterSpells.h \
     CombatRoll/AttackTables/MeleeWhiteHitTable.h \
     CombatRoll/AttackTables/RangedWhiteHitTable.h \
     Test/Hunter/TestSpellHunter.h \
-    Character/Class/Hunter/Spells/MultiShot.h \
+    Class/Hunter/Spells/MultiShot.h \
     Test/Hunter/Spells/TestMultiShot.h \
-    Character/Class/Hunter/Spells/AutoShot.h \
+    Class/Hunter/Spells/AutoShot.h \
     Test/Hunter/Spells/TestAutoShot.h \
-    Character/Class/Hunter/Spells/AimedShot.h \
+    Class/Hunter/Spells/AimedShot.h \
     Test/Hunter/Spells/TestAimedShot.h \
     Utils/Check.h \
     Test/TestObject.h \
     Test/Rotation/TestRotationFileReader.h \
-    Character/Common/AttackMode.h \
+    Class/Common/AttackMode.h \
     Event/Events/RangedHit.h \
     Test/TestMana.h \
     Utils/CompareDouble.h \
-    Character/Class/TalentStatIncrease.h \
+    Talent/TalentStatIncrease.h \
     Test/Hunter/Talents/TestHunterTalentStatIncrease.h \
-    Character/Class/Hunter/Spells/HuntersMark.h \
-    Character/Class/Hunter/Buffs/HuntersMarkBuff.h \
-    Character/Class/Hunter/Spells/AspectOfTheHawk.h \
-    Character/Class/Hunter/Buffs/AspectOfTheHawkBuff.h \
-    Character/Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.h \
-    Character/Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.h \
-    Character/Class/Hunter/Spells/RapidFire.h \
-    Character/Class/Hunter/Buffs/RapidFireBuff.h \
-    Character/Common/Buffs/DevilsaurEye.h \
-    Character/Common/Pet/Pet.h \
+    Class/Hunter/Spells/HuntersMark.h \
+    Class/Hunter/Buffs/HuntersMarkBuff.h \
+    Class/Hunter/Spells/AspectOfTheHawk.h \
+    Class/Hunter/Buffs/AspectOfTheHawkBuff.h \
+    Class/Hunter/Buffs/ImprovedAspectOfTheHawkBuff.h \
+    Class/Hunter/Procs/ImprovedAspectOfTheHawkProc.h \
+    Class/Hunter/Spells/RapidFire.h \
+    Class/Hunter/Buffs/RapidFireBuff.h \
+    Class/Common/Buffs/DevilsaurEye.h \
+    Class/Common/Pet/Pet.h \
     Event/Events/PetAction.h \
-    Character/Common/Pet/Species/Cat.h \
-    Character/Common/Pet/Spells/PetAutoAttack.h \
+    Class/Common/Pet/Species/Cat.h \
+    Class/Common/Pet/Spells/PetAutoAttack.h \
     Event/Events/PetMeleeHit.h \
-    Character/Common/Pet/Spells/Claw.h \
-    Character/Class/Focus.h \
-    Character/Class/RegeneratingResource.h \
-    Character/Common/Spells/ResourceTick.h \
-    Character/Common/Procs/ManaDrainProc.h \
-    Character/Class/Hunter/Spells/BestialWrath.h \
-    Character/Class/Hunter/Buffs/BestialWrathBuff.h \
-    Character/Class/Hunter/Buffs/FrenzyBuff.h \
-    Character/Class/Hunter/Procs/FrenzyProc.h \
+    Class/Common/Pet/Spells/Claw.h \
+    Resource/Focus.h \
+    Resource/RegeneratingResource.h \
+    Class/Common/Spells/ResourceTick.h \
+    Class/Common/Procs/ManaDrainProc.h \
+    Class/Hunter/Spells/BestialWrath.h \
+    Class/Hunter/Buffs/BestialWrathBuff.h \
+    Class/Hunter/Buffs/FrenzyBuff.h \
+    Class/Hunter/Procs/FrenzyProc.h \
     Equipment/EquipmentDb/ProjectileFileReader.h \
     Equipment/Item/Projectile.h \
-    Character/Common/Spells/ManaPotion.h \
+    Class/Common/Spells/ManaPotion.h \
     GUI/Models/SortDirection.h \
-    Character/Class/Hunter/Procs/ExposeWeaknessProc.h \
-    Character/Class/Hunter/Buffs/ExposeWeaknessBuff.h \
-    Character/Class/Hunter/HunterPet.h \
+    Class/Hunter/Procs/ExposeWeaknessProc.h \
+    Class/Hunter/Buffs/ExposeWeaknessBuff.h \
+    Class/Hunter/HunterPet.h \
     GUI/Models/RotationConditionsModel.h \
     Statistics/StatisticsEngine.h \
     GUI/Models/Statistics/EngineBreakdownModel.h \
     Statistics/StatisticsRotationExecutor.h \
     GUI/Models/Statistics/RotationExecutorBreakdownModel.h \
     GUI/Models/Statistics/RotationExecutorListModel.h \
-    Character/Class/Paladin/TalentTrees/HolyPaladin.h \
-    Character/Class/Paladin/TalentTrees/ProtectionPaladin.h \
-    Character/Class/Paladin/TalentTrees/Retribution.h \
-    Character/Class/Paladin/PaladinEnchants.h \
+    Class/Paladin/TalentTrees/HolyPaladin.h \
+    Class/Paladin/TalentTrees/ProtectionPaladin.h \
+    Class/Paladin/TalentTrees/Retribution.h \
+    Class/Paladin/PaladinEnchants.h \
     Test/Paladin/TestPaladin.h \
     Test/Paladin/Talents/TestHolyPaladin.h \
     Test/Paladin/Talents/TestProtectionPaladin.h \
@@ -779,36 +779,36 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Character/Race/Races \
     $$PWD/Character/Race/Racials \
     $$PWD/Character/Class \
-    $$PWD/Character/Class/Warrior \
-    $$PWD/Character/Class/Warrior/Spells \
-    $$PWD/Character/Class/Warrior/Buffs \
-    $$PWD/Character/Class/Warrior/Procs \
-    $$PWD/Character/Class/Warrior/TalentTrees \
-    $$PWD/Character/Class/Warrior/TalentTrees/Fury \
-    $$PWD/Character/Class/Warrior/TalentTrees/Arms \
-    $$PWD/Character/Class/Priest \
-    $$PWD/Character/Class/Rogue \
-    $$PWD/Character/Class/Rogue/Buffs \
-    $$PWD/Character/Class/Rogue/Procs \
-    $$PWD/Character/Class/Rogue/Spells \
-    $$PWD/Character/Class/Rogue/TalentTrees \
-    $$PWD/Character/Class/Rogue/TalentTrees/Assassination \
-    $$PWD/Character/Class/Rogue/TalentTrees/Combat \
-    $$PWD/Character/Class/Rogue/TalentTrees/Subtlety \
-    $$PWD/Character/Class/Mage \
-    $$PWD/Character/Class/Druid \
-    $$PWD/Character/Class/Hunter \
-    $$PWD/Character/Class/Hunter/Buffs \
-    $$PWD/Character/Class/Hunter/Procs \
-    $$PWD/Character/Class/Hunter/Spells \
-    $$PWD/Character/Class/Hunter/TalentTrees \
-    $$PWD/Character/Class/Warlock \
-    $$PWD/Character/Class/Shaman \
-    $$PWD/Character/Class/Paladin \
-    $$PWD/Character/Class/Paladin/Buffs \
-    $$PWD/Character/Class/Paladin/Procs \
-    $$PWD/Character/Class/Paladin/Spells \
-    $$PWD/Character/Class/Paladin/TalentTrees \
+    $$PWD/Class/Warrior \
+    $$PWD/Class/Warrior/Spells \
+    $$PWD/Class/Warrior/Buffs \
+    $$PWD/Class/Warrior/Procs \
+    $$PWD/Class/Warrior/TalentTrees \
+    $$PWD/Class/Warrior/TalentTrees/Fury \
+    $$PWD/Class/Warrior/TalentTrees/Arms \
+    $$PWD/Class/Priest \
+    $$PWD/Class/Rogue \
+    $$PWD/Class/Rogue/Buffs \
+    $$PWD/Class/Rogue/Procs \
+    $$PWD/Class/Rogue/Spells \
+    $$PWD/Class/Rogue/TalentTrees \
+    $$PWD/Class/Rogue/TalentTrees/Assassination \
+    $$PWD/Class/Rogue/TalentTrees/Combat \
+    $$PWD/Class/Rogue/TalentTrees/Subtlety \
+    $$PWD/Class/Mage \
+    $$PWD/Class/Druid \
+    $$PWD/Class/Hunter \
+    $$PWD/Class/Hunter/Buffs \
+    $$PWD/Class/Hunter/Procs \
+    $$PWD/Class/Hunter/Spells \
+    $$PWD/Class/Hunter/TalentTrees \
+    $$PWD/Class/Warlock \
+    $$PWD/Class/Shaman \
+    $$PWD/Class/Paladin \
+    $$PWD/Class/Paladin/Buffs \
+    $$PWD/Class/Paladin/Procs \
+    $$PWD/Class/Paladin/Spells \
+    $$PWD/Class/Paladin/TalentTrees \
     $$PWD/Equipment \
     $$PWD/Equipment/Item \
     $$PWD/Equipment/EquipmentDb \
@@ -840,14 +840,14 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Paladin/Spells \
     $$PWD/Test/Paladin/Talents \
     $$PWD/Test/Rotation \
-    $$PWD/Character/Common \
-    $$PWD/Character/Common/Enchants \
-    $$PWD/Character/Common/Buffs \
-    $$PWD/Character/Common/Spells \
-    $$PWD/Character/Common/Procs \
-    $$PWD/Character/Common/Pet \
-    $$PWD/Character/Common/Pet/Species \
-    $$PWD/Character/Common/Pet/Spells \
+    $$PWD/Class/Common \
+    $$PWD/Class/Common/Enchants \
+    $$PWD/Class/Common/Buffs \
+    $$PWD/Class/Common/Spells \
+    $$PWD/Class/Common/Procs \
+    $$PWD/Class/Common/Pet \
+    $$PWD/Class/Common/Pet/Species \
+    $$PWD/Class/Common/Pet/Spells \
     $$PWD/GUI \
     $$PWD/GUI/Models \
     $$PWD/GUI/Models/Statistics \
@@ -856,7 +856,9 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Rotation \
     $$PWD/Rotation/Conditions \
     $$PWD/Rulesets \
-    $$PWD/Phases
+    $$PWD/Phases \
+    $$PWD/Resource \
+    $$PWD/Talent
 
 RESOURCES += qml.qrc
 
