@@ -255,6 +255,7 @@ public:
     /* End of Rotation */
 
      /* SimSettings */
+     Q_INVOKABLE void resetDefaultSettings();
      Q_PROPERTY(int combatLength READ get_combat_length NOTIFY combatLengthChanged)
      Q_PROPERTY(int combatIterationsFullSim READ get_combat_iterations_full_sim NOTIFY combatIterationsChanged)
      Q_PROPERTY(int combatIterationsQuickSim READ get_combat_iterations_quick_sim NOTIFY combatIterationsChanged)

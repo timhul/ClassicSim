@@ -6,6 +6,20 @@ Rectangle {
 
     color: "transparent"
 
+    RectangleBorders {
+        x: textFieldEntries.x + 180
+        y: 5
+
+        rectColor: root.darkDarkGray
+        height: 30
+        width: 100
+        TextSmall {
+            text: "Reset to default"
+        }
+
+        onRectangleClicked: settings.resetDefaultSettings()
+    }
+
     Column {
         id: textFieldEntries
         width: parent.width / 2 - x

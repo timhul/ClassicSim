@@ -41,6 +41,7 @@
 #include "ItemModel.h"
 #include "ItemTypeFilterModel.h"
 #include "Mage.h"
+#include "Mechanics.h"
 #include "MeleeDamageAvoidanceBreakdownModel.h"
 #include "MeleeDamageBreakdownModel.h"
 #include "NightElf.h"
@@ -757,6 +758,14 @@ void GUIControl::selectInformationRotation(const int index) {
         return;
 
     informationRotationChanged();
+}
+
+void GUIControl::resetDefaultSettings() {
+    setCombatIterationsFullSim(10000);
+    setCombatIterationsQuickSim(1000);
+    setCombatLength(300);
+    setNumThreads(sim_settings->get_num_threads_max());
+    setTargetBaseArmor(Mechanics::get_boss_base_armor());
 }
 
 QString GUIControl::get_curr_rotation_name() const {
