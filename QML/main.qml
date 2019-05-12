@@ -36,6 +36,9 @@ Window {
     property color colorShaman: "#0070DE"
     property color colorWarlock: "#9482C9"
     property color colorWarrior: "#C79C6E"
+
+    property color colorFaction: character.isAlliance ? "#1c5baf" : wineRed
+
     property string fontNumbers: "Cambria Math"
     property string fontText: "Arial"
 
@@ -366,7 +369,7 @@ Window {
 
             anchors.fill: parent
 
-            color: "white"
+            color: root.colorFaction
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }

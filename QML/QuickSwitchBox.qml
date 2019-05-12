@@ -14,7 +14,7 @@ GradientSelectedButton {
 
     TextSmall {
         text: choiceText
-        color: "lightgray"
+        color: root.colorFaction
         pointSize: 12
     }
 

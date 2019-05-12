@@ -6,7 +6,6 @@ Rectangle {
     property int choiceHeight: 70
     property string fontFamily: root.fontText
     property int fontSize: 16
-    property color fontColor: "lightgray"
 
     signal talentsClicked();
     signal equipmentClicked();
@@ -38,7 +37,7 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "Talents"
-                color: fontColor
+                color: root.colorFaction
 
                 font {
                     family: fontFamily
@@ -73,7 +72,7 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "Equipment"
-                color: fontColor
+                color: root.colorFaction
 
                 font {
                     family: fontFamily
@@ -108,7 +107,7 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "Buffs"
-                color: fontColor
+                color: root.colorFaction
 
                 font {
                     family: fontFamily
@@ -143,7 +142,7 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "Rotation"
-                color: fontColor
+                color: root.colorFaction
 
                 font {
                     family: fontFamily
@@ -178,7 +177,7 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "Statistics"
-                color: fontColor
+                color: root.colorFaction
 
                 font {
                     family: fontFamily
@@ -213,7 +212,7 @@ Rectangle {
                 anchors.fill: parent
 
                 text: "Settings"
-                color: fontColor
+                color: root.colorFaction
 
                 font {
                     family: fontFamily

@@ -44,7 +44,7 @@ Rectangle {
                 pointSize: 16
 
                 text: "Alliance"
-                color: character.isAlliance ? "cornflowerblue" :
+                color: character.isAlliance ? "#1c5baf" :
                                               root.gray
                 horizontalAlignment: Text.AlignLeft
             }
