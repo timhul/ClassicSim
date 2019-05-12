@@ -107,6 +107,21 @@ Window {
         }
     }
 
+    TextSmall {
+        id: talentAllocation
+
+        anchorParent: false
+        anchors {
+            left: classChoice.right
+            leftMargin: 70
+            top: raceChoice.bottom
+            topMargin: 10
+        }
+
+        text: talents.talentAllocation
+        pointSize: 20
+    }
+
     ComboBox {
         id: contentPhaseChoice
         anchors {

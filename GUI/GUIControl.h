@@ -71,6 +71,10 @@ public:
     Q_PROPERTY(QString leftTalentTreeBackground READ getLeftBackgroundImage NOTIFY classChanged)
     Q_PROPERTY(QString midTalentTreeBackground READ getMidBackgroundImage NOTIFY classChanged)
     Q_PROPERTY(QString rightTalentTreeBackground READ getRightBackgroundImage NOTIFY classChanged)
+    Q_PROPERTY(int leftTreePoints READ get_left_talent_tree_points NOTIFY talentsUpdated)
+    Q_PROPERTY(int midTreePoints READ get_mid_talent_tree_points NOTIFY talentsUpdated)
+    Q_PROPERTY(int rightTreePoints READ get_right_talent_tree_points NOTIFY talentsUpdated)
+    Q_PROPERTY(QString talentAllocation READ get_formatted_talent_allocation NOTIFY talentsUpdated)
 
     Q_INVOKABLE QString getIcon(const QString& tree_position, const QString& talent_position) const;
     Q_INVOKABLE bool showPosition(const QString& tree_position, const QString& talent_position) const;
@@ -94,7 +98,6 @@ public:
     Q_INVOKABLE QString getRequirements(const QString& tree_position, const QString& talent_position) const;
     Q_INVOKABLE QString getCurrentRankDescription(const QString& tree_position, const QString& talent_position) const;
     Q_INVOKABLE QString getNextRankDescription(const QString& tree_position, const QString& talent_position) const;
-    Q_INVOKABLE int getTreePoints(const QString& tree_position) const;
     Q_INVOKABLE QString getTreeName(const QString& tree_position) const;
     Q_INVOKABLE QString getTalentName(const QString& tree_position, const QString& talent_position) const;
     Q_INVOKABLE void maxRank(const QString& tree_position, const QString& talent_position);
@@ -103,6 +106,11 @@ public:
     Q_INVOKABLE void clearTree(const QString& tree_position);
 
     Q_INVOKABLE void setTalentSetup(const int talent_index);
+    int get_left_talent_tree_points() const;
+    int get_mid_talent_tree_points() const;
+    int get_right_talent_tree_points() const;
+    int get_tree_points(const QString& tree_position) const;
+    QString get_formatted_talent_allocation() const;
     /* End of Talents */
 
     /* Stats */

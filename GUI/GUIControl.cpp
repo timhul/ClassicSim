@@ -455,8 +455,12 @@ QString GUIControl::getNextRankDescription(const QString& tree_position, const Q
     return current_char->get_talents()->get_next_rank_description(tree_position, talent_position);
 }
 
-int GUIControl::getTreePoints(const QString& tree_position) const {
+int GUIControl::get_tree_points(const QString& tree_position) const {
     return current_char->get_talents()->get_tree_points(tree_position);
+}
+
+QString GUIControl::get_formatted_talent_allocation() const {
+    return QString("%1 / %2 / %3").arg(get_left_talent_tree_points()).arg(get_mid_talent_tree_points()).arg(get_right_talent_tree_points());
 }
 
 QString GUIControl::getTreeName(const QString& tree_position) const {
@@ -489,6 +493,18 @@ void GUIControl::setTalentSetup(const int talent_index) {
     current_char->get_talents()->set_current_index(talent_index);
     Q_EMIT talentsUpdated();
     Q_EMIT statsChanged();
+}
+
+int GUIControl::get_left_talent_tree_points() const {
+    return get_tree_points("LEFT");
+}
+
+int GUIControl::get_mid_talent_tree_points() const {
+    return get_tree_points("MID");
+}
+
+int GUIControl::get_right_talent_tree_points() const {
+    return get_tree_points("RIGHT");
 }
 
 QString GUIControl::get_stats_type_to_display() const {

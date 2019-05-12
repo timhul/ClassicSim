@@ -5,15 +5,6 @@ Rectangle {
     height: width / 3 * 1.77 + 75
     width: 700
 
-    Connections {
-        target: talents
-        onTalentsUpdated: {
-            leftTotalPoints.text = talents.getTreePoints("LEFT")
-            midTotalPoints.text = talents.getTreePoints("MID")
-            rightTotalPoints.text = talents.getTreePoints("RIGHT")
-        }
-    }
-
     Column {
         anchors.fill: parent
 
@@ -176,7 +167,7 @@ Rectangle {
                         pointSize: 28
                     }
 
-                    text:  talents.getTreePoints("LEFT")
+                    text:  talents.leftTreePoints
                 }
 
                 ClickableImage {
@@ -205,7 +196,7 @@ Rectangle {
                         pointSize: 28
                     }
 
-                    text:  talents.getTreePoints("MID")
+                    text:  talents.midTreePoints
                 }
 
                 ClickableImage {
@@ -233,7 +224,7 @@ Rectangle {
                         pointSize: 28
                     }
 
-                    text: talents.getTreePoints("RIGHT")
+                    text: talents.rightTreePoints
                 }
 
                 ClickableImage {

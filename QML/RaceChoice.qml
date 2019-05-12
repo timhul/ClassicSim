@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle {
     id: classRect
     width: raceChoiceHeight * 4 + 10
-    height: raceChoiceHeight * 2 + 2
+    height: raceChoiceHeight + 2
 
     property int raceChoiceHeight: 55
 
