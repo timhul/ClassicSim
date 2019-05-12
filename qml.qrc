@@ -645,5 +645,7 @@
         <file>QML/Assets/items/Inv_belt_11.png</file>
         <file>QML/GradientButton.qml</file>
         <file>QML/GradientSelectedButton.qml</file>
+        <file>QML/Assets/Alliance_64.png</file>
+        <file>QML/Assets/Horde_64.png</file>
     </qresource>
 </RCC>

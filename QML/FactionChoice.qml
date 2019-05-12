@@ -4,46 +4,93 @@ import Faction 1.0
 Rectangle {
     color: "transparent"
 
-    property int sideLength: 55
+    property int buttonWidth: 145
+    property int buttonHeight: 55
 
-    height: sideLength * 2
-    width: sideLength
+    height: buttonHeight * 2
+    width: buttonWidth
 
     Column {
         anchors.fill: parent
 
-        RectangleBorders {
-            rectColor: root.darkDarkGray
-            height: sideLength
-            width: sideLength
+        GradientButton {
+            height: buttonHeight
+            width: buttonWidth
 
-            TextSmall {
-                pointSize: 16
+            Image {
+                id: allianceImage
+                height: 30
+                width: 30
+                source: "Assets/Alliance_64.png"
 
-                text: "A"
-                color: character.isAlliance ? "blue" :
-                                              root.gray
+                anchors {
+                    left: parent.left
+                    top: parent.top
+                    leftMargin: 10
+                    topMargin: (parent.height - height) / 2
+                }
             }
 
-            onRectangleClicked: character.selectFaction(Faction.Alliance)
-            onRectangleRightClicked: character.selectFaction(Faction.Alliance)
+            TextSmall {
+                anchorParent: false
+                anchors {
+                    left: allianceImage.right
+                    leftMargin: 5
+                    right: parent.right
+                    top: parent.top
+                    bottom: parent.bottom
+                }
+
+                pointSize: 16
+
+                text: "Alliance"
+                color: character.isAlliance ? "cornflowerblue" :
+                                              root.gray
+                horizontalAlignment: Text.AlignLeft
+            }
+
+            onButtonClicked: character.selectFaction(Faction.Alliance)
+            onButtonRightClicked: character.selectFaction(Faction.Alliance)
         }
 
-        RectangleBorders {
-            rectColor: root.darkDarkGray
-            height: sideLength
-            width: sideLength
+        GradientButton {
+            height: buttonHeight
+            width: buttonWidth
 
-            TextSmall {
-                pointSize: 16
+            Image {
+                id: hordeImage
+                height: 30
+                width: 30
+                source: "Assets/Horde_64.png"
 
-                text: "H"
-                color: character.isHorde ? "red" :
-                                           root.gray
+                anchors {
+                    left: parent.left
+                    top: parent.top
+                    leftMargin: 10
+                    topMargin: (parent.height - height) / 2
+                }
             }
 
-            onRectangleClicked: character.selectFaction(Faction.Horde)
-            onRectangleRightClicked: character.selectFaction(Faction.Horde)
+            TextSmall {
+                anchorParent: false
+                anchors {
+                    left: hordeImage.right
+                    leftMargin: 5
+                    right: parent.right
+                    top: parent.top
+                    bottom: parent.bottom
+                }
+
+                pointSize: 16
+
+                text: "Horde"
+                color: character.isHorde ? root.wineRed :
+                                           root.gray
+                horizontalAlignment: Text.AlignLeft
+            }
+
+            onButtonClicked: character.selectFaction(Faction.Horde)
+            onButtonRightClicked: character.selectFaction(Faction.Horde)
         }
     }
 }
