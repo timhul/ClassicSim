@@ -647,5 +647,7 @@
         <file>QML/GradientSelectedButton.qml</file>
         <file>QML/Assets/Alliance_64.png</file>
         <file>QML/Assets/Horde_64.png</file>
+        <file>QML/SettingsCommon.qml</file>
+        <file>QML/SettingsScaleFactors.qml</file>
     </qresource>
 </RCC>

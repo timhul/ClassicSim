@@ -1,9 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 
-Row {
+RectangleBorders {
     height: 30
-    spacing: 5
+    width: 425
+
+    signal acceptedInput(string value);
 
     property string description
     property string valueText
@@ -12,70 +14,75 @@ Row {
     property int minVal
     property int maxVal
 
-    signal acceptedInput(string value);
+    Row {
+        anchors.fill: parent
 
-    TextSmall {
-        anchorParent: false
-        text: description
-        height: 30
-        width: 175
+        spacing: 5
 
-        horizontalAlignment: Text.AlignRight
-    }
+        TextSmall {
+            anchorParent: false
+            text: description
+            height: 30
+            width: 175
 
-    RectangleBorders {
-        height: 30
-        width: 100
-        rectColor: root.darkGray
+            horizontalAlignment: Text.AlignRight
+        }
 
-        onRectangleClicked: {
-            textField.visible = true
-            textField.forceActiveFocus()
+        RectangleBorders {
+            height: 30
+            width: 100
+            rectColor: root.darkGray
+
+            onRectangleClicked: {
+                textField.visible = true
+                textField.forceActiveFocus()
+            }
+
+            TextSmall {
+                text: valueText
+                visible: !textField.visible
+            }
+
+            TextField {
+                id: textField
+                visible: false
+                anchors.fill: parent
+
+                validator: IntValidator {
+                    id: textFieldValidator
+                    bottom: minVal;
+                    top: maxVal
+                }
+                inputMethodHints: Qt.ImhDigitsOnly
+                placeholderText: placeholderText
+
+                font {
+                    family: "Arial"
+                    pointSize: 9
+                }
+                color: "white"
+
+                onAccepted: {
+                    acceptedInput(text)
+                    visible = false
+                }
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
+                background: Rectangle {
+                    color: "transparent"
+                }
+            }
         }
 
         TextSmall {
-            text: valueText
-            visible: !textField.visible
+            text: textFieldValidator.bottom + "-" + textFieldValidator.top + " " + unitText
+            anchorParent: false
+            height: 30
+            width: 150
+
+            horizontalAlignment: Text.AlignLeft
         }
-
-        TextField {
-            id: textField
-            visible: false
-            anchors.fill: parent
-
-            validator: IntValidator {
-                id: textFieldValidator
-                bottom: minVal;
-                top: maxVal
-            }
-            inputMethodHints: Qt.ImhDigitsOnly
-            placeholderText: placeholderText
-
-            font {
-                family: "Arial"
-                pointSize: 9
-            }
-            color: "white"
-
-            onAccepted: {
-                acceptedInput(text)
-                visible = false
-            }
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-
-            background: Rectangle {
-                color: "transparent"
-            }
-        }
-    }
-
-    TextSmall {
-        text: textFieldValidator.bottom + "-" + textFieldValidator.top + " " + unitText
-        anchorParent: false
-        height: 30
-        width: 150
-
-        horizontalAlignment: Text.AlignLeft
     }
 }
+
