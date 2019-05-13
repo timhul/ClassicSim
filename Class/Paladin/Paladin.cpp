@@ -29,6 +29,8 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
     cstats->increase_stamina(30);
     cstats->increase_intellect(100);
     cstats->increase_spirit(105);
+    cstats->increase_melee_crit(300);
+    cstats->increase_melee_ap(160);
 
     this->paladin_spells = new PaladinSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(paladin_spells);
