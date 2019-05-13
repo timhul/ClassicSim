@@ -20,6 +20,7 @@
 	<cast_if name="Consecration"/>
 
 	<cast_if name="Manual Crowd Pummeler"/>
+	<cast_if name="Scrolls of Blinding Light"/>
 	<cast_if name="Kiss of the Spider"/>
 	<cast_if name="Jom Gabbar"/>
 	<cast_if name="Badge of the Swarmguard"/>

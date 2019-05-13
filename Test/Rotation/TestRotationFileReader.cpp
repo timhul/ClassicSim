@@ -181,6 +181,7 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
         "Seal of the Crusader",
         "Consecration",
         "Manual Crowd Pummeler",
+        "Scrolls of Blinding Light",
         "Kiss of the Spider",
         "Jom Gabbar",
         "Badge of the Swarmguard",

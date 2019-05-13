@@ -81,6 +81,20 @@
 		</source>
 	</item>
 
+	<item id="19343" phase="2">
+		<info name="Scrolls of Blinding Light" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_scroll_08.png"/>
+		<class_restriction class="PALADIN"/>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="MELEE_ATTACK_SPEED" value="25" duration="20" cooldown="300"/>
+		</uses>
+		<special_equip_effect>
+			Use: Energizes a Paladin with light, increasing melee attack speed by 25% and spell casting speed by 33% for 20 sec. (cooldown 5 min)
+		</special_equip_effect>
+		<source>
+			Drops from Firemaw in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="19406" phase="2">
 		<info name="Drake Fang Talisman" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_bone_06.png"/>
 		<stats>
