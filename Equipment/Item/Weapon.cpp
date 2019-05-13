@@ -13,6 +13,7 @@ Weapon::Weapon(QString name, int item_id, Content::Phase phase, int type, int we
                QMap<QString, QString> info,
                QVector<QPair<QString, QString>> stats,
                QVector<QMap<QString, QString>> procs,
+               QVector<QMap<QString, QString>> uses,
                QVector<QString> special_equip_effects):
     Item(std::move(name),
          item_id,
@@ -20,7 +21,7 @@ Weapon::Weapon(QString name, int item_id, Content::Phase phase, int type, int we
          std::move(info),
          std::move(stats),
          std::move(procs),
-         QVector<QMap<QString, QString>>{},
+         std::move(uses),
          QVector<QString>{},
          std::move(special_equip_effects)),
     random(new Random(min, max)),

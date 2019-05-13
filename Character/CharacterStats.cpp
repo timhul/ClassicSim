@@ -315,6 +315,10 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::AttackSpeedPercent:
         pchar->increase_ranged_attack_speed(value);
         return pchar->increase_melee_attack_speed(value);
+    case ItemStats::MeleeAttackSpeedPercent:
+        return pchar->increase_melee_attack_speed(value);
+    case ItemStats::RangedAttackSpeedPercent:
+        return pchar->increase_ranged_attack_speed(value);
     case ItemStats::AttackPower:
         increase_melee_ap(value);
         return increase_ranged_ap(value);
@@ -380,6 +384,10 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     case ItemStats::AttackSpeedPercent:
         pchar->decrease_ranged_attack_speed(value);
         return pchar->decrease_melee_attack_speed(value);
+    case ItemStats::MeleeAttackSpeedPercent:
+        return pchar->decrease_melee_attack_speed(value);
+    case ItemStats::RangedAttackSpeedPercent:
+        return pchar->decrease_ranged_attack_speed(value);
     case ItemStats::AttackPower:
         decrease_melee_ap(value);
         return decrease_ranged_ap(value);

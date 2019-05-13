@@ -12,6 +12,7 @@ public:
            QMap<QString, QString> info = {},
            QVector<QPair<QString, QString>> stats = {},
            QVector<QMap<QString, QString>> procs = {},
+           QVector<QMap<QString, QString>> uses = {},
            QVector<QString> special_equip_effects = {});
     Weapon(const Weapon* weapon);
 

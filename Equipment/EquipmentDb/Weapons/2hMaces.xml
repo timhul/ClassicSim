@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="9449" phase="0">
+		<info name="Manual Crowd Pummeler" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="29" item_lvl="34" quality="RARE" boe="no" icon="Inv_mace_14.png"/>
+		<dmg_range min="46" max="70" speed="2.0"/>
+		<stats>
+			<stat type="STRENGTH" value="16"/>
+			<stat type="AGILITY" value="5"/>
+		</stats>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="MELEE_ATTACK_SPEED" value="50" duration="30" cooldown="30"/>
+		</uses>
+		<special_equip_effect>
+		Use: Increases your attack speed by 50% for 30 sec. 3 charges.
+		</special_equip_effect>
+		<source>
+		Drops from Crowd Pummeler 9-60 in Gnomeregan.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="17073" phase="0">
 		<info name="Earthshaker" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_04.png"/>
 		<dmg_range min="175" max="263" speed="3.5"/>

@@ -30,6 +30,7 @@
 #include "NoEffectBuff.h"
 #include "Stats.h"
 #include "Target.h"
+#include "UseItem.h"
 #include "UseTrinket.h"
 #include "Utils/Check.h"
 
@@ -299,6 +300,10 @@ void Item::set_uses() {
             ItemStats stat_type;
             if (type == "ATTACK_SPEED")
                 stat_type = ItemStats::AttackSpeedPercent;
+            else if (type == "MELEE_ATTACK_SPEED")
+                stat_type = ItemStats::MeleeAttackSpeedPercent;
+            else if (type == "RANGED_ATTACK_SPEED")
+                stat_type = ItemStats::RangedAttackSpeedPercent;
             else if (type == "ATTACK_POWER")
                 stat_type = ItemStats::AttackPower;
             else if (type == "STRENGTH")
@@ -313,7 +318,11 @@ void Item::set_uses() {
             int cooldown = use["cooldown"].toInt();
 
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
-            spell = new UseTrinket(pchar, name, icon, cooldown, buff);
+
+            if (slot == ItemSlots::TRINKET)
+                spell = new UseTrinket(pchar, name, icon, cooldown, buff);
+            else
+                spell = new UseItem(pchar, name, icon, cooldown, buff);
         }
         else if (use_name == "DEVILSAUR_EYE") {
             Buff* buff = new DevilsaurEye(pchar);

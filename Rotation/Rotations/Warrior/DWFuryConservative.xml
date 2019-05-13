@@ -87,6 +87,8 @@
 
 		<!--let "dumping_rage_before_stancing" = true-->
 	</cast_if>
+	
+	<cast_if name="Manual Crowd Pummeler"/>
 
 	<cast_if name="Kiss of the Spider">
 		buff "Death Wish" is true

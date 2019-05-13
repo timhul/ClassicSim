@@ -27,6 +27,8 @@
 		and resource "Rage" greater 80
 	</cast_if>
 
+	<cast_if name="Manual Crowd Pummeler"/>
+
 	<cast_if name="Kiss of the Spider">
 		buff "Death Wish" is true
 	</cast_if>
@@ -54,7 +56,7 @@
 	<cast_if name="Diamond Flask">
 		buff "Death Wish" is true
 	</cast_if>
-	
+
 	<cast_if name="Cloudkeeper Legplates">
 		buff "Death Wish" is true
 	</cast_if>

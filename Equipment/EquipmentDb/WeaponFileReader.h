@@ -13,6 +13,7 @@ private:
                        QMap<QString, QString>& item_map,
                        QVector<QPair<QString, QString>>& stats,
                        QVector<QMap<QString, QString>>& procs,
+                       QVector<QMap<QString, QString>>& uses,
                        QVector<QString>& special_equip_effects);
     int get_weapon_type(const QString &type);
 };

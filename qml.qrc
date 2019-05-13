@@ -649,5 +649,6 @@
         <file>QML/Assets/Horde_64.png</file>
         <file>QML/SettingsCommon.qml</file>
         <file>QML/SettingsScaleFactors.qml</file>
+        <file>QML/Assets/items/Inv_mace_14.png</file>
     </qresource>
 </RCC>

@@ -27,6 +27,8 @@
 		and resource "Rage" greater 50
 	</cast_if>
 
+	<cast_if name="Manual Crowd Pummeler"/>
+
 	<cast_if name="Kiss of the Spider">
 		buff "Death Wish" is true
 	</cast_if>

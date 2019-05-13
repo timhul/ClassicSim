@@ -40,6 +40,7 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+* Manual Crowd Pummeler is now available.
 * Target base armor now modifiable in Settings.
 * Button to reset defaults in Settings now available.
 * UX improvements - more obvious buttons, improved layout in Settings, faction text colors for certain elements.
