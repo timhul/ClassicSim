@@ -36,7 +36,7 @@ void PeriodicResourceGainSpell::spell_effect() {
 void PeriodicResourceGainSpell::perform_periodic() {
     for (const auto & gain : resource_gains) {
         unsigned before_gain;
-        unsigned delta;
+        unsigned delta = 0;
         before_gain = pchar->get_resource_level(gain.first);
         switch (gain.first) {
         case ResourceType::Mana:
