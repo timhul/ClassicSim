@@ -36,6 +36,8 @@ UseTrinket::~UseTrinket() {
 }
 
 void UseTrinket::spell_effect() {
+    add_spell_cd_event();
+
     buff->apply_buff();
 
     pchar->start_trinket_cooldown(buff->time_left());
