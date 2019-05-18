@@ -115,5 +115,5 @@ void Backstab::deactivate_set_bonus_effect(const QString& set_name, const int se
 }
 
 void Backstab::prepare_set_of_combat_iterations_spell_specific() {
-    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(QString("%1 Bonescythe 4P").arg(name), icon);
 }
