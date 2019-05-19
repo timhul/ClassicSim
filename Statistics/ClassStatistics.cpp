@@ -28,11 +28,12 @@ SimOption::Name ClassStatistics::get_sim_option() const {
     return this->option;
 }
 
-StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, const QString& icon) {
-    check(!spell_statistics.contains(name), QString("'%1' has already initialized spell statistics").arg(name).toStdString());
+StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, const QString& icon, const int spell_rank) {
+    const auto recorded_name = spell_rank > 1 ? QString("%1 (rank %2)").arg(name).arg(spell_rank) : name;
+    check(!spell_statistics.contains(name), QString("'%1' has already initialized spell statistics").arg(recorded_name).toStdString());
 
-    spell_statistics[name] = new StatisticsSpell(name, icon);
-    return spell_statistics[name];
+    spell_statistics[recorded_name] = new StatisticsSpell(recorded_name, icon);
+    return spell_statistics[recorded_name];
 }
 
 StatisticsBuff* ClassStatistics::get_buff_statistics(const QString& name, const QString& icon, const bool debuff) {
@@ -95,13 +96,6 @@ int ClassStatistics::get_total_damage_for_spell(const QString& name) const {
         return 0;
 
     return spell_statistics[name]->get_total_dmg_dealt();
-}
-
-int ClassStatistics::get_total_attempts_for_spell(const QString& name) const {
-    if (!spell_statistics.contains(name))
-        return 0;
-
-    return spell_statistics[name]->get_total_attempts_made();
 }
 
 void ClassStatistics::prepare_statistics() {

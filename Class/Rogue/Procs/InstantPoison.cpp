@@ -135,5 +135,5 @@ void InstantPoison::deactivate_set_bonus_effect(const QString& set_name, const i
 }
 
 void InstantPoison::prepare_set_of_combat_iterations_spell_specific() {
-    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(Spell::name, icon);
+    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(Spell::name, icon, spell_rank);
 }

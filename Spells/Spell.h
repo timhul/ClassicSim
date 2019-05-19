@@ -73,8 +73,6 @@ public:
     bool is_rank_learned() const;
 
     int get_spell_rank() const;
-    virtual void increase_spell_rank();
-    virtual void decrease_spell_rank();
     static const int MAX_RANK = 0;
 
     void perform();
@@ -107,7 +105,7 @@ protected:
     bool restricted_by_gcd;
     const ResourceType resource_type;
     unsigned resource_cost;
-    int spell_rank;
+    const int spell_rank;
     int instance_id;
     bool enabled;
 

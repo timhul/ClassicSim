@@ -18,8 +18,7 @@ HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells) :
 {
     hs_buff->enable_buff();
     spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};
-    spell_rank = 8;
-    additional_dmg = spell_ranks[spell_rank];
+    additional_dmg = 157;
 
     talent_ranks = {15, 14, 13, 12};
 }

@@ -10,9 +10,6 @@ public:
 
     void proc_effect() override;
 
-    void increase_spell_rank() override;
-    void decrease_spell_rank() override;
-
 private:
     QVector<unsigned> rank_spells = {0, 122, 229, 315};
 };

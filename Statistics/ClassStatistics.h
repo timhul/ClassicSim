@@ -21,7 +21,7 @@ public:
     ClassStatistics(SimSettings* settings);
     ~ClassStatistics();
 
-    StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon);
+    StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon, const int spell_rank);
     StatisticsBuff* get_buff_statistics(const QString& name, const QString &icon, const bool debuff);
     StatisticsResource* get_resource_statistics(const QString& name, const QString& icon);
     StatisticsProc* get_proc_statistics(const QString& name, const QString &icon);
@@ -33,7 +33,6 @@ public:
     void finish_combat_iteration();
 
     int get_total_damage_for_spell(const QString& name) const;
-    int get_total_attempts_for_spell(const QString& name) const;
 
     void prepare_statistics();
 

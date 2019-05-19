@@ -19,16 +19,3 @@ void WindfuryTotemAttack::proc_effect() {
     pchar->get_spells()->get_mh_attack()->extra_attack();
     pchar->get_stats()->decrease_melee_ap(rank_spells[spell_rank]);
 }
-
-void WindfuryTotemAttack::increase_spell_rank() {
-    ++spell_rank;
-
-    proc_range = 2000;
-}
-
-void WindfuryTotemAttack::decrease_spell_rank() {
-    --spell_rank;
-
-    if (spell_rank < 1)
-        proc_range = 0;
-}

@@ -31,7 +31,7 @@ Spell::Spell(QString name,
     restricted_by_gcd(restricted_by_gcd),
     resource_type(resource_type),
     resource_cost(resource_cost),
-    spell_rank(0),
+    spell_rank(1),
     instance_id(SpellID::INACTIVE),
     enabled(true)
 {}
@@ -120,14 +120,6 @@ double Spell::get_cooldown_remaining() const {
     return cooldown->get_cooldown_remaining();
 }
 
-void Spell::increase_spell_rank() {
-    ++spell_rank;
-}
-
-void Spell::decrease_spell_rank() {
-    --spell_rank;
-}
-
 void Spell::perform() {
     check((pchar->get_resource_level(resource_type) >= resource_cost),
           QString("Tried to perform '%1' but has unsufficient resource").arg(name).toStdString());
@@ -209,7 +201,7 @@ void Spell::reset() {
 
 void Spell::prepare_set_of_combat_iterations() {
     prepare_set_of_combat_iterations_spell_specific();
-    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name, icon);
+    this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name, icon, spell_rank);
 }
 
 StatisticsSpell* Spell::get_statistics_for_spell() const {

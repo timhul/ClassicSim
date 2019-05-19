@@ -22,9 +22,8 @@ Execute::Execute(Warrior* pchar, WarriorSpells* spells) :
                    QPair<int, int>(325, 9),
                    QPair<int, int>(450, 12),
                    QPair<int, int>(600, 15)};
-    spell_rank = 4;
-    initial_dmg = spell_ranks[spell_rank].first;
-    dmg_per_rage_converted = spell_ranks[spell_rank].second;
+    initial_dmg = 600;
+    dmg_per_rage_converted = 15;
 
     talent_ranks = {15, 13, 10};
 }
