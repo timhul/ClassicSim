@@ -144,6 +144,9 @@ void CharacterSpells::remove_spell(Spell* spell) {
             break;
         }
     }
+
+    spell_rank_groups.remove(spell->get_name());
+
     relink_spells();
 }
 
@@ -170,7 +173,7 @@ void CharacterSpells::run_start_of_combat_spells() {
         spell->perform_start_of_combat();
 }
 
-void CharacterSpells::add_spell_group(const QVector<Spell*> spell_group) {
+void CharacterSpells::add_spell_group(const QVector<Spell*> spell_group, const bool relink) {
     check(!spell_group.empty(), "Cannot add empty spell group");
     check(!spell_rank_groups.contains(spell_group[0]->get_name()),
             QString("%1 has already been added as a spell group").arg(spell_group[0]->get_name()).toStdString());
@@ -178,7 +181,7 @@ void CharacterSpells::add_spell_group(const QVector<Spell*> spell_group) {
     spell_rank_groups[spell_group[0]->get_name()] = new SpellRankGroup(spell_group[0]->get_name(), spell_group);
 
     for (auto & spell : spell_group)
-        add_spell(spell, NO_RELINK);
+        add_spell(spell, relink);
 }
 
 SpellRankGroup* CharacterSpells::get_spell_rank_group_by_name(const QString& spell_name) const {

@@ -20,7 +20,7 @@ class Rotation;
 class Spell;
 class SpellRankGroup;
 
-static const bool NO_RELINK = false;
+static const bool RELINK_ROTATION = true;
 
 class CharacterSpells {
 public:
@@ -30,7 +30,7 @@ public:
     void activate_racials();
     void deactivate_racials();
 
-    void add_spell(Spell* spell, bool relink=true);
+    void add_spell_group(const QVector<Spell*> spell_group, const bool relink = false);
     void remove_spell(Spell* spell);
 
     void add_start_of_combat_spell(Spell* spell);
@@ -102,10 +102,10 @@ protected:
     NightDragonsBreath* night_dragons_breath;
 
     CooldownControl* new_cooldown_control(const QString& spell_name, const double cooldown);
-    void add_spell_group(const QVector<Spell*> spell_group);
 
 private:
     void start_melee_attack();
+    void add_spell(Spell* spell, bool relink=true);
 };
 
 #endif // SPELLS_H

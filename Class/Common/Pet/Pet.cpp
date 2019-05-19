@@ -178,10 +178,10 @@ void Pet::add_next_auto_attack() {
 }
 
 void Pet::add_spells() {
-    pchar->get_spells()->add_spell(pet_auto_attack, NO_RELINK);
+    pchar->get_spells()->add_spell_group({pet_auto_attack});
 
     for (const auto & spell : spells)
-        pchar->get_spells()->add_spell(spell, NO_RELINK);
+        pchar->get_spells()->add_spell_group({spell});
 }
 
 void Pet::remove_spells() {

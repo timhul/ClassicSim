@@ -23,7 +23,7 @@ FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, con
         check(false, "FieryWeapon constructor reached end of switch");
     }
 
-    pchar->get_spells()->add_spell(fiery_weapon_attack);
+    pchar->get_spells()->add_spell_group({fiery_weapon_attack});
 }
 
 FieryWeapon::~FieryWeapon() {

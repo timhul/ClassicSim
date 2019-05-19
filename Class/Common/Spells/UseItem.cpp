@@ -17,7 +17,7 @@ UseItem::UseItem(Character* pchar,
     proc(proc)
 {
     this->enabled = false;
-    pchar->get_spells()->add_spell(this);
+    pchar->get_spells()->add_spell_group({this}, RELINK_ROTATION);
     buff->enable_buff();
 
     if (proc != nullptr)

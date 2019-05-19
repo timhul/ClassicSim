@@ -18,7 +18,7 @@ InstantSpellProc::InstantSpellProc(Character* pchar,
     spell(new InstantSpellAttack(pchar, proc_name, icon, school, min_damage, max_damage))
 {
     check(!proc_sources.empty(), "No valid proc sources found");
-    pchar->get_spells()->add_spell(spell);
+    pchar->get_spells()->add_spell_group({spell});
 }
 
 InstantSpellProc::~InstantSpellProc() {

@@ -16,7 +16,7 @@ GenericSpellProc::GenericSpellProc(
     spell(spell)
 {
     check(!proc_sources.empty(), "Must specify at least one proc source");
-    pchar->get_spells()->add_spell(spell, NO_RELINK);
+    pchar->get_spells()->add_spell_group({spell});
 }
 
 GenericSpellProc::~GenericSpellProc() {

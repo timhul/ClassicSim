@@ -57,7 +57,7 @@ void InstantPoison::perform_start_of_combat() {
 
 void InstantPoison::enable_spell_effect() {
     instant_poison_buff->enable_buff();
-    rogue->get_spells()->add_spell(this);
+    rogue->get_spells()->add_spell_group({this});
     dynamic_cast<RogueSpells*>(rogue->get_spells())->add_start_of_combat_spell(this);
 }
 
