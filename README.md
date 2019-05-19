@@ -40,12 +40,22 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
+None (available release is up to date with the latest on master).
+
+# Release notes
+
+## v0.3-alpha-2 (released 2019-05-19):
+
+* System is now in place for downgrading spells.
+* Seal of Command rotation downgrades Consecration to R1 if Vengeance is not up.
 * Manual Crowd Pummeler is now available.
 * Target base armor now modifiable in Settings.
 * Button to reset defaults in Settings now available.
 * UX improvements - more obvious buttons, improved layout in Settings, faction text colors for certain elements.
 
-# Release notes
+## Restrictions:
+
+* Only Consecration can currently be downgraded as other spells lack the spell data at this time.
 
 ## v0.3-alpha-1 (released 2019-05-08):
 
