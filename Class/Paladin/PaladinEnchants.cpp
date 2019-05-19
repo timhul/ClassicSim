@@ -29,15 +29,7 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_enchants(const int equ
 
         return enchants;
     }
-    case EquipmentSlot::OFFHAND: {
-        return {
-            EnchantName::Name::Crusader,
-            EnchantName::Name::FieryWeapon,
-            EnchantName::Name::EnchantWeaponStrength,
-            EnchantName::Name::SuperiorStriking,
-            EnchantName::Name::EnchantWeaponAgility
-        };
-    }
+    case EquipmentSlot::OFFHAND:
     case EquipmentSlot::RANGED:
         return {};
     case EquipmentSlot::HEAD:
