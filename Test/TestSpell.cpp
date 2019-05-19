@@ -20,6 +20,7 @@
 #include "Queue.h"
 #include "RangedWhiteHitTable.h"
 #include "SimSettings.h"
+#include "SpellRankGroup.h"
 #include "Stats.h"
 #include "Talent.h"
 #include "Target.h"
@@ -1073,4 +1074,8 @@ void TestSpell::dump_queued_events() {
 
         delete event;
     }
+}
+
+Spell* TestSpell::get_max_rank_spell_by_name(const QString &name) const {
+    return pchar->get_spells()->get_spell_rank_group_by_name(name)->get_max_available_spell_rank();
 }

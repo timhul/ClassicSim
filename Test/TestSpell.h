@@ -17,6 +17,7 @@ class EquipmentDb;
 class Faction;
 class Race;
 class SimSettings;
+class Spell;
 class Talent;
 class Target;
 
@@ -133,6 +134,8 @@ protected:
     Race* race;
     QString spell_under_test;
     QSet<QString> ignored_events;
+
+    Spell* get_max_rank_spell_by_name(const QString &name) const;
 
     void set_melee_special_table_for_hit(const int wpn_skill);
     void set_melee_special_table_for_crit(const int wpn_skill);

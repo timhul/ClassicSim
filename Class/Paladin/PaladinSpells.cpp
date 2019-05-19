@@ -14,45 +14,20 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     CharacterSpells(paladin),
     paladin(paladin)
 {
-    this->consecration = new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 5, 565, 384);
-    this->judgement = new Judgement(paladin, new_cooldown_control("Judgement", 10.0));
     this->mh_attack = new MainhandAttackPaladin(paladin);
-    this->sanctity_aura = new SanctityAura(paladin);
-    this->seal_of_command = new SealOfCommand(paladin);
-    this->seal_of_the_crusader = new SealOfTheCrusader(paladin);
 
     add_spell_group({
                         new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 1, 135, 64),
                         new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 2, 235, 120),
                         new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 3, 320, 192),
                         new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 4, 435, 280),
-                        consecration,
+                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 5, 565, 384),
                     });
-    add_spell_group({judgement});
+    add_spell_group({new Judgement(paladin, new_cooldown_control("Judgement", 10.0))});
     add_spell_group({mh_attack});
-    add_spell_group({sanctity_aura});
-    add_spell_group({seal_of_command});
-    add_spell_group({seal_of_the_crusader});
-}
-
-Judgement* PaladinSpells::get_judgement() const {
-    return this->judgement;
-}
-
-PaladinSeal* PaladinSpells::get_seal_of_the_crusader() const {
-    return this->seal_of_the_crusader;
-}
-
-PaladinSeal* PaladinSpells::get_seal_of_command() const {
-    return this->seal_of_command;
-}
-
-Consecration* PaladinSpells::get_consecration() const {
-    return this->consecration;
-}
-
-SanctityAura* PaladinSpells::get_sanctity_aura() const {
-    return this->sanctity_aura;
+    add_spell_group({new SanctityAura(paladin)});
+    add_spell_group({new SealOfCommand(paladin)});
+    add_spell_group({new SealOfTheCrusader(paladin)});
 }
 
 void PaladinSpells::apply_seal(PaladinSeal* new_seal) {

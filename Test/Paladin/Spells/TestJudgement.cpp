@@ -92,8 +92,7 @@ void TestJudgement::test_all() {
 }
 
 Judgement* TestJudgement::judgement() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<Judgement*>(spells->get_judgement());
+    return dynamic_cast<Judgement*>(get_max_rank_spell_by_name("Judgement"));
 }
 
 void TestJudgement::test_name_correct() {
@@ -398,7 +397,7 @@ void TestJudgement::given_improved_judgement_rank(const unsigned num) {
 
 void TestJudgement::given_sanctity_aura_is_active() {
     given_talent_rank(Retribution(paladin).get_sanctity_aura(), 1);
-    dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_sanctity_aura()->perform();
+    get_max_rank_spell_by_name("Sanctity Aura")->perform();
     given_engine_priority_pushed_forward(1.5);
 }
 

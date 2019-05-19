@@ -50,8 +50,7 @@ void TestSealOfCommand::test_all() {
 }
 
 Proc* TestSealOfCommand::seal_of_command_proc() {
-    auto spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<SealOfCommand*>(spells->get_seal_of_command())->get_proc();
+    return dynamic_cast<SealOfCommand*>(get_max_rank_spell_by_name("Seal of Command"))->get_proc();
 }
 
 void TestSealOfCommand::test_name_correct() {

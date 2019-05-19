@@ -21,10 +21,14 @@ Spell* SpellRankGroup::get_spell_rank(const int rank) {
 }
 
 Spell* SpellRankGroup::get_max_available_spell_rank() {
+    Spell* available = nullptr;
+
     for (const auto & spell : spell_group) {
-        if (spell->is_rank_learned())
-            return spell;
+        if (!spell->is_rank_learned())
+            break;
+
+        available = spell;
     }
 
-    return nullptr;
+    return available;
 }

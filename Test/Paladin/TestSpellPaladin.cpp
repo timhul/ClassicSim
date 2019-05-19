@@ -47,17 +47,15 @@ MainhandAttackPaladin* TestSpellPaladin::mh_attack() {
 }
 
 SealOfCommand* TestSpellPaladin::seal_of_command() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<SealOfCommand*>(spells->get_seal_of_command());
+    return dynamic_cast<SealOfCommand*>(get_max_rank_spell_by_name("Seal of Command"));
 }
 
 SealOfTheCrusader* TestSpellPaladin::seal_of_the_crusader() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<SealOfTheCrusader*>(spells->get_seal_of_the_crusader());
+    return dynamic_cast<SealOfTheCrusader*>(get_max_rank_spell_by_name("Seal of the Crusader"));
 }
 
 void TestSpellPaladin::given_paladin_is_on_gcd() {
-    given_paladin_is_on_gcd(dynamic_cast<PaladinSpells*>(pchar->get_spells())->get_seal_of_the_crusader());
+    given_paladin_is_on_gcd(seal_of_the_crusader());
 }
 
 void TestSpellPaladin::given_paladin_is_on_gcd(Spell* spell) {

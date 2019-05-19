@@ -27,8 +27,7 @@ void TestConsecration::test_all() {
 }
 
 Consecration* TestConsecration::consecration() {
-    auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
-    return dynamic_cast<Consecration*>(spells->get_consecration());
+    return dynamic_cast<Consecration*>(get_max_rank_spell_by_name("Consecration"));
 }
 
 void TestConsecration::test_name_correct() {
@@ -104,7 +103,7 @@ void TestConsecration::test_damage_sanctity_aura() {
     given_talent_rank(Retribution(paladin).get_sanctity_aura(), 1);
     given_consecration_is_enabled();
 
-    dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_sanctity_aura()->perform();
+    get_max_rank_spell_by_name("Sanctity Aura")->perform();
     given_engine_priority_pushed_forward(1.5);
 
     when_consecration_is_performed();
