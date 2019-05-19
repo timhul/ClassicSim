@@ -1,5 +1,6 @@
 #include "Recklessness.h"
 
+#include "CooldownControl.h"
 #include "RecklessnessBuff.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
@@ -12,8 +13,8 @@ Recklessness::Recklessness(Warrior* pchar, WarriorSpells* spells) :
 void Recklessness::spell_effect() {
     spells->get_recklessness_buff()->apply_buff();
 
-    add_gcd_event();
-    add_spell_cd_event();
+    cooldown->add_gcd_event();
+    cooldown->add_spell_cd_event();
 }
 
 SpellStatus Recklessness::is_ready_spell_specific() const {

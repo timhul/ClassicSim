@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "Pet.h"
 
@@ -81,8 +82,8 @@ void PetAutoAttack::update_next_expected_use(const double haste_change) {
 }
 
 void PetAutoAttack::complete_swing() {
-    last_used = engine->get_current_priority();
-    next_expected_use = last_used + pet->get_attack_speed();
+    cooldown->last_used = engine->get_current_priority();
+    next_expected_use = cooldown->last_used + pet->get_attack_speed();
 }
 
 bool PetAutoAttack::attack_is_valid(const int iteration) const {
@@ -98,7 +99,7 @@ void PetAutoAttack::reset_effect() {
 }
 
 void PetAutoAttack::prepare_set_of_combat_iterations_spell_specific() {
-    this->cooldown = pet->get_attack_speed();
+    this->cooldown->base = pet->get_attack_speed();
 
     reset();
 }

@@ -5,6 +5,7 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Hunter.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
@@ -38,14 +39,14 @@ AimedShot::AimedShot(Hunter* pchar) :
 
 void AimedShot::spell_effect() {
     pchar->get_spells()->stop_attack();
-    add_gcd_event();
+    cooldown->add_gcd_event();
     casting_time_ms = static_cast<unsigned>(round(base_casting_time_ms / pchar->get_stats()->get_ranged_attack_speed_mod()));
     start_cast();
 }
 
 void AimedShot::complete_cast_effect() {
     pchar->get_spells()->start_attack();
-    add_spell_cd_event();
+    cooldown->add_spell_cd_event();
 
     pchar->lose_mana(resource_cost);
     const int wpn_skill = pchar->get_ranged_wpn_skill();

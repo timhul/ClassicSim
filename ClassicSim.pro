@@ -58,6 +58,7 @@ SOURCES += main.cpp \
     Class/Paladin/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
+    Spells/CooldownControl.cpp \
     Talent/CharacterTalents.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
@@ -431,6 +432,7 @@ HEADERS += \
     Class/Shaman/Shaman.h \
     Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
+    Spells/CooldownControl.h \
     Talent/CharacterTalents.h \
     Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \

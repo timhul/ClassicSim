@@ -13,6 +13,7 @@ class Character;
 class CombatRoll;
 class CooldownReady;
 class Engine;
+class CooldownControl;
 class StatisticsSpell;
 
 namespace SpellID {
@@ -54,7 +55,7 @@ public:
           const ResourceType resource_type,
           unsigned resource_cost);
 
-    virtual ~Spell() = default;
+    virtual ~Spell();
 
     QString get_name() const;
     QString get_icon() const;
@@ -97,19 +98,15 @@ protected:
     Character* pchar;
     Engine* engine;
     CombatRoll* roll;
+    CooldownControl* cooldown;
     StatisticsSpell* statistics_spell;
 
     bool restricted_by_gcd;
-    double cooldown;
-    double last_used;
     const ResourceType resource_type;
     unsigned resource_cost;
     int spell_rank;
     int instance_id;
     bool enabled;
-
-    void add_spell_cd_event() const;
-    void add_gcd_event() const;
 
     void increment_miss();
     void increment_full_resist();

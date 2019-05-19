@@ -3,6 +3,7 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Equipment.h"
 #include "Rogue.h"
 #include "SealFate.h"
@@ -33,7 +34,7 @@ void SinisterStrike::spell_effect() {
 
     const int result = roll->get_melee_ability_result(rogue->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

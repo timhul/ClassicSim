@@ -1,6 +1,7 @@
 #include "HuntersMark.h"
 
 #include "Character.h"
+#include "CooldownControl.h"
 #include "HuntersMarkBuff.h"
 
 HuntersMark::HuntersMark(Character* pchar) :
@@ -24,7 +25,7 @@ HuntersMark::~HuntersMark() {
 }
 
 void HuntersMark::spell_effect() {
-    add_gcd_event();
+    cooldown->add_gcd_event();
     pchar->lose_mana(resource_cost);
     hunters_mark->apply_buff();
 }

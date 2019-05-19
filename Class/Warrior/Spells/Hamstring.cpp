@@ -3,6 +3,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Utils/Check.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
@@ -17,7 +18,7 @@ Hamstring::Hamstring(Warrior* pchar, WarriorSpells* spells) :
 void Hamstring::spell_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

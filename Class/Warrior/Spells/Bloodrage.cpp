@@ -1,6 +1,7 @@
 #include "Bloodrage.h"
 
 #include "ClassStatistics.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "ResourceGain.h"
 #include "StatisticsResource.h"
@@ -40,7 +41,7 @@ void Bloodrage::gain_rage(const unsigned rage_gain) {
 }
 
 void Bloodrage::spell_effect() {
-    add_spell_cd_event();
+    cooldown->add_spell_cd_event();
 
     auto new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 1.0);
     this->engine->add_event(new_event);

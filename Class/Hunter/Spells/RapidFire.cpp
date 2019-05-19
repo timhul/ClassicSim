@@ -1,6 +1,7 @@
 #include "RapidFire.h"
 
 #include "Character.h"
+#include "CooldownControl.h"
 #include "RapidFireBuff.h"
 #include "Utils/Check.h"
 
@@ -30,7 +31,7 @@ RapidFireBuff* RapidFire::get_rapid_fire_buff() const {
 }
 
 void RapidFire::spell_effect() {
-    add_gcd_event();
+    cooldown->add_gcd_event();
     pchar->lose_mana(resource_cost);
     rapid_fire->apply_buff();
 }
@@ -39,7 +40,7 @@ void RapidFire::activate_set_bonus_effect(const QString& set_name, const int set
     if (set_name == "Striker's Garb") {
         switch (set_bonus) {
         case 5:
-             cooldown -= 120.0;
+             cooldown->base -= 120.0;
             break;
         default:
             check(false, "RapidFire:activate_set_bonus_effect reached end of switch");
@@ -51,7 +52,7 @@ void RapidFire::deactivate_set_bonus_effect(const QString& set_name, const int s
     if (set_name == "Striker's Garb") {
         switch (set_bonus) {
         case 5:
-             cooldown -= 120.0;
+             cooldown->base -= 120.0;
             break;
         default:
             check(false, "RapidFire::deactivate_set_bonus_effect reached end of switch");

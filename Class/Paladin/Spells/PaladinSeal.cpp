@@ -1,6 +1,7 @@
 #include "PaladinSeal.h"
 
 #include "Buff.h"
+#include "CooldownControl.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
 #include "Utils/Check.h"
@@ -38,7 +39,7 @@ void PaladinSeal::judge_seal() {
 void PaladinSeal::spell_effect() {
     dynamic_cast<PaladinSpells*>(pchar->get_spells())->apply_seal(this);
 
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     pchar->lose_mana(resource_cost);
 }

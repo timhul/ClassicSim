@@ -1,6 +1,7 @@
-
 #include "BloodFury.h"
+
 #include "BloodFuryBuff.h"
+#include "CooldownControl.h"
 #include "Race.h"
 #include "Character.h"
 
@@ -18,8 +19,8 @@ BloodFury::~BloodFury() {
 void BloodFury::spell_effect() {
     buff->apply_buff();
 
-    add_spell_cd_event();
-    add_gcd_event();
+    cooldown->add_spell_cd_event();
+    cooldown->add_gcd_event();
 }
 
 void BloodFury::enable_spell_effect() {

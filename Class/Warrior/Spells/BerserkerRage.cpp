@@ -1,6 +1,7 @@
 #include "BerserkerRage.h"
 
 #include "ClassStatistics.h"
+#include "CooldownControl.h"
 #include "StatisticsResource.h"
 #include "Warrior.h"
 
@@ -24,7 +25,7 @@ SpellStatus BerserkerRage::is_ready_spell_specific() const {
 }
 
 void BerserkerRage::spell_effect() {
-    add_spell_cd_event();
+    cooldown->add_spell_cd_event();
 
     unsigned rage_before_gain = warr->get_resource_level(ResourceType::Rage);
     warr->gain_rage(rage_gain);

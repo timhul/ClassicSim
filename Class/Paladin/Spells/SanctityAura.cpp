@@ -1,5 +1,6 @@
 #include "SanctityAura.h"
 
+#include "CooldownControl.h"
 #include "Paladin.h"
 #include "SanctityAuraBuff.h"
 
@@ -20,7 +21,7 @@ SanctityAura::~SanctityAura() {
 
 void SanctityAura::spell_effect() {
     buff->apply_buff();
-    add_gcd_event();
+    cooldown->add_gcd_event();
 }
 
 void SanctityAura::increase_talent_rank_effect(const QString&, const int) {

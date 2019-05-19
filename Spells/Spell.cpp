@@ -7,9 +7,9 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "Mechanics.h"
-#include "PlayerAction.h"
 #include "StatisticsSpell.h"
 #include "Target.h"
 #include "Utils/Check.h"
@@ -26,16 +26,19 @@ Spell::Spell(QString name,
     pchar(pchar),
     engine(pchar->get_engine()),
     roll(pchar->get_combat_roll()),
+    cooldown(new CooldownControl(pchar, cooldown)),
     statistics_spell(nullptr),
     restricted_by_gcd(restricted_by_gcd),
-    cooldown(cooldown),
-    last_used(0 - cooldown),
     resource_type(resource_type),
     resource_cost(resource_cost),
     spell_rank(0),
     instance_id(SpellID::INACTIVE),
     enabled(true)
 {}
+
+Spell::~Spell() {
+    delete cooldown;
+}
 
 QString Spell::get_name() const {
     return this->name;
@@ -46,15 +49,15 @@ QString Spell::get_icon() const {
 }
 
 double Spell::get_base_cooldown() const {
-    return this->cooldown;
+    return this->cooldown->base;
 }
 
 double Spell::get_last_used() const {
-    return this->last_used;
+    return this->cooldown->last_used;
 }
 
 double Spell::get_next_use() const {
-    return last_used + cooldown;
+    return cooldown->get_next_use();
 }
 
 double Spell::get_resource_cost() const {
@@ -110,9 +113,7 @@ void Spell::disable() {
 }
 
 double Spell::get_cooldown_remaining() const {
-    double delta = last_used + cooldown - engine->get_current_priority();
-
-    return delta > 0 ? delta : 0;
+    return cooldown->get_cooldown_remaining();
 }
 
 void Spell::increase_spell_rank() {
@@ -126,22 +127,8 @@ void Spell::decrease_spell_rank() {
 void Spell::perform() {
     check((pchar->get_resource_level(resource_type) >= resource_cost),
           QString("Tried to perform '%1' but has unsufficient resource").arg(name).toStdString());
-    last_used = engine->get_current_priority();
+    cooldown->last_used = engine->get_current_priority();
     this->spell_effect();
-}
-
-void Spell::add_spell_cd_event() const {
-    double cooldown_ready = engine->get_current_priority() + cooldown;
-    engine->add_event(new PlayerAction(pchar->get_spells(), cooldown_ready));
-}
-
-void Spell::add_gcd_event() const {
-    if (engine->get_current_priority() < 0)
-        return;
-
-    pchar->start_global_cooldown();
-    double gcd_ready = engine->get_current_priority() + pchar->global_cooldown();
-    engine->add_event(new PlayerAction(pchar->get_spells(), gcd_ready));
 }
 
 void Spell::increment_miss() {
@@ -212,7 +199,7 @@ double Spell::get_partial_resist_dmg_modifier(const int resist_result) const {
 }
 
 void Spell::reset() {
-    last_used = 0 - cooldown;
+    cooldown->reset();
     reset_effect();
 }
 

@@ -3,6 +3,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "SimSettings.h"
 #include "Utils/Check.h"
@@ -43,7 +44,7 @@ SpellStatus Execute::is_ready_spell_specific() const {
 void Execute::spell_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

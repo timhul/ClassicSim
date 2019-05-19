@@ -2,6 +2,7 @@
 
 #include "Buff.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
 #include "NoEffectBuff.h"
@@ -32,7 +33,7 @@ Rend::~Rend() {
 void Rend::spell_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), 0.0);
 
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

@@ -1,6 +1,7 @@
 #include "BladeFlurry.h"
 
 #include "BladeFlurryBuff.h"
+#include "CooldownControl.h"
 #include "Rogue.h"
 
 BladeFlurry::BladeFlurry(Character* pchar) :
@@ -20,8 +21,8 @@ void BladeFlurry::spell_effect() {
     bf_buff->apply_buff();
     rogue->exit_stealth();
 
-    add_spell_cd_event();
-    add_gcd_event();
+    cooldown->add_spell_cd_event();
+    cooldown->add_gcd_event();
 }
 
 void BladeFlurry::increase_talent_rank_effect(const QString&, const int) {

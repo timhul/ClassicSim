@@ -2,6 +2,7 @@
 
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
 #include "NoEffectBuff.h"
@@ -60,7 +61,7 @@ void Consecration::calculate_damage() {
 void Consecration::spell_effect() {
     buff->apply_buff();
     pchar->lose_mana(resource_cost);
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     if (ticks == 0)
         this->engine->add_event(new DotTick(this, engine->get_current_priority() + 2.0));

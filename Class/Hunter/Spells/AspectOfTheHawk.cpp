@@ -2,6 +2,7 @@
 
 #include "AspectOfTheHawkBuff.h"
 #include "Character.h"
+#include "CooldownControl.h"
 #include "ImprovedAspectOfTheHawkProc.h"
 
 AspectOfTheHawk::AspectOfTheHawk(Character* pchar) :
@@ -27,7 +28,7 @@ AspectOfTheHawk::~AspectOfTheHawk() {
 }
 
 void AspectOfTheHawk::spell_effect() {
-    add_gcd_event();
+    cooldown->add_gcd_event();
     aspect_of_the_hawk_buff->apply_buff();
 }
 

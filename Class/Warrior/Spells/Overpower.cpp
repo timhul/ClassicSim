@@ -3,6 +3,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
@@ -37,8 +38,8 @@ void Overpower::spell_effect() {
                                                       true);
 
     spells->get_overpower_buff()->cancel_buff();
-    add_gcd_event();
-    add_spell_cd_event();
+    cooldown->add_gcd_event();
+    cooldown->add_spell_cd_event();
     warr->lose_rage(resource_cost);
 
     if (result == PhysicalAttackResult::MISS) {

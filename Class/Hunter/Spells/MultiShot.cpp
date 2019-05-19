@@ -3,6 +3,7 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Hunter.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
@@ -40,8 +41,8 @@ void MultiShot::spell_effect() {
     const int wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_ability_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
 
-    add_gcd_event();
-    add_spell_cd_event();
+    cooldown->add_gcd_event();
+    cooldown->add_spell_cd_event();
     pchar->lose_mana(resource_cost);
 
     if (result == PhysicalAttackResult::MISS) {

@@ -2,6 +2,7 @@
 
 #include "BerserkingBuff.h"
 #include "Character.h"
+#include "CooldownControl.h"
 #include "Race.h"
 
 Berserking::Berserking(Character* pchar) :
@@ -18,8 +19,8 @@ Berserking::~Berserking() {
 void Berserking::spell_effect() {
     buff->apply_buff();
 
-    add_spell_cd_event();
-    add_gcd_event();
+    cooldown->add_spell_cd_event();
+    cooldown->add_gcd_event();
 }
 
 void Berserking::enable_spell_effect() {

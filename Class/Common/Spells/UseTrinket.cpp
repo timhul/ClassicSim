@@ -3,6 +3,7 @@
 #include "Buff.h"
 #include "Character.h"
 #include "CharacterSpells.h"
+#include "CooldownControl.h"
 #include "Proc.h"
 
 UseTrinket::UseTrinket(Character* pchar,
@@ -36,7 +37,7 @@ UseTrinket::~UseTrinket() {
 }
 
 void UseTrinket::spell_effect() {
-    add_spell_cd_event();
+    cooldown->add_spell_cd_event();
 
     buff->apply_buff();
 

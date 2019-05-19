@@ -1,6 +1,7 @@
 #include "BattleShout.h"
 
 #include "BattleShoutBuff.h"
+#include "CooldownControl.h"
 #include "Warrior.h"
 
 BattleShout::BattleShout(Warrior* pchar) :
@@ -19,8 +20,8 @@ Buff* BattleShout::get_buff() const {
 }
 
 void BattleShout::spell_effect() {
-    add_spell_cd_event();
-    add_gcd_event();
+    cooldown->add_spell_cd_event();
+    cooldown->add_gcd_event();
 
     buff->apply_buff();
 

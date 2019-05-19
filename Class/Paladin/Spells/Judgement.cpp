@@ -1,6 +1,7 @@
 #include "Judgement.h"
 
 #include "Buff.h"
+#include "CooldownControl.h"
 #include "Paladin.h"
 #include "PaladinSeal.h"
 #include "PaladinSpells.h"
@@ -13,7 +14,7 @@ Judgement::Judgement(Paladin* pchar) :
 {}
 
 void Judgement::spell_effect() {
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal()->judge_seal();
 
@@ -33,12 +34,12 @@ void Judgement::increase_talent_rank_effect(const QString& talent_name, const in
     if (talent_name == "Benediction")
         resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
     if (talent_name == "Improved Judgement")
-        cooldown = 10 - curr;
+        cooldown->base = 10 - curr;
 }
 
 void Judgement::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Benediction")
         resource_cost = static_cast<unsigned>(round(base_mana_cost * benediction_ranks[curr]));
     if (talent_name == "Improved Judgement")
-        cooldown = 10 - curr;
+        cooldown->base = 10 - curr;
 }

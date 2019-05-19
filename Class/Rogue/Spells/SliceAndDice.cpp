@@ -1,6 +1,7 @@
 #include "SliceAndDice.h"
 
 #include "CharacterStats.h"
+#include "CooldownControl.h"
 #include "Equipment.h"
 #include "Random.h"
 #include "RelentlessStrikes.h"
@@ -34,7 +35,7 @@ SpellStatus SliceAndDice::is_ready_spell_specific() const {
 void SliceAndDice::spell_effect() {
     rogue->exit_stealth();
 
-    add_gcd_event();
+    cooldown->add_gcd_event();
 
     buff->update_duration(rogue->get_combo_points());
     buff->apply_buff();

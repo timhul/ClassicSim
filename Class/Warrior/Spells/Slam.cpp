@@ -4,6 +4,7 @@
 #include "CastComplete.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "HeroicStrike.h"
 #include "MainhandAttack.h"
 #include "NoEffectBuff.h"
@@ -38,7 +39,7 @@ SpellStatus Slam::is_ready_spell_specific() const {
 }
 
 void Slam::spell_effect() {
-    add_gcd_event();
+    cooldown->add_gcd_event();
     start_cast();
 
     pchar->get_spells()->stop_attack();

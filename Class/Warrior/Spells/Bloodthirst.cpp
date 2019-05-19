@@ -3,6 +3,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
@@ -18,8 +19,8 @@ Bloodthirst::Bloodthirst(Warrior* pchar, WarriorSpells* spells) :
 void Bloodthirst::spell_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());
 
-    add_spell_cd_event();
-    add_gcd_event();
+    cooldown->add_spell_cd_event();
+    cooldown->add_gcd_event();
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();

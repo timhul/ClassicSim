@@ -1,6 +1,7 @@
 #include "DeathWish.h"
 
 #include "DeathWishBuff.h"
+#include "CooldownControl.h"
 #include "Warrior.h"
 
 DeathWish::DeathWish(Character* pchar) :
@@ -19,8 +20,8 @@ DeathWish::~DeathWish() {
 void DeathWish::spell_effect() {
     death_wish_buff->apply_buff();
 
-    add_spell_cd_event();
-    add_gcd_event();
+    cooldown->add_spell_cd_event();
+    cooldown->add_gcd_event();
 
     warr->lose_rage(resource_cost);
 }

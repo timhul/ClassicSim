@@ -2,6 +2,7 @@
 
 #include "BestialWrathBuff.h"
 #include "Character.h"
+#include "CooldownControl.h"
 
 BestialWrath::BestialWrath(Character* pchar, const QString& pet_name) :
     Spell("Bestial Wrath",
@@ -25,7 +26,7 @@ BestialWrath::~BestialWrath() {
 }
 
 void BestialWrath::spell_effect() {
-    add_gcd_event();
+    cooldown->add_gcd_event();
     pchar->lose_mana(resource_cost);
     bestial_wrath_buff->apply_buff();
 }

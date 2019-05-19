@@ -4,6 +4,7 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Equipment.h"
 #include "Flurry.h"
 #include "RecklessnessBuff.h"
@@ -89,7 +90,7 @@ void MainhandAttackWarrior::prepare_set_of_combat_iterations_spell_specific() {
         return;
 
     this->icon = "Assets/items/" + pchar->get_equipment()->get_mainhand()->get_value("icon");
-    this->cooldown = pchar->get_stats()->get_mh_wpn_speed();
+    this->cooldown->base = pchar->get_stats()->get_mh_wpn_speed();
     this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
 
     reset();

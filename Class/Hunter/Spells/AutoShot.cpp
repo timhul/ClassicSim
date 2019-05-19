@@ -3,6 +3,7 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "Hunter.h"
@@ -78,8 +79,8 @@ void AutoShot::update_next_expected_use(const double haste_change) {
 }
 
 void AutoShot::complete_shot() {
-    last_used = engine->get_current_priority();
-    next_expected_use = last_used + pchar->get_stats()->get_ranged_wpn_speed();
+    cooldown->last_used = engine->get_current_priority();
+    next_expected_use = cooldown->last_used + pchar->get_stats()->get_ranged_wpn_speed();
 }
 
 void AutoShot::prepare_set_of_combat_iterations_spell_specific() {
@@ -87,7 +88,7 @@ void AutoShot::prepare_set_of_combat_iterations_spell_specific() {
         return;
 
     this->icon = "Assets/items/" + pchar->get_equipment()->get_ranged()->get_value("icon");
-    this->cooldown = pchar->get_stats()->get_ranged_wpn_speed();
+    this->cooldown->base = pchar->get_stats()->get_ranged_wpn_speed();
     this->statistics_resource = pchar->get_statistics()->get_resource_statistics("Auto Shot", icon);
 
     reset();

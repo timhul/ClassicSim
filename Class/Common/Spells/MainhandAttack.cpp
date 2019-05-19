@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "Weapon.h"
@@ -88,8 +89,8 @@ void MainhandAttack::update_next_expected_use(const double haste_change) {
 }
 
 void MainhandAttack::complete_swing() {
-    last_used = engine->get_current_priority();
-    next_expected_use = last_used + pchar->get_stats()->get_mh_wpn_speed();
+    cooldown->last_used = engine->get_current_priority();
+    next_expected_use = cooldown->last_used + pchar->get_stats()->get_mh_wpn_speed();
 }
 
 void MainhandAttack::reset_swingtimer() {
@@ -113,7 +114,7 @@ void MainhandAttack::prepare_set_of_combat_iterations_spell_specific() {
         return;
 
     this->icon = "Assets/items/" + pchar->get_equipment()->get_mainhand()->get_value("icon");
-    this->cooldown = pchar->get_stats()->get_mh_wpn_speed();
+    this->cooldown->base = pchar->get_stats()->get_mh_wpn_speed();
 
     reset();
 }
