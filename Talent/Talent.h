@@ -9,6 +9,7 @@ class Buff;
 class Character;
 class Proc;
 class Spell;
+class SpellRankGroup;
 class TalentRequirer;
 class TalentTree;
 
@@ -21,7 +22,7 @@ public:
            const QString& icon,
            const unsigned max_points,
            QMap<unsigned, QString> rank_descriptions = {},
-           QVector<Spell*> affected_spells = {},
+           QVector<SpellRankGroup*> affected_spells = {},
            QVector<Buff*> affected_buffs = {},
            QVector<Proc*> affected_procs = {}
            );
@@ -93,7 +94,7 @@ protected:
     const QString icon;
     const unsigned max_points;
     unsigned curr_points {0};
-    QVector<Spell*> affected_spells;
+    QVector<SpellRankGroup*> affected_spells;
     QVector<Buff*> affected_buffs;
     QVector<Proc*> affected_procs;
 

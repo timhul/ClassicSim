@@ -82,8 +82,8 @@ Talent* BeastMastery::get_frenzy() {
     return get_new_talent(hunter, "Frenzy", "6MR", "Assets/items/Inv_misc_monsterclaw_03.png",
                           5, "Gives your pet a %1% chance to gain a 30% attack speed increase for 8 sec after dealing a critical strike.",
                           QVector<QPair<unsigned, unsigned>>{{20, 20}},
-                          QVector<Spell*>{},
-                          QVector<Buff*>{},
+                          {},
+                          {},
                           QVector<Proc*>{dynamic_cast<HunterPet*>(hunter->get_pet())->get_frenzy_proc()});
 }
 
@@ -91,5 +91,5 @@ Talent* BeastMastery::get_bestial_wrath() {
     return get_new_talent(hunter, "Bestial Wrath", "7ML", "Assets/ability/Ability_druid_ferociousbite.png",
                           1, "Send your pet into a rage causing 50% additional damage for 18 sec. While enraged, the beast does not feel pity or remorse or fear and it cannot be stopped unless killed.",
                           QVector<QPair<unsigned, unsigned>>(),
-                          QVector<Spell*>{spells->get_bestial_wrath()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Bestial Wrath")});
 }

@@ -102,7 +102,7 @@ Talent* Fury::get_dual_wield_specialization() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{5, 5}});
     Talent* talent = new Talent(warrior, this, "Dual Wield Specialization", "4LL",
                                 "Assets/ability/Ability_dualwield.png", 5, rank_descriptions,
-                                QVector<Spell*>{spells->get_oh_attack_warrior()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Offhand Attack")});
 
     return talent;
 }
@@ -113,7 +113,7 @@ Talent* Fury::get_improved_execute() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<unsigned, unsigned>>{{2, 3}});
     Talent* talent = new Talent(warrior, this, "Improved Execute", "4ML",
                                 "Assets/items/Inv_sword_48.png", 2, rank_descriptions,
-                                QVector<Spell*>{spells->get_execute()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Execute")});
 
     return talent;
 }
@@ -124,7 +124,7 @@ Talent* Fury::get_improved_slam() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{1, 1}});
     Talent* talent = new Talent(warrior, this, "Improved Slam", "5LL",
                                 "Assets/ability/Ability_warrior_decisivestrike.png", 5, rank_descriptions,
-                                QVector<Spell*>{spells->get_slam()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Slam")});
 
     return talent;
 }
@@ -136,7 +136,7 @@ Talent* Fury::get_death_wish() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(warrior, this, "Death Wish", "5ML",
                                 "Assets/spell/Spell_shadow_deathpact.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_death_wish()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Death Wish")});
 
     return talent;
 }
@@ -147,7 +147,7 @@ Talent* Fury::get_improved_berserker_rage() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<unsigned, unsigned>>{{5, 5}});
     Talent* talent = new Talent(warrior, this, "Improved Berserker Rage", "6LL",
                                 "Assets/spell/Spell_nature_ancestralguardian.png", 2, rank_descriptions,
-                                QVector<Spell*>{spells->get_berserker_rage()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Berserker Rage")});
 
     return talent;
 }
@@ -171,7 +171,7 @@ Talent* Fury::get_bloodthirst() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(warrior, this, "Bloodthirst", "7ML",
                                 "Assets/spell/Spell_nature_bloodlust.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_bloodthirst()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Bloodthirst")});
 
     return talent;
 }

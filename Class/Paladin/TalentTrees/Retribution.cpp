@@ -50,10 +50,10 @@ Talent* Retribution::get_benediction() {
     return get_new_talent(paladin, "Benediction", "1MR", "Assets/spell/Spell_frost_windwalkon.png",
                           5, "Reduces the Mana cost of your Judgement and Seal spells by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{3, 3}},
-                          QVector<Spell*>{
-                              spells->get_seal_of_command(),
-                              spells->get_seal_of_the_crusader(),
-                              spells->get_judgement()
+                          QVector<SpellRankGroup*>{
+                              spells->get_spell_rank_group_by_name("Seal of Command"),
+                              spells->get_spell_rank_group_by_name("Seal of the Crusader"),
+                              spells->get_spell_rank_group_by_name("Judgement"),
                           });
 }
 
@@ -61,7 +61,7 @@ Talent* Retribution::get_improved_judgement() {
     return get_new_talent(paladin, "Improved Judgement", "2LL", "Assets/spell/Spell_holy_righteousfury.png",
                           2, "Decreases the cooldown of your Judgement spell by %1 sec.",
                           QVector<QPair<unsigned, unsigned>>{{1, 1}},
-                          QVector<Spell*>{spells->get_judgement()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Judgement")});
 }
 
 Talent* Retribution::get_improved_seal_of_the_crusader() {
@@ -86,7 +86,7 @@ Talent* Retribution::get_seal_of_command() {
     return get_new_talent(paladin, "Seal of Command", "3MR", "Assets/ability/Ability_warrior_innerrage.png",
                           1, "Gives the Paladin a chance to deal additional Holy damage equal to 70% of normal weapon damage. Only one Seal can be active on the Paladin at any one time. Lasts 30 sec.\n\nUnleashing this Seal's energy will judge an enemy, instantly causing 46.5 to 55.5 Holy damage, 93 to 102 if the target is stunned or incapacitated.",
                           QVector<QPair<unsigned, unsigned>>(),
-                          QVector<Spell*>{spells->get_seal_of_command()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Seal of Command")});
 }
 
 Talent* Retribution::get_two_handed_weapon_specialization() {
@@ -100,7 +100,7 @@ Talent* Retribution::get_sanctity_aura() {
     return get_new_talent(paladin, "Sanctity Aura", "5MR", "Assets/spell/Spell_holy_mindvision.png",
                           1, "Increases Holy damage done by party members within 30 yards by 10%. Players may only have one Aura on them per Paladin at any one time.",
                           QVector<QPair<unsigned, unsigned>>(),
-                          QVector<Spell*>{spells->get_sanctity_aura()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Sanctity Aura")});
 }
 
 Talent* Retribution::get_vengeance() {

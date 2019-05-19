@@ -337,7 +337,7 @@ QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
 Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const QString& location,
                                    const QString& icon, const unsigned max_points, const QString& rank_str,
                                    const QVector<QPair<unsigned, unsigned>>& format_values,
-                                   const QVector<Spell*>& affected_spells,
+                                   const QVector<SpellRankGroup*>& affected_spells,
                                    const QVector<Buff*>& affected_buffs,
                                    const QVector<Proc*>& affected_procs
                                    )

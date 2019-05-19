@@ -63,5 +63,5 @@ Talent* HolyPaladin::get_consecration() {
     return get_new_talent(paladin, "Consecration", "3ML", "Assets/spell/Spell_holy_innerfire.png",
                           1, "Consecrates the land beneath Paladin, doing 64 Holy damage over 8 sec to enemies who enter the area.",
                           QVector<QPair<unsigned, unsigned>>(),
-                          QVector<Spell*>{spells->get_consecration()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Consecration")});
 }

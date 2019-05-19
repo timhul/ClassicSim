@@ -78,7 +78,7 @@ Talent* Arms::get_improved_heroic_strike() {
                                          QVector<QPair<unsigned, unsigned>>{{1, 1}});
     Talent* talent = new Talent(warr, this, "Improved Heroic Strike", "1LL",
                                 "Assets/ability/Ability_rogue_ambush.png", 3, rank_descriptions,
-                                QVector<Spell*>{spells->get_heroic_strike()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Heroic Strike")});
 
     return talent;
 }
@@ -91,7 +91,7 @@ Talent* Arms::get_improved_rend() {
                                          QVector<QPair<unsigned, unsigned>>{{15, 10}});
     Talent* talent = new Talent(warr, this, "Improved Rend", "1MR",
                                 "Assets/ability/Ability_gouge.png", 3, rank_descriptions,
-                                QVector<Spell*>{spells->get_rend()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Rend")});
 
     return talent;
 }
@@ -104,7 +104,7 @@ Talent* Arms::get_improved_overpower() {
                                          QVector<QPair<unsigned, unsigned>>{{25, 25}});
     Talent* talent = new Talent(warr, this, "Improved Overpower", "3LL",
                                 "Assets/items/Inv_sword_05.png", 2, rank_descriptions,
-                                QVector<Spell*>{spells->get_overpower()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Overpower")});
 
     return talent;
 }
@@ -116,7 +116,7 @@ Talent* Arms::get_anger_management() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(warr, this, "Anger Management", "3ML",
                                 "Assets/spell/Spell_holy_blessingofstamina.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_anger_management()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Anger Management")});
 
     return talent;
 }
@@ -129,7 +129,7 @@ Talent* Arms::get_deep_wounds() {
                                          QVector<QPair<unsigned, unsigned>>{{20, 20}});
     Talent* talent = new Talent(warr, this, "Deep Wounds", "3MR",
                                 "Assets/ability/Ability_backstab.png", 3, rank_descriptions,
-                                QVector<Spell*>{spells->get_deep_wounds()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Deep Wounds")});
 
     return talent;
 }
@@ -141,7 +141,7 @@ Talent* Arms::get_mortal_strike() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(warr, this, "Mortal Strike", "7ML",
                                 "Assets/ability/Ability_warrior_savageblow.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_mortal_strike()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Mortal Strike")});
 
     return talent;
 }

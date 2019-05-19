@@ -6,6 +6,7 @@
 #include "Buff.h"
 #include "Character.h"
 #include "Proc.h"
+#include "SpellRankGroup.h"
 #include "TalentRequirer.h"
 #include "TalentTree.h"
 #include "Utils/Check.h"
@@ -17,7 +18,7 @@ Talent::Talent(Character* pchar,
                const QString& icon,
                const unsigned max_points,
                QMap<unsigned, QString> rank_descriptions,
-               QVector<Spell*> affected_spells_,
+               QVector<SpellRankGroup *> affected_spells_,
                QVector<Buff*> affected_buffs_,
                QVector<Proc*> affected_procs_) :
     pchar(pchar),
@@ -76,8 +77,10 @@ Talent::Talent(Character *pchar,
 }
 
 void Talent::apply_rank_effect() {
-    for (auto & spell : affected_spells)
-        dynamic_cast<TalentRequirer*>(spell)->increase_talent_rank(spell, name);
+    for (auto & spell_group : affected_spells) {
+        for (auto & spell : spell_group->spell_group)
+            dynamic_cast<TalentRequirer*>(spell)->increase_talent_rank(spell, name);
+    }
 
     for (auto & buff : affected_buffs)
         dynamic_cast<TalentRequirer*>(buff)->increase_talent_rank(buff, name);
@@ -87,8 +90,10 @@ void Talent::apply_rank_effect() {
 }
 
 void Talent::remove_rank_effect() {
-    for (auto & spell : affected_spells)
-        dynamic_cast<TalentRequirer*>(spell)->decrease_talent_rank(spell, name);
+    for (auto & spell_group : affected_spells) {
+        for (auto & spell : spell_group->spell_group)
+            dynamic_cast<TalentRequirer*>(spell)->decrease_talent_rank(spell, name);
+    }
 
     for (auto & buff : affected_buffs)
         dynamic_cast<TalentRequirer*>(buff)->decrease_talent_rank(buff, name);

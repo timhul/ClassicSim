@@ -63,7 +63,7 @@ Talent* Assassination::get_improved_eviscerate() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<unsigned, unsigned>>{{5, 5}});
     Talent* talent = new Talent(rogue, this, "Improved Eviscerate", "1LL",
                                 "Assets/ability/Ability_rogue_eviscerate.png", 3, rank_descriptions,
-                                QVector<Spell*>{spells->get_eviscerate()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Eviscerate")});
 
     return talent;
 }
@@ -87,7 +87,7 @@ Talent* Assassination::get_improved_slice_and_dice() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<unsigned, unsigned>>{{15, 15}});
     Talent* talent = new Talent(rogue, this, "Improved Slice And Dice", "2RR",
                                 "Assets/ability/Ability_rogue_slicedice.png", 3, rank_descriptions,
-                                QVector<Spell*>{spells->get_slice_and_dice()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Slice and Dice")});
 
     return talent;
 }
@@ -112,9 +112,11 @@ Talent* Assassination::get_lethality() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{6, 6}});
     Talent* talent = new Talent(rogue, this, "Lethality", "3MR",
                                 "Assets/ability/Ability_criticalstrike.png", 5, rank_descriptions,
-                                QVector<Spell*>{spells->get_backstab(),
-                                                spells->get_hemorrhage(),
-                                                spells->get_sinister_strike()});
+                                QVector<SpellRankGroup*>{
+                                    spells->get_spell_rank_group_by_name("Backstab"),
+                                    spells->get_spell_rank_group_by_name("Hemorrhage"),
+                                    spells->get_spell_rank_group_by_name("Sinister Strike")
+                                });
 
     return talent;
 }
@@ -125,8 +127,9 @@ Talent* Assassination::get_vile_poisons() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{4, 4}, {8, 8}});
     Talent* talent = new Talent(rogue, this, "Vile Poisons", "4ML",
                                 "Assets/ability/Ability_rogue_feigndeath.png", 5, rank_descriptions,
-                                QVector<Spell*>{rogue->get_mh_instant_poison(),
-                                                rogue->get_oh_instant_poison()});
+                                {},
+                                {},
+                                QVector<Proc*>{rogue->get_mh_instant_poison(), rogue->get_oh_instant_poison()});
 
     return talent;
 }
@@ -137,8 +140,9 @@ Talent* Assassination::get_improved_poisons() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{2, 2}});
     Talent* talent = new Talent(rogue, this, "Improved Poisons", "4MR",
                                 "Assets/ability/Ability_poisons.png", 5, rank_descriptions,
-                                QVector<Spell*>{rogue->get_mh_instant_poison(),
-                                                rogue->get_oh_instant_poison()});
+                                {},
+                                {},
+                                QVector<Proc*>{rogue->get_mh_instant_poison(), rogue->get_oh_instant_poison()});
 
     return talent;
 }
@@ -149,7 +153,9 @@ Talent* Assassination::get_seal_fate() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{20, 20}});
     Talent* talent = new Talent(rogue, this, "Seal Fate", "6ML",
                                 "Assets/spell/Spell_shadow_chilltouch.png", 5, rank_descriptions,
-                                QVector<Spell*>{rogue->get_seal_fate()});
+                                {},
+                                {},
+                                QVector<Proc*>{rogue->get_seal_fate()});
 
     return talent;
 }

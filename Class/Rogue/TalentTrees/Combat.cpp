@@ -70,7 +70,7 @@ Talent* Combat::get_improved_sinister_strike() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<unsigned, unsigned>>{{3, 2}});
     Talent* talent = new Talent(rogue, this, "Improved Sinister Strike", "1ML",
                                 "Assets/spell/Spell_shadow_ritualofsacrifice.png", 2, rank_descriptions,
-                                QVector<Spell*>{spells->get_sinister_strike()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Sinister Strike")});
 
     return talent;
 }
@@ -81,7 +81,7 @@ Talent* Combat::get_improved_backstab() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<unsigned, unsigned>>{{10, 10}});
     Talent* talent = new Talent(rogue, this, "Improved Backstab", "2LL",
                                 "Assets/ability/Ability_backstab.png", 3, rank_descriptions,
-                                QVector<Spell*>{spells->get_backstab()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Backstab")});
 
     return talent;
 }
@@ -92,7 +92,7 @@ Talent* Combat::get_dual_wield_spec() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{10, 10}});
     Talent* talent = new Talent(rogue, this, "Dual Wield Specialization", "4MR",
                                 "Assets/ability/Ability_dualwield.png", 5, rank_descriptions,
-                                QVector<Spell*>{spells->get_oh_attack()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Offhand Attack")});
 
     return talent;
 }
@@ -104,7 +104,7 @@ Talent* Combat::get_blade_flurry() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(rogue, this, "Blade Flurry", "5ML",
                                 "Assets/ability/Ability_warrior_punishingblow.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_blade_flurry()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Blade Flurry")});
 
     return talent;
 }
@@ -127,8 +127,9 @@ Talent* Combat::get_aggression() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<unsigned, unsigned>>{{2, 2}});
     Talent* talent = new Talent(rogue, this, "Aggression", "6MR",
                                 "Assets/ability/Ability_racial_avatar.png", 3, rank_descriptions,
-                                QVector<Spell*>{spells->get_eviscerate(),
-                                                spells->get_sinister_strike()});
+                                QVector<SpellRankGroup*>{
+                                    spells->get_spell_rank_group_by_name("Eviscerate"),
+                                    spells->get_spell_rank_group_by_name("Sinister Strike")});
 
     return talent;
 }
@@ -140,7 +141,7 @@ Talent* Combat::get_adrenaline_rush() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(rogue, this, "Adrenaline Rush", "7ML",
                                 "Assets/spell/Spell_shadow_shadowworddominate.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_adrenaline_rush()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Adrenaline Rush")});
 
     return talent;
 }

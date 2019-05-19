@@ -57,7 +57,7 @@ Talent* Subtlety::get_opportunity() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{4, 4}});
     Talent* talent = new Talent(rogue, this, "Opportunity", "1MR",
                                 "Assets/ability/Ability_warrior_warcry.png", 5, rank_descriptions,
-                                QVector<Spell*>{spells->get_backstab()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Backstab")});
 
     return talent;
 }
@@ -69,7 +69,7 @@ Talent* Subtlety::get_hemorrhage() {
     rank_descriptions.insert(1, base_str);
     Talent* talent = new Talent(rogue, this, "Hemorrhage", "5RR",
                                 "Assets/spell/Spell_shadow_lifedrain.png", 1, rank_descriptions,
-                                QVector<Spell*>{spells->get_hemorrhage()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Hemorrhage")});
 
     return talent;
 }

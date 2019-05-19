@@ -52,7 +52,10 @@ Talent* Marksmanship::get_efficiency() {
     return get_new_talent(hunter, "Efficiency", "1MR", "Assets/spell/Spell_frost_wizardmark.png",
                           5, "Reduces the Mana cost of your Shots and Stings by %1%",
                           QVector<QPair<unsigned, unsigned>>{{2, 2}},
-                          QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
+                          QVector<SpellRankGroup*>{
+                              spells->get_spell_rank_group_by_name("Aimed Shot"),
+                              spells->get_spell_rank_group_by_name("Multi-Shot"),
+                          });
 }
 
 Talent* Marksmanship::get_improved_hunters_mark() {
@@ -74,21 +77,24 @@ Talent* Marksmanship::get_aimed_shot() {
     return get_new_talent(hunter, "Aimed Shot", "3LL", "Assets/items/Inv_spear_07.png",
                           1, "An aimed shot that increases ranged damage by 600.",
                           QVector<QPair<unsigned, unsigned>>{},
-                          QVector<Spell*>{spells->get_aimed_shot()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Aimed Shot")});
 }
 
 Talent* Marksmanship::get_mortal_shots() {
     return get_new_talent(hunter, "Mortal Shots", "4MR", "Assets/ability/Ability_piercedamage.png",
-                                  5, "Increases your ranged weapon critical strike damage bonus by %1%.",
-                                  QVector<QPair<unsigned, unsigned>>{{6, 6}},
-                                  QVector<Spell*>{spells->get_aimed_shot(), spells->get_multi_shot()});
+                          5, "Increases your ranged weapon critical strike damage bonus by %1%.",
+                          QVector<QPair<unsigned, unsigned>>{{6, 6}},
+                          QVector<SpellRankGroup*>{
+                              spells->get_spell_rank_group_by_name("Aimed Shot"),
+                              spells->get_spell_rank_group_by_name("Multi-Shot"),
+                          });
 }
 
 Talent* Marksmanship::get_barrage() {
     return get_new_talent(hunter, "Barrage", "5ML", "Assets/ability/Ability_upgrademoonglaive.png",
                           3, "Increases the damage done by your Multi-Shot and Volley spells by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{5, 5}},
-                          QVector<Spell*>{spells->get_multi_shot()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Multi-Shot")});
 }
 
 Talent* Marksmanship::get_ranged_weapon_specialization() {
