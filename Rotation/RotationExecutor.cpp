@@ -8,8 +8,9 @@
 #include "StatisticsRotationExecutor.h"
 #include "Utils/Check.h"
 
-RotationExecutor::RotationExecutor(QString name) :
-    spell_name(std::move(name))
+RotationExecutor::RotationExecutor(QString name, const int spell_rank) :
+    spell_name(std::move(name)),
+    spell_rank(spell_rank)
 {
     spell_status_statistics.insert(SpellStatus::Available, 0);
     spell_status_statistics.insert(SpellStatus::BuffInactive, 0);
@@ -93,6 +94,10 @@ QString RotationExecutor::get_conditions_string() const {
     }
 
     return condition_descriptions.join("\n");
+}
+
+int RotationExecutor::get_spell_rank() const {
+    return this->spell_rank;
 }
 
 Spell* RotationExecutor::get_spell() const {

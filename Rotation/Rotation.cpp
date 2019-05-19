@@ -14,6 +14,7 @@
 #include "RotationExecutor.h"
 #include "Spell.h"
 #include "SpellCastingTime.h"
+#include "SpellRankGroup.h"
 #include "Utils/Check.h"
 
 Rotation::Rotation(QString class_name) :
@@ -60,7 +61,12 @@ void Rotation::link_spells(Character* pchar) {
     active_executors.clear();
 
     for (const auto & executor : all_executors) {
-        Spell* spell = pchar->get_spells()->get_spell_by_name(executor->get_spell_name());
+        SpellRankGroup* spell_group = pchar->get_spells()->get_spell_rank_group_by_name(executor->get_spell_name());
+
+        if (spell_group == nullptr)
+            continue;
+
+        Spell* spell = spell_group->get_spell_rank(executor->get_spell_rank());
 
         if (spell == nullptr || !spell->is_enabled())
             continue;
@@ -76,7 +82,13 @@ void Rotation::link_spells(Character* pchar) {
 }
 
 void Rotation::link_precast_spell() {
-    SpellCastingTime* spell = dynamic_cast<SpellCastingTime*>(pchar->get_spells()->get_spell_by_name(precast_spell_name));
+    SpellRankGroup* spell_group = pchar->get_spells()->get_spell_rank_group_by_name(precast_spell_name);
+
+    if (spell_group == nullptr)
+        return;
+
+    // TODO: Doesn't have to be max rank, could include "rank" attribute on element.
+    SpellCastingTime* spell = dynamic_cast<SpellCastingTime*>(spell_group->get_max_available_spell_rank());
 
     if (spell == nullptr)
         return;
@@ -88,7 +100,13 @@ void Rotation::link_precombat_spells() {
     precombat_spells.clear();
 
     for (const auto & spell_name : precombat_spell_names) {
-        Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
+        SpellRankGroup* spell_group = pchar->get_spells()->get_spell_rank_group_by_name(spell_name);
+
+        if (spell_group == nullptr)
+            return;
+
+        // TODO: Doesn't have to be max rank, could include "rank" attribute on element.
+        Spell* spell = spell_group->get_max_available_spell_rank();
 
         if (spell == nullptr || !spell->is_enabled())
             continue;
@@ -127,7 +145,7 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
             break;
         }
         case ConditionTypes::SpellCondition:
-            condition = new ConditionSpell(pchar->get_spells()->get_spell_by_name(sentence->type_value),
+            condition = new ConditionSpell(pchar->get_spells()->get_spell_rank_group_by_name(sentence->type_value)->get_max_available_spell_rank(),
                                            sentence->mathematical_symbol,
                                            sentence->compared_value.toDouble());
             break;

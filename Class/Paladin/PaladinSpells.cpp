@@ -21,12 +21,12 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     this->seal_of_command = new SealOfCommand(paladin);
     this->seal_of_the_crusader = new SealOfTheCrusader(paladin);
 
-    spells.append(consecration);
-    spells.append(judgement);
-    spells.append(mh_attack);
-    spells.append(sanctity_aura);
-    spells.append(seal_of_command);
-    spells.append(seal_of_the_crusader);
+    add_spell_group({consecration});
+    add_spell_group({judgement});
+    add_spell_group({mh_attack});
+    add_spell_group({sanctity_aura});
+    add_spell_group({seal_of_command});
+    add_spell_group({seal_of_the_crusader});
 }
 
 Judgement* PaladinSpells::get_judgement() const {

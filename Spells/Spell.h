@@ -70,9 +70,12 @@ public:
     void enable();
     void disable();
     bool is_enabled() const;
+    bool is_rank_learned() const;
 
+    int get_spell_rank() const;
     virtual void increase_spell_rank();
     virtual void decrease_spell_rank();
+    static const int MAX_RANK = 0;
 
     void perform();
     virtual void perform_periodic();

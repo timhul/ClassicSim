@@ -17,6 +17,7 @@
 #include "Pet.h"
 #include "Race.h"
 #include "Rotation.h"
+#include "SpellRankGroup.h"
 #include "Target.h"
 #include "Utils/Check.h"
 
@@ -34,7 +35,12 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     demonic_rune = new DemonicRune(pchar);
     mana_potion = new ManaPotion(pchar);
     night_dragons_breath = new NightDragonsBreath(pchar);
-    spells = {berserking, blood_fury, demonic_rune, mana_potion, night_dragons_breath};
+
+    add_spell_group({berserking});
+    add_spell_group({blood_fury});
+    add_spell_group({demonic_rune});
+    add_spell_group({mana_potion});
+    add_spell_group({night_dragons_breath});
 }
 
 CharacterSpells::~CharacterSpells() {
@@ -43,6 +49,9 @@ CharacterSpells::~CharacterSpells() {
 
     for (const auto & cc : cooldown_controls)
         delete cc;
+
+    for (const auto & spell_group : spell_rank_groups)
+        delete spell_group;
 }
 
 void CharacterSpells::set_rotation(Rotation* rotation) {
@@ -161,11 +170,20 @@ void CharacterSpells::run_start_of_combat_spells() {
         spell->perform_start_of_combat();
 }
 
-Spell* CharacterSpells::get_spell_by_name(const QString& spell_name) const {
-    for (const auto & spell : spells) {
-        if (spell->get_name() == spell_name)
-            return spell;
-    }
+void CharacterSpells::add_spell_group(const QVector<Spell*> spell_group) {
+    check(!spell_group.empty(), "Cannot add empty spell group");
+    check(!spell_rank_groups.contains(spell_group[0]->get_name()),
+            QString("%1 has already been added as a spell group").arg(spell_group[0]->get_name()).toStdString());
+
+    spell_rank_groups[spell_group[0]->get_name()] = new SpellRankGroup(spell_group[0]->get_name(), spell_group);
+
+    for (auto & spell : spell_group)
+        add_spell(spell, NO_RELINK);
+}
+
+SpellRankGroup* CharacterSpells::get_spell_rank_group_by_name(const QString& spell_name) const {
+    if (spell_rank_groups.contains(spell_name))
+        return spell_rank_groups[spell_name];
 
     return nullptr;
 }

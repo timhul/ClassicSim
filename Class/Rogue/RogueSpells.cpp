@@ -27,15 +27,15 @@ RogueSpells::RogueSpells(Rogue* rogue) :
     this->sinister_strike = new SinisterStrike(rogue);
     this->slice_and_dice = new SliceAndDice(rogue);
 
-    add_spell(mh_attack, NO_RELINK);
-    add_spell(oh_attack, NO_RELINK);
-    add_spell(adrenaline_rush, NO_RELINK);
-    add_spell(blade_flurry, NO_RELINK);
-    add_spell(backstab, NO_RELINK);
-    add_spell(eviscerate, NO_RELINK);
-    add_spell(hemorrhage, NO_RELINK);
-    add_spell(sinister_strike, NO_RELINK);
-    add_spell(slice_and_dice, NO_RELINK);
+    add_spell_group({adrenaline_rush});
+    add_spell_group({backstab});
+    add_spell_group({blade_flurry});
+    add_spell_group({eviscerate});
+    add_spell_group({hemorrhage});
+    add_spell_group({mh_attack});
+    add_spell_group({oh_attack});
+    add_spell_group({sinister_strike});
+    add_spell_group({slice_and_dice});
 }
 
 RogueSpells::~RogueSpells() = default;

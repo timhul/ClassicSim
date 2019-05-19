@@ -13,7 +13,7 @@ enum class SpellStatus: int;
 
 class RotationExecutor {
 public:
-    RotationExecutor(QString spell_name);
+    RotationExecutor(QString spell_name, const int spell_rank);
     ~RotationExecutor();
 
     void add_sentence(Sentence* sentence);
@@ -26,6 +26,7 @@ public:
 
     QString get_spell_name() const;
     QString get_conditions_string() const;
+    int get_spell_rank() const;
 
     Spell* get_spell() const;
     void set_spell(Spell*);
@@ -42,6 +43,7 @@ private:
     Spell* spell {nullptr};
     StatisticsRotationExecutor* rotation_statistics {nullptr};
     const QString spell_name;
+    const int spell_rank;
 
     unsigned successful_casts {0};
     unsigned no_condition_group_fulfilled {0};

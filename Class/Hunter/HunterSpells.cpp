@@ -30,15 +30,15 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->oh_attack = new OffhandAttack(hunter);
     this->rapid_fire = new RapidFire(hunter);
 
-    spells.append(aimed_shot);
-    spells.append(aspect_of_the_hawk);
-    spells.append(auto_shot);
-    spells.append(bestial_wrath);
-    spells.append(hunters_mark);
-    spells.append(mh_attack);
-    spells.append(multi_shot);
-    spells.append(oh_attack);
-    spells.append(rapid_fire);
+    add_spell_group({aimed_shot});
+    add_spell_group({aspect_of_the_hawk});
+    add_spell_group({auto_shot});
+    add_spell_group({bestial_wrath});
+    add_spell_group({hunters_mark});
+    add_spell_group({mh_attack});
+    add_spell_group({multi_shot});
+    add_spell_group({oh_attack});
+    add_spell_group({rapid_fire});
 }
 
 HunterSpells::~HunterSpells() {

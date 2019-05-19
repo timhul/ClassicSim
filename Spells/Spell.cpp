@@ -95,6 +95,14 @@ bool Spell::is_enabled() const {
     return enabled;
 }
 
+bool Spell::is_rank_learned() const {
+    return true;
+}
+
+int Spell::get_spell_rank() const {
+    return 1;
+}
+
 void Spell::enable() {
     check(!enabled, QString("Tried to enable an already enabled spell '%1'").arg(name).toStdString());
     enabled = true;

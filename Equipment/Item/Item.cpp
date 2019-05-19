@@ -28,6 +28,7 @@
 #include "ManaDrainProc.h"
 #include "Nightfall.h"
 #include "NoEffectBuff.h"
+#include "SpellRankGroup.h"
 #include "Stats.h"
 #include "Target.h"
 #include "UseItem.h"
@@ -204,18 +205,20 @@ void Item::call_modifications_by_specific_name(const QString& name, const bool a
 }
 
 void Item::call_spell_modifications(const QString& spell_name, const bool activate) const {
-    Spell* spell = pchar->get_spells()->get_spell_by_name(spell_name);
-    if (spell == nullptr)
+    SpellRankGroup* spell_group = pchar->get_spells()->get_spell_rank_group_by_name(spell_name);
+    if (spell_group == nullptr)
         return;
 
-    auto spell_modded_by_item = dynamic_cast<ItemModificationRequirer*>(spell);
-    if (spell_modded_by_item == nullptr)
-        return;
+    for (auto & spell : spell_group->spell_group) {
+        auto spell_modded_by_item = dynamic_cast<ItemModificationRequirer*>(spell);
+        if (spell_modded_by_item == nullptr)
+            return;
 
-    if (activate)
-        spell_modded_by_item->activate_item_modification(this->item_id);
-    else
-        spell_modded_by_item->deactivate_item_modification(this->item_id);
+        if (activate)
+            spell_modded_by_item->activate_item_modification(this->item_id);
+        else
+            spell_modded_by_item->deactivate_item_modification(this->item_id);
+    }
 }
 
 void Item::call_buff_modifications(const QString& buff_name, const bool activate) const {

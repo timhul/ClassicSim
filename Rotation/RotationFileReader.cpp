@@ -6,6 +6,7 @@
 #include "Condition.h"
 #include "Rotation.h"
 #include "RotationExecutor.h"
+#include "Spell.h"
 #include "Utils/Check.h"
 
 void RotationFileReader::add_rotations(QVector<Rotation*> & rotations) {
@@ -121,7 +122,9 @@ void RotationFileReader::rotation_file_handler(QXmlStreamReader &reader, Rotatio
 
         if (reader.name() == "cast_if") {
             QString name = reader.attributes().value("name").toString();
-            RotationExecutor* executor = new RotationExecutor(name);
+            const int spell_rank = reader.attributes().hasAttribute("rank") ? reader.attributes().value("rank").toInt() :
+                                                                              Spell::MAX_RANK;
+            RotationExecutor* executor = new RotationExecutor(name, spell_rank);
             if (rotation_executor_handler(reader, executor)) {
                 rotation->add_executor(executor);
             }
