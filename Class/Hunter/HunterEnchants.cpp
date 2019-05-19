@@ -10,8 +10,27 @@ HunterEnchants::HunterEnchants(Hunter* hunter) :
 
 QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
-    case EquipmentSlot::MAINHAND:
-    case EquipmentSlot::OFFHAND:
+    case EquipmentSlot::MAINHAND: {
+        QVector<EnchantName::Name> enchants {
+            EnchantName::Name::Crusader,
+            EnchantName::Name::FieryWeapon,
+            EnchantName::Name::EnchantWeaponStrength,
+            EnchantName::Name::SuperiorStriking
+        };
+
+        if (has_2hand()) {
+            enchants.append({
+                                EnchantName::Name::Enchant2HWeaponAgility,
+                                EnchantName::Name::Enchant2HWeaponSuperiorImpact,
+                                EnchantName::Name::IronCounterweight,
+                            });
+        }
+        else
+           enchants.append(EnchantName::Name::EnchantWeaponAgility);
+
+        return enchants;
+    }
+    case EquipmentSlot::OFFHAND: {
         return {
             EnchantName::Name::Crusader,
             EnchantName::Name::FieryWeapon,
@@ -19,6 +38,7 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
             EnchantName::Name::SuperiorStriking,
             EnchantName::Name::EnchantWeaponAgility
         };
+    }
     case EquipmentSlot::RANGED:
         return {
             EnchantName::Name::Biznicks247x128Accurascope,
