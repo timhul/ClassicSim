@@ -20,7 +20,8 @@ Spell::Spell(QString name,
              CooldownControl* cooldown_control,
              bool restricted_by_gcd,
              const ResourceType resource_type,
-             unsigned resource_cost) :
+             const unsigned resource_cost,
+             const int spell_rank) :
     name(std::move(name)),
     icon(std::move(icon)),
     pchar(pchar),
@@ -31,7 +32,7 @@ Spell::Spell(QString name,
     restricted_by_gcd(restricted_by_gcd),
     resource_type(resource_type),
     resource_cost(resource_cost),
-    spell_rank(1),
+    spell_rank(spell_rank),
     instance_id(SpellID::INACTIVE),
     enabled(true)
 {}
@@ -100,7 +101,7 @@ bool Spell::is_rank_learned() const {
 }
 
 int Spell::get_spell_rank() const {
-    return 1;
+    return spell_rank;
 }
 
 void Spell::enable() {

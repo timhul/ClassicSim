@@ -10,15 +10,20 @@ class Paladin;
 
 class Consecration: public Spell, public TalentRequirer {
 public:
-    Consecration(Paladin* pchar, CooldownControl* cooldown_control);
+    Consecration(Paladin* pchar,
+                 CooldownControl* cooldown_control,
+                 const int spell_rank,
+                 const unsigned resource_cost,
+                 const unsigned full_duration_dmg);
     ~Consecration() override;
 
     void perform_periodic() override;
+    bool is_rank_learned() const override;
 
 private:
     Buff* buff;
     unsigned ticks {0};
-    unsigned full_duration_dmg {384};
+    unsigned full_duration_dmg;
     double tick_rest {0};
 
     void calculate_damage();

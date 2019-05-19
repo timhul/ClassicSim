@@ -9,14 +9,19 @@
 #include "Paladin.h"
 #include "Utils/Check.h"
 
-Consecration::Consecration(Paladin* pchar, CooldownControl* cooldown_control) :
-    Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 565),
+Consecration::Consecration(Paladin* pchar,
+                           CooldownControl* cooldown_control,
+                           const int spell_rank,
+                           const unsigned resource_cost,
+                           const unsigned full_duration_dmg) :
+    Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, resource_cost, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)}),
     buff(new NoEffectBuff(pchar,
                           8,
-                          "Consecration",
+                          QString("Consecration (rank %1)").arg(spell_rank),
                           "Assets/spell/Spell_holy_innerfire.png",
-                          Hidden::No))
+                          Hidden::No)),
+    full_duration_dmg(full_duration_dmg)
 {
     this->enabled = false;
 }
@@ -39,6 +44,24 @@ void Consecration::perform_periodic() {
         auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
         this->engine->add_event(new_event);
     }
+}
+
+bool Consecration::is_rank_learned() const {
+    switch (spell_rank) {
+    case 1:
+        return pchar->get_clvl() >= 20;
+    case 2:
+        return pchar->get_clvl() >= 30;
+    case 3:
+        return pchar->get_clvl() >= 40;
+    case 4:
+        return pchar->get_clvl() >= 50;
+    case 5:
+        return pchar->get_clvl() >= 60;
+    }
+
+    check(false, QString("%1::is_rank_learned() failed for rank %2").arg(name).arg(spell_rank).toStdString());
+    return false;
 }
 
 void Consecration::calculate_damage() {

@@ -23,7 +23,11 @@
 		buff "Judgement of the Crusader" less 3
 	</cast_if>
 
-	<cast_if name="Consecration"/>
+	<cast_if name="Consecration">
+		buff "Vengeance" greater 0
+	</cast_if>
+
+	<cast_if name="Consecration" rank="1"/>
 
 	<cast_if name="Manual Crowd Pummeler"/>
 	<cast_if name="Scrolls of Blinding Light"/>

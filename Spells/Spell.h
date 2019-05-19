@@ -53,7 +53,8 @@ public:
           CooldownControl* cooldown_control,
           bool restricted_by_gcd,
           const ResourceType resource_type,
-          unsigned resource_cost);
+          const unsigned resource_cost,
+          const int spell_rank = 1);
 
     virtual ~Spell() = default;
 
@@ -70,7 +71,7 @@ public:
     void enable();
     void disable();
     bool is_enabled() const;
-    bool is_rank_learned() const;
+    virtual bool is_rank_learned() const;
 
     int get_spell_rank() const;
     static const int MAX_RANK = 0;

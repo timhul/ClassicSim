@@ -30,7 +30,7 @@ SimOption::Name ClassStatistics::get_sim_option() const {
 
 StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, const QString& icon, const int spell_rank) {
     const auto recorded_name = spell_rank > 1 ? QString("%1 (rank %2)").arg(name).arg(spell_rank) : name;
-    check(!spell_statistics.contains(name), QString("'%1' has already initialized spell statistics").arg(recorded_name).toStdString());
+    check(!spell_statistics.contains(recorded_name), QString("'%1' has already initialized spell statistics").arg(recorded_name).toStdString());
 
     spell_statistics[recorded_name] = new StatisticsSpell(recorded_name, icon);
     return spell_statistics[recorded_name];
