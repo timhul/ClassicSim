@@ -10,6 +10,7 @@ class Warrior;
 class Bloodrage: public Spell, public TalentRequirer {
 public:
     Bloodrage(Character* pchar);
+    ~Bloodrage() override;
 
     void perform_periodic() override;
 

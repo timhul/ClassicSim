@@ -10,7 +10,7 @@
 #include "WarriorSpells.h"
 
 Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Rend", "Assets/ability/Ability_gouge.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
+    Spell("Rend", "Assets/ability/Ability_gouge.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 10),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Rend", 3, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
@@ -28,6 +28,7 @@ Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
 
 Rend::~Rend() {
     delete buff;
+    delete cooldown;
 }
 
 void Rend::spell_effect() {

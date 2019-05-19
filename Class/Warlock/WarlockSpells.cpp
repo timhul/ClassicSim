@@ -1,9 +1,7 @@
-
 #include "WarlockSpells.h"
-#include "Warlock.h"
 
 #include "MainhandAttack.h"
-
+#include "Warlock.h"
 
 WarlockSpells::WarlockSpells(Warlock* warlock) :
     CharacterSpells(warlock),
@@ -13,5 +11,3 @@ WarlockSpells::WarlockSpells(Warlock* warlock) :
 
     spells.append(mh_attack);
 }
-
-WarlockSpells::~WarlockSpells() = default;

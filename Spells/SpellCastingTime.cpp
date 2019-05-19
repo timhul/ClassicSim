@@ -8,12 +8,12 @@
 SpellCastingTime::SpellCastingTime(const QString& name,
                                    const QString &icon,
                                    Character* pchar,
+                                   CooldownControl* cooldown_control,
                                    bool restricted_by_gcd,
-                                   double cooldown,
                                    const ResourceType resource_type,
                                    unsigned resource_cost,
                                    unsigned casting_time) :
-    Spell(name, icon, pchar, restricted_by_gcd, cooldown, resource_type, resource_cost),
+    Spell(name, icon, pchar, cooldown_control, restricted_by_gcd, resource_type, resource_cost),
     casting_time_ms(casting_time),
     cast_id(std::numeric_limits<unsigned>::max())
 {}

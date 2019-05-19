@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
 #include "NoEffectBuff.h"
@@ -17,7 +18,10 @@ FireballInstant::FireballInstant(Character* pchar,
                                  const unsigned dmg_over_duration,
                                  const int duration) :
     Spell(QString("Fireball (%1)").arg(name), "Assets/spell/Spell_fire_flamebolt.png", pchar,
-          RestrictedByGcd::Yes, 0, ResourceType::Mana, 0),
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          0),
     fireball_dot(new NoEffectBuff(pchar, duration, QString("Fireball (%1)").arg(name), "Assets/spell/Spell_fire_flamebolt.png",
                                   Hidden::No, Debuff::Yes)),
     instant_dmg(new Random(instant_min, instant_max)),
@@ -34,6 +38,7 @@ FireballInstant::~FireballInstant() {
         fireball_dot->disable_buff();
 
     delete fireball_dot;
+    delete cooldown;
 }
 
 void FireballInstant::spell_effect() {

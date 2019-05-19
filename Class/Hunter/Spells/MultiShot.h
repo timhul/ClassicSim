@@ -11,7 +11,7 @@ class StatisticsResource;
 
 class MultiShot: public Spell, public TalentRequirer, public SetBonusRequirer, public ItemModificationRequirer {
 public:
-    MultiShot(Hunter *pchar);
+    MultiShot(Hunter *pchar, CooldownControl* cooldown_control);
 
 private:
     Hunter* hunter;

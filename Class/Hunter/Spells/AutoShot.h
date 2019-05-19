@@ -10,6 +10,7 @@ class StatisticsResource;
 class AutoShot: public Spell, public SetBonusRequirer {
 public:
     AutoShot(Hunter* pchar);
+    ~AutoShot() override;
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);

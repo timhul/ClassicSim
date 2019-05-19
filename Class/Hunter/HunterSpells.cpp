@@ -19,14 +19,14 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     CharacterSpells(hunter),
     hunter(hunter)
 {
-    this->aimed_shot = new AimedShot(hunter);
+    this->aimed_shot = new AimedShot(hunter, new_cooldown_control("Aimed Shot", 6.0));
     this->aspect_of_the_hawk = new AspectOfTheHawk(hunter);
     this->auto_shot = new AutoShot(hunter);
     this->bestial_wrath = new BestialWrath(hunter, "Cat");
     this->expose_weakness_proc = new ExposeWeaknessProc(hunter);
     this->hunters_mark = new HuntersMark(hunter);
     this->mh_attack = new MainhandAttack(hunter);
-    this->multi_shot = new MultiShot(hunter);
+    this->multi_shot = new MultiShot(hunter, new_cooldown_control("Multi-Shot", 10.0));
     this->oh_attack = new OffhandAttack(hunter);
     this->rapid_fire = new RapidFire(hunter);
 

@@ -8,8 +8,8 @@ public:
     SpellCastingTime(const QString& name,
                      const QString& icon,
                      Character* pchar,
+                     CooldownControl* cooldown_control,
                      bool restricted_by_gcd,
-                     double cooldown,
                      const ResourceType resource_type,
                      unsigned resource_cost,
                      unsigned casting_time_ms);

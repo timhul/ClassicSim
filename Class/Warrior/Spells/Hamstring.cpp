@@ -9,11 +9,15 @@
 #include "WarriorSpells.h"
 
 Hamstring::Hamstring(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Hamstring", "Assets/ability/Ability_shockwave.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
+    Spell("Hamstring", "Assets/ability/Ability_shockwave.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 10),
     ItemModificationRequirer({16484, 16548, 22868, 23286}),
     warr(pchar),
     spells(spells)
 {}
+
+Hamstring::~Hamstring() {
+    delete cooldown;
+}
 
 void Hamstring::spell_effect() {
     const int result = roll->get_melee_ability_result(warr->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());

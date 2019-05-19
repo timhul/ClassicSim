@@ -7,8 +7,8 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-Bloodthirst::Bloodthirst(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Bloodthirst", "Assets/spell/Spell_nature_bloodlust.png", pchar, RestrictedByGcd::Yes, 6.0, ResourceType::Rage, 30),
+Bloodthirst::Bloodthirst(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control) :
+    Spell("Bloodthirst", "Assets/spell/Spell_nature_bloodlust.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Rage, 30),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Bloodthirst", 1, DisabledAtZero::Yes)}),
     warr(pchar),
     spells(spells)

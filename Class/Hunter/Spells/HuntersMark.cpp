@@ -8,8 +8,8 @@ HuntersMark::HuntersMark(Character* pchar) :
     Spell("Hunter's Mark",
           "Assets/ability/Ability_hunter_snipershot.png",
           pchar,
+          new CooldownControl(pchar, 0.0),
           RestrictedByGcd::Yes,
-          0.0,
           ResourceType::Mana,
           60),
     hunters_mark(new HuntersMarkBuff(pchar))
@@ -22,6 +22,7 @@ HuntersMark::~HuntersMark() {
         hunters_mark->disable_buff();
 
     delete hunters_mark;
+    delete cooldown;
 }
 
 void HuntersMark::spell_effect() {

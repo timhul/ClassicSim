@@ -1,6 +1,7 @@
 #ifndef SPELLS_H
 #define SPELLS_H
 
+#include <QMap>
 #include <QVector>
 
 #include "AttackMode.h"
@@ -9,6 +10,7 @@ class AutoShot;
 class Berserking;
 class BloodFury;
 class Character;
+class CooldownControl;
 class DemonicRune;
 class MainhandAttack;
 class ManaPotion;
@@ -85,6 +87,7 @@ protected:
     int next_instance_id;
     QVector<Spell*> spells;
     QVector<Spell*> start_of_combat_spells;
+    QMap<QString, CooldownControl*> cooldown_controls;
 
     MainhandAttack* mh_attack{};
     OffhandAttack* oh_attack{};
@@ -95,6 +98,8 @@ protected:
     DemonicRune* demonic_rune;
     ManaPotion* mana_potion;
     NightDragonsBreath* night_dragons_breath;
+
+    CooldownControl* new_cooldown_control(const QString& spell_name, const double cooldown);
 
 private:
     void start_melee_attack();

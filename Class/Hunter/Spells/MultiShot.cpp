@@ -8,12 +8,12 @@
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-MultiShot::MultiShot(Hunter* pchar) :
+MultiShot::MultiShot(Hunter* pchar, CooldownControl* cooldown_control) :
     Spell("Multi-Shot",
           "Assets/ability/Ability_upgrademoonglaive.png",
           pchar,
+          cooldown_control,
           RestrictedByGcd::Yes,
-          10.0,
           ResourceType::Mana,
           230),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),

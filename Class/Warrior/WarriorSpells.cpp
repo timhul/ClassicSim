@@ -45,14 +45,14 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->berserker_rage = new BerserkerRage(pchar);
     this->berserker_stance = new BerserkerStance(pchar);
     this->bloodrage = new Bloodrage(pchar);
-    this->bt = new Bloodthirst(pchar, this);
+    this->bt = new Bloodthirst(pchar, this, new_cooldown_control("Bloodthirst", 6.0));
     this->death_wish = new DeathWish(pchar);
     this->deep_wounds = new DeepWounds(pchar);
     this->execute = new Execute(pchar, this);
     this->hamstring = new Hamstring(pchar, this);
     this->heroic_strike = new HeroicStrike(pchar, this);
-    this->overpower = new Overpower(pchar, this);
-    this->mortal_strike = new MortalStrike(pchar, this);
+    this->overpower = new Overpower(pchar, this, new_cooldown_control("Overpower", 5.0));
+    this->mortal_strike = new MortalStrike(pchar, this, new_cooldown_control("Mortal Strike", 6.0));
     this->recklessness = new Recklessness(pchar, this);
     this->rend = new Rend(pchar, this);
     this->slam = new Slam(pchar, this);

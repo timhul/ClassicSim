@@ -7,6 +7,7 @@
 class OffhandAttack: public Spell {
 public:
     OffhandAttack(Character* pchar);
+    ~OffhandAttack() override;
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);

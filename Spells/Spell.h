@@ -50,12 +50,12 @@ public:
     Spell(QString name,
           QString icon,
           Character* pchar,
+          CooldownControl* cooldown_control,
           bool restricted_by_gcd,
-          double cooldown,
           const ResourceType resource_type,
           unsigned resource_cost);
 
-    virtual ~Spell();
+    virtual ~Spell() = default;
 
     QString get_name() const;
     QString get_icon() const;

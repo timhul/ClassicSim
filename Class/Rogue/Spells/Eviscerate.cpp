@@ -12,7 +12,7 @@
 #include "Weapon.h"
 
 Eviscerate::Eviscerate(Character* pchar) :
-    Spell("Eviscerate", "Assets/ability/Ability_rogue_eviscerate.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 35),
+    Spell("Eviscerate", "Assets/ability/Ability_rogue_eviscerate.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 35),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Aggression", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Improved Eviscerate", 3, DisabledAtZero::No)
@@ -40,6 +40,7 @@ Eviscerate::Eviscerate(Character* pchar) :
 
 Eviscerate::~Eviscerate() {
     delete evisc_range;
+    delete cooldown;
 }
 
 SpellStatus Eviscerate::is_ready_spell_specific() const {

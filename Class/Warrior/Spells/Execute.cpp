@@ -11,7 +11,7 @@
 #include "WarriorSpells.h"
 
 Execute::Execute(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Execute", "Assets/items/Inv_sword_48.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 15),
+    Spell("Execute", "Assets/items/Inv_sword_48.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Execute", 2, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
@@ -27,6 +27,10 @@ Execute::Execute(Warrior* pchar, WarriorSpells* spells) :
     dmg_per_rage_converted = spell_ranks[spell_rank].second;
 
     talent_ranks = {15, 13, 10};
+}
+
+Execute::~Execute() {
+    delete cooldown;
 }
 
 SpellStatus Execute::is_ready_spell_specific() const {

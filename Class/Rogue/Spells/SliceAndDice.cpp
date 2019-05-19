@@ -12,7 +12,7 @@
 #include "Weapon.h"
 
 SliceAndDice::SliceAndDice(Character* pchar) :
-    Spell("Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 25),
+    Spell("Slice and Dice", "Assets/ability/Ability_rogue_slicedice.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 25),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slice And Dice", 3, DisabledAtZero::No)}),
     SetBonusRequirer({"Emblems of Veiled Shadows"}),
     rogue(dynamic_cast<Rogue*>(pchar)),
@@ -26,6 +26,7 @@ SliceAndDice::~SliceAndDice() {
         buff->disable_buff();
 
     delete buff;
+    delete cooldown;
 }
 
 SpellStatus SliceAndDice::is_ready_spell_specific() const {

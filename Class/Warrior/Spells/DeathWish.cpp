@@ -5,7 +5,7 @@
 #include "Warrior.h"
 
 DeathWish::DeathWish(Character* pchar) :
-    Spell("Death Wish", "Assets/spell/Spell_shadow_deathpact.png", pchar, RestrictedByGcd::Yes, 180, ResourceType::Rage, 10),
+    Spell("Death Wish", "Assets/spell/Spell_shadow_deathpact.png", pchar, new CooldownControl(pchar, 180.0), RestrictedByGcd::Yes, ResourceType::Rage, 10),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Death Wish", 1, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     death_wish_buff(new DeathWishBuff(pchar))
@@ -15,6 +15,7 @@ DeathWish::DeathWish(Character* pchar) :
 
 DeathWish::~DeathWish() {
     delete death_wish_buff;
+    delete cooldown;
 }
 
 void DeathWish::spell_effect() {

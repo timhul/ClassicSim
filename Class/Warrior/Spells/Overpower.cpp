@@ -7,8 +7,8 @@
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
-Overpower::Overpower(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Overpower", "Assets/items/Inv_sword_05.png", pchar, RestrictedByGcd::Yes, 5.0, ResourceType::Rage, 5),
+Overpower::Overpower(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control) :
+    Spell("Overpower", "Assets/items/Inv_sword_05.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Rage, 5),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells)

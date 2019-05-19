@@ -4,6 +4,7 @@
 
 #include "Character.h"
 #include "ClassStatistics.h"
+#include "CooldownControl.h"
 #include "EnabledProcs.h"
 #include "Random.h"
 #include "StatisticsProc.h"
@@ -17,7 +18,7 @@ Proc::Proc(const QString& name,
            const QVector<Proc *>& linked_procs,
            QVector<ProcInfo::Source>  proc_sources,
            Character* pchar) :
-    Spell(name, icon, pchar, RestrictedByGcd::No, inner_cooldown, ResourceType::Rage, 0),
+    Spell(name, icon, pchar, new CooldownControl(pchar, inner_cooldown), RestrictedByGcd::No, ResourceType::Rage, 0),
     procs(pchar->get_enabled_procs()),
     random(new Random(0, 9999)),
     proc_sources(std::move(proc_sources)),
@@ -29,6 +30,7 @@ Proc::Proc(const QString& name,
 
 Proc::~Proc() {
     delete random;
+    delete cooldown;
 }
 
 void Proc::spell_effect() {

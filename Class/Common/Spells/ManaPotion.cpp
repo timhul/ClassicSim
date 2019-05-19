@@ -2,16 +2,18 @@
 
 #include "Character.h"
 #include "ClassStatistics.h"
+#include "CooldownControl.h"
 #include "Random.h"
 #include "StatisticsResource.h"
 
 ManaPotion::ManaPotion(Character* pchar) :
-    Spell("Mana Potion", "Assets/misc/Inv_potion_76.png", pchar, RestrictedByGcd::No, 120, ResourceType::Mana, 0),
+    Spell("Mana Potion", "Assets/misc/Inv_potion_76.png", pchar, new CooldownControl(pchar, 120.0), RestrictedByGcd::No, ResourceType::Mana, 0),
     random(new Random(min, max))
 {}
 
 ManaPotion::~ManaPotion() {
     delete random;
+    delete cooldown;
 }
 
 void ManaPotion::spell_effect() {

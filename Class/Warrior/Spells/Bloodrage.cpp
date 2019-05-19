@@ -8,10 +8,14 @@
 #include "Warrior.h"
 
 Bloodrage::Bloodrage(Character* pchar) :
-    Spell("Bloodrage", "Assets/ability/Ability_racial_bloodrage.png", pchar, RestrictedByGcd::No, 60, ResourceType::Rage, 0),
+    Spell("Bloodrage", "Assets/ability/Ability_racial_bloodrage.png", pchar, new CooldownControl(pchar, 60.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Bloodrage", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
+
+Bloodrage::~Bloodrage() {
+    delete cooldown;
+}
 
 SpellStatus Bloodrage::is_ready_spell_specific() const {
     return warr->in_defensive_stance() ? SpellStatus::InDefensiveStance : SpellStatus::Available;

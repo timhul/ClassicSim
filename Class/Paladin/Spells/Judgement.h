@@ -8,7 +8,7 @@ class Paladin;
 
 class Judgement: public Spell, public TalentRequirer {
 public:
-    Judgement(Paladin* pchar);
+    Judgement(Paladin* pchar, CooldownControl* cooldown_control);
 
 private:
     Paladin* paladin;

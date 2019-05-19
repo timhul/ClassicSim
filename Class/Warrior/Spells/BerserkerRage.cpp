@@ -6,7 +6,7 @@
 #include "Warrior.h"
 
 BerserkerRage::BerserkerRage(Character* pchar) :
-    Spell("Berserker Rage", "Assets/spell/Spell_nature_ancestralguardian.png", pchar, RestrictedByGcd::No, 30, ResourceType::Rage, 0),
+    Spell("Berserker Rage", "Assets/spell/Spell_nature_ancestralguardian.png", pchar, new CooldownControl(pchar, 30.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Berserker Rage", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     statistics_resource(nullptr)
@@ -22,6 +22,10 @@ SpellStatus BerserkerRage::is_ready_spell_specific() const {
         return SpellStatus::InDefensiveStance;
 
     return SpellStatus::Available;
+}
+
+BerserkerRage::~BerserkerRage() {
+    delete cooldown;
 }
 
 void BerserkerRage::spell_effect() {

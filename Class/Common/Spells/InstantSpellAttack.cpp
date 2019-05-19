@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Random.h"
 
 InstantSpellAttack::InstantSpellAttack(Character* pchar,
@@ -11,7 +12,7 @@ InstantSpellAttack::InstantSpellAttack(Character* pchar,
                                        const MagicSchool school,
                                        const unsigned min,
                                        const unsigned max) :
-    Spell(name, icon, pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 0),
+    Spell(name, icon, pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     school(school),
     min(min), max(max),
     random(new Random(min, max))
@@ -19,6 +20,7 @@ InstantSpellAttack::InstantSpellAttack(Character* pchar,
 
 InstantSpellAttack::~InstantSpellAttack() {
     delete random;
+    delete cooldown;
 }
 
 void InstantSpellAttack::spell_effect() {

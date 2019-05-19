@@ -9,8 +9,8 @@ RapidFire::RapidFire(Character* pchar) :
     Spell("Rapid Fire",
           "Assets/ability/Ability_hunter_runningshot.png",
           pchar,
+          new CooldownControl(pchar, 300.0),
           RestrictedByGcd::Yes,
-          300.0,
           ResourceType::Mana,
           100),
     SetBonusRequirer({"Striker's Garb"}),
@@ -24,6 +24,7 @@ RapidFire::~RapidFire() {
         rapid_fire->disable_buff();
 
     delete rapid_fire;
+    delete cooldown;
 }
 
 RapidFireBuff* RapidFire::get_rapid_fire_buff() const {

@@ -6,6 +6,7 @@
 class MainhandAttack: public Spell {
 public:
     MainhandAttack(Character* pchar);
+    ~MainhandAttack() override;
 
     double get_next_expected_use() const;
     void update_next_expected_use(const double);

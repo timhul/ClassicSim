@@ -12,8 +12,8 @@ OffhandAttack::OffhandAttack(Character* pchar) :
     Spell("Offhand Attack",
           "Assets/items/Inv_sword_04.png",
           pchar,
+          new CooldownControl(pchar, 1.0),
           RestrictedByGcd::No,
-          0,
           ResourceType::Rage,
           0),
     offhand_penalty(0.5)
@@ -21,6 +21,10 @@ OffhandAttack::OffhandAttack(Character* pchar) :
     this->pchar = pchar;
     next_expected_use = 0;
     iteration = 0;
+}
+
+OffhandAttack::~OffhandAttack() {
+    delete cooldown;
 }
 
 void OffhandAttack::extra_attack() {

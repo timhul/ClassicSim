@@ -9,6 +9,7 @@ class WarriorSpells;
 class Recklessness: public Spell {
 public:
     Recklessness(Warrior* pchar, WarriorSpells* spells);
+    ~Recklessness() override;
 
 private:
     WarriorSpells* spells;

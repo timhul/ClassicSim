@@ -5,7 +5,10 @@
 #include "SanctityAuraBuff.h"
 
 SanctityAura::SanctityAura(Paladin* pchar) :
-    Spell("Sanctity Aura", "Assets/spell/Spell_holy_mindvision.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Mana, 0),
+    Spell("Sanctity Aura", "Assets/spell/Spell_holy_mindvision.png", pchar,
+          new CooldownControl(pchar, 0.0),
+          RestrictedByGcd::Yes,
+          ResourceType::Mana, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Sanctity Aura", 1, DisabledAtZero::Yes)}),
     buff(new SanctityAuraBuff(pchar))
 {
@@ -17,6 +20,7 @@ SanctityAura::~SanctityAura() {
         buff->disable_buff();
 
     delete buff;
+    delete cooldown;
 }
 
 void SanctityAura::spell_effect() {

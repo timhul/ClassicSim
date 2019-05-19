@@ -8,7 +8,6 @@ class Warlock;
 class WarlockSpells: public CharacterSpells {
 public:
     WarlockSpells(Warlock *warlock);
-    ~WarlockSpells() override;
 
 private:
     Warlock* warlock;

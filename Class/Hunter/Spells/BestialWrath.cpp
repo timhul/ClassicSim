@@ -8,8 +8,8 @@ BestialWrath::BestialWrath(Character* pchar, const QString& pet_name) :
     Spell("Bestial Wrath",
           "Assets/ability/Ability_druid_ferociousbite.png",
           pchar,
+          new CooldownControl(pchar, 120.0),
           RestrictedByGcd::Yes,
-          120.0,
           ResourceType::Mana,
           206),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Bestial Wrath", 1, DisabledAtZero::Yes)}),
@@ -23,6 +23,7 @@ BestialWrath::~BestialWrath() {
         bestial_wrath_buff->disable_buff();
 
     delete bestial_wrath_buff;
+    delete cooldown;
 }
 
 void BestialWrath::spell_effect() {

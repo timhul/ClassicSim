@@ -5,7 +5,7 @@
 #include "Rogue.h"
 
 AdrenalineRush::AdrenalineRush(Character* pchar) :
-    Spell("Adrenaline Rush", "Assets/spell/Spell_shadow_shadowworddominate.png", pchar, RestrictedByGcd::Yes, 300, ResourceType::Energy, 0),
+    Spell("Adrenaline Rush", "Assets/spell/Spell_shadow_shadowworddominate.png", pchar, new CooldownControl(pchar, 300.0), RestrictedByGcd::Yes, ResourceType::Energy, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Adrenaline Rush", 1, DisabledAtZero::Yes)}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     ar_buff(new AdrenalineRushBuff(pchar))
@@ -15,6 +15,7 @@ AdrenalineRush::AdrenalineRush(Character* pchar) :
 
 AdrenalineRush::~AdrenalineRush() {
     delete ar_buff;
+    delete cooldown;
 }
 
 void AdrenalineRush::spell_effect() {

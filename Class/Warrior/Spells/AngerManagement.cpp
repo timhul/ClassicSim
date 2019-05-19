@@ -1,6 +1,7 @@
 #include "AngerManagement.h"
 
 #include "ClassStatistics.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "Resource.h"
 #include "ResourceGain.h"
@@ -10,12 +11,16 @@
 #include "WarriorSpells.h"
 
 AngerManagement::AngerManagement(Character* pchar) :
-    Spell("Anger Management", "Assets/spell/Spell_holy_blessingofstamina.png", pchar, RestrictedByGcd::No, 0.0, ResourceType::Rage, 0),
+    Spell("Anger Management", "Assets/spell/Spell_holy_blessingofstamina.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Anger Management", 1, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     statistics_resource(nullptr)
 {
     this->enabled = false;
+}
+
+AngerManagement::~AngerManagement() {
+    delete cooldown;
 }
 
 void AngerManagement::increase_talent_rank_effect(const QString&, const int) {

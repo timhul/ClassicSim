@@ -15,8 +15,8 @@ AutoShot::AutoShot(Hunter* pchar) :
     Spell("Auto Shot",
           "",
           pchar,
+          new CooldownControl(pchar, 1.0),
           RestrictedByGcd::No,
-          0,
           ResourceType::Mana,
           0),
     SetBonusRequirer({"Cryptstalker Armor"}),
@@ -24,6 +24,10 @@ AutoShot::AutoShot(Hunter* pchar) :
     next_expected_use(0),
     iteration(0)
 {}
+
+AutoShot::~AutoShot() {
+    delete cooldown;
+}
 
 void AutoShot::spell_effect() {
     complete_shot();

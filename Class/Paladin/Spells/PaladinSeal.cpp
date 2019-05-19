@@ -10,11 +10,10 @@ PaladinSeal::PaladinSeal(QString name,
                          QString icon,
                          Paladin* pchar,
                          bool restricted_by_gcd,
-                         double cooldown,
                          const ResourceType resource_type,
                          unsigned resource_cost,
                          Buff* seal) :
-    Spell(name, icon, pchar, restricted_by_gcd, cooldown, resource_type, resource_cost),
+    Spell(name, icon, pchar, new CooldownControl(pchar, 0.0), restricted_by_gcd, resource_type, resource_cost),
     seal(seal)
 {
     seal->enable_buff();
@@ -22,6 +21,7 @@ PaladinSeal::PaladinSeal(QString name,
 
 PaladinSeal::~PaladinSeal() {
     delete seal;
+    delete cooldown;
 }
 
 Buff* PaladinSeal::get_buff() const {

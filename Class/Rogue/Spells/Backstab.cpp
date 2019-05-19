@@ -11,7 +11,7 @@
 #include "Weapon.h"
 
 Backstab::Backstab(Character* pchar) :
-    Spell("Backstab", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Energy, 60),
+    Spell("Backstab", "Assets/ability/Ability_backstab.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Energy, 60),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Backstab", 3, DisabledAtZero::No),
                    new TalentRequirerInfo("Lethality", 5, DisabledAtZero::No),
@@ -20,6 +20,10 @@ Backstab::Backstab(Character* pchar) :
     SetBonusRequirer({"Bonescythe Armor"}),
     rogue(dynamic_cast<Rogue*>(pchar))
 {}
+
+Backstab::~Backstab() {
+    delete cooldown;
+}
 
 SpellStatus Backstab::is_ready_spell_specific() const {
     if (rogue->get_equipment()->get_mainhand()->get_weapon_type() != WeaponTypes::DAGGER)

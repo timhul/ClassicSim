@@ -8,8 +8,8 @@ class Warrior;
 class BattleStance: public Spell {
 public:
     BattleStance(Character* pchar);
+    ~BattleStance() override;
 
-protected:
 private:
     Warrior* warr;
 

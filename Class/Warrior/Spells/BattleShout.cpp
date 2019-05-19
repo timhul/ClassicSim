@@ -5,7 +5,7 @@
 #include "Warrior.h"
 
 BattleShout::BattleShout(Warrior* pchar) :
-    Spell("Battle Shout", "Assets/ability/Ability_warrior_battleshout.png", pchar, RestrictedByGcd::Yes, 0, ResourceType::Rage, 10),
+    Spell("Battle Shout", "Assets/ability/Ability_warrior_battleshout.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 10),
     buff(new BattleShoutBuff(pchar))
 {
     buff->enable_buff();
@@ -13,6 +13,7 @@ BattleShout::BattleShout(Warrior* pchar) :
 
 BattleShout::~BattleShout() {
     delete buff;
+    delete cooldown;
 }
 
 Buff* BattleShout::get_buff() const {

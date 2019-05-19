@@ -1,5 +1,6 @@
 #include "DeepWounds.h"
 
+#include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
 #include "NoEffectBuff.h"
@@ -7,7 +8,7 @@
 #include "Warrior.h"
 
 DeepWounds::DeepWounds(Character* pchar) :
-    Spell("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 0),
+    Spell("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
     buff(new NoEffectBuff(pchar,
@@ -29,6 +30,7 @@ DeepWounds::~DeepWounds() {
         buff->disable_buff();
 
     delete buff;
+    delete cooldown;
 }
 
 void DeepWounds::perform_periodic() {

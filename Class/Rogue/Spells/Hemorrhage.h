@@ -11,6 +11,7 @@ class Rogue;
 class Hemorrhage: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     Hemorrhage(Character* pchar);
+    ~Hemorrhage() override;
 
 private:
     Rogue* rogue;

@@ -10,6 +10,7 @@ class Warrior;
 class AngerManagement: public Spell, public TalentRequirer {
 public:
     AngerManagement(Character* pchar);
+    ~AngerManagement() override;
 
     void perform_periodic() override;
     void perform_start_of_combat() override;

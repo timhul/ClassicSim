@@ -11,6 +11,7 @@ class Rogue;
 class SinisterStrike: public Spell, public TalentRequirer, public SetBonusRequirer {
 public:
     SinisterStrike(Character* pchar);
+    ~SinisterStrike() override;
 
 private:
     Rogue* rogue;

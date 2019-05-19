@@ -12,6 +12,7 @@ class WarriorSpells;
 class Slam: public SpellCastingTime, public TalentRequirer {
 public:
     Slam(Warrior* pchar, WarriorSpells* spells);
+    ~Slam() override;
 
 private:
     Warrior* warr;

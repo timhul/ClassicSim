@@ -13,7 +13,6 @@
 SealOfCommand::SealOfCommand(Paladin* pchar) :
     PaladinSeal("Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", pchar,
                 RestrictedByGcd::Yes,
-                0,
                 ResourceType::Mana, 65,
                 new NoEffectBuff(pchar, 30, "Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", Hidden::No)),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Seal of Command", 1, DisabledAtZero::Yes),

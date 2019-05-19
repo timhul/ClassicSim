@@ -12,7 +12,7 @@ UseItem::UseItem(Character* pchar,
                  const int cooldown,
                  Buff* buff,
                  Proc* proc) :
-    Spell(name, icon, pchar, RestrictedByGcd::No, cooldown, ResourceType::Rage, 0),
+    Spell(name, icon, pchar, new CooldownControl(pchar, cooldown), RestrictedByGcd::No, ResourceType::Rage, 0),
     buff(buff),
     proc(proc)
 {
@@ -34,6 +34,7 @@ UseItem::~UseItem() {
 
     delete buff;
     delete proc;
+    delete cooldown;
 }
 
 void UseItem::spell_effect() {

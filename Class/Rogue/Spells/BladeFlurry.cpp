@@ -5,7 +5,7 @@
 #include "Rogue.h"
 
 BladeFlurry::BladeFlurry(Character* pchar) :
-    Spell("Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", pchar, RestrictedByGcd::Yes, 120, ResourceType::Energy, 0),
+    Spell("Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", pchar, new CooldownControl(pchar, 120.0), RestrictedByGcd::Yes, ResourceType::Energy, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Blade Flurry", 1, DisabledAtZero::Yes)}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     bf_buff(new BladeFlurryBuff(pchar))
@@ -15,6 +15,7 @@ BladeFlurry::BladeFlurry(Character* pchar) :
 
 BladeFlurry::~BladeFlurry() {
     delete bf_buff;
+    delete cooldown;
 }
 
 void BladeFlurry::spell_effect() {

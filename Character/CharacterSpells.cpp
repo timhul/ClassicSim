@@ -5,6 +5,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
+#include "CooldownControl.h"
 #include "DemonicRune.h"
 #include "Engine.h"
 #include "MainhandAttack.h"
@@ -36,13 +37,12 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     spells = {berserking, blood_fury, demonic_rune, mana_potion, night_dragons_breath};
 }
 
-CharacterSpells::~CharacterSpells()
-{
+CharacterSpells::~CharacterSpells() {
     for (const auto & spell : spells)
         delete spell;
 
-    spells.clear();
-    start_of_combat_spells.clear();
+    for (const auto & cc : cooldown_controls)
+        delete cc;
 }
 
 void CharacterSpells::set_rotation(Rotation* rotation) {
@@ -292,6 +292,15 @@ ManaPotion* CharacterSpells::get_mana_potion() const {
 
 NightDragonsBreath* CharacterSpells::get_night_dragons_breath() const {
     return this->night_dragons_breath;
+}
+
+CooldownControl* CharacterSpells::new_cooldown_control(const QString& spell_name, const double cooldown) {
+    if (cooldown_controls.contains(spell_name))
+        return cooldown_controls[spell_name];
+
+    const auto new_cc = new CooldownControl(pchar, cooldown);
+    cooldown_controls[spell_name] = new_cc;
+    return new_cc;
 }
 
 void CharacterSpells::prepare_set_of_combat_iterations() {

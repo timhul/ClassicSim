@@ -9,8 +9,8 @@
 #include "Paladin.h"
 #include "Utils/Check.h"
 
-Consecration::Consecration(Paladin* pchar) :
-    Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, RestrictedByGcd::Yes, 8, ResourceType::Mana, 565),
+Consecration::Consecration(Paladin* pchar, CooldownControl* cooldown_control) :
+    Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 565),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)}),
     buff(new NoEffectBuff(pchar,
                           8,

@@ -1,11 +1,16 @@
 #include "BattleStance.h"
 
+#include "CooldownControl.h"
 #include "Warrior.h"
 
 BattleStance::BattleStance(Character* pchar) :
-    Spell("Battle Stance", "Assets/ability/Ability_warrior_offensivestance.png", pchar, RestrictedByGcd::Yes, 0.0, ResourceType::Rage, 0),
+    Spell("Battle Stance", "Assets/ability/Ability_warrior_offensivestance.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 0),
     warr(dynamic_cast<Warrior*>(pchar))
 {}
+
+BattleStance::~BattleStance() {
+    delete cooldown;
+}
 
 SpellStatus BattleStance::is_ready_spell_specific() const {
     if (warr->in_battle_stance())

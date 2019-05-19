@@ -17,8 +17,8 @@
 Spell::Spell(QString name,
              QString icon,
              Character* pchar,
+             CooldownControl* cooldown_control,
              bool restricted_by_gcd,
-             double cooldown,
              const ResourceType resource_type,
              unsigned resource_cost) :
     name(std::move(name)),
@@ -26,7 +26,7 @@ Spell::Spell(QString name,
     pchar(pchar),
     engine(pchar->get_engine()),
     roll(pchar->get_combat_roll()),
-    cooldown(new CooldownControl(pchar, cooldown)),
+    cooldown(cooldown_control),
     statistics_spell(nullptr),
     restricted_by_gcd(restricted_by_gcd),
     resource_type(resource_type),
@@ -35,10 +35,6 @@ Spell::Spell(QString name,
     instance_id(SpellID::INACTIVE),
     enabled(true)
 {}
-
-Spell::~Spell() {
-    delete cooldown;
-}
 
 QString Spell::get_name() const {
     return this->name;

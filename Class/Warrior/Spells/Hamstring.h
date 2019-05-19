@@ -10,6 +10,7 @@ class WarriorSpells;
 class Hamstring: public Spell, public ItemModificationRequirer {
 public:
     Hamstring(Warrior* pchar, WarriorSpells* spells);
+    ~Hamstring() override;
 
 private:
     Warrior* warr;

@@ -3,13 +3,14 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "MainhandAttackWarrior.h"
 #include "NoEffectBuff.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
 HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", pchar, RestrictedByGcd::No, 0, ResourceType::Rage, 15),
+    Spell("Heroic Strike", "Assets/ability/Ability_rogue_ambush.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
@@ -25,6 +26,7 @@ HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells) :
 
 HeroicStrike::~HeroicStrike() {
     delete hs_buff;
+    delete cooldown;
 }
 
 bool HeroicStrike::is_queued() const {

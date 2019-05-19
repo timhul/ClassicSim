@@ -14,8 +14,8 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     CharacterSpells(paladin),
     paladin(paladin)
 {
-    this->consecration = new Consecration(paladin);
-    this->judgement = new Judgement(paladin);
+    this->consecration = new Consecration(paladin, new_cooldown_control("Consecration", 8.0));
+    this->judgement = new Judgement(paladin, new_cooldown_control("Judgement", 10.0));
     this->mh_attack = new MainhandAttackPaladin(paladin);
     this->sanctity_aura = new SanctityAura(paladin);
     this->seal_of_command = new SealOfCommand(paladin);

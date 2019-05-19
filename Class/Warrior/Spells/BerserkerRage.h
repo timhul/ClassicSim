@@ -10,6 +10,7 @@ class Warrior;
 class BerserkerRage: public Spell, public TalentRequirer {
 public:
     BerserkerRage(Character* pchar);
+    ~BerserkerRage() override;
 
 private:
     Warrior* warr;

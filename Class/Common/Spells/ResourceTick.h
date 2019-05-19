@@ -8,6 +8,7 @@ class RegeneratingResource;
 class ResourceTick : public Spell {
 public:
     ResourceTick(Character* pchar, RegeneratingResource *resource);
+    ~ResourceTick() override;
 
     void perform_periodic() override;
 

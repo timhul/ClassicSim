@@ -6,8 +6,8 @@
 #include "PaladinSeal.h"
 #include "PaladinSpells.h"
 
-Judgement::Judgement(Paladin* pchar) :
-    Spell("Judgement", "Assets/spell/Spell_holy_righteousfury.png", pchar, RestrictedByGcd::Yes, 10, ResourceType::Mana, 86),
+Judgement::Judgement(Paladin* pchar, CooldownControl* cooldown_control) :
+    Spell("Judgement", "Assets/spell/Spell_holy_righteousfury.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 86),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Improved Judgement", 2, DisabledAtZero::No)}),
     paladin(pchar)

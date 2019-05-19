@@ -10,7 +10,6 @@
 SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar) :
     PaladinSeal("Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", pchar,
                 RestrictedByGcd::Yes,
-                0,
                 ResourceType::Mana, 160,
                 new SealOfTheCrusaderBuff(pchar)),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),

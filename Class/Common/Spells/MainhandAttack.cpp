@@ -12,14 +12,18 @@ MainhandAttack::MainhandAttack(Character* pchar) :
     Spell("Mainhand Attack",
           "",
           pchar,
+          new CooldownControl(pchar, 1.0),
           RestrictedByGcd::No,
-          0,
           ResourceType::Rage,
           0)
 {
     this->pchar = pchar;
     next_expected_use = 0;
     iteration = 0;
+}
+
+MainhandAttack::~MainhandAttack() {
+    delete cooldown;
 }
 
 void MainhandAttack::extra_attack() {

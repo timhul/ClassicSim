@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
+#include "CooldownControl.h"
 #include "Pet.h"
 #include "Random.h"
 
@@ -10,8 +11,8 @@ Claw::Claw(Character* pchar, Pet* pet) :
     Spell(QString("Claw (%1)").arg(pet->get_name()),
           "Assets/ability/Ability_druid_rake.png",
           pchar,
+          new CooldownControl(pchar, 0.0),
           RestrictedByGcd::No,
-          0,
           ResourceType::Focus,
           25),
     pet(pet),
@@ -22,6 +23,7 @@ Claw::Claw(Character* pchar, Pet* pet) :
 
 Claw::~Claw() {
     delete dmg_roll;
+    delete cooldown;
 }
 
 void Claw::spell_effect() {

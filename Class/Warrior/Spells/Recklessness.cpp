@@ -6,9 +6,13 @@
 #include "WarriorSpells.h"
 
 Recklessness::Recklessness(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Recklessness", "Assets/ability/Ability_criticalstrike.png", pchar, RestrictedByGcd::Yes, 1800.0, ResourceType::Rage, 0),
+    Spell("Recklessness", "Assets/ability/Ability_criticalstrike.png", pchar, new CooldownControl(pchar, 1800.0), RestrictedByGcd::Yes, ResourceType::Rage, 0),
     spells(spells)
 {}
+
+Recklessness::~Recklessness() {
+    delete cooldown;
+}
 
 void Recklessness::spell_effect() {
     spells->get_recklessness_buff()->apply_buff();

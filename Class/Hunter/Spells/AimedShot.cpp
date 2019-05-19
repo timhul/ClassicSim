@@ -10,12 +10,12 @@
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-AimedShot::AimedShot(Hunter* pchar) :
+AimedShot::AimedShot(Hunter* pchar, CooldownControl* cooldown_control) :
     SpellCastingTime("Aimed Shot",
                      "Assets/items/Inv_spear_07.png",
                      pchar,
+                     cooldown_control,
                      RestrictedByGcd::Yes,
-                     6.0,
                      ResourceType::Mana,
                      310,
                      3000),

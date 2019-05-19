@@ -12,7 +12,6 @@ public:
                 QString icon,
                 Paladin* pchar,
                 bool restricted_by_gcd,
-                double cooldown,
                 const ResourceType resource_type,
                 unsigned resource_cost,
                 Buff* seal);

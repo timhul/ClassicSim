@@ -10,7 +10,7 @@ class Paladin;
 
 class Consecration: public Spell, public TalentRequirer {
 public:
-    Consecration(Paladin* pchar);
+    Consecration(Paladin* pchar, CooldownControl* cooldown_control);
     ~Consecration() override;
 
     void perform_periodic() override;

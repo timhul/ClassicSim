@@ -14,8 +14,7 @@
 
 Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
     SpellCastingTime("Slam", "Assets/ability/Ability_warrior_decisivestrike.png",
-                     pchar, RestrictedByGcd::Yes,
-                     0.0,
+                     pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes,
                      ResourceType::Rage,
                      15,
                      1500),
@@ -24,6 +23,10 @@ Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
     spells(spells)
 {
     talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
+}
+
+Slam::~Slam() {
+    delete cooldown;
 }
 
 void Slam::increase_talent_rank_effect(const QString&, const int curr) {

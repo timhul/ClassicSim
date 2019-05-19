@@ -9,7 +9,7 @@ class WarriorSpells;
 
 class MortalStrike: public Spell, public TalentRequirer {
 public:
-    MortalStrike(Warrior* pchar, WarriorSpells* spells);
+    MortalStrike(Warrior* pchar, WarriorSpells* spells, CooldownControl* cooldown_control);
 
 private:
     Warrior* warr;

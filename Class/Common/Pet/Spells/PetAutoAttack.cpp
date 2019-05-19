@@ -11,8 +11,8 @@ PetAutoAttack::PetAutoAttack(Character* pchar, Pet* pet, const QString& icon) :
     Spell(QString("Melee Hit (%1)").arg(pet->get_name()),
           icon,
           pchar,
+          new CooldownControl(pchar, 1.0),
           RestrictedByGcd::No,
-          0,
           ResourceType::Focus,
           0),
     pet(pet)
@@ -20,6 +20,10 @@ PetAutoAttack::PetAutoAttack(Character* pchar, Pet* pet, const QString& icon) :
     this->pchar = pchar;
     next_expected_use = 0;
     iteration = 0;
+}
+
+PetAutoAttack::~PetAutoAttack() {
+    delete cooldown;
 }
 
 void PetAutoAttack::spell_effect() {

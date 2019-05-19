@@ -8,10 +8,14 @@
 #include "WarriorSpells.h"
 
 Whirlwind::Whirlwind(Warrior* pchar, WarriorSpells* spells) :
-    Spell("Whirlwind", "Assets/ability/Ability_whirlwind.png", pchar, RestrictedByGcd::Yes, 10.0, ResourceType::Rage, 25),
+    Spell("Whirlwind", "Assets/ability/Ability_whirlwind.png", pchar, new CooldownControl(pchar, 10.0), RestrictedByGcd::Yes, ResourceType::Rage, 25),
     warr(pchar),
     spells(spells)
 {}
+
+Whirlwind::~Whirlwind() {
+    delete cooldown;
+}
 
 SpellStatus Whirlwind::is_ready_spell_specific() const {
     if (warr->in_battle_stance())

@@ -4,6 +4,7 @@
 
 #include "Character.h"
 #include "ClassStatistics.h"
+#include "CooldownControl.h"
 #include "Engine.h"
 #include "ResourceGain.h"
 #include "StatisticsResource.h"
@@ -17,11 +18,15 @@ PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
                                                      double tick_until,
                                                      QVector<QPair<ResourceType, unsigned>> resource_gains)
     :
-      Spell(name, icon, pchar, restricted_by_gcd, cooldown, ResourceType::Rage, 0),
+      Spell(name, icon, pchar, new CooldownControl(pchar, cooldown), restricted_by_gcd, ResourceType::Rage, 0),
       tick_rate(tick_rate),
       tick_until(tick_until),
       resource_gains(std::move(resource_gains))
 {}
+
+PeriodicResourceGainSpell::~PeriodicResourceGainSpell() {
+    delete cooldown;
+}
 
 void PeriodicResourceGainSpell::spell_effect() {
     double next_tick = engine->get_current_priority() + tick_rate;

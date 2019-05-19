@@ -10,7 +10,7 @@ class StatisticsResource;
 
 class AimedShot: public SpellCastingTime, public TalentRequirer, public SetBonusRequirer {
 public:
-    AimedShot(Hunter* pchar);
+    AimedShot(Hunter* pchar, CooldownControl* cooldown_control);
 
 private:
     Hunter* hunter;

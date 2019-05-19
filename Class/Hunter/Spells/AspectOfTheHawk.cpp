@@ -9,8 +9,8 @@ AspectOfTheHawk::AspectOfTheHawk(Character* pchar) :
     Spell("Aspect of the Hawk",
           "Assets/spell/Spell_nature_ravenform.png",
           pchar,
+          new CooldownControl(pchar, 0.0),
           RestrictedByGcd::Yes,
-          0.0,
           ResourceType::Mana,
           120),
     aspect_of_the_hawk_buff(new AspectOfTheHawkBuff(pchar)),
@@ -25,6 +25,7 @@ AspectOfTheHawk::~AspectOfTheHawk() {
 
     delete aspect_of_the_hawk_buff;
     delete imp_hawk_proc;
+    delete cooldown;
 }
 
 void AspectOfTheHawk::spell_effect() {

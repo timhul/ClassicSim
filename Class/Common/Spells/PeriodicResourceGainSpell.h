@@ -18,6 +18,7 @@ public:
                               double tick_rate,
                               double tick_until,
                               QVector<QPair<ResourceType, unsigned>> resource_gains);
+    ~PeriodicResourceGainSpell() override;
 
     void perform_periodic() override;
 
