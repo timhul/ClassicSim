@@ -32,6 +32,10 @@ SOURCES += main.cpp \
     Class/Common/Spells/DemonicRune.cpp \
     Class/Common/Spells/FireballInstant.cpp \
     Class/Common/Spells/NightDragonsBreath.cpp \
+    Class/Shaman/ShamanEnchants.cpp \
+    Class/Shaman/TalentTrees/Elemental.cpp \
+    Class/Shaman/TalentTrees/Enhancement.cpp \
+    Class/Shaman/TalentTrees/RestorationShaman.cpp \
     Event/Event.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
@@ -406,6 +410,10 @@ HEADERS += \
     Class/Common/Spells/DemonicRune.h \
     Class/Common/Spells/FireballInstant.h \
     Class/Common/Spells/NightDragonsBreath.h \
+    Class/Shaman/ShamanEnchants.h \
+    Class/Shaman/TalentTrees/Elemental.h \
+    Class/Shaman/TalentTrees/Enhancement.h \
+    Class/Shaman/TalentTrees/RestorationShaman.h \
     Phases/ContentPhase.h \
     Phases/PhaseRequirer.h \
     Queue/Queue.h \
@@ -810,6 +818,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Hunter/TalentTrees \
     $$PWD/Class/Warlock \
     $$PWD/Class/Shaman \
+    $$PWD/Class/Shaman/TalentTrees \
     $$PWD/Class/Paladin \
     $$PWD/Class/Paladin/Buffs \
     $$PWD/Class/Paladin/Procs \

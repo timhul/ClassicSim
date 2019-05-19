@@ -651,5 +651,38 @@
         <file>QML/SettingsScaleFactors.qml</file>
         <file>QML/Assets/items/Inv_mace_14.png</file>
         <file>QML/Assets/items/Inv_scroll_08.png</file>
+        <file>QML/Assets/shaman/shaman_elemental.jpg</file>
+        <file>QML/Assets/shaman/shaman_enhancement.jpg</file>
+        <file>QML/Assets/shaman/shaman_restoration.jpg</file>
+        <file>QML/Assets/spell/Spell_frost_frostward.png</file>
+        <file>QML/Assets/spell/Spell_frost_manaburn.png</file>
+        <file>QML/Assets/spell/Spell_frost_manarecharge.png</file>
+        <file>QML/Assets/spell/Spell_frost_summonwaterelemental.png</file>
+        <file>QML/Assets/spell/Spell_nature_healingtouch.png</file>
+        <file>QML/Assets/spell/Spell_nature_healingwavelesser.png</file>
+        <file>QML/Assets/spell/Spell_nature_moonglow.png</file>
+        <file>QML/Assets/spell/Spell_nature_nullward.png</file>
+        <file>QML/Assets/spell/Spell_nature_resistmagic.png</file>
+        <file>QML/Assets/spell/Spell_nature_tranquility.png</file>
+        <file>QML/Assets/spell/Spell_fire_enchantweapon.png</file>
+        <file>QML/Assets/spell/Spell_fire_flametounge.png</file>
+        <file>QML/Assets/spell/Spell_nature_spiritwolf.png</file>
+        <file>QML/Assets/spell/Spell_nature_stoneskintotem.png</file>
+        <file>QML/Assets/spell/Spell_shadow_grimward.png</file>
+        <file>QML/Assets/spell/Spell_fire_elementaldevastation.png</file>
+        <file>QML/Assets/spell/Spell_fire_fireball.png</file>
+        <file>QML/Assets/spell/Spell_fire_immolation.png</file>
+        <file>QML/Assets/spell/Spell_fire_sealoffire.png</file>
+        <file>QML/Assets/spell/Spell_fire_volcano.png</file>
+        <file>QML/Assets/spell/Spell_lightning_lightningbolt01.png</file>
+        <file>QML/Assets/spell/Spell_nature_callstorm.png</file>
+        <file>QML/Assets/spell/Spell_nature_eyeofthestorm.png</file>
+        <file>QML/Assets/spell/Spell_nature_spiritarmor.png</file>
+        <file>QML/Assets/spell/Spell_nature_stormreach.png</file>
+        <file>QML/Assets/spell/Spell_nature_wispheal.png</file>
+        <file>QML/Assets/spell/Spell_nature_wispsplode.png</file>
+        <file>QML/Assets/spell/Spell_shadow_manaburn.png</file>
+        <file>QML/Assets/ability/Ability_hunter_swiftstrike.png</file>
+        <file>QML/Assets/spell/Spell_nature_healingway.png</file>
     </qresource>
 </RCC>

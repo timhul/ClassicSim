@@ -1,10 +1,15 @@
 #include "Shaman.h"
 
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
+#include "Elemental.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
+#include "Enhancement.h"
 #include "Equipment.h"
 #include "Mana.h"
+#include "RestorationShaman.h"
+#include "ShamanEnchants.h"
 #include "ShamanSpells.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
@@ -14,6 +19,7 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
+    available_enchants = new ShamanEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -32,6 +38,8 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings)
     mana->set_base_mana(1520);
 
     shaman_spells->activate_racials();
+
+    initialize_talents();
 }
 
 Shaman::~Shaman()
@@ -97,7 +105,9 @@ double Shaman::global_cooldown() const {
 }
 
 void Shaman::initialize_talents() {
-
+    for (int i = 0; i < 3; ++i) {
+        talents->add_talent_tree(new Elemental(this), new Enhancement(this), new RestorationShaman(this));
+    }
 }
 
 unsigned Shaman::get_resource_level(const ResourceType) const {

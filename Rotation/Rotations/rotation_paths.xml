@@ -13,4 +13,6 @@
 
 	<file path="Rotations/Paladin/SealOfCommand.xml"/>
 	<file path="Rotations/Paladin/SealOfTheCrusader.xml"/>
+
+	<file path="Rotations/Shaman/Stormstrike.xml"/>
 </paths>
