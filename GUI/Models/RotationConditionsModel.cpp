@@ -29,8 +29,13 @@ QVariant RotationConditionsModel::data(const QModelIndex & index, int role) cons
 
     const RotationExecutor* executor = rotation->all_executors[index.row()];
 
-    if (role == NameRole)
-        return executor->get_spell_name();
+    if (role == NameRole) {
+        QString spell_rank = "";
+        if (executor->get_spell_rank() != Spell::MAX_RANK)
+            spell_rank = QString("R%1 ").arg(executor->get_spell_rank());
+
+        return QString("%1%2").arg(spell_rank).arg(executor->get_spell_name());
+    }
     if (role == IconRole)
         return executor->get_spell() != nullptr ? executor->get_spell()->get_icon() : "Assets/cross.png";
     if (role == ConditionsRole)
