@@ -17,11 +17,11 @@ PaladinSpells::PaladinSpells(Paladin* paladin) :
     this->mh_attack = new MainhandAttackPaladin(paladin);
 
     add_spell_group({
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 1, 135, 64),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 2, 235, 120),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 3, 320, 192),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 4, 435, 280),
-                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 5, 565, 384),
+                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 1),
+                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 2),
+                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 3),
+                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 4),
+                        new Consecration(paladin, new_cooldown_control("Consecration", 8.0), 5),
                     });
     add_spell_group({new Judgement(paladin, new_cooldown_control("Judgement", 10.0))});
     add_spell_group({mh_attack});

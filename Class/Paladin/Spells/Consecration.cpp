@@ -11,19 +11,41 @@
 
 Consecration::Consecration(Paladin* pchar,
                            CooldownControl* cooldown_control,
-                           const int spell_rank,
-                           const unsigned resource_cost,
-                           const unsigned full_duration_dmg) :
-    Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, resource_cost, spell_rank),
+                           const int spell_rank) :
+    Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)}),
     buff(new NoEffectBuff(pchar,
                           8,
                           QString("Consecration (rank %1)").arg(spell_rank),
                           "Assets/spell/Spell_holy_innerfire.png",
-                          Hidden::No)),
-    full_duration_dmg(full_duration_dmg)
+                          Hidden::No))
 {
     this->enabled = false;
+
+    switch (spell_rank) {
+    case 1:
+        full_duration_dmg = 64;
+        resource_cost = 135;
+        break;
+    case 2:
+        full_duration_dmg = 120;
+        resource_cost = 235;
+        break;
+    case 3:
+        full_duration_dmg = 192;
+        resource_cost = 320;
+        break;
+    case 4:
+        full_duration_dmg = 280;
+        resource_cost = 435;
+        break;
+    case 5:
+        full_duration_dmg = 384;
+        resource_cost = 565;
+        break;
+    default:
+        check(false, QString("%1 does not support rank %2").arg(name).arg(spell_rank).toStdString());
+    }
 }
 
 Consecration::~Consecration() {

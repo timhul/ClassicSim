@@ -12,9 +12,7 @@ class Consecration: public Spell, public TalentRequirer {
 public:
     Consecration(Paladin* pchar,
                  CooldownControl* cooldown_control,
-                 const int spell_rank,
-                 const unsigned resource_cost,
-                 const unsigned full_duration_dmg);
+                 const int spell_rank);
     ~Consecration() override;
 
     void perform_periodic() override;
