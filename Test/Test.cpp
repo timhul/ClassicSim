@@ -41,6 +41,7 @@
 #include "TestPaladin.h"
 #include "TestRogue.h"
 #include "TestRotationFileReader.h"
+#include "TestShaman.h"
 #include "TestWarrior.h"
 #include "Troll.h"
 #include "Undead.h"
@@ -80,6 +81,7 @@ void Test::test_all() {
     TestRogue(equipment_db).test_all();
     TestHunter(equipment_db).test_all();
     TestPaladin(equipment_db).test_all();
+    TestShaman(equipment_db).test_all();
 
     TestFelstrikerProc(equipment_db).test_all();
 }

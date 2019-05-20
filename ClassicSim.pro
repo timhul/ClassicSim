@@ -72,6 +72,11 @@ SOURCES += main.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.cpp \
     Test/Paladin/TestSpellPaladin.cpp \
+    Test/Shaman/Talents/TestElemental.cpp \
+    Test/Shaman/Talents/TestEnhancement.cpp \
+    Test/Shaman/Talents/TestRestorationShaman.cpp \
+    Test/Shaman/TestShaman.cpp \
+    Test/Shaman/TestSpellShaman.cpp \
     Test/Target/TestTarget.cpp \
     Test/Test.cpp \
     Equipment/Equipment.cpp \
@@ -451,6 +456,11 @@ HEADERS += \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.h \
     Test/Paladin/TestSpellPaladin.h \
+    Test/Shaman/Talents/TestElemental.h \
+    Test/Shaman/Talents/TestEnhancement.h \
+    Test/Shaman/Talents/TestRestorationShaman.h \
+    Test/Shaman/TestShaman.h \
+    Test/Shaman/TestSpellShaman.h \
     Test/Target/TestTarget.h \
     Test/Test.h \
     Equipment/Equipment.h \
@@ -854,6 +864,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Paladin/Procs \
     $$PWD/Test/Paladin/Spells \
     $$PWD/Test/Paladin/Talents \
+    $$PWD/Test/Shaman \
+    $$PWD/Test/Shaman/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Class/Common \
     $$PWD/Class/Common/Enchants \
