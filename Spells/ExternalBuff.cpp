@@ -138,6 +138,33 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::FlaskOfSupremePower:
         pchar->get_stats()->increase_base_spell_damage(150);
         break;
+    case ExternalBuffName::FengusFerocity:
+        pchar->get_stats()->increase_melee_ap(200);
+        break;
+    case ExternalBuffName::BattleSquawk:
+        pchar->get_stats()->increase_melee_attack_speed(5);
+        break;
+    case ExternalBuffName::GreaterArcaneElixir:
+        pchar->get_stats()->increase_base_spell_damage(35);
+        break;
+    case ExternalBuffName::GroundScorpokAssay:
+        pchar->get_stats()->increase_agility(25);
+        break;
+    case ExternalBuffName::JujuMight:
+        pchar->get_stats()->increase_melee_ap(40);
+        break;
+    case ExternalBuffName::SlipkiksSavvy:
+        pchar->get_stats()->increase_spell_crit(300);
+        break;
+    case ExternalBuffName::SaygesDarkFortuneOfDamage:
+        pchar->get_stats()->increase_total_phys_dmg_mod(10);
+        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Arcane);
+        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Fire);
+        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Frost);
+        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Holy);
+        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Nature);
+        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Shadow);
+        break;
     }
 }
 
@@ -235,6 +262,33 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::FlaskOfSupremePower:
         pchar->get_stats()->decrease_base_spell_damage(150);
+        break;
+    case ExternalBuffName::FengusFerocity:
+        pchar->get_stats()->decrease_melee_ap(200);
+        break;
+    case ExternalBuffName::BattleSquawk:
+        pchar->get_stats()->decrease_melee_attack_speed(5);
+        break;
+    case ExternalBuffName::GreaterArcaneElixir:
+        pchar->get_stats()->decrease_base_spell_damage(35);
+        break;
+    case ExternalBuffName::GroundScorpokAssay:
+        pchar->get_stats()->decrease_agility(25);
+        break;
+    case ExternalBuffName::JujuMight:
+        pchar->get_stats()->decrease_melee_ap(40);
+        break;
+    case ExternalBuffName::SlipkiksSavvy:
+        pchar->get_stats()->decrease_spell_crit(300);
+        break;
+    case ExternalBuffName::SaygesDarkFortuneOfDamage:
+        pchar->get_stats()->decrease_total_phys_dmg_mod(10);
+        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Arcane);
+        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Fire);
+        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Frost);
+        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Holy);
+        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Nature);
+        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Shadow);
         break;
     }
 }
@@ -345,6 +399,34 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Flask of Supreme Power", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_potion_41.png",
                                 "+150 Spell Damage");
+    case ExternalBuffName::FengusFerocity:
+        return new ExternalBuff(pchar, "Fengus' Ferocity", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_nature_undyingstrength.png",
+                                "Melee Attack power increased by 200");
+    case ExternalBuffName::BattleSquawk:
+        return new ExternalBuff(pchar, "Battle Squawk", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_birdbeck_01.png",
+                                "Melee Attack speed increased by 5%");
+    case ExternalBuffName::GreaterArcaneElixir:
+        return new ExternalBuff(pchar, "Greater Arcane Elixir", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/items/Inv_potion_25.png",
+                                "35 Spell Damage");
+    case ExternalBuffName::GroundScorpokAssay:
+        return new ExternalBuff(pchar, "Ground Scorpok Assay", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_dust_02.png",
+                                "+25 Agility");
+    case ExternalBuffName::JujuMight:
+        return new ExternalBuff(pchar, "Juju Might", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_monsterscales_07.png",
+                                "+40 Attack Power");
+    case ExternalBuffName::SlipkiksSavvy:
+        return new ExternalBuff(pchar, "Slip'kik's Savvy", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_holy_lesserheal02.png",
+                                "3% Spell Crit");
+    case ExternalBuffName::SaygesDarkFortuneOfDamage:
+        return new ExternalBuff(pchar, "Sayge's Dark Fortune of Damage", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_orb_02.png",
+                                "Increases damage by 10%");
     }
 
     return nullptr;

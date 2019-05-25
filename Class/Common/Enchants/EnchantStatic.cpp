@@ -128,6 +128,10 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::BrilliantManaOil:
         pchar->get_stats()->increase_mp5(12);
         break;
+    case EnchantName::BrilliantWizardOil:
+        pchar->get_stats()->increase_base_spell_damage(36);
+        pchar->get_stats()->increase_spell_crit(100);
+        break;
     default:
         check(false, "EnchantStatic constructor reached end of switch");
         break;
@@ -248,6 +252,10 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::BrilliantManaOil:
         pchar->get_stats()->decrease_mp5(12);
+        break;
+    case EnchantName::BrilliantWizardOil:
+        pchar->get_stats()->decrease_base_spell_damage(36);
+        pchar->get_stats()->decrease_spell_crit(100);
         break;
     default:
         break;

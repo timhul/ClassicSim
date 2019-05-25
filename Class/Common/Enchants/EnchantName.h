@@ -46,7 +46,8 @@ public:
         ConsecratedSharpeningStone,
         DenseSharpeningStone,
         LesserManaOil,
-        BrilliantManaOil
+        BrilliantManaOil,
+        BrilliantWizardOil,
     };
 
     Q_ENUMS(Name)
@@ -124,6 +125,8 @@ public:
             return "Lesser Mana Oil";
         case EnchantName::BrilliantManaOil:
             return "Brilliant Mana Oil";
+        case EnchantName::BrilliantWizardOil:
+            return "Brilliant Wizard Oil";
         }
 
         check(false, "EnchantName::get_name reached end of switch");
@@ -207,6 +210,8 @@ public:
             return "+8 mp5";
         case EnchantName::BrilliantManaOil:
             return "+12m5/+25 Heal";
+        case EnchantName::BrilliantWizardOil:
+            return "+36 SP\n+1% Spell Crit";
         }
 
         check(false, "EnchantName::get_effect reached end of switch");
