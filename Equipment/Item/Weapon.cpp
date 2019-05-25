@@ -130,6 +130,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
     case EnchantName::ElementalSharpeningStone:
     case EnchantName::LesserManaOil:
     case EnchantName::BrilliantManaOil:
+    case EnchantName::BrilliantWizardOil:
         temporary_enchant = new EnchantStatic(enchant_name, pchar, enchant_slot);
         break;
     case EnchantName::InstantPoison:

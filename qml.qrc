@@ -684,5 +684,9 @@
         <file>QML/Assets/spell/Spell_shadow_manaburn.png</file>
         <file>QML/Assets/ability/Ability_hunter_swiftstrike.png</file>
         <file>QML/Assets/spell/Spell_nature_healingway.png</file>
+        <file>QML/Assets/misc/Inv_misc_birdbeck_01.png</file>
+        <file>QML/Assets/misc/Inv_misc_dust_02.png</file>
+        <file>QML/Assets/misc/Inv_misc_orb_02.png</file>
+        <file>QML/Assets/items/Inv_potion_25.png</file>
     </qresource>
 </RCC>

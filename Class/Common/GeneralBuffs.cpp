@@ -43,6 +43,12 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SongflowerSerenade, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SpiritOfZandalar, pchar)));
         this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::RallyingCryOfTheDragonslayer, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::BattleSquawk, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::FengusFerocity, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::JujuMight, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::GroundScorpokAssay, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::GreaterArcaneElixir, pchar)));
+        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SaygesDarkFortuneOfDamage, pchar)));
 
         this->external_debuffs.append(QVector<QPair<bool, ExternalBuff*>>());
         this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SunderArmor, pchar)));
@@ -65,6 +71,8 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     mutex_buff_groups.append({"Flask of Supreme Power", "Flask of Distilled Wisdom"});
     mutex_buff_groups.append({"Smoked Desert Dumplings", "Grilled Squid"});
     mutex_buff_groups.append({"Juju Power", "Elixir of Giants"});
+    mutex_buff_groups.append({"Juju Might", "Winterfall Firewater"});
+    mutex_buff_groups.append({"R.O.I.D.S", "Ground Scorpok Assay"});
 }
 
 GeneralBuffs::~GeneralBuffs()

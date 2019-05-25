@@ -94,6 +94,7 @@ QVector<EnchantName::Name> HunterEnchants::get_available_temp_enchants(const int
             EnchantName::ConsecratedSharpeningStone,
             EnchantName::LesserManaOil,
             EnchantName::BrilliantManaOil,
+            EnchantName::BrilliantWizardOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
@@ -107,6 +108,7 @@ QVector<EnchantName::Name> HunterEnchants::get_available_temp_enchants(const int
             EnchantName::ElementalSharpeningStone,
             EnchantName::LesserManaOil,
             EnchantName::BrilliantManaOil,
+            EnchantName::BrilliantWizardOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
