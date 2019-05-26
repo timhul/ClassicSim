@@ -13,25 +13,7 @@
 
 CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     pchar(pchar),
-    equipment(new Equipment(equipment_db, pchar)),
-    axe_skill_bonus(0),
-    dagger_skill_bonus(0),
-    mace_skill_bonus(0),
-    sword_skill_bonus(0),
-    melee_ability_crit_dmg_mod(2.0),
-    ranged_ability_crit_dmg_mod(2.0),
-    spell_crit_dmg_mod(1.5),
-    melee_attack_speed_mod(1.0),
-    ranged_attack_speed_mod(1.0),
-    total_phys_dmg_mod(1.0),
-    physical_damage_taken_mod(1.0),
-    spell_damage_taken_mod(1.0),
-    total_ap_mod(1.0),
-    agility_mod(1.0),
-    intellect_mod(1.0),
-    spirit_mod(1.0),
-    stamina_mod(1.0),
-    strength_mod(1.0)
+    equipment(new Equipment(equipment_db, pchar))
 {
     this->base_stats = new Stats();
 

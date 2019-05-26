@@ -202,27 +202,27 @@ private:
     QMap<MagicSchool, double> magic_school_damage_modifiers;
     QMap<MagicSchool, QVector<Buff*>> magic_school_buffs_with_charges;
 
-    unsigned axe_skill_bonus;
-    unsigned dagger_skill_bonus;
-    unsigned mace_skill_bonus;
-    unsigned sword_skill_bonus;
+    unsigned axe_skill_bonus {0};
+    unsigned dagger_skill_bonus {0};
+    unsigned mace_skill_bonus {0};
+    unsigned sword_skill_bonus {0};
 
-    unsigned mp5;
+    unsigned mp5 {0};
 
-    double melee_ability_crit_dmg_mod;
-    double ranged_ability_crit_dmg_mod;
-    double spell_crit_dmg_mod;
-    double melee_attack_speed_mod;
-    double ranged_attack_speed_mod;
-    double total_phys_dmg_mod;
-    double physical_damage_taken_mod;
-    double spell_damage_taken_mod;
-    double total_ap_mod;
-    double agility_mod;
-    double intellect_mod;
-    double spirit_mod;
-    double stamina_mod;
-    double strength_mod;
+    double melee_ability_crit_dmg_mod {2.0};
+    double ranged_ability_crit_dmg_mod {2.0};
+    double spell_crit_dmg_mod {1.5};
+    double melee_attack_speed_mod {1.0};
+    double ranged_attack_speed_mod {1.0};
+    double total_phys_dmg_mod {1.0};
+    double physical_damage_taken_mod {1.0};
+    double spell_damage_taken_mod {1.0};
+    double total_ap_mod {1.0};
+    double agility_mod {1.0};
+    double intellect_mod {1.0};
+    double spirit_mod {1.0};
+    double stamina_mod {1.0};
+    double strength_mod {1.0};
 
     Target::CreatureType get_type_for_stat(const ItemStats);
 
