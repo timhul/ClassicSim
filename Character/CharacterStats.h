@@ -199,8 +199,8 @@ private:
     QHash<int, int> damage_bonuses_per_weapon_type;
     QHash<Target::CreatureType, double> damage_bonuses_per_monster_type;
     QHash<Target::CreatureType, double> crit_dmg_bonuses_per_monster_type;
-    QMap<MagicSchool, QVector<int>> spell_school_damage_changes;
-    QMap<MagicSchool, double> spell_school_damage_modifiers;
+    QMap<MagicSchool, QVector<int>> magic_school_damage_changes;
+    QMap<MagicSchool, double> magic_school_damage_modifiers;
     QMap<MagicSchool, QVector<Buff*>> magic_school_buffs_with_charges;
 
     int axe_skill_bonus;

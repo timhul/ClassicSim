@@ -76,21 +76,21 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Mechanical, 0);
     this->crit_dmg_bonuses_per_monster_type.insert(Target::CreatureType::Undead, 0);
 
-    this->spell_school_damage_changes.insert(MagicSchool::Arcane, {});
-    this->spell_school_damage_changes.insert(MagicSchool::Fire, {});
-    this->spell_school_damage_changes.insert(MagicSchool::Frost, {});
-    this->spell_school_damage_changes.insert(MagicSchool::Holy, {});
-    this->spell_school_damage_changes.insert(MagicSchool::Nature, {});
-    this->spell_school_damage_changes.insert(MagicSchool::Physical, {});
-    this->spell_school_damage_changes.insert(MagicSchool::Shadow, {});
+    this->magic_school_damage_changes.insert(MagicSchool::Arcane, {});
+    this->magic_school_damage_changes.insert(MagicSchool::Fire, {});
+    this->magic_school_damage_changes.insert(MagicSchool::Frost, {});
+    this->magic_school_damage_changes.insert(MagicSchool::Holy, {});
+    this->magic_school_damage_changes.insert(MagicSchool::Nature, {});
+    this->magic_school_damage_changes.insert(MagicSchool::Physical, {});
+    this->magic_school_damage_changes.insert(MagicSchool::Shadow, {});
 
-    this->spell_school_damage_modifiers.insert(MagicSchool::Arcane, 1.0);
-    this->spell_school_damage_modifiers.insert(MagicSchool::Fire, 1.0);
-    this->spell_school_damage_modifiers.insert(MagicSchool::Frost, 1.0);
-    this->spell_school_damage_modifiers.insert(MagicSchool::Holy, 1.0);
-    this->spell_school_damage_modifiers.insert(MagicSchool::Nature, 1.0);
-    this->spell_school_damage_modifiers.insert(MagicSchool::Physical, 1.0);
-    this->spell_school_damage_modifiers.insert(MagicSchool::Shadow, 1.0);
+    this->magic_school_damage_modifiers.insert(MagicSchool::Arcane, 1.0);
+    this->magic_school_damage_modifiers.insert(MagicSchool::Fire, 1.0);
+    this->magic_school_damage_modifiers.insert(MagicSchool::Frost, 1.0);
+    this->magic_school_damage_modifiers.insert(MagicSchool::Holy, 1.0);
+    this->magic_school_damage_modifiers.insert(MagicSchool::Nature, 1.0);
+    this->magic_school_damage_modifiers.insert(MagicSchool::Physical, 1.0);
+    this->magic_school_damage_modifiers.insert(MagicSchool::Shadow, 1.0);
 
     this->magic_school_buffs_with_charges.insert(MagicSchool::Arcane, {});
     this->magic_school_buffs_with_charges.insert(MagicSchool::Fire, {});
@@ -828,7 +828,7 @@ void CharacterStats::decrease_spell_damage_vs_school(const unsigned decrease, co
 }
 
 double CharacterStats::get_spell_dmg_mod(const MagicSchool school) const {
-    const double mod = spell_school_damage_modifiers[school];
+    const double mod = magic_school_damage_modifiers[school];
 
     for (auto & buff : magic_school_buffs_with_charges[school])
         buff->use_charge();
@@ -837,14 +837,14 @@ double CharacterStats::get_spell_dmg_mod(const MagicSchool school) const {
 }
 
 void CharacterStats::increase_spell_dmg_mod(const int increase, const MagicSchool school, Buff* buff_with_charges) {
-    add_multiplicative_effect(spell_school_damage_changes[school], increase, spell_school_damage_modifiers[school]);
+    add_multiplicative_effect(magic_school_damage_changes[school], increase, magic_school_damage_modifiers[school]);
 
     if (buff_with_charges != nullptr)
         magic_school_buffs_with_charges[school].append(buff_with_charges);
 }
 
 void CharacterStats::decrease_spell_dmg_mod(const int decrease, const MagicSchool school, Buff* buff_to_remove) {
-    remove_multiplicative_effect(spell_school_damage_changes[school], decrease, spell_school_damage_modifiers[school]);
+    remove_multiplicative_effect(magic_school_damage_changes[school], decrease, magic_school_damage_modifiers[school]);
 
     if (buff_to_remove != nullptr) {
         for (int i = 0; i < magic_school_buffs_with_charges[school].size(); ++i) {
