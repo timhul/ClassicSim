@@ -104,23 +104,23 @@ void TestStormstrike::test_crit_dmg() {
 void TestStormstrike::test_stormstrikes_applies_nature_damage_debuff() {
     given_stormstrike_enabled();
     given_a_guaranteed_melee_ability_hit();
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Arcane)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Fire)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Frost)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Holy)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Physical)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Arcane)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Physical)));
 
     when_stormstrike_is_performed();
 
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Arcane)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Fire)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Frost)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Holy)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Physical)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Arcane)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Physical)));
 
     // Two charges, get_spell_dmg_mod uses a charge each time.
-    assert(almost_equal(1.2, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
-    assert(almost_equal(1.2, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
-    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
+    assert(almost_equal(1.2, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature)));
+    assert(almost_equal(1.2, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature)));
 }

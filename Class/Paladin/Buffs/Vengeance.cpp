@@ -15,12 +15,12 @@ Vengeance::Vengeance(Paladin* pchar):
 
 void Vengeance::buff_effect_when_applied() {
     pchar->get_stats()->increase_total_phys_dmg_mod(dmg_bonus);
-    pchar->get_stats()->increase_spell_dmg_mod(dmg_bonus, MagicSchool::Holy);
+    pchar->get_stats()->increase_magic_school_damage_mod(dmg_bonus, MagicSchool::Holy);
 }
 
 void Vengeance::buff_effect_when_removed() {
     pchar->get_stats()->decrease_total_phys_dmg_mod(dmg_bonus);
-    pchar->get_stats()->decrease_spell_dmg_mod(dmg_bonus, MagicSchool::Holy);
+    pchar->get_stats()->decrease_magic_school_damage_mod(dmg_bonus, MagicSchool::Holy);
 }
 
 void Vengeance::increase_talent_rank_effect(const QString&, const int curr) {

@@ -158,12 +158,12 @@ void ExternalBuff::buff_effect_when_applied() {
         break;
     case ExternalBuffName::SaygesDarkFortuneOfDamage:
         pchar->get_stats()->increase_total_phys_dmg_mod(10);
-        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Arcane);
-        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Fire);
-        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Frost);
-        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Holy);
-        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Nature);
-        pchar->get_stats()->increase_spell_dmg_mod(10, MagicSchool::Shadow);
+        pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Arcane);
+        pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Fire);
+        pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Frost);
+        pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Holy);
+        pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Nature);
+        pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Shadow);
         break;
     }
 }
@@ -283,12 +283,12 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::SaygesDarkFortuneOfDamage:
         pchar->get_stats()->decrease_total_phys_dmg_mod(10);
-        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Arcane);
-        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Fire);
-        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Frost);
-        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Holy);
-        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Nature);
-        pchar->get_stats()->decrease_spell_dmg_mod(10, MagicSchool::Shadow);
+        pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Arcane);
+        pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Fire);
+        pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Frost);
+        pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Holy);
+        pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Nature);
+        pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Shadow);
         break;
     }
 }

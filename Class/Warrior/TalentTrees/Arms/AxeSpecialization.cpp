@@ -14,9 +14,9 @@ AxeSpecialization::AxeSpecialization(Character *pchar, TalentTree* tree) :
 AxeSpecialization::~AxeSpecialization() = default;
 
 void AxeSpecialization::apply_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_stats()->increase_crit_for_weapon_type(WeaponTypes::AXE, 0.01);
+    dynamic_cast<Warrior*>(pchar)->get_stats()->increase_crit_for_weapon_type(WeaponTypes::AXE, 100);
 }
 
 void AxeSpecialization::remove_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::AXE, 0.01);
+    dynamic_cast<Warrior*>(pchar)->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::AXE, 100);
 }

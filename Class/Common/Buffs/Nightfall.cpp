@@ -10,19 +10,19 @@ Nightfall::Nightfall(Character* pchar):
 }
 
 void Nightfall::buff_effect_when_applied() {
-    pchar->get_stats()->increase_spell_dmg_mod(15, MagicSchool::Arcane);
-    pchar->get_stats()->increase_spell_dmg_mod(15, MagicSchool::Fire);
-    pchar->get_stats()->increase_spell_dmg_mod(15, MagicSchool::Frost);
-    pchar->get_stats()->increase_spell_dmg_mod(15, MagicSchool::Holy);
-    pchar->get_stats()->increase_spell_dmg_mod(15, MagicSchool::Nature);
-    pchar->get_stats()->increase_spell_dmg_mod(15, MagicSchool::Shadow);
+    pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Arcane);
+    pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Fire);
+    pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Frost);
+    pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Holy);
+    pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Nature);
+    pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Shadow);
 }
 
 void Nightfall::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_spell_dmg_mod(15, MagicSchool::Arcane);
-    pchar->get_stats()->decrease_spell_dmg_mod(15, MagicSchool::Fire);
-    pchar->get_stats()->decrease_spell_dmg_mod(15, MagicSchool::Frost);
-    pchar->get_stats()->decrease_spell_dmg_mod(15, MagicSchool::Holy);
-    pchar->get_stats()->decrease_spell_dmg_mod(15, MagicSchool::Nature);
-    pchar->get_stats()->decrease_spell_dmg_mod(15, MagicSchool::Shadow);
+    pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Arcane);
+    pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Fire);
+    pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Frost);
+    pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Holy);
+    pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Nature);
+    pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Shadow);
 }

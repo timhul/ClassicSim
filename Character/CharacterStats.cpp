@@ -41,13 +41,13 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     increase_intellect(pchar->get_intellect_modifier());
     increase_spirit(pchar->get_spirit_modifier());
 
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::POLEARM, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::BOW, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::CROSSBOW, 0.0);
-    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::GUN, 0.0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::TWOHAND_AXE, 0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::POLEARM, 0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::BOW, 0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::CROSSBOW, 0);
+    this->crit_bonuses_per_weapon_type.insert(WeaponTypes::GUN, 0);
 
     this->damage_bonuses_per_weapon_type.insert(WeaponTypes::AXE, 0);
     this->damage_bonuses_per_weapon_type.insert(WeaponTypes::DAGGER, 0);
@@ -157,24 +157,22 @@ unsigned CharacterStats::get_mh_crit_chance() const {
     const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
     const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
 
-    double crit_from_wpn_type = 0.0;
+    unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    return equip_effect + crit_from_agi + static_cast<unsigned>(crit_from_wpn_type * 10000);
+    return equip_effect + crit_from_agi + crit_from_wpn_type;
 }
 
 unsigned CharacterStats::get_oh_crit_chance() const {
-    double crit_from_wpn_type = 0.0;
-    if (equipment->get_offhand() != nullptr)
-        crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
-    else
+    if (equipment->get_offhand() == nullptr)
         return 0;
 
+    const unsigned crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
     const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
     const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
 
-    return equip_effect + crit_from_agi + static_cast<unsigned>(crit_from_wpn_type * 10000);
+    return equip_effect + crit_from_agi + crit_from_wpn_type;
 }
 
 unsigned CharacterStats::get_ranged_hit_chance() const {
@@ -185,47 +183,47 @@ unsigned CharacterStats::get_ranged_crit_chance() const {
     const unsigned equip_effect = base_stats->get_ranged_crit_chance() + equipment->get_stats()->get_ranged_crit_chance();
     const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
 
-    double crit_from_wpn_type = 0.0;
+    unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    return equip_effect + crit_from_agi + static_cast<unsigned>(crit_from_wpn_type * 10000);
+    return equip_effect + crit_from_agi + crit_from_wpn_type;
 }
 
-void CharacterStats::increase_wpn_skill(const int weapon_type, const int increase) {
+void CharacterStats::increase_wpn_skill(const int weapon_type, const unsigned value) {
     switch (weapon_type) {
     case WeaponTypes::AXE:
-        axe_skill_bonus += increase;
+        axe_skill_bonus += value;
         break;
     case WeaponTypes::DAGGER:
-        dagger_skill_bonus += increase;
+        dagger_skill_bonus += value;
         break;
     case WeaponTypes::MACE:
-        mace_skill_bonus += increase;
+        mace_skill_bonus += value;
         break;
     case WeaponTypes::SWORD:
-        sword_skill_bonus += increase;
+        sword_skill_bonus += value;
         break;
     }
 }
 
-void CharacterStats::decrease_wpn_skill(const int weapon_type, const int decrease) {
+void CharacterStats::decrease_wpn_skill(const int weapon_type, const unsigned value) {
     switch (weapon_type) {
     case WeaponTypes::AXE:
-        check((axe_skill_bonus >= decrease), "Underflow decrease");
-        axe_skill_bonus -= decrease;
+        check((axe_skill_bonus >= value), "Underflow decrease");
+        axe_skill_bonus -= value;
         break;
     case WeaponTypes::DAGGER:
-        check((dagger_skill_bonus >= decrease), "Underflow decrease");
-        dagger_skill_bonus -= decrease;
+        check((dagger_skill_bonus >= value), "Underflow decrease");
+        dagger_skill_bonus -= value;
         break;
     case WeaponTypes::MACE:
-        check((mace_skill_bonus >= decrease), "Underflow decrease");
-        mace_skill_bonus -= decrease;
+        check((mace_skill_bonus >= value), "Underflow decrease");
+        mace_skill_bonus -= value;
         break;
     case WeaponTypes::SWORD:
-        check((sword_skill_bonus >= decrease), "Underflow decrease");
-        sword_skill_bonus -= decrease;
+        check((sword_skill_bonus >= value), "Underflow decrease");
+        sword_skill_bonus -= value;
         break;
     }
 }
@@ -414,60 +412,60 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
     }
 }
 
-void CharacterStats::increase_melee_attack_speed(const unsigned increase) {
-    add_multiplicative_effect(melee_attack_speed_buffs, static_cast<int>(increase), melee_attack_speed_mod);
+void CharacterStats::increase_melee_attack_speed(const unsigned value) {
+    add_multiplicative_effect(melee_attack_speed_buffs, static_cast<int>(value), melee_attack_speed_mod);
 }
 
-void CharacterStats::decrease_melee_attack_speed(const unsigned decrease) {
-    remove_multiplicative_effect(melee_attack_speed_buffs, static_cast<int>(decrease), melee_attack_speed_mod);
+void CharacterStats::decrease_melee_attack_speed(const unsigned value) {
+    remove_multiplicative_effect(melee_attack_speed_buffs, static_cast<int>(value), melee_attack_speed_mod);
 }
 
-void CharacterStats::increase_ranged_attack_speed(const unsigned increase) {
-    add_multiplicative_effect(ranged_attack_speed_buffs, static_cast<int>(increase), ranged_attack_speed_mod);
+void CharacterStats::increase_ranged_attack_speed(const unsigned value) {
+    add_multiplicative_effect(ranged_attack_speed_buffs, static_cast<int>(value), ranged_attack_speed_mod);
 }
 
-void CharacterStats::decrease_ranged_attack_speed(const unsigned decrease) {
-    remove_multiplicative_effect(ranged_attack_speed_buffs, static_cast<int>(decrease), ranged_attack_speed_mod);
+void CharacterStats::decrease_ranged_attack_speed(const unsigned value) {
+    remove_multiplicative_effect(ranged_attack_speed_buffs, static_cast<int>(value), ranged_attack_speed_mod);
 }
 
-void CharacterStats::increase_strength(const unsigned increase) {
-    base_stats->increase_strength(increase);
+void CharacterStats::increase_strength(const unsigned value) {
+    base_stats->increase_strength(value);
 }
 
-void CharacterStats::decrease_strength(const unsigned decrease) {
-    base_stats->decrease_strength(decrease);
+void CharacterStats::decrease_strength(const unsigned value) {
+    base_stats->decrease_strength(value);
 }
 
-void CharacterStats::increase_agility(const unsigned increase) {
-    base_stats->increase_agility(increase);
+void CharacterStats::increase_agility(const unsigned value) {
+    base_stats->increase_agility(value);
 }
 
-void CharacterStats::decrease_agility(const unsigned decrease) {
-    base_stats->decrease_agility(decrease);
+void CharacterStats::decrease_agility(const unsigned value) {
+    base_stats->decrease_agility(value);
 }
 
-void CharacterStats::increase_stamina(const unsigned increase) {
-    base_stats->increase_stamina(increase);
+void CharacterStats::increase_stamina(const unsigned value) {
+    base_stats->increase_stamina(value);
 }
 
-void CharacterStats::decrease_stamina(const unsigned decrease) {
-    base_stats->decrease_stamina(decrease);
+void CharacterStats::decrease_stamina(const unsigned value) {
+    base_stats->decrease_stamina(value);
 }
 
-void CharacterStats::increase_intellect(const unsigned increase) {
-    base_stats->increase_intellect(increase);
+void CharacterStats::increase_intellect(const unsigned value) {
+    base_stats->increase_intellect(value);
 }
 
-void CharacterStats::decrease_intellect(const unsigned decrease) {
-    base_stats->decrease_intellect(decrease);
+void CharacterStats::decrease_intellect(const unsigned value) {
+    base_stats->decrease_intellect(value);
 }
 
-void CharacterStats::increase_spirit(const unsigned increase) {
-    base_stats->increase_spirit(increase);
+void CharacterStats::increase_spirit(const unsigned value) {
+    base_stats->increase_spirit(value);
 }
 
-void CharacterStats::decrease_spirit(const unsigned decrease) {
-    base_stats->decrease_spirit(decrease);
+void CharacterStats::decrease_spirit(const unsigned value) {
+    base_stats->decrease_spirit(value);
 }
 
 unsigned CharacterStats::get_melee_ap() const {
@@ -478,12 +476,12 @@ unsigned CharacterStats::get_melee_ap() const {
     return static_cast<unsigned>(round(total_ap_mod * (stat_melee_ap + attributes_ap + target_ap_eq + target_ap_base)));
 }
 
-void CharacterStats::increase_melee_ap(const unsigned increase) {
-    base_stats->increase_base_melee_ap(increase);
+void CharacterStats::increase_melee_ap(const unsigned value) {
+    base_stats->increase_base_melee_ap(value);
 }
 
-void CharacterStats::decrease_melee_ap(const unsigned decrease) {
-    base_stats->decrease_base_melee_ap(decrease);
+void CharacterStats::decrease_melee_ap(const unsigned value) {
+    base_stats->decrease_base_melee_ap(value);
 }
 
 unsigned CharacterStats::get_ranged_ap() const {
@@ -494,12 +492,12 @@ unsigned CharacterStats::get_ranged_ap() const {
     return static_cast<unsigned>(round(total_ap_mod * (stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base)));
 }
 
-void CharacterStats::increase_ranged_ap(const unsigned increase) {
-    base_stats->increase_base_ranged_ap(increase);
+void CharacterStats::increase_ranged_ap(const unsigned value) {
+    base_stats->increase_base_ranged_ap(value);
 }
 
-void CharacterStats::decrease_ranged_ap(const unsigned decrease) {
-    base_stats->decrease_base_ranged_ap(decrease);
+void CharacterStats::decrease_ranged_ap(const unsigned value) {
+    base_stats->decrease_base_ranged_ap(value);
 }
 
 void CharacterStats::increase_ap_vs_type(const Target::CreatureType target_type, const unsigned value) {
@@ -528,7 +526,7 @@ void CharacterStats::decrease_crit_dmg_vs_type(const Target::CreatureType target
     crit_dmg_bonuses_per_monster_type[target_type] -= static_cast<double>(value) / 100;
 }
 
-double CharacterStats::get_total_phys_dmg_mod() const {
+double CharacterStats::get_total_physical_damage_mod() const {
     double dmg_bonus_from_wpn_type = 1.0;
 
     Weapon* weapon = nullptr;
@@ -567,69 +565,69 @@ double CharacterStats::get_spell_damage_taken_mod() const {
     return spell_damage_taken_mod;
 }
 
-void CharacterStats::increase_melee_hit(const unsigned increase) {
-    base_stats->increase_melee_hit(increase);
+void CharacterStats::increase_melee_hit(const unsigned value) {
+    base_stats->increase_melee_hit(value);
     pchar->get_combat_roll()->update_melee_miss_chance();
 }
 
-void CharacterStats::decrease_melee_hit(const unsigned decrease) {
-    base_stats->decrease_melee_hit(decrease);
+void CharacterStats::decrease_melee_hit(const unsigned value) {
+    base_stats->decrease_melee_hit(value);
     pchar->get_combat_roll()->update_melee_miss_chance();
 }
 
-void CharacterStats::increase_melee_crit(const unsigned increase) {
-    base_stats->increase_melee_crit(increase);
+void CharacterStats::increase_melee_crit(const unsigned value) {
+    base_stats->increase_melee_crit(value);
 }
 
-void CharacterStats::decrease_melee_crit(const unsigned decrease) {
-    base_stats->decrease_melee_crit(decrease);
+void CharacterStats::decrease_melee_crit(const unsigned value) {
+    base_stats->decrease_melee_crit(value);
 }
 
-void CharacterStats::increase_ranged_hit(const unsigned increase) {
-    base_stats->increase_ranged_hit(increase);
+void CharacterStats::increase_ranged_hit(const unsigned value) {
+    base_stats->increase_ranged_hit(value);
     pchar->get_combat_roll()->update_ranged_miss_chance();
 }
 
-void CharacterStats::decrease_ranged_hit(const unsigned decrease) {
-    base_stats->decrease_ranged_hit(decrease);
+void CharacterStats::decrease_ranged_hit(const unsigned value) {
+    base_stats->decrease_ranged_hit(value);
     pchar->get_combat_roll()->update_ranged_miss_chance();
 }
 
-void CharacterStats::increase_ranged_crit(const unsigned increase) {
-    base_stats->increase_ranged_crit(increase);
+void CharacterStats::increase_ranged_crit(const unsigned value) {
+    base_stats->increase_ranged_crit(value);
 }
 
-void CharacterStats::decrease_ranged_crit(const unsigned decrease) {
-    base_stats->decrease_ranged_crit(decrease);
+void CharacterStats::decrease_ranged_crit(const unsigned value) {
+    base_stats->decrease_ranged_crit(value);
 }
 
-void CharacterStats::increase_crit_for_weapon_type(const int weapon_type, const double increase) {
-    crit_bonuses_per_weapon_type[weapon_type] += increase;
+void CharacterStats::increase_crit_for_weapon_type(const int weapon_type, const unsigned value) {
+    crit_bonuses_per_weapon_type[weapon_type] += value;
 }
 
-void CharacterStats::decrease_crit_for_weapon_type(const int weapon_type, const double decrease) {
-    crit_bonuses_per_weapon_type[weapon_type] -= decrease;
+void CharacterStats::decrease_crit_for_weapon_type(const int weapon_type, const unsigned value) {
+    crit_bonuses_per_weapon_type[weapon_type] -= value;
 }
 
-void CharacterStats::increase_total_phys_dmg_for_weapon_type(const int weapon_type, const int increase) {
-    damage_bonuses_per_weapon_type[weapon_type] += increase;
+void CharacterStats::increase_total_phys_dmg_for_weapon_type(const int weapon_type, const int value) {
+    damage_bonuses_per_weapon_type[weapon_type] += value;
 }
 
-void CharacterStats::decrease_total_phys_dmg_for_weapon_type(const int weapon_type, const int decrease) {
-    damage_bonuses_per_weapon_type[weapon_type] -= decrease;
+void CharacterStats::decrease_total_phys_dmg_for_weapon_type(const int weapon_type, const int value) {
+    damage_bonuses_per_weapon_type[weapon_type] -= value;
 }
 
 unsigned CharacterStats::get_spell_hit_chance() const {
     return base_stats->get_spell_hit_chance() + equipment->get_stats()->get_spell_hit_chance();
 }
 
-void CharacterStats::increase_spell_hit(const unsigned increase) {
-    base_stats->increase_spell_hit(increase);
+void CharacterStats::increase_spell_hit(const unsigned value) {
+    base_stats->increase_spell_hit(value);
     pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
 }
 
-void CharacterStats::decrease_spell_hit(const unsigned decrease) {
-    base_stats->decrease_spell_hit(decrease);
+void CharacterStats::decrease_spell_hit(const unsigned value) {
+    base_stats->decrease_spell_hit(value);
     pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
 }
 
@@ -640,48 +638,48 @@ unsigned CharacterStats::get_spell_crit_chance() const {
     return equip_effect + crit_from_int;
 }
 
-void CharacterStats::increase_spell_crit(const unsigned increase) {
-    base_stats->increase_spell_crit(increase);
+void CharacterStats::increase_spell_crit(const unsigned value) {
+    base_stats->increase_spell_crit(value);
 }
 
-void CharacterStats::decrease_spell_crit(const unsigned decrease) {
-    base_stats->decrease_spell_crit(decrease);
+void CharacterStats::decrease_spell_crit(const unsigned value) {
+    base_stats->decrease_spell_crit(value);
 }
 
 double CharacterStats::get_melee_ability_crit_dmg_mod() const {
     return melee_ability_crit_dmg_mod + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
-void CharacterStats::increase_melee_ability_crit_dmg_mod(double increase) {
-    melee_ability_crit_dmg_mod += increase;
+void CharacterStats::increase_melee_ability_crit_dmg_mod(const double value) {
+    melee_ability_crit_dmg_mod += value;
 }
 
-void CharacterStats::decrease_melee_ability_crit_dmg_mod(double decrease) {
-    melee_ability_crit_dmg_mod -= decrease;
+void CharacterStats::decrease_melee_ability_crit_dmg_mod(const double value) {
+    melee_ability_crit_dmg_mod -= value;
 }
 
 double CharacterStats::get_ranged_ability_crit_dmg_mod() const {
     return ranged_ability_crit_dmg_mod + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
-void CharacterStats::increase_ranged_ability_crit_dmg_mod(double increase) {
-    ranged_ability_crit_dmg_mod += increase;
+void CharacterStats::increase_ranged_ability_crit_dmg_mod(const double value) {
+    ranged_ability_crit_dmg_mod += value;
 }
 
-void CharacterStats::decrease_ranged_ability_crit_dmg_mod(double decrease) {
-    ranged_ability_crit_dmg_mod -= decrease;
+void CharacterStats::decrease_ranged_ability_crit_dmg_mod(const double value) {
+    ranged_ability_crit_dmg_mod -= value;
 }
 
 double CharacterStats::get_spell_crit_dmg_mod() const {
     return spell_crit_dmg_mod  + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
-void CharacterStats::increase_spell_crit_dmg_mod(double increase) {
-    spell_crit_dmg_mod += increase;
+void CharacterStats::increase_spell_crit_dmg_mod(const double value) {
+    spell_crit_dmg_mod += value;
 }
 
-void CharacterStats::decrease_spell_crit_dmg_mod(double decrease) {
-    spell_crit_dmg_mod -= decrease;
+void CharacterStats::decrease_spell_crit_dmg_mod(const double value) {
+    spell_crit_dmg_mod -= value;
 }
 
 void CharacterStats::increase_total_phys_dmg_mod(const int increase) {
@@ -787,47 +785,47 @@ double CharacterStats::get_ranged_wpn_speed() {
                                  300;
 }
 
-void CharacterStats::increase_dodge(const double dodge) {
-    base_stats->increase_dodge(dodge);
+void CharacterStats::increase_dodge(const double value) {
+    base_stats->increase_dodge(value);
 }
 
-void CharacterStats::decrease_dodge(const double dodge) {
-    base_stats->decrease_dodge(dodge);
+void CharacterStats::decrease_dodge(const double value) {
+    base_stats->decrease_dodge(value);
 }
 
 unsigned CharacterStats::get_mp5() const {
     return base_stats->get_mp5() + equipment->get_stats()->get_mp5();
 }
 
-void CharacterStats::increase_mp5(const unsigned increase) {
-    base_stats->increase_mp5(increase);
+void CharacterStats::increase_mp5(const unsigned value) {
+    base_stats->increase_mp5(value);
 }
 
-void CharacterStats::decrease_mp5(const unsigned decrease) {
-    base_stats->decrease_mp5(decrease);
+void CharacterStats::decrease_mp5(const unsigned value) {
+    base_stats->decrease_mp5(value);
 }
 
 unsigned CharacterStats::get_spell_damage(const MagicSchool school) const {
     return base_stats->get_spell_damage(school) + equipment->get_stats()->get_spell_damage(school);
 }
 
-void CharacterStats::increase_base_spell_damage(const unsigned increase) {
-    base_stats->increase_base_spell_damage(increase);
+void CharacterStats::increase_base_spell_damage(const unsigned value) {
+    base_stats->increase_base_spell_damage(value);
 }
 
-void CharacterStats::decrease_base_spell_damage(const unsigned decrease) {
-    base_stats->decrease_base_spell_damage(decrease);
+void CharacterStats::decrease_base_spell_damage(const unsigned value) {
+    base_stats->decrease_base_spell_damage(value);
 }
 
-void CharacterStats::increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school) {
-    base_stats->increase_spell_damage_vs_school(increase, school);
+void CharacterStats::increase_spell_damage_vs_school(const unsigned value, const MagicSchool school) {
+    base_stats->increase_spell_damage_vs_school(value, school);
 }
 
-void CharacterStats::decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school) {
-    base_stats->decrease_spell_damage_vs_school(decrease, school);
+void CharacterStats::decrease_spell_damage_vs_school(const unsigned value, const MagicSchool school) {
+    base_stats->decrease_spell_damage_vs_school(value, school);
 }
 
-double CharacterStats::get_spell_dmg_mod(const MagicSchool school) const {
+double CharacterStats::get_magic_school_damage_mod(const MagicSchool school) const {
     const double mod = magic_school_damage_modifiers[school];
 
     for (auto & buff : magic_school_buffs_with_charges[school])
@@ -836,14 +834,14 @@ double CharacterStats::get_spell_dmg_mod(const MagicSchool school) const {
     return mod;
 }
 
-void CharacterStats::increase_spell_dmg_mod(const int increase, const MagicSchool school, Buff* buff_with_charges) {
+void CharacterStats::increase_magic_school_damage_mod(const int increase, const MagicSchool school, Buff* buff_with_charges) {
     add_multiplicative_effect(magic_school_damage_changes[school], increase, magic_school_damage_modifiers[school]);
 
     if (buff_with_charges != nullptr)
         magic_school_buffs_with_charges[school].append(buff_with_charges);
 }
 
-void CharacterStats::decrease_spell_dmg_mod(const int decrease, const MagicSchool school, Buff* buff_to_remove) {
+void CharacterStats::decrease_magic_school_damage_mod(const int decrease, const MagicSchool school, Buff* buff_to_remove) {
     remove_multiplicative_effect(magic_school_damage_changes[school], decrease, magic_school_damage_modifiers[school]);
 
     if (buff_to_remove != nullptr) {

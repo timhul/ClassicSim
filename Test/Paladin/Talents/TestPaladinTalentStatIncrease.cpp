@@ -90,31 +90,31 @@ void TestPaladinTalentStatIncrease::test_conviction() {
 void TestPaladinTalentStatIncrease::test_two_handed_weapon_specialization() {
     given_a_twohand_weapon_with_100_min_max_dmg();
     Talent* talent = Retribution(paladin).get_two_handed_weapon_specialization();
-    assert(almost_equal(1.0, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.02, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.02, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.04, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.04, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.06, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.06, paladin->get_stats()->get_total_physical_damage_mod()));
 
     given_1h_mace_equipped_in_mainhand(paladin);
-    assert(almost_equal(1.0, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     given_a_twohand_weapon_with_100_min_max_dmg();
-    assert(almost_equal(1.06, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.06, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.04, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.04, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.02, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.02, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.0, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     delete talent;
 }
@@ -154,43 +154,43 @@ void TestPaladinTalentStatIncrease::test_precision() {
 void TestPaladinTalentStatIncrease::test_one_handed_weapon_specialization() {
     given_1h_mace_equipped_in_mainhand(paladin);
     Talent* talent = ProtectionPaladin(paladin).get_one_handed_weapon_specialization();
-    assert(almost_equal(1.0, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.02, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.02, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.04, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.04, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.06, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.06, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.08, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.08, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
-    assert(almost_equal(1.10, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.10, paladin->get_stats()->get_total_physical_damage_mod()));
 
     given_a_twohand_weapon_with_100_min_max_dmg();
-    assert(almost_equal(1.0, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     given_1h_mace_equipped_in_mainhand(paladin);
-    assert(almost_equal(1.10, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.10, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.08, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.08, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.06, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.06, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.04, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.04, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.02, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.02, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->decrement_rank());
-    assert(almost_equal(1.0, paladin->get_stats()->get_total_phys_dmg_mod()));
+    assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     delete talent;
 }

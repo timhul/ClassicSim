@@ -8,9 +8,9 @@ StormstrikeBuff::StormstrikeBuff(Character* pchar):
 {}
 
 void StormstrikeBuff::buff_effect_when_applied() {
-    pchar->get_stats()->increase_spell_dmg_mod(20, MagicSchool::Nature, this);
+    pchar->get_stats()->increase_magic_school_damage_mod(20, MagicSchool::Nature, this);
 }
 
 void StormstrikeBuff::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_spell_dmg_mod(20, MagicSchool::Nature, this);
+    pchar->get_stats()->decrease_magic_school_damage_mod(20, MagicSchool::Nature, this);
 }

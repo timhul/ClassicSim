@@ -61,7 +61,7 @@ void SealOfCommand::judge_effect() {
     }
 
     double damage_dealt = random->get_roll() + pchar->get_stats()->get_spell_damage(MagicSchool::Holy) * 0.43;
-    damage_dealt *= pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Holy);
+    damage_dealt *= pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy);
 
     double resist_mod = 1.0;
     switch (resist_roll) {
@@ -114,7 +114,7 @@ void SealOfCommand::perform_periodic() {
         seal->refresh_seal();
 
     double damage_dealt = (pchar->get_random_normalized_mh_dmg() + pchar->get_stats()->get_spell_damage(MagicSchool::Holy) * 0.2) * 0.7;
-    damage_dealt *= pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Holy);
+    damage_dealt *= pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy);
 
     const int resist_result = roll->get_spell_resist_result(MagicSchool::Holy);
     double resist_mod = 1.0;

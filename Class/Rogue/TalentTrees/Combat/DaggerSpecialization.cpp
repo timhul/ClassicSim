@@ -14,9 +14,9 @@ DaggerSpecialization::DaggerSpecialization(Character *pchar, TalentTree* tree) :
 DaggerSpecialization::~DaggerSpecialization() = default;
 
 void DaggerSpecialization::apply_rank_effect() {
-    pchar->get_stats()->increase_crit_for_weapon_type(WeaponTypes::DAGGER, 0.01);
+    pchar->get_stats()->increase_crit_for_weapon_type(WeaponTypes::DAGGER, 100);
 }
 
 void DaggerSpecialization::remove_rank_effect() {
-    pchar->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::DAGGER, 0.01);
+    pchar->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::DAGGER, 100);
 }

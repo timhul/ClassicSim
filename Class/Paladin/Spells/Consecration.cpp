@@ -97,7 +97,7 @@ void Consecration::calculate_damage() {
 
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
     const double bonus_from_spell_dmg = pchar->get_stats()->get_spell_damage(MagicSchool::Holy) * 0.33;
-    const double damage_dealt = ((full_duration_dmg + bonus_from_spell_dmg) / 4 + tick_rest) * resist_mod * pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Holy);
+    const double damage_dealt = ((full_duration_dmg + bonus_from_spell_dmg) / 4 + tick_rest) * resist_mod * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy);
     tick_rest = tick_rest + damage_dealt - round(damage_dealt);
 
     add_hit_dmg(static_cast<int>(round(damage_dealt)), static_cast<double>(resource_cost) / 4, pchar->global_cooldown() / 4);

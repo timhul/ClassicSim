@@ -14,9 +14,9 @@ PolearmSpecialization::PolearmSpecialization(Character *pchar, TalentTree* tree)
 PolearmSpecialization::~PolearmSpecialization() = default;
 
 void PolearmSpecialization::apply_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_stats()->increase_crit_for_weapon_type(WeaponTypes::POLEARM, 0.01);
+    dynamic_cast<Warrior*>(pchar)->get_stats()->increase_crit_for_weapon_type(WeaponTypes::POLEARM, 100);
 }
 
 void PolearmSpecialization::remove_rank_effect() {
-    dynamic_cast<Warrior*>(pchar)->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::POLEARM, 0.01);
+    dynamic_cast<Warrior*>(pchar)->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::POLEARM, 100);
 }

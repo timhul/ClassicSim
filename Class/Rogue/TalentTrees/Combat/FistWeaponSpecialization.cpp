@@ -14,9 +14,9 @@ FistWeaponSpecialization::FistWeaponSpecialization(Character *pchar, TalentTree*
 FistWeaponSpecialization::~FistWeaponSpecialization() = default;
 
 void FistWeaponSpecialization::apply_rank_effect() {
-    pchar->get_stats()->increase_crit_for_weapon_type(WeaponTypes::FIST, 0.01);
+    pchar->get_stats()->increase_crit_for_weapon_type(WeaponTypes::FIST, 100);
 }
 
 void FistWeaponSpecialization::remove_rank_effect() {
-    pchar->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::FIST, 0.01);
+    pchar->get_stats()->decrease_crit_for_weapon_type(WeaponTypes::FIST, 100);
 }

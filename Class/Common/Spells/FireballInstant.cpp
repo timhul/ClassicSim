@@ -61,7 +61,7 @@ void FireballInstant::spell_effect() {
 
     unsigned damage_dealt = instant_dmg->get_roll();
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
-    const double damage_mod =  pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Fire);
+    const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect();
@@ -74,7 +74,7 @@ void FireballInstant::spell_effect() {
 }
 
 void FireballInstant::perform_periodic() {
-    const double damage_dealt = (base_dmg_per_tick + damage_remaining) * pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Fire);
+    const double damage_dealt = (base_dmg_per_tick + damage_remaining) * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
     damage_remaining = round(damage_dealt);
 
     add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);

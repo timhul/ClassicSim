@@ -34,7 +34,7 @@ void InstantSpellAttack::spell_effect() {
 
     unsigned damage_dealt = random->get_roll();
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
-    const double damage_mod =  pchar->get_stats()->get_spell_dmg_mod(school);
+    const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(school);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect();

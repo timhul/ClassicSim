@@ -103,10 +103,10 @@ void TestDeathWish::test_dmg_mod_reduced_after_buff_expires() {
     given_warrior_has_rage(100);
 
     when_death_wish_is_performed();
-    assert(QString::number(pchar->get_stats()->get_total_phys_dmg_mod(), 'f', 3) == "1.200");
+    assert(QString::number(pchar->get_stats()->get_total_physical_damage_mod(), 'f', 3) == "1.200");
 
     when_running_queued_events_until(30.01);
-    assert(QString::number(pchar->get_stats()->get_total_phys_dmg_mod(), 'f', 3) == "1.000");
+    assert(QString::number(pchar->get_stats()->get_total_physical_damage_mod(), 'f', 3) == "1.000");
 }
 
 void TestDeathWish::given_death_wish_is_enabled() {
