@@ -15,14 +15,12 @@ public:
     double get_int_multiplier() const override;
     double get_spirit_multiplier() const override;
 
-    int get_axe_bonus() const override;
-    int get_sword_bonus() const override;
-    int get_mace_bonus() const override;
-    int get_bow_bonus() const override;
-    int get_gun_bonus() const override;
-    int get_thrown_bonus() const override;
-protected:
-private:
+    unsigned get_axe_bonus() const override;
+    unsigned get_sword_bonus() const override;
+    unsigned get_mace_bonus() const override;
+    unsigned get_bow_bonus() const override;
+    unsigned get_gun_bonus() const override;
+    unsigned get_thrown_bonus() const override;
 };
 
 #endif // TAUREN_H

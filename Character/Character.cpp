@@ -93,11 +93,11 @@ void Character::switch_faction() {
     enabled_buffs->switch_faction();
 }
 
-int Character::get_clvl() const {
+unsigned Character::get_clvl() const {
     return this->clvl;
 }
 
-void Character::set_clvl(const int clvl) {
+void Character::set_clvl(const unsigned clvl) {
     this->clvl = clvl;
 }
 
@@ -320,15 +320,15 @@ double Character::get_non_normalized_dmg(const unsigned damage, const unsigned a
     return damage + (wpn_speed * attack_power / 14);
 }
 
-int Character::get_mh_wpn_skill() const {
+unsigned Character::get_mh_wpn_skill() const {
     return cstats->get_mh_wpn_skill();
 }
 
-int Character::get_oh_wpn_skill() const {
+unsigned Character::get_oh_wpn_skill() const {
     return cstats->get_oh_wpn_skill();
 }
 
-int Character::get_ranged_wpn_skill() const {
+unsigned Character::get_ranged_wpn_skill() const {
     return cstats->get_ranged_wpn_skill();
 }
 

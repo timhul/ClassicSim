@@ -72,33 +72,33 @@ public:
     void increase_shadow_resistance(const int);
     void decrease_shadow_resistance(const int);
 
-    int get_axe_skill() const;
-    void increase_axe_skill(const int);
-    void decrease_axe_skill(const int);
+    unsigned get_axe_skill() const;
+    void increase_axe_skill(const unsigned value);
+    void decrease_axe_skill(const unsigned value);
 
-    int get_dagger_skill() const;
-    void increase_dagger_skill(const int);
-    void decrease_dagger_skill(const int);
+    unsigned get_dagger_skill() const;
+    void increase_dagger_skill(const unsigned value);
+    void decrease_dagger_skill(const unsigned value);
 
-    int get_mace_skill() const;
-    void increase_mace_skill(const int);
-    void decrease_mace_skill(const int);
+    unsigned get_mace_skill() const;
+    void increase_mace_skill(const unsigned value);
+    void decrease_mace_skill(const unsigned value);
 
-    int get_sword_skill() const;
-    void increase_sword_skill(const int);
-    void decrease_sword_skill(const int);
+    unsigned get_sword_skill() const;
+    void increase_sword_skill(const unsigned value);
+    void decrease_sword_skill(const unsigned value);
 
-    int get_bow_skill() const;
-    void increase_bow_skill(const int);
-    void decrease_bow_skill(const int);
+    unsigned get_bow_skill() const;
+    void increase_bow_skill(const unsigned value);
+    void decrease_bow_skill(const unsigned value);
 
-    int get_crossbow_skill() const;
-    void increase_crossbow_skill(const int);
-    void decrease_crossbow_skill(const int);
+    unsigned get_crossbow_skill() const;
+    void increase_crossbow_skill(const unsigned value);
+    void decrease_crossbow_skill(const unsigned value);
 
-    int get_gun_skill() const;
-    void increase_gun_skill(const int);
-    void decrease_gun_skill(const int);
+    unsigned get_gun_skill() const;
+    void increase_gun_skill(const unsigned value);
+    void decrease_gun_skill(const unsigned value);
 
     unsigned get_melee_hit_chance() const;
     void increase_melee_hit(const unsigned value);
@@ -176,13 +176,13 @@ private:
     int nature_res {0};
     int shadow_res {0};
 
-    int axe_skill {0};
-    int dagger_skill {0};
-    int mace_skill {0};
-    int sword_skill {0};
-    int bow_skill {0};
-    int crossbow_skill {0};
-    int gun_skill {0};
+    unsigned axe_skill {0};
+    unsigned dagger_skill {0};
+    unsigned mace_skill {0};
+    unsigned sword_skill {0};
+    unsigned bow_skill {0};
+    unsigned crossbow_skill {0};
+    unsigned gun_skill {0};
 
     unsigned melee_ap {0};
     unsigned ranged_ap {0};

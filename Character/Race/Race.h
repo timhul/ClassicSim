@@ -28,12 +28,12 @@ public:
     virtual double get_int_multiplier() const = 0;
     virtual double get_spirit_multiplier() const = 0;
 
-    virtual int get_axe_bonus() const = 0;
-    virtual int get_sword_bonus() const = 0;
-    virtual int get_mace_bonus() const = 0;
-    virtual int get_bow_bonus() const = 0;
-    virtual int get_gun_bonus() const = 0;
-    virtual int get_thrown_bonus() const = 0;
+    virtual unsigned get_axe_bonus() const = 0;
+    virtual unsigned get_sword_bonus() const = 0;
+    virtual unsigned get_mace_bonus() const = 0;
+    virtual unsigned get_bow_bonus() const = 0;
+    virtual unsigned get_gun_bonus() const = 0;
+    virtual unsigned get_thrown_bonus() const = 0;
 };
 
 #endif // RACE_H

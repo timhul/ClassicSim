@@ -274,87 +274,87 @@ void Stats::decrease_shadow_resistance(const int decrease) {
     shadow_res -= decrease;
 }
 
-int Stats::get_axe_skill() const {
+unsigned Stats::get_axe_skill() const {
     return axe_skill;
 }
 
-void Stats::increase_axe_skill(const int increase) {
-    axe_skill += increase;
+void Stats::increase_axe_skill(const unsigned value) {
+    axe_skill += value;
 }
-void Stats::decrease_axe_skill(const int decrease) {
-    axe_skill -= decrease;
+void Stats::decrease_axe_skill(const unsigned value) {
+    axe_skill -= value;
 }
 
-int Stats::get_dagger_skill() const {
+unsigned Stats::get_dagger_skill() const {
     return dagger_skill;
 }
 
-void Stats::increase_dagger_skill(const int increase) {
-    dagger_skill += increase;
+void Stats::increase_dagger_skill(const unsigned value) {
+    dagger_skill += value;
 }
 
-void Stats::decrease_dagger_skill(const int decrease) {
-    dagger_skill -= decrease;
+void Stats::decrease_dagger_skill(const unsigned value) {
+    dagger_skill -= value;
 }
 
-int Stats::get_mace_skill() const {
+unsigned Stats::get_mace_skill() const {
     return mace_skill;
 }
 
-void Stats::increase_mace_skill(const int increase) {
-    mace_skill += increase;
+void Stats::increase_mace_skill(const unsigned value) {
+    mace_skill += value;
 }
 
-void Stats::decrease_mace_skill(const int decrease) {
-    mace_skill -= decrease;
+void Stats::decrease_mace_skill(const unsigned value) {
+    mace_skill -= value;
 }
 
-int Stats::get_sword_skill() const {
+unsigned Stats::get_sword_skill() const {
     return sword_skill;
 }
 
-void Stats::increase_sword_skill(const int increase) {
-    sword_skill += increase;
+void Stats::increase_sword_skill(const unsigned value) {
+    sword_skill += value;
 }
 
-void Stats::decrease_sword_skill(const int decrease) {
-    sword_skill -= decrease;
+void Stats::decrease_sword_skill(const unsigned value) {
+    sword_skill -= value;
 }
 
-int Stats::get_bow_skill() const {
+unsigned Stats::get_bow_skill() const {
     return bow_skill;
 }
 
-void Stats::increase_bow_skill(const int increase) {
-    bow_skill += increase;
+void Stats::increase_bow_skill(const unsigned value) {
+    bow_skill += value;
 }
 
-void Stats::decrease_bow_skill(const int decrease) {
-    bow_skill -= decrease;
+void Stats::decrease_bow_skill(const unsigned value) {
+    bow_skill -= value;
 }
 
-int Stats::get_crossbow_skill() const {
+unsigned Stats::get_crossbow_skill() const {
     return crossbow_skill;
 }
 
-void Stats::increase_crossbow_skill(const int increase) {
-    crossbow_skill += increase;
+void Stats::increase_crossbow_skill(const unsigned value) {
+    crossbow_skill += value;
 }
 
-void Stats::decrease_crossbow_skill(const int decrease) {
-    crossbow_skill -= decrease;
+void Stats::decrease_crossbow_skill(const unsigned value) {
+    crossbow_skill -= value;
 }
 
-int Stats::get_gun_skill() const {
+unsigned Stats::get_gun_skill() const {
     return gun_skill;
 }
 
-void Stats::increase_gun_skill(const int increase) {
-    gun_skill += increase;
+void Stats::increase_gun_skill(const unsigned value) {
+    gun_skill += value;
 }
 
-void Stats::decrease_gun_skill(const int decrease) {
-    gun_skill -= decrease;
+void Stats::decrease_gun_skill(const unsigned value) {
+    gun_skill -= value;
 }
 
 unsigned Stats::get_base_melee_ap() const {

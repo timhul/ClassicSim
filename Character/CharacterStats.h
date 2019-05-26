@@ -27,9 +27,9 @@ public:
     static void remove_multiplicative_effect(QVector<int>& effects, int remove_value, double& modifier);
     static void recalculate_multiplicative_effects(QVector<int>& effects, double& modifier);
 
-    int get_mh_wpn_skill() const;
-    int get_oh_wpn_skill() const;
-    int get_ranged_wpn_skill() const;
+    unsigned get_mh_wpn_skill() const;
+    unsigned get_oh_wpn_skill() const;
+    unsigned get_ranged_wpn_skill() const;
 
     void increase_wpn_skill(const int weapon_type, const unsigned value);
     void decrease_wpn_skill(const int weapon_type, const unsigned value);
@@ -226,7 +226,7 @@ private:
 
     Target::CreatureType get_type_for_stat(const ItemStats);
 
-    int get_wpn_skill(Weapon*) const;
+    unsigned get_wpn_skill(Weapon*) const;
 };
 
 #endif // CHARACTERSTATS_H

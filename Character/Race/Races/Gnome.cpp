@@ -37,26 +37,26 @@ double Gnome::get_spirit_multiplier() const {
     return 1.0;
 }
 
-int Gnome::get_axe_bonus() const {
+unsigned Gnome::get_axe_bonus() const {
     return 0;
 }
 
-int Gnome::get_sword_bonus() const {
+unsigned Gnome::get_sword_bonus() const {
     return 0;
 }
 
-int Gnome::get_mace_bonus() const {
+unsigned Gnome::get_mace_bonus() const {
     return 0;
 }
 
-int Gnome::get_bow_bonus() const {
+unsigned Gnome::get_bow_bonus() const {
     return 0;
 }
 
-int Gnome::get_gun_bonus() const {
+unsigned Gnome::get_gun_bonus() const {
     return 0;
 }
 
-int Gnome::get_thrown_bonus() const {
+unsigned Gnome::get_thrown_bonus() const {
     return 0;
 }

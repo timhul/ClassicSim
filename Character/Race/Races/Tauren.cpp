@@ -37,26 +37,26 @@ double Tauren::get_spirit_multiplier() const {
     return 1.0;
 }
 
-int Tauren::get_axe_bonus() const {
+unsigned Tauren::get_axe_bonus() const {
     return 0;
 }
 
-int Tauren::get_sword_bonus() const {
+unsigned Tauren::get_sword_bonus() const {
     return 0;
 }
 
-int Tauren::get_mace_bonus() const {
+unsigned Tauren::get_mace_bonus() const {
     return 0;
 }
 
-int Tauren::get_bow_bonus() const {
+unsigned Tauren::get_bow_bonus() const {
     return 0;
 }
 
-int Tauren::get_gun_bonus() const {
+unsigned Tauren::get_gun_bonus() const {
     return 0;
 }
 
-int Tauren::get_thrown_bonus() const {
+unsigned Tauren::get_thrown_bonus() const {
     return 0;
 }

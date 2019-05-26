@@ -37,26 +37,26 @@ double Human::get_spirit_multiplier() const {
     return 1.05;
 }
 
-int Human::get_axe_bonus() const {
+unsigned Human::get_axe_bonus() const {
     return 0;
 }
 
-int Human::get_sword_bonus() const {
+unsigned Human::get_sword_bonus() const {
     return 5;
 }
 
-int Human::get_mace_bonus() const {
+unsigned Human::get_mace_bonus() const {
     return 5;
 }
 
-int Human::get_bow_bonus() const {
+unsigned Human::get_bow_bonus() const {
     return 0;
 }
 
-int Human::get_gun_bonus() const {
+unsigned Human::get_gun_bonus() const {
     return 0;
 }
 
-int Human::get_thrown_bonus() const {
+unsigned Human::get_thrown_bonus() const {
     return 0;
 }

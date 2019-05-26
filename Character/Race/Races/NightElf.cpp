@@ -37,26 +37,26 @@ double NightElf::get_spirit_multiplier() const {
     return 1.0;
 }
 
-int NightElf::get_axe_bonus() const {
+unsigned NightElf::get_axe_bonus() const {
     return 0;
 }
 
-int NightElf::get_sword_bonus() const {
+unsigned NightElf::get_sword_bonus() const {
     return 0;
 }
 
-int NightElf::get_mace_bonus() const {
+unsigned NightElf::get_mace_bonus() const {
     return 0;
 }
 
-int NightElf::get_bow_bonus() const {
+unsigned NightElf::get_bow_bonus() const {
     return 0;
 }
 
-int NightElf::get_gun_bonus() const {
+unsigned NightElf::get_gun_bonus() const {
     return 0;
 }
 
-int NightElf::get_thrown_bonus() const {
+unsigned NightElf::get_thrown_bonus() const {
     return 0;
 }

@@ -37,26 +37,26 @@ double Undead::get_spirit_multiplier() const {
     return 1.0;
 }
 
-int Undead::get_axe_bonus() const {
+unsigned Undead::get_axe_bonus() const {
     return 0;
 }
 
-int Undead::get_sword_bonus() const {
+unsigned Undead::get_sword_bonus() const {
     return 0;
 }
 
-int Undead::get_mace_bonus() const {
+unsigned Undead::get_mace_bonus() const {
     return 0;
 }
 
-int Undead::get_bow_bonus() const {
+unsigned Undead::get_bow_bonus() const {
     return 0;
 }
 
-int Undead::get_gun_bonus() const {
+unsigned Undead::get_gun_bonus() const {
     return 0;
 }
 
-int Undead::get_thrown_bonus() const {
+unsigned Undead::get_thrown_bonus() const {
     return 0;
 }

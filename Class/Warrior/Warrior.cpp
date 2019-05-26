@@ -126,7 +126,7 @@ unsigned Warrior::rage_gained_from_dd(const unsigned damage_dealt) const {
     return static_cast<unsigned>(std::max(1, int(round(damage_dealt / rage_conversion_value * 7.5))));
 }
 
-void Warrior::set_clvl(const int clvl) {
+void Warrior::set_clvl(const unsigned clvl) {
     this->clvl = clvl;
     this->rage_conversion_value = 0.0091107836 * std::pow(clvl, 2) + 3.225598133 * clvl + 4.2652911;
 }

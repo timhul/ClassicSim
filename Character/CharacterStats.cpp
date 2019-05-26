@@ -228,23 +228,23 @@ void CharacterStats::decrease_wpn_skill(const int weapon_type, const unsigned va
     }
 }
 
-int CharacterStats::get_mh_wpn_skill() const {
+unsigned CharacterStats::get_mh_wpn_skill() const {
     return get_wpn_skill(equipment->get_mainhand());
 }
 
-int CharacterStats::get_oh_wpn_skill() const {
+unsigned CharacterStats::get_oh_wpn_skill() const {
     return get_wpn_skill(equipment->get_offhand());
 }
 
-int CharacterStats::get_ranged_wpn_skill() const {
+unsigned CharacterStats::get_ranged_wpn_skill() const {
     return get_wpn_skill(equipment->get_ranged());
 }
 
-int CharacterStats::get_wpn_skill(Weapon* weapon) const {
+unsigned CharacterStats::get_wpn_skill(Weapon* weapon) const {
     if (weapon == nullptr)
         return pchar->get_clvl() * 5;
 
-    int skill_bonus = 0;
+    unsigned skill_bonus = 0;
     switch (weapon->get_weapon_type()) {
     case WeaponTypes::AXE:
     case WeaponTypes::TWOHAND_AXE:

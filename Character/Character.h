@@ -77,8 +77,8 @@ public:
 
     void switch_faction();
 
-    int get_clvl() const;
-    virtual void set_clvl(const int);
+    unsigned get_clvl() const;
+    virtual void set_clvl(const unsigned);
 
     void add_player_reaction_event();
     virtual void add_pet_reaction_event();
@@ -113,9 +113,9 @@ public:
     double get_random_normalized_ranged_dmg();
     double get_random_non_normalized_ranged_dmg();
 
-    int get_mh_wpn_skill() const;
-    int get_oh_wpn_skill() const;
-    int get_ranged_wpn_skill() const;
+    unsigned get_mh_wpn_skill() const;
+    unsigned get_oh_wpn_skill() const;
+    unsigned get_ranged_wpn_skill() const;
 
     unsigned get_avg_mh_damage();
 
@@ -176,7 +176,7 @@ protected:
 
     QVector<QString> available_races;
 
-    int clvl;
+    unsigned clvl;
     double next_gcd;
     double next_trinket_cd;
     Ruleset ruleset;

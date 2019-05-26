@@ -37,26 +37,26 @@ double Orc::get_spirit_multiplier() const {
     return 1.0;
 }
 
-int Orc::get_axe_bonus() const {
+unsigned Orc::get_axe_bonus() const {
     return 5;
 }
 
-int Orc::get_sword_bonus() const {
+unsigned Orc::get_sword_bonus() const {
     return 0;
 }
 
-int Orc::get_mace_bonus() const {
+unsigned Orc::get_mace_bonus() const {
     return 0;
 }
 
-int Orc::get_bow_bonus() const {
+unsigned Orc::get_bow_bonus() const {
     return 0;
 }
 
-int Orc::get_gun_bonus() const {
+unsigned Orc::get_gun_bonus() const {
     return 0;
 }
 
-int Orc::get_thrown_bonus() const {
+unsigned Orc::get_thrown_bonus() const {
     return 0;
 }
