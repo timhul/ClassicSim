@@ -1,8 +1,8 @@
-
 #include "ShamanSpells.h"
-#include "Shaman.h"
 
 #include "MainhandAttack.h"
+#include "Shaman.h"
+#include "Stormstrike.h"
 
 
 ShamanSpells::ShamanSpells(Shaman* shaman) :
@@ -11,7 +11,6 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
 {
     this->mh_attack = new MainhandAttack(shaman);
 
-    spells.append(mh_attack);
+    add_spell_group({mh_attack});
+    add_spell_group({new Stormstrike(shaman, this)});
 }
-
-ShamanSpells::~ShamanSpells() = default;

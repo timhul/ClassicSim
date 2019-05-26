@@ -10,6 +10,8 @@ public:
     Enhancement(Shaman* shaman);
     ~Enhancement() override = default;
 
+    Talent* get_stormstrike();
+
 private:
     Shaman* shaman;
     ShamanSpells* spells;

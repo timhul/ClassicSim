@@ -118,6 +118,15 @@ unsigned Shaman::get_max_resource_level(const ResourceType) const {
     return mana->max;
 }
 
+void Shaman::gain_mana(const unsigned value) {
+    mana->gain_resource(value);
+    add_player_reaction_event();
+}
+
+void Shaman::lose_mana(const unsigned value) {
+    mana->lose_resource(value);
+}
+
 int Shaman::get_highest_possible_armor_type() const {
     return ArmorTypes::MAIL;
 }

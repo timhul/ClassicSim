@@ -7,6 +7,7 @@
 #include "TestElemental.h"
 #include "TestEnhancement.h"
 #include "TestRestorationShaman.h"
+#include "TestStormstrike.h"
 
 TestShaman::TestShaman(EquipmentDb* equipment_db):
     TestObject(equipment_db)
@@ -18,6 +19,8 @@ void TestShaman::test_all() {
     TestElemental(equipment_db).test_all();
     TestEnhancement(equipment_db).test_all();
     TestRestorationShaman(equipment_db).test_all();
+
+    TestStormstrike(equipment_db).test_all();
 }
 
 void TestShaman::test_values_after_initialization() {

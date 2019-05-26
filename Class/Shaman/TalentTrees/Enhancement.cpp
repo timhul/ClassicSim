@@ -37,7 +37,7 @@ Enhancement::Enhancement(Shaman* shaman) :
     QMap<QString, Talent*> tier6 {{"6MR", new Talent(shaman, this, "Weapon Mastery", "6MR", "Assets/ability/Ability_hunter_swiftstrike.png", 5, "Increases the damage you deal with all weapons by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new Talent(shaman, this, "Stormstrike", "7ML", "Assets/spell/Spell_holy_sealofmight.png", 1, "Gives you an extra attack. In addition, the next 2 sources of Nature damage dealt to the target are increased by 20%. Lasts 12 sec.", QVector<QPair<unsigned, unsigned>>())}};
+    QMap<QString, Talent*> tier7 {{"7ML", get_stormstrike()}};
     add_talents(tier7);
 
     talents["2ML"]->talent->set_bottom_child(talents["4ML"]->talent);
@@ -45,6 +45,18 @@ Enhancement::Enhancement(Shaman* shaman) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+Talent* Enhancement::get_stormstrike() {
+    QMap<unsigned, QString> rank_descriptions;
+    QString base_str = "Gives you an extra attack. In addition, the next 2 sources of Nature damage dealt to the target are increased by 20%. Lasts 12 sec.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(shaman, this, "Stormstrike", "7ML",
+                                "Assets/spell/Spell_holy_sealofmight.png", 1, rank_descriptions,
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Stormstrike")});
+
+    return talent;
 }
 
 Talent* Enhancement::get_elemental_weapons() {

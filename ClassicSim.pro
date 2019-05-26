@@ -32,7 +32,9 @@ SOURCES += main.cpp \
     Class/Common/Spells/DemonicRune.cpp \
     Class/Common/Spells/FireballInstant.cpp \
     Class/Common/Spells/NightDragonsBreath.cpp \
+    Class/Shaman/Buffs/StormstrikeBuff.cpp \
     Class/Shaman/ShamanEnchants.cpp \
+    Class/Shaman/Spells/Stormstrike.cpp \
     Class/Shaman/TalentTrees/Elemental.cpp \
     Class/Shaman/TalentTrees/Enhancement.cpp \
     Class/Shaman/TalentTrees/RestorationShaman.cpp \
@@ -72,6 +74,7 @@ SOURCES += main.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.cpp \
     Test/Paladin/TestSpellPaladin.cpp \
+    Test/Shaman/Spells/TestStormstrike.cpp \
     Test/Shaman/Talents/TestElemental.cpp \
     Test/Shaman/Talents/TestEnhancement.cpp \
     Test/Shaman/Talents/TestRestorationShaman.cpp \
@@ -415,7 +418,9 @@ HEADERS += \
     Class/Common/Spells/DemonicRune.h \
     Class/Common/Spells/FireballInstant.h \
     Class/Common/Spells/NightDragonsBreath.h \
+    Class/Shaman/Buffs/StormstrikeBuff.h \
     Class/Shaman/ShamanEnchants.h \
+    Class/Shaman/Spells/Stormstrike.h \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
@@ -456,6 +461,7 @@ HEADERS += \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.h \
     Test/Paladin/TestSpellPaladin.h \
+    Test/Shaman/Spells/TestStormstrike.h \
     Test/Shaman/Talents/TestElemental.h \
     Test/Shaman/Talents/TestEnhancement.h \
     Test/Shaman/Talents/TestRestorationShaman.h \
@@ -828,6 +834,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Hunter/TalentTrees \
     $$PWD/Class/Warlock \
     $$PWD/Class/Shaman \
+    $$PWD/Class/Shaman/Buffs \
+    $$PWD/Class/Shaman/Spells \
     $$PWD/Class/Shaman/TalentTrees \
     $$PWD/Class/Paladin \
     $$PWD/Class/Paladin/Buffs \
@@ -865,6 +873,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Paladin/Spells \
     $$PWD/Test/Paladin/Talents \
     $$PWD/Test/Shaman \
+    $$PWD/Test/Shaman/Spells \
     $$PWD/Test/Shaman/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Class/Common \
