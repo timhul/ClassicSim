@@ -117,6 +117,10 @@ void TestStormstrike::test_stormstrikes_applies_nature_damage_debuff() {
     assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Fire)));
     assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Frost)));
     assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Holy)));
-    assert(almost_equal(1.2, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
     assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Physical)));
+
+    // Two charges, get_spell_dmg_mod uses a charge each time.
+    assert(almost_equal(1.2, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
+    assert(almost_equal(1.2, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
+    assert(almost_equal(1.0, pchar->get_stats()->get_spell_dmg_mod(MagicSchool::Nature)));
 }

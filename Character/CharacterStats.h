@@ -7,6 +7,7 @@
 #include "ItemStatsEnum.h"
 #include "Target.h"
 
+class Buff;
 class Character;
 class Race;
 class Equipment;
@@ -135,8 +136,8 @@ public:
     void decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school);
 
     double get_spell_dmg_mod(const MagicSchool school) const;
-    void increase_spell_dmg_mod(const int increase, const MagicSchool school);
-    void decrease_spell_dmg_mod(const int decrease, const MagicSchool school);
+    void increase_spell_dmg_mod(const int increase, const MagicSchool school, Buff* buff = nullptr);
+    void decrease_spell_dmg_mod(const int decrease, const MagicSchool school, Buff* buff = nullptr);
 
     double get_spell_crit_dmg_mod() const;
     void increase_spell_crit_dmg_mod(double);
@@ -200,6 +201,7 @@ private:
     QHash<Target::CreatureType, double> crit_dmg_bonuses_per_monster_type;
     QMap<MagicSchool, QVector<int>> spell_school_damage_changes;
     QMap<MagicSchool, double> spell_school_damage_modifiers;
+    QMap<MagicSchool, QVector<Buff*>> magic_school_buffs_with_charges;
 
     int axe_skill_bonus;
     int dagger_skill_bonus;

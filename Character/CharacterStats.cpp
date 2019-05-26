@@ -1,5 +1,6 @@
 #include "CharacterStats.h"
 
+#include "Buff.h"
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "CombatRoll.h"
@@ -90,6 +91,14 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     this->spell_school_damage_modifiers.insert(MagicSchool::Nature, 1.0);
     this->spell_school_damage_modifiers.insert(MagicSchool::Physical, 1.0);
     this->spell_school_damage_modifiers.insert(MagicSchool::Shadow, 1.0);
+
+    this->magic_school_buffs_with_charges.insert(MagicSchool::Arcane, {});
+    this->magic_school_buffs_with_charges.insert(MagicSchool::Fire, {});
+    this->magic_school_buffs_with_charges.insert(MagicSchool::Frost, {});
+    this->magic_school_buffs_with_charges.insert(MagicSchool::Holy, {});
+    this->magic_school_buffs_with_charges.insert(MagicSchool::Nature, {});
+    this->magic_school_buffs_with_charges.insert(MagicSchool::Physical, {});
+    this->magic_school_buffs_with_charges.insert(MagicSchool::Shadow, {});
 }
 
 CharacterStats::~CharacterStats() {
@@ -819,15 +828,35 @@ void CharacterStats::decrease_spell_damage_vs_school(const unsigned decrease, co
 }
 
 double CharacterStats::get_spell_dmg_mod(const MagicSchool school) const {
-    return spell_school_damage_modifiers[school];
+    const double mod = spell_school_damage_modifiers[school];
+
+    for (auto & buff : magic_school_buffs_with_charges[school])
+        buff->use_charge();
+
+    return mod;
 }
 
-void CharacterStats::increase_spell_dmg_mod(const int increase, const MagicSchool school) {
+void CharacterStats::increase_spell_dmg_mod(const int increase, const MagicSchool school, Buff* buff_with_charges) {
     add_multiplicative_effect(spell_school_damage_changes[school], increase, spell_school_damage_modifiers[school]);
+
+    if (buff_with_charges != nullptr)
+        magic_school_buffs_with_charges[school].append(buff_with_charges);
 }
 
-void CharacterStats::decrease_spell_dmg_mod(const int decrease, const MagicSchool school) {
+void CharacterStats::decrease_spell_dmg_mod(const int decrease, const MagicSchool school, Buff* buff_to_remove) {
     remove_multiplicative_effect(spell_school_damage_changes[school], decrease, spell_school_damage_modifiers[school]);
+
+    if (buff_to_remove != nullptr) {
+        for (int i = 0; i < magic_school_buffs_with_charges[school].size(); ++i) {
+            Buff* buff = magic_school_buffs_with_charges[school][i];
+            if (buff->get_instance_id() == buff_to_remove->get_instance_id()) {
+                magic_school_buffs_with_charges[school].removeAt(i);
+                return;
+            }
+        }
+
+        check(false, QString("CharacterStats::decrease_spell_dmg_mod failed to remove buff %1").arg(buff_to_remove->get_name()).toStdString());
+    }
 }
 
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {
