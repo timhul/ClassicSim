@@ -9,7 +9,8 @@ public:
 
 private:
     void test_glancing_blow_rate();
-    void test_glancing_dmg_penalty();
+    void test_glancing_dmg_penalty_linear();
+    void test_glancing_dmg_penalty_exponential();
     void test_dw_white_miss();
     void test_dodge_from_wpn_skill_diff();
 

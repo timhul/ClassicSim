@@ -63,6 +63,46 @@ double Mechanics::get_block_chance() const {
     return 0.0;
 }
 
+double Mechanics::get_glancing_blow_dmg_penalty(const int wpn_skill) const {
+    const int delta = target->get_defense() - wpn_skill;
+
+    if (delta < 1)
+        return 1.0;
+
+    switch (delta) {
+    case 1:
+        return 0.9926;
+    case 2:
+        return 0.984;
+    case 3:
+        return 0.9742;
+    case 4:
+        return 0.9629;
+    case 5:
+        return 0.95;
+    case 6:
+        return 0.9351;
+    case 7:
+        return 0.918;
+    case 8:
+        return 0.8984;
+    case 9:
+        return 0.8759;
+    case 10:
+        return 0.85;
+    case 11:
+        return 0.8203;
+    case 12:
+        return 0.786;
+    case 13:
+        return 0.7469;
+    case 14:
+        return 0.7018;
+    default:
+        return 0.65;
+    }
+}
+
 int Mechanics::get_boss_base_armor() {
     return 4960;
 }
@@ -71,7 +111,7 @@ double Mechanics::get_reduction_from_armor(const int armor, const int clvl) {
     return armor / (armor + 400 + 85 * (clvl + 4.5 * (clvl - 60)));
 }
 
-double Mechanics::get_glancing_blow_dmg_penalty(const int wpn_skill) const {
+double Mechanics::get_linear_glancing_blow_dmg_penalty(const int wpn_skill) const {
     return std::max(0.7, std::min(1.0, 1.0 - (target->get_defense() - wpn_skill - 5) * 0.03));
 }
 

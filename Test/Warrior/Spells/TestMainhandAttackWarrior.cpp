@@ -153,8 +153,8 @@ void TestMainhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
     when_mh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
-    // [100] = (100 + (2.6 * 1000 / 14)) * 0.7
-    then_damage_dealt_is(200);
+    // [186] = (100 + (2.6 * 1000 / 14)) * 0.65
+    then_damage_dealt_is(186);
 }
 
 void TestMainhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
@@ -185,8 +185,8 @@ void TestMainhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
     when_mh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
-    // [143] = (100 + (2.6 * 1000 / 14)) * 1.0
-    then_damage_dealt_is(286);
+    // [143] = (100 + (2.6 * 1000 / 14)) * 0.95
+    then_damage_dealt_is(271);
 }
 
 void TestMainhandAttackWarrior::test_glancing_damage_315_wpn_skill() {

@@ -10,17 +10,18 @@ class Mechanics {
 public:
     Mechanics(Target*);
 
-    double get_yellow_miss_chance(const int) const;
-    double get_1h_white_miss_chance(const int) const;
-    double get_2h_white_miss_chance(const int) const;
-    double get_dw_white_miss_chance(const int) const;
+    double get_yellow_miss_chance(const int wpn_skill) const;
+    double get_1h_white_miss_chance(const int wpn_skill) const;
+    double get_2h_white_miss_chance(const int wpn_skill) const;
+    double get_dw_white_miss_chance(const int wpn_skill) const;
 
-    double get_glancing_blow_chance(const int) const;
-    double get_dodge_chance(const int) const;
-    double get_parry_chance(const int) const;
+    double get_glancing_blow_chance(const int clvl) const;
+    double get_dodge_chance(const int wpn_skill) const;
+    double get_parry_chance(const int wpn_skill) const;
     double get_block_chance() const;
 
-    double get_glancing_blow_dmg_penalty(const int) const;
+    double get_glancing_blow_dmg_penalty(const int wpn_skill) const;
+    double get_linear_glancing_blow_dmg_penalty(const int wpn_skill) const;
 
     static int get_boss_base_armor();
     static double get_reduction_from_armor(const int armor, const int clvl);

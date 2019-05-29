@@ -358,8 +358,8 @@ void TestOffhandAttackWarrior::test_glancing_damage_300_wpn_skill() {
     when_oh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier * dual_wield_penalty
-    // [100] = (100 + (2.6 * 1000 / 14)) * 0.7 * 0.5
-    then_damage_dealt_is(100);
+    // [93] = (100 + (2.6 * 1000 / 14)) * 0.65 * 0.5
+    then_damage_dealt_is(93);
 }
 
 void TestOffhandAttackWarrior::test_glancing_damage_305_wpn_skill() {
@@ -390,8 +390,8 @@ void TestOffhandAttackWarrior::test_glancing_damage_310_wpn_skill() {
     when_oh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier * dual_wield_penalty
-    // [143] = (100 + (2.6 * 1000 / 14)) * 1.0 * 0.5
-    then_damage_dealt_is(143);
+    // [136] = (100 + (2.6 * 1000 / 14)) * 0.95 * 0.5
+    then_damage_dealt_is(136);
 }
 
 void TestOffhandAttackWarrior::test_glancing_damage_315_wpn_skill() {
