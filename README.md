@@ -40,7 +40,13 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-None (available release is up to date with the latest on master).
+* Rudimentary Shaman support (Stormstrike rotation).
+* Glancing blow damage penalty now uses the exponential formula rather than linear.
+* More buffs and temporary weapon enchants are available.
+
+## Restrictions:
+
+* No Shaman talents are available (except Stormstrike).
 
 # Release notes
 
