@@ -104,7 +104,7 @@ double Mechanics::get_glancing_blow_dmg_penalty(const int wpn_skill) const {
 }
 
 int Mechanics::get_boss_base_armor() {
-    return 4960;
+    return 3750;
 }
 
 double Mechanics::get_reduction_from_armor(const int armor, const int clvl) {
