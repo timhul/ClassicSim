@@ -65,20 +65,19 @@ void TestAttackTables::test_white_hit_table_update() {
     assert(table->get_outcome(0, 1) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(2799, 1) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(2800, 1) == PhysicalAttackResult::DODGE);
-    assert(table->get_outcome(3299, 1) == PhysicalAttackResult::DODGE);
-    assert(table->get_outcome(3300, 1) == PhysicalAttackResult::GLANCING);
-    assert(table->get_outcome(7299, 1) == PhysicalAttackResult::GLANCING);
-    assert(table->get_outcome(7300, 1) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(3449, 1) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(3450, 1) == PhysicalAttackResult::GLANCING);
+    assert(table->get_outcome(7449, 1) == PhysicalAttackResult::GLANCING);
+    assert(table->get_outcome(7450, 1) == PhysicalAttackResult::CRITICAL);
     // Note: This will fail when changing base agility or agi needed per crit.
-    assert(table->get_outcome(7984, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
-    assert(table->get_outcome(7985, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(7986, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(8134, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(8135, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(8135, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(8136, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::HIT);
 
     pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
     pchar->get_stats()->increase_melee_crit(9999);
-    assert(table->get_outcome(8086, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(8099, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
 
     delete sim_settings;
     delete race;

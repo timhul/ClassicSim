@@ -45,12 +45,20 @@ double Mechanics::get_glancing_blow_chance(const int clvl) const {
     return 0.1 + level_diff * 5 * 0.02;
 }
 
-double Mechanics::get_dodge_chance(const int wpn_skill) const {
-    int defense_diff = wpn_skill - target->get_defense();
+double Mechanics::get_dodge_chance(const unsigned clvl, const unsigned wpn_skill) const {
+    // https://us.forums.blizzard.com/en/wow/t/bug-hit-tables/185675/12
+    // "Creatures at your level have a 5% chance to Dodge your attacks. Each additional
+    // level the target has over the player grants them 0.5% additional chance to dodge.""
+    //
+    // Note: the chosen implementation reduces the base dodge chance by 0.5% for each level
+    // the player has over the target.
+    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+    const double base_dodge = std::max(0.0, 0.05 + level_diff * 0.005);
 
+    const int defense_diff = static_cast<int>(wpn_skill) - target->get_defense();
     if (defense_diff > 0)
-        return 0.05 - defense_diff * 0.0004;
-    return 0.05;
+        return base_dodge - defense_diff * 0.0004;
+    return base_dodge;
 }
 
 double Mechanics::get_parry_chance(const int) const {

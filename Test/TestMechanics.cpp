@@ -20,11 +20,16 @@ void TestMechanics::test_dodge_from_wpn_skill_diff() {
     auto* target = new Target(63);
     auto* mechanics = new Mechanics(target);
 
-    assert(almost_equal(0.05, mechanics->get_dodge_chance(300)));
-    assert(almost_equal(0.05, mechanics->get_dodge_chance(315)));
+    assert(almost_equal(0.065, mechanics->get_dodge_chance(60, 300)));
+    assert(almost_equal(0.065, mechanics->get_dodge_chance(60, 315)));
+    // Weapon skill > defense slightly reduces dodge chance.
+    assert(almost_equal(0.063, mechanics->get_dodge_chance(60, 320)));
 
     target->set_lvl(60);
-    assert(almost_equal(0.044, mechanics->get_dodge_chance(315)));
+    assert(almost_equal(0.044, mechanics->get_dodge_chance(60, 315)));
+
+    // CLVL > TLVL reduces the dodge chance by 0.5%.
+    assert(almost_equal(0.045, mechanics->get_dodge_chance(61, 300)));
 
     delete mechanics;
     delete target;

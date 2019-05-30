@@ -16,7 +16,7 @@ public:
     double get_dw_white_miss_chance(const int wpn_skill) const;
 
     double get_glancing_blow_chance(const int clvl) const;
-    double get_dodge_chance(const int wpn_skill) const;
+    double get_dodge_chance(const unsigned clvl, const unsigned wpn_skill) const;
     double get_parry_chance(const int wpn_skill) const;
     double get_block_chance() const;
 
