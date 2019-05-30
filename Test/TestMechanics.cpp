@@ -12,6 +12,7 @@ void TestMechanics::test_all() {
     test_glancing_blow_rate();
     test_glancing_dmg_penalty_linear();
     test_glancing_dmg_penalty_exponential();
+    test_physical_crit_suppression_from_target_level();
 
     test_full_resistance_chance();
 }
@@ -30,6 +31,20 @@ void TestMechanics::test_dodge_from_wpn_skill_diff() {
 
     // CLVL > TLVL reduces the dodge chance by 0.5%.
     assert(almost_equal(0.045, mechanics->get_dodge_chance(61, 300)));
+
+    delete mechanics;
+    delete target;
+}
+
+void TestMechanics::test_physical_crit_suppression_from_target_level() {
+    auto* target = new Target(63);
+    auto* mechanics = new Mechanics(target);
+
+    assert(almost_equal(0.03, mechanics->get_melee_crit_suppression(60)));
+    assert(almost_equal(0.02, mechanics->get_melee_crit_suppression(61)));
+    assert(almost_equal(0.01, mechanics->get_melee_crit_suppression(62)));
+    assert(almost_equal(0.00, mechanics->get_melee_crit_suppression(63)));
+    assert(almost_equal(0.00, mechanics->get_melee_crit_suppression(64)));
 
     delete mechanics;
     delete target;

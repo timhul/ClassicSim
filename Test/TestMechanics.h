@@ -13,6 +13,7 @@ private:
     void test_glancing_dmg_penalty_exponential();
     void test_dw_white_miss();
     void test_dodge_from_wpn_skill_diff();
+    void test_physical_crit_suppression_from_target_level();
 
     void test_full_resistance_chance();
 };

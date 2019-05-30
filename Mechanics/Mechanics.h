@@ -23,6 +23,8 @@ public:
     double get_glancing_blow_dmg_penalty(const int wpn_skill) const;
     double get_linear_glancing_blow_dmg_penalty(const int wpn_skill) const;
 
+    double get_melee_crit_suppression(const unsigned clvl) const;
+
     static int get_boss_base_armor();
     static double get_reduction_from_armor(const int armor, const int clvl);
 

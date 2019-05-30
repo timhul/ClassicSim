@@ -33,7 +33,7 @@ int CombatRoll::get_melee_hit_result(const int wpn_skill, const unsigned crit_mo
 
     MeleeWhiteHitTable* attack_table = this->get_melee_white_table(wpn_skill);
 
-    return attack_table->get_outcome(roll, crit_mod);
+    return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod));
 }
 
 int CombatRoll::get_melee_ability_result(const int wpn_skill,
@@ -46,7 +46,7 @@ int CombatRoll::get_melee_ability_result(const int wpn_skill,
 
     MeleeSpecialTable* attack_table = this->get_melee_special_table(wpn_skill);
 
-    return attack_table->get_outcome(roll, crit_mod, include_dodge, include_parry, include_block, include_miss);
+    return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod), include_dodge, include_parry, include_block, include_miss);
 }
 
 int CombatRoll::get_ranged_hit_result(const int wpn_skill, const unsigned crit_chance) {
@@ -54,7 +54,7 @@ int CombatRoll::get_ranged_hit_result(const int wpn_skill, const unsigned crit_c
 
     RangedWhiteHitTable* attack_table = this->get_ranged_white_table(wpn_skill);
 
-    return attack_table->get_outcome(roll, crit_chance);
+    return attack_table->get_outcome(roll, get_suppressed_crit(crit_chance));
 }
 
 int CombatRoll::get_ranged_ability_result(const int wpn_skill, const unsigned crit_chance) {
@@ -82,7 +82,7 @@ int CombatRoll::get_pet_hit_result(const int wpn_skill, const unsigned crit_mod)
 
     MeleeWhiteHitTable* attack_table = this->get_pet_white_table(wpn_skill);
 
-    return attack_table->get_outcome(roll, crit_mod);
+    return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod));
 }
 
 int CombatRoll::get_pet_ability_result(const int wpn_skill, const unsigned crit_mod) {
@@ -90,7 +90,7 @@ int CombatRoll::get_pet_ability_result(const int wpn_skill, const unsigned crit_
 
     MeleeSpecialTable* attack_table = this->get_pet_ability_table(wpn_skill);
 
-    return attack_table->get_outcome(roll, crit_mod, true, true, true, true);
+    return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod), true, true, true, true);
 }
 
 Mechanics* CombatRoll::get_mechanics() const {
@@ -292,4 +292,12 @@ void CombatRoll::drop_tables() {
 
 void CombatRoll::set_new_seed(const unsigned seed) {
     this->random->set_gen_from_seed(seed);
+}
+
+unsigned CombatRoll::get_suppressed_crit(const unsigned crit_chance) const {
+    const unsigned crit_suppression_from_target_level = static_cast<unsigned>(
+                round(10000 * mechanics->get_melee_crit_suppression(pchar->get_clvl())));
+
+    return crit_chance < crit_suppression_from_target_level ?
+                0 : crit_chance - crit_suppression_from_target_level;
 }

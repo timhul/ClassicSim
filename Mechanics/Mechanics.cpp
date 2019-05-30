@@ -123,6 +123,12 @@ double Mechanics::get_linear_glancing_blow_dmg_penalty(const int wpn_skill) cons
     return std::max(0.7, std::min(1.0, 1.0 - (target->get_defense() - wpn_skill - 5) * 0.03));
 }
 
+double Mechanics::get_melee_crit_suppression(const unsigned clvl) const {
+    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+
+    return std::max(0.0, 0.01 * level_diff);
+}
+
 double Mechanics::get_spell_miss_chance_from_lvl_diff(const int clvl, const double spell_hit) const {
     int level_diff = target->get_lvl() - clvl;
 

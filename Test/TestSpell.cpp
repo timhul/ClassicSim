@@ -171,7 +171,7 @@ void TestSpell::set_melee_special_table_for_crit(const int wpn_skill) {
     table->update_block_chance(0.0);
 
     pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_melee_crit(10000);
+    pchar->get_stats()->increase_melee_crit(10300);
 
     assert_melee_special_table_can_only_crit(wpn_skill);
 }
@@ -239,8 +239,9 @@ void TestSpell::set_melee_auto_table_for_crit(const int wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_melee_crit(10000);
+    const unsigned melee_crit = std::max(pchar->get_stats()->get_mh_crit_chance(), pchar->get_stats()->get_oh_crit_chance());
+    pchar->get_stats()->decrease_melee_crit(melee_crit);
+    pchar->get_stats()->increase_melee_crit(10300);
 
     assert_melee_auto_table_can_only_crit(wpn_skill);
 }
@@ -320,7 +321,7 @@ void TestSpell::set_ranged_auto_table_for_crit(const int wpn_skill) {
     table->update_block_chance(0.0);
 
     pchar->get_stats()->decrease_ranged_crit(pchar->get_stats()->get_ranged_crit_chance());
-    pchar->get_stats()->increase_ranged_crit(10000);
+    pchar->get_stats()->increase_ranged_crit(10300);
 
     assert_ranged_auto_table_can_only_crit(wpn_skill);
 }
@@ -359,6 +360,8 @@ void TestSpell::assert_melee_special_table_can_only_hit(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+
+    assert(pchar->get_combat_roll()->get_melee_ability_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
 }
 
 void TestSpell::assert_melee_special_table_can_only_crit(const int wpn_skill) {
@@ -366,6 +369,8 @@ void TestSpell::assert_melee_special_table_can_only_crit(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+
+    assert(pchar->get_combat_roll()->get_melee_ability_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
 }
 
 void TestSpell::assert_melee_special_table_can_only_miss(const int wpn_skill) {
@@ -373,6 +378,8 @@ void TestSpell::assert_melee_special_table_can_only_miss(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
+
+    assert(pchar->get_combat_roll()->get_melee_ability_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
 }
 
 void TestSpell::assert_melee_special_table_can_only_dodge(const int wpn_skill) {
@@ -380,6 +387,8 @@ void TestSpell::assert_melee_special_table_can_only_dodge(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
+
+    assert(pchar->get_combat_roll()->get_melee_ability_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
 }
 
 void TestSpell::assert_melee_special_table_can_only_parry(const int wpn_skill) {
@@ -387,6 +396,8 @@ void TestSpell::assert_melee_special_table_can_only_parry(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
+
+    assert(pchar->get_combat_roll()->get_melee_ability_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
 }
 
 void TestSpell::assert_melee_special_table_can_only_block(const int wpn_skill) {
@@ -394,6 +405,8 @@ void TestSpell::assert_melee_special_table_can_only_block(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
+
+    assert(pchar->get_combat_roll()->get_melee_ability_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_hit(const int wpn_skill) {
@@ -401,6 +414,8 @@ void TestSpell::assert_melee_auto_table_can_only_hit(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+
+    assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_glance(const int wpn_skill) {
@@ -408,6 +423,8 @@ void TestSpell::assert_melee_auto_table_can_only_glance(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::GLANCING);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::GLANCING);
+
+    assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::GLANCING);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_crit(const int wpn_skill) {
@@ -415,6 +432,10 @@ void TestSpell::assert_melee_auto_table_can_only_crit(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+
+    assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    if (pchar->get_equipment()->get_offhand())
+        assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_oh_crit_chance()) == PhysicalAttackResult::CRITICAL);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_miss(const int wpn_skill) {
@@ -422,6 +443,8 @@ void TestSpell::assert_melee_auto_table_can_only_miss(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
+
+    assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::MISS);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_dodge(const int wpn_skill) {
@@ -429,6 +452,8 @@ void TestSpell::assert_melee_auto_table_can_only_dodge(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
+
+    assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::DODGE);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_parry(const int wpn_skill) {
@@ -436,6 +461,8 @@ void TestSpell::assert_melee_auto_table_can_only_parry(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
+
+    assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::PARRY);
 }
 
 void TestSpell::assert_melee_auto_table_can_only_block(const int wpn_skill) {
@@ -443,6 +470,8 @@ void TestSpell::assert_melee_auto_table_can_only_block(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
+
+    assert(pchar->get_combat_roll()->get_melee_hit_result(wpn_skill, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::BLOCK);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_hit(const int wpn_skill) {
@@ -450,6 +479,8 @@ void TestSpell::assert_ranged_auto_table_can_only_hit(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::HIT);
     assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::HIT);
+
+    assert(pchar->get_combat_roll()->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::HIT);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_crit(const int wpn_skill) {
@@ -457,6 +488,8 @@ void TestSpell::assert_ranged_auto_table_can_only_crit(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::CRITICAL);
     assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::CRITICAL);
+
+    assert(pchar->get_combat_roll()->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::CRITICAL);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_miss(const int wpn_skill) {
@@ -464,6 +497,8 @@ void TestSpell::assert_ranged_auto_table_can_only_miss(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::MISS);
     assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::MISS);
+
+    assert(pchar->get_combat_roll()->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::MISS);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_dodge(const int wpn_skill) {
@@ -471,6 +506,8 @@ void TestSpell::assert_ranged_auto_table_can_only_dodge(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::DODGE);
     assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::DODGE);
+
+    assert(pchar->get_combat_roll()->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::DODGE);
 }
 
 void TestSpell::assert_ranged_auto_table_can_only_block(const int wpn_skill) {
@@ -478,6 +515,8 @@ void TestSpell::assert_ranged_auto_table_can_only_block(const int wpn_skill) {
 
     assert(table->get_outcome(0, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::BLOCK);
     assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::BLOCK);
+
+    assert(pchar->get_combat_roll()->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::BLOCK);
 }
 
 void TestSpell::create_100_dmg_1h() {

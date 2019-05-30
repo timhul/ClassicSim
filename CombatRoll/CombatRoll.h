@@ -68,6 +68,8 @@ private:
     QMap<MagicSchool, MagicAttackTable*> magic_attack_tables;
     QMap<int, MeleeWhiteHitTable*> pet_white_tables;
     QMap<int, MeleeSpecialTable*> pet_special_tables;
+
+    unsigned get_suppressed_crit(const unsigned crit_chance) const;
 };
 
 #endif // COMBATROLL_H
