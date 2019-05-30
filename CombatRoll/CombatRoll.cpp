@@ -180,7 +180,7 @@ MeleeWhiteHitTable *CombatRoll::get_pet_white_table(const int wpn_skill) {
     if (pet_white_tables.contains(wpn_skill))
         return pet_white_tables[wpn_skill];
 
-    unsigned miss_chance = static_cast<unsigned>(round(mechanics->get_2h_white_miss_chance(wpn_skill) * 10000));
+    unsigned miss_chance = static_cast<unsigned>(round(mechanics->get_2h_white_miss_chance(pchar->get_clvl(), wpn_skill) * 10000));
 
     double glancing_blow_chance = pchar->get_sim_settings()->get_ruleset() == Ruleset::Loatheb ?
                 0 : mechanics->get_glancing_blow_chance(pchar->get_clvl());
@@ -218,12 +218,12 @@ MeleeSpecialTable *CombatRoll::get_pet_ability_table(const int wpn_skill) {
 
 double CombatRoll::get_white_miss_chance(const int wpn_skill) {
     if (pchar->is_dual_wielding())
-        return mechanics->get_dw_white_miss_chance(wpn_skill);
-    return mechanics->get_2h_white_miss_chance(wpn_skill);
+        return mechanics->get_dw_white_miss_chance(pchar->get_clvl(), wpn_skill);
+    return mechanics->get_2h_white_miss_chance(pchar->get_clvl(), wpn_skill);
 }
 
 double CombatRoll::get_yellow_miss_chance(const int wpn_skill) {
-    return mechanics->get_yellow_miss_chance(wpn_skill);
+    return mechanics->get_yellow_miss_chance(pchar->get_clvl(), wpn_skill);
 }
 
 double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {

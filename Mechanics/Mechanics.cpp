@@ -7,33 +7,35 @@ Mechanics::Mechanics(Target* target):
     target(target)
 {}
 
-double Mechanics::get_yellow_miss_chance(const int wpn_skill) const {
-    return get_2h_white_miss_chance(wpn_skill);
+double Mechanics::get_yellow_miss_chance(const int clvl, const int wpn_skill) const {
+    return get_2h_white_miss_chance(clvl, wpn_skill);
 }
 
-double Mechanics::get_dw_white_miss_chance(const int wpn_skill) const {
-    // Note that it assumes defense diff is positive.
-    // Formula currently not correct when diff is negative (player wpn skill > target defense)
-    int defense_diff = target->get_defense() - wpn_skill;
+double Mechanics::get_dw_white_miss_chance(const int clvl, const int wpn_skill) const {
+    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+    const double base_miss = std::max(0.0, 0.24 + level_diff * 0.01);
 
-    if (defense_diff > 10)
-        return std::max(0.0, 0.26 + (defense_diff - 10) * 0.004);
-    return std::max(0.0, 0.24 + defense_diff * 0.001);
+    const int defense_diff = static_cast<int>(wpn_skill) - target->get_defense();
+    if (defense_diff > 0)
+        return base_miss - defense_diff * 0.0004;
+
+    return base_miss;
 }
 
-double Mechanics::get_2h_white_miss_chance(const int wpn_skill) const {
-    // Note that it assumes defense diff is positive.
-    // Formula currently not correct when diff is negative (player wpn skill > target defense)
-    int defense_diff = target->get_defense() - wpn_skill;
+double Mechanics::get_2h_white_miss_chance(const int clvl, const int wpn_skill) const {
+    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+    const double base_miss = std::max(0.0, 0.05 + level_diff * 0.01);
 
-    if (defense_diff > 10)
-        return std::max(0.0, 0.07 + (defense_diff - 10) * 0.004);
-    return std::max(0.0, 0.05 + defense_diff * 0.001);
+    const int defense_diff = static_cast<int>(wpn_skill) - target->get_defense();
+    if (defense_diff > 0)
+        return base_miss - defense_diff * 0.0004;
+
+    return base_miss;
 }
 
-double Mechanics::get_1h_white_miss_chance(const int wpn_skill) const {
+double Mechanics::get_1h_white_miss_chance(const int clvl, const int wpn_skill) const {
     // Note that this is not for dual-wield, this is when only a single 1hander is equipped.
-    return get_2h_white_miss_chance(wpn_skill);
+    return get_2h_white_miss_chance(clvl, wpn_skill);
 }
 
 double Mechanics::get_glancing_blow_chance(const int clvl) const {

@@ -63,17 +63,17 @@ void TestAttackTables::test_white_hit_table_update() {
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(300);
 
     assert(table->get_outcome(0, 1) == PhysicalAttackResult::MISS);
-    assert(table->get_outcome(2799, 1) == PhysicalAttackResult::MISS);
-    assert(table->get_outcome(2800, 1) == PhysicalAttackResult::DODGE);
-    assert(table->get_outcome(3449, 1) == PhysicalAttackResult::DODGE);
-    assert(table->get_outcome(3450, 1) == PhysicalAttackResult::GLANCING);
-    assert(table->get_outcome(7449, 1) == PhysicalAttackResult::GLANCING);
-    assert(table->get_outcome(7450, 1) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(2699, 1) == PhysicalAttackResult::MISS);
+    assert(table->get_outcome(2700, 1) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(3349, 1) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(3350, 1) == PhysicalAttackResult::GLANCING);
+    assert(table->get_outcome(7349, 1) == PhysicalAttackResult::GLANCING);
+    assert(table->get_outcome(7350, 1) == PhysicalAttackResult::CRITICAL);
     // Note: This will fail when changing base agility or agi needed per crit.
-    assert(table->get_outcome(8134, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(8135, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
-    assert(table->get_outcome(8135, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(8136, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(8034, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(8035, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(8035, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(8036, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::HIT);
 
     pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
     pchar->get_stats()->increase_melee_crit(9999);
