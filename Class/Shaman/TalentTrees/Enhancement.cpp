@@ -25,7 +25,7 @@ Enhancement::Enhancement(Shaman* shaman) :
                                   {"3RR", new Talent(shaman, this, "Anticipation", "3RR", "Assets/spell/Spell_nature_mirrorimage.png", 5, "Increases your chance to dodge by an additional %1%.", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
     add_talents(tier3);
 
-    QMap<QString, Talent*> tier4 {{"4ML", new Talent(shaman, this, "Flurry", "4ML", "Assets/ability/Ability_ghoulfrenzy.png", 5, "Increases your attack speed by %1% for your next 3 swings after dealing a critical strike.", QVector<QPair<unsigned, unsigned>>{{5, 5}})},
+    QMap<QString, Talent*> tier4 {{"4ML", get_flurry()},
                                   {"4MR", new Talent(shaman, this, "Toughness", "4MR", "Assets/spell/Spell_holy_devotion.png", 5, "Increases your armor value from items by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
     add_talents(tier4);
 
@@ -52,6 +52,14 @@ Talent* Enhancement::get_thundering_strikes() {
                                   "Improves your chance to get a critical strike with your weapon attacks by %1%.",
                                   QVector<QPair<unsigned, unsigned>>{{1, 1}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeCrit, 100}});
+}
+
+Talent* Enhancement::get_flurry() {
+    return get_new_talent(shaman, "Flurry", "4ML", "Assets/ability/Ability_ghoulfrenzy.png", 5,
+                          "Increases your attack speed by %1% for your next 3 swings after dealing a critical strike.",
+                          QVector<QPair<unsigned, unsigned>>{{10, 5}},
+                          {},
+                          QVector<Buff*>{spells->get_flurry()});
 }
 
 Talent* Enhancement::get_elemental_weapons() {

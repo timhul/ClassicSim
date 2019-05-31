@@ -1,5 +1,6 @@
 #include "Shaman.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "CharacterTalents.h"
 #include "Elemental.h"
@@ -102,6 +103,18 @@ unsigned Shaman::get_ranged_ap_per_agi() const {
 
 double Shaman::global_cooldown() const {
     return 1.5;
+}
+
+void Shaman::melee_mh_white_critical_effect() {
+    shaman_spells->get_flurry()->apply_buff();
+
+    enabled_procs->run_proc_check(ProcInfo::Source::MainhandSwing);
+}
+
+void Shaman::melee_mh_yellow_critical_effect() {
+    shaman_spells->get_flurry()->apply_buff();
+
+    enabled_procs->run_proc_check(ProcInfo::Source::MainhandSpell);
 }
 
 void Shaman::initialize_talents() {

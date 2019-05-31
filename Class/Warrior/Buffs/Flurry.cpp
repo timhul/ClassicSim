@@ -1,6 +1,6 @@
 #include "Flurry.h"
 
-#include "Warrior.h"
+#include "Character.h"
 
 Flurry::Flurry(Character* pchar):
     Buff(pchar, "Flurry", "Assets/ability/Ability_ghoulfrenzy.png", 15, 3),

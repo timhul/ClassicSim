@@ -1,5 +1,6 @@
 #include "ShamanSpells.h"
 
+#include "Flurry.h"
 #include "LightningBolt.h"
 #include "MainhandAttack.h"
 #include "Shaman.h"
@@ -34,4 +35,14 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
                         new WindfuryWeapon(shaman, 3),
                         new WindfuryWeapon(shaman, 4),
                     });
+
+    this->flurry = new Flurry(pchar);
+}
+
+ShamanSpells::~ShamanSpells() {
+    delete flurry;
+}
+
+Buff* ShamanSpells::get_flurry() const {
+    return this->flurry;
 }
