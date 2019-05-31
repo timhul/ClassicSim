@@ -10,8 +10,7 @@ void TestMechanics::test_all() {
     test_dodge_from_wpn_skill_diff();
     test_dw_white_miss();
     test_glancing_blow_rate();
-    test_glancing_dmg_penalty_linear();
-    test_glancing_dmg_penalty_exponential();
+    test_glancing_dmg_penalty();
     test_physical_crit_suppression_from_target_level();
 
     test_full_resistance_chance();
@@ -74,32 +73,23 @@ void TestMechanics::test_glancing_blow_rate() {
     delete target;
 }
 
-void TestMechanics::test_glancing_dmg_penalty_linear() {
+void TestMechanics::test_glancing_dmg_penalty() {
     auto* target = new Target(63);
     auto* mechanics = new Mechanics(target);
 
-    assert(almost_equal(0.7, mechanics->get_linear_glancing_blow_dmg_penalty(5)));
+    assert(almost_equal(0.55, mechanics->get_glancing_blow_dmg_penalty_min(60, 5)));
+    assert(almost_equal(0.55, mechanics->get_glancing_blow_dmg_penalty_min(60, 300)));
+    assert(almost_equal(0.80, mechanics->get_glancing_blow_dmg_penalty_min(60, 305)));
+    assert(almost_equal(0.91, mechanics->get_glancing_blow_dmg_penalty_min(60, 310)));
+    assert(almost_equal(0.91, mechanics->get_glancing_blow_dmg_penalty_min(60, 315)));
+    assert(almost_equal(0.91, mechanics->get_glancing_blow_dmg_penalty_min(60, 10000)));
 
-    assert(almost_equal(0.7, mechanics->get_linear_glancing_blow_dmg_penalty(300)));
-    assert(almost_equal(0.85, mechanics->get_linear_glancing_blow_dmg_penalty(305)));
-    assert(almost_equal(1.0, mechanics->get_linear_glancing_blow_dmg_penalty(310)));
-    assert(almost_equal(1.0, mechanics->get_linear_glancing_blow_dmg_penalty(10000)));
-
-    delete mechanics;
-    delete target;
-}
-
-void TestMechanics::test_glancing_dmg_penalty_exponential() {
-    auto* target = new Target(63);
-    auto* mechanics = new Mechanics(target);
-
-    assert(almost_equal(0.65, mechanics->get_glancing_blow_dmg_penalty(5)));
-
-    assert(almost_equal(0.65, mechanics->get_glancing_blow_dmg_penalty(300)));
-    assert(almost_equal(0.85, mechanics->get_glancing_blow_dmg_penalty(305)));
-    assert(almost_equal(0.95, mechanics->get_glancing_blow_dmg_penalty(310)));
-    assert(almost_equal(1.0, mechanics->get_glancing_blow_dmg_penalty(315)));
-    assert(almost_equal(1.0, mechanics->get_glancing_blow_dmg_penalty(10000)));
+    assert(almost_equal(0.75, mechanics->get_glancing_blow_dmg_penalty_max(60, 5)));
+    assert(almost_equal(0.75, mechanics->get_glancing_blow_dmg_penalty_max(60, 300)));
+    assert(almost_equal(0.90, mechanics->get_glancing_blow_dmg_penalty_max(60, 305)));
+    assert(almost_equal(0.99, mechanics->get_glancing_blow_dmg_penalty_max(60, 310)));
+    assert(almost_equal(0.99, mechanics->get_glancing_blow_dmg_penalty_max(60, 315)));
+    assert(almost_equal(0.99, mechanics->get_glancing_blow_dmg_penalty_max(60, 10000)));
 
     delete mechanics;
     delete target;

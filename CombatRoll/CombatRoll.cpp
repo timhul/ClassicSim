@@ -17,11 +17,13 @@ CombatRoll::CombatRoll(Character *pchar):
     pchar(pchar),
     target(pchar->get_target()),
     random(new Random(0, 9999)),
+    glance_roll(new Random(0, 9999)),
     mechanics(new Mechanics(target)) {
 }
 
 CombatRoll::~CombatRoll() {
     delete random;
+    delete glance_roll;
 
     drop_tables();
 
@@ -226,7 +228,15 @@ double CombatRoll::get_yellow_miss_chance(const int wpn_skill) {
 }
 
 double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
-    return mechanics->get_glancing_blow_dmg_penalty(wpn_skill);
+    const double min = mechanics->get_glancing_blow_dmg_penalty_min(pchar->get_clvl(), wpn_skill);
+    const double max = mechanics->get_glancing_blow_dmg_penalty_max(pchar->get_clvl(), wpn_skill);
+
+    const unsigned min_range = static_cast<unsigned>(round(min * 10000));
+    const unsigned max_range = static_cast<unsigned>(round(max * 10000));
+
+    glance_roll->set_new_range(min_range, max_range);
+
+    return static_cast<double>(glance_roll->get_roll()) / 10000;
 }
 
 void CombatRoll::update_melee_miss_chance() {

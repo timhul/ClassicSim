@@ -20,8 +20,8 @@ public:
     double get_parry_chance(const int wpn_skill) const;
     double get_block_chance() const;
 
-    double get_glancing_blow_dmg_penalty(const int wpn_skill) const;
-    double get_linear_glancing_blow_dmg_penalty(const int wpn_skill) const;
+    double get_glancing_blow_dmg_penalty_min(const int clvl, const int wpn_skill) const;
+    double get_glancing_blow_dmg_penalty_max(const int clvl, const int wpn_skill) const;
 
     double get_melee_crit_suppression(const unsigned clvl) const;
 

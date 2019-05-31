@@ -33,6 +33,7 @@
 #include "Test/Target/TestTarget.h"
 #include "TestAttackTables.h"
 #include "TestCharacterStats.h"
+#include "TestCombatRoll.h"
 #include "TestConditionVariableBuiltin.h"
 #include "TestFelstrikerProc.h"
 #include "TestHunter.h"
@@ -70,6 +71,7 @@ void Test::test_all() {
     test_queue();
 
     TestMechanics().test_all();
+    TestCombatRoll(equipment_db).test_all();
     TestTarget().test_all();
     TestAttackTables(equipment_db).test_all();
     TestCharacterStats(equipment_db).test_all();

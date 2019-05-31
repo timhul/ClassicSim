@@ -46,7 +46,7 @@ public:
 
     double get_white_miss_chance(const int);
     double get_yellow_miss_chance(const int wpn_skill);
-    double get_glancing_blow_dmg_penalty(const int);
+    double get_glancing_blow_dmg_penalty(const int wpn_skill);
 
     void update_melee_miss_chance();
     void update_ranged_miss_chance();
@@ -60,6 +60,7 @@ private:
     Character* pchar;
     Target* target;
     Random* random;
+    Random* glance_roll;
     Mechanics* mechanics;
 
     QMap<int, MeleeWhiteHitTable*> melee_white_tables;

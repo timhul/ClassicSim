@@ -137,8 +137,8 @@ void TestMainhandAttackPaladin::test_glancing_damage_300_wpn_skill() {
     when_mh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
-    // [186] = (100 + (2.6 * 1000 / 14)) * 0.65
-    then_damage_dealt_is(186);
+    // [157 - 214] = (100 + (2.6 * 1000 / 14)) * [0.55 - 0.75]
+    then_damage_dealt_is_in_range(157, 214);
 }
 
 void TestMainhandAttackPaladin::test_glancing_damage_305_wpn_skill() {
@@ -152,8 +152,8 @@ void TestMainhandAttackPaladin::test_glancing_damage_305_wpn_skill() {
     when_mh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
-    // [243] = (100 + (2.6 * 1000 / 14)) * 0.85
-    then_damage_dealt_is(243);
+    // [229 - 257] = (100 + (2.6 * 1000 / 14)) * [0.8 - 0.9]
+    then_damage_dealt_is_in_range(229, 257);
 }
 
 void TestMainhandAttackPaladin::test_glancing_damage_310_wpn_skill() {
@@ -167,8 +167,8 @@ void TestMainhandAttackPaladin::test_glancing_damage_310_wpn_skill() {
     when_mh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
-    // [271] = (100 + (2.6 * 1000 / 14)) * 0.9
-    then_damage_dealt_is(271);
+    // [260 - 283] = (100 + (2.6 * 1000 / 14)) * [0.91 - 0.99]
+    then_damage_dealt_is_in_range(260, 283);
 }
 
 void TestMainhandAttackPaladin::test_glancing_damage_315_wpn_skill() {
@@ -182,8 +182,8 @@ void TestMainhandAttackPaladin::test_glancing_damage_315_wpn_skill() {
     when_mh_attack_is_performed();
 
     // [Damage] = (base_dmg + (wpn_speed * AP / 14)) * glancing_dmg_modifier
-    // [143] = (100 + (2.6 * 1000 / 14)) * 1.0
-    then_damage_dealt_is(286);
+    // [260 - 283] = (100 + (2.6 * 1000 / 14)) * [0.91 - 0.99]
+    then_damage_dealt_is_in_range(260, 283);
 }
 
 void TestMainhandAttackPaladin::test_mid_swing_haste_increase_updates_attack_speed() {
