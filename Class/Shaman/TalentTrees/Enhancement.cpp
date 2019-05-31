@@ -15,7 +15,7 @@ Enhancement::Enhancement(Shaman* shaman) :
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent(shaman, this, "Guardian Totems", "2LL", "Assets/spell/Spell_nature_stoneskintotem.png", 2, "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by %1% and reduces the cooldown of your Grounding Totem by %2 sec.", QVector<QPair<unsigned, unsigned>>{{10, 10}, {1, 1}})},
-                                  {"2ML", new Talent(shaman, this, "Thundering Strikes", "2ML", "Assets/ability/Ability_thunderbolt.png", 5, "Improves your chance to get a critical strike with your weapon attacks by %1%.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
+                                  {"2ML", get_thundering_strikes()},
                                   {"2MR", new Talent(shaman, this, "Improved Ghost Wolf", "2MR", "Assets/spell/Spell_nature_spiritwolf.png", 2, "Reduces cast time of your Ghost Wolf spell by %1 sec.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
                                   {"2RR", new Talent(shaman, this, "Improved Lightning Shield", "2RR", "Assets/spell/Spell_nature_lightningshield.png", 3, "Increases the damage done by your Lightning Shield orbs by %1%.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
     add_talents(tier2);
@@ -47,16 +47,11 @@ Enhancement::Enhancement(Shaman* shaman) :
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Talent* Enhancement::get_stormstrike() {
-    QMap<unsigned, QString> rank_descriptions;
-    QString base_str = "Gives you an extra attack. In addition, the next 2 sources of Nature damage dealt to the target are increased by 20%. Lasts 12 sec.";
-    rank_descriptions.insert(0, base_str);
-    rank_descriptions.insert(1, base_str);
-    Talent* talent = new Talent(shaman, this, "Stormstrike", "7ML",
-                                "Assets/spell/Spell_holy_sealofmight.png", 1, rank_descriptions,
-                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Stormstrike")});
-
-    return talent;
+Talent* Enhancement::get_thundering_strikes() {
+    return new TalentStatIncrease(shaman, this, "Thundering Strikes", "2ML", "Assets/ability/Ability_thunderbolt.png", 5,
+                                  "Improves your chance to get a critical strike with your weapon attacks by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::MeleeCrit, 100}});
 }
 
 Talent* Enhancement::get_elemental_weapons() {
@@ -67,6 +62,18 @@ Talent* Enhancement::get_elemental_weapons() {
     Talent* talent = new Talent(shaman, this, "Elemental Weapons", "5ML", "Assets/spell/Spell_fire_flametounge.png", 3,
                                 rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Windfury Weapon")});
+
+    return talent;
+}
+
+Talent* Enhancement::get_stormstrike() {
+    QMap<unsigned, QString> rank_descriptions;
+    QString base_str = "Gives you an extra attack. In addition, the next 2 sources of Nature damage dealt to the target are increased by 20%. Lasts 12 sec.";
+    rank_descriptions.insert(0, base_str);
+    rank_descriptions.insert(1, base_str);
+    Talent* talent = new Talent(shaman, this, "Stormstrike", "7ML",
+                                "Assets/spell/Spell_holy_sealofmight.png", 1, rank_descriptions,
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Stormstrike")});
 
     return talent;
 }
