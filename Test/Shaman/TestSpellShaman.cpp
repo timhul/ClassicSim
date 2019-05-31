@@ -8,6 +8,7 @@
 #include "Enhancement.h"
 #include "Equipment.h"
 #include "Item.h"
+#include "LightningBolt.h"
 #include "MainhandAttack.h"
 #include "Shaman.h"
 #include "ShamanSpells.h"
@@ -41,6 +42,10 @@ MainhandAttack* TestSpellShaman::mh_attack() const {
 
 Stormstrike* TestSpellShaman::stormstrike() const {
     return dynamic_cast<Stormstrike*>(get_max_rank_spell_by_name("Stormstrike"));
+}
+
+LightningBolt* TestSpellShaman::lightning_bolt() const {
+    return dynamic_cast<LightningBolt*>(get_max_rank_spell_by_name("Lightning Bolt"));
 }
 
 void TestSpellShaman::run_class_specific_tests() {

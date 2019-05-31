@@ -50,6 +50,7 @@ public:
     void given_a_guaranteed_ranged_white_miss();
     void given_a_guaranteed_ranged_white_block();
     void given_a_guaranteed_magic_hit(const MagicSchool school);
+    void given_a_guaranteed_magic_crit(const MagicSchool school);
     void given_300_weapon_skill_mh();
     void given_305_weapon_skill_mh();
     void given_310_weapon_skill_mh();
@@ -74,6 +75,7 @@ public:
     void given_a_ranged_weapon_with_2_speed();
     void given_1000_melee_ap();
     void given_1000_ranged_ap();
+    void given_1000_spell_power();
     void given_target_has_0_armor();
     void given_engine_priority_at(const double priority);
     void given_engine_priority_pushed_forward(const double priority);

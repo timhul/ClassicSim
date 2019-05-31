@@ -6,6 +6,7 @@
 #include "Shaman.h"
 #include "TestElemental.h"
 #include "TestEnhancement.h"
+#include "TestLightningBolt.h"
 #include "TestRestorationShaman.h"
 #include "TestStormstrike.h"
 
@@ -21,6 +22,7 @@ void TestShaman::test_all() {
     TestRestorationShaman(equipment_db).test_all();
 
     TestStormstrike(equipment_db).test_all();
+    TestLightningBolt(equipment_db).test_all();
 }
 
 void TestShaman::test_values_after_initialization() {

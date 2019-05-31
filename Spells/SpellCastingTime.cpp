@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "Engine.h"
+#include "Utils/CompareDouble.h"
 
 SpellCastingTime::SpellCastingTime(const QString& name,
                                    const QString &icon,
@@ -12,9 +13,9 @@ SpellCastingTime::SpellCastingTime(const QString& name,
                                    bool restricted_by_gcd,
                                    const ResourceType resource_type,
                                    unsigned resource_cost,
-                                   unsigned casting_time) :
-    Spell(name, icon, pchar, cooldown_control, restricted_by_gcd, resource_type, resource_cost),
-    casting_time_ms(casting_time),
+                                   int spell_rank) :
+    Spell(name, icon, pchar, cooldown_control, restricted_by_gcd, resource_type, resource_cost, spell_rank),
+    casting_time_ms(std::numeric_limits<unsigned>::max()),
     cast_id(std::numeric_limits<unsigned>::max())
 {}
 
@@ -35,4 +36,15 @@ double SpellCastingTime::get_cast_time() const {
 
 void SpellCastingTime::reset_effect() {
     cast_id = std::numeric_limits<unsigned>::max();
+}
+
+double SpellCastingTime::spell_coefficient_from_casting_time() const {
+    if (casting_time_ms < 1500)
+        return 1500 / 3500;
+
+    const double base_coefficient = static_cast<double>(casting_time_ms) / 3500;
+    if (level_req >= 20)
+        return base_coefficient;
+
+    return std::max(0.0, base_coefficient - (20 - level_req) * 0.0375);
 }

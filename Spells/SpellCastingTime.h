@@ -12,20 +12,23 @@ public:
                      bool restricted_by_gcd,
                      const ResourceType resource_type,
                      unsigned resource_cost,
-                     unsigned casting_time_ms);
+                     int spell_rank = 1);
 
     double get_cast_time() const;
 
     void complete_cast();
 
 protected:
-    unsigned casting_time_ms;
-    unsigned cast_id;
+    unsigned casting_time_ms {std::numeric_limits<unsigned>::max()};
+    unsigned cast_id {std::numeric_limits<unsigned>::max()};
+    unsigned level_req {60};
 
     void start_cast();
 
     virtual void reset_effect();
     virtual void complete_cast_effect() = 0;
+
+    double spell_coefficient_from_casting_time() const;
 };
 
 #endif // SPELLCASTINGTIME_H

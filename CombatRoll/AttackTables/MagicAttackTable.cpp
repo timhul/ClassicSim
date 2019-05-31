@@ -17,7 +17,7 @@ MagicAttackTable::MagicAttackTable(Mechanics* mechanics, Random* random, const i
     update_target_resistance(target_res);
 }
 
-int MagicAttackTable::get_hit_outcome(const unsigned roll, const double crit_chance) const
+int MagicAttackTable::get_hit_outcome(const unsigned roll, const unsigned crit_chance) const
 {
     if (roll < miss_range)
         return MagicAttackResult::MISS;

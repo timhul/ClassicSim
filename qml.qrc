@@ -688,5 +688,6 @@
         <file>QML/Assets/misc/Inv_misc_dust_02.png</file>
         <file>QML/Assets/misc/Inv_misc_orb_02.png</file>
         <file>QML/Assets/items/Inv_potion_25.png</file>
+        <file>QML/Assets/spell/Spell_nature_lightning.png</file>
     </qresource>
 </RCC>

@@ -137,11 +137,24 @@ void TestSpell::given_a_guaranteed_magic_hit(const MagicSchool school) {
     table->partial_25 = 0;
     table->partial_50 = 0;
     table->partial_75 = 0;
+    table->full_resist = 0;
 
-    assert(table->get_hit_outcome(0, 0.0) == MagicAttackResult::HIT);
-    assert(table->get_hit_outcome(0, 1.0) == MagicAttackResult::HIT);
-    assert(table->get_hit_outcome(9999, 0.0) == MagicAttackResult::HIT);
-    assert(table->get_hit_outcome(9999, 1.0) == MagicAttackResult::HIT);
+    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance());
+
+    assert(table->get_resist_outcome(0) == MagicResistResult::NO_RESIST);
+    assert(table->get_resist_outcome(9999) == MagicResistResult::NO_RESIST);
+}
+
+void TestSpell::given_a_guaranteed_magic_crit(const MagicSchool school) {
+    MagicAttackTable* table = pchar->get_combat_roll()->get_magic_attack_table(school);
+    table->miss_range = 0;
+    table->partial_25 = 0;
+    table->partial_50 = 0;
+    table->partial_75 = 0;
+    table->full_resist = 0;
+
+    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance());
+    pchar->get_stats()->increase_spell_crit(10000);
 
     assert(table->get_resist_outcome(0) == MagicResistResult::NO_RESIST);
     assert(table->get_resist_outcome(9999) == MagicResistResult::NO_RESIST);
@@ -769,6 +782,16 @@ void TestSpell::given_1000_melee_ap() {
 void TestSpell::given_1000_ranged_ap() {
     pchar->get_stats()->increase_ranged_ap(1000 - pchar->get_stats()->get_ranged_ap());
     assert(pchar->get_stats()->get_ranged_ap() == 1000);
+}
+
+void TestSpell::given_1000_spell_power() {
+    pchar->get_stats()->increase_base_spell_damage(1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Arcane) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Frost) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Holy) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Nature) == 1000);
+    assert(pchar->get_stats()->get_spell_damage(MagicSchool::Shadow) == 1000);
 }
 
 void TestSpell::given_target_has_0_armor() {

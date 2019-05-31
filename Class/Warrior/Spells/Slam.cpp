@@ -16,13 +16,13 @@ Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
     SpellCastingTime("Slam", "Assets/ability/Ability_warrior_decisivestrike.png",
                      pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes,
                      ResourceType::Rage,
-                     15,
-                     1500),
+                     15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells)
 {
     talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
+    casting_time_ms = talent_ranks[0];
 }
 
 Slam::~Slam() {

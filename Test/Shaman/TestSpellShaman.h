@@ -2,6 +2,7 @@
 
 #include "TestSpellDamage.h"
 
+class LightningBolt;
 class MainhandAttack;
 class Shaman;
 class Spell;
@@ -19,6 +20,7 @@ protected:
 
     MainhandAttack* mh_attack() const;
     Stormstrike* stormstrike() const;
+    LightningBolt* lightning_bolt() const;
 
     void run_class_specific_tests() override;
 

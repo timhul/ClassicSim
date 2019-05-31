@@ -34,6 +34,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/NightDragonsBreath.cpp \
     Class/Shaman/Buffs/StormstrikeBuff.cpp \
     Class/Shaman/ShamanEnchants.cpp \
+    Class/Shaman/Spells/LightningBolt.cpp \
     Class/Shaman/Spells/Stormstrike.cpp \
     Class/Shaman/TalentTrees/Elemental.cpp \
     Class/Shaman/TalentTrees/Enhancement.cpp \
@@ -74,6 +75,7 @@ SOURCES += main.cpp \
     Test/Paladin/Spells/TestSealOfTheCrusader.cpp \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.cpp \
     Test/Paladin/TestSpellPaladin.cpp \
+    Test/Shaman/Spells/TestLightningBolt.cpp \
     Test/Shaman/Spells/TestStormstrike.cpp \
     Test/Shaman/Talents/TestElemental.cpp \
     Test/Shaman/Talents/TestEnhancement.cpp \
@@ -421,6 +423,7 @@ HEADERS += \
     Class/Common/Spells/NightDragonsBreath.h \
     Class/Shaman/Buffs/StormstrikeBuff.h \
     Class/Shaman/ShamanEnchants.h \
+    Class/Shaman/Spells/LightningBolt.h \
     Class/Shaman/Spells/Stormstrike.h \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
@@ -462,6 +465,7 @@ HEADERS += \
     Test/Paladin/Spells/TestSealOfTheCrusader.h \
     Test/Paladin/Talents/TestPaladinTalentStatIncrease.h \
     Test/Paladin/TestSpellPaladin.h \
+    Test/Shaman/Spells/TestLightningBolt.h \
     Test/Shaman/Spells/TestStormstrike.h \
     Test/Shaman/Talents/TestElemental.h \
     Test/Shaman/Talents/TestEnhancement.h \
