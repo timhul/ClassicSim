@@ -352,3 +352,22 @@ Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const 
     return new Talent(pchar, this, name, location, icon, max_points, rank_descriptions,
                       affected_spells, affected_buffs, affected_procs);
 }
+
+Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const QString& location,
+                                   const QString& icon, const unsigned max_points, const QString& rank_str,
+                                   const QVector<QPair<double, double>>& format_values,
+                                   const QVector<SpellRankGroup*>& affected_spells,
+                                   const QVector<Buff*>& affected_buffs,
+                                   const QVector<Proc*>& affected_procs
+                                   )
+{
+    QMap<unsigned, QString> rank_descriptions;
+    if (max_points > 1)
+        Talent::initialize_rank_descriptions(rank_descriptions, rank_str, max_points, format_values);
+    else {
+        rank_descriptions.insert(0, rank_str);
+        rank_descriptions.insert(1, rank_str);
+    }
+    return new Talent(pchar, this, name, location, icon, max_points, rank_descriptions,
+                      affected_spells, affected_buffs, affected_procs);
+}

@@ -10,8 +10,8 @@ Elemental::Elemental(Shaman* shaman) :
     shaman(shaman),
     spells(dynamic_cast<ShamanSpells*>(shaman->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1ML", new Talent(shaman, this, "Convection", "1ML", "Assets/spell/Spell_nature_wispsplode.png", 5, "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
-                                  {"1MR", new Talent(shaman, this, "Concussion", "1MR", "Assets/spell/Spell_fire_fireball.png", 5, "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by %1%.", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
+    QMap<QString, Talent*> tier1 {{"1ML", get_convection()},
+                                  {"1MR", get_concussion()}};
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent(shaman, this, "Earth's Grasp", "2LL", "Assets/spell/Spell_nature_stoneclawtotem.png", 2, "Increases the health of your Stoneclaw Totem by %1% and the radius of your Earthbind Totem by %2%.", QVector<QPair<unsigned, unsigned>>{{25, 25}, {10, 10}})},
@@ -33,7 +33,7 @@ Elemental::Elemental(Shaman* shaman) :
                                   {"5ML", new Talent(shaman, this, "Elemental Fury", "5ML", "Assets/spell/Spell_fire_volcano.png", 1, "Increases the critical strike damage bonus of your Searing, Magma, and Fire Nova Totems and your Fire, Frost, and Nature spells by 100%.", QVector<QPair<unsigned, unsigned>>{})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(shaman, this, "Lightning Mastery", "6MR", "Assets/spell/Spell_lightning_lightningbolt01.png", 5, "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by %1 sec.", QVector<QPair<double, double>>{{0.2, 0.2}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", get_lightning_mastery()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(shaman, this, "Elemental Mastery", "7ML", "Assets/spell/Spell_nature_wispheal.png", 1, "When activated, this spell gives your next Fire, Frost, or Nature damage spell a 100% critical strike chance and reduces the mana cost by 100%.", QVector<QPair<unsigned, unsigned>>())}};
@@ -46,6 +46,20 @@ Elemental::Elemental(Shaman* shaman) :
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
+Talent* Elemental::get_convection() {
+    return get_new_talent(shaman, "Convection", "1ML", "Assets/spell/Spell_nature_wispsplode.png", 5,
+                          "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by %1%.",
+                          QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Lightning Bolt")});
+}
+
+Talent* Elemental::get_concussion() {
+    return get_new_talent(shaman, "Concussion", "1MR", "Assets/spell/Spell_fire_fireball.png", 5,
+                          "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by %1%.",
+                          QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Lightning Bolt")});
+}
+
 Talent* Elemental::get_call_of_thunder() {
     QString base_str = "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by an additional %1%.";
     QMap<unsigned, QString> rank_descriptions {{0, base_str.arg(1)}, {1, base_str.arg(1)},
@@ -54,7 +68,8 @@ Talent* Elemental::get_call_of_thunder() {
                                                {4, base_str.arg(4)},
                                                {5, base_str.arg(6)}};
     Talent* talent = new Talent(shaman, this, "Call of Thunder", "3MR", "Assets/spell/Spell_nature_callstorm.png", 5,
-                                rank_descriptions);
+                                rank_descriptions,
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Lightning Bolt")});
 
     return talent;
 }
@@ -68,4 +83,11 @@ Talent* Elemental::get_eye_of_storm() {
                                 rank_descriptions);
 
     return talent;
+}
+
+Talent* Elemental::get_lightning_mastery() {
+    return get_new_talent(shaman, "Lightning Mastery", "6MR", "Assets/spell/Spell_lightning_lightningbolt01.png", 5,
+                          "Reduces the cast time of your Lightning Bolt and Chain Lightning spells by %1 sec.",
+                          QVector<QPair<double, double>>{{0.2, 0.2}},
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Lightning Bolt")});
 }

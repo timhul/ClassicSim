@@ -10,6 +10,9 @@ public:
     RestorationShaman(Shaman* shaman);
     ~RestorationShaman() override = default;
 
+    Talent* get_natures_guidance();
+    Talent* get_tidal_mastery();
+
 private:
     Shaman* shaman;
     ShamanSpells* spells;

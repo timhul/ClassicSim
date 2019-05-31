@@ -112,6 +112,14 @@ protected:
                            const QVector<Proc*>& affected_procs = {}
                            );
 
+    Talent* get_new_talent(Character* pchar, const QString& name, const QString& location, const QString& icon,
+                           const unsigned max_points, const QString& rank_str,
+                           const QVector<QPair<double, double>>& format_values,
+                           const QVector<SpellRankGroup*> &affected_spells = {},
+                           const QVector<Buff*>& affected_buffs = {},
+                           const QVector<Proc*>& affected_procs = {}
+                           );
+
 private:
 };
 

@@ -126,9 +126,9 @@ void TalentStatIncrease::apply_rank_effect() {
             }
             continue;
         }
-        case Defense:
-        case Parry:
-        case ArmorModFromItems:
+        case SpellHit:
+            pchar->get_stats()->increase_spell_hit(change);
+            break;
         case ArcaneHit:
         case FireHit:
         case FrostHit:
@@ -136,6 +136,9 @@ void TalentStatIncrease::apply_rank_effect() {
         case NatureHit:
         case ShadowHit:
         case FireCrit:
+        case Defense:
+        case Parry:
+        case ArmorModFromItems:
         case ShadowDmgMod:
         case TargetResistanceReduction:
         case MaxManaMod:
@@ -256,6 +259,9 @@ void TalentStatIncrease::remove_rank_effect() {
 
             continue;
         }
+        case SpellHit:
+            pchar->get_stats()->decrease_spell_hit(change);
+            break;
         case Defense:
         case Parry:
         case ArmorModFromItems:

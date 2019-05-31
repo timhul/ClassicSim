@@ -30,6 +30,7 @@ enum TalentStat {
     Defense,
     Parry,
     ArmorModFromItems,
+    SpellHit,
     ArcaneHit,
     FireHit,
     FrostHit,

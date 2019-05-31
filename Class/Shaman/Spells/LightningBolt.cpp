@@ -12,76 +12,83 @@
 #include "Utils/Check.h"
 
 LightningBolt::LightningBolt(Shaman* pchar, const int spell_rank) :
-    SpellCastingTime("Lightning Bolt", "Assets/spell/Spell_nature_lightning.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank)
+    SpellCastingTime("Lightning Bolt", "Assets/spell/Spell_nature_lightning.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    TalentRequirer(QVector<TalentRequirerInfo*>{
+                   new TalentRequirerInfo("Tidal Mastery", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Call of Thunder", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Concussion", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Convection", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Lightning Mastery", 5, DisabledAtZero::No),
+                   })
 {
     switch (spell_rank) {
     case 1:
         base_damage_min = 13;
         base_damage_max = 15;
-        resource_cost = 15;
+        base_resource_cost = 15;
         casting_time_ms = 1500;
         level_req = 1;
         break;
     case 2:
         base_damage_min = 26;
         base_damage_max = 30;
-        resource_cost = 30;
+        base_resource_cost = 30;
         casting_time_ms = 2000;
         level_req = 8;
         break;
     case 3:
         base_damage_min = 45;
         base_damage_max = 53;
-        resource_cost = 45;
+        base_resource_cost = 45;
         casting_time_ms = 2500;
         level_req = 14;
         break;
     case 4:
         base_damage_min = 85;
         base_damage_max = 95;
-        resource_cost = 75;
+        base_resource_cost = 75;
         casting_time_ms = 3000;
         level_req = 20;
         break;
     case 5:
         base_damage_min = 125;
         base_damage_max = 143;
-        resource_cost = 105;
+        base_resource_cost = 105;
         casting_time_ms = 3000;
         level_req = 26;
         break;
     case 6:
         base_damage_min = 172;
         base_damage_max = 194;
-        resource_cost = 135;
+        base_resource_cost = 135;
         casting_time_ms = 3000;
         level_req = 32;
         break;
     case 7:
         base_damage_min = 227;
         base_damage_max = 255;
-        resource_cost = 165;
+        base_resource_cost = 165;
         casting_time_ms = 3000;
         level_req = 38;
         break;
     case 8:
         base_damage_min = 282;
         base_damage_max = 316;
-        resource_cost = 195;
+        base_resource_cost = 195;
         casting_time_ms = 3000;
         level_req = 44;
         break;
     case 9:
         base_damage_min = 347;
         base_damage_max = 389;
-        resource_cost = 230;
+        base_resource_cost = 230;
         casting_time_ms = 3000;
         level_req = 50;
         break;
     case 10:
         base_damage_min = 419;
         base_damage_max = 467;
-        resource_cost = 265;
+        base_resource_cost = 265;
         casting_time_ms = 3000;
         level_req = 56;
         break;
@@ -91,6 +98,7 @@ LightningBolt::LightningBolt(Shaman* pchar, const int spell_rank) :
 
     this->random = new Random(base_damage_min, base_damage_max);
     this->spell_dmg_coefficient = spell_coefficient_from_casting_time();
+    this->resource_cost = base_resource_cost;
 }
 
 LightningBolt::~LightningBolt() {
@@ -115,7 +123,7 @@ void LightningBolt::complete_cast_effect() {
     pchar->lose_mana(resource_cost);
     pchar->get_spells()->start_attack();
 
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance());
+    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance() + tidal_mastery_mod + call_of_thunder_mod);
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Nature);
 
     if (hit_roll == MagicAttackResult::MISS)
@@ -130,10 +138,36 @@ void LightningBolt::complete_cast_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * concussion_mod)), resource_cost, 0);
     }
     else {
         pchar->spell_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod)), resource_cost, 0);
+        add_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod * concussion_mod)), resource_cost, 0);
     }
+}
+
+void LightningBolt::increase_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Tidal Mastery")
+        tidal_mastery_mod = tidal_mastery_ranks[curr];
+    if (talent_name == "Call of Thunder")
+        call_of_thunder_mod = call_of_thunder_ranks[curr];
+    if (talent_name == "Concussion")
+        concussion_mod = concussion_ranks[curr];
+    if (talent_name == "Convection")
+        resource_cost = static_cast<unsigned>(round(base_resource_cost * convection_ranks[curr]));
+    if (talent_name == "Lightning Mastery")
+        casting_time_ms -= lightning_mastery_mod;
+}
+
+void LightningBolt::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
+    if (talent_name == "Tidal Mastery")
+        tidal_mastery_mod = tidal_mastery_ranks[curr];
+    if (talent_name == "Call of Thunder")
+        call_of_thunder_mod = call_of_thunder_ranks[curr];
+    if (talent_name == "Concussion")
+        concussion_mod = concussion_ranks[curr];
+    if (talent_name == "Convection")
+        resource_cost = static_cast<unsigned>(round(base_resource_cost * convection_ranks[curr]));
+    if (talent_name == "Lightning Mastery")
+        casting_time_ms += lightning_mastery_mod;
 }
