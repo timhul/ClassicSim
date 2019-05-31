@@ -4,6 +4,7 @@
 #include "MainhandAttack.h"
 #include "Shaman.h"
 #include "Stormstrike.h"
+#include "WindfuryWeapon.h"
 
 ShamanSpells::ShamanSpells(Shaman* shaman) :
     CharacterSpells(shaman),
@@ -25,5 +26,12 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
                         new LightningBolt(shaman, 8),
                         new LightningBolt(shaman, 9),
                         new LightningBolt(shaman, 10),
+                    });
+
+    add_spell_group({
+                        new WindfuryWeapon(shaman, 1),
+                        new WindfuryWeapon(shaman, 2),
+                        new WindfuryWeapon(shaman, 3),
+                        new WindfuryWeapon(shaman, 4),
                     });
 }

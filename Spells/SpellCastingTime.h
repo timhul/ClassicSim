@@ -21,7 +21,6 @@ public:
 protected:
     unsigned casting_time_ms {std::numeric_limits<unsigned>::max()};
     unsigned cast_id {std::numeric_limits<unsigned>::max()};
-    unsigned level_req {60};
 
     void start_cast();
 

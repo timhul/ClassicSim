@@ -4,10 +4,18 @@
 	A rotation using Stormstrike.
 	</description>
 
+	<precombat_actions>
+		<spell name="Windfury Weapon"/>
+	</precombat_actions>
+
 	<cast_if name="Stormstrike"/>
 
 	<cast_if name="Lightning Bolt" rank="1">
 		variable "time_since_swing" less 0.3
+	</cast_if>
+
+	<cast_if name="Windfury Weapon">
+		buff "Windfury Weapon" less 1
 	</cast_if>
 
 	<cast_if name="Manual Crowd Pummeler"/>

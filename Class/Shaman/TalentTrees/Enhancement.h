@@ -11,10 +11,9 @@ public:
     ~Enhancement() override = default;
 
     Talent* get_stormstrike();
+    Talent* get_elemental_weapons();
 
 private:
     Shaman* shaman;
     ShamanSpells* spells;
-
-    Talent* get_elemental_weapons();
 };

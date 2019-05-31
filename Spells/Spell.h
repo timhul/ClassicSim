@@ -107,6 +107,7 @@ protected:
     const ResourceType resource_type;
     unsigned resource_cost;
     const int spell_rank;
+    unsigned level_req {60};
     int instance_id;
     bool enabled;
 

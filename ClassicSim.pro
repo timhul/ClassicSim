@@ -33,9 +33,11 @@ SOURCES += main.cpp \
     Class/Common/Spells/FireballInstant.cpp \
     Class/Common/Spells/NightDragonsBreath.cpp \
     Class/Shaman/Buffs/StormstrikeBuff.cpp \
+    Class/Shaman/Procs/WindfuryWeaponProc.cpp \
     Class/Shaman/ShamanEnchants.cpp \
     Class/Shaman/Spells/LightningBolt.cpp \
     Class/Shaman/Spells/Stormstrike.cpp \
+    Class/Shaman/Spells/WindfuryWeapon.cpp \
     Class/Shaman/TalentTrees/Elemental.cpp \
     Class/Shaman/TalentTrees/Enhancement.cpp \
     Class/Shaman/TalentTrees/RestorationShaman.cpp \
@@ -422,9 +424,11 @@ HEADERS += \
     Class/Common/Spells/FireballInstant.h \
     Class/Common/Spells/NightDragonsBreath.h \
     Class/Shaman/Buffs/StormstrikeBuff.h \
+    Class/Shaman/Procs/WindfuryWeaponProc.h \
     Class/Shaman/ShamanEnchants.h \
     Class/Shaman/Spells/LightningBolt.h \
     Class/Shaman/Spells/Stormstrike.h \
+    Class/Shaman/Spells/WindfuryWeapon.h \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
@@ -841,6 +845,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Warlock \
     $$PWD/Class/Shaman \
     $$PWD/Class/Shaman/Buffs \
+    $$PWD/Class/Shaman/Procs \
     $$PWD/Class/Shaman/Spells \
     $$PWD/Class/Shaman/TalentTrees \
     $$PWD/Class/Paladin \
@@ -879,6 +884,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Paladin/Spells \
     $$PWD/Test/Paladin/Talents \
     $$PWD/Test/Shaman \
+    $$PWD/Test/Shaman/Procs \
     $$PWD/Test/Shaman/Spells \
     $$PWD/Test/Shaman/Talents \
     $$PWD/Test/Rotation \

@@ -65,7 +65,8 @@ Talent* Enhancement::get_elemental_weapons() {
                                                {2, base_str.arg(14).arg(27).arg(10)},
                                                {3, base_str.arg(20).arg(40).arg(15)}};
     Talent* talent = new Talent(shaman, this, "Elemental Weapons", "5ML", "Assets/spell/Spell_fire_flametounge.png", 3,
-                                rank_descriptions);
+                                rank_descriptions,
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Windfury Weapon")});
 
     return talent;
 }
