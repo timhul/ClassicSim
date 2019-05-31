@@ -43,7 +43,7 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Melee hit/dodge/crit suppression updated to follow Blizzard's clarification.
 * Glancing blow damage penalty now rolls a penalty range and uses exponential formula instead of linear.
 * Ranged auto shots and abilities can no longer dodge.
-* Rudimentary Shaman support (Stormstrike rotation).
+* Rudimentary Shaman support (Stormstrike and Elemental rotations).
 * More buffs and temporary weapon enchants are available.
 
 ## Restrictions:
