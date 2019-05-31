@@ -12,6 +12,7 @@ public:
 
     Talent* get_thundering_strikes();
     Talent* get_elemental_weapons();
+    Talent* get_weapon_mastery();
     Talent* get_stormstrike();
 
 private:

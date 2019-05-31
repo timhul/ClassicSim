@@ -34,7 +34,7 @@ Enhancement::Enhancement(Shaman* shaman) :
                                   {"5MR", new Talent(shaman, this, "Parry", "5MR", "Assets/ability/Ability_parry.png", 1, "Gives a chance to parry enemy melee attacks.", QVector<QPair<unsigned, unsigned>>{})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(shaman, this, "Weapon Mastery", "6MR", "Assets/ability/Ability_hunter_swiftstrike.png", 5, "Increases the damage you deal with all weapons by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", get_weapon_mastery()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", get_stormstrike()}};
@@ -64,6 +64,13 @@ Talent* Enhancement::get_elemental_weapons() {
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Windfury Weapon")});
 
     return talent;
+}
+
+Talent* Enhancement::get_weapon_mastery() {
+    return new TalentStatIncrease(shaman, this, "Weapon Mastery", "6MR", "Assets/ability/Ability_hunter_swiftstrike.png", 5,
+                                  "Increases the damage you deal with all weapons by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::OneHandMeleeDmg, 2}, {TalentStat::TwoHandMeleeDmg, 2}});
 }
 
 Talent* Enhancement::get_stormstrike() {
