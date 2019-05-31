@@ -156,7 +156,6 @@ RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const int wpn_skill) {
                 this->random,
                 wpn_skill,
                 miss_chance,
-                mechanics->get_dodge_chance(pchar->get_clvl(), wpn_skill),
                 mechanics->get_block_chance());
 
     ranged_white_tables[wpn_skill] = table;

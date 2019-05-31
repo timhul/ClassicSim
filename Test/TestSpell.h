@@ -48,7 +48,6 @@ public:
     void given_a_guaranteed_ranged_white_hit();
     void given_a_guaranteed_ranged_white_crit();
     void given_a_guaranteed_ranged_white_miss();
-    void given_a_guaranteed_ranged_white_dodge();
     void given_a_guaranteed_ranged_white_block();
     void given_a_guaranteed_magic_hit(const MagicSchool school);
     void given_300_weapon_skill_mh();
@@ -155,7 +154,6 @@ protected:
     void set_ranged_auto_table_for_hit(const int wpn_skill);
     void set_ranged_auto_table_for_crit(const int wpn_skill);
     void set_ranged_auto_table_for_miss(const int wpn_skill);
-    void set_ranged_auto_table_for_dodge(const int wpn_skill);
     void set_ranged_auto_table_for_block(const int wpn_skill);
 
     void assert_melee_special_table_can_only_hit(const int wpn_skill);
@@ -176,7 +174,6 @@ protected:
     void assert_ranged_auto_table_can_only_hit(const int wpn_skill);
     void assert_ranged_auto_table_can_only_crit(const int wpn_skill);
     void assert_ranged_auto_table_can_only_miss(const int wpn_skill);
-    void assert_ranged_auto_table_can_only_dodge(const int wpn_skill);
     void assert_ranged_auto_table_can_only_block(const int wpn_skill);
 
 private:
