@@ -8,6 +8,7 @@
 #include "CooldownControl.h"
 #include "DemonicRune.h"
 #include "Engine.h"
+#include "Equipment.h"
 #include "MainhandAttack.h"
 #include "MainhandMeleeHit.h"
 #include "ManaPotion.h"
@@ -214,6 +215,9 @@ void CharacterSpells::start_attack() {
 }
 
 void CharacterSpells::start_melee_attack() {
+    if (!pchar->get_equipment()->get_mainhand())
+        return;
+
     add_next_mh_attack();
 
     if (pchar->is_dual_wielding()) {

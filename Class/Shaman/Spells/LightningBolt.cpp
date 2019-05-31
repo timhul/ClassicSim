@@ -113,6 +113,7 @@ void LightningBolt::spell_effect() {
 
 void LightningBolt::complete_cast_effect() {
     pchar->lose_mana(resource_cost);
+    pchar->get_spells()->start_attack();
 
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance());
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Nature);

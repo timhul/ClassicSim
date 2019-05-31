@@ -6,6 +6,10 @@
 
 	<cast_if name="Stormstrike"/>
 
+	<cast_if name="Lightning Bolt" rank="1">
+		variable "time_since_swing" less 0.3
+	</cast_if>
+
 	<cast_if name="Manual Crowd Pummeler"/>
 	<cast_if name="Kiss of the Spider"/>
 	<cast_if name="Jom Gabbar"/>
