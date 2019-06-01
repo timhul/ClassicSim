@@ -49,7 +49,9 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 
 ## Restrictions:
 
-* No Shaman talents are available (except Stormstrike).
+* No Shaman relics are available.
+* Shaman cannot maintain any totems.
+* Totem-related talents have no effect.
 
 # Q&A
 
