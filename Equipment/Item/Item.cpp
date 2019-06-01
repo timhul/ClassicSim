@@ -642,6 +642,11 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: +%1 Attack Power when fighting Undead.").arg(value));
         this->item_stat_values.insert(ItemStats::APVersusUndead, value.toUInt());
     }
+    else if (key == "WEAPON_DAMAGE") {
+        this->stats->increase_flat_weapon_damage(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: +%1 Weapon Damage.").arg(value));
+        this->item_stat_values.insert(ItemStats::FlatWeaponDamage, value.toUInt());
+    }
     else if (key == "AXE_SKILL") {
         this->stats->increase_axe_skill(value.toInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Axes +%1.").arg(value));

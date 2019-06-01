@@ -179,6 +179,18 @@ public:
     void increase_dodge(const double value);
     void decrease_dodge(const double value);
 
+    unsigned get_mh_flat_damage_bonus() const;
+    void increase_mh_flat_damage_bonus(const unsigned value);
+    void decrease_mh_flat_damage_bonus(const unsigned value);
+
+    unsigned get_oh_flat_damage_bonus() const;
+    void increase_oh_flat_damage_bonus(const unsigned value);
+    void decrease_oh_flat_damage_bonus(const unsigned value);
+
+    unsigned get_ranged_flat_damage_bonus() const;
+    void increase_ranged_flat_damage_bonus(const unsigned value);
+    void decrease_ranged_flat_damage_bonus(const unsigned value);
+
 private:
     Character* pchar;
     Equipment* equipment;
@@ -206,6 +218,10 @@ private:
     unsigned dagger_skill_bonus {0};
     unsigned mace_skill_bonus {0};
     unsigned sword_skill_bonus {0};
+
+    unsigned mh_flat_dmg_bonus {0};
+    unsigned oh_flat_dmg_bonus {0};
+    unsigned ranged_flat_dmg_bonus {0};
 
     unsigned mp5 {0};
 

@@ -70,6 +70,8 @@ void Stats::add(const Stats* rhs) {
     increase_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
     increase_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 
+    increase_flat_weapon_damage(rhs->get_flat_weapon_damage());
+
     increase_mp5(rhs->get_mp5());
     increase_base_spell_damage(rhs->get_base_spell_damage());
 }
@@ -111,6 +113,8 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_ap_against_type(Target::CreatureType::Humanoid, rhs->get_melee_ap_against_type(Target::CreatureType::Humanoid));
     decrease_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
     decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
+
+    decrease_flat_weapon_damage(rhs->get_flat_weapon_damage());
 
     decrease_mp5(rhs->get_mp5());
     decrease_base_spell_damage(rhs->get_base_spell_damage());
@@ -509,6 +513,19 @@ void Stats::decrease_ranged_ap_against_type(const Target::CreatureType type, con
 
 unsigned Stats::get_ranged_ap_against_type(const Target::CreatureType type) const {
     return ranged_ap_against_creature[type];
+}
+
+unsigned Stats::get_flat_weapon_damage() const {
+    return flat_weapon_damage;
+}
+
+void Stats::increase_flat_weapon_damage(const unsigned value) {
+    flat_weapon_damage += value;
+}
+
+void Stats::decrease_flat_weapon_damage(const unsigned value) {
+    check((value <= flat_weapon_damage), "Underflow decrease flat_weapon_damage");
+    flat_weapon_damage -= value;
 }
 
 unsigned Stats::get_mp5() const {

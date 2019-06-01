@@ -145,6 +145,10 @@ public:
     void decrease_ranged_ap_against_type(const Target::CreatureType, const unsigned);
     unsigned get_ranged_ap_against_type(const Target::CreatureType) const;
 
+    unsigned get_flat_weapon_damage() const;
+    void increase_flat_weapon_damage(const unsigned value);
+    void decrease_flat_weapon_damage(const unsigned value);
+
     unsigned get_mp5() const;
     void increase_mp5(const unsigned increase);
     void decrease_mp5(const unsigned decrease);
@@ -193,6 +197,7 @@ private:
     unsigned spell_hit {0};
     unsigned spell_crit {0};
     unsigned attack_speed {0};
+    unsigned flat_weapon_damage {0};
 
     unsigned mp5 {0};
     unsigned spell_damage {0};

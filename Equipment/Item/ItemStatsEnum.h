@@ -41,6 +41,7 @@ enum class ItemStats {
     APVersusHumanoid,
     APVersusMechanical,
     APVersusUndead,
+    FlatWeaponDamage,
     ManaPer5,
     SpellDamage,
     SpellCrit,

@@ -147,15 +147,6 @@ public:
     virtual void increase_base_mana(const unsigned value);
     virtual void decrease_base_mana(const unsigned value);
 
-    void increase_mh_flat_damage_bonus(const unsigned);
-    void decrease_mh_flat_damage_bonus(const unsigned);
-
-    void increase_oh_flat_damage_bonus(const unsigned);
-    void decrease_oh_flat_damage_bonus(const unsigned);
-
-    void increase_ranged_flat_damage_bonus(const unsigned);
-    void decrease_ranged_flat_damage_bonus(const unsigned);
-
 protected:
     QString class_name;
     Race* race;
@@ -180,9 +171,6 @@ protected:
     double next_gcd;
     double next_trinket_cd;
     Ruleset ruleset;
-    unsigned mh_flat_dmg_bonus;
-    unsigned oh_flat_dmg_bonus;
-    unsigned ranged_flat_dmg_bonus;
 
     virtual void initialize_talents() = 0;
 
