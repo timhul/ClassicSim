@@ -691,5 +691,29 @@
         <file>QML/Assets/spell/Spell_nature_lightning.png</file>
         <file>QML/Assets/spell/Spell_nature_cyclone.png</file>
         <file>QML/Assets/misc/Inv_drink_17.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_35.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_01.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_05.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_06.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_10.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_19.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_20.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_21.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_27.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_28.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_30.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_32.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_37.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_38.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_40.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_49naxxramas.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_01.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_04.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_06.png</file>
+        <file>QML/Assets/items/Inv_misc_bone_04.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_24.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_03.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_04.png</file>
+        <file>QML/Assets/items/Inv_misc_bone_05.png</file>
     </qresource>
 </RCC>

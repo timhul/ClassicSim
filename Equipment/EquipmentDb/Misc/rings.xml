@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="9533" phase="0">
+		<info name="Masons Fraternity Ring" type="RING" slot="RING" unique="yes" req_lvl="40" item_lvl="47" quality="RARE" boe="no" icon="Inv_jewelry_ring_03.png"/>
+		<stats>
+			<stat type="AGILITY" value="13"/>
+			<stat type="STAMINA" value="5"/>
+		</stats>
+		<source>
+			Quest reward. Requires finishing the pyramid event in Zul'Farrak.
+		</source>
+	</item>
+
 	<item id="17713" phase="0">
 		<info name="Blackstone Ring" type="RING" slot="RING" unique="yes" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_jewelry_ring_17.png"/>
 		<stats>
@@ -9,6 +20,97 @@
 		</stats>
 		<source>
 			Drops from Princess Theradras in Maraudon.
+		</source>
+	</item>
+
+	<item id="11862" phase="0">
+		<info name="White Bone Band" type="RING" slot="RING" unique="yes" req_lvl="48" item_lvl="52" quality="UNCOMMON" boe="no" faction="HORDE" icon="Inv_misc_bone_05.png"/>
+		<stats>
+			<stat type="ATTACK_POWER" value="24"/>
+		</stats>
+		<source>
+			Quest reward. Trivial quest in Un'Goro Crater.
+		</source>
+	</item>
+
+	<item id="10780" phase="0">
+		<info name="Mark of Hakkar" type="RING" slot="RING" unique="yes" req_lvl="46" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_05.png"/>
+		<stats>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
+			Quest reward. Requires finishing the statue event in Sunken Temple.
+		</source>
+	</item>
+
+	<item id="18400" phase="0">
+		<info name="Ring of Living Stone" type="RING" slot="RING" unique="yes" req_lvl="55" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_19.png"/>
+		<stats>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+			Quest reward. Final reward in quest chain mostly in Silithus.
+		</source>
+	</item>
+
+	<item id="2246" phase="0">
+		<info name="Myrmidon's Signet" type="RING" slot="RING" unique="yes" req_lvl="53" item_lvl="58" quality="EPIC" boe="yes" icon="Inv_jewelry_ring_05.png"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="STRENGTH" value="10"/>
+			<stat type="AGILITY" value="7"/>
+		</stats>
+		<source>
+			World drop.
+		</source>
+	</item>
+
+	<item id="18464" phase="1">
+		<info name="Gordok Nose Ring" type="RING" slot="RING" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_06.png"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="STRENGTH" value="5"/>
+		</stats>
+		<source>
+			Drops from Guard bosses in Dire Maul.
+		</source>
+	</item>
+
+	<item id="18302" phase="1">
+		<info name="Band of Vigor" type="RING" slot="RING" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_20.png"/>
+		<stats>
+			<stat type="STRENGTH" value="8"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="AGILITY" value="7"/>
+		</stats>
+		<source>
+			Drops from Lethtendris in Dire Maul.
+		</source>
+	</item>
+
+	<item id="12548" phase="0">
+		<info name="Magni's Will" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" faction="ALLIANCE" icon="Inv_jewelry_ring_05.png"/>
+		<stats>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires Emperor in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="12544" phase="0">
+		<info name="Thrall's Resolve" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" faction="HORDE" icon="Inv_jewelry_ring_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="150"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="STRENGTH" value="4"/>
+		</stats>
+		<source>
+			Quest reward. Requires Emperor in Blackrock Depths.
 		</source>
 	</item>
 
@@ -24,6 +126,52 @@
 		</source>
 	</item>
 
+	<item id="13217" phase="0">
+		<info name="Band of the Penitent" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="61" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_30.png"/>
+		<stats>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires Stratholme Undead.
+		</source>
+	</item>
+
+	<item id="18701" phase="0">
+		<info name="Innervating Band" type="RING" slot="RING" unique="yes" req_lvl="54" item_lvl="59" quality="RARE" boe="yes" icon="Inv_jewelry_ring_24.png"/>
+		<stats>
+			<stat type="AGILITY" value="15"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+			Random drop from trash mobs in Scholomance.
+		</source>
+	</item>
+
+	<item id="13373" phase="0">
+		<info name="Band of Flesh" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_bone_04.png"/>
+		<stats>
+			<stat type="STAMINA" value="16"/>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="AGILITY" value="3"/>
+		</stats>
+		<source>
+			Drops from Ramstein the Gorger in Stratholme Undead.
+		</source>
+	</item>
+
+	<item id="18399" phase="0">
+		<info name="Ocean's Breeze" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_28.png"/>
+		<stats>
+			<stat type="AGILITY" value="7"/>
+			<stat type="STRENGTH" value="4"/>
+			<stat type="STAMINA" value="4"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+		</stats>
+		<source>
+			Quest reward. Requires killing multiple bosses in Molten Core.
+		</source>
+	</item>
+
 	<item id="18500" phase="1">
 		<info name="Tarnished Elven Ring" type="RING" slot="RING" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_13.png"/>
 		<stats>
@@ -32,6 +180,17 @@
 		</stats>
 		<source>
 			Drops from Tribute chest in Dire Maul.
+		</source>
+	</item>
+
+	<item id="18522" phase="1">
+		<info name="Band of the Ogre King" type="RING" slot="RING" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_32.png"/>
+		<stats>
+			<stat type="STRENGTH" value="14"/>
+			<stat type="STAMINA" value="13"/>
+		</stats>
+		<source>
+			Drops from King Gordok in Dire Maul.
 		</source>
 	</item>
 
@@ -72,6 +231,66 @@
 		</source>
 	</item>
 
+	<item id="19514" phase="2">
+		<info name="Protector's Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" faction="ALLIANCE" icon="Inv_jewelry_ring_10.png"/>
+		<stats>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="AGILITY" value="11"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+		<source>
+			Sold by Warsong Gulch vendor Illiyana Moonblaze. Requires Honored with Silverwing Sentinels.
+		</source>
+	</item>
+
+	<item id="19510" phase="2">
+		<info name="Legionnaire's Band" type="RING" slot="RING" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" faction="HORDE" icon="Inv_jewelry_ring_21.png"/>
+		<stats>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="AGILITY" value="11"/>
+			<stat type="STAMINA" value="8"/>
+		</stats>
+		<source>
+			Sold by Warsong Gulch vendor Kelm Hargunth. Requires Honored with Warsong Outriders.
+		</source>
+	</item>
+
+	<item id="19325" phase="2">
+		<info name="Don Julio's Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_35.png"/>
+		<stats>
+			<stat type="STAMINA" value="11"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="16"/>
+		</stats>
+		<source>
+			Sold by Alterac Valley vendors. Requires Exalted with Alterac Valley faction.
+		</source>
+	</item>
+
+	<item id="19432" phase="2">
+		<info name="Circle of Applied Force" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_jewelry_ring_37.png"/>
+		<stats>
+			<stat type="STRENGTH" value="12"/>
+			<stat type="AGILITY" value="22"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+			Drops from Flamegor in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="19376" phase="2">
+		<info name="Archimtiros' Ring of Reckoning" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
+		<stats>
+			<stat type="AGILITY" value="14"/>
+			<stat type="STAMINA" value="28"/>
+		</stats>
+		<source>
+			Drops from Nefarian in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="19898" phase="3">
 		<info name="Seal of Jin" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_44.png"/>
 		<stats>
@@ -93,6 +312,76 @@
 		</stats>
 		<source>
 			Drops from High Priestess Mar'li in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="22722" phase="3">
+		<info name="Seal of the Gurubashi Berserker" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_ring_20.png"/>
+		<stats>
+			<stat type="STAMINA" value="13"/>
+			<stat type="ATTACK_POWER" value="40"/>
+		</stats>
+		<source>
+			Drops from High Priest(ess) bosses in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="20624" phase="3">
+		<info name="Ring of the Unliving" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_jewelry_ring_38.png"/>
+		<stats>
+			<stat type="AGILITY" value="21"/>
+			<stat type="STAMINA" value="16"/>
+		</stats>
+		<source>
+			Drops from Emeriss (world boss).
+		</source>
+	</item>
+
+	<item id="22255" phase="4">
+		<info name="Magma Forged Band" type="RING" slot="RING" unique="yes" req_lvl="52" item_lvl="57" quality="RARE" boe="no" icon="Inv_jewelry_ring_04.png"/>
+		<stats>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STRENGTH" value="7"/>
+			<stat type="STAMINA" value="7"/>
+		</stats>
+		<source>
+			Drops from Secret Safe in Blackrock Depths. Requires opening all coffers, which requires 12 Relic Coffer Keys.
+		</source>
+	</item>
+
+	<item id="21182" phase="4">
+		<info name="Band of Earthen Might" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_jewelry_ring_19.png"/>
+		<stats>
+			<stat type="STRENGTH" value="6"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires quest grinding in Silithus and Honored with Cenarion Circle.
+		</source>
+	</item>
+
+	<item id="21189" phase="4">
+		<info name="Might of Cenarius" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="WEAPON_DAMAGE" value="4"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires quest grinding in Silithus and Revered with Cenarion Circle.
+		</source>
+	</item>
+
+	<item id="20721" phase="4">
+		<info name="Band of the Cultist" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_jewelry_ring_27.png"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="AGILITY" value="12"/>
+			<stat type="STRENGTH" value="7"/>
+		</stats>
+		<source>
+			Drops from Chest of Spoils, a quest reward for killing Silithus raid bosses.
 		</source>
 	</item>
 
@@ -135,6 +424,56 @@
 		</source>
 	</item>
 
+	<item id="21477" phase="4">
+		<info name="Ring of Fury" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_jewelry_ring_ahnqiraj_04.png"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="30"/>
+		</stats>
+		<source>
+			Drops from Moam in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
+	<item id="21205" phase="4">
+		<info name="Signet Ring of the Bronze Dragonflight" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
+		<stats>
+			<stat type="AGILITY" value="24"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires Exalted with Brood of Nozdormu (requires AQ40).
+		</source>
+		<flavour_text>
+			"The Path of the Conqueror"
+		</flavour_text>
+	</item>
+
+	<item id="21677" phase="4">
+		<info name="Ring of the Qiraji Fury" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_01.png"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="ATTACK_POWER" value="40"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21596" phase="4">
+		<info name="Ring of the Godslayer" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_06.png"/>
+		<stats>
+			<stat type="AGILITY" value="27"/>
+			<stat type="STAMINA" value="17"/>
+		</stats>
+		<source>
+			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="23038" phase="5">
 		<info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 		<stats>
@@ -144,6 +483,16 @@
 		</stats>
 		<source>
 			Drops from Loatheb in Naxxramas.
+		</source>
+	</item>
+
+	<item id="22961" phase="5">
+		<info name="Band of Reanimation" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_49naxxramas.png"/>
+		<stats>
+			<stat type="AGILITY" value="34"/>
+		</stats>
+		<source>
+			Drops from Patchwerk in Naxxramas.
 		</source>
 	</item>
 

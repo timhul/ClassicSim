@@ -45,6 +45,7 @@ Upcoming features and bug fixes that are merged but not yet built and made avail
 * Ranged auto shots and abilities can no longer dodge.
 * Rudimentary Shaman support (Stormstrike and Elemental rotations).
 * More buffs and temporary weapon enchants are available.
+* More rings are available.
 
 ## Restrictions:
 
