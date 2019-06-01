@@ -29,6 +29,7 @@ enum ExternalBuffName {
     MagebloodPotion,
     ManaSpringTotem,
     MarkOfTheWild,
+    NightfinSoup,
     ROIDS,
     RallyingCryOfTheDragonslayer,
     SaygesDarkFortuneOfDamage,

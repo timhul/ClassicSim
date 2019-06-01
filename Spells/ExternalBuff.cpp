@@ -165,6 +165,9 @@ void ExternalBuff::buff_effect_when_applied() {
         pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Nature);
         pchar->get_stats()->increase_magic_school_damage_mod(10, MagicSchool::Shadow);
         break;
+    case ExternalBuffName::NightfinSoup:
+        pchar->get_stats()->increase_mp5(8);
+        break;
     }
 }
 
@@ -289,6 +292,9 @@ void ExternalBuff::buff_effect_when_removed() {
         pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Holy);
         pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Nature);
         pchar->get_stats()->decrease_magic_school_damage_mod(10, MagicSchool::Shadow);
+        break;
+    case ExternalBuffName::NightfinSoup:
+        pchar->get_stats()->decrease_mp5(8);
         break;
     }
 }
@@ -427,6 +433,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Sayge's Dark Fortune of Damage", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_misc_orb_02.png",
                                 "Increases damage by 10%");
+    case ExternalBuffName::NightfinSoup:
+        return new ExternalBuff(pchar, "Nightfin Soup", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_drink_17.png",
+                                "Restores 8 mana per 5 sec");
     }
 
     return nullptr;
