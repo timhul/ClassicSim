@@ -49,7 +49,9 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
         };
     case EquipmentSlot::WRIST:
         return {
-            EnchantName::Name::EnchantBracerSuperiorStrength
+            EnchantName::Name::EnchantBracerManaRegeneration,
+            EnchantName::Name::EnchantBracerSuperiorStrength,
+            EnchantName::Name::EnchantBracerMinorAgility,
         };
     case EquipmentSlot::GLOVES:
         return {

@@ -62,8 +62,9 @@ QVector<EnchantName::Name> HunterEnchants::get_available_enchants(const int equi
         };
     case EquipmentSlot::WRIST:
         return {
+            EnchantName::Name::EnchantBracerManaRegeneration,
             EnchantName::Name::EnchantBracerSuperiorStrength,
-            EnchantName::Name::EnchantBracerMinorAgility
+            EnchantName::Name::EnchantBracerMinorAgility,
         };
     case EquipmentSlot::GLOVES:
         return {

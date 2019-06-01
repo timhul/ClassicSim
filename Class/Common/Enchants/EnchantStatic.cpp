@@ -25,6 +25,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::EnchantWeaponStrength:
         pchar->get_stats()->increase_strength(15);
         break;
+    case EnchantName::EnchantBracerManaRegeneration:
+        pchar->get_stats()->increase_mp5(4);
+        break;
     case EnchantName::EnchantBracerMinorAgility:
         pchar->get_stats()->increase_agility(1);
         break;
@@ -151,6 +154,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::EnchantWeaponStrength:
         pchar->get_stats()->decrease_strength(15);
+        break;
+    case EnchantName::EnchantBracerManaRegeneration:
+        pchar->get_stats()->decrease_mp5(4);
         break;
     case EnchantName::EnchantBracerMinorAgility:
         pchar->get_stats()->decrease_agility(1);

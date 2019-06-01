@@ -24,6 +24,7 @@ public:
         FalconsCall,
         InstantPoison,
         WindfuryTotem,
+        EnchantBracerManaRegeneration,
         EnchantBracerMinorAgility,
         EnchantBracerSuperiorStrength,
         EnchantGlovesSuperiorAgility,
@@ -71,6 +72,8 @@ public:
             return "Agility";
         case EnchantName::EnchantWeaponStrength:
             return "Strength";
+        case EnchantName::EnchantBracerManaRegeneration:
+            return "Mana Regeneration";
         case EnchantName::EnchantBracerMinorAgility:
             return "Minor Agility";
         case EnchantName::EnchantBracerSuperiorStrength:
@@ -152,6 +155,8 @@ public:
             return "+15 Agility";
         case EnchantName::EnchantWeaponStrength:
             return "+15 Strength";
+        case EnchantName::EnchantBracerManaRegeneration:
+            return "+4 mp5";
         case EnchantName::EnchantBracerMinorAgility:
             return "+1 Agility";
         case EnchantName::EnchantBracerSuperiorStrength:
@@ -209,7 +214,7 @@ public:
         case EnchantName::LesserManaOil:
             return "+8 mp5";
         case EnchantName::BrilliantManaOil:
-            return "+12m5/+25 Heal";
+            return "+12mp5/+25 Heal";
         case EnchantName::BrilliantWizardOil:
             return "+36 SP\n+1% Spell Crit";
         }
