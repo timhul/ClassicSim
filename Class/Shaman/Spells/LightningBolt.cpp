@@ -9,9 +9,10 @@
 #include "NoEffectBuff.h"
 #include "Random.h"
 #include "Shaman.h"
+#include "ShamanSpells.h"
 #include "Utils/Check.h"
 
-LightningBolt::LightningBolt(Shaman* pchar, const int spell_rank) :
+LightningBolt::LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spell_rank) :
     SpellCastingTime("Lightning Bolt", "Assets/spell/Spell_nature_lightning.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Tidal Mastery", 5, DisabledAtZero::No),
@@ -19,7 +20,8 @@ LightningBolt::LightningBolt(Shaman* pchar, const int spell_rank) :
                    new TalentRequirerInfo("Concussion", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Convection", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Lightning Mastery", 5, DisabledAtZero::No),
-                   })
+                   }),
+    spells(spells)
 {
     switch (spell_rank) {
     case 1:
@@ -120,7 +122,9 @@ void LightningBolt::spell_effect() {
 }
 
 void LightningBolt::complete_cast_effect() {
-    pchar->lose_mana(resource_cost);
+    if (!spells->clearcasting_active())
+        pchar->lose_mana(resource_cost);
+
     pchar->get_spells()->start_attack();
 
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance() + tidal_mastery_mod + call_of_thunder_mod);
@@ -130,6 +134,8 @@ void LightningBolt::complete_cast_effect() {
         return increment_miss();
     if (resist_roll == MagicResistResult::FULL_RESIST)
         return increment_full_resist();
+
+    spells->roll_clearcasting();
 
     const unsigned damage_dealt = random->get_roll() + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Nature) * spell_dmg_coefficient));
 

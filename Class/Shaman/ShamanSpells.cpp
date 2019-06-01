@@ -1,8 +1,10 @@
 #include "ShamanSpells.h"
 
+#include "ClearcastingShaman.h"
 #include "Flurry.h"
 #include "LightningBolt.h"
 #include "MainhandAttack.h"
+#include "NoEffectBuff.h"
 #include "Shaman.h"
 #include "Stormstrike.h"
 #include "WindfuryWeapon.h"
@@ -17,16 +19,16 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     add_spell_group({new Stormstrike(shaman, this)});
 
     add_spell_group({
-                        new LightningBolt(shaman, 1),
-                        new LightningBolt(shaman, 2),
-                        new LightningBolt(shaman, 3),
-                        new LightningBolt(shaman, 4),
-                        new LightningBolt(shaman, 5),
-                        new LightningBolt(shaman, 6),
-                        new LightningBolt(shaman, 7),
-                        new LightningBolt(shaman, 8),
-                        new LightningBolt(shaman, 9),
-                        new LightningBolt(shaman, 10),
+                        new LightningBolt(shaman, this, 1),
+                        new LightningBolt(shaman, this, 2),
+                        new LightningBolt(shaman, this, 3),
+                        new LightningBolt(shaman, this, 4),
+                        new LightningBolt(shaman, this, 5),
+                        new LightningBolt(shaman, this, 6),
+                        new LightningBolt(shaman, this, 7),
+                        new LightningBolt(shaman, this, 8),
+                        new LightningBolt(shaman, this, 9),
+                        new LightningBolt(shaman, this, 10),
                     });
 
     add_spell_group({
@@ -36,13 +38,32 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
                         new WindfuryWeapon(shaman, 4),
                     });
 
-    this->flurry = new Flurry(pchar);
+    this->flurry = new Flurry(shaman);
+    this->clearcasting = new ClearcastingShaman(shaman);
 }
 
 ShamanSpells::~ShamanSpells() {
     delete flurry;
+    delete clearcasting;
 }
 
 Buff* ShamanSpells::get_flurry() const {
     return this->flurry;
+}
+
+Proc* ShamanSpells::get_clearcasting() const {
+    return this->clearcasting;
+}
+
+bool ShamanSpells::clearcasting_active() const {
+    return clearcasting->buff->is_active();
+}
+
+void ShamanSpells::roll_clearcasting() {
+    if (!clearcasting->is_enabled())
+        return;
+
+    clearcasting->buff->use_charge();
+    if (clearcasting->check_proc_success())
+        clearcasting->perform();
 }

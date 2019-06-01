@@ -19,7 +19,7 @@ Elemental::Elemental(Shaman* shaman) :
                                   {"2MR", new Talent(shaman, this, "Call of Flame", "2MR", "Assets/spell/Spell_fire_immolation.png", 3, "Increases the damage done by your Fire Totems by %1%.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", new Talent(shaman, this, "Elemental Focus", "3LL", "Assets/spell/Spell_shadow_manaburn.png", 1, "Gives you a 10% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%.", QVector<QPair<unsigned, unsigned>>{})},
+    QMap<QString, Talent*> tier3 {{"3LL", get_elemental_focus()},
                                   {"3ML", new Talent(shaman, this, "Reverberation", "3ML", "Assets/spell/Spell_frost_frostward.png", 5, "Reduces the cooldown of your Shock spells by %1 sec.", QVector<QPair<double, double>>{{0.2, 0.2}})},
                                   {"3MR", get_call_of_thunder()}};
     add_talents(tier3);
@@ -58,6 +58,15 @@ Talent* Elemental::get_concussion() {
                           "Increases the damage done by your Lightning Bolt, Chain Lightning and Shock spells by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{1, 1}},
                           QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Lightning Bolt")});
+}
+
+Talent* Elemental::get_elemental_focus() {
+    return get_new_talent(shaman, "Elemental Focus", "3LL", "Assets/spell/Spell_shadow_manaburn.png", 1,
+                          "Gives you a 10% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+                          QVector<QPair<unsigned, unsigned>>{},
+                          {},
+                          {},
+                          QVector<Proc*>{spells->get_clearcasting()});
 }
 
 Talent* Elemental::get_call_of_thunder() {

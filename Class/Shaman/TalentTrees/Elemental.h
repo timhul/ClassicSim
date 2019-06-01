@@ -10,6 +10,8 @@ public:
     Elemental(Shaman* shaman);
     ~Elemental() override = default;
 
+    Talent* get_elemental_focus();
+
 private:
     Shaman* shaman;
     ShamanSpells* spells;

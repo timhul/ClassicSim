@@ -6,18 +6,21 @@
 #include <QVector>
 
 class Buff;
-class Shaman;
 class Random;
+class Shaman;
+class ShamanSpells;
 
 class LightningBolt: public SpellCastingTime, public TalentRequirer {
 public:
-    LightningBolt(Shaman* pchar, const int spell_rank);
+    LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spell_rank);
     ~LightningBolt() override;
 
     bool is_rank_learned() const override;
 
 private:
     Random* random;
+    ShamanSpells* spells;
+
     unsigned base_damage_min;
     unsigned base_damage_max;
     unsigned base_resource_cost;

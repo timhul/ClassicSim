@@ -5,6 +5,7 @@
 
 #include "Buff.h"
 #include "CharacterStats.h"
+#include "Elemental.h"
 #include "Enhancement.h"
 #include "Equipment.h"
 #include "Item.h"
@@ -92,6 +93,11 @@ void TestSpellShaman::given_shaman_has_mana(const unsigned mana) {
 
 void TestSpellShaman::given_stormstrike_enabled() {
     given_talent_rank(Enhancement(shaman).get_stormstrike(), 1);
+    pchar->prepare_set_of_combat_iterations();
+}
+
+void TestSpellShaman::given_clearcasting_enabled() {
+    given_talent_rank(Elemental(shaman).get_elemental_focus(), 1);
     pchar->prepare_set_of_combat_iterations();
 }
 

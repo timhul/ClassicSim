@@ -2,8 +2,8 @@
 
 #include "Proc.h"
 
-NoEffectBuff::NoEffectBuff(Character* pchar, const int duration, const QString &name, const QString &icon, const bool hidden, const bool debuff):
-    Buff(pchar, name, icon, duration, 0)
+NoEffectBuff::NoEffectBuff(Character* pchar, const int duration, const QString &name, const QString &icon, const bool hidden, const bool debuff, const int charges):
+    Buff(pchar, name, icon, duration, charges)
 {
     this->hidden = hidden;
     this->debuff = debuff;

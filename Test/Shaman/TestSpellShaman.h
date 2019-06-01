@@ -25,6 +25,7 @@ protected:
     void run_class_specific_tests() override;
 
     void given_stormstrike_enabled();
+    void given_clearcasting_enabled();
     void given_shaman_has_mana(const unsigned mana);
     void given_shaman_is_on_gcd();
     void given_shaman_is_on_gcd(Spell* spell);

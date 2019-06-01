@@ -33,6 +33,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/FireballInstant.cpp \
     Class/Common/Spells/NightDragonsBreath.cpp \
     Class/Shaman/Buffs/StormstrikeBuff.cpp \
+    Class/Shaman/Procs/ClearcastingShaman.cpp \
     Class/Shaman/Procs/WindfuryWeaponProc.cpp \
     Class/Shaman/ShamanEnchants.cpp \
     Class/Shaman/Spells/LightningBolt.cpp \
@@ -424,6 +425,7 @@ HEADERS += \
     Class/Common/Spells/FireballInstant.h \
     Class/Common/Spells/NightDragonsBreath.h \
     Class/Shaman/Buffs/StormstrikeBuff.h \
+    Class/Shaman/Procs/ClearcastingShaman.h \
     Class/Shaman/Procs/WindfuryWeaponProc.h \
     Class/Shaman/ShamanEnchants.h \
     Class/Shaman/Spells/LightningBolt.h \

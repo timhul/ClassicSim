@@ -18,6 +18,7 @@ private:
 
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_clearcasting_roll();
 
     void when_lightning_bolt_is_performed();
 };

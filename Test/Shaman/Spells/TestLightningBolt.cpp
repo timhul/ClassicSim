@@ -19,6 +19,10 @@ void TestLightningBolt::test_all() {
     set_up();
     test_crit_dmg();
     tear_down();
+
+    set_up(false);
+    test_clearcasting_roll();
+    tear_down();
 }
 
 void TestLightningBolt::test_name_correct() {
@@ -83,6 +87,16 @@ void TestLightningBolt::test_crit_dmg() {
     // [Damage] = base_dmg + spell_power * spell_coefficient * spell_crit_dmg_modifier
     // [1914 - 1986] = ([419 - 467] + 1000 * 3 / 3.5) * 1.5
     then_damage_dealt_is_in_range(1914, 1986);
+}
+
+void TestLightningBolt::test_clearcasting_roll() {
+    given_a_guaranteed_magic_crit(MagicSchool::Nature);
+    given_1000_spell_power();
+    given_clearcasting_enabled();
+    given_no_previous_damage_dealt();
+
+    when_lightning_bolt_is_performed();
+    when_running_queued_events_until(3.5);
 }
 
 void TestLightningBolt::when_lightning_bolt_is_performed() {
