@@ -1,6 +1,7 @@
 #include "ShamanSpells.h"
 
 #include "ClearcastingShaman.h"
+#include "ElementalDevastation.h"
 #include "Flurry.h"
 #include "LightningBolt.h"
 #include "MainhandAttack.h"
@@ -40,11 +41,16 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
 
     this->flurry = new Flurry(shaman);
     this->clearcasting = new ClearcastingShaman(shaman);
+    this->elemental_devastation = new ElementalDevastation(shaman);
 }
 
 ShamanSpells::~ShamanSpells() {
     delete flurry;
     delete clearcasting;
+}
+
+Buff* ShamanSpells::get_elemental_devastation() const {
+    return this->elemental_devastation;
 }
 
 Buff* ShamanSpells::get_flurry() const {

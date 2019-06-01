@@ -24,6 +24,7 @@ public:
 
     void melee_mh_white_critical_effect() override;
     void melee_mh_yellow_critical_effect() override;
+    void spell_critical_effect() override;
 
     unsigned get_melee_ap_per_strength() const override;
     unsigned get_melee_ap_per_agi() const override;

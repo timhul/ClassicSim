@@ -117,6 +117,10 @@ void Shaman::melee_mh_yellow_critical_effect() {
     enabled_procs->run_proc_check(ProcInfo::Source::MainhandSpell);
 }
 
+void Shaman::spell_critical_effect() {
+    shaman_spells->get_elemental_devastation()->apply_buff();
+}
+
 void Shaman::initialize_talents() {
     for (int i = 0; i < 3; ++i) {
         talents->add_talent_tree(new Elemental(this), new Enhancement(this), new RestorationShaman(this));

@@ -13,6 +13,7 @@ public:
     ShamanSpells(Shaman *shaman);
     ~ShamanSpells() override;
 
+    Buff* get_elemental_devastation() const;
     Buff* get_flurry() const;
     Proc* get_clearcasting() const;
 
@@ -22,6 +23,7 @@ public:
 private:
     Shaman* shaman;
     ClearcastingShaman* clearcasting;
+    Buff* elemental_devastation;
     Buff* flurry;
 };
 
