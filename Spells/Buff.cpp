@@ -81,6 +81,7 @@ void Buff::remove_buff(const int iteration) {
 void Buff::force_remove_buff() {
     this->expired = pchar->get_engine()->get_current_priority();
     this->active = false;
+
     this->uptime += expired - applied;
 
     if (!hidden)
@@ -131,16 +132,17 @@ void Buff::reset() {
 
     initialize();
     reset_effect();
+
 }
 
 void Buff::initialize() {
     current_charges = 0;
     iteration = 0;
-    applied = duration - 1;
-    refreshed = duration - 1;
-    expired = duration - 1;
-    active = false;
+    applied = 0;
+    refreshed = 0;
+    expired = 0;
     uptime = 0;
+    active = false;
 }
 
 bool Buff::is_enabled() const {
