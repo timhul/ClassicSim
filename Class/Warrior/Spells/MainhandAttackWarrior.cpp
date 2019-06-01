@@ -37,6 +37,7 @@ int MainhandAttackWarrior::calculate_damage() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
+        pchar->add_player_reaction_event();
         return result;
     }
 

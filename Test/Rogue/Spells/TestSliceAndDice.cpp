@@ -174,6 +174,7 @@ void TestSliceAndDice::test_stealth() {
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
+    ignored_events = {"PlayerAction"};
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(1);
     rogue->get_spells()->start_attack();
@@ -182,13 +183,13 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "9.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
+    ignored_events = {"PlayerAction"};
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(2);
     rogue->get_spells()->start_attack();
@@ -197,13 +198,13 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "12.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
+    ignored_events = {"PlayerAction"};
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(3);
     rogue->get_spells()->start_attack();
@@ -212,13 +213,13 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "15.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
+    ignored_events = {"PlayerAction"};
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(4);
     rogue->get_spells()->start_attack();
@@ -227,13 +228,13 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "18.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
+    ignored_events = {"PlayerAction"};
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
     rogue->get_spells()->start_attack();
@@ -242,13 +243,13 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "21.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_of_3_imp_snd() {
+    ignored_events = {"PlayerAction"};
     given_1_of_3_imp_snd();
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
@@ -258,13 +259,13 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "24.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_of_3_imp_snd() {
+    ignored_events = {"PlayerAction"};
     given_2_of_3_imp_snd();
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
@@ -274,13 +275,13 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "27.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_of_3_imp_snd() {
+    ignored_events = {"PlayerAction"};
     given_3_of_3_imp_snd();
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
@@ -290,7 +291,6 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_
 
     then_next_event_is("MainhandMeleeHit", "0.000");
     then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "1.000");
     then_next_event_is("MainhandMeleeHit", "1.538");
     then_next_event_is("ResourceGain", "2.000");
     then_next_event_is("BuffRemoval", "30.000");

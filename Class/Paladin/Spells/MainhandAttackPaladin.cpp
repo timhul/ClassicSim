@@ -26,6 +26,8 @@ void MainhandAttackPaladin::spell_effect() {
 }
 
 int MainhandAttackPaladin::calculate_damage() {
+    pchar->add_player_reaction_event();
+
     const int mh_wpn_skill = pchar->get_mh_wpn_skill();
     int result = roll->get_melee_hit_result(mh_wpn_skill, pchar->get_stats()->get_mh_crit_chance());
 
