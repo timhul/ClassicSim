@@ -40,18 +40,7 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-* Melee hit/dodge/crit suppression updated to follow Blizzard's clarification.
-* Glancing blow damage penalty now rolls a penalty range and uses exponential formula instead of linear.
-* Ranged auto shots and abilities can no longer dodge.
-* Rudimentary Shaman support (Stormstrike and Elemental rotations).
-* More buffs and temporary weapon enchants are available.
-* More rings are available.
-
-## Restrictions:
-
-* No Shaman relics are available.
-* Shaman cannot maintain any totems.
-* Totem-related talents have no effect.
+None (available release is up to date with the latest on master).
 
 # Q&A
 
