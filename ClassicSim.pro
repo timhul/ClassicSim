@@ -13,6 +13,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
+    Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Paladin/Buffs/JudgementOfTheCrusader.cpp \
     Class/Paladin/Buffs/SanctityAuraBuff.cpp \
@@ -406,6 +407,7 @@ SOURCES += main.cpp \
     Test/Paladin/Talents/TestRetribution.cpp
 
 HEADERS += \
+    Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/UseItem.h \
     Class/Paladin/Buffs/JudgementOfTheCrusader.h \
     Class/Paladin/Buffs/SanctityAuraBuff.h \

@@ -3,8 +3,11 @@
 #include <utility>
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
+#include "DragonbreathChili.h"
 #include "Target.h"
+#include "Utils/Check.h"
 
 ExternalBuff::ExternalBuff(Character* pchar,
                            const QString& name,
@@ -175,6 +178,10 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::ImprovedShadowBolt:
         pchar->get_stats()->increase_magic_school_damage_mod(20, MagicSchool::Shadow);
         break;
+    case ExternalBuffName::DragonbreathChili:
+        pchar->get_spells()->get_dragonbreath_chili()->enable();
+        pchar->get_spells()->get_dragonbreath_chili()->enable_proc();
+        break;
     }
 }
 
@@ -309,6 +316,10 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::ImprovedShadowBolt:
         pchar->get_stats()->decrease_magic_school_damage_mod(20, MagicSchool::Shadow);
+        break;
+    case ExternalBuffName::DragonbreathChili:
+        pchar->get_spells()->get_dragonbreath_chili()->disable_proc();
+        pchar->get_spells()->get_dragonbreath_chili()->disable();
         break;
     }
 }
@@ -459,6 +470,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Improved Shadow Bolt", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/spell/Spell_shadow_shadowbolt.png",
                                 "20% Shadow Damage");
+    case ExternalBuffName::DragonbreathChili:
+        return new ExternalBuff(pchar, "Dragonbreath Chili", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/misc/Inv_drink_17.png",
+                                "Occasionally belch flames");
     }
 
     return nullptr;

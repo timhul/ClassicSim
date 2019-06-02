@@ -14,6 +14,7 @@ enum class ExternalBuffName: int {
     BlessingOfMight,
     BlessingOfWisdom,
     CurseOfRecklessness,
+    DragonbreathChili,
     ElixirOfBruteForce,
     ElixirOfGiants,
     ElixirOfTheMongoose,

@@ -12,6 +12,7 @@ class BloodFury;
 class Character;
 class CooldownControl;
 class DemonicRune;
+class DragonbreathChili;
 class MainhandAttack;
 class ManaPotion;
 class NightDragonsBreath;
@@ -77,6 +78,7 @@ public:
     DemonicRune* get_demonic_rune() const;
     ManaPotion* get_mana_potion() const;
     NightDragonsBreath* get_night_dragons_breath() const;
+    DragonbreathChili* get_dragonbreath_chili() const;
 
 protected:
     Character* pchar;
@@ -100,6 +102,7 @@ protected:
     DemonicRune* demonic_rune;
     ManaPotion* mana_potion;
     NightDragonsBreath* night_dragons_breath;
+    DragonbreathChili* dragonbreath_chili;
 
     CooldownControl* new_cooldown_control(const QString& spell_name, const double cooldown);
 

@@ -7,6 +7,7 @@
 #include "ClassStatistics.h"
 #include "CooldownControl.h"
 #include "DemonicRune.h"
+#include "DragonbreathChili.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "MainhandAttack.h"
@@ -36,6 +37,7 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     demonic_rune = new DemonicRune(pchar);
     mana_potion = new ManaPotion(pchar);
     night_dragons_breath = new NightDragonsBreath(pchar);
+    dragonbreath_chili = new DragonbreathChili(pchar);
 
     add_spell_group({berserking});
     add_spell_group({blood_fury});
@@ -53,6 +55,8 @@ CharacterSpells::~CharacterSpells() {
 
     for (const auto & spell_group : spell_rank_groups)
         delete spell_group;
+
+    delete dragonbreath_chili;
 }
 
 void CharacterSpells::set_rotation(Rotation* rotation) {
@@ -317,6 +321,10 @@ ManaPotion* CharacterSpells::get_mana_potion() const {
 
 NightDragonsBreath* CharacterSpells::get_night_dragons_breath() const {
     return this->night_dragons_breath;
+}
+
+DragonbreathChili* CharacterSpells::get_dragonbreath_chili() const {
+    return this->dragonbreath_chili;
 }
 
 CooldownControl* CharacterSpells::new_cooldown_control(const QString& spell_name, const double cooldown) {
