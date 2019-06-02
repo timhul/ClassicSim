@@ -12,6 +12,21 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="2801" phase="0">
+		<info name="Blade of Hanna" type="TWOHAND_SWORD" slot="2H" unique="yes" req_lvl="59" item_lvl="64" quality="EPIC" boe="yes" icon="Inv_sword_10.png"/>
+		<dmg_range min="101" max="152" speed="2.1"/>
+		<stats>
+			<stat type="STRENGTH" value="11"/>
+			<stat type="AGILITY" value="11"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPIRIT" value="11"/>
+		</stats>
+		<source>
+        World drop.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18822" phase="0">
 		<info name="Obsidian Edged Blade" type="TWOHAND_SWORD" slot="2H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_28.png"/>
 		<dmg_range min="176" max="264" speed="3.4"/>
