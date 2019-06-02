@@ -155,19 +155,19 @@ protected:
     CombatRoll* roll;
     Faction* faction;
     CharacterTalents* talents;
-    CharacterEnchants* available_enchants;
-    CharacterStats* cstats;
+    CharacterEnchants* available_enchants {nullptr};
+    CharacterStats* cstats {nullptr};
     EnabledProcs* enabled_procs;
     EnabledBuffs* enabled_buffs;
-    CharacterSpells* spells;
+    CharacterSpells* spells {nullptr};
     ClassStatistics* statistics;
     SimSettings* sim_settings;
-    Resource* resource;
-    Pet* pet;
+    Resource* resource {nullptr};
+    Pet* pet {nullptr};
 
     QVector<QString> available_races;
 
-    unsigned clvl;
+    unsigned clvl {1};
     double next_gcd;
     double next_trinket_cd;
     Ruleset ruleset;

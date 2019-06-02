@@ -23,21 +23,15 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Character::Character(QString class_name, Race* race, SimSettings *sim_settings) :
+Character::Character(QString class_name, Race* race, SimSettings* sim_settings) :
     class_name(std::move(class_name)),
     race(race),
     engine(new Engine()),
     target(new Target(63)),
     faction(new Faction(race)),
     talents(new CharacterTalents()),
-    available_enchants(nullptr),
-    cstats(nullptr),
-    spells(nullptr),
     statistics(new ClassStatistics(sim_settings)),
     sim_settings(sim_settings),
-    resource(nullptr),
-    pet(nullptr),
-    clvl(1),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard)
 {
