@@ -715,5 +715,6 @@
         <file>QML/Assets/items/Inv_jewelry_ring_03.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_04.png</file>
         <file>QML/Assets/items/Inv_misc_bone_05.png</file>
+        <file>QML/Assets/spell/Spell_holy_lesserheal02.png</file>
     </qresource>
 </RCC>
