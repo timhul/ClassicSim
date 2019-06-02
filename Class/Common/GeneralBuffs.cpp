@@ -13,58 +13,24 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     faction(faction),
     current_setup(0)
 {
-    this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfKings, pchar));
-    this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfMight, pchar));
-    if (character_is_mana_user())
-        this->alliance_only_buffs.append(get_external_buff_by_name(ExternalBuffName::BlessingOfWisdom, pchar));
-
-    this->horde_only_buffs.append(get_external_buff_by_name(ExternalBuffName::StrengthOfEarthTotem, pchar));
-    if (character_is_mana_user())
-        this->horde_only_buffs.append(get_external_buff_by_name(ExternalBuffName::ManaSpringTotem, pchar));
+    QVector<ExternalBuffName> buff_names = get_buff_names_for_class(pchar->get_name());
 
     for (int i = 0; i < 3; ++i) {
-        this->external_buffs.append(QVector<QPair<bool, ExternalBuff*>>());
+        QVector<QPair<bool, ExternalBuff*>> external_buff_setup;
 
-        if (pchar->get_name() != "Warrior")
-            this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::BattleShout, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::MarkOfTheWild, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfBruteForce, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfGiants, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ElixirOfTheMongoose, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::MagebloodPotion, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::FlaskOfDistilledWisdom, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::FlaskOfSupremePower, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::WinterfallFirewater, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::JujuPower, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ScrollOfStrengthIV, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SmokedDesertDumplings, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::GrilledSquid, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::ROIDS, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SongflowerSerenade, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SpiritOfZandalar, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::RallyingCryOfTheDragonslayer, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::BattleSquawk, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::FengusFerocity, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::JujuMight, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::GroundScorpokAssay, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::GreaterArcaneElixir, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SaygesDarkFortuneOfDamage, pchar)));
-        this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::NightfinSoup, pchar)));
+        for (const auto & buff_name : buff_names)
+            external_buff_setup.append({false, get_external_buff_by_name(buff_name, pchar)});
 
-        this->external_debuffs.append(QVector<QPair<bool, ExternalBuff*>>());
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::SunderArmor, pchar)));
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::CurseOfRecklessness, pchar)));
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::FaerieFire, pchar)));
-        this->external_debuffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(ExternalBuffName::Annihilator, pchar)));
+        this->external_buffs.append(external_buff_setup);
 
-        if (faction->is_alliance()) {
-            for (const auto & buff : alliance_only_buffs)
-                this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
-        }
-        else {
-            for (const auto & buff : horde_only_buffs)
-                this->external_buffs[i].append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
-        }
+        QVector<QPair<bool, ExternalBuff*>> external_debuff_setup = {
+            {false, get_external_buff_by_name(ExternalBuffName::SunderArmor, pchar)},
+            {false, get_external_buff_by_name(ExternalBuffName::CurseOfRecklessness, pchar)},
+            {false, get_external_buff_by_name(ExternalBuffName::FaerieFire, pchar)},
+            {false, get_external_buff_by_name(ExternalBuffName::Annihilator, pchar)},
+        };
+
+        this->external_debuffs.append(external_debuff_setup);
     }
 
     buffs.append(new EssenceOfTheRed(pchar));
@@ -76,8 +42,7 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     mutex_buff_groups.append({"R.O.I.D.S", "Ground Scorpok Assay"});
 }
 
-GeneralBuffs::~GeneralBuffs()
-{
+GeneralBuffs::~GeneralBuffs() {
     for (const auto & buff : this->buffs) {
         delete buff;
     }
@@ -93,35 +58,16 @@ GeneralBuffs::~GeneralBuffs()
             delete j.second;
         }
     }
-
-    this->buffs.clear();
-    this->external_buffs.clear();
-    this->external_debuffs.clear();
 }
 
 void GeneralBuffs::switch_faction() {
-    for (auto & setup : external_buffs) {
-        QVector<QPair<bool, ExternalBuff*>>::iterator it = setup.begin();
-
-        while (it != setup.end()) {
-            if (!it->second->valid_for_faction(faction->get_faction_as_enum())) {
-                delete it->second;
-                it = setup.erase(it);
-            }
-            else
-                ++it;
+    for (const auto & i : external_buffs[current_setup]) {
+        if (!i.second->valid_for_faction(pchar->get_faction()->get_faction_as_enum())) {
+            if (i.second->is_active())
+                i.second->cancel_buff();
         }
-    }
-
-    for (auto & setup : external_buffs) {
-        if (faction->is_alliance()) {
-            for (auto & buff : alliance_only_buffs)
-                setup.append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
-        }
-        else {
-            for (auto & buff : horde_only_buffs)
-                setup.append(QPair<bool, ExternalBuff*>(false, get_external_buff_by_name(buff->get_enum_value(), pchar)));
-        }
+        else if (i.first && !i.second->is_active())
+            i.second->apply_buff();
     }
 }
 
@@ -137,16 +83,18 @@ Buff* GeneralBuffs::get_general_buff_by_name(const QString& buff_name) const {
 QVector<ExternalBuff*> GeneralBuffs::get_external_buffs() const {
     QVector<ExternalBuff*> vec;
     for (const auto & i : external_buffs[current_setup]) {
-        vec.append(i.second);
+        if (i.second->valid_for_faction(pchar->get_faction()->get_faction_as_enum()))
+            vec.append(i.second);
     }
+
     return vec;
 }
 
 QVector<ExternalBuff*> GeneralBuffs::get_external_debuffs() const {
     QVector<ExternalBuff*> vec;
-    for (const auto & i : external_debuffs[current_setup]) {
+    for (const auto & i : external_debuffs[current_setup])
         vec.append(i.second);
-    }
+
     return vec;
 }
 
@@ -244,8 +192,108 @@ void GeneralBuffs::deactivate_mutex_buffs(const QString& name) {
     }
 }
 
-bool GeneralBuffs::character_is_mana_user() const {
-    QSet<QString> mana_users = {"Druid", "Hunter", "Mage", "Paladin", "Priest", "Shaman", "Warlock"};
+QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& class_name) {
+    QSet<QString> non_mana_class = {"Rogue", "Warrior"};
+    QSet<QString> pure_magical_class = {"Mage", "Priest", "Warlock"};
 
-    return mana_users.contains(pchar->get_name());
+    QVector<ExternalBuffName> common_raid_buffs = {
+        ExternalBuffName::MarkOfTheWild,
+    };
+
+    QVector<ExternalBuffName> physical_blessings = {
+        ExternalBuffName::BlessingOfMight,
+        ExternalBuffName::BlessingOfKings,
+    };
+
+    QVector<ExternalBuffName> physical_totems = {
+        ExternalBuffName::TotemStrengthOfEarth,
+    };
+
+    QVector<ExternalBuffName> physical_food = {
+        ExternalBuffName::GrilledSquid,
+        ExternalBuffName::SmokedDesertDumplings,
+    };
+
+    QVector<ExternalBuffName> physical_elixirs = {
+        ExternalBuffName::ElixirOfBruteForce,
+        ExternalBuffName::ElixirOfGiants,
+        ExternalBuffName::ElixirOfTheMongoose,
+    };
+
+    QVector<ExternalBuffName> physical_farmables = {
+        ExternalBuffName::WinterfallFirewater,
+        ExternalBuffName::JujuMight,
+        ExternalBuffName::JujuPower,
+        ExternalBuffName::ScrollOfStrengthIV,
+        ExternalBuffName::ROIDS,
+        ExternalBuffName::GroundScorpokAssay,
+        ExternalBuffName::BattleSquawk,
+    };
+
+    QVector<ExternalBuffName> physical_world_buffs = {
+        ExternalBuffName::FengusFerocity,
+        ExternalBuffName::RallyingCryOfTheDragonslayer,
+        ExternalBuffName::SongflowerSerenade,
+        ExternalBuffName::SpiritOfZandalar,
+        ExternalBuffName::SaygesDarkFortuneOfDamage,
+    };
+
+    if (class_name == "Warrior")
+        return physical_blessings + physical_totems + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+
+    if (class_name == "Rogue") {
+        QVector<ExternalBuffName> special_raid_buffs = {ExternalBuffName::BattleShout};
+        return physical_blessings + physical_totems + special_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+    }
+
+    if (pure_magical_class.contains(class_name))
+        return {
+                    ExternalBuffName::BlessingOfKings,
+                    ExternalBuffName::BlessingOfWisdom,
+                    ExternalBuffName::TotemManaSpring,
+                    ExternalBuffName::MarkOfTheWild,
+                    ExternalBuffName::NightfinSoup,
+                    ExternalBuffName::MagebloodPotion,
+                    ExternalBuffName::GreaterArcaneElixir,
+                    ExternalBuffName::FlaskOfSupremePower,
+                    ExternalBuffName::FlaskOfDistilledWisdom,
+                    ExternalBuffName::SlipkiksSavvy,
+                    ExternalBuffName::RallyingCryOfTheDragonslayer,
+                    ExternalBuffName::SongflowerSerenade,
+                    ExternalBuffName::SpiritOfZandalar,
+                    ExternalBuffName::SaygesDarkFortuneOfDamage,
+        };
+
+    else return {
+                    ExternalBuffName::BlessingOfMight,
+                    ExternalBuffName::BlessingOfKings,
+                    ExternalBuffName::BlessingOfWisdom,
+                    ExternalBuffName::TotemStrengthOfEarth,
+                    ExternalBuffName::TotemManaSpring,
+                    ExternalBuffName::BattleShout,
+                    ExternalBuffName::MarkOfTheWild,
+                    ExternalBuffName::GrilledSquid,
+                    ExternalBuffName::SmokedDesertDumplings,
+                    ExternalBuffName::NightfinSoup,
+                    ExternalBuffName::MagebloodPotion,
+                    ExternalBuffName::GreaterArcaneElixir,
+                    ExternalBuffName::ElixirOfBruteForce,
+                    ExternalBuffName::ElixirOfGiants,
+                    ExternalBuffName::ElixirOfTheMongoose,
+                    ExternalBuffName::FlaskOfSupremePower,
+                    ExternalBuffName::FlaskOfDistilledWisdom,
+                    ExternalBuffName::SlipkiksSavvy,
+                    ExternalBuffName::WinterfallFirewater,
+                    ExternalBuffName::JujuMight,
+                    ExternalBuffName::JujuPower,
+                    ExternalBuffName::ScrollOfStrengthIV,
+                    ExternalBuffName::ROIDS,
+                    ExternalBuffName::GroundScorpokAssay,
+                    ExternalBuffName::BattleSquawk,
+                    ExternalBuffName::FengusFerocity,
+                    ExternalBuffName::RallyingCryOfTheDragonslayer,
+                    ExternalBuffName::SongflowerSerenade,
+                    ExternalBuffName::SpiritOfZandalar,
+                    ExternalBuffName::SaygesDarkFortuneOfDamage,
+        };
 }

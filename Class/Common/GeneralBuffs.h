@@ -8,8 +8,9 @@ class Buff;
 class EssenceOfTheRed;
 class ExternalBuff;
 class Faction;
-
 class SunderArmorBuff;
+
+enum class ExternalBuffName: int;
 
 class GeneralBuffs {
 public:
@@ -50,7 +51,7 @@ private:
     void deactivate_externals(const QVector<QVector<QPair<bool, ExternalBuff*>>>& vec);
     void deactivate_mutex_buffs(const QString& name);
 
-    bool character_is_mana_user() const;
+    static QVector<ExternalBuffName> get_buff_names_for_class(const QString& class_name);
 };
 
 #endif // GENERALBUFFS_H
