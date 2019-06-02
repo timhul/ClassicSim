@@ -39,6 +39,7 @@ FireballInstant::~FireballInstant() {
 
     delete fireball_dot;
     delete cooldown;
+    delete instant_dmg;
 }
 
 void FireballInstant::spell_effect() {
