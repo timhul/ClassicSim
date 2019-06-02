@@ -172,6 +172,9 @@ void ExternalBuff::buff_effect_when_applied() {
         pchar->get_stats()->increase_melee_ap(100);
         pchar->get_stats()->increase_ranged_ap(100);
         break;
+    case ExternalBuffName::ImprovedShadowBolt:
+        pchar->get_stats()->increase_magic_school_damage_mod(20, MagicSchool::Shadow);
+        break;
     }
 }
 
@@ -303,6 +306,9 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::TrueshotAura:
         pchar->get_stats()->decrease_melee_ap(100);
         pchar->get_stats()->decrease_ranged_ap(100);
+        break;
+    case ExternalBuffName::ImprovedShadowBolt:
+        pchar->get_stats()->decrease_magic_school_damage_mod(20, MagicSchool::Shadow);
         break;
     }
 }
@@ -449,6 +455,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Trueshot Aura", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/ability/Ability_trueshot.png",
                                 "+100 Attack Power");
+    case ExternalBuffName::ImprovedShadowBolt:
+        return new ExternalBuff(pchar, "Improved Shadow Bolt", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_shadow_shadowbolt.png",
+                                "20% Shadow Damage");
     }
 
     return nullptr;

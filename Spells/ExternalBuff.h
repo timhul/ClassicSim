@@ -24,6 +24,7 @@ enum class ExternalBuffName: int {
     GreaterArcaneElixir,
     GrilledSquid,
     GroundScorpokAssay,
+    ImprovedShadowBolt,
     JujuMight,
     JujuPower,
     MagebloodPotion,
