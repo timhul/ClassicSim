@@ -108,10 +108,10 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::BlessingOfWisdom:
         pchar->get_stats()->increase_mp5(33);
         break;
-    case ExternalBuffName::StrengthOfEarthTotem:
+    case ExternalBuffName::TotemStrengthOfEarth:
         pchar->get_stats()->increase_strength(77);
         break;
-    case ExternalBuffName::ManaSpringTotem:
+    case ExternalBuffName::TotemManaSpring:
         pchar->get_stats()->increase_mp5(25);
         break;
     case ExternalBuffName::Annihilator:
@@ -236,10 +236,10 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::BlessingOfWisdom:
         pchar->get_stats()->decrease_mp5(33);
         break;
-    case ExternalBuffName::StrengthOfEarthTotem:
+    case ExternalBuffName::TotemStrengthOfEarth:
         pchar->get_stats()->decrease_strength(77);
         break;
-    case ExternalBuffName::ManaSpringTotem:
+    case ExternalBuffName::TotemManaSpring:
         pchar->get_stats()->decrease_mp5(25);
         break;
     case ExternalBuffName::Annihilator:
@@ -365,11 +365,11 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Greater Blessing of Wisdom", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Alliance, "Assets/spell/Spell_holy_greaterblessingofwisdom.png",
                                 "Restores 33 mana every 5 seconds.");
-    case ExternalBuffName::StrengthOfEarthTotem:
+    case ExternalBuffName::TotemStrengthOfEarth:
         return new ExternalBuff(pchar, "Strength of Earth Totem", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Horde, "Assets/spell/Spell_nature_earthbindtotem.png",
                                 "+77 Strength");
-    case ExternalBuffName::ManaSpringTotem:
+    case ExternalBuffName::TotemManaSpring:
         return new ExternalBuff(pchar, "Mana Spring Totem", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Horde, "Assets/spell/Spell_nature_manaregentotem.png",
                                 "Restores 10 mana every 2 seconds.");

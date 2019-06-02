@@ -6,7 +6,7 @@
 
 #include <QVersionNumber>
 
-enum ExternalBuffName {
+enum class ExternalBuffName: int {
     Annihilator = 0,
     BattleShout,
     BattleSquawk,
@@ -27,7 +27,6 @@ enum ExternalBuffName {
     JujuMight,
     JujuPower,
     MagebloodPotion,
-    ManaSpringTotem,
     MarkOfTheWild,
     NightfinSoup,
     ROIDS,
@@ -38,8 +37,9 @@ enum ExternalBuffName {
     SmokedDesertDumplings,
     SongflowerSerenade,
     SpiritOfZandalar,
-    StrengthOfEarthTotem,
     SunderArmor,
+    TotemManaSpring,
+    TotemStrengthOfEarth,
     WinterfallFirewater,
 };
 
