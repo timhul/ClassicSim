@@ -40,6 +40,7 @@ enum class ExternalBuffName: int {
     SunderArmor,
     TotemManaSpring,
     TotemStrengthOfEarth,
+    TrueshotAura,
     WinterfallFirewater,
 };
 

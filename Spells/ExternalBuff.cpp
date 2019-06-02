@@ -168,6 +168,10 @@ void ExternalBuff::buff_effect_when_applied() {
     case ExternalBuffName::NightfinSoup:
         pchar->get_stats()->increase_mp5(8);
         break;
+    case ExternalBuffName::TrueshotAura:
+        pchar->get_stats()->increase_melee_ap(100);
+        pchar->get_stats()->increase_ranged_ap(100);
+        break;
     }
 }
 
@@ -295,6 +299,10 @@ void ExternalBuff::buff_effect_when_removed() {
         break;
     case ExternalBuffName::NightfinSoup:
         pchar->get_stats()->decrease_mp5(8);
+        break;
+    case ExternalBuffName::TrueshotAura:
+        pchar->get_stats()->decrease_melee_ap(100);
+        pchar->get_stats()->decrease_ranged_ap(100);
         break;
     }
 }
@@ -437,6 +445,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Nightfin Soup", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_drink_17.png",
                                 "Restores 8 mana per 5 sec");
+    case ExternalBuffName::TrueshotAura:
+        return new ExternalBuff(pchar, "Trueshot Aura", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/ability/Ability_trueshot.png",
+                                "+100 Attack Power");
     }
 
     return nullptr;

@@ -193,8 +193,8 @@ void GeneralBuffs::deactivate_mutex_buffs(const QString& name) {
 }
 
 QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& class_name) {
-    QSet<QString> non_mana_class = {"Rogue", "Warrior"};
     QSet<QString> pure_magical_class = {"Mage", "Priest", "Warlock"};
+    QSet<QString> hybrid_magical_class = {"Paladin", "Shaman", "Druid"};
 
     QVector<ExternalBuffName> common_raid_buffs = {
         ExternalBuffName::MarkOfTheWild,
@@ -238,12 +238,58 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
         ExternalBuffName::SaygesDarkFortuneOfDamage,
     };
 
-    if (class_name == "Warrior")
-        return physical_blessings + physical_totems + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+    QVector<ExternalBuffName> all_blessings = {
+        ExternalBuffName::BlessingOfMight,
+        ExternalBuffName::BlessingOfKings,
+        ExternalBuffName::BlessingOfWisdom,
+    };
+
+    QVector<ExternalBuffName> all_totems = {
+        ExternalBuffName::TotemStrengthOfEarth,
+        ExternalBuffName::TotemManaSpring,
+    };
+
+    QVector<ExternalBuffName> mana_food = {
+        ExternalBuffName::NightfinSoup,
+    };
+
+    QVector<ExternalBuffName> mana_elixirs = {
+        ExternalBuffName::MagebloodPotion,
+    };
+
+    QVector<ExternalBuffName> spell_damage_elixirs = {
+        ExternalBuffName::GreaterArcaneElixir,
+    };
+
+    QVector<ExternalBuffName> all_worldbuffs = {
+        ExternalBuffName::SlipkiksSavvy,
+        ExternalBuffName::FengusFerocity,
+        ExternalBuffName::RallyingCryOfTheDragonslayer,
+        ExternalBuffName::SongflowerSerenade,
+        ExternalBuffName::SpiritOfZandalar,
+        ExternalBuffName::SaygesDarkFortuneOfDamage,
+    };
+
+    if (class_name == "Warrior") {
+        // Hunters currently double-applies Battle Shout if given as external buff, so temporarily exclude it.
+        QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::TrueshotAura};
+        return physical_blessings + physical_totems + physical_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+    }
 
     if (class_name == "Rogue") {
-        QVector<ExternalBuffName> special_raid_buffs = {ExternalBuffName::BattleShout};
-        return physical_blessings + physical_totems + special_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+        QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::BattleShout, ExternalBuffName::TrueshotAura};
+        return physical_blessings + physical_totems + physical_raid_buffs + common_raid_buffs + physical_food + physical_elixirs + physical_farmables + physical_world_buffs;
+    }
+
+    if (class_name == "Hunter") {
+        // Hunters currently double-applies Trueshot Aura if given as external buff, so temporarily exclude it.
+        QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::BattleShout};
+        return all_blessings + all_totems + physical_raid_buffs + common_raid_buffs + mana_food + physical_food + mana_elixirs + physical_elixirs + physical_farmables + all_worldbuffs;
+    }
+
+    if (hybrid_magical_class.contains(class_name)) {
+        QVector<ExternalBuffName> physical_raid_buffs = {ExternalBuffName::BattleShout, ExternalBuffName::TrueshotAura};
+        return all_blessings + all_totems + physical_raid_buffs + common_raid_buffs + mana_food + physical_food + mana_elixirs + spell_damage_elixirs + physical_elixirs + physical_farmables + all_worldbuffs;
     }
 
     if (pure_magical_class.contains(class_name))
@@ -264,36 +310,5 @@ QVector<ExternalBuffName> GeneralBuffs::get_buff_names_for_class(const QString& 
                     ExternalBuffName::SaygesDarkFortuneOfDamage,
         };
 
-    else return {
-                    ExternalBuffName::BlessingOfMight,
-                    ExternalBuffName::BlessingOfKings,
-                    ExternalBuffName::BlessingOfWisdom,
-                    ExternalBuffName::TotemStrengthOfEarth,
-                    ExternalBuffName::TotemManaSpring,
-                    ExternalBuffName::BattleShout,
-                    ExternalBuffName::MarkOfTheWild,
-                    ExternalBuffName::GrilledSquid,
-                    ExternalBuffName::SmokedDesertDumplings,
-                    ExternalBuffName::NightfinSoup,
-                    ExternalBuffName::MagebloodPotion,
-                    ExternalBuffName::GreaterArcaneElixir,
-                    ExternalBuffName::ElixirOfBruteForce,
-                    ExternalBuffName::ElixirOfGiants,
-                    ExternalBuffName::ElixirOfTheMongoose,
-                    ExternalBuffName::FlaskOfSupremePower,
-                    ExternalBuffName::FlaskOfDistilledWisdom,
-                    ExternalBuffName::SlipkiksSavvy,
-                    ExternalBuffName::WinterfallFirewater,
-                    ExternalBuffName::JujuMight,
-                    ExternalBuffName::JujuPower,
-                    ExternalBuffName::ScrollOfStrengthIV,
-                    ExternalBuffName::ROIDS,
-                    ExternalBuffName::GroundScorpokAssay,
-                    ExternalBuffName::BattleSquawk,
-                    ExternalBuffName::FengusFerocity,
-                    ExternalBuffName::RallyingCryOfTheDragonslayer,
-                    ExternalBuffName::SongflowerSerenade,
-                    ExternalBuffName::SpiritOfZandalar,
-                    ExternalBuffName::SaygesDarkFortuneOfDamage,
-        };
+    return {};
 }
