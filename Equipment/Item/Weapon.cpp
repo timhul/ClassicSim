@@ -122,6 +122,7 @@ void Weapon::apply_temporary_enchant(EnchantName::Name enchant_name, Character *
         check(false, QString("Tried to apply temporary weapon enchant on unsupported slot %1").arg(enchant_slot).toStdString());
 
     switch (enchant_name) {
+    case EnchantName::ShadowOil:
     case EnchantName::WindfuryTotem:
         temporary_enchant = new EnchantProc(enchant_name, pchar, enchant_slot);
         break;

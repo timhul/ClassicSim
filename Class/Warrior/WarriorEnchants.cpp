@@ -88,7 +88,8 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
     case EquipmentSlot::MAINHAND: {
         QVector<EnchantName::Name> enchants {
             EnchantName::ElementalSharpeningStone,
-            EnchantName::ConsecratedSharpeningStone
+            EnchantName::ConsecratedSharpeningStone,
+            EnchantName::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
@@ -99,7 +100,8 @@ QVector<EnchantName::Name> WarriorEnchants::get_available_temp_enchants(const in
     case EquipmentSlot::OFFHAND:
         QVector<EnchantName::Name> enchants {
             EnchantName::ElementalSharpeningStone,
-            EnchantName::ConsecratedSharpeningStone
+            EnchantName::ConsecratedSharpeningStone,
+            EnchantName::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);

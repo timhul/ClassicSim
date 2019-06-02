@@ -11,10 +11,13 @@ InstantSpellAttack::InstantSpellAttack(Character* pchar,
                                        const QString &icon,
                                        const MagicSchool school,
                                        const unsigned min,
-                                       const unsigned max) :
+                                       const unsigned max,
+                                       const double coefficient) :
     Spell(name, icon, pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     school(school),
-    min(min), max(max),
+    min(min),
+    max(max),
+    coefficient(coefficient),
     random(new Random(min, max))
 {}
 
@@ -33,6 +36,7 @@ void InstantSpellAttack::spell_effect() {
         return increment_full_resist();
 
     unsigned damage_dealt = random->get_roll();
+    damage_dealt += static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(school) * coefficient));
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
     const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(school);
 

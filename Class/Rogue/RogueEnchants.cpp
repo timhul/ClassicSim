@@ -69,7 +69,8 @@ QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int 
         QVector<EnchantName::Name> enchants {
             EnchantName::ElementalSharpeningStone,
             EnchantName::ConsecratedSharpeningStone,
-            EnchantName::InstantPoison
+            EnchantName::InstantPoison,
+            EnchantName::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
@@ -81,7 +82,8 @@ QVector<EnchantName::Name> RogueEnchants::get_available_temp_enchants(const int 
         QVector<EnchantName::Name> enchants {
             EnchantName::ConsecratedSharpeningStone,
             EnchantName::ElementalSharpeningStone,
-            EnchantName::InstantPoison
+            EnchantName::InstantPoison,
+            EnchantName::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);

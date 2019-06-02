@@ -49,6 +49,7 @@ public:
         LesserManaOil,
         BrilliantManaOil,
         BrilliantWizardOil,
+        ShadowOil,
     };
 
     Q_ENUMS(Name)
@@ -130,6 +131,8 @@ public:
             return "Brilliant Mana Oil";
         case EnchantName::BrilliantWizardOil:
             return "Brilliant Wizard Oil";
+        case EnchantName::ShadowOil:
+            return "Shadow Oil";
         }
 
         check(false, "EnchantName::get_name reached end of switch");
@@ -217,6 +220,8 @@ public:
             return "+12mp5/+25 Heal";
         case EnchantName::BrilliantWizardOil:
             return "+36 SP\n+1% Spell Crit";
+        case EnchantName::ShadowOil:
+            return "15% R3 Shadow Bolt";
         }
 
         check(false, "EnchantName::get_effect reached end of switch");

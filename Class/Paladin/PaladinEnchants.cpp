@@ -78,7 +78,8 @@ QVector<EnchantName::Name> PaladinEnchants::get_available_temp_enchants(const in
         QVector<EnchantName::Name> enchants {
             EnchantName::ElementalSharpeningStone,
             EnchantName::ConsecratedSharpeningStone,
-            EnchantName::BrilliantWizardOil
+            EnchantName::BrilliantWizardOil,
+            EnchantName::ShadowOil,
         };
         if (has_sharp_weapon(equipment_slot))
             enchants.prepend(EnchantName::DenseSharpeningStone);
