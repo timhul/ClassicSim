@@ -163,10 +163,6 @@ void Weapon::clear_windfury() {
         clear_temporary_enchant();
 }
 
-QString Weapon::get_temporary_enchant_name() const {
-    return temporary_enchant != nullptr ? temporary_enchant->get_name() : "";
-}
-
 QString Weapon::get_temporary_enchant_effect() const {
     return temporary_enchant != nullptr ? temporary_enchant->get_effect() : "";
 }

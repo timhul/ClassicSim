@@ -170,10 +170,6 @@ void TestSpellWarrior::when_switching_to_berserker_stance() {
     warrior->switch_to_berserker_stance();
 }
 
-void TestSpellWarrior::when_switching_to_defensive_stance() {
-    warrior->switch_to_defensive_stance();
-}
-
 void TestSpellWarrior::then_warrior_has_rage(const unsigned rage) {
     if (rage != warrior->get_resource_level(ResourceType::Rage))
         qDebug() << spell_under_test << "expected" << rage << "rage but has" << warrior->get_resource_level(ResourceType::Rage);

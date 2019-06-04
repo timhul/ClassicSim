@@ -212,24 +212,6 @@ void Stats::decrease_parry(const double decrease) {
     parry_chance -= decrease;
 }
 
-void Stats::increase_all_resistances(const int increase) {
-    increase_arcane_resistance(increase);
-    increase_fire_resistance(increase);
-    increase_frost_resistance(increase);
-    increase_holy_resistance(increase);
-    increase_nature_resistance(increase);
-    increase_shadow_resistance(increase);
-}
-
-void Stats::decrease_all_resistances(const int decrease) {
-    decrease_arcane_resistance(decrease);
-    decrease_fire_resistance(decrease);
-    decrease_frost_resistance(decrease);
-    decrease_holy_resistance(decrease);
-    decrease_nature_resistance(decrease);
-    decrease_shadow_resistance(decrease);
-}
-
 void Stats::increase_arcane_resistance(const int increase) {
     arcane_res += increase;
 }

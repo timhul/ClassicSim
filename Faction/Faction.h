@@ -18,7 +18,6 @@ public:
     void switch_faction();
 
     const QVector<QString>& get_faction_races() const;
-    const QVector<QString>& get_faction_classes() const;
 
     bool is_alliance() const;
     bool is_horde() const;

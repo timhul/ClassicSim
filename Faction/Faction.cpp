@@ -32,10 +32,6 @@ const QVector<QString>& Faction::get_faction_races() const {
     return is_horde() ? horde_races : alliance_races;
 }
 
-const QVector<QString>& Faction::get_faction_classes() const {
-    return is_horde() ? horde_classes : alliance_classes;
-}
-
 bool Faction::is_alliance() const {
     return this->current_faction == AvailableFactions::Alliance;
 }

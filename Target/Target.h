@@ -39,15 +39,6 @@ public:
     QString get_creature_type_string() const;
     void set_creature_type(const QString& target);
 
-    bool is_beast() const;
-    bool is_demon() const;
-    bool is_dragonkin() const;
-    bool is_elemental() const;
-    bool is_giant() const;
-    bool is_humanoid() const;
-    bool is_mechanical() const;
-    bool is_undead() const;
-
 private:
     int target_lvl;
     int target_armor;

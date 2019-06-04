@@ -42,8 +42,6 @@ public:
     MeleeWhiteHitTable* get_pet_white_table(const int wpn_skill);
     MeleeSpecialTable* get_pet_ability_table(const int wpn_skill);
 
-    Mechanics* get_mechanics() const;
-
     double get_white_miss_chance(const int);
     double get_yellow_miss_chance(const int wpn_skill);
     double get_glancing_blow_dmg_penalty(const int wpn_skill);

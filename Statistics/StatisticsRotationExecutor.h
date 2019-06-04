@@ -33,7 +33,6 @@ public:
     StatisticsRotationExecutor(const QString& executor_name);
 
     QString get_name() const;
-    unsigned get_successful_casts() const;
     void add_successful_casts(unsigned successful_casts);
     void add_no_condition_group_fulfilled(unsigned no_condition_group_fulfilled);
     void add_spell_status_map(const QMap<SpellStatus, unsigned>& spell_status_map);

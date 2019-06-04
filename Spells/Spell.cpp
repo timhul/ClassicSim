@@ -205,10 +205,6 @@ void Spell::prepare_set_of_combat_iterations() {
     this->statistics_spell = pchar->get_statistics()->get_spell_statistics(name, icon, spell_rank);
 }
 
-StatisticsSpell* Spell::get_statistics_for_spell() const {
-    return this->statistics_spell;
-}
-
 int Spell::get_instance_id() const {
     return this->instance_id;
 }

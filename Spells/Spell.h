@@ -82,7 +82,6 @@ public:
 
     void reset();
     virtual void prepare_set_of_combat_iterations();
-    StatisticsSpell* get_statistics_for_spell() const;
 
     int get_instance_id() const;
     void set_instance_id(const int);

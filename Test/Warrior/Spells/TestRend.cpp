@@ -266,27 +266,6 @@ void TestRend::then_rend_damage_dealt_is(const int damage_dealt) {
     assert(pchar->get_statistics()->get_total_damage_for_spell("Rend") == damage_dealt);
 }
 
-void TestRend::then_rend_is_applied() {
-    while (!pchar->get_engine()->get_queue()->empty()) {
-        Event* event = pchar->get_engine()->get_queue()->get_next();
-        pchar->get_engine()->set_current_priority(event);
-
-        if (event->get_name() != "DotTick") {
-            delete event;
-            continue;
-        }
-
-        event->act();
-        delete event;
-    }
-
-    assert(pchar->get_statistics()->get_total_damage_for_spell("Rend") > 0);
-}
-
-void TestRend::then_rend_is_not_applied() {
-    then_rend_damage_dealt_is(0);
-}
-
 void TestRend::then_damage_is_dealt_over_21_seconds() {
     assert(QString::number(pchar->get_engine()->get_current_priority(), 'f', 3) == "21.000");
 }

@@ -164,8 +164,6 @@ SOURCES += main.cpp \
     Class/Common/Enchants/FieryWeapon.cpp \
     Character/CharacterStats.cpp \
     Class/Warrior/WarriorSpells.cpp \
-    Statistics/Charts/PieChart.cpp \
-    GUI/Models/PieChartModel.cpp \
     Statistics/ClassStatistics.cpp \
     Faction/Faction.cpp \
     Target/Target.cpp \
@@ -564,8 +562,6 @@ HEADERS += \
     Class/Common/Enchants/FieryWeapon.h \
     Character/CharacterStats.h \
     Class/Warrior/WarriorSpells.h \
-    Statistics/Charts/PieChart.h \
-    GUI/Models/PieChartModel.h \
     Statistics/ClassStatistics.h \
     Faction/Faction.h \
     Statistics/StatisticsSpell.h \

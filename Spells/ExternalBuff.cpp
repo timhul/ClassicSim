@@ -42,10 +42,6 @@ bool ExternalBuff::valid_for_faction(AvailableFactions::Name faction) const {
     return this->faction == faction;
 }
 
-ExternalBuffName ExternalBuff::get_enum_value() const {
-    return this->buff_name;
-}
-
 void ExternalBuff::buff_effect_when_applied() {
     switch (buff_name) {
     case ExternalBuffName::BattleShout:

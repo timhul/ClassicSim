@@ -14,7 +14,6 @@ private:
     void test_crit_applied_and_removed();
 
     void given_felstriker_equipped_in_mainhand();
-    void given_felstriker_equipped_in_offhand();
 
     void set_up();
     void tear_down();

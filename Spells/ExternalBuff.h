@@ -64,7 +64,6 @@ public:
 
     QString get_description() const;
     bool valid_for_faction(AvailableFactions::Name faction) const;
-    ExternalBuffName get_enum_value() const;
 
 protected:
     virtual void buff_effect_when_applied();

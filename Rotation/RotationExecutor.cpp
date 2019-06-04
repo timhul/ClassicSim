@@ -137,14 +137,6 @@ void RotationExecutor::add_condition(const QVector<Condition*>& condition) {
     this->condition_groups.append(condition);
 }
 
-void RotationExecutor::add_variable_assignment(const QString& var, const QString& value) {
-    this->variable_assignments.insert(var, value);
-}
-
-QMap<QString, QString>& RotationExecutor::get_variable_assignments() {
-    return this->variable_assignments;
-}
-
 void RotationExecutor::dump() {
     qDebug() << "\nspell_name" << spell_name;
     qDebug() << "spell ptr" << spell;

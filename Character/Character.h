@@ -81,7 +81,6 @@ public:
     virtual void set_clvl(const unsigned);
 
     void add_player_reaction_event();
-    virtual void add_pet_reaction_event();
 
     bool is_dual_wielding();
     bool action_ready() const;
@@ -107,7 +106,6 @@ public:
     double get_random_normalized_mh_dmg();
     double get_random_non_normalized_mh_dmg();
 
-    double get_random_normalized_oh_dmg();
     double get_random_non_normalized_oh_dmg();
 
     double get_random_normalized_ranged_dmg();
@@ -142,7 +140,6 @@ public:
     virtual void gain_energy(const unsigned);
     virtual void lose_energy(const unsigned);
     virtual void gain_focus(const unsigned);
-    virtual void lose_focus(const unsigned);
 
     virtual void increase_base_mana(const unsigned value);
     virtual void decrease_base_mana(const unsigned value);

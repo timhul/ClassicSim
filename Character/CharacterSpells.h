@@ -72,12 +72,6 @@ public:
     virtual OffhandAttack* get_oh_attack() const;
     virtual AutoShot* get_auto_shot() const;
 
-    Berserking* get_berserking() const;
-    BloodFury* get_blood_fury() const;
-
-    DemonicRune* get_demonic_rune() const;
-    ManaPotion* get_mana_potion() const;
-    NightDragonsBreath* get_night_dragons_breath() const;
     DragonbreathChili* get_dragonbreath_chili() const;
 
 protected:

@@ -650,14 +650,6 @@ double CharacterStats::get_ranged_ability_crit_dmg_mod() const {
     return ranged_ability_crit_dmg_mod + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }
 
-void CharacterStats::increase_ranged_ability_crit_dmg_mod(const double value) {
-    ranged_ability_crit_dmg_mod += value;
-}
-
-void CharacterStats::decrease_ranged_ability_crit_dmg_mod(const double value) {
-    ranged_ability_crit_dmg_mod -= value;
-}
-
 double CharacterStats::get_spell_crit_dmg_mod() const {
     return spell_crit_dmg_mod  + crit_dmg_bonuses_per_monster_type[pchar->get_target()->get_creature_type()];
 }

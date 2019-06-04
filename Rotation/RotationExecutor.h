@@ -19,9 +19,6 @@ public:
     void add_sentence(Sentence* sentence);
     void add_condition(const QVector<Condition *>& condition);
 
-    void add_variable_assignment(const QString& var, const QString& value);
-    QMap<QString, QString>& get_variable_assignments();
-
     void attempt_cast();
 
     QString get_spell_name() const;

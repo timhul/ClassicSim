@@ -51,9 +51,6 @@ public:
     void increase_parry(const double);
     void decrease_parry(const double);
 
-    void increase_all_resistances(const int);
-    void decrease_all_resistances(const int);
-
     void increase_arcane_resistance(const int);
     void decrease_arcane_resistance(const int);
 

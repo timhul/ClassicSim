@@ -37,7 +37,6 @@ public:
     void prepare_statistics();
 
     void set_sim_option(const SimOption::Name);
-    SimOption::Name get_sim_option() const;
 
 private:
     friend class NumberCruncher;

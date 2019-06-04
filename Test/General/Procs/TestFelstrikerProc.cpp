@@ -63,8 +63,3 @@ void TestFelstrikerProc::given_felstriker_equipped_in_mainhand() {
     pchar->get_equipment()->set_mainhand(12590);
     assert(pchar->get_equipment()->get_mainhand()->get_name() == "Felstriker");
 }
-
-void TestFelstrikerProc::given_felstriker_equipped_in_offhand() {
-    pchar->get_equipment()->set_offhand(12590);
-    assert(pchar->get_equipment()->get_offhand()->get_name() == "Felstriker");
-}

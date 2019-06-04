@@ -87,35 +87,3 @@ void Target::set_creature_type(const QString& target) {
 
     target_type = string_to_creature_type[target];
 }
-
-bool Target::is_beast() const {
-    return target_type == CreatureType::Beast;
-}
-
-bool Target::is_demon() const {
-    return target_type == CreatureType::Demon;
-}
-
-bool Target::is_dragonkin() const {
-    return target_type == CreatureType::Dragonkin;
-}
-
-bool Target::is_elemental() const {
-    return target_type == CreatureType::Elemental;
-}
-
-bool Target::is_giant() const {
-    return target_type == CreatureType::Giant;
-}
-
-bool Target::is_humanoid() const {
-    return target_type == CreatureType::Humanoid;
-}
-
-bool Target::is_mechanical() const {
-    return target_type == CreatureType::Mechanical;
-}
-
-bool Target::is_undead() const {
-    return target_type == CreatureType::Undead;
-}

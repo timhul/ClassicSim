@@ -95,10 +95,6 @@ int CombatRoll::get_pet_ability_result(const int wpn_skill, const unsigned crit_
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod), true, true, true, true);
 }
 
-Mechanics* CombatRoll::get_mechanics() const {
-    return this->mechanics;
-}
-
 MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const int wpn_skill) {
     if (melee_white_tables.contains(wpn_skill))
         return melee_white_tables[wpn_skill];

@@ -167,43 +167,6 @@ void TestSpellHunter::given_5_of_5_mortal_shots() {
     delete talent;
 }
 
-void TestSpellHunter::given_1_of_5_ranged_weapon_specialization() {
-    Talent* talent = Marksmanship(hunter).get_ranged_weapon_specialization();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_2_of_5_ranged_weapon_specialization() {
-    Talent* talent = Marksmanship(hunter).get_ranged_weapon_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    delete talent;
-}
-
-void TestSpellHunter::given_3_of_5_ranged_weapon_specialization() {
-    Talent* talent = Marksmanship(hunter).get_ranged_weapon_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_4_of_5_ranged_weapon_specialization() {
-    Talent* talent = Marksmanship(hunter).get_ranged_weapon_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
 void TestSpellHunter::given_5_of_5_ranged_weapon_specialization() {
     Talent* talent = Marksmanship(hunter).get_ranged_weapon_specialization();
 

@@ -303,26 +303,6 @@ AutoShot* CharacterSpells::get_auto_shot() const {
     return nullptr;
 }
 
-Berserking* CharacterSpells::get_berserking() const {
-    return this->berserking;
-}
-
-BloodFury* CharacterSpells::get_blood_fury() const {
-    return this->blood_fury;
-}
-
-DemonicRune* CharacterSpells::get_demonic_rune() const {
-    return this->demonic_rune;
-}
-
-ManaPotion* CharacterSpells::get_mana_potion() const {
-    return this->mana_potion;
-}
-
-NightDragonsBreath* CharacterSpells::get_night_dragons_breath() const {
-    return this->night_dragons_breath;
-}
-
 DragonbreathChili* CharacterSpells::get_dragonbreath_chili() const {
     return this->dragonbreath_chili;
 }

@@ -491,10 +491,6 @@ void TestFlurryWarrior::given_flurry_enabled() {
     assert(spells->get_flurry()->is_enabled());
 }
 
-void TestFlurryWarrior::given_flurry_not_enabled() {
-    assert(spells->get_flurry()->is_enabled() == false);
-}
-
 void TestFlurryWarrior::given_flurry_is_not_active() {
     when_flurry_is_removed();
 }

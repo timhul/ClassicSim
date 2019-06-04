@@ -40,8 +40,6 @@ private:
     void when_attack_is_performed(Spell* spell);
 
     void then_rend_damage_dealt_is(const int damage_dealt);
-    void then_rend_is_applied();
-    void then_rend_is_not_applied();
     void then_damage_is_dealt_over_21_seconds();
 };
 

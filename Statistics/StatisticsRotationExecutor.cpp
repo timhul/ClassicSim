@@ -29,10 +29,6 @@ QString StatisticsRotationExecutor::get_name() const {
     return this->executor_name;
 }
 
-unsigned StatisticsRotationExecutor::get_successful_casts() const {
-    return this->successful_casts;
-}
-
 void StatisticsRotationExecutor::add_successful_casts(unsigned successful_casts) {
     this->successful_casts += successful_casts;
 }

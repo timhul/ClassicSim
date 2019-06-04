@@ -24,10 +24,6 @@ void ClassStatistics::set_sim_option(const SimOption::Name option) {
     this->option = option;
 }
 
-SimOption::Name ClassStatistics::get_sim_option() const {
-    return this->option;
-}
-
 StatisticsSpell* ClassStatistics::get_spell_statistics(const QString &name, const QString& icon, const int spell_rank) {
     const auto recorded_name = spell_rank > 1 ? QString("%1 (rank %2)").arg(name).arg(spell_rank) : name;
     check(!spell_statistics.contains(recorded_name), QString("'%1' has already initialized spell statistics").arg(recorded_name).toStdString());

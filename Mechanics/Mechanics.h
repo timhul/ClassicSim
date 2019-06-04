@@ -11,7 +11,6 @@ public:
     Mechanics(Target*);
 
     double get_yellow_miss_chance(const int clvl, const int wpn_skill) const;
-    double get_1h_white_miss_chance(const int clvl, const int wpn_skill) const;
     double get_2h_white_miss_chance(const int clvl, const int wpn_skill) const;
     double get_dw_white_miss_chance(const int clvl, const int wpn_skill) const;
 

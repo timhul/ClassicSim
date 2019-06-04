@@ -211,10 +211,6 @@ void TestHeroicStrike::test_dodge_applies_overpower_buff() {
     then_overpower_is_active();
 }
 
-void TestHeroicStrike::given_0_of_3_improved_hs() {
-    then_heroic_strike_costs(15);
-}
-
 void TestHeroicStrike::given_1_of_3_improved_hs() {
     Talent* talent = Arms(warrior).get_improved_heroic_strike();
 
@@ -240,16 +236,6 @@ void TestHeroicStrike::given_3_of_3_improved_hs() {
     assert(talent->increment_rank());
 
     delete talent;
-}
-
-void TestHeroicStrike::given_heroic_strike_is_queued() {
-    heroic_strike()->perform();
-    assert(heroic_strike()->is_queued());
-}
-
-void TestHeroicStrike::given_heroic_strike_is_not_queued() {
-    heroic_strike()->cancel();
-    assert(!heroic_strike()->is_queued());
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {

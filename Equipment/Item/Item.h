@@ -59,7 +59,6 @@ public:
     bool has_enchant() const;
     void apply_enchant(EnchantName::Name enchant_name, Character *pchar);
     void clear_enchant();
-    QString get_enchant_name() const;
     QString get_enchant_effect() const;
     EnchantName::Name get_enchant_enum_value() const;
 

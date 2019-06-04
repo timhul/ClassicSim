@@ -34,7 +34,6 @@ public:
 
     void when_switching_to_battle_stance();
     void when_switching_to_berserker_stance();
-    void when_switching_to_defensive_stance();
 
     void then_warrior_has_rage(const unsigned);
     void then_overpower_is_active();

@@ -163,10 +163,6 @@ void Character::add_player_reaction_event() {
     engine->add_event(new_event);
 }
 
-void Character::add_pet_reaction_event() {
-
-}
-
 void Character::start_global_cooldown() {
     check(action_ready(), "Action not ready");
     this->next_gcd = engine->get_current_priority() + global_cooldown();
@@ -244,11 +240,6 @@ double Character::get_random_non_normalized_mh_dmg() {
     return get_non_normalized_dmg(mh->get_random_dmg() + cstats->get_mh_flat_damage_bonus(),
                                   cstats->get_melee_ap(),
                                   mh->get_base_weapon_speed());
-}
-
-double Character::get_random_normalized_oh_dmg() {
-    Weapon* oh = cstats->get_equipment()->get_offhand();
-    return get_normalized_dmg(oh->get_random_dmg() + cstats->get_oh_flat_damage_bonus(), oh);
 }
 
 double Character::get_random_non_normalized_oh_dmg() {
@@ -408,10 +399,6 @@ void Character::lose_energy(const unsigned) {
 }
 
 void Character::gain_focus(const unsigned) {
-
-}
-
-void Character::lose_focus(const unsigned) {
 
 }
 

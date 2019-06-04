@@ -159,14 +159,6 @@ OffhandAttack* WarriorSpells::get_oh_attack() const {
     return dynamic_cast<OffhandAttack*>(warr_oh_attack);
 }
 
-AngerManagement* WarriorSpells::get_anger_management() const {
-    return this->anger_management;
-}
-
-BattleStance* WarriorSpells::get_battle_stance() const {
-    return this->battle_stance;
-}
-
 BerserkerStance* WarriorSpells::get_berserker_stance() const {
     return this->berserker_stance;
 }
@@ -177,10 +169,6 @@ Bloodthirst* WarriorSpells::get_bloodthirst() const {
 
 DeepWounds* WarriorSpells::get_deep_wounds() const {
     return this->deep_wounds;
-}
-
-Hamstring* WarriorSpells::get_hamstring() const {
-    return this->hamstring;
 }
 
 HeroicStrike* WarriorSpells::get_heroic_strike() const {
@@ -199,20 +187,12 @@ Overpower* WarriorSpells::get_overpower() const {
     return this->overpower;
 }
 
-OffhandAttackWarrior* WarriorSpells::get_oh_attack_warrior() const {
-    return dynamic_cast<OffhandAttackWarrior*>(this->warr_oh_attack);
-}
-
 DeathWish* WarriorSpells::get_death_wish() const {
     return this->death_wish;
 }
 
 BattleShout* WarriorSpells::get_battle_shout() const {
     return this->battle_shout;
-}
-
-BerserkerRage* WarriorSpells::get_berserker_rage() const {
-    return this->berserker_rage;
 }
 
 Bloodrage* WarriorSpells::get_bloodrage() const {
@@ -241,10 +221,6 @@ void WarriorSpells::apply_deep_wounds() {
 
 Buff* WarriorSpells::get_flurry() const {
     return this->flurry;
-}
-
-Buff* WarriorSpells::get_battle_stance_buff() const {
-    return this->battle_stance_buff;
 }
 
 Buff* WarriorSpells::get_berserker_stance_buff() const {

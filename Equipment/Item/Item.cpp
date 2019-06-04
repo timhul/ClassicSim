@@ -272,10 +272,6 @@ void Item::clear_enchant() {
     enchant = nullptr;
 }
 
-QString Item::get_enchant_name() const {
-    return enchant != nullptr ? enchant->get_name() : "";
-}
-
 QString Item::get_enchant_effect() const {
     return enchant != nullptr ? enchant->get_effect() : "";
 }

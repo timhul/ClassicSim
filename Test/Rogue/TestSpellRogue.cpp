@@ -136,36 +136,6 @@ void TestSpellRogue::given_1_of_5_opportunity() {
     delete talent;
 }
 
-void TestSpellRogue::given_2_of_5_opportunity() {
-    Talent* talent = Subtlety(rogue).get_opportunity();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_3_of_5_opportunity() {
-    Talent* talent = Subtlety(rogue).get_opportunity();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_4_of_5_opportunity() {
-    Talent* talent = Subtlety(rogue).get_opportunity();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
 void TestSpellRogue::given_5_of_5_opportunity() {
     Talent* talent = Subtlety(rogue).get_opportunity();
 

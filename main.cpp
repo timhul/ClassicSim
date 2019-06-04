@@ -18,8 +18,6 @@
 #include "ItemTypeFilterModel.h"
 #include "MeleeDamageAvoidanceBreakdownModel.h"
 #include "MeleeDamageBreakdownModel.h"
-#include "PieChart.h"
-#include "PieChartModel.h"
 #include "ProcBreakdownModel.h"
 #include "ResourceBreakdownModel.h"
 #include "RotationConditionsModel.h"
@@ -82,8 +80,6 @@ int main(int argc, char *argv[])
     context->setContextProperty("glovesEnchantModel", gui_control->get_gloves_enchant_model());
     context->setContextProperty("chestEnchantModel", gui_control->get_chest_enchant_model());
     context->setContextProperty("bootsEnchantModel", gui_control->get_boots_enchant_model());
-    context->setContextProperty("pieChart", new PieChart());
-    context->setContextProperty("pieChartModel", new PieChartModel());
 
     qmlRegisterType<AvailableFactions>("Faction", 1, 0, "Faction");
     qmlRegisterType<BuffBreakdownSorting>("BuffBreakdownSorting", 1, 0, "BuffBreakdownSorting");

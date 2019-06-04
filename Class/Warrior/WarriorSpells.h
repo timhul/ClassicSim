@@ -47,20 +47,15 @@ public:
     MainhandAttack* get_mh_attack() const override;
     OffhandAttack* get_oh_attack() const override;
 
-    AngerManagement* get_anger_management() const;
     BattleShout* get_battle_shout() const;
-    BattleStance* get_battle_stance() const;
-    BerserkerRage* get_berserker_rage() const;
     BerserkerStance* get_berserker_stance() const;
     Bloodrage* get_bloodrage() const;
     Bloodthirst* get_bloodthirst() const;
     DeathWish* get_death_wish() const;
     DeepWounds* get_deep_wounds() const;
     Execute* get_execute() const;
-    Hamstring* get_hamstring() const;
     HeroicStrike* get_heroic_strike() const;
     MortalStrike* get_mortal_strike() const;
-    OffhandAttackWarrior* get_oh_attack_warrior() const;
     Overpower* get_overpower() const;
     Recklessness* get_recklessness() const;
     Rend* get_rend() const;
@@ -68,7 +63,6 @@ public:
     Whirlwind* get_whirlwind() const;
 
     Buff* get_berserker_stance_buff() const;
-    Buff* get_battle_stance_buff() const;
     Buff* get_overpower_buff() const;
     Buff* get_defensive_stance_buff() const;
     Buff* get_flurry() const;

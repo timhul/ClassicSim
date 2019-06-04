@@ -33,11 +33,6 @@ double Mechanics::get_2h_white_miss_chance(const int clvl, const int wpn_skill) 
     return base_miss;
 }
 
-double Mechanics::get_1h_white_miss_chance(const int clvl, const int wpn_skill) const {
-    // Note that this is not for dual-wield, this is when only a single 1hander is equipped.
-    return get_2h_white_miss_chance(clvl, wpn_skill);
-}
-
 double Mechanics::get_glancing_blow_chance(const int clvl) const {
     // Non-melee classes do not follow this formula.
     int level_diff = target->get_lvl() - clvl;

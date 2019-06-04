@@ -45,7 +45,6 @@ private:
     void test_regular_hit_mortal_strike_does_not_apply_flurry();
 
     void given_flurry_enabled();
-    void given_flurry_not_enabled();
     void given_flurry_is_not_active();
     void given_a_mainhand_and_offhand_equipped();
 

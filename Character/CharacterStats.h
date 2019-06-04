@@ -118,8 +118,6 @@ public:
     void decrease_melee_ability_crit_dmg_mod(const double value);
 
     double get_ranged_ability_crit_dmg_mod() const;
-    void increase_ranged_ability_crit_dmg_mod(const double value);
-    void decrease_ranged_ability_crit_dmg_mod(const double value);
 
     unsigned get_mp5() const;
     void increase_mp5(const unsigned value);
