@@ -10,6 +10,10 @@ BerserkingBuff::BerserkingBuff(Character* pchar):
     curr_buff(0)
 {}
 
+BerserkingBuff::~BerserkingBuff() {
+    delete random;
+}
+
 void BerserkingBuff::buff_effect_when_applied() {
     curr_buff = random->get_roll();
     pchar->increase_melee_attack_speed(curr_buff);

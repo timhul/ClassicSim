@@ -8,11 +8,11 @@ class Random;
 class BerserkingBuff: public Buff {
 public:
     BerserkingBuff(Character* pchar);
+    ~BerserkingBuff() override;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 
-protected:
 private:
     Random* random;
     unsigned curr_buff;
