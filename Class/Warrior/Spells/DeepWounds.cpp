@@ -36,6 +36,9 @@ DeepWounds::~DeepWounds() {
 void DeepWounds::perform_periodic() {
     check(!stacks.empty(), "No deep wounds stacks to consume");
 
+    if (!buff->is_active())
+        return reset_effect();
+
     double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * wpn_percent) / 6);
 
     damage_dealt += previous_tick_rest;
@@ -63,6 +66,9 @@ void DeepWounds::spell_effect() {
         return;
 
     buff->apply_buff();
+
+    if (!buff->is_active())
+        return;
 
     if (stacks.empty()) {
         auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);

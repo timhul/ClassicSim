@@ -8,6 +8,7 @@
 #include "EnabledBuffs.h"
 #include "Engine.h"
 #include "StatisticsBuff.h"
+#include "Target.h"
 #include "Utils/Check.h"
 
 Buff::Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
@@ -41,15 +42,19 @@ void Buff::apply_buff() {
     if (!is_enabled())
         return;
 
-    this->current_charges = base_charges;
-
     if (!is_active()) {
+        if (debuff == true) {
+            if (!pchar->get_target()->add_debuff(this, debuff_priority))
+                return;
+        }
+
         this->applied = pchar->get_engine()->get_current_priority();
         this->buff_effect_when_applied();
     }
     else
         this->buff_effect_when_refreshed();
 
+    this->current_charges = base_charges;
     this->refreshed = pchar->get_engine()->get_current_priority();
     this->active = true;
     if (this->duration != BuffDuration::PERMANENT) {
@@ -79,6 +84,9 @@ void Buff::remove_buff(const int iteration) {
 }
 
 void Buff::force_remove_buff() {
+    if (debuff && is_active())
+        pchar->get_target()->remove_debuff(this);
+
     this->expired = pchar->get_engine()->get_current_priority();
     this->active = false;
 

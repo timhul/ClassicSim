@@ -2,6 +2,7 @@
 
 #include <QDebug>
 
+#include "Buff.h"
 #include "Mechanics.h"
 
 Target::Target(int target_lvl):
@@ -86,4 +87,47 @@ void Target::set_creature_type(const QString& target) {
     }
 
     target_type = string_to_creature_type[target];
+}
+
+bool Target::add_debuff(Buff* debuff, const int priority) {
+    if (size_debuffs == debuff_limit) {
+        if (!remove_oldest_lowest_priority_debuff(priority))
+            return false;
+    }
+
+    debuffs[priority].append(debuff);
+    ++size_debuffs;
+    return true;
+}
+
+bool Target::remove_oldest_lowest_priority_debuff(const int up_to_priority) {
+    for (int i = 0; i < up_to_priority; ++i) {
+        if (debuffs[i].empty())
+            continue;
+
+        Buff* debuff = debuffs[i].takeFirst();
+        debuff->cancel_buff();
+        --size_debuffs;
+        return true;
+    }
+
+    return false;
+}
+
+void Target::remove_debuff(Buff* debuff) {
+    for (auto & priority_buffs: debuffs) {
+        for (int i = 0; i < priority_buffs.size(); ++i) {
+            if (priority_buffs[i]->get_instance_id() != debuff->get_instance_id())
+                continue;
+
+            priority_buffs.removeAt(i);
+            --size_debuffs;
+            return;
+        }
+    }
+}
+
+void Target::reset() {
+    debuffs.clear();
+    size_debuffs = 0;
 }

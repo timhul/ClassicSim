@@ -74,6 +74,7 @@ protected:
     double uptime{};
     bool hidden;
     bool debuff;
+    int debuff_priority {0};
 
     int instance_id;
 
