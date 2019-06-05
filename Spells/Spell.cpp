@@ -37,6 +37,10 @@ Spell::Spell(QString name,
     enabled(true)
 {}
 
+bool operator==(const Spell& lhs, const Spell& rhs) {
+    return lhs.get_instance_id() == rhs.get_instance_id();
+}
+
 QString Spell::get_name() const {
     return this->name;
 }

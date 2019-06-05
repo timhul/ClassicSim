@@ -1,5 +1,7 @@
 #include "CharacterSpells.h"
 
+#include <algorithm>
+
 #include "Berserking.h"
 #include "BloodFury.h"
 #include "Character.h"
@@ -143,14 +145,12 @@ void CharacterSpells::add_spell(Spell* spell, bool relink) {
 }
 
 void CharacterSpells::remove_spell(Spell* spell) {
-    for (const auto & i : spells) {
-        if (i->get_instance_id() == spell->get_instance_id()) {
-            spells.removeOne(i);
-            break;
-        }
-    }
+    QVector<Spell*>::iterator it = std::find(spells.begin(), spells.end(), spell);
+    if (it == spells.end())
+        return;
 
     spell_rank_groups.remove(spell->get_name());
+    spells.erase(it);
 
     relink_spells();
 }
@@ -165,12 +165,9 @@ void CharacterSpells::add_start_of_combat_spell(Spell* spell) {
 }
 
 void CharacterSpells::remove_start_of_combat_spell(Spell* spell) {
-    for (const auto & i : start_of_combat_spells) {
-        if (i->get_instance_id() == spell->get_instance_id()) {
-            start_of_combat_spells.removeOne(i);
-            return;
-        }
-    }
+    QVector<Spell*>::iterator it = std::find(spells.begin(), spells.end(), spell);
+    if (it != spells.end())
+        spells.erase(it);
 }
 
 void CharacterSpells::run_start_of_combat_spells() {

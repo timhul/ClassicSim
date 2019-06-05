@@ -57,6 +57,7 @@ public:
           const int spell_rank = 1);
 
     virtual ~Spell() = default;
+    friend bool operator== (const Spell& lhs, const Spell& rhs);
 
     QString get_name() const;
     QString get_icon() const;
