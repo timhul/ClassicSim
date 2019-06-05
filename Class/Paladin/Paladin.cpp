@@ -15,8 +15,8 @@
 #include "Vengeance.h"
 #include "Weapon.h"
 
-Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character("Paladin", race, sim_settings) {
+Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control) :
+    Character("Paladin", race, sim_settings, target, raid_control) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_enchants = new PaladinEnchants(this);

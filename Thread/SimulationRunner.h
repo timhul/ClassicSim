@@ -11,10 +11,11 @@ class Engine;
 class Equipment;
 class EquipmentDb;
 class Faction;
+class NumberCruncher;
 class Race;
+class RaidControl;
 class Rotation;
 class SimSettings;
-class NumberCruncher;
 class Target;
 
 class SimulationRunner: public QObject {
@@ -42,6 +43,8 @@ private:
     Race* race;
     SimSettings* global_sim_settings;
     SimSettings* local_sim_settings;
+    Target* target {nullptr};
+    RaidControl* raid_control {nullptr};
     NumberCruncher* scaler;
     bool full_sim;
     unsigned thread_id;

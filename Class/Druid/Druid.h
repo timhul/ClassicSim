@@ -11,7 +11,7 @@ class Rage;
 
 class Druid: public Character {
 public:
-    Druid(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
+    Druid(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control);
     ~Druid() override;
 
     QString get_class_color() const override;

@@ -20,8 +20,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character("Rogue", race, sim_settings),
+Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control) :
+    Character("Rogue", race, sim_settings, target, raid_control),
     combo_points(0),
     stealthed(false)
 {

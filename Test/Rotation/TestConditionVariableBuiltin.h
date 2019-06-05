@@ -8,8 +8,10 @@ class Engine;
 class EquipmentDb;
 class Hunter;
 class Race;
+class RaidControl;
 class Rogue;
 class SimSettings;
+class Target;
 class Warrior;
 
 class TestConditionVariableBuiltin : TestObject {
@@ -32,11 +34,13 @@ private:
     void test_swing_timer_less();
     void test_swing_timer_greater();
 
-    Hunter* hunter;
-    Rogue* rogue;
-    Warrior* warrior;
-    Race* race;
-    SimSettings* sim_settings;
+    Hunter* hunter {nullptr};
+    Rogue* rogue {nullptr};
+    Warrior* warrior {nullptr};
+    Race* race {nullptr};
+    SimSettings* sim_settings {nullptr};
+    Target* target {nullptr};
+    RaidControl* raid_control {nullptr};
 
     void set_up_rogue();
     void set_up_hunter();

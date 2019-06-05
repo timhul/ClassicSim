@@ -19,7 +19,7 @@ TestSpellHunter::TestSpellHunter(EquipmentDb *equipment_db, QString spell_under_
 
 void TestSpellHunter::set_up(const bool prepare_combat_iterations) {
     set_up_general();
-    hunter = new Hunter(race, equipment_db, sim_settings);
+    hunter = new Hunter(race, equipment_db, sim_settings, target, raid_control);
     hunter->set_clvl(60);
     pchar = hunter;
     given_in_ranged_attack_mode();
@@ -32,8 +32,8 @@ void TestSpellHunter::set_up(const bool prepare_combat_iterations) {
 }
 
 void TestSpellHunter::tear_down() {
-    tear_down_general();
     delete hunter;
+    tear_down_general();
 }
 
 void TestSpellHunter::given_hunter_has_mana(const unsigned mana) {

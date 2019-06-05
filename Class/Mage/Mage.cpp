@@ -9,8 +9,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
-    Character("Mage", race, sim_settings) {
+Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control) :
+    Character("Mage", race, sim_settings, target, raid_control) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Troll");

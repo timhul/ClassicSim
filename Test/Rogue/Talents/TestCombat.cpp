@@ -2,7 +2,10 @@
 
 #include "Combat.h"
 #include "Orc.h"
+#include "RaidControl.h"
 #include "Rogue.h"
+#include "SimSettings.h"
+#include "Target.h"
 
 TestCombat::TestCombat(EquipmentDb* equipment_db):
     TestTalentTree(equipment_db, "MID")
@@ -10,12 +13,18 @@ TestCombat::TestCombat(EquipmentDb* equipment_db):
 
 void TestCombat::set_up() {
     race = new Orc();
-    pchar = new Rogue(race, equipment_db, nullptr);
+    sim_settings = new SimSettings();
+    target = new Target(63);
+    raid_control = new RaidControl(sim_settings);
+    pchar = new Rogue(race, equipment_db, sim_settings, target, raid_control);
 }
 
 void TestCombat::tear_down() {
     delete pchar;
     delete race;
+    delete sim_settings;
+    delete target;
+    delete raid_control;
 }
 
 void TestCombat::test_spending_talent_points() {

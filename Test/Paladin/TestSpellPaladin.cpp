@@ -24,7 +24,7 @@ TestSpellPaladin::TestSpellPaladin(EquipmentDb *equipment_db, QString spell_unde
 
 void TestSpellPaladin::set_up(const bool prepare_combat_iterations) {
     set_up_general();
-    paladin = new Paladin(race, equipment_db, sim_settings);
+    paladin = new Paladin(race, equipment_db, sim_settings, target, raid_control);
     paladin->set_clvl(60);
     pchar = paladin;
 
@@ -33,8 +33,8 @@ void TestSpellPaladin::set_up(const bool prepare_combat_iterations) {
 }
 
 void TestSpellPaladin::tear_down() {
-    tear_down_general();
     delete paladin;
+    tear_down_general();
 }
 
 void TestSpellPaladin::run_class_specific_tests() {

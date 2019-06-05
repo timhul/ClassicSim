@@ -13,8 +13,8 @@
 #include "Weapon.h"
 
 
-Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings) :
-    Character("Druid", race, sim_settings) {
+Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control) :
+    Character("Druid", race, sim_settings, target, raid_control) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
 

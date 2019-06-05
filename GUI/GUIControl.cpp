@@ -52,6 +52,7 @@
 #include "ProcBreakdownModel.h"
 #include "Projectile.h"
 #include "Race.h"
+#include "RaidControl.h"
 #include "ResourceBreakdownModel.h"
 #include "Rogue.h"
 #include "Rotation.h"
@@ -83,6 +84,7 @@ GUIControl::GUIControl(QObject* parent) :
     character_encoder(new CharacterEncoder()),
     character_decoder(new CharacterDecoder()),
     sim_settings(new SimSettings()),
+    target(new Target(63)),
     number_cruncher(new NumberCruncher()),
     supported_classes({"Warrior", "Rogue", "Hunter", "Paladin", "Shaman"}),
     current_char(nullptr),
@@ -108,6 +110,7 @@ GUIControl::GUIControl(QObject* parent) :
     thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
 
+    raid_control = new RaidControl(sim_settings);
     this->sim_control = new SimControl(sim_settings, number_cruncher);
     this->sim_scale_model = new SimScaleModel(sim_settings);
     item_model = new ItemModel(equipment_db, item_type_filter_model, active_stat_filter_model);
@@ -170,6 +173,8 @@ GUIControl::~GUIControl() {
     delete thread_pool;
     delete sim_control;
     delete sim_settings;
+    delete target;
+    delete raid_control;
     delete sim_scale_model;
     delete number_cruncher;
     delete buff_breakdown_model;
@@ -1703,7 +1708,7 @@ Character* GUIControl::load_character(const QString& class_name) {
 
             CharacterDecoder decoder;
             decoder.initialize(reader.readElementText().trimmed());
-            CharacterLoader loader(equipment_db, sim_settings, decoder);
+            CharacterLoader loader(equipment_db, sim_settings, target, raid_control, decoder);
 
             pchar->get_stats()->get_equipment()->change_setup(i);
             pchar->get_talents()->set_current_index(i);
@@ -1722,23 +1727,23 @@ Character* GUIControl::load_character(const QString& class_name) {
 
 Character* GUIControl::get_new_character(const QString& class_name) {
     if (class_name == "Druid")
-        return new Druid(races["Night Elf"], equipment_db, sim_settings);
+        return new Druid(races["Night Elf"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Hunter")
-        return new Hunter(races["Dwarf"], equipment_db, sim_settings);
+        return new Hunter(races["Dwarf"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Mage")
-        return new Mage(races["Gnome"], equipment_db, sim_settings);
+        return new Mage(races["Gnome"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Paladin")
-        return new Paladin(races["Human"], equipment_db, sim_settings);
+        return new Paladin(races["Human"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Priest")
-        return new Priest(races["Undead"], equipment_db, sim_settings);
+        return new Priest(races["Undead"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Rogue")
-        return new Rogue(races["Troll"], equipment_db, sim_settings);
+        return new Rogue(races["Troll"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Shaman")
-        return new Shaman(races["Tauren"], equipment_db, sim_settings);
+        return new Shaman(races["Tauren"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Warlock")
-        return new Warlock(races["Orc"], equipment_db, sim_settings);
+        return new Warlock(races["Orc"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Warrior")
-        return new Warrior(races["Orc"], equipment_db, sim_settings);
+        return new Warrior(races["Orc"], equipment_db, sim_settings, target, raid_control);
 
     check(false, QString("Unknown class '%1'").arg(class_name).toStdString());
     return nullptr;

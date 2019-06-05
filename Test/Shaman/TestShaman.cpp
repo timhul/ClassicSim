@@ -9,6 +9,9 @@
 #include "TestLightningBolt.h"
 #include "TestRestorationShaman.h"
 #include "TestStormstrike.h"
+#include "Target.h"
+#include "RaidControl.h"
+#include "SimSettings.h"
 
 TestShaman::TestShaman(EquipmentDb* equipment_db):
     TestObject(equipment_db)
@@ -27,7 +30,10 @@ void TestShaman::test_all() {
 
 void TestShaman::test_values_after_initialization() {
     Race* race = new Orc();
-    auto* shaman = new Shaman(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* target = new Target(63);
+    auto* raid_control = new RaidControl(sim_settings);
+    auto* shaman = new Shaman(race, equipment_db, sim_settings, target, raid_control);
 
     assert(shaman->get_name() == "Shaman");
     assert(shaman->get_race()->get_name() == "Orc");
@@ -38,4 +44,7 @@ void TestShaman::test_values_after_initialization() {
 
     delete race;
     delete shaman;
+    delete sim_settings;
+    delete target;
+    delete raid_control;
 }

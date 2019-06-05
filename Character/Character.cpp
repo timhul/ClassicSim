@@ -24,16 +24,16 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Character::Character(QString class_name, Race* race, SimSettings* sim_settings) :
+Character::Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control) :
     class_name(std::move(class_name)),
     race(race),
     engine(new Engine()),
-    target(new Target(63)),
+    target(target),
     faction(new Faction(race)),
     talents(new CharacterTalents()),
     statistics(new ClassStatistics(sim_settings)),
     sim_settings(sim_settings),
-    raid_control(new RaidControl(sim_settings)),
+    raid_control(raid_control),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard)
 {
@@ -46,9 +46,7 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings) 
 }
 
 Character::~Character() {
-    delete raid_control;
     delete engine;
-    delete target;
     delete roll;
     delete faction;
     delete talents;

@@ -6,11 +6,14 @@
 class Character;
 class EquipmentDb;
 class Race;
+class RaidControl;
+class SimSettings;
 class TalentTree;
+class Target;
 
 class TestTalentTree {
 public:
-    TestTalentTree(EquipmentDb* equipment_db, QString  tree_pos);
+    TestTalentTree(EquipmentDb* equipment_db, QString tree_pos);
     virtual ~TestTalentTree() = default;
 
     void test_all();
@@ -18,8 +21,11 @@ public:
 protected:
     EquipmentDb* equipment_db;
     const QString tree_pos;
-    Race* race;
-    Character* pchar;
+    Race* race {nullptr};
+    Character* pchar {nullptr};
+    Target* target {nullptr};
+    SimSettings* sim_settings {nullptr};
+    RaidControl* raid_control {nullptr};
 
     virtual void set_up() = 0;
     virtual void tear_down() = 0;

@@ -24,7 +24,7 @@ TestSpellShaman::TestSpellShaman(EquipmentDb *equipment_db, QString spell_under_
 
 void TestSpellShaman::set_up(const bool prepare_combat_iterations) {
     set_up_general();
-    shaman = new Shaman(race, equipment_db, sim_settings);
+    shaman = new Shaman(race, equipment_db, sim_settings, target, raid_control);
     shaman->set_clvl(60);
     pchar = shaman;
 

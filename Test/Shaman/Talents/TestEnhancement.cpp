@@ -1,7 +1,10 @@
 #include "TestEnhancement.h"
 
 #include "Orc.h"
+#include "RaidControl.h"
 #include "Shaman.h"
+#include "SimSettings.h"
+#include "Target.h"
 
 TestEnhancement::TestEnhancement(EquipmentDb* equipment_db):
     TestTalentTree(equipment_db, "MID")
@@ -9,12 +12,18 @@ TestEnhancement::TestEnhancement(EquipmentDb* equipment_db):
 
 void TestEnhancement::set_up() {
     race = new Orc();
-    pchar = new Shaman(race, equipment_db, nullptr);
+    sim_settings = new SimSettings();
+    target = new Target(63);
+    raid_control = new RaidControl(sim_settings);
+    pchar = new Shaman(race, equipment_db, sim_settings, target, raid_control);
 }
 
 void TestEnhancement::tear_down() {
     delete pchar;
     delete race;
+    delete sim_settings;
+    delete target;
+    delete raid_control;
 }
 
 void TestEnhancement::test_spending_talent_points() {

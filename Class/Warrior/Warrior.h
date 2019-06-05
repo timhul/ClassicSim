@@ -14,7 +14,7 @@ namespace WarriorStances {
 
 class Warrior: public Character {
 public:
-    Warrior(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings);
+    Warrior(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control);
     ~Warrior() override;
 
     QString get_class_color() const override;

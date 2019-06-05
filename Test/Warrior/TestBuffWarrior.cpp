@@ -11,7 +11,7 @@ TestBuffWarrior::TestBuffWarrior(EquipmentDb* equipment_db, QString buff_under_t
 
 void TestBuffWarrior::set_up() {
     set_up_general();
-    warrior = new Warrior(race, equipment_db, sim_settings);
+    warrior = new Warrior(race, equipment_db, sim_settings, target, raid_control);
     spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
     warrior->set_clvl(60);
     warrior->gain_rage(100);
@@ -19,6 +19,6 @@ void TestBuffWarrior::set_up() {
 }
 
 void TestBuffWarrior::tear_down() {
-    tear_down_general();
     delete warrior;
+    tear_down_general();
 }

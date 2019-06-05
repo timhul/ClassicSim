@@ -13,11 +13,11 @@ TestProcRogue::TestProcRogue(EquipmentDb *equipment_db, QString spell_under_test
 
 void TestProcRogue::set_up() {
     set_up_general();
-    rogue = new Rogue(race, equipment_db, nullptr);
+    rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
     pchar = rogue;
 }
 
 void TestProcRogue::tear_down() {
-    tear_down_general();
     delete rogue;
+    tear_down_general();
 }

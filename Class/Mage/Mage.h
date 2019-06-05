@@ -8,7 +8,7 @@ class MageSpells;
 
 class Mage: public Character {
 public:
-    Mage(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings);
+    Mage(Race* race, EquipmentDb *equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control);
     ~Mage() override;
 
     QString get_class_color() const override;

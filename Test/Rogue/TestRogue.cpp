@@ -8,7 +8,9 @@
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
 #include "Orc.h"
+#include "RaidControl.h"
 #include "Rogue.h"
+#include "SimSettings.h"
 #include "Target.h"
 #include "TestAdrenalineRush.h"
 #include "TestAssassination.h"
@@ -51,7 +53,10 @@ void TestRogue::test_all() {
 
 void TestRogue::test_values_after_initialization() {
     Race* race = new Orc();
-    auto* rogue = new Rogue(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* target = new Target(63);
+    auto* raid_control = new RaidControl(sim_settings);
+    auto* rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
 
     assert(rogue->get_name() == "Rogue");
     assert(rogue->get_race()->get_name() == "Orc");
@@ -65,4 +70,7 @@ void TestRogue::test_values_after_initialization() {
 
     delete race;
     delete rogue;
+    delete target;
+    delete raid_control;
+    delete sim_settings;
 }

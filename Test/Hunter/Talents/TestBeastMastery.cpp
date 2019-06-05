@@ -2,6 +2,9 @@
 
 #include "Hunter.h"
 #include "Orc.h"
+#include "RaidControl.h"
+#include "SimSettings.h"
+#include "Target.h"
 
 TestBeastMastery::TestBeastMastery(EquipmentDb* equipment_db):
     TestTalentTree(equipment_db, "LEFT")
@@ -9,12 +12,18 @@ TestBeastMastery::TestBeastMastery(EquipmentDb* equipment_db):
 
 void TestBeastMastery::set_up() {
     race = new Orc();
-    pchar = new Hunter(race, equipment_db, nullptr);
+    sim_settings = new SimSettings();
+    target = new Target(63);
+    raid_control = new RaidControl(sim_settings);
+    pchar = new Hunter(race, equipment_db, sim_settings, target, raid_control);
 }
 
 void TestBeastMastery::tear_down() {
     delete pchar;
     delete race;
+    delete target;
+    delete raid_control;
+    delete sim_settings;
 }
 
 void TestBeastMastery::test_spending_talent_points() {

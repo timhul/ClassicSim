@@ -14,7 +14,7 @@ class SwordSpecialization;
 
 class Rogue: public Character {
 public:
-    Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
+    Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control);
     ~Rogue() override;
 
     QString get_class_color() const override;

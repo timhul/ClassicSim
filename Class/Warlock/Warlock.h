@@ -8,7 +8,7 @@ class WarlockSpells;
 
 class Warlock: public Character {
 public:
-    Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings);
+    Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control);
     ~Warlock() override;
 
     QString get_class_color() const override;

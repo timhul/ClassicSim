@@ -3,8 +3,10 @@
 #include <QDebug>
 
 #include "CombatRoll.h"
-#include "Target.h"
 #include "Orc.h"
+#include "RaidControl.h"
+#include "SimSettings.h"
+#include "Target.h"
 #include "Warrior.h"
 
 TestCombatRoll::TestCombatRoll(EquipmentDb* equipment_db) :
@@ -18,7 +20,10 @@ void TestCombatRoll::test_all() {
 
 void TestCombatRoll::test_glancing_penalties() {
     auto* race = new Orc();
-    auto* pchar = new Warrior(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* target = new Target(63);
+    auto* raid_control = new RaidControl(sim_settings);
+    auto* pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
     auto* roll = pchar->get_combat_roll();
 
     for (int i = 0; i < 1000; ++i) {
@@ -43,4 +48,7 @@ void TestCombatRoll::test_glancing_penalties() {
 
     delete pchar;
     delete race;
+    delete target;
+    delete raid_control;
+    delete sim_settings;
 }

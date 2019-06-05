@@ -1,14 +1,13 @@
-#include "Character.h"
 #include "TestTalentTree.h"
 
 #include <utility>
+
+#include "Character.h"
 #include "CharacterTalents.h"
 
 TestTalentTree::TestTalentTree(EquipmentDb* equipment_db, QString tree_pos):
     equipment_db(equipment_db),
-    tree_pos(std::move(tree_pos)),
-    race(nullptr),
-    pchar(nullptr)
+    tree_pos(std::move(tree_pos))
 {}
 
 void TestTalentTree::test_all() {

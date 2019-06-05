@@ -18,6 +18,7 @@
 #include "MeleeWhiteHitTable.h"
 #include "Orc.h"
 #include "Queue.h"
+#include "RaidControl.h"
 #include "RangedWhiteHitTable.h"
 #include "SimSettings.h"
 #include "SpellRankGroup.h"
@@ -28,21 +29,22 @@
 
 TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
     equipment_db(equipment_db),
-    sim_settings(nullptr),
-    pchar(nullptr),
-    race(nullptr),
     spell_under_test(std::move(spell_under_test))
 {}
 
 void TestSpell::set_up_general() {
     race = new Orc();
     sim_settings = new SimSettings();
+    target = new Target(63);
+    raid_control = new RaidControl(sim_settings);
     ignored_events.clear();
 }
 
 void TestSpell::tear_down_general() {
-    delete race;
+    delete raid_control;
     delete sim_settings;
+    delete target;
+    delete race;
     ignored_events.clear();
 }
 

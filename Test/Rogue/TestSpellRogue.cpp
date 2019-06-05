@@ -19,7 +19,7 @@ TestSpellRogue::TestSpellRogue(EquipmentDb *equipment_db, const QString& spell_u
 
 void TestSpellRogue::set_up(const bool prepare_combat_iterations) {
     set_up_general();
-    rogue = new Rogue(race, equipment_db, sim_settings);
+    rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
     rogue->set_clvl(60);
     pchar = rogue;
 
@@ -28,8 +28,8 @@ void TestSpellRogue::set_up(const bool prepare_combat_iterations) {
 }
 
 void TestSpellRogue::tear_down() {
-    tear_down_general();
     delete rogue;
+    tear_down_general();
 }
 
 void TestSpellRogue::given_rogue_is_on_gcd() {

@@ -9,11 +9,13 @@ class Character;
 class CharacterDecoder;
 class EquipmentDb;
 class Race;
+class RaidControl;
 class SimSettings;
+class Target;
 
 class CharacterLoader {
 public:
-    CharacterLoader(EquipmentDb* equipment_db, SimSettings* sim_settings, CharacterDecoder &decoder);
+    CharacterLoader(EquipmentDb* equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control, CharacterDecoder &decoder);
     ~CharacterLoader();
 
     Character* initialize_new();
@@ -27,6 +29,8 @@ private:
     Race* race;
     EquipmentDb* equipment_db;
     SimSettings* sim_settings;
+    Target* target;
+    RaidControl* raid_control;
     CharacterDecoder& decoder;
 
     bool success;
@@ -43,7 +47,7 @@ private:
     void apply_external_debuffs(CharacterDecoder& decoder, Character* pchar);
     void apply_enchants(CharacterDecoder& decoder, Character* pchar);
     void apply_ruleset(CharacterDecoder& decoder, Character* pchar);
-    void setup_target(CharacterDecoder& decoder, Character* pchar);
+    void setup_target(CharacterDecoder& decoder);
     void select_rotation(CharacterDecoder& decoder, Character* pchar);
     EnchantName::Name get_enum_val(const QString& enum_val_as_string);
 };

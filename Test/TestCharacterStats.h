@@ -6,7 +6,9 @@
 class Character;
 class CharacterStats;
 class Race;
-
+class RaidControl;
+class SimSettings;
+class Target;
 
 class TestCharacterStats : TestObject {
 public:
@@ -17,9 +19,12 @@ public:
     void test_all() override;
 
 private:
-    Character* pchar;
-    CharacterStats* cstats;
-    Race* race;
+    Character* pchar {nullptr};
+    CharacterStats* cstats {nullptr};
+    Race* race {nullptr};
+    RaidControl* raid_control {nullptr};
+    SimSettings* sim_settings {nullptr};
+    Target* target {nullptr};
 
     void test_values_after_initialization() override;
 

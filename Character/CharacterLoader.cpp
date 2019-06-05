@@ -38,10 +38,14 @@
 
 CharacterLoader::CharacterLoader(EquipmentDb *equipment_db,
                                  SimSettings *sim_settings,
+                                 Target* target,
+                                 RaidControl* raid_control,
                                  CharacterDecoder& decoder) :
     race(nullptr),
     equipment_db(equipment_db),
     sim_settings(sim_settings),
+    target(target),
+    raid_control(raid_control),
     decoder(decoder),
     success(false)
 {}
@@ -73,7 +77,7 @@ void CharacterLoader::initialize_existing(Character* pchar) {
     invest_talent_points(decoder, pchar);
     apply_external_buffs(decoder, pchar);
     apply_external_debuffs(decoder, pchar);
-    setup_target(decoder, pchar);
+    setup_target(decoder);
     select_rotation(decoder, pchar);
     apply_enchants(decoder, pchar);
     apply_ruleset(decoder, pchar);
@@ -271,10 +275,10 @@ void CharacterLoader::apply_ruleset(CharacterDecoder& decoder, Character* pchar)
     pchar->get_sim_settings()->use_ruleset(static_cast<Ruleset>(decoder.get_value("RULESET").toInt()), pchar);
 }
 
-void CharacterLoader::setup_target(CharacterDecoder& decoder, Character* pchar) {
-    pchar->get_target()->set_creature_type(decoder.get_value("TARGET_TYPE"));
-    pchar->get_target()->set_lvl(decoder.get_value("TARGET_LVL").toInt());
-    pchar->get_target()->set_base_armor(decoder.get_value("TARGET_BASE_ARMOR").toInt());
+void CharacterLoader::setup_target(CharacterDecoder& decoder) {
+    target->set_creature_type(decoder.get_value("TARGET_TYPE"));
+    target->set_lvl(decoder.get_value("TARGET_LVL").toInt());
+    target->set_base_armor(decoder.get_value("TARGET_BASE_ARMOR").toInt());
 }
 
 void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pchar) {
@@ -305,23 +309,23 @@ Character* CharacterLoader::setup_pchar(CharacterDecoder& decoder) {
     Character* pchar = nullptr;
 
     if (pchar_string == "Druid")
-        pchar = dynamic_cast<Character*>(new Druid(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Druid(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Hunter")
-        pchar = dynamic_cast<Character*>(new Hunter(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Hunter(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Mage")
-        pchar = dynamic_cast<Character*>(new Mage(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Mage(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Paladin")
-        pchar = dynamic_cast<Character*>(new Paladin(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Paladin(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Priest")
-        pchar = dynamic_cast<Character*>(new Priest(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Priest(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Rogue")
-        pchar = dynamic_cast<Character*>(new Rogue(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Rogue(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Shaman")
-        pchar = dynamic_cast<Character*>(new Shaman(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Shaman(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Warlock")
-        pchar = dynamic_cast<Character*>(new Warlock(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Warlock(race, equipment_db, sim_settings, target, raid_control));
     if (pchar_string == "Warrior")
-        pchar = dynamic_cast<Character*>(new Warrior(race, equipment_db, sim_settings));
+        pchar = dynamic_cast<Character*>(new Warrior(race, equipment_db, sim_settings, target, raid_control));
 
     if (pchar == nullptr)
         delete race;

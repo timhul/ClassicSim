@@ -9,6 +9,7 @@
 #include "MeleeWhiteHitTable.h"
 #include "Orc.h"
 #include "Race.h"
+#include "RaidControl.h"
 #include "SimSettings.h"
 #include "Target.h"
 #include "Warrior.h"
@@ -54,7 +55,9 @@ void TestAttackTables::test_white_hit_table() {
 void TestAttackTables::test_white_hit_table_update() {
     Race* race = new Orc();
     auto* sim_settings = new SimSettings();
-    auto* pchar = new Warrior(race, equipment_db, sim_settings);
+    auto* target = new Target(63);
+    auto* raid_control = new RaidControl(sim_settings);
+    auto* pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
     pchar->get_equipment()->set_mainhand(19103);
     pchar->get_equipment()->set_offhand(17075);
     assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
@@ -79,9 +82,11 @@ void TestAttackTables::test_white_hit_table_update() {
     pchar->get_stats()->increase_melee_crit(9999);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
 
+    delete pchar;
+    delete raid_control;
+    delete target;
     delete sim_settings;
     delete race;
-    delete pchar;
 }
 
 void TestAttackTables::test_special_hit_table() {

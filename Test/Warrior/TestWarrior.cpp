@@ -7,6 +7,9 @@
 #include "Faction.h"
 #include "ItemNamespace.h"
 #include "Orc.h"
+#include "RaidControl.h"
+#include "SimSettings.h"
+#include "Target.h"
 #include "Target.h"
 #include "TestArms.h"
 #include "TestBerserkerStance.h"
@@ -66,7 +69,10 @@ void TestWarrior::test_all() {
 
 void TestWarrior::test_values_after_initialization() {
     Race* race = new Orc();
-    auto* warr = new Warrior(race, equipment_db, nullptr);
+    auto* sim_settings = new SimSettings();
+    auto* target = new Target(63);
+    auto* raid_control = new RaidControl(sim_settings);
+    auto* warr = new Warrior(race, equipment_db, sim_settings, target, raid_control);
 
     assert(warr->get_name() == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");
@@ -78,4 +84,7 @@ void TestWarrior::test_values_after_initialization() {
 
     delete race;
     delete warr;
+    delete target;
+    delete sim_settings;
+    delete raid_control;
 }

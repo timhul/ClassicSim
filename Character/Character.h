@@ -33,7 +33,7 @@ class Weapon;
 
 class Character {
 public:
-    Character(QString class_name, Race* race, SimSettings* sim_settings);
+    Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control);
     virtual ~Character();
 
     CharacterEnchants* get_enchants() const;

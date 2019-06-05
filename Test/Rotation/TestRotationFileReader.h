@@ -13,9 +13,11 @@ class ConditionResource;
 class Hunter;
 class Paladin;
 class Race;
+class RaidControl;
 class Rotation;
 class RotationExecutor;
 class SimSettings;
+class Target;
 class Warrior;
 
 class TestRotationFileReader : TestObject {
@@ -36,6 +38,8 @@ private:
     Hunter* hunter {nullptr};
     Paladin* paladin {nullptr};
     Warrior* warrior {nullptr};
+    Target* target {nullptr};
+    RaidControl* raid_control {nullptr};
     QVector<Rotation*> rotations;
 
     void verify_executor_names(Rotation *rotation, QVector<RotationExecutor*> &executors, QVector<QString> &executor_names);

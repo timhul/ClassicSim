@@ -3,6 +3,9 @@
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Orc.h"
+#include "RaidControl.h"
+#include "SimSettings.h"
+#include "Target.h"
 #include "TwoHandedWeaponSpecialization.h"
 #include "Warrior.h"
 #include "Weapon.h"
@@ -15,13 +18,19 @@ TestTwoHandedWeaponSpecialization::TestTwoHandedWeaponSpecialization(EquipmentDb
 
 void TestTwoHandedWeaponSpecialization::set_up() {
     race = new Orc();
-    warrior = new Warrior(race, equipment_db, nullptr);
+    sim_settings = new SimSettings();
+    target = new Target(63);
+    raid_control = new RaidControl(sim_settings);
+    warrior = new Warrior(race, equipment_db, sim_settings, target, raid_control);
     talent = new TwoHandedWeaponSpecialization(warrior, nullptr);
 }
 
 void TestTwoHandedWeaponSpecialization::tear_down() {
     delete warrior;
     delete race;
+    delete target;
+    delete sim_settings;
+    delete raid_control;
 }
 
 void TestTwoHandedWeaponSpecialization::test_all() {

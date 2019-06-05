@@ -9,8 +9,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings) :
-    Character("Priest", race, sim_settings) {
+Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control) :
+    Character("Priest", race, sim_settings, target, raid_control) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");

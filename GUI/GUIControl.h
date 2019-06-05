@@ -31,6 +31,7 @@ class MeleeDamageBreakdownModel;
 class NumberCruncher;
 class ProcBreakdownModel;
 class Race;
+class RaidControl;
 class ResourceBreakdownModel;
 class RotationExecutorBreakdownModel;
 class RotationExecutorListModel;
@@ -402,6 +403,8 @@ private:
     SimulationThreadPool* thread_pool;
     SimControl* sim_control;
     SimSettings* sim_settings;
+    Target* target;
+    RaidControl* raid_control;
     NumberCruncher* number_cruncher;
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;

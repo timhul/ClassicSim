@@ -15,8 +15,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings) :
-    Character("Shaman", race, sim_settings) {
+Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control) :
+    Character("Shaman", race, sim_settings, target, raid_control) {
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
