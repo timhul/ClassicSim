@@ -110,7 +110,6 @@ GUIControl::GUIControl(QObject* parent) :
     thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
 
-    raid_control = new RaidControl(sim_settings);
     this->sim_control = new SimControl(sim_settings, number_cruncher);
     this->sim_scale_model = new SimScaleModel(sim_settings);
     item_model = new ItemModel(equipment_db, item_type_filter_model, active_stat_filter_model);
@@ -159,6 +158,9 @@ GUIControl::~GUIControl() {
     for (const auto & race : races)
         delete race;
 
+    for (const auto & rc : raid_controls)
+        delete rc;
+
     delete equipment_db;
     delete item_model;
     delete item_type_filter_model;
@@ -203,6 +205,7 @@ GUIControl::~GUIControl() {
 void GUIControl::set_character(Character* pchar) {
     sim_settings->use_ruleset(Ruleset::Standard, current_char);
     current_char = pchar;
+    raid_control = raid_controls[current_char->get_name()];
     item_type_filter_model->set_character(current_char);
     item_model->set_character(current_char);
     weapon_model->set_character(current_char);
@@ -833,7 +836,14 @@ void GUIControl::runQuickSim() {
         return;
 
     sim_in_progress = true;
-    thread_pool->run_sim(character_encoder->get_current_setup_string(), false, sim_settings->get_combat_iterations_quick_sim());
+    QVector<QVector<Character*>> raid_members = raid_control->get_raid_members();
+    QVector<QString> setup_strings;
+    for (const auto & party : raid_members) {
+        for (const auto & pchar : party)
+            setup_strings.append(CharacterEncoder(pchar).get_current_setup_string());
+    }
+
+    thread_pool->run_sim(setup_strings, false, sim_settings->get_combat_iterations_quick_sim());
 
     simProgressChanged();
 }
@@ -849,7 +859,14 @@ void GUIControl::runFullSim() {
         return;
 
     sim_in_progress = true;
-    thread_pool->run_sim(character_encoder->get_current_setup_string(), true, sim_settings->get_combat_iterations_full_sim());
+    QVector<QVector<Character*>> raid_members = raid_control->get_raid_members();
+    QVector<QString> setup_strings;
+    for (const auto & party : raid_members) {
+        for (const auto & pchar : party)
+            setup_strings.append(CharacterEncoder(pchar).get_current_setup_string());
+    }
+
+    thread_pool->run_sim(setup_strings, true, sim_settings->get_combat_iterations_full_sim());
 
     simProgressChanged();
 }
@@ -1726,6 +1743,9 @@ Character* GUIControl::load_character(const QString& class_name) {
 }
 
 Character* GUIControl::get_new_character(const QString& class_name) {
+    raid_controls[class_name] = new RaidControl(sim_settings);
+    raid_control = raid_controls[class_name];
+
     if (class_name == "Druid")
         return new Druid(races["Night Elf"], equipment_db, sim_settings, target, raid_control);
     if (class_name == "Hunter")

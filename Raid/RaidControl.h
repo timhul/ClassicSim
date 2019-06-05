@@ -40,6 +40,7 @@ public:
     ClassStatistics* relinquish_ownership_of_statistics();
 
     Engine* get_engine() const;
+    QVector<QVector<Character*>> get_raid_members() const;
 
 private:
     int instance_id {InstanceID::INITIAL_ID};

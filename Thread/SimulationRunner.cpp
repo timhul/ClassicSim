@@ -10,15 +10,14 @@
 #include "CombatRoll.h"
 #include "Race.h"
 #include "RaidControl.h"
+#include "Random.h"
 #include "SimControl.h"
 #include "SimSettings.h"
 #include "Target.h"
 
-SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, SimSettings *sim_settings, NumberCruncher* scaler, QObject* parent):
+SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
-    pchar(nullptr),
     equipment_db(equipment_db),
-    race(nullptr),
     global_sim_settings(sim_settings),
     local_sim_settings(nullptr),
     scaler(scaler),
@@ -26,17 +25,17 @@ SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db
     thread_id(thread_id)
 {}
 
-void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool full_sim, int iterations) {
+void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations) {
     if (this->thread_id != thread_id) {
         emit finished();
         return;
     }
 
-    this->setup_string = std::move(setup_string);
+    this->setup_strings = std::move(setup_strings);
     this->full_sim = full_sim;
 
     CharacterDecoder decoder;
-    decoder.initialize(this->setup_string);
+    decoder.initialize(this->setup_strings[0]);
 
     this->local_sim_settings = new SimSettings();
     local_sim_settings->set_phase(Content::get_phase(decoder.get_value("PHASE").toInt()));
@@ -48,27 +47,39 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     target = new Target(63);
     raid_control = new RaidControl(local_sim_settings);
 
-    CharacterLoader loader(equipment_db, local_sim_settings, target, raid_control, decoder);
-    pchar = loader.initialize_new();
+    Random pchar_seeds(0, std::numeric_limits<unsigned>::max());
 
-    if (!loader.successful())
-        exit_thread(loader.get_error());
+    for (const auto & setup_string: this->setup_strings) {
+        CharacterDecoder decoder_pchar;
+        decoder_pchar.initialize(setup_string);
+        CharacterLoader loader(equipment_db, local_sim_settings, target, raid_control, decoder_pchar);
+        raid.append(loader.initialize_new());
 
-    race = loader.relinquish_ownership_of_race();
+        if (!loader.successful())
+            exit_thread(loader.get_error());
 
-    CharacterEncoder encoder(pchar);
-    if (encoder.get_current_setup_string() != this->setup_string)
-        return exit_thread("Mismatch between setup strings after setup: dumped setup string: " + encoder.get_current_setup_string());
+        races.append(loader.relinquish_ownership_of_race());
 
-    pchar->get_combat_roll()->set_new_seed(this->thread_id);
+        CharacterEncoder encoder(raid.last());
+        if (encoder.get_current_setup_string() != setup_string)
+            return exit_thread("Mismatch between setup strings after setup: dumped setup string: " + encoder.get_current_setup_string());
+
+        raid.last()->get_combat_roll()->set_new_seed(pchar_seeds.get_roll());
+    }
 
     if (full_sim)
-        SimControl(local_sim_settings, scaler).run_full_sim(QVector<Character*>{pchar}, raid_control);
+        SimControl(local_sim_settings, scaler).run_full_sim(raid, raid_control);
     else
-        SimControl(local_sim_settings, scaler).run_quick_sim(QVector<Character*>{pchar}, raid_control);
+        SimControl(local_sim_settings, scaler).run_quick_sim(raid, raid_control);
 
-    delete pchar;
-    delete race;
+    for (const auto & pchar : raid)
+        delete pchar;
+    for (const auto & race : races)
+        delete race;
+
+    raid.clear();
+    races.clear();
+
     delete local_sim_settings;
     delete target;
     delete raid_control;
@@ -78,8 +89,11 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
 }
 
 void SimulationRunner::exit_thread(QString err) {
-    delete pchar;
-    delete race;
+    for (const auto & pchar : raid)
+        delete pchar;
+    for (const auto & race : raid)
+        delete race;
+
     delete local_sim_settings;
     delete target;
     delete raid_control;

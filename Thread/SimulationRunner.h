@@ -1,8 +1,9 @@
 #ifndef SIMULATIONRUNNER_H
 #define SIMULATIONRUNNER_H
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
+#include <QVector>
 
 class Character;
 class CharacterDecoder;
@@ -29,18 +30,17 @@ public:
     ~SimulationRunner() = default;
 
 public slots:
-    void run_sim(unsigned thread_id, QString setup_string, bool full_sim, int iterations);
+    void run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations);
 
 signals:
     void finished();
     void result();
     void error(QString seed, QString err);
 
-protected:
 private:
-    Character* pchar;
+    QVector<Character*> raid;
     EquipmentDb* equipment_db;
-    Race* race;
+    QVector<Race*> races;
     SimSettings* global_sim_settings;
     SimSettings* local_sim_settings;
     Target* target {nullptr};
@@ -49,10 +49,7 @@ private:
     bool full_sim;
     unsigned thread_id;
 
-    QString setup_string;
-
-    QMap<QString, Character*> chars;
-    QMap<QString, Race*> races;
+    QVector<QString> setup_strings;
 
     void exit_thread(QString err);
 };

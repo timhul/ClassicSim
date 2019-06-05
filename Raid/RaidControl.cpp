@@ -106,3 +106,7 @@ ClassStatistics* RaidControl::relinquish_ownership_of_statistics() {
 Engine* RaidControl::get_engine() const {
     return this->engine;
 }
+
+QVector<QVector<Character*>> RaidControl::get_raid_members() const {
+    return group_members;
+}

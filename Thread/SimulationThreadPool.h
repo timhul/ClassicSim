@@ -16,7 +16,7 @@ public:
     SimulationThreadPool(EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent = nullptr);
     ~SimulationThreadPool();
 
-    void run_sim(const QString& setup_string, bool full_sim, int iterations);
+    void run_sim(const QVector<QString>& setup_string, bool full_sim, int iterations);
 
     bool sim_running() const;
     void scale_number_of_threads();
@@ -27,7 +27,7 @@ public slots:
 
 signals:
     void threads_finished();
-    void start_simulation(const unsigned thread_id, QString setup_string, bool full_sim, int iterations);
+    void start_simulation(const unsigned thread_id, QVector<QString> setup_string, bool full_sim, int iterations);
 
 protected:
 private:

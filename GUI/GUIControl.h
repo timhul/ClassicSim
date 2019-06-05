@@ -409,6 +409,7 @@ private:
     QMap<QString, Character*> chars;
     QMap<QString, Race*> races;
     QSet<QString> supported_classes;
+    QMap<QString, RaidControl*> raid_controls;
     Character* current_char;
     ItemModel* item_model;
     ActiveItemStatFilterModel* active_stat_filter_model;
