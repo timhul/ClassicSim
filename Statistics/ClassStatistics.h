@@ -18,7 +18,7 @@ class StatisticsSpell;
 
 class ClassStatistics {
 public:
-    ClassStatistics(SimSettings* settings);
+    ClassStatistics(SimSettings* settings, const bool ignore_non_buff_statistics = false);
     ~ClassStatistics();
 
     StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon, const int spell_rank);
@@ -46,6 +46,7 @@ private:
     int combat_iterations;
     int combat_length;
     int damage_dealt_previous_iterations;
+    const bool ignore_non_buff_statistics;
 
     StatisticsEngine* engine_statistics {nullptr};
     QMap<QString, StatisticsSpell*> spell_statistics;

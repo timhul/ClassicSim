@@ -42,11 +42,15 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
 
     long long int total_damage_dealt = 0;
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
-        total_damage_dealt += cstats->get_total_damage_dealt();
+        if (!cstats->ignore_non_buff_statistics)
+            total_damage_dealt += cstats->get_total_damage_dealt();
     }
 
     QSet<QString> handled_entries;
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
+        if (cstats->ignore_non_buff_statistics)
+            continue;
+
         QMap<QString, StatisticsSpell*>::const_iterator it = cstats->spell_statistics.constBegin();
         auto end = cstats->spell_statistics.constEnd();
         while (it != end) {
@@ -117,6 +121,9 @@ void NumberCruncher::merge_proc_stats(QList<StatisticsProc*>& vec) {
 
     QSet<QString> handled_entries;
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
+        if (cstats->ignore_non_buff_statistics)
+            continue;
+
         QMap<QString, StatisticsProc*>::const_iterator it = cstats->proc_statistics.constBegin();
         auto end = cstats->proc_statistics.constEnd();
         while (it != end) {
@@ -150,6 +157,9 @@ void NumberCruncher::merge_resource_stats(QList<StatisticsResource*>& vec) {
 
     QSet<QString> handled_entries;
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
+        if (cstats->ignore_non_buff_statistics)
+            continue;
+
         QMap<QString, StatisticsResource*>::const_iterator it = cstats->resource_statistics.constBegin();
         auto end = cstats->resource_statistics.constEnd();
         while (it != end) {
@@ -177,8 +187,10 @@ void NumberCruncher::merge_resource_entry(const QString& name, const QString &ic
 }
 
 void NumberCruncher::merge_engine_stats(StatisticsEngine* statistics_engine) {
-    for (const auto & cstats : class_stats[SimOption::Name::NoScale])
-        statistics_engine->add(cstats->get_engine_statistics());
+    for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
+        if (!cstats->ignore_non_buff_statistics)
+            statistics_engine->add(cstats->get_engine_statistics());
+    }
 }
 
 void NumberCruncher::merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>>& list) {
@@ -188,11 +200,15 @@ void NumberCruncher::merge_rotation_executor_stats(QList<QList<ExecutorOutcome*>
     QList<StatisticsRotationExecutor*> merge_base = class_stats[SimOption::Name::NoScale][0]->rotation_executor_statistics;
 
     for (int i = 1; i < class_stats[SimOption::Name::NoScale].size(); ++i) {
-        check((merge_base.size() == class_stats[SimOption::Name::NoScale][i]->rotation_executor_statistics.size()),
+        auto cstat = class_stats[SimOption::Name::NoScale][i];
+        if (cstat->ignore_non_buff_statistics)
+            continue;
+
+        check((merge_base.size() == cstat->rotation_executor_statistics.size()),
                 "Mismatch ClassStatistics rotation executor size");
 
-        for (int j = 0; j < class_stats[SimOption::Name::NoScale][i]->rotation_executor_statistics.size(); ++j)
-            merge_base[j]->add(class_stats[SimOption::Name::NoScale][i]->rotation_executor_statistics[j]);
+        for (int j = 0; j < cstat->rotation_executor_statistics.size(); ++j)
+            merge_base[j]->add(cstat->rotation_executor_statistics[j]);
     }
 
     for (const auto & rotation_executor : merge_base)
@@ -255,8 +271,10 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
     check(class_stats.contains(option), "Missing option for requested calculation");
 
     QVector<double> dps;
+
     for (const auto & class_stat : class_stats[option]) {
-        dps.append(class_stat->get_total_dps());
+        if (!class_stat->ignore_non_buff_statistics)
+            dps.append(class_stat->get_total_dps());
     }
 
     double dps_sum = 0;
@@ -283,6 +301,9 @@ double NumberCruncher::get_standard_deviation_for_option(SimOption::Name option)
     double variance = 0;
     int counter = 0;
     for (const auto & class_stat : class_stats[option]) {
+        if (class_stat->ignore_non_buff_statistics)
+            continue;
+
         for (const auto & dps : class_stat->dps_for_iterations) {
             ++counter;
             variance = variance + (std::pow(dps - mean, 2) - variance) / counter;
@@ -298,8 +319,12 @@ double NumberCruncher::get_confidence_interval_for_option(SimOption::Name option
     double z_value = 1.960;
 
     int population = 0;
-    for (const auto & class_stat : class_stats[option])
+    for (const auto & class_stat : class_stats[option]) {
+        if (class_stat->ignore_non_buff_statistics)
+            continue;
+
         population += class_stat->dps_for_iterations.size();
+    }
 
     return z_value * (standard_deviation / std::sqrt(population));
 }

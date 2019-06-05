@@ -8,12 +8,13 @@
 #include "StatisticsSpell.h"
 #include "Utils/Check.h"
 
-ClassStatistics::ClassStatistics(SimSettings* sim_settings) :
+ClassStatistics::ClassStatistics(SimSettings* sim_settings, const bool ignore_non_buff_statistics) :
     sim_settings(sim_settings),
     option(SimOption::Name::NoScale),
     combat_iterations(0),
     combat_length(0),
-    damage_dealt_previous_iterations(0)
+    damage_dealt_previous_iterations(0),
+    ignore_non_buff_statistics(ignore_non_buff_statistics)
 {}
 
 ClassStatistics::~ClassStatistics() {

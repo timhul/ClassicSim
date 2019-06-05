@@ -46,6 +46,7 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings) 
 }
 
 Character::~Character() {
+    delete raid_control;
     delete engine;
     delete target;
     delete roll;
@@ -54,7 +55,6 @@ Character::~Character() {
     delete enabled_procs;
     delete enabled_buffs;
     delete statistics;
-    delete raid_control;
 }
 
 QString Character::get_name() const {

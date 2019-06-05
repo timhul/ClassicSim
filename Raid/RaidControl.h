@@ -36,11 +36,13 @@ public:
     Buff* get_shared_raid_buff(const QString& buff_name) const;
 
     ClassStatistics* get_statistics() const;
+    ClassStatistics* relinquish_ownership_of_statistics();
 
 private:
     int instance_id {InstanceID::INITIAL_ID};
 
     ClassStatistics* raid_statistics;
+    SimSettings* settings;
 
     QVector<QVector<Character*>> group_members;
 

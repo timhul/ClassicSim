@@ -12,6 +12,7 @@
 #include "Engine.h"
 #include "ItemNamespace.h"
 #include "NumberCruncher.h"
+#include "RaidControl.h"
 #include "Rotation.h"
 #include "SpellCastingTime.h"
 
@@ -24,18 +25,21 @@ void SimControl::run_quick_sim(Character* pchar) {
     run_sim(pchar, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_quick_sim());
 
     scaler->add_class_statistic(SimOption::Name::NoScale, pchar->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->get_raid_control()->relinquish_ownership_of_statistics());
 }
 
 void SimControl::run_full_sim(Character* pchar) {
     run_sim(pchar, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
 
     scaler->add_class_statistic(SimOption::Name::NoScale, pchar->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->get_raid_control()->relinquish_ownership_of_statistics());
 
     QSet<SimOption::Name> options = sim_settings->get_active_options();
     for (const auto & option : options) {
         qDebug() << "Running sim with option" << option;
         run_sim_with_option(pchar, option, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
         scaler->add_class_statistic(option, pchar->relinquish_ownership_of_statistics());
+        scaler->add_class_statistic(option, pchar->get_raid_control()->relinquish_ownership_of_statistics());
     }
 }
 

@@ -5,7 +5,8 @@
 #include "Utils/Check.h"
 
 RaidControl::RaidControl(SimSettings* sim_settings) :
-    raid_statistics(new ClassStatistics(sim_settings))
+    raid_statistics(new ClassStatistics(sim_settings, true)),
+    settings(sim_settings)
 {
     for (int i = 0; i < 8; ++i) {
         group_members.append(QVector<Character*>());
@@ -91,4 +92,10 @@ Buff* RaidControl::get_shared_raid_buff(const QString& buff_name) const {
 
 ClassStatistics* RaidControl::get_statistics() const {
     return this->raid_statistics;
+}
+
+ClassStatistics* RaidControl::relinquish_ownership_of_statistics() {
+    ClassStatistics* tmp = this->raid_statistics;
+    this->raid_statistics = new ClassStatistics(settings);
+    return tmp;
 }
