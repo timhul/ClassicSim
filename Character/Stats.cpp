@@ -121,63 +121,63 @@ void Stats::remove(const Stats* rhs) {
 }
 
 unsigned Stats::get_strength() const {
-    return STR;
+    return strength;
 }
 
 unsigned Stats::get_agility() const {
-    return AGI;
+    return agility;
 }
 
 unsigned Stats::get_stamina() const {
-    return STAM;
+    return stamina;
 }
 
 unsigned Stats::get_intellect() const {
-    return static_cast<unsigned>(round(INT * int_multiplier));
+    return static_cast<unsigned>(round(intellect * int_multiplier));
 }
 
 unsigned Stats::get_spirit() const {
-    return static_cast<unsigned>(round(SPI * spi_multiplier));
+    return static_cast<unsigned>(round(spirit * spi_multiplier));
 }
 
 void Stats::increase_strength(const unsigned increase) {
-    STR += increase;
+    strength += increase;
 }
 
 void Stats::decrease_strength(const unsigned decrease) {
-    STR -= decrease;
+    strength -= decrease;
 }
 
 void Stats::increase_agility(const unsigned increase) {
-    AGI += increase;
+    agility += increase;
 }
 
 void Stats::decrease_agility(const unsigned decrease) {
-    AGI -= decrease;
+    agility -= decrease;
 }
 
 void Stats::increase_stamina(const unsigned increase) {
-    STAM += increase;
+    stamina += increase;
 }
 
 void Stats::decrease_stamina(const unsigned decrease) {
-    STAM -= decrease;
+    stamina -= decrease;
 }
 
 void Stats::increase_intellect(const unsigned increase) {
-    INT += increase;
+    intellect += increase;
 }
 
 void Stats::decrease_intellect(const unsigned decrease) {
-    INT -= decrease;
+    intellect -= decrease;
 }
 
 void Stats::increase_spirit(const unsigned increase) {
-    SPI += increase;
+    spirit += increase;
 }
 
 void Stats::decrease_spirit(const unsigned decrease) {
-    SPI -= decrease;
+    spirit -= decrease;
 }
 
 void Stats::increase_armor(const int increase) {

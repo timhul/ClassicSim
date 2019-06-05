@@ -159,11 +159,11 @@ public:
     void decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school);
 
 private:
-    unsigned STR {0};
-    unsigned AGI {0};
-    unsigned STAM {0};
-    unsigned INT {0};
-    unsigned SPI {0};
+    unsigned strength {0};
+    unsigned agility {0};
+    unsigned stamina {0};
+    unsigned intellect {0};
+    unsigned spirit {0};
 
     int armor {0};
     int defense {0};
