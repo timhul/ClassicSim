@@ -21,56 +21,76 @@ SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
     scaler(scaler)
 {}
 
-void SimControl::run_quick_sim(Character* pchar) {
-    run_sim(pchar, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_quick_sim());
+void SimControl::run_quick_sim(QVector<Character*> raid, RaidControl* raid_control) {
+    run_sim(raid, raid_control, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_quick_sim());
 
-    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->relinquish_ownership_of_statistics());
-    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->get_raid_control()->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->get_raid_control()->relinquish_ownership_of_statistics());
 }
 
-void SimControl::run_full_sim(Character* pchar) {
-    run_sim(pchar, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
+void SimControl::run_full_sim(QVector<Character*> raid, RaidControl* raid_control) {
+    run_sim(raid, raid_control, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
 
-    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->relinquish_ownership_of_statistics());
-    scaler->add_class_statistic(SimOption::Name::NoScale, pchar->get_raid_control()->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->relinquish_ownership_of_statistics());
+    scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->get_raid_control()->relinquish_ownership_of_statistics());
 
     QSet<SimOption::Name> options = sim_settings->get_active_options();
     for (const auto & option : options) {
         qDebug() << "Running sim with option" << option;
-        run_sim_with_option(pchar, option, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
-        scaler->add_class_statistic(option, pchar->relinquish_ownership_of_statistics());
-        scaler->add_class_statistic(option, pchar->get_raid_control()->relinquish_ownership_of_statistics());
+        run_sim_with_option(raid, raid_control, option, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
+        scaler->add_class_statistic(option, raid[0]->relinquish_ownership_of_statistics());
+        scaler->add_class_statistic(option, raid[0]->get_raid_control()->relinquish_ownership_of_statistics());
     }
 }
 
-void SimControl::run_sim(Character* pchar, const int combat_length, const int iterations) {
-    pchar->get_combat_roll()->drop_tables();
-    pchar->prepare_set_of_combat_iterations();
+void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, const int combat_length, const int iterations) {
+    for (const auto & pchar : raid) {
+        pchar->get_combat_roll()->drop_tables();
+        pchar->prepare_set_of_combat_iterations();
+    }
 
-    Rotation* rotation = pchar->get_spells()->get_rotation();
+    double start_at = std::numeric_limits<double>::min();
+    for (const auto & pchar : raid) {
+        const double time_for_precombat = pchar->get_spells()->get_rotation()->get_time_required_to_run_precombat();
+        if (time_for_precombat > start_at)
+            start_at = time_for_precombat;
+    }
 
     for (int i = 0; i < iterations; ++i) {
-        pchar->get_engine()->prepare_iteration(-rotation->get_time_required_to_run_precombat());
-        rotation->run_precombat_actions();
-        if (rotation->precast_spell != nullptr && rotation->precast_spell->is_enabled())
-            rotation->precast_spell->perform();
+        raid_control->get_engine()->prepare_iteration(-start_at);
+        for (const auto & pchar : raid) {
+            Rotation* rotation = pchar->get_spells()->get_rotation();
+            rotation->run_precombat_actions();
+            if (rotation->precast_spell != nullptr && rotation->precast_spell->is_enabled())
+                rotation->precast_spell->perform();
+        }
 
-        pchar->get_engine()->add_event(new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs()));
-        pchar->get_engine()->add_event(new EncounterEnd(pchar->get_engine(), pchar, combat_length));
-        pchar->get_engine()->run();
-        pchar->get_statistics()->finish_combat_iteration();
+        for (const auto & pchar : raid)
+            raid_control->get_engine()->add_event(new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs()));
+
+        raid_control->get_engine()->add_event(new EncounterEnd(raid_control->get_engine(), combat_length));
+        raid_control->get_engine()->run();
+
+        for (const auto & pchar : raid) {
+            pchar->reset();
+            pchar->get_statistics()->finish_combat_iteration();
+        }
     }
 
-    rotation->finish_set_of_combat_iterations();
-    pchar->get_engine()->reset();
+    for (const auto & pchar : raid)
+        pchar->get_spells()->get_rotation()->finish_set_of_combat_iterations();
+
+    raid_control->get_engine()->reset();
 }
 
-void SimControl::run_sim_with_option(Character* pchar, SimOption::Name option, const int combat_length, const int iterations) {
-    add_option(pchar, option);
+void SimControl::run_sim_with_option(QVector<Character*> raid, RaidControl* raid_control, SimOption::Name option, const int combat_length, const int iterations) {
+    for (const auto & pchar : raid)
+        add_option(pchar, option);
 
-    run_sim(pchar, combat_length, iterations);
+    run_sim(raid, raid_control, combat_length, iterations);
 
-    remove_option(pchar, option);
+    for (const auto & pchar : raid)
+        remove_option(pchar, option);
 }
 
 void SimControl::add_option(Character* pchar, SimOption::Name option) {

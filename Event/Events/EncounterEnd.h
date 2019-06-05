@@ -8,7 +8,7 @@ class Engine;
 
 class EncounterEnd: public Event {
 public:
-    EncounterEnd(Engine*, Character* pchar, int combat_length);
+    EncounterEnd(Engine*, int combat_length);
 
     void act() override;
 

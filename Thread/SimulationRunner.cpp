@@ -63,9 +63,9 @@ void SimulationRunner::run_sim(unsigned thread_id, QString setup_string, bool fu
     pchar->get_combat_roll()->set_new_seed(this->thread_id);
 
     if (full_sim)
-        SimControl(local_sim_settings, scaler).run_full_sim(pchar);
+        SimControl(local_sim_settings, scaler).run_full_sim(QVector<Character*>{pchar}, raid_control);
     else
-        SimControl(local_sim_settings, scaler).run_quick_sim(pchar);
+        SimControl(local_sim_settings, scaler).run_quick_sim(QVector<Character*>{pchar}, raid_control);
 
     delete pchar;
     delete race;
