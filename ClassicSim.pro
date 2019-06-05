@@ -70,6 +70,7 @@ SOURCES += main.cpp \
     Class/Paladin/Paladin.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
+    Raid/RaidControl.cpp \
     Spells/CooldownControl.cpp \
     Spells/SpellRankGroup.cpp \
     Talent/CharacterTalents.cpp \
@@ -463,6 +464,7 @@ HEADERS += \
     Class/Shaman/Shaman.h \
     Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
+    Raid/RaidControl.h \
     Spells/CooldownControl.h \
     Spells/SpellRankGroup.h \
     Talent/CharacterTalents.h \
@@ -903,6 +905,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/GUI/Models/Statistics \
     $$PWD/Faction \
     $$PWD/Thread \
+    $$PWD/Raid \
     $$PWD/Rotation \
     $$PWD/Rotation/Conditions \
     $$PWD/Rulesets \

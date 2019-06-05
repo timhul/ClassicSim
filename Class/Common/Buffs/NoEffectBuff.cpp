@@ -6,7 +6,7 @@ NoEffectBuff::NoEffectBuff(Character* pchar, const int duration, const QString &
     Buff(pchar, name, icon, duration, charges)
 {
     this->hidden = hidden;
-    this->debuff = debuff;
+    this->affected = debuff ? Affected::Target : Affected::Self;
 }
 
 void NoEffectBuff::link_buff_expiration(Buff* buff_to_cancel) {

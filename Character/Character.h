@@ -24,6 +24,7 @@ class EquipmentDb;
 class Faction;
 class Pet;
 class Race;
+class RaidControl;
 class Rotation;
 class SimSettings;
 class Stats;
@@ -51,6 +52,7 @@ public:
     SimSettings* get_sim_settings() const;
     CharacterTalents* get_talents() const;
     Target* get_target() const;
+    RaidControl* get_raid_control() const;
 
     void set_race(Race* race);
     bool race_available(Race*) const;
@@ -79,6 +81,8 @@ public:
 
     unsigned get_clvl() const;
     virtual void set_clvl(const unsigned);
+
+    int get_party() const;
 
     void add_player_reaction_event();
 
@@ -161,12 +165,14 @@ protected:
     SimSettings* sim_settings;
     Resource* resource {nullptr};
     Pet* pet {nullptr};
+    RaidControl* raid_control {nullptr};
 
     QVector<QString> available_races;
 
     unsigned clvl {1};
     double next_gcd;
     double next_trinket_cd;
+    int party {0};
     Ruleset ruleset;
 
     virtual void initialize_talents() = 0;

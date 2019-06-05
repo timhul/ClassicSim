@@ -81,7 +81,6 @@ protected:
     unsigned id_of_cast_in_progress;
     AttackMode attack_mode;
     bool attack_mode_active;
-    int next_instance_id;
     QVector<Spell*> spells;
     QVector<Spell*> start_of_combat_spells;
     QMap<QString, CooldownControl*> cooldown_controls;

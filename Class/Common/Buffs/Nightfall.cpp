@@ -6,7 +6,7 @@
 Nightfall::Nightfall(Character* pchar):
     Buff(pchar, "Nightfall", "Assets/items/Inv_axe_12.png", 5, 0)
 {
-    this->debuff = true;
+    this->affected = Affected::Target;
 }
 
 void Nightfall::buff_effect_when_applied() {

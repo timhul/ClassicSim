@@ -16,11 +16,6 @@ class Engine;
 class CooldownControl;
 class StatisticsSpell;
 
-namespace SpellID {
-    static const int INACTIVE = -1;
-    static const int INITIAL_ID = 0;
-}
-
 namespace RestrictedByGcd {
     static const bool Yes = true;
     static const bool No = false;

@@ -10,6 +10,7 @@
 #include "CooldownControl.h"
 #include "Engine.h"
 #include "Mechanics.h"
+#include "RaidControl.h"
 #include "StatisticsSpell.h"
 #include "Target.h"
 #include "Utils/Check.h"
@@ -33,7 +34,7 @@ Spell::Spell(QString name,
     resource_type(resource_type),
     resource_cost(resource_cost),
     spell_rank(spell_rank),
-    instance_id(SpellID::INACTIVE),
+    instance_id(InstanceID::INACTIVE),
     enabled(true)
 {}
 

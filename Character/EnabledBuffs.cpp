@@ -5,13 +5,13 @@
 #include "ExternalBuff.h"
 #include "Faction.h"
 #include "GeneralBuffs.h"
+#include "RaidControl.h"
 #include "SharedBuff.h"
 #include "Utils/Check.h"
 
 EnabledBuffs::EnabledBuffs(Character* pchar, Faction* faction) :
     pchar(pchar),
     faction(faction),
-    next_instance_id(BuffStatus::INITIAL_ID),
     general_buffs(new GeneralBuffs(pchar, faction))
 {}
 
@@ -31,10 +31,8 @@ void EnabledBuffs::add_buff(Buff* buff) {
     check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->get_name()).toStdString());
     enabled_buffs.append(buff);
 
-    if (buff->get_instance_id() == BuffStatus::INACTIVE) {
-        buff->set_instance_id(next_instance_id);
-        ++next_instance_id;
-    }
+    if (buff->get_instance_id() == InstanceID::INACTIVE)
+        buff->set_instance_id(pchar->get_raid_control()->next_instance_id());
 }
 
 void EnabledBuffs::remove_buff(Buff* buff) {

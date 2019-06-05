@@ -20,6 +20,7 @@
 #include "OffhandMeleeHit.h"
 #include "Pet.h"
 #include "Race.h"
+#include "RaidControl.h"
 #include "Rotation.h"
 #include "SpellRankGroup.h"
 #include "Target.h"
@@ -31,8 +32,7 @@ CharacterSpells::CharacterSpells(Character* pchar) :
     cast_is_in_progress(false),
     id_of_cast_in_progress(0),
     attack_mode(AttackMode::MeleeAttack),
-    attack_mode_active(false),
-    next_instance_id(SpellID::INITIAL_ID)
+    attack_mode_active(false)
 {
     berserking = new Berserking(pchar);
     blood_fury = new BloodFury(pchar);
@@ -133,10 +133,8 @@ void CharacterSpells::deactivate_racials() {
 }
 
 void CharacterSpells::add_spell(Spell* spell, bool relink) {
-    if (spell->get_instance_id() == SpellID::INACTIVE) {
-        spell->set_instance_id(next_instance_id);
-        ++next_instance_id;
-    }
+    if (spell->get_instance_id() == InstanceID::INACTIVE)
+        spell->set_instance_id(pchar->get_raid_control()->next_instance_id());
 
     spells.append(spell);
 
@@ -156,10 +154,8 @@ void CharacterSpells::remove_spell(Spell* spell) {
 }
 
 void CharacterSpells::add_start_of_combat_spell(Spell* spell) {
-    if (spell->get_instance_id() == SpellID::INACTIVE) {
-        spell->set_instance_id(next_instance_id);
-        ++next_instance_id;
-    }
+    if (spell->get_instance_id() == InstanceID::INACTIVE)
+        spell->set_instance_id(pchar->get_raid_control()->next_instance_id());
 
     start_of_combat_spells.append(spell);
 }

@@ -16,6 +16,7 @@
 #include "PlayerAction.h"
 #include "ProcInfo.h"
 #include "Race.h"
+#include "RaidControl.h"
 #include "RulesetControl.h"
 #include "SimSettings.h"
 #include "Stats.h"
@@ -32,6 +33,7 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings) 
     talents(new CharacterTalents()),
     statistics(new ClassStatistics(sim_settings)),
     sim_settings(sim_settings),
+    raid_control(new RaidControl()),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard)
 {
@@ -50,6 +52,7 @@ Character::~Character() {
     delete enabled_procs;
     delete enabled_buffs;
     delete statistics;
+    delete raid_control;
 }
 
 QString Character::get_name() const {
@@ -92,6 +95,10 @@ void Character::set_clvl(const unsigned clvl) {
     this->clvl = clvl;
 }
 
+int Character::get_party() const {
+    return this->party;
+}
+
 bool Character::is_dual_wielding() {
     return cstats->get_equipment()->is_dual_wielding();
 }
@@ -102,6 +109,10 @@ Engine* Character::get_engine() const {
 
 Target* Character::get_target() const {
     return this->target;
+}
+
+RaidControl* Character::get_raid_control() const {
+    return this->raid_control;
 }
 
 CombatRoll* Character::get_combat_roll() const {

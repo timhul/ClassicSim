@@ -6,11 +6,6 @@
 class Character;
 class StatisticsBuff;
 
-namespace BuffStatus {
-    static const int INACTIVE = -1;
-    static const int INITIAL_ID = 0;
-}
-
 namespace BuffDuration {
     static const int PERMANENT = -1;
 }
@@ -25,6 +20,13 @@ namespace Debuff {
     static const bool No = false;
 }
 
+enum class Affected: int {
+    Self,
+    Party,
+    Raid,
+    Target,
+};
+
 static const QString NO_ICON = "no-icon";
 
 class Buff {
@@ -36,8 +38,10 @@ public:
     QString get_icon() const;
     int get_charges() const;
     void apply_buff();
+    void apply_buff_to(Character* any_pchar);
     void refresh_buff();
     void remove_buff(const int);
+    void remove_buff_from(Character* any_pchar);
     void use_charge();
     void cancel_buff();
     bool is_active() const;
@@ -73,8 +77,8 @@ protected:
     bool enabled;
     double uptime{};
     bool hidden;
-    bool debuff;
     int debuff_priority {0};
+    Affected affected {Affected::Self};
 
     int instance_id;
 

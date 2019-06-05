@@ -10,7 +10,7 @@ JudgementOfTheCrusader::JudgementOfTheCrusader(Paladin* pchar):
     ItemModificationRequirer({16471, 23274, 23203}),
     paladin(dynamic_cast<Paladin*>(pchar))
 {
-    this->debuff = true;
+    this->affected = Affected::Target;
 }
 
 void JudgementOfTheCrusader::buff_effect_when_applied() {

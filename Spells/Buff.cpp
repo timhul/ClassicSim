@@ -7,6 +7,7 @@
 #include "ClassStatistics.h"
 #include "EnabledBuffs.h"
 #include "Engine.h"
+#include "RaidControl.h"
 #include "StatisticsBuff.h"
 #include "Target.h"
 #include "Utils/Check.h"
@@ -20,8 +21,8 @@ Buff::Buff(Character* pchar, QString name, QString icon, const int duration, con
     base_charges(base_charges),
     enabled(false),
     hidden(false),
-    debuff(false),
-    instance_id(BuffStatus::INACTIVE)
+    affected(Affected::Self),
+    instance_id(InstanceID::INACTIVE)
 {
     initialize();
 }
@@ -43,13 +44,24 @@ void Buff::apply_buff() {
         return;
 
     if (!is_active()) {
-        if (debuff == true) {
+        switch (affected) {
+        case Affected::Target:
             if (!pchar->get_target()->add_debuff(this, debuff_priority))
                 return;
+            buff_effect_when_applied();
+            break;
+        case Affected::Self:
+            buff_effect_when_applied();
+            break;
+        case Affected::Party:
+            pchar->get_raid_control()->apply_party_buff(this, pchar->get_party());
+            break;
+        case Affected::Raid:
+            pchar->get_raid_control()->apply_raid_buff(this);
+            break;
         }
 
         this->applied = pchar->get_engine()->get_current_priority();
-        this->buff_effect_when_applied();
     }
     else
         this->buff_effect_when_refreshed();
@@ -63,6 +75,17 @@ void Buff::apply_buff() {
                                           ++iteration);
         pchar->get_engine()->add_event(new_event);
     }
+}
+
+void Buff::apply_buff_to(Character* any_pchar) {
+    check((affected != Affected::Target), QString("Cannot apply %1 to characters as it is a debuff").arg(name).toStdString());
+
+    Character* orig_pchar = pchar;
+    pchar = any_pchar;
+
+    buff_effect_when_applied();
+
+    pchar = orig_pchar;
 }
 
 void Buff::refresh_buff() {
@@ -83,9 +106,35 @@ void Buff::remove_buff(const int iteration) {
     force_remove_buff();
 }
 
+void Buff::remove_buff_from(Character* any_pchar) {
+    check((affected != Affected::Target), QString("Cannot remove %1 from characters as it is a debuff").arg(name).toStdString());
+
+    Character* orig_pchar = pchar;
+    pchar = any_pchar;
+
+    buff_effect_when_removed();
+
+    pchar = orig_pchar;
+}
+
 void Buff::force_remove_buff() {
-    if (debuff && is_active())
-        pchar->get_target()->remove_debuff(this);
+    if (is_active()) {
+        switch (affected) {
+        case Affected::Target:
+            pchar->get_target()->remove_debuff(this);
+            buff_effect_when_removed();
+            break;
+        case Affected::Self:
+            buff_effect_when_removed();
+            break;
+        case Affected::Party:
+            pchar->get_raid_control()->remove_party_buff(this, pchar->get_party());
+            break;
+        case Affected::Raid:
+            pchar->get_raid_control()->remove_raid_buff(this);
+            break;
+        }
+    }
 
     this->expired = pchar->get_engine()->get_current_priority();
     this->active = false;
@@ -94,8 +143,6 @@ void Buff::force_remove_buff() {
 
     if (!hidden)
         this->statistics_buff->add_uptime(expired - applied);
-
-    this->buff_effect_when_removed();
 }
 
 void Buff::use_charge() {
@@ -162,7 +209,7 @@ bool Buff::is_hidden() const {
 }
 
 bool Buff::is_debuff() const {
-    return debuff;
+    return affected == Affected::Target;
 }
 
 void Buff::set_instance_id(const int instance_id) {
@@ -193,7 +240,7 @@ void Buff::prepare_set_of_combat_iterations() {
     if (this->is_hidden())
         return;
 
-    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon, debuff);
+    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon, affected == Affected::Target);
     prepare_set_of_combat_iterations_spell_specific();
 }
 

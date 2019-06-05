@@ -38,8 +38,6 @@ private:
     Character* pchar;
     Faction* faction;
 
-    int next_instance_id;
-
     GeneralBuffs* general_buffs;
 
     QVector<Buff*> start_of_combat_buffs;
