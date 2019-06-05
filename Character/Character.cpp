@@ -27,7 +27,7 @@
 Character::Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control) :
     class_name(std::move(class_name)),
     race(race),
-    engine(new Engine()),
+    engine(raid_control->get_engine()),
     target(target),
     faction(new Faction(race)),
     talents(new CharacterTalents()),
@@ -46,7 +46,6 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings, 
 }
 
 Character::~Character() {
-    delete engine;
     delete roll;
     delete faction;
     delete talents;

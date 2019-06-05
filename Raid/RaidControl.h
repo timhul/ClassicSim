@@ -7,6 +7,7 @@
 class Buff;
 class Character;
 class ClassStatistics;
+class Engine;
 class SimSettings;
 
 namespace InstanceID {
@@ -38,11 +39,14 @@ public:
     ClassStatistics* get_statistics() const;
     ClassStatistics* relinquish_ownership_of_statistics();
 
+    Engine* get_engine() const;
+
 private:
     int instance_id {InstanceID::INITIAL_ID};
 
     ClassStatistics* raid_statistics;
     SimSettings* settings;
+    Engine* engine;
 
     QVector<QVector<Character*>> group_members;
 

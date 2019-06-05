@@ -2,11 +2,13 @@
 
 #include "Buff.h"
 #include "ClassStatistics.h"
+#include "Engine.h"
 #include "Utils/Check.h"
 
 RaidControl::RaidControl(SimSettings* sim_settings) :
     raid_statistics(new ClassStatistics(sim_settings, true)),
-    settings(sim_settings)
+    settings(sim_settings),
+    engine(new Engine())
 {
     for (int i = 0; i < 8; ++i) {
         group_members.append(QVector<Character*>());
@@ -24,6 +26,7 @@ RaidControl::~RaidControl() {
         delete buff;
 
     delete raid_statistics;
+    delete engine;
 }
 
 void RaidControl::assign_character_to_group(Character* pchar) {
@@ -98,4 +101,8 @@ ClassStatistics* RaidControl::relinquish_ownership_of_statistics() {
     ClassStatistics* tmp = this->raid_statistics;
     this->raid_statistics = new ClassStatistics(settings);
     return tmp;
+}
+
+Engine* RaidControl::get_engine() const {
+    return this->engine;
 }
