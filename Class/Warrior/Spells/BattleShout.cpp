@@ -2,17 +2,17 @@
 
 #include "BattleShoutBuff.h"
 #include "CooldownControl.h"
+#include "EnabledBuffs.h"
 #include "Warrior.h"
 
-BattleShout::BattleShout(Warrior* pchar) :
+BattleShout::BattleShout(Warrior* pchar, BattleShoutBuff* buff) :
     Spell("Battle Shout", "Assets/ability/Ability_warrior_battleshout.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Rage, 10),
-    buff(new BattleShoutBuff(pchar))
+    buff(buff)
 {
     buff->enable_buff();
 }
 
 BattleShout::~BattleShout() {
-    delete buff;
     delete cooldown;
 }
 

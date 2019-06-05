@@ -9,7 +9,7 @@ class Warrior;
 
 class BattleShout: public Spell {
 public:
-    BattleShout(Warrior* pchar);
+    BattleShout(Warrior* pchar, BattleShoutBuff* buff);
     ~BattleShout() override;
 
     Buff* get_buff() const;

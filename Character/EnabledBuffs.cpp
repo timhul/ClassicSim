@@ -20,7 +20,6 @@ EnabledBuffs::~EnabledBuffs() {
 }
 
 void EnabledBuffs::remove_buff(Buff* buff, QVector<Buff*>& buffs) {
-    check(buff->is_enabled(), QString("Expected buff '%1' to be enabled").arg(buff->get_name()).toStdString());
     for (int i = 0; i < buffs.size(); ++i) {
         if (buffs.at(i)->get_instance_id() == buff->get_instance_id())
             return buffs.removeAt(i);

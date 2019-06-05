@@ -33,7 +33,7 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings) 
     talents(new CharacterTalents()),
     statistics(new ClassStatistics(sim_settings)),
     sim_settings(sim_settings),
-    raid_control(new RaidControl()),
+    raid_control(new RaidControl(sim_settings)),
     next_trinket_cd(-1),
     ruleset(Ruleset::Standard)
 {
@@ -41,6 +41,8 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings) 
     this->enabled_procs = new EnabledProcs(this, faction);
     this->enabled_buffs = new EnabledBuffs(this, faction);
     this->next_gcd = 0 - this->global_cooldown();
+
+    raid_control->assign_character_to_group(this);
 }
 
 Character::~Character() {

@@ -14,7 +14,6 @@
 
 Buff::Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
     pchar(pchar),
-    statistics_buff(nullptr),
     name(std::move(name)),
     icon(std::move(icon)),
     duration(duration),
@@ -212,6 +211,10 @@ bool Buff::is_debuff() const {
     return affected == Affected::Target;
 }
 
+Affected Buff::get_affected() const {
+    return affected;
+}
+
 void Buff::set_instance_id(const int instance_id) {
     this->instance_id = instance_id;
 }
@@ -221,14 +224,16 @@ int Buff::get_instance_id() const {
 }
 
 void Buff::enable_buff() {
-    check(!enabled, QString("Tried to enable an already enabled buff '%1'").arg(name).toStdString());
+    if (affected == Affected::Self || affected == Affected::Target)
+        check(!enabled, QString("Tried to enable an already enabled buff '%1'").arg(name).toStdString());
 
     this->enabled = true;
     pchar->get_enabled_buffs()->add_buff(this);
 }
 
 void Buff::disable_buff() {
-    check(enabled, QString("Tried to disable an already disabled buff '%1'").arg(name).toStdString());
+    if (affected == Affected::Self || affected == Affected::Target)
+        check(enabled, QString("Tried to disable an already disabled buff '%1'").arg(name).toStdString());
 
     pchar->get_enabled_buffs()->remove_buff(this);
     this->enabled = false;
@@ -240,7 +245,11 @@ void Buff::prepare_set_of_combat_iterations() {
     if (this->is_hidden())
         return;
 
-    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon, affected == Affected::Target);
+    if (affected == Affected::Self || affected == Affected::Target)
+        this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon, is_debuff());
+    else if (statistics_buff == nullptr)
+        this->statistics_buff = pchar->get_raid_control()->get_statistics()->get_buff_statistics(name, icon, Debuff::No);
+
     prepare_set_of_combat_iterations_spell_specific();
 }
 

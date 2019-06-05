@@ -26,6 +26,7 @@
 #include "OffhandAttackWarrior.h"
 #include "OffhandMeleeHit.h"
 #include "Overpower.h"
+#include "RaidControl.h"
 #include "Recklessness.h"
 #include "RecklessnessBuff.h"
 #include "Rend.h"
@@ -40,7 +41,6 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     warr(pchar)
 {
     this->anger_management = new AngerManagement(pchar);
-    this->battle_shout = new BattleShout(pchar);
     this->battle_stance = new BattleStance(pchar);
     this->berserker_rage = new BerserkerRage(pchar);
     this->berserker_stance = new BerserkerStance(pchar);
@@ -59,6 +59,16 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->warr_mh_attack = new MainhandAttackWarrior(pchar, this);
     this->warr_oh_attack = new OffhandAttackWarrior(pchar, this);
     this->whirlwind = new Whirlwind(pchar, this);
+
+    Buff* buff = pchar->get_raid_control()->get_shared_party_buff("Battle Shout", pchar->get_party());
+    if (buff == nullptr) {
+        BattleShoutBuff* new_buff = new BattleShoutBuff(pchar);
+        pchar->get_raid_control()->register_shared_party_buff(new_buff, pchar->get_party());
+        this->battle_shout = new BattleShout(pchar, new_buff);
+    }
+    else {
+        this->battle_shout = new BattleShout(pchar, dynamic_cast<BattleShoutBuff*>(buff));
+    }
 
     add_spell_group({anger_management});
     add_spell_group({battle_shout});

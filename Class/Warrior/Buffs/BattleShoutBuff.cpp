@@ -10,6 +10,8 @@ BattleShoutBuff::BattleShoutBuff(Character* pchar):
                    new TalentRequirerInfo("Booming Voice", 5, DisabledAtZero::No)
                    })
 {
+    affected = Affected::Party;
+
     spell_ranks = {15, 35, 55, 85, 130, 185, 232};
     rank_spell = 6;
     base_attack_power = spell_ranks[rank_spell];

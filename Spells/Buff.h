@@ -54,6 +54,7 @@ public:
     bool is_enabled() const;
     bool is_hidden() const;
     bool is_debuff() const;
+    Affected get_affected() const;
 
     void set_instance_id(const int);
     int get_instance_id() const;
@@ -63,7 +64,7 @@ public:
 
 protected:
     Character* pchar;
-    StatisticsBuff* statistics_buff;
+    StatisticsBuff* statistics_buff {nullptr};
     const QString name;
     const QString icon;
     int duration;
