@@ -10,6 +10,7 @@
 #include "PaladinEnchants.h"
 #include "PaladinSpells.h"
 #include "ProtectionPaladin.h"
+#include "RaidControl.h"
 #include "Retribution.h"
 #include "Utils/Check.h"
 #include "Vengeance.h"
@@ -46,6 +47,7 @@ Paladin::Paladin(Race* race, EquipmentDb *equipment_db, SimSettings *sim_setting
 
 Paladin::~Paladin()
 {
+    raid_control->clear_all_buffs();
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();

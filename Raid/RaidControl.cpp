@@ -54,6 +54,20 @@ void RaidControl::remove_raid_buff(Buff* buff) {
     }
 }
 
+void RaidControl::clear_all_buffs() {
+    for (int i = 0; i < group_members.size(); ++i) {
+        for (const auto & buff : shared_party_buffs[i])
+            buff->cancel_buff();
+
+        shared_party_buffs[i].clear();
+    }
+
+    for (const auto & buff : shared_raid_buffs)
+        buff->cancel_buff();
+
+    shared_raid_buffs.clear();
+}
+
 void RaidControl::remove_party_buff(Buff* buff, const int party) {
     check((party < group_members.size() && party >= 0), QString("Party %1 out of bounds").arg(party).toStdString());
 

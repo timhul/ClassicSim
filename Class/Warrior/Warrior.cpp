@@ -14,6 +14,7 @@
 #include "Protection.h"
 #include "Race.h"
 #include "Rage.h"
+#include "RaidControl.h"
 #include "Stats.h"
 #include "Utils/Check.h"
 #include "WarriorEnchants.h"
@@ -58,6 +59,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
 }
 
 Warrior::~Warrior() {
+    raid_control->clear_all_buffs();
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();

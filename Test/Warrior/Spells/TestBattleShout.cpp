@@ -1,6 +1,10 @@
 #include "TestBattleShout.h"
 
 #include "BattleShout.h"
+#include "CharacterStats.h"
+#include "Fury.h"
+#include "SpellRankGroup.h"
+#include "Warrior.h"
 
 TestBattleShout::TestBattleShout(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Battle Shout")
@@ -8,6 +12,10 @@ TestBattleShout::TestBattleShout(EquipmentDb *equipment_db) :
 
 void TestBattleShout::test_all() {
     run_mandatory_tests();
+
+    set_up();
+    test_battle_shout_in_party();
+    tear_down();
 }
 
 BattleShout* TestBattleShout::battle_shout() {
@@ -68,4 +76,37 @@ void TestBattleShout::test_how_spell_observes_global_cooldown() {
 
 void TestBattleShout::when_battle_shout_is_performed() {
     battle_shout()->perform();
+}
+
+void TestBattleShout::given_improved_battle_shout_rank(Warrior* warrior, const unsigned num) {
+    given_talent_rank(Fury(warrior).get_improved_battle_shout(), num);
+}
+
+void TestBattleShout::test_battle_shout_in_party() {
+    auto* warr_1 = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    auto* warr_2 = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+
+    given_improved_battle_shout_rank(warr_1, 5);
+    given_improved_battle_shout_rank(warr_2, 5);
+
+    const unsigned warr_1_melee_ap_before = warr_1->get_stats()->get_melee_ap();
+    const unsigned warr_2_melee_ap_before = warr_2->get_stats()->get_melee_ap();
+
+    warr_1->gain_rage(10);
+    warr_1->get_spells()->get_spell_rank_group_by_name("Battle Shout")->get_max_available_spell_rank()->perform();
+
+    // [melee_ap] = base_ap * improved_battle_shout
+    // [290] = 232 * 1.25
+    assert(warr_1->get_stats()->get_melee_ap() == warr_1_melee_ap_before + 290);
+    assert(warr_2->get_stats()->get_melee_ap() == warr_2_melee_ap_before + 290);
+
+    // Assert does not stack.
+    warr_2->gain_rage(10);
+    warr_2->get_spells()->get_spell_rank_group_by_name("Battle Shout")->get_max_available_spell_rank()->perform();
+
+    assert(warr_1->get_stats()->get_melee_ap() == warr_1_melee_ap_before + 290);
+    assert(warr_2->get_stats()->get_melee_ap() == warr_2_melee_ap_before + 290);
+
+    delete warr_1;
+    delete warr_2;
 }

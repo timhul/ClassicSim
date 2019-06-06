@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "Mana.h"
 #include "PriestSpells.h"
+#include "RaidControl.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
@@ -38,6 +39,7 @@ Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings,
 
 Priest::~Priest()
 {
+    raid_control->clear_all_buffs();
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();

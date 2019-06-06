@@ -9,9 +9,9 @@
 #include "Mana.h"
 #include "Race.h"
 #include "Rage.h"
+#include "RaidControl.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
-
 
 Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control) :
     Character("Druid", race, sim_settings, target, raid_control) {
@@ -40,6 +40,7 @@ Druid::Druid(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, T
 
 Druid::~Druid()
 {
+    raid_control->clear_all_buffs();
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();

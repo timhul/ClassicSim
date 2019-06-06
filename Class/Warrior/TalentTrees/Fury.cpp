@@ -65,8 +65,7 @@ Talent* Fury::get_booming_voice() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{10, 10}});
     Talent* talent = new Talent(warrior, this, "Booming Voice", "1ML",
                                 "Assets/spell/Spell_nature_purge.png", 5, rank_descriptions,
-                                {},
-                                QVector<Buff*>{spells->get_battle_shout()->get_buff()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Battle Shout")});
 
     return talent;
 }
@@ -90,8 +89,7 @@ Talent* Fury::get_improved_battle_shout() {
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{5, 5}});
     Talent* talent = new Talent(warrior, this, "Improved Battle Shout", "3RR",
                                 "Assets/ability/Ability_warrior_battleshout.png", 5, rank_descriptions,
-                                {},
-                                QVector<Buff*>{spells->get_battle_shout()->get_buff()});
+                                QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Battle Shout")});
 
     return talent;
 }

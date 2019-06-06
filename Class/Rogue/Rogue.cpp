@@ -9,6 +9,7 @@
 #include "Energy.h"
 #include "Equipment.h"
 #include "InstantPoison.h"
+#include "RaidControl.h"
 #include "RelentlessStrikes.h"
 #include "RogueEnchants.h"
 #include "RogueSpells.h"
@@ -64,6 +65,7 @@ Rogue::Rogue(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, T
 
 Rogue::~Rogue()
 {
+    raid_control->clear_all_buffs();
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();

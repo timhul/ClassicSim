@@ -28,6 +28,8 @@ public:
     void apply_raid_buff(Buff* buff);
     void remove_raid_buff(Buff* buff);
 
+    void clear_all_buffs();
+
     int next_instance_id();
 
     void register_shared_party_buff(Buff* buff, const int party);

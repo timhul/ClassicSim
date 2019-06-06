@@ -19,5 +19,8 @@ private:
     void test_resource_cost() override;
     void test_is_ready_conditions() override;
 
+    void test_battle_shout_in_party();
+
     void when_battle_shout_is_performed();
+    void given_improved_battle_shout_rank(Warrior* warrior, const unsigned num);
 };
