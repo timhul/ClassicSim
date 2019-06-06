@@ -136,6 +136,7 @@ SOURCES += main.cpp \
     Equipment/EquipmentDb/WeaponFileReader.cpp \
     Equipment/Item/Weapon.cpp \
     Test/TestCombatRoll.cpp \
+    Test/Warrior/Spells/TestBattleShout.cpp \
     Test/Warrior/TestWarrior.cpp \
     Test/Warrior/Spells/TestExecute.cpp \
     Test/TestSpell.cpp \
@@ -535,6 +536,7 @@ HEADERS += \
     Equipment/EquipmentDb/WeaponFileReader.h \
     Equipment/Item/Weapon.h \
     Test/TestCombatRoll.h \
+    Test/Warrior/Spells/TestBattleShout.h \
     Test/Warrior/TestWarrior.h \
     Test/Warrior/Spells/TestExecute.h \
     Test/TestSpell.h \

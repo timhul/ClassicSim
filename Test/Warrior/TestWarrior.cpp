@@ -12,6 +12,7 @@
 #include "Target.h"
 #include "Target.h"
 #include "TestArms.h"
+#include "TestBattleShout.h"
 #include "TestBerserkerStance.h"
 #include "TestBloodrage.h"
 #include "TestBloodthirst.h"
@@ -57,6 +58,7 @@ void TestWarrior::test_all() {
     TestMortalStrike(equipment_db).test_all();
     TestSlam(equipment_db).test_all();
     TestRend(equipment_db).test_all();
+    TestBattleShout(equipment_db).test_all();
 
     TestUnbridledWrath(equipment_db).test_all();
     TestSwordSpecialization(equipment_db).test_all();
