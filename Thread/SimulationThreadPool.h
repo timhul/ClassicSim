@@ -24,18 +24,21 @@ public:
 public slots:
     void error_string(const QString&, const QString&);
     void thread_finished();
+    void increase_iterations_completed(int iterations);
 
 signals:
     void threads_finished();
     void start_simulation(const unsigned thread_id, QVector<QString> setup_string, bool full_sim, int iterations);
+    void update_progress(const double progress);
 
-protected:
 private:
     EquipmentDb* equipment_db;
     Random* random;
     SimSettings* sim_settings;
     NumberCruncher* scaler;
     int running_threads;
+    int iterations_completed {0};
+    int max_iterations {0};
 
     QVector<QPair<unsigned, QThread*>> thread_pool;
     QVector<unsigned> active_thread_ids;

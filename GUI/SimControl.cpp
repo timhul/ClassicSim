@@ -56,6 +56,7 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
             start_at = time_for_precombat;
     }
 
+    int reported_iterations = 0;
     for (int i = 0; i < iterations; ++i) {
         raid_control->get_engine()->prepare_iteration(-start_at);
         for (const auto & pchar : raid) {
@@ -74,6 +75,12 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
         for (const auto & pchar : raid) {
             pchar->reset();
             pchar->get_statistics()->finish_combat_iteration();
+        }
+
+        ++reported_iterations;
+        if (reported_iterations % 10 == 0) {
+            emit update_progress(reported_iterations);
+            reported_iterations = 0;
         }
     }
 

@@ -109,6 +109,7 @@ GUIControl::GUIControl(QObject* parent) :
 {
     thread_pool = new SimulationThreadPool(equipment_db, sim_settings, number_cruncher);
     QObject::connect(thread_pool, SIGNAL(threads_finished()), this, SLOT(compile_thread_results()));
+    QObject::connect(thread_pool, SIGNAL(update_progress(double)), this, SLOT(update_progress(double)));
 
     this->sim_control = new SimControl(sim_settings, number_cruncher);
     this->sim_scale_model = new SimScaleModel(sim_settings);
@@ -976,6 +977,14 @@ SimScaleModel* GUIControl::get_sim_scale_model() const {
     return this->sim_scale_model;
 }
 
+int GUIControl::get_combat_progress() const {
+    return static_cast<int>(round(sim_percent_completed * 100));
+}
+
+bool GUIControl::get_sim_in_progress() const {
+    return sim_in_progress;
+}
+
 QString GUIControl::get_mainhand_icon() const {
     if (current_char->get_equipment()->get_mainhand() != nullptr)
         return "Assets/items/" + current_char->get_equipment()->get_mainhand()->get_value("icon");
@@ -1709,6 +1718,11 @@ int GUIControl::getCurrentCreatureType() const {
 
 int GUIControl::getContentPhase() const {
     return static_cast<int>(sim_settings->get_phase());
+}
+
+void GUIControl::update_progress(double percent) {
+    this->sim_percent_completed = percent;
+    combatProgressChanged();
 }
 
 Character* GUIControl::load_character(const QString& class_name) {

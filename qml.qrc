@@ -719,5 +719,6 @@
         <file>QML/Assets/spell/Spell_shadow_shadowbolt.png</file>
         <file>QML/Assets/spell/Spell_fire_incinerate.png</file>
         <file>QML/Assets/items/Inv_sword_10.png</file>
+        <file>QML/PercentBar.qml</file>
     </qresource>
 </RCC>

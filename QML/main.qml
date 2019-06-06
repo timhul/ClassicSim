@@ -377,6 +377,21 @@ Window {
         onButtonClicked: character.runFullSim()
     }
 
+    PercentBar {
+        visible: settings.simInProgress
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 30
+        anchors.left: parent.left
+        anchors.leftMargin: parent.width / 2 - width / 2
+
+        height: 45
+        width: 300
+        backgroundColor: darkDarkGray
+        fillColor: colorFaction
+        percent: settings.combatProgress
+        barText: settings.combatProgress + " %"
+    }
+
     Text {
         text: "All art assets ©Blizzard Entertainment (2019)."
         height: 15

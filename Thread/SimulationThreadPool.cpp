@@ -30,6 +30,8 @@ SimulationThreadPool::~SimulationThreadPool() {
 
 void SimulationThreadPool::run_sim(const QVector<QString>& setup_string, bool full_sim, int iterations) {
     check((running_threads == 0), "Cannot run sim while threads are still running");
+    max_iterations = iterations;
+    iterations_completed = 0;
 
     auto iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
 
@@ -92,6 +94,7 @@ void SimulationThreadPool::setup_thread(const unsigned thread_id) {
     connect(this, SIGNAL(start_simulation(uint,QVector<QString>,bool,int)), runner, SLOT(run_sim(uint,QVector<QString>,bool,int)));
     connect(runner, SIGNAL(error(QString,QString)), this, SLOT(error_string(QString,QString)));
     connect(runner, SIGNAL(result()), this, SLOT(thread_finished()));
+    connect(runner, SIGNAL(update_progress(const int)), this, SLOT(increase_iterations_completed(int)));
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
 
     thread_pool.append(QPair<unsigned, QThread*>(thread_id, thread));
@@ -113,4 +116,9 @@ void SimulationThreadPool::thread_finished() {
         return;
 
     threads_finished();
+}
+
+void SimulationThreadPool::increase_iterations_completed(int iterations) {
+    iterations_completed += iterations;
+    emit update_progress(static_cast<double>(iterations_completed) / max_iterations);
 }

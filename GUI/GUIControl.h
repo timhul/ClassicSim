@@ -284,6 +284,11 @@ public:
      Q_INVOKABLE void runFullSim();
      Q_SIGNAL void simResultUpdated(QString value, QString change, bool positive);
      SimScaleModel* get_sim_scale_model() const;
+     Q_PROPERTY(int combatProgress READ get_combat_progress NOTIFY combatProgressChanged)
+     Q_PROPERTY(bool simInProgress READ get_sim_in_progress NOTIFY simProgressChanged)
+     int get_combat_progress() const;
+     bool get_sim_in_progress() const;
+     Q_SIGNAL void combatProgressChanged() const;
      /* End of SimSettings */
 
      /* GUI initialization */
@@ -309,6 +314,9 @@ Q_SIGNALS:
     void equipmentSlotSelected();
     void rotationChanged();
     void informationRotationChanged();
+
+public slots:
+    void update_progress(double percent);
 
 private:
     int get_talent_points_remaining() const;
@@ -445,6 +453,7 @@ private:
     double last_quick_sim_result {0.0};
     double last_engine_handled_events_per_second {0.0};
     bool sim_in_progress;
+    double sim_percent_completed {0.0};
     QString active_window;
     QString stats_type_to_display;
 };

@@ -31,11 +31,13 @@ public:
 
 public slots:
     void run_sim(unsigned thread_id, QVector<QString> setup_strings, bool full_sim, int iterations);
+    void receive_progress(const int iterations_completed);
 
 signals:
     void finished();
     void result();
     void error(QString seed, QString err);
+    void update_progress(const int iterations_completed);
 
 private:
     QVector<Character*> raid;

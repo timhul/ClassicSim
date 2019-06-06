@@ -67,10 +67,13 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
         raid.last()->get_combat_roll()->set_new_seed(pchar_seeds.get_roll());
     }
 
+    SimControl sim_control (local_sim_settings, scaler);
+    QObject::connect(&sim_control, SIGNAL(update_progress(int)), this, SLOT(receive_progress(int)));
+
     if (full_sim)
-        SimControl(local_sim_settings, scaler).run_full_sim(raid, raid_control);
+        sim_control.run_full_sim(raid, raid_control);
     else
-        SimControl(local_sim_settings, scaler).run_quick_sim(raid, raid_control);
+        sim_control.run_quick_sim(raid, raid_control);
 
     for (const auto & pchar : raid)
         delete pchar;
@@ -86,6 +89,10 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
 
     emit result();
     emit finished();
+}
+
+void SimulationRunner::receive_progress(const int iterations_completed) {
+    emit update_progress(iterations_completed);
 }
 
 void SimulationRunner::exit_thread(QString err) {
