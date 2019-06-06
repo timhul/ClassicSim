@@ -722,5 +722,6 @@
         <file>QML/PercentBar.qml</file>
         <file>QML/RaidSetup.qml</file>
         <file>QML/PartyMembers.qml</file>
+        <file>QML/PartyMemberTemplates.qml</file>
     </qresource>
 </RCC>

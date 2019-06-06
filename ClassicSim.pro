@@ -48,6 +48,7 @@ SOURCES += main.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
     Event/Events/EncounterStart.cpp \
+    GUI/TemplateCharacters.cpp \
     Phases/ContentPhase.cpp \
     Phases/PhaseRequirer.cpp \
     Queue/Queue.cpp \
@@ -438,6 +439,7 @@ HEADERS += \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
+    GUI/TemplateCharacters.h \
     Phases/ContentPhase.h \
     Phases/PhaseRequirer.h \
     Queue/Queue.h \

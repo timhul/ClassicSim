@@ -71,6 +71,7 @@
 #include "SimulationThreadPool.h"
 #include "Target.h"
 #include "Tauren.h"
+#include "TemplateCharacters.h"
 #include "Troll.h"
 #include "Undead.h"
 #include "Warlock.h"
@@ -995,20 +996,34 @@ bool GUIControl::get_sim_in_progress() const {
 }
 
 void GUIControl::selectPartyMember(const int party, const int member) {
-    qDebug() << "selecting party" << party << "member" << member;
+    current_party = party;
+    current_member = member;
 }
 
 void GUIControl::clearPartyMember(const int party, const int member) {
     if (party == 1 && member == 1)
         return;
 
-    qDebug() << "clearing party" << party << "member" << member;
     raid_setup[party - 1][member - 1].clear();
     partyMembersUpdated();
 }
 
 QVariantMap GUIControl::partyMemberInfo(const int party, const int member) {
     return raid_setup[party - 1][member - 1];
+}
+
+void GUIControl::selectTemplateCharacter(QString template_char) {
+    if (current_party == 1 && current_member == 1)
+        return;
+
+    CharacterDecoder decoder;
+    decoder.initialize(TemplateCharacters::setup_string(template_char));
+    Character* raid_member = CharacterLoader(equipment_db, sim_settings, target, raid_control, decoder).initialize_new();
+
+    raid_setup[current_party - 1][current_member - 1] = QVariantMap{{"text", template_char}, {"color", raid_member->get_class_color()}};
+
+    delete raid_member;
+    partyMembersUpdated();
 }
 
 QString GUIControl::get_mainhand_icon() const {

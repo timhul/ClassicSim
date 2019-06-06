@@ -340,6 +340,17 @@ Window {
             width: parent.width / 3
             height: parent.height * 0.95
         }
+
+        PartyMemberTemplates {
+            visible: parent.state === "RAIDSETUP"
+
+            width: parent.width / 3
+            height: parent.height * 0.95
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            anchors.top: parent.top
+            anchors.topMargin: parent.height / 2 - height / 2
+        }
     }
 
     QuickSwitchBar {
