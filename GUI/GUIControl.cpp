@@ -130,6 +130,12 @@ GUIControl::GUIControl(QObject* parent) :
     rotation_executor_list_model = new RotationExecutorListModel(number_cruncher);
     scale_result_model = new ScaleResultModel(number_cruncher);
 
+    for (int i = 0; i < 8; ++i) {
+        raid_setup.append(QVector<QVariantMap>{});
+        for (int j = 0; j < 5; ++j)
+            raid_setup[i].append(QVariantMap());
+    }
+
     races.insert("Dwarf", new Dwarf());
     races.insert("Gnome", new Gnome());
     races.insert("Human", new Human());
@@ -232,6 +238,8 @@ void GUIControl::set_character(Character* pchar) {
 
     selectDisplayStat(get_attack_mode_as_string());
 
+    raid_setup[0][0] = QVariantMap{{"text", "You"}, {"color", current_char->get_class_color()}};
+
     raceChanged();
     classChanged();
     statsChanged();
@@ -239,6 +247,7 @@ void GUIControl::set_character(Character* pchar) {
     equipmentChanged();
     enchantChanged();
     factionChanged();
+    partyMembersUpdated();
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -983,6 +992,23 @@ int GUIControl::get_combat_progress() const {
 
 bool GUIControl::get_sim_in_progress() const {
     return sim_in_progress;
+}
+
+void GUIControl::selectPartyMember(const int party, const int member) {
+    qDebug() << "selecting party" << party << "member" << member;
+}
+
+void GUIControl::clearPartyMember(const int party, const int member) {
+    if (party == 1 && member == 1)
+        return;
+
+    qDebug() << "clearing party" << party << "member" << member;
+    raid_setup[party - 1][member - 1].clear();
+    partyMembersUpdated();
+}
+
+QVariantMap GUIControl::partyMemberInfo(const int party, const int member) {
+    return raid_setup[party - 1][member - 1];
 }
 
 QString GUIControl::get_mainhand_icon() const {

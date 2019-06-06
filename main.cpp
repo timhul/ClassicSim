@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("equipment", gui_control);
     context->setContextProperty("statistics", gui_control);
     context->setContextProperty("settings", gui_control);
+    context->setContextProperty("raid", gui_control);
     context->setContextProperty("itemModel", gui_control->get_item_model());
     context->setContextProperty("itemTypeFilterModel", gui_control->get_item_type_filter_model());
     context->setContextProperty("activeStatFilterModel", gui_control->get_active_stat_filter_model());

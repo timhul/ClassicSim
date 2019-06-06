@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QSet>
 #include <QVariant>
+#include <QVector>
 
 #include "EnchantName.h"
 
@@ -291,6 +292,13 @@ public:
      Q_SIGNAL void combatProgressChanged() const;
      /* End of SimSettings */
 
+     /* Raid setup */
+     Q_INVOKABLE void selectPartyMember(const int party, const int member);
+     Q_INVOKABLE void clearPartyMember(const int party, const int member);
+     Q_INVOKABLE QVariantMap partyMemberInfo(const int party, const int member);
+     Q_SIGNAL void partyMembersUpdated();
+     /* End of Raid setup */
+
      /* GUI initialization */
      Q_INVOKABLE QString getStartWindow() const;
      Q_INVOKABLE void changeActiveWindow(const QString& active_window);
@@ -418,6 +426,7 @@ private:
     QMap<QString, Race*> races;
     QSet<QString> supported_classes;
     QMap<QString, RaidControl*> raid_controls;
+    QVector<QVector<QVariantMap>> raid_setup;
     Character* current_char;
     ItemModel* item_model;
     ActiveItemStatFilterModel* active_stat_filter_model;

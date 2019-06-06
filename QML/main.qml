@@ -331,6 +331,15 @@ Window {
         Settings {
             visible: parent.state ===  "SETTINGS"
         }
+
+        RaidSetup {
+            visible: parent.state === "RAIDSETUP"
+
+            x: 20
+            y: parent.height / 2 - height / 2
+            width: parent.width / 3
+            height: parent.height * 0.95
+        }
     }
 
     QuickSwitchBar {
