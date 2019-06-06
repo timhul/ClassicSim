@@ -21,8 +21,8 @@
 #include "WarriorSpells.h"
 #include "Weapon.h"
 
-Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control) :
-    Character("Warrior", race, sim_settings, target, raid_control) {
+Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Target* target, RaidControl* raid_control, const int party, const int member) :
+    Character("Warrior", race, sim_settings, target, raid_control, party, member) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");

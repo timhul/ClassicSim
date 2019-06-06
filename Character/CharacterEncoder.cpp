@@ -31,6 +31,8 @@ QString CharacterEncoder::get_current_setup_string() {
     key_val("PHASE", QString::number(static_cast<int>(pchar->get_sim_settings()->get_phase())));
     key_val("RACE", pchar->get_race()->get_name());
     key_val("CLASS", pchar->get_name());
+    key_val("PARTY", QString::number(pchar->get_party()));
+    key_val("PARTY_MEMBER", QString::number(pchar->get_party_member()));
 
     add_item("MAINHAND", dynamic_cast<Item*>(pchar->get_equipment()->get_mainhand()));
     add_item("OFFHAND", dynamic_cast<Item*>(pchar->get_equipment()->get_offhand()));

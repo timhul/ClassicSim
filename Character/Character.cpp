@@ -24,7 +24,7 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Character::Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control) :
+Character::Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control, const int party, const int member) :
     class_name(std::move(class_name)),
     race(race),
     engine(raid_control->get_engine()),
@@ -35,6 +35,8 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings, 
     sim_settings(sim_settings),
     raid_control(raid_control),
     next_trinket_cd(-1),
+    party(party),
+    party_member(member),
     ruleset(Ruleset::Standard)
 {
     this->roll = new CombatRoll(this);
@@ -42,7 +44,13 @@ Character::Character(QString class_name, Race* race, SimSettings* sim_settings, 
     this->enabled_buffs = new EnabledBuffs(this, faction);
     this->next_gcd = 0 - this->global_cooldown();
 
-    raid_control->assign_character_to_group(this);
+    if (party < 0) {
+        QPair<int, int> location = raid_control->auto_assign_character_to_group(this);
+        this->party = location.first;
+        this->party_member = location.second;
+    }
+    else
+        raid_control->assign_character_to_place(this, party, member);
 }
 
 Character::~Character() {
@@ -96,6 +104,10 @@ void Character::set_clvl(const unsigned clvl) {
 
 int Character::get_party() const {
     return this->party;
+}
+
+int Character::get_party_member() const {
+    return this->party_member;
 }
 
 bool Character::is_dual_wielding() {

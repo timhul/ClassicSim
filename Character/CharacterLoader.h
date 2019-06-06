@@ -19,6 +19,7 @@ public:
     ~CharacterLoader();
 
     Character* initialize_new();
+    Character* initialize_raid_member(const int party, const int member);
     void initialize_existing(Character* pchar);
     bool successful() const;
     QString get_error() const;

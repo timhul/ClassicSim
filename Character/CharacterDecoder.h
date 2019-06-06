@@ -19,7 +19,6 @@ public:
 
     void dump();
 
-protected:
 private:
     QMap<QString, QString> setup_map;
     QMap<QString, QVector<QPair<QString, QString>>> setup_lists;

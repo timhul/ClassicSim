@@ -169,6 +169,9 @@ GUIControl::~GUIControl() {
     for (const auto & rc : raid_controls)
         delete rc;
 
+    for (const auto & race : raid_member_races)
+        delete race;
+
     delete equipment_db;
     delete item_model;
     delete item_type_filter_model;
@@ -847,11 +850,15 @@ void GUIControl::runQuickSim() {
         return;
 
     sim_in_progress = true;
-    QVector<QVector<Character*>> raid_members = raid_control->get_raid_members();
+
     QVector<QString> setup_strings;
-    for (const auto & party : raid_members) {
-        for (const auto & pchar : party)
-            setup_strings.append(CharacterEncoder(pchar).get_current_setup_string());
+    raid_setup[0][0]["setup_string"] = CharacterEncoder(current_char).get_current_setup_string();
+
+    for (const auto & party : raid_setup) {
+        for (const auto & party_member : party) {
+            if (party_member.contains("setup_string"))
+                setup_strings.append(party_member["setup_string"].toString());
+        }
     }
 
     thread_pool->run_sim(setup_strings, false, sim_settings->get_combat_iterations_quick_sim());
@@ -870,11 +877,14 @@ void GUIControl::runFullSim() {
         return;
 
     sim_in_progress = true;
-    QVector<QVector<Character*>> raid_members = raid_control->get_raid_members();
     QVector<QString> setup_strings;
-    for (const auto & party : raid_members) {
-        for (const auto & pchar : party)
-            setup_strings.append(CharacterEncoder(pchar).get_current_setup_string());
+    raid_setup[0][0]["setup_string"] = CharacterEncoder(current_char).get_current_setup_string();
+
+    for (const auto & party : raid_setup) {
+        for (const auto & party_member : party) {
+            if (party_member.contains("setup_string"))
+                setup_strings.append(party_member["setup_string"].toString());
+        }
     }
 
     thread_pool->run_sim(setup_strings, true, sim_settings->get_combat_iterations_full_sim());
@@ -1016,13 +1026,12 @@ void GUIControl::selectTemplateCharacter(QString template_char) {
     if (current_party == 1 && current_member == 1)
         return;
 
-    CharacterDecoder decoder;
-    decoder.initialize(TemplateCharacters::setup_string(template_char));
-    Character* raid_member = CharacterLoader(equipment_db, sim_settings, target, raid_control, decoder).initialize_new();
+    TemplateCharacterInfo info = TemplateCharacters::template_character_info(template_char);
+    const QString color = chars[info.class_name]->get_class_color();
+    const QString setup_string = info.setup_string.arg(static_cast<int>(sim_settings->get_phase())).arg(current_party - 1).arg(current_member - 1);
 
-    raid_setup[current_party - 1][current_member - 1] = QVariantMap{{"text", template_char}, {"color", raid_member->get_class_color()}};
+    raid_setup[current_party - 1][current_member - 1] = QVariantMap{{"text", template_char}, {"color", color}, {"setup_string", setup_string}};
 
-    delete raid_member;
     partyMembersUpdated();
 }
 

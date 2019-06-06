@@ -20,7 +20,8 @@ public:
     RaidControl(SimSettings* sim_settings);
     ~RaidControl();
 
-    void assign_character_to_group(Character* pchar);
+    QPair<int, int> auto_assign_character_to_group(Character* pchar);
+    void assign_character_to_place(Character* pchar, const int party, const int member);
 
     void apply_party_buff(Buff* buff, const int party);
     void remove_party_buff(Buff* buff, const int party);

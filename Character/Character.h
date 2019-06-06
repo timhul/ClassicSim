@@ -33,7 +33,7 @@ class Weapon;
 
 class Character {
 public:
-    Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control);
+    Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control, const int party, const int member);
     virtual ~Character();
 
     CharacterEnchants* get_enchants() const;
@@ -83,6 +83,7 @@ public:
     virtual void set_clvl(const unsigned);
 
     int get_party() const;
+    int get_party_member() const;
 
     void add_player_reaction_event();
 
@@ -172,7 +173,8 @@ protected:
     unsigned clvl {1};
     double next_gcd;
     double next_trinket_cd;
-    int party {0};
+    int party;
+    int party_member;
     Ruleset ruleset;
 
     virtual void initialize_talents() = 0;

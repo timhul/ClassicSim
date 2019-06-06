@@ -16,8 +16,8 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control) :
-    Character("Hunter", race, sim_settings, target, raid_control),
+Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings, Target* target, RaidControl* raid_control, const int party, const int member) :
+    Character("Hunter", race, sim_settings, target, raid_control, party, member),
     projectile_dps(0.0) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");

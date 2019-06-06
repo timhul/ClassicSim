@@ -247,30 +247,24 @@ void Test::test_character_creation() {
     auto* raid_control = new RaidControl(sim_settings);
 
     auto* priest = new Priest(race, equipment_db, sim_settings, target, raid_control);
-    delete priest;
-
     auto* rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
-    delete rogue;
-
     auto* mage = new Mage(race, equipment_db, sim_settings, target, raid_control);
-    delete mage;
-
     auto* druid = new Druid(race, equipment_db, sim_settings, target, raid_control);
-    delete druid;
-
     auto* hunter = new Hunter(race, equipment_db, sim_settings, target, raid_control);
-    delete hunter;
-
     auto* warlock = new Warlock(race, equipment_db, sim_settings, target, raid_control);
-    delete warlock;
-
     auto* shaman = new Shaman(race, equipment_db, sim_settings, target, raid_control);
-    delete shaman;
 
     auto* paladin = new Paladin(race, equipment_db, sim_settings, target, raid_control);
     paladin->set_clvl(60);
     assert(paladin->get_clvl() == 60);
     delete paladin;
+    delete priest;
+    delete rogue;
+    delete mage;
+    delete druid;
+    delete hunter;
+    delete warlock;
+    delete shaman;
 
     delete race;
     delete sim_settings;

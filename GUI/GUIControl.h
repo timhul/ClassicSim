@@ -468,6 +468,7 @@ private:
     int current_member;
     QString active_window;
     QString stats_type_to_display;
+    QVector<Race*> raid_member_races;
 };
 
 #endif // GUICONTROL_H

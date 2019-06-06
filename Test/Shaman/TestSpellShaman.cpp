@@ -33,8 +33,8 @@ void TestSpellShaman::set_up(const bool prepare_combat_iterations) {
 }
 
 void TestSpellShaman::tear_down() {
-    tear_down_general();
     delete shaman;
+    tear_down_general();
 }
 
 MainhandAttack* TestSpellShaman::mh_attack() const {
