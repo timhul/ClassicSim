@@ -20,12 +20,15 @@ RectangleBorders {
                 partyColumn.children[i].text = info["text"]
             else
                 partyColumn.children[i].text = ""
+
+            partyColumn.children[i].selected = info["selected"]
         }
     }
 
     Connections {
         target: raid
         onPartyMembersUpdated: updatePartyMembers()
+        onSelectedPartyMemberChanged: updatePartyMembers()
     }
 
     Component.onCompleted: updatePartyMembers()
@@ -50,8 +53,11 @@ RectangleBorders {
         RectangleBorders {
             property int member: 1
             property string text
+            property bool selected
             width: parent.width
             height: parent.height / 5
+
+            outerBorderColor: selected ? "white" : root.darkGray
 
             onRectangleClicked: raid.selectPartyMember(party, member)
             onRectangleRightClicked: raid.clearPartyMember(party, member)
@@ -65,8 +71,11 @@ RectangleBorders {
         RectangleBorders {
             property int member: 2
             property string text
+            property bool selected
             width: parent.width
             height: parent.height / 5
+
+            outerBorderColor: selected ? "white" : root.darkGray
 
             onRectangleClicked: raid.selectPartyMember(party, member)
             onRectangleRightClicked: raid.clearPartyMember(party, member)
@@ -80,8 +89,11 @@ RectangleBorders {
         RectangleBorders {
             property int member: 3
             property string text
+            property bool selected
             width: parent.width
             height: parent.height / 5
+
+            outerBorderColor: selected ? "white" : root.darkGray
 
             onRectangleClicked: raid.selectPartyMember(party, member)
             onRectangleRightClicked: raid.clearPartyMember(party, member)
@@ -95,8 +107,11 @@ RectangleBorders {
         RectangleBorders {
             property int member: 4
             property string text
+            property bool selected
             width: parent.width
             height: parent.height / 5
+
+            outerBorderColor: selected ? "white" : root.darkGray
 
             onRectangleClicked: raid.selectPartyMember(party, member)
             onRectangleRightClicked: raid.clearPartyMember(party, member)
@@ -110,8 +125,11 @@ RectangleBorders {
         RectangleBorders {
             property int member: 5
             property string text
+            property bool selected
             width: parent.width
             height: parent.height / 5
+
+            outerBorderColor: selected ? "white" : root.darkGray
 
             onRectangleClicked: raid.selectPartyMember(party, member)
             onRectangleRightClicked: raid.clearPartyMember(party, member)

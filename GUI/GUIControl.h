@@ -298,6 +298,7 @@ public:
      Q_INVOKABLE QVariantMap partyMemberInfo(const int party, const int member);
      Q_INVOKABLE void selectTemplateCharacter(QString template_char);
      Q_SIGNAL void partyMembersUpdated();
+     Q_SIGNAL void selectedPartyMemberChanged();
      /* End of Raid setup */
 
      /* GUI initialization */
@@ -464,8 +465,8 @@ private:
     double last_engine_handled_events_per_second {0.0};
     bool sim_in_progress;
     double sim_percent_completed {0.0};
-    int current_party;
-    int current_member;
+    int current_party {1};
+    int current_member {1};
     QString active_window;
     QString stats_type_to_display;
     QVector<Race*> raid_member_races;

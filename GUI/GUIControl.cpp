@@ -242,7 +242,7 @@ void GUIControl::set_character(Character* pchar) {
 
     selectDisplayStat(get_attack_mode_as_string());
 
-    raid_setup[0][0] = QVariantMap{{"text", "You"}, {"color", current_char->get_class_color()}};
+    raid_setup[0][0] = QVariantMap{{"text", "You"}, {"color", current_char->get_class_color()}, {"selected", true}};
 
     raceChanged();
     classChanged();
@@ -1008,6 +1008,7 @@ bool GUIControl::get_sim_in_progress() const {
 void GUIControl::selectPartyMember(const int party, const int member) {
     current_party = party;
     current_member = member;
+    selectedPartyMemberChanged();
 }
 
 void GUIControl::clearPartyMember(const int party, const int member) {
@@ -1019,6 +1020,7 @@ void GUIControl::clearPartyMember(const int party, const int member) {
 }
 
 QVariantMap GUIControl::partyMemberInfo(const int party, const int member) {
+    raid_setup[party - 1][member - 1]["selected"] = (party == this->current_party && member == this->current_member);
     return raid_setup[party - 1][member - 1];
 }
 
