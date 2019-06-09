@@ -5,9 +5,7 @@
 
 BattleShoutBuff::BattleShoutBuff(Character* pchar):
     PartyBuff(pchar, "Battle Shout", "Assets/ability/Ability_warrior_battleshout.png",  120, 0)
-{
-    affected = Affected::Party;
-}
+{}
 
 void BattleShoutBuff::buff_effect_when_applied() {
     pchar->get_stats()->increase_melee_ap(attack_power);
