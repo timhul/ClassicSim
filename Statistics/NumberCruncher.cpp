@@ -23,6 +23,7 @@ void NumberCruncher::reset() {
 
     class_stats.clear();
     time_in_combat = 0;
+    raid_dps.clear();
 }
 
 void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* cstat) {
@@ -33,6 +34,8 @@ void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* c
     class_stats[key].append(cstat);
 
     time_in_combat += cstat->combat_length * cstat->combat_iterations;
+    if (!cstat->ignore_non_buff_statistics)
+        raid_dps.append(cstat->get_total_raid_dps());
 }
 
 void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
@@ -43,7 +46,7 @@ void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
     long long int total_damage_dealt = 0;
     for (const auto & cstats : class_stats[SimOption::Name::NoScale]) {
         if (!cstats->ignore_non_buff_statistics)
-            total_damage_dealt += cstats->get_total_damage_dealt();
+            total_damage_dealt += cstats->get_total_personal_damage_dealt();
     }
 
     QSet<QString> handled_entries;
@@ -244,8 +247,12 @@ void NumberCruncher::calculate_stat_weights(QList<ScaleResult*>& list) {
     }
 }
 
-double NumberCruncher::get_total_dps(SimOption::Name option) const {
+double NumberCruncher::get_personal_dps(SimOption::Name option) const {
     return get_dps_for_option(option);
+}
+
+double NumberCruncher::get_raid_dps() const {
+    return raid_dps.empty() ? 0.0 : std::accumulate(raid_dps.begin(), raid_dps.end(), 0) / raid_dps.size();
 }
 
 QPair<double, double> NumberCruncher::get_min_max_dps_for_option(SimOption::Name option) const {
@@ -274,7 +281,7 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
 
     for (const auto & class_stat : class_stats[option]) {
         if (!class_stat->ignore_non_buff_statistics)
-            dps.append(class_stat->get_total_dps());
+            dps.append(class_stat->get_total_personal_dps());
     }
 
     double dps_sum = 0;

@@ -1041,15 +1041,15 @@ void TestSpell::when_running_queued_events_until(const double priority) {
 }
 
 void TestSpell::then_damage_dealt_is(const int damage) {
-    if (damage != pchar->get_statistics()->get_total_damage_dealt())
+    if (damage != pchar->get_statistics()->get_total_personal_damage_dealt())
         qDebug() << spell_under_test << "then_damage_dealt_is() assertion failed, expected"
-                 << damage << "got" << pchar->get_statistics()->get_total_damage_dealt();
-    assert(pchar->get_statistics()->get_total_damage_dealt() == damage);
+                 << damage << "got" << pchar->get_statistics()->get_total_personal_damage_dealt();
+    assert(pchar->get_statistics()->get_total_personal_damage_dealt() == damage);
 }
 
 void TestSpell::then_damage_dealt_is_in_range(const int min, const int max) {
     assert(min < max);
-    const int damage_dealt = pchar->get_statistics()->get_total_damage_dealt();
+    const int damage_dealt = pchar->get_statistics()->get_total_personal_damage_dealt();
 
     if (damage_dealt < min || damage_dealt > max)
         qDebug() << spell_under_test << "then_damage_dealt_is_in_range() assertion failed, expected range"

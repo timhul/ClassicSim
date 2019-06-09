@@ -34,7 +34,8 @@ public:
     void add_class_statistic(SimOption::Name, ClassStatistics*);
     void reset();
 
-    double get_total_dps(SimOption::Name) const;
+    double get_personal_dps(SimOption::Name) const;
+    double get_raid_dps() const;
 
     ScaleResult* get_dps_distribution() const;
 
@@ -53,6 +54,7 @@ private:
 
     QMutex mutex;
     QMap<SimOption::Name, QVector<ClassStatistics*>> class_stats;
+    QVector<double> raid_dps;
 
     double get_dps_for_option(SimOption::Name) const;
     QPair<double, double> get_min_max_dps_for_option(SimOption::Name) const;

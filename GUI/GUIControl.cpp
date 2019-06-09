@@ -831,12 +831,13 @@ void GUIControl::update_displayed_dps_value(const double new_dps_value) {
 
     QString dps = QString::number(last_quick_sim_result, 'f', 2);
     qDebug() << "Total DPS: " << dps;
+    qDebug() << "Total Raid DPS:" << number_cruncher->get_raid_dps();
     simResultUpdated(dps, change, delta > 0);
 }
 
 void GUIControl::calculate_displayed_dps_value() {
     // Note: intended for local testing to build confidence in thread results
-    update_displayed_dps_value(double(current_char->get_statistics()->get_total_damage_dealt()) / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
+    update_displayed_dps_value(double(current_char->get_statistics()->get_total_personal_damage_dealt()) / (sim_settings->get_combat_iterations_full_sim() * sim_settings->get_combat_length()));
 }
 
 void GUIControl::runQuickSim() {
@@ -877,6 +878,7 @@ void GUIControl::runFullSim() {
         return;
 
     sim_in_progress = true;
+
     QVector<QString> setup_strings;
     raid_setup[0][0]["setup_string"] = CharacterEncoder(current_char).get_current_setup_string();
 
@@ -903,11 +905,13 @@ void GUIControl::compile_thread_results() {
     resource_breakdown_model->update_statistics();
     rotation_executor_list_model->update_statistics();
     last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
-    update_displayed_dps_value(number_cruncher->get_total_dps(SimOption::Name::NoScale));
+    update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale));
     dps_distribution = number_cruncher->get_dps_distribution();
     number_cruncher->reset();
     sim_in_progress = false;
+    sim_percent_completed = 0.0;
     simProgressChanged();
+    combatProgressChanged();
     statisticsReady();
 }
 

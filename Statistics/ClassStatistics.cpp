@@ -66,14 +66,14 @@ StatisticsEngine* ClassStatistics::get_engine_statistics() {
 }
 
 void ClassStatistics::finish_combat_iteration() {
-    int damage_dealt_this_iteration = get_total_damage_dealt() - damage_dealt_previous_iterations;
+    int damage_dealt_this_iteration = get_total_personal_damage_dealt() - damage_dealt_previous_iterations;
     check((damage_dealt_this_iteration >= 0), "Damage dealt must be a positive value");
 
     dps_for_iterations.append(static_cast<double>(damage_dealt_this_iteration) / combat_length);
     damage_dealt_previous_iterations += damage_dealt_this_iteration;
 }
 
-int ClassStatistics::get_total_damage_dealt() const {
+int ClassStatistics::get_total_personal_damage_dealt() const {
     int sum = 0;
 
     for (const auto & spell : spell_statistics)
@@ -82,10 +82,18 @@ int ClassStatistics::get_total_damage_dealt() const {
     return sum;
 }
 
-double ClassStatistics::get_total_dps() const {
-    int damage_dealt = get_total_damage_dealt();
+double ClassStatistics::get_total_personal_dps() const {
+    int damage_dealt = get_total_personal_damage_dealt();
 
     return static_cast<double>(damage_dealt) / (combat_iterations * combat_length);
+}
+
+void ClassStatistics::add_player_dps(const double dps) {
+    total_dps_from_other_players.append(dps);
+}
+
+double ClassStatistics::get_total_raid_dps() const {
+    return std::accumulate(total_dps_from_other_players.begin(), total_dps_from_other_players.end(), get_total_personal_dps());
 }
 
 int ClassStatistics::get_total_damage_for_spell(const QString& name) const {

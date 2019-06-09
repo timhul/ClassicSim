@@ -27,14 +27,14 @@ public:
     StatisticsProc* get_proc_statistics(const QString& name, const QString &icon);
     StatisticsRotationExecutor* get_executor_statistics(const QString& name);
     StatisticsEngine* get_engine_statistics();
-    int get_total_damage_dealt() const;
-    double get_total_dps() const;
-
-    void finish_combat_iteration();
-
+    int get_total_personal_damage_dealt() const;
+    double get_total_personal_dps() const;
+    double get_total_raid_dps() const;
     int get_total_damage_for_spell(const QString& name) const;
+    void add_player_dps(const double dps);
 
     void prepare_statistics();
+    void finish_combat_iteration();
 
     void set_sim_option(const SimOption::Name);
 
@@ -56,6 +56,7 @@ private:
     QList<StatisticsRotationExecutor*> rotation_executor_statistics;
 
     QVector<double> dps_for_iterations;
+    QVector<double> total_dps_from_other_players;
 
     void delete_objects();
 };
