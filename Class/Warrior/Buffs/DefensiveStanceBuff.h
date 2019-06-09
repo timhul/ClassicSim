@@ -1,11 +1,11 @@
 #ifndef DEFENSIVESTANCEBUFF_H
 #define DEFENSIVESTANCEBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Warrior;
 
-class DefensiveStanceBuff: public Buff {
+class DefensiveStanceBuff: public SelfBuff {
 public:
     DefensiveStanceBuff(Character* pchar);
 

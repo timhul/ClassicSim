@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 Nightfall::Nightfall(Character* pchar):
-    Buff(pchar, "Nightfall", "Assets/items/Inv_axe_12.png", 5, 0)
+    SharedDebuff(pchar->get_raid_control(), "Nightfall", "Assets/items/Inv_axe_12.png", 5, 0)
 {
     this->affected = Affected::Target;
 }

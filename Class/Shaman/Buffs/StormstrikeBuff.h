@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Buff.h"
+#include "SharedDebuff.h"
 
-class StormstrikeBuff: public Buff {
+class StormstrikeBuff: public SharedDebuff {
 public:
     StormstrikeBuff(Character* pchar);
 

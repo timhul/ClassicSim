@@ -17,7 +17,7 @@ ExternalBuff::ExternalBuff(Character* pchar,
                            AvailableFactions::Name faction,
                            QString icon,
                            QString description):
-    Buff(pchar, name, icon, dur, base_charges),
+    SelfBuff(pchar, name, icon, dur, base_charges),
     buff_name(buff_name),
     faction(faction),
     description(std::move(description))

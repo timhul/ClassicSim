@@ -1,9 +1,9 @@
 #ifndef ARMORPENETRATIONBUFF_H
 #define ARMORPENETRATIONBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class ArmorPenetrationBuff: public Buff {
+class ArmorPenetrationBuff: public SelfBuff {
 public:
     ArmorPenetrationBuff(Character* pchar,
                          const QString& name,

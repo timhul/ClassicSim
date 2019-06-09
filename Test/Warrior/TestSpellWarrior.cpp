@@ -7,6 +7,7 @@
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "Impale.h"
+#include "RaidControl.h"
 #include "SimSettings.h"
 #include "Spell.h"
 #include "TacticalMastery.h"
@@ -26,8 +27,10 @@ void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
     warrior->gain_rage(100);
     pchar = warrior;
 
-    if (prepare_combat_iterations)
+    if (prepare_combat_iterations) {
+        raid_control->prepare_set_of_combat_iterations();
         pchar->prepare_set_of_combat_iterations();
+    }
 }
 
 void TestSpellWarrior::tear_down() {

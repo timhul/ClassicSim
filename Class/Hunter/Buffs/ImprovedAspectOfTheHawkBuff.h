@@ -1,9 +1,9 @@
 #ifndef IMPROVEDASPECTOFTHEHAWKBUFF_H
 #define IMPROVEDASPECTOFTHEHAWKBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class ImprovedAspectOfTheHawkBuff: public Buff {
+class ImprovedAspectOfTheHawkBuff: public SelfBuff {
 public:
     ImprovedAspectOfTheHawkBuff(Character* pchar);
 

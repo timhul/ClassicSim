@@ -5,10 +5,11 @@
 
 class Shaman;
 class ShamanSpells;
+class StormstrikeBuff;
 
 class Stormstrike: public Spell, public TalentRequirer {
 public:
-    Stormstrike(Shaman* pchar, ShamanSpells* spells);
+    Stormstrike(Shaman* pchar, ShamanSpells* spells, StormstrikeBuff* buff);
     ~Stormstrike() override;
 
 private:

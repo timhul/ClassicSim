@@ -1,11 +1,11 @@
 #ifndef BLOODFURYBUFF_H
 #define BLOODFURYBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class BloodFuryBuff: public Buff {
+class BloodFuryBuff: public SelfBuff {
 public:
-    BloodFuryBuff(Character* pchar): Buff(pchar, "Blood Fury", "Assets/races/Racial_orc_berserkerstrength.png", 15, 1)
+    BloodFuryBuff(Character* pchar): SelfBuff(pchar, "Blood Fury", "Assets/races/Racial_orc_berserkerstrength.png", 15, 1)
     {}
 
     void buff_effect_when_applied() override;

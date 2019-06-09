@@ -5,7 +5,7 @@
 #include "Paladin.h"
 
 SanctityAuraBuff::SanctityAuraBuff(Paladin* pchar):
-    Buff(pchar, "Sanctity Aura", "Assets/spell/Spell_holy_mindvision.png", BuffDuration::PERMANENT, 0),
+    PartyBuff(pchar, "Sanctity Aura", "Assets/spell/Spell_holy_mindvision.png", BuffDuration::PERMANENT, 0),
     paladin(dynamic_cast<Paladin*>(pchar))
 {}
 

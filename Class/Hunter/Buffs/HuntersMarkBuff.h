@@ -1,12 +1,12 @@
 #ifndef HUNTERSMARKBUFF_H
 #define HUNTERSMARKBUFF_H
 
-#include "Buff.h"
+#include "SharedDebuff.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
 
-class HuntersMarkBuff: public Buff, public TalentRequirer {
+class HuntersMarkBuff: public SharedDebuff, public TalentRequirer {
 public:
     HuntersMarkBuff(Character* pchar);
 

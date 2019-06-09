@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Buff.h"
+#include "SelfBuff.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
 
-class ElementalDevastation: public Buff, public TalentRequirer {
+class ElementalDevastation: public SelfBuff, public TalentRequirer {
 public:
     ElementalDevastation(Character* pchar);
 

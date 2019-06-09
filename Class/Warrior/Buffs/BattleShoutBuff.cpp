@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 BattleShoutBuff::BattleShoutBuff(Character* pchar):
-    Buff(pchar, "Battle Shout", "Assets/ability/Ability_warrior_battleshout.png",  120, 0)
+    PartyBuff(pchar, "Battle Shout", "Assets/ability/Ability_warrior_battleshout.png",  120, 0)
 {
     affected = Affected::Party;
 }

@@ -1,10 +1,10 @@
 #ifndef DEATHWISHBUFF_H
 #define DEATHWISHBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 #include "TalentRequirer.h"
 
-class DeathWishBuff: public Buff {
+class DeathWishBuff: public SelfBuff {
 public:
     DeathWishBuff(Character* pchar);
     ~DeathWishBuff() override;

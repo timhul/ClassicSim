@@ -5,7 +5,7 @@
 #include "Utils/Check.h"
 
 RapidFireBuff::RapidFireBuff(Character* pchar):
-    Buff(pchar, "Rapid Fire", "Assets/ability/Ability_hunter_runningshot.png", 15, 0),
+    SelfBuff(pchar, "Rapid Fire", "Assets/ability/Ability_hunter_runningshot.png", 15, 0),
     SetBonusRequirer({"Cryptstalker Armor"})
 {}
 

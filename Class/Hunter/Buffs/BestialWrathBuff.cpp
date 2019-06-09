@@ -5,7 +5,7 @@
 #include "Pet.h"
 
 BestialWrathBuff::BestialWrathBuff(Character* pchar, const QString& pet_name):
-    Buff(pchar, QString("Bestial Wrath (%1)").arg(pet_name),
+    SelfBuff(pchar, QString("Bestial Wrath (%1)").arg(pet_name),
          "Assets/ability/Ability_druid_ferociousbite.png",
          18,
          0)

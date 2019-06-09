@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 BerserkerStanceBuff::BerserkerStanceBuff(Character* pchar):
-    Buff(pchar, "Berserker Stance", NO_ICON, BuffDuration::PERMANENT, 1),
+    SelfBuff(pchar, "Berserker Stance", NO_ICON, BuffDuration::PERMANENT, 1),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->hidden = true;

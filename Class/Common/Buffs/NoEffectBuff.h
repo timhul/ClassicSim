@@ -1,11 +1,11 @@
 #ifndef NOEFFECTBUFF_H
 #define NOEFFECTBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Proc;
 
-class NoEffectBuff: public Buff {
+class NoEffectBuff: public SelfBuff {
 public:
     NoEffectBuff(Character* pchar,
                  const int duration,

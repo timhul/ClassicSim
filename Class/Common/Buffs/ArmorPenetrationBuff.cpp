@@ -10,7 +10,7 @@ ArmorPenetrationBuff::ArmorPenetrationBuff(Character* pchar,
                                            const int reduction,
                                            const int max_stacks,
                                            const int duration):
-    Buff(pchar, name, icon, duration, 0)
+    SelfBuff(pchar, name, icon, duration, 0)
 {
     this->current_stacks = 0;
     this->max_stacks = max_stacks;

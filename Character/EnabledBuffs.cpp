@@ -61,10 +61,9 @@ SharedBuff* EnabledBuffs::use_shared_buff(const QString& name) const {
         if (buff->get_name() == name) {
             auto* uniq_buff = dynamic_cast<SharedBuff*>(buff);
             uniq_buff->increment_reference();
-            return dynamic_cast<SharedBuff*>(buff);
+            return uniq_buff;
         }
     }
-
     return nullptr;
 }
 
@@ -84,7 +83,7 @@ void EnabledBuffs::return_shared_buff(Buff* shared_buff) {
         return;
     }
 
-    check(false, "Failed to find buff to return");
+    check(false, QString("Failed to find shared buff %1 to return").arg(shared_buff->get_name()).toStdString());
 }
 
 void EnabledBuffs::reset() {

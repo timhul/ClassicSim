@@ -5,7 +5,7 @@
 #include "Paladin.h"
 
 Vengeance::Vengeance(Paladin* pchar):
-    Buff(pchar, "Vengeance", "Assets/ability/Ability_racial_avatar.png", 8, 0),
+    SelfBuff(pchar, "Vengeance", "Assets/ability/Ability_racial_avatar.png", 8, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Vengeance", 5, DisabledAtZero::Yes)}),
     paladin(dynamic_cast<Paladin*>(pchar))
 {

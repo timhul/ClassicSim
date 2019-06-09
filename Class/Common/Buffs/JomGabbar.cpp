@@ -7,7 +7,7 @@
 #include "PeriodicRefreshBuff.h"
 
 JomGabbar::JomGabbar(Character* pchar):
-    Buff(pchar, "Jom Gabbar", "Assets/items/Inv_misc_enggizmos_19.png", 20, 0),
+    SelfBuff(pchar, "Jom Gabbar", "Assets/items/Inv_misc_enggizmos_19.png", 20, 0),
     curr_stacks(0),
     max_stacks(10)
 {}

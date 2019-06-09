@@ -1,4 +1,3 @@
-
 #include "SharedBuff.h"
 
 SharedBuff::SharedBuff(Character* pchar,
@@ -6,7 +5,7 @@ SharedBuff::SharedBuff(Character* pchar,
                        const QString &icon,
                        const int duration,
                        const int base_charges) :
-    Buff(pchar, name, icon, duration, base_charges),
+    SelfBuff(pchar, name, icon, duration, base_charges),
     reference_counter(0)
 {}
 

@@ -1,9 +1,9 @@
 #ifndef JOMGABBAR_H
 #define JOMGABBAR_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class JomGabbar: public Buff {
+class JomGabbar: public SelfBuff {
 public:
     JomGabbar(Character* pchar);
 

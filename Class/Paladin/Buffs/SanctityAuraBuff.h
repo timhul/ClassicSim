@@ -1,11 +1,11 @@
 #ifndef SANCTITYAURABUFF_H
 #define SANCTITYAURABUFF_H
 
-#include "Buff.h"
+#include "PartyBuff.h"
 
 class Paladin;
 
-class SanctityAuraBuff: public Buff {
+class SanctityAuraBuff: public PartyBuff {
 public:
     SanctityAuraBuff(Paladin* pchar);
     ~SanctityAuraBuff() override = default;

@@ -6,8 +6,10 @@
 #include "LightningBolt.h"
 #include "MainhandAttack.h"
 #include "NoEffectBuff.h"
+#include "RaidControl.h"
 #include "Shaman.h"
 #include "Stormstrike.h"
+#include "StormstrikeBuff.h"
 #include "WindfuryWeapon.h"
 
 ShamanSpells::ShamanSpells(Shaman* shaman) :
@@ -17,7 +19,6 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     this->mh_attack = new MainhandAttack(shaman);
 
     add_spell_group({mh_attack});
-    add_spell_group({new Stormstrike(shaman, this)});
 
     add_spell_group({
                         new LightningBolt(shaman, this, 1),
@@ -42,6 +43,13 @@ ShamanSpells::ShamanSpells(Shaman* shaman) :
     this->flurry = new Flurry(shaman);
     this->clearcasting = new ClearcastingShaman(shaman);
     this->elemental_devastation = new ElementalDevastation(shaman);
+
+    auto* stormstrike_buff = dynamic_cast<StormstrikeBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Stormstrike"));
+    if (stormstrike_buff == nullptr) {
+        stormstrike_buff = new StormstrikeBuff(shaman);
+        stormstrike_buff->enable_buff();
+    }
+    add_spell_group({new Stormstrike(shaman, this, stormstrike_buff)});
 }
 
 ShamanSpells::~ShamanSpells() {

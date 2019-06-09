@@ -1,11 +1,11 @@
 #ifndef BERSERKINGBUFF_H
 #define BERSERKINGBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Random;
 
-class BerserkingBuff: public Buff {
+class BerserkingBuff: public SelfBuff {
 public:
     BerserkingBuff(Character* pchar);
     ~BerserkingBuff() override;

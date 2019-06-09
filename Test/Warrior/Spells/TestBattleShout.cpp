@@ -16,6 +16,10 @@ void TestBattleShout::test_all() {
     set_up();
     test_battle_shout_in_party();
     tear_down();
+
+    set_up();
+    test_battle_shout_in_separate_parties();
+    tear_down();
 }
 
 BattleShout* TestBattleShout::battle_shout() {
@@ -106,6 +110,29 @@ void TestBattleShout::test_battle_shout_in_party() {
 
     assert(warr_1->get_stats()->get_melee_ap() == warr_1_melee_ap_before + 290);
     assert(warr_2->get_stats()->get_melee_ap() == warr_2_melee_ap_before + 290);
+
+    delete warr_1;
+    delete warr_2;
+}
+
+void TestBattleShout::test_battle_shout_in_separate_parties() {
+    auto* warr_1 = new Warrior(race, equipment_db, sim_settings, target, raid_control, 0, 1);
+    auto* warr_2 = new Warrior(race, equipment_db, sim_settings, target, raid_control, 1, 0);
+
+    const unsigned warr_1_melee_ap_before = warr_1->get_stats()->get_melee_ap();
+    const unsigned warr_2_melee_ap_before = warr_2->get_stats()->get_melee_ap();
+
+    warr_1->gain_rage(10);
+    warr_1->get_spells()->get_spell_rank_group_by_name("Battle Shout")->get_max_available_spell_rank()->perform();
+
+    assert(warr_1->get_stats()->get_melee_ap() == warr_1_melee_ap_before + 232);
+    assert(warr_2->get_stats()->get_melee_ap() == warr_2_melee_ap_before);
+
+    warr_2->gain_rage(10);
+    warr_2->get_spells()->get_spell_rank_group_by_name("Battle Shout")->get_max_available_spell_rank()->perform();
+
+    assert(warr_1->get_stats()->get_melee_ap() == warr_1_melee_ap_before + 232);
+    assert(warr_2->get_stats()->get_melee_ap() == warr_2_melee_ap_before + 232);
 
     delete warr_1;
     delete warr_2;

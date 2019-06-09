@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 RecklessnessBuff::RecklessnessBuff(Character* pchar):
-    Buff(pchar, "Recklessness", "Assets/ability/Ability_criticalstrike.png", 15, 0)
+    SelfBuff(pchar, "Recklessness", "Assets/ability/Ability_criticalstrike.png", 15, 0)
 {}
 
 void RecklessnessBuff::buff_effect_when_applied() {

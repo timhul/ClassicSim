@@ -11,6 +11,7 @@
 #include "Item.h"
 #include "LightningBolt.h"
 #include "MainhandAttack.h"
+#include "RaidControl.h"
 #include "Shaman.h"
 #include "ShamanSpells.h"
 #include "SimSettings.h"
@@ -28,8 +29,10 @@ void TestSpellShaman::set_up(const bool prepare_combat_iterations) {
     shaman->set_clvl(60);
     pchar = shaman;
 
-    if (prepare_combat_iterations)
+    if (prepare_combat_iterations) {
+        raid_control->prepare_set_of_combat_iterations();
         pchar->prepare_set_of_combat_iterations();
+    }
 }
 
 void TestSpellShaman::tear_down() {

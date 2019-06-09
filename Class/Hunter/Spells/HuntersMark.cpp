@@ -18,10 +18,6 @@ HuntersMark::HuntersMark(Character* pchar) :
 }
 
 HuntersMark::~HuntersMark() {
-    if (hunters_mark->is_enabled())
-        hunters_mark->disable_buff();
-
-    delete hunters_mark;
     delete cooldown;
 }
 

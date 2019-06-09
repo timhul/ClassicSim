@@ -1,7 +1,7 @@
 #ifndef FLATWEAPONDAMAGEBUFF_H
 #define FLATWEAPONDAMAGEBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 enum AffectedWeaponSide {
     Mainhand = 0,
@@ -10,7 +10,7 @@ enum AffectedWeaponSide {
     All
 };
 
-class FlatWeaponDamageBuff: public Buff {
+class FlatWeaponDamageBuff: public SelfBuff {
 public:
     FlatWeaponDamageBuff(Character* pchar,
                          const QString& name,

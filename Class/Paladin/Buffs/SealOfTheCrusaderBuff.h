@@ -1,7 +1,7 @@
 #ifndef SEALOFTHECRUSADERBUFF_H
 #define SEALOFTHECRUSADERBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 #include "ItemModificationRequirer.h"
 #include "TalentRequirer.h"
 
@@ -9,7 +9,7 @@
 
 class Paladin;
 
-class SealOfTheCrusaderBuff: public Buff, public TalentRequirer, public ItemModificationRequirer {
+class SealOfTheCrusaderBuff: public SelfBuff, public TalentRequirer, public ItemModificationRequirer {
 public:
     SealOfTheCrusaderBuff(Paladin* pchar);
     ~SealOfTheCrusaderBuff() override = default;

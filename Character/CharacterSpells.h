@@ -9,6 +9,7 @@
 class AutoShot;
 class Berserking;
 class BloodFury;
+class Buff;
 class Character;
 class CooldownControl;
 class DemonicRune;
@@ -39,6 +40,7 @@ public:
     void run_start_of_combat_spells();
 
     SpellRankGroup* get_spell_rank_group_by_name(const QString& spell_name) const;
+    Buff* get_buff_by_name(const QString& name) const;
 
     void reset();
 

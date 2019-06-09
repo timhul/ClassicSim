@@ -1,11 +1,11 @@
 #ifndef BERSERKERSTANCEBUFF_H
 #define BERSERKERSTANCEBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Warrior;
 
-class BerserkerStanceBuff: public Buff {
+class BerserkerStanceBuff: public SelfBuff {
 public:
     BerserkerStanceBuff(Character* pchar);
 

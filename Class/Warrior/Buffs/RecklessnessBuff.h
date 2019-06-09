@@ -1,9 +1,9 @@
 #ifndef RECKLESSNESSBUFF_H
 #define RECKLESSNESSBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class RecklessnessBuff: public Buff {
+class RecklessnessBuff: public SelfBuff {
 public:
     RecklessnessBuff(Character* pchar);
 

@@ -1,9 +1,9 @@
 #ifndef SHAREDBUFF_H
 #define SHAREDBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class SharedBuff : public Buff {
+class SharedBuff : public SelfBuff {
 public:
     SharedBuff(Character* pchar, const QString& name, const QString& icon, const int duration, const int base_charges);
 
@@ -14,7 +14,6 @@ public:
 
 protected:
     int reference_counter;
-
 };
 
 #endif // SHAREDBUFF_H

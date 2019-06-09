@@ -1,9 +1,9 @@
 #ifndef EXPOSEWEAKNESSBUFF_H
 #define EXPOSEWEAKNESSBUFF_H
 
-#include "Buff.h"
+#include "SharedDebuff.h"
 
-class ExposeWeaknessBuff: public Buff {
+class ExposeWeaknessBuff: public SharedDebuff {
 public:
     ExposeWeaknessBuff(Character* pchar);
 

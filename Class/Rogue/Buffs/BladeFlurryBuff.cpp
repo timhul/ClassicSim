@@ -4,7 +4,7 @@
 #include "Rogue.h"
 
 BladeFlurryBuff::BladeFlurryBuff(Character* pchar):
-    Buff(pchar, "Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", 15, 0),
+    SelfBuff(pchar, "Blade Flurry", "Assets/ability/Ability_warrior_punishingblow.png", 15, 0),
     rogue(dynamic_cast<Rogue*>(pchar))
 {}
 

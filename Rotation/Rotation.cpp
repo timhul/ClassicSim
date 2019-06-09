@@ -11,6 +11,7 @@
 #include "ConditionSpell.h"
 #include "ConditionVariableBuiltin.h"
 #include "EnabledBuffs.h"
+#include "RaidControl.h"
 #include "RotationExecutor.h"
 #include "Spell.h"
 #include "SpellCastingTime.h"
@@ -134,7 +135,7 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
 
         switch (sentence->condition_type) {
         case ConditionTypes::BuffCondition: {
-            Buff* buff = pchar->get_enabled_buffs()->get_buff_by_name(sentence->type_value);
+            Buff* buff = pchar->get_spells()->get_buff_by_name(sentence->type_value);
             if (buff == nullptr) {
                 qDebug() << "could not find buff for condition:" << sentence->type_value;
                 return false;

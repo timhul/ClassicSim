@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 ExposeWeaknessBuff::ExposeWeaknessBuff(Character* pchar):
-    Buff(pchar, "Expose Weakness", "Assets/ability/Ability_hunter_snipershot.png", 7.0, 0)
+    SharedDebuff(pchar->get_raid_control(), "Expose Weakness", "Assets/ability/Ability_hunter_snipershot.png", 7.0, 0)
 {}
 
 void ExposeWeaknessBuff::buff_effect_when_applied() {

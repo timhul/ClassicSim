@@ -7,20 +7,18 @@
 #include "SealOfTheCrusaderBuff.h"
 #include "Utils/Check.h"
 
-SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar) :
+SealOfTheCrusader::SealOfTheCrusader(Paladin* pchar, JudgementOfTheCrusader* judge_debuff) :
     PaladinSeal("Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", pchar,
                 RestrictedByGcd::Yes,
                 ResourceType::Mana, 160,
                 new SealOfTheCrusaderBuff(pchar)),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
     ItemModificationRequirer({22401, 23203}),
-    judge_debuff(new JudgementOfTheCrusader(pchar))
-{
-    judge_debuff->enable_buff();
-}
+    judge_debuff(judge_debuff)
+{}
 
 SealOfTheCrusader::~SealOfTheCrusader() {
-    delete judge_debuff;
+
 }
 
 void SealOfTheCrusader::refresh_seal() const {

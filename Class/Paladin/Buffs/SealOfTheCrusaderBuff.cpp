@@ -8,7 +8,7 @@
 #include "Utils/Check.h"
 
 SealOfTheCrusaderBuff::SealOfTheCrusaderBuff(Paladin* pchar):
-    Buff(pchar, "Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 30, 0),
+    SelfBuff(pchar, "Seal of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 30, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
     ItemModificationRequirer({22401, 23203}),
     paladin(dynamic_cast<Paladin*>(pchar))

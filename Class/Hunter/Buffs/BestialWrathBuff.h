@@ -1,11 +1,11 @@
 #ifndef BESTIALWRATHBUFF_H
 #define BESTIALWRATHBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Pet;
 
-class BestialWrathBuff: public Buff {
+class BestialWrathBuff: public SelfBuff {
 public:
     BestialWrathBuff(Character* pchar, const QString& pet_name);
 

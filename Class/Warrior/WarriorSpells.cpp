@@ -60,15 +60,12 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     this->warr_oh_attack = new OffhandAttackWarrior(pchar, this);
     this->whirlwind = new Whirlwind(pchar, this);
 
-    Buff* buff = pchar->get_raid_control()->get_shared_party_buff("Battle Shout", pchar->get_party());
+    auto* buff = dynamic_cast<BattleShoutBuff*>(pchar->get_raid_control()->get_shared_party_buff("Battle Shout", pchar->get_party()));
     if (buff == nullptr) {
-        BattleShoutBuff* new_buff = new BattleShoutBuff(pchar);
-        pchar->get_raid_control()->register_shared_party_buff(new_buff, pchar->get_party());
-        this->battle_shout = new BattleShout(pchar, new_buff);
+        buff = new BattleShoutBuff(pchar);
+        buff->enable_buff();
     }
-    else {
-        this->battle_shout = new BattleShout(pchar, dynamic_cast<BattleShoutBuff*>(buff));
-    }
+    this->battle_shout = new BattleShout(pchar, buff);
 
     add_spell_group({anger_management});
     add_spell_group({battle_shout});

@@ -1,14 +1,14 @@
 #ifndef VENGEANCE_H
 #define VENGEANCE_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
 
 class Paladin;
 
-class Vengeance: public Buff, public TalentRequirer {
+class Vengeance: public SelfBuff, public TalentRequirer {
 public:
     Vengeance(Paladin* pchar);
     ~Vengeance() override = default;

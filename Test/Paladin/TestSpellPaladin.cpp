@@ -10,6 +10,7 @@
 #include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
+#include "RaidControl.h"
 #include "Retribution.h"
 #include "SealOfCommand.h"
 #include "SealOfTheCrusader.h"
@@ -28,8 +29,10 @@ void TestSpellPaladin::set_up(const bool prepare_combat_iterations) {
     paladin->set_clvl(60);
     pchar = paladin;
 
-    if (prepare_combat_iterations)
+    if (prepare_combat_iterations) {
+        raid_control->prepare_set_of_combat_iterations();
         pchar->prepare_set_of_combat_iterations();
+    }
 }
 
 void TestSpellPaladin::tear_down() {

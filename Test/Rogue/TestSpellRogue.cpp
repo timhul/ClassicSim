@@ -5,6 +5,7 @@
 #include "Assassination.h"
 #include "Backstab.h"
 #include "Equipment.h"
+#include "RaidControl.h"
 #include "Rogue.h"
 #include "RogueSpells.h"
 #include "SimSettings.h"
@@ -23,8 +24,10 @@ void TestSpellRogue::set_up(const bool prepare_combat_iterations) {
     rogue->set_clvl(60);
     pchar = rogue;
 
-    if (prepare_combat_iterations)
+    if (prepare_combat_iterations) {
+        raid_control->prepare_set_of_combat_iterations();
         pchar->prepare_set_of_combat_iterations();
+    }
 }
 
 void TestSpellRogue::tear_down() {

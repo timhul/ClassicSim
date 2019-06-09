@@ -10,6 +10,7 @@
 #include "CooldownControl.h"
 #include "DemonicRune.h"
 #include "DragonbreathChili.h"
+#include "EnabledBuffs.h"
 #include "Engine.h"
 #include "Equipment.h"
 #include "MainhandAttack.h"
@@ -187,6 +188,18 @@ SpellRankGroup* CharacterSpells::get_spell_rank_group_by_name(const QString& spe
         return spell_rank_groups[spell_name];
 
     return nullptr;
+}
+
+Buff* CharacterSpells::get_buff_by_name(const QString& name) const {
+    Buff* buff = pchar->get_enabled_buffs()->get_buff_by_name(name);
+    if (buff != nullptr)
+        return buff;
+
+    buff = pchar->get_raid_control()->get_shared_party_buff(name, pchar->get_party());
+    if (buff != nullptr)
+        return buff;
+
+    return pchar->get_raid_control()->get_shared_raid_buff(name);
 }
 
 void CharacterSpells::reset() {

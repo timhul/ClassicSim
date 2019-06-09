@@ -9,7 +9,6 @@
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "DevilsaurEye.h"
-#include "EnabledBuffs.h"
 #include "EnchantStatic.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
@@ -222,7 +221,7 @@ void Item::call_spell_modifications(const QString& spell_name, const bool activa
 }
 
 void Item::call_buff_modifications(const QString& buff_name, const bool activate) const {
-    Buff* buff = pchar->get_enabled_buffs()->get_buff_by_name(buff_name);
+    Buff* buff = pchar->get_spells()->get_buff_by_name(buff_name);
     if (buff == nullptr)
         return;
 

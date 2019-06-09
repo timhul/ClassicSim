@@ -3,7 +3,6 @@
 
 #include "TestProc.h"
 
-
 class TestFelstrikerProc : public TestProc {
 public:
     TestFelstrikerProc(EquipmentDb* equipment_db);

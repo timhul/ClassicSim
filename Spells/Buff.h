@@ -4,6 +4,7 @@
 #include <QString>
 
 class Character;
+class RaidControl;
 class StatisticsBuff;
 
 namespace BuffDuration {
@@ -31,17 +32,15 @@ static const QString NO_ICON = "no-icon";
 
 class Buff {
 public:
-    Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges);
+    Buff(RaidControl* raid_control, QString name, QString icon, const int duration, const int base_charges);
     virtual ~Buff() = default;
 
     QString get_name() const;
     QString get_icon() const;
     int get_charges() const;
     void apply_buff();
-    void apply_buff_to(Character* any_pchar);
     void refresh_buff();
     void remove_buff(const int);
-    void remove_buff_from(Character* any_pchar);
     void use_charge();
     void cancel_buff();
     bool is_active() const;
@@ -49,21 +48,21 @@ public:
 
     void reset();
     void initialize();
-    void prepare_set_of_combat_iterations();
+    virtual void prepare_set_of_combat_iterations() = 0;
 
     bool is_enabled() const;
     bool is_hidden() const;
     bool is_debuff() const;
-    Affected get_affected() const;
 
     void set_instance_id(const int);
     int get_instance_id() const;
 
-    void enable_buff();
-    void disable_buff();
+    virtual void enable_buff() = 0;
+    virtual void disable_buff() = 0;
 
 protected:
-    Character* pchar;
+    Character* pchar {nullptr};
+    RaidControl* raid_control;
     StatisticsBuff* statistics_buff {nullptr};
     const QString name;
     const QString icon;
@@ -83,6 +82,8 @@ protected:
 
     int instance_id;
 
+    virtual void apply_buff_to_target() = 0;
+    virtual void remove_buff_from_target() = 0;
     void force_remove_buff();
     virtual void buff_effect_when_applied() = 0;
     virtual void buff_effect_when_removed() = 0;

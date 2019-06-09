@@ -1,9 +1,9 @@
-
 #include "TestFelstrikerProc.h"
-#include "FelstrikerBuff.h"
-#include "EnabledBuffs.h"
+
 #include "CharacterStats.h"
+#include "EnabledBuffs.h"
 #include "Equipment.h"
+#include "FelstrikerBuff.h"
 #include "Warrior.h"
 #include "Weapon.h"
 
@@ -35,7 +35,7 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
 
     assert(mh_wpn_skill != oh_wpn_skill);
 
-    FelstrikerBuff* buff = dynamic_cast<FelstrikerBuff*>(pchar->get_enabled_buffs()->use_shared_buff("Felstriker"));
+    auto* buff = dynamic_cast<FelstrikerBuff*>(pchar->get_enabled_buffs()->use_shared_buff("Felstriker"));
     buff->prepare_set_of_combat_iterations();
 
     assert(buff != nullptr);

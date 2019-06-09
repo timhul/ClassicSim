@@ -5,7 +5,7 @@
 #include "Utils/Check.h"
 
 AspectOfTheHawkBuff::AspectOfTheHawkBuff(Character* pchar):
-    Buff(pchar, "Aspect of the Hawk", "Assets/spell/Spell_nature_ravenform.png", BuffDuration::PERMANENT, 0),
+    SelfBuff(pchar, "Aspect of the Hawk", "Assets/spell/Spell_nature_ravenform.png", BuffDuration::PERMANENT, 0),
     SetBonusRequirer({"Dragonstalker Armor"})
 {}
 

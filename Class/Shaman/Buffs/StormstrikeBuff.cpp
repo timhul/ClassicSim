@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 StormstrikeBuff::StormstrikeBuff(Character* pchar):
-    Buff(pchar, "Stormstrike", "Assets/spell/Spell_holy_sealofmight.png", 12, 2)
+    SharedDebuff(pchar->get_raid_control(), "Stormstrike", "Assets/spell/Spell_holy_sealofmight.png", 12, 2)
 {}
 
 void StormstrikeBuff::buff_effect_when_applied() {

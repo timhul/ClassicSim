@@ -1,11 +1,11 @@
 #ifndef BLADEFLURRYBUFF_H
 #define BLADEFLURRYBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Rogue;
 
-class BladeFlurryBuff: public Buff {
+class BladeFlurryBuff: public SelfBuff {
 public:
     BladeFlurryBuff(Character* pchar);
     ~BladeFlurryBuff() override;

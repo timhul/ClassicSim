@@ -1,11 +1,11 @@
 #ifndef FRENZYBUFF_H
 #define FRENZYBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Pet;
 
-class FrenzyBuff: public Buff {
+class FrenzyBuff: public SelfBuff {
 public:
     FrenzyBuff(Character* pchar, Pet* pet);
 

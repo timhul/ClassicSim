@@ -5,12 +5,13 @@
 #include "PaladinSeal.h"
 #include "TalentRequirer.h"
 
+class JudgementOfTheCrusader;
 class Paladin;
 class SealOfTheCrusaderBuff;
 
 class SealOfTheCrusader: public PaladinSeal, public TalentRequirer, public ItemModificationRequirer {
 public:
-    SealOfTheCrusader(Paladin* pchar);
+    SealOfTheCrusader(Paladin* pchar, JudgementOfTheCrusader* judge_debuff);
     ~SealOfTheCrusader() override;
 
     void refresh_seal() const override;

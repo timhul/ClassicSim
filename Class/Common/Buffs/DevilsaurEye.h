@@ -1,9 +1,9 @@
 #ifndef DEVILSAUREYE_H
 #define DEVILSAUREYE_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class DevilsaurEye: public Buff {
+class DevilsaurEye: public SelfBuff {
 public:
     DevilsaurEye(Character* pchar);
 

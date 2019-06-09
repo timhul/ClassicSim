@@ -9,7 +9,7 @@ GenericStatBuff::GenericStatBuff(Character* pchar,
                                  const int duration,
                                  const ItemStats stat_type,
                                  const unsigned value):
-    Buff(pchar, name, icon, duration, 0),
+    SelfBuff(pchar, name, icon, duration, 0),
     stat_type(stat_type),
     stat_value(value)
 {}

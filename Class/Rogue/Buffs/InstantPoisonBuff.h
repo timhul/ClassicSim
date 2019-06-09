@@ -1,11 +1,11 @@
 #ifndef INSTANTPOISONBUFF_H
 #define INSTANTPOISONBUFF_H
 
-#include "Buff.h"
+#include "UniqueDebuff.h"
 
 class InstantPoison;
 
-class InstantPoisonBuff: public Buff {
+class InstantPoisonBuff: public UniqueDebuff {
 public:
     InstantPoisonBuff(Character* pchar, InstantPoison* instant_poison_proc, const QString& weapon_side);
 

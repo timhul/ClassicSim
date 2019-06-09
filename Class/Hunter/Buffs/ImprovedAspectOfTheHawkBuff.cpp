@@ -3,7 +3,7 @@
 #include "Character.h"
 
 ImprovedAspectOfTheHawkBuff::ImprovedAspectOfTheHawkBuff(Character* pchar):
-    Buff(pchar, "Improved Aspect of the Hawk", "Assets/ability/Ability_warrior_innerrage.png", 12.0, 0)
+    SelfBuff(pchar, "Improved Aspect of the Hawk", "Assets/ability/Ability_warrior_innerrage.png", 12.0, 0)
 {}
 
 void ImprovedAspectOfTheHawkBuff::buff_effect_when_applied() {

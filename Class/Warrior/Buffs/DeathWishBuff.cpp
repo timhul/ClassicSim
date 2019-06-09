@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 DeathWishBuff::DeathWishBuff(Character* pchar):
-    Buff(pchar, "Death Wish", "Assets/spell/Spell_shadow_deathpact.png", 30, 0)
+    SelfBuff(pchar, "Death Wish", "Assets/spell/Spell_shadow_deathpact.png", 30, 0)
 {}
 
 DeathWishBuff::~DeathWishBuff() {

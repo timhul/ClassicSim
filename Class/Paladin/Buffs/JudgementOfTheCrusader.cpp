@@ -5,7 +5,7 @@
 #include "Utils/Check.h"
 
 JudgementOfTheCrusader::JudgementOfTheCrusader(Paladin* pchar):
-    Buff(pchar, "Judgement of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 10, 0),
+    SharedDebuff(pchar->get_raid_control(), "Judgement of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 10, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
     ItemModificationRequirer({16471, 23274, 23203}),
     paladin(dynamic_cast<Paladin*>(pchar))

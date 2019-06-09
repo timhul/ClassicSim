@@ -4,7 +4,7 @@
 #include "Rogue.h"
 
 AdrenalineRushBuff::AdrenalineRushBuff(Character* pchar):
-    Buff(pchar, "Adrenaline Rush", "Assets/spell/Spell_shadow_shadowworddominate.png", 15, 0),
+    SelfBuff(pchar, "Adrenaline Rush", "Assets/spell/Spell_shadow_shadowworddominate.png", 15, 0),
     rogue(dynamic_cast<Rogue*>(pchar))
 {}
 

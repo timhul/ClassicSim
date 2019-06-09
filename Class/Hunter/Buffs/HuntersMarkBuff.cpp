@@ -4,7 +4,7 @@
 #include "Hunter.h"
 
 HuntersMarkBuff::HuntersMarkBuff(Character* pchar):
-    Buff(pchar, "Hunter's Mark", "Assets/ability/Ability_hunter_snipershot.png", 120, 0),
+    SharedDebuff(pchar->get_raid_control(), "Hunter's Mark", "Assets/ability/Ability_hunter_snipershot.png", 120, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Hunter's Mark", 5, DisabledAtZero::No)}),
     base_ranged_ap_bonus(110)
 {

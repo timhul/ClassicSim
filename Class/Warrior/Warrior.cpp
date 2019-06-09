@@ -1,3 +1,4 @@
+
 #include "Warrior.h"
 
 #include "Arms.h"
@@ -59,7 +60,6 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
 }
 
 Warrior::~Warrior() {
-    raid_control->clear_all_buffs();
     cstats->get_equipment()->unequip_all();
     enabled_buffs->clear_all();
     enabled_procs->clear_all();

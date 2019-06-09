@@ -4,7 +4,7 @@
 #include "Warrior.h"
 
 DefensiveStanceBuff::DefensiveStanceBuff(Character* pchar):
-    Buff(pchar, "Defensive Stance", NO_ICON, BuffDuration::PERMANENT, 1),
+    SelfBuff(pchar, "Defensive Stance", NO_ICON, BuffDuration::PERMANENT, 1),
     warr(dynamic_cast<Warrior*>(pchar))
 {
     this->hidden = true;

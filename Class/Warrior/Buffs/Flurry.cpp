@@ -3,7 +3,7 @@
 #include "Character.h"
 
 Flurry::Flurry(Character* pchar):
-    Buff(pchar, "Flurry", "Assets/ability/Ability_ghoulfrenzy.png", 15, 3),
+    SelfBuff(pchar, "Flurry", "Assets/ability/Ability_ghoulfrenzy.png", 15, 3),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Flurry", 5, DisabledAtZero::Yes)}),
     attack_speed_increase(0)
 {

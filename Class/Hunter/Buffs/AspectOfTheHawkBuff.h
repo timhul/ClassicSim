@@ -1,10 +1,10 @@
 #ifndef ASPECTOFTHEHAWKBUFF_H
 #define ASPECTOFTHEHAWKBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 #include "SetBonusRequirer.h"
 
-class AspectOfTheHawkBuff: public Buff, public SetBonusRequirer {
+class AspectOfTheHawkBuff: public SelfBuff, public SetBonusRequirer {
 public:
     AspectOfTheHawkBuff(Character* pchar);
 

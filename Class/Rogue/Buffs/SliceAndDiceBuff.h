@@ -1,12 +1,11 @@
 #ifndef SLICEANDDICEBUFF_H
 #define SLICEANDDICEBUFF_H
 
+#include "SelfBuff.h"
+
 #include <QVector>
 
-#include "Buff.h"
-
-
-class SliceAndDiceBuff: public Buff {
+class SliceAndDiceBuff: public SelfBuff {
 public:
     SliceAndDiceBuff(Character* pchar);
 

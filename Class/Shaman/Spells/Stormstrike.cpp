@@ -8,21 +8,17 @@
 #include "ShamanSpells.h"
 #include "StormstrikeBuff.h"
 
-Stormstrike::Stormstrike(Shaman* pchar, ShamanSpells* spells) :
+Stormstrike::Stormstrike(Shaman* pchar, ShamanSpells* spells, StormstrikeBuff* buff) :
     Spell("Stormstrike", "Assets/spell/Spell_holy_sealofmight.png", pchar, new CooldownControl(pchar, 12.0), RestrictedByGcd::Yes, ResourceType::Mana, 319),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Stormstrike", 1, DisabledAtZero::Yes)}),
     shaman(pchar),
     spells(spells),
-    stormstrike_buff(new StormstrikeBuff(pchar))
+    stormstrike_buff(buff)
 {
     this->enabled = false;
 }
 
 Stormstrike::~Stormstrike() {
-    if (stormstrike_buff->is_enabled())
-        stormstrike_buff->disable_buff();
-
-    delete stormstrike_buff;
     delete cooldown;
 }
 
@@ -65,9 +61,9 @@ void Stormstrike::spell_effect() {
 }
 
 void Stormstrike::increase_talent_rank_effect(const QString&, const int) {
-    stormstrike_buff->enable_buff();
+
 }
 
 void Stormstrike::decrease_talent_rank_effect(const QString&, const int) {
-    stormstrike_buff->disable_buff();
+
 }

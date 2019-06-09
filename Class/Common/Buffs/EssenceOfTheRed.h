@@ -1,11 +1,11 @@
 #ifndef ESSENCEOFTHERED_H
 #define ESSENCEOFTHERED_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class PeriodicResourceGainSpell;
 
-class EssenceOfTheRed: public Buff {
+class EssenceOfTheRed: public SelfBuff {
 public:
     EssenceOfTheRed(Character* pchar);
     ~EssenceOfTheRed() override;

@@ -4,7 +4,7 @@
 #include "CharacterStats.h"
 
 ElementalDevastation::ElementalDevastation(Character* pchar):
-    Buff(pchar, "Elemental Devastation", "Assets/spell/Spell_fire_elementaldevastation.png", 10, 0),
+    SelfBuff(pchar, "Elemental Devastation", "Assets/spell/Spell_fire_elementaldevastation.png", 10, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Elemental Devastation", 3, DisabledAtZero::Yes)})
 {}
 

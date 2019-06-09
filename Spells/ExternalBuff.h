@@ -2,7 +2,7 @@
 #define EXTERNALBUFF_H
 
 #include "AvailableFactions.h"
-#include "Buff.h"
+#include "SelfBuff.h"
 
 #include <QVersionNumber>
 
@@ -50,7 +50,7 @@ class ExternalBuff;
 
 ExternalBuff* get_external_buff_by_name(const ExternalBuffName, Character*);
 
-class ExternalBuff: public Buff {
+class ExternalBuff: public SelfBuff {
 public:
     ExternalBuff(Character*,
                  const QString& name,

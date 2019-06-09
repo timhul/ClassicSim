@@ -56,7 +56,6 @@ Hunter::Hunter(Race* race, EquipmentDb *equipment_db, SimSettings *sim_settings,
 
 Hunter::~Hunter()
 {
-    raid_control->clear_all_buffs();
     cstats->get_equipment()->unequip_all();
 
     delete pet;

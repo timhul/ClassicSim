@@ -8,10 +8,11 @@
 
 class Buff;
 class Paladin;
+class SanctityAuraBuff;
 
 class SanctityAura: public Spell, public TalentRequirer {
 public:
-    SanctityAura(Paladin* pchar);
+    SanctityAura(Paladin* pchar, SanctityAuraBuff* buff);
     ~SanctityAura() override;
 
 private:

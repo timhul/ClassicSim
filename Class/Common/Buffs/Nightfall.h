@@ -1,9 +1,9 @@
 #ifndef NIGHTFALL_H
 #define NIGHTFALL_H
 
-#include "Buff.h"
+#include "SharedDebuff.h"
 
-class Nightfall: public Buff {
+class Nightfall: public SharedDebuff {
 public:
     Nightfall(Character* pchar);
 

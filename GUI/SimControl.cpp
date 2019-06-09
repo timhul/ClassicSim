@@ -44,6 +44,8 @@ void SimControl::run_full_sim(QVector<Character*> raid, RaidControl* raid_contro
 }
 
 void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, const int combat_length, const int iterations) {
+    raid_control->prepare_set_of_combat_iterations();
+
     for (const auto & pchar : raid) {
         pchar->get_combat_roll()->drop_tables();
         pchar->prepare_set_of_combat_iterations();
@@ -71,6 +73,9 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
 
         raid_control->get_engine()->add_event(new EncounterEnd(raid_control->get_engine(), combat_length));
         raid_control->get_engine()->run();
+
+        raid_control->reset();
+        raid_control->get_statistics()->finish_combat_iteration();
 
         for (const auto & pchar : raid) {
             pchar->reset();

@@ -1,11 +1,11 @@
 #ifndef EXTRAATTACKONSWING_H
 #define EXTRAATTACKONSWING_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class ExtraAttackInstantProc;
 
-class ExtraAttackOnNextSwingBuff: public Buff {
+class ExtraAttackOnNextSwingBuff: public SelfBuff {
 public:
     ExtraAttackOnNextSwingBuff(Character* pchar, ExtraAttackInstantProc* extra_attack,
                                const int num_attacks);

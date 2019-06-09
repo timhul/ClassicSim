@@ -1,9 +1,9 @@
 #ifndef HOLYSTRENGTH_H
 #define HOLYSTRENGTH_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
-class HolyStrength: public Buff {
+class HolyStrength: public SelfBuff {
 public:
     HolyStrength(Character* pchar, const QString& weapon_side);
 

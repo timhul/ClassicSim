@@ -73,7 +73,11 @@ SOURCES += main.cpp \
     Event/Events/PlayerAction.cpp \
     Raid/RaidControl.cpp \
     Spells/CooldownControl.cpp \
+    Spells/PartyBuff.cpp \
+    Spells/SelfBuff.cpp \
+    Spells/SharedDebuff.cpp \
     Spells/SpellRankGroup.cpp \
+    Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
@@ -469,7 +473,11 @@ HEADERS += \
     Event/Events/PlayerAction.h \
     Raid/RaidControl.h \
     Spells/CooldownControl.h \
+    Spells/PartyBuff.h \
+    Spells/SelfBuff.h \
+    Spells/SharedDebuff.h \
     Spells/SpellRankGroup.h \
+    Spells/UniqueDebuff.h \
     Talent/CharacterTalents.h \
     Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \

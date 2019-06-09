@@ -1,10 +1,10 @@
 #ifndef RAPIDFIREBUFF_H
 #define RAPIDFIREBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 #include "SetBonusRequirer.h"
 
-class RapidFireBuff: public Buff, public SetBonusRequirer {
+class RapidFireBuff: public SelfBuff, public SetBonusRequirer {
 public:
     RapidFireBuff(Character* pchar);
 

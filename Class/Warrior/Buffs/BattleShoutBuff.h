@@ -1,12 +1,12 @@
 #ifndef BATTLESHOUTBUFF_H
 #define BATTLESHOUTBUFF_H
 
-#include "Buff.h"
+#include "PartyBuff.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
 
-class BattleShoutBuff: public Buff {
+class BattleShoutBuff: public PartyBuff {
 public:
     BattleShoutBuff(Character* pchar);
 

@@ -1,11 +1,11 @@
 #ifndef ADRENALINERUSHBUFF_H
 #define ADRENALINERUSHBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 class Rogue;
 
-class AdrenalineRushBuff: public Buff {
+class AdrenalineRushBuff: public SelfBuff {
 public:
     AdrenalineRushBuff(Character* pchar);
     ~AdrenalineRushBuff() override;

@@ -1,11 +1,11 @@
 #ifndef ATTACKPOWERBUFF_H
 #define ATTACKPOWERBUFF_H
 
-#include "Buff.h"
+#include "SelfBuff.h"
 
 #include "ItemStatsEnum.h"
 
-class GenericStatBuff: public Buff {
+class GenericStatBuff: public SelfBuff {
 public:
     GenericStatBuff(Character* pchar,
                     const QString& name,
