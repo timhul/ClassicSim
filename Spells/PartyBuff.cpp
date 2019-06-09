@@ -36,7 +36,7 @@ void PartyBuff::remove_buff_from(Character* any_pchar) {
 void PartyBuff::prepare_set_of_combat_iterations() {
     initialize();
 
-    this->statistics_buff = raid_control->get_statistics()->get_buff_statistics(name, icon, Debuff::No);
+    this->statistics_buff = raid_control->get_statistics()->get_buff_statistics(QString("%1 (party %2)").arg(name).arg(party + 1), icon, Debuff::No);
 
     prepare_set_of_combat_iterations_spell_specific();
 }
