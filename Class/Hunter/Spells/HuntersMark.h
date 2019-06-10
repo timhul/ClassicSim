@@ -1,22 +1,24 @@
-#ifndef HUNTERSMARK_H
-#define HUNTERSMARK_H
+#pragma once
 
 #include "Spell.h"
+#include "TalentRequirer.h"
 
 class Buff;
 class HuntersMarkBuff;
 
-class HuntersMark: public Spell {
+class HuntersMark: public Spell, public TalentRequirer {
 public:
     HuntersMark(Character *pchar, HuntersMarkBuff* hunters_mark);
     ~HuntersMark() override;
 
-    Buff* get_hunters_mark_buff() const;
-
 private:
     HuntersMarkBuff* hunters_mark;
+    QVector<double> imp_hunters_mark_ranks;
+    unsigned hunters_mark_bonus;
+    const unsigned base_ranged_ap_bonus;
 
     void spell_effect() override;
-};
 
-#endif // HUNTERSMARK_H
+    void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
+    void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
+};

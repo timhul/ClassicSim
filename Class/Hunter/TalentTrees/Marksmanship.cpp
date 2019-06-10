@@ -62,8 +62,7 @@ Talent* Marksmanship::get_improved_hunters_mark() {
     return get_new_talent(hunter, "Improved Hunter's Mark", "2ML", "Assets/ability/Ability_hunter_snipershot.png",
                           5, "Increases the Ranged Attack Power bonus of your Hunter's Mark spell by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{3, 3}},
-                          {},
-                          QVector<Buff*>{spells->get_hunters_mark()->get_hunters_mark_buff()});
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Hunter's Mark")});
 }
 
 Talent* Marksmanship::get_lethal_shots() {
