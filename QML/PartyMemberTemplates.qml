@@ -55,5 +55,18 @@ RectangleBorders {
                 text: parent.template
             }
         }
+
+        RectangleBorders {
+            height: parent.height / parent.children.length
+            width: parent.width
+            rectColor: root.colorHunter
+            property string template: "Hunter 8/8 T2"
+            onRectangleClicked: raid.selectTemplateCharacter(template)
+
+            TextSmall {
+                color: "black"
+                text: parent.template
+            }
+        }
     }
 }

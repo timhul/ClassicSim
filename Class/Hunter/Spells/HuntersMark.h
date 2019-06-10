@@ -8,7 +8,7 @@ class HuntersMarkBuff;
 
 class HuntersMark: public Spell {
 public:
-    HuntersMark(Character *pchar);
+    HuntersMark(Character *pchar, HuntersMarkBuff* hunters_mark);
     ~HuntersMark() override;
 
     Buff* get_hunters_mark_buff() const;

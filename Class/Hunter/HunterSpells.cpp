@@ -5,13 +5,16 @@
 #include "AutoShot.h"
 #include "BestialWrath.h"
 #include "Engine.h"
+#include "ExposeWeaknessBuff.h"
 #include "ExposeWeaknessProc.h"
 #include "Hunter.h"
 #include "HuntersMark.h"
+#include "HuntersMarkBuff.h"
 #include "MainhandAttack.h"
 #include "MultiShot.h"
 #include "OffhandAttack.h"
 #include "Pet.h"
+#include "RaidControl.h"
 #include "RangedHit.h"
 #include "RapidFire.h"
 
@@ -23,12 +26,24 @@ HunterSpells::HunterSpells(Hunter* hunter) :
     this->aspect_of_the_hawk = new AspectOfTheHawk(hunter);
     this->auto_shot = new AutoShot(hunter);
     this->bestial_wrath = new BestialWrath(hunter, "Cat");
-    this->expose_weakness_proc = new ExposeWeaknessProc(hunter);
-    this->hunters_mark = new HuntersMark(hunter);
     this->mh_attack = new MainhandAttack(hunter);
     this->multi_shot = new MultiShot(hunter, new_cooldown_control("Multi-Shot", 10.0));
     this->oh_attack = new OffhandAttack(hunter);
     this->rapid_fire = new RapidFire(hunter);
+
+    auto* hunters_mark_buff = dynamic_cast<HuntersMarkBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Hunter's Mark"));
+    if (hunters_mark_buff == nullptr) {
+        hunters_mark_buff = new HuntersMarkBuff(hunter);
+        hunters_mark_buff->enable_buff();
+    }
+    this->hunters_mark = new HuntersMark(hunter, hunters_mark_buff);
+
+    auto* expose_weakness_buff = dynamic_cast<ExposeWeaknessBuff*>(pchar->get_raid_control()->get_shared_raid_buff("Expose Weakness"));
+    if (expose_weakness_buff == nullptr) {
+        expose_weakness_buff = new ExposeWeaknessBuff(hunter);
+        expose_weakness_buff->enable_buff();
+    }
+    this->expose_weakness_proc = new ExposeWeaknessProc(hunter, expose_weakness_buff);
 
     add_spell_group({aimed_shot});
     add_spell_group({aspect_of_the_hawk});

@@ -4,22 +4,19 @@
 #include "ProcInfo.h"
 #include "Utils/Check.h"
 
-ExposeWeaknessProc::ExposeWeaknessProc(Character* pchar) :
+ExposeWeaknessProc::ExposeWeaknessProc(Character* pchar, ExposeWeaknessBuff* expose_weakness_buff) :
     Proc("Expose Weakness", "Assets/ability/Ability_hunter_snipershot.png", 0.0, 0, QVector<Proc*>(),
          QVector<ProcInfo::Source>({ProcInfo::Source::RangedAutoShot, ProcInfo::Source::RangedSpell}),
          pchar),
     SetBonusRequirer({"Dragonstalker Armor"}),
-    expose_weakness_buff(new ExposeWeaknessBuff(pchar))
+    expose_weakness_buff(expose_weakness_buff)
 {
     this->enabled = false;
     proc_range = 1600;
 }
 
 ExposeWeaknessProc::~ExposeWeaknessProc() {
-    if (is_enabled())
-        disable();
 
-    delete expose_weakness_buff;
 }
 
 void ExposeWeaknessProc::proc_effect() {
@@ -32,11 +29,9 @@ ExposeWeaknessBuff* ExposeWeaknessProc::get_expose_weakness_buff() const {
 
 void ExposeWeaknessProc::enable_spell_effect() {
     enable_proc();
-    expose_weakness_buff->enable_buff();
 }
 
 void ExposeWeaknessProc::disable_spell_effect() {
-    expose_weakness_buff->disable_buff();
     disable_proc();
 }
 

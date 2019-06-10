@@ -4,7 +4,7 @@
 #include "CooldownControl.h"
 #include "HuntersMarkBuff.h"
 
-HuntersMark::HuntersMark(Character* pchar) :
+HuntersMark::HuntersMark(Character* pchar, HuntersMarkBuff* hunters_mark) :
     Spell("Hunter's Mark",
           "Assets/ability/Ability_hunter_snipershot.png",
           pchar,
@@ -12,10 +12,8 @@ HuntersMark::HuntersMark(Character* pchar) :
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           60),
-    hunters_mark(new HuntersMarkBuff(pchar))
-{
-    hunters_mark->enable_buff();
-}
+    hunters_mark(hunters_mark)
+{}
 
 HuntersMark::~HuntersMark() {
     delete cooldown;
