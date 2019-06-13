@@ -2,11 +2,12 @@
 
 #include "Character.h"
 #include "ClassStatistics.h"
-#include "Utils/Check.h"
 #include "RaidControl.h"
+#include "Target.h"
+#include "Utils/Check.h"
 
-SharedDebuff::SharedDebuff(RaidControl* raid_control, QString name, QString icon, const int duration, const int base_charges) :
-    Buff(raid_control, name, icon, duration, base_charges)
+SharedDebuff::SharedDebuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges) :
+    Buff(pchar, name, icon, duration, base_charges)
 {
     this->affected = Affected::Target;
 }
@@ -22,16 +23,6 @@ void SharedDebuff::disable_buff() {
     check(false, QString("Registered SharedDebuff %1 cannot be disabled, it is destroyed upon RaidControl deletion.").arg(name).toStdString());
 }
 
-void SharedDebuff::apply_buff_to(Character* any_pchar) {
-    pchar = any_pchar;
-    buff_effect_when_applied();
-}
-
-void SharedDebuff::remove_buff_from(Character* any_pchar) {
-    pchar = any_pchar;
-    buff_effect_when_removed();
-}
-
 void SharedDebuff::prepare_set_of_combat_iterations() {
     initialize();
 
@@ -43,10 +34,16 @@ void SharedDebuff::prepare_set_of_combat_iterations() {
     prepare_set_of_combat_iterations_spell_specific();
 }
 
-void SharedDebuff::apply_buff_to_target() {
-    raid_control->apply_raid_buff(this);
+bool SharedDebuff::apply_buff_to_target() {
+    if (!raid_control->get_target()->add_debuff(this, debuff_priority))
+        return false;
+
+    buff_effect_when_applied();
+
+    return true;
 }
 
 void SharedDebuff::remove_buff_from_target() {
-    raid_control->remove_raid_buff(this);
+    pchar->get_target()->remove_debuff(this);
+    buff_effect_when_removed();
 }

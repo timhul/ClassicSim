@@ -29,9 +29,6 @@ public:
     void apply_party_buff(PartyBuff* buff, const int party);
     void remove_party_buff(PartyBuff* buff, const int party);
 
-    void apply_raid_buff(SharedDebuff* buff);
-    void remove_raid_buff(SharedDebuff* buff);
-
     int next_instance_id();
 
     void register_shared_party_buff(Buff* buff, const int party);

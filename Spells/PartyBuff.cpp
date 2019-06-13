@@ -6,7 +6,7 @@
 #include "Utils/Check.h"
 
 PartyBuff::PartyBuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges) :
-    Buff(pchar->get_raid_control(), name, icon, duration, base_charges),
+    Buff(pchar, name, icon, duration, base_charges),
     party(pchar->get_party())
 {
     this->affected = Affected::Party;
@@ -41,8 +41,9 @@ void PartyBuff::prepare_set_of_combat_iterations() {
     prepare_set_of_combat_iterations_spell_specific();
 }
 
-void PartyBuff::apply_buff_to_target() {
+bool PartyBuff::apply_buff_to_target() {
     raid_control->apply_party_buff(this, party);
+    return true;
 }
 
 void PartyBuff::remove_buff_from_target() {

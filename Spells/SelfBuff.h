@@ -12,6 +12,6 @@ public:
     void prepare_set_of_combat_iterations() override final;
 
 private:
-    void apply_buff_to_target() override final;
+    bool apply_buff_to_target() override final;
     void remove_buff_from_target() override final;
 };

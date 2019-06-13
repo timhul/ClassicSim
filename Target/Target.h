@@ -26,6 +26,8 @@ public:
     Target(int target_lvl);
     ~Target();
 
+    Stats* get_stats() const;
+
     int get_lvl() const;
     void set_lvl(int);
 
@@ -48,6 +50,10 @@ public:
     void remove_debuff(Buff* buff);
     void reset();
 
+    double get_magic_school_damage_mod(const MagicSchool school) const;
+    void increase_magic_school_damage_mod(const int increase, const MagicSchool school, Buff* buff = nullptr);
+    void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school, Buff* buff = nullptr);
+
 private:
     int target_lvl;
     int base_armor;
@@ -55,6 +61,9 @@ private:
     Stats* stats;
     QMap<QString, CreatureType> string_to_creature_type;
     QMap<CreatureType, QString> creature_type_strings;
+    QMap<MagicSchool, QVector<int>> magic_school_damage_changes;
+    QMap<MagicSchool, double> magic_school_damage_modifiers;
+    QMap<MagicSchool, QVector<Buff*>> magic_school_buffs_with_charges;
 
     const int debuff_limit {16};
     int size_debuffs {0};

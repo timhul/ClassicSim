@@ -76,24 +76,6 @@ void RaidControl::remove_party_buff(PartyBuff* buff, const int party) {
     }
 }
 
-void RaidControl::apply_raid_buff(SharedDebuff* buff) {
-    for (const auto & party : group_members) {
-        for (const auto & pchar : party) {
-            if (pchar != nullptr)
-                buff->apply_buff_to(pchar);
-        }
-    }
-}
-
-void RaidControl::remove_raid_buff(SharedDebuff* buff) {
-    for (const auto & party : group_members) {
-        for (const auto & pchar : party) {
-            if (pchar != nullptr)
-                buff->remove_buff_from(pchar);
-        }
-    }
-}
-
 int RaidControl::next_instance_id() {
     return ++instance_id;
 }

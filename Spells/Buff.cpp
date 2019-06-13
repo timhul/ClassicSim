@@ -12,8 +12,9 @@
 #include "Target.h"
 #include "Utils/Check.h"
 
-Buff::Buff(RaidControl* raid_control, QString name, QString icon, const int duration, const int base_charges):
-    raid_control(raid_control),
+Buff::Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
+    pchar(pchar),
+    raid_control(pchar->get_raid_control()),
     name(std::move(name)),
     icon(std::move(icon)),
     duration(duration),
@@ -43,7 +44,9 @@ void Buff::apply_buff() {
         return;
 
     if (!is_active()) {
-        apply_buff_to_target();
+        if (!apply_buff_to_target())
+            return;
+
         this->applied = raid_control->get_engine()->get_current_priority();
     }
     else

@@ -6,10 +6,8 @@
 #include "Utils/Check.h"
 
 SelfBuff::SelfBuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges):
-    Buff(pchar->get_raid_control(), name, icon, duration, base_charges)
-{
-    this->pchar = pchar;
-}
+    Buff(pchar, name, icon, duration, base_charges)
+{}
 
 void SelfBuff::enable_buff() {
     check(!enabled, QString("Tried to enable an already enabled SelfBuff '%1'").arg(name).toStdString());
@@ -36,8 +34,9 @@ void SelfBuff::prepare_set_of_combat_iterations() {
     prepare_set_of_combat_iterations_spell_specific();
 }
 
-void SelfBuff::apply_buff_to_target() {
+bool SelfBuff::apply_buff_to_target() {
     buff_effect_when_applied();
+    return true;
 }
 
 void SelfBuff::remove_buff_from_target() {

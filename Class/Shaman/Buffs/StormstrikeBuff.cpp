@@ -1,16 +1,16 @@
 #include "StormstrikeBuff.h"
 
 #include "Character.h"
-#include "CharacterStats.h"
+#include "Target.h"
 
 StormstrikeBuff::StormstrikeBuff(Character* pchar):
-    SharedDebuff(pchar->get_raid_control(), "Stormstrike", "Assets/spell/Spell_holy_sealofmight.png", 12, 2)
+    SharedDebuff(pchar, "Stormstrike", "Assets/spell/Spell_holy_sealofmight.png", 12, 2)
 {}
 
 void StormstrikeBuff::buff_effect_when_applied() {
-    pchar->get_stats()->increase_magic_school_damage_mod(20, MagicSchool::Nature, this);
+    pchar->get_target()->increase_magic_school_damage_mod(20, MagicSchool::Nature, this);
 }
 
 void StormstrikeBuff::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_magic_school_damage_mod(20, MagicSchool::Nature, this);
+    pchar->get_target()->decrease_magic_school_damage_mod(20, MagicSchool::Nature, this);
 }

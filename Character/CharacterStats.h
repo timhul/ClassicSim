@@ -130,8 +130,8 @@ public:
     void decrease_spell_damage_vs_school(const unsigned value, const MagicSchool school);
 
     double get_magic_school_damage_mod(const MagicSchool school) const;
-    void increase_magic_school_damage_mod(const int increase, const MagicSchool school, Buff* buff = nullptr);
-    void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school, Buff* buff = nullptr);
+    void increase_magic_school_damage_mod(const int increase, const MagicSchool school);
+    void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school);
 
     double get_spell_crit_dmg_mod() const;
     void increase_spell_crit_dmg_mod(const double value);
@@ -210,7 +210,6 @@ private:
     QHash<Target::CreatureType, double> crit_dmg_bonuses_per_monster_type;
     QMap<MagicSchool, QVector<int>> magic_school_damage_changes;
     QMap<MagicSchool, double> magic_school_damage_modifiers;
-    QMap<MagicSchool, QVector<Buff*>> magic_school_buffs_with_charges;
 
     unsigned axe_skill_bonus {0};
     unsigned dagger_skill_bonus {0};

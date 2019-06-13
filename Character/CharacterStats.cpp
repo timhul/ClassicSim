@@ -73,14 +73,6 @@ CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
     this->magic_school_damage_modifiers.insert(MagicSchool::Nature, 1.0);
     this->magic_school_damage_modifiers.insert(MagicSchool::Physical, 1.0);
     this->magic_school_damage_modifiers.insert(MagicSchool::Shadow, 1.0);
-
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Arcane, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Fire, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Frost, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Holy, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Nature, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Physical, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Shadow, {});
 }
 
 CharacterStats::~CharacterStats() {
@@ -477,7 +469,8 @@ unsigned CharacterStats::get_ranged_ap() const {
     unsigned attributes_ap = get_agility() * pchar->get_ranged_ap_per_agi();
     unsigned target_ap_eq = equipment->get_stats()->get_ranged_ap_against_type(pchar->get_target()->get_creature_type());
     unsigned target_ap_base = base_stats->get_ranged_ap_against_type(pchar->get_target()->get_creature_type());
-    return static_cast<unsigned>(round(total_ap_mod * (stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base)));
+    unsigned target_debuff_ap = pchar->get_target()->get_stats()->get_base_ranged_ap();
+    return static_cast<unsigned>(round(total_ap_mod * (stat_ranged_ap + attributes_ap + target_ap_eq + target_ap_base + target_debuff_ap)));
 }
 
 void CharacterStats::increase_ranged_ap(const unsigned value) {
@@ -786,7 +779,7 @@ void CharacterStats::decrease_mp5(const unsigned value) {
 }
 
 unsigned CharacterStats::get_spell_damage(const MagicSchool school) const {
-    return base_stats->get_spell_damage(school) + equipment->get_stats()->get_spell_damage(school);
+    return base_stats->get_spell_damage(school) + equipment->get_stats()->get_spell_damage(school) + pchar->get_target()->get_stats()->get_spell_damage(school);
 }
 
 void CharacterStats::increase_base_spell_damage(const unsigned value) {
@@ -806,35 +799,15 @@ void CharacterStats::decrease_spell_damage_vs_school(const unsigned value, const
 }
 
 double CharacterStats::get_magic_school_damage_mod(const MagicSchool school) const {
-    const double mod = magic_school_damage_modifiers[school];
-
-    for (auto & buff : magic_school_buffs_with_charges[school])
-        buff->use_charge();
-
-    return mod;
+    return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school);
 }
 
-void CharacterStats::increase_magic_school_damage_mod(const int increase, const MagicSchool school, Buff* buff_with_charges) {
+void CharacterStats::increase_magic_school_damage_mod(const int increase, const MagicSchool school) {
     add_multiplicative_effect(magic_school_damage_changes[school], increase, magic_school_damage_modifiers[school]);
-
-    if (buff_with_charges != nullptr)
-        magic_school_buffs_with_charges[school].append(buff_with_charges);
 }
 
-void CharacterStats::decrease_magic_school_damage_mod(const int decrease, const MagicSchool school, Buff* buff_to_remove) {
+void CharacterStats::decrease_magic_school_damage_mod(const int decrease, const MagicSchool school) {
     remove_multiplicative_effect(magic_school_damage_changes[school], decrease, magic_school_damage_modifiers[school]);
-
-    if (buff_to_remove != nullptr) {
-        for (int i = 0; i < magic_school_buffs_with_charges[school].size(); ++i) {
-            Buff* buff = magic_school_buffs_with_charges[school][i];
-            if (buff->get_instance_id() == buff_to_remove->get_instance_id()) {
-                magic_school_buffs_with_charges[school].removeAt(i);
-                return;
-            }
-        }
-
-        check(false, QString("CharacterStats::decrease_spell_dmg_mod failed to remove buff %1").arg(buff_to_remove->get_name()).toStdString());
-    }
 }
 
 unsigned CharacterStats::get_mh_flat_damage_bonus() const {

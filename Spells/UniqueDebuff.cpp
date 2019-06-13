@@ -8,9 +8,8 @@
 #include "Utils/Check.h"
 
 UniqueDebuff::UniqueDebuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges) :
-    Buff(pchar->get_raid_control(), name, icon, duration, base_charges)
+    Buff(pchar, name, icon, duration, base_charges)
 {
-    this->pchar = pchar;
     this->affected = Affected::Target;
 }
 
@@ -39,11 +38,13 @@ void UniqueDebuff::prepare_set_of_combat_iterations() {
     prepare_set_of_combat_iterations_spell_specific();
 }
 
-void UniqueDebuff::apply_buff_to_target() {
+bool UniqueDebuff::apply_buff_to_target() {
     if (!raid_control->get_target()->add_debuff(this, debuff_priority))
-        return;
+        return false;
 
     buff_effect_when_applied();
+
+    return true;
 }
 
 void UniqueDebuff::remove_buff_from_target() {

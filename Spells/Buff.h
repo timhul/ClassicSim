@@ -32,7 +32,7 @@ static const QString NO_ICON = "no-icon";
 
 class Buff {
 public:
-    Buff(RaidControl* raid_control, QString name, QString icon, const int duration, const int base_charges);
+    Buff(Character* pchar, QString name, QString icon, const int duration, const int base_charges);
     virtual ~Buff() = default;
 
     QString get_name() const;
@@ -61,7 +61,7 @@ public:
     virtual void disable_buff() = 0;
 
 protected:
-    Character* pchar {nullptr};
+    Character* pchar;
     RaidControl* raid_control;
     StatisticsBuff* statistics_buff {nullptr};
     const QString name;
@@ -82,7 +82,7 @@ protected:
 
     int instance_id;
 
-    virtual void apply_buff_to_target() = 0;
+    virtual bool apply_buff_to_target() = 0;
     virtual void remove_buff_from_target() = 0;
     void force_remove_buff();
     virtual void buff_effect_when_applied() = 0;
