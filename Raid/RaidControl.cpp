@@ -84,6 +84,9 @@ void RaidControl::register_shared_party_buff(Buff* buff, const int party) {
     check(!shared_party_buffs[party].contains(buff->get_name()), QString("Tried to register already registered party buff %1").arg(buff->get_name()).toStdString());
     check(buff->is_enabled(), QString("Tried to register PartyBuff %1 but it is not enabled").arg(buff->get_name()).toStdString());
 
+    if (buff->get_instance_id() == InstanceID::INACTIVE)
+        buff->set_instance_id(next_instance_id());
+
     shared_party_buffs[party][buff->get_name()] = buff;
 }
 
@@ -97,6 +100,9 @@ Buff* RaidControl::get_shared_party_buff(const QString& buff_name, const int par
 void RaidControl::register_shared_raid_buff(SharedDebuff* buff) {
     check(!shared_raid_buffs.contains(buff->get_name()), QString("Tried to register already registered raid buff %1").arg(buff->get_name()).toStdString());
     check(buff->is_enabled(), QString("Tried to register raid buff %1 but it is not enabled").arg(buff->get_name()).toStdString());
+
+    if (buff->get_instance_id() == InstanceID::INACTIVE)
+        buff->set_instance_id(next_instance_id());
 
     shared_raid_buffs[buff->get_name()] = buff;
 }
