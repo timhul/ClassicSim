@@ -8,6 +8,7 @@
 #include "MagicSchools.h"
 
 class Buff;
+class Stats;
 
 class Target {
 public:
@@ -23,6 +24,7 @@ public:
     };
 
     Target(int target_lvl);
+    ~Target();
 
     int get_lvl() const;
     void set_lvl(int);
@@ -48,9 +50,9 @@ public:
 
 private:
     int target_lvl;
-    int target_armor;
     int base_armor;
     CreatureType target_type;
+    Stats* stats;
     QMap<QString, CreatureType> string_to_creature_type;
     QMap<CreatureType, QString> creature_type_strings;
 

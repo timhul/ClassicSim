@@ -6,7 +6,6 @@
 class Stats {
 public:
     Stats();
-    ~Stats();
 
     void add(const Stats*);
     void remove(const Stats*);
@@ -39,6 +38,7 @@ public:
     void increase_spirit(const unsigned);
     void decrease_spirit(const unsigned);
 
+    int get_armor() const;
     void increase_armor(const int);
     void decrease_armor(const int);
 

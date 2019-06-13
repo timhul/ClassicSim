@@ -4,12 +4,13 @@
 
 #include "Buff.h"
 #include "Mechanics.h"
+#include "Stats.h"
 
 Target::Target(int target_lvl):
     target_lvl(target_lvl),
-    target_armor(Mechanics::get_boss_base_armor()),
     base_armor(Mechanics::get_boss_base_armor()),
-    target_type(CreatureType::Beast)
+    target_type(CreatureType::Beast),
+    stats(new Stats())
 {
     creature_type_strings = {{CreatureType::Beast, "Beast"},
                              {CreatureType::Demon, "Demon"},
@@ -28,6 +29,12 @@ Target::Target(int target_lvl):
                                {"Humanoid", CreatureType::Humanoid},
                                {"Mechanical", CreatureType::Mechanical},
                                {"Undead", CreatureType::Undead}};
+
+    stats->increase_armor(base_armor);
+}
+
+Target::~Target() {
+    delete stats;
 }
 
 int Target::get_lvl() const {
@@ -43,7 +50,7 @@ int Target::get_defense() const {
 }
 
 int Target::get_armor() const {
-    return target_armor < 0 ? 0 : target_armor;
+    return stats->get_armor() < 0 ? 0 : stats->get_armor();
 }
 
 void Target::set_base_armor(const int armor) {
@@ -51,17 +58,17 @@ void Target::set_base_armor(const int armor) {
     this->base_armor = armor;
 
     if (delta < 0)
-        return increase_armor(-delta);
+        increase_armor(-delta);
     else
-        return decrease_armor(delta);
+        decrease_armor(delta);
 }
 
 void Target::increase_armor(const int armor) {
-    this->target_armor += armor;
+    stats->increase_armor(armor);
 }
 
 void Target::decrease_armor(const int armor) {
-    this->target_armor -= armor;
+    stats->decrease_armor(armor);
 }
 
 int Target::get_base_armor() const {

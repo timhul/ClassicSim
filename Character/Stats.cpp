@@ -30,8 +30,6 @@ Stats::Stats() {
     this->spell_school_damage_bonus[MagicSchool::Shadow] = 0;
 }
 
-Stats::~Stats() = default;
-
 void Stats::add(const Stats* rhs) {
     increase_strength(rhs->get_strength());
     increase_agility(rhs->get_agility());
@@ -118,6 +116,10 @@ void Stats::remove(const Stats* rhs) {
 
     decrease_mp5(rhs->get_mp5());
     decrease_base_spell_damage(rhs->get_base_spell_damage());
+}
+
+int Stats::get_armor() const {
+    return armor;
 }
 
 unsigned Stats::get_strength() const {
