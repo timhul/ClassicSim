@@ -8,7 +8,6 @@ class CharacterStats;
 class Race;
 class RaidControl;
 class SimSettings;
-class Target;
 
 class TestCharacterStats : TestObject {
 public:
@@ -24,7 +23,6 @@ private:
     Race* race {nullptr};
     RaidControl* raid_control {nullptr};
     SimSettings* sim_settings {nullptr};
-    Target* target {nullptr};
 
     void test_values_after_initialization() override;
 

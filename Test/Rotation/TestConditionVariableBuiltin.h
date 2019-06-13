@@ -11,7 +11,6 @@ class Race;
 class RaidControl;
 class Rogue;
 class SimSettings;
-class Target;
 class Warrior;
 
 class TestConditionVariableBuiltin : TestObject {
@@ -39,7 +38,6 @@ private:
     Warrior* warrior {nullptr};
     Race* race {nullptr};
     SimSettings* sim_settings {nullptr};
-    Target* target {nullptr};
     RaidControl* raid_control {nullptr};
 
     void set_up_rogue();

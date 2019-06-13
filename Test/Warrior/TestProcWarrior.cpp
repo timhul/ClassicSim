@@ -12,7 +12,7 @@ TestProcWarrior::TestProcWarrior(EquipmentDb *equipment_db, QString spell_under_
 
 void TestProcWarrior::set_up() {
     set_up_general();
-    warrior = new Warrior(race, equipment_db, nullptr, target, raid_control);
+    warrior = new Warrior(race, equipment_db, nullptr, raid_control);
     spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
     pchar = warrior;
 }

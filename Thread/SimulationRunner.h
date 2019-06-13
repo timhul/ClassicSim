@@ -17,7 +17,6 @@ class Race;
 class RaidControl;
 class Rotation;
 class SimSettings;
-class Target;
 
 class SimulationRunner: public QObject {
     Q_OBJECT
@@ -45,7 +44,6 @@ private:
     QVector<Race*> races;
     SimSettings* global_sim_settings;
     SimSettings* local_sim_settings;
-    Target* target {nullptr};
     RaidControl* raid_control {nullptr};
     NumberCruncher* scaler;
     bool full_sim;

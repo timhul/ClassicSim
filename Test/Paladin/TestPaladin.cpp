@@ -6,7 +6,6 @@
 #include "Paladin.h"
 #include "RaidControl.h"
 #include "SimSettings.h"
-#include "Target.h"
 #include "TestConsecration.h"
 #include "TestHolyPaladin.h"
 #include "TestJudgement.h"
@@ -39,9 +38,8 @@ void TestPaladin::test_all() {
 void TestPaladin::test_values_after_initialization() {
     Race* race = new Human();
     auto* sim_settings = new SimSettings();
-    auto* target = new Target(63);
     auto* raid_control = new RaidControl(sim_settings);
-    auto* paladin = new Paladin(race, equipment_db, sim_settings, target, raid_control);
+    auto* paladin = new Paladin(race, equipment_db, sim_settings, raid_control);
 
     assert(paladin->get_name() == "Paladin");
     assert(paladin->get_race()->get_name() == "Human");
@@ -53,6 +51,5 @@ void TestPaladin::test_values_after_initialization() {
     delete race;
     delete paladin;
     delete sim_settings;
-    delete target;
     delete raid_control;
 }

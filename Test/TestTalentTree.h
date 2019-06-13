@@ -9,7 +9,6 @@ class Race;
 class RaidControl;
 class SimSettings;
 class TalentTree;
-class Target;
 
 class TestTalentTree {
 public:
@@ -23,7 +22,6 @@ protected:
     const QString tree_pos;
     Race* race {nullptr};
     Character* pchar {nullptr};
-    Target* target {nullptr};
     SimSettings* sim_settings {nullptr};
     RaidControl* raid_control {nullptr};
 

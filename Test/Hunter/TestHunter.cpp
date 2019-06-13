@@ -6,7 +6,6 @@
 #include "Orc.h"
 #include "RaidControl.h"
 #include "SimSettings.h"
-#include "Target.h"
 #include "TestAimedShot.h"
 #include "TestAutoShot.h"
 #include "TestBeastMastery.h"
@@ -35,9 +34,8 @@ void TestHunter::test_all() {
 void TestHunter::test_values_after_initialization() {
     Race* race = new Orc();
     auto* sim_settings = new SimSettings();
-    auto* target = new Target(63);
     auto* raid_control = new RaidControl(sim_settings);
-    auto* hunter = new Hunter(race, equipment_db, sim_settings, target, raid_control);
+    auto* hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
 
     assert(hunter->get_name() == "Hunter");
     assert(hunter->get_race()->get_name() == "Orc");
@@ -49,7 +47,6 @@ void TestHunter::test_values_after_initialization() {
 
     delete race;
     delete hunter;
-    delete target;
     delete raid_control;
     delete sim_settings;
 }

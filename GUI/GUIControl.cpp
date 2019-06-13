@@ -1795,7 +1795,7 @@ Character* GUIControl::load_character(const QString& class_name) {
 
             CharacterDecoder decoder;
             decoder.initialize(reader.readElementText().trimmed());
-            CharacterLoader loader(equipment_db, sim_settings, target, raid_control, decoder);
+            CharacterLoader loader(equipment_db, sim_settings, raid_control, decoder);
 
             pchar->get_stats()->get_equipment()->change_setup(i);
             pchar->get_talents()->set_current_index(i);
@@ -1817,23 +1817,23 @@ Character* GUIControl::get_new_character(const QString& class_name) {
     raid_control = raid_controls[class_name];
 
     if (class_name == "Druid")
-        return new Druid(races["Night Elf"], equipment_db, sim_settings, target, raid_control);
+        return new Druid(races["Night Elf"], equipment_db, sim_settings, raid_control);
     if (class_name == "Hunter")
-        return new Hunter(races["Dwarf"], equipment_db, sim_settings, target, raid_control);
+        return new Hunter(races["Dwarf"], equipment_db, sim_settings, raid_control);
     if (class_name == "Mage")
-        return new Mage(races["Gnome"], equipment_db, sim_settings, target, raid_control);
+        return new Mage(races["Gnome"], equipment_db, sim_settings, raid_control);
     if (class_name == "Paladin")
-        return new Paladin(races["Human"], equipment_db, sim_settings, target, raid_control);
+        return new Paladin(races["Human"], equipment_db, sim_settings, raid_control);
     if (class_name == "Priest")
-        return new Priest(races["Undead"], equipment_db, sim_settings, target, raid_control);
+        return new Priest(races["Undead"], equipment_db, sim_settings, raid_control);
     if (class_name == "Rogue")
-        return new Rogue(races["Troll"], equipment_db, sim_settings, target, raid_control);
+        return new Rogue(races["Troll"], equipment_db, sim_settings, raid_control);
     if (class_name == "Shaman")
-        return new Shaman(races["Tauren"], equipment_db, sim_settings, target, raid_control);
+        return new Shaman(races["Tauren"], equipment_db, sim_settings, raid_control);
     if (class_name == "Warlock")
-        return new Warlock(races["Orc"], equipment_db, sim_settings, target, raid_control);
+        return new Warlock(races["Orc"], equipment_db, sim_settings, raid_control);
     if (class_name == "Warrior")
-        return new Warrior(races["Orc"], equipment_db, sim_settings, target, raid_control);
+        return new Warrior(races["Orc"], equipment_db, sim_settings, raid_control);
 
     check(false, QString("Unknown class '%1'").arg(class_name).toStdString());
     return nullptr;

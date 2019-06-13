@@ -12,7 +12,6 @@
 #include "RaidControl.h"
 #include "Rogue.h"
 #include "SimSettings.h"
-#include "Target.h"
 #include "Warrior.h"
 #include "Weapon.h"
 
@@ -329,25 +328,22 @@ void TestConditionVariableBuiltin::test_swing_timer_greater() {
 void TestConditionVariableBuiltin::set_up_rogue() {
     this->race = new Orc();
     this->sim_settings = new SimSettings();
-    this->target = new Target(63);
     this->raid_control = new RaidControl(sim_settings);
-    this->rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
+    this->rogue = new Rogue(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestConditionVariableBuiltin::set_up_hunter() {
     this->race = new Orc();
     this->sim_settings = new SimSettings();
-    this->target = new Target(63);
     this->raid_control = new RaidControl(sim_settings);
-    this->hunter = new Hunter(race, equipment_db, sim_settings, target, raid_control);
+    this->hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestConditionVariableBuiltin::set_up_warrior() {
     this->race = new Orc();
     this->sim_settings = new SimSettings();
-    this->target = new Target(63);
     this->raid_control = new RaidControl(sim_settings);
-    this->warrior = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    this->warrior = new Warrior(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestConditionVariableBuiltin::tear_down() {
@@ -356,7 +352,6 @@ void TestConditionVariableBuiltin::tear_down() {
     delete warrior;
     delete race;
     delete sim_settings;
-    delete target;
     delete raid_control;
 
     rogue = nullptr;

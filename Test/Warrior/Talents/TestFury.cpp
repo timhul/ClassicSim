@@ -3,7 +3,6 @@
 #include "Orc.h"
 #include "RaidControl.h"
 #include "SimSettings.h"
-#include "Target.h"
 #include "Warrior.h"
 
 TestFury::TestFury(EquipmentDb* equipment_db):
@@ -13,9 +12,8 @@ TestFury::TestFury(EquipmentDb* equipment_db):
 void TestFury::set_up() {
     race = new Orc();
     sim_settings = new SimSettings();
-    target = new Target(63);
     raid_control = new RaidControl(sim_settings);
-    pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestFury::tear_down() {
@@ -23,7 +21,6 @@ void TestFury::tear_down() {
     delete race;
     delete sim_settings;
     delete raid_control;
-    delete target;
 }
 
 void TestFury::test_spending_talent_points() {

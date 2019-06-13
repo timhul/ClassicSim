@@ -92,9 +92,8 @@ void Test::test_all() {
 void Test::test_queue() {
     Race* race = new Orc();
     auto* sim_settings = new SimSettings();
-    auto* target = new Target(63);
     auto* raid_control = new RaidControl(sim_settings);
-    auto* pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
     pchar->get_equipment()->set_mainhand(19103);
     pchar->get_equipment()->set_offhand(17075);
     assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
@@ -111,16 +110,14 @@ void Test::test_queue() {
     delete pchar;
     delete race;
     delete sim_settings;
-    delete target;
     delete raid_control;
 }
 
 void Test::test_combat_roll_creation() {
     auto* race = new Orc();
     auto* sim_settings = new SimSettings();
-    auto* target = new Target(63);
     auto* raid_control = new RaidControl(sim_settings);
-    auto* pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
     pchar->get_equipment()->set_mainhand(19103);
     assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
 
@@ -133,16 +130,14 @@ void Test::test_combat_roll_creation() {
     delete sim_settings;
     delete race;
     delete pchar;
-    delete target;
     delete raid_control;
 }
 
 void Test::test_equipment_creation() {
     auto* race = new Orc();
     auto* sim_settings = new SimSettings();
-    auto* target = new Target(63);
     auto* raid_control = new RaidControl(sim_settings);
-    auto* pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
     auto* equipment = pchar->get_equipment();
     equipment->set_mainhand(19103);
     Weapon* mh = equipment->get_mainhand();
@@ -166,7 +161,6 @@ void Test::test_equipment_creation() {
     delete sim_settings;
     delete race;
     delete pchar;
-    delete target;
     delete raid_control;
 }
 
@@ -243,18 +237,17 @@ void Test::test_character_creation() {
     assert(race->get_gun_bonus() == 0);
 
     auto* sim_settings = new SimSettings();
-    auto* target = new Target(63);
     auto* raid_control = new RaidControl(sim_settings);
 
-    auto* priest = new Priest(race, equipment_db, sim_settings, target, raid_control);
-    auto* rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
-    auto* mage = new Mage(race, equipment_db, sim_settings, target, raid_control);
-    auto* druid = new Druid(race, equipment_db, sim_settings, target, raid_control);
-    auto* hunter = new Hunter(race, equipment_db, sim_settings, target, raid_control);
-    auto* warlock = new Warlock(race, equipment_db, sim_settings, target, raid_control);
-    auto* shaman = new Shaman(race, equipment_db, sim_settings, target, raid_control);
+    auto* priest = new Priest(race, equipment_db, sim_settings, raid_control);
+    auto* rogue = new Rogue(race, equipment_db, sim_settings, raid_control);
+    auto* mage = new Mage(race, equipment_db, sim_settings, raid_control);
+    auto* druid = new Druid(race, equipment_db, sim_settings, raid_control);
+    auto* hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
+    auto* warlock = new Warlock(race, equipment_db, sim_settings, raid_control);
+    auto* shaman = new Shaman(race, equipment_db, sim_settings, raid_control);
 
-    auto* paladin = new Paladin(race, equipment_db, sim_settings, target, raid_control);
+    auto* paladin = new Paladin(race, equipment_db, sim_settings, raid_control);
     paladin->set_clvl(60);
     assert(paladin->get_clvl() == 60);
     delete paladin;
@@ -268,6 +261,5 @@ void Test::test_character_creation() {
 
     delete race;
     delete sim_settings;
-    delete target;
     delete raid_control;
 }

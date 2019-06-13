@@ -20,7 +20,6 @@ class RaidControl;
 class SimSettings;
 class Spell;
 class Talent;
-class Target;
 
 static const bool RUN_EVENT = true;
 
@@ -134,7 +133,6 @@ protected:
     SimSettings* sim_settings {nullptr};
     Character* pchar {nullptr};
     Race* race {nullptr};
-    Target* target {nullptr};
     RaidControl* raid_control {nullptr};
     QString spell_under_test;
     QSet<QString> ignored_events;

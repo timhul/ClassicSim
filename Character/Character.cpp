@@ -24,11 +24,11 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Character::Character(QString class_name, Race* race, SimSettings* sim_settings, Target* target, RaidControl* raid_control, const int party, const int member) :
+Character::Character(QString class_name, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
     class_name(std::move(class_name)),
     race(race),
     engine(raid_control->get_engine()),
-    target(target),
+    target(raid_control->get_target()),
     faction(new Faction(race)),
     talents(new CharacterTalents()),
     statistics(new ClassStatistics(sim_settings)),

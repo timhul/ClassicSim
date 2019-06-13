@@ -21,7 +21,7 @@ TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_unde
 
 void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
     set_up_general();
-    warrior = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    warrior = new Warrior(race, equipment_db, sim_settings, raid_control);
     spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
     warrior->set_clvl(60);
     warrior->gain_rage(100);

@@ -87,8 +87,8 @@ void TestBattleShout::given_improved_battle_shout_rank(Warrior* warrior, const u
 }
 
 void TestBattleShout::test_battle_shout_in_party() {
-    auto* warr_1 = new Warrior(race, equipment_db, sim_settings, target, raid_control);
-    auto* warr_2 = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    auto* warr_1 = new Warrior(race, equipment_db, sim_settings, raid_control);
+    auto* warr_2 = new Warrior(race, equipment_db, sim_settings, raid_control);
 
     given_improved_battle_shout_rank(warr_1, 5);
     given_improved_battle_shout_rank(warr_2, 5);
@@ -116,8 +116,8 @@ void TestBattleShout::test_battle_shout_in_party() {
 }
 
 void TestBattleShout::test_battle_shout_in_separate_parties() {
-    auto* warr_1 = new Warrior(race, equipment_db, sim_settings, target, raid_control, 0, 1);
-    auto* warr_2 = new Warrior(race, equipment_db, sim_settings, target, raid_control, 1, 0);
+    auto* warr_1 = new Warrior(race, equipment_db, sim_settings, raid_control, 0, 1);
+    auto* warr_2 = new Warrior(race, equipment_db, sim_settings, raid_control, 1, 0);
 
     const unsigned warr_1_melee_ap_before = warr_1->get_stats()->get_melee_ap();
     const unsigned warr_2_melee_ap_before = warr_2->get_stats()->get_melee_ap();

@@ -4,7 +4,6 @@
 #include "Orc.h"
 #include "RaidControl.h"
 #include "SimSettings.h"
-#include "Target.h"
 
 TestMarksmanship::TestMarksmanship(EquipmentDb* equipment_db):
     TestTalentTree(equipment_db, "MID")
@@ -13,15 +12,13 @@ TestMarksmanship::TestMarksmanship(EquipmentDb* equipment_db):
 void TestMarksmanship::set_up() {
     race = new Orc();
     sim_settings = new SimSettings();
-    target = new Target(63);
     raid_control = new RaidControl(sim_settings);
-    pchar = new Hunter(race, equipment_db, sim_settings, target, raid_control);
+    pchar = new Hunter(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestMarksmanship::tear_down() {
     delete pchar;
     delete race;
-    delete target;
     delete raid_control;
     delete sim_settings;
 }

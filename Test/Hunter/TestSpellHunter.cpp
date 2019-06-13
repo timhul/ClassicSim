@@ -20,7 +20,7 @@ TestSpellHunter::TestSpellHunter(EquipmentDb *equipment_db, QString spell_under_
 
 void TestSpellHunter::set_up(const bool prepare_combat_iterations) {
     set_up_general();
-    hunter = new Hunter(race, equipment_db, sim_settings, target, raid_control);
+    hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
     hunter->set_clvl(60);
     pchar = hunter;
     given_in_ranged_attack_mode();

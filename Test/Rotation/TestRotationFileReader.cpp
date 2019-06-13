@@ -13,7 +13,6 @@
 #include "RotationExecutor.h"
 #include "RotationFileReader.h"
 #include "SimSettings.h"
-#include "Target.h"
 #include "Utils/Check.h"
 #include "Warrior.h"
 
@@ -260,25 +259,22 @@ Rotation* TestRotationFileReader::get_rotation(const QString& name) const {
 void TestRotationFileReader::set_up_warrior() {
     this->race = new Orc();
     this->sim_settings = new SimSettings();
-    this->target = new Target(63);
     this->raid_control = new RaidControl(sim_settings);
-    this->warrior = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    this->warrior = new Warrior(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestRotationFileReader::set_up_hunter() {
     this->race = new Orc();
     this->sim_settings = new SimSettings();
-    this->target = new Target(63);
     this->raid_control = new RaidControl(sim_settings);
-    this->hunter = new Hunter(race, equipment_db, sim_settings, target, raid_control);
+    this->hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestRotationFileReader::set_up_paladin() {
     this->race = new Human();
     this->sim_settings = new SimSettings;
-    this->target = new Target(63);
     this->raid_control = new RaidControl(sim_settings);
-    this->paladin = new Paladin(race, equipment_db, sim_settings, target, raid_control);
+    this->paladin = new Paladin(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestRotationFileReader::tear_down() {
@@ -287,7 +283,6 @@ void TestRotationFileReader::tear_down() {
     delete warrior;
     delete race;
     delete sim_settings;
-    delete target;
     delete raid_control;
 
     hunter = nullptr;

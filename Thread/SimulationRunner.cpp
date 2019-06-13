@@ -13,7 +13,6 @@
 #include "Random.h"
 #include "SimControl.h"
 #include "SimSettings.h"
-#include "Target.h"
 
 SimulationRunner::SimulationRunner(unsigned thread_id, EquipmentDb* equipment_db, SimSettings* sim_settings, NumberCruncher* scaler, QObject* parent):
     QObject(parent),
@@ -44,7 +43,6 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     local_sim_settings->set_sim_options(global_sim_settings->get_active_options());
     local_sim_settings->set_combat_length(global_sim_settings->get_combat_length());
 
-    target = new Target(63);
     raid_control = new RaidControl(local_sim_settings);
 
     Random pchar_seeds(0, std::numeric_limits<unsigned>::max());
@@ -52,7 +50,7 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     for (const auto & setup_string: this->setup_strings) {
         CharacterDecoder decoder_pchar;
         decoder_pchar.initialize(setup_string);
-        CharacterLoader loader(equipment_db, local_sim_settings, target, raid_control, decoder_pchar);
+        CharacterLoader loader(equipment_db, local_sim_settings, raid_control, decoder_pchar);
         raid.append(loader.initialize_new());
 
         if (!loader.successful())
@@ -84,7 +82,6 @@ void SimulationRunner::run_sim(unsigned thread_id, QVector<QString> setup_string
     races.clear();
 
     delete local_sim_settings;
-    delete target;
     delete raid_control;
 
     emit result();
@@ -102,7 +99,6 @@ void SimulationRunner::exit_thread(QString err) {
         delete race;
 
     delete local_sim_settings;
-    delete target;
     delete raid_control;
     emit error(QString::number(thread_id), std::move(err));
     emit finished();

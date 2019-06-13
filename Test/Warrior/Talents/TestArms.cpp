@@ -4,7 +4,6 @@
 #include "Orc.h"
 #include "RaidControl.h"
 #include "SimSettings.h"
-#include "Target.h"
 #include "Warrior.h"
 
 TestArms::TestArms(EquipmentDb* equipment_db):
@@ -14,9 +13,8 @@ TestArms::TestArms(EquipmentDb* equipment_db):
 void TestArms::set_up() {
     race = new Orc();
     sim_settings = new SimSettings();
-    target = new Target(63);
     raid_control = new RaidControl(sim_settings);
-    pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestArms::tear_down() {
@@ -24,7 +22,6 @@ void TestArms::tear_down() {
     delete race;
     delete sim_settings;
     delete raid_control;
-    delete target;
 }
 
 void TestArms::test_spending_talent_points() {

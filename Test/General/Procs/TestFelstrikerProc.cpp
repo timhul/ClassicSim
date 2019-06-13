@@ -19,7 +19,7 @@ void TestFelstrikerProc::test_all() {
 
 void TestFelstrikerProc::set_up() {
     set_up_general();
-    pchar = new Warrior(race, equipment_db, sim_settings, target, raid_control);
+    pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestFelstrikerProc::tear_down() {

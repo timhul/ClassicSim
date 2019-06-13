@@ -5,7 +5,6 @@
 #include "Rogue.h"
 #include "SimSettings.h"
 #include "Subtlety.h"
-#include "Target.h"
 
 TestSubtlety::TestSubtlety(EquipmentDb* equipment_db):
     TestTalentTree(equipment_db, "RIGHT")
@@ -14,16 +13,14 @@ TestSubtlety::TestSubtlety(EquipmentDb* equipment_db):
 void TestSubtlety::set_up() {
     race = new Orc();
     sim_settings = new SimSettings();
-    target = new Target(63);
     raid_control = new RaidControl(sim_settings);
-    pchar = new Rogue(race, equipment_db, sim_settings, target, raid_control);
+    pchar = new Rogue(race, equipment_db, sim_settings, raid_control);
 }
 
 void TestSubtlety::tear_down() {
     delete pchar;
     delete race;
     delete sim_settings;
-    delete target;
     delete raid_control;
 }
 

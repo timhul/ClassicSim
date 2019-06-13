@@ -20,7 +20,7 @@ TestSpellRogue::TestSpellRogue(EquipmentDb *equipment_db, const QString& spell_u
 
 void TestSpellRogue::set_up(const bool prepare_combat_iterations) {
     set_up_general();
-    rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
+    rogue = new Rogue(race, equipment_db, sim_settings, raid_control);
     rogue->set_clvl(60);
     pchar = rogue;
 

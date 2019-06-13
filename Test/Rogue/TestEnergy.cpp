@@ -10,7 +10,7 @@ TestEnergy::TestEnergy(EquipmentDb* equipment_db) :
 
 void TestEnergy::set_up() {
     set_up_general();
-    rogue = new Rogue(race, equipment_db, sim_settings, target, raid_control);
+    rogue = new Rogue(race, equipment_db, sim_settings, raid_control);
     rogue->set_clvl(60);
     pchar = rogue;
 }

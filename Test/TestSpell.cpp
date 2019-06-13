@@ -35,7 +35,6 @@ TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
 void TestSpell::set_up_general() {
     race = new Orc();
     sim_settings = new SimSettings();
-    target = new Target(63);
     raid_control = new RaidControl(sim_settings);
     ignored_events.clear();
 }
@@ -43,7 +42,6 @@ void TestSpell::set_up_general() {
 void TestSpell::tear_down_general() {
     delete raid_control;
     delete sim_settings;
-    delete target;
     delete race;
     ignored_events.clear();
 }
