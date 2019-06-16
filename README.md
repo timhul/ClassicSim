@@ -40,7 +40,7 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-* Extra miss chance added according to blueposts.
+None (available release is up to date with the latest on master).
 
 # Q&A
 
