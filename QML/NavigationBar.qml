@@ -13,6 +13,7 @@ Rectangle {
     signal rotationClicked();
     signal settingsClicked();
     signal statisticsClicked();
+    signal raidSetupClicked()
 
     width: 150
 
@@ -163,6 +164,42 @@ Rectangle {
         }
 
         GradientSelectedButton {
+            id: raidSetupRect
+
+            gradientSelectedFrom: "#4f4f4f"
+            gradientSelectedTo: "#333333"
+
+            selected: parent.parent.state === "RAIDSETUP"
+
+            height: choiceHeight
+            width: parent.width
+
+            Text {
+                anchors.fill: parent
+
+                text: "Raid Setup"
+                color: root.colorFaction
+
+                font {
+                    family: fontFamily
+                    pointSize: fontSize
+                    bold: true
+                }
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            onSelectButtonClicked: {
+                if (parent.parent.state !== "RAIDSETUP") {
+                    parent.parent.state = "RAIDSETUP"
+                    raidSetupClicked()
+                }
+            }
+        }
+
+
+        GradientSelectedButton {
             id: statisticsRect
 
             gradientSelectedFrom: "#4f4f4f"
@@ -230,11 +267,6 @@ Rectangle {
                     settingsClicked()
                 }
             }
-        }
-
-
-        CharacterStats {
-            id: characterStats
         }
     }
 }

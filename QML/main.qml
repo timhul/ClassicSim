@@ -288,6 +288,7 @@ Window {
         onRotationClicked: { state = "ROTATION"; settings.changeActiveWindow(state) }
         onSettingsClicked: { state = "SETTINGS"; settings.changeActiveWindow(state) }
         onStatisticsClicked: { state = "STATISTICS"; settings.changeActiveWindow(state) }
+        onRaidSetupClicked: { state = "RAIDSETUP"; settings.changeActiveWindow(state) }
     }
 
     Rectangle {
