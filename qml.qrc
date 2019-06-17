@@ -723,5 +723,39 @@
         <file>QML/RaidSetup.qml</file>
         <file>QML/PartyMembers.qml</file>
         <file>QML/PartyMemberTemplates.qml</file>
+        <file>QML/Assets/mage/mage_arcane.jpg</file>
+        <file>QML/Assets/mage/mage_fire.jpg</file>
+        <file>QML/Assets/mage/mage_frost.jpg</file>
+        <file>QML/Assets/items/Inv_wand_01.png</file>
+        <file>QML/Assets/spell/Spell_arcane_arcaneresilience.png</file>
+        <file>QML/Assets/spell/Spell_frost_iceshock.png</file>
+        <file>QML/Assets/spell/Spell_holy_dispelmagic.png</file>
+        <file>QML/Assets/spell/Spell_nature_astralrecalgroup.png</file>
+        <file>QML/Assets/spell/Spell_nature_starfall.png</file>
+        <file>QML/Assets/spell/Spell_shadow_detectlesserinvisibility.png</file>
+        <file>QML/Assets/spell/Spell_shadow_siphonmana.png</file>
+        <file>QML/Assets/spell/Spell_shadow_teleport.png</file>
+        <file>QML/Assets/spell/Spell_fire_firearmor.png</file>
+        <file>QML/Assets/spell/Spell_fire_fireball02.png</file>
+        <file>QML/Assets/spell/Spell_fire_flare.png</file>
+        <file>QML/Assets/spell/Spell_fire_masterofelements.png</file>
+        <file>QML/Assets/spell/Spell_fire_meteorstorm.png</file>
+        <file>QML/Assets/spell/Spell_fire_selfdestruct.png</file>
+        <file>QML/Assets/spell/Spell_fire_soulburn.png</file>
+        <file>QML/Assets/spell/Spell_holy_excorcism_02.png</file>
+        <file>QML/Assets/spell/Spell_fire_fire.png</file>
+        <file>QML/Assets/spell/Spell_fire_flameshock.png</file>
+        <file>QML/Assets/spell/Spell_frost_chillingblast.png</file>
+        <file>QML/Assets/spell/Spell_frost_freezingbreath.png</file>
+        <file>QML/Assets/spell/Spell_frost_frost.png</file>
+        <file>QML/Assets/spell/Spell_frost_frostarmor.png</file>
+        <file>QML/Assets/spell/Spell_frost_frostbolt.png</file>
+        <file>QML/Assets/spell/Spell_frost_frostbolt02.png</file>
+        <file>QML/Assets/spell/Spell_frost_glacier.png</file>
+        <file>QML/Assets/spell/Spell_frost_icestorm.png</file>
+        <file>QML/Assets/spell/Spell_frost_wisp.png</file>
+        <file>QML/Assets/spell/Spell_ice_magicdamage.png</file>
+        <file>QML/Assets/spell/Spell_shadow_darkritual.png</file>
+        <file>QML/Assets/spell/Spell_frost_frostshock.png</file>
     </qresource>
 </RCC>

@@ -1,9 +1,14 @@
 #include "Mage.h"
 
+#include "Arcane.h"
 #include "CharacterStats.h"
+#include "CharacterTalents.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
+#include "Fire.h"
+#include "Frost.h"
+#include "MageEnchants.h"
 #include "MageSpells.h"
 #include "Mana.h"
 #include "RaidControl.h"
@@ -16,6 +21,7 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Rai
     available_races.append("Human");
     available_races.append("Troll");
     available_races.append("Undead");
+    available_enchants = new MageEnchants(this);
 
     set_clvl(60);
     this->cstats = new CharacterStats(this, equipment_db);
@@ -34,6 +40,8 @@ Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, Rai
     mana->set_base_mana(1273);
 
     mage_spells->activate_racials();
+
+    initialize_talents();
 }
 
 Mage::~Mage()
@@ -42,6 +50,7 @@ Mage::~Mage()
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
 
+    delete available_enchants;
     delete cstats;
     delete mage_spells;
     delete mana;
@@ -100,7 +109,8 @@ double Mage::global_cooldown() const {
 }
 
 void Mage::initialize_talents() {
-
+    for (int i = 0; i < 3; ++i)
+        talents->add_talent_tree(new class Arcane(this), new class Fire(this), new class Frost(this));
 }
 
 unsigned Mage::get_resource_level(const ResourceType) const {

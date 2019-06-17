@@ -16,4 +16,7 @@
 
 	<file path="Rotations/Shaman/Elemental.xml"/>
 	<file path="Rotations/Shaman/Stormstrike.xml"/>
+
+	<file path="Rotations/Mage/Fire.xml"/>
+	<file path="Rotations/Mage/Frost.xml"/>
 </paths>

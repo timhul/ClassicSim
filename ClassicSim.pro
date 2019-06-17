@@ -15,6 +15,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Mage/MageEnchants.cpp \
+    Class/Mage/TalentTrees/Arcane.cpp \
+    Class/Mage/TalentTrees/Fire.cpp \
+    Class/Mage/TalentTrees/Frost.cpp \
     Class/Paladin/Buffs/JudgementOfTheCrusader.cpp \
     Class/Paladin/Buffs/SanctityAuraBuff.cpp \
     Class/Paladin/Buffs/SealOfTheCrusaderBuff.cpp \
@@ -414,6 +418,10 @@ SOURCES += main.cpp \
 HEADERS += \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/UseItem.h \
+    Class/Mage/MageEnchants.h \
+    Class/Mage/TalentTrees/Arcane.h \
+    Class/Mage/TalentTrees/Fire.h \
+    Class/Mage/TalentTrees/Frost.h \
     Class/Paladin/Buffs/JudgementOfTheCrusader.h \
     Class/Paladin/Buffs/SanctityAuraBuff.h \
     Class/Paladin/Buffs/SealOfTheCrusaderBuff.h \
@@ -852,6 +860,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Rogue/TalentTrees/Combat \
     $$PWD/Class/Rogue/TalentTrees/Subtlety \
     $$PWD/Class/Mage \
+    $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \
     $$PWD/Class/Hunter \
     $$PWD/Class/Hunter/Buffs \
