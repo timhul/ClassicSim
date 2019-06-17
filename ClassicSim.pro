@@ -83,6 +83,10 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Mage/Talents/TestArcane.cpp \
+    Test/Mage/Talents/TestFire.cpp \
+    Test/Mage/Talents/TestFrost.cpp \
+    Test/Mage/TestMage.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
     Test/Paladin/Spells/TestMainhandAttackPaladin.cpp \
@@ -487,6 +491,10 @@ HEADERS += \
     Spells/SpellRankGroup.h \
     Spells/UniqueDebuff.h \
     Talent/CharacterTalents.h \
+    Test/Mage/Talents/TestArcane.h \
+    Test/Mage/Talents/TestFire.h \
+    Test/Mage/Talents/TestFrost.h \
+    Test/Mage/TestMage.h \
     Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \
     Test/Paladin/Spells/TestMainhandAttackPaladin.h \
@@ -912,6 +920,8 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Shaman/Procs \
     $$PWD/Test/Shaman/Spells \
     $$PWD/Test/Shaman/Talents \
+    $$PWD/Test/Mage \
+    $$PWD/Test/Mage/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Class/Common \
     $$PWD/Class/Common/Enchants \

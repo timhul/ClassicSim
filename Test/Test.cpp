@@ -38,6 +38,7 @@
 #include "TestConditionVariableBuiltin.h"
 #include "TestFelstrikerProc.h"
 #include "TestHunter.h"
+#include "TestMage.h"
 #include "TestMana.h"
 #include "TestMechanics.h"
 #include "TestPaladin.h"
@@ -85,6 +86,7 @@ void Test::test_all() {
     TestHunter(equipment_db).test_all();
     TestPaladin(equipment_db).test_all();
     TestShaman(equipment_db).test_all();
+    TestMage(equipment_db).test_all();
 
     TestFelstrikerProc(equipment_db).test_all();
 }
