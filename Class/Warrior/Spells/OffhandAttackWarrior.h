@@ -1,5 +1,4 @@
-#ifndef OFFHANDATTACKWARRIOR_H
-#define OFFHANDATTACKWARRIOR_H
+#pragma once
 
 #include "Spell.h"
 #include "OffhandAttack.h"
@@ -12,8 +11,6 @@ class WarriorSpells;
 class OffhandAttackWarrior: public OffhandAttack, public TalentRequirer {
 public:
     OffhandAttackWarrior(Warrior* pchar, WarriorSpells* spells);
-
-    void extra_attack() override;
 
 private:
     Warrior* warr;
@@ -30,5 +27,3 @@ private:
 
     void gain_rage(const double rage_gain);
 };
-
-#endif // OFFHANDATTACKWARRIOR_H

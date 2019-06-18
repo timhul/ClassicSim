@@ -53,8 +53,7 @@ void RogueSpells::oh_auto_attack(const int iteration) {
 }
 
 void RogueSpells::add_next_oh_attack() {
-    auto* new_event = new OffhandMeleeHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
-    rogue->get_engine()->add_event(new_event);
+    oh_attack->add_next_oh_attack();
 }
 
 OffhandAttack* RogueSpells::get_oh_attack() const {

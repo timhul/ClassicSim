@@ -1,11 +1,13 @@
 #include "OffhandAttack.h"
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "CooldownControl.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "OffhandMeleeHit.h"
 #include "Weapon.h"
 
 OffhandAttack::OffhandAttack(Character* pchar) :
@@ -28,7 +30,9 @@ OffhandAttack::~OffhandAttack() {
 }
 
 void OffhandAttack::extra_attack() {
+    complete_swing();
     calculate_damage();
+    add_next_oh_attack();
 }
 
 void OffhandAttack::spell_effect() {
@@ -102,6 +106,13 @@ void OffhandAttack::complete_swing() {
 
 void OffhandAttack::reset_swingtimer() {
     next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_oh_wpn_speed();
+    if (pchar->get_spells()->is_melee_attacking())
+        add_next_oh_attack();
+}
+
+void OffhandAttack::add_next_oh_attack() {
+    auto* new_event = new OffhandMeleeHit(pchar->get_spells(), get_next_expected_use(), get_next_iteration());
+    pchar->get_engine()->add_event(new_event);
 }
 
 bool OffhandAttack::attack_is_valid(const int iteration) const {

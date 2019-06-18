@@ -19,10 +19,6 @@ MainhandAttackWarrior::MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spel
     spells(spells)
 {}
 
-void MainhandAttackWarrior::extra_attack() {
-    calculate_damage();
-}
-
 void MainhandAttackWarrior::spell_effect() {
     complete_swing();
     const int result = calculate_damage();

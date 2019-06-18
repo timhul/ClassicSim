@@ -31,10 +31,6 @@ void OffhandAttackWarrior::decrease_talent_rank_effect(const QString&, const int
     offhand_penalty = talent_ranks[curr];
 }
 
-void OffhandAttackWarrior::extra_attack() {
-    calculate_damage();
-}
-
 void OffhandAttackWarrior::spell_effect() {
     complete_swing();
     const int result = calculate_damage();

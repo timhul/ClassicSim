@@ -13,6 +13,7 @@
 #include "MainhandAttack.h"
 #include "MultiShot.h"
 #include "OffhandAttack.h"
+#include "OffhandMeleeHit.h"
 #include "Pet.h"
 #include "RaidControl.h"
 #include "RangedHit.h"
@@ -88,8 +89,7 @@ void HunterSpells::add_next_oh_attack() {
     if (attack_mode != AttackMode::MeleeAttack)
         return;
 
-    auto* new_event = new RangedHit(this, oh_attack->get_next_expected_use(), oh_attack->get_next_iteration());
-    hunter->get_engine()->add_event(new_event);
+    oh_attack->add_next_oh_attack();
 }
 
 void HunterSpells::oh_auto_attack(const int iteration) {

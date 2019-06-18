@@ -1,5 +1,4 @@
-#ifndef OFFHANDATTACK_H
-#define OFFHANDATTACK_H
+#pragma once
 
 #include "Spell.h"
 #include "TalentRequirer.h"
@@ -16,8 +15,8 @@ public:
 
     void complete_swing();
     void reset_swingtimer();
-
-    virtual void extra_attack();
+    void add_next_oh_attack();
+    void extra_attack();
 
 protected:
     double next_expected_use;
@@ -32,5 +31,3 @@ protected:
 private:
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // OFFHANDATTACK_H

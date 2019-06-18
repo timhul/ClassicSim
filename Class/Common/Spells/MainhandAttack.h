@@ -1,5 +1,4 @@
-#ifndef MAINHANDATTACK_H
-#define MAINHANDATTACK_H
+#pragma once
 
 #include "Spell.h"
 
@@ -15,8 +14,8 @@ public:
 
     void complete_swing();
     void reset_swingtimer();
-
-    virtual void extra_attack();
+    void add_next_mh_attack();
+    void extra_attack();
 
 protected:
     double next_expected_use;
@@ -31,5 +30,3 @@ protected:
 private:
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // MAINHANDATTACK_H

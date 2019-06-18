@@ -14,7 +14,6 @@
 #include "Engine.h"
 #include "Equipment.h"
 #include "MainhandAttack.h"
-#include "MainhandMeleeHit.h"
 #include "ManaPotion.h"
 #include "NightDragonsBreath.h"
 #include "OffhandAttack.h"
@@ -276,8 +275,7 @@ void CharacterSpells::add_next_mh_attack() {
     if (attack_mode != AttackMode::MeleeAttack)
         return;
 
-    auto* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
-    pchar->get_engine()->add_event(new_event);
+    mh_attack->add_next_mh_attack();
 }
 
 void CharacterSpells::oh_auto_attack(const int) {

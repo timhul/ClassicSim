@@ -1,7 +1,5 @@
-#ifndef MAINHANDATTACKWARRIOR_H
-#define MAINHANDATTACKWARRIOR_H
+#pragma once
 
-#include "Spell.h"
 #include "MainhandAttack.h"
 
 class StatisticsResource;
@@ -11,8 +9,6 @@ class WarriorSpells;
 class MainhandAttackWarrior: public MainhandAttack {
 public:
     MainhandAttackWarrior(Warrior* pchar, WarriorSpells* spells);
-
-    void extra_attack() override;
 
 private:
     Warrior* warr;
@@ -25,5 +21,3 @@ private:
 
     void gain_rage(const double rage_gain);
 };
-
-#endif // MAINHANDATTACKWARRIOR_H

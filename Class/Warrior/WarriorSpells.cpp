@@ -149,13 +149,11 @@ void WarriorSpells::oh_auto_attack(const int iteration) {
 }
 
 void WarriorSpells::add_next_mh_attack() {
-    auto* new_event = new MainhandMeleeHit(this, get_mh_attack()->get_next_expected_use(), get_mh_attack()->get_next_iteration());
-    warr->get_engine()->add_event(new_event);
+    warr_mh_attack->add_next_mh_attack();
 }
 
 void WarriorSpells::add_next_oh_attack() {
-    auto* new_event = new OffhandMeleeHit(this, warr_oh_attack->get_next_expected_use(), warr_oh_attack->get_next_iteration());
-    warr->get_engine()->add_event(new_event);
+    warr_oh_attack->add_next_oh_attack();
 }
 
 MainhandAttack* WarriorSpells::get_mh_attack() const {

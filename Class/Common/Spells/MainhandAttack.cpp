@@ -1,11 +1,13 @@
 #include "MainhandAttack.h"
 
 #include "Character.h"
+#include "CharacterSpells.h"
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "CooldownControl.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "MainhandMeleeHit.h"
 #include "Weapon.h"
 
 MainhandAttack::MainhandAttack(Character* pchar) :
@@ -27,7 +29,9 @@ MainhandAttack::~MainhandAttack() {
 }
 
 void MainhandAttack::extra_attack() {
+    complete_swing();
     calculate_damage();
+    add_next_mh_attack();
 }
 
 void MainhandAttack::spell_effect() {
@@ -101,6 +105,13 @@ void MainhandAttack::complete_swing() {
 
 void MainhandAttack::reset_swingtimer() {
     next_expected_use = pchar->get_engine()->get_current_priority() + pchar->get_stats()->get_mh_wpn_speed();
+    if (pchar->get_spells()->is_melee_attacking())
+        add_next_mh_attack();
+}
+
+void MainhandAttack::add_next_mh_attack() {
+    auto* new_event = new MainhandMeleeHit(pchar->get_spells(), get_next_expected_use(), get_next_iteration());
+    pchar->get_engine()->add_event(new_event);
 }
 
 bool MainhandAttack::attack_is_valid(const int iteration) const {
