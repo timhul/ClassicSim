@@ -8,7 +8,6 @@
 #include "Hemorrhage.h"
 #include "MainhandAttack.h"
 #include "OffhandAttackRogue.h"
-#include "OffhandMeleeHit.h"
 #include "Rogue.h"
 #include "SinisterStrike.h"
 #include "SliceAndDice.h"
