@@ -41,6 +41,7 @@ upcoming releases.
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
 * Extra attack effects now reset the swing timer.
+* Blood Fury now scales with current strength and ap instead of base strength and ap.
 
 # Q&A
 

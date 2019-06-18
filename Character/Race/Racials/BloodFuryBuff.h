@@ -1,18 +1,14 @@
-#ifndef BLOODFURYBUFF_H
-#define BLOODFURYBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
 class BloodFuryBuff: public SelfBuff {
 public:
-    BloodFuryBuff(Character* pchar): SelfBuff(pchar, "Blood Fury", "Assets/races/Racial_orc_berserkerstrength.png", 15, 1)
-    {}
+    BloodFuryBuff(Character* pchar);
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 
-protected:
 private:
+    unsigned applied_ap {0};
 };
-
-#endif // BLOODFURYBUFF_H
