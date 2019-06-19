@@ -5,7 +5,7 @@
 #include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "Paladin.h"
 #include "Utils/Check.h"
 
@@ -14,11 +14,11 @@ Consecration::Consecration(Paladin* pchar,
                            const int spell_rank) :
     Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)}),
-    buff(new NoEffectBuff(pchar,
-                          8,
-                          QString("Consecration (rank %1)").arg(spell_rank),
-                          "Assets/spell/Spell_holy_innerfire.png",
-                          Hidden::No))
+    buff(new NoEffectSelfBuff(pchar,
+                              8,
+                              QString("Consecration (rank %1)").arg(spell_rank),
+                              "Assets/spell/Spell_holy_innerfire.png",
+                              Hidden::No))
 {
     this->enabled = false;
 

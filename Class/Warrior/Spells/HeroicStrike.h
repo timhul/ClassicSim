@@ -4,7 +4,7 @@
 #include "Spell.h"
 #include "TalentRequirer.h"
 
-class NoEffectBuff;
+class NoEffectSelfBuff;
 class Warrior;
 class WarriorSpells;
 
@@ -20,7 +20,7 @@ public:
 private:
     Warrior* warr;
     WarriorSpells* spells;
-    NoEffectBuff* hs_buff;
+    NoEffectSelfBuff* hs_buff;
     QVector<unsigned> spell_ranks;
     QVector<unsigned> talent_ranks;
     unsigned additional_dmg;

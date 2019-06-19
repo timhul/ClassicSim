@@ -3,7 +3,6 @@
 #include "Arms.h"
 #include "Equipment.h"
 #include "HeroicStrike.h"
-#include "NoEffectBuff.h"
 #include "Talent.h"
 #include "WarriorSpells.h"
 

@@ -2,7 +2,7 @@
 
 #include "CooldownControl.h"
 #include "Equipment.h"
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "Shaman.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
@@ -11,7 +11,7 @@
 WindfuryWeapon::WindfuryWeapon(Shaman* pchar, const int spell_rank) :
     Spell("Windfury Weapon", "Assets/spell/Spell_nature_cyclone.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Elemental Weapons", 3, DisabledAtZero::No)}),
-    buff(new NoEffectBuff(pchar, 300, QString("Windfury Weapon (rank %1)").arg(spell_rank), "Assets/spell/Spell_nature_cyclone.png", Hidden::No)),
+    buff(new NoEffectSelfBuff(pchar, 300, QString("Windfury Weapon (rank %1)").arg(spell_rank), "Assets/spell/Spell_nature_cyclone.png", Hidden::No)),
     proc(new WindfuryWeaponProc(pchar, spell_rank))
 {
     buff->link_proc_application(proc);

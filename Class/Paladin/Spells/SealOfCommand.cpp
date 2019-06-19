@@ -3,7 +3,7 @@
 #include "CharacterStats.h"
 #include "CombatRoll.h"
 #include "EnabledProcs.h"
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
 #include "Random.h"
@@ -14,7 +14,7 @@ SealOfCommand::SealOfCommand(Paladin* pchar) :
     PaladinSeal("Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", pchar,
                 RestrictedByGcd::Yes,
                 ResourceType::Mana, 65,
-                new NoEffectBuff(pchar, 30, "Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", Hidden::No)),
+                new NoEffectSelfBuff(pchar, 30, "Seal of Command", "Assets/ability/Ability_warrior_innerrage.png", Hidden::No)),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Seal of Command", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Benediction", 5, DisabledAtZero::No)}),
     proc(new SealOfCommandProc(pchar, this))
@@ -22,8 +22,8 @@ SealOfCommand::SealOfCommand(Paladin* pchar) :
     this->random = new Random(base_min_dmg, base_max_dmg);
     enabled = false;
     seal->disable_buff();
-    dynamic_cast<NoEffectBuff*>(seal)->link_proc_application(proc);
-    dynamic_cast<NoEffectBuff*>(seal)->link_proc_expiration(proc);
+    dynamic_cast<NoEffectSelfBuff*>(seal)->link_proc_application(proc);
+    dynamic_cast<NoEffectSelfBuff*>(seal)->link_proc_expiration(proc);
 }
 
 SealOfCommand::~SealOfCommand() {

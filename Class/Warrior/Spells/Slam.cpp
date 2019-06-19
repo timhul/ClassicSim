@@ -7,7 +7,6 @@
 #include "CooldownControl.h"
 #include "HeroicStrike.h"
 #include "MainhandAttack.h"
-#include "NoEffectBuff.h"
 #include "OffhandAttack.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"

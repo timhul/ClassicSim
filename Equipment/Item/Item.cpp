@@ -26,7 +26,7 @@
 #include "JomGabbar.h"
 #include "ManaDrainProc.h"
 #include "Nightfall.h"
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "SpellRankGroup.h"
 #include "Stats.h"
 #include "Target.h"
@@ -350,7 +350,7 @@ void Item::set_uses() {
             proc_sources.append(ProcInfo::Source::RangedAutoShot);
             proc_sources.append(ProcInfo::Source::RangedSpell);
             auto* proc = new ArmorPenetrationProc(pchar, name, icon, proc_sources, proc_rate, 200, 6, 30, REFRESH_DOES_NOT_EXTEND_DURATION);
-            auto* buff = new NoEffectBuff(pchar, 30);
+            auto* buff = new NoEffectSelfBuff(pchar, 30);
             buff->link_buff_expiration(proc->get_buff());
             proc->set_proc_requirement_buff(buff);
             spell = new UseTrinket(pchar, name, icon, 180, buff, proc);

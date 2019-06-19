@@ -5,7 +5,6 @@
 #include "Flurry.h"
 #include "LightningBolt.h"
 #include "MainhandAttack.h"
-#include "NoEffectBuff.h"
 #include "RaidControl.h"
 #include "Shaman.h"
 #include "Stormstrike.h"

@@ -1,13 +1,12 @@
-#ifndef NOEFFECTBUFF_H
-#define NOEFFECTBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
 class Proc;
 
-class NoEffectBuff: public SelfBuff {
+class NoEffectSelfBuff: public SelfBuff {
 public:
-    NoEffectBuff(Character* pchar,
+    NoEffectSelfBuff(Character* pchar,
                  const int duration,
                  const QString& name = "NO_NAME",
                  const QString& icon = NO_ICON,
@@ -28,5 +27,3 @@ private:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 };
-
-#endif // NOEFFECTBUFF_H

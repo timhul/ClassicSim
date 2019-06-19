@@ -4,7 +4,6 @@
 #include "CharacterStats.h"
 #include "ClassStatistics.h"
 #include "MainhandAttack.h"
-#include "NoEffectBuff.h"
 #include "ProcInfo.h"
 #include "Shaman.h"
 #include "StatisticsResource.h"

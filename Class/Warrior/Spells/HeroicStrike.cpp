@@ -5,7 +5,7 @@
 #include "CombatRoll.h"
 #include "CooldownControl.h"
 #include "MainhandAttackWarrior.h"
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
@@ -14,7 +14,7 @@ HeroicStrike::HeroicStrike(Warrior* pchar, WarriorSpells* spells) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Heroic Strike", 3, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
-    hs_buff(new NoEffectBuff(pchar, BuffDuration::PERMANENT))
+    hs_buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT))
 {
     hs_buff->enable_buff();
     spell_ranks = {11, 21, 32, 44, 58, 80, 111, 138, 157};

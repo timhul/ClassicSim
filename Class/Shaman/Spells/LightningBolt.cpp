@@ -6,7 +6,6 @@
 #include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
-#include "NoEffectBuff.h"
 #include "Random.h"
 #include "Shaman.h"
 #include "ShamanSpells.h"

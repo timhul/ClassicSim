@@ -4,7 +4,7 @@
 #include "TalentRequirer.h"
 
 class Buff;
-class NoEffectBuff;
+class NoEffectSelfBuff;
 class Shaman;
 class WindfuryWeaponProc;
 
@@ -16,7 +16,7 @@ public:
     Proc* get_proc() const;
 
 private:
-    NoEffectBuff* buff;
+    NoEffectSelfBuff* buff;
     WindfuryWeaponProc* proc;
 
     void prepare_set_of_combat_iterations_spell_specific() override;

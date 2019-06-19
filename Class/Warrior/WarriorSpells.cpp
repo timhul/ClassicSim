@@ -21,7 +21,7 @@
 #include "HeroicStrike.h"
 #include "MainhandAttackWarrior.h"
 #include "MortalStrike.h"
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "OffhandAttackWarrior.h"
 #include "Overpower.h"
 #include "RaidControl.h"
@@ -86,11 +86,11 @@ WarriorSpells::WarriorSpells(Warrior* pchar) :
     add_spell_group({warr_mh_attack});
     add_spell_group({warr_oh_attack});
 
-    this->battle_stance_buff = new NoEffectBuff(pchar, BuffDuration::PERMANENT, "Battle Stance");
+    this->battle_stance_buff = new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, "Battle Stance");
     this->berserker_stance_buff = new BerserkerStanceBuff(pchar);
     this->defensive_stance_buff = new DefensiveStanceBuff(pchar);
     this->flurry = new Flurry(pchar);
-    this->overpower_buff = new NoEffectBuff(pchar, 5, "Overpower");
+    this->overpower_buff = new NoEffectSelfBuff(pchar, 5, "Overpower");
     this->recklessness_buff = new RecklessnessBuff(pchar);
     battle_stance_buff->enable_buff();
     berserker_stance_buff->enable_buff();

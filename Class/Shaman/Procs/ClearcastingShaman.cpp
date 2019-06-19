@@ -1,6 +1,6 @@
 #include "ClearcastingShaman.h"
 
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "ProcInfo.h"
 #include "Shaman.h"
 #include "Utils/Check.h"
@@ -10,7 +10,7 @@ ClearcastingShaman::ClearcastingShaman(Shaman* pchar) :
          QVector<ProcInfo::Source>{ProcInfo::Source::Manual},
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Elemental Focus", 1, DisabledAtZero::Yes)}),
-    buff(new NoEffectBuff(pchar, BuffDuration::PERMANENT, name, icon, Hidden::No, Debuff::No, 1))
+    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, name, icon, Hidden::No, Debuff::No, 1))
 {
     this->enabled = false;
 }

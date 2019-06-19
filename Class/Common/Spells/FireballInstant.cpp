@@ -7,7 +7,7 @@
 #include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
-#include "NoEffectBuff.h"
+#include "NoEffectSelfBuff.h"
 #include "Random.h"
 #include "Utils/Check.h"
 
@@ -22,7 +22,7 @@ FireballInstant::FireballInstant(Character* pchar,
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           0),
-    fireball_dot(new NoEffectBuff(pchar, duration, QString("Fireball (%1)").arg(name), "Assets/spell/Spell_fire_flamebolt.png",
+    fireball_dot(new NoEffectSelfBuff(pchar, duration, QString("Fireball (%1)").arg(name), "Assets/spell/Spell_fire_flamebolt.png",
                                   Hidden::No, Debuff::Yes)),
     instant_dmg(new Random(instant_min, instant_max)),
     max_ticks(static_cast<unsigned>(round(static_cast<double>(duration) / 2.0))),

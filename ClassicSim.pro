@@ -13,6 +13,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
+    Class/Common/Buffs/NoEffectSelfBuff.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Mage/MageEnchants.cpp \
@@ -280,7 +281,6 @@ SOURCES += main.cpp \
     Class/Common/Buffs/FlatWeaponDamageBuff.cpp \
     Class/Common/Procs/GenericChargeConsumerProc.cpp \
     Class/Common/Spells/UseTrinket.cpp \
-    Class/Common/Buffs/NoEffectBuff.cpp \
     Class/Warrior/Spells/Rend.cpp \
     Test/Warrior/Spells/TestRend.cpp \
     Character/EnabledBuffs.cpp \
@@ -421,6 +421,7 @@ SOURCES += main.cpp \
     Test/Paladin/Talents/TestRetribution.cpp
 
 HEADERS += \
+    Class/Common/Buffs/NoEffectSelfBuff.h \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/UseItem.h \
     Class/Mage/MageEnchants.h \
@@ -701,7 +702,6 @@ HEADERS += \
     Class/Common/Buffs/FlatWeaponDamageBuff.h \
     Class/Common/Procs/GenericChargeConsumerProc.h \
     Class/Common/Spells/UseTrinket.h \
-    Class/Common/Buffs/NoEffectBuff.h \
     Class/Warrior/Spells/Rend.h \
     Test/Warrior/Spells/TestRend.h \
     Character/EnabledBuffs.h \
