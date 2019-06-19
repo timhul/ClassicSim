@@ -8,7 +8,7 @@ BloodFuryBuff::BloodFuryBuff(Character *pchar) :
 {}
 
 void BloodFuryBuff::buff_effect_when_applied() {
-    applied_ap = 160 + static_cast<unsigned>(round(pchar->get_stats()->get_strength() * pchar->get_melee_ap_per_strength() * 0.25));
+    applied_ap = static_cast<unsigned>(round((160 + pchar->get_stats()->get_strength() * pchar->get_melee_ap_per_strength()) * 0.25));
     pchar->get_stats()->increase_melee_ap(applied_ap);
 }
 

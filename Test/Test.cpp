@@ -33,6 +33,7 @@
 #include "Tauren.h"
 #include "Test/Target/TestTarget.h"
 #include "TestAttackTables.h"
+#include "TestBloodFury.h"
 #include "TestCharacterStats.h"
 #include "TestCombatRoll.h"
 #include "TestConditionVariableBuiltin.h"
@@ -80,6 +81,7 @@ void Test::test_all() {
     TestConditionVariableBuiltin(equipment_db).test_all();
     TestRotationFileReader().test_all();
     TestMana(equipment_db).test_all();
+    TestBloodFury(equipment_db).test_all();
 
     TestWarrior(equipment_db).test_all();
     TestRogue(equipment_db).test_all();

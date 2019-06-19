@@ -148,6 +148,7 @@ SOURCES += main.cpp \
     Equipment/EquipmentDb/ItemFileReader.cpp \
     Equipment/EquipmentDb/WeaponFileReader.cpp \
     Equipment/Item/Weapon.cpp \
+    Test/TestBloodFury.cpp \
     Test/TestCombatRoll.cpp \
     Test/Warrior/Spells/TestBattleShout.cpp \
     Test/Warrior/TestWarrior.cpp \
@@ -561,6 +562,7 @@ HEADERS += \
     Equipment/EquipmentDb/ItemFileReader.h \
     Equipment/EquipmentDb/WeaponFileReader.h \
     Equipment/Item/Weapon.h \
+    Test/TestBloodFury.h \
     Test/TestCombatRoll.h \
     Test/Warrior/Spells/TestBattleShout.h \
     Test/Warrior/TestWarrior.h \
