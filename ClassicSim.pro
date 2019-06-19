@@ -18,6 +18,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Mage/MageEnchants.cpp \
+    Class/Mage/Spells/Fireball.cpp \
     Class/Mage/TalentTrees/Arcane.cpp \
     Class/Mage/TalentTrees/Fire.cpp \
     Class/Mage/TalentTrees/Frost.cpp \
@@ -85,10 +86,12 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Mage/Spells/TestFireball.cpp \
     Test/Mage/Talents/TestArcane.cpp \
     Test/Mage/Talents/TestFire.cpp \
     Test/Mage/Talents/TestFrost.cpp \
     Test/Mage/TestMage.cpp \
+    Test/Mage/TestSpellMage.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
     Test/Paladin/Spells/TestJudgement.cpp \
     Test/Paladin/Spells/TestMainhandAttackPaladin.cpp \
@@ -427,6 +430,7 @@ HEADERS += \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/UseItem.h \
     Class/Mage/MageEnchants.h \
+    Class/Mage/Spells/Fireball.h \
     Class/Mage/TalentTrees/Arcane.h \
     Class/Mage/TalentTrees/Fire.h \
     Class/Mage/TalentTrees/Frost.h \
@@ -495,10 +499,12 @@ HEADERS += \
     Spells/SpellRankGroup.h \
     Spells/UniqueDebuff.h \
     Talent/CharacterTalents.h \
+    Test/Mage/Spells/TestFireball.h \
     Test/Mage/Talents/TestArcane.h \
     Test/Mage/Talents/TestFire.h \
     Test/Mage/Talents/TestFrost.h \
     Test/Mage/TestMage.h \
+    Test/Mage/TestSpellMage.h \
     Test/Paladin/Spells/TestConsecration.h \
     Test/Paladin/Spells/TestJudgement.h \
     Test/Paladin/Spells/TestMainhandAttackPaladin.h \
@@ -872,6 +878,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Rogue/TalentTrees/Combat \
     $$PWD/Class/Rogue/TalentTrees/Subtlety \
     $$PWD/Class/Mage \
+    $$PWD/Class/Mage/Spells \
     $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \
     $$PWD/Class/Hunter \
@@ -925,6 +932,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Test/Shaman/Spells \
     $$PWD/Test/Shaman/Talents \
     $$PWD/Test/Mage \
+    $$PWD/Test/Mage/Spells \
     $$PWD/Test/Mage/Talents \
     $$PWD/Test/Rotation \
     $$PWD/Class/Common \

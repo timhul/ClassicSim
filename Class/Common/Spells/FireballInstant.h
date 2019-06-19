@@ -13,7 +13,8 @@ public:
                     const unsigned instant_max,
                     const unsigned dmg_over_duration,
                     const int duration,
-                    const double spell_coefficient = 0.0);
+                    const double spell_coefficient = 0.0,
+                    const int spell_rank = 1);
     ~FireballInstant() override;
 
 private:

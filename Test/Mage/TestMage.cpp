@@ -7,6 +7,7 @@
 #include "SimSettings.h"
 #include "TestArcane.h"
 #include "TestFire.h"
+#include "TestFireball.h"
 #include "TestFrost.h"
 #include "Troll.h"
 
@@ -20,6 +21,8 @@ void TestMage::test_all() {
     TestArcane(equipment_db).test_all();
     TestFire(equipment_db).test_all();
     TestFrost(equipment_db).test_all();
+
+    TestFireball(equipment_db).test_all();
 }
 
 void TestMage::test_values_after_initialization() {

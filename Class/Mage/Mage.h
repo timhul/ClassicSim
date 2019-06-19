@@ -1,10 +1,8 @@
-#ifndef MAGE_H
-#define MAGE_H
+#pragma once
 
 #include "Character.h"
 
 class MageSpells;
-
 
 class Mage: public Character {
 public:
@@ -30,6 +28,11 @@ public:
 
     unsigned get_resource_level(const ResourceType) const override;
     unsigned get_max_resource_level(const ResourceType) const override;
+    void gain_mana(const unsigned value) override;
+    void lose_mana(const unsigned value) override;
+
+    void increase_base_mana(const unsigned value) override;
+    void decrease_base_mana(const unsigned value) override;
 
 private:
     MageSpells* mage_spells;
@@ -38,5 +41,3 @@ private:
     void initialize_talents() override;
     void reset_class_specific() override;
 };
-
-#endif // MAGE_H

@@ -121,6 +121,23 @@ unsigned Mage::get_max_resource_level(const ResourceType) const {
     return mana->max;
 }
 
+void Mage::gain_mana(const unsigned value) {
+    mana->gain_resource(value);
+    add_player_reaction_event();
+}
+
+void Mage::lose_mana(const unsigned value) {
+    mana->lose_resource(value);
+}
+
+void Mage::increase_base_mana(const unsigned value) {
+    mana->base_mana += value;
+}
+
+void Mage::decrease_base_mana(const unsigned value) {
+    mana->base_mana -= value;
+}
+
 int Mage::get_highest_possible_armor_type() const {
     return ArmorTypes::CLOTH;
 }

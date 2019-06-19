@@ -481,7 +481,7 @@ void Item::set_procs(const int eq_slot) {
         }
         else if (proc_name == "INSTANT_FIREBALL") {
             add_default_proc_sources(proc_sources, eq_slot);
-            Spell* spell = new FireballInstant(pchar, name,  i["min"].toUInt(), i["max"].toUInt(),
+            Spell* spell = new FireballInstant(pchar, QString(" (%1)").arg(name),  i["min"].toUInt(), i["max"].toUInt(),
                     i["dmg_over_duration"].toUInt(),  i["duration"].toInt());
             proc = new GenericSpellProc(pchar, name, icon, proc_sources, proc_rate, spell);
         }
