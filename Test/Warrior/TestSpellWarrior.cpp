@@ -20,6 +20,7 @@ TestSpellWarrior::TestSpellWarrior(EquipmentDb *equipment_db, QString spell_unde
 {}
 
 void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
+    should_prepare_combat = prepare_combat_iterations;
     set_up_general();
     warrior = new Warrior(race, equipment_db, sim_settings, raid_control);
     spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
@@ -27,7 +28,7 @@ void TestSpellWarrior::set_up(const bool prepare_combat_iterations) {
     warrior->gain_rage(100);
     pchar = warrior;
 
-    if (prepare_combat_iterations) {
+    if (should_prepare_combat) {
         raid_control->prepare_set_of_combat_iterations();
         pchar->prepare_set_of_combat_iterations();
     }
@@ -39,7 +40,7 @@ void TestSpellWarrior::tear_down() {
 }
 
 void TestSpellWarrior::run_class_specific_tests() {
-    set_up();
+    set_up(should_prepare_combat);
     test_stance_cooldown();
     tear_down();
 }

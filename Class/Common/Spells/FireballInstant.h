@@ -1,5 +1,4 @@
-#ifndef FIREBALLINSTANT_H
-#define FIREBALLINSTANT_H
+#pragma once
 
 #include "Spell.h"
 
@@ -13,7 +12,8 @@ public:
                     const unsigned instant_min,
                     const unsigned instant_max,
                     const unsigned dmg_over_duration,
-                    const int duration);
+                    const int duration,
+                    const double spell_coefficient = 0.0);
     ~FireballInstant() override;
 
 private:
@@ -24,10 +24,10 @@ private:
     const unsigned max_ticks;
     const double base_dmg_per_tick;
     unsigned num_ticks_left {0};
+    const double spell_coefficient;
 
     void spell_effect() override;
     void reset_effect() override;
     void perform_periodic() override;
+    void apply_fireball_dot();
 };
-
-#endif // FIREBALLINSTANT_H

@@ -1,5 +1,4 @@
-#ifndef TESTSPELLWARRIOR_H
-#define TESTSPELLWARRIOR_H
+#pragma once
 
 #include "TestSpellDamage.h"
 #include "Warrior.h"
@@ -39,8 +38,7 @@ public:
     void then_overpower_is_active();
 
 protected:
+    bool should_prepare_combat {true};
     Warrior* warrior {nullptr};
     WarriorSpells* spells {nullptr};
 };
-
-#endif // TESTSPELLWARRIOR_H

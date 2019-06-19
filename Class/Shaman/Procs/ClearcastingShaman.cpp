@@ -10,7 +10,7 @@ ClearcastingShaman::ClearcastingShaman(Shaman* pchar) :
          QVector<ProcInfo::Source>{ProcInfo::Source::Manual},
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Elemental Focus", 1, DisabledAtZero::Yes)}),
-    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, name, icon, Hidden::No, Debuff::No, 1))
+    buff(new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT, name, icon, Hidden::No, 1))
 {
     this->enabled = false;
 }

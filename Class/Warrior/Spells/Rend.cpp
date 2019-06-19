@@ -5,7 +5,7 @@
 #include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
-#include "NoEffectSelfBuff.h"
+#include "NoEffectUniqueDebuff.h"
 #include "Warrior.h"
 #include "WarriorSpells.h"
 
@@ -14,7 +14,7 @@ Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Rend", 3, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
-    buff(new NoEffectSelfBuff(pchar, 21, "Rend", "Assets/ability/Ability_gouge.png", Hidden::No, Debuff::Yes)),
+    buff(new NoEffectUniqueDebuff(pchar, 21, "Rend", "Assets/ability/Ability_gouge.png", Hidden::No)),
     damage_remaining(0),
     base_damage(147),
     period_tick(3.0),

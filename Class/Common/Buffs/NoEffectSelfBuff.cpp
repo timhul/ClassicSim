@@ -2,11 +2,10 @@
 
 #include "Proc.h"
 
-NoEffectSelfBuff::NoEffectSelfBuff(Character* pchar, const int duration, const QString &name, const QString &icon, const bool hidden, const bool debuff, const int charges):
+NoEffectSelfBuff::NoEffectSelfBuff(Character* pchar, const int duration, const QString &name, const QString &icon, const bool hidden, const int charges):
     SelfBuff(pchar, name, icon, duration, charges)
 {
     this->hidden = hidden;
-    this->affected = debuff ? Affected::Target : Affected::Self;
 }
 
 void NoEffectSelfBuff::link_buff_expiration(Buff* buff_to_cancel) {

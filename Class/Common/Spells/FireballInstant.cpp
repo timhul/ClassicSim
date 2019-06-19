@@ -7,7 +7,7 @@
 #include "CooldownControl.h"
 #include "DotTick.h"
 #include "Engine.h"
-#include "NoEffectSelfBuff.h"
+#include "NoEffectUniqueDebuff.h"
 #include "Random.h"
 #include "Utils/Check.h"
 
@@ -16,17 +16,18 @@ FireballInstant::FireballInstant(Character* pchar,
                                  const unsigned instant_min,
                                  const unsigned instant_max,
                                  const unsigned dmg_over_duration,
-                                 const int duration) :
+                                 const int duration,
+                                 const double spell_coefficient) :
     Spell(QString("Fireball (%1)").arg(name), "Assets/spell/Spell_fire_flamebolt.png", pchar,
           new CooldownControl(pchar, 0.0),
           RestrictedByGcd::Yes,
           ResourceType::Mana,
           0),
-    fireball_dot(new NoEffectSelfBuff(pchar, duration, QString("Fireball (%1)").arg(name), "Assets/spell/Spell_fire_flamebolt.png",
-                                  Hidden::No, Debuff::Yes)),
+    fireball_dot(new NoEffectUniqueDebuff(pchar, duration, QString("Fireball (%1)").arg(name), "Assets/spell/Spell_fire_flamebolt.png", Hidden::No)),
     instant_dmg(new Random(instant_min, instant_max)),
     max_ticks(static_cast<unsigned>(round(static_cast<double>(duration) / 2.0))),
-    base_dmg_per_tick(static_cast<double>(dmg_over_duration) / max_ticks)
+    base_dmg_per_tick(static_cast<double>(dmg_over_duration) / max_ticks),
+    spell_coefficient(spell_coefficient)
 {
     check((max_ticks > 0), "FireballInstant max ticks is zero");
 
@@ -51,16 +52,7 @@ void FireballInstant::spell_effect() {
     if (resist_roll == MagicResistResult::FULL_RESIST)
         return increment_full_resist();
 
-    fireball_dot->apply_buff();
-
-    if (num_ticks_left == 0) {
-        auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
-        this->engine->add_event(new_event);
-    }
-
-    num_ticks_left = max_ticks;
-
-    unsigned damage_dealt = instant_dmg->get_roll();
+    const unsigned damage_dealt = instant_dmg->get_roll() + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) * spell_coefficient));
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
     const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
 
@@ -75,6 +67,9 @@ void FireballInstant::spell_effect() {
 }
 
 void FireballInstant::perform_periodic() {
+    if (!fireball_dot->is_active())
+        return reset_effect();
+
     const double damage_dealt = (base_dmg_per_tick + damage_remaining) * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
     damage_remaining = round(damage_dealt);
 
@@ -86,6 +81,20 @@ void FireballInstant::perform_periodic() {
         auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
         this->engine->add_event(new_event);
     }
+}
+
+void FireballInstant::apply_fireball_dot() {
+    fireball_dot->apply_buff();
+
+    if (!fireball_dot->is_active())
+        return reset_effect();
+
+    if (num_ticks_left == 0) {
+        auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
+        this->engine->add_event(new_event);
+    }
+
+    num_ticks_left = max_ticks;
 }
 
 void FireballInstant::reset_effect() {

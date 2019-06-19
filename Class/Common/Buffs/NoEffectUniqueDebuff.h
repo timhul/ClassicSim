@@ -1,12 +1,12 @@
 #pragma once
 
-#include "SelfBuff.h"
+#include "UniqueDebuff.h"
 
 class Proc;
 
-class NoEffectSelfBuff: public SelfBuff {
+class NoEffectUniqueDebuff: public UniqueDebuff {
 public:
-    NoEffectSelfBuff(Character* pchar,
+    NoEffectUniqueDebuff(Character* pchar,
                  const int duration,
                  const QString& name = "NO_NAME",
                  const QString& icon = NO_ICON,
