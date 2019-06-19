@@ -112,6 +112,23 @@ unsigned Priest::get_max_resource_level(const ResourceType) const {
     return mana->max;
 }
 
+void Priest::gain_mana(const unsigned value) {
+    mana->gain_resource(value);
+    add_player_reaction_event();
+}
+
+void Priest::lose_mana(const unsigned value) {
+    mana->lose_resource(value);
+}
+
+void Priest::increase_base_mana(const unsigned value) {
+    mana->base_mana += value;
+}
+
+void Priest::decrease_base_mana(const unsigned value) {
+    mana->base_mana -= value;
+}
+
 int Priest::get_highest_possible_armor_type() const {
     return ArmorTypes::CLOTH;
 }

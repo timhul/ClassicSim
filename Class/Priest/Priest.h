@@ -1,10 +1,8 @@
-#ifndef PRIEST_H
-#define PRIEST_H
+#pragma once
 
 #include "Character.h"
 
 class PriestSpells;
-
 
 class Priest: public Character {
 public:
@@ -30,6 +28,11 @@ public:
 
     unsigned get_resource_level(const ResourceType) const override;
     unsigned get_max_resource_level(const ResourceType) const override;
+    void gain_mana(const unsigned value) override;
+    void lose_mana(const unsigned value) override;
+
+    void increase_base_mana(const unsigned value) override;
+    void decrease_base_mana(const unsigned value) override;
 
 private:
     PriestSpells* priest_spells;
@@ -38,5 +41,3 @@ private:
     void initialize_talents() override;
     void reset_class_specific() override;
 };
-
-#endif // PRIEST_H

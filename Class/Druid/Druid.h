@@ -1,10 +1,8 @@
-#ifndef DRUID_H
-#define DRUID_H
+#pragma once
 
 #include "Character.h"
 
 class DruidSpells;
-
 class Energy;
 class Mana;
 class Rage;
@@ -33,6 +31,11 @@ public:
 
     unsigned get_resource_level(const ResourceType) const override;
     unsigned get_max_resource_level(const ResourceType) const override;
+    void gain_mana(const unsigned value) override;
+    void lose_mana(const unsigned value) override;
+
+    void increase_base_mana(const unsigned value) override;
+    void decrease_base_mana(const unsigned value) override;
 
 private:
     DruidSpells* druid_spells;
@@ -45,5 +48,3 @@ private:
     void reset_class_specific() override;
     void reset_resource() override;
 };
-
-#endif // DRUID_H

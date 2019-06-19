@@ -133,6 +133,23 @@ unsigned Druid::get_max_resource_level(const ResourceType resource_type) const {
     }
 }
 
+void Druid::gain_mana(const unsigned value) {
+    mana->gain_resource(value);
+    add_player_reaction_event();
+}
+
+void Druid::lose_mana(const unsigned value) {
+    mana->lose_resource(value);
+}
+
+void Druid::increase_base_mana(const unsigned value) {
+    mana->base_mana += value;
+}
+
+void Druid::decrease_base_mana(const unsigned value) {
+    mana->base_mana -= value;
+}
+
 int Druid::get_highest_possible_armor_type() const {
     return ArmorTypes::LEATHER;
 }
