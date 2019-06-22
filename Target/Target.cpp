@@ -196,15 +196,9 @@ void Target::remove_debuff(Buff* debuff) {
     }
 }
 
-void Target::reset() {
-    for (const auto & debuffs_with_priority : debuffs) {
-        QVector<Buff*> temp_buffs(debuffs_with_priority);
-        for (const auto & debuff : temp_buffs)
-            debuff->reset();
-    }
+void Target::check_clean() {
+    for (const auto & priority_debuffs : debuffs)
+        check(priority_debuffs.empty(), "Target debuffs not properly cleared");
 
-    for (const auto & debuffs_with_priority : debuffs)
-        check(debuffs_with_priority.empty(), "Target debuffs not cleared after reset");
-
-    size_debuffs = 0;
+    check((size_debuffs == 0), "Target debuff size unexpectedly non-zero");
 }

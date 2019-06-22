@@ -83,12 +83,13 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
 
         raid_control->reset();
         raid_control->get_statistics()->finish_combat_iteration();
-        raid_control->get_target()->reset();
 
         for (const auto & pchar : raid) {
             pchar->reset();
             pchar->get_statistics()->finish_combat_iteration();
         }
+
+        raid_control->get_target()->check_clean();
 
         ++reported_iterations;
         if (reported_iterations % 10 == 0) {

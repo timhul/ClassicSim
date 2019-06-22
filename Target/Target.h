@@ -47,7 +47,7 @@ public:
 
     bool add_debuff(Buff* buff, const int priority);
     void remove_debuff(Buff* buff);
-    void reset();
+    void check_clean();
 
     double get_magic_school_damage_mod(const MagicSchool school) const;
     void increase_magic_school_damage_mod(const int increase, const MagicSchool school, Buff* buff = nullptr);
