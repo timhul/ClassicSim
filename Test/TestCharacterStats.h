@@ -1,5 +1,4 @@
-#ifndef TESTCHARACTERSTATS_H
-#define TESTCHARACTERSTATS_H
+#pragma once
 
 #include "TestObject.h"
 
@@ -13,8 +12,6 @@ class TestCharacterStats : TestObject {
 public:
     TestCharacterStats(EquipmentDb* equipment_db);
 
-    void set_up();
-    void tear_down();
     void test_all() override;
 
 private:
@@ -24,8 +21,10 @@ private:
     RaidControl* raid_control {nullptr};
     SimSettings* sim_settings {nullptr};
 
-    void test_values_after_initialization() override;
+    void set_up();
+    void tear_down();
 
+    void test_values_after_initialization() override;
     void test_attack_speed_multipliers_stacks_multiplicatively();
     void test_physical_damage_multipliers_stacks_multiplicatively();
     void test_physical_damage_taken_multipliers_stacks_multiplicatively();
@@ -38,5 +37,3 @@ private:
     void test_melee_and_ranged_attack_speed_modifiers_are_independent();
     void test_spell_school_damage_mods();
 };
-
-#endif // TESTCHARACTERSTATS_H
