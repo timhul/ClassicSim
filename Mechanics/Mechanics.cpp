@@ -7,15 +7,15 @@ Mechanics::Mechanics(Target* target):
     target(target)
 {}
 
-double Mechanics::get_yellow_miss_chance(const int clvl, const int wpn_skill) const {
+double Mechanics::get_yellow_miss_chance(const unsigned clvl, const unsigned wpn_skill) const {
     return get_2h_white_miss_chance(clvl, wpn_skill);
 }
 
-double Mechanics::get_dw_white_miss_chance(const int clvl, const int wpn_skill) const {
-    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+double Mechanics::get_dw_white_miss_chance(const unsigned clvl, const unsigned wpn_skill) const {
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
     const double base_miss = std::max(0.0, 0.24 + level_diff * 0.01);
 
-    const int t_defense_to_p_wpn_skill = target->get_defense() - static_cast<int>(wpn_skill);
+    const int t_defense_to_p_wpn_skill = static_cast<int>(target->get_defense()) - static_cast<int>(wpn_skill);
     if (t_defense_to_p_wpn_skill > 10)
         return base_miss + 0.01;
 
@@ -25,11 +25,11 @@ double Mechanics::get_dw_white_miss_chance(const int clvl, const int wpn_skill) 
     return base_miss;
 }
 
-double Mechanics::get_2h_white_miss_chance(const int clvl, const int wpn_skill) const {
-    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+double Mechanics::get_2h_white_miss_chance(const unsigned clvl, const unsigned wpn_skill) const {
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
     const double base_miss = std::max(0.0, 0.05 + level_diff * 0.01);
 
-    const int t_defense_to_p_wpn_skill = target->get_defense() - static_cast<int>(wpn_skill);
+    const int t_defense_to_p_wpn_skill = static_cast<int>(target->get_defense()) - static_cast<int>(wpn_skill);
     if (t_defense_to_p_wpn_skill > 10)
         return base_miss + 0.01;
 
@@ -39,9 +39,9 @@ double Mechanics::get_2h_white_miss_chance(const int clvl, const int wpn_skill) 
     return base_miss;
 }
 
-double Mechanics::get_glancing_blow_chance(const int clvl) const {
+double Mechanics::get_glancing_blow_chance(const unsigned clvl) const {
     // Non-melee classes do not follow this formula.
-    int level_diff = target->get_lvl() - clvl;
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
     if (level_diff < 0)
         return 0.0;
 
@@ -55,16 +55,16 @@ double Mechanics::get_dodge_chance(const unsigned clvl, const unsigned wpn_skill
     //
     // Note: the chosen implementation reduces the base dodge chance by 0.5% for each level
     // the player has over the target.
-    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
     const double base_dodge = std::max(0.0, 0.05 + level_diff * 0.005);
 
-    const int defense_diff = static_cast<int>(wpn_skill) - target->get_defense();
+    const int defense_diff = static_cast<int>(wpn_skill) - static_cast<int>(target->get_defense());
     if (defense_diff > 0)
         return base_dodge - defense_diff * 0.0004;
     return base_dodge;
 }
 
-double Mechanics::get_parry_chance(const int) const {
+double Mechanics::get_parry_chance(const unsigned) const {
     // CSIM-81: Add possibility to activate parry chance and have it affected by wpn skill.
     return 0.0;
 }
@@ -74,12 +74,13 @@ double Mechanics::get_block_chance() const {
     return 0.0;
 }
 
-double Mechanics::get_glancing_blow_dmg_penalty_min(const int clvl, const int wpn_skill) const {
-    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+double Mechanics::get_glancing_blow_dmg_penalty_min(const unsigned clvl, const unsigned wpn_skill) const {
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
     if (level_diff < 1)
         return 1.0;
 
-    const double glance_max_range_penalty = 1.3 - 0.05 * (target->get_defense() - wpn_skill);
+    const int t_defense_to_p_wpn_skill = static_cast<int>(target->get_defense()) - static_cast<int>(wpn_skill);
+    const double glance_max_range_penalty = 1.3 - 0.05 * t_defense_to_p_wpn_skill;
 
     if (glance_max_range_penalty < 0.55)
         return 0.55;
@@ -89,12 +90,13 @@ double Mechanics::get_glancing_blow_dmg_penalty_min(const int clvl, const int wp
     return glance_max_range_penalty;
 }
 
-double Mechanics::get_glancing_blow_dmg_penalty_max(const int clvl, const int wpn_skill) const {
-    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+double Mechanics::get_glancing_blow_dmg_penalty_max(const unsigned clvl, const unsigned wpn_skill) const {
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
     if (level_diff < 1)
         return 1.0;
 
-    const double glance_max_range_penalty = 1.2 - 0.03 * (target->get_defense() - wpn_skill);
+    const int t_defense_to_p_wpn_skill = static_cast<int>(target->get_defense()) - static_cast<int>(wpn_skill);
+    const double glance_max_range_penalty = 1.2 - 0.03 * t_defense_to_p_wpn_skill;
 
     if (glance_max_range_penalty < 0.75)
         return 0.75;
@@ -108,18 +110,18 @@ int Mechanics::get_boss_base_armor() {
     return 3750;
 }
 
-double Mechanics::get_reduction_from_armor(const int armor, const int clvl) {
+double Mechanics::get_reduction_from_armor(const int armor, const unsigned clvl) {
     return armor / (armor + 400 + 85 * (clvl + 4.5 * (clvl - 60)));
 }
 
 double Mechanics::get_melee_crit_suppression(const unsigned clvl) const {
-    const int level_diff = target->get_lvl() - static_cast<int>(clvl);
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
 
     return std::max(0.0, 0.01 * level_diff);
 }
 
-double Mechanics::get_spell_miss_chance_from_lvl_diff(const int clvl, const double spell_hit) const {
-    int level_diff = target->get_lvl() - clvl;
+double Mechanics::get_spell_miss_chance_from_lvl_diff(const unsigned clvl, const double spell_hit) const {
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
 
     if (level_diff < -2)
         return 0.01;

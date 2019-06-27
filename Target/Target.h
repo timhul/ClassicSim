@@ -1,5 +1,4 @@
-#ifndef TARGET_H
-#define TARGET_H
+#pragma once
 
 #include <QMap>
 #include <QString>
@@ -23,15 +22,15 @@ public:
         Undead
     };
 
-    Target(int target_lvl);
+    Target(const unsigned target_lvl);
     ~Target();
 
     Stats* get_stats() const;
 
-    int get_lvl() const;
-    void set_lvl(int);
+    unsigned get_lvl() const;
+    void set_lvl(const unsigned);
 
-    int get_defense() const;
+    unsigned get_defense() const;
 
     int get_armor() const;
     void increase_armor(const int);
@@ -55,7 +54,7 @@ public:
     void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school, Buff* buff = nullptr);
 
 private:
-    int target_lvl;
+    unsigned target_lvl;
     int base_armor;
     CreatureType target_type;
     Stats* stats;
@@ -71,5 +70,3 @@ private:
 
     bool remove_oldest_lowest_priority_debuff(const int up_to_priority);
 };
-
-#endif // TARGET_H

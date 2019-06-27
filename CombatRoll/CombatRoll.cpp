@@ -13,7 +13,7 @@
 #include "Target.h"
 #include "Utils/Check.h"
 
-CombatRoll::CombatRoll(Character *pchar):
+CombatRoll::CombatRoll(Character* pchar):
     pchar(pchar),
     target(pchar->get_target()),
     random(new Random(0, 9999)),
@@ -30,7 +30,7 @@ CombatRoll::~CombatRoll() {
     delete mechanics;
 }
 
-int CombatRoll::get_melee_hit_result(const int wpn_skill, const unsigned crit_mod) {
+int CombatRoll::get_melee_hit_result(const unsigned wpn_skill, const unsigned crit_mod) {
     const unsigned roll = random->get_roll();
 
     MeleeWhiteHitTable* attack_table = this->get_melee_white_table(wpn_skill);
@@ -38,7 +38,7 @@ int CombatRoll::get_melee_hit_result(const int wpn_skill, const unsigned crit_mo
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod));
 }
 
-int CombatRoll::get_melee_ability_result(const int wpn_skill,
+int CombatRoll::get_melee_ability_result(const unsigned wpn_skill,
                                          const unsigned crit_mod,
                                          const bool include_dodge,
                                          const bool include_parry,
@@ -51,7 +51,7 @@ int CombatRoll::get_melee_ability_result(const int wpn_skill,
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod), include_dodge, include_parry, include_block, include_miss);
 }
 
-int CombatRoll::get_ranged_hit_result(const int wpn_skill, const unsigned crit_chance) {
+int CombatRoll::get_ranged_hit_result(const unsigned wpn_skill, const unsigned crit_chance) {
     const unsigned roll = random->get_roll();
 
     RangedWhiteHitTable* attack_table = this->get_ranged_white_table(wpn_skill);
@@ -59,7 +59,7 @@ int CombatRoll::get_ranged_hit_result(const int wpn_skill, const unsigned crit_c
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_chance));
 }
 
-int CombatRoll::get_ranged_ability_result(const int wpn_skill, const unsigned crit_chance) {
+int CombatRoll::get_ranged_ability_result(const unsigned wpn_skill, const unsigned crit_chance) {
     return get_ranged_hit_result(wpn_skill, crit_chance);
 }
 
@@ -79,7 +79,7 @@ int CombatRoll::get_spell_resist_result(const MagicSchool school) {
     return attack_table->get_resist_outcome(roll);
 }
 
-int CombatRoll::get_pet_hit_result(const int wpn_skill, const unsigned crit_mod) {
+int CombatRoll::get_pet_hit_result(const unsigned wpn_skill, const unsigned crit_mod) {
     const unsigned roll = random->get_roll();
 
     MeleeWhiteHitTable* attack_table = this->get_pet_white_table(wpn_skill);
@@ -87,7 +87,7 @@ int CombatRoll::get_pet_hit_result(const int wpn_skill, const unsigned crit_mod)
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod));
 }
 
-int CombatRoll::get_pet_ability_result(const int wpn_skill, const unsigned crit_mod) {
+int CombatRoll::get_pet_ability_result(const unsigned wpn_skill, const unsigned crit_mod) {
     const unsigned roll = random->get_roll();
 
     MeleeSpecialTable* attack_table = this->get_pet_ability_table(wpn_skill);
@@ -95,7 +95,7 @@ int CombatRoll::get_pet_ability_result(const int wpn_skill, const unsigned crit_
     return attack_table->get_outcome(roll, get_suppressed_crit(crit_mod), true, true, true, true);
 }
 
-MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const int wpn_skill) {
+MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill) {
     if (melee_white_tables.contains(wpn_skill))
         return melee_white_tables[wpn_skill];
 
@@ -121,7 +121,7 @@ MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const int wpn_skill) {
     return table;
 }
 
-MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
+MeleeSpecialTable* CombatRoll::get_melee_special_table(const unsigned wpn_skill) {
     if (melee_special_tables.contains(wpn_skill))
         return melee_special_tables[wpn_skill];
 
@@ -141,7 +141,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const int wpn_skill) {
     return table;
 }
 
-RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const int wpn_skill) {
+RangedWhiteHitTable* CombatRoll::get_ranged_white_table(const unsigned wpn_skill) {
     if (ranged_white_tables.contains(wpn_skill))
         return ranged_white_tables[wpn_skill];
 
@@ -173,7 +173,7 @@ MagicAttackTable* CombatRoll::get_magic_attack_table(const MagicSchool school) {
     return table;
 }
 
-MeleeWhiteHitTable *CombatRoll::get_pet_white_table(const int wpn_skill) {
+MeleeWhiteHitTable* CombatRoll::get_pet_white_table(const unsigned wpn_skill) {
     if (pet_white_tables.contains(wpn_skill))
         return pet_white_tables[wpn_skill];
 
@@ -196,7 +196,7 @@ MeleeWhiteHitTable *CombatRoll::get_pet_white_table(const int wpn_skill) {
     return table;
 }
 
-MeleeSpecialTable *CombatRoll::get_pet_ability_table(const int wpn_skill) {
+MeleeSpecialTable* CombatRoll::get_pet_ability_table(const unsigned wpn_skill) {
     if (pet_special_tables.contains(wpn_skill))
         return pet_special_tables[wpn_skill];
 
@@ -213,17 +213,17 @@ MeleeSpecialTable *CombatRoll::get_pet_ability_table(const int wpn_skill) {
     return table;
 }
 
-double CombatRoll::get_white_miss_chance(const int wpn_skill) {
+double CombatRoll::get_white_miss_chance(const unsigned wpn_skill) {
     if (pchar->is_dual_wielding())
         return mechanics->get_dw_white_miss_chance(pchar->get_clvl(), wpn_skill);
     return mechanics->get_2h_white_miss_chance(pchar->get_clvl(), wpn_skill);
 }
 
-double CombatRoll::get_yellow_miss_chance(const int wpn_skill) {
+double CombatRoll::get_yellow_miss_chance(const unsigned wpn_skill) {
     return mechanics->get_yellow_miss_chance(pchar->get_clvl(), wpn_skill);
 }
 
-double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
+double CombatRoll::get_glancing_blow_dmg_penalty(const unsigned wpn_skill) {
     const double min = mechanics->get_glancing_blow_dmg_penalty_min(pchar->get_clvl(), wpn_skill);
     const double max = mechanics->get_glancing_blow_dmg_penalty_max(pchar->get_clvl(), wpn_skill);
 
@@ -238,14 +238,14 @@ double CombatRoll::get_glancing_blow_dmg_penalty(const int wpn_skill) {
 void CombatRoll::update_melee_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_melee_hit_chance();
     for (const auto & table: melee_special_tables) {
-        unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->get_wpn_skill()) * 10000));
+        unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->wpn_skill) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
         table->update_miss_chance(miss_chance);
     }
 
     for (const auto & table: melee_white_tables) {
-        unsigned miss_chance = static_cast<unsigned>(round(get_white_miss_chance(table->get_wpn_skill()) * 10000));
+        unsigned miss_chance = static_cast<unsigned>(round(get_white_miss_chance(table->wpn_skill) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
         table->update_miss_chance(miss_chance);
@@ -255,7 +255,7 @@ void CombatRoll::update_melee_miss_chance() {
 void CombatRoll::update_ranged_miss_chance() {
     const unsigned miss_reduction = pchar->get_stats()->get_ranged_hit_chance();
     for (const auto & table: ranged_white_tables) {
-        unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->get_wpn_skill()) * 10000));
+        unsigned miss_chance = static_cast<unsigned>(round(get_yellow_miss_chance(table->wpn_skill) * 10000));
 
         miss_chance = miss_reduction > miss_chance ? 0 : miss_chance - miss_reduction;
         table->update_miss_chance(miss_chance);
@@ -263,7 +263,7 @@ void CombatRoll::update_ranged_miss_chance() {
 }
 
 void CombatRoll::update_spell_miss_chance(const unsigned spell_hit) {
-    const int clvl = pchar->get_clvl();
+    const unsigned clvl = pchar->get_clvl();
     for (const auto & table : magic_attack_tables)
         table->update_miss_chance(clvl, spell_hit);
 }

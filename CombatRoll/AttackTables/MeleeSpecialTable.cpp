@@ -6,22 +6,18 @@
 #include "Utils/Check.h"
 
 MeleeSpecialTable::MeleeSpecialTable(Random* _rand,
-                                     const int wpn_skill,
+                                     const unsigned wpn_skill,
                                      const unsigned miss,
                                      const double dodge,
                                      const double parry,
                                      const double block):
-    random(_rand),
     wpn_skill(wpn_skill),
+    random(_rand),
     miss_range(miss)
 {
     update_dodge_chance(dodge);
     update_parry_chance(parry);
     update_block_chance(block);
-}
-
-int MeleeSpecialTable::get_wpn_skill() const {
-    return wpn_skill;
 }
 
 int MeleeSpecialTable::get_outcome(const unsigned roll,

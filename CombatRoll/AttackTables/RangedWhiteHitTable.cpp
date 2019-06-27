@@ -6,18 +6,14 @@
 #include "Utils/Check.h"
 
 RangedWhiteHitTable::RangedWhiteHitTable(Random *random,
-                                         const int wpn_skill,
+                                         const unsigned wpn_skill,
                                          const unsigned miss,
                                          const double block) :
-    random(random),
     wpn_skill(wpn_skill),
+    random(random),
     miss_range(miss)
 {
     update_block_chance(block);
-}
-
-int RangedWhiteHitTable::get_wpn_skill() const {
-    return wpn_skill;
 }
 
 int RangedWhiteHitTable::get_outcome(const unsigned roll,

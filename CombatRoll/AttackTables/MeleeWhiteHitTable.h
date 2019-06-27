@@ -1,5 +1,4 @@
-#ifndef MELEEWHITEHITTABLE_H
-#define MELEEWHITEHITTABLE_H
+#pragma once
 
 #include "PhysicalAttackResult.h"
 
@@ -8,7 +7,7 @@ class Random;
 class MeleeWhiteHitTable {
 public:
     MeleeWhiteHitTable(Random* random,
-                  const int wpn_skill,
+                  const unsigned wpn_skill,
                   const unsigned miss_range,
                   const double dodge,
                   const double parry,
@@ -28,11 +27,10 @@ public:
     void update_glancing_chance(const double glancing);
     void update_block_chance(const double block);
 
-    int get_wpn_skill() const;
+    const unsigned wpn_skill;
 
 private:
     Random* random;
-    const int wpn_skill;
 
     unsigned miss_range;
     unsigned dodge_range;
@@ -40,5 +38,3 @@ private:
     unsigned glancing_range;
     unsigned block_range;
 };
-
-#endif // MELEEWHITEHITTABLE_H

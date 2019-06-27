@@ -1,5 +1,4 @@
-#ifndef MELEESPECIALTABLE_H
-#define MELEESPECIALTABLE_H
+#pragma once
 
 #include "PhysicalAttackResult.h"
 
@@ -8,7 +7,7 @@ class Random;
 class MeleeSpecialTable {
 public:
     MeleeSpecialTable(Random* _rand,
-                      const int wpn_skill,
+                      const unsigned wpn_skill,
                       const unsigned miss_range,
                       const double dodge,
                       const double parry,
@@ -26,16 +25,13 @@ public:
     void update_parry_chance(const double parry);
     void update_block_chance(const double block);
 
-    int get_wpn_skill() const;
+    const unsigned wpn_skill;
 
 private:
     Random* random;
-    const int wpn_skill;
 
     unsigned miss_range;
     unsigned dodge_range;
     unsigned parry_range;
     unsigned block_range;
 };
-
-#endif // MELEESPECIALTABLE_H

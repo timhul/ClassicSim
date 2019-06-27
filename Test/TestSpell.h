@@ -1,5 +1,4 @@
-#ifndef TESTSPELL_H
-#define TESTSPELL_H
+#pragma once
 
 #include "TestUtils.h"
 
@@ -141,45 +140,45 @@ protected:
 
     Spell* get_max_rank_spell_by_name(const QString &name) const;
 
-    void set_melee_special_table_for_hit(const int wpn_skill);
-    void set_melee_special_table_for_crit(const int wpn_skill);
-    void set_melee_special_table_for_miss(const int wpn_skill);
-    void set_melee_special_table_for_dodge(const int wpn_skill);
-    void set_melee_special_table_for_parry(const int wpn_skill);
-    void set_melee_special_table_for_block(const int wpn_skill);
+    void set_melee_special_table_for_hit(const unsigned wpn_skill);
+    void set_melee_special_table_for_crit(const unsigned wpn_skill);
+    void set_melee_special_table_for_miss(const unsigned wpn_skill);
+    void set_melee_special_table_for_dodge(const unsigned wpn_skill);
+    void set_melee_special_table_for_parry(const unsigned wpn_skill);
+    void set_melee_special_table_for_block(const unsigned wpn_skill);
 
-    void set_melee_auto_table_for_hit(const int wpn_skill);
-    void set_melee_auto_table_for_glancing(const int wpn_skill);
-    void set_melee_auto_table_for_crit(const int wpn_skill);
-    void set_melee_auto_table_for_miss(const int wpn_skill);
-    void set_melee_auto_table_for_dodge(const int wpn_skill);
-    void set_melee_auto_table_for_parry(const int wpn_skill);
-    void set_melee_auto_table_for_block(const int wpn_skill);
+    void set_melee_auto_table_for_hit(const unsigned wpn_skill);
+    void set_melee_auto_table_for_glancing(const unsigned wpn_skill);
+    void set_melee_auto_table_for_crit(const unsigned wpn_skill);
+    void set_melee_auto_table_for_miss(const unsigned wpn_skill);
+    void set_melee_auto_table_for_dodge(const unsigned wpn_skill);
+    void set_melee_auto_table_for_parry(const unsigned wpn_skill);
+    void set_melee_auto_table_for_block(const unsigned wpn_skill);
 
-    void set_ranged_auto_table_for_hit(const int wpn_skill);
-    void set_ranged_auto_table_for_crit(const int wpn_skill);
-    void set_ranged_auto_table_for_miss(const int wpn_skill);
-    void set_ranged_auto_table_for_block(const int wpn_skill);
+    void set_ranged_auto_table_for_hit(const unsigned wpn_skill);
+    void set_ranged_auto_table_for_crit(const unsigned wpn_skill);
+    void set_ranged_auto_table_for_miss(const unsigned wpn_skill);
+    void set_ranged_auto_table_for_block(const unsigned wpn_skill);
 
-    void assert_melee_special_table_can_only_hit(const int wpn_skill);
-    void assert_melee_special_table_can_only_crit(const int wpn_skill);
-    void assert_melee_special_table_can_only_miss(const int wpn_skill);
-    void assert_melee_special_table_can_only_dodge(const int wpn_skill);
-    void assert_melee_special_table_can_only_parry(const int wpn_skill);
-    void assert_melee_special_table_can_only_block(const int wpn_skill);
+    void assert_melee_special_table_can_only_hit(const unsigned wpn_skill);
+    void assert_melee_special_table_can_only_crit(const unsigned wpn_skill);
+    void assert_melee_special_table_can_only_miss(const unsigned wpn_skill);
+    void assert_melee_special_table_can_only_dodge(const unsigned wpn_skill);
+    void assert_melee_special_table_can_only_parry(const unsigned wpn_skill);
+    void assert_melee_special_table_can_only_block(const unsigned wpn_skill);
 
-    void assert_melee_auto_table_can_only_hit(const int wpn_skill);
-    void assert_melee_auto_table_can_only_glance(const int wpn_skill);
-    void assert_melee_auto_table_can_only_crit(const int wpn_skill);
-    void assert_melee_auto_table_can_only_miss(const int wpn_skill);
-    void assert_melee_auto_table_can_only_dodge(const int wpn_skill);
-    void assert_melee_auto_table_can_only_parry(const int wpn_skill);
-    void assert_melee_auto_table_can_only_block(const int wpn_skill);
+    void assert_melee_auto_table_can_only_hit(const unsigned wpn_skill);
+    void assert_melee_auto_table_can_only_glance(const unsigned wpn_skill);
+    void assert_melee_auto_table_can_only_crit(const unsigned wpn_skill);
+    void assert_melee_auto_table_can_only_miss(const unsigned wpn_skill);
+    void assert_melee_auto_table_can_only_dodge(const unsigned wpn_skill);
+    void assert_melee_auto_table_can_only_parry(const unsigned wpn_skill);
+    void assert_melee_auto_table_can_only_block(const unsigned wpn_skill);
 
-    void assert_ranged_auto_table_can_only_hit(const int wpn_skill);
-    void assert_ranged_auto_table_can_only_crit(const int wpn_skill);
-    void assert_ranged_auto_table_can_only_miss(const int wpn_skill);
-    void assert_ranged_auto_table_can_only_block(const int wpn_skill);
+    void assert_ranged_auto_table_can_only_hit(const unsigned wpn_skill);
+    void assert_ranged_auto_table_can_only_crit(const unsigned wpn_skill);
+    void assert_ranged_auto_table_can_only_miss(const unsigned wpn_skill);
+    void assert_ranged_auto_table_can_only_block(const unsigned wpn_skill);
 
 private:
     void create_100_dmg_1h();
@@ -195,5 +194,3 @@ private:
     void create_10_sword_skill_ring();
     void create_15_sword_skill_ring();
 };
-
-#endif // TESTSPELL_H

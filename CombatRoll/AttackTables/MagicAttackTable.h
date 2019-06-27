@@ -1,5 +1,4 @@
-#ifndef MAGICATTACKTABLE_H
-#define MAGICATTACKTABLE_H
+#pragma once
 
 #include <math.h>
 
@@ -11,12 +10,12 @@ class Random;
 
 class MagicAttackTable {
 public:
-    MagicAttackTable(Mechanics* mechanics, Random* random, const int clvl, const unsigned spell_hit, const int target_res);
+    MagicAttackTable(Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const int target_res);
     ~MagicAttackTable() = default;
 
     int get_hit_outcome(const unsigned roll, const unsigned crit_chance) const;
     int get_resist_outcome(const unsigned roll) const;
-    void update_miss_chance(const int clvl, const unsigned spell_hit);
+    void update_miss_chance(const unsigned clvl, const unsigned spell_hit);
     void update_target_resistance(const int target_resistance);
 
 private:
@@ -32,5 +31,3 @@ private:
     unsigned partial_50;
     unsigned partial_25;
 };
-
-#endif // MAGICATTACKTABLE_H

@@ -8,7 +8,7 @@
 #include "Stats.h"
 #include "Utils/Check.h"
 
-Target::Target(int target_lvl):
+Target::Target(const unsigned target_lvl):
     target_lvl(target_lvl),
     base_armor(Mechanics::get_boss_base_armor()),
     target_type(CreatureType::Beast),
@@ -67,15 +67,15 @@ Stats* Target::get_stats() const {
     return stats;
 }
 
-int Target::get_lvl() const {
+unsigned Target::get_lvl() const {
     return target_lvl;
 }
 
-void Target::set_lvl(int new_tlvl) {
+void Target::set_lvl(const unsigned new_tlvl) {
     target_lvl = new_tlvl;
 }
 
-int Target::get_defense() const {
+unsigned Target::get_defense() const {
     return target_lvl * 5;
 }
 

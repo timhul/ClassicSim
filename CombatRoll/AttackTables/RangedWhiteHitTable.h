@@ -1,5 +1,4 @@
-#ifndef RANGEDWHITEHITTABLE_H
-#define RANGEDWHITEHITTABLE_H
+#pragma once
 
 #include "PhysicalAttackResult.h"
 
@@ -8,7 +7,7 @@ class Random;
 class RangedWhiteHitTable {
 public:
     RangedWhiteHitTable(Random* random,
-                        const int wpn_skill,
+                        const unsigned wpn_skill,
                         const unsigned miss,
                         const double block);
 
@@ -19,17 +18,13 @@ public:
 
     void update_miss_chance(const unsigned miss);
     void update_block_chance(const double block);
-
-    int get_wpn_skill() const;
-
     void update_ranges();
+
+    const unsigned wpn_skill;
 
 private:
     Random* random;
-    const int wpn_skill;
 
     unsigned miss_range;
     unsigned block_range;
 };
-
-#endif // RANGEDWHITEHITTABLE_H

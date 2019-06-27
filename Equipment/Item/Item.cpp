@@ -643,42 +643,42 @@ void Item::set_stat(const QString& key, const QString &value) {
         this->item_stat_values.insert(ItemStats::FlatWeaponDamage, value.toUInt());
     }
     else if (key == "AXE_SKILL") {
-        this->stats->increase_axe_skill(value.toInt());
+        this->stats->increase_axe_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Axes +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillAxe, value.toUInt());
     }
     else if (key == "DAGGER_SKILL") {
-        this->stats->increase_dagger_skill(value.toInt());
+        this->stats->increase_dagger_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Daggers +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillDagger, value.toUInt());
     }
     else if (key == "MACE_SKILL") {
-        this->stats->increase_mace_skill(value.toInt());
+        this->stats->increase_mace_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Maces +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillMace, value.toUInt());
     }
     else if (key == "SWORD_SKILL") {
-        this->stats->increase_sword_skill(value.toInt());
+        this->stats->increase_sword_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Swords +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
     }
     else if (key == "TWOHAND_SWORD_SKILL") {
-        this->stats->increase_sword_skill(value.toInt());
+        this->stats->increase_sword_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Two-handed Swords +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillSword, value.toUInt());
     }
     else if (key == "BOW_SKILL") {
-        this->stats->increase_bow_skill(value.toInt());
+        this->stats->increase_bow_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Bows +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillBow, value.toUInt());
     }
     else if (key == "CROSSBOW_SKILL") {
-        this->stats->increase_crossbow_skill(value.toInt());
+        this->stats->increase_crossbow_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Crossbows +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillCrossbow, value.toUInt());
     }
     else if (key == "GUN_SKILL") {
-        this->stats->increase_gun_skill(value.toInt());
+        this->stats->increase_gun_skill(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increased Guns +%1.").arg(value));
         this->item_stat_values.insert(ItemStats::SkillGun, value.toUInt());
     }
