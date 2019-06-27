@@ -4,27 +4,26 @@
 #include <QMap>
 
 class StatisticsEngine;
-enum class Events: int;
+enum class EventType: int;
 
-bool event_type(QPair<Events, unsigned> lhs, QPair<Events, unsigned> rhs);
-bool total(QPair<Events, unsigned> lhs, QPair<Events, unsigned> rhs);
+bool event_type(QPair<EventType, unsigned> lhs, QPair<EventType, unsigned> rhs);
+bool total(QPair<EventType, unsigned> lhs, QPair<EventType, unsigned> rhs);
 
 class StatisticsEngine {
 public:
     void reset();
 
-    void increment_event(Events event);
+    void increment_event(EventType event);
 
     void set_elapsed(const unsigned elapsed);
     unsigned get_elapsed() const;
     void add(const StatisticsEngine*);
 
-    static QString get_name_for_event(const Events event);
-    QList<QPair<Events, unsigned>> get_list_of_event_pairs() const;
+    QList<QPair<EventType, unsigned>> get_list_of_event_pairs() const;
 
 private:
     unsigned elapsed {0};
-    QMap<Events, unsigned> event_map;
+    QMap<EventType, unsigned> event_map;
 };
 
 #endif // STATISTICSENGINE_H

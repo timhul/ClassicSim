@@ -6,7 +6,7 @@
 
 class NumberCruncher;
 class StatisticsEngine;
-enum class Events: int;
+enum class EventType: int;
 enum class SortDirection: int;
 
 class EngineBreakdownSorting : public QObject {
@@ -48,7 +48,7 @@ private:
     unsigned total_events {0};
     unsigned time_in_combat {0};
     QMap<EngineBreakdownSorting::Methods, SortDirection> sorting_methods;
-    QList<QPair<Events, unsigned>> event_statistics;
+    QList<QPair<EventType, unsigned>> event_statistics;
 
     void select_new_method(const EngineBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;

@@ -3,7 +3,7 @@
 #include "Spell.h"
 
 DotTick::DotTick(Spell* spell, const double timestamp):
-    Event(Events::DotTick, timestamp, "DotTick"),
+    Event(EventType::DotTick, timestamp),
     spell(spell)
 {}
 

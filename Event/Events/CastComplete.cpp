@@ -4,7 +4,7 @@
 #include "SpellCastingTime.h"
 
 CastComplete::CastComplete(SpellCastingTime* spell, const double timestamp):
-    Event(Events::CastComplete, timestamp, "CastComplete"),
+    Event(EventType::CastComplete, timestamp),
     spell(spell)
 {}
 

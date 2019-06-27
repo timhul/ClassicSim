@@ -1,6 +1,7 @@
 #include "TestMana.h"
 
 #include "CharacterStats.h"
+#include "Event.h"
 #include "Hunter.h"
 #include "HunterSpells.h"
 #include "MultiShot.h"
@@ -25,14 +26,14 @@ void TestMana::test_all() {
 void TestMana::test_mana_gain_when_tick_is_within_5sr() {
     spend_mana();
 
-    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is(EventType::PlayerAction, "1.500");
     spend_mana();
 
     unsigned mana_before_tick = pchar->get_resource_level(ResourceType::Mana);
-    then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "2.100");
-    then_next_event_is("PlayerAction", "3.000");
-    then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "2.100");
+    then_next_event_is(EventType::PlayerAction, "3.000");
+    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
 
     unsigned gain_from_tick = pchar->get_resource_level(ResourceType::Mana) - mana_before_tick;
     // This will be zero until mp5 from gear is available.
@@ -43,16 +44,16 @@ void TestMana::test_mana_gain_when_tick_is_outside_5sr() {
     spend_mana();
     unsigned mana_before_tick = pchar->get_resource_level(ResourceType::Mana);
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
     assert((pchar->get_resource_level(ResourceType::Mana) - mana_before_tick) == 0);
-    then_next_event_is("PlayerAction", "2.100");
+    then_next_event_is(EventType::PlayerAction, "2.100");
 
-    then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
     assert((pchar->get_resource_level(ResourceType::Mana) - mana_before_tick) == 0);
-    then_next_event_is("PlayerAction", "4.100");
+    then_next_event_is(EventType::PlayerAction, "4.100");
 
-    then_next_event_is("ResourceGain", "6.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "6.000", RUN_EVENT);
 
     unsigned gain_from_tick = pchar->get_resource_level(ResourceType::Mana) - mana_before_tick;
     // [Mana gain] = floor((base_mp5 + mp5_from_spirit) / 5 * 2) + remainder
@@ -64,8 +65,8 @@ void TestMana::test_mana_gain_when_tick_is_outside_5sr() {
     // 0.92 = floor((15 + (74 / 5)) / 5 * 2)) - (15 + (74 / 5)) / 5 * 2)
 
     mana_before_tick = pchar->get_resource_level(ResourceType::Mana);
-    then_next_event_is("PlayerAction", "6.100");
-    then_next_event_is("ResourceGain", "8.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "6.100");
+    then_next_event_is(EventType::ResourceGain, "8.000", RUN_EVENT);
     gain_from_tick = pchar->get_resource_level(ResourceType::Mana) - mana_before_tick;
 
     // [12] = floor((15 + (74 / 5) + 0.92) / 5 * 2) + 0.0

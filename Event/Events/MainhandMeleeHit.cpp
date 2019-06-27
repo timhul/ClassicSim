@@ -3,7 +3,7 @@
 #include "CharacterSpells.h"
 
 MainhandMeleeHit::MainhandMeleeHit(CharacterSpells* spells, const double next_timestamp, const int iteration):
-    Event(Events::MainhandMeleeHit, next_timestamp, "MainhandMeleeHit"),
+    Event(EventType::MainhandMeleeHit, next_timestamp),
     spells(spells),
     iteration(iteration)
 {}

@@ -48,8 +48,8 @@ void TestWhirlwind::test_spell_cooldown() {
 
     when_whirlwind_is_performed();
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("PlayerAction", "10.000");
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::PlayerAction, "10.000");
 }
 
 void TestWhirlwind::test_whether_spell_causes_global_cooldown() {

@@ -3,6 +3,7 @@
 #include "CharacterStats.h"
 #include "Consecration.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "HolyPaladin.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
@@ -86,10 +87,10 @@ void TestConsecration::test_damage() {
 
     when_consecration_is_performed();
 
-    then_next_event_is("DotTick", "2.000", RUN_EVENT);
-    then_next_event_is("DotTick", "4.000", RUN_EVENT);
-    then_next_event_is("DotTick", "6.000", RUN_EVENT);
-    then_next_event_is("DotTick", "8.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
 
     // [Damage] = base_dmg + holy_spell_dmg * spell_coefficient
     // [417] = 384 + 100 * 0.33
@@ -108,10 +109,10 @@ void TestConsecration::test_damage_sanctity_aura() {
 
     when_consecration_is_performed();
 
-    then_next_event_is("DotTick", "3.500", RUN_EVENT);
-    then_next_event_is("DotTick", "5.500", RUN_EVENT);
-    then_next_event_is("DotTick", "7.500", RUN_EVENT);
-    then_next_event_is("DotTick", "9.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "3.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "5.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "7.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "9.500", RUN_EVENT);
 
     // [Damage] = (base_dmg + holy_spell_dmg * spell_coefficient) * holy_dmg_mod
     // [458] = (384 + 100 * 0.33) * 1.1

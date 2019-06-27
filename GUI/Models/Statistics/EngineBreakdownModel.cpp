@@ -1,5 +1,6 @@
 #include "EngineBreakdownModel.h"
 
+#include "Event.h"
 #include "NumberCruncher.h"
 #include "SortDirection.h"
 #include "StatisticsEngine.h"
@@ -98,10 +99,10 @@ QVariant EngineBreakdownModel::data(const QModelIndex & index, int role) const {
     if (index.row() < 0 || index.row() >= event_statistics.count())
         return QVariant();
 
-    QPair<Events, unsigned> event_to_num_handled = event_statistics[index.row()];
+    QPair<EventType, unsigned> event_to_num_handled = event_statistics[index.row()];
 
     if (role == EngineBreakdownSorting::ByEvent)
-        return StatisticsEngine::get_name_for_event(event_to_num_handled.first);
+        return Event::get_name_for_event_type(event_to_num_handled.first);
     if (role == EngineBreakdownSorting::ByPercentage)
         return QString::number(static_cast<double>(event_to_num_handled.second) / total_events  * 100, 'f', 2);
     if (role == EngineBreakdownSorting::ByTotal)

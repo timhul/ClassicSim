@@ -3,6 +3,7 @@
 #include "AimedShot.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "Marksmanship.h"
 #include "MultiShot.h"
 #include "Talent.h"
@@ -169,8 +170,8 @@ void TestAimedShot::test_dmg_affected_by_projectile_bonus() {
     hunter->set_projectile_dps(20.0);
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus + (projectile_dps * normalized_wpn_speed)
     // [956] = 100 + (2.8 * 1000 / 14) + 600 + (20 * 2.8)
@@ -195,8 +196,8 @@ void TestAimedShot::test_hit_dmg_0_of_5_ranged_weapon_specialization() {
     given_aimed_shot_is_enabled();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus
     // [900] = 100 + (2.8 * 1000 / 14) + 600
@@ -213,8 +214,8 @@ void TestAimedShot::test_hit_dmg_5_of_5_ranged_weapon_specialization() {
     given_5_of_5_ranged_weapon_specialization();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14) + flat_dmg_bonus) * total_phys_modifier
     // [945] = (100 + (2.8 * 1000 / 14) + 600) * 1.05
@@ -230,8 +231,8 @@ void TestAimedShot::test_crit_dmg_0_of_5_mortal_shots_0_of_5_slaying() {
     given_aimed_shot_is_enabled();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1800] = (100 + (2.8 * 1000 / 14) + 600) * 2.0
@@ -248,8 +249,8 @@ void TestAimedShot::test_crit_dmg_1_of_5_mortal_shots_0_of_5_slaying() {
     given_1_of_5_mortal_shots();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1854] = (100 + (2.8 * 1000 / 14) + 600) * 2.06
@@ -266,8 +267,8 @@ void TestAimedShot::test_crit_dmg_2_of_5_mortal_shots_0_of_5_slaying() {
     given_2_of_5_mortal_shots();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1908] = (100 + (2.8 * 1000 / 14) + 600) * 2.12
@@ -284,8 +285,8 @@ void TestAimedShot::test_crit_dmg_3_of_5_mortal_shots_0_of_5_slaying() {
     given_3_of_5_mortal_shots();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [1962] = (100 + (2.8 * 1000 / 14) + 600) * 2.18
@@ -302,8 +303,8 @@ void TestAimedShot::test_crit_dmg_4_of_5_mortal_shots_0_of_5_slaying() {
     given_4_of_5_mortal_shots();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [2016] = (100 + (2.8 * 1000 / 14) + 600) * 2.24
@@ -320,8 +321,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_0_of_5_slaying() {
     given_5_of_5_mortal_shots();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier
     // [2070] = (100 + (2.8 * 1000 / 14) + 600) * 2.30
@@ -340,8 +341,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_1_of_3_monster_slaying() {
     given_1_of_3_monster_slaying();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
     // [2100] = (100 + (2.8 * 1000 / 14) + 600) * 2.31 * 1.01
@@ -360,8 +361,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_2_of_3_monster_slaying() {
     given_2_of_3_monster_slaying();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
     // [2130] = (100 + (2.8 * 1000 / 14) + 600) * 2.32 * 1.02
@@ -380,8 +381,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_monster_slaying() {
     given_3_of_3_monster_slaying();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
     // [2160] = (100 + (2.8 * 1000 / 14) + 600) * 2.33 * 1.03
@@ -400,8 +401,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_1_of_3_humanoid_slaying() 
     given_1_of_3_humanoid_slaying();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
     // [2100] = (100 + (2.8 * 1000 / 14) + 600) * 2.31 * 1.01
@@ -420,8 +421,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_2_of_3_humanoid_slaying() 
     given_2_of_3_humanoid_slaying();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
     // [2130] = (100 + (2.8 * 1000 / 14) + 600) * 2.32 * 1.02
@@ -440,8 +441,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying() 
     given_3_of_3_humanoid_slaying();
 
     when_aimed_shot_is_performed();
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
 
     // [Damage] = (base_dmg + (normalized_wpn_speed * AP / 14)) + flat_dmg_bonus) * crit_dmg_modifier * total_phys_modifier
     // [2160] = (100 + (2.8 * 1000 / 14) + 600) * 2.33 * 1.03
@@ -452,10 +453,10 @@ void TestAimedShot::test_aimed_shot_adds_player_action_event_on_completion() {
     given_aimed_shot_is_enabled();
     when_aimed_shot_is_performed();
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("CastComplete", "3.000", RUN_EVENT);
-    then_next_event_is("RangedHit", "3.000");
-    then_next_event_is("PlayerAction", "3.100");
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000", RUN_EVENT);
+    then_next_event_is(EventType::RangedHit, "3.000");
+    then_next_event_is(EventType::PlayerAction, "3.100");
 }
 
 void TestAimedShot::test_aimed_shot_cast_in_progress_blocks_other_spells() {
@@ -562,7 +563,7 @@ void TestAimedShot::test_aimed_shot_cast_time_reduced_by_ranged_attack_speed_boo
 
     // [cast_time] = base_cast_time / ranged_attack_speed_mod
     // 1.000 = 3.000 / 3.0
-    then_next_event_is("CastComplete", "1.000");
+    then_next_event_is(EventType::CastComplete, "1.000");
 }
 
 void TestAimedShot::given_aimed_shot_is_enabled() {

@@ -4,7 +4,7 @@
 #include "Engine.h"
 
 EncounterEnd::EncounterEnd(Engine* engine, const int combat_length):
-    Event(Events::EncounterEnd, static_cast<double>(combat_length), "EncounterEnd"),
+    Event(EventType::EncounterEnd, static_cast<double>(combat_length)),
     engine(engine)
 {}
 

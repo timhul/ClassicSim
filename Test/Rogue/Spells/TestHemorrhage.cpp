@@ -72,7 +72,7 @@ void TestHemorrhage::test_whether_spell_causes_global_cooldown() {
     given_hemorrhage_is_enabled();
     when_hemorrhage_is_performed();
 
-    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is(EventType::PlayerAction, QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestHemorrhage::test_how_spell_observes_global_cooldown() {

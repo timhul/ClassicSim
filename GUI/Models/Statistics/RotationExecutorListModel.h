@@ -8,7 +8,7 @@ class ExecutorOutcome;
 class NumberCruncher;
 class RotationExecutorBreakdownModel;
 class StatisticsRotationExecutor;
-enum class Events: int;
+enum class EventType: int;
 
 class RotationExecutorListRoles : public QObject {
     Q_OBJECT

@@ -3,7 +3,7 @@
 #include "Pet.h"
 
 PetAction::PetAction(Pet* pet, const double timestamp):
-    Event(Events::PetAction, timestamp, "PetAction"),
+    Event(EventType::PetAction, timestamp),
     pet(pet)
 {}
 

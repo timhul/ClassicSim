@@ -3,6 +3,7 @@
 #include "CharacterStats.h"
 #include "DeathWish.h"
 #include "DeathWishBuff.h"
+#include "Event.h"
 #include "Fury.h"
 #include "Talent.h"
 
@@ -32,9 +33,9 @@ void TestDeathWish::test_spell_cooldown() {
 
     when_death_wish_is_performed();
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("BuffRemoval", "30.000");
-    then_next_event_is("PlayerAction", "180.000");
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::BuffRemoval, "30.000");
+    then_next_event_is(EventType::PlayerAction, "180.000");
 }
 
 void TestDeathWish::test_how_spell_observes_global_cooldown() {
@@ -52,7 +53,7 @@ void TestDeathWish::test_whether_spell_causes_global_cooldown() {
 
     when_death_wish_is_performed();
 
-    then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
+    then_next_event_is(EventType::PlayerAction, QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
 void TestDeathWish::test_resource_cost() {

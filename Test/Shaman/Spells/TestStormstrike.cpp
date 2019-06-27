@@ -37,8 +37,8 @@ void TestStormstrike::test_spell_cooldown() {
 
     when_stormstrike_is_performed();
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("PlayerAction", "12.000");
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::PlayerAction, "12.000");
 }
 
 void TestStormstrike::test_whether_spell_causes_global_cooldown() {

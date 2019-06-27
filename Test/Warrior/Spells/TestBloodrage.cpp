@@ -106,7 +106,7 @@ void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const unsigned expected
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (event->name != "ResourceGain") {
+        if (event->event_type != EventType::ResourceGain) {
             delete event;
             continue;
         }

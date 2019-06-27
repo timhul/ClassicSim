@@ -79,7 +79,7 @@ void TestSinisterStrike::test_whether_spell_causes_global_cooldown() {
     given_a_guaranteed_melee_ability_hit();
     when_sinister_strike_is_performed();
 
-    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is(EventType::PlayerAction, QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestSinisterStrike::test_how_spell_observes_global_cooldown() {

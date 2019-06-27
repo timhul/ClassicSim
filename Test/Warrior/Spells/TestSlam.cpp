@@ -83,8 +83,8 @@ void TestSlam::test_whether_spell_causes_global_cooldown() {
 
     slam()->perform();
 
-    then_next_event_is("CastComplete", "1.400");
-    then_next_event_is("PlayerAction", "1.500");
+    then_next_event_is(EventType::CastComplete, "1.400");
+    then_next_event_is(EventType::PlayerAction, "1.500");
 }
 
 void TestSlam::test_how_spell_observes_global_cooldown() {
@@ -248,10 +248,10 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
 
     pchar->get_spells()->start_attack();
 
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("PlayerAction", "0.100");
-    then_next_event_is("PlayerAction", "0.100");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "0.100");
+    then_next_event_is(EventType::PlayerAction, "0.100");
 
     given_engine_priority_at(1.0);
 
@@ -259,13 +259,13 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
     slam()->perform();
     assert(!pchar->get_spells()->is_melee_attacking());
 
-    then_next_event_is("MainhandMeleeHit", "2.000", RUN_EVENT);
-    then_next_event_is("CastComplete", "2.300", RUN_EVENT);
-    then_next_event_is("PlayerAction", "2.400");
-    then_next_event_is("PlayerAction", "2.500");
-    then_next_event_is("OffhandMeleeHit", "3.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "4.300");
-    then_next_event_is("OffhandMeleeHit", "5.300");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::CastComplete, "2.300", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "2.400");
+    then_next_event_is(EventType::PlayerAction, "2.500");
+    then_next_event_is(EventType::OffhandMeleeHit, "3.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "4.300");
+    then_next_event_is(EventType::OffhandMeleeHit, "5.300");
 }
 
 void TestSlam::given_1_of_5_improved_slam() {
@@ -333,7 +333,7 @@ void TestSlam::when_slam_is_performed() {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (event->name == "CastComplete") {
+        if (event->event_type == EventType::CastComplete) {
             event->act();
             delete event;
             break;

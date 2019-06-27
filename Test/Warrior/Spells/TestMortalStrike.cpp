@@ -46,8 +46,8 @@ void TestMortalStrike::test_spell_cooldown() {
 
     when_mortal_strike_is_performed();
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("PlayerAction", "6.000");
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::PlayerAction, "6.000");
 }
 
 void TestMortalStrike::test_whether_spell_causes_global_cooldown() {

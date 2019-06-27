@@ -4,7 +4,7 @@
 #include "EnabledBuffs.h"
 
 EncounterStart::EncounterStart(CharacterSpells* spells, EnabledBuffs* buffs):
-    Event(Events::EncounterStart, 0.0, "EncounterStart"),
+    Event(EventType::EncounterStart, 0.0),
     spells(spells),
     buffs(buffs)
 {}

@@ -4,6 +4,7 @@
 #include "BladeFlurry.h"
 #include "Combat.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
 #include "Talent.h"
@@ -45,8 +46,8 @@ void TestBladeFlurry::test_whether_spell_causes_global_cooldown() {
     given_1_of_1_blade_flurry();
     when_blade_flurry_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::PlayerAction, QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestBladeFlurry::test_how_spell_observes_global_cooldown() {
@@ -118,21 +119,21 @@ void TestBladeFlurry::test_attack_speed() {
     when_blade_flurry_is_performed();
 
     rogue->get_spells()->start_attack();
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.667", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "3.333", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "5.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "6.667", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "8.333", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "10.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "11.667", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "13.333", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "15.000", RUN_EVENT);
-    then_next_event_is("BuffRemoval", "15.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "16.667", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "17.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "19.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.667", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "3.333", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "5.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "6.667", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "8.333", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "10.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "11.667", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "13.333", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "15.000", RUN_EVENT);
+    then_next_event_is(EventType::BuffRemoval, "15.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "16.667", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "17.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "19.000");
 }
 
 void TestBladeFlurry::when_blade_flurry_is_performed() {

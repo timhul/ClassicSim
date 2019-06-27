@@ -3,7 +3,7 @@
 #include "CharacterSpells.h"
 
 RangedHit::RangedHit(CharacterSpells* spells, const double next_timestamp, const int iteration):
-    Event(Events::RangedHit, next_timestamp, "RangedHit"),
+    Event(EventType::RangedHit, next_timestamp),
     spells(spells),
     iteration(iteration)
 {}

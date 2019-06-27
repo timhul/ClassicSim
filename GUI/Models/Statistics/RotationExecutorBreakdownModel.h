@@ -8,7 +8,7 @@ class ExecutorOutcome;
 class NumberCruncher;
 class RotationExecutorListModel;
 class StatisticsRotationExecutor;
-enum class Events: int;
+enum class EventType: int;
 enum class SortDirection: int;
 
 class RotationExecutorBreakdownSorting : public QObject {

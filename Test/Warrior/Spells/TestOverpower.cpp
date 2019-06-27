@@ -55,8 +55,8 @@ void TestOverpower::test_spell_cooldown() {
 
     when_overpower_is_performed();
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("PlayerAction", "5.000");
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::PlayerAction, "5.000");
 }
 
 void TestOverpower::test_whether_spell_causes_global_cooldown() {

@@ -2,7 +2,7 @@
 
 #include <QString>
 
-enum class Events: int {
+enum class EventType: int {
     BuffRemoval,
     CastComplete,
     DotTick,
@@ -25,14 +25,16 @@ public:
     friend bool operator<=(const Event&, const Event&);
     friend bool operator>=(const Event&, const Event&);
 
-    Event(Events event_enum_val, const double priority, const QString& name);
+    Event(EventType event_type, const double priority);
     virtual ~Event() = default;
 
     virtual void act() = 0;
 
-    const Events event;
+    static QString get_name_for_event_type(const EventType event_type);
+    static QString get_name_for_event(const Event* event);
+
+    const EventType event_type;
     const double priority;
-    const QString name;
 };
 
 class Compare {

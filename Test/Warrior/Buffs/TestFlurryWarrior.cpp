@@ -141,9 +141,9 @@ void TestFlurryWarrior::test_has_15_second_duration() {
     when_flurry_is_applied();
 
     given_event_is_ignored("PlayerAction");
-    then_next_event_is("MainhandMeleeHit");
-    then_next_event_is("OffhandMeleeHit");
-    then_next_event_is("BuffRemoval", "15.000");
+    then_next_event_is(EventType::MainhandMeleeHit);
+    then_next_event_is(EventType::OffhandMeleeHit);
+    then_next_event_is(EventType::BuffRemoval, "15.000");
 }
 
 void TestFlurryWarrior::test_has_3_charges() {
@@ -163,11 +163,11 @@ void TestFlurryWarrior::test_attack_speed_increased_when_1_of_5_flurry_applied()
     warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "1.818");
-    then_next_event_is("MainhandMeleeHit", "2.727");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "1.818");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.727");
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied() {
@@ -179,11 +179,11 @@ void TestFlurryWarrior::test_attack_speed_increased_when_2_of_5_flurry_applied()
     warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "1.739");
-    then_next_event_is("MainhandMeleeHit", "2.609");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "1.739");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.609");
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied() {
@@ -195,11 +195,11 @@ void TestFlurryWarrior::test_attack_speed_increased_when_3_of_5_flurry_applied()
     warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "1.667");
-    then_next_event_is("MainhandMeleeHit", "2.500");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "1.667");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.500");
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied() {
@@ -211,11 +211,11 @@ void TestFlurryWarrior::test_attack_speed_increased_when_4_of_5_flurry_applied()
     warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "1.600");
-    then_next_event_is("MainhandMeleeHit", "2.400");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "1.600");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.400");
 }
 
 void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied() {
@@ -227,11 +227,11 @@ void TestFlurryWarrior::test_attack_speed_increased_when_5_of_5_flurry_applied()
     warrior->get_spells()->start_attack();
 
     given_event_is_ignored("PlayerAction");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("OffhandMeleeHit", "1.538");
-    then_next_event_is("MainhandMeleeHit", "2.308");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::OffhandMeleeHit, "1.538");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.308");
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed() {
@@ -244,16 +244,16 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_1_of_5_flurry_removed()
     when_performing_mh_attack();
     when_performing_oh_attack();
     when_flurry_is_applied();
-    then_next_event_is("OffhandMeleeHit", "1.818");
+    then_next_event_is(EventType::OffhandMeleeHit, "1.818");
     when_performing_oh_attack();
-    then_next_event_is("MainhandMeleeHit", "2.727");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.727");
     when_performing_mh_attack();
     when_flurry_is_removed();
 
     // updated swing = (curr_time - curr_expected_use) * haste_change
     // 3.727 = (2.727 - (1.818 * 2)) * 1.1
-    then_next_event_is("OffhandMeleeHit", "3.727");
-    then_next_event_is("MainhandMeleeHit", "5.727");
+    then_next_event_is(EventType::OffhandMeleeHit, "3.727");
+    then_next_event_is(EventType::MainhandMeleeHit, "5.727");
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed() {
@@ -266,16 +266,16 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_2_of_5_flurry_removed()
     when_performing_mh_attack();
     when_performing_oh_attack();
     when_flurry_is_applied();
-    then_next_event_is("OffhandMeleeHit", "1.739");
+    then_next_event_is(EventType::OffhandMeleeHit, "1.739");
     when_performing_oh_attack();
-    then_next_event_is("MainhandMeleeHit", "2.609");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.609");
     when_performing_mh_attack();
     when_flurry_is_removed();
 
     // updated swing = (curr_time - curr_expected_use) * haste_change
     // 3.609 = (2.609 - (1.739 * 2)) * 1.15
-    then_next_event_is("OffhandMeleeHit", "3.609");
-    then_next_event_is("MainhandMeleeHit", "5.609");
+    then_next_event_is(EventType::OffhandMeleeHit, "3.609");
+    then_next_event_is(EventType::MainhandMeleeHit, "5.609");
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed() {
@@ -288,16 +288,16 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_3_of_5_flurry_removed()
     when_performing_mh_attack();
     when_performing_oh_attack();
     when_flurry_is_applied();
-    then_next_event_is("OffhandMeleeHit", "1.667");
+    then_next_event_is(EventType::OffhandMeleeHit, "1.667");
     when_performing_oh_attack();
-    then_next_event_is("MainhandMeleeHit", "2.500");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.500");
     when_performing_mh_attack();
     when_flurry_is_removed();
 
     // updated swing = (curr_time - curr_expected_use) * haste_change
     // 3.5 = (2.500 - (1.667 * 2)) * 1.2
-    then_next_event_is("OffhandMeleeHit", "3.500");
-    then_next_event_is("MainhandMeleeHit", "5.500");
+    then_next_event_is(EventType::OffhandMeleeHit, "3.500");
+    then_next_event_is(EventType::MainhandMeleeHit, "5.500");
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed() {
@@ -310,16 +310,16 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_4_of_5_flurry_removed()
     when_performing_mh_attack();
     when_performing_oh_attack();
     when_flurry_is_applied();
-    then_next_event_is("OffhandMeleeHit", "1.600");
+    then_next_event_is(EventType::OffhandMeleeHit, "1.600");
     when_performing_oh_attack();
-    then_next_event_is("MainhandMeleeHit", "2.400");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.400");
     when_performing_mh_attack();
     when_flurry_is_removed();
 
     // updated swing = (curr_time - curr_expected_use) * haste_change
     // 3.400 = (2.400 - (1.600 * 2)) * 1.25
-    then_next_event_is("OffhandMeleeHit", "3.400");
-    then_next_event_is("MainhandMeleeHit", "5.400");
+    then_next_event_is(EventType::OffhandMeleeHit, "3.400");
+    then_next_event_is(EventType::MainhandMeleeHit, "5.400");
 }
 
 void TestFlurryWarrior::test_attack_speed_decreased_when_5_of_5_flurry_removed() {
@@ -332,16 +332,16 @@ void TestFlurryWarrior::test_attack_speed_decreased_when_5_of_5_flurry_removed()
     when_performing_mh_attack();
     when_performing_oh_attack();
     when_flurry_is_applied();
-    then_next_event_is("OffhandMeleeHit", "1.538");
+    then_next_event_is(EventType::OffhandMeleeHit, "1.538");
     when_performing_oh_attack();
-    then_next_event_is("MainhandMeleeHit", "2.308");
+    then_next_event_is(EventType::MainhandMeleeHit, "2.308");
     when_performing_mh_attack();
     when_flurry_is_removed();
 
     // updated swing = (curr_time - curr_expected_use) * haste_change
     // 3.308 = (2.308 - (1.538 * 2)) * 1.3
-    then_next_event_is("OffhandMeleeHit", "3.308");
-    then_next_event_is("MainhandMeleeHit", "5.308");
+    then_next_event_is(EventType::OffhandMeleeHit, "3.308");
+    then_next_event_is(EventType::MainhandMeleeHit, "5.308");
 }
 
 void TestFlurryWarrior::test_critical_mh_attack_applies_flurry() {

@@ -3,7 +3,7 @@
 #include "Spell.h"
 
 ResourceGain::ResourceGain(Spell* spell, const double timestamp):
-    Event(Events::ResourceGain, timestamp, "ResourceGain"),
+    Event(EventType::ResourceGain, timestamp),
     spell(spell)
 {}
 

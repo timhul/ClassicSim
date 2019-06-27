@@ -3,6 +3,7 @@
 #include "Assassination.h"
 #include "Backstab.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
 #include "Talent.h"
@@ -74,8 +75,8 @@ void TestSliceAndDice::test_whether_spell_causes_global_cooldown() {
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::PlayerAction, QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestSliceAndDice::test_how_spell_observes_global_cooldown() {
@@ -181,11 +182,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_1_combo_points() {
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "9.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "9.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
@@ -196,11 +197,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_2_combo_points() {
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "12.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "12.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
@@ -211,11 +212,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_3_combo_points() {
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "15.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "15.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
@@ -226,11 +227,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_4_combo_points() {
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "18.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "18.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
@@ -241,11 +242,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "21.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "21.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_of_3_imp_snd() {
@@ -257,11 +258,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "24.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "24.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_of_3_imp_snd() {
@@ -273,11 +274,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "27.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "27.000");
 }
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_of_3_imp_snd() {
@@ -289,11 +290,11 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_
 
     when_slice_and_dice_is_performed();
 
-    then_next_event_is("MainhandMeleeHit", "0.000");
-    then_next_event_is("MainhandMeleeHit", "0.000", RUN_EVENT);
-    then_next_event_is("MainhandMeleeHit", "1.538");
-    then_next_event_is("ResourceGain", "2.000");
-    then_next_event_is("BuffRemoval", "30.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000");
+    then_next_event_is(EventType::MainhandMeleeHit, "0.000", RUN_EVENT);
+    then_next_event_is(EventType::MainhandMeleeHit, "1.538");
+    then_next_event_is(EventType::ResourceGain, "2.000");
+    then_next_event_is(EventType::BuffRemoval, "30.000");
 }
 
 void TestSliceAndDice::given_1_of_3_imp_snd() {

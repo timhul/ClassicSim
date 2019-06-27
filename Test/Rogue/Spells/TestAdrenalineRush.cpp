@@ -4,6 +4,7 @@
 #include "Backstab.h"
 #include "Combat.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "MainhandAttack.h"
 #include "RogueSpells.h"
 #include "Talent.h"
@@ -45,7 +46,7 @@ void TestAdrenalineRush::test_whether_spell_causes_global_cooldown() {
     given_1_of_1_adrenaline_rush();
     when_adrenaline_rush_is_performed();
 
-    then_next_event_is("PlayerAction", QString::number(rogue->global_cooldown(), 'f', 3));
+    then_next_event_is(EventType::PlayerAction, QString::number(rogue->global_cooldown(), 'f', 3));
 }
 
 void TestAdrenalineRush::test_how_spell_observes_global_cooldown() {
@@ -115,39 +116,39 @@ void TestAdrenalineRush::test_tick_rate_over_entire_duration() {
 
     when_adrenaline_rush_is_performed();
 
-    then_next_event_is("ResourceGain", "2.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
     then_rogue_has_energy(40);
 
-    then_next_event_is("ResourceGain", "4.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
     then_rogue_has_energy(80);
 
-    then_next_event_is("ResourceGain", "6.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "6.000", RUN_EVENT);
     then_rogue_has_energy(100);
 
     given_rogue_has_energy(0);
 
-    then_next_event_is("ResourceGain", "8.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "8.000", RUN_EVENT);
     then_rogue_has_energy(40);
 
-    then_next_event_is("ResourceGain", "10.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "10.000", RUN_EVENT);
     then_rogue_has_energy(80);
 
-    then_next_event_is("ResourceGain", "12.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "12.000", RUN_EVENT);
     then_rogue_has_energy(100);
 
     given_rogue_has_energy(0);
 
-    then_next_event_is("ResourceGain", "14.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "14.000", RUN_EVENT);
     then_rogue_has_energy(40);
 
-    then_next_event_is("BuffRemoval", "15.000", RUN_EVENT);
-    then_next_event_is("ResourceGain", "16.000", RUN_EVENT);
+    then_next_event_is(EventType::BuffRemoval, "15.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "16.000", RUN_EVENT);
     then_rogue_has_energy(60);
 
-    then_next_event_is("ResourceGain", "18.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "18.000", RUN_EVENT);
     then_rogue_has_energy(80);
 
-    then_next_event_is("ResourceGain", "20.000", RUN_EVENT);
+    then_next_event_is(EventType::ResourceGain, "20.000", RUN_EVENT);
     then_rogue_has_energy(100);
 }
 

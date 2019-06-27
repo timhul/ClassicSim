@@ -3,7 +3,7 @@
 #include "Buff.h"
 
 BuffRemoval::BuffRemoval(Buff* buff, const double timestamp, const int iteration):
-    Event(Events::BuffRemoval, timestamp, "BuffRemoval"),
+    Event(EventType::BuffRemoval, timestamp),
     buff(buff),
     iteration(iteration)
 {}

@@ -3,7 +3,7 @@
 #include "Pet.h"
 
 PetMeleeHit::PetMeleeHit(Pet* pet, const int iteration, const double timestamp):
-    Event(Events::PetMeleeHit, timestamp, "PetMeleeHit"),
+    Event(EventType::PetMeleeHit, timestamp),
     pet(pet),
     iteration(iteration)
 {}

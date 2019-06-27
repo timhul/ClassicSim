@@ -56,14 +56,14 @@ void TestRend::test_spell_cooldown() {
 
     when_rend_is_performed();
 
-    then_next_event_is("PlayerAction", "1.500");
-    then_next_event_is("DotTick", "3.000", RUN_EVENT);
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::DotTick, "3.000", RUN_EVENT);
     assert(rend()->get_spell_status() == SpellStatus::Available);
-    then_next_event_is("DotTick", "6.000", RUN_EVENT);
-    then_next_event_is("DotTick", "9.000", RUN_EVENT);
-    then_next_event_is("DotTick", "12.000", RUN_EVENT);
-    then_next_event_is("DotTick", "15.000", RUN_EVENT);
-    then_next_event_is("DotTick", "18.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "9.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "12.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "15.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "18.000", RUN_EVENT);
 }
 
 void TestRend::test_whether_spell_causes_global_cooldown() {
@@ -73,7 +73,7 @@ void TestRend::test_whether_spell_causes_global_cooldown() {
     when_rend_is_performed();
     assert(warrior->on_global_cooldown());
 
-    then_next_event_is("PlayerAction", QString::number(warrior->global_cooldown(), 'f', 3));
+    then_next_event_is(EventType::PlayerAction, QString::number(warrior->global_cooldown(), 'f', 3));
 }
 
 void TestRend::test_how_spell_observes_global_cooldown() {
@@ -252,7 +252,7 @@ void TestRend::then_rend_damage_dealt_is(const int damage_dealt) {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (event->name != "DotTick") {
+        if (event->event_type != EventType::DotTick) {
             delete event;
             continue;
         }

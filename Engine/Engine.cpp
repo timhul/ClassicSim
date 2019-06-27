@@ -20,7 +20,7 @@ void Engine::run() {
     while (!queue->empty()) {
         Event* event = queue->get_next();
         set_current_priority(event);
-        engine_statistics->increment_event(event->event);
+        engine_statistics->increment_event(event->event_type);
         event->act();
         delete event;
     }

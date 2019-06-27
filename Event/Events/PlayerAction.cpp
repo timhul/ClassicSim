@@ -3,7 +3,7 @@
 #include "CharacterSpells.h"
 
 PlayerAction::PlayerAction(CharacterSpells* spells, const double timestamp):
-    Event(Events::PlayerAction, timestamp, "PlayerAction"),
+    Event(EventType::PlayerAction, timestamp),
     spells(spells)
 {}
 
