@@ -1,5 +1,4 @@
-#ifndef TESTTARGET_H
-#define TESTTARGET_H
+#pragma once
 
 #include "TestObject.h"
 
@@ -11,7 +10,7 @@ public:
     void test_all() override;
 
 private:
-    Target* target;
+    Target* target {nullptr};
 
     void set_up();
     void tear_down();
@@ -22,5 +21,3 @@ private:
     void test_armor_never_reduced_below_zero();
     void test_armor_increase_does_not_increase_armor_if_other_effects_outweigh();
 };
-
-#endif // TESTTARGET_H

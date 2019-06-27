@@ -8,10 +8,7 @@
 #include "Utils/CompareDouble.h"
 
 Mana::Mana(Character* pchar) :
-    RegeneratingResource(pchar),
-    base_mana(0),
-    last_use_of_mana(0.0),
-    remainder(0.0)
+    RegeneratingResource(pchar)
 {}
 
 void Mana::set_base_mana(const unsigned base_mana) {

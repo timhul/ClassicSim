@@ -1,5 +1,4 @@
-#ifndef JUDGEMENTOFTHECRUSADER_H
-#define JUDGEMENTOFTHECRUSADER_H
+#pragma once
 
 #include "SharedDebuff.h"
 #include "ItemModificationRequirer.h"
@@ -14,8 +13,6 @@ public:
     JudgementOfTheCrusader(Paladin* pchar);
 
 private:
-    Paladin* paladin;
-
     unsigned libram_of_fervor_bonus {0};
     unsigned pvp_glove_bonus {0};
     double improved_sotc_mod {1.0};
@@ -31,5 +28,3 @@ private:
     void activate_item_effect(const int item_id) override;
     void deactivate_item_effect(const int item_id) override;
 };
-
-#endif // JUDGEMENTOFTHECRUSADER_H

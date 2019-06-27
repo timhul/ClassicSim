@@ -1,12 +1,11 @@
-#ifndef ENGINE_H
-#define ENGINE_H
+#pragma once
 
 #include <QMap>
 #include <QTime>
 
 class Event;
-class StatisticsEngine;
 class Queue;
+class StatisticsEngine;
 
 class Engine {
 public:
@@ -26,10 +25,8 @@ public:
 
 private:
     Queue* queue;
-    StatisticsEngine* engine_statistics;
+    StatisticsEngine* engine_statistics {nullptr};
     QTime* timer;
 
     double current_prio;
 };
-
-#endif // ENGINE_H

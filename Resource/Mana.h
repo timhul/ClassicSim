@@ -1,5 +1,4 @@
-#ifndef MANA_H
-#define MANA_H
+#pragma once
 
 #include "RegeneratingResource.h"
 
@@ -24,15 +23,13 @@ public:
     friend class Warlock;
 
 private:
-    unsigned base_mana;
-    unsigned mana_per_tick;
-    double last_use_of_mana;
-    double remainder;
+    unsigned base_mana {0};
+    unsigned mana_per_tick {0};
+    double last_use_of_mana {0.0};
+    double remainder {0.0};
 
     void add_next_tick();
 
     void reset_effect() override;
     void lose_resource_effect() override;
 };
-
-#endif // MANA_H

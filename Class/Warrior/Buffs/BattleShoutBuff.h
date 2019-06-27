@@ -1,14 +1,14 @@
-#ifndef BATTLESHOUTBUFF_H
-#define BATTLESHOUTBUFF_H
+#pragma once
 
 #include "PartyBuff.h"
-#include "TalentRequirer.h"
 
 #include <QVector>
 
+class Warrior;
+
 class BattleShoutBuff: public PartyBuff {
 public:
-    BattleShoutBuff(Character* pchar);
+    BattleShoutBuff(Warrior* pchar);
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
@@ -16,7 +16,5 @@ public:
 private:
     friend class BattleShout;
 
-    unsigned attack_power;
+    unsigned attack_power {0};
 };
-
-#endif // BATTLESHOUTBUFF_H

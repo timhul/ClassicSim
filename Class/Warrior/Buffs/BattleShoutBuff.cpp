@@ -3,7 +3,7 @@
 #include "CharacterStats.h"
 #include "Warrior.h"
 
-BattleShoutBuff::BattleShoutBuff(Character* pchar):
+BattleShoutBuff::BattleShoutBuff(Warrior* pchar):
     PartyBuff(pchar, "Battle Shout", "Assets/ability/Ability_warrior_battleshout.png",  120, 0)
 {}
 
