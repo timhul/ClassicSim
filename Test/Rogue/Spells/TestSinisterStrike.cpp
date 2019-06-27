@@ -63,7 +63,7 @@ void TestSinisterStrike::test_all() {
     tear_down();
 }
 
-SinisterStrike *TestSinisterStrike::sinister_strike() {
+SinisterStrike *TestSinisterStrike::sinister_strike() const {
     return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_sinister_strike();
 }
 

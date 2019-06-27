@@ -1,5 +1,4 @@
-#ifndef TESTSEALFATE_H
-#define TESTSEALFATE_H
+#pragma once
 
 #include "TestProcRogue.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    SealFate* seal_fate();
+    SealFate* seal_fate() const;
 
     void test_name_correct();
     void test_proc_range_1_of_5_seal_fate();
@@ -28,5 +27,3 @@ private:
     void given_4_of_5_seal_fate();
     void given_5_of_5_seal_fate();
 };
-
-#endif // TESTSEALFATE_H

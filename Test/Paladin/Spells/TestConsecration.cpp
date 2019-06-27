@@ -26,7 +26,7 @@ void TestConsecration::test_all() {
     tear_down();
 }
 
-Consecration* TestConsecration::consecration() {
+Consecration* TestConsecration::consecration() const {
     return dynamic_cast<Consecration*>(get_max_rank_spell_by_name("Consecration"));
 }
 

@@ -1,5 +1,4 @@
-#ifndef TESTSINISTERSTRIKE_H
-#define TESTSINISTERSTRIKE_H
+#pragma once
 
 #include "TestSpellRogue.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    SinisterStrike* sinister_strike();
+    SinisterStrike* sinister_strike() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -37,5 +36,3 @@ private:
 
     void when_sinister_strike_is_performed();
 };
-
-#endif // TESTSINISTERSTRIKE_H

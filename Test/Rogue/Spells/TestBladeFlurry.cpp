@@ -29,7 +29,7 @@ void TestBladeFlurry::test_all() {
     tear_down();
 }
 
-BladeFlurry *TestBladeFlurry::blade_flurry() {
+BladeFlurry *TestBladeFlurry::blade_flurry() const {
     return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_blade_flurry();
 }
 

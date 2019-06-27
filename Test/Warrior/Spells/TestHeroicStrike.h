@@ -1,5 +1,4 @@
-#ifndef TESTHEROICSTRIKE_H
-#define TESTHEROICSTRIKE_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    HeroicStrike* heroic_strike();
+    HeroicStrike* heroic_strike() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -40,5 +39,3 @@ private:
 
     void then_heroic_strike_costs(const unsigned rage);
 };
-
-#endif // TESTHEROICSTRIKE_H

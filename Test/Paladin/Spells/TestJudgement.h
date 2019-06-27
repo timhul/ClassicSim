@@ -1,5 +1,4 @@
-#ifndef TESTJUDGEMENT_H
-#define TESTJUDGEMENT_H
+#pragma once
 
 #include "TestSpellPaladin.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    Judgement* judgement();
+    Judgement* judgement() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -48,5 +47,3 @@ private:
 
     void when_judgement_is_performed();
 };
-
-#endif // TESTJUDGEMENT_H

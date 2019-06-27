@@ -1,5 +1,4 @@
-#ifndef TESTSLICEANDDICE_H
-#define TESTSLICEANDDICE_H
+#pragma once
 
 #include "TestSpellRogue.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    SliceAndDice* slice_and_dice();
+    SliceAndDice* slice_and_dice() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -37,5 +36,3 @@ private:
 
     void when_slice_and_dice_is_performed();
 };
-
-#endif // TESTSLICEANDDICE_H

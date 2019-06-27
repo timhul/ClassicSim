@@ -31,7 +31,7 @@ void TestMortalStrike::test_all() {
     tear_down();
 }
 
-MortalStrike* TestMortalStrike::mortal_strike() {
+MortalStrike* TestMortalStrike::mortal_strike() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_mortal_strike();
 }
 

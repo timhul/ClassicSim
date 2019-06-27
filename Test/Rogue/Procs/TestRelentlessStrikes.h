@@ -1,5 +1,4 @@
-#ifndef TESTRELENTLESSSTRIKES_H
-#define TESTRELENTLESSSTRIKES_H
+#pragma once
 
 #include "TestProcRogue.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    RelentlessStrikes* relentless_strikes();
+    RelentlessStrikes* relentless_strikes() const;
 
     void test_name_correct();
     void test_proc_range();
@@ -20,5 +19,3 @@ private:
 
     void given_1_of_1_relentless_strikes();
 };
-
-#endif // TESTRELENTLESSSTRIKES_H

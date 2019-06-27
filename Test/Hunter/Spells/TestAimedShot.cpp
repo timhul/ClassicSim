@@ -107,12 +107,12 @@ void TestAimedShot::test_all() {
     tear_down();
 }
 
-AimedShot* TestAimedShot::aimed_shot() {
+AimedShot* TestAimedShot::aimed_shot() const {
     auto* spells = dynamic_cast<HunterSpells*>(hunter->get_spells());
     return spells->get_aimed_shot();
 }
 
-MultiShot* TestAimedShot::multi_shot() {
+MultiShot* TestAimedShot::multi_shot() const {
     auto* spells = dynamic_cast<HunterSpells*>(hunter->get_spells());
     return spells->get_multi_shot();
 }

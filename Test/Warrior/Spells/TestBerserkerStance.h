@@ -1,5 +1,4 @@
-#ifndef TESTBERSERKERSTANCE_H
-#define TESTBERSERKERSTANCE_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    BerserkerStance* berserker_stance();
+    BerserkerStance* berserker_stance() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -33,5 +32,3 @@ private:
 
     void when_berserker_stance_is_performed();
 };
-
-#endif // TESTBERSERKERSTANCE_H

@@ -121,7 +121,7 @@ void TestEviscerate::test_all() {
     tear_down();
 }
 
-Eviscerate* TestEviscerate::eviscerate() {
+Eviscerate* TestEviscerate::eviscerate() const {
     return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_eviscerate();
 }
 

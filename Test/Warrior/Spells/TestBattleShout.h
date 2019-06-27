@@ -9,7 +9,7 @@ public:
     void test_all();
 
 private:
-    BattleShout* battle_shout();
+    BattleShout* battle_shout() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;

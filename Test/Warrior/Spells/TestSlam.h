@@ -1,5 +1,4 @@
-#ifndef TESTSLAM_H
-#define TESTSLAM_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Slam* slam();
+    Slam* slam() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -43,5 +42,3 @@ private:
     void given_4_of_5_improved_slam();
     void given_5_of_5_improved_slam();
 };
-
-#endif // TESTSLAM_H

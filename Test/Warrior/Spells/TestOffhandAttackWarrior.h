@@ -1,5 +1,4 @@
-#ifndef TESTOFFHANDATTACKWARRIOR_H
-#define TESTOFFHANDATTACKWARRIOR_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    OffhandAttackWarrior* oh_attack();
+    OffhandAttackWarrior* oh_attack() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -58,5 +57,3 @@ private:
 
     void then_next_expected_use_is(const double next_expected_use);
 };
-
-#endif // TESTOFFHANDATTACKWARRIOR_H

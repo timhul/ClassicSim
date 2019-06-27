@@ -25,7 +25,7 @@ void TestRelentlessStrikes::test_all() {
     tear_down();
 }
 
-RelentlessStrikes* TestRelentlessStrikes::relentless_strikes() {
+RelentlessStrikes* TestRelentlessStrikes::relentless_strikes() const {
     return rogue->get_relentless_strikes();
 }
 

@@ -49,7 +49,7 @@ void TestSealOfCommand::test_all() {
     tear_down();
 }
 
-Proc* TestSealOfCommand::seal_of_command_proc() {
+Proc* TestSealOfCommand::seal_of_command_proc() const {
     return dynamic_cast<SealOfCommand*>(get_max_rank_spell_by_name("Seal of Command"))->get_proc();
 }
 

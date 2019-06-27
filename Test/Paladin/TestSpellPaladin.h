@@ -1,5 +1,4 @@
-#ifndef TESTSPELLPALADIN_H
-#define TESTSPELLPALADIN_H
+#pragma once
 
 #include "TestSpellDamage.h"
 
@@ -21,9 +20,9 @@ protected:
 
     void run_class_specific_tests() override;
 
-    MainhandAttackPaladin* mh_attack();
-    SealOfCommand* seal_of_command();
-    SealOfTheCrusader* seal_of_the_crusader();
+    MainhandAttackPaladin* mh_attack() const;
+    SealOfCommand* seal_of_command() const;
+    SealOfTheCrusader* seal_of_the_crusader() const;
 
     void given_benediction_rank(const unsigned num);
     void given_improved_judgement_rank(const unsigned num);
@@ -45,5 +44,3 @@ protected:
     void when_seal_of_command_is_performed();
     void when_seal_of_the_crusader_is_performed();
 };
-
-#endif // TESTSPELLPALADIN_H

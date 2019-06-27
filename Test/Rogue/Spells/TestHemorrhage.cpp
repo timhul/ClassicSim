@@ -55,7 +55,7 @@ void TestHemorrhage::test_all() {
     tear_down();
 }
 
-Hemorrhage *TestHemorrhage::hemo() {
+Hemorrhage* TestHemorrhage::hemo() const {
     return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_hemorrhage();
 }
 

@@ -1,5 +1,4 @@
-#ifndef TESTBLOODRAGE_H
-#define TESTBLOODRAGE_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Bloodrage* bloodrage();
+    Bloodrage* bloodrage() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -27,5 +26,3 @@ private:
 
     void then_periodic_bloodrage_rage_gain_is(const unsigned expected_rage_gain);
 };
-
-#endif // TESTBLOODRAGE_H

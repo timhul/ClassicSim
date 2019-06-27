@@ -18,7 +18,7 @@ void TestDeathWish::test_all() {
     tear_down();
 }
 
-DeathWish* TestDeathWish::death_wish() {
+DeathWish* TestDeathWish::death_wish() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_death_wish();
 }
 

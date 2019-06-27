@@ -83,7 +83,7 @@ void TestAutoShot::test_all() {
     tear_down();
 }
 
-AutoShot* TestAutoShot::auto_shot() {
+AutoShot* TestAutoShot::auto_shot() const {
     auto* spells = dynamic_cast<HunterSpells*>(hunter->get_spells());
     return spells->get_auto_shot();
 }

@@ -91,7 +91,7 @@ void TestJudgement::test_all() {
     tear_down();
 }
 
-Judgement* TestJudgement::judgement() {
+Judgement* TestJudgement::judgement() const {
     return dynamic_cast<Judgement*>(get_max_rank_spell_by_name("Judgement"));
 }
 

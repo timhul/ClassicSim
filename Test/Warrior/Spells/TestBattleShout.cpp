@@ -22,7 +22,7 @@ void TestBattleShout::test_all() {
     tear_down();
 }
 
-BattleShout* TestBattleShout::battle_shout() {
+BattleShout* TestBattleShout::battle_shout() const {
     return dynamic_cast<BattleShout*>(get_max_rank_spell_by_name("Battle Shout"));
 }
 

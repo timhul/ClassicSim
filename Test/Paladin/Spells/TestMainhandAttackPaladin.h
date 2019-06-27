@@ -1,5 +1,4 @@
-#ifndef TESTMAINHANDATTACKPALADIN_H
-#define TESTMAINHANDATTACKPALADIN_H
+#pragma once
 
 #include "TestSpellPaladin.h"
 
@@ -36,5 +35,3 @@ private:
 
     void then_next_expected_use_is(const double next_expected_use);
 };
-
-#endif // TESTMAINHANDATTACKPALADIN_H

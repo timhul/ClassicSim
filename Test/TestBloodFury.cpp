@@ -19,7 +19,7 @@ void TestBloodFury::test_all() {
     tear_down();
 }
 
-BloodFury* TestBloodFury::blood_fury() {
+BloodFury* TestBloodFury::blood_fury() const {
     return dynamic_cast<BloodFury*>(get_max_rank_spell_by_name("Blood Fury"));
 }
 

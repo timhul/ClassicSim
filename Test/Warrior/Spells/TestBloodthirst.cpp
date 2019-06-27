@@ -31,7 +31,7 @@ void TestBloodthirst::test_all() {
     tear_down();
 }
 
-Bloodthirst* TestBloodthirst::bloodthirst() {
+Bloodthirst* TestBloodthirst::bloodthirst() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodthirst();
 }
 

@@ -1,5 +1,4 @@
-#ifndef TESTHEMORRHAGE_H
-#define TESTHEMORRHAGE_H
+#pragma once
 
 #include "TestSpellRogue.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Hemorrhage* hemo();
+    Hemorrhage* hemo() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -34,5 +33,3 @@ private:
 
     void given_hemorrhage_is_enabled();
 };
-
-#endif // TESTHEMORRHAGE_H

@@ -20,7 +20,7 @@ void TestBloodrage::test_all() {
     tear_down();
 }
 
-Bloodrage* TestBloodrage::bloodrage() {
+Bloodrage* TestBloodrage::bloodrage() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_bloodrage();
 }
 

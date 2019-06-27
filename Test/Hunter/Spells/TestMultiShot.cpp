@@ -103,7 +103,7 @@ void TestMultiShot::test_all() {
     tear_down();
 }
 
-MultiShot* TestMultiShot::multi_shot() {
+MultiShot* TestMultiShot::multi_shot() const {
     auto* spells = dynamic_cast<HunterSpells*>(hunter->get_spells());
     return spells->get_multi_shot();
 }

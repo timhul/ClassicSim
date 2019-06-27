@@ -41,7 +41,7 @@ void TestSealFate::test_all() {
     tear_down();
 }
 
-SealFate* TestSealFate::seal_fate() {
+SealFate* TestSealFate::seal_fate() const {
     return rogue->get_seal_fate();
 }
 

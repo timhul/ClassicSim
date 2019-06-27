@@ -1,5 +1,4 @@
-#ifndef TESTWHIRLWIND_H
-#define TESTWHIRLWIND_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Whirlwind* whirlwind();
+    Whirlwind* whirlwind() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -28,5 +27,3 @@ private:
 
     void when_whirlwind_is_performed();
 };
-
-#endif // TESTWHIRLWIND_H

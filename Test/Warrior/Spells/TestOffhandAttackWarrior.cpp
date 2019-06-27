@@ -94,7 +94,7 @@ void TestOffhandAttackWarrior::test_all() {
     tear_down();
 }
 
-OffhandAttackWarrior* TestOffhandAttackWarrior::oh_attack() {
+OffhandAttackWarrior* TestOffhandAttackWarrior::oh_attack() const {
     auto* spells = dynamic_cast<WarriorSpells*>(warrior->get_spells());
     return dynamic_cast<OffhandAttackWarrior*>(spells->get_oh_attack());
 }

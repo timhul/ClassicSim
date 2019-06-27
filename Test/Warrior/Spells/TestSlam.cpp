@@ -65,7 +65,7 @@ void TestSlam::test_all() {
     tear_down();
 }
 
-Slam* TestSlam::slam() {
+Slam* TestSlam::slam() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_slam();
 }
 

@@ -1,5 +1,4 @@
-#ifndef TESTSEALOFTHECRUSADER_H
-#define TESTSEALOFTHECRUSADER_H
+#pragma once
 
 #include "TestSpellPaladin.h"
 
@@ -32,5 +31,3 @@ private:
     void test_libram_of_fervor_increases_melee_ap_bonus();
     void test_libram_of_hope_reduces_mana_cost();
 };
-
-#endif // TESTSEALOFTHECRUSADER_H

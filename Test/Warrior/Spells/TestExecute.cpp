@@ -107,7 +107,7 @@ void TestExecute::test_all() {
     tear_down();
 }
 
-Execute* TestExecute::execute() {
+Execute* TestExecute::execute() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_execute();
 }
 
@@ -564,7 +564,7 @@ void TestExecute::when_execute_is_performed_with_rage(const unsigned rage) {
     execute()->perform();
 }
 
-bool TestExecute::execute_available_with_rage(const unsigned rage) {
+bool TestExecute::execute_available_with_rage(const unsigned rage) const {
     warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     return execute()->get_spell_status() == SpellStatus::Available;

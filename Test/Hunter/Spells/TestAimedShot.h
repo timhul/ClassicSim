@@ -1,5 +1,4 @@
-#ifndef TESTAIMEDSHOT_H
-#define TESTAIMEDSHOT_H
+#pragma once
 
 #include "TestSpellHunter.h"
 
@@ -13,8 +12,8 @@ public:
     void test_all();
 
 private:
-    AimedShot* aimed_shot();
-    MultiShot* multi_shot();
+    AimedShot* aimed_shot() const;
+    MultiShot* multi_shot() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -53,5 +52,3 @@ private:
     void given_aimed_shot_is_enabled();
     void when_aimed_shot_is_performed();
 };
-
-#endif // TESTAIMEDSHOT_H

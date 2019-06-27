@@ -1,5 +1,4 @@
-#ifndef TESTCONSECRATION_H
-#define TESTCONSECRATION_H
+#pragma once
 
 #include "TestSpellPaladin.h"
 
@@ -13,7 +12,7 @@ public:
     void test_all();
 
 private:
-    Consecration* consecration();
+    Consecration* consecration() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -28,5 +27,3 @@ private:
     void given_consecration_is_enabled();
     void when_consecration_is_performed();
 };
-
-#endif // TESTCONSECRATION_H

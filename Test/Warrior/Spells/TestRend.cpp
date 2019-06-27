@@ -42,7 +42,7 @@ void TestRend::test_all() {
     tear_down();
 }
 
-Rend* TestRend::rend() {
+Rend* TestRend::rend() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_rend();
 }
 

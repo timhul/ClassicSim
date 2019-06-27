@@ -1,5 +1,4 @@
-#ifndef TESTOVERPOWER_H
-#define TESTOVERPOWER_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Overpower* overpower();
+    Overpower* overpower() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -35,5 +34,3 @@ private:
 
     void then_overpower_is_inactive();
 };
-
-#endif // TESTOVERPOWER_H

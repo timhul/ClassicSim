@@ -50,7 +50,7 @@ void TestHeroicStrike::test_all() {
     tear_down();
 }
 
-HeroicStrike* TestHeroicStrike::heroic_strike() {
+HeroicStrike* TestHeroicStrike::heroic_strike() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_heroic_strike();
 }
 

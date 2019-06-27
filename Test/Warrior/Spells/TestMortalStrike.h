@@ -1,5 +1,4 @@
-#ifndef TESTMORTALSTRIKE_H
-#define TESTMORTALSTRIKE_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    MortalStrike* mortal_strike();
+    MortalStrike* mortal_strike() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -28,5 +27,3 @@ private:
 
     void when_mortal_strike_is_performed();
 };
-
-#endif // TESTMORTALSTRIKE_H

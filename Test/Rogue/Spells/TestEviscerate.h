@@ -1,5 +1,4 @@
-#ifndef TESTEVISCERATE_H
-#define TESTEVISCERATE_H
+#pragma once
 
 #include "TestSpellRogue.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Eviscerate* eviscerate();
+    Eviscerate* eviscerate() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -64,5 +63,3 @@ private:
 
     void when_eviscerate_is_performed();
 };
-
-#endif // TESTEVISCERATE_H

@@ -34,7 +34,7 @@ void TestWhirlwind::test_all() {
     tear_down();
 }
 
-Whirlwind* TestWhirlwind::whirlwind() {
+Whirlwind* TestWhirlwind::whirlwind() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_whirlwind();
 }
 

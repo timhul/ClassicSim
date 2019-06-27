@@ -1,5 +1,4 @@
-#ifndef TESTBACKSTAB_H
-#define TESTBACKSTAB_H
+#pragma once
 
 #include "TestSpellRogue.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Backstab* backstab();
+    Backstab* backstab() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -40,5 +39,3 @@ private:
 
     void when_backstab_is_performed();
 };
-
-#endif // TESTBACKSTAB_H

@@ -87,7 +87,7 @@ void TestDeepWounds::test_all() {
     tear_down();
 }
 
-DeepWounds* TestDeepWounds::deep_wounds() {
+DeepWounds* TestDeepWounds::deep_wounds() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_deep_wounds();
 }
 

@@ -1,5 +1,4 @@
-#ifndef TESTMULTISHOT_H
-#define TESTMULTISHOT_H
+#pragma once
 
 #include "TestSpellHunter.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    MultiShot* multi_shot();
+    MultiShot* multi_shot() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -48,5 +47,3 @@ private:
 
     void when_multi_shot_is_performed();
 };
-
-#endif // TESTMULTISHOT_H

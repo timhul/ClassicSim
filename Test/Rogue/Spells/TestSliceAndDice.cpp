@@ -57,7 +57,7 @@ void TestSliceAndDice::test_all() {
     tear_down();
 }
 
-SliceAndDice *TestSliceAndDice::slice_and_dice() {
+SliceAndDice* TestSliceAndDice::slice_and_dice() const {
     return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_slice_and_dice();
 }
 

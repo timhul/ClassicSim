@@ -1,5 +1,4 @@
-#ifndef TESTBLADEFLURRY_H
-#define TESTBLADEFLURRY_H
+#pragma once
 
 #include "TestSpellRogue.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    BladeFlurry* blade_flurry();
+    BladeFlurry* blade_flurry() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -27,5 +26,3 @@ private:
 
     void given_1_of_1_blade_flurry();
 };
-
-#endif // TESTBladeFlurry_H

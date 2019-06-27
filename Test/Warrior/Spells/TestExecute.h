@@ -1,5 +1,4 @@
-#ifndef TESTEXECUTE_H
-#define TESTEXECUTE_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    Execute* execute();
+    Execute* execute() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -62,7 +61,5 @@ private:
     void given_target_not_in_execute_range();
 
     void when_execute_is_performed_with_rage(const unsigned rage);
-    bool execute_available_with_rage(const unsigned rage);
+    bool execute_available_with_rage(const unsigned rage) const;
 };
-
-#endif // TESTEXECUTE_H

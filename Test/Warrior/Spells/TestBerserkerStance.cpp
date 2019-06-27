@@ -52,7 +52,7 @@ void TestBerserkerStance::test_all() {
     tear_down();
 }
 
-BerserkerStance* TestBerserkerStance::berserker_stance() {
+BerserkerStance* TestBerserkerStance::berserker_stance() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_berserker_stance();
 }
 

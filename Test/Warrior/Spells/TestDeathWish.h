@@ -1,5 +1,4 @@
-#ifndef TESTDEATHWISH_H
-#define TESTDEATHWISH_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    DeathWish* death_wish();
+    DeathWish* death_wish() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -29,5 +28,3 @@ private:
 
     void when_death_wish_is_performed();
 };
-
-#endif // TESTDEATHWISH_H

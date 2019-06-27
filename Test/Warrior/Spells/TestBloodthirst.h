@@ -1,5 +1,4 @@
-#ifndef TESTBLOODTHIRST_H
-#define TESTBLOODTHIRST_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Bloodthirst* bloodthirst();
+    Bloodthirst* bloodthirst() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -28,5 +27,3 @@ private:
 
     void when_bloodthirst_is_performed();
 };
-
-#endif // TESTBLOODTHIRST_H

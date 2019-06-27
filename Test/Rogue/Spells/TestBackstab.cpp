@@ -77,7 +77,7 @@ void TestBackstab::test_all() {
     tear_down();
 }
 
-Backstab* TestBackstab::backstab() {
+Backstab* TestBackstab::backstab() const {
     return dynamic_cast<RogueSpells*>(rogue->get_spells())->get_backstab();
 }
 

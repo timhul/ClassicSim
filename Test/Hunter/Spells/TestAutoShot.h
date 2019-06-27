@@ -1,5 +1,4 @@
-#ifndef TESTAUTOSHOT_H
-#define TESTAUTOSHOT_H
+#pragma once
 
 #include "TestSpellHunter.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    AutoShot* auto_shot();
+    AutoShot* auto_shot() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -48,5 +47,3 @@ private:
 
     void then_next_expected_use_is(const double next_expected_use);
 };
-
-#endif // TESTAUTOSHOT_H

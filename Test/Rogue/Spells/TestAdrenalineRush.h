@@ -1,5 +1,4 @@
-#ifndef TESTADRENALINERUSH_H
-#define TESTADRENALINERUSH_H
+#pragma once
 
 #include "TestSpellRogue.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    AdrenalineRush* adrenaline_rush();
+    AdrenalineRush* adrenaline_rush() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -27,5 +26,3 @@ private:
 
     void given_1_of_1_adrenaline_rush();
 };
-
-#endif // TESTADRENALINERUSH_H

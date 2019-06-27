@@ -1,5 +1,4 @@
-#ifndef TESTRECKLESSNESS_H
-#define TESTRECKLESSNESS_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -10,7 +9,7 @@ public:
     void test_all();
 
 private:
-    Recklessness* recklessness();
+    Recklessness* recklessness() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -39,5 +38,3 @@ private:
     void when_reck_and_mh_attack_is_performed();
     void when_reck_and_whirlwind_is_performed();
 };
-
-#endif // TESTRECKLESSNESS_H

@@ -1,5 +1,4 @@
-#ifndef TESTREND_H
-#define TESTREND_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -13,7 +12,7 @@ public:
     void test_all();
 
 private:
-    Rend* rend();
+    Rend* rend() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -42,5 +41,3 @@ private:
     void then_rend_damage_dealt_is(const int damage_dealt);
     void then_damage_is_dealt_over_21_seconds();
 };
-
-#endif // TESTREND_H

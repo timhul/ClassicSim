@@ -44,16 +44,16 @@ void TestSpellPaladin::run_class_specific_tests() {
 
 }
 
-MainhandAttackPaladin* TestSpellPaladin::mh_attack() {
+MainhandAttackPaladin* TestSpellPaladin::mh_attack() const {
     auto* spells = dynamic_cast<PaladinSpells*>(paladin->get_spells());
     return dynamic_cast<MainhandAttackPaladin*>(spells->get_mh_attack());
 }
 
-SealOfCommand* TestSpellPaladin::seal_of_command() {
+SealOfCommand* TestSpellPaladin::seal_of_command() const {
     return dynamic_cast<SealOfCommand*>(get_max_rank_spell_by_name("Seal of Command"));
 }
 
-SealOfTheCrusader* TestSpellPaladin::seal_of_the_crusader() {
+SealOfTheCrusader* TestSpellPaladin::seal_of_the_crusader() const {
     return dynamic_cast<SealOfTheCrusader*>(get_max_rank_spell_by_name("Seal of the Crusader"));
 }
 

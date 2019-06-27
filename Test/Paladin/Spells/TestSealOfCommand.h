@@ -1,5 +1,4 @@
-#ifndef TESTSEALOFCOMMAND_H
-#define TESTSEALOFCOMMAND_H
+#pragma once
 
 #include "TestSpellPaladin.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    Proc* seal_of_command_proc();
+    Proc* seal_of_command_proc() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -30,5 +29,3 @@ private:
     void test_libram_of_hope_reduces_mana_cost();
     void test_proc_rate_with_given_weapon_speed();
 };
-
-#endif // TESTSEALOFCOMMAND_H

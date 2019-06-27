@@ -75,7 +75,7 @@ void TestRecklessness::test_all() {
     tear_down();
 }
 
-Recklessness* TestRecklessness::recklessness() {
+Recklessness* TestRecklessness::recklessness() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_recklessness();
 }
 

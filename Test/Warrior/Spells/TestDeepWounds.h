@@ -1,5 +1,4 @@
-#ifndef TESTDEEPWOUNDS_H
-#define TESTDEEPWOUNDS_H
+#pragma once
 
 #include "TestSpellWarrior.h"
 
@@ -12,7 +11,7 @@ public:
     void test_all();
 
 private:
-    DeepWounds* deep_wounds();
+    DeepWounds* deep_wounds() const;
 
     void test_name_correct() override;
     void test_spell_cooldown() override;
@@ -58,5 +57,3 @@ private:
     void then_deep_wounds_is_not_applied();
     void then_damage_is_dealt_over_12_seconds();
 };
-
-#endif // TESTDEEPWOUNDS_H

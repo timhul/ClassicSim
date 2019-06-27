@@ -41,7 +41,7 @@ void TestOverpower::test_all() {
     tear_down();
 }
 
-Overpower* TestOverpower::overpower() {
+Overpower* TestOverpower::overpower() const {
     return dynamic_cast<WarriorSpells*>(warrior->get_spells())->get_overpower();
 }
 
