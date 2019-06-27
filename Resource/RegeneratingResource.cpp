@@ -38,7 +38,7 @@ void RegeneratingResource::lose_resource(const unsigned value) {
 void RegeneratingResource::add_next_tick() {
     ticking = true;
 
-    auto* event = new ResourceGain(pchar, resource_tick, pchar->get_engine()->get_current_priority() + get_tick_rate());
+    auto* event = new ResourceGain(resource_tick, pchar->get_engine()->get_current_priority() + get_tick_rate());
     pchar->get_engine()->add_event(event);
 }
 

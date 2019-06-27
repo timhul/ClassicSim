@@ -2,13 +2,10 @@
 
 #include "Spell.h"
 
-DotTick::DotTick(Spell* spell, double timestamp):
-    Event(Events::DotTick)
-{
-    this->spell = spell;
-    this->priority = timestamp;
-    this->name = "DotTick";
-}
+DotTick::DotTick(Spell* spell, const double timestamp):
+    Event(Events::DotTick, timestamp, "DotTick"),
+    spell(spell)
+{}
 
 void DotTick::act() {
     spell->perform_periodic();

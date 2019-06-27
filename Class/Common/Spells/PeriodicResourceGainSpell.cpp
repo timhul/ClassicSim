@@ -34,7 +34,7 @@ void PeriodicResourceGainSpell::spell_effect() {
     if (next_tick > tick_until)
         return;
 
-    auto* new_event = new ResourceGain(pchar, this, next_tick);
+    auto* new_event = new ResourceGain(this, next_tick);
     this->engine->add_event(new_event);
 }
 

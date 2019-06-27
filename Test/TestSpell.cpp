@@ -1059,9 +1059,9 @@ void TestSpell::then_next_event_is(const QString &name) {
     Event* event = pchar->get_engine()->get_queue()->get_next();
     pchar->get_engine()->set_current_priority(event);
 
-    if (event->get_name() != name)
-        qDebug() << "Expected event" << name << "got" << event->get_name();
-    assert(event->get_name() == name);
+    if (event->name != name)
+        qDebug() << "Expected event" << name << "got" << event->name;
+    assert(event->name == name);
 
     delete event;
 }
@@ -1077,19 +1077,19 @@ void TestSpell::then_next_event_is(const QString &name, const QString &priority,
         event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (!ignored_events.contains(event->get_name()))
+        if (!ignored_events.contains(event->name))
             break;
 
         delete event;
     }
 
-    if (event->get_name() != name) {
-        qDebug() << spell_under_test << "Expected event" << name << priority << "but got" << event->get_name()
+    if (event->name != name) {
+        qDebug() << spell_under_test << "Expected event" << name << priority << "but got" << event->name
                  << "at priority" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
         assert(false);
     }
 
-    if (QString::number(event->get_priority(), 'f', 3) != priority) {
+    if (QString::number(event->priority, 'f', 3) != priority) {
         qDebug() << spell_under_test << "During event" << name << "expected" << priority
                  << "but got" << QString::number(pchar->get_engine()->get_current_priority(), 'f', 3);
         assert(false);
@@ -1106,7 +1106,7 @@ void TestSpell::dump_queued_events() {
     while (!queue->empty()) {
         Event* event = queue->get_next();
 
-        qDebug() << event->get_name() << ": " << event->get_priority();
+        qDebug() << event->name << ": " << event->priority;
 
         delete event;
     }

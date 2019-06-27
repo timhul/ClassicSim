@@ -1,5 +1,4 @@
-#ifndef EVENT_H
-#define EVENT_H
+#pragma once
 
 #include <QString>
 
@@ -26,23 +25,17 @@ public:
     friend bool operator<=(const Event&, const Event&);
     friend bool operator>=(const Event&, const Event&);
 
-    Event(Events event_enum_val);
+    Event(Events event_enum_val, const double priority, const QString& name);
+    virtual ~Event() = default;
 
-    virtual ~Event() {}
     virtual void act() = 0;
-    virtual QString get_name() const;
 
-    double get_priority() const;
     const Events event;
-
-protected:
-    double priority;
-    QString name;
+    const double priority;
+    const QString name;
 };
 
 class Compare {
 public:
     bool operator() (Event*&, Event*&);
 };
-
-#endif // EVENT_H

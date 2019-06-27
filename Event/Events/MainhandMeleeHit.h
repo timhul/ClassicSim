@@ -1,5 +1,4 @@
-#ifndef MAINHANDMELEEHIT_H
-#define MAINHANDMELEEHIT_H
+#pragma once
 
 #include "Event.h"
 
@@ -15,5 +14,3 @@ private:
     CharacterSpells* spells;
     int iteration;
 };
-
-#endif // MAINHANDMELEEHIT_H

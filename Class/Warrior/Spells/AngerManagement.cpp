@@ -36,7 +36,7 @@ void AngerManagement::spell_effect() {
 }
 
 void AngerManagement::perform_start_of_combat() {
-    auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 1.5);
+    auto* new_event = new ResourceGain(this, engine->get_current_priority() + 1.5);
     this->engine->add_event(new_event);
 }
 
@@ -47,7 +47,7 @@ void AngerManagement::perform_periodic() {
     if (rage_before_am_tick < warr->get_resource_level(resource_type))
         statistics_resource->add_resource_gain(ResourceType::Rage, 1);
 
-    auto* new_event = new ResourceGain(pchar, this, engine->get_current_priority() + 3.0);
+    auto* new_event = new ResourceGain(this, engine->get_current_priority() + 3.0);
     this->engine->add_event(new_event);
 }
 

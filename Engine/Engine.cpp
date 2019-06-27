@@ -53,9 +53,9 @@ double Engine::get_current_priority() const {
 }
 
 void Engine::set_current_priority(Event* event) {
-    check((event->get_priority() >= this->current_prio),
-          QString("Engine is at '%1' and got event at '%2'").arg(current_prio).arg(event->get_priority()).toStdString());
-    this->current_prio = event->get_priority();
+    check((event->priority >= this->current_prio),
+          QString("Engine is at '%1' and got event at '%2'").arg(current_prio).arg(event->priority).toStdString());
+    this->current_prio = event->priority;
 }
 
 void Engine::add_event(Event* event) {

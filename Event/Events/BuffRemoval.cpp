@@ -3,13 +3,10 @@
 #include "Buff.h"
 
 BuffRemoval::BuffRemoval(Buff* buff, const double timestamp, const int iteration):
-    Event(Events::BuffRemoval)
-{
-    this->buff = buff;
-    this->priority = timestamp;
-    this->iteration = iteration;
-    this->name = "BuffRemoval";
-}
+    Event(Events::BuffRemoval, timestamp, "BuffRemoval"),
+    buff(buff),
+    iteration(iteration)
+{}
 
 void BuffRemoval::act() {
     buff->remove_buff(iteration);

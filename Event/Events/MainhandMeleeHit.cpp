@@ -3,13 +3,10 @@
 #include "CharacterSpells.h"
 
 MainhandMeleeHit::MainhandMeleeHit(CharacterSpells* spells, const double next_timestamp, const int iteration):
-    Event(Events::MainhandMeleeHit)
-{
-    this->spells = spells;
-    this->priority = next_timestamp;
-    this->name = "MainhandMeleeHit";
-    this->iteration = iteration;
-}
+    Event(Events::MainhandMeleeHit, next_timestamp, "MainhandMeleeHit"),
+    spells(spells),
+    iteration(iteration)
+{}
 
 void MainhandMeleeHit::act() {
     spells->mh_auto_attack(iteration);

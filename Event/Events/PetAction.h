@@ -1,5 +1,4 @@
-#ifndef PETACTION_H
-#define PETACTION_H
+#pragma once
 
 #include "Event.h"
 
@@ -14,5 +13,3 @@ public:
 private:
     Pet* pet;
 };
-
-#endif // PETACTION_H

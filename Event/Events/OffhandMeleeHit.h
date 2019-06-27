@@ -1,5 +1,4 @@
-#ifndef OFFHANDMELEEHIT_H
-#define OFFHANDMELEEHIT_H
+#pragma once
 
 #include "Event.h"
 
@@ -7,7 +6,7 @@ class CharacterSpells;
 
 class OffhandMeleeHit: public Event {
 public:
-    OffhandMeleeHit(CharacterSpells*, const double timestamp, const int iteration);
+    OffhandMeleeHit(CharacterSpells* spells, const double timestamp, const int iteration);
 
     void act() override;
 
@@ -15,5 +14,3 @@ private:
     CharacterSpells* spells;
     int iteration;
 };
-
-#endif // OFFHANDMELEEHIT_H

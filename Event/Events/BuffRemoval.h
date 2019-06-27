@@ -1,5 +1,4 @@
-#ifndef BUFFREMOVAL_H
-#define BUFFREMOVAL_H
+#pragma once
 
 #include "Event.h"
 
@@ -13,7 +12,5 @@ public:
 
 private:
     Buff* buff;
-    int iteration;
+    const int iteration;
 };
-
-#endif // BUFFREMOVAL_H

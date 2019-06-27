@@ -1,5 +1,4 @@
-#ifndef CASTCOMPLETE_H
-#define CASTCOMPLETE_H
+#pragma once
 
 #include "Event.h"
 
@@ -14,5 +13,3 @@ public:
 private:
     SpellCastingTime* spell;
 };
-
-#endif // CASTCOMPLETE_H

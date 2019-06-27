@@ -1,5 +1,4 @@
-#ifndef PLAYERACTION_H
-#define PLAYERACTION_H
+#pragma once
 
 #include "Event.h"
 
@@ -14,5 +13,3 @@ public:
 private:
     CharacterSpells* spells;
 };
-
-#endif // PLAYERACTION_H

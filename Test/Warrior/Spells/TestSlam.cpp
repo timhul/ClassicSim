@@ -333,7 +333,7 @@ void TestSlam::when_slam_is_performed() {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (event->get_name() == "CastComplete") {
+        if (event->name == "CastComplete") {
             event->act();
             delete event;
             break;

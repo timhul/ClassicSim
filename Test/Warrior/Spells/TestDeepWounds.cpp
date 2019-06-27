@@ -394,7 +394,7 @@ void TestDeepWounds::then_deep_wounds_damage_dealt_is(const int damage_dealt) {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (event->get_name() != "DotTick") {
+        if (event->name != "DotTick") {
             delete event;
             continue;
         }
@@ -413,7 +413,7 @@ void TestDeepWounds::then_deep_wounds_is_applied() {
         Event* event = pchar->get_engine()->get_queue()->get_next();
         pchar->get_engine()->set_current_priority(event);
 
-        if (event->get_name() != "DotTick") {
+        if (event->name != "DotTick") {
             delete event;
             continue;
         }

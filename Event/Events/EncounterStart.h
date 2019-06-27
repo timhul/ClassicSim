@@ -1,5 +1,4 @@
-#ifndef ENCOUNTERSTART_H
-#define ENCOUNTERSTART_H
+#pragma once
 
 #include "Event.h"
 
@@ -16,5 +15,3 @@ private:
     CharacterSpells* spells;
     EnabledBuffs* buffs;
 };
-
-#endif // ENCOUNTERSTART_H

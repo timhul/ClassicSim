@@ -1,5 +1,4 @@
-#ifndef PETMELEEHIT_H
-#define PETMELEEHIT_H
+#pragma once
 
 #include "Event.h"
 
@@ -15,5 +14,3 @@ private:
     Pet* pet;
     int iteration;
 };
-
-#endif // PETMELEEHIT_H
