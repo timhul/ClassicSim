@@ -153,7 +153,3 @@ Target* RaidControl::get_target() const {
 SimSettings* RaidControl::get_sim_settings() const {
     return this->settings;
 }
-
-QVector<QVector<Character*>> RaidControl::get_raid_members() const {
-    return group_members;
-}

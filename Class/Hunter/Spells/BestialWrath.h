@@ -13,8 +13,6 @@ public:
     BestialWrath(Character *pchar, const QString& pet_name);
     ~BestialWrath() override;
 
-    Buff* get_hunters_mark_buff() const;
-
 private:
     BestialWrathBuff* bestial_wrath_buff;
 

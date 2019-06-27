@@ -23,10 +23,6 @@ void ExposeWeaknessProc::proc_effect() {
     expose_weakness_buff->apply_buff();
 }
 
-ExposeWeaknessBuff* ExposeWeaknessProc::get_expose_weakness_buff() const {
-    return this->expose_weakness_buff;
-}
-
 void ExposeWeaknessProc::enable_spell_effect() {
     enable_proc();
 }

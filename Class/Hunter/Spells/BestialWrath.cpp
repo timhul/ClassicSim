@@ -32,10 +32,6 @@ void BestialWrath::spell_effect() {
     bestial_wrath_buff->apply_buff();
 }
 
-Buff* BestialWrath::get_hunters_mark_buff() const {
-    return bestial_wrath_buff;
-}
-
 void BestialWrath::increase_talent_rank_effect(const QString&, const int) {
     bestial_wrath_buff->enable_buff();
 }

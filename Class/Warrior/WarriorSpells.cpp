@@ -194,10 +194,6 @@ DeathWish* WarriorSpells::get_death_wish() const {
     return this->death_wish;
 }
 
-BattleShout* WarriorSpells::get_battle_shout() const {
-    return this->battle_shout;
-}
-
 Bloodrage* WarriorSpells::get_bloodrage() const {
     return this->bloodrage;
 }

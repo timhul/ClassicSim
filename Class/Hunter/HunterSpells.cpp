@@ -124,10 +124,6 @@ ExposeWeaknessProc* HunterSpells::get_expose_weakness_proc() const {
     return this->expose_weakness_proc;
 }
 
-HuntersMark* HunterSpells::get_hunters_mark() const {
-    return this->hunters_mark;
-}
-
 MultiShot* HunterSpells::get_multi_shot() const {
     return this->multi_shot;
 }

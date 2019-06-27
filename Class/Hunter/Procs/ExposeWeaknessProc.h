@@ -13,8 +13,6 @@ public:
 
     void proc_effect() override;
 
-    ExposeWeaknessBuff* get_expose_weakness_buff() const;
-
 private:
     ExposeWeaknessBuff* expose_weakness_buff;
 

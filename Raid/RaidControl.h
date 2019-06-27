@@ -45,7 +45,6 @@ public:
     Engine* get_engine() const;
     Target* get_target() const;
     SimSettings* get_sim_settings() const;
-    QVector<QVector<Character*>> get_raid_members() const;
 
 private:
     int instance_id {InstanceID::INITIAL_ID};

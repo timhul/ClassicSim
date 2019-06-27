@@ -47,7 +47,6 @@ public:
     MainhandAttack* get_mh_attack() const override;
     OffhandAttack* get_oh_attack() const override;
 
-    BattleShout* get_battle_shout() const;
     BerserkerStance* get_berserker_stance() const;
     Bloodrage* get_bloodrage() const;
     Bloodthirst* get_bloodthirst() const;

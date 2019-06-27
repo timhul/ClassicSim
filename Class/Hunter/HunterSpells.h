@@ -28,7 +28,6 @@ public:
     AutoShot* get_auto_shot() const override;
     BestialWrath* get_bestial_wrath() const;
     ExposeWeaknessProc* get_expose_weakness_proc() const;
-    HuntersMark* get_hunters_mark() const;
     MultiShot* get_multi_shot() const;
     OffhandAttack* get_oh_attack() const override;
     RapidFire* get_rapid_fire() const;
