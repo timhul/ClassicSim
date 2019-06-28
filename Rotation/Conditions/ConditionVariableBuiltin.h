@@ -1,5 +1,4 @@
-#ifndef CONDITIONBUILTIN_H
-#define CONDITIONBUILTIN_H
+#pragma once
 
 #include "Condition.h"
 
@@ -36,5 +35,3 @@ public:
 
     bool cmp_values(const double lhs_value) const;
 };
-
-#endif // CONDITIONBUILTIN_H

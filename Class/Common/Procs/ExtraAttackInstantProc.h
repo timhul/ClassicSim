@@ -1,5 +1,4 @@
-#ifndef EXTRAATTACKPROC_H
-#define EXTRAATTACKPROC_H
+#pragma once
 
 #include "Proc.h"
 
@@ -18,7 +17,6 @@ public:
     void proc_effect() override;
     void set_extra_attack_buff(ExtraAttackOnNextSwingBuff* buff);
 
-protected:
 private:
     ExtraAttackOnNextSwingBuff* extra_attack_buff;
 
@@ -28,5 +26,3 @@ private:
     void proc_from_instant_effect();
     void run_extra_attacks();
 };
-
-#endif // EXTRAATTACKPROC_H

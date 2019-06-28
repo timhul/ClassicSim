@@ -1,5 +1,4 @@
-#ifndef ProcPPM_H
-#define ProcPPM_H
+#pragma once
 
 #include "Proc.h"
 #include "ProcInfo.h"
@@ -23,8 +22,4 @@ public:
 protected:
     const double proc_rate_base;
     const int weapon;
-private:
 };
-
-
-#endif // ProcPPM_H

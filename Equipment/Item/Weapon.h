@@ -1,5 +1,4 @@
-#ifndef WEAPON_H
-#define WEAPON_H
+#pragma once
 
 #include <QVector>
 
@@ -45,5 +44,3 @@ private:
     double weapon_speed;
     Enchant* temporary_enchant;
 };
-
-#endif // WEAPON_H

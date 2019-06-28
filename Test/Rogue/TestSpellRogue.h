@@ -1,5 +1,4 @@
-#ifndef TESTSPELLROGUE_H
-#define TESTSPELLROGUE_H
+#pragma once
 
 #include "Rogue.h"
 #include "RogueSpells.h"
@@ -37,5 +36,3 @@ protected:
     void given_1_of_5_opportunity();
     void given_5_of_5_opportunity();
 };
-
-#endif // TESTSPELLROGUE_H

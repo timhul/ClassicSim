@@ -1,5 +1,4 @@
-#ifndef PET_H
-#define PET_H
+#pragma once
 
 #include <QVector>
 
@@ -79,5 +78,3 @@ protected:
     void add_spells();
     void remove_spells();
 };
-
-#endif // PET_H

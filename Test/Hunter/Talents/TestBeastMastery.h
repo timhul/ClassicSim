@@ -1,5 +1,4 @@
-#ifndef TESTBEASTMASTERY_H
-#define TESTBEASTMASTERY_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_beast_mastery();
 };
-
-#endif // TESTBEASTMASTERY_H

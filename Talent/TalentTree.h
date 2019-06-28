@@ -1,5 +1,4 @@
-#ifndef TALENTTREE_H
-#define TALENTTREE_H
+#pragma once
 
 #include <QMap>
 #include <QString>
@@ -119,8 +118,4 @@ protected:
                            const QVector<Buff*>& affected_buffs = {},
                            const QVector<Proc*>& affected_procs = {}
                            );
-
-private:
 };
-
-#endif // TALENTTREE_H

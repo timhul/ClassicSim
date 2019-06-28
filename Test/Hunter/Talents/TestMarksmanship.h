@@ -1,5 +1,4 @@
-#ifndef TESTMARKSMANSHIP_H
-#define TESTMARKSMANSHIP_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_marksmanship();
 };
-
-#endif // TESTMARKSMANSHIP_H

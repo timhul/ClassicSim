@@ -1,5 +1,4 @@
-#ifndef SETBONUSREQUIRER_H
-#define SETBONUSREQUIRER_H
+#pragma once
 
 #include <QSet>
 #include <QString>
@@ -18,5 +17,3 @@ protected:
     virtual void activate_set_bonus_effect(const QString& set_name, const int num_pieces) = 0;
     virtual void deactivate_set_bonus_effect(const QString& set_name, const int num_pieces) = 0;
 };
-
-#endif // SETBONUSREQUIRER_H

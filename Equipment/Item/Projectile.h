@@ -1,5 +1,4 @@
-#ifndef PROJECTILE_H
-#define PROJECTILE_H
+#pragma once
 
 #include <QVector>
 
@@ -22,5 +21,3 @@ private:
     int projectile_type;
     double dps;
 };
-
-#endif // PROJECTILE_H

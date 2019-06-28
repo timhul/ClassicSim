@@ -1,5 +1,4 @@
-#ifndef PHASEREQUIRER_H
-#define PHASEREQUIRER_H
+#pragma once
 
 #include "ContentPhase.h"
 
@@ -13,5 +12,3 @@ public:
 
     const Content::Phase phase;
 };
-
-#endif // PHASEREQUIRER_H

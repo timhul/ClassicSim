@@ -1,5 +1,4 @@
-#ifndef CHARACTERSTATS_H
-#define CHARACTERSTATS_H
+#pragma once
 
 #include <QHash>
 #include <QVector>
@@ -241,5 +240,3 @@ private:
 
     unsigned get_wpn_skill(Weapon*) const;
 };
-
-#endif // CHARACTERSTATS_H

@@ -1,5 +1,4 @@
-#ifndef TESTFLURRYWARRIOR_H
-#define TESTFLURRYWARRIOR_H
+#pragma once
 
 #include "TestBuffWarrior.h"
 
@@ -65,5 +64,3 @@ private:
     void then_flurry_is_active();
     void then_flurry_is_not_active();
 };
-
-#endif // TESTFLURRYWARRIOR_H

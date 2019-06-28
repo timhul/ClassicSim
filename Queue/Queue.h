@@ -1,7 +1,7 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#pragma once
 
 #include <queue>
+
 #include "Event.h"
 
 class Queue {
@@ -14,10 +14,6 @@ public:
     void pop();
     void clear();
 
-protected:
-
 private:
      std::priority_queue<Event*, std::vector<Event*>, Compare> queue;
 };
-
-#endif // QUEUE_H

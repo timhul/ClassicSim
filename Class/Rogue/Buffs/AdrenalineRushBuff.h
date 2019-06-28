@@ -1,5 +1,4 @@
-#ifndef ADRENALINERUSHBUFF_H
-#define ADRENALINERUSHBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
@@ -16,5 +15,3 @@ private:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 };
-
-#endif // ADRENALINERUSHBUFF_H

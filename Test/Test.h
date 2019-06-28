@@ -1,5 +1,4 @@
-#ifndef TEST_H
-#define TEST_H
+#pragma once
 
 class EquipmentDb;
 
@@ -18,5 +17,3 @@ private:
     void test_queue();
     void test_combat_roll_creation();
 };
-
-#endif // TEST_H

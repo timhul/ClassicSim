@@ -1,5 +1,4 @@
-#ifndef ARMS_H
-#define ARMS_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -22,5 +21,3 @@ private:
     Warrior* warr;
     WarriorSpells* spells;
 };
-
-#endif // ARMS_H

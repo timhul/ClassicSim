@@ -1,5 +1,4 @@
-#ifndef HUNTERSMARKBUFF_H
-#define HUNTERSMARKBUFF_H
+#pragma once
 
 #include "SharedDebuff.h"
 
@@ -18,5 +17,3 @@ private:
     void buff_effect_when_removed() override;
 
 };
-
-#endif // HUNTERSMARKBUFF_H

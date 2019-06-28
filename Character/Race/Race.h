@@ -1,5 +1,4 @@
-#ifndef RACE_H
-#define RACE_H
+#pragma once
 
 #include <QString>
 
@@ -35,5 +34,3 @@ public:
     virtual unsigned get_gun_bonus() const = 0;
     virtual unsigned get_thrown_bonus() const = 0;
 };
-
-#endif // RACE_H

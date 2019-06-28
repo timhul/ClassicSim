@@ -1,5 +1,4 @@
-#ifndef BLOODRAGE_H
-#define BLOODRAGE_H
+#pragma once
 
 #include "Spell.h"
 #include "TalentRequirer.h"
@@ -34,5 +33,3 @@ private:
 
     void gain_rage(const unsigned rage_gain);
 };
-
-#endif // BLOODRAGE_H

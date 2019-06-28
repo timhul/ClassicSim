@@ -1,5 +1,4 @@
-#ifndef SETBONUSFILEREADER_H
-#define SETBONUSFILEREADER_H
+#pragma once
 
 #include <QXmlStreamReader>
 
@@ -16,5 +15,3 @@ private:
                                 QMap<int, QString> &possible_set_items,
                                 QMap<QString, QVector<QPair<int, QString>>>& set_bonus_tooltips);
 };
-
-#endif // SETBONUSFILEREADER_H

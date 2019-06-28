@@ -1,5 +1,4 @@
-#ifndef GENERICBUFFPROC_H
-#define GENERICBUFFPROC_H
+#pragma once
 
 #include "Proc.h"
 
@@ -19,5 +18,3 @@ private:
     Buff* buff;
     void proc_effect() override;
 };
-
-#endif // GENERICBUFFPROC_H

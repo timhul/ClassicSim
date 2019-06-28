@@ -1,5 +1,4 @@
-#ifndef TACTICALMASTERY_H
-#define TACTICALMASTERY_H
+#pragma once
 
 #include "Talent.h"
 
@@ -8,8 +7,7 @@ class Warrior;
 
 class TacticalMastery: public Talent {
 public:
-    TacticalMastery(Character *pchar, TalentTree* tree);
-    ~TacticalMastery() override;
+    TacticalMastery(Character* pchar, TalentTree* tree);
 
 private:
     Warrior* warr;
@@ -17,5 +15,3 @@ private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };
-
-#endif // TACTICALMASTERY_H

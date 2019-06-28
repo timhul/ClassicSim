@@ -1,9 +1,6 @@
-#ifndef SORTDIRECTION_H
-#define SORTDIRECTION_H
+#pragma once
 
 enum class SortDirection : int {
     Forward,
     Reverse
 };
-
-#endif // SORTDIRECTION_H

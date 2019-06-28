@@ -1,5 +1,4 @@
-#ifndef TESTPROCROGUE_H
-#define TESTPROCROGUE_H
+#pragma once
 
 #include "TestProc.h"
 #include "Rogue.h"
@@ -15,5 +14,3 @@ protected:
     void set_up();
     void tear_down();
 };
-
-#endif // TESTPROCROGUE_H

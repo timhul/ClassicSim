@@ -1,5 +1,4 @@
-#ifndef SLAM_H
-#define SLAM_H
+#pragma once
 
 #include <QVector>
 
@@ -26,5 +25,3 @@ private:
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
-
-#endif // SLAM_H

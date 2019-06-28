@@ -1,5 +1,4 @@
-#ifndef TESTCHARACTER_H
-#define TESTCHARACTER_H
+#pragma once
 
 #include "TestUtils.h"
 
@@ -20,5 +19,3 @@ protected:
 
     virtual void test_values_after_initialization() = 0;
 };
-
-#endif // TESTCHARACTER_H

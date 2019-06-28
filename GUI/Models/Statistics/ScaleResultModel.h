@@ -1,5 +1,4 @@
-#ifndef SCALERESULTMODEL_H
-#define SCALERESULTMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -50,5 +49,3 @@ private:
     void select_new_method(const ScaleResultSorting::Methods new_method);
     int get_current_sorting_method() const;
 };
-
-#endif // SCALERESULTMODEL_H

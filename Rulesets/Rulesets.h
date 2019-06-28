@@ -1,10 +1,7 @@
-#ifndef RULESETS_H
-#define RULESETS_H
+#pragma once
 
 enum Ruleset {
     Standard = 0,
     Vaelastrasz,
     Loatheb
 };
-
-#endif // RULESETS_H

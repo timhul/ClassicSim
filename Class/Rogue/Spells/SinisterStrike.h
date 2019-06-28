@@ -1,5 +1,4 @@
-#ifndef SINISTERSTRIKE_H
-#define SINISTERSTRIKE_H
+#pragma once
 
 #include "SetBonusRequirer.h"
 #include "Spell.h"
@@ -32,5 +31,3 @@ private:
 
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // SINISTERSTRIKE_H

@@ -1,5 +1,4 @@
-#ifndef SPELLCASTINGTIME_H
-#define SPELLCASTINGTIME_H
+#pragma once
 
 #include "Spell.h"
 
@@ -29,5 +28,3 @@ protected:
 
     double spell_coefficient_from_casting_time() const;
 };
-
-#endif // SPELLCASTINGTIME_H

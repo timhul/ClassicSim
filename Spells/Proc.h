@@ -1,5 +1,4 @@
-#ifndef PROC_H
-#define PROC_H
+#pragma once
 
 #include "Spell.h"
 #include "ProcInfo.h"
@@ -46,5 +45,3 @@ protected:
     virtual void proc_effect() = 0;
     virtual bool proc_specific_conditions_fulfilled() const;
 };
-
-#endif // PROC_H

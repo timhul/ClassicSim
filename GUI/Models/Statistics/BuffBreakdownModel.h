@@ -1,5 +1,4 @@
-#ifndef BUFFBREAKDOWNMODEL_H
-#define BUFFBREAKDOWNMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -49,5 +48,3 @@ protected:
     int get_current_sorting_method() const;
     virtual void add_statistics();
 };
-
-#endif // BUFFBREAKDOWNMODEL_H

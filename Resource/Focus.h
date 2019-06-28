@@ -1,5 +1,4 @@
-#ifndef FOCUS_H
-#define FOCUS_H
+#pragma once
 
 #include "RegeneratingResource.h"
 
@@ -25,5 +24,3 @@ private:
     void increase_focus_gain();
     void decrease_focus_gain();
 };
-
-#endif // FOCUS_H

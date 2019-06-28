@@ -1,5 +1,4 @@
-#ifndef TESTWARRIOR_H
-#define TESTWARRIOR_H
+#pragma once
 
 #include "TestObject.h"
 
@@ -14,5 +13,3 @@ public:
 private:
     void test_values_after_initialization() override;
 };
-
-#endif // TESTWARRIOR_H

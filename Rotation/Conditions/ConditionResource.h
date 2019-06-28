@@ -1,5 +1,4 @@
-#ifndef CONDITIONRESOURCE_H
-#define CONDITIONRESOURCE_H
+#pragma once
 
 #include "Condition.h"
 
@@ -21,5 +20,3 @@ public:
 private:
     QString name_for_resource() const;
 };
-
-#endif // CONDITIONRESOURCE_H

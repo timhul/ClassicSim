@@ -1,5 +1,4 @@
-#ifndef STATISTICSENGINE_H
-#define STATISTICSENGINE_H
+#pragma once
 
 #include <QMap>
 
@@ -25,5 +24,3 @@ private:
     unsigned elapsed {0};
     QMap<EventType, unsigned> event_map;
 };
-
-#endif // STATISTICSENGINE_H

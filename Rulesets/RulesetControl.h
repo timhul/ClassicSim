@@ -1,5 +1,4 @@
-#ifndef RULESETCONTROL_H
-#define RULESETCONTROL_H
+#pragma once
 
 #include "Rulesets.h"
 
@@ -19,5 +18,3 @@ private:
     void use_vaelastrasz_ruleset(Character*, SimSettings *sim_settings);
     void remove_vaelastrasz_ruleset(Character*, SimSettings* sim_settings);
 };
-
-#endif // RULESETCONTROL_H

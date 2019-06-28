@@ -1,5 +1,4 @@
-#ifndef TESTSPELLHUNTER_H
-#define TESTSPELLHUNTER_H
+#pragma once
 
 #include "Hunter.h"
 #include "HunterSpells.h"
@@ -45,5 +44,3 @@ protected:
     void given_hunter_has_mana(const unsigned mana);
     void then_hunter_has_mana(const unsigned mana);
 };
-
-#endif // TESTSPELLHUNTER_H

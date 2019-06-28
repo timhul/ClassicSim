@@ -1,5 +1,4 @@
-#ifndef ROTATIONCONDITIONSMODEL_H
-#define ROTATIONCONDITIONSMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -29,5 +28,3 @@ private:
     Rotation* rotation {nullptr};
     QHash<int, QByteArray> roleNames() const;
 };
-
-#endif // ROTATIONCONDITIONSMODEL_H

@@ -1,5 +1,4 @@
-#ifndef SIMULATIONTHREADPOOL_H
-#define SIMULATIONTHREADPOOL_H
+#pragma once
 
 #include <QObject>
 #include <QVector>
@@ -49,5 +48,3 @@ private:
     void add_threads(const int);
     void remove_threads(const int);
 };
-
-#endif // SIMULATIONTHREADPOOL_H

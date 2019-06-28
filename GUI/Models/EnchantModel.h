@@ -1,5 +1,4 @@
-#ifndef ENCHANTMODEL_H
-#define ENCHANTMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 
@@ -36,5 +35,3 @@ private:
     QHash<int, QByteArray> roleNames() const;
     QVector<EnchantName::Name> enchants;
 };
-
-#endif // ENCHANTMODEL_H

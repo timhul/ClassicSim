@@ -1,5 +1,4 @@
-#ifndef ARMORPENETRATIONBUFF_H
-#define ARMORPENETRATIONBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
@@ -21,5 +20,3 @@ private:
     void buff_effect_when_removed() override;
     void buff_effect_when_refreshed() override;
 };
-
-#endif // ARMORPENETRATIONBUFF_H

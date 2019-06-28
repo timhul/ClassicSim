@@ -1,5 +1,4 @@
-#ifndef GENERALBUFFS_H
-#define GENERALBUFFS_H
+#pragma once
 
 #include <QVector>
 
@@ -53,5 +52,3 @@ private:
 
     static QVector<ExternalBuffName> get_buff_names_for_class(const QString& class_name);
 };
-
-#endif // GENERALBUFFS_H

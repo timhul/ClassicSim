@@ -1,5 +1,4 @@
-#ifndef DEBUFFMODEL_H
-#define DEBUFFMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -43,5 +42,3 @@ private:
 
     QHash<int, QByteArray> roleNames() const;
 };
-
-#endif // DEBUFFMODEL_H

@@ -1,5 +1,4 @@
-#ifndef ORC_H
-#define ORC_H
+#pragma once
 
 #include "Race.h"
 
@@ -22,6 +21,3 @@ public:
     unsigned get_gun_bonus() const override;
     unsigned get_thrown_bonus() const override;
 };
-
-
-#endif // ORC_H

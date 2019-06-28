@@ -1,5 +1,4 @@
-#ifndef WEAPONMODEL_H
-#define WEAPONMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QHash>
@@ -79,5 +78,3 @@ private:
 
     void select_new_method(const WeaponSorting::Methods new_method);
 };
-
-#endif // WEAPONMODEL_H

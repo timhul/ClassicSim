@@ -1,5 +1,4 @@
-#ifndef EQUIPMENT_H
-#define EQUIPMENT_H
+#pragma once
 
 #include <QString>
 #include <QVector>
@@ -140,5 +139,3 @@ private:
     EnchantName::Name get_current_enchant_enum_value(Item* item) const;
     EnchantName::Name get_current_temp_enchant_enum_value(Weapon* weapon) const;
 };
-
-#endif // EQUIPMENT_H

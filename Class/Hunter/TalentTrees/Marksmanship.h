@@ -1,5 +1,4 @@
-#ifndef MARKSMANSHIP_H
-#define MARKSMANSHIP_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -25,5 +24,3 @@ private:
     Hunter* hunter;
     HunterSpells* spells;
 };
-
-#endif // MARKSMANSHIP_H

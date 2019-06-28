@@ -1,5 +1,4 @@
-#ifndef CHARACTERENCODER_H
-#define CHARACTERENCODER_H
+#pragma once
 
 #include <QVector>
 
@@ -28,5 +27,3 @@ private:
 
     void add_enchants();
 };
-
-#endif // CHARACTERENCODER_H

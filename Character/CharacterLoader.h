@@ -1,5 +1,4 @@
-#ifndef CHARACTERLOADER_H
-#define CHARACTERLOADER_H
+#pragma once
 
 #include <QString>
 
@@ -52,5 +51,3 @@ private:
     void select_rotation(CharacterDecoder& decoder, Character* pchar);
     EnchantName::Name get_enum_val(const QString& enum_val_as_string);
 };
-
-#endif // CHARACTERLOADER_H

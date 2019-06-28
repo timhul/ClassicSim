@@ -1,5 +1,4 @@
-#ifndef TESTUNBRIDLEDWRATH_H
-#define TESTUNBRIDLEDWRATH_H
+#pragma once
 
 #include "TestProcWarrior.h"
 
@@ -28,5 +27,3 @@ private:
     void given_4_of_5_unbridled_wrath();
     void given_5_of_5_unbridled_wrath();
 };
-
-#endif // TESTUNBRIDLEDWRATH_H

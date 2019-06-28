@@ -1,5 +1,4 @@
-#ifndef RAGE_H
-#define RAGE_H
+#pragma once
 
 #include "Resource.h"
 
@@ -14,5 +13,3 @@ public:
     friend class Druid;
     friend class Warrior;
 };
-
-#endif // RAGE_H

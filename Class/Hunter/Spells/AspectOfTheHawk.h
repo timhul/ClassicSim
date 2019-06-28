@@ -1,5 +1,4 @@
-#ifndef ASPECTOFTHEHAWK_H
-#define ASPECTOFTHEHAWK_H
+#pragma once
 
 #include "Spell.h"
 
@@ -22,5 +21,3 @@ private:
 
     void spell_effect() override;
 };
-
-#endif // ASPECTOFTHEHAWK_H

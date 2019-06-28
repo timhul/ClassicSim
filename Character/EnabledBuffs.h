@@ -1,5 +1,4 @@
-#ifndef ENABLEDBUFFS_H
-#define ENABLEDBUFFS_H
+#pragma once
 
 #include <QVector>
 
@@ -47,5 +46,3 @@ private:
 
     void remove_buff(Buff* buff, QVector<Buff*>& buffs);
 };
-
-#endif // ENABLEDBUFFS_H

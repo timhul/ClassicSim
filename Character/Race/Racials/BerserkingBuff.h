@@ -1,5 +1,4 @@
-#ifndef BERSERKINGBUFF_H
-#define BERSERKINGBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
@@ -17,5 +16,3 @@ private:
     Random* random;
     unsigned curr_buff;
 };
-
-#endif // BERSERKINGBUFF_H

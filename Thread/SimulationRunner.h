@@ -1,5 +1,4 @@
-#ifndef SIMULATIONRUNNER_H
-#define SIMULATIONRUNNER_H
+#pragma once
 
 #include <QMap>
 #include <QObject>
@@ -53,5 +52,3 @@ private:
 
     void exit_thread(QString err);
 };
-
-#endif // SIMULATIONRUNNER_H

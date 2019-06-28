@@ -1,5 +1,4 @@
-#ifndef INSTANTSPELLATTACK_H
-#define INSTANTSPELLATTACK_H
+#pragma once
 
 #include "Spell.h"
 #include "MagicSchools.h"
@@ -20,5 +19,3 @@ private:
 
     void spell_effect() override;
 };
-
-#endif // INSTANTSPELLATTACK_H

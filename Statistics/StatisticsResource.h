@@ -1,5 +1,4 @@
-#ifndef STATISTICSRESOURCE_H
-#define STATISTICSRESOURCE_H
+#pragma once
 
 #include "Resource.h"
 
@@ -34,5 +33,3 @@ private:
     const int time_in_combat;
     QMap<ResourceType, unsigned> resource_gain;
 };
-
-#endif // STATISTICSRESOURCE_H

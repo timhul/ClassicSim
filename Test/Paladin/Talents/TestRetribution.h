@@ -1,5 +1,4 @@
-#ifndef TESTRETRIBUTION_H
-#define TESTRETRIBUTION_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_retribution();
 };
-
-#endif // TESTRETRIBUTION_H

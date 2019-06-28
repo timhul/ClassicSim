@@ -1,5 +1,4 @@
-#ifndef WINDFURYTOTEMATTACK_H
-#define WINDFURYTOTEMATTACK_H
+#pragma once
 
 #include "Proc.h"
 
@@ -13,5 +12,3 @@ public:
 private:
     QVector<unsigned> rank_spells = {0, 122, 229, 315};
 };
-
-#endif // WINDFURYTOTEMATTACK_H

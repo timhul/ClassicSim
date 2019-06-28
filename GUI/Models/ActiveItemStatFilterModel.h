@@ -1,8 +1,8 @@
-#ifndef ITEMSTATFILTERMODEL_H
-#define ITEMSTATFILTERMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
+
 #include "ItemStatsEnum.h"
 
 class Character;
@@ -78,6 +78,3 @@ private:
 
     void update_affected_models();
 };
-
-
-#endif // ITEMSTATFILTERMODEL_H

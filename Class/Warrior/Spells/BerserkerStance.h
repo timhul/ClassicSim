@@ -1,5 +1,4 @@
-#ifndef BERSERKERSTANCE_H
-#define BERSERKERSTANCE_H
+#pragma once
 
 #include "Spell.h"
 
@@ -16,5 +15,3 @@ private:
     SpellStatus is_ready_spell_specific() const override;
     void spell_effect() override;
 };
-
-#endif // BERSERKERSTANCE_H

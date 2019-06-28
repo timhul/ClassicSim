@@ -1,5 +1,4 @@
-#ifndef SEALOFTHECRUSADER_H
-#define SEALOFTHECRUSADER_H
+#pragma once
 
 #include "ItemModificationRequirer.h"
 #include "PaladinSeal.h"
@@ -31,5 +30,3 @@ private:
     void activate_item_effect(const int item_id) override;
     void deactivate_item_effect(const int item_id) override;
 };
-
-#endif // SEALOFTHECRUSADER_H

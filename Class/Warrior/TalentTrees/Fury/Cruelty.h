@@ -1,5 +1,4 @@
-#ifndef CRUELTY_H
-#define CRUELTY_H
+#pragma once
 
 #include "Talent.h"
 
@@ -14,5 +13,3 @@ private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };
-
-#endif // CRUELTY_H

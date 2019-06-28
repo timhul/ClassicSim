@@ -1,5 +1,4 @@
-#ifndef PETAUTOATTACK_H
-#define PETAUTOATTACK_H
+#pragma once
 
 #include "Spell.h"
 
@@ -30,5 +29,3 @@ private:
 
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // PETAUTOATTACK_H

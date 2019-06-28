@@ -1,5 +1,4 @@
-#ifndef MAGICSCHOOLS_H
-#define MAGICSCHOOLS_H
+#pragma once
 
 enum MagicSchool {
     Physical = 0,
@@ -10,5 +9,3 @@ enum MagicSchool {
     Shadow,
     Holy
 };
-
-#endif // MAGICSCHOOLS_H

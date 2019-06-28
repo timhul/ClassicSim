@@ -1,5 +1,4 @@
-#ifndef TESTHOLYPALADIN_H
-#define TESTHOLYPALADIN_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_holy();
 };
-
-#endif // TESTHOLYPALADIN_H

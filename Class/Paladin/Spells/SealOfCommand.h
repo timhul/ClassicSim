@@ -1,5 +1,4 @@
-#ifndef SEALOFCOMMAND_H
-#define SEALOFCOMMAND_H
+#pragma once
 
 #include "PaladinSeal.h"
 #include "TalentRequirer.h"
@@ -36,5 +35,3 @@ private:
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
-
-#endif // SEALOFCOMMAND_H

@@ -1,5 +1,4 @@
-#ifndef GENERICSPELLPROC_H
-#define GENERICSPELLPROC_H
+#pragma once
 
 #include "Proc.h"
 
@@ -19,5 +18,3 @@ private:
     Spell* spell;
     void proc_effect() override;
 };
-
-#endif // GENERICSPELLPROC_H

@@ -1,5 +1,4 @@
-#ifndef ENCHANTPROC_H
-#define ENCHANTPROC_H
+#pragma once
 
 #include "Enchant.h"
 #include "EnchantName.h"
@@ -16,5 +15,3 @@ private:
     Character* pchar;
     Proc* proc;
 };
-
-#endif // ENCHANTPROC_H

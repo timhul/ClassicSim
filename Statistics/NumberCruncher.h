@@ -1,5 +1,4 @@
-#ifndef NUMBERCRUNCHER_H
-#define NUMBERCRUNCHER_H
+#pragma once
 
 #include <QMap>
 #include <QMutexLocker>
@@ -105,5 +104,3 @@ public:
     const double standard_deviation;
     const double confidence_interval;
 };
-
-#endif // NUMBERCRUNCHER_H

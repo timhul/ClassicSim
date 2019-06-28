@@ -1,5 +1,4 @@
-#ifndef PALADINSPELLS_H
-#define PALADINSPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -17,5 +16,3 @@ private:
     Paladin* paladin;
     PaladinSeal* current_seal {nullptr};
 };
-
-#endif // PALADINSPELLS_H

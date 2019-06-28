@@ -1,5 +1,4 @@
-#ifndef TESTENERGY_H
-#define TESTENERGY_H
+#pragma once
 
 #include "TestSpell.h"
 
@@ -26,5 +25,3 @@ private:
 
     Rogue* rogue;
 };
-
-#endif // TESTENERGY_H

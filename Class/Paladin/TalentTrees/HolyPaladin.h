@@ -1,5 +1,4 @@
-#ifndef HOLYPALADIN_H
-#define HOLYPALADIN_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -19,5 +18,3 @@ private:
     Paladin* paladin;
     PaladinSpells* spells;
 };
-
-#endif // HOLYPALADIN_H

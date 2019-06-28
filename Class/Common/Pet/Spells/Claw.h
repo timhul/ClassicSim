@@ -1,5 +1,4 @@
-#ifndef CLAW_H
-#define CLAW_H
+#pragma once
 
 #include "Spell.h"
 
@@ -17,5 +16,3 @@ private:
 
     void spell_effect() override;
 };
-
-#endif // CLAW_H

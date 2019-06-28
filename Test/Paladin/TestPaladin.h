@@ -1,5 +1,4 @@
-#ifndef TESTPALADIN_H
-#define TESTPALADIN_H
+#pragma once
 
 #include "TestObject.h"
 #include "TestUtils.h"
@@ -15,5 +14,3 @@ public:
 private:
     void test_values_after_initialization() override;
 };
-
-#endif // TESTPALADIN_H

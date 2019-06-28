@@ -1,5 +1,4 @@
-#ifndef HEMORRHAGE_H
-#define HEMORRHAGE_H
+#pragma once
 
 #include "SetBonusRequirer.h"
 #include "Spell.h"
@@ -29,5 +28,3 @@ private:
 
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // HEMORRHAGE_H

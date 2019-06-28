@@ -1,5 +1,4 @@
-#ifndef ENGINEBREAKDOWNMODEL_H
-#define ENGINEBREAKDOWNMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -53,5 +52,3 @@ private:
     void select_new_method(const EngineBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;
 };
-
-#endif // ENGINEBREAKDOWNMODEL_H

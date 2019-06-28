@@ -1,5 +1,4 @@
-#ifndef TESTARMS_H
-#define TESTARMS_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     QString get_position(const QString& name) const override;
 };
-
-#endif // TESTARMS_H

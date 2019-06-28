@@ -1,5 +1,4 @@
-#ifndef SWORDSPECIALIZATION_H
-#define SWORDSPECIALIZATION_H
+#pragma once
 
 #include "Proc.h"
 #include "TalentRequirer.h"
@@ -12,7 +11,6 @@ public:
     SwordSpecialization(Character* pchar);
     ~SwordSpecialization() override;
 
-    void proc_effect() override;
 
     bool proc_specific_conditions_fulfilled() const override;
 
@@ -24,8 +22,8 @@ private:
 
     bool weapon_is_sword(Weapon*) const;
 
+    void proc_effect() override;
+
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
-
-#endif // SWORDSPECIALIZATION_H

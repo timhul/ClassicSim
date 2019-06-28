@@ -1,5 +1,4 @@
-#ifndef TESTTALENTTREE_H
-#define TESTTALENTTREE_H
+#pragma once
 
 #include <QString>
 
@@ -43,5 +42,3 @@ protected:
     bool tree_has_points(const int points);
     void switch_to_setup(const int index);
 };
-
-#endif // TESTTALENTTREE_H

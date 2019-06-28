@@ -1,5 +1,4 @@
-#ifndef DEBUFFBREAKDOWNMODEL_H
-#define DEBUFFBREAKDOWNMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -15,5 +14,3 @@ public:
 private:
     void add_statistics() override;
 };
-
-#endif // DEBUFFBREAKDOWNMODEL_H

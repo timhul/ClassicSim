@@ -1,5 +1,4 @@
-#ifndef TESTFURY_H
-#define TESTFURY_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_dw_fury();
 };
-
-#endif // TESTFURY_H

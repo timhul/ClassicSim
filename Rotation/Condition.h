@@ -1,5 +1,4 @@
-#ifndef CONDITION_H
-#define CONDITION_H
+#pragma once
 
 #include <QString>
 
@@ -60,5 +59,3 @@ public:
 protected:
     QString comparator_as_string() const;
 };
-
-#endif // CONDITION_H

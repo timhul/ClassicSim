@@ -1,5 +1,4 @@
-#ifndef CONDITIONBUFF_H
-#define CONDITIONBUFF_H
+#pragma once
 
 #include "Condition.h"
 
@@ -15,5 +14,3 @@ public:
     Buff* buff;
     const double cmp_value;
 };
-
-#endif // CONDITIONBUFF_H

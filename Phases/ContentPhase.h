@@ -1,5 +1,4 @@
-#ifndef CONTENTPHASE_H
-#define CONTENTPHASE_H
+#pragma once
 
 #include <QString>
 #include <QObject>
@@ -23,5 +22,3 @@ public:
     static QString get_shortname_for_phase(const Content::Phase phase);
     static Phase get_phase(const int);
 };
-
-#endif // CONTENTPHASE_H

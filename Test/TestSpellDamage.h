@@ -1,5 +1,4 @@
-#ifndef TESTSPELLDAMAGE_H
-#define TESTSPELLDAMAGE_H
+#pragma once
 
 #include "TestSpell.h"
 
@@ -27,5 +26,3 @@ public:
 private:
     bool has_run_mandatory_tests;
 };
-
-#endif // TESTSPELLDAMAGE_H

@@ -1,5 +1,4 @@
-#ifndef TESTSUBTLETY_H
-#define TESTSUBTLETY_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_hemo();
 };
-
-#endif // TESTSUBTLETY_H

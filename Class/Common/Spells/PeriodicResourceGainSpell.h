@@ -1,5 +1,4 @@
-#ifndef RESOURCEGAINSPELL_H
-#define RESOURCEGAINSPELL_H
+#pragma once
 
 #include "Spell.h"
 #include "Resource.h"
@@ -31,5 +30,3 @@ private:
     void spell_effect() override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // RESOURCEGAINSPELL_H

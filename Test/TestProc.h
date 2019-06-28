@@ -1,5 +1,4 @@
-#ifndef TESTPROC_H
-#define TESTPROC_H
+#pragma once
 
 #include "TestSpell.h"
 
@@ -12,7 +11,4 @@ public:
 
 protected:
     void then_proc_range_is(Proc* proc, const unsigned);
-private:
 };
-
-#endif // TESTPROC_H

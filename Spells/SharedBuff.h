@@ -1,5 +1,4 @@
-#ifndef SHAREDBUFF_H
-#define SHAREDBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
@@ -15,5 +14,3 @@ public:
 protected:
     int reference_counter;
 };
-
-#endif // SHAREDBUFF_H

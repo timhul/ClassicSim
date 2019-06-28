@@ -1,5 +1,4 @@
-#ifndef COMBAT_H
-#define COMBAT_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -24,5 +23,3 @@ private:
 
     Talent* get_endurance();
 };
-
-#endif // COMBAT_H

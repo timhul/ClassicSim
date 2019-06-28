@@ -1,5 +1,4 @@
-#ifndef PALADINSEAL_H
-#define PALADINSEAL_H
+#pragma once
 
 #include "Spell.h"
 
@@ -29,5 +28,3 @@ protected:
     virtual void judge_effect() = 0;
     void spell_effect() override final;
 };
-
-#endif // PALADINSEAL_H

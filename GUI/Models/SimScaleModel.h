@@ -1,5 +1,4 @@
-#ifndef SIMSCALEMODEL_H
-#define SIMSCALEMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -30,5 +29,3 @@ private:
     SimSettings* sim_settings;
     QList<SimOption::Name> sim_options;
 };
-
-#endif // SIMSCALEMODEL_H

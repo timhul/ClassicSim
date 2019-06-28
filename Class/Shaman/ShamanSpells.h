@@ -1,5 +1,4 @@
-#ifndef SHAMANSPELLS_H
-#define SHAMANSPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -26,5 +25,3 @@ private:
     Buff* elemental_devastation;
     Buff* flurry;
 };
-
-#endif // SHAMANSPELLS_H

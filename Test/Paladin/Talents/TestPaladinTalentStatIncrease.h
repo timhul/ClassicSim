@@ -1,5 +1,4 @@
-#ifndef TESTPALADINTALENTSTATINCREASE_H
-#define TESTPALADINTALENTSTATINCREASE_H
+#pragma once
 
 #include "TestSpellPaladin.h"
 
@@ -25,5 +24,3 @@ private:
     void test_divine_strength();
     void test_divine_intellect();
 };
-
-#endif // TESTPALADINTALENTSTATINCREASE_H

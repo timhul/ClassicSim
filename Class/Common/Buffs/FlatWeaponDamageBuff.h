@@ -1,5 +1,4 @@
-#ifndef FLATWEAPONDAMAGEBUFF_H
-#define FLATWEAPONDAMAGEBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
@@ -29,5 +28,3 @@ private:
     void buff_effect_when_removed() override;
     void charge_change_effect() override;
 };
-
-#endif // FLATWEAPONDAMAGEBUFF_H

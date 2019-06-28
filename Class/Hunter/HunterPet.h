@@ -1,5 +1,4 @@
-#ifndef HUNTERPET_H
-#define HUNTERPET_H
+#pragma once
 
 #include "ItemModificationRequirer.h"
 #include "Pet.h"
@@ -23,5 +22,3 @@ protected:
     class Focus* focus;
     FrenzyProc* frenzy_proc;
 };
-
-#endif // HUNTERPET_H

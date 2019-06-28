@@ -1,5 +1,4 @@
-#ifndef SLICEANDDICE_H
-#define SLICEANDDICE_H
+#pragma once
 
 #include "SetBonusRequirer.h"
 #include "Spell.h"
@@ -25,5 +24,3 @@ private:
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
     void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
-
-#endif // SLICEANDDICE_H

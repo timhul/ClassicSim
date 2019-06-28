@@ -1,5 +1,4 @@
-#ifndef TESTFELSTRIKERPROC_H
-#define TESTFELSTRIKERPROC_H
+#pragma once
 
 #include "TestProc.h"
 
@@ -17,5 +16,3 @@ private:
     void set_up();
     void tear_down();
 };
-
-#endif // TESTFELSTRIKERPROC_H

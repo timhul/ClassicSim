@@ -1,5 +1,4 @@
-#ifndef ENCHANTSTATIC_H
-#define ENCHANTSTATIC_H
+#pragma once
 
 #include "Enchant.h"
 #include "EnchantName.h"
@@ -18,5 +17,3 @@ private:
     Character* pchar;
     int enchant_slot;
 };
-
-#endif // ENCHANTSTATIC_H

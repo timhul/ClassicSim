@@ -1,5 +1,4 @@
-#ifndef ACTIVEPROCS_H
-#define ACTIVEPROCS_H
+#pragma once
 
 #include <QSet>
 #include <QVector>
@@ -45,5 +44,3 @@ private:
     QVector<Proc*> enabled_procs;
     QSet<int> procced_instance_ids;
 };
-
-#endif // ACTIVEPROCS_H

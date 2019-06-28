@@ -1,5 +1,4 @@
-#ifndef EVISCERATE_H
-#define EVISCERATE_H
+#pragma once
 
 #include <QVector>
 
@@ -38,5 +37,3 @@ private:
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
     void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
-
-#endif // EVISCERATE_H

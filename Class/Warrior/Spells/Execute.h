@@ -1,5 +1,4 @@
-#ifndef EXECUTE_H
-#define EXECUTE_H
+#pragma once
 
 #include "Spell.h"
 #include "TalentRequirer.h"
@@ -28,5 +27,3 @@ private:
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // EXECUTE_H

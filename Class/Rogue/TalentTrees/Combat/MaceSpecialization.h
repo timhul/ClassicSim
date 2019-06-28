@@ -1,5 +1,4 @@
-#ifndef MACESPECIALIZATION_H
-#define MACESPECIALIZATION_H
+#pragma once
 
 #include "Talent.h"
 
@@ -14,5 +13,3 @@ private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };
-
-#endif // MACESPECIALIZATION_H

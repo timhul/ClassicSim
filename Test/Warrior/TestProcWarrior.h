@@ -1,5 +1,4 @@
-#ifndef TESTPROCWARRIOR_H
-#define TESTPROCWARRIOR_H
+#pragma once
 
 #include "TestProc.h"
 
@@ -17,5 +16,3 @@ protected:
     void set_up();
     void tear_down();
 };
-
-#endif // TESTPROCWARRIOR_H

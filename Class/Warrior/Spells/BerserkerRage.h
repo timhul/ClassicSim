@@ -1,5 +1,4 @@
-#ifndef BERSERKERRAGE_H
-#define BERSERKERRAGE_H
+#pragma once
 
 #include "Spell.h"
 #include "TalentRequirer.h"
@@ -26,5 +25,3 @@ private:
 
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // BERSERKERRAGE_H

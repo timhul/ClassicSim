@@ -1,5 +1,4 @@
-#ifndef EQUIPMENTDB_H
-#define EQUIPMENTDB_H
+#pragma once
 
 #include <QFile>
 #include <QMap>
@@ -114,5 +113,3 @@ private:
 
     QMap<int, Item*> item_id_to_item;
 };
-
-#endif // EQUIPMENTDB_H

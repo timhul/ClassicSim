@@ -1,5 +1,4 @@
-#ifndef TESTROTATIONFILEREADER_H
-#define TESTROTATIONFILEREADER_H
+#pragma once
 
 #include "TestObject.h"
 
@@ -55,5 +54,3 @@ private:
     void set_up_paladin();
     void tear_down();
 };
-
-#endif // TESTROTATIONFILEREADER_H

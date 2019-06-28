@@ -1,5 +1,4 @@
-#ifndef CHARACTERENCODING_H
-#define CHARACTERENCODING_H
+#pragma once
 
 namespace Encoding {
 static const int VERSION = 1;
@@ -10,5 +9,3 @@ static const char LIST_INITIALIZER = '[';
 static const char LIST_END = ']';
 static const char LIST_ELEMENT_SEPARATOR = ':';
 }
-
-#endif // CHARACTERENCODING_H

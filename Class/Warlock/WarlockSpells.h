@@ -1,5 +1,4 @@
-#ifndef WARLOCKSPELLS_H
-#define WARLOCKSPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -12,5 +11,3 @@ public:
 private:
     Warlock* warlock;
 };
-
-#endif // WARLOCKSPELLS_H

@@ -1,5 +1,4 @@
-#ifndef ITEMTYPEFILTERMODEL_H
-#define ITEMTYPEFILTERMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -58,5 +57,3 @@ private:
     void add_armor_item_type_filters();
     void add_weapon_item_type_filters();
 };
-
-#endif // ITEMTYPEFILTERMODEL_H

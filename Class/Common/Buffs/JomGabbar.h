@@ -1,5 +1,4 @@
-#ifndef JOMGABBAR_H
-#define JOMGABBAR_H
+#pragma once
 
 #include "SelfBuff.h"
 
@@ -17,5 +16,3 @@ private:
     void buff_effect_when_refreshed() override;
     void reset_effect() override;
 };
-
-#endif // JOMGABBAR_H

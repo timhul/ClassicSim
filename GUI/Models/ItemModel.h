@@ -1,5 +1,4 @@
-#ifndef ITEMMODEL_H
-#define ITEMMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -70,5 +69,3 @@ private:
 
     void select_new_method(const ItemSorting::Methods new_method);
 };
-
-#endif // ITEMMODEL_H

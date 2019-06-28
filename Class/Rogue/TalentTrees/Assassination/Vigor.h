@@ -1,5 +1,4 @@
-#ifndef VIGOR_H
-#define VIGOR_H
+#pragma once
 
 #include "Talent.h"
 
@@ -17,5 +16,3 @@ private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };
-
-#endif // VIGOR_H

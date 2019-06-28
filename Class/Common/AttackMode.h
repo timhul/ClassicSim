@@ -1,10 +1,7 @@
-#ifndef ATTACKMODE_H
-#define ATTACKMODE_H
+#pragma once
 
 enum AttackMode {
     MeleeAttack = 0,
     RangedAttack,
     MagicAttack
 };
-
-#endif // ATTACKMODE_H

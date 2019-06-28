@@ -1,5 +1,4 @@
-#ifndef BERSERKING_H
-#define BERSERKING_H
+#pragma once
 
 #include "Spell.h"
 
@@ -17,5 +16,3 @@ private:
     void enable_spell_effect() override;
     void disable_spell_effect() override;
 };
-
-#endif // BERSERKING_H

@@ -1,5 +1,4 @@
-#ifndef BUFF_H
-#define BUFF_H
+#pragma once
 
 #include <QString>
 
@@ -93,5 +92,3 @@ protected:
     virtual void charge_change_effect();
     virtual void prepare_set_of_combat_iterations_spell_specific();
 };
-
-#endif // BUFF_H

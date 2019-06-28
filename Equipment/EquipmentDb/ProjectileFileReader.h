@@ -1,5 +1,4 @@
-#ifndef PROJECTILEFILEREADER_H
-#define PROJECTILEFILEREADER_H
+#pragma once
 
 #include "ItemFileReader.h"
 
@@ -13,5 +12,3 @@ private:
     int get_projectile_type(const QString &type);
     QString get_type_string(const QString &slot, const QString &type);
 };
-
-#endif // PROJECTILEFILEREADER_H

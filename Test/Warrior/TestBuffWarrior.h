@@ -1,5 +1,4 @@
-#ifndef TESTBUFFWARRIOR_H
-#define TESTBUFFWARRIOR_H
+#pragma once
 
 #include "TestBuff.h"
 #include "Warrior.h"
@@ -15,5 +14,3 @@ protected:
     Warrior* warrior {nullptr};
     WarriorSpells* spells {nullptr};
 };
-
-#endif // TESTBUFFWARRIOR_H

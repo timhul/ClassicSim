@@ -1,6 +1,4 @@
-#ifndef PROCINFO_H
-#define PROCINFO_H
-
+#pragma once
 
 namespace ProcInfo {
 
@@ -14,5 +12,3 @@ enum Source {
 };
 
 }
-
-#endif // PROCINFO_H

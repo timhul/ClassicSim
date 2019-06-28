@@ -1,5 +1,4 @@
-#ifndef TESTASSASSINATION_H
-#define TESTASSASSINATION_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_seal_fate();
 };
-
-#endif // TESTASSASSINATION_H

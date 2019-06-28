@@ -1,5 +1,4 @@
-#ifndef ENCHANTSTATICNAME_H
-#define ENCHANTSTATICNAME_H
+#pragma once
 
 #include <QObject>
 
@@ -228,5 +227,3 @@ public:
         return "";
     }
 };
-
-#endif // ENCHANTSTATICNAME_H

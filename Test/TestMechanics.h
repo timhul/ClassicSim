@@ -1,5 +1,4 @@
-#ifndef TESTMECHANICS_H
-#define TESTMECHANICS_H
+#pragma once
 
 #include "TestUtils.h"
 
@@ -17,5 +16,3 @@ private:
 
     void test_full_resistance_chance();
 };
-
-#endif // TESTMECHANICS_H

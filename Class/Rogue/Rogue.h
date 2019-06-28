@@ -1,5 +1,4 @@
-#ifndef ROGUE_H
-#define ROGUE_H
+#pragma once
 
 #include "Character.h"
 
@@ -69,5 +68,3 @@ private:
     void initialize_talents() override;
     void reset_class_specific() override;
 };
-
-#endif // ROGUE_H

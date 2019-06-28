@@ -1,5 +1,4 @@
-#ifndef TESTCONDITIONVARIABLEBUILTIN_H
-#define TESTCONDITIONVARIABLEBUILTIN_H
+#pragma once
 
 #include "TestObject.h"
 
@@ -48,5 +47,3 @@ private:
 
     void set_event_priority(Engine* engine, const double priority);
 };
-
-#endif // TESTCONDITIONVARIABLEBUILTIN_H

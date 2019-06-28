@@ -1,5 +1,4 @@
-#ifndef SEALOFCOMMANDPROC_H
-#define SEALOFCOMMANDPROC_H
+#pragma once
 
 #include "ProcPPM.h"
 
@@ -17,5 +16,3 @@ private:
 
     bool proc_specific_conditions_fulfilled() const override;
 };
-
-#endif // SEALOFCOMMANDPROC_H

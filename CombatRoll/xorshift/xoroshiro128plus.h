@@ -1,5 +1,4 @@
-#ifndef XOROSHIRO128PLUS_H
-#define XOROSHIRO128PLUS_H
+#pragma once
 
 #include <stdint.h>
 
@@ -11,5 +10,3 @@ public:
     uint64_t next();
     uint64_t state[2]{};
 };
-
-#endif // XOROSHIRO128PLUS_H

@@ -1,5 +1,4 @@
-#ifndef INSTANTPOISON_H
-#define INSTANTPOISON_H
+#pragma once
 
 #include "Enchant.h"
 #include "Proc.h"
@@ -35,5 +34,3 @@ private:
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
     void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
-
-#endif // INSTANTPOISON_H

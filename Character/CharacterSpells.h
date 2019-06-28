@@ -1,5 +1,4 @@
-#ifndef SPELLS_H
-#define SPELLS_H
+#pragma once
 
 #include <QMap>
 #include <QVector>
@@ -105,5 +104,3 @@ private:
     void start_melee_attack();
     void add_spell(Spell* spell, bool relink=true);
 };
-
-#endif // SPELLS_H

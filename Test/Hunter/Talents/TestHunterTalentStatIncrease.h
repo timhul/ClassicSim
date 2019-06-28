@@ -1,5 +1,4 @@
-#ifndef TESTHUNTERTALENTSTATINCREASE_H
-#define TESTHUNTERTALENTSTATINCREASE_H
+#pragma once
 
 #include "TestSpellHunter.h"
 
@@ -25,5 +24,3 @@ private:
     void test_unleashed_fury();
     void test_ferocity();
 };
-
-#endif // TESTHUNTERTALENTSTATINCREASE_H

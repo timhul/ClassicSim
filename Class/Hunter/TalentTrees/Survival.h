@@ -1,5 +1,4 @@
-#ifndef SURVIVAL_H
-#define SURVIVAL_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -21,5 +20,3 @@ private:
     Hunter* hunter;
     HunterSpells* spells;
 };
-
-#endif // SURVIVAL_H

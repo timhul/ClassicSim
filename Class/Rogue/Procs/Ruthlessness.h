@@ -1,5 +1,4 @@
-#ifndef RUTHLESSNESS_H
-#define RUTHLESSNESS_H
+#pragma once
 
 #include "Proc.h"
 #include "TalentRequirer.h"
@@ -20,5 +19,3 @@ private:
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
-
-#endif // RUTHLESSNESS_H

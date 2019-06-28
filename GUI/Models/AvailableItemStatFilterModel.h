@@ -1,5 +1,4 @@
-#ifndef AVAILABLEITEMSTATFILTERMODEL_H
-#define AVAILABLEITEMSTATFILTERMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -50,5 +49,3 @@ private:
 
     void add_available_stat_filters();
 };
-
-#endif // AVAILABLEITEMSTATFILTERMODEL_H

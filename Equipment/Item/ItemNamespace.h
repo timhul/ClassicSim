@@ -1,5 +1,4 @@
-#ifndef ITEMNAMESPACE_H
-#define ITEMNAMESPACE_H
+#pragma once
 
 namespace ItemSlots {
     static const int MAINHAND = 0;
@@ -95,5 +94,3 @@ namespace ProjectileTypes {
     static const int ARROW = 0;
     static const int BULLET = 1;
 }
-
-#endif // ITEMNAMESPACE_H

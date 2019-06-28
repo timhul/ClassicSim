@@ -1,5 +1,4 @@
-#ifndef TESTMANA_H
-#define TESTMANA_H
+#pragma once
 
 #include "TestSpellHunter.h"
 
@@ -26,5 +25,3 @@ private:
 
     void spend_mana();
 };
-
-#endif // TESTMANA_H

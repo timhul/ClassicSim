@@ -1,5 +1,4 @@
-#ifndef CLASSSTATISTICS_H
-#define CLASSSTATISTICS_H
+#pragma once
 
 #include <QMap>
 #include <QVariantList>
@@ -60,5 +59,3 @@ private:
 
     void delete_objects();
 };
-
-#endif // CLASSSTATISTICS_H

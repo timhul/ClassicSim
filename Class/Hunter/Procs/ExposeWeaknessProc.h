@@ -1,5 +1,4 @@
-#ifndef EXPOSEWEAKNESSPROC_H
-#define EXPOSEWEAKNESSPROC_H
+#pragma once
 
 #include "Proc.h"
 #include "SetBonusRequirer.h"
@@ -21,5 +20,3 @@ private:
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
     void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
-
-#endif // EXPOSEWEAKNESSPROC_H

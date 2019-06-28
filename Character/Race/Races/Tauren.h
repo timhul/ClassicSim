@@ -1,5 +1,4 @@
-#ifndef TAUREN_H
-#define TAUREN_H
+#pragma once
 
 #include "Race.h"
 
@@ -22,5 +21,3 @@ public:
     unsigned get_gun_bonus() const override;
     unsigned get_thrown_bonus() const override;
 };
-
-#endif // TAUREN_H

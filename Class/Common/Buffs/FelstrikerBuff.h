@@ -1,5 +1,4 @@
-#ifndef FELSTRIKERBUFF_H
-#define FELSTRIKERBUFF_H
+#pragma once
 
 #include "SharedBuff.h"
 
@@ -13,5 +12,3 @@ private:
 
     void set_tables_for_guaranteed_hit(const int);
 };
-
-#endif // FELSTRIKERBUFF_H

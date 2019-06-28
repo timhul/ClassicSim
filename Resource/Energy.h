@@ -1,5 +1,4 @@
-#ifndef ENERGY_H
-#define ENERGY_H
+#pragma once
 
 #include "RegeneratingResource.h"
 
@@ -29,5 +28,3 @@ private:
     unsigned energy_per_tick;
     unsigned max_energy_bonus;
 };
-
-#endif // ENERGY_H

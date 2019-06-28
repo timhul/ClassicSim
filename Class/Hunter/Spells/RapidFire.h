@@ -1,5 +1,4 @@
-#ifndef RAPIDFIRE_H
-#define RAPIDFIRE_H
+#pragma once
 
 #include "Spell.h"
 #include "SetBonusRequirer.h"
@@ -20,5 +19,3 @@ private:
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
     void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
-
-#endif // RAPIDFIRE_H

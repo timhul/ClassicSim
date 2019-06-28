@@ -1,5 +1,4 @@
-#ifndef PROTECTION_H
-#define PROTECTION_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -10,8 +9,7 @@ public:
     Protection(Warrior *pchar);
 
     Talent* get_improved_shield_block();
+
 private:
     Warrior* warrior;
 };
-
-#endif // PROTECTION_H

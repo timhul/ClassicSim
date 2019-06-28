@@ -1,5 +1,4 @@
-#ifndef TESTPROTECTIONPALADIN_H
-#define TESTPROTECTIONPALADIN_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_protection();
 };
-
-#endif // TESTPROTECTIONPALADIN_H

@@ -1,5 +1,4 @@
-#ifndef TESTCOMBAT_H
-#define TESTCOMBAT_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_combat();
 };
-
-#endif // TESTCOMBAT_H

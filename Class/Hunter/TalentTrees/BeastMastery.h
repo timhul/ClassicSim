@@ -1,5 +1,4 @@
-#ifndef BEASTMASTERY_H
-#define BEASTMASTERY_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -22,5 +21,3 @@ private:
     Hunter* hunter;
     HunterSpells* spells;
 };
-
-#endif // BEASTMASTERY_H

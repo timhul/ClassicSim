@@ -1,5 +1,4 @@
-#ifndef MORTALSTRIKE_H
-#define MORTALSTRIKE_H
+#pragma once
 
 #include "Spell.h"
 #include "TalentRequirer.h"
@@ -21,5 +20,3 @@ private:
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
-
-#endif // MORTALSTRIKE_H

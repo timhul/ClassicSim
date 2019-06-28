@@ -1,5 +1,4 @@
-#ifndef CHARACTERENCHANTS_H
-#define CHARACTERENCHANTS_H
+#pragma once
 
 #include <QVector>
 
@@ -25,5 +24,3 @@ protected:
     bool has_sharp_weapon(const int equipment_slot) const;
     bool has_2hand() const;
 };
-
-#endif // CHARACTERENCHANTS_H

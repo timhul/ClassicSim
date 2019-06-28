@@ -1,5 +1,4 @@
-#ifndef TESTROGUE_H
-#define TESTROGUE_H
+#pragma once
 
 #include "TestObject.h"
 
@@ -14,5 +13,3 @@ public:
 private:
     void test_values_after_initialization() override;
 };
-
-#endif // TESTROGUE_H

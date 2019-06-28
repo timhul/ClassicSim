@@ -1,5 +1,4 @@
-#ifndef AVAILABLEFACTIONS_H
-#define AVAILABLEFACTIONS_H
+#pragma once
 
 #include <QObject>
 
@@ -15,6 +14,3 @@ public:
 
     Q_ENUMS(Name)
 };
-
-
-#endif // AVAILABLEFACTIONS_H

@@ -1,5 +1,4 @@
-#ifndef USEITEM_H
-#define USEITEM_H
+#pragma once
 
 #include "Spell.h"
 
@@ -22,5 +21,3 @@ private:
 
     void spell_effect() override;
 };
-
-#endif // USEITEM_H

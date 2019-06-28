@@ -1,5 +1,4 @@
-#ifndef SIMOPTION_H
-#define SIMOPTION_H
+#pragma once
 
 #include <QObject>
 #include <QString>
@@ -23,5 +22,3 @@ public:
 
     Q_ENUMS(Name)
 };
-
-#endif // SIMOPTION_H

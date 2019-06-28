@@ -1,5 +1,4 @@
-#ifndef SANCTITYAURABUFF_H
-#define SANCTITYAURABUFF_H
+#pragma once
 
 #include "PartyBuff.h"
 
@@ -16,5 +15,3 @@ private:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 };
-
-#endif // SANCTITYAURABUFF_H

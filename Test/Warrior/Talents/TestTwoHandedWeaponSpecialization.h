@@ -1,5 +1,4 @@
-#ifndef TESTTWOHANDEDWEAPONSPECIALIZATION_H
-#define TESTTWOHANDEDWEAPONSPECIALIZATION_H
+#pragma once
 
 #include "TestSpell.h"
 
@@ -27,5 +26,3 @@ private:
 
     void test_basic_properties();
 };
-
-#endif // TESTTWOHANDEDWEAPONSPECIALIZATION_H

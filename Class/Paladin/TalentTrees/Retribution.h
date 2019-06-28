@@ -1,5 +1,4 @@
-#ifndef RETRIBUTION_H
-#define RETRIBUTION_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -24,5 +23,3 @@ private:
     Paladin* paladin;
     PaladinSpells* spells;
 };
-
-#endif // RETRIBUTION_H

@@ -1,5 +1,4 @@
-#ifndef MULTISHOT_H
-#define MULTISHOT_H
+#pragma once
 
 #include "ItemModificationRequirer.h"
 #include "SetBonusRequirer.h"
@@ -38,5 +37,3 @@ private:
     void activate_item_effect(const int item_id) override;
     void deactivate_item_effect(const int item_id) override;
 };
-
-#endif // MULTISHOT_H

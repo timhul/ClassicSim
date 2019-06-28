@@ -1,5 +1,4 @@
-#ifndef GENERALPROCS_H
-#define GENERALPROCS_H
+#pragma once
 
 #include <QVector>
 
@@ -20,5 +19,3 @@ private:
     QVector<Proc*> alliance_only_procs;
     QVector<Proc*> horde_only_procs;
 };
-
-#endif // GENERALPROCS_H

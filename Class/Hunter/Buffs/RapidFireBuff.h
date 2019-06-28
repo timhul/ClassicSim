@@ -1,5 +1,4 @@
-#ifndef RAPIDFIREBUFF_H
-#define RAPIDFIREBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 #include "SetBonusRequirer.h"
@@ -14,5 +13,3 @@ private:
     void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
     void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };
-
-#endif // RAPIDFIREBUFF_H

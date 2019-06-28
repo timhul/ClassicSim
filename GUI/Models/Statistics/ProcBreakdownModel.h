@@ -1,5 +1,4 @@
-#ifndef PROCBREAKDOWNMODEL_H
-#define PROCBREAKDOWNMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -49,5 +48,3 @@ private:
     void select_new_method(const ProcBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;
 };
-
-#endif // PROCBREAKDOWNMODEL_H

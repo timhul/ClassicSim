@@ -1,5 +1,4 @@
-#ifndef TESTSURVIVAL_H
-#define TESTSURVIVAL_H
+#pragma once
 
 #include "TestTalentTree.h"
 
@@ -19,5 +18,3 @@ private:
 
     void spec_survival();
 };
-
-#endif // TESTSURVIVAL_H

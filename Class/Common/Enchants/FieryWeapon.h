@@ -1,5 +1,4 @@
-#ifndef FIERYWEAPON_H
-#define FIERYWEAPON_H
+#pragma once
 
 #include "ProcPPM.h"
 
@@ -12,9 +11,6 @@ public:
 
     void proc_effect() override;
 
-protected:
 private:
     InstantSpellAttack* fiery_weapon_attack;
 };
-
-#endif // FIERYWEAPON_H

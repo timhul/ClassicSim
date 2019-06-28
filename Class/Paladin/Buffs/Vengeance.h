@@ -1,5 +1,4 @@
-#ifndef VENGEANCE_H
-#define VENGEANCE_H
+#pragma once
 
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
@@ -25,5 +24,3 @@ private:
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
-
-#endif // VENGEANCE_H

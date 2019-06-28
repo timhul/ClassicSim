@@ -1,5 +1,4 @@
-#ifndef IMPROVEDASPECTOFTHEHAWKBUFF_H
-#define IMPROVEDASPECTOFTHEHAWKBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 
@@ -11,5 +10,3 @@ private:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 };
-
-#endif // IMPROVEDASPECTOFTHEHAWKBUFF_H

@@ -1,5 +1,4 @@
-#ifndef USETRINKETAPPLYBUFF_H
-#define USETRINKETAPPLYBUFF_H
+#pragma once
 
 #include "Spell.h"
 
@@ -23,5 +22,3 @@ private:
     void spell_effect() override;
     SpellStatus is_ready_spell_specific() const override;
 };
-
-#endif // USETRINKETAPPLYBUFF_H

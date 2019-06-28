@@ -1,5 +1,4 @@
-#ifndef PRIESTSPELLS_H
-#define PRIESTSPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -13,5 +12,3 @@ public:
 private:
     Priest* priest;
 };
-
-#endif // PRIESTSPELLS_H

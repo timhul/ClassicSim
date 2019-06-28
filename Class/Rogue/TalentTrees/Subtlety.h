@@ -1,5 +1,4 @@
-#ifndef SUBTLETY_H
-#define SUBTLETY_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -17,5 +16,3 @@ private:
     Rogue* rogue;
     RogueSpells* spells;
 };
-
-#endif // SUBTLETY_H

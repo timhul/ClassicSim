@@ -1,5 +1,4 @@
-#ifndef ASSASSINATION_H
-#define ASSASSINATION_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -23,5 +22,3 @@ private:
     Rogue* rogue;
     RogueSpells* spells;
 };
-
-#endif // ASSASSINATION_H

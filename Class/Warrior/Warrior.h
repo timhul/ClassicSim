@@ -1,5 +1,4 @@
-#ifndef WARRIOR_H
-#define WARRIOR_H
+#pragma once
 
 #include "Character.h"
 
@@ -68,5 +67,3 @@ private:
 
     void reset_class_specific() override;
 };
-
-#endif // WARRIOR_H

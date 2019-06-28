@@ -1,6 +1,4 @@
-#ifndef FELSTRIKERPROC_H
-#define FELSTRIKERPROC_H
-
+#pragma once
 #include "Proc.h"
 
 class FelstrikerBuff;
@@ -16,5 +14,3 @@ private:
     FelstrikerBuff* felstriker_buff;
     void proc_effect() override;
 };
-
-#endif // FELSTRIKERPROC_H

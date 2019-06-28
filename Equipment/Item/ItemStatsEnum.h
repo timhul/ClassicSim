@@ -1,5 +1,4 @@
-#ifndef ITEMSTATS_H
-#define ITEMSTATS_H
+#pragma once
 
 enum class ItemStats {
     Agility = 0,
@@ -47,5 +46,3 @@ enum class ItemStats {
     SpellCrit,
     SpellHit,
 };
-
-#endif // ITEMSTATS_H

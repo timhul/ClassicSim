@@ -1,5 +1,4 @@
-#ifndef WEAPONFILEREADER_H
-#define WEAPONFILEREADER_H
+#pragma once
 
 #include "ItemFileReader.h"
 
@@ -17,5 +16,3 @@ private:
                        QVector<QString>& special_equip_effects);
     int get_weapon_type(const QString &type);
 };
-
-#endif // WEAPONFILEREADER_H

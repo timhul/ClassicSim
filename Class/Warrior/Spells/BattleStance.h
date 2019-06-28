@@ -1,5 +1,4 @@
-#ifndef BATTLESTANCE_H
-#define BATTLESTANCE_H
+#pragma once
 
 #include "Spell.h"
 
@@ -16,5 +15,3 @@ private:
     void spell_effect() override;
     SpellStatus is_ready_spell_specific() const override;
 };
-
-#endif // BATTLESTANCE_H

@@ -1,5 +1,4 @@
-#ifndef STATISTICSSPELL_H
-#define STATISTICSSPELL_H
+#pragma once
 
 #include <QString>
 #include <QMap>
@@ -168,5 +167,3 @@ private:
     QMap<Outcome, int> min_damage;
     QMap<Outcome, int> max_damage;
 };
-
-#endif // STATISTICSSPELL_H

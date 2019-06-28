@@ -1,5 +1,4 @@
-#ifndef SHAMAN_H
-#define SHAMAN_H
+#pragma once
 
 #include "Character.h"
 
@@ -44,5 +43,3 @@ private:
     void initialize_talents() override;
     void reset_class_specific() override;
 };
-
-#endif // SHAMAN_H

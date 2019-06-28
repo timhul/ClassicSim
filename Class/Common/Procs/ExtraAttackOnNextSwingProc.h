@@ -1,5 +1,4 @@
-#ifndef EXTRAATTACKONNEXTSWINGPROC_H
-#define EXTRAATTACKONNEXTSWINGPROC_H
+#pragma once
 
 #include "Proc.h"
 
@@ -24,5 +23,3 @@ private:
 
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // EXTRAATTACKONNEXTSWINGPROC_H

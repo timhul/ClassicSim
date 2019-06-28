@@ -1,5 +1,4 @@
-#ifndef HAMSTRING_H
-#define HAMSTRING_H
+#pragma once
 
 #include "ItemModificationRequirer.h"
 #include "Spell.h"
@@ -21,5 +20,3 @@ private:
     void activate_item_effect(const int item_id) override;
     void deactivate_item_effect(const int item_id) override;
 };
-
-#endif // HAMSTRING_H

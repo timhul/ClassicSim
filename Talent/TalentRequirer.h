@@ -1,5 +1,4 @@
-#ifndef TALENTREQUIRER_H
-#define TALENTREQUIRER_H
+#pragma once
 
 class Buff;
 class Proc;
@@ -51,6 +50,3 @@ protected:
     virtual void increase_talent_rank_effect(const QString& talent_name, const int curr) = 0;
     virtual void decrease_talent_rank_effect(const QString& talent_name, const int curr) = 0;
 };
-
-
-#endif // TALENTREQUIRER_H

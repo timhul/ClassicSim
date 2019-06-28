@@ -1,5 +1,4 @@
-#ifndef FURY_H
-#define FURY_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -25,5 +24,3 @@ private:
     Warrior* warrior;
     WarriorSpells* spells;
 };
-
-#endif // FURY_H

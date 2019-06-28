@@ -1,5 +1,4 @@
-#ifndef SIMCONTROL_H
-#define SIMCONTROL_H
+#pragma once
 
 #include "SimSettings.h"
 
@@ -28,5 +27,3 @@ private:
 
     void run_sim(QVector<Character*> raid, RaidControl* raid_control, const int combat_length, const int iterations);
 };
-
-#endif // SIMCONTROL_H

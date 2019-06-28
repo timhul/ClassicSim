@@ -1,5 +1,4 @@
-#ifndef ASPECTOFTHEHAWKPROC_H
-#define ASPECTOFTHEHAWKPROC_H
+#pragma once
 
 #include "Proc.h"
 #include "TalentRequirer.h"
@@ -27,5 +26,3 @@ private:
 
     bool proc_specific_conditions_fulfilled() const override;
 };
-
-#endif // ASPECTOFTHEHAWKPROC_H

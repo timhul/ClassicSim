@@ -1,5 +1,4 @@
-#ifndef PHYSICALATTACKRESULT_H
-#define PHYSICALATTACKRESULT_H
+#pragma once
 
 namespace PhysicalAttackResult {
     static const int MISS = 0;
@@ -11,5 +10,3 @@ namespace PhysicalAttackResult {
     static const int CRITICAL = 6;
     static const int HIT = 7;
 }
-
-#endif // PHYSICALATTACKRESULT_H

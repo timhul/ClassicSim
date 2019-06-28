@@ -1,5 +1,4 @@
-#ifndef TESTSWORDSPECIALIZATION_H
-#define TESTSWORDSPECIALIZATION_H
+#pragma once
 
 #include "TestProcWarrior.h"
 
@@ -36,5 +35,3 @@ private:
     void given_4_of_5_sword_spec();
     void given_5_of_5_sword_spec();
 };
-
-#endif // TESTSWORDSPECIALIZATION_H

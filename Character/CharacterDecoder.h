@@ -1,5 +1,4 @@
-#ifndef CHARACTERDECODER_H
-#define CHARACTERDECODER_H
+#pragma once
 
 #include <QVector>
 #include <QMap>
@@ -27,5 +26,3 @@ private:
 
     QPair<QString, QString> get_key_val(const QString& key_val) const;
 };
-
-#endif // CHARACTERDECODER_H

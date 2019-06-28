@@ -1,5 +1,4 @@
-#ifndef MANAPOTION_H
-#define MANAPOTION_H
+#pragma once
 
 #include "Spell.h"
 
@@ -21,5 +20,3 @@ private:
     SpellStatus is_ready_spell_specific() const override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // MANAPOTION_H

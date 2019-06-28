@@ -1,5 +1,4 @@
-#ifndef PALADIN_H
-#define PALADIN_H
+#pragma once
 
 #include "Character.h"
 
@@ -48,5 +47,3 @@ private:
     void initialize_talents() override;
     void reset_class_specific() override;
 };
-
-#endif // PALADIN_H

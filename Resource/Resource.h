@@ -1,5 +1,4 @@
-#ifndef RESOURCE_H
-#define RESOURCE_H
+#pragma once
 
 enum ResourceType {
     Mana = 0,
@@ -20,5 +19,3 @@ protected:
     unsigned current;
     unsigned max;
 };
-
-#endif // RESOURCE_H

@@ -1,5 +1,4 @@
-#ifndef ENCHANT_H
-#define ENCHANT_H
+#pragma once
 
 #include <QString>
 #include "EnchantName.h"
@@ -18,6 +17,3 @@ protected:
     QString name;
     QString effect;
 };
-
-
-#endif // ENCHANT_H

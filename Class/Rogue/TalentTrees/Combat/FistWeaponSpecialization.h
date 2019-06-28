@@ -1,5 +1,4 @@
-#ifndef FISTWEAPONSPECIALIZATION_H
-#define FISTWEAPONSPECIALIZATION_H
+#pragma once
 
 #include "Talent.h"
 
@@ -14,5 +13,3 @@ private:
     void apply_rank_effect() override;
     void remove_rank_effect() override;
 };
-
-#endif // FISTWEAPONSPECIALIZATION_H

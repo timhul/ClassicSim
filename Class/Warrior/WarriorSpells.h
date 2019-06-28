@@ -1,5 +1,4 @@
-#ifndef WARRIORSPELLS_H
-#define WARRIORSPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -106,5 +105,3 @@ private:
     SwordSpecialization* sword_spec;
     UnbridledWrath* unbridled_wrath;
 };
-
-#endif // WARRIORSPELLS_H

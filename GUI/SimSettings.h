@@ -1,5 +1,4 @@
-#ifndef SIMSETTINGS_H
-#define SIMSETTINGS_H
+#pragma once
 
 #include <QSet>
 #include <QVersionNumber>
@@ -56,5 +55,3 @@ private:
 
     QSet<SimOption::Name> sim_options;
 };
-
-#endif // SIMSETTINGS_H

@@ -1,5 +1,4 @@
-#ifndef GENERICCHARGECONSUMERPROC_H
-#define GENERICCHARGECONSUMERPROC_H
+#pragma once
 
 #include "Proc.h"
 
@@ -20,5 +19,3 @@ private:
 
     bool proc_specific_conditions_fulfilled() const override;
 };
-
-#endif // GENERICCHARGECONSUMERPROC_H

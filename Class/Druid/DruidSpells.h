@@ -1,5 +1,4 @@
-#ifndef DRUIDSPELLS_H
-#define DRUIDSPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -13,5 +12,3 @@ public:
 private:
     Druid* druid;
 };
-
-#endif // DRUIDSPELLS_H

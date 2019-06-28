@@ -1,5 +1,4 @@
-#ifndef ITEM_H
-#define ITEM_H
+#pragma once
 
 #include <QMap>
 #include <QSet>
@@ -109,5 +108,3 @@ protected:
     MagicSchool get_magic_school(const QString& name);
     ItemStats get_valid_item_stat(const QString& item_stat) const;
 };
-
-#endif // ITEM_H

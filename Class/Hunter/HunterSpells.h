@@ -1,5 +1,4 @@
-#ifndef HUNTERSPELLS_H
-#define HUNTERSPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -43,5 +42,3 @@ private:
     MultiShot* multi_shot;
     RapidFire* rapid_fire;
 };
-
-#endif // HUNTERSPELLS_H

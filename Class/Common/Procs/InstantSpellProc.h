@@ -1,5 +1,4 @@
-#ifndef INSTANTSPELLPROC_H
-#define INSTANTSPELLPROC_H
+#pragma once
 
 #include "Proc.h"
 #include "MagicSchools.h"
@@ -22,5 +21,3 @@ private:
     InstantSpellAttack* spell;
     void proc_effect() override;
 };
-
-#endif // INSTANTSPELLPROC_H

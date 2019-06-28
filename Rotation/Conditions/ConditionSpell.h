@@ -1,5 +1,4 @@
-#ifndef CONDITIONSPELL_H
-#define CONDITIONSPELL_H
+#pragma once
 
 #include "Condition.h"
 
@@ -16,5 +15,3 @@ private:
     Spell* spell;
     const double cmp_value;
 };
-
-#endif // CONDITIONSPELL_H

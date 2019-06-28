@@ -1,5 +1,4 @@
-#ifndef PROTECTIONPALADIN_H
-#define PROTECTIONPALADIN_H
+#pragma once
 
 #include "TalentTree.h"
 
@@ -18,5 +17,3 @@ private:
     Paladin* paladin;
     PaladinSpells* spells;
 };
-
-#endif // PROTECTIONPALADIN_H

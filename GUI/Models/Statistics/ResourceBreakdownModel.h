@@ -1,5 +1,4 @@
-#ifndef RESOURCEBREAKDOWNMODEL_H
-#define RESOURCEBREAKDOWNMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -49,5 +48,3 @@ private:
     void select_new_method(const ResourceBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;
 };
-
-#endif // RESOURCEBREAKDOWNMODEL_H

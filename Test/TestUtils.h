@@ -1,5 +1,4 @@
-#ifndef TESTUTILS_H
-#define TESTUTILS_H
+#pragma once
 
 #include "Utils/CompareDouble.h"
 
@@ -20,5 +19,3 @@ public:
         Test2SpeedRanged
     };
 };
-
-#endif // TESTUTILS_H

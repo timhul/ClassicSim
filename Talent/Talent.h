@@ -1,5 +1,4 @@
-#ifndef TALENT_H
-#define TALENT_H
+#pragma once
 
 #include <QMap>
 #include <QString>
@@ -113,6 +112,3 @@ protected:
 private:
 
 };
-
-
-#endif // TALENT_H

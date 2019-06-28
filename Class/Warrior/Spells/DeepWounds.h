@@ -1,8 +1,8 @@
-#ifndef DEEPWOUNDS_H
-#define DEEPWOUNDS_H
+#pragma once
 
 #include "Spell.h"
 #include "TalentRequirer.h"
+
 #include <QVector>
 
 class Buff;
@@ -32,5 +32,3 @@ private:
     void enable_spell_effect() override;
     void disable_spell_effect() override;
 };
-
-#endif // DEEPWOUNDS_H

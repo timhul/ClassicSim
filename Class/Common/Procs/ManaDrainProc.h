@@ -1,5 +1,4 @@
-#ifndef MANADRAINPROC_H
-#define MANADRAINPROC_H
+#pragma once
 
 #include "Proc.h"
 
@@ -24,5 +23,3 @@ private:
     void proc_effect() override;
     void prepare_set_of_combat_iterations_spell_specific() override;
 };
-
-#endif // MANADRAINPROC_H

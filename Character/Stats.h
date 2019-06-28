@@ -1,5 +1,4 @@
-#ifndef STATS_H
-#define STATS_H
+#pragma once
 
 #include "Target.h"
 
@@ -209,5 +208,3 @@ private:
     double spi_multiplier {1.0};
     double int_multiplier {1.0};
 };
-
-#endif // STATS_H

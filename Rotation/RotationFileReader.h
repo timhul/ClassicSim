@@ -1,5 +1,4 @@
-#ifndef ROTATIONFILEREADER_H
-#define ROTATIONFILEREADER_H
+#pragma once
 
 #include <QFile>
 #include <QXmlStreamReader>
@@ -26,5 +25,3 @@ private:
 
     static int get_comparator_from_string(const QString& comparator);
 };
-
-#endif // ROTATIONFILEREADER_H

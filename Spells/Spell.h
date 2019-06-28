@@ -1,5 +1,4 @@
-#ifndef SPELL_H
-#define SPELL_H
+#pragma once
 
 #include <algorithm>
 #include <QString>
@@ -122,5 +121,3 @@ protected:
     double damage_after_modifiers(const double damage) const;
     double get_partial_resist_dmg_modifier(const int resist_result) const;
 };
-
-#endif // SPELL_H

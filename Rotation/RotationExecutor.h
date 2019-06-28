@@ -1,5 +1,4 @@
-#ifndef CASTIF_H
-#define CASTIF_H
+#pragma once
 
 #include <QMap>
 #include <QVector>
@@ -49,5 +48,3 @@ private:
 
     bool condition_group_fulfilled(const int index) const;
 };
-
-#endif // CASTIF_H

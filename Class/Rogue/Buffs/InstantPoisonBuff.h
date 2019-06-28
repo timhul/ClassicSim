@@ -1,5 +1,4 @@
-#ifndef INSTANTPOISONBUFF_H
-#define INSTANTPOISONBUFF_H
+#pragma once
 
 #include "UniqueDebuff.h"
 
@@ -15,5 +14,3 @@ private:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 };
-
-#endif // INSTANTPOISONBUFF_H

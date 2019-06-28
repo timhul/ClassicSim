@@ -1,5 +1,4 @@
-#ifndef ITEMMODIFICATIONREQUIRER_H
-#define ITEMMODIFICATIONREQUIRER_H
+#pragma once
 
 #include <QSet>
 
@@ -17,5 +16,3 @@ protected:
     virtual void activate_item_effect(const int item_id) = 0;
     virtual void deactivate_item_effect(const int item_id) = 0;
 };
-
-#endif // ITEMMODIFICATIONREQUIRER_H

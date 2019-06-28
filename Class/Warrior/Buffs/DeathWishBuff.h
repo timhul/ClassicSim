@@ -1,5 +1,4 @@
-#ifndef DEATHWISHBUFF_H
-#define DEATHWISHBUFF_H
+#pragma once
 
 #include "SelfBuff.h"
 #include "TalentRequirer.h"
@@ -13,5 +12,3 @@ private:
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
 };
-
-#endif // DEATHWISHBUFF_H

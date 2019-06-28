@@ -1,5 +1,4 @@
-#ifndef FACTION_H
-#define FACTION_H
+#pragma once
 
 #include <QVector>
 #include <QString>
@@ -30,5 +29,3 @@ private:
     const QVector<QString> alliance_classes;
     const QVector<QString> horde_classes;
 };
-
-#endif // FACTION_H

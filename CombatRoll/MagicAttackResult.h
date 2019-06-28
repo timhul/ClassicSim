@@ -1,5 +1,4 @@
-#ifndef MAGICATTACKRESULT_H
-#define MAGICATTACKRESULT_H
+#pragma once
 
 namespace MagicAttackResult {
     static const int MISS = 0;
@@ -14,5 +13,3 @@ namespace MagicResistResult {
     static const int PARTIAL_RESIST_75 = 3;
     static const int FULL_RESIST = 4;
 }
-
-#endif // MAGICATTACKRESULT_H

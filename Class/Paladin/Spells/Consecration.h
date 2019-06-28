@@ -1,8 +1,8 @@
-#ifndef CONSECRATION_H
-#define CONSECRATION_H
+#pragma once
 
 #include "Spell.h"
 #include "TalentRequirer.h"
+
 #include <QVector>
 
 class Buff;
@@ -32,5 +32,3 @@ private:
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;
 };
-
-#endif // CONSECRATION_H

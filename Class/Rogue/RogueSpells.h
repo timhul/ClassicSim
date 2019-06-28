@@ -1,5 +1,4 @@
-#ifndef ROGUESPELLS_H
-#define ROGUESPELLS_H
+#pragma once
 
 #include "CharacterSpells.h"
 
@@ -40,5 +39,3 @@ private:
     SinisterStrike* sinister_strike;
     SliceAndDice* slice_and_dice;
 };
-
-#endif // ROGUESPELLS_H

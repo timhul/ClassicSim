@@ -1,5 +1,4 @@
-#ifndef DAMAGEBREAKDOWNMODEL_H
-#define DAMAGEBREAKDOWNMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -59,5 +58,3 @@ private:
     void select_new_method(const MeleeDamageAvoidanceBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;
 };
-
-#endif // DAMAGEBREAKDOWNMODEL_H

@@ -1,5 +1,4 @@
-#ifndef STATISTICSROTATIONEXECUTOR_H
-#define STATISTICSROTATIONEXECUTOR_H
+#pragma once
 
 #include <QMap>
 
@@ -48,5 +47,3 @@ private:
     unsigned no_condition_group_fulfilled {0};
     QMap<SpellStatus, unsigned> spell_status_map;
 };
-
-#endif // STATISTICSROTATIONEXECUTOR_H

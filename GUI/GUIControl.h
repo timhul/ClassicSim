@@ -1,5 +1,4 @@
-#ifndef GUICONTROL_H
-#define GUICONTROL_H
+#pragma once
 
 #include <QMap>
 #include <QObject>
@@ -471,5 +470,3 @@ private:
     QString stats_type_to_display;
     QVector<Race*> raid_member_races;
 };
-
-#endif // GUICONTROL_H

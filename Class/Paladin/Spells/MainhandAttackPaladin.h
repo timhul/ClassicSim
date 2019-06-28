@@ -1,5 +1,4 @@
-#ifndef MAINHANDATTACKPALADIN_H
-#define MAINHANDATTACKPALADIN_H
+#pragma once
 
 #include "Spell.h"
 #include "MainhandAttack.h"
@@ -21,5 +20,3 @@ private:
     void spell_effect() override;
     int calculate_damage() override;
 };
-
-#endif // MAINHANDATTACKPALADIN_H

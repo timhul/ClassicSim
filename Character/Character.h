@@ -1,5 +1,4 @@
-#ifndef CHARACTER_H
-#define CHARACTER_H
+#pragma once
 
 #include <QMap>
 #include <QString>
@@ -185,5 +184,3 @@ protected:
     virtual void reset_resource();
     virtual void reset_class_specific() = 0;
 };
-
-#endif // CHARACTER_H

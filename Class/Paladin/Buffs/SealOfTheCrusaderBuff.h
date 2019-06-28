@@ -1,8 +1,7 @@
-#ifndef SEALOFTHECRUSADERBUFF_H
-#define SEALOFTHECRUSADERBUFF_H
+#pragma once
 
-#include "SelfBuff.h"
 #include "ItemModificationRequirer.h"
+#include "SelfBuff.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
@@ -31,5 +30,3 @@ private:
     void activate_item_effect(const int item_id) override;
     void deactivate_item_effect(const int item_id) override;
 };
-
-#endif // SEALOFTHECRUSADERBUFF_H

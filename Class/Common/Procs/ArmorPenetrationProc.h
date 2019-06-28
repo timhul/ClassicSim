@@ -1,5 +1,4 @@
-#ifndef ARMORPENETRATIONPROC_H
-#define ARMORPENETRATIONPROC_H
+#pragma once
 
 #include "Proc.h"
 
@@ -33,5 +32,3 @@ private:
     void proc_effect() override;
     bool proc_specific_conditions_fulfilled() const override;
 };
-
-#endif // ARMORPENETRATIONPROC_H

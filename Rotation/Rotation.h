@@ -1,5 +1,4 @@
-#ifndef ROTATION_H
-#define ROTATION_H
+#pragma once
 
 #include <QMap>
 #include <QVector>
@@ -59,5 +58,3 @@ private:
 
     ResourceType get_resource_from_string(const QString& resource) const;
 };
-
-#endif // ROTATION_H

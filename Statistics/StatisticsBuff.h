@@ -1,5 +1,4 @@
-#ifndef STATISTICSBUFF_H
-#define STATISTICSBUFF_H
+#pragma once
 
 #include <QString>
 
@@ -44,5 +43,3 @@ private:
     void add_min_uptime(const double);
     void add_max_uptime(const double);
 };
-
-#endif // STATISTICSBUFF_H

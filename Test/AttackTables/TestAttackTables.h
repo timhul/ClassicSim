@@ -1,5 +1,4 @@
-#ifndef TESTATTACKTABLES_H
-#define TESTATTACKTABLES_H
+#pragma once
 
 #include "TestObject.h"
 
@@ -16,5 +15,3 @@ private:
     void test_special_hit_table();
     void test_magic_attack_table();
 };
-
-#endif // TESTATTACKTABLES_H

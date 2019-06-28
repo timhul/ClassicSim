@@ -1,5 +1,4 @@
-#ifndef ROTATIONEXECUTORBREAKDOWNMODEL_H
-#define ROTATIONEXECUTORBREAKDOWNMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -50,5 +49,3 @@ private:
     void select_new_method(const RotationExecutorBreakdownSorting::Methods new_method);
     int get_current_sorting_method() const;
 };
-
-#endif // ROTATIONEXECUTORBREAKDOWNMODEL_H

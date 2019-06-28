@@ -1,5 +1,4 @@
-#ifndef TALENTS_H
-#define TALENTS_H
+#pragma once
 
 #include <QVector>
 
@@ -55,5 +54,3 @@ private:
     int current_index;
     QVector<int> talent_points_remaining;
 };
-
-#endif // TALENTS_H

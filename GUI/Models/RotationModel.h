@@ -1,5 +1,4 @@
-#ifndef ROTATIONMODEL_H
-#define ROTATIONMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QStringList>
@@ -45,5 +44,3 @@ private:
 
     void clear_rotations();
 };
-
-#endif // ROTATIONMODEL_H

@@ -1,5 +1,4 @@
-#ifndef REGENERATINGRESOURCE_H
-#define REGENERATINGRESOURCE_H
+#pragma once
 
 #include "Resource.h"
 
@@ -34,5 +33,3 @@ protected:
     virtual void reset_effect() = 0;
     virtual void lose_resource_effect() = 0;
 };
-
-#endif // REGENERATINGRESOURCE_H

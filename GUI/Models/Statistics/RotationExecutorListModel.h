@@ -1,5 +1,4 @@
-#ifndef ROTATIONEXECUTORLISTMODEL_H
-#define ROTATIONEXECUTORLISTMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QVector>
@@ -47,5 +46,3 @@ private:
 
     void delete_list();
 };
-
-#endif // ROTATIONEXECUTORLISTMODEL_H

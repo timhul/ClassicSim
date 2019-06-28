@@ -1,5 +1,4 @@
-#ifndef CRUSADER_H
-#define CRUSADER_H
+#pragma once
 
 #include "ProcPPM.h"
 
@@ -12,9 +11,6 @@ public:
 
     void proc_effect() override;
 
-protected:
 private:
     HolyStrength* holy_strength;
 };
-
-#endif // CRUSADER_H

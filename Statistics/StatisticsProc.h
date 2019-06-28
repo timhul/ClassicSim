@@ -1,5 +1,4 @@
-#ifndef STATISTICSPROC_H
-#define STATISTICSPROC_H
+#pragma once
 
 #include <QString>
 
@@ -34,5 +33,3 @@ private:
     int attempts {0};
     int proc_counter {0};
 };
-
-#endif // STATISTICSPROC_H

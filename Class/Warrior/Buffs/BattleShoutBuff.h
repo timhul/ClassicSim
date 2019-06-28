@@ -10,11 +10,11 @@ class BattleShoutBuff: public PartyBuff {
 public:
     BattleShoutBuff(Warrior* pchar);
 
-    void buff_effect_when_applied() override;
-    void buff_effect_when_removed() override;
-
 private:
     friend class BattleShout;
 
     unsigned attack_power {0};
+
+    void buff_effect_when_applied() override;
+    void buff_effect_when_removed() override;
 };

@@ -1,5 +1,4 @@
-#ifndef ITEMFILEREADER_H
-#define ITEMFILEREADER_H
+#pragma once
 
 #include <QObject>
 #include <QFile>
@@ -39,7 +38,4 @@ protected:
     void extract(QVector<QString> handled_keys, QMap<QString, QString>& source, QMap<QString, QString>& target);
 
     void warn_remaining_keys(QMap<QString, QString>& item);
-private:
 };
-
-#endif // ITEMFILEREADER_H

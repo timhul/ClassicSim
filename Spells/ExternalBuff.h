@@ -1,5 +1,4 @@
-#ifndef EXTERNALBUFF_H
-#define EXTERNALBUFF_H
+#pragma once
 
 #include "AvailableFactions.h"
 #include "SelfBuff.h"
@@ -73,5 +72,3 @@ protected:
     AvailableFactions::Name faction;
     const QString description;
 };
-
-#endif // EXTERNALBUFF_H

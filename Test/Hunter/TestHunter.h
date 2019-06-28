@@ -1,5 +1,4 @@
-#ifndef TESTHUNTER_H
-#define TESTHUNTER_H
+#pragma once
 
 #include "TestObject.h"
 #include "TestUtils.h"
@@ -15,5 +14,3 @@ public:
 private:
     void test_values_after_initialization() override;
 };
-
-#endif // TESTHUNTER_H
