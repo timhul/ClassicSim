@@ -26,7 +26,7 @@ Fire::Fire(Mage* mage) :
 
     QMap<QString, Talent*> tier4 {{"4LL", improved_scorch()},
                                   {"4ML", new Talent(mage, this, "Improved Fire Ward", "4ML", "Assets/items/Inv_shield_05.png", 2, "Causes your Fire Ward to have a %1% chance to reflect Fire spells while active.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
-                                  {"4RR", new Talent(mage, this, "Master of Elements", "4RR", "Assets/spell/Spell_fire_masterofelements.png", 3, "Your Fire and Frost spell criticals will refund %1% of their base mana cost.", QVector<QPair<unsigned, unsigned>>{{10, 10}})}};
+                                  {"4RR", master_of_elements()}};
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5ML", new Talent(mage, this, "Critical Mass", "5ML", "Assets/spell/Spell_nature_wispheal.png", 3, "Increases the critical strike chance of your Fire spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
@@ -61,5 +61,12 @@ Talent* Fire::improved_fireball() {
     return get_new_talent(mage, "Improved Fireball", "1ML", "Assets/spell/Spell_fire_flamebolt.png", 5,
                           "Reduces the casting time of your Fireball spell by %1 sec.",
                           QVector<QPair<double, double>>{{0.1, 0.1}},
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
+}
+
+Talent* Fire::master_of_elements() {
+    return get_new_talent(mage, "Master of Elements", "4RR", "Assets/spell/Spell_fire_masterofelements.png", 3,
+                          "Your Fire and Frost spell criticals will refund %1% of their base mana cost.",
+                          QVector<QPair<unsigned, unsigned>>{{10, 10}},
                           QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
 }

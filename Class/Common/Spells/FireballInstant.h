@@ -18,6 +18,8 @@ public:
     ~FireballInstant() override;
 
 private:
+    friend class Fireball;
+
     Buff* fireball_dot;
     Random* instant_dmg;
     double damage_remaining {0};
@@ -31,4 +33,6 @@ private:
     void reset_effect() override;
     void perform_periodic() override;
     void apply_fireball_dot();
+
+    int magic_attack_result {MagicAttackResult::MISS};
 };

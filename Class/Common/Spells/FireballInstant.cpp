@@ -49,10 +49,14 @@ void FireballInstant::spell_effect() {
     const int hit_roll = roll->get_spell_ability_result(MagicSchool::Fire, pchar->get_stats()->get_spell_crit_chance());
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Fire);
 
-    if (hit_roll == MagicAttackResult::MISS)
+    if (hit_roll == MagicAttackResult::MISS) {
+        magic_attack_result = MagicAttackResult::MISS;
         return increment_miss();
-    if (resist_roll == MagicResistResult::FULL_RESIST)
+    }
+    if (resist_roll == MagicResistResult::FULL_RESIST) {
+        magic_attack_result = MagicAttackResult::MISS;
         return increment_full_resist();
+    }
 
     apply_fireball_dot();
 
@@ -61,10 +65,12 @@ void FireballInstant::spell_effect() {
     const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
+        magic_attack_result = MagicAttackResult::CRITICAL;
         pchar->spell_critical_effect();
         add_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
     }
     else {
+        magic_attack_result = MagicAttackResult::HIT;
         pchar->spell_hit_effect();
         add_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod)), resource_cost, 0);
     }

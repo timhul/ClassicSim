@@ -6,7 +6,7 @@
 #include "Mage.h"
 #include "Queue.h"
 
-TestFireball::TestFireball(EquipmentDb *equipment_db) :
+TestFireball::TestFireball(EquipmentDb* equipment_db) :
     TestSpellMage(equipment_db, "Fireball")
 {}
 
@@ -39,6 +39,18 @@ void TestFireball::test_all() {
 
     set_up();
     test_cast_time_5_of_5_improved_fireball();
+    tear_down();
+
+    set_up();
+    test_mana_return_1_of_3_master_of_elements();
+    tear_down();
+
+    set_up();
+    test_mana_return_2_of_3_master_of_elements();
+    tear_down();
+
+    set_up();
+    test_mana_return_3_of_3_master_of_elements();
     tear_down();
 }
 
@@ -145,6 +157,45 @@ void TestFireball::test_cast_time_5_of_5_improved_fireball() {
 
     then_next_event_is(EventType::PlayerAction, "1.500");
     then_next_event_is(EventType::CastComplete, "3.000");
+}
+
+void TestFireball::test_mana_return_1_of_3_master_of_elements() {
+    given_a_guaranteed_magic_crit(MagicSchool::Fire);
+    given_master_of_elements_rank(1);
+    given_mage_has_mana(1000);
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(3.501);
+
+    // [mana] = initial_mana - resource_cost + base_resource_cost * master_of_elements_return
+    // [631] = 1000 - 410 + 410 * 0.1
+    then_mage_has_mana(631);
+}
+
+void TestFireball::test_mana_return_2_of_3_master_of_elements() {
+    given_a_guaranteed_magic_crit(MagicSchool::Fire);
+    given_master_of_elements_rank(2);
+    given_mage_has_mana(1000);
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(3.501);
+
+    // [mana] = initial_mana - resource_cost + base_resource_cost * master_of_elements_return
+    // [672] = 1000 - 410 + 410 * 0.2
+    then_mage_has_mana(672);
+}
+
+void TestFireball::test_mana_return_3_of_3_master_of_elements() {
+    given_a_guaranteed_magic_crit(MagicSchool::Fire);
+    given_master_of_elements_rank(3);
+    given_mage_has_mana(1000);
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(3.501);
+
+    // [mana] = initial_mana - resource_cost + base_resource_cost * master_of_elements_return
+    // [713] = 1000 - 410 + 410 * 0.3
+    then_mage_has_mana(713);
 }
 
 void TestFireball::given_improved_fireball(const unsigned num) {

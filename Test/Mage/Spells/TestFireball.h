@@ -24,6 +24,10 @@ private:
     void test_cast_time_4_of_5_improved_fireball();
     void test_cast_time_5_of_5_improved_fireball();
 
+    void test_mana_return_1_of_3_master_of_elements();
+    void test_mana_return_2_of_3_master_of_elements();
+    void test_mana_return_3_of_3_master_of_elements();
+
     void given_improved_fireball(const unsigned num);
     void when_fireball_is_performed();
 };

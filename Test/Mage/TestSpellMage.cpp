@@ -6,6 +6,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "Fire.h"
 #include "Fireball.h"
 #include "Item.h"
 #include "Mage.h"
@@ -58,6 +59,10 @@ void TestSpellMage::given_mage_is_on_gcd(Spell* spell) {
         mage->lose_mana(static_cast<unsigned>(mana_delta));
 
     assert(mage->on_global_cooldown());
+}
+
+void TestSpellMage::given_master_of_elements_rank(const unsigned num) {
+    given_talent_rank(Fire(mage).master_of_elements(), num);
 }
 
 void TestSpellMage::given_mage_has_mana(const unsigned mana) {

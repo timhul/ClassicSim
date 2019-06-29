@@ -1,11 +1,13 @@
 #include "Fireball.h"
 
 #include "CharacterSpells.h"
+#include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "CooldownControl.h"
 #include "FireballInstant.h"
 #include "Mage.h"
 #include "SimSettings.h"
+#include "StatisticsResource.h"
 #include "Utils/Check.h"
 
 Fireball::Fireball(Mage* pchar, const int spell_rank) :
@@ -166,10 +168,31 @@ void Fireball::complete_cast_effect() {
     pchar->lose_mana(resource_cost);
 
     damage_spell->perform();
+
+    if (damage_spell->magic_attack_result == MagicAttackResult::CRITICAL)
+        gain_mana(base_resource_cost * master_of_elements_mana_return);
 }
 
 void Fireball::prepare_set_of_combat_iterations() {
     damage_spell->prepare_set_of_combat_iterations();
+    prepare_set_of_combat_iterations_spell_specific();
+}
+
+void Fireball::gain_mana(const double mana_gain) {
+    const unsigned mana_gained = static_cast<unsigned>(std::round(mana_gain));
+    const unsigned before = pchar->get_resource_level(ResourceType::Mana);
+
+    pchar->gain_mana(mana_gained);
+
+    const unsigned gain_after_cap = pchar->get_resource_level(ResourceType::Mana) - before;
+
+    if (gain_after_cap > 0)
+        statistics_resource->add_resource_gain(ResourceType::Mana, gain_after_cap);
+}
+
+void Fireball::prepare_set_of_combat_iterations_spell_specific() {
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(QString("Master of Elements (rank %1)").arg(spell_rank),
+                                                                                 "Assets/spell/Spell_fire_masterofelements.png");
 }
 
 void Fireball::reset_effect() {
@@ -179,9 +202,13 @@ void Fireball::reset_effect() {
 void Fireball::increase_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Fireball")
         casting_time_ms = base_casting_time_ms - improved_fireball_ranks[curr];
+    else if (talent_name == "Master of Elements")
+        master_of_elements_mana_return = master_of_elements_ranks[curr];
 }
 
 void Fireball::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
     if (talent_name == "Improved Fireball")
         casting_time_ms = base_casting_time_ms - improved_fireball_ranks[curr];
+    else if (talent_name == "Master of Elements")
+        master_of_elements_mana_return = master_of_elements_ranks[curr];
 }

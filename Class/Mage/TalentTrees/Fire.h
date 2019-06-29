@@ -11,6 +11,7 @@ public:
     ~Fire() override = default;
 
     Talent* improved_fireball();
+    Talent* master_of_elements();
 
 private:
     Mage* mage;
