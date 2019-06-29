@@ -40,7 +40,7 @@ void OffhandAttackWarrior::spell_effect() {
 }
 
 int OffhandAttackWarrior::calculate_damage() {
-    const int oh_wpn_skill = warr->get_oh_wpn_skill();
+    const unsigned oh_wpn_skill = warr->get_oh_wpn_skill();
     int result = roll->get_melee_hit_result(oh_wpn_skill, pchar->get_stats()->get_oh_crit_chance());
 
     if (result == PhysicalAttackResult::MISS) {
