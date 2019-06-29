@@ -35,6 +35,7 @@ private:
 
     double master_of_elements_mana_return {0.0};
     QVector<double> master_of_elements_ranks {0.0, 0.1, 0.2, 0.3};
+    QVector<unsigned> critical_mass_ranks {0, 200, 400, 600};
 
     void gain_mana(const double mana_gain);
 

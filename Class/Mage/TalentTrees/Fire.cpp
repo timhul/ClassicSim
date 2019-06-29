@@ -29,7 +29,7 @@ Fire::Fire(Mage* mage) :
                                   {"4RR", master_of_elements()}};
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {{"5ML", new Talent(mage, this, "Critical Mass", "5ML", "Assets/spell/Spell_nature_wispheal.png", 3, "Increases the critical strike chance of your Fire spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
+    QMap<QString, Talent*> tier5 {{"5ML", critical_mass()},
                                   {"5MR", new Talent(mage, this, "Blast Wave", "5MR", "Assets/spell/Spell_holy_excorcism_02.png", 1, "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 186 Fire damage, and dazing them for 6 sec.", QVector<QPair<unsigned, unsigned>>{})}};
     add_talents(tier5);
 
@@ -68,5 +68,12 @@ Talent* Fire::master_of_elements() {
     return get_new_talent(mage, "Master of Elements", "4RR", "Assets/spell/Spell_fire_masterofelements.png", 3,
                           "Your Fire and Frost spell criticals will refund %1% of their base mana cost.",
                           QVector<QPair<unsigned, unsigned>>{{10, 10}},
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
+}
+
+Talent* Fire::critical_mass() {
+    return get_new_talent(mage, "Critical Mass", "5ML", "Assets/spell/Spell_nature_wispheal.png", 3,
+                          "Increases the critical strike chance of your Fire spells by %1%.",
+                          QVector<QPair<unsigned, unsigned>>{{2, 2}},
                           QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
 }

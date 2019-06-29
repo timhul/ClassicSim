@@ -46,7 +46,7 @@ FireballInstant::~FireballInstant() {
 }
 
 void FireballInstant::spell_effect() {
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Fire, pchar->get_stats()->get_spell_crit_chance());
+    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Fire, pchar->get_stats()->get_spell_crit_chance() + crit_bonus);
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Fire);
 
     if (hit_roll == MagicAttackResult::MISS) {

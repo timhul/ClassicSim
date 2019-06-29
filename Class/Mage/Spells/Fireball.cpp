@@ -204,6 +204,8 @@ void Fireball::increase_talent_rank_effect(const QString& talent_name, const int
         casting_time_ms = base_casting_time_ms - improved_fireball_ranks[curr];
     else if (talent_name == "Master of Elements")
         master_of_elements_mana_return = master_of_elements_ranks[curr];
+    else if (talent_name == "Critical Mass")
+        damage_spell->crit_bonus = critical_mass_ranks[curr];
 }
 
 void Fireball::decrease_talent_rank_effect(const QString& talent_name, const int curr) {
@@ -211,4 +213,6 @@ void Fireball::decrease_talent_rank_effect(const QString& talent_name, const int
         casting_time_ms = base_casting_time_ms - improved_fireball_ranks[curr];
     else if (talent_name == "Master of Elements")
         master_of_elements_mana_return = master_of_elements_ranks[curr];
+    else if (talent_name == "Critical Mass")
+        damage_spell->crit_bonus = critical_mass_ranks[curr];
 }
