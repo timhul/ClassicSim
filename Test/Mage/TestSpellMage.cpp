@@ -61,6 +61,10 @@ void TestSpellMage::given_mage_is_on_gcd(Spell* spell) {
     assert(mage->on_global_cooldown());
 }
 
+void TestSpellMage::given_ignite_rank(const unsigned num) {
+    given_talent_rank(Fire(mage).ignite(), num);
+}
+
 void TestSpellMage::given_master_of_elements_rank(const unsigned num) {
     given_talent_rank(Fire(mage).master_of_elements(), num);
 }

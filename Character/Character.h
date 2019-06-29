@@ -148,6 +148,8 @@ public:
     virtual void increase_base_mana(const unsigned value);
     virtual void decrease_base_mana(const unsigned value);
 
+    const int instance_id;
+
 protected:
     QString class_name;
     Race* race;

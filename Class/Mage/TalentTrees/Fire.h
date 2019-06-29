@@ -11,6 +11,7 @@ public:
     ~Fire() override = default;
 
     Talent* improved_fireball();
+    Talent* ignite();
     Talent* master_of_elements();
     Talent* critical_mass();
     Talent* fire_power();

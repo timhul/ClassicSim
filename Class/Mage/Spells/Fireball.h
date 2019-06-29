@@ -13,13 +13,14 @@ class StatisticsResource;
 
 class Fireball: public SpellCastingTime, public TalentRequirer {
 public:
-    Fireball(Mage* pchar, const int spell_rank);
+    Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank);
     ~Fireball() override;
 
     bool is_rank_learned() const override;
     void prepare_set_of_combat_iterations() override;
 
 private:
+    MageSpells* mage_spells;
     FireballInstant* damage_spell;
     StatisticsResource* statistics_resource {nullptr};
 

@@ -60,6 +60,14 @@ void TestFireball::test_all() {
     set_up();
     test_hit_dmg_5_of_5_fire_power();
     tear_down();
+
+    set_up();
+    test_1_of_5_ignite();
+    tear_down();
+
+    set_up();
+    test_5_of_5_ignite();
+    tear_down();
 }
 
 void TestFireball::test_name_correct() {
@@ -232,6 +240,46 @@ void TestFireball::test_hit_dmg_5_of_5_fire_power() {
     // [Damage] = (base_dmg + spell_power * spell_coefficient) * fire_power
     // [1756 - 1937] = ([596 - 761] + 1000 * 1.0) * 1.10
     then_damage_dealt_is_in_range(1756, 1937);
+}
+
+void TestFireball::test_1_of_5_ignite() {
+    given_a_guaranteed_magic_crit(MagicSchool::Fire);
+    given_1000_spell_power();
+    given_ignite_rank(1);
+    given_no_previous_damage_dealt();
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(4.501);
+
+    // [Fireball Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
+    // [2394 - 2642] = ([596 - 761] + 1000 * 1.0) * 1.5
+
+    // [Ignite Damage] = fireball_damage * ignite_percentage / num_ticks
+    // [48 - 53] = [2394 - 2642] * 0.08 / 4
+
+    // [Total Damage] = fireball_damage + ignite_damage
+    // [2442 - 2695] = [2394 - 2642] + [48 - 53]
+    then_damage_dealt_is_in_range(2442, 2695);
+}
+
+void TestFireball::test_5_of_5_ignite() {
+    given_a_guaranteed_magic_crit(MagicSchool::Fire);
+    given_1000_spell_power();
+    given_ignite_rank(5);
+    given_no_previous_damage_dealt();
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(4.501);
+
+    // [Fireball Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
+    // [2394 - 2642] = ([596 - 761] + 1000 * 1.0) * 1.5
+
+    // [Ignite Damage] = fireball_damage * ignite_percentage / num_ticks
+    // [239 - 264] = [2394 - 2642] * 0.4 / 4
+
+    // [Total Damage] = fireball_damage + ignite_damage
+    // [2633 - 2906] = [2394 - 2642] + [239 - 264]
+    then_damage_dealt_is_in_range(2633, 2906);
 }
 
 void TestFireball::given_improved_fireball(const unsigned num) {

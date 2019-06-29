@@ -25,6 +25,7 @@
 #include "Weapon.h"
 
 Character::Character(QString class_name, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
+    instance_id(raid_control->next_instance_id()),
     class_name(std::move(class_name)),
     race(race),
     engine(raid_control->get_engine()),

@@ -14,7 +14,7 @@ Fire::Fire(Mage* mage) :
                                   {"1MR", new Talent(mage, this, "Impact", "1MR", "Assets/spell/Spell_fire_meteorstorm.png", 5, "Gives your Fire spells a %1% chance to stun the target for 2 sec.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2LL", new Talent(mage, this, "Ignite", "2LL", "Assets/spell/Spell_fire_incinerate.png", 5, "Your critical strikes from Fire damage spells cause the target to burn for an additional %1% of your spell's damage over 4 sec.", QVector<QPair<unsigned, unsigned>>{{8, 8}})},
+    QMap<QString, Talent*> tier2 {{"2LL", ignite()},
                                   {"2ML", new Talent(mage, this, "Flame Throwing", "2ML", "Assets/spell/Spell_fire_flare.png", 2, "Increases the range of your Fire spells by %1 yards.", QVector<QPair<unsigned, unsigned>>{{3, 3}})},
                                   {"2MR", new Talent(mage, this, "Improved Fire Blast", "2MR", "Assets/spell/Spell_fire_fireball.png", 3, "Reduces the cooldown of your Fire Blast spell by %1 sec.", QVector<QPair<double , double>>{{0.5, 0.5}})}};
     add_talents(tier2);
@@ -63,6 +63,13 @@ Talent* Fire::improved_fireball() {
                           "Reduces the casting time of your Fireball spell by %1 sec.",
                           QVector<QPair<double, double>>{{0.1, 0.1}},
                           QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
+}
+
+Talent* Fire::ignite() {
+    return get_new_talent(mage, "Ignite", "2LL", "Assets/spell/Spell_fire_incinerate.png", 5,
+                          "Your critical strikes from Fire damage spells cause the target to burn for an additional %1% of your spell's damage over 4 sec.",
+                          QVector<QPair<unsigned, unsigned>>{{8, 8}},
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Ignite")});
 }
 
 Talent* Fire::master_of_elements() {

@@ -1,8 +1,11 @@
 #include "MageSpells.h"
 
+#include "Fireball.h"
+#include "Ignite.h"
+#include "IgniteBuff.h"
 #include "Mage.h"
 #include "MainhandAttack.h"
-#include "Fireball.h"
+#include "RaidControl.h"
 
 MageSpells::MageSpells(Mage* mage) :
     CharacterSpells(mage),
@@ -13,17 +16,29 @@ MageSpells::MageSpells(Mage* mage) :
     add_spell_group({mh_attack});
 
     add_spell_group({
-                        new Fireball(mage, 1),
-                        new Fireball(mage, 2),
-                        new Fireball(mage, 3),
-                        new Fireball(mage, 4),
-                        new Fireball(mage, 5),
-                        new Fireball(mage, 6),
-                        new Fireball(mage, 7),
-                        new Fireball(mage, 8),
-                        new Fireball(mage, 9),
-                        new Fireball(mage, 10),
-                        new Fireball(mage, 11),
-                        new Fireball(mage, 12),
+                        new Fireball(mage, this, 1),
+                        new Fireball(mage, this, 2),
+                        new Fireball(mage, this, 3),
+                        new Fireball(mage, this, 4),
+                        new Fireball(mage, this, 5),
+                        new Fireball(mage, this, 6),
+                        new Fireball(mage, this, 7),
+                        new Fireball(mage, this, 8),
+                        new Fireball(mage, this, 9),
+                        new Fireball(mage, this, 10),
+                        new Fireball(mage, this, 11),
+                        new Fireball(mage, this, 12),
                     });
+
+    auto* ignite_buff = dynamic_cast<IgniteBuff*>(mage->get_raid_control()->get_shared_raid_buff("Ignite"));
+    if (ignite_buff == nullptr) {
+        ignite_buff = new IgniteBuff(mage);
+        ignite_buff->enable_buff();
+    }
+    ignite = new Ignite(mage, ignite_buff);
+    add_spell_group({ignite});
+}
+
+void MageSpells::inflict_ignite(const double damage) {
+    ignite->inflict_ignite(damage);
 }

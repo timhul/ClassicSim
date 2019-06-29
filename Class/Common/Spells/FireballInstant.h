@@ -29,6 +29,7 @@ private:
     unsigned num_ticks_left {0};
     const double spell_coefficient;
     unsigned crit_bonus {0};
+    double last_damage_dealt;
 
     void spell_effect() override;
     void reset_effect() override;

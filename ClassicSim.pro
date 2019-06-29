@@ -17,8 +17,10 @@ SOURCES += main.cpp \
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Mage/Buffs/IgniteBuff.cpp \
     Class/Mage/MageEnchants.cpp \
     Class/Mage/Spells/Fireball.cpp \
+    Class/Mage/Spells/Ignite.cpp \
     Class/Mage/TalentTrees/Arcane.cpp \
     Class/Mage/TalentTrees/Fire.cpp \
     Class/Mage/TalentTrees/Frost.cpp \
@@ -430,8 +432,10 @@ HEADERS += \
     Class/Common/Buffs/NoEffectUniqueDebuff.h \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/UseItem.h \
+    Class/Mage/Buffs/IgniteBuff.h \
     Class/Mage/MageEnchants.h \
     Class/Mage/Spells/Fireball.h \
+    Class/Mage/Spells/Ignite.h \
     Class/Mage/TalentTrees/Arcane.h \
     Class/Mage/TalentTrees/Fire.h \
     Class/Mage/TalentTrees/Frost.h \
@@ -880,6 +884,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Rogue/TalentTrees/Combat \
     $$PWD/Class/Rogue/TalentTrees/Subtlety \
     $$PWD/Class/Mage \
+    $$PWD/Class/Mage/Buffs \
     $$PWD/Class/Mage/Spells \
     $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \

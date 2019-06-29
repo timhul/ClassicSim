@@ -6,11 +6,12 @@
 #include "CooldownControl.h"
 #include "FireballInstant.h"
 #include "Mage.h"
+#include "MageSpells.h"
 #include "SimSettings.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-Fireball::Fireball(Mage* pchar, const int spell_rank) :
+Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
     SpellCastingTime("Fireball", "Assets/spell/Spell_fire_flamebolt.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Fireball", 5, DisabledAtZero::No),
@@ -18,7 +19,8 @@ Fireball::Fireball(Mage* pchar, const int spell_rank) :
                    new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
                    new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No)
-                   })
+                   }),
+    mage_spells(mage_spells)
 {
     switch (spell_rank) {
     case 1:
@@ -168,8 +170,10 @@ void Fireball::complete_cast_effect() {
 
     damage_spell->perform();
 
-    if (damage_spell->magic_attack_result == MagicAttackResult::CRITICAL)
+    if (damage_spell->magic_attack_result == MagicAttackResult::CRITICAL) {
+        mage_spells->inflict_ignite(damage_spell->last_damage_dealt);
         gain_mana(base_resource_cost * master_of_elements_mana_return);
+    }
 }
 
 void Fireball::prepare_set_of_combat_iterations() {
