@@ -129,8 +129,8 @@ public:
     void decrease_spell_damage_vs_school(const unsigned value, const MagicSchool school);
 
     double get_magic_school_damage_mod(const MagicSchool school) const;
-    void increase_magic_school_damage_mod(const int increase, const MagicSchool school);
-    void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school);
+    void increase_magic_school_damage_mod(const unsigned increase, const MagicSchool school);
+    void decrease_magic_school_damage_mod(const unsigned decrease, const MagicSchool school);
 
     double get_spell_crit_dmg_mod() const;
     void increase_spell_crit_dmg_mod(const double value);

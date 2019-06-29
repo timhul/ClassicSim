@@ -52,6 +52,14 @@ void TestFireball::test_all() {
     set_up();
     test_mana_return_3_of_3_master_of_elements();
     tear_down();
+
+    set_up();
+    test_hit_dmg_1_of_5_fire_power();
+    tear_down();
+
+    set_up();
+    test_hit_dmg_5_of_5_fire_power();
+    tear_down();
 }
 
 void TestFireball::test_name_correct() {
@@ -196,6 +204,34 @@ void TestFireball::test_mana_return_3_of_3_master_of_elements() {
     // [mana] = initial_mana - resource_cost + base_resource_cost * master_of_elements_return
     // [713] = 1000 - 410 + 410 * 0.3
     then_mage_has_mana(713);
+}
+
+void TestFireball::test_hit_dmg_1_of_5_fire_power() {
+    given_a_guaranteed_magic_hit(MagicSchool::Fire);
+    given_1000_spell_power();
+    given_fire_power_rank(1);
+    given_no_previous_damage_dealt();
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(3.501);
+
+    // [Damage] = (base_dmg + spell_power * spell_coefficient) * fire_power
+    // [1628 - 1796] = ([596 - 761] + 1000 * 1.0) * 1.02
+    then_damage_dealt_is_in_range(1628, 1796);
+}
+
+void TestFireball::test_hit_dmg_5_of_5_fire_power() {
+    given_a_guaranteed_magic_hit(MagicSchool::Fire);
+    given_1000_spell_power();
+    given_fire_power_rank(5);
+    given_no_previous_damage_dealt();
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(3.501);
+
+    // [Damage] = (base_dmg + spell_power * spell_coefficient) * fire_power
+    // [1756 - 1937] = ([596 - 761] + 1000 * 1.0) * 1.10
+    then_damage_dealt_is_in_range(1756, 1937);
 }
 
 void TestFireball::given_improved_fireball(const unsigned num) {

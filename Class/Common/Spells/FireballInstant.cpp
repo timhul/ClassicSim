@@ -62,7 +62,7 @@ void FireballInstant::spell_effect() {
 
     const unsigned damage_dealt = instant_dmg->get_roll() + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) * spell_coefficient));
     const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
-    const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
+    const double damage_mod = pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         magic_attack_result = MagicAttackResult::CRITICAL;

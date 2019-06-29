@@ -802,12 +802,12 @@ double CharacterStats::get_magic_school_damage_mod(const MagicSchool school) con
     return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school);
 }
 
-void CharacterStats::increase_magic_school_damage_mod(const int increase, const MagicSchool school) {
-    add_multiplicative_effect(magic_school_damage_changes[school], increase, magic_school_damage_modifiers[school]);
+void CharacterStats::increase_magic_school_damage_mod(const unsigned increase, const MagicSchool school) {
+    add_multiplicative_effect(magic_school_damage_changes[school], static_cast<int>(increase), magic_school_damage_modifiers[school]);
 }
 
-void CharacterStats::decrease_magic_school_damage_mod(const int decrease, const MagicSchool school) {
-    remove_multiplicative_effect(magic_school_damage_changes[school], decrease, magic_school_damage_modifiers[school]);
+void CharacterStats::decrease_magic_school_damage_mod(const unsigned decrease, const MagicSchool school) {
+    remove_multiplicative_effect(magic_school_damage_changes[school], static_cast<int>(decrease), magic_school_damage_modifiers[school]);
 }
 
 unsigned CharacterStats::get_mh_flat_damage_bonus() const {

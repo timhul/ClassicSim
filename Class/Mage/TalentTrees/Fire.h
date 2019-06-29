@@ -13,6 +13,7 @@ public:
     Talent* improved_fireball();
     Talent* master_of_elements();
     Talent* critical_mass();
+    Talent* fire_power();
 
 private:
     Mage* mage;

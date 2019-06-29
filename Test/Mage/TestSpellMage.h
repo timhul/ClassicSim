@@ -23,6 +23,7 @@ protected:
     void given_mage_has_mana(const unsigned mana);
     void given_mage_is_on_gcd(Spell* spell);
     void given_master_of_elements_rank(const unsigned num);
+    void given_fire_power_rank(const unsigned num);
 
     void then_mage_has_mana(const unsigned mana);
 };

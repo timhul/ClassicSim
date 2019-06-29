@@ -90,6 +90,7 @@ SOURCES += main.cpp \
     Test/Mage/Talents/TestArcane.cpp \
     Test/Mage/Talents/TestFire.cpp \
     Test/Mage/Talents/TestFrost.cpp \
+    Test/Mage/Talents/TestMageTalentStatIncrease.cpp \
     Test/Mage/TestMage.cpp \
     Test/Mage/TestSpellMage.cpp \
     Test/Paladin/Spells/TestConsecration.cpp \
@@ -503,6 +504,7 @@ HEADERS += \
     Test/Mage/Talents/TestArcane.h \
     Test/Mage/Talents/TestFire.h \
     Test/Mage/Talents/TestFrost.h \
+    Test/Mage/Talents/TestMageTalentStatIncrease.h \
     Test/Mage/TestMage.h \
     Test/Mage/TestSpellMage.h \
     Test/Paladin/Spells/TestConsecration.h \

@@ -129,6 +129,12 @@ void TalentStatIncrease::apply_rank_effect() {
         case SpellHit:
             pchar->get_stats()->increase_spell_hit(change);
             break;
+        case FireDmgMod:
+            if (curr_points != 1)
+                pchar->get_stats()->decrease_magic_school_damage_mod((curr_points - 1) * change, MagicSchool::Fire);
+
+            pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Fire);
+            break;
         case ArcaneHit:
         case FireHit:
         case FrostHit:
@@ -261,6 +267,12 @@ void TalentStatIncrease::remove_rank_effect() {
         }
         case SpellHit:
             pchar->get_stats()->decrease_spell_hit(change);
+            break;
+        case FireDmgMod:
+            pchar->get_stats()->decrease_magic_school_damage_mod((curr_points + 1) * change, MagicSchool::Fire);
+
+            if (curr_points > 0)
+                pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Fire);
             break;
         case Defense:
         case Parry:

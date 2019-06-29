@@ -65,6 +65,10 @@ void TestSpellMage::given_master_of_elements_rank(const unsigned num) {
     given_talent_rank(Fire(mage).master_of_elements(), num);
 }
 
+void TestSpellMage::given_fire_power_rank(const unsigned num) {
+    given_talent_rank(Fire(mage).fire_power(), num);
+}
+
 void TestSpellMage::given_mage_has_mana(const unsigned mana) {
     if (mage->get_resource_level(ResourceType::Mana) > 0)
         mage->lose_mana(mage->get_resource_level(ResourceType::Mana));

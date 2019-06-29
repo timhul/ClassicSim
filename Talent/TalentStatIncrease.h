@@ -37,6 +37,7 @@ enum TalentStat {
     NatureHit,
     ShadowHit,
     FireCrit,
+    FireDmgMod,
     ShadowDmgMod,
     TargetResistanceReduction,
     MaxManaMod,

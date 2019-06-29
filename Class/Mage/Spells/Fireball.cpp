@@ -17,8 +17,7 @@ Fireball::Fireball(Mage* pchar, const int spell_rank) :
                    new TalentRequirerInfo("Ignite", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
                    new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No),
-                   new TalentRequirerInfo("Fire Power", 5, DisabledAtZero::No),
+                   new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No)
                    })
 {
     switch (spell_rank) {

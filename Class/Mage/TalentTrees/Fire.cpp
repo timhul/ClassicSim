@@ -3,6 +3,7 @@
 #include "Mage.h"
 #include "MageSpells.h"
 #include "Talent.h"
+#include "TalentStatIncrease.h"
 
 Fire::Fire(Mage* mage) :
     TalentTree("Fire", "Assets/mage/mage_fire.jpg"),
@@ -33,7 +34,7 @@ Fire::Fire(Mage* mage) :
                                   {"5MR", new Talent(mage, this, "Blast Wave", "5MR", "Assets/spell/Spell_holy_excorcism_02.png", 1, "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 186 Fire damage, and dazing them for 6 sec.", QVector<QPair<unsigned, unsigned>>{})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6MR", new Talent(mage, this, "Fire Power", "6MR", "Assets/spell/Spell_fire_immolation.png", 5, "Increases the damage done by your Fire spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
+    QMap<QString, Talent*> tier6 {{"6MR", fire_power()}};
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(mage, this, "Combustion", "7ML", "Assets/spell/Spell_fire_sealoffire.png", 1, "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 critical strikes with Fire spells.", QVector<QPair<unsigned, unsigned>>())}};
@@ -76,4 +77,11 @@ Talent* Fire::critical_mass() {
                           "Increases the critical strike chance of your Fire spells by %1%.",
                           QVector<QPair<unsigned, unsigned>>{{2, 2}},
                           QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
+}
+
+Talent* Fire::fire_power() {
+    return new TalentStatIncrease(mage, this, "Fire Power", "6MR", "Assets/spell/Spell_fire_immolation.png", 5,
+                                  "Increases the damage done by your Fire spells by %1%.",
+                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::FireDmgMod, 2}});
 }
