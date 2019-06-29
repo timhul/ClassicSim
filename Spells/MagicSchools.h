@@ -1,6 +1,6 @@
 #pragma once
 
-enum MagicSchool {
+enum class MagicSchool : int {
     Physical = 0,
     Arcane,
     Fire,

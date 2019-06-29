@@ -110,7 +110,7 @@ double Mage::global_cooldown() const {
 
 void Mage::initialize_talents() {
     for (int i = 0; i < 3; ++i)
-        talents->add_talent_tree(new class Arcane(this), new class Fire(this), new class Frost(this));
+        talents->add_talent_tree(new Arcane(this), new Fire(this), new Frost(this));
 }
 
 unsigned Mage::get_resource_level(const ResourceType) const {
