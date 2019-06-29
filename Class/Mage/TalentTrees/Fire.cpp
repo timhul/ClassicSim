@@ -9,7 +9,7 @@ Fire::Fire(Mage* mage) :
     mage(mage),
     spells(dynamic_cast<MageSpells*>(mage->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1ML", new Talent(mage, this, "Improved Fireball", "1ML", "Assets/spell/Spell_fire_flamebolt.png", 5, "Reduces the casting time of your Fireball spell by %1 sec.", QVector<QPair<double, double>>{{0.1, 0.1}})},
+    QMap<QString, Talent*> tier1 {{"1ML", improved_fireball()},
                                   {"1MR", new Talent(mage, this, "Impact", "1MR", "Assets/spell/Spell_fire_meteorstorm.png", 5, "Gives your Fire spells a %1% chance to stun the target for 2 sec.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
     add_talents(tier1);
 
@@ -55,4 +55,11 @@ Talent* Fire::improved_scorch() {
                                 rank_descriptions);
 
     return talent;
+}
+
+Talent* Fire::improved_fireball() {
+    return get_new_talent(mage, "Improved Fireball", "1ML", "Assets/spell/Spell_fire_flamebolt.png", 5,
+                          "Reduces the casting time of your Fireball spell by %1 sec.",
+                          QVector<QPair<double, double>>{{0.1, 0.1}},
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
 }

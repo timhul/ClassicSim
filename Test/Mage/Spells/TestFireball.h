@@ -18,6 +18,12 @@ private:
 
     void test_hit_dmg();
     void test_crit_dmg();
+    void test_cast_time_1_of_5_improved_fireball();
+    void test_cast_time_2_of_5_improved_fireball();
+    void test_cast_time_3_of_5_improved_fireball();
+    void test_cast_time_4_of_5_improved_fireball();
+    void test_cast_time_5_of_5_improved_fireball();
 
+    void given_improved_fireball(const unsigned num);
     void when_fireball_is_performed();
 };

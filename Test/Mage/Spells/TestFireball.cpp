@@ -1,6 +1,7 @@
 #include "TestFireball.h"
 
 #include "CharacterStats.h"
+#include "Fire.h"
 #include "Fireball.h"
 #include "Mage.h"
 #include "Queue.h"
@@ -18,6 +19,26 @@ void TestFireball::test_all() {
 
     set_up();
     test_crit_dmg();
+    tear_down();
+
+    set_up();
+    test_cast_time_1_of_5_improved_fireball();
+    tear_down();
+
+    set_up();
+    test_cast_time_2_of_5_improved_fireball();
+    tear_down();
+
+    set_up();
+    test_cast_time_3_of_5_improved_fireball();
+    tear_down();
+
+    set_up();
+    test_cast_time_4_of_5_improved_fireball();
+    tear_down();
+
+    set_up();
+    test_cast_time_5_of_5_improved_fireball();
     tear_down();
 }
 
@@ -79,6 +100,55 @@ void TestFireball::test_crit_dmg() {
     // [Damage] = (base_dmg + spell_power * spell_coefficient) * spell_crit_dmg_modifier
     // [2394 - 2642] = ([596 - 761] + 1000 * 1.0) * 1.5
     then_damage_dealt_is_in_range(2394, 2642);
+}
+
+void TestFireball::test_cast_time_1_of_5_improved_fireball() {
+    given_improved_fireball(1);
+
+    when_fireball_is_performed();
+
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.400");
+}
+
+void TestFireball::test_cast_time_2_of_5_improved_fireball() {
+    given_improved_fireball(2);
+
+    when_fireball_is_performed();
+
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.300");
+}
+
+void TestFireball::test_cast_time_3_of_5_improved_fireball() {
+    given_improved_fireball(3);
+
+    when_fireball_is_performed();
+
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.200");
+}
+
+void TestFireball::test_cast_time_4_of_5_improved_fireball() {
+    given_improved_fireball(4);
+
+    when_fireball_is_performed();
+
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.100");
+}
+
+void TestFireball::test_cast_time_5_of_5_improved_fireball() {
+    given_improved_fireball(5);
+
+    when_fireball_is_performed();
+
+    then_next_event_is(EventType::PlayerAction, "1.500");
+    then_next_event_is(EventType::CastComplete, "3.000");
+}
+
+void TestFireball::given_improved_fireball(const unsigned num) {
+    given_talent_rank(Fire(mage).improved_fireball(), num);
 }
 
 void TestFireball::when_fireball_is_performed() {

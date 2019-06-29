@@ -10,6 +10,8 @@ public:
     Fire(Mage* mage);
     ~Fire() override = default;
 
+    Talent* improved_fireball();
+
 private:
     Mage* mage;
     MageSpells* spells;
