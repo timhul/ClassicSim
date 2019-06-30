@@ -37,7 +37,7 @@ Fire::Fire(Mage* mage) :
     QMap<QString, Talent*> tier6 {{"6MR", fire_power()}};
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new Talent(mage, this, "Combustion", "7ML", "Assets/spell/Spell_fire_sealoffire.png", 1, "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 critical strikes with Fire spells.", QVector<QPair<unsigned, unsigned>>())}};
+    QMap<QString, Talent*> tier7 {{"7ML", combustion()}};
     add_talents(tier7);
 
     talents["3MR"]->talent->set_bottom_child(talents["5MR"]->talent);
@@ -91,4 +91,11 @@ Talent* Fire::fire_power() {
                                   "Increases the damage done by your Fire spells by %1%.",
                                   QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                   QVector<QPair<TalentStat, unsigned>>{{TalentStat::FireDmgMod, 2}});
+}
+
+Talent* Fire::combustion() {
+    return get_new_talent(mage, "Combustion", "7ML", "Assets/spell/Spell_fire_sealoffire.png", 1,
+                          "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 critical strikes with Fire spells.",
+                          QVector<QPair<unsigned, unsigned>>(),
+                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Combustion")});
 }

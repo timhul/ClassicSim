@@ -3,6 +3,7 @@
 #include "Arcane.h"
 #include "CharacterStats.h"
 #include "CharacterTalents.h"
+#include "Combustion.h"
 #include "EnabledBuffs.h"
 #include "EnabledProcs.h"
 #include "Equipment.h"
@@ -136,6 +137,26 @@ void Mage::increase_base_mana(const unsigned value) {
 
 void Mage::decrease_base_mana(const unsigned value) {
     mana->base_mana -= value;
+}
+
+void Mage::spell_hit_effect(MagicSchool magic_school) {
+    switch (magic_school) {
+    case MagicSchool::Fire:
+        mage_spells->get_combustion()->stack_crit_chance();
+        break;
+    default:
+        break;
+    }
+}
+
+void Mage::spell_critical_effect(MagicSchool magic_school) {
+    switch (magic_school) {
+    case MagicSchool::Fire:
+        mage_spells->get_combustion()->use_charge();
+        break;
+    default:
+        break;
+    }
 }
 
 int Mage::get_highest_possible_armor_type() const {

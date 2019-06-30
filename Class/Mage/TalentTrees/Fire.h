@@ -15,6 +15,7 @@ public:
     Talent* master_of_elements();
     Talent* critical_mass();
     Talent* fire_power();
+    Talent* combustion();
 
 private:
     Mage* mage;

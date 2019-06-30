@@ -1,5 +1,6 @@
 #include "MageSpells.h"
 
+#include "Combustion.h"
 #include "Fireball.h"
 #include "Ignite.h"
 #include "IgniteBuff.h"
@@ -37,8 +38,15 @@ MageSpells::MageSpells(Mage* mage) :
     }
     ignite = new Ignite(mage, ignite_buff);
     add_spell_group({ignite});
+
+    combustion = new Combustion(mage);
+    add_spell_group({combustion});
 }
 
 void MageSpells::inflict_ignite(const double damage) {
     ignite->inflict_ignite(damage);
+}
+
+Combustion* MageSpells::get_combustion() const {
+    return this->combustion;
 }

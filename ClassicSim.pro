@@ -17,8 +17,10 @@ SOURCES += main.cpp \
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Mage/Buffs/CombustionBuff.cpp \
     Class/Mage/Buffs/IgniteBuff.cpp \
     Class/Mage/MageEnchants.cpp \
+    Class/Mage/Spells/Combustion.cpp \
     Class/Mage/Spells/Fireball.cpp \
     Class/Mage/Spells/Ignite.cpp \
     Class/Mage/TalentTrees/Arcane.cpp \
@@ -432,8 +434,10 @@ HEADERS += \
     Class/Common/Buffs/NoEffectUniqueDebuff.h \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/UseItem.h \
+    Class/Mage/Buffs/CombustionBuff.h \
     Class/Mage/Buffs/IgniteBuff.h \
     Class/Mage/MageEnchants.h \
+    Class/Mage/Spells/Combustion.h \
     Class/Mage/Spells/Fireball.h \
     Class/Mage/Spells/Ignite.h \
     Class/Mage/TalentTrees/Arcane.h \

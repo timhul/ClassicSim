@@ -4,6 +4,7 @@
 	Fireball spam.
 	</description>
 
+	<cast_if name="Combustion"/>
 	<cast_if name="Fireball"/>
 
 	<cast_if name="Mana Potion"/>
