@@ -140,7 +140,7 @@ void TestSpell::given_a_guaranteed_magic_hit(const MagicSchool school) {
     table->partial_75 = 0;
     table->full_resist = 0;
 
-    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance());
+    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance(school));
 
     assert(table->get_resist_outcome(0) == MagicResistResult::NO_RESIST);
     assert(table->get_resist_outcome(9999) == MagicResistResult::NO_RESIST);
@@ -154,7 +154,7 @@ void TestSpell::given_a_guaranteed_magic_crit(const MagicSchool school) {
     table->partial_75 = 0;
     table->full_resist = 0;
 
-    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance());
+    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance(school));
     pchar->get_stats()->increase_spell_crit(10000);
 
     assert(table->get_resist_outcome(0) == MagicResistResult::NO_RESIST);

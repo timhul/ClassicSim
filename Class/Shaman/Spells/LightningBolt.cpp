@@ -126,7 +126,7 @@ void LightningBolt::complete_cast_effect() {
 
     pchar->get_spells()->start_attack();
 
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance() + tidal_mastery_mod + call_of_thunder_mod);
+    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Nature) + tidal_mastery_mod + call_of_thunder_mod);
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Nature);
 
     if (hit_roll == MagicAttackResult::MISS)

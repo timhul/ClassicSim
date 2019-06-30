@@ -74,7 +74,7 @@ void InstantPoison::disable_spell_effect() {
 void InstantPoison::proc_effect() {
     instant_poison_buff->use_charge();
 
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance());
+    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Nature, pchar->get_stats()->get_spell_crit_chance(MagicSchool::Nature));
     const int resist_roll = roll->get_spell_resist_result(MagicSchool::Nature);
 
     if (hit_roll == MagicAttackResult::MISS)

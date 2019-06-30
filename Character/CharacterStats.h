@@ -108,9 +108,11 @@ public:
     void increase_spell_hit(const unsigned value);
     void decrease_spell_hit(const unsigned value);
 
-    unsigned get_spell_crit_chance() const;
+    unsigned get_spell_crit_chance(MagicSchool school) const;
     void increase_spell_crit(const unsigned value);
     void decrease_spell_crit(const unsigned value);
+    void increase_spell_crit(const MagicSchool school, const unsigned value);
+    void decrease_spell_crit(const MagicSchool school, const unsigned value);
 
     double get_melee_ability_crit_dmg_mod() const;
     void increase_melee_ability_crit_dmg_mod(const double value);

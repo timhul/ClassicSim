@@ -612,8 +612,8 @@ void CharacterStats::decrease_spell_hit(const unsigned value) {
     pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
 }
 
-unsigned CharacterStats::get_spell_crit_chance() const {
-    const unsigned equip_effect = base_stats->get_spell_crit_chance()  + equipment->get_stats()->get_spell_crit_chance();
+unsigned CharacterStats::get_spell_crit_chance(MagicSchool school) const {
+    const unsigned equip_effect = base_stats->get_spell_crit_chance(school)  + equipment->get_stats()->get_spell_crit_chance(school);
     const auto crit_from_int = static_cast<unsigned>(round(static_cast<double>(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit() * 100));
 
     return equip_effect + crit_from_int;
@@ -625,6 +625,14 @@ void CharacterStats::increase_spell_crit(const unsigned value) {
 
 void CharacterStats::decrease_spell_crit(const unsigned value) {
     base_stats->decrease_spell_crit(value);
+}
+
+void CharacterStats::increase_spell_crit(const MagicSchool school, const unsigned value) {
+    base_stats->increase_spell_crit(school, value);
+}
+
+void CharacterStats::decrease_spell_crit(const MagicSchool school, const unsigned value) {
+    base_stats->decrease_spell_crit(school, value);
 }
 
 double CharacterStats::get_melee_ability_crit_dmg_mod() const {

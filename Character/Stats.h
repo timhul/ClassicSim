@@ -116,9 +116,11 @@ public:
     void increase_spell_hit(const unsigned value);
     void decrease_spell_hit(const unsigned value);
 
-    unsigned get_spell_crit_chance() const;
+    unsigned get_spell_crit_chance(MagicSchool school) const;
     void increase_spell_crit(const unsigned value);
     void decrease_spell_crit(const unsigned value);
+    void increase_spell_crit(const MagicSchool school, const unsigned value);
+    void decrease_spell_crit(const MagicSchool school, const unsigned value);
 
     unsigned get_attack_speed() const;
     void increase_attack_speed(const unsigned value);
@@ -201,6 +203,7 @@ private:
     QMap<Target::CreatureType, unsigned> melee_ap_against_creature;
     QMap<Target::CreatureType, unsigned> ranged_ap_against_creature;
     QMap<MagicSchool, unsigned> spell_school_damage_bonus;
+    QMap<MagicSchool, unsigned> magic_school_crit_bonus;
 
     double str_multiplier {1.0};
     double agi_multiplier {1.0};

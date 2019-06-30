@@ -27,7 +27,7 @@ InstantSpellAttack::~InstantSpellAttack() {
 }
 
 void InstantSpellAttack::spell_effect() {
-    const int hit_roll = roll->get_spell_ability_result(school, pchar->get_stats()->get_spell_crit_chance());
+    const int hit_roll = roll->get_spell_ability_result(school, pchar->get_stats()->get_spell_crit_chance(school));
     const int resist_roll = roll->get_spell_resist_result(school);
 
     if (hit_roll == MagicAttackResult::MISS)

@@ -9,11 +9,11 @@ CombustionBuff::CombustionBuff(Character* pchar):
 
 void CombustionBuff::buff_effect_when_applied() {
     current_increment += increment;
-    pchar->get_stats()->increase_spell_crit(increment);
+    pchar->get_stats()->increase_spell_crit(MagicSchool::Fire, increment);
 }
 
 void CombustionBuff::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_spell_crit(current_increment);
+    pchar->get_stats()->decrease_spell_crit(MagicSchool::Fire, current_increment);
 
     current_increment = 0;
 }
