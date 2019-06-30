@@ -33,7 +33,7 @@ void UniqueDebuff::prepare_set_of_combat_iterations() {
     if (this->is_hidden())
         return;
 
-    this->statistics_buff = raid_control->get_statistics()->get_buff_statistics(name, icon, Debuff::Yes);
+    this->statistics_buff = pchar->get_statistics()->get_buff_statistics(name, icon, Debuff::Yes);
 
     prepare_set_of_combat_iterations_spell_specific();
 }
