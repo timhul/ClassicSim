@@ -47,7 +47,7 @@ public:
 
     void update_melee_miss_chance();
     void update_ranged_miss_chance();
-    void update_spell_miss_chance(const unsigned spell_hit);
+    void update_spell_miss_chance(const MagicSchool school, const unsigned spell_hit);
 
     void drop_tables();
 

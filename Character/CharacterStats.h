@@ -104,9 +104,11 @@ public:
     void increase_total_phys_dmg_for_weapon_type(const int weapon_type, const int value);
     void decrease_total_phys_dmg_for_weapon_type(const int weapon_type, const int value);
 
-    unsigned get_spell_hit_chance() const;
+    unsigned get_spell_hit_chance(const MagicSchool school) const;
     void increase_spell_hit(const unsigned value);
     void decrease_spell_hit(const unsigned value);
+    void increase_spell_hit(const MagicSchool school, const unsigned value);
+    void decrease_spell_hit(const MagicSchool school, const unsigned value);
 
     unsigned get_spell_crit_chance(MagicSchool school) const;
     void increase_spell_crit(const unsigned value);

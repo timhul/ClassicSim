@@ -167,7 +167,7 @@ MagicAttackTable* CombatRoll::get_magic_attack_table(const MagicSchool school) {
 
     auto* table = new MagicAttackTable(mechanics, random,
                                        pchar->get_clvl(),
-                                       pchar->get_stats()->get_spell_hit_chance(),
+                                       pchar->get_stats()->get_spell_hit_chance(school),
                                        target->get_resistance(school));
     magic_attack_tables[school] = table;
     return table;
@@ -262,10 +262,12 @@ void CombatRoll::update_ranged_miss_chance() {
     }
 }
 
-void CombatRoll::update_spell_miss_chance(const unsigned spell_hit) {
+void CombatRoll::update_spell_miss_chance(const MagicSchool school, const unsigned spell_hit) {
+    if (!magic_attack_tables.contains(school))
+        return;
+
     const unsigned clvl = pchar->get_clvl();
-    for (const auto & table : magic_attack_tables)
-        table->update_miss_chance(clvl, spell_hit);
+    magic_attack_tables[school]->update_miss_chance(clvl, spell_hit);
 }
 
 void CombatRoll::drop_tables() {

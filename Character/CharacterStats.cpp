@@ -598,18 +598,38 @@ void CharacterStats::decrease_total_phys_dmg_for_weapon_type(const int weapon_ty
     damage_bonuses_per_weapon_type[weapon_type] -= value;
 }
 
-unsigned CharacterStats::get_spell_hit_chance() const {
-    return base_stats->get_spell_hit_chance() + equipment->get_stats()->get_spell_hit_chance();
+unsigned CharacterStats::get_spell_hit_chance(const MagicSchool school) const {
+    return base_stats->get_spell_hit_chance(school) + equipment->get_stats()->get_spell_hit_chance(school);
 }
 
 void CharacterStats::increase_spell_hit(const unsigned value) {
     base_stats->increase_spell_hit(value);
-    pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Arcane, get_spell_hit_chance(MagicSchool::Arcane));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Fire, get_spell_hit_chance(MagicSchool::Fire));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Frost, get_spell_hit_chance(MagicSchool::Frost));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Holy, get_spell_hit_chance(MagicSchool::Holy));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Nature, get_spell_hit_chance(MagicSchool::Nature));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Shadow, get_spell_hit_chance(MagicSchool::Shadow));
 }
 
 void CharacterStats::decrease_spell_hit(const unsigned value) {
     base_stats->decrease_spell_hit(value);
-    pchar->get_combat_roll()->update_spell_miss_chance(get_spell_hit_chance());
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Arcane, get_spell_hit_chance(MagicSchool::Arcane));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Fire, get_spell_hit_chance(MagicSchool::Fire));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Frost, get_spell_hit_chance(MagicSchool::Frost));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Holy, get_spell_hit_chance(MagicSchool::Holy));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Nature, get_spell_hit_chance(MagicSchool::Nature));
+    pchar->get_combat_roll()->update_spell_miss_chance(MagicSchool::Shadow, get_spell_hit_chance(MagicSchool::Shadow));
+}
+
+void CharacterStats::increase_spell_hit(const MagicSchool school, const unsigned value) {
+    base_stats->increase_spell_hit(school, value);
+    pchar->get_combat_roll()->update_spell_miss_chance(school, get_spell_hit_chance(school));
+}
+
+void CharacterStats::decrease_spell_hit(const MagicSchool school, const unsigned value) {
+    base_stats->decrease_spell_hit(school, value);
+    pchar->get_combat_roll()->update_spell_miss_chance(school, get_spell_hit_chance(school));
 }
 
 unsigned CharacterStats::get_spell_crit_chance(MagicSchool school) const {

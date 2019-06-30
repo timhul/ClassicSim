@@ -136,11 +136,23 @@ void TalentStatIncrease::apply_rank_effect() {
             pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Fire);
             break;
         case ArcaneHit:
+            pchar->get_stats()->increase_spell_hit(MagicSchool::Arcane, change);
+            break;
         case FireHit:
+            pchar->get_stats()->increase_spell_hit(MagicSchool::Fire, change);
+            break;
         case FrostHit:
+            pchar->get_stats()->increase_spell_hit(MagicSchool::Frost, change);
+            break;
         case HolyHit:
+            pchar->get_stats()->increase_spell_hit(MagicSchool::Holy, change);
+            break;
         case NatureHit:
+            pchar->get_stats()->increase_spell_hit(MagicSchool::Nature, change);
+            break;
         case ShadowHit:
+            pchar->get_stats()->increase_spell_hit(MagicSchool::Shadow, change);
+            break;
         case FireCrit:
         case Defense:
         case Parry:
@@ -274,15 +286,27 @@ void TalentStatIncrease::remove_rank_effect() {
             if (curr_points > 0)
                 pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Fire);
             break;
+        case ArcaneHit:
+            pchar->get_stats()->decrease_spell_hit(MagicSchool::Arcane, change);
+            break;
+        case FireHit:
+            pchar->get_stats()->decrease_spell_hit(MagicSchool::Fire, change);
+            break;
+        case FrostHit:
+            pchar->get_stats()->decrease_spell_hit(MagicSchool::Frost, change);
+            break;
+        case HolyHit:
+            pchar->get_stats()->decrease_spell_hit(MagicSchool::Holy, change);
+            break;
+        case NatureHit:
+            pchar->get_stats()->decrease_spell_hit(MagicSchool::Nature, change);
+            break;
+        case ShadowHit:
+            pchar->get_stats()->decrease_spell_hit(MagicSchool::Shadow, change);
+            break;
         case Defense:
         case Parry:
         case ArmorModFromItems:
-        case ArcaneHit:
-        case FireHit:
-        case FrostHit:
-        case HolyHit:
-        case NatureHit:
-        case ShadowHit:
         case FireCrit:
         case ShadowDmgMod:
         case TargetResistanceReduction:

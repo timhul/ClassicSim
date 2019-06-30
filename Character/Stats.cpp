@@ -53,7 +53,13 @@ void Stats::add(const Stats* rhs) {
     increase_ranged_crit(rhs->get_ranged_crit_chance());
     increase_attack_speed(rhs->get_attack_speed());
 
-    increase_spell_hit(rhs->get_spell_hit_chance());
+    increase_spell_hit(MagicSchool::Arcane, rhs->get_spell_hit_chance(MagicSchool::Arcane));
+    increase_spell_hit(MagicSchool::Fire, rhs->get_spell_hit_chance(MagicSchool::Fire));
+    increase_spell_hit(MagicSchool::Frost, rhs->get_spell_hit_chance(MagicSchool::Frost));
+    increase_spell_hit(MagicSchool::Holy, rhs->get_spell_hit_chance(MagicSchool::Holy));
+    increase_spell_hit(MagicSchool::Nature, rhs->get_spell_hit_chance(MagicSchool::Nature));
+    increase_spell_hit(MagicSchool::Shadow, rhs->get_spell_hit_chance(MagicSchool::Shadow));
+
     increase_spell_crit(MagicSchool::Arcane, rhs->get_spell_crit_chance(MagicSchool::Arcane));
     increase_spell_crit(MagicSchool::Fire, rhs->get_spell_crit_chance(MagicSchool::Fire));
     increase_spell_crit(MagicSchool::Frost, rhs->get_spell_crit_chance(MagicSchool::Frost));
@@ -102,7 +108,13 @@ void Stats::remove(const Stats* rhs) {
     decrease_ranged_crit(rhs->get_ranged_crit_chance());
     decrease_attack_speed(rhs->get_attack_speed());
 
-    decrease_spell_hit(rhs->get_spell_hit_chance());
+    decrease_spell_hit(MagicSchool::Arcane, rhs->get_spell_hit_chance(MagicSchool::Arcane));
+    decrease_spell_hit(MagicSchool::Fire, rhs->get_spell_hit_chance(MagicSchool::Fire));
+    decrease_spell_hit(MagicSchool::Frost, rhs->get_spell_hit_chance(MagicSchool::Frost));
+    decrease_spell_hit(MagicSchool::Holy, rhs->get_spell_hit_chance(MagicSchool::Holy));
+    decrease_spell_hit(MagicSchool::Nature, rhs->get_spell_hit_chance(MagicSchool::Nature));
+    decrease_spell_hit(MagicSchool::Shadow, rhs->get_spell_hit_chance(MagicSchool::Shadow));
+
     decrease_spell_crit(MagicSchool::Arcane, rhs->get_spell_crit_chance(MagicSchool::Arcane));
     decrease_spell_crit(MagicSchool::Fire, rhs->get_spell_crit_chance(MagicSchool::Fire));
     decrease_spell_crit(MagicSchool::Frost, rhs->get_spell_crit_chance(MagicSchool::Frost));
@@ -397,8 +409,8 @@ unsigned Stats::get_ranged_crit_chance() const {
     return ranged_crit;
 }
 
-unsigned Stats::get_spell_hit_chance() const {
-    return spell_hit;
+unsigned Stats::get_spell_hit_chance(const MagicSchool school) const {
+    return spell_hit + magic_school_hit_bonus[school];
 }
 
 unsigned Stats::get_spell_crit_chance(MagicSchool school) const {
@@ -467,6 +479,16 @@ void Stats::increase_spell_hit(const unsigned value) {
 
 void Stats::decrease_spell_hit(const unsigned value) {
     spell_hit -= value;
+}
+
+void Stats::increase_spell_hit(const MagicSchool school, const unsigned value) {
+    magic_school_hit_bonus[school] += value;
+}
+
+void Stats::decrease_spell_hit(const MagicSchool school, const unsigned value) {
+    check((magic_school_crit_bonus[school] >= value), "Underflow spell school hit decrease");
+
+    magic_school_hit_bonus[school] -= value;
 }
 
 void Stats::increase_spell_crit(const unsigned value) {
