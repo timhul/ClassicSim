@@ -68,5 +68,18 @@ RectangleBorders {
                 text: parent.template
             }
         }
+
+        RectangleBorders {
+            height: parent.height / parent.children.length
+            width: parent.width
+            rectColor: root.colorMage
+            property string template: "Fire Mage (naked w/ world buffs)"
+            onRectangleClicked: raid.selectTemplateCharacter(template)
+
+            TextSmall {
+                color: "black"
+                text: parent.template
+            }
+        }
     }
 }
