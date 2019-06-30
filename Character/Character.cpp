@@ -245,11 +245,11 @@ void Character::ranged_yellow_hit_effect() {
     enabled_procs->run_proc_check(ProcInfo::Source::RangedSpell);
 }
 
-void Character::spell_hit_effect() {
+void Character::spell_hit_effect(MagicSchool) {
 
 }
 
-void Character::spell_critical_effect() {
+void Character::spell_critical_effect(MagicSchool) {
 
 }
 

@@ -30,6 +30,8 @@ class Stats;
 class Target;
 class Weapon;
 
+enum class MagicSchool : int;
+
 class Character {
 public:
     Character(QString class_name, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member);
@@ -104,8 +106,8 @@ public:
     void ranged_white_hit_effect();
     void ranged_yellow_hit_effect();
 
-    virtual void spell_hit_effect();
-    virtual void spell_critical_effect();
+    virtual void spell_hit_effect(MagicSchool magic_school);
+    virtual void spell_critical_effect(MagicSchool magic_school);
 
     double get_random_normalized_mh_dmg();
     double get_random_non_normalized_mh_dmg();

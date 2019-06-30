@@ -87,11 +87,11 @@ void InstantPoison::proc_effect() {
     const double damage_mod =  pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature);
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
-        pchar->spell_critical_effect();
+        pchar->spell_critical_effect(MagicSchool::Nature);
         add_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * vile_poisons)), resource_cost, 0);
     }
     else {
-        pchar->spell_hit_effect();
+        pchar->spell_hit_effect(MagicSchool::Nature);
         add_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod * vile_poisons)), resource_cost, 0);
     }
 }

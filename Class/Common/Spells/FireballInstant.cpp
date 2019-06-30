@@ -66,13 +66,13 @@ void FireballInstant::spell_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         magic_attack_result = MagicAttackResult::CRITICAL;
-        pchar->spell_critical_effect();
+        pchar->spell_critical_effect(MagicSchool::Fire);
         last_damage_dealt = round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod);
         add_crit_dmg(static_cast<int>(last_damage_dealt), resource_cost, 0);
     }
     else {
         magic_attack_result = MagicAttackResult::HIT;
-        pchar->spell_hit_effect();
+        pchar->spell_hit_effect(MagicSchool::Fire);
         last_damage_dealt = round(damage_dealt * damage_mod * resist_mod);
         add_hit_dmg(static_cast<int>(last_damage_dealt), resource_cost, 0);
     }
