@@ -1,16 +1,7 @@
 #include "Fury.h"
 
-#include "BattleShout.h"
-#include "BerserkerRage.h"
-#include "Bloodthirst.h"
 #include "Buff.h"
 #include "Cruelty.h"
-#include "DeathWish.h"
-#include "DeathWishBuff.h"
-#include "Execute.h"
-#include "Flurry.h"
-#include "OffhandAttackWarrior.h"
-#include "Slam.h"
 #include "Talent.h"
 #include "UnbridledWrath.h"
 #include "Warrior.h"
@@ -21,35 +12,57 @@ Fury::Fury(Warrior* pchar) :
     warrior(pchar),
     spells(dynamic_cast<WarriorSpells*>(pchar->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1ML", get_booming_voice()},
-                                  {"1MR", new Cruelty(pchar, this)}};
+    talent_names_to_locations = {
+        {"Booming Voice", "1ML"},
+        {"Cruelty", "1MR"},
+        {"Improved Demoralizing Shout", "2ML"},
+        {"Unbridled Wrath", "2MR"},
+        {"Improved Cleave", "3LL"},
+        {"Piercing Howl", "3ML"},
+        {"Blood Craze", "3MR"},
+        {"Improved Battle Shout", "3RR"},
+        {"Enrage", "4MR"},
+        {"Dual Wield Specialization", "4LL"},
+        {"Improved Execute", "4ML"},
+        {"Improved Slam", "5LL"},
+        {"Death Wish", "5ML"},
+        {"Improved Intercept", "5RR"},
+        {"Improved Berserker Rage", "6LL"},
+        {"Flurry", "6MR"},
+        {"Bloodthirst", "7ML"},
+    };
+
+    QMap<QString, Talent*> tier1 {{"1MR", new Cruelty(pchar, this)}};
+    add_booming_voice(tier1);
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2ML", new Talent(pchar, this, "Improved Demoralizing Shout", "2ML", base_url + "ability/Ability_warrior_warcry.png", 5, "Increases the melee attack power reduction of your Demoralizing Shout by %1%.", QVector<QPair<unsigned, unsigned>>{{8, 8}})},
-                                  {"2MR", get_unbridled_wrath()}};
+    QMap<QString, Talent*> tier2 {{"2ML", new Talent(pchar, this, "Improved Demoralizing Shout", "2ML", base_url + "ability/Ability_warrior_warcry.png", 5, "Increases the melee attack power reduction of your Demoralizing Shout by %1%.", QVector<QPair<unsigned, unsigned>>{{8, 8}})}};
+    add_unbridled_wrath(tier2);
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(pchar, this, "Improved Cleave", "3LL", base_url + "ability/Ability_warrior_cleave.png", 3, "Increases the bonus damage done by your Cleave ability by %1%.", QVector<QPair<unsigned, unsigned>>{{40, 40}})},
                                   {"3ML", new Talent(pchar, this, "Piercing Howl", "3ML", base_url + "spell/Spell_shadow_deathscream.png", 1, "Causes all enemies near the warrior to be dazed, reducing movement speed by 50% for 6 sec.", QVector<QPair<unsigned, unsigned>>())},
-                                  {"3MR", new Talent(pchar, this, "Blood Craze", "3MR", base_url + "spell/Spell_shadow_summonimp.png", 3, "Regenerates %1% of your total Health over 6 sec after being the victim of a critical strike.", QVector<QPair<unsigned, unsigned>>{{1, 1}})},
-                                  {"3RR", get_improved_battle_shout()}};
+                                  {"3MR", new Talent(pchar, this, "Blood Craze", "3MR", base_url + "spell/Spell_shadow_summonimp.png", 3, "Regenerates %1% of your total Health over 6 sec after being the victim of a critical strike.", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
+    add_improved_battle_shout(tier3);
     add_talents(tier3);
 
-    QMap<QString, Talent*> tier4 {{"4LL", get_dual_wield_specialization()},
-                                  {"4ML", get_improved_execute()},
-                                  {"4MR", new Talent(pchar, this, "Enrage", "4MR", base_url + "spell/Spell_shadow_unholyfrenzy.png", 5, "Gives you a %1% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
+    QMap<QString, Talent*> tier4 {{"4MR", new Talent(pchar, this, "Enrage", "4MR", base_url + "spell/Spell_shadow_unholyfrenzy.png", 5, "Gives you a %1% melee damage bonus for 12 sec up to a maximum of 12 swings after being the victim of a critical strike.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
+    add_dual_wield_specialization(tier4);
+    add_improved_execute(tier4);
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {{"5LL", get_improved_slam()},
-                                  {"5ML", get_death_wish()},
-                                  {"5RR", new Talent(pchar, this, "Improved Intercept", "5RR", base_url + "ability/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
+    QMap<QString, Talent*> tier5 {{"5RR", new Talent(pchar, this, "Improved Intercept", "5RR", base_url + "ability/Ability_rogue_sprint.png", 2, "Reduces the cooldown of your Intercept ability by %1 sec.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
+    add_improved_slam(tier5);
+    add_death_wish(tier5);
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6LL", get_improved_berserker_rage()},
-                                  {"6MR", get_flurry_talent()}};
+    QMap<QString, Talent*> tier6 {};
+    add_improved_berserker_rage(tier6);
+    add_flurry_talent(tier6);
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", get_bloodthirst()}};
+    QMap<QString, Talent*> tier7 {};
+    add_bloodthirst(tier7);
     add_talents(tier7);
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
@@ -59,7 +72,7 @@ Fury::Fury(Warrior* pchar) :
     talents["6MR"]->talent->set_parent(talents["4MR"]->talent);
 }
 
-Talent* Fury::get_booming_voice() {
+void Fury::add_booming_voice(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the area of effect and duration of your Battle Shout and Demoralizing Shout by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{10, 10}});
@@ -67,10 +80,10 @@ Talent* Fury::get_booming_voice() {
                                 "Assets/spell/Spell_nature_purge.png", 5, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Battle Shout")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_unbridled_wrath() {
+void Fury::add_unbridled_wrath(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Gives you a %1% chance to generate an additional Rage point when you deal melee damage with a weapon.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{8, 8}});
@@ -80,10 +93,10 @@ Talent* Fury::get_unbridled_wrath() {
                                 {},
                                 QVector<Proc*>{spells->get_unbridled_wrath()});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_improved_battle_shout() {
+void Fury::add_improved_battle_shout(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the melee attack power bonus of your Battle Shout by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{5, 5}});
@@ -91,10 +104,10 @@ Talent* Fury::get_improved_battle_shout() {
                                 "Assets/ability/Ability_warrior_battleshout.png", 5, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Battle Shout")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_dual_wield_specialization() {
+void Fury::add_dual_wield_specialization(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the damage done by your offhand weapon by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{5, 5}});
@@ -102,10 +115,10 @@ Talent* Fury::get_dual_wield_specialization() {
                                 "Assets/ability/Ability_dualwield.png", 5, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Offhand Attack")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_improved_execute() {
+void Fury::add_improved_execute(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Reduces the rage cost of your Execute ability by %1.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<unsigned, unsigned>>{{2, 3}});
@@ -113,10 +126,10 @@ Talent* Fury::get_improved_execute() {
                                 "Assets/items/Inv_sword_48.png", 2, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Execute")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_improved_slam() {
+void Fury::add_improved_slam(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Decreases the casting time of your Slam ability by 0.%1 sec.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{1, 1}});
@@ -124,10 +137,10 @@ Talent* Fury::get_improved_slam() {
                                 "Assets/ability/Ability_warrior_decisivestrike.png", 5, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Slam")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_death_wish() {
+void Fury::add_death_wish(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "When activated, increases your physical damage by 20% and makes you immune to Fear effects, but lowers your armor and all resistances by 20%. Lasts 30 sec.";
     rank_descriptions.insert(0, base_str);
@@ -136,10 +149,10 @@ Talent* Fury::get_death_wish() {
                                 "Assets/spell/Spell_shadow_deathpact.png", 1, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Death Wish")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_improved_berserker_rage() {
+void Fury::add_improved_berserker_rage(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "The Berserker Rage ability will generate %1 rage when used.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 2, QVector<QPair<unsigned, unsigned>>{{5, 5}});
@@ -147,10 +160,10 @@ Talent* Fury::get_improved_berserker_rage() {
                                 "Assets/spell/Spell_nature_ancestralguardian.png", 2, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Berserker Rage")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_flurry_talent() {
+void Fury::add_flurry_talent(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases your attack speed by %1% for your next 3 swings after dealing a melee critical strike.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{10, 5}});
@@ -159,10 +172,10 @@ Talent* Fury::get_flurry_talent() {
                                 {},
                                 QVector<Buff*>{spells->get_flurry()});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Fury::get_bloodthirst() {
+void Fury::add_bloodthirst(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Instantly attack the target causing damage equal to 45% of your attack power. In addition, the next 5 successful melee attacks will restore 10 health. This effect lasts 8 sec.";
     rank_descriptions.insert(0, base_str);
@@ -171,5 +184,5 @@ Talent* Fury::get_bloodthirst() {
                                 "Assets/spell/Spell_nature_bloodlust.png", 1, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Bloodthirst")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }

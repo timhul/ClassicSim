@@ -81,53 +81,23 @@ void TestUnbridledWrath::test_proc_range_for_5_of_5_unbridled_wrath() {
 }
 
 void TestUnbridledWrath::given_1_of_5_unbridled_wrath() {
-    Talent* talent = Fury(warrior).get_unbridled_wrath();
-
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Fury(warrior), "Unbridled Wrath", 1);
 }
 
 void TestUnbridledWrath::given_2_of_5_unbridled_wrath() {
-    Talent* talent = Fury(warrior).get_unbridled_wrath();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Fury(warrior), "Unbridled Wrath", 2);
 }
 
 void TestUnbridledWrath::given_3_of_5_unbridled_wrath() {
-    Talent* talent = Fury(warrior).get_unbridled_wrath();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Fury(warrior), "Unbridled Wrath", 3);
 }
 
 void TestUnbridledWrath::given_4_of_5_unbridled_wrath() {
-    Talent* talent = Fury(warrior).get_unbridled_wrath();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Fury(warrior), "Unbridled Wrath", 4);
 }
 
 void TestUnbridledWrath::given_5_of_5_unbridled_wrath() {
-    Talent* talent = Fury(warrior).get_unbridled_wrath();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(Fury(warrior), "Unbridled Wrath", 5);
 }
 
 void TestUnbridledWrath::test_proc_sources_are_valid() {

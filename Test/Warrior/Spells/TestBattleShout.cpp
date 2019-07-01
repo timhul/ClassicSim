@@ -83,7 +83,7 @@ void TestBattleShout::when_battle_shout_is_performed() {
 }
 
 void TestBattleShout::given_improved_battle_shout_rank(Warrior* warrior, const unsigned num) {
-    given_talent_rank(Fury(warrior).get_improved_battle_shout(), num);
+    given_talent_rank(Fury(warrior), "Improved Battle Shout", num);
 }
 
 void TestBattleShout::test_battle_shout_in_party() {

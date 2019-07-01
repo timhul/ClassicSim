@@ -42,18 +42,11 @@ private:
     void test_mid_swing_haste_decrease_updates_attack_speed();
     void test_dodge_applies_overpower_buff();
 
-    void given_0_of_5_dual_wield_specialization();
-    void given_1_of_5_dual_wield_specialization();
-    void given_2_of_5_dual_wield_specialization();
-    void given_3_of_5_dual_wield_specialization();
-    void given_4_of_5_dual_wield_specialization();
-    void given_5_of_5_dual_wield_specialization();
-
     void when_mh_attack_is_performed();
     void when_oh_attack_is_performed();
     void when_changing_to_2_speed();
-    void when_increasing_attack_speed(const int change);
-    void when_decreasing_attack_speed(const int change);
+    void when_increasing_attack_speed(const unsigned change);
+    void when_decreasing_attack_speed(const unsigned change);
 
     void then_next_expected_use_is(const double next_expected_use);
 };

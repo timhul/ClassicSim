@@ -1,7 +1,6 @@
 #include "TestOffhandAttackWarrior.h"
 
 #include "Equipment.h"
-#include "Fury.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
 #include "Talent.h"
@@ -158,7 +157,6 @@ void TestOffhandAttackWarrior::test_hit_dmg_0_of_5_dual_wield_specialization() {
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
-    given_0_of_5_dual_wield_specialization();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -174,7 +172,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_1_of_5_dual_wield_specialization() {
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
-    given_1_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 1);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -190,7 +188,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_2_of_5_dual_wield_specialization() {
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
-    given_2_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 2);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -206,7 +204,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_3_of_5_dual_wield_specialization() {
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
-    given_3_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 3);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -222,7 +220,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_4_of_5_dual_wield_specialization() {
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
-    given_4_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 4);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -238,7 +236,7 @@ void TestOffhandAttackWarrior::test_hit_dmg_5_of_5_dual_wield_specialization() {
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_hit();
-    given_5_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 5);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -254,7 +252,6 @@ void TestOffhandAttackWarrior::test_crit_dmg_0_of_5_dual_wield_specialization() 
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
-    given_0_of_5_dual_wield_specialization();
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -270,7 +267,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_1_of_5_dual_wield_specialization() 
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
-    given_1_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 1);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -286,7 +283,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_2_of_5_dual_wield_specialization() 
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
-    given_2_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 2);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -302,7 +299,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_3_of_5_dual_wield_specialization() 
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
-    given_3_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 3);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -318,7 +315,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_4_of_5_dual_wield_specialization() 
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
-    given_4_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 4);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -334,7 +331,7 @@ void TestOffhandAttackWarrior::test_crit_dmg_5_of_5_dual_wield_specialization() 
     given_target_has_0_armor();
     given_an_offhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_white_crit();
-    given_5_of_5_dual_wield_specialization();
+    given_fury_talent_with_rank("Dual Wield Specialization", 5);
     given_1000_melee_ap();
     given_no_previous_damage_dealt();
     given_2_of_2_impale();
@@ -444,60 +441,6 @@ void TestOffhandAttackWarrior::test_dodge_applies_overpower_buff() {
     then_overpower_is_active();
 }
 
-void TestOffhandAttackWarrior::given_0_of_5_dual_wield_specialization() {
-
-}
-
-void TestOffhandAttackWarrior::given_1_of_5_dual_wield_specialization() {
-    Talent* talent = Fury(warrior).get_dual_wield_specialization();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestOffhandAttackWarrior::given_2_of_5_dual_wield_specialization() {
-    Talent* talent = Fury(warrior).get_dual_wield_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestOffhandAttackWarrior::given_3_of_5_dual_wield_specialization() {
-    Talent* talent = Fury(warrior).get_dual_wield_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestOffhandAttackWarrior::given_4_of_5_dual_wield_specialization() {
-    Talent* talent = Fury(warrior).get_dual_wield_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestOffhandAttackWarrior::given_5_of_5_dual_wield_specialization() {
-    Talent* talent = Fury(warrior).get_dual_wield_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
 void TestOffhandAttackWarrior::when_mh_attack_is_performed() {
     warrior->get_spells()->get_mh_attack()->perform();
 }
@@ -513,11 +456,11 @@ void TestOffhandAttackWarrior::when_changing_to_2_speed() {
     given_an_offhand_weapon_with_2_speed();
 }
 
-void TestOffhandAttackWarrior::when_increasing_attack_speed(const int change) {
+void TestOffhandAttackWarrior::when_increasing_attack_speed(const unsigned change) {
     warrior->increase_melee_attack_speed(change);
 }
 
-void TestOffhandAttackWarrior::when_decreasing_attack_speed(const int change) {
+void TestOffhandAttackWarrior::when_decreasing_attack_speed(const unsigned change) {
     warrior->decrease_melee_attack_speed(change);
 }
 

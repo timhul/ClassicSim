@@ -2,7 +2,6 @@
 
 #include "Engine.h"
 #include "Equipment.h"
-#include "Fury.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"
 #include "Queue.h"
@@ -79,7 +78,7 @@ void TestSlam::test_spell_cooldown() {
 }
 
 void TestSlam::test_whether_spell_causes_global_cooldown() {
-    given_1_of_5_improved_slam();
+    given_fury_talent_with_rank("Improved Slam", 1);
 
     slam()->perform();
 
@@ -211,37 +210,37 @@ void TestSlam::test_cast_time_with_0_of_5_improved_slam() {
 }
 
 void TestSlam::test_cast_time_with_1_of_5_improved_slam() {
-    given_1_of_5_improved_slam();
+    given_fury_talent_with_rank("Improved Slam", 1);
 
     assert(almost_equal(slam()->get_cast_time(), 1.4));
 }
 
 void TestSlam::test_cast_time_with_2_of_5_improved_slam() {
-    given_2_of_5_improved_slam();
+    given_fury_talent_with_rank("Improved Slam", 2);
 
     assert(almost_equal(slam()->get_cast_time(), 1.3));
 }
 
 void TestSlam::test_cast_time_with_3_of_5_improved_slam() {
-    given_3_of_5_improved_slam();
+    given_fury_talent_with_rank("Improved Slam", 3);
 
     assert(almost_equal(slam()->get_cast_time(), 1.2));
 }
 
 void TestSlam::test_cast_time_with_4_of_5_improved_slam() {
-    given_4_of_5_improved_slam();
+    given_fury_talent_with_rank("Improved Slam", 4);
 
     assert(almost_equal(slam()->get_cast_time(), 1.1));
 }
 
 void TestSlam::test_cast_time_with_5_of_5_improved_slam() {
-    given_5_of_5_improved_slam();
+    given_fury_talent_with_rank("Improved Slam", 5);
 
     assert(almost_equal(slam()->get_cast_time(), 1.0));
 }
 
 void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
-    given_2_of_5_improved_slam();
+    given_fury_talent_with_rank("Improved Slam", 2);
     given_a_mainhand_weapon_with_2_speed();
     given_an_offhand_weapon_with_3_speed();
     given_a_guaranteed_white_hit();
@@ -266,56 +265,6 @@ void TestSlam::test_auto_attacks_cancelled_during_slam_cast() {
     then_next_event_is(EventType::OffhandMeleeHit, "3.000", RUN_EVENT);
     then_next_event_is(EventType::MainhandMeleeHit, "4.300");
     then_next_event_is(EventType::OffhandMeleeHit, "5.300");
-}
-
-void TestSlam::given_1_of_5_improved_slam() {
-    Talent* talent = Fury(warrior).get_improved_slam();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSlam::given_2_of_5_improved_slam() {
-    Talent* talent = Fury(warrior).get_improved_slam();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSlam::given_3_of_5_improved_slam() {
-    Talent* talent = Fury(warrior).get_improved_slam();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSlam::given_4_of_5_improved_slam() {
-    Talent* talent = Fury(warrior).get_improved_slam();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSlam::given_5_of_5_improved_slam() {
-    Talent* talent = Fury(warrior).get_improved_slam();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
 }
 
 void TestSlam::when_slam_is_performed() {

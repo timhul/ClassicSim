@@ -513,61 +513,41 @@ void TestFlurryWarrior::when_flurry_is_removed() {
 }
 
 void TestFlurryWarrior::given_1_of_5_flurry() {
-    Talent* talent = Fury(warrior).get_flurry_talent();
-
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto fury = Fury(warrior);
+    given_talent_rank(fury, "Enrage", 5);
+    given_talent_rank(fury, "Flurry", 1);
 
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_2_of_5_flurry() {
-    Talent* talent = Fury(warrior).get_flurry_talent();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto fury = Fury(warrior);
+    given_talent_rank(fury, "Enrage", 5);
+    given_talent_rank(fury, "Flurry", 2);
 
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_3_of_5_flurry() {
-    Talent* talent = Fury(warrior).get_flurry_talent();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto fury = Fury(warrior);
+    given_talent_rank(fury, "Enrage", 5);
+    given_talent_rank(fury, "Flurry", 3);
 
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_4_of_5_flurry() {
-    Talent* talent = Fury(warrior).get_flurry_talent();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto fury = Fury(warrior);
+    given_talent_rank(fury, "Enrage", 5);
+    given_talent_rank(fury, "Flurry", 4);
 
     warrior->prepare_set_of_combat_iterations();
 }
 
 void TestFlurryWarrior::given_5_of_5_flurry() {
-    Talent* talent = Fury(warrior).get_flurry_talent();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto fury = Fury(warrior);
+    given_talent_rank(fury, "Enrage", 5);
+    given_talent_rank(fury, "Flurry", 5);
 
     warrior->prepare_set_of_combat_iterations();
 }

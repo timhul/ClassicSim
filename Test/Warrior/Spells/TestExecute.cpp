@@ -220,7 +220,8 @@ void TestExecute::test_2_of_2_improved_execute_reduces_rage_cost() {
 }
 
 void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost() {
-    Talent* improved_execute = Fury(warrior).get_improved_execute();
+    const auto fury = Fury(warrior);
+    Talent* improved_execute = fury.get_talent_from_name("Improved Execute");
     given_target_in_execute_range();
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
@@ -520,23 +521,14 @@ void TestExecute::given_0_of_2_improved_execute() {
 }
 
 void TestExecute::given_1_of_2_improved_execute() {
-    Talent* talent = Fury(warrior).get_improved_execute();
-
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_fury_talent_with_rank("Improved Execute", 1);
 
     assert(execute_available_with_rage(13));
     assert(!execute_available_with_rage(12));
 }
 
 void TestExecute::given_2_of_2_improved_execute() {
-    Talent* talent = Fury(warrior).get_improved_execute();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_fury_talent_with_rank("Improved Execute", 2);
 
     assert(execute_available_with_rage(10));
     assert(!execute_available_with_rage(9));
