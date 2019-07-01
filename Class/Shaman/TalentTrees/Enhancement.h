@@ -10,13 +10,13 @@ public:
     Enhancement(Shaman* shaman);
     ~Enhancement() override = default;
 
-    Talent* get_thundering_strikes();
-    Talent* get_flurry();
-    Talent* get_elemental_weapons();
-    Talent* get_weapon_mastery();
-    Talent* get_stormstrike();
-
 private:
     Shaman* shaman;
     ShamanSpells* spells;
+
+    void add_thundering_strikes(QMap<QString, Talent*>& talent_tier);
+    void add_flurry(QMap<QString, Talent*>& talent_tier);
+    void add_elemental_weapons(QMap<QString, Talent*>& talent_tier);
+    void add_weapon_mastery(QMap<QString, Talent*>& talent_tier);
+    void add_stormstrike(QMap<QString, Talent*>& talent_tier);
 };

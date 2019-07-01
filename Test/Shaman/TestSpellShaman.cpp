@@ -95,7 +95,9 @@ void TestSpellShaman::given_shaman_has_mana(const unsigned mana) {
 }
 
 void TestSpellShaman::given_stormstrike_enabled() {
-    given_talent_rank(Enhancement(shaman).get_stormstrike(), 1);
+    auto enhancement = Enhancement(shaman);
+    given_talent_rank(enhancement, "Elemental Weapons", 3);
+    given_talent_rank(enhancement, "Stormstrike", 1);
     pchar->prepare_set_of_combat_iterations();
 }
 
