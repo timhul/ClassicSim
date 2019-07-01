@@ -100,7 +100,7 @@ void TestSpellShaman::given_stormstrike_enabled() {
 }
 
 void TestSpellShaman::given_clearcasting_enabled() {
-    given_talent_rank(Elemental(shaman).get_elemental_focus(), 1);
+    given_talent_rank(Elemental(shaman), "Elemental Focus", 1);
     pchar->prepare_set_of_combat_iterations();
 }
 

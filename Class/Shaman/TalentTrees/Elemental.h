@@ -10,16 +10,16 @@ public:
     Elemental(Shaman* shaman);
     ~Elemental() override = default;
 
-    Talent* get_elemental_focus();
 
 private:
     Shaman* shaman;
     ShamanSpells* spells;
 
-    Talent* get_convection();
-    Talent* get_concussion();
-    Talent* get_call_of_thunder();
-    Talent* get_eye_of_storm();
-    Talent* get_elemental_devastation();
-    Talent* get_lightning_mastery();
+    void add_convection(QMap<QString, Talent*>& talent_tier);
+    void add_concussion(QMap<QString, Talent*>& talent_tier);
+    void add_elemental_focus(QMap<QString, Talent*>& talent_tier);
+    void add_call_of_thunder(QMap<QString, Talent*>& talent_tier);
+    void add_eye_of_storm(QMap<QString, Talent*>& talent_tier);
+    void add_elemental_devastation(QMap<QString, Talent*>& talent_tier);
+    void add_lightning_mastery(QMap<QString, Talent*>& talent_tier);
 };
