@@ -241,8 +241,6 @@ void TestExecute::test_removing_points_in_improved_execute_increases_rage_cost()
 
     assert(execute_available_with_rage(15));
     assert(!execute_available_with_rage(14));
-
-    delete improved_execute;
 }
 
 void TestExecute::test_min_crit_dmg_0_of_2_imp_execute_0_of_2_impale() {
