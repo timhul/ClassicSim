@@ -19,6 +19,7 @@ class RaidControl;
 class SimSettings;
 class Spell;
 class Talent;
+class TalentTree;
 
 enum class EventType : int;
 
@@ -116,6 +117,7 @@ public:
     void given_character_has_spirit(const int value);
     void given_character_has_stamina(const int value);
     void given_talent_rank(Talent* talent, const unsigned num);
+    void given_talent_rank(const TalentTree& talent_tree, const QString& talent_name, const unsigned num);
     void given_character_has_strength(const int value);
 
     void given_character_has_spell_damage(const unsigned, const MagicSchool school);

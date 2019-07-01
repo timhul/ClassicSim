@@ -339,34 +339,25 @@ void TestDeepWounds::given_deep_wounds_enabled() {
 }
 
 void TestDeepWounds::given_1_of_3_deep_wounds() {
-    Talent* talent = Arms(warrior).get_deep_wounds();
-
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto arms = Arms(warrior);
+    given_talent_rank(arms, "Improved Rend", 3);
+    given_talent_rank(arms, "Deep Wounds", 1);
 
     pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeepWounds::given_2_of_3_deep_wounds() {
-    Talent* talent = Arms(warrior).get_deep_wounds();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto arms = Arms(warrior);
+    given_talent_rank(arms, "Improved Rend", 3);
+    given_talent_rank(arms, "Deep Wounds", 2);
 
     pchar->prepare_set_of_combat_iterations();
 }
 
 void TestDeepWounds::given_3_of_3_deep_wounds() {
-    Talent* talent = Arms(warrior).get_deep_wounds();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    const auto arms = Arms(warrior);
+    given_talent_rank(arms, "Improved Rend", 3);
+    given_talent_rank(arms, "Deep Wounds", 3);
 
     pchar->prepare_set_of_combat_iterations();
 }

@@ -49,7 +49,7 @@ public:
 class TalentTree {
 public:
     TalentTree(QString name_, QString background_);
-    virtual ~TalentTree() = 0;
+    virtual ~TalentTree();
 
     QString get_name() const;
     QString get_background_image() const;
@@ -87,6 +87,8 @@ public:
 
     QVector<QPair<QString, QString>> get_talent_tree_setup() const;
 
+    Talent* get_talent_from_name(const QString& name) const;
+
 protected:
     const QString name;
     const QString background;
@@ -94,9 +96,11 @@ protected:
     int total_spent_points;
 
     QMap<QString, TalentStorage*> talents;
+    QMap<QString, QString> talent_names_to_locations;
     QVector<TalentTier*> tiers;
 
-    void add_talents(const QMap<QString, Talent *> &new_talents);
+    void add_talent_to_tier(QMap<QString, Talent *> &talent_tier, Talent* talent);
+    void add_talents(const QMap<QString, Talent*>& new_talents);
     int get_highest_invested_tier() const;
     int get_investment_requirement_for_tier(const int tier) const;
     int get_points_spent_up_to_tier(const int tier) const;

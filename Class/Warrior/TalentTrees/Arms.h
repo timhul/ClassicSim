@@ -8,16 +8,16 @@ class WarriorSpells;
 class Arms: public TalentTree {
 public:
     Arms(Warrior* pchar);
-    ~Arms() override;
 
-    Talent* get_improved_heroic_strike();
-    Talent* get_improved_rend();
-    Talent* get_improved_overpower();
-    Talent* get_anger_management();
-    Talent* get_deep_wounds();
     Talent* get_mortal_strike();
 
 private:
     Warrior* warr;
     WarriorSpells* spells;
+
+    void add_improved_heroic_strike(QMap<QString, Talent*>& talent_tier);
+    void add_improved_rend(QMap<QString, Talent*>& talent_tier);
+    void add_improved_overpower(QMap<QString, Talent*>& talent_tier);
+    void add_anger_management(QMap<QString, Talent*>& talent_tier);
+    void add_deep_wounds(QMap<QString, Talent*>& talent_tier);
 };

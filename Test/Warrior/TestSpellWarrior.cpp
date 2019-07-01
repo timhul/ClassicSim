@@ -3,9 +3,11 @@
 #include <QDebug>
 #include <utility>
 
+#include "Arms.h"
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "Fury.h"
 #include "Impale.h"
 #include "RaidControl.h"
 #include "SimSettings.h"
@@ -164,6 +166,14 @@ void TestSpellWarrior::given_warrior_has_rage(const unsigned rage) {
         warrior->lose_rage(warrior->get_resource_level(ResourceType::Rage));
     warrior->gain_rage(rage);
     then_warrior_has_rage(rage);
+}
+
+void TestSpellWarrior::given_arms_talent_with_rank(const QString& name, const unsigned num) {
+    given_talent_rank(Arms(warrior), name, num);
+}
+
+void TestSpellWarrior::given_fury_talent_with_rank(const QString& name, const unsigned num) {
+    given_talent_rank(Fury(warrior), name, num);
 }
 
 void TestSpellWarrior::when_switching_to_battle_stance() {

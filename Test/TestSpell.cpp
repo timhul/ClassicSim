@@ -25,6 +25,7 @@
 #include "SpellRankGroup.h"
 #include "Stats.h"
 #include "Talent.h"
+#include "TalentTree.h"
 #include "Target.h"
 #include "Weapon.h"
 
@@ -978,6 +979,17 @@ void TestSpell::given_talent_rank(Talent* talent, const unsigned num) {
         assert(talent->increment_rank());
 
     delete talent;
+}
+
+void TestSpell::given_talent_rank(const TalentTree& talent_tree, const QString& talent_name, const unsigned num) {
+    assert(num > 0);
+
+    Talent* talent = talent_tree.get_talent_from_name(talent_name);
+    assert(talent != nullptr);
+    assert(talent->get_name() == talent_name);
+
+    for (unsigned i = 0; i < num; ++i)
+        assert(talent->increment_rank());
 }
 
 void TestSpell::given_character_has_strength(const int value) {

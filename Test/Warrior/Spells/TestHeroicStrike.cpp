@@ -125,7 +125,8 @@ void TestHeroicStrike::test_3_of_3_improved_hs_reduces_rage_cost() {
 }
 
 void TestHeroicStrike::test_removing_points_in_improved_hs_increases_rage_cost() {
-    Talent* improved_heroic_strike = Arms(warrior).get_improved_heroic_strike();
+    const auto arms = Arms(warrior);
+    Talent* improved_heroic_strike = arms.get_talent_from_name("Improved Heroic Strike");
 
     assert(improved_heroic_strike->increment_rank());
     assert(improved_heroic_strike->increment_rank());
@@ -139,8 +140,6 @@ void TestHeroicStrike::test_removing_points_in_improved_hs_increases_rage_cost()
 
     assert(improved_heroic_strike->decrement_rank());
     then_heroic_strike_costs(15);
-
-    delete improved_heroic_strike;
 }
 
 void TestHeroicStrike::test_hit_dmg() {
@@ -211,30 +210,15 @@ void TestHeroicStrike::test_dodge_applies_overpower_buff() {
 }
 
 void TestHeroicStrike::given_1_of_3_improved_hs() {
-    Talent* talent = Arms(warrior).get_improved_heroic_strike();
-
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_arms_talent_with_rank("Improved Heroic Strike", 1);
 }
 
 void TestHeroicStrike::given_2_of_3_improved_hs() {
-    Talent* talent = Arms(warrior).get_improved_heroic_strike();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_arms_talent_with_rank("Improved Heroic Strike", 2);
 }
 
 void TestHeroicStrike::given_3_of_3_improved_hs() {
-    Talent* talent = Arms(warrior).get_improved_heroic_strike();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_arms_talent_with_rank("Improved Heroic Strike", 3);
 }
 
 void TestHeroicStrike::when_heroic_strike_is_performed() {

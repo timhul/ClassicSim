@@ -66,7 +66,7 @@ QString TalentTree::get_next_rank_description(const QString& position) const {
     return talents[position]->talent->get_next_rank_description();
 }
 
-void TalentTree::add_talents(const QMap<QString, Talent*> &new_talents) {
+void TalentTree::add_talents(const QMap<QString, Talent*>& new_talents) {
     for (const auto & it : new_talents.toStdMap()) {
         check(!talents.contains(it.first), "Attempted to insert talent twice");
         talents.insert(it.first, new TalentStorage(it.second));
@@ -332,6 +332,25 @@ QVector<QPair<QString, QString>> TalentTree::get_talent_tree_setup() const {
     }
 
     return talent_tree_setup;
+}
+
+Talent* TalentTree::get_talent_from_name(const QString& name) const {
+    if (!talent_names_to_locations.contains(name))
+        return nullptr;
+
+    const QString position = talent_names_to_locations[name];
+
+    if (!talents.contains(position))
+        return nullptr;
+
+    return talents[position]->talent;
+}
+
+void TalentTree::add_talent_to_tier(QMap<QString, Talent*>& talent_tier, Talent* talent) {
+    check(!talent_tier.contains(talent->get_position()),
+          QString("TalentTree::add_talent_to_tier failed because talent position %1 is taken").arg(talent->get_position()).toStdString());
+
+    talent_tier[talent->get_position()] = talent;
 }
 
 Talent* TalentTree::get_new_talent(Character* pchar, const QString& name, const QString& location,
