@@ -8,8 +8,8 @@ class Protection: public TalentTree {
 public:
     Protection(Warrior *pchar);
 
-    Talent* get_improved_shield_block();
-
 private:
     Warrior* warrior;
+
+    void add_improved_shield_block(QMap<QString, Talent*>& talent_tier);
 };
