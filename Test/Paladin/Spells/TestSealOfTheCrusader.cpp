@@ -142,7 +142,7 @@ void TestSealOfTheCrusader::test_seal_removal_restores_damage() {
 }
 
 void TestSealOfTheCrusader::test_resource_cost_1_of_5_benediction() {
-    given_benediction_rank(1);
+    given_retribution_talent_rank("Benediction", 1);
 
     given_paladin_has_mana(154);
     assert(seal_of_the_crusader()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -156,7 +156,7 @@ void TestSealOfTheCrusader::test_resource_cost_1_of_5_benediction() {
 }
 
 void TestSealOfTheCrusader::test_resource_cost_2_of_5_benediction() {
-    given_benediction_rank(2);
+    given_retribution_talent_rank("Benediction", 2);
 
     given_paladin_has_mana(149);
     assert(seal_of_the_crusader()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -170,7 +170,7 @@ void TestSealOfTheCrusader::test_resource_cost_2_of_5_benediction() {
 }
 
 void TestSealOfTheCrusader::test_resource_cost_3_of_5_benediction() {
-    given_benediction_rank(3);
+    given_retribution_talent_rank("Benediction", 3);
 
     given_paladin_has_mana(145);
     assert(seal_of_the_crusader()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -184,7 +184,7 @@ void TestSealOfTheCrusader::test_resource_cost_3_of_5_benediction() {
 }
 
 void TestSealOfTheCrusader::test_resource_cost_4_of_5_benediction() {
-    given_benediction_rank(4);
+    given_retribution_talent_rank("Benediction", 4);
 
     given_paladin_has_mana(140);
     assert(seal_of_the_crusader()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -198,7 +198,7 @@ void TestSealOfTheCrusader::test_resource_cost_4_of_5_benediction() {
 }
 
 void TestSealOfTheCrusader::test_resource_cost_5_of_5_benediction() {
-    given_benediction_rank(5);
+    given_retribution_talent_rank("Benediction", 5);
 
     given_paladin_has_mana(135);
     assert(seal_of_the_crusader()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -220,7 +220,7 @@ void TestSealOfTheCrusader::test_melee_ap_bonus_0_of_3_improved_sotc() {
 }
 
 void TestSealOfTheCrusader::test_melee_ap_bonus_1_of_3_improved_sotc() {
-    given_improved_sotc_rank(1);
+    given_retribution_talent_rank("Improved Seal of the Crusader", 1);
     given_1000_melee_ap();
 
     when_seal_of_the_crusader_is_performed();
@@ -229,7 +229,7 @@ void TestSealOfTheCrusader::test_melee_ap_bonus_1_of_3_improved_sotc() {
 }
 
 void TestSealOfTheCrusader::test_melee_ap_bonus_2_of_3_improved_sotc() {
-    given_improved_sotc_rank(2);
+    given_retribution_talent_rank("Improved Seal of the Crusader", 2);
     given_1000_melee_ap();
 
     when_seal_of_the_crusader_is_performed();
@@ -238,7 +238,7 @@ void TestSealOfTheCrusader::test_melee_ap_bonus_2_of_3_improved_sotc() {
 }
 
 void TestSealOfTheCrusader::test_melee_ap_bonus_3_of_3_improved_sotc() {
-    given_improved_sotc_rank(3);
+    given_retribution_talent_rank("Improved Seal of the Crusader", 3);
     given_1000_melee_ap();
 
     when_seal_of_the_crusader_is_performed();
@@ -259,7 +259,7 @@ void TestSealOfTheCrusader::test_seal_of_the_crusader_removes_active_seal_of_com
 void TestSealOfTheCrusader::test_libram_of_fervor_increases_melee_ap_bonus() {
     given_relic_equipped(23203);
     given_1000_melee_ap();
-    given_improved_sotc_rank(3);
+    given_retribution_talent_rank("Improved Seal of the Crusader", 3);
 
     when_seal_of_the_crusader_is_performed();
 

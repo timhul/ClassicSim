@@ -98,7 +98,7 @@ void TestSealOfCommand::test_whether_spell_causes_global_cooldown() {
 
 void TestSealOfCommand::test_resource_cost_1_of_5_benediction() {
     given_seal_of_command_is_enabled();
-    given_benediction_rank(1);
+    given_retribution_talent_rank("Benediction", 1);
 
     given_paladin_has_mana(62);
     assert(seal_of_command()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -113,7 +113,7 @@ void TestSealOfCommand::test_resource_cost_1_of_5_benediction() {
 
 void TestSealOfCommand::test_resource_cost_2_of_5_benediction() {
     given_seal_of_command_is_enabled();
-    given_benediction_rank(2);
+    given_retribution_talent_rank("Benediction", 2);
 
     given_paladin_has_mana(60);
     assert(seal_of_command()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -128,7 +128,7 @@ void TestSealOfCommand::test_resource_cost_2_of_5_benediction() {
 
 void TestSealOfCommand::test_resource_cost_3_of_5_benediction() {
     given_seal_of_command_is_enabled();
-    given_benediction_rank(3);
+    given_retribution_talent_rank("Benediction", 3);
 
     given_paladin_has_mana(58);
     assert(seal_of_command()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -143,7 +143,7 @@ void TestSealOfCommand::test_resource_cost_3_of_5_benediction() {
 
 void TestSealOfCommand::test_resource_cost_4_of_5_benediction() {
     given_seal_of_command_is_enabled();
-    given_benediction_rank(4);
+    given_retribution_talent_rank("Benediction", 4);
 
     given_paladin_has_mana(56);
     assert(seal_of_command()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -158,7 +158,7 @@ void TestSealOfCommand::test_resource_cost_4_of_5_benediction() {
 
 void TestSealOfCommand::test_resource_cost_5_of_5_benediction() {
     given_seal_of_command_is_enabled();
-    given_benediction_rank(5);
+    given_retribution_talent_rank("Benediction", 5);
 
     given_paladin_has_mana(54);
     assert(seal_of_command()->get_spell_status() == SpellStatus::InsufficientResources);

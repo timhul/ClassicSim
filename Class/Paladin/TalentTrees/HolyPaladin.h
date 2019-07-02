@@ -10,11 +10,11 @@ public:
     HolyPaladin(Paladin* paladin);
     ~HolyPaladin() override = default;
 
-    Talent* get_divine_strength();
-    Talent* get_divine_intellect();
-    Talent* get_consecration();
-
 private:
     Paladin* paladin;
     PaladinSpells* spells;
+
+    void add_divine_strength(QMap<QString, Talent*>& talent_tier);
+    void add_divine_intellect(QMap<QString, Talent*>& talent_tier);
+    void add_consecration(QMap<QString, Talent*>& talent_tier);
 };

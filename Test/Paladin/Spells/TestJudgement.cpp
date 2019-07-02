@@ -156,7 +156,7 @@ void TestJudgement::test_resource_cost_1_of_5_benediction() {
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
-    given_benediction_rank(1);
+    given_retribution_talent_rank("Benediction", 1);
 
     given_paladin_has_mana(83);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -173,7 +173,7 @@ void TestJudgement::test_resource_cost_2_of_5_benediction() {
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
-    given_benediction_rank(2);
+    given_retribution_talent_rank("Benediction", 2);
 
     given_paladin_has_mana(80);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -190,7 +190,7 @@ void TestJudgement::test_resource_cost_3_of_5_benediction() {
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
-    given_benediction_rank(3);
+    given_retribution_talent_rank("Benediction", 3);
 
     given_paladin_has_mana(77);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -207,7 +207,7 @@ void TestJudgement::test_resource_cost_4_of_5_benediction() {
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
-    given_benediction_rank(4);
+    given_retribution_talent_rank("Benediction", 4);
 
     given_paladin_has_mana(75);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -224,7 +224,7 @@ void TestJudgement::test_resource_cost_5_of_5_benediction() {
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
-    given_benediction_rank(5);
+    given_retribution_talent_rank("Benediction", 5);
 
     given_paladin_has_mana(72);
     assert(judgement()->get_spell_status() == SpellStatus::InsufficientResources);
@@ -238,12 +238,12 @@ void TestJudgement::test_resource_cost_5_of_5_benediction() {
 }
 
 void TestJudgement::test_cooldown_1_of_2_improved_judgement() {
-    given_improved_judgement_rank(1);
+    given_retribution_talent_rank("Improved Judgement", 1);
     assert(almost_equal(judgement()->get_base_cooldown(), 9.0));
 }
 
 void TestJudgement::test_cooldown_2_of_2_improved_judgement() {
-    given_improved_judgement_rank(2);
+    given_retribution_talent_rank("Improved Judgement", 2);
     assert(almost_equal(judgement()->get_base_cooldown(), 8.0));
 }
 
@@ -288,7 +288,7 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_0_of_3_improve
 
 void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_1_of_3_improved_sotc() {
     given_a_guaranteed_ranged_white_hit();
-    given_improved_sotc_rank(1);
+    given_retribution_talent_rank("Improved Seal of the Crusader", 1);
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
@@ -301,7 +301,7 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_1_of_3_improve
 
 void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_2_of_3_improved_sotc() {
     given_a_guaranteed_ranged_white_hit();
-    given_improved_sotc_rank(2);
+    given_retribution_talent_rank("Improved Seal of the Crusader", 2);
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
@@ -314,7 +314,7 @@ void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_2_of_3_improve
 
 void TestJudgement::test_judgement_of_the_crusader_holy_dmg_bonus_3_of_3_improved_sotc() {
     given_a_guaranteed_ranged_white_hit();
-    given_improved_sotc_rank(3);
+    given_retribution_talent_rank("Improved Seal of the Crusader", 3);
     when_seal_of_the_crusader_is_performed();
     given_engine_priority_pushed_forward(1.5);
     assert(paladin->action_ready());
@@ -390,18 +390,15 @@ void TestJudgement::when_judgement_is_performed() {
     judgement()->perform();
 }
 
-
-void TestJudgement::given_improved_judgement_rank(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_improved_judgement(), num);
-}
-
 void TestJudgement::given_sanctity_aura_is_active() {
-    given_talent_rank(Retribution(paladin).get_sanctity_aura(), 1);
+    given_retribution_talent_rank("Sanctity Aura", 1);
     get_max_rank_spell_by_name("Sanctity Aura")->perform();
     given_engine_priority_pushed_forward(1.5);
 }
 
 void TestJudgement::given_vengeance_is_active(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_vengeance(), num);
+    auto ret = Retribution(paladin);
+    given_talent_rank(ret, "Conviction", 5);
+    given_talent_rank(ret, "Vengeance", num);
     paladin->get_vengeance()->apply_buff();
 }

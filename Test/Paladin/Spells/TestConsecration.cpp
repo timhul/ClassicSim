@@ -101,7 +101,7 @@ void TestConsecration::test_damage_sanctity_aura() {
     ignored_events = {"ResourceGain", "BuffRemoval", "PlayerAction"};
     given_character_has_spell_damage(100, MagicSchool::Holy);
     given_a_guaranteed_magic_hit(MagicSchool::Holy);
-    given_talent_rank(Retribution(paladin).get_sanctity_aura(), 1);
+    given_retribution_talent_rank("Sanctity Aura", 1);
     given_consecration_is_enabled();
 
     get_max_rank_spell_by_name("Sanctity Aura")->perform();
@@ -120,7 +120,7 @@ void TestConsecration::test_damage_sanctity_aura() {
 }
 
 void TestConsecration::given_consecration_is_enabled() {
-    given_talent_rank(HolyPaladin(paladin).get_consecration(), 1);
+    given_holy_talent_rank("Consecration", 1);
     assert(consecration()->is_enabled());
     paladin->prepare_set_of_combat_iterations();
 }

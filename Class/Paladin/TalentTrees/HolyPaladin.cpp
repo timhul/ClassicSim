@@ -10,8 +10,26 @@ HolyPaladin::HolyPaladin(Paladin* paladin) :
     paladin(paladin),
     spells(dynamic_cast<PaladinSpells*>(paladin->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1ML", get_divine_strength()},
-                                  {"1MR", get_divine_intellect()}};
+    talent_names_to_locations = {
+        {"Divine Strength", "1ML"},
+        {"Divine Intellect", "1MR"},
+        {"Spiritual Focus", "2ML"},
+        {"Improved Seal of Righteousness", "2MR"},
+        {"Healing Light", "3LL"},
+        {"Consecration", "3ML"},
+        {"Improved Lay on Hands", "3MR"},
+        {"Unyielding Faith", "3RR"},
+        {"Illumination", "4ML"},
+        {"Improved Blessing of Wisdom", "4MR"},
+        {"Divine Favor", "5ML"},
+        {"Lasting Judgement", "5MR"},
+        {"Holy Power", "6MR"},
+        {"Holy Shock", "7ML"},
+    };
+
+    QMap<QString, Talent*> tier1 {};
+    add_divine_strength(tier1);
+    add_divine_intellect(tier1);
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2ML", new Talent(paladin, this, "Spiritual Focus", "2ML", "Assets/spell/Spell_arcane_blink.png", 5, "Gives your Flash of Light and Holy Light spells a %1% chance to not lose casting time when you take damage.", QVector<QPair<unsigned, unsigned>>{{14, 14}})},
@@ -19,9 +37,9 @@ HolyPaladin::HolyPaladin(Paladin* paladin) :
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(paladin, this, "Healing Light", "3LL", "Assets/spell/Spell_holy_holybolt.png", 3, "Increases the amount of healed by your Holy Light and Flash of Light spells by %1%.", QVector<QPair<unsigned, unsigned>>{{4, 4}})},
-                                  {"3ML", get_consecration()},
                                   {"3MR", new Talent(paladin, this, "Improved Lay on Hands", "3MR", "Assets/spell/Spell_holy_layonhands.png", 2, "Gives the target of your Lay on Hands spell a %1% bonus to their armor value from items for 2 min. In addition, the cooldown for your Lay on Hands spell is reduced by %2 min.", QVector<QPair<unsigned, unsigned>>{{15, 15}, {10, 10}})},
                                   {"3RR", new Talent(paladin, this, "Unyielding Faith", "3RR", "Assets/spell/Spell_holy_unyieldingfaith.png", 2, "Increases your chance to resist Fear and Disorient effects by an additional %1%.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
+    add_consecration(tier3);
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new Talent(paladin, this, "Illumination", "4ML", "Assets/spell/Spell_holy_greaterheal.png", 5, "After getting a critical effect from your Flash of Light, Holy Light, or Holy Shock heal spell, gives you a %1% chance to gain Mana equal to the base cost of the spell.", QVector<QPair<unsigned, unsigned>>{{20, 20}})},
@@ -45,23 +63,28 @@ HolyPaladin::HolyPaladin(Paladin* paladin) :
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Talent* HolyPaladin::get_divine_strength() {
-    return new TalentStatIncrease(paladin, this, "Divine Strength", "1ML", "Assets/ability/Ability_golemthunderclap.png",
-                                  5, "Increases your Strength by %1%.",
-                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
-                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::StrengthMod, 2}});
+void HolyPaladin::add_divine_strength(QMap<QString, Talent*>& talent_tier) {
+    auto talent = new TalentStatIncrease(paladin, this, "Divine Strength", "1ML", "Assets/ability/Ability_golemthunderclap.png",
+                                         5, "Increases your Strength by %1%.",
+                                         QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                         QVector<QPair<TalentStat, unsigned>>{{TalentStat::StrengthMod, 2}});
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* HolyPaladin::get_divine_intellect() {
-    return new TalentStatIncrease(paladin, this, "Divine Intellect", "1MR", "Assets/spell/Spell_nature_sleep.png",
-                                  5, "Increases your total Intellect by %1%.",
-                                  QVector<QPair<unsigned, unsigned>>{{2, 2}},
-                                  QVector<QPair<TalentStat, unsigned>>{{TalentStat::IntellectMod, 2}});
+void HolyPaladin::add_divine_intellect(QMap<QString, Talent*>& talent_tier) {
+    auto talent = new TalentStatIncrease(paladin, this, "Divine Intellect", "1MR", "Assets/spell/Spell_nature_sleep.png",
+                                         5, "Increases your total Intellect by %1%.",
+                                         QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                         QVector<QPair<TalentStat, unsigned>>{{TalentStat::IntellectMod, 2}});
+
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* HolyPaladin::get_consecration() {
-    return get_new_talent(paladin, "Consecration", "3ML", "Assets/spell/Spell_holy_innerfire.png",
-                          1, "Consecrates the land beneath Paladin, doing 64 Holy damage over 8 sec to enemies who enter the area.",
-                          QVector<QPair<unsigned, unsigned>>(),
-                          QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Consecration")});
+void HolyPaladin::add_consecration(QMap<QString, Talent*>& talent_tier) {
+    auto talent = get_new_talent(paladin, "Consecration", "3ML", "Assets/spell/Spell_holy_innerfire.png",
+                                 1, "Consecrates the land beneath Paladin, doing 64 Holy damage over 8 sec to enemies who enter the area.",
+                                 QVector<QPair<unsigned, unsigned>>(),
+                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Consecration")});
+
+    add_talent_to_tier(talent_tier, talent);
 }

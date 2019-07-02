@@ -6,10 +6,12 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "HolyPaladin.h"
 #include "Item.h"
 #include "MainhandAttackPaladin.h"
 #include "Paladin.h"
 #include "PaladinSpells.h"
+#include "ProtectionPaladin.h"
 #include "RaidControl.h"
 #include "Retribution.h"
 #include "SealOfCommand.h"
@@ -95,21 +97,26 @@ void TestSpellPaladin::given_paladin_has_mana(const unsigned mana) {
     then_paladin_has_mana(mana);
 }
 
-void TestSpellPaladin::given_benediction_rank(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_benediction(), num);
-}
-
-void TestSpellPaladin::given_improved_sotc_rank(const unsigned num) {
-    given_talent_rank(Retribution(paladin).get_improved_seal_of_the_crusader(), num);
-}
-
 void TestSpellPaladin::given_seal_of_the_crusader_is_active() {
     seal_of_the_crusader()->perform();
     assert(seal_of_the_crusader()->get_buff()->is_active());
 }
 
+void TestSpellPaladin::given_holy_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(HolyPaladin(paladin), talent_name, num);
+}
+
+void TestSpellPaladin::given_protection_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(ProtectionPaladin(paladin), talent_name, num);
+}
+
+void TestSpellPaladin::given_retribution_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Retribution(paladin), talent_name, num);
+}
+
 void TestSpellPaladin::given_seal_of_command_is_enabled() {
-    given_talent_rank(Retribution(paladin).get_seal_of_command(), 1);
+    given_retribution_talent_rank("Seal of Command", 1);
+
     assert(seal_of_command()->is_enabled());
     paladin->prepare_set_of_combat_iterations();
 }

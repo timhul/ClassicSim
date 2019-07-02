@@ -24,9 +24,6 @@ protected:
     SealOfCommand* seal_of_command() const;
     SealOfTheCrusader* seal_of_the_crusader() const;
 
-    void given_benediction_rank(const unsigned num);
-    void given_improved_judgement_rank(const unsigned num);
-    void given_improved_sotc_rank(const unsigned num);
     void given_paladin_has_mana(const unsigned mana);
     void given_paladin_is_on_gcd();
     void given_paladin_is_on_gcd(Spell* spell);
@@ -36,6 +33,11 @@ protected:
     void given_seal_of_command_is_active();
     void given_seal_of_command_is_enabled();
     void given_seal_of_the_crusader_is_active();
+
+    void given_holy_talent_rank(const QString& talent_name, const unsigned num);
+    void given_protection_talent_rank(const QString& talent_name, const unsigned num);
+    void given_retribution_talent_rank(const QString& talent_name, const unsigned num);
+
     void given_vengeance_is_active(const unsigned num);
     void then_next_expected_use_is(const double next_expected_use);
     void then_paladin_has_mana(const unsigned mana);

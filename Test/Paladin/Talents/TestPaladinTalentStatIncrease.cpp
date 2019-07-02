@@ -40,7 +40,9 @@ void TestPaladinTalentStatIncrease::test_all() {
 }
 
 void TestPaladinTalentStatIncrease::test_conviction() {
-    Talent* talent = Retribution(paladin).get_conviction();
+    auto ret = Retribution(paladin);
+    Talent* talent = ret.get_talent_from_name("Conviction");
+
     unsigned melee_crit_initial = pchar->get_stats()->get_mh_crit_chance();
     unsigned ranged_crit_initial = pchar->get_stats()->get_ranged_crit_chance();
 
@@ -83,13 +85,13 @@ void TestPaladinTalentStatIncrease::test_conviction() {
     assert(talent->decrement_rank());
     assert(melee_crit_initial == pchar->get_stats()->get_mh_crit_chance());
     assert(ranged_crit_initial == pchar->get_stats()->get_ranged_crit_chance());
-
-    delete talent;
 }
 
 void TestPaladinTalentStatIncrease::test_two_handed_weapon_specialization() {
+    auto ret = Retribution(paladin);
+    Talent* talent = ret.get_talent_from_name("Two-Handed Weapon Specialization");
     given_a_twohand_weapon_with_100_min_max_dmg();
-    Talent* talent = Retribution(paladin).get_two_handed_weapon_specialization();
+
     assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
@@ -115,12 +117,12 @@ void TestPaladinTalentStatIncrease::test_two_handed_weapon_specialization() {
 
     assert(talent->decrement_rank());
     assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
-
-    delete talent;
 }
 
 void TestPaladinTalentStatIncrease::test_precision() {
-    Talent* talent = ProtectionPaladin(paladin).get_precision();
+    auto prot = ProtectionPaladin(paladin);
+    Talent* talent = prot.get_talent_from_name("Precision");
+
     unsigned melee_hit_initial = pchar->get_stats()->get_melee_hit_chance();
     unsigned ranged_hit_initial = pchar->get_stats()->get_ranged_hit_chance();
 
@@ -147,13 +149,13 @@ void TestPaladinTalentStatIncrease::test_precision() {
     assert(talent->decrement_rank());
     assert(melee_hit_initial == pchar->get_stats()->get_melee_hit_chance());
     assert(ranged_hit_initial == pchar->get_stats()->get_ranged_hit_chance());
-
-    delete talent;
 }
 
 void TestPaladinTalentStatIncrease::test_one_handed_weapon_specialization() {
+    auto prot = ProtectionPaladin(paladin);
+    Talent* talent = prot.get_talent_from_name("One-Handed Weapon Specialization");
     given_1h_mace_equipped_in_mainhand(paladin);
-    Talent* talent = ProtectionPaladin(paladin).get_one_handed_weapon_specialization();
+
     assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
 
     assert(talent->increment_rank());
@@ -191,12 +193,11 @@ void TestPaladinTalentStatIncrease::test_one_handed_weapon_specialization() {
 
     assert(talent->decrement_rank());
     assert(almost_equal(1.0, paladin->get_stats()->get_total_physical_damage_mod()));
-
-    delete talent;
 }
 
 void TestPaladinTalentStatIncrease::test_divine_strength() {
-    Talent* talent = HolyPaladin(paladin).get_divine_strength();
+    auto holy = HolyPaladin(paladin);
+    Talent* talent = holy.get_talent_from_name("Divine Strength");
     given_character_has_strength(100);
 
     assert(talent->increment_rank());
@@ -228,12 +229,11 @@ void TestPaladinTalentStatIncrease::test_divine_strength() {
 
     assert(talent->decrement_rank());
     assert(pchar->get_stats()->get_strength() == 100);
-
-    delete talent;
 }
 
 void TestPaladinTalentStatIncrease::test_divine_intellect() {
-    Talent* talent = HolyPaladin(paladin).get_divine_intellect();
+    auto holy = HolyPaladin(paladin);
+    Talent* talent = holy.get_talent_from_name("Divine Intellect");
     given_character_has_intellect(100);
 
     assert(talent->increment_rank());
@@ -265,8 +265,6 @@ void TestPaladinTalentStatIncrease::test_divine_intellect() {
 
     assert(talent->decrement_rank());
     assert(pchar->get_stats()->get_intellect() == 100);
-
-    delete talent;
 }
 
 void TestPaladinTalentStatIncrease::test_name_correct() {

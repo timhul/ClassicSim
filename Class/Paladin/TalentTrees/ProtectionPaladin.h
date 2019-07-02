@@ -10,10 +10,10 @@ public:
     ProtectionPaladin(Paladin* paladin);
     ~ProtectionPaladin() override = default;
 
-    Talent* get_precision();
-    Talent* get_one_handed_weapon_specialization();
-
 private:
     Paladin* paladin;
     PaladinSpells* spells;
+
+    void add_precision(QMap<QString, Talent*>& talent_tier);
+    void add_one_handed_weapon_specialization(QMap<QString, Talent*>& talent_tier);
 };

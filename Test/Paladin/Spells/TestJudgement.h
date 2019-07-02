@@ -41,7 +41,6 @@ private:
     void test_judgement_of_command_damage();
     void test_judgement_of_command_damage_with_sotc_and_sanctity_aura_and_vengeance();
 
-    void given_improved_judgement_rank(const unsigned num);
     void given_sanctity_aura_is_active();
     void given_vengeance_is_active(const unsigned num);
 
