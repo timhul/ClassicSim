@@ -3,6 +3,7 @@
 #include "Mage.h"
 #include "MageSpells.h"
 #include "Talent.h"
+#include "TalentStatIncrease.h"
 
 Frost::Frost(Mage* mage) :
     TalentTree("Frost", "Assets/mage/mage_frost.jpg"),
@@ -30,8 +31,8 @@ Frost::Frost(Mage* mage) :
     };
 
     QMap<QString, Talent*> tier1 {{"1LL", new Talent(mage, this, "Frost Warding", "1LL", "Assets/spell/Spell_frost_frostward.png", 2, "Increases the armor and resistances given by your Frost Armor and Ice Armor spells by %1%. In addition, gives your Frost Ward a %2% chance to reflect Frost spells and effects while active.", QVector<QPair<unsigned, unsigned>>{{15, 15}, {10, 10}})},
-                                  {"1ML", new Talent(mage, this, "Improved Frostbolt", "1ML", "Assets/spell/Spell_frost_frostbolt02.png", 5, "Reduces the casting time of your Frostbolt spell by %1 sec.", QVector<QPair<double, double>>{{0.1, 0.1}})},
-                                  {"1MR", new Talent(mage, this, "Elemental Precision", "1MR", "Assets/spell/Spell_ice_magicdamage.png", 3, "Reduces the chance that the opponent can resist your Frost and Fire spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
+                                  {"1ML", new Talent(mage, this, "Improved Frostbolt", "1ML", "Assets/spell/Spell_frost_frostbolt02.png", 5, "Reduces the casting time of your Frostbolt spell by %1 sec.", QVector<QPair<double, double>>{{0.1, 0.1}})}};
+    add_elemental_precision(tier1);
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent(mage, this, "Ice Shards", "2LL", "Assets/items/Spell_frost_iceshard.png", 5, "Increases the critical strike damage bonus of your Frost spells by %1%.", QVector<QPair<unsigned, unsigned>>{{20, 20}})},
@@ -65,6 +66,18 @@ Frost::Frost(Mage* mage) :
 
     talents["5ML"]->talent->set_bottom_child(talents["7ML"]->talent);
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
+}
+
+void Frost::add_elemental_precision(QMap<QString, Talent*>& talent_tier) {
+    auto talent = new TalentStatIncrease(mage, this, "Elemental Precision", "1MR", "Assets/spell/Spell_ice_magicdamage.png", 3,
+                                         "Reduces the chance that the opponent can resist your Frost and Fire spells by %1%.",
+                                         QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                         QVector<QPair<TalentStat, unsigned>>{
+                                             {TalentStat::FrostHit, 200},
+                                             {TalentStat::FireHit, 200},
+                                         });
+
+    add_talent_to_tier(talent_tier, talent);
 }
 
 void Frost::add_improved_blizzard(QMap<QString, Talent*>& talent_tier) {

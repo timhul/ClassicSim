@@ -14,5 +14,6 @@ private:
     Mage* mage;
     MageSpells* spells;
 
+    void add_elemental_precision(QMap<QString, Talent*>& talent_tier);
     void add_improved_blizzard(QMap<QString, Talent*>& talent_tier);
 };

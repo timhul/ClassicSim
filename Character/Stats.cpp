@@ -486,7 +486,7 @@ void Stats::increase_spell_hit(const MagicSchool school, const unsigned value) {
 }
 
 void Stats::decrease_spell_hit(const MagicSchool school, const unsigned value) {
-    check((magic_school_crit_bonus[school] >= value), "Underflow spell school hit decrease");
+    check((magic_school_hit_bonus[school] >= value), "Underflow spell school hit decrease");
 
     magic_school_hit_bonus[school] -= value;
 }

@@ -18,4 +18,5 @@ private:
     void test_is_ready_conditions() override;
 
     void test_fire_power();
+    void test_elemental_precision();
 };

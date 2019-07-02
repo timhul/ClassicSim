@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Fire.h"
+#include "Frost.h"
 #include "Talent.h"
 
 TestMageTalentStatIncrease::TestMageTalentStatIncrease(EquipmentDb* equipment_db) :
@@ -15,6 +16,10 @@ void TestMageTalentStatIncrease::test_all() {
     set_up();
     test_fire_power();
     tear_down();
+
+    set_up();
+    test_elemental_precision();
+    tear_down();
 }
 
 void TestMageTalentStatIncrease::test_fire_power() {
@@ -23,35 +28,67 @@ void TestMageTalentStatIncrease::test_fire_power() {
 
     assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
     assert(almost_equal(1.02, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
     assert(almost_equal(1.04, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
     assert(almost_equal(1.06, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
     assert(almost_equal(1.08, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->increment_rank();
+    assert(talent->increment_rank());
     assert(almost_equal(1.10, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->decrement_rank();
+    assert(talent->decrement_rank());
     assert(almost_equal(1.08, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->decrement_rank();
+    assert(talent->decrement_rank());
     assert(almost_equal(1.06, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->decrement_rank();
+    assert(talent->decrement_rank());
     assert(almost_equal(1.04, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->decrement_rank();
+    assert(talent->decrement_rank());
     assert(almost_equal(1.02, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 
-    talent->decrement_rank();
+    assert(talent->decrement_rank());
     assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
+}
+
+void TestMageTalentStatIncrease::test_elemental_precision() {
+    auto tree = Frost(mage);
+    Talent* talent = tree.get_talent_from_name("Elemental Precision");
+
+    unsigned initial_hit_fire = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire);
+    unsigned initial_hit_frost = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost);
+
+    assert(talent->increment_rank());
+    assert(initial_hit_fire + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->increment_rank());
+    assert(initial_hit_fire + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->increment_rank());
+    assert(initial_hit_fire + 600 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost + 600 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_fire + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_fire + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 }
 
 void TestMageTalentStatIncrease::test_name_correct() {
