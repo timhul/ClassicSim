@@ -34,6 +34,5 @@ private:
     void test_1_of_5_ignite();
     void test_5_of_5_ignite();
 
-    void given_improved_fireball(const unsigned num);
     void when_fireball_is_performed();
 };

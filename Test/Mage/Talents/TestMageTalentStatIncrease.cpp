@@ -18,7 +18,8 @@ void TestMageTalentStatIncrease::test_all() {
 }
 
 void TestMageTalentStatIncrease::test_fire_power() {
-    Talent* talent = Fire(mage).fire_power();
+    auto tree = Fire(mage);
+    Talent* talent = tree.get_talent_from_name("Fire Power");
 
     assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
 

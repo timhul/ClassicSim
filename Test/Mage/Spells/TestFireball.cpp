@@ -1,10 +1,9 @@
 #include "TestFireball.h"
 
 #include "CharacterStats.h"
-#include "Fire.h"
+#include "Event.h"
 #include "Fireball.h"
 #include "Mage.h"
-#include "Queue.h"
 
 TestFireball::TestFireball(EquipmentDb* equipment_db) :
     TestSpellMage(equipment_db, "Fireball")
@@ -131,7 +130,7 @@ void TestFireball::test_crit_dmg() {
 }
 
 void TestFireball::test_cast_time_1_of_5_improved_fireball() {
-    given_improved_fireball(1);
+    given_fire_talent_rank("Improved Fireball", 1);
 
     when_fireball_is_performed();
 
@@ -140,7 +139,7 @@ void TestFireball::test_cast_time_1_of_5_improved_fireball() {
 }
 
 void TestFireball::test_cast_time_2_of_5_improved_fireball() {
-    given_improved_fireball(2);
+    given_fire_talent_rank("Improved Fireball", 2);
 
     when_fireball_is_performed();
 
@@ -149,7 +148,7 @@ void TestFireball::test_cast_time_2_of_5_improved_fireball() {
 }
 
 void TestFireball::test_cast_time_3_of_5_improved_fireball() {
-    given_improved_fireball(3);
+    given_fire_talent_rank("Improved Fireball", 3);
 
     when_fireball_is_performed();
 
@@ -158,7 +157,7 @@ void TestFireball::test_cast_time_3_of_5_improved_fireball() {
 }
 
 void TestFireball::test_cast_time_4_of_5_improved_fireball() {
-    given_improved_fireball(4);
+    given_fire_talent_rank("Improved Fireball", 4);
 
     when_fireball_is_performed();
 
@@ -167,7 +166,7 @@ void TestFireball::test_cast_time_4_of_5_improved_fireball() {
 }
 
 void TestFireball::test_cast_time_5_of_5_improved_fireball() {
-    given_improved_fireball(5);
+    given_fire_talent_rank("Improved Fireball", 5);
 
     when_fireball_is_performed();
 
@@ -177,7 +176,7 @@ void TestFireball::test_cast_time_5_of_5_improved_fireball() {
 
 void TestFireball::test_mana_return_1_of_3_master_of_elements() {
     given_a_guaranteed_magic_crit(MagicSchool::Fire);
-    given_master_of_elements_rank(1);
+    given_fire_talent_rank("Master of Elements", 1);
     given_mage_has_mana(1000);
 
     when_fireball_is_performed();
@@ -190,7 +189,7 @@ void TestFireball::test_mana_return_1_of_3_master_of_elements() {
 
 void TestFireball::test_mana_return_2_of_3_master_of_elements() {
     given_a_guaranteed_magic_crit(MagicSchool::Fire);
-    given_master_of_elements_rank(2);
+    given_fire_talent_rank("Master of Elements", 2);
     given_mage_has_mana(1000);
 
     when_fireball_is_performed();
@@ -203,7 +202,7 @@ void TestFireball::test_mana_return_2_of_3_master_of_elements() {
 
 void TestFireball::test_mana_return_3_of_3_master_of_elements() {
     given_a_guaranteed_magic_crit(MagicSchool::Fire);
-    given_master_of_elements_rank(3);
+    given_fire_talent_rank("Master of Elements", 3);
     given_mage_has_mana(1000);
 
     when_fireball_is_performed();
@@ -217,7 +216,7 @@ void TestFireball::test_mana_return_3_of_3_master_of_elements() {
 void TestFireball::test_hit_dmg_1_of_5_fire_power() {
     given_a_guaranteed_magic_hit(MagicSchool::Fire);
     given_1000_spell_power();
-    given_fire_power_rank(1);
+    given_fire_talent_rank("Fire Power", 1);
     given_no_previous_damage_dealt();
 
     when_fireball_is_performed();
@@ -231,7 +230,7 @@ void TestFireball::test_hit_dmg_1_of_5_fire_power() {
 void TestFireball::test_hit_dmg_5_of_5_fire_power() {
     given_a_guaranteed_magic_hit(MagicSchool::Fire);
     given_1000_spell_power();
-    given_fire_power_rank(5);
+    given_fire_talent_rank("Fire Power", 5);
     given_no_previous_damage_dealt();
 
     when_fireball_is_performed();
@@ -245,7 +244,7 @@ void TestFireball::test_hit_dmg_5_of_5_fire_power() {
 void TestFireball::test_1_of_5_ignite() {
     given_a_guaranteed_magic_crit(MagicSchool::Fire);
     given_1000_spell_power();
-    given_ignite_rank(1);
+    given_fire_talent_rank("Ignite", 1);
     given_no_previous_damage_dealt();
 
     when_fireball_is_performed();
@@ -265,7 +264,7 @@ void TestFireball::test_1_of_5_ignite() {
 void TestFireball::test_5_of_5_ignite() {
     given_a_guaranteed_magic_crit(MagicSchool::Fire);
     given_1000_spell_power();
-    given_ignite_rank(5);
+    given_fire_talent_rank("Ignite", 5);
     given_no_previous_damage_dealt();
 
     when_fireball_is_performed();
@@ -280,10 +279,6 @@ void TestFireball::test_5_of_5_ignite() {
     // [Total Damage] = fireball_damage + ignite_damage
     // [2633 - 2906] = [2394 - 2642] + [239 - 264]
     then_damage_dealt_is_in_range(2633, 2906);
-}
-
-void TestFireball::given_improved_fireball(const unsigned num) {
-    given_talent_rank(Fire(mage).improved_fireball(), num);
 }
 
 void TestFireball::when_fireball_is_performed() {

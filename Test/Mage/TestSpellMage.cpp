@@ -45,6 +45,10 @@ void TestSpellMage::run_class_specific_tests() {
 
 }
 
+void TestSpellMage::given_fire_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Fire(mage), talent_name, num);
+}
+
 void TestSpellMage::given_mage_is_on_gcd(Spell* spell) {
     unsigned mana_before = mage->get_resource_level(ResourceType::Mana);
     mage->gain_mana(static_cast<unsigned>(spell->get_resource_cost()));
@@ -59,18 +63,6 @@ void TestSpellMage::given_mage_is_on_gcd(Spell* spell) {
         mage->lose_mana(static_cast<unsigned>(mana_delta));
 
     assert(mage->on_global_cooldown());
-}
-
-void TestSpellMage::given_ignite_rank(const unsigned num) {
-    given_talent_rank(Fire(mage).ignite(), num);
-}
-
-void TestSpellMage::given_master_of_elements_rank(const unsigned num) {
-    given_talent_rank(Fire(mage).master_of_elements(), num);
-}
-
-void TestSpellMage::given_fire_power_rank(const unsigned num) {
-    given_talent_rank(Fire(mage).fire_power(), num);
 }
 
 void TestSpellMage::given_mage_has_mana(const unsigned mana) {

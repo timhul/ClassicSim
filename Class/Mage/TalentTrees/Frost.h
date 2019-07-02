@@ -14,5 +14,5 @@ private:
     Mage* mage;
     MageSpells* spells;
 
-    Talent* improved_blizzard();
+    void add_improved_blizzard(QMap<QString, Talent*>& talent_tier);
 };

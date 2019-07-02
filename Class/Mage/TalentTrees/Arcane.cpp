@@ -9,6 +9,25 @@ Arcane::Arcane(Mage* mage) :
     mage(mage),
     spells(dynamic_cast<MageSpells*>(mage->get_spells()))
 {
+    talent_names_to_locations = {
+        {"Arcane Subtlety", "1LL"},
+        {"Arcane Focus", "1ML"},
+        {"Improved Arcane Missiles", "1MR"},
+        {"Wand Specialization", "2LL"},
+        {"Magic Absorption", "2ML"},
+        {"Arcane Concentration", "2MR"},
+        {"Magic Attunement", "3LL"},
+        {"Improved Arcane Explosion", "3ML"},
+        {"Arcane Resilience", "3MR"},
+        {"Improved Mana Shield", "4LL"},
+        {"Improved Counterspell", "4ML"},
+        {"Arcane Meditation", "4RR"},
+        {"Presence of Mind", "5ML"},
+        {"Arcane Mind", "5MR"},
+        {"Arcane Instability", "6ML"},
+        {"Arcane Power", "7ML"},
+    };
+
     QMap<QString, Talent*> tier1 {{"1LL", new Talent(mage, this, "Arcane Subtlety", "1LL", "Assets/spell/Spell_holy_dispelmagic.png", 2, "Reduces your target's resistance to all your spells by %1 and reduces the threat caused by your Arcane spells by %2%.", QVector<QPair<unsigned, unsigned>>{{5, 5}, {20, 20}})},
                                   {"1ML", new Talent(mage, this, "Arcane Focus", "1ML", "Assets/spell/Spell_holy_devotion.png", 5, "Reduces the chance that the opponent can resist your Arcane spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
                                   {"1MR", new Talent(mage, this, "Improved Arcane Missiles", "1MR", "Assets/spell/Spell_nature_starfall.png", 5, "Gives you a %1% chance to avoid interruption caused by damage while channeling Arcane Missiles.", QVector<QPair<unsigned, unsigned>>{{20, 20}})}};

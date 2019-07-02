@@ -9,6 +9,26 @@ Frost::Frost(Mage* mage) :
     mage(mage),
     spells(dynamic_cast<MageSpells*>(mage->get_spells()))
 {
+    talent_names_to_locations = {
+        {"Frost Warding", "1LL"},
+        {"Improved Frostbolt", "1ML"},
+        {"Elemental Precision", "1MR"},
+        {"Ice Shards", "2LL"},
+        {"Frostbite", "2ML"},
+        {"Improved Frost Nova", "2MR"},
+        {"Permafrost", "2RR"},
+        {"Piercing Ice", "3LL"},
+        {"Cold Snap", "3ML"},
+        {"Improved Blizzard", "3RR"},
+        {"Arctic Reach", "4LL"},
+        {"Frost Channeling", "4ML"},
+        {"Shatter", "4MR"},
+        {"Ice Block", "5ML"},
+        {"Improved Cone of Cold", "5MR"},
+        {"Winter's Chill", "6MR"},
+        {"Ice Barrier", "7ML"},
+    };
+
     QMap<QString, Talent*> tier1 {{"1LL", new Talent(mage, this, "Frost Warding", "1LL", "Assets/spell/Spell_frost_frostward.png", 2, "Increases the armor and resistances given by your Frost Armor and Ice Armor spells by %1%. In addition, gives your Frost Ward a %2% chance to reflect Frost spells and effects while active.", QVector<QPair<unsigned, unsigned>>{{15, 15}, {10, 10}})},
                                   {"1ML", new Talent(mage, this, "Improved Frostbolt", "1ML", "Assets/spell/Spell_frost_frostbolt02.png", 5, "Reduces the casting time of your Frostbolt spell by %1 sec.", QVector<QPair<double, double>>{{0.1, 0.1}})},
                                   {"1MR", new Talent(mage, this, "Elemental Precision", "1MR", "Assets/spell/Spell_ice_magicdamage.png", 3, "Reduces the chance that the opponent can resist your Frost and Fire spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
@@ -21,8 +41,8 @@ Frost::Frost(Mage* mage) :
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(mage, this, "Piercing Ice", "3LL", "Assets/spell/Spell_frost_frostbolt.png", 3, "Increases the damage done by your Frost spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
-                                  {"3ML", new Talent(mage, this, "Cold Snap", "3ML", "Assets/spell/Spell_frost_wizardmark.png", 1, "When activated, this spell finishes the cooldown on all of your Frost spells.", QVector<QPair<unsigned, unsigned>>{})},
-                                  {"3RR", improved_blizzard()}};
+                                  {"3ML", new Talent(mage, this, "Cold Snap", "3ML", "Assets/spell/Spell_frost_wizardmark.png", 1, "When activated, this spell finishes the cooldown on all of your Frost spells.", QVector<QPair<unsigned, unsigned>>{})}};
+    add_improved_blizzard(tier3);
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4LL", new Talent(mage, this, "Arctic Reach", "4LL", "Assets/spell/Spell_shadow_darkritual.png", 2, "Increases the range of your Frostbolt and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by %1%.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
@@ -47,7 +67,7 @@ Frost::Frost(Mage* mage) :
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Talent* Frost::improved_blizzard() {
+void Frost::add_improved_blizzard(QMap<QString, Talent*>& talent_tier) {
     QString base_str = "Adds a chill effect to your Blizzard spell. This effect lowers the target's movement speed by %1%. Lasts 1.50 sec.";
     QMap<unsigned, QString> rank_descriptions {{0, base_str.arg(30)}, {1, base_str.arg(30)},
                                                {2, base_str.arg(50)},
@@ -55,5 +75,5 @@ Talent* Frost::improved_blizzard() {
     Talent* talent = new Talent(mage, this, "Improved Blizzard", "3RR", "Assets/spell/Spell_frost_icestorm.png", 3,
                                 rank_descriptions);
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
