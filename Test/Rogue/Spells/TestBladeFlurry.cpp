@@ -144,11 +144,6 @@ void TestBladeFlurry::when_blade_flurry_is_performed() {
 }
 
 void TestBladeFlurry::given_1_of_1_blade_flurry() {
-    Talent* talent = Combat(rogue).get_blade_flurry();
-
-    assert(talent->increment_rank());
-
+    given_combat_talent_rank("Blade Flurry", 1);
     rogue->prepare_set_of_combat_iterations();
-
-    delete talent;
 }

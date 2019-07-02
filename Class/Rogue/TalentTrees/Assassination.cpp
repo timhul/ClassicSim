@@ -21,30 +21,51 @@ Assassination::Assassination(Rogue* pchar) :
     rogue(pchar),
     spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1LL", get_improved_eviscerate()},
-                                  {"1ML", new Talent(pchar, this, "Remorseless Attacks", "1ML", "Assets/ability/Ability_fiegndead.png", 2, "After killing an opponent that yields experience or honor, gives you a %1 increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike. Lasts 20 sec.", QVector<QPair<unsigned, unsigned>>{{20, 20}})},
+    talent_names_to_locations = {
+        {"Improved Eviscerate", "1LL"},
+        {"Remorseless Attacks", "1ML"},
+        {"Malice", "1MR"},
+        {"Ruthlessness", "2LL"},
+        {"Murder", "2ML"},
+        {"Improved Slice And Dice", "2RR"},
+        {"Relentless Strikes", "3LL"},
+        {"Improved Expose Armor", "3ML"},
+        {"Lethality", "3MR"},
+        {"Vile Poisons", "4ML"},
+        {"Improved Poisons", "4MR"},
+        {"Cold Blood", "5ML"},
+        {"Improved Kidney Shot", "5MR"},
+        {"Seal Fate", "6ML"},
+        {"Vigor", "7ML"},
+    };
+
+
+    QMap<QString, Talent*> tier1 {{"1ML", new Talent(pchar, this, "Remorseless Attacks", "1ML", "Assets/ability/Ability_fiegndead.png", 2, "After killing an opponent that yields experience or honor, gives you a %1 increased critical strike chance on your next Sinister Strike, Backstab, Ambush, or Ghostly Strike. Lasts 20 sec.", QVector<QPair<unsigned, unsigned>>{{20, 20}})},
                                   {"1MR", new Malice(pchar, this)}};
+    add_improved_eviscerate(tier1);
     add_talents(tier1);
 
-    QMap<QString, Talent*> tier2 {{"2LL", get_ruthlessness()},
-                                  {"2ML", new Murder(pchar, this)},
-                                  {"2RR", get_improved_slice_and_dice()}};
+    QMap<QString, Talent*> tier2 {{"2ML", new Murder(pchar, this)}};
+    add_ruthlessness(tier2);
+    add_improved_slice_and_dice(tier2);
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", get_relentless_strikes()},
-                                  {"3ML", new Talent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<unsigned, unsigned>>{{25, 25}})},
-                                  {"3MR", get_lethality()}};
+    QMap<QString, Talent*> tier3 {{"3ML", new Talent(pchar, this, "Improved Expose Armor", "3ML", "Assets/ability/Ability_warrior_riposte.png", 2, "Increases the armor reduced by your Expose Armor ability by %1%.", QVector<QPair<unsigned, unsigned>>{{25, 25}})}};
+    add_relentless_strikes(tier3);
+    add_lethality(tier3);
     add_talents(tier3);
 
-    QMap<QString, Talent*> tier4 {{"4ML", get_vile_poisons()},
-                                  {"4MR", get_improved_poisons()}};
+    QMap<QString, Talent*> tier4 {};
+    add_vile_poisons(tier4);
+    add_improved_poisons(tier4);
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5ML", new Talent(pchar, this, "Cold Blood", "5ML", "Assets/spell/Spell_ice_lament.png", 1, "When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Ambush, or Eviscerate by 100%.", QVector<QPair<unsigned, unsigned>>())},
                                   {"5MR", new Talent(pchar, this, "Improved Kidney Shot", "5MR", "Assets/ability/Ability_rogue_kidneyshot.png", 3, "While affected by your Kidney Shot ability, the target receives an additional %1% damage from all sources.", QVector<QPair<unsigned, unsigned>>{{3, 3}})}};
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6ML", get_seal_fate()}};
+    QMap<QString, Talent*> tier6 {};
+    add_seal_fate(tier6);
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Vigor(pchar, this)}};
@@ -57,7 +78,7 @@ Assassination::Assassination(Rogue* pchar) :
     talents["6ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Talent* Assassination::get_improved_eviscerate() {
+void Assassination::add_improved_eviscerate(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the damage done by your Eviscerate ability by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<unsigned, unsigned>>{{5, 5}});
@@ -65,10 +86,10 @@ Talent* Assassination::get_improved_eviscerate() {
                                 "Assets/ability/Ability_rogue_eviscerate.png", 3, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Eviscerate")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Assassination::get_ruthlessness() {
+void Assassination::add_ruthlessness(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Gives your finishing moves a %1% chance to add a combo point to your target.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<unsigned, unsigned>>{{20, 20}});
@@ -78,10 +99,10 @@ Talent* Assassination::get_ruthlessness() {
                                 {},
                                 QVector<Proc*>{rogue->get_ruthlessness()});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Assassination::get_improved_slice_and_dice() {
+void Assassination::add_improved_slice_and_dice(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the duration of your Slice and Dice ability by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 3, QVector<QPair<unsigned, unsigned>>{{15, 15}});
@@ -89,10 +110,10 @@ Talent* Assassination::get_improved_slice_and_dice() {
                                 "Assets/ability/Ability_rogue_slicedice.png", 3, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Slice and Dice")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Assassination::get_relentless_strikes() {
+void Assassination::add_relentless_strikes(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Your finishing moves have a 20% chance per combo point to restore 25 Energy.";
     rank_descriptions.insert(0, base_str);
@@ -103,10 +124,10 @@ Talent* Assassination::get_relentless_strikes() {
                                 {},
                                 QVector<Proc*>{rogue->get_relentless_strikes()});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Assassination::get_lethality() {
+void Assassination::add_lethality(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, and Hemorrhage abilities by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{6, 6}});
@@ -118,10 +139,10 @@ Talent* Assassination::get_lethality() {
                                     spells->get_spell_rank_group_by_name("Sinister Strike")
                                 });
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Assassination::get_vile_poisons() {
+void Assassination::add_vile_poisons(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the damage dealt by your poisons by %1% and gives your poisons an additional %2% chance to resist dispel effects.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{4, 4}, {8, 8}});
@@ -131,10 +152,10 @@ Talent* Assassination::get_vile_poisons() {
                                 {},
                                 QVector<Proc*>{rogue->get_mh_instant_poison(), rogue->get_oh_instant_poison()});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Assassination::get_improved_poisons() {
+void Assassination::add_improved_poisons(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the chance to apply poisons to your target by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{2, 2}});
@@ -144,10 +165,10 @@ Talent* Assassination::get_improved_poisons() {
                                 {},
                                 QVector<Proc*>{rogue->get_mh_instant_poison(), rogue->get_oh_instant_poison()});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Assassination::get_seal_fate() {
+void Assassination::add_seal_fate(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Your critical strikes from abilities that add combo points have a %1% chance to add an additional combo point.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{20, 20}});
@@ -157,5 +178,5 @@ Talent* Assassination::get_seal_fate() {
                                 {},
                                 QVector<Proc*>{rogue->get_seal_fate()});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }

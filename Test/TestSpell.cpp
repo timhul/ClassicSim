@@ -27,6 +27,7 @@
 #include "Talent.h"
 #include "TalentTree.h"
 #include "Target.h"
+#include "Utils/Check.h"
 #include "Weapon.h"
 
 TestSpell::TestSpell(EquipmentDb* equipment_db, QString spell_under_test) :
@@ -989,7 +990,7 @@ void TestSpell::given_talent_rank(const TalentTree& talent_tree, const QString& 
     assert(talent->get_name() == talent_name);
 
     for (unsigned i = 0; i < num; ++i)
-        assert(talent->increment_rank());
+        check(talent->increment_rank(), QString("Failed to increment %1 to rank %2, does it have parent talents?").arg(talent_name).arg(i + 1).toStdString());
 }
 
 void TestSpell::given_character_has_strength(const int value) {

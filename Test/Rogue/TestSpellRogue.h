@@ -27,12 +27,9 @@ protected:
     void then_rogue_has_energy(const unsigned) const;
     void then_rogue_has_combo_points(const unsigned) const;
 
-    void given_1_of_5_lethality();
-    void given_2_of_5_lethality();
-    void given_3_of_5_lethality();
-    void given_4_of_5_lethality();
-    void given_5_of_5_lethality();
+    void given_assassination_talent_rank(const QString& talent_name, const unsigned num);
+    void given_combat_talent_rank(const QString& talent_name, const unsigned num);
+    void given_subtlety_talent_rank(const QString& talent_name, const unsigned num);
 
-    void given_1_of_5_opportunity();
-    void given_5_of_5_opportunity();
+    void given_lethality_talent_rank(const unsigned num);
 };

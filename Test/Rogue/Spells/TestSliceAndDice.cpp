@@ -1,14 +1,9 @@
-#include "SliceAndDice.h"
+#include "TestSliceAndDice.h"
 
-#include "Assassination.h"
-#include "Backstab.h"
 #include "Equipment.h"
 #include "Event.h"
-#include "MainhandAttack.h"
 #include "RogueSpells.h"
-#include "Talent.h"
-#include "TestSliceAndDice.h"
-#include "WarriorSpells.h"
+#include "SliceAndDice.h"
 
 TestSliceAndDice::TestSliceAndDice(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Slice and Dice")
@@ -251,7 +246,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points() {
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_of_3_imp_snd() {
     ignored_events = {"PlayerAction"};
-    given_1_of_3_imp_snd();
+    given_assassination_talent_rank("Improved Slice And Dice", 1);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
     rogue->get_spells()->start_attack();
@@ -267,7 +262,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_1_
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_of_3_imp_snd() {
     ignored_events = {"PlayerAction"};
-    given_2_of_3_imp_snd();
+    given_assassination_talent_rank("Improved Slice And Dice", 2);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
     rogue->get_spells()->start_attack();
@@ -283,7 +278,7 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_2_
 
 void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_of_3_imp_snd() {
     ignored_events = {"PlayerAction"};
-    given_3_of_3_imp_snd();
+    given_assassination_talent_rank("Improved Slice And Dice", 3);
     given_a_mainhand_weapon_with_2_speed();
     given_rogue_has_combo_points(5);
     rogue->get_spells()->start_attack();
@@ -295,33 +290,6 @@ void TestSliceAndDice::test_duration_and_attack_speed_with_5_combo_points_and_3_
     then_next_event_is(EventType::MainhandMeleeHit, "1.538");
     then_next_event_is(EventType::ResourceGain, "2.000");
     then_next_event_is(EventType::BuffRemoval, "30.000");
-}
-
-void TestSliceAndDice::given_1_of_3_imp_snd() {
-    Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSliceAndDice::given_2_of_3_imp_snd() {
-    Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSliceAndDice::given_3_of_3_imp_snd() {
-    Talent* talent = Assassination(rogue).get_improved_slice_and_dice();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
 }
 
 void TestSliceAndDice::when_slice_and_dice_is_performed() {

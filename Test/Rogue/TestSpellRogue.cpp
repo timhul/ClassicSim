@@ -4,6 +4,7 @@
 
 #include "Assassination.h"
 #include "Backstab.h"
+#include "Combat.h"
 #include "Equipment.h"
 #include "RaidControl.h"
 #include "Rogue.h"
@@ -81,76 +82,6 @@ void TestSpellRogue::given_rogue_has_combo_points(const unsigned combo_points) {
     assert(rogue->get_combo_points() == combo_points);
 }
 
-void TestSpellRogue::given_1_of_5_lethality() {
-    Talent* talent = Assassination(rogue).get_lethality();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_2_of_5_lethality() {
-    Talent* talent = Assassination(rogue).get_lethality();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_3_of_5_lethality() {
-    Talent* talent = Assassination(rogue).get_lethality();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_4_of_5_lethality() {
-    Talent* talent = Assassination(rogue).get_lethality();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_5_of_5_lethality() {
-    Talent* talent = Assassination(rogue).get_lethality();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_1_of_5_opportunity() {
-    Talent* talent = Subtlety(rogue).get_opportunity();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellRogue::given_5_of_5_opportunity() {
-    Talent* talent = Subtlety(rogue).get_opportunity();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
 void TestSpellRogue::then_rogue_has_energy(const unsigned energy) const {
     if (energy != rogue->get_resource_level(ResourceType::Energy))
         qDebug() << spell_under_test << "Expected" << energy << "energy but actually has" << rogue->get_resource_level(ResourceType::Energy);
@@ -161,4 +92,23 @@ void TestSpellRogue::then_rogue_has_combo_points(const unsigned combo_points) co
     if (combo_points != rogue->get_combo_points())
         qDebug() << spell_under_test << "Expected" << combo_points << "combo points but actually has" << rogue->get_combo_points();
     assert(rogue->get_combo_points() == combo_points);
+}
+
+void TestSpellRogue::given_assassination_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Assassination(rogue), talent_name, num);
+}
+
+void TestSpellRogue::given_combat_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Combat(rogue), talent_name, num);
+}
+
+void TestSpellRogue::given_subtlety_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Subtlety(rogue), talent_name, num);
+}
+
+void TestSpellRogue::given_lethality_talent_rank(const unsigned num) {
+    auto assa = Assassination(rogue);
+
+    given_talent_rank(assa, "Malice", 5);
+    given_talent_rank(assa, "Lethality", num);
 }

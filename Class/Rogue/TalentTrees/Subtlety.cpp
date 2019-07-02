@@ -13,8 +13,28 @@ Subtlety::Subtlety(Character *pchar) :
     rogue(dynamic_cast<Rogue*>(pchar)),
     spells(dynamic_cast<RogueSpells*>(pchar->get_spells()))
 {
-    QMap<QString, Talent*> tier1 {{"1ML", new Talent(pchar, this, "Master of Deception", "1ML", "Assets/spell/Spell_shadow_charm.png", 5, "Reduces the chance enemies have to detect you while in Stealth mode.", QVector<QPair<unsigned, unsigned>>{})},
-                                  {"1MR", get_opportunity()}};
+    talent_names_to_locations = {
+        {"Master of Deception", "1ML"},
+        {"Opportunity", "1MR"},
+        {"Sleight of Hand", "2LL"},
+        {"Elusiveness", "2ML"},
+        {"Camouflage", "2MR"},
+        {"Initiative", "3LL"},
+        {"Ghostly Strike", "3ML"},
+        {"Improved Ambush", "3MR"},
+        {"Setup", "4LL"},
+        {"Improved Sap", "4ML"},
+        {"Serrated Blades", "4MR"},
+        {"Heightened Senses", "5LL"},
+        {"Preparation", "5ML"},
+        {"Dirty Deeds", "5MR"},
+        {"Hemorrhage", "5RR"},
+        {"Deadliness", "6MR"},
+        {"Premeditation", "7ML"},
+    };
+
+    QMap<QString, Talent*> tier1 {{"1ML", new Talent(pchar, this, "Master of Deception", "1ML", "Assets/spell/Spell_shadow_charm.png", 5, "Reduces the chance enemies have to detect you while in Stealth mode.", QVector<QPair<unsigned, unsigned>>{})}};
+    add_opportunity(tier1);
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent(pchar, this, "Sleight of Hand", "2LL", "Assets/ability/Ability_rogue_feint.png", 2, "Reduces the chance you are critically hit by melee and ranged attacks by %1% and increases the threat reduction of your Feint ability by %2%.", QVector<QPair<unsigned, unsigned>>{{1, 1}, {10, 10}})},
@@ -34,8 +54,8 @@ Subtlety::Subtlety(Character *pchar) :
 
     QMap<QString, Talent*> tier5 {{"5LL", new Talent(pchar, this, "Heightened Senses", "5LL", "Assets/ability/Ability_ambush.png", 2, "Increases your Stealth detection and reduces the chance you are hit by spells and ranged attacks by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
                                   {"5ML", new Talent(pchar, this, "Preparation", "5ML", "Assets/spell/Spell_shadow_antishadow.png", 1, "When activated, this ability immediately finishes the cooldown on your other Rogue abilities.", QVector<QPair<unsigned, unsigned>>())},
-                                  {"5MR", new Talent(pchar, this, "Dirty Deeds", "5MR", "Assets/spell/Spell_shadow_summonsuccubus.png", 2, "Reduces the Energy cost of your Cheap Shot and Garrote abilities by %1.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
-                                  {"5RR", get_hemorrhage()}};
+                                  {"5MR", new Talent(pchar, this, "Dirty Deeds", "5MR", "Assets/spell/Spell_shadow_summonsuccubus.png", 2, "Reduces the Energy cost of your Cheap Shot and Garrote abilities by %1.", QVector<QPair<unsigned, unsigned>>{{10, 10}})}};
+    add_hemorrhage(tier5);
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6MR", new Deadliness(pchar, this)}};
@@ -51,7 +71,7 @@ Subtlety::Subtlety(Character *pchar) :
     talents["7ML"]->talent->set_parent(talents["5ML"]->talent);
 }
 
-Talent* Subtlety::get_opportunity() {
+void Subtlety::add_opportunity(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "Increases the damage dealt when striking from behind with your Backstab, Garrote, or Ambush abilities by %1%.";
     Talent::initialize_rank_descriptions(rank_descriptions, base_str, 5, QVector<QPair<unsigned, unsigned>>{{4, 4}});
@@ -59,10 +79,10 @@ Talent* Subtlety::get_opportunity() {
                                 "Assets/ability/Ability_warrior_warcry.png", 5, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Backstab")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }
 
-Talent* Subtlety::get_hemorrhage() {
+void Subtlety::add_hemorrhage(QMap<QString, Talent*>& talent_tier) {
     QMap<unsigned, QString> rank_descriptions;
     QString base_str = "An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by up to 3. Lasts 30 charges or 15 sec. Awards 1 combo point.";
     rank_descriptions.insert(0, base_str);
@@ -71,5 +91,5 @@ Talent* Subtlety::get_hemorrhage() {
                                 "Assets/spell/Spell_shadow_lifedrain.png", 1, rank_descriptions,
                                 QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Hemorrhage")});
 
-    return talent;
+    add_talent_to_tier(talent_tier, talent);
 }

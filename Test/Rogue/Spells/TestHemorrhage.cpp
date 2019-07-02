@@ -166,13 +166,13 @@ void TestHemorrhage::test_crit_dmg() {
 }
 
 void TestHemorrhage::test_hit_dmg_5_of_5_lethality() {
-    given_5_of_5_lethality();
+    given_lethality_talent_rank(5);
     test_hit_dmg();
 }
 
 void TestHemorrhage::test_crit_dmg_1_of_5_lethality() {
     given_hemorrhage_is_enabled();
-    given_1_of_5_lethality();
+    given_lethality_talent_rank(1);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -188,7 +188,7 @@ void TestHemorrhage::test_crit_dmg_1_of_5_lethality() {
 
 void TestHemorrhage::test_crit_dmg_2_of_5_lethality() {
     given_hemorrhage_is_enabled();
-    given_2_of_5_lethality();
+    given_lethality_talent_rank(2);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -204,7 +204,7 @@ void TestHemorrhage::test_crit_dmg_2_of_5_lethality() {
 
 void TestHemorrhage::test_crit_dmg_3_of_5_lethality() {
     given_hemorrhage_is_enabled();
-    given_3_of_5_lethality();
+    given_lethality_talent_rank(3);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -220,7 +220,7 @@ void TestHemorrhage::test_crit_dmg_3_of_5_lethality() {
 
 void TestHemorrhage::test_crit_dmg_4_of_5_lethality() {
     given_hemorrhage_is_enabled();
-    given_4_of_5_lethality();
+    given_lethality_talent_rank(4);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -236,7 +236,7 @@ void TestHemorrhage::test_crit_dmg_4_of_5_lethality() {
 
 void TestHemorrhage::test_crit_dmg_5_of_5_lethality() {
     given_hemorrhage_is_enabled();
-    given_5_of_5_lethality();
+    given_lethality_talent_rank(5);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -258,9 +258,8 @@ void TestHemorrhage::when_hemorrhage_is_performed() {
 }
 
 void TestHemorrhage::given_hemorrhage_is_enabled() {
-    Talent* talent = Subtlety(rogue).get_hemorrhage();
+    auto sub = Subtlety(rogue);
 
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(sub, "Serrated Blades", 3);
+    given_talent_rank(sub, "Hemorrhage", 1);
 }

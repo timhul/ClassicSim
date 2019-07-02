@@ -80,53 +80,38 @@ void TestSealFate::test_proc_range_5_of_5_seal_fate() {
 }
 
 void TestSealFate::given_1_of_5_seal_fate() {
-    Talent* talent = Assassination(rogue).get_seal_fate();
+    auto assa = Assassination(rogue);
 
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(assa, "Cold Blood", 1);
+    given_talent_rank(assa, "Seal Fate", 1);
 }
 
 void TestSealFate::given_2_of_5_seal_fate() {
-    Talent* talent = Assassination(rogue).get_seal_fate();
+    auto assa = Assassination(rogue);
 
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(assa, "Cold Blood", 1);
+    given_talent_rank(assa, "Seal Fate", 2);
 }
 
 void TestSealFate::given_3_of_5_seal_fate() {
-    Talent* talent = Assassination(rogue).get_seal_fate();
+    auto assa = Assassination(rogue);
 
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(assa, "Cold Blood", 1);
+    given_talent_rank(assa, "Seal Fate", 3);
 }
 
 void TestSealFate::given_4_of_5_seal_fate() {
-    Talent* talent = Assassination(rogue).get_seal_fate();
+    auto assa = Assassination(rogue);
 
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(assa, "Cold Blood", 1);
+    given_talent_rank(assa, "Seal Fate", 4);
 }
 
 void TestSealFate::given_5_of_5_seal_fate() {
-    Talent* talent = Assassination(rogue).get_seal_fate();
+    auto assa = Assassination(rogue);
 
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_talent_rank(assa, "Cold Blood", 1);
+    given_talent_rank(assa, "Seal Fate", 5);
 }
 
 void TestSealFate::test_proc_sources_are_valid() {

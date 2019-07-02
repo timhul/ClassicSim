@@ -1,8 +1,7 @@
 #include "TestSinisterStrike.h"
 
-#include "Combat.h"
 #include "Equipment.h"
-#include "Queue.h"
+#include "Event.h"
 #include "RogueSpells.h"
 #include "SinisterStrike.h"
 #include "Talent.h"
@@ -161,12 +160,12 @@ void TestSinisterStrike::test_crit_dmg() {
 }
 
 void TestSinisterStrike::test_hit_dmg_5_of_5_lethality() {
-    given_5_of_5_lethality();
+    given_lethality_talent_rank(5);
     test_hit_dmg();
 }
 
 void TestSinisterStrike::test_crit_dmg_1_of_5_lethality() {
-    given_1_of_5_lethality();
+    given_lethality_talent_rank(1);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -181,7 +180,7 @@ void TestSinisterStrike::test_crit_dmg_1_of_5_lethality() {
 }
 
 void TestSinisterStrike::test_crit_dmg_2_of_5_lethality() {
-    given_2_of_5_lethality();
+    given_lethality_talent_rank(2);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -196,7 +195,7 @@ void TestSinisterStrike::test_crit_dmg_2_of_5_lethality() {
 }
 
 void TestSinisterStrike::test_crit_dmg_3_of_5_lethality() {
-    given_3_of_5_lethality();
+    given_lethality_talent_rank(3);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -211,7 +210,7 @@ void TestSinisterStrike::test_crit_dmg_3_of_5_lethality() {
 }
 
 void TestSinisterStrike::test_crit_dmg_4_of_5_lethality() {
-    given_4_of_5_lethality();
+    given_lethality_talent_rank(4);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -226,7 +225,7 @@ void TestSinisterStrike::test_crit_dmg_4_of_5_lethality() {
 }
 
 void TestSinisterStrike::test_crit_dmg_5_of_5_lethality() {
-    given_5_of_5_lethality();
+    given_lethality_talent_rank(5);
     given_target_has_0_armor();
     given_a_mainhand_weapon_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -242,7 +241,7 @@ void TestSinisterStrike::test_crit_dmg_5_of_5_lethality() {
 
 void TestSinisterStrike::test_resource_cost_1_of_2_imp_ss() {
     given_1h_sword_equipped_in_mainhand(pchar);
-    given_1_of_2_improved_ss();
+    given_combat_talent_rank("Improved Sinister Strike", 1);
     given_a_guaranteed_melee_ability_hit();
 
     given_rogue_has_energy(42);
@@ -258,7 +257,7 @@ void TestSinisterStrike::test_resource_cost_1_of_2_imp_ss() {
 
 void TestSinisterStrike::test_resource_cost_2_of_2_imp_ss() {
     given_1h_sword_equipped_in_mainhand(pchar);
-    given_2_of_2_improved_ss();
+    given_combat_talent_rank("Improved Sinister Strike", 2);
     given_a_guaranteed_melee_ability_hit();
 
     given_rogue_has_energy(40);
@@ -270,23 +269,6 @@ void TestSinisterStrike::test_resource_cost_2_of_2_imp_ss() {
     given_rogue_has_energy(50);
     when_sinister_strike_is_performed();
     then_rogue_has_energy(10);
-}
-
-void TestSinisterStrike::given_1_of_2_improved_ss() {
-    Talent* talent = Combat(rogue).get_improved_sinister_strike();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSinisterStrike::given_2_of_2_improved_ss() {
-    Talent* talent = Combat(rogue).get_improved_sinister_strike();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
 }
 
 void TestSinisterStrike::when_sinister_strike_is_performed() {

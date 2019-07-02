@@ -63,11 +63,9 @@ void TestRelentlessStrikes::test_proc_range() {
 }
 
 void TestRelentlessStrikes::given_1_of_1_relentless_strikes() {
-    Talent* talent = Assassination(rogue).get_relentless_strikes();
+    Talent* talent = Assassination(rogue).get_talent_from_name("Relentless Strikes");
 
     assert(talent->increment_rank());
-
-    delete talent;
 }
 
 void TestRelentlessStrikes::test_proc_sources_are_valid() {

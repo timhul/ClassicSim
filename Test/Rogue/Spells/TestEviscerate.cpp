@@ -1,13 +1,10 @@
 #include "TestEviscerate.h"
 
-#include "Assassination.h"
-#include "Combat.h"
 #include "Equipment.h"
 #include "Eviscerate.h"
 #include "Item.h"
 #include "Queue.h"
 #include "Talent.h"
-#include "WarriorSpells.h"
 
 TestEviscerate::TestEviscerate(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Eviscerate")
@@ -388,7 +385,7 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_1_of_3_imp_evisc() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
-    given_1_of_3_imp_eviscerate();
+    given_assassination_talent_rank("Improved Eviscerate", 1);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -404,7 +401,7 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_1_of_3_imp_evisc() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
-    given_1_of_3_imp_eviscerate();
+    given_assassination_talent_rank("Improved Eviscerate", 1);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -420,7 +417,7 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_2_of_3_imp_evisc() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
-    given_2_of_3_imp_eviscerate();
+    given_assassination_talent_rank("Improved Eviscerate", 2);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -436,7 +433,7 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_2_of_3_imp_evisc() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
-    given_2_of_3_imp_eviscerate();
+    given_assassination_talent_rank("Improved Eviscerate", 2);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -452,7 +449,7 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
-    given_3_of_3_imp_eviscerate();
+    given_assassination_talent_rank("Improved Eviscerate", 3);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -468,7 +465,7 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
-    given_3_of_3_imp_eviscerate();
+    given_assassination_talent_rank("Improved Eviscerate", 3);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -484,7 +481,7 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_1_of_3_aggression() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
-    given_1_of_3_aggression();
+    given_combat_talent_rank("Aggression", 1);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -500,7 +497,7 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_1_of_3_aggression() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
-    given_1_of_3_aggression();
+    given_combat_talent_rank("Aggression", 1);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -516,7 +513,7 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_2_of_3_aggression() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
-    given_2_of_3_aggression();
+    given_combat_talent_rank("Aggression", 2);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -532,7 +529,7 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_2_of_3_aggression() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
-    given_2_of_3_aggression();
+    given_combat_talent_rank("Aggression", 2);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -548,7 +545,7 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_aggression() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
-    given_3_of_3_aggression();
+    given_combat_talent_rank("Aggression", 3);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -564,7 +561,7 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_aggression() {
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
-    given_3_of_3_aggression();
+    given_combat_talent_rank("Aggression", 3);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -581,8 +578,8 @@ void TestEviscerate::test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
     given_1000_melee_ap();
-    given_3_of_3_aggression();
-    given_3_of_3_imp_eviscerate();
+    given_combat_talent_rank("Aggression", 3);
+    given_assassination_talent_rank("Improved Eviscerate", 3);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -599,8 +596,8 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
     given_1000_melee_ap();
-    given_3_of_3_aggression();
-    given_3_of_3_imp_eviscerate();
+    given_combat_talent_rank("Aggression", 3);
+    given_assassination_talent_rank("Improved Eviscerate", 3);
     given_no_previous_damage_dealt();
     given_rogue_has_combo_points(5);
 
@@ -609,60 +606,6 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of
     // [Damage] = (evisc_range + melee_ap * combo_points * 0.03) * aggression * imp_evisc * deathdealer_5pc * crit_dmg_modifier
     // [2955-3257] = ([904-1012] + 1000 * 5 * 0.03) * 1.06 * 1.15 * 1.15 * 2.0
     then_damage_dealt_is_in_range(2955, 3257);
-}
-
-void TestEviscerate::given_1_of_3_imp_eviscerate() {
-    Talent* talent = Assassination(rogue).get_improved_eviscerate();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestEviscerate::given_2_of_3_imp_eviscerate() {
-    Talent* talent = Assassination(rogue).get_improved_eviscerate();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestEviscerate::given_3_of_3_imp_eviscerate() {
-    Talent* talent = Assassination(rogue).get_improved_eviscerate();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestEviscerate::given_1_of_3_aggression() {
-    Talent* talent = Combat(rogue).get_aggression();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestEviscerate::given_2_of_3_aggression() {
-    Talent* talent = Combat(rogue).get_aggression();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestEviscerate::given_3_of_3_aggression() {
-    Talent* talent = Combat(rogue).get_aggression();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
 }
 
 void TestEviscerate::given_5_pc_deathdealer() {

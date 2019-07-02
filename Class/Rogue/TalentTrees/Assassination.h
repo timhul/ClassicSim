@@ -9,16 +9,16 @@ class Assassination: public TalentTree {
 public:
     Assassination(Rogue* pchar);
 
-    Talent* get_improved_eviscerate();
-    Talent* get_ruthlessness();
-    Talent* get_improved_slice_and_dice();
-    Talent* get_relentless_strikes();
-    Talent* get_lethality();
-    Talent* get_vile_poisons();
-    Talent* get_improved_poisons();
-    Talent* get_seal_fate();
-
 private:
     Rogue* rogue;
     RogueSpells* spells;
+
+    void add_improved_eviscerate(QMap<QString, Talent*>& talent_tier);
+    void add_ruthlessness(QMap<QString, Talent*>& talent_tier);
+    void add_improved_slice_and_dice(QMap<QString, Talent*>& talent_tier);
+    void add_relentless_strikes(QMap<QString, Talent*>& talent_tier);
+    void add_lethality(QMap<QString, Talent*>& talent_tier);
+    void add_vile_poisons(QMap<QString, Talent*>& talent_tier);
+    void add_improved_poisons(QMap<QString, Talent*>& talent_tier);
+    void add_seal_fate(QMap<QString, Talent*>& talent_tier);
 };

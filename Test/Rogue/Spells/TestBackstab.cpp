@@ -2,8 +2,7 @@
 
 #include "Backstab.h"
 #include "Equipment.h"
-#include "Queue.h"
-#include "WarriorSpells.h"
+#include "Event.h"
 
 TestBackstab::TestBackstab(EquipmentDb *equipment_db) :
     TestSpellRogue(equipment_db, "Backstab")
@@ -214,12 +213,12 @@ void TestBackstab::test_crit_dmg() {
 }
 
 void TestBackstab::test_hit_dmg_5_of_5_lethality() {
-    given_5_of_5_lethality();
+    given_lethality_talent_rank(5);
     test_hit_dmg();
 }
 
 void TestBackstab::test_crit_dmg_1_of_5_lethality() {
-    given_1_of_5_lethality();
+    given_lethality_talent_rank(1);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -234,7 +233,7 @@ void TestBackstab::test_crit_dmg_1_of_5_lethality() {
 }
 
 void TestBackstab::test_crit_dmg_2_of_5_lethality() {
-    given_2_of_5_lethality();
+    given_lethality_talent_rank(2);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -249,7 +248,7 @@ void TestBackstab::test_crit_dmg_2_of_5_lethality() {
 }
 
 void TestBackstab::test_crit_dmg_3_of_5_lethality() {
-    given_3_of_5_lethality();
+    given_lethality_talent_rank(3);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -264,7 +263,7 @@ void TestBackstab::test_crit_dmg_3_of_5_lethality() {
 }
 
 void TestBackstab::test_crit_dmg_4_of_5_lethality() {
-    given_4_of_5_lethality();
+    given_lethality_talent_rank(4);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -279,7 +278,7 @@ void TestBackstab::test_crit_dmg_4_of_5_lethality() {
 }
 
 void TestBackstab::test_crit_dmg_5_of_5_lethality() {
-    given_5_of_5_lethality();
+    given_lethality_talent_rank(5);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -294,7 +293,7 @@ void TestBackstab::test_crit_dmg_5_of_5_lethality() {
 }
 
 void TestBackstab::test_hit_dmg_1_of_5_opportunity() {
-    given_1_of_5_opportunity();
+    given_subtlety_talent_rank("Opportunity", 1);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
@@ -309,7 +308,7 @@ void TestBackstab::test_hit_dmg_1_of_5_opportunity() {
 }
 
 void TestBackstab::test_hit_dmg_5_of_5_opportunity() {
-    given_5_of_5_opportunity();
+    given_subtlety_talent_rank("Opportunity", 5);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_hit();
@@ -324,7 +323,7 @@ void TestBackstab::test_hit_dmg_5_of_5_opportunity() {
 }
 
 void TestBackstab::test_crit_dmg_1_of_5_opportunity() {
-    given_1_of_5_opportunity();
+    given_subtlety_talent_rank("Opportunity", 1);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -339,7 +338,7 @@ void TestBackstab::test_crit_dmg_1_of_5_opportunity() {
 }
 
 void TestBackstab::test_crit_dmg_5_of_5_opportunity() {
-    given_5_of_5_opportunity();
+    given_subtlety_talent_rank("Opportunity", 5);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();
@@ -354,13 +353,13 @@ void TestBackstab::test_crit_dmg_5_of_5_opportunity() {
 }
 
 void TestBackstab::test_hit_dmg_both_5_of_5_lethality_and_opportunity() {
-    given_5_of_5_lethality();
+    given_lethality_talent_rank(5);
     test_hit_dmg_5_of_5_opportunity();
 }
 
 void TestBackstab::test_crit_dmg_both_5_of_5_lethality_and_opportunity() {
-    given_5_of_5_lethality();
-    given_5_of_5_opportunity();
+    given_lethality_talent_rank(5);
+    given_subtlety_talent_rank("Opportunity", 5);
     given_target_has_0_armor();
     given_a_mainhand_dagger_with_100_min_max_dmg();
     given_a_guaranteed_melee_ability_crit();

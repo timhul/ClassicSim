@@ -30,9 +30,5 @@ private:
     void test_duration_and_attack_speed_with_5_combo_points_and_2_of_3_imp_snd();
     void test_duration_and_attack_speed_with_5_combo_points_and_3_of_3_imp_snd();
 
-    void given_1_of_3_imp_snd();
-    void given_2_of_3_imp_snd();
-    void given_3_of_3_imp_snd();
-
     void when_slice_and_dice_is_performed();
 };

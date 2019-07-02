@@ -9,10 +9,10 @@ class Subtlety: public TalentTree {
 public:
     Subtlety(Character *pchar);
 
-    Talent* get_opportunity();
-    Talent* get_hemorrhage();
-
 private:
     Rogue* rogue;
     RogueSpells* spells;
+
+    void add_opportunity(QMap<QString, Talent*>& talent_tier);
+    void add_hemorrhage(QMap<QString, Talent*>& talent_tier);
 };

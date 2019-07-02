@@ -31,8 +31,5 @@ private:
     void test_crit_dmg_4_of_5_lethality();
     void test_crit_dmg_5_of_5_lethality();
 
-    void given_1_of_2_improved_ss();
-    void given_2_of_2_improved_ss();
-
     void when_sinister_strike_is_performed();
 };

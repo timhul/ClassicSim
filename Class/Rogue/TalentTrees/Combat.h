@@ -9,17 +9,16 @@ class Combat: public TalentTree {
 public:
     Combat(Character *pchar);
 
-    Talent* get_improved_sinister_strike();
-    Talent* get_improved_backstab();
-    Talent* get_dual_wield_spec();
-    Talent* get_blade_flurry();
-    Talent* get_sword_spec();
-    Talent* get_aggression();
-    Talent* get_adrenaline_rush();
-
 private:
     Rogue* rogue;
     RogueSpells* spells;
 
-    Talent* get_endurance();
+    void add_endurance(QMap<QString, Talent*>& talent_tier);
+    void add_improved_sinister_strike(QMap<QString, Talent*>& talent_tier);
+    void add_improved_backstab(QMap<QString, Talent*>& talent_tier);
+    void add_dual_wield_spec(QMap<QString, Talent*>& talent_tier);
+    void add_blade_flurry(QMap<QString, Talent*>& talent_tier);
+    void add_sword_spec(QMap<QString, Talent*>& talent_tier);
+    void add_aggression(QMap<QString, Talent*>& talent_tier);
+    void add_adrenaline_rush(QMap<QString, Talent*>& talent_tier);
 };

@@ -51,14 +51,6 @@ private:
     void test_hit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression_and_5_pc_deathdealer();
     void test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of_3_aggression_and_5_pc_deathdealer();
 
-    void given_1_of_3_imp_eviscerate();
-    void given_2_of_3_imp_eviscerate();
-    void given_3_of_3_imp_eviscerate();
-
-    void given_1_of_3_aggression();
-    void given_2_of_3_aggression();
-    void given_3_of_3_aggression();
-
     void given_5_pc_deathdealer();
 
     void when_eviscerate_is_performed();
