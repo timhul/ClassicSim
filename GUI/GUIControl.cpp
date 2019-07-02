@@ -252,6 +252,7 @@ void GUIControl::set_character(Character* pchar) {
     enchantChanged();
     factionChanged();
     partyMembersUpdated();
+    talentsUpdated();
 }
 
 void GUIControl::selectClass(const QString& class_name) {
@@ -321,6 +322,7 @@ void GUIControl::selectFaction(const int faction) {
     factionChanged();
     enchantChanged();
     equipmentChanged();
+    talentsUpdated();
 }
 
 bool GUIControl::raceAvailable(const QString& race_name) {
