@@ -973,15 +973,6 @@ void TestSpell::given_character_has_stamina(const int value) {
     assert(pchar->get_stats()->get_stamina() == static_cast<unsigned>(value));
 }
 
-void TestSpell::given_talent_rank(Talent* talent, const unsigned num) {
-    assert(num > 0);
-
-    for (unsigned i = 0; i < num; ++i)
-        assert(talent->increment_rank());
-
-    delete talent;
-}
-
 void TestSpell::given_talent_rank(const TalentTree& talent_tree, const QString& talent_name, const unsigned num) {
     assert(num > 0);
 
