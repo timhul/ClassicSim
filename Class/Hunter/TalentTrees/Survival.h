@@ -10,13 +10,13 @@ public:
     Survival(Hunter* pchar);
     ~Survival() override = default;
 
-    Talent* get_monster_slaying();
-    Talent* get_humanoid_slaying();
-    Talent* get_surefooted();
-    Talent* get_killer_instinct();
-    Talent* get_lightning_reflexes();
-
 private:
     Hunter* hunter;
     HunterSpells* spells;
+
+    void add_monster_slaying(QMap<QString, Talent*>& talent_tier);
+    void add_humanoid_slaying(QMap<QString, Talent*>& talent_tier);
+    void add_surefooted(QMap<QString, Talent*>& talent_tier);
+    void add_killer_instinct(QMap<QString, Talent*>& talent_tier);
+    void add_lightning_reflexes(QMap<QString, Talent*>& talent_tier);
 };

@@ -168,7 +168,7 @@ void TestAutoShot::test_hit_dmg_5_of_5_ranged_weapon_specialization() {
     given_a_guaranteed_ranged_white_hit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_ranged_weapon_specialization();
+    given_marksmanship_talent_rank("Ranged Weapon Specialization", 5);
 
     when_auto_shot_is_performed();
 
@@ -198,7 +198,7 @@ void TestAutoShot::test_crit_dmg_1_of_3_monster_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_1_of_3_monster_slaying();
+    given_survival_talent_rank("Monster Slaying", 1);
 
     when_auto_shot_is_performed();
 
@@ -214,7 +214,7 @@ void TestAutoShot::test_crit_dmg_2_of_3_monster_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_2_of_3_monster_slaying();
+    given_survival_talent_rank("Monster Slaying", 2);
 
     when_auto_shot_is_performed();
 
@@ -230,7 +230,7 @@ void TestAutoShot::test_crit_dmg_3_of_3_monster_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_3_of_3_monster_slaying();
+    given_survival_talent_rank("Monster Slaying", 3);
 
     when_auto_shot_is_performed();
 
@@ -246,7 +246,7 @@ void TestAutoShot::test_crit_dmg_1_of_3_humanoid_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_1_of_3_humanoid_slaying();
+    given_survival_talent_rank("Humanoid Slaying", 1);
 
     when_auto_shot_is_performed();
 
@@ -262,7 +262,7 @@ void TestAutoShot::test_crit_dmg_2_of_3_humanoid_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_2_of_3_humanoid_slaying();
+    given_survival_talent_rank("Humanoid Slaying", 2);
 
     when_auto_shot_is_performed();
 
@@ -278,7 +278,7 @@ void TestAutoShot::test_crit_dmg_3_of_3_humanoid_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_3_of_3_humanoid_slaying();
+    given_survival_talent_rank("Humanoid Slaying", 3);
 
     when_auto_shot_is_performed();
 
@@ -293,7 +293,7 @@ void TestAutoShot::test_crit_dmg_not_affected_by_1_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_1_of_5_mortal_shots();
+    given_mortal_shots_rank(1);
 
     when_auto_shot_is_performed();
 
@@ -308,7 +308,7 @@ void TestAutoShot::test_crit_dmg_not_affected_by_2_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_2_of_5_mortal_shots();
+    given_mortal_shots_rank(2);
 
     when_auto_shot_is_performed();
 
@@ -323,7 +323,7 @@ void TestAutoShot::test_crit_dmg_not_affected_by_3_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_3_of_5_mortal_shots();
+    given_mortal_shots_rank(3);
 
     when_auto_shot_is_performed();
 
@@ -338,7 +338,7 @@ void TestAutoShot::test_crit_dmg_not_affected_by_4_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_4_of_5_mortal_shots();
+    given_mortal_shots_rank(4);
 
     when_auto_shot_is_performed();
 
@@ -353,7 +353,7 @@ void TestAutoShot::test_crit_dmg_not_affected_by_5_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
+    given_mortal_shots_rank(5);
 
     when_auto_shot_is_performed();
 

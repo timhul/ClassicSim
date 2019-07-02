@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <utility>
 
+#include "BeastMastery.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
 #include "HunterSpells.h"
@@ -71,191 +72,20 @@ void TestSpellHunter::given_hunter_is_on_gcd() {
     assert(hunter->on_global_cooldown());
 }
 
-void TestSpellHunter::given_1_of_5_efficiency() {
-    Talent* talent = Marksmanship(hunter).get_efficiency();
-
-    assert(talent->increment_rank());
-
-    delete talent;
+void TestSpellHunter::given_beast_mastery_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(BeastMastery(hunter), talent_name, num);
 }
 
-void TestSpellHunter::given_2_of_5_efficiency() {
-    Talent* talent = Marksmanship(hunter).get_efficiency();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+void TestSpellHunter::given_marksmanship_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Marksmanship(hunter), talent_name, num);
 }
 
-void TestSpellHunter::given_3_of_5_efficiency() {
-    Talent* talent = Marksmanship(hunter).get_efficiency();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+void TestSpellHunter::given_survival_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Survival(hunter), talent_name, num);
 }
 
-void TestSpellHunter::given_4_of_5_efficiency() {
-    Talent* talent = Marksmanship(hunter).get_efficiency();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_5_of_5_efficiency() {
-    Talent* talent = Marksmanship(hunter).get_efficiency();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_1_of_5_mortal_shots() {
-    Talent* talent = Marksmanship(hunter).get_mortal_shots();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_2_of_5_mortal_shots() {
-    Talent* talent = Marksmanship(hunter).get_mortal_shots();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    delete talent;
-}
-
-void TestSpellHunter::given_3_of_5_mortal_shots() {
-    Talent* talent = Marksmanship(hunter).get_mortal_shots();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_4_of_5_mortal_shots() {
-    Talent* talent = Marksmanship(hunter).get_mortal_shots();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_5_of_5_mortal_shots() {
-    Talent* talent = Marksmanship(hunter).get_mortal_shots();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_5_of_5_ranged_weapon_specialization() {
-    Talent* talent = Marksmanship(hunter).get_ranged_weapon_specialization();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_1_of_3_monster_slaying() {
-    Talent* talent = Survival(hunter).get_monster_slaying();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_2_of_3_monster_slaying() {
-    Talent* talent = Survival(hunter).get_monster_slaying();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    delete talent;
-}
-
-void TestSpellHunter::given_3_of_3_monster_slaying() {
-    Talent* talent = Survival(hunter).get_monster_slaying();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_1_of_3_humanoid_slaying() {
-    Talent* talent = Survival(hunter).get_humanoid_slaying();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_2_of_3_humanoid_slaying() {
-    Talent* talent = Survival(hunter).get_humanoid_slaying();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    delete talent;
-}
-
-void TestSpellHunter::given_3_of_3_humanoid_slaying() {
-    Talent* talent = Survival(hunter).get_humanoid_slaying();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_1_of_3_barrage() {
-    Talent* talent = Marksmanship(hunter).get_barrage();
-
-    assert(talent->increment_rank());
-
-    delete talent;
-}
-
-void TestSpellHunter::given_2_of_3_barrage() {
-    Talent* talent = Marksmanship(hunter).get_barrage();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    delete talent;
-}
-
-void TestSpellHunter::given_3_of_3_barrage() {
-    Talent* talent = Marksmanship(hunter).get_barrage();
-
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-    assert(talent->increment_rank());
-
-    delete talent;
+void TestSpellHunter::given_mortal_shots_rank(const unsigned num) {
+    auto tree = Marksmanship(hunter);
+    given_talent_rank(tree, "Lethal Shots", 5);
+    given_talent_rank(tree, "Mortal Shots", num);
 }

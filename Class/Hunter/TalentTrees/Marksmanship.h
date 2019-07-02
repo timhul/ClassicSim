@@ -11,16 +11,16 @@ public:
     Marksmanship(Hunter* pchar);
     ~Marksmanship() override = default;
 
-    Talent* get_efficiency();
-    Talent* get_improved_hunters_mark();
-    Talent* get_lethal_shots();
-    Talent* get_aimed_shot();
-    Talent* get_mortal_shots();
-    Talent* get_barrage();
-    Talent* get_ranged_weapon_specialization();
-    Talent* get_trueshot_aura();
-
 private:
     Hunter* hunter;
     HunterSpells* spells;
+
+    void add_efficiency(QMap<QString, Talent*>& talent_tier);
+    void add_improved_hunters_mark(QMap<QString, Talent*>& talent_tier);
+    void add_lethal_shots(QMap<QString, Talent*>& talent_tier);
+    void add_aimed_shot(QMap<QString, Talent*>& talent_tier);
+    void add_mortal_shots(QMap<QString, Talent*>& talent_tier);
+    void add_barrage(QMap<QString, Talent*>& talent_tier);
+    void add_ranged_weapon_specialization(QMap<QString, Talent*>& talent_tier);
+    void add_trueshot_aura(QMap<QString, Talent*>& talent_tier);
 };

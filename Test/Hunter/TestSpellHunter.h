@@ -15,31 +15,10 @@ protected:
     void tear_down() override;
 
     void given_hunter_is_on_gcd();
-    void given_1_of_5_efficiency();
-    void given_2_of_5_efficiency();
-    void given_3_of_5_efficiency();
-    void given_4_of_5_efficiency();
-    void given_5_of_5_efficiency();
-
-    void given_1_of_5_mortal_shots();
-    void given_2_of_5_mortal_shots();
-    void given_3_of_5_mortal_shots();
-    void given_4_of_5_mortal_shots();
-    void given_5_of_5_mortal_shots();
-
-    void given_5_of_5_ranged_weapon_specialization();
-
-    void given_1_of_3_monster_slaying();
-    void given_2_of_3_monster_slaying();
-    void given_3_of_3_monster_slaying();
-
-    void given_1_of_3_humanoid_slaying();
-    void given_2_of_3_humanoid_slaying();
-    void given_3_of_3_humanoid_slaying();
-
-    void given_1_of_3_barrage();
-    void given_2_of_3_barrage();
-    void given_3_of_3_barrage();
+    void given_beast_mastery_talent_rank(const QString& talent_name, const unsigned num);
+    void given_marksmanship_talent_rank(const QString& talent_name, const unsigned num);
+    void given_survival_talent_rank(const QString& talent_name, const unsigned num);
+    void given_mortal_shots_rank(const unsigned num);
 
     void given_hunter_has_mana(const unsigned mana);
     void then_hunter_has_mana(const unsigned mana);

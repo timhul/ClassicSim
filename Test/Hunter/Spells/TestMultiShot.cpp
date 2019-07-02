@@ -183,7 +183,7 @@ void TestMultiShot::test_hit_dmg_5_of_5_ranged_weapon_specialization() {
     given_a_guaranteed_ranged_white_hit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_ranged_weapon_specialization();
+    given_marksmanship_talent_rank("Ranged Weapon Specialization", 5);
 
     when_multi_shot_is_performed();
 
@@ -198,7 +198,7 @@ void TestMultiShot::test_hit_dmg_1_of_3_barrage() {
     given_a_guaranteed_ranged_white_hit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_1_of_3_barrage();
+    given_marksmanship_talent_rank("Barrage", 1);
 
     when_multi_shot_is_performed();
 
@@ -213,7 +213,7 @@ void TestMultiShot::test_hit_dmg_2_of_3_barrage() {
     given_a_guaranteed_ranged_white_hit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_2_of_3_barrage();
+    given_marksmanship_talent_rank("Barrage", 2);
 
     when_multi_shot_is_performed();
 
@@ -228,7 +228,7 @@ void TestMultiShot::test_hit_dmg_3_of_3_barrage() {
     given_a_guaranteed_ranged_white_hit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_3_of_3_barrage();
+    given_marksmanship_talent_rank("Barrage", 3);
 
     when_multi_shot_is_performed();
 
@@ -257,7 +257,7 @@ void TestMultiShot::test_crit_dmg_1_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_1_of_5_mortal_shots();
+    given_mortal_shots_rank(1);
 
     when_multi_shot_is_performed();
 
@@ -272,7 +272,7 @@ void TestMultiShot::test_crit_dmg_2_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_2_of_5_mortal_shots();
+    given_mortal_shots_rank(2);
 
     when_multi_shot_is_performed();
 
@@ -287,7 +287,7 @@ void TestMultiShot::test_crit_dmg_3_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_3_of_5_mortal_shots();
+    given_mortal_shots_rank(3);
 
     when_multi_shot_is_performed();
 
@@ -302,7 +302,7 @@ void TestMultiShot::test_crit_dmg_4_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_4_of_5_mortal_shots();
+    given_mortal_shots_rank(4);
 
     when_multi_shot_is_performed();
 
@@ -317,7 +317,7 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
+    given_mortal_shots_rank(5);
 
     when_multi_shot_is_performed();
 
@@ -333,8 +333,8 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_1_of_3_monster_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
-    given_1_of_3_monster_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Monster Slaying", 1);
 
     when_multi_shot_is_performed();
 
@@ -350,8 +350,8 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_2_of_3_monster_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
-    given_2_of_3_monster_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Monster Slaying", 2);
 
     when_multi_shot_is_performed();
 
@@ -367,8 +367,8 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_monster_slaying() {
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
-    given_3_of_3_monster_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Monster Slaying", 3);
 
     when_multi_shot_is_performed();
 
@@ -384,8 +384,8 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_1_of_3_humanoid_slaying() 
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
-    given_1_of_3_humanoid_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Humanoid Slaying", 1);
 
     when_multi_shot_is_performed();
 
@@ -401,8 +401,8 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_2_of_3_humanoid_slaying() 
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
-    given_2_of_3_humanoid_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Humanoid Slaying", 2);
 
     when_multi_shot_is_performed();
 
@@ -418,8 +418,8 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying() 
     given_a_guaranteed_ranged_white_crit();
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
-    given_5_of_5_mortal_shots();
-    given_3_of_3_humanoid_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Humanoid Slaying", 3);
 
     when_multi_shot_is_performed();
 
@@ -429,7 +429,7 @@ void TestMultiShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying() 
 }
 
 void TestMultiShot::test_mana_cost_1_of_5_efficiency() {
-    given_1_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 1);
     given_hunter_has_mana(225);
     assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -444,7 +444,7 @@ void TestMultiShot::test_mana_cost_1_of_5_efficiency() {
 }
 
 void TestMultiShot::test_mana_cost_2_of_5_efficiency() {
-    given_2_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 2);
     given_hunter_has_mana(221);
     assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -459,7 +459,7 @@ void TestMultiShot::test_mana_cost_2_of_5_efficiency() {
 }
 
 void TestMultiShot::test_mana_cost_3_of_5_efficiency() {
-    given_3_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 3);
     given_hunter_has_mana(216);
     assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -474,7 +474,7 @@ void TestMultiShot::test_mana_cost_3_of_5_efficiency() {
 }
 
 void TestMultiShot::test_mana_cost_4_of_5_efficiency() {
-    given_4_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 4);
     given_hunter_has_mana(212);
     assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -489,7 +489,7 @@ void TestMultiShot::test_mana_cost_4_of_5_efficiency() {
 }
 
 void TestMultiShot::test_mana_cost_5_of_5_efficiency() {
-    given_5_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 5);
     given_hunter_has_mana(207);
     assert(multi_shot()->get_spell_status() == SpellStatus::Available);
 

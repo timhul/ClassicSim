@@ -211,7 +211,7 @@ void TestAimedShot::test_hit_dmg_5_of_5_ranged_weapon_specialization() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_ranged_weapon_specialization();
+    given_marksmanship_talent_rank("Ranged Weapon Specialization", 5);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -246,7 +246,7 @@ void TestAimedShot::test_crit_dmg_1_of_5_mortal_shots_0_of_5_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_1_of_5_mortal_shots();
+    given_mortal_shots_rank(1);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -264,7 +264,7 @@ void TestAimedShot::test_crit_dmg_2_of_5_mortal_shots_0_of_5_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_2_of_5_mortal_shots();
+    given_mortal_shots_rank(2);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -282,7 +282,7 @@ void TestAimedShot::test_crit_dmg_3_of_5_mortal_shots_0_of_5_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_3_of_5_mortal_shots();
+    given_mortal_shots_rank(3);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -300,7 +300,7 @@ void TestAimedShot::test_crit_dmg_4_of_5_mortal_shots_0_of_5_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_4_of_5_mortal_shots();
+    given_mortal_shots_rank(4);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -318,7 +318,7 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_0_of_5_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_mortal_shots();
+    given_mortal_shots_rank(5);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -337,8 +337,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_1_of_3_monster_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_mortal_shots();
-    given_1_of_3_monster_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Monster Slaying", 1);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -357,8 +357,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_2_of_3_monster_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_mortal_shots();
-    given_2_of_3_monster_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Monster Slaying", 2);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -377,8 +377,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_monster_slaying() {
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_mortal_shots();
-    given_3_of_3_monster_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Monster Slaying", 3);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -397,8 +397,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_1_of_3_humanoid_slaying() 
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_mortal_shots();
-    given_1_of_3_humanoid_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Humanoid Slaying", 1);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -417,8 +417,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_2_of_3_humanoid_slaying() 
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_mortal_shots();
-    given_2_of_3_humanoid_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Humanoid Slaying", 2);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -437,8 +437,8 @@ void TestAimedShot::test_crit_dmg_5_of_5_mortal_shots_3_of_3_humanoid_slaying() 
     given_1000_ranged_ap();
     given_no_previous_damage_dealt();
     given_aimed_shot_is_enabled();
-    given_5_of_5_mortal_shots();
-    given_3_of_3_humanoid_slaying();
+    given_mortal_shots_rank(5);
+    given_survival_talent_rank("Humanoid Slaying", 3);
 
     when_aimed_shot_is_performed();
     then_next_event_is(EventType::PlayerAction, "1.500");
@@ -471,7 +471,7 @@ void TestAimedShot::test_aimed_shot_cast_in_progress_blocks_other_spells() {
 
 void TestAimedShot::test_mana_cost_1_of_5_efficiency() {
     given_aimed_shot_is_enabled();
-    given_1_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 1);
     given_hunter_has_mana(304);
     assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -488,7 +488,7 @@ void TestAimedShot::test_mana_cost_1_of_5_efficiency() {
 
 void TestAimedShot::test_mana_cost_2_of_5_efficiency() {
     given_aimed_shot_is_enabled();
-    given_2_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 2);
     given_hunter_has_mana(298);
     assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -505,7 +505,7 @@ void TestAimedShot::test_mana_cost_2_of_5_efficiency() {
 
 void TestAimedShot::test_mana_cost_3_of_5_efficiency() {
     given_aimed_shot_is_enabled();
-    given_3_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 3);
     given_hunter_has_mana(291);
     assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -522,7 +522,7 @@ void TestAimedShot::test_mana_cost_3_of_5_efficiency() {
 
 void TestAimedShot::test_mana_cost_4_of_5_efficiency() {
     given_aimed_shot_is_enabled();
-    given_4_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 4);
     given_hunter_has_mana(285);
     assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -539,7 +539,7 @@ void TestAimedShot::test_mana_cost_4_of_5_efficiency() {
 
 void TestAimedShot::test_mana_cost_5_of_5_efficiency() {
     given_aimed_shot_is_enabled();
-    given_5_of_5_efficiency();
+    given_marksmanship_talent_rank("Efficiency", 5);
     given_hunter_has_mana(279);
     assert(aimed_shot()->get_spell_status() == SpellStatus::Available);
 
@@ -567,11 +567,7 @@ void TestAimedShot::test_aimed_shot_cast_time_reduced_by_ranged_attack_speed_boo
 }
 
 void TestAimedShot::given_aimed_shot_is_enabled() {
-    Talent* talent = Marksmanship(hunter).get_aimed_shot();
-
-    assert(talent->increment_rank());
-
-    delete talent;
+    given_marksmanship_talent_rank("Aimed Shot", 1);
 
     assert(aimed_shot()->is_enabled());
 }
