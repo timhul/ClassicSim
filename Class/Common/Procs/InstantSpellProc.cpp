@@ -13,9 +13,10 @@ InstantSpellProc::InstantSpellProc(Character* pchar,
                                    const double proc_rate,
                                    const MagicSchool school,
                                    const unsigned min_damage,
-                                   const unsigned max_damage) :
+                                   const unsigned max_damage,
+                                   const double spell_coefficient) :
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
-    spell(new InstantSpellAttack(pchar, proc_name, icon, school, min_damage, max_damage))
+    spell(new InstantSpellAttack(pchar, proc_name, icon, school, min_damage, max_damage, spell_coefficient))
 {
     check(!proc_sources.empty(), "No valid proc sources found");
     pchar->get_spells()->add_spell_group({spell});

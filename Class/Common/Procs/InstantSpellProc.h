@@ -14,7 +14,8 @@ public:
                      const double proc_rate,
                      const MagicSchool school,
                      const unsigned min_damage,
-                     const unsigned max_damage);
+                     const unsigned max_damage,
+                     const double spell_coefficient);
     ~InstantSpellProc() override;
 
 private:

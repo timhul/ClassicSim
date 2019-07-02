@@ -29,7 +29,7 @@
 		<dmg_range min="41" max="77" speed="1.3"/>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-			<spell name="FIRE_ATTACK" min="75" max="106" instant="yes" rate="0.05" internal_cd="0"/>
+			<spell name="FIRE_ATTACK" min="75" max="106" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts a target for 75 to 106 Fire damage.
@@ -59,7 +59,7 @@
 		<dmg_range min="73" max="137" speed="1.8"/>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-			<spell name="FIRE_ATTACK" min="40" max="57" instant="yes" rate="0.05" internal_cd="0"/>
+			<spell name="FIRE_ATTACK" min="40" max="57" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts a target for 40 to 57 Fire damage.

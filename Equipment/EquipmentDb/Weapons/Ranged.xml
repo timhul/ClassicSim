@@ -21,7 +21,7 @@
 			<stat type="STAMINA" value="4"/>
 		</stats>
 		<proc>
-			<spell name="SHADOW_ATTACK" min="13" max="20" instant="yes" rate="0.06" internal_cd="0"/>
+			<spell name="SHADOW_ATTACK" min="13" max="20" instant="yes" rate="0.06" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
         Equip: Chance to strike your ranged target with a Shadowbolt for 13 to 20 Shadow damage.
@@ -35,7 +35,7 @@
 		<info name="Dwarven Hand Cannon" type="GUN" slot="RANGED" unique="no" req_lvl="53" item_lvl="58" quality="EPIC" boe="yes" icon="Inv_weapon_rifle_09.png"/>
 		<dmg_range min="66" max="124" speed="2.9"/>
 		<proc>
-			<spell name="FIRE_ATTACK" min="33" max="50" instant="yes" rate="0.06" internal_cd="0"/>
+			<spell name="FIRE_ATTACK" min="33" max="50" instant="yes" rate="0.06" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
         Equip: Chance to strike your ranged target with a Flaming Cannonbal for 33 to 50 Fire damage.

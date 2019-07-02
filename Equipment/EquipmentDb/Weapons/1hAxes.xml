@@ -32,7 +32,7 @@
 		<dmg_range min="78" max="146" speed="2.7"/>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-			<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.05" internal_cd="0"/>
+			<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts a target for 90 to 127 Nature damage.
@@ -81,7 +81,7 @@
 		<info name="Ancient Hakkari Manslayer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_axe_35.png"/>
 		<dmg_range min="69" max="130" speed="2.0"/>
 		<proc>
-			<spell name="SHADOW_ATTACK" min="48" max="54" instant="yes" rate="0.06" internal_cd="0"/>
+			<spell name="SHADOW_ATTACK" min="48" max="54" instant="yes" rate="0.06" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Steals 48 to 55 life from target enemy.
@@ -138,7 +138,7 @@
 		<dmg_range min="114" max="213" speed="2.9"/>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-			<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.05" internal_cd="0"/>
+			<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Sends a shadowy bolt at the enemy causing 110 to 141 Shadow damage.

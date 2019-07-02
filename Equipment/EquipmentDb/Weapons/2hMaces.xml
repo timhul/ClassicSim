@@ -189,7 +189,7 @@
 		<dmg_range min="159" max="248" speed="3.6"/>
 		<proc>
 			<!-- TODO: Find actual proc rate. -->
-			<spell name="PHYSICAL_ATTACK" min="200" max="221" instant="yes" rate="0.05" internal_cd="0"/>
+			<spell name="PHYSICAL_ATTACK" min="200" max="221" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 		Chance on hit: Wounds  the target for 200 to 221 damage.

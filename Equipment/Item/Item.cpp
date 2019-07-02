@@ -437,6 +437,7 @@ void Item::set_procs(const int eq_slot) {
 
             const unsigned min = i["min"].toUInt();
             const unsigned max = i["max"].toUInt();
+            const double coefficient = i["spell_dmg_coefficient"].toDouble();
 
             proc = new InstantSpellProc(pchar,
                                         get_weapon_side_name(eq_slot),
@@ -444,7 +445,8 @@ void Item::set_procs(const int eq_slot) {
                                         proc_sources,
                                         proc_rate,
                                         get_magic_school(proc_name),
-                                        min, max);
+                                        min, max,
+                                        coefficient);
         }
 
         else if (proc_name == "FELSTRIKER_PROC") {

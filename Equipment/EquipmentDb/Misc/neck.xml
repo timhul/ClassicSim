@@ -54,7 +54,7 @@
 			<stat type="FIRE_RESISTANCE" value="12"/>
 		</stats>
 		<proc>
-			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0"/>
+			<spell name="FIRE_ATTACK" min="2" max="2" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<source>
 			Drops from Lord Kazzak (world boss in Blasted Lands).
