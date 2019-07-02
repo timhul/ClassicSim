@@ -1,9 +1,9 @@
 #include "TestEviscerate.h"
 
 #include "Equipment.h"
+#include "Event.h"
 #include "Eviscerate.h"
 #include "Item.h"
-#include "Queue.h"
 #include "Talent.h"
 
 TestEviscerate::TestEviscerate(EquipmentDb *equipment_db) :

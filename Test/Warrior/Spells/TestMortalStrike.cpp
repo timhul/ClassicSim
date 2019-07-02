@@ -1,7 +1,7 @@
 #include "TestMortalStrike.h"
 
+#include "Event.h"
 #include "MortalStrike.h"
-#include "Queue.h"
 
 TestMortalStrike::TestMortalStrike(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Mortal Strike")

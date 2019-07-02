@@ -2,7 +2,7 @@
 
 #include "BerserkerStance.h"
 #include "CharacterStats.h"
-#include "Queue.h"
+#include "Event.h"
 
 TestBerserkerStance::TestBerserkerStance(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Berserker Stance")

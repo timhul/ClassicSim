@@ -1,7 +1,7 @@
 #include "TestBloodthirst.h"
 
 #include "Bloodthirst.h"
-#include "Queue.h"
+#include "Event.h"
 
 TestBloodthirst::TestBloodthirst(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Bloodthirst")

@@ -1,8 +1,8 @@
 #include "TestWhirlwind.h"
 
 #include "Equipment.h"
+#include "Event.h"
 #include "Execute.h"
-#include "Queue.h"
 #include "WarriorSpells.h"
 #include "Whirlwind.h"
 

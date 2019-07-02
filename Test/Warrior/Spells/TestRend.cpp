@@ -5,6 +5,7 @@
 #include "ClassStatistics.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "HeroicStrike.h"
 #include "MainhandAttackWarrior.h"
 #include "OffhandAttackWarrior.h"

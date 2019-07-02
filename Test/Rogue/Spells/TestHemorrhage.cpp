@@ -1,8 +1,8 @@
 #include "TestHemorrhage.h"
 
 #include "Equipment.h"
+#include "Event.h"
 #include "Hemorrhage.h"
-#include "Queue.h"
 #include "RogueSpells.h"
 #include "Subtlety.h"
 #include "Talent.h"

@@ -1,7 +1,7 @@
 #include "TestStormstrike.h"
 
 #include "CharacterStats.h"
-#include "Queue.h"
+#include "Event.h"
 #include "Shaman.h"
 #include "Stormstrike.h"
 

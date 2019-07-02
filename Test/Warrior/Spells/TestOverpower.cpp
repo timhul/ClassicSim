@@ -2,8 +2,8 @@
 
 #include "Buff.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "Overpower.h"
-#include "Queue.h"
 
 TestOverpower::TestOverpower(EquipmentDb *equipment_db) :
     TestSpellWarrior(equipment_db, "Overpower")

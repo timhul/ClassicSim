@@ -3,12 +3,12 @@
 #include "CombatRoll.h"
 #include "Engine.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "Execute.h"
 #include "Fury.h"
 #include "Impale.h"
 #include "MeleeSpecialTable.h"
 #include "Orc.h"
-#include "Queue.h"
 #include "Target.h"
 
 TestExecute::TestExecute(EquipmentDb *equipment_db) :

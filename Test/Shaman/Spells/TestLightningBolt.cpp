@@ -1,8 +1,8 @@
 #include "TestLightningBolt.h"
 
 #include "CharacterStats.h"
+#include "Event.h"
 #include "LightningBolt.h"
-#include "Queue.h"
 #include "Shaman.h"
 
 TestLightningBolt::TestLightningBolt(EquipmentDb *equipment_db) :

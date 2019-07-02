@@ -2,8 +2,8 @@
 
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "Event.h"
 #include "MainhandAttackWarrior.h"
-#include "Queue.h"
 #include "Recklessness.h"
 #include "Whirlwind.h"
 
