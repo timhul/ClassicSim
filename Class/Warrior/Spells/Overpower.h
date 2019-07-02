@@ -13,8 +13,8 @@ public:
 private:
     Warrior* warr;
     WarriorSpells* spells;
-    QVector<unsigned> talent_ranks;
-    unsigned crit_mod;
+    const QVector<unsigned> talent_ranks;
+    unsigned crit_mod {0};
 
     SpellStatus is_ready_spell_specific() const override;
     void spell_effect() override;

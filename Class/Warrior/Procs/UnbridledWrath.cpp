@@ -13,10 +13,10 @@ UnbridledWrath::UnbridledWrath(Character* pchar) :
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Unbridled Wrath", 5, DisabledAtZero::Yes)}),
     statistics_resource(nullptr),
-    warr(dynamic_cast<Warrior*>(pchar))
+    warr(dynamic_cast<Warrior*>(pchar)),
+    talent_ranks({0, 800, 1600, 2400, 3200, 4000})
 {
     this->enabled = false;
-    this->talent_ranks = {0, 800, 1600, 2400, 3200, 4000};
     proc_range = talent_ranks[0];
 }
 

@@ -12,10 +12,9 @@ public:
     void change_duration_modifier(const int);
 
 private:
-    QVector<int> durations;
-    QVector<double> imp_snd_duration_modifiers;
+    const QVector<int> durations;
+    const QVector<double> imp_snd_duration_modifiers;
     double imp_snd_modifier;
-
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

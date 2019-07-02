@@ -17,14 +17,14 @@ public:
 private:
     Rogue* rogue;
     Random* evisc_range;
-    QVector<QPair<unsigned, unsigned>> damage_ranges_per_combo_point;
-    QVector<double> aggression_modifiers;
-    QVector<double> imp_evisc_modifiers;
+    const QVector<QPair<unsigned, unsigned>> damage_ranges_per_combo_point;
+    const QVector<double> aggression_modifiers;
+    const QVector<double> imp_evisc_modifiers;
 
-    double aggression_modifier;
-    double imp_evisc_modifier;
-    double deathdealer_modifier;
-    double total_dmg_modifier;
+    double aggression_modifier {1.0};
+    double imp_evisc_modifier {1.0};
+    double deathdealer_modifier {1.0};
+    double total_dmg_modifier {1.0};
 
     void set_evisc_range();
     void update_dmg_modifier();

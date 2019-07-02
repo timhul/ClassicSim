@@ -17,9 +17,9 @@ OffhandAttackWarrior::OffhandAttackWarrior(Warrior* pchar, WarriorSpells* spells
     OffhandAttack(pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Dual Wield Specialization", 5, DisabledAtZero::No)}),
     warr(pchar),
-    spells(spells)
+    spells(spells),
+    talent_ranks({0.5, 0.525, 0.55, 0.575, 0.6, 0.625})
 {
-    talent_ranks = {0.5, 0.525, 0.55, 0.575, 0.6, 0.625};
     offhand_penalty = talent_ranks[0];
 }
 

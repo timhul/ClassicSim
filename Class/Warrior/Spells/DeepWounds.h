@@ -18,10 +18,10 @@ public:
 private:
     Warrior* warr;
     Buff* buff;
-    double wpn_percent;
-    double previous_tick_rest;
+    double wpn_percent {0.0};
+    double previous_tick_rest {0.0};
     QVector<int> stacks;
-    QVector<double> talent_ranks;
+    const QVector<double> talent_ranks;
 
     void spell_effect() override;
     void reset_effect() override;

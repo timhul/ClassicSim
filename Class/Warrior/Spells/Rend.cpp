@@ -19,9 +19,9 @@ Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
     base_damage(147),
     period_tick(3.0),
     max_ticks(7),
-    num_ticks_left(0)
+    num_ticks_left(0),
+    talent_ranks({1.0, 1.15, 1.25, 1.35})
 {
-    this->talent_ranks = {1.0, 1.15, 1.25, 1.35};
     talent_modifier = talent_ranks[0];
     buff->enable_buff();
 }

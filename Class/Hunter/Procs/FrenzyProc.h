@@ -13,7 +13,7 @@ public:
 
 private:
     FrenzyBuff* frenzy_buff;
-    QVector<unsigned> talent_ranks;
+    const QVector<unsigned> talent_ranks;
 
     void proc_effect() override;
 

@@ -16,7 +16,7 @@ public:
 private:
     StatisticsResource* statistics_resource;
     Warrior* warr;
-    QVector<unsigned> talent_ranks;
+    const QVector<unsigned> talent_ranks;
 
     void prepare_set_of_combat_iterations_spell_specific() override;
 

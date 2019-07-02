@@ -10,8 +10,8 @@ public:
     Flurry(Character* pchar);
 
 private:
-    QVector<unsigned> rank_talents;
-    unsigned attack_speed_increase;
+    const QVector<unsigned> rank_talents;
+    unsigned attack_speed_increase {0};
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

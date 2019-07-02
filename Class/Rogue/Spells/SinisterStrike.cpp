@@ -20,14 +20,10 @@ SinisterStrike::SinisterStrike(Character* pchar) :
     SetBonusRequirer({"Bonescythe Armor"}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     statistics_resource(nullptr),
-    aggression(1.0),
-    lethality(1.0),
-    bonescythe_energy(0)
-{
-    imp_ss_ranks = {45, 42, 40};
-    aggression_ranks = {1.0, 1.02, 1.04, 1.06};
-    lethality_ranks = {1.0, 1.06, 1.12, 1.18, 1.24, 1.30};
-}
+    imp_ss_ranks({45, 42, 40}),
+    aggression_ranks({1.0, 1.02, 1.04, 1.06}),
+    lethality_ranks({1.0, 1.06, 1.12, 1.18, 1.24, 1.30})
+{}
 
 SinisterStrike::~SinisterStrike() {
     delete cooldown;

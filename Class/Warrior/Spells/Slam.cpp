@@ -18,9 +18,9 @@ Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
                      15),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
     warr(pchar),
-    spells(spells)
+    spells(spells),
+    talent_ranks({1500, 1400, 1300, 1200, 1100, 1000})
 {
-    talent_ranks = {1500, 1400, 1300, 1200, 1100, 1000};
     casting_time_ms = talent_ranks[0];
 }
 

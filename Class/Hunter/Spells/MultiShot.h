@@ -18,12 +18,12 @@ private:
     double resource_base;
     unsigned adrenaline_rush {0};
     double giantstalker_bonus {1.0};
-    double mortal_shots_bonus;
-    double barrage_mod;
+    double mortal_shots_bonus {0.0};
+    double barrage_mod {1.0};
     double pvp_gloves_bonus {1.0};
-    QVector<double> efficiency_ranks;
-    QVector<double> mortal_shots_ranks;
-    QVector<double> barrage_ranks;
+    const QVector<double> efficiency_ranks;
+    const QVector<double> mortal_shots_ranks;
+    const QVector<double> barrage_ranks;
 
     void spell_effect() override;
     void prepare_set_of_combat_iterations_spell_specific() override;

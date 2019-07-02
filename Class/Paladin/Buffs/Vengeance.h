@@ -15,8 +15,8 @@ public:
 private:
     Paladin* paladin;
 
-    int dmg_bonus {0};
-    QVector<int> dmg_bonuses;
+    unsigned dmg_bonus {0};
+    const QVector<unsigned> dmg_bonuses;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;

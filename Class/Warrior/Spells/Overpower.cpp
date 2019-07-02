@@ -11,11 +11,9 @@ Overpower::Overpower(Warrior* pchar, WarriorSpells* spells, CooldownControl* coo
     Spell("Overpower", "Assets/items/Inv_sword_05.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Rage, 5),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Overpower", 2, DisabledAtZero::No)}),
     warr(pchar),
-    spells(spells)
-{
-    this->talent_ranks = {0, 2500, 5000};
-    crit_mod = talent_ranks[0];
-}
+    spells(spells),
+    talent_ranks({0, 2500, 5000})
+{}
 
 SpellStatus Overpower::is_ready_spell_specific() const {
     if (warr->in_defensive_stance())

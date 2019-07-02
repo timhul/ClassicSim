@@ -13,10 +13,10 @@ FrenzyProc::FrenzyProc(Character* pchar, Pet* pet) :
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Frenzy", 5, DisabledAtZero::Yes)}),
-    frenzy_buff(new FrenzyBuff(pchar, pet))
+    frenzy_buff(new FrenzyBuff(pchar, pet)),
+    talent_ranks({0, 2000, 4000, 6000, 8000, 10000})
 {
     this->enabled = false;
-    this->talent_ranks = {0, 2000, 4000, 6000, 8000, 10000};
     proc_range = talent_ranks[0];
 }
 

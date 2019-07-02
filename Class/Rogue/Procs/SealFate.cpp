@@ -8,14 +8,12 @@ SealFate::SealFate(Character* pchar) :
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Seal Fate", 5, DisabledAtZero::Yes)}),
-    rogue(dynamic_cast<Rogue*>(pchar))
+    rogue(dynamic_cast<Rogue*>(pchar)),
+    talent_ranks({0, 2000, 4000, 6000, 8000, 10000})
 {
     this->enabled = false;
-    this->talent_ranks = {0, 2000, 4000, 6000, 8000, 10000};
     proc_range = talent_ranks[0];
 }
-
-SealFate::~SealFate() = default;
 
 void SealFate::proc_effect() {
     rogue->gain_combo_points(1);

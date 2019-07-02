@@ -19,7 +19,7 @@ private:
     AspectOfTheHawkBuff* hawk_buff;
     ImprovedAspectOfTheHawkBuff* imp_hawk_buff;
 
-    QVector<unsigned> talent_ranks;
+    const QVector<unsigned> talent_ranks;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;

@@ -16,7 +16,7 @@ private:
     Warrior* warr;
     WarriorSpells* spells;
     StatisticsResource* statistics_resource {nullptr};
-    QVector<double> talent_ranks;
+    const QVector<double> talent_ranks;
 
     void spell_effect() override;
     int calculate_damage() override;

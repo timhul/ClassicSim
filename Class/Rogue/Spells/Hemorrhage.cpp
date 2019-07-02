@@ -16,12 +16,9 @@ Hemorrhage::Hemorrhage(Character* pchar) :
     SetBonusRequirer({"Bonescythe Armor"}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     statistics_resource(nullptr),
-    lethality(1.0),
-    bonescythe_energy(0)
+    lethality_ranks({1.0, 1.06, 1.12, 1.18, 1.24, 1.30})
 {
     this->enabled = false;
-
-    lethality_ranks = {1.0, 1.06, 1.12, 1.18, 1.24, 1.30};
 }
 
 Hemorrhage::~Hemorrhage() {

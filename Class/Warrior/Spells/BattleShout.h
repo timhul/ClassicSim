@@ -17,9 +17,9 @@ public:
 private:
     BattleShoutBuff* buff;
 
-    QVector<unsigned> spell_ranks;
-    QVector<double> ranks_booming_voice;
-    QVector<double> ranks_imp_shout;
+    const QVector<unsigned> spell_ranks;
+    const QVector<double> ranks_booming_voice;
+    const QVector<double> ranks_imp_shout;
     int rank_spell;
     int base_duration;
     int next_duration;

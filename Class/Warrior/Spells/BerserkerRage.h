@@ -14,8 +14,8 @@ public:
 private:
     Warrior* warr;
     StatisticsResource* statistics_resource;
-    QVector<unsigned> talent_ranks;
-    unsigned rage_gain;
+    const QVector<unsigned> talent_ranks;
+    unsigned rage_gain {0};
 
     void spell_effect() override;
     SpellStatus is_ready_spell_specific() const override;

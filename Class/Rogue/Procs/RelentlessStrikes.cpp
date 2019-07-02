@@ -11,15 +11,13 @@ RelentlessStrikes::RelentlessStrikes(Character* pchar) :
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Relentless Strikes", 1, DisabledAtZero::Yes)}),
     statistics_resource(nullptr),
-    rogue(dynamic_cast<Rogue*>(pchar))
+    rogue(dynamic_cast<Rogue*>(pchar)),
+    talent_ranks({0, 2000})
 {
     this->enabled = false;
-    this->talent_ranks = {0, 2000};
-    proc_range = talent_ranks[0];
-    combo_proc_percent = talent_ranks[0];
-}
 
-RelentlessStrikes::~RelentlessStrikes() = default;
+    proc_range = talent_ranks[0];
+}
 
 void RelentlessStrikes::proc_effect() {
     unsigned before_gain = rogue->get_resource_level(ResourceType::Energy);

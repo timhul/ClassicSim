@@ -17,10 +17,10 @@ SwordSpecialization::SwordSpecialization(Character* pchar) :
                                     ProcInfo::Source::OffhandSwing}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Sword Specialization", 5, DisabledAtZero::Yes)}),
-    warr(pchar)
+    warr(pchar),
+    talent_ranks({0, 1, 2, 3, 4, 5})
 {
     this->enabled = false;
-    this->talent_ranks = {0, 1, 2, 3, 4, 5};
 }
 
 SwordSpecialization::~SwordSpecialization() = default;

@@ -13,7 +13,7 @@ public:
 
 private:
     HuntersMarkBuff* hunters_mark;
-    QVector<double> imp_hunters_mark_ranks;
+    const QVector<double> imp_hunters_mark_ranks;
     unsigned hunters_mark_bonus;
     const unsigned base_ranged_ap_bonus;
 

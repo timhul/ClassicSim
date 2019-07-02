@@ -21,24 +21,16 @@ MultiShot::MultiShot(Hunter* pchar, CooldownControl* cooldown_control) :
                                                 new TalentRequirerInfo("Barrage", 3, DisabledAtZero::No)}),
     SetBonusRequirer({"Giantstalker Armor", "Cryptstalker Armor"}),
     ItemModificationRequirer({16463, 16571, 22862, 23279}),
-    hunter(pchar)
+    hunter(pchar),
+    efficiency_ranks({1.0, 0.98, 0.96, 0.94, 0.92, 0.90}),
+    mortal_shots_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30}),
+    barrage_ranks({1.0, 1.05, 1.10, 1.15})
 {
     resource_base = resource_cost;
-    efficiency_ranks = {
-        1.0, 0.98, 0.96, 0.94, 0.92, 0.90
-    };
-    mortal_shots_bonus = 0.0;
-    mortal_shots_ranks = {
-        0.0, 0.06, 0.12, 0.18, 0.24, 0.30
-    };
-    barrage_mod = 1.0;
-    barrage_ranks = {
-        1.0, 1.05, 1.10, 1.15
-    };
 }
 
 void MultiShot::spell_effect() {
-    const int wpn_skill = pchar->get_ranged_wpn_skill();
+    const unsigned wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_ability_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
 
     cooldown->add_gcd_event();

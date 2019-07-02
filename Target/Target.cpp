@@ -12,26 +12,28 @@ Target::Target(const unsigned target_lvl):
     target_lvl(target_lvl),
     base_armor(Mechanics::get_boss_base_armor()),
     target_type(CreatureType::Beast),
-    stats(new Stats())
+    stats(new Stats()),
+    string_to_creature_type({
+                              {"Beast", CreatureType::Beast},
+                              {"Demon", CreatureType::Demon},
+                              {"Dragonkin", CreatureType::Dragonkin},
+                              {"Elemental", CreatureType::Elemental},
+                              {"Giant", CreatureType::Giant},
+                              {"Humanoid", CreatureType::Humanoid},
+                              {"Mechanical", CreatureType::Mechanical},
+                              {"Undead", CreatureType::Undead}
+                            }),
+    creature_type_strings({
+                              {CreatureType::Beast, "Beast"},
+                              {CreatureType::Demon, "Demon"},
+                              {CreatureType::Dragonkin, "Dragonkin"},
+                              {CreatureType::Elemental, "Elemental"},
+                              {CreatureType::Giant, "Giant"},
+                              {CreatureType::Humanoid, "Humanoid"},
+                              {CreatureType::Mechanical, "Mechanical"},
+                              {CreatureType::Undead, "Undead"}
+                          })
 {
-    creature_type_strings = {{CreatureType::Beast, "Beast"},
-                             {CreatureType::Demon, "Demon"},
-                             {CreatureType::Dragonkin, "Dragonkin"},
-                             {CreatureType::Elemental, "Elemental"},
-                             {CreatureType::Giant, "Giant"},
-                             {CreatureType::Humanoid, "Humanoid"},
-                             {CreatureType::Mechanical, "Mechanical"},
-                             {CreatureType::Undead, "Undead"}};
-
-    string_to_creature_type = {{"Beast", CreatureType::Beast},
-                               {"Demon", CreatureType::Demon},
-                               {"Dragonkin", CreatureType::Dragonkin},
-                               {"Elemental", CreatureType::Elemental},
-                               {"Giant", CreatureType::Giant},
-                               {"Humanoid", CreatureType::Humanoid},
-                               {"Mechanical", CreatureType::Mechanical},
-                               {"Undead", CreatureType::Undead}};
-
     stats->increase_armor(base_armor);
 
     this->magic_school_damage_changes.insert(MagicSchool::Arcane, {});

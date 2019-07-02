@@ -24,7 +24,7 @@ private:
     double period_tick;
     int max_ticks;
     int num_ticks_left;
-    QVector<double> talent_ranks;
+    const QVector<double> talent_ranks;
 
     void spell_effect() override;
     void reset_effect() override;

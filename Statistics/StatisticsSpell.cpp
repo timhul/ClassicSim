@@ -178,31 +178,29 @@ StatisticsSpell::StatisticsSpell(QString  name, QString  icon):
     min_dpet(std::numeric_limits<double>::max()),
     max_dpet(std::numeric_limits<double>::min()),
     avg_dpet(0),
-    dpet_set(false)
-{
-    this->possible_attempt_outcomes = QSet<Outcome>({
-                                                        Outcome::Miss,
-                                                        Outcome::FullResist,
-                                                        Outcome::Dodge,
-                                                        Outcome::Parry,
-                                                        Outcome::FullBlock,
-                                                        Outcome::PartialResist,
-                                                        Outcome::PartialBlock,
-                                                        Outcome::PartialBlockCrit,
-                                                        Outcome::Glancing,
-                                                        Outcome::Hit,
-                                                        Outcome::Crit
-                                                    });
-
-    this->possible_success_outcomes = QSet<Outcome>({
-                                                        Outcome::PartialResist,
-                                                        Outcome::PartialBlock,
-                                                        Outcome::PartialBlockCrit,
-                                                        Outcome::Glancing,
-                                                        Outcome::Hit,
-                                                        Outcome::Crit
-                                                    });
-}
+    dpet_set(false),
+    possible_attempt_outcomes(QSet<Outcome>({
+                                                Outcome::Miss,
+                                                Outcome::FullResist,
+                                                Outcome::Dodge,
+                                                Outcome::Parry,
+                                                Outcome::FullBlock,
+                                                Outcome::PartialResist,
+                                                Outcome::PartialBlock,
+                                                Outcome::PartialBlockCrit,
+                                                Outcome::Glancing,
+                                                Outcome::Hit,
+                                                Outcome::Crit
+                                            })),
+    possible_success_outcomes(QSet<Outcome>({
+                                                Outcome::PartialResist,
+                                                Outcome::PartialBlock,
+                                                Outcome::PartialBlockCrit,
+                                                Outcome::Glancing,
+                                                Outcome::Hit,
+                                                Outcome::Crit
+                                            }))
+{}
 
 StatisticsSpell::~StatisticsSpell() {
     reset();

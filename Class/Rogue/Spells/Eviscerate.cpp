@@ -20,23 +20,16 @@ Eviscerate::Eviscerate(Character* pchar) :
     SetBonusRequirer({"Deathdealer's Embrace"}),
     rogue(dynamic_cast<Rogue*>(pchar)),
     evisc_range(new Random(904, 1012)),
-    deathdealer_modifier(1.0),
-    total_dmg_modifier(1.0)
-{
-    this->damage_ranges_per_combo_point = {
-        QPair<unsigned, unsigned>(224, 332),
-        QPair<unsigned, unsigned>(394, 502),
-        QPair<unsigned, unsigned>(564, 672),
-        QPair<unsigned, unsigned>(734, 842),
-        QPair<unsigned, unsigned>(904, 1012),
-    };
-
-    this->aggression_modifiers = {1.0, 1.02, 1.04, 1.06};
-    this->aggression_modifier = aggression_modifiers[0];
-
-    this->imp_evisc_modifiers = {1.0, 1.05, 1.10, 1.15};
-    this->imp_evisc_modifier = imp_evisc_modifiers[0];
-}
+    damage_ranges_per_combo_point({
+                                  QPair<unsigned, unsigned>(224, 332),
+                                  QPair<unsigned, unsigned>(394, 502),
+                                  QPair<unsigned, unsigned>(564, 672),
+                                  QPair<unsigned, unsigned>(734, 842),
+                                  QPair<unsigned, unsigned>(904, 1012),
+                              }),
+    aggression_modifiers({1.0, 1.02, 1.04, 1.06}),
+    imp_evisc_modifiers({1.0, 1.05, 1.10, 1.15})
+{}
 
 Eviscerate::~Eviscerate() {
     delete evisc_range;

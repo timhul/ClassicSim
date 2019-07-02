@@ -15,17 +15,18 @@ Execute::Execute(Warrior* pchar, WarriorSpells* spells) :
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Execute", 2, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),
+    spell_ranks({
+                QPair<int, int>(125, 3),
+                QPair<int, int>(200, 6),
+                QPair<int, int>(325, 9),
+                QPair<int, int>(450, 12),
+                QPair<int, int>(600, 15)
+                }),
+    talent_ranks({15, 13, 10}),
     execute_threshold(0.2)
 {
-    spell_ranks = {QPair<int, int>(125, 3),
-                   QPair<int, int>(200, 6),
-                   QPair<int, int>(325, 9),
-                   QPair<int, int>(450, 12),
-                   QPair<int, int>(600, 15)};
     initial_dmg = 600;
     dmg_per_rage_converted = 15;
-
-    talent_ranks = {15, 13, 10};
 }
 
 Execute::~Execute() {

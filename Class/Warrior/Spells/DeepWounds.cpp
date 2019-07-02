@@ -15,13 +15,10 @@ DeepWounds::DeepWounds(Character* pchar) :
                                   12,
                                   "Deep Wounds",
                                   "Assets/ability/Ability_backstab.png",
-                                  Hidden::No))
+                                  Hidden::No)),
+    talent_ranks({0.0, 0.2, 0.4, 0.6})
 {
     this->enabled = false;
-
-    this->previous_tick_rest = 0;
-    this->talent_ranks = {0.0, 0.2, 0.4, 0.6};
-    wpn_percent = talent_ranks[0];
 }
 
 DeepWounds::~DeepWounds() {

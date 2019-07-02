@@ -9,11 +9,9 @@ BerserkerRage::BerserkerRage(Character* pchar) :
     Spell("Berserker Rage", "Assets/spell/Spell_nature_ancestralguardian.png", pchar, new CooldownControl(pchar, 30.0), RestrictedByGcd::No, ResourceType::Rage, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Berserker Rage", 2, DisabledAtZero::No)}),
     warr(dynamic_cast<Warrior*>(pchar)),
-    statistics_resource(nullptr)
-{
-    talent_ranks = {0, 5, 10};
-    rage_gain = talent_ranks[0];
-}
+    statistics_resource(nullptr),
+    talent_ranks({0, 5, 10})
+{}
 
 SpellStatus BerserkerRage::is_ready_spell_specific() const {
     if (warr->in_battle_stance())

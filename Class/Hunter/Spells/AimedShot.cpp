@@ -23,19 +23,13 @@ AimedShot::AimedShot(Hunter* pchar, CooldownControl* cooldown_control) :
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),
     SetBonusRequirer({"Cryptstalker Armor"}),
     hunter(pchar),
-    base_casting_time_ms(3000)
+    base_casting_time_ms(3000),
+    efficiency_ranks({1.0, 0.98, 0.96, 0.94, 0.92, 0.90}),
+    mortal_shots_ranks({0.0, 0.06, 0.12, 0.18, 0.24, 0.30})
 {
     this->enabled = false;
     resource_base = resource_cost;
-    casting_time_ms = 3000;
-
-    efficiency_ranks = {
-        1.0, 0.98, 0.96, 0.94, 0.92, 0.90
-    };
-    mortal_shots_bonus = 0.0;
-    mortal_shots_ranks = {
-        0.0, 0.06, 0.12, 0.18, 0.24, 0.30
-    };
+    casting_time_ms = base_casting_time_ms;
 }
 
 void AimedShot::spell_effect() {
@@ -50,7 +44,7 @@ void AimedShot::complete_cast_effect() {
     cooldown->add_spell_cd_event();
 
     pchar->lose_mana(resource_cost);
-    const int wpn_skill = pchar->get_ranged_wpn_skill();
+    const unsigned wpn_skill = pchar->get_ranged_wpn_skill();
     const int result = roll->get_ranged_ability_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance());
 
     if (result == PhysicalAttackResult::MISS) {

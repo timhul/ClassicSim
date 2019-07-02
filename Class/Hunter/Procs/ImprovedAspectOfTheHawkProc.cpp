@@ -10,10 +10,10 @@ ImprovedAspectOfTheHawkProc::ImprovedAspectOfTheHawkProc(Character* pchar, Aspec
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Aspect of the Hawk", 5, DisabledAtZero::Yes)}),
     hawk_buff(hawk_buff),
-    imp_hawk_buff(new ImprovedAspectOfTheHawkBuff(pchar))
+    imp_hawk_buff(new ImprovedAspectOfTheHawkBuff(pchar)),
+    talent_ranks({0, 100, 200, 300, 400, 500})
 {
     this->enabled = false;
-    this->talent_ranks = {0, 100, 200, 300, 400, 500};
     proc_range = talent_ranks[0];
 }
 

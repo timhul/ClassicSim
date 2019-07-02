@@ -17,10 +17,9 @@ private:
     const unsigned base_casting_time_ms;
     unsigned adrenaline_rush {0};
     double resource_base;
-    double mortal_shots_bonus;
-    QVector<double> talent_ranks;
-    QVector<double> efficiency_ranks;
-    QVector<double> mortal_shots_ranks;
+    double mortal_shots_bonus {0.0};
+    const QVector<double> efficiency_ranks;
+    const QVector<double> mortal_shots_ranks;
 
     void spell_effect() override;
     void complete_cast_effect() override;

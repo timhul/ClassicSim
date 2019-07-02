@@ -10,7 +10,7 @@ public:
 private:
     friend class DualWieldSpecializationRogue;
 
-    QVector<double> talent_ranks;
+    const QVector<double> talent_ranks;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;

@@ -17,11 +17,11 @@
 Equipment::Equipment(EquipmentDb *equipment_db, Character* pchar):
     db(equipment_db),
     pchar(pchar),
-    set_bonuses(new SetBonusControl(equipment_db, pchar))
+    set_bonuses(new SetBonusControl(equipment_db, pchar)),
+    stats_from_equipped_gear({nullptr, nullptr, nullptr})
 {
     setup_index = 0;
 
-    stats_from_equipped_gear = {nullptr, nullptr, nullptr};
     for (auto & i : stats_from_equipped_gear) {
         i = new Stats();
     }

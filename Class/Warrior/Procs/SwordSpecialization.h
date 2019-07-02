@@ -11,14 +11,13 @@ public:
     SwordSpecialization(Character* pchar);
     ~SwordSpecialization() override;
 
-
     bool proc_specific_conditions_fulfilled() const override;
 
 private:
     friend class SwordSpecializationTalent;
 
     Character* warr;
-    QVector<unsigned> talent_ranks;
+    const QVector<unsigned> talent_ranks;
 
     bool weapon_is_sword(Weapon*) const;
 

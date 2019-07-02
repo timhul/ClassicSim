@@ -15,9 +15,9 @@ public:
 private:
     Rogue* rogue;
     StatisticsResource* statistics_resource;
-    double lethality;
-    QVector<double> lethality_ranks;
-    unsigned bonescythe_energy;
+    double lethality {1.0};
+    const QVector<double> lethality_ranks;
+    unsigned bonescythe_energy {0};
 
     void spell_effect() override;
 

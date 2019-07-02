@@ -8,14 +8,12 @@ Ruthlessness::Ruthlessness(Character* pchar) :
          QVector<ProcInfo::Source>({ProcInfo::Source::Manual}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Ruthlessness", 3, DisabledAtZero::Yes)}),
-    rogue(dynamic_cast<Rogue*>(pchar))
+    rogue(dynamic_cast<Rogue*>(pchar)),
+    talent_ranks({0, 2000, 4000, 6000})
 {
     this->enabled = false;
-    this->talent_ranks = {0, 2000, 4000, 6000};
     proc_range = talent_ranks[0];
 }
-
-Ruthlessness::~Ruthlessness() = default;
 
 void Ruthlessness::proc_effect() {
     rogue->gain_combo_points(1);
