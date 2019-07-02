@@ -216,7 +216,7 @@ GUIControl::~GUIControl() {
 void GUIControl::set_character(Character* pchar) {
     sim_settings->use_ruleset(Ruleset::Standard, current_char);
     current_char = pchar;
-    raid_control = raid_controls[current_char->get_name()];
+    raid_control = raid_controls[current_char->class_name];
     item_type_filter_model->set_character(current_char);
     item_model->set_character(current_char);
     weapon_model->set_character(current_char);
@@ -242,7 +242,7 @@ void GUIControl::set_character(Character* pchar) {
 
     selectDisplayStat(get_attack_mode_as_string());
 
-    raid_setup[0][0] = QVariantMap{{"text", "You"}, {"color", current_char->get_class_color()}, {"selected", true}};
+    raid_setup[0][0] = QVariantMap{{"text", "You"}, {"color", current_char->class_color}, {"selected", true}};
 
     raceChanged();
     classChanged();
@@ -276,7 +276,7 @@ void GUIControl::selectRace(const QString& race_name) {
     }
 
     if (!current_char->race_available(races[race_name])) {
-        qDebug() << QString("Race %1 not available for %2").arg(race_name, current_char->get_name());
+        qDebug() << QString("Race %1 not available for %2").arg(race_name, current_char->class_name);
         return;
     }
 
@@ -289,7 +289,7 @@ void GUIControl::selectFaction(const int faction) {
     if (this->current_char->get_faction()->get_faction() == faction)
         return;
 
-    if (current_char->get_name() == "Shaman" || current_char->get_name() == "Paladin") {
+    if (current_char->class_name == "Shaman" || current_char->class_name == "Paladin") {
         const AvailableFactions::Name target_faction = current_char->get_faction()->get_faction_as_enum();
         set_character(chars["Warrior"]);
 
@@ -559,11 +559,11 @@ int GUIControl::get_talent_points_remaining() const {
 }
 
 QString GUIControl::get_class_color() const {
-    return current_char->get_class_color();
+    return current_char->class_color;
 }
 
 QString GUIControl::get_class_name() const {
-    return current_char->get_name();
+    return current_char->class_name;
 }
 
 QString GUIControl::get_race_name() const {
@@ -631,15 +631,15 @@ unsigned GUIControl::get_ranged_attack_power() const {
     return current_char->get_stats()->get_ranged_ap();
 }
 
-int GUIControl::get_mainhand_wpn_skill() const {
+unsigned GUIControl::get_mainhand_wpn_skill() const {
     return current_char->get_mh_wpn_skill();
 }
 
-int GUIControl::get_offhand_wpn_skill() const {
+unsigned GUIControl::get_offhand_wpn_skill() const {
     return current_char->get_oh_wpn_skill();
 }
 
-int GUIControl::get_ranged_wpn_skill() const {
+unsigned GUIControl::get_ranged_wpn_skill() const {
     return current_char->get_ranged_wpn_skill();
 }
 
@@ -1035,7 +1035,7 @@ void GUIControl::selectTemplateCharacter(QString template_char) {
         return;
 
     TemplateCharacterInfo info = TemplateCharacters::template_character_info(template_char);
-    const QString color = chars[info.class_name]->get_class_color();
+    const QString color = chars[info.class_name]->class_color;
     const QString setup_string = info.setup_string.arg(static_cast<int>(sim_settings->get_phase())).arg(current_party - 1).arg(current_member - 1);
 
     raid_setup[current_party - 1][current_member - 1] = QVariantMap{{"text", template_char}, {"color", color}, {"setup_string", setup_string}};
@@ -1160,7 +1160,7 @@ QString GUIControl::get_relic_icon() const {
 void GUIControl::selectSlot(const QString& slot_string) {
     int slot = get_slot_int(slot_string);
 
-    if (slot == -1 || (slot == ItemSlots::PROJECTILE && current_char->get_name() != "Hunter"))
+    if (slot == -1 || (slot == ItemSlots::PROJECTILE && current_char->class_name != "Hunter"))
         return;
 
     item_type_filter_model->set_item_slot(slot);
@@ -1626,7 +1626,7 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
     else if (slot == "2H")
         set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
     else if (slot == "RANGED") {
-        if (current_char->get_name() == "Hunter" || current_char->get_name() == "Warrior" || current_char->get_name() == "Rogue")
+        if (current_char->class_name == "Hunter" || current_char->class_name == "Warrior" || current_char->class_name == "Rogue")
             set_weapon_tooltip(item, slot, "Ranged", dmg_range, weapon_speed, dps);
     }
     else if (slot == "PROJECTILE")
@@ -1690,23 +1690,23 @@ void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction
     QVector<QString> restrictions;
 
     if (item->get_value("RESTRICTED_TO_WARRIOR") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Warrior"]->get_class_color(), chars["Warrior"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Warrior"]->class_color, chars["Warrior"]->class_name));
     if (item->get_value("RESTRICTED_TO_PALADIN") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Paladin"]->get_class_color(), chars["Paladin"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Paladin"]->class_color, chars["Paladin"]->class_name));
     if (item->get_value("RESTRICTED_TO_ROGUE") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Rogue"]->get_class_color(), chars["Rogue"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Rogue"]->class_color, chars["Rogue"]->class_name));
     if (item->get_value("RESTRICTED_TO_HUNTER") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Hunter"]->get_class_color(), chars["Hunter"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Hunter"]->class_color, chars["Hunter"]->class_name));
     if (item->get_value("RESTRICTED_TO_SHAMAN") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Shaman"]->get_class_color(), chars["Shaman"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Shaman"]->class_color, chars["Shaman"]->class_name));
     if (item->get_value("RESTRICTED_TO_DRUID") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Druid"]->get_class_color(), chars["Druid"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Druid"]->class_color, chars["Druid"]->class_name));
     if (item->get_value("RESTRICTED_TO_MAGE") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Mage"]->get_class_color(), chars["Mage"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Mage"]->class_color, chars["Mage"]->class_name));
     if (item->get_value("RESTRICTED_TO_PRIEST") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Priest"]->get_class_color(), chars["Priest"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Priest"]->class_color, chars["Priest"]->class_name));
     if (item->get_value("RESTRICTED_TO_WARLOCK") != "")
-        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Warlock"]->get_class_color(), chars["Warlock"]->get_name()));
+        restrictions.append(QString("<font color=\"%1\">%2</font>").arg(chars["Warlock"]->class_color, chars["Warlock"]->class_name));
 
     if (restrictions.empty())
         return;
@@ -1845,7 +1845,7 @@ void GUIControl::save_settings() {
     save_gui_settings();
 
     for (auto & pchar : chars) {
-        if (!supported_classes.contains(pchar->get_name()))
+        if (!supported_classes.contains(pchar->class_name))
             continue;
 
         set_character(pchar);
@@ -1857,7 +1857,7 @@ void GUIControl::save_user_setup(Character* pchar) {
     if (pchar == nullptr)
         pchar = current_char;
 
-    QFile file(QString("Saves/%1-setup.xml").arg(pchar->get_name()));
+    QFile file(QString("Saves/%1-setup.xml").arg(pchar->class_name));
     file.remove();
 
     if (file.open(QIODevice::ReadWrite)) {
@@ -1890,7 +1890,7 @@ void GUIControl::save_gui_settings() {
         stream.writeStartDocument();
         stream.writeStartElement("settings");
 
-        stream.writeTextElement("class", current_char->get_name());
+        stream.writeTextElement("class", current_char->class_name);
         stream.writeTextElement("race", current_char->get_race()->get_name());
         stream.writeTextElement("window", active_window);
         stream.writeTextElement("num_iterations_quick_sim", QString("%1").arg(sim_settings->get_combat_iterations_quick_sim()));

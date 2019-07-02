@@ -22,7 +22,7 @@
 #include "Weapon.h"
 
 Rogue::Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Rogue", race, sim_settings, raid_control, party, member),
+    Character("Rogue", "#FFF569", race, sim_settings, raid_control, party, member),
     combo_points(0),
     stealthed(false)
 {
@@ -79,10 +79,6 @@ Rogue::~Rogue()
     delete ruthlessness;
     delete seal_fate;
     delete sword_spec;
-}
-
-QString Rogue::get_class_color() const {
-    return "#FFF569";
 }
 
 unsigned Rogue::get_strength_modifier() const {

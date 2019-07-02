@@ -53,7 +53,7 @@ void RotationModel::select_rotation() {
     if (information_index < 0 || information_index >= rowCount())
         return;
 
-    pchar->get_spells()->set_rotation(rotations[pchar->get_name()][information_index]);
+    pchar->get_spells()->set_rotation(rotations[pchar->class_name][information_index]);
 }
 
 bool RotationModel::set_information_index(const int index) {
@@ -62,8 +62,8 @@ bool RotationModel::set_information_index(const int index) {
 
     layoutAboutToBeChanged();
     information_index = index;
-    rotations[pchar->get_name()][information_index]->link_spells(pchar);
-    rotation_conditions_model->set_rotation(rotations[pchar->get_name()][information_index]);
+    rotations[pchar->class_name][information_index]->link_spells(pchar);
+    rotation_conditions_model->set_rotation(rotations[pchar->class_name][information_index]);
     layoutChanged();
     return true;
 }
@@ -72,14 +72,14 @@ QString RotationModel::get_rotation_information_name() const {
     if (information_index < 0 || information_index >= rowCount())
         return "";
 
-    return rotations[pchar->get_name()][information_index]->get_name();
+    return rotations[pchar->class_name][information_index]->get_name();
 }
 
 QString RotationModel::get_rotation_information_description() const {
     if (information_index < 0 || information_index >= rowCount())
         return "";
 
-    return rotations[pchar->get_name()][information_index]->get_description();
+    return rotations[pchar->class_name][information_index]->get_description();
 }
 
 RotationConditionsModel* RotationModel::get_rotation_conditions_model() const {
@@ -88,14 +88,14 @@ RotationConditionsModel* RotationModel::get_rotation_conditions_model() const {
 
 int RotationModel::rowCount(const QModelIndex & parent) const {
     Q_UNUSED(parent);
-    return rotations[pchar->get_name()].size();
+    return rotations[pchar->class_name].size();
 }
 
 QVariant RotationModel::data(const QModelIndex & index, int role) const {
     if (index.row() < 0 || index.row() >= rowCount())
         return QVariant();
 
-    const Rotation* rotation = rotations[pchar->get_name()][index.row()];
+    const Rotation* rotation = rotations[pchar->class_name][index.row()];
 
     if (role == NameRole)
         return rotation->get_name();

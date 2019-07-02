@@ -1,4 +1,3 @@
-
 #include "Warrior.h"
 
 #include "Arms.h"
@@ -23,7 +22,7 @@
 #include "Weapon.h"
 
 Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Warrior", race, sim_settings, raid_control, party, member) {
+    Character("Warrior", "#C79C6E", race, sim_settings, raid_control, party, member) {
     available_races.append("Dwarf");
     available_races.append("Gnome");
     available_races.append("Human");
@@ -68,10 +67,6 @@ Warrior::~Warrior() {
     delete cstats;
     delete warr_spells;
     delete rage;
-}
-
-QString Warrior::get_class_color() const {
-    return "#C79C6E";
 }
 
 unsigned Warrior::get_strength_modifier() const {

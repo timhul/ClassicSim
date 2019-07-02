@@ -11,7 +11,7 @@
 #include "Weapon.h"
 
 Priest::Priest(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Priest", race, sim_settings, raid_control, party, member) {
+    Character("Priest", "#FFFFFF", race, sim_settings, raid_control, party, member) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_races.append("Night Elf");
@@ -46,10 +46,6 @@ Priest::~Priest()
     delete cstats;
     delete priest_spells;
     delete mana;
-}
-
-QString Priest::get_class_color() const {
-    return "#FFFFFF";
 }
 
 unsigned Priest::get_strength_modifier() const {

@@ -33,7 +33,7 @@ void TestMage::test_values_after_initialization() {
     auto* raid_control = new RaidControl(sim_settings);
     auto* mage = new Mage(race, equipment_db, sim_settings, raid_control);
 
-    assert(mage->get_name() == "Mage");
+    assert(mage->class_name == "Mage");
     assert(mage->get_race()->get_name() == "Troll");
     assert(mage->get_highest_possible_armor_type() == ArmorTypes::CLOTH);
     assert(almost_equal(1.5, mage->global_cooldown()));

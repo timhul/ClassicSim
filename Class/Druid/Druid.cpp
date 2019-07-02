@@ -14,7 +14,7 @@
 #include "Weapon.h"
 
 Druid::Druid(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Druid", race, sim_settings, raid_control, party, member) {
+    Character("Druid", "#FF7D0A", race, sim_settings, raid_control, party, member) {
     available_races.append("Night Elf");
     available_races.append("Tauren");
 
@@ -48,10 +48,6 @@ Druid::~Druid()
     delete energy;
     delete rage;
     delete druid_spells;
-}
-
-QString Druid::get_class_color() const {
-    return "#FF7D0A";
 }
 
 unsigned Druid::get_strength_modifier() const {

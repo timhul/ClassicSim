@@ -291,7 +291,7 @@ void CharacterLoader::select_rotation(CharacterDecoder& decoder, Character* pcha
         if (rotation == nullptr)
             continue;
 
-        if (pchar->get_name() != rotation->get_class() || rotation->get_name() != rotation_name) {
+        if (pchar->class_name != rotation->get_class() || rotation->get_name() != rotation_name) {
             delete rotation;
             continue;
         }

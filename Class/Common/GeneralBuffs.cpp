@@ -13,7 +13,7 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
     faction(faction),
     current_setup(0)
 {
-    QVector<ExternalBuffName> buff_names = get_buff_names_for_class(pchar->get_name());
+    QVector<ExternalBuffName> buff_names = get_buff_names_for_class(pchar->class_name);
 
     for (int i = 0; i < 3; ++i) {
         QVector<QPair<bool, ExternalBuff*>> external_buff_setup;

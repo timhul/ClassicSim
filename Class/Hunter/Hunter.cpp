@@ -17,7 +17,7 @@
 #include "Weapon.h"
 
 Hunter::Hunter(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Hunter", race, sim_settings, raid_control, party, member),
+    Character("Hunter", "#ABD473", race, sim_settings, raid_control, party, member),
     projectile_dps(0.0) {
     available_races.append("Dwarf");
     available_races.append("Night Elf");
@@ -67,10 +67,6 @@ Hunter::~Hunter()
     delete cstats;
     delete hunter_spells;
     delete mana;
-}
-
-QString Hunter::get_class_color() const {
-    return "#ABD473";
 }
 
 unsigned Hunter::get_strength_modifier() const {

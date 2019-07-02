@@ -34,7 +34,7 @@ enum class MagicSchool : int;
 
 class Character {
 public:
-    Character(QString class_name, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member);
+    Character(QString class_name, QString class_color, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member);
     virtual ~Character();
 
     CharacterEnchants* get_enchants() const;
@@ -57,9 +57,6 @@ public:
 
     void set_race(Race* race);
     bool race_available(Race*) const;
-
-    QString get_name() const;
-    virtual QString get_class_color() const = 0;
 
     virtual int get_highest_possible_armor_type() const = 0;
     virtual QVector<int> get_weapon_proficiencies_for_slot(const int) const = 0;
@@ -154,9 +151,10 @@ public:
     virtual void decrease_mp5_within_5sr_modifier(const double decrease);
 
     const int instance_id;
+    const QString class_name;
+    const QString class_color;
 
 protected:
-    QString class_name;
     Race* race;
     Engine* engine;
     Target* target;

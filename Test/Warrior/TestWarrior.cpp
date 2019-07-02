@@ -73,7 +73,7 @@ void TestWarrior::test_values_after_initialization() {
     auto* raid_control = new RaidControl(sim_settings);
     auto* warr = new Warrior(race, equipment_db, sim_settings, raid_control);
 
-    assert(warr->get_name() == "Warrior");
+    assert(warr->class_name == "Warrior");
     assert(warr->get_race()->get_name() == "Orc");
     assert(warr->get_highest_possible_armor_type() == ArmorTypes::PLATE);
     assert(almost_equal(1.5, warr->global_cooldown()));

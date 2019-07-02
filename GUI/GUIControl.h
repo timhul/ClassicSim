@@ -134,7 +134,7 @@ public:
     Q_SIGNAL void displayStatsTypeChanged();
     QString get_stats_type_to_display() const;
     QString get_attack_mode_as_string() const;
-    int get_ranged_wpn_skill() const;
+    unsigned get_ranged_wpn_skill() const;
     Q_INVOKABLE void selectDisplayStat(const QString& attack_mode);
     /* End of Stats */
 
@@ -356,8 +356,8 @@ private:
 
     unsigned get_melee_attack_power() const;
     unsigned get_ranged_attack_power() const;
-    int get_mainhand_wpn_skill() const;
-    int get_offhand_wpn_skill() const;
+    unsigned get_mainhand_wpn_skill() const;
+    unsigned get_offhand_wpn_skill() const;
 
     QString get_curr_rotation_name() const;
     QString get_curr_rotation_description() const;

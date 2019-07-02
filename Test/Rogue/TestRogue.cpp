@@ -56,7 +56,7 @@ void TestRogue::test_values_after_initialization() {
     auto* raid_control = new RaidControl(sim_settings);
     auto* rogue = new Rogue(race, equipment_db, sim_settings, raid_control);
 
-    assert(rogue->get_name() == "Rogue");
+    assert(rogue->class_name == "Rogue");
     assert(rogue->get_race()->get_name() == "Orc");
     assert(rogue->get_highest_possible_armor_type() == ArmorTypes::LEATHER);
     assert(almost_equal(1.0, rogue->global_cooldown()));

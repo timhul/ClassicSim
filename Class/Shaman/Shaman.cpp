@@ -17,7 +17,7 @@
 #include "Weapon.h"
 
 Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Shaman", race, sim_settings, raid_control, party, member) {
+    Character("Shaman", "#0070DE", race, sim_settings, raid_control, party, member) {
     available_races.append("Orc");
     available_races.append("Tauren");
     available_races.append("Troll");
@@ -52,10 +52,6 @@ Shaman::~Shaman()
 
     delete shaman_spells;
     delete mana;
-}
-
-QString Shaman::get_class_color() const {
-    return "#0070DE";
 }
 
 unsigned Shaman::get_strength_modifier() const {

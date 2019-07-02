@@ -33,7 +33,7 @@ void TestShaman::test_values_after_initialization() {
     auto* raid_control = new RaidControl(sim_settings);
     auto* shaman = new Shaman(race, equipment_db, sim_settings, raid_control);
 
-    assert(shaman->get_name() == "Shaman");
+    assert(shaman->class_name == "Shaman");
     assert(shaman->get_race()->get_name() == "Orc");
     assert(shaman->get_highest_possible_armor_type() == ArmorTypes::MAIL);
     assert(almost_equal(1.5, shaman->global_cooldown()));

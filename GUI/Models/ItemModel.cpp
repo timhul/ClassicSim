@@ -124,7 +124,7 @@ void ItemModel::update_items() {
         if (!tmp_item->available_for_faction(static_cast<AvailableFactions::Name>(pchar->get_faction()->get_faction())))
             continue;
 
-        if (!tmp_item->available_for_class(pchar->get_name()))
+        if (!tmp_item->available_for_class(pchar->class_name))
             continue;
 
         if (!item_type_filter_model->get_item_type_valid(tmp_item->get_item_type()))

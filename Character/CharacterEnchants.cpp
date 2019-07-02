@@ -109,7 +109,7 @@ bool CharacterEnchants::temp_enchant_valid(EnchantName::Name enchant_name, const
         case EnchantName::WindfuryTotem:
             return equipment_slot != EquipmentSlot::OFFHAND && pchar->get_faction()->is_horde();
         case EnchantName::InstantPoison:
-            return pchar->get_name() == "Rogue";
+            return pchar->class_name == "Rogue";
         default:
             return false;
         }

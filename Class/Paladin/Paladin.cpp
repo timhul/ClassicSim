@@ -17,7 +17,7 @@
 #include "Weapon.h"
 
 Paladin::Paladin(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Paladin", race, sim_settings, raid_control, party, member) {
+    Character("Paladin", "#F58CBA", race, sim_settings, raid_control, party, member) {
     available_races.append("Dwarf");
     available_races.append("Human");
     available_enchants = new PaladinEnchants(this);
@@ -56,10 +56,6 @@ Paladin::~Paladin()
     delete paladin_spells;
     delete mana;
     delete vengeance;
-}
-
-QString Paladin::get_class_color() const {
-    return "#F58CBA";
 }
 
 unsigned Paladin::get_strength_modifier() const {

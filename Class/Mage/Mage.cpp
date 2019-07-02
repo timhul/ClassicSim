@@ -17,7 +17,7 @@
 #include "Weapon.h"
 
 Mage::Mage(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Mage", race, sim_settings, raid_control, party, member) {
+    Character("Mage", "#69CCF0", race, sim_settings, raid_control, party, member) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Troll");
@@ -55,10 +55,6 @@ Mage::~Mage()
     delete cstats;
     delete mage_spells;
     delete mana;
-}
-
-QString Mage::get_class_color() const {
-    return "#69CCF0";
 }
 
 unsigned Mage::get_strength_modifier() const {

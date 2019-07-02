@@ -11,7 +11,7 @@
 #include "Weapon.h"
 
 Warlock::Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
-    Character("Warlock", race, sim_settings, raid_control, party, member) {
+    Character("Warlock", "#9482C9", race, sim_settings, raid_control, party, member) {
     available_races.append("Gnome");
     available_races.append("Human");
     available_races.append("Orc");
@@ -45,10 +45,6 @@ Warlock::~Warlock()
     delete cstats;
     delete warlock_spells;
     delete mana;
-}
-
-QString Warlock::get_class_color() const {
-    return "#9482C9";
 }
 
 unsigned Warlock::get_strength_modifier() const {

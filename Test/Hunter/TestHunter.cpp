@@ -37,7 +37,7 @@ void TestHunter::test_values_after_initialization() {
     auto* raid_control = new RaidControl(sim_settings);
     auto* hunter = new Hunter(race, equipment_db, sim_settings, raid_control);
 
-    assert(hunter->get_name() == "Hunter");
+    assert(hunter->class_name == "Hunter");
     assert(hunter->get_race()->get_name() == "Orc");
     assert(hunter->get_highest_possible_armor_type() == ArmorTypes::MAIL);
     assert(almost_equal(1.5, hunter->global_cooldown()));

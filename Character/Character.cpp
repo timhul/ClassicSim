@@ -24,9 +24,10 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-Character::Character(QString class_name, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
+Character::Character(QString class_name, QString class_color, Race* race, SimSettings* sim_settings, RaidControl* raid_control, const int party, const int member) :
     instance_id(raid_control->next_instance_id()),
     class_name(std::move(class_name)),
+    class_color(std::move(class_color)),
     race(race),
     engine(raid_control->get_engine()),
     target(raid_control->get_target()),
@@ -61,10 +62,6 @@ Character::~Character() {
     delete enabled_procs;
     delete enabled_buffs;
     delete statistics;
-}
-
-QString Character::get_name() const {
-    return this->class_name;
 }
 
 Race* Character::get_race() {

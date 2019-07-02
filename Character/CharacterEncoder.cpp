@@ -30,7 +30,7 @@ QString CharacterEncoder::get_current_setup_string() {
 
     key_val("PHASE", QString::number(static_cast<int>(pchar->get_sim_settings()->get_phase())));
     key_val("RACE", pchar->get_race()->get_name());
-    key_val("CLASS", pchar->get_name());
+    key_val("CLASS", pchar->class_name);
     key_val("PARTY", QString::number(pchar->get_party()));
     key_val("PARTY_MEMBER", QString::number(pchar->get_party_member()));
 
