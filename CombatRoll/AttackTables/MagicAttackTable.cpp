@@ -2,9 +2,8 @@
 
 #include "Mechanics.h"
 #include "Random.h"
-#include "Utils/Check.h"
 
-MagicAttackTable::MagicAttackTable(Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const int target_res) :
+MagicAttackTable::MagicAttackTable(Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const unsigned target_res) :
     mechanics(mechanics),
     random(random),
     miss_range(0),
@@ -49,9 +48,7 @@ void MagicAttackTable::update_miss_chance(const unsigned clvl, const unsigned sp
     this->miss_range = static_cast<unsigned>(round(miss_chance * 10000));
 }
 
-void MagicAttackTable::update_target_resistance(const int target_resistance) {
-    check((target_resistance >= 0), "Target resistance must be a positive value");
-
+void MagicAttackTable::update_target_resistance(const unsigned target_resistance) {
     full_resist = static_cast<unsigned>(round(Mechanics::get_full_resist_chance(target_resistance) * 10000));
     partial_75 = full_resist + static_cast<unsigned>(round(Mechanics::get_partial_75_chance(target_resistance) * 10000));
     partial_50 = partial_75 + static_cast<unsigned>(round(Mechanics::get_partial_50_chance(target_resistance) * 10000));

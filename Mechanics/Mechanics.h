@@ -27,15 +27,15 @@ public:
     static double get_reduction_from_armor(const int armor, const unsigned clvl);
 
     double get_spell_miss_chance_from_lvl_diff(const unsigned clvl, const double spell_hit) const;
-    static double get_full_resist_chance(const int t_resistance);
-    static double get_partial_75_chance(const int t_resistance);
-    static double get_partial_50_chance(const int t_resistance);
-    static double get_partial_25_chance(const int t_resistance);
+    static double get_full_resist_chance(const unsigned t_resistance);
+    static double get_partial_75_chance(const unsigned t_resistance);
+    static double get_partial_50_chance(const unsigned t_resistance);
+    static double get_partial_25_chance(const unsigned t_resistance);
 
     void set_tlvl(const int);
 
 private:
     Target* target;
 
-    static double get_linear_increase_in_range(const int, const double, const int, const double, const int);
+    static double get_linear_increase_in_range(const unsigned, const double, const unsigned, const double, const unsigned);
 };
