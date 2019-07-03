@@ -27,6 +27,7 @@ private:
     unsigned mana_per_tick {0};
     double last_use_of_mana {0.0};
     double remainder {0.0};
+    double mp5_from_spirit_within_5sr_modifier {0.0};
 
     void add_next_tick();
 

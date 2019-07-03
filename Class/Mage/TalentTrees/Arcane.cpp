@@ -45,8 +45,8 @@ Arcane::Arcane(Mage* mage) :
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4LL", new Talent(mage, this, "Improved Mana Shield", "4LL", "Assets/spell/Spell_shadow_detectlesserinvisibility.png", 2, "Decreases the mana lost per point of damage taken when Mana Shield is active by %1%.", QVector<QPair<unsigned, unsigned>>{{10, 10}})},
-                                  {"4ML", new Talent(mage, this, "Improved Counterspell", "4ML", "Assets/spell/Spell_frost_iceshock.png", 2, "Gives your Counterspell a %1% chance to silence the target for 4 sec.", QVector<QPair<unsigned, unsigned>>{{50, 50}})},
-                                  {"4RR", new Talent(mage, this, "Arcane Meditation", "4RR", "Assets/spell/Spell_shadow_siphonmana.png", 3, "Allows %1% of your Mana regeneration to continue while casting.", QVector<QPair<unsigned, unsigned>>{{5, 5}})}};
+                                  {"4ML", new Talent(mage, this, "Improved Counterspell", "4ML", "Assets/spell/Spell_frost_iceshock.png", 2, "Gives your Counterspell a %1% chance to silence the target for 4 sec.", QVector<QPair<unsigned, unsigned>>{{50, 50}})}};
+    add_arcane_meditation(tier4);
     add_talents(tier4);
 
     QMap<QString, Talent*> tier5 {{"5ML", new Talent(mage, this, "Presence of Mind", "5ML", "Assets/spell/Spell_nature_enchantarmor.png", 1, "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.", QVector<QPair<unsigned, unsigned>>{})},
@@ -94,6 +94,15 @@ void Arcane::add_arcane_concentration(QMap<QString, Talent*>& talent_tier) {
                                     {},
                                     {},
                                     QVector<Proc*>{spells->get_clearcasting()});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Arcane::add_arcane_meditation(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = new TalentStatIncrease(mage, this, "Arcane Meditation", "4RR", "Assets/spell/Spell_shadow_siphonmana.png", 3,
+                                            "Allows %1% of your Mana regeneration to continue while casting.",
+                                            QVector<QPair<unsigned, unsigned>>{{5, 5}},
+                                            QVector<QPair<TalentStat, unsigned>>{{TalentStat::BaseManaRegenWhileCasting, 5}});
 
     add_talent_to_tier(talent_tier, talent);
 }

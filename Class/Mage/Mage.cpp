@@ -159,6 +159,14 @@ void Mage::spell_critical_effect(MagicSchool magic_school) {
     }
 }
 
+void Mage::increase_mp5_within_5sr_modifier(const double increase) {
+    mana->mp5_from_spirit_within_5sr_modifier += increase;
+}
+
+void Mage::decrease_mp5_within_5sr_modifier(const double decrease) {
+    mana->mp5_from_spirit_within_5sr_modifier -= decrease;
+}
+
 int Mage::get_highest_possible_armor_type() const {
     return ArmorTypes::CLOTH;
 }

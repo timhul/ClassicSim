@@ -37,6 +37,9 @@ public:
     void spell_hit_effect(MagicSchool magic_school) override;
     void spell_critical_effect(MagicSchool magic_school) override;
 
+    void increase_mp5_within_5sr_modifier(const double increase) override;
+    void decrease_mp5_within_5sr_modifier(const double decrease) override;
+
 private:
     MageSpells* mage_spells;
     class Mana* mana;

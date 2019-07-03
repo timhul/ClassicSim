@@ -161,13 +161,15 @@ void TalentStatIncrease::apply_rank_effect() {
             pchar->get_stats()->increase_spell_penetration(MagicSchool::Nature, change);
             pchar->get_stats()->increase_spell_penetration(MagicSchool::Shadow, change);
             break;
+        case BaseManaRegenWhileCasting:
+            pchar->increase_mp5_within_5sr_modifier(static_cast<double>(change) / 100);
+            break;
         case FireCrit:
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case ShadowDmgMod:
         case MaxManaMod:
-        case BaseManaRegenWhileCasting:
         case SpellDmgMod:
             continue;
         }
@@ -319,13 +321,15 @@ void TalentStatIncrease::remove_rank_effect() {
             pchar->get_stats()->decrease_spell_penetration(MagicSchool::Nature, change);
             pchar->get_stats()->decrease_spell_penetration(MagicSchool::Shadow, change);
             break;
+        case BaseManaRegenWhileCasting:
+            pchar->decrease_mp5_within_5sr_modifier(static_cast<double>(change) / 100);
+            break;
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case FireCrit:
         case ShadowDmgMod:
         case MaxManaMod:
-        case BaseManaRegenWhileCasting:
         case SpellDmgMod:
             continue;
         }

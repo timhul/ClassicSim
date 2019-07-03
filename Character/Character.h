@@ -150,6 +150,9 @@ public:
     virtual void increase_base_mana(const unsigned value);
     virtual void decrease_base_mana(const unsigned value);
 
+    virtual void increase_mp5_within_5sr_modifier(const double increase);
+    virtual void decrease_mp5_within_5sr_modifier(const double decrease);
+
     const int instance_id;
 
 protected:

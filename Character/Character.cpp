@@ -433,6 +433,14 @@ void Character::decrease_base_mana(const unsigned) {
 
 }
 
+void Character::increase_mp5_within_5sr_modifier(const double) {
+
+}
+
+void Character::decrease_mp5_within_5sr_modifier(const double) {
+
+}
+
 double Character::get_mp5_from_spirit() const {
     check(false, "Not implemented");
     return 0.0;

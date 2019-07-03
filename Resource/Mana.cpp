@@ -25,6 +25,8 @@ unsigned Mana::get_resource_per_tick() {
 
     if (lhs_almost_equal_or_less(5.0, pchar->get_engine()->get_current_priority() - last_use_of_mana))
         mp5 += pchar->get_mp5_from_spirit();
+    else
+        mp5 += pchar->get_mp5_from_spirit() * mp5_from_spirit_within_5sr_modifier;
 
     double mp2 = mp5 / 5 * 2;
     mp2 += remainder;
