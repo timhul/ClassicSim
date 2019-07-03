@@ -21,13 +21,13 @@ Stats::Stats() {
     this->ranged_ap_against_creature[Target::CreatureType::Mechanical] = 0;
     this->ranged_ap_against_creature[Target::CreatureType::Undead] = 0;
 
-    this->spell_school_damage_bonus[MagicSchool::Arcane] = 0;
-    this->spell_school_damage_bonus[MagicSchool::Fire] = 0;
-    this->spell_school_damage_bonus[MagicSchool::Frost] = 0;
-    this->spell_school_damage_bonus[MagicSchool::Holy] = 0;
-    this->spell_school_damage_bonus[MagicSchool::Nature] = 0;
-    this->spell_school_damage_bonus[MagicSchool::Physical] = 0;
-    this->spell_school_damage_bonus[MagicSchool::Shadow] = 0;
+    this->magic_school_damage_bonus[MagicSchool::Arcane] = 0;
+    this->magic_school_damage_bonus[MagicSchool::Fire] = 0;
+    this->magic_school_damage_bonus[MagicSchool::Frost] = 0;
+    this->magic_school_damage_bonus[MagicSchool::Holy] = 0;
+    this->magic_school_damage_bonus[MagicSchool::Nature] = 0;
+    this->magic_school_damage_bonus[MagicSchool::Physical] = 0;
+    this->magic_school_damage_bonus[MagicSchool::Shadow] = 0;
 }
 
 void Stats::add(const Stats* rhs) {
@@ -581,14 +581,14 @@ void Stats::decrease_base_spell_damage(const unsigned decrease) {
 }
 
 unsigned Stats::get_spell_damage(const MagicSchool school) const {
-    return get_base_spell_damage() + spell_school_damage_bonus[school];
+    return get_base_spell_damage() + magic_school_damage_bonus[school];
 }
 
 void Stats::increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school) {
-    spell_school_damage_bonus[school] += increase;
+    magic_school_damage_bonus[school] += increase;
 }
 
 void Stats::decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school) {
-    check((decrease <= spell_school_damage_bonus[school]), "Underflow decrease");
-    spell_school_damage_bonus[school] -= decrease;
+    check((decrease <= magic_school_damage_bonus[school]), "Underflow decrease");
+    magic_school_damage_bonus[school] -= decrease;
 }
