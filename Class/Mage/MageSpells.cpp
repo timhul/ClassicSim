@@ -1,5 +1,6 @@
 #include "MageSpells.h"
 
+#include "ClearcastingMage.h"
 #include "Combustion.h"
 #include "Fireball.h"
 #include "Ignite.h"
@@ -41,12 +42,35 @@ MageSpells::MageSpells(Mage* mage) :
 
     combustion = new Combustion(mage);
     add_spell_group({combustion});
+
+    this->clearcasting = new ClearcastingMage(mage);
+}
+
+MageSpells::~MageSpells() {
+    delete clearcasting;
+}
+
+Combustion* MageSpells::get_combustion() const {
+    return this->combustion;
+}
+
+Proc* MageSpells::get_clearcasting() const {
+    return this->clearcasting;
 }
 
 void MageSpells::inflict_ignite(const double damage) {
     ignite->inflict_ignite(damage);
 }
 
-Combustion* MageSpells::get_combustion() const {
-    return this->combustion;
+bool MageSpells::clearcasting_active() const {
+    return clearcasting->buff->is_active();
+}
+
+void MageSpells::roll_clearcasting() {
+    if (!clearcasting->is_enabled())
+        return;
+
+    clearcasting->buff->use_charge();
+    if (clearcasting->check_proc_success())
+        clearcasting->perform();
 }

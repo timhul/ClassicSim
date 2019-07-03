@@ -166,9 +166,15 @@ void Fireball::spell_effect() {
 }
 
 void Fireball::complete_cast_effect() {
-    pchar->lose_mana(resource_cost);
+    if (!mage_spells->clearcasting_active())
+        pchar->lose_mana(resource_cost);
 
     damage_spell->perform();
+
+    if (damage_spell->magic_attack_result == MagicAttackResult::MISS)
+        return;
+
+    mage_spells->roll_clearcasting();
 
     if (damage_spell->magic_attack_result == MagicAttackResult::CRITICAL) {
         mage_spells->inflict_ignite(damage_spell->last_damage_dealt);

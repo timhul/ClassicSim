@@ -20,6 +20,7 @@ SOURCES += main.cpp \
     Class/Mage/Buffs/CombustionBuff.cpp \
     Class/Mage/Buffs/IgniteBuff.cpp \
     Class/Mage/MageEnchants.cpp \
+    Class/Mage/Procs/ClearcastingMage.cpp \
     Class/Mage/Spells/Combustion.cpp \
     Class/Mage/Spells/Fireball.cpp \
     Class/Mage/Spells/Ignite.cpp \
@@ -437,6 +438,7 @@ HEADERS += \
     Class/Mage/Buffs/CombustionBuff.h \
     Class/Mage/Buffs/IgniteBuff.h \
     Class/Mage/MageEnchants.h \
+    Class/Mage/Procs/ClearcastingMage.h \
     Class/Mage/Spells/Combustion.h \
     Class/Mage/Spells/Fireball.h \
     Class/Mage/Spells/Ignite.h \
@@ -889,6 +891,7 @@ INCLUDEPATH = $$PWD/Engine \
     $$PWD/Class/Rogue/TalentTrees/Subtlety \
     $$PWD/Class/Mage \
     $$PWD/Class/Mage/Buffs \
+    $$PWD/Class/Mage/Procs \
     $$PWD/Class/Mage/Spells \
     $$PWD/Class/Mage/TalentTrees \
     $$PWD/Class/Druid \

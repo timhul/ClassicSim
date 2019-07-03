@@ -35,8 +35,8 @@ Arcane::Arcane(Mage* mage) :
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent(mage, this, "Wand Specialization", "2LL", "Assets/items/Inv_wand_01.png", 2, "Increases your damage with Wands by %1%.", QVector<QPair<unsigned, unsigned>>{{13, 12}})},
-                                  {"2ML", new Talent(mage, this, "Magic Absorption", "2ML", "Assets/spell/Spell_nature_astralrecalgroup.png", 5, "Increases all resistances by %1 and causes all spells you fully resist to restore %2% of your total mana. 1 sec. cooldown.", QVector<QPair<unsigned, unsigned>>{{2, 2}, {1, 1}})},
-                                  {"2MR", new Talent(mage, this, "Arcane Concentration", "2MR", "Assets/spell/Spell_shadow_manaburn.png", 5, "Gives you a %1% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
+                                  {"2ML", new Talent(mage, this, "Magic Absorption", "2ML", "Assets/spell/Spell_nature_astralrecalgroup.png", 5, "Increases all resistances by %1 and causes all spells you fully resist to restore %2% of your total mana. 1 sec. cooldown.", QVector<QPair<unsigned, unsigned>>{{2, 2}, {1, 1}})}};
+    add_arcane_concentration(tier2);
     add_talents(tier2);
 
     QMap<QString, Talent*> tier3 {{"3LL", new Talent(mage, this, "Magic Attunement", "3LL", "Assets/items/Spell_nature_abolishmagic.png", 2, "Increases the effect of your Amplify Magic and Dampen Magic spells by %1%.", QVector<QPair<unsigned, unsigned>>{{25, 25}})},
@@ -83,6 +83,17 @@ void Arcane::add_arcane_focus(QMap<QString, Talent*>& talent_tier) {
                                             "Reduces the chance that the opponent can resist your Arcane spells by %1%.",
                                             QVector<QPair<unsigned, unsigned>>{{2, 2}},
                                             QVector<QPair<TalentStat, unsigned>>{{TalentStat::ArcaneHit, 200}});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Arcane::add_arcane_concentration(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(mage, "Arcane Concentration", "2MR", "Assets/spell/Spell_shadow_manaburn.png", 5,
+                                    "Gives you a %1% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+                                    QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                    {},
+                                    {},
+                                    QVector<Proc*>{spells->get_clearcasting()});
 
     add_talent_to_tier(talent_tier, talent);
 }
