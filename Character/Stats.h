@@ -161,6 +161,10 @@ public:
     void increase_spell_damage_vs_school(const unsigned increase, const MagicSchool school);
     void decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school);
 
+    unsigned get_spell_penetration(const MagicSchool school) const;
+    void increase_spell_penetration(const MagicSchool school, const unsigned increase);
+    void decrease_spell_penetration(const MagicSchool school, const unsigned decrease);
+
 private:
     unsigned strength {0};
     unsigned agility {0};
@@ -207,6 +211,7 @@ private:
     QMap<MagicSchool, unsigned> magic_school_damage_bonus;
     QMap<MagicSchool, unsigned> magic_school_hit_bonus;
     QMap<MagicSchool, unsigned> magic_school_crit_bonus;
+    QMap<MagicSchool, unsigned> magic_school_spell_penetration_bonus;
 
     double str_multiplier {1.0};
     double agi_multiplier {1.0};

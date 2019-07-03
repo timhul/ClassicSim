@@ -826,6 +826,26 @@ void CharacterStats::decrease_spell_damage_vs_school(const unsigned value, const
     base_stats->decrease_spell_damage_vs_school(value, school);
 }
 
+unsigned CharacterStats::get_target_resistance(const MagicSchool school) const {
+    const int delta = pchar->get_target()->get_resistance(school) - static_cast<int>(get_spell_penetration(school));
+
+    return delta < 0 ? 0 : static_cast<unsigned>(delta);
+}
+
+unsigned CharacterStats::get_spell_penetration(const MagicSchool school) const {
+    return equipment->get_stats()->get_spell_penetration(school) + base_stats->get_spell_penetration(school);
+}
+
+void CharacterStats::increase_spell_penetration(const MagicSchool school, const unsigned increase) {
+    base_stats->increase_spell_penetration(school, increase);
+    pchar->get_combat_roll()->update_target_resistance(school, get_target_resistance(school));
+}
+
+void CharacterStats::decrease_spell_penetration(const MagicSchool school, const unsigned decrease) {
+    base_stats->decrease_spell_penetration(school, decrease);
+    pchar->get_combat_roll()->update_target_resistance(school, get_target_resistance(school));
+}
+
 double CharacterStats::get_magic_school_damage_mod(const MagicSchool school) const {
     return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school);
 }

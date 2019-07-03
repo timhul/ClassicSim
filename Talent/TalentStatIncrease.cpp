@@ -153,12 +153,19 @@ void TalentStatIncrease::apply_rank_effect() {
         case ShadowHit:
             pchar->get_stats()->increase_spell_hit(MagicSchool::Shadow, change);
             break;
+        case TargetResistanceReduction:
+            pchar->get_stats()->increase_spell_penetration(MagicSchool::Arcane, change);
+            pchar->get_stats()->increase_spell_penetration(MagicSchool::Fire, change);
+            pchar->get_stats()->increase_spell_penetration(MagicSchool::Frost, change);
+            pchar->get_stats()->increase_spell_penetration(MagicSchool::Holy, change);
+            pchar->get_stats()->increase_spell_penetration(MagicSchool::Nature, change);
+            pchar->get_stats()->increase_spell_penetration(MagicSchool::Shadow, change);
+            break;
         case FireCrit:
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case ShadowDmgMod:
-        case TargetResistanceReduction:
         case MaxManaMod:
         case BaseManaRegenWhileCasting:
         case SpellDmgMod:
@@ -304,12 +311,19 @@ void TalentStatIncrease::remove_rank_effect() {
         case ShadowHit:
             pchar->get_stats()->decrease_spell_hit(MagicSchool::Shadow, change);
             break;
+        case TargetResistanceReduction:
+            pchar->get_stats()->decrease_spell_penetration(MagicSchool::Arcane, change);
+            pchar->get_stats()->decrease_spell_penetration(MagicSchool::Fire, change);
+            pchar->get_stats()->decrease_spell_penetration(MagicSchool::Frost, change);
+            pchar->get_stats()->decrease_spell_penetration(MagicSchool::Holy, change);
+            pchar->get_stats()->decrease_spell_penetration(MagicSchool::Nature, change);
+            pchar->get_stats()->decrease_spell_penetration(MagicSchool::Shadow, change);
+            break;
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case FireCrit:
         case ShadowDmgMod:
-        case TargetResistanceReduction:
         case MaxManaMod:
         case BaseManaRegenWhileCasting:
         case SpellDmgMod:

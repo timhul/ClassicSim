@@ -67,6 +67,13 @@ void Stats::add(const Stats* rhs) {
     increase_spell_crit(MagicSchool::Nature, rhs->get_spell_crit_chance(MagicSchool::Nature));
     increase_spell_crit(MagicSchool::Shadow, rhs->get_spell_crit_chance(MagicSchool::Shadow));
 
+    increase_spell_penetration(MagicSchool::Arcane, rhs->get_spell_penetration(MagicSchool::Arcane));
+    increase_spell_penetration(MagicSchool::Fire, rhs->get_spell_penetration(MagicSchool::Fire));
+    increase_spell_penetration(MagicSchool::Frost, rhs->get_spell_penetration(MagicSchool::Frost));
+    increase_spell_penetration(MagicSchool::Holy, rhs->get_spell_penetration(MagicSchool::Holy));
+    increase_spell_penetration(MagicSchool::Nature, rhs->get_spell_penetration(MagicSchool::Nature));
+    increase_spell_penetration(MagicSchool::Shadow, rhs->get_spell_penetration(MagicSchool::Shadow));
+
     increase_base_melee_ap(rhs->get_base_melee_ap());
     increase_base_ranged_ap(rhs->get_base_ranged_ap());
 
@@ -121,6 +128,14 @@ void Stats::remove(const Stats* rhs) {
     decrease_spell_crit(MagicSchool::Holy, rhs->get_spell_crit_chance(MagicSchool::Holy));
     decrease_spell_crit(MagicSchool::Nature, rhs->get_spell_crit_chance(MagicSchool::Nature));
     decrease_spell_crit(MagicSchool::Shadow, rhs->get_spell_crit_chance(MagicSchool::Shadow));
+
+    decrease_spell_penetration(MagicSchool::Arcane, rhs->get_spell_penetration(MagicSchool::Arcane));
+    decrease_spell_penetration(MagicSchool::Fire, rhs->get_spell_penetration(MagicSchool::Fire));
+    decrease_spell_penetration(MagicSchool::Frost, rhs->get_spell_penetration(MagicSchool::Frost));
+    decrease_spell_penetration(MagicSchool::Holy, rhs->get_spell_penetration(MagicSchool::Holy));
+    decrease_spell_penetration(MagicSchool::Nature, rhs->get_spell_penetration(MagicSchool::Nature));
+    decrease_spell_penetration(MagicSchool::Shadow, rhs->get_spell_penetration(MagicSchool::Shadow));
+    decrease_spell_penetration(MagicSchool::Shadow, rhs->get_spell_penetration(MagicSchool::Shadow));
 
     decrease_base_melee_ap(rhs->get_base_melee_ap());
     decrease_base_ranged_ap(rhs->get_base_ranged_ap());
@@ -591,4 +606,17 @@ void Stats::increase_spell_damage_vs_school(const unsigned increase, const Magic
 void Stats::decrease_spell_damage_vs_school(const unsigned decrease, const MagicSchool school) {
     check((decrease <= magic_school_damage_bonus[school]), "Underflow decrease");
     magic_school_damage_bonus[school] -= decrease;
+}
+
+unsigned Stats::get_spell_penetration(const MagicSchool school) const {
+    return magic_school_spell_penetration_bonus[school];
+}
+
+void Stats::increase_spell_penetration(const MagicSchool school, const unsigned increase) {
+    magic_school_spell_penetration_bonus[school] += increase;
+}
+
+void Stats::decrease_spell_penetration(const MagicSchool school, const unsigned decrease) {
+    check((decrease <= magic_school_spell_penetration_bonus[school]), "Underflow decrease spell penetration bonus");
+    magic_school_spell_penetration_bonus[school] -= decrease;
 }

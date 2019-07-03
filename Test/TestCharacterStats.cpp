@@ -77,6 +77,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_spell_school_damage_mods();
     tear_down();
+
+    set_up();
+    test_no_negative_target_resistances_with_spell_pen_bonuses();
+    tear_down();
 }
 
 void TestCharacterStats::test_values_after_initialization() {
@@ -326,4 +330,42 @@ void TestCharacterStats::test_spell_school_damage_mods() {
 
     cstats->decrease_magic_school_damage_mod(20, MagicSchool::Holy);
     assert(almost_equal(cstats->get_magic_school_damage_mod(MagicSchool::Holy), 1.0));
+}
+
+void TestCharacterStats::test_no_negative_target_resistances_with_spell_pen_bonuses() {
+    assert(cstats->get_target_resistance(MagicSchool::Holy) == 0);
+    cstats->increase_spell_penetration(MagicSchool::Holy, 10);
+    assert(cstats->get_target_resistance(MagicSchool::Holy) == 0);
+    cstats->decrease_spell_penetration(MagicSchool::Holy, 10);
+    assert(cstats->get_target_resistance(MagicSchool::Holy) == 0);
+
+    assert(cstats->get_target_resistance(MagicSchool::Arcane) == 70);
+    cstats->increase_spell_penetration(MagicSchool::Arcane, 80);
+    assert(cstats->get_target_resistance(MagicSchool::Arcane) == 0);
+    cstats->decrease_spell_penetration(MagicSchool::Arcane, 10);
+    assert(cstats->get_target_resistance(MagicSchool::Arcane) == 0);
+
+    assert(cstats->get_target_resistance(MagicSchool::Fire) == 70);
+    cstats->increase_spell_penetration(MagicSchool::Fire, 80);
+    assert(cstats->get_target_resistance(MagicSchool::Fire) == 0);
+    cstats->decrease_spell_penetration(MagicSchool::Fire, 10);
+    assert(cstats->get_target_resistance(MagicSchool::Fire) == 0);
+
+    assert(cstats->get_target_resistance(MagicSchool::Frost) == 70);
+    cstats->increase_spell_penetration(MagicSchool::Frost, 80);
+    assert(cstats->get_target_resistance(MagicSchool::Frost) == 0);
+    cstats->decrease_spell_penetration(MagicSchool::Frost, 10);
+    assert(cstats->get_target_resistance(MagicSchool::Frost) == 0);
+
+    assert(cstats->get_target_resistance(MagicSchool::Nature) == 70);
+    cstats->increase_spell_penetration(MagicSchool::Nature, 80);
+    assert(cstats->get_target_resistance(MagicSchool::Nature) == 0);
+    cstats->decrease_spell_penetration(MagicSchool::Nature, 10);
+    assert(cstats->get_target_resistance(MagicSchool::Nature) == 0);
+
+    assert(cstats->get_target_resistance(MagicSchool::Shadow) == 70);
+    cstats->increase_spell_penetration(MagicSchool::Shadow, 80);
+    assert(cstats->get_target_resistance(MagicSchool::Shadow) == 0);
+    cstats->decrease_spell_penetration(MagicSchool::Shadow, 10);
+    assert(cstats->get_target_resistance(MagicSchool::Shadow) == 0);
 }
