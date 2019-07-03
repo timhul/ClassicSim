@@ -25,6 +25,10 @@ void TestMageTalentStatIncrease::test_all() {
     set_up();
     test_arcane_subtlety();
     tear_down();
+
+    set_up();
+    test_arcane_focus();
+    tear_down();
 }
 
 void TestMageTalentStatIncrease::test_fire_power() {
@@ -68,30 +72,37 @@ void TestMageTalentStatIncrease::test_elemental_precision() {
     auto tree = Frost(mage);
     Talent* talent = tree.get_talent_from_name("Elemental Precision");
 
+    unsigned initial_hit_arcane = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane);
     unsigned initial_hit_fire = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire);
     unsigned initial_hit_frost = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost);
 
     assert(talent->increment_rank());
+    assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
     assert(initial_hit_fire + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
     assert(initial_hit_frost + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 
     assert(talent->increment_rank());
+    assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
     assert(initial_hit_fire + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
     assert(initial_hit_frost + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 
     assert(talent->increment_rank());
+    assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
     assert(initial_hit_fire + 600 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
     assert(initial_hit_frost + 600 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 
     assert(talent->decrement_rank());
+    assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
     assert(initial_hit_fire + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
     assert(initial_hit_frost + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 
     assert(talent->decrement_rank());
+    assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
     assert(initial_hit_fire + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
     assert(initial_hit_frost + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 
     assert(talent->decrement_rank());
+    assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
     assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
     assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 }
@@ -123,6 +134,65 @@ void TestMageTalentStatIncrease::test_arcane_subtlety() {
     assert(initial_target_res_arcane == pchar->get_stats()->get_target_resistance(MagicSchool::Arcane));
     assert(initial_target_res_fire == pchar->get_stats()->get_target_resistance(MagicSchool::Fire));
     assert(initial_target_res_frost == pchar->get_stats()->get_target_resistance(MagicSchool::Frost));
+}
+
+void TestMageTalentStatIncrease::test_arcane_focus() {
+    auto tree = Arcane(mage);
+    Talent* talent = tree.get_talent_from_name("Arcane Focus");
+
+    unsigned initial_hit_arcane = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane);
+    unsigned initial_hit_fire = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire);
+    unsigned initial_hit_frost = pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost);
+
+    assert(talent->increment_rank());
+    assert(initial_hit_arcane + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->increment_rank());
+    assert(initial_hit_arcane + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->increment_rank());
+    assert(initial_hit_arcane + 600 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->increment_rank());
+    assert(initial_hit_arcane + 800 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->increment_rank());
+    assert(initial_hit_arcane + 1000 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_arcane + 800 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_arcane + 600 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_arcane + 400 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_arcane + 200 == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+
+    assert(talent->decrement_rank());
+    assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
+    assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
+    assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
 }
 
 void TestMageTalentStatIncrease::test_name_correct() {

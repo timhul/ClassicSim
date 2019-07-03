@@ -14,4 +14,5 @@ private:
     MageSpells* spells;
 
     void add_arcane_subtlety(QMap<QString, Talent*>& talent_tier);
+    void add_arcane_focus(QMap<QString, Talent*>& talent_tier);
 };

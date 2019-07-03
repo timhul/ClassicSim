@@ -29,9 +29,9 @@ Arcane::Arcane(Mage* mage) :
         {"Arcane Power", "7ML"},
     };
 
-    QMap<QString, Talent*> tier1 {{"1ML", new Talent(mage, this, "Arcane Focus", "1ML", "Assets/spell/Spell_holy_devotion.png", 5, "Reduces the chance that the opponent can resist your Arcane spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
-                                  {"1MR", new Talent(mage, this, "Improved Arcane Missiles", "1MR", "Assets/spell/Spell_nature_starfall.png", 5, "Gives you a %1% chance to avoid interruption caused by damage while channeling Arcane Missiles.", QVector<QPair<unsigned, unsigned>>{{20, 20}})}};
+    QMap<QString, Talent*> tier1 {{"1MR", new Talent(mage, this, "Improved Arcane Missiles", "1MR", "Assets/spell/Spell_nature_starfall.png", 5, "Gives you a %1% chance to avoid interruption caused by damage while channeling Arcane Missiles.", QVector<QPair<unsigned, unsigned>>{{20, 20}})}};
     add_arcane_subtlety(tier1);
+    add_arcane_focus(tier1);
     add_talents(tier1);
 
     QMap<QString, Talent*> tier2 {{"2LL", new Talent(mage, this, "Wand Specialization", "2LL", "Assets/items/Inv_wand_01.png", 2, "Increases your damage with Wands by %1%.", QVector<QPair<unsigned, unsigned>>{{13, 12}})},
@@ -74,6 +74,15 @@ void Arcane::add_arcane_subtlety(QMap<QString, Talent*>& talent_tier) {
                                             "Reduces your target's resistance to all your spells by %1 and reduces the threat caused by your Arcane spells by %2%.",
                                             QVector<QPair<unsigned, unsigned>>{{5, 5}, {20, 20}},
                                             QVector<QPair<TalentStat, unsigned>>{{TalentStat::TargetResistanceReduction, 5}});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Arcane::add_arcane_focus(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = new TalentStatIncrease(mage, this, "Arcane Focus", "1ML", "Assets/spell/Spell_holy_devotion.png", 5,
+                                            "Reduces the chance that the opponent can resist your Arcane spells by %1%.",
+                                            QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                            QVector<QPair<TalentStat, unsigned>>{{TalentStat::ArcaneHit, 200}});
 
     add_talent_to_tier(talent_tier, talent);
 }

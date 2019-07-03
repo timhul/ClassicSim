@@ -20,4 +20,5 @@ private:
     void test_fire_power();
     void test_elemental_precision();
     void test_arcane_subtlety();
+    void test_arcane_focus();
 };
