@@ -69,6 +69,9 @@ void SimControl::run_sim(QVector<Character*> raid, RaidControl* raid_control, co
     int reported_iterations = 0;
     for (int i = 0; i < iterations; ++i) {
         raid_control->get_engine()->prepare_iteration(-start_at);
+
+        std::random_shuffle(raid.begin(), raid.end());
+
         for (const auto & pchar : raid) {
             Rotation* rotation = pchar->get_spells()->get_rotation();
             rotation->run_precombat_actions();
