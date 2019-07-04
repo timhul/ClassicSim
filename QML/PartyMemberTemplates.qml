@@ -73,7 +73,7 @@ RectangleBorders {
             height: parent.height / parent.children.length
             width: parent.width
             rectColor: root.colorMage
-            property string template: "Fire Mage (naked w/ world buffs)"
+            property string template: "Fire Mage T3 (no offpieces)"
             onRectangleClicked: raid.selectTemplateCharacter(template)
 
             TextSmall {
