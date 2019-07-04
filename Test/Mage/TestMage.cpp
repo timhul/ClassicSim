@@ -1,6 +1,8 @@
 #include "TestMage.h"
 
 #include "CharacterStats.h"
+#include "Equipment.h"
+#include "Item.h"
 #include "ItemNamespace.h"
 #include "Mage.h"
 #include "RaidControl.h"
@@ -39,6 +41,10 @@ void TestMage::test_values_after_initialization() {
     assert(almost_equal(1.5, mage->global_cooldown()));
     assert(almost_equal(2.0, mage->get_stats()->get_melee_ability_crit_dmg_mod()));
     assert(almost_equal(1.5, mage->get_stats()->get_spell_crit_dmg_mod()));
+
+    mage->get_equipment()->set_wrist(22503);
+    assert(mage->get_equipment()->get_wrist()->get_name() == "Frostfire Bindings");
+    mage->get_equipment()->clear_wrist();
 
     delete race;
     delete mage;

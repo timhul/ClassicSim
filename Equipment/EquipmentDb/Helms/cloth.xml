@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>
+	<item id="22498" phase="5">
+		<info name="Frostfire Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_crown_01.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="108"/>
+			<stat type="STAMINA" value="22"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="SPELL_DAMAGE" value="35"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
+</items>

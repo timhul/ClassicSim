@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>
+	<item id="22503" phase="5">
+		<info name="Frostfire Bindings" type="CLOTH" slot="WRIST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_bracer_13.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="58"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="SPELL_PENETRATION" value="10"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
+</items>

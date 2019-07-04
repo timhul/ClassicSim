@@ -757,5 +757,9 @@
         <file>QML/Assets/spell/Spell_ice_magicdamage.png</file>
         <file>QML/Assets/spell/Spell_shadow_darkritual.png</file>
         <file>QML/Assets/spell/Spell_frost_frostshock.png</file>
+        <file>QML/Assets/items/Inv_boots_fabric_01.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_43.png</file>
+        <file>QML/Assets/items/Inv_crown_01.png</file>
+        <file>QML/Assets/items/Inv_pants_cloth_05.png</file>
     </qresource>
 </RCC>

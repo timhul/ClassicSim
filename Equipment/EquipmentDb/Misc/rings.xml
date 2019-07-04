@@ -521,4 +521,18 @@
 			Drops from Kel'Thuzad in Naxxramas.
 		</source>
 	</item>
+
+	<item id="23062" phase="5">
+		<info name="Frostfire Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_ring_51naxxramas.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Kel'Thuzad in Naxxramas.
+		</source>
+	</item>
 </items>

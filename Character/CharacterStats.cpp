@@ -268,6 +268,14 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_spell_crit(value);
     case ItemStats::SpellHit:
         return increase_spell_hit(value);
+    case ItemStats::SpellPenetration:
+        increase_spell_penetration(MagicSchool::Arcane, value);
+        increase_spell_penetration(MagicSchool::Fire, value);
+        increase_spell_penetration(MagicSchool::Frost, value);
+        increase_spell_penetration(MagicSchool::Holy, value);
+        increase_spell_penetration(MagicSchool::Nature, value);
+        increase_spell_penetration(MagicSchool::Shadow, value);
+        return;
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:
@@ -340,6 +348,14 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_spell_crit(value);
     case ItemStats::SpellHit:
         return decrease_spell_hit(value);
+    case ItemStats::SpellPenetration:
+        decrease_spell_penetration(MagicSchool::Arcane, value);
+        decrease_spell_penetration(MagicSchool::Fire, value);
+        decrease_spell_penetration(MagicSchool::Frost, value);
+        decrease_spell_penetration(MagicSchool::Holy, value);
+        decrease_spell_penetration(MagicSchool::Nature, value);
+        decrease_spell_penetration(MagicSchool::Shadow, value);
+        return;
     case ItemStats::Armor:
     case ItemStats::Defense:
     case ItemStats::DodgeChance:

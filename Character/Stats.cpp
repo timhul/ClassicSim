@@ -135,7 +135,6 @@ void Stats::remove(const Stats* rhs) {
     decrease_spell_penetration(MagicSchool::Holy, rhs->get_spell_penetration(MagicSchool::Holy));
     decrease_spell_penetration(MagicSchool::Nature, rhs->get_spell_penetration(MagicSchool::Nature));
     decrease_spell_penetration(MagicSchool::Shadow, rhs->get_spell_penetration(MagicSchool::Shadow));
-    decrease_spell_penetration(MagicSchool::Shadow, rhs->get_spell_penetration(MagicSchool::Shadow));
 
     decrease_base_melee_ap(rhs->get_base_melee_ap());
     decrease_base_ranged_ap(rhs->get_base_ranged_ap());

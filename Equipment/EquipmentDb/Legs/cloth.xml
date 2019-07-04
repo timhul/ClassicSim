@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>
+	<item id="22497" phase="5">
+		<info name="Frostfire Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_cloth_05.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="116"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="26"/>
+			<stat type="STAMINA" value="25"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="46"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
+</items>

@@ -45,4 +45,5 @@ enum class ItemStats {
     SpellDamage,
     SpellCrit,
     SpellHit,
+    SpellPenetration,
 };

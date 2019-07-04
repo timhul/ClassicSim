@@ -698,17 +698,26 @@ void Item::set_stat(const QString& key, const QString &value) {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         const unsigned attack_table_value = display_value * 100;
         this->stats->increase_spell_crit(attack_table_value);
-        QString number = QString::number(display_value);
-        equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike with spells by %1%.").arg(number));
+        equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to get a critical strike with spells by %1%.").arg(display_value));
         this->item_stat_values.insert(ItemStats::SpellCrit, display_value);
     }
     else if (key == "SPELL_HIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         const unsigned attack_table_value = display_value * 100;
         this->stats->increase_spell_hit(attack_table_value);
-        QString number = QString::number(display_value);
-        equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit with spells by %1%.").arg(value));
+        equip_effects_tooltip_stats.append(QString("Equip: Improves your chance to hit with spells by %1%.").arg(display_value));
         this->item_stat_values.insert(ItemStats::SpellHit, display_value);
+    }
+    else if (key == "SPELL_PENETRATION") {
+        this->stats->increase_spell_penetration(MagicSchool::Arcane, value.toUInt());
+        this->stats->increase_spell_penetration(MagicSchool::Fire, value.toUInt());
+        this->stats->increase_spell_penetration(MagicSchool::Frost, value.toUInt());
+        this->stats->increase_spell_penetration(MagicSchool::Holy, value.toUInt());
+        this->stats->increase_spell_penetration(MagicSchool::Nature, value.toUInt());
+        this->stats->increase_spell_penetration(MagicSchool::Shadow, value.toUInt());
+        QString number = QString::number(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Decreases the magical resistances of your spell targets by %1.").arg(number));
+        this->item_stat_values.insert(ItemStats::SpellPenetration, value.toUInt());
     }
     else if (key == "ARMOR") {
         this->stats->increase_armor(value.toInt());

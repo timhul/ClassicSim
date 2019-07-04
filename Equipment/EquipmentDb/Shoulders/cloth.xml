@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<items>
+	<item id="22499" phase="5">
+		<info name="Frostfire Shoulderpads" type="CLOTH" slot="SHOULDERS" unique="no" req_lvl="60" item_lvl="86" quality="EPIC" boe="no" icon="Inv_shoulder_25.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="97"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="SPELL_DAMAGE" value="36"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Naxxramas.
+		</source>
+	</item>
+</items>

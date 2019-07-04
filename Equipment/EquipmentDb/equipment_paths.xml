@@ -22,32 +22,40 @@
 	<file path="Helms/plate.xml"/>
 	<file path="Helms/mail.xml"/>
 	<file path="Helms/leather.xml"/>
+	<file path="Helms/cloth.xml"/>
 
 	<file path="Chests/plate.xml"/>
 	<file path="Chests/mail.xml"/>
 	<file path="Chests/leather.xml"/>
+	<file path="Chests/cloth.xml"/>
 
 	<file path="Wrists/plate.xml"/>
 	<file path="Wrists/mail.xml"/>
 	<file path="Wrists/leather.xml"/>
+	<file path="Wrists/cloth.xml"/>
 
 	<file path="Gloves/plate.xml"/>
 	<file path="Gloves/mail.xml"/>
 	<file path="Gloves/leather.xml"/>
+	<file path="Gloves/cloth.xml"/>
 
 	<file path="Belts/plate.xml"/>
 	<file path="Belts/mail.xml"/>
 	<file path="Belts/leather.xml"/>
+	<file path="Belts/cloth.xml"/>
 
 	<file path="Legs/plate.xml"/>
 	<file path="Legs/mail.xml"/>
 	<file path="Legs/leather.xml"/>
+	<file path="Legs/cloth.xml"/>
 
 	<file path="Boots/plate.xml"/>
 	<file path="Boots/mail.xml"/>
 	<file path="Boots/leather.xml"/>
+	<file path="Boots/cloth.xml"/>
 
 	<file path="Shoulders/plate.xml"/>
 	<file path="Shoulders/mail.xml"/>
 	<file path="Shoulders/leather.xml"/>
+	<file path="Shoulders/cloth.xml"/>
 </paths>
