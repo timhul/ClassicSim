@@ -646,6 +646,21 @@ unsigned GUIControl::get_ranged_wpn_skill() const {
     return current_char->get_ranged_wpn_skill();
 }
 
+unsigned GUIControl::get_spell_power() const {
+    // TODO: Must find a way to show school-specific stats in GUI.
+    return current_char->get_stats()->get_spell_damage(MagicSchool::Fire);
+}
+
+QString GUIControl::get_spell_hit_chance() const {
+    // TODO: Must find a way to show school-specific stats in GUI.
+    return QString("%1%").arg(QString::number(static_cast<double>(current_char->get_stats()->get_spell_hit_chance(MagicSchool::Fire)) / 100, 'f', 2));
+}
+
+QString GUIControl::get_spell_crit_chance() const {
+    // TODO: Must find a way to show school-specific stats in GUI.
+    return QString("%1%").arg(QString::number(static_cast<double>(current_char->get_stats()->get_spell_crit_chance(MagicSchool::Fire)) / 100, 'f', 2));
+}
+
 ItemModel* GUIControl::get_item_model() const {
     return this->item_model;
 }

@@ -131,11 +131,17 @@ public:
     Q_PROPERTY(QString rangedHitChance READ get_ranged_hit_chance NOTIFY statsChanged)
     Q_PROPERTY(int rangedAttackPower READ get_ranged_attack_power NOTIFY statsChanged)
     Q_PROPERTY(int wpnSkillRanged READ get_ranged_wpn_skill NOTIFY statsChanged)
+    Q_PROPERTY(int spellPower READ get_spell_power NOTIFY statsChanged)
+    Q_PROPERTY(QString spellHitChance READ get_spell_hit_chance NOTIFY statsChanged)
+    Q_PROPERTY(QString spellCritChance READ get_spell_crit_chance NOTIFY statsChanged)
     Q_PROPERTY(QString displayStatsType READ get_stats_type_to_display NOTIFY displayStatsTypeChanged)
     Q_SIGNAL void displayStatsTypeChanged();
     QString get_stats_type_to_display() const;
     QString get_attack_mode_as_string() const;
     unsigned get_ranged_wpn_skill() const;
+    unsigned get_spell_power() const;
+    QString get_spell_hit_chance() const;
+    QString get_spell_crit_chance() const;
     Q_INVOKABLE void selectDisplayStat(const QString& attack_mode);
     /* End of Stats */
 

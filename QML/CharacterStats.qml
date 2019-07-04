@@ -24,5 +24,9 @@ Rectangle {
         CharacterStatsRanged {
             visible: settings.displayStatsType === "RANGED"
         }
+
+        CharacterStatsSpell {
+            visible: settings.displayStatsType === "SPELL"
+        }
     }
 }

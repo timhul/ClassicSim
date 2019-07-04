@@ -761,5 +761,6 @@
         <file>QML/Assets/items/Inv_chest_cloth_43.png</file>
         <file>QML/Assets/items/Inv_crown_01.png</file>
         <file>QML/Assets/items/Inv_pants_cloth_05.png</file>
+        <file>QML/CharacterStatsSpell.qml</file>
     </qresource>
 </RCC>
