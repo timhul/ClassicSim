@@ -334,6 +334,7 @@ Window {
         }
 
         RaidSetup {
+            id: raidSetup
             visible: parent.state === "RAIDSETUP"
 
             x: 20
@@ -345,12 +346,48 @@ Window {
         PartyMemberTemplates {
             visible: parent.state === "RAIDSETUP"
 
+            x: raidSetup.width + 40
+            y: parent.height / 2 - height / 2
+
             width: parent.width / 3
             height: parent.height * 0.95
+        }
+
+        RectangleBorders {
+            x: raidSetup.width + 40
+            width: 250
+            height: parent.height * 0.95
+            visible: parent.state === "RAIDSETUP"
+
             anchors.right: parent.right
             anchors.rightMargin: 20
             anchors.top: parent.top
             anchors.topMargin: parent.height / 2 - height / 2
+
+            ScrollView {
+                anchors.fill: parent
+                clip: true
+
+                ListView {
+                    id: damageMetersTable
+                    anchors.fill: parent
+
+                    boundsBehavior: Flickable.StopAtBounds
+
+                    model: damageMetersModel
+                    delegate: PercentBar {
+                        height: 50
+                        width: 250
+
+                        fillColor: _classcolor
+                        backgroundColor: "black"
+                        barText: ""
+                        barTextRight: _dps + " (" + _dpsratiostring + "%)"
+                        barTextLeft: "#" + _place + " " + _name
+                        percent: _dpsratio
+                    }
+                }
+            }
         }
     }
 

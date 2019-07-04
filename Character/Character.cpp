@@ -33,7 +33,6 @@ Character::Character(QString class_name, QString class_color, Race* race, SimSet
     target(raid_control->get_target()),
     faction(new Faction(race)),
     talents(new CharacterTalents()),
-    statistics(new ClassStatistics(sim_settings)),
     sim_settings(sim_settings),
     raid_control(raid_control),
     next_trinket_cd(-1),
@@ -53,6 +52,9 @@ Character::Character(QString class_name, QString class_color, Race* race, SimSet
     }
     else
         raid_control->assign_character_to_place(this, party, member);
+
+    this->player_name = (party == 0 && member == 0) ? "You" : QString("P%1M%2").arg(party + 1).arg(party_member + 1);
+    statistics = new ClassStatistics(sim_settings, player_name, this->class_color);
 }
 
 Character::~Character() {
@@ -166,7 +168,7 @@ ClassStatistics* Character::get_statistics() const {
 
 ClassStatistics* Character::relinquish_ownership_of_statistics() {
     ClassStatistics* tmp = this->statistics;
-    this->statistics = new ClassStatistics(sim_settings);
+    this->statistics = new ClassStatistics(sim_settings, player_name, class_color);
     return tmp;
 }
 

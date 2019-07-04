@@ -24,8 +24,9 @@ SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
 void SimControl::run_quick_sim(QVector<Character*> raid, RaidControl* raid_control) {
     run_sim(raid, raid_control, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_quick_sim());
 
-    for (int i = 1; i < raid.size(); ++i)
-        raid[0]->get_statistics()->add_player_dps(raid[i]->get_statistics()->get_total_personal_dps());
+    for (int i = 0; i < raid.size(); ++i)
+        raid[0]->get_statistics()->add_player_result(raid[i]->get_statistics()->get_personal_result());
+
     scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->relinquish_ownership_of_statistics());
     scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->get_raid_control()->relinquish_ownership_of_statistics());
 }
@@ -33,8 +34,8 @@ void SimControl::run_quick_sim(QVector<Character*> raid, RaidControl* raid_contr
 void SimControl::run_full_sim(QVector<Character*> raid, RaidControl* raid_control) {
     run_sim(raid, raid_control, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
 
-    for (int i = 1; i < raid.size(); ++i)
-        raid[0]->get_statistics()->add_player_dps(raid[i]->get_statistics()->get_total_personal_dps());
+    for (int i = 0; i < raid.size(); ++i)
+        raid[0]->get_statistics()->add_player_result(raid[i]->get_statistics()->get_personal_result());
     scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->relinquish_ownership_of_statistics());
     scaler->add_class_statistic(SimOption::Name::NoScale, raid[0]->get_raid_control()->relinquish_ownership_of_statistics());
 
@@ -43,8 +44,8 @@ void SimControl::run_full_sim(QVector<Character*> raid, RaidControl* raid_contro
         qDebug() << "Running sim with option" << option;
         run_sim_with_option(raid, raid_control, option, sim_settings->get_combat_length(), sim_settings->get_combat_iterations_full_sim());
 
-        for (int i = 1; i < raid.size(); ++i)
-            raid[0]->get_statistics()->add_player_dps(raid[i]->get_statistics()->get_total_personal_dps());
+        for (int i = 0; i < raid.size(); ++i)
+            raid[0]->get_statistics()->add_player_result(raid[i]->get_statistics()->get_personal_result());
         scaler->add_class_statistic(option, raid[0]->relinquish_ownership_of_statistics());
         scaler->add_class_statistic(option, raid[0]->get_raid_control()->relinquish_ownership_of_statistics());
     }

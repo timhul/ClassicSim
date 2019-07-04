@@ -4,6 +4,7 @@
 #include <QVariantList>
 #include <QVector>
 
+#include "RaidMemberResult.h"
 #include "SimOption.h"
 #include "SimSettings.h"
 
@@ -17,7 +18,7 @@ class StatisticsSpell;
 
 class ClassStatistics {
 public:
-    ClassStatistics(SimSettings* settings, const bool ignore_non_buff_statistics = false);
+    ClassStatistics(SimSettings* settings, const QString& player_name, const QString& class_color, const bool ignore_non_buff_statistics = false);
     ~ClassStatistics();
 
     StatisticsSpell* get_spell_statistics(const QString& name, const QString &icon, const int spell_rank);
@@ -27,15 +28,18 @@ public:
     StatisticsRotationExecutor* get_executor_statistics(const QString& name);
     StatisticsEngine* get_engine_statistics();
     int get_total_personal_damage_dealt() const;
-    double get_total_personal_dps() const;
-    double get_total_raid_dps() const;
+    RaidMemberResult* get_personal_result() const;
+    double get_raid_dps() const;
     int get_total_damage_for_spell(const QString& name) const;
-    void add_player_dps(const double dps);
+    void add_player_result(RaidMemberResult* result);
 
     void prepare_statistics();
     void finish_combat_iteration();
 
     void set_sim_option(const SimOption::Name);
+
+    const QString player_name;
+    const QString class_color;
 
 private:
     friend class NumberCruncher;
@@ -55,7 +59,7 @@ private:
     QList<StatisticsRotationExecutor*> rotation_executor_statistics;
 
     QVector<double> dps_for_iterations;
-    QVector<double> total_dps_from_other_players;
+    QVector<RaidMemberResult*> player_results;
 
     void delete_objects();
 };

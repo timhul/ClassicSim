@@ -60,6 +60,7 @@ SOURCES += main.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
     Event/Events/EncounterStart.cpp \
+    GUI/Models/DamageMetersModel.cpp \
     GUI/TemplateCharacters.cpp \
     Phases/ContentPhase.cpp \
     Phases/PhaseRequirer.cpp \
@@ -474,6 +475,7 @@ HEADERS += \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
+    GUI/Models/DamageMetersModel.h \
     GUI/TemplateCharacters.h \
     Phases/ContentPhase.h \
     Phases/PhaseRequirer.h \
@@ -509,6 +511,7 @@ HEADERS += \
     Spells/SharedDebuff.h \
     Spells/SpellRankGroup.h \
     Spells/UniqueDebuff.h \
+    Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
     Test/Mage/Spells/TestFireball.h \
     Test/Mage/Talents/TestArcane.h \

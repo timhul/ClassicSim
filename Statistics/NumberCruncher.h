@@ -4,6 +4,7 @@
 #include <QMutexLocker>
 #include <QVector>
 
+#include "RaidMemberResult.h"
 #include "SimOption.h"
 #include "SimSettings.h"
 
@@ -40,6 +41,7 @@ public:
 
 private:
     friend class BuffBreakdownModel;
+    friend class DamageMetersModel;
     friend class DebuffBreakdownModel;
     friend class EngineBreakdownModel;
     friend class MeleeDamageAvoidanceBreakdownModel;
@@ -49,11 +51,15 @@ private:
     friend class RotationExecutorBreakdownModel;
     friend class RotationExecutorListModel;
     friend class ScaleResultModel;
+
     int time_in_combat {0};
+    int collected_iterations {0};
 
     QMutex mutex;
     QMap<SimOption::Name, QVector<ClassStatistics*>> class_stats;
-    QVector<double> raid_dps;
+    QVector<RaidMemberResult*> player_results;
+
+    void merge_player_results(ClassStatistics*);
 
     double get_dps_for_option(SimOption::Name) const;
     QPair<double, double> get_min_max_dps_for_option(SimOption::Name) const;

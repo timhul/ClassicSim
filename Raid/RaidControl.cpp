@@ -10,7 +10,7 @@
 #include "Utils/Check.h"
 
 RaidControl::RaidControl(SimSettings* sim_settings) :
-    raid_statistics(new ClassStatistics(sim_settings, true)),
+    raid_statistics(new ClassStatistics(sim_settings, "RAID", "#000000", true)),
     settings(sim_settings),
     engine(new Engine()),
     target(new Target(63))
@@ -138,7 +138,7 @@ ClassStatistics* RaidControl::get_statistics() const {
 
 ClassStatistics* RaidControl::relinquish_ownership_of_statistics() {
     ClassStatistics* tmp = this->raid_statistics;
-    this->raid_statistics = new ClassStatistics(settings);
+    this->raid_statistics = new ClassStatistics(settings, "RAID", "#000000", true);
     return tmp;
 }
 

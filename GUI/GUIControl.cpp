@@ -21,6 +21,7 @@
 #include "ClassStatistics.h"
 #include "CombatRoll.h"
 #include "ContentPhase.h"
+#include "DamageMetersModel.h"
 #include "DebuffBreakdownModel.h"
 #include "DebuffModel.h"
 #include "Druid.h"
@@ -125,6 +126,7 @@ GUIControl::GUIControl(QObject* parent) :
     debuff_breakdown_model = new DebuffBreakdownModel(number_cruncher);
     damage_breakdown_model = new MeleeDamageBreakdownModel(number_cruncher);
     damage_avoidance_breakdown_model = new MeleeDamageAvoidanceBreakdownModel(number_cruncher);
+    damage_meters_model = new DamageMetersModel(number_cruncher);
     engine_breakdown_model = new EngineBreakdownModel(number_cruncher);
     proc_breakdown_model = new ProcBreakdownModel(number_cruncher);
     resource_breakdown_model = new ResourceBreakdownModel(number_cruncher);
@@ -194,6 +196,7 @@ GUIControl::~GUIControl() {
     delete debuff_breakdown_model;
     delete damage_breakdown_model;
     delete damage_avoidance_breakdown_model;
+    delete damage_meters_model;
     delete engine_breakdown_model;
     delete proc_breakdown_model;
     delete resource_breakdown_model;
@@ -906,6 +909,7 @@ void GUIControl::compile_thread_results() {
     proc_breakdown_model->update_statistics();
     resource_breakdown_model->update_statistics();
     rotation_executor_list_model->update_statistics();
+    damage_meters_model->update_statistics();
     last_engine_handled_events_per_second = engine_breakdown_model->events_handled_per_second();
     update_displayed_dps_value(number_cruncher->get_personal_dps(SimOption::Name::NoScale));
     dps_distribution = number_cruncher->get_dps_distribution();
@@ -1041,6 +1045,10 @@ void GUIControl::selectTemplateCharacter(QString template_char) {
     raid_setup[current_party - 1][current_member - 1] = QVariantMap{{"text", template_char}, {"color", color}, {"setup_string", setup_string}};
 
     partyMembersUpdated();
+}
+
+DamageMetersModel* GUIControl::get_damage_meters_model() {
+    return this->damage_meters_model;
 }
 
 QString GUIControl::get_mainhand_icon() const {

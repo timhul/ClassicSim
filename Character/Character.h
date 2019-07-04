@@ -172,6 +172,7 @@ protected:
     Pet* pet {nullptr};
     RaidControl* raid_control {nullptr};
 
+    QString player_name;
     QVector<QString> available_races;
 
     unsigned clvl {1};

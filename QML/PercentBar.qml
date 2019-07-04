@@ -4,6 +4,8 @@ RectangleBorders {
     property color fillColor
     property color backgroundColor
     property string barText
+    property string barTextLeft: ""
+    property string barTextRight: ""
     property int percent
 
     Row {
@@ -34,8 +36,40 @@ RectangleBorders {
 
         text: barText
 
-        color: "black"
+        color: parent.percent > 75 ? "black" : "white"
         horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        font {
+            family: "Arial"
+            pointSize: 12
+        }
+
+        anchors.fill: parent
+        anchors.leftMargin: 10
+
+        text: barTextLeft
+
+        color: parent.percent > 25 ? "black" : "white"
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        font {
+            family: "Arial"
+            pointSize: 12
+        }
+
+        anchors.fill: parent
+        anchors.rightMargin: 10
+
+        text: barTextRight
+
+        color: parent.percent > 95 ? "black" : "white"
+        horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
     }
 }

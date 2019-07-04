@@ -8,6 +8,7 @@
 #include "AvailableItemStatFilterModel.h"
 #include "BuffModel.h"
 #include "ContentPhase.h"
+#include "DamageMetersModel.h"
 #include "DebuffBreakdownModel.h"
 #include "DebuffModel.h"
 #include "EnchantModel.h"
@@ -69,6 +70,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("rotationExecutorListModel", gui_control->get_rotation_executor_list_model());
     context->setContextProperty("simScaleModel", gui_control->get_sim_scale_model());
     context->setContextProperty("scaleResultModel", gui_control->get_scale_result_model());
+    context->setContextProperty("damageMetersModel", gui_control->get_damage_meters_model());
     context->setContextProperty("mhEnchantModel", gui_control->get_mh_enchant_model());
     context->setContextProperty("mhTempEnchantModel", gui_control->get_mh_temporary_enchant_model());
     context->setContextProperty("ohEnchantModel", gui_control->get_oh_enchant_model());

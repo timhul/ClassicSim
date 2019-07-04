@@ -8,7 +8,9 @@
 #include "StatisticsSpell.h"
 #include "Utils/Check.h"
 
-ClassStatistics::ClassStatistics(SimSettings* sim_settings, const bool ignore_non_buff_statistics) :
+ClassStatistics::ClassStatistics(SimSettings* sim_settings, const QString& player_name, const QString& class_color, const bool ignore_non_buff_statistics) :
+    player_name(player_name),
+    class_color(class_color),
     sim_settings(sim_settings),
     option(SimOption::Name::NoScale),
     combat_iterations(0),
@@ -82,18 +84,22 @@ int ClassStatistics::get_total_personal_damage_dealt() const {
     return sum;
 }
 
-double ClassStatistics::get_total_personal_dps() const {
+RaidMemberResult* ClassStatistics::get_personal_result() const {
     int damage_dealt = get_total_personal_damage_dealt();
 
-    return static_cast<double>(damage_dealt) / (combat_iterations * combat_length);
+    return new RaidMemberResult(player_name, class_color, static_cast<double>(damage_dealt) / (combat_iterations * combat_length), combat_iterations);
 }
 
-void ClassStatistics::add_player_dps(const double dps) {
-    total_dps_from_other_players.append(dps);
+void ClassStatistics::add_player_result(RaidMemberResult* result) {
+    player_results.append(result);
 }
 
-double ClassStatistics::get_total_raid_dps() const {
-    return std::accumulate(total_dps_from_other_players.begin(), total_dps_from_other_players.end(), get_total_personal_dps());
+double ClassStatistics::get_raid_dps() const {
+    double sum = 0.0;
+    for (const auto & result : player_results)
+        sum += result->dps;
+
+    return sum;
 }
 
 int ClassStatistics::get_total_damage_for_spell(const QString& name) const {

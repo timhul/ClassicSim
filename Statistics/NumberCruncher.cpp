@@ -23,7 +23,7 @@ void NumberCruncher::reset() {
 
     class_stats.clear();
     time_in_combat = 0;
-    raid_dps.clear();
+    player_results.clear();
 }
 
 void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* cstat) {
@@ -35,7 +35,7 @@ void NumberCruncher::add_class_statistic(SimOption::Name key, ClassStatistics* c
 
     time_in_combat += cstat->combat_length * cstat->combat_iterations;
     if (!cstat->ignore_non_buff_statistics)
-        raid_dps.append(cstat->get_total_raid_dps());
+        merge_player_results(cstat);
 }
 
 void NumberCruncher::merge_spell_stats(QList<StatisticsSpell *> &vec) {
@@ -252,7 +252,11 @@ double NumberCruncher::get_personal_dps(SimOption::Name option) const {
 }
 
 double NumberCruncher::get_raid_dps() const {
-    return raid_dps.empty() ? 0.0 : std::accumulate(raid_dps.begin(), raid_dps.end(), 0) / raid_dps.size();
+    double sum = 0.0;
+    for (const auto & result : player_results)
+        sum += result->dps;
+
+    return sum;
 }
 
 QPair<double, double> NumberCruncher::get_min_max_dps_for_option(SimOption::Name option) const {
@@ -281,7 +285,7 @@ double NumberCruncher::get_dps_for_option(SimOption::Name option) const {
 
     for (const auto & class_stat : class_stats[option]) {
         if (!class_stat->ignore_non_buff_statistics)
-            dps.append(class_stat->get_total_personal_dps());
+            dps.append(class_stat->get_personal_result()->dps);
     }
 
     double dps_sum = 0;
@@ -299,6 +303,30 @@ ScaleResult* NumberCruncher::get_dps_distribution() const {
     QPair<double, double> dps = get_min_max_dps_for_option(SimOption::Name::NoScale);
 
     return new ScaleResult(SimOption::Name::NoScale, dps.first, dps.second, 0.0, 0.0, standard_deviation, confidence_interval);
+}
+
+void NumberCruncher::merge_player_results(ClassStatistics* cstat) {
+    check(!cstat->player_results.empty(), "NumberCruncher expected non-empty ClassStatistics::player_results");
+
+    if (player_results.empty()) {
+        player_results = cstat->player_results;
+        collected_iterations = cstat->player_results[0]->iterations;
+        return;
+    }
+
+    check((cstat->player_results.size() == player_results.size()), "NumberCruncher::merge_raid_results - Mismatch in expected result sizes");
+    const int iterations = cstat->player_results[0]->iterations;
+    collected_iterations += iterations;
+    const double ratio_new_results = static_cast<double>(iterations) / collected_iterations;
+    const double ratio_previous_results = 1.0 - ratio_new_results;
+
+    for (int i = 0; i < cstat->player_results.size(); ++i) {
+        check((player_results[i]->player_name == cstat->player_results[i]->player_name), "Mismatch in player names");
+        check((iterations == cstat->player_results[i]->iterations), "Mismatch in iterations between players of same raid");
+
+        player_results[i]->dps = player_results[i]->dps * ratio_previous_results + cstat->player_results[i]->dps * ratio_new_results;
+        player_results[i]->iterations += cstat->player_results[i]->iterations;
+    }
 }
 
 double NumberCruncher::get_standard_deviation_for_option(SimOption::Name option) const {

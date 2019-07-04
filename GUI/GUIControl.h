@@ -17,6 +17,7 @@ class CharacterDecoder;
 class CharacterEncoder;
 class CharacterTalents;
 class CombatRoll;
+class DamageMetersModel;
 class DebuffBreakdownModel;
 class DebuffModel;
 class EnchantModel;
@@ -298,6 +299,7 @@ public:
      Q_INVOKABLE void selectTemplateCharacter(QString template_char);
      Q_SIGNAL void partyMembersUpdated();
      Q_SIGNAL void selectedPartyMemberChanged();
+     DamageMetersModel* get_damage_meters_model();
      /* End of Raid setup */
 
      /* GUI initialization */
@@ -435,6 +437,7 @@ private:
     ItemTypeFilterModel* item_type_filter_model;
     WeaponModel* weapon_model;
     BuffModel* buff_model;
+    DamageMetersModel* damage_meters_model;
     DebuffModel* debuff_model;
     RotationModel* rotation_model;
     BuffBreakdownModel* buff_breakdown_model;
