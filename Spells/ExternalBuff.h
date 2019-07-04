@@ -19,6 +19,7 @@ enum class ExternalBuffName: int {
     ElixirOfTheMongoose,
     FaerieFire,
     FengusFerocity,
+    FireVulnerability,
     FlaskOfDistilledWisdom,
     FlaskOfSupremePower,
     GreaterArcaneElixir,

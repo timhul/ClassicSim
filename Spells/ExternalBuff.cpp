@@ -178,6 +178,9 @@ void ExternalBuff::buff_effect_when_applied() {
         pchar->get_spells()->get_dragonbreath_chili()->enable();
         pchar->get_spells()->get_dragonbreath_chili()->enable_proc();
         break;
+    case ExternalBuffName::FireVulnerability:
+        pchar->get_stats()->increase_magic_school_damage_mod(15, MagicSchool::Fire);
+        break;
     }
 }
 
@@ -316,6 +319,9 @@ void ExternalBuff::buff_effect_when_removed() {
     case ExternalBuffName::DragonbreathChili:
         pchar->get_spells()->get_dragonbreath_chili()->disable_proc();
         pchar->get_spells()->get_dragonbreath_chili()->disable();
+        break;
+    case ExternalBuffName::FireVulnerability:
+        pchar->get_stats()->decrease_magic_school_damage_mod(15, MagicSchool::Fire);
         break;
     }
 }
@@ -470,6 +476,10 @@ ExternalBuff* get_external_buff_by_name(const ExternalBuffName name, Character* 
         return new ExternalBuff(pchar, "Dragonbreath Chili", BuffDuration::PERMANENT, 0,
                                 name, AvailableFactions::Neutral, "Assets/misc/Inv_drink_17.png",
                                 "Occasionally belch flames");
+    case ExternalBuffName::FireVulnerability:
+        return new ExternalBuff(pchar, "Fire Vulnerability", BuffDuration::PERMANENT, 0,
+                                name, AvailableFactions::Neutral, "Assets/spell/Spell_fire_soulburn.png",
+                                "15% Fire Damage");
     }
 
     return nullptr;

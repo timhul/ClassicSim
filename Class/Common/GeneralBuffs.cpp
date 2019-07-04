@@ -29,6 +29,7 @@ GeneralBuffs::GeneralBuffs(Character* pchar, Faction* faction) :
             {false, get_external_buff_by_name(ExternalBuffName::FaerieFire, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::Annihilator, pchar)},
             {false, get_external_buff_by_name(ExternalBuffName::ImprovedShadowBolt, pchar)},
+            {false, get_external_buff_by_name(ExternalBuffName::FireVulnerability, pchar)},
         };
 
         this->external_debuffs.append(external_debuff_setup);
