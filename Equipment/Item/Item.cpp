@@ -561,6 +561,8 @@ ItemStats Item::get_item_stats_from_string(const QString& item_stat) const {
         return ItemStats::Strength;
     else if (item_stat == "SPELL_DAMAGE")
         return ItemStats::SpellDamage;
+    else if (item_stat == "MANA_PER_5")
+        return ItemStats::ManaPer5;
     else {
         return ItemStats::Armor;
         check(false, QString("Unsupported stat use type '%1'").arg(item_stat).toStdString());

@@ -783,5 +783,11 @@
         <file>QML/Assets/items/Inv_stone_15.png</file>
         <file>QML/Assets/items/Spell_nature_wispheal.png</file>
         <file>QML/Assets/items/Inv_misc_monsterscales_15.png</file>
+        <file>QML/Assets/items/Inv_zulgurubtrinket.png</file>
+        <file>QML/Assets/items/Inv_misc_stonetablet_11.png</file>
+        <file>QML/Assets/items/Inv_jewelry_talisman_09.png</file>
+        <file>QML/Assets/items/Inv_battery_02.png</file>
+        <file>QML/Assets/items/Inv_misc_root_02.png</file>
+        <file>QML/Assets/items/Inv_misc_rune_05.png</file>
     </qresource>
 </RCC>

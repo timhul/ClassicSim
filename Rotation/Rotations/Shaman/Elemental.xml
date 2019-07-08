@@ -4,9 +4,13 @@
 	Elemental rotation.
 	</description>
 
+	<cast_if name="Talisman of Ephemeral Power"/>
 	<cast_if name="Zandalarian Hero Charm"/>
 	<cast_if name="The Restrained Essence of Sapphiron"/>
 	<cast_if name="Eye of Moam"/>
+	<cast_if name="Draconic Infused Emblem"/>
+	<cast_if name="Mar'li's Eye"/>
+
 	<cast_if name="Lightning Bolt"/>
 
 	<cast_if name="Mana Potion"/>

@@ -44,6 +44,21 @@
 		</source>
 	</item>
 
+	<item id="13968" phase="0">
+		<info name="Eye of the Beast" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_08.png"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="SHAMAN"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="WARLOCK"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+			Quest reward. Requires killing General Drakkisath in Upper Blackrock Spire. Prequisites requires Lower Blackrock Spire.
+		</source>
+	</item>
+
 	<item id="17064" phase="0">
 		<info name="Shard of the Scale" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_misc_monsterscales_15.png"/>
 		<stats>
@@ -52,6 +67,20 @@
 		<source>
 			Drops from Onyxia in Onyxia's Lair.
 		</source>
+	</item>
+
+	<item id="18820" phase="0">
+		<info name="Talisman of Ephemeral Power" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_stonetablet_11.png"/>
+		<stats/>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="SPELL_DAMAGE" value="175" duration="15" cooldown="90"/>
+		</uses>
+		<source>
+			Drops from multiple bosses in Molten Core.
+		</source>
+		<special_equip_effect>
+			Use: Increases damage and healing done by magical spells and effects by up to 175 for 15 sec. (cooldown 1.5 min)
+		</special_equip_effect>
 	</item>
 
 	<item id="18537" phase="1">
@@ -66,7 +95,7 @@
 	</item>
 
 	<item id="18473" phase="1">
-		<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
+		<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
 			<stat type="FIRE_RESISTANCE" value="10"/>
@@ -78,6 +107,57 @@
 		<flavour_text>
 			"Blessed by the Shen'dralar Ancients."
 		</flavour_text>
+	</item>
+
+	<item id="18468" phase="1">
+		<info name="Royal Seal of Eldre'Thalas" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="54" item_lvl="62" quality="RARE" boe="no" icon="Inv_jewelry_talisman_10.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="MANA_PER_5" value="8"/>
+		</stats>
+		<source>
+			Quest reward. Requires BoE quest item that drops from Dire Maul thrash.
+		</source>
+		<flavour_text>
+			"Blessed by the Shen'dralar Ancients."
+		</flavour_text>
+	</item>
+
+	<item id="18371" phase="1">
+		<info name="Mindtap Talisman" type="TRINKET" slot="TRINKET" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_battery_02.png"/>
+		<stats>
+			<stat type="MANA_PER_5" value="11"/>
+		</stats>
+		<source>
+			Drops from Magister Kalendris in Dire Maul.
+		</source>
+	</item>
+
+	<item id="12930" phase="1">
+		<info name="Briarwood Reed" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_misc_root_02.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="29"/>
+		</stats>
+		<source>
+			Drops from Jed Runewatcher, a rare mob in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="12930" phase="2">
+		<info name="Rune of Perfection" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="40" item_lvl="45" quality="RARE" boe="no" icon="Inv_misc_rune_05.png"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="SHAMAN"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="WARLOCK"/>
+		<class_restriction class="DRUID"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_PENETRATION" value="20"/>
+		</stats>
+		<source>
+			Sold by Warsong Gulch vendor.
+		</source>
 	</item>
 
 	<item id="19120" phase="0">
@@ -161,6 +241,21 @@
 		</special_equip_effect>
 	</item>
 
+	<item id="19930" phase="3">
+		<info name="Mar'li's Eye" type="TRINKET" slot="TRINKET" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_zulgurubtrinket.png"/>
+		<stats>
+		</stats>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="MANA_PER_5" value="60" duration="30" cooldown="180"/>
+		</uses>
+		<source>
+			Drops from High Priestess Mar'li in Zul'Gurub.
+		</source>
+		<special_equip_effect>
+			Use: Restores 60 mana every 5 sec for 30 sec. (cooldown 3 min)
+		</special_equip_effect>
+	</item>
+
 	<item id="19949" phase="3">
 		<info name="Zandalarian Hero Medallion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
 		<stats>
@@ -201,6 +296,20 @@
 		</source>
 		<special_equip_effect>
 			Use: Instantly clears the cooldowns of Aimed Shot, Multi-Shot, Volley, and Arcane Shot. (cooldown 3 min)
+		</special_equip_effect>
+	</item>
+
+	<item id="22268" phase="4">
+		<info name="Draconic Infused Emblem" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_09.png"/>
+		<stats/>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="SPELL_DAMAGE" value="100" duration="15" cooldown="75"/>
+		</uses>
+		<source>
+			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
+		<special_equip_effect>
+			Use: Increases your spell damage by up to 100 and your healing by up to 190 for 15 sec. (cooldown 1.25 min)
 		</special_equip_effect>
 	</item>
 
