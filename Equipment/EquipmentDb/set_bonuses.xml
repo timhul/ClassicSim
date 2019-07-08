@@ -695,4 +695,29 @@
 		(8) Set: Reduces the mana cost of your Multi-Shot and Aimed Shot by 20.
 		</bonus>
 	</set>
+
+	<set name="Frostfire Regalia">
+		<item_id value="22502"/>
+		<item_id value="22503"/>
+		<item_id value="22498"/>
+		<item_id value="22501"/>
+		<item_id value="22497"/>
+		<item_id value="22496"/>
+		<item_id value="22500"/>
+		<item_id value="22499"/>
+		<item_id value="23062"/>
+
+		<bonus value="2">
+		(2) Set: Reduces the cooldown on your Evocation by 1 minute.
+		</bonus>
+		<bonus value="4">
+		(4) Set: Gives your Mage Armor a chance when struck by a harmful spell to increase resistance against that school of magic by 35 for 30 sec.
+		</bonus>
+		<bonus value="6">
+		(6) Set: Your damage spells have a chance to cause your target to take up to 200 increased damage from subsequent spells.
+		</bonus>
+		<bonus value="8">
+		(8) Set: Your damage spells have a chance to displace you, causing the next spell cast to generate no threat.
+		</bonus>
+	</set>
 </sets>
