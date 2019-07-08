@@ -30,17 +30,17 @@ void Stormstrike::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        shaman->lose_mana(resource_cost);
+        shaman->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
-        shaman->lose_mana(static_cast<unsigned>(round(resource_cost * 0.25)));
+        shaman->lose_mana(static_cast<unsigned>(round(get_resource_cost() * 0.25)));
         return;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
-        shaman->lose_mana(static_cast<unsigned>(round(resource_cost * 0.25)));
+        shaman->lose_mana(static_cast<unsigned>(round(get_resource_cost() * 0.25)));
         return;
     }
 
@@ -49,14 +49,14 @@ void Stormstrike::spell_effect() {
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= shaman->get_stats()->get_melee_ability_crit_dmg_mod();
         shaman->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
+        add_crit_dmg(static_cast<int>(round(damage_dealt)), get_resource_cost(), pchar->global_cooldown());
     }
     else if (result == PhysicalAttackResult::HIT) {
         shaman->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, pchar->global_cooldown());
+        add_hit_dmg(static_cast<int>(round(damage_dealt)), get_resource_cost(), pchar->global_cooldown());
     }
 
-    shaman->lose_mana(resource_cost);
+    shaman->lose_mana(static_cast<unsigned>(round(get_resource_cost())));
     stormstrike_buff->apply_buff();
 }
 

@@ -35,7 +35,7 @@ void MultiShot::spell_effect() {
 
     cooldown->add_gcd_event();
     cooldown->add_spell_cd_event();
-    pchar->lose_mana(resource_cost);
+    pchar->lose_mana(get_resource_cost());
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
@@ -53,14 +53,14 @@ void MultiShot::spell_effect() {
 
     if (result == PhysicalAttackResult::CRITICAL) {
         damage_dealt *= pchar->get_stats()->get_ranged_ability_crit_dmg_mod() + mortal_shots_bonus;
-        add_crit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt)), get_resource_cost(), 0);
         pchar->ranged_yellow_hit_effect();
         add_adrenaline_rush_statistics();
         return;
     }
 
     pchar->ranged_yellow_hit_effect();
-    add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+    add_hit_dmg(static_cast<int>(round(damage_dealt)), get_resource_cost(), 0);
 }
 
 void MultiShot::prepare_set_of_combat_iterations_spell_specific() {

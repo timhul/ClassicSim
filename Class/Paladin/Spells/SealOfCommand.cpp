@@ -83,11 +83,11 @@ void SealOfCommand::judge_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->melee_mh_yellow_critical_effect();
-        add_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod)), get_resource_cost(), 0);
     }
     else {
         pchar->melee_mh_yellow_hit_effect();
-        add_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod)), resource_cost, 0);
+        add_hit_dmg(static_cast<int>(round(damage_dealt * resist_mod)), get_resource_cost(), 0);
     }
 }
 

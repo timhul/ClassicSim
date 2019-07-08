@@ -18,6 +18,22 @@
 		</flavour_text>
 	</item>
 
+	<item id="11832" phase="0">
+		<info name="Burst of Knowledge" type="TRINKET" slot="TRINKET" unique="no" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_amulet_07.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<uses>
+			<use name="GENERIC_STAT_BUFF" type="MANA_SKILL_REDUCTION" value="100" duration="10" cooldown="900"/>
+		</uses>
+		<source>
+			Drops from Ambassador Flamelash in Blackrock Depths.
+		</source>
+		<special_equip_effect>
+			Use: Reduces mana cost of all spells by 100 for 10 sec. (cooldown 15 min)
+		</special_equip_effect>
+	</item>
+
 	<item id="11815" phase="0">
 		<info name="Hand of Justice" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_talisman_01.png"/>
 		<stats>

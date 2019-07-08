@@ -204,6 +204,10 @@ public:
     void increase_ranged_flat_damage_bonus(const unsigned value);
     void decrease_ranged_flat_damage_bonus(const unsigned value);
 
+    unsigned get_mana_skill_reduction() const;
+    void increase_mana_skill_reduction(const unsigned value);
+    void decrease_mana_skill_reduction(const unsigned value);
+
 private:
     Character* pchar;
     Equipment* equipment;
@@ -237,6 +241,7 @@ private:
     unsigned ranged_flat_dmg_bonus {0};
 
     unsigned mp5 {0};
+    unsigned mana_skill_reduction {0};
 
     double melee_ability_crit_dmg_mod {2.0};
     double ranged_ability_crit_dmg_mod {2.0};

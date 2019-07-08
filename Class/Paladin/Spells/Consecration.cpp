@@ -100,12 +100,12 @@ void Consecration::calculate_damage() {
     const double damage_dealt = ((full_duration_dmg + bonus_from_spell_dmg) / 4 + tick_rest) * resist_mod * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy);
     tick_rest = tick_rest + damage_dealt - round(damage_dealt);
 
-    add_hit_dmg(static_cast<int>(round(damage_dealt)), static_cast<double>(resource_cost) / 4, pchar->global_cooldown() / 4);
+    add_hit_dmg(static_cast<int>(round(damage_dealt)), static_cast<double>(get_resource_cost()) / 4, pchar->global_cooldown() / 4);
 }
 
 void Consecration::spell_effect() {
     buff->apply_buff();
-    pchar->lose_mana(resource_cost);
+    pchar->lose_mana(get_resource_cost());
     cooldown->add_gcd_event();
 
     if (ticks == 0)

@@ -789,5 +789,6 @@
         <file>QML/Assets/items/Inv_battery_02.png</file>
         <file>QML/Assets/items/Inv_misc_root_02.png</file>
         <file>QML/Assets/items/Inv_misc_rune_05.png</file>
+        <file>QML/Assets/items/Inv_jewelry_amulet_07.png</file>
     </qresource>
 </RCC>

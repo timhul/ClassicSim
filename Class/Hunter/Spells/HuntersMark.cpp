@@ -26,7 +26,7 @@ HuntersMark::~HuntersMark() {
 
 void HuntersMark::spell_effect() {
     cooldown->add_gcd_event();
-    pchar->lose_mana(resource_cost);
+    pchar->lose_mana(get_resource_cost());
 
     hunters_mark->cancel_buff();
     hunters_mark->ap_bonus = hunters_mark_bonus;

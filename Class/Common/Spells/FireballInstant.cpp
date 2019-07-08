@@ -68,13 +68,13 @@ void FireballInstant::spell_effect() {
         magic_attack_result = MagicAttackResult::CRITICAL;
         pchar->spell_critical_effect(MagicSchool::Fire);
         last_damage_dealt = round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod);
-        add_crit_dmg(static_cast<int>(last_damage_dealt), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(last_damage_dealt), get_resource_cost(), 0);
     }
     else {
         magic_attack_result = MagicAttackResult::HIT;
         pchar->spell_hit_effect(MagicSchool::Fire);
         last_damage_dealt = round(damage_dealt * damage_mod * resist_mod);
-        add_hit_dmg(static_cast<int>(last_damage_dealt), resource_cost, 0);
+        add_hit_dmg(static_cast<int>(last_damage_dealt), get_resource_cost(), 0);
     }
 }
 
@@ -85,7 +85,7 @@ void FireballInstant::perform_periodic() {
     const double damage_dealt = (base_dmg_per_tick + damage_remaining) * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire);
     damage_remaining = std::max(0.0, damage_dealt - round(damage_dealt));
 
-    add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
+    add_hit_dmg(static_cast<int>(round(damage_dealt)), 0, 0);
 
     --num_ticks_left;
     if (num_ticks_left > 0)

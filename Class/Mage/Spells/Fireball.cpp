@@ -167,7 +167,7 @@ void Fireball::spell_effect() {
 
 void Fireball::complete_cast_effect() {
     if (!mage_spells->clearcasting_active())
-        pchar->lose_mana(resource_cost);
+        pchar->lose_mana(get_resource_cost());
 
     damage_spell->perform();
 

@@ -33,7 +33,7 @@ RapidFireBuff* RapidFire::get_rapid_fire_buff() const {
 
 void RapidFire::spell_effect() {
     cooldown->add_gcd_event();
-    pchar->lose_mana(resource_cost);
+    pchar->lose_mana(get_resource_cost());
     rapid_fire->apply_buff();
 }
 

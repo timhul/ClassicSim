@@ -18,7 +18,7 @@ void Judgement::spell_effect() {
 
     dynamic_cast<PaladinSpells*>(paladin->get_spells())->get_seal()->judge_seal();
 
-    pchar->lose_mana(resource_cost);
+    pchar->lose_mana(get_resource_cost());
 }
 
 SpellStatus Judgement::is_ready_spell_specific() const {

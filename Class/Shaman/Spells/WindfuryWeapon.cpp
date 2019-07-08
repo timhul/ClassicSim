@@ -63,7 +63,7 @@ void WindfuryWeapon::prepare_set_of_combat_iterations_spell_specific() {
 void WindfuryWeapon::spell_effect() {
     pchar->get_equipment()->get_mainhand()->clear_temporary_enchant();
     buff->apply_buff();
-    pchar->lose_mana(resource_cost);
+    pchar->lose_mana(get_resource_cost());
 }
 
 void WindfuryWeapon::increase_talent_rank_effect(const QString& talent_name, const int) {

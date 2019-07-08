@@ -41,5 +41,5 @@ void PaladinSeal::spell_effect() {
 
     cooldown->add_gcd_event();
 
-    pchar->lose_mana(resource_cost);
+    pchar->lose_mana(get_resource_cost());
 }

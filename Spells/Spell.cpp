@@ -63,7 +63,8 @@ double Spell::get_next_use() const {
 }
 
 double Spell::get_resource_cost() const {
-    return this->resource_cost;
+    const unsigned mana_skill_reduction = resource_type == ResourceType::Mana ? pchar->get_stats()->get_mana_skill_reduction() : 0;
+    return mana_skill_reduction > resource_cost ? 0 : resource_cost - mana_skill_reduction;
 }
 
 SpellStatus Spell::is_ready_spell_specific() const {
@@ -91,7 +92,7 @@ SpellStatus Spell::get_spell_status() const {
     if ((get_next_use() - engine->get_current_priority()) > 0.0001)
         return SpellStatus::OnCooldown;
 
-    if (pchar->get_resource_level(resource_type) < this->resource_cost)
+    if (pchar->get_resource_level(resource_type) < get_resource_cost())
         return SpellStatus::InsufficientResources;
 
     return is_ready_spell_specific();
@@ -127,7 +128,7 @@ double Spell::get_cooldown_remaining() const {
 }
 
 void Spell::perform() {
-    check((pchar->get_resource_level(resource_type) >= resource_cost),
+    check((pchar->get_resource_level(resource_type) >= get_resource_cost()),
           QString("Tried to perform '%1' but has unsufficient resource").arg(name).toStdString());
     cooldown->last_used = engine->get_current_priority();
     this->spell_effect();

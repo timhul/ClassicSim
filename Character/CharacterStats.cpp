@@ -262,6 +262,8 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_strength(value);
     case ItemStats::ManaPer5:
         return increase_mp5(value);
+    case ItemStats::ManaSkillReduction:
+        return increase_mana_skill_reduction(value);
     case ItemStats::SpellDamage:
         return increase_base_spell_damage(value);
     case ItemStats::SpellDamageArcane:
@@ -365,6 +367,8 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_strength(value);
     case ItemStats::ManaPer5:
         return decrease_mp5(value);
+    case ItemStats::ManaSkillReduction:
+        return decrease_mana_skill_reduction(value);
     case ItemStats::SpellDamage:
         return decrease_base_spell_damage(value);
     case ItemStats::SpellDamageArcane:
@@ -983,6 +987,19 @@ void CharacterStats::increase_ranged_flat_damage_bonus(const unsigned value) {
 void CharacterStats::decrease_ranged_flat_damage_bonus(const unsigned value) {
     check((ranged_flat_dmg_bonus >= value), "Underflow decrease");
     this->ranged_flat_dmg_bonus -= value;
+}
+
+unsigned CharacterStats::get_mana_skill_reduction() const {
+    return mana_skill_reduction;
+}
+
+void CharacterStats::increase_mana_skill_reduction(const unsigned value) {
+    mana_skill_reduction += value;
+}
+
+void CharacterStats::decrease_mana_skill_reduction(const unsigned value) {
+    check((mana_skill_reduction >= value), "Underflow decrease mana skill reduction");
+    mana_skill_reduction -= value;
 }
 
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {

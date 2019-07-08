@@ -122,7 +122,7 @@ void LightningBolt::spell_effect() {
 
 void LightningBolt::complete_cast_effect() {
     if (!spells->clearcasting_active())
-        pchar->lose_mana(resource_cost);
+        pchar->lose_mana(get_resource_cost());
 
     pchar->get_spells()->start_attack();
 
@@ -143,11 +143,11 @@ void LightningBolt::complete_cast_effect() {
 
     if (hit_roll == MagicAttackResult::CRITICAL) {
         pchar->spell_critical_effect(MagicSchool::Nature);
-        add_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * concussion_mod)), resource_cost, 0);
+        add_crit_dmg(static_cast<int>(round(damage_dealt * damage_mod * pchar->get_stats()->get_spell_crit_dmg_mod() * resist_mod * concussion_mod)), get_resource_cost(), 0);
     }
     else {
         pchar->spell_hit_effect(MagicSchool::Nature);
-        add_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod * concussion_mod)), resource_cost, 0);
+        add_hit_dmg(static_cast<int>(round(damage_dealt * damage_mod * resist_mod * concussion_mod)), get_resource_cost(), 0);
     }
 }
 
