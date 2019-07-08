@@ -50,6 +50,19 @@
 		</special_equip_effect>
 	</item>
 
+	<item id="18509" phase="0">
+		<info name="Chromatic Cloak" type="CLOTH" slot="BACK" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="yes" icon="Inv_misc_cape_02.png"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="9"/>
+			<stat type="SHADOW_RESISTANCE" value="9"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Crafted by leatherworkers.
+		</source>
+	</item>
+
 	<item id="18204" phase="0">
 		<info name="Eskhandar's Pelt" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_cape_07.png"/>
 		<stats>
@@ -59,6 +72,21 @@
 		</stats>
 		<source>
 			Drops from Lord Kazzak (world boss in Blasted Lands).
+		</source>
+	</item>
+
+	<item id="17078" phase="0">
+		<info name="Sapphiron Drape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_misc_cape_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="55"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="FROST_RESISTANCE" value="6"/>
+			<stat type="ARCANE_RESISTANCE" value="6"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+		</stats>
+		<source>
+			Drops from Onyxia in Onyxia's Lair.
 		</source>
 	</item>
 
@@ -129,6 +157,22 @@
 		</source>
 	</item>
 
+	<item id="19378" phase="2">
+		<info name="Cloak of the Brood Lord" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
+		<stats>
+			<stat type="ARMOR" value="63"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+		</stats>
+		<flavour_text>
+		"The threading is unlike anything you have ever seen. It appears metallic in origin."
+		</flavour_text>
+		<source>
+			Drops from Nefarian in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="20073" phase="3">
 		<info name="Cloak of the Honor Guard" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_misc_cape_02.png"/>
 		<stats>
@@ -177,6 +221,32 @@
 		</stats>
 		<source>
 			Drops from High Priest Venoxis in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="22711" phase="3">
+		<info name="Cloak of the Hakkari Worshipers" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_misc_cape_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="48"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+			Drops from High Priest and Priestess bosses in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="19857" phase="3">
+		<info name="Cloak of Consumption" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_misc_cape_22.png"/>
+		<stats>
+			<stat type="ARMOR" value="52"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Hakkar in Zul'Gurub.
 		</source>
 	</item>
 
@@ -250,6 +320,34 @@
 		</source>
 	</item>
 
+	<item id="21415" phase="4">
+		<info name="Drape of Vaulted Secrets" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_misc_cape_19.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="52"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Revered with Cenarion Hold.
+		</source>
+	</item>
+
+	<item id="20697" phase="4">
+		<info name="Crystalline Threaded Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="yes" icon="Inv_misc_cape_19.png"/>
+		<stats>
+			<stat type="ARMOR" value="45"/>
+			<stat type="INTELLECT" value="4"/>
+			<stat type="STAMINA" value="5"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+			Drops from bag awarded via repeatable quest in Silithus.
+		</source>
+	</item>
+
 	<item id="20691" phase="4">
 		<info name="Windshear Cape" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_cape_20.png"/>
 		<stats>
@@ -261,6 +359,19 @@
 		</stats>
 		<source>
 			Drops from High Marshal Whirlaxis (summonable raid boss in Silithus).
+		</source>
+	</item>
+
+	<item id="21697" phase="4">
+		<info name="Cape of the Trinity" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_misc_cape_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+			Drops from Bug Trio in Temple of Ahn'Qiraj (AQ40).
 		</source>
 	</item>
 
@@ -291,6 +402,20 @@
 		</source>
 	</item>
 
+	<item id="22731" phase="4">
+		<info name="Cloak of the Devoured" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_misc_cape_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="66"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from C'Thun in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="23127" phase="5">
 		<info name="Cloak of Revanchion" type="CLOTH" slot="BACK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_cape_02.png"/>
 		<stats>
@@ -317,6 +442,20 @@
 		</source>
 	</item>
 
+	<item id="23017" phase="5">
+		<info name="Veil of Eclipse" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="63"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+			<stat type="SPELL_PENETRATION" value="10"/>
+		</stats>
+		<source>
+			Drops from Instructor Razuvious in Naxxramas.
+		</source>
+	</item>
+
 	<item id="23405" phase="5">
 		<info name="Shroud of Dominion" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
 		<stats>
@@ -324,6 +463,21 @@
 			<stat type="STAMINA" value="11"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
 			<stat type="ATTACK_POWER" value="50"/>
+		</stats>
+		<source>
+			Drops from Sapphiron in Naxxramas.
+		</source>
+	</item>
+
+	<item id="23050" phase="5">
+		<info name="Cloak of the Necropolis" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_cape_naxxramas_03.png"/>
+		<stats>
+			<stat type="ARMOR" value="68"/>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE" value="26"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
 		</stats>
 		<source>
 			Drops from Sapphiron in Naxxramas.

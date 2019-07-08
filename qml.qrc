@@ -770,5 +770,6 @@
         <file>QML/Assets/items/Inv_jewelry_necklace_16.png</file>
         <file>QML/Assets/items/Inv_jewelry_talisman_08.png</file>
         <file>QML/Assets/items/Inv_jewelry_necklace_25.png</file>
+        <file>QML/Assets/items/Inv_misc_cape_22.png</file>
     </qresource>
 </RCC>
