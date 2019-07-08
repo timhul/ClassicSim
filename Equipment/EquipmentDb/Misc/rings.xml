@@ -172,6 +172,16 @@
 		</source>
 	</item>
 
+	<item id="19147" phase="0">
+		<info name="Ring of Spell Power" type="RING" slot="RING" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_38.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+			Drops from multiple bosses in Molten Core.
+		</source>
+	</item>
+
 	<item id="18500" phase="1">
 		<info name="Tarnished Elven Ring" type="RING" slot="RING" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_ring_13.png"/>
 		<stats>
@@ -191,6 +201,20 @@
 		</stats>
 		<source>
 			Drops from King Gordok in Dire Maul.
+		</source>
+	</item>
+
+	<item id="18403" phase="0">
+		<info name="Dragonslayer's Signet" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_jewelry_ring_27.png"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward from turning in Head of Onyxia.
 		</source>
 	</item>
 
@@ -216,6 +240,19 @@
 		</stats>
 		<source>
 			Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
+	<item id="18543" phase="1">
+		<info name="Ring of Entropy" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_jewelry_ring_20.png"/>
+		<stats>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Lord Kazzak (world boss in Blasted Lands).
 		</source>
 	</item>
 
@@ -268,6 +305,30 @@
 		</source>
 	</item>
 
+	<item id="19397" phase="2">
+		<info name="Ring of Blackrock" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_jewelry_ring_43.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="19"/>
+			<stat type="MANA_PER_5" value="9"/>
+		</stats>
+		<source>
+			Drops from Firemaw, Flamegor, and Ebonroc in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="19403" phase="2">
+		<info name="Band of Forced Concentration" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_jewelry_ring_34.png"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+			Drops from Ebonroc in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="19432" phase="2">
 		<info name="Circle of Applied Force" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_jewelry_ring_37.png"/>
 		<stats>
@@ -288,6 +349,19 @@
 		</stats>
 		<source>
 			Drops from Nefarian in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="20632" phase="3">
+		<info name="Mindtear Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_jewelry_ring_04.png"/>
+		<stats>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPELL_DAMAGE" value="22"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Taerar (dragon world boss in Duskwood).
 		</source>
 	</item>
 
@@ -312,6 +386,31 @@
 		</stats>
 		<source>
 			Drops from High Priestess Mar'li in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="19893" phase="3">
+		<info name="Zanzil's Seal" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_jewelry_ring_46.png"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="11"/>
+		</stats>
+		<source>
+			Drops from Bloodlord Mandokir in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="19905" phase="3">
+		<info name="Zanzil's Band" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_ring_46.png"/>
+		<stats>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="MANA_PER_5" value="4"/>
+		</stats>
+		<source>
+			Drops from High Priest Venoxis in Zul'Gurub.
 		</source>
 	</item>
 
@@ -424,6 +523,19 @@
 		</source>
 	</item>
 
+	<item id="21483" phase="4">
+		<info name="Ring of the Desert Winds" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="73" quality="RARE" boe="no" icon="Inv_jewelry_ring_ahnqiraj_05.png"/>
+		<stats>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="MANA_PER_5" value="3"/>
+			<stat type="SPELL_DAMAGE" value="9"/>
+		</stats>
+		<source>
+			Drops from Ayamiss the Hunter in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
 	<item id="21477" phase="4">
 		<info name="Ring of Fury" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_jewelry_ring_ahnqiraj_04.png"/>
 		<stats>
@@ -434,6 +546,22 @@
 		<source>
 			Drops from Moam in Ruins of Ahn'Qiraj (AQ20).
 		</source>
+	</item>
+
+	<item id="21210" phase="4">
+		<info name="Signet Ring of the Bronze Dragonflight" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
+		<stats>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+			<stat type="MANA_PER_5" value="5"/>
+		</stats>
+		<source>
+			Quest reward. Requires Exalted with Brood of Nozdormu (requires AQ40).
+		</source>
+		<flavour_text>
+			"The Path of the Invoker"
+		</flavour_text>
 	</item>
 
 	<item id="21205" phase="4">
@@ -449,6 +577,42 @@
 		<flavour_text>
 			"The Path of the Conqueror"
 		</flavour_text>
+	</item>
+
+	<item id="21836" phase="4">
+		<info name="Ritssyn's Ring of Chaos" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_jewelry_ring_34.png"/>
+		<stats>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from trash mobs in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21709" phase="4">
+		<info name="Ring of the Fallen God" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_02.png"/>
+		<stats>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="STAMINA" value="5"/>
+			<stat type="SPELL_DAMAGE" value="37"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires Eye of C'Thun from C'Thun in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21707" phase="4">
+		<info name="Ring of Swarming Thought" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="73" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_04.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="26"/>
+			<stat type="SPELL_PENETRATION" value="20"/>
+		</stats>
+		<source>
+			Drops from The Prophet Skeram in Temple of Ahn'Qiraj (AQ40).
+		</source>
 	</item>
 
 	<item id="21677" phase="4">
@@ -474,12 +638,36 @@
 		</source>
 	</item>
 
+	<item id="23237" phase="5">
+		<info name="Ring of the Eternal Flame" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="34"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from trash mobs in Naxxramas.
+		</source>
+	</item>
+
 	<item id="23038" phase="5">
 		<info name="Band of Unnatural Forces" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
 		<stats>
 			<stat type="CRIT_CHANCE" value="0.01"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
 			<stat type="ATTACK_POWER" value="52"/>
+		</stats>
+		<source>
+			Drops from Loatheb in Naxxramas.
+		</source>
+	</item>
+
+	<item id="23037" phase="5">
+		<info name="Ring of Spiritual Fervor" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_52naxxramas.png"/>
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="MANA_PER_5" value="10"/>
 		</stats>
 		<source>
 			Drops from Loatheb in Naxxramas.
@@ -493,6 +681,19 @@
 		</stats>
 		<source>
 			Drops from Patchwerk in Naxxramas.
+		</source>
+	</item>
+
+	<item id="23025" phase="5">
+		<info name="Seal of the Damned" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_jewelry_ring_48naxxramas.png"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from The Four Horsemen in Naxxramas.
 		</source>
 	</item>
 

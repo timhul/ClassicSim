@@ -694,6 +694,36 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage and healing done by magical spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamage, value.toUInt());
     }
+    else if (key == "SPELL_DAMAGE_ARCANE") {
+        this->stats->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Arcane);
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Arcane spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageArcane, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_FIRE") {
+        this->stats->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Fire);
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Fire spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageFire, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_FROST") {
+        this->stats->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Frost);
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Frost spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageFrost, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_HOLY") {
+        this->stats->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Holy);
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Holy spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageHoly, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_NATURE") {
+        this->stats->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Nature);
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Nature spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageNature, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_SHADOW") {
+        this->stats->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Shadow);
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Shadow spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageShadow, value.toUInt());
+    }
     else if (key == "SPELL_CRIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));
         const unsigned attack_table_value = display_value * 100;

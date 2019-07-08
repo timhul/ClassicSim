@@ -264,6 +264,18 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_mp5(value);
     case ItemStats::SpellDamage:
         return increase_base_spell_damage(value);
+    case ItemStats::SpellDamageArcane:
+        return increase_spell_damage_vs_school(value, MagicSchool::Arcane);
+    case ItemStats::SpellDamageFire:
+        return increase_spell_damage_vs_school(value, MagicSchool::Fire);
+    case ItemStats::SpellDamageFrost:
+        return increase_spell_damage_vs_school(value, MagicSchool::Frost);
+    case ItemStats::SpellDamageHoly:
+        return increase_spell_damage_vs_school(value, MagicSchool::Holy);
+    case ItemStats::SpellDamageNature:
+        return increase_spell_damage_vs_school(value, MagicSchool::Nature);
+    case ItemStats::SpellDamageShadow:
+        return increase_spell_damage_vs_school(value, MagicSchool::Shadow);
     case ItemStats::SpellCrit:
         return increase_spell_crit(value);
     case ItemStats::SpellHit:
@@ -344,6 +356,18 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_mp5(value);
     case ItemStats::SpellDamage:
         return decrease_base_spell_damage(value);
+    case ItemStats::SpellDamageArcane:
+        return decrease_spell_damage_vs_school(value, MagicSchool::Arcane);
+    case ItemStats::SpellDamageFire:
+        return decrease_spell_damage_vs_school(value, MagicSchool::Fire);
+    case ItemStats::SpellDamageFrost:
+        return decrease_spell_damage_vs_school(value, MagicSchool::Frost);
+    case ItemStats::SpellDamageHoly:
+        return decrease_spell_damage_vs_school(value, MagicSchool::Holy);
+    case ItemStats::SpellDamageNature:
+        return decrease_spell_damage_vs_school(value, MagicSchool::Nature);
+    case ItemStats::SpellDamageShadow:
+        return decrease_spell_damage_vs_school(value, MagicSchool::Shadow);
     case ItemStats::SpellCrit:
         return decrease_spell_crit(value);
     case ItemStats::SpellHit:

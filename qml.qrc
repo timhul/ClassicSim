@@ -771,5 +771,11 @@
         <file>QML/Assets/items/Inv_jewelry_talisman_08.png</file>
         <file>QML/Assets/items/Inv_jewelry_necklace_25.png</file>
         <file>QML/Assets/items/Inv_misc_cape_22.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_34.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_43.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_46.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_52naxxramas.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_02.png</file>
+        <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_05.png</file>
     </qresource>
 </RCC>
