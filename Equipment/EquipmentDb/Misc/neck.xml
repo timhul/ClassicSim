@@ -46,6 +46,44 @@
 		</source>
 	</item>
 
+	<item id="12103" phase="0">
+		<info name="Star of Mystaria" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_08.png"/>
+		<stats>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Balnazzar in Stratholme Living.
+		</source>
+	</item>
+
+	<item id="13141" phase="0">
+		<info name="Tooth of Gnarr" type="AMULET" slot="NECK" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="MANA_PER_5" value="3"/>
+		</stats>
+		<source>
+			Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="17109" phase="0">
+		<info name="Choker of Enlightenment" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_10.png"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+			Drops from Lucifron in Molten Core.
+		</source>
+	</item>
+
 	<item id="17111" phase="1">
 		<info name="Blazefury Medallion" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_talisman_01.png"/>
 		<stats>
@@ -90,12 +128,36 @@
 		</source>
 	</item>
 
+	<item id="18814" phase="0">
+		<info name="Choker of the Fire Lord" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_05.png"/>
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_DAMAGE" value="34"/>
+		</stats>
+		<source>
+			Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
 	<item id="22150" phase="1">
 		<info name="Beads of Ogre Might" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_amulet_05.png"/>
 		<stats>
 			<stat type="STAMINA" value="7"/>
 			<stat type="ATTACK_POWER" value="24"/>
 			<stat type="HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Quest reward. Requires Dire Maul.
+		</source>
+	</item>
+
+	<item id="22149" phase="1">
+		<info name="Beads of Ogre Mojo" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_amulet_05.png"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE" value="13"/>
 		</stats>
 		<source>
 			Quest reward. Requires Dire Maul.
@@ -136,6 +198,30 @@
 		</source>
 	</item>
 
+	<item id="19426" phase="2">
+		<info name="Orb of the Darkmoon" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_16.png"/>
+		<stats>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="22"/>
+		</stats>
+		<source>
+			Quest reward. Requires Darkmoon Faire and Darkmoon Faire Prize Tickets.
+		</source>
+	</item>
+
+	<item id="19371" phase="2">
+		<info name="Pendant of the Fallen Dragon" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_12.png"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="MANA_PER_5" value="9"/>
+		</stats>
+		<source>
+			Drops from Vaelastrasz the Corrupt in Blackwing Lair.
+		</source>
+	</item>
+
 	<item id="19377" phase="2">
 		<info name="Prestor's Talisman of Connivery" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_17.png"/>
 		<stats>
@@ -164,6 +250,48 @@
 		</special_equip_effect>
 	</item>
 
+	<item id="19600" phase="3">
+		<info name="Pebble of Kajaro" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_necklace_25.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="9"/>
+		</stats>
+		<source>
+			Reputation reward. Requires Revered with Zandalar Tribe.
+		</source>
+	</item>
+
+	<item id="19601" phase="3">
+		<info name="Jewel of Kajaro" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_26.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="9"/>
+		</stats>
+		<source>
+			Reputation reward. Requires Revered with Zandalar Tribe.
+		</source>
+		<special_equip_effect>
+			Equip: Reduces the cooldown of Counterspell by 2 sec.
+		</special_equip_effect>
+	</item>
+
+	<item id="19923" phase="3">
+		<info name="Jeklik's Opaline Talisman" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_jewelry_necklace_03.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="22"/>
+			<stat type="MANA_PER_5" value="3"/>
+		</stats>
+		<source>
+			Drops from High Priestess Jeklik in Zul'Gurub.
+		</source>
+	</item>
+
 	<item id="19856" phase="3">
 		<info name="The Eye of Hakkar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_22.png"/>
 		<stats>
@@ -172,6 +300,32 @@
 		</stats>
 		<source>
 			Drops from Hakkar in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="19876" phase="3">
+		<info name="Soul Corrupter's Necklace" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_19.png"/>
+		<stats>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Hakkar in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="22403" phase="4">
+		<info name="Diana's Pearl Necklace" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_necklace_10.png"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="9"/>
+		</stats>
+		<source>
+			Drops from Cannon Master Willey in Stratholme Living.
 		</source>
 	</item>
 
@@ -209,6 +363,31 @@
 		</source>
 	</item>
 
+	<item id="21504" phase="4">
+		<info name="Charm of the Shifting Sands" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_03.png"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+			Quest reward. Requires Head of Ossirian from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
+	<item id="21678" phase="4">
+		<info name="Necklace of Purity" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_04.png"/>
+		<stats>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="NATURE_RESISTANCE" value="20"/>
+			<stat type="SPELL_DAMAGE" value="8"/>
+		</stats>
+		<source>
+			Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
 	<item id="21664" phase="4">
 		<info name="Barbed Choker" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_02.png"/>
 		<stats>
@@ -218,6 +397,29 @@
 		</stats>
 		<source>
 			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21608" phase="4">
+		<info name="Amulet of Vek'nilash" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_ahnqiraj_01.png"/>
+		<stats>
+			<stat type="INTELLECT" value="5"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="23125" phase="5">
+		<info name="Chains of the Lich" type="AMULET" slot="NECK" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_18.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="22"/>
+		</stats>
+		<source>
+			Drops from Balzaphon during Scourge Invasion event.
 		</source>
 	</item>
 
@@ -233,6 +435,18 @@
 		</source>
 	</item>
 
+	<item id="22657" phase="5">
+		<info name="Amulet of the Dawn" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_04.png"/>
+		<stats>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+			Quest reward. Requires Exalted with Argent Dawn.
+		</source>
+	</item>
+
 	<item id="23023" phase="5">
 		<info name="Sadist's Collar" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_29naxxramas.png"/>
 		<stats>
@@ -242,6 +456,32 @@
 		</stats>
 		<source>
 			Drops from Gothik the Harvester in Naxxramas.
+		</source>
+	</item>
+
+	<item id="22943" phase="5">
+		<info name="Malice Stone Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_29naxxramas.png"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+			<stat type="SPELL_PENETRATION" value="13"/>
+		</stats>
+		<source>
+			Drops from Grand Widow Faerlina in Naxxramas.
+		</source>
+	</item>
+
+	<item id="23057" phase="5">
+		<info name="Gem of Trapped Innocents" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_29naxxramas.png"/>
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="STAMINA" value="9"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+			Drops from Kel'Thuzad in Naxxramas.
 		</source>
 	</item>
 

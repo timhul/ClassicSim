@@ -762,5 +762,13 @@
         <file>QML/Assets/items/Inv_crown_01.png</file>
         <file>QML/Assets/items/Inv_pants_cloth_05.png</file>
         <file>QML/CharacterStatsSpell.qml</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_ahnqiraj_01.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_ahnqiraj_04.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_03.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_10.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_12.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_16.png</file>
+        <file>QML/Assets/items/Inv_jewelry_talisman_08.png</file>
+        <file>QML/Assets/items/Inv_jewelry_necklace_25.png</file>
     </qresource>
 </RCC>
