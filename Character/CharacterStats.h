@@ -44,6 +44,10 @@ public:
     void increase_ranged_attack_speed(const unsigned value);
     void decrease_ranged_attack_speed(const unsigned value);
 
+    double get_casting_speed_mod() const;
+    void increase_casting_speed(const unsigned value);
+    void decrease_casting_speed(const unsigned value);
+
     unsigned get_strength() const;
     void increase_strength(const unsigned value);
     void decrease_strength(const unsigned value);
@@ -80,6 +84,9 @@ public:
 
     void increase_crit_dmg_vs_type(const Target::CreatureType target_type, const unsigned value);
     void decrease_crit_dmg_vs_type(const Target::CreatureType target_type, const unsigned value);
+
+    void increase_spell_damage_vs_type(const Target::CreatureType target_type, const unsigned value);
+    void decrease_spell_damage_vs_type(const Target::CreatureType target_type, const unsigned value);
 
     unsigned get_melee_hit_chance() const;
     void increase_melee_hit(const unsigned value);
@@ -203,6 +210,7 @@ private:
     Stats* base_stats;
     QVector<int> melee_attack_speed_buffs;
     QVector<int> ranged_attack_speed_buffs;
+    QVector<int> casting_speed_buffs;
     QVector<int> phys_dmg_buffs;
     QVector<int> phys_damage_taken_changes;
     QVector<int> spell_damage_taken_changes;
@@ -235,6 +243,7 @@ private:
     double spell_crit_dmg_mod {1.5};
     double melee_attack_speed_mod {1.0};
     double ranged_attack_speed_mod {1.0};
+    double casting_speed_mod {1.0};
     double total_phys_dmg_mod {1.0};
     double physical_damage_taken_mod {1.0};
     double spell_damage_taken_mod {1.0};

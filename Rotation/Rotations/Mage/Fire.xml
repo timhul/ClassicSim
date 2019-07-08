@@ -4,6 +4,8 @@
 	Fireball spam.
 	</description>
 
+	<cast_if name="The Restrained Essence of Sapphiron"/>
+	<cast_if name="Mind Quickening Gem"/>
 	<cast_if name="Combustion"/>
 	<cast_if name="Fireball"/>
 

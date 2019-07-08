@@ -137,13 +137,17 @@ public:
     void set_spi_multiplier(const double value);
     void set_int_multiplier(const double value);
 
-    void increase_melee_ap_against_type(const Target::CreatureType, const unsigned);
-    void decrease_melee_ap_against_type(const Target::CreatureType, const unsigned);
+    void increase_melee_ap_against_type(const Target::CreatureType type, const unsigned value);
+    void decrease_melee_ap_against_type(const Target::CreatureType type, const unsigned value);
     unsigned get_melee_ap_against_type(const Target::CreatureType) const;
 
-    void increase_ranged_ap_against_type(const Target::CreatureType, const unsigned);
-    void decrease_ranged_ap_against_type(const Target::CreatureType, const unsigned);
+    void increase_ranged_ap_against_type(const Target::CreatureType type, const unsigned value);
+    void decrease_ranged_ap_against_type(const Target::CreatureType type, const unsigned value);
     unsigned get_ranged_ap_against_type(const Target::CreatureType) const;
+
+    void increase_spell_damage_against_type(const Target::CreatureType type, const unsigned value);
+    void decrease_spell_damage_against_type(const Target::CreatureType type, const unsigned value);
+    unsigned get_spell_damage_against_type(const Target::CreatureType) const;
 
     unsigned get_flat_weapon_damage() const;
     void increase_flat_weapon_damage(const unsigned value);
@@ -208,6 +212,7 @@ private:
 
     QMap<Target::CreatureType, unsigned> melee_ap_against_creature;
     QMap<Target::CreatureType, unsigned> ranged_ap_against_creature;
+    QMap<Target::CreatureType, unsigned> spell_damage_against_creature;
     QMap<MagicSchool, unsigned> magic_school_damage_bonus;
     QMap<MagicSchool, unsigned> magic_school_hit_bonus;
     QMap<MagicSchool, unsigned> magic_school_crit_bonus;

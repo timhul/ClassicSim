@@ -21,6 +21,15 @@ Stats::Stats() {
     this->ranged_ap_against_creature[Target::CreatureType::Mechanical] = 0;
     this->ranged_ap_against_creature[Target::CreatureType::Undead] = 0;
 
+    this->spell_damage_against_creature[Target::CreatureType::Beast] = 0;
+    this->spell_damage_against_creature[Target::CreatureType::Demon] = 0;
+    this->spell_damage_against_creature[Target::CreatureType::Dragonkin] = 0;
+    this->spell_damage_against_creature[Target::CreatureType::Elemental] = 0;
+    this->spell_damage_against_creature[Target::CreatureType::Giant] = 0;
+    this->spell_damage_against_creature[Target::CreatureType::Humanoid] = 0;
+    this->spell_damage_against_creature[Target::CreatureType::Mechanical] = 0;
+    this->spell_damage_against_creature[Target::CreatureType::Undead] = 0;
+
     this->magic_school_damage_bonus[MagicSchool::Arcane] = 0;
     this->magic_school_damage_bonus[MagicSchool::Fire] = 0;
     this->magic_school_damage_bonus[MagicSchool::Frost] = 0;
@@ -86,6 +95,24 @@ void Stats::add(const Stats* rhs) {
     increase_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
     increase_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
 
+    increase_ranged_ap_against_type(Target::CreatureType::Beast, rhs->get_ranged_ap_against_type(Target::CreatureType::Beast));
+    increase_ranged_ap_against_type(Target::CreatureType::Demon, rhs->get_ranged_ap_against_type(Target::CreatureType::Demon));
+    increase_ranged_ap_against_type(Target::CreatureType::Dragonkin, rhs->get_ranged_ap_against_type(Target::CreatureType::Dragonkin));
+    increase_ranged_ap_against_type(Target::CreatureType::Elemental, rhs->get_ranged_ap_against_type(Target::CreatureType::Elemental));
+    increase_ranged_ap_against_type(Target::CreatureType::Giant, rhs->get_ranged_ap_against_type(Target::CreatureType::Giant));
+    increase_ranged_ap_against_type(Target::CreatureType::Humanoid, rhs->get_ranged_ap_against_type(Target::CreatureType::Humanoid));
+    increase_ranged_ap_against_type(Target::CreatureType::Mechanical, rhs->get_ranged_ap_against_type(Target::CreatureType::Mechanical));
+    increase_ranged_ap_against_type(Target::CreatureType::Undead, rhs->get_ranged_ap_against_type(Target::CreatureType::Undead));
+
+    increase_spell_damage_against_type(Target::CreatureType::Beast, rhs->get_spell_damage_against_type(Target::CreatureType::Beast));
+    increase_spell_damage_against_type(Target::CreatureType::Demon, rhs->get_spell_damage_against_type(Target::CreatureType::Demon));
+    increase_spell_damage_against_type(Target::CreatureType::Dragonkin, rhs->get_spell_damage_against_type(Target::CreatureType::Dragonkin));
+    increase_spell_damage_against_type(Target::CreatureType::Elemental, rhs->get_spell_damage_against_type(Target::CreatureType::Elemental));
+    increase_spell_damage_against_type(Target::CreatureType::Giant, rhs->get_spell_damage_against_type(Target::CreatureType::Giant));
+    increase_spell_damage_against_type(Target::CreatureType::Humanoid, rhs->get_spell_damage_against_type(Target::CreatureType::Humanoid));
+    increase_spell_damage_against_type(Target::CreatureType::Mechanical, rhs->get_spell_damage_against_type(Target::CreatureType::Mechanical));
+    increase_spell_damage_against_type(Target::CreatureType::Undead, rhs->get_spell_damage_against_type(Target::CreatureType::Undead));
+
     increase_flat_weapon_damage(rhs->get_flat_weapon_damage());
 
     increase_mp5(rhs->get_mp5());
@@ -147,6 +174,24 @@ void Stats::remove(const Stats* rhs) {
     decrease_melee_ap_against_type(Target::CreatureType::Humanoid, rhs->get_melee_ap_against_type(Target::CreatureType::Humanoid));
     decrease_melee_ap_against_type(Target::CreatureType::Mechanical, rhs->get_melee_ap_against_type(Target::CreatureType::Mechanical));
     decrease_melee_ap_against_type(Target::CreatureType::Undead, rhs->get_melee_ap_against_type(Target::CreatureType::Undead));
+
+    decrease_ranged_ap_against_type(Target::CreatureType::Beast, rhs->get_ranged_ap_against_type(Target::CreatureType::Beast));
+    decrease_ranged_ap_against_type(Target::CreatureType::Demon, rhs->get_ranged_ap_against_type(Target::CreatureType::Demon));
+    decrease_ranged_ap_against_type(Target::CreatureType::Dragonkin, rhs->get_ranged_ap_against_type(Target::CreatureType::Dragonkin));
+    decrease_ranged_ap_against_type(Target::CreatureType::Elemental, rhs->get_ranged_ap_against_type(Target::CreatureType::Elemental));
+    decrease_ranged_ap_against_type(Target::CreatureType::Giant, rhs->get_ranged_ap_against_type(Target::CreatureType::Giant));
+    decrease_ranged_ap_against_type(Target::CreatureType::Humanoid, rhs->get_ranged_ap_against_type(Target::CreatureType::Humanoid));
+    decrease_ranged_ap_against_type(Target::CreatureType::Mechanical, rhs->get_ranged_ap_against_type(Target::CreatureType::Mechanical));
+    decrease_ranged_ap_against_type(Target::CreatureType::Undead, rhs->get_ranged_ap_against_type(Target::CreatureType::Undead));
+
+    decrease_spell_damage_against_type(Target::CreatureType::Beast, rhs->get_spell_damage_against_type(Target::CreatureType::Beast));
+    decrease_spell_damage_against_type(Target::CreatureType::Demon, rhs->get_spell_damage_against_type(Target::CreatureType::Demon));
+    decrease_spell_damage_against_type(Target::CreatureType::Dragonkin, rhs->get_spell_damage_against_type(Target::CreatureType::Dragonkin));
+    decrease_spell_damage_against_type(Target::CreatureType::Elemental, rhs->get_spell_damage_against_type(Target::CreatureType::Elemental));
+    decrease_spell_damage_against_type(Target::CreatureType::Giant, rhs->get_spell_damage_against_type(Target::CreatureType::Giant));
+    decrease_spell_damage_against_type(Target::CreatureType::Humanoid, rhs->get_spell_damage_against_type(Target::CreatureType::Humanoid));
+    decrease_spell_damage_against_type(Target::CreatureType::Mechanical, rhs->get_spell_damage_against_type(Target::CreatureType::Mechanical));
+    decrease_spell_damage_against_type(Target::CreatureType::Undead, rhs->get_spell_damage_against_type(Target::CreatureType::Undead));
 
     decrease_flat_weapon_damage(rhs->get_flat_weapon_damage());
 
@@ -553,6 +598,19 @@ void Stats::decrease_ranged_ap_against_type(const Target::CreatureType type, con
 
 unsigned Stats::get_ranged_ap_against_type(const Target::CreatureType type) const {
     return ranged_ap_against_creature[type];
+}
+
+void Stats::increase_spell_damage_against_type(const Target::CreatureType type, const unsigned increase) {
+    spell_damage_against_creature[type] += increase;
+}
+
+void Stats::decrease_spell_damage_against_type(const Target::CreatureType type, const unsigned decrease) {
+    check((spell_damage_against_creature[type] >= decrease), "Underflow decrease spell damage against type");
+    spell_damage_against_creature[type] -= decrease;
+}
+
+unsigned Stats::get_spell_damage_against_type(const Target::CreatureType type) const {
+    return spell_damage_against_creature[type];
 }
 
 unsigned Stats::get_flat_weapon_damage() const {

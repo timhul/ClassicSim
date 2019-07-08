@@ -777,5 +777,10 @@
         <file>QML/Assets/items/Inv_jewelry_ring_52naxxramas.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_02.png</file>
         <file>QML/Assets/items/Inv_jewelry_ring_ahnqiraj_05.png</file>
+        <file>QML/Assets/items/Inv_misc_token_argentdawn3.png</file>
+        <file>QML/Assets/items/Inv_trinket_naxxramas06.png</file>
+        <file>QML/Assets/items/Inv_trinket_naxxramas02.png</file>
+        <file>QML/Assets/items/Inv_stone_15.png</file>
+        <file>QML/Assets/items/Spell_nature_wispheal.png</file>
     </qresource>
 </RCC>

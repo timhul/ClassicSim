@@ -276,6 +276,15 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_spell_damage_vs_school(value, MagicSchool::Nature);
     case ItemStats::SpellDamageShadow:
         return increase_spell_damage_vs_school(value, MagicSchool::Shadow);
+    case ItemStats::SpellDamageVersusBeast:
+    case ItemStats::SpellDamageVersusDemon:
+    case ItemStats::SpellDamageVersusDragonkin:
+    case ItemStats::SpellDamageVersusElemental:
+    case ItemStats::SpellDamageVersusGiant:
+    case ItemStats::SpellDamageVersusHumanoid:
+    case ItemStats::SpellDamageVersusMechanical:
+    case ItemStats::SpellDamageVersusUndead:
+        return increase_spell_damage_vs_type(get_type_for_stat(stat_type), value);
     case ItemStats::SpellCrit:
         return increase_spell_crit(value);
     case ItemStats::SpellHit:
@@ -320,6 +329,8 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return pchar->increase_melee_attack_speed(value);
     case ItemStats::RangedAttackSpeedPercent:
         return pchar->increase_ranged_attack_speed(value);
+    case ItemStats::CastingSpeedPercent:
+        return pchar->get_stats()->increase_casting_speed(value);
     case ItemStats::AttackPower:
         increase_melee_ap(value);
         return increase_ranged_ap(value);
@@ -368,6 +379,15 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_spell_damage_vs_school(value, MagicSchool::Nature);
     case ItemStats::SpellDamageShadow:
         return decrease_spell_damage_vs_school(value, MagicSchool::Shadow);
+    case ItemStats::SpellDamageVersusBeast:
+    case ItemStats::SpellDamageVersusDemon:
+    case ItemStats::SpellDamageVersusDragonkin:
+    case ItemStats::SpellDamageVersusElemental:
+    case ItemStats::SpellDamageVersusGiant:
+    case ItemStats::SpellDamageVersusHumanoid:
+    case ItemStats::SpellDamageVersusMechanical:
+    case ItemStats::SpellDamageVersusUndead:
+        return decrease_spell_damage_vs_type(get_type_for_stat(stat_type), value);
     case ItemStats::SpellCrit:
         return decrease_spell_crit(value);
     case ItemStats::SpellHit:
@@ -412,6 +432,8 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return pchar->decrease_melee_attack_speed(value);
     case ItemStats::RangedAttackSpeedPercent:
         return pchar->decrease_ranged_attack_speed(value);
+    case ItemStats::CastingSpeedPercent:
+        return pchar->get_stats()->decrease_casting_speed(value);
     case ItemStats::AttackPower:
         decrease_melee_ap(value);
         return decrease_ranged_ap(value);
@@ -446,6 +468,18 @@ void CharacterStats::increase_ranged_attack_speed(const unsigned value) {
 
 void CharacterStats::decrease_ranged_attack_speed(const unsigned value) {
     remove_multiplicative_effect(ranged_attack_speed_buffs, static_cast<int>(value), ranged_attack_speed_mod);
+}
+
+double CharacterStats::get_casting_speed_mod() const {
+    return casting_speed_mod;
+}
+
+void CharacterStats::increase_casting_speed(const unsigned value) {
+    add_multiplicative_effect(casting_speed_buffs, static_cast<int>(value), casting_speed_mod);
+}
+
+void CharacterStats::decrease_casting_speed(const unsigned value) {
+    remove_multiplicative_effect(casting_speed_buffs, static_cast<int>(value), casting_speed_mod);
 }
 
 void CharacterStats::increase_strength(const unsigned value) {
@@ -545,6 +579,14 @@ void CharacterStats::increase_crit_dmg_vs_type(const Target::CreatureType target
 
 void CharacterStats::decrease_crit_dmg_vs_type(const Target::CreatureType target_type, const unsigned value) {
     crit_dmg_bonuses_per_monster_type[target_type] -= static_cast<double>(value) / 100;
+}
+
+void CharacterStats::increase_spell_damage_vs_type(const Target::CreatureType target_type, const unsigned value) {
+    base_stats->increase_spell_damage_against_type(target_type, value);
+}
+
+void CharacterStats::decrease_spell_damage_vs_type(const Target::CreatureType target_type, const unsigned value) {
+    base_stats->decrease_spell_damage_against_type(target_type, value);
 }
 
 double CharacterStats::get_total_physical_damage_mod() const {
@@ -847,7 +889,13 @@ void CharacterStats::decrease_mp5(const unsigned value) {
 }
 
 unsigned CharacterStats::get_spell_damage(const MagicSchool school) const {
-    return base_stats->get_spell_damage(school) + equipment->get_stats()->get_spell_damage(school) + pchar->get_target()->get_stats()->get_spell_damage(school);
+    const unsigned spell_damage_base = base_stats->get_spell_damage(school);
+    const unsigned spell_damage_base_target = base_stats->get_spell_damage_against_type(pchar->get_target()->get_creature_type());
+    const unsigned spell_damage_eq = equipment->get_stats()->get_spell_damage(school);
+    const unsigned spell_damage_eq_target = equipment->get_stats()->get_spell_damage_against_type(pchar->get_target()->get_creature_type());
+    const unsigned target_debuff_bonus = pchar->get_target()->get_stats()->get_spell_damage(school);
+
+    return spell_damage_base + spell_damage_base_target + spell_damage_eq + spell_damage_eq_target + target_debuff_bonus;
 }
 
 void CharacterStats::increase_base_spell_damage(const unsigned value) {
@@ -962,20 +1010,28 @@ void CharacterStats::recalculate_multiplicative_effects(QVector<int>& effects, d
 Target::CreatureType CharacterStats::get_type_for_stat(const ItemStats stats) {
     switch (stats) {
     case ItemStats::APVersusBeast:
+    case ItemStats::SpellDamageVersusBeast:
         return Target::CreatureType::Beast;
     case ItemStats::APVersusDemon:
+    case ItemStats::SpellDamageVersusDemon:
         return Target::CreatureType::Demon;
     case ItemStats::APVersusDragonkin:
+    case ItemStats::SpellDamageVersusDragonkin:
         return Target::CreatureType::Dragonkin;
     case ItemStats::APVersusElemental:
+    case ItemStats::SpellDamageVersusElemental:
         return Target::CreatureType::Elemental;
     case ItemStats::APVersusGiant:
+    case ItemStats::SpellDamageVersusGiant:
         return Target::CreatureType::Giant;
     case ItemStats::APVersusHumanoid:
+    case ItemStats::SpellDamageVersusHumanoid:
         return Target::CreatureType::Humanoid;
     case ItemStats::APVersusMechanical:
+    case ItemStats::SpellDamageVersusMechanical:
         return Target::CreatureType::Mechanical;
     case ItemStats::APVersusUndead:
+    case ItemStats::SpellDamageVersusUndead:
         return Target::CreatureType::Undead;
     default:
         check(false, "CharacterStats::get_type_for_stat reached end of switch");

@@ -302,18 +302,22 @@ void Item::set_uses() {
                 stat_type = ItemStats::MeleeAttackSpeedPercent;
             else if (type == "RANGED_ATTACK_SPEED")
                 stat_type = ItemStats::RangedAttackSpeedPercent;
+            else if (type == "CASTING_SPEED")
+                stat_type = ItemStats::CastingSpeedPercent;
             else if (type == "ATTACK_POWER")
                 stat_type = ItemStats::AttackPower;
             else if (type == "STRENGTH")
                 stat_type = ItemStats::Strength;
+            else if (type == "SPELL_DAMAGE")
+                stat_type = ItemStats::SpellDamage;
             else {
                 stat_type = ItemStats::Armor;
                 check(false, QString("Unsupported stat use type '%1'").arg(type).toStdString());
             }
 
-            int duration = use["duration"].toInt();
-            unsigned value = use["value"].toUInt();
-            int cooldown = use["cooldown"].toInt();
+            const int duration = use["duration"].toInt();
+            const unsigned value = use["value"].toUInt();
+            const int cooldown = use["cooldown"].toInt();
 
             Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
 
@@ -723,6 +727,46 @@ void Item::set_stat(const QString& key, const QString &value) {
         this->stats->increase_spell_damage_vs_school(value.toUInt(), MagicSchool::Shadow);
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage done by Shadow spells and effects by up to %1.").arg(value));
         this->item_stat_values.insert(ItemStats::SpellDamageShadow, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_BEAST") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Beast, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Beasts by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusBeast, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_DEMON") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Demon, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Demons by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusDemon, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_DRAGONKIN") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Dragonkin, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Dragonkin by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusDragonkin, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_ELEMENTAL") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Elemental, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Elementals by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusElemental, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_GIANT") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Giant, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Giants by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusGiant, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_HUMANOID") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Humanoid, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Humanoids by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusHumanoid, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_MECHANICAL") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Mechanical, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Mechanicals by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusMechanical, value.toUInt());
+    }
+    else if (key == "SPELL_DAMAGE_UNDEAD") {
+        this->stats->increase_spell_damage_against_type(Target::CreatureType::Undead, value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Increases damage done to Undead by magical spells and effects by up to %1.").arg(value));
+        this->item_stat_values.insert(ItemStats::SpellDamageVersusUndead, value.toUInt());
     }
     else if (key == "SPELL_CRIT_CHANCE") {
         const unsigned display_value = static_cast<unsigned>(round(value.toDouble() * 100));

@@ -3,6 +3,7 @@
 #include "CastComplete.h"
 #include "Character.h"
 #include "CharacterSpells.h"
+#include "CharacterStats.h"
 #include "Engine.h"
 #include "Utils/CompareDouble.h"
 
@@ -31,7 +32,7 @@ void SpellCastingTime::complete_cast() {
 }
 
 double SpellCastingTime::get_cast_time() const {
-    return double(casting_time_ms) / 1000;
+    return (double(casting_time_ms) / 1000) / pchar->get_stats()->get_casting_speed_mod();
 }
 
 void SpellCastingTime::reset_effect() {

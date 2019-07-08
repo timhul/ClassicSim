@@ -67,6 +67,10 @@ void TestFireball::test_all() {
     set_up();
     test_5_of_5_ignite();
     tear_down();
+
+    set_up();
+    test_casting_speed_increases_reduces_casting_time();
+    tear_down();
 }
 
 void TestFireball::test_name_correct() {
@@ -279,6 +283,16 @@ void TestFireball::test_5_of_5_ignite() {
     // [Total Damage] = fireball_damage + ignite_damage
     // [2633 - 2906] = [2394 - 2642] + [239 - 264]
     then_damage_dealt_is_in_range(2633, 2906);
+}
+
+void TestFireball::test_casting_speed_increases_reduces_casting_time() {
+    assert(almost_equal(3.5, fireball()->get_cast_time()));
+
+    pchar->get_stats()->increase_casting_speed(100);
+    assert(almost_equal(1.75, fireball()->get_cast_time()));
+
+    pchar->get_stats()->decrease_casting_speed(100);
+    assert(almost_equal(3.5, fireball()->get_cast_time()));
 }
 
 void TestFireball::when_fireball_is_performed() {

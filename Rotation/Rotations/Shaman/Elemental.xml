@@ -4,6 +4,7 @@
 	Elemental rotation.
 	</description>
 
+	<cast_if name="The Restrained Essence of Sapphiron"/>
 	<cast_if name="Lightning Bolt"/>
 
 	<cast_if name="Mana Potion"/>

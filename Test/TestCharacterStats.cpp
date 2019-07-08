@@ -81,6 +81,10 @@ void TestCharacterStats::test_all() {
     set_up();
     test_no_negative_target_resistances_with_spell_pen_bonuses();
     tear_down();
+
+    set_up();
+    test_spell_damage_includes_relevant_sources();
+    tear_down();
 }
 
 void TestCharacterStats::test_values_after_initialization() {
@@ -368,4 +372,24 @@ void TestCharacterStats::test_no_negative_target_resistances_with_spell_pen_bonu
     assert(cstats->get_target_resistance(MagicSchool::Shadow) == 0);
     cstats->decrease_spell_penetration(MagicSchool::Shadow, 10);
     assert(cstats->get_target_resistance(MagicSchool::Shadow) == 0);
+}
+
+void TestCharacterStats::test_spell_damage_includes_relevant_sources() {
+    const Target::CreatureType target_type = pchar->get_target()->get_creature_type();
+    const unsigned initial_spell_damage = cstats->get_spell_damage(MagicSchool::Fire);
+
+    cstats->increase_base_spell_damage(100);
+    assert(initial_spell_damage + 100 == cstats->get_spell_damage(MagicSchool::Fire));
+    cstats->decrease_base_spell_damage(100);
+    assert(initial_spell_damage == cstats->get_spell_damage(MagicSchool::Fire));
+
+    cstats->increase_spell_damage_vs_school(100, MagicSchool::Fire);
+    assert(initial_spell_damage + 100 == cstats->get_spell_damage(MagicSchool::Fire));
+    cstats->decrease_spell_damage_vs_school(100, MagicSchool::Fire);
+    assert(initial_spell_damage == cstats->get_spell_damage(MagicSchool::Fire));
+
+    cstats->increase_spell_damage_vs_type(target_type, 100);
+    assert(initial_spell_damage + 100 == cstats->get_spell_damage(MagicSchool::Fire));
+    cstats->decrease_spell_damage_vs_type(target_type, 100);
+    assert(initial_spell_damage == cstats->get_spell_damage(MagicSchool::Fire));
 }

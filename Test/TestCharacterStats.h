@@ -37,4 +37,5 @@ private:
     void test_melee_and_ranged_attack_speed_modifiers_are_independent();
     void test_spell_school_damage_mods();
     void test_no_negative_target_resistances_with_spell_pen_bonuses();
+    void test_spell_damage_includes_relevant_sources();
 };

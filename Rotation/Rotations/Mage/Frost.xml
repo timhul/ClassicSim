@@ -4,6 +4,8 @@
 	Frostbolt spam.
 	</description>
 
+	<cast_if name="The Restrained Essence of Sapphiron"/>
+	<cast_if name="Mind Quickening Gem"/>
 	<cast_if name="Frostbolt"/>
 
 	<cast_if name="Mana Potion"/>
