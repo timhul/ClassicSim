@@ -31,7 +31,9 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
     case EquipmentSlot::BACK:
         return {};
     case EquipmentSlot::WRIST:
-        return {};
+        return {
+            EnchantName::Name::EnchantBracerManaRegeneration,
+        };
     case EquipmentSlot::GLOVES:
         return {};
     case EquipmentSlot::CHEST:
