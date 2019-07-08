@@ -136,6 +136,18 @@
 		</bonus>
 	</set>
 
+	<set name="Zanzil's Concentration">
+		<item_id value="19905"/>
+		<item_id value="19893"/>
+
+		<bonus value="2">
+		(2) Set: Improves your chance to hit with spells by 1%.
+		</bonus>
+		<bonus value="2">
+		(2) Set: Increases damage and healing done by magical spells and effects by up to 6.
+		</bonus>
+	</set>
+
 	<set name="The Highlander's Resolution">
 		<item_id value="20041"/>
 		<item_id value="20048"/>

@@ -68,19 +68,6 @@ void SetBonusFileReader::set_bonus_file_handler(QXmlStreamReader &reader,
                 if (!set_bonus_tooltips.contains(set_name))
                     set_bonus_tooltips[set_name] = {};
 
-                bool duplicate = false;
-                for (const auto & bonus_info : set_bonus_tooltips[set_name]) {
-                    if (bonus_info.first == num_items) {
-                        qDebug() << QString("Specified <bonus> value '%1' more than once in <set> '%2'").arg(num_items).arg(set_name);
-                        duplicate = true;
-                        break;
-                    }
-                }
-                if (duplicate) {
-                    reader.skipCurrentElement();
-                    continue;
-                }
-
                 QString tooltip = reader.readElementText().simplified();
                 set_bonus_tooltips[set_name].append({num_items, tooltip});
             }
