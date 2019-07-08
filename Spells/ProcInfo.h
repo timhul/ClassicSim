@@ -8,6 +8,7 @@ enum Source {
     MainhandSpell,
     RangedAutoShot,
     RangedSpell,
+    MagicSpell,
     Manual,
 };
 

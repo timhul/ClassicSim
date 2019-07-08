@@ -245,11 +245,11 @@ void Character::ranged_yellow_hit_effect() {
 }
 
 void Character::spell_hit_effect(MagicSchool) {
-
+    enabled_procs->run_proc_check(ProcInfo::Source::MagicSpell);
 }
 
 void Character::spell_critical_effect(MagicSchool) {
-
+    enabled_procs->run_proc_check(ProcInfo::Source::MagicSpell);
 }
 
 double Character::get_random_normalized_mh_dmg() {

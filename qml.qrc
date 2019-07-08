@@ -782,5 +782,6 @@
         <file>QML/Assets/items/Inv_trinket_naxxramas02.png</file>
         <file>QML/Assets/items/Inv_stone_15.png</file>
         <file>QML/Assets/items/Spell_nature_wispheal.png</file>
+        <file>QML/Assets/items/Inv_misc_monsterscales_15.png</file>
     </qresource>
 </RCC>

@@ -143,6 +143,8 @@ void Mage::spell_hit_effect(MagicSchool magic_school) {
     default:
         break;
     }
+
+    enabled_procs->run_proc_check(ProcInfo::Source::MagicSpell);
 }
 
 void Mage::spell_critical_effect(MagicSchool magic_school) {
@@ -153,6 +155,8 @@ void Mage::spell_critical_effect(MagicSchool magic_school) {
     default:
         break;
     }
+
+    enabled_procs->run_proc_check(ProcInfo::Source::MagicSpell);
 }
 
 void Mage::increase_mp5_within_5sr_modifier(const double increase) {

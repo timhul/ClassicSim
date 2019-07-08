@@ -4,6 +4,7 @@
 	Elemental rotation.
 	</description>
 
+	<cast_if name="Zandalarian Hero Charm"/>
 	<cast_if name="The Restrained Essence of Sapphiron"/>
 	<cast_if name="Eye of Moam"/>
 	<cast_if name="Lightning Bolt"/>

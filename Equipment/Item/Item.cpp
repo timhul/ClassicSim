@@ -33,6 +33,7 @@
 #include "UseItem.h"
 #include "UseTrinket.h"
 #include "Utils/Check.h"
+#include "ZandalarianHeroCharm.h"
 
 Item::Item(QString name,
            int item_id,
@@ -327,6 +328,12 @@ void Item::set_uses() {
             proc_sources.append(ProcInfo::Source::RangedAutoShot);
             proc_sources.append(ProcInfo::Source::RangedSpell);
             Buff* buff = new FlatWeaponDamageBuff(pchar, name, icon, 20, 20, AffectedWeaponSide::All, 2);
+            Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
+            spell = new UseTrinket(pchar, name, icon, 120, buff, proc);
+        }
+        else if (use_name == "ZANDALARIAN_HERO_CHARM") {
+            const QVector<ProcInfo::Source> proc_sources {ProcInfo::Source::MagicSpell};
+            Buff* buff = new ZandalarianHeroCharm(pchar);
             Proc* proc = new GenericChargeConsumerProc(pchar, name, icon, proc_sources, 1.0, buff);
             spell = new UseTrinket(pchar, name, icon, 120, buff, proc);
         }

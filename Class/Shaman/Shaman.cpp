@@ -116,6 +116,7 @@ void Shaman::melee_mh_yellow_critical_effect() {
 
 void Shaman::spell_critical_effect(MagicSchool) {
     shaman_spells->get_elemental_devastation()->apply_buff();
+    enabled_procs->run_proc_check(ProcInfo::Source::MagicSpell);
 }
 
 void Shaman::initialize_talents() {

@@ -44,6 +44,16 @@
 		</source>
 	</item>
 
+	<item id="17064" phase="0">
+		<info name="Shard of the Scale" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_misc_monsterscales_15.png"/>
+		<stats>
+			<stat type="MANA_PER_5" value="16"/>
+		</stats>
+		<source>
+			Drops from Onyxia in Onyxia's Lair.
+		</source>
+	</item>
+
 	<item id="18537" phase="1">
 		<info name="Counterattack Lodestone" type="TRINKET" slot="TRINKET" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_stone_02.png"/>
 		<stats>
@@ -163,6 +173,21 @@
 		</source>
 		<special_equip_effect>
 			Use: Increases your melee and ranged damage by 40 for 20 sec. Every time you hit a target, this bonus is reduced by 2. (cooldown 2 min)
+		</special_equip_effect>
+	</item>
+
+	<item id="19950" phase="3">
+		<info name="Zandalarian Hero Charm" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
+		<stats>
+		</stats>
+		<uses>
+			<use name="ZANDALARIAN_HERO_CHARM"/>
+		</uses>
+		<source>
+			Quest reward. Requires boss drop from Hakkar in Zul'Gurub.
+		</source>
+		<special_equip_effect>
+			Use: Increases your spell damage by up to 204 and your healing for up to 408 for 20 sec. Every time you cast a spell, the bonus is reduced by 17 spell damage and 34 healing. (cooldown 2 min)
 		</special_equip_effect>
 	</item>
 

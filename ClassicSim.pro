@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     Class/Common/Buffs/NoEffectSelfBuff.cpp \
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp \
+    Class/Common/Buffs/ZandalarianHeroCharm.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Mage/Buffs/CombustionBuff.cpp \
@@ -434,6 +435,7 @@ SOURCES += main.cpp \
 HEADERS += \
     Class/Common/Buffs/NoEffectSelfBuff.h \
     Class/Common/Buffs/NoEffectUniqueDebuff.h \
+    Class/Common/Buffs/ZandalarianHeroCharm.h \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/UseItem.h \
     Class/Mage/Buffs/CombustionBuff.h \
