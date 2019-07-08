@@ -194,6 +194,21 @@
 		</special_equip_effect>
 	</item>
 
+	<item id="21473" phase="4">
+		<info name="Eye of Moam" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="74" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
+		<stats>
+		</stats>
+		<uses>
+			<use name="EYE_OF_MOAM"/>
+		</uses>
+		<source>
+			Drops from Moam in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+		<special_equip_effect>
+			Use: Increases damage done by magical spells and effects by up to 50, and decreases the magical resistances of your spell targets by 100 for 30 sec. (cooldown 3 min)
+		</special_equip_effect>
+	</item>
+
 	<item id="21670" phase="4">
 		<info name="Badge of the Swarmguard" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_ahnqirajtrinket_04.png"/>
 		<stats>

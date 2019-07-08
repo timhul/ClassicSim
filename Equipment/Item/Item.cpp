@@ -294,37 +294,22 @@ void Item::set_uses() {
         Spell* spell = nullptr;
 
         if (use_name == "GENERIC_STAT_BUFF") {
-            QString type = use["type"];
-            ItemStats stat_type;
-            if (type == "ATTACK_SPEED")
-                stat_type = ItemStats::AttackSpeedPercent;
-            else if (type == "MELEE_ATTACK_SPEED")
-                stat_type = ItemStats::MeleeAttackSpeedPercent;
-            else if (type == "RANGED_ATTACK_SPEED")
-                stat_type = ItemStats::RangedAttackSpeedPercent;
-            else if (type == "CASTING_SPEED")
-                stat_type = ItemStats::CastingSpeedPercent;
-            else if (type == "ATTACK_POWER")
-                stat_type = ItemStats::AttackPower;
-            else if (type == "STRENGTH")
-                stat_type = ItemStats::Strength;
-            else if (type == "SPELL_DAMAGE")
-                stat_type = ItemStats::SpellDamage;
-            else {
-                stat_type = ItemStats::Armor;
-                check(false, QString("Unsupported stat use type '%1'").arg(type).toStdString());
-            }
-
+            const QString type = use["type"];
+            const ItemStats stat_type = get_item_stats_from_string(type);
             const int duration = use["duration"].toInt();
             const unsigned value = use["value"].toUInt();
             const int cooldown = use["cooldown"].toInt();
 
-            Buff* buff = new GenericStatBuff(pchar, name, icon, duration, stat_type, value);
+            Buff* buff = new GenericStatBuff(pchar, name, icon, duration, {{stat_type, value}});
 
             if (slot == ItemSlots::TRINKET)
                 spell = new UseTrinket(pchar, name, icon, cooldown, buff);
             else
                 spell = new UseItem(pchar, name, icon, cooldown, buff);
+        }
+        else if (use_name == "EYE_OF_MOAM") {
+            Buff* buff = new GenericStatBuff(pchar, name, icon, 30, {{ItemStats::SpellDamage, 50}, {ItemStats::SpellPenetration, 100}});
+            spell = new UseTrinket(pchar, name, icon, 180, buff);
         }
         else if (use_name == "DEVILSAUR_EYE") {
             Buff* buff = new DevilsaurEye(pchar);
@@ -481,8 +466,7 @@ void Item::set_procs(const int eq_slot) {
             add_default_proc_sources(proc_sources, eq_slot);
             Buff* buff = new GenericStatBuff(pchar, name, icon,
                                              i["duration"].toInt(),
-                                             get_valid_item_stat(i["type"]),
-                                             static_cast<unsigned>(amount));
+                                             {{get_valid_item_stat(i["type"]), static_cast<unsigned>(amount)}});
             proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, buff);
         }
         else if (proc_name == "INSTANT_FIREBALL") {
@@ -553,6 +537,27 @@ ItemStats Item::get_valid_item_stat(const QString& item_stat) const {
 
     check(false, QString("Unknown item stat '%1'").arg(item_stat).toStdString());
     return ItemStats::Armor;
+}
+
+ItemStats Item::get_item_stats_from_string(const QString& item_stat) const {
+    if (item_stat == "ATTACK_SPEED")
+        return ItemStats::AttackSpeedPercent;
+    else if (item_stat == "MELEE_ATTACK_SPEED")
+        return ItemStats::MeleeAttackSpeedPercent;
+    else if (item_stat == "RANGED_ATTACK_SPEED")
+        return ItemStats::RangedAttackSpeedPercent;
+    else if (item_stat == "CASTING_SPEED")
+        return ItemStats::CastingSpeedPercent;
+    else if (item_stat == "ATTACK_POWER")
+        return ItemStats::AttackPower;
+    else if (item_stat == "STRENGTH")
+        return ItemStats::Strength;
+    else if (item_stat == "SPELL_DAMAGE")
+        return ItemStats::SpellDamage;
+    else {
+        return ItemStats::Armor;
+        check(false, QString("Unsupported stat use type '%1'").arg(item_stat).toStdString());
+    }
 }
 
 void Item::set_stats(const QVector<QPair<QString, QString>>& stats) {

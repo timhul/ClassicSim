@@ -1,6 +1,6 @@
 #pragma once
 
-enum class ItemStats {
+enum class ItemStats: int {
     Agility = 0,
     Intellect,
     Spirit,

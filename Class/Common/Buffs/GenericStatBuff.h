@@ -2,7 +2,9 @@
 
 #include "SelfBuff.h"
 
-#include "ItemStatsEnum.h"
+#include <QVector>
+
+enum class ItemStats: int;
 
 class GenericStatBuff: public SelfBuff {
 public:
@@ -10,12 +12,10 @@ public:
                     const QString& name,
                     const QString& icon,
                     const int duration,
-                    const ItemStats stat_type,
-                    const unsigned stat_value);
+                    const QVector<QPair<ItemStats, unsigned>>& stat_type_values);
 
 private:
-    ItemStats stat_type;
-    unsigned stat_value;
+    const QVector<QPair<ItemStats, unsigned>> stat_type_values;
 
     void buff_effect_when_applied() override;
     void buff_effect_when_removed() override;
