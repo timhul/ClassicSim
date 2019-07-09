@@ -15,6 +15,7 @@ public:
         SuperiorStriking,
         EnchantWeaponAgility,
         EnchantWeaponStrength,
+        EnchantWeaponSpellPower,
         IronCounterweight,
         Enchant2HWeaponAgility,
         Enchant2HWeaponSuperiorImpact,
@@ -29,6 +30,9 @@ public:
         EnchantGlovesSuperiorAgility,
         EnchantGlovesGreaterStrength,
         EnchantGlovesMinorHaste,
+        EnchantGlovesFirePower,
+        EnchantGlovesFrostPower,
+        ArcanumOfFocus,
         ArcanumOfRapidity,
         LesserArcanumOfVoracityAgility,
         LesserArcanumOfVoracityIntellect,
@@ -36,12 +40,15 @@ public:
         LesserArcanumOfVoracityStamina,
         LesserArcanumOfVoracityStrength,
         DeathsEmbrace,
+        PresenceOfSight,
         EnchantCloakLesserAgility,
         ZandalarSignetOfMight,
+        ZandalarSignetOfMojo,
         MightOfTheScourge,
         EnchantChestGreaterStats,
         EnchantBootsMinorSpeed,
         EnchantBootsGreaterAgility,
+        EnchantBootsSpirit,
         ElementalSharpeningStone,
         ConsecratedSharpeningStone,
         DenseSharpeningStone,
@@ -72,6 +79,8 @@ public:
             return "Agility";
         case EnchantName::EnchantWeaponStrength:
             return "Strength";
+        case EnchantName::EnchantWeaponSpellPower:
+            return "Spell Power";
         case EnchantName::EnchantBracerManaRegeneration:
             return "Mana Regeneration";
         case EnchantName::EnchantBracerMinorAgility:
@@ -84,6 +93,10 @@ public:
             return "Greater Strength";
         case EnchantName::EnchantGlovesMinorHaste:
             return "Minor Haste";
+        case EnchantName::EnchantGlovesFirePower:
+            return "Fire Power";
+        case EnchantName::EnchantGlovesFrostPower:
+            return "Frost Power";
         case EnchantName::IronCounterweight:
             return "Iron Counterweight";
         case EnchantName::Enchant2HWeaponAgility:
@@ -94,6 +107,8 @@ public:
             return "Biznicks 247x128 Accurascope";
         case EnchantName::SniperScope:
             return "Sniper Scope";
+        case EnchantName::ArcanumOfFocus:
+            return "Arcanum of Focus";
         case EnchantName::ArcanumOfRapidity:
             return "Arcanum of Rapidity";
         case EnchantName::LesserArcanumOfVoracityAgility:
@@ -106,10 +121,14 @@ public:
             return "Death's Embrace";
         case EnchantName::FalconsCall:
             return "Falcon's Call";
+        case EnchantName::PresenceOfSight:
+            return "Presence of Sight";
         case EnchantName::EnchantCloakLesserAgility:
             return "Lesser Agility";
         case EnchantName::ZandalarSignetOfMight:
             return "Zandalar Signet of Might";
+        case EnchantName::ZandalarSignetOfMojo:
+            return "Zandalar Signet of Mojo";
         case EnchantName::MightOfTheScourge:
             return "Might of the Scourge";
         case EnchantName::EnchantChestGreaterStats:
@@ -118,6 +137,8 @@ public:
             return "Minor Speed";
         case EnchantName:: EnchantBootsGreaterAgility:
             return "Greater Agility";
+        case EnchantName:: EnchantBootsSpirit:
+            return "Spirit";
         case EnchantName:: ElementalSharpeningStone:
             return "Elemental Sharpening Stone";
         case EnchantName::ConsecratedSharpeningStone:
@@ -157,6 +178,8 @@ public:
             return "+15 Agility";
         case EnchantName::EnchantWeaponStrength:
             return "+15 Strength";
+        case EnchantName::EnchantWeaponSpellPower:
+            return "+30 Spell Damage/Healing";
         case EnchantName::EnchantBracerManaRegeneration:
             return "+4 mp5";
         case EnchantName::EnchantBracerMinorAgility:
@@ -169,6 +192,10 @@ public:
             return "+7 Strength";
         case EnchantName::EnchantGlovesMinorHaste:
             return "+1% Attack Speed";
+        case EnchantName::EnchantGlovesFirePower:
+            return "+20 Fire Damage";
+        case EnchantName::EnchantGlovesFrostPower:
+            return "+20 Frost Damage";
         case EnchantName::IronCounterweight:
             return "+3% Attack Speed";
         case EnchantName::Enchant2HWeaponAgility:
@@ -179,6 +206,8 @@ public:
             return "+3% Ranged Hit";
         case EnchantName::SniperScope:
             return "+7 Damage";
+        case EnchantName::ArcanumOfFocus:
+            return "+8 Spell Damage/Healing";
         case EnchantName::ArcanumOfRapidity:
             return "+1% Haste";
         case EnchantName::LesserArcanumOfVoracityAgility:
@@ -193,12 +222,16 @@ public:
             return "+8 Strength";
         case EnchantName::DeathsEmbrace:
             return "+28 Attack and\n1% Dodge";
+        case EnchantName::PresenceOfSight:
+            return "+18 Spell Damage/Healing\n+1% Spell Hit";
         case EnchantName::FalconsCall:
             return "+24 Ranged Attack Power\n10 Stamina, +1% Hit";
         case EnchantName::EnchantCloakLesserAgility:
             return "+3 Agility";
         case EnchantName::ZandalarSignetOfMight:
             return "+30 Attack Power";
+        case EnchantName::ZandalarSignetOfMojo:
+            return "+18 Spell Damage/Healing";
         case EnchantName::MightOfTheScourge:
             return "+1% Crit and\n+26 Attack Power";
         case EnchantName::EnchantChestGreaterStats:
@@ -207,6 +240,8 @@ public:
             return "Speed Increase";
         case EnchantName:: EnchantBootsGreaterAgility:
             return "+7 Agility";
+        case EnchantName:: EnchantBootsSpirit:
+            return "+5 Spirit";
         case EnchantName:: ElementalSharpeningStone:
             return "+2% Crit";
         case EnchantName::ConsecratedSharpeningStone:

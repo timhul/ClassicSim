@@ -10,7 +10,7 @@ MageEnchants::MageEnchants(Mage* mage) :
 QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipment_slot) const {
     switch (equipment_slot) {
     case EquipmentSlot::MAINHAND: {
-        QVector<EnchantName::Name> enchants {};
+        QVector<EnchantName::Name> enchants {EnchantName::Name::EnchantWeaponSpellPower};
 
         if (has_2hand()) {
             enchants.append({});
@@ -25,9 +25,14 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
         return {};
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
-        return {};
+        return {
+            EnchantName::Name::ArcanumOfFocus,
+            EnchantName::Name::PresenceOfSight,
+        };
     case EquipmentSlot::SHOULDERS:
-        return {};
+        return {
+            EnchantName::Name::ZandalarSignetOfMojo,
+        };
     case EquipmentSlot::BACK:
         return {};
     case EquipmentSlot::WRIST:
@@ -35,7 +40,10 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
             EnchantName::Name::EnchantBracerManaRegeneration,
         };
     case EquipmentSlot::GLOVES:
-        return {};
+        return {
+            EnchantName::Name::EnchantGlovesFirePower,
+            EnchantName::Name::EnchantGlovesFrostPower,
+        };
     case EquipmentSlot::CHEST:
         return {
             EnchantName::Name::EnchantChestGreaterStats
@@ -43,6 +51,7 @@ QVector<EnchantName::Name> MageEnchants::get_available_enchants(const int equipm
     case EquipmentSlot::BOOTS:
         return {
             EnchantName::Name::EnchantBootsMinorSpeed,
+            EnchantName::Name::EnchantBootsSpirit,
         };
     }
 

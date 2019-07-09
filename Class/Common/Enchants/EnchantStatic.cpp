@@ -25,6 +25,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::EnchantWeaponStrength:
         pchar->get_stats()->increase_strength(15);
         break;
+    case EnchantName::EnchantWeaponSpellPower:
+        pchar->get_stats()->increase_base_spell_damage(30);
+        break;
     case EnchantName::EnchantBracerManaRegeneration:
         pchar->get_stats()->increase_mp5(4);
         break;
@@ -43,6 +46,12 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
     case EnchantName::EnchantGlovesMinorHaste:
         pchar->get_stats()->increase_melee_attack_speed(1);
         break;
+    case EnchantName::EnchantGlovesFirePower:
+        pchar->get_stats()->increase_spell_damage_vs_school(20, MagicSchool::Fire);
+        break;
+    case EnchantName::EnchantGlovesFrostPower:
+        pchar->get_stats()->increase_spell_damage_vs_school(20, MagicSchool::Frost);
+        break;
     case EnchantName::IronCounterweight:
         pchar->get_stats()->increase_melee_attack_speed(3);
         break;
@@ -57,6 +66,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         break;
     case EnchantName::SniperScope:
         pchar->get_stats()->increase_ranged_flat_damage_bonus(7);
+        break;
+    case EnchantName::ArcanumOfFocus:
+        pchar->get_stats()->increase_base_spell_damage(8);
         break;
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->increase_melee_attack_speed(1);
@@ -87,12 +99,19 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         pchar->get_stats()->increase_melee_hit(100);
         pchar->get_stats()->increase_ranged_hit(100);
         break;
+    case EnchantName::PresenceOfSight:
+        pchar->get_stats()->increase_base_spell_damage(18);
+        pchar->get_stats()->increase_spell_hit(100);
+        break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->increase_agility(3);
         break;
     case EnchantName::ZandalarSignetOfMight:
         pchar->get_stats()->increase_melee_ap(30);
         pchar->get_stats()->increase_ranged_ap(30);
+        break;
+    case EnchantName::ZandalarSignetOfMojo:
+        pchar->get_stats()->increase_base_spell_damage(18);
         break;
     case EnchantName::MightOfTheScourge:
         pchar->get_stats()->increase_melee_ap(26);
@@ -110,6 +129,9 @@ EnchantStatic::EnchantStatic(EnchantName::Name enchant_name, Character *pchar, i
         break;
     case EnchantName:: EnchantBootsGreaterAgility:
         pchar->get_stats()->increase_agility(7);
+        break;
+    case EnchantName:: EnchantBootsSpirit:
+        pchar->get_stats()->increase_spirit(5);
         break;
     case EnchantName:: ElementalSharpeningStone:
         pchar->get_stats()->increase_melee_crit(200);
@@ -155,6 +177,9 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::EnchantWeaponStrength:
         pchar->get_stats()->decrease_strength(15);
         break;
+    case EnchantName::EnchantWeaponSpellPower:
+        pchar->get_stats()->decrease_base_spell_damage(30);
+        break;
     case EnchantName::EnchantBracerManaRegeneration:
         pchar->get_stats()->decrease_mp5(4);
         break;
@@ -173,6 +198,12 @@ EnchantStatic::~EnchantStatic() {
     case EnchantName::EnchantGlovesMinorHaste:
         pchar->get_stats()->decrease_melee_attack_speed(1);
         break;
+    case EnchantName::EnchantGlovesFirePower:
+        pchar->get_stats()->decrease_spell_damage_vs_school(20, MagicSchool::Fire);
+        break;
+    case EnchantName::EnchantGlovesFrostPower:
+        pchar->get_stats()->decrease_spell_damage_vs_school(20, MagicSchool::Frost);
+        break;
     case EnchantName::IronCounterweight:
         pchar->get_stats()->decrease_melee_attack_speed(3);
         break;
@@ -187,6 +218,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName::SniperScope:
         pchar->get_stats()->decrease_ranged_flat_damage_bonus(7);
+        break;
+    case EnchantName::ArcanumOfFocus:
+        pchar->get_stats()->decrease_base_spell_damage(8);
         break;
     case EnchantName::ArcanumOfRapidity:
         pchar->get_stats()->decrease_melee_attack_speed(1);
@@ -217,12 +251,19 @@ EnchantStatic::~EnchantStatic() {
         pchar->get_stats()->decrease_melee_hit(100);
         pchar->get_stats()->decrease_ranged_hit(100);
         break;
+    case EnchantName::PresenceOfSight:
+        pchar->get_stats()->decrease_base_spell_damage(18);
+        pchar->get_stats()->decrease_spell_hit(100);
+        break;
     case EnchantName::EnchantCloakLesserAgility:
         pchar->get_stats()->decrease_agility(3);
         break;
     case EnchantName::ZandalarSignetOfMight:
         pchar->get_stats()->decrease_melee_ap(30);
         pchar->get_stats()->decrease_ranged_ap(30);
+        break;
+    case EnchantName::ZandalarSignetOfMojo:
+        pchar->get_stats()->decrease_base_spell_damage(18);
         break;
     case EnchantName::MightOfTheScourge:
         pchar->get_stats()->decrease_melee_ap(26);
@@ -240,6 +281,9 @@ EnchantStatic::~EnchantStatic() {
         break;
     case EnchantName:: EnchantBootsGreaterAgility:
         pchar->get_stats()->decrease_agility(7);
+        break;
+    case EnchantName:: EnchantBootsSpirit:
+        pchar->get_stats()->decrease_spirit(5);
         break;
     case EnchantName:: ElementalSharpeningStone:
         pchar->get_stats()->decrease_melee_crit(200);

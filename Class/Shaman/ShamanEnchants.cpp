@@ -14,7 +14,8 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
             EnchantName::Name::Crusader,
             EnchantName::Name::FieryWeapon,
             EnchantName::Name::EnchantWeaponStrength,
-            EnchantName::Name::SuperiorStriking
+            EnchantName::Name::SuperiorStriking,
+            EnchantName::Name::EnchantWeaponSpellPower,
         };
 
         if (has_2hand()) {
@@ -35,13 +36,15 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
     case EquipmentSlot::HEAD:
     case EquipmentSlot::LEGS:
         return {
+            EnchantName::Name::ArcanumOfFocus,
             EnchantName::Name::ArcanumOfRapidity,
             EnchantName::Name::LesserArcanumOfVoracityStrength
         };
     case EquipmentSlot::SHOULDERS:
         return {
             EnchantName::Name::MightOfTheScourge,
-            EnchantName::Name::ZandalarSignetOfMight
+            EnchantName::Name::ZandalarSignetOfMight,
+            EnchantName::Name::ZandalarSignetOfMojo,
         };
     case EquipmentSlot::BACK:
         return {
@@ -66,7 +69,8 @@ QVector<EnchantName::Name> ShamanEnchants::get_available_enchants(const int equi
     case EquipmentSlot::BOOTS:
         return {
             EnchantName::Name::EnchantBootsMinorSpeed,
-            EnchantName::Name::EnchantBootsGreaterAgility
+            EnchantName::Name::EnchantBootsGreaterAgility,
+            EnchantName::Name::EnchantBootsSpirit,
         };
     }
 
