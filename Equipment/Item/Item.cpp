@@ -470,10 +470,10 @@ void Item::set_procs(const int eq_slot) {
                                        proc_rate, buff);
         }
         else if (proc_name == "GENERIC_STAT_BUFF") {
-            add_default_proc_sources(proc_sources, eq_slot);
+            add_proc_sources_from_map(proc_sources, i, eq_slot);
             Buff* buff = new GenericStatBuff(pchar, name, icon,
                                              i["duration"].toInt(),
-                                             {{get_valid_item_stat(i["type"]), static_cast<unsigned>(amount)}});
+                                             {{get_item_stats_from_string(i["type"]), static_cast<unsigned>(amount)}});
             proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, buff);
         }
         else if (proc_name == "INSTANT_FIREBALL") {
@@ -510,6 +510,43 @@ void Item::add_default_proc_sources(QVector<ProcInfo::Source>& proc_sources, con
     }
 }
 
+void Item::add_proc_sources_from_map(QVector<ProcInfo::Source>& proc_sources, const QMap<QString, QString>& proc_map, const int eq_slot) {
+    if (proc_map.contains("proc_magic_hit"))
+        proc_sources.append(ProcInfo::Source::MagicSpell);
+
+    if (proc_map.contains("proc_magic_hit"))
+        proc_sources.append(ProcInfo::Source::MagicSpell);
+
+    if (proc_map.contains("proc_ranged_auto"))
+        proc_sources.append(ProcInfo::Source::RangedAutoShot);
+
+    if (proc_map.contains("proc_ranged_skill"))
+        proc_sources.append(ProcInfo::Source::RangedSpell);
+
+    if (proc_map.contains("proc_melee_auto")) {
+        proc_sources.append(ProcInfo::Source::MainhandSwing);
+        proc_sources.append(ProcInfo::Source::OffhandSwing);
+    }
+
+    if (proc_map.contains("proc_melee_skill"))
+        proc_sources.append(ProcInfo::Source::MainhandSpell);
+
+    if (proc_map.contains("proc_melee_weapon_side")) {
+        switch (eq_slot) {
+        case EquipmentSlot::MAINHAND:
+            proc_sources.append(ProcInfo::Source::MainhandSpell);
+            proc_sources.append(ProcInfo::Source::MainhandSwing);
+            break;
+        case EquipmentSlot::OFFHAND:
+            proc_sources.append(ProcInfo::Source::OffhandSwing);
+            break;
+        default:
+            qDebug() << "Could not add proc source for" << name;
+            break;
+        }
+    }
+}
+
 MagicSchool Item::get_magic_school(const QString& name) {
     if (name.startsWith("PHYSICAL_"))
         return MagicSchool::Physical;
@@ -530,22 +567,6 @@ MagicSchool Item::get_magic_school(const QString& name) {
     return MagicSchool::Physical;
 }
 
-ItemStats Item::get_valid_item_stat(const QString& item_stat) const {
-    if (item_stat == "STRENGTH")
-        return ItemStats::Strength;
-    if (item_stat == "AGILITY")
-        return ItemStats::Agility;
-    if (item_stat == "INTELLECT")
-        return ItemStats::Intellect;
-    if (item_stat == "STAMINA")
-        return ItemStats::Stamina;
-    if (item_stat == "SPIRIT")
-        return ItemStats::Spirit;
-
-    check(false, QString("Unknown item stat '%1'").arg(item_stat).toStdString());
-    return ItemStats::Armor;
-}
-
 ItemStats Item::get_item_stats_from_string(const QString& item_stat) const {
     if (item_stat == "ATTACK_SPEED")
         return ItemStats::AttackSpeedPercent;
@@ -559,6 +580,14 @@ ItemStats Item::get_item_stats_from_string(const QString& item_stat) const {
         return ItemStats::AttackPower;
     else if (item_stat == "STRENGTH")
         return ItemStats::Strength;
+    else if (item_stat == "AGILITY")
+        return ItemStats::Agility;
+    else if (item_stat == "INTELLECT")
+        return ItemStats::Intellect;
+    else if (item_stat == "STAMINA")
+        return ItemStats::Stamina;
+    else if (item_stat == "SPIRIT")
+        return ItemStats::Spirit;
     else if (item_stat == "SPELL_DAMAGE")
         return ItemStats::SpellDamage;
     else if (item_stat == "MANA_PER_5")

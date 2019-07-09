@@ -105,7 +105,7 @@ protected:
     QString get_tooltip(const QVector<QString>&) const;
 
     void add_default_proc_sources(QVector<ProcInfo::Source>& proc_sources, const int eq_slot);
+    void add_proc_sources_from_map(QVector<ProcInfo::Source>& proc_sources, const QMap<QString, QString>& proc_map, const int eq_slot);
     MagicSchool get_magic_school(const QString& name);
-    ItemStats get_valid_item_stat(const QString& item_stat) const;
     ItemStats get_item_stats_from_string(const QString& item_stat) const;
 };

@@ -131,10 +131,10 @@ void ItemFileReader::stats_element_reader(QXmlStreamReader &reader, QVector<QPai
 }
 
 void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& procs) {
+    QMap<QString, QString> map;
     while (reader.readNextStartElement()) {
         QXmlStreamAttributes attrs = reader.attributes();
         if (reader.name() == "spell") {
-            QMap<QString, QString> map;
             add_mandatory_attr(attrs, "name", map);
             add_mandatory_attr(attrs, "rate", map);
             add_mandatory_attr(attrs, "internal_cd", map);
@@ -149,10 +149,20 @@ void ItemFileReader::proc_element_reader(QXmlStreamReader &reader, QVector<QMap<
             add_attr(attrs, "value", map);
             add_attr(attrs, "type", map);
             add_attr(attrs, "spell_dmg_coefficient", map);
-            procs.append(map);
+        }
+        else if(reader.name() == "source") {
+            add_attr(attrs, "proc_magic_hit", map);
+            add_attr(attrs, "proc_melee_auto", map);
+            add_attr(attrs, "proc_melee_skill", map);
+            add_attr(attrs, "proc_melee_weapon_side", map);
+            add_attr(attrs, "proc_ranged_auto", map);
+            add_attr(attrs, "proc_ranged_skill", map);
         }
         reader.skipCurrentElement();
     }
+
+    if (!map.empty())
+        procs.append(map);
 }
 
 void ItemFileReader::use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& uses) {
