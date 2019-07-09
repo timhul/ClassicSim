@@ -802,5 +802,27 @@
         <file>QML/Assets/items/Inv_weapon_shortblade_22.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_28.png</file>
         <file>QML/Assets/items/Inv_weapon_shortblade_31.png</file>
+        <file>QML/Assets/items/Inv_misc_bone_elfskull_01.png</file>
+        <file>QML/Assets/items/Inv_staff_06.png</file>
+        <file>QML/Assets/items/Inv_staff_12.png</file>
+        <file>QML/Assets/items/Inv_staff_13.png</file>
+        <file>QML/Assets/items/Inv_staff_14.png</file>
+        <file>QML/Assets/items/Inv_staff_15.png</file>
+        <file>QML/Assets/items/Inv_staff_20.png</file>
+        <file>QML/Assets/items/Inv_staff_01.png</file>
+        <file>QML/Assets/items/Inv_staff_07.png</file>
+        <file>QML/Assets/items/Inv_staff_11.png</file>
+        <file>QML/Assets/items/Inv_staff_23.png</file>
+        <file>QML/Assets/items/Inv_staff_25.png</file>
+        <file>QML/Assets/items/Inv_staff_28.png</file>
+        <file>QML/Assets/items/Inv_staff_29.png</file>
+        <file>QML/Assets/items/Inv_staff_30.png</file>
+        <file>QML/Assets/items/Inv_staff_32.png</file>
+        <file>QML/Assets/items/Inv_staff_33.png</file>
+        <file>QML/Assets/items/Inv_staff_34.png</file>
+        <file>QML/Assets/items/Inv_wand_04.png</file>
+        <file>QML/Assets/items/Spell_shadow_haunting.png</file>
+        <file>QML/Assets/items/Inv_staff_18.png</file>
+        <file>QML/Assets/items/Inv_staff_10.png</file>
     </qresource>
 </RCC>

@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <weapons>
+	<melee_weapon id="873" phase="0">
+		<info name="Staff of Jordan" type="STAFF" slot="2H" unique="no" req_lvl="35" item_lvl="40" quality="EPIC" boe="yes" icon="Inv_staff_13.png"/>
+		<dmg_range min="119" max="180" speed="3.7"/>
+		<stats>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="SPIRIT" value="11"/>
+			<stat type="SPELL_DAMAGE" value="26"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="9517" phase="0">
+		<info name="Celestial Stave" type="STAFF" slot="2H" unique="no" req_lvl="35" item_lvl="40" quality="RARE" boe="no" icon="Inv_staff_14.png"/>
+		<dmg_range min="85" max="129" speed="3.0"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="22"/>
+		</stats>
+		<source>
+		Quest reward in Thousand Needles.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18082" phase="0">
+		<info name="Zum'rah's Vexing Cane" type="STAFF" slot="2H" unique="no" req_lvl="42" item_lvl="47" quality="RARE" boe="no" icon="Inv_staff_10.png"/>
+		<dmg_range min="88" max="133" speed="2.7"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		Drops from Witch Doctor Zum'rah in Zul'Farrak.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="17743" phase="0">
 		<info name="Resurgence Rod" type="STAFF" slot="2H" unique="no" req_lvl="45" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_goldfeathered_01.png"/>
 		<dmg_range min="139" max="209" speed="3.8"/>
@@ -11,6 +50,482 @@
 		</stats>
 		<source>
 		Quest reward in Maraudon.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="13249" phase="0">
+		<info name="Argent Crusader" type="STAFF" slot="2H" unique="no" req_lvl="55" item_lvl="62" quality="RARE" boe="no" icon="Inv_staff_13.png"/>
+		<dmg_range min="127" max="191" speed="3.0"/>
+		<stats>
+			<stat type="INTELLECT" value="30"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPIRIT" value="10"/>
+		</stats>
+		<source>
+		Quest reward. Requires Stratholme Living and Undead.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="1607" phase="0">
+		<info name="Soulkeeper" type="STAFF" slot="2H" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="yes" icon="Spell_shadow_haunting.png"/>
+		<dmg_range min="141" max="213" speed="3.8"/>
+		<stats>
+			<stat type="SPIRIT" value="26"/>
+			<stat type="INTELLECT" value="11"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="13000" phase="0">
+		<info name="Staff of Hale Magefire" type="STAFF" slot="2H" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_staff_23.png"/>
+		<dmg_range min="140" max="210" speed="3.3"/>
+		<stats>
+			<stat type="SPIRIT" value="22"/>
+			<stat type="INTELLECT" value="25"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="812" phase="0">
+		<info name="Glowing Brightwood Staff" type="STAFF" slot="2H" unique="no" req_lvl="49" item_lvl="54" quality="EPIC" boe="yes" icon="Inv_staff_29.png"/>
+		<dmg_range min="127" max="191" speed="3.1"/>
+		<stats>
+			<stat type="INTELLECT" value="29"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="NATURE_RESISTANCE" value="15"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="11750" phase="0">
+		<info name="Kindling Stave" type="STAFF" slot="2H" unique="no" req_lvl="48" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_18.png"/>
+		<dmg_range min="106" max="160" speed="2.9"/>
+		<stats>
+			<stat type="SPIRIT" value="13"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Pyromancer Loregrain in Blackrock Depths.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="13161" phase="0">
+		<info name="Trindlehaven Staff" type="STAFF" slot="2H" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_staff_29.png"/>
+		<dmg_range min="87" max="132" speed="2.1"/>
+		<stats>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+		</stats>
+		<source>
+		Drops from Overlord Wyrmthalak in Lower Blackrock Spire (LBRS).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="10844" phase="0">
+		<info name="Spire of Hakkar" type="STAFF" slot="2H" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_staff_32.png"/>
+		<dmg_range min="126" max="190" speed="3.4"/>
+		<stats>
+			<stat type="SPIRIT" value="16"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+		Drops from Avatar of Hakkar in Sunken Temple.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18842" phase="0">
+		<info name="Staff of Dominance" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_staff_13.png"/>
+		<dmg_range min="126" max="205" speed="2.9"/>
+		<stats>
+			<stat type="INTELLECT" value="37"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="40"/>
+		</stats>
+		<source>
+		Drops from Golemagg the Incinerator in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="944" phase="0">
+		<info name="Elemental Mage Staff" type="STAFF" slot="2H" unique="no" req_lvl="56" item_lvl="61" quality="EPIC" boe="yes" icon="Inv_staff_07.png"/>
+		<dmg_range min="147" max="221" speed="3.2"/>
+		<stats>
+			<stat type="FIRE_RESISTANCE" value="20"/>
+			<stat type="FROST_RESISTANCE" value="20"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="36"/>
+			<stat type="SPELL_DAMAGE_FROST" value="36"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17113" phase="0">
+		<info name="Amberseal Keeper" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="67" quality="EPIC" boe="no" icon="Inv_staff_goldfeathered_01.png"/>
+		<dmg_range min="145" max="229" speed="3.3"/>
+		<stats>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="FIRE_RESISTANCE" value="5"/>
+			<stat type="NATURE_RESISTANCE" value="5"/>
+			<stat type="FROST_RESISTANCE" value="5"/>
+			<stat type="SHADOW_RESISTANCE" value="5"/>
+			<stat type="ARCANE_RESISTANCE" value="5"/>
+			<stat type="MANA_PER_5" value="12"/>
+			<stat type="SPELL_DAMAGE" value="44"/>
+		</stats>
+		<source>
+		Drops from Golemagg the Incinerator in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18534" phase="1">
+		<info name="Rod of the Ogre Magi" type="STAFF" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_staff_32.png"/>
+		<dmg_range min="116" max="175" speed="2.7"/>
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPIRIT" value="7"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+		Drops from Tribute chest in Dire Maul.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18873" phase="1">
+		<info name="Grand Marshal's Stave" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_staff_14.png"/>
+		<dmg_range min="131" max="225" speed="3.0"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="SPIRIT" value="17"/>
+			<stat type="SPELL_DAMAGE" value="71"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18874" phase="1">
+		<info name="High Warlord's War Staff" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_bone_elfskull_01.png"/>
+		<dmg_range min="131" max="225" speed="3.0"/>
+		<stats>
+			<stat type="STAMINA" value="41"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="SPIRIT" value="17"/>
+			<stat type="SPELL_DAMAGE" value="71"/>
+		</stats>
+		<source>
+		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19102" phase="2">
+		<info name="Crackling Staff" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_staff_20.png"/>
+		<dmg_range min="138" max="207" speed="3.1"/>
+		<stats>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="25"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+		Sold by Alterac Valley vendors. Requires Revered with Stormpike Guard.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19101" phase="2">
+		<info name="Whiteout Staff" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" faction="HORDE" boe="no" icon="Inv_staff_30.png"/>
+		<dmg_range min="138" max="207" speed="3.1"/>
+		<stats>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="25"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+		Sold by Alterac Valley vendors. Requires Revered with Frostwolf Clan.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19566" phase="2">
+		<info name="Advisor's Gnarled Staff" type="STAFF" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="HORDE" boe="no" icon="Inv_staff_25.png"/>
+		<dmg_range min="125" max="188" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="21"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="MANA_PER_5" value="8"/>
+		</stats>
+		<source>
+		Sold by Warsong Gulch vendors. Requires Revered with Warsong Outriders.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19571" phase="2">
+		<info name="Lorekeeper's Staff" type="STAFF" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_staff_28.png"/>
+		<dmg_range min="125" max="188" speed="2.9"/>
+		<stats>
+			<stat type="STAMINA" value="21"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="MANA_PER_5" value="8"/>
+		</stats>
+		<source>
+		Sold by Warsong Gulch vendors. Requires Revered with Silverwing Sentinels.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19355" phase="2">
+		<info name="Shadow Wing Focus Staff" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_staff_13.png"/>
+		<dmg_range min="142" max="237" speed="3.2"/>
+		<stats>
+			<stat type="INTELLECT" value="40"/>
+			<stat type="STAMINA" value="22"/>
+			<stat type="SPIRIT" value="17"/>
+			<stat type="SPELL_DAMAGE" value="56"/>
+		</stats>
+		<source>
+		Drops from Firemaw, Flamegor, and Ebonroc.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19356" phase="2">
+		<info name="Staff of the Shadow Flame" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_staff_06.png"/>
+		<dmg_range min="142" max="248" speed="3.2"/>
+		<stats>
+			<stat type="INTELLECT" value="29"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="SPIRIT" value="18"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_DAMAGE" value="84"/>
+		</stats>
+		<source>
+		Drops from Nefarian in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20069" phase="3">
+		<info name="Ironbark Staff" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_wand_04.png"/>
+		<dmg_range min="137" max="243" speed="3.4"/>
+		<stats>
+			<stat type="ARMOR" value="100"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_DAMAGE" value="41"/>
+		</stats>
+		<source>
+		Sold by Arathi Basin vendors. Requires Exalted with Arathi Basin faction.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20258" phase="3">
+		<info name="Zulian Ceremonial Staff" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_staff_34.png"/>
+		<dmg_range min="112" max="171" speed="2.6"/>
+		<stats>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19884" phase="3">
+		<info name="Jin'do's Judgement" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_staff_33.png"/>
+		<dmg_range min="144" max="227" speed="3.3"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.02"/>
+			<stat type="MANA_PER_5" value="14"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		Drops from Jin'do the Hexxer in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20724" phase="4">
+		<info name="Corrupted Blackwood Staff" type="STAFF" slot="2H" unique="no" req_lvl="58" item_lvl="62" quality="UNCOMMON" boe="no" icon="Inv_staff_07.png"/>
+		<dmg_range min="131" max="197" speed="3.4"/>
+		<stats>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPELL_DAMAGE" value="26"/>
+		</stats>
+		<source>
+		Quest reward in Silithus.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22458" phase="4">
+		<info name="Moonshadow Stave" type="STAFF" slot="2H" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_staff_28.png"/>
+		<dmg_range min="133" max="200" speed="3.7"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="18"/>
+			<stat type="MANA_PER_5" value="7"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires Sunken Temple.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20536" phase="4">
+		<info name="Soul Harvester" type="STAFF" slot="2H" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_sword_48.png"/>
+		<dmg_range min="118" max="178" speed="3.3"/>
+		<stats>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="24"/>
+		</stats>
+		<source>
+		Quest reward. Requires Sunken Temple.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20654" phase="4">
+		<info name="Amethyst War Staff" type="STAFF" slot="2H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_staff_11.png"/>
+		<dmg_range min="119" max="179" speed="2.9"/>
+		<stats>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPELL_DAMAGE" value="34"/>
+		</stats>
+		<source>
+		Drops from Azure Templar, a summonable boss in Silithus.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22335" phase="4">
+		<info name="Lord Valthalak's Staff of Command" type="STAFF" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_staff_07.png"/>
+		<dmg_range min="90" max="136" speed="2.1"/>
+		<stats>
+			<stat type="STAMINA" value="11"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Lord Valthalak in Upper Blackrock Spire (UBRS) during Tier 0.5 quest line.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21452" phase="4">
+		<info name="Staff of the Ruins" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_staff_12.png"/>
+		<dmg_range min="152" max="247" speed="3.4"/>
+		<stats>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="SPELL_DAMAGE" value="60"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Ossirian the Unscarred in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21128" phase="4">
+		<info name="Staff of the Qiraji Prophets" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_staff_01.png"/>
+		<dmg_range min="129" max="214" speed="2.9"/>
+		<stats>
+			<stat type="INTELLECT" value="26"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="NATURE_RESISTANCE" value="10"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="ARCANE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="56"/>
+		</stats>
+		<proc>
+			<spell name="GENERIC_STAT_BUFF" type="SPELL_PENETRATION" amount="50" instant="yes" rate="0.05" duration="8" internal_cd="0"/>
+			<source proc_magic_hit="true"/>
+		</proc>
+		<source>
+		Quest reward. Requires expensive materials and boss drop from Temple of Ahn'Qiraj (AQ40).
+		</source>
+		<special_equip_effect>
+		Equip: Gives a chance when your harmful spells land to reduce the magical resistances of your spell targets by 50 for 8 sec.
+		</special_equip_effect>
+	</melee_weapon>
+
+	<melee_weapon id="21273" phase="4">
+		<info name="Blessed Qiraji Acolyte Staff" type="STAFF" slot="2H" unique="yes" req_lvl="60" item_lvl="79" quality="EPIC" boe="no" icon="Inv_staff_20.png"/>
+		<dmg_range min="132" max="227" speed="3.0"/>
+		<stats>
+			<stat type="INTELLECT" value="33"/>
+			<stat type="STAMINA" value="32"/>
+			<stat type="SPELL_DAMAGE" value="76"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires expensive materials and boss drop from Temple of Ahn'Qiraj (AQ40).
+		</source>
+		<flavour_text>
+		"The weapon is infused and reinforced with Elementium."
+		</flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="23124" phase="5">
+		<info name="Staff of Balzaphon" type="STAFF" slot="2H" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_staff_07.png"/>
+		<dmg_range min="160" max="241" speed="3.9"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="SPELL_DAMAGE" value="29"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Balzaphon during Scourge Invasion event.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22800" phase="5">
+		<info name="Brimstone Staff" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_staff_13.png"/>
+		<dmg_range min="140" max="250" speed="3.2"/>
+		<stats>
+			<stat type="STAMINA" value="31"/>
+			<stat type="INTELLECT" value="30"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_DAMAGE" value="113"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Loatheb in Naxxramas.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22799" phase="5">
+		<info name="Soulseeker" type="STAFF" slot="2H" unique="no" req_lvl="60" item_lvl="89" quality="EPIC" boe="no" icon="Inv_staff_15.png"/>
+		<dmg_range min="142" max="265" speed="3.2"/>
+		<stats>
+			<stat type="STAMINA" value="30"/>
+			<stat type="INTELLECT" value="31"/>
+			<stat type="SPELL_DAMAGE" value="126"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_PENETRATION" value="25"/>
+		</stats>
+		<source>
+		Drops from Kel'Thuzad in Naxxramas.
 		</source>
 	</melee_weapon>
 </weapons>
