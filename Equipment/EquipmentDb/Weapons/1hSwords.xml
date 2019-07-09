@@ -165,7 +165,7 @@
 			<stat type="ATTACK_POWER" value="26"/>
 		</stats>
 		<source>
-			Reward from a quest in Silithus inn. Requires quest item from first boss in both AQ20 and ZG.
+			Quest reward. Requires killing entry bosses in both AQ20 and ZG.
 		</source>
 	</melee_weapon>
 
@@ -287,6 +287,20 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="17103" phase="0">
+		<info name="Azuresong Mageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_sword_39.png"/>
+		<dmg_range min="64" max="140" speed="2.4"/>
+		<stats>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="40"/>
+		</stats>
+		<source>
+			Drops from Golemagg the Incinerator in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="19168" phase="3">
 		<info name="Blackguard" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_sword_39.png"/>
 		<dmg_range min="65" max="121" speed="1.8"/>
@@ -375,6 +389,18 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18396" phase="1">
+		<info name="Mind Carver" type="SWORD" slot="MH" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_22.png"/>
+		<dmg_range min="57" max="106" speed="2.0"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<source>
+			Drops from Prince Tortheldrin in Dire Maul.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="19351" phase="2">
 		<info name="Maladath, Runed Blade of the Black Flight" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
 		<dmg_range min="86" max="162" speed="2.2"/>
@@ -384,32 +410,6 @@
 		</stats>
 		<source>
 			Drops from Broodlord Lashlayer in Blackwing Lair.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="21520" phase="4">
-		<info name="Ravencrest's Legacy" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
-		<dmg_range min="84" max="157" speed="2.1"/>
-		<stats>
-			<stat type="STAMINA" value="14"/>
-			<stat type="STRENGTH" value="13"/>
-			<stat type="AGILITY" value="9"/>
-		</stats>
-		<source>
-			Quest reward from AQ40 Scepter chain.
-		</source>
-	</melee_weapon>
-
-	<melee_weapon id="21650" phase="4">
-		<info name="Ancient Qiraji Ripper" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_84.png"/>
-		<dmg_range min="114" max="213" speed="2.8"/>
-		<stats>
-			<stat type="STAMINA" value="11"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-			<stat type="ATTACK_POWER" value="20"/>
-		</stats>
-		<source>
-			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
 		</source>
 	</melee_weapon>
 
@@ -475,6 +475,145 @@
 		</stats>
 		<source>
 			May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19964" phase="3">
+		<info name="Renataki's Soul Conduit" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_sword_37.png"/>
+		<dmg_range min="58" max="115" speed="2.1"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="16"/>
+			<stat type="MANA_PER_5" value="6"/>
+		</stats>
+		<source>
+			Drops from Renataki (Edge of Madness) in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19864" phase="3">
+		<info name="Bloodcaller" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
+		<dmg_range min="53" max="114" speed="2.0"/>
+		<stats>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+			Drops from Hakkar in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20698" phase="4">
+		<info name="Elemental Attuned Blade" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
+		<dmg_range min="59" max="117" speed="2.1"/>
+		<stats>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+			<stat type="MANA_PER_5" value="3"/>
+		</stats>
+		<source>
+			Rare drop from bag awarded via repeatable quest in Silithus.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22383" phase="4">
+		<info name="Sageblade" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="64" quality="EPIC" boe="yes" icon="Inv_sword_51.png"/>
+		<dmg_range min="49" max="100" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="14"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+			<stat type="SPELL_PENETRATION" value="10"/>
+		</stats>
+		<source>
+			Crafted by Blacksmiths (300 skill). Pattern is a rare drop of multiple bosses in different instances.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21413" phase="4">
+		<info name="Blade of Vaulted Secrets" type="SWORD" slot="MH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_sword_57.png"/>
+		<class_restriction class="MAGE"/>
+		<dmg_range min="60" max="131" speed="2.3"/>
+		<stats>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="40"/>
+		</stats>
+		<source>
+			Quest reward. Requires drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21520" phase="4">
+		<info name="Ravencrest's Legacy" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
+		<dmg_range min="84" max="157" speed="2.1"/>
+		<stats>
+			<stat type="STAMINA" value="14"/>
+			<stat type="STRENGTH" value="13"/>
+			<stat type="AGILITY" value="9"/>
+		</stats>
+		<source>
+			Quest reward. Last step of the Scepter of the Shifting Sands quest line.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21521" phase="4">
+		<info name="Runesword of the Red" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
+		<dmg_range min="53" max="129" speed="2.2"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPIRIT" value="7"/>
+			<stat type="SPELL_DAMAGE" value="64"/>
+		</stats>
+		<source>
+			Quest reward. Last step of the Scepter of the Shifting Sands quest line.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21650" phase="4">
+		<info name="Ancient Qiraji Ripper" type="SWORD" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_84.png"/>
+		<dmg_range min="114" max="213" speed="2.8"/>
+		<stats>
+			<stat type="STAMINA" value="11"/>
+			<stat type="CRIT_CHANCE" value="0.01"/>
+			<stat type="ATTACK_POWER" value="20"/>
+		</stats>
+		<source>
+			Drops from Fankriss the Unyielding in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21622" phase="4">
+		<info name="Sharpened Silithid Femur" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_sword_58.png"/>
+		<dmg_range min="54" max="137" speed="2.3"/>
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPELL_DAMAGE" value="72"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Viscidus in Temple of Ahn'Qiraj (AQ40).
+		</source>
+		<flavour_text>
+		"Recently devoured"
+		</flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="22807" phase="5">
+		<info name="Wraith Blade" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_sword_11.png"/>
+		<dmg_range min="38" max="109" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="95"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+			Drops from Maexxna in Naxxramas.
 		</source>
 	</melee_weapon>
 

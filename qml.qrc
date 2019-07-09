@@ -790,5 +790,17 @@
         <file>QML/Assets/items/Inv_misc_root_02.png</file>
         <file>QML/Assets/items/Inv_misc_rune_05.png</file>
         <file>QML/Assets/items/Inv_jewelry_amulet_07.png</file>
+        <file>QML/Assets/items/Inv_offhand_naxxramas_03.png</file>
+        <file>QML/Assets/items/Inv_knife_1h_stratholme_d_02.png</file>
+        <file>QML/Assets/items/Inv_sword_21.png</file>
+        <file>QML/Assets/items/Inv_sword_32.png</file>
+        <file>QML/Assets/items/Inv_sword_37.png</file>
+        <file>QML/Assets/items/Inv_sword_57.png</file>
+        <file>QML/Assets/items/Inv_sword_58.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_06.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_16.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_22.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_28.png</file>
+        <file>QML/Assets/items/Inv_weapon_shortblade_31.png</file>
     </qresource>
 </RCC>

@@ -24,6 +24,18 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="13964" phase="0">
+		<info name="Witchblade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="62" quality="RARE" boe="no" icon="Inv_weapon_shortblade_25.png"/>
+		<dmg_range min="45" max="85" speed="1.6"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+		</stats>
+		<source>
+			Drops from Darkmaster Gandling in Scholomance.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="14555" phase="0">
 		<info name="Alcor's Sunrazor" type="DAGGER" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="EPIC" boe="yes" icon="Inv_sword_34.png"/>
 		<dmg_range min="41" max="77" speed="1.3"/>
@@ -54,6 +66,19 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="18878" phase="0">
+		<info name="Sorcerous Dagger" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_07.png"/>
+		<dmg_range min="39" max="79" speed="1.4"/>
+		<stats>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+			Drops from multiple bosses in Molten Core.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="18816" phase="0">
 		<info name="Perdition's Blade" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_sword_48.png"/>
 		<dmg_range min="73" max="137" speed="1.8"/>
@@ -69,6 +94,72 @@
 		</source>
 	</melee_weapon>
 
+	<melee_weapon id="19347" phase="2">
+		<info name="Claw of Chromaggus" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_28.png"/>
+		<dmg_range min="37" max="90" speed="1.5"/>
+		<stats>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_DAMAGE" value="64"/>
+			<stat type="MANA_PER_5" value="4"/>
+		</stats>
+		<source>
+			Drops from Chromaggus in Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="17070" phase="3">
+		<info name="Fang of the Mystics" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_06.png"/>
+		<dmg_range min="39" max="86" speed="1.5"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="MANA_PER_5" value="4"/>
+			<stat type="SPELL_DAMAGE" value="40"/>
+		</stats>
+		<source>
+			Drops from Azuregos (world boss).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19903" phase="3">
+		<info name="Fang of Venoxis" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_31.png"/>
+		<dmg_range min="35" max="72" speed="1.3"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_DAMAGE" value="24"/>
+			<stat type="MANA_PER_5" value="6"/>
+		</stats>
+		<source>
+			Drops from High Priest Venoxis in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20720" phase="4">
+		<info name="Dark Whisper Blade" type="DAGGER" slot="MH" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_weapon_shortblade_16.png"/>
+		<dmg_range min="40" max="77" speed="1.4"/>
+		<stats>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPELL_DAMAGE" value="19"/>
+		</stats>
+		<source>
+			Drops from quest reward bag that requires turning in quest items from Silithus elites.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22379" phase="4">
+		<info name="Shivsprocket's Shiv" type="DAGGER" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_21.png"/>
+		<dmg_range min="42" max="82" speed="1.5"/>
+		<stats>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SPELL_DAMAGE" value="13"/>
+		</stats>
+		<source>
+			Quest reward. Requires killing entry bosses in both AQ20 and ZG.
+		</source>
+	</melee_weapon>
+
 	<melee_weapon id="21404" phase="4">
 		<info name="Dagger of Veiled Shadows" type="DAGGER" slot="1H" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_weapon_shortblade_27.png"/>
 		<class_restriction class="ROGUE"/>
@@ -80,6 +171,19 @@
 		</stats>
 		<source>
 			Quest reward. Requires boss drops from Ruins of Ahn'Qiraj (AQ20) and Exalted with Cenarion Hold.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21802" phase="4">
+		<info name="The Lost Kris of Zedd" type="DAGGER" slot="MH" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="yes" icon="Inv_sword_32.png"/>
+		<dmg_range min="42" max="83" speed="1.5"/>
+		<stats>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+		</stats>
+		<source>
+			Drops from trash mobs in Ruins of Ahn'Qiraj (AQ20).
 		</source>
 	</melee_weapon>
 
@@ -98,6 +202,32 @@
 		<flavour_text>
 			"The weapon is infused and reinforced with Elementium."
 		</flavour_text>
+	</melee_weapon>
+
+	<melee_weapon id="22688" phase="5">
+		<info name="Verimonde's Last Resort" type="DAGGER" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_weapon_shortblade_03.png"/>
+		<dmg_range min="39" max="76" speed="1.4"/>
+		<stats>
+			<stat type="STAMINA" value="7"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="19"/>
+		</stats>
+		<source>
+			Reputation reward. Attainable from Argent Dawn at each level of friendliness, among other rewards.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22803" phase="5">
+		<info name="Midnight Haze" type="DAGGER" slot="1H" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_knife_1h_stratholme_d_02.png"/>
+		<dmg_range min="51" max="97" speed="1.8"/>
+		<stats>
+			<stat type="STAMINA" value="20"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE" value="85"/>
+		</stats>
+		<source>
+			Drops from Grobbulus in Naxxramas.
+		</source>
 	</melee_weapon>
 
 	<melee_weapon id="22804" phase="5">
