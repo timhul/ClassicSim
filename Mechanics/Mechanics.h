@@ -9,9 +9,9 @@ class Mechanics {
 public:
     Mechanics(Target*);
 
-    double get_yellow_miss_chance(const unsigned clvl, const unsigned wpn_skill) const;
-    double get_2h_white_miss_chance(const unsigned clvl, const unsigned wpn_skill) const;
-    double get_dw_white_miss_chance(const unsigned clvl, const unsigned wpn_skill) const;
+    double get_yellow_miss_chance(const unsigned wpn_skill) const;
+    double get_2h_white_miss_chance(const unsigned wpn_skill) const;
+    double get_dw_white_miss_chance(const unsigned wpn_skill) const;
 
     double get_glancing_blow_chance(const unsigned clvl) const;
     double get_dodge_chance(const unsigned wpn_skill) const;

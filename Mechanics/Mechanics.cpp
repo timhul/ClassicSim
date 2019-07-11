@@ -7,36 +7,21 @@ Mechanics::Mechanics(Target* target):
     target(target)
 {}
 
-double Mechanics::get_yellow_miss_chance(const unsigned clvl, const unsigned wpn_skill) const {
-    return get_2h_white_miss_chance(clvl, wpn_skill);
+double Mechanics::get_yellow_miss_chance(const unsigned wpn_skill) const {
+    return get_2h_white_miss_chance(wpn_skill);
 }
 
-double Mechanics::get_dw_white_miss_chance(const unsigned clvl, const unsigned wpn_skill) const {
-    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
-    const double base_miss = std::max(0.0, 0.24 + level_diff * 0.01);
-
-    const int t_defense_to_p_wpn_skill = static_cast<int>(target->get_defense()) - static_cast<int>(wpn_skill);
-    if (t_defense_to_p_wpn_skill > 10)
-        return base_miss + 0.01;
-
-    if (t_defense_to_p_wpn_skill < 0)
-        return base_miss - abs(t_defense_to_p_wpn_skill) * 0.0004;
-
-    return base_miss;
+double Mechanics::get_dw_white_miss_chance(const unsigned wpn_skill) const {
+    return get_2h_white_miss_chance(wpn_skill) * 0.8 + 0.2;
 }
 
-double Mechanics::get_2h_white_miss_chance(const unsigned clvl, const unsigned wpn_skill) const {
-    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
-    const double base_miss = std::max(0.0, 0.05 + level_diff * 0.01);
-
+double Mechanics::get_2h_white_miss_chance(const unsigned wpn_skill) const {
     const int t_defense_to_p_wpn_skill = static_cast<int>(target->get_defense()) - static_cast<int>(wpn_skill);
+
     if (t_defense_to_p_wpn_skill > 10)
-        return base_miss + 0.01;
+        return 0.05 + 0.01 + t_defense_to_p_wpn_skill * 0.002;
 
-    if (t_defense_to_p_wpn_skill < 0)
-        return base_miss - abs(t_defense_to_p_wpn_skill) * 0.0004;
-
-    return base_miss;
+    return 0.05 + t_defense_to_p_wpn_skill * 0.001;
 }
 
 double Mechanics::get_glancing_blow_chance(const unsigned clvl) const {

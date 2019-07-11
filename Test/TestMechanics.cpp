@@ -8,8 +8,8 @@
 void TestMechanics::test_all() {
     qDebug() << "TestMechanics";
     test_dodge_from_wpn_skill_diff();
-    test_dw_white_miss();
     test_2h_white_miss();
+    test_dw_white_miss();
     test_glancing_blow_rate();
     test_glancing_dmg_penalty();
     test_physical_crit_suppression_from_target_level();
@@ -110,23 +110,23 @@ void TestMechanics::test_dw_white_miss() {
     auto* target = new Target(63);
     auto* mechanics = new Mechanics(target);
 
-    assert(almost_equal(0.28, mechanics->get_dw_white_miss_chance(60, 300)));
-    assert(almost_equal(0.28, mechanics->get_dw_white_miss_chance(60, 301)));
-    assert(almost_equal(0.28, mechanics->get_dw_white_miss_chance(60, 302)));
-    assert(almost_equal(0.28, mechanics->get_dw_white_miss_chance(60, 303)));
-    assert(almost_equal(0.28, mechanics->get_dw_white_miss_chance(60, 304)));
-    assert(almost_equal(0.27, mechanics->get_dw_white_miss_chance(60, 305)));
-    assert(almost_equal(0.27, mechanics->get_dw_white_miss_chance(60, 315)));
-    assert(almost_equal(0.268, mechanics->get_dw_white_miss_chance(60, 320)));
-
-    target->set_lvl(62);
-    assert(almost_equal(0.26, mechanics->get_dw_white_miss_chance(60, 300)));
-
-    target->set_lvl(61);
-    assert(almost_equal(0.25, mechanics->get_dw_white_miss_chance(60, 300)));
-
-    target->set_lvl(60);
-    assert(almost_equal(0.24, mechanics->get_dw_white_miss_chance(60, 300)));
+    assert(almost_equal(0.272, mechanics->get_dw_white_miss_chance(300)));
+    assert(almost_equal(0.2704, mechanics->get_dw_white_miss_chance(301)));
+    assert(almost_equal(0.2688, mechanics->get_dw_white_miss_chance(302)));
+    assert(almost_equal(0.2672, mechanics->get_dw_white_miss_chance(303)));
+    assert(almost_equal(0.2656, mechanics->get_dw_white_miss_chance(304)));
+    assert(almost_equal(0.248, mechanics->get_dw_white_miss_chance(305)));
+    assert(almost_equal(0.2472, mechanics->get_dw_white_miss_chance(306)));
+    assert(almost_equal(0.2464, mechanics->get_dw_white_miss_chance(307)));
+    assert(almost_equal(0.2456, mechanics->get_dw_white_miss_chance(308)));
+    assert(almost_equal(0.2448, mechanics->get_dw_white_miss_chance(309)));
+    assert(almost_equal(0.244, mechanics->get_dw_white_miss_chance(310)));
+    assert(almost_equal(0.2432, mechanics->get_dw_white_miss_chance(311)));
+    assert(almost_equal(0.2424, mechanics->get_dw_white_miss_chance(312)));
+    assert(almost_equal(0.2416, mechanics->get_dw_white_miss_chance(313)));
+    assert(almost_equal(0.2408, mechanics->get_dw_white_miss_chance(314)));
+    assert(almost_equal(0.24, mechanics->get_dw_white_miss_chance(315)));
+    assert(almost_equal(0.236, mechanics->get_dw_white_miss_chance(320)));
 
     delete mechanics;
     delete target;
@@ -136,23 +136,23 @@ void TestMechanics::test_2h_white_miss() {
     auto* target = new Target(63);
     auto* mechanics = new Mechanics(target);
 
-    assert(almost_equal(0.09, mechanics->get_2h_white_miss_chance(60, 300)));
-    assert(almost_equal(0.09, mechanics->get_2h_white_miss_chance(60, 301)));
-    assert(almost_equal(0.09, mechanics->get_2h_white_miss_chance(60, 302)));
-    assert(almost_equal(0.09, mechanics->get_2h_white_miss_chance(60, 303)));
-    assert(almost_equal(0.09, mechanics->get_2h_white_miss_chance(60, 304)));
-    assert(almost_equal(0.08, mechanics->get_2h_white_miss_chance(60, 305)));
-    assert(almost_equal(0.08, mechanics->get_2h_white_miss_chance(60, 315)));
-    assert(almost_equal(0.078, mechanics->get_2h_white_miss_chance(60, 320)));
-
-    target->set_lvl(62);
-    assert(almost_equal(0.07, mechanics->get_2h_white_miss_chance(60, 300)));
-
-    target->set_lvl(61);
-    assert(almost_equal(0.06, mechanics->get_2h_white_miss_chance(60, 300)));
-
-    target->set_lvl(60);
-    assert(almost_equal(0.05, mechanics->get_2h_white_miss_chance(60, 300)));
+    assert(almost_equal(0.090, mechanics->get_2h_white_miss_chance(300)));
+    assert(almost_equal(0.088, mechanics->get_2h_white_miss_chance(301)));
+    assert(almost_equal(0.086, mechanics->get_2h_white_miss_chance(302)));
+    assert(almost_equal(0.084, mechanics->get_2h_white_miss_chance(303)));
+    assert(almost_equal(0.082, mechanics->get_2h_white_miss_chance(304)));
+    assert(almost_equal(0.060, mechanics->get_2h_white_miss_chance(305)));
+    assert(almost_equal(0.059, mechanics->get_2h_white_miss_chance(306)));
+    assert(almost_equal(0.058, mechanics->get_2h_white_miss_chance(307)));
+    assert(almost_equal(0.057, mechanics->get_2h_white_miss_chance(308)));
+    assert(almost_equal(0.056, mechanics->get_2h_white_miss_chance(309)));
+    assert(almost_equal(0.055, mechanics->get_2h_white_miss_chance(310)));
+    assert(almost_equal(0.054, mechanics->get_2h_white_miss_chance(311)));
+    assert(almost_equal(0.053, mechanics->get_2h_white_miss_chance(312)));
+    assert(almost_equal(0.052, mechanics->get_2h_white_miss_chance(313)));
+    assert(almost_equal(0.051, mechanics->get_2h_white_miss_chance(314)));
+    assert(almost_equal(0.050, mechanics->get_2h_white_miss_chance(315)));
+    assert(almost_equal(0.045, mechanics->get_2h_white_miss_chance(320)));
 
     delete mechanics;
     delete target;

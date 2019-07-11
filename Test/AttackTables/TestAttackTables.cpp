@@ -64,21 +64,26 @@ void TestAttackTables::test_white_hit_table_update() {
 
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(300);
 
-    assert(table->get_outcome(0, 1) == PhysicalAttackResult::MISS);
-    assert(table->get_outcome(2799, 1) == PhysicalAttackResult::MISS);
-    assert(table->get_outcome(2800, 1) == PhysicalAttackResult::DODGE);
-    assert(table->get_outcome(3449, 1) == PhysicalAttackResult::DODGE);
-    assert(table->get_outcome(3450, 1) == PhysicalAttackResult::GLANCING);
-    assert(table->get_outcome(7449, 1) == PhysicalAttackResult::GLANCING);
-    assert(table->get_outcome(7450, 1) == PhysicalAttackResult::CRITICAL);
-    // Note: This will fail when changing base agility or agi needed per crit.
-    assert(table->get_outcome(8134, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(8135, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::HIT);
-    assert(table->get_outcome(8135, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::CRITICAL);
-    assert(table->get_outcome(8136, pchar->get_stats()->get_mh_crit_chance() + 1) == PhysicalAttackResult::HIT);
+    const unsigned base_miss_dw = 2719;
+    const unsigned base_dodge = 650;
+    const unsigned glancing_rate = 4000;
 
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_melee_crit(9999);
+    assert(table->get_outcome(0, 1) == PhysicalAttackResult::MISS);
+    assert(table->get_outcome(base_miss_dw, 1) == PhysicalAttackResult::MISS);
+    assert(table->get_outcome(base_miss_dw + 1, 1) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(base_miss_dw + base_dodge, 1) == PhysicalAttackResult::DODGE);
+    assert(table->get_outcome(base_miss_dw + base_dodge + 1, 1) == PhysicalAttackResult::GLANCING);
+    assert(table->get_outcome(base_miss_dw + base_dodge + glancing_rate, 1) == PhysicalAttackResult::GLANCING);
+    assert(table->get_outcome(base_miss_dw + base_dodge + glancing_rate + 1, 1) == PhysicalAttackResult::CRITICAL);
+
+    const unsigned glancing_range = base_miss_dw + base_dodge + glancing_rate;
+    const unsigned crit_chance = pchar->get_stats()->get_mh_crit_chance();
+
+    assert(table->get_outcome(glancing_range + crit_chance, crit_chance) == PhysicalAttackResult::CRITICAL);
+    assert(table->get_outcome(glancing_range + crit_chance + 1, crit_chance) == PhysicalAttackResult::HIT);
+    assert(table->get_outcome(glancing_range + crit_chance, crit_chance - 1) == PhysicalAttackResult::HIT);
+
+    pchar->get_stats()->increase_melee_crit(999999999);
     assert(table->get_outcome(9999, pchar->get_stats()->get_mh_crit_chance()) == PhysicalAttackResult::CRITICAL);
 
     delete pchar;
