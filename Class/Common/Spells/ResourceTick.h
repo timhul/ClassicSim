@@ -1,18 +1,20 @@
 #pragma once
 
-#include "Spell.h"
+#include "SpellPeriodic.h"
 
 class RegeneratingResource;
 
-class ResourceTick : public Spell {
+class ResourceTick : public SpellPeriodic {
 public:
-    ResourceTick(Character* pchar, RegeneratingResource *resource);
+    ResourceTick(Character* pchar, RegeneratingResource* resource);
     ~ResourceTick() override;
-
-    void perform_periodic() override;
 
 private:
     RegeneratingResource* resource;
 
-    void spell_effect() override;
+    bool check_application_success() override;
+    void new_application_effect() override;
+    void refresh_effect() override;
+    void tick_effect() override;
+    void reset_effect() override;
 };

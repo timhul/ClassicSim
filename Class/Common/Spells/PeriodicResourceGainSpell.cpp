@@ -1,44 +1,41 @@
 #include "PeriodicResourceGainSpell.h"
 
-#include <utility>
-
 #include "Character.h"
 #include "ClassStatistics.h"
-#include "CooldownControl.h"
-#include "Engine.h"
-#include "ResourceGain.h"
+#include "NoEffectSelfBuff.h"
 #include "StatisticsResource.h"
 
 PeriodicResourceGainSpell::PeriodicResourceGainSpell(const QString& name,
                                                      const QString& icon,
                                                      Character* pchar,
-                                                     bool restricted_by_gcd,
-                                                     double cooldown,
-                                                     double tick_rate,
-                                                     double tick_until,
+                                                     const RestrictedByGcd restricted_by_gcd,
+                                                     const double tick_rate,
+                                                     const int duration,
                                                      QVector<QPair<ResourceType, unsigned>> resource_gains)
     :
-      Spell(name, icon, pchar, new CooldownControl(pchar, cooldown), restricted_by_gcd, ResourceType::Rage, 0),
-      tick_rate(tick_rate),
-      tick_until(tick_until),
+      SpellPeriodic(name, icon, pchar,
+                    new NoEffectSelfBuff(pchar, duration, name, icon, Hidden::No),
+                    restricted_by_gcd,
+                    ResourceType::Mana,
+                    tick_rate,
+                    0,
+                    0),
       resource_gains(std::move(resource_gains))
 {}
 
 PeriodicResourceGainSpell::~PeriodicResourceGainSpell() {
-    delete cooldown;
+    delete marker_buff;
 }
 
-void PeriodicResourceGainSpell::spell_effect() {
-    double next_tick = engine->get_current_priority() + tick_rate;
+void PeriodicResourceGainSpell::new_application_effect() {
 
-    if (next_tick > tick_until)
-        return;
-
-    auto* new_event = new ResourceGain(this, next_tick);
-    this->engine->add_event(new_event);
 }
 
-void PeriodicResourceGainSpell::perform_periodic() {
+void PeriodicResourceGainSpell::refresh_effect() {
+
+}
+
+void PeriodicResourceGainSpell::tick_effect() {
     for (const auto & gain : resource_gains) {
         unsigned before_gain;
         unsigned delta = 0;
@@ -66,9 +63,17 @@ void PeriodicResourceGainSpell::perform_periodic() {
             statistics_resource->add_resource_gain(gain.first, delta);
     }
 
-    spell_effect();
+    add_next_tick();
+}
+
+void PeriodicResourceGainSpell::reset_effect() {
+
 }
 
 void PeriodicResourceGainSpell::prepare_set_of_combat_iterations_spell_specific() {
     this->statistics_resource = pchar->get_statistics()->get_resource_statistics(name, icon);
+}
+
+bool PeriodicResourceGainSpell::check_application_success() {
+    return true;
 }

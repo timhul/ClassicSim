@@ -127,6 +127,10 @@ double Buff::time_left() const {
     return this->refreshed + this->duration - raid_control->get_engine()->get_current_priority();
 }
 
+double Buff::get_expired() const {
+    return this->expired;
+}
+
 void Buff::reset() {
     if (is_active())
         force_remove_buff();

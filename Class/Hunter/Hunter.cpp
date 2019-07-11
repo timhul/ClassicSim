@@ -58,10 +58,9 @@ Hunter::~Hunter()
 {
     cstats->get_equipment()->unequip_all();
 
-    delete pet;
-
     enabled_buffs->clear_all();
     enabled_procs->clear_all();
+    delete pet;
 
     delete available_enchants;
     delete cstats;

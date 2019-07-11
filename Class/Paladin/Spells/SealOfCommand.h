@@ -16,6 +16,7 @@ public:
     Proc* get_proc() const;
     void signal_proc_in_progress();
     bool proc_is_in_progress() const;
+    void run_proc();
 
 private:
     SealOfCommandProc* proc;
@@ -28,7 +29,6 @@ private:
     const QVector<double> benediction_ranks {1.0, 0.97, 0.94, 0.91, 0.88, 0.85};
 
     void judge_effect() override;
-    void perform_periodic() override;
     void prepare_set_of_combat_iterations_spell_specific() override;
     void reset_effect() override;
 

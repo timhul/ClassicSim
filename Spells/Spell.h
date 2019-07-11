@@ -15,10 +15,10 @@ class Engine;
 class CooldownControl;
 class StatisticsSpell;
 
-namespace RestrictedByGcd {
-    static const bool Yes = true;
-    static const bool No = false;
-}
+enum class RestrictedByGcd : bool {
+    Yes = true,
+    No = false,
+};
 
 enum class SpellStatus: int {
     Available = 0,
@@ -45,7 +45,7 @@ public:
           QString icon,
           Character* pchar,
           CooldownControl* cooldown_control,
-          bool restricted_by_gcd,
+          const RestrictedByGcd restricted_by_gcd,
           const ResourceType resource_type,
           const unsigned resource_cost,
           const int spell_rank = 1);
@@ -72,7 +72,6 @@ public:
     static const int MAX_RANK = 0;
 
     void perform();
-    virtual void perform_periodic();
     virtual void perform_start_of_combat();
 
     void reset();
@@ -97,7 +96,7 @@ protected:
     CooldownControl* cooldown;
     StatisticsSpell* statistics_spell;
 
-    bool restricted_by_gcd;
+    const RestrictedByGcd restricted_by_gcd;
     const ResourceType resource_type;
     unsigned resource_cost;
     const int spell_rank;

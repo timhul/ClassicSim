@@ -4,6 +4,7 @@
 
 class Buff;
 class Random;
+class PeriodicDamageSpell;
 
 class FireballInstant: public Spell {
 public:
@@ -13,28 +14,24 @@ public:
                     const unsigned instant_max,
                     const unsigned dmg_over_duration,
                     const int duration,
-                    const double spell_coefficient = 0.0,
-                    const int spell_rank = 1);
+                    const unsigned resource_cost,
+                    const unsigned casting_time,
+                    const double spell_coefficient,
+                    const double spell_coefficient_dot,
+                    const int spell_rank);
     ~FireballInstant() override;
 
 private:
     friend class Fireball;
 
-    Buff* fireball_dot;
+    PeriodicDamageSpell* fireball_dot;
     Random* instant_dmg;
-    double damage_remaining {0};
-    const double period_tick {2.0};
-    const unsigned max_ticks;
-    const double base_dmg_per_tick;
-    unsigned num_ticks_left {0};
     const double spell_coefficient;
     unsigned crit_bonus {0};
     double last_damage_dealt;
 
     void spell_effect() override;
-    void reset_effect() override;
-    void perform_periodic() override;
-    void apply_fireball_dot();
+    void prepare_set_of_combat_iterations_spell_specific() override;
 
     int magic_attack_result {MagicAttackResult::MISS};
 };

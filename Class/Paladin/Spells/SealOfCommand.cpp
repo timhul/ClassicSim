@@ -91,7 +91,7 @@ void SealOfCommand::judge_effect() {
     }
 }
 
-void SealOfCommand::perform_periodic() {
+void SealOfCommand::run_proc() {
     proc_in_progress = false;
 
     const int result = roll->get_melee_ability_result(pchar->get_mh_wpn_skill(), pchar->get_stats()->get_mh_crit_chance());

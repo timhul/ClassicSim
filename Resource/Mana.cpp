@@ -3,7 +3,6 @@
 #include "Character.h"
 #include "CharacterStats.h"
 #include "Engine.h"
-#include "ResourceGain.h"
 #include "Utils/Check.h"
 #include "Utils/CompareDouble.h"
 

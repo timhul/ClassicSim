@@ -51,8 +51,8 @@ QString Event::get_name_for_event_type(const EventType event_type) {
         return "PlayerAction";
     case EventType::RangedHit:
         return "RangedHit";
-    case EventType::ResourceGain:
-        return "ResourceGain";
+    case EventType::SpellCallback:
+        return "SpellCallback";
     }
 
     return "<missing name for event>";

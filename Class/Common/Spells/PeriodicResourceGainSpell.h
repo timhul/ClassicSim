@@ -1,32 +1,33 @@
 #pragma once
 
-#include "Spell.h"
-#include "Resource.h"
+#include "SpellPeriodic.h"
 
 #include <QVector>
 
 class StatisticsResource;
 
-class PeriodicResourceGainSpell : public Spell {
+class PeriodicResourceGainSpell : public SpellPeriodic {
 public:
     PeriodicResourceGainSpell(const QString& name,
-                              const QString &icon,
+                              const QString& icon,
                               Character* pchar,
-                              bool restricted_by_gcd,
-                              double cooldown,
-                              double tick_rate,
-                              double tick_until,
+                              const RestrictedByGcd restricted_by_gcd,
+                              const double tick_rate,
+                              const int duration,
                               QVector<QPair<ResourceType, unsigned>> resource_gains);
     ~PeriodicResourceGainSpell() override;
 
-    void perform_periodic() override;
+protected:
+    StatisticsResource* statistics_resource {nullptr};
 
 private:
-    double tick_rate;
-    double tick_until;
-    StatisticsResource* statistics_resource {nullptr};
     QVector<QPair<ResourceType, unsigned>> resource_gains;
 
-    void spell_effect() override;
-    void prepare_set_of_combat_iterations_spell_specific() override;
+    void prepare_set_of_combat_iterations_spell_specific() override final;
+
+    bool check_application_success() override final;
+    void new_application_effect() override;
+    void refresh_effect() override final;
+    void tick_effect() override final;
+    void reset_effect() override;
 };

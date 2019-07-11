@@ -2,14 +2,16 @@
 
 #include "Event.h"
 
-class Spell;
+class SpellPeriodic;
 
 class DotTick: public Event {
 public:
-    DotTick(Spell* spell, const double timestamp);
+    DotTick(SpellPeriodic* spell, const double timestamp, const int application_id);
 
     void act() override;
 
 private:
-    Spell* spell;
+    SpellPeriodic* spell;
+
+    const int application_id;
 };

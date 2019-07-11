@@ -8,7 +8,7 @@ public:
                      const QString& icon,
                      Character* pchar,
                      CooldownControl* cooldown_control,
-                     bool restricted_by_gcd,
+                     const RestrictedByGcd restricted_by_gcd,
                      const ResourceType resource_type,
                      unsigned resource_cost,
                      int spell_rank = 1);

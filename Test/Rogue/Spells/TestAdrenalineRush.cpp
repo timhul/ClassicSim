@@ -116,39 +116,39 @@ void TestAdrenalineRush::test_tick_rate_over_entire_duration() {
 
     when_adrenaline_rush_is_performed();
 
-    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_rogue_has_energy(40);
 
-    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
     then_rogue_has_energy(80);
 
-    then_next_event_is(EventType::ResourceGain, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
     then_rogue_has_energy(100);
 
     given_rogue_has_energy(0);
 
-    then_next_event_is(EventType::ResourceGain, "8.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
     then_rogue_has_energy(40);
 
-    then_next_event_is(EventType::ResourceGain, "10.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "10.000", RUN_EVENT);
     then_rogue_has_energy(80);
 
-    then_next_event_is(EventType::ResourceGain, "12.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "12.000", RUN_EVENT);
     then_rogue_has_energy(100);
 
     given_rogue_has_energy(0);
 
-    then_next_event_is(EventType::ResourceGain, "14.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "14.000", RUN_EVENT);
     then_rogue_has_energy(40);
 
     then_next_event_is(EventType::BuffRemoval, "15.000", RUN_EVENT);
-    then_next_event_is(EventType::ResourceGain, "16.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "16.000", RUN_EVENT);
     then_rogue_has_energy(60);
 
-    then_next_event_is(EventType::ResourceGain, "18.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "18.000", RUN_EVENT);
     then_rogue_has_energy(80);
 
-    then_next_event_is(EventType::ResourceGain, "20.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "20.000", RUN_EVENT);
     then_rogue_has_energy(100);
 }
 

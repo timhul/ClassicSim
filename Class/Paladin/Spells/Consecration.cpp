@@ -1,27 +1,20 @@
 #include "Consecration.h"
 
 #include "CharacterStats.h"
-#include "CombatRoll.h"
 #include "CooldownControl.h"
-#include "DotTick.h"
-#include "Engine.h"
-#include "NoEffectSelfBuff.h"
 #include "Paladin.h"
+#include "PeriodicDamageSpell.h"
 #include "Utils/Check.h"
 
 Consecration::Consecration(Paladin* pchar,
                            CooldownControl* cooldown_control,
                            const int spell_rank) :
     Spell("Consecration", "Assets/spell/Spell_holy_innerfire.png", pchar, cooldown_control, RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
-    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)}),
-    buff(new NoEffectSelfBuff(pchar,
-                              8,
-                              QString("Consecration (rank %1)").arg(spell_rank),
-                              "Assets/spell/Spell_holy_innerfire.png",
-                              Hidden::No))
+    TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Consecration", 1, DisabledAtZero::Yes)})
 {
     this->enabled = false;
 
+    unsigned full_duration_dmg = 0;
     switch (spell_rank) {
     case 1:
         full_duration_dmg = 64;
@@ -46,26 +39,21 @@ Consecration::Consecration(Paladin* pchar,
     default:
         check(false, QString("%1 does not support rank %2").arg(name).arg(spell_rank).toStdString());
     }
+
+    cons_dot_1 = new PeriodicDamageSpell(QString("Consecration 1 (rank %1)").arg(spell_rank), "Assets/spell/Spell_holy_innerfire.png", pchar,
+                                         RestrictedByGcd::No, MagicSchool::Holy, 2.0, 8, full_duration_dmg, resource_cost,
+                                         pchar->global_cooldown(), 0.33);
+    cons_dot_2 = new PeriodicDamageSpell(QString("Consecration 2 (rank %1)").arg(spell_rank), "Assets/spell/Spell_holy_innerfire.png", pchar,
+                                         RestrictedByGcd::No, MagicSchool::Holy, 2.0, 8, full_duration_dmg, resource_cost,
+                                         pchar->global_cooldown(), 0.33);
+
+    cons_dot_1->disable();
+    cons_dot_2->disable();
 }
 
 Consecration::~Consecration() {
-    if (buff->is_enabled())
-        buff->disable_buff();
-
-    delete buff;
-}
-
-void Consecration::perform_periodic() {
-    check((ticks > 0), "No Consecration stacks to consume");
-
-    calculate_damage();
-
-    --ticks;
-
-    if (ticks > 0) {
-        auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
-        this->engine->add_event(new_event);
-    }
+    delete cons_dot_1;
+    delete cons_dot_2;
 }
 
 bool Consecration::is_rank_learned() const {
@@ -86,43 +74,31 @@ bool Consecration::is_rank_learned() const {
     return false;
 }
 
-void Consecration::calculate_damage() {
-    const int hit_roll = roll->get_spell_ability_result(MagicSchool::Holy, 0.0);
-    const int resist_roll = roll->get_spell_resist_result(MagicSchool::Holy);
-
-    if (hit_roll == MagicAttackResult::MISS)
-        return increment_miss();
-    if (resist_roll == MagicResistResult::FULL_RESIST)
-        return increment_full_resist();
-
-    const double resist_mod = get_partial_resist_dmg_modifier(resist_roll);
-    const double bonus_from_spell_dmg = pchar->get_stats()->get_spell_damage(MagicSchool::Holy) * 0.33;
-    const double damage_dealt = ((full_duration_dmg + bonus_from_spell_dmg) / 4 + tick_rest) * resist_mod * pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy);
-    tick_rest = tick_rest + damage_dealt - round(damage_dealt);
-
-    add_hit_dmg(static_cast<int>(round(damage_dealt)), static_cast<double>(get_resource_cost()) / 4, pchar->global_cooldown() / 4);
-}
-
 void Consecration::spell_effect() {
-    buff->apply_buff();
     pchar->lose_mana(get_resource_cost());
     cooldown->add_gcd_event();
 
-    if (ticks == 0)
-        this->engine->add_event(new DotTick(this, engine->get_current_priority() + 2.0));
-
-    ticks += 4;
+    if (!cons_dot_1->is_active())
+        cons_dot_1->perform();
+    else
+        cons_dot_2->perform();
 }
 
 void Consecration::reset_effect() {
-    ticks = 0;
-    tick_rest = 0;
+
 }
 
 void Consecration::increase_talent_rank_effect(const QString&, const int) {
-    buff->enable_buff();
+    cons_dot_1->enable();
+    cons_dot_2->enable();
 }
 
 void Consecration::decrease_talent_rank_effect(const QString&, const int) {
-    buff->disable_buff();
+    cons_dot_1->disable();
+    cons_dot_2->disable();
+}
+
+void Consecration::prepare_set_of_combat_iterations_spell_specific() {
+    cons_dot_1->prepare_set_of_combat_iterations();
+    cons_dot_2->prepare_set_of_combat_iterations();
 }

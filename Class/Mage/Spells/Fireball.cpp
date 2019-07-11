@@ -7,6 +7,7 @@
 #include "FireballInstant.h"
 #include "Mage.h"
 #include "MageSpells.h"
+#include "PeriodicDamageSpell.h"
 #include "SimSettings.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
@@ -140,7 +141,13 @@ Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
     this->resource_cost = base_resource_cost;
 
     QString empty_format_string = "";
-    this->damage_spell = new FireballInstant(pchar, empty_format_string, base_damage_min, base_damage_max, base_dot_damage, base_dot_duration, spell_dmg_coefficient, spell_rank);
+    this->damage_spell = new FireballInstant(pchar, empty_format_string,
+                                             base_damage_min, base_damage_max,
+                                             base_dot_damage, base_dot_duration,
+                                             resource_cost, casting_time_ms,
+                                             spell_dmg_coefficient,
+                                             PeriodicDamageSpell::get_spell_coefficient_from_duration(base_dot_duration),
+                                             spell_rank);
 }
 
 Fireball::~Fireball() {

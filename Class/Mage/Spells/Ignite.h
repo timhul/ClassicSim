@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Spell.h"
+#include "SpellPeriodic.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
@@ -10,13 +10,11 @@ class IgniteBuff;
 class Mage;
 class MageSpells;
 
-class Ignite: public Spell, public TalentRequirer {
+class Ignite: public SpellPeriodic, public TalentRequirer {
 public:
     Ignite(Mage* pchar, IgniteBuff* ignite_buff);
-    ~Ignite() override;
 
     void inflict_ignite(const double original_dmg);
-    void perform_periodic() override;
 
 private:
     IgniteBuff* ignite_buff;
@@ -25,8 +23,13 @@ private:
     double ignite_percentage {0.0};
     QVector<double> ignite_ranks {0.0, 0.08, 0.16, 0.24, 0.32, 0.40};
 
-    void spell_effect() override;
     bool is_current_owner() const;
+
+    bool check_application_success() override;
+    void new_application_effect() override;
+    void refresh_effect() override;
+    void tick_effect() override;
+    void reset_effect() override;
 
     void increase_talent_rank_effect(const QString& talent_name, const int curr) override;
     void decrease_talent_rank_effect(const QString& talent_name, const int curr) override;

@@ -1,12 +1,13 @@
 #include "DotTick.h"
 
-#include "Spell.h"
+#include "SpellPeriodic.h"
 
-DotTick::DotTick(Spell* spell, const double timestamp):
+DotTick::DotTick(SpellPeriodic* spell, const double timestamp, const int application_id):
     Event(EventType::DotTick, timestamp),
-    spell(spell)
+    spell(spell),
+    application_id(application_id)
 {}
 
 void DotTick::act() {
-    spell->perform_periodic();
+    spell->perform_periodic(application_id);
 }

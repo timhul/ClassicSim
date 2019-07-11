@@ -54,38 +54,38 @@ void TestEnergy::test_energy_ticks_up_after_use() {
     then_rogue_has_energy(25);
     ignored_events = {"PlayerAction"};
 
-    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_rogue_has_energy(45);
 
-    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
     then_rogue_has_energy(65);
 
-    then_next_event_is(EventType::ResourceGain, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
     then_rogue_has_energy(85);
 
-    then_next_event_is(EventType::ResourceGain, "8.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
     then_rogue_has_energy(100);
 
-    then_next_event_is(EventType::ResourceGain, "10.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "10.000", RUN_EVENT);
     then_rogue_has_energy(100);
 }
 
 void TestEnergy::test_energy_tick_adds_player_action_event() {
     rogue->lose_energy(75);
 
-    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "2.100");
-    then_next_event_is(EventType::ResourceGain, "4.000");
+    then_next_event_is(EventType::DotTick, "4.000");
 }
 
 void TestEnergy::test_losing_energy_while_non_max_does_not_change_energy_tick_timer() {
     rogue->lose_energy(75);
 
-    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "2.100");
     then_rogue_has_energy(45);
 
-    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "4.100");
     then_rogue_has_energy(65);
 
@@ -93,48 +93,49 @@ void TestEnergy::test_losing_energy_while_non_max_does_not_change_energy_tick_ti
     rogue->lose_energy(60);
     then_rogue_has_energy(5);
 
-    then_next_event_is(EventType::ResourceGain, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "6.100");
     then_rogue_has_energy(25);
 
-    then_next_event_is(EventType::ResourceGain, "8.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "8.100");
     then_rogue_has_energy(45);
 
-    then_next_event_is(EventType::ResourceGain, "10.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "10.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "10.100");
     then_rogue_has_energy(65);
 
-    then_next_event_is(EventType::ResourceGain, "12.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "12.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "12.100");
     then_rogue_has_energy(85);
 
-    then_next_event_is(EventType::ResourceGain, "14.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "14.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "14.100");
     then_rogue_has_energy(100);
 
-    then_next_event_is(EventType::ResourceGain, "16.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "16.000", RUN_EVENT);
     then_rogue_has_energy(100);
 }
 
 void TestEnergy::test_energy_tick_timer_is_pushed_forward_if_completed_before_losing_energy_again() {
     rogue->lose_energy(10);
 
-    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "2.100");
     then_rogue_has_energy(100);
 
-    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
     then_rogue_has_energy(100);
 
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
     given_engine_priority_at(7.5);
     rogue->lose_energy(10);
 
-    then_next_event_is(EventType::ResourceGain, "9.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "9.500", RUN_EVENT);
     then_next_event_is(EventType::PlayerAction, "9.600");
     then_rogue_has_energy(100);
 
-    then_next_event_is(EventType::ResourceGain, "11.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "11.500", RUN_EVENT);
     then_rogue_has_energy(100);
 }
 
@@ -144,10 +145,10 @@ void TestEnergy::test_only_single_resource_gain_is_queued() {
     rogue->gain_energy(10);
     rogue->lose_energy(100);
 
-    then_next_event_is(EventType::ResourceGain, "2.000", RUN_EVENT);
-    then_next_event_is(EventType::ResourceGain, "4.000", RUN_EVENT);
-    then_next_event_is(EventType::ResourceGain, "6.000", RUN_EVENT);
-    then_next_event_is(EventType::ResourceGain, "8.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
 }
 
 void TestEnergy::test_vigor_changes_max_energy() {

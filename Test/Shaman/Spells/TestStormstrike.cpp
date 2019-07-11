@@ -31,7 +31,7 @@ void TestStormstrike::test_name_correct() {
 
 void TestStormstrike::test_spell_cooldown() {
     given_stormstrike_enabled();
-    ignored_events = {"BuffRemoval", "ResourceGain"};
+    ignored_events = {"BuffRemoval", "DotTick"};
     given_a_guaranteed_melee_ability_hit();
     assert(QString::number(stormstrike()->get_base_cooldown(), 'f', 3) == "12.000");
 

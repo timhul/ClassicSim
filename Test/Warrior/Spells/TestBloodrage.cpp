@@ -102,19 +102,9 @@ void TestBloodrage::when_bloodrage_is_performed() {
 }
 
 void TestBloodrage::then_periodic_bloodrage_rage_gain_is(const unsigned expected_rage_gain) {
-    unsigned prev = warrior->get_resource_level(ResourceType::Rage);
-    while (!pchar->get_engine()->get_queue()->empty()) {
-        Event* event = pchar->get_engine()->get_queue()->get_next();
-        pchar->get_engine()->set_current_priority(event);
+    const unsigned prev = warrior->get_resource_level(ResourceType::Rage);
 
-        if (event->event_type != EventType::ResourceGain) {
-            delete event;
-            continue;
-        }
-
-        event->act();
-        delete event;
-    }
+    when_running_queued_events_until(10.01);
 
     assert(warrior->get_resource_level(ResourceType::Rage) - prev == expected_rage_gain);
 }

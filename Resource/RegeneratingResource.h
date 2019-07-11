@@ -24,9 +24,7 @@ protected:
     ResourceTick* resource_tick;
 
     unsigned resource_per_tick;
-    bool ticking;
 
-    void add_next_tick();
     virtual double get_tick_rate() const = 0;
     virtual unsigned get_resource_per_tick() = 0;
 

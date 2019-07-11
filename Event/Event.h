@@ -15,7 +15,7 @@ enum class EventType: int {
     PetMeleeHit,
     PlayerAction,
     RangedHit,
-    ResourceGain,
+    SpellCallback,
 };
 
 class Event {

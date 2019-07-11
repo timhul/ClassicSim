@@ -17,6 +17,7 @@ SOURCES += main.cpp \
     Class/Common/Buffs/NoEffectUniqueDebuff.cpp \
     Class/Common/Buffs/ZandalarianHeroCharm.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
+    Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Mage/Buffs/CombustionBuff.cpp \
     Class/Mage/Buffs/IgniteBuff.cpp \
@@ -61,6 +62,7 @@ SOURCES += main.cpp \
     Engine/Engine.cpp \
     Event/Events/EncounterEnd.cpp \
     Event/Events/EncounterStart.cpp \
+    Event/Events/SpellCallback.cpp \
     GUI/Models/DamageMetersModel.cpp \
     GUI/TemplateCharacters.cpp \
     Phases/ContentPhase.cpp \
@@ -90,6 +92,7 @@ SOURCES += main.cpp \
     Spells/PartyBuff.cpp \
     Spells/SelfBuff.cpp \
     Spells/SharedDebuff.cpp \
+    Spells/SpellPeriodic.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
@@ -183,7 +186,6 @@ SOURCES += main.cpp \
     Test/Warrior/Spells/TestOffhandAttackWarrior.cpp \
     Test/Warrior/Spells/TestDeepWounds.cpp \
     Class/Warrior/Spells/Bloodrage.cpp \
-    Event/Events/ResourceGain.cpp \
     Test/Warrior/Spells/TestBloodrage.cpp \
     Spells/Proc.cpp \
     Class/Common/Enchants/WindfuryTotemAttack.cpp \
@@ -437,6 +439,7 @@ HEADERS += \
     Class/Common/Buffs/NoEffectUniqueDebuff.h \
     Class/Common/Buffs/ZandalarianHeroCharm.h \
     Class/Common/Spells/DragonbreathChili.h \
+    Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
     Class/Mage/Buffs/CombustionBuff.h \
     Class/Mage/Buffs/IgniteBuff.h \
@@ -477,6 +480,7 @@ HEADERS += \
     Class/Shaman/TalentTrees/Elemental.h \
     Class/Shaman/TalentTrees/Enhancement.h \
     Class/Shaman/TalentTrees/RestorationShaman.h \
+    Event/Events/SpellCallback.h \
     GUI/Models/DamageMetersModel.h \
     GUI/TemplateCharacters.h \
     Phases/ContentPhase.h \
@@ -511,6 +515,7 @@ HEADERS += \
     Spells/PartyBuff.h \
     Spells/SelfBuff.h \
     Spells/SharedDebuff.h \
+    Spells/SpellPeriodic.h \
     Spells/SpellRankGroup.h \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
@@ -609,7 +614,6 @@ HEADERS += \
     Test/Warrior/TestBuffWarrior.h \
     Test/Warrior/Spells/TestOffhandAttackWarrior.h \
     Test/Warrior/Spells/TestDeepWounds.h \
-    Event/Events/ResourceGain.h \
     Class/Warrior/Spells/Bloodrage.h \
     Test/Warrior/Spells/TestBloodrage.h \
     Spells/Proc.h \

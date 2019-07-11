@@ -9,7 +9,7 @@
 PaladinSeal::PaladinSeal(QString name,
                          QString icon,
                          Paladin* pchar,
-                         bool restricted_by_gcd,
+                         const RestrictedByGcd restricted_by_gcd,
                          const ResourceType resource_type,
                          unsigned resource_cost,
                          Buff* seal) :

@@ -1,10 +1,10 @@
 #include "SealOfCommandProc.h"
 
-#include "DotTick.h"
 #include "Engine.h"
 #include "ItemNamespace.h"
 #include "ProcInfo.h"
 #include "SealOfCommand.h"
+#include "SpellCallback.h"
 #include "Utils/Check.h"
 
 SealOfCommandProc::SealOfCommandProc(Character* pchar, SealOfCommand* seal) :
@@ -19,7 +19,7 @@ SealOfCommandProc::SealOfCommandProc(Character* pchar, SealOfCommand* seal) :
 }
 
 void SealOfCommandProc::proc_effect() {
-    auto* new_event = new DotTick(seal, engine->get_current_priority() + 0.5);
+    auto* new_event = new SpellCallback(seal, engine->get_current_priority() + 0.5);
     this->engine->add_event(new_event);
     seal->signal_proc_in_progress();
 }

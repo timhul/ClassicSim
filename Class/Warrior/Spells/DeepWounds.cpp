@@ -8,33 +8,33 @@
 #include "Warrior.h"
 
 DeepWounds::DeepWounds(Character* pchar) :
-    Spell("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Rage, 0),
+    SpellPeriodic("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar,
+                  new NoEffectUniqueDebuff(pchar, 12, "Deep Wounds", "Assets/ability/Ability_backstab.png", Hidden::No),
+                  RestrictedByGcd::No, ResourceType::Rage, 2.0, 0, 1),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),
-    buff(new NoEffectUniqueDebuff(pchar,
-                                  12,
-                                  "Deep Wounds",
-                                  "Assets/ability/Ability_backstab.png",
-                                  Hidden::No)),
     talent_ranks({0.0, 0.2, 0.4, 0.6})
 {
     this->enabled = false;
 }
 
 DeepWounds::~DeepWounds() {
-    if (buff->is_enabled())
-        buff->disable_buff();
-
-    delete buff;
-    delete cooldown;
+    delete marker_buff;
 }
 
-void DeepWounds::perform_periodic() {
-    check(!stacks.empty(), "No deep wounds stacks to consume");
+bool DeepWounds::check_application_success() {
+    return true;
+}
 
-    if (!buff->is_active())
-        return reset_effect();
+void DeepWounds::new_application_effect() {
+    stacks.append(6);
+}
 
+void DeepWounds::refresh_effect() {
+    new_application_effect();
+}
+
+void DeepWounds::tick_effect() {
     double damage_dealt = stacks.size() * ((warr->get_avg_mh_damage() * wpn_percent) / 6);
 
     damage_dealt += previous_tick_rest;
@@ -47,31 +47,12 @@ void DeepWounds::perform_periodic() {
 
     stacks.removeAll(0);
 
-    if (!stacks.empty()) {
-        auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
-        this->engine->add_event(new_event);
-    }
+    if (!stacks.empty())
+        add_next_tick();
     else
         previous_tick_rest = 0;
 
-    add_hit_dmg(static_cast<int>(round(damage_dealt)), resource_cost, 0);
-}
-
-void DeepWounds::spell_effect() {
-    if (!is_enabled())
-        return;
-
-    buff->apply_buff();
-
-    if (!buff->is_active())
-        return;
-
-    if (stacks.empty()) {
-        auto* new_event = new DotTick(this, engine->get_current_priority() + 2.0);
-        this->engine->add_event(new_event);
-    }
-
-    stacks.append(6);
+    add_hit_dmg(static_cast<int>(round(damage_dealt)), 0, 0);
 }
 
 void DeepWounds::reset_effect() {
@@ -85,12 +66,4 @@ void DeepWounds::increase_talent_rank_effect(const QString&, const int curr) {
 
 void DeepWounds::decrease_talent_rank_effect(const QString&, const int curr) {
     wpn_percent = talent_ranks[curr];
-}
-
-void DeepWounds::enable_spell_effect() {
-    buff->enable_buff();
-}
-
-void DeepWounds::disable_spell_effect() {
-    buff->disable_buff();
 }

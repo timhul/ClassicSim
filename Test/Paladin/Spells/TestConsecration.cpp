@@ -80,16 +80,20 @@ void TestConsecration::test_is_ready_conditions() {
 }
 
 void TestConsecration::test_damage() {
-    ignored_events = {"ResourceGain", "BuffRemoval", "PlayerAction"};
+    ignored_events = {"BuffRemoval", "PlayerAction"};
     given_consecration_is_enabled();
     given_character_has_spell_damage(100, MagicSchool::Holy);
     given_a_guaranteed_magic_hit(MagicSchool::Holy);
 
     when_consecration_is_performed();
-
+    // Duplicate is resource tick
+    then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "2.000", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "4.000", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "6.000", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "8.000", RUN_EVENT);
 
     // [Damage] = base_dmg + holy_spell_dmg * spell_coefficient
@@ -98,7 +102,7 @@ void TestConsecration::test_damage() {
 }
 
 void TestConsecration::test_damage_sanctity_aura() {
-    ignored_events = {"ResourceGain", "BuffRemoval", "PlayerAction"};
+    ignored_events = {"BuffRemoval", "PlayerAction"};
     given_character_has_spell_damage(100, MagicSchool::Holy);
     given_a_guaranteed_magic_hit(MagicSchool::Holy);
     given_retribution_talent_rank("Sanctity Aura", 1);
@@ -109,9 +113,14 @@ void TestConsecration::test_damage_sanctity_aura() {
 
     when_consecration_is_performed();
 
+    // Duplicate is resource tick
+    then_next_event_is(EventType::DotTick, "3.500", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "3.500", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "5.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "5.500", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "7.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "7.500", RUN_EVENT);
+    then_next_event_is(EventType::DotTick, "9.500", RUN_EVENT);
     then_next_event_is(EventType::DotTick, "9.500", RUN_EVENT);
 
     // [Damage] = (base_dmg + holy_spell_dmg * spell_coefficient) * holy_dmg_mod

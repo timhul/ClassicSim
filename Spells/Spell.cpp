@@ -19,7 +19,7 @@ Spell::Spell(QString name,
              QString icon,
              Character* pchar,
              CooldownControl* cooldown_control,
-             bool restricted_by_gcd,
+             const RestrictedByGcd restricted_by_gcd,
              const ResourceType resource_type,
              const unsigned resource_cost,
              const int spell_rank) :
@@ -83,7 +83,7 @@ SpellStatus Spell::get_spell_status() const {
     if (!enabled)
         return SpellStatus::NotEnabled;
 
-    if (restricted_by_gcd && pchar->on_global_cooldown())
+    if (restricted_by_gcd == RestrictedByGcd::Yes && pchar->on_global_cooldown())
         return SpellStatus::OnGCD;
 
     if (pchar->get_spells()->cast_in_progress())
@@ -224,10 +224,6 @@ void Spell::prepare_set_of_combat_iterations_spell_specific() {
 }
 
 void Spell::reset_effect() {
-
-}
-
-void Spell::perform_periodic() {
 
 }
 

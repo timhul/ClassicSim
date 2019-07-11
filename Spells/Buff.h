@@ -44,6 +44,7 @@ public:
     void cancel_buff();
     bool is_active() const;
     double time_left() const;
+    double get_expired() const;
 
     void reset();
     void initialize();

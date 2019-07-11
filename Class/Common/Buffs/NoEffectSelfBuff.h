@@ -7,11 +7,11 @@ class Proc;
 class NoEffectSelfBuff: public SelfBuff {
 public:
     NoEffectSelfBuff(Character* pchar,
-                 const int duration,
-                 const QString& name = "NO_NAME",
-                 const QString& icon = NO_ICON,
-                 const bool hidden = Hidden::Yes,
-                 const int charges = 0);
+                     const int duration,
+                     const QString& name = "NO_NAME",
+                     const QString& icon = NO_ICON,
+                     const bool hidden = Hidden::Yes,
+                     const int charges = 0);
 
     void link_buff_expiration(Buff* buff_to_cancel);
 

@@ -1,24 +1,39 @@
 #include "ResourceTick.h"
 
-#include "Character.h"
-#include "CooldownControl.h"
+#include "NoEffectSelfBuff.h"
 #include "RegeneratingResource.h"
 #include "Utils/Check.h"
 
 ResourceTick::ResourceTick(Character* pchar, RegeneratingResource* resource)
     :
-      Spell("Resource Tick", "no-icon", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::No, ResourceType::Mana, 0),
+      SpellPeriodic("Resource Tick", "no-icon", pchar,
+                    new NoEffectSelfBuff(pchar, BuffDuration::PERMANENT),
+                    RestrictedByGcd::No, ResourceType::Mana, 2.0, 0),
       resource(resource)
 {}
 
 ResourceTick::~ResourceTick() {
-    delete cooldown;
+    delete marker_buff;
 }
 
-void ResourceTick::spell_effect() {
-    check(false, "Not implemented");
+bool ResourceTick::check_application_success() {
+    return true;
 }
 
-void ResourceTick::perform_periodic() {
+void ResourceTick::new_application_effect() {
+
+}
+
+void ResourceTick::refresh_effect() {
+
+}
+
+void ResourceTick::tick_effect() {
     resource->tick_resource();
+
+    add_next_tick();
+}
+
+void ResourceTick::reset_effect() {
+
 }

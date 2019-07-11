@@ -2,16 +2,15 @@
 
 #include "Character.h"
 #include "Engine.h"
-#include "ResourceGain.h"
 #include "ResourceTick.h"
 #include "Utils/Check.h"
 
 RegeneratingResource::RegeneratingResource(Character* pchar) :
     pchar(pchar),
-    resource_per_tick(0),
-    ticking(false)
+    resource_per_tick(0)
 {
     this->resource_tick = new ResourceTick(pchar, this);
+    this->resource_tick->enable();
 }
 
 RegeneratingResource::~RegeneratingResource() {
@@ -26,8 +25,7 @@ void RegeneratingResource::gain_resource(const unsigned value) {
 }
 
 void RegeneratingResource::lose_resource(const unsigned value) {
-    if (!ticking && current == max)
-        add_next_tick();
+    resource_tick->perform();
 
     check((current >= value), "Underflow decrease");
     current -= value;
@@ -35,18 +33,9 @@ void RegeneratingResource::lose_resource(const unsigned value) {
     lose_resource_effect();
 }
 
-void RegeneratingResource::add_next_tick() {
-    ticking = true;
-
-    auto* event = new ResourceGain(resource_tick, pchar->get_engine()->get_current_priority() + get_tick_rate());
-    pchar->get_engine()->add_event(event);
-}
-
 void RegeneratingResource::tick_resource() {
-    if (current == max) {
-        ticking = false;
-        return;
-    }
+    if (current == max)
+        return resource_tick->invalidate();
 
     switch (get_resource_type()) {
     case ResourceType::Mana:
@@ -64,14 +53,12 @@ void RegeneratingResource::tick_resource() {
     }
 
     gain_resource(get_resource_per_tick());
-
-    add_next_tick();
 }
 
 void RegeneratingResource::reset_resource() {
     max = get_max_resource();
     current = max;
-    ticking = false;
+    resource_tick->invalidate();
 
     reset_effect();
 }
