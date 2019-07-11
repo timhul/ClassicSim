@@ -16,8 +16,7 @@
 		<info name="Blackhand Doomsaw" type="POLEARM" slot="2H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_halberd_04.png"/>
 		<dmg_range min="151" max="227" speed="3.5"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="PHYSICAL_ATTACK" min="324" max="541" instant="yes" rate="0.02" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="PHYSICAL_ATTACK" min="324" max="541" instant="yes" rate="0.05833333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 		Chance on hit: Wounds the target for 324 to 541 damage.
@@ -43,8 +42,7 @@
 		<info name="Shadowstrike" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_spear_08.png"/>
 		<dmg_range min="147" max="221" speed="3.1"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="SHADOW_ATTACK" min="100" max="181" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="SHADOW_ATTACK" min="100" max="181" instant="yes" rate="0.051666667" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 		Chance on hit: Steals 100 to 181 life from target enemy.
@@ -61,8 +59,7 @@
 		<info name="Thunderstrike" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_spear_08.png"/>
 		<dmg_range min="147" max="221" speed="3.1"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="NATURE_ATTACK" min="150" max="251" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK" min="150" max="251" instant="yes" rate="0.051666667" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 		Chance on hit: Blasts up to 3 targets for 150 to 251 Nature damage. Each target after the first takes
@@ -157,8 +154,7 @@
 		<info name="Halberd of Smiting" type="POLEARM" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_weapon_halberd_12.png"/>
 		<dmg_range min="175" max="263" speed="3.5"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="PHYSICAL_ATTACK" min="452" max="677" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="PHYSICAL_ATTACK" min="452" max="677" instant="yes" rate="0.058333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 		Equip: Chance to decapitate the target on a melee swing, causing 452 to 677 damage.

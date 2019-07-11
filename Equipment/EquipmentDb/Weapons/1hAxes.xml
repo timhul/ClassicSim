@@ -4,8 +4,7 @@
 		<info name="Flurry Axe" type="AXE" slot="1H" unique="no" req_lvl="42" item_lvl="47" quality="EPIC" boe="yes" icon="Inv_axe_17.png"/>
 		<dmg_range min="37" max="69" speed="1.5"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0"/>
+			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.025" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Grants 1 extra attack on your next swing.
@@ -31,8 +30,7 @@
 		<info name="Axe of the Deep Woods" type="AXE" slot="MH" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="yes" icon="Inv_axe_07.png"/>
 		<dmg_range min="78" max="146" speed="2.7"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK" min="90" max="127" instant="yes" rate="0.045" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts a target for 90 to 127 Nature damage.
@@ -137,8 +135,7 @@
 		<info name="Deathbringer" type="AXE" slot="1H" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_axe_09.png"/>
 		<dmg_range min="114" max="213" speed="2.9"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="SHADOW_ATTACK" min="110" max="141" instant="yes" rate="0.048333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Sends a shadowy bolt at the enemy causing 110 to 141 Shadow damage.

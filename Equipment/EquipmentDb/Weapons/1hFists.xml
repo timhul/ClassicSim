@@ -4,8 +4,7 @@
 		<info name="Arlokk's Grasp" type="FIST" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_weapon_hand_01.png"/>
 		<dmg_range min="41" max="85" speed="1.5"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="SHADOW_ATTACK" min="55" max="86" instant="yes" rate="0.025" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Sends a shadowy bolt at the enemy causing 55 to 86 Shadow damage.
@@ -34,8 +33,7 @@
 			<stat type="AGILITY" value="4"/>
 		</stats>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="ATTACK_SPEED" amount="0.3" duration="5" rate="0.05" internal_cd="0"/>
+			<spell name="ATTACK_SPEED" amount="0.3" duration="5" rate="0.025" internal_cd="0"/>
 		</proc>
 		<source>
 			Drops from Magmadar in Molten Core.

@@ -4,8 +4,7 @@
 		<info name="Thrash Blade" type="SWORD" slot="1H" unique="yes" req_lvl="45" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
 		<dmg_range min="66" max="124" speed="2.7"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.05" internal_cd="0"/>
+			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.045" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Grants an extra attack on your next swing.
@@ -68,7 +67,6 @@
 		<info name="Sword of Zeal" type="SWORD" slot="MH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_sword_39.png"/>
 		<dmg_range min="81" max="151" speed="2.8"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
 			<spell name="ADDITIONAL_DMG_BUFF" min="10" max="10" duration="15" rate="0.05" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
@@ -83,7 +81,6 @@
 		<info name="Skullforge Reaver" type="SWORD" slot="1H" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_12.png"/>
 		<dmg_range min="72" max="135" speed="2.5"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
 			<spell name="SHADOW_DOT" instant="no" amount="0"  min="2" max="2" tick_rate="1" duration="30" rate="0.05" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
@@ -122,7 +119,6 @@
 		<info name="Dragon's Call" type="SWORD" slot="1H" unique="no" req_lvl="52" item_lvl="57" quality="EPIC" boe="no" icon="Inv_sword_38.png"/>
 		<dmg_range min="72" max="135" speed="2.5"/>
 		<proc>
-			<!-- TODO: Find proc rate, how much damage the minion deals, duration, etc. -->
 			<spell name="SUMMON_NATURE_MINION" amount="1" duration="30" rate="0.05" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
@@ -206,8 +202,7 @@
 			<stat type="ATTACK_POWER" value="12"/>
 		</stats>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK" min="72" max="97" instant="yes" rate="0.041666677" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Slices the enemy for 72 to 97 Nature damage.
@@ -221,8 +216,7 @@
 		<info name="Teebu's Blazing Longsword" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="yes" icon="Inv_sword_22.png"/>
 		<dmg_range min="96" max="178" speed="2.9"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="FIRE_ATTACK" min="150" max="150" instant="yes" rate="0.04833333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts a target for 150 Fire damage.
@@ -361,8 +355,7 @@
 		</stats>
 		<proc>
 			<spell name="NATURE_ATTACK" min="16" max="30" instant="yes" rate="1.0" internal_cd="0" spell_dmg_coefficient="0.0"/>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK_THUNDERFURY" min="300" max="300" instant="yes" rate="0.2" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts your enemy with lightning, dealing 300  Nature damage and then jumping to additional nearby enemies.
@@ -378,8 +371,7 @@
 		<info name="Vis'kag the Bloodletter" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_sword_18.png"/>
 		<dmg_range min="100" max="187" speed="2.6"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05633333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Delivers a fatal wound for 240 damage.

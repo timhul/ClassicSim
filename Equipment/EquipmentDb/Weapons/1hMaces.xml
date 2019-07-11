@@ -18,8 +18,7 @@
 			<stat type="MACE_SKILL" value="2"/>
 		</stats>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="NATURE_ATTACK" min="63" max="94" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK" min="63" max="94" instant="yes" rate="0.043333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Blasts the enemy with poison for 63 to 94 Nature damage.
@@ -33,8 +32,7 @@
 		<info name="Ironfoe" type="MACE" slot="MH" unique="yes" req_lvl="55" item_lvl="60" quality="EPIC" boe="no" icon="Spell_frost_frostbrand.png"/>
 		<dmg_range min="73" max="136" speed="2.4"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.027" internal_cd="0"/>
+			<spell name="EXTRA_ATTACK" amount="2" instant="no" rate="0.04" internal_cd="0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Grants 2 extra attacks on your next swing.
@@ -71,8 +69,7 @@
 		<info name="Empyrean Demolisher" type="MACE" slot="MH" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_05.png"/>
 		<dmg_range min="94" max="175" speed="2.8"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="ATTACK_SPEED" amount="0.2" duration="10" rate="0.05" internal_cd="0"/>
+			<spell name="ATTACK_SPEED" amount="0.2" duration="10" rate="0.046666667" internal_cd="0"/>
 		</proc>
 		<source>
 			Drops from Lord Kazzak (world boss).
@@ -87,8 +84,7 @@
 			<stat type="FIRE_RESISTANCE" value="7"/>
 		</stats>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="SHADOW_ATTACK" min="125" max="276" instant="yes" rate="0.038333333" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance on hit: Sends a shadowy bolt at the enemy causing 125 to 276 Shadow damage.
@@ -181,8 +177,7 @@
 		<info name="Misplaced Servo Arm" type="MACE" slot="1H" unique="yes" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_mace_28.png"/>
 		<dmg_range min="128" max="238" speed="2.8"/>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="NATURE_ATTACK" min="100" max="151" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="NATURE_ATTACK" min="100" max="151" instant="yes" rate="0.14" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 			Chance to discharge electricity causing 100 to 151 Nature damage to your target.

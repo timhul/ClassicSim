@@ -88,8 +88,7 @@
 			<stat type="STAMINA" value="17"/>
 		</stats>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="PHYSICAL_ATTACK" min="240" max="240" instant="yes" rate="0.0566666667" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 		Chance on hit: Delivers a fatal wound for 240 damage.
@@ -120,8 +119,7 @@
 			<stat type="STAMINA" value="16"/>
 		</stats>
 		<proc>
-			<!-- TODO: Find actual proc rate. -->
-			<spell name="SHADOW_ATTACK" min="141" max="164" instant="yes" rate="0.05" internal_cd="0" spell_dmg_coefficient="0.0"/>
+			<spell name="SHADOW_ATTACK" min="141" max="164" instant="yes" rate="0.06166667" internal_cd="0" spell_dmg_coefficient="0.0"/>
 		</proc>
 		<special_equip_effect>
 		Chance on hit: Steals 141 to 164 life from target enemy.
