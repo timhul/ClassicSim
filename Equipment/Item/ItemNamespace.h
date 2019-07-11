@@ -74,7 +74,6 @@ namespace WeaponSlots {
     static const int RANGED = 4;
 }
 
-// CSIM-76: Coalesce WeaponTypes and ArmorTypes
 namespace ArmorTypes {
     static const int CLOTH = 20;
     static const int LEATHER = 21;
@@ -82,7 +81,6 @@ namespace ArmorTypes {
     static const int PLATE = 23;
 }
 
-// CSIM-76: Move this to separate file
 namespace EnchantSlot {
     static const int MAINHAND = 0;
     static const int OFFHAND = 1;

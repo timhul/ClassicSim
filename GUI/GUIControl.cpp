@@ -1203,7 +1203,6 @@ void GUIControl::selectSlot(const QString& slot_string) {
 }
 
 bool GUIControl::hasItemEquipped(const QString& slot_string) const {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         return current_char->get_equipment()->get_mainhand() != nullptr;
     if (slot_string == "OFFHAND")
@@ -1248,7 +1247,6 @@ bool GUIControl::hasEnchant(const QString& slot_string) const {
     if (!hasItemEquipped(slot_string))
         return false;
 
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         return current_char->get_equipment()->get_mainhand()->has_enchant();
     if (slot_string == "OFFHAND")
@@ -1279,7 +1277,6 @@ bool GUIControl::hasTemporaryEnchant(const QString& slot_string) const {
     if (!hasItemEquipped(slot_string))
         return false;
 
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         return current_char->get_equipment()->get_mainhand()->has_temporary_enchant();
     if (slot_string == "OFFHAND")
@@ -1289,7 +1286,6 @@ bool GUIControl::hasTemporaryEnchant(const QString& slot_string) const {
 }
 
 QString GUIControl::getEnchantEffect(const QString& slot_string) const {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         return current_char->get_equipment()->get_mainhand()->get_enchant_effect();
     if (slot_string == "OFFHAND")
@@ -1317,7 +1313,6 @@ QString GUIControl::getEnchantEffect(const QString& slot_string) const {
 }
 
 QString GUIControl::getTemporaryEnchantEffect(const QString& slot_string) const {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         return current_char->get_equipment()->get_mainhand()->get_temporary_enchant_effect();
     if (slot_string == "OFFHAND")
@@ -1327,7 +1322,6 @@ QString GUIControl::getTemporaryEnchantEffect(const QString& slot_string) const 
 }
 
 void GUIControl::applyEnchant(const QString& slot_string, const int enchant_name) {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         current_char->get_equipment()->get_mainhand()->apply_enchant(static_cast<EnchantName::Name>(enchant_name), current_char, WeaponSlots::MAINHAND);
     if (slot_string == "OFFHAND")
@@ -1356,7 +1350,6 @@ void GUIControl::applyEnchant(const QString& slot_string, const int enchant_name
 }
 
 void GUIControl::applyTemporaryEnchant(const QString& slot_string, const int enchant_name) {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         current_char->get_equipment()->get_mainhand()->apply_temporary_enchant(static_cast<EnchantName::Name>(enchant_name), current_char, EnchantSlot::MAINHAND);
     if (slot_string == "OFFHAND")
@@ -1367,7 +1360,6 @@ void GUIControl::applyTemporaryEnchant(const QString& slot_string, const int enc
 }
 
 void GUIControl::clearEnchant(const QString& slot_string) {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         current_char->get_equipment()->get_mainhand()->clear_enchant();
     if (slot_string == "OFFHAND")
@@ -1396,7 +1388,6 @@ void GUIControl::clearEnchant(const QString& slot_string) {
 }
 
 void GUIControl::clearTemporaryEnchant(const QString& slot_string) {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND")
         current_char->get_equipment()->get_mainhand()->clear_temporary_enchant();
     if (slot_string == "OFFHAND")
@@ -1455,7 +1446,6 @@ EnchantModel* GUIControl::get_boots_enchant_model() const {
 }
 
 void GUIControl::setSlot(const QString& slot_string, const int item_id) {
-    // CSIM-79: Replace with switch on slot as int.
     if (slot_string == "MAINHAND") {
         current_char->get_equipment()->set_mainhand(item_id);
         mh_enchants->update_enchants();

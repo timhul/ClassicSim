@@ -57,8 +57,6 @@ QHash<int, QByteArray> AvailableItemStatFilterModel::roleNames() const {
 }
 
 void AvailableItemStatFilterModel::add_available_stat_filters() {
-    // CSIM-80: Consider grouping these such that phys dps/magical dps/healer/tank can be separated.
-
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     available_item_stat_filters.append(new AvailableStatFilter(ItemStats::Agility, "Agility"));
     available_item_stat_filters.append(new AvailableStatFilter(ItemStats::Stamina, "Stamina"));

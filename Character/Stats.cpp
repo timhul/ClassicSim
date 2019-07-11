@@ -46,8 +46,6 @@ void Stats::add(const Stats* rhs) {
     increase_intellect(rhs->get_intellect());
     increase_spirit(rhs->get_spirit());
 
-    // CSIM-72: Add getters to add/remove defensive stats.
-
     increase_axe_skill(rhs->get_axe_skill());
     increase_dagger_skill(rhs->get_dagger_skill());
     increase_mace_skill(rhs->get_mace_skill());
@@ -125,8 +123,6 @@ void Stats::remove(const Stats* rhs) {
     decrease_stamina(rhs->get_stamina());
     decrease_intellect(rhs->get_intellect());
     decrease_spirit(rhs->get_spirit());
-
-    // CSIM-72: Add getters to add/remove defensive stats.
 
     decrease_axe_skill(rhs->get_axe_skill());
     decrease_dagger_skill(rhs->get_dagger_skill());

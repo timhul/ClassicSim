@@ -65,12 +65,10 @@ double Mechanics::get_dodge_chance(const unsigned clvl, const unsigned wpn_skill
 }
 
 double Mechanics::get_parry_chance(const unsigned) const {
-    // CSIM-81: Add possibility to activate parry chance and have it affected by wpn skill.
     return 0.0;
 }
 
 double Mechanics::get_block_chance() const {
-    // CSIM-81: Add possibility to activate block chance and have it affected by wpn skill.
     return 0.0;
 }
 
