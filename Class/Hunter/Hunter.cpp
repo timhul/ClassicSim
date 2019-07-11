@@ -93,7 +93,7 @@ double Hunter::get_mp5_from_spirit() const {
 }
 
 double Hunter::get_agi_needed_for_one_percent_phys_crit() const {
-    return 53.0;
+    return 52.5;
 }
 
 double Hunter::get_int_needed_for_one_percent_spell_crit() const {
