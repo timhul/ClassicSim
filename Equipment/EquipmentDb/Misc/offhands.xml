@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>
+	<melee_weapon id="11904" phase="0">
+		<info name="Spirit of Aquementas" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="47" item_lvl="56" quality="UNCOMMON" boe="no" icon="Inv_ore_arcanite_02.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+		Quest reward in Un'Goro Crater.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="18672" phase="0">
+		<info name="Elemental Ember" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="54" item_lvl="59" quality="UNCOMMON" boe="no" icon="Inv_misc_orb_05.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="13"/>
+		</stats>
+		<source>
+		Drops from Baron Charr, a rare mob in Un'Goro Crater.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19142" phase="0">
+		<info name="Fire Runed Grimoire" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="no" icon="Inv_misc_book_09.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="21"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE" value="11"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Molten Core.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="23452" phase="1">
+		<info name="Grand Marshal's Tome of Power" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_misc_book_12.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Grand Marshal (rank 14). Alliance only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="23468" phase="1">
+		<info name="High Warlord's Tome of Destruction" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="78" quality="EPIC" faction="HORDE" boe="no" icon="Inv_misc_book_15.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="STAMINA" value="17"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+		May be purchased upon reaching High Warlord (rank 14). Horde only.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19366" phase="2">
+		<info name="Master Dragonslayer's Orb" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_misc_orb_03.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+		</stats>
+		<source>
+		Quest reward. Requires Head of Nefarian from Blackwing Lair.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19315" phase="2">
+		<info name="Therazane's Touch" type="CASTER_OFFHAND" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_branch_01.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+		Sold by Alterac Valley vendors. Requires Exalted with Alterac Valley faction.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19308" phase="2">
+		<info name="Tome of Arcane Domination" type="CASTER_OFFHAND" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_book_01.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="SPELL_DAMAGE_ARCANE" value="34"/>
+			<stat type="MANA_PER_5" value="3"/>
+		</stats>
+		<source>
+		Sold by Alterac Valley vendors. Requires Exalted with Alterac Valley faction.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19311" phase="2">
+		<info name="Tome of Fiery Arcana" type="CASTER_OFFHAND" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_book_09.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="SPELL_DAMAGE_FIRE" value="40"/>
+		</stats>
+		<source>
+		Sold by Alterac Valley vendors. Requires Exalted with Alterac Valley faction.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19309" phase="2">
+		<info name="Tome of Shadow Force" type="CASTER_OFFHAND" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_book_06.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="34"/>
+		</stats>
+		<source>
+		Sold by Alterac Valley vendors. Requires Exalted with Alterac Valley faction.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19310" phase="2">
+		<info name="Tome of the Ice Lord" type="CASTER_OFFHAND" slot="OH" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_misc_book_11.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPELL_DAMAGE_FROST" value="34"/>
+		</stats>
+		<source>
+		Sold by Alterac Valley vendors. Requires Exalted with Alterac Valley faction.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20582" phase="3">
+		<info name="Trance Stone" type="CASTER_OFFHAND" slot="OH" unique="yes" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_misc_orb_01.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="STAMINA" value="9"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+		Drops from dragon world bosses (Emeriss, Taerar, Lethon, Ysondre).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="19891" phase="3">
+		<info name="Jin'do's Bag of Whammies" type="CASTER_OFFHAND" slot="OH" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_misc_bag_10_black.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="11"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Jin'do the Hexxer in Zul'Gurub.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="20694" phase="4">
+		<info name="Glowing Black Orb" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_misc_orb_04.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<source>
+		Drops from Bag of Spoils, rewarded by repeatable group quest in Silithus.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22253" phase="4">
+		<info name="Tome of the Lost" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_book_06.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="7"/>
+			<stat type="STAMINA" value="6"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22329" phase="4">
+		<info name="Scepter of Interminable Focus" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_wand_07.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="SPELL_DAMAGE" value="9"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Jarien in Stratholme Undead during Tier 0.5 quest line.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21471" phase="4">
+		<info name="Talon of Furious Concentration" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_mace_21.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Moam in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="21597" phase="4">
+		<info name="Royal Scepter of Vek'lor" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_wand_10.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+		Drops from Twin Emperors in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="23156" phase="5">
+		<info name="Blackwood's Thigh" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_misc_bone_10.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="STAMINA" value="12"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPELL_DAMAGE" value="9"/>
+		</stats>
+		<source>
+		Drops from Lord Blackwood in Scholomance during Scourge Invasion event.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="22937" phase="5">
+		<info name="Gem of Nerubis" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_offhand_naxxramas_d_01.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="STAMINA" value="14"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_PENETRATION" value="10"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+		Drops from Anub'Rekhan in Naxxramas.
+		</source>
+	</melee_weapon>
+
+	<melee_weapon id="23049" phase="5">
+		<info name="Sapphiron's Left Eye" type="CASTER_OFFHAND" slot="OH" unique="no" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_offhand_naxxramas_03.png"/>
+		<dmg_range min="1" max="1" speed="1.0"/>
+		<stats>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE" value="26"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Sapphiron in Naxxramas.
+		</source>
+	</melee_weapon>
+</weapons>

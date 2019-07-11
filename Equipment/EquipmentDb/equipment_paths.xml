@@ -18,6 +18,7 @@
 	<file path="Misc/backs.xml"/>
 	<file path="Misc/projectiles.xml"/>
 	<file path="Misc/relics.xml"/>
+	<file path="Misc/offhands.xml"/>
 
 	<file path="Helms/plate.xml"/>
 	<file path="Helms/mail.xml"/>

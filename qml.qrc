@@ -824,5 +824,22 @@
         <file>QML/Assets/items/Spell_shadow_haunting.png</file>
         <file>QML/Assets/items/Inv_staff_18.png</file>
         <file>QML/Assets/items/Inv_staff_10.png</file>
+        <file>QML/Assets/items/Inv_misc_bag_10_black.png</file>
+        <file>QML/Assets/items/Inv_misc_bone_10.png</file>
+        <file>QML/Assets/items/Inv_misc_book_01.png</file>
+        <file>QML/Assets/items/Inv_misc_book_06.png</file>
+        <file>QML/Assets/items/Inv_misc_book_09.png</file>
+        <file>QML/Assets/items/Inv_misc_book_11.png</file>
+        <file>QML/Assets/items/Inv_misc_book_12.png</file>
+        <file>QML/Assets/items/Inv_misc_book_15.png</file>
+        <file>QML/Assets/items/Inv_misc_branch_01.png</file>
+        <file>QML/Assets/items/Inv_misc_orb_01.png</file>
+        <file>QML/Assets/items/Inv_misc_orb_03.png</file>
+        <file>QML/Assets/items/Inv_misc_orb_04.png</file>
+        <file>QML/Assets/items/Inv_misc_orb_05.png</file>
+        <file>QML/Assets/items/Inv_offhand_naxxramas_d_01.png</file>
+        <file>QML/Assets/items/Inv_ore_arcanite_02.png</file>
+        <file>QML/Assets/items/Inv_wand_07.png</file>
+        <file>QML/Assets/items/Inv_wand_10.png</file>
     </qresource>
 </RCC>

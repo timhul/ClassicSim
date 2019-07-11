@@ -82,7 +82,6 @@ Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
             return new Weapon(dynamic_cast<Weapon*>(current_phase_mh_slot_item));
     }
 
-    // CSIM-74: How to handle caster offhands?
     for (const auto & current_phase_oh_slot_item : current_phase_oh_slot_items) {
         if (item_id == current_phase_oh_slot_item->get_item_id())
             return new Weapon(dynamic_cast<Weapon*>(current_phase_oh_slot_item));
@@ -157,9 +156,8 @@ Item* EquipmentDb::get_trinket(const int item_id) const {
     return get_item(current_phase_trinkets, item_id);
 }
 
-Item* EquipmentDb::get_caster_offhand(const int) const {
-    // CSIM-74: Get caster offhand.
-    return nullptr;
+Item* EquipmentDb::get_caster_offhand(const int item_id) const {
+    return get_item(current_phase_oh_slot_items, item_id);
 }
 
 Item* EquipmentDb::get_relic(const int item_id) const {
@@ -326,6 +324,7 @@ void EquipmentDb::read_equipment_files() {
     take_items_of_slot_from_given_items(items, trinkets, ItemSlots::TRINKET);
     take_items_of_slot_from_given_items(items, projectiles, ItemSlots::PROJECTILE);
     take_items_of_slot_from_given_items(items, relics, ItemSlots::RELIC);
+    take_items_of_slot_from_given_items(items, oh_slot_items, ItemSlots::CASTER_OFFHAND);
 
     for (const auto & item : items) {
         qDebug() << "Failed to classify slot for" << item->get_name();
