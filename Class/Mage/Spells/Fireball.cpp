@@ -16,7 +16,6 @@ Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
     SpellCastingTime("Fireball", "Assets/spell/Spell_fire_flamebolt.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Fireball", 5, DisabledAtZero::No),
-                   new TalentRequirerInfo("Ignite", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
                    new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No)
@@ -207,7 +206,7 @@ void Fireball::gain_mana(const double mana_gain) {
 }
 
 void Fireball::prepare_set_of_combat_iterations_spell_specific() {
-    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(QString("Master of Elements (rank %1)").arg(spell_rank),
+    this->statistics_resource = pchar->get_statistics()->get_resource_statistics(QString("Master of Elements Fireball (rank %1)").arg(spell_rank),
                                                                                  "Assets/spell/Spell_fire_masterofelements.png");
 }
 

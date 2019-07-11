@@ -12,6 +12,7 @@
 #include "TestFireball.h"
 #include "TestFrost.h"
 #include "TestMageTalentStatIncrease.h"
+#include "TestScorch.h"
 #include "Troll.h"
 
 TestMage::TestMage(EquipmentDb* equipment_db):
@@ -27,6 +28,7 @@ void TestMage::test_all() {
 
     TestMageTalentStatIncrease(equipment_db).test_all();
     TestFireball(equipment_db).test_all();
+    TestScorch(equipment_db).test_all();
 }
 
 void TestMage::test_values_after_initialization() {

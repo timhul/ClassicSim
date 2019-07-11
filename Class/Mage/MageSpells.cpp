@@ -8,6 +8,7 @@
 #include "Mage.h"
 #include "MainhandAttack.h"
 #include "RaidControl.h"
+#include "Scorch.h"
 
 MageSpells::MageSpells(Mage* mage) :
     CharacterSpells(mage),
@@ -30,6 +31,16 @@ MageSpells::MageSpells(Mage* mage) :
                         new Fireball(mage, this, 10),
                         new Fireball(mage, this, 11),
                         new Fireball(mage, this, 12),
+                    });
+
+    add_spell_group({
+                        new Scorch(mage, this, 1),
+                        new Scorch(mage, this, 2),
+                        new Scorch(mage, this, 3),
+                        new Scorch(mage, this, 4),
+                        new Scorch(mage, this, 5),
+                        new Scorch(mage, this, 6),
+                        new Scorch(mage, this, 7),
                     });
 
     auto* ignite_buff = dynamic_cast<IgniteBuff*>(mage->get_raid_control()->get_shared_raid_buff("Ignite"));

@@ -26,6 +26,7 @@ SOURCES += main.cpp \
     Class/Mage/Spells/Combustion.cpp \
     Class/Mage/Spells/Fireball.cpp \
     Class/Mage/Spells/Ignite.cpp \
+    Class/Mage/Spells/Scorch.cpp \
     Class/Mage/TalentTrees/Arcane.cpp \
     Class/Mage/TalentTrees/Fire.cpp \
     Class/Mage/TalentTrees/Frost.cpp \
@@ -97,6 +98,7 @@ SOURCES += main.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
     Test/Mage/Spells/TestFireball.cpp \
+    Test/Mage/Spells/TestScorch.cpp \
     Test/Mage/Talents/TestArcane.cpp \
     Test/Mage/Talents/TestFire.cpp \
     Test/Mage/Talents/TestFrost.cpp \
@@ -448,6 +450,7 @@ HEADERS += \
     Class/Mage/Spells/Combustion.h \
     Class/Mage/Spells/Fireball.h \
     Class/Mage/Spells/Ignite.h \
+    Class/Mage/Spells/Scorch.h \
     Class/Mage/TalentTrees/Arcane.h \
     Class/Mage/TalentTrees/Fire.h \
     Class/Mage/TalentTrees/Frost.h \
@@ -521,6 +524,7 @@ HEADERS += \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
     Test/Mage/Spells/TestFireball.h \
+    Test/Mage/Spells/TestScorch.h \
     Test/Mage/Talents/TestArcane.h \
     Test/Mage/Talents/TestFire.h \
     Test/Mage/Talents/TestFrost.h \

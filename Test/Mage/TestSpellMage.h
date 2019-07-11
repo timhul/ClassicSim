@@ -4,6 +4,7 @@
 
 class Fireball;
 class Mage;
+class Scorch;
 class Spell;
 
 class TestSpellMage: public TestSpellDamage {
@@ -17,6 +18,7 @@ protected:
     Mage* mage;
 
     Fireball* fireball() const;
+    Scorch* scorch() const;
 
     void run_class_specific_tests() override;
 

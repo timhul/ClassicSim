@@ -12,6 +12,7 @@
 #include "Mage.h"
 #include "MageSpells.h"
 #include "RaidControl.h"
+#include "Scorch.h"
 #include "SimSettings.h"
 #include "Spell.h"
 
@@ -39,6 +40,10 @@ void TestSpellMage::tear_down() {
 
 Fireball* TestSpellMage::fireball() const {
     return dynamic_cast<Fireball*>(get_max_rank_spell_by_name("Fireball"));
+}
+
+Scorch* TestSpellMage::scorch() const {
+    return dynamic_cast<Scorch*>(get_max_rank_spell_by_name("Scorch"));
 }
 
 void TestSpellMage::run_class_specific_tests() {

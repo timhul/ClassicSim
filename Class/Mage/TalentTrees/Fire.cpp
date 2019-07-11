@@ -38,10 +38,10 @@ Fire::Fire(Mage* mage) :
     add_ignite(tier2);
     add_talents(tier2);
 
-    QMap<QString, Talent*> tier3 {{"3LL", new Talent(mage, this, "Incinerate", "3LL", "Assets/spell/Spell_fire_flameshock.png", 2, "Increases the critical strike chance of your Fire Blast and Scorch spells by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})},
-                                  {"3ML", new Talent(mage, this, "Improved Flamestrike", "3ML", "Assets/spell/Spell_fire_selfdestruct.png", 3, "Increases the critical strike chance of your Flamestrike spell by %1%.", QVector<QPair<unsigned, unsigned>>{{5, 5}})},
+    QMap<QString, Talent*> tier3 {{"3ML", new Talent(mage, this, "Improved Flamestrike", "3ML", "Assets/spell/Spell_fire_selfdestruct.png", 3, "Increases the critical strike chance of your Flamestrike spell by %1%.", QVector<QPair<unsigned, unsigned>>{{5, 5}})},
                                   {"3MR", new Talent(mage, this, "Pyroblast", "3MR", "Assets/spell/Spell_fire_fireball02.png", 1, "Hurls an immense fiery boulder that causes 141 to 187 Fire damage and an additional 56 Fire damage over 12 sec.", QVector<QPair<unsigned, unsigned>>{})},
                                   {"3RR", new Talent(mage, this, "Burning Soul", "3RR", "Assets/spell/Spell_fire_fire.png", 2, "Gives your Fire spells a %1% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by %2%.", QVector<QPair<unsigned, unsigned>>{{35, 35}, {15, 15}})}};
+    add_incinerate(tier3);
     add_talents(tier3);
 
     QMap<QString, Talent*> tier4 {{"4ML", new Talent(mage, this, "Improved Fire Ward", "4ML", "Assets/items/Inv_shield_05.png", 2, "Causes your Fire Ward to have a %1% chance to reflect Fire spells while active.", QVector<QPair<unsigned, unsigned>>{{10, 10}})}};
@@ -97,11 +97,23 @@ void Fire::add_ignite(QMap<QString, Talent*>& talent_tier) {
     add_talent_to_tier(talent_tier, talent);
 }
 
+void Fire::add_incinerate(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(mage, "Incinerate", "3LL", "Assets/spell/Spell_fire_flameshock.png", 2,
+                                    "Increases the critical strike chance of your Fire Blast and Scorch spells by %1%.",
+                                    QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Scorch")});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
 void Fire::add_master_of_elements(QMap<QString, Talent*>& talent_tier) {
     Talent* talent = get_new_talent(mage, "Master of Elements", "4RR", "Assets/spell/Spell_fire_masterofelements.png", 3,
                                     "Your Fire and Frost spell criticals will refund %1% of their base mana cost.",
                                     QVector<QPair<unsigned, unsigned>>{{10, 10}},
-                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Fireball")});
+                                    QVector<SpellRankGroup*>{
+                                        spells->get_spell_rank_group_by_name("Fireball"),
+                                        spells->get_spell_rank_group_by_name("Scorch"),
+                                    });
 
     add_talent_to_tier(talent_tier, talent);
 }
