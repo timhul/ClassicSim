@@ -111,7 +111,7 @@ MeleeWhiteHitTable* CombatRoll::get_melee_white_table(const unsigned wpn_skill) 
                 this->random,
                 wpn_skill,
                 miss_chance,
-                mechanics->get_dodge_chance(pchar->get_clvl(), wpn_skill),
+                mechanics->get_dodge_chance(wpn_skill),
                 mechanics->get_parry_chance(wpn_skill),
                 glancing_blow_chance,
                 mechanics->get_block_chance());
@@ -133,7 +133,7 @@ MeleeSpecialTable* CombatRoll::get_melee_special_table(const unsigned wpn_skill)
     auto* table = new MeleeSpecialTable(this->random,
                                         wpn_skill,
                                         miss_chance,
-                                        mechanics->get_dodge_chance(pchar->get_clvl(), wpn_skill),
+                                        mechanics->get_dodge_chance(wpn_skill),
                                         mechanics->get_parry_chance(wpn_skill),
                                         mechanics->get_block_chance());
     melee_special_tables[wpn_skill] = table;
@@ -186,7 +186,7 @@ MeleeWhiteHitTable* CombatRoll::get_pet_white_table(const unsigned wpn_skill) {
                 this->random,
                 wpn_skill,
                 miss_chance,
-                mechanics->get_dodge_chance(pchar->get_clvl(), wpn_skill),
+                mechanics->get_dodge_chance(wpn_skill),
                 mechanics->get_parry_chance(wpn_skill),
                 glancing_blow_chance,
                 mechanics->get_block_chance());
@@ -205,7 +205,7 @@ MeleeSpecialTable* CombatRoll::get_pet_ability_table(const unsigned wpn_skill) {
     auto* table = new MeleeSpecialTable(this->random,
                                         wpn_skill,
                                         miss_chance,
-                                        mechanics->get_dodge_chance(pchar->get_clvl(), wpn_skill),
+                                        mechanics->get_dodge_chance(wpn_skill),
                                         mechanics->get_parry_chance(wpn_skill),
                                         mechanics->get_block_chance());
     pet_special_tables[wpn_skill] = table;
