@@ -16,7 +16,7 @@ class Weapon;
 
 class CharacterStats {
 public:
-    CharacterStats(Character*, EquipmentDb* equipment_db);
+    CharacterStats(Character* pchar, EquipmentDb* equipment_db, const unsigned base_melee_crit, const unsigned base_ranged_crit);
     ~CharacterStats();
 
     Equipment* get_equipment() const;
@@ -208,9 +208,13 @@ public:
     void increase_mana_skill_reduction(const unsigned value);
     void decrease_mana_skill_reduction(const unsigned value);
 
+    void increase_crit_penalty(const unsigned value);
+
 private:
     Character* pchar;
     Equipment* equipment;
+    const unsigned base_melee_crit;
+    const unsigned base_ranged_crit;
     Stats* base_stats;
     QVector<int> melee_attack_speed_buffs;
     QVector<int> ranged_attack_speed_buffs;
@@ -242,6 +246,8 @@ private:
 
     unsigned mp5 {0};
     unsigned mana_skill_reduction {0};
+
+    unsigned crit_penalty {0};
 
     double melee_ability_crit_dmg_mod {2.0};
     double ranged_ability_crit_dmg_mod {2.0};

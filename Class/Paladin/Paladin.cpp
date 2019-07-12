@@ -23,14 +23,13 @@ Paladin::Paladin(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     available_enchants = new PaladinEnchants(this);
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db);
+    this->cstats = new CharacterStats(this, equipment_db, 300, 0);
 
     cstats->increase_agility(20);
     cstats->increase_strength(15);
     cstats->increase_stamina(30);
     cstats->increase_intellect(100);
     cstats->increase_spirit(105);
-    cstats->increase_melee_crit(300);
     cstats->increase_melee_ap(160);
 
     this->paladin_spells = new PaladinSpells(this);

@@ -137,16 +137,16 @@ void TestRecklessness::test_stance_cooldown() {
 }
 
 void TestRecklessness::test_crit_reduced_after_buff_expires() {
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    const unsigned crit_chance = pchar->get_stats()->get_mh_crit_chance();
 
     when_recklessness_is_performed();
-    assert(pchar->get_stats()->get_mh_crit_chance() == 10000);
+    assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance + 999999 - 180);
     when_running_queued_events_until(15.01);
 
     if (dynamic_cast<Warrior*>(pchar)->in_berserker_stance())
         dynamic_cast<Warrior*>(pchar)->switch_to_battle_stance();
 
-    assert(pchar->get_stats()->get_mh_crit_chance() == 0);
+    assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance);
 }
 
 void TestRecklessness::test_whether_spell_causes_global_cooldown() {

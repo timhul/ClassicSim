@@ -54,12 +54,13 @@ public:
 
     void set_new_seed(const unsigned seed);
 
+    const Mechanics* mechanics;
+
 private:
     Character* pchar;
     Target* target;
     Random* random;
     Random* glance_roll;
-    Mechanics* mechanics;
 
     QMap<unsigned, MeleeWhiteHitTable*> melee_white_tables;
     QMap<unsigned, MeleeSpecialTable*> melee_special_tables;

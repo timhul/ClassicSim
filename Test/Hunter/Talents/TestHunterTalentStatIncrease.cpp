@@ -113,24 +113,24 @@ void TestHunterTalentStatIncrease::test_killer_instinct() {
     unsigned ranged_crit_initial = pchar->get_stats()->get_ranged_crit_chance();
 
     assert(talent->increment_rank());
-    assert(melee_crit_initial + 100 == pchar->get_stats()->get_mh_crit_chance());
-    assert(ranged_crit_initial + 100 == pchar->get_stats()->get_ranged_crit_chance());
+    assert(melee_crit_initial + suppressed_aura_crit(100) == pchar->get_stats()->get_mh_crit_chance());
+    assert(ranged_crit_initial + suppressed_aura_crit(100) == pchar->get_stats()->get_ranged_crit_chance());
 
     assert(talent->increment_rank());
-    assert(melee_crit_initial + 200 == pchar->get_stats()->get_mh_crit_chance());
-    assert(ranged_crit_initial + 200 == pchar->get_stats()->get_ranged_crit_chance());
+    assert(melee_crit_initial + suppressed_aura_crit(200) == pchar->get_stats()->get_mh_crit_chance());
+    assert(ranged_crit_initial + suppressed_aura_crit(200) == pchar->get_stats()->get_ranged_crit_chance());
 
     assert(talent->increment_rank());
-    assert(melee_crit_initial + 300 == pchar->get_stats()->get_mh_crit_chance());
-    assert(ranged_crit_initial + 300 == pchar->get_stats()->get_ranged_crit_chance());
+    assert(melee_crit_initial + suppressed_aura_crit(300) == pchar->get_stats()->get_mh_crit_chance());
+    assert(ranged_crit_initial + suppressed_aura_crit(300) == pchar->get_stats()->get_ranged_crit_chance());
 
     assert(talent->decrement_rank());
-    assert(melee_crit_initial + 200 == pchar->get_stats()->get_mh_crit_chance());
-    assert(ranged_crit_initial + 200 == pchar->get_stats()->get_ranged_crit_chance());
+    assert(melee_crit_initial + suppressed_aura_crit(200) == pchar->get_stats()->get_mh_crit_chance());
+    assert(ranged_crit_initial + suppressed_aura_crit(200) == pchar->get_stats()->get_ranged_crit_chance());
 
     assert(talent->decrement_rank());
-    assert(melee_crit_initial + 100 == pchar->get_stats()->get_mh_crit_chance());
-    assert(ranged_crit_initial + 100 == pchar->get_stats()->get_ranged_crit_chance());
+    assert(melee_crit_initial + suppressed_aura_crit(100) == pchar->get_stats()->get_mh_crit_chance());
+    assert(ranged_crit_initial + suppressed_aura_crit(100) == pchar->get_stats()->get_ranged_crit_chance());
 
     assert(talent->decrement_rank());
     assert(melee_crit_initial == pchar->get_stats()->get_mh_crit_chance());

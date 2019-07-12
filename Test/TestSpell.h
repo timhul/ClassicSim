@@ -181,6 +181,8 @@ protected:
     void assert_ranged_auto_table_can_only_miss(const unsigned wpn_skill);
     void assert_ranged_auto_table_can_only_block(const unsigned wpn_skill);
 
+    unsigned suppressed_aura_crit(const unsigned crit_chance);
+
 private:
     void create_100_dmg_1h();
     void create_100_dmg_dagger();

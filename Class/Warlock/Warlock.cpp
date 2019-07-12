@@ -18,7 +18,7 @@ Warlock::Warlock(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     available_races.append("Undead");
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db);
+    this->cstats = new CharacterStats(this, equipment_db, 0, 0);
 
     cstats->increase_agility(30);
     cstats->increase_strength(25);

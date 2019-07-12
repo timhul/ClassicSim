@@ -14,12 +14,12 @@
 #include "Utils/Check.h"
 
 CombatRoll::CombatRoll(Character* pchar):
+    mechanics(new Mechanics(pchar->get_target())),
     pchar(pchar),
     target(pchar->get_target()),
     random(new Random(0, 9999)),
-    glance_roll(new Random(0, 9999)),
-    mechanics(new Mechanics(target)) {
-}
+    glance_roll(new Random(0, 9999))
+{}
 
 CombatRoll::~CombatRoll() {
     delete random;

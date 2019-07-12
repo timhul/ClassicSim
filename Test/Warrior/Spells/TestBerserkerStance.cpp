@@ -129,22 +129,22 @@ void TestBerserkerStance::test_does_not_incur_extra_global_cooldown_if_gcd_longe
 }
 
 void TestBerserkerStance::test_gives_crit_when_stance_entered() {
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
-    assert(pchar->get_stats()->get_mh_crit_chance() == 0);
+    const unsigned crit_chance = pchar->get_stats()->get_mh_crit_chance();
 
     when_berserker_stance_is_performed();
 
-    assert(pchar->get_stats()->get_mh_crit_chance() == 300);
+    assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance + suppressed_aura_crit(300));
 }
 
 void TestBerserkerStance::test_removes_crit_when_stance_exited() {
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    const unsigned crit_chance = pchar->get_stats()->get_mh_crit_chance();
+
     when_berserker_stance_is_performed();
-    assert(pchar->get_stats()->get_mh_crit_chance() == 300);
+    assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance + suppressed_aura_crit(300));
 
     dynamic_cast<Warrior*>(pchar)->switch_to_battle_stance();
 
-    assert(pchar->get_stats()->get_mh_crit_chance() == 0);
+    assert(pchar->get_stats()->get_mh_crit_chance() == crit_chance);
 }
 
 void TestBerserkerStance::test_0_rage_remains_after_stance_switch_with_0_of_5_tactical_mastery() {

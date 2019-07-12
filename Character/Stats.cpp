@@ -431,7 +431,7 @@ void Stats::increase_base_melee_ap(const unsigned increase) {
 }
 
 void Stats::decrease_base_melee_ap(const unsigned decrease) {
-    check((melee_ap >= decrease), "Underflow decrease");
+    check((melee_ap >= decrease), "Underflow base melee ap decrease");
     melee_ap -= decrease;
 }
 
@@ -444,7 +444,7 @@ void Stats::increase_base_ranged_ap(const unsigned increase) {
 }
 
 void Stats::decrease_base_ranged_ap(const unsigned decrease) {
-    check((ranged_ap >= decrease), "Underflow decrease");
+    check((ranged_ap >= decrease), "Underflow base ranged ap decrease");
     ranged_ap -= decrease;
 }
 
@@ -501,6 +501,7 @@ void Stats::increase_melee_crit(const unsigned value) {
 }
 
 void Stats::decrease_melee_crit(const unsigned value) {
+    check((melee_crit >= value), "Underflow melee crit decrease");
     melee_crit -= value;
 }
 
@@ -509,6 +510,7 @@ void Stats::increase_melee_hit(const unsigned value) {
 }
 
 void Stats::decrease_melee_hit(const unsigned value) {
+    check((melee_hit >= value), "Underflow melee hit decrease");
     melee_hit -= value;
 }
 
@@ -517,6 +519,7 @@ void Stats::increase_ranged_hit(const unsigned value) {
 }
 
 void Stats::decrease_ranged_hit(const unsigned value) {
+    check((ranged_hit >= value), "Underflow ranged hit decrease");
     ranged_hit -= value;
 }
 
@@ -525,6 +528,7 @@ void Stats::increase_ranged_crit(const unsigned value) {
 }
 
 void Stats::decrease_ranged_crit(const unsigned value) {
+    check((ranged_crit >= value), "Underflow ranged crit decrease");
     ranged_crit -= value;
 }
 
@@ -551,6 +555,7 @@ void Stats::increase_spell_crit(const unsigned value) {
 }
 
 void Stats::decrease_spell_crit(const unsigned value) {
+    check((spell_crit >= value), "Underflow spell_crit decrease");
     spell_crit -= value;
 }
 

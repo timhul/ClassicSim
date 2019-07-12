@@ -3,7 +3,7 @@
 #include "Mechanics.h"
 #include "Random.h"
 
-MagicAttackTable::MagicAttackTable(Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const unsigned target_res) :
+MagicAttackTable::MagicAttackTable(const Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const unsigned target_res) :
     mechanics(mechanics),
     random(random),
     miss_range(0),

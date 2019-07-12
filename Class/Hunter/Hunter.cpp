@@ -27,14 +27,13 @@ Hunter::Hunter(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings,
     available_enchants = new HunterEnchants(this);
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db);
+    this->cstats = new CharacterStats(this, equipment_db, 0, 300);
 
     cstats->increase_agility(100);
     cstats->increase_strength(35);
     cstats->increase_stamina(70);
     cstats->increase_intellect(45);
     cstats->increase_spirit(50);
-    cstats->increase_ranged_crit(300);
     cstats->increase_ranged_ap(160);
 
     // TODO: Remove hardcoded quiver bonus.

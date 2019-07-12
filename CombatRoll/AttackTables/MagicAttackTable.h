@@ -10,7 +10,7 @@ class Random;
 
 class MagicAttackTable {
 public:
-    MagicAttackTable(Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const unsigned target_res);
+    MagicAttackTable(const Mechanics* mechanics, Random* random, const unsigned clvl, const unsigned spell_hit, const unsigned target_res);
     ~MagicAttackTable() = default;
 
     int get_hit_outcome(const unsigned roll, const unsigned crit_chance) const;
@@ -21,7 +21,7 @@ public:
 private:
     friend class TestSpell;
 
-    Mechanics* mechanics;
+    const Mechanics* mechanics;
     Random* random;
 
     unsigned miss_range;

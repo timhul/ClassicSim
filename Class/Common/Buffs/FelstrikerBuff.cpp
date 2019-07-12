@@ -11,19 +11,19 @@ FelstrikerBuff::FelstrikerBuff(Character* pchar, const int duration):
 {}
 
 void FelstrikerBuff::buff_effect_when_applied() {
-    pchar->get_stats()->increase_melee_crit(10000);
+    pchar->get_stats()->increase_melee_crit(999999);
 
     set_tables_for_guaranteed_hit(pchar->get_mh_wpn_skill());
     set_tables_for_guaranteed_hit(pchar->get_oh_wpn_skill());
 }
 
 void FelstrikerBuff::buff_effect_when_removed() {
-    pchar->get_stats()->decrease_melee_crit(10000);
+    pchar->get_stats()->decrease_melee_crit(999999);
 
     pchar->get_combat_roll()->drop_tables();
 }
 
-void FelstrikerBuff::set_tables_for_guaranteed_hit(const int wpn_skill) {
+void FelstrikerBuff::set_tables_for_guaranteed_hit(const unsigned wpn_skill) {
     MeleeSpecialTable* special_table = pchar->get_combat_roll()->get_melee_special_table(wpn_skill);
 
     special_table->update_miss_chance(0.0);

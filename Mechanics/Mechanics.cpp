@@ -99,6 +99,17 @@ double Mechanics::get_melee_crit_suppression(const unsigned clvl) const {
     return std::max(0.0, 0.01 * level_diff);
 }
 
+unsigned Mechanics::get_suppressed_aura_crit_chance(const unsigned clvl, const unsigned aura_crit) const {
+    const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
+
+    if (level_diff <= 0)
+        return aura_crit;
+
+    const unsigned penalty = 60 * static_cast<unsigned>(level_diff);
+
+    return aura_crit > penalty ? aura_crit - penalty : 0;
+}
+
 double Mechanics::get_spell_miss_chance_from_lvl_diff(const unsigned clvl, const double spell_hit) const {
     const int level_diff = static_cast<int>(target->get_lvl()) - static_cast<int>(clvl);
 

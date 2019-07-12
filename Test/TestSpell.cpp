@@ -15,6 +15,7 @@
 #include "Item.h"
 #include "MagicAttackTable.h"
 #include "MainhandMeleeHit.h"
+#include "Mechanics.h"
 #include "MeleeSpecialTable.h"
 #include "MeleeWhiteHitTable.h"
 #include "Orc.h"
@@ -142,7 +143,7 @@ void TestSpell::given_a_guaranteed_magic_hit(const MagicSchool school) {
     table->partial_75 = 0;
     table->full_resist = 0;
 
-    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance(school));
+    pchar->get_stats()->increase_crit_penalty(999999);
 
     assert(table->get_resist_outcome(0) == MagicResistResult::NO_RESIST);
     assert(table->get_resist_outcome(9999) == MagicResistResult::NO_RESIST);
@@ -156,8 +157,7 @@ void TestSpell::given_a_guaranteed_magic_crit(const MagicSchool school) {
     table->partial_75 = 0;
     table->full_resist = 0;
 
-    pchar->get_stats()->decrease_spell_crit(pchar->get_stats()->get_spell_crit_chance(school));
-    pchar->get_stats()->increase_spell_crit(10000);
+    pchar->get_stats()->increase_spell_crit(999999);
 
     assert(table->get_resist_outcome(0) == MagicResistResult::NO_RESIST);
     assert(table->get_resist_outcome(9999) == MagicResistResult::NO_RESIST);
@@ -170,7 +170,7 @@ void TestSpell::set_melee_special_table_for_hit(const unsigned wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->increase_crit_penalty(999999);
 
     assert_melee_special_table_can_only_hit(wpn_skill);
 }
@@ -182,8 +182,7 @@ void TestSpell::set_melee_special_table_for_crit(const unsigned wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
-    pchar->get_stats()->increase_melee_crit(10300);
+    pchar->get_stats()->increase_melee_crit(999999);
 
     assert_melee_special_table_can_only_crit(wpn_skill);
 }
@@ -225,7 +224,7 @@ void TestSpell::set_melee_special_table_for_block(const unsigned wpn_skill) {
     table->update_parry_chance(0.0);
     table->update_block_chance(1.0);
 
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->increase_crit_penalty(999999);
 
     assert_melee_special_table_can_only_block(wpn_skill);
 }
@@ -238,7 +237,7 @@ void TestSpell::set_melee_auto_table_for_hit(const unsigned wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->increase_crit_penalty(999999);
 
     assert_melee_auto_table_can_only_hit(wpn_skill);
 }
@@ -251,9 +250,7 @@ void TestSpell::set_melee_auto_table_for_crit(const unsigned wpn_skill) {
     table->update_block_chance(0.0);
     table->update_glancing_chance(0.0);
 
-    const unsigned melee_crit = std::max(pchar->get_stats()->get_mh_crit_chance(), pchar->get_stats()->get_oh_crit_chance());
-    pchar->get_stats()->decrease_melee_crit(melee_crit);
-    pchar->get_stats()->increase_melee_crit(10300);
+    pchar->get_stats()->increase_melee_crit(999999);
 
     assert_melee_auto_table_can_only_crit(wpn_skill);
 }
@@ -310,7 +307,7 @@ void TestSpell::set_melee_auto_table_for_block(const unsigned wpn_skill) {
     table->update_block_chance(1.0);
     table->update_glancing_chance(0.0);
 
-    pchar->get_stats()->decrease_melee_crit(pchar->get_stats()->get_mh_crit_chance());
+    pchar->get_stats()->increase_crit_penalty(999999);
 
     assert_melee_auto_table_can_only_block(wpn_skill);
 }
@@ -320,19 +317,22 @@ void TestSpell::set_ranged_auto_table_for_hit(const unsigned wpn_skill) {
     table->update_miss_chance(0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_ranged_crit(pchar->get_stats()->get_ranged_crit_chance());
+    pchar->get_stats()->increase_crit_penalty(999999);
 
     assert_ranged_auto_table_can_only_hit(wpn_skill);
 }
 
 void TestSpell::set_ranged_auto_table_for_crit(const unsigned wpn_skill) {
+    const unsigned target_level = pchar->get_target()->get_lvl();
+    pchar->get_target()->set_lvl(60);
+
     RangedWhiteHitTable* table = pchar->get_combat_roll()->get_ranged_white_table(wpn_skill);
     table->update_miss_chance(0);
     table->update_block_chance(0.0);
 
-    pchar->get_stats()->decrease_ranged_crit(pchar->get_stats()->get_ranged_crit_chance());
-    pchar->get_stats()->increase_ranged_crit(10300);
+    pchar->get_stats()->increase_ranged_crit(999999);
 
+    pchar->get_target()->set_lvl(target_level);
     assert_ranged_auto_table_can_only_crit(wpn_skill);
 }
 
@@ -349,7 +349,7 @@ void TestSpell::set_ranged_auto_table_for_block(const unsigned wpn_skill) {
     table->update_miss_chance(0);
     table->update_block_chance(1.0);
 
-    pchar->get_stats()->decrease_ranged_crit(pchar->get_stats()->get_ranged_crit_chance());
+    pchar->get_stats()->increase_crit_penalty(999999);
 
     assert_ranged_auto_table_can_only_block(wpn_skill);
 }
@@ -507,6 +507,10 @@ void TestSpell::assert_ranged_auto_table_can_only_block(const unsigned wpn_skill
     assert(table->get_outcome(9999, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::BLOCK);
 
     assert(pchar->get_combat_roll()->get_ranged_hit_result(wpn_skill, pchar->get_stats()->get_ranged_crit_chance()) == PhysicalAttackResult::BLOCK);
+}
+
+unsigned TestSpell::suppressed_aura_crit(const unsigned crit_chance) {
+    return pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), crit_chance);
 }
 
 void TestSpell::create_100_dmg_1h() {

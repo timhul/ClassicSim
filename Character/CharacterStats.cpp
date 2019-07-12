@@ -5,15 +5,18 @@
 #include "CharacterSpells.h"
 #include "CombatRoll.h"
 #include "Equipment.h"
+#include "Mechanics.h"
 #include "Race.h"
 #include "Stats.h"
 #include "Target.h"
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-CharacterStats::CharacterStats(Character* pchar, EquipmentDb *equipment_db) :
+CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db, const unsigned base_melee_crit, const unsigned base_ranged_crit) :
     pchar(pchar),
-    equipment(new Equipment(equipment_db, pchar))
+    equipment(new Equipment(equipment_db, pchar)),
+    base_melee_crit(base_melee_crit),
+    base_ranged_crit(base_ranged_crit)
 {
     this->base_stats = new Stats();
 
@@ -128,25 +131,34 @@ unsigned CharacterStats::get_melee_hit_chance() const {
 }
 
 unsigned CharacterStats::get_mh_crit_chance() const {
-    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
     const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
+    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
 
     unsigned crit_from_wpn_type = 0;
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    return equip_effect + crit_from_agi + crit_from_wpn_type;
+    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
+    const unsigned crit_chance = base_melee_crit + crit_from_agi + aura_crit;
+
+    return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
 
 unsigned CharacterStats::get_oh_crit_chance() const {
     if (equipment->get_offhand() == nullptr)
         return 0;
 
-    const unsigned crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
-    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
     const unsigned crit_from_agi = static_cast<unsigned>(round(static_cast<double>(get_agility()) / pchar->get_agi_needed_for_one_percent_phys_crit() * 100));
+    const unsigned equip_effect = base_stats->get_melee_crit_chance() + equipment->get_stats()->get_melee_crit_chance();
 
-    return equip_effect + crit_from_agi + crit_from_wpn_type;
+    unsigned crit_from_wpn_type = 0;
+    if (equipment->get_mainhand() != nullptr)
+        crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
+
+    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
+    const unsigned crit_chance = base_melee_crit + crit_from_agi + aura_crit;
+
+    return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
 
 unsigned CharacterStats::get_ranged_hit_chance() const {
@@ -161,7 +173,10 @@ unsigned CharacterStats::get_ranged_crit_chance() const {
     if (equipment->get_mainhand() != nullptr)
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
-    return equip_effect + crit_from_agi + crit_from_wpn_type;
+    const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
+    const unsigned crit_chance = crit_from_agi + aura_crit;
+
+    return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
 
 void CharacterStats::increase_wpn_skill(const int weapon_type, const unsigned value) {
@@ -722,7 +737,9 @@ unsigned CharacterStats::get_spell_crit_chance(MagicSchool school) const {
     const unsigned equip_effect = base_stats->get_spell_crit_chance(school)  + equipment->get_stats()->get_spell_crit_chance(school);
     const auto crit_from_int = static_cast<unsigned>(round(static_cast<double>(get_intellect()) / pchar->get_int_needed_for_one_percent_spell_crit() * 100));
 
-    return equip_effect + crit_from_int;
+    const unsigned crit_chance = crit_from_int + equip_effect;
+
+    return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
 
 void CharacterStats::increase_spell_crit(const unsigned value) {
@@ -1000,6 +1017,10 @@ void CharacterStats::increase_mana_skill_reduction(const unsigned value) {
 void CharacterStats::decrease_mana_skill_reduction(const unsigned value) {
     check((mana_skill_reduction >= value), "Underflow decrease mana skill reduction");
     mana_skill_reduction -= value;
+}
+
+void CharacterStats::increase_crit_penalty(const unsigned value) {
+    crit_penalty += value;
 }
 
 void CharacterStats::add_multiplicative_effect(QVector<int>& effects, int add_value, double &modifier) {
