@@ -41,7 +41,7 @@ protected:
 
     unsigned proc_range;
 
-    void spell_effect() override;
+    void spell_effect() override final;
     virtual void proc_effect() = 0;
     virtual bool proc_specific_conditions_fulfilled() const;
 };

@@ -29,5 +29,10 @@ private:
     void test_1_of_5_ignite();
     void test_5_of_5_ignite();
 
+    void test_0_of_3_imp_scorch_does_not_apply_debuff_on_hit();
+    void test_0_of_3_imp_scorch_does_not_apply_debuff_on_crit();
+    void test_3_of_3_imp_scorch_applies_debuff_on_hit();
+    void test_3_of_3_imp_scorch_applies_debuff_on_crit();
+
     void when_scorch_is_performed();
 };

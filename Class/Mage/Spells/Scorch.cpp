@@ -6,11 +6,12 @@
 #include "CooldownControl.h"
 #include "Mage.h"
 #include "MageSpells.h"
+#include "Proc.h"
 #include "Random.h"
 #include "StatisticsResource.h"
 #include "Utils/Check.h"
 
-Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
+Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell_rank) :
     SpellCastingTime("Scorch", "Assets/spell/Spell_fire_soulburn.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Scorch", 5, DisabledAtZero::No),
@@ -19,7 +20,8 @@ Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
                    new TalentRequirerInfo("Master of Elements", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Critical Mass", 3, DisabledAtZero::No),
                    }),
-    mage_spells(mage_spells)
+    mage_spells(mage_spells),
+    imp_scorch(proc)
 {
     casting_time_ms = 1500;
 
@@ -105,6 +107,9 @@ void Scorch::complete_cast_effect() {
         return increment_miss();
     if (resist_roll == MagicResistResult::FULL_RESIST)
         return increment_full_resist();
+
+    if (imp_scorch->is_enabled() && imp_scorch->check_proc_success())
+        imp_scorch->perform();
 
     double damage_dealt = instant_dmg->get_roll() + static_cast<unsigned>(round(pchar->get_stats()->get_spell_damage(MagicSchool::Fire) * spell_dmg_coefficient));
     damage_dealt *= get_partial_resist_dmg_modifier(resist_roll);

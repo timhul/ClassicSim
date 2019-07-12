@@ -2,9 +2,11 @@
 
 #include "ClearcastingMage.h"
 #include "Combustion.h"
+#include "FireVulnerability.h"
 #include "Fireball.h"
 #include "Ignite.h"
 #include "IgniteBuff.h"
+#include "ImprovedScorch.h"
 #include "Mage.h"
 #include "MainhandAttack.h"
 #include "RaidControl.h"
@@ -33,14 +35,21 @@ MageSpells::MageSpells(Mage* mage) :
                         new Fireball(mage, this, 12),
                     });
 
+
+    auto fire_vulnerability_buff = dynamic_cast<FireVulnerability*>(mage->get_raid_control()->get_shared_raid_buff("Fire Vulnerability"));
+    if (fire_vulnerability_buff == nullptr) {
+        fire_vulnerability_buff = new FireVulnerability(mage);
+        fire_vulnerability_buff->enable_buff();
+    }
+    this->imp_scorch = new ImprovedScorch(mage, fire_vulnerability_buff);
     add_spell_group({
-                        new Scorch(mage, this, 1),
-                        new Scorch(mage, this, 2),
-                        new Scorch(mage, this, 3),
-                        new Scorch(mage, this, 4),
-                        new Scorch(mage, this, 5),
-                        new Scorch(mage, this, 6),
-                        new Scorch(mage, this, 7),
+                        new Scorch(mage, this, imp_scorch, 1),
+                        new Scorch(mage, this, imp_scorch, 2),
+                        new Scorch(mage, this, imp_scorch, 3),
+                        new Scorch(mage, this, imp_scorch, 4),
+                        new Scorch(mage, this, imp_scorch, 5),
+                        new Scorch(mage, this, imp_scorch, 6),
+                        new Scorch(mage, this, imp_scorch, 7),
                     });
 
     auto* ignite_buff = dynamic_cast<IgniteBuff*>(mage->get_raid_control()->get_shared_raid_buff("Ignite"));
@@ -59,6 +68,7 @@ MageSpells::MageSpells(Mage* mage) :
 
 MageSpells::~MageSpells() {
     delete clearcasting;
+    delete imp_scorch;
 }
 
 Combustion* MageSpells::get_combustion() const {
@@ -67,6 +77,10 @@ Combustion* MageSpells::get_combustion() const {
 
 Proc* MageSpells::get_clearcasting() const {
     return this->clearcasting;
+}
+
+Proc* MageSpells::get_improved_scorch() const {
+    return this->imp_scorch;
 }
 
 void MageSpells::inflict_ignite(const double damage) {

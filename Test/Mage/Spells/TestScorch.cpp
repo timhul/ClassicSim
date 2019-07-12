@@ -47,6 +47,22 @@ void TestScorch::test_all() {
     set_up();
     test_5_of_5_ignite();
     tear_down();
+
+    set_up();
+    test_0_of_3_imp_scorch_does_not_apply_debuff_on_hit();
+    tear_down();
+
+    set_up();
+    test_0_of_3_imp_scorch_does_not_apply_debuff_on_crit();
+    tear_down();
+
+    set_up(false);
+    test_3_of_3_imp_scorch_applies_debuff_on_hit();
+    tear_down();
+
+    set_up(false);
+    test_3_of_3_imp_scorch_applies_debuff_on_crit();
+    tear_down();
 }
 
 void TestScorch::test_name_correct() {
@@ -214,6 +230,50 @@ void TestScorch::test_5_of_5_ignite() {
     // [Total Damage] = scorch_damage + ignite_damage
     // [1091 - 1161] = [992 - 1055] + [99 - 106]
     then_damage_dealt_is_in_range(1091, 1161);
+}
+
+void TestScorch::test_0_of_3_imp_scorch_does_not_apply_debuff_on_hit() {
+    given_a_guaranteed_magic_hit(MagicSchool::Fire);
+    assert(almost_equal(1.0, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+
+    when_scorch_is_performed();
+    when_running_queued_events_until(1.501);
+
+    assert(almost_equal(1.0, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+}
+
+void TestScorch::test_0_of_3_imp_scorch_does_not_apply_debuff_on_crit() {
+    given_a_guaranteed_magic_crit(MagicSchool::Fire);
+    assert(almost_equal(1.0, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+
+    when_scorch_is_performed();
+    when_running_queued_events_until(1.501);
+
+    assert(almost_equal(1.0, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+}
+
+void TestScorch::test_3_of_3_imp_scorch_applies_debuff_on_hit() {
+    given_fire_talent_rank("Improved Scorch", 3);
+    given_a_guaranteed_magic_hit(MagicSchool::Fire);
+    pchar->prepare_set_of_combat_iterations();
+    assert(almost_equal(1.0, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+
+    when_scorch_is_performed();
+    when_running_queued_events_until(1.501);
+
+    assert(almost_equal(1.03, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+}
+
+void TestScorch::test_3_of_3_imp_scorch_applies_debuff_on_crit() {
+    given_fire_talent_rank("Improved Scorch", 3);
+    given_a_guaranteed_magic_crit(MagicSchool::Fire);
+    pchar->prepare_set_of_combat_iterations();
+    assert(almost_equal(1.0, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+
+    when_scorch_is_performed();
+    when_running_queued_events_until(1.501);
+
+    assert(almost_equal(1.03, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
 }
 
 void TestScorch::when_scorch_is_performed() {

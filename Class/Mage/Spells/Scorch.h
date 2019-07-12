@@ -13,7 +13,7 @@ class StatisticsResource;
 
 class Scorch: public SpellCastingTime, public TalentRequirer {
 public:
-    Scorch(Mage* pchar, MageSpells* mage_spells, const int spell_rank);
+    Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell_rank);
     ~Scorch() override;
 
     bool is_rank_learned() const override;
@@ -22,6 +22,7 @@ private:
     MageSpells* mage_spells;
     StatisticsResource* statistics_resource {nullptr};
     Random* instant_dmg;
+    Proc* imp_scorch;
 
     double spell_dmg_coefficient;
     unsigned base_resource_cost;

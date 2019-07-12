@@ -74,7 +74,7 @@ void Fire::add_improved_scorch(QMap<QString, Talent*>& talent_tier) {
                                                {2, base_str.arg(66)},
                                                {3, base_str.arg(100)}};
     Talent* talent = new Talent(mage, this, "Improved Scorch", "4LL", "Assets/spell/Spell_fire_soulburn.png", 3,
-                                rank_descriptions);
+                                rank_descriptions, {}, {}, {spells->get_improved_scorch()});
 
     add_talent_to_tier(talent_tier, talent);
 }

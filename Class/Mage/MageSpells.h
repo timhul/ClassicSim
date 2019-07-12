@@ -5,6 +5,7 @@
 class ClearcastingMage;
 class Combustion;
 class Ignite;
+class ImprovedScorch;
 class Mage;
 class Proc;
 
@@ -15,6 +16,7 @@ public:
 
     Combustion* get_combustion() const;
     Proc* get_clearcasting() const;
+    Proc* get_improved_scorch() const;
 
     void inflict_ignite(const double damage);
     bool clearcasting_active() const;
@@ -26,4 +28,5 @@ private:
     ClearcastingMage* clearcasting;
     Combustion* combustion;
     Ignite* ignite;
+    ImprovedScorch* imp_scorch;
 };
