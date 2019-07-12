@@ -9,6 +9,8 @@ class Rotation;
 class RotationExecutor;
 class Sentence;
 
+enum class Comparator: int;
+
 class RotationFileReader {
 public:
     static void add_rotations(QVector<Rotation*>&);
@@ -23,5 +25,5 @@ private:
     static bool add_logical_connective(Sentence* sentence, const QString& logical_connective);
     static bool add_compare_operation(Sentence* sentence, QString &compare_operation);
 
-    static int get_comparator_from_string(const QString& comparator);
+    static Comparator get_comparator_from_string(const QString& comparator);
 };

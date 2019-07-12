@@ -4,60 +4,60 @@
 
 QString Sentence::logical_connective_as_string() const {
     switch (logical_connective) {
-    case LogicalConnectives::AND:
+    case LogicalConnective::AND:
         return "AND";
-    case LogicalConnectives::OR:
+    case LogicalConnective::OR:
         return "OR";
-    default:
-        return QString("<unknown> '%1'").arg(logical_connective);
     }
 }
 
 QString Sentence::condition_type_as_string() const  {
     switch (condition_type) {
-    case ConditionTypes::BuffCondition:
-        return "BUFF";
-    case ConditionTypes::SpellCondition:
+    case ConditionType::BuffDurationCondition:
+        return "BUFF_DURATION";
+    case ConditionType::BuffStacksCondition:
+        return "BUFF_STACKS";
+    case ConditionType::SpellCondition:
         return "SPELL";
-    case ConditionTypes::ResourceCondition:
+    case ConditionType::ResourceCondition:
         return "RESOURCE";
-    case ConditionTypes::VariableBuiltinCondition:
+    case ConditionType::VariableBuiltinCondition:
         return "BUILTIN VARIABLE";
-    default:
-        return QString("<unknown> '%1'").arg(condition_type);
     }
+
+    return "<unknown condition type>";
 }
 
 QString Sentence::mathematical_symbol_as_string() const {
     switch (mathematical_symbol) {
-    case Comparators::eq:
+    case Comparator::Eq:
         return "== (eq)";
-    case Comparators::geq:
+    case Comparator::Geq:
         return ">= (geq)";
-    case Comparators::leq:
+    case Comparator::Leq:
         return "<= (leq)";
-    case Comparators::less:
+    case Comparator::Less:
         return "< (less)";
-    case Comparators::greater:
+    case Comparator::Greater:
         return "> (greater)";
-    case Comparators::true_val:
+    case Comparator::True:
         return "True (true_val)";
-    case Comparators::false_val:
+    case Comparator::False:
         return "False (false_val)";
-    default:
-        return QString("<unknown> '%1'").arg(mathematical_symbol);
     }
+
+    return "<unknown mathematical symbol>";
 }
 
 QString Sentence::compared_value_type_as_string() const {
     switch (compared_value_type) {
-    case CompareValueTypes::bool_val:
+    case CompareValueType::Boolean:
         return "bool";
-    case CompareValueTypes::float_val:
+    case CompareValueType::Float:
         return "float";
-    default:
-        return QString("<unknown> '%1'").arg(compared_value_type);
     }
+
+    return "<unknown value type>";
 }
 
 void Sentence::dump() const {
@@ -69,21 +69,21 @@ void Sentence::dump() const {
     qDebug() << "compared_value" << compared_value;
 }
 
-Condition::Condition(int comparator):
+Condition::Condition(const Comparator comparator):
     comparator(comparator)
 {}
 
 QString Condition::comparator_as_string() const {
     switch (comparator) {
-    case Comparators::eq:
+    case Comparator::Eq:
         return "==";
-    case Comparators::geq:
+    case Comparator::Geq:
         return ">=";
-    case Comparators::leq:
+    case Comparator::Leq:
         return "<=";
-    case Comparators::less:
+    case Comparator::Less:
         return "<";
-    case Comparators::greater:
+    case Comparator::Greater:
         return ">";
     default:
         return "<unknown comparator>";

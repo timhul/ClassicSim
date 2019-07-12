@@ -7,7 +7,7 @@
 #include "ConditionVariableBuiltin.h"
 #include "Resource.h"
 
-class ConditionBuff;
+class ConditionBuffDuration;
 class ConditionResource;
 class Hunter;
 class Paladin;
@@ -41,11 +41,11 @@ private:
 
     void verify_executor_names(Rotation *rotation, QVector<RotationExecutor*> &executors, QVector<QString> &executor_names);
     void verify_resource_condition(ConditionResource* condition, const double cmp_value,
-                                   const int comparator, const ResourceType resource_type);
-    void verify_buff_condition(ConditionBuff* condition, const QString& name,
-                               const double cmp_value, const int comparator);
+                                   const Comparator comparator, const ResourceType resource_type);
+    void verify_buff_condition(ConditionBuffDuration* condition, const QString& name,
+                               const double cmp_value, const Comparator comparator);
     void verify_builtin_condition(ConditionVariableBuiltin* condition, const BuiltinVariables builtin,
-                                  const double cmp_value, const int comparator);
+                                  const double cmp_value, const Comparator comparator);
 
     Rotation* get_rotation(const QString& name) const;
 

@@ -4,13 +4,13 @@
 
 class Buff;
 
-class ConditionBuff : public Condition {
+class ConditionBuffStacks : public Condition {
 public:
-    ConditionBuff(Buff *buff, const int comparator, const double cmp_value);
+    ConditionBuffStacks(Buff* buff, const Comparator comparator, const int cmp_value);
 
     bool condition_fulfilled() const override;
     QString condition_description() const override;
 
     Buff* buff;
-    const double cmp_value;
+    const int cmp_value;
 };

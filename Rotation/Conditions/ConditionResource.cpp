@@ -3,7 +3,7 @@
 #include "Character.h"
 #include "Utils/Check.h"
 
-ConditionResource::ConditionResource(Character* pchar, const int comparator, const ResourceType resource_type, const double cmp_value) :
+ConditionResource::ConditionResource(Character* pchar, const Comparator comparator, const ResourceType resource_type, const double cmp_value) :
     Condition(comparator),
     pchar(pchar),
     resource_type(resource_type),
@@ -14,13 +14,13 @@ bool ConditionResource::condition_fulfilled() const {
     const unsigned resource = pchar->get_resource_level(resource_type);
 
     switch (comparator) {
-    case Comparators::less:
-    case Comparators::leq:
+    case Comparator::Less:
+    case Comparator::Leq:
         return resource < cmp_value;
-    case Comparators::eq:
+    case Comparator::Eq:
         return (resource - cmp_value) < 0.000001;
-    case Comparators::geq:
-    case Comparators::greater:
+    case Comparator::Geq:
+    case Comparator::Greater:
         return resource > cmp_value;
     default:
         check(false, "ConditionResource::condition_fulfilled reached end of switch");

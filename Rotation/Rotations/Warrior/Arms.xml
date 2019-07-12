@@ -11,10 +11,10 @@
 	</precombat_actions>
 
 	<cast_if name="Battle Shout">
-		buff "Battle Shout" less 5
+		buff_duration "Battle Shout" less 5
 		or variable "time_remaining_execute" less 10
 		and variable "time_remaining_execute" greater 0
-		and buff "Battle Shout" less 45
+		and buff_duration "Battle Shout" less 45
 	</cast_if>
 
 	<cast_if name="Manual Crowd Pummeler"/>
@@ -92,29 +92,29 @@
 		variable "time_since_swing" less 0.3
 		and spell "Whirlwind" greater 1.5
 		and resource "Rage" greater 45
-		and buff "Overpower" is false
+		and buff_duration "Overpower" is false
 	</cast_if>
 
 	<!-- Special heroic strike usage: attempt to dump rage when Overpower is up. -->
 	<cast_if name="Heroic Strike">
 		variable "time_remaining_execute" greater 3
 		and resource "Rage" greater 30
-		and buff "Overpower" greater 3
-		and buff "Battle Stance" is false
+		and buff_duration "Overpower" greater 3
+		and buff_duration "Battle Stance" is false
 		and spell "Mainhand Attack" less 1.5
 	</cast_if>
 
 	<!-- Switch to Battle Stance -->
 	<cast_if name="Battle Stance">
 		variable "time_remaining_execute" greater 5
-		and buff "Overpower" greater 2
+		and buff_duration "Overpower" greater 2
 		and spell "Mortal Strike" greater 3
 		and resource "Rage" less 50
 	</cast_if>
 
 	<cast_if name="Berserker Stance">
 		variable "time_remaining_execute" less 0
-		or buff "Overpower" is false
+		or buff_duration "Overpower" is false
 	</cast_if>
 
 	<!-- Switch to dagger set before Execute (if user specified one) -->

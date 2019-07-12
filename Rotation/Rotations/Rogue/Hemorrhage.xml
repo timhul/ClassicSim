@@ -9,7 +9,7 @@
 	</prerequisites>
 
 	<cast_if name="Slice and Dice">
-		buff "Slice and Dice" less 3
+		buff_duration "Slice and Dice" less 3
 	</cast_if>
 
 	<cast_if name="Hemorrhage">
@@ -18,7 +18,7 @@
 
 	<cast_if name="Eviscerate">
 		variable "combo_points" eq 5
-		and buff "Slice and Dice" greater 8
+		and buff_duration "Slice and Dice" greater 8
 	</cast_if>
 
 	<cast_if name="Kiss of the Spider">

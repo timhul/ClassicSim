@@ -39,6 +39,10 @@ int Buff::get_charges() const {
     return this->current_charges;
 }
 
+int Buff::get_stacks() const {
+    return this->current_stacks;
+}
+
 void Buff::apply_buff() {
     if (!is_enabled())
         return;
@@ -47,10 +51,15 @@ void Buff::apply_buff() {
         if (!apply_buff_to_target())
             return;
 
+        this->current_stacks = 1;
         this->applied = raid_control->get_engine()->get_current_priority();
     }
-    else
+    else {
+        if (current_stacks < max_stacks)
+            ++current_stacks;
+
         this->buff_effect_when_refreshed();
+    }
 
     this->current_charges = base_charges;
     this->refreshed = raid_control->get_engine()->get_current_priority();
@@ -70,6 +79,9 @@ void Buff::refresh_buff() {
     if (!is_active())
         return;
 
+    if (current_stacks < max_stacks)
+        ++current_stacks;
+
     this->refreshed = raid_control->get_engine()->get_current_priority();
     this->buff_effect_when_refreshed();
 }
@@ -87,6 +99,7 @@ void Buff::force_remove_buff() {
 
     this->expired = raid_control->get_engine()->get_current_priority();
     this->active = false;
+    this->current_stacks = 0;
 
     this->uptime += expired - applied;
 
@@ -144,6 +157,7 @@ void Buff::reset() {
 
 void Buff::initialize() {
     current_charges = 0;
+    current_stacks = 0;
     iteration = 0;
     applied = 0;
     refreshed = 0;

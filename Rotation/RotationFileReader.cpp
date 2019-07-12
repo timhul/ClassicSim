@@ -231,10 +231,13 @@ bool RotationFileReader::rotation_executor_handler(QXmlStreamReader &reader, Rot
 }
 
 bool RotationFileReader::add_type(Sentence* sentence, const QString& type_string) {
-    QMap<QString, int> acceptable_types = {{"spell", ConditionTypes::SpellCondition},
-                                           {"buff", ConditionTypes::BuffCondition},
-                                           {"resource", ConditionTypes::ResourceCondition},
-                                           {"variable", ConditionTypes::VariableBuiltinCondition}};
+    QMap<QString, ConditionType> acceptable_types = {
+        {"spell", ConditionType::SpellCondition},
+        {"buff_duration", ConditionType::BuffDurationCondition},
+        {"buff_stacks", ConditionType::BuffStacksCondition},
+        {"resource", ConditionType::ResourceCondition},
+        {"variable", ConditionType::VariableBuiltinCondition}
+    };
 
     if (!acceptable_types.contains(type_string)) {
         qDebug() << "Expected type, got" << type_string;
@@ -253,8 +256,8 @@ bool RotationFileReader::add_logical_connective(Sentence* sentence, const QStrin
         return false;
     }
 
-    sentence->logical_connective = logical_connective == "and" ? LogicalConnectives::AND :
-                                                                 LogicalConnectives::OR;
+    sentence->logical_connective = logical_connective == "and" ? LogicalConnective::AND :
+                                                                 LogicalConnective::OR;
     return true;
 }
 
@@ -289,15 +292,15 @@ bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& comp
                 return false;
             }
 
-            sentence->mathematical_symbol = Comparators::eq;
-            sentence->compared_value_type = CompareValueTypes::bool_val;
+            sentence->mathematical_symbol = Comparator::Eq;
+            sentence->compared_value_type = CompareValueType::Boolean;
             sentence->compared_value = compare_value;
             return true;
         }
 
         // [greater/geq/eq/leq/less] [0-9]
         sentence->mathematical_symbol = get_comparator_from_string(cmp);
-        sentence->compared_value_type = CompareValueTypes::float_val;
+        sentence->compared_value_type = CompareValueType::Float;
         sentence->compared_value = cmp_operation_split.takeFirst();
         return true;
     }
@@ -306,18 +309,18 @@ bool RotationFileReader::add_compare_operation(Sentence* sentence, QString& comp
     return false;
 }
 
-int RotationFileReader::get_comparator_from_string(const QString& comparator) {
+Comparator RotationFileReader::get_comparator_from_string(const QString& comparator) {
     if (comparator == "greater")
-        return Comparators::greater;
+        return Comparator::Greater;
     if (comparator == "geq")
-        return Comparators::geq;
+        return Comparator::Geq;
     if (comparator == "eq")
-        return Comparators::eq;
+        return Comparator::Eq;
     if (comparator == "leq")
-        return Comparators::leq;
+        return Comparator::Leq;
     if (comparator == "less")
-        return Comparators::less;
+        return Comparator::Less;
 
     check(false, QString("Could not find comparator for '%1'").arg(comparator).toStdString());
-    return -1;
+    return Comparator::False;
 }

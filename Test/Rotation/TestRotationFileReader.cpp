@@ -1,7 +1,7 @@
 #include "TestRotationFileReader.h"
 
 #include "Buff.h"
-#include "ConditionBuff.h"
+#include "ConditionBuffDuration.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
 #include "Human.h"
@@ -97,7 +97,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
 
     QVector<QVector<Condition*>> condition_groups;
     ConditionResource* resource_condition;
-    ConditionBuff* buff_condition;
+    ConditionBuffDuration* buff_condition;
     ConditionVariableBuiltin* builtin_condition;
 
     //
@@ -107,7 +107,7 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     assert(condition_groups.size() == 1 && condition_groups[0].size() == 1);
     // resource "Rage" less 50
     resource_condition = dynamic_cast<ConditionResource*>(condition_groups[0][0]);
-    verify_resource_condition(resource_condition, 50.0, Comparators::less, ResourceType::Rage);
+    verify_resource_condition(resource_condition, 50.0, Comparator::Less, ResourceType::Rage);
 
     //
     // Battle Shout
@@ -118,20 +118,20 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     // Condition group 0
     assert(condition_groups[0].size() == 1);
     // buff "Battle Shout" less 3
-    buff_condition = dynamic_cast<ConditionBuff*>(condition_groups[0][0]);
-    verify_buff_condition(buff_condition, "Battle Shout", 3.0, Comparators::less);
+    buff_condition = dynamic_cast<ConditionBuffDuration*>(condition_groups[0][0]);
+    verify_buff_condition(buff_condition, "Battle Shout", 3.0, Comparator::Less);
 
     // Condition group 1
     assert(condition_groups[1].size() == 3);
     // variable "time_remaining_execute" less 10
     builtin_condition = dynamic_cast<ConditionVariableBuiltin*>(condition_groups[1][0]);
-    verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 10.0, Comparators::less);
+    verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 10.0, Comparator::Less);
     // variable "time_remaining_execute" greater 0
     builtin_condition = dynamic_cast<ConditionVariableBuiltin*>(condition_groups[1][1]);
-    verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 0.0, Comparators::greater);
+    verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 0.0, Comparator::Greater);
     // buff "Battle Shout" less 45
-    buff_condition = dynamic_cast<ConditionBuff*>(condition_groups[1][2]);
-    verify_buff_condition(buff_condition, "Battle Shout", 45.0, Comparators::less);
+    buff_condition = dynamic_cast<ConditionBuffDuration*>(condition_groups[1][2]);
+    verify_buff_condition(buff_condition, "Battle Shout", 45.0, Comparator::Less);
 
     //
     // Heroic Strike
@@ -140,10 +140,10 @@ void TestRotationFileReader::test_warrior_dw_fury() {
     assert(condition_groups.size() == 1 && condition_groups[0].size() == 2);
     // "time_remaining_execute" greater 3
     builtin_condition = dynamic_cast<ConditionVariableBuiltin*>(condition_groups[0][0]);
-    verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 3.0, Comparators::greater);
+    verify_builtin_condition(builtin_condition, BuiltinVariables::TimeRemainingExecute, 3.0, Comparator::Greater);
     // resource "Rage" greater 50
     resource_condition = dynamic_cast<ConditionResource*>(condition_groups[0][1]);
-    verify_resource_condition(resource_condition, 50.0, Comparators::greater, ResourceType::Rage);
+    verify_resource_condition(resource_condition, 50.0, Comparator::Greater, ResourceType::Rage);
 }
 
 void TestRotationFileReader::test_hunter_aimed_shot_multi_shot() {
@@ -210,15 +210,15 @@ void TestRotationFileReader::test_paladin_seal_of_the_crusader() {
 }
 
 void TestRotationFileReader::verify_resource_condition(ConditionResource* condition, const double cmp_value,
-                                                       const int comparator, const ResourceType resource_type) {
+                                                       const Comparator comparator, const ResourceType resource_type) {
     assert(condition != nullptr);
     assert(almost_equal(condition->cmp_value, cmp_value));
     assert(condition->comparator == comparator);
     assert(condition->resource_type == resource_type);
 }
 
-void TestRotationFileReader::verify_buff_condition(ConditionBuff* condition, const QString& name,
-                                                   const double cmp_value, const int comparator) {
+void TestRotationFileReader::verify_buff_condition(ConditionBuffDuration* condition, const QString& name,
+                                                   const double cmp_value, const Comparator comparator) {
     assert(condition != nullptr);
     assert(condition->buff->get_name() == name);
     assert(almost_equal(condition->cmp_value, cmp_value));
@@ -226,7 +226,7 @@ void TestRotationFileReader::verify_buff_condition(ConditionBuff* condition, con
 }
 
 void TestRotationFileReader::verify_builtin_condition(ConditionVariableBuiltin* condition, const BuiltinVariables builtin,
-                                                      const double cmp_value, const int comparator) {
+                                                      const double cmp_value, const Comparator comparator) {
     assert(condition != nullptr);
     assert(condition->builtin == builtin);
     assert(almost_equal(condition->rhs_value, cmp_value));

@@ -91,6 +91,8 @@ SOURCES += main.cpp \
     Character/Character.cpp \
     Event/Events/PlayerAction.cpp \
     Raid/RaidControl.cpp \
+    Rotation/Conditions/ConditionBuffDuration.cpp \
+    Rotation/Conditions/ConditionBuffStacks.cpp \
     Spells/CooldownControl.cpp \
     Spells/PartyBuff.cpp \
     Spells/SelfBuff.cpp \
@@ -224,7 +226,6 @@ SOURCES += main.cpp \
     Rotation/Rotation.cpp \
     Rotation/Condition.cpp \
     Rotation/Conditions/ConditionSpell.cpp \
-    Rotation/Conditions/ConditionBuff.cpp \
     Rotation/Conditions/ConditionResource.cpp \
     Rotation/Conditions/ConditionVariableBuiltin.cpp \
     CombatRoll/xorshift/xoroshiro128plus.cpp \
@@ -518,6 +519,8 @@ HEADERS += \
     Class/Paladin/Paladin.h \
     Event/Events/PlayerAction.h \
     Raid/RaidControl.h \
+    Rotation/Conditions/ConditionBuffDuration.h \
+    Rotation/Conditions/ConditionBuffStacks.h \
     Spells/CooldownControl.h \
     Spells/PartyBuff.h \
     Spells/SelfBuff.h \
@@ -658,7 +661,6 @@ HEADERS += \
     Rotation/Rotation.h \
     Rotation/Condition.h \
     Rotation/Conditions/ConditionSpell.h \
-    Rotation/Conditions/ConditionBuff.h \
     Rotation/Conditions/ConditionResource.h \
     Rotation/Conditions/ConditionVariableBuiltin.h \
     CombatRoll/xorshift/xoroshiro128plus.h \

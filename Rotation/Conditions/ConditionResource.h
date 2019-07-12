@@ -8,7 +8,7 @@ class Character;
 
 class ConditionResource : public Condition {
 public:
-    ConditionResource(Character* pchar, const int comparator, const ResourceType resource_type, const double cmp_value);
+    ConditionResource(Character* pchar, const Comparator comparator, const ResourceType resource_type, const double cmp_value);
 
     bool condition_fulfilled() const override;
     QString condition_description() const override;

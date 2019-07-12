@@ -37,6 +37,7 @@ public:
     QString get_name() const;
     QString get_icon() const;
     int get_charges() const;
+    int get_stacks() const;
     void apply_buff();
     void refresh_buff();
     void remove_buff(const int);
@@ -68,7 +69,9 @@ protected:
     const QString icon;
     int duration;
     const int base_charges;
-    int current_charges{};
+    int current_charges {0};
+    int current_stacks {0};
+    int max_stacks {1};
     int iteration{};
     double applied{};
     double refreshed{};

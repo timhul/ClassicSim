@@ -20,7 +20,7 @@ class ConditionVariableBuiltin : public Condition {
 public:
     ConditionVariableBuiltin(Character* pchar,
                              const BuiltinVariables builtin,
-                             const int comparator,
+                             const Comparator comparator,
                              const double rhs_value);
 
     bool condition_fulfilled() const override;

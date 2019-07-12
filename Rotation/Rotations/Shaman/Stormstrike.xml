@@ -15,7 +15,7 @@
 	</cast_if>
 
 	<cast_if name="Windfury Weapon">
-		buff "Windfury Weapon" less 1
+		buff_duration "Windfury Weapon" less 1
 	</cast_if>
 
 	<cast_if name="Manual Crowd Pummeler"/>

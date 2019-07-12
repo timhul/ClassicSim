@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <rotation class="Mage" name="Fire" attack_mode="magic">
 	<description>
-	Fireball spam.
+	Fireball spam and Scorch bot.
 	</description>
 
 	<cast_if name="Talisman of Ephemeral Power"/>
@@ -13,8 +13,18 @@
 	<cast_if name="Mar'li's Eye"/>
 	<cast_if name="Burst of Knowledge"/>
 
-	<cast_if name="Combustion"/>
-	<cast_if name="Fireball"/>
+	<cast_if name="Scorch">
+		buff_stacks "Fire Vulnerability" less 5
+		or buff_duration "Fire Vulnerability" less 5
+	</cast_if>
+
+	<cast_if name="Combustion">
+		buff_stacks "Fire Vulnerability" eq 5
+	</cast_if>
+
+	<cast_if name="Fireball">
+		buff_stacks "Fire Vulnerability" eq 5
+	</cast_if>
 
 	<cast_if name="Mana Potion"/>
 	<cast_if name="Demonic Rune"/>

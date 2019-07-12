@@ -15,7 +15,7 @@
 
 ConditionVariableBuiltin::ConditionVariableBuiltin(Character* pchar,
                                                    const BuiltinVariables builtin,
-                                                   const int comparator,
+                                                   const Comparator comparator,
                                                    const double cmp_value) :
     Condition(comparator),
     pchar(pchar),
@@ -83,15 +83,15 @@ QString ConditionVariableBuiltin::condition_description() const {
 
 bool ConditionVariableBuiltin::cmp_values(const double lhs_value) const {
     switch (comparator) {
-    case Comparators::less:
+    case Comparator::Less:
         return lhs_value < rhs_value;
-    case Comparators::leq:
+    case Comparator::Leq:
         return almost_equal(lhs_value, rhs_value) || lhs_value < rhs_value;
-    case Comparators::eq:
+    case Comparator::Eq:
         return almost_equal(lhs_value, rhs_value);
-    case Comparators::geq:
+    case Comparator::Geq:
         return almost_equal(lhs_value, rhs_value) || lhs_value > rhs_value;
-    case Comparators::greater:
+    case Comparator::Greater:
         return lhs_value > rhs_value;
     default:
         check(false, "ConditionVariableBuiltin::cmp_values reached end of switch");

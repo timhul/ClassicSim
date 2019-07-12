@@ -6,7 +6,8 @@
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "ClassStatistics.h"
-#include "ConditionBuff.h"
+#include "ConditionBuffStacks.h"
+#include "ConditionBuffDuration.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
 #include "ConditionVariableBuiltin.h"
@@ -127,36 +128,47 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
     for (const auto & sentence : executor->sentences) {
         Condition* condition = nullptr;
 
-        if (sentence->logical_connective == LogicalConnectives::OR) {
+        if (sentence->logical_connective == LogicalConnective::OR) {
             check((condition_group_to_add.empty() == false), "Cannot use OR conditional at start");
             executor->add_condition(condition_group_to_add);
             condition_group_to_add.clear();
         }
 
         switch (sentence->condition_type) {
-        case ConditionTypes::BuffCondition: {
+        case ConditionType::BuffStacksCondition: {
             Buff* buff = pchar->get_spells()->get_buff_by_name(sentence->type_value);
             if (buff == nullptr) {
                 qDebug() << "could not find buff for condition:" << sentence->type_value;
                 return false;
             }
-            condition = new ConditionBuff(buff,
-                                          sentence->mathematical_symbol,
-                                          sentence->compared_value.toDouble());
+            condition = new ConditionBuffStacks(buff,
+                                                 sentence->mathematical_symbol,
+                                                 sentence->compared_value.toInt());
             break;
         }
-        case ConditionTypes::SpellCondition:
+        case ConditionType::BuffDurationCondition: {
+            Buff* buff = pchar->get_spells()->get_buff_by_name(sentence->type_value);
+            if (buff == nullptr) {
+                qDebug() << "could not find buff for condition:" << sentence->type_value;
+                return false;
+            }
+            condition = new ConditionBuffDuration(buff,
+                                                  sentence->mathematical_symbol,
+                                                  sentence->compared_value.toDouble());
+            break;
+        }
+        case ConditionType::SpellCondition:
             condition = new ConditionSpell(pchar->get_spells()->get_spell_rank_group_by_name(sentence->type_value)->get_max_available_spell_rank(),
                                            sentence->mathematical_symbol,
                                            sentence->compared_value.toDouble());
             break;
-        case ConditionTypes::ResourceCondition:
+        case ConditionType::ResourceCondition:
             condition = new ConditionResource(this->pchar,
                                               sentence->mathematical_symbol,
                                               get_resource_from_string(sentence->type_value),
                                               sentence->compared_value.toDouble());
             break;
-        case ConditionTypes::VariableBuiltinCondition:
+        case ConditionType::VariableBuiltinCondition:
             if (ConditionVariableBuiltin::get_builtin_variable(sentence->type_value) == BuiltinVariables::Undefined)
                 break;
             condition = new ConditionVariableBuiltin(this->pchar,
@@ -164,10 +176,6 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
                                                      sentence->mathematical_symbol,
                                                      sentence->compared_value.toDouble());
             break;
-        default:
-            qDebug() << "condition type not supported:" << sentence->condition_type;
-            sentence->dump();
-            return false;
         }
 
         condition_group_to_add.append(condition);

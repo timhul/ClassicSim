@@ -2,16 +2,15 @@
 
 #include "Condition.h"
 
-class Spell;
+class Buff;
 
-class ConditionSpell : public Condition {
+class ConditionBuffDuration : public Condition {
 public:
-    ConditionSpell(Spell* spell, const Comparator comparator, const double cmp_value);
+    ConditionBuffDuration(Buff *buff, const Comparator comparator, const double cmp_value);
 
     bool condition_fulfilled() const override;
     QString condition_description() const override;
 
-private:
-    Spell* spell;
+    Buff* buff;
     const double cmp_value;
 };

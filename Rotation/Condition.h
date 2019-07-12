@@ -2,40 +2,46 @@
 
 #include <QString>
 
-namespace Comparators {
-    static const int less = 0;
-    static const int leq = 1;
-    static const int eq = 2;
-    static const int geq = 3;
-    static const int greater = 4;
-    static const int false_val = 5;
-    static const int true_val = 6;
-}
+enum class Comparator: int {
+    Less,
+    Leq,
+    Eq,
+    Geq,
+    Greater,
+    False,
+    True,
+};
 
-namespace CompareValueTypes {
-    static const int bool_val = 0;
-    static const int float_val = 1;
-}
+enum class CompareValueType: int {
+    Boolean,
+    Float,
+};
 
-namespace ConditionTypes {
-    static const int BuffCondition = 0;
-    static const int SpellCondition = 1;
-    static const int ResourceCondition = 2;
-    static const int VariableBuiltinCondition = 3;
-}
+enum class ConditionType: int {
+    BuffDurationCondition,
+    BuffStacksCondition,
+    SpellCondition,
+    ResourceCondition,
+    VariableBuiltinCondition,
+};
 
-namespace LogicalConnectives {
-    static const int AND = 0;
-    static const int OR = 1;
-}
+enum class LogicalConnective: bool {
+    AND,
+    OR,
+};
+
+enum class BuffCompareType: int {
+    Duration,
+    Charges,
+};
 
 class Sentence {
 public:
-    int logical_connective;
-    int condition_type;
+    LogicalConnective logical_connective;
+    ConditionType condition_type;
     QString type_value;
-    int mathematical_symbol;
-    int compared_value_type;
+    Comparator mathematical_symbol;
+    CompareValueType compared_value_type;
     QString compared_value;
 
     QString logical_connective_as_string() const;
@@ -48,13 +54,13 @@ public:
 
 class Condition {
 public:
-    Condition(int comparator);
+    Condition(const Comparator comparator);
     virtual ~Condition() = default;
 
     virtual bool condition_fulfilled() const = 0;
     virtual QString condition_description() const = 0;
 
-    const int comparator;
+    const Comparator comparator;
 
 protected:
     QString comparator_as_string() const;

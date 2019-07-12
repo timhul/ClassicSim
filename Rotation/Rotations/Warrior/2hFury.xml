@@ -15,10 +15,10 @@
 	</cast_if>
 
 	<cast_if name="Battle Shout">
-		buff "Battle Shout" less 3
+		buff_duration "Battle Shout" less 3
 		or variable "time_remaining_execute" less 10
 		and variable "time_remaining_execute" greater 0
-		and buff "Battle Shout" less 45
+		and buff_duration "Battle Shout" less 45
 	</cast_if>
 
 	<!-- General heroic strike usage -->
@@ -30,35 +30,35 @@
 	<cast_if name="Manual Crowd Pummeler"/>
 
 	<cast_if name="Kiss of the Spider">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Jom Gabbar">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Badge of the Swarmguard">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Slayer's Crest">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Earthstrike">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Zandalarian Hero Medallion">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Diamond Flask">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Cloudkeeper Legplates">
-		buff "Death Wish" is true
+		buff_duration "Death Wish" is true
 	</cast_if>
 
 	<cast_if name="Death Wish">
@@ -113,12 +113,12 @@
 	<!-- Switch to Battle Stance -->
 	<cast_if name="Battle Stance">
 		variable "time_remaining_execute" greater 5
-		and buff "Overpower" greater 2
+		and buff_duration "Overpower" greater 2
 		and spell "Bloodthirst" greater 3
 	</cast_if>
 
 	<cast_if name="Berserker Stance">
 		variable "time_remaining_execute" less 0
-		or buff "Overpower" is false
+		or buff_duration "Overpower" is false
 	</cast_if>
 </rotation>

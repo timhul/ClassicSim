@@ -10,21 +10,21 @@
 	</precombat_actions>
 
 	<cast_if name="Judgement">
-		buff "Judgement of the Crusader" less 3
-		and buff "Seal of the Crusader" greater 0
+		buff_duration "Judgement of the Crusader" less 3
+		and buff_duration "Seal of the Crusader" greater 0
 	</cast_if>
 
 	<cast_if name="Seal of Command">
-		buff "Judgement of the Crusader" greater 3
-		and buff "Seal of Command" less 3
+		buff_duration "Judgement of the Crusader" greater 3
+		and buff_duration "Seal of Command" less 3
 	</cast_if>
 
 	<cast_if name="Seal of the Crusader">
-		buff "Judgement of the Crusader" less 3
+		buff_duration "Judgement of the Crusader" less 3
 	</cast_if>
 
 	<cast_if name="Consecration">
-		buff "Vengeance" greater 0
+		buff_duration "Vengeance" greater 0
 	</cast_if>
 
 	<cast_if name="Consecration" rank="1"/>

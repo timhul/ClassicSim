@@ -64,7 +64,7 @@ void TestConditionVariableBuiltin::test_values_after_initialization() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_less() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparators::less, 3);
+    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Less, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(condition.condition_fulfilled());
@@ -86,7 +86,7 @@ void TestConditionVariableBuiltin::test_combo_points_less() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_leq() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparators::leq, 3);
+    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Leq, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(condition.condition_fulfilled());
@@ -108,7 +108,7 @@ void TestConditionVariableBuiltin::test_combo_points_leq() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_equal() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparators::eq, 3);
+    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Eq, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(!condition.condition_fulfilled());
@@ -130,7 +130,7 @@ void TestConditionVariableBuiltin::test_combo_points_equal() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_geq() {
-    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparators::geq, 3);
+    ConditionVariableBuiltin condition (rogue, BuiltinVariables::ComboPoints, Comparator::Geq, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(!condition.condition_fulfilled());
@@ -152,7 +152,7 @@ void TestConditionVariableBuiltin::test_combo_points_geq() {
 }
 
 void TestConditionVariableBuiltin::test_combo_points_greater() {
-    ConditionVariableBuiltin condition(rogue, BuiltinVariables::ComboPoints, Comparators::greater, 3);
+    ConditionVariableBuiltin condition(rogue, BuiltinVariables::ComboPoints, Comparator::Greater, 3);
 
     assert(rogue->get_combo_points() == 0);
     assert(!condition.condition_fulfilled());
@@ -179,8 +179,8 @@ void TestConditionVariableBuiltin::test_auto_shot_timer_less() {
     AutoShot* auto_shot = hunter->get_spells()->get_auto_shot();
     auto_shot->prepare_set_of_combat_iterations();
 
-    ConditionVariableBuiltin condition200ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::less, 0.2);
-    ConditionVariableBuiltin condition300ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::less, 0.3);
+    ConditionVariableBuiltin condition200ms(hunter, BuiltinVariables::AutoShotTimer, Comparator::Less, 0.2);
+    ConditionVariableBuiltin condition300ms(hunter, BuiltinVariables::AutoShotTimer, Comparator::Less, 0.3);
 
     assert(auto_shot->get_spell_status() == SpellStatus::Available);
     assert(condition200ms.condition_fulfilled());
@@ -217,8 +217,8 @@ void TestConditionVariableBuiltin::test_auto_shot_timer_greater() {
     AutoShot* auto_shot = hunter->get_spells()->get_auto_shot();
     auto_shot->prepare_set_of_combat_iterations();
 
-    ConditionVariableBuiltin condition200ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::greater, 0.2);
-    ConditionVariableBuiltin condition300ms(hunter, BuiltinVariables::AutoShotTimer, Comparators::greater, 0.3);
+    ConditionVariableBuiltin condition200ms(hunter, BuiltinVariables::AutoShotTimer, Comparator::Greater, 0.2);
+    ConditionVariableBuiltin condition300ms(hunter, BuiltinVariables::AutoShotTimer, Comparator::Greater, 0.3);
 
     assert(auto_shot->get_spell_status() == SpellStatus::Available);
     assert(!condition200ms.condition_fulfilled());
@@ -255,8 +255,8 @@ void TestConditionVariableBuiltin::test_swing_timer_less() {
     MainhandAttack* mh_attack = warrior->get_spells()->get_mh_attack();
     mh_attack->prepare_set_of_combat_iterations();
 
-    ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparators::less, 0.2);
-    ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparators::less, 0.3);
+    ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparator::Less, 0.2);
+    ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparator::Less, 0.3);
 
     assert(mh_attack->get_spell_status() == SpellStatus::Available);
     assert(condition200ms.condition_fulfilled());
@@ -293,8 +293,8 @@ void TestConditionVariableBuiltin::test_swing_timer_greater() {
     MainhandAttack* mh_attack = warrior->get_spells()->get_mh_attack();
     mh_attack->prepare_set_of_combat_iterations();
 
-    ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparators::greater, 0.2);
-    ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparators::greater, 0.3);
+    ConditionVariableBuiltin condition200ms(warrior, BuiltinVariables::SwingTimer, Comparator::Greater, 0.2);
+    ConditionVariableBuiltin condition300ms(warrior, BuiltinVariables::SwingTimer, Comparator::Greater, 0.3);
 
     assert(mh_attack->get_spell_status() == SpellStatus::Available);
     assert(!condition200ms.condition_fulfilled());
