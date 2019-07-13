@@ -6,7 +6,7 @@
 
 BerserkingBuff::BerserkingBuff(Character* pchar):
     SelfBuff(pchar, "Berserking", "Assets/races/Racial_troll_berserk.png", 10, 0),
-    random(new Random(10, 30)),
+    random(new Random(10, 43)),
     curr_buff(0)
 {}
 
