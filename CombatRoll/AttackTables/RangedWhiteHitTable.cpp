@@ -35,7 +35,7 @@ int RangedWhiteHitTable::get_outcome(const unsigned roll,
     }
     range += include_block ? block_range : 0;
 
-    if (roll < range + crit_chance)
+    if (random->get_roll() < range + crit_chance)
         return PhysicalAttackResult::CRITICAL;
 
     return PhysicalAttackResult::HIT;
