@@ -25,6 +25,8 @@ void EnabledProcs::ignore_proc_in_next_proc_check(const int instance_id) {
 void EnabledProcs::run_proc_check(ProcInfo::Source source) {
     check((source != ProcInfo::Source::Manual), "Cannot run proc effects on manually triggered proc");
 
+    ++procs_in_progress;
+
     for (const auto & proc : enabled_procs) {
         if (!proc->procs_from_source(source))
             continue;
@@ -40,7 +42,10 @@ void EnabledProcs::run_proc_check(ProcInfo::Source source) {
         proc->perform();
     }
 
-    procced_instance_ids.clear();
+    --procs_in_progress;
+
+    if (procs_in_progress == 0)
+        procced_instance_ids.clear();
 }
 
 void EnabledProcs::add_proc(Proc* proc) {

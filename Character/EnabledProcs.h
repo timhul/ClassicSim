@@ -40,6 +40,7 @@ private:
     GeneralProcs* general_procs;
 
     int next_instance_id;
+    int procs_in_progress {0};
 
     QVector<Proc*> enabled_procs;
     QSet<int> procced_instance_ids;

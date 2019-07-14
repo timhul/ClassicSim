@@ -9,7 +9,7 @@
 
 ExtraAttackInstantProc::ExtraAttackInstantProc(Character* pchar,
                                                const QString& proc_name,
-                                               const QString &icon,
+                                               const QString& icon,
                                                const QVector<ProcInfo::Source>& proc_sources,
                                                const double proc_rate, const int num_attacks) :
     Proc(proc_name, icon, proc_rate, 0, QVector<Proc*>(), proc_sources, pchar),
@@ -36,8 +36,8 @@ void ExtraAttackInstantProc::proc_from_next_swing_effect() {
     check(extra_attack_buff->is_active(), "extra_attack_buff is not active");
 
     while (extra_attack_buff->is_active()) {
-        pchar->get_spells()->get_mh_attack()->extra_attack();
         extra_attack_buff->use_charge();
+        pchar->get_spells()->get_mh_attack()->extra_attack();
     }
 }
 

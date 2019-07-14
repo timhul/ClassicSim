@@ -27,7 +27,6 @@ ExtraAttackOnNextSwingProc::ExtraAttackOnNextSwingProc(Character* pchar,
 
 ExtraAttackOnNextSwingProc::~ExtraAttackOnNextSwingProc() {
     extra_attack_buff->disable_buff();
-    extra_attack_instant_proc->disable_proc();
     delete extra_attack_instant_proc;
     delete extra_attack_buff;
 }

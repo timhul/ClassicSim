@@ -98,9 +98,9 @@ void Test::test_queue() {
     auto* sim_settings = new SimSettings();
     auto* raid_control = new RaidControl(sim_settings);
     auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
-    pchar->get_equipment()->set_mainhand(19103);
+    pchar->get_equipment()->set_mainhand(11684);
     pchar->get_equipment()->set_offhand(17075);
-    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
+    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Ironfoe");
     assert(pchar->get_equipment()->get_offhand()->get_name() == "Vis'kag the Bloodletter");
     pchar->set_clvl(60);
     auto* start_event = new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs());
