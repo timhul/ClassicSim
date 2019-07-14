@@ -24,13 +24,14 @@ Shaman::Shaman(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings,
     available_enchants = new ShamanEnchants(this);
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db, 0, 0);
+    this->cstats = new CharacterStats(this, equipment_db);
 
     cstats->increase_agility(30);
     cstats->increase_strength(70);
     cstats->increase_stamina(75);
     cstats->increase_intellect(65);
     cstats->increase_spirit(80);
+    cstats->increase_melee_ap(160);
 
     this->shaman_spells = new ShamanSpells(this);
     this->spells = dynamic_cast<CharacterSpells*>(shaman_spells);

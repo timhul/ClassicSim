@@ -16,7 +16,7 @@ class Weapon;
 
 class CharacterStats {
 public:
-    CharacterStats(Character* pchar, EquipmentDb* equipment_db, const unsigned base_melee_crit, const unsigned base_ranged_crit);
+    CharacterStats(Character* pchar, EquipmentDb* equipment_db);
     ~CharacterStats();
 
     Equipment* get_equipment() const;
@@ -213,8 +213,6 @@ public:
 private:
     Character* pchar;
     Equipment* equipment;
-    const unsigned base_melee_crit;
-    const unsigned base_ranged_crit;
     Stats* base_stats;
     QVector<int> melee_attack_speed_buffs;
     QVector<int> ranged_attack_speed_buffs;

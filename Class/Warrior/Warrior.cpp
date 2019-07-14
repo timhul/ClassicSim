@@ -34,7 +34,7 @@ Warrior::Warrior(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     this->available_enchants = new WarriorEnchants(this);
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db, 300, 0);
+    this->cstats = new CharacterStats(this, equipment_db);
 
     cstats->increase_agility(60);
     cstats->increase_intellect(10);

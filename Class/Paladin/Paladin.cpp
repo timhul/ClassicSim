@@ -23,7 +23,7 @@ Paladin::Paladin(Race* race, EquipmentDb* equipment_db, SimSettings* sim_setting
     available_enchants = new PaladinEnchants(this);
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db, 300, 0);
+    this->cstats = new CharacterStats(this, equipment_db);
 
     cstats->increase_agility(20);
     cstats->increase_strength(15);

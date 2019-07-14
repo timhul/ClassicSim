@@ -27,7 +27,7 @@ Hunter::Hunter(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings,
     available_enchants = new HunterEnchants(this);
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db, 0, 300);
+    this->cstats = new CharacterStats(this, equipment_db);
 
     cstats->increase_agility(100);
     cstats->increase_strength(35);

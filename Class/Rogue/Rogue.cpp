@@ -36,7 +36,7 @@ Rogue::Rogue(Race* race, EquipmentDb* equipment_db, SimSettings* sim_settings, R
     available_enchants = new RogueEnchants(this);
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db, 300, 0);
+    this->cstats = new CharacterStats(this, equipment_db);
 
     cstats->increase_agility(110);
     cstats->increase_strength(60);

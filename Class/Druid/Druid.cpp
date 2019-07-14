@@ -19,7 +19,7 @@ Druid::Druid(Race* race, EquipmentDb* equipment_db, SimSettings *sim_settings, R
     available_races.append("Tauren");
 
     set_clvl(60);
-    this->cstats = new CharacterStats(this, equipment_db, 0, 0);
+    this->cstats = new CharacterStats(this, equipment_db);
 
     cstats->increase_agility(40);
     cstats->increase_strength(45);

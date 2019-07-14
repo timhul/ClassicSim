@@ -12,11 +12,9 @@
 #include "Utils/Check.h"
 #include "Weapon.h"
 
-CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db, const unsigned base_melee_crit, const unsigned base_ranged_crit) :
+CharacterStats::CharacterStats(Character* pchar, EquipmentDb* equipment_db) :
     pchar(pchar),
-    equipment(new Equipment(equipment_db, pchar)),
-    base_melee_crit(base_melee_crit),
-    base_ranged_crit(base_ranged_crit)
+    equipment(new Equipment(equipment_db, pchar))
 {
     this->base_stats = new Stats();
 
@@ -139,7 +137,7 @@ unsigned CharacterStats::get_mh_crit_chance() const {
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_mainhand()->get_weapon_type()];
 
     const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
-    const unsigned crit_chance = base_melee_crit + crit_from_agi + aura_crit;
+    const unsigned crit_chance = crit_from_agi + aura_crit;
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
@@ -156,7 +154,7 @@ unsigned CharacterStats::get_oh_crit_chance() const {
         crit_from_wpn_type = crit_bonuses_per_weapon_type[equipment->get_offhand()->get_weapon_type()];
 
     const unsigned aura_crit = pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), equip_effect + crit_from_wpn_type);
-    const unsigned crit_chance = base_melee_crit + crit_from_agi + aura_crit;
+    const unsigned crit_chance = crit_from_agi + aura_crit;
 
     return crit_penalty > crit_chance ? 0 : crit_chance - crit_penalty;
 }
