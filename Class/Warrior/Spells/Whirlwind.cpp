@@ -40,12 +40,12 @@ void Whirlwind::spell_effect() {
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         spells->get_overpower_buff()->apply_buff();
-        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
+        warr->lose_rage(resource_cost);
         return;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
-        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
+        warr->lose_rage(resource_cost);
         return;
     }
 

@@ -52,18 +52,18 @@ void Execute::spell_effect() {
 
     if (result == PhysicalAttackResult::MISS) {
         increment_miss();
-        warr->lose_rage(resource_cost);
+        warr->lose_rage(static_cast<unsigned>(round(warr->get_resource_level(resource_type) * 0.16)));
         return;
     }
     if (result == PhysicalAttackResult::DODGE) {
         increment_dodge();
         spells->get_overpower_buff()->apply_buff();
-        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
+        warr->lose_rage(static_cast<unsigned>(round(warr->get_resource_level(resource_type) * 0.16)));
         return;
     }
     if (result == PhysicalAttackResult::PARRY) {
         increment_parry();
-        warr->lose_rage(static_cast<unsigned>(round(resource_cost * 0.25)));
+        warr->lose_rage(static_cast<unsigned>(round(warr->get_resource_level(resource_type) * 0.16)));
         return;
     }
 
