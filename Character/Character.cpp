@@ -70,6 +70,10 @@ Race* Character::get_race() {
     return this->race;
 }
 
+Resource* Character::get_resource() const {
+    return this->resource;
+}
+
 bool Character::race_available(Race* race) const {
     return available_races.contains(race->get_name());
 }

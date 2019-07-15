@@ -20,12 +20,14 @@ SOURCES += main.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Mage/Buffs/CombustionBuff.cpp \
+    Class/Mage/Buffs/EvocationBuff.cpp \
     Class/Mage/Buffs/FireVulnerability.cpp \
     Class/Mage/Buffs/IgniteBuff.cpp \
     Class/Mage/MageEnchants.cpp \
     Class/Mage/Procs/ClearcastingMage.cpp \
     Class/Mage/Procs/ImprovedScorch.cpp \
     Class/Mage/Spells/Combustion.cpp \
+    Class/Mage/Spells/Evocation.cpp \
     Class/Mage/Spells/Fireball.cpp \
     Class/Mage/Spells/Ignite.cpp \
     Class/Mage/Spells/Scorch.cpp \
@@ -102,6 +104,7 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Mage/Spells/TestEvocation.cpp \
     Test/Mage/Spells/TestFireball.cpp \
     Test/Mage/Spells/TestScorch.cpp \
     Test/Mage/Talents/TestArcane.cpp \
@@ -447,12 +450,14 @@ HEADERS += \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
     Class/Mage/Buffs/CombustionBuff.h \
+    Class/Mage/Buffs/EvocationBuff.h \
     Class/Mage/Buffs/FireVulnerability.h \
     Class/Mage/Buffs/IgniteBuff.h \
     Class/Mage/MageEnchants.h \
     Class/Mage/Procs/ClearcastingMage.h \
     Class/Mage/Procs/ImprovedScorch.h \
     Class/Mage/Spells/Combustion.h \
+    Class/Mage/Spells/Evocation.h \
     Class/Mage/Spells/Fireball.h \
     Class/Mage/Spells/Ignite.h \
     Class/Mage/Spells/Scorch.h \
@@ -531,6 +536,7 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Mage/Spells/TestEvocation.h \
     Test/Mage/Spells/TestFireball.h \
     Test/Mage/Spells/TestScorch.h \
     Test/Mage/Talents/TestArcane.h \

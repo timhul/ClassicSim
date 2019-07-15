@@ -50,6 +50,7 @@ public:
     Faction* get_faction() const;
     Pet* get_pet() const;
     Race* get_race();
+    Resource* get_resource() const;
     SimSettings* get_sim_settings() const;
     CharacterTalents* get_talents() const;
     Target* get_target() const;

@@ -22,10 +22,10 @@ unsigned Mana::get_max_resource() const {
 unsigned Mana::get_resource_per_tick() {
     double mp5 = static_cast<double>(pchar->get_stats()->get_mp5());
 
-    if (lhs_almost_equal_or_less(5.0, pchar->get_engine()->get_current_priority() - last_use_of_mana))
-        mp5 += pchar->get_mp5_from_spirit();
+    if (this->ignore_5sr || lhs_almost_equal_or_less(5.0, pchar->get_engine()->get_current_priority() - last_use_of_mana))
+        mp5 += pchar->get_mp5_from_spirit() * bonus_regen_modifier;
     else
-        mp5 += pchar->get_mp5_from_spirit() * mp5_from_spirit_within_5sr_modifier;
+        mp5 += pchar->get_mp5_from_spirit() * mp5_from_spirit_within_5sr_modifier * bonus_regen_modifier;
 
     double mp2 = mp5 / 5 * 2;
     mp2 += remainder;
@@ -48,6 +48,6 @@ void Mana::lose_resource_effect() {
 }
 
 void Mana::reset_effect() {
-    last_use_of_mana = 0;
+    last_use_of_mana = -5.0;
     remainder = 0;
 }

@@ -8,6 +8,7 @@
 #include "RaidControl.h"
 #include "SimSettings.h"
 #include "TestArcane.h"
+#include "TestEvocation.h"
 #include "TestFire.h"
 #include "TestFireball.h"
 #include "TestFrost.h"
@@ -29,6 +30,7 @@ void TestMage::test_all() {
     TestMageTalentStatIncrease(equipment_db).test_all();
     TestFireball(equipment_db).test_all();
     TestScorch(equipment_db).test_all();
+    TestEvocation(equipment_db).test_all();
 }
 
 void TestMage::test_values_after_initialization() {

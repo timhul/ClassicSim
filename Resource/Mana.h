@@ -21,6 +21,7 @@ public:
     friend class Priest;
     friend class Shaman;
     friend class Warlock;
+    friend class EvocationBuff;
 
 private:
     unsigned base_mana {0};
@@ -28,6 +29,8 @@ private:
     double last_use_of_mana {0.0};
     double remainder {0.0};
     double mp5_from_spirit_within_5sr_modifier {0.0};
+    bool ignore_5sr {false};
+    double bonus_regen_modifier {1.0};
 
     void add_next_tick();
 

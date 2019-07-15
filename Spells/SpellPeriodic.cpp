@@ -50,7 +50,6 @@ void SpellPeriodic::invalidate() {
 }
 
 void SpellPeriodic::spell_effect() {
-
     if (!is_enabled())
         return;
 

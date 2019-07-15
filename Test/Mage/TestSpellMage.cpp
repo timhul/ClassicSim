@@ -6,6 +6,7 @@
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
+#include "Evocation.h"
 #include "Fire.h"
 #include "Fireball.h"
 #include "Item.h"
@@ -44,6 +45,10 @@ Fireball* TestSpellMage::fireball() const {
 
 Scorch* TestSpellMage::scorch() const {
     return dynamic_cast<Scorch*>(get_max_rank_spell_by_name("Scorch"));
+}
+
+Evocation* TestSpellMage::evocation() const {
+    return dynamic_cast<Evocation*>(get_max_rank_spell_by_name("Evocation"));
 }
 
 void TestSpellMage::run_class_specific_tests() {

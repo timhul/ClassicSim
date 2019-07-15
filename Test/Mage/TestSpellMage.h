@@ -2,6 +2,7 @@
 
 #include "TestSpellDamage.h"
 
+class Evocation;
 class Fireball;
 class Mage;
 class Scorch;
@@ -19,6 +20,7 @@ protected:
 
     Fireball* fireball() const;
     Scorch* scorch() const;
+    Evocation* evocation() const;
 
     void run_class_specific_tests() override;
 

@@ -2,6 +2,7 @@
 
 #include "ClearcastingMage.h"
 #include "Combustion.h"
+#include "Evocation.h"
 #include "FireVulnerability.h"
 #include "Fireball.h"
 #include "Ignite.h"
@@ -62,6 +63,8 @@ MageSpells::MageSpells(Mage* mage) :
 
     combustion = new Combustion(mage);
     add_spell_group({combustion});
+
+    add_spell_group({new Evocation(mage)});
 
     this->clearcasting = new ClearcastingMage(mage);
 }
