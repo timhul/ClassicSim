@@ -2,8 +2,8 @@
 
 #include "Character.h"
 
+class Mana;
 class ShamanSpells;
-
 
 class Shaman: public Character {
 public:
@@ -37,7 +37,7 @@ public:
 
 private:
     ShamanSpells* shaman_spells;
-    class Mana* mana;
+    Mana* mana;
 
     void initialize_talents() override;
     void reset_class_specific() override;

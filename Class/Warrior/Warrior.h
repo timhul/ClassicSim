@@ -58,7 +58,7 @@ private:
     unsigned stance_rage_remainder;
     double next_stance_cd;
     double rage_conversion_value{};
-    class Rage* rage;
+    Rage* rage;
     WarriorSpells* warr_spells;
 
     void initialize_talents() override;

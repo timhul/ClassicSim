@@ -3,6 +3,7 @@
 #include "Character.h"
 
 class MageSpells;
+class Mana;
 
 class Mage: public Character {
 public:
@@ -41,7 +42,7 @@ public:
 
 private:
     MageSpells* mage_spells;
-    class Mana* mana;
+    Mana* mana;
 
     void initialize_talents() override;
     void reset_class_specific() override;

@@ -10,7 +10,7 @@
 #include "Pet.h"
 #include "Utils/Check.h"
 
-TalentStatIncrease::TalentStatIncrease(Character *pchar, TalentTree* tree,
+TalentStatIncrease::TalentStatIncrease(Character* pchar, TalentTree* tree,
                                        const QString& name, const QString& location,
                                        const QString& icon, const unsigned max_points,
                                        const QString& rank_description,
@@ -54,7 +54,7 @@ void TalentStatIncrease::apply_rank_effect() {
             pchar->get_pet()->increase_crit_chance(change);
             continue;
         case PetFocusGain:
-            dynamic_cast<class Focus*>(pchar->get_pet()->get_resource())->increase_focus_gain();
+            dynamic_cast<Focus*>(pchar->get_pet()->get_resource())->increase_focus_gain();
             continue;
         case AttackPower:
             cstats->increase_melee_ap(change);
@@ -173,9 +173,9 @@ void TalentStatIncrease::apply_rank_effect() {
             break;
         case MaxManaMod:
             if (curr_points != 1)
-                dynamic_cast<class Mana*>(pchar->get_resource())->decrease_max_mana_mod((curr_points - 1) * change);
+                dynamic_cast<Mana*>(pchar->get_resource())->decrease_max_mana_mod((curr_points - 1) * change);
 
-            dynamic_cast<class Mana*>(pchar->get_resource())->increase_max_mana_mod(curr_points * change);
+            dynamic_cast<Mana*>(pchar->get_resource())->increase_max_mana_mod(curr_points * change);
             break;
         case FireCrit:
         case Defense:
@@ -220,7 +220,7 @@ void TalentStatIncrease::remove_rank_effect() {
             pchar->get_pet()->decrease_crit_chance(change);
             continue;
         case PetFocusGain:
-            dynamic_cast<class Focus*>(pchar->get_pet()->get_resource())->decrease_focus_gain();
+            dynamic_cast<Focus*>(pchar->get_pet()->get_resource())->decrease_focus_gain();
             continue;
         case AttackPower:
             cstats->decrease_melee_ap(change);
@@ -343,10 +343,10 @@ void TalentStatIncrease::remove_rank_effect() {
             pchar->decrease_mp5_within_5sr_modifier(static_cast<double>(change) / 100);
             break;
         case MaxManaMod:
-            dynamic_cast<class Mana*>(pchar->get_resource())->decrease_max_mana_mod((curr_points + 1) * change);
+            dynamic_cast<Mana*>(pchar->get_resource())->decrease_max_mana_mod((curr_points + 1) * change);
 
             if (curr_points > 0)
-                dynamic_cast<class Mana*>(pchar->get_resource())->increase_max_mana_mod((curr_points) * change);
+                dynamic_cast<Mana*>(pchar->get_resource())->increase_max_mana_mod((curr_points) * change);
             break;
         case Defense:
         case Parry:

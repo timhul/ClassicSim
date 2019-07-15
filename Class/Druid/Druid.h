@@ -39,9 +39,9 @@ public:
 private:
     DruidSpells* druid_spells;
 
-    class Energy* energy;
-    class Mana* mana;
-    class Rage* rage;
+    Energy* energy;
+    Mana* mana;
+    Rage* rage;
 
     void initialize_talents() override;
     void reset_class_specific() override;

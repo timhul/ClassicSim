@@ -3,6 +3,7 @@
 #include "ItemModificationRequirer.h"
 #include "Pet.h"
 
+class Focus;
 class FrenzyProc;
 class Hunter;
 
@@ -19,6 +20,6 @@ public:
     void deactivate_item_effect(const int item_id) override;
 
 protected:
-    class Focus* focus;
+    Focus* focus;
     FrenzyProc* frenzy_proc;
 };

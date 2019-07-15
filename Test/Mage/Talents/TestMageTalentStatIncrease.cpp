@@ -209,37 +209,37 @@ void TestMageTalentStatIncrease::test_arcane_mind() {
     Talent* prereq = tree.get_talent_from_name("Arcane Resilience");
     assert(prereq->increment_rank());
     Talent* talent = tree.get_talent_from_name("Arcane Mind");
-    const unsigned max_mana_before = dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource();
+    const unsigned max_mana_before = dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource();
 
     assert(talent->increment_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.02)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.02)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->increment_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.04)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.04)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->increment_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.06)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.06)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->increment_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.08)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.08)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->increment_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.10)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.10)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->decrement_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.08)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.08)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->decrement_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.06)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.06)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->decrement_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.04)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.04)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->decrement_rank());
-    assert(static_cast<unsigned>(round(max_mana_before * 1.02)) == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(static_cast<unsigned>(round(max_mana_before * 1.02)) == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 
     assert(talent->decrement_rank());
-    assert(max_mana_before == dynamic_cast<class Mana*>(pchar->get_resource())->get_max_resource());
+    assert(max_mana_before == dynamic_cast<Mana*>(pchar->get_resource())->get_max_resource());
 }
 
 void TestMageTalentStatIncrease::test_piercing_ice() {

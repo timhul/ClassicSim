@@ -172,7 +172,7 @@ bool Rogue::is_stealthed() const {
     return this->stealthed;
 }
 
-class Energy* Rogue::get_energy() const {
+Energy* Rogue::get_energy() const {
     return this->energy;
 }
 

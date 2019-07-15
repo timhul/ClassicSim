@@ -3,6 +3,7 @@
 #include "Character.h"
 
 class HunterSpells;
+class Mana;
 
 class Hunter: public Character {
 public:
@@ -40,7 +41,7 @@ public:
 
 private:
     HunterSpells* hunter_spells;
-    class Mana* mana;
+    Mana* mana;
     double projectile_dps;
 
     void initialize_talents() override;

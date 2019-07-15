@@ -3,6 +3,7 @@
 #include "Character.h"
 
 class Buff;
+class Mana;
 class PaladinSpells;
 class Vengeance;
 
@@ -39,7 +40,7 @@ public:
 
 private:
     PaladinSpells* paladin_spells;
-    class Mana* mana;
+    Mana* mana;
 
     Vengeance* vengeance;
 

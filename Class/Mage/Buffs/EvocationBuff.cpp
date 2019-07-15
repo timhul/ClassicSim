@@ -6,7 +6,7 @@
 
 EvocationBuff::EvocationBuff(Character* pchar):
     SelfBuff(pchar, "Evocation", "Assets/spell/Spell_nature_purge.png", 8, 0),
-    mana(dynamic_cast<class Mana*>(pchar->get_resource()))
+    mana(dynamic_cast<Mana*>(pchar->get_resource()))
 {
     check((mana != nullptr), "EvocationBuff:: Mana nullptr");
 }

@@ -2,6 +2,7 @@
 
 #include "Character.h"
 
+class Mana;
 class WarlockSpells;
 
 class Warlock: public Character {
@@ -35,7 +36,7 @@ public:
 
 private:
     WarlockSpells* warlock_spells;
-    class Mana* mana;
+    Mana* mana;
 
     void initialize_talents() override;
     void reset_class_specific() override;

@@ -43,7 +43,7 @@ public:
     void exit_stealth();
     bool is_stealthed() const;
 
-    class Energy* get_energy() const;
+    Energy* get_energy() const;
     InstantPoison* get_mh_instant_poison() const;
     InstantPoison* get_oh_instant_poison() const;
     RelentlessStrikes* get_relentless_strikes() const;
@@ -53,7 +53,7 @@ public:
 
 private:
     RogueSpells* rogue_spells;
-    class Energy* energy;
+    Energy* energy;
     InstantPoison* mh_instant_poison;
     InstantPoison* oh_instant_poison;
     RelentlessStrikes* relentless_strikes;
