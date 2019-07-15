@@ -1,6 +1,7 @@
 #pragma once
 
-#include "SpellCastingTime.h"
+#include "CastingTimeRequirer.h"
+#include "Spell.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
@@ -10,7 +11,7 @@ class Random;
 class Shaman;
 class ShamanSpells;
 
-class LightningBolt: public SpellCastingTime, public TalentRequirer {
+class LightningBolt: public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spell_rank);
     ~LightningBolt() override;

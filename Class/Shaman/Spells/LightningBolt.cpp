@@ -12,7 +12,8 @@
 #include "Utils/Check.h"
 
 LightningBolt::LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spell_rank) :
-    SpellCastingTime("Lightning Bolt", "Assets/spell/Spell_nature_lightning.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    Spell("Lightning Bolt", "Assets/spell/Spell_nature_lightning.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    CastingTimeRequirer(pchar, 2500),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Tidal Mastery", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Call of Thunder", 5, DisabledAtZero::No),
@@ -98,7 +99,7 @@ LightningBolt::LightningBolt(Shaman* pchar, ShamanSpells* spells, const int spel
     }
 
     this->random = new Random(base_damage_min, base_damage_max);
-    this->spell_dmg_coefficient = spell_coefficient_from_casting_time();
+    this->spell_dmg_coefficient = CastingTimeRequirer::spell_coefficient_from_casting_time(casting_time_ms, level_req);
     this->resource_cost = base_resource_cost;
 }
 

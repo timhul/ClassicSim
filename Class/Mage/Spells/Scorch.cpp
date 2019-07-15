@@ -12,7 +12,8 @@
 #include "Utils/Check.h"
 
 Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell_rank) :
-    SpellCastingTime("Scorch", "Assets/spell/Spell_fire_soulburn.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    Spell("Scorch", "Assets/spell/Spell_fire_soulburn.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    CastingTimeRequirer(pchar, 1500),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Scorch", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Incinerate", 2, DisabledAtZero::No),
@@ -23,8 +24,6 @@ Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell
     mage_spells(mage_spells),
     imp_scorch(proc)
 {
-    casting_time_ms = 1500;
-
     switch (spell_rank) {
     case 1:
         base_damage_min = 53;
@@ -72,7 +71,7 @@ Scorch::Scorch(Mage* pchar, MageSpells* mage_spells, Proc* proc, const int spell
         check(false, QString("%1 does not support rank %2").arg(name).arg(spell_rank).toStdString());
     }
 
-    this->spell_dmg_coefficient = spell_coefficient_from_casting_time();
+    this->spell_dmg_coefficient = CastingTimeRequirer::spell_coefficient_from_casting_time(casting_time_ms, level_req);
     this->resource_cost = base_resource_cost;
     this->instant_dmg = new Random(base_damage_min, base_damage_max);
 }

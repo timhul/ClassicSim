@@ -2,14 +2,14 @@
 
 #include "Event.h"
 
-class SpellCastingTime;
+class CastingTimeRequirer;
 
 class CastComplete: public Event {
 public:
-    CastComplete(SpellCastingTime* spell, const double timestamp);
+    CastComplete(CastingTimeRequirer* cast, const double timestamp);
 
     void act() override;
 
 private:
-    SpellCastingTime* spell;
+    CastingTimeRequirer* cast;
 };

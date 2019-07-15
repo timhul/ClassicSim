@@ -2,13 +2,14 @@
 
 #include <QVector>
 
-#include "SpellCastingTime.h"
+#include "CastingTimeRequirer.h"
+#include "Spell.h"
 #include "TalentRequirer.h"
 
 class Warrior;
 class WarriorSpells;
 
-class Slam: public SpellCastingTime, public TalentRequirer {
+class Slam: public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     Slam(Warrior* pchar, WarriorSpells* spells);
     ~Slam() override;

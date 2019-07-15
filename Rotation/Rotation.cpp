@@ -3,11 +3,12 @@
 #include <QDebug>
 #include <utility>
 
+#include "CastingTimeRequirer.h"
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "ClassStatistics.h"
-#include "ConditionBuffStacks.h"
 #include "ConditionBuffDuration.h"
+#include "ConditionBuffStacks.h"
 #include "ConditionResource.h"
 #include "ConditionSpell.h"
 #include "ConditionVariableBuiltin.h"
@@ -15,7 +16,6 @@
 #include "RaidControl.h"
 #include "RotationExecutor.h"
 #include "Spell.h"
-#include "SpellCastingTime.h"
 #include "SpellRankGroup.h"
 #include "Utils/Check.h"
 
@@ -90,9 +90,9 @@ void Rotation::link_precast_spell() {
         return;
 
     // TODO: Doesn't have to be max rank, could include "rank" attribute on element.
-    SpellCastingTime* spell = dynamic_cast<SpellCastingTime*>(spell_group->get_max_available_spell_rank());
+    Spell* spell = spell_group->get_max_available_spell_rank();
 
-    if (spell == nullptr)
+    if (dynamic_cast<CastingTimeRequirer*>(spell) == nullptr)
         return;
 
     precast_spell = spell;
@@ -189,7 +189,7 @@ bool Rotation::add_conditionals(RotationExecutor * executor) {
 }
 
 double Rotation::get_time_required_to_run_precombat() {
-    return precast_spell ? precast_spell->get_cast_time() : pchar->global_cooldown();
+    return precast_spell ? dynamic_cast<CastingTimeRequirer*>(precast_spell)->get_cast_time() : pchar->global_cooldown();
 }
 
 void Rotation::set_name(const QString& name) {

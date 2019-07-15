@@ -1,13 +1,14 @@
 #pragma once
 
+#include "CastingTimeRequirer.h"
 #include "SetBonusRequirer.h"
-#include "SpellCastingTime.h"
+#include "Spell.h"
 #include "TalentRequirer.h"
 
 class Hunter;
 class StatisticsResource;
 
-class AimedShot: public SpellCastingTime, public TalentRequirer, public SetBonusRequirer {
+class AimedShot: public Spell, public CastingTimeRequirer, public TalentRequirer, public SetBonusRequirer {
 public:
     AimedShot(Hunter* pchar, CooldownControl* cooldown_control);
 

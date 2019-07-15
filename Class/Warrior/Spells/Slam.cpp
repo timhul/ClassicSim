@@ -12,10 +12,11 @@
 #include "WarriorSpells.h"
 
 Slam::Slam(Warrior* pchar, WarriorSpells* spells) :
-    SpellCastingTime("Slam", "Assets/ability/Ability_warrior_decisivestrike.png",
-                     pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes,
-                     ResourceType::Rage,
-                     15),
+    Spell("Slam", "Assets/ability/Ability_warrior_decisivestrike.png",
+          pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes,
+          ResourceType::Rage,
+          15),
+    CastingTimeRequirer(pchar, 1500),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Slam", 5, DisabledAtZero::No)}),
     warr(pchar),
     spells(spells),

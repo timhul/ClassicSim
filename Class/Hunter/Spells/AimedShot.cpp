@@ -11,13 +11,14 @@
 #include "Utils/Check.h"
 
 AimedShot::AimedShot(Hunter* pchar, CooldownControl* cooldown_control) :
-    SpellCastingTime("Aimed Shot",
-                     "Assets/items/Inv_spear_07.png",
-                     pchar,
-                     cooldown_control,
-                     RestrictedByGcd::Yes,
-                     ResourceType::Mana,
-                     310),
+    Spell("Aimed Shot",
+          "Assets/items/Inv_spear_07.png",
+          pchar,
+          cooldown_control,
+          RestrictedByGcd::Yes,
+          ResourceType::Mana,
+          310),
+    CastingTimeRequirer(pchar, 3000),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Aimed Shot", 1, DisabledAtZero::Yes),
                                                 new TalentRequirerInfo("Efficiency", 5, DisabledAtZero::No),
                                                 new TalentRequirerInfo("Mortal Shots", 5, DisabledAtZero::No)}),

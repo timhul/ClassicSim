@@ -93,6 +93,7 @@ SOURCES += main.cpp \
     Raid/RaidControl.cpp \
     Rotation/Conditions/ConditionBuffDuration.cpp \
     Rotation/Conditions/ConditionBuffStacks.cpp \
+    Spells/CastingTimeRequirer.cpp \
     Spells/CooldownControl.cpp \
     Spells/PartyBuff.cpp \
     Spells/SelfBuff.cpp \
@@ -267,7 +268,6 @@ SOURCES += main.cpp \
     Event/Events/CastComplete.cpp \
     Test/Warrior/Spells/TestSlam.cpp \
     Talent/TalentRequirer.cpp \
-    Spells/SpellCastingTime.cpp \
     Test/Warrior/Talents/TestFury.cpp \
     GUI/Models/RotationModel.cpp \
     Test/Warrior/Talents/TestArms.cpp \
@@ -521,6 +521,7 @@ HEADERS += \
     Raid/RaidControl.h \
     Rotation/Conditions/ConditionBuffDuration.h \
     Rotation/Conditions/ConditionBuffStacks.h \
+    Spells/CastingTimeRequirer.h \
     Spells/CooldownControl.h \
     Spells/PartyBuff.h \
     Spells/SelfBuff.h \
@@ -703,7 +704,6 @@ HEADERS += \
     Event/Events/CastComplete.h \
     Test/Warrior/Spells/TestSlam.h \
     Talent/TalentRequirer.h \
-    Spells/SpellCastingTime.h \
     Test/Warrior/Talents/TestFury.h \
     GUI/Models/RotationModel.h \
     Test/Warrior/Talents/TestArms.h \

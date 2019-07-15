@@ -2,6 +2,7 @@
 
 #include <QDebug>
 
+#include "CastingTimeRequirer.h"
 #include "Character.h"
 #include "CharacterSpells.h"
 #include "CharacterStats.h"
@@ -14,7 +15,7 @@
 #include "NumberCruncher.h"
 #include "RaidControl.h"
 #include "Rotation.h"
-#include "SpellCastingTime.h"
+#include "Spell.h"
 
 SimControl::SimControl(SimSettings* sim_settings, NumberCruncher *scaler) :
     sim_settings(sim_settings),

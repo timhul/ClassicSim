@@ -1,13 +1,13 @@
 #include "CastComplete.h"
 
+#include "CastingTimeRequirer.h"
 #include "Engine.h"
-#include "SpellCastingTime.h"
 
-CastComplete::CastComplete(SpellCastingTime* spell, const double timestamp):
+CastComplete::CastComplete(CastingTimeRequirer* cast, const double timestamp):
     Event(EventType::CastComplete, timestamp),
-    spell(spell)
+    cast(cast)
 {}
 
 void CastComplete::act() {
-    spell->complete_cast();
+    cast->complete_cast();
 }

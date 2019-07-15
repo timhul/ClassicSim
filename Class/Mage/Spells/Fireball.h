@@ -1,6 +1,7 @@
 #pragma once
 
-#include "SpellCastingTime.h"
+#include "CastingTimeRequirer.h"
+#include "Spell.h"
 #include "TalentRequirer.h"
 
 #include <QVector>
@@ -11,7 +12,7 @@ class Mage;
 class MageSpells;
 class StatisticsResource;
 
-class Fireball: public SpellCastingTime, public TalentRequirer {
+class Fireball: public Spell, public CastingTimeRequirer, public TalentRequirer {
 public:
     Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank);
     ~Fireball() override;

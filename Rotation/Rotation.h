@@ -7,10 +7,10 @@
 #include "Resource.h"
 
 class Buff;
+class CastingTimeRequirer;
 class Character;
 class RotationExecutor;
 class Spell;
-class SpellCastingTime;
 
 class Rotation {
 public:
@@ -42,7 +42,7 @@ public:
     QVector<RotationExecutor*> active_executors;
     QVector<RotationExecutor*> all_executors;
     QVector<Spell*> precombat_spells;
-    SpellCastingTime* precast_spell {nullptr};
+    Spell* precast_spell {nullptr};
     double get_time_required_to_run_precombat();
 
     void dump();

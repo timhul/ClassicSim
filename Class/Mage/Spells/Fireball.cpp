@@ -13,7 +13,8 @@
 #include "Utils/Check.h"
 
 Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
-    SpellCastingTime("Fireball", "Assets/spell/Spell_fire_flamebolt.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    Spell("Fireball", "Assets/spell/Spell_fire_flamebolt.png", pchar, new CooldownControl(pchar, 0.0), RestrictedByGcd::Yes, ResourceType::Mana, 0, spell_rank),
+    CastingTimeRequirer(pchar, 3500),
     TalentRequirer(QVector<TalentRequirerInfo*>{
                    new TalentRequirerInfo("Improved Fireball", 5, DisabledAtZero::No),
                    new TalentRequirerInfo("Burning Soul", 2, DisabledAtZero::No),
@@ -136,7 +137,7 @@ Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
     }
 
     this->casting_time_ms = base_casting_time_ms;
-    this->spell_dmg_coefficient = spell_coefficient_from_casting_time();
+    this->spell_dmg_coefficient = CastingTimeRequirer::spell_coefficient_from_casting_time(casting_time_ms, level_req);
     this->resource_cost = base_resource_cost;
 
     QString empty_format_string = "";
