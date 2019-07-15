@@ -98,7 +98,6 @@ void TestFireball::test_is_ready_conditions() {
 }
 
 void TestFireball::test_resource_cost() {
-    given_a_guaranteed_melee_ability_hit();
     given_mage_has_mana(411);
 
     when_fireball_is_performed();

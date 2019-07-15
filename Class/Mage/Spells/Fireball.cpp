@@ -119,7 +119,7 @@ Fireball::Fireball(Mage* pchar, MageSpells* mage_spells, const int spell_rank) :
         base_damage_max = 716;
         base_dot_damage = 72;
         base_dot_duration = 8;
-        base_resource_cost = 95;
+        base_resource_cost = 395;
         base_casting_time_ms = 3500;
         level_req = 60;
         break;
