@@ -957,6 +957,24 @@ double CharacterStats::get_magic_school_damage_mod(const MagicSchool school) con
     return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school);
 }
 
+void CharacterStats::increase_magic_school_damage_mod(const unsigned increase) {
+    increase_magic_school_damage_mod(increase, MagicSchool::Arcane);
+    increase_magic_school_damage_mod(increase, MagicSchool::Fire);
+    increase_magic_school_damage_mod(increase, MagicSchool::Frost);
+    increase_magic_school_damage_mod(increase, MagicSchool::Holy);
+    increase_magic_school_damage_mod(increase, MagicSchool::Nature);
+    increase_magic_school_damage_mod(increase, MagicSchool::Shadow);
+}
+
+void CharacterStats::decrease_magic_school_damage_mod(const unsigned decrease) {
+    decrease_magic_school_damage_mod(decrease, MagicSchool::Arcane);
+    decrease_magic_school_damage_mod(decrease, MagicSchool::Fire);
+    decrease_magic_school_damage_mod(decrease, MagicSchool::Frost);
+    decrease_magic_school_damage_mod(decrease, MagicSchool::Holy);
+    decrease_magic_school_damage_mod(decrease, MagicSchool::Nature);
+    decrease_magic_school_damage_mod(decrease, MagicSchool::Shadow);
+}
+
 void CharacterStats::increase_magic_school_damage_mod(const unsigned increase, const MagicSchool school) {
     add_multiplicative_effect(magic_school_damage_changes[school], static_cast<int>(increase), magic_school_damage_modifiers[school]);
 }

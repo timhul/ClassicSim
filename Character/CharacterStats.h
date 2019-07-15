@@ -145,6 +145,8 @@ public:
     void decrease_spell_penetration(const MagicSchool school, const unsigned decrease);
 
     double get_magic_school_damage_mod(const MagicSchool school) const;
+    void increase_magic_school_damage_mod(const unsigned increase);
+    void decrease_magic_school_damage_mod(const unsigned decrease);
     void increase_magic_school_damage_mod(const unsigned increase, const MagicSchool school);
     void decrease_magic_school_damage_mod(const unsigned decrease, const MagicSchool school);
 

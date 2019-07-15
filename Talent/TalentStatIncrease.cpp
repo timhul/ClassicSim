@@ -127,8 +127,11 @@ void TalentStatIncrease::apply_rank_effect() {
             }
             continue;
         }
-        case SpellHit:
-            pchar->get_stats()->increase_spell_hit(change);
+        case SpellDmgMod:
+            if (curr_points != 1)
+                pchar->get_stats()->decrease_magic_school_damage_mod((curr_points - 1) * change);
+
+            pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change);
             break;
         case FireDmgMod:
             if (curr_points != 1)
@@ -141,6 +144,9 @@ void TalentStatIncrease::apply_rank_effect() {
                 pchar->get_stats()->decrease_magic_school_damage_mod((curr_points - 1) * change, MagicSchool::Frost);
 
             pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Frost);
+            break;
+        case SpellHit:
+            pchar->get_stats()->increase_spell_hit(change);
             break;
         case ArcaneHit:
             pchar->get_stats()->increase_spell_hit(MagicSchool::Arcane, change);
@@ -177,12 +183,14 @@ void TalentStatIncrease::apply_rank_effect() {
 
             dynamic_cast<Mana*>(pchar->get_resource())->increase_max_mana_mod(curr_points * change);
             break;
+        case SpellCrit:
+            pchar->get_stats()->increase_spell_crit(change);
+            break;
         case FireCrit:
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case ShadowDmgMod:
-        case SpellDmgMod:
             continue;
         }
     }
@@ -298,8 +306,11 @@ void TalentStatIncrease::remove_rank_effect() {
 
             continue;
         }
-        case SpellHit:
-            pchar->get_stats()->decrease_spell_hit(change);
+        case SpellDmgMod:
+            pchar->get_stats()->decrease_magic_school_damage_mod((curr_points + 1) * change);
+
+            if (curr_points > 0)
+                pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change);
             break;
         case FireDmgMod:
             pchar->get_stats()->decrease_magic_school_damage_mod((curr_points + 1) * change, MagicSchool::Fire);
@@ -312,6 +323,9 @@ void TalentStatIncrease::remove_rank_effect() {
 
             if (curr_points > 0)
                 pchar->get_stats()->increase_magic_school_damage_mod(curr_points * change, MagicSchool::Frost);
+            break;
+        case SpellHit:
+            pchar->get_stats()->decrease_spell_hit(change);
             break;
         case ArcaneHit:
             pchar->get_stats()->decrease_spell_hit(MagicSchool::Arcane, change);
@@ -348,12 +362,14 @@ void TalentStatIncrease::remove_rank_effect() {
             if (curr_points > 0)
                 dynamic_cast<Mana*>(pchar->get_resource())->increase_max_mana_mod((curr_points) * change);
             break;
+        case SpellCrit:
+            pchar->get_stats()->decrease_spell_crit(change);
+            break;
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case FireCrit:
         case ShadowDmgMod:
-        case SpellDmgMod:
             continue;
         }
     }

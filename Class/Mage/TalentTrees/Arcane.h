@@ -18,4 +18,5 @@ private:
     void add_arcane_concentration(QMap<QString, Talent*>& talent_tier);
     void add_arcane_meditation(QMap<QString, Talent*>& talent_tier);
     void add_arcane_mind(QMap<QString, Talent*>& talent_tier);
+    void add_arcane_instability(QMap<QString, Talent*>& talent_tier);
 };

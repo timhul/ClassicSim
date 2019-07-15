@@ -18,9 +18,10 @@ private:
     void test_is_ready_conditions() override;
 
     void test_fire_power();
-    void test_elemental_precision();
     void test_arcane_subtlety();
     void test_arcane_focus();
     void test_arcane_mind();
+    void test_arcane_instability();
+    void test_elemental_precision();
     void test_piercing_ice();
 };

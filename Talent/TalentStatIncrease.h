@@ -44,6 +44,7 @@ enum TalentStat {
     MaxManaMod,
     BaseManaRegenWhileCasting,
     SpellDmgMod,
+    SpellCrit,
 };
 
 class CharacterStats;

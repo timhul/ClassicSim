@@ -53,7 +53,8 @@ Arcane::Arcane(Mage* mage) :
     add_arcane_mind(tier5);
     add_talents(tier5);
 
-    QMap<QString, Talent*> tier6 {{"6ML", new Talent(mage, this, "Arcane Instability", "6ML", "Assets/spell/Spell_shadow_teleport.png", 3, "Increases your spell damage and critical strike chance by %1%.", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
+    QMap<QString, Talent*> tier6 {};
+    add_arcane_instability(tier6);
     add_talents(tier6);
 
     QMap<QString, Talent*> tier7 {{"7ML", new Talent(mage, this, "Arcane Power", "7ML", "Assets/spell/Spell_nature_lightning.png", 1, "When activated, your spells deal 30% more damage while costing 30% more mana to cast. This effect lasts 15 sec.", QVector<QPair<unsigned, unsigned>>())}};
@@ -115,3 +116,13 @@ void Arcane::add_arcane_mind(QMap<QString, Talent*>& talent_tier) {
 
     add_talent_to_tier(talent_tier, talent);
 }
+
+void Arcane::add_arcane_instability(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = new TalentStatIncrease(mage, this, "Arcane Instability", "6ML", "Assets/spell/Spell_shadow_teleport.png", 3,
+                                            "Increases your spell damage and critical strike chance by %1%.",
+                                            QVector<QPair<unsigned, unsigned>>{{1, 1}},
+                                            QVector<QPair<TalentStat, unsigned>>{{TalentStat::SpellDmgMod, 1}, {TalentStat::SpellCrit, 100}});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
