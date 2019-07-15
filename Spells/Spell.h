@@ -80,6 +80,9 @@ public:
     int get_instance_id() const;
     void set_instance_id(const int);
 
+    void increase_resource_cost_modifier(const int change);
+    void decrease_resource_cost_modifier(const int change);
+
 protected:
     virtual void spell_effect() = 0;
     virtual void enable_spell_effect();
@@ -99,6 +102,8 @@ protected:
     const RestrictedByGcd restricted_by_gcd;
     const ResourceType resource_type;
     unsigned resource_cost;
+    double resource_cost_mod {1.0};
+    QVector<int> resource_cost_mod_changes;
     const int spell_rank;
     unsigned level_req {60};
     int instance_id;

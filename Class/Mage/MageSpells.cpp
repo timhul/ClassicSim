@@ -1,5 +1,6 @@
 #include "MageSpells.h"
 
+#include "ArcanePower.h"
 #include "ClearcastingMage.h"
 #include "Combustion.h"
 #include "Evocation.h"
@@ -78,6 +79,7 @@ MageSpells::MageSpells(Mage* mage) :
     combustion = new Combustion(mage);
     add_spell_group({combustion});
 
+    add_spell_group({new ArcanePower(mage)});
     add_spell_group({new Evocation(mage)});
 
     this->clearcasting = new ClearcastingMage(mage);

@@ -72,6 +72,10 @@ void TestFrostbolt::test_all() {
     test_crits_do_not_apply_ignite();
     tear_down();
 
+    set_up(false);
+    test_hit_dmg_arcane_power();
+    tear_down();
+
     set_up();
     test_casting_speed_increases_reduces_casting_time();
     tear_down();
@@ -306,6 +310,23 @@ void TestFrostbolt::test_casting_speed_increases_reduces_casting_time() {
 
     pchar->get_stats()->decrease_casting_speed(100);
     assert(almost_equal(3.0, frostbolt()->get_cast_time()));
+}
+
+void TestFrostbolt::test_hit_dmg_arcane_power() {
+    given_mage_has_mana(378);
+    given_a_guaranteed_magic_hit(MagicSchool::Frost);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+    given_arcane_power_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_frostbolt_is_performed();
+    when_running_queued_events_until(4.51);
+
+    // [Damage] = (base_dmg + spell_power * spell_coefficient * 2ndary_effect_penalty) * arcane_power * arcane_instability
+    // [1780 - 1833] = ([515 - 555] + 1000 * (3 / 3.5) * 0.95) * 1.3 * 1.03
+    then_damage_dealt_is_in_range(1780, 1833);
+    then_mage_has_mana(1);
 }
 
 void TestFrostbolt::when_frostbolt_is_performed() {

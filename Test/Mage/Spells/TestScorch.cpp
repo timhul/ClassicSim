@@ -63,6 +63,10 @@ void TestScorch::test_all() {
     set_up(false);
     test_3_of_3_imp_scorch_applies_debuff_on_crit();
     tear_down();
+
+    set_up(false);
+    test_hit_dmg_arcane_power();
+    tear_down();
 }
 
 void TestScorch::test_name_correct() {
@@ -274,6 +278,23 @@ void TestScorch::test_3_of_3_imp_scorch_applies_debuff_on_crit() {
     when_running_queued_events_until(1.501);
 
     assert(almost_equal(1.03, pchar->get_target()->get_magic_school_damage_mod(MagicSchool::Fire)));
+}
+
+void TestScorch::test_hit_dmg_arcane_power() {
+    given_mage_has_mana(196);
+    given_a_guaranteed_magic_hit(MagicSchool::Fire);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+    given_arcane_power_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_scorch_is_performed();
+    when_running_queued_events_until(3.01);
+
+    // [Damage] = (base_dmg + spell_power * spell_coefficient) * arcane_power * arcane_instability
+    // [886 - 942] = ([233- 275] + 1000 * (1.5 / 3.5)) * 1.3 * 1.03
+    then_damage_dealt_is_in_range(886, 942);
+    then_mage_has_mana(1);
 }
 
 void TestScorch::when_scorch_is_performed() {

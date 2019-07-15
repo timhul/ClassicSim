@@ -64,7 +64,8 @@ double Spell::get_next_use() const {
 
 double Spell::get_resource_cost() const {
     const unsigned mana_skill_reduction = resource_type == ResourceType::Mana ? pchar->get_stats()->get_mana_skill_reduction() : 0;
-    return mana_skill_reduction > resource_cost ? 0 : resource_cost - mana_skill_reduction;
+    const unsigned calculated_resource_cost = static_cast<unsigned>(round(resource_cost * resource_cost_mod));
+    return mana_skill_reduction > calculated_resource_cost ? 0 : calculated_resource_cost - mana_skill_reduction;
 }
 
 SpellStatus Spell::is_ready_spell_specific() const {
@@ -217,6 +218,14 @@ int Spell::get_instance_id() const {
 
 void Spell::set_instance_id(const int instance_id) {
     this->instance_id = instance_id;
+}
+
+void Spell::increase_resource_cost_modifier(const int change) {
+    CharacterStats::add_multiplicative_effect(resource_cost_mod_changes, change, resource_cost_mod);
+}
+
+void Spell::decrease_resource_cost_modifier(const int change) {
+    CharacterStats::remove_multiplicative_effect(resource_cost_mod_changes, change, resource_cost_mod);
 }
 
 void Spell::prepare_set_of_combat_iterations_spell_specific() {

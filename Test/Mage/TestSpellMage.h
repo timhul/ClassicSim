@@ -32,5 +32,7 @@ protected:
     void given_mage_has_mana(const unsigned mana);
     void given_mage_is_on_gcd(Spell* spell);
 
+    void given_arcane_power_is_active();
+
     void then_mage_has_mana(const unsigned mana);
 };

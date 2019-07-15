@@ -19,6 +19,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/DragonbreathChili.cpp \
     Class/Common/Spells/PeriodicDamageSpell.cpp \
     Class/Common/Spells/UseItem.cpp \
+    Class/Mage/Buffs/ArcanePowerBuff.cpp \
     Class/Mage/Buffs/CombustionBuff.cpp \
     Class/Mage/Buffs/EvocationBuff.cpp \
     Class/Mage/Buffs/FireVulnerability.cpp \
@@ -26,6 +27,7 @@ SOURCES += main.cpp \
     Class/Mage/MageEnchants.cpp \
     Class/Mage/Procs/ClearcastingMage.cpp \
     Class/Mage/Procs/ImprovedScorch.cpp \
+    Class/Mage/Spells/ArcanePower.cpp \
     Class/Mage/Spells/Combustion.cpp \
     Class/Mage/Spells/Evocation.cpp \
     Class/Mage/Spells/Fireball.cpp \
@@ -451,6 +453,7 @@ HEADERS += \
     Class/Common/Spells/DragonbreathChili.h \
     Class/Common/Spells/PeriodicDamageSpell.h \
     Class/Common/Spells/UseItem.h \
+    Class/Mage/Buffs/ArcanePowerBuff.h \
     Class/Mage/Buffs/CombustionBuff.h \
     Class/Mage/Buffs/EvocationBuff.h \
     Class/Mage/Buffs/FireVulnerability.h \
@@ -458,6 +461,7 @@ HEADERS += \
     Class/Mage/MageEnchants.h \
     Class/Mage/Procs/ClearcastingMage.h \
     Class/Mage/Procs/ImprovedScorch.h \
+    Class/Mage/Spells/ArcanePower.h \
     Class/Mage/Spells/Combustion.h \
     Class/Mage/Spells/Evocation.h \
     Class/Mage/Spells/Fireball.h \

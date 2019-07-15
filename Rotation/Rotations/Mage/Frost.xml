@@ -13,6 +13,7 @@
 	<cast_if name="Mar'li's Eye"/>
 	<cast_if name="Burst of Knowledge"/>
 
+	<cast_if name="Arcane Power"/>
 	<cast_if name="Frostbolt"/>
 
 	<cast_if name="Evocation">

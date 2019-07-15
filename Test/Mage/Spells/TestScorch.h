@@ -34,5 +34,7 @@ private:
     void test_3_of_3_imp_scorch_applies_debuff_on_hit();
     void test_3_of_3_imp_scorch_applies_debuff_on_crit();
 
+    void test_hit_dmg_arcane_power();
+
     void when_scorch_is_performed();
 };

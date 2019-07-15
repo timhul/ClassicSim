@@ -57,7 +57,8 @@ Arcane::Arcane(Mage* mage) :
     add_arcane_instability(tier6);
     add_talents(tier6);
 
-    QMap<QString, Talent*> tier7 {{"7ML", new Talent(mage, this, "Arcane Power", "7ML", "Assets/spell/Spell_nature_lightning.png", 1, "When activated, your spells deal 30% more damage while costing 30% more mana to cast. This effect lasts 15 sec.", QVector<QPair<unsigned, unsigned>>())}};
+    QMap<QString, Talent*> tier7 {};
+    add_arcane_power(tier7);
     add_talents(tier7);
 
     talents["3MR"]->talent->set_bottom_child(talents["5MR"]->talent);
@@ -126,3 +127,11 @@ void Arcane::add_arcane_instability(QMap<QString, Talent*>& talent_tier) {
     add_talent_to_tier(talent_tier, talent);
 }
 
+void Arcane::add_arcane_power(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = get_new_talent(mage, "Arcane Power", "7ML", "Assets/spell/Spell_nature_lightning.png", 1,
+                                    "When activated, your spells deal 30% more damage while costing 30% more mana to cast. This effect lasts 15 sec.",
+                                    QVector<QPair<unsigned, unsigned>>(),
+                                    QVector<SpellRankGroup*>{spells->get_spell_rank_group_by_name("Arcane Power")});
+
+    add_talent_to_tier(talent_tier, talent);
+}

@@ -68,6 +68,10 @@ void TestFireball::test_all() {
     test_5_of_5_ignite();
     tear_down();
 
+    set_up(false);
+    test_hit_dmg_arcane_power();
+    tear_down();
+
     set_up();
     test_casting_speed_increases_reduces_casting_time();
     tear_down();
@@ -282,6 +286,23 @@ void TestFireball::test_5_of_5_ignite() {
     // [Total Damage] = fireball_damage + ignite_damage
     // [2633 - 2906] = [2394 - 2642] + [239 - 264]
     then_damage_dealt_is_in_range(2633, 2906);
+}
+
+void TestFireball::test_hit_dmg_arcane_power() {
+    given_mage_has_mana(534);
+    given_a_guaranteed_magic_hit(MagicSchool::Fire);
+    given_1000_spell_power();
+    given_no_previous_damage_dealt();
+    given_arcane_power_is_active();
+    given_engine_priority_pushed_forward(1.5);
+
+    when_fireball_is_performed();
+    when_running_queued_events_until(5.01);
+
+    // [Damage] = (base_dmg + spell_power * spell_coefficient) * arcane_power * arcane_instability
+    // [2137 - 2358] = ([596 - 761] + 1000 * 1.0) * 1.3 * 1.03
+    then_damage_dealt_is_in_range(2137, 2358);
+    then_mage_has_mana(1);
 }
 
 void TestFireball::test_casting_speed_increases_reduces_casting_time() {

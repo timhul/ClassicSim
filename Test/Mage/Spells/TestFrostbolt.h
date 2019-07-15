@@ -37,5 +37,7 @@ private:
     void test_crits_do_not_apply_ignite();
     void test_casting_speed_increases_reduces_casting_time();
 
+    void test_hit_dmg_arcane_power();
+
     void when_frostbolt_is_performed();
 };

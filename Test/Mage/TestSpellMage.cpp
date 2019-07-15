@@ -3,6 +3,8 @@
 #include <QDebug>
 #include <utility>
 
+
+#include "Arcane.h"
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
@@ -18,6 +20,7 @@
 #include "Scorch.h"
 #include "SimSettings.h"
 #include "Spell.h"
+#include "Talent.h"
 
 TestSpellMage::TestSpellMage(EquipmentDb *equipment_db, QString spell_under_test) :
     TestSpellDamage(equipment_db, std::move(spell_under_test)),
@@ -85,6 +88,27 @@ void TestSpellMage::given_mage_is_on_gcd(Spell* spell) {
     assert(mage->on_global_cooldown());
 }
 
+void TestSpellMage::given_arcane_power_is_active() {
+    auto tree = Arcane(mage);
+    given_talent_rank(tree, "Presence of Mind", 1);
+    given_talent_rank(tree, "Arcane Instability", 3);
+    given_talent_rank(tree, "Arcane Power", 1);
+
+    mage->prepare_set_of_combat_iterations();
+
+    get_max_rank_spell_by_name("Arcane Power")->perform();
+
+    const double arcane_instability = 1.03;
+    const double arcane_power = 1.3;
+
+    assert(almost_equal(arcane_power * arcane_instability, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Arcane)));
+    assert(almost_equal(arcane_power * arcane_instability, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Fire)));
+    assert(almost_equal(arcane_power * arcane_instability, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+    assert(almost_equal(arcane_power * arcane_instability, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Holy)));
+    assert(almost_equal(arcane_power * arcane_instability, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Nature)));
+    assert(almost_equal(arcane_power * arcane_instability, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Shadow)));
+}
+
 void TestSpellMage::given_mage_has_mana(const unsigned mana) {
     if (mage->get_resource_level(ResourceType::Mana) > 0)
         mage->lose_mana(mage->get_resource_level(ResourceType::Mana));
@@ -93,5 +117,7 @@ void TestSpellMage::given_mage_has_mana(const unsigned mana) {
 }
 
 void TestSpellMage::then_mage_has_mana(const unsigned mana) {
+    if (mana != mage->get_resource_level(ResourceType::Mana))
+        qDebug() << "Expected" << mana << "mana but has" << mage->get_resource_level(ResourceType::Mana);
     assert(mage->get_resource_level(ResourceType::Mana) == mana);
 }

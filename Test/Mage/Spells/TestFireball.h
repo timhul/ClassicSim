@@ -34,6 +34,8 @@ private:
     void test_1_of_5_ignite();
     void test_5_of_5_ignite();
 
+    void test_hit_dmg_arcane_power();
+
     void test_casting_speed_increases_reduces_casting_time();
 
     void when_fireball_is_performed();
