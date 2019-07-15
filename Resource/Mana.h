@@ -2,6 +2,8 @@
 
 #include "RegeneratingResource.h"
 
+#include <QVector>
+
 class Character;
 
 class Mana: public RegeneratingResource {
@@ -13,6 +15,8 @@ public:
     unsigned get_resource_per_tick() override;
     ResourceType get_resource_type() const override;
     double get_tick_rate() const override;
+    void increase_max_mana_mod(const unsigned change);
+    void decrease_max_mana_mod(const unsigned change);
 
     friend class Druid;
     friend class Hunter;
@@ -31,6 +35,9 @@ private:
     double mp5_from_spirit_within_5sr_modifier {0.0};
     bool ignore_5sr {false};
     double bonus_regen_modifier {1.0};
+
+    double max_mana_mod {1.0};
+    QVector<int> max_mana_mod_changes;
 
     void add_next_tick();
 

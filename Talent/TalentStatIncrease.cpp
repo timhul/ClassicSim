@@ -6,6 +6,7 @@
 #include "CharacterStats.h"
 #include "Focus.h"
 #include "ItemNamespace.h"
+#include "Mana.h"
 #include "Pet.h"
 #include "Utils/Check.h"
 
@@ -170,12 +171,17 @@ void TalentStatIncrease::apply_rank_effect() {
         case BaseManaRegenWhileCasting:
             pchar->increase_mp5_within_5sr_modifier(static_cast<double>(change) / 100);
             break;
+        case MaxManaMod:
+            if (curr_points != 1)
+                dynamic_cast<class Mana*>(pchar->get_resource())->decrease_max_mana_mod((curr_points - 1) * change);
+
+            dynamic_cast<class Mana*>(pchar->get_resource())->increase_max_mana_mod(curr_points * change);
+            break;
         case FireCrit:
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case ShadowDmgMod:
-        case MaxManaMod:
         case SpellDmgMod:
             continue;
         }
@@ -336,12 +342,17 @@ void TalentStatIncrease::remove_rank_effect() {
         case BaseManaRegenWhileCasting:
             pchar->decrease_mp5_within_5sr_modifier(static_cast<double>(change) / 100);
             break;
+        case MaxManaMod:
+            dynamic_cast<class Mana*>(pchar->get_resource())->decrease_max_mana_mod((curr_points + 1) * change);
+
+            if (curr_points > 0)
+                dynamic_cast<class Mana*>(pchar->get_resource())->increase_max_mana_mod((curr_points) * change);
+            break;
         case Defense:
         case Parry:
         case ArmorModFromItems:
         case FireCrit:
         case ShadowDmgMod:
-        case MaxManaMod:
         case SpellDmgMod:
             continue;
         }

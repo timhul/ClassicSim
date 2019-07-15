@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "CharacterStats.h"
+#include "CharacterStats.h"
 #include "Engine.h"
 #include "Utils/Check.h"
 #include "Utils/CompareDouble.h"
@@ -16,7 +17,7 @@ void Mana::set_base_mana(const unsigned base_mana) {
 }
 
 unsigned Mana::get_max_resource() const {
-    return base_mana + pchar->get_stats()->get_intellect() * 15;
+    return static_cast<unsigned>(round((base_mana + pchar->get_stats()->get_intellect() * 15) * max_mana_mod));
 }
 
 unsigned Mana::get_resource_per_tick() {
@@ -41,6 +42,14 @@ ResourceType Mana::get_resource_type() const {
 
 double Mana::get_tick_rate() const {
     return 2.0;
+}
+
+void Mana::increase_max_mana_mod(const unsigned change) {
+    CharacterStats::add_multiplicative_effect(max_mana_mod_changes, static_cast<int>(change), max_mana_mod);
+}
+
+void Mana::decrease_max_mana_mod(const unsigned change) {
+    CharacterStats::remove_multiplicative_effect(max_mana_mod_changes, static_cast<int>(change), max_mana_mod);
 }
 
 void Mana::lose_resource_effect() {

@@ -21,5 +21,6 @@ private:
     void test_elemental_precision();
     void test_arcane_subtlety();
     void test_arcane_focus();
+    void test_arcane_mind();
     void test_piercing_ice();
 };

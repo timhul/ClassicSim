@@ -49,8 +49,8 @@ Arcane::Arcane(Mage* mage) :
     add_arcane_meditation(tier4);
     add_talents(tier4);
 
-    QMap<QString, Talent*> tier5 {{"5ML", new Talent(mage, this, "Presence of Mind", "5ML", "Assets/spell/Spell_nature_enchantarmor.png", 1, "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.", QVector<QPair<unsigned, unsigned>>{})},
-                                  {"5MR", new Talent(mage, this, "Arcane Mind", "5MR", "Assets/spell/Spell_shadow_charm.png", 5, "Increases your maximum Mana by %1%.", QVector<QPair<unsigned, unsigned>>{{2, 2}})}};
+    QMap<QString, Talent*> tier5 {{"5ML", new Talent(mage, this, "Presence of Mind", "5ML", "Assets/spell/Spell_nature_enchantarmor.png", 1, "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell.", QVector<QPair<unsigned, unsigned>>{})}};
+    add_arcane_mind(tier5);
     add_talents(tier5);
 
     QMap<QString, Talent*> tier6 {{"6ML", new Talent(mage, this, "Arcane Instability", "6ML", "Assets/spell/Spell_shadow_teleport.png", 3, "Increases your spell damage and critical strike chance by %1%.", QVector<QPair<unsigned, unsigned>>{{1, 1}})}};
@@ -103,6 +103,15 @@ void Arcane::add_arcane_meditation(QMap<QString, Talent*>& talent_tier) {
                                             "Allows %1% of your Mana regeneration to continue while casting.",
                                             QVector<QPair<unsigned, unsigned>>{{5, 5}},
                                             QVector<QPair<TalentStat, unsigned>>{{TalentStat::BaseManaRegenWhileCasting, 5}});
+
+    add_talent_to_tier(talent_tier, talent);
+}
+
+void Arcane::add_arcane_mind(QMap<QString, Talent*>& talent_tier) {
+    Talent* talent = new TalentStatIncrease(mage, this, "Arcane Mind", "5MR", "Assets/spell/Spell_shadow_charm.png", 5,
+                                            "Increases your maximum Mana by %1%.",
+                                            QVector<QPair<unsigned, unsigned>>{{2, 2}},
+                                            QVector<QPair<TalentStat, unsigned>>{{TalentStat::MaxManaMod, 2}});
 
     add_talent_to_tier(talent_tier, talent);
 }
