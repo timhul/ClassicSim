@@ -29,6 +29,7 @@ SOURCES += main.cpp \
     Class/Mage/Spells/Combustion.cpp \
     Class/Mage/Spells/Evocation.cpp \
     Class/Mage/Spells/Fireball.cpp \
+    Class/Mage/Spells/Frostbolt.cpp \
     Class/Mage/Spells/Ignite.cpp \
     Class/Mage/Spells/Scorch.cpp \
     Class/Mage/TalentTrees/Arcane.cpp \
@@ -106,6 +107,7 @@ SOURCES += main.cpp \
     Talent/CharacterTalents.cpp \
     Test/Mage/Spells/TestEvocation.cpp \
     Test/Mage/Spells/TestFireball.cpp \
+    Test/Mage/Spells/TestFrostbolt.cpp \
     Test/Mage/Spells/TestScorch.cpp \
     Test/Mage/Talents/TestArcane.cpp \
     Test/Mage/Talents/TestFire.cpp \
@@ -459,6 +461,7 @@ HEADERS += \
     Class/Mage/Spells/Combustion.h \
     Class/Mage/Spells/Evocation.h \
     Class/Mage/Spells/Fireball.h \
+    Class/Mage/Spells/Frostbolt.h \
     Class/Mage/Spells/Ignite.h \
     Class/Mage/Spells/Scorch.h \
     Class/Mage/TalentTrees/Arcane.h \
@@ -538,6 +541,7 @@ HEADERS += \
     Talent/CharacterTalents.h \
     Test/Mage/Spells/TestEvocation.h \
     Test/Mage/Spells/TestFireball.h \
+    Test/Mage/Spells/TestFrostbolt.h \
     Test/Mage/Spells/TestScorch.h \
     Test/Mage/Talents/TestArcane.h \
     Test/Mage/Talents/TestFire.h \

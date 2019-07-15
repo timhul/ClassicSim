@@ -113,6 +113,7 @@ void Fire::add_master_of_elements(QMap<QString, Talent*>& talent_tier) {
                                     QVector<SpellRankGroup*>{
                                         spells->get_spell_rank_group_by_name("Fireball"),
                                         spells->get_spell_rank_group_by_name("Scorch"),
+                                        spells->get_spell_rank_group_by_name("Frostbolt"),
                                     });
 
     add_talent_to_tier(talent_tier, talent);

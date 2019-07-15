@@ -5,6 +5,7 @@
 #include "Evocation.h"
 #include "FireVulnerability.h"
 #include "Fireball.h"
+#include "Frostbolt.h"
 #include "Ignite.h"
 #include "IgniteBuff.h"
 #include "ImprovedScorch.h"
@@ -22,6 +23,20 @@ MageSpells::MageSpells(Mage* mage) :
     add_spell_group({mh_attack});
 
     add_spell_group({
+                        new Frostbolt(mage, this, 1),
+                        new Frostbolt(mage, this, 2),
+                        new Frostbolt(mage, this, 3),
+                        new Frostbolt(mage, this, 4),
+                        new Frostbolt(mage, this, 5),
+                        new Frostbolt(mage, this, 6),
+                        new Frostbolt(mage, this, 7),
+                        new Frostbolt(mage, this, 8),
+                        new Frostbolt(mage, this, 9),
+                        new Frostbolt(mage, this, 10),
+                        new Frostbolt(mage, this, 11),
+                    });
+
+    add_spell_group({
                         new Fireball(mage, this, 1),
                         new Fireball(mage, this, 2),
                         new Fireball(mage, this, 3),
@@ -35,7 +50,6 @@ MageSpells::MageSpells(Mage* mage) :
                         new Fireball(mage, this, 11),
                         new Fireball(mage, this, 12),
                     });
-
 
     auto fire_vulnerability_buff = dynamic_cast<FireVulnerability*>(mage->get_raid_control()->get_shared_raid_buff("Fire Vulnerability"));
     if (fire_vulnerability_buff == nullptr) {

@@ -9,6 +9,8 @@
 #include "Evocation.h"
 #include "Fire.h"
 #include "Fireball.h"
+#include "Frost.h"
+#include "Frostbolt.h"
 #include "Item.h"
 #include "Mage.h"
 #include "MageSpells.h"
@@ -47,6 +49,10 @@ Scorch* TestSpellMage::scorch() const {
     return dynamic_cast<Scorch*>(get_max_rank_spell_by_name("Scorch"));
 }
 
+Frostbolt* TestSpellMage::frostbolt() const {
+    return dynamic_cast<Frostbolt*>(get_max_rank_spell_by_name("Frostbolt"));
+}
+
 Evocation* TestSpellMage::evocation() const {
     return dynamic_cast<Evocation*>(get_max_rank_spell_by_name("Evocation"));
 }
@@ -57,6 +63,10 @@ void TestSpellMage::run_class_specific_tests() {
 
 void TestSpellMage::given_fire_talent_rank(const QString& talent_name, const unsigned num) {
     given_talent_rank(Fire(mage), talent_name, num);
+}
+
+void TestSpellMage::given_frost_talent_rank(const QString& talent_name, const unsigned num) {
+    given_talent_rank(Frost(mage), talent_name, num);
 }
 
 void TestSpellMage::given_mage_is_on_gcd(Spell* spell) {

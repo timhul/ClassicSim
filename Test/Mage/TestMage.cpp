@@ -12,6 +12,7 @@
 #include "TestFire.h"
 #include "TestFireball.h"
 #include "TestFrost.h"
+#include "TestFrostbolt.h"
 #include "TestMageTalentStatIncrease.h"
 #include "TestScorch.h"
 #include "Troll.h"
@@ -31,6 +32,7 @@ void TestMage::test_all() {
     TestFireball(equipment_db).test_all();
     TestScorch(equipment_db).test_all();
     TestEvocation(equipment_db).test_all();
+    TestFrostbolt(equipment_db).test_all();
 }
 
 void TestMage::test_values_after_initialization() {

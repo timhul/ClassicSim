@@ -29,6 +29,10 @@ void TestMageTalentStatIncrease::test_all() {
     set_up();
     test_arcane_focus();
     tear_down();
+
+    set_up();
+    test_piercing_ice();
+    tear_down();
 }
 
 void TestMageTalentStatIncrease::test_fire_power() {
@@ -193,6 +197,31 @@ void TestMageTalentStatIncrease::test_arcane_focus() {
     assert(initial_hit_arcane == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Arcane));
     assert(initial_hit_fire == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Fire));
     assert(initial_hit_frost == pchar->get_stats()->get_spell_hit_chance(MagicSchool::Frost));
+}
+
+void TestMageTalentStatIncrease::test_piercing_ice() {
+    auto tree = Frost(mage);
+    Talent* talent = tree.get_talent_from_name("Piercing Ice");
+
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+
+    assert(talent->increment_rank());
+    assert(almost_equal(1.02, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+
+    assert(talent->increment_rank());
+    assert(almost_equal(1.04, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+
+    assert(talent->increment_rank());
+    assert(almost_equal(1.06, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+
+    assert(talent->decrement_rank());
+    assert(almost_equal(1.04, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+
+    assert(talent->decrement_rank());
+    assert(almost_equal(1.02, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
+
+    assert(talent->decrement_rank());
+    assert(almost_equal(1.0, pchar->get_stats()->get_magic_school_damage_mod(MagicSchool::Frost)));
 }
 
 void TestMageTalentStatIncrease::test_name_correct() {
