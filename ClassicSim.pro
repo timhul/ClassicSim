@@ -27,6 +27,7 @@ SOURCES += main.cpp \
     Class/Mage/MageEnchants.cpp \
     Class/Mage/Procs/ClearcastingMage.cpp \
     Class/Mage/Procs/ImprovedScorch.cpp \
+    Class/Mage/Spells/ArcaneMissiles.cpp \
     Class/Mage/Spells/ArcanePower.cpp \
     Class/Mage/Spells/Combustion.cpp \
     Class/Mage/Spells/Evocation.cpp \
@@ -107,6 +108,7 @@ SOURCES += main.cpp \
     Spells/SpellRankGroup.cpp \
     Spells/UniqueDebuff.cpp \
     Talent/CharacterTalents.cpp \
+    Test/Mage/Spells/TestArcaneMissiles.cpp \
     Test/Mage/Spells/TestEvocation.cpp \
     Test/Mage/Spells/TestFireball.cpp \
     Test/Mage/Spells/TestFrostbolt.cpp \
@@ -461,6 +463,7 @@ HEADERS += \
     Class/Mage/MageEnchants.h \
     Class/Mage/Procs/ClearcastingMage.h \
     Class/Mage/Procs/ImprovedScorch.h \
+    Class/Mage/Spells/ArcaneMissiles.h \
     Class/Mage/Spells/ArcanePower.h \
     Class/Mage/Spells/Combustion.h \
     Class/Mage/Spells/Evocation.h \
@@ -543,6 +546,7 @@ HEADERS += \
     Spells/UniqueDebuff.h \
     Statistics/RaidMemberResult.h \
     Talent/CharacterTalents.h \
+    Test/Mage/Spells/TestArcaneMissiles.h \
     Test/Mage/Spells/TestEvocation.h \
     Test/Mage/Spells/TestFireball.h \
     Test/Mage/Spells/TestFrostbolt.h \

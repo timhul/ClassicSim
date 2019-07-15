@@ -45,7 +45,7 @@ TestRotationFileReader::~TestRotationFileReader() {
 }
 
 void TestRotationFileReader::test_values_after_initialization() {
-    assert(rotations.size() == 14);
+    assert(rotations.size() == 15);
 }
 
 void TestRotationFileReader::test_warrior_dw_fury() {

@@ -8,6 +8,7 @@
 #include "RaidControl.h"
 #include "SimSettings.h"
 #include "TestArcane.h"
+#include "TestArcaneMissiles.h"
 #include "TestEvocation.h"
 #include "TestFire.h"
 #include "TestFireball.h"
@@ -33,6 +34,7 @@ void TestMage::test_all() {
     TestScorch(equipment_db).test_all();
     TestEvocation(equipment_db).test_all();
     TestFrostbolt(equipment_db).test_all();
+    TestArcaneMissiles(equipment_db).test_all();
 }
 
 void TestMage::test_values_after_initialization() {

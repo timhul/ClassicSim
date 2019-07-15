@@ -1,5 +1,6 @@
 #include "MageSpells.h"
 
+#include "ArcaneMissiles.h"
 #include "ArcanePower.h"
 #include "ClearcastingMage.h"
 #include "Combustion.h"
@@ -50,6 +51,17 @@ MageSpells::MageSpells(Mage* mage) :
                         new Fireball(mage, this, 10),
                         new Fireball(mage, this, 11),
                         new Fireball(mage, this, 12),
+                    });
+
+    add_spell_group({
+                        new ArcaneMissiles(mage, this, 1),
+                        new ArcaneMissiles(mage, this, 2),
+                        new ArcaneMissiles(mage, this, 3),
+                        new ArcaneMissiles(mage, this, 4),
+                        new ArcaneMissiles(mage, this, 5),
+                        new ArcaneMissiles(mage, this, 6),
+                        new ArcaneMissiles(mage, this, 7),
+                        new ArcaneMissiles(mage, this, 8),
                     });
 
     auto fire_vulnerability_buff = dynamic_cast<FireVulnerability*>(mage->get_raid_control()->get_shared_raid_buff("Fire Vulnerability"));

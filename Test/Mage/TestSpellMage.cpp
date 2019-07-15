@@ -1,10 +1,9 @@
 #include "TestSpellMage.h"
 
-#include <QDebug>
 #include <utility>
 
-
 #include "Arcane.h"
+#include "ArcaneMissiles.h"
 #include "Buff.h"
 #include "CharacterStats.h"
 #include "Equipment.h"
@@ -54,6 +53,10 @@ Scorch* TestSpellMage::scorch() const {
 
 Frostbolt* TestSpellMage::frostbolt() const {
     return dynamic_cast<Frostbolt*>(get_max_rank_spell_by_name("Frostbolt"));
+}
+
+ArcaneMissiles* TestSpellMage::arcane_missiles() const {
+    return dynamic_cast<ArcaneMissiles*>(get_max_rank_spell_by_name("Arcane Missiles"));
 }
 
 Evocation* TestSpellMage::evocation() const {
