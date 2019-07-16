@@ -907,12 +907,12 @@ void CharacterStats::decrease_mp5(const unsigned value) {
     base_stats->decrease_mp5(value);
 }
 
-unsigned CharacterStats::get_spell_damage(const MagicSchool school) const {
+unsigned CharacterStats::get_spell_damage(const MagicSchool school, const ConsumeCharge consume_charge) const {
     const unsigned spell_damage_base = base_stats->get_spell_damage(school);
     const unsigned spell_damage_base_target = base_stats->get_spell_damage_against_type(pchar->get_target()->get_creature_type());
     const unsigned spell_damage_eq = equipment->get_stats()->get_spell_damage(school);
     const unsigned spell_damage_eq_target = equipment->get_stats()->get_spell_damage_against_type(pchar->get_target()->get_creature_type());
-    const unsigned target_debuff_bonus = pchar->get_target()->get_spell_damage(school);
+    const unsigned target_debuff_bonus = pchar->get_target()->get_spell_damage(school, consume_charge);
 
     return spell_damage_base + spell_damage_base_target + spell_damage_eq + spell_damage_eq_target + target_debuff_bonus;
 }
@@ -953,8 +953,8 @@ void CharacterStats::decrease_spell_penetration(const MagicSchool school, const 
     pchar->get_combat_roll()->update_target_resistance(school, get_target_resistance(school));
 }
 
-double CharacterStats::get_magic_school_damage_mod(const MagicSchool school) const {
-    return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school);
+double CharacterStats::get_magic_school_damage_mod(const MagicSchool school, const ConsumeCharge consume_charge) const {
+    return magic_school_damage_modifiers[school] * pchar->get_target()->get_magic_school_damage_mod(school, consume_charge);
 }
 
 void CharacterStats::increase_magic_school_damage_mod(const unsigned increase) {

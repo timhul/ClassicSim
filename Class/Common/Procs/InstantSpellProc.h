@@ -5,6 +5,8 @@
 
 class InstantSpellAttack;
 
+enum class ConsumeCharge : bool;
+
 class InstantSpellProc: public Proc {
 public:
     InstantSpellProc(Character* pchar,
@@ -15,7 +17,8 @@ public:
                      const MagicSchool school,
                      const unsigned min_damage,
                      const unsigned max_damage,
-                     const double spell_coefficient);
+                     const double spell_coefficient,
+                     const ConsumeCharge consume_charge);
     ~InstantSpellProc() override;
 
 private:

@@ -6,6 +6,7 @@
 #include "GenericSpellProc.h"
 #include "InstantSpellAttack.h"
 #include "ItemNamespace.h"
+#include "Target.h"
 #include "Utils/Check.h"
 #include "WindfuryTotemAttack.h"
 
@@ -26,7 +27,7 @@ EnchantProc::EnchantProc(EnchantName::Name enchant, Character *pchar, const int 
         proc = new WindfuryTotemAttack(pchar);
         break;
     case EnchantName::ShadowOil: {
-        Spell* spell = new InstantSpellAttack(pchar, "Shadow Oil", "Assets/spell/Spell_shadow_shadowbolt.png", MagicSchool::Shadow, 48, 56, 0.56);
+        Spell* spell = new InstantSpellAttack(pchar, "Shadow Oil", "Assets/spell/Spell_shadow_shadowbolt.png", MagicSchool::Shadow, 48, 56, 0.56, ConsumeCharge::No);
 
         QVector<ProcInfo::Source> sources;
         if (slot == EnchantSlot::MAINHAND)

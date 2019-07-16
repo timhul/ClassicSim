@@ -442,7 +442,8 @@ void Item::set_procs(const int eq_slot) {
                                         proc_rate,
                                         get_magic_school(proc_name),
                                         min, max,
-                                        coefficient);
+                                        coefficient,
+                                        ConsumeCharge::No);
         }
 
         else if (proc_name == "FELSTRIKER_PROC") {

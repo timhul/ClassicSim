@@ -111,11 +111,13 @@ int Target::get_resistance(const MagicSchool school) const {
     return school != MagicSchool::Holy ? 70 : 0;
 }
 
-double Target::get_magic_school_damage_mod(const MagicSchool school) const {
+double Target::get_magic_school_damage_mod(const MagicSchool school, const ConsumeCharge consume_charge) const {
     const double mod = magic_school_damage_modifiers[school];
 
-    for (auto & buff : magic_school_modifier_buffs_with_charges[school])
-        buff->use_charge();
+    if (consume_charge == ConsumeCharge::Yes) {
+        for (auto & buff : magic_school_modifier_buffs_with_charges[school])
+            buff->use_charge();
+    }
 
     return mod;
 }
@@ -128,11 +130,13 @@ void Target::decrease_magic_school_damage_mod(const int decrease, const MagicSch
     CharacterStats::remove_multiplicative_effect(magic_school_damage_changes[school], decrease, magic_school_damage_modifiers[school]);
 }
 
-unsigned Target::get_spell_damage(const MagicSchool school) const {
+unsigned Target::get_spell_damage(const MagicSchool school, const ConsumeCharge consume_charge) const {
     const unsigned bonus = stats->get_spell_damage(school);
 
-    for (auto & buff : damage_bonus_buffs_with_charges_for_all_magic_schools)
-        buff->use_charge();
+    if (consume_charge == ConsumeCharge::Yes) {
+        for (auto & buff : damage_bonus_buffs_with_charges_for_all_magic_schools)
+            buff->use_charge();
+    }
 
     return bonus;
 }

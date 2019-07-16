@@ -133,7 +133,7 @@ public:
     void increase_mp5(const unsigned value);
     void decrease_mp5(const unsigned value);
 
-    unsigned get_spell_damage(const MagicSchool school) const;
+    unsigned get_spell_damage(const MagicSchool school, const ConsumeCharge consume_charge = ConsumeCharge::Yes) const;
     void increase_base_spell_damage(const unsigned value);
     void decrease_base_spell_damage(const unsigned value);
     void increase_spell_damage_vs_school(const unsigned value, const MagicSchool school);
@@ -144,7 +144,7 @@ public:
     void increase_spell_penetration(const MagicSchool school, const unsigned increase);
     void decrease_spell_penetration(const MagicSchool school, const unsigned decrease);
 
-    double get_magic_school_damage_mod(const MagicSchool school) const;
+    double get_magic_school_damage_mod(const MagicSchool school, const ConsumeCharge consume_charge = ConsumeCharge::Yes) const;
     void increase_magic_school_damage_mod(const unsigned increase);
     void decrease_magic_school_damage_mod(const unsigned decrease);
     void increase_magic_school_damage_mod(const unsigned increase, const MagicSchool school);

@@ -5,12 +5,13 @@
 #include "InstantSpellAttack.h"
 #include "ItemNamespace.h"
 #include "MagicSchools.h"
+#include "Target.h"
 #include "Utils/Check.h"
 
 FieryWeapon::FieryWeapon(Character* pchar, const QString& weapon_identifier, const int weapon) :
     ProcPPM("Fiery Weapon " + weapon_identifier, "Assets/misc/Spell_holy_greaterheal.png", weapon, 6.0, 0.0, QVector<Proc*>(),
             QVector<ProcInfo::Source>(), pchar),
-    fiery_weapon_attack(new InstantSpellAttack(pchar, name, "Assets/misc/Spell_holy_greaterheal.png", MagicSchool::Fire, 40, 40, 0.0))
+    fiery_weapon_attack(new InstantSpellAttack(pchar, name, "Assets/misc/Spell_holy_greaterheal.png", MagicSchool::Fire, 40, 40, 0.0, ConsumeCharge::No))
 {
     switch (weapon) {
     case EnchantSlot::MAINHAND:

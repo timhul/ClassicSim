@@ -16,6 +16,11 @@ enum class ConsumedWhen : int {
     OnSpellDamageMod,
 };
 
+enum class ConsumeCharge : bool {
+    Yes = true,
+    No = false,
+};
+
 class Target {
 public:
     enum CreatureType {
@@ -62,11 +67,11 @@ public:
     void add_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, const MagicSchool school);
     void remove_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, const MagicSchool school);
 
-    unsigned get_spell_damage(const MagicSchool school) const;
+    unsigned get_spell_damage(const MagicSchool school, const ConsumeCharge consume_charge) const;
     void increase_spell_damage(const unsigned value, const MagicSchool school);
     void decrease_spell_damage(const unsigned value, const MagicSchool school);
 
-    double get_magic_school_damage_mod(const MagicSchool school) const;
+    double get_magic_school_damage_mod(const MagicSchool school, const ConsumeCharge consume_charge) const;
     void increase_magic_school_damage_mod(const int increase, const MagicSchool school);
     void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school);
 
