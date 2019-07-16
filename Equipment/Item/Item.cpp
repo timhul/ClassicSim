@@ -467,14 +467,14 @@ void Item::set_procs(const int eq_slot) {
             Buff* buff = new Nightfall(pchar);
             proc = new GenericBuffProc(pchar,"Nightfall", "Assets/items/Inv_axe_12.png",
                                        QVector<ProcInfo::Source>{ProcInfo::MainhandSpell, ProcInfo::MainhandSwing},
-                                       proc_rate, buff);
+                                       proc_rate, EnabledAtStart::Yes, MaintainBuffEnabled::No, buff);
         }
         else if (proc_name == "GENERIC_STAT_BUFF") {
             add_proc_sources_from_map(proc_sources, i, eq_slot);
             Buff* buff = new GenericStatBuff(pchar, name, icon,
                                              i["duration"].toInt(),
                                              {{get_item_stats_from_string(i["type"]), static_cast<unsigned>(amount)}});
-            proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, buff);
+            proc = new GenericBuffProc(pchar, name, icon, proc_sources, proc_rate, EnabledAtStart::Yes, MaintainBuffEnabled::Yes, buff);
         }
         else if (proc_name == "INSTANT_FIREBALL") {
             add_default_proc_sources(proc_sources, eq_slot);
