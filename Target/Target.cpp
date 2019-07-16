@@ -11,7 +11,7 @@
 Target::Target(const unsigned target_lvl):
     target_lvl(target_lvl),
     base_armor(Mechanics::get_boss_base_armor()),
-    target_type(CreatureType::Beast),
+    target_type(CreatureType::Dragonkin),
     stats(new Stats()),
     string_to_creature_type({
                               {"Beast", CreatureType::Beast},

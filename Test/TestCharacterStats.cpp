@@ -216,31 +216,31 @@ void TestCharacterStats::test_spell_damage_taken_multipliers_stacks_multiplicati
 
 void TestCharacterStats::test_damage_bonuses_vs_creature_type() {
     assert(almost_equal(cstats->get_total_physical_damage_mod(), 1.0));
-    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Beast);
+    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Dragonkin);
 
-    cstats->increase_dmg_vs_type(Target::CreatureType::Beast, 0.01);
+    cstats->increase_dmg_vs_type(Target::CreatureType::Dragonkin, 0.01);
     assert(almost_equal(cstats->get_total_physical_damage_mod(), 1.01));
 
-    cstats->increase_dmg_vs_type(Target::CreatureType::Beast, 0.1);
+    cstats->increase_dmg_vs_type(Target::CreatureType::Dragonkin, 0.1);
     assert(almost_equal(cstats->get_total_physical_damage_mod(), 1.11));
 
-    cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, 0.05);
+    cstats->decrease_dmg_vs_type(Target::CreatureType::Dragonkin, 0.05);
     assert(almost_equal(cstats->get_total_physical_damage_mod(), 1.06));
 
-    cstats->decrease_dmg_vs_type(Target::CreatureType::Beast, 0.06);
+    cstats->decrease_dmg_vs_type(Target::CreatureType::Dragonkin, 0.06);
     assert(almost_equal(cstats->get_total_physical_damage_mod(), 1.0));
 }
 
 void TestCharacterStats::test_ap_bonuses_vs_creature_type() {
     const unsigned base_melee_ap = cstats->get_melee_ap();
     const unsigned base_ranged_ap = cstats->get_ranged_ap();
-    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Beast);
+    assert(pchar->get_target()->get_creature_type() == Target::CreatureType::Dragonkin);
 
-    cstats->increase_ap_vs_type(Target::CreatureType::Beast, 100);
+    cstats->increase_ap_vs_type(Target::CreatureType::Dragonkin, 100);
     assert(base_melee_ap + 100 == cstats->get_melee_ap());
     assert(base_ranged_ap + 100 == cstats->get_ranged_ap());
 
-    cstats->decrease_ap_vs_type(Target::CreatureType::Beast, 100);
+    cstats->decrease_ap_vs_type(Target::CreatureType::Dragonkin, 100);
     assert(base_melee_ap == cstats->get_melee_ap());
     assert(base_ranged_ap == cstats->get_ranged_ap());
 }
@@ -283,18 +283,18 @@ void TestCharacterStats::test_crit_dmg_mod_affected_by_creature_type() {
     assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.5));
     assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
 
-    cstats->increase_crit_dmg_vs_type(Target::CreatureType::Beast, 1);
+    cstats->increase_crit_dmg_vs_type(Target::CreatureType::Dragonkin, 1);
     pchar->get_target()->set_creature_type("Humanoid");
     assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.0));
     assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.5));
     assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
 
-    pchar->get_target()->set_creature_type("Beast");
+    pchar->get_target()->set_creature_type("Dragonkin");
     assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.01));
     assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.51));
     assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.01));
 
-    cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Beast, 1);
+    cstats->decrease_crit_dmg_vs_type(Target::CreatureType::Dragonkin, 1);
     assert(almost_equal(cstats->get_melee_ability_crit_dmg_mod(), 2.0));
     assert(almost_equal(cstats->get_spell_crit_dmg_mod(), 1.5));
     assert(almost_equal(cstats->get_ranged_ability_crit_dmg_mod(), 2.0));
