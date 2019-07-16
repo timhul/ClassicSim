@@ -9,6 +9,7 @@
 #include "Energy.h"
 #include "EquipmentDb.h"
 #include "Eviscerate.h"
+#include "Evocation.h"
 #include "ExposeWeaknessProc.h"
 #include "Hemorrhage.h"
 #include "Hunter.h"
@@ -25,6 +26,7 @@
 #include "SetBonusFileReader.h"
 #include "SinisterStrike.h"
 #include "SliceAndDice.h"
+#include "SpellRankGroup.h"
 #include "Utils/Check.h"
 
 SetBonusControl::SetBonusControl(EquipmentDb* equipment_db, Character* pchar) :
@@ -215,6 +217,13 @@ void SetBonusControl::equip_item(const int item_id) {
             spells->get_multi_shot()->activate_set_bonus(set_name, num_pieces);
             break;
         }
+        }
+    }
+    else if (set_name == "Frostfire Regalia") {
+        switch (num_pieces) {
+        case 2:
+            activate_spell_rank_group("Evocation", set_name, num_pieces);
+            break;
         }
     }
     else if (set_name == "The Gladiator") {
@@ -478,6 +487,13 @@ void SetBonusControl::unequip_item(const int item_id) {
             spells->get_multi_shot()->deactivate_set_bonus(set_name, num_pieces);
             break;
         }
+        }
+    }
+    else if (set_name == "Frostfire Regalia") {
+        switch (num_pieces) {
+        case 2:
+            deactivate_spell_rank_group("Evocation", set_name, num_pieces);
+            break;
         }
     }
     else if (set_name == "The Gladiator") {
@@ -788,4 +804,20 @@ void SetBonusControl::deactivate_arathi_basin_physical_set_bonuses(const int num
         pchar->get_stats()->decrease_ranged_crit(100);
         break;
     }
+}
+
+void SetBonusControl::activate_spell_rank_group(const QString& spell_name, const QString &set_name, const int num_pieces) {
+    const auto spells = pchar->get_spells()->get_spell_rank_group_by_name(spell_name);
+    check((spells != nullptr), QString("Failed to find SpellRankGroup for %1 when activating set bonus").arg(spell_name).toStdString());
+
+    for (const auto & spell : spells->spell_group)
+        dynamic_cast<SetBonusRequirer*>(spell)->activate_set_bonus(set_name, num_pieces);
+}
+
+void SetBonusControl::deactivate_spell_rank_group(const QString& spell_name, const QString &set_name, const int num_pieces) {
+    const auto spells = pchar->get_spells()->get_spell_rank_group_by_name(spell_name);
+    check((spells != nullptr), QString("Failed to find SpellRankGroup for %1 when deactivating set bonus").arg(spell_name).toStdString());
+
+    for (const auto & spell : spells->spell_group)
+        dynamic_cast<SetBonusRequirer*>(spell)->deactivate_set_bonus(set_name, num_pieces);
 }

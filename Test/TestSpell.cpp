@@ -513,6 +513,28 @@ unsigned TestSpell::suppressed_aura_crit(const unsigned crit_chance) {
     return pchar->get_combat_roll()->mechanics->get_suppressed_aura_crit_chance(pchar->get_clvl(), crit_chance);
 }
 
+void TestSpell::given_head_equipped(const int item_id, const QString& expected_name) {
+    pchar->get_equipment()->set_head(item_id);
+    assert(pchar->get_equipment()->get_head() != nullptr);
+    assert(pchar->get_equipment()->get_head()->get_name() == expected_name);
+}
+
+void TestSpell::given_bracers_equipped(const int item_id, const QString& expected_name) {
+    pchar->get_equipment()->set_wrist(item_id);
+    assert(pchar->get_equipment()->get_wrist() != nullptr);
+    assert(pchar->get_equipment()->get_wrist()->get_name() == expected_name);
+}
+
+void TestSpell::given_head_cleared() {
+    pchar->get_equipment()->clear_head();
+    assert(pchar->get_equipment()->get_head() == nullptr);
+}
+
+void TestSpell::given_bracers_cleared() {
+    pchar->get_equipment()->clear_wrist();
+    assert(pchar->get_equipment()->get_wrist() == nullptr);
+}
+
 void TestSpell::create_100_dmg_1h() {
     if (equipment_db->get_melee_weapon(TestUtils::Test100Dmg) != nullptr)
         return;

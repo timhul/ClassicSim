@@ -3,10 +3,12 @@
 #include "Buff.h"
 #include "CooldownControl.h"
 #include "EvocationBuff.h"
+#include "Utils/Check.h"
 
 Evocation::Evocation(Character* pchar) :
     SpellPeriodic("Evocation", "Assets/spell/Spell_nature_purge.png", pchar, new EvocationBuff(pchar), RestrictedByGcd::Yes, ResourceType::Mana, 2.0, 0,  1),
-    CastingTimeRequirer(pchar, 8000)
+    CastingTimeRequirer(pchar, 8000),
+    SetBonusRequirer({"Frostfire Regalia"})
 {
     delete cooldown;
     cooldown = new CooldownControl(pchar, 480.0);
@@ -45,4 +47,28 @@ void Evocation::reset_effect() {
 
 void Evocation::tick_effect() {
 
+}
+
+void Evocation::activate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Frostfire Regalia") {
+        switch (set_bonus) {
+        case 2:
+            cooldown->base -= 60.0;
+            break;
+        default:
+            check(false, "Evocation::activate_set_bonus_effect reached end of switch");
+        }
+    }
+}
+
+void Evocation::deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) {
+    if (set_name == "Frostfire Regalia") {
+        switch (set_bonus) {
+        case 2:
+            cooldown->base += 60.0;
+            break;
+        default:
+            check(false, "Evocation::deactivate_set_bonus_effect reached end of switch");
+        }
+    }
 }

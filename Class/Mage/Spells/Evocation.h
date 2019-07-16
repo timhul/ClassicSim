@@ -1,9 +1,10 @@
 #pragma once
 
 #include "CastingTimeRequirer.h"
+#include "SetBonusRequirer.h"
 #include "SpellPeriodic.h"
 
-class Evocation: public SpellPeriodic, public CastingTimeRequirer {
+class Evocation: public SpellPeriodic, public CastingTimeRequirer, public SetBonusRequirer {
 public:
     Evocation(Character* pchar);
     ~Evocation() override;
@@ -16,4 +17,7 @@ private:
     void refresh_effect() override;
     void reset_effect() override;
     void tick_effect() override;
+
+    void activate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
+    void deactivate_set_bonus_effect(const QString& set_name, const int set_bonus) override;
 };

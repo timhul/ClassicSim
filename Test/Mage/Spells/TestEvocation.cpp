@@ -1,6 +1,7 @@
 #include "TestEvocation.h"
 
 #include "CharacterStats.h"
+#include "Equipment.h"
 #include "Event.h"
 #include "Evocation.h"
 #include "Mage.h"
@@ -15,6 +16,10 @@ void TestEvocation::test_all() {
 
     set_up();
     test_mana_regen_increase();
+    tear_down();
+
+    set_up();
+    test_2p_t3_set_bonus_cooldown_decrease();
     tear_down();
 }
 
@@ -51,6 +56,20 @@ void TestEvocation::test_mana_regen_increase() {
     when_running_queued_events_until(8.01);
     // 18 due to rounded tick causing a remainder
     assert(18 == dynamic_cast<Mana*>(pchar->get_resource())->get_resource_per_tick());
+}
+
+void TestEvocation::test_2p_t3_set_bonus_cooldown_decrease() {
+    const double cooldown_before = evocation()->get_base_cooldown();
+
+    given_bracers_equipped(22503, "Frostfire Bindings");
+    assert(almost_equal(cooldown_before, evocation()->get_base_cooldown()));
+    given_head_equipped(22498, "Frostfire Circlet");
+    assert(almost_equal(cooldown_before - 60.0, evocation()->get_base_cooldown()));
+
+    given_bracers_cleared();
+    assert(almost_equal(cooldown_before, evocation()->get_base_cooldown()));
+    given_head_cleared();
+    assert(almost_equal(cooldown_before, evocation()->get_base_cooldown()));
 }
 
 void TestEvocation::test_resource_cost() {

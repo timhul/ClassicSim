@@ -183,6 +183,12 @@ protected:
 
     unsigned suppressed_aura_crit(const unsigned crit_chance);
 
+    void given_head_equipped(const int item_id, const QString& expected_name);
+    void given_bracers_equipped(const int item_id, const QString& expected_name);
+
+    void given_head_cleared();
+    void given_bracers_cleared();
+
 private:
     void create_100_dmg_1h();
     void create_100_dmg_dagger();

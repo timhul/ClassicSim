@@ -49,4 +49,7 @@ private:
 
     void activate_arathi_basin_physical_set_bonuses(const int num_pieces);
     void deactivate_arathi_basin_physical_set_bonuses(const int num_pieces);
+
+    void activate_spell_rank_group(const QString& spell_name, const QString& set_name, const int num_pieces);
+    void deactivate_spell_rank_group(const QString& spell_name, const QString& set_name, const int num_pieces);
 };

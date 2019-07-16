@@ -17,6 +17,7 @@ private:
     void test_is_ready_conditions() override;
 
     void test_mana_regen_increase();
+    void test_2p_t3_set_bonus_cooldown_decrease();
 
     void when_evocation_is_performed();
 };
