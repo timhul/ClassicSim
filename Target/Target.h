@@ -9,6 +9,8 @@
 class Buff;
 class Stats;
 
+enum class Priority : int;
+
 enum class ConsumedWhen : int {
     OnSpellDamageFlat,
     OnSpellDamageMod,
@@ -50,7 +52,7 @@ public:
     QString get_creature_type_string() const;
     void set_creature_type(const QString& target);
 
-    bool add_debuff(Buff* buff, const int priority);
+    bool add_debuff(Buff* buff, const Priority priority);
     void remove_debuff(Buff* buff);
     void check_clean();
 

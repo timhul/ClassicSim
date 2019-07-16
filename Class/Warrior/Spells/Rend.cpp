@@ -11,7 +11,7 @@
 
 Rend::Rend(Warrior* pchar, WarriorSpells* spells) :
     SpellPeriodic("Rend", "Assets/ability/Ability_gouge.png", pchar,
-                  new NoEffectUniqueDebuff(pchar, 21, "Rend", "Assets/ability/Ability_gouge.png", Hidden::No),
+                  new NoEffectUniqueDebuff(pchar, Priority::Trash, 21, "Rend", "Assets/ability/Ability_gouge.png", Hidden::No),
                   RestrictedByGcd::Yes, ResourceType::Rage, 3.0, 10),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Rend", 3, DisabledAtZero::No)}),
     warr(pchar),

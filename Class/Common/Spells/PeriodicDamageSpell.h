@@ -7,12 +7,14 @@
 class StatisticsResource;
 
 enum class MagicSchool: int;
+enum class Priority : int;
 
 class PeriodicDamageSpell : public SpellPeriodic {
 public:
     PeriodicDamageSpell(const QString& name,
                         const QString& icon,
                         Character* pchar,
+                        const Priority priority,
                         const RestrictedByGcd restricted_by_gcd,
                         const MagicSchool school,
                         const double tick_rate,

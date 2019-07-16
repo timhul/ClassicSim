@@ -4,7 +4,7 @@
 #include "Target.h"
 
 Nightfall::Nightfall(Character* pchar):
-    SharedDebuff(pchar, "Nightfall", "Assets/items/Inv_axe_12.png", 5, 0)
+    SharedDebuff(pchar, "Nightfall", "Assets/items/Inv_axe_12.png", Priority::Low, 5, 0)
 {}
 
 void Nightfall::buff_effect_when_applied() {

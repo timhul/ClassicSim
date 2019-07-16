@@ -4,7 +4,7 @@
 
 class SharedDebuff: public Buff {
 public:
-    SharedDebuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges);
+    SharedDebuff(Character* pchar, QString name, QString icon, const Priority priority, const int duration, const int base_charges);
 
     void enable_buff() override final;
     void disable_buff() override final;

@@ -6,7 +6,7 @@
 #include "Utils/Check.h"
 
 JudgementOfTheCrusader::JudgementOfTheCrusader(Paladin* pchar):
-    SharedDebuff(pchar, "Judgement of the Crusader", "Assets/spell/Spell_holy_holysmite.png", 10, 0),
+    SharedDebuff(pchar, "Judgement of the Crusader", "Assets/spell/Spell_holy_holysmite.png", Priority::Mid, 10, 0),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Improved Seal of the Crusader", 3, DisabledAtZero::No)}),
     ItemModificationRequirer({16471, 23274, 23203})
 {}

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "UniqueDebuff.h"
+#include "SelfBuff.h"
 
 class InstantPoison;
 
-class InstantPoisonBuff: public UniqueDebuff {
+class InstantPoisonBuff: public SelfBuff {
 public:
     InstantPoisonBuff(Character* pchar, InstantPoison* instant_poison_proc, const QString& weapon_side);
 

@@ -11,7 +11,10 @@
 #include "Utils/Check.h"
 
 ArcaneMissiles::ArcaneMissiles(Character* pchar, MageSpells* spells, const int spell_rank) :
-    SpellPeriodic("Arcane Missiles", "Assets/spell/Spell_nature_starfall.png", pchar, new NoEffectUniqueDebuff(pchar, 5), RestrictedByGcd::Yes, ResourceType::Mana, 1.0, 0, spell_rank),
+    SpellPeriodic("Arcane Missiles", "Assets/spell/Spell_nature_starfall.png", pchar,
+                  new NoEffectUniqueDebuff(pchar, Priority::Low, 5),
+                  RestrictedByGcd::Yes, ResourceType::Mana,
+                  1.0, 0, spell_rank),
     CastingTimeRequirer(pchar, 5000),
     mage_spells(spells)
 {

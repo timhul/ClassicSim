@@ -6,9 +6,12 @@
 #include "Target.h"
 #include "Utils/Check.h"
 
-SharedDebuff::SharedDebuff(Character* pchar, QString name, QString icon, const int duration, const int base_charges) :
+SharedDebuff::SharedDebuff(Character* pchar, QString name, QString icon, const Priority priority, const int duration, const int base_charges) :
     Buff(pchar, name, icon, duration, base_charges)
 {
+    check((priority != Priority::Invalid), QString("Cannot create UniqueDebuff %1 with invalid priority").arg(name).toStdString());
+    this->debuff_priority = priority;
+
     this->affected = Affected::Target;
 }
 

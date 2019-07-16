@@ -5,7 +5,7 @@
 #include "Target.h"
 
 ExposeWeaknessBuff::ExposeWeaknessBuff(Character* pchar):
-    SharedDebuff(pchar, "Expose Weakness", "Assets/ability/Ability_hunter_snipershot.png", 7.0, 0)
+    SharedDebuff(pchar, "Expose Weakness", "Assets/ability/Ability_hunter_snipershot.png", Priority::Low, 7.0, 0)
 {}
 
 void ExposeWeaknessBuff::buff_effect_when_applied() {

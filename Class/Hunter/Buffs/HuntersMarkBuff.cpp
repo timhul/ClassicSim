@@ -5,7 +5,7 @@
 #include "Target.h"
 
 HuntersMarkBuff::HuntersMarkBuff(Character* pchar):
-    SharedDebuff(pchar, "Hunter's Mark", "Assets/ability/Ability_hunter_snipershot.png", 120, 0)
+    SharedDebuff(pchar, "Hunter's Mark", "Assets/ability/Ability_hunter_snipershot.png", Priority::Mid, 120, 0)
 {}
 
 void HuntersMarkBuff::buff_effect_when_applied() {

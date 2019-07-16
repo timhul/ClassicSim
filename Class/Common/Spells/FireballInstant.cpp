@@ -30,7 +30,7 @@ FireballInstant::FireballInstant(Character* pchar,
           0,
           spell_rank),
     fireball_dot(new PeriodicDamageSpell(QString("Fireball DoT (rank %1)").arg(spell_rank),
-                                         "Assets/spell/Spell_fire_flamebolt.png", pchar, RestrictedByGcd::No,
+                                         "Assets/spell/Spell_fire_flamebolt.png", pchar, Priority::Trash, RestrictedByGcd::No,
                                          MagicSchool::Fire, 2.0, duration, dmg_over_duration, resource_cost, casting_time, spell_coefficient_dot)),
     instant_dmg(new Random(instant_min, instant_max)),
     spell_coefficient(spell_coefficient)

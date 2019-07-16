@@ -9,7 +9,7 @@
 
 DeepWounds::DeepWounds(Character* pchar) :
     SpellPeriodic("Deep Wounds", "Assets/ability/Ability_backstab.png", pchar,
-                  new NoEffectUniqueDebuff(pchar, 12, "Deep Wounds", "Assets/ability/Ability_backstab.png", Hidden::No),
+                  new NoEffectUniqueDebuff(pchar, Priority::Trash, 12, "Deep Wounds", "Assets/ability/Ability_backstab.png", Hidden::No),
                   RestrictedByGcd::No, ResourceType::Rage, 2.0, 0, 1),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Deep Wounds", 3, DisabledAtZero::Yes)}),
     warr(dynamic_cast<Warrior*>(pchar)),

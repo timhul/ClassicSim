@@ -8,6 +8,7 @@
 PeriodicDamageSpell::PeriodicDamageSpell(const QString& name,
                                          const QString& icon,
                                          Character* pchar,
+                                         const Priority priority,
                                          const RestrictedByGcd restricted_by_gcd,
                                          const MagicSchool school,
                                          const double tick_rate,
@@ -18,7 +19,7 @@ PeriodicDamageSpell::PeriodicDamageSpell(const QString& name,
                                          const double spell_coefficient)
     :
       SpellPeriodic(name, icon, pchar,
-                    new NoEffectUniqueDebuff(pchar, duration, name, icon, Hidden::No),
+                    new NoEffectUniqueDebuff(pchar, priority, duration, name, icon, Hidden::No),
                     restricted_by_gcd,
                     ResourceType::Mana,
                     tick_rate,

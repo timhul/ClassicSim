@@ -27,6 +27,14 @@ enum class Affected: int {
     Target,
 };
 
+enum class Priority: int {
+    Invalid,
+    Trash,
+    Low,
+    Mid,
+    High,
+};
+
 static const QString NO_ICON = "no-icon";
 
 class Buff {
@@ -80,7 +88,7 @@ protected:
     bool enabled;
     double uptime{};
     bool hidden;
-    int debuff_priority {0};
+    Priority debuff_priority {Priority::Invalid};
     Affected affected {Affected::Self};
 
     int instance_id;

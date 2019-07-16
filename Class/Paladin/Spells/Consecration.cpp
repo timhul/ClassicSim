@@ -1,5 +1,6 @@
 #include "Consecration.h"
 
+#include "Buff.h"
 #include "CharacterStats.h"
 #include "CooldownControl.h"
 #include "Paladin.h"
@@ -41,10 +42,10 @@ Consecration::Consecration(Paladin* pchar,
     }
 
     cons_dot_1 = new PeriodicDamageSpell(QString("Consecration 1 (rank %1)").arg(spell_rank), "Assets/spell/Spell_holy_innerfire.png", pchar,
-                                         RestrictedByGcd::No, MagicSchool::Holy, 2.0, 8, full_duration_dmg, resource_cost,
+                                         Priority::Low, RestrictedByGcd::No, MagicSchool::Holy, 2.0, 8, full_duration_dmg, resource_cost,
                                          pchar->global_cooldown(), 0.33);
     cons_dot_2 = new PeriodicDamageSpell(QString("Consecration 2 (rank %1)").arg(spell_rank), "Assets/spell/Spell_holy_innerfire.png", pchar,
-                                         RestrictedByGcd::No, MagicSchool::Holy, 2.0, 8, full_duration_dmg, resource_cost,
+                                         Priority::Low, RestrictedByGcd::No, MagicSchool::Holy, 2.0, 8, full_duration_dmg, resource_cost,
                                          pchar->global_cooldown(), 0.33);
 
     cons_dot_1->disable();

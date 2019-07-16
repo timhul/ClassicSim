@@ -7,6 +7,7 @@ class Proc;
 class NoEffectUniqueDebuff: public UniqueDebuff {
 public:
     NoEffectUniqueDebuff(Character* pchar,
+                         const Priority priority,
                          const int duration,
                          const QString& name = "NO_NAME",
                          const QString& icon = NO_ICON,

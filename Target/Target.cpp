@@ -154,13 +154,16 @@ void Target::set_creature_type(const QString& target) {
     target_type = string_to_creature_type[target];
 }
 
-bool Target::add_debuff(Buff* debuff, const int priority) {
+bool Target::add_debuff(Buff* debuff, const Priority priority) {
+    check((priority != Priority::Invalid),
+          QString("Debuff %1 has invalid priority %2").arg(debuff->get_name()).toStdString());
+
     if (size_debuffs == debuff_limit) {
-        if (!remove_oldest_lowest_priority_debuff(priority))
+        if (!remove_oldest_lowest_priority_debuff(static_cast<int>(priority)))
             return false;
     }
 
-    debuffs[priority].append(debuff);
+    debuffs[static_cast<int>(priority)].append(debuff);
     ++size_debuffs;
     return true;
 }
