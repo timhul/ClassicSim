@@ -34,6 +34,32 @@
 		</special_equip_effect>
 	</item>
 
+	<item id="19812" phase="0">
+		<info name="Rune of the Dawn" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_rune_06.png"/>
+		<stats>
+			<stat type="SPELL_DAMAGE_UNDEAD" value="48"/>
+		</stats>
+		<source>
+			Quest reward. Requires Stratholme Undead.
+		</source>
+		<special_equip_effect>
+		It also allows the acquisition of Scourgestones on behalf of the Argent Dawn.
+		</special_equip_effect>
+	</item>
+
+	<item id="13209" phase="0">
+		<info name="Seal of the Dawn" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_armorkit_18.png"/>
+		<stats>
+			<stat type="ATTACK_POWER_UNDEAD" value="81"/>
+		</stats>
+		<source>
+			Quest reward. Requires Stratholme Undead.
+		</source>
+		<special_equip_effect>
+		It also allows the acquisition of Scourgestones on behalf of the Argent Dawn.
+		</special_equip_effect>
+	</item>
+
 	<item id="11815" phase="0">
 		<info name="Hand of Justice" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="53" item_lvl="58" quality="RARE" boe="no" icon="Inv_jewelry_talisman_01.png"/>
 		<stats>

@@ -850,5 +850,7 @@
         <file>QML/Assets/items/Inv_wand_11.png</file>
         <file>QML/Assets/items/Inv_wand_12.png</file>
         <file>QML/Assets/items/Inv_wand_1h_stratholme_d_01.png</file>
+        <file>QML/Assets/items/Inv_misc_armorkit_18.png</file>
+        <file>QML/Assets/items/Inv_misc_rune_06.png</file>
     </qresource>
 </RCC>
