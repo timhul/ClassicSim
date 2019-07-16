@@ -853,5 +853,33 @@
         <file>QML/Assets/items/Inv_misc_armorkit_18.png</file>
         <file>QML/Assets/items/Inv_misc_rune_06.png</file>
         <file>QML/Assets/spell/Spell_holy_dizzy.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_03.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_08.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_11.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_12.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_22.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_26.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_31.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_39.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_46.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_48.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_50.png</file>
+        <file>QML/Assets/items/Inv_chest_leather_01.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_04.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_06.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_09.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_10.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_15.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_16.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_17.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_18.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_24.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_25.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_28.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_29.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_38.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_49.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_51.png</file>
+        <file>QML/Assets/items/Inv_chest_cloth_47.png</file>
     </qresource>
 </RCC>

@@ -1,5 +1,637 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="20642" phase="0">
+		<info name="Antiquated Nobleman's Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="42" item_lvl="47" quality="UNCOMMON" boe="no" icon="Inv_chest_cloth_47.png"/>
+		<!-- <mutex item_id="20643"/> -->
+		<stats>
+			<stat type="ARMOR" value="61"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="13"/>
+		</stats>
+		<source>
+		Quest reward. Trivial quest in Hinterlands.
+		</source>
+	</item>
+
+	<item id="17741" phase="0">
+		<info name="Nature's Embrace" type="CLOTH" slot="CHEST" unique="no" req_lvl="46" item_lvl="51" quality="RARE" boe="no" icon="Inv_chest_cloth_15.png"/>
+		<stats>
+			<stat type="ARMOR" value="73"/>
+			<stat type="SPELL_DAMAGE_HOLY" value="29"/>
+			<stat type="MANA_PER_5" value="8"/>
+		</stats>
+		<source>
+		Drops from Meshlok the Harvester.
+		</source>
+	</item>
+
+	<item id="14042" phase="0">
+		<info name="Cindercloth Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="47" item_lvl="52" quality="UNCOMMON" boe="yes" icon="Inv_chest_cloth_07.png"/>
+		<stats>
+			<stat type="ARMOR" value="68"/>
+			<stat type="SPIRIT" value="11"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="24"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires Heart of Fire.
+		</source>
+	</item>
+
+	<item id="14136" phase="0">
+		<info name="Robe of Winter Night" type="CLOTH" slot="CHEST" unique="no" req_lvl="52" item_lvl="57" quality="RARE" boe="yes" icon="Inv_chest_cloth_49.png"/>
+		<stats>
+			<stat type="ARMOR" value="81"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="40"/>
+			<stat type="SPELL_DAMAGE_FROST" value="40"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires Felcloth and Essence of Undeath / Water.
+		</source>
+	</item>
+
+	<item id="11924" phase="0">
+		<info name="Robes of the Royal Crown" type="CLOTH" slot="CHEST" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_chest_cloth_16.png"/>
+		<stats>
+			<stat type="ARMOR" value="85"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+		Drops from Emperor Daugran Thaurissan in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="14106" phase="0">
+		<info name="Felcloth Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="UNCOMMON" boe="yes" icon="Inv_chest_cloth_09.png"/>
+		<stats>
+			<stat type="ARMOR" value="79"/>
+			<stat type="STAMINA" value="7"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="36"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires Felcloth and Demonic Runes.
+		</source>
+	</item>
+
+	<item id="14626" phase="0">
+		<info name="Necropile Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_cloth_43.png"/>
+		<stats>
+			<stat type="ARMOR" value="87"/>
+			<stat type="STAMINA" value="22"/>
+			<stat type="SPIRIT" value="12"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE" value="8"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
+	</item>
+
+	<item id="13388" phase="0">
+		<info name="The Postmaster's Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_chest_leather_10.png"/>
+		<stats>
+			<stat type="ARMOR" value="87"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+		Drops from Postmaster Malown in Stratholme Undead.
+		</source>
+	</item>
+
+	<item id="14340" phase="0">
+		<info name="Freezing Lich Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_cloth_46.png"/>
+		<stats>
+			<stat type="ARMOR" value="88"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPELL_DAMAGE_FROST" value="43"/>
+		</stats>
+		<source>
+		Drops from Ras Frostwhisper in Scholomance.
+		</source>
+	</item>
+
+	<item id="13314" phase="0">
+		<info name="Alanna's Embrace" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_cloth_12.png"/>
+		<stats>
+			<stat type="ARMOR" value="96"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="SPIRIT" value="20"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+		Drops from Ras Frostwhisper in Scholomance.
+		</source>
+	</item>
+
+	<item id="16690" phase="0">
+		<info name="Devout Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_11.png"/>
+		<stats>
+			<stat type="ARMOR" value="84"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="SPIRIT" value="15"/>
+			<stat type="STAMINA" value="13"/>
+		</stats>
+		<source>
+		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="16700" phase="0">
+		<info name="Dreadmist Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_49.png"/>
+		<stats>
+			<stat type="ARMOR" value="89"/>
+			<stat type="INTELLECT" value="21"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="SPIRIT" value="13"/>
+		</stats>
+		<source>
+		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="16688" phase="0">
+		<info name="Magister's Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_25.png"/>
+		<stats>
+			<stat type="ARMOR" value="89"/>
+			<stat type="INTELLECT" value="31"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="19156" phase="0">
+		<info name="Flarecore Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="yes" icon="Inv_chest_cloth_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="STAMINA" value="35"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires materials from Molten Core.
+		</source>
+	</item>
+
+	<item id="19145" phase="0">
+		<info name="Robes of Volatile Power" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_18.png"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Molten Core.
+		</source>
+	</item>
+
+	<item id="16798" phase="0">
+		<info name="Arcanist Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_03.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="23"/>
+		</stats>
+		<source>
+		Drops from Golemagg the Incinerator in Molten Core.
+		</source>
+	</item>
+
+	<item id="18450" phase="1">
+		<info name="Robe of Combustion" type="CLOTH" slot="CHEST" unique="no" req_lvl="55" item_lvl="60" quality="UNCOMMON" boe="no" icon="Inv_chest_cloth_24.png"/>
+		<stats>
+			<stat type="ARMOR" value="77"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="26"/>
+		</stats>
+		<source>
+		Drops from Guard bosses in Dire Maul.
+		</source>
+	</item>
+
+	<item id="18486" phase="1">
+		<info name="Mooncloth Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="yes" icon="Inv_chest_cloth_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="87"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="SPIRIT" value="12"/>
+			<stat type="STAMINA" value="12"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires Mooncloth.
+		</source>
+	</item>
+
+	<item id="18532" phase="1">
+		<info name="Mindsurge Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_cloth_29.png"/>
+		<stats>
+			<stat type="ARMOR" value="88"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="MANA_PER_5" value="10"/>
+		</stats>
+		<source>
+		Drops from Tribute chest in Dire Maul.
+		</source>
+	</item>
+
+	<item id="18385" phase="1">
+		<info name="Robe of Everlasting Night" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_chest_cloth_51.png"/>
+		<stats>
+			<stat type="ARMOR" value="88"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="STAMINA" value="11"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		Drops from Immol'thar in Dire Maul.
+		</source>
+	</item>
+
+	<item id="23305" phase="1">
+		<info name="Knight-Captain's Silk Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_chest_cloth_28.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="156"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Knight-Captain (rank 8). Alliance only.
+		</source>
+	</item>
+
+	<item id="22886" phase="1">
+		<info name="Legionnaire's Silk Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_chest_cloth_28.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="156"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Legionnaire (rank 8). Horde only.
+		</source>
+	</item>
+
+	<item id="16443" phase="1">
+		<info name="Field Marshal's Silk Vestments" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_chest_cloth_12.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="183"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Field Marshal (rank 13). Alliance only.
+		</source>
+	</item>
+
+	<item id="16535" phase="1">
+		<info name="Warlord's Silk Raiments" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_chest_leather_01.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="183"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Warlord (rank 13). Horde only.
+		</source>
+	</item>
+
+	<item id="19399" phase="2">
+		<info name="Black Ash Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_cloth_50.png"/>
+		<stats>
+			<stat type="ARMOR" value="114"/>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="SPIRIT" value="17"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="FIRE_RESISTANCE" value="30"/>
+		</stats>
+		<source>
+		Drops from Firemaw in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="16916" phase="2">
+		<info name="Netherwind Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_03.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="116"/>
+			<stat type="INTELLECT" value="26"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="NATURE_RESISTANCE" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+		</stats>
+		<source>
+		Drops from Nefarian in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="19682" phase="3">
+		<info name="Bloodvine Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_chest_cloth_07.png"/>
+		<stats>
+			<stat type="ARMOR" value="92"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires drops from Zul'Gurub trash.
+		</source>
+	</item>
+
+	<item id="20032" phase="3">
+		<info name="Flowing Ritual Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_cloth_25.png"/>
+		<stats>
+			<stat type="ARMOR" value="100"/>
+			<stat type="SPIRIT" value="24"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPELL_DAMAGE" value="22"/>
+		</stats>
+		<source>
+		Drops from High Priestess Mar'li in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="20034" phase="3">
+		<info name="Zandalar Illusionist's Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_chest_cloth_12.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="100"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Zul'Gurub and Revered with Zandalar Tribe.
+		</source>
+	</item>
+
+	<item id="20635" phase="3">
+		<info name="Jade Inlaid Vestments" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_chest_cloth_39.png"/>
+		<stats>
+			<stat type="ARMOR" value="109"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="44"/>
+		</stats>
+		<source>
+		Drops from Ysondre (world boss).
+		</source>
+	</item>
+
+	<item id="20530" phase="0">
+		<info name="Robes of Servitude" type="CLOTH" slot="CHEST" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_chest_cloth_10.png"/>
+		<!-- <mutex item_id="20536"/> -->
+		<stats>
+			<stat type="ARMOR" value="75"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="23"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="23"/>
+		</stats>
+		<source>
+		Quest reward. Requires Sunken Temple.
+		</source>
+	</item>
+
+	<item id="22069" phase="4">
+		<info name="Sorcerer's Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_chest_cloth_25.png"/>
+		<stats>
+			<stat type="ARMOR" value="93"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPELL_DAMAGE" value="16"/>
+			<stat type="SPELL_PENETRATION" value="20"/>
+		</stats>
+		<source>
+		Quest reward. Involves a long quest chain. Requires Magister's Robes and Magister's Crown.
+		</source>
+	</item>
+
+	<item id="22301" phase="4">
+		<info name="Ironweave Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_48.png"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="219"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="INTELLECT" value="15"/>
+		</stats>
+		<source>
+		Drops from Sothos in Stratholme Undead during T0.5 quest line.
+		</source>
+	</item>
+
+	<item id="21183" phase="4">
+		<info name="Earthpower Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_chest_cloth_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="93"/>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="25"/>
+		</stats>
+		<source>
+		Quest reward. Requires completing repeatable quests in Silithus.
+		</source>
+	</item>
+
+	<item id="21499" phase="4">
+		<info name="Vestments of the Shifting Sands" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_chest_cloth_17.png"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Kurinnaxx in Ruins of Ahn'Qiraj (AQ20).
+		</source>
+	</item>
+
+	<item id="21838" phase="4">
+		<info name="Garb of Royal Ascension" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_chest_cloth_48.png"/>
+		<stats>
+			<stat type="ARMOR" value="109"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="SHADOW_RESISTANCE" value="25"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21696" phase="4">
+		<info name="Robes of the Triumvirate" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_chest_cloth_22.png"/>
+		<stats>
+			<stat type="ARMOR" value="114"/>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="NATURE_RESISTANCE" value="30"/>
+			<stat type="MANA_PER_5" value="7"/>
+		</stats>
+		<source>
+		Drops from Bug Trio (all bosses) in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21671" phase="4">
+		<info name="Robes of the Battleguard" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_chest_cloth_26.png"/>
+		<stats>
+			<stat type="ARMOR" value="116"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="36"/>
+			<stat type="SPELL_PENETRATION" value="20"/>
+		</stats>
+		<source>
+		Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21527" phase="4">
+		<info name="Darkwater Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_chest_cloth_31.png"/>
+		<stats>
+			<stat type="ARMOR" value="117"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="FIRE_RESISTANCE" value="30"/>
+			<stat type="SPELL_DAMAGE_FROST" value="39"/>
+		</stats>
+		<source>
+		Quest reward. Part of the Scepter of Ahn'Qiraj quest chain.
+		</source>
+	</item>
+
+	<item id="21343" phase="4">
+		<info name="Enigma Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_chest_cloth_11.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="133"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="SPIRIT" value="7"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="SPELL_DAMAGE" value="39"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_PENETRATION" value="20"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="23085" phase="5">
+		<info name="Robe of Undead Cleansing" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_04.png"/>
+		<stats>
+			<stat type="ARMOR" value="89"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="INTELLECT" value="13"/>
+			<stat type="SPELL_DAMAGE_UNDEAD" value="48"/>
+		</stats>
+		<source>
+		Drops from Shadow of Doom, a rare elite spawned in various regions.
+		</source>
+	</item>
+
+	<item id="22756" phase="5">
+		<info name="Sylvan Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="yes" icon="Inv_chest_plate07.png"/>
+		<stats>
+			<stat type="ARMOR" value="98"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="NATURE_RESISTANCE" value="30"/>
+			<stat type="SPELL_DAMAGE" value="12"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Pattern requires drops from Zul'Gurub trash.
+		</source>
+	</item>
+
+	<item id="23069" phase="5">
+		<info name="Necro-Knight's Garb" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_cloth_46.png"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="448"/>
+			<stat type="STAMINA" value="32"/>
+			<stat type="SPELL_DAMAGE" value="37"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Naxxramas.
+		</source>
+	</item>
+
+	<item id="22652" phase="5">
+		<info name="Glacial Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="80" quality="EPIC" boe="yes" icon="Inv_chest_cloth_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="121"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="FROST_RESISTANCE" value="40"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires materials from Naxxramas.
+		</source>
+	</item>
+
+	<item id="23220" phase="5">
+		<info name="Crystal Webbed Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_chest_cloth_46.png"/>
+		<stats>
+			<stat type="ARMOR" value="128"/>
+			<stat type="STAMINA" value="25"/>
+			<stat type="INTELLECT" value="19"/>
+			<stat type="SPELL_DAMAGE" value="53"/>
+		</stats>
+		<source>
+		Drops from Maexxna in Naxxramas.
+		</source>
+	</item>
+
 	<item id="22496" phase="5">
 		<info name="Frostfire Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_chest_cloth_43.png"/>
 		<class_restriction class="MAGE"/>
