@@ -35,6 +35,7 @@ SOURCES += main.cpp \
     Class/Mage/Spells/Fireball.cpp \
     Class/Mage/Spells/Frostbolt.cpp \
     Class/Mage/Spells/Ignite.cpp \
+    Class/Mage/Spells/RobeOfTheArchmage.cpp \
     Class/Mage/Spells/Scorch.cpp \
     Class/Mage/TalentTrees/Arcane.cpp \
     Class/Mage/TalentTrees/Fire.cpp \
@@ -472,6 +473,7 @@ HEADERS += \
     Class/Mage/Spells/Fireball.h \
     Class/Mage/Spells/Frostbolt.h \
     Class/Mage/Spells/Ignite.h \
+    Class/Mage/Spells/RobeOfTheArchmage.h \
     Class/Mage/Spells/Scorch.h \
     Class/Mage/TalentTrees/Arcane.h \
     Class/Mage/TalentTrees/Fire.h \

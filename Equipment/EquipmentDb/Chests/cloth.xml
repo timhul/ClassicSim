@@ -131,6 +131,24 @@
 		</source>
 	</item>
 
+	<item id="14152" phase="0">
+		<info name="Robe of the Archmage" type="CLOTH" slot="CHEST" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="no" icon="Inv_chest_cloth_38.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="96"/>
+			<stat type="INTELLECT" value="12"/>
+			<stat type="SPELL_DAMAGE" value="40"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<modifies name="Robe of the Archmage"/>
+		<special_equip_effect>
+		Use: Restores 375 to 626 mana. (cooldown 5 min)
+		</special_equip_effect>
+		<source>
+		Crafted by Tailorers. Pattern drops in Lower Blackrock Spire (LBRS). Requires many Essences of multiple elements.
+		</source>
+	</item>
+
 	<item id="16690" phase="0">
 		<info name="Devout Robe" type="CLOTH" slot="CHEST" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_chest_cloth_11.png"/>
 		<stats>

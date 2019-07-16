@@ -16,6 +16,7 @@
 #include "Mage.h"
 #include "MainhandAttack.h"
 #include "RaidControl.h"
+#include "RobeOfTheArchmage.h"
 #include "Scorch.h"
 
 MageSpells::MageSpells(Mage* mage) :
@@ -100,6 +101,8 @@ MageSpells::MageSpells(Mage* mage) :
     this->elemental_vulnerability = new ElementalVulnerability(mage);
     this->t3_6piece_proc = new GenericBuffProc(mage, "Elemental Vulnerability 6p T3", "Assets/spell/Spell_holy_dizzy.png", {ProcInfo::Source::MagicSpell},
                                                0.2, EnabledAtStart::No, MaintainBuffEnabled::No, elemental_vulnerability);
+
+    add_spell_group({new RobeOfTheArchmage(mage)});
 }
 
 MageSpells::~MageSpells() {
