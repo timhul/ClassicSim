@@ -882,7 +882,7 @@ void GUIControl::runQuickSim() {
         }
     }
 
-    thread_pool->run_sim(setup_strings, false, sim_settings->get_combat_iterations_quick_sim());
+    thread_pool->run_sim(setup_strings, false, sim_settings->get_combat_iterations_quick_sim(), 1);
 
     simProgressChanged();
 }
@@ -909,7 +909,8 @@ void GUIControl::runFullSim() {
         }
     }
 
-    thread_pool->run_sim(setup_strings, true, sim_settings->get_combat_iterations_full_sim());
+    const int num_stat_weights = 1 + sim_settings->get_active_options().size();
+    thread_pool->run_sim(setup_strings, true, sim_settings->get_combat_iterations_full_sim(), num_stat_weights);
 
     simProgressChanged();
 }

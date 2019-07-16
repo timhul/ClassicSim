@@ -28,9 +28,9 @@ SimulationThreadPool::~SimulationThreadPool() {
         delete thread_entry.second;
 }
 
-void SimulationThreadPool::run_sim(const QVector<QString>& setup_string, bool full_sim, int iterations) {
+void SimulationThreadPool::run_sim(const QVector<QString>& setup_string, bool full_sim, int iterations, const int num_options) {
     check((running_threads == 0), "Cannot run sim while threads are still running");
-    max_iterations = iterations;
+    max_iterations = iterations * num_options;
     iterations_completed = 0;
 
     auto iterations_per_thread = static_cast<int>(static_cast<double>(iterations) / active_thread_ids.size());
