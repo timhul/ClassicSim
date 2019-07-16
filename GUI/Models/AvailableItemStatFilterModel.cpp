@@ -68,5 +68,14 @@ void AvailableItemStatFilterModel::add_available_stat_filters() {
     available_item_stat_filters.append(new AvailableStatFilter(ItemStats::HitChance, "%Hit Chance"));
     available_item_stat_filters.append(new AvailableStatFilter(ItemStats::CritChance, "%Critical Strike"));
     available_item_stat_filters.append(new AvailableStatFilter(ItemStats::AttackPower, "Attack Power"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellDamage, "+Spell Damage"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellDamageArcane, "+Arcane Damage"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellDamageFire, "+Fire Damage"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellDamageFrost, "+Frost Damage"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellDamageNature, "+Nature Damage"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellDamageShadow, "+Shadow Damage"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellHit, "+% Spell Hit"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::SpellCrit, "+% Spell Crit"));
+    available_item_stat_filters.append(new AvailableStatFilter(ItemStats::ManaPer5, "+Mana per 5"));
     endInsertRows();
 }
