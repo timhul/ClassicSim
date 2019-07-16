@@ -73,7 +73,7 @@ private:
     ItemTypeFilterModel* item_type_filter_model;
     ActiveItemStatFilterModel* item_stat_filter_model;
     QHash<WeaponSorting::Methods, bool> sorting_methods;
-    QList<Weapon*> melee_weapons;
+    QList<Weapon*> weapons;
     WeaponSorting::Methods current_sorting_method;
 
     void select_new_method(const WeaponSorting::Methods new_method);

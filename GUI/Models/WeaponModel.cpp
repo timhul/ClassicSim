@@ -93,27 +93,27 @@ void WeaponModel::selectSort(const int method) {
     auto sorting_method = static_cast<WeaponSorting::Methods>(method);
     switch (sorting_method) {
     case WeaponSorting::Methods::ByIlvl:
-        std::sort(melee_weapons.begin(), melee_weapons.end(), ilvl);
+        std::sort(weapons.begin(), weapons.end(), ilvl);
         select_new_method(WeaponSorting::Methods::ByIlvl);
         break;
     case WeaponSorting::Methods::ByName:
-        std::sort(melee_weapons.begin(), melee_weapons.end(), name);
+        std::sort(weapons.begin(), weapons.end(), name);
         select_new_method(WeaponSorting::Methods::ByName);
         break;
     case WeaponSorting::Methods::ByDps:
-        std::sort(melee_weapons.begin(), melee_weapons.end(), dps);
+        std::sort(weapons.begin(), weapons.end(), dps);
         select_new_method(WeaponSorting::Methods::ByDps);
         break;
     case WeaponSorting::Methods::BySpeed:
-        std::sort(melee_weapons.begin(), melee_weapons.end(), speed);
+        std::sort(weapons.begin(), weapons.end(), speed);
         select_new_method(WeaponSorting::Methods::BySpeed);
         break;
     case WeaponSorting::Methods::ByPhase:
-        std::sort(melee_weapons.begin(), melee_weapons.end(), phase);
+        std::sort(weapons.begin(), weapons.end(), phase);
         select_new_method(WeaponSorting::Methods::ByPhase);
         break;
     case WeaponSorting::Methods::ByItemType:
-        std::sort(melee_weapons.begin(), melee_weapons.end(), item_type);
+        std::sort(weapons.begin(), weapons.end(), item_type);
         select_new_method(WeaponSorting::Methods::ByItemType);
         break;
     }
@@ -123,7 +123,7 @@ void WeaponModel::selectSort(const int method) {
 
 void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
     if (sorting_methods[new_method])
-        std::reverse(melee_weapons.begin(), melee_weapons.end());
+        std::reverse(weapons.begin(), weapons.end());
 
     sorting_methods[new_method] = !sorting_methods[new_method];
     current_sorting_method = new_method;
@@ -140,9 +140,9 @@ void WeaponModel::select_new_method(const WeaponSorting::Methods new_method) {
 }
 
 void WeaponModel::update_items() {
-    if (!melee_weapons.empty()) {
+    if (!weapons.empty()) {
         beginResetModel();
-        melee_weapons.clear();
+        weapons.clear();
         endResetModel();
     }
 
@@ -163,25 +163,25 @@ void WeaponModel::update_items() {
             continue;
 
         if (item_stat_filter_model->item_passes_active_stat_filters(wpn))
-            melee_weapons << dynamic_cast<Weapon*>(wpn);
+            weapons << dynamic_cast<Weapon*>(wpn);
     }
     endInsertRows();
 
     layoutAboutToBeChanged();
-    std::sort(melee_weapons.begin(), melee_weapons.end(), ilvl);
+    std::sort(weapons.begin(), weapons.end(), ilvl);
     layoutChanged();
 }
 
 int WeaponModel::rowCount(const QModelIndex & parent) const {
     Q_UNUSED(parent);
-    return melee_weapons.count();
+    return weapons.count();
 }
 
 QVariant WeaponModel::data(const QModelIndex & index, int role) const {
-    if (index.row() < 0 || index.row() >= melee_weapons.count())
+    if (index.row() < 0 || index.row() >= weapons.count())
         return QVariant();
 
-    const Weapon* weapon = melee_weapons[index.row()];
+    const Weapon* weapon = weapons[index.row()];
 
     if (role == IdRole)
         return weapon->get_item_id();
