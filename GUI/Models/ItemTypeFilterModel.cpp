@@ -156,6 +156,14 @@ void ItemTypeFilterModel::add_armor_item_type_filters() {
         item_type_filters[equipment_slot].append(ItemTypeFilter(ArmorTypes::CLOTH, "Cloth"));
     }
 
+    // Enable Cloth filter for all classes that have a higher possible armor type
+    switch (pchar->get_highest_possible_armor_type()) {
+    case ArmorTypes::PLATE:
+    case ArmorTypes::MAIL:
+    case ArmorTypes::LEATHER:
+        item_type_filters[equipment_slot].last().active = true;
+    }
+
     std::reverse(item_type_filters[equipment_slot].begin(), item_type_filters[equipment_slot].end());
 
     endInsertRows();
