@@ -40,16 +40,11 @@ upcoming releases.
 
 Upcoming features and bug fixes that are merged but not yet built and made available as a release:
 
-* Mage with Fire specialization is now available for simulation.
-* Extra attack effects now reset the swing timer.
-* Blood Fury now scales with current strength and ap instead of base strength and ap.
-* Item procs now has attributes for spell damage scaling that can be modified by users. See definitions in .xml files.
-
-## Restrictions
-
-* Only Fireball rotation is available. No scorching is currently necessary or possible to apply debuff.
-* Only talents in the Fire tree that impacts Fireball in any way are implemented.
-* No gear is currently available for mages to equip.
+* Mage Frost/Arcane abilities, rotations, and talents.
+* Wands now available for relevant classes.
+* Stat weight calculations for magic stats now available.
+* Item stat filters for magic stats now available.
+* Update rage cost refund for Execute and Whirlwind after beta tests (thanks to Vilnius at Fight Club discord).
 
 # Q&A
 
