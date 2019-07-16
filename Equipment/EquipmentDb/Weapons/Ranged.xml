@@ -132,6 +132,9 @@
 	<melee_weapon id="19107" phase="2">
 		<info name="Bloodseeker" type="CROSSBOW" slot="RANGED" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_weapon_crossbow_07.png"/>
 		<dmg_range min="85" max="128" speed="3.3"/>
+		<mutex item_id="19106"/>
+		<mutex item_id="19108"/>
+		<mutex item_id="20648"/>
 		<stats>
 			<stat type="AGILITY" value="7"/>
 			<stat type="STRENGTH" value="8"/>

@@ -31,7 +31,9 @@ public:
          QVector<QMap<QString, QString>> procs = {},
          QVector<QMap<QString, QString>> use = {},
          QVector<QString> item_modifications = {},
-         QVector<QString> special_equip_effects = {});
+         QVector<QString> special_equip_effects = {},
+         QSet<int> mutex_item_ids = {}
+            );
     Item(const Item* item);
     virtual ~Item();
 
@@ -64,9 +66,11 @@ public:
     bool available_for_faction(AvailableFactions::Name faction) const;
     bool available_for_class(const QString& class_name) const;
 
+    const QString name;
+    const int item_id;
+
 protected:
     Character* pchar;
-    QString name;
     QString source;
     QString quality;
     QString icon;
@@ -82,6 +86,7 @@ protected:
     QVector<Proc*> active_procs;
     QVector<Spell*> use_spells;
     QVector<QString> item_modifications;
+    QSet<int> mutex_item_ids;
     QMap<ItemStats, unsigned> item_stat_values;
     Stats* stats;
     Enchant* enchant;
@@ -92,10 +97,10 @@ protected:
     void call_modifications_by_specific_name(const QString& name, const bool activate) const;
     void call_spell_modifications(const QString& spell_name, const bool activate) const;
     void call_buff_modifications(const QString& buff_name, const bool activate) const;
+    void clear_mutex_ids();
 
     int slot;
     int item_type;
-    const int item_id;
     void set_item_slot(const QMap<QString, QString>& info);
     void set_item_type(const QMap<QString, QString>& info);
     void set_class_restrictions(const QMap<QString, QString>& info);

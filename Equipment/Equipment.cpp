@@ -926,3 +926,65 @@ void Equipment::unequip(Projectile*& item, const int eq_slot) {
     delete item;
     item = nullptr;
 }
+
+void Equipment::clear_item_id_if_equipped_in_any_slot(const int item_id) {
+    if (get_mainhand() && get_mainhand()->item_id == item_id)
+        clear_mainhand();
+
+    if (get_offhand() && get_offhand()->item_id == item_id)
+        clear_offhand();
+
+    if (get_ranged() && get_ranged()->item_id == item_id)
+        clear_ranged();
+
+    if (get_head() && get_head()->item_id == item_id)
+        clear_head();
+
+    if (get_neck() && get_neck()->item_id == item_id)
+        clear_neck();
+
+    if (get_shoulders() && get_shoulders()->item_id == item_id)
+        clear_shoulders();
+
+    if (get_back() && get_back()->item_id == item_id)
+        clear_back();
+
+    if (get_chest() && get_chest()->item_id == item_id)
+        clear_chest();
+
+    if (get_wrist() && get_wrist()->item_id == item_id)
+        clear_wrist();
+
+    if (get_gloves() && get_gloves()->item_id == item_id)
+        clear_gloves();
+
+    if (get_belt() && get_belt()->item_id == item_id)
+        clear_belt();
+
+    if (get_legs() && get_legs()->item_id == item_id)
+        clear_legs();
+
+    if (get_boots() && get_boots()->item_id == item_id)
+        clear_boots();
+
+    if (get_ring1() && get_ring1()->item_id == item_id)
+        clear_ring1();
+
+    if (get_ring2() && get_ring2()->item_id == item_id)
+        clear_ring2();
+
+    if (get_trinket1() && get_trinket1()->item_id == item_id)
+        clear_trinket1();
+
+    if (get_trinket2() && get_trinket2()->item_id == item_id)
+        clear_trinket2();
+
+    if (get_caster_offhand() && get_caster_offhand()->item_id == item_id)
+        clear_caster_offhand();
+
+    if (get_relic() && get_relic()->item_id == item_id)
+        clear_relic();
+
+    if (get_projectile() && get_projectile()->item_id == item_id)
+        clear_projectile();
+}

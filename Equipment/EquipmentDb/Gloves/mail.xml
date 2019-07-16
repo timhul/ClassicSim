@@ -40,22 +40,13 @@
 			Drops from Eviscerator in the Arena in Blackrock Depths (BRD).
 		</source>
 	</item>
-
-	<item id="13963000" phase="0">
-		<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_gauntlets_15.png"/>
-		<stats>
-			<stat type="ARMOR" value="221"/>
-			<stat type="STAMINA" value="6"/>
-			<stat type="AGILITY" value="9"/>
-			<stat type="HIT_CHANCE" value="0.02"/>
-		</stats>
-		<source>
-			Quest reward. Part of Onyxia quest chain. Requires LBRS.
-		</source>
-	</item>
-
-	<item id="13963001" phase="0">
-		<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="HORDE" boe="no" icon="Inv_gauntlets_15.png"/>
+	
+	<item id="13963" phase="0">
+		<info name="Voone's Vice Grips" type="MAIL" slot="GLOVES" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_gauntlets_15.png"/>
+		<mutex item_id="13959"/>
+		<mutex item_id="13958"/>
+		<mutex item_id="13961"/>
+		<mutex item_id="13962"/>
 		<stats>
 			<stat type="ARMOR" value="221"/>
 			<stat type="STAMINA" value="6"/>

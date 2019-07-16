@@ -2,6 +2,9 @@
 <items>
 	<item id="21320" phase="0">
 		<info name="Vest of the Den Watcher" type="MAIL" slot="CHEST" unique="no" req_lvl="51" item_lvl="58" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
+		<mutex item_id="21318"/>
+		<mutex item_id="21319"/>
+		<mutex item_id="21322"/>
 		<stats>
 			<stat type="ARMOR" value="313"/>
 			<stat type="AGILITY" value="20"/>
@@ -14,6 +17,8 @@
 
 	<item id="15787" phase="0">
 		<info name="Willow Band Hauberk" type="MAIL" slot="CHEST" unique="no" req_lvl="52" item_lvl="59" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
+		<mutex item_id="15784"/>
+		<mutex item_id="15786"/>
 		<stats>
 			<stat type="ARMOR" value="317"/>
 			<stat type="INTELLECT" value="6"/>

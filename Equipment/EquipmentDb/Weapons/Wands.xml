@@ -227,6 +227,9 @@
 	<melee_weapon id="19108" phase="2">
 		<info name="Wand of Biting Cold" type="WAND" slot="RANGED" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_wand_01.png"/>
 		<dmg_range min="67" max="125" speed="1.5"/>
+		<mutex item_id="19106"/>
+		<mutex item_id="19107"/>
+		<mutex item_id="20648"/>
 		<stats>
 			<stat type="SPELL_DAMAGE_FROST" value="16"/>
 		</stats>

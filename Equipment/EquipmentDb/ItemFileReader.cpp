@@ -61,6 +61,7 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*>&
         QVector<QMap<QString, QString>> uses;
         QVector<QString> spell_modifications;
         QVector<QString> special_equip_effects;
+        QSet<int> mutex_item_ids;
         item_map["classification"] = classification;
         item_map["id"] = id;
         item_map["phase"] = reader.attributes().value("phase").toString();
@@ -95,11 +96,15 @@ void ItemFileReader::item_file_handler(QXmlStreamReader &reader, QVector<Item*>&
             else if (reader.name() == "modifies") {
                 modifies_element_reader(reader, spell_modifications);
             }
+            else if (reader.name() == "mutex") {
+                mutex_element_reader(reader.attributes(), mutex_item_ids);
+                reader.skipCurrentElement();
+            }
             else
                 reader.skipCurrentElement();
         }
 
-        create_item(items, item_map, stats, procs, uses, spell_modifications, special_equip_effects);
+        create_item(items, item_map, stats, procs, uses, spell_modifications, special_equip_effects, mutex_item_ids);
         item_map.remove("classification");
         warn_remaining_keys(item_map);
     }
@@ -192,6 +197,15 @@ void ItemFileReader::modifies_element_reader(QXmlStreamReader &reader, QVector<Q
     reader.skipCurrentElement();
 }
 
+void ItemFileReader::mutex_element_reader(const QXmlStreamAttributes& attrs, QSet<int>& mutex_item_ids) {
+    if (!attrs.hasAttribute("item_id")) {
+        qDebug() << "Missing item_id attribute on <mutex> element";
+        return;
+    }
+
+    mutex_item_ids.insert(attrs.value("item_id").toInt());
+}
+
 void ItemFileReader::add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item) {
     add_attr(attrs, attr, item);
 
@@ -213,7 +227,8 @@ void ItemFileReader::create_item(QVector<Item*>& items,
                                  QVector<QMap<QString, QString>>& procs,
                                  QVector<QMap<QString, QString>>& uses,
                                  QVector<QString>& spell_modifications,
-                                 QVector<QString>& special_equip_effects) {
+                                 QVector<QString>& special_equip_effects,
+                                 QSet<int>& mutex_item_ids) {
     QVector<QString> mandatory_attrs = {"id", "phase", "name", "classification", "type",
                                         "slot", "unique", "req_lvl", "item_lvl", "quality", "boe"};
 
@@ -232,7 +247,7 @@ void ItemFileReader::create_item(QVector<Item*>& items,
     extract_info(item_map, info);
 
     items.append(new Item(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),
-                          info, stats, procs, uses, spell_modifications, special_equip_effects));
+                          info, stats, procs, uses, spell_modifications, special_equip_effects, mutex_item_ids));
 }
 
 void ItemFileReader::extract_info(QMap<QString, QString>& item, QMap<QString, QString>& info) {

@@ -127,6 +127,9 @@
 	<melee_weapon id="19106" phase="2">
 		<info name="Ice Barbed Spear" type="POLEARM" slot="2H" unique="no" req_lvl="51" item_lvl="63" quality="RARE" boe="no" icon="Inv_spear_04.png"/>
 		<dmg_range min="155" max="233" speed="3.6"/>
+		<mutex item_id="19107"/>
+		<mutex item_id="19108"/>
+		<mutex item_id="20648"/>
 		<stats>
 			<stat type="AGILITY" value="21"/>
 			<stat type="STRENGTH" value="13"/>

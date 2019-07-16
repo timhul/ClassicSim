@@ -20,6 +20,7 @@ void ProjectileFileReader::file_handler(QXmlStreamReader &reader, QVector<Item*>
             item_map["classification"] = classification;
             item_map["id"] = id;
             item_map["phase"] = reader.attributes().value("phase").toString();
+            QSet<int> mutex_item_ids;
 
             while (reader.readNextStartElement()) {
                 if (reader.name() == "info") {
@@ -33,11 +34,15 @@ void ProjectileFileReader::file_handler(QXmlStreamReader &reader, QVector<Item*>
                 else if (reader.name() == "source") {
                     item_map["source"] = reader.readElementText().trimmed();
                 }
+                else if (reader.name() == "mutex") {
+                    mutex_element_reader(reader.attributes(), mutex_item_ids);
+                    reader.skipCurrentElement();
+                }
                 else
                     reader.skipCurrentElement();
             }
 
-            create_projectile(items, item_map);
+            create_projectile(items, item_map, mutex_item_ids);
             item_map.remove("classification");
             warn_remaining_keys(item_map);
         }
@@ -55,7 +60,7 @@ void ProjectileFileReader::dps_element_reader(const QXmlStreamAttributes &attrs,
         add_mandatory_attr(attrs, mandatory_attr, item);
 }
 
-void ProjectileFileReader::create_projectile(QVector<Item*> &items, QMap<QString, QString> &item_map) {
+void ProjectileFileReader::create_projectile(QVector<Item*> &items, QMap<QString, QString>& item_map, QSet<int>& mutex_item_ids) {
     bool missing_attrs = false;
 
     for (const auto & attr : {"value"}) {
@@ -72,7 +77,7 @@ void ProjectileFileReader::create_projectile(QVector<Item*> &items, QMap<QString
     extract_info(item_map, info);
 
     Projectile* projectile = new Projectile(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),
-            get_projectile_type(info["type"]), item_map["value"].toDouble(), info);
+            get_projectile_type(info["type"]), item_map["value"].toDouble(), info, {}, {}, mutex_item_ids);
 
     items.append(projectile);
 

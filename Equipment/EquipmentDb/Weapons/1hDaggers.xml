@@ -147,6 +147,11 @@
 
 	<melee_weapon id="22379" phase="4">
 		<info name="Shivsprocket's Shiv" type="DAGGER" slot="MH" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_21.png"/>
+		<mutex item_id="22378"/>
+		<mutex item_id="22377"/>
+		<mutex item_id="22348"/>
+		<mutex item_id="22347"/>
+		<mutex item_id="22380"/>
 		<dmg_range min="42" max="82" speed="1.5"/>
 		<stats>
 			<stat type="STAMINA" value="13"/>

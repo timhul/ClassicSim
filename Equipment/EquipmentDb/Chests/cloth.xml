@@ -2,7 +2,7 @@
 <items>
 	<item id="20642" phase="0">
 		<info name="Antiquated Nobleman's Tunic" type="CLOTH" slot="CHEST" unique="no" req_lvl="42" item_lvl="47" quality="UNCOMMON" boe="no" icon="Inv_chest_cloth_47.png"/>
-		<!-- <mutex item_id="20643"/> -->
+		<mutex item_id="20643"/>
 		<stats>
 			<stat type="ARMOR" value="61"/>
 			<stat type="STAMINA" value="10"/>
@@ -438,7 +438,7 @@
 
 	<item id="20530" phase="0">
 		<info name="Robes of Servitude" type="CLOTH" slot="CHEST" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_chest_cloth_10.png"/>
-		<!-- <mutex item_id="20536"/> -->
+		<mutex item_id="20536"/>
 		<stats>
 			<stat type="ARMOR" value="75"/>
 			<stat type="STAMINA" value="15"/>
@@ -483,6 +483,8 @@
 
 	<item id="21183" phase="4">
 		<info name="Earthpower Vest" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_chest_cloth_06.png"/>
+		<mutex item_id="21181"/>
+		<mutex item_id="21182"/>
 		<stats>
 			<stat type="ARMOR" value="93"/>
 			<stat type="INTELLECT" value="22"/>
@@ -554,6 +556,7 @@
 
 	<item id="21527" phase="4">
 		<info name="Darkwater Robes" type="CLOTH" slot="CHEST" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_chest_cloth_31.png"/>
+		<mutex item_id="21526"/>
 		<stats>
 			<stat type="ARMOR" value="117"/>
 			<stat type="INTELLECT" value="17"/>

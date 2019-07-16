@@ -58,6 +58,8 @@
 
 	<item id="18421" phase="1">
 		<info name="Backwood Helm" type="MAIL" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_19.png"/>
+		<mutex item_id="18420"/>
+		<mutex item_id="18424"/>
 		<stats>
 			<stat type="ARMOR" value="301"/>
 			<stat type="AGILITY" value="21"/>

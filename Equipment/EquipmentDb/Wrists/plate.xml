@@ -38,7 +38,10 @@
 	</wrist>
 
 	<wrist id="21184" phase="4">
-		<info name="Deeprock Braceres" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
+		<info name="Deeprock Bracers" type="PLATE" slot="WRIST" unique="no" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_bracer_07.png"/>
+		<mutex item_id="21185"/>
+		<mutex item_id="21186"/>
+		<mutex item_id="21189"/>
 		<stats>
 			<stat type="ARMOR" value="309"/>
 			<stat type="STRENGTH" value="19"/>

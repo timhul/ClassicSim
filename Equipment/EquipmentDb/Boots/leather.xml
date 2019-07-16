@@ -121,6 +121,7 @@
 
 	<item id="21532" phase="4">
 		<info name="Drudge Boots" type="LEATHER" slot="BOOTS" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_boots_08.png"/>
+		<mutex item_id="21531"/>
 		<stats>
 			<stat type="ARMOR" value="156"/>
 			<stat type="STAMINA" value="20"/>

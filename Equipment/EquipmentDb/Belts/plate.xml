@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
-	<item id="13959000" phase="0">
-		<info name="Omokk's Girth Restrainer" type="PLATE" slot="BELT" unique="no" req_lvl="59" item_lvl="60" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_belt_13.png"/>
-		<stats>
-			<stat type="ARMOR" value="353"/>
-			<stat type="STRENGTH" value="15"/>
-			<stat type="STAMINA" value="9"/>
-			<stat type="CRIT_CHANCE" value="0.01"/>
-		</stats>
-		<source>
-		Quest reward. Part of Onyxia quest chain. Requires LBRS.
-		</source>
-	</item>
-
-	<item id="13959001" phase="0">
-		<info name="Omokk's Girth Restrainer" type="PLATE" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" faction="HORDE" boe="no" icon="Inv_belt_13.png"/>
+	<item id="13959" phase="0">
+		<info name="Omokk's Girth Restrainer" type="PLATE" slot="BELT" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_belt_13.png"/>
+		<mutex item_id="13958"/>
+		<mutex item_id="13961"/>
+		<mutex item_id="13962"/>
+		<mutex item_id="13963"/>
 		<stats>
 			<stat type="ARMOR" value="353"/>
 			<stat type="STRENGTH" value="15"/>

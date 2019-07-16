@@ -2,6 +2,7 @@
 <items>
 	<item id="9533" phase="0">
 		<info name="Masons Fraternity Ring" type="RING" slot="RING" unique="yes" req_lvl="40" item_lvl="47" quality="RARE" boe="no" icon="Inv_jewelry_ring_03.png"/>
+		<mutex item_id="9534"/>
 		<stats>
 			<stat type="AGILITY" value="13"/>
 			<stat type="STAMINA" value="5"/>
@@ -25,6 +26,8 @@
 
 	<item id="11862" phase="0">
 		<info name="White Bone Band" type="RING" slot="RING" unique="yes" req_lvl="48" item_lvl="52" quality="UNCOMMON" boe="no" faction="HORDE" icon="Inv_misc_bone_05.png"/>
+		<mutex item_id="11863"/>
+		<mutex item_id="11864"/>
 		<stats>
 			<stat type="ATTACK_POWER" value="24"/>
 		</stats>
@@ -46,6 +49,7 @@
 
 	<item id="18400" phase="0">
 		<info name="Ring of Living Stone" type="RING" slot="RING" unique="yes" req_lvl="55" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_19.png"/>
+		<mutex item_id="18402"/>
 		<stats>
 			<stat type="STRENGTH" value="10"/>
 			<stat type="STAMINA" value="9"/>
@@ -92,6 +96,7 @@
 
 	<item id="12548" phase="0">
 		<info name="Magni's Will" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" faction="ALLIANCE" icon="Inv_jewelry_ring_05.png"/>
+		<mutex item_id="12543"/>
 		<stats>
 			<stat type="STRENGTH" value="6"/>
 			<stat type="STAMINA" value="7"/>
@@ -104,6 +109,7 @@
 
 	<item id="12544" phase="0">
 		<info name="Thrall's Resolve" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="60" quality="RARE" boe="no" faction="HORDE" icon="Inv_jewelry_ring_05.png"/>
+		<mutex item_id="12545"/>
 		<stats>
 			<stat type="ARMOR" value="150"/>
 			<stat type="STAMINA" value="7"/>
@@ -128,6 +134,7 @@
 
 	<item id="13217" phase="0">
 		<info name="Band of the Penitent" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="61" quality="UNCOMMON" boe="no" icon="Inv_jewelry_ring_30.png"/>
+		<mutex item_id="13216"/>
 		<stats>
 			<stat type="CRIT_CHANCE" value="0.01"/>
 		</stats>
@@ -161,6 +168,7 @@
 
 	<item id="18399" phase="0">
 		<info name="Ocean's Breeze" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_ring_28.png"/>
+		<mutex item_id="18398"/>
 		<stats>
 			<stat type="AGILITY" value="7"/>
 			<stat type="STRENGTH" value="4"/>
@@ -206,6 +214,8 @@
 
 	<item id="18403" phase="0">
 		<info name="Dragonslayer's Signet" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="74" quality="EPIC" boe="no" icon="Inv_jewelry_ring_27.png"/>
+		<mutex item_id="18404"/>
+		<mutex item_id="18406"/>
 		<stats>
 			<stat type="INTELLECT" value="12"/>
 			<stat type="SPIRIT" value="6"/>
@@ -258,6 +268,8 @@
 
 	<item id="19384" phase="2">
 		<info name="Master Dragonslayer's Ring" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="78" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
+		<mutex item_id="19366"/>
+		<mutex item_id="19383"/>
 		<stats>
 			<stat type="STAMINA" value="14"/>
 			<stat type="ATTACK_POWER" value="48"/>
@@ -450,6 +462,8 @@
 
 	<item id="21182" phase="4">
 		<info name="Band of Earthen Might" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="66" quality="RARE" boe="no" icon="Inv_jewelry_ring_19.png"/>
+		<mutex item_id="21181"/>
+		<mutex item_id="21183"/>
 		<stats>
 			<stat type="STRENGTH" value="6"/>
 			<stat type="CRIT_CHANCE" value="0.01"/>
@@ -462,6 +476,9 @@
 
 	<item id="21189" phase="4">
 		<info name="Might of Cenarius" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="62" quality="EPIC" boe="no" icon="Inv_jewelry_ring_41.png"/>
+		<mutex item_id="21184"/>
+		<mutex item_id="21185"/>
+		<mutex item_id="21186"/>
 		<stats>
 			<stat type="STAMINA" value="8"/>
 			<stat type="WEAPON_DAMAGE" value="4"/>
@@ -550,6 +567,20 @@
 
 	<item id="21210" phase="4">
 		<info name="Signet Ring of the Bronze Dragonflight" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
+		<mutex item_id="21196"/>
+		<mutex item_id="21201"/>
+		<mutex item_id="21206"/>
+		<mutex item_id="21197"/>
+		<mutex item_id="21198"/>
+		<mutex item_id="21199"/>
+		<mutex item_id="21200"/>
+		<mutex item_id="21202"/>
+		<mutex item_id="21203"/>
+		<mutex item_id="21204"/>
+		<mutex item_id="21205"/>
+		<mutex item_id="21207"/>
+		<mutex item_id="21208"/>
+		<mutex item_id="21209"/>
 		<stats>
 			<stat type="INTELLECT" value="9"/>
 			<stat type="STAMINA" value="8"/>
@@ -566,6 +597,20 @@
 
 	<item id="21205" phase="4">
 		<info name="Signet Ring of the Bronze Dragonflight" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_jewelry_ring_40.png"/>
+		<mutex item_id="21196"/>
+		<mutex item_id="21201"/>
+		<mutex item_id="21206"/>
+		<mutex item_id="21197"/>
+		<mutex item_id="21198"/>
+		<mutex item_id="21199"/>
+		<mutex item_id="21200"/>
+		<mutex item_id="21202"/>
+		<mutex item_id="21203"/>
+		<mutex item_id="21204"/>
+		<mutex item_id="21207"/>
+		<mutex item_id="21208"/>
+		<mutex item_id="21209"/>
+		<mutex item_id="21210"/>
 		<stats>
 			<stat type="AGILITY" value="24"/>
 			<stat type="STAMINA" value="13"/>
@@ -593,6 +638,8 @@
 
 	<item id="21709" phase="4">
 		<info name="Ring of the Fallen God" type="RING" slot="RING" unique="yes" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_jewelry_ring_ahnqiraj_02.png"/>
+		<mutex item_id="21712"/>
+		<mutex item_id="21710"/>
 		<stats>
 			<stat type="INTELLECT" value="6"/>
 			<stat type="STAMINA" value="5"/>

@@ -28,6 +28,7 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
             QVector<QMap<QString, QString>> procs;
             QVector<QMap<QString, QString>> uses;
             QVector<QString> special_equip_effects;
+            QSet<int> mutex_item_ids;
             item_map["classification"] = classification;
             item_map["id"] = id;
             item_map["phase"] = reader.attributes().value("phase").toString();
@@ -63,11 +64,15 @@ void WeaponFileReader::weapon_file_handler(QXmlStreamReader &reader, QVector<Ite
                 else if (reader.name() == "special_equip_effect") {
                     special_equip_effects.append(reader.readElementText().simplified());
                 }
+                else if (reader.name() == "mutex") {
+                    mutex_element_reader(reader.attributes(), mutex_item_ids);
+                    reader.skipCurrentElement();
+                }
                 else
                     reader.skipCurrentElement();
             }
 
-            create_weapon(items, item_map, stats, procs, uses, special_equip_effects);
+            create_weapon(items, item_map, stats, procs, uses, special_equip_effects, mutex_item_ids);
             item_map.remove("classification");
             warn_remaining_keys(item_map);
         }
@@ -90,7 +95,8 @@ void WeaponFileReader::create_weapon(QVector<Item*>& items,
                                      QVector<QPair<QString, QString>>& stats,
                                      QVector<QMap<QString, QString>>& procs,
                                      QVector<QMap<QString, QString>>& uses,
-                                     QVector<QString>& special_equip_effects) {
+                                     QVector<QString>& special_equip_effects,
+                                     QSet<int>& mutex_item_ids) {
     bool missing_attrs = false;
     QVector<QString> mandatory_attrs_for_wpn = {"min", "max", "speed"};
 
@@ -111,19 +117,19 @@ void WeaponFileReader::create_weapon(QVector<Item*>& items,
 
     if (info["slot"] == "1H")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::ONEHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects, mutex_item_ids);
     else if (info["slot"] == "MH")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::MAINHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects, mutex_item_ids);
     else if (info["slot"] == "OH")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::OFFHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects, mutex_item_ids);
     else if (info["slot"] == "2H")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::TWOHAND,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects, mutex_item_ids);
     else if (info["slot"] == "RANGED")
         weapon = new Weapon(info["name"], info["id"].toInt(), Content::get_phase(info["phase"].toInt()),get_weapon_type(info["type"]), WeaponSlots::RANGED,
-                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects);
+                item_map["min"].toUInt(), item_map["max"].toUInt(), item_map["speed"].toDouble(), info, stats, procs, uses, special_equip_effects, mutex_item_ids);
 
     if (weapon != nullptr)
         items.append(weapon);

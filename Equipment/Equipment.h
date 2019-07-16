@@ -89,6 +89,7 @@ public:
 
     void reequip_items();
     void clear_items_not_available_for_faction();
+    void clear_item_id_if_equipped_in_any_slot(const int item_id);
     SetBonusControl* get_set_bonus_control() const;
 
     void equip(Item*& current, Item* next, const int eq_slot);

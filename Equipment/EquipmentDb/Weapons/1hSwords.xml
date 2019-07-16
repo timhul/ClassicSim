@@ -3,6 +3,8 @@
 	<melee_weapon id="17705" phase="0">
 		<info name="Thrash Blade" type="SWORD" slot="1H" unique="yes" req_lvl="45" item_lvl="63" quality="RARE" boe="no" icon="Inv_sword_36.png"/>
 		<dmg_range min="66" max="124" speed="2.7"/>
+		<mutex item_id="17743"/>
+		<mutex item_id="17753"/>
 		<proc>
 			<spell name="EXTRA_ATTACK" amount="1" instant="no" rate="0.045" internal_cd="0"/>
 		</proc>
@@ -42,6 +44,7 @@
 	<melee_weapon id="15806" phase="0">
 		<info name="Mirah's Song" type="SWORD" slot="1H" unique="yes" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_sword_34.png"/>
 		<dmg_range min="57" max="87" speed="1.8"/>
+		<mutex item_id="15805"/>
 		<stats>
 			<stat type="AGILITY" value="9"/>
 			<stat type="STRENGTH" value="9"/>
@@ -156,6 +159,11 @@
 	<melee_weapon id="22378" phase="4">
 		<info name="Ravenholdt Slicer" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="65" quality="RARE" boe="no" icon="Inv_sword_38.png"/>
 		<dmg_range min="83" max="156" speed="2.8"/>
+		<mutex item_id="22379"/>
+		<mutex item_id="22377"/>
+		<mutex item_id="22348"/>
+		<mutex item_id="22347"/>
+		<mutex item_id="22380"/>
 		<stats>
 			<stat type="STAMINA" value="6"/>
 			<stat type="ATTACK_POWER" value="26"/>
@@ -539,6 +547,9 @@
 
 	<melee_weapon id="21520" phase="4">
 		<info name="Ravencrest's Legacy" type="SWORD" slot="1H" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_49.png"/>
+		<mutex item_id="21251"/>
+		<mutex item_id="21252"/>
+		<mutex item_id="21253"/>
 		<dmg_range min="84" max="157" speed="2.1"/>
 		<stats>
 			<stat type="STAMINA" value="14"/>
@@ -553,6 +564,9 @@
 	<melee_weapon id="21521" phase="4">
 		<info name="Runesword of the Red" type="SWORD" slot="MH" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_sword_51.png"/>
 		<dmg_range min="53" max="129" speed="2.2"/>
+		<mutex item_id="21250"/>
+		<mutex item_id="21252"/>
+		<mutex item_id="21253"/>
 		<stats>
 			<stat type="STAMINA" value="17"/>
 			<stat type="INTELLECT" value="9"/>

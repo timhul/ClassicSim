@@ -26,6 +26,7 @@
 
 	<item id="17044" phase="0">
 		<info name="Will of the Martyr" type="AMULET" slot="NECK" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_jewelry_talisman_07.png"/>
+		<mutex item_id="17045"/>
 		<stats>
 			<stat type="STAMINA" value="10"/>
 			<stat type="ATTACK_POWER" value="30"/>
@@ -116,6 +117,8 @@
 
 	<item id="18404" phase="0">
 		<info name="Onyxia Tooth Pendant" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="77" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_09.png"/>
+		<mutex item_id="18403"/>
+		<mutex item_id="18406"/>
 		<stats>
 			<stat type="AGILITY" value="12"/>
 			<stat type="STAMINA" value="9"/>
@@ -142,6 +145,7 @@
 
 	<item id="22150" phase="1">
 		<info name="Beads of Ogre Might" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_amulet_05.png"/>
+		<mutex item_id="22149"/>
 		<stats>
 			<stat type="STAMINA" value="7"/>
 			<stat type="ATTACK_POWER" value="24"/>
@@ -154,6 +158,7 @@
 
 	<item id="22149" phase="1">
 		<info name="Beads of Ogre Mojo" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_amulet_05.png"/>
+		<mutex item_id="22150"/>
 		<stats>
 			<stat type="STAMINA" value="7"/>
 			<stat type="INTELLECT" value="12"/>
@@ -425,6 +430,10 @@
 
 	<item id="22659" phase="5">
 		<info name="Medallion of the Dawn" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_04.png"/>
+		<mutex item_id="22667"/>
+		<mutex item_id="22668"/>
+		<mutex item_id="22678"/>
+		<mutex item_id="22656"/>
 		<stats>
 			<stat type="STAMINA" value="12"/>
 			<stat type="ATTACK_POWER" value="24"/>
@@ -437,6 +446,10 @@
 
 	<item id="22657" phase="5">
 		<info name="Amulet of the Dawn" type="AMULET" slot="NECK" unique="no" req_lvl="60" item_lvl="60" quality="EPIC" boe="no" icon="Inv_jewelry_amulet_04.png"/>
+		<mutex item_id="22667"/>
+		<mutex item_id="22668"/>
+		<mutex item_id="22678"/>
+		<mutex item_id="22656"/>
 		<stats>
 			<stat type="INTELLECT" value="13"/>
 			<stat type="STAMINA" value="13"/>

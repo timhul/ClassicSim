@@ -391,6 +391,8 @@
 
 	<item id="21710" phase="4">
 		<info name="Cloak of the Fallen God" type="CLOTH" slot="BACK" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_misc_cape_10.png"/>
+		<mutex item_id="21712"/>
+		<mutex item_id="21709"/>
 		<stats>
 			<stat type="ARMOR" value="66"/>
 			<stat type="AGILITY" value="26"/>

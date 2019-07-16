@@ -10,6 +10,7 @@
 #include "CharacterSpells.h"
 #include "DevilsaurEye.h"
 #include "EnchantStatic.h"
+#include "Equipment.h"
 #include "ExtraAttackInstantProc.h"
 #include "ExtraAttackOnNextSwingProc.h"
 #include "FelstrikerProc.h"
@@ -43,10 +44,12 @@ Item::Item(QString name,
            QVector<QMap<QString, QString>> _procs,
            QVector<QMap<QString, QString>> _use,
            QVector<QString> _spell_modifications,
-           QVector<QString> _special_equip_effects):
+           QVector<QString> _special_equip_effects,
+           QSet<int> _mutex_item_ids):
     PhaseRequirer(phase),
-    pchar(nullptr),
     name(std::move(name)),
+    item_id(item_id),
+    pchar(nullptr),
     valid_faction(AvailableFactions::Neutral),
     info(std::move(_info)),
     special_equip_effects(std::move(_special_equip_effects)),
@@ -54,11 +57,11 @@ Item::Item(QString name,
     use_map(std::move(_use)),
     stats_key_value_pairs(std::move(_stats)),
     item_modifications(std::move(_spell_modifications)),
+    mutex_item_ids(std::move(_mutex_item_ids)),
     stats(new Stats()),
     enchant(nullptr),
     slot(-1),
-    item_type(-1),
-    item_id(item_id)
+    item_type(-1)
 {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
@@ -71,17 +74,18 @@ Item::Item(QString name,
 
 Item::Item(const Item* item) :
     PhaseRequirer(item->phase),
-    pchar(item->pchar),
     name(item->name),
+    item_id(item->item_id),
+    pchar(item->pchar),
     info(item->info),
     special_equip_effects(item->special_equip_effects),
     procs_map(item->procs_map),
     use_map(item->use_map),
     stats_key_value_pairs(item->stats_key_value_pairs),
     item_modifications(item->item_modifications),
+    mutex_item_ids(item->mutex_item_ids),
     stats(new Stats()),
-    enchant(nullptr),
-    item_id(item->item_id)
+    enchant(nullptr)
 {
     set_stats(stats_key_value_pairs);
     set_item_slot(info);
@@ -168,6 +172,7 @@ void Item::apply_equip_effect(Character* pchar, const int eq_slot) {
     set_uses();
     set_procs(eq_slot);
     call_item_modifications();
+    clear_mutex_ids();
 }
 
 void Item::remove_equip_effect() {
@@ -234,6 +239,11 @@ void Item::call_buff_modifications(const QString& buff_name, const bool activate
         buff_modded_by_item->activate_item_modification(this->item_id);
     else
         buff_modded_by_item->deactivate_item_modification(this->item_id);
+}
+
+void Item::clear_mutex_ids() {
+    for (const auto & item_id : mutex_item_ids)
+        pchar->get_equipment()->clear_item_id_if_equipped_in_any_slot(item_id);
 }
 
 QString Item::get_name() const {

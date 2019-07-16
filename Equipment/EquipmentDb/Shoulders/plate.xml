@@ -149,6 +149,8 @@
 
 	<item id="20517" phase="3">
 		<info name="Razorsteel Shoulders" type="PLATE" slot="SHOULDERS" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_shoulder_16.png"/>
+		<mutex item_id="20130"/>
+		<mutex item_id="20251"/>
 		<stats>
 			<stat type="ARMOR" value="410"/>
 			<stat type="STRENGTH" value="10"/>

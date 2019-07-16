@@ -2,6 +2,9 @@
 <items>
 	<item id="11195" phase="0">
 		<info name="Warforged Chestplate" type="PLATE" slot="CHEST" unique="no" req_lvl="40" item_lvl="57" quality="UNCOMMON" boe="no" icon="Inv_chest_chain_16.png"/>
+		<mutex item_id="11193"/>
+		<mutex item_id="11194"/>
+		<mutex item_id="11196"/>
 		<stats>
 			<stat type="ARMOR" value="543"/>
 			<stat type="STRENGTH" value="24"/>

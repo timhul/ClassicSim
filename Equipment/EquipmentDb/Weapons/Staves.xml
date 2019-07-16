@@ -42,6 +42,8 @@
 	<melee_weapon id="17743" phase="0">
 		<info name="Resurgence Rod" type="STAFF" slot="2H" unique="no" req_lvl="45" item_lvl="53" quality="RARE" boe="no" icon="Inv_staff_goldfeathered_01.png"/>
 		<dmg_range min="139" max="209" speed="3.8"/>
+		<mutex item_id="17705"/>
+		<mutex item_id="17753"/>
 		<stats>
 			<stat type="MANA_PER_5" value="8"/>
 			<!-- TODO: Add these to tooltip parser
@@ -387,6 +389,7 @@
 	<melee_weapon id="20536" phase="4">
 		<info name="Soul Harvester" type="STAFF" slot="2H" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_sword_48.png"/>
 		<dmg_range min="118" max="178" speed="3.3"/>
+		<mutex item_id="20530"/>
 		<stats>
 			<stat type="STAMINA" value="16"/>
 			<stat type="SPELL_HIT_CHANCE" value="0.01"/>

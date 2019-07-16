@@ -11,7 +11,8 @@ public:
     Projectile(QString name, int item_id, Content::Phase phase, int type, double dps,
                QMap<QString, QString> info = {},
                QVector<QPair<QString, QString>> stats = {},
-               QVector<QMap<QString, QString>> procs = {});
+               QVector<QMap<QString, QString>> procs = {},
+               QSet<int> mutex_item_ids = {});
     Projectile(const Projectile* projectile);
 
     double get_projectile_dps() const;

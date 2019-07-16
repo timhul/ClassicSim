@@ -213,6 +213,8 @@
 
 	<melee_weapon id="21188" phase="4">
 		<info name="Fist of Cenarius" type="TWOHAND_MACE" slot="2H" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_hammer_23.png"/>
+		<mutex item_id="21190"/>
+		<mutex item_id="21180"/>
 		<dmg_range min="175" max="263" speed="3.5"/>
 		<stats>
 			<stat type="SPELL_DAMAGE" value="40"/>

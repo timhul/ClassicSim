@@ -21,6 +21,7 @@ protected:
     void proc_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& procs);
     void use_element_reader(QXmlStreamReader &reader, QVector<QMap<QString, QString>>& uses);
     void modifies_element_reader(QXmlStreamReader &reader, QVector<QString>& spell_modifications);
+    void mutex_element_reader(const QXmlStreamAttributes &attrs, QSet<int>& mutex_item_ids);
 
     void add_mandatory_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item);
     void add_attr(const QXmlStreamAttributes &attrs, const QString& attr, QMap<QString, QString>& item);
@@ -31,7 +32,8 @@ protected:
                      QVector<QMap<QString, QString>>& procs,
                      QVector<QMap<QString, QString>>& uses,
                      QVector<QString>& spell_modifications,
-                     QVector<QString>& special_equip_effects);
+                     QVector<QString>& special_equip_effects,
+                     QSet<int>& mutex_item_ids);
 
     void extract_info(QMap<QString, QString>& item, QMap<QString, QString>& info);
     void extract_stats(QMap<QString, QString>& item, QMap<QString, QString>& stats);

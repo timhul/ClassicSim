@@ -2,8 +2,9 @@
 <items>
 	<item id="20130" phase="0">
 		<info name="Diamond Flask" type="TRINKET" slot="TRINKET" unique="no" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_drink_01.png"/>
-		<stats>
-		</stats>
+		<mutex item_id="20251"/>
+		<mutex item_id="20517"/>
+		<stats/>
 		<uses>
 			<use name="GENERIC_STAT_BUFF" type="STRENGTH" value="75" duration="60" cooldown="360"/>
 		</uses>
@@ -36,6 +37,7 @@
 
 	<item id="19812" phase="0">
 		<info name="Rune of the Dawn" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_rune_06.png"/>
+		<mutex item_id="13209"/>
 		<stats>
 			<stat type="SPELL_DAMAGE_UNDEAD" value="48"/>
 		</stats>
@@ -49,6 +51,7 @@
 
 	<item id="13209" phase="0">
 		<info name="Seal of the Dawn" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_armorkit_18.png"/>
+		<mutex item_id="19812"/>
 		<stats>
 			<stat type="ATTACK_POWER_UNDEAD" value="81"/>
 		</stats>
@@ -78,6 +81,8 @@
 
 	<item id="13965" phase="0">
 		<info name="Blackhand's Breadth" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_misc_armorkit_09.png"/>
+		<mutex item_id="13968"/>
+		<mutex item_id="13966"/>
 		<stats>
 			<stat type="CRIT_CHANCE" value="0.02"/>
 		</stats>
@@ -88,6 +93,8 @@
 
 	<item id="13968" phase="0">
 		<info name="Eye of the Beast" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="55" item_lvl="63" quality="RARE" boe="no" icon="Inv_jewelry_talisman_08.png"/>
+		<mutex item_id="13965"/>
+		<mutex item_id="13966"/>
 		<class_restriction class="PRIEST"/>
 		<class_restriction class="SHAMAN"/>
 		<class_restriction class="MAGE"/>
@@ -269,6 +276,8 @@
 
 	<item id="19991" phase="0">
 		<info name="Devilsaur Eye" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="50" item_lvl="52" quality="RARE" boe="no" icon="Inv_misc_eye_01.png"/>
+		<mutex item_id="19992"/>
+		<mutex item_id="20083"/>
 		<class_restriction class="HUNTER"/>
 		<stats>
 		</stats>
@@ -285,8 +294,7 @@
 
 	<item id="19930" phase="3">
 		<info name="Mar'li's Eye" type="TRINKET" slot="TRINKET" unique="no" req_lvl="60" item_lvl="68" quality="RARE" boe="no" icon="Inv_zulgurubtrinket.png"/>
-		<stats>
-		</stats>
+		<stats/>
 		<uses>
 			<use name="GENERIC_STAT_BUFF" type="MANA_PER_5" value="60" duration="30" cooldown="180"/>
 		</uses>
@@ -300,8 +308,9 @@
 
 	<item id="19949" phase="3">
 		<info name="Zandalarian Hero Medallion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
-		<stats>
-		</stats>
+		<mutex item_id="19948"/>
+		<mutex item_id="19950"/>
+		<stats/>
 		<uses>
 			<use name="ZANDALARIAN_HERO_MEDALLION"/>
 		</uses>
@@ -315,8 +324,9 @@
 
 	<item id="19950" phase="3">
 		<info name="Zandalarian Hero Charm" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="68" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_13.png"/>
-		<stats>
-		</stats>
+		<mutex item_id="19948"/>
+		<mutex item_id="19949"/>
+		<stats/>
 		<uses>
 			<use name="ZANDALARIAN_HERO_CHARM"/>
 		</uses>
@@ -331,8 +341,7 @@
 	<item id="19953" phase="3">
 		<info name="Renataki's Charm of Beasts" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="65" quality="EPIC" boe="no" icon="Inv_jewelry_necklace_19.png"/>
 		<class_restriction class="HUNTER"/>
-		<stats>
-		</stats>
+		<stats/>
 		<source>
 			Drops from Edge of Madness bosses in Zul'Gurub.
 		</source>
@@ -357,8 +366,9 @@
 
 	<item id="21180" phase="4">
 		<info name="Earthstrike" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Spell_nature_abolishmagic.png"/>
-		<stats>
-		</stats>
+		<mutex item_id="21188"/>
+		<mutex item_id="21190"/>
+		<stats/>
 		<uses>
 			<use name="GENERIC_STAT_BUFF" type="ATTACK_POWER" value="280" duration="20" cooldown="120"/>
 		</uses>
@@ -387,8 +397,7 @@
 
 	<item id="21670" phase="4">
 		<info name="Badge of the Swarmguard" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_misc_ahnqirajtrinket_04.png"/>
-		<stats>
-		</stats>
+		<stats/>
 		<uses>
 			<use name="BADGE_OF_THE_SWARMGUARD" value="0.8"/>
 		</uses>
@@ -402,8 +411,7 @@
 
 	<item id="23570" phase="4">
 		<info name="Jom Gabbar" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_misc_enggizmos_19.png"/>
-		<stats>
-		</stats>
+		<stats/>
 		<uses>
 			<use name="JOM_GABBAR"/>
 		</uses>
@@ -479,6 +487,7 @@
 
 	<item id="23207" phase="5">
 		<info name="Mark of the Champion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_token_argentdawn3.png"/>
+		<mutex item_id="23206"/>
 		<stats>
 			<stat type="SPELL_DAMAGE_UNDEAD" value="85"/>
 			<stat type="SPELL_DAMAGE_DEMON" value="85"/>
@@ -490,6 +499,7 @@
 
 	<item id="23206" phase="5">
 		<info name="Mark of the Champion" type="TRINKET" slot="TRINKET" unique="yes" req_lvl="60" item_lvl="90" quality="EPIC" boe="no" icon="Inv_misc_token_argentdawn2.png"/>
+		<mutex item_id="23207"/>
 		<stats>
 			<stat type="ATTACK_POWER_UNDEAD" value="150"/>
 			<stat type="ATTACK_POWER_DEMON" value="150"/>

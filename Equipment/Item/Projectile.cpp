@@ -7,8 +7,9 @@
 Projectile::Projectile(QString name, int item_id, Content::Phase phase, int type, double dps,
                        QMap<QString, QString> info,
                        QVector<QPair<QString, QString> > stats,
-                       QVector<QMap<QString, QString>> procs):
-    Item(std::move(name), item_id, phase, std::move(info), std::move(stats), std::move(procs)),
+                       QVector<QMap<QString, QString>> procs,
+                       QSet<int> mutex_item_ids):
+    Item(std::move(name), item_id, phase, std::move(info), std::move(stats), std::move(procs), {}, {}, {}, std::move(mutex_item_ids)),
     projectile_type(type),
     dps(dps)
 {}
