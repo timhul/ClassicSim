@@ -128,17 +128,13 @@ void Target::decrease_magic_school_damage_mod(const int decrease, const MagicSch
     CharacterStats::remove_multiplicative_effect(magic_school_damage_changes[school], decrease, magic_school_damage_modifiers[school]);
 }
 
-    if (buff_to_remove != nullptr) {
-        for (int i = 0; i < magic_school_buffs_with_charges[school].size(); ++i) {
-            Buff* buff = magic_school_buffs_with_charges[school][i];
-            if (buff->get_instance_id() == buff_to_remove->get_instance_id()) {
-                magic_school_buffs_with_charges[school].removeAt(i);
-                return;
-            }
-        }
+unsigned Target::get_spell_damage(const MagicSchool school) const {
+    const unsigned bonus = stats->get_spell_damage(school);
 
-        check(false, QString("Target::decrease_spell_dmg_mod failed to remove buff %1").arg(buff_to_remove->get_name()).toStdString());
-    }
+    for (auto & buff : damage_bonus_buffs_with_charges_for_all_magic_schools)
+        buff->use_charge();
+
+    return bonus;
 }
 
 Target::CreatureType Target::get_creature_type() const {

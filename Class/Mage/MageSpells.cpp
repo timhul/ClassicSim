@@ -4,10 +4,12 @@
 #include "ArcanePower.h"
 #include "ClearcastingMage.h"
 #include "Combustion.h"
+#include "ElementalVulnerability.h"
 #include "Evocation.h"
 #include "FireVulnerability.h"
 #include "Fireball.h"
 #include "Frostbolt.h"
+#include "GenericBuffProc.h"
 #include "Ignite.h"
 #include "IgniteBuff.h"
 #include "ImprovedScorch.h"
@@ -95,11 +97,16 @@ MageSpells::MageSpells(Mage* mage) :
     add_spell_group({new Evocation(mage)});
 
     this->clearcasting = new ClearcastingMage(mage);
+    this->elemental_vulnerability = new ElementalVulnerability(mage);
+    this->t3_6piece_proc = new GenericBuffProc(mage, "Elemental Vulnerability 6p T3", "Assets/spell/Spell_holy_dizzy.png", {ProcInfo::Source::MagicSpell},
+                                               0.2, EnabledAtStart::No, MaintainBuffEnabled::No, elemental_vulnerability);
 }
 
 MageSpells::~MageSpells() {
     delete clearcasting;
     delete imp_scorch;
+    delete t3_6piece_proc;
+    delete elemental_vulnerability;
 }
 
 Combustion* MageSpells::get_combustion() const {
@@ -112,6 +119,14 @@ Proc* MageSpells::get_clearcasting() const {
 
 Proc* MageSpells::get_improved_scorch() const {
     return this->imp_scorch;
+}
+
+Proc* MageSpells::get_t3_6piece_proc() const {
+    return this->t3_6piece_proc;
+}
+
+Buff* MageSpells::get_t3_6piece_buff() const {
+    return this->elemental_vulnerability;
 }
 
 void MageSpells::inflict_ignite(const double damage) {

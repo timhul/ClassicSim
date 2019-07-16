@@ -21,6 +21,7 @@ SOURCES += main.cpp \
     Class/Common/Spells/UseItem.cpp \
     Class/Mage/Buffs/ArcanePowerBuff.cpp \
     Class/Mage/Buffs/CombustionBuff.cpp \
+    Class/Mage/Buffs/ElementalVulnerability.cpp \
     Class/Mage/Buffs/EvocationBuff.cpp \
     Class/Mage/Buffs/FireVulnerability.cpp \
     Class/Mage/Buffs/IgniteBuff.cpp \
@@ -457,6 +458,7 @@ HEADERS += \
     Class/Common/Spells/UseItem.h \
     Class/Mage/Buffs/ArcanePowerBuff.h \
     Class/Mage/Buffs/CombustionBuff.h \
+    Class/Mage/Buffs/ElementalVulnerability.h \
     Class/Mage/Buffs/EvocationBuff.h \
     Class/Mage/Buffs/FireVulnerability.h \
     Class/Mage/Buffs/IgniteBuff.h \

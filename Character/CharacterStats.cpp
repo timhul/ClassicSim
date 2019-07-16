@@ -912,7 +912,7 @@ unsigned CharacterStats::get_spell_damage(const MagicSchool school) const {
     const unsigned spell_damage_base_target = base_stats->get_spell_damage_against_type(pchar->get_target()->get_creature_type());
     const unsigned spell_damage_eq = equipment->get_stats()->get_spell_damage(school);
     const unsigned spell_damage_eq_target = equipment->get_stats()->get_spell_damage_against_type(pchar->get_target()->get_creature_type());
-    const unsigned target_debuff_bonus = pchar->get_target()->get_stats()->get_spell_damage(school);
+    const unsigned target_debuff_bonus = pchar->get_target()->get_spell_damage(school);
 
     return spell_damage_base + spell_damage_base_target + spell_damage_eq + spell_damage_eq_target + target_debuff_bonus;
 }

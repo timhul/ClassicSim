@@ -16,6 +16,7 @@
 #include "HunterSpells.h"
 #include "InstantPoison.h"
 #include "ItemNamespace.h"
+#include "MageSpells.h"
 #include "ManaDrainProc.h"
 #include "MultiShot.h"
 #include "Pet.h"
@@ -224,6 +225,14 @@ void SetBonusControl::equip_item(const int item_id) {
         case 2:
             activate_spell_rank_group("Evocation", set_name, num_pieces);
             break;
+        case 6: {
+            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_buff();
+            dynamic_cast<SetBonusRequirer*>(buff)->activate_set_bonus(set_name, num_pieces);
+            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_proc();
+            proc->enable();
+            proc->enable_proc();
+            break;
+        }
         }
     }
     else if (set_name == "The Gladiator") {
@@ -494,6 +503,13 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 2:
             deactivate_spell_rank_group("Evocation", set_name, num_pieces);
             break;
+        case 6: {
+            Buff* buff = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_buff();
+            dynamic_cast<SetBonusRequirer*>(buff)->deactivate_set_bonus(set_name, num_pieces);
+            Proc* proc = dynamic_cast<MageSpells*>(pchar->get_spells())->get_t3_6piece_proc();
+            proc->disable_proc();
+            proc->disable();
+        }
         }
     }
     else if (set_name == "The Gladiator") {
