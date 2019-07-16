@@ -17,7 +17,14 @@ public:
         ScaleAxeSkill,
         ScaleDaggerSkill,
         ScaleMaceSkill,
-        ScaleSwordSkill
+        ScaleSwordSkill,
+        ScaleIntellect,
+        ScaleSpirit,
+        ScaleMp5,
+        ScaleSpellDamage,
+        ScaleSpellCritChance,
+        ScaleSpellHitChance,
+        ScaleSpellPenetration,
     };
 
     Q_ENUMS(Name)

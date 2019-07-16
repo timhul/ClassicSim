@@ -383,6 +383,20 @@ QString get_name_for_option(const SimOption::Name option) {
         return "+1 Mace Skill";
     if (option == SimOption::Name::ScaleSwordSkill)
         return "+1 Sword Skill";
+    if (option == SimOption::Name::ScaleIntellect)
+        return "+10 Intellect";
+    if (option == SimOption::Name::ScaleSpirit)
+        return "+10 Spirit";
+    if (option == SimOption::Name::ScaleMp5)
+        return "+10 Mana per 5";
+    if (option == SimOption::Name::ScaleSpellDamage)
+        return "+10 Spell Damage";
+    if (option == SimOption::Name::ScaleSpellCritChance)
+        return "+1% Spell Crit Chance";
+    if (option == SimOption::Name::ScaleSpellHitChance)
+        return "+1% Spell Hit Chance";
+    if (option == SimOption::Name::ScaleSpellPenetration)
+        return "+10 Spell Penetration";
 
     return "<unset scale name>";
 }

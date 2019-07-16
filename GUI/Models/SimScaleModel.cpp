@@ -17,6 +17,13 @@ SimScaleModel::SimScaleModel(SimSettings *sim_settings, QObject *parent)
         SimOption::Name::ScaleDaggerSkill,
         SimOption::Name::ScaleMaceSkill,
         SimOption::Name::ScaleSwordSkill,
+        SimOption::Name::ScaleIntellect,
+        SimOption::Name::ScaleSpirit,
+        SimOption::Name::ScaleMp5,
+        SimOption::Name::ScaleSpellDamage,
+        SimOption::Name::ScaleSpellCritChance,
+        SimOption::Name::ScaleSpellHitChance,
+        SimOption::Name::ScaleSpellPenetration,
     };
     endInsertRows();
 }

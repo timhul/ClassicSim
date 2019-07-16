@@ -150,6 +150,32 @@ void SimControl::add_option(Character* pchar, SimOption::Name option) {
     case SimOption::Name::ScaleSwordSkill:
         pchar->get_stats()->increase_wpn_skill(WeaponTypes::SWORD, 1);
         break;
+    case SimOption::Name::ScaleIntellect:
+        pchar->get_stats()->increase_intellect(10);
+        break;
+    case SimOption::Name::ScaleSpirit:
+        pchar->get_stats()->increase_spirit(10);
+        break;
+    case SimOption::Name::ScaleMp5:
+        pchar->get_stats()->increase_mp5(10);
+        break;
+    case SimOption::Name::ScaleSpellDamage:
+        pchar->get_stats()->increase_base_spell_damage(10);
+        break;
+    case SimOption::Name::ScaleSpellCritChance:
+        pchar->get_stats()->increase_spell_crit(100);
+        break;
+    case SimOption::Name::ScaleSpellHitChance:
+        pchar->get_stats()->increase_spell_hit(100);
+        break;
+    case SimOption::Name::ScaleSpellPenetration:
+        pchar->get_stats()->increase_spell_penetration(MagicSchool::Arcane, 10);
+        pchar->get_stats()->increase_spell_penetration(MagicSchool::Fire, 10);
+        pchar->get_stats()->increase_spell_penetration(MagicSchool::Frost, 10);
+        pchar->get_stats()->increase_spell_penetration(MagicSchool::Holy, 10);
+        pchar->get_stats()->increase_spell_penetration(MagicSchool::Nature, 10);
+        pchar->get_stats()->increase_spell_penetration(MagicSchool::Shadow, 10);
+        break;
     }
 
     pchar->get_statistics()->set_sim_option(option);
@@ -185,6 +211,32 @@ void SimControl::remove_option(Character* pchar, SimOption::Name option) {
         break;
     case SimOption::Name::ScaleSwordSkill:
         pchar->get_stats()->decrease_wpn_skill(WeaponTypes::SWORD, 1);
+        break;
+    case SimOption::Name::ScaleIntellect:
+        pchar->get_stats()->decrease_intellect(10);
+        break;
+    case SimOption::Name::ScaleSpirit:
+        pchar->get_stats()->decrease_spirit(10);
+        break;
+    case SimOption::Name::ScaleMp5:
+        pchar->get_stats()->decrease_mp5(10);
+        break;
+    case SimOption::Name::ScaleSpellDamage:
+        pchar->get_stats()->decrease_base_spell_damage(10);
+        break;
+    case SimOption::Name::ScaleSpellCritChance:
+        pchar->get_stats()->decrease_spell_crit(100);
+        break;
+    case SimOption::Name::ScaleSpellHitChance:
+        pchar->get_stats()->decrease_spell_hit(100);
+        break;
+    case SimOption::Name::ScaleSpellPenetration:
+        pchar->get_stats()->decrease_spell_penetration(MagicSchool::Arcane, 10);
+        pchar->get_stats()->decrease_spell_penetration(MagicSchool::Fire, 10);
+        pchar->get_stats()->decrease_spell_penetration(MagicSchool::Frost, 10);
+        pchar->get_stats()->decrease_spell_penetration(MagicSchool::Holy, 10);
+        pchar->get_stats()->decrease_spell_penetration(MagicSchool::Nature, 10);
+        pchar->get_stats()->decrease_spell_penetration(MagicSchool::Shadow, 10);
         break;
     }
 }
