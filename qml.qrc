@@ -842,5 +842,13 @@
         <file>QML/Assets/items/Inv_wand_07.png</file>
         <file>QML/Assets/items/Inv_wand_10.png</file>
         <file>QML/Assets/items/Inv_wand_1h_stratholme_d_02.png</file>
+        <file>QML/Assets/items/Inv_misc_bone_taurenskull_01.png</file>
+        <file>QML/Assets/items/Inv_wand_02.png</file>
+        <file>QML/Assets/items/Inv_wand_05.png</file>
+        <file>QML/Assets/items/Inv_wand_06.png</file>
+        <file>QML/Assets/items/Inv_wand_09.png</file>
+        <file>QML/Assets/items/Inv_wand_11.png</file>
+        <file>QML/Assets/items/Inv_wand_12.png</file>
+        <file>QML/Assets/items/Inv_wand_1h_stratholme_d_01.png</file>
     </qresource>
 </RCC>
