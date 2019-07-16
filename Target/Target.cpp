@@ -52,13 +52,13 @@ Target::Target(const unsigned target_lvl):
     this->magic_school_damage_modifiers.insert(MagicSchool::Physical, 1.0);
     this->magic_school_damage_modifiers.insert(MagicSchool::Shadow, 1.0);
 
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Arcane, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Fire, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Frost, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Holy, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Nature, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Physical, {});
-    this->magic_school_buffs_with_charges.insert(MagicSchool::Shadow, {});
+    this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Arcane, {});
+    this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Fire, {});
+    this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Frost, {});
+    this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Holy, {});
+    this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Nature, {});
+    this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Physical, {});
+    this->magic_school_modifier_buffs_with_charges.insert(MagicSchool::Shadow, {});
 }
 
 Target::~Target() {
@@ -114,21 +114,19 @@ int Target::get_resistance(const MagicSchool school) const {
 double Target::get_magic_school_damage_mod(const MagicSchool school) const {
     const double mod = magic_school_damage_modifiers[school];
 
-    for (auto & buff : magic_school_buffs_with_charges[school])
+    for (auto & buff : magic_school_modifier_buffs_with_charges[school])
         buff->use_charge();
 
     return mod;
 }
 
-void Target::increase_magic_school_damage_mod(const int increase, const MagicSchool school, Buff* buff_with_charges) {
+void Target::increase_magic_school_damage_mod(const int increase, const MagicSchool school) {
     CharacterStats::add_multiplicative_effect(magic_school_damage_changes[school], increase, magic_school_damage_modifiers[school]);
-
-    if (buff_with_charges != nullptr)
-        magic_school_buffs_with_charges[school].append(buff_with_charges);
 }
 
-void Target::decrease_magic_school_damage_mod(const int decrease, const MagicSchool school, Buff* buff_to_remove) {
+void Target::decrease_magic_school_damage_mod(const int decrease, const MagicSchool school) {
     CharacterStats::remove_multiplicative_effect(magic_school_damage_changes[school], decrease, magic_school_damage_modifiers[school]);
+}
 
     if (buff_to_remove != nullptr) {
         for (int i = 0; i < magic_school_buffs_with_charges[school].size(); ++i) {
@@ -185,16 +183,24 @@ bool Target::remove_oldest_lowest_priority_debuff(const int up_to_priority) {
     return false;
 }
 
+bool Target::remove_buff_if_exists(QVector<Buff*>& vector, const int instance_id_to_remove) {
+    for (int i = 0; i < vector.size(); ++i) {
+        if (instance_id_to_remove == vector[i]->get_instance_id()) {
+            vector.removeAt(i);
+            return true;
+        }
+    }
+
+    return false;
+}
+
 void Target::remove_debuff(Buff* debuff) {
     for (auto & priority_buffs: debuffs) {
-        for (int i = 0; i < priority_buffs.size(); ++i) {
-            if (priority_buffs[i]->get_instance_id() != debuff->get_instance_id())
-                continue;
+        if (!remove_buff_if_exists(priority_buffs, debuff->get_instance_id()))
+            continue;
 
-            priority_buffs.removeAt(i);
-            --size_debuffs;
-            return;
-        }
+        --size_debuffs;
+        return;
     }
 }
 
@@ -202,5 +208,50 @@ void Target::check_clean() {
     for (const auto & priority_debuffs : debuffs)
         check(priority_debuffs.empty(), "Target debuffs not properly cleared");
 
+    for (const auto & buffs : magic_school_modifier_buffs_with_charges)
+        check(buffs.empty(), "Magic school modifier buffs not properly cleared");
+
+    check(damage_bonus_buffs_with_charges_for_all_magic_schools.empty(), "Damage bonus buffs with charges not properly cleared");
+
     check((size_debuffs == 0), "Target debuff size unexpectedly non-zero");
+}
+
+void Target::add_charge_debuff(Buff* buff, const ConsumedWhen consumed_when) {
+    switch (consumed_when) {
+    case ConsumedWhen::OnSpellDamageFlat:
+        damage_bonus_buffs_with_charges_for_all_magic_schools.append(buff);
+        break;
+    default:
+        check(false, QString("Target::add_charge_debuff generic failed for %1").arg(buff->get_name()).toStdString());
+    }
+}
+
+void Target::add_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, const MagicSchool school) {
+    switch (consumed_when) {
+    case ConsumedWhen::OnSpellDamageMod:
+        magic_school_modifier_buffs_with_charges[school].append(buff);
+        break;
+    default:
+        check(false, QString("Target::add_charge_debuff school-specific failed for %1").arg(buff->get_name()).toStdString());
+    }
+}
+
+void Target::remove_charge_debuff(Buff* buff, const ConsumedWhen consumed_when) {
+    switch (consumed_when) {
+    case ConsumedWhen::OnSpellDamageFlat:
+        remove_buff_if_exists(damage_bonus_buffs_with_charges_for_all_magic_schools, buff->get_instance_id());
+        break;
+    default:
+        check(false, QString("Target::remove_charge_debuff generic failed for %1").arg(buff->get_name()).toStdString());
+    }
+}
+
+void Target::remove_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, const MagicSchool school) {
+    switch (consumed_when) {
+    case ConsumedWhen::OnSpellDamageMod:
+        remove_buff_if_exists(magic_school_modifier_buffs_with_charges[school], buff->get_instance_id());
+        break;
+    default:
+        check(false, QString("Target::remove_charge_debuff school-specific failed for %1").arg(buff->get_name()).toStdString());
+    }
 }

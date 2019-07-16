@@ -9,6 +9,11 @@
 class Buff;
 class Stats;
 
+enum class ConsumedWhen : int {
+    OnSpellDamageFlat,
+    OnSpellDamageMod,
+};
+
 class Target {
 public:
     enum CreatureType {
@@ -49,9 +54,15 @@ public:
     void remove_debuff(Buff* buff);
     void check_clean();
 
+    void add_charge_debuff(Buff* buff, const ConsumedWhen consumed_when);
+    void remove_charge_debuff(Buff* buff, const ConsumedWhen consumed_when);
+
+    void add_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, const MagicSchool school);
+    void remove_charge_debuff(Buff* buff, const ConsumedWhen consumed_when, const MagicSchool school);
+
     double get_magic_school_damage_mod(const MagicSchool school) const;
-    void increase_magic_school_damage_mod(const int increase, const MagicSchool school, Buff* buff = nullptr);
-    void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school, Buff* buff = nullptr);
+    void increase_magic_school_damage_mod(const int increase, const MagicSchool school);
+    void decrease_magic_school_damage_mod(const int decrease, const MagicSchool school);
 
 private:
     unsigned target_lvl;
@@ -62,11 +73,14 @@ private:
     QMap<CreatureType, QString> creature_type_strings;
     QMap<MagicSchool, QVector<int>> magic_school_damage_changes;
     QMap<MagicSchool, double> magic_school_damage_modifiers;
-    QMap<MagicSchool, QVector<Buff*>> magic_school_buffs_with_charges;
+    QMap<MagicSchool, QVector<Buff*>> magic_school_modifier_buffs_with_charges;
+    QVector<Buff*> damage_bonus_buffs_with_charges_for_all_magic_schools;
 
     const int debuff_limit {16};
     int size_debuffs {0};
     QMap<int, QVector<Buff*>> debuffs;
 
     bool remove_oldest_lowest_priority_debuff(const int up_to_priority);
+
+    bool remove_buff_if_exists(QVector<Buff*>& vector, const int instance_id_to_remove);
 };
