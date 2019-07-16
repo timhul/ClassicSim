@@ -1639,7 +1639,8 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
     else if (slot == "2H")
         set_weapon_tooltip(item, slot, "Two-hand", dmg_range, weapon_speed, dps);
     else if (slot == "RANGED") {
-        if (current_char->class_name == "Hunter" || current_char->class_name == "Warrior" || current_char->class_name == "Rogue")
+        const QSet<QString> ranged_weapon_classes = {"Hunter", "Warrior", "Rogue", "Mage", "Warlock", "Priest"};
+        if (ranged_weapon_classes.contains(current_char->class_name))
             set_weapon_tooltip(item, slot, "Ranged", dmg_range, weapon_speed, dps);
     }
     else if (slot == "PROJECTILE")

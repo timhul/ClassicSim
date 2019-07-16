@@ -841,5 +841,6 @@
         <file>QML/Assets/items/Inv_ore_arcanite_02.png</file>
         <file>QML/Assets/items/Inv_wand_07.png</file>
         <file>QML/Assets/items/Inv_wand_10.png</file>
+        <file>QML/Assets/items/Inv_wand_1h_stratholme_d_02.png</file>
     </qresource>
 </RCC>

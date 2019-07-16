@@ -11,6 +11,7 @@
 	<file path="Weapons/Polearms.xml"/>
 	<file path="Weapons/Staves.xml"/>
 	<file path="Weapons/Ranged.xml"/>
+	<file path="Weapons/Wands.xml"/>
 
 	<file path="Misc/neck.xml"/>
 	<file path="Misc/rings.xml"/>

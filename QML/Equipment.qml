@@ -7,7 +7,12 @@ Rectangle {
     width: parent.width
 
     color: root.darkDarkGray
-    property bool displayRangedWeapon: settings.className === "Warrior" || settings.className === "Rogue" || settings.className === "Hunter"
+    property bool displayRangedWeapon: settings.className === "Warrior" ||
+                                       settings.className === "Rogue" ||
+                                       settings.className === "Hunter" ||
+                                       settings.className === "Mage" ||
+                                       settings.className === "Warlock" ||
+                                       settings.className === "Priest"
 
     state: "MAINHAND"
 

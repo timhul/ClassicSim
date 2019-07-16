@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<weapons>
+	<melee_weapon id="22821" phase="5">
+		<info name="Doomfinger" type="WAND" slot="RANGED" unique="no" req_lvl="60" item_lvl="92" quality="EPIC" boe="no" icon="Inv_wand_1h_stratholme_d_02.png"/>
+		<dmg_range min="146" max="271" speed="1.5"/>
+		<stats>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="16"/>
+		</stats>
+		<source>
+		Drops from Kel'Thuzad in Naxxramas.
+		</source>
+	</melee_weapon>
+</weapons>

@@ -216,6 +216,9 @@ void ItemTypeFilterModel::add_weapon_item_type_filters() {
         case WeaponTypes::TWOHAND_SWORD:
             item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::TWOHAND_SWORD, "Two-hand Sword"));
             break;
+        case WeaponTypes::WAND:
+            item_type_filters[equipment_slot].append(ItemTypeFilter(WeaponTypes::WAND, "Wand"));
+            break;
         }
     }
 
