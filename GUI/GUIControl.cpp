@@ -1665,7 +1665,7 @@ QVariantList GUIControl::getTooltip(const QString &slot_string) {
     QString lvl_req = QString("Requires level %1").arg(item->get_value("req_lvl"));
 
     QVariantList tooltip_info = {
-        QVariant(item->get_name()),
+        QVariant(item->name),
         QVariant(item->get_value("quality")),
         QVariant(boe_string),
         QVariant(unique),
@@ -1737,7 +1737,7 @@ void GUIControl::set_class_restriction_tooltip(Item *&item, QString &restriction
 
 void GUIControl::set_set_bonus_tooltip(Item* item, QVariantList& tooltip) const {
     SetBonusControl* set_bonuses = current_char->get_equipment()->get_set_bonus_control();
-    const int item_id = item->get_item_id();
+    const int item_id = item->item_id;
 
     if (!set_bonuses->is_set_item(item_id)) {
         tooltip.append(false);

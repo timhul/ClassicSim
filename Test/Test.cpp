@@ -100,8 +100,8 @@ void Test::test_queue() {
     auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
     pchar->get_equipment()->set_mainhand(11684);
     pchar->get_equipment()->set_offhand(17075);
-    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Ironfoe");
-    assert(pchar->get_equipment()->get_offhand()->get_name() == "Vis'kag the Bloodletter");
+    assert(pchar->get_equipment()->get_mainhand()->name == "Ironfoe");
+    assert(pchar->get_equipment()->get_offhand()->name == "Vis'kag the Bloodletter");
     pchar->set_clvl(60);
     auto* start_event = new EncounterStart(pchar->get_spells(), pchar->get_enabled_buffs());
     auto* end_event = new EncounterEnd(pchar->get_engine(), 300);
@@ -123,7 +123,7 @@ void Test::test_combat_roll_creation() {
     auto* raid_control = new RaidControl(sim_settings);
     auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
     pchar->get_equipment()->set_mainhand(19103);
-    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
+    assert(pchar->get_equipment()->get_mainhand()->name == "Frostbite");
 
     pchar->get_combat_roll()->get_melee_white_table(300);
     pchar->get_combat_roll()->get_melee_white_table(300);
@@ -147,7 +147,7 @@ void Test::test_equipment_creation() {
     Weapon* mh = equipment->get_mainhand();
 
     assert(mh != nullptr);
-    assert(mh->get_name() == "Frostbite");
+    assert(mh->name == "Frostbite");
     assert(mh->get_weapon_type() == WeaponTypes::AXE);
     assert(mh->get_min_dmg() == 80);
     assert(mh->get_max_dmg() == 150);
@@ -156,7 +156,7 @@ void Test::test_equipment_creation() {
     equipment->set_ranged(17069);
     Weapon* ranged = equipment->get_ranged();
     assert(ranged != nullptr);
-    assert(ranged->get_name() == "Striker's Mark");
+    assert(ranged->name == "Striker's Mark");
     assert(ranged->get_weapon_type() == WeaponTypes::BOW);
     assert(ranged->get_min_dmg() == 69);
     assert(ranged->get_max_dmg() == 129);

@@ -37,7 +37,7 @@
 #include "ZandalarianHeroCharm.h"
 
 Item::Item(QString name,
-           int item_id,
+           const int item_id,
            Content::Phase phase,
            QMap<QString, QString> _info,
            QVector<QPair<QString, QString>> _stats,
@@ -246,10 +246,6 @@ void Item::clear_mutex_ids() {
         pchar->get_equipment()->clear_item_id_if_equipped_in_any_slot(item_id);
 }
 
-QString Item::get_name() const {
-    return name;
-}
-
 QString Item::get_weapon_side_name(const int eq_slot) const {
     switch (eq_slot) {
     case EquipmentSlot::MAINHAND:
@@ -259,10 +255,6 @@ QString Item::get_weapon_side_name(const int eq_slot) const {
     default:
         return name;
     }
-}
-
-int Item::get_item_id() const {
-    return this->item_id;
 }
 
 bool Item::has_enchant() const {
@@ -379,15 +371,15 @@ void Item::set_procs(const int eq_slot) {
         const double proc_rate = QString(i["rate"]).toDouble();
 
         if (amount < 0) {
-            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(amount));
+            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(name, proc_name, QString::number(amount));
             continue;
         }
         if (proc_rate < 0) {
-            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(proc_rate, 'f', 2));
+            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(name, proc_name, QString::number(proc_rate, 'f', 2));
             continue;
         }
         if (internal_cd < 0) {
-            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(get_name(), proc_name, QString::number(internal_cd, 'f', 2));
+            qDebug() << QString("%1 proc %2 %3 < 0, skipping proc").arg(name, proc_name, QString::number(internal_cd, 'f', 2));
             continue;
         }
 
@@ -406,7 +398,7 @@ void Item::set_procs(const int eq_slot) {
 
             if (instant == "yes") {
                 proc = new ExtraAttackInstantProc(pchar,
-                                                  get_name(),
+                                                  name,
                                                   icon,
                                                   proc_sources,
                                                   proc_rate,
@@ -414,7 +406,7 @@ void Item::set_procs(const int eq_slot) {
             }
             else {
                 proc = new ExtraAttackOnNextSwingProc(pchar,
-                                                      get_name(),
+                                                      name,
                                                       icon,
                                                       proc_sources,
                                                       proc_rate,

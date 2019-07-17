@@ -322,10 +322,10 @@ void Equipment::set_mainhand(const int item_id) {
     if (weapon->get_weapon_slot() == WeaponSlots::TWOHAND)
         clear_offhand();
     else if (weapon->get_value("unique") == "yes") {
-        if (get_offhand() != nullptr && get_offhand()->get_item_id() == weapon->get_item_id()) {
+        if (get_offhand() != nullptr && get_offhand()->item_id == weapon->item_id) {
             clear_offhand();
             if (get_mainhand() != nullptr)
-                set_offhand(get_mainhand()->get_item_id());
+                set_offhand(get_mainhand()->item_id);
         }
     }
 
@@ -350,7 +350,7 @@ void Equipment::set_offhand(const int item_id) {
         if (get_mainhand()->get_weapon_slot() == WeaponSlots::TWOHAND)
             clear_mainhand();
         else if (weapon->get_value("unique") == "yes") {
-            if (get_mainhand()->get_item_id() == weapon->get_item_id())
+            if (get_mainhand()->item_id == weapon->item_id)
                 clear_mainhand();
         }
     }
@@ -364,7 +364,7 @@ void Equipment::set_ranged(const int item_id) {
     if (weapon  == nullptr)
         return;
 
-    check((weapon->get_item_slot() == ItemSlots::RANGED), QString("'%1' has incorrect slot").arg(weapon->get_name()).toStdString());
+    check((weapon->get_item_slot() == ItemSlots::RANGED), QString("'%1' has incorrect slot").arg(weapon->name).toStdString());
     check((get_relic() == nullptr), "Relic is equipped while equipping a ranged weapon");
     equip(ranged, weapon, EquipmentSlot::RANGED);
 }
@@ -375,7 +375,7 @@ void Equipment::set_head(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::HEAD), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::HEAD), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(head, item, EquipmentSlot::HEAD);
 }
 
@@ -385,7 +385,7 @@ void Equipment::set_neck(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::NECK), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::NECK), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(neck, item, EquipmentSlot::NECK);
 }
 
@@ -395,7 +395,7 @@ void Equipment::set_shoulders(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::SHOULDERS), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::SHOULDERS), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(shoulders, item, EquipmentSlot::SHOULDERS);
 }
 
@@ -405,7 +405,7 @@ void Equipment::set_back(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::BACK), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::BACK), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(back, item, EquipmentSlot::BACK);
 }
 
@@ -415,7 +415,7 @@ void Equipment::set_chest(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::CHEST), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::CHEST), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(chest, item, EquipmentSlot::CHEST);
 }
 
@@ -425,7 +425,7 @@ void Equipment::set_wrist(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::WRIST), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::WRIST), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(wrist, item, EquipmentSlot::WRIST);
 }
 
@@ -435,7 +435,7 @@ void Equipment::set_gloves(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::GLOVES), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::GLOVES), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(gloves, item, EquipmentSlot::GLOVES);
 }
 
@@ -445,7 +445,7 @@ void Equipment::set_belt(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::BELT), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::BELT), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(belt, item, EquipmentSlot::BELT);
 }
 
@@ -455,7 +455,7 @@ void Equipment::set_legs(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::LEGS), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::LEGS), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(legs, item, EquipmentSlot::LEGS);
 }
 
@@ -465,7 +465,7 @@ void Equipment::set_boots(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::BOOTS), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::BOOTS), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(boots, item, EquipmentSlot::BOOTS);
 }
 
@@ -475,13 +475,13 @@ void Equipment::set_ring1(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::RING), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::RING), QString("'%1' has incorrect slot").arg(item->name).toStdString());
 
     if (item->get_value("unique") == "yes") {
-        if (get_ring2() != nullptr && get_ring2()->get_item_id() == item->get_item_id()) {
+        if (get_ring2() != nullptr && get_ring2()->item_id == item->item_id) {
             clear_ring2();
             if (get_ring1() != nullptr)
-                set_ring2(get_ring1()->get_item_id());
+                set_ring2(get_ring1()->item_id);
         }
     }
 
@@ -494,13 +494,13 @@ void Equipment::set_ring2(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::RING), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::RING), QString("'%1' has incorrect slot").arg(item->name).toStdString());
 
     if (item->get_value("unique") == "yes") {
-        if (get_ring1() != nullptr && get_ring1()->get_item_id() == item->get_item_id()) {
+        if (get_ring1() != nullptr && get_ring1()->item_id == item->item_id) {
             clear_ring1();
             if (get_ring2() != nullptr)
-                set_ring1(get_ring2()->get_item_id());
+                set_ring1(get_ring2()->item_id);
         }
     }
 
@@ -513,13 +513,13 @@ void Equipment::set_trinket1(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::TRINKET), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::TRINKET), QString("'%1' has incorrect slot").arg(item->name).toStdString());
 
     if (item->get_value("unique") == "yes") {
-        if (get_trinket2() != nullptr && get_trinket2()->get_item_id() == item->get_item_id()) {
+        if (get_trinket2() != nullptr && get_trinket2()->item_id == item->item_id) {
             clear_trinket2();
             if (get_trinket1() != nullptr)
-                set_trinket2(get_trinket1()->get_item_id());
+                set_trinket2(get_trinket1()->item_id);
         }
     }
 
@@ -532,13 +532,13 @@ void Equipment::set_trinket2(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::TRINKET), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::TRINKET), QString("'%1' has incorrect slot").arg(item->name).toStdString());
 
     if (item->get_value("unique") == "yes") {
-        if (get_trinket1() != nullptr && get_trinket1()->get_item_id() == item->get_item_id()) {
+        if (get_trinket1() != nullptr && get_trinket1()->item_id == item->item_id) {
             clear_trinket1();
             if (get_trinket2() != nullptr)
-                set_trinket1(get_trinket2()->get_item_id());
+                set_trinket1(get_trinket2()->item_id);
         }
     }
 
@@ -551,7 +551,7 @@ void Equipment::set_caster_offhand(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::CASTER_OFFHAND), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::CASTER_OFFHAND), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(caster_offhand, item, EquipmentSlot::RANGED);
 }
 
@@ -561,7 +561,7 @@ void Equipment::set_relic(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::RELIC), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::RELIC), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(relic, item, EquipmentSlot::RANGED);
 }
 
@@ -571,7 +571,7 @@ void Equipment::set_projectile(const int item_id) {
     if (item == nullptr)
         return;
 
-    check((item->get_item_slot() == ItemSlots::PROJECTILE), QString("'%1' has incorrect slot").arg(item->get_name()).toStdString());
+    check((item->get_item_slot() == ItemSlots::PROJECTILE), QString("'%1' has incorrect slot").arg(item->name).toStdString());
     equip(projectile, item, EquipmentSlot::PROJECTILE);
 }
 
@@ -855,8 +855,8 @@ void Equipment::equip(Item*& current, Item* next, const int eq_slot) {
     current = next;
     current->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
-    item_setups[setup_index][eq_slot] = current->get_item_id();
-    set_bonuses->equip_item(current->get_item_id());
+    item_setups[setup_index][eq_slot] = current->item_id;
+    set_bonuses->equip_item(current->item_id);
 
     current->apply_enchant(current_enchant, pchar);
 }
@@ -865,7 +865,7 @@ void Equipment::unequip(Item*& item, const int eq_slot) {
     if (item == nullptr)
         return;
 
-    set_bonuses->unequip_item(item->get_item_id());
+    set_bonuses->unequip_item(item->item_id);
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
@@ -885,8 +885,8 @@ void Equipment::equip(Weapon*& current, Weapon *next, const int eq_slot) {
     current = next;
     current->apply_equip_effect(pchar, eq_slot);
     stats_from_equipped_gear[setup_index]->add(current->get_stats());
-    item_setups[setup_index][eq_slot] = current->get_item_id();
-    set_bonuses->equip_item(current->get_item_id());
+    item_setups[setup_index][eq_slot] = current->item_id;
+    set_bonuses->equip_item(current->item_id);
 
     if (pchar->get_enchants()->enchant_valid(current_enchant, current->get_weapon_slot()))
         current->apply_enchant(current_enchant, pchar, current->get_weapon_slot());
@@ -901,7 +901,7 @@ void Equipment::unequip(Weapon*& item, const int eq_slot) {
     if (item == nullptr)
         return;
 
-    set_bonuses->unequip_item(item->get_item_id());
+    set_bonuses->unequip_item(item->item_id);
     stats_from_equipped_gear[setup_index]->remove(item->get_stats());
     item_setups[setup_index][eq_slot] = NO_EQUIPPED_ITEM;
     delete item;
@@ -913,7 +913,7 @@ void Equipment::equip(Projectile*& current, Projectile* next, const int eq_slot)
 
     unequip(current, eq_slot);
     current = next;
-    item_setups[setup_index][eq_slot] = current->get_item_id();
+    item_setups[setup_index][eq_slot] = current->item_id;
     dynamic_cast<Hunter*>(pchar)->set_projectile_dps(current->get_projectile_dps());
 }
 

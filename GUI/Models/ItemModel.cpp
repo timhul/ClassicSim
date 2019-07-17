@@ -27,7 +27,7 @@ ItemModel::ItemModel(EquipmentDb* db,
 }
 
 bool name(Item* lhs, Item* rhs) {
-    return lhs->get_name() < rhs->get_name();
+    return lhs->name < rhs->name;
 }
 
 bool ilvl(Item* lhs, Item* rhs) {
@@ -155,9 +155,9 @@ QVariant ItemModel::data(const QModelIndex & index, int role) const {
     const Item* item = items[index.row()];
 
     if (role == IdRole)
-        return item->get_item_id();
+        return item->item_id;
     if (role == NameRole)
-        return item->get_name();
+        return item->name;
     if (role == PhaseRole)
         return Content::get_shortname_for_phase(item->phase);
     if (role == SourceRole)

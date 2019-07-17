@@ -31,8 +31,8 @@ void TestFelstrikerProc::tear_down() {
 void TestFelstrikerProc::test_crit_applied_and_removed() {
     given_felstriker_equipped_in_mainhand();
     given_an_offhand_axe();
-    int mh_wpn_skill = pchar->get_mh_wpn_skill();
-    int oh_wpn_skill = pchar->get_oh_wpn_skill();
+    unsigned mh_wpn_skill = pchar->get_mh_wpn_skill();
+    unsigned oh_wpn_skill = pchar->get_oh_wpn_skill();
 
     assert(mh_wpn_skill != oh_wpn_skill);
 
@@ -62,5 +62,5 @@ void TestFelstrikerProc::test_crit_applied_and_removed() {
 
 void TestFelstrikerProc::given_felstriker_equipped_in_mainhand() {
     pchar->get_equipment()->set_mainhand(12590);
-    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Felstriker");
+    assert(pchar->get_equipment()->get_mainhand()->name == "Felstriker");
 }

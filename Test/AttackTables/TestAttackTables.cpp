@@ -59,8 +59,8 @@ void TestAttackTables::test_white_hit_table_update() {
     auto* pchar = new Warrior(race, equipment_db, sim_settings, raid_control);
     pchar->get_equipment()->set_mainhand(19103);
     pchar->get_equipment()->set_offhand(17075);
-    assert(pchar->get_equipment()->get_mainhand()->get_name() == "Frostbite");
-    assert(pchar->get_equipment()->get_offhand()->get_name() == "Vis'kag the Bloodletter");
+    assert(pchar->get_equipment()->get_mainhand()->name == "Frostbite");
+    assert(pchar->get_equipment()->get_offhand()->name == "Vis'kag the Bloodletter");
 
     MeleeWhiteHitTable* table = pchar->get_combat_roll()->get_melee_white_table(300);
 

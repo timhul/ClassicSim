@@ -55,7 +55,7 @@ void EquipmentDb::delete_items(QVector<Item *>* list) {
 }
 
 void EquipmentDb::add_item_id(Item* item) {
-    item_id_to_item[item->get_item_id()] = item;
+    item_id_to_item[item->item_id] = item;
 }
 
 void EquipmentDb::add_melee_weapon(Weapon* wpn) {
@@ -78,12 +78,12 @@ void EquipmentDb::add_ring(Item* ring) {
 
 Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
     for (const auto & current_phase_mh_slot_item : current_phase_mh_slot_items) {
-        if (item_id == current_phase_mh_slot_item->get_item_id())
+        if (item_id == current_phase_mh_slot_item->item_id)
             return new Weapon(dynamic_cast<Weapon*>(current_phase_mh_slot_item));
     }
 
     for (const auto & current_phase_oh_slot_item : current_phase_oh_slot_items) {
-        if (item_id == current_phase_oh_slot_item->get_item_id())
+        if (item_id == current_phase_oh_slot_item->item_id)
             return new Weapon(dynamic_cast<Weapon*>(current_phase_oh_slot_item));
     }
 
@@ -92,7 +92,7 @@ Weapon* EquipmentDb::get_melee_weapon(const int item_id) const {
 
 Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) const {
     for (const auto item : item_list) {
-        if (item_id == item->get_item_id())
+        if (item_id == item->item_id)
             return new Item(item);
     }
 
@@ -101,7 +101,7 @@ Item* EquipmentDb::get_item(const QVector<Item*> &item_list, const int item_id) 
 
 Weapon* EquipmentDb::get_ranged(const int item_id) const {
     for (const auto & current_phase_ranged_slot_item : current_phase_ranged_items) {
-        if (item_id == current_phase_ranged_slot_item->get_item_id())
+        if (item_id == current_phase_ranged_slot_item->item_id)
             return new Weapon(dynamic_cast<Weapon*>(current_phase_ranged_slot_item));
     }
 
@@ -166,7 +166,7 @@ Item* EquipmentDb::get_relic(const int item_id) const {
 
 Projectile* EquipmentDb::get_projectile(const int item_id) const {
     for (const auto & current_phase_projectile : current_phase_projectiles) {
-        if (item_id == current_phase_projectile->get_item_id())
+        if (item_id == current_phase_projectile->item_id)
             return new Projectile(dynamic_cast<Projectile*>(current_phase_projectile));
     }
 
@@ -217,7 +217,7 @@ const QVector<Item*> & EquipmentDb::get_slot_items(const int slot) const {
 QString EquipmentDb::get_name_for_item_id(const int item_id) const {
     check((item_id_to_item.contains(item_id)), QString("Unknown item id '%1'").arg(item_id).toStdString());
 
-    return item_id_to_item[item_id]->get_name();
+    return item_id_to_item[item_id]->name;
 }
 
 void EquipmentDb::set_content_phase(const Content::Phase phase) {
@@ -248,14 +248,14 @@ void EquipmentDb::set_phase_for_slot(QVector<Item*> &total_slot_items, QVector<I
 
     for (const auto & item : total_slot_items) {
         if (item->valid_for_phase(current_phase)) {
-            if (tmp_items.contains(item->get_item_id())) {
-                QString curr_tmp_phase = tmp_items[item->get_item_id()]->get_value("phase");
+            if (tmp_items.contains(item->item_id)) {
+                QString curr_tmp_phase = tmp_items[item->item_id]->get_value("phase");
                 QString contender_phase = item->get_value("phase");
 
                 if (QVersionNumber::fromString(contender_phase) < QVersionNumber::fromString(curr_tmp_phase))
                     continue;
             }
-            tmp_items[item->get_item_id()] = item;
+            tmp_items[item->item_id] = item;
         }
     }
 
@@ -327,7 +327,7 @@ void EquipmentDb::read_equipment_files() {
     take_items_of_slot_from_given_items(items, oh_slot_items, ItemSlots::CASTER_OFFHAND);
 
     for (const auto & item : items) {
-        qDebug() << "Failed to classify slot for" << item->get_name();
+        qDebug() << "Failed to classify slot for" << item->name;
         delete item;
     }
 }

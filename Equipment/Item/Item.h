@@ -24,7 +24,7 @@ int get_slot_int(const QString& slot_string);
 class Item: public PhaseRequirer {
 public:
     Item(QString name,
-         int item_id,
+         const int item_id,
          Content::Phase phase,
          QMap<QString, QString> info,
          QVector<QPair<QString, QString>> stats,
@@ -37,7 +37,6 @@ public:
     Item(const Item* item);
     virtual ~Item();
 
-    int get_item_id() const;
     int get_item_slot() const;
     int get_item_type() const;
     virtual int get_weapon_slot() const;
@@ -45,7 +44,6 @@ public:
     void apply_equip_effect(Character*, const int eq_slot);
     void remove_equip_effect();
 
-    QString get_name() const;
     QString get_value(const QString& key) const;
     QString get_base_stat_tooltip() const;
     QString get_equip_effect_tooltip() const;

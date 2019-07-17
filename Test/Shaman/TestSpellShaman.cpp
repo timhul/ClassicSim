@@ -79,7 +79,7 @@ void TestSpellShaman::given_shaman_is_on_gcd(Spell* spell) {
 void TestSpellShaman::given_relic_equipped(const int item_id) {
     shaman->get_equipment()->set_relic(item_id);
     assert(shaman->get_equipment()->get_relic());
-    assert(shaman->get_equipment()->get_relic()->get_item_id());
+    assert(shaman->get_equipment()->get_relic()->item_id);
 }
 
 void TestSpellShaman::given_no_relic_equipped() {

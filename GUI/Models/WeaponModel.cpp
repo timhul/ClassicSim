@@ -30,7 +30,7 @@ WeaponModel::WeaponModel(EquipmentDb* db,
 }
 
 bool name(Weapon* lhs, Weapon* rhs) {
-    return lhs->get_name() < rhs->get_name();
+    return lhs->name < rhs->name;
 }
 
 bool ilvl(Weapon* lhs, Weapon* rhs) {
@@ -184,9 +184,9 @@ QVariant WeaponModel::data(const QModelIndex & index, int role) const {
     const Weapon* weapon = weapons[index.row()];
 
     if (role == IdRole)
-        return weapon->get_item_id();
+        return weapon->item_id;
     if (role == NameRole)
-        return weapon->get_name();
+        return weapon->name;
     if (role == SpeedRole)
         return QString::number(weapon->get_base_weapon_speed(), 'f', 1 );
     if (role == DpsRole)

@@ -611,23 +611,23 @@ void TestEviscerate::test_crit_dmg_5_combo_points_with_3_of_3_imp_evisc_and_3_of
 void TestEviscerate::given_5_pc_deathdealer() {
     pchar->get_equipment()->set_chest(21364);
     assert(pchar->get_equipment()->get_chest() != nullptr);
-    assert(pchar->get_equipment()->get_chest()->get_name() == "Deathdealer's Vest");
+    assert(pchar->get_equipment()->get_chest()->name == "Deathdealer's Vest");
 
     pchar->get_equipment()->set_boots(21359);
     assert(pchar->get_equipment()->get_boots() != nullptr);
-    assert(pchar->get_equipment()->get_boots()->get_name() == "Deathdealer's Boots");
+    assert(pchar->get_equipment()->get_boots()->name == "Deathdealer's Boots");
 
     pchar->get_equipment()->set_head(21360);
     assert(pchar->get_equipment()->get_head() != nullptr);
-    assert(pchar->get_equipment()->get_head()->get_name() == "Deathdealer's Helm");
+    assert(pchar->get_equipment()->get_head()->name == "Deathdealer's Helm");
 
     pchar->get_equipment()->set_shoulders(21361);
     assert(pchar->get_equipment()->get_shoulders() != nullptr);
-    assert(pchar->get_equipment()->get_shoulders()->get_name() == "Deathdealer's Spaulders");
+    assert(pchar->get_equipment()->get_shoulders()->name == "Deathdealer's Spaulders");
 
     pchar->get_equipment()->set_legs(21362);
     assert(pchar->get_equipment()->get_legs() != nullptr);
-    assert(pchar->get_equipment()->get_legs()->get_name() == "Deathdealer's Leggings");
+    assert(pchar->get_equipment()->get_legs()->name == "Deathdealer's Leggings");
 }
 
 void TestEviscerate::when_eviscerate_is_performed() {

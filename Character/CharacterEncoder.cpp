@@ -74,7 +74,7 @@ void CharacterEncoder::add_item(const QString& key, Item* item) {
     if (item == nullptr)
         return;
 
-    key_val(key, QString::number(item->get_item_id()));
+    key_val(key, QString::number(item->item_id));
 }
 
 void CharacterEncoder::add_vector_values_only(const QString& name, const QVector<QString>& vec) {

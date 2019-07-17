@@ -82,7 +82,7 @@ void TestSpellPaladin::given_paladin_is_on_gcd(Spell* spell) {
 void TestSpellPaladin::given_relic_equipped(const int item_id) {
     paladin->get_equipment()->set_relic(item_id);
     assert(paladin->get_equipment()->get_relic());
-    assert(paladin->get_equipment()->get_relic()->get_item_id());
+    assert(paladin->get_equipment()->get_relic()->item_id);
 }
 
 void TestSpellPaladin::given_no_relic_equipped() {
