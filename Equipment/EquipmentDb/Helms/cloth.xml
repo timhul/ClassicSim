@@ -1,5 +1,729 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="10033" phase="0">
+		<info name="Red Mageweave Headband" type="CLOTH" slot="HEAD" unique="no" req_lvl="43" item_lvl="48" quality="UNCOMMON" boe="yes" icon="Inv_misc_bandana_03.png"/>
+		<stats>
+			<stat type="ARMOR" value="51"/>
+			<stat type="INTELLECT" value="20"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Trivial to craft.
+		</source>
+	</item>
+
+	<item id="10025" phase="0">
+		<info name="Shadoweave Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="44" item_lvl="49" quality="UNCOMMON" boe="yes" icon="Inv_helmet_27.png"/>
+		<stats>
+			<stat type="ARMOR" value="52"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="24"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Trivial to craft.
+		</source>
+	</item>
+
+	<item id="10504001" phase="0">
+		<info name="Green Lens of Arcane Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_ARCANE" value="36"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 245 Engineering to use.
+		</source>
+	</item>
+
+	<item id="10504002" phase="0">
+		<info name="Green Lens of Fiery Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="36"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 245 Engineering to use.
+		</source>
+	</item>
+
+	<item id="10504003" phase="0">
+		<info name="Green Lens of Frozen Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_FROST" value="36"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 245 Engineering to use.
+		</source>
+	</item>
+
+	<item id="10504004" phase="0">
+		<info name="Green Lens of Holy Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_HOLY" value="36"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 245 Engineering to use.
+		</source>
+	</item>
+
+	<item id="10504005" phase="0">
+		<info name="Green Lens of Nature Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_NATURE" value="36"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 245 Engineering to use.
+		</source>
+	</item>
+
+	<item id="10504006" phase="0">
+		<info name="Green Lens of Shadow Wrath" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="49" quality="RARE" boe="yes" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="36"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 245 Engineering to use.
+		</source>
+	</item>
+
+	<item id="9470" phase="0">
+		<info name="Bad Mojo Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="44" item_lvl="49" quality="RARE" boe="no" icon="Inv_banner_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="14"/>
+		</stats>
+		<source>
+		Drops from Shadowpriest Sezz'ziz in Zul'Farrak.
+		</source>
+	</item>
+
+	<item id="14441" phase="0">
+		<info name="Venomshroud Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="45" item_lvl="50" quality="UNCOMMON" boe="yes" icon="Inv_helmet_32.png"/>
+		<stats>
+			<stat type="ARMOR" value="53"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="NATURE_RESISTANCE" value="4"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="10041" phase="0">
+		<info name="Dreamweave Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="45" item_lvl="50" quality="RARE" boe="yes" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="58"/>
+			<stat type="SPIRIT" value="12"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires Wildvine and Heart of the Wild.
+		</source>
+	</item>
+
+	<item id="10630" phase="0">
+		<info name="Soulcatcher Halo" type="CLOTH" slot="HEAD" unique="no" req_lvl="46" item_lvl="51" quality="RARE" boe="yes" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="59"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="SPIRIT" value="10"/>
+		</stats>
+		<source>
+		Drops from trash mobs in Sunken Temple.
+		</source>
+	</item>
+
+	<item id="8254" phase="0">
+		<info name="Imperial Red Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="48" item_lvl="53" quality="UNCOMMON" boe="yes" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="56"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="15"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="15999" phase="0">
+		<info name="Spellpower Goggles Xtreme Plus" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="54" quality="UNCOMMON" boe="yes" icon="Inv_helmet_47.png"/>
+		<stats>
+			<stat type="ARMOR" value="57"/>
+			<stat type="SPELL_DAMAGE" value="27"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 270 Engineering to use.
+		</source>
+	</item>
+
+	<item id="10751" phase="0">
+		<info name="Gemburst Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="54" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
+		<mutex item_id="10749"/>
+		<mutex item_id="10750"/>
+		<stats>
+			<stat type="ARMOR" value="63"/>
+			<stat type="AGILITY" value="5"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="18"/>
+			<stat type="STAMINA" value="9"/>
+		</stats>
+		<source>
+		Quest reward. Requires Sunken Temple.
+		</source>
+	</item>
+
+	<item id="17715" phase="0">
+		<info name="Eye of Theradras" type="CLOTH" slot="HEAD" unique="no" req_lvl="49" item_lvl="54" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="63"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SPIRIT" value="11"/>
+		</stats>
+		<source>
+		Drops from Princess Theradras in Maraudon.
+		</source>
+	</item>
+
+	<item id="10782" phase="0">
+		<info name="Hakkari Shroud" type="CLOTH" slot="HEAD" unique="no" req_lvl="46" item_lvl="55" quality="UNCOMMON" boe="no" icon="Inv_helmet_38.png"/>
+		<stats>
+			<stat type="ARMOR" value="58"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="INTELLECT" value="15"/>
+		</stats>
+		<source>
+		Quest reward. Requires finishing the statue event in Sunken Temple.
+		</source>
+	</item>
+
+	<item id="11839" phase="0">
+		<info name="Chief Architect's Monocle" type="CLOTH" slot="HEAD" unique="no" req_lvl="50" item_lvl="55" quality="RARE" boe="no" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="64"/>
+			<stat type="INTELLECT" value="27"/>
+			<stat type="SPIRIT" value="3"/>
+			<stat type="STAMINA" value="10"/>
+		</stats>
+		<source>
+		Drops from Fineous Darkvire in Blackrock Depths.
+		</source>
+	</item>
+
+	<item id="3075" phase="0">
+		<info name="Eye of Flame" type="CLOTH" slot="HEAD" unique="no" req_lvl="49" item_lvl="55" quality="EPIC" boe="yes" icon="Inv_helmet_44.png"/>
+		<stats>
+			<stat type="ARMOR" value="70"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="15"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="43"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="14449" phase="0">
+		<info name="Highborne Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="52" item_lvl="57" quality="UNCOMMON" boe="yes" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="60"/>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="STRENGTH" value="3"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="16008" phase="0">
+		<info name="Master Engineer's Goggles" type="CLOTH" slot="HEAD" unique="no" req_lvl="40" item_lvl="58" quality="UNCOMMON" boe="yes" icon="Inv_helmet_47.png"/>
+		<stats>
+			<stat type="ARMOR" value="61"/>
+			<stat type="SPIRIT" value="17"/>
+			<stat type="STAMINA" value="16"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 280 Engineering to use.
+		</source>
+	</item>
+
+	<item id="14111" phase="0">
+		<info name="Felcloth Hood" type="CLOTH" slot="HEAD" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="yes" icon="Inv_helmet_34.png"/>
+		<stats>
+			<stat type="ARMOR" value="61"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="30"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires Felcloth.
+		</source>
+	</item>
+
+	<item id="8292" phase="0">
+		<info name="Arcane Cover" type="CLOTH" slot="HEAD" unique="no" req_lvl="53" item_lvl="58" quality="UNCOMMON" boe="yes" icon="Inv_helmet_11.png"/>
+		<stats>
+			<stat type="ARMOR" value="61"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="10"/>
+		</stats>
+		<source>
+		World drop.
+		</source>
+	</item>
+
+	<item id="13866" phase="0">
+		<info name="Runecloth Headband" type="CLOTH" slot="HEAD" unique="no" req_lvl="54" item_lvl="59" quality="UNCOMMON" boe="yes" icon="Inv_misc_bandana_03.png"/>
+		<stats>
+			<stat type="ARMOR" value="68"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="SPIRIT" value="13"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Trivial to craft.
+		</source>
+	</item>
+
+	<item id="18727" phase="0">
+		<info name="Crimson Felt Hat" type="CLOTH" slot="HEAD" unique="no" req_lvl="54" item_lvl="59" quality="RARE" boe="no" icon="Inv_helmet_51.png"/>
+		<stats>
+			<stat type="ARMOR" value="68"/>
+			<stat type="INTELLECT" value="8"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+		</stats>
+		<source>
+		Drops from Magistrate Barthilas in Stratholme Undead.
+		</source>
+	</item>
+
+	<item id="12604" phase="0">
+		<info name="Starfire Tiara" type="CLOTH" slot="HEAD" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_crown_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="69"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="28"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+		</stats>
+		<source>
+		Drops from Jed Runewatcher, a rare mob in Upper Blackrock Spire (LBRS).
+		</source>
+	</item>
+
+	<item id="13390" phase="0">
+		<info name="The Postmaster's Band" type="CLOTH" slot="HEAD" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_misc_bandage_15.png"/>
+		<stats>
+			<stat type="ARMOR" value="70"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="14"/>
+		</stats>
+		<source>
+		Drops from Postmaster Malown in Stratholme Undead.
+		</source>
+	</item>
+
+	<item id="14140" phase="0">
+		<info name="Mooncloth Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="yes" icon="Inv_misc_bandana_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="71"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="SPIRIT" value="15"/>
+			<stat type="STAMINA" value="13"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Pattern drops from multiple raid bosses and trash mobs. Requires Mooncloth.
+		</source>
+	</item>
+
+	<item id="16693" phase="0">
+		<info name="Devout Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="71"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="SPIRIT" value="15"/>
+			<stat type="STAMINA" value="13"/>
+		</stats>
+		<source>
+		Drops from Darkmaster Gandling in Scholomance.
+		</source>
+	</item>
+
+	<item id="16698" phase="0">
+		<info name="Dreadmist Mask" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_helmet_29.png"/>
+		<stats>
+			<stat type="ARMOR" value="71"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPIRIT" value="12"/>
+		</stats>
+		<source>
+		Drops from Darkmaster Gandling in Scholomance.
+		</source>
+	</item>
+
+	<item id="16686" phase="0">
+		<info name="Magister's Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="RARE" boe="no" icon="Inv_crown_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="71"/>
+			<stat type="INTELLECT" value="30"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="STAMINA" value="11"/>
+		</stats>
+		<source>
+		Drops from Darkmaster Gandling in Scholomance.
+		</source>
+	</item>
+
+	<item id="12752" phase="0">
+		<info name="Cap of the Scarlet Savant" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="62" quality="EPIC" boe="no" icon="Inv_helmet_59.png"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="WARLOCK"/>
+		<class_restriction class="DRUID"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="78"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Quest reward. Requires very expensive materials.
+		</source>
+	</item>
+
+	<item id="13986" phase="0">
+		<info name="Crown of Caer Darrow" type="CLOTH" slot="HEAD" unique="no" req_lvl="57" item_lvl="63" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
+		<mutex item_id="13982"/>
+		<mutex item_id="13984"/>
+		<stats>
+			<stat type="ARMOR" value="73"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="SPIRIT" value="20"/>
+			<stat type="STAMINA" value="8"/>
+			<stat type="FROST_RESISTANCE" value="15"/>
+		</stats>
+		<source>
+		Quest reward. Requires Scholomance.
+		</source>
+	</item>
+
+	<item id="16795" phase="0">
+		<info name="Arcanist Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_helmet_53.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="83"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="INTELLECT" value="27"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Garr in Molten Core.
+		</source>
+	</item>
+
+	<item id="16914" phase="0">
+		<info name="Netherwind Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_helmet_70.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="94"/>
+			<stat type="INTELLECT" value="26"/>
+			<stat type="SPIRIT" value="7"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="MANA_PER_5" value="4"/>
+			<stat type="SPELL_DAMAGE" value="32"/>
+		</stats>
+		<source>
+		Drops from Onyxia in Onyxia's Lair.
+		</source>
+	</item>
+
+	<item id="18526" phase="1">
+		<info name="Crown of the Ogre King" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="73"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPIRIT" value="11"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from King Gordok in Dire Maul.
+		</source>
+	</item>
+
+	<item id="23318" phase="1">
+		<info name="Lieutenant Commander's Silk Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_helmet_06.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="141"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Lieutenant Commander (rank 10). Alliance only.
+		</source>
+	</item>
+
+	<item id="23263" phase="1">
+		<info name="Champion's Silk Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" faction="HORDE" boe="no" icon="Inv_helmet_06.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="141"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Champion (rank 10). Horde only.
+		</source>
+	</item>
+
+	<item id="16441" phase="1">
+		<info name="Field Marshal's Coronet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_helmet_24.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="162"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Field Marshal (rank 13). Alliance only.
+		</source>
+	</item>
+
+	<item id="16533" phase="1">
+		<info name="Warlord's Silk Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="74" quality="EPIC" faction="HORDE" boe="no" icon="Inv_helmet_08.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="162"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="6"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="33"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Warlord (rank 13). Horde only.
+		</source>
+	</item>
+
+	<item id="19105" phase="2">
+		<info name="Frost Runed Headdress" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_61.png"/>
+		<stats>
+			<stat type="ARMOR" value="73"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE_FROST" value="41"/>
+		</stats>
+		<source>
+		Drops from the summonable elites in Alterac Valley.
+		</source>
+	</item>
+
+	<item id="19375" phase="2">
+		<info name="Mish'undare, Circlet of the Mind Flayer" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_52.png"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="SPIRIT" value="9"/>
+			<stat type="STAMINA" value="15"/>
+			<stat type="SPELL_DAMAGE" value="35"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from Nefarian in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="19999" phase="3">
+		<info name="Bloodvine Goggles" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_helmet_47.png"/>
+		<stats>
+			<stat type="ARMOR" value="75"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.02"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="MANA_PER_5" value="9"/>
+		</stats>
+		<source>
+		Crafted by Engineers. Requires 300 Engineering to use.
+		</source>
+	</item>
+
+	<item id="19886" phase="3">
+		<info name="The Hexxer's Cover" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_mask_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="81"/>
+			<stat type="INTELLECT" value="10"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="SPELL_DAMAGE" value="41"/>
+		</stats>
+		<source>
+		Drops from Jin'do the Hexxer in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="22225" phase="4">
+		<info name="Dragonskin Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="55" item_lvl="60" quality="RARE" boe="no" icon="Inv_helmet_27.png"/>
+		<stats>
+			<stat type="ARMOR" value="69"/>
+			<stat type="INTELLECT" value="15"/>
+			<stat type="STAMINA" value="12"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<special_equip_effect>
+		+14-15 Random Resistance
+		</special_equip_effect>
+		<source>
+		Drops from Gyth in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="22065" phase="4">
+		<info name="Sorcerer's Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="60" quality="EPIC" boe="no" icon="Inv_crown_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="75"/>
+			<stat type="INTELLECT" value="25"/>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="SPELL_DAMAGE" value="11"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Involves a long quest chain. Requires Magister's Robes and Magister's Crown.
+		</source>
+	</item>
+
+	<item id="22267" phase="4">
+		<info name="Spellweaver's Turban" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_62.png"/>
+		<stats>
+			<stat type="ARMOR" value="73"/>
+			<stat type="INTELLECT" value="9"/>
+			<stat type="SPELL_DAMAGE" value="36"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from General Drakkisath in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="16042" phase="4">
+		<info name="Ironweave Cowl" type="CLOTH" slot="HEAD" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_helmet_30.png"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="PRIEST"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="203"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="INTELLECT" value="15"/>
+		</stats>
+		<source>
+		Drops from Lord Valthalak in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="21517" phase="4">
+		<info name="Gnomish Turban of Psychic Might" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="75" quality="EPIC" boe="no" icon="Inv_helmet_63.png"/>
+		<stats>
+			<stat type="ARMOR" value="93"/>
+			<stat type="INTELLECT" value="31"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="MANA_PER_5" value="9"/>
+		</stats>
+		<special_equip_effect>
+		Equip: Increases your resistance to silence effects by 10%.
+		</special_equip_effect>
+		<source>
+		Drops from Nefarian in Blackwing Lair.
+		</source>
+	</item>
+
+	<item id="21347" phase="4">
+		<info name="Enigma Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_helmet_06.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="100"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="SPIRIT" value="12"/>
+			<stat type="STAMINA" value="24"/>
+			<stat type="SPELL_DAMAGE" value="33"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="22757" phase="5">
+		<info name="Sylvan Crown" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="70" quality="RARE" boe="yes" icon="Inv_crown_01.png"/>
+		<stats>
+			<stat type="ARMOR" value="80"/>
+			<stat type="STAMINA" value="10"/>
+			<stat type="NATURE_RESISTANCE" value="30"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Pattern requires Honored with Cenarion Circle. Requires Mooncloth and Living Essence.
+		</source>
+	</item>
+
+	<item id="23035" phase="5">
+		<info name="Preceptor's Hat" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_50.png"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="SPELL_DAMAGE" value="51"/>
+		</stats>
+		<source>
+		Drops from Heigan the Unclean in Naxxramas.
+		</source>
+	</item>
+
+	<item id="23032" phase="5">
+		<info name="Glacial Headdress" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="83" quality="EPIC" boe="no" icon="Inv_helmet_53.png"/>
+		<stats>
+			<stat type="ARMOR" value="102"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="INTELLECT" value="21"/>
+			<stat type="FROST_RESISTANCE" value="40"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+		Drops from Gothik the Harvester in Naxxramas.
+		</source>
+	</item>
+
 	<item id="22498" phase="5">
 		<info name="Frostfire Circlet" type="CLOTH" slot="HEAD" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_crown_01.png"/>
 		<class_restriction class="MAGE"/>

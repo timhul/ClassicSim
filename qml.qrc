@@ -881,5 +881,27 @@
         <file>QML/Assets/items/Inv_chest_cloth_49.png</file>
         <file>QML/Assets/items/Inv_chest_cloth_51.png</file>
         <file>QML/Assets/items/Inv_chest_cloth_47.png</file>
+        <file>QML/Assets/items/Inv_helmet_50.png</file>
+        <file>QML/Assets/items/Inv_helmet_52.png</file>
+        <file>QML/Assets/items/Inv_helmet_53.png</file>
+        <file>QML/Assets/items/Inv_helmet_63.png</file>
+        <file>QML/Assets/items/Inv_helmet_70.png</file>
+        <file>QML/Assets/items/Inv_helmet_29.png</file>
+        <file>QML/Assets/items/Inv_helmet_30.png</file>
+        <file>QML/Assets/items/Inv_helmet_47.png</file>
+        <file>QML/Assets/items/Inv_helmet_59.png</file>
+        <file>QML/Assets/items/Inv_helmet_61.png</file>
+        <file>QML/Assets/items/Inv_helmet_62.png</file>
+        <file>QML/Assets/items/Inv_mask_02.png</file>
+        <file>QML/Assets/items/Inv_banner_01.png</file>
+        <file>QML/Assets/items/Inv_helmet_11.png</file>
+        <file>QML/Assets/items/Inv_helmet_27.png</file>
+        <file>QML/Assets/items/Inv_helmet_32.png</file>
+        <file>QML/Assets/items/Inv_helmet_38.png</file>
+        <file>QML/Assets/items/Inv_helmet_44.png</file>
+        <file>QML/Assets/items/Inv_helmet_51.png</file>
+        <file>QML/Assets/items/Inv_misc_bandage_15.png</file>
+        <file>QML/Assets/items/Inv_misc_bandana_03.png</file>
+        <file>QML/Assets/items/Inv_helmet_34.png</file>
     </qresource>
 </RCC>
