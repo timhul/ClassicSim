@@ -903,5 +903,15 @@
         <file>QML/Assets/items/Inv_misc_bandage_15.png</file>
         <file>QML/Assets/items/Inv_misc_bandana_03.png</file>
         <file>QML/Assets/items/Inv_helmet_34.png</file>
+        <file>QML/Assets/items/Inv_shoulder_02.png</file>
+        <file>QML/Assets/items/Inv_shoulder_05.png</file>
+        <file>QML/Assets/items/Inv_shoulder_18.png</file>
+        <file>QML/Assets/items/Inv_shoulder_19.png</file>
+        <file>QML/Assets/items/Inv_shoulder_32.png</file>
+        <file>QML/Assets/items/Inv_shoulder_13.png</file>
+        <file>QML/Assets/items/Inv_shoulder_17.png</file>
+        <file>QML/Assets/items/Inv_shoulder_24.png</file>
+        <file>QML/Assets/items/Inv_shoulder_21.png</file>
+        <file>QML/Assets/items/Inv_shoulder_27.png</file>
     </qresource>
 </RCC>
