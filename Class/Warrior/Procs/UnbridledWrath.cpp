@@ -7,8 +7,7 @@
 
 UnbridledWrath::UnbridledWrath(Character* pchar) :
     Proc("Unbridled Wrath", "Assets/spell/Spell_nature_stoneclawtotem.png", 0.0, 0, QVector<Proc*>(),
-         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSpell,
-                                    ProcInfo::Source::MainhandSwing,
+         QVector<ProcInfo::Source>({ProcInfo::Source::MainhandSwing,
                                     ProcInfo::Source::OffhandSwing}),
          pchar),
     TalentRequirer(QVector<TalentRequirerInfo*>{new TalentRequirerInfo("Unbridled Wrath", 5, DisabledAtZero::Yes)}),
@@ -20,13 +19,11 @@ UnbridledWrath::UnbridledWrath(Character* pchar) :
     proc_range = talent_ranks[0];
 }
 
-UnbridledWrath::~UnbridledWrath() = default;
-
 void UnbridledWrath::proc_effect() {
     unsigned rage = warr->get_resource_level(resource_type);
     warr->gain_rage(1);
 
-    if (warr->get_resource_level(resource_type) != rage)
+    if (warr->get_resource_level(resource_type) > rage)
         statistics_resource->add_resource_gain(ResourceType::Rage, 1);
 }
 
