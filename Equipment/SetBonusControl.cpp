@@ -274,6 +274,16 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Necropile Raiment") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->increase_intellect(5);
+            break;
+        case 5:
+            pchar->get_stats()->increase_base_spell_damage(23);
+            break;
+        }
+    }
     else if (set_name == "Dal'Rend's Arms") {
         switch (num_pieces) {
         case 2:
@@ -555,6 +565,16 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 5:
             pchar->get_stats()->decrease_melee_hit(200);
             pchar->get_stats()->decrease_ranged_hit(200);
+            break;
+        }
+    }
+    else if (set_name == "Necropile Raiment") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->decrease_intellect(5);
+            break;
+        case 5:
+            pchar->get_stats()->decrease_base_spell_damage(23);
             break;
         }
     }
