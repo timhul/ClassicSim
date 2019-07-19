@@ -917,5 +917,9 @@
         <file>QML/Assets/items/Inv_gauntlets_06.png</file>
         <file>QML/Assets/items/Inv_gauntlets_14.png</file>
         <file>QML/Assets/items/Inv_gauntlets_16.png</file>
+        <file>QML/Assets/items/Inv_belt_01.png</file>
+        <file>QML/Assets/items/Inv_belt_04.png</file>
+        <file>QML/Assets/items/Inv_belt_06.png</file>
+        <file>QML/Assets/items/Inv_belt_08.png</file>
     </qresource>
 </RCC>
