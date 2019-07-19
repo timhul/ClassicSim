@@ -1,5 +1,367 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <items>
+	<item id="14632" phase="0">
+		<info name="Necropile Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="56" item_lvl="61" quality="RARE" boe="no" icon="Inv_pants_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="76"/>
+			<stat type="INTELLECT" value="18"/>
+			<stat type="SPIRIT" value="12"/>
+			<stat type="STAMINA" value="21"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Scholomance.
+		</source>
+	</item>
+
+	<item id="12965" phase="0">
+		<info name="Spiritshroud Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="78"/>
+			<stat type="SPIRIT" value="16"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SPELL_DAMAGE" value="19"/>
+		</stats>
+		<source>
+		Drops from The Beast in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="16796" phase="0">
+		<info name="Arcanist Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="66" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="89"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="SHADOW_RESISTANCE" value="10"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="20"/>
+		</stats>
+		<source>
+		Drops from Magmadar in Molten Core.
+		</source>
+	</item>
+
+	<item id="16915" phase="0">
+		<info name="Netherwind Pants" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="101"/>
+			<stat type="INTELLECT" value="27"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="FIRE_RESISTANCE" value="10"/>
+			<stat type="ARCANE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Ragnaros in Molten Core.
+		</source>
+	</item>
+
+	<item id="18872" phase="1">
+		<info name="Manastorm Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="63" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="85"/>
+			<stat type="STAMINA" value="19"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="MANA_PER_5" value="14"/>
+		</stats>
+		<source>
+		Drops from multiple bosses in Molten Core.
+		</source>
+	</item>
+
+	<item id="23304" phase="1">
+		<info name="Knight-Captain's Silk Legguards" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="ALLIANCE" boe="no" icon="Inv_pants_11.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="144"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Knight-Captain (rank 8). Alliance only.
+		</source>
+	</item>
+
+	<item id="22883" phase="1">
+		<info name="Legionnaire's Silk Legguards" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="68" quality="RARE" faction="HORDE" boe="no" icon="Inv_pants_11.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="144"/>
+			<stat type="STAMINA" value="18"/>
+			<stat type="INTELLECT" value="17"/>
+			<stat type="SPIRIT" value="5"/>
+			<stat type="SPELL_DAMAGE" value="21"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Legionnaire (rank 8). Horde only.
+		</source>
+	</item>
+
+	<item id="18545" phase="1">
+		<info name="Leggings of Arcane Supremacy" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="69" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="93"/>
+			<stat type="INTELLECT" value="24"/>
+			<stat type="SPIRIT" value="14"/>
+			<stat type="FROST_RESISTANCE" value="10"/>
+			<stat type="ARCANE_RESISTANCE" value="10"/>
+			<stat type="SPELL_DAMAGE_ARCANE" value="36"/>
+		</stats>
+		<source>
+		Drops from Azuregos (world boss).
+		</source>
+	</item>
+
+	<item id="19165" phase="1">
+		<info name="Flarecore Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="70" quality="EPIC" boe="yes" icon="Inv_pants_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="94"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="FIRE_RESISTANCE" value="16"/>
+			<stat type="SPELL_DAMAGE" value="43"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires materials from Molten Core.
+		</source>
+	</item>
+
+	<item id="16534" phase="1">
+		<info name="General's Silk Trousers" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_07.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="155"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching General (rank 12). Horde only.
+		</source>
+	</item>
+
+	<item id="16442" phase="1">
+		<info name="Marshal's Silk Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_08.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="155"/>
+			<stat type="STAMINA" value="26"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="SPELL_DAMAGE" value="30"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		May be purchased upon reaching Marshal (rank 12). Alliance only.
+		</source>
+	</item>
+
+	<item id="19133" phase="1">
+		<info name="Fel Infused Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="95"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="64"/>
+		</stats>
+		<source>
+		Drops from Lord Kazzak (world boss in Blasted Lands).
+		</source>
+	</item>
+
+	<item id="20538" phase="3">
+		<info name="Runed Stygian Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="yes" icon="Inv_pants_cloth_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="78"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="SHADOW_RESISTANCE" value="25"/>
+			<stat type="MANA_PER_5" value="6"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires Dark Runes and Felcloth.
+		</source>
+	</item>
+
+	<item id="19895" phase="3">
+		<info name="Bloodtinged Kilt" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="71" quality="RARE" boe="no" icon="Inv_pants_cloth_14.png"/>
+		<stats>
+			<stat type="ARMOR" value="87"/>
+			<stat type="INTELLECT" value="20"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+		</stats>
+		<source>
+		Drops from Bloodlord Mandokir in Zul'Gurub.
+		</source>
+	</item>
+
+	<item id="19683" phase="3">
+		<info name="Bloodvine Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="RARE" boe="yes" icon="Inv_pants_cloth_14.png"/>
+		<stats>
+			<stat type="ARMOR" value="80"/>
+			<stat type="INTELLECT" value="6"/>
+			<stat type="SPELL_HIT_CHANCE" value="0.01"/>
+			<stat type="SPELL_DAMAGE" value="37"/>
+		</stats>
+		<source>
+		Crafted by Tailorers. Requires drops from Zul'Gurub trash.
+		</source>
+	</item>
+
+	<item id="22747" phase="3">
+		<info name="Outrider's Silk Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="HORDE" boe="no" icon="Inv_pants_cloth_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="188"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="19"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+		</stats>
+		<source>
+		Sold by Warsong Gulch vendor Kelm Hargunth. Requires Exalted with Warsong Outriders.
+		</source>
+	</item>
+
+	<item id="22752" phase="3">
+		<info name="Sentinel's Silk Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="65" quality="EPIC" faction="ALLIANCE" boe="no" icon="Inv_pants_cloth_05.png"/>
+		<stats>
+			<stat type="ARMOR" value="188"/>
+			<stat type="STAMINA" value="23"/>
+			<stat type="INTELLECT" value="19"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="SPELL_DAMAGE" value="28"/>
+		</stats>
+		<source>
+		Sold by Warsong Gulch vendor Illiyana Moonblaze. Requires Exalted with Silverwing Sentinels.
+		</source>
+	</item>
+
+	<item id="22342" phase="4">
+		<info name="Leggings of Torment" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_09.png"/>
+		<stats>
+			<stat type="ARMOR" value="78"/>
+			<stat type="STAMINA" value="16"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPELL_DAMAGE_SHADOW" value="34"/>
+		</stats>
+		<source>
+		Drops from Lord Valthalak in Upper Blackrock Spire (UBRS).
+		</source>
+	</item>
+
+	<item id="20705" phase="4">
+		<info name="Cenarion Reservist's Pants" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="63" quality="RARE" boe="no" icon="Inv_pants_cloth_06.png"/>
+		<mutex item_id="20716"/>
+		<class_restriction class="MAGE"/>
+		<class_restriction class="WARLOCK"/>
+		<stats>
+			<stat type="ARMOR" value="78"/>
+			<stat type="STAMINA" value="13"/>
+			<stat type="NATURE_RESISTANCE" value="25"/>
+			<stat type="SPELL_DAMAGE" value="15"/>
+		</stats>
+		<source>
+		Quest reward. Involves a quest chain that partly requires a raid.
+		</source>
+	</item>
+
+	<item id="22067" phase="4">
+		<info name="Sorcerer's Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="58" item_lvl="66" quality="RARE" boe="no" icon="Inv_pants_06.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="81"/>
+			<stat type="SPIRIT" value="10"/>
+			<stat type="INTELLECT" value="22"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="SPELL_DAMAGE" value="16"/>
+		</stats>
+		<source>
+		Quest reward. Requires Magister's Leggings.
+		</source>
+	</item>
+
+	<item id="21676" phase="4">
+		<info name="Leggings of the Festering Swarm" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="76" quality="EPIC" boe="no" icon="Inv_pants_cloth_02.png"/>
+		<stats>
+			<stat type="ARMOR" value="101"/>
+			<stat type="INTELLECT" value="23"/>
+			<stat type="STAMINA" value="17"/>
+			<stat type="SPELL_DAMAGE_FIRE" value="57"/>
+		</stats>
+		<source>
+		Drops from Battleguard Sartura in Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="21461" phase="4">
+		<info name="Leggings of the Black Blizzard" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="72" quality="EPIC" boe="no" icon="Inv_pants_cloth_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="97"/>
+			<stat type="INTELLECT" value="16"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="14"/>
+			<stat type="SPELL_DAMAGE" value="41"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+		</stats>
+		<source>
+		Drops from Ossirian the Unscarred in Molten Core.
+		</source>
+	</item>
+
+	<item id="21346" phase="4">
+		<info name="Enigma Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="81" quality="EPIC" boe="no" icon="Inv_pants_cloth_08.png"/>
+		<class_restriction class="MAGE"/>
+		<stats>
+			<stat type="ARMOR" value="107"/>
+			<stat type="INTELLECT" value="26"/>
+			<stat type="SPIRIT" value="8"/>
+			<stat type="STAMINA" value="21"/>
+			<stat type="SPELL_DAMAGE" value="34"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.01"/>
+			<stat type="MANA_PER_5" value="5"/>
+		</stats>
+		<source>
+		Quest reward. Requires boss drops from Temple of Ahn'Qiraj (AQ40).
+		</source>
+	</item>
+
+	<item id="22700" phase="5">
+		<info name="Glacial Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="80" quality="EPIC" boe="no" icon="Inv_pants_06.png"/>
+		<stats>
+			<stat type="ARMOR" value="106"/>
+			<stat type="STAMINA" value="28"/>
+			<stat type="FROST_RESISTANCE" value="40"/>
+			<stat type="SPELL_DAMAGE" value="18"/>
+		</stats>
+		<source>
+		Crafted by Argent Dawn NPC. Requires expensive materials to craft.
+		</source>
+	</item>
+
+	<item id="23070" phase="5">
+		<info name="Leggings of Polarity" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="85" quality="EPIC" boe="no" icon="Inv_pants_08.png"/>
+		<stats>
+			<stat type="ARMOR" value="112"/>
+			<stat type="STAMINA" value="20"/>
+			<stat type="INTELLECT" value="14"/>
+			<stat type="SPELL_DAMAGE" value="44"/>
+			<stat type="SPELL_CRIT_CHANCE" value="0.02"/>
+		</stats>
+		<source>
+		Drops from Thaddius in Naxxramas.
+		</source>
+	</item>
+
 	<item id="22497" phase="5">
 		<info name="Frostfire Leggings" type="CLOTH" slot="LEGS" unique="no" req_lvl="60" item_lvl="88" quality="EPIC" boe="no" icon="Inv_pants_cloth_05.png"/>
 		<class_restriction class="MAGE"/>

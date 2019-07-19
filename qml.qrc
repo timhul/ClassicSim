@@ -921,5 +921,12 @@
         <file>QML/Assets/items/Inv_belt_04.png</file>
         <file>QML/Assets/items/Inv_belt_06.png</file>
         <file>QML/Assets/items/Inv_belt_08.png</file>
+        <file>QML/Assets/items/Inv_pants_08.png</file>
+        <file>QML/Assets/items/Inv_pants_11.png</file>
+        <file>QML/Assets/items/Inv_pants_cloth_02.png</file>
+        <file>QML/Assets/items/Inv_pants_cloth_06.png</file>
+        <file>QML/Assets/items/Inv_pants_cloth_08.png</file>
+        <file>QML/Assets/items/Inv_pants_cloth_14.png</file>
+        <file>QML/Assets/items/Inv_pants_09.png</file>
     </qresource>
 </RCC>
