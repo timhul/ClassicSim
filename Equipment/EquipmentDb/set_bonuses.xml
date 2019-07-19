@@ -148,6 +148,16 @@
 		</bonus>
 	</set>
 
+	<set name="Bloodvine Garb">
+		<item_id value="19682"/>
+		<item_id value="19683"/>
+		<item_id value="19684"/>
+
+		<bonus value="3">
+		(3) Set: Improves your chance to get a critical strike with spells by 2%.
+		</bonus>
+	</set>
+
 	<set name="The Highlander's Resolution">
 		<item_id value="20041"/>
 		<item_id value="20048"/>

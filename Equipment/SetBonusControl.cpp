@@ -112,6 +112,13 @@ void SetBonusControl::equip_item(const int item_id) {
             break;
         }
     }
+    else if (set_name == "Bloodvine Garb") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->increase_spell_crit(200);
+            break;
+        }
+    }
     else if (set_name == "Predator's Armor") {
         switch (num_pieces) {
         case 2:
@@ -399,6 +406,13 @@ void SetBonusControl::unequip_item(const int item_id) {
         case 2:
             pchar->get_stats()->decrease_spell_hit(100);
             pchar->get_stats()->decrease_base_spell_damage(6);
+            break;
+        }
+    }
+    else if (set_name == "Bloodvine Garb") {
+        switch (num_pieces) {
+        case 3:
+            pchar->get_stats()->decrease_spell_crit(200);
             break;
         }
     }
