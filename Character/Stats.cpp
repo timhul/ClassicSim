@@ -114,6 +114,7 @@ void Stats::add(const Stats* rhs) {
     increase_flat_weapon_damage(rhs->get_flat_weapon_damage());
 
     increase_mp5(rhs->get_mp5());
+    increase_hp5(rhs->get_hp5());
     increase_base_spell_damage(rhs->get_base_spell_damage());
 }
 
@@ -192,6 +193,7 @@ void Stats::remove(const Stats* rhs) {
     decrease_flat_weapon_damage(rhs->get_flat_weapon_damage());
 
     decrease_mp5(rhs->get_mp5());
+    decrease_hp5(rhs->get_hp5());
     decrease_base_spell_damage(rhs->get_base_spell_damage());
 }
 
@@ -638,6 +640,19 @@ void Stats::increase_mp5(const unsigned increase) {
 void Stats::decrease_mp5(const unsigned decrease) {
     check((decrease <= mp5), "Underflow decrease mp5");
     mp5 -= decrease;
+}
+
+unsigned Stats::get_hp5() const {
+    return hp5;
+}
+
+void Stats::increase_hp5(const unsigned increase) {
+    hp5 += increase;
+}
+
+void Stats::decrease_hp5(const unsigned decrease) {
+    check((decrease <= hp5), "Underflow decrease hp5");
+    hp5 -= decrease;
 }
 
 unsigned Stats::get_base_spell_damage() const {

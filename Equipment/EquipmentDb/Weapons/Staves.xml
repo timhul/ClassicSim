@@ -33,9 +33,7 @@
 		<mutex item_id="17753"/>
 		<stats>
 			<stat type="MANA_PER_5" value="8"/>
-			<!-- TODO: Add these to tooltip parser
-			<stat type="HP5" value="5"/>
-			-->
+			<stat type="HEALTH_PER_5" value="5"/>
 		</stats>
 		<source>
 		Quest reward in Maraudon.

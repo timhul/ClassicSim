@@ -744,6 +744,11 @@ void Item::set_stat(const QString& key, const QString &value) {
         equip_effects_tooltip_stats.append(QString("Equip: Restores %1 mana per 5 sec.").arg(value));
         this->item_stat_values.insert(ItemStats::ManaPer5, value.toUInt());
     }
+    else if (key == "HEALTH_PER_5") {
+        this->stats->increase_hp5(value.toUInt());
+        equip_effects_tooltip_stats.append(QString("Equip: Restores %1 health per 5 sec.").arg(value));
+        this->item_stat_values.insert(ItemStats::HealthPer5, value.toUInt());
+    }
     else if (key == "SPELL_DAMAGE") {
         this->stats->increase_base_spell_damage(value.toUInt());
         equip_effects_tooltip_stats.append(QString("Equip: Increases damage and healing done by magical spells and effects by up to %1.").arg(value));

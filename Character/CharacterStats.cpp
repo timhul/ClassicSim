@@ -275,6 +275,8 @@ void CharacterStats::increase_stat(const ItemStats stat_type, const unsigned val
         return increase_strength(value);
     case ItemStats::ManaPer5:
         return increase_mp5(value);
+    case ItemStats::HealthPer5:
+        return increase_hp5(value);
     case ItemStats::ManaSkillReduction:
         return increase_mana_skill_reduction(value);
     case ItemStats::SpellDamage:
@@ -380,6 +382,8 @@ void CharacterStats::decrease_stat(const ItemStats stat_type, const unsigned val
         return decrease_strength(value);
     case ItemStats::ManaPer5:
         return decrease_mp5(value);
+    case ItemStats::HealthPer5:
+        return decrease_hp5(value);
     case ItemStats::ManaSkillReduction:
         return decrease_mana_skill_reduction(value);
     case ItemStats::SpellDamage:
@@ -905,6 +909,18 @@ void CharacterStats::increase_mp5(const unsigned value) {
 
 void CharacterStats::decrease_mp5(const unsigned value) {
     base_stats->decrease_mp5(value);
+}
+
+unsigned CharacterStats::get_hp5() const {
+    return base_stats->get_hp5() + equipment->get_stats()->get_hp5();
+}
+
+void CharacterStats::increase_hp5(const unsigned value) {
+    base_stats->increase_hp5(value);
+}
+
+void CharacterStats::decrease_hp5(const unsigned value) {
+    base_stats->decrease_hp5(value);
 }
 
 unsigned CharacterStats::get_spell_damage(const MagicSchool school, const ConsumeCharge consume_charge) const {

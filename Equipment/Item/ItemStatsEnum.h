@@ -43,6 +43,7 @@ enum class ItemStats: int {
     APVersusUndead,
     FlatWeaponDamage,
     ManaPer5,
+    HealthPer5,
     ManaSkillReduction,
     SpellDamage,
     SpellDamageArcane,

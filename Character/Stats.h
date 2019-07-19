@@ -157,6 +157,10 @@ public:
     void increase_mp5(const unsigned increase);
     void decrease_mp5(const unsigned decrease);
 
+    unsigned get_hp5() const;
+    void increase_hp5(const unsigned increase);
+    void decrease_hp5(const unsigned decrease);
+
     unsigned get_base_spell_damage() const;
     void increase_base_spell_damage(const unsigned increase);
     void decrease_base_spell_damage(const unsigned decrease);
@@ -208,6 +212,7 @@ private:
     unsigned flat_weapon_damage {0};
 
     unsigned mp5 {0};
+    unsigned hp5 {0};
     unsigned spell_damage {0};
 
     QMap<Target::CreatureType, unsigned> melee_ap_against_creature;

@@ -133,6 +133,10 @@ public:
     void increase_mp5(const unsigned value);
     void decrease_mp5(const unsigned value);
 
+    unsigned get_hp5() const;
+    void increase_hp5(const unsigned value);
+    void decrease_hp5(const unsigned value);
+
     unsigned get_spell_damage(const MagicSchool school, const ConsumeCharge consume_charge = ConsumeCharge::Yes) const;
     void increase_base_spell_damage(const unsigned value);
     void decrease_base_spell_damage(const unsigned value);
